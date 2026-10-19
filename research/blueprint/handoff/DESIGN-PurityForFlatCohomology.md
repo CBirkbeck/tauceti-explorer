@@ -130,8 +130,12 @@ R ≅ W(k)⟦x⟧/(p − f), and the equal-characteristic case is f = 0. The nod
   - The perfectoidness of the valuation-ring factors and (A/p)_red was added to PQ-PII.
   - SGA 1 V 6.9–6.10 was requested from IG.0.
   - The strict henselization and localization of complete intersections were requested from R03.3.
-- A Sonnet locator sweep of the 90 CS24/C19/SGA 2/EGA IV₄/Poonen locators against the source texts
-  (see the pull request for its outcome).
+- A Sonnet locator sweep of the 90 CS24/C19/SGA 2/EGA IV₄/Poonen locators against the source texts.
+  85 rows were correct. I fixed the 5 it flagged:
+  - SGA 2 XI 3.13 is on printed p. 105, not p. 113.
+  - The parafactoriality definitions are now cited to SGA 2 XI 3.1–3.2, pp. 101–102, and not to C19.
+  - A wrong CS24 7.2.5 locator was dropped.
+  - Two wordings were softened: the punctured-spectrum match, and Poonen 6.8.4's "might suffice".
 
 ## Sources
 

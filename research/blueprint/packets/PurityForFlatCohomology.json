@@ -221,6 +221,7 @@
    "readSections": [
     "Exposé X §3, p. 94 (Définitions 3.1–3.2, Théorème 3.4)",
     "Exposé XIV §5, pp. 198–200 (Proposition 5.2 to Théorème 5.6)",
+    "Exposé XI §3, pp. 101–102 (Définitions 3.1–3.2, Lemme 3.6)",
     "Exposé XI, Théorème 3.13, p. 105",
     "Exposé XII, Corollaire 3.7, p. 121"
    ]
@@ -454,7 +455,7 @@
     {
      "sourceId": "CS24",
      "locator": "Theorem 1.1.3, p. 3; Theorem 3.3.1, p. 34",
-     "match": "U_R = Spec(R) ∖ {𝔪} for Noetherian local R is the open on which every purity statement of the paper is phrased."
+     "match": "U_R = Spec(R) ∖ {𝔪} for Noetherian local R is the open on which the statements about local Picard groups, local Brauer groups and finite étale covers are phrased; the flat purity theorems themselves are phrased through H^i_𝔪(R, G)."
     }
    ],
    "library": {
@@ -2312,9 +2313,14 @@
      "match": "Geometric parafactoriality is parafactoriality of the strict henselization; geometrically factorial rings of dimension ≥ 2 and complete intersections of dimension ≥ 4 are geometrically parafactorial."
     },
     {
+     "sourceId": "SGA2",
+     "locator": "Exposé XI §3, Définitions 3.1–3.2 and Lemme 3.6, pp. 101–102",
+     "match": "A pair (X, Z) is parafactorial when restriction of locally free modules of rank one from V to V ∖ Z is an equivalence for every open V, a local ring when its pair with the closed point is, and parafactoriality descends along faithfully flat quasi-compact maps."
+    },
+    {
      "sourceId": "C19",
-     "locator": "SGA 2 XI Definitions 3.1–3.2 (route items parafactorial and local-pic-lefschetz)",
-     "match": "The pair and local-ring definitions, and Grothendieck–Lefschetz parafactoriality of complete intersections of dimension ≥ 4."
+     "locator": "Proof of Corollary 2.5, p. 5",
+     "match": "The Grothendieck–Lefschetz theorem (SGA 2 XI 3.13(ii)) is used in the form: the Picard group of the punctured spectrum of a local complete intersection of dimension ≥ 4 vanishes."
     }
    ],
    "library": {
@@ -2573,8 +2579,8 @@
    "sources": [
     {
      "sourceId": "CS24",
-     "locator": "Proof of Theorem 7.2.9, p. 93; Theorem 7.2.5 item, p. 90",
-     "match": "For Noetherian integral X with factorial strict henselizations, H^i(X, 𝔾_m) is torsion for i ≥ 2 (Grothendieck, Le groupe de Brauer II, 1.4)."
+     "locator": "Proof of Theorem 7.2.9, p. 93",
+     "match": "For the strictly local Noetherian integral X reached there, factoriality makes H^i(X, 𝔾_m) and H^i(X ∖ Z, 𝔾_m) torsion for i ≥ 2 (Grothendieck, Le groupe de Brauer II, 1.4)."
     },
     {
      "sourceId": "C19",
@@ -3529,12 +3535,12 @@
     {
      "sourceId": "C19",
      "locator": "Remark 6.4, (6.4.4), p. 14",
-     "match": "Theorem 6.2 implies the exact residue sequence for Noetherian integral regular schemes once the p-primary parts are excluded for primes p at which some height-one residue field is imperfect, as predicted by Poonen."
+     "match": "Theorem 6.2 implies the exact residue sequence for Noetherian integral regular schemes once the p-primary parts are excluded for primes p at which some height-one residue field is imperfect, as anticipated in Poonen 6.8.4."
     },
     {
      "sourceId": "Poo17",
      "locator": "Theorem 6.8.3 and Warning 6.8.4, p. 197",
-     "match": "The global residue sequence with Poonen's caveat and his expectation that excluding imperfect-residue primes suffices in all dimensions."
+     "match": "The global residue sequence with Poonen's caveat, and his remark that excluding only the primes at which some height-one residue field is imperfect might suffice even when dim X ≥ 2."
     }
    ],
    "library": {
