@@ -8,7 +8,7 @@ import TauCeti.NumberTheory.ArithmeticDirichletSeries.Estimates
 The roadmap is `README.md`; this file is not exhaustive. It records the definitions and theorem
 signatures of the roadmap that can be stated against the pinned Mathlib and Tau Ceti, together
 with representative `example` checks for signs, twists and normalisations. The README also
-records the supplier gaps affecting the independent certificates and the classical comparison.
+records the exact supplier contracts for the independent certificates and the classical comparison.
 References §k.n are to the subsections of `README.md`.
 
 Design choices made explicit here:
@@ -125,6 +125,30 @@ example : padicValNat 2 (3 ^ 2 - 1) = padicValNat 2 24 := by
 /-! ## Layer 3: independent examples over ℚ and ℚ(√5) -/
 
 section Examples
+
+/-- Check (§3.1): the monomial word has square `-I` and fourth power `I` in matrices. Its
+nontriviality in the Steinberg kernel is supplied separately by the real sign symbol. -/
+example :
+    (!![(0 : ℤ), -1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ) ^ 2 = -1 ∧
+    (!![(0 : ℤ), -1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ) ^ 4 = 1 := by
+  decide
+
+/-- Check (§3.2): the two selected norm-four minors certify index three; two copies of six
+would not certify that index. -/
+example : Nat.gcd 6 3 = 3 ∧ Nat.gcd 6 6 ≠ 3 := by decide
+
+/-- Check (§3.2): multiplication by the golden unit on the basis `(1, ε)` has order three
+modulo two and order eight modulo three. These are residue fields of orders four and nine. -/
+example :
+    (!![(0 : ZMod 2), 1; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 2)) ^ 3 = 1 ∧
+    (!![(0 : ZMod 2), 1; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 2)) ^ 2 ≠ 1 ∧
+    (!![(0 : ZMod 3), 1; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 4 = -1 ∧
+    (!![(0 : ZMod 3), 1; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 8 = 1 := by
+  decide
+
+/-- Check (§3.2): the two real sign images are independent in exponent coordinates. -/
+example : Matrix.det (!![(1 : ZMod 2), 0; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 2)) = 1 := by
+  decide
 
 /-- Check (§3.1): `ζ(-1) = -1/12` from Mathlib's Bernoulli values. -/
 example : riemannZeta (-1) = -1 / 12 := by
@@ -307,6 +331,18 @@ example : padicValNat 3 2 + padicValNat 3 12 = padicValNat 3 24 + padicValNat 3 
 
 /-! ## Layer 6: the 2-part for totally real abelian fields -/
 
+/-- Check (§6.5): in characteristic two a nonzero module can be killed by two. Rationalising
+therefore does not by itself determine its integral characteristic-ideal content. -/
+example : (2 : PowerSeries (ZMod 2)) = 0 ∧ (1 : PowerSeries (ZMod 2)) ≠ 0 := by
+  constructor
+  · simpa only [map_ofNat, map_zero] using
+      congrArg (fun x : ZMod 2 => PowerSeries.C x) (show (2 : ZMod 2) = 0 by decide)
+  · exact one_ne_zero
+
+/-- Check (§6.5): the negative eigenspace in `ℤ/4` for trivial conjugation has the nonzero
+element `2`, but its natural image in the minus quotient `ℤ/2` is zero. -/
+example : (2 : ZMod 4) ≠ 0 ∧ 2 * (2 : ZMod 4) = 0 ∧ (2 : ZMod 2) = 0 := by decide
+
 /-- Check (§6.4): `u = 1 + 2^e ε` gives `1 - u² = -2^{e+1} ε (1 + 2^{e-1} ε)`, written with
 `e = k + 1`; for `e ≥ 2` the last factor is odd, so `u⁻¹ - u ∼₂ 2^{e+1} = w₂^{(2)}(F)`. -/
 example (k : ℕ) (ε : ℤ) :
@@ -343,6 +379,28 @@ example : Complex.I⁻¹ * 5 - 1 = -1 - 5 * Complex.I ∧
   norm_num [Complex.inv_def, Complex.ext_iff]
 
 /-! ## Layer 7: the 2-part for every totally real field -/
+
+/-- Check (exact compact-support contract): the real dyadic norm `2` is injective on `ℤ₂`
+but is not a unit, so ordinary degree-zero cohomology cannot be identified with Tate degree zero. -/
+example : (∀ x : ℤ_[2], 2 * x = 0 ↔ x = 0) ∧ ¬ IsUnit (2 : ℤ_[2]) := by
+  constructor
+  · intro x
+    simp
+  · rw [PadicInt.not_isUnit_iff]
+    change ‖((2 : ℕ) : ℤ_[2])‖ < 1
+    rw [PadicInt.norm_p]
+    norm_num
+
+/-- Check (§7.5): the finite order-two error for odd `u` has kernel of order two and image of
+order one under `γ-1`. Its cokernel also has order two; the finite Euler contribution is one. -/
+example : Fintype.card {x : ZMod 2 // (4 : ZMod 2) * x = 0} = 2 ∧
+    Fintype.card {y : ZMod 2 // ∃ x : ZMod 2, (4 : ZMod 2) * x = y} = 1 ∧
+    (2 : ℚ) / 2 = 1 := by
+  exact ⟨by decide, by decide, by norm_num⟩
+
+/-- Check (§7.5): compact degrees two and three give `2/8`; moving the same denominator
+to degree one inverts its Euler contribution. -/
+example : (2 : ℚ) / 8 = 1 / 4 ∧ (2 : ℚ) * 8 ≠ 1 / 4 := by norm_num
 
 /-- Check (§7.1, §7.2): over `ℚ` with `u = 5`, `(u² - 1) · ζ_{ℚ,{2}}(-1) = 24 · (1/12) = 2`,
 matching `char(X) = (2)` and `#H²(ℤ[1/2], ℤ₂(2)) = 2`; in weight four
