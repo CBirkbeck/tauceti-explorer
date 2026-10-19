@@ -63,7 +63,7 @@
         "ref": "mathlib:Module.length",
         "kind": "definition",
         "module": "Mathlib/RingTheory/Length.lean",
-        "provides": "For a module over a ring, length is the Krull dimension of its submodule lattice with bottom removed, valued in extended natural numbers.",
+        "provides": "For a module over a ring, length is the Krull dimension of the full submodule lattice, converted from WithBot ℕ∞ to ℕ∞ by unbot. The removed bottom is a dimension value, not the zero submodule.",
         "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
       }
     ]
@@ -3191,7 +3191,461 @@
     ]
   },
   "review": {
-    "status": "pending",
-    "notes": "Independent review must assess import coverage, corrected source boundaries and the split proposal. No independent review of this index has occurred."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ModularIwasawaMainConjecturesPartII",
+    "date": "2026-10-19",
+    "notes": "Accepted as an import-only ownership and source-routing index, not as a new mathematical plan or an acceptance of either canonical owner. Verified all 90 import identities, canonical hashes and stages; the exact 48 extraction routes; 19 API/test contracts (119 API entries, 73 planned tests); 51 planets; all 17 gaps and 34 requests; canonical review/coverage snapshots; six source-issue references; and acyclicity of the combined imported graph. Read the eight public source boundary passages, six pinned baseline declarations, reviewed parent audit and current upstream suppliers. Clarified Module.length: unbot removes the bottom dimension value, not the zero submodule. Four imported targets remain unverifiable on the all-prime owner, whose needs_changes verdict is unchanged. The 14 source_decomposed stages close routing work only. The checker does not validate the custom import manifest; separate checks did. The suggested file elaborates with 13 proved native boundary examples and no warnings; it implements none of the 73 planned arithmetic tests. Retirement remains a maintainer proposal.",
+    "checked": [
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-cohomology",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-unit-class-modules",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-kummer-identification",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/class-module-h2-comparison",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/h2-euler-comparison",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-class-module-torsion",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains unverifiable; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/theta-eisenstein-kronecker",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/cm-theta-function",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/canonical-cm-pair",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/kronecker-limit-formula",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-module",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-cotorsion",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.0 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.1 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-p-divisible-reciprocity",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.1 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-eisenstein-evaluation",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.1 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-elliptic-reciprocity",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.1 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/tamagawa-s0-abelian",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-zeta-element-comparison",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system-bound",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture-euler-factors",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.3 route verified. Canonical mathematical review verdict remains unverifiable; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.3/elliptic-units-to-katz-measure",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.3 route verified. Canonical mathematical review verdict remains unverifiable; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.3 route verified. Canonical mathematical review verdict remains unverifiable; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.3 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.3/katz-functional-equation-lambda",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.3 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.4/regular-prime-equality",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.4/rational-equivariant-main-conjecture",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.4/printed-equivariant-form-range",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-induction-normalization",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-twist-nonvanishing",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-comparison-map",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/twisted-tower-cohomology",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-descent-lemma",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-contained-descent",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/grothendieck-length-lemma",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-h2-torsion",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-length-inequality",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-period-normalization",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-coefficient-reciprocity",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/twisted-equivariant-equality",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-zeta-bridge",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/equality-descent",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-kato-main-conjecture",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-kato-divisibility",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-kato-normalization-dictionary",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "CMAllPrimeMainConjectures:CZ.6/dyadic-and-triadic-acceptance",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and CMAllPrimeMainConjectures:CZ.6 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/character-dictionary",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/local-coefficients",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/signed-scalar-extension",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.0 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/signed-kummer",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.1 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/choice-independence",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.1 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.1 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.1 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.1 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/normalization",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/sign-and-nonzero",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/rubin-lfunction",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/interpolation",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.2 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.3 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.3 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/local-dictionary",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.3 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.3 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.3 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/duality-sequence",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/opposite-torsion",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.4 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/signed-characteristic",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/primitive-lattice-comparison",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.4 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/control-polynomials",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/local-control",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.5 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.5 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.5 route verified. Canonical mathematical review verdict remains added; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.5 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/strict-divisor",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/local-codimension",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.6 route verified. Canonical mathematical review verdict remains verified; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/rank-bounds",
+        "verdict": "verified",
+        "note": "Import identity, full canonical node hash, role and InertAnticyclotomicCMMainConjecture:IC.6 route verified. Canonical mathematical review verdict remains corrected; this entry verifies routing and preservation of that verdict, not a new proof or closure of the owner's gaps."
+      }
+    ]
   }
 }
