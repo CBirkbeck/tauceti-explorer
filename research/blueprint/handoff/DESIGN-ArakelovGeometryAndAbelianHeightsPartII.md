@@ -5,7 +5,7 @@ Issue #3340. Agent: Claude (Opus), session claude-frtZxo, claimed on 2026-10-19 
 ## Delivered
 
 - `research/blueprint/roadmaps/ArakelovGeometryAndAbelianHeightsPartII.json`: a new roadmap in area `arithmeticgeometry` with parent `ArakelovGeometryAndAbelianHeights`, titled "Arakelov geometry and heights of abelian varieties, Part II: adelic bigness on curve families". It has 14 layers, AH.0–AH.13. Each layer's `requires` is derived from its nodes' prerequisites, and there is no stage cycle inside the roadmap.
-- `research/blueprint/packets/ArakelovGeometryAndAbelianHeightsPartII.json`: status `complete`, 93 nodes (13 definitions, 31 constructions, 48 theorems, 1 comparison), 224 API items, 161 unit tests, 45 planets (at most 6 per layer), 4 baseline declarations, 8 requests, 7 gaps, 1 new source issue, 4 restructure notes and 1 upstream note. Every stage is `planned`. `routedItems` maps each of the 159 PAPER-YUAN-26 items routed here, plus the 3 Gao–Habegger and 3 DeMarco–Mavraki–Ye items, to the nodes that carry them.
+- `research/blueprint/packets/ArakelovGeometryAndAbelianHeightsPartII.json`: status `complete`, 93 nodes (13 definitions, 31 constructions, 48 theorems, 1 comparison), 228 API items, 161 unit tests, 45 planets (at most 6 per layer), 4 baseline declarations, 8 requests, 7 gaps, 2 new source issues, 4 restructure notes and 1 upstream note. Every stage is `planned`. `routedItems` maps each of the 159 PAPER-YUAN-26 items routed here, plus the 3 Gao–Habegger and 3 DeMarco–Mavraki–Ye items, to the nodes that carry them.
 - `research/blueprint/readmes/ArakelovGeometryAndAbelianHeightsPartII.md`: the reader, about 35,000 words. It covers conventions, the proof assembly, the identities checked, sources, corrections, every node in full (statement, hypotheses, proof route, API, unit tests, checks, needs, locators), requests, imported nodes, gaps and boundaries.
 - `research/blueprint/suggested/ArakelovGeometryAndAbelianHeightsPartII.lean`: 265 lines, written to the compact shape. It contains the boundary norm on an ordered ℚ-vector space with its API and tests, the coefficient identities behind Yuan's theta formulas, the nefness of ω_a, the triple pairing and Theorem 3.8, the Cinkir t(g) and A(g) numerics, the one-loop graph invariants, the normalization constants (Bost, Theorem 4.14(c)) and the Siu ε-bound. Nothing heavy is sorry'd data; adelic objects are README targets because their carriers are not at the pins.
 
@@ -45,6 +45,7 @@ Issue #3340. Agent: Claude (Opus), session claude-frtZxo, claimed on 2026-10-19 
 ## Source issues
 
 - **New: ArakelovGeometryAndAbelianHeightsPartII/E1.** On p. 78, Yuan quotes Bost's bound as h_Fal ≥ −g log √(2π). That is Bost's bound in Deligne's normalization, but Yuan's h_Fal uses the Faltings metric (pp. 43–44, 73). In that normalization Bost gives only −(g/2)log(2π²). For g = 1 the printed inequality fails for elliptic curves: min h_Fal ≈ −1.321 < −0.919. The proof needs only some constant, so nothing else is affected. The reader also notes, without filing an erratum, that Yuan's "[Cin1, Thm. 2.11]" for φ(Γ) ≥ ℓ(Γ)/39 is Theorem 2.9 in Cinkir's arXiv v2 (the published numbering was not compared).
+- **New: ArakelovGeometryAndAbelianHeightsPartII/E2** (misprint). Yuan–Zhang v9, p. 72, attaches the metric e^{−g/2} to an arithmetic divisor (D, g) on X^an. On the same page they give the inverse map (div s, −log‖s‖), and §2.1.2 (p. 25) uses e^{−g}. The metric must be e^{−g}.
 - The plan uses the corrected statements of PAPER-YUAN-26/E1–E6, E8, E9, E11, E12, E14, E16, E22, E25, E28 and E30. The reader lists them under "Corrections used here".
 - Locator fixes relative to the extraction: DeMarco–Mavraki–Ye are cited by arXiv v3 pages (§4 is on pp. 19–21, not pp. 13–15), and Yuan–Zhang by v9 numbering (the height inequality is Theorem 5.3.7, which is 5.3.5 in v6).
 
@@ -54,7 +55,18 @@ Issue #3340. Agent: Claude (Opus), session claude-frtZxo, claimed on 2026-10-19 
 - I checked for intra-roadmap stage cycles with a script. There are none, after moving Deligne-pairing positivity and finite-cover bigness from AH.3 to AH.4.
 - `lean-check research/blueprint/suggested/ArakelovGeometryAndAbelianHeightsPartII.lean` (Mathlib 082e2d3): it **compiles**, with `declaration uses sorry` as the only warnings. The numeric checks (Cinkir t(4), t(5), A(3), A(4), A(5), the g = 2 coefficient, the coefficient identities, the de Jong identity on the one-loop graph and the Siu bound) are proved, not sorry'd. `scripts/check_sorry_data.py` passes.
 - The identities checked while planning are listed in the reader (Theorems 2.9, 2.10, 3.6, 3.8 and 4.14(c), the Cinkir minimum and the one-loop graph values).
-- A Sonnet agent cross-checked all 148 locator rows against the source text extractions; the findings and what I changed in response are in the section below.
+- My own label-on-page script checked 116 theorem labels; all were found, apart from one row that deliberately cites proof pages.
+- A Sonnet agent cross-checked all 148 source rows against the text extractions. Every label was found, and no numeric constant in AH.9–AH.13 was wrong. I checked its 24 flags against the sources myself and corrected the following:
+  - Non-degeneracy (AH.5) is deg M̃(Y) > 0 for the geometric part M̃ over K, not bigness on Y/ℤ (Yuan–Zhang p. 188). The definition and its tests were rewritten.
+  - Invariant extensions now separate Yuan–Zhang Theorem 6.1.2 (any f^*L = qL), Theorem 6.1.1 (relatively ample L, which is the case where nefness holds) and Theorem 6.1.3 (rigidified bundles on abelian schemes).
+  - Heights: Yuan's absolute normalization is now distinguished from Yuan–Zhang's division by the degree over K.
+  - "eqv" means norm-equivariant.
+  - Yuan 2008 Theorem 2.2 is stated correctly (ample L, M; χ_sup). Its Definition 2.1 is now cited for bigness.
+  - pm-graphs require an effective K.
+  - The graph-formula and φ base-change normalizations are stated in both readings.
+  - The semistability hypothesis of Wilms 2022 is restated.
+  - Locators fixed: Yuan–Zhang Definition 5.1.1, Theorem 6.5.1, §§6.5.2–6.5.4, §5.3.3, Theorem 5.2.9; Wilms 2017 §2.2.
+  - The genus restriction g > 1 is kept deliberately (Yuan states Definition 2.5–Theorem 2.9 for g > 0). The reason is now given at AH.8/admissible-extension.
 
 ## Sources read (all freely available; SHA-256 values are in the packet)
 

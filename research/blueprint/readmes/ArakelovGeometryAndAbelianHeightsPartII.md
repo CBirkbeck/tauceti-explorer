@@ -81,6 +81,8 @@ Each layer states its targets and then its nodes, numbered §k.i. Definitions an
 ### Corrections used here
 
 - ArakelovGeometryAndAbelianHeightsPartII/E1 (new, this packet): Yuan p. 78 quotes Bost's bound as h\_Fal ≥ −g log √(2π), which is Bost's bound in Deligne's normalization; with Yuan's Faltings metric it reads h\_Fal ≥ −(g/2)log(2π²) (§13.7). Harmless for the proof.
+- ArakelovGeometryAndAbelianHeightsPartII/E2 (new, this packet): Yuan–Zhang p. 72 attaches the metric e^{−g/2} to an arithmetic divisor (D, g) on X^an; consistency with d̂iv(s) = (div s, −log‖s‖) on the same page and with §2.1.2 requires e^{−g} (§2.2).
+- Yuan–Zhang §5.3 normalize heights over number fields by the degree over K; this roadmap follows Yuan's absolute normalization by the degree over ℚ (Yuan p. 64), so h\_YZ = [K : ℚ]·h (§4.7).
 - PAPER-YUAN-26/E1: the function-field branch of Theorem 4.19 needs maximal variation over the constant field (used in the convention on maximal variation).
 - PAPER-YUAN-26/E2: the Green function of Φ\_S integrates over the fibre of X ×\_S X (§10.6).
 - PAPER-YUAN-26/E3: finite-extension rescaling of δ and φ is by the ramification index (§7.5, §10.3).
@@ -148,7 +150,7 @@ A projective arithmetic variety is an integral scheme X, projective and flat ove
 
 *Needs:* `ArakelovGeometryAndAbelianHeights:R35.1`; `SchemeAndStackFoundations:SF.5/nef-big`; `tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf`.
 
-*Sources:* Yuan–Zhang, §2.1.1–2.1.4, pp. 23–27: Defines continuous, semipositive and integrable metrics, the Chern current, hermitian line bundles on projective arithmetic varieties, arithmetic divisors with the −log‖s‖ convention and the isomorphism from arithmetic divisor classes to isometry classes. Yuan 2008, Definition 2.1, p. 10: Sets up hermitian line bundles over arithmetic varieties and their volume, with the conventions used by the bigness results.
+*Sources:* Yuan–Zhang, §2.1.1–2.1.4, pp. 23–27: Defines continuous, semipositive and integrable metrics, the Chern current, hermitian line bundles on projective arithmetic varieties, arithmetic divisors with the −log‖s‖ convention and the isomorphism from arithmetic divisor classes to isometry classes.
 
 ### 0.2 Monge–Ampère measures of integrable metrics
 
@@ -295,7 +297,7 @@ Let X be a projective arithmetic variety of dimension d and L̄ a hermitian line
 - Finiteness of Ĥ⁰: a lattice intersected with a compact ball.
 - Existence of the limit and continuity: Chen and Yuan for smooth metrics, extended to continuous metrics by uniform approximation; recalled in Yuan–Zhang §5.2 (Theorem 5.2.1 proof).
 - Hilbert–Samuel: Gillet–Soulé arithmetic Riemann–Roch and Zhang's extension to nef, recalled in Yuan–Zhang Theorem 5.2.2 discussion.
-- Siu inequality: Yuan 2008 Theorem 2.2 (vol(L̄ + M̄ − Ē) ≥ L̄^d + d L̄^{d−1}M̄ − d L̄^{d−1}Ē for nef L̄, M̄, Ē), specialised to M̄ = 0.
+- Siu inequality: Yuan 2008 Theorem 2.2 proves, for ample L̄, M̄ and any Ē, χ\_sup(Ē + N(L̄ − M̄)) ≥ (L̄^d − d L̄^{d−1}M̄)N^d/d! + o(N^d); since ĥ⁰ ≥ χ\_sup asymptotically (Yuan 2008 §2, with h⁰ counting ‖s‖\_sup < 1, which has the same volume), vol^(L̄ − M̄) ≥ L̄^d − d L̄^{d−1}M̄ for ample L̄, M̄, and for nef ones by approximation and continuity of the volume (Moriwaki, cited in Yuan 2008 p. 8; Yuan–Zhang Theorems 5.2.2 and 5.2.9).
 
 **Checks.**
 
@@ -306,7 +308,7 @@ Let X be a projective arithmetic variety of dimension d and L̄ a hermitian line
 
 *Needs:* §0.3 (`AH.0/arithmetic-intersection-numbers`); §0.1 (`AH.0/hermitian-line-bundles`); `SchemeAndStackFoundations:SF.5/big-line`.
 
-*Sources:* Yuan 2008, Theorem 2.2, p. 10; Theorem 2.3 and Corollary 2.4, p. 11: Proves the arithmetic Siu-type inequality vol(L̄+M̄−Ē) ≥ L̄^d + dL̄^{d−1}M̄ − dL̄^{d−1}Ē for nef bundles, and characterises bigness. Yuan–Zhang, Theorem 5.2.2 and the paragraph after it, p. 141: States Hilbert–Samuel and Siu for nef adelic line bundles and notes that the strongly nef case is the limit of the projective counterpart.
+*Sources:* Yuan 2008, Definition 2.1, p. 10; Theorem 2.2, p. 10; Theorem 2.3 and Corollary 2.4, p. 11: Defines big hermitian line bundles by growth of h⁰ and χ\_sup, proves the lower bound χ\_sup(E + N(L − M)) ≥ (L^n − nL^{n−1}M)N^n/n! + o(N^n) for ample L, M, and characterises bigness. Yuan–Zhang, Theorem 5.2.2 and the paragraph after it, p. 141; homogeneity and continuity, pp. 139–140 and Theorem 5.2.9, p. 148: States Hilbert–Samuel and Siu for nef adelic line bundles, noting that the strongly nef case is the limit of the projective counterpart, and proves continuity of the volume.
 
 **Refinements left for the lemma-level pass.**
 
@@ -509,7 +511,7 @@ An adelic divisor is effective if it is a boundary limit of effective model divi
 
 *Needs:* §1.3 (`AH.1/adelic-line-bundles`); §0.1 (`AH.0/hermitian-line-bundles`).
 
-*Sources:* Yuan–Zhang, Definition 2.5.2, pp. 42–43; §2.4.3, p. 38: Defines strongly nef, nef and integrable adelic line bundles and effective adelic divisors. Yuan, §2.1, pp. 20–21: Recalls effectivity, strong nefness, nefness and integrability; items PAPER-YUAN-26/10–13.
+*Sources:* Yuan–Zhang, Definition 2.5.2, pp. 42–43; Definition 5.1.1, p. 133: Defines strongly nef, nef and integrable adelic line bundles; defines effective adelic divisors as limits of Cauchy sequences of effective model divisors. Yuan, §2.1, pp. 20–21: Recalls effectivity, strong nefness, nefness and integrability; items PAPER-YUAN-26/10–13.
 
 ### 1.6 Adelic line bundles over global fields and finitely generated fields
 
@@ -553,7 +555,7 @@ For a flat essentially quasi-projective integral k-scheme X (a filtered limit of
 
 `AH.1/complex-base` · construction
 
-For the Banach field B = (ℂ, \|·\|) and a quasi-projective complex variety M with projective models X, form colim\_X D̂iv(X/B)\_ℚ of pairs (Cartier ℚ-divisor on X with integral restriction to M, continuous Green function on X(ℂ) off its support) and complete it in the topology of a strictly positive metrized boundary (E₀, g₀). Arithmetic adelic divisors on a flat quasi-projective ℤ-scheme specialize to this group by restricting to the complex fibre, retaining both the geometric divisor and the archimedean Green function.
+For the base (ℂ, \|·\|) and a quasi-projective complex variety M with projective models X, form colim\_X D̂iv(X/B)\_ℚ of pairs (Cartier ℚ-divisor on X, continuous Green function on X(ℂ) off its support) and complete it in the topology of a strictly positive metrized boundary (E₀, g₀). Arithmetic adelic divisors on a flat quasi-projective ℤ-scheme specialize to this group by restricting to the complex fibre, retaining both the geometric divisor and the archimedean Green function.
 
 **Hypotheses.**
 
@@ -666,7 +668,7 @@ Let k be ℤ (with the archimedean absolute value, a Banach ring) or a field wit
 
 `AH.2/analytic-divisors-metrics` · definition
 
-An arithmetic divisor on U^an is (D, g\_D) with D a Cartier divisor on U and g\_D continuous on U^an ∖ \|D\|^an such that g\_D + log\|f\| extends continuously over V^an whenever D\|\_V = div(f) (the log\|f\| convention, not 2log\|f\|). A metrized line bundle on U^an is a line bundle L on U with a continuously varying norm on the one-dimensional H\_v-space L ⊗ H\_v at every v ∈ U^an; morphisms are isomorphisms of line bundles preserving all norms. Write D̂iv(U^an) and P̂ic(U^an); the subscripts eqv in Yuan–Zhang denote the quotient by equivalence of sequences.
+An arithmetic divisor on U^an is (D, g\_D) with D a Cartier divisor on U and g\_D continuous on U^an ∖ \|D\|^an such that g\_D + log\|f\| extends continuously over V^an whenever D\|\_V = div(f) (the log\|f\| convention, not 2log\|f\|). A metrized line bundle on U^an is a line bundle L on U with a continuously varying norm on the one-dimensional H\_v-space L ⊗ H\_v at every v ∈ U^an; morphisms are isomorphisms of line bundles preserving all norms. Write D̂iv(U^an) and P̂ic(U^an). A Green function (or metric) is norm-equivariant if g(x) = t·g(x₁) whenever \|·\|\_x = \|·\|\_{x₁}^t locally (0 ≤ t < ∞); Yuan–Zhang mark these with the subscript eqv. Principal arithmetic divisors are norm-equivariant, and analytifications of adelic divisors land in the norm-equivariant groups. The metric of O(D) attached to (D, g) is ‖s\_D‖ = e^{−g} (Yuan–Zhang p. 72 prints e^{−g/2}, source issue ArakelovGeometryAndAbelianHeightsPartII/E2).
 
 **Hypotheses.**
 
@@ -683,6 +685,7 @@ An arithmetic divisor on U^an is (D, g\_D) with D a Cartier divisor on U and g\_
 - `MetrizedLineBundle.tensor` (structure): Tensor product multiplies norms; inverse inverts.
 - `MetrizedLineBundle.ofDivisor` (equivalence): (D, g) ↦ (O(D), ‖s\_D‖ = e^{−g}).
 - `MetrizedLineBundle.restrictFibre` (functoriality): Restriction to the fibre over v ∈ M(k) gives a continuous metric on U\_{H\_v}^an.
+- `AnalyticArithmeticDivisor.IsNormEquivariant` (data): g(x) = t·g(x₁) whenever \|·\|\_x = \|·\|\_{x₁}^t.
 
 **Unit tests.**
 
@@ -698,7 +701,7 @@ An arithmetic divisor on U^an is (D, g\_D) with D a Cartier divisor on U and g\_
 
 *Needs:* §2.1 (`AH.2/global-analytification`).
 
-*Sources:* Yuan–Zhang, §3.2, pp. 71–73: Defines arithmetic divisors with Green functions and metrized line bundles on Berkovich spaces. Yuan, §2.1, p. 21: Recalls analytic arithmetic divisors with the log\|f\| convention and continuous metrized line bundles; items PAPER-YUAN-26/16–17.
+*Sources:* Yuan–Zhang, §3.2, pp. 71–73: Defines arithmetic divisors with Green functions and metrized line bundles on Berkovich spaces, norm-equivariance (the eqv subscript), and the correspondence between divisor classes and metrized line bundles. Yuan, §2.1, p. 21: Recalls analytic arithmetic divisors with the log\|f\| convention and continuous metrized line bundles; items PAPER-YUAN-26/16–17.
 
 ### 2.3 Analytification of adelic divisors and line bundles is injective and fully faithful
 
@@ -1175,7 +1178,7 @@ Let X be flat essentially quasi-projective integral over k and D an adelic divis
 
 `AH.4/adelic-heights` · construction · planet: Height of an adelic line bundle
 
-Let k = ℤ and K a number field, or k a field and K a one-variable function field over k, and X a quasi-projective K-variety. For L̄ ∈ P̂ic(X/k) and x ∈ X(K̄) with closure x̃ (Spec of the residue field K(x)) put h\_L̄(x) = deĝ(L̄\|\_x̃)/[K(x) : ℚ] (k = ℤ) or deĝ(L̄\|\_x̃)/[K(x) : K] (k a field), where deĝ is the adelic intersection number on Spec K(x) over k (residue degrees over the fixed k in the geometric case). More generally, for a finitely generated field F over k and X a quasi-projective F-variety, the vector-valued height h(x) = π\_\*⟨L̄\|\_x̃⟩/deg(x) ∈ P̂ic(F/k)\_ℚ, and for H̄ ∈ P̂ic(F/k) satisfying the Moriwaki condition the real height h^H̄\_L̄(x) = h(x)·H̄^{d−1}. h\_L̄ is additive in L̄, functorial under pullback, invariant under Galois conjugation and under finite extension of K, and for a model hermitian line bundle it is the metrized height of ArakelovGeometryAndAbelianHeights R35.1 §1.12; for L̄ with trivial underlying bundle pulled back from P̂ic(K/k), h is the constant deĝ/[K : ℚ].
+Let k = ℤ and K a number field, or k a field and K a one-variable function field over k, and X a quasi-projective K-variety. For L̄ ∈ P̂ic(X/k) and x ∈ X(K̄) with closure x̃ (Spec of the residue field K(x)) put h\_L̄(x) = deĝ(L̄\|\_x̃)/[K(x) : ℚ] (k = ℤ) or deĝ(L̄\|\_x̃)/[K(x) : K] (k a field), where deĝ is the adelic intersection number on Spec K(x) over k (residue degrees over the fixed k in the geometric case). This is Yuan's normalization: in the arithmetic case Yuan–Zhang §5.3 divide by the degree over K instead, so h\_YZ = [K : ℚ]·h\_L̄ (Yuan p. 64 records the difference); in the geometric case the two agree. More generally, for a finitely generated field F over k and X a quasi-projective F-variety, the vector-valued height h(x) = π\_\*⟨L̄\|\_x̃⟩/deg(x) ∈ P̂ic(F/k)\_ℚ, and for H̄ ∈ P̂ic(F/k) satisfying the Moriwaki condition the real height h^H̄\_L̄(x) = h(x)·H̄^{d−1}. h\_L̄ is additive in L̄, functorial under pullback, invariant under Galois conjugation and under finite extension of K, and for a model hermitian line bundle it is the metrized height of ArakelovGeometryAndAbelianHeights R35.1 §1.12; for L̄ with trivial underlying bundle pulled back from P̂ic(K/k), h is the constant deĝ/[K : ℚ].
 
 **Hypotheses.**
 
@@ -1195,6 +1198,7 @@ Let k = ℤ and K a number field, or k a field and K a one-variable function fie
 - `adelicHeight_galois` (other): Galois invariant and independent of the field of definition.
 - `adelicHeight_model` (compatibility): Agrees with the metrized height of R35.1 §1.12 for model bundles.
 - `adelicHeight_weil` (compatibility): For O(1) on ℙⁿ with max metrics, equals HeightsRationalPointsAndObstructions RP.0 normalized height.
+- `adelicHeight_eq_yuanZhang` (compatibility): Over a number field K, the Yuan–Zhang height of §5.3 is [K : ℚ]·h\_L̄.
 - `vectorHeight` (constructor): h(x) ∈ P̂ic(F/k)\_ℚ over a finitely generated field, and h^H̄ = h·H̄^{d−1}.
 
 **Unit tests.**
@@ -1301,11 +1305,12 @@ Let K be a number field (k = ℤ) or a one-variable function field over k, X a q
 
 `AH.5/invariant-extension` · construction · planet: Invariant adelic extension
 
-Let S be flat essentially quasi-projective integral over k, π : X → S projective flat with geometrically connected fibres, f : X → X an S-morphism and L ∈ Pic(X)\_ℚ with f^\*L = qL for a rational q > 1. There is a unique L̄\_f ∈ P̂ic(X/k)\_ℚ with underlying L and f^\*L̄\_f = qL̄\_f; it is the boundary limit of the Tate sequence q^{−n}(f^n)^\*L̄₀ for any model L̄₀. It is nef, strongly nef when S has an affine model, integral when L ∈ Pic(X) and f^\*L ≅ qL integrally, and commutes with every f′ commuting with f (f′^\*L̄\_f = q′L̄\_f when f′^\*L = q′L). For an abelian scheme A → S with a symmetric relatively ample L rigidified along zero and f = [2], q = 4, this is the canonical adelic extension L̄ with [2]^\*L̄ = 4L̄; for an odd (antisymmetric) bundle one takes q = 2.
+Let S be flat essentially quasi-projective integral over k, π : X → S projective flat with geometrically connected fibres, f : X → X an S-morphism and L ∈ Pic(X)\_ℚ with f^\*L = qL for a rational q > 1. (1) There is a unique L̄\_f ∈ P̂ic(X/k)\_ℚ with underlying L and f^\*L̄\_f = qL̄\_f, and f′^\*L̄\_f = q′L̄\_f for every f′ commuting with f with f′^\*L = q′L (Yuan–Zhang Theorem 6.1.2). (2) If L is relatively ample over S, so that (X, f, L) is a polarized dynamical system, L̄\_f is the boundary limit of the Tate sequence q^{−n}(f^n)^\*L̄₀ for any model L̄₀; it is nef, strongly nef when S has an affine model, and lies in P̂ic(X/k) when L ∈ Pic(X), q ∈ ℤ\_{>1} and f^\*L ≅ qL integrally (Theorem 6.1.1). (3) For an abelian scheme A → S and a line bundle L rigidified along the zero section with [−1]^\*L ≅ εL, ε = ±1, there is a unique adelic extension with [2]^\*L̄ = 4L̄ (ε = 1) or 2L̄ (ε = −1); it is integrable and [m]^\*L̄ = m²L̄ (resp. mL̄) for all m (Theorem 6.1.3); for symmetric relatively ample L it is the nef extension of (2) with f = [2].
 
 **Hypotheses.**
 
 - f^\*L = qL in Pic(X)\_ℚ, q > 1; π projective flat with geometrically connected fibres.
+- Nefness only for L relatively ample over S (polarized dynamical system).
 
 **Construction.**
 
@@ -1317,7 +1322,8 @@ Let S be flat essentially quasi-projective integral over k, π : X → S project
 
 - `invariantExtension` (constructor): L̄\_f with underlying L and f^\*L̄\_f = qL̄\_f.
 - `invariantExtension_unique` (extensionality): Unique with these properties.
-- `invariantExtension_nef` (other): Nef; strongly nef over an affine base.
+- `invariantExtension_nef` (other): Nef when L is relatively ample; strongly nef over an affine base.
+- `invariantExtension_abelian` (constructor): For a rigidified L on an abelian scheme with [−1]^\*L ≅ ±L, the integrable extension with [2]^\*L̄ = 4L̄ or 2L̄.
 - `invariantExtension_commute` (functoriality): If f′f = ff′ and f′^\*L = q′L, then f′^\*L̄\_f = q′L̄\_f.
 - `invariantExtension_baseChange` (functoriality): Compatible with base change of S.
 - `invariantExtension_height` (compatibility): h\_{L̄\_f} is the Call–Silverman canonical height fibrewise.
@@ -1338,13 +1344,13 @@ Let S be flat essentially quasi-projective integral over k, π : X → S project
 
 *Needs:* §1.3 (`AH.1/adelic-line-bundles`); §1.5 (`AH.1/positivity-notions`); §2.3 (`AH.2/analytification-injective`); `ArithmeticDynamics:DY.4/canonical-adelic-metric-of-a-rational-map`.
 
-*Sources:* Yuan–Zhang, Theorems 6.1.1 and 6.1.2, pp. 180–183: Constructs the invariant adelic line bundle of a polarized dynamical system over a base, proves invariance, nefness, integrality and uniqueness, and commutation with commuting endomorphisms. Yuan, §2.3, p. 33; Theorem 2.10(3) proof, pp. 38–39: Uses the dynamical construction for the symmetric twice-theta bundle on the relative Jacobian and the odd Poincaré bundle; items PAPER-YUAN-26/47, 66. DeMarco–Mavraki–Ye, §4, pp. 19–20 (arXiv v3): Uses the invariant extension L\_Φ of a polarization for a polarized family of endomorphisms.
+*Sources:* Yuan–Zhang, Theorems 6.1.1–6.1.3, pp. 180–184: Constructs the invariant adelic line bundle of a polarized dynamical system over a base with invariance, nefness and integrality; proves existence, uniqueness and commutation for arbitrary f^\*L = qL; and treats rigidified symmetric and antisymmetric bundles on abelian schemes. Yuan, §2.3, p. 33; Theorem 2.10(3) proof, pp. 38–39: Uses the dynamical construction for the symmetric twice-theta bundle on the relative Jacobian and the odd Poincaré bundle; items PAPER-YUAN-26/47, 66. DeMarco–Mavraki–Ye, §4, pp. 19–20 (arXiv v3): Uses the invariant extension L\_Φ of a polarization for a polarized family of endomorphisms.
 
 ### 5.3 Non-degenerate subvarieties and non-degenerate adelic line bundles
 
 `AH.5/non-degenerate` · definition
 
-Let K be a number field, S a quasi-projective K-variety, (X, f, L) a polarized dynamical system over S and Y ⊂ X a closed subvariety. Y is non-degenerate if L̄\_f\|\_Y is big on Y/ℤ, equivalently (for Y over a smooth complex base) the top power c₁(L̄\_f\|\_Y)^{dim Y} of its archimedean curvature form is not identically zero. More generally a nef adelic M̄ on Y is non-degenerate if M̄ is big. For an abelian scheme A → S and a generically finite ι : Y → A, ι is non-degenerate if ι^\*L̄ is big for one, equivalently every, symmetric relatively ample rigidified L.
+Let K be a number field, S a quasi-projective K-variety, (X, f, L) a polarized dynamical system over S, Y ⊂ X a closed subvariety, M = L̄\_f\|\_Y ∈ P̂ic(Y/ℤ)\_{ℚ,nef} and M̃ its image in P̂ic(Y/K)\_{ℚ,nef} (the geometric part over K). Y is non-degenerate if deg M̃(Y) = M̃^{dim Y} > 0, equivalently M̃ is big on Y/K, equivalently the measure c₁(L̄\_f)^{dim Y} on Y\_σ(ℂ) is nonzero for one (every) embedding σ : K → ℂ (Yuan–Zhang Lemma 5.4.4), and the same at non-archimedean places. For an abelian scheme over a smooth base this is full rank 2 dim Y of the Betti map at some point. More generally a nef adelic M̄ on Y is non-degenerate if M̃ is big on Y/K. Non-degeneracy is not bigness of M on Y/ℤ: a non-degenerate Y can carry a generic sequence of small points, and then M^{dim Y + 1} = 0. For an abelian scheme A → S and a generically finite ι : Y → A, non-degeneracy of ι does not depend on the symmetric relatively ample rigidified L.
 
 **Hypotheses.**
 
@@ -1352,31 +1358,33 @@ Let K be a number field, S a quasi-projective K-variety, (X, f, L) a polarized d
 
 **Construction.**
 
-- Equivalence of bigness with nonvanishing of c₁^{dim Y}: Yuan–Zhang §6.2.2 using Hilbert–Samuel at the archimedean place.
-- Independence of L: positive multiples of two symmetric relatively ample bundles bound each other.
+- M̃ is nef, so deg M̃(Y) > 0 iff M̃ is big (geometric Hilbert–Samuel, AH.4/hilbert-samuel-siu over K).
+- deg M̃(Y) equals the total mass of c₁(L̄\_f)^{dim Y} on Y\_σ(ℂ) (Yuan–Zhang Lemma 5.4.4); for abelian schemes this form is the Betti form, whose top power is nonzero iff the Betti map has full rank (Dimitrov–Gao–Habegger Proposition 2.2 as cited by Yuan–Zhang).
+- Independence of L: Betti forms of two relatively ample bundles bound each other by positive constants.
 
 **API.**
 
-- `IsNonDegenerate` (data): L̄\_f\|\_Y big on Y/ℤ.
-- `IsNonDegenerate_iff_curvature` (characterisation): Iff c₁(L̄\_f\|\_Y)^{dim Y} ≢ 0 at an archimedean place.
+- `IsNonDegenerate` (data): deg M̃(Y) > 0 for the geometric part M̃ of L̄\_f\|\_Y.
+- `IsNonDegenerate_iff_big` (characterisation): Iff M̃ is big on Y/K.
+- `IsNonDegenerate_iff_curvature` (characterisation): Iff c₁(L̄\_f)^{dim Y} restricted to Y\_σ(ℂ) is nonzero.
 - `IsNonDegenerate_indep` (other): Independent of the symmetric relatively ample L.
 - `IsNonDegenerate_mono` (other): Preserved under generically finite dominant maps of the source.
 
 **Unit tests.**
 
-- `IsNonDegenerate_abelian_point_base` (computation): Over S = Spec K with X = A an abelian variety, f = [2] and L symmetric ample, Y = A is degenerate: its canonical height h\_{L̄}(A) is 0, so L̄^{g+1} = 0 and L̄ is not big.
-- `IsNonDegenerate_section` (degenerate): A torsion section of an abelian scheme over a curve is degenerate (L̄\|\_Y has zero height).
-- `IsNonDegenerate_constant_nonexample` (non-example): For a constant family A = A₀ × S and Y = A₀ × {point}, Y is degenerate although L\|\_Y is ample on Y.
+- `IsNonDegenerate_point_base` (computation): Over S = Spec K every closed subvariety Y is non-degenerate: deg M̃(Y) = deg\_L(Y) > 0. In particular X = A itself is non-degenerate although h\_{L̄}(A) = 0, so M^{dim Y+1} = 0 and M is not big on Y/ℤ.
+- `IsNonDegenerate_section` (degenerate): A torsion section of an abelian scheme over a curve is degenerate: the Betti map is constant on it, so deg M̃(Y) = 0.
+- `IsNonDegenerate_constant_nonexample` (non-example): For a constant family A₀ × S → S over a positive-dimensional S and Y = Z₀ × S with Z₀ ⊂ A₀ of positive dimension, Y is degenerate: the Betti map factors through Z₀, so its rank is at most 2 dim Z₀ < 2 dim Y.
 
 **Checks.**
 
-- For S a point, Y is non-degenerate iff h\_{L̄\_f}(Y) > 0 (Hilbert–Samuel: (L̄\_f\|\_Y)^{dim Y+1} = (dim Y + 1)·deg\_L(Y)·h\_{L̄\_f}(Y)); an abelian variety itself is degenerate.
+- For S = Spec K, M̃ is L\|\_Y and deg M̃(Y) = deg\_L(Y) > 0, so every Y is non-degenerate.
 
 **Uses.** Yuan–Zhang Theorem 6.2.2, p. 188: height inequality on non-degenerate subvarieties; DeMarco–Mavraki–Ye Theorem 1.8 proof, p. 21: non-degeneracy of the critical height bundle.
 
-*Needs:* §5.2 (`AH.5/invariant-extension`); §4.2 (`AH.4/adelic-volume`); §2.6 (`AH.2/canonical-measures`).
+*Needs:* §5.2 (`AH.5/invariant-extension`); §4.2 (`AH.4/adelic-volume`); §4.3 (`AH.4/hilbert-samuel-siu`); §2.6 (`AH.2/canonical-measures`).
 
-*Sources:* Yuan–Zhang, §6.2.1–6.2.2, pp. 186–188: Defines non-degenerate subvarieties of a polarized dynamical system and relates non-degeneracy to the archimedean curvature. DeMarco–Mavraki–Ye, §4, p. 20 (arXiv v3; citing Yuan–Zhang Lemma 5.4 and §6.2.2): Uses non-degeneracy of M via c₁(M)^{∧dim X} ≠ 0.
+*Sources:* Yuan–Zhang, §6.2.2, p. 188; Lemma 5.4.4, p. 170: Defines Y non-degenerate by deg M̃(Y) > 0 for the geometric part M̃, equivalently bigness of M̃, and relates it to the archimedean measure and to full rank of the Betti map. DeMarco–Mavraki–Ye, §4, p. 20 (arXiv v3; citing Yuan–Zhang Lemma 5.4 and §6.2.2): Proves non-degeneracy of its metrized line bundles M\_i by checking c₁(M\_i)^{∧dim} ≠ 0.
 
 ### 5.4 Height inequality and equidistribution on non-degenerate subvarieties
 
@@ -1492,7 +1500,7 @@ Let k₀ be a finitely generated field over ℚ of transcendence degree d. A pol
 
 *Needs:* §4.7 (`AH.4/adelic-heights`); §0.3 (`AH.0/arithmetic-intersection-numbers`); `HeightsRationalPointsAndObstructions:RP.0/height-class`.
 
-*Sources:* Moriwaki, §3.1–3.3, Definition 3.3.6, pp. 10–14: Defines polarizations of finitely generated fields and the arithmetic height function modulo bounded functions, independent of the model. Gao–Habegger, §A.1, (A.1), pp. 54–55: Recalls the Moriwaki height for a polarization B = (B; H̄₁, …, H̄\_d; τ), its transport under field isomorphisms and the number-field case; item PAPER-GAO-HABEGGER-19/68. Yuan–Zhang, §5.3.5, pp. 156–157: Defines the Moriwaki condition for H ∈ P̂ic(F/k) and identifies Moriwaki's heights as the corresponding real-valued heights.
+*Sources:* Moriwaki, §3.1–3.3, Definition 3.3.6, pp. 10–14: Defines polarizations of finitely generated fields and the arithmetic height function modulo bounded functions, independent of the model. Gao–Habegger, §A.1, (A.1), pp. 54–55: Recalls the Moriwaki height for a polarization B = (B; H̄₁, …, H̄\_d; τ), its transport under field isomorphisms and the number-field case; item PAPER-GAO-HABEGGER-19/68. Yuan–Zhang, §5.3.3, p. 155; §5.3.5, pp. 156–157: Identifies Moriwaki's heights with the real-valued heights attached to H ∈ P̂ic(F/k) and defines the Moriwaki condition.
 
 ### 6.2 The height machine for Moriwaki heights
 
@@ -1745,7 +1753,7 @@ Let C/K be smooth projective geometrically integral of genus g > 0 over a comple
 
 `AH.7/graph-formulas` · theorem
 
-Let K be complete discretely valued with e\_K = \|ϖ\|⁻¹, C/K of genus g > 0 with a K-point and split semistable reduction, Γ the dual graph of the minimal regular model with unit edge lengths, i : Γ → C^an and r : C^an → Γ the skeleton inclusion and retraction, K\_C the canonical divisor of Γ, μ the admissible graph measure and g\_μ its normalized Green function (GZ.2, TB.6). (1) ‖·‖\_a(x) = ‖·‖\_model(x)·e\_K^{g\_μ(r(x), r(x))} on ω\_C, where ‖·‖\_model comes from the relative dualizing sheaf of the minimal regular model. (2) For distinct geometric points x, y, g\_{Δ,a}(x, y) = (i(x, y) + g\_μ(r(x), r(y)))·log e\_K, with i(x, y) the intersection number of the sections on the regular model over the field of definition, normalized by the ramification index (not the field degree) of that field over K.
+Let K be complete discretely valued with e\_K = \|ϖ\|⁻¹, C/K of genus g > 0 with a K-point and split semistable reduction, Γ the dual graph of the minimal regular model with unit edge lengths, i : Γ → C^an and r : C^an → Γ the skeleton inclusion and retraction, K\_C the canonical divisor of Γ, μ the admissible graph measure and g\_μ its normalized Green function (GZ.2, TB.6). (1) ‖·‖\_a(x) = ‖·‖\_model(x)·e\_K^{g\_μ(r(x), r(x))} on ω\_C, where ‖·‖\_model comes from the relative dualizing sheaf of the minimal regular model. (2) For distinct geometric points x, y defined over K′/K, g\_{Δ,a}(x, y) = (i(x, y) + g\_μ(r(x), r(y)))·log e\_K, where i(x, y) is the intersection of the two sections on the minimal regular model over O\_{K′} measured as length and divided by the ramification index e(K′/K) — equivalently, measured with residue degrees and divided by [K′ : K], which is how Yuan p. 116 prints the normalization. Plain length divided by [K′ : K] is wrong when K′/K has residue degree > 1 (the extraction note on PAPER-YUAN-26/225).
 
 **Hypotheses.**
 
@@ -1846,7 +1854,7 @@ Let k be ℤ or a field, S flat quasi-projective normal integral over k, π : X 
 
 **Hypotheses.**
 
-- S normal; π smooth projective of genus g > 1.
+- S normal; π smooth projective of genus g > 1 (Yuan states Definition 2.5 through Theorem 2.9 for g > 0; this roadmap restricts to g > 1 because the normalization of Theorem 2.3 is proved only for g > 1, PAPER-YUAN-26/E8).
 
 **Construction.**
 
@@ -1979,7 +1987,7 @@ With π : X → S as in AH.8/canonical-admissible-bundles, let J = Pic⁰\_{X/S}
 
 *Needs:* §5.2 (`AH.5/invariant-extension`); `JacobianChallengePartII:JC3/twice-theta`; `JacobianChallengePartII:JC3/twice-theta-symmetric`; `JacobianChallengePartII:JC3/twice-theta-relatively-ample`; `JacobianChallengePartII:JC3/jacobian-poincare`; `JacobianChallengePartII:JC1/relative-jacobian`.
 
-*Sources:* Yuan, §2.3, p. 33; Theorem 2.10(3) proof, pp. 38–39: Uses the dynamically invariant nef extension Θ̄ of the canonical twice-theta bundle and the invariant extension Q̄ of the pointed Poincaré bundle; items PAPER-YUAN-26/47, 66. Yuan–Zhang, Theorem 6.1.1, p. 180; §6.5.2, pp. 205–207: Provides the invariant extensions and the Poincaré bundle construction over the relative Jacobian.
+*Sources:* Yuan, §2.3, p. 33; Theorem 2.10(3) proof, pp. 38–39: Uses the dynamically invariant nef extension Θ̄ of the canonical twice-theta bundle and the invariant extension Q̄ of the pointed Poincaré bundle; items PAPER-YUAN-26/47, 66. Yuan–Zhang, Theorems 6.1.1 and 6.1.3, pp. 180–184; §§6.5.2–6.5.4, pp. 203–207: Provides the invariant extensions, the Poincaré bundle over the relative Jacobian and the nef symmetric Θ̄ with [2]^\*Θ̄ = 4Θ̄.
 
 ### 8.5 Admissible section divisors and evaluation
 
@@ -2038,7 +2046,7 @@ For π : X → S as above, P̂ic(X/k)\_vert = ker(P̂ic(X/k)\_int → Pic(X)): i
 
 *Needs:* §1.5 (`AH.1/positivity-notions`).
 
-*Sources:* Yuan, Theorem 2.8(1), p. 34: Defines the vertical part as the kernel to Pic(X); item PAPER-YUAN-26/50. Yuan–Zhang, Definition 6.5.6, p. 208; Theorem 6.5.1, p. 203: Uses the vertical subgroup in the arithmetic Hodge index theorem.
+*Sources:* Yuan, Theorem 2.8(1), p. 34: Defines the vertical part as the kernel to Pic(X); item PAPER-YUAN-26/50. Yuan–Zhang, Theorem 6.5.1, p. 203: Defines P̂ic(X/k)\_{vert,ℚ} as the kernel of P̂ic(X/k)\_{int,ℚ} → Pic(X)\_ℚ in the statement of the arithmetic Hodge index theorem for curves.
 
 ### 8.7 Vertical orthogonality and the relative arithmetic Hodge index identity
 
@@ -2161,11 +2169,11 @@ Planets: Zhang's graph invariants, Zhang's φ-invariant, Global φ divisor, Trip
 
 `AH.10/polarized-graph-invariants` · definition · planet: Zhang's graph invariants
 
-A polarized metrized graph (pm-graph) of genus g ≥ 1 is a compact connected metric graph Γ (TropicalAndBerkovichArithmetic TB.3) with a vertex genus function q ≥ 0 such that b₁(Γ) + Σ q(x) = g. Its canonical divisor is K = Σ\_x (v(x) − 2 + 2q(x))x (v the valence), of degree 2g − 2; μ = μ\_ad is Zhang's admissible measure, g\_μ its normalized Green function (GrossZagierAndArithmeticHeights GZ.2, TB.6) and r the effective resistance. Define: δ(Γ) = ℓ(Γ) the total length, δᵢ(Γ) the total length of edges of type i (type 0: non-separating; type i ≥ 1: separating into parts of genus i and g − i); ε(Γ) = ∫∫ r(x, y)δ\_K(x)μ(y); φ(Γ) = −ℓ(Γ)/4 + (1/4)∫ g\_μ(x, x)((10g + 2)μ − δ\_K); τ(Γ) the Baker–Rumely constant, g\_{μ\_can}(x, y) = −r(x, y)/2 + τ(Γ) for the canonical (possibly signed) measure μ\_can of total mass one.
+A polarized metrized graph (pm-graph) of genus g ≥ 1 is a compact connected metric graph Γ (TropicalAndBerkovichArithmetic TB.3) with a vertex genus function q ≥ 0 such that b₁(Γ) + Σ q(x) = g and whose canonical divisor K = Σ\_x (v(x) − 2 + 2q(x))x (v the valence) is effective (no genus-zero point of valence one); K has degree 2g − 2; μ = μ\_ad is Zhang's admissible measure, g\_μ its normalized Green function (GrossZagierAndArithmeticHeights GZ.2, TB.6) and r the effective resistance. Define: δ(Γ) = ℓ(Γ) the total length, δᵢ(Γ) the total length of edges of type i (type 0: non-separating; type i ≥ 1: separating into parts of genus i and g − i); ε(Γ) = ∫∫ r(x, y)δ\_K(x)μ(y); φ(Γ) = −ℓ(Γ)/4 + (1/4)∫ g\_μ(x, x)((10g + 2)μ − δ\_K); τ(Γ) the Baker–Rumely constant, g\_{μ\_can}(x, y) = −r(x, y)/2 + τ(Γ) for the canonical (possibly signed) measure μ\_can of total mass one.
 
 **Hypotheses.**
 
-- Γ compact connected metric graph with a genus function; g ≥ 1 (g ≥ 2 for the curve applications).
+- Γ compact connected metric graph with a genus function q ≥ 0 and effective canonical divisor; g ≥ 1 (g ≥ 2 for the curve applications).
 
 **Construction.**
 
@@ -2213,7 +2221,7 @@ For a pm-graph Γ of genus g ≥ 2: (1) r(x, y) is at most the length of any pat
 **Proof route.**
 
 - (1) Rayleigh monotonicity: r(x, w) ≤ r(x, z) + r(z, w) (with the variable names of source issue PAPER-YUAN-26/E4) and r ≤ edge length on an edge (Baker–Faber §6, Klein–Randić Theorem D as cited by Yuan).
-- (2) ε = ∫∫ r δ\_K μ ≤ (deg K)·max r ≤ (2g − 2)ℓ, using that the negative part of K sits at valence-one genus-zero points, which do not occur on a stable reduction graph (Yuan p. 48).
+- (2) ε = ∫∫ r δ\_K μ ≤ (deg K)·max r ≤ (2g − 2)ℓ, since K is effective (part of the definition of a pm-graph) and μ is a probability measure (Yuan p. 48).
 - (3) Cinkir arXiv v2 Theorem 2.9 (Yuan cites it as [Cin1, Thm. 2.11]); min\_g t(g) = t(4) = 3/88 > 1/39 and 2i(g − i)/g ≥ 1.
 - (4) Baker–Rumely Lemma 14.4. (5) de Jong Proposition 9.2.
 
@@ -2229,7 +2237,7 @@ For a pm-graph Γ of genus g ≥ 2: (1) r(x, y) is at most the length of any pat
 
 `AH.10/local-phi-invariant` · definition · planet: Zhang's φ-invariant
 
-For C smooth projective geometrically connected of genus g > 1 over a complete valued field K (archimedean via C\_ℂ), with Zhang's admissible metrics (AH.7, GZ.2), φ(C) = −∫\_{(C×C)^an} g\_{Δ,a} c₁(O(Δ)\_a)². (1) Non-archimedean, split semistable reduction, \|ϖ\| = e^{−1}, unit-edge reduction graph Γ: φ(C) = φ(Γ) of AH.10/polarized-graph-invariants; under a finite extension K′/K, φ scales by the ramification index. (2) Archimedean: with an L²-orthonormal basis ω₁, …, ω\_g of H⁰(C, ω) for (i/2)∫α∧β̄ and an orthonormal eigenbasis φ\_λ of the Arakelov Laplacian, φ(C) = Σ\_{λ>0} Σ\_{j,k} (2/λ)\|∫\_C φ\_λ ω\_j ∧ ω̄\_k\|², so φ(C) > 0. (3) φ(C) ≥ 0 at non-archimedean places.
+For C smooth projective geometrically connected of genus g > 1 over a complete valued field K (archimedean via C\_ℂ), with Zhang's admissible metrics (AH.7, GZ.2), φ(C) = −∫\_{(C×C)^an} g\_{Δ,a} c₁(O(Δ)\_a)². (1) Non-archimedean, split semistable reduction, \|ϖ\| = e^{−1}, unit-edge reduction graph Γ: φ(C) = φ(Γ) of AH.10/polarized-graph-invariants. (2) Archimedean: with an L²-orthonormal basis ω₁, …, ω\_g of H⁰(C, ω) for (i/2)∫α∧β̄ and an orthonormal eigenbasis φ\_λ of the Arakelov Laplacian, φ(C) = Σ\_{λ>0} Σ\_{j,k} (2/λ)\|∫\_C φ\_λ ω\_j ∧ ω̄\_k\|², so φ(C) > 0. (3) φ(C) ≥ 0 at non-archimedean places. Under a finite extension K′/K with the extended absolute value, φ is unchanged; with \|ϖ\| = e^{−1} renormalized on K′, φ is multiplied by e(K′/K) (Yuan p. 49 prints the field degree [K′ : K] in the analogous rule for δ; PAPER-YUAN-26/E3).
 
 **Hypotheses.**
 
@@ -2513,7 +2521,7 @@ For a compact connected Riemann surface X of genus g ≥ 1, Faltings' δ(X) ∈ 
 
 *Needs:* §10.3 (`AH.10/local-phi-invariant`); `GrossZagierAndArithmeticHeights:GZ.2/normalized-arakelov-green`.
 
-*Sources:* Wilms 2017, Theorem 1.1, p. 1; §2.1, pp. 2–5: Proves δ(X) = −24∫ log‖θ‖ ν^g/g! + 2φ(X) − 8g log 2π and recalls Faltings' definition. Yuan, §4.5.2, p. 89: Recalls the global δ-invariant with finite nodal and archimedean Faltings contributions; part of item PAPER-YUAN-26/160.
+*Sources:* Wilms 2017, Theorem 1.1, p. 1; §2.2, p. 8: Proves δ(X) = −24∫ log‖θ‖ ν^g/g! + 2φ(X) − 8g log 2π and recalls Faltings' definition of δ. Yuan, §4.5.2, p. 89: Recalls the global δ-invariant with finite nodal and archimedean Faltings contributions; part of item PAPER-YUAN-26/160.
 
 ### 10.12 The arithmetic Noether formula
 
@@ -3007,7 +3015,7 @@ For C with semistable minimal regular model 𝒞: ω\_a² = ω²\_𝒞 − ε(C)
 
 `AH.13/phi-lower-bounds` · theorem
 
-For C/K smooth projective geometrically integral of genus g > 1 over a global field: (1) ω\_a² ≥ ((g − 1)/(2g + 1))φ(C) (Looper–Silverman–Wilms over function fields, with max(2, g − 1) in place of g − 1 and 2(g − 1) in characteristic 0 or for hyperelliptic C; Wilms over number fields). (2) If C is hyperelliptic (in particular g = 2), ω\_a² = (2(g − 1)/(2g + 1))φ(C). (3) With A(g) = 1 + (3/(2c(g)) + 2)(2g + 1)/(g − 1) built from the Cinkir constants, A(g) ≤ 139 < 144 for g > 2; for g = 2 the hyperelliptic identity gives the coefficient 1 + (3/(2c(2)) + 2)·(5/2) = 107.25; and 12/A(g) → 12/47.
+For C/K smooth projective geometrically integral of genus g > 1 over a global field, after a finite extension making C semistable (both sides are invariant under base change with the normalized degrees): (1) ω\_a² ≥ ((g − 1)/(2g + 1))φ(C) (Looper–Silverman–Wilms over function fields, with max(2, g − 1) in place of g − 1 and 2(g − 1) in characteristic 0 or for hyperelliptic C; Wilms over number fields). (2) If C is hyperelliptic (in particular g = 2), ω\_a² = (2(g − 1)/(2g + 1))φ(C). (3) With A(g) = 1 + (3/(2c(g)) + 2)(2g + 1)/(g − 1) built from the Cinkir constants, A(g) ≤ 139 < 144 for g > 2; for g = 2 the hyperelliptic identity gives the coefficient 1 + (3/(2c(2)) + 2)·(5/2) = 107.25; and 12/A(g) → 12/47.
 
 **Hypotheses.**
 
@@ -3025,7 +3033,7 @@ For C/K smooth projective geometrically integral of genus g > 1 over a global fi
 
 *Needs:* §13.2 (`AH.13/global-curve-invariants`); §10.10 (`AH.10/gross-schoen-variation`); §10.2 (`AH.10/graph-invariant-inequalities`); §7.7 (`AH.7/global-admissible-bundles`).
 
-*Sources:* Wilms 2022, Theorem 1.2, p. 3: Proves ω̂² ≥ ((g − 1)/(2g + 1))φ for curves over number fields. Looper–Silverman–Wilms, Proposition 6.1, p. 14: Proves ω\_a² ≥ (max(2, g − 1)/(2g + 1))Σφ over function fields, with 2(g − 1) in characteristic 0 or for hyperelliptic curves. Zhang 2010, Corollary 1.3.3, p. 7: Gives the hyperelliptic identity. Yuan, §4.5.1, pp. 87–88; Remark 4.12(1), p. 88: Uses these bounds and derives the coefficient A(g) ≤ 139; items PAPER-YUAN-26/156–158, 281.
+*Sources:* Wilms 2022, Theorem 1.2, p. 3: Proves ω̂² ≥ ((g − 1)/(2g + 1))φ for curves with semistable reduction over number fields. Looper–Silverman–Wilms, Proposition 6.1, p. 14: Proves ω\_a² ≥ (max(2, g − 1)/(2g + 1))Σφ over function fields, with 2(g − 1) in characteristic 0 or for hyperelliptic curves. Zhang 2010, Corollary 1.3.3, p. 7: Gives the hyperelliptic identity. Yuan, §4.5.1, pp. 87–88; Remark 4.12(1), p. 88: Uses these bounds and derives the coefficient A(g) ≤ 139; items PAPER-YUAN-26/156–158, 281.
 
 ### 13.5 Comparison of ω\_a² with the Faltings height over function fields
 
