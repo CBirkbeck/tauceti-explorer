@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T17:20Z",
+  "updated": "2026-10-19T17:30Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -666,7 +666,7 @@
     "DiamondSixOperations": {
       "stage": "pr",
       "pr": 927,
-      "head": "f557f7e",
+      "head": "3582e67",
       "note": "N4 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "approve",
@@ -729,7 +729,7 @@
     "EtaleCohomologyFoundations": {
       "stage": "pr",
       "pr": 938,
-      "head": "d4865f2",
+      "head": "bb01132",
       "note": "foundation roadmap created 2026-10-14 by the de-cycling (LefschetzPencils layer F + ClassicalAdicEtale §§0.5–0.11); not an explorer package; red team running",
       "review": {
         "recommendation": "approve",
@@ -769,13 +769,14 @@
     "AdicCoefficientsAndComparisons": {
       "stage": "pr",
       "pr": 965,
-      "head": "815883d",
+      "head": "726658c",
       "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 4a7b4d8; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
         "head": "815883d",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 726658c; confirmation pass pending"
       }
     },
     "PELModuli": {
@@ -853,7 +854,7 @@
     "PadicDifferentialEquationsAndRigidCohomology": {
       "stage": "pr",
       "pr": 1002,
-      "head": "0b9fd6d",
+      "head": "d5bb59d",
       "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft",
       "review": {
         "recommendation": "changes",
@@ -877,7 +878,7 @@
     "HilbertModularVarietiesAndShimuraCurves": {
       "stage": "pr",
       "pr": 1005,
-      "head": "8793cf6",
+      "head": "85c7a8b",
       "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
       "review": {
         "recommendation": "approve",
@@ -1118,7 +1119,7 @@
     "EllipticCurveModularityImaginaryQuadratic": {
       "stage": "pr",
       "pr": 1048,
-      "head": "edb065d",
+      "head": "886bca7",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 73); red team running",
       "review": {
         "recommendation": "changes",
@@ -1394,7 +1395,7 @@
     "ArithmeticStatisticsPartII": {
       "stage": "pr",
       "pr": 1173,
-      "head": "774b798",
+      "head": "2d9b81f",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part II of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
@@ -1442,7 +1443,7 @@
     "ArithmeticStatisticsPartVII": {
       "stage": "pr",
       "pr": 1178,
-      "head": "0aa2533",
+      "head": "05ed8af",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VII of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
@@ -1478,7 +1479,7 @@
     "CrystallineLocalGlobalCompatibilityCM": {
       "stage": "pr",
       "pr": 1182,
-      "head": "55bce38",
+      "head": "dc69d17",
       "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
       "review": {
         "recommendation": null,
@@ -1515,7 +1516,7 @@
     "VectorBundlesAndIsocrystals": {
       "stage": "pr",
       "pr": 1205,
-      "head": "f772de8",
+      "head": "d57fa07",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
       "review": {
         "recommendation": null,
