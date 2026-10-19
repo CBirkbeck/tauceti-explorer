@@ -2,13 +2,16 @@
 
 Kloosterman sums begin as finite exponential sums. Their symmetric-power moments encode cohomology rather than ordinary powers of the sums. This roadmap constructs the all-rank sheaves and connections needed by the Bessel-isocrystal programme, then specializes to rank two. Explicit bases and compactifications produce the Hodge numbers of the middle moment motive. Arithmetic degeneration and comparison identify its local factors; regular polarized compatible systems then give potential automorphy and functional equations.
 
-This is a target-level roadmap, with 62 targets in twelve layers. Its packet is complete as a planning pass: all layers are planned, none is closed, and every implementation status is unchecked. Nine gaps and fourteen supplier requests describe the exact remaining foundational inputs. In particular, an explicit issue with the cited bad-prime semistable-model argument is recorded rather than assumed resolved. No assertion here claims formalization.
+This is a target-level roadmap, with 62 targets in twelve layers. Its packet is complete as a planning pass: all layers are planned, none is closed, and every implementation status is unchecked. Nine gaps and thirteen supplier requests describe the exact remaining foundational inputs. In particular, an explicit issue with the cited bad-prime semistable-model argument is recorded rather than assumed resolved. No assertion here claims formalization.
+
+Independent review accepted this complete planning pass on 2026-10-19: 48 targets verified and 14 corrected. The [review report](../reviews/REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy.md) records the checks, corrections and unresolved supplier obligations.
 
 ## Conventions and scope
 
 - Write r=n+1 for the rank of the all-rank object, and k for the symmetric-power exponent. All-rank monodromy statements assume r≥2. Rank-two arithmetic targets assume k≥1 unless explicitly addressing the zeroth moment.
 - The raw sum has no prefactor. The sheaf trace is (−1)^(r−1) times that sum. Thus in rank two α+β=−RawKl₂ and αβ=q. Symmetric moments use h_k(α+β,αβ), not (α+β)^k.
-- Frobenius is geometric. The cyclotomic character has Hodge–Tate weight −1; Q_ℓ(1) has geometric Frobenius q^(−1). The weight-zero all-rank normalization uses a single square root c²=p and its powers c^m over extensions.
+- Frobenius is geometric. In this roadmap’s FSY convention the cyclotomic character has Hodge–Tate weight −1; Q_ℓ(1) has geometric Frobenius q^(−1). The weight-zero all-rank normalization uses a single square root c²=p and its powers c^m over extensions.
+- This roadmap follows FSY with HT(χ_cyc)=−1 and weights equal to the de Rham filtration jumps. PadicHodgeTheory:R06.2 uses HT(χ_cyc)=+1, so HT_KM(V)=−HT_R06(V), with multiplicities; D_dR, its filtration, Tate twists and the representation itself are unchanged.
 - Exponential connections are E^f=(O,d+df) as left connection modules. A cyclic module equation and the scalar equation of a horizontal solution have different sign conventions; KM.2/bessel-dictionary specifies both.
 - All middle spaces are the actual image of compact-support-to-ordinary cohomology. For rank r the middle motive has weight (r−1)k+1 and pairing into Q(−(r−1)k−1). The hypersurface realization has degree (r−1)k−1 before the Tate twist (−1).
 - The generic mixed-Hodge-structure carrier is Tau Ceti’s existing one. Holonomic operations, Hodge modules and irregular Hodge filtrations require the separate foundational companion in G1–G2; étale intermediate extension alone does not supply them.
@@ -17,7 +20,7 @@ This is a target-level roadmap, with 62 targets in twelve layers. Its packet is 
 
 ## Sources and attribution
 
-**FSY: [Hodge theory of Kloosterman connections](https://arxiv.org/pdf/1810.06454v5)**, Javier Fresán, Claude Sabbah, Jeng-Daw Yu. Duke Mathematical Journal 171 (2022), 1649–1747; arXiv:1810.06454v5, 13 June 2022. All page numbers below are the 75-page arXiv v5 pagination. Accessed 2026-10-19. SHA-256: `835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a`.
+**FSY: [Hodge theory of Kloosterman connections](https://arxiv.org/pdf/1810.06454v5)**, Javier Fresán, Claude Sabbah, Jeng-Daw Yu. Duke Mathematical Journal 171 (2022), 1649–1747; arXiv:1810.06454v5, 13 June 2022. All page numbers below are the 74-page arXiv v5 pagination. Accessed 2026-10-19. SHA-256: `835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a`.
 
 - §§1.1–1.3, pp. 1–8: target statements and conventions
 - §§2.1–2.3, pp. 9–18: connections, tensor powers and Fourier transforms
@@ -41,7 +44,7 @@ The target statements below are written in our own words, arranged by mathematic
 
 Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Each following declaration’s actual statement was inspected at the pin.
 
-- **mathlib:AddChar** (Mathlib/Algebra/Group/AddChar.lean): Additive characters into a multiplicative commutative monoid; the zero character is the constant-one map.
+- **mathlib:AddChar** (Mathlib/Algebra/Group/AddChar.lean): Additive characters from an additive monoid into a multiplicative monoid; the zero character is the constant-one map. The finite-field applications specialize to commutative coefficient rings.
 - **mathlib:AddChar.sum_eq_ite** (Mathlib/Algebra/Group/AddChar.lean): For a finite additive group and character into a commutative semiring that is a domain, the full additive-character sum is the cardinality for the trivial character and zero otherwise.
 - **mathlib:FiniteField.trace_to_zmod_nondegenerate** (Mathlib/FieldTheory/Finite/Trace.lean): Nondegeneracy of the finite-field trace to its prime field; composing a nontrivial prime-field additive character with trace is nontrivial.
 - **mathlib:FiniteField.algebraMap_trace_eq_sum_pow** (Mathlib/FieldTheory/Finite/Trace.lean): Finite-field trace after the algebra map is the sum of the Frobenius powers for a finite extension.
@@ -60,6 +63,8 @@ Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf
 **scope:** No generic MHS, potential-automorphy, gamma-recipe, epsilon-factor, conductor or pure-associated-graded WD node is recreated.
 
 The existing generic potential-automorphy and L-function consequences are imported from ModularityAndLanglandsExtensions:ML.2; epsilon factors and conductors from ArithmeticGaloisRepresentations:R01.2–R01.3; the archimedean recipe from ML.0; and Nori motives from MotivesAndAlgebraicCycles:MC.5, with its missing weight/realization extension made explicit. The signed fan and Kloosterman computations belong here; the fan, affine toric schemes and gluing machinery are Tau Ceti’s. The arithmetic extension of the current complex toric supplier is a request, not a duplicate construction.
+
+The period inputs are supplied by PadicHodgeTheory:R06.2/admissible-category-tannakian, /ddr-exact-strict-tensor, /dst-exact-tensor-fully-faithful, /admissible-implies-weakly-admissible and /hodge-tate-weight-convention. Their exact statements were inspected; the weight-label dictionary above applies at every import. Rational perverse coefficients are supplied by EtaleDualityAndPerverseSheaves:EDC.6/rational-perverse-coefficient-extension in addition to the finite-coefficient EDC.5 theorem.
 
 ## Layer overview
 
@@ -100,7 +105,8 @@ Define the raw all-rank finite-field Kloosterman sum, symmetric traces, rank-two
 
 **Direct inputs:** mathlib:AddChar; mathlib:FiniteField.trace_to_zmod_nondegenerate; mathlib:FiniteField.algebraMap_trace_eq_sum_pow.
 
-**Source:** FSY, §1.1, pp. 2–3; XZ §1.1.2, p. 3. Kloosterman sums; the target below fixes coefficients, degree shifts and normalization explicitly.
+**Source:** FSY, §1.1, pp. 2–3. Rank-two raw sums and their symmetric-power moments.
+**Source:** XZ, §1.1.2, p. 3. The all-rank finite-field sum and its trace sign.
 
 **Proposed home:** TauCeti/NumberTheory/Kloosterman/Moments; namespace TauCeti.Kloosterman.
 
@@ -249,7 +255,7 @@ Define the raw all-rank finite-field Kloosterman sum, symmetric traces, rank-two
 
 Construct all-rank Deligne sheaves, their weight-zero twists, local structure and normalized monodromy groups. Identify rank-two moment series with Frobenius determinants and prove integrality and polynomiality for k≥1.
 
-**Layer inputs:** KM.0; SchemeAndStackFoundations:SF.2; EtaleDualityAndPerverseSheaves:EDC.1; DeligneWeightsAndPurity:DWP.7; EtaleDualityAndPerverseSheaves:EDC.5.
+**Layer inputs:** KM.0; SchemeAndStackFoundations:SF.2; EtaleDualityAndPerverseSheaves:EDC.1; DeligneWeightsAndPurity:DWP.7; EtaleDualityAndPerverseSheaves:EDC.5; EtaleDualityAndPerverseSheaves:EDC.6.
 
 **Atlas planets:** Kloosterman sheaves; Normalized Kloosterman sheaves; Local structure of Kloosterman sheaves; Kloosterman monodromy groups; Cohomology of Kloosterman moments; Integrality of moment polynomials.
 
@@ -267,7 +273,8 @@ Construct all-rank Deligne sheaves, their weight-zero twists, local structure an
 
 **Direct inputs:** KM.0/raw-sum; SchemeAndStackFoundations:SF.2; EtaleDualityAndPerverseSheaves:EDC.1.
 
-**Source:** FSY, §1.2, p. 4; §3.2.1, pp. 23–24; XZ §1.1.2, p. 3. Kloosterman sheaves; the target below fixes coefficients, degree shifts and normalization explicitly.
+**Source:** FSY, §1.2, p. 4; §3.2.1, pp. 23–24. The exponential direct image and its cohomological shift, with the torus dimension corrected as in E1.
+**Source:** XZ, §1.1.2, p. 3. The rank-r lisse sheaf and its signed trace over finite extensions.
 
 **Proposed home:** TauCeti/NumberTheory/Kloosterman/Sheaves; namespace TauCeti.Kloosterman.
 
@@ -304,7 +311,7 @@ Construct all-rank Deligne sheaves, their weight-zero twists, local structure an
 1. Tensor the sheaf with the chosen unramified character.
 2. Use the rank-r purity theorem below and show multiplicativity of normalization under extension degree.
 
-**Direct inputs:** KM.1/deligne-sheaf.
+**Direct inputs:** KM.1/deligne-sheaf; KM.1/sheaf-structure.
 
 **Source:** XZ, XZ §1.1.2, (1.1.2.1)–(1.1.2.3), p. 3. Normalized Kloosterman sheaves; the target below fixes coefficients, degree shifts and normalization explicitly.
 
@@ -346,7 +353,8 @@ Construct all-rank Deligne sheaves, their weight-zero twists, local structure an
 
 **Direct inputs:** KM.1/deligne-sheaf.
 
-**Source:** FSY, §1.2, pp. 4–5; §3.2.1, p. 24; XZ §1.1.2(i)–(iv), p. 3. Local structure of Kloosterman sheaves; the target below fixes coefficients, degree shifts and normalization explicitly.
+**Source:** FSY, §1.2, pp. 4–5; §3.2.1, p. 24. Purity and the rank-two determinant convention.
+**Source:** XZ, §1.1.2(i)–(iv), p. 3. Rank, geometric irreducibility, purity, one tame unipotent block at zero and Swan conductor one at infinity.
 
 **Proposed home:** TauCeti/NumberTheory/Kloosterman/Sheaves; namespace TauCeti.Kloosterman.
 
@@ -369,7 +377,8 @@ Construct all-rank Deligne sheaves, their weight-zero twists, local structure an
 
 **Direct inputs:** KM.1/normalized-sheaf; KM.1/sheaf-structure.
 
-**Source:** XZ, XZ §1.1.2, (1.1.2.3), p. 3; FSY §3.2.1, p. 24. Kloosterman monodromy groups; the target below fixes coefficients, degree shifts and normalization explicitly.
+**Source:** XZ, §1.1.2, (1.1.2.3), p. 3. The normalized monodromy table, including the G₂ exception at rank seven in characteristic two.
+**Source:** FSY, §3.2.1, p. 24. The corresponding monodromy cases used for symmetric-power cohomology.
 
 **Proposed home:** TauCeti/NumberTheory/Kloosterman/Sheaves; namespace TauCeti.Kloosterman.
 
@@ -390,7 +399,7 @@ Construct all-rank Deligne sheaves, their weight-zero twists, local structure an
 2. Use the exact DWP cohomological-bounds node for weights on smooth G_m with lisse coefficients.
 3. Apply the formal determinant/logarithm identity to identify every coefficient of Z.
 
-**Direct inputs:** KM.0/moment-series; KM.1/sheaf-structure; KM.1/monodromy; DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6; SchemeAndStackFoundations:SF.2; EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension.
+**Direct inputs:** KM.0/moment-series; KM.1/sheaf-structure; KM.1/monodromy; DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6; SchemeAndStackFoundations:SF.2; EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension; EtaleDualityAndPerverseSheaves:EDC.6/rational-perverse-coefficient-extension.
 
 **Source:** FSY, §1.2, pp. 4–5; §3.2.1, pp. 23–25. Cohomology of Kloosterman moments; the target below fixes coefficients, degree shifts and normalization explicitly.
 
@@ -626,7 +635,7 @@ Construct exponential direct-image connections, cyclic covers and symmetric powe
 
 Construct tensor potentials and the signed symmetric projector; prove Thom–Sebastiani, de Rham concentration, duality and support-to-ordinary middle identifications. Construct the Kloosterman inverse Fourier objects using imported holonomic and Hodge-module formalism.
 
-**Layer inputs:** KM.2; EtaleDualityAndPerverseSheaves:EDC.5.
+**Layer inputs:** KM.2.
 
 **Atlas planets:** Tensor Kloosterman potentials; Signed symmetric projector; Tensor Thom–Sebastiani comparison; Middle Kloosterman cohomology; Exponential de Rham realization; Inverse Fourier Kloosterman objects.
 
@@ -741,9 +750,9 @@ Construct tensor potentials and the signed symmetric projector; prove Thom–Seb
 
 1. Construct the natural support-to-ordinary morphism and its image.
 2. Use the no-boundary-subquotient characterization of the holonomic intermediate extension from G1.
-3. The étale EDC intermediate-extension node supplies a parallel interface but does not supply D-modules.
+3. The analogous étale intermediate-extension interface does not supply this holonomic construction; its exact missing input remains G1.
 
-**Direct inputs:** KM.2/symmetric-connections; EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension.
+**Direct inputs:** KM.2/symmetric-connections.
 
 **Source:** FSY, Corollary 2.15, pp. 15–16. Middle Kloosterman cohomology; the target below fixes coefficients, degree shifts and normalization explicitly.
 
@@ -1005,7 +1014,8 @@ Prove classicality and weight bounds, define the zero-locus hypersurface and its
 
 **Direct inputs:** KM.4/hypersurface; KM.3/sign-projector; PadicDifferentialEquationsAndRigidCohomology:RD.4; PadicDifferentialEquationsAndRigidCohomology:RD.6.
 
-**Source:** FSY, §3.2.2, p. 25; Proposition 5.23, pp. 49–50; XZ §2.1.5, p. 10. Rigid Kloosterman realization; the target below fixes coefficients, degree shifts and normalization explicitly.
+**Source:** FSY, §3.2.2, p. 25; Proposition 5.23, pp. 49–50. Rigid exponential and hypersurface realizations with weight grading and Tate twist.
+**Source:** XZ, §2.1.5, p. 10; §4.1.13, p. 42. The Dwork exponential coefficient; the printed sign choices require the horizontality correction E8.
 
 **Proposed home:** TauCeti/NumberTheory/Kloosterman/Motives; namespace TauCeti.Kloosterman.
 
@@ -1604,7 +1614,7 @@ Define the finite-field middle polynomial. Compute its degree and trivial factor
 
 1. Take inertia invariants in the explicit odd local decomposition.
 2. Apply the imported WD conductor formula; tameness removes the Swan term.
-3. Count odd j by the parity of v_p(j) to obtain the product of square-class representatives; use local semisimplicity to check invariance under global semisimplification.
+3. Count odd j by the parity of v_p(j) to obtain the product of square-class representatives. The odd local decomposition has finite inertia image and N=0. In characteristic zero taking these finite-group invariants is exact on a global Jordan–Hölder filtration restricted locally; hence the Frobenius determinant on invariants and the tame conductor are unchanged. No semisimplicity of the unramified Frobenius is required.
 
 **Direct inputs:** KM.8/odd-local; ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation.
 
@@ -1662,7 +1672,7 @@ Establish the Kloosterman p-adic comparison and Newton bounds using geometric su
 2. At odd bad primes use Mieda’s injective rigid-to-de Rham map compatible with boundary and projectors, and CP.4 for a suitable semistable model; the insufficient unit-thickness argument is G6/E9.
 3. At the stated good primes the model is smooth, so CP.2 and the rigid/crystalline comparison give the isomorphism and crystallinity.
 
-**Direct inputs:** KM.7/galois-realization; KM.7/even-resolution; KM.4/rigid-realization; PadicDifferentialEquationsAndRigidCohomology:RD.7/mieda-p-adic-picard-lefschetz; CohomologyComparisons:CP.2; CohomologyComparisons:CP.3; CohomologyComparisons:CP.4; PadicHodgeTheory:R06.2.
+**Direct inputs:** KM.7/galois-realization; KM.7/even-resolution; KM.4/rigid-realization; PadicDifferentialEquationsAndRigidCohomology:RD.7/mieda-p-adic-picard-lefschetz; CohomologyComparisons:CP.2; CohomologyComparisons:CP.3; CohomologyComparisons:CP.4; PadicHodgeTheory:R06.2/admissible-category-tannakian; PadicHodgeTheory:R06.2/ddr-exact-strict-tensor; PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful.
 
 **Source:** FSY, Proposition 5.23, pp. 49–51. p-adic comparison for moment motives; the target below fixes coefficients, degree shifts and normalization explicitly.
 
@@ -1685,7 +1695,7 @@ Establish the Kloosterman p-adic comparison and Newton bounds using geometric su
 2. Use the rigid middle injection, then restore the weight-zero and possible weight-k trivial compact-support factors.
 3. Read slopes of the explicit Hodge filtration and apply the coefficient/Newton polygon relation.
 
-**Direct inputs:** KM.9/padic-comparison; KM.6/hodge-numbers; KM.8/degree-formulas; PadicHodgeTheory:R06.2.
+**Direct inputs:** KM.9/padic-comparison; KM.6/hodge-numbers; KM.8/degree-formulas; PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible.
 
 **Source:** FSY, Corollary 5.27 and Remark 5.28, pp. 51–52; Remark 5.41, p. 59. Newton bounds for moment polynomials; the target below fixes coefficients, degree shifts and normalization explicitly.
 
@@ -1700,16 +1710,16 @@ Establish the Kloosterman p-adic comparison and Newton bounds using geometric su
 
 **Theorem.** For each k≥1 the family {r_{k,ℓ}^{ss}} is a rational weakly compatible system, pure of weight k+1, de Rham at ℓ and crystalline for sufficiently large ℓ, with distinct Hodge–Tate weights equal to the p-indices of the middle Hodge table. Use the convention HT(χ_cyc)=−1. The semisimplified system retains a perfect pairing of sign (−1)^(k+1) with multiplier χ_cyc^(−k−1): it is orthogonal with an even multiplier at real places for odd k, and symplectic with an odd multiplier for even k. Thus it is regular, odd and essentially self-dual in the Patrikis–Taylor sense. The zero-rank k=1,2,4 cases are treated as empty systems; k=3 is a rank-one character case.
 
-**Hypotheses.** For positive-rank automorphy k∉{1,2,4}; exact all-prime local compatibility is a conclusion after potential automorphy, not an input here. Preservation of the form under semisimplification is the missing extension requested from G7, gap G5.
+**Hypotheses.** For positive-rank automorphy k∉{1,2,4}; exact all-prime local compatibility is a conclusion after potential automorphy, not an input here. Preservation of the form under semisimplification is the missing extension requested from G7, gap G5. This roadmap follows FSY with HT(χ_cyc)=−1 and weights equal to the de Rham filtration jumps. PadicHodgeTheory:R06.2 uses HT(χ_cyc)=+1, so HT_KM(V)=−HT_R06(V), with multiplicities; D_dR, its filtration, Tate twists and the representation itself are unchanged.
 
 **Construction / proof route.**
 
 1. Use the local factors at almost all primes and geometric Frobenius polynomials to establish weak compatibility over Q.
-2. Use the good-prime branch of KM.9/padic-comparison to establish de Rham and eventual crystalline properties and identify the Hodge–Tate multiset.
+2. Use the good-prime branch of KM.9/padic-comparison to establish de Rham and eventual crystalline properties and identify the Hodge–Tate multiset, negating the R06 weight labels according to the explicit convention dictionary.
 3. Use the pairing on the motive and the generic characteristic-zero semisimplification-with-involution theorem (G5).
 4. Check the real-place multiplier sign explicitly in the orthogonal and symplectic branches against the imported potential-automorphy hypotheses.
 
-**Direct inputs:** KM.7/galois-realization; KM.8/odd-local; KM.8/even-local; KM.9/padic-comparison; KM.6/hodge-numbers; ArithmeticGaloisRepresentations:G7; ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-potential-automorphy.
+**Direct inputs:** KM.7/galois-realization; KM.8/odd-local; KM.8/even-local; KM.9/padic-comparison; KM.6/hodge-numbers; ArithmeticGaloisRepresentations:G7; ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-potential-automorphy; PadicHodgeTheory:R06.2/hodge-tate-weight-convention.
 
 **Source:** FSY, §5.3.3, pp. 57–58. Regular polarized moment systems; the target below fixes coefficients, degree shifts and normalization explicitly.
 **Source:** Serre, §4.1–4.2, Theorem 4.2.1 and Lemma 4.2.4, pp. 9–10. A nondegenerate symmetric (in characteristic different from two) or alternating form compatible with an algebra involution induces a form of the same type on the semisimplification. For the moment pairing use g* = χ_cyc(g)^(−k−1)g^−1.
@@ -1721,6 +1731,7 @@ Establish the Kloosterman p-adic comparison and Newton bounds using geometric su
 - For k=7 the Hodge–Tate weights are 2,4,6 and the orthogonal multiplier is even.
 - For k=6 the weights are 2,5 and the symplectic multiplier is odd.
 - Weak compatibility alone does not determine the local factor at two.
+- For k=7 the supplier R06 weights are −2,−4,−6, while the FSY/KM weights are 2,4,6; both conventions give regularity.
 
 <a id="km10"></a>
 ## KM.10: Gamma factors and completion
@@ -1886,7 +1897,7 @@ Apply the imported Patrikis–Taylor theorem, transport local factors through se
 3. Transport L/epsilon factors and conductor; use coefficient-field automorphisms and rational compatibility to descend local polynomials.
 4. For the odd-k two-adic bound apply admissibility to the strictly compatible p-adic realization, then restore the trivial compact-support factor as in Remark 5.41.
 
-**Direct inputs:** KM.11/potential-automorphy; ArithmeticGaloisRepresentations:R01.2/pure-graded-weil-deligne; ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-l-function-consequences; ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation; KM.6/hodge-numbers; KM.8/degree-formulas; PadicHodgeTheory:R06.2.
+**Direct inputs:** KM.11/potential-automorphy; ArithmeticGaloisRepresentations:R01.2/pure-graded-weil-deligne; ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-l-function-consequences; ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation; KM.6/hodge-numbers; KM.8/degree-formulas; PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible; PadicHodgeTheory:R06.2/ddr-exact-strict-tensor.
 
 **Source:** FSY, Lemma 5.40, p. 58; Remark 5.41, p. 59. Local factors under semisimplification; the target below fixes coefficients, degree shifts and normalization explicitly.
 
@@ -1946,7 +1957,7 @@ Apply the imported Patrikis–Taylor theorem, transport local factors through se
 
 ### KM.11/even-functional-equation: Even moment functional equation
 
-**Theorem.** For every positive even k there exist the actual conductor exponent r_k≥0, the rational reciprocal-polynomial local factor L_{k,2}(T) with L_{k,2}(0)=1, and a sign ε_k∈{±1}, such that Λ_k(s)=2^{r_k s/2}L_{k,2}(2^−s)Λ′_k(s) extends meromorphically to C and satisfies Λ_k(s)=ε_kΛ_k(k+2−s). Here Λ′_k uses the odd-prime factors, N′_k and d_k=floor((k−1)/2)−δ_{4|k} as defined above. The source’s conjectural formulas r_k=floor(k/6) and ε_k=(−1)^floor(k/8) are boundary questions, not conclusions. The full Euler product converges absolutely for Re(s)>(k+3)/2.
+**Theorem.** For every positive even k there exist the actual conductor exponent r_k≥0, the rational reciprocal-polynomial local factor L_{k,2}(T) with L_{k,2}(0)=1, and a sign ε_k∈{±1}, such that Λ_k(s)=2^{r_k s/2}L_{k,2}(2^−s)Λ′_k(s) extends meromorphically to C and satisfies Λ_k(s)=ε_kΛ_k(k+2−s). Here Λ′_k uses the odd-prime factors, N′_k and d_k=floor((k−1)/2)−δ_{4|k} as defined above. The source conjectures r_k=floor(k/6) and the two-adic sign w″_k=(−1)^floor(k/8). The corresponding global sign prediction is ε_k=(−1)^{floor(k/8)+v′_k}, where v′_k=Σ_{p≡1 mod4}floor(k/(2p))+Σ_{p≡3 mod4}floor(k/(4p))+δ_{8|k}, the sums running over odd primes. These are boundary questions, not conclusions. The full Euler product converges absolutely for Re(s)>(k+3)/2.
 
 **Hypotheses.** k even and positive; k=2,4 give the trivial completion and sign +1.
 
@@ -1967,6 +1978,9 @@ Apply the imported Patrikis–Taylor theorem, transport local factors through se
 
 - The result proves existence and rationality of the two-adic factor without proving the Broadhurst–Roberts conductor or sign predictions.
 - The trivial k=2 and k=4 cases have r_k=0,L_{k,2}=1,ε_k=1.
+- At k=8 the conjectured two-adic sign is −1 and v′_8=1, so the conjectured global sign is +1; this is a convention check, not a proved sign formula.
+
+
 
 ## Supplier requests
 
@@ -2044,13 +2058,7 @@ Use the proper semistable B_st comparison with Frobenius, N, filtration and boun
 
 **Consumers:** KM.9/padic-comparison.
 
-### R13: PadicHodgeTheory:R06.2
-
-Use exactness of de Rham and semistable period functors on admissible subquotients, the geometric comparison identification, crystalline descent in the good case, weak admissibility and the Newton/Hodge polygon inequality, with HT(χ_cyc)=−1.
-
-**Consumers:** KM.9/padic-comparison; KM.9/newton-polygon; KM.11/local-transport.
-
-### R14: ArithmeticGaloisRepresentations:R01.5
+### R13: ArithmeticGaloisRepresentations:R01.5
 
 Use characteristic-zero Frobenius-polynomial recognition for one-dimensional continuous characters over a common coefficient field to identify the determinant character from the good primes p>k. No unobstructed coefficient descent theorem for arbitrary higher-dimensional systems is requested.
 
@@ -2141,6 +2149,8 @@ The following are proposed corrections or proof obligations, with their status d
 
 **Status:** Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.
 
+**Independent review:** confirmed — Confirmed directly at FSY p. 23: the single-sheaf integral has n coordinates, while nk belongs to the tensor-power construction.
+
 **Searches performed.**
 
 - FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19
@@ -2158,6 +2168,8 @@ The following are proposed corrections or proof obligations, with their status d
 **Reason:** The monodromy weight filtration there is centered at k−1; the following graded calculation uses that center.
 
 **Status:** Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.
+
+**Independent review:** confirmed — Confirmed at FSY p. 33: the monodromy filtration is centered at k−1; the primitive index is k−1 and the top weight of the length-k block is 2k−2.
 
 **Searches performed.**
 
@@ -2177,6 +2189,8 @@ The following are proposed corrections or proof obligations, with their status d
 
 **Status:** Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.
 
+**Independent review:** confirmed — Confirmed at FSY p. 40: purity and self-duality pair α with p^(k+1)/α. The eigenvalue −4 at k=3,p=2 is fixed by this corrected involution.
+
 **Searches performed.**
 
 - FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19
@@ -2194,6 +2208,8 @@ The following are proposed corrections or proof obligations, with their status d
 **Reason:** On g_1=z_r=0, the derivative is −1/z_1 and hence a unit. On z_r=0 alone, its displayed polynomial can vanish; repeated components do not test transverse crossings.
 
 **Status:** Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.
+
+**Independent review:** confirmed — Confirmed at FSY p. 41: the derivative is a unit on the hypersurface intersection with the boundary, not on the entire ambient divisor; crossing components must be distinct.
 
 **Searches performed.**
 
@@ -2213,6 +2229,8 @@ The following are proposed corrections or proof obligations, with their status d
 
 **Status:** Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.
 
+**Independent review:** confirmed — Confirmed at FSY p. 52 by multiplying the standard Γ_R factors: their ratio to the displayed paper normalization is π^{d_k(d_k+1)/4}. This constant cancels from the functional equation.
+
 **Searches performed.**
 
 - FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19
@@ -2223,13 +2241,15 @@ The following are proposed corrections or proof obligations, with their status d
 
 **Kind / effect:** misprint / nothing.
 
-**Issue:** The divisor pullback is written with a positive shift and degree-zero cohomology.
+**Issue:** The first divisor-pullback display identifies the unshifted i*Q_U^p and its degree-zero cohomology with Q_D^p.
 
-**Correction or obligation:** For the normalized perverse constant objects use i*Q_U^p[−1] and perverse degree −1 to obtain Q_D^p.
+**Correction or obligation:** For the normalized perverse constant objects use i*Q_U^p[−1] ≃ H^(−1)i*Q_U^p ≃ Q_D^p. The following exceptional-pullback display with i! and shift [1] is correct.
 
 **Reason:** A divisor has dimension one less than its ambient smooth variety, so pulling back Q_U[dim U] gives Q_D^p[1].
 
 **Status:** Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.
+
+**Independent review:** confirmed — Confirmed with the description corrected after inspecting FSY p. 63: the first i* display omits the shift and uses degree zero. For a smooth divisor i*Q_U^p=Q_D^p[1], giving perverse degree −1. The next i! display is not erroneous.
 
 **Searches performed.**
 
@@ -2249,6 +2269,8 @@ The following are proposed corrections or proof obligations, with their status d
 
 **Status:** Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.
 
+**Independent review:** confirmed — Confirmed at FSY p. 71: the composite factors through the zero point and is point-supported; it is not the zero functor.
+
 **Searches performed.**
 
 - FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19
@@ -2267,6 +2289,8 @@ The following are proposed corrections or proof obligations, with their status d
 
 **Status:** The exponential/Frobenius mismatch is already PAPER-XU-ZHU-22/E22. The module-versus-horizontal-coefficient check is stated explicitly here; no published correction identified.
 
+**Independent review:** confirmed — Confirmed at XZ pp. 2,10,42. For d+ϖdx a multiplier u:F*E→E satisfies d log u=ϖ(d(x^p)−dx); exp(ϖ(x^p−x)) has that derivative. The cyclic module and horizontal-solution equations must retain their separate signs.
+
 **Searches performed.**
 
 - FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19
@@ -2283,7 +2307,9 @@ The following are proposed corrections or proof obligations, with their status d
 
 **Reason:** For k=9,p=3,a=3, the all-plus critical point has critical value 18. The formal Morse normal form over Z_3 has smoothing thickness v_3(18)=2, whereas a unit times (sqrt(−3))² has valuation one. The same issue occurs for even positive b divisible by p. The imported RD.7 theorem explicitly assumes unit thickness and cannot be applied as written.
 
-**Status:** New observation in this run; no matching correction found in the paper extraction or web results inspected. Requires independent review; do not treat this report as a disproof of Proposition 5.23.
+**Status:** Independent review REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy confirms the recorded proof gap. No disproof of Proposition 5.23 is claimed.
+
+**Independent review:** confirmed — Confirmed as a gap in the stated proof, not a disproof of Proposition 5.23. FSY pp. 41,45,50 give critical constant 2ap or 2bp. At k=9,p=3,a=3 the Hessian is nondegenerate and the critical value 18 has valuation two. Formal Morse reduction retains this thickness, whereas the imported RD.7 node assumes valuation one. An additional resolution/comparison argument is still required.
 
 **Searches performed.**
 

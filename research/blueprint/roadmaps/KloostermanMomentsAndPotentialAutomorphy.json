@@ -33,7 +33,8 @@
         "SchemeAndStackFoundations:SF.2",
         "EtaleDualityAndPerverseSheaves:EDC.1",
         "DeligneWeightsAndPurity:DWP.7",
-        "EtaleDualityAndPerverseSheaves:EDC.5"
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EtaleDualityAndPerverseSheaves:EDC.6"
       ]
     },
     {
@@ -49,8 +50,7 @@
       "title": "Exponential cohomology and middle extensions",
       "description": "Construct tensor potentials and the signed symmetric projector; prove Thom–Sebastiani, de Rham concentration, duality and support-to-ordinary middle identifications. Construct the Kloosterman inverse Fourier objects using imported holonomic and Hodge-module formalism.",
       "requires": [
-        "KloostermanMomentsAndPotentialAutomorphy:KM.2",
-        "EtaleDualityAndPerverseSheaves:EDC.5"
+        "KloostermanMomentsAndPotentialAutomorphy:KM.2"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "id": "FSY",
       "title": "Hodge theory of Kloosterman connections",
       "authors": "Javier Fresán, Claude Sabbah, Jeng-Daw Yu",
-      "edition": "Duke Mathematical Journal 171 (2022), 1649–1747; arXiv:1810.06454v5, 13 June 2022. All page numbers below are the 75-page arXiv v5 pagination.",
+      "edition": "Duke Mathematical Journal 171 (2022), 1649–1747; arXiv:1810.06454v5, 13 June 2022. All page numbers below are the 74-page arXiv v5 pagination.",
       "url": "https://arxiv.org/pdf/1810.06454v5",
       "sha256": "835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a",
       "accessed": "2026-10-19",
