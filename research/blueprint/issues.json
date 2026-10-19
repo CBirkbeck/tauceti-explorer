@@ -5287,5 +5287,6 @@
  "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3": 11229,
  "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3": 11231,
  "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2": 11233,
- "REV-PKG-BorelRegulators~codex": 11234
+ "REV-PKG-BorelRegulators~codex": 11234,
+ "REV-PKG-KTheoryFiniteLocalFields~codex": 11235
 }
