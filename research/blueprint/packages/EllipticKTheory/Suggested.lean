@@ -328,6 +328,28 @@ section Layer7
 
 variable {k K : Type*} [Field k] [Field K] [Algebra k K]
 
+/-- The correction has its function first (README §7.7): at order three its tame value is
+the inverse cube of the constant's residue; reversing the entries gives the cube. At residue
+`2` in characteristic zero these are `1/8` and `8`. -/
+example (P : Place k K) (h c : Kˣ) (hh : P.ord (h : K) = 3)
+    (hc : P.ord (c : K) = 0) :
+    tameValue P h c = P.residueUnit c hc ^ (-3 : ℤ) ∧
+      tameValue P c h = P.residueUnit c hc ^ (3 : ℤ) := by
+  constructor
+  · simp [tameValue, hh, hc, P.residueUnit_inv]
+    simpa using P.residueUnit_zpow hc (3 : ℤ)
+  · simp [tameValue, hh, hc]
+    simpa using P.residueUnit_zpow hc (3 : ℤ)
+
+/-- Two distinct formal symbols distinguish the integral ICM coefficient from the divided
+convention (README §7.7). This is a coefficient check, before the Steinberg quotient. -/
+example (s t : Kˣ × Kˣ) (hst : s ≠ t) :
+    let A : (Kˣ × Kˣ) →₀ ℚ := Finsupp.single s 3 + Finsupp.single t 1
+    ((1 / 3 : ℚ) • A) s = 1 ∧ ((1 / 3 : ℚ) • A) t = 1 / 3 ∧
+      A s = 3 ∧ A t = 1 := by
+  classical
+  norm_num [Finsupp.single_apply, hst, Ne.symm hst]
+
 /-- **Leading-unit formula** (README §7.1): for a uniformiser `t` with `f = t^a u` and `g = t^b w`,
 the tame value is `(−1)^{ab} ū^b w̄^{−a}`; in particular it does not depend on `t`. -/
 theorem tameValue_eq_leading (P : Place k K) (f g u w : Kˣ) (t : K) (ht : P.ord t = 1)
@@ -424,7 +446,7 @@ commits, and are stated only in the README.
   `reciprocitySequence_exact`, `tameKernel_finite`, `geisserLevine`, `geisserLevine_filteredColimit`, `cohomologyDescent`, `closedPoints_coprimeDegrees`, `degreeOneZeroCycle`,
   `zeroCycle_splitting`,
   `SymbolCandidate.toK2`, `SymbolCertificate.sound`, `blochClassLift`, `blochClass` and its well-definedness,
-  `blochClass_eq_Bloch` (the source-comparison gap),
+  `blochClass_eq_Bloch` (README §7.7: the integral ICM class maps to `C • blochClass a`),
   `blochRho`, `torsionFunction_divisor_compat`,
   `transfer_tame`, `galoisDescent`.
 * The positive-genus theorems on regular models, which need the genus of the generic curve, and
