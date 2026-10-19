@@ -14,6 +14,7 @@
     "SelmerIwasawaCohomology",
     "LubinTateFormalModulesAndQuasiCanonicalLifts",
     "DiophantineApproximationAndTranscendence",
+    "ModularSymbolsPadicLFunctions",
     "tauceti:TauCetiRoadmap/GlobalNumberFields",
     "tauceti:TauCetiRoadmap/ClassFieldTheory",
     "tauceti:TauCetiRoadmap/Chebotarev",
@@ -28,7 +29,6 @@
       "description": "Fix the actual CM Gross Q-curve, its good differential and a principal complex period lattice; compare the dual/Tate conventions with Kato. Compute the positive canonical root number when 2 splits. Choose a split auxiliary l with p∤(l−1), and define the finite anticyclotomic characters with separate order, layer and conductor indices.",
       "requires": [
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5",
         "CMAllPrimeMainConjectures:CZ.1",
         "ComplexMultiplicationAndExplicitReciprocity:CM.1",
         "ComplexMultiplicationAndExplicitReciprocity:CM.4",
@@ -73,7 +73,7 @@
     {
       "key": "NCM.3",
       "title": "Root numbers and forced central zeros",
-      "description": "Prove that auxiliary l-power twists preserve the root number. For nontrivial p-anticyclotomic characters of conductor p^c, prove W(φνχ)=(−1)^c W(φ). Deduce opposite-parity zero values through the actual Hecke functional equation, with the trivial character separate and without any signed local-unit freeness theorem.",
+      "description": "Prove that auxiliary l-power twists preserve the root number. For nontrivial p-anticyclotomic characters of conductor p^c, prove W(φνχ)=(−1)^c W(φ), using the local Fröhlich–Queyrut root number of the anticyclotomic character at p. Deduce opposite-parity zero values through the actual Hecke functional equation, with the trivial character separate and without any signed local-unit freeness theorem.",
       "requires": [
         "NonordinaryCMSpecialValues:NCM.0",
         "NonordinaryCMSpecialValues:NCM.2",
@@ -100,15 +100,19 @@
     {
       "key": "NCM.5",
       "title": "General nonvanishing and coefficient descent",
-      "description": "Prove the arbitrary-class-number central nonvanishing input through Jia’s Galois-average argument, with a precise generic Diophantine supplier boundary. For canonical data prove the coefficient field is unramified at p, then compare scalar and tensor character kernels using total ramification of the Lubin–Tate levels. Export this restricted repair to the local-unit consumer while retaining the ramified-coefficient limitation.",
+      "description": "Prove the arbitrary-class-number central nonvanishing input through Jia’s Galois-average argument: the fixed-support average with main term 2L(1,κ_R), invariance of the root number under Aut(C/K), Rohrlich’s lattice-point bound derived from the p-adic subspace theorem, and Galois stability of vanishing through the weight-two CM newform and the coefficient-embedding comparison of modular critical values. For canonical data prove that the coefficient field is unramified at p and that the normalized values lie in unramified fields, by Kato’s reciprocity at prime-to-p level; then compare scalar and tensor character kernels using total ramification of the Lubin–Tate levels. Export this restricted repair to the local-unit consumer while retaining the ramified-coefficient limitation.",
       "requires": [
         "NonordinaryCMSpecialValues:NCM.0",
+        "NonordinaryCMSpecialValues:NCM.1",
         "NonordinaryCMSpecialValues:NCM.2",
         "NonordinaryCMSpecialValues:NCM.3",
+        "NonordinaryCMSpecialValues:NCM.4",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.5",
+        "CMAllPrimeMainConjectures:CZ.5",
         "ComplexMultiplicationAndExplicitReciprocity:CM.4",
         "DiophantineApproximationAndTranscendence:DT.2",
+        "ModularSymbolsPadicLFunctions:L4",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",

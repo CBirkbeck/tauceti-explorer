@@ -2,6 +2,7 @@ import Mathlib.Algebra.MonoidAlgebra.Basic
 import Mathlib.Basic.Complex.Basic
 import Mathlib.NumberTheory.LSeries.Nonvanishing
 import Mathlib.RingTheory.LinearDisjoint
+import Mathlib.Tactic.NormNum.LegendreSymbol
 
 /-!
 This file is not the roadmap and is not exhaustive. The definitive roadmap is
@@ -48,12 +49,14 @@ theorem scale_period (u Ω : ℂˣ) (L : ℂ) :
       (u : ℂ)⁻¹ * normalizedCentralValue Ω L := by
   simp [normalizedCentralValue, mul_comm, mul_left_comm]
 
+/-- `period_zero_value`: a zero L-value stays zero after normalization. -/
 example (Ω : ℂˣ) : normalizedCentralValue Ω 0 = 0 := by
   simp [normalizedCentralValue]
 
 example (L : ℂ) : normalizedCentralValue 1 L = L := by
   simp [normalizedCentralValue]
 
+/-- `period_scale_unit`: scaling the period by 2 halves the normalized value. -/
 example : normalizedCentralValue (Units.mk0 (2 : ℂ) (by norm_num)) 6 = 3 := by
   norm_num [normalizedCentralValue]
 
@@ -78,7 +81,8 @@ example :
       (MonoidAlgebra.single Complex.I 1) = Complex.I := by
   simp
 
-/-- A direct evaluation and an inverse evaluation differ in this small test. -/
+/-- `auxiliary_direct_evaluation`: a direct evaluation and an inverse evaluation
+differ in this small test. -/
 example :
     MonoidAlgebra.lift ℂ ℂ ℂ (MonoidHom.id ℂ)
       (MonoidAlgebra.single Complex.I 1) ≠ (Complex.I : ℂ)⁻¹ := by
@@ -99,7 +103,8 @@ No unrestricted ramified-coefficient version is asserted.
 -/
 example (h : A.LinearDisjoint B) (x : A ⊗[R] B) :
     A.mulMap B x = 0 ↔ x = 0 := by
-  sorry
+  have hinj := Subalgebra.linearDisjoint_iff_injective.mp h
+  exact ⟨fun hx => hinj (by rw [hx, map_zero]), fun hx => by rw [hx, map_zero]⟩
 
 /-- Literal weighted tensors, rather than just their scalar values, are tested.
 The character values must belong to A; NCM.2 supplies that field containment.
@@ -108,7 +113,8 @@ example {ι : Type*} (s : Finset ι) (χ : ι → A) (x : ι → A ⊗[R] B)
     (h : A.LinearDisjoint B) :
     A.mulMap B (∑ i ∈ s, (χ i ⊗ₜ[R] (1 : B)) * x i) = 0 ↔
       (∑ i ∈ s, (χ i ⊗ₜ[R] (1 : B)) * x i) = 0 := by
-  sorry
+  have hinj := Subalgebra.linearDisjoint_iff_injective.mp h
+  exact ⟨fun hx => hinj (by rw [hx, map_zero]), fun hx => by rw [hx, map_zero]⟩
 
 end TensorComparison
 
@@ -118,5 +124,36 @@ The CM Galois-average estimate is a separate README target.
 example {N : ℕ} [NeZero N] (κ : DirichletCharacter ℂ N) (hκ : κ ≠ 1) :
     DirichletCharacter.LFunction κ 1 ≠ 0 := by
   exact DirichletCharacter.LFunction_apply_one_ne_zero hκ
+
+section Computations
+
+/-- NCM.0/canonical-root-sign acceptance: the canonical sign is the Kronecker
+symbol (2/D); it is +1 for D = 7, where 2 splits, and −1 for D = 11. -/
+example : jacobiSym 2 7 = 1 ∧ jacobiSym 2 11 = -1 := by
+  constructor <;> norm_num
+
+/-- NCM.0/auxiliary-prime, a concrete instance: for K = ℚ(√−7) and p = 5, the prime
+p is inert, l = 23 splits, and p does not divide l − 1. -/
+example : jacobiSym (-7) 5 = -1 ∧ jacobiSym (-7) 23 = 1 ∧ ¬ (5 ∣ 23 - 1) := by
+  refine ⟨by norm_num, by norm_num, by decide⟩
+
+/-- NCM.4/ramified-euler-factors and NCM.1/elliptic-reciprocity acceptance: the
+Euler factor of `barφ ν` at the inert p at s = 1 is 1 − (−p)/p² = 1 + 1/p. -/
+example (p : ℚ) (hp : p ≠ 0) : 1 - (-p) / p ^ 2 = 1 + 1 / p := by
+  field_simp
+  ring
+
+/-- NCM.5/averaged-value-limit acceptance: for K = ℚ(√−7) and support {5}, the
+main term carries the factor 1 − κ_K(5)/5 = 6/5. -/
+example : (1 : ℚ) - (jacobiSym (-7) 5 : ℚ) / 5 = 6 / 5 := by
+  norm_num
+
+/-- NCM.5/rohrlich-lattice-count: the exponents d = 11/20 and s = 7/16 satisfy
+1/2 < d < 3/5 and 5d/2 − 1 < s < 1/2. -/
+example : (1 : ℚ) / 2 < 11 / 20 ∧ (11 : ℚ) / 20 < 3 / 5 ∧
+    5 * (11 / 20 : ℚ) / 2 - 1 < 7 / 16 ∧ (7 : ℚ) / 16 < 1 / 2 := by
+  norm_num
+
+end Computations
 
 end TauCeti.NonordinaryCMSpecialValues

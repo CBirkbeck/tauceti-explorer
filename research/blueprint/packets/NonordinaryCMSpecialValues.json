@@ -128,7 +128,7 @@
       "sha256": "5933a238857a5ef29aa1013a430aa85c55fdd74245c7930bb123b4135c821e18",
       "accessed": "2026-10-19",
       "readSections": [
-        "Proof of Proposition 8, pp.246–247, visually checked local root-number argument; its elliptic curve over Q scope is retained"
+        "Proof of Proposition 1 and the discussion after it, pp.246–247, visually checked local root-number argument, including the citation of Fröhlich–Queyrut for w(ρ); its elliptic curve over Q scope is retained"
       ]
     },
     {
@@ -152,7 +152,8 @@
       "sha256": "7ece861469bf83fddff71c6f64f20ae84b416b532c51fd010f1b3e7c13b33539",
       "accessed": "2026-10-19",
       "readSections": [
-        "Introduction and unnumbered main theorem, pp.383–385, visually checked; its class-number-one hypothesis prevents using it alone for general Gross Q-curves"
+        "Introduction and unnumbered main theorem, pp.383–385; its class-number-one hypothesis prevents using it alone for general Gross Q-curves",
+        "Read on page images by the review: §1, pp.386–388 and 391–392 (κ vanishing on R, formulas (1)–(20), (29)–(35)); §2 Main Lemma, pp.395–397 and its application p.400; §3, Propositions 1–2 with proofs, pp.401–407; start of §4, p.407"
       ]
     },
     {
@@ -166,6 +167,18 @@
       "readSections": [
         "Entire v1, pp.1–21; Theorem 1 p.2; Property 1 pp.3–4; equations (2.20)–(2.29), pp.6–7; Propositions 1–2 pp.7–8; Main Lemma 2 pp.13–14; Lemma 3 pp.17–18; Proposition 5 pp.18–20; only the order-zero case is used"
       ]
+    },
+    {
+      "id": "QUEYRUT74",
+      "title": "Sur l’équation fonctionnelle des séries L d’Artin pour des caractères réels",
+      "authors": "Jacques Queyrut",
+      "edition": "Journées arithmétiques (Grenoble, 1973), Mémoires de la Société Mathématique de France 37 (1974), 133–135, Numdam scan",
+      "url": "https://www.numdam.org/item/MSMF_1974__37__133_0.pdf",
+      "sha256": "99eeef3ede61f91ad6c7074d5f0defae1cf1eb85b53c3ddb2b75c7db34f2790f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire note, pp.133–135, including the reduction to the dihedral case and the local formula on p.135"
+      ]
     }
   ],
   "nodes": [
@@ -177,7 +190,7 @@
       ],
       "title": "An integral elliptic CM period",
       "kind": "construction",
-      "statement": "For a CM Gross Q-curve E/H of type (1,0), good at every prime above the inert p, choose an actual smooth integral Weierstrass model near p and its Néron differential ω. After moving to a conjugate in the ideal-class orbit, choose Ω∈C× with the integration lattice of (E,ω) equal to Ω O_K. The normalized central value A_S(η;E,ω,Ω) is Ω⁻¹ L_S(η,1), initially complex; its algebraic and p-adic avatars are supplied by the comparison theorem, not by a map C→C_p. Here S is a finite set of finite primes and L_S deletes their native local factors.",
+      "statement": "For a CM Gross Q-curve E/H of type (1,0), good at every prime above the inert p, choose an actual smooth integral Weierstrass model near p and its Néron differential ω. After moving to a conjugate in the ideal-class orbit, choose Ω∈C× with the integration lattice of (E,ω) equal to Ω O_K. The normalized central value A_S(η;E,ω,Ω) is Ω⁻¹ L_S(η,1), a complex number. Its algebraicity for η=barφχ with χ of finite order, and hence its p-adic avatar under the fixed embeddings, is a consequence of the elliptic-unit reciprocity law (NCM.1/elliptic-reciprocity, Kato's Proposition 15.9); it is not part of this construction, and no map C→C_p is used. Here S is a finite set of finite primes and L_S deletes their native local factors.",
       "hypotheses": [
         "K is imaginary quadratic; p≥5 is inert, p∤h_K, and p is prime to the conductor f of φ.",
         "E/H realizes φ∘N_(H/K), is a Q-curve, and the fixed embeddings of algebraic numbers into C and C_p agree on K.",
@@ -185,7 +198,7 @@
       ],
       "proofSteps": [
         "Import the CM curve and its good model from CM.4, and its analytic ideal-lattice realization from CM.1. Move the lattice class by the inverse ideal class using CM reciprocity.",
-        "Integrate the actual invariant differential to obtain Ω O_K. Define the quotient in C, then use the requested algebraicity/Betti–de Rham comparison to give its p-adic meaning.",
+        "Integrate the actual invariant differential to obtain Ω O_K and define the quotient in C. Its algebraic meaning is read off later from Kato's Proposition 15.9, whose dual-exponential image lies in the algebraic de Rham line S(φ)⊗_K K′; the GL₂/Q period interface of AL.5 is not used.",
         "Retain the differential and both embeddings as data. No ordinary multiplicative formal-group trivialization or Katz p-adic period is part of this construction."
       ],
       "acceptance": [
@@ -196,10 +209,7 @@
         "ComplexMultiplicationAndExplicitReciprocity:CM.4/gross-curve-good-reduction",
         "ComplexMultiplicationAndExplicitReciprocity:CM.1/ideal-lattice-curve",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/completed-hecke-l-function",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
-        "mathlib:NumberField.RingOfIntegers",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5"
+        "mathlib:NumberField.RingOfIntegers"
       ],
       "sources": [
         {
@@ -267,8 +277,8 @@
         },
         {
           "name": "period_inert_prime",
-          "kind": "agreement",
-          "statement": "The complex period remains defined for inert p even though the ordinary Ω_p of AutomorphicPadicLFunctions:L3/cm-periods is unavailable."
+          "kind": "non-example",
+          "statement": "The ordinary p-adic period Ω_p of AutomorphicPadicLFunctions:L3/cm-periods is not part of the datum: it needs good ordinary reduction at p, which fails at the inert p, while Ω is defined."
         }
       ],
       "uses": [
@@ -436,6 +446,11 @@
           "name": "AuxiliaryCharacter.baseChange",
           "role": "functoriality",
           "statement": "Any embedding of the value field carries character evaluation, conductor and order to their corresponding avatars."
+        },
+        {
+          "name": "AuxiliaryCharacter.group",
+          "role": "structure",
+          "statement": "X_l is an abelian group under pointwise multiplication, the Pontryagin dual of Γ_l≅Z_l, hence isomorphic to Q_l/Z_l; the order of a product divides the larger order, and ν⁻¹ is the conjugate character ν∘c."
         }
       ],
       "tests": [
@@ -451,7 +466,7 @@
         },
         {
           "name": "auxiliary_direct_evaluation",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "For g with ν(g)=ζ_l, the group-algebra basis element [g] evaluates to ζ_l, which differs from ζ_l⁻¹ for l≥5."
         },
         {
@@ -532,6 +547,7 @@
       "proofSteps": [
         "Import CZ.0’s theta distribution, elliptic-unit module and tower Kummer map, then the rational reciprocity theorem CZ.1.",
         "Calculate the smoothing operator on the rank-one φ-component, prove its denominators are units in the chosen lattice, and identify the inverse-action Tate lattice through NCM.0/dual-tate-convention. This is the unresolved integral supplier boundary, not an asserted consequence of localization.",
+        "Sufficient route for the BKO application (recorded under G1): only the image after the ν-evaluation, the augmentation over Gal(H/K) and the Δ-invariant projection has to be integral. Under the twist (3.5) Kato's smoothing factor N(a)−σ_a becomes N(a)−φ(a)σ_a (Kato (15.9.2)). Take a=(α) with α≡1 mod 6·f·l^(m+1) and α≡2 mod p. On that component σ_a acts through ν(a)=1 and a pro-p element, so the factor reduces to N(a)−φ(a)=α(ᾱ−1), a p-adic unit; it is therefore invertible in the local Iwasawa algebra there, and Kato's (15.6.3) gives integrality of the projected element without the full lattice statement.",
         "Use the native Kummer map and its norm/corestriction compatibility to obtain the integral family and compare its rationalization with Kato’s normalized γ element."
       ],
       "acceptance": [
@@ -558,6 +574,11 @@
           "sourceId": "BKO21",
           "locator": "§3.0.2, pp.951–952, class z_a and (3.4)",
           "match": "BKO uses an integral class with this normalization, which requires a lattice comparison beyond the rational formula."
+        },
+        {
+          "sourceId": "KATO04",
+          "locator": "(15.6.3) p.254 and (15.9.1)–(15.9.2) pp.259–260",
+          "match": "The smoothed element (N(a)−σ_a)z is integral, and after twisting by the CM character the smoothing factor reads N(a)−ψ(a)σ_a."
         }
       ],
       "implementationStatus": "unchecked",
@@ -609,7 +630,7 @@
         },
         {
           "name": "zeta_norm_support",
-          "kind": "agreement",
+          "kind": "characterisation",
           "statement": "For two successive p-levels after p is already in the modulus, corestriction gives the previous class without an extra new-prime Euler factor."
         },
         {
@@ -727,7 +748,7 @@
       ],
       "title": "Compatibility of reciprocity with period changes",
       "kind": "comparison",
-      "statement": "For fixed ω, replacing Ω by uΩ and γ by u⁻¹γ, with u a unit in the common integral coefficient field, multiplies z_a and both sides of the reciprocity identity by u⁻¹. Replacing instead the good differential by vω and the period by vΩ, with v a local integral unit, leaves γ=per_φ(ω)/Ω and z_a unchanged; the scalar normalized value becomes v⁻¹A, and its product with the de Rham generator vω is unchanged. Thus the p-unit assertion is independent of the allowed choices, with the two changes distinguished.",
+      "statement": "For fixed ω, replacing Ω by uΩ and γ by u⁻¹γ, with u a unit in the common integral coefficient field, multiplies z_a and both sides of the reciprocity identity by u⁻¹. Replacing instead the good differential by vω and the period by vΩ, with v∈H× a unit at the chosen place above p (so that vω is again an algebraic differential and Néron-normalized there), leaves γ=per_φ(ω)/Ω and z_a unchanged; the scalar normalized value becomes v⁻¹A, and its product with the de Rham generator vω is unchanged. Thus the p-unit assertion is independent of the allowed choices, with the two changes distinguished.",
       "hypotheses": [
         "The new period still represents the same principal lattice in the first case only when u is an allowed lattice unit; algebraic renormalizations outside this case must also change the Betti normalization explicitly.",
         "All scalars are interpreted through the common algebraic embeddings."
@@ -1054,7 +1075,7 @@
       ],
       "proofSteps": [
         "At the two primes over l the finite characters are inverse under conjugation and have the same conductor exponent. Pair their normalized Gauss sums using ε(ν_l)ε(ν_l⁻¹)=ν_l(−1)=1. The product of the two unramified unitary CM values is φ((l))/l=1 because l splits. Hence the conductor-power factors from the unramified twist also multiply to one.",
-        "At the primes dividing f, the remaining twist is evaluation on a conjugation-stable ideal. An anticyclotomic character of odd order is trivial on this ideal.",
+        "At every place v not above l, ν_v is unramified, so the ratio of the local root numbers of φν and φ is ν_v evaluated on ϖ_v^(a(φ_v)+n(ψ_v)). The product of these ratios is ν evaluated on f·𝔡_K, the conductor of φ times the different of K. Both ideals are stable under complex conjugation (f by the conjugation identity, 𝔡_K=(√−D)), and an anticyclotomic character of odd order is trivial on a conjugation-stable ideal b, since ν(b)=ν(b̄)=ν(b)⁻¹.",
         "All other local ratios are one. Multiply the local ratios, treating ν=1 directly. The class-number-one scope of Greenberg’s global statement is replaced by this local calculation in general K."
       ],
       "acceptance": [
@@ -1077,8 +1098,18 @@
         },
         {
           "sourceId": "GREENBERG83",
-          "locator": "Proof of Proposition 8, p.247",
+          "locator": "§1, pp.246–247: the local root-number computation in the proof of Proposition 1 and the discussion of w(Ψρ) on p.247",
           "match": "The local split-prime calculation explains the cancellation; its E/Q restriction is not imported as a theorem about arbitrary K."
+        },
+        {
+          "sourceId": "ROHRLICH-NOTES",
+          "locator": "Lecture 2 §5.1, (2.39)–(2.43), pp.34–35",
+          "match": "Local root numbers of a character: the unramified formula through the uniformizer power given by the conductor and the different, used for the place-by-place ratio."
+        },
+        {
+          "sourceId": "FINIS06",
+          "locator": "Proof of Corollary 2.3, p.778",
+          "match": "For an anticyclotomic character the contributions of two conjugate split places to the root number cancel, the same cancellation used here at the two primes over l."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1101,7 +1132,7 @@
       ],
       "proofSteps": [
         "Use the local conductor description from the inert anticyclotomic class-field quotient to obtain c=n+1.",
-        "At p the unitary CM character is unramified with uniformizer value −1, and ν_p=1. The local anticyclotomic χ is trivial on Q_p×. Evaluate its normalized finite Gauss sum by the trace-zero direction: it is χ(δ) for a trace-zero δ∈Φ×. Since δ²∈Q_p× and χ has odd order, χ(δ)=1. Twisting by the unramified value −1 contributes (−1)^c. At every other place the twist ratio is χ on a conjugation-stable conductor/different ideal, hence one by odd order.",
+        "At p the unitary CM character is unramified with uniformizer value −1, and ν_p=1. The local anticyclotomic χ_p is trivial on Q_p×. By the local Fröhlich–Queyrut theorem for a character of a quadratic extension trivial on the base field, its root number with respect to ψ_(Q_p)∘Tr is χ_p(Δ) for any Δ∈Φ× with Δ²∈Q_p× (a trace-zero element); since χ_p(Δ)²=χ_p(Δ²)=1 and χ_p has odd order, it equals 1. This theorem is requested from AL.1 (gap G7); it is not a routine Gauss-sum manipulation. Twisting by the unramified value −1 contributes (−1)^c, since n(ψ_p)=0. At every other place the twist ratio is χ on the conjugation-stable ideal f·l^m·𝔡_K, hence one by odd order.",
         "Use auxiliary sign invariance and multiply the local factors. Translate Greenberg’s n into the actual conductor c before comparing parities."
       ],
       "acceptance": [
@@ -1116,18 +1147,29 @@
         "AutomorphicLFunctionsAndLocalFactors:AL.1/local-quasicharacter-conductor",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/local-gauss-sum",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-epsilon-factor",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
       ],
       "sources": [
         {
           "sourceId": "GREENBERG83",
-          "locator": "Proof of Proposition 8, pp.246–247",
+          "locator": "§1, pp.246–247: the local root-number computation in the proof of Proposition 1 and the discussion of w(Ψρ) on p.247",
           "match": "The inert local conductor gives the parity factor."
         },
         {
           "sourceId": "BKO21",
           "locator": "Proof of Proposition 3.3(3), pp.953–954",
           "match": "The vanishing parity is the parity of the actual conductor exponent, with the base character separate."
+        },
+        {
+          "sourceId": "QUEYRUT74",
+          "locator": "Second theorem and the sketch of its proof, p.135",
+          "match": "For a quadratic extension E/k and a finite-order character trivial on the idele classes of k, the local root number at each place is the value of the character at an element whose square lies in k, so the global root number is one."
+        },
+        {
+          "sourceId": "GREENBERG83",
+          "locator": "p.247, the root number w(Ψρ) and its reference [7]",
+          "match": "Greenberg obtains w(ρ)=+1 for the anticyclotomic twist from Fröhlich–Queyrut, then the conductor p^(n+1) gives the sign (−1)^(n+1)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1211,8 +1253,8 @@
       "sources": [
         {
           "sourceId": "FINIS06",
-          "locator": "§1, pp.767–770, Theorem 1.1(2); §2, pp.771–774, (2.1)–(2.3)",
-          "match": "The idelic infinity type, self-duality and the two distinct prime roles determine the correct norm twist."
+          "locator": "§1, p.768 (infinity type, dual λ* and anticyclotomic characters) and Theorem 1.1(2), p.769; proof of Corollary 2.3, p.778",
+          "match": "Finis's type (k,j) means λ_∞(x)=x^(−k)x̄^(−j) and λ*(x)=λ(x̄)⁻¹|x|; the theorem separates the split tower prime from the valuation prime, and the root number of an anticyclotomic character is a product over nonsplit primes."
         },
         {
           "sourceId": "BKO21",
@@ -1264,7 +1306,7 @@
         },
         {
           "name": "finis_central_shift",
-          "kind": "agreement",
+          "kind": "compatibility",
           "statement": "The Euler denominator at s=0 is 1−barφ(a)ν(a)/Q, matching the barφν denominator at s=1."
         },
         {
@@ -1331,10 +1373,7 @@
           "match": "These hypotheses force the local terms to vanish in this particular family."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Vanishing of Finis correction terms"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NonordinaryCMSpecialValues:NCM.4/ramified-euler-factors",
@@ -1372,10 +1411,7 @@
           "match": "The ramified auxiliary factors disappear in the unit value, while the p-deleted derivative formula has a different normalization."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Ramified auxiliary Euler factors"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "NonordinaryCMSpecialValues:NCM.4/finis-unit-values",
@@ -1459,6 +1495,46 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "NonordinaryCMSpecialValues:NCM.5/rohrlich-lattice-count",
+      "parentStageId": "NonordinaryCMSpecialValues:NCM.5",
+      "realises": [
+        "NonordinaryCMSpecialValues:NCM.5"
+      ],
+      "title": "Rohrlich's lattice-point bound for p-adic directions",
+      "kind": "theorem",
+      "statement": "Let P be a finite set of rational primes and, for each p∈P, let (α_p,β_p)∈Z_p², not both zero, be elements algebraic over Q. For a positive integer q divisible only by primes of P and t>0, let M(q,t) be the number of (u,v)∈Z² with uβ_p−vα_p≡0 mod qZ_p and uβ_p−vα_p≠0 for every p∈P, and max(|u|,|v|)≤t. Then (1) for each fixed c<1/2, M(q,q^c)=0 for all sufficiently large q; (2) there are absolute constants d>1/2 and s<1/2 (for example d=11/20 and s=7/16) with M(q,q^d)<q^s for all sufficiently large q.",
+      "hypotheses": [
+        "α_p, β_p∈Z_p are algebraic over Q and not both zero; q has prime factors only in P.",
+        "The congruence has modulus qZ_p and the boxes have sides q^c and q^d; Jia v1 §4 prints Z_p and q⁻¹ there (E3, E4)."
+      ],
+      "proofSteps": [
+        "Ridout's homogeneous inequality: for algebraic γ_p∈Q_p and κ>2 there is k>0 with ∏_(p∈P)|u−vγ_p|_p>k·max(|u|,|v|)^(−κ) whenever the left side is nonzero. Derive it from the p-adic subspace theorem with n=2: take the forms X, Y at ∞ and X−γ_pY, Y at each p∈P, each pair in general position. A primitive (u,v) violating the bound makes the double product at most max(|u|,|v|)^(2−κ), because |v|_∞∏_(p∈P)|v|_p≤|v|. So such solutions lie on finitely many lines through 0, each with at most two primitive points. Multiplying (u,v) by n≠0 keeps the bound, since ∏_(p∈P)|n|_p≥|n|⁻¹.",
+        "Part (1): choose j with β_p+jα_p≠0 for every p, put γ_p=α_p(β_p+jα_p)⁻¹ and choose κ with c<1/κ<1/2. A pair in M(q,q^c) has ∏_p|uβ_p−vα_p|_p≤q⁻¹ and max(|u|,|v|)≤q^c. The Ridout bound gives ∏_p|uβ_p−vα_p|_p>k₁q^(−κc), which is impossible for large q since κc<1.",
+        "Part (2): fix 1/2<d<3/5 and 5d/2−1<s<1/2. Cover the box of side q^d by at most ([2q^(d−c)]+1)² squares of side q^c. If M(q,q^d)≥q^s, two points of one square differ by a pair in M(q,q^c) unless the difference lies on one of the lines uβ_p=vα_p. Part (1) excludes the first case for large q. In the second, a positive proportion of the points lies on one rational line; a Dirichlet-principle subdivision along that line and the rational-slope case give a contradiction (Rohrlich, pp.403–407)."
+      ],
+      "acceptance": [
+        "For P={p} and a rational direction (α_p,β_p)=(a,b), |ub−va| is a nonzero integer divisible by q, so M(q,q^d)=0 for any fixed d<1 once q is large.",
+        "With modulus Z_p instead of qZ_p every pair in the box off the finitely many direction lines is counted, and part (1) fails."
+      ],
+      "prerequisites": [
+        "DiophantineApproximationAndTranscendence:DT.2/p-adic-subspace-theorem-general-position"
+      ],
+      "sources": [
+        {
+          "sourceId": "ROHRLICH84",
+          "locator": "§3, Propositions 1 and 2 with proofs, pp.401–407",
+          "match": "Section 3 is self-contained: the vanishing count follows from Ridout's theorem, and the q^s bound from a covering by squares, the vanishing count and a rational-line case."
+        },
+        {
+          "sourceId": "JIA24v1",
+          "locator": "§4, Proposition 5 and its proof, pp.18–20",
+          "match": "Jia restates the setting, proves the vanishing count and refers to Rohrlich §3 for the second bound; the class-number generalization does not change this step."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DESIGN-NonordinaryCMSpecialValues"
+    },
+    {
       "id": "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
       "parentStageId": "NonordinaryCMSpecialValues:NCM.5",
       "realises": [
@@ -1466,15 +1542,16 @@
       ],
       "title": "The CM Galois-average nonvanishing estimate",
       "kind": "theorem",
-      "statement": "Let K be any imaginary quadratic field and φ an algebraic ideal Hecke character of type (1,0) satisfying φ(bar a)=barφ(a), equivalently φ((n))=κ_K(n)n on rational integers prime to its conductor. Fix a finite set P of rational primes and let ρ range over finite-order anticyclotomic characters ramified only above P with W(φρ)=+1. Partition the family by its finite rational conductor support R, and fix one such support. Write η=φρ, f(η)=sqrt(N cond(η)), and κ_R for the quadratic Dirichlet character of K induced to a modulus containing R, extended by zero at every prime of R. As f(η) tends to infinity within this fixed-support family, the average of L(1,η^σ) over the K-embeddings of the character-value field tends to 2L(1,κ_R), which is nonzero. There are only finitely many supports R. The statement includes arbitrary class number.",
+      "statement": "Let K be any imaginary quadratic field and φ an algebraic ideal Hecke character of type (1,0) satisfying φ(bar a)=barφ(a), equivalently φ((n))=κ_K(n)n on rational integers prime to its conductor. Fix a finite set P of rational primes and let ρ range over the finite-order characters of Gal(L_P/K), where L_P is the union of the ring class fields of K whose conductors are divisible only by primes of P, with W(φρ)=+1. Partition the family by its finite rational conductor support R, and fix one such support. Write η=φρ, f(η)=sqrt(N cond(η)), and κ_R for the quadratic Dirichlet character of K induced to a modulus containing R, extended by zero at every prime of R. As f(η) tends to infinity within this fixed-support family, the average of L(1,η^σ) over the K-embeddings σ of the character-value field tends to 2L(1,κ_R), which is nonzero. There are only finitely many supports R. The statement includes arbitrary class number.",
       "hypotheses": [
-        "Use the conjugation-stable primitive conductor and the CM Galois action on character values.",
-        "The normalized algebraicity theorem makes vanishing stable under these coefficient embeddings; the exact general-CM export is G2. The generic mixed-place counting consequence needed below is G4."
+        "Use the conjugation-stable primitive conductor and the action of Aut(C/K) on character values.",
+        "The average is purely analytic: each η^σ is again a type-(1,0) character with the same conductor and root number. The algebraicity input that makes a single vanishing value force the whole average to vanish is used only in NCM.5/central-nonvanishing."
       ],
       "proofSteps": [
-        "Partition by the finite conductor support R as in Jia’s p.4 reduction. Use the sign-positive approximate functional equation with the native primitive character extended by zero at its conductor. The rational-ideal contribution is restricted to integers prime to R and tends to 2L(1,κ_R), with A=sqrt(|disc K|)/(2π). Equivalently it is 2L(1,κ_K) times the finite nonzero factors 1−κ_K(q)/q for q∈R. The nonconjugation-stable ideal contribution has exponential cutoff exp(−N(a)/(Af)).",
-        "For N_η(t), the count of nonstable ideals of norm≤t with nonzero averaged character, use the trace-of-roots-of-unity criterion. Fix an ideal-class representative a_0 with a_0^h=(w_0); write a=(w)a_0 and keep the h-th root of w_0. Jia’s Main Lemma turns nonzero trace into finitely many simultaneous p-adic direction congruences modulo q(η), with q(η) comparable to f(η). Lemma 3 rescales the directions to algebraic ones. This class-group step cannot be replaced by the class-number-one principal-ideal argument.",
-        "Import the homogeneous mixed-place Diophantine counting consequence: N_η(f^a)=0 eventually for each a<1, and for some b>1,r<1/2, N_η(f^b)<f^r. The second estimate’s underlying generic counting proof remains supplier G4.",
+        "Partition by the finite conductor support R as in Jia's p.4 reduction. Use the sign-positive approximate functional equation with the native primitive character extended by zero at its conductor. The rational-ideal contribution is restricted to integers prime to R (Rohrlich 1984, p.386, defines κ to vanish on R) and tends to 2L(1,κ_R), with A=sqrt(|disc K|)/(2π). Equivalently it is 2L(1,κ_K) times the finite nonzero factors 1−κ_K(q)/q for q∈R. The nonconjugation-stable ideal contribution has exponential cutoff exp(−N(a)/(Af)).",
+        "For σ∈Aut(C/K), η^σ is again a Hecke character of type (1,0) with the same conductor and with η^σ((n))=κ_K(n)n. Its root number equals W(η): write W through the explicit Gauss-sum formula and let σ act on the Gauss sum (Jia (2.13)–(2.18), pp.5–6; Rohrlich 1984 §4, p.407). So the whole Galois orbit lies in the sign-positive family and the average (2.20)–(2.22) is formed inside it.",
+        "For N_η(t), the count of nonstable ideals of norm≤t with nonzero averaged character, use the trace-of-roots-of-unity criterion (Jia Lemma 1). Fix an ideal-class representative a_0 with a_0^h=(w_0); write a=(w)a_0 and keep the h-th root of w_0. Jia's Main Lemma turns nonzero trace into finitely many simultaneous p-adic direction congruences modulo q(η), with q(η) comparable to f(η). Lemma 3 rescales the directions to algebraic ones. This class-group step cannot be replaced by the class-number-one principal-ideal argument.",
+        "Apply NCM.5/rohrlich-lattice-count through Jia's transfer (Propositions 3 and 4, pp.15–17): N_η(t) is bounded by finitely many counts M(q(η),k·t^(1/2)). Hence N_η(f^a)=0 eventually for each a<1, and N_η(f^b)<f^r for some b>1, r<1/2.",
         "Choose 2r<a<1. The short sum is zero; the middle sum is O(f^(r−a/2)); polynomial ideal counting and the exponential cutoff make the tail tend to zero. The induced quadratic κ_R is nontrivial, so import the pinned Dirichlet L(1) nonvanishing theorem for this actual fixed-support main term. Finitely many supports give the finite-exception result for the full family."
       ],
       "acceptance": [
@@ -1484,16 +1561,13 @@
       ],
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
-        "DiophantineApproximationAndTranscendence:DT.2/p-adic-subspace-theorem-general-position",
-        "DiophantineApproximationAndTranscendence:DT.2",
         "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-5-ideal-and-prime-estimates",
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
         "mathlib:DirichletCharacter.LFunction_apply_one_ne_zero",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5"
+        "NonordinaryCMSpecialValues:NCM.5/rohrlich-lattice-count",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/explicit-epsilon-factors"
       ],
       "sources": [
         {
@@ -1503,8 +1577,8 @@
         },
         {
           "sourceId": "ROHRLICH84",
-          "locator": "Main theorem and discussion, pp.383–385",
-          "match": "The older result has class number one; it motivates but does not supply this generality."
+          "locator": "§1, pp.386–392, with (1), (14) and (17)–(20); §4, p.407",
+          "match": "The class-number-one template: κ vanishes on the support R, the Galois-averaged formula has main term 2L(1,κ), and the root number is unchanged by automorphisms of C fixing K."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1523,11 +1597,11 @@
       "statement": "For a BKO CM Gross Q-curve character φ over arbitrary imaginary quadratic K, and fixed ν∈X_l, all but finitely many finite-order characters χ of the p-anticyclotomic Z_p-extension with W(barφνχ)=+1 satisfy L(barφνχ,1)≠0. For nontrivial χ of conductor p^c this is the parity (−1)^c W(φ)=+1. Every finite-deleted value L_S(barφνχ,1) is then nonzero as well: at an unramified prime the removed Euler polynomial has parameter of complex absolute value N(q)⁻¹/²<1, and a ramified rank-one prime has factor 1. The theorem provides no derivative assertion in the opposite-sign case.",
       "hypotheses": [
         "p≥5 is inert, p∤h_K N(f), and ν is fixed, so P={p,l} and the conductor outside p is bounded.",
-        "The CM algebraicity comparison applies to the same normalized periods and Galois action as in the average."
+        "Vanishing at s=1 is transported along Aut(C/K) by the weight-two CM newform attached to the character and the coefficient-embedding comparison of normalized critical values of newforms."
       ],
       "proofSteps": [
         "Reindex the ideal series by a↦bar a: L(barφνχ,s)=L(φν⁻¹χ⁻¹,s). Apply the average theorem to the type-(1,0) character φ and the finite character ρ=ν⁻¹χ⁻¹, rather than assigning type (1,0) to barφ. The family χ↦ν⁻¹χ⁻¹ is injective and has unbounded p-conductor; its root number is unchanged under this equality of completed L-functions.",
-        "If one central value vanished, the algebraicity/Galois comparison would make all terms in its coefficient-embedding average vanish. The nonzero limiting main term excludes this for sufficiently large conductor.",
+        "If L(1,η)=0 for η=φν⁻¹χ⁻¹, let θ_η be the weight-two CM newform with L(θ_η,s)=L(η,s) (CZ.5/cm-newform-characterization, case k=2). For σ∈Aut(C/K) its coefficient conjugate θ_η^σ is θ_(η^σ). The coefficient-embedding comparison carries the period-normalized value L(θ_η,1)/Ω⁺ to L(θ_(η^σ),1)/Ω⁺, so every L(1,η^σ) vanishes and the Galois average is zero (Jia p.2, citing Shimura). The nonzero limiting main term of NCM.5/averaged-value-limit excludes this for sufficiently large conductor.",
         "There are only finitely many χ of bounded conductor. Combine this with the parity theorem. For any finite Euler deletion, the unramified local parameter at s=1 has complex absolute value N(q)⁻¹/²<1 and therefore its polynomial does not vanish; the ramified factor is 1. Thus the same finite exceptional set works for every fixed finite deletion set."
       ],
       "acceptance": [
@@ -1537,10 +1611,9 @@
       "prerequisites": [
         "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
         "NonordinaryCMSpecialValues:NCM.3/twisted-root-sign",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
         "AutomorphicLFunctionsAndLocalFactors:AL.5/finite-euler-correction",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5"
+        "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization",
+        "ModularSymbolsPadicLFunctions:L4/coefficient-embedding-comparison"
       ],
       "sources": [
         {
@@ -1572,30 +1645,30 @@
       ],
       "title": "Unramified coefficients for the canonical family",
       "kind": "theorem",
-      "statement": "For canonical φ with p∤h_K D and ν∈X_l, the p-adic fields generated over Φ by the φ-values and ν-values are finite unramified extensions. With the same good-period algebraicity and field-of-definition comparison, the normalized value A_ν=Ω⁻¹L_f(barφν,1) belongs to the fraction field of a finite unramified integer extension W/O_Φ containing these values and the good CM model coefficients. If A_ν has valuation zero then A_ν∈W×. The assertion about A_ν’s field of definition is part of supplier G2, not a consequence merely of algebraicity.",
+      "statement": "For canonical φ with p∤h_K D and ν∈X_l, the field Φ(φ,ν) generated over Φ by the p-adic values of φ on ideals prime to f and the values of ν is a finite unramified extension; let W be its ring of integers. The rank-one realization T_φ and the auxiliary evaluation are defined over W. The normalized value A_ν=Ω⁻¹L_f(barφν,1) lies in a finite unramified extension of Φ, so valuation zero makes it a unit of the ring of integers of any unramified coefficient field containing it.",
       "hypotheses": [
         "The conductor’s finite character has the canonical signed-principal values; an arbitrary ramified coefficient realization is outside this assertion.",
         "All ideal-class representatives and principal generators are chosen prime to p and f."
       ],
       "proofSteps": [
-        "For a class representative a of order d|h_K, write a^d=(α), with α a p-adic unit. The canonical identity gives φ(a)^d=±α. Since p∤d, X^d−(±α) has unit derivative at its unit roots, and its splitting field over Φ is unramified. Principal values lie in K up to the canonical sign. Finitely many representatives generate the value field.",
+        "For a class representative a of order d|h_K, write a^d=(α) with α prime to p and f. The canonical identity gives φ(a)^d=±α. Since p∤d, X^d−(±α) has unit derivative at its unit roots, and its splitting field over Φ is unramified. Principal values lie in K up to the canonical sign. Finitely many representatives generate the value field.",
         "The values of ν have l-power order prime to p, hence lie in finite unramified extensions. The chosen good CM curve has coefficients in H, whose completion at p is Φ.",
-        "Use the precise CM period/Galois field-of-definition comparison to place A_ν in this unramified coefficient compositum, then convert valuation zero into membership in W×. This last descent is a recorded open supplier obligation."
+        "For the value: apply NCM.1/elliptic-reciprocity at level g=f·l^m with the character ν, which is trivial on the p-power part of Gal(K(gp^n)/K). The ν-weighted dual-exponential sum is then invariant under Gal(K(gp^n)/K(g)), so it lies in W[1/p]⊗coLie(E)⊗_K K(g). Kato's Proposition 15.9 places it in the algebraic de Rham line, and K(g)/K is unramified above p. Hence Ω⁻¹L_(pg)(barφν,1) lies in a finite unramified extension of Φ. The p-Euler factor 1+1/p is rational, and the l-factors are 1 for ν≠1 (NCM.4/ramified-euler-factors)."
       ],
       "acceptance": [
         "The p∤h_K hypothesis is used in the derivative of X^d−u; removing it invalidates the unramifiedness proof.",
-        "An arbitrary period rescaling by a ramified coefficient unit can preserve valuation but leaves this specified unramified normalization."
+        "An arbitrary period rescaling by a ramified coefficient unit can preserve valuation but leaves this specified unramified normalization.",
+        "For ν=1 the descent uses level f and keeps the p-Euler factor 1+1/p separate; it is a rational number, not a unit."
       ],
       "prerequisites": [
-        "NonordinaryCMSpecialValues:NCM.0/cm-period",
         "NonordinaryCMSpecialValues:NCM.0/auxiliary-characters",
         "ComplexMultiplicationAndExplicitReciprocity:CM.4/canonical-gross-character",
         "NonordinaryCMSpecialValues:NCM.2/semilocal-splitting",
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5/critical-value-period-interface",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-        "AutomorphicLFunctionsAndLocalFactors:AL.5"
+        "NonordinaryCMSpecialValues:NCM.1/elliptic-reciprocity",
+        "NonordinaryCMSpecialValues:NCM.4/ramified-euler-factors",
+        "NonordinaryCMSpecialValues:NCM.0/cm-period"
       ],
       "sources": [
         {
@@ -1605,8 +1678,8 @@
         },
         {
           "sourceId": "KATO04",
-          "locator": "§15.7–15.9, pp.256–260",
-          "match": "The Betti/de Rham normalization must be compared with the coefficient field before concluding field descent."
+          "locator": "Proposition 15.9, p.258",
+          "match": "The dual-exponential image lies in S(ψ)⊗_K K′ and its period equals L_pf(ψ̄,χ,r)·γ, which gives algebraicity and a field of definition for the normalized value."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1736,15 +1809,8 @@
       ]
     },
     {
-      "supplier": "DiophantineApproximationAndTranscendence:DT.2",
-      "need": "From the existing mixed-place p-adic subspace theorem, supply the homogeneous counting consequence used by Jia v1 Proposition 5: for fixed P and finitely many algebraic projective directions, integer pairs bounded by q^c and lying on those directions modulo q, with the nonzero-direction and primitive/local-unit conditions, give the two bounds in Jia Propositions 1–2 after the ideal-class norm conversion. State all fixed direction/finite-coset constants, the large-q quantifiers, and b>1,r<1/2. The q^c bound and qZ_p congruence use the corrected v1 misprints; a homogeneous approximation statement with an extra archimedean exponent is insufficient.",
-      "neededBy": [
-        "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit"
-      ]
-    },
-    {
       "supplier": "CMAllPrimeMainConjectures:CZ.0",
-      "need": "Prove that the shared theta-distribution zeta element specialized by γ=per_φ(ω)/Ω lands in the exact integral lattice H¹(K(gp^n),T_φ^∨(1)) used by BKO: identify a smoothing operator whose φ-component is a p-adic unit, remove it integrally, and prove norm compatibility and agreement with the unsmoothed Kato fraction-module class. Kato 15.6.5 localization does not provide this lattice assertion.",
+      "need": "Prove that the shared theta-distribution zeta element specialized by γ=per_φ(ω)/Ω lands in the exact integral lattice H¹(K(gp^n),T_φ^∨(1)) used by BKO: identify a smoothing operator whose φ-component is a p-adic unit, remove it integrally, and prove norm compatibility and agreement with the unsmoothed Kato fraction-module class. Kato 15.6.5 localization does not provide this lattice assertion. For the BKO application it suffices to prove integrality after the ν-evaluation, the augmentation over Gal(H/K) and the Δ-invariant projection, where a principal smoothing ideal (α) with α≡1 mod 6f·l^m and α≡2 mod p makes the twisted smoothing factor N(a)−φ(a)σ_a a unit; the Betti-lattice statement γ=per_φ(ω)/Ω generating the integral lattice T_φ^∨ is still required, including the prime-to-p comparison between BKO's curve over H and Kato's canonical CM pair over K(f).",
       "neededBy": [
         "NonordinaryCMSpecialValues:NCM.1/normalized-zeta-class",
         "NonordinaryCMSpecialValues:NCM.1/elliptic-reciprocity",
@@ -1752,28 +1818,8 @@
       ]
     },
     {
-      "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
-      "need": "Supply the general-CM good-period algebraicity and coefficient/Galois field-of-definition theorem for Ω⁻¹L_f(barφρ,1), for Gross Q-curves over H with arbitrary h_K and finite anticyclotomic ρ. Compare the period of the actual good Néron differential, track the Gauss-sum/character action exactly, and prove vanishing is stable under coefficient embeddings. For the canonical family and p∤h_K, prove that the normalized values descend to a finite unramified extension generated by the canonical character values, prime-to-p roots of unity and the good CM model coefficients; do not infer this descent from algebraicity alone.",
-      "neededBy": [
-        "NonordinaryCMSpecialValues:NCM.0/cm-period",
-        "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
-        "NonordinaryCMSpecialValues:NCM.5/central-nonvanishing",
-        "NonordinaryCMSpecialValues:NCM.5/unramified-cm-coefficients"
-      ]
-    },
-    {
-      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.5",
-      "need": "Extend only the analytic period-line interface to the supplied CM algebraicity comparison: convert the weight-one s=1 and unitary s=1/2 points, finite Euler factors and Galois action using the same good elliptic period. The existing critical-value-period-interface is restricted to supplied GL₂/Q modular-symbol algebraicity and does not supply this general-K theorem.",
-      "neededBy": [
-        "NonordinaryCMSpecialValues:NCM.0/cm-period",
-        "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
-        "NonordinaryCMSpecialValues:NCM.5/central-nonvanishing",
-        "NonordinaryCMSpecialValues:NCM.5/unramified-cm-coefficients"
-      ]
-    },
-    {
       "supplier": "AutomorphicPadicLFunctions:L3h",
-      "need": "Export Finis Theorem 1.1(2) independently of ordinary-CM/Hida-density prerequisites: tower prime l split, valuation prime p inert, self-dual idelic type (−1,0), positive sign, fixed conductor away from l, and good period Ω. Include algebraicity in this good-period normalization and preserve the exact formula v_p(Ω⁻¹D^(1/4)L(0,λ))=Σ_(q≠p inert) μ_p(λ_q)+b_p(λ_p,w(λ)). The existing finis-divisibility node omits the discriminant factor and must not impose ordinary reduction at the valuation prime.",
+      "need": "The accepted L3h/finis-divisibility node now states Finis Theorem 1.1(2) exactly, with D^(1/4) and b_ℓ(λ_ℓ,w(λ)). Its prerequisite chain (L3/cm-periods with good ordinary reduction at the valuation prime, L3h/hida-cm-density for p-ordinary CM types) only covers an ordinary valuation prime. Export case (2) for an inert valuation prime through Finis's own proof (theta functions with complex multiplication, Proposition 2.4 and the characteristic-ℓ nonvanishing Theorem 4.1), with the period of a pair (E,ω) having good reduction at the valuation prime, and include the algebraicity of Ω⁻¹L(0,λ) in that normalization. Tower prime l split, valuation prime p inert, self-dual type (−1,0), W(λ)=+1, conductor dividing dDl^∞.",
       "neededBy": [
         "NonordinaryCMSpecialValues:NCM.4/finis-character-family",
         "NonordinaryCMSpecialValues:NCM.4/finis-local-corrections",
@@ -1787,6 +1833,13 @@
         "NonordinaryCMSpecialValues:NCM.0/dual-tate-convention",
         "NonordinaryCMSpecialValues:NCM.1/elliptic-reciprocity"
       ]
+    },
+    {
+      "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "need": "The local Fröhlich–Queyrut theorem: for a quadratic extension E/F of local fields, a quasi-character χ of E× trivial on F× and ψ_E=ψ_F∘Tr_(E/F), the root number ε(1/2,χ,ψ_E) equals χ(Δ) for any Δ∈E× with Δ²∈F×. Only the case E/F unramified at an odd residue characteristic and χ of finite odd order is consumed here, where it gives ε=1; the general statement belongs with the local epsilon factors.",
+      "neededBy": [
+        "NonordinaryCMSpecialValues:NCM.3/twisted-root-sign"
+      ]
     }
   ],
   "coverage": [
@@ -1794,7 +1847,6 @@
       "stageId": "NonordinaryCMSpecialValues:NCM.0",
       "status": "planned",
       "remaining": [
-        "G2: general CM period/Galois comparison and exact good-model coefficient normalization.",
         "G5: semilocal regulator identification for the dual/Tate dictionary."
       ]
     },
@@ -1817,6 +1869,7 @@
       "stageId": "NonordinaryCMSpecialValues:NCM.3",
       "status": "planned",
       "remaining": [
+        "G7: the local Fröhlich–Queyrut root number from AL.1.",
         "Check the additive/Fourier convention conversion in the local epsilon implementation and retain the nontrivial conductor c=n+1 boundary."
       ]
     },
@@ -1824,15 +1877,14 @@
       "stageId": "NonordinaryCMSpecialValues:NCM.4",
       "status": "planned",
       "remaining": [
-        "G3: the independent inert-valuation Finis export, including its good-period algebraicity, with D^(1/4) and b retained."
+        "G3: Finis Theorem 1.1(2) for an inert valuation prime through Finis's own proof chain, including its good-period algebraicity."
       ]
     },
     {
       "stageId": "NonordinaryCMSpecialValues:NCM.5",
       "status": "planned",
       "remaining": [
-        "G2: canonical unramified field descent and arbitrary-class-number CM Galois algebraicity.",
-        "G4: the generic homogeneous mixed-place counting consequence.",
+        "G1 (through NCM.1): integrality of the classes to whose character evaluations the scalar–tensor comparison is applied; the field of definition of A_ν does not depend on it.",
         "G6: no unrestricted ramified-coefficient tensor descent is supplied."
       ]
     }
@@ -1846,19 +1898,7 @@
         "NonordinaryCMSpecialValues:NCM.1/elliptic-reciprocity",
         "NonordinaryCMSpecialValues:NCM.1/norm-twist-comparison"
       ],
-      "detail": "The shared CMAllPrimeMainConjectures packet is complete but unreviewed. Its CZ.0 theta/Kummer construction and CZ.1 rational reciprocity are reused, but do not prove the precise denominator-unit and Betti-lattice comparison required here. Kato’s unsmoothed class lives in a fraction module. The requested integral specialization must be established before claiming this branch closed."
-    },
-    {
-      "id": "NonordinaryCMSpecialValues:G2",
-      "title": "General CM period algebraicity and unramified field descent",
-      "neededBy": [
-        "NonordinaryCMSpecialValues:NCM.0/cm-period",
-        "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
-        "NonordinaryCMSpecialValues:NCM.5/central-nonvanishing",
-        "NonordinaryCMSpecialValues:NCM.5/unramified-cm-coefficients",
-        "NonordinaryCMSpecialValues:NCM.5/scalar-tensor-character-comparison"
-      ],
-      "detail": "The existing AL.5 interface supplies only a GL₂/Q wrapper around assumed algebraicity. A general Gross-Q-curve coefficient/Galois comparison and the stronger canonical unramified field-of-definition statement are not established by the cited supplier nodes. Algebraicity alone gives neither the asserted unramified field nor literal tensor-kernel descent. The Finis period itself is matched directly by choosing his good pair to be (E,ω); that comparison is not an extra gap."
+      "detail": "The shared CMAllPrimeMainConjectures packet was reviewed on 2026-10-19 with verdict needs_changes. Its CZ.0 theta/Kummer construction and CZ.1 rational reciprocity are reused, but Kato's unsmoothed class lies in the fraction module and Proposition 15.9 is a statement after inverting p, so neither gives BKO's integral class (source issue E7). Two inputs remain: (i) removal of the smoothing factor, for which the projected component used by BKO admits a principal smoothing ideal making N(a)−φ(a)σ_a a unit (route recorded in NCM.1/normalized-zeta-class); (ii) the Betti-lattice statement that γ=per_φ(ω)/Ω generates the integral lattice, including the comparison of BKO's curve over H with Kato's canonical CM pair. Both are requested from CZ.0."
     },
     {
       "id": "NonordinaryCMSpecialValues:G3",
@@ -1868,16 +1908,7 @@
         "NonordinaryCMSpecialValues:NCM.4/finis-local-corrections",
         "NonordinaryCMSpecialValues:NCM.4/finis-unit-values"
       ],
-      "detail": "AutomorphicPadicLFunctions:L3h/finis-divisibility is the sole general owner, but its current simplified formula and ordinary-density dependency chain do not furnish Theorem 1.1(2) in the form used here. Request its independent exact inert-valuation export. The specialization checks are planned here; the general theta-function proof is not duplicated."
-    },
-    {
-      "id": "NonordinaryCMSpecialValues:G4",
-      "title": "Homogeneous mixed-place Diophantine counting input",
-      "neededBy": [
-        "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
-        "NonordinaryCMSpecialValues:NCM.5/central-nonvanishing"
-      ],
-      "detail": "Jia’s arbitrary-class-number reduction and proof were read throughout. The small/middle sum bounds still need the generic homogeneous counting corollary behind Propositions 1–2 and 5, with the exact local congruence and growth hypotheses. The current DT.2 mixed-place subspace node is more general but does not state that consequence. Rohrlich’s class-number-one theorem and AH Proposition 3.1 cannot replace the arbitrary-h argument."
+      "detail": "AutomorphicPadicLFunctions:L3h/finis-divisibility is the sole general owner. Its accepted statement now reproduces Finis Theorem 1.1(2) exactly, with D^(1/4) and the local b term (the design read the earlier version, which omitted them). Its prerequisites, L3/cm-periods (good ordinary reduction) and L3h/hida-cm-density (p-ordinary CM type), cover only an ordinary valuation prime, whereas here the valuation prime p is inert and supersingular. The inert-valuation case needs Finis's own theta-function proof as its prerequisite chain. The specialization checks are planned here; the general proof is not duplicated."
     },
     {
       "id": "NonordinaryCMSpecialValues:G5",
@@ -1895,7 +1926,15 @@
       "neededBy": [
         "NonordinaryCMSpecialValues:NCM.5/scalar-tensor-character-comparison"
       ],
-      "detail": "The canonical unramified-field comparison repairs only that special case, conditional on G2. If R is an arbitrary ramified coefficient ring, multiplication Φ_n⊗_Φ Frac(R)→C_p can fail to be injective. No general scalar-to-tensor kernel theorem or extension of BKO §6 is claimed. The local-unit consumer must retain its coefficient gap outside the proved hypothesis."
+      "detail": "The canonical unramified coefficient ring of NCM.5/unramified-cm-coefficients repairs only that special case. If R is an arbitrary ramified coefficient ring, multiplication Φ_n⊗_Φ Frac(R)→C_p can fail to be injective. No general scalar-to-tensor kernel theorem or extension of BKO §6 is claimed (source issue E8). The local-unit consumer must retain its coefficient gap outside the proved hypothesis. Enlarging an unramified R afterwards is harmless, because membership in V^(*,ε)⊗W is preserved by base change."
+    },
+    {
+      "id": "NonordinaryCMSpecialValues:G7",
+      "title": "Local Fröhlich–Queyrut root numbers",
+      "neededBy": [
+        "NonordinaryCMSpecialValues:NCM.3/twisted-root-sign"
+      ],
+      "detail": "The parity formula needs the local root number at the inert p of an anticyclotomic character of odd order: it is 1 by the Fröhlich–Queyrut theorem (Queyrut, Mém. SMF 37 (1974), p.135; full proof in Fröhlich–Queyrut, Invent. Math. 20 (1973), 125–138, not read). No atlas node states it; AL.1's explicit epsilon factors and Gauss sums do not. Requested from AL.1."
     }
   ],
   "restructure": [
@@ -1992,6 +2031,7 @@
     {
       "item": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/cm-central-nonvanishing",
       "nodes": [
+        "NonordinaryCMSpecialValues:NCM.5/rohrlich-lattice-count",
         "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
         "NonordinaryCMSpecialValues:NCM.5/central-nonvanishing"
       ]
@@ -2020,7 +2060,7 @@
         "NonordinaryCMSpecialValues:NCM.4/unit-witness",
         "NonordinaryCMSpecialValues:NCM.5/scalar-tensor-character-comparison"
       ],
-      "boundary": "The consumer owns ξ_ν, Δ projection, derivative normalization and the signed kernels. The scalar/tensor comparison is conditional on G2 and limited to canonical unramified coefficients."
+      "boundary": "The consumer owns ξ_ν, Δ projection, derivative normalization and the signed kernels. The scalar/tensor comparison is limited to the canonical unramified coefficients of NCM.5/unramified-cm-coefficients; the unit value rests on G1 and G3."
     },
     {
       "consumer": "InertAnticyclotomicCMMainConjecture",
@@ -2044,7 +2084,12 @@
       "known": "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json/E2",
       "searched": [
         "The existing BKO errata packet and accepted fixes report; this is a reused finding, not a new claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page images of pp.952–954 of the recorded published PDF: order l^m on p.952 and in Proposition 3.3, conductor f·l^m on p.953 and l^m as the conductor on p.954. An anticyclotomic l-power character of exact order l^r has conductor l^(r+1) when l splits and l∤h_K. Same finding as the confirmed PAPER-BURUNGALE-KOBAYASHI-OTA-21/E2, which records it as affecting nothing; reading l^m as the conductor throughout is an equally valid repair.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
     },
     {
       "id": "NonordinaryCMSpecialValues/E2",
@@ -2059,13 +2104,18 @@
       "searched": [
         "https://arxiv.org/abs/2412.05867 (2026-10-19): submission history lists only v1; no correction posted there.",
         "https://doi.org/10.4064/aa241210-23-10 (2026-10-19): publisher metadata checked; version of record not served freely. Findings are confined to the read v1, not asserted against the published article."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page image of v1 p.4: the sentence before (2.1) prints χ(nO)=κ(n)n⁻¹, while Property 1 (p.3) gives κ₁(n)=φ(nO)n⁻¹, i.e. φ(nO)=κ(n)n, and (2.10) uses κ(n)n. Rohrlich 1984 p.386, formula (1), has κ(n)n.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
     },
     {
       "id": "NonordinaryCMSpecialValues/E3",
       "sourceId": "JIA24v1",
       "kind": "misprint",
-      "locator": "arXiv:2412.05867v1, §4, p.18, condition (1) in the setting before Proposition 4",
+      "locator": "arXiv:2412.05867v1, §4, p.18, condition (1) in the setting before Proposition 5",
       "printed": "The local congruence has modulus Z_p without its q factor.",
       "correction": "Use congruence modulo q Z_p at the primes dividing q.",
       "reason": "Without q the condition is vacuous for p-integral u,v and directions, while (4.9) and (4.10) require precision q.",
@@ -2074,7 +2124,12 @@
       "searched": [
         "https://arxiv.org/abs/2412.05867 (2026-10-19): submission history lists only v1; no correction posted there.",
         "https://doi.org/10.4064/aa241210-23-10 (2026-10-19): publisher metadata checked; version of record not served freely. Findings are confined to the read v1, not asserted against the published article."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page image of v1 p.18: condition (1) of the §4 setting reads uβ_p−vα_p≡0 mod Z_p. The same set in §3 (p.16, before Proposition 4) and Rohrlich 1984 §3 (p.401) use mod qZ_p. The review corrected the locator: the misprint is in the setting before Proposition 5, not Proposition 4.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
     },
     {
       "id": "NonordinaryCMSpecialValues/E4",
@@ -2089,7 +2144,12 @@
       "searched": [
         "https://arxiv.org/abs/2412.05867 (2026-10-19): submission history lists only v1; no correction posted there.",
         "https://doi.org/10.4064/aa241210-23-10 (2026-10-19): publisher metadata checked; version of record not served freely. Findings are confined to the read v1, not asserted against the published article."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page image of v1 p.20: (4.9) prints max(|u|,|v|)≤q⁻¹, and (4.10) then uses q^(−κc). For (u,v)∈M(q,q^c) the bound is q^c, as in Rohrlich 1984 p.402.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
     },
     {
       "id": "NonordinaryCMSpecialValues/E5",
@@ -2104,7 +2164,12 @@
       "searched": [
         "https://arxiv.org/abs/2412.05867 (2026-10-19): submission history lists only v1; no correction posted there.",
         "https://doi.org/10.4064/aa241210-23-10 (2026-10-19): publisher metadata checked; version of record not served freely. Findings are confined to the read v1, not asserted against the published article."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page image of v1 p.10: the last bound of (2.43) has exponent +Na/(Af). The preceding estimate (2.38) gives e^(−u), and Rohrlich 1984 p.392 has the negative exponent.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
     },
     {
       "id": "NonordinaryCMSpecialValues/E6",
@@ -2119,7 +2184,52 @@
       "searched": [
         "https://arxiv.org/abs/2412.05867 (2026-10-19): submission history lists only v1; no correction posted there.",
         "https://doi.org/10.4064/aa241210-23-10 (2026-10-19): publisher metadata checked; version of record not served freely. Findings are confined to the read v1, not asserted against the published article."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "v1 p.3 introduces κ as the quadratic character of K, and (2.10)–(2.11), (2.24)–(2.25) sum κ(n)n⁻¹ over all n≥1 with limit L(1,κ), although χ(nO)=0 when n meets the conductor. Rohrlich 1984 p.386, the paper Jia generalizes, defines κ to vanish on the support R, so the induced-character reading is the intended one. For K=Q(√−7) and support {5}, κ_K(5)=−1 and the limit is 2L(1,κ_K)·6/5.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
+    },
+    {
+      "id": "NonordinaryCMSpecialValues/E7",
+      "source": "BKO21",
+      "kind": "gap",
+      "locator": "§3.0.2, p.951, the class z_g before (3.4)",
+      "printed": "The source obtains a norm-compatible family z_g in the inverse limit of H¹(K(gp^n),T^(⊗−1)(1)), with integral coefficients, by citing Kato's Proposition 15.9 with γ=per_φ(ω)/Ω.",
+      "correction": "Kato's element lies in the fraction module of the Iwasawa algebra and Proposition 15.9 is a statement after inverting p, so integrality needs a further argument. On the component used later (ν-evaluation, Gal(H/K)-augmentation, Δ-invariants) a principal smoothing ideal a=(α) with α≡1 mod 6f·l^m and α≡2 mod p makes the twisted smoothing factor N(a)−φ(a)σ_a a unit, and Kato's (15.6.3) then gives integrality of the projected element; the Betti lattice spanned by γ must also be identified.",
+      "reason": "Kato (15.6.3)–(15.6.5), pp.254–255, place the unsmoothed element in the localization; only (N(a)−σ_a)z is integral. Under the twist (3.5) the smoothing factor becomes N(a)−φ(a)σ_a, whose residue on the component above is α(ᾱ−1), a unit. Theorem 3.4 needs integrality, since the final step compares δ of ξ_ν with δ of an O-generator.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08 and the existing errata file research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json (E1–E10), checked 2026-10-19: neither records it.",
+        "Source issues of the AnticyclotomicLocalUnits, InertAnticyclotomicCMMainConjecture and CMAllPrimeMainConjectures packets, checked 2026-10-19: not recorded there (AnticyclotomicLocalUnits gap G11 records the second point as a planning gap, not as a source issue)."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review; checked against Kato 2004 §15.6 and Proposition 15.9 (Numdam scan) and BKO p.951.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
+    },
+    {
+      "id": "NonordinaryCMSpecialValues/E8",
+      "source": "BKO21",
+      "kind": "gap",
+      "locator": "Proof of Proposition 3.3(3), p.953",
+      "printed": "The source deduces that the anticyclotomic projection of ξ_ν lies in V^(*,ε)⊗R from the vanishing of the complex values L(barφνχ,1) for the characters of the opposite parity.",
+      "correction": "The values give vanishing of the scalar images of δ_χ(ξ_ν) in C_p, whereas membership in V^(*,ε)⊗R needs vanishing of (δ_χ⊗id)(ξ_ν) in Φ_n⊗R. This follows when R is unramified over O, since Φ_n is totally ramified and Φ_n⊗_Φ Frac(R)→C_p is then injective. The canonical choice of §3.0.3 has an unramified coefficient ring when p∤h_K, and enlarging R afterwards preserves membership.",
+      "reason": "For a ramified R, x⊗1−1⊗x lies in the kernel of Φ_n⊗_Φ Frac(R)→C_p for any x∈Φ_n∩Frac(R) outside Φ, so scalar vanishing does not imply tensor vanishing without an extra argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2021/194-3/p08 and the existing errata file research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json (E1–E10), checked 2026-10-19: neither records it.",
+        "Source issues of the AnticyclotomicLocalUnits, InertAnticyclotomicCMMainConjecture and CMAllPrimeMainConjectures packets, checked 2026-10-19: not recorded there (AnticyclotomicLocalUnits gap G11 records the second point as a planning gap, not as a source issue)."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review; checked at p.953 of the recorded published PDF (page image) together with the definition of δ_χ on pp.948–949.",
+        "by": "REV-DESIGN-NonordinaryCMSpecialValues"
+      }
     }
   ],
   "sourceVersions": [
@@ -2185,11 +2295,161 @@
       "citation": "arXiv:2412.05867v1, 8 December 2024, 21 pages; distinct from the paywalled Acta Arithmetica 224 (2026), 99–116 version of record",
       "read": "2026-10-19",
       "sha256": "591de1f863df7532569740b577f37b6fe5601f16750156536d62bd4844c27f86"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/MSMF_1974__37__133_0.pdf",
+      "citation": "Mémoires de la Société Mathématique de France 37 (1974), 133–135, Numdam scan",
+      "read": "2026-10-19",
+      "sha256": "99eeef3ede61f91ad6c7074d5f0defae1cf1eb85b53c3ddb2b75c7db34f2790f"
     }
   ],
   "sourceAccessNotes": [
     "Jia’s Acta Arithmetica 224 (2026), 99–116 version of record, DOI 10.4064/aa241210-23-10, was identified from publisher metadata but not read; all detailed locators and findings refer only to arXiv v1.",
     "Kato’s 1993 book is not cleared in the maintainer library and was not consulted or fetched. The generalized height-one Coleman reciprocity cited in Kato 2004’s proof remains the shared CZ.1 supplier’s proof obligation; no private substitute is asserted.",
     "No source text, PDF or extracted passage is included. The sources list records exactly the portions read, not every work in their bibliographies."
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-NonordinaryCMSpecialValues",
+    "date": "2026-10-19",
+    "notes": "Independent review of the new roadmap definition, all 26 design nodes, the 5 pinned baseline declarations, 15 requests, 6 gaps, 6 source issues and the suggested Lean file. All nine sources were re-downloaded and matched to their recorded SHA-256; BKO §§2–3, Finis §1, the opening of §2 and Corollary 2.3, Kato §15.6–15.9, Jia v1 (whole), Rohrlich's notes Lecture 1 §3 and Lecture 2 §5, and on page images Greenberg pp.246–247, Rubin p.409, Rohrlich 1984 pp.386–388, 391–392, 395–397 and 400–407 and AH05 p.4 were read; Queyrut 1974 (Numdam) was added for the Fröhlich–Queyrut step. Baseline: all five declarations confirmed at Mathlib 082e2d3. Corrections: the auxiliary root-number ratio includes the different; the twisted root number needs the local Fröhlich–Queyrut theorem, now requested from AL.1 (G7); Greenberg locators fixed. Gap G4 and the DT.2 request are replaced by an added node for Rohrlich's lattice-point bound (Rohrlich 1984 §3), derived from the accepted DT.2 subspace theorem. Gap G2 and the CM.4/AL.5 requests are removed: Galois stability of vanishing comes from the CM theta newform (CZ.5) and ModularSymbols L4, and the field of definition of the normalized values from Kato 15.9 at prime-to-p level. G3 is narrowed, because the accepted L3h node now states Finis 1.1(2) exactly; its prerequisite chain is ordinary-only. G1 gains a route on the projected component. Two new source issues in BKO are recorded (E7 integrality of z_g, E8 scalar-to-tensor step), all six recorded issues confirmed and E3's locator corrected. Test kinds normalized, one API item added, two bookkeeping planets removed. The suggested file now proves its two former placeholder examples and adds five computed checks; lean-check elaborates it with no errors and no warnings. check_blueprint: 0 errors, 0 warnings. The reader document was not a deliverable and needs regeneration from this packet.",
+    "checked": [
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.0/cm-period",
+        "verdict": "corrected",
+        "note": "Néron differential, principal lattice Ω O_K and conjugate-curve step match BKO p.951 and Finis p.768. Algebraicity is now read from Kato 15.9 through NCM.1; the GL₂/Q interface AL.5 was dropped as a supplier. Test period_inert_prime given a valid kind."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.0/canonical-root-sign",
+        "verdict": "verified",
+        "note": "Rohrlich PCMI notes Proposition 1.5 (p.14) and its proof (2.44)–(2.49), pp.35–36: W=(2/D) for odd D, local factor −i at ∞ and i^δ(2/q)∏(q/r) at ramified q. 2 split forces D≡7 mod 8. (2/7)=1 and (2/11)=−1 are now checked in the suggested file."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.0/auxiliary-prime",
+        "verdict": "verified",
+        "note": "BKO (3.3), p.951. K∩Q(μ_p)=Q because p is unramified in K; Chebotarev gives infinitely many l split in K with l≢1 mod p; K=Q(√−7), p=5, l=23 is checked in the suggested file."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.0/auxiliary-characters",
+        "verdict": "corrected",
+        "note": "Order l^r and conductor l^(r+1) checked against the ring-class quotient for split l∤h_K. Added the group-structure API item; test auxiliary_direct_evaluation given a valid kind."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.0/dual-tate-convention",
+        "verdict": "verified",
+        "note": "Kato §15.8 (p.257): Artin symbols act on V(ψ) by ψ(a)⁻¹; Proposition 15.9 (p.258) has ψ̄ with the finite character direct. BKO (3.4) page image p.952: only φ is conjugated. Kato's ψ of type (−1,0) is BKO's φ."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.1/normalized-zeta-class",
+        "verdict": "corrected",
+        "note": "Kato (15.6.3)–(15.6.5) and 15.9 are statements in the fraction module or after inverting p, so BKO's integral class is a genuine supplier obligation (G1, new source issue E7). Added a route: on the component BKO uses, a principal smoothing ideal makes the twisted factor N(a)−φ(a)σ_a a unit."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.1/elliptic-reciprocity",
+        "verdict": "verified",
+        "note": "BKO (3.4) on the page image; Kato Proposition 15.9 and (15.9.1)–(15.9.2); CZ.1/cm-elliptic-reciprocity and cm-eisenstein-evaluation state the same convention. The 1+1/p trivial-character factor is correct."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.1/norm-twist-comparison",
+        "verdict": "verified",
+        "note": "BKO (3.5), p.952. The diagonal-action twist and finite-S Kummer statement are supplied by SIC L0 nodes; the exact inverse-limit export remains the recorded SIC L3 request (G5)."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.1/period-change",
+        "verdict": "corrected",
+        "note": "Both transformation laws checked; the differential rescaling is now by an element of H× that is a unit at p, so that vω stays an algebraic Néron-normalized differential."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.2/torsion-ringclass-compositum",
+        "verdict": "verified",
+        "note": "BKO p.952 with the conductor index corrected (E1). LT.2/primitive-division gives [Φ_0:Φ]=p²−1."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.2/torsion-ringclass-disjoint",
+        "verdict": "verified",
+        "note": "The intersection is an abelian l-extension unramified everywhere, hence inside the Hilbert class field, hence trivial as l∤h_K; this expands BKO p.953."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.2/semilocal-splitting",
+        "verdict": "verified",
+        "note": "(p) is principal and rational, so its Artin class is trivial in every prime-to-p ring class group; BKO p.953 first equality."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.2/inert-frobenius",
+        "verdict": "verified",
+        "note": "Rubin 1987 Lemma 3.1, p.409 (page image): φ((p))=−p; Jia v1 Property 1, pp.3–4. a_(p²)=−2p matches the confirmed BKO erratum E9 (parameter −p)."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.2/cm-lubin-tate",
+        "verdict": "verified",
+        "note": "LT.4/elliptic-honda-comparison and unramified-honda-comparison give parameter −p from a_(p²)=−2p. Degree (p²−1)p^(2n) from LT.2. μ_(p^(n+1))⊂Φ_n by the Weil pairing (also by comparing norm groups)."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.3/auxiliary-root-sign",
+        "verdict": "corrected",
+        "note": "The pairing ε(ν_λ)ε(ν_λ⁻¹)=ν_λ(−1)=1 and φ((l))/l=κ_K(l)=1 are right. The away-from-l ratio is ν on f·𝔡_K, conductor times different; the step had omitted the different."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.3/twisted-root-sign",
+        "verdict": "corrected",
+        "note": "Parity (−1)^c with c=n+1 matches BKO p.953 and Greenberg p.247 (page images). The local root number of the anticyclotomic character at p equals 1 by Fröhlich–Queyrut (Queyrut 1974 p.135), which no atlas node supplies: now requested from AL.1 (gap G7). Greenberg locator corrected from 'Proposition 8'."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.3/forced-central-zero",
+        "verdict": "verified",
+        "note": "Self-duality L(s,barφνχ)=L(s,conjugate) holds since the character is conjugation-equivariant; sign −1 forces the zero; Euler deletion preserves it. Trivial character separate, as in AH05 Remark 3.2."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.4/finis-character-family",
+        "verdict": "verified",
+        "note": "Finis p.768: type (k,j) means λ_∞(x)=x^(−k)x̄^(−j) and λ*(x)=λ(x̄)⁻¹|x|. For λ=barφν/N: λ((α))=α⁻¹ for α≡1, λ_∞(x)=x, λ=λ*, L(0,λ)=L(barφν,1), W(λ)=W(φ)=+1. Test kind normalized."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.4/finis-local-corrections",
+        "verdict": "corrected",
+        "note": "Finis p.769: μ_ℓ(χ_q)=0 for unramified χ_q and b_ℓ=0 for unramified χ_ℓ at inert ℓ; λ is unramified at every inert prime. Planet removed (a check, not a key result)."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.4/ramified-euler-factors",
+        "verdict": "corrected",
+        "note": "Both primes over l are ramified for ν≠1, so L_(f l^m)=L_f; 1−(−p)/p²=1+1/p checked in the suggested file. Planet removed (bookkeeping)."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.4/finis-unit-values",
+        "verdict": "verified",
+        "note": "Finis Theorem 1.1(2), p.769, with tower prime l split and valuation prime p inert; p∤D makes D^(1/4) a unit. Matches BKO (3.9) on the page image p.954. Supplier chain still G3."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.4/unit-witness",
+        "verdict": "verified",
+        "note": "Infinitely many ν of distinct conductors l^(r+1); removing a finite set leaves a nontrivial witness, as in BKO p.954."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.5/rohrlich-lattice-count",
+        "verdict": "added",
+        "note": "Rohrlich 1984 §3, Propositions 1–2, pp.401–407 (page images), restated in Jia v1 Proposition 5. Derived from the accepted DT.2 subspace-theorem node, replacing the DT.2 request and gap G4."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.5/averaged-value-limit",
+        "verdict": "corrected",
+        "note": "Checked against Jia v1 §2 and Rohrlich 1984 §1. The family is now the ring-class characters of L_P. Added the root-number invariance step (Jia (2.13)–(2.18); Rohrlich §4). The counting input is now the new node; the CM.4/AL.5 algebraicity requests are not used by the analytic average."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.5/central-nonvanishing",
+        "verdict": "corrected",
+        "note": "Galois stability of vanishing (Jia p.2, via Shimura) now runs through the weight-two CM newform (CZ.5/cm-newform-characterization) and the coefficient-embedding comparison of modular critical values (ModularSymbolsPadicLFunctions L4), replacing the CM.4/AL.5 requests and gap G2."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.5/unramified-cm-coefficients",
+        "verdict": "corrected",
+        "note": "The unramified value field is proved as before. The field of definition of A_ν now follows from Kato 15.9 through NCM.1 at prime-to-p level g=f·l^m, where ν is trivial on the p-part, instead of the CM.4 request (former G2)."
+      },
+      {
+        "nodeId": "NonordinaryCMSpecialValues:NCM.5/scalar-tensor-character-comparison",
+        "verdict": "verified",
+        "note": "Totally ramified Φ_n and unramified U are linearly disjoint; Subalgebra.linearDisjoint_iff_injective read at the pin. This is exactly the step BKO's Proposition 3.3(3) leaves implicit (new source issue E8). The Lean examples are now proved."
+      }
+    ]
+  }
 }
