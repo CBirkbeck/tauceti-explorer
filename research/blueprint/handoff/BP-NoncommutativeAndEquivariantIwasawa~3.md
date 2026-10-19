@@ -112,7 +112,9 @@ There are seven requests, in the new `incomingRequests` and in the reader sectio
   - 21 node blocks were re-rendered; the contracts, obligations, references, coverage, conventions and upstream sections were updated; two sections were added.
   - Parity script: every statement, hypothesis, proof step, check, API item, test, source locator, upstream input, prerequisite, contract, obligation and incoming-request note is present. No dangling local links, no duplicate anchors.
 - Node-level cycle scan over all packets from the NE nodes: no cycle.
-- A Sonnet subagent cross-checked the new citations against the upstream READMEs and books; see "Citation cross-check" below.
+- **Citation cross-check.** A Sonnet subagent checked every new citation against the upstream READMEs, Ritter–Weiss and the two cleared books: section and theorem numbers, pages, declaration names, CA.7 node titles and the seven README hashes. It found no wrong or missing citation.
+  - It flagged four loose phrasings, all now fixed: Det(G)≅G^ab is now justified by one-dimensional characters; the Selmer §3.11 paraphrase is corrected; Proposition 5's idèle is α, with γ=α_K; and PMIA §5.2 is described by its actual scope.
+  - It could not check Lazard, Venjakob, Brumer, Oliver, AW13, Shotton or Kato, for which no file was supplied.
 
 ## What remains
 

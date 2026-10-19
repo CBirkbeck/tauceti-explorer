@@ -1049,7 +1049,7 @@
     {
      "owner": "PadicMeasuresIwasawaAlgebras (Tau Ceti roadmap on TauCetiRoadmap main)",
      "declarations": [],
-     "need": "§5.2 states topological Nakayama for commutative compact local rings such as O[[T]], with the compact Hausdorff and continuous-action hypotheses. This node keeps the noncommutative case Λ(J), J pro-p, which §5.2 does not cover."
+     "need": "§5.2 states topological Nakayama for Λ=O⟦T⟧ and, more generally, compact local rings with finite residue field, built on Mathlib's commutative Nakayama lemma `Submodule.eq_bot_of_le_smul_of_le_jacobson_bot`. This node keeps the noncommutative case Λ(J), J pro-p, where that lemma does not apply directly."
     }
    ]
   },
@@ -6614,7 +6614,7 @@
     "G pro-p; 𝒪 unramified, so (p) is the maximal ideal of 𝒪."
    ],
    "proofSteps": [
-    "Definition 70, finite level. Read K′₁(O[G_n]) as the determinant image (NE.3/k1-prime). Write O[G_n]^×=O^×·(1+I) with I the augmentation ideal. ClassicalArithmeticCompletion Layer 7 supplies the integral logarithm with its character formula (§7.46), L(1+I)⊆pφ(I) and L(1+A)=pφ(A) on the commutator ideal A (§7.62), and ker(L/p on Det(1+I))=Det(G_n)≅G_n^ab (§7.73); its L/p is this node's L. On O^× this L is (1−F/p)log, with kernel μ(O) and image O·[1], because log(O^×)=pO and F−p is bijective on unramified O. Since O·[1]∩φ(I)=0, the kernel is μ(O)×G_n^ab and the image contains O·[1]+φ(A). ω is onto because the trace of O onto Z_p is onto. The abelian image L(1+I)=I∩ker ω for G_n^ab, with ω∘L=1, is Oliver Theorem 6.6's abelian case (obligation 5).",
+    "Definition 70, finite level. Read K′₁(O[G_n]) as the determinant image (NE.3/k1-prime). Write O[G_n]^×=O^×·(1+I) with I the augmentation ideal. ClassicalArithmeticCompletion Layer 7 supplies the integral logarithm with its character formula (§7.46), L(1+I)⊆pφ(I) and L(1+A)=pφ(A) on the commutator ideal A (§7.62), and ker(L/p on Det(1+I))=Det(G_n) (§7.73), which is G_n^ab because one-dimensional characters detect G_n^ab; its L/p is this node's L. On O^× this L is (1−F/p)log, with kernel μ(O) and image O·[1], because log(O^×)=pO and F−p is bijective on unramified O. Since O·[1]∩φ(I)=0, the kernel is μ(O)×G_n^ab and the image contains O·[1]+φ(A). ω is onto because the trace of O onto Z_p is onto. The abelian image L(1+I)=I∩ker ω for G_n^ab, with ω∘L=1, is Oliver Theorem 6.6's abelian case (obligation 5).",
     "Definition 70, limit: the sequences (9) for n ≥ 0 are compatible sequences of profinite groups, so the inverse limit is exact.",
     "Lemma 71: Λ̂_𝒪(G)_S is local, so its units surject onto K′₁ and 1 + J onto K₁(Λ̂_𝒪(G)_S, J); 1 → 1 + J → Λ̂_𝒪(G)_S^× → Λ̂_𝒪(Γ)_{(p)}^× → 1 splits by Γ ↪ G.",
     "Lemma 72: modulo p, Λ̂_𝒪(Γ)_{(p)} is the Laurent series field 𝔽_q((X)), on which ϕ is X ↦ (1 + X)^p − 1 = X^p with Frobenius on 𝔽_q, so y^p = ϕ(y).",
@@ -9866,7 +9866,7 @@
     "NoncommutativeAndEquivariantIwasawa:NE.6/rw2026-conditional-sk1-reduction"
    ],
    "status": "supplied-current-main",
-   "note": "ClassicalArithmeticCompletion §7.27 (CA.7/continuation/semilocal-determinant-stability) and AlgebraicKTheory #1142 A4 (stable range one for semilocal rings, GL_s→K₁ onto). NE.2/units-surject-k1 cites the CA node; the other consumers keep U.3 for the reduced-Whitehead request."
+   "note": "ClassicalArithmeticCompletion §7.27 (CA.7/continuation/semilocal-determinant-stability), with Whitehead's lemma, and AlgebraicKTheory #1142 A4 (stable range one for semilocal rings, GL_s→K₁ onto). NE.2/units-surject-k1 cites the CA node; the other consumers keep U.3 for the reduced-Whitehead request."
   },
   {
    "supplier": "SelmerIwasawaCohomology:L2",
@@ -9875,7 +9875,7 @@
     "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module"
    ],
    "status": "extension-requested",
-   "note": "#869 has single-field Selmer groups (§2.12) and control for Z_p^d towers with discrete coefficients (§3.11), not p-adic Lie towers."
+   "note": "#869 has single-field Selmer groups (§2.12) and classical restriction control for discrete p-primary coefficients (§3.11), not p-adic Lie towers."
   }
  ],
  "coverage": [
@@ -10110,7 +10110,7 @@
     "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module",
     "NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-perfect-base-change"
    ],
-   "detail": "The checked SelmerIwasawaCohomology L0 packet does not plan continuous compact bar resolutions or their Tor/Ext comparison. L3 cohomology and Shapiro do not automatically give the requested compact homology theorem. L2 supplies Selmer mapping fibres but the specified elliptic control/coinvariant finiteness and Nekovář height comparison are further inputs. The requests are not existing theorems. SelmerIwasawaCohomology (#869, head 964eaa8) and ArithmeticGaloisDuality (#858, head 9fcc0f8) were read at their heads: compact bar resolutions and completed Tor are absent; Selmer groups are single-field (§2.12) with control for Z_p^d towers and discrete coefficients (§3.11); perfectness (#858, cohomological finiteness and perfect amplitude) is over commutative complete local rings."
+   "detail": "The checked SelmerIwasawaCohomology L0 packet does not plan continuous compact bar resolutions or their Tor/Ext comparison. L3 cohomology and Shapiro do not automatically give the requested compact homology theorem. L2 supplies Selmer mapping fibres but the specified elliptic control/coinvariant finiteness and Nekovář height comparison are further inputs. The requests are not existing theorems. SelmerIwasawaCohomology (#869, head 964eaa8) and ArithmeticGaloisDuality (#858, head 9fcc0f8) were read at their heads: compact bar resolutions and completed Tor are absent; Selmer groups are single-field (§2.12), with classical restriction control for discrete p-primary coefficients (§3.11); perfectness (#858, cohomological finiteness and perfect amplitude) is over commutative complete local rings."
   },
   {
    "title": "Twisted-algebra coefficients beyond the current owner’s field carrier",
@@ -10125,7 +10125,7 @@
    "neededBy": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences"
    ],
-   "detail": "Ritter–Weiss, Congruences between abelian pseudomeasures II, arXiv:1001.2091v3 Theorem p.2, asserts one g with nontrivial cyclotomic transfers for which the entire smoothed Möbius pseudomeasure sum is a trace. Proposition 4 pp.5–6 requires a fixed g for all even locally constant test functions. The explicit special-cusp proof in Propositions 5,9 and Lemma 10 pp.6–11 chooses a conductor for a given test function. This revision verifies that finite-conductor calculation but does not establish the uniform quantifier passage. The analytic basic-congruences node uses the theorem exactly as stated, with this additional proof-audit leaf; neither a per-function cusp choice nor inverse-limit compactness is presented as a proof of a common g. An independent continuation must justify that passage or provide a different proof of the stated uniform trace theorem. This is an audit obligation, not a claim that the theorem is false. Revision 3 makes the obstruction precise. For fixed g put s_g=Σ_F μ_Σ(Σ_F)ver_F^L((1−g_F)λ̃_F). Because ver_F^L is a ring map and ver_K^L(g) is Σ-invariant, s_(gh)=s_g+ver_K^L(g)s_h, and the trace ideal is stable under multiplication by Σ-invariant group elements. So the admissible g form a closed subgroup. Likewise Δ̃_(gh)(ε)=Δ̃_g(ε)+N(g)^kΔ̃_h(ε_g), and ε_g has the stabilizer of ε, so the g satisfying (4⋆) for all ε of one level also form a subgroup. Proposition 5 (pp. 6–7) takes γ with components 1+f at 𝔣 and g=j(γ). This g lies in the image of the units ≡1 mod 𝔣, so ver_K^L(g) is trivial at the level of ε. Also N(g)=(1+f)^(−[K:Q]) tends to 1 as 𝔣 grows. These elements have nontrivial cyclotomic image but accumulate only at 1. No compactness argument gives a common g. A repair needs a different special-cusp construction or a uniform estimate."
+   "detail": "Ritter–Weiss, Congruences between abelian pseudomeasures II, arXiv:1001.2091v3 Theorem p.2, asserts one g with nontrivial cyclotomic transfers for which the entire smoothed Möbius pseudomeasure sum is a trace. Proposition 4 pp.5–6 requires a fixed g for all even locally constant test functions. The explicit special-cusp proof in Propositions 5,9 and Lemma 10 pp.6–11 chooses a conductor for a given test function. This revision verifies that finite-conductor calculation but does not establish the uniform quantifier passage. The analytic basic-congruences node uses the theorem exactly as stated, with this additional proof-audit leaf; neither a per-function cusp choice nor inverse-limit compactness is presented as a proof of a common g. An independent continuation must justify that passage or provide a different proof of the stated uniform trace theorem. This is an audit obligation, not a claim that the theorem is false. Revision 3 makes the obstruction precise. For fixed g put s_g=Σ_F μ_Σ(Σ_F)ver_F^L((1−g_F)λ̃_F). Because ver_F^L is a ring map and ver_K^L(g) is Σ-invariant, s_(gh)=s_g+ver_K^L(g)s_h, and the trace ideal is stable under multiplication by Σ-invariant group elements. So the admissible g form a closed subgroup. Likewise Δ̃_(gh)(ε)=Δ̃_g(ε)+N(g)^kΔ̃_h(ε_g), and ε_g has the stabilizer of ε, so the g satisfying (4⋆) for all ε of one level also form a subgroup. Proposition 5 (pp. 6–7) takes the finite idèle α with components 1+f at the primes dividing 𝔣, puts γ=α_K and g=j(γ). This g lies in the image of the units ≡1 mod 𝔣, so ver_K^L(g) is trivial at the level of ε. Also N(g)=(1+f)^(−[K:Q]) tends to 1 as 𝔣 grows. These elements have nontrivial cyclotomic image but accumulate only at 1. No compactness argument gives a common g. A repair needs a different special-cusp construction or a uniform estimate."
   }
  ],
  "sourceIssues": [
@@ -12498,7 +12498,7 @@
     "§2.12 Selmer groups",
     "§2.21 mapping fibres",
     "§3.3 Γ-coinvariant control",
-    "§3.11 control for Z_p^d towers"
+    "§3.11 classical restriction control"
    ],
    "usedBy": [
     "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module",
@@ -12530,7 +12530,7 @@
     "§1.7 comparison with the completed group algebra",
     "§4.2 structure theorem",
     "§4.6 characteristic ideals",
-    "§5.2 topological Nakayama (commutative)"
+    "§5.2 topological Nakayama"
    ],
    "usedBy": [
     "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama",
