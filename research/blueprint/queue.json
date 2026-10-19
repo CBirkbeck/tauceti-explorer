@@ -151804,6 +151804,83 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex.md"
+  },
+  {
+   "id": "REV-PKG-ArithmeticKTheory~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ArithmeticKTheory~adv.md",
+    "research/blueprint/packages/ArithmeticKTheory/review.json",
+    "research/blueprint/packages/ArithmeticKTheory/README.md",
+    "research/blueprint/packages/ArithmeticKTheory/Suggested.lean",
+    "research/blueprint/packages/ArithmeticKTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticKTheory~adv.md"
+  },
+  {
+   "id": "FIX-PKG-MotivicEtaleKTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivicEtaleKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-MotivicEtaleKTheory~adv.md",
+    "research/blueprint/packages/MotivicEtaleKTheory/review.json",
+    "research/blueprint/packages/MotivicEtaleKTheory/README.md",
+    "research/blueprint/packages/MotivicEtaleKTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-MotivicEtaleKTheory~adv.md"
+  },
+  {
+   "id": "PKG-MotivesAndAlgebraicCycles~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles"
+   ],
+   "outputs": [
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/README.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/Suggested.lean",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/metadata.toml",
+    "research/blueprint/handoff/PKG-MotivesAndAlgebraicCycles~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-MotivesAndAlgebraicCycles~codex.md"
+  },
+  {
+   "id": "PKG-RefinedTraceMethods~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/packages/RefinedTraceMethods/README.md",
+    "research/blueprint/packages/RefinedTraceMethods/Suggested.lean",
+    "research/blueprint/packages/RefinedTraceMethods/metadata.toml",
+    "research/blueprint/handoff/PKG-RefinedTraceMethods~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-RefinedTraceMethods~codex.md"
   }
  ]
 }
