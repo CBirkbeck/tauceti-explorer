@@ -351,6 +351,116 @@
         "retrieval": "Web page text",
         "read": "Read the upload attribution, version header, and contents only. The public author upload is explicitly arXiv:2102.01055v2, dated February 2021, and was uploaded by Hector Pasten on 13 February 2021.",
         "outcome": "The freely readable author upload is the previously extracted preprint, not a matching final manuscript. No fresh full-paper reading or revision match is claimed."
+      },
+      {
+        "name": "pasten-current",
+        "url": "https://www.mat.uc.cl/~hector.pasten/papers.html",
+        "date": "2026-10-19T11:30:06.863215+00:00",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "certificateVerification": false,
+        "finalUrl": "https://www.mat.uc.cl/~hector.pasten/papers.html",
+        "httpStatus": 200,
+        "contentType": "text/html",
+        "bytes": 14453,
+        "sha256": "8336eaf4e5a3cd767a914a3725f8eab39e878b4f1ff3c57a7baf5db724788b4f",
+        "isPdf": false,
+        "read": "Inspected the paper entry in the author bibliography. Its sole manuscript link points to arXiv:2102.01055. The retrieved bytes match the September retrieval. TLS verification was disabled after the public site certificate-chain failure.",
+        "outcome": "No new final manuscript link."
+      },
+      {
+        "name": "caro-current",
+        "url": "https://sites.google.com/view/jerson-caro/research",
+        "date": "2026-10-19T11:30:06.863504+00:00",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "finalUrl": "https://sites.google.com/view/jerson-caro/research",
+        "httpStatus": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 143919,
+        "sha256": "7b26623a419ba4b3f4814b7cfc76ba875010b41de4f7f6a34f2b32e0ebc8db5e",
+        "isPdf": false,
+        "read": "Decoded the HTML-escaped publications table stored in the Google Sites data-code attribute, rather than relying on the outer page anchors. The paper entry has exactly two links: https://arxiv.org/abs/2102.01055 and https://link.springer.com/article/10.1007/s00222-023-01217-1.",
+        "outcome": "The previously uninspected embedded table supplies only the known preprint and publisher page; no final author manuscript was acquired."
+      },
+      {
+        "name": "springer-final",
+        "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf",
+        "date": "2026-10-19T11:30:06.863721+00:00",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "finalUrl": "https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf",
+        "httpStatus": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 3038,
+        "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea",
+        "isPdf": false,
+        "read": "The direct PDF endpoint returned a JavaScript client-challenge HTML response. Separately inspected the publicly readable article preview, including bibliographic metadata and the acknowledgement concerning an earlier Lemma 3.15. Neither response exposed the final mathematical text.",
+        "outcome": "No PDF or full article acquired; HTTP 200 is not a successful source retrieval."
+      },
+      {
+        "name": "uc-repository-bitstream",
+        "url": "https://repositorio.uc.cl/server/api/core/bitstreams/337e9a34-709c-44af-a9fa-c27851647c76/content",
+        "date": "2026-10-19T11:30:06.863950+00:00",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "finalUrl": "https://repositorio.uc.cl/server/api/core/bitstreams/337e9a34-709c-44af-a9fa-c27851647c76/content",
+        "httpStatus": 403,
+        "contentType": "text/html; charset=UTF-8",
+        "bytes": 304445,
+        "sha256": "7f61bad6d2ecf67d0a7d06eb767caecfe1876d3083f9f1786bf7a3a53f7a1b88",
+        "isPdf": false,
+        "read": "Rechecked the thesis bitstream identified in the earlier continuation. The server returned an access-denied HTML response.",
+        "outcome": "No thesis text read."
+      },
+      {
+        "name": "uc-repository-legacy",
+        "url": "https://repositorio.uc.cl/bitstreams/337e9a34-709c-44af-a9fa-c27851647c76/download",
+        "date": "2026-10-19T11:30:06.864724+00:00",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "finalUrl": "https://repositorio.uc.cl/bitstreams/337e9a34-709c-44af-a9fa-c27851647c76/download",
+        "httpStatus": 403,
+        "contentType": "text/html; charset=UTF-8",
+        "bytes": 304378,
+        "sha256": "2a16b9eac73211102ed9bbba0a7f732bd806b526913e3b3edba1cd49b69bd5c2",
+        "isPdf": false,
+        "read": "Checked the public download alias for the same thesis bitstream as an additional repository lead. The server returned an access-denied HTML response.",
+        "outcome": "No thesis text read; the alternate URL does not close the final-article gap."
+      },
+      {
+        "name": "arxiv-history",
+        "url": "https://arxiv.org/abs/2102.01055",
+        "date": "2026-10-19T11:30:06.865663+00:00",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "finalUrl": "https://arxiv.org/abs/2102.01055",
+        "httpStatus": 200,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 40400,
+        "sha256": "10141b461732b7fe2d1e07768b543f568be1bc79e2fbaed46078d96c71593c96",
+        "isPdf": false,
+        "read": "Inspected the version history: it still lists only the February 2021 v1/v2. A fresh 39-page v2 PDF has the already recorded SHA-256 d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7. Only its opening pages were checked in this continuation.",
+        "outcome": "No later arXiv revision and no new full-paper reading claimed."
+      },
+      {
+        "name": "balakrishnan-icm2026-survey",
+        "url": "https://epubs.siam.org/doi/full/10.1137/25M1805011",
+        "pdfUrl": "https://epubs.siam.org/doi/epdf/10.1137/25M1805011",
+        "date": "2026-10-19",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "retrieval": "Publisher HTML and indexed PDF text through the web reader; direct downloads returned HTTP 403, so no PDF bytes or source hash were obtained. PDF image requests failed.",
+        "read": "Selected text only: chapter metadata, section 5, Theorems 5.1–5.3 on printed pages 332–333 (PDF pages 12–13), and reference 56 on printed page 337 (PDF page 17). The reference identifies the assigned 2023 article by DOI.",
+        "outcome": "A new published survey corroborates the revised endpoint, but supplies neither the final CP article nor the revised Lemma 3.15. No sourceVersions entry or full-reading claim is added."
+      },
+      {
+        "name": "cleared-library-catalogue",
+        "date": "2026-10-19",
+        "agent": "Codex",
+        "session": "codex-FHORBU",
+        "retrieval": "Read the maintainer-provided catalogue and searched its entries and available filenames for Caro, Pasten, Chabauty and the article DOI.",
+        "outcome": "No cleared copy of the assigned article or matching author manuscript found. No private book or passage was copied."
       }
     ],
     "priorAtlasCommit": "d964b2642d4743641acce02cde0dab1b7019e443",
@@ -366,6 +476,18 @@
         "displayedBound": "#X(Q)≤#X′(F_p)+((p−1)/(p−2))(p+4√p+5)c₁²(X)<#X′(F_p)+4p c₁²(X).",
         "scope": "Corroborates a +5 bound in the threefold case directly from a coauthor, beyond the inherited follow-up W₂ citation. Does not establish final article theorem numbering, complete domains, the corrected Lemma 3.15 or full proof. The dim A>3 remark at PDF p. 22/frame 10 lists further conditions without stating them fully.",
         "inventoryPolicy": "Keep all active preprint items, routes and nineteen source findings unchanged until the assigned final text can be fully collated. These slides are not listed as a read published paper or matching author manuscript in sourceVersions."
+      },
+      {
+        "type": "Later published survey; not a version of the assigned paper",
+        "citation": "Jennifer S. Balakrishnan, Chabauty and Beyond: Explicit p-adic Methods for Rational Points, Proceedings of the ICM 2026, vol. 3, pp. 321–341; DOI 10.1137/25M1805011.",
+        "url": "https://epubs.siam.org/doi/epdf/10.1137/25M1805011",
+        "read": "2026-10-19",
+        "worker": "Codex codex-FHORBU",
+        "locator": "Section 5, Theorem 5.1, printed p. 332 / PDF p. 12; reference 56, printed p. 337 / PDF p. 17.",
+        "displayedHypotheses": "Over Q, take an abelian threefold A and a smooth projective geometrically irreducible surface Y contained in A, of general type. Require rank A(Q)≤1, good reduction of both at p>(128/9)(c₁²(Y))², and absence of elliptic curves in the geometric special fibre of Y.",
+        "displayedBound": "#Y(Q)≤#Y(F_p)+((p−1)/(p−2))(p+4√p+5)c₁²(Y).",
+        "scope": "Corroborates the +5 endpoint attributed to CP 2023. It does not identify the final article theorem numbers, give the revised Lemma 3.15, or permit complete inventory/correction collation.",
+        "inventoryPolicy": "Preserve the preprint-qualified extraction and its sourceVersions. The survey is supplementary collation evidence only."
       }
     ]
   },
@@ -3693,6 +3815,14 @@
       "worker": "Codex codex-a71f92",
       "scope": "New final-manuscript discovery leads only",
       "summary": "Inspected the university publication announcement and the distinct published/preprint ResearchGate records. The announcement routes to the known publisher page; the published record supplies only its first-page publisher preview, while the author-uploaded full text is explicitly arXiv v2. G0 remains. All 181 items, 17 routes, 19 findings, sourceVersions and completionBoundary are preserved; no new mathematical extraction or full-paper reading claimed."
+    },
+    {
+      "date": "2026-10-19",
+      "worker": "Codex codex-FHORBU",
+      "status": "partial",
+      "scope": "New embedded-author-table and ICM-survey leads; source-access checkpoint.",
+      "summary": "Decoded Caro’s embedded publications table, whose two article links are the known arXiv and Springer pages. Read selected 2026 ICM survey text with page/theorem locators corroborating the +5 endpoint. Checked the cleared-library catalogue and renewed source-access leads; no final manuscript obtained. Preserve all 181 items, 17 routes, 19 findings, sourceVersions and completionBoundary exactly.",
+      "remaining": "G0 only: obtain and fully read the revised 54-page article or a demonstrably matching final author manuscript; collate its entire inventory, theorem domains/constants and the nineteen preprint findings. Resume only when new manuscript evidence is available."
     }
   ],
   "sourceIssues": [

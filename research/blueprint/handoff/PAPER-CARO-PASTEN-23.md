@@ -1,3 +1,28 @@
+# Current source-access handoff — codex-FHORBU
+
+19 October 2026; issue #1235; partial checkpoint. Read the report’s opening
+section and this session’s acquisition/collation records in the result JSON.
+
+The new author-page inspection decodes the embedded publications table:
+it links only to arXiv and Springer. Balakrishnan’s ICM 2026 survey, section 5,
+Theorem 5.1, p. 332 (PDF p. 12), independently corroborates the +5 endpoint.
+It does not supply the full revised CP article. No matching copy was found in
+the cleared-library catalogue. The other recorded source endpoints remain
+unproductive. No full-paper reading or independent mathematical review was
+performed in this continuation.
+
+**Resume condition:** obtain the full revised 54-page article or a demonstrably
+matching final author manuscript. Then read all of it and reconcile its entire
+inventory and the nineteen preprint findings. G0 remains the only extraction
+blocker. Do not repeat the same acquisition-only attempts without a new source
+lead. All 181 items, 17 routes, 19 findings, sourceVersions and completionBoundary
+are preserved exactly. No new planning or library classification was performed.
+
+Paper/version/intake/preservation/routing checks pass. No Lean compiled.
+All evidence needed for continuation is in the deliverables; retain no scratch.
+
+---
+
 # Current acquisition handoff — codex-a71f92
 
 30 September 2026; issue #1235; partial. Three new discovery leads are recorded

@@ -1,3 +1,46 @@
+# Embedded author links and a later published survey — codex-FHORBU
+
+19 October 2026; issue [#1235](https://github.com/CBirkbeck/tauceti-explorer/issues/1235).
+**Source-access checkpoint; extraction remains partial.** The final 54-page
+article is still unavailable. The 181 active items, seventeen routes,
+nineteen preprint findings and recorded source versions are preserved exactly.
+
+The [Caro research page](https://sites.google.com/view/jerson-caro/research)
+contains a publications table inside an HTML-escaped `data-code` attribute.
+Decoded and inspected the actual paper entry: its two links point to the known
+arXiv record and Springer article. This resolves the earlier uncertainty caused
+by inspecting only the outer page anchors. The returned HTML has SHA-256
+`7b26623a419ba4b3f4814b7cfc76ba875010b41de4f7f6a34f2b32e0ebc8db5e`.
+
+A new published lead is [Balakrishnan’s 2026 ICM survey](https://epubs.siam.org/doi/epdf/10.1137/25M1805011).
+Section 5, Theorem 5.1, printed p. 332 / PDF p. 12, corroborates the +5
+threefold endpoint; reference 56 on p. 337 identifies the 2023 CP article.
+The exact hypotheses and bound are recorded separately under
+`source.publicationCollationEvidence`. Read selected section 5 text and that
+reference, not the whole survey. The web reader exposes HTML and indexed PDF
+text, but direct downloads return 403 and image retrieval failed; no PDF hash
+or image inspection is claimed. This survey does not provide the revised
+Lemma 3.15 or the complete published inventory.
+
+The cleared-library catalogue contains no matching manuscript. Pasten’s
+bibliography still links only arXiv; the arXiv history still ends at v2.
+The canonical Springer PDF request returned client-challenge HTML, and the UC
+thesis download alias returned 403. The renewed requests and their actual
+response hashes are in `source.acquisitionAttempts`; those hashes identify
+responses, not acquired article PDFs. No fresh complete reading is claimed.
+
+**Resume at G0 only after obtaining the full revised article or a demonstrably
+matching final author manuscript.** Read it entirely and collate the definitions,
+results, domains, constants and nineteen preprint findings. The new survey
+cannot replace this step. Repeating these same acquisition attempts or adding
+proof/API development will not complete the extraction.
+
+Paper, source-version, intake, preservation and routing checks pass. No Lean
+file is part of this job and none was compiled. All continuation evidence is
+recorded here and in the JSON; no scratch file is needed by the next worker.
+
+---
+
 # Institutional and author-upload discovery checkpoint — codex-a71f92
 
 30 September 2026; issue [#1235](https://github.com/CBirkbeck/tauceti-explorer/issues/1235).
