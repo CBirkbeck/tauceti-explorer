@@ -114,13 +114,34 @@ theorem traceCocycle_scalar {n : Type*} [Fintype n] [DecidableEq n]
     (j : ℕ) (hj : 2 ≤ j) (X : Fin (2 * j - 1) → Matrix n n ℂ)
     (hcomm : ∀ i k, Commute (X i) (X k)) : traceCocycle j X = 0 := by sorry
 
-/-- The Pauli triple fixes the sign and scalar of the trace cocycle. -/
+/-- The relative representative scales each Hermitian input by two (Burgos Proposition 9.25).
+This is a cochain identity, separate from the absolute representative of Proposition 9.26. -/
+theorem traceCocycle_hermitian {n : Type*} [Fintype n] [DecidableEq n]
+    (j : ℕ) (hj : 2 ≤ j) (X : Fin (2 * j - 1) → Matrix n n ℂ)
+    (hX : ∀ k, (X k).IsHermitian) :
+    traceCocycle j (fun k => (X k).conjTranspose + X k) =
+      (2 : ℂ) ^ (2 * j - 1) * traceCocycle j X := by sorry
+
+/-- The Pauli triple fixes the trace value and the distinct relative Borel value. -/
 example :
-    traceCocycle 2 ![(!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℂ),
-      !![0, -Complex.I; Complex.I, 0], !![1, 0; 0, -1]] = -2 * Complex.I := by
-  rw [traceCocycle_three]
-  norm_num [Matrix.trace, Matrix.mul_apply, Fin.sum_univ_two, Complex.I_sq]
-  ring
+    let X : Fin 3 → Matrix (Fin 2) (Fin 2) ℂ :=
+      ![!![0, 1; 1, 0], !![0, -Complex.I; Complex.I, 0], !![1, 0; 0, -1]]
+    traceCocycle 2 X = -2 * Complex.I ∧
+      traceCocycle 2 (fun k => (X k).conjTranspose + X k) = -16 * Complex.I := by
+  dsimp
+  constructor
+  · rw [traceCocycle_three]
+    norm_num [Matrix.trace, Matrix.mul_apply, Fin.sum_univ_two, Complex.I_sq]
+    ring
+  · have hinput (X Y Z : Matrix (Fin 2) (Fin 2) ℂ) :
+        (fun k : Fin 3 => (![X, Y, Z] k).conjTranspose + ![X, Y, Z] k) =
+          ![X.conjTranspose + X, Y.conjTranspose + Y, Z.conjTranspose + Z] := by
+      funext k
+      fin_cases k <;> rfl
+    rw [hinput, traceCocycle_three]
+    norm_num [Matrix.trace, Matrix.mul_apply, Matrix.conjTranspose_apply,
+      Fin.sum_univ_two, Complex.I_sq]
+    ring
 
 /-- Repeated arguments must vanish. -/
 example (X Z : Matrix (Fin 2) (Fin 2) ℂ) : traceCocycle 2 ![X, X, Z] = 0 := by
@@ -129,17 +150,21 @@ example (X Z : Matrix (Fin 2) (Fin 2) ℂ) : traceCocycle 2 ![X, X, Z] = 0 := by
     Matrix.trace_mul_cycle X X Z, Matrix.trace_mul_comm X (Z * X)]
   simp
 
-/-- The two representatives differ by two, before and after Tate-coordinate conversion. -/
+/-- The absolute representatives differ by two; the relative Pauli value has its own coordinate. -/
 theorem tateProjection_weight_two_coordinates : 2 * tateProjection 1 (-2 * Complex.I) = -4 * Complex.I ∧
     (-4 * Complex.I) / (2 * (Real.pi : ℂ) * Complex.I) = -2 / (Real.pi : ℂ) ∧
-    (-2 * Complex.I) / (2 * (Real.pi : ℂ) * Complex.I) = -1 / (Real.pi : ℂ) := by
+    (-2 * Complex.I) / (2 * (Real.pi : ℂ) * Complex.I) = -1 / (Real.pi : ℂ) ∧
+    (-16 * Complex.I) / (2 * (Real.pi : ℂ) * Complex.I) = -8 / (Real.pi : ℂ) := by
   have hpi : (Real.pi : ℂ) ≠ 0 := by exact_mod_cast Real.pi_ne_zero
   constructor
   · simp [tateProjection]; ring
   · constructor
     · field_simp
       norm_num
-    · field_simp
+    · constructor
+      · field_simp
+      · field_simp
+        norm_num
 
 /-! ## Layer 5: Analytic conventions and negative special values -/
 
