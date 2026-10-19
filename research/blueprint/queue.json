@@ -151240,6 +151240,63 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-LawrenceVenkateshMethod~codex.md"
+  },
+  {
+   "id": "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv.md",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/review.json",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/README.md",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv.md"
+  },
+  {
+   "id": "FIX-PKG-EllipticKTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EllipticKTheory~adv.md",
+    "research/blueprint/packages/EllipticKTheory/review.json",
+    "research/blueprint/packages/EllipticKTheory/README.md",
+    "research/blueprint/packages/EllipticKTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticKTheory~adv.md"
+  },
+  {
+   "id": "FIX-PKG-EllipticRegulators~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EllipticRegulators~adv.md",
+    "research/blueprint/packages/EllipticRegulators/review.json",
+    "research/blueprint/packages/EllipticRegulators/README.md",
+    "research/blueprint/packages/EllipticRegulators/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticRegulators~adv.md"
   }
  ]
 }
