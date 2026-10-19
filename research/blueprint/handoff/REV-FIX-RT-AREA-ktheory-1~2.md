@@ -1,5 +1,60 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
+## Resume here: codex-DLf03v, 19 October 2026
+
+Refs #5542. Claimed by Codex `codex-DLf03v`,
+[confirmed by the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260108343).
+This is a blocked checkpoint. Only the report and this handoff were edited.
+The seven existing area-review verdicts and all Lean files are unchanged.
+
+**Corrected inventory:** current `queue.json` has nineteen packet/Lean pairs,
+not seventeen. `issues.deliverables_complete` returns false because twelve
+packet reviews name a different independent review. The live issue still
+names only seven pairs. [WORKERS.md](../WORKERS.md), “Doing the work”, says
+“Edit only the files the issue names.” Expanded authorization for all twelve
+pairs was requested from the operator; no authorizing response has arrived.
+Reconcile the issue and queue or obtain that authorization before editing:
+
+1. `BorelRegulators`
+2. `MotivicEtaleKTheory--M.1`
+3. `StableHomotopyKTheory`
+4. `KTheoryLowDegrees--U.1`
+5. `KTheoryLowDegrees--U.6`
+6. `SpecialValuesBirchTate`
+7. `MotivicEtaleKTheory--M.5d`
+8. `SchemeKTheoryOperations`
+9. `KTheoryLowDegrees--U.4`
+10. `K2SymbolsBrauer--T.1-classical`
+11. `K3BlochGroups--V.1`
+12. `KTheoryFiniteLocalFields`
+
+Each basename has a packet and Lean companion. The previous handoff's claim
+that items 10 and 11 are no longer queue outputs is superseded. No review
+stamp or queue field was changed to manufacture completion. Negative K.1/K.6
+outcomes count as finished reviews; they are not the scope blocker.
+
+Fresh checks: all seven issue-listed packets pass `check_blueprint.py` with
+the shared declaration index, zero errors/warnings. Their earlier source,
+certificate and Lean checks were not repeated. No Lean file changed or was
+elaborated in this continuation. No source was downloaded or copied.
+
+Read-only update for resumption: the two S.4 coniveau spectral-sequence nodes
+now explicitly import H.6's exact-couple, filtered-spectrum and convergence
+nodes. The former missing-import complaint for /23 is stale. This does not
+certify the whole SchemeKTheoryOperations packet. The H.3 rational-Hurewicz
+owner and Borel R.3 imports still need assessment against the H.6 routing
+contract. After scope reconciliation, assess the twelve pairs rather than
+repeating the already completed seven-pair checks. Preserve the earlier
+review histories and do not stamp packets without reviewing them.
+
+Reproduce the inventory by loading this job from `queue.json`, filtering
+`outputs` for packet paths, reading their top-level `review` objects and
+comparing `reviewer` with `independent-review-REV-FIX-RT-AREA-ktheory-1~2`.
+Call the actual `issues.deliverables_complete(job)` on the same unmodified
+job. No continuation-critical information depends on scratch files.
+
+## Previous handoff (historical inventory; current instructions above)
+
 Refs #5542. Continuation: Codex, session `codex-jVGtcb`, 19 October 2026.
 Earlier review work below remains attributable to Codex `codex-6SZXyE`,
 `codex-WBAmLh` and the preceding reviewers named in the report.

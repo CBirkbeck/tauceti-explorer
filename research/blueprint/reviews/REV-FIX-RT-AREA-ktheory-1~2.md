@@ -1,5 +1,55 @@
 # Independent review: REV-FIX-RT-AREA-ktheory-1~2
 
+## Current continuation: Codex codex-DLf03v, 19 October 2026
+
+Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260106653)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260108343).
+This session wrote none of the fixes under review and claimed no second job.
+
+**Blocked checkpoint: the live issue authorizes seven packet/Lean pairs,
+whereas the checked-out queue requires nineteen.** The fresh call to
+`issues.deliverables_complete` returns false. Twelve packets retain other
+independent reviewers rather than this area-review stamp. In particular,
+`K2SymbolsBrauer--T.1-classical` and `K3BlochGroups--V.1` are current queue
+outputs: the preceding handoff's statement that they were no longer outputs
+is incorrect for this checkout. The handoff now lists all twelve missing
+area reviews. Its historical seventeen/ten inventory must not guide resumption.
+
+[WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
+names.” Expanded scope was requested from the operator, including those two
+additional pairs; no authorizing response has arrived. Neither the issue nor
+the queue was edited to bypass the discrepancy. No additional packet review
+was stamped, and all seven inherited verdicts remain unchanged. The negative
+K.1/K.6 verdicts are completed review outcomes and do not cause this failure.
+
+One read-only resumption lead corrects the older omission list: both
+`SchemeKTheoryOperations:S.4/k-coniveau-spectral-sequence` and
+`SchemeKTheoryOperations:S.4/g-coniveau-spectral-sequence` now directly import
+`StableHomotopyKTheory:H.6/exact-couple`,
+`H.6/filtered-spectrum-spectral-sequence` and
+`H.6/spectral-sequence-convergence-exhaustive`. The missing-import aspect of
+finding /23 is therefore repaired in the current packet. This observation
+checks the explicit prerequisites; it is not a new source certification or
+whole-packet verdict. The current H.3 rational-Hurewicz node and its Borel R.3
+consumers still use the H.3 owner, so the earlier H.6 routing concern remains
+a resumption lead.
+
+Fresh validation: all seven issue-listed packets pass `check_blueprint.py`
+with the shared declaration index, zero errors and zero warnings. Only this
+report and its handoff change. No Lean file changes or fresh elaborations
+were needed; the seven earlier successful elaborations remain attributed to
+their authors below. There are no link-map or standalone restructuring
+proposal deliverables to validate. The checker does not certify the missing
+twelve reviews or mathematical proof closure.
+
+## Earlier review record (attributed to the named sessions)
+
+The record below preserves earlier source readings and corrections. Statements
+about the queue inventory describe those sessions' diagnostics; the current
+nineteen/twelve inventory above supersedes them. No earlier source reading,
+finite-certificate reproduction or Lean elaboration is claimed as new work by
+codex-DLf03v.
+
 Refs #5542. Codex, session `codex-WBAmLh`, 19 October 2026.
 The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258124657)
 was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258126178).
