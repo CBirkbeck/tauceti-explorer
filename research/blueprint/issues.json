@@ -5292,5 +5292,6 @@
  "FIX-PKG-MotivicEtaleKTheory~adv": 11239,
  "PKG-MotivesAndAlgebraicCycles~codex": 11240,
  "PKG-RefinedTraceMethods~codex": 11241,
- "REV-PKG-ArithmeticKTheory~adv": 11242
+ "REV-PKG-ArithmeticKTheory~adv": 11242,
+ "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex2": 11243
 }
