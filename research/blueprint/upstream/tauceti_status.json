@@ -631,13 +631,14 @@
     "LocalGaloisDeformationRings": {
       "stage": "pr",
       "pr": 923,
-      "head": "3132915",
+      "head": "65504ac",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
         "head": "3132915",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 65504ac; confirmation pass pending"
       }
     },
     "AutomorphicLFunctionsAndLocalFactors": {
