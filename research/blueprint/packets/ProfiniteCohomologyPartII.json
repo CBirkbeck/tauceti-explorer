@@ -27,140 +27,140 @@
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Basic.lean",
         "provides": "The subgroup of GL indexed by a finite linearly ordered type whose underlying matrix is upper unitriangular.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Basic.lean#L115; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.UpperUnitriangularGroup.ext",
         "kind": "theorem",
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Basic.lean",
         "provides": "Equality is determined by strictly upper-diagonal entries.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Basic.lean#L153; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.UpperUnitriangularGroup.superdiagonalSubgroup",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Nilpotent.lean",
         "provides": "The subgroup with g−1 supported at superdiagonal distance at least r.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Nilpotent.lean#L137; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.UpperUnitriangularGroup.mem_superdiagonalSubgroup_iff",
         "kind": "theorem",
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Nilpotent.lean",
         "provides": "Membership iff entries with j<i+r equal the corresponding identity entries.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Nilpotent.lean#L181; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.UpperUnitriangularGroup.commutator_superdiagonalSubgroup_le",
         "kind": "theorem",
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Nilpotent.lean",
         "provides": "The commutator of filtration degrees r,s lies in degree r+s; this is only the forward inclusion.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/UpperUnitriangular/Nilpotent.lean#L220; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.transvectionUnit",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
         "provides": "The existing GL transvection for distinct indices; parameter addition, inverse and commuting APIs remain imported.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean#L138; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.commutatorElement_transvectionUnit",
         "kind": "theorem",
         "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean",
         "provides": "For i,j,l pairwise distinct, the chaining transvection commutator is the i,l transvection with product parameter; convention xyx⁻¹y⁻¹.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean#L242; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.C1",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Continuous 1-cochains as continuousAddSubgroup of plain functions.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L127; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.C2",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
         "provides": "Continuous 2-cochains on G×G.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean#L130; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.ContCohomology.explicitCup11",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean",
         "provides": "The biadditive H¹×H¹→H² map from μ(a(g),g·b(h)); continuity and equivariance are explicit.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Cup/Product.lean#L577; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.homAction",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/InternalHom.lean",
         "provides": "Conjugation action g·f=g∘f∘g⁻¹, rather than the pointwise codomain action.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/InternalHom.lean#L137; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.homAction_apply_smul",
         "kind": "theorem",
         "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/InternalHom.lean",
         "provides": "Evaluation is equivariant: (g·f)(g·m)=g·f(m).",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/InternalHom.lean#L198; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq",
         "kind": "theorem",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "Every ordinary H² class is represented by a normalized multiplicative factor set.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/GroupExtension/Cohomology.lean#L187; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero",
         "kind": "theorem",
         "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
         "provides": "The extension of a factor set splits exactly when its ordinary H² class vanishes.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at f790474821cf4256814db967cb154e7af3d0c369: https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/GroupExtension/Cohomology.lean#L245; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "mathlib:CharacterModule.dual_surjective_of_injective",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Module/CharacterModule.lean",
-        "provides": "A character of a submodule extends across an injective linear map, using divisibility of Q/Z.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "provides": "For a commutative ring and an injective linear map, the induced map on character modules is surjective. The character module uses additive maps to AddCircle (1 : Q), the Q/Z model; specialize to Z-modules for the finite-group character-extension argument.",
+        "checked": "Independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/CharacterModule.lean#L101; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "mathlib:LinearMap",
-        "kind": "def",
+        "kind": "structure",
         "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
-        "provides": "The existing bundled linear maps over a field; equality and scalar action are pointwise.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "provides": "Existing bundled semilinear maps over semirings; the identity ring-hom specialization supplies ordinary linear maps, including the field cases here. Extensionality and pointwise algebra are imported.",
+        "checked": "Independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Module/LinearMap/Defs.lean#L85; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "mathlib:FreeGroup",
         "kind": "def",
         "module": "Mathlib/GroupTheory/FreeGroup/Basic.lean",
         "provides": "The free group on a type and its homomorphism extension universal property.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/FreeGroup/Basic.lean#L471; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "mathlib:PresentedGroup",
         "kind": "def",
         "module": "Mathlib/GroupTheory/PresentedGroup.lean",
         "provides": "The quotient of the existing free group by the normal closure of relators.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/PresentedGroup.lean#L39; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "mathlib:ConjClasses",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Conj.lean",
         "provides": "The quotient by the existing conjugacy relation; no new conjugacy-class carrier.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Conj.lean#L133; retrieved module bytes agree with the shared pinned build."
       },
       {
         "ref": "mathlib:IsConj.pow",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Conj.lean",
         "provides": "Natural powers preserve the existing conjugacy relation, giving the finite exponent power action.",
-        "checked": "Actual statement read in the shared pinned source; the Mathlib nested checkout is 082e2d37e8b0463410cdb532e111cd43d5a66174."
+        "checked": "Independently read at 082e2d37e8b0463410cdb532e111cd43d5a66174: https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Conj.lean#L52; retrieved module bytes agree with the shared pinned build."
       }
     ]
   },
@@ -174,13 +174,15 @@
       "sha256": "a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4",
       "accessed": "2026-10-18",
       "readSections": [
-        "Definitions 2.1 and 3.2; Proposition 2.2 and Corollary 2.3, pp.4–5",
+        "Introduction pp.1–2 (defining systems); Notation 2.1, Proposition 2.2 and Corollary 2.3, p.5; Definition 3.2, p.9",
         "Conjugacy-power pairing and Remark 3.4, pp.9–11",
         "Proposition 4.1 and finite matrix/cohomology arguments, pp.11–18",
         "Definition 5.2, Proposition 5.3 and Lemma 5.5 with proofs, pp.18–22",
         "Proposition 6.1 and Examples 6.2–6.3, pp.23–24",
         "Coefficient systems, Proposition 7.3, rank-one local reduction, Theorem 7.5 and Lemmas 7.6–7.7, pp.24–31"
-      ]
+      ],
+      "independentReviewRead": "2026-10-19",
+      "independentReviewScope": "pp.1–31, including every node and errata locator; preprint only, published full text unavailable"
     },
     {
       "id": "Michailov",
@@ -192,7 +194,9 @@
       "accessed": "2026-10-18",
       "readSections": [
         "Entire paper; especially §2 pp.3–4 and Theorem 3.1 Cases I–II, pp.5–8. Only the superdiagonal-subgroup specialization is planned."
-      ]
+      ],
+      "independentReviewRead": "2026-10-19",
+      "independentReviewScope": "§§1–3, pp.1–8, including both Theorem 3.1 cases and both reported slips"
     },
     {
       "id": "Moravec",
@@ -206,7 +210,9 @@
         "§2, pp.3–4: crossed exterior presentation and commutator map",
         "Lemma 3.1 and Theorem 3.2, pp.4–6: natural duality and commuting generators",
         "§4 opening, pp.9–10: commutativity-preserving exterior square and its universal property"
-      ]
+      ],
+      "independentReviewRead": "2026-10-19",
+      "independentReviewScope": "§2 pp.3–4; Lemma 3.1 and Theorem 3.2 pp.4–6; §4 opening pp.9–10"
     },
     {
       "id": "MS-split",
@@ -217,7 +223,9 @@
       "accessed": "2026-10-18",
       "readSections": [
         "Introduction §§1.2–1.5, pp.1–4, especially Theorem 1.3. No negligible-class proof is claimed read or planned here."
-      ]
+      ],
+      "independentReviewRead": "2026-10-19",
+      "independentReviewScope": "Introduction §§1.2–1.5, pp.1–4, solely for the scope split"
     }
   ],
   "nodes": [
@@ -229,10 +237,10 @@
       ],
       "title": "Continuous inhomogeneous cochain algebra",
       "kind": "construction",
-      "statement": "For a profinite Γ and a discrete commutative Γ-ring R with continuous action, set C^q_cts(Γ,R)=C(Γ^q,R), including C^0=R. Use the inhomogeneous differential and (f∪g)(g₁,…,g_(r+s))=f(g₁,…,g_r)·(g₁⋯g_r)g(g_(r+1),…,g_(r+s)). This is a strictly associative unital cohomological DGA; d has degree +1 and d(f∪g)=df∪g+(−1)^r f∪dg on arbitrary cochains. Regard this as a DGA over Z (or the fixed coefficient subring); when the Γ-action on R is trivial it is an R-DGA.",
+      "statement": "For a profinite Γ and a discrete commutative Γ-ring R with continuous action, set C^q_cts(Γ,R)=C(Γ^q,R), including C^0=R. Use the inhomogeneous differential and (f∪g)(g₁,…,g_(r+s))=f(g₁,…,g_r)·(g₁⋯g_r)g(g_(r+1),…,g_(r+s)). This is a strictly associative unital cohomological DGA; d has degree +1 and d(f∪g)=df∪g+(−1)^r f∪dg on arbitrary cochains. Regard this as a DGA over Z (or the fixed coefficient subring); when the Γ-action on R is trivial it is an R-DGA. Give each cochain group and its cohomology the discrete topology for comparison in TopModuleCat Z; compactness of Γ^q and discreteness of R identify this with the compact-open topology on continuous maps. Do not inherit the pointwise function-space topology from the low-degree plain-function subgroups.",
       "hypotheses": [],
       "proofSteps": [
-        "Form continuous maps on finite powers with pointwise R-module operations; verify every differential summand is continuous.",
+        "Form continuous maps on finite powers with pointwise additive operations. Give these groups the discrete topology, equal here to compact-open; verify every differential summand is continuous. Use the parent discrete wrappers when comparing with its low-degree plain-function quotients.",
         "Expand the differential and cancel the adjacent face terms; the first face accounts for the translated action in the product.",
         "Expand both bracketings of a triple cup to the same product in R. Construct the DGA through DGAInfinity, without replacing strict equality by a cohomology identity."
       ],
@@ -240,12 +248,13 @@
         "For Γ=1, the unnormalized complex has C^q=R and alternating differential; H⁰=R and H^q=0 for q>0.",
         "The (1,1) formula is a(g)·g b(h), and its class is the pinned explicitCup11.",
         "For arbitrary f,g,h in C¹, both bracketings at (x,y,z) equal f(x)·x g(y)·xy h(z), with no cocycle hypotheses.",
-        "The degree-(1,1) rule contains −f∪dg; the unsigned formula fails over F₃ on a noncocycle of C₃."
+        "The degree-(1,1) rule contains −f∪dg; the unsigned formula fails over F₃ on a noncocycle of C₃.",
+        "For Γ=∏_N C₂ with trivial F₂ coefficients, use discrete H¹ in the canonical comparison. The inherited pointwise topology on continuous characters is not discrete: finitely many evaluations cannot isolate zero."
       ],
       "uses": [
         {
           "where": "ProfiniteCohomologyPartII:M.0/canonical-comparison",
-          "how": "Supplies continuous inhomogeneous cochain algebra in the following target: The cohomology of continuousCochainDGA is naturally isomorphic, in every degree, to the parent roadmap continuousCohomology of the associated discrete representation. In degrees 0,1,2 the maps are the parent explicit comparison maps; the induced products agree with its graded cup and pinned explicitCup11."
+          "how": "Supplies continuous inhomogeneous cochain algebra in the following target: The cohomology of continuousCochainDGA is naturally isomorphic, in every degree, to the parent roadmap continuousCohomology of the associated discrete representation. In degrees 0,1,2 the maps are the parent explicit comparison maps; the induced products agree with its graded cup and pinned explicitCup11. The comparison is an isomorphism of discrete objects in TopModuleCat Z, using the parent discrete low-degree wrappers, and in particular an additive isomorphism after forgetting topology."
         },
         {
           "where": "ProfiniteCohomologyPartII:M.0/continuous-defining-system",
@@ -276,6 +285,11 @@
           "name": "continuousCup_noncycleLeibniz",
           "kind": "non-example",
           "statement": "The degree-(1,1) rule contains −f∪dg; the unsigned formula fails over F₃ on a noncocycle of C₃."
+        },
+        {
+          "name": "continuousCochainDGA_discreteTopology",
+          "kind": "non-example",
+          "statement": "For Γ=∏_N C₂ with trivial F₂ coefficients, use discrete H¹ in the canonical comparison. The inherited pointwise topology on continuous characters is not discrete: finitely many evaluations cannot isolate zero."
         }
       ],
       "prerequisites": [
@@ -308,6 +322,11 @@
           "name": "continuousCochainDGA_pullback",
           "role": "functoriality",
           "statement": "Pullback along continuous group homomorphisms and equivariant ring maps is a DGA morphism."
+        },
+        {
+          "name": "continuousCochainDGA_cochain_ext",
+          "role": "extensionality",
+          "statement": "Two degree-q cochains are equal when their values agree on every q-tuple; reuse ContinuousMap.ext."
         }
       ],
       "library": {
@@ -317,8 +336,8 @@
       "sources": [
         {
           "sourceId": "HW",
-          "locator": "§1 p.2; §7 pp.24–25; explicit cochain realization of Definition 2.1",
-          "match": "The Galois specialization requires a strict cochain model, beyond the canonical cup-associativity homotopy."
+          "locator": "Introduction pp.1–2 (defining-system convention); §7 pp.24–25",
+          "match": "These passages motivate a continuous strict cochain realization. The DGA laws and the comparison to the parent library are interface targets derived here, rather than theorems stated at this locator."
         }
       ],
       "implementationStatus": "unchecked",
@@ -334,15 +353,16 @@
       ],
       "title": "Canonical continuous-cohomology comparison",
       "kind": "comparison",
-      "statement": "The cohomology of continuousCochainDGA is naturally isomorphic, in every degree, to the parent roadmap continuousCohomology of the associated discrete representation. In degrees 0,1,2 the maps are the parent explicit comparison maps; the induced products agree with its graded cup and pinned explicitCup11.",
+      "statement": "The cohomology of continuousCochainDGA is naturally isomorphic, in every degree, to the parent roadmap continuousCohomology of the associated discrete representation. In degrees 0,1,2 the maps are the parent explicit comparison maps; the induced products agree with its graded cup and pinned explicitCup11. The comparison is an isomorphism of discrete objects in TopModuleCat Z, using the parent discrete low-degree wrappers, and in particular an additive isomorphism after forgetting topology.",
       "hypotheses": [],
       "proofSteps": [
-        "Convert inhomogeneous cochains to equivariant homogeneous cochains by the standard successive-product coordinates and their inverse.",
-        "Identify the latter with the continuous bar resolution comparison requested from PC10; both augmentations are the identity on R.",
-        "Compare Alexander–Whitney cup maps and check the low-degree representatives, retaining naturality in Γ and R."
+        "For q≥0 send f to F(g₀,…,g_q)=g₀·f(g₀⁻¹g₁,…,g_(q−1)⁻¹g_q); the inverse evaluates F at (1,h₁,h₁h₂,…,h₁⋯h_q). Verify equivariance and the differential identities in both directions.",
+        "Use compact-open currying/uncurrying to identify jointly continuous homogeneous cochains with invariant elements of the parent TopRep.resolutionX iterated continuous-coinduction complex (with its degree shift). Profinite Γ and its finite powers are locally compact, so the inverse currying maps exist. This uses the actual parent resolution, not an additional bar-resolution interface.",
+        "Compactness and discrete coefficients make each compact-open term and its subquotients discrete. Compare in TopModuleCat Z via the parent low-degree discrete wrappers; check identity augmentation and the displayed inverse in degrees 0,1,2.",
+        "Translate the parent graded cup through these coordinates and compare its Alexander–Whitney formula with the displayed inhomogeneous cup. Check the pinned explicitCup11 representative and naturality in compatible pairs."
       ],
       "acceptance": [
-        "The cohomology of continuousCochainDGA is naturally isomorphic, in every degree, to the parent roadmap continuousCohomology of the associated discrete representation. In degrees 0,1,2 the maps are the parent explicit comparison maps; the induced products agree with its graded cup and pinned explicitCup11."
+        "The cohomology of continuousCochainDGA is naturally isomorphic, in every degree, to the parent roadmap continuousCohomology of the associated discrete representation. In degrees 0,1,2 the maps are the parent explicit comparison maps; the induced products agree with its graded cup and pinned explicitCup11. The comparison is an isomorphism of discrete objects in TopModuleCat Z, using the parent discrete low-degree wrappers, and in particular an additive isomorphism after forgetting topology."
       ],
       "uses": [
         {
@@ -366,8 +386,8 @@
       "sources": [
         {
           "sourceId": "HW",
-          "locator": "§1 p.2; §2 Definition 2.1 p.4; §7 pp.24–25",
-          "match": "This comparison lets Massey classes use exactly the canonical cohomology carrier rather than a second arithmetic H²."
+          "locator": "Introduction pp.1–2; Notation 2.1 and Proposition 2.2, p.5; §7 pp.24–25",
+          "match": "The source motivates interpreting continuous defining-system values in H². The all-degree comparison is a new explicit interface proved using parent PC3, PC10 and PC12, not a comparison theorem claimed from this paper."
         }
       ],
       "implementationStatus": "unchecked"
@@ -396,7 +416,7 @@
       "uses": [
         {
           "where": "ProfiniteCohomologyPartII:M.0/representative-change",
-          "how": "Supplies continuous defining systems in the following target: For a discrete commutative Γ-ring R, existence of a continuous degree-one defining system and membership of zero in its product depend only on the H¹ input classes. Transport the generic DGAInfinity gauge-invariance result to M.0’s continuous cochain model with its fixed sign. If the Γ-action on R is trivial, d⁰=0, so each H¹ class has a unique continuous 1-cocycle representative. The Hom-system/adjacent-character conjugation formula is constructed in M.9, not assumed at this layer."
+          "how": "Supplies continuous defining systems in the following target: For a discrete commutative Γ-ring R, existence of a continuous degree-one defining system and membership of zero in its product depend only on the H¹ input classes. Specialize the generic finite upper-triangular gauge theorem requested from DGAInfinity8 to M.0’s continuous cochain model with its fixed sign. If the Γ-action on R is trivial, d⁰=0, so each H¹ class has a unique continuous 1-cocycle representative. The Hom-system/adjacent-character conjugation formula is constructed in M.9, not assumed at this layer."
         },
         {
           "where": "ProfiniteCohomologyPartII:M.1/dwyer-fixed-system",
@@ -459,6 +479,11 @@
           "name": "continuousDefiningSystem_pullback",
           "role": "functoriality",
           "statement": "Restriction carries a defining system and its value to their pullbacks."
+        },
+        {
+          "name": "continuousDefiningSystem_ext",
+          "role": "extensionality",
+          "statement": "For the same adjacent cocycles, two defining systems are equal if all their permitted continuous-cochain entries agree; the equation and continuity fields are propositions."
         }
       ],
       "library": {
@@ -468,8 +493,8 @@
       "sources": [
         {
           "sourceId": "HW",
-          "locator": "Definition 2.1 and Proposition 2.2, pp.4–5",
-          "match": "This is a specialization interface, not a replacement definition of generic Massey products."
+          "locator": "Introduction p.1 (defining systems); Notation 2.1 and Proposition 2.2, p.5",
+          "match": "The introductory defining-system convention and its Dwyer realization specialize the generic DGAInfinity object; Notation 2.1 concerns unitriangular groups and is not a definition of Massey products."
         }
       ],
       "implementationStatus": "unchecked",
@@ -485,12 +510,13 @@
       ],
       "title": "Changes of adjacent representatives",
       "kind": "theorem",
-      "statement": "For a discrete commutative Γ-ring R, existence of a continuous degree-one defining system and membership of zero in its product depend only on the H¹ input classes. Transport the generic DGAInfinity gauge-invariance result to M.0’s continuous cochain model with its fixed sign. If the Γ-action on R is trivial, d⁰=0, so each H¹ class has a unique continuous 1-cocycle representative. The Hom-system/adjacent-character conjugation formula is constructed in M.9, not assumed at this layer.",
+      "statement": "For a discrete commutative Γ-ring R, existence of a continuous degree-one defining system and membership of zero in its product depend only on the H¹ input classes. Specialize the generic finite upper-triangular gauge theorem requested from DGAInfinity8 to M.0’s continuous cochain model with its fixed sign. If the Γ-action on R is trivial, d⁰=0, so each H¹ class has a unique continuous 1-cocycle representative. The Hom-system/adjacent-character conjugation formula is constructed in M.9, not assumed at this layer.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply the existing generic defining-system change-of-representatives/gauge theorem to the continuous cochain DGA, checking the degree-zero and minus-sign specialization.",
-        "Its operations use finite sums and products of continuous cochains, hence preserve continuity and the set of H² values relevant to zero-membership.",
-        "For trivial Γ-action the explicit parent d⁰ is zero, so its H¹ quotient identifies cocycles without further representative choices."
+        "Refine the DGAInfinity8 request to a finite integral gauge theorem for degree-one matric defining systems, valid without rational coefficients. In a strictly upper-triangular degree-one matrix A with corner entry zero, dA+A² has only its corner entry possibly nonzero.",
+        "If a′_i=a_i+du_i, take a degree-zero upper-unitriangular matrix G=1+U with U_i,i+1=u_i and inverse the finite geometric series. Set A′=G⁻¹AG+G⁻¹dG. Its adjacent entries are a′_i and its curvature is G⁻¹(dA+A²)G, the same corner curvature. Reset its (0,n) entry to zero; this changes the corner value only by a coboundary. Thus each original H² value remains a value for the changed representatives.",
+        "Apply the inverse gauge to obtain equality of the two sets of H² values. All operations are finite sums and products, so preserve continuity. No exponential, logarithm or division is used.",
+        "For trivial Γ-action the explicit parent d⁰ is zero, so its H¹ quotient identifies cocycles without further representative choices. M.9 supplies the concrete adjacent-character conjugation formula."
       ],
       "acceptance": [
         "The existence of a defining system and membership of zero in the degree-one product depend only on the H¹ classes. For trivial coefficients a 1-cocycle is its unique class representative; for Hom coefficient systems, changing a_i by d⁰u_i is implemented by conjugation of the associated adjacent semidirect-product character by (−u,1). The matrix-valued comparison in M.9 must fix the chosen a_i before asserting a bijection."
@@ -616,8 +642,13 @@
       "sources": [
         {
           "sourceId": "HW",
-          "locator": "§2 p.4; §4 p.12; Michailov (3.2), p.5",
-          "match": "The existing containment does not supply the equality used in abelianizing U¹."
+          "locator": "§2 p.4; §4 p.12",
+          "match": "These identify the unitriangular filtration used in the stabilizer calculation."
+        },
+        {
+          "sourceId": "Michailov",
+          "locator": "Equation (3.2), p.5",
+          "match": "The finite-field lower-central filtration supports the exact commutator equality; the reverse inclusion is obtained from the pinned transvection identity and ordered factorization."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1680,8 +1711,18 @@
       "sources": [
         {
           "sourceId": "HW",
-          "locator": "Proposition 4.1, p.11; Michailov §1 p.1; Moravec (3.0.1), p.4",
-          "match": "The geometric consumer needs this finite-group kernel, not a newly defined unramified Brauer group."
+          "locator": "Proposition 4.1, pp.11–12",
+          "match": "The stabilizer calculation uses this finite-group restriction kernel."
+        },
+        {
+          "sourceId": "Michailov",
+          "locator": "§1 p.1",
+          "match": "Defines the restriction kernel with trivial Q/Z coefficients and bicyclic tests."
+        },
+        {
+          "sourceId": "Moravec",
+          "locator": "Equation (3.0.1), p.4",
+          "match": "Supplies the finite-group Bogomolov restriction-kernel formulation used in the character comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1896,10 +1937,11 @@
       "hypotheses": [],
       "proofSteps": [
         "Identify U¹ with superdiagonal degree two, not degree one.",
-        "Apply cp-endpoint-collection and cp-character-duality. For size three U¹ is cyclic; for sizes four and five it is abelian, also covered by the same proof."
+        "Apply cp-endpoint-collection with gap ℓ=2 and cp-character-duality in every size. For sizes three and four U¹ is abelian (cyclic at size three). At size five it is nonabelian: [e₀₂(1),e₂₄(1)]=e₀₄(1)≠1. The general endpoint-collection proof, not an abelian-group shortcut, covers that case."
       ],
       "acceptance": [
-        "For every prime p and n≥2, B_Bog(U¹)=0 for U=UT_(n+1)(F_p)."
+        "For every prime p and n≥2, B_Bog(U¹)=0 for U=UT_(n+1)(F_p).",
+        "In UT₅(F_p), e₀₂(1) and e₂₄(1) belong to U¹ but have commutator e₀₄(1)≠1. Bogomolov vanishing must therefore use endpoint collection rather than an abelian shortcut."
       ],
       "uses": [
         {
@@ -1907,7 +1949,13 @@
           "how": "This is the finite-group output imported by the geometric Brauer comparison."
         }
       ],
-      "tests": [],
+      "tests": [
+        {
+          "name": "derivedStabilizer_UT5_nonabelian",
+          "kind": "non-example",
+          "statement": "In UT₅(F_p), e₀₂(1) and e₂₄(1) belong to U¹ but have commutator e₀₄(1)≠1. Bogomolov vanishing must therefore use endpoint collection rather than an abelian shortcut."
+        }
+      ],
       "prerequisites": [
         "ProfiniteCohomologyPartII:M.4/cp-character-duality",
         "ProfiniteCohomologyPartII:M.4/cp-endpoint-collection",
@@ -1921,8 +1969,13 @@
       "sources": [
         {
           "sourceId": "HW",
-          "locator": "Proposition 4.1, p.11; Michailov Theorem 3.1 Case II, pp.5–8",
-          "match": "This is the finite-group output imported by the geometric Brauer comparison."
+          "locator": "Proposition 4.1, pp.11–12",
+          "match": "The proposition and its proof give the finite stabilizer Bogomolov vanishing."
+        },
+        {
+          "sourceId": "Michailov",
+          "locator": "Theorem 3.1 Case II, pp.5–8",
+          "match": "The gap-two subgroup is covered by the corrected endpoint-collection argument, including the nonabelian size-five case."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3352,7 +3405,7 @@
       "uses": [
         {
           "where": "ProfiniteCohomologyPartII:M.9/filtered-automorphism-group",
-          "how": "Supplies continuous hom coefficient category in the following target: For W=⊕_(i=0)^n N_i and W_i=⊕_(j≤i)N_j, let T(W) be the group of R-linear automorphisms preserving each W_i. Its diagonal map T→∏Aut_R(N_i) is split by block diagonal automorphisms. Let U(W) be its kernel, and U¹(W) the subgroup acting identically on each W_i/W_(i−2), with W_j=0 for j<0. These are the existing upper-unitriangular groups when every N_i=R, after the standard block coordinate comparison."
+          "how": "Supplies continuous hom coefficient category in the following target: For W=⊕_(i=0)^n N_i and W_i=⊕_(j≤i)N_j, let T(W) be the group of R-linear automorphisms preserving each W_i. Its diagonal map T→∏Aut_R(N_i) is split by block diagonal automorphisms. Let U(W) be its kernel, and U¹(W) the subgroup acting identically on each W_i/W_(i−2), with W_j=0 for j<0. When every N_i=R, the coordinate comparison identifies U(W) with the existing upper-unitriangular group and U¹(W) with its degree-two superdiagonal subgroup; T(W) is the larger group of invertible upper-triangular matrices."
         },
         {
           "where": "ProfiniteCohomologyPartII:M.9/twisted-adjacent-character",
@@ -3442,7 +3495,7 @@
       ],
       "title": "Filtered block automorphisms",
       "kind": "construction",
-      "statement": "For W=⊕_(i=0)^n N_i and W_i=⊕_(j≤i)N_j, let T(W) be the group of R-linear automorphisms preserving each W_i. Its diagonal map T→∏Aut_R(N_i) is split by block diagonal automorphisms. Let U(W) be its kernel, and U¹(W) the subgroup acting identically on each W_i/W_(i−2), with W_j=0 for j<0. These are the existing upper-unitriangular groups when every N_i=R, after the standard block coordinate comparison.",
+      "statement": "For W=⊕_(i=0)^n N_i and W_i=⊕_(j≤i)N_j, let T(W) be the group of R-linear automorphisms preserving each W_i. Its diagonal map T→∏Aut_R(N_i) is split by block diagonal automorphisms. Let U(W) be its kernel, and U¹(W) the subgroup acting identically on each W_i/W_(i−2), with W_j=0 for j<0. When every N_i=R, the coordinate comparison identifies U(W) with the existing upper-unitriangular group and U¹(W) with its degree-two superdiagonal subgroup; T(W) is the larger group of invertible upper-triangular matrices.",
       "hypotheses": [],
       "proofSteps": [
         "Define T as a subgroup of R-linear automorphisms with filtration-preserving inverse as well; for a finite flag, an automorphism preserving each finite W_i also preserves it bijectively.",
@@ -3520,6 +3573,11 @@
           "name": "filteredAutomorphism_rankOne",
           "role": "equivalence",
           "statement": "For free rank-one N_i, the unipotent kernel is the pinned upperUnitriangularGroup."
+        },
+        {
+          "name": "filteredAutomorphism_ext",
+          "role": "extensionality",
+          "statement": "Two filtered automorphisms are equal if every block N_j→N_i agrees; derive this from the existing direct-sum and linear-map extensionality APIs."
         }
       ],
       "library": {
@@ -4612,12 +4670,13 @@
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
-      "need": "Local Tate duality for finite modules for every prime different from the field characteristic, including equal-characteristic local fields in this coefficient range; H²(K,F_p) dual to H⁰(K,μ_p), and the perfect H¹ evaluation pairing when μ_p⊂K. The characteristic-p case is supplied separately by HL.2.",
-      "status": "planned upstream interface",
+      "need": "Reuse local finite-module duality from ClassFieldTheory5. Current TauCeti.ClassFieldTheory.dualityMap0_kummerCoeff_bijective, dualityMap1_kummerCoeff_bijective and dualityMap2_kummerCoeff_bijective in NumberTheory/ClassFieldTheory/Local/Duality/FiniteModule.lean already cover every nonarchimedean local field K, finite smooth discrete modules killed by n, and IsUnit (n : K), including equal characteristic. Transport these maps through the parent continuous-cohomology coefficient dictionary and evaluation cup to obtain H²(K,F_p) dual to H⁰(K,μ_p) and the perfect H¹ evaluation pairing. Do not replan local duality; char K=p remains HL.2.",
+      "status": "implemented after the pins; reuse current supplier and request coefficient comparison",
       "consumers": [
         "ProfiniteCohomologyPartII:M.7/easy-local-obstruction",
         "ProfiniteCohomologyPartII:M.7/nonsplit-obstruction-cancellation"
-      ]
+      ],
+      "currentLibraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039"
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/DGAInfinity#layer-1-dg-algebras-categories-modules-and-bimodules",
@@ -4630,8 +4689,8 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
-      "need": "Generic degree-one defining systems, their values and Massey subsets with the chosen minus-sign convention. This roadmap specializes them to continuous cochains and proves Dwyer comparisons, not a second generic Massey theory.",
-      "status": "planned upstream interface",
+      "need": "Generic degree-one defining systems, their values and Massey subsets with the chosen minus-sign convention. This roadmap specializes them to continuous cochains and proves Dwyer comparisons, not a second generic Massey theory. Explicitly export representative-change invariance for finite upper-triangular degree-one defining systems in a unital DGA/DG category over Z: for adjacent a′_i=a_i+du_i, the finite gauge G=1+U, U_i,i+1=u_i, with inverse a finite geometric series, transports systems and preserves their H² value sets after clearing the corner by a coboundary. No exp/log or rational-coefficient hypothesis. The current Layer 8 matric-Massey scope owns this refinement but does not explicitly state it; its exponential gauge interface is characteristic zero and cannot substitute.",
+      "status": "upstream scope read; explicit integral representative-change interface requested",
       "consumers": [
         "ProfiniteCohomologyPartII:M.0/continuous-defining-system",
         "ProfiniteCohomologyPartII:M.0/representative-change",
@@ -4648,13 +4707,14 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-      "need": "All-degree continuous cohomology, restriction/corestriction, their index composite, Shapiro and the local double-coset formula; continuous finite-quotient reduction.",
-      "status": "planned upstream interface",
+      "need": "All-degree continuous cohomology, restriction/corestriction, their index composite, Shapiro and the local double-coset formula; continuous finite-quotient reduction. Use the parent iterated continuous-coinduction resolution and compact-open curry/uncurry comparison. Current ContinuousCohomology.isIso_shapiroMap (Shapiro/AllDegrees.lean) and ContinuousCohomology.corestriction_res (Corestriction/AllDegrees.lean) already provide all-degree Shapiro and the restriction/corestriction index identity; import rather than replan them when advancing the pins.",
+      "status": "existing upstream roadmap; several interfaces implemented after the pins",
       "consumers": [
         "ProfiniteCohomologyPartII:M.0/canonical-comparison",
         "ProfiniteCohomologyPartII:M.5/boundary-dual-cyclic-vanishing",
         "ProfiniteCohomologyPartII:M.10/prime-to-p-character-descent"
-      ]
+      ],
+      "currentLibraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039"
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees",
@@ -4954,13 +5014,20 @@
       "correction": "For its discrete-coefficient formulation impose finite C, as in all applications here; for general C use the pointwise continuous-Hom framework owned by AGD R02.1.",
       "reason": "For Γ=∏ C₂ and C=⊕ F₂ with coordinatewise sign-free permutation actions, pointwise stabilizers of a homomorphism need not be open. More directly take C=⊕_N F₂[Γ/U_n], A=F₂ trivial, with U_n shrinking open subgroups; a functional selecting one basis coset in every summand has stabilizer contained in ∩U_n, not open. Thus unrestricted discrete Hom is not a discrete continuous Γ-module.",
       "affects": "a stated result",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the preprint locator. With Γ=∏C₂, C=⊕_n F₂[Γ/U_n] and trivial A=F₂, a functional selecting the identity coset in every summand has stabilizer ∩U_n, which is not open. Finite C, as used here, avoids this failure.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E2",
@@ -4970,13 +5037,20 @@
       "correction": "Fix the actual adjacent cocycles for the bijection. For class-level definedness and zero-membership prove representative independence by conjugation.",
       "reason": "Γ=C₂,R=F₃,N₀ sign and the other N_i trivial admit a nonzero coboundary a₀₁(σ)=1 and other entries zero. It represents the zero input classes but does not yield a lift over the α made from zero adjacent cocycles.",
       "affects": "a stated result",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: a bijection to lifts over a single prescribed adjacent character requires the actual cocycles. For C₂ acting by −1 on F₃, H¹=0 but distinct cohomologous cocycles give different adjacent characters. Class-level existence is restored by finite gauge/conjugation.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E3",
@@ -4986,13 +5060,20 @@
       "correction": "For 2≤n≤6 the action factors through (Z/p)×; the literal least divisor is p for odd p and 1 for p=2.",
       "reason": "For p=2 all odd powers are conjugate by the supplied argument; reduction to units modulo1 already suffices. Even C₂ has outer exponent1 under Definition3.2. The factorization statement needed downstream is unchanged.",
       "affects": "a stated result",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with the literal least-divisor definition. In characteristic two the asserted powering action is trivial, so the least divisor is 1, not 2; the factorization through (Z/p)× used later remains valid.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E4",
@@ -5002,13 +5083,20 @@
       "correction": "Invoke the divides-nine bound supplied by Lemma4.6.",
       "reason": "A lower divisibility assertion does not reduce the unit action to units modulo9. Lemma4.6 actually provides the required upper exponent bound; the group at n=6 also has elements of order9, so the lower assertion itself is not false.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof-direction slip, not a refutation of an order-nine example. Lemma 4.6 gives an upper divisibility bound by 9; that is the input needed for the power expansion. A lower divisibility assertion cannot justify it.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E5",
@@ -5018,13 +5106,20 @@
       "correction": "Use e₀₃(a₂), matching the definition Q₀₃=a₂ on p.16.",
       "reason": "At p=3,a₂=2, the preceding distance-two factors cannot supply the 03 entry; the printed product gives1 while Q has2.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the 03-entry of the displayed factorization: the parameter must be a₂, not 1. Taking p=3 and a₂=2 already distinguishes them.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E6",
@@ -5034,13 +5129,20 @@
       "correction": "It is size5, supported on five consecutive indices.",
       "reason": "Deleting one endpoint from the six-index group leaves five indices and reduces n=5 to n=4.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the number of retained consecutive indices: removing one endpoint from size six leaves size five. The induction itself uses that size-five subgroup.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E7",
@@ -5050,13 +5152,20 @@
       "correction": "Use their internal sum, whose intersection is the corner Hom(N_n,N₀), counted once.",
       "reason": "At n=3,r=s=1 the subgroup has three coordinates02,03,13; an external sum of the two displayed full boundaries has four. This matches Definition5.2 after quotienting the common corner.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the first-row and last-column Hom sums intersect in the corner. For n=3,r=s=1 the group has three coordinates, not four. The required subgroup is their internal sum.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E8",
@@ -5066,13 +5175,20 @@
       "correction": "Supply the real and complex cases explicitly, using the finite C₂ H¹/H¹→H² perfect pairing at p=2.",
       "reason": "Complex Galois group is trivial and odd-p real images are trivial. At the real place for p=2 the nonsplit proof needs the C₂ pairing; it is not the nonarchimedean local-duality theorem. M.8 gives this missing argument.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing archimedean argument at the later all-place use. Proposition 5.3 is stated for nonarchimedean local fields; the real C₂ pairing and the trivial complex group supply the additional proof, without changing that proposition.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E9",
@@ -5082,13 +5198,20 @@
       "correction": "Its target is U.",
       "reason": "The central extension obstruction in H²(K,Z) vanishes, yielding a U lift; Z itself cannot map onto the prescribed noncentral adjacent coordinates.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the codomain in the easy case: H² vanishing gives a full U-lift. A lift to the corner kernel Z is not the asserted embedding-problem solution.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E10",
@@ -5098,13 +5221,20 @@
       "correction": "Retain ρ_(u,v), with u a row and v a column, throughout.",
       "reason": "The defining scalar is u(Q−I)v; reversing the arguments is ill-typed under the source’s own definitions.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1904.06512 — version history checked 2026-10-18",
         "https://www.math.univ-paris13.fr/~wittenberg/ — publication page and linked author preprint checked 2026-10-18; no linked HW correction found",
-        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version."
+        "Publisher DOI 10.1215/00127094-2022-0004 metadata checked; full published 41-page text unavailable in this run. Findings are confined to the 33-page preprint, with no claim about the published version.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "HW",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by types in the retraction formula: u multiplies the column block on the left and v multiplies the row block on the right. The subsequent stabilizer notation must keep that order.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E11",
@@ -5114,12 +5244,19 @@
       "correction": "γ_(m−1) is the possibly nontrivial corner; γ_m is trivial.",
       "reason": "In UT₃(F_p), [e₁₂(1),e₂₃(1)]=e₁₃(1)≠1. The same corner iterated commutator persists in general. The Bogomolov theorem is unaffected.",
       "affects": "a stated result",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1308.3408 — version history and v2 checked 2026-10-18",
-        "Web search for Michailov unitriangular Bogomolov erratum/correction on 2026-10-18 found no correction; no claim to priority."
+        "Web search for Michailov unitriangular Bogomolov erratum/correction on 2026-10-18 found no correction; no claim to priority.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "Michailov",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the terminal corner transvection: γ_(m−1)(UT_m) is nontrivial over F_p, whereas γ_m=1. The existing subgroup filtration uses this convention.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     },
     {
       "id": "ProfiniteCohomologyPartII/E12",
@@ -5129,12 +5266,19 @@
       "correction": "Use the permitted two distance-ℓ transvections t_(i,i+ℓ) and t_(i+ℓ,i+2ℓ).",
       "reason": "The distance-one element is outside UT_m^ℓ for ℓ≥2, so that expression is not a generator in the claimed group. Its intended endpoint is i+2ℓ, consistent with the immediately preceding normal form.",
       "affects": "the proof",
-      "known": "No correction located in the consulted sources; unreviewed finding about this preprint only, not a claim of a new error in the version of record.",
+      "known": "No correction identified in the sources checked. Independently confirmed against the specified preprint on 2026-10-19; no novelty claim and no assertion about inaccessible publisher text.",
       "searched": [
         "https://arxiv.org/abs/1308.3408 — version history and v2 checked 2026-10-18",
-        "Web search for Michailov unitriangular Bogomolov erratum/correction on 2026-10-18 found no correction; no claim to priority."
+        "Web search for Michailov unitriangular Bogomolov erratum/correction on 2026-10-18 found no correction; no claim to priority.",
+        "Independent review 2026-10-19: rechecked the exact arXiv text and available author/publication links. HW author PDF has the same 33-page preprint pagination; publisher full text was not obtained."
       ],
-      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule."
+      "descriptionPolicy": "The printed field is a paraphrase, in compliance with the standing no-verbatim rule.",
+      "source": "Michailov",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Case II: adjacent transvections lie outside the gap-ℓ subgroup for ℓ>1. The starting wedge must use the two distance-ℓ factors with endpoints i,i+ℓ,i+2ℓ; this restores the collection argument.",
+        "by": "REV-DESIGN-ProfiniteCohomologyPartII"
+      }
     }
   ],
   "extractionCoverage": [
@@ -5645,21 +5789,24 @@
       "url": "https://arxiv.org/pdf/1904.06512v2",
       "read": "2026-10-18",
       "sha256": "a29ca765863948a7131820c24bf801c3dadf58494b439b11afa5983cec2f89e4",
-      "citation": "arXiv:1904.06512v2, revised 9 December 2021; 33-page preprint pagination. Published Duke Mathematical Journal 172 (2023), 1–41; publisher text not obtained."
+      "citation": "arXiv:1904.06512v2, revised 9 December 2021; 33-page preprint pagination. Published Duke Mathematical Journal 172 (2023), 1–41; publisher text not obtained.",
+      "independentReviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1308.3408v2",
       "read": "2026-10-18",
       "sha256": "398b40a6ed3671595f013a14a043e495f2d238c7727ce598258f2d632f0e0969",
-      "citation": "arXiv:1308.3408v2, 11-page PDF served on access; its footer date is 5 July 2019 despite the arXiv version header."
+      "citation": "arXiv:1308.3408v2, 11-page PDF served on access; its footer date is 5 July 2019 despite the arXiv version header.",
+      "independentReviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1203.3190",
       "read": "2026-10-18",
       "sha256": "5c9ab599504cc270a7d85c9ede418d6052630978e8a9d649e9cc8eeb70170369",
-      "citation": "arXiv:1203.3190, preprint pagination"
+      "citation": "arXiv:1203.3190, preprint pagination",
+      "independentReviewRead": "2026-10-19"
     }
   ],
   "provenance": {
@@ -5683,6 +5830,371 @@
       "Blueprint checker: 0errors and0warnings, all12stages planned; source-version schema and no-copy/prose consistency checked separately.",
       "Suggested Lean file elaborated through lean-check at the pinned build; only declaration-uses-proof-placeholder warnings. Three real-bodied light definitions, no data placeholders.",
       "Current Mathlib pull-request and Zulip searches for Massey/Bogomolov/cochain DGA located no directly reusable target; actual pinned and current library source searches, rather than search-engine absence, determine the baseline."
+    ]
+  },
+  "upstreamNotes": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/DGAInfinity#layer-8-hochschild-cochains-deformations-massey-products-and-formality",
+      "observation": "The current Layer 8 includes matric Massey systems but does not explicitly promise integral finite-gauge representative invariance. The exponential gauge statement is over Q-algebras and is insufficient for F_p or Z/8. The existing request now specifies the finite geometric-series gauge formula and corner coboundary.",
+      "action": "Maintainer: refine the existing DGAInfinity8 contract to export this integral theorem; no supplier files changed."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "observation": "At current library commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, Local/Duality/FiniteModule.lean supplies general nonarchimedean local duality for invertible finite exponents. The roadmap mixed-characteristic perfect-pairing milestone is narrower than this existing implementation.",
+      "action": "Import the existing general duality and align the public roadmap/export with it; the only consumer need here is the cohomology/evaluation-cup dictionary. This is not a request for new local-duality mathematics."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "observation": "Current library commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 has all-degree Shapiro and corestriction and Cup/Heisenberg.lean explicitCup11_eq_zero_iff, expressing a zero cup by a continuous Heisenberg primitive. These postdate the pinned baseline.",
+      "action": "Keep the parent as owner; M.0 compares the strict DGA and M.1 extends the lift dictionary to higher lengths. Reuse the existing length-two primitive as a compatibility case when advancing the pins."
+    }
+  ],
+  "reviewProvenance": {
+    "session": "codex-4n7hPD",
+    "issue": 3596,
+    "date": "2026-10-19",
+    "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentLibraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "baselineAudit": "Read the parent PC audit and all 20 actual declarations at their exact pinned commits; each of 12 retrieved module files matched the shared pinned source bytes.",
+    "currentNonduplication": "Read relevant parent PC, DGAInfinity, ProfiniteProPGroups and ClassFieldTheory scopes and the AGD R02.1, HL.2 and IG.4 supplier nodes. Read ProfiniteArithmetic and LocalGaloisGroups scopes/interfaces; searched the nine post-snapshot roadmap Suggested files and current Tau Ceti for the proposed carriers. Existing parent cup/Heisenberg, Shapiro/corestriction and general local duality remain imports.",
+    "finiteChecks": "Independent exhaustive F₂ computations confirmed the length-six ranks 6 and 5 (4096 fixed-B candidates, 1036 admitting commuting lifts), the length-four cyclic quotient 8/4, all four nilpotent generator-matrix products, 256 cocycle identities per explicit cocycle, all 16 cyclic tests for beta, and failure of all 32 possible beta coboundaries. Direct matrix multiplication confirmed the size-five nonabelian commutator."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ProfiniteCohomologyPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 66 nodes, all 20 pinned baseline statements, 26 definition/construction APIs and tests, all 12 stage targets and 50 planets, reader/suggested consistency, supplier closure and current-library nonduplication. Corrected 8 nodes, source locators, LinearMap metadata, topology, actual canonical resolution, integral gauge supplier contract and the size-five nonabelian proof case; added 3 API items and 2 checks (one on a theorem). Confirmed all 12 preprint-scoped source issues. Accepted as a complete planning pass: 12 stages planned, none closed, 15 explicit supplier requests; not an implementation or a closed packet. See the independent report for check results and maintainer follow-up.",
+    "checked": [
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.0/continuous-cochain-dga",
+        "verdict": "corrected",
+        "note": "Corrected the introductory locator; made the discrete/compact-open topology explicit, added pointwise extensionality and the infinite-product topology check. Strictness and Z-linearity remain as stated."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.0/canonical-comparison",
+        "verdict": "corrected",
+        "note": "Replaced the unsupported continuous-bar-resolution reference by the actual iterated-coinduction resolution, explicit inverse coordinates and compact-open currying. Specified the category and corrected the source locator."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.0/continuous-defining-system",
+        "verdict": "corrected",
+        "note": "Located the defining-system convention in the Introduction rather than a nonexistent Definition 2.1; added entrywise extensionality. The negative value convention and class-level quantifiers are verified."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.0/representative-change",
+        "verdict": "corrected",
+        "note": "Replaced an assumed existing gauge-invariance theorem by a precise DGAInfinity8 supplier request and an integral finite-matrix proof route; no characteristic-zero exponential is needed."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.1/ordered-transvections",
+        "verdict": "verified",
+        "note": "Verified the recursive increasing-gap factorization over a commutative ring. Parameters are not generally raw matrix entries; the UT₃ cross-term check detects that error."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.1/exact-commutators",
+        "verdict": "corrected",
+        "note": "Separated Michailov (3.2) from the HW source ID. Checked both inclusions with the pinned transvection convention, including terminal filtration terms."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.1/adjacent-quotient",
+        "verdict": "verified",
+        "note": "Verified additivity of adjacent coordinates, kernel F₂, and ring-map compatibility, including the zero-ring case."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.1/corner-extension",
+        "verdict": "verified",
+        "note": "Verified the normalized corner-zero section, central kernel and positive factor-set sum over finite commutative rings. The ordinary baseline splitting theorem is not mistaken for a continuous one."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.1/dwyer-fixed-system",
+        "verdict": "verified",
+        "note": "Verified fixed adjacent cocycles, entrywise continuity for finite targets, matrix equations and the negative relation between the value and extension class."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.1/dwyer-lift-criteria",
+        "verdict": "verified",
+        "note": "Verified existence quantifiers over quotient lifts and the weak full-lift criterion. No surjectivity or vanishing for every defining system is inferred."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.2/derived-abelianization",
+        "verdict": "verified",
+        "note": "Verified F₂/F₄ coordinates in distances two and three, rank 2n−3 and the exact commutator prerequisite; F_p is essential to the stated vector-space form."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.2/stabilizer-action-formula",
+        "verdict": "verified",
+        "note": "Verified both chaining cases and the minus sign against HW (4.2); the conjugation action is not replaced by a trivial action."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.2/boundary-submodule",
+        "verdict": "verified",
+        "note": "Verified A-stability, deduplicated rank three at n=3 and rank four at n>3, with the actual dual restriction map."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.2/sparse-conjugation",
+        "verdict": "verified",
+        "note": "Verified HW Remark 4.10 (4.8), p.15, by the commutator coordinates; retained the signed distance-three term."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.2/reversal-involution",
+        "verdict": "verified",
+        "note": "Verified inverse-transpose reversal, the sign on basis entries and involutivity; the node locator p.15 was already correct."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.3/support-submodule",
+        "verdict": "verified",
+        "note": "Verified N_d entry support, product N_r N_s⊆N_(r+s), and compatibility with the existing superdiagonal subgroup. The public submodule is new; the subgroup is imported."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.3/derived-exponent-bound",
+        "verdict": "verified",
+        "note": "Verified (1+M)^(p^m)=1+M^(p^m) and the strict inequality 2p^m>n. At p=3,n=6 the corner need not vanish."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.3/outer-exponent",
+        "verdict": "verified",
+        "note": "Verified the literal least-divisor invariant on existing ConjClasses, well-defined unit power action and examples C₂=1,C₄=4,C₆=3."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.3/small-rank-powering",
+        "verdict": "verified",
+        "note": "Verified the n≤6 argument, the characteristic-three corner conjugator and characteristic-two involution block argument. The action-factorization conclusion is distinguished from its least-divisor value."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.4/bogomolov-kernel",
+        "verdict": "corrected",
+        "note": "Separated HW, Michailov and Moravec locators under their actual source IDs. Verified the abelian/bicyclic restriction kernel, including why cyclic tests alone fail."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.4/cp-exterior-square",
+        "verdict": "verified",
+        "note": "Verified Moravec’s left-conjugation crossed relations, killed commuting pairs, universal property, commutator convention and central kernel. Existing PresentedGroup supplies the quotient carrier."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.4/cp-character-duality",
+        "verdict": "verified",
+        "note": "Verified the natural character duality via a free presentation, commuting relators and extension into Q/Z; it does not assume a chosen self-duality or an existing Schur cover."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.4/cp-endpoint-collection",
+        "verdict": "verified",
+        "note": "Verified the gap-ℓ endpoint normal form and intermediate-index comparison. All wedge factors lie in F_ℓ; ordered matrix images detect each collected coefficient, including the terminal abelian range."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.4/derived-bogomolov-vanishing",
+        "verdict": "corrected",
+        "note": "Corrected the false claim that the size-five derived subgroup is abelian; added its explicit nontrivial commutator as an acceptance check and Lean example. Separated source IDs and included the proof page."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.5/cyclic-restriction-kernel",
+        "verdict": "verified",
+        "note": "Verified canonical H¹ restriction to every cyclic subgroup and b(σ)∈(σ−1)M. For an action through a quotient, the restriction condition kills the action-kernel contribution."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.5/conjugacy-power-pairing",
+        "verdict": "verified",
+        "note": "Verified the combined conjugacy/cyclotomic power action and dual evaluation with trivial target; the cocycle representative ambiguity vanishes under the fixedness condition."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.5/pointwise-scalar",
+        "verdict": "verified",
+        "note": "Verified the kernel and rank-one cases and the two independent-image argument in rank at least two over every field; no finite-dimensionality assumption is needed."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.5/fixed-second-diagonal",
+        "verdict": "verified",
+        "note": "Verified the sparse representative and centralizer equations from HW Lemma 4.12; the resulting representative commutes with a lift of the adjacent element."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.5/boundary-fixed-generation",
+        "verdict": "verified",
+        "note": "Verified HW Lemma 4.13 with the corrected e₀₃(a₂) parameter and reversal argument; the result covers all n in its range."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.5/boundary-dual-cyclic-vanishing",
+        "verdict": "verified",
+        "note": "Verified n=3 separately and the general fixed-generator/pointwise-scalar argument; cyclotomic dual coefficients and restriction/corestriction inputs are retained."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.5/small-rank-fixed-generation",
+        "verdict": "verified",
+        "note": "Verified the n=4 boundary case and n=5 middle-direction argument with the central-commutator map Θ_Q; no n=6 generalization is asserted."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.6/length-six-failure",
+        "verdict": "verified",
+        "note": "Verified the explicit F₂ example independently by exhaustive matrix equations: fixed space rank 6, fixed-class image span rank 5, 4096 candidates, 1036 admitting commuting lifts, all 25-coordinates zero."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.6/nonzero-cyclic-kernel",
+        "verdict": "verified",
+        "note": "Verified the inverse-transpose dual action independently: eight cyclically trivial cocycles and four coboundaries, giving a quotient of order two at n=4."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.6/five-dimensional-module",
+        "verdict": "verified",
+        "note": "Verified all four products of N_s,N_t vanish; the specified C₂×C₄×C₂ representation, dual action and equivariant evaluation satisfy the stated relations."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.6/explicit-cyclic-class",
+        "verdict": "verified",
+        "note": "Verified beta on all 256 group pairs, all 16 cyclic coboundary witnesses and all 32 failed global coboundaries. This is a concrete algebraic example, not the unproved geometric completion of Remark 3.4."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.6/quartic-auxiliary-cocycle",
+        "verdict": "verified",
+        "note": "Verified gamma on all 256 group pairs and gamma(t²)=d+e. The quartic generator is essential although its action on the module has order two."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/two-boundary-subgroup",
+        "verdict": "verified",
+        "note": "Verified the internal corner overlap, U-normality, rank r+s+1 and zero support products precisely for r+s≤n−1; the larger-range nonabelian test is valid."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/twisted-boundary-sequence",
+        "verdict": "verified",
+        "note": "Verified the actual conjugation module, action through U/P in the abelian range and finite-domain splitting class using the named AGD suppliers."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/finite-connecting-comparison",
+        "verdict": "verified",
+        "note": "Verified the supplier formula δ[c]=[γ]∪[c]=(−1)^m[c]∪[γ] after the evaluation flip. Finite P/Z ensures discrete continuous Hom."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/easy-local-obstruction",
+        "verdict": "verified",
+        "note": "Verified the characteristic-p ordinary cd_p≤1 route and the nonroot-of-unity Tate-duality route. The needed general local duality already exists after the pins and is imported."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/nonsplit-obstruction-cancellation",
+        "verdict": "verified",
+        "note": "Verified nonzero splitting class makes the local connecting map surjective; choose a class mapping to the negative obstruction. Only the U/P character is preserved."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/boundary-retractions",
+        "verdict": "verified",
+        "note": "Verified every linear retraction is given by the normalized row/column formula, with corner counted once and the displayed row-column types."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/retraction-stabilizer-splitting",
+        "verdict": "verified",
+        "note": "Verified the stabilizer equations and the explicit correction to a corner-zero section; multiplication cancels the factor set on the stabilizer."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.7/refined-local-lifting",
+        "verdict": "verified",
+        "note": "Verified reduction from a given U/Z lift to the abelian-kernel obstruction, the easy cases and the nonsplit/split dichotomy. Output is a continuous weak lift preserving U/P."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.8/real-c2-pairing",
+        "verdict": "verified",
+        "note": "Verified H¹(C₂,M)=ker(t)/im(t), t²=0, and the induced perfect evaluation pairing with the dual. This supplies the real-place proof missing from the preprint’s all-place use."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.8/archimedean-refined-lifting",
+        "verdict": "verified",
+        "note": "Verified the C₂ proof at p=2; for odd p the image in the finite p-group is trivial, and over C the Galois group is trivial."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.8/ordinary-local-massey",
+        "verdict": "verified",
+        "note": "Verified n≥3, the Dwyer quotient-lift input and the all-place full-lift output. This asserts zero-membership for defined products, not a singleton product."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.9/hom-coefficient-dg-category",
+        "verdict": "verified",
+        "note": "Verified conjugation action χ_i f χ_j⁻¹ and associative composition-cup; uses finite R-modules without freeness and specializes the generic DG-category owner."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.9/filtered-automorphism-group",
+        "verdict": "corrected",
+        "note": "Distinguished the invertible triangular group T from its unitriangular kernel U in the rank-one specialization; added blockwise extensionality."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.9/twisted-adjacent-character",
+        "verdict": "verified",
+        "note": "Verified the adjacent semidirect quotient, α=(a,χ), and conjugation by (−u,1) when a is changed by d⁰u. H¹ classes alone specify only a conjugacy class."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.9/twisted-corner-extension",
+        "verdict": "verified",
+        "note": "Verified the corner Hom module is central in U and normal, generally noncentral, in T. Its pulled-back action is exactly the prescribed coefficient action."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.9/twisted-fixed-system",
+        "verdict": "verified",
+        "note": "Verified the fixed-cocycle bijection with entries α_ij(g)χ_j(g)⁻¹, including its continuity and negative obstruction sign."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.9/twisted-class-criteria",
+        "verdict": "verified",
+        "note": "Verified fixed-system lift criteria first and representative-independent existence afterward by conjugation. The source’s class-versus-cocycle ambiguity is explicitly repaired."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.9/rank-one-boundary",
+        "verdict": "verified",
+        "note": "Verified the internal sum of Hom spaces, one corner, T-normality and rank r+s+1; the chosen bases retain the actual diagonal-character action."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.10/prime-to-p-character-descent",
+        "verdict": "verified",
+        "note": "Verified the joint diagonal field has degree prime to p, including local degrees, and the all-completion restriction product is injective by the corestriction index formula."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.10/twisted-refined-local-lifting",
+        "verdict": "verified",
+        "note": "Verified the restricted abelian-kernel H² obstruction vanishes at every place above v by M.7–M.8, descends by injectivity and gives the required T-lift."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/cyclic-eight-modules",
+        "verdict": "verified",
+        "note": "Verified the UT₄(Z/8) four-coordinate P₈, three-coordinate D₈ and two endpoint coordinates; endpoint section gives the stated conjugation actions."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/dual-boundary-map",
+        "verdict": "verified",
+        "note": "Verified the dual short exact sequence and Kummer boundary δ(−1)=([16q⁴],[p⁴]) from the two endpoint characters."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/dual-wang-class",
+        "verdict": "verified",
+        "note": "Verified the class is nonzero globally and locally trivial at all places, including the special dyadic local image {1,16}."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/wang-kernel-over-L",
+        "verdict": "verified",
+        "note": "Verified the independent endpoint supplier gives degree 64 and exactly three quadratic subfields; local roots and exclusion of √2,√−2,i give the nonzero [16] and W=C₂."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/invariant-sha-coordinates",
+        "verdict": "verified",
+        "note": "Verified the invariant equations on W³ and W⁴ and their boundary map. Trivial Gal action on W follows from its order two, not from a false triviality assertion for all coefficients."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/no-dual-sha-lift",
+        "verdict": "verified",
+        "note": "Verified the invariant equations force the target coordinates of w to vanish if a lift existed, contradicting the nonzero class."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/second-sha-kernel",
+        "verdict": "verified",
+        "note": "Verified the named IG.4 finite perfect duality transports failure of the dual lift to a nonzero Sha² coefficient kernel, with all-place conventions preserved."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/middle-character",
+        "verdict": "verified",
+        "note": "Verified exactness supplies a continuous Z/8 character whose boundary is the nonzero Sha² element, using the parent low-degree continuous-Hom identification."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/local-global-embedding-gap",
+        "verdict": "verified",
+        "note": "Verified solution twisting gives every local full lift while the chosen nonzero boundary excludes a global one. The endpoint characters are the independent supplier pair."
+      },
+      {
+        "nodeId": "ProfiniteCohomologyPartII:M.11/defined-nonvanishing-triple",
+        "verdict": "verified",
+        "note": "Verified the separate global definedness argument from Sha¹(Q,μ₈)=0 and dual Sha²(Q,Z/8)=0. A zero value would contradict the global embedding gap. All final coefficients are constant Z/8."
+      }
     ]
   }
 }

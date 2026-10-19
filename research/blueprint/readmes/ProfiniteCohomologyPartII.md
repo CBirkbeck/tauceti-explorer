@@ -23,13 +23,15 @@ For finite commutative R, write U=UT_(n+1)(R), with indices 0,…,n. Let F_r be 
 The external contracts are:
 
 - **ProfiniteCohomology**, Layers 0,2,3,5,8,9,10,11,12: discrete modules and continuous sections; explicit C⁰,C¹,C² and comparison maps; long exact sequences; low-degree and graded cups; Hilbert 90/Kummer; all-degree cohomology, restriction/corestriction and Shapiro; general cohomological dimension. Arithmetic values of cd_p(Γ_K) are not assigned to Layer 11.
-- **DGAInfinity**, Layers 1 and 8: strict dg-algebra/dg-category carriers and generic matric defining systems/Massey subsets. M.0 and M.9 instantiate these, with a stated convention comparison.
+- **DGAInfinity**, Layers 1 and 8: strict dg-algebra/dg-category carriers and generic matric defining systems/Massey subsets. M.0 and M.9 instantiate these, with a stated convention comparison. The Layer 8 request explicitly includes integral finite-gauge representative invariance; its characteristic-zero exponential gauge interface cannot supply this for F_p or Z/8.
 - **ProfiniteProPGroups**, Layer 5: weak finite-kernel embedding problems and the continuous abelian-extension/H² dictionary, including splitting iff the pulled-back obstruction vanishes. Reuse its continuous sections and factor sets.
-- **ClassFieldTheory**, Layer 5: local Tate duality for finite modules when the coefficient prime differs from the field characteristic, its evaluation cup, and H²(K,F_p)=H⁰(K,μ_p)^∨. This includes equal-characteristic local fields with p different from their characteristic. **HigherLocalFieldsAndHigherClassFieldTheory:HL.2/cohomological-dimension-and-tate-twists** supplies ordinary cd_p(Γ_K)≤1 for a one-local field of characteristic p.
+- **ClassFieldTheory**, Layer 5: local Tate duality for finite modules when the coefficient prime differs from the field characteristic, its evaluation cup, and H²(K,F_p)=H⁰(K,μ_p)^∨. This includes equal-characteristic local fields with p different from their characteristic. Current Tau Ceti already supplies this generality in `ClassFieldTheory.dualityMap0_kummerCoeff_bijective`, `dualityMap1_kummerCoeff_bijective` and `dualityMap2_kummerCoeff_bijective` in `NumberTheory/ClassFieldTheory/Local/Duality/FiniteModule.lean`; reuse it through the parent coefficient dictionary. The existing implementation has broader scope than the roadmap's mixed-characteristic perfect-pairing milestone. **HigherLocalFieldsAndHigherClassFieldTheory:HL.2/cohomological-dimension-and-tate-twists** supplies ordinary cd_p(Γ_K)≤1 for a one-local field of characteristic p.
 - **ArithmeticGaloisDuality:R02.1**, nodes `pointwise-hom`, `discrete-hom-finitely-generated`, `splitting-torsor` and `connecting-cup-formula`: the existing internal Hom and splitting class, with finite-domain discreteness and the signed connecting formula. Only concrete unipotent specializations are targets here.
 - **InverseGaloisAndArithmeticFundamentalGroups:IG.4**, nodes `finite-galois-localization`, `restricted-poitou-tate`, `solution-twisting`, `grunwald-wang-boundary`, `independent-cyclic-eight-lifts`, `wang-cyclic-eight-counterexample`: all-place Sha groups, finite perfect duality, abelian-kernel twisting, the power kernel, and the independent endpoint characters used in M.11. Finite Sha duality has this existing owner.
 
 The current **ProfiniteArithmetic** roadmap uses Mathlib conjugacy classes and Tau Ceti profinite powering. M.3 uses ordinary finite-group powers to specify the additional least-divisor invariant; it introduces no second profinite powering, conjugacy, or continuous outer-automorphism carrier. The current **LocalGaloisGroups** imports the ClassFieldTheory local-duality and mixed-characteristic dimension interfaces; none of those results is replanned here.
+
+Current Tau Ceti also supplies all-degree Shapiro and corestriction and `ContCohomology.explicitCup11_eq_zero_iff`, the continuous Heisenberg-primitive criterion for a zero cup. These remain parent imports. The length-two case below checks compatibility with that criterion; the higher-length lift dictionary is the extension planned here. These current-library observations were checked at commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, separately from the pinned baseline `f790474`.
 
 ## M.0 — Continuous cochains and degree-one defining systems
 
@@ -42,7 +44,11 @@ Construct `continuousCochainDGA` on C^q_cts(Γ,R)=C(Γ^q,R), with C⁰=R, for a 
 
 Regard this as a DGA over Z, or over the fixed subring; for trivial Γ-action it is an R-DGA. The target includes strict associativity and unit on arbitrary cochains, d²=0, and d(f∪g)=df∪g+(−1)^r f∪dg. Continuity belongs to the construction. The associated coefficient representation is R as an additive group; the differential need not be linear over R when Γ acts nontrivially on R.
 
+Give these cochain groups and their cohomology the discrete topology. On C(Γ^q,R), compactness of Γ^q and discreteness of R identify it with the compact-open topology. For the parent's low-degree plain-function subquotients, use its discrete wrappers: the inherited pointwise topology can differ.
+
 **API for continuous inhomogeneous cochain algebra.** `continuousCochainDGA` the DGA with the displayed carriers, differential, cup and constant unit. `continuousCochainDGA_d_apply` the inhomogeneous differential on each degree, including d⁰m(g)=g·m−m. `continuousCup_assoc` strict associativity for arbitrary cochains, before assuming they are cycles. `continuousCup_leibniz` the displayed signed differential rule in every pair of degrees. `continuousCochainDGA_pullback` pullback along continuous group homomorphisms and equivariant ring maps is a DGA morphism.
+
+`continuousCochainDGA_cochain_ext` reuses `ContinuousMap.ext`: equality is determined by values on all q-tuples.
 
 **Checks.**
 
@@ -50,12 +56,15 @@ Regard this as a DGA over Z, or over the fixed subring; for trivial Γ-action it
 2. **`continuousCup_degree11`:** The (1,1) formula is a(g)·g b(h), and its class is the pinned explicitCup11.
 3. **`continuousCup_degree111`:** For arbitrary f,g,h in C¹, both bracketings at (x,y,z) equal f(x)·x g(y)·xy h(z), with no cocycle hypotheses.
 4. **`continuousCup_noncycleLeibniz`:** The degree-(1,1) rule contains −f∪dg; the unsigned formula fails over F₃ on a noncocycle of C₃.
+5. **`continuousCochainDGA_discreteTopology`:** For Γ=∏_N C₂ with trivial F₂ coefficients, compare discrete H¹ with the canonical object. Finitely many evaluations cannot isolate the zero character in the inherited pointwise topology.
 
-The **canonical continuous-cohomology comparison** identifies this DGA's cohomology with the parent H^q in every degree. Convert inhomogeneous to homogeneous equivariant cochains by successive products; compare with the parent's continuous bar resolution, with identity augmentation. The comparison must agree with the existing explicit degree-zero, degree-one and degree-two maps and carry its cochain cup to the parent's graded cup, including pinned `explicitCup11`. An unspecified graded-ring isomorphism does not meet this target.
+The **canonical continuous-cohomology comparison** identifies this DGA's cohomology with the parent H^q in every degree, as an isomorphism of discrete objects in `TopModuleCat Z`. Explicitly send f to F(g₀,…,g_q)=g₀·f(g₀⁻¹g₁,…,g_(q−1)⁻¹g_q); recover f(h₁,…,h_q) by evaluating F at (1,h₁,h₁h₂,…,h₁⋯h_q). Compact-open currying identifies homogeneous equivariant cochains with the invariant elements of the parent's actual `TopRep.resolutionX` iterated continuous-coinduction complex, with its degree shift. Profinite Γ and its finite powers are locally compact, so uncurry is available. Check the two chain-map identities and identity augmentation. The comparison must agree with the existing explicit degree-zero, degree-one and degree-two discrete comparison maps and carry its cochain cup to the parent's graded cup by translating its Alexander–Whitney formula, including pinned `explicitCup11`.
 
 Specialize the generic degree-one defining system to this DGA. Its entries are continuous 1-cochains a_ij, excluding (0,n), whose adjacent entries are fixed cocycles a_i and whose differential is the negative cup sum above. Its value is a continuous 2-cocycle; its class is transported by the canonical comparison. The class-level product ranges over representatives as well as higher entries.
 
 **API for continuous defining systems.** `continuousDefiningSystem` specialization equivalence from the generic DGA object to continuous entries with the displayed equations. `continuousDefiningSystem_entry` entry a_ij, its continuity, and its adjacent-entry and differential equations. `continuousDefiningSystem_value` the canonical H² class of the signed corner cocycle. `continuousMasseyProduct` the subset of H² formed from all defining systems for the input classes. `continuousDefiningSystem_pullback` restriction carries a defining system and its value to their pullbacks.
+
+`continuousDefiningSystem_ext` identifies systems over the same adjacent cocycles when all permitted cochain entries agree; their equation and continuity fields are propositions.
 
 **Checks.**
 
@@ -64,9 +73,9 @@ Specialize the generic degree-one defining system to this DGA. Its entries are c
 3. **`continuousMassey_finiteDiscrete`:** For finite Γ, every cochain is continuous and the interface is the ordinary inhomogeneous DGA specialization.
 4. **`continuousMassey_empty`:** For n=3 a defining system exists exactly when both adjacent cup classes vanish; no H² value is assigned if one does not.
 
-The **changes of adjacent representatives** theorem proves that definedness and zero-membership depend only on the H¹ classes. Transport the generic DGAInfinity change-of-representatives theorem to the continuous model; its finite sums and products preserve continuity. The explicit adjacent-character conjugation formula is a target of M.9. In the constant-coefficient case every adjacent H¹ class has its unique continuous homomorphism representative, since d⁰=0. For twisted coefficients that uniqueness fails, and M.9 retains the actual adjacent cocycles in its bijection.
+The **changes of adjacent representatives** theorem proves that definedness and zero-membership depend only on the H¹ classes. Specialize the requested DGAInfinity integral finite-gauge theorem. Write a defining system as a strictly upper-triangular degree-one matrix A with corner entry zero, so dA+A² is supported only in the corner. For a′_i=a_i+du_i choose G=1+U of degree zero with adjacent entries U_i,i+1=u_i and finite geometric-series inverse. Then A′=G⁻¹AG+G⁻¹dG has the new adjacent entries, and its curvature is G⁻¹(dA+A²)G, the same corner curvature. Clearing the corner entry of A′ changes its value by a coboundary. The inverse gauge gives equality of H² value sets. All operations are finite sums and products, hence preserve continuity over F_p and Z/8 as well; no division is needed. The concrete adjacent-character conjugation formula is a target of M.9. In the constant-coefficient case every adjacent H¹ class has its unique continuous homomorphism representative, since d⁰=0. For twisted coefficients that uniqueness fails, and M.9 retains the actual adjacent cocycles in its bijection.
 
-*Inputs:* PC0,2,3,10,12 and DGAInfinity1,8. *Source:* Harpaz–Wittenberg (HW), Definition 2.1 and Proposition 2.2, pp. 4–5, specialized through the existing generic dg interfaces. The all-degree comparison and strict cochain laws are the explicit bridge required by that definition, not a claim that the source develops the parent library API.
+*Inputs:* PC0,2,3,10,12 and DGAInfinity1,8, including the explicit integral-gauge request. *Source:* Harpaz–Wittenberg (HW), Introduction pp. 1–2 for defining systems; Notation 2.1 and Proposition 2.2, p. 5, for their unitriangular interpretation; Definition 3.2, p. 9, concerns the outer exponent. The all-degree comparison and strict cochain laws are explicit interface targets motivated by these passages.
 
 ## M.1 — Unitriangular quotients and Dwyer correspondence
 
@@ -145,7 +154,7 @@ Define **reversal inverse-transpose** τ(g)=(P g⁻¹P⁻¹)^t, where P reverses
 2. **`unitriangularReversal_UT4`:** e₀₂(t) goes to e₁₃(−t).
 3. **`unitriangularReversal_sparse`:** In UT₃ with both adjacent entries one, inverse-transpose reversal has a nonzero 02 entry, so it is not the sparse section of its A-image.
 
-*Inputs:* M.1. *Source:* HW (4.1)–(4.2), p. 12; Definition 4.8, p. 15; Remark 4.10 and (4.8), pp. 15–16; Remark 4.11, p. 16. *Acceptance:* compare the sparse formula with direct multiplication at distance three over F₃, retaining the minus sign; reversal twice is identity.
+*Inputs:* M.1. *Source:* HW (4.1)–(4.2), p. 12; Remark 4.8 and the following unnumbered definition of the boundary module, p. 15; Remark 4.10 and (4.8), p. 15; Remark 4.11, p. 15. *Acceptance:* compare the sparse formula with direct multiplication at distance three over F₃, retaining the minus sign; reversal twice is identity.
 
 ## M.3 — Nilpotent support and outer exponents
 
@@ -218,7 +227,9 @@ c_{ik}=e_{i,i+\ell}(1)\curlywedge e_{i+\ell,k}(1),\qquad k-i\ge2\ell.
 
 Every allowed chaining wedge with endpoints i,k equals c_ik^(ab). To compare intermediate indices expand the wedge of the commuting pair e_ij e_rk and e_jk e_ir, with r=k−ℓ. Swapping two endpoint factors introduces terms of greater gap, so collection terminates. Their κ-images are the identically ordered matrix transvections e_ik(a_ik); unique matrix factorization forces every coefficient in a kernel word to vanish. If 2ℓ≥m, G is abelian and both the relevant kernel and square are already trivial.
 
-The **derived-stabilizer Bogomolov vanishing** theorem follows for U¹=F₂ and every n≥2, including the size-three cyclic derived subgroup. This is the finite algebraic input; identifying geometric unramified Brauer groups with this multiplier belongs to the homogeneous-space roadmap.
+The **derived-stabilizer Bogomolov vanishing** theorem follows for U¹=F₂ and every n≥2. In sizes three and four U¹ is abelian, cyclic at size three. In size five it is nonabelian: [e₀₂(1),e₂₄(1)]=e₀₄(1)≠1. Use the general gap-two endpoint-collection theorem in that case as well. This is the finite algebraic input; identifying geometric unramified Brauer groups with this multiplier belongs to the homogeneous-space roadmap.
+
+**`derivedStabilizer_UT5_nonabelian`:** The two displayed distance-two transvections lie in U¹ and their corner commutator is nonidentity over every F_p. The suggested file retains a noncommuting-pair check on the pinned carrier.
 
 **`cpEndpointCollection_lastDiagonal`:** The degree-(m−1) subgroup is the nontrivial corner line; its exterior square is trivial because it is abelian.
 
@@ -394,9 +405,11 @@ For W=⊕N_i, W_i=⊕_(j≤i)N_j, construct T(W) as the group of filtration-pres
 A(W)=T/U^1=(\bigoplus_i M_{i,i+1})\rtimes\prod_i\operatorname{Aut}_R(N_i).
 \]
 
-Do not require freeness or rank one for these constructions. On choosing bases for free rank-one modules they become the existing matrix carriers.
+Do not require freeness or rank one for these constructions. On choosing bases for free rank-one modules, U(W) becomes the existing upper-unitriangular group and U¹(W) its degree-two superdiagonal subgroup. T(W) becomes the larger invertible upper-triangular group.
 
 **API for filtered block automorphisms.** `filteredAutomorphismGroup` the subgroup T(W) of linear automorphisms. `filteredAutomorphism_diagonal` the split surjection to the product of graded-piece automorphism groups. `filteredUnipotentKernel` u(W) and U¹(W), normal subgroups of T(W). `filteredAutomorphism_block` block coordinates and their multiplication by composition. `filteredAutomorphism_rankOne` for free rank-one N_i, the unipotent kernel is the pinned upperUnitriangularGroup.
+
+`filteredAutomorphism_ext` gives equality from equality of every block N_j→N_i, using the existing direct-sum and linear-map extensionality APIs.
 
 **Checks.**
 
@@ -551,9 +564,9 @@ The sources are used for exact objects and proof inputs, with all results above 
 - P. Moravec, [Unramified Brauer groups of finite and infinite groups](https://arxiv.org/pdf/1203.3190), §2,pp. 3–4; Lemma 3.1/Theorem 3.2,pp. 4–6; opening of §4,pp. 9–10, for the natural commutativity-preserving presentation and character duality.
 - A. Merkurjev and F. Scavia, [Galois representations modulo p that do not lift modulo p²](https://arxiv.org/pdf/2410.12560v1), introduction pp. 1–4, used to delimit the separate design.
 
-All were accessed18October2026. The packet records hashes for the three proof sources and precise reading ranges. The source locators use their own PDF pagination rather than the publisher pagination.
+All were accessed 18 October 2026 and independently reread at the relevant locators on 19 October 2026. The packet records hashes for the three proof sources and precise reading ranges for both passes. The source locators use their own PDF pagination rather than the publisher pagination. The HW findings below concern the specified 33-page preprint; the full publisher text was not obtained, and no claim is made about an error surviving in the published version.
 
-The packet records twelve unreviewed findings. No linked HW correction was located in its arXiv history or the author's publication page; searches for a Michailov correction likewise located none. This says which correction searches were made, without asserting priority or that a preprint finding persists in the published version.
+The packet records twelve findings, independently confirmed at the specified preprint locators on 19 October 2026. No linked HW correction was located in its arXiv history or the author's publication page; searches for a Michailov correction likewise located none. This records the correction searches without asserting priority or that a preprint finding persists in the published version.
 
 | Finding | Locator in the text read | Correction used here |
 |---|---|---|
