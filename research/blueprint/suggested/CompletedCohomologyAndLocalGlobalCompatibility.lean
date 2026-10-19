@@ -63,7 +63,8 @@ theorem reductionEquiv (s : ℕ) :
       ≃ₗ[O] (H ⧸ ((Ideal.span {ϖ}) ^ s • ⊤ : Submodule O H))) := sorry
 
 /-- The reduction maps are surjective. -/
-theorem reduction_surjective (s : ℕ) : Function.Surjective (reduction O ϖ H s) := sorry
+theorem reduction_surjective (s : ℕ) : Function.Surjective (reduction O ϖ H s) :=
+  AdicCompletion.eval_surjective (Ideal.span {ϖ}) H s
 
 /- Test: degenerate. The completion of the zero module is zero. -/
 example [Subsingleton H] : Subsingleton (atTameLevel O ϖ H) := sorry
@@ -74,9 +75,11 @@ end TauCeti.ModularCompletedCohomology
 
 /-! ### `R31.1/definite-quaternionic-completed-module`
 
-`X` is the profinite space `D^×∖(D ⊗ A_F^∞)^×/U^p`, supplied with a continuous action of a group
+`X` is a supplied topological space, with a continuous action of a group
 `D` (standing for `D_p^×`, acting on the left through `g ↦ g⁻¹`, so that the translation below is
-Pan's right translation) and of a centre `Z` through `ι`. -/
+Pan's right translation) and of a centre `Z` through `ι`. Over Q one may use the profinite
+raw quaternionic quotient. Over a general totally real field the README distinguishes that
+quotient from the inverse limit of finite-level sets and retains Pan's central quotient. -/
 namespace TauCeti.DefiniteQuaternionCompleted
 
 section DefiniteQuaternion
@@ -303,8 +306,9 @@ theorem annihilator_span_eq {B : Type*} [Ring B] [Module B M] [SMulCommClass R B
     (S : Set M) (hS : Submodule.span B S = ⊤) :
     Module.annihilator R (Submodule.span R S) = Module.annihilator R M := sorry
 
-/-- Full support is faithfulness: the support is everything iff the annihilator is nilpotent;
-for `R` reduced, iff `R` acts faithfully. -/
+/-- Full annihilator support means every element of the annihilator is nilpotent.
+For a reduced ring this is equivalent to faithful action. A nilpotent ideal conclusion in
+the general case additionally needs Noetherianity. -/
 theorem patchedSupport_eq_univ_iff [IsReduced R] :
     patchedSupport R M = Set.univ ↔ Module.annihilator R M = ⊥ := sorry
 
@@ -331,7 +335,10 @@ unit tests are in the README.
   `TauCeti.ShimuraCurveCompleted.*`; `TauCeti.DefiniteQuaternionCompleted.{completedCohomology,
   completedHomology, invariants, schikhofDual, twist, equivCC}`.
 * R31.2: `TauCeti.DefiniteQuaternionCompleted.{typed, typeSpecialised, typeSpecialised_dual,
-  typeSpecialised_exact, typeSpecialised_free, typeHeckeAlgebra}`.
+  typeSpecialised_exact, typeSpecialised_free, typeHeckeAlgebra}`;
+  `TauCeti.ModularCompletedCohomology.{globalSerreWeights,
+  mem_globalSerreWeights_iff_m_torsion, isGoodWeight}` and the Serre-weight bound/genericity
+  theorem, with its small-weight, multiplicity-one and Ihara inputs.
 * R31.3: `TauCeti.ModularCompletedCohomology.{heckeAlgebra, heckeAlgebra_faithful,
   heckeAlgebra_productLocal, heckeAlgebra_dense, heckeAlgebra_tameMap, IsAllowableLevel,
   residualHeckeAlgebra, residualHeckeAlgebra_localNoetherian, residualHeckeAlgebra_eventuallyConst,
@@ -341,7 +348,7 @@ unit tests are in the README.
   heckeAlgebra_semilocal, heckeAlgebra_maxIdeal_bijection, heckeAlgebra_independent,
   heckeAlgebra_commutes, localHeckeAlgebra, eisensteinPseudoRep, psToHecke, semisimpleAtPrime}`.
 * R31.4: `TauCeti.LocalGlobalCompatibility.*` (local families at and away from `p`, the
-  multiplicity module `X(θ)`, its coadmissibility, cotorsion-free quotient and evaluation, and
+  multiplicity module `X(θ)`, its coadmissibility, cotorsion-free submodule and evaluation, and
   Emerton's completed tensor product); `TauCeti.DefiniteQuaternionCompleted.{multiplicityModule,
   multiplicityDual, multiplicityDual_finite, multiplicityModule_fibre, multiplicityModule_support,
   multiplicityEvaluation, block, blockMultiplicity, galoisAction, automorphicAction,
@@ -351,4 +358,8 @@ unit tests are in the README.
 * The theorems of R31.4–R31.6 (Emerton's Theorems 1.2.1, 1.2.6, 6.2.13; Nakamura's
   Corollaries 2.5–2.8; Dospinescu–Le Bras's Théorèmes 5.4–5.5; Pan's Theorems 3.5.5, 4.1.7, 8.0.1;
   Tung's full-support theorems; promodularity and Böckle's R = T) are stated in the README.
+  Canonical refined compatibility is retained for scalar residual endomorphisms; split
+  distinct characters use the weaker θ-family form. Away from p, the co-Whittaker family
+  and its coadmissible smooth dual have separate APIs. The source-normalisation and
+  supplier gaps recorded in the README remain conditions on the corresponding targets.
 -/
