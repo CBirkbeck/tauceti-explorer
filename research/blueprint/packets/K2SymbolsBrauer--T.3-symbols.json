@@ -1,0 +1,470 @@
+{
+  "roadmapId": "K2SymbolsBrauer",
+  "protocol": "blueprint-v1",
+  "part": "T.3-symbols",
+  "scope": [
+    "K2SymbolsBrauer:T.3:symbols"
+  ],
+  "status": "complete",
+  "summary": "A completed target-level planning pass for the classical residue map, importing its four existing canonical targets rather than duplicating them. Adds the canonical unit-part API and the characterization by unit-unit vanishing and mixed normalization. The reader supplies all target contracts, discriminating tests, complete elementary proof cases and exact Milnor/classical descent boundaries. The elementary pairing is source-decomposed; classical K₂ transport retains the existing stable-colimit and ordinary-presentation dependencies of the infinite-field Matsumoto proof.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "tauceti:Valuation.ord",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Integer order is minus the logarithm of the multiplicative valuation; its value at zero is junk.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.ord_mul",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Order of a product is the sum, assuming both field inputs are nonzero.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.ord_zpow",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Order of an integer power is the integer times the order.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.valuation_eq_exp_neg_ord",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "For a nonzero field element the valuation is exp of minus its order.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.ord_add_eq_min_of_ord_ne",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "The order of a sum of nonzero elements with distinct orders is their minimum.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.mem_maximalIdeal_iff_ord_pos",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "For a nonzero element of the valuation subring, maximal-ideal membership is equivalent to positive order.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.exists_isUniformizer_of_surjective",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "A surjective integer-valued valuation has a uniformizer; the statement uses a nontrivial value-group instance.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.nontrivial_valueGroup_of_surjective",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Surjectivity supplies Nontrivial (valueGroup (.ofClass v)), exactly the instance used by the uniformizer existence and decomposition statements.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.isUniformizer_iff_ord_eq_one_of_surjective",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "For the surjective valuation an element of its subring is a uniformizer precisely when its order is one.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.exists_eq_zpow_mul_unit_of_surjective",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Each nonzero element decomposes into a power of a fixed uniformizer times a subring unit.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:Valuation.mem_valuationSubring_iff_ord_nonneg",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Valuation-subring membership is equivalent to nonnegative order, including zero since its junk order is zero; the proof handles zero separately before using logarithms.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.unitGroupMulEquiv",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "Canonical multiplicative equivalence between the subgroup of ambient field units and the units of the valuation subring.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.unitGroupToResidueFieldUnits",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "The existing group homomorphism from valuation-subring units to units of its residue field.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.coe_unitGroupToResidueFieldUnits_apply",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "After coercion to the residue field the unit residue is the ordinary quotient of the subring element.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "Every nonzero residue class lifts to a valuation-subring unit.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:Valuation.mem_unitGroup_iff",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "For a field unit, membership in the valuation-subring unit subgroup is equivalent to its original valuation being one; the field parameter is explicit.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "tauceti:TauCeti.Place.residueUnit",
+        "module": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
+        "provides": "The existing place residue of a field unit of order zero, using the same unitGroupToResidueFieldUnits map.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:Rat.padicValuation",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The p-adic valuation on the rational field with values in integer powers, for a prime p.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:Rat.surjective_padicValuation",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "Surjectivity of that valuation, used for the concrete rational checks.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.ResidueField.map",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
+        "provides": "A local ring homomorphism induces the residue-field map; positivity of the ramification index supplies locality in the inherited compatibility API.",
+        "checked": "Statement and surrounding hypotheses read at the recorded pin on 2026-10-19; no existence inferred from its name."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Weibel.III.public",
+      "title": "The K-book, Chapter III: K₁ and K₂ of a ring",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted separate Chapter III PDF, accessed 2026-10-19; printed chapter pagination",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "readSections": [
+        "Theorem III.6.1 and following sign calculation, printed p.48",
+        "Definition III.6.2, printed p.49",
+        "Lemma III.6.3 and its complete proof, printed p.51",
+        "Definition III.7.1, printed pp.61–62: inherited Milnor presentation"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K2SymbolsBrauer:T.3:symbols/unit-part",
+      "parentStageId": "K2SymbolsBrauer:T.3:symbols",
+      "realises": [
+        "K2SymbolsBrauer:T.3:symbols"
+      ],
+      "title": "The unit part relative to a uniformizer",
+      "kind": "definition",
+      "statement": "For a commutative field F, a valuation v:F→ℤᵐ⁰, and t∈Fˣ with ord_v(t)=1, define unitPart(v,t,f)=f·t^(−ord_v(f)) for every f∈Fˣ, as an element of the existing subgroup v.valuationSubring.unitGroup. It has order zero and f=t^ord_v(f)·unitPart(v,t,f); this property uniquely determines it. No residue is taken in this definition.",
+      "hypotheses": [
+        "F is a commutative field.",
+        "v has integer multiplicative values; t is a field unit of order one. Surjectivity need not be supplied separately for this definition.",
+        "f is a field unit, so the junk order at zero is never used."
+      ],
+      "proofSteps": [
+        "Use Valuation.ord_mul and ord_zpow to compute ord(f·t^(−ord(f)))=ord(f)−ord(f)=0. Then valuation_eq_exp_neg_ord and Valuation.mem_unitGroup_iff package the field unit in the existing subgroup.",
+        "Cancellation gives the decomposition and uniqueness. Multiplication, inversion and integer powers follow by order arithmetic in the commutative field unit group.",
+        "Every existing valuation-subring unit has valuation one and hence order zero; this proves the compatibility API without adding another unit type.",
+        "For t′=tε expand (tε)^(−ord(f)); commutativity gives the parameter-change formula. It is an equality of subring units, not just of their residues."
+      ],
+      "acceptance": [
+        "All eleven API statements and five tests below hold on the existing carriers.",
+        "Changing a uniformizer changes the unit part exactly by the displayed unit power; the unit part itself is not parameter-independent.",
+        "Negative orders remain integers throughout."
+      ],
+      "prerequisites": [
+        "tauceti:Valuation.ord",
+        "tauceti:Valuation.ord_mul",
+        "tauceti:Valuation.ord_zpow",
+        "tauceti:Valuation.valuation_eq_exp_neg_ord",
+        "mathlib:Valuation.mem_unitGroup_iff",
+        "mathlib:ValuationSubring.unitGroupMulEquiv"
+      ],
+      "uses": [
+        {
+          "where": "Inherited T.3/tame-symbol and T.3/tame-symbol-uniformizer-independence",
+          "how": "Provide canonical subring-unit inputs to the residue map and show cancellation of the parameter change."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.3:symbols/residue-uniqueness",
+          "how": "Expand both inputs into an integer power and a unit to determine every normalized Steinberg pairing."
+        },
+        {
+          "where": "Weibel Lemma III.6.3, printed p.51",
+          "how": "The source proof decomposes both symbol entries into a uniformizer power and a unit; this API packages exactly that operation."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.TameSymbol.unitPart",
+          "role": "constructor",
+          "statement": "For t∈Fˣ with ord(t)=1 and f∈Fˣ, unitPart(v,t,f)=f·t^(−ord(f)), packaged in v.valuationSubring.unitGroup."
+        },
+        {
+          "name": "TauCeti.TameSymbol.coe_unitPart",
+          "role": "coercion",
+          "statement": "The underlying field unit of unitPart(v,t,f) is f·t^(−ord(f))."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_decomposition",
+          "role": "characterisation",
+          "statement": "f=t^ord(f)·unitPart(v,t,f) in Fˣ."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_eq_iff",
+          "role": "extensionality",
+          "statement": "For w in the valuation-subring unit subgroup, unitPart(v,t,f)=w iff f=t^ord(f)·w."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_one",
+          "role": "simp",
+          "statement": "unitPart(v,t,1)=1."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_uniformizer",
+          "role": "simp",
+          "statement": "unitPart(v,t,t)=1."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_of_unit",
+          "role": "compatibility",
+          "statement": "For w in the existing valuation-subring unit subgroup, unitPart(v,t,w)=w. In particular this holds after transporting an Rˣ element by unitGroupMulEquiv.symm."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_mul",
+          "role": "relation",
+          "statement": "unitPart(v,t,fg)=unitPart(v,t,f)·unitPart(v,t,g)."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_inv",
+          "role": "simp",
+          "statement": "unitPart(v,t,f⁻¹)=unitPart(v,t,f)⁻¹."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_zpow",
+          "role": "relation",
+          "statement": "For every integer n, unitPart(v,t,f^n)=unitPart(v,t,f)^n, including negative n."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_change",
+          "role": "compatibility",
+          "statement": "If t′=tε for ε in the valuation-subring unit subgroup, then unitPart(v,t′,f)=unitPart(v,t,f)·ε^(−ord(f))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.TameSymbol.unitPart_identity",
+          "kind": "degenerate",
+          "statement": "For every allowed v,t, unitPart(v,t,1)=1."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_unit_compatibility",
+          "kind": "compatibility",
+          "statement": "For w∈Rˣ, unitPart applied to the ambient field unit of unitGroupMulEquiv.symm(w) equals that same subgroup element. This rejects a separate residue-class or quotient carrier."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_negative_power",
+          "kind": "non-example",
+          "statement": "unitPart(v,t,t^(−2))=1. Using the natural absolute value of the order gives t^(−4), which is not even a unit of the valuation ring."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_five_values",
+          "kind": "computation",
+          "statement": "For ℚ at 5 with t=5, the unit parts of 2, 10, and 2/5 are all 2 as rational field units. A constant-one or reduction-only function fails these values."
+        },
+        {
+          "name": "TauCeti.TameSymbol.unitPart_change_five",
+          "kind": "computation",
+          "statement": "For ℚ at 5, t′=10 is another order-one parameter and unitPart(v,10,5)=1/2, whereas unitPart(v,5,5)=1."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/TameSymbol",
+        "namespace": "TauCeti.TameSymbol"
+      },
+      "sources": [
+        {
+          "sourceId": "Weibel.III.public",
+          "locator": "Lemma III.6.3 and its proof, printed p.51 (separate Chapter III PDF page 51)",
+          "match": "The proof uses the unique uniformizer-power/unit decomposition. The canonical function and parameter-change API here are explicit consequences, with the roadmap’s inverse symbol convention irrelevant until residues are paired."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3:symbols/residue-uniqueness",
+      "parentStageId": "K2SymbolsBrauer:T.3:symbols",
+      "realises": [
+        "K2SymbolsBrauer:T.3:symbols"
+      ],
+      "title": "Characterization of the normalized tame symbol",
+      "kind": "theorem",
+      "statement": "Let v be a surjective valuation F→ℤᵐ⁰, t∈Fˣ with ord_v(t)=1, R its valuation ring, k its residue field, and res:Rˣ→kˣ the existing unit residue. If c:Fˣ×Fˣ→kˣ is multiplicative in each variable, satisfies c(a,1−a)=1 for a≠0,1, is one on pairs of R-units, and satisfies c(u,t)=res(u) for every R-unit u, then c(f,g)=tameSymbol(v,f,g) for all field units f,g. Equivalently the descended Milnor homomorphism is uniquely determined by unit-unit vanishing and its values on {u,t}; the classical-K₂ version uses the already owned Matsumoto comparison.",
+      "hypotheses": [
+        "F is a commutative field and v is normalized and surjective. No completeness, finiteness of the residue field or characteristic restriction is imposed.",
+        "c takes values in the actual residue-field unit group; complementary inputs are nonzero.",
+        "Both the unit-unit and mixed-pair normalizations are required."
+      ],
+      "proofSteps": [
+        "Apply the existing field-only sign calculus to c: c(a,−a)=1, c(a,b)=c(b,a)⁻¹ and c(a,a)=c(a,−1). This proof uses bilinearity and the Steinberg relation, not Matsumoto injectivity.",
+        "The mixed normalization gives c(−1,t)=−1 in kˣ; skew-symmetry and (−1)⁻¹=−1 give c(t,−1)=−1 and c(t,t)=−1. For each R-unit w it also gives c(t,w)=res(w)⁻¹.",
+        "Write f=t^a u and g=t^b w using unitPart. Expand by bilinearity for all integer exponents: c(f,g)=c(t,t)^(ab)c(t,w)^a c(u,t)^b c(u,w). Substitute the normalizations to obtain (−1)^(ab)res(u)^b res(w)^(−a).",
+        "This is exactly the inherited tameSymbol formula. Function extensionality proves equality of pairings. The tensor universal property and symbol homomorphism extensionality give the Milnor corollary; compose with the imported Matsumoto equivalence for the classical corollary."
+      ],
+      "acceptance": [
+        "The constant-one pairing fails c(2,5)=2 over ℚ at 5.",
+        "The inverse K-book pairing fails the same normalization since it sends (2,5) to 3.",
+        "The unsigned formula satisfies the mixed values but fails the Steinberg hypothesis on (1/5,4/5), where it is 4 rather than 1 at 5.",
+        "No claim that all of K₂ is generated solely by {u,t} is used: pairs of ring units are killed only after applying this homomorphism."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.3:symbols/unit-part",
+        "K2SymbolsBrauer:T.3/tame-symbol",
+        "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+        "K2SymbolsBrauer:T.3/tame-symbol-hom",
+        "K2SymbolsBrauer:T.2:symbols/field-proof/field-calculus",
+        "K2SymbolsBrauer:T.2:symbols/field-proof/tensor-realization"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel.III.public",
+          "locator": "Discussion after Theorem III.6.1, printed p.48; Definition III.6.2, printed p.49; Lemma III.6.3 and proof, printed p.51",
+          "match": "This is a derived characterization, not a separately numbered theorem in the source. The symbol sign identities and uniformizer decomposition determine the value on every pair once the roadmap’s mixed normalization is chosen."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/TameSymbol",
+        "namespace": "TauCeti.TameSymbol"
+      },
+      "suggestedDeclarations": [
+        "TauCeti.TameSymbol.tameSymbol_unique",
+        "TauCeti.TameSymbol.tameSymbolHom_unique",
+        "TauCeti.TameSymbol.tameSymbolHomK2_unique"
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "inheritedNodes": [
+    "K2SymbolsBrauer:T.3/tame-symbol",
+    "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+    "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+    "K2SymbolsBrauer:T.3/tame-symbol-hom"
+  ],
+  "targetCoverage": [
+    {
+      "nodeId": "K2SymbolsBrauer:T.3/tame-symbol",
+      "sourceId": "Weibel.III.public",
+      "locator": "Lemma III.6.3, printed p.51",
+      "readerSection": "The pairing and its API"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+      "sourceId": "Weibel.III.public",
+      "locator": "Lemma III.6.3, unit-part proof, printed p.51",
+      "readerSection": "Parameter independence"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+      "sourceId": "Weibel.III.public",
+      "locator": "Lemma III.6.3, four-case proof, printed p.51",
+      "readerSection": "Bilinearity and the Steinberg relation"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-hom",
+      "sourceId": "Weibel.III.public",
+      "locator": "Definition III.6.2, printed p.49; Lemma III.6.3, printed p.51; Definition III.7.1, printed pp.61–62",
+      "readerSection": "Descent and its API"
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "K2SymbolsBrauer:T.3:symbols",
+      "status": "planned",
+      "remaining": [
+        "Discharge the inherited infinite-field Matsumoto stable-colimit witness and exact ordinary Bruhat/root-presentation API request for the classical-K₂ transport. The elementary pairing, unit-part API, four Steinberg cases and Milnor quotient descent need no such input."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Inherited classical-K₂ comparison boundary",
+      "neededBy": [
+        "K2SymbolsBrauer:T.3/tame-symbol-hom",
+        "K2SymbolsBrauer:T.3:symbols/residue-uniqueness"
+      ],
+      "detail": "Only the classical-K₂ transport and classical uniqueness corollary require these inherited open inputs: G-stable-witness in the accepted T.2-symbols packet, ultimately T.1 G-colimit, and that packet’s exact ReductiveGroups Layer 7 ordinary root-presentation/Bruhat-coordinate API request. The degree-two tensor universal property and homogeneous-components comparison already have exact T.2-symbols nodes. No new K₂ carrier or foundational presentation is planned here. Surjectivity of a discrete valuation forces F infinite, by the distinct orders of t^n; the finite-field Matsumoto proof gap and arithmetic Bass–Tate gap are consequently outside this stage."
+    }
+  ],
+  "closureLedger": [
+    {
+      "target": "K2SymbolsBrauer:T.3/tame-symbol",
+      "inputs": [
+        "K2SymbolsBrauer:T.3:symbols/unit-part",
+        "mathlib:ValuationSubring.unitGroupToResidueFieldUnits"
+      ],
+      "conclusion": "The actual subgroup-valued unit part and residue homomorphism give the signed pairing; no completeness assumption."
+    },
+    {
+      "target": "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+      "inputs": [
+        "K2SymbolsBrauer:T.3:symbols/unit-part",
+        "tauceti:Valuation.ord_mul",
+        "tauceti:Valuation.ord_zpow"
+      ],
+      "conclusion": "The order-zero product gives a parameter-free expression; alternatively parameter-change exponents cancel."
+    },
+    {
+      "target": "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+      "inputs": [
+        "K2SymbolsBrauer:T.3/tame-symbol",
+        "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+        "tauceti:Valuation.ord_add_eq_min_of_ord_ne",
+        "tauceti:Valuation.mem_maximalIdeal_iff_ord_pos"
+      ],
+      "conclusion": "Both bilinear laws and all four Steinberg cases are written in the reader."
+    },
+    {
+      "target": "K2SymbolsBrauer:T.3/tame-symbol-hom",
+      "inputs": [
+        "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+        "K2SymbolsBrauer:T.2:symbols/field-proof/tensor-realization",
+        "K2SymbolsBrauer:T.2:symbols/field-proof/homogeneous-components",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "K2SymbolsBrauer:T.2/matsumoto",
+        "mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits"
+      ],
+      "conclusion": "Milnor descent and surjectivity use exact imported presentation nodes; classical transport retains the single recorded inherited boundary."
+    }
+  ],
+  "planetImports": [
+    {
+      "nodeId": "K2SymbolsBrauer:T.3/tame-symbol",
+      "name": "Tame symbol"
+    },
+    {
+      "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+      "name": "The tame symbol is a Steinberg symbol"
+    }
+  ],
+  "ownership": {
+    "rule": "Retain all four canonical target ids in K2SymbolsBrauer--T.3.json. New nodes supplement their proof inputs and user API; they do not replace them. No layer reassignment or cross-roadmap ownership move.",
+    "excluded": "Localization boundary comparison, higher Milnor residues, residue restriction and transfer, finite support, reciprocity, tame kernels and Dennis–Stein symbols retain their existing owners. The inherited valuation-subring and residue-field restriction maps are explained as compatibility interfaces, without duplicating the residue-restriction theorem."
+  },
+  "upstreamAudit": {
+    "date": "2026-10-19",
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "reviewedAudit": "data/library-coverage.json: K2SymbolsBrauer:T.3:symbols, AUDIT-29; the three classical residue targets are not built, their valuation ingredients are built.",
+    "documentsRead": [
+      "GrothendieckEulerForms README",
+      "GlobalNumberFields README"
+    ],
+    "currentCheck": "Read-only searches of current Tau Ceti and the additional upstream roadmaps, together with pinned source inspection, found no tame-symbol, Milnor-K or generic valuation unitPart implementation to duplicate. Existing place residueUnit is imported; newer geometry and arithmetic roadmaps supply their own residue and quotient notions, not this K₂ pairing. Public Mathlib pull-request search found no tame-symbol or Milnor-K implementation."
+  },
+  "sourceIssues": [],
+  "upstreamNotes": []
+}
