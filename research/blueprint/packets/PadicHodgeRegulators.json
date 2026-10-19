@@ -2926,7 +2926,7 @@
       ],
       "detail": "The live merger reads nodes only and ignores imports, importedNodes, assembly.sourceAliases and targetCorrections. The complete 132-node reader therefore disagrees with the canonical merged declarations. In particular L1/dual-exponential retains reversed pairing arguments and L4/good-wach-basis retains its superseded generic-theorem ownership/kind. A supported assembler or coordinated canonical migration is required; this review cannot edit the imported parts or scripts.",
       "addedBy": "REV-PadicHodgeRegulators",
-      "revisionCheckpoint": "BP-PadicHodgeRegulators~2 reproduced 33 differing corrected fields and eight differing source-reference lists. Direct materialization is rejected with 131 duplicate-ID errors by the unmodified checker. Both canonical-owner migration and integration-code repair are outside this issue’s allowed paths; see assembly.revisionCheckpoint and the revision handoff."
+      "revisionCheckpoint": "Session codex-428pHh reproduced the unsupported assembly and validated a scratch canonical-owner migration with zero checker errors/warnings and exact node/planet agreement. The unchanged issue and intake output lists still exclude both canonical parts; no migration was submitted. See assembly.revisionCheckpoint and the revision handoff."
     }
   ],
   "sourceIssues": [
@@ -3628,6 +3628,21 @@
         "by": "REV-PadicHodgeRegulators"
       },
       "addedBy": "REV-PadicHodgeRegulators"
+    },
+    {
+      "id": "PadicHodgeRegulators/E121",
+      "source": "LZ2014",
+      "kind": "misprint",
+      "locator": "Section 2.4, p.5, final adjunction quantifier; arXiv:1108.5954v3 only",
+      "printed": "The second argument of the adjunction is quantified in H^1(K,V), although the preceding dual exponential has domain H^1(K,V*(1)).",
+      "correction": "Quantify that argument in H^1(K,V*(1)); retain the displayed positive adjunction in the declared pairing order.",
+      "reason": "Both the dual-exponential input and the second slot of local Tate duality require the dual Tate twist. The existing ordered root correction already uses the appropriate domains.",
+      "affects": "nothing",
+      "known": "No novelty or version-of-record claim; no correction located in the checked arXiv record and scoped text.",
+      "searched": [
+        "arXiv:1108.5954v3, p.5, and current submission history on 2026-10-19 (v3 is latest)",
+        "Author institutional publication searches; the Warwick PDF retrieval did not succeed. Publisher full text and a complete author errata list were not inspected."
+      ]
     }
   ],
   "restructure": [
@@ -3726,9 +3741,9 @@
       "job": "BP-PadicHodgeRegulators~2",
       "issue": 11092,
       "agent": "Codex / GPT-6",
-      "session": "codex-HNxLJr",
+      "session": "codex-428pHh",
       "date": "2026-10-19",
-      "testedCommit": "c7f92e76f8bf67502db46fe35e646d40f45cf551",
+      "testedCommit": "29eb466061f5c271366c91f619b59bbe7af290ed",
       "status": "blocked",
       "rootOnlyDeclarations": 1,
       "rawMergeDeclarations": 132,
@@ -3740,7 +3755,7 @@
       "differingSourceReferenceLists": 8,
       "materializedRootDuplicateErrors": 131,
       "materializedRootOtherErrors": 0,
-      "result": "Reproduced with the unmodified merger and checker. Root-only has one declaration; the two parts plus root have 132 but ignore the corrections and aliases. A temporary materialized root with its normal filename fails the unmodified checker with 131 errors, each an ID also defined in an unchanged part. No checker context was altered. The one planet whose displayed mathematical fields differ is L1/dual-exponential.",
+      "result": "Reproduced the existing root-only failure and a viable scratch canonical-owner repair. Root alone contributes one declaration; unchanged parts plus root contain 132 but lose 33 corrected fields. Eight source-ID lists differ; nine full citation lists differ, the additional difference being the corrected LLZ Corollary 1.12 page. Materializing the root fails with exactly 131 duplicate-ID errors. Both scratch part previews pass the unchanged checker with normal world context and their actual merge matches all intended nodes and displayed planets. No part, checker, merger, queue or atlas data was edited.",
       "scopeBoundary": "The issue permits only the root packet, reader, suggested file and this revision handoff. It excludes both imported part packets and integration/checker code. There is no supported root-only repair: a supported assembly path or coordinated canonical migration requires expanded deliverables.",
       "repairScopeAlternatives": [
         "Implement and test import/correction/source-identity resolution in scripts/blueprints.py and the promotion/checker path (scripts/promote.py, scripts/check_blueprint.py), including root source/baseline/coverage/request metadata. Imported canonical nodes must have one owner.",
@@ -3757,7 +3772,21 @@
         "PadicHodgeRegulators:L4"
       ],
       "intendedStagesSpecified": 10,
-      "coveragePolicy": "Six stages with unapplied canonical corrections are partial until the assembly repair; four unaffected intended scopes remain planned. This is an unfinished revision checkpoint, not completion of the prior mathematical planning pass."
+      "coveragePolicy": "Six stages with unapplied canonical corrections are partial until the assembly repair; four unaffected intended scopes remain planned. This is an unfinished revision checkpoint, not completion of the prior mathematical planning pass.",
+      "previousSession": "codex-HNxLJr",
+      "differingFullCitationLists": 9,
+      "canonicalMigrationPreview": {
+        "status": "scratch-only; not submitted or approved",
+        "parts": 2,
+        "nodes": 131,
+        "errors": 0,
+        "warnings": 0,
+        "checkerContext": "Unmodified scripts/check_blueprint.py check() with normal world(); no canonical owners removed or replaced in its context.",
+        "recipe": "For each existing part retain its node IDs and order; substitute the intended nodes after source aliases and ordered corrections. Select source records by normalized original IDs plus actual node citation IDs from the root registry. Use the root baseline and root requests restricted to the part’s consuming nodes. Run the normal checker on the scratch file with the original basename.",
+        "mergerResult": "The preview parts plus the unchanged root node give exactly 132 canonical nodes. Every node field and every displayed planet statement, hypothesis and kind agrees with the intended resolved view.",
+        "limits": "Preview checks node content, source declarations, baseline-reference form, requests and merger output; no accepted review is granted. A submitted migration must also reconcile source issues, gaps, coverage, conventions, import hashes and review validity. The preview does not implement root-only assembly."
+      },
+      "intakeScopeCheck": "research/blueprint/intake.py:auto_refusals compares every changed path against own_files(job). Both part packets are absent from BP-PadicHodgeRegulators~2 outputs in queue.json. Expanded authorization must also reach the intake job scope or the maintainer must handle that PR."
     }
   },
   "inventory": {
@@ -5224,6 +5253,39 @@
         "TheoremI.15, p.914; SectionIC9, PropositionI.28, CorollaryI.29, p.920"
       ],
       "result": "Read the source statements and proof passages needed at these target/issue locators, comparing hypotheses and conventions with the resolved reader. Public version only; no claim of whole-source reading or a fresh global errata search."
+    },
+    {
+      "by": "BP-PadicHodgeRegulators~2 / codex-428pHh",
+      "date": "2026-10-19",
+      "sourceId": "LLZ2011",
+      "url": "https://msp.org/ant/2011/5-8/ant-v5-n8-p06-s.pdf",
+      "sha256": "e8c488028a3000313db2fee031506f1bb8414ec71af54b80ca97f01982b6950c",
+      "locators": [
+        "Corollary 1.12, published p.1107"
+      ],
+      "result": "Verified the reviewer’s page correction directly in the version of record. The source hash matches the recorded version. The corrected root citation is retained; its canonical part citation still needs migration."
+    },
+    {
+      "by": "BP-PadicHodgeRegulators~2 / codex-428pHh",
+      "date": "2026-10-19",
+      "sourceId": "AC20",
+      "url": "https://arxiv.org/pdf/2003.08888v2",
+      "sha256": "5120eb167b7f02662a6540dd4e2dd7af420f95a16e32bbc3ee278afadf543fec",
+      "locators": [
+        "Remark 3.2(1), p.15, arXiv:2003.08888v2"
+      ],
+      "result": "Confirmed that the printed Besser reference is labelled Remark 8.6.3. This checks the printed half of E117; the earlier reviewer’s separate Besser comparison is retained without claiming it was repeated."
+    },
+    {
+      "by": "BP-PadicHodgeRegulators~2 / codex-428pHh",
+      "date": "2026-10-19",
+      "sourceId": "LZ2014",
+      "url": "https://arxiv.org/pdf/1108.5954v3",
+      "sha256": "0da539348716fa2293377bba81b07de3d851f3e98bbc9b244b19e639a5ae5341",
+      "locators": [
+        "Section 2.4, p.5, arXiv:1108.5954v3"
+      ],
+      "result": "Read the dual exponential’s domain and its adjunction, supporting the ordered pairing correction already in the root. The sentence quantifying the second argument has a dual-representation typo, recorded separately as E121."
     }
   ],
   "currentLibraryScreen": {
@@ -5597,9 +5659,9 @@
     },
     "revisionCheckpoint": {
       "by": "BP-PadicHodgeRegulators~2",
-      "session": "codex-HNxLJr",
+      "session": "codex-428pHh",
       "date": "2026-10-19",
-      "result": "Unchanged 192-line file: lean-check exit 0; nine theorem-admission warnings only. Four real-bodied definitions, six proved examples and nine theorem milestones. Available memory was 77 GiB before compilation; one Lean check was run."
+      "result": "lean-check exit 0 at the recorded pins; nine expected theorem-admission warnings only; file unchanged"
     }
   },
   "review": {
