@@ -2,14 +2,24 @@
 
 Issue #10956. Claude, session `claude-TYlSTQ`, 19 October 2026. I did not write
 the package (Codex, `codex-dLsusU`; revision `PKG~2` by Codex, `codex-ggn0g7`,
-PR #10932) or its review (Claude, `claude-NKgeCb`).
+PR #10932) or either review (Claude, `claude-NKgeCb`; Codex, `codex-vSNenZ`).
 
-**Verdict: accepted.** Every finding of
-[REV-PKG-GrossZagierAndArithmeticHeights](../reviews/REV-PKG-GrossZagierAndArithmeticHeights.md)
-is resolved in the package files. The author revision `PKG~2` had already
-answered R1–R2 in outline. This job checked those answers against the suppliers
-and the sources, repaired what did not hold, and repeated the adversarial pass
-on everything touched.
+**Verdict: needs_changes, with one named residue.** This job resolves the
+findings of the first review,
+[REV-PKG-GrossZagierAndArithmeticHeights](../reviews/REV-PKG-GrossZagierAndArithmeticHeights.md).
+It also resolves those of the second independent review,
+[REV-PKG-GrossZagierAndArithmeticHeights~2](../reviews/REV-PKG-GrossZagierAndArithmeticHeights~2.md)
+(Codex, `codex-vSNenZ`, PR #10970), which merged while this job was running; its
+edits are kept and merged with these. One residue is left, and its only source
+is the Yuan–Zhang–Zhang book, which is not cleared and was not read:
+
+- the exact support condition S¹ of 7.4 (the book's Assumption 5.3), and
+- the geometric half of the local nonsingularity in 7.47, item 1: that m_{φ_v},
+  and at 𝔅-division places l_{φ_v}, extend across E_v under S¹ at the deep
+  levels of 7.4. Yuan–Zhang prove it only for maximal U_v.
+
+8.1, and the unrestricted Yuan–Zhang–Zhang formula 8.11, stay contingent on
+these two inputs. Everything else in both reviews is closed.
 
 Files: [README.md](../packages/GrossZagierAndArithmeticHeights/README.md),
 [Suggested.lean](../packages/GrossZagierAndArithmeticHeights/Suggested.lean),
@@ -21,12 +31,24 @@ README still has 287 targets (Layers 0–9: 12, 5, 15, 13, 7, 6, 78, 109, 20, 22
 | Finding | Disposition |
 | --- | --- |
 | R1, 23 absent contracts | Each now has an owned target that I read and checked: base-change ε and λ² (0.7); V, p, q kernels (6.2); CM isogeny-diagram Hom (7.3); integral JL replaced by primitive-lattice selection (9.6); cotangent saturation (9.1, BLR §7.5 Theorem 4(iii), read in the cleared library); bad-prime differentials (3.1); ordinary and quasi-canonical lift lengths (7.1–7.2); D_K=−3,−4 (0.5); mixed-kernel derivative bounds (6.24); weight-two projection (6.1) and the compact Green operator (ComplexComparisonPartII C5 `harmonic-projection-green`); CM moment descent (9.4); norm/genus bridge (6.16); toric Hom (4.1); semistable Abel–Jacobi and Kummer logarithm (9.5); algebraic-point subgroup theorem (9.2). Corrections to 3.1, 6.1, 6.2, 9.2 and 9.4 are listed below. |
-| R1, 43 partial contracts | A Sonnet cross-check read all 32 rows of the rewritten supplier table against the supplier packages and packets. I verified each mismatch myself and re-pointed 13 rows. Serre–Tate theory is AbelianSchemesAndArithmeticModuli A4.9–A4.10 (`serre-tate-equivalence`, `ordinary-serre-tate-coordinates`, with the Hom criterion), not FiniteFlat R07.2 (Dieudonné theory). Hom rigidity is A1 `relative-rigidity-comparison`. Additive characters and self-dual measures are AL.0. Genus characters are AN.4 `imaginary-genus-character-dictionary`; quadratic reciprocity and character orthogonality are Mathlib `jacobiSym.quadratic_reciprocity` and `MulChar.sum_eq_zero_of_ne_one`. Smooth representations are SR.0 plus SR.2 `frobenius-reciprocity`. Good reduction is Néron §1.8. Also re-pointed: the AF.3 L² pairing, Mathlib `mellin` with AL.0 `bessel-laplace-mellin`, R17.4 prime-cyclic base change of degree 2, the L3h wording, and the m=0 case of GH.4.1. 7.1, 7.2, 7.3 and 7.25 now cite A4 and A1. Three broken cross-references were fixed (`R12.5/weight-two-regular-differentials`, `C5/harmonic-projection-green`, and SchemeAndStackFoundations, which is upstream; see below). All 117 cross-roadmap references now resolve to packet nodes or stages. |
+| R1, 43 partial contracts | A Sonnet cross-check read all 32 rows of the rewritten supplier table against the supplier packages and packets. I verified each mismatch myself and re-pointed 13 rows. Serre–Tate theory is not FiniteFlat R07.2, which is Dieudonné theory. The elliptic Serre–Tate equivalence is TauCetiRoadmap.ModularCurves Layer 7F ST-1, and the ordinary coordinate with its Hom criterion is AbelianSchemesAndArithmeticModuli A4.10 (`ordinary-serre-tate-coordinates`). Hom rigidity is A1 `relative-rigidity-comparison`. Additive characters and self-dual measures are AL.0. Genus characters are AN.4 `imaginary-genus-character-dictionary`; quadratic reciprocity and character orthogonality are Mathlib `jacobiSym.quadratic_reciprocity` and `MulChar.sum_eq_zero_of_ne_one`. Smooth representations are SR.0 plus SR.2 `frobenius-reciprocity`. Good reduction is Néron §1.8. Also re-pointed: the AF.3 L² pairing, Mathlib `mellin` with AL.0 `bessel-laplace-mellin`, R17.4 prime-cyclic base change of degree 2, the L3h wording, and the m=0 case of GH.4.1. 7.1, 7.2, 7.3 and 7.25 now cite ST-1, A4.10 and A1. Three broken cross-references were fixed (`R12.5/weight-two-regular-differentials`, `C5/harmonic-projection-green`, and SchemeAndStackFoundations, which is upstream; see below). All 117 cross-roadmap references now resolve to packet nodes or stages. |
 | R2, Arakelov R35.1 | 2.1 cites ArakelovGeometryAndAbelianHeights package §§1.8–1.10 and 1.15, which exist (`ArithmeticDivisor`, `ArithmeticChow1.pairing`); its G=2g conversion was rechecked. |
 | R2, Harris–Kudla and Prasanna | Re-read Prasanna, Annals 163: Theorem 2.3, p. 910, Theorem 2.4, p. 912 (p∤∏q(q−1)(q+1), p>k+1, v_λ≥0) and Theorem 3.2, p. 940 (p-unit only). 9.6 now cites Theorem 2.4 for α∈K_f when K_f≠ℚ. Brooks Theorem 8.2, p. 4232, gives exactly the constant C(f,χ) of 9.9, and Proposition 8.5 is on p. 4235. |
 | Question 1, cycles with HE and GH | This was a real target-level cycle. HE.0 `norm-reciprocity-level-compatibility` imports GZ 0.5, and HE.1 `jacobian-basepoint-denominators` and `parameter-choice-and-degree` import the whole GZ.3 stage. Meanwhile 0.5, 0.12, 2.15 and 3.13 cited the whole stages HE.0 and HE.1. Those four now cite only nodes that import nothing from this roadmap: HE.0 `ring-class-tower-quotients` and `dihedral-conjugation`, HE.1 `cm-cyclic-isogeny-pair`, ComplexMultiplicationAndExplicitReciprocity CM.1 `ideal-action` and `quadratic-forms-dictionary`, CM.2 `explicit-level-reciprocity` and CM.3 `class-polynomial-galois-action`. 3.13 now cites EllipticCurveModularity R29.5. A transitive scan of every external citation finds no remaining path back into the same or a later layer. HE and GH citations now occur only from Layer 6 on; GH.4, which imports GZ Layers 4–5, is cited only in Layer 9. The two roadmaps still interleave at roadmap level: see the maintainer notes. |
 | Question 2, ownership | Decided inside the package: the specialized notions are owned here (PKG~2), checked above. One new ownership item is the p-adic analytic subgroup theorem (9.2, below). |
 | Question 3, packet propagation | Outside this job's files; see the maintainer notes. |
+
+## Second review (REV-PKG~2) → change
+
+| Finding | Disposition |
+| --- | --- |
+| R1, 7.25 good-place interface | Rewritten as an exact statement. It defines good places (outside S₁∪S₂, F_v/ℚ_p unramified, maximal U_v⊃O_{E_v}, standard φ_v and ψ_v). It proves k_{φ_v}(1,y,u)=m_{φ_v}(y,u)log N_v=φ_v(y₁,u)1_{O_{E_v}j_v}(y₂)·½(v(q(y₂))+1)·log N_v at nonsplit good places, and d_{φ_v}=0 (c=0, n=½v(q(y))φ_v) at all good places. Both extend to every g by the Iwasawa decomposition, and the archimedean statement is kept separate. Sources: Yuan–Zhang, Annals 187, Lemmas 7.3–7.6 and 8.7, §9.1 items (1)–(3), pp. 590–626, which use only the local data at v. I recomputed the inert case from the D_n(a) sums: W°′(0)=(1+N_v⁻¹)·½(v(a)+1)·log N_v. Checks: B-division places give remainder log N_v/(N_v+1)≠0; F_v/ℚ_p ramified gives (|d_v|−1)log N_v/((1+N_v⁻¹)(1−N_v))≠0; a split good place cancels. |
+| R1, 7.47 nearby functions | Rewritten with the exceptional set S′ (non-good places) and the local differences Φ′_v=k−m·log N_v, d_{φ_v} and l_{φ_v}. Item 1 is local nonsingularity. Item 2 is vanishing off S′ (7.25). Item 3 is the pseudo-theta form on K_{S′}GL₂(A^{S′}) (6.25, 6.56). Item 4 is the identity Pr I′−2Z̃=Σ_{v∈S′}I(0,g,χ,Φ(v)) for all g, with Φ(v)=φ^v⊗Φ″_v, by Yuan–Zhang Lemma 6.1(1) (6.40). Item 5 is σ-orthogonality (7.5). The analytic half of item 1 is proved from S¹: every x₂∈D_n(a) has v(uq(x₂))≥−v(d_v) once v(uq(y₂))≥−v(d_v). The geometric half is the residue above. |
+| R1, 8.1 contingency | The gap paragraph now names exactly the two remaining inputs. |
+| R2, 1.1 | Public source: Conrad, *Chow's K/k-image and K/k-trace, and the Lang–Néron theorem*, §9 (pairing p. 33; (9.8), (9.9), Remark 9.9 and Theorem 9.10, p. 34). Gap removed. |
+| R2, 7.4 | S² is Yuan–Zhang Assumption 7.1, p. 587 (= YZZ Assumption 5.4), with the Lφ₀−deg(L)φ₀ construction of p. 591. The gap is narrowed to S¹ (YZZ Assumption 5.3, named on p. 585), the level restrictions and the nonzero toric contraction. |
+| R2, 7.5, 7.25, 7.47, 8.1 | 7.25 and 7.47 now rest on public Yuan–Zhang locators, with the book numbering marked unverified. 7.5's local input is 4.2; its book-level interface and 8.1's kernel-theorem locators remain unverified. |
+| Merge | REV-PKG~2 cited TauCetiRoadmap.ModularCurves Layer 7F ST-1 for the elliptic Serre–Tate equivalence. That upstream citation is kept in 7.1–7.3 and 7.25, with AbelianSchemesAndArithmeticModuli A4.10 only for the ordinary coordinate's Hom criterion. Its Lean example `bdpEulerFactor 1 2 = 0` and closing-list names are kept; the list is one block comment. |
 
 ## Further corrections from the adversarial pass
 
@@ -59,21 +81,24 @@ README still has 287 targets (Layers 0–9: 12, 5, 15, 13, 7, 6, 78, 109, 20, 22
 | 6.16 genus sign | D=−3, N=1, n=±3; square n | correct | none |
 | 9.6, 9.9 constants | N⁻=1; 2f_B; j=0; Brooks C(f,χ) | match Brooks Theorem 8.2 | 9.6 cites Theorem 2.4 |
 | Lean | every example recomputed by hand; heegnerAverage at card G=0 in L | true | `rankinKernelPolynomial` added |
+| 7.25 good place | inert v(a)=1,3; 𝔅-division v; ramified F_v; split diag(a,d) | identity exact only at good places | rewritten |
+| 7.47 assembly | S′ empty; S¹ dropped at an E-ramified place; equality only on K_{S′}GL₂(A^{S′}) | Lemma 6.1(1) needs nonsingular terms | rewritten; gap named |
+| 1.1 | ⟨P,φ_L P⟩ for L=(O) | 2h_(O)(P) by Conrad Theorem 9.10 | locator |
 
 ## Checks run
 
-- `lean-check` on the final Suggested.lean: exit 0, 28 `sorry` warnings and nothing else (194 lines; free memory 81 GB before running).
+- `lean-check` on the final Suggested.lean, after merging REV-PKG~2: exit 0, 29 `sorry` warnings and nothing else (202 lines; 76 GB free before running).
 - `python3 research/blueprint/intake.py check-files` on README, Suggested.lean and metadata.toml: 0 problems.
 - Internal links: 287 anchors, all links resolve, all labels match their headings, no forward or self Needs edges.
-- Cross-roadmap references: 117, all resolve to packet nodes or stages. A transitive closure over the packet prerequisite graph finds no external citation that re-enters this roadmap at the same or a later layer.
+- Cross-roadmap references: 116, all resolve to packet nodes or stages. A transitive closure over the packet prerequisite graph finds no external citation that re-enters this roadmap at the same or a later layer.
 - Duplication: the TauCetiRoadmap main roadmaps merged since the last audit (NewtonPolygons, PadicMeasuresIwasawaAlgebras, SchemeAndStackFoundations, DiophantineApproximationAndTranscendence, HeightsAndUnits, MassFormula, ComplexTori, ComplexCurveModuli, ClassicalArithmeticCompletion) were screened by object. Only 9.3 overlapped.
 - Own words: no 10-word overlap between the added text and the nine source texts read (one Gross–Zagier phrase was rephrased).
 
-Sources read for this job: Česnavičius–Neururer–Saha (arXiv:1911.09446); Gross–Zagier, rendered pp. 277–278 and 288–296; ARGOS seminar, Chapters 8, 9 and 11; Brooks (IMRN 2015); Prasanna (Annals 163); Burungale–Skinner–Wan (arXiv:2603.20886v2); Fuchs–Pham (arXiv:1502.00768v1); Castella (arXiv:1507.04260v1); BLR *Néron Models* §7.5, in the cleared library, with nothing copied.
+Sources read for this job: Yuan–Zhang, Annals 187 (§§6–9, with pp. 592–593 rendered); Conrad, Kktrace §9; Zhang's survey and GL(2) II (checked, not cited); Česnavičius–Neururer–Saha (arXiv:1911.09446); Gross–Zagier, rendered pp. 277–278 and 288–296; ARGOS seminar, Chapters 8, 9 and 11; Brooks (IMRN 2015); Prasanna (Annals 163); Burungale–Skinner–Wan (arXiv:2603.20886v2); Fuchs–Pham (arXiv:1502.00768v1); Castella (arXiv:1507.04260v1); BLR *Néron Models* §7.5, in the cleared library, with nothing copied.
 
 ## Notes for the maintainer
 
 1. **GZ and HE interleave.** At target level there is no cycle. At roadmap level, HeegnerPointEulerSystems imports GZ 0.5 and Layer 3, and GZ imports HE in Layers 6–9. Upstream sequencing therefore needs a bundle, or HE's two imports moved down. The packets also show EllipticCurveModularity R29.5 `modular-parametrisation` and AutomorphicLFunctionsAndLocalFactors AL.4 `local-parameter-comparison` reaching GZ 0.5 transitively; worth checking against their upstream PRs #1018 and #924. EffectiveDiophantineMethods ED.6 cites GZ.8.
 2. **The p-adic analytic subgroup theorem** (Fuchs–Pham, also Matev) is planned in 9.2 only because no transcendence roadmap states it. Its natural owner is a transcendence roadmap, beside LinearFormsInLogarithms' p-adic Baker–Brumer theorem. If one takes it, 9.2 keeps only the abelian form.
 3. **Packet propagation.** The accepted packets `GrossZagierAndArithmeticHeights--GZ.0.json` and `--GZ.8.json` are unchanged (out of scope). They still carry the old supplier text, the pre-PKG~2 target set and the errors corrected here (3.1 generality, 6.1 locator, 9.4 direction, 9.3 duplication).
-4. The 2011 YZZ draft (ResearchGate link) and the 2013 book were not read in this job; their locators remain as the original review marked them.
+4. The 2011 YZZ draft (ResearchGate link, HTTP 403; no author mirror found) and the 2013 book were not read in this job. The residue above needs the book. Clearing *The Gross–Zagier Formula on Shimura Curves* (Annals of Mathematics Studies 184) for the library would let a short final fix verify 7.4's S¹ and 7.47's geometric nonsingularity, and the remaining book locators. Alternatively, the maintainer may accept the package with these two gaps explicitly marked: every other target is exact.
