@@ -15,27 +15,32 @@
         "ref": "mathlib:Nat.factorial",
         "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
         "provides": "The real recursive natural factorial used only in the rational normalization scalar.",
-        "checked": "2026-10-19: read the definition at the pinned Mathlib source, including its zero and successor clauses."
+        "checked": "2026-10-19: read the definition at the pinned Mathlib source, including its zero and successor clauses. Independently rechecked for REV-MotivicEtaleKTheory--M.6 at the same pin."
       },
       {
         "ref": "mathlib:Nat.factorial_succ",
         "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
         "provides": "(n+1)!=(n+1)n!, used in the coefficient recurrence.",
-        "checked": "2026-10-19: read the declaration and its natural-number type at the pin."
+        "checked": "2026-10-19: read the declaration and its natural-number type at the pin. Independently rechecked for REV-MotivicEtaleKTheory--M.6 at the same pin."
       },
       {
         "ref": "mathlib:Nat.factorial_ne_zero",
         "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
         "provides": "n!≠0 over N, needed when the rational coefficient is cancelled.",
-        "checked": "2026-10-19: read the actual theorem at the pin."
+        "checked": "2026-10-19: read the actual theorem at the pin. Independently rechecked for REV-MotivicEtaleKTheory--M.6 at the same pin."
       }
     ],
-    "audit": "Reviewed data/library-coverage.json entries M.6/M.6a/M.6b: no motivic K tower or Chern comparison; abstract spectral sequences/eigenspaces supply infrastructure only. The current read-only Tau Ceti tree and current TauCetiRoadmap AlgebraicVectorBundles and JacobianChallenge were checked; vector bundles and Picard groups are imported, never replanned.",
+    "audit": "Reviewed data/library-coverage.json entries M.6/M.6a/M.6b: no motivic K tower or Chern comparison; abstract spectral sequences/eigenspaces supply infrastructure only. The current read-only Tau Ceti tree and current TauCetiRoadmap AlgebraicVectorBundles and JacobianChallenge were checked; vector bundles and Picard groups are imported, never replanned. Independent review also read the current AlgebraicVectorBundles L0 and successor-boundary contracts and JacobianChallenge A–E inventory; no higher character carrier was supplied there.",
     "searches": [
       "Pinned Tau Ceti source: GrothendieckGroup/Exact contains categorical K_0 only; no higher motivic K or higher Chow/Chern carrier found by filename and declaration searches.",
       "Pinned Mathlib: Nat factorial source read; spectral-sequence and linear eigenspace abstractions are not geometric K/motivic spectra.",
       "Current roadmap main: AlgebraicVectorBundles README/Suggested.lean, JacobianChallenge README/Suggested.lean; none supplies higher K, higher Chow or the universal motivic character."
-    ]
+    ],
+    "currentUpstream": {
+      "roadmaps": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "checked": "2026-10-19, read-only; inventory evidence only, not a replacement of the declared compilation pins."
+    }
   },
   "sources": [
     {
@@ -77,6 +82,7 @@
       "sha256": "5f4de92e51f03dfb9a4708f70ed9a8f58d2c2a51e310eeb4d597be84c7450984",
       "readSections": [
         "Introduction, pp.235–237, scope and moving corrections",
+        "Lemma 2.1, construction preceding Lemma 2.2, and Lemma 2.2 with proof, pp.258–265, characteristic-summand projections in cycle classes",
         "Theorem 3.1 and proof, pp.276–278",
         "Theorem 3.3 and proof, pp.279–283; Theorem 3.4 statement and initial proof, pp.283–284",
         "Theorem 5.2 and proof, pp.313–316, products and signs"
@@ -126,7 +132,7 @@
       ],
       "proofSteps": [
         "For a representation G→GL(E), form the projective bundle over the simplicial scheme B•G. Define its Chern classes by the coefficients of the monic relation for ξ=c_1(O(1)); the projective-bundle basis determines the coefficients uniquely. Use M.4 projective bundles and the requested simplicial descent adapter.",
-        "The localization sequence for a projective bundle associated to an extension proves Whitney; splitting into lines proves the tensor-polynomial identities. These are universal geometric classes, not characteristic classes assigned separately to each K-group.",
+        "The localization sequence for a projective bundle associated to an extension proves Whitney; splitting into lines proves the tensor-polynomial identities. In the Whitney argument use the closed bundle P(F′) as the Gysin source, and the homogeneous polynomial C_E(T)=Σ_{i=0}^rank(E)(−1)^i c_i(E)T^(rank(E)−i), with c_0=1: C_F=C_F′ C_F″. These correct the displays in E-M6-2. The classes are universal geometric classes, not characteristic classes assigned separately to each K-group.",
         "Evaluate the stable universal class on the plus/completed K-space, using the Hurewicz and Dold–Kan construction of K-book V.11.3, V.11.6–11.8. Zariski descent glues the affine evaluation. Its π_m action has the indicated cohomological degree.",
         "Compare the degree-zero evaluation with the S.7 geometric classes. For the relative cubical comparison retain the diagrams, homotopies and support maps through derived sections; their existence is the precise GeneralAlgebraicKTheory K.2 / SF.5 request, recorded as gap G2. Objectwise group maps are insufficient."
       ],
@@ -137,7 +143,8 @@
         "SchemeKTheoryOperations:S.7/chern-character",
         "SchemeKTheoryOperations:S.6/simplicial-sheaf-hypercohomology",
         "GeneralAlgebraicKTheory:K.2",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5",
+        "MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro"
       ],
       "sources": [
         {
@@ -197,6 +204,16 @@
           "name": "TauCeti.MotivicKTheory.motivicChern_relative",
           "role": "compatibility",
           "statement": "After the G2 adapter, evaluation commutes with the iterated fibres for cubical boundary diagrams and with forgetting supports."
+        },
+        {
+          "name": "TauCeti.MotivicKTheory.motivicChern_whitney",
+          "role": "structure",
+          "statement": "For x,y∈K_0(X), c_t(x+y)=c_t(x)c_t(y), using the total series c_t=1+Σ_{j≥1}c_{j,0}t^j. Its constant term is 1, separately from the auxiliary rank convention c_{0,0}."
+        },
+        {
+          "name": "TauCeti.MotivicKTheory.motivicChern_universal",
+          "role": "characterisation",
+          "statement": "An operation represented by a map Z×Gr→K(Z(j),2j) is determined by its natural K_0-to-CH^j operation (Riou 6.2.1.2). Once G2 identifies the models, this characterizes the higher operations by the universal geometric classes; values on abstract K-groups alone are not a replacement."
         }
       ],
       "tests": [
@@ -256,7 +273,8 @@
         "MotivicEtaleKTheory:M.4/weight-zero-and-one",
         "mathlib:Nat.factorial",
         "mathlib:Nat.factorial_succ",
-        "mathlib:Nat.factorial_ne_zero"
+        "mathlib:Nat.factorial_ne_zero",
+        "MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro"
       ],
       "sources": [
         {
@@ -266,7 +284,7 @@
         },
         {
           "sourceId": "Riou2009",
-          "locator": "Proposition 6.2.2.1 and Lemma 6.2.2.3, p.32; Lemma 6.2.3.2, pp.33–34; Definition 6.2.3.9, pp.34–35",
+          "locator": "Proposition 6.2.2.1 and Remark 6.2.2.3, p.32; Lemma 6.2.3.2, pp.33–34; Definition 6.2.3.9, pp.34–35",
           "match": "The additive Newton operation restricts on a line to c_1^j, and its P¹ loop is j times the previous operation; the stable character therefore has factorial normalization."
         }
       ],
@@ -315,7 +333,12 @@
         {
           "name": "TauCeti.MotivicKTheory.higherChernCoefficient_cancel",
           "role": "simp",
-          "statement": "For j≥1, a_j·((−1)^{j−1}(j−1)!)=1; j·a_{j+1}=−a_j."
+          "statement": "For j≥1, a_j·((−1)^{j−1}(j−1)!)=1."
+        },
+        {
+          "name": "TauCeti.MotivicKTheory.higherChernCoefficient_recurrence",
+          "role": "structure",
+          "statement": "For j≥1, j·a_{j+1}=−a_j; the restriction excludes the rank/weight-zero convention."
         }
       ],
       "tests": [
@@ -369,8 +392,8 @@
         "Use the actual tensor product on scheme K-theory and the cycle-complex cup product imported from S.6 and M.4."
       ],
       "proofSteps": [
-        "The mixed degree-zero/positive-degree tensor identities follow by evaluating the universal Chern-polynomial identity, with the geometric character on K_0. For two positive degrees, products of decomposable universal classes vanish under the relevant reduced evaluation; K-book V.11.3 gives the coefficient −(i+j−1)!/((i−1)!(j−1)!) on c_i(x)c_j(y). Multiplication by a_{i+j} turns it into a_i a_j.",
-        "Use the diagonal and external-product comparison of M.4 to transport the calculation to the cycle cup product, whose sign is Levine Theorem 5.2. The global tensor/plus comparison is the existing S.6 supplier contract; do not replace it by equality of products on K_0 without a uniqueness argument.",
+        "Start with the universal tensor/Newton identity giving ch(E⊗F)=ch(E)ch(F) on K_0. Lift this two-operand identity to maps into motivic Eilenberg–MacLane spaces using the several-operand extension immediately before Riou Proposition 6.2.2.1, then evaluate on S^m∧S^n and the actual K tensor product. This identifies the mixed and two-positive-degree products with their motivic cup products, subject to G2. Agreement of group operations on K_0 alone would not justify this step.",
+        "Equivalently, derive the two-positive-degree Chern coefficient −(i+j−1)!/((i−1)!(j−1)!) from that universal tensor identity after reduced evaluation kills the decomposable terms in each factor; multiplying by a_{i+j} gives a_i a_j. K-book V.11.3 explicitly states the diagonal graded-ring case, not the whole arbitrary-weight dg-coefficient formula. Use its V.11.5(4) tensor identity and the motivic uniqueness argument for the general case. M.4 supplies the diagonal/external-product comparison, and Levine Theorem 5.2 fixes the higher Chow sign.",
         "For Adams compatibility, lift the universal Newton operations through the same completed/sheaf K model as S.6. Riou’s motivic uniqueness checks this for maps into motivic Eilenberg–MacLane spaces, not just endomorphisms of K. The required coherent class evaluation is G2.",
         "If x has weight i, Q-linearity and the last identity give (2^i−2^j)ch_{j,m}(x)=0. Distinct powers of 2 are invertible in Q, so the off-weight component vanishes."
       ],
@@ -386,8 +409,8 @@
       "sources": [
         {
           "sourceId": "Weibel2013",
-          "locator": "V.11.2–11.3, pp.451–453; Lemma V.11.13, p.458",
-          "match": "The universal tensor rule and evaluation on higher K give the positive-degree coefficient and symbol normalization."
+          "locator": "V.11.2–11.3, pp.451–453; V.11.5(4), p.454; Lemma V.11.13, p.458",
+          "match": "The universal tensor identity supplies the character product calculation; V.11.3 and V.11.13 check its diagonal specialization. The arbitrary-weight higher product uses the several-operand motivic lifting, rather than a broader reading of V.11.3."
         },
         {
           "sourceId": "Levine1994",
@@ -396,8 +419,8 @@
         },
         {
           "sourceId": "Riou2009",
-          "locator": "Theorem 6.2.1.2 and Proposition 6.2.2.1, pp.31–32; Definition 6.2.3.9, pp.34–35",
-          "match": "Uniqueness and stable normalization provide a way to identify universal higher characters; the K-endomorphism theorem has a different target."
+          "locator": "Theorem 6.2.1.2, pp.31–32; several-operand extension preceding Proposition 6.2.2.1, p.32; Definition 6.2.3.9 and Remark 6.2.3.10, pp.34–35",
+          "match": "Motivic-target uniqueness, including several operands, lifts the degree-zero tensor identity; the stable rational character and its Adams components fix the higher normalization. The S.6 K-endomorphism uniqueness theorem alone has the wrong target."
         }
       ],
       "acceptance": [
@@ -425,13 +448,14 @@
         "m and j are nonnegative integers. Rational coefficients mean tensoring the integral groups with Q, not replacing the integral cycle complex by its cohomology before deriving sections."
       ],
       "proofSteps": [
-        "Use Levine’s relative K_0 argument, Lemma 13.3, Theorem 13.10 and Corollary 13.11: the Friedlander–Suslin comparison from multirelative K_0 is onto and preserves the K_0(X)-lambda structure; lift weighted gamma expressions to that relative K_0. Move their Grassmannian support into facewise codimension at least p, giving F_γ^p⊂F_HC^p.",
+        "Transport the Levine/FS filtration to the chosen homotopy-coniveau tower by the augmentation-compatible global-model comparison; this use of G1 is required, not supplied by an E₂ identification. Use Levine’s relative K_0 argument, Lemma 13.3, Theorem 13.10 and Corollary 13.11: the Friedlander–Suslin comparison from multirelative K_0 is onto and preserves the K_0(X)-lambda structure; lift weighted gamma expressions to that relative K_0. Move their Grassmannian support into facewise codimension at least p, giving F_γ^p⊂F_HC^p.",
         "For the field case use the semilocal Grassmannian part of the proof on p.66: over an infinite field move by the product of special linear groups, and over a finite field use transfers from extensions of coprime degrees. The gluing across closed points of a one-dimensional base is not invoked. This is the field adaptation advertised in the introduction, p.2; Corollary 13.11 is printed for a one-dimensional base.",
         "The inherited connectivity bound π_m K^(p)(X)=0 for p>d+m makes F_HC finite. The inclusion therefore proves finite length of the full F_γ in this scope. The implication is from the relative moving comparison, not from operationwise gamma vanishing.",
         "Adams acts on gr_γ^p and gr_HC^p by k^p. Apply the finite simultaneous eigenspace/projector argument of Lemma 14.6 and Theorem 14.7 with corrected indices and inclusion direction (inherited sourceIssues E6–E8). Every actual weight j lies at filtration index j in both filtrations. This proves rational equality and compatibility of graded identifications. In importing the filtered Adams theorem, use only its generic supported K_0/Koszul weight calculation; its citation of S.7 is not permission to assume a higher gamma-filtration isomorphism whose boundedness is being proved here."
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.6a/homotopy-coniveau-tower",
+        "MotivicEtaleKTheory:M.6a/global-model-comparison",
         "MotivicEtaleKTheory:M.6b/motivic-strong-convergence",
         "MotivicEtaleKTheory:M.6b/filtered-adams-operations",
         "MotivicEtaleKTheory:M.6b/rational-motivic-degeneration",
@@ -444,7 +468,7 @@
       "sources": [
         {
           "sourceId": "LevineSchemes2001",
-          "locator": "§13.1–13.3, pp.59–61; Theorem 13.10 and Corollary 13.11, pp.65–68; Lemma 14.5, pp.70–71; Lemma 14.6 and Theorem 14.7, pp.71–74; field scope in introduction, p.2",
+          "locator": "§13.1–13.3, pp.59–61; Theorem 13.10 and Corollary 13.11, pp.65–68; Theorem 14.5, pp.70–71; Lemma 14.6 and Theorem 14.7, pp.71–74; field scope in introduction, p.2",
           "match": "A relative K_0 moving argument includes the gamma filtration in homotopy coniveau. Finite Adams filtrations then identify them rationally. The field proof uses the Grassmannian/transfer portion of the argument; the printed general statement also treats a one-dimensional base."
         }
       ],
@@ -464,20 +488,21 @@
       ],
       "kind": "theorem",
       "title": "Relative cycle normalization of the character",
-      "statement": "Let X be smooth quasi-projective over a perfect field. For j,m≥0 let cyc_{j,m}: CH^j_□(X,m)_Q→K_m(X)_Q^(j) be Levine’s cycle isomorphism, defined through multirelative K_0 on X×□^m and the supported structure sheaf of an admissible cycle. Transport the cubical group to CH^j(X,m) by M.4. With the same ordering of cube faces and the corresponding suspension signs, ch_{j,m}∘cyc_{j,m}=id and ch_{i,m}∘cyc_{j,m}=0 for i≠j. This identifies actual maps, including j=0, rather than just two abstractly isomorphic rational vector spaces.",
+      "statement": "Let X be smooth quasi-projective over a perfect field. For j,m≥0 let cyc_{j,m}: CH^j_□(X,m)_Q→K_m(X)_Q^(j) be Levine’s cycle isomorphism. Its construction uses multirelative K_0 on X×□^m and supported structure-sheaf classes, with projection to the generalized ψ^k characteristic summand of index j in the relative/support diagram, identified with the genuine weight-j summand after comparison with K_m(X); a raw structure-sheaf class need not have pure weight j. Transport the cubical group to CH^j(X,m) by M.4. With the same ordering of cube faces and the corresponding suspension signs, ch_{j,m}∘cyc_{j,m}=id and ch_{i,m}∘cyc_{j,m}=0 for i≠j. This identifies actual maps, including j=0, rather than just two abstractly isomorphic rational vector spaces.",
       "hypotheses": [
         "k is a perfect field; X is smooth quasi-projective and of finite type over k, of dimension d. Disconnected X is treated componentwise.",
         "m and j are nonnegative integers. Rational coefficients mean tensoring the integral groups with Q, not replacing the integral cycle complex by its cohomology before deriving sections.",
         "Both cycle and K-theory use the fixed ordered iterated-fibre convention for the cube. The supported universal character / relative-diagram adapter G2–G3 is a prerequisite; ordinary K_0 classes after forgetting supports cannot replace it."
       ],
       "proofSteps": [
-        "Levine Theorem 3.1 realizes the cubical cycle class inside K_0 of the pair (X×□^m, its faces), identified with K_m(X) by homotopy invariance. Theorem 3.3 makes the construction independent of the good-position choice; Theorem 3.4 gives the corresponding supported and localization maps.",
+        "Levine Lemma 2.1 and the construction preceding Lemma 2.2 uses the rational characteristic-summand projection in its supported and relative cycle maps; retain it before passing to the weight-j target. Theorem 3.1 compares the cubical cycle group with the weight-j summand of multirelative K_0, identified with K_m(X) by homotopy invariance. Theorem 3.3 proves Zariski Mayer–Vietoris descent, and Theorem 3.4 supplies supported/localization compatibility. Use the imported finite rational Adams splitting for the final projector on K_m(X).",
         "Before forgetting supports, the leading supported Chern class of the perfect resolution of an integral codimension-j cycle is (−1)^{j−1}(j−1)![Z], with lower supported classes zero. This is the normalization requested from SF.5 and already required by S.7/chern-class-of-subvariety. Extend it to the relative cube with specified face nullhomotopies; this extension is G3, not a consequence of agreement in ordinary CH(X).",
-        "Apply the universal Newton character to that relative class and pass through the ordered loop comparison. The decomposable terms vanish in positive loop degree; a_j cancels the leading signed factorial. At m=0 this is exactly the existing leading-term theorem. For j=0 use rank and the acyclicity in positive degree.",
+        "Apply the universal Newton character to the relative class. The leading supported formula is unchanged by the weight-j projector because the character is Adams compatible; the projection removes the other weights. Pass through the ordered loop comparison: decomposable terms vanish in positive loop degree and a_j cancels the leading signed factorial. At m=0, ch_j([O_Z])=[Z] is a leading-term statement, while the pure-weight inverse is pr_j[O_Z]. For j=0 use rank and the acyclicity in positive degree.",
         "The off-weight terms vanish by higher-character-structure. M.4’s simplicial/cubical comparison and the same ordered suspension convention yield the assertion on the chosen motivic complex. Until G2–G3 are supplied this is a planned comparison, not a verified closed proof."
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.6/higher-character-structure",
+        "MotivicEtaleKTheory:M.6b/rational-motivic-degeneration",
         "MotivicEtaleKTheory:M.4/simplicial-cubical-comparison",
         "MotivicEtaleKTheory:M.4/moving-lemma",
         "MotivicEtaleKTheory:M.4/homotopy-invariance",
@@ -489,8 +514,8 @@
       "sources": [
         {
           "sourceId": "Levine1994",
-          "locator": "Theorem 3.1 and proof, pp.276–278; Theorems 3.3–3.4, pp.279–284",
-          "match": "The rational higher Chow-to-weighted-K map is built from relative K_0 cycle classes, and its supported version commutes with localization."
+          "locator": "Lemma 2.1, construction preceding Lemma 2.2, and Lemma 2.2 with proof, pp.258–265; Theorem 3.1 and proof, pp.276–278; Theorems 3.3–3.4, pp.279–284",
+          "match": "The cycle map includes a projection to the required rational characteristic summand. Theorem 3.3 gives Zariski descent; Theorem 3.4 gives the supported/localization form. The underlying structure-sheaf map alone is not the pure-weight isomorphism."
         },
         {
           "sourceId": "Weibel2013",
@@ -499,7 +524,7 @@
         }
       ],
       "acceptance": [
-        "For a divisor D at m=0, [D] maps to [O_D] and the leading character returns [D].",
+        "For a divisor D at m=0, cyc_{1,0}([D])=pr_1[O_D]; ch_1([O_D])=[D] records its leading term only. On P², with u=[O(1)]−1 and h=c_1(O(1)), a hyperplane has [O_D]=u−u², ch([O_D])=h−h²/2 and pr_1[O_D]=u−u²/2, whose total character is h. This detects omission of the weight projector.",
         "For a unit at m=j=1 the two maps are inverse with no sign.",
         "For a triple Milnor symbol, the Chern factor is +2 and the normalized composite is the identity.",
         "Record and check the relative supported extension G3; neither abstract Adams splitting nor the existence of cyc proves this composite formula."
@@ -522,7 +547,7 @@
       ],
       "proofSteps": [
         "Import the full filtered tower, augmentation, normalized layer equivalence and strong convergence; these already have node IDs in the accepted M.5d packet. Retain its finite Adams splitting and the canonical projection pr_j. There is no new spectral-sequence construction here.",
-        "Under the M.6a layer cycle normalization, the inverse of the rational edge map is the multirelative cycle class cyc_{j,m}. Verify this diagram at the support K_0 level and through the FS/Levine filtered comparison. This is the specific adapter added to the M.6a request; gap G1 prevents treating a group-level identification as the filtered comparison.",
+        "Under the M.6a layer cycle normalization, the inverse of the rational edge map is the projected multirelative cycle class cyc_{j,m}. Verify this diagram at the support K_0 level and through the FS/Levine filtered comparison, retaining the Adams projector. This is the specific adapter added to the M.6a request; gap G1 prevents treating a group-level identification as the filtered comparison.",
         "Apply relative-cycle-normalization: both θ and the universal ch are inverse to that actual cyc on the weight-j group. Off-weight vanishing then proves the equality on all K_m(X)_Q.",
         "Use gamma-homotopy-coniveau-comparison and the S.7 gamma-character leading-term identity to identify the abstract gamma character with this map. This is a map comparison; equality of eigenvalues alone would still allow multiplication by any nonzero rational scalar."
       ],
@@ -544,7 +569,7 @@
         },
         {
           "sourceId": "LevineConiveau2005",
-          "locator": "Theorem 6.4.2, pp.35–37; Corollary 11.3.2 and §11.3.4, pp.63–65",
+          "locator": "Theorem 6.4.2, pp.35–37; Theorem 11.3.2 and Remark 11.3.4, pp.63–64",
           "match": "The homotopy-coniveau layers identify with motivic complexes; this is the layer normalization on the tower route."
         },
         {
@@ -554,7 +579,7 @@
         }
       ],
       "acceptance": [
-        "At m=0 the diagram is the existing S.7 gamma/Chow diagram, with [Z]↦[O_Z] as inverse leading term.",
+        "At m=0 the diagram is the existing S.7 gamma/Chow diagram: [Z]↦[O_Z] modulo the next filtration is the inverse leading term, and [Z]↦pr_j[O_Z] is its pure-weight lift. For a hyperplane in P² this lift is u−u²/2, not u−u².",
         "At j=m for a field the motivic edge map from Milnor K and ch have composite one after rationalization.",
         "Do not infer this equality from collapse at E₂: a rescaled isomorphism has the same weights and dimension.",
         "Prove the same comparison for the filtered FS model only after supplying its augmentation/layer-compatible zigzag."
@@ -579,7 +604,7 @@
       "proofSteps": [
         "Form K^Z(X)→K(X)→K(U) and the supported cycle triangle. Apply the coherent universal character to this diagram before taking homotopy/cohomology. The relative supported comparison of relative-cycle-normalization and Levine Theorem 3.4 identifies the resulting boundary maps.",
         "Pass to the curve local ring and use codimension-one purity: K_{m−1}^x(R)≅K_{m−1}(κ), while H^{q+1}_x(R,Q(j))≅H^{q−1}(κ,Q(j−1)). The K purity identification shifts Adams weight by one; this is the S.6 residue-weight-shift convention.",
-        "The normal/conormal line is trivial at this point, so no higher Todd terms occur. Check uniformizer and unit symbols to fix the boundary sign rather than allowing an unspecified negative.",
+        "The normal/conormal line is trivial at this point, so no higher Todd terms occur. Compute the sign with the M.4 cubical differential d=Σ_i(−1)^i(∂∞_i−∂0_i): a symbol with a uniformizer in its last coordinate has localization residue (−1)^{n−1} times the last-entry Milnor residue ∂^last{u_1,…,u_{n−1},π}={ū_1,…,ū_{n−1}}. Moving π to the first coordinate introduces the same sign, so the localization residue of {π,u_1,…,u_{n−1}} is positive. In particular δ{π,u}=ū, whereas the imported T.3 last-entry tame convention gives ∂^last{π,u}=ū^(−1). The square uses the localization convention of S.6, not an unidentified tame-symbol sign.",
         "Transport the equality through chern-character-edge-comparison and the S.7 gamma-character comparison to obtain the residue-compatible weight dictionary used by arithmetic consumers. For higher codimension supported pairs retain supported classes until a precise Gysin/RR normalization is supplied."
       ],
       "prerequisites": [
@@ -590,12 +615,13 @@
         "SchemeKTheoryOperations:S.6/residue-weight-shift",
         "SchemeKTheoryOperations:S.6/gysin-weight-shift",
         "SchemeAndStackFoundations:SF.5",
-        "GeneralAlgebraicKTheory:K.2"
+        "GeneralAlgebraicKTheory:K.2",
+        "MotivicEtaleKTheory:M.4/nesterenko-suslin-totaro"
       ],
       "sources": [
         {
           "sourceId": "Levine1994",
-          "locator": "Theorem 3.4, pp.283–284; Theorem 5.2(2), pp.313–316",
+          "locator": "Theorem 3.4, pp.283–284; Theorem 5.2(b), pp.313–316",
           "match": "The supported cycle class commutes with localization. Products and projection formulas use the specified higher Chow product."
         },
         {
@@ -639,8 +665,9 @@
     },
     {
       "supplier": "MotivicEtaleKTheory:M.6a/global-model-comparison",
-      "need": "When refining the existing filtered FS/Levine zigzag, identify its normalized layer edge inverse on rational weight j with the multirelative cubical cycle map of Levine 1994 Theorem 3.1, using the M.4 simplicial/cubical comparison and fixed ordered face signs. Preserve augmentation, support maps and all tower transition maps. Equality of E₂ groups does not supply this adapter.",
+      "need": "When refining the existing filtered FS/Levine zigzag, identify its normalized layer edge inverse on rational weight j with the multirelative cubical cycle map of Levine 1994 Theorem 3.1, retaining its rational characteristic-summand projector, the M.4 simplicial/cubical comparison and fixed ordered face signs. Preserve augmentation, support maps and all tower transition maps. Equality of E₂ groups does not supply this adapter. Also identify the images in K_m used to transport the relative-K_0 gamma-filtration inclusion to this chosen tower.",
       "neededBy": [
+        "MotivicEtaleKTheory:M.6/gamma-homotopy-coniveau-comparison",
         "MotivicEtaleKTheory:M.6/chern-character-edge-comparison"
       ]
     },
@@ -659,6 +686,7 @@
       "title": "Inherited filtered and multiplicative model coherence",
       "detail": "M.5d/M.6a/global-model-comparison and M.6b products still record a full filtered zigzag/coherent moving gap. The extra edge-inverse/cubical normalization adapter is specified in requests. The character identification cannot be closed using only an E₂ isomorphism.",
       "nodes": [
+        "MotivicEtaleKTheory:M.6/gamma-homotopy-coniveau-comparison",
         "MotivicEtaleKTheory:M.6/chern-character-edge-comparison",
         "MotivicEtaleKTheory:M.6/chern-localization-residue"
       ]
@@ -708,8 +736,36 @@
       "searched": [
         "Author K-book page and its linked Kbook.errata.pdf (including the sites.math and www.math Rutgers hosts), 2026-10-19: PDF link returned 404.",
         "Author August 29, 2013 PDF: V.11.3, V.11.10–11.13, and visual check of VI.4.3 p.481.",
-        "Web search for K-book errata c_{3,3} / page 481, 2026-10-19: no verified correction found."
-      ]
+        "Web search for K-book errata c_{3,3} / page 481, 2026-10-19: no verified correction found.",
+        "Independent review, 2026-10-19: author page, the exact errata link (also HTTP, www.math host and query-string variant), and targeted web search. Direct PDF requests returned 404; the search engine indexed an errata snippet, which does not verify whether this sign has a published correction."
+      ],
+      "source": "Weibel2013",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected VI.4.3 visually: the author copy has −2. V.11.13 gives (−1)²·2!=+2, and V.11.12(4) identifies reduction with the same étale classes. Two applications of the diagonal product sign give the same result. The exponent conclusion is unchanged. The linked errata PDF again returned 404; the indexed search snippet is not a full errata inspection, so novelty remains unestablished.",
+        "by": "REV-MotivicEtaleKTheory--M.6"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory/E-M6-2",
+      "source": "Weibel2013",
+      "kind": "misprint",
+      "locator": "August 29, 2013 author PDF, proof of V.11.11, printed p.459 / PDF p.467: Whitney localization display, the definitions of f′ and f″, and the final polynomial factorization.",
+      "printed": "The first term of the localization display uses P(F″), although the stated closed immersion is P(F′) into P(F). The subsequent Chern polynomials omit the powers of ξ accompanying the lower Chern coefficients, including the displayed c_1 terms. (Description in our own words.)",
+      "correction": "The Gysin source is H^{2n−2n″,n′}(P(F′)); the weight n′ is unchanged. The open term remains P(F″). Write every rank-r Chern polynomial as C_E(T)=Σ_{i=0}^r(−1)^i c_i(E)T^(r−i), with c_0=1, and the factorization as C_F(T)=C_F′(T)C_F″(T).",
+      "reason": "The closed immersion has codimension n″, which determines its Gysin source, whereas homotopy invariance identifies the open complement with P(F″). Each polynomial term c_i(E)ξ^(r−i) has bidegree (2r,r); omitting ξ^(r−1) from c_1 gives a different bidegree when r>1. The initial monic relation on the same page already includes the required powers. Both corrections leave the intended Whitney formula intact.",
+      "affects": "the proof",
+      "known": "The localization-bundle typo is already recorded and independently confirmed as K3BlochGroups/E31 (for the separate author chapter PDF). No published correction of these displays was verified; novelty of the polynomial typo is unestablished.",
+      "searched": [
+        "The current programme finding K3BlochGroups/E31 and its review, read 2026-10-19; its first-term correction agrees with the complete author PDF used here.",
+        "Author K-book page and linked errata PDF on Rutgers hosts, 2026-10-19: direct requests returned 404; the indexed search snippet is not a full errata inspection.",
+        "Targeted searches for Weibel V.11.11 Whitney errata and missing powers in the Chern polynomial, 2026-10-19: no accessible published correction verified."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently inspected the rendered p.459 as well as its extracted text. The geometry fixes P(F′) in the first term, and homogeneous bidegrees fix the missing ξ powers. The already recorded K3BlochGroups/E31 is a prior programme finding, not evidence of a published erratum.",
+        "by": "REV-MotivicEtaleKTheory--M.6"
+      }
     }
   ],
   "restructure": [],
@@ -719,9 +775,61 @@
     "The four new planets join the two accepted M.6 planets, Motivic spectral sequence and Rational K-theory weights, for six in the assembled layer."
   ],
   "checks": {
-    "packet": "2026-10-19: python3 scripts/check_blueprint.py research/blueprint/packets/MotivicEtaleKTheory--M.6.json --json: zero errors and zero packet warnings; the available pinned declaration index resolved all three baseline names.",
-    "lean": "2026-10-19: lean-check research/blueprint/suggested/MotivicEtaleKTheory--M.6.lean: exit 0, nine placeholder-proof warnings only. Memory available before the check was 83 GiB. The file has one real-bodied rational scalar and two theorem/seven example statements; no motivic carrier is simulated.",
+    "packet": "2026-10-19 independent review: python3 scripts/check_blueprint.py research/blueprint/packets/MotivicEtaleKTheory--M.6.json --json: zero errors and zero warnings, with all three baseline names resolved at the available pinned declaration index.",
+    "lean": "2026-10-19 independent review: lean-check research/blueprint/suggested/MotivicEtaleKTheory--M.6.lean exited 0. One real-bodied scalar, two named theorem targets with placeholder proofs, two proved discriminating symbol-normalization examples; exactly two warnings, both declaration uses a placeholder proof. Before compilation 76 GiB were available. No higher-K/motivic carrier is simulated.",
     "sourcePolicy": "All statements and source findings are in our own words. Source files and extracts are scratch-only.",
     "ownership": "No edits to suppliers, atlas data, content or upstream roadmaps."
+  },
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-19",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "citation": "August 29, 2013 author PDF; E-M6-1 concerns this copy, not a separately collated publisher edition."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.6",
+    "date": "2026-10-19",
+    "notes": "Accepted after correcting all seven target records and synchronizing the reader/suggested file. This accepts a complete target-level plan, with coverage planned and implementation unchecked. G1–G3 remain explicit supplier proof obligations; no source closure or formal implementation is certified. All source locators, all three baseline declarations, supplier scopes, API/tests, six assembled planets and both source findings were independently checked.",
+    "checked": [
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6/universal-motivic-chern",
+        "verdict": "corrected",
+        "note": "Verified the smooth perfect-field scope and actual universal-class construction in Weibel V.11.3–11.11 and Riou 6.2.1.2. Added the existing M.4 diagonal-Milnor supplier for the symbol test; the coherent relative adapter remains G2. Added the total-series Whitney API with constant term 1 distinguished from rank, and the motivic-target uniqueness API. Recorded and corrected the Whitney localization/polynomial display slips as E-M6-2, including the prior K3BlochGroups/E31 finding."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6/higher-chern-normalization",
+        "verdict": "corrected",
+        "note": "Verified the Newton/suspension normalization and finite cycle-dimension bound. Corrected Remark 6.2.2.3, separated cancellation and recurrence API names, and replaced admitted examples with two proved symbol-normalization tests."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6/higher-character-structure",
+        "verdict": "corrected",
+        "note": "Corrected the arbitrary-weight product proof: Weibel V.11.3 explicitly states only the diagonal graded-ring case. Use the universal tensor identity and Riou’s several-operand motivic-target uniqueness to lift it, retaining G2 for the carrier comparison. Adams off-weight vanishing and the cup sign check."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6/gamma-homotopy-coniveau-comparison",
+        "verdict": "corrected",
+        "note": "Verified relative K_0 surjectivity, full weighted-gamma moving inclusion, finite tower bound and finite Adams splitting without assuming higher gamma boundedness. Corrected Theorem 14.5; retained the explicit field adaptation and inherited projector corrections. Added the direct global-model-comparison prerequisite: transporting the Levine/FS inclusion to the chosen tower remains conditional on G1."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6/relative-cycle-normalization",
+        "verdict": "corrected",
+        "note": "Corrected the missing Adams projection in the relative cycle map and the role of Theorem 3.3 (Zariski descent). Added the existing rational-splitting supplier and the P² hyperplane countercheck. Supported relative evaluation remains G2–G3."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6/chern-character-edge-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the edge-inverse adapter to retain its projector, distinguished graded structure-sheaf classes from pure-weight lifts, and corrected Theorem 11.3.2/Remark 11.3.4. G1 is still required for an actual filtered comparison."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6/chern-localization-residue",
+        "verdict": "corrected",
+        "note": "Verified the supported localization square and codimension-one weight drop with trivial normal line. Added the explicit (−1)^(n−1) conversion from the imported last-entry Milnor residue to the cubical/localization convention; corrected Theorem 5.2(b). G1–G3 remain the stated proof boundary."
+      }
+    ]
   }
 }
