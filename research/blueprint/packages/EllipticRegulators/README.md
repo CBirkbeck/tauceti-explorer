@@ -10,6 +10,8 @@ It leaves to other roadmaps, by layer: the uniformisation `E(ℂ) ≅ ℂ/Λ`, m
 
 From the Tau Ceti roadmaps it uses: ModularForms, Layer 7 (the `L`-function of a newform, its Euler product, continuation and functional equation) and Layer 8 (modular symbols and the period map); EllipticCurves, Layer 4 (reduction types and the `j`-invariant criterion for potentially good reduction; that roadmap deliberately leaves complex uniformisation out, which is why it is taken from ModularCurvesPartII); GlobalNumberFields, Layers 9–10 (ray-class quotients and infinity types of Hecke characters); AlgebraicTopology, Stages 5–6 (homology of the torus and the intersection sign). The current Tau Ceti library has holomorphic Eisenstein series of level one and with character; the real-analytic series `E_x(z, s)` of Layer 7 are a different object, built here. No current Tau Ceti roadmap or library file contains period orientation data, the elliptic dilogarithm, Kronecker–Eisenstein kernels, modular units, Brunault's regulator or the Beilinson statements of this roadmap.
 
+The direct truncation estimates in §§3.11–3.15 and the source-specific constructions and corrections in Layers 4–5 still have a source-verification gap: the cited edition of Bloch's book was unavailable for independent reading. Its theorem, equation and page locators are inherited and unverified. The statements remain explicit targets, including the continuity and multiple-zero arguments, but their agreement with that source and the claimed corrections require checking against an authorized copy or a freely accessible primary replacement. The independent Brunault comparisons cited alongside them do not verify every book-specific assertion.
+
 ## Conventions
 
 - **Orientation and periods.** `H₁(E(ℂ), ℤ)` is oriented by the complex structure; an integral basis `(γ₁, γ₂)` is oriented when `γ₁·γ₂ = +1`, equivalently `Im(ω₂/ω₁) > 0` for `ω_i = ∫_{γ_i} ω`. `τ = ω₂/ω₁ ∈ ℍ`, `q = exp(2πiτ) = Function.Periodic.qParam 1 τ`, `y = Im τ`. A change of basis by `(a b; c d) ∈ SL₂(ℤ)` takes `(ω₁, ω₂)` to `(dω₁ + cω₂, bω₁ + aω₂)`, so `τ ↦ (aτ + b)/(cτ + d)` (Mathlib's action) and `η ↦ η/(cτ + d)`. For a real curve, `γ₁` generates the conjugation-fixed lattice with the orientation of `E(ℝ)` and `2 Re τ ∈ {0, 1}`.
@@ -91,8 +93,13 @@ For `E` over `ℂ`, `ω` and an oriented basis as in §1.1, put `τ = ∫_{γ₂
 
 For `τ ∈ ℍ` define `qParameter τ = qParam 1 τ` and `multiplicativePresentation : ℂ/(ℤ + ℤτ) ≅ ℂˣ/q^ℤ`, induced by `z ↦ exp(2πiz)`; composed with `η` it gives `E(ℂ) ≅ ℂˣ/q^ℤ` (Brunault, thesis, (1.37), p. 21). Prove `qParameter_norm_lt_one` (`|q| = exp(−2π Im τ) < 1`, from Mathlib's `Function.Periodic.norm_qParam`), `qParameter_ne_zero`, `qParameter_add_one` (simp: `q(τ + 1) = q(τ)`), `qParameter_real_iff` (`q` is real if and only if `2 Re τ ∈ ℤ`), `multiplicativePresentation_conj` (for a real curve normalised by (1.40): conjugation becomes `x ↦ 1/x̄`, and `E(ℝ)` is the circle `|x| = 1`, together with `|x| = |q|^{1/2}` when `q > 0`) and `multiplicativePresentation_orientation` (reversing the orientation of `E(ℝ)` replaces `x` by `1/x` and fixes `q`). A general `SL₂(ℤ)` change of basis acts through `z ↦ z/(cτ + d)`, not by a formula in `q` alone. For a real curve with (1.40), `q` is real, `−1 < q < 1`, `q ≠ 0`, it depends only on `E`, and `q > 0` exactly when `E(ℝ)` has two components (Brunault, thesis, Remarque 20, after (1.40), p. 22).
 
+For use in the divisor formula define `torusCoord τ w = (Re w − (Im w/Im τ)Re τ, Im w/Im τ)`, for `Im τ > 0`. Its API is `torusCoord_reconstruct` (`w = a + bτ`), `torusCoord_add`, `torusCoord_one = (1, 0)` and `torusCoord_tau = (0, 1)`, all under this nondegeneracy hypothesis. This is real linear algebra in the oriented basis, not a choice of representatives of the quotient.
+
 **Checks.**
 
+- `torusCoord i (1 + 2i) = (1, 2)`; subtracting the real part of `τ` in the wrong coordinate fails after replacing `τ` by `1/2 + i` and `w` by `τ`.
+- `torusCoord τ 0 = (0, 0)` (degenerate input, valid for every admissible `τ`).
+- For real `τ = 1`, the totalized formula sends `i` to `(0, 0)` and cannot reconstruct `i`; this is outside the coordinate theorem's domain.
 - For `y² = x³ − x` over `ℝ` with `γ₁` the oriented generator of `H₁⁺`, `τ = i` (the lattice of `dx/2y` is `Ω(ℤ + iℤ)` with `Ω = 2.62205755429211981…`) and `q = e^{−2π}`.
 - For `y² = x³ + x + 1` (discriminant `−496 < 0`), `Re τ = 1/2`, `τ = 1/2 + 0.352464168465…i`, and `q ≈ −0.109197437222 < 0`; `E(ℝ)` is connected.
 - Replacing `γ₂` by `γ₂ + γ₁` replaces `τ` by `τ + 1` and leaves `η` and `q` unchanged (degenerate case).
@@ -244,9 +251,13 @@ On the torus `E_τ = ℂ/(ℤ + ℤτ)` with `ω = dz`, writing `z = s + tτ` an
 torusRegulator τ f g = −i·Im τ · ∫₀¹∫₀¹ log|f(s + tτ)| · conj(g′(s + tτ)/g(s + tτ)) ds dt
 ```
 
-for doubly periodic meromorphic `f`, `g` on `ℂ`. This is the form in which the representative Lean file states the regulator (`torusRegulator`, for functions satisfying `IsEllipticFunction`), its Steinberg relation (`torusRegulator_one_sub`), its antisymmetry (`torusRegulator_swap`), the vanishing for constant entries (`torusRegulator_const_left`) and the divisor formula of Layer 4.
+for doubly periodic meromorphic `f`, `g` on `ℂ`. Precisely, `IsEllipticFunction τ f` requires `MeromorphicOn f univ`, periods `1` and `τ`, and finite `meromorphicOrderAt f z` at every `z`; the last clause excludes an identically zero meromorphic germ. Supply `isEllipticFunction_const` for nonzero constants, `isEllipticFunction_mul`, `isEllipticFunction_inv`, and the order/period consequences. For pairwise incongruent `P_i` modulo `ℤ + ℤτ`, define `HasTorusDivisor τ f P m` by `ord_z f = Σ_{i: z−P_i ∈ ℤ+ℤτ} m_i` at every `z`, as an equality in `WithTop ℤ`. Its API identifies the orders at each `P_i`, gives zero order outside the listed classes, and handles multiplication and inversion after collecting coincident classes. These predicates record actual orders, not just support containment. This is the form in which the representative Lean file states the regulator (`torusRegulator`, for functions satisfying `IsEllipticFunction`), its Steinberg relation (`torusRegulator_one_sub`), its antisymmetry (`torusRegulator_swap`), the vanishing for constant entries (`torusRegulator_const_left`) and the divisor formula of Layer 4.
 
 **Checks.**
+
+- The constant function `1` satisfies `IsEllipticFunction τ` and has the empty torus divisor; its orders are all `0`.
+- The constant function `0` fails both the finite-order clause and an empty-divisor claim: its order is `⊤`. The function `exp z` also fails the predicate because `1` is not a period.
+- Two equal points listed with distinct indices fail `HasTorusDivisor` even if their coefficients cancel; after collecting them the empty divisor of `1` is valid. A nonzero multiplicity assigned to a single point for `1` fails the order equation.
 
 - `r_E{c, g} = 0 = r_E{f, c}` for every `c ∈ ℂ^×` (degenerate case).
 - `r_E{f, 1 − f} = 0` for every `f ∈ ℂ(E) − {0, 1}`.
@@ -444,7 +455,14 @@ For `ω ∈ Ω^{1,0}(E)` let `R_ω(P, Q) = ∫_{t∈E} G_E(P, t) ω_t ∧ ∂̄_
 
 ### 3.10 The relation on the projective line
 
-Let `f ∈ ℂ(t)^×` with `f(0) = f(∞) = 1`, so that `(f) = Σ d_j(α_j)` on `ℂˣ` with `Σ d_j = 0` and `Π α_j^{d_j} = 1`, and let `g ∈ ℂ(t)^×` with `(g) = Σ e_k(β_k)` on `ℂˣ`. Prove Bloch's Lemma 8.1.3: `J((f)^- ∗ (g)) := Σ d_j e_k J(α_j^{−1}β_k) = Σ_{x∈ℂˣ} log|x| log|tame_x{f, g}|`, by expanding `log|g| log|c Π(α_j − β_ℓ)^{e_ℓ}|` and using `(log|α|)² = J(α) + J(1/α)`; consequently `J((f)^- ∗ (K − f)) = 0` for every `K ∈ ℂˣ`, since `{f, K − f} = {f, 1 − f/K} + {f, K}`, the first has trivial tame symbols and the second has `tame_x = K^{ord_x f}` with `Σ_x ord_x(f) log|x| = 0` (Bloch, Lecture 8, Lemma 8.1.3, p. 62; Lecture 9, proof of Theorem 9.1.1, p. 69). The tame symbol is K2SymbolsBrauer T.3's.
+Let `f ∈ ℂ(t)^×` with `f(0) = f(∞) = 1`, so that `(f) = Σ d_j(α_j)` on `ℂˣ` with `Σ d_j = 0` and `Π α_j^{d_j} = 1`, and let `g ∈ ℂ(t)^×` with `(g) = Σ e_k(β_k)` on `ℂˣ`. Prove `projective_line_companion_tame`: `J((f)^- ∗ (g)) := Σ d_j e_k J(α_j^{−1}β_k) = Σ_{x∈ℂˣ} log|x| log|tame_x{f, g}|`, by expanding the rational functions into linear factors and using `(log|α|)² = J(α) + J(1/α)` (Bloch, Lecture 8, Lemma 8.1.3, p. 62). For `K ∉ {0, 1}` and `f ≠ K`, put `F = f/K` and prove `projective_line_companion_steinberg`: `J((f)^- ∗ (K − f)) = 0`. Indeed bilinearity gives
+
+```text
+{f, K − f} = {F, 1 − F} + {K, 1 − F} + {F, K} + {K, K},
+∂_x{f, K − f} = K^{ord_x(K − f) − ord_x(f)}.
+```
+
+The Steinberg term has trivial tame symbols, and both weighted sums `Σ ord_x(f) log|x|` and `Σ ord_x(K − f) log|x|` vanish because the functions have equal nonzero values at `0` and `∞`. This proves the assertion with K2SymbolsBrauer T.3's convention `∂{f, g} = (−1)^{ab}f^b/g^a`; in particular `∂_x{f, K} = K^{−ord_x f}`. The general elliptic relation, including `K = 1`, remains §3.14; every symbol requires both entries nonzero (Bloch, Lecture 9, proof of Theorem 9.1.1, p. 69).
 
 For the dilogarithm prove `relative_projective_line_steinberg`: if moreover `K ∉ {0, 1}` and `g = K − f ≠ 0`, then `Σ_{j,k} d_j e_k D(β_k/α_j) = 0`. Repeated zeros and poles are allowed through their multiplicities. The proof uses the Chow dilogarithm of Polylogarithms P.5, with the corrected real normalisation `−(2π)^{−1}∫r₂`: by its projective-line divisor formula `P₂(f ∧ g ∧ t) = Σ d_j e_k D(α_j/β_k)` (with `div(t) = [0] − [∞]` and the cross-ratio normalisation `r(∞, 0, 1, z) = z`), and multiplication by a nonzero constant leaves each divisor unchanged, so `P₂(f ∧ g ∧ t) = P₂(F ∧ (1 − F) ∧ t)` with `F = f/K`; its endpoint Steinberg evaluation gives `D(F(0)) − D(F(∞)) = 0`, both endpoint values being `1/K`; inversion of `D` turns `α/β` into the diamond argument `β/α` (Goncharov, "Polylogarithms, regulators, and Arakelov motivic complexes", arXiv:math/0207036v3, Theorem 3.4, p. 28, and Proposition 6.8 with Lemma 6.9, p. 57, with the normalisation corrections recorded by Polylogarithms). No elliptic relation is used.
 
@@ -452,7 +470,8 @@ For the dilogarithm prove `relative_projective_line_steinberg`: if moreover `K �
 
 - For `f = (t − a₁)(t − a₂)/((t − b₁)(t − b₂))` with `a₁ = 0.3 + 1.2i`, `a₂ = −0.7 + 0.4i`, `b₁ = 1.1 − 0.5i`, `b₂ = a₁a₂/b₁` and `K = 0.6 − 1.3i`, both sums are below `10^{−24}` in absolute value.
 - For `f = 1` and `K ∉ {0, 1}` the divisor sum is empty (degenerate case).
-- Replacing `K − f` by `1 − f/K` leaves the divisor unchanged; changing the diamond convention from `β/α` to `α/β` negates the sum rather than fixing it (non-example).
+- Replacing `K − f` by `1 − f/K` leaves the divisor unchanged. For an independent sign check, take `f = (t − 2)(t − 3)/((t − 1)(t − 6))`, `g = (t − 5)/(t − 7)`: both the `J(β/α)` sum and the weighted logarithm of the tame symbols are `−0.574674630675974…`; reversing the diamond gives the positive value. A zero Steinberg sum alone cannot detect that reversal.
+- At `t = 0`, `∂_0{t, 2} = 1/2`, rather than `2`; and `{f, 1 − f/K}` alone is not a Steinberg symbol unless its first entry is also scaled (non-example).
 
 ### 3.11 Truncated theta products
 
@@ -468,11 +487,11 @@ With `J_f(x) = Σ_j d_j J(α_j^{−1}x)` for `(f) = Σ d_j(α_j)`, `J_{F,q}(x) =
 
 ### 3.14 The Steinberg relation for the companion
 
-Prove Bloch's Theorem 9.1.1: for every elliptic function `f` and every constant `K`, `J_q(f ⊗ (K − f)) = 0` in the notation (8.1.6), on permitted lifts (Bloch, Lecture 9, Theorem 9.1.1, p. 69). Since `J_q(L ⊗ g) = 0` for constant `L`, `f` may be scaled to theta-product form. The reduction to `K ∉ {0, 1}` and simple zeros of `F − K` is by continuity, which Bloch asserts without proof and which is a target here: `K ↦ J_q(f ⊗ (K − f))` is continuous on `ℂˣ` by (c) of §3.13 and continuity of the roots, and `F − K` has multiple zeros for only finitely many `K` (the critical values of `f`). Then apply §3.10 to `F_N` and `K − F_N` ((9.1.1)); (a) and (b) give `Σ e_k J_{F,q}(β_k(N, r)) = O(Nε) + O(1) + O(N²ε|q|^{Nε})` ((9.1.3)); (c) replaces `β_k(N, r)` by `β_k q^r` at cost `O(Nε log ε)`; `J_{F,q}(qx) − J_{F,q}(x) = −C_F` and `Σ e_k = 0` give `(1 + 2N(1 − ε)) Σ_k e_k J_{F,q}(β_k) = O(Nε) + O(1) + O(N²ε|q|^{Nε}) + O(Nε log ε)`; divide, let `N → ∞` along the sequence of §3.11, then `ε → 0`.
+Prove Bloch's Theorem 9.1.1: for every elliptic function `f` and every constant `K` with both `f` and `K − f` nonzero, `J_q(f ⊗ (K − f)) = 0` in the notation (8.1.6), on permitted lifts (Bloch, Lecture 9, Theorem 9.1.1, p. 69). Since `J_q(L ⊗ g) = 0` for constant `L`, `f` may be scaled to theta-product form. The case `K = 0` follows from oddness and antisymmetry; the reduction for nonzero `K` to `K ∉ {0, 1}` and simple zeros of `F − K` is by continuity, which Bloch asserts without proof and which is a target here: `K ↦ J_q(f ⊗ (K − f))` is continuous on `ℂˣ` by (c) of §3.13 and continuity of the roots, and `F − K` has multiple zeros for only finitely many `K` (the critical values of `f`). Then apply §3.10 to `F_N` and `K − F_N` ((9.1.1)); (a) and (b) give `Σ e_k J_{F,q}(β_k(N, r)) = O(Nε) + O(1) + O(N²ε|q|^{Nε})` ((9.1.3)); (c) replaces `β_k(N, r)` by `β_k q^r` at cost `O(Nε log ε)`; `J_{F,q}(qx) − J_{F,q}(x) = −C_F` and `Σ e_k = 0` give `(1 + 2N(1 − ε)) Σ_k e_k J_{F,q}(β_k) = O(Nε) + O(1) + O(N²ε|q|^{Nε}) + O(Nε log ε)`; divide, let `N → ∞` along the sequence of §3.11, then `ε → 0`.
 
 ### 3.15 The Steinberg relation for the dilogarithm
 
-Prove Bloch's Theorem 9.2.1: `D_q(f ⊗ (K − f)) = 0` for every elliptic `f` and constant `K` (Bloch, Lecture 9, Theorem 9.2.1, p. 73). The inputs are (d) `|D_{F_N}(x) − D_{F,q}(x)| = O(Nε|q|^{Nε})` uniformly on `A_{N(1−ε)+R}` (Lemma 9.2.2, p. 73, from `|D(y)| = O(|y| log|y|)`, §3.1) and (e) `|D_{F,q}(x) − D_{F,q}(x′)| = O(ε log ε)` for `|x − x′| ≤ ε|x′|` (Lemma 9.2.3, as Lemma 9.1.5, using `D(1/x) = −D(x)` and `D(x) = −D(1 − x)`). The argument is simpler than §3.14 because `Σ_n |D(xqⁿ)|` converges, so `D_{F_N}` is bounded uniformly in `x` and `N` and the `O(Nε) + O(1)` stray zeros of §3.12 contribute `O(Nε) + O(1)`; the relation (9.2.1) on the projective line is §3.10. The proof does not use §3.14, and §3.14 does not follow from it.
+Prove Bloch's Theorem 9.2.1: `D_q(f ⊗ (K − f)) = 0` for every elliptic `f` and constant `K` with both symbol entries nonzero (Bloch, Lecture 9, Theorem 9.2.1, p. 73). The inputs are (d) `|D_{F_N}(x) − D_{F,q}(x)| = O(Nε|q|^{Nε})` uniformly on `A_{N(1−ε)+R}` (Lemma 9.2.2, p. 73, from `|D(y)| = O(|y| log|y|)`, §3.1) and (e) `|D_{F,q}(x) − D_{F,q}(x′)| = O(ε log ε)` for `|x − x′| ≤ ε|x′|` (Lemma 9.2.3, as Lemma 9.1.5, using `D(1/x) = −D(x)` and `D(x) = −D(1 − x)`). The argument is simpler than §3.14 because `Σ_n |D(xqⁿ)|` converges, so `D_{F_N}` is bounded uniformly in `x` and `N` and the `O(Nε) + O(1)` stray zeros of §3.12 contribute `O(Nε) + O(1)`; the relation (9.2.1) on the projective line is §3.10. The proof does not use §3.14, and §3.14 does not follow from it.
 
 ### 3.16 `R_q` descends to `K₂`
 
@@ -550,6 +569,7 @@ finiteFourier10 C f (k, ℓ) = f̂(k, ℓ) = C^{−2} Σ_{a,b=0}^{C−1} f(a, b)
 
 **Checks.**
 
+- `C = 3`, `f = δ_{(1,0)}`: `f̂(1, 0) = exp(−2πi/3)/9`, fixing both the sign and averaging factor.
 - `C = 3`, `f = δ_{(1,0)} − δ_{(2,0)}`: `f̂(1, ℓ) = −i√3/9` and `f̂(0, ℓ) = 0` for every `ℓ`.
 - The transform of `0` is `0`; for `C = 1`, `f̂(0, 0) = f(0, 0)` (degenerate case).
 - Inversion recovers `f` for every `f`; `finiteFourier10 C χ_{(k,ℓ)}` is the point mass at `(k, ℓ)`.
@@ -834,7 +854,7 @@ If `Γ_op` is `g` times the transform with the printed opposite kernel, then `Γ
 L(E, 2) = (π · Γ_C(χ, g) / (y² · C)) · Σ_{x∈W/μ} D_q(exp(2πi·xχ̄(x)/C)).
 ```
 
-The regulator here is Bloch's complex `R_q`; the Deligne regulator is `½ conj R_q` (§4.2), and the two scalars cannot be interchanged (Bloch, (11.2.1)–(11.2.4), pp. 91–92, and Corollary 11.2.3, p. 93; Brunault, thesis, Remarque 20, p. 22, and Proposition 26 with its proof, pp. 26–27, for the real-period uniformisation that makes the real-point regulator purely imaginary).
+The regulator here is Bloch's complex `R_q`; Brunault's functional is `r_E = ½ conj R_q` (§4.2), whereas the universal Deligne regulator, under the wedge identification of §§2.6–2.7, is `r_D = 2r_E = conj R_q` on compact classes. Thus neither scalar can be substituted for the other (Bloch, (11.2.1)–(11.2.4), pp. 91–92, and Corollary 11.2.3, p. 93; Brunault, thesis, Remarque 20, p. 22, Proposition 26 with its proof, pp. 26–27, and Théorème 68, p. 70).
 
 ### 5.15 Bloch's CM L-value theorem
 
@@ -1047,7 +1067,7 @@ For `z ∈ ℍ`: `ζ*_{0,0}(z) = 2π(γ − log 2 − log √y − 2 log|η(z)|)
 ϑ(w, z) = e^{πiz/6}(e^{πiw} − e^{−πiw}) Π_{n≥1}(1 − e^{2πi(w+nz)})(1 − e^{−2πi(w−nz)}),
 ```
 
-independent of the representatives; `ζ*_{a,b}` is the regularised value, the pole being subtracted only at `(0, 0)` (Brunault, thesis, §3.1, (3.10) and (3.12), p. 74). Consequently the expansions (3.16), (3.17), (3.19) hold. Brunault gives no proofs. They are Siegel's: for the first, separate the row `n = 0`, apply one-dimensional Poisson summation to the kernel `(x² + y²)^{−s}`, evaluate the nonzero Fourier integrals by contour deformation and the zero one by the beta function, use exponential bounds for locally uniform continuation, isolate the pole and sum the logarithmic eta product (Siegel, *Lectures on advanced analytic number theory*, Tata Institute 1965, §1, Theorem 1, proof pp. 5–13); the second is the same method with a character twist, in Siegel's following theorem. The two expressions (3.12) and (3.19) for `ζ*_{a,b}` agree to 60 digits at `N = 11`, `(a, b) = (3, 5), (7, 2)`, `z = 0.1 + 0.9i`.
+independent of the representatives; `ζ*_{a,b}` is the regularised value, the pole being subtracted only at `(0, 0)` (Brunault, thesis, §3.1, (3.10) and (3.12), p. 74). Consequently the expansions (3.16), (3.17), (3.19) hold. Brunault gives no proofs. They are Siegel's: for the first, separate the row `n = 0`, apply one-dimensional Poisson summation to the kernel `(x² + y²)^{−s}`, evaluate the nonzero Fourier integrals by contour deformation and the zero one by the beta function, use exponential bounds for locally uniform continuation, isolate the pole and sum the logarithmic eta product (Siegel, *Lectures on advanced analytic number theory*, Tata Institute 1965, §1, Theorem 1, p. 13, proof pp. 5–13). For the second apply Abel summation to the Fourier expansion, identify the resulting meromorphic partial-fraction sum by matching its poles and quasiperiods with an exponential expression and applying Liouville's theorem, then sum the logarithms to obtain the theta product (Siegel, §3, Theorem 2, p. 28, proof pp. 21–28; these are printed pages, PDF pages 25–32). The two expressions (3.12) and (3.19) for `ζ*_{a,b}` agree to 60 digits at `N = 11`, `(a, b) = (3, 5), (7, 2)`, `z = 0.1 + 0.9i`.
 
 ### 7.3 Harmonicity
 
@@ -1079,19 +1099,26 @@ ord_P(u_f) = −(1/(N·(u, N))) Σ_{(a,b)∈(ℤ/N)²} f̂(au + bv) B̄₂(b̃/N
 - For `χ` odd, `E*_χ = 0` and `u_χ = 1` (degenerate case).
 - Non-example: for the trivial character modulo `N > 1`, `f = 1` on `(ℤ/N)^*` has sum `φ(N) ≠ 0`, `E*_f` has a `π log y` term, and no `u_f` with `log|u_f| = E*_f/π` exists.
 - For every `f` of sum zero, `div u_f` is supported on `P_N` and has degree zero.
-- For `χ` primitive even, `div u_χ̂ = τ(χ)·div u_χ`.
+- For `χ` primitive even, `div u_χ̂ = τ(χ)·div u_χ̄`.
 
 ### 7.7 The divisors of `u_χ` and `u_χ̂`
 
-Let `χ` be a Dirichlet character modulo `N`. If `χ` is even and nontrivial, `div u_χ = −(L(χ, 2)/π²) Σ_{v∈(ℤ/N)^*/±1} χ(v)·P_v` with `P_v = [0, v] = ⟨v⟩∞`, so `u_χ` is supported on the diamond orbit of `∞`; here `L(χ, 2)` is Mathlib's `DirichletCharacter.LFunction χ 2`. If `χ` is even and `N > 1`, `u_χ̂` is defined and `ord_P(u_χ̂) = 0` unless `N_χ | d = (u, N)`, in which case it is `−((φ(N)/N)/(φ(d)/d)) Σ_{β∈(ℤ/d)^*} B̄₂(β̃/d) χ_d(β v_d)` at `P = [u, v]`; if `χ` is primitive, `div u_χ̂ = τ(χ)·div u_χ`. Moreover `E*_χ(⟨d⟩z) = χ(d)E*_χ(z)` (Brunault, thesis, Proposition 80, (3.76)–(3.77), p. 88). Numerically, for `N = 5` and `χ = (·/5)`, `div u_χ = −0.0715541752799932702…·(P₁ − P₂)`.
+Let `χ` be a Dirichlet character modulo `N`. If `χ` is even and nontrivial, `div u_χ = −(L(χ, 2)/π²) Σ_{v∈(ℤ/N)^*/±1} χ̄(v)·P_v` with `P_v = [0, v] = ⟨v⟩∞`, so `u_χ` is supported on the diamond orbit of `∞`; here `L(χ, 2)` is Mathlib's `DirichletCharacter.LFunction χ 2`. If `χ` is even and `N > 1`, `u_χ̂` is defined and `ord_P(u_χ̂) = 0` unless `N_χ | d = (u, N)`, in which case it is `−((φ(N)/N)/(φ(d)/d)) Σ_{β∈(ℤ/d)^*} B̄₂(β̃/d) χ_d(β v_d)` at `P = [u, v]`; if `χ` is primitive, `div u_χ̂ = τ(χ)·div u_χ̄`. Moreover `E*_χ(⟨d⟩z) = χ̄(d)E*_χ(z)` (Brunault, thesis, Proposition 80, (3.76)–(3.77), p. 88). Numerically, for `N = 5` and `χ = (·/5)`, `div u_χ = −0.0715541752799932702…·(P₁ − P₂)`.
+
+**Checks.**
+
+- For the even order-five character modulo `11` with `χ(3) = ζ₅`, `χ̂(3) = τ(χ)ζ₅^{−1}` and the coefficient of `P₃` in `div u_χ` is `−L(χ, 2)ζ₅^{−1}/π²`. Replacing either inverse by `ζ₅` fails.
+- For this same character `⟨3⟩^*u_χ = u_χ ⊗ ζ₅^{−1}`, and `u_χ̂ = u_χ̄ ⊗ τ(χ)` by the leading-coefficient normalisation; both distinguish the conjugate character.
+- For the quadratic character modulo `5` conjugation is invisible, and the computed divisor in §7.6 is unchanged. An odd character gives the identity unit and zero divisor.
 
 ### 7.8 Rationality of modular units
+
 
 For `f` of sum zero, `u_f ∈ 𝒪^*(Y₁(N)) ⊗ ℚ(f̂) ⊂ 𝒪^*(Y₁(N)(ℂ)) ⊗ ℂ`, in the model where `∞` is rational and `Aut(ℂ/ℚ)` acts on cusps by `[u, v]^σ = [ε(σ)^{−1}u, v]` with `σ(ζ_N) = ζ_N^{ε(σ)}` (ModularCurvesPartII R12.6). The orders `ord_P(u_f)` lie in `ℚ(f̂)` and are Galois-equivariant by the substitution `a = ε(σ)a′` in (3.63); the exact sequence over `ℚ` (exact on the right by Hilbert 90) maps injectively to the one over `ℂ`, compatibly with the splittings by `û(∞)` (Brunault, thesis, Lemme 85, p. 94, quoting the Galois action on cusps from Schappacher–Scholl 3.0.2). For `χ` even nontrivial, `u_χ` is defined over `ℚ` with coefficients in `ℚ(χ̂) ⊆ ℚ(μ_N, χ)`; for `N = 11` the cusps are rational points of `X₁(11)`.
 
 ### 7.9 Symbols of character units lie in `K₂` of the complete curve
 
-Let `f, g : ℤ/N → ℂ` have sum zero and support in `(ℤ/N)^*`, and let `L` be the field generated by the values of `f̂` and `ĝ`. Then `{u_f, u_g} ∈ K₂(ℚ(X₁(N))) ⊗ L` has trivial tame symbol at every closed point of `X₁(N)`, hence lies in `K₂(X₁(N)) ⊗ L` (EllipticKTheory E.3's rational injectivity into `K₂` of the function field). In particular `{u_χ, u_χ′} ∈ K₂(X₁(N)) ⊗ ℂ` for all even nontrivial `χ, χ′`, and `{u, v} ∈ K₂(X₁(N)) ⊗ ℚ` for `u, v ∈ 𝒪^*(Y₁(N)) ⊗ ℚ` supported on the cusps `P_w` with `û(∞) = v̂(∞) = 1`. The tame symbol is K2SymbolsBrauer T.3's, `∂_P{f, g} = (−1)^{ord f·ord g}(f^{ord g}/g^{ord f})(P)` (Brunault's (3.87)). The proof: reduce to characters; `⟨d⟩^*u_χ = u_χ ⊗ χ(d)` because the defect is a homomorphism from a finite group to a `ℚ`-vector space; `∂_{P_w}{u_χ, u_χ′} = ∂_∞{u_χ, u_χ′} ⊗ χχ′(w)`; and `∂_∞ = 1` because both leading coefficients are `1` (Brunault, thesis, Proposition 86, p. 95; the citation "proposition 80" in its proof refers to (3.76)). Support in `(ℤ/N)^*` is essential: otherwise the tame symbols need not vanish (Remarque 87, p. 96), which is why the general symbol of §7.13 is not asserted to lie in `K₂(X₁(N))`.
+Let `f, g : ℤ/N → ℂ` have sum zero and support in `(ℤ/N)^*`, and let `L` be the field generated by the values of `f̂` and `ĝ`. Then `{u_f, u_g} ∈ K₂(ℚ(X₁(N))) ⊗ L` has trivial tame symbol at every closed point of `X₁(N)`, hence lies in `K₂(X₁(N)) ⊗ L` (EllipticKTheory E.3's rational injectivity into `K₂` of the function field). In particular `{u_χ, u_χ′} ∈ K₂(X₁(N)) ⊗ ℂ` for all even nontrivial `χ, χ′`, and `{u, v} ∈ K₂(X₁(N)) ⊗ ℚ` for `u, v ∈ 𝒪^*(Y₁(N)) ⊗ ℚ` supported on the cusps `P_w` with `û(∞) = v̂(∞) = 1`. The tame symbol is K2SymbolsBrauer T.3's, `∂_P{f, g} = (−1)^{ord f·ord g}(f^{ord g}/g^{ord f})(P)` (Brunault's (3.87)). The proof: reduce to characters; `⟨d⟩^*u_χ = u_χ ⊗ χ̄(d)` because the defect is a homomorphism from a finite group to a `ℚ`-vector space; `∂_{P_w}{u_χ, u_χ′} = ∂_∞{u_χ, u_χ′} ⊗ (χχ′)̄(w)`; and `∂_∞ = 1` because both leading coefficients are `1` (Brunault, thesis, Proposition 86, p. 95; the citation "proposition 80" in its proof refers to (3.76)). Support in `(ℤ/N)^*` is essential: otherwise the tame symbols need not vanish (Remarque 87, p. 96), which is why the general symbol of §7.13 is not asserted to lie in `K₂(X₁(N))`.
 
 **Checks.** On `X₁(11)` the symbol `{x, y}` has tame values `−1, −1, 1, 1` at `(0, 0), (0, −1), (1, 0), O`, so `2{x, y}` lies in the kernel (EllipticKTheory E.7); the tame symbols of `{u_χ, u_χ′}` vanish at every cusp.
 
@@ -1147,7 +1174,7 @@ equivalently, in the normalisation of the version of record, `L(f, 2)L(f, χ, 1)
 
 ### 7.15 Spanning for prime level
 
-For every prime `p`, the real vector space `V_p = T ⊗ ℝ(1)` is spanned by `r_p(K_p)`, where `K_p ⊂ K₂(X₁(p)) ⊗ ℚ` is the subspace of symbols `{u, v}` of modular units in the kernel of the tame symbol (Brunault, thesis, Théorème 5, p. 93, proof pp. 96–98, also p. 11; Bull. SMF 2007, Théorème 1.4, p. 218). The proof uses the units `u_α` (`α ∈ (ℤ/p)^*`) with `div u_α = P_α − P₁` and `û_α(∞) = 1` (§7.4), expresses `r_p{u_χ, u_χ′}` through the `r_p{u_α, u_β}` and evaluates it by §7.13 as `(p − 1)/(pπiτ(χ′))·L(T^{χχ′}, 2)L(T^{χχ′}, χ′, 1)`, uses that `L(T^ψ, 2)` is invertible in `T^ψ` (Euler product), and shows that the `L(T^ψ, χ, 1)` span `T^ψ` by identifying `T^ψ` with `H₁⁺(X₁(p)(ℂ), ψ)` and these values with the cycles `−(τ(χ)/p)W_p ξ(1, χ)` through Manin's presentation of relative homology (ModularSymbolsPadicLFunctions L1). This is a spanning statement for the regulator on a constructed subspace: it is not injectivity on `K₂(X₁(p))_ℤ ⊗ ℚ` and gives no rank. The analogous statement for `Γ₀(p)` is false when `X₀(p)` has positive genus.
+For every prime `p`, the real vector space `V_p = T ⊗ ℝ(1)` is spanned by `r_p(K_p)`, where `K_p ⊂ K₂(X₁(p)) ⊗ ℚ` is the subspace of symbols `{u, v}` of modular units in the kernel of the tame symbol (Brunault, thesis, Théorème 5, p. 93, proof pp. 96–98, also p. 11; Bull. SMF 2007, Théorème 1.4, p. 218). The proof uses the units `u_α` (`α ∈ (ℤ/p)^*`) with `div u_α = P_α − P₁` and `û_α(∞) = 1` (§7.4), expresses `r_p{u_χ, u_χ′}` through the `r_p{u_α, u_β}` and evaluates it by §7.13 as `(p − 1)/(pπiτ(χ̄′))·L(T^{χχ′}, 2)L(T^{χχ′}, χ̄′, 1)`, uses that `L(T^ψ, 2)` is invertible in `T^ψ` (Euler product), and shows that the `L(T^ψ, χ, 1)` span `T^ψ` by identifying `T^ψ` with `H₁⁺(X₁(p)(ℂ), ψ̄)` and these values with the cycles `−(τ(χ)/p)W_p ξ(1, χ̄)` through Manin's presentation of relative homology (ModularSymbolsPadicLFunctions L1). This is a spanning statement for the regulator on a constructed subspace: it is not injectivity on `K₂(X₁(p))_ℤ ⊗ ℚ` and gives no rank. The analogous statement for `Γ₀(p)` is false when `X₀(p)` has positive genus.
 
 ### 7.16 The forms `η(l, m)` of two divisors
 
@@ -1248,9 +1275,23 @@ Let `E/ℚ` have conductor `N`, `f` its newform, and `φ : X₁(N) → E` a nonc
 r_E(ξ_χ)(ω_E) = c_φ · (φ(N)/(Nπiτ(χ))) · L(E, 2) L(E, χ, 1)
 ```
 
-(EllipticKTheory E.5 for `N_φ`, §7.25, §7.14). Summing over a Galois orbit of such `χ` gives `ξ ∈ K₂(E) ⊗ ℚ` (§7.8 and Galois descent) with `r_E(ξ)(ω_E/Ω_E⁺) ∈ ℚ^×·iL(E, 2)/π` as soon as `L(E, χ, 1) ≠ 0` for one `χ` in the orbit, using `τ(χ)L(E, χ̄, 1)/Ω⁺ ∈ ℚ(χ)` (Birch's formula and Manin–Drinfeld rationality, ModularSymbolsPadicLFunctions L1) and `L(E, 2) ≠ 0`. This is conditional on a supplied `φ` and newform correspondence, and unconditional for `E/ℚ` once modularity is imported. It does not prove that a primitive `χ` with `L(E, χ, 1) ≠ 0` exists (open in general; Bull. SMF 2007, Remarque 1.2), does not treat `N ≡ 2 mod 4`, and claims integrality only through §7.38. Brunault's account of the classical argument: taking the auxiliary level equal to `N` removes the unspecified choice of auxiliary level and character, but not the inexplicit parametrisation, which remains an input (thesis, §0.3, p. 10; the source avoids it by Théorèmes 3 and 97, and for `N = 11` by `E = X₁(11)`). Only the `f`-isotypic part of `r_N` survives the pairing with `φ^*ω_E`.
+(EllipticKTheory E.5 for `N_φ`, §7.25, §7.14). For `L(E, χ, 1) ≠ 0`, construct a rational class by **weighted coefficient trace**. Set `L = ℚ(χ)`, `p_E = L(E, 2)/(πi)` and
 
-**Checks.** For `E = X₁(11)`, `φ` the identity (`c_φ = 1`): the class `{x, y} + {−1, x} ∈ K₂(E)_ℤ ⊗ ℚ` has `r_E(ω) = −(5i/4)D_E(P) = −(πi/2)L′(E, 0) ≠ 0` with `ω = ω_f/Ω⁺` (§8.9). No unrestricted rank statement for `K₂` of elliptic curves follows.
+```text
+a_χ = c_φ · φ(N)/N² · τ(χ̄)L(E, χ, 1)/Ω_E⁺ ∈ L^×.
+```
+
+Prove `character_symbol_coefficients`: `ξ_χ ∈ K₂(E)_ℚ ⊗ L` and `σξ_χ = ξ_{χ^σ}` for every embedding `σ : L → ℂ`. To see the coefficient field, choose rational normalised units `h_v` with `div h_v = P_v − P₁` (§7.4); §7.7 writes the two units using `L(χ, 2)/π²` and `L(χ̄, 2)/π²`, and the product of these coefficients is Galois-equivariant in `L` by the Bernoulli formula and `τ(χ)τ(χ̄) = N`. Next prove `elliptic_character_regulator_descent`: Birch's formula (ModularSymbolsPadicLFunctions L1), or §7.30 with the Néron period comparison, gives the algebraic, Galois-equivariant coefficients `a_{χ^σ} = σ(a_χ)`. Thus at every embedding
+
+```text
+r_E(σξ_χ)(ω_E/Ω_E⁺) = p_E · σ(a_χ),
+η = (id ⊗ Tr_{L/ℚ})(a_χ^{−1} ξ_χ) ∈ K₂(E)_ℚ,
+r_E(η)(ω_E/Ω_E⁺) = [L : ℚ] · p_E ≠ 0.
+```
+
+The coefficient trace is applied to the algebraic coefficients; it does not apply a field automorphism to the transcendental period. This proves the required membership in `ℚ^×·iL(E, 2)/π`. The all-embedding calculation is essential: an unweighted orbit trace can vanish even when every conjugate has nonzero regulator (Brunault, thesis, Proposition 80, p. 88, Lemme 85, p. 94, Corollaire (3.84), p. 91; Shimura 1977, Theorem 1, p. 212). This is conditional on a supplied `φ` and newform correspondence, and unconditional for `E/ℚ` once modularity is imported. It does not prove that a primitive `χ` with `L(E, χ, 1) ≠ 0` exists (open in general; Bull. SMF 2007, Remarque 1.2), does not treat `N ≡ 2 mod 4`, and claims integrality only through §7.38. Brunault's account of the classical argument: taking the auxiliary level equal to `N` removes the unspecified choice of auxiliary level and character, but not the inexplicit parametrisation, which remains an input (thesis, §0.3, p. 10; the source avoids it by Théorèmes 3 and 97, and for `N = 11` by `E = X₁(11)`). Only the `f`-isotypic part of `r_N` survives the pairing with `φ^*ω_E`.
+
+**Checks.** For a non-real even character modulo `11`, coefficient conjugation sends `{u_χ, u_χ̄}` to `{u_χ̄, u_χ} = −{u_χ, u_χ̄}` in rational `K₂`, so its unweighted full orbit trace is zero. The weighted trace above has regulator `[L : ℚ]p_E`. For `E = X₁(11)`, `φ` the identity (`c_φ = 1`): the class `{x, y} + {−1, x} ∈ K₂(E)_ℤ ⊗ ℚ` has `r_E(ω) = −(5i/4)D_E(P) = −(πi/2)L′(E, 0) ≠ 0` with `ω = ω_f/Ω⁺` (§8.9). No unrestricted rank statement for `K₂` of elliptic curves follows.
 
 ### 7.27 The fixed-level modular-unit subspace
 
@@ -1288,7 +1329,19 @@ After refining `K` to a full level `n ≥ 3`, let `X(n)` be one connected compon
 
 ### 7.30 Period algebraicity of twisted values
 
-For a weight-two newform `f` with coefficient field `K_f`, a Dirichlet character `χ`, and each embedding `σ` of `K_f(χ)`, the normalised twisted central value `L(f^σ, χ^σ, 1)/(τ(χ^σ)·(2πi)·Ω_f^{±})`, with the sign `± = χ(−1)`, is algebraic and transforms Galois-equivariantly in `σ`; in particular, if it is nonzero at one embedding it is nonzero at all (Shimura, "On the periods of modular forms", Math. Ann. 229 (1977), Theorem 1, p. 212). This is the period interface used by §§7.31–7.32 and is stated here as a target.
+Let `f` be a weight-two newform with coefficient field `K_f`, and let `χ₀` be the primitive character associated to a Dirichlet character `χ` of any modulus. Choose the Galois-compatible system of nonzero periods `u_{f,σ}⁺`, `u_{f,σ}⁻`, indexed by coefficient embeddings `σ`, supplied by Shimura's Theorem 1; these are not independent arbitrary period choices. Prove `twisted_central_value_period_algebraicity`: the numbers
+
+```text
+L(f^σ, χ^σ, 1) / ((2πi) · τ(χ₀^σ) · u_{f,σ}^{−χ(−1)})
+```
+
+are the embeddings of one element of `K_f(χ)`. The sign here is Shimura's: at `m = 1`, an even `χ` uses `u⁻` and an odd `χ` uses `u⁺`. Equivalently set `Ω_{f,σ}^{χ(−1)} = (2πi)u_{f,σ}^{−χ(−1)}` and omit the extra `2πi` from the denominator. Each period is nonzero by the theorem; `τ(χ₀^σ) ≠ 0` since `χ₀` is primitive. An imprimitive twist retains its removed Euler factors, which are algebraic and Galois-equivariant at `s = 1`. Therefore nonzero at one embedding implies nonzero at every embedding (Shimura, "On the periods of modular forms", Math. Ann. 229 (1977), the definition of `g(ψ)` and `A(m, f, ψ)`, pp. 211–212, and Theorem 1, p. 212). This is the period interface used by §§7.31–7.32.
+
+**Checks.**
+
+- For the trivial character displayed modulo `4`, its modulus-four Gauss sum is `i − i = 0`, while the associated primitive character has conductor `1` and Gauss sum `1`. Division by the former is undefined; the primitive Gauss sum in this statement is admissible.
+- For a primitive character modulo `5`, `|τ(χ₀)|² = 5`, so the denominator is nonzero. For a real newform, `u⁺` is real and `u⁻` purely imaginary: at `m = 1` the even branch has the real period `(2πi)u⁻`, and the odd branch has the imaginary period `(2πi)u⁺`.
+- A zero central value stays zero at every embedding; rescaling the period system by the embeddings of a single element of `K_f^×` rescales the algebraic coefficient compatibly. Independent algebraic rescalings preserve the individual period lines but need not preserve this all-embedding equality.
 
 ### 7.31 The modular regulator period
 
@@ -1477,13 +1530,13 @@ where `CT_P` is the log-free constant term of a Coleman primitive in a local par
 
 ### 8.14 The Frobenius-normalised regulator scalar
 
-For a field `K` of characteristic zero, a `K`-vector space `H`, a bilinear form `B` on `H`, `ω, v, r ∈ H` and `p, γ ∈ K`, define
+For any field `K`, a `K`-vector space `H`, a bilinear form `B` on `H`, `ω, v, r ∈ H` and `p, γ ∈ K`, define
 
 ```text
 frobeniusRegulatorScalar p γ B ω v r = (1 − p/γ) · B(r, v)/B(ω, v).
 ```
 
-The formula is total, but its geometric use requires `γ ≠ 0` and `B(ω, v) ≠ 0`; division at zero is not an admissible period coordinate. In the elliptic case `H = H¹_dR(E/K)`, `B = Tr(∪)`, `r = reg_syn(ξ)`, `ω` the Néron differential, `p > 2` prime to the conductor, `γ` a root of `X² − a_pX + p`, `v ≠ 0` with `Φv = γv`, and `Φ(ω) ≠ γω` (Asakura–Chida, "A numerical approach toward the p-adic Beilinson conjecture for elliptic curves", accepted manuscript, §3.4, the definition before Conjecture 3.3, at `n = 0`, where `Γ*(−n) = 1`). Provide `frobeniusRegulatorScalar_eq`, `frobeniusRegulatorScalar_zero` (simp), `frobeniusRegulatorScalar_add`, `frobeniusRegulatorScalar_smul`, `frobeniusRegulatorScalar_scale_eigenvector` (for `c ≠ 0`, `γ ≠ 0`, `B(ω, v) ≠ 0`, replacing `v` by `cv` leaves the scalar unchanged) and `frobeniusRegulatorScalar_scale_differential` (replacing `ω` by `cω` multiplies it by `c^{−1}`, the same scaling as the Néron-normalised period of the `p`-adic `L`-function).
+The formula is total, but its geometric use requires `γ ≠ 0` and `B(ω, v) ≠ 0`; division at zero is not an admissible period coordinate. In the elliptic case `H = H¹_dR(E/K)`, `B = Tr(∪)`, `r = reg_syn(ξ)`, `ω` the Néron differential, `p > 2` prime to the conductor, `γ` a root of `X² − a_pX + p`, `v ≠ 0` with `Φv = γv`, and `Φ(ω) ≠ γω` (Asakura–Chida, "A numerical approach toward the p-adic Beilinson conjecture for elliptic curves", accepted manuscript, §3.4, the definition before Conjecture 3.3, at `n = 0`, where `Γ*(−n) = 1`). Provide `frobeniusRegulatorScalar_eq`, `frobeniusRegulatorScalar_zero` (simp), `frobeniusRegulatorScalar_add`, `frobeniusRegulatorScalar_smul`, `frobeniusRegulatorScalar_scale_eigenvector` (for `c ≠ 0` and `B(ω, v) ≠ 0`, replacing `v` by `cv` leaves the total algebraic scalar unchanged; geometric use also requires `γ ≠ 0`) and `frobeniusRegulatorScalar_scale_differential` (replacing `ω` by `cω` multiplies it by `c^{−1}`, the same scaling as the Néron-normalised period of the `p`-adic `L`-function).
 
 **Checks.**
 
@@ -1494,19 +1547,19 @@ The formula is total, but its geometric use requires `γ ≠ 0` and `B(ω, v) �
 
 ### 8.15 The Frobenius correction in the comparison
 
-Let `E/ℚ` have good reduction at `p > 2`, extend its linear untwisted crystalline Frobenius (eigenpolynomial `X² − a_pX + p`) and the cup pairing from `H¹_dR(E/ℚ_p)` to a coefficient field containing `γ`, and let `Φ` be the extended operator under D.5's identification of the syntomic target with this space; let `z = log_BK(reg_ét(u))` (D.2 for the étale regulator and the Bloch–Kato logarithm). Then `reg_syn(u) = (1 − p^{−2}Φ)z`. With `B(a, b) = Tr(a ∪ b)`, `B(Φa, Φb) = p·B(a, b)`, so for `Φv = γv`, `γ ≠ 0`, `B(reg_syn(u), v) = (1 − 1/(pγ))·B(z, v)`, and the scalar of §8.14 is `(1 − p/γ)(1 − 1/(pγ))·B(z, v)/B(ω, v)`. The two factors have different origins and neither is omitted (Asakura–Chida, accepted manuscript, §6, footnote 10, citing Besser, Proposition 9.11; confirmed in the published preview, Research in the Mathematical Sciences 10:11 (2023), footnote 10). The Tate twist is accounted for in `p^{−2}`; no linearity over `K` is asserted for the semilinear Frobenius of an arbitrary curve over `K`.
+Let `E/ℚ` have good reduction at `p > 2`, extend its linear untwisted crystalline Frobenius (eigenpolynomial `X² − a_pX + p`) and the cup pairing from `H¹_dR(E/ℚ_p)` to a coefficient field containing `γ`, and let `Φ` be the extended operator under D.5's identification of the syntomic target with this space; let `z = log_BK(reg_ét(u))` (D.2 for the étale regulator and the Bloch–Kato logarithm). Then `reg_syn(u) = (1 − p^{−2}Φ)z`. With `B(a, b) = Tr(a ∪ b)`, `B(Φa, Φb) = p·B(a, b)`, so for `Φv = γv`, `γ ≠ 0`, `B(reg_syn(u), v) = (1 − 1/(pγ))·B(z, v)`, and the scalar of §8.14 is `(1 − p/γ)(1 − 1/(pγ))·B(z, v)/B(ω, v)`. The two factors have different origins and neither is omitted (Asakura–Chida, accepted manuscript, §6, footnote 10, printed p. 46 (PDF p. 47), citing Besser, Proposition 9.11). The Tate twist is accounted for in `p^{−2}`; no linearity over `K` is asserted for the semilinear Frobenius of an arbitrary curve over `K`.
 
 **Checks.** For `p = 5`, `γ = 2` the pairing factor `1 − 1/(pγ)` is `9/10`, not `1` or `3/5`.
 
 ### 8.16 Néron periods and the refined `p`-adic `L`-function
 
-Let `E/ℚ` have conductor `N`, `p > 2` prime to `N`, `ω` a Néron differential, and primitive integral cycles `u⁺`, `u⁻` in the conjugation eigenspaces (§1.8) oriented by `Ω⁺ = ∫_{u⁺} ω > 0` and `Ω⁻/i > 0`; the whole real locus can have index two and is not substituted. Let `f_E` be the newform and `γ` a root of `X² − a_pX + p` of slope `< 1`, or of slope `1` with a refinement that is not theta-critical. Select ModularSymbolsPadicLFunctions L1's period bases by `λ^±(a, m) = (πi/Ω^±)(∫_∞^{a/m} f_γ dz ± ∫_∞^{−a/m} f_γ dz)`, import L2's (or at slope one L3's) eigen-distribution `μ_γ`, and set `L_p(E, χ, s) = ∫ χ(x)⟨x⟩^{s−1} dμ_γ`. For `τ(χ) = Σ χ(a) exp(2πia/p^ν)` and `L(E, χ, s) = Σ χ(n)a_n n^{−s}`, a nontrivial primitive `χ` of conductor `p^ν` has `L_p(E, χ, 1) = γ^{−ν} τ(χ) L(E, χ^{−1}, 1)/Ω^{χ(−1)}`, and the trivial character gives `(1 − γ^{−1})² L(E, 1)/Ω⁺`; `L_p(E, ω_Teich^{−1}, 0)` is the inverse-`x` moment, not a classical interpolation value (Asakura–Chida, accepted manuscript, §2.2 and §3.4; their Theorem 2.3 and the interpolation formula of §3.4, pp. 7 and 16, need `γ^{−ν}τ(χ)L(E, χ^{−1}, 1)` in their finite-coset convention, equivalently `χ(−1)(p/γ)^ν L(E, χ^{−1}, 1)/(τ(χ^{−1})Ω^{χ(−1)})`; the arXiv version's Theorem 2.2(1), p. 6, needs the factor `α^{−ν}` that the manuscript has). At critical slope use the eigenlift (L3), not uniqueness from classical moments (Asakura–Chida, arXiv:2003.08888v2, §2.3). Differential rescaling is tracked in both the periods and the regulator coordinate; L4's Euler-factor comparison is the good-prime cross-check.
+Let `E/ℚ` have conductor `N`, `p > 2` prime to `N`, `ω` a Néron differential, and primitive integral cycles `u⁺`, `u⁻` in the conjugation eigenspaces (§1.8) oriented by `Ω⁺ = ∫_{u⁺} ω > 0` and `Ω⁻/i > 0`; the whole real locus can have index two and is not substituted. Let `f_E` be the newform and `γ` a root of `X² − a_pX + p` of slope `< 1`, or of slope `1` with a refinement that is not theta-critical. Select ModularSymbolsPadicLFunctions L1's period bases by `λ^±(a, m) = (πi/Ω^±)(∫_∞^{a/m} f_γ dz ± ∫_∞^{−a/m} f_γ dz)`, import L2's (or at slope one L3's) eigen-distribution `μ_γ`, and set `L_p(E, χ, s) = ∫ χ(x)⟨x⟩^{s−1} dμ_γ`. For `τ(χ) = Σ χ(a) exp(2πia/p^ν)` and `L(E, χ, s) = Σ χ(n)a_n n^{−s}`, a nontrivial primitive `χ` of conductor `p^ν` has `L_p(E, χ, 1) = γ^{−ν} τ(χ) L(E, χ^{−1}, 1)/Ω^{χ(−1)}`, and the trivial character gives `(1 − γ^{−1})² L(E, 1)/Ω⁺`; `L_p(E, ω_Teich^{−1}, 0)` is the inverse-`x` moment, not a classical interpolation value (Asakura–Chida, accepted manuscript, §2.2 and §3.4; their Theorem 2.3 and the interpolation formula of §3.4, printed pp. 7 and 16 (PDF pp. 8 and 17), need `γ^{−ν}τ(χ)L(E, χ^{−1}, 1)` in their finite-coset convention, equivalently `χ(−1)(p/γ)^ν L(E, χ^{−1}, 1)/(τ(χ^{−1})Ω^{χ(−1)})`; the arXiv version's Theorem 2.2(1), p. 6, needs the factor `α^{−ν}` that the manuscript has). At critical slope use the eigenlift (L3), not uniqueness from classical moments (Asakura–Chida, arXiv:2003.08888v2, §2.3). Differential rescaling is tracked in both the periods and the regulator coordinate; L4's Euler-factor comparison is the good-prime cross-check.
 
 **Checks.** At `χ = 1` the Euler factor is the square `(1 − 1/γ)²`; for primitive `χ` of conductor `p^ν` the factor is `γ^{−ν}` and the complex twist is `χ^{−1}`; replacing `ω` by `cω` rescales `L_p` and the scalar by `c^{−1}`; for the odd quadratic character modulo `3`, `τ² = −3` so `3/τ = −τ`, which detects the sign error that even quadratic characters miss (non-example); a CM split critical refinement does not satisfy the non-theta-critical hypothesis.
 
 ### 8.17 The common rational-scalar relation
 
-Let `M` be a `ℚ`-vector space (geometrically, the integral weight-two motivic group), `K` a field of characteristic zero, `r_∞ : M → ℝ` and `r_p : M → K` `ℚ`-linear, `A ∈ ℝ`, `B ∈ K`. Define `WeightTwoBeilinsonRelation r_∞ r_p A B` to mean: there are `ξ ∈ M`, `q ∈ ℚ` and `ε ∈ {1, −1}` with `ξ`, `q`, `r_∞(ξ)`, `r_p(ξ)` nonzero, `A = q·r_∞(ξ)` and `B = ε·q·r_p(ξ)`, with `q` embedded separately in `ℝ` and `K`. It is an explicit predicate on supplied maps; it neither constructs the motivic group nor asserts the conjecture, and a common rational scalar is not an equality between elements of `ℝ` and `ℚ_p` (Asakura–Chida, accepted manuscript, §3.4, Conjecture 3.3 at `n = 0` and the preceding rationality sentence, p. 18). Provide `weightTwoBeilinsonRelation_iff`, `weightTwoBeilinsonRelation_ratios` (`A/r_∞(ξ) = q` and `B/r_p(ξ) = εq`), `weightTwoBeilinsonRelation_rescale_witness` (for `c ∈ ℚ^×`, `(ξ, q, ε) ↦ (cξ, q/c, ε)`) and `weightTwoBeilinsonRelation_change_sign` (replacing `r_∞` by `−r_∞` sends `(q, ε)` to `(−q, −ε)`).
+Let `M` be a `ℚ`-vector space (geometrically, the integral weight-two motivic group), `K` a field of characteristic zero, `r_∞ : M → ℝ` `ℚ`-linear and `r_p : M → K` additive (hence automatically `ℚ`-linear), `A ∈ ℝ`, `B ∈ K`. Define `WeightTwoBeilinsonRelation r_∞ r_p A B` to mean: there are `ξ ∈ M`, `q ∈ ℚ` and `ε ∈ {1, −1}` with `ξ`, `q`, `r_∞(ξ)`, `r_p(ξ)` nonzero, `A = q·r_∞(ξ)` and `B = ε·q·r_p(ξ)`, with `q` embedded separately in `ℝ` and `K`. It is an explicit predicate on supplied maps; it neither constructs the motivic group nor asserts the conjecture, and a common rational scalar is not an equality between elements of `ℝ` and `ℚ_p` (Asakura–Chida, accepted manuscript, §3.4, Conjecture 3.3 at `n = 0` and the preceding rationality sentence, printed pp. 16–17 (PDF pp. 17–18)). Provide `weightTwoBeilinsonRelation_iff`, `weightTwoBeilinsonRelation_ratios` (`A/r_∞(ξ) = q` and `B/r_p(ξ) = εq`), `weightTwoBeilinsonRelation_rescale_witness` (for `c ∈ ℚ^×`, `(ξ, q, ε) ↦ (cξ, q/c, ε)`) and `weightTwoBeilinsonRelation_change_sign` (replacing `r_∞` by `−r_∞` sends `(q, ε)` to `(−q, −ε)`).
 
 **Checks.**
 
@@ -1516,7 +1569,7 @@ Let `M` be a `ℚ`-vector space (geometrically, the integral weight-two motivic 
 
 ### 8.18 The weight-two `p`-adic Beilinson conjecture for elliptic curves
 
-Conjecture, not a theorem. Let `E/ℚ` have good reduction at `p > 2`, fix a Néron `ω` and oriented primitive cycles as in §8.16, and select `γ` of slope `< 1` or of slope `1` non-theta-critical, with `Φ(ω) ≠ γω`. Put `M = H²_M(E, ℚ(2))_ℤ` (E.6's integral part, not the whole unramified generic-fibre group), `r_∞(ξ) = reg_D(ξ)(u⁻)/(2πi)` (Layer 2's Deligne regulator and §2.9's coordinate), `r_p(ξ) = (1 − p/γ)·Tr(reg_syn(ξ) ∪ v_γ)/Tr(ω ∪ v_γ)` (§8.14), `A = L′(E, 0)` and `B = L_p(E, ω_Teich^{−1}, 0)`. The conjecture asserts `WeightTwoBeilinsonRelation r_∞ r_p A B` (Asakura–Chida, accepted manuscript, §3.4, Conjecture 3.3 at `n = 0`, p. 18). The rationality of `A/r_∞` is the real Beilinson component, which the `p`-adic ratio statement alone does not prove. In an example a proposed witness needs both an arithmetic-integral certificate and an exact `L`-value comparison; numerical agreement is a diagnostic, and the label stays conjecture when an example passes. A horizontally unramified class with a nonzero vertical residue is not a witness; a CM split theta-critical refinement is not covered.
+Conjecture, not a theorem. Let `E/ℚ` have good reduction at `p > 2`, fix a Néron `ω` and oriented primitive cycles as in §8.16, and select `γ` of slope `< 1` or of slope `1` non-theta-critical, with `Φ(ω) ≠ γω`. Put `M = H²_M(E, ℚ(2))_ℤ` (E.6's integral part, not the whole unramified generic-fibre group), `r_∞(ξ) = reg_D(ξ)(u⁻)/(2πi)` (Layer 2's Deligne regulator and §2.9's coordinate), `r_p(ξ) = (1 − p/γ)·Tr(reg_syn(ξ) ∪ v_γ)/Tr(ω ∪ v_γ)` (§8.14), `A = L′(E, 0)` and `B = L_p(E, ω_Teich^{−1}, 0)`. The conjecture asserts `WeightTwoBeilinsonRelation r_∞ r_p A B` (Asakura–Chida, accepted manuscript, §3.4, Conjecture 3.3 at `n = 0`, printed p. 17 (PDF p. 18)). The rationality of `A/r_∞` is the real Beilinson component, which the `p`-adic ratio statement alone does not prove. In an example a proposed witness needs both an arithmetic-integral certificate and an exact `L`-value comparison; numerical agreement is a diagnostic, and the label stays conjecture when an example passes. A horizontally unramified class with a nonzero vertical residue is not a witness; a CM split theta-critical refinement is not covered.
 
 ### Examples
 
@@ -1551,6 +1604,6 @@ SpecialValuesBirchTate uses the Beilinson statement of Layer 6 and the normalisa
 - C. L. Siegel, *Lectures on Advanced Analytic Number Theory*, Tata Institute of Fundamental Research, 1965.
 - G. Shimura, "On the periods of modular forms", Math. Ann. 229 (1977), 211–221.
 - L. Merel, "Symboles de Manin et valeurs de fonctions L", in *Algebra, Arithmetic, and Geometry* (Manin Festschrift), Progress in Mathematics 270, Birkhäuser, 2009 (cited from the author manuscript, pp. 277–302, and from the appendix to Brunault's thesis).
-- K. Asakura and M. Chida, "A numerical approach toward the p-adic Beilinson conjecture for elliptic curves over ℚ", Res. Math. Sci. 10 (2023), 11 (author accepted manuscript); arXiv:2003.08888v2.
+- M. Asakura and M. Chida, "A numerical approach toward the p-adic Beilinson conjecture for elliptic curves over ℚ", Res. Math. Sci. 10 (2023), 11 (author accepted manuscript); arXiv:2003.08888v2.
 - A. Besser and R. de Jeu, "The syntomic regulator for K₄ of curves", arXiv:1208.0516v1.
 - F. Diamond and J. Im, "Modular forms and modular curves", in *Seminar on Fermat's Last Theorem*, CMS Conference Proceedings 17, 1995 (Variant 9.3.6, for the model of `Y₁(N)`).

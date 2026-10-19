@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-EllipticRegulators~adv",
+    "date": "2026-10-19",
+    "notes": "Independent adversarial review of all 143 numbered subsections and 26 Lean theorem signatures; all 151 packet targets retained. Corrected the inverse tame convention and scaled Steinberg argument, regulator factor-two label, nonreal character conjugations, weighted rational descent, Shimura primitive Gauss sum/parity/coherent periods, missing light-definition APIs and negative controls, and source pagination. Checked all author-flagged public sources and 15 sampled source-bearing paragraphs, pinned APIs and current upstream/library duplication. Suggested.lean elaborates successfully with exactly 26 sorry warnings and no errors; packet and intake validation recorded in the report. Remaining blocker: Bloch CRM11 was unavailable in the authorized library. Its truncation estimates, general CM constructions and claimed printed corrections still require verification from an authorized edition or a public primary replacement. The README explicitly marks these inherited locators and source-dependent assertions unverified. See reviews/REV-PKG-EllipticRegulators~adv.md for the complete pass table and precise resumption points."
+  }
+}

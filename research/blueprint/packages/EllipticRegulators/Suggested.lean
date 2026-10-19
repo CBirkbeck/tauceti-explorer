@@ -47,11 +47,30 @@ noncomputable def ellipticR (τ : ℂ) (a b : ℝ) : ℂ :=
 noncomputable def torusCoord (τ w : ℂ) : ℝ × ℝ :=
   (w.re - w.im / τ.im * τ.re, w.im / τ.im)
 
+example : torusCoord I (1 + 2 * I) = (1, 2) := by
+  norm_num [torusCoord]
+
+example : torusCoord 1 I = (0, 0) := by
+  norm_num [torusCoord]
+
 /-- A doubly periodic meromorphic function for the lattice `ℤ + ℤτ` that does not vanish
 identically near any point. -/
 def IsEllipticFunction (τ : ℂ) (f : ℂ → ℂ) : Prop :=
   MeromorphicOn f Set.univ ∧ Function.Periodic f 1 ∧ Function.Periodic f τ ∧
     ∀ z, meromorphicOrderAt f z ≠ ⊤
+
+example (τ : ℂ) : IsEllipticFunction τ (fun _ => 1) := by
+  refine ⟨MeromorphicOn.const 1, ?_, ?_, ?_⟩
+  · intro z
+    simp
+  · intro z
+    simp
+  · intro z
+    simp [meromorphicOrderAt_const]
+
+example (τ : ℂ) : ¬ IsEllipticFunction τ (fun _ => 0) := by
+  intro h
+  simpa [meromorphicOrderAt_const] using h.2.2.2 0
 
 open Classical in
 /-- The orders of `f` are the multiplicities `m i` at the pairwise incongruent points `P i`,
@@ -60,6 +79,13 @@ def HasTorusDivisor (τ : ℂ) (f : ℂ → ℂ) {n : ℕ} (P : Fin n → ℂ) (
   (∀ i j, i ≠ j → ∀ k l : ℤ, P i - P j ≠ k + l * τ) ∧
     ∀ z : ℂ, meromorphicOrderAt f z =
       ((∑ i, if ∃ k l : ℤ, z - P i = k + l * τ then m i else 0 : ℤ) : WithTop ℤ)
+
+example (τ : ℂ) : HasTorusDivisor τ (fun _ => 1) (Fin.elim0 : Fin 0 → ℂ) Fin.elim0 := by
+  simp [HasTorusDivisor, meromorphicOrderAt_const]
+
+example (τ : ℂ) : ¬ HasTorusDivisor τ (fun _ => 1) (fun _ : Fin 2 => 0) (fun _ => 0) := by
+  intro h
+  exact h.1 0 1 (by decide) 0 0 (by simp)
 
 /-- Brunault's regulator `∫ log|f| · dz ∧ ∂̄ log|g|` of the symbol `{f, g}` on `ℂ/(ℤ + ℤτ)`,
 written over the parallelogram `z = s + tτ`, `0 ≤ s, t ≤ 1` (Layer 2, §2.5). -/
@@ -71,6 +97,10 @@ noncomputable def torusRegulator (τ : ℂ) (f g : ℂ → ℂ) : ℂ :=
 /-- The Weierstrass curve `y² = x³ − x` over `ℚ` (Cremona 32a2), with complex multiplication by
 `ℤ[i]`. -/
 def curve32a2 : WeierstrassCurve ℚ := ⟨0, 0, 0, -1, 0⟩
+
+example : curve32a2.Δ = 64 := by
+  norm_num [curve32a2, WeierstrassCurve.Δ, WeierstrassCurve.b₂, WeierstrassCurve.b₄,
+    WeierstrassCurve.b₆, WeierstrassCurve.b₈]
 
 /-! ## Headline theorems -/
 
@@ -238,6 +268,12 @@ example (f : ZMod 1 × ZMod 1 → ℂ) : finiteFourier10 1 f 0 = f 0 := by
   simp [finiteFourier10]
   rw [Finset.sum_eq_single 0 (fun b _ hb => absurd (h b) hb) (by simp)]
 
+example : finiteFourier10 3 (fun ab => if ab = (1, 0) then 1 else 0) (1, 0) =
+    (1 / 9 : ℂ) * ZMod.stdAddChar (-1 : ZMod 3) := by
+  classical
+  simp [finiteFourier10]
+  norm_num
+
 /-- Inversion for the Lecture 10 transform (§4.4). -/
 theorem finiteFourier10_inversion (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ)
     (ab : ZMod C × ZMod C) :
@@ -283,6 +319,11 @@ example {d : ℕ} (b : Module.Basis (Fin d) ℚ B) (r : I →ₗ[ℚ] TensorProd
     ¬ HasDeterminantWitness b r 0 :=
   fun h => h.1 rfl
 
+example (b : Module.Basis (Fin 0) ℚ B) (r : I →ₗ[ℚ] TensorProduct ℚ ℝ B) :
+    HasDeterminantWitness b r 1 := by
+  refine ⟨one_ne_zero, Fin.elim0, 1, one_ne_zero, ?_⟩
+  simp [regulatorDet]
+
 /-- A change of frame by a rational matrix multiplies the determinant by its determinant. -/
 theorem regulatorDet_changeFrame {d : ℕ} (b : Module.Basis (Fin d) ℚ B)
     (r : I →ₗ[ℚ] TensorProduct ℚ ℝ B) (x : Fin d → I) (A : Matrix (Fin d) (Fin d) ℚ) :
@@ -327,6 +368,10 @@ def fixedLevelBeilinson (j : A →ₗ[ℚ] B) (S : Set B) : Submodule ℚ A :=
 def beilinsonSubspace {ι : Type*} (Q : ι → Submodule ℚ B) (t : ι → B →ₗ[ℚ] A) :
     Submodule ℚ A :=
   ⨆ i, (Q i).map (t i)
+
+example (P : Submodule ℚ A) :
+    beilinsonSubspace (fun _ : Unit => P) (fun _ => LinearMap.id) = P := by
+  simp [beilinsonSubspace]
 
 example : (1 : ℚ) ∈ fixedLevelBeilinson (LinearMap.inl ℚ ℚ ℚ) {((1 : ℚ), (1 : ℚ)), (0, 1)} := by
   have h : ((1 : ℚ), (0 : ℚ)) = ((1 : ℚ), (1 : ℚ)) - (0, 1) := by ext <;> simp
@@ -382,6 +427,16 @@ example {K H : Type*} [Field K] [AddCommGroup H] [Module K H] (p γ : K)
     (B : LinearMap.BilinForm K H) (ω v : H) : frobeniusRegulatorScalar p γ B ω v 0 = 0 := by
   simp [frobeniusRegulatorScalar]
 
+example :
+    let B : LinearMap.BilinForm ℚ (ℚ × ℚ) := LinearMap.mk₂ ℚ
+      (fun x y => x.1 * y.2 - x.2 * y.1)
+      (by intros; simp [add_mul]; ring)
+      (by intros; simp [smul_eq_mul]; ring)
+      (by intros; simp [mul_add]; ring)
+      (by intros; simp [smul_eq_mul]; ring)
+    frobeniusRegulatorScalar 5 2 B (1, 0) (0, 1) (3, 0) = -9 / 2 := by
+  norm_num [frobeniusRegulatorScalar, LinearMap.mk₂_apply]
+
 /-- Rescaling the eigenvector does not change the scalar (§8.14). -/
 theorem frobeniusRegulatorScalar_smul_eigenvector {K H : Type*} [Field K] [AddCommGroup H]
     [Module K H] (p γ : K) (B : LinearMap.BilinForm K H) (ω v r : H) {c : K} (hc : c ≠ 0)
@@ -399,6 +454,10 @@ example {M K : Type*} [AddCommGroup M] [Module ℚ M] [Field K] [CharZero K] (rI
     (A : ℝ) (B : K) : ¬ WeightTwoBeilinsonRelation rInf (0 : M →+ K) A B := by
   rintro ⟨ξ, q, ε, -, -, -, -, h, -⟩
   exact h rfl
+
+example : WeightTwoBeilinsonRelation (Algebra.linearMap ℚ ℝ)
+    (2 • AddMonoidHom.id ℚ) 3 6 := by
+  refine ⟨1, 3, 1, Or.inl rfl, by norm_num, by norm_num, ?_, ?_, ?_, ?_⟩ <;> norm_num
 
 /-
 Targets of the README that are not stated above because their carriers are absent at the pins:
