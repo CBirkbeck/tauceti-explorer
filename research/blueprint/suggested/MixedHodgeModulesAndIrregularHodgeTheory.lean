@@ -1,4 +1,5 @@
 import Mathlib.Algebra.Polynomial.Derivative
+import TauCeti.Geometry.Hodge.Mixed.Strictness
 import TauCeti.Geometry.Hodge.Tate.Basic
 
 /-!
@@ -15,6 +16,11 @@ The polynomial specialization checks F/exponential-twist: the connection is
 d + df, not d - df. The Tate examples use the existing integral Tate object;
 rationalization gives the rational Tate object used in the reader. Neither
 these signatures nor their examples claim implementation of the roadmap.
+
+The point case of H.0/abelian-strictness is statable on the pinned mixed Hodge
+structures: a morphism is strict for each intersection W_k ∩ F^p at once, not
+only for W and F separately. Its proof is the pinned bigrading strictness for
+the bidegrees (r, s) with p ≤ r and r + s ≤ k.
 -/
 
 namespace TauCeti.MixedHodgeModulesAndIrregularHodgeTheory
@@ -67,6 +73,30 @@ example : exponentialDifferential (X ^ 2) 1 = C (2 : ℂ) * X := by
 -- A nonzero constant section lies in the kernel at the zero potential.
 example : exponentialDifferential 0 1 = 0 := by
   sorry
+
+section PointStrictness
+
+open TauCeti.Hodge
+
+universe u v w u' v' w'
+
+variable {Vℤ : Type u} {Vℚ : Type v} {Vℂ : Type w}
+variable {V'ℤ : Type u'} {V'ℚ : Type v'} {V'ℂ : Type w'}
+variable [AddCommGroup Vℤ] [AddCommGroup Vℚ] [Module ℚ Vℚ] [AddCommGroup Vℂ] [Module ℂ Vℂ]
+variable [AddCommGroup V'ℤ] [AddCommGroup V'ℚ] [Module ℚ V'ℚ] [AddCommGroup V'ℂ] [Module ℂ V'ℂ]
+variable {ιℚ : Vℤ →ₗ[ℤ] Vℚ} {ιℂ : Vℤ →ₗ[ℤ] Vℂ} {ι'ℚ : V'ℤ →ₗ[ℤ] V'ℚ} {ι'ℂ : V'ℤ →ₗ[ℤ] V'ℂ}
+variable {hℚ : IsBaseChange ℚ ιℚ} {hℂ : IsBaseChange ℂ ιℂ}
+variable {h'ℚ : IsBaseChange ℚ ι'ℚ} {h'ℂ : IsBaseChange ℂ ι'ℂ}
+variable {source : MixedHodgeStructure hℚ hℂ} {target : MixedHodgeStructure h'ℚ h'ℂ}
+
+/-- H.0/abelian-strictness at a point: a morphism of mixed Hodge structures is strict for
+the intersection of a complexified weight step and a Hodge step simultaneously. -/
+theorem range_inf_WC_inf_F_eq_map (f : MixedHodgeStructure.Hom source target) (k p : ℤ) :
+    LinearMap.range f.toLinearMap ⊓ (target.WC k ⊓ target.F p) =
+      (source.WC k ⊓ source.F p).map f.toLinearMap := by
+  sorry
+
+end PointStrictness
 
 -- Baseline convention checks for C, P and T: Q(-1) has its jump at one.
 example : (TauCeti.Hodge.tate (-1)).F 1 = (⊤ : Submodule ℂ ℂ) := by

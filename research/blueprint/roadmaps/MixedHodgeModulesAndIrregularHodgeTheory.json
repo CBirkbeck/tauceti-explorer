@@ -10,7 +10,10 @@
     "EnhancedDerivedSheaves",
     "SchemeAndStackFoundations",
     "HodgeStructuresPartII",
-    "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "AlgebraicModuliForArithmeticGeometry",
+    "LefschetzPencilsAndVanishingCycles",
+    "ComplexComparisonPartII"
   ],
   "stages": [
     {
@@ -19,9 +22,10 @@
       "description": "On analytifications of complex algebraic varieties, construct bounded algebraically constructible rational and complex sheaf categories with the support and cosupport middle perversity, recollement, Verdier duality, the six operations and nearby/vanishing cycles. Prove the algebraic regular Riemann–Hilbert comparison, normalized by DR(M)[dim X], from Springer’s regular holonomic modules. This is the Betti interface; the existing étale perverse roadmaps retain their ℓ-adic objects.",
       "requires": [
         "EnhancedDerivedSheaves:E1",
-        "SchemeAndStackFoundations:SF.0",
-        "SpringerResolutionAndCharacteristicCycles:H/regular-holonomic",
-        "SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality"
+        "ComplexComparisonPartII:C0",
+        "ComplexComparisonPartII:C5",
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "SpringerResolutionAndCharacteristicCycles:H"
       ]
     },
     {
@@ -30,9 +34,10 @@
       "description": "Import differential operators, holonomicity, transfer, duality and intermediate extension from Springer. Construct formal differential modules at a curve point, the finite ramified exponential decomposition, rational slopes and irregularity. Prove the local index comparison and, for a connection on G_m regular at zero, dim H¹_dR−dim H⁰_dR = irr_∞. The kernel of j_!E→j_!*E has punctual support.",
       "requires": [
         "MixedHodgeModulesAndIrregularHodgeTheory:B",
-        "SpringerResolutionAndCharacteristicCycles:D/differential-operators",
-        "SpringerResolutionAndCharacteristicCycles:H/intermediate-extension",
-        "SchemeAndStackFoundations:SF.3"
+        "SpringerResolutionAndCharacteristicCycles:D",
+        "SpringerResolutionAndCharacteristicCycles:H",
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison"
       ]
     },
     {
@@ -41,8 +46,7 @@
       "description": "Construct exponential twists with connection d+df, Fourier–Laplace transformation with kernel E^{tτ}, additive derived convolution, and localized Fourier transformation. Prove exactness on holonomic modules, Fourier inversion with the sign involution, duality, regular-input slope bounds and the projector/localization identity. Keep unshifted de Rham degrees 0,…,dim X separate from perverse degrees.",
       "requires": [
         "MixedHodgeModulesAndIrregularHodgeTheory:D",
-        "SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality",
-        "SpringerResolutionAndCharacteristicCycles:H/holonomic-modules"
+        "SpringerResolutionAndCharacteristicCycles:H"
       ]
     },
     {
@@ -52,9 +56,13 @@
       "requires": [
         "MixedHodgeModulesAndIrregularHodgeTheory:B",
         "MixedHodgeModulesAndIrregularHodgeTheory:D",
+        "HodgeStructuresPartII:H.0",
         "HodgeStructuresPartII:H.2",
         "HodgeStructuresPartII:H.6",
-        "SpringerResolutionAndCharacteristicCycles:D/good-filtration"
+        "LefschetzPencilsAndVanishingCycles:LPV.1",
+        "LefschetzPencilsAndVanishingCycles:LPV.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "SpringerResolutionAndCharacteristicCycles:D"
       ]
     },
     {
@@ -63,7 +71,9 @@
       "description": "Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded derived Hodge modules and establish weight inequalities. Construct normalized nearby and vanishing cycles with can, var and N. Prove curve rank and pure costalk formulas and constant-divisor localization, including singular reduced divisors through the supported ambient category. Normalize D(pQ_U)=pQ_U(dim U) and i* pQ_U=pQ_D[1].",
       "requires": [
         "MixedHodgeModulesAndIrregularHodgeTheory:H.0",
-        "MixedHodgeModulesAndIrregularHodgeTheory:B"
+        "MixedHodgeModulesAndIrregularHodgeTheory:B",
+        "LefschetzPencilsAndVanishingCycles:LPV.1",
+        "HodgeStructuresPartII:H.2"
       ]
     },
     {
@@ -110,7 +120,8 @@
       "description": "For V smooth quasi-projective, g regular and M in MHM(V), prove classicality of all degrees for pQ_A¹⊠M with exponential tg, and of the ordinary [*0] and compact [!0] variants. For constant coefficients identify compact cohomology with H_c^{r−2}(g^{-1}(0))(−1), and ordinary cohomology with H^r_{g^{-1}(0)}(V); reduce the latter to H^{r−2}(g^{-1}(0))(−1) when the zero locus is a smooth divisor.",
       "requires": [
         "MixedHodgeModulesAndIrregularHodgeTheory:P",
-        "MixedHodgeModulesAndIrregularHodgeTheory:F"
+        "MixedHodgeModulesAndIrregularHodgeTheory:F",
+        "HodgeStructuresPartII:H.2"
       ]
     },
     {
@@ -120,7 +131,8 @@
       "requires": [
         "MixedHodgeModulesAndIrregularHodgeTheory:G",
         "MixedHodgeModulesAndIrregularHodgeTheory:H.1",
-        "MixedHodgeModulesAndIrregularHodgeTheory:I"
+        "MixedHodgeModulesAndIrregularHodgeTheory:I",
+        "LefschetzPencilsAndVanishingCycles:LPV.1"
       ]
     },
     {
@@ -132,8 +144,10 @@
         "MixedHodgeModulesAndIrregularHodgeTheory:I",
         "MixedHodgeModulesAndIrregularHodgeTheory:T",
         "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
-        "SchemeAndStackFoundations:SF.4",
-        "SchemeAndStackFoundations:SF.2"
+        "AnalyticToricGeometryPartII:NT.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "SchemeAndStackFoundations:SF.2",
+        "HodgeStructuresPartII:H.2"
       ]
     }
   ],
