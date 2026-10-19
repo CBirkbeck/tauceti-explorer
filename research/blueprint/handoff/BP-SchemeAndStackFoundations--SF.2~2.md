@@ -1,6 +1,41 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-RcVopc, 2026-10-19
+## Current run — Codex session codex-VRbCJQ, 2026-10-19
+
+Blocked checkpoint. The bot confirmed this session's claim after
+[comment 6261482388](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6261482388).
+I read the issue body and review before claiming, but missed the manager's
+[explicit prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+in the comment history. That was a selection error. The complete current
+comment history contains no later instruction reopening the scope.
+
+Fresh GitHub reads confirm that upstream [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+I inspected current upstream Layer 2, its boundaries in §§2.4 and 2.22,
+its semilinear equivariant targets in §2.23, and its Nisnevich and coherent
+Suggested.lean interfaces. These targets already have an upstream owner.
+General banded-gerbe classification is outside §2.4; that exclusion does not
+reopen this superseded revision. The supplied read-only roadmap checkout
+lacks this directory, so GitHub main supplies the ownership evidence.
+The current library's scheme-module cohomology API was also read. No shared
+checkout was changed or built.
+
+Only this handoff changes. The existing packet, reader, suggested file and
+review retain their mathematical worklist. Packet and SF.2 coverage remain
+partial: 85 nodes (7 definitions, 17 constructions, 49 theorems, 5 lemmas,
+7 comparisons), 160 API items, 87 definition/construction tests plus one
+theorem test, 3 planets, 89 baseline declarations, 11 gaps and 9 requests.
+The packet checker reports zero errors and zero warnings. Lean was neither
+changed nor compiled. No review correction, new supplier request or
+ownership move is claimed; no second issue was claimed.
+
+Resume only after the manager reconciles queue eligibility and specifies a
+distinct extension beyond upstream. Automatic availability and claim
+confirmation do not reopen this scope. The existing packet and review hold
+the mathematical worklist; no scratch material is needed. This run submits
+the blocked handoff required by its instructions and stops.
+
+## Earlier run — Codex session codex-RcVopc, 2026-10-19
 
 Blocked checkpoint; this revision is unfinished. I posted the claim before
 reading the complete comment history and inherited handoff. That was a
