@@ -9,8 +9,10 @@ and milestone signatures whose carriers already exist in Mathlib and Tau Ceti; i
 is not exhaustive. Design choices made explicit here: characters act through the
 inverse-character eigenspace (`chiIsotypic`), finite CM sums are weighted by the
 character (`heegnerFinite`) and averaged with the inverse group order
-(`heegnerAverage`), and the central-value function is a normalization unit times
-the square of a supplied linear root (`bdpLFunction`). A finite representation
+(`heegnerAverage`), the central-value function is a normalization unit times
+the square of a supplied linear root (`bdpLFunction`), and the terminating Gross–Zagier
+polynomials keep their source normalization with binomial coefficients and shifted factorials
+(`rankinPolynomial`, `rankinKernelPolynomial`). A finite representation
 does not construct a CM orbit, and a power series does not construct its CM
 moment measure. The geometric height and kernel milestones stay in the README.
 -/
@@ -50,6 +52,18 @@ example (t : ℚ) : rankinPolynomial 0 t = 1 := by sorry
 example (t : ℚ) : rankinPolynomial 1 t = 1 - t := by sorry
 example (t : ℚ) : rankinPolynomial 2 t = 1 - 2 * t + t ^ 2 / 2 := by sorry
 example : rankinPolynomial 2 1 = -(1 / 2 : ℚ) := by sorry
+
+/-- The Gross–Zagier polynomial `p_{k,r}` for `0 ≤ r ≤ k - 1`: the factor `(t/2)^(2k-2-2r)` times
+a binomial sum with the shifted factorials `(2k-2r-2+j)!`. At `r = k - 1` it is `rankinPolynomial
+(k - 1)`. Outside `r ≤ k - 1` the truncated subtraction makes the value meaningless. -/
+def rankinKernelPolynomial (k r : ℕ) (t : ℚ) : ℚ :=
+  (t / 2) ^ (2 * k - 2 - 2 * r) *
+    ∑ j ∈ Finset.range (r + 1),
+      (Nat.choose r j : ℚ) * (-t) ^ j / (Nat.factorial (2 * k - 2 * r - 2 + j) : ℚ)
+
+example (t : ℚ) : rankinKernelPolynomial 2 0 t = t ^ 2 / 8 := by sorry
+example (t : ℚ) : rankinKernelPolynomial 2 1 t = 1 - t := by sorry
+example (t : ℚ) : rankinKernelPolynomial 3 2 t = rankinPolynomial 2 t := by sorry
 
 /-! ## Layer 8: global Gross–Zagier formulas -/
 
@@ -154,43 +168,35 @@ theorem bdpEulerFactor_ne_zero (p a : ℚ) (hp : 1 < p)
 
 end TauCetiRoadmap.GrossZagierAndArithmeticHeights
 
--- README definitions with geometric or analytic carriers:
--- canonicalHeightRat, poincareHeight, coefficientHeight.
--- characterHeight, arithmeticIntersection, admissibleExtension.
--- weaklyAdmissibleExtension, weaklyAdmissibleExtension_normalize.
--- normalizedHodgeClass, rationalXiRealization, compositionPairing.
--- maninConstant, toricHom, normalizedToricForm.
--- admissibleToricOrder, specialCorrespondenceCycle, cmDegreeZeroClass.
--- picardGeneratingSeries, arithmeticHeightKernel, degenerateSchwartz.
--- arakelovMeasure, admissibleMetric, admissibleGreen.
--- arakelovGreen, arakelovDualizingMetric, graphAdmissibleMeasure.
--- realAdmissibleMetric, pseudoTheta, mixedThetaEisenstein.
--- normalizedWhittaker, cmOrbitAverage, localDerivativeCorrection.
--- colmezTestFunction, normShell, modifiedSelfIntersection.
--- regularizedCmGreen, cmLocalMultiplicity, residueAdjunctionLine.
--- twoSplitDegeneracy, archDerivativeKernel, partialRankin.
--- classicalComplexHeight, markedModularGreen.
--- heckeGreen, cmKernelInvariant, cmArchimedeanHeightSum.
--- cmTangentHeight, etaCMTangent, diagonalHeckeGreen.
--- inertOrderModel, halfHomCount, newCMHom.
--- cmSelfIntersection, cmPrimeHeightSum, inertCMHomLattice.
--- inertNormIdeals, ramifiedOrderModel, classicalRankinKernel.
--- genusEisensteinCombination, rankinGenusSign, signedDivisorSums.
--- cmModifiedIntersection, coeffPairing, IsAdmissibleOrder.
--- peterssonRatio, quaternionicBDP.
--- cmCyclicPair, quadraticBaseChangeSign, quadraticInductionSign, torusProbability_period.
--- arithmeticSkeletonMeasure, arithmeticGraphPotential, arithmeticModelCurvature.
--- integralNewformDifferential, finiteMapDifferentialTrace.
--- thetaNormSpecialization, splitShimizuContraction, halfWeightCoefficient_norm.
--- weightTwoCuspProjector, weightTwoRegularizedProjection, weightTwoNewProjector.
--- parallelWeightTwoProjector, colmezTwoPlaceProjectionGrowth.
--- rankinKernelPolynomial, rankinDecayIntegral.
--- ordinaryCMCoordinate, canonicalCMLift, quasiCanonicalCMLift.
--- cyclicDiagramHom, cyclicDiagramEnd, halfDiagramHomCount.
--- degenerateSchwartzOne, degenerateSchwartzTwo, testVectorLine.
--- goodOptimalQuotient_cotangentExact, algebraicPointLog_subgroup.
--- cmCoefficientAmiceEquiv, cmSerreTateExpansion, cmLocalMomentMeasure.
--- pNewColemanPrimitive, pNewAbelJacobi, pNewCMRootMeasure.
--- primitiveQuaternionicDifferentialLine, cmMaassDerivative_toricNorm.
--- bdpRootNormalization, bdpRootCharacterTransport, castellaHsiehRoot_ramifiedLevel.
--- chiProjector, heegnerIntegral, quaternionicRoot.
+/-
+README definitions whose carriers (arithmetic models, metrized lines, automorphic kernels,
+local intersection data) are not available at the pinned libraries, and which are therefore
+stated only in the README:
+  canonicalHeightRat, poincareHeight, coefficientHeight, characterHeight, arithmeticIntersection,
+  admissibleExtension, weaklyAdmissibleExtension, weaklyAdmissibleExtension_normalize,
+  normalizedHodgeClass, rationalXiRealization, compositionPairing, maninConstant, toricHom,
+  normalizedToricForm, admissibleToricOrder, specialCorrespondenceCycle, cmDegreeZeroClass,
+  picardGeneratingSeries, arithmeticHeightKernel, degenerateSchwartz, arakelovMeasure,
+  admissibleMetric, admissibleGreen, arakelovGreen, arakelovDualizingMetric,
+  arithmeticSkeletonMeasure, realAdmissibleMetric, pseudoTheta, mixedThetaEisenstein,
+  normalizedWhittaker, cmOrbitAverage, localDerivativeCorrection, colmezTestFunction, normShell,
+  modifiedSelfIntersection, regularizedCmGreen, cmLocalMultiplicity, residueAdjunctionLine,
+  twoSplitDegeneracy, archDerivativeKernel, partialRankin, classicalComplexHeight,
+  markedModularGreen, heckeGreen, cmKernelInvariant, cmArchimedeanHeightSum, cmTangentHeight,
+  etaCMTangent, diagonalHeckeGreen, inertOrderModel, halfHomCount, newCMHom, cmSelfIntersection,
+  cmPrimeHeightSum, inertCMHomLattice, inertNormIdeals, ramifiedOrderModel,
+  classicalRankinKernel, genusEisensteinCombination, rankinGenusSign, signedDivisorSums,
+  cmModifiedIntersection, coeffPairing, IsAdmissibleOrder, peterssonRatio, quaternionicBDP,
+  cmCyclicPair, quadraticBaseChangeSign, quadraticInductionSign, torusProbability_period,
+  arithmeticGraphPotential, arithmeticModelCurvature, integralNewformDifferential,
+  finiteMapDifferentialTrace, thetaNormSpecialization, splitShimizuContraction,
+  halfWeightCoefficient_norm, weightTwoCuspProjector, weightTwoRegularizedProjection,
+  weightTwoNewProjector, parallelWeightTwoProjector, colmezTwoPlaceProjectionGrowth,
+  rankinDecayIntegral, ordinaryCMCoordinate, canonicalCMLift, quasiCanonicalCMLift,
+  cyclicDiagramHom, cyclicDiagramEnd, halfDiagramHomCount, degenerateSchwartzOne,
+  degenerateSchwartzTwo, testVectorLine, goodOptimalQuotient_cotangentExact,
+  algebraicPointLog_subgroup, cmSerreTateExpansion, cmLocalMomentMeasure, pNewColemanPrimitive,
+  pNewAbelJacobi, pNewCMRootMeasure, primitiveQuaternionicDifferentialLine,
+  cmMaassDerivative_toricNorm, bdpRootNormalization, bdpRootCharacterTransport,
+  castellaHsiehRoot_ramifiedLevel, chiProjector, heegnerIntegral, quaternionicRoot.
+-/
