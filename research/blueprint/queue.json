@@ -38327,7 +38327,8 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.0",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10799"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.2",
@@ -43127,7 +43128,8 @@
    ],
    "revisionOf": "BP-PadicHodgeRegulators",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11092"
   },
   {
    "priority": 2,
@@ -150856,9 +150858,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-EisensteinIdealAndRationalTorsion.md",
-   "note": "claimed on GitHub issue #11045"
+   "note": "deliverables arrived from an external worker on issue #11045",
+   "finishedAt": "2026-10-19T20:25:02Z"
   },
   {
    "id": "DESIGN-RelativeJacobiansAndIntegralCurveModels",
@@ -150876,9 +150879,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-RelativeJacobiansAndIntegralCurveModels.md",
-   "note": "claimed on GitHub issue #11046"
+   "note": "deliverables arrived from an external worker on issue #11046",
+   "finishedAt": "2026-10-19T20:25:02Z"
   },
   {
    "id": "PKG-NoncommutativeAndEquivariantIwasawa~codex",
@@ -151081,8 +151085,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~adv.md",
+   "note": "claimed on GitHub issue #11070"
   },
   {
    "id": "FIX-PKG-PeriodsAndSpecialValues~adv",
@@ -151163,8 +151168,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-HabiroNahmSeries~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroNahmSeries~adv.md",
+   "note": "claimed on GitHub issue #11094"
   }
  ]
 }
