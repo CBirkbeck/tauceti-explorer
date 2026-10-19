@@ -144,6 +144,7 @@ def bdpEulerFactor (p a : ℚ) : ℚ := (1 + p - a) / p
 
 example : bdpEulerFactor 5 1 = 1 := by sorry
 example : bdpEulerFactor 5 (-4) = 2 := by sorry
+example : bdpEulerFactor 1 2 = 0 := by sorry
 
 /-- Under the Hasse bound `|a| ≤ 2√p` the good-prime Euler factor is nonzero for `p > 1`,
 since `1 + p - a ≥ (√p - 1)² > 0`. At `p = 1, a = 2` the numerator vanishes, so `1 < p` is
@@ -177,3 +178,19 @@ end TauCetiRoadmap.GrossZagierAndArithmeticHeights
 -- genusEisensteinCombination, rankinGenusSign, signedDivisorSums.
 -- cmModifiedIntersection, coeffPairing, IsAdmissibleOrder.
 -- peterssonRatio, quaternionicBDP.
+-- cmCyclicPair, quadraticBaseChangeSign, quadraticInductionSign, torusProbability_period.
+-- arithmeticSkeletonMeasure, arithmeticGraphPotential, arithmeticModelCurvature.
+-- integralNewformDifferential, finiteMapDifferentialTrace.
+-- thetaNormSpecialization, splitShimizuContraction, halfWeightCoefficient_norm.
+-- weightTwoCuspProjector, weightTwoRegularizedProjection, weightTwoNewProjector.
+-- parallelWeightTwoProjector, colmezTwoPlaceProjectionGrowth.
+-- rankinKernelPolynomial, rankinDecayIntegral.
+-- ordinaryCMCoordinate, canonicalCMLift, quasiCanonicalCMLift.
+-- cyclicDiagramHom, cyclicDiagramEnd, halfDiagramHomCount.
+-- degenerateSchwartzOne, degenerateSchwartzTwo, testVectorLine.
+-- goodOptimalQuotient_cotangentExact, algebraicPointLog_subgroup.
+-- cmCoefficientAmiceEquiv, cmSerreTateExpansion, cmLocalMomentMeasure.
+-- pNewColemanPrimitive, pNewAbelJacobi, pNewCMRootMeasure.
+-- primitiveQuaternionicDifferentialLine, cmMaassDerivative_toricNorm.
+-- bdpRootNormalization, bdpRootCharacterTransport, castellaHsiehRoot_ramifiedLevel.
+-- chiProjector, heegnerIntegral, quaternionicRoot.
