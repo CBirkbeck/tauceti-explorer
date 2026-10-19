@@ -1,12 +1,12 @@
 # Roadmap: K-theory of finite and local fields
 
-**Summary.** Compute the higher algebraic K-groups of finite fields and nonarchimedean local fields, together with the maps that arithmetic applications use. The build starts with Brauer lifting and Quillen's finite-field model, passes through henselian rigidity and integral K₂, and constructs the logarithmic trace calculations needed at the residue characteristic. Its end results distinguish integral groups, finite coefficients and derived completion, identify the completed local groups through Galois cohomology, and compare all these maps with completion of number fields. The characteristic-two hermitian applications and finite-rank symplectic Chern-class calculation retain their separate hypotheses.
+**Summary.** Compute the higher algebraic K-groups of nonarchimedean local fields and their arithmetic maps, using GeneralAlgebraicKTheory's finite-field theorem. The build refines that supplied comparison by normalized classes and operations, passes through henselian rigidity and integral K₂, and constructs the absolute logarithmic Witt and trace calculations needed at the residue characteristic. Its end results distinguish integral groups, finite coefficients and derived completion, identify the completed local groups through Galois cohomology, and compare all these maps with completion of number fields. The characteristic-two hermitian applications and finite-rank symplectic Chern-class calculation retain their separate hypotheses.
 
 ## Scope and ownership
 
-This roadmap owns the finite-field Brauer lift and its comparison with the plus construction, the finite-field calculation with its operations and transfers, henselian rigidity in this application, Moore's local K₂ structure theorem, the Hesselholt–Madsen logarithmic DVR model and its explicit calculations, the assembly of local higher K-groups, and their arithmetic completion interfaces.
+This roadmap owns the completed-Adams and normalized-class refinements of the supplied finite-field comparison, its arithmetic operations and transfers, henselian rigidity in this application, Moore's local K₂ structure theorem, the Hesselholt–Madsen logarithmic DVR model and its explicit calculations, the assembly of local higher K-groups, and their arithmetic completion interfaces.
 
-The following are boundaries, rather than additional targets. GeneralAlgebraicKTheory supplies exact-category K-theory, its plus comparison, localization, dévissage, products and transfers. KTheoryLowDegrees supplies determinant and semilocal K₁. K2SymbolsBrauer supplies Matsumoto's presentation, ordinary residues, Hilbert symbols and their class-field-theoretic interpretation. RefinedTraceMethods supplies ordinary HH, THH, cyclotomic spectra, the general trace and the modern comparison machinery. CrystallineCohomology supplies ordinary and logarithmic de Rham–Witt objects and their universal properties. StableHomotopyKTheory supplies spectra, plus constructions, coefficient cofibres and completion. The finite-coefficient étale comparison here uses motivic foundations from MotivicEtaleKTheory; it does not assume that roadmap's later regulator applications. General higher Chern classes and rational regulators remain there and in PadicHodgeRegulators.
+The following are boundaries, rather than additional targets. GeneralAlgebraicKTheory supplies exact-category K-theory, its plus comparison, localization, dévissage, products and transfers. KTheoryLowDegrees supplies determinant and semilocal K₁. K2SymbolsBrauer supplies Matsumoto's presentation, ordinary residues, Hilbert symbols and their class-field-theoretic interpretation. RefinedTraceMethods supplies ordinary HH, THH, cyclotomic spectra, the general trace and the modern comparison machinery. CrystallineCohomology supplies classical characteristic-p and relative de Rham–Witt complexes; the universal absolute prelog complex required in mixed characteristic is §5.2a here. StableHomotopyKTheory supplies spectra, plus constructions, coefficient cofibres and completion. The finite-coefficient étale comparison here uses motivic foundations from MotivicEtaleKTheory; it does not assume that roadmap's later regulator applications. The universal finite-coefficient Chern construction used before rigidity is §1.8 here; later motivic comparisons and rational regulators remain there and in PadicHodgeRegulators.
 
 Tau Ceti's GrothendieckEulerForms already owns the Grothendieck-group framework; the library's dimension equivalences give K₀ of a field. LocalFieldsRamification, LocalGaloisGroups, ClassFieldTheory, ProfiniteCohomology and NumberFieldArithmetic already own the local fields, arithmetic reciprocity, Galois coefficients and completion algebras used below. RepresentationTheory/InductionRestriction owns Brauer induction and the integral virtual-character lattice. QuadraticFormInvariants and the current quadratic-form library own their classical Witt rings and cancellation; the symmetric bilinear characteristic-two groups below are a different application of Poincaré-category L-theory. General Poincaré GW/L spectra, the fundamental square and the finite-vcd₂ homotopy-limit theorem are supplier contracts, not reconstructed in this roadmap. The current library's general additive Tate module is also a supplier, not a second inverse-limit construction here.
 
@@ -38,6 +38,8 @@ Use `TauCeti.SplitK0.finrankEquiv` and `TauCeti.AbelianK0.finrankEquiv` for the 
 
 Mathlib's `groupCohomology`, `groupHomology`, `tateCohomology`, projective resolutions and mapping cones provide the algebraic Tate comparison. Tau Ceti's `TateCohomology.H0LinearEquivTrivialIntZModCard` fixes the trivial integral-coefficient computation. The current library module `TauCeti.Algebra.Module.Torsion.TateModule` supplies compatible p-power torsion families, projections, functorial maps, the ℤₚ action and the finite-rank freeness criterion. Consume this carrier for Tₚ(B). The additional elementary lemmas needed for completion are stated in §6.2 on this carrier; they are not declarations already supplied by this module. Its `nonempty_linearEquiv_of_natCard`, `free_of_natCard` and `finrank_eq_of_natCard` supply the finite-rank freeness criterion. The latter statement does not identify the Tate module of an infinite direct sum with an unrestricted product. Tₚ(ℤ) = 0, whereas the ordinary p-adic completion of ℤ is ℤₚ.
 
+For §0.4 use the current `TauCeti.completedGroupAlgebra` carrier, `proj`, `of`, `map`, and `powerSeriesCoordinate` from `Topology/Algebra/Group/Profinite/CompletedGroupAlgebra/{Basic,Map,PowerSeries}.lean`, also consumed by ProfiniteProPGroups Layer9. The coordinate requires an infinite procyclic pro-p group and a topological generator; for ℤₚ× at odd p retain its finite prime-to-p factor. No completed-group-algebra carrier or general coordinate is constructed here.
+
 For cardinal arguments use `exists_isTranscendenceBasis`, `IsTranscendenceBasis.isAlgebraic`, `AlgebraicIndependent.aevalEquiv`, `MvPolynomial.cardinalMk_le_max`, and `Algebra.IsAlgebraic.cardinalMk_le_max`, with its domain and torsion-free scalar hypotheses. `PowerSeries.mk`, `PowerSeries.coeff_mk` and `HahnSeries.ofPowerSeries_injective` embed binary sequences into Laurent series. These inputs do not assert uncountability of a K-group by themselves.
 
 ### From the foundational K-theory roadmaps
@@ -46,13 +48,13 @@ GeneralAlgebraicKTheory Layers 1–3 and 7 must provide one functor K on exact/W
 
 StableHomotopyKTheory Layers H.1–3, H.5 and H.6 supply coherent classifying spaces, plus acyclicity and its universal property for maps to H-spaces, homotopy fibres, coefficient cofibres and their natural maps, Milnor's exact sequence for countable towers, and invariance of lim and lim¹ under pro-isomorphism. In its package, H.6 is Layer 7: §§7.13–7.15 supply the completion extension and finite-generation comparison, §7.31 supplies multiplicative Moore structures for prime powers outside {2,3,4,8}, and §7.33 supplies Browder's finite-field product refinement. Surjective or Mittag–Leffler towers have vanishing lim¹, without a finite-group hypothesis. Completion preserves fibre sequences. A spectrum whose homotopy is uniformly killed by a fixed power of 2 is derived 2-complete.
 
-**Gap: Eilenberg–Moore.** The multiplicative Eilenberg–Moore spectral sequence required by §1.7 is not an export of H.6. Its simply connected, finite-type pullback theorem, product comparison and convergence need a registered foundational target; a spectral sequence of a filtered spectrum alone does not provide them.
+GeneralAlgebraicKTheory §13.8a supplies represented KU, its connected rank-zero space BU, Bott periodicity, exterior/Adams operations for positive integers, and `finiteGroup_KU_completion`: for finite G, Rℂ(G)^∧_I ≃ KU⁰(BG) and KU¹(BG) = 0, with the finite-skeleton and Adams comparisons. Its underlying KU and telescope carriers are GeneralizedCohomology G5.4 and G3.4. GeneralAlgebraicKTheory §13.8b supplies the standard-minus-rank virtual Brauer lift, its stable Frobenius homotopy and the equivalence BGL(𝔽q)⁺ ≃ fib(ψ^q−1:BU→BU), including the finite-GL cohomology/detection, stable defining-characteristic and rational homology comparisons. Its §13.8c supplies K₀ = ℤ, K₂ᵢ = 0 and K₂ᵢ₋₁ ≃ ℤ/(q^i−1), i ≥ 1. Consume these as one compatible plus/Q comparison; no second proof of Green integrality, standard Brauer lifting or Quillen's equivalence is a target below. These are the exports of [GeneralAlgebraicKTheory #1212](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1212), README §§13.8a–c at b1b14e6940e291d60379dcc65fb22674f63fa176.
 
-RefinedTraceMethods' topological K-theory layer supplies BU, KU, Bott periodicity, the Atiyah λ-ring map Rℂ(G) → KU⁰(BG), integer Adams H-maps and their action k^i on π₂ᵢBU. It must also supply Atiyah–Segal completion for finite G, KU¹(BG) = 0, and the compact Hausdorff augmentation-kernel argument controlling lim¹ over GLₙ. For every prime ℓ ≠ p, the ℓ-completed variant supplies continuous Adams operations for k ∈ ℤₗ×. Together these accommodate a prime-to-p profinite change of the Brauer embedding; an operation on KU completed at the residue prime p alone would not do so. General integer exponentiation does not implement such a global change. SchemeKTheoryOperations Layer 6 supplies higher λ/Adams operations, their composition law, Hiller's universality, and ψᵖ = Frobenius on characteristic-p algebras. Its perfect characteristic-p consequence is unique p-divisibility of positive K-groups, with the source hypotheses retained.
+The supplied fibre is connected and includes paths between ψ^q(x) and x; it has π₂ᵢ = 0 and π₂ᵢ₋₁ = ℤ/(q^i−1). It is neither a strict fixed-point subset nor the rank-inclusive fibre used in §6.12. At q=2 its π₁ is zero while π₃=ℤ/3; at q=5 determinant sends the unit 2 to a generator of π₁=ℤ/4. The standard lift at rank two over 𝔽₃ is a virtual class, and stabilization cancels the added trivial line. These boundary checks fix which supplied comparison is being consumed.
+
+The extra compact augmentation-kernel tower lemma and continuous ℓ-completed unit Adams operations are targets of §§0.1–0.2; the multiplicative Eilenberg–Moore pullback theorem is §0.3. They are refinements beyond the stated integer-Adams and finite-group exports, not consequences of a generic filtered-spectrum spectral sequence. SchemeKTheoryOperations Layer 6 supplies higher λ/Adams operations, their composition law, Hiller's universality, and ψᵖ = Frobenius on characteristic-p algebras. Its perfect characteristic-p consequence is unique p-divisibility of positive K-groups, with the source hypotheses retained.
 
 K2SymbolsBrauer Layers 2–4 and 7 supply the comparison of Milnor and Quillen K₂, Steinberg relations, residues and transfers, Hilbert-symbol bilinearity, nondegeneracy, exponent changes and reciprocity. No second finite-field symbol computation is built here. For the cardinal argument use its higher Milnor residues and norm/restriction degree identity.
-
-**Gap: topological exports.** RT.4:topological currently states KU/Bott, but does not state the Atiyah–Segal, tower lim¹ or continuous completed-Adams exports required above. Those precise exports need a registered supplier target before §§1.3–1.7 can have a closed prerequisite chain.
 
 ### From trace, differential and arithmetic suppliers
 
@@ -60,21 +62,106 @@ RefinedTraceMethods Layers 1–3 supply cyclic HH with Connes B, cyclic homology
 
 CrystallineCohomology Layer CR.4 supplies the classical characteristic-p and relative p-typical Witt complexes, including R,F,V,d and the projection formula. Its logarithmic algebra layer supplies prelog rings and universal log differentials. This roadmap owns the mixed-characteristic DVR presentations, homotopy-orbit comparison and trace calculation.
 
-**Gap: absolute logarithmic Witt complexes.** The required initial Witt complex of a prelog ℤ_(p)-algebra, with its absolute differential, standard filtration, `FdV = d` at odd p and `Fd[a] = [a]^(p−1)d[a]`, is not the relative Wₙ(A)-linear complex in CrystallineCohomology §CR.4.6. Nor is its semistable characteristic-p embedding model a universal prelog construction. The initial-object, level-one and filtration statements needed from HM03 Proposition3.2.2/Addendum3.2.3 p.49 still need an owner; HM04 TheoremD pp.1–3 proves the nonlogarithmic analogue, so its extension to prelog rings must be established before §§5.3–5.6 can consume them.
+The absolute initial object, level-one comparison and standard filtration are constructed in §5.2a, before the DVR calculations. Relative Wₙ(A)-linear differentials from CrystallineCohomology §CR.4.6 are not used for this purpose: with the same ring as base they kill all positive forms, whereas absolute Witt differentials can retain dV(1). SchemeAndStackFoundations §0.15 supplies `popescu_desingularization` and `popescu_colimit_of_geometricallyRegular` for regular maps of noetherian rings (Stacks Theorem16.12.1, tag 07GC). Section 5.17 applies these to the geometrically regular map 𝔽ₚ→A, at finite Witt length before any inverse limit. The Geisser–Levine field/sheaf comparisons needed there are separate targets of §5.17, not exports of Bloch–Gabber–Kato alone.
 
 LocalFieldsRamification Layers 0–2 supply finite extensions as local fields, the henselian DVR integer ring, finite roots of unity, the units/principal-units decomposition, unramified extensions and their residue Frobenius. A coefficient-ring presentation for an arbitrary perfect residue field requires the complete Cohen/Witt lifting theorem; the finite-residue unramified-extension theorem alone is insufficient. This additional input is made an explicit target in §5.2. ClassFieldTheory Layers 5–8 supply local reciprocity with arithmetic Frobenius, its norm kernel, finite-module local duality, finiteness and the local Euler characteristic. In particular consume `kummerEquiv_mixed`, `finite_H`, `tateDualityPairing_perfect_mixed`, `eulerCharacteristic_mixed`, and Layer 6’s `cd_p_absoluteGaloisGroup_eq_two`; these are statements for finite smooth discrete coefficients over finite p-adic fields. Layer 7 fixes the absolute Artin map and its cyclotomic unit normalization. ProfiniteCohomology Layer 9 supplies surjectivity of Kummer's map; the pinned `TauCeti.kummerClassMap_injective` supplies its injective half. LocalGaloisGroups Layers 0 and 5–6 supply the cyclotomic-character image and its local reciprocity comparison, including `range_localCyclotomicCharacter_ratPadic` and its finite-extension index bound; use LocalFieldsRamification for the inertia/residue sequence. NumberFieldArithmetic Layer 5 supplies completion maps in towers and `K_v ⊗[K] L ≃ ∏_(w|v) L_w` with its value on pure tensors.
 
-MotivicEtaleKTheory Layers 1 and 4–7 supply field étale/Galois comparison, henselian étale rigidity for invertible coefficients, diagonal motivic cohomology as Milnor K-theory, norm residue for invertible coefficients, Bloch–Gabber–Kato in characteristic p, with the separate Geisser–Levine p-torsion and logarithmic-symbol comparison additionally required as specified below. More precisely, M.6a–b supply the filtered motivic spectrum, layer identification and convergence; M.7 supplies étale sheafification, its comparison map and the Quillen–Lichtenbaum range. These foundational comparisons are used in §6.6 independently of M.8's regulators. The map Kᵢᴹ → Kᵢ → Kᵢᴹ has composite (−1)^(i−1)(i−1)! (K-book Lemma V.11.13, p.458). ArithmeticGaloisDuality's continuous-coefficient layer supplies cohomology of ℤₚ(i), ℚₚ(i) and ℚₚ/ℤₚ(i), with lim¹ controlled before exchanging cohomology and limits, and its local-conditions layer supplies unramified inflation subgroups. The finite-coefficient Chern/étale-edge construction in §6.6 is an early export of this roadmap; it must precede regulator theory.
+MotivicEtaleKTheory Layers 1 and 4–7 supply field étale/Galois comparison, henselian étale rigidity for invertible coefficients, diagonal motivic cohomology as Milnor K-theory, norm residue for invertible coefficients, Bloch–Gabber–Kato in characteristic p, with the separate Geisser–Levine p-torsion and logarithmic-symbol comparison additionally required as specified below. More precisely, M.6a–b supply the filtered motivic spectrum, layer identification and convergence; M.7 supplies étale sheafification, its comparison map and the Quillen–Lichtenbaum range. These foundational comparisons are used in §6.6 independently of M.8's regulators. The map Kᵢᴹ → Kᵢ → Kᵢᴹ has composite (−1)^(i−1)(i−1)! (K-book Lemma V.11.13, p.458). ArithmeticGaloisDuality's continuous-coefficient layer supplies cohomology of ℤₚ(i), ℚₚ(i) and ℚₚ/ℤₚ(i), with lim¹ controlled before exchanging cohomology and limits, and its local-conditions layer supplies unramified inflation subgroups. The local étale edge in §6.6 uses these descent suppliers after Layer 2. The universal finite-coefficient Chern maps and their finite-field normalization in §1.8 use only étale cohomology, classifying spaces and the supplied finite-field comparison; they precede both rigidity and M.7.
 
 GeometryOfNumbersAndQuadraticArithmetic §6.8a supplies the general Poincaré categories, symmetric structures, GW and L spectra, Ξ: L → K^(tC₂), the cartesian GW/L/K homotopy-fixed/Tate square, and the classical-to-symmetric connective comparison. Its §6.9 supplies symmetric localization with the derived residue coefficient line; its §6.10 supplies the finite-vcd₂ characteristic-not-two homotopy-limit theorem. Consume its `finiteEvenFieldHomotopyLimit` for finite characteristic-two fields, including the bilinear Witt calculation, equivariant rank comparison and metabolic shifts; those are not additional targets here. HermitianKTheoryOfPoincareCategories HK.0–1 supplies general shift transport and periodicity, and HK.7 supplies field L-theory comparisons between flavours. The bounded-exponent Witt theorem for nonreal local fields is a separate input of §6.13. For the finite-rank Sp calculation require the Lang/geometric étale comparison compatible with compact Sp → SU, not merely the order of a finite classical group. These contracts are distinct from the classical characteristic-not-two quadratic Witt ring already present in Tau Ceti.
 
-**Gap: early Chern and geometric exports.** M.8 currently owns the universal Chern construction, while M.7 uses this roadmap’s rigidity layer. Consequently M.7 and M.8 cannot be inputs to the early finite-field operation used in §1.11. The independent universal-class/Moore-Hurewicz construction with the exact `chern_unit_bott` and `chern_edge_finiteField` exports of §6.6 still needs an earlier supplier or an explicitly moved foundational target. M.1’s field/scheme cohomology alone also does not supply the Lang/classifying-group étale spectral sequence required in §1.11. Its required groups, transgression and comparison maps are stated there.
+SchemeAndStackFoundations §0.15 on upstream main at c785fa3b983754f0dbcc49492d92fd770e3adba6 supplies `popescu_desingularization` and `popescu_colimit_of_geometricallyRegular` (Stacks Theorem16.12.1, tag07GC). Its regular-map and noetherian hypotheses are retained in §5.17.
 
-**Gap: characteristic-p comparison.** M.5 names Bloch–Gabber–Kato, but its current exports do not state the separate Geisser–Levine K-theory comparison required in §§5.17,6.10–6.11. That theorem and the regular-local filtered-colimit passage must be supplied independently of those applications.
+For §1.8 consume EtaleCohomologyFoundations §0.9's normalized étale projective-bundle formula and first Chern class, and its underlying cohomology, Kummer, coefficient and proper-smooth comparison exports. SchemeAndStackFoundations §5.4 supplies the flag/splitting geometry, not the higher K-theory Chern operation. Section 1.8 constructs the latter by universal classes and Moore-Hurewicz; §1.9 constructs the Lang torsor/classifying comparison in the precise low degrees used. Neither calls MotivicEtaleKTheory M.7 or M.8. Later M.8 can consume the universal construction here.
+
+The mathematical order is GeneralAlgebraicKTheory §§13.8a–c → the finite-field refinements and rigidity here → the motivic local comparison; independently GeneralAlgebraicKTheory §§13.8a–c → GeometryOfNumbersAndQuadraticArithmetic §§6.8a–6.10 → the hermitian applications here. GeometryOfNumbersAndQuadraticArithmetic [#851](https://github.com/TauCetiProject/TauCetiRoadmap/pull/851), README at 01c64f0cc5f154a3d190697951ead2fffc2af693, explicitly consumes GeneralAlgebraicKTheory's finite-field theorem. Thus its finite-even comparison does not depend on this roadmap. The trace branch is absolute Witt §5.2a plus supplied cyclotomic theory → Layers 4–5 → §6.6's odd-prime local comparison. The generic hermitian square is never an output of the ordinary étale K-comparison.
 
 ## How to read the build
 
-Layer 1 supplies finite residue terms and their functorial models. Layer 2 extracts the prime-to-p information from henselian rigidity. Layer 3 settles integral K₂, including the wild roots of unity. Layer 4 establishes the classical logarithmic trace and its localization interface. Layer 5 performs the residue-characteristic calculations, with the low-degree argument ordered before the Tate-spectral-sequence induction. Layer 6 combines them with local duality and abelian-group structure; Layer 7 exports the resulting maps to arithmetic consumers. Heavy constructions are stated here with their intended APIs; the suggested Lean file records only signatures expressible using the pinned carriers.
+Layer 0 supplies the topological refinements used to normalize the imported comparison. Layer 1 supplies finite-residue operations and coefficient interfaces. Layer 2 extracts the prime-to-p information from henselian rigidity. Layer 3 settles integral K₂, including the wild roots of unity. Layer 4 establishes the classical logarithmic trace and its localization interface. Layer 5 performs the residue-characteristic calculations, with the low-degree argument ordered before the Tate-spectral-sequence induction. Layer 6 combines them with local duality and abelian-group structure; Layer 7 exports the resulting maps to arithmetic consumers. Heavy constructions are stated here with their intended APIs; the suggested Lean file records only signatures expressible using the pinned carriers.
+
+## Layer 0: completed KU and pullback cohomology
+
+### 0.1 Compact towers and stable uniqueness
+
+For a countable inverse system (Cₙ,fₙ) of compact Hausdorff abelian groups with continuous homomorphisms, prove `compactTower_limOne_zero`: the map ∏Cₙ→∏Cₙ, (xₙ)↦(xₙ−fₙxₙ₊₁), is onto. No surjectivity of fₙ is assumed. The finite intersection proof solves the first N equations backwards and then uses compactness of the product. This is an algebraic lim¹ statement about the underlying abelian groups.
+
+For finite G, let I_G be the kernel of dimension on Rℂ(G) and C_G = lim_s I_G/I_G^s. Prove `augmentationKernel_compact`: these quotients are finite, C_G is compact Hausdorff, KU⁰(BG) ≃ ℤ⊕C_G through the supplied completion theorem, and restriction is continuous on C_G and identity on rank. For Gₙ=GLₙ(𝔽q), deduce lim¹ KU⁰(BGₙ)=0 from the compact kernel and the constant rank tower. Together with KU¹(BGₙ)=0 and both degrees of the telescope Milnor sequence this identifies KU⁰ of stable BGL with the inverse limit and kills KU¹ there. It controls uniqueness of stable Frobenius homotopies; KU¹ vanishing at each finite rank alone does not kill the other lim¹ term (Atiyah–Segal Theorem2.1 pp.3–4, Proposition4.2 p.10; Haine Construction6.11 p.11).
+
+**API.** Functoriality under continuous morphisms of towers, compatibility with splitting off the constant rank, and comparison with the supplied telescope Milnor sequence. Prove quotient finiteness using finite generation of I_G and |G|I_G⊆I_G²; completion, not I_G itself, supplies compactness.
+
+**Checks.**
+
+- The tower ℤ₂ with transition ×2 is not required to be surjective; every inhomogeneous recurrence still has a solution in ∏ℤ₂.
+- For G=1 the compact kernel is zero and the rank tower remains ℤ; declaring the entire KU⁰(BG) compact would fail.
+- The discrete tower ℤ with transition ×2 has nonzero lim¹. Its failure of compactness prevents extending the lemma to arbitrary abelian groups.
+- For C₂, Rℂ(C₂)=ℤ[t]/(t²−1), I=(t−1), and I²=2I. The kernel completion is ℤ₂, whereas the rank summand stays ℤ.
+
+### 0.2 Continuous unit Adams operations
+
+For every prime ℓ construct `completedAdams ℓ u : KU^∧_ℓ→KU^∧_ℓ` for u∈ℤℓ×. Require ring-spectrum self-equivalences with composition homotopies, ψ¹=id, compatibility with Bott periodicity, and ψ^u acting by u^i on π₂ᵢ=ℤℓ for all i∈ℤ. The topology on homotopy classes of operations is restriction to finite subspectra and finite coefficients. The map u↦ψ^u is continuous in that topology and agrees with the supplied integer operation whenever u is a positive integer prime to ℓ. Construct it through KU cooperations and the evaluation pairing with Cont(ℤℓ×,ℤℓ); extend the integer compatibility across finite stages, rather than postulating integer powers for a profinite exponent (Baker, §2, pp.3–4, equation(2.1)).
+
+**API.** Naturality on completed KU of CW spaces, additivity and multiplicativity, coefficient reduction, external products, action on reduced classes, and commuting homotopies with ψ^q for ℓ∤q. Restrict to connected covers when using BU and to its homotopy equalizer for FPsi q. For finite-stage or stable maps retain the homotopies furnished by §0.1. This target concerns the operations used here; it makes no assertion that arbitrary homotopy actions uniquely rigidify to an action in every higher category.
+
+**Checks.**
+
+- At u=−1 the weights in degrees two and four are −1 and +1. At u=1 the entire operation is identity.
+- At ℓ=2 units include −1 and 1+4ℤ₂; no procyclic hypothesis on ℤ₂× is used.
+- u=ℓ is excluded: an equivalence cannot multiply the invertible Bott class by a nonunit.
+- For ℓ=3 the compatible residues of u∈1+3ℤ₃ give the same operation modulo 3^ν on each fixed finite subspectrum once sufficiently many residues agree; this is finite-stage continuity, not eventual equality of integral operations on all CW spaces.
+
+### 0.3 The multiplicative Eilenberg–Moore comparison
+
+Let X→B←Y be maps of connected CW spaces, B simply connected, with Hⁿ(X;k), Hⁿ(Y;k), Hⁿ(B;k) finite-dimensional for every n≥0 and k a field. Replace one map by a Serre fibration and write P=X×^h_B Y. Construct the two-sided cochain bar comparison and its spectral sequence
+
+```text
+E₂^(−s,t)=Tor_(H*(B;k))^(s,t)(H*(X;k),H*(Y;k)) ⇒ H^(t−s)(P;k), s≥0.
+```
+
+Prove strong convergence: for each total degree the bar filtration is exhaustive, complete and bounded in the contributing directions, with associated graded E∞. The simply connected base gives positive degree at least two in the reduced base cohomology; finite type allows dualizing the homological comparison. Supply shuffle products with Koszul signs, the diagonal comparison giving the cup product on H*(P;k), and naturality for maps of pullback diagrams. Product on E₂ is the Tor product, and all differentials are derivations. No natural splitting of the limiting filtration follows (Eilenberg–Moore Theorem12.1 p.220, its cohomological dual, and §16 pp.227–230; Mestel Theorem19 p.15).
+
+**API.** Independence of the fibration replacement, functoriality, the two pullback edge maps, external products and internal cup products, convergence and identification of the filtration. This is the pullback theorem missing from a generic filtered-spectrum spectral sequence.
+
+**Checks.**
+
+- X=Y=point, B=K(ℤ,2) gives an exterior generator in total degree one from Tor bidegree (−1,2), agreeing with ΩB≃S¹.
+- If Y→B is identity, the Tor computation reduces to H*(X;k), with its product and edge map unchanged.
+- For B=BU×BU use the diagonal and (id,ψ^q); both inputs are finite type in each degree, although the total cohomology is infinite-dimensional. A finite-total-dimension hypothesis would exclude the required application.
+- Dropping simple connectivity is invalid: B=S¹, X=Y=point has ΩB with infinitely many components, outside this convergence statement.
+
+### 0.4 Height-one localization and realization
+
+For p odd write Λ′=ℤₚ[[ℤₚ×]] on the supplied completed-group-algebra carrier. Define `heightOneLocalize X` as localization at KU∧M(ℤ/p), with its natural map from X, exactness, idempotence and invariance under KU/p-equivalence. An excellent Λ′-module is finitely generated of projective dimension at most one. Construct `kuModuleRealization N i` for such N: a localized spectrum with completed KU cohomology N in degree i and zero in the other parity. Prove independence of a length-one projective resolution and uniqueness up to equivalence among localized spectra with one KU-cohomology parity zero and the other an excellent module (DM §§4.7–4.17, pp.15–17).
+
+Construct `heightOneFromZeroSpace`, a functor Φₚ from the pointed homotopy category of spaces to KU/p-local spectra, together with Φₚ(Ω∞₀X)≃`heightOneLocalize X`, natural in spectra X. First apply KU-localization of spaces, then build the functor using periodic Moore-space mapping spectra and their compatible inverse tower. Its API includes identity/composition, homotopy-fibre-square preservation on KU-local spaces, and the comparison on connected covers. A map of zero spaces can therefore be used to construct a map after height-one localization without assuming that it was an infinite-loop map (Bousfield Theorems2.1 and2.3, p.3; §§4–6, pp.17–30; DM Proposition5.7 p.20).
+
+**API.** Realize finitely generated projectives by idempotent telescopes on finite sums of KU, then realize N←P₀←P₁ by the fibre of the induced map of projective realizations. Cohomology is contravariant: a module map N→N′ gives a spectrum map in the opposite direction, with the Hom/Ext¹ comparison detecting equivalences. Changing a topological generator of the same open subgroup gives an equivalent Adams fibre through this module identification. Preserve finite direct sums, suspension and Bott twists. For an open subgroup Γ′⊂ℤₚ× with generator k, prove `adamsFibre_kuModule`: Tₖ=fib(ψᵏ−1:KUₚ→KUₚ) realizes Ind_(Γ′)^(ℤₚ×)ℤₚ(0) in degree zero, and KUₚ realizes Λ′. Use the supplied finite-field comparison and its KU/p-localization, not a conjectural identification of connective and periodic spectra (DM Proposition4.18, p.17).
+
+**Checks.**
+
+- N=0 realizes the zero spectrum; N=Λ′ realizes KUₚ. A resolution with a redundant projective summand gives the same object.
+- A direct sum N₁⊕N₂ gives a wedge of the two realizations. An isomorphism of underlying abelian groups alone does not suffice: the Λ′ action and its Bott twists must agree.
+- The trivial Γ′-module has a one-relation resolution by multiplication by k−1 in its completed group ring. Its realization is a fibre, whereas taking a cofiber without the shift reverses the degree.
+- Φₚ(point)=0 and Φₚ(Ω∞₀Hℤₚ)=0; removing finitely many homotopy groups does not change height-one localization. For KUₚ its comparison recovers KUₚ from the connected zero space, not a connective KU spectrum.
+- Tₖ has π₀=ℤₚ and π₋₁=ℤₚ because ψᵏ acts identically in weight zero. A connective replacement has a different negative homotopy group, even though localization recovers Tₖ.
+
+### 0.5 Burnside transfer detection
+
+Construct stable transfers for finite coverings by stabilizing their finite-sheet embeddings, with independence of the embedding, composition and pullback identities. For finite G,H define `burnsideModule G H` as the Grothendieck group of finite commuting left-G, free right-H sets under disjoint union. Its API includes the orbit basis G×_K H, augmentation #P/H, A(G)-action, restriction, induction, and transfer followed by the H-bundle classifying map. Put I=ker(#:A(G)→ℤ). Prove the augmentation-completed comparison A(G,H)^∧_I≃[Σ∞BG₊,Σ∞BH₊] and, for finite fields E, R_E(G)^∧_I≃[BG₊,Ω∞K(E)]. These are new theorem targets, not supplied KU completion (DFM §2, pp.3–5).
+
+For p-groups G, p odd, R=ℤ[ζ_(p^b)], b≥1, and residue E identifying their p-primary roots μ, define φ_R[P]=[R[P]⊗_(R[μ])R] using μ⊂R×. Prove φ_E:A(G,μ)→R_E(G) onto and ker φ_E⊆ker φ_R. Monomial induction and cyclotomic Morita comparison prove this before completion (DFM Propositions3.1–3.4, Theorem3.5, pp.5–9).
+
+**Checks.** G=1 gives A(1,H)=ℤ. H=1 recovers A(G). G=H=Cₚ has p+1 orbit-basis elements, not p. Retain nontrivial μ. The identity-cover transfer is identity; for the n-sheet cover of a point, transfer followed by fold is multiplication by n on the sphere; a pulled-back covering satisfies the transfer/base-change square.
+
+For §6.12 prove Sylow-transfer detection for lifting along infinite-loop maps between p-local infinite-loop spaces: lifting or nullity can be tested after restriction to a p-Sylow subgroup. Prove finite-stage lifting for a filtered union X=⋃Xᵢ with finite reduced ℤ_(p)-homology in each degree on every Xᵢ, and loop-space targets with finitely generated ℤ_(p)-homotopy: a map lifts exactly when all restrictions lift. Apply these results, plus universality and the two completion comparisons to construct both retraction homotopies (DFM Propositions4.2–4.7 and Theorem4.1 proof, pp.10–12).
+
+### Examples
+
+Use C₂'s representation ring to distinguish compact augmentation kernel from discrete rank, and the ×2 tower over ℤ₂ to test the compact lim¹ proof. Compute the single Tor generator for ΩK(ℤ,2), including its total degree. For the height-one realization, a one-relation induced module produces Tₖ and detects the shift that a homotopy-group table would miss.
+
+### Dependencies
+
+The supplied represented KU, Bott periodicity, finite-group completion and finite-field comparison; general spectra, Milnor sequences, cohomology and classifying-space foundations. Sections0.1–0.3 precede the finite-field refinements; §§0.4–0.5 are used only for §6.12's local homotopy type. Representation induction supplies the module calculations in §0.5; stable finite-cover transfers are constructed there; its two completion comparisons are targets there.
 
 ## Layer 1: finite fields, Brauer lifting and Quillen's model
 
@@ -108,79 +195,33 @@ Construct `bott ω` for a root ω of exact order m ≥ 2 using the Moore-space m
 - Over a field of characteristic two there is no root of exact order two. Over 𝔽₃ the corresponding coefficient Bott class exists and has order two.
 - The determinant of the Bockstein is exactly ω, rather than ω⁻¹.
 
-### 1.3 Brauer characters
+### 1.3 Profinite changes of the supplied Brauer comparison
 
-Fix a compatible embedding ι: 𝔽̄p× → ℂ×. For a finite-dimensional 𝔽q-representation V of a finite group G, define `brauerCharacter V g` as the sum of the lifts under ι of all eigenvalues of g, counted with multiplicity. This uses the semisimple prime-to-p part of g and ignores its unipotent part. Prove `character_one`, conjugacy invariance, short-exact-sequence additivity, tensor multiplicativity, restriction and scalar-extension compatibility, the p-part reduction, and the Frobenius-twist formula χ_(Φ*V)(g) = χ_V(g^p). On the finite eigenvalue group μ_N, changing ι by an integer u coprime to N changes χ(g) to χ(g^u); a global change uses a unit in the prime-to-p profinite integers (Haine Definition5.7, pp.8–9; Mestel §5.3, p.11). *Needs:* finite-field eigenvalues and the virtual-character supplier.
+Fix an embedding ι:𝔽̄p×→ℂ×. For a second embedding ι′=ι∘[u], u∈∏_(ℓ≠p)ℤℓ×, compare the supplied virtual Brauer classes and stable Quillen maps at every prime ℓ≠p through `completedAdams ℓ uℓ`. Require the comparison of maps and their Frobenius homotopies, not merely equality of the induced abstract cyclic groups. At a fixed finite group, u reduces modulo the exponent of the p-regular eigenvalues; the character is the sum of the lifted eigenvalues of the semisimple part. For a p-element this is dimension. These finite restrictions determine the completed comparison using §0.1. This extends the supplied standard lift's fixed-embedding comparison to all prime-to-p profinite embedding changes (Haine Definitions6.1–6.3 and Construction6.11 pp.10–11; K-book IV.1.12 p.269).
 
-**Checks.**
-
-- The one-dimensional representation of 𝔽q× on 𝔽q has character z ↦ ι(z).
-- For GL₂(𝔽₃)'s natural representation, χ of a nontrivial unipotent is 2 and χ(−I) = −2; direct enumeration gives normalized squared norm 2.
-- For a trivial group, χ is the constant dim V; for a p-group every element has that value.
-- Reducing a nontrivial complex character of C_p modulo p gives the trivial modular representation. Its Brauer character is 1, so Brauer character is not the original complex character of an arbitrary lift.
-
-### 1.4 Green's integrality and the virtual Brauer lift
-
-Prove that every symmetric integral polynomial in the lifted eigenvalues of a finite-field representation gives an integral virtual complex character. Reduce via elementary subgroups and the supplied Brauer characterization, keeping the integral lattice rather than only a rational class function (Green's theorem, Haine5.8 p.9; Mestel Theorem14 p.11). Define `brauerLift : R_𝔽q(G) →+* R_ℂ(G)` through character injectivity. Its API is character recovery, augmentation preservation, unit, restriction, scalar extension, λ-operations and Adams compatibility. In particular ψ^q fixes its image (K-book IV.5.8 p.315; Haine5.9–5.10 p.9).
-
-Prove reduced stabilization: for diag(g,1), the lift of the next standard representation restricts to the current lift plus 1. Consequently ρₙ = β(stdₙ) − n is compatible with stabilization. For 𝔽_(q^r)× acting on 𝔽_(q^r), its lift is ∑_(j<r)ι^(q^j), by the separable tensor decomposition (Mestel §5.4 p.12; K-book IV.5.3.1 p.313). *Needs:* §1.3 and λ-ring suppliers.
+**API.** Identity and composition in u, compatibility with finite-rank restriction and stabilization, virtual subtraction of rank, determinant, finite coefficients and the plus/Q identification. For representations other than the standard one consume the same Brauer-character construction from GeneralAlgebraicKTheory; no separate general character theory is introduced here. At the residue prime the positive finite-field K-groups have zero completion, so no unit operation ψ^up on p-completed KU is assigned to the prime-to-p embedding parameter.
 
 **Checks.**
 
-- The lift for a trivial group is the identity ℤ → ℤ; for a p-group it is dimension times the trivial character.
-- The natural GL₂(𝔽₃) lift has norm 2 and no linear constituent, and is virtual rather than the character of a two-dimensional complex representation. A homomorphism GL₂(𝔽₃) → U(2) cannot define this lift.
-- For r = 2 the cyclic lift has exactly the two characters ι and ι^q, each once.
-- Subtracting n is essential: the unreduced standard lifts restrict with an extra trivial line.
+- At rank one over 𝔽₅ a change u≡3 modulo four sends the lifted unit 2 to its cube; determinant detects this change.
+- Over GL₂(𝔽₃), a unipotent element has Brauer trace 2, while −I has trace −2. Lifting eigenvalues of the full Jordan matrix as an honest U(2)-representation is not the construction.
+- At the trivial group, and on p-elements, the reduced rank-zero trace is zero; stabilization adds and then cancels one trivial line.
+- A profinite unit can have unrelated components at ℓ=3 and ℓ=5. No single integer exponent is required to represent it on every root of unity at once.
 
-### 1.5 The Adams homotopy fibre
+### 1.4 Normalized classes on the supplied finite-field fibre
 
-Define `FPsi q` for q ≥ 2 as the homotopy equalizer of id and ψ^q on connected BU, equivalently the homotopy fibre of 1 − ψ^q. Its API gives projection to BU, the specified path between the two composites, an H-space structure, the lifting property, commuting Adams operations and the boundary from π₂ᵢBU. Prove π₂ᵢ = 0 for i ≥ 1 and π₂ᵢ₋₁ ≃ ℤ/(q^i−1); the space is connected. The induced ψ^k acts as k^i on the odd group. A map X → BU fixed by ψ^q lifts uniquely in homotopy classes if [X,U] = 0; a chosen homotopy always gives a lift, but uniqueness needs that hypothesis (Haine6.3,6.7–6.10 p.10; Mestel Lemmas12–13 pp.9–10). *Needs:* Bott periodicity, Adams maps and homotopy fibres.
+For ℓ≠p let r be the order of q in 𝔽ℓ×. Refine the supplied finite-field cohomology comparison by specifying its generators. Use §0.3 on the path-space pullback over BU×BU. The Koszul calculation puts c_(jr) in Tor degree (0,2jr) and its odd partner in (−1,2jr), total degree 2jr−1. Since the algebra is generated in columns zero and minus one, multiplicativity forces all higher differentials to vanish. For odd ℓ graded commutativity also kills odd squares; at ℓ=2 only the associated graded/additive description follows without a separate extension argument (Mestel Theorems19–20 pp.15–16).
 
-**Checks.**
-
-- π₁FPsi4 = ℤ/3, π₃FPsi2 = ℤ/3 and π₃FPsi3 = ℤ/8.
-- q = 1 is excluded: the fibre of the zero map is BU × ΩBU and has nonzero positive even homotopy.
-- The strict fixed-point subset of a chosen Adams representative fails homotopy invariance; the defining datum includes a path.
-- The projection to BU annihilates all odd homotopy groups, so it cannot itself be the finite-field K-theory comparison.
-
-### 1.6 Quillen's map
-
-Define `quillenMap : BGL(𝔽q) → FPsi q` by lifting the Atiyah classes of the compatible reduced Brauer lifts. Finite-group KU¹ vanishing gives the finite-rank uniqueness; passage to stable GL requires the compact Hausdorff lim¹ argument, not an unproved algebraic Mittag–Leffler assertion. Prove finite-rank compatibility, extension across plus, determinant compatibility on π₁ and independence of choices on the induced K-groups (Haine Construction6.11 p.11; Atiyah–Segal Theorem2.1 and Proposition4.2, pp.3–4,10; K-book IV.1.12 p.269). At a fixed rank, an integer change of the finite eigenvalue embedding is represented by its Adams operation. Extending this to a global profinite embedding change requires the continuous completed Adams construction, with comparison back to the finite groups; retain that as a separate interface, not an integer-power formula valid on all roots. *Needs:* §§1.4–1.5 and the Atiyah–Segal contract.
+Normalize the odd class by the relative integral Chern difference in the mapping-cylinder model: define `normalizedOddChern j` in H^(2jr−1)(FPsi q;ℤ/(q^(jr)−1)) with Bockstein the pullback of the integral universal Chern class c̃_(jr). Its mod-ℓ reduction is e_(jr). Supply the relative cocycle construction, pullback naturality, coefficient changes, and agreement with the generators used by the supplied Quillen map. Merely choosing a nonzero element of the exterior factor does not fix this normalization (Mestel Definition24 p.20 and Theorem30 p.25). The resulting odd-prime ring description is the polynomial algebra in c_(jr) tensored with the exterior algebra in e_(jr); its detection and stable equivalence are consumed from GeneralAlgebraicKTheory §13.8b, rather than proved a second time here.
 
 **Checks.**
 
-- At q = 2 both π₁ and K₁ are zero; at q = 5 the unit 2 maps to a generator of π₁ ≃ ℤ/4.
-- The composite to BU is zero on odd K-groups even when K₃(𝔽₂) = ℤ/3 is nonzero.
-- At rank two over 𝔽₃ the construction uses a virtual class, not a group homomorphism to U(2).
+- For q=4, ℓ=3, r=1 the degree-one normalized class has Bockstein of order three. Its negative has the opposite Bockstein.
+- For q=2, ℓ=3, r=2 the first odd class has degree three and H¹=0.
+- For q=2, ℓ=7, r=3 the first odd class has degree five; r, not ℓ alone, determines the indexing.
+- The supplied stable defining-characteristic vanishing is not a finite-rank statement: H₁(GL₂(𝔽₂);𝔽₂)≠0. It cannot be substituted for a hypothesis of the pullback computation.
 
-### 1.7 Cohomological detection and the finite-field theorem
-
-For ℓ ≠ p let r be the order of q in 𝔽ℓ×. Compute H*(FPsi q; 𝔽ℓ) additively as a polynomial part on c_(jr) of degree 2jr and an exterior part on e_(jr) of degree 2jr−1, j ≥ 1. For odd ℓ prove this as a ring description, with the prescribed pullback of Chern classes and transgressions. The Eilenberg–Moore computation uses a simply connected base and finite type, so those hypotheses accompany the spectral sequence (Mestel Theorems19–20 pp.15–16 and Theorem30 p.25).
-
-Normalize the odd classes before comparing generators: use the mapping-cylinder relative Chern difference c̃_(jr)⊗1−1⊗c̃_(jr) to obtain the class ẽ_(jr) with coefficients ℤ/(q^(jr)−1), whose Bockstein is the pullback of c̃_(jr). Define e_(jr) by its mod-ℓ reduction. An arbitrary nonzero exterior generator does not specify this normalization. Compute the positive-degree rational and mod-p cohomology of FPsi q as zero, since q^i−1 is invertible in those coefficient fields (Mestel Definition24 p.20, Theorem30 p.25 and §7 p.17). For ℓ = 2 retain the additive computation and supply the separate multiplicative argument when it is used.
-
-For odd ℓ write n = rm+k, 0 ≤ k < r. Exhibit a Sylow ℓ-subgroup in C^m ⋊ Σ_m, using the cyclic torus 𝔽_(q^r)× and the GL order with the lifting-the-exponent calculation. Prove the normalizer-invariant detection and stability lemmas that identify stable GL cohomology with the preceding classes; an order calculation alone is not detection (Mestel Lemmas32–34 and Theorem35, pp.27–29). Supply the separate ℓ = 2 detection argument required for integral homology. Prove stable GL has zero positive mod-p homology and rational homology, then assemble the prime-by-prime equivalence of Quillen's map (Mestel §9, Theorem37 p.30, citing Quillen's original stable calculation). The finite-rank analogue of mod-p acyclicity is false: GL₂(𝔽₂) ≃ S₃ has nonzero H₁ with 𝔽₂ coefficients.
-
-The precise odd-prime detection target is restriction
-H*(GLₙ(𝔽q);𝔽ℓ) ≃ H*(C^m;𝔽ℓ)^(Σ_m⋊Π^m), where C = 𝔽_(q^r)× and Π = Gal(𝔽_(q^r)/𝔽q). The normalizer acts through permutations and the indicated field automorphisms. Prove Quillen's finite-rank map induces a surjection from H*(FPsi q;𝔽ℓ) to this cohomology and an injection in every fixed degree once n is sufficiently large; then take the stable limit. This records both detection and the stability range needed by the equivalence, rather than inferring either from the dimension of one group (Mestel Theorem35 and §9 p.29).
-
-The final step is the homological Whitehead theorem for connected simple H-spaces and plus acyclicity. The simple-space statement is needed because FPsi q need not be simply connected. Deduce
-
-```text
-BGL(𝔽q)⁺ ≃ FPsi q,
-K₂ᵢ(𝔽q) = 0,        K₂ᵢ₋₁(𝔽q) ≃ ℤ/(q^i−1)  (i ≥ 1).
-```
-
-These are K-book TheoremIV.1.12 and CorollaryIV.1.13, p.269. The plus and Q models must agree, including their degree-two symbol comparison. *Needs:* §§1.3–1.6, group (co)homology, detection, simple-space Whitehead, and the supplied K-theory models. The original detection and stable mod-p arguments are substantive proof obligations, not consequences of the cyclic answer.
-
-**Checks.**
-
-- For q = 4, ℓ = 3, r = 1, the normalized degree-one class has Bockstein the integral Chern pullback of order three; replacing this class by its negative changes that Bockstein.
-- For q = 2, ℓ = 3, r = 2, the first exterior class has degree three and H¹ is zero. Introducing a degree-one exterior generator would fail this case.
-- For q = 2, ℓ = 7, r = 3, the first exterior class instead has degree five; the indexing depends on the multiplicative order, rather than just on ℓ.
-- Positive mod-p cohomology of the fibre is zero, while H₁(GL₂(𝔽₂);𝔽₂) is nonzero; the stable hypothesis on the GL assertion is essential.
-
-### 1.8 Adams, Galois action, restriction and transfer
+### 1.5 Adams, Galois action, restriction and transfer
 
 Using the higher-operation supplier, prove absolute Frobenius p acts as ψᵖ, hence by p^i on K₂ᵢ₋₁(𝔽q); ψ^k acts by k^i. This identification is through the Brauer comparison and universality, rather than an arbitrary automorphism of a cyclic group (K-book IV.5.5.2,5.7–5.9.2 pp.314–316; Haine Theorem3.1(c) p.5).
 
@@ -195,13 +236,13 @@ For i ≥ 1 restriction on K₂ᵢ₋₁ is injective onto Galois invariants and
 - The identity extension gives both identity maps. A degree-two extension gives multiplication by 2 on K₀ transfer, which is not onto ℤ.
 - K₁(𝔽₃)·K₁(𝔽₃) lands in zero K₂, whereas 2 ∈ K₀ acts by ordinary doubling.
 
-### 1.9 Coefficients, algebraic closure and derived completion
+### 1.6 Coefficients, algebraic closure and derived completion
 
 For m ≥ 1 and i ≥ 1 deduce K₂ᵢ₋₁(𝔽q; ℤ/m) ≃ K₂ᵢ(𝔽q; ℤ/m) ≃ ℤ/gcd(m,q^i−1). If m | q−1, the finite-field product structure has generators β in degree two and ζ in degree one with ring (ℤ/m)[β,ζ]/(ζ²), using Browder's refinement where small Moore moduli require it (K-book IV.1.13.1 p.269, IV.2.8 p.282). Do not infer a canonical product from the additive Bockstein sequence alone.
 
 Take filtered colimits to obtain K₂ᵢ(𝔽̄p) = 0 and K₂ᵢ₋₁(𝔽̄p) ≃ ⊕_(ℓ≠p)ℚℓ/ℤℓ(i), compatibly with cyclotomic Galois action. For p ∤ m the coefficient ring is (ℤ/m)[β], with Galois action on β^i given by the i-th twist; for p-power coefficients all positive groups vanish (K-book VI.1, finite-characteristic calculation and Corollary1.3.1, p.465).
 
-Define `completed R ℓ` as the homotopy limit of coefficient spectra, `toCompleted` as its natural map, and `completedReduce ν` as projection. Its API includes naturality, transfer, products of rings, reduction modulo ℓ^ν and the Milnor exact sequence with lim¹ Kₙ₊₁(R; ℤ/ℓ^ν). Negative homotopy vanishes here because the connective degree-zero reduction tower is surjective. Finite coefficient groups ensure the relevant lim¹ vanishes; finite generation of adjacent integral K-groups gives the usual tensor description (K-book IV.2.9 p.282; Handbook item59 p.164). *Needs:* §§1.1–1.8 and completion foundations.
+Define `completed R ℓ` as the homotopy limit of coefficient spectra, `toCompleted` as its natural map, and `completedReduce ν` as projection. Its API includes naturality, transfer, products of rings, reduction modulo ℓ^ν and the Milnor exact sequence with lim¹ Kₙ₊₁(R; ℤ/ℓ^ν). Negative homotopy vanishes here because the connective degree-zero reduction tower is surjective. Finite coefficient groups ensure the relevant lim¹ vanishes; finite generation of adjacent integral K-groups gives the usual tensor description (K-book IV.2.9 p.282; Handbook item59 p.164). *Needs:* §§1.1–1.5 and completion foundations.
 
 **Checks.**
 
@@ -210,9 +251,9 @@ Define `completed R ℓ` as the homotopy limit of coefficient spectra, `toComple
 - K₂(ℂ; ℤₗ) = ℤₗ although integral K₂(ℂ) is uniquely divisible and limν K₂(ℂ)/ℓ^ν = 0. The missing term is the Tate module of K₁(ℂ), not an error in the integral group (K-book VI.1.1,1.3 pp.463–465).
 - K₂(𝔽₃; ℤ/2) survives although integral positive even groups vanish, while K₂(𝔽̄₃; ℤ/3) is zero.
 
-### 1.10 Perfect characteristic-two and classical finite-field comparisons
+### 1.7 Perfect characteristic-two and classical finite-field comparisons
 
-For every finite field, including odd q, prove the classical symmetric GW comparison for signs ±1 on connective covers (Calmès et al. III Theorem3.1.3 p.50). For a perfect characteristic-two field k, extend the finite-field homotopy-limit supplier to arbitrary perfect k: use unique 2-divisibility of positive K-groups from the Adams supplier, and surjective Frobenius to identify every one-dimensional symmetric bilinear form with ⟨1⟩. Prove 𝔽₂ → k induces equivalences on 2-completed K and integral symmetric L, then deduce the shifted integral GW homotopy-limit equivalence for every integer shift. Retain the coefficient line, its involution and shift until applying metabolic transport. This extension uses symmetric bilinear forms, not quadratic Arf-invariant theory (III Remark3.1.6 pp.51–52; II Corollary4.4.13 p.107). *Needs:* §1.7, completion, the finite-field supplier and the precise Poincaré/homotopy-limit contracts.
+For every finite field, including odd q, prove the classical symmetric GW comparison for signs ±1 on connective covers (Calmès et al. III Theorem3.1.3 p.50). For a perfect characteristic-two field k, extend the finite-field homotopy-limit supplier to arbitrary perfect k: use unique 2-divisibility of positive K-groups from the Adams supplier, and surjective Frobenius to identify every one-dimensional symmetric bilinear form with ⟨1⟩. Prove 𝔽₂ → k induces equivalences on 2-completed K and integral symmetric L, then deduce the shifted integral GW homotopy-limit equivalence for every integer shift. Retain the coefficient line, its involution and shift until applying metabolic transport. This extension uses symmetric bilinear forms, not quadratic Arf-invariant theory (III Remark3.1.6 pp.51–52; II Corollary4.4.13 p.107). *Needs:* the supplied finite-field theorem, §1.6, the finite-field hermitian supplier and the precise Poincaré/homotopy-limit contracts.
 
 **Checks.**
 
@@ -221,11 +262,39 @@ For every finite field, including odd q, prove the classical symmetric GW compar
 - For an arbitrary perfect characteristic-two k the argument uses Frobenius/Adams, not finite-field cardinality.
 - Odd q is outside the full-spectrum assertion obtained by this even-field proof.
 
-### 1.11 Finite-rank symplectic degree three
+### 1.8 Universal finite-coefficient Chern maps before rigidity
+
+For a commutative ring A with ℓ invertible, m=ℓ^ν, ν≥1, construct universal equivariant classes cᵢ(ρ)∈H²ⁱ_et(Spec A,G;μ_m^⊗i) for a representation ρ:G→GL_N(A) of a discrete group. Use the universal vector bundle on the simplicial classifying scheme, its étale projective-bundle relation and the splitting principle. Prove rank vanishing, normalization c₁ of a line bundle as its Kummer class, pullback in A and G, the Whitney formula and stabilization by a trivial line. These are universal cohomology classes; no étale comparison theorem for higher algebraic K-theory enters their construction.
+
+Define `earlyChern i j` on K_(2i−j)(A;ℤ/m), 2i−j≥2 and j≥0, by applying the mod-m Moore-Hurewicz map for BGL(A)⁺ and then slant evaluation of the stable standard-representation class on group homology. The Moore map is formed from a fixed Moore-space model and its top-dimensional mod-m homology class; prove compatibility with plus acyclicity, stabilization and maps of coefficients. For degree one use determinant and Kummer as `earlyChern 1 1`. The universal-class/slant construction and its naturality are WeibelChern §2.1, equation(2.1), Proposition2.1.1, pp.8–9; the Moore and product comparison is §§1.4–1.6, pp.4–8.
+
+**API.** Ring-map naturality, coefficient inclusion and reduction, comparison with integral Chern operations, restriction in G, Kummer at (i,j)=(1,1), Bott/Bockstein and mixed integral/coefficient product formulas. Prove additivity for degree n≠2 or odd m. At n=2 and even m retain the quadratic correction from the two Bocksteins rather than asserting a group homomorphism in all degrees (WeibelChern §§2.2–2.8 pp.9–12, especially Proposition2.4 p.10).
+
+Prove `chern_unit_bott`: for a∈A× and a primitive m-th root ζ, the mixed product [a]β_ζ has c_(2,1)=−κ(a)⊗ζ, including m=2. This product uses an integral degree-one factor; it does not require a product of two arbitrary mod-two Bott classes. For other weights keep the source's product hypotheses and its mod-two correction terms (WeibelChern Theorem3.2 p.13 and Theorem3.3 pp.14–15).
+
+For F=𝔽q, ℓ∤q, construct `finiteFieldEdgeOne i ν : K_(2i−1)(F;ℤ/ℓ^ν) ≃ H¹(F,ℤ/ℓ^ν(i))`, i≥1, from the supplied Brauer fibre and the two-term Frobenius cochain complex with differential q^i−1. Require its even H⁰/Bockstein companion and naturality in finite fields, restriction, transfer and coefficients. The geometric Bott generator fixes the twist: arithmetic Frobenius acts by q^i. Where μ_(ℓ^ν)⊂F, normalize the edge of [a]β_ζ^(i−1) to κ(a)⊗ζ^(⊗(i−1)), with the supplied finite-field products at the small Moore moduli. The unit a can be chosen to generate F×/(F×)^(ℓ^ν); it is not required to equal ζ.
+
+Prove `chern_edge_finiteField`: `earlyChern i 1` is (−1)^(i−1)(i−1)! times this edge. Use the universal product calculation when roots lie in F, coefficient/Bockstein compatibility for general F, and the supplied Quillen equivalence. The factorial need not be invertible. This proves the finite-field comparison without importing MotivicEtaleKTheory M.7 or M.8 (WeibelChern Proposition5.1 and its proof p.24; Haine Theorem3.1(c) p.5). The local descent edge of §6.6 must later restrict to this normalization; its local isomorphism theorem is a separate target.
+
+**Checks.**
+
+- For i=1, c_(1,1) is Kummer and the multiplier is +1. A trivial representation has zero positive Chern classes; adding a trivial line changes neither stable class nor slant operation.
+- For F=𝔽₇, m=3, ζ=2 and a=2, weight two gives −κ(2)⊗2, a nonzero element of order three. This detects the sign.
+- For F=𝔽₃, m=2, weight three has multiplier 2!=0, although both edge groups have order two. A Chern operation is not an edge isomorphism in every weight.
+- For F=𝔽₅, m=2, take a=2 and ζ=−1. The Kummer class of a is nonzero; that of ζ is zero. Treating a primitive coefficient root as a generator of F×/(F×)^m fails.
+- At A=ℚ₂, m=2, the Bott class has order four with 2β=red{−1,−1}. Neither universal additivity in degree two nor a globally defined square β² is inferred from the weight-two mixed-product formula.
+
+*Needs:* §§1.1–1.2, the supplied finite-field Brauer comparison, §0.2, étale projective-bundle and Kummer cohomology, plus acyclicity and Moore-space homology. The low-dimensional slant, Moore-Hurewicz and equivariant universal-class comparisons are targets here. Local rigidity and motivic descent are downstream.
+
+### 1.9 Finite-rank symplectic degree three
 
 Let q be odd and r ≥ 1. Use SU(2) = Sp(1) = S³, the compact-group sphere quotients and stabilization to prove Sp(r) → SU(2r) induces an isomorphism on H³(−;𝔽₂). Prove the Lang/geometric étale comparison carries this to the finite classical groups. Establish that the integral H₂ of the relevant Sp and SL groups has odd order, including the exceptional rank-one q = 3 and q = 9 multipliers. It need not be zero. The homology UCT then identifies H₃(−;ℤ)/2 with H₃(−;𝔽₂), naturally, and gives the stabilization-compatible order-two comparison (Abdurrahman–Venkatesh Lemma2.7.1 and proof, pp.16–17).
 
-More precisely, for G = Sp₂ᵣ or SL₂ᵣ require the geometric edge comparison H³(G(𝔽q);𝔽₂) → H³_et(G_(𝔽̄q);𝔽₂) to be an isomorphism between one-dimensional spaces, compatible with Sp₂ᵣ → SL₂ᵣ and stabilization. In the Lang fibration compute the degree-four transgression as multiplication by q²−1; it vanishes modulo two for odd q. The comparison with compact-group degree-three cohomology then fixes the nonzero map, rather than merely two abstract groups of order two (Abdurrahman–Venkatesh proof of Lemma2.7.1, equation(2.10), pp.16–17). *Needs:* compact-classical comparison, Lang's theorem, geometric étale cohomology and its fibration spectral sequence.
+Construct `langTorsor` for a connected smooth affine group G/𝔽q: L(g)=g⁻¹Frob_q(g) is a finite étale torsor for left translation by G(𝔽q). Prove the torsor equivalence, functoriality for group homomorphisms over 𝔽q and its classifying map G_(𝔽̄q)→B(G(𝔽q)). For coefficients 𝔽ℓ with ℓ≠char(𝔽q), construct the corresponding diagram of classifying topoi, or its prime-to-characteristic étale homotopy model, as the pullback of the diagonal BG→BG×BG along (id,BFrob_q). The resulting Lang fibration G→B(G(𝔽q))→BG has a natural multiplicative cohomology spectral sequence. Prove the required base-change comparison using the Borel/flag decomposition, rather than assume properness of the affine group. This is an additional group-scheme comparison target, not a consequence of field Galois cohomology alone (QuillenICM §2, pp.48–50, equations(1)–(3); AV Lemma2.7.1 proof, pp.16–17).
+
+For G=Sp₂ᵣ or SL₂ᵣ over 𝔽q with q odd and r≥1, prove `langDegreeThreeComparison`: H^j_et(BG;𝔽₂)=0 for 1≤j≤3, the geometric degree-three group and the degree-four universal Chern group are each one-dimensional, and the only possible low-degree transgression is Frob_q*−id, multiplication by q²−1 on c₂. Fix its sign by this convention before reduction modulo two. The edge map H³(G(𝔽q);𝔽₂)→H³_et(G_(𝔽̄q);𝔽₂) is consequently an isomorphism for odd q, compatible with Sp₂ᵣ→SL₂ᵣ and stabilization. Construct the geometric-to-compact comparison through flag varieties, their proper smooth base change and the associated bundle/transgression sequences. Under that comparison Sp(r)→SU(2r) induces the nonzero pullback in degree three. This identifies the actual map, rather than only the dimensions (AV proof of Lemma2.7.1, equation(2.10), pp.16–17).
+
+**Lang API and checks.** Torsor base change, the pullback square, edge-map naturality and transgression normalization must commute with the group inclusions. For r=1 the Sp₂=SL₂ map is identity; rank zero has no degree-three class and is excluded. For q=3 the integral transgression is 8c₂ and for q=5 it is 24c₂, both zero modulo two; replacing q² by q changes the integral comparison. The Lang map on Gₘ is x↦x^(q−1), an étale μ_(q−1)-torsor, illustrating why connectedness and the arithmetic Frobenius are essential. A disconnected constant group need not have surjective Lang map.
 
 Identify BSL(𝔽q)⁺ with the universal cover of BGL(𝔽q)⁺ via determinant; it is 2-connected because K₂(𝔽q) = 0. Hurewicz identifies K₃(𝔽q) with H₃(SL(𝔽q);ℤ). Bockstein identifies K₃/2 with K₃(−;ℤ/2), and K₂(−;ℤ/2) with K₁[2]. For a nonsquare a, compute
 
@@ -233,7 +302,7 @@ Identify BSL(𝔽q)⁺ with the universal cover of BGL(𝔽q)⁺ via determinant
 c₂,₁([a]·β₋₁) = −κ(a) ⊗ (−1)  in H¹(𝔽q, μ₂⊗²).
 ```
 
-Here κ is Kummer, and the second −1 is the nontrivial element of μ₂, not the square class of −1. Weibel's higher Chern formula gives an isomorphism for i = 2 and modulus two: its multiplier is −(i−1)! = −1. Combined with the previous identifications, it yields an order-two étale Chern isomorphism for finite-rank symplectic H₃, compatible with stabilization (Weibel, *Étale Chern classes at the prime 2*, Theorems3.2–3.3 pp.13–15 and Proposition5.1 p.24; Abdurrahman–Venkatesh Lemma2.7.2 p.17). The early Chern construction and its product formula are specified in §6.6, without a regulator dependency.
+Here κ is Kummer, and the second −1 is the nontrivial element of μ₂, not the square class of −1. Weibel's higher Chern formula gives an isomorphism for i = 2 and modulus two: its multiplier is −(i−1)! = −1. Combined with the previous identifications, it yields an order-two étale Chern isomorphism for finite-rank symplectic H₃, compatible with stabilization (Weibel, *Étale Chern classes at the prime 2*, Theorems3.2–3.3 pp.13–15 and Proposition5.1 p.24; Abdurrahman–Venkatesh Lemma2.7.2 p.17). The early Chern construction and its product formula are §1.8, before rigidity or local descent.
 
 **Checks.**
 
@@ -243,7 +312,7 @@ Here κ is Kummer, and the second −1 is the nontrivial element of μ₂, not t
 - Rank zero has zero H₃ and is excluded.
 - The q = 3 and q = 9 H₂ exceptions are handled by odd order, not by asserting universal vanishing.
 
-*Needs:* §§1.1–1.8, §6.6's independent early Chern construction, compact-classical and Lang comparison, and group-homology UCT.
+*Needs:* §§1.1–1.6, §1.8's independent early Chern construction, compact-classical and Lang comparison, and group-homology UCT.
 
 ### Examples
 
@@ -302,13 +371,13 @@ Lift the right group through the prime-to-p torsion of O and multiply by [π]. T
 
 For π′ = uπ prove the coefficient sections satisfy sπ′(a) − sπ(a) = r⁻¹(a)·[u]. The valuation section changes by u in degree one, whereas the integral positive-even torsion section of §2.3 is unchanged. For the specialization λπ(y) = ∂([π]·y), compute λπ′(y) = λπ(y) + [ū]·∂y (K-book V.6.6.4 p.410; Handbook Theorem56 proof p.163). This formula follows from left linearity and uses precisely the specified order of factors.
 
-If m ≥ 2 divides q−1, every positive coefficient degree of L has two copies of ℤ/m. For m = ℓ^ν outside {2,3,4,8}, construct its ring as a free K*(O;ℤ/m)-module on 1,zπ, with zπ = [π] of degree one. With β,ζ from §1.9 its basis over (ℤ/m)[β] is
+If m ≥ 2 divides q−1, every positive coefficient degree of L has two copies of ℤ/m. For m = ℓ^ν outside {2,3,4,8}, construct its ring as a free K*(O;ℤ/m)-module on 1,zπ, with zπ = [π] of degree one. With β,ζ from §1.6 its basis over (ℤ/m)[β] is
 
 ```text
 1, ζ, zπ, ζzπ,        ζ² = 0,        zπ² = [−1] zπ.
 ```
 
-The last square is zero when q ≡ 1 modulo 2m or q is even. Keeping four basis elements corrects the two-element polynomial-base claim in K-book PropositionV.6.10, p.415. The two-element basis there is valid only over the entire residue K-ring. *Needs:* §§1.9,2.2–2.3 and the multiplicative Moore restrictions.
+The last square is zero when q ≡ 1 modulo 2m or q is even. Keeping four basis elements corrects the two-element polynomial-base claim in K-book PropositionV.6.10, p.415. The two-element basis there is valid only over the entire residue K-ring. *Needs:* §§1.6,2.2–2.3 and the multiplicative Moore restrictions.
 
 **Checks.**
 
@@ -322,7 +391,7 @@ The last square is zero when q ≡ 1 modulo 2m or q is even. Keeping four basis 
 
 For L the fraction field of a henselian DVR with residue 𝔽q, prove the integral prime-to-p torsion in both K₂ᵢ and K₂ᵢ₋₁ is cyclic of order q^i−1. For odd degree ≥ 3 and for the even integral complement, the remaining group is a ℤ_(p)-module. In degree one retain the valuation factor separately. For ℓ ≠ p the completed groups are ℤ/(q^i−1)_ℓ in even degrees ≥ 2 and odd degrees ≥ 3; K₁(L;ℤℓ) additionally has ℤℓ. Finite coefficient groups use the uniformizer-dependent direct sum of §§2.1–2.2; these are three separate statements (Handbook §5.6 pp.163–164; K-book VI.7.3 p.509).
 
-For a genuine local field L and i ≠ 0, show inertia acts trivially on ℚℓ/ℤℓ(i), arithmetic Frobenius acts by q^i, and Wᵢ^(ℓ)(L) is cyclic of order (q^|i|−1)_ℓ. Negative i is allowed since q is an ℓ-adic unit. Along finite subextensions of Lˢᵉᵖ, residue fields exhaust 𝔽̄q and reduction gives an equivariant isomorphism K₂ᵢ₋₁(Lˢᵉᵖ){ℓ} ≃ ℚℓ/ℤℓ(i) for i ≥ 1. All abstract isomorphisms between these rank-one divisible torsion Galois modules commute with their scalar Galois actions. Restriction from L identifies its ℓ-primary odd torsion with the invariants, giving the local ℓ-primary e-invariant isomorphism (K-book VI.1.7.1 and Exercise1.3 pp.468–469; VI.2.3.1 pp.471–472). *Needs:* §2.3, finite-extension local arithmetic, the residue Galois sequence and §1.9. The case i = 0 has infinite invariants and is excluded from wᵢ.
+For a genuine local field L and i ≠ 0, show inertia acts trivially on ℚℓ/ℤℓ(i), arithmetic Frobenius acts by q^i, and Wᵢ^(ℓ)(L) is cyclic of order (q^|i|−1)_ℓ. Negative i is allowed since q is an ℓ-adic unit. Along finite subextensions of Lˢᵉᵖ, residue fields exhaust 𝔽̄q and reduction gives an equivariant isomorphism K₂ᵢ₋₁(Lˢᵉᵖ){ℓ} ≃ ℚℓ/ℤℓ(i) for i ≥ 1. All abstract isomorphisms between these rank-one divisible torsion Galois modules commute with their scalar Galois actions. Restriction from L identifies its ℓ-primary odd torsion with the invariants, giving the local ℓ-primary e-invariant isomorphism (K-book VI.1.7.1 and Exercise1.3 pp.468–469; VI.2.3.1 pp.471–472). *Needs:* §2.3, finite-extension local arithmetic, the residue Galois sequence and §1.6. The case i = 0 has infinite invariants and is excluded from wᵢ.
 
 ### Examples
 
@@ -365,6 +434,8 @@ The first expression is `tameCoordinate r s ū v̄`; define this light coordinat
 - At r = s = 1,u = v = 1 over 𝔽₅ the boundary and the fourth symbol are −1. The sign factor cannot be suppressed.
 - For r = −1,s = 1,u = 2,v = 3 over 𝔽₅ the coordinate is −2·3 = −1, testing negative valuations and negative integer powers. Over 𝔽₂ every coordinate is 1.
 - Replacing π by 2π in the first example replaces the unit part of the second input by 3; the coordinate remains 2. This checks the parameter-change direction.
+
+The additional boundary signatures in Suggested.lean are `tameCoordinate_two_uniformizers_mod_five`, `tameCoordinate_negative_valuation_mod_five`, `tameCoordinate_changed_uniformizer_mod_five`, `tameCoordinate_char_two` and `tameCoordinate_zero_ring`; their values are the checks above. The two proved examples retain the unit/uniformizer order and its inverse.
 
 For d | w prove (x,y)_d = 1 exactly when x lies in the norm group of E(y^(1/d))/E. Its index is the degree of that extension, equivalently the order of y in E×/E×d. For d = 2 this says x = a²−yb² for some a,b ∈ E, with x ≠ 0. This is a norm criterion with the first variable as the norm, consistent with our reciprocity order (Sharifi Proposition9.3.4(b) pp.195–196 after interchange; K-book III.6.2.3 p.233).
 
@@ -569,6 +640,32 @@ Reuse ghost injectivity over p-torsion-free rings. Prove the Dwork image criteri
 - For A = ℤₚ[ζₚ], π = ζₚ−1 and e = p−1, so the formulas involve π rather than substituting p.
 - The sign congruences are not asserted uniformly at p = 2.
 - At n = 1 the Witt quotient is A/p, while n = 0 is the zero-length Witt object.
+
+### 5.2a The universal absolute logarithmic Witt complex
+
+Fix an odd prime p and an arbitrary prelog ℤ_(p)-algebra α:M→R. Construct the category `AbsoluteLogWittComplex R M`. An object is a tower of nonnegatively graded log differential rings Eₙ with restriction R, maps λₙ:Wₙ(R)→Eₙ⁰ and dlogₙ:M→Eₙ¹ satisfying dλₙ[α(m)]=λₙ[α(m)]dlogₙ(m), and compatible F:Eₙ→Eₙ₋₁ and additive V:Eₙ₋₁→Eₙ. F is a graded-ring map and V an Eₙ-module map when its source is restricted along F. Require λ to commute with F,V, FV=p, FdV=d, Fd[a]=[a]^(p−1)d[a] and Fdlog(m)=dlog(m). Restriction commutes with these operators. Morphisms preserve the entire structure. The differential is absolute; it is not required to vanish on Wₙ(ℤ_(p)) (HM03 Definition3.2.1 pp.47–48).
+
+Construct `absoluteLogWitt R M` as the initial object, with API `uniqueMap` to every such complex, uniqueness and composition of that map, functoriality in prelog ring maps, and the canonical surjection Ω*_(Wₙ(R),M)↠Wₙω*_(R,M). Here Ω* denotes the universal absolute log differential algebra. Prove Wₙω⁰=Wₙ(R), and `absoluteLogWitt_levelOne`: Ω*_(R,M)≃W₁ω*_(R,M), compatible with d, dlog and multiplication. The construction uses the solution-set/limit argument for log Witt complexes: bound the subobject generated by λ(W(R)) and dlog(M) under R,F,V,d and products, and impose the Witt relations in the universal log differential algebra. Establish existence and uniqueness before using the universal map to TR; TR itself is not defined as the initial object (HM03 Proposition3.2.2/Addendum3.2.3 p.48; HM04 TheoremA p.2 and the log extension on p.4).
+
+Define `standardLogWittFiltration s n i` for 0≤s≤n by
+
+```text
+Fil^s Wₙωⁱ = im(V^s:W_(n−s)ωⁱ→Wₙωⁱ)
+              + im(dV^s:W_(n−s)ω^(i−1)→Wₙωⁱ),
+W₀ω*=0,     Wₙω* / Fil^s ≃ W_sω*.
+```
+
+**API.** Each Fil^s is a differential graded ideal, filtration is decreasing and natural, R is onto, the displayed quotient is induced by R^(n−s), F(Fil^s)⊆Fil^(s−1) for s≥1 and V(Fil^s)⊆Fil^(s+1). Do not assert Fil^s·Fil^t⊆Fil^(s+t) in general. Derive dF=pFd, Vd=pdV and V(xdy)=V(x)dV(y) from the defining identities. For trivial log structure compare with the absolute ordinary complex, and in characteristic p with CrystallineCohomology's classical complex; compare to the relative complex by its canonical quotient, without identifying them (HM03 Lemma3.2.4 pp.48–49; HM04 discussion after TheoremE p.5).
+
+**Checks.**
+
+- At n=1 the construction is absolute log differentials; for M=R× it recovers ordinary absolute differentials, with dlog(u)=u⁻¹du.
+- At n=1, R=𝔽p[x,y] with trivial log structure has nonzero dx∧dy killed by p. Universal existence does not imply the higher-form divisibility proved only for the mixed-characteristic DVR in §5.5.
+- For a DVR's canonical prelog structure, d[π]=[π]dlog π, and at level one its log residue sends dlog π to 1 while ordinary du has residue zero.
+- Fil⁰ is the whole complex, Filⁿ=0, and quotient by Fil¹ is W₁ω*. Replacing the filtration by im V alone loses the dV generators.
+- Over ℤₚ the absolute dV^s(1) classes contribute to dlog of principal units modulo p^ν, whereas the relative complex over ℤ_(p) kills them (HM04 p.5, Example1.2.5). A Wₙ(ℤ_(p))-linear differential would fail this comparison.
+
+*Needs:* supplied Witt vectors, universal absolute log differentials from CrystallineCohomology, graded differential algebra and categorical limits. Initiality, its solution set, level one and the filtration comparison are targets here; no universal relative-Witt assertion replaces them.
 
 ### 5.3 The residue coefficient map and modified Verschiebung
 
@@ -888,6 +985,24 @@ With mod-p coefficients and odd p, prove the Tate differentials d²ε = tσ, d²
 
 ### 5.17 Twisted TR and relative K-theory of nilpotent thickenings
 
+First establish `geisserLevine_fieldComparison`: for every field F of characteristic p and n≥0, Kₙ(F) and Kₙᴹ(F) have no p-torsion, and the symbol map Kₙᴹ(F)/p^ν→Kₙ(F;ℤ/p^ν) is an isomorphism for every ν≥1. Its kernel and cokernel before coefficients are uniquely p-divisible; it is not an integral isomorphism in general. Prove naturality in field maps and coefficient changes, and compatibility of the symbol and trace maps. This requires the characteristic-p motivic concentration theorem H^j(F,ℤ/p^ν(n))=0 for j≠n, the motivic-to-K spectral sequence, and its identification of the diagonal symbol map; Bloch–Gabber–Kato alone supplies only the differential-symbol half. For smooth schemes X over a perfect field, prove the Zariski sheaf comparison (K/p^ν)ₙ≃W_νω^n_log via their Gersten resolutions, where (K/p^ν)ₙ is the sheafification of U↦Kₙ(U;ℤ/p^ν), not a statement that all global K-groups equal global log forms (Geisser–Levine Theorem1.1 p.460, Theorem8.1 pp.489–490 and Theorem8.3 p.491).
+
+For an essentially smooth local 𝔽ₚ-algebra, construct the finite-length dlog/trace injection Kₙ(A)/p^ν↪W_νΩⁿ_A, identify its image as the subgroup generated by dlog symbols, and prove p-torsion freeness using the preceding sheaf comparison and local Gersten resolution. Track the two maps R,F:W_νΩⁿ_A→W_(ν−1)Ωⁿ_A in the same form degree. If C_νⁿ=ker(R−F), prove
+
+```text
+W_νΩⁿ_(A,log) ⊆ C_νⁿ ⊆ W_νΩⁿ_(A,log)+Fil^(ν−1)W_νΩⁿ_A.
+```
+
+Use SchemeAndStackFoundations §0.15 to express a regular noetherian local 𝔽ₚ-algebra A as a filtered colimit of essentially smooth local 𝔽ₚ-algebras. The base field 𝔽ₚ is perfect, so 𝔽ₚ→A is geometrically regular; localization at the preimages of the maximal ideal gives the required local diagram. Prove finite coefficients, finite-length Witt differentials, symbols and the displayed inclusions commute with this filtered colimit. Only then take the R-limit, using the standard filtration to remove the error term and controlling lim¹. Deduce `regularLocal_traceKernel`: for n≥0,
+
+```text
+Kₙ(A;ℤₚ) ≃ ker(1−F:WΩⁿ_A→WΩⁿ_A).
+```
+
+This is the finite-length-to-limit proof route of GH06 Theorem3.1 p.19, using the supplied Popescu theorem (Stacks Theorem16.12.1, tag 07GC). No interchange of arbitrary filtered colimits with homotopy inverse limits is asserted. This regular-local trace theorem is proved here once and consumed in §6.11.
+
+**Comparison API and checks.** Retain ring-map and coefficient naturality, dlog of products of units, restriction and Frobenius, the relative kernel for split augmentations, and the trace map to the separately constructed TC object. For a perfect field F, positive-degree W_νΩⁿ_F=0 and positive p-coefficient K-groups vanish; K₀/p^ν is still ℤ/p^ν. For F=𝔽ₚ(t), dlog t is nonzero in degree one, while Ω²_F=0, so the positive-degree vanishing cannot be asserted for every field. For A=𝔽ₚ[[t]], the finite-length comparison applies through Popescu even though A is not of finite type; its principal units are detected in degree one. A singular ring such as 𝔽ₚ[ε]/ε² fails regularity and is not a permitted Popescu application. The R−F map has the same form degree on both sides; a degree n−1 target would fail even the degree-zero Artin–Schreier–Witt case.
+
 For a regular noetherian 𝔽ₚ-algebra A and a complex circle representation λ, put ℓ_s = dim_ℂ λ^(C_(p^s)) for s ≥ 0 and ℓ_s = ∞ otherwise. Prove
 
 ```text
@@ -895,7 +1010,7 @@ TRⁿ_(q−λ)(A;p) ≃
   ⊕_(r=1)^n ⊕_(ℓ_(n−r) ≤ m < ℓ_(n−1−r)) W_rΩ_A^(q−2m).
 ```
 
-For λ = 0 only r = n contributes and the formula becomes ⊕_(m≥0) WₙΩ_A^(q−2m). Establish the smooth case first and extend through filtered colimits using geometric regularity over a perfect field; do not apply Popescu to arbitrary singular algebras (Hesselholt05 Theorem11 and Proposition12 p.30; Hesselholt96 TheoremB p.2).
+For λ = 0 only r = n contributes and the formula becomes ⊕_(m≥0) WₙΩ_A^(q−2m). Establish the smooth case first and extend at finite TR/Witt length through the preceding regular-to-smooth diagram over 𝔽ₚ; do not apply Popescu to singular algebras (Hesselholt05 Theorem11 and Proposition12 p.30; Hesselholt96 TheoremB p.2).
 
 For e = p^v e′ with p ∤ e′, I_p = {j ≥ 1 : p ∤ j}, and d(r,j) = floor((p^(r−1)j−1)/e), define L_q(j) = lim_R TR^r_(q−λ_d(r,j))(A;p) and L′_q(j) with TR^(r−v), r ≥ v+1. Prove the relative TC exact sequence
 
@@ -923,7 +1038,7 @@ In characteristic zero, prove first the rational relative cyclic-homology formul
 K_(q−1)(A[x]/(x^e),(x)) ≃ ⊕_(m≥1) (Ω_A^(q−2m))^(e−1).
 ```
 
-These groups are uniquely divisible and the relative spectrum admits its rational Eilenberg–Mac Lane decomposition (Hesselholt05 Proposition7 p.22 and Theorem10 p.28). Finally prove, for smooth k-algebras and then regular noetherian 𝔽ₚ-algebras, TRⁿ_* ≃ WₙΩ*⊗Wₙ(k)[σₙ], with Fσₙ = σₙ₋₁ and Rσₙ = pλₙσₙ₋₁ for units λₙ. The positive polynomial terms are pro-zero under R; the remaining de Rham–Witt transition system gives the required Milnor-limit comparison TR_* ≃ WΩ*. Derive the long exact TC sequence with 1−F on WΩ, including its relative version. This supplies the equal-characteristic calculation in Layer 6 (Hesselholt96 TheoremsB–C p.2 and §1.2 p.5; GH06 Introduction p.3).
+These groups are uniquely divisible and the relative spectrum admits its rational Eilenberg–Mac Lane decomposition (Hesselholt05 Proposition7 p.22 and Theorem10 p.28). Finally prove, for smooth k-algebras and then regular noetherian 𝔽ₚ-algebras, TRⁿ_* ≃ WₙΩ*⊗Wₙ(k)[σₙ], with Fσₙ = σₙ₋₁ and Rσₙ = pλₙσₙ₋₁ for units λₙ. The positive polynomial terms are pro-zero under R; the remaining de Rham–Witt transition system gives the required Milnor-limit comparison TR_* ≃ WΩ*. Derive the long exact TC sequence with 1−F on WΩ, including its relative version. The regular-local trace-kernel theorem above supplies the K-theory comparison in Layer 6, in addition to this TR/TC calculation (Hesselholt96 TheoremsB–C p.2 and §1.2 p.5; GH06 Introduction p.3).
 
 **Checks.**
 
@@ -939,7 +1054,7 @@ Carry out the log-THH and the first two Witt levels for ℤ₃, ℤ₃[ζ₃], a
 
 ### Dependencies
 
-Layers 1 and 4; LocalFields and the existing complete-DVR, Witt, divided-power and differential APIs; CrystallineCohomology for the logarithmic Witt complex; equivariant homotopy theory for representation spheres and genuine fixed points; the general nilpotent relative trace theorem; local Galois cohomology for §5.15. These calculations do not require the later integral local K-group classification or a p-adic regulator.
+Layers 1 and 4; LocalFields and the existing complete-DVR, Witt, divided-power and differential APIs; CrystallineCohomology for log differentials and classical characteristic-p Witt theory, §5.2a for the universal absolute log-Witt complex; equivariant homotopy theory for representation spheres and genuine fixed points; the general nilpotent relative trace theorem; local Galois cohomology for §5.15; SchemeAndStackFoundations §0.15 and the Geisser–Levine targets of §5.17 for its regular-local branch. These calculations do not require the later integral local K-group classification or a p-adic regulator.
 
 ## Layer 6: completed and integral higher K-groups of local fields
 
@@ -955,6 +1070,8 @@ Isolate the useful criterion: if w ≥ 1 and mA = wA for every positive multiple
 - For a finite group A, Div(A) = 0; for A = ℚ/ℤ it is all of A. Quotients need not preserve reducedness: ℤₚ is reduced, while ℤₚ/ℤ_(p) is a nonzero ℚ-vector space.
 - Taking T = ℤₚ and P = ℤ_(p) gives a rank-one completion isomorphism and a uniquely divisible quotient T/P. It does not make ℤₚ a direct sum of P and that quotient.
 - At t = 0 a torsion-free ℤ_(p)-module T with T/pT = 0 is a ℚ-vector space; its p-completion is zero.
+
+Suggested.lean proves the rational and exponent-six examples directly from the definition. Its remaining named controls are `maxDivisible_int` and `maxDivisible_rat_prod_zmod_six`, as specified by the checks above.
 
 ### 6.2 The completion exact sequence
 
@@ -1029,9 +1146,9 @@ For a local field E of either characteristic, valuation ring V and residue chara
 - Principal units contribute on both sides of that sequence.
 - In degree zero both rings have rank group ℤ and finite coefficients ℤ/p^ν; the stated high-degree proof cannot be applied by ignoring this surviving rank term.
 
-### 6.6 The early étale edge comparison
+### 6.6 The local étale edge comparison
 
-Construct the coefficient edge map `etaleEdgeOne i ν` from K_(2i−1)(F;ℤ/ℓ^ν) to H¹(F,ℤ/ℓ^ν(i)), for i ≥ 1, ℓ invertible in F and cd_ℓ(F) ≤ 2, using the foundational motivic/étale comparison, its descent spectral sequence, and the Bott normalization of Layer 1. Its API must specify naturality among these fields, coefficient inclusions and reductions, products and the even H⁰ edge, the Kummer identification at i = 1, and trace compatibility in the odd-residue-characteristic local application. This is the early operation consumed by local K-theory and the finite-field symplectic comparison. Its construction requires the foundational motivic complexes, norm-residue comparison and descent theorem; those suppliers are stated above independently of any later local-field computation.
+Construct the coefficient edge map `etaleEdgeOne i ν` from K_(2i−1)(F;ℤ/ℓ^ν) to H¹(F,ℤ/ℓ^ν(i)), for i ≥ 1, ℓ invertible in F and cd_ℓ(F) ≤ 2, using the foundational motivic/étale comparison, its descent spectral sequence, and the Bott normalization of Layer 1. Its API must specify naturality among these fields, coefficient inclusions and reductions, products and the even H⁰ edge, the Kummer identification at i = 1, and trace compatibility in the odd-residue-characteristic local application. This is the descent edge used by local K-theory; prove that over finite fields it agrees with §1.8's independently constructed `finiteFieldEdgeOne`. Its construction requires the foundational motivic complexes, norm-residue comparison and descent theorem; those suppliers are stated above independently of any later local-field computation.
 
 In the larger odd-p mixed-characteristic scope of Layer 5, construct the Dwyer–Friedlander comparison γ_K: K_n(K;ℤ/p^ν) → K_n^ét(K;ℤ/p^ν) and prove it is an isomorphism for n ≥ 1. Specify the étale object by the Thomason–Godement construction over finite Galois subextensions L/K, whose terms are K(L;ℤ/p^ν)^(hGal(L/K)). Its descent spectral sequence has E²_(s,t) = H^(−s)(K, colim_L K_t(L;ℤ/p^ν)). Require the separably closed coefficient calculation: even t ≥ 0 gives μ_(p^ν)^(⊗t/2), and odd t gives zero. The trace identifies this spectral sequence with the logarithmic TC comparison of §5.15. Do not assert that an arbitrary presheaf's homotopy fixed points satisfy descent without the sheafification and convergence argument (HM03 construction(6.1.8), spectral sequence(6.1.9), Theorem6.1.10 pp.102–104). *Needs:* §5.15, the foundational étale sheafification construction and the separably closed coefficient theorem.
 
@@ -1045,7 +1162,7 @@ etaleEdgeOne : K_(2i−1)(L;ℤ/p^ν) ≃ H¹(L,ℤ/p^ν(i)),
 
 The right edge is restriction to the separable closure followed by its Bott identification. Its composite with K_(2i)(L)/p^ν is zero. At odd p, Layer 5 also proves the comparison for the larger perfect-residue mixed-characteristic scope and gives a natural mod-p even splitting. At odd p retain the natural exact sequence, abstractly split, for higher coefficients; a coherent natural splitting is a separate proof obligation. At p = 2 assert only the exact sequence, with no splitting. Use the motivic descent argument for finite p-adic fields, not the odd-prime Tate calculation (Handbook Theorem61 and proof p.165; HM03 TheoremA p.2 and Theorem6.1.10 pp.103–104; K-book ExerciseVI.7.3 p.512).
 
-Distinguish this edge operation from the ordinary higher Chern class c_(i,1). Fix the finite-field normalization by `chern_edge_finiteField`: c_(i,1)=(−1)^(i−1)(i−1)!·etaleEdgeOne. With a primitive coefficient root ζ, normalize the edge of [ζ]β_ζ^(i−1) as κ(ζ)⊗ζ^(⊗(i−1)); then c_(i,1) has the displayed multiplier, with no unspecified choice of sign. For the early weight-two operation also require `chern_unit_bott`: c_(2,1)([a]β_ζ)=−κ(a)⊗ζ, including modulus two. These are the exact independent exports consumed in §1.11. Construct them from universal étale Chern classes and the Moore/Hurewicz comparison before applying any later regulator theory. The general comparison must retain its product and coefficient hypotheses; an ordinary Chern class is not an isomorphism in unrestricted characteristic (Handbook first étale Chern class p.153; WeibelChern Proposition5.1 p.24). The full later regulator is a downstream construction, not an input to this theorem. *Needs:* the foundational suppliers just listed, §§1.2,5.15,6.4–6.5, and cd_p(L) = 2.
+Compare this descent edge with §1.8's ordinary Chern operations. Prove agreement of its finite-field restriction with `finiteFieldEdgeOne`, including the geometric Bott generator, arithmetic Frobenius and coefficient/Bockstein maps. Thus `chern_edge_finiteField` retains the signed factorial (−1)^(i−1)(i−1)!, whereas `chern_unit_bott` remains valid independently of any local comparison theorem. The ordinary operation is not automatically an isomorphism when the factorial is not a coefficient unit (WeibelChern Proposition5.1 p.24). *Needs:* the motivic/étale suppliers above, §§1.8,5.15,6.4–6.5, and cd_p(L)=2 for finite p-adic L.
 
 **Checks.**
 
@@ -1156,7 +1273,7 @@ For either kind of local field, prove K^M_n(E) is uniquely divisible for n ≥ 3
 
 Let V = 𝔽_q[[t]], E = 𝔽_q((t)), I = (t). From the p-basis of size one, prove WₙΩ^j_V = WₙΩ^j_E = 0 for j ≥ 2. On the relative infinite de Rham–Witt groups, prove 1−F is onto and its kernel is the big de Rham–Witt group 𝕎Ω^(j−1)_(𝔽q) = ∏_(p∤r,r≥1) WΩ^(j−1)_(𝔽q). It is nonzero only at j = 1, where it is ∏_(p∤r)W(𝔽_q) (GH06 TheoremB p.3, Proposition2.8 p.16 and end of §2 p.18).
 
-Use GH06 Theorem3.1 p.19: for a regular local 𝔽ₚ-algebra A, the trace identifies K_j(A;ℤₚ) with ker(1−F:WΩ^j_A→WΩ^j_A). Its relative A[[t]] version requires A finite over A^p. For V the coefficient-field splitting gives K(V) ≃ K(𝔽_q)∨K(V,I), and
+Consume §5.17's `regularLocal_traceKernel` (GH06 Theorem3.1 p.19): for a regular local 𝔽ₚ-algebra A, the trace identifies K_j(A;ℤₚ) with ker(1−F:WΩ^j_A→WΩ^j_A). Its relative A[[t]] version requires A finite over A^p. For V the coefficient-field splitting gives K(V) ≃ K(𝔽_q)∨K(V,I), and
 
 ```text
 K_j(V,I;ℤₚ) ≃ 𝕎Ω^(j−1)_(𝔽q),
@@ -1173,7 +1290,7 @@ K_n(E) ≃ K_n(V) ⊕ K_(n−1)(𝔽_q),
 U_n = ker(K_n(V)→K_n(𝔽_q)) uniquely divisible and uncountable.
 ```
 
-The coefficient field fixes the first splitting; Layer 2 gives the canonical integral high-degree localization splitting. Thus K_(2i)(E) ≃ U_(2i)⊕ℤ/(q^i−1), and K_(2i+1)(E) ≃ U_(2i+1)⊕ℤ/(q^(i+1)−1), i ≥ 1; Div(K_n(E)) = U_n. For p ∤ m the coefficient groups split into the two finite-field terms; for p^ν they vanish above degree one. This is the equal-characteristic integral answer, not a zero integral group (K-book TheoremVI.7.2 p.508; Handbook Theorem56 pp.162–163). *Needs:* §§1.9,2.1–2.3,5.17,6.5,6.10 and the regular-local characteristic-p trace theorem.
+The coefficient field fixes the first splitting; Layer 2 gives the canonical integral high-degree localization splitting. Thus K_(2i)(E) ≃ U_(2i)⊕ℤ/(q^i−1), and K_(2i+1)(E) ≃ U_(2i+1)⊕ℤ/(q^(i+1)−1), i ≥ 1; Div(K_n(E)) = U_n. For p ∤ m the coefficient groups split into the two finite-field terms; for p^ν they vanish above degree one. This is the equal-characteristic integral answer, not a zero integral group (K-book TheoremVI.7.2 p.508; Handbook Theorem56 pp.162–163). *Needs:* §§1.6,2.1–2.3,5.17,6.5,6.10 and the regular-local characteristic-p trace theorem.
 
 **Checks.**
 
@@ -1184,21 +1301,43 @@ The coefficient field fixes the first splitting; Layer 2 gives the canonical int
 
 ### 6.12 The odd-prime homotopy type
 
-For finite L/ℚₚ, p odd, put r = [L(ζₚ):L], p^a = #μ_(p^∞)(L(ζₚ)), choose a topological generator g of ℤₚˣ, and set k = g^(p^(a−1)(p−1)/r). With the p-adic Adams operation, let FΨ^k be the fibre of Ψ^k−1:ℤ×BU→BU after p-completion. Prove the space equivalences
+For finite L/ℚₚ, p odd, put d=[L:ℚₚ], r=[L(ζₚ):L], p^a=#μ_(p^∞)(L(ζₚ)), choose a topological generator g of ℤₚ×, and set k=g^(p^(a−1)(p−1)/r). The cyclotomic image Γ′_L is the open subgroup generated by k. With §0.2's completed operation let Tₖ=fib(ψᵏ−1:KUₚ→KUₚ) and let FΨᵏ be the rank-inclusive fibre of ψᵏ−1:ℤ×BU→BU after p-completion. Prove the space equivalences
 
 ```text
-(ℤ×BGL(L)⁺)^∧_p ≃ FΨ^k × BFΨ^k × U^d,
-(ℤ×BGL(V)⁺)^∧_p ≃ FΨ^k × BFΨ^k × U^(d−1) × SU.
+(ℤ×BGL(L)⁺)^∧_p ≃ FΨᵏ × BFΨᵏ × U^d,
+(ℤ×BGL(V)⁺)^∧_p ≃ FΨᵏ × BFΨᵏ × U^(d−1) × SU.
 ```
 
-Here U, SU and BU denote their p-completed stable complex unitary spaces, and BFΨ is the delooping supplied by the infinite-loop structure. This fibre includes virtual rank; its component group is ℤₚ. It is not the connected finite-field fibre from Layer 1. Its positive odd homotopy is ℤₚ/(k^i−1), with order w_i^(p)(L). Prove the equivalence at the space level, with the required p-adic Adams-operation and splitting input, rather than inferring it from equality of homotopy groups (HM03 TheoremD p.6; K-book TheoremVI.7.9 p.511; Handbook Theorem67 p.167). *Needs:* §6.7, p-complete complex K-theory and p-adic Adams operations. **Gap:** the cited statements identify the answer, but the space-level splitting proof has not been resolved into prior targets; the homotopy splitting theorem is not an independent supplied prerequisite.
+Here U, SU and BU are p-completed stable complex unitary spaces. FΨᵏ=Ω∞τ≥0 Tₖ has component group ℤₚ and positive odd homotopy ℤₚ/(k^i−1); its even positive groups vanish. Define BFΨᵏ=Ω∞Στ≥0 Tₖ, a connected delooping. It is not Ω∞ΣTₖ, which has extra components. Establish the following intervening targets before deriving the displayed answer (HM03 TheoremD p.6; K-book TheoremVI.7.9 p.511; Handbook Theorem67 p.167).
+
+**Root lifting before the retract.** Define `rootSpectrumMap A : Σ∞Bμ_(p^∞)(A)₊→K(A)` from the rank-one representation, natural in commutative rings. For the retraction fix b≥1, S=ℤ[1/p,ζ_(p^b)] and a residue field E at a prime away from p with vₚ(#E−1)=b. Reduction identifies μ_(p^∞)(S) with μ_(p^∞)(E)=μ_(p^b). In the following zero-space construction all spectra are p-localized. Construct `rootSpaceRetraction`: a map s:Ω∞₀K(E)→Ω∞₀Σ∞Bμ(E)₊ such that f_E∘s=id and f_S∘s∘f_E=f_S on connected zero spaces. Use §0.5 to construct this actual retraction with both homotopies, first over ℤ[ζ_(p^b)] and then compose with inversion of p. Apply §0.4's Φₚ to get the corresponding height-one localized spectrum maps. Naturality of f and the two retraction identities give the ring-map, tower and Galois compatibilities used below (DM Propositions5.7–5.8 and proof of Theorem5.4, p.20, with the p-local convention of §1.13 p.6). Changing the primitive root must commute with its automorphism; applying Φₚ to a retraction preserves its section identity. The hypothesis b≥1 is essential to this contract: when μ=1 the source is the p-local sphere, whose positive stable homotopy need not vanish, and the retraction is not asserted.
+
+**Cyclotomic comparison and retract.** Construct `localCyclotomicRetract`: a map from height-one localized K(L) to Tₖ and a section, with reduced fibre Kʳᵉᵈ_L, rather than assuming a wedge decomposition. Use Dirichlet primes in the required congruence class to choose an auxiliary finite field of prime cardinality q₀≠p whose Frobenius generates Γ′_L (DM §13, p.55). Use its supplied Brauer comparison, compatible roots of unity in the cyclotomic tower, and the ring maps ℤ[1/p,μ_(p^b)]→L(μ_(p^b)) in the root-lifting comparison. Construct the retract at stages containing μₚ, then descend through the finite prime-to-p Galois group to L. The inverse on the Tₖ summand is proved by KU cohomology and Frobenius descent. This uses the preceding root-lifting ring-spectrum map, constructed through Φₚ and the root-space retraction; a map of groups of roots alone is insufficient (DM Theorem5.4 pp.19–20 and Proposition13.1 p.55). The API is compatibility with tower restriction and Frobenius, the section identity, and comparison under a change of generator of the same cyclotomic subgroup. The equivalence uses choices.
+
+**The local Iwasawa module.** Define M_L as the abelian pro-p Galois group of the maximal abelian pro-p extension of L(μ_(p^∞)), with its conjugation action of Γ′_L; put Λ′_L=ℤₚ[[Γ′_L]]. Prove `localReduced_kuModule`: completed KU cohomology of Kʳᵉᵈ_L is Ind_(Γ′_L)^(ℤₚ×)M_L in degree −1 and zero in the other parity. Build the comparison through continuous local duality and cyclotomic descent, retaining the inverse action in the dual and Bott twists. Then prove `localIwasawa_decomposition`: M_L≃ℤₚ(1)⊕(Λ′_L)^d. Its proof uses the logarithm on torsion-free principal units, the normal-basis rank in every finite-character idempotent, and the local Brauer/valuation terms in the duality Ext sequence. The free module has rank d; projectivity splits off that free quotient, leaving the Tate-twisted rank-one term. Establish freeness, not merely equality of ranks (DM Theorem6.11 pp.25–26, Proposition8.10 pp.34–35, Proposition8.17 p.36 and Proposition13.2 p.56).
+
+**Realize the module calculation.** Apply §0.4 to this isomorphism, with its Λ′ action and twists, to construct `localPeriodicSplitting`. The induced ℤₚ(1) in degree −1 realizes ΣTₖ, and a free induced summand in that degree realizes ΣKUₚ. Together with the actual retract this gives
+
+```text
+heightOneLocalize K(L) ≃ Tₖ ∨ ΣTₖ ∨ (ΣKUₚ)^d.
+```
+
+This is a consequence of projective-resolution realization and the KU-cohomology equivalence criterion; it is not an inference from coinciding homotopy groups. DM Theorem13.3 p.56 is the resulting theorem, not an earlier hypothesis.
+
+**Positive-degree comparison and spaces.** Prove `localPositiveComparison`: the localization map gives an equivalence τ≥1 K(L;ℤₚ)→τ≥1 heightOneLocalize K(L). Compare its target to Bott-inverted étale K using Thomason Theorems4.1 and4.11 pp.516,520, then use §6.6's local comparison in degrees at least one. The local field L has finite cohomological dimension, p is invertible in L, and the finite-generation conditions required for completion hold. After taking τ≥1 of the actual splitting, apply Ω∞ and restore the rank components from K₀(L;ℤₚ)=ℤₚ. The first component together with rank is FΨᵏ; the suspended term is BFΨᵏ and each ΣKU term gives U. No equivalence of τ≥0 spectra is asserted: the periodic right side has two ℤₚ summands in degree zero, while K₀(L;ℤₚ) has one.
+
+**Valuation fibre.** Prove `valuationFibre_spaceSplitting` using completed localization K(V)→K(L)→ΣK(𝔽q). The supplied finite-field answer makes K(𝔽q;ℤₚ)=Hℤₚ; hence on spaces the last map is valuation into K(ℤₚ,1). It is zero on the finite torsion in π₁(FΨᵏ) and primitive on the free part π₁(BFΨᵏ×U^d)=ℤₚ^(d+1), since a uniformizer has valuation one. To realize a change of basis on spaces, split off a K(ℤₚ,1) from BFΨᵏ: choose a generator loop, extend its map S¹→BFΨᵏ across p-completion, and multiply with the fibre of its first Postnikov projection. This induces isomorphisms on every homotopy group and is an equivalence of these nilpotent spaces. Likewise determinant splits U≃K(ℤₚ,1)×SU. A matrix in GL_(d+1)(ℤₚ) now moves the primitive valuation functional to a single circle coordinate. Taking its fibre removes that coordinate and regrouping gives BFΨᵏ×U^(d−1)×SU. This construction supplies the maps and homotopies behind the valuation-ring formula; it does not require an initial splitting already normalized to kill valuation on BFΨᵏ.
+
+**API.** Choice-dependent equivalences, their comparison on positive-degree K-groups, the rank component, the valuation homotopy fibre, and compatibility with the specified determinant and cyclotomic actions. Do not claim a canonical splitting or a natural splitting under every field embedding.
 
 **Checks.**
 
-- For d = 1 the exponent U^(d−1) is zero.
-- The valuation-ring factor SU removes the degree-one valuation contribution.
-- The π₀ of the completed left side is ℤₚ, not zero.
-- No claim at p = 2 follows from choosing a generator of ℤ₂ˣ, since that group is not procyclic.
+- For L=ℚ₃, d=1, r=2, a=1 and k=g. The valuation-ring answer has one SU and no remaining U factor. K₁(L;ℤ₃) has two free directions; K₁(V;ℤ₃) has one.
+- For L=ℚ₅(ζ₅), r=1 and a=1, so k=g⁴ and π₁(FΨᵏ) has order five. Omitting r changes the torsion.
+- Tₖ has π₀=π₋₁=ℤₚ, so Tₖ∨ΣTₖ has π₀=ℤₚ². This explicitly rules out replacing the positive-degree comparison by an equivalence on τ≥0 spectra.
+- The map to K(ℤₚ,1) may initially be nonzero on the circle in BFΨᵏ. The primitive-vector argument removes one circle among all d+1 and still gives the stated fibre. A group calculation without the circle sections would not justify that step.
+- The π₀ of both completed K-spaces is ℤₚ. The fibre FΨᵏ includes virtual rank, whereas the supplied finite-field fibre in Layer1 is connected.
+- At p=2, ℤ₂× is not procyclic and this choice of g is unavailable. None of this argument gives the dyadic space splitting.
 
 ### 6.13 Dyadic hermitian rigidity and homotopy fixed points
 
@@ -1265,7 +1404,7 @@ Put w_v = #μ(F_v) and h_v = h_(F_v)c_v:K₂(F)→μ(F_v). Prove h_v{a,b} = (a,b
 
 Prove naturality under completion for the early edge of §6.6 and for the ordinary finite-coefficient étale Chern operations, keeping their factorial relation. On cohomology the map is pullback along Spec F_v→Spec F, equivalently restriction to a decomposition group after choosing a place above v; conjugation makes the resulting cohomology map independent of that choice. At degree one this is Kummer naturality. Pass to continuous coefficients only with the limit comparison already established (K-book DefinitionV.11.5 p.454 and ExampleV.11.10 p.456; Handbook §5.4 p.153).
 
-For m invertible at v and x in the image of K_n(O_F[1/m];ℤ/m), show its local Chern class is unramified and equals the inflation of the finite-field Chern class of its reduction. Use henselian rigidity both for K-theory and for étale cohomology, and specify j = 2i−n ≥ 0; for negative j the target is zero. At n = 3,i = 2 this gives the weight-two local class used in the Bloch-unit application, without assuming the analogous statement at v | m (CGZ §4.1, Lemma4.1 and its proof p.22). *Needs:* §§1.8,2.1,6.6,7.1–7.2, henselian étale rigidity and the supplied Chern naturality theorem.
+For m invertible at v and x in the image of K_n(O_F[1/m];ℤ/m), show its local Chern class is unramified and equals the inflation of the finite-field Chern class of its reduction. Use henselian rigidity both for K-theory and for étale cohomology, and specify j = 2i−n ≥ 0; for negative j the target is zero. At n = 3,i = 2 this gives the weight-two local class used in the Bloch-unit application, without assuming the analogous statement at v | m (CGZ §4.1, Lemma4.1 and its proof p.22). *Needs:* §§1.5,1.8,2.1,6.6,7.1–7.2, henselian étale rigidity and the supplied Chern naturality theorem.
 
 **Checks.**
 
@@ -1325,21 +1464,30 @@ All descriptions and theorem formulations above are in this roadmap's own words.
 - **K-book:** Charles Weibel, *The K-book: An Introduction to Algebraic K-theory*, author draft dated 29 August 2013, [public author PDF](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf). Main local references: III.6.2.4 pp.233–234; IV.1 and IV.2 pp.269–284; V.7.5 p.424; VI.2.2–2.3 pp.470–471; VI.7 pp.507–512. PDF pages are printed pages plus eight. The [archived errata](https://web.archive.org/web/20191110143141id_/https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf), p.2, correct the prime-to-residue-characteristic restriction on the K₂ integer-ring torsion statement.
 - **Handbook:** Charles Weibel, “Algebraic K-theory of rings of integers in local and global fields,” *Handbook of K-theory*, Chapter I.5, pp.139–190, [published chapter](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/KZsurvey-published.pdf). Relevant §§5.4–5.6, especially pp.153,162–167; PDF p.1 is printed p.139.
 - **Haine:** Peter Haine, *On the K-theory of finite fields*, 25 September 2016, [notes](https://math.berkeley.edu/~phaine/files/KFF.pdf), Theorem3.1 pp.4–5, Definition5.7 and Theorem5.8 p.9, §§6.3–6.11 pp.10–11. These give the finite-field/Brauer proof route, with the foundational comparison inputs stated separately above.
+- **QuillenICM:** Daniel Quillen, “Cohomology of groups,” *Proceedings of the International Congress of Mathematicians, Nice 1970*, vol.2 (1971), pp.47–51, [published proceedings](https://www.mathunion.org/fileadmin/ICM/Proceedings/ICM1970.2/ICM1970.2.ocr.pdf), §2 pp.48–50, equations(1)–(3), for the classifying-topos Lang spectral sequence at primes different from the characteristic.
 - **Mestel:** David Mestel, *Algebraic K-theory of finite fields*, 2014, [essay](https://www.cs.ox.ac.uk/people/david.mestel/essay.pdf), §§4–9 pp.9–30, especially Theorems14–15,19–20,35,37–38. It supplies additional details of the cohomological comparison and its spectral-sequence inputs.
 - **Atiyah–Segal:** Michael Atiyah and Graeme Segal, “Equivariant K-theory and completion,” *J. Differential Geometry* 3 (1969), 1–18, [public scan](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/atiyahsegal1.pdf), Theorem2.1 pp.3–4 and Proposition4.2 p.10. Used as the completion input in the Brauer construction.
+- **Baker:** Andrew Baker, “Power operations in K-theory completed at a prime,” [author PDF](https://www.maths.gla.ac.uk/~ajb/dvi-ps/KtheoryPowerOperations-tmj.pdf), §2 pp.3–4, equation(2.1), for completed cooperations and the continuous unit Adams/evaluation pairing.
+- **Eilenberg–Moore:** Samuel Eilenberg and John Moore, “Homology and fibrations I. Coalgebras, cotensor product and its derived functors,” *Commentarii Mathematici Helvetici* 40 (1966), 199–236, [public scan](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/eilenberg-moore66.pdf), Theorem12.1 p.220 and §16 pp.227–230. The source states the homological Cotor comparison; §0.3 states its finite-type field-coefficient cohomological dual, with multiplicativity and convergence.
+- **Bousfield:** Aldridge Bousfield, “Uniqueness of infinite deloopings for K-theoretic spaces,” *Pacific Journal of Mathematics* 129 (1987), 1–31, [published scan](https://msp.org/pjm/1987/129-1/pjm-v129-n1-p01-s.pdf), Theorems2.1 and2.3 p.3 and construction §§4–6 pp.17–30. Section 0.4 uses the height-one functor and its comparison with the connected zero space of a spectrum.
+- **DFM:** William Dwyer, Eric Friedlander and Stephen Mitchell, “The generalized Burnside ring and the K-theory of a ring with roots of unity,” *K-Theory* 6 (1992), 285–300, [author-uploaded manuscript](https://www.researchgate.net/profile/W-Dwyer/publication/226803850_The_generalized_Burnside_ring_and_theK-theory_of_a_ring_with_roots_of_unity/links/53e112b00cf2235f352728a7/The-generalized-Burnside-ring-and-theK-theory-of-a-ring-with-roots-of-unity.pdf). Locators use its 15-page manuscript.
+- **DM:** William Dwyer and Stephen Mitchell, “On the K-theory spectrum of a ring of algebraic integers,” *K-Theory* 14 (1998), 201–263, DOI10.1023/A:1007792408694, [author-uploaded full text](https://www.researchgate.net/publication/2669799_On_the_K-Theory_Spectrum_of_a_Ring_of_Algebraic_Integers). Locators use the 58-page author text: §§4.7–4.18 pp.15–17, Theorem5.4 pp.19–20, Theorem6.11 pp.25–26, Propositions8.10 and8.17 pp.34–36, Theorem9.1 p.40 and §§13.1–13.3 pp.55–56. Its local KU-cohomology and realization arguments give the intermediate targets in §§0.4,6.12; its final splitting is not treated as a separate prerequisite.
+- **Thomason:** Robert Thomason, “Algebraic K-theory and étale cohomology,” *Annales scientifiques de l'École Normale Supérieure* 18 (1985), 437–552, [published scan](https://numdam.org/item/10.24033/asens.1495.pdf), Theorem4.1 p.516 and Theorem4.11 p.520. Bott inversion and étale comparison are used with the field and cohomological-dimension hypotheses in §6.12.
+- **Geisser–Levine:** Thomas Geisser and Marc Levine, “The K-theory of fields in characteristic p,” *Inventiones Mathematicae* 139 (2000), 459–493, [author PDF](https://www2.rikkyo.ac.jp/web/geisser/p-part.pdf), Theorem1.1 p.460, Theorem8.1 pp.489–490 and Theorem8.3 p.491. The characteristic-p K comparison is separate from the Bloch–Gabber–Kato differential-symbol theorem.
+- **Popescu:** Stacks Project, [Theorem16.12.1, tag 07GC](https://stacks.math.columbia.edu/tag/07GC), regular maps of noetherian rings as filtered colimits of smooth algebras; consumed from SchemeAndStackFoundations §0.15, not planned again.
 - **CMM:** Dustin Clausen, Akhil Mathew and Matthew Morrow, *K-theory and topological cyclic homology of henselian pairs*, arXiv:1803.10897v2, 20 July 2020, [versioned PDF](https://arxiv.org/pdf/1803.10897v2), Theorem1.4 p.3, Theorem4.29 p.33, Corollary4.36/Remark4.37 pp.36–37 and Theorems6.5–6.6 pp.52–53. The source's original arXiv year is not its version date.
 - **Fesenko:** Ivan Fesenko, “Topological Milnor K-groups of higher local fields,” *Geometry & Topology Monographs* 3 (2000), 61–74, [public chapter](https://msp.org/gtm/2000/03/gtm-2000-03-006p.pdf), §§6.0–6.1 pp.61–62. Used only with the distinction between algebraic and topological Milnor groups retained.
 - **Sharifi:** Romyar Sharifi, *Algebraic Number Theory*, author notes dated 26 September 2026, [public notes](https://math.ucla.edu/~sharifi/notes/algnum.pdf), §§6.3–6.4 pp.130–133 and Definition9.3.2/Proposition9.3.4/Theorem9.3.8 pp.195–198. His Hilbert inputs are reversed relative to this roadmap's reciprocity convention.
 - **HM97a:** Lars Hesselholt and Ib Madsen, “On the K-theory of finite algebras over Witt vectors of perfect fields,” *Topology* 36 (1997), 29–101, [author PDF](https://www.math.nagoya-u.ac.jp/~larsh/papers/004/paper.pdf), introductory TheoremsA–F pp.i–iv (PDF1–4); §§2.3,3.1,4.2–4.5,5.1,6.1 and AppendixB for the classical trace and Tate machinery. Locators in the body use the author PDF's own numbering.
 - **HM97b:** Lars Hesselholt and Ib Madsen, “Cyclic polytopes and the K-theory of truncated polynomial algebras,” [author PDF](https://www.math.nagoya-u.ac.jp/~larsh/papers/007/polytope.pdf), TheoremsA–B pp.74–75 (PDF2–3) and Theorem4.2.10 p.95 (PDF23). Used for the representation-sphere/cyclic-polytope calculation and integral relative groups.
 - **HM03:** Lars Hesselholt and Ib Madsen, “On the K-theory of local fields,” *Annals of Mathematics* 158 (2003), 1–113, [arXiv:math/9910186v2](https://arxiv.org/pdf/math/9910186v2), author version 22 January 2004. TheoremsA–D pp.1–7; §§2–3 pp.32–64; §§4.3–4.4 pp.65–74; §§5–6 pp.75–104; AppendixA pp.105–110. The individual numbered results are cited next to their uses.
-- **HM04:** Lars Hesselholt and Ib Madsen, “On the de Rham–Witt complex in mixed characteristic,” [author PDF](https://www.math.nagoya-u.ac.jp/~larsh/papers/013/final.pdf), introductory TheoremsA–E and the following remark pp.1–3. TheoremD treats the nonlogarithmic complex; its extension to the universal prelog complex is the foundation gap stated above.
+- **HM04:** Lars Hesselholt and Ib Madsen, “On the de Rham–Witt complex in mixed characteristic,” [author PDF](https://www.math.nagoya-u.ac.jp/~larsh/papers/013/final.pdf), introductory TheoremsA–E and the following remark pp.1–3. TheoremA p.2 constructs the nonlogarithmic initial complex; p.4 describes its log extension, and p.5 distinguishes absolute from relative forms. The log initiality and filtration used here are HM03 §3.2, constructed in §5.2a.
 - **Hesselholt96:** Lars Hesselholt, “On the p-typical curves in Quillen's K-theory,” [author PDF](https://www.math.nagoya-u.ac.jp/~larsh/papers/005/acta.pdf), TheoremsB–C p.2, §1.2 p.5 and the Milnor-limit argument in the proof of Corollary2.4.7 p.24.
 - **Hesselholt05:** Lars Hesselholt, “K-theory of truncated polynomial algebras,” handbook survey, [author PDF](https://www.math.nagoya-u.ac.jp/~larsh/papers/s01/handbook.pdf), §§3.5–3.13; all Hesselholt05 page locators denote PDF pages. Theorem5 is PDFp.17 (printed87), Proposition7 PDFp.22 (printed92), Proposition8 PDFp.24 (printed94), Lemma9 PDFp.26 (printed96), and Theorems10–11,13 PDFpp.28,30,33 (printed98,100,103).
 - **GH06:** Thomas Geisser and Lars Hesselholt, “On the K-theory of complete regular local 𝔽ₚ-algebras,” [author PDF](https://www.math.nagoya-u.ac.jp/~larsh/papers/011/paper.pdf), TheoremsA–B pp.2–3, Proposition2.8 p.16, end of §2 p.18 and Theorem3.1 p.19. The numbered regular-local characteristic-p statements, rather than the filename, fix the results used here.
 - **NS:** Thomas Nikolaus and Peter Scholze, “On topological cyclic homology,” *Acta Mathematica* 221 (2018), 203–409, [published PDF](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf). Classical/modern comparison: §§II.4 and IV.4, especially TheoremII.4.10 and CorollaryIV.4.8, PropositionIV.4.9 and CorollaryIV.4.10 pp.360–361, with the cyclotomic refinements pp.362–365. The [arXiv version](https://arxiv.org/pdf/1707.01799) has different PDF pagination.
 - **Calmès et al. III:** Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, *Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings*, [arXiv:2009.07225v4](https://arxiv.org/pdf/2009.07225v4). Use §3.1 pp.49–53, R10, the shifted localization discussion in §1.3 and Corollary2.2.5 p.39. This source treats symmetric bilinear characteristic-two theory in its Poincaré convention.
 - **Calmès et al. II:** the same authors, *Hermitian K-theory for stable ∞-categories II: Cobordism categories and additivity*, [author version accessed 19 October 2026](https://arxiv.org/pdf/2009.07224), Example1.2.5 pp.20–21 and Theorem4.4.11/Corollary4.4.13 pp.106–107. These are generic supplier results, including the fundamental cartesian square.
-- **AV:** Amina Abdurrahman and Akshay Venkatesh, *Symplectic L-functions and symplectic Reidemeister torsion*, [arXiv:2303.13436v1](https://arxiv.org/pdf/2303.13436v1), and [author revision dated 6 October 2026](https://www.math.ias.edu/~akshay/research/RT.pdf), §2.7 pp.16–17 in both versions. Retain their 4r−1 degree range and coefficient exclusions in §1.11.
+- **AV:** Amina Abdurrahman and Akshay Venkatesh, *Symplectic L-functions and symplectic Reidemeister torsion*, [arXiv:2303.13436v1](https://arxiv.org/pdf/2303.13436v1), and [author revision dated 6 October 2026](https://www.math.ias.edu/~akshay/research/RT.pdf), §2.7 pp.16–17 in both versions. Retain their 4r−1 degree range and coefficient exclusions in §1.9.
 - **WeibelChern:** Charles Weibel, “Étale Chern classes at the prime 2,” [author PDF](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/chernclass.pdf), §§1.5–1.6,2.1–2.8,3.3 and Proposition5.1 p.24. The factorial comparison is a warning about identifying ordinary higher Chern operations with an étale edge map.
 - **CGZ:** Frank Calegari, Stavros Garoufalidis and Don Zagier, *Bloch groups, algebraic K-theory, units, and Nahm's conjecture*, [arXiv:1712.04887v3](https://arxiv.org/pdf/1712.04887v3), §4.1, Lemma4.1 and proof p.22. Used for the local weight-two reduction square, with its invertibility assumption retained.

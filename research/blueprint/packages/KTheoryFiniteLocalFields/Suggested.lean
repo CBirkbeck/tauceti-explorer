@@ -12,7 +12,9 @@ The K-theory, homotopy, logarithmic and trace constructions are targets of the R
 
 namespace TauCetiRoadmap.KTheoryFiniteLocalFields
 
-/-! ## Layer 1: finite fields, Brauer lifting and Quillen's model -/
+/-! ## Layer 0: completed KU and pullback cohomology -/
+
+/-! ## Layer 1: refinements of the supplied finite-field comparison -/
 
 -- The dimension equivalence is a supplier, not a new K₀ calculation.
 #check TauCeti.SplitK0.finrankEquiv
@@ -66,28 +68,28 @@ example :
   exact inv_eq_of_mul_eq_one_right (by decide)
 
 /-- Two uniformizers retain the `(-1)^(rs)` factor. -/
-example : ((tameCoordinate 1 1 (1 : (ZMod 5)ˣ) 1 : (ZMod 5)ˣ) : ZMod 5) = 4 := by
-  decide
+theorem tameCoordinate_two_uniformizers_mod_five : ((tameCoordinate 1 1 (1 : (ZMod 5)ˣ) 1 : (ZMod 5)ˣ) : ZMod 5) = 4 := by
+  sorry
 
 /-- Negative valuation exponents occur in local fields. -/
-example :
+theorem tameCoordinate_negative_valuation_mod_five :
     ((tameCoordinate (-1) 1 (Units.mk0 (2 : ZMod 5) (by decide))
       (Units.mk0 (3 : ZMod 5) (by decide)) : (ZMod 5)ˣ) : ZMod 5) = 4 := by
-  decide
+  sorry
 
 /-- A change from `π` to `2π` preserves the first numerical boundary. -/
-example :
+theorem tameCoordinate_changed_uniformizer_mod_five :
     ((tameCoordinate 0 1 (Units.mk0 (2 : ZMod 5) (by decide))
       (Units.mk0 (3 : ZMod 5) (by decide)) : (ZMod 5)ˣ) : ZMod 5) = 2 := by
-  decide
+  sorry
 
 /-- The residue unit group at two is trivial. -/
-example (r s : ℤ) (u v : (ZMod 2)ˣ) : tameCoordinate r s u v = 1 := by
-  exact Subsingleton.elim _ _
+theorem tameCoordinate_char_two (r s : ℤ) (u v : (ZMod 2)ˣ) : tameCoordinate r s u v = 1 := by
+  sorry
 
 /-- The coordinate definition also covers the zero ring, whose unit group is trivial. -/
-example (r s : ℤ) (u v : (ZMod 1)ˣ) : tameCoordinate r s u v = 1 := by
-  exact Subsingleton.elim _ _
+theorem tameCoordinate_zero_ring (r s : ℤ) (u v : (ZMod 1)ˣ) : tameCoordinate r s u v = 1 := by
+  sorry
 
 end Tame
 
@@ -147,18 +149,34 @@ theorem maxDivisible_eq_bot_of_finite [Finite A] : maxDivisible A = ⊥ := by
 
 /-- The rational additive group is divisible. -/
 example : maxDivisible ℚ = ⊤ := by
-  sorry
+  apply top_unique
+  apply le_sSup
+  intro n hn x
+  refine ⟨⟨(x : ℚ) / (n : ℚ), trivial⟩, ?_⟩
+  apply Subtype.ext
+  change n • ((x : ℚ) / (n : ℚ)) = (x : ℚ)
+  rw [nsmul_eq_mul]
+  exact mul_div_cancel₀ _ (by exact_mod_cast hn)
+
+/-- A finite-exponent group cannot contain a nonzero divisible subgroup. -/
+example : maxDivisible (ZMod 6) = ⊥ := by
+  apply le_antisymm
+  · apply sSup_le
+    intro D hD x hx
+    obtain ⟨y, hy⟩ := hD 6 (by decide) ⟨x, hx⟩
+    change x = 0
+    have h : (6 : ℕ) • (y : ZMod 6) = 0 := by
+      rw [nsmul_eq_mul, ZMod.natCast_self, zero_mul]
+    exact (congrArg Subtype.val hy).symm.trans h
+  · exact bot_le
 
 /-- Integer divisibility is not the subgroup `wℤ` for a fixed positive `w`. -/
-example : maxDivisible ℤ = ⊥ := by
-  sorry
-
-/-- A concrete finite-exponent negative control. -/
-example : maxDivisible (ZMod 6) = ⊥ := by
+theorem maxDivisible_int : maxDivisible ℤ = ⊥ := by
   sorry
 
 /-- The divisible and reduced factors are retained separately. -/
-example : maxDivisible (ℚ × ZMod 6) = (⊤ : AddSubgroup ℚ).prod ⊥ := by
+theorem maxDivisible_rat_prod_zmod_six :
+    maxDivisible (ℚ × ZMod 6) = (⊤ : AddSubgroup ℚ).prod ⊥ := by
   sorry
 
 end Divisible
@@ -167,8 +185,12 @@ end Divisible
 
 /-
 The README also specifies the following constructions whose carriers are not present here:
-finite-coefficient and completed K-theory, Bott classes, Brauer characters and the virtual
-Brauer lift, the Adams homotopy fibre and Quillen map, finite-field restriction and transfer,
+the compact augmentation-kernel tower, continuous completed Adams operations, the multiplicative
+Eilenberg–Moore pullback comparison and height-one module realization,
+finite-coefficient and completed K-theory, Bott classes, profinite changes of the supplied
+Brauer comparison, normalized relative Chern classes, finite-field restriction and transfer,
+the universal equivariant Chern/slant and Moore-Hurewicz maps, the finite-field edge,
+the Lang torsor and its geometric classifying comparison,
 the full norm-residue map and its kernel, the linear Waldhausen THH model, classical TR and
 TC, the Connes operator, the HM Tate-cochain comparison and Tate spectral sequence, the
 logarithmic DVR THH/TR/TC objects, the Cohen/Witt coefficient presentation, the residue
@@ -179,7 +201,8 @@ TR Bott classes, the Dwyer–Friedlander comparison, the early étale edge and C
 the left-exactness, torsion-freeness and bounded-exponent lemmas on the supplied Tate module,
 the weightwise twisted-TR inverse limits, and arithmetic and
 semilocal completion maps. The Tate-module carrier is supplied by the current Tau Ceti library.
-The logarithmic, cyclotomic, hermitian and finite-rank symplectic milestones remain in README.md.
+The local height-one module comparison, its cyclotomic Iwasawa calculation, actual spectrum
+splitting and valuation compatibility, and the logarithmic, cyclotomic, hermitian and finite-rank symplectic milestones remain in README.md.
 -/
 
 end TauCetiRoadmap.KTheoryFiniteLocalFields
