@@ -190,6 +190,19 @@
       ],
       "accessed": "2026-10-19",
       "sha256": "a224c3d11819195bacf713777d4f08e7e63b2007772559d0accf387a51c27275"
+    },
+    {
+      "id": "TV16",
+      "title": "Functoriality, Smith theory, and the Brauer homomorphism",
+      "authors": "David Treumann and Akshay Venkatesh",
+      "edition": "Ann. of Math. 183 (2016), 177–228; arXiv:1407.2346, downloaded preprint (latest version), preprint pagination",
+      "url": "https://arxiv.org/abs/1407.2346",
+      "readSections": [
+        "§2.1, p.5: Frobenius twist of a k-vector space",
+        "§3.4 and (3.4.1), pp.11–12: Tate cohomology of a commutative algebra and the bijection on characters"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "34e2416f08ba0dc4a4fb8369875ef3d9f5a5b2ef8290733545442801baec9ee8"
     }
   ],
   "nodes": [
@@ -209,8 +222,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§2.1 and conventions, p.7; §4.6.1, p.23",
-          "match": "A coefficient datum consists of an odd prime p, a separably closed geometric field F with p invertible, k=an algebraic closure of F_p, O=W(k), and C_p with specified generator σ. The proof outline records corrections and any additional obligation."
+          "locator": "§1.5 (Notation), p.7; §4.6.1, pp.23–24",
+          "match": "The notation section fixes k as an algebraic closure of F_p with the discrete topology, geometry over fields of characteristic different from p with p-adically complete coefficients, σ as a chosen generator of a cyclic group of order p, and N as the sum of its powers. Section 4.6.1 sets up G=H^p with cyclic rotation and, after Lemma 4.11, assumes p odd and good for the dual group. Goodness is used there without being defined; the highest-root definition and its type table recorded in this node are the standard ones."
         }
       ],
       "proofSteps": [
@@ -245,14 +258,17 @@
       "tests": [
         {
           "name": "coefficients.test_1",
+          "kind": "computation",
           "statement": "p=3 is odd and good for GL₂, but not good for G₂."
         },
         {
           "name": "coefficients.test_2",
+          "kind": "computation",
           "statement": "On a trivial O-module N is multiplication by p; on a regular orbit N is the orbit sum, not zero."
         },
         {
           "name": "coefficients.test_3",
+          "kind": "compatibility",
           "statement": "O/p identifies with k, whereas O itself has characteristic zero."
         }
       ],
@@ -282,8 +298,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§3.2, pp.14–15",
-          "match": "For a separated locally finite type F-scheme Y, an admissible C_p-action is an action for which every orbit is contained in an invariant affine open; equivalently use an invariant affine open cover in the cases considered. The proof outline records corrections and any additional obligation."
+          "locator": "§3.2, p.14; Lemma 3.6, p.15",
+          "match": "Section 3.2 works with a separated locally finite type scheme carrying a σ-action that is admissible in the sense of SGA 1, Exposé V, Definition 1.7, and notes (after Riche–Williamson) that this holds when the scheme is exhausted by quasi-projective pieces. Lemma 3.6 uses admissibility to form the quotient by a free action as a map of schemes. The node adds the fixed-point and free-complement facts these statements use."
         }
       ],
       "proofSteps": [
@@ -313,19 +329,27 @@
           "name": "actions.free_complement",
           "role": "structure",
           "statement": "The complement quotient is finite étale of degree p."
+        },
+        {
+          "name": "actions.fixed_closed",
+          "role": "structure",
+          "statement": "For separated Y, the fixed locus Y^σ is a closed subscheme; its open complement carries a free action and is invariant."
         }
       ],
       "tests": [
         {
           "name": "actions.test_1",
+          "kind": "computation",
           "statement": "Cyclic rotation on X^p fixes the diagonal scheme X, including nilpotent test rings."
         },
         {
           "name": "actions.test_2",
+          "kind": "computation",
           "statement": "The scalar action x↦ζx on A¹ has fixed locus {0} and is a torsor away from zero."
         },
         {
           "name": "actions.test_3",
+          "kind": "degenerate",
           "statement": "The trivial action has Y^σ=Y and its free complement is empty."
         }
       ],
@@ -358,8 +382,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§§3.1–3.2, pp.13–15; §4.1, p.20",
-          "match": "Set D_σ(Y;Λ)=D([Y/C_p];Λ) in the imported enhanced étale sheaf theory. The proof outline records corrections and any additional obligation."
+          "locator": "§1.5 (Notation), p.7; §3.2, p.15, display (3.2)",
+          "match": "The notation section defines bounded constructible and bounded ind-constructible derived categories of a locally finite type stack and their equivariant versions. Section 3.2 introduces the σ-equivariant categories D^b_σ and D^b_{c,σ}. Display (3.2) identifies them on the fixed locus, where σ acts trivially, with sheaves of Λ[σ]-modules; the node keeps this identification only for a trivial geometric action."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "§4.2, p.20",
+          "match": "The subscript convention for orbit stratifications (a group in parentheses) is introduced at the end of Definition 4.2; the node fixes the matching convention for genuine versus orbit-constructible equivariance."
         }
       ],
       "proofSteps": [
@@ -394,14 +423,17 @@
       "tests": [
         {
           "name": "equivariant_derived.test_1",
+          "kind": "compatibility",
           "statement": "On a point this category is derived A_Λ-modules, so nontrivial C_p-representations remain visible."
         },
         {
           "name": "equivariant_derived.test_2",
+          "kind": "non-example",
           "statement": "On a free orbit equivariant sheaves descend to a point; a constant sheaf with trivial independent coefficient action does not replace the geometric regular representation after quotient pushforward."
         },
         {
           "name": "equivariant_derived.test_3",
+          "kind": "non-example",
           "statement": "The family ⊕_{n≥0}Λ[2n] is not bounded even though each finite subsum is bounded."
         }
       ],
@@ -436,8 +468,13 @@
       "sources": [
         {
           "sourceId": "Stacks",
-          "locator": "Tag 051E, Lemmas 10.101.1–10.101.3 (online); Feng24 §3.4.1, p.18",
-          "match": "For any field k of characteristic p, k[C_p]≅k[u]/(u^p) by σ↦1+u. The proof outline records corrections and any additional obligation."
+          "locator": "Tag 051E: Lemmas 10.101.1–10.101.3 (online)",
+          "match": "Lemma 10.101.2 shows that over a local ring with nilpotent maximal ideal the flat, free and projective modules coincide, with no finiteness hypothesis. Lemma 10.101.1 gives the basis-lifting criterion behind it, and Lemma 10.101.3 the version for a nilpotent ideal of an arbitrary ring."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "§3.4.1, p.18; proof of Lemma 3.2, p.14",
+          "match": "Feng cites this tag to say that a k[σ]-module is flat exactly when it is free, so that Tate cohomology of complexes descends to the Tate category. The proof of Lemma 3.2 uses the same fact for the Artinian ring k[σ]."
         }
       ],
       "proofSteps": [
@@ -473,7 +510,7 @@
         {
           "sourceId": "Feng24",
           "locator": "Definition 3.1 and Lemma 3.2, pp.13–14",
-          "match": "For trivial geometric action on Y, Flat^b(Y;A_Λ) is the full thick subcategory of complexes locally represented by bounded complexes of flat A_Λ-sheaves with finite Tor amplitude locally on Y; the globally bounded variant requires a uniform bound on the chosen bounded-dimensional piece. The proof outline records corrections and any additional obligation."
+          "match": "Definition 3.1 defines Flat^b as the bounded complexes whose geometric stalks are represented by bounded complexes of flat, not necessarily finite, Λ[σ]-modules. Lemma 3.2 identifies Flat^b, for Λ=k, with the objects of locally finite Tor amplitude. The converse direction rests on showing that a stalkwise finite Tor amplitude is uniformly bounded."
         }
       ],
       "proofSteps": [
@@ -508,14 +545,17 @@
       "tests": [
         {
           "name": "flat_complexes.test_1",
+          "kind": "computation",
           "statement": "A free regular module and all its shifts lie in the kernel; the trivial k[C_p]-module k does not."
         },
         {
           "name": "flat_complexes.test_2",
+          "kind": "characterisation",
           "statement": "The cone of any morphism between flat bounded complexes remains in the thick kernel."
         },
         {
           "name": "flat_complexes.test_3",
+          "kind": "non-example",
           "statement": "Finite Tor dimension must be over A_Λ: k is Λ-flat when Λ=k, but is not A_k-flat."
         }
       ],
@@ -550,8 +590,13 @@
       "sources": [
         {
           "sourceId": "Stacks",
-          "locator": "Tags 08G1 (Lemma 21.46.3), 0DJJ (Lemma 21.46.10), 051E (Lemma 10.101.3); Feng24 Lemma 3.2, p.14",
-          "match": "For A_Λ-sheaves on an étale topos, Tor amplitude [a,b] is detected on geometric stalks with the same interval and is equivalent to a flat representative with that amplitude in the bounded setting. The proof outline records corrections and any additional obligation."
+          "locator": "Tag 08G1 (Lemma 21.46.3); Tag 0DJJ (Lemma 21.46.10); Tag 0A5M (Definition 15.70.1); Tag 051E (Lemma 10.101.3)",
+          "match": "Lemma 21.46.3 says that on a ringed site Tor amplitude in [a,b] is equivalent to a representative by flat modules in degrees [a,b]. Lemma 21.46.10 passes the same interval to stalks, and back when the site has enough points. Definition 15.70.1 defines projective amplitude, and Lemma 10.101.3 is the freeness criterion for a nilpotent ideal."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "proof of Lemma 3.2, pp.13–14",
+          "match": "The proof combines these statements with the vanishing finitistic dimension of k[σ]: a complex in degrees [a,b] whose stalks have finite Tor amplitude has amplitude [a,b] at every stalk, hence globally."
         }
       ],
       "proofSteps": [
@@ -582,8 +627,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Definition 3.3 and (3.1), p.14",
-          "match": "For trivial geometric action and Λ=k or O, define Perf(Y;TΛ)=D^b_c(Y;A_Λ)/Perf_c(Y;A_Λ) and Shv(Y;TΛ)=D^b_ind(Y;A_Λ)/Flat^b(Y;A_Λ) as stable Verdier localizations, then take their homotopy categories. The proof outline records corrections and any additional obligation."
+          "locator": "Definition 3.3 and display (3.1), p.14",
+          "match": "Definition 3.3 defines the constructible Tate category as D^b_c(Y;Λ[σ]) modulo the complexes with perfect stalks, and the bounded ind-constructible one as D^b(Y;Λ[σ]) modulo Flat^b. T* denotes both projections. Display (3.1) is the induced functor from the first to the second, conservative because of Lemma 3.2."
         }
       ],
       "proofSteps": [
@@ -613,19 +658,27 @@
           "name": "tate_categories.constructibleToInd",
           "role": "functoriality",
           "statement": "The quotient comparison is conservative on constructible objects under the stated Tor criterion."
+        },
+        {
+          "name": "tate_categories.tensorIdeal",
+          "role": "structure",
+          "statement": "Flat^b and the perfect kernel are tensor ideals for ⊗^L_Λ with diagonal C_p-action, so the quotients inherit a tensor product and T* is monoidal; this is what the projection formula in tate-six-operations uses."
         }
       ],
       "tests": [
         {
           "name": "tate_categories.test_1",
+          "kind": "computation",
           "statement": "At a point the regular A_Λ-module becomes zero; the trivial O-module has nonzero even Tate cohomology k."
         },
         {
           "name": "tate_categories.test_2",
+          "kind": "characterisation",
           "statement": "A map becomes invertible exactly when its cone is in the designated kernel."
         },
         {
           "name": "tate_categories.test_3",
+          "kind": "non-example",
           "statement": "The trivial k-module survives: this quotient is not obtained by killing all Λ-perfect objects."
         }
       ],
@@ -663,8 +716,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Example 3.4, p.14; (3.5), p.17",
-          "match": "For Λ=k or O, there is a natural isomorphism [2]≅Id on these Tate categories, compatible with restriction. The proof outline records corrections and any additional obligation."
+          "locator": "Example 3.4, p.14; display (3.5), p.17",
+          "match": "Example 3.4, after Treumann, shows that on the Tate category of a point the shift by two is isomorphic to the identity. It uses the four-term exact sequence built from 1−σ and the norm, whose middle terms are induced. Display (3.5) records the resulting class Λ→Λ[2] in D^b(Λ[σ]). Example 3.4 calls that sequence nullhomotopic, which it is not over the group ring (finding E18)."
         }
       ],
       "proofSteps": [
@@ -699,8 +752,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§§3.4.1–3.4.2, pp.17–18",
-          "match": "For a bounded A_Λ-complex K on a trivially acted-on étale space S, put T^j(K)=colim_n H^{j+2n}(RHom_{A_Λ}(Λ,K)), with transition induced by Λ→Λ[2]. The proof outline records corrections and any additional obligation."
+          "locator": "§§3.4.1–3.4.2 and Remark 3.13, pp.17–18",
+          "match": "Section 3.4.1 defines the Tate cohomology of a bounded-below Λ[σ]-complex as the colimit of Hom(Λ,C[i+2n]) along (3.5). It notes two-periodicity and descent to the derived category, and for Λ=k to the Tate category. Remark 3.13 compares this with Hom in the Tate category. Section 3.4.2 defines Tate cohomology sheaves on a trivially acted-on S by the same colimit of sheaf Hom, as sheaves of T^0Λ-modules."
         }
       ],
       "proofSteps": [
@@ -735,14 +788,17 @@
       "tests": [
         {
           "name": "tate_cohomology.test_1",
+          "kind": "computation",
           "statement": "For a trivial k-module M, T^0(M)=T^1(M)=M; for a free A_k-module both vanish."
         },
         {
           "name": "tate_cohomology.test_2",
+          "kind": "computation",
           "statement": "For a trivial O-free module M, T^{2i}(M)=M/pM and T^{2i+1}(M)=0."
         },
         {
           "name": "tate_cohomology.test_3",
+          "kind": "non-example",
           "statement": "Internal Tate sheaves on a disconnected S have independent local sections; replacing internal Hom by global Hom gives the wrong sheaf."
         }
       ],
@@ -779,8 +835,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§3.4.4, pp.18–19",
-          "match": "A distinguished triangle K′→K→K″→K′[1] of bounded equivariant complexes produces a functorial long exact sequence of Tate cohomology sheaves, with the connecting map T^jK″→T^{j+1}K′ and period two. The proof outline records corrections and any additional obligation."
+          "locator": "§3.4.4, p.18",
+          "match": "Section 3.4.4 states that a distinguished triangle in D^b_σ(Y;k) gives a periodic long exact sequence of the relative Tate cohomology sheaves T^iRf!."
         }
       ],
       "proofSteps": [
@@ -810,8 +866,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 3.14, p.18; (4.1), p.20",
-          "match": "For C∈D^b(k) inflated to k[C_p], T^*(C)≅H^*(C)⊗_k T^*(k), with the total grading modulo two. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 3.14, p.18; display (4.1), p.20",
+          "match": "Lemma 3.14 says that for a complex inflated from D^b(k) the Tate cohomology is its ordinary cohomology tensored with T^*(k). Display (4.1), quoting LL21 Proposition 4.6.1, says the graded endomorphisms of T*O in the integral Tate category are k in each even degree and zero in odd degrees."
         }
       ],
       "proofSteps": [
@@ -841,8 +897,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§4.2, pp.20–21; LL21 §4.9, p.19",
-          "match": "For a finite stratification S of a finite-type Y, Perf_S(Y;TO) is the essential stable image of D^b_S(Y;O[C_p]) in the constructible Tate quotient; equivalently use its quotient by S-constructible perfect complexes after verifying the restriction functors preserve that kernel. The proof outline records corrections and any additional obligation."
+          "locator": "§4.2, pp.20–21",
+          "match": "Section 4.2 defines Perf_S(Y;T_O) as the full subcategory generated by images of S-constructible O[σ]-complexes, and quotes its identification with the S-constructible quotient. It introduces inflation ε* along the augmentation O[σ]→O before Definition 4.4."
+        },
+        {
+          "sourceId": "LL21",
+          "locator": "Corollary 4.5.2, p.14; opening of §5, p.19",
+          "match": "Corollary 4.5.2 proves that the S-constructible derived category of O[σ]-sheaves modulo its S-constructible perfect complexes is equivalent to the S-constructible integral Tate category. The opening of §5 fixes the trivial action and the simply connected strata assumed in the Tate-parity theory."
         }
       ],
       "proofSteps": [
@@ -877,14 +938,17 @@
       "tests": [
         {
           "name": "integral_tate_stratification.test_1",
+          "kind": "degenerate",
           "statement": "For one point, inflated O is the even Tate unit and its shift by one is odd."
         },
         {
           "name": "integral_tate_stratification.test_2",
+          "kind": "compatibility",
           "statement": "Inflating a rank-two free local system preserves both its rank after reduction and its monodromy."
         },
         {
           "name": "integral_tate_stratification.test_3",
+          "kind": "non-example",
           "statement": "A complex constructible only for a refinement does not automatically belong to the coarser S-constructible source."
         }
       ],
@@ -913,8 +977,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 3.9, pp.16–17, corrected finite-Tor contract FIX-RT-PAPER-FENG-24; use of Rj* in Lemma 3.7, pp.15–16",
-          "match": "Let A=k[C_p] or (O/p^m)[C_p], and let f:Y→S be separated of finite type, with geometric fibres of dimension ≤d, under the torsion étale projection formula and the bound cd_c(f)≤2d. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 3.9, p.16; proof of Lemma 3.7, pp.15–16",
+          "match": "Lemma 3.9 asserts that Rf! preserves Flat^b for a separated locally finite type equivariant morphism of bounded dimension. Its proof reduces by filtered colimits to finite type and cites Stacks 0F10 with SGA 4, XVII 5.2.10. The proof of Lemma 3.7 uses that Rj* preserves finite Tor amplitude, citing SGA 4, XVII 5.2.11. The node keeps the corrected separate contracts for the two functors that the PAPER-FENG-24 route brief records from FIX-RT-PAPER-FENG-24."
         }
       ],
       "proofSteps": [
@@ -951,8 +1015,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§3.3, pp.16–17; Proposition 3.12, p.17",
-          "match": "For a separated equivariant f:Y→S locally of finite type of bounded geometric fibre dimension, construct Rf! from the directed system of quasi-compact opens of Y over finite-type opens of S, using extension by zero and the imported enhanced compact-support functors. The proof outline records corrections and any additional obligation."
+          "locator": "§3.3, pp.16–17; proof of Lemma 3.9 and Remark 3.10, p.16; Proposition 3.12, p.17",
+          "match": "Section 3.3 works with σ-equivariant locally finite type morphisms of bounded dimension and descends Rf! to the ind-constructible Tate categories. The proof of Lemma 3.9 writes Rf! of a locally finite type source as a filtered colimit over its finite-type opens. Remark 3.10 explains that perfect complexes are not preserved, which is why the ind-constructible enlargement is used."
         }
       ],
       "proofSteps": [
@@ -987,14 +1051,17 @@
       "tests": [
         {
           "name": "lft_compact_support.test_1",
+          "kind": "computation",
           "statement": "For an infinite disjoint union of points over a point, compact support is the direct sum, not the product."
         },
         {
           "name": "lft_compact_support.test_2",
+          "kind": "computation",
           "statement": "For A¹→pt, RΓ_c(k)=k(−1)[−2], so an input in degree zero can have output in degree two."
         },
         {
           "name": "lft_compact_support.test_3",
+          "kind": "non-example",
           "statement": "The family ⊔_n A^n has no common dimension bound and is excluded from the bounded output assertion."
         }
       ],
@@ -1025,8 +1092,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 3.6, pp.15–16",
-          "match": "If C_p acts freely and admissibly on Y, q:Y→Y/C_p is its finite étale quotient and E∈D^b_σ(Y;Λ) has finite Λ-Tor dimension, then q_*E, with its quotient C_p-action, has locally a bounded induced A_Λ-resolution and is flat over A_Λ. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 3.6, p.15",
+          "match": "Lemma 3.6 says that for a free σ-action with quotient q the pushforward q_*F is flat over Λ[σ]. The reason is that its stalk is a stalk of F tensored with Λ[σ]. That stalk formula presupposes geometric equivariance (finding E16)."
         }
       ],
       "proofSteps": [
@@ -1058,7 +1125,7 @@
         {
           "sourceId": "Feng24",
           "locator": "Lemma 3.7, pp.15–16",
-          "match": "Let i:Y^σ→Y and j:U=Y\\Y^σ→Y, with Y separated finite-dimensional of finite type and admissible C_p-action. The proof outline records corrections and any additional obligation."
+          "match": "Lemma 3.7 says that, for U the complement of the fixed locus, the stalks of Rj*F at fixed geometric points have finite Tor amplitude over Λ[σ]. The proof uses total ramification of Y→Y/σ at fixed points, the free-quotient lemma, and preservation of finite Tor amplitude by Rj*."
         }
       ],
       "proofSteps": [
@@ -1092,8 +1159,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 3.8, p.16, with the bounded-dimension correction",
-          "match": "For a bounded-dimensional Y as in the previous node and E∈D^b_σ(Y;Λ), with the indicated coefficient finite-Tor/adic assumptions, the cone of the natural map i!E→i*E lies in Flat^b(Y^σ;A_Λ). The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 3.8, p.16",
+          "match": "Lemma 3.8 says that the cone of i^!F→i^*F lies in Flat^b(Y^σ;Λ[σ]). The proof restricts the triangle i_*i^!F→F→j_*j^*F to the fixed locus and applies Lemma 3.7. Finding E17 adds the bounded-dimension hypothesis without which the cone need not be bounded."
         }
       ],
       "proofSteps": [
@@ -1129,8 +1196,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§3.2, pp.14–16",
-          "match": "For i:Y^σ→Y define Psm(E)=T*i*E from D^b_σ(Y;Λ) to Shv(Y^σ;TΛ), and from the constructible source to Perf(Y^σ;TΛ). The proof outline records corrections and any additional obligation."
+          "locator": "§3.2, displays (3.2)–(3.4) and Remark 3.5, p.15",
+          "match": "Displays (3.3) and (3.4) define the Smith operation Psm as T* composed with restriction to the fixed locus, from constructible and ind-constructible equivariant sheaves to the corresponding Tate categories. They use (3.2) to view sheaves on Y^σ as Λ[σ]-sheaves. Remark 3.5 checks that the two versions agree."
         }
       ],
       "proofSteps": [
@@ -1160,19 +1227,27 @@
           "name": "smith.pullback",
           "role": "functoriality",
           "statement": "Equivariant pullback commutes with Psm and restriction to fixed loci."
+        },
+        {
+          "name": "smith.coefficientChange",
+          "role": "compatibility",
+          "statement": "For Λ=O, Psm commutes with derived reduction k⊗^L_O−, from equivariant O-sheaves to the k-Tate category, naturally on the constructible bounded domain (used for the bottom face of Feng Lemma 4.24)."
         }
       ],
       "tests": [
         {
           "name": "smith.test_1",
+          "kind": "degenerate",
           "statement": "For trivial geometric action, Psm is the quotient projection and does not kill the trivial coefficient module."
         },
         {
           "name": "smith.test_2",
+          "kind": "degenerate",
           "statement": "For a free geometric action the fixed locus is empty, hence Psm is zero."
         },
         {
           "name": "smith.test_3",
+          "kind": "computation",
           "statement": "On A¹ with x↦ζx and constant k, Psm has the nonzero trivial Tate unit at 0."
         }
       ],
@@ -1207,8 +1282,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 3.9 and Corollary 3.11, pp.16–17",
-          "match": "For f between trivially C_p-acted-on schemes and finite-Tor bounds as in finite-tor-pushforward, Rf! carries Flat^b(Y;A_Λ) to Flat^b(S;A_Λ). The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 3.9 and Corollary 3.11, p.16",
+          "match": "Lemma 3.9 says compact-support pushforward preserves Flat^b. Corollary 3.11 says that if σ acts trivially on S and freely on Y, then Rf! of any equivariant complex is flat, by factoring through the free quotient. Its printed target should be on S, not Y (finding E15)."
         }
       ],
       "proofSteps": [
@@ -1243,8 +1318,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§3.3, p.17; Appendix A.1, pp.56–57",
-          "match": "Between trivially acted-on finite-dimensional spaces, descend pullback, bounded compact-support pushforward, tensor and the compatible constructible duality to the designated Tate quotients. The proof outline records corrections and any additional obligation."
+          "locator": "§§3.3.1–3.3.2, pp.16–17; Appendix A.1, pp.56–57",
+          "match": "Sections 3.3.1–3.3.2 descend pullback and compact-support pushforward to the Tate categories. Appendix A.1 recalls, from Treumann and Riche–Williamson, that pullback, proper pushforward and Verdier duality descend to the constructible Tate categories. It defines f^! and Rf_* by conjugating with duality, and lists the compatibilities of Psm with all four operations in A.1.1–A.1.2."
         }
       ],
       "proofSteps": [
@@ -1279,14 +1354,17 @@
       "tests": [
         {
           "name": "tate_six_operations.test_1",
+          "kind": "degenerate",
           "statement": "Pullback along an identity and the descended identity agree as functors."
         },
         {
           "name": "tate_six_operations.test_2",
+          "kind": "characterisation",
           "statement": "Projection formula with the Tate unit recovers the original object, whereas tensor with a regular A_Λ-module becomes zero."
         },
         {
           "name": "tate_six_operations.test_3",
+          "kind": "non-example",
           "statement": "For a proper f the ! and * pushforwards agree; for a nonproper f they retain their distinct compact-support meanings."
         }
       ],
@@ -1316,7 +1394,7 @@
         {
           "sourceId": "Feng24",
           "locator": "Proposition 3.12, p.17; §3.4.5, p.19",
-          "match": "Let f:Y→S be a separated admissibly C_p-equivariant locally finite type morphism between bounded-dimensional schemes, with the uniform cohomological and coefficient Tor hypotheses above. The proof outline records corrections and any additional obligation."
+          "match": "Proposition 3.12 says Psm commutes with compact-support pushforward along an equivariant locally finite type morphism of bounded dimension. Its proof replaces S by S^σ and kills the free complement using Corollary 3.11. Section 3.4.5 restates the result as Psm(Rf!F)≅R(f|_{Y^σ})!Psm(F)."
         }
       ],
       "proofSteps": [
@@ -1352,8 +1430,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§3.4.5, formula (3.6), p.19",
-          "match": "For S=Spec(F) with trivial action, the previous equivalence gives T*RΓ_c(Y,E)≅RΓ_c(Y^σ,Psm(E)) in Shv(pt;TΛ). The proof outline records corrections and any additional obligation."
+          "locator": "§3.4.5, display (3.6), p.19",
+          "match": "Display (3.6) specializes Proposition 3.12 to the structure map to a separably closed point with trivial action, giving T*RΓ_c(Y;F)≅RΓ_c(Y^σ;Psm F). Feng presents this as the sheaf form of the classical localization theorems of Smith theory."
         }
       ],
       "proofSteps": [
@@ -1389,8 +1467,13 @@
       "sources": [
         {
           "sourceId": "MV07",
-          "locator": "MV07 Theorems 11.1, 12.1 and 14.1, pp.31–34, 38–40; Feng24 §4.5, p.23",
-          "match": "For a connected reductive H over separably closed F of characteristic different from p, the spherical perverse category P_{L^+H}(Gr_H;k) with fusion commutativity is tensor-equivalent to finite-dimensional rational Rep_k(Ĥ), where Ĥ is the pinned integral dual group base changed to k. The proof outline records corrections and any additional obligation."
+          "locator": "Proposition 11.1, p.31; Theorem 12.1, p.33; Theorem 14.1, p.40",
+          "match": "For a Noetherian coefficient ring of finite global dimension, Proposition 11.1 builds a flat affine group scheme whose representations, finitely generated over the coefficients, form the spherical perverse category, compatibly with base change from Z. Theorem 12.1 identifies the Z-form with the split reductive group of dual root datum. Theorem 14.1 gives the étale variant for coefficients obtained by base change from Z_ℓ."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "opening of §4, p.19; §4.5, p.23; Remark A.1, p.58",
+          "match": "Feng uses the Geometric Satake equivalence with k-coefficients for the scheme-theoretic Grassmannian over F throughout §4. Remark A.1 says this modular equal-characteristic setting is not completely documented and that the complex and B_dR^+ proofs carry over; the node makes that transport an explicit obligation (G2)."
         }
       ],
       "proofSteps": [
@@ -1421,14 +1504,19 @@
       ],
       "prerequisites": [
         "SheafTheoreticSmithTheory:modular-satake",
-        "LanglandsParameterStacks:LP3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
         "EnhancedDerivedSheaves:E1/coefficient-change-and-perfect-action"
       ],
       "sources": [
         {
           "sourceId": "MV07",
-          "locator": "MV07 Proposition 13.1 and Corollary 13.2, pp.39–40; Feng24 §4.5, p.23",
-          "match": "Fix a Borel and dominant λ. The proof outline records corrections and any additional obligation."
+          "locator": "Proposition 13.1 and Corollary 13.2, pp.39–40",
+          "match": "Proposition 13.1 says that under the integral Satake equivalence the map from the standard to the costandard sheaf of λ corresponds to the map from the Weyl module to the induced module. Both are characterized by universal properties in the subcategory with weights at most λ. Corollary 13.2 identifies the ν-weight spaces of both modules with the span of the irreducible components of Gr^λ∩S_ν."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "§4.5, p.23",
+          "match": "Feng recalls tilting modules as the objects of Rep_k(Ĝ) with both a standard and a costandard filtration, which on the sheaf side requires this standard/costandard comparison."
         }
       ],
       "proofSteps": [
@@ -1450,20 +1538,25 @@
       "parentStageId": "SheafTheoreticSmithTheory:ST.3",
       "kind": "definition",
       "title": "The category of rational tilting representations",
-      "statement": "Using the Weyl and dual-Weyl modules and highest-weight filtrations supplied by LP3, Tilt_Λ(Ĥ) is the full additive subcategory of finite free rational Ĥ_Λ-modules admitting both a finite Δ-filtration and a finite ∇-filtration. For Λ=k, finite free means finite-dimensional. Its exact structure is inherited from rational representations; it is closed under direct summands, not under all kernels and cokernels. Use the integral reductive group representation carrier, not arbitrary representations of the discrete group of k-points.",
+      "statement": "Using the Weyl and dual-Weyl modules and highest-weight filtrations requested from the integral highest-weight extension of Tau Ceti ReductiveGroups Layer 9, Tilt_Λ(Ĥ) is the full additive subcategory of finite free rational Ĥ_Λ-modules admitting both a finite Δ-filtration and a finite ∇-filtration. For Λ=k, finite free means finite-dimensional. Its exact structure is inherited from rational representations; it is closed under direct summands, not under all kernels and cokernels. Use the integral reductive group representation carrier, not arbitrary representations of the discrete group of k-points.",
       "hypotheses": [
         "Conventions C0–C4 in the reader apply, restricted to the coefficients, support and equivariance stated here."
       ],
       "prerequisites": [
-        "LanglandsParameterStacks:LP3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
         "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
       ],
       "sources": [
         {
           "sourceId": "JMW16",
-          "locator": "JMW16 §1, pp.1–2; Feng24 §4.5, p.23",
-          "match": "Using the Weyl and dual-Weyl modules and highest-weight filtrations supplied by LP3, Tilt_Λ(Ĥ) is the full additive subcategory of finite free rational Ĥ_Λ-modules admitting both a finite Δ-filtration and a finite ∇-filtration. The proof outline records corrections and any additional obligation."
+          "locator": "§1.1 and Theorem 1.1, p.1",
+          "match": "Section 1.1 recalls tilting modules for a reductive group over an algebraically closed field of characteristic p as modules with Weyl and good filtrations. Theorem 1.1 classifies the indecomposable ones as T(λ) by highest weight."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "§4.5, p.23",
+          "match": "Feng defines Tilt_k(Ĝ) as the full subcategory of Rep_k(Ĝ) of modules with both a standard and a costandard filtration, closed under direct sums and, by a nontrivial theorem, tensor products."
         }
       ],
       "proofSteps": [
@@ -1498,14 +1591,17 @@
       "tests": [
         {
           "name": "tilting_category.test_1",
+          "kind": "degenerate",
           "statement": "The trivial representation is tilting, with both filtrations of length one."
         },
         {
           "name": "tilting_category.test_2",
+          "kind": "computation",
           "statement": "For a split torus every finite-dimensional rational representation is tilting, with its finite character decomposition."
         },
         {
           "name": "tilting_category.test_3",
+          "kind": "non-example",
           "statement": "For SL₂ in characteristic 3, the Weyl module Δ(3) has an exact sequence 0→L(1)→Δ(3)→L(3)→0 of two-dimensional simple factors; ∇(3) has the reversed Loewy layers. Thus Δ(3) is not tilting, while T(3) has character ch Δ(3)+ch Δ(1) and dimension 6."
         }
       ],
@@ -1534,18 +1630,23 @@
       ],
       "prerequisites": [
         "SheafTheoreticSmithTheory:tilting-category",
-        "LanglandsParameterStacks:LP3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
       ],
       "sources": [
         {
           "sourceId": "JMW16",
-          "locator": "JMW16 Theorem 1.2 and Appendix Theorems 5.1, 5.3, pp.1–2, 15–16; Feng24 §A.4, p.60",
-          "match": "Tensor products of finite-dimensional rational tilting modules for a split connected reductive group over k are tilting. The proof outline records corrections and any additional obligation."
+          "locator": "Theorem 1.2, p.1; Theorems 5.1 and 5.3, p.16",
+          "match": "Theorem 1.2 states that tensor products of tilting modules are tilting. In the appendix, Theorem 5.3 shows this is equivalent to Theorem 5.1, the theorem of Donkin, Wang and Mathieu that tensor products of modules with good filtrations have good filtrations."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "footnote 11, p.27; §A.4, p.60",
+          "match": "Footnote 11 uses the tensor theorem to see that diagonal restriction preserves tilting. Section A.4 cites Donkin for faithfulness of restriction to the dual torus and for tilting modules being determined by their characters."
         }
       ],
       "proofSteps": [
-        "Request the precise good-filtration tensor theorem and its dual from LP3; no FS parameter-stack hypothesis is imposed on this generic representation theorem. Krull–Schmidt and the triangular highest-weight characters determine multiplicities recursively. Restriction forgets structure and is faithful; no inference of fullness is allowed."
+        "Request the precise good-filtration tensor theorem (Donkin, Wang, Mathieu) and its dual from the integral highest-weight extension of ReductiveGroups Layer 9; no parameter-stack hypothesis is imposed on this generic representation theorem. Krull–Schmidt and the triangular highest-weight characters determine multiplicities recursively. Restriction forgets structure and is faithful; no inference of fullness is allowed."
       ],
       "acceptance": [
         "For dual SL₂ in characteristic 3, the standard two-dimensional tilting module has tensor square T(2)⊕T(0). Torus restriction is faithful but its diagonal weight-space endomorphisms need not be SL₂-intertwiners."
@@ -1566,18 +1667,18 @@
       ],
       "prerequisites": [
         "SheafTheoreticSmithTheory:tilting-category",
-        "LanglandsParameterStacks:LP3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
         "mathlib:DerivedCategory"
       ],
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 Proposition 4.10, p.23",
-          "match": "The canonical functor K^b(Tilt_k(Ĥ))→D^b(Rep_k(Ĥ)) is an equivalence, where Rep denotes finite-dimensional rational representations. The proof outline records corrections and any additional obligation."
+          "locator": "Proposition 4.10, p.23",
+          "match": "Proposition 4.10, citing Riche, states that the bounded homotopy category of tilting modules maps by an equivalence onto D^b(Rep_k(Ĝ)), as for any highest-weight category."
         }
       ],
       "proofSteps": [
-        "Within a finite highest-weight ideal, Ext^n(T,T′)=0 for n>0 by Δ/∇ Ext-vanishing, giving full faithfulness of the homotopy functor. Resolve standards by tiltings inductively on the finite weight poset; standards generate its bounded derived category. Any bounded complex involves finitely many weights and fits in such an ideal. Request the finite-ideal highest-weight theorem from LP3."
+        "Within a finite highest-weight ideal, Ext^n(T,T′)=0 for n>0 by Δ/∇ Ext-vanishing, giving full faithfulness of the homotopy functor. Resolve standards by tiltings inductively on the finite weight poset; standards generate its bounded derived category. Any bounded complex involves finitely many weights and fits in such an ideal. Request the finite-ideal highest-weight theorem from the integral highest-weight extension of ReductiveGroups Layer 9."
       ],
       "acceptance": [
         "For a torus the category is semisimple and degree-zero objects already generate by characters. For a nonsemisimple finite highest-weight ideal, check full faithfulness through Ext^{>0}(tilting,tilting)=0 and generation via finite standard/costandard resolutions."
@@ -1595,7 +1696,7 @@
       "parentStageId": "SheafTheoreticSmithTheory:ST.4",
       "kind": "definition",
       "title": "Even stratifications and pariversities",
-      "statement": "A JMW stratification S of Y has finitely many connected smooth locally closed strata, the usual frontier condition, and the following coefficient condition for Λ=k or O: for finite free local systems L,L′ on each stratum, every Ext^n(L,L′) is finite free over Λ and vanishes for odd n. A pariversity † assigns an element of Z/2 to each stratum; the dimension pariversity is dim(Y_λ) mod 2. Simple connectivity is an additional hypothesis used for lifting, not part of the general definition.",
+      "statement": "A JMW stratification S of Y has finitely many connected smooth locally closed strata, the usual frontier condition, and the following coefficient condition for Λ=k or O: for finite free local systems L,L′ on each stratum, every Ext^n(L,L′) is finite free over Λ and vanishes for odd n. A pariversity † assigns an element of Z/2 to each stratum; the dimension pariversity is dim(Y_λ) mod 2. Simple connectivity is an additional hypothesis used for lifting, not part of the general definition. The class of local systems is part of the data: over a base field of positive characteristic it is taken to be the constant (or group-equivariant) ones, since wild local systems on affine strata can have odd cohomology.",
       "hypotheses": [
         "Conventions C0–C4 in the reader apply, restricted to the coefficients, support and equivariance stated here."
       ],
@@ -1606,8 +1707,13 @@
       "sources": [
         {
           "sourceId": "JMW14",
-          "locator": "JMW14 §2.1, pp.4–6; Feng24 §4.1, p.19, and correction to the sentence after (4.1), p.20",
-          "match": "A JMW stratification S of Y has finitely many connected smooth locally closed strata, the usual frontier condition, and the following coefficient condition for Λ=k or O: for finite free local systems L,L′ on each stratum, every Ext^n(L,L′) is finite free over Λ and vanishes for odd n. The proof outline records corrections and any additional obligation."
+          "locator": "§2.1, conditions (2.1)–(2.2), pp.4–5; Definition 2.3, p.5",
+          "match": "Section 2.1 fixes a field or complete discrete valuation ring as coefficients and a stratified variety. It assumes (2.1)–(2.2): Hom between free local systems on a stratum vanishes in odd degrees and is free in all degrees. Definition 2.3, at the start of §2.2, introduces pariversities."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "§4.1, pp.19–20",
+          "match": "Section 4.1 calls a stratification JMW under the same odd-vanishing and freeness condition, notes that it holds for affine flag varieties (JMW14 §4.1), and fixes the dimension pariversity. Over a base field of positive characteristic the claim for affine flag varieties holds only for constant local systems (finding E38). The sentence after (4.1), in §4.2 on p.20, misstates the parity condition (finding E23)."
         }
       ],
       "proofSteps": [
@@ -1642,14 +1748,17 @@
       "tests": [
         {
           "name": "jmw_stratification.test_1",
+          "kind": "computation",
           "statement": "An affine space with constant coefficients satisfies the condition; its dimension changes † but not the odd-Ext vanishing."
         },
         {
           "name": "jmw_stratification.test_2",
+          "kind": "non-example",
           "statement": "P¹ with its one smooth stratum has nonzero H², which is allowed; a smooth elliptic curve with H¹≠0 fails the condition for the constant local system."
         },
         {
           "name": "jmw_stratification.test_3",
+          "kind": "characterisation",
           "statement": "The same stratification can be used with constant †=0 and dimension †; on a one-dimensional stratum these give different even objects."
         }
       ],
@@ -1683,8 +1792,13 @@
       "sources": [
         {
           "sourceId": "JMW14",
-          "locator": "JMW14 Definition 2.14 and Theorem 2.12, pp.7–8; Feng24 §4.1, pp.19–20",
-          "match": "An object E∈D^b_S(Y;Λ) is *-even for † if each i_λ*E has finite free local-system cohomology only in degrees congruent to †(λ); !-even uses i_λ!E. The proof outline records corrections and any additional obligation."
+          "locator": "Definition 2.4, p.5; Theorem 2.12, p.7; Definition 2.14, p.8",
+          "match": "Definition 2.4 defines ∗- and !-even and odd complexes and parity complexes. Theorem 2.12 shows that an indecomposable parity complex has irreducible support, restricts to a shifted local system on the dense stratum, and is determined by that restriction. Definition 2.14 calls the normalized indecomposables parity sheaves."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "§4.1, pp.19–20",
+          "match": "Feng recalls even, odd and parity complexes for the dimension pariversity and Theorem 4.1, and writes E(λ,L) for the parity sheaf when it exists."
         }
       ],
       "proofSteps": [
@@ -1719,14 +1833,17 @@
       "tests": [
         {
           "name": "parity_complex.test_1",
+          "kind": "computation",
           "statement": "On a smooth one-dimensional stratum Λ[1] is even for dimension pariversity and Λ[0] is odd."
         },
         {
           "name": "parity_complex.test_2",
+          "kind": "non-example",
           "statement": "On a point O/p in degree zero is not O-parity because its cohomology is not O-free."
         },
         {
           "name": "parity_complex.test_3",
+          "kind": "non-example",
           "statement": "A point-supported Λ⊕Λ[1] is parity but neither even nor odd; the condition is not a single parity for all summands."
         }
       ],
@@ -1760,8 +1877,13 @@
       "sources": [
         {
           "sourceId": "JMW14",
-          "locator": "JMW14 Theorem 2.12, pp.7–8; Feng24 Theorem 4.1, p.20",
-          "match": "In the finite JMW setting with complete local coefficient ring Λ, parity objects have Krull–Schmidt decompositions. The proof outline records corrections and any additional obligation."
+          "locator": "Remark 2.1, p.4; Theorem 2.12, p.7",
+          "match": "Remark 2.1 notes that the constructible derived category is Krull–Remak–Schmidt for the complete local coefficient rings considered. Theorem 2.12 gives irreducible support and uniqueness of an indecomposable parity complex with a given dense-stratum restriction."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "Theorem 4.1, p.20",
+          "match": "Theorem 4.1 restates JMW14 Theorem 2.12 and observes that uniqueness does not give existence."
         }
       ],
       "proofSteps": [
@@ -1780,7 +1902,7 @@
       "parentStageId": "SheafTheoreticSmithTheory:ST.4",
       "kind": "theorem",
       "title": "Parity extensions on the equal-characteristic Grassmannian",
-      "statement": "The L^+H-orbit stratification of every finite Schubert union in Gr_H is JMW for Λ=k,O and has simply connected strata. Its normalized parity extensions exist for all dominant coweights and trivial finite free local systems. They admit compatible L^+H-equivariant structures in the precise non-torsion-prime setting of JMW16 Theorem 1.4. Under the odd good-prime hypothesis of Feng24, prove that the orbit-constructible normalized category used below has the required equivariant realization; do not identify the full equivariant derived category with the orbit-constructible one.",
+      "statement": "The L^+H-orbit stratification of every finite Schubert union in Gr_H satisfies the JMW condition for Λ=k,O with constant local systems on the strata, equivalently L^+H-equivariant ones, since the stabilizers are connected; these are the only local systems used. In characteristic 0 the strata are simply connected. Over a field of positive characteristic ℓ the condition fails for arbitrary étale local systems (finding E38), so the orbit-constructible category is taken with constant restrictions to strata. Its normalized parity extensions exist for all dominant coweights and trivial finite free local systems. They admit compatible L^+H-equivariant structures in the precise non-torsion-prime setting of JMW16 Theorem 1.4. Under the odd good-prime hypothesis of Feng24, prove that the orbit-constructible normalized category used below has the required equivariant realization; do not identify the full equivariant derived category with the orbit-constructible one.",
       "hypotheses": [
         "Conventions C0–C4 in the reader apply, restricted to the coefficients, support and equivariance stated here."
       ],
@@ -1793,15 +1915,21 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 §4.1, p.20 and §4.5, pp.22–23; JMW16 Theorem 1.4, pp.2–3",
-          "match": "The L^+H-orbit stratification of every finite Schubert union in Gr_H is JMW for Λ=k,O and has simply connected strata. The proof outline records corrections and any additional obligation."
+          "locator": "§4.1, p.20; §4.5, pp.22–23",
+          "match": "Feng states that parity sheaves exist on Gr_G for the positive-loop orbit stratification and can be made equivariant when p is not a torsion prime, citing JMW16 Theorem 1.4. Section 4.5 notes that the orbit stratification of this Kac–Moody flag variety is JMW, which in positive characteristic needs the constant-local-system convention (finding E38)."
+        },
+        {
+          "sourceId": "JMW16",
+          "locator": "Theorem 1.4 and footnote 3, p.2",
+          "match": "Theorem 1.4, from JMW14 Theorem 4.6, gives for characteristic not a torsion prime a unique indecomposable equivariant parity complex with support the closure of Gr^λ and constant rank-one restriction there. Every indecomposable parity complex is of this form. Footnote 3 says the torsion restriction can be removed in the non-equivariant setting."
         }
       ],
       "proofSteps": [
         "Build Bott–Samelson parity pushforwards on affine flag varieties, then take the appropriate summands on the partial flag/Grassmannian. Check evenness, the local-system condition and integral lifting on each bounded piece. Compare étale and complex proofs, including non-torsion/good-prime equivariance and passage to separably closed F. These proof inputs are the explicit transport contract G2."
       ],
       "acceptance": [
-        "For a torus every stratum is a point and its extension is Λ. For a GL₂ minuscule closed Schubert P¹ the normalized extension is Λ[1]. Check ordinary Hom separately from equivariant Hom."
+        "For a torus every stratum is a point and its extension is Λ. For a GL₂ minuscule closed Schubert P¹ the normalized extension is Λ[1]. Check ordinary Hom separately from equivariant Hom.",
+        "Over an algebraic closure of F_ℓ, a one-dimensional Schubert cell of the affine flag variety is A¹, and the Artin–Schreier sheaf L_ψ(x^d), for d≥3 prime to ℓ and ψ a nontrivial character of F_ℓ into k^×, has H¹ of dimension d−1. The constant-local-system convention excludes it."
       ],
       "implementationStatus": "unchecked",
       "realises": [
@@ -1828,8 +1956,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 Theorem 4.8, p.23; MR18 Corollary 1.6, pp.6–7 and proof §6.5, p.60",
-          "match": "For odd p good for the root system of Ĥ (equivalently H), every normalized k- or O-parity sheaf on Gr_H is perverse. The proof outline records corrections and any additional obligation."
+          "locator": "Theorem 4.8 and Remark 4.9, p.23",
+          "match": "Theorem 4.8 states that for p good the Satake equivalence restricts to an equivalence between normalized parity sheaves and tilting modules. Its proof sketch transports Mautner–Riche to the Grassmannian over F, replacing one loop-group step by Zhu Lemma 5.2.4. Remark 4.9 mentions the JMW16 Theorem 1.8 route, with worse bounds on p."
+        },
+        {
+          "sourceId": "MR18",
+          "locator": "Theorem 1.1, p.3; Corollary 1.6, p.6; §6.5, p.60",
+          "match": "Corollary 1.6 states that for p good for the group of the Grassmannian every spherical parity sheaf is perverse. Section 6.5 deduces it from the parity/exotic-tilting equivalence of Theorem 1.1 and a perversity criterion for self-dual objects (Lemma 6.6), after standard reductions to products of simply connected quasi-simple groups not of type A and general linear groups, which satisfy the hypotheses of Theorem 1.1."
         }
       ],
       "proofSteps": [
@@ -1868,8 +2001,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 Lemma 4.14, pp.24–25, corrected for normalized parity objects; Theorem 4.8, p.23",
-          "match": "For G=H^r, every normalized O-parity object on Gr_G≅(Gr_H)^r is a finite direct sum of E(λ₁)⊠⋯⊠E(λ_r). The proof outline records corrections and any additional obligation."
+          "locator": "proof of Lemma 4.14, p.24; Theorem 4.8, p.23",
+          "match": "The proof of Lemma 4.14 reduces an integral Satake object on Gr_G≅(Gr_H)^p, by a filtration, to external products F_1⊠⋯⊠F_p. For the normalized parity inputs used later, this node replaces the filtration (finding E26) by a direct-sum decomposition into external products of parity sheaves, using Theorem 4.8 on each factor."
         }
       ],
       "proofSteps": [
@@ -1901,8 +2034,13 @@
       "sources": [
         {
           "sourceId": "LL21",
-          "locator": "LL21 Proposition 4.6.1, pp.14–15 and Proposition 5.5.2, pp.21–22; Feng24 (4.2), p.22",
-          "match": "For bounded constructible O-complexes E,F in the LL integral Tate setting, with trivial coefficient C_p-action and the finite-support coefficient hypotheses, Hom_{Perf(Y;TO)}(T*ε*E,T*ε*F)≅⊕_{i∈Z}Hom_{D^b(Y;k)}(k⊗^L E,(k⊗^L F)[2i]). The proof outline records corrections and any additional obligation."
+          "locator": "Proposition 4.6.1, p.14; Proposition 5.5.2, p.22",
+          "match": "Proposition 4.6.1 computes Hom in the integral Tate category between images of O-complexes as the direct sum over i of Hom between their mod-p reductions shifted by 2i. Proposition 5.5.2 shows that the Tate-even categories, and hence the Tate-parity complexes, are Krull–Remak–Schmidt."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "display (4.2), p.22",
+          "match": "Display (4.2) quotes this Hom formula. Feng uses it in the proof of Proposition 4.5 and to define the lifting functor on morphisms."
         }
       ],
       "proofSteps": [
@@ -1939,8 +2077,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Definition 4.2 and Definition 4.4, pp.20–21; LL21 Definition 5.3.1, p.20",
-          "match": "In Perf_S(Y;TO), an object K is *-Tate-even when T^{†(λ)+1}(i_λ*K)=0 for each λ, and !-Tate-even uses i_λ!K. The proof outline records corrections and any additional obligation."
+          "locator": "Definitions 4.2 and 4.4, pp.20–21",
+          "match": "Definition 4.2 defines ∗- and !-Tate-even objects by vanishing of T^{†(λ)+1} of the stratum restrictions, Tate-odd objects by a shift, and Tate-parity complexes as sums of the two. Definition 4.4 defines a Tate-parity sheaf as an indecomposable Tate-parity complex whose dense-stratum restriction is T*ε*L[dim Y_λ]."
+        },
+        {
+          "sourceId": "LL21",
+          "locator": "Definition 5.3.1, p.20",
+          "match": "Definition 5.3.1 is the original definition, phrased as vanishing of T^1 of the restrictions shifted by the pariversity."
         }
       ],
       "proofSteps": [
@@ -1975,14 +2118,17 @@
       "tests": [
         {
           "name": "tate_parity.test_1",
+          "kind": "computation",
           "statement": "At a point T*O is Tate-even and T*O[1] is Tate-odd."
         },
         {
           "name": "tate_parity.test_2",
+          "kind": "degenerate",
           "statement": "A regular O[C_p]-module projects to zero, hence satisfies both even and odd vanishing conditions."
         },
         {
           "name": "tate_parity.test_3",
+          "kind": "non-example",
           "statement": "Replacing O by k makes the trivial Tate unit have odd Tate cohomology and fails the intended even-unit test."
         }
       ],
@@ -2017,8 +2163,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 Proposition 4.3 and Proposition 4.5, pp.21–22; LL21 Theorems 5.5.6 and 5.6.4, pp.22–24",
-          "match": "In the finite JMW integral Tate setting with simply connected strata and the stated finite-Hom hypotheses, an indecomposable Tate-parity object has support the closure of one stratum and is determined by its restriction to the dense stratum. The proof outline records corrections and any additional obligation."
+          "locator": "Proposition 4.3, p.21; Proposition 4.5 and its proof, pp.21–22",
+          "match": "Proposition 4.3 (LL21 Theorem 5.5.6) gives irreducible support and uniqueness of indecomposable Tate-parity complexes with a given dense restriction. Proposition 4.5 (LL21 5.6.3–5.6.4) shows that T*ε* sends even and odd complexes to Tate-even and Tate-odd ones, and a parity sheaf without negative self-Ext to the Tate-parity sheaf. The proof checks locality of the graded endomorphism ring through (4.2) and JMW14 (2.13)."
+        },
+        {
+          "sourceId": "LL21",
+          "locator": "Theorem 5.5.6, p.23; Proposition 5.6.3 and Theorem 5.6.4, p.24",
+          "match": "These are the original statements, under the trivial-action and simply-connected-strata hypotheses of LL21 §5."
         }
       ],
       "proofSteps": [
@@ -2040,7 +2191,7 @@
       "parentStageId": "SheafTheoreticSmithTheory:ST.4",
       "kind": "theorem",
       "title": "Modular reduction on the non-equivariant parity category",
-      "statement": "For a finite JMW stratification with simply connected strata, suppose all normalized O- and k-parity extensions exist. Then F=k⊗^L_O sends O-parity extensions to the corresponding k-parity extensions; for parity E,F′, Hom_O(E,F′) is finite free and k⊗_O Hom_O(E,F′)≅Hom_k(FE,FF′). Consequently Parity^0_S(Y;O)⊗_O k→Parity^0_S(Y;k) is an equivalence of additive categories. This statement is about the non-C_p-equivariant orbit-constructible category. Arbitrary C_p-equivariant reduction is not full.",
+      "statement": "For a finite JMW stratification with simply connected strata (in positive characteristic: with the class of constant local systems, for which the same lifting argument applies), suppose all normalized O- and k-parity extensions exist. Then F=k⊗^L_O sends O-parity extensions to the corresponding k-parity extensions; for parity E,F′, Hom_O(E,F′) is finite free and k⊗_O Hom_O(E,F′)≅Hom_k(FE,FF′). Consequently Parity^0_S(Y;O)⊗_O k→Parity^0_S(Y;k) is an equivalence of additive categories. This statement is about the non-C_p-equivariant orbit-constructible category. Arbitrary C_p-equivariant reduction is not full.",
       "hypotheses": [
         "Conventions C0–C4 in the reader apply, restricted to the coefficients, support and equivariance stated here."
       ],
@@ -2051,8 +2202,13 @@
       "sources": [
         {
           "sourceId": "JMW14",
-          "locator": "JMW14 Proposition 2.39 and (2.13), pp.17–18; corrected Feng24 Lemma 4.16, p.26",
-          "match": "For a finite JMW stratification with simply connected strata, suppose all normalized O- and k-parity extensions exist. The proof outline records corrections and any additional obligation."
+          "locator": "Remark 2.7, p.7; display (2.13) and Proposition 2.39, p.17",
+          "match": "Remark 2.7 records that Hom between parity complexes is free. Display (2.13) shows that for a ∗-parity F and a !-parity G the reduction map from F⊗Hom(F,G) to Hom of the reductions is an isomorphism. Proposition 2.39 shows that reduction sends parity sheaves to parity sheaves."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "Lemma 4.16, p.26",
+          "match": "Lemma 4.16 asserts the reduction equivalence for σ-equivariant normalized parity categories with simply connected strata, citing these facts. The node keeps only the non-equivariant version, which is all that §4.6.3 uses; the equivariant statement fails (finding E25)."
         }
       ],
       "proofSteps": [
@@ -2083,8 +2239,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Definition 4.7 and §4.4, p.22; LL21 Theorem 5.6.6, p.25",
-          "match": "Parity^0_S(Y;Λ) is the full additive closure of unshifted normalized parity sheaves E(λ,L). The proof outline records corrections and any additional obligation."
+          "locator": "Definition 4.7 and the paragraph after it, p.22",
+          "match": "Definition 4.7 defines normalized (Tate-)parity complexes as unshifted sums of (Tate-)parity sheaves. The following paragraph invokes the lifting functor under existence and vanishing negative self-Ext only, which is weaker than the cited theorem needs (finding E37)."
+        },
+        {
+          "sourceId": "LL21",
+          "locator": "Theorem 5.6.6, p.25",
+          "match": "Theorem 5.6.6 constructs the lifting functor assuming that all parity sheaves exist and that Hom(E(λ),E(λ′)[n]) vanishes for all pairs λ,λ′ and all n<0. This is the cross-negative-Hom condition the node requires."
         }
       ],
       "proofSteps": [
@@ -2119,14 +2280,17 @@
       "tests": [
         {
           "name": "normalized_parity.test_1",
+          "kind": "computation",
           "statement": "On a point Λ in degree zero is normalized; Λ[1] is not."
         },
         {
           "name": "normalized_parity.test_2",
+          "kind": "non-example",
           "statement": "T*O[2]≅T*O is normalized in the Tate category, but O[2] is not normalized in the ordinary category."
         },
         {
           "name": "normalized_parity.test_3",
+          "kind": "characterisation",
           "statement": "Two perverse parity sheaves have no negative cross-Hom, so the full normalized Grassmannian category satisfies the lifting hypothesis."
         }
       ],
@@ -2158,8 +2322,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 §4.4, p.22; LL21 Theorem 5.6.6, p.25",
-          "match": "Under the hypotheses of normalized-parity, construct an additive k-linear functor L:Parity^0_S(Y;TO)→Parity^0_S(Y;k), taking E_T(λ,L₀) to E(λ,L₀/pL₀). The proof outline records corrections and any additional obligation."
+          "locator": "§4.4 and diagram (4.3), p.22",
+          "match": "Section 4.4 defines L by sending E_T(λ,L) to E(λ,L⊗k) and acting on morphisms by projection to the index-zero summand of (4.2). Diagram (4.3) records that L∘T*ε* is modular reduction."
+        },
+        {
+          "sourceId": "LL21",
+          "locator": "Theorem 5.6.6, p.25",
+          "match": "Theorem 5.6.6 constructs this functor, with the composite relation to modular reduction, under the cross-negative-Hom hypothesis."
         }
       ],
       "proofSteps": [
@@ -2194,14 +2363,17 @@
       "tests": [
         {
           "name": "parity_lift.test_1",
+          "kind": "degenerate",
           "statement": "L takes the integral Tate unit at a point to k and preserves its scalar endomorphisms."
         },
         {
           "name": "parity_lift.test_2",
+          "kind": "computation",
           "statement": "A nonzero index-one morphism in the Tate Hom sum is sent to zero."
         },
         {
           "name": "parity_lift.test_3",
+          "kind": "compatibility",
           "statement": "For ordinary normalized parity morphisms α, L(T*ε*α)=Fα; this test does not assert fullness of T*ε*."
         }
       ],
@@ -2237,8 +2409,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 4.11, p.24 and §4.6.3, p.26",
-          "match": "For G=H^p with σ rotating factors, Gr_G≅(Gr_H)^p and Gr_G^σ≅Gr_H by the diagonal map, as ind-schemes on test rings. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 4.11, p.24; §4.6.3, p.26",
+          "match": "Lemma 4.11 identifies Gr_H with the σ-fixed subfunctor of Gr_G≅(Gr_H)^p through the diagonal. Section 4.6.3 shows that a Schubert cell of Gr_G meets Gr_H only for a constant tuple, where the intersection is the corresponding Schubert cell of H. For odd p the two dimension pariversities agree, by dim Gr^λ=⟨2ρ,λ⟩."
         }
       ],
       "proofSteps": [
@@ -2273,8 +2445,13 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Construction 4.12, p.24; JMW16 Theorem 1.5, p.3",
-          "match": "On the spherical symmetric monoidal category for G=H^p, define Nm(E)=E*σE*⋯*σ^{p−1}E with σ-linearization given by cyclic rotation through the fusion symmetry. The proof outline records corrections and any additional obligation."
+          "locator": "Definition 4.12 and display (4.4), p.24",
+          "match": "Definition 4.12 defines Nm(F) as the p-fold convolution of the σ-translates of F. Its σ-equivariant structure (4.4) comes from the commutativity constraint, and Feng constructs it in the perverse category before realizing it in the equivariant derived category."
+        },
+        {
+          "sourceId": "JMW16",
+          "locator": "Theorem 1.5, p.2",
+          "match": "Theorem 1.5, from JMW14 Theorem 4.8, says convolution of parity complexes on the affine Grassmannian is parity. Section 4.6.3 uses this to see that Nm(F) is parity."
         }
       ],
       "proofSteps": [
@@ -2304,19 +2481,27 @@
           "name": "norm_functor.perverseParity",
           "role": "compatibility",
           "statement": "For normalized O-parity E the norm is again a perverse parity object, with the stated cyclic action."
+        },
+        {
+          "name": "norm_functor.directSum",
+          "role": "relation",
+          "statement": "Nm(E⊕F)≅Nm(E)⊕Nm(F)⊕M, where M is a finite sum of objects induced from the trivial subgroup along the free cyclic orbits of mixed words (Feng §A.3)."
         }
       ],
       "tests": [
         {
           "name": "norm_functor.test_1",
+          "kind": "degenerate",
           "statement": "For the convolution unit, Nm(1)=1 with trivial C_p-action."
         },
         {
           "name": "norm_functor.test_2",
+          "kind": "non-example",
           "statement": "Nm(a·id_E)=a^p·id_{Nm(E)}, so ordinary scalar linearity fails for general a∈k."
         },
         {
           "name": "norm_functor.test_3",
+          "kind": "computation",
           "statement": "Nm(E⊕F) contains the pure E and pure F terms and mixed cyclic orbits; before quotienting those mixed terms must remain."
         }
       ],
@@ -2351,8 +2536,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 4.14, pp.24–25, with the external-product replacement",
-          "match": "For E a normalized O-parity object on Gr_{H^p}, the stalk and costalk cohomology of Nm(E) at every diagonal fixed point has a C_p-stable filtration whose associated graded is a direct sum of trivial O-free modules and free O[C_p]-modules. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 4.14 and its proof, pp.24–25",
+          "match": "Lemma 4.14 states that, for F with free stalk and costalk cohomology, the fixed-point stalk and costalk cohomology of Nm(F) have σ-stable filtrations with trivial or free graded pieces. The decisive step is the external-product case: the stalk is a tensor induction, and a tensor basis splits into fixed and free σ-orbits. The node keeps that step and drops the filtration reduction (finding E26)."
         }
       ],
       "proofSteps": [
@@ -2386,8 +2571,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Proposition 4.15, p.25 and §4.6.3, p.26",
-          "match": "Let Y be a finite-dimensional smooth-stratified JMW variety with tame admissible C_p-action preserving each relevant stratum. The proof outline records corrections and any additional obligation."
+          "locator": "Proposition 4.15, p.25; §4.6.3, p.26",
+          "match": "Proposition 4.15, a variant of LL21 Theorem 6.1.1, says that Psm of a parity complex with smooth strata, whose fixed-point stalks and costalks have trivial-or-free filtrations, is Tate-parity for the induced stratification and pariversity. Its proof uses (4.1), the long exact sequence, Lemma 3.8 and the Gysin isomorphism for the smooth fixed strata. Section 4.6.3 applies it to Nm(F) on Gr_G."
         }
       ],
       "proofSteps": [
@@ -2426,8 +2611,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§4.6.3, pp.26–27 and §A.3, p.57; extra morphism obligation identified by REV-PAPER-FENG-24",
-          "match": "On the ordinary normalized O-parity category of Gr_G, D=Psm∘Nm takes values in normalized Tate parity and is additive on objects and morphisms: D(f+g)=D(f)+D(g) and D(a f)=ā^p D(f), for a∈O and ā its image in k. The proof outline records corrections and any additional obligation."
+          "locator": "§4.6.3, pp.26–27; §A.3, p.57",
+          "match": "Section 4.6.3 factors L∘Psm∘Nm through the reduction equivalence before additivity on morphisms is available. Section A.3 proves additivity of BC on objects by expanding Nm of a sum into the pure terms plus free σ-orbits, which vanish in the Tate category. The morphism-level additivity and semilinearity stated here is the missing step of finding E27, from the PAPER-FENG-24 review."
         }
       ],
       "proofSteps": [
@@ -2461,8 +2646,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Construction 4.17, pp.26–27",
-          "match": "For a k-linear category C define C^(p) with the same objects and Hom_C(X,Y)⊗_{k,Frob}k, composition induced by tensor product. The proof outline records corrections and any additional obligation."
+          "locator": "Construction 4.17 and display (4.6), pp.26–27",
+          "match": "Construction 4.17 defines the Frobenius twist C^(p) of a k-linear category by twisting its Hom spaces, and proves its universal property for Frobenius-semilinear functors. Given an F_p-form as in (4.6), it defines the semilinear self-equivalence Frob_{F_0}."
         }
       ],
       "proofSteps": [
@@ -2497,14 +2682,17 @@
       "tests": [
         {
           "name": "frobenius_category.test_1",
+          "kind": "computation",
           "statement": "In the one-object category with endomorphism algebra k, the tautological map sends a scalar to its Frobenius image after the form identification."
         },
         {
           "name": "frobenius_category.test_2",
+          "kind": "computation",
           "statement": "Over k=F₉ choose a∉F₃; precomposing D(a·id)=a³D(id) with inverse Frobenius makes the result a·id."
         },
         {
           "name": "frobenius_category.test_3",
+          "kind": "non-example",
           "statement": "Changing the F_p-form changes the chosen self-equivalence data; without a form only C^(p) is canonical."
         }
       ],
@@ -2540,8 +2728,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§4.6.3, (4.6) and Definition 4.18, pp.26–27",
-          "match": "The ordinary normalized k-parity category on Gr_G has a specified F_p-form compatible with Satake and the integral split dual group. The proof outline records corrections and any additional obligation."
+          "locator": "display (4.6), p.27; the paragraph after Definition 4.18, p.27",
+          "match": "After Definition 4.18, Feng takes the F_p-form F_0 of Parity^0_{L^+G}(Gr_G;k) from D(Gr_G;k)≅D(Gr_G;F_p)⊗k, and defines Frob_p as the associated semilinear equivalence of Construction 4.17."
         }
       ],
       "proofSteps": [
@@ -2576,8 +2764,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Definition 4.18 and diagram (4.7), p.27; corrected order in §A.5, p.60",
-          "match": "For G=H^p and odd p good for Ĥ, define BC^(p):Parity^0_{(L^+G)}(Gr_G;k)→Parity^0_{(L^+H)}(Gr_H;k) by descending L Psm Nm through ordinary reduction. The proof outline records corrections and any additional obligation."
+          "locator": "Definition 4.18 and diagram (4.7), p.27; §A.5, p.60",
+          "match": "Definition 4.18 defines BC^(p) as the unique functor filling (4.7) through modular reduction, and BC as BC^(p)∘Frob_p^{-1}. Section A.5 checks the scalar behaviour but prints the composition in the other order (finding E33)."
         }
       ],
       "proofSteps": [
@@ -2612,14 +2800,17 @@
       "tests": [
         {
           "name": "base_change_functor.test_1",
+          "kind": "characterisation",
           "statement": "BC preserves zero objects and biproducts with natural inclusions and projections."
         },
         {
           "name": "base_change_functor.test_2",
+          "kind": "computation",
           "statement": "BC(a·f)=a·BC(f), including a∈F₉\\F₃; before linearization BC^(p)(a·f)=a^pBC^(p)(f)."
         },
         {
           "name": "base_change_functor.test_3",
+          "kind": "non-example",
           "statement": "Replacing the source by arbitrary C_p-equivariant parity objects fails the augmentation-ideal Hom test and is forbidden."
         }
       ],
@@ -2656,8 +2847,18 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 §A.4, (A.1), p.58; MV07 §3, pp.9–13; Braden03 Theorem 1 and Lemma 6, pp.1–2, 4–8",
-          "match": "Choose B_H⊃T_H and a regular dominant cocharacter κ:G_m→T_H. The proof outline records corrections and any additional obligation."
+          "locator": "§A.4, display (A.1) and Remark A.1, p.58",
+          "match": "Section A.4 fixes a regular σ-invariant cocharacter and defines CT_G as the sum over ν of Rp_ν!i_ν^* on G_m-monodromic sheaves, with its normalized shift by ⟨2ρ,ν⟩. Display (A.1) says the shifted constant terms are t-exact and correspond to restriction to the dual torus. Remark A.1 says the modular equal-characteristic case is not completely documented."
+        },
+        {
+          "sourceId": "MV07",
+          "locator": "§3: Theorem 3.2, p.9; Theorems 3.5–3.6, pp.10–11",
+          "match": "Section 3 constructs the semi-infinite orbits and their intersections with Schubert cells (Theorem 3.2). Theorem 3.5 shows compactly supported cohomology along S_ν is concentrated in degree ⟨2ρ,ν⟩ and agrees with the costalk version along the opposite orbit. Theorem 3.6 assembles these weight functors into the cohomology functor."
+        },
+        {
+          "sourceId": "Braden03",
+          "locator": "Theorem 1, p.2; Lemma 6, p.5",
+          "match": "Theorem 1 says that for a normal variety with a G_m-action and a weakly equivariant complex, the natural map between the attracting and repelling hyperbolic localizations is an isomorphism. Lemma 6 is the contraction lemma used in its proof. Page 2 shows by an example on C² with weights (1,−1) that some equivariance hypothesis is needed."
         }
       ],
       "proofSteps": [
@@ -2692,14 +2893,17 @@
       "tests": [
         {
           "name": "hyperbolic_localization.test_1",
+          "kind": "degenerate",
           "statement": "For a split torus ρ=0 and the attracting loci are points; CT is the identity on its finite-supported sheaf category."
         },
         {
           "name": "hyperbolic_localization.test_2",
+          "kind": "computation",
           "statement": "For the spherical unit supported at t^0, CT^norm has just the zero-weight copy of Λ in degree zero."
         },
         {
           "name": "hyperbolic_localization.test_3",
+          "kind": "non-example",
           "statement": "A sheaf supported on the non-invariant diagonal in A² with weights (+1,−1) need not have equal attracting and repelling localizations; monodromicity is required."
         }
       ],
@@ -2737,8 +2941,13 @@
       "sources": [
         {
           "sourceId": "MV07",
-          "locator": "MV07 Theorem 3.2 and formula (3.6), pp.9–10; Feng24 proof of Lemma A.3, p.61",
-          "match": "For dominant λ and the chosen positive Borel, S_{w₀λ}∩Gr_H^λ is the single point t^{w₀λ}. The proof outline records corrections and any additional obligation."
+          "locator": "Theorem 3.2, display (3.6) and the paragraph after it, p.9",
+          "match": "Theorem 3.2 says S_ν∩Gr^λ is nonempty exactly when ν is a weight of the irreducible representation of highest weight λ, and then has pure dimension ⟨ρ,λ+ν⟩. Display (3.6) computes S_ν∩Gr^ν in the dominant and antidominant cases, where it is a single point for antidominant ν. The following paragraph applies this to the extreme weights ν=λ and ν=w_0λ."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "proof of Lemma A.3, p.61",
+          "match": "The proof of Lemma A.3 uses that S_{w_0λ} meets Gr^λ_H in the single point t^{w_0λ}, citing Baumann–Riche."
         }
       ],
       "proofSteps": [
@@ -2773,8 +2982,13 @@
       "sources": [
         {
           "sourceId": "MV07",
-          "locator": "MV07 Theorems 3.5–3.7 and Propositions 6.3–6.4, pp.10–12, 20–22; Feng24 Remark A.1, p.58",
-          "match": "CT_H^norm is exact on the k-Satake heart and sends O-flat Satake objects to O-free finite-supported weight modules. The proof outline records corrections and any additional obligation."
+          "locator": "Theorems 3.5–3.6 and Corollary 3.7, pp.10–12; Propositions 6.3–6.4, pp.20–21",
+          "match": "Theorems 3.5–3.6 give the weight functors on the spherical perverse category with arbitrary Noetherian coefficients of finite global dimension. Corollary 3.7 shows global cohomology is exact and faithful. Propositions 6.3–6.4 show that total cohomology and its weight grading are tensor functors for convolution."
+        },
+        {
+          "sourceId": "Feng24",
+          "locator": "display (A.1) and Remark A.1, p.58",
+          "match": "Remark A.1 explains that the intertwining (A.1) of shifted constant terms with restriction to the dual torus is built into the identification of the Tannakian group. It is documented for the complex and B_dR^+ Grassmannians but not for the equal-characteristic modular one."
         }
       ],
       "proofSteps": [
@@ -2815,8 +3029,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Appendix A.1 and diagram (A.2), pp.56–58",
-          "match": "For G=H^p, take the diagonal κ-action commuting with cyclic rotation. The proof outline records corrections and any additional obligation."
+          "locator": "Appendix A.1, pp.56–57; display (A.2), p.58",
+          "match": "Using the compatibilities of Psm with pullback and pushforward from A.1.1–A.1.2, Feng states diagram (A.2): Smith intertwines CT_G and CT_H. He adds that this survives the degree shifts by the parity calculation of §4.6.3."
         }
       ],
       "proofSteps": [
@@ -2853,8 +3067,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 Lemma A.2 and diagrams (A.3)–(A.5), pp.59–60, with the Hom-level proof obligation made explicit",
-          "match": "On normalized integral Tate parity objects of Gr_H, CT_H^norm commutes naturally with L after passage to the normalized torus parity category. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma A.2 and its proof, diagrams (A.3)–(A.5), pp.59–60",
+          "match": "Lemma A.2 states that four side faces of cube (A.3) commute. Its proof handles the front face through (A.4) and the right square of (A.5). It deduces the latter from the caps (4.3), essential surjectivity of inflation and the morphism formula (4.2), without carrying out the morphism-level check that this node states (finding E35)."
         }
       ],
       "proofSteps": [
@@ -2889,8 +3103,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§A.5, p.60, corrected composition order",
-          "match": "For H a split torus with cocharacter lattice X_*(H), BC takes the point object at (ν₁,…,ν_p) on Gr_{H^p} to the point object at ν₁+⋯+ν_p on Gr_H. The proof outline records corrections and any additional obligation."
+          "locator": "§A.5, p.60",
+          "match": "Section A.5 reduces to H=G_m. It computes Nm of the constant sheaf at (n_1,…,n_p) as the constant sheaf at the diagonal sum, and its fixed restriction as the point sheaf at n_1+⋯+n_p. It then checks that a scalar λ becomes λ^p before inverse Frobenius restores λ."
         }
       ],
       "proofSteps": [
@@ -2924,8 +3138,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§A.4–A.5, pp.58–60; Theorem 4.20, pp.27–28",
-          "match": "For every normalized k-parity object E on Gr_{H^p}, Sat_H(BC(E)) and Res_Δ(Sat_G(E)) have naturally identified T̂_H-restrictions, once constant-term-lifting has been proved. The proof outline records corrections and any additional obligation."
+          "locator": "Theorem 4.20, pp.27–28; §§A.4–A.5, pp.58–60",
+          "match": "Theorem 4.20 asserts that BC commutes with diagonal restriction under the parity–tilting equivalences. Section A.4 reduces this to the torus case, using Lemma A.2 and Donkin's result that tilting modules are determined by their characters; §A.5 treats the torus. The node keeps the objectwise conclusion that this argument does give."
         }
       ],
       "proofSteps": [
@@ -2961,8 +3175,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Feng24 §A.4, p.60: the faithful-restriction argument does not establish this target",
-          "match": "Construct, for every tilting V of Ĥ^p, an invertible Ĥ-equivariant map α_V:Sat_H BC Sat_G^{-1}(V)→Res_Δ V whose restriction to T̂_H is the natural torus/constant-term comparison and for which α_W BC(f)=Res_Δ(f) α_V for every tilting morphism f:V→W. The proof outline records corrections and any additional obligation."
+          "locator": "§A.4, the paragraph after the proof of Lemma A.2, p.60",
+          "match": "This paragraph deduces the top face of (A.3) from the bottom face, by faithfulness of restriction to the dual torus and character determination of tilting modules. That step does not produce Ĥ-equivariant comparison maps (finding E34); constructing them is the target here."
         }
       ],
       "proofSteps": [
@@ -2975,9 +3189,6 @@
       "realises": [
         "SheafTheoreticSmithTheory:ST.6"
       ],
-      "planet": {
-        "name": "Equivariance of comparison maps"
-      },
       "gapIds": [
         "SheafTheoreticSmithTheory/G5"
       ]
@@ -3001,8 +3212,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Theorem 4.20, pp.27–28; Appendix A, pp.56–61",
-          "match": "For separably closed F of characteristic different from p, H connected reductive, G=H^p with cyclic rotation, k=Fbar_p, and odd p good for Ĥ, the k-linear additive functor BC on normalized Grassmannian parity objects corresponds, under modular Satake and the parity–tilting equivalences, to restriction along the diagonal Ĥ→Ĥ^p. The proof outline records corrections and any additional obligation."
+          "locator": "Theorem 4.20 and footnote 11, pp.27–28; Appendix A, pp.56–61",
+          "match": "Theorem 4.20 states that BC corresponds, under the parity–tilting Satake equivalences, to restriction along the diagonal Ĥ→Ĝ; footnote 11 explains why diagonal restriction preserves tilting modules. Appendix A, by Feng and Lonergan, gives the proof."
         }
       ],
       "proofSteps": [
@@ -3042,7 +3253,7 @@
         {
           "sourceId": "Feng24",
           "locator": "Lemma A.3, p.61",
-          "match": "On the κ-monodromic orbit-constructible k-coefficient Tate category of Gr_H with finite Schubert support, CT_H^norm is conservative: CT(K)=0 implies K=0, hence CT detects equivalences. The proof outline records corrections and any additional obligation."
+          "match": "Lemma A.3 states that CT on the constructible orbit-stratified k-Tate category of Gr_H is conservative. The proof chooses a maximal supported stratum and evaluates at its antidominant fixed point. The proof is phrased for the ind-constructible category although the statement concerns the constructible one (finding E36)."
         }
       ],
       "proofSteps": [
@@ -3081,8 +3292,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 4.21, p.28 and §A.6, p.61",
-          "match": "For every short exact sequence 0→V′→V→V″→0 in finite-dimensional rational Rep_k(Ĥ^p), the sequence obtained by Fr^{-1}, geometric Satake, Nm and Psm is a distinguished triangle in the constructible k-Tate category, with the comparison from the cone to the third term specified by the enhanced construction. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 4.21, p.28; §A.6, p.61",
+          "match": "Lemma 4.21 states that the composite of inverse Frobenius, Satake, Nm and Psm sends exact sequences of representations to exact triangles in the Tate category. Section A.6 proves it with Lemma A.3, the constant-term compatibility and the splitting of torus representations, reducing to additivity."
         }
       ],
       "proofSteps": [
@@ -3120,8 +3331,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "§4.6.4, pp.28–29",
-          "match": "For a discrete group Γ acting coherently on an additive category C, define C^{BΓ} by objects with maps u_γ:γE→E satisfying the cocycle law and morphisms commuting with every u_γ. The proof outline records corrections and any additional obligation."
+          "locator": "§4.6.4, p.28",
+          "match": "Section 4.6.4 uses equivariantization in the sense of Drinfeld–Gelaki–Nikshych–Ostrik to pass from a Γ-equivariant functor to a functor between categories of Γ-equivariant objects. It stresses that equivariantizing a derived category differs from taking the equivariant derived category."
         }
       ],
       "proofSteps": [
@@ -3156,14 +3367,17 @@
       "tests": [
         {
           "name": "equivariantization.test_1",
+          "kind": "degenerate",
           "statement": "For Γ trivial, C^{BΓ}≅C."
         },
         {
           "name": "equivariantization.test_2",
+          "kind": "compatibility",
           "statement": "For a trivial action on finite-dimensional k-vector spaces and finite Γ, equivariant objects are actual k[Γ]-representations and intertwining maps."
         },
         {
           "name": "equivariantization.test_3",
+          "kind": "non-example",
           "statement": "For profinite Γ a discontinuous abstract action on a discrete finite-dimensional space is excluded even if its abstract cocycle equations hold."
         }
       ],
@@ -3196,8 +3410,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 4.22, pp.28–29 and Corollary 4.23, p.29",
-          "match": "Let H descend to F₀⊂F and G=Res_{E₀/F₀}(H_{E₀}) for a cyclic degree-p extension E₀/F₀. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 4.22, p.28; Corollary 4.23, p.29",
+          "match": "Lemma 4.22 shows BC is Aut(F/F_0)-equivariant for a cyclic Weil-restriction setup, since its constituents are. Corollary 4.23 equivariantizes Theorem 4.20 to identify the descended BC with restriction between tilting categories of geometric L-groups."
         }
       ],
       "proofSteps": [
@@ -3233,8 +3447,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 4.24 and diagrams (4.8)–(4.10), pp.29–30, corrected right face",
-          "match": "Let F_T:Perf_S(Y;TO)→Perf_S(Y;Tk) be derived coefficient reduction, and I_k=T*ε*_k:D^b_S(Y;k)→Perf_S(Y;Tk). The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 4.24 and diagrams (4.8)–(4.10), pp.29–30",
+          "match": "Lemma 4.24 asserts that the cube (4.8), relating integral and mod-p parity, Tate and derived categories, commutes. The proof of its right face reduces to the image of the left column, which is not full there (finding E29). The node keeps the objectwise statement and naturality for inflated ordinary maps."
         }
       ],
       "proofSteps": [
@@ -3248,7 +3462,7 @@
         "SheafTheoreticSmithTheory:ST.7"
       ],
       "planet": {
-        "name": "Integral comparison on objects"
+        "name": "Coefficient comparison cube"
       }
     },
     {
@@ -3268,8 +3482,8 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 4.24, pp.29–30 and use in Proposition 5.12(i), p.41",
-          "match": "For D=Psm Nm on ordinary normalized O-parity objects, construct coherent object identifications F_T D(E)≅I_k L D(E) that intertwine F_T D(f) with I_k L D(f) for every ordinary parity morphism f, and are compatible with reduction and inverse Frobenius. The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 4.24, pp.29–30; proof of Proposition 5.12(i), p.39",
+          "match": "The proof of Proposition 5.12(i) uses the back face of cube (4.8) as a natural isomorphism of functors on tilting modules. That is the norm-image comparison targeted here (gap G4)."
         }
       ],
       "proofSteps": [
@@ -3282,9 +3496,6 @@
       "realises": [
         "SheafTheoreticSmithTheory:ST.7"
       ],
-      "planet": {
-        "name": "Norm-image comparison"
-      },
       "gapIds": [
         "SheafTheoreticSmithTheory/G4"
       ]
@@ -3306,7 +3517,7 @@
         {
           "sourceId": "Feng24",
           "locator": "Definition 5.14, p.42",
-          "match": "Let A be a commutative F_p-algebra with an F_p-algebra automorphism σ satisfying σ^p=1. The proof outline records corrections and any additional obligation."
+          "match": "Definition 5.14 takes a commutative characteristic-p algebra with σ-action. It notes that N·A is an ideal of A^σ, defines the multiplicative norm Nm, and calls its composite with A^σ→A^σ/N·A=T^0(A) the Tate diagonal homomorphism Δ_p."
         }
       ],
       "proofSteps": [
@@ -3341,14 +3552,17 @@
       "tests": [
         {
           "name": "algebra_tate_diagonal.test_1",
+          "kind": "degenerate",
           "statement": "For trivial σ, Tr=0 in characteristic p and Δ_p(a)=a^p, so over F₉ it is not the identity on all scalars."
         },
         {
           "name": "algebra_tate_diagonal.test_2",
+          "kind": "computation",
           "statement": "For A=B^p with cyclic factor rotation, transfer surjects onto the diagonal invariants and T^0(A)=0, including its unit as the zero ring."
         },
         {
           "name": "algebra_tate_diagonal.test_3",
+          "kind": "computation",
           "statement": "For A=k[x₀,…,x_{p−1}] with cyclic permutation, Nm(x₀)=∏x_i and every mixed orbit sum in Nm(a+b) is killed; the transfer ideal is inside A^σ, not the ideal it generates in all of A."
         }
       ],
@@ -3371,7 +3585,7 @@
       "parentStageId": "SheafTheoreticSmithTheory:ST.8",
       "kind": "theorem",
       "title": "Unique extension of a Tate character",
-      "statement": "Let A,σ be as above, κ a perfect field of characteristic p, and A′⊂A^σ a unital subring containing Nm(A) and Tr(A). Every unital ring homomorphism χ:A′→κ vanishing on Tr(A) extends uniquely to a unital ring homomorphism χ̃:A→κ. It is given by χ̃(a)=Frob_κ^{-1}(χ(Nm(a))). This is a ring-character statement; k-linearity requires the matching chosen scalar structure.",
+      "statement": "Let A,σ be as above, κ a perfect field of characteristic p, and A′⊂A^σ a unital subring containing Nm(A) and Tr(A). Every unital ring homomorphism χ:A′→κ vanishing on Tr(A) extends uniquely to a unital ring homomorphism χ̃:A→κ. It is given by χ̃(a)=Frob_κ^{-1}(χ(Nm(a))). If A is a k-algebra with k-linear σ, κ=k and χ is k-linear, then χ̃ is k-linear. Taking A′=A^σ, restriction is therefore a bijection from σ-invariant k-algebra characters A→k to k-algebra characters of T^0(A); this is Treumann–Venkatesh (3.4.1).",
       "hypotheses": [
         "Conventions C0–C4 in the reader apply, restricted to the coefficients, support and equivariance stated here."
       ],
@@ -3383,15 +3597,21 @@
       "sources": [
         {
           "sourceId": "Feng24",
-          "locator": "Lemma 5.15 and formula (5.20), p.42",
-          "match": "Let A,σ be as above, κ a perfect field of characteristic p, and A′⊂A^σ a unital subring containing Nm(A) and Tr(A). The proof outline records corrections and any additional obligation."
+          "locator": "Lemma 5.15 and display (5.20), p.42",
+          "match": "Lemma 5.15 says that a character of a subring A′ of A^σ containing Nm(A) and N·A, vanishing on N·A, extends uniquely to A, by χ̃(a)=χ(Nm a)^{1/p} into a perfect field. Uniqueness comes from linear independence of characters (Stacks 0CKK)."
+        },
+        {
+          "sourceId": "TV16",
+          "locator": "§3.4, display (3.4.1), pp.11–12",
+          "match": "Display (3.4.1) is the case A′=A^σ and κ=k for a k-algebra: restriction gives a bijection from σ-fixed k-characters of A to characters of T^0A. It is proved by the same norm formula and linear independence. The closing remark extends the argument to values in an integral domain."
         }
       ],
       "proofSteps": [
         "The additive-defect transfer formula and multiplicativity prove the displayed map is a ring homomorphism. For a′∈A′ use Nm(a′)=a′^p to check extension. Any other extension annihilates all transfers, so the sum of its p cyclic translates is zero. If its orbit had length p these would be distinct multiplicative characters, contradicting the existing linear-independence theorem; hence it is σ-invariant. Taking the p-th power then determines its value uniquely by perfectness."
       ],
       "acceptance": [
-        "For trivial σ on A=k[x], A′=A and κ perfect, the formula Frob^{-1}(χ(a^p)) recovers χ(a). For a cyclic product algebra the transfer ideal contains 1, so no unital transfer-annihilating character to a nonzero field exists."
+        "For trivial σ on A=k[x], A′=A and κ perfect, the formula Frob^{-1}(χ(a^p)) recovers χ(a). For a cyclic product algebra the transfer ideal contains 1, so no unital transfer-annihilating character to a nonzero field exists.",
+        "For A=k^p with cyclic rotation, the p coordinate characters are permuted freely, so no character is σ-invariant, matching T^0(A)=0 having no characters; for trivial σ the bijection is the identity of Hom(A,k)."
       ],
       "implementationStatus": "unchecked",
       "realises": [
@@ -3406,7 +3626,7 @@
       "parentStageId": "SheafTheoreticSmithTheory:ST.8",
       "kind": "construction",
       "title": "Frobenius twist and linearization of algebras",
-      "statement": "For a commutative k-algebra A, set A^(p)=A⊗_{k,Frob}k with the tensor-product algebra structure. Its tautological map is Frobenius-semilinear and universal for such maps from A to commutative k-algebras. Given a specific F_p-form A₀ and A≅A₀⊗_{F_p}k, let Fr_{A₀} fix A₀ and send scalar λ to λ^p. Linearize a Frobenius-semilinear map f:A→B as f∘Fr_{A₀}^{−1}. Apply this to Δ_p to obtain a k-algebra map after choosing a form.",
+      "statement": "For a k-vector space W, set W^(p)=W⊗_{k,Frob}k: the same vectors with λ acting as λ^{1/p}, so that the tautological map W→W^(p) is Frobenius-semilinear. For a commutative k-algebra A, A^(p) is this twist of the underlying module with the tensor-product algebra structure. Its tautological map is Frobenius-semilinear and universal for such maps from A to commutative k-algebras. Given a specific F_p-form A₀ and A≅A₀⊗_{F_p}k, let Fr_{A₀} fix A₀ and send scalar λ to λ^p. Linearize a Frobenius-semilinear map f:A→B as f∘Fr_{A₀}^{−1}. Apply this to Δ_p to obtain a k-algebra map after choosing a form.",
       "hypotheses": [
         "Conventions C0–C4 in the reader apply, restricted to the coefficients, support and equivariance stated here."
       ],
@@ -3419,7 +3639,12 @@
         {
           "sourceId": "Feng24",
           "locator": "Construction 5.17, p.43",
-          "match": "For a commutative k-algebra A, set A^(p)=A⊗_{k,Frob}k with the tensor-product algebra structure. The proof outline records corrections and any additional obligation."
+          "match": "Construction 5.17 defines the Frobenius twist A^(p)=A⊗_{k,Frob}k of a k-algebra and its universal property for Frobenius-semilinear homomorphisms. Given an F_p-structure, it defines the semilinear isomorphism Frob_{φ_0} and the linearization f∘Frob_{φ_0}^{-1}."
+        },
+        {
+          "sourceId": "TV16",
+          "locator": "§2.1, p.5",
+          "match": "Section 2.1 defines the Frobenius twist W^(p)=W⊗_{(k,Frob)}k of a k-vector space, equivalently the same vectors with scalars acting through λ^{1/p}. Treumann and Venkatesh use it in their linkage definition (Definition 6.2, p.20)."
         }
       ],
       "proofSteps": [
@@ -3435,6 +3660,11 @@
         "SheafTheoreticSmithTheory:ST.8"
       ],
       "api": [
+        {
+          "name": "frobenius_algebra.moduleTwist",
+          "role": "constructor",
+          "statement": "For a k-vector space W, W^(p)=W⊗_{k,Frob}k with k acting on the right factor; equivalently W with λ∗w=λ^{1/p}w. It is functorial in k-linear maps, preserves dimension, and is the underlying k-module of A^(p) and of the Hom spaces of C^(p)."
+        },
         {
           "name": "frobenius_algebra.tensorTwist",
           "role": "constructor",
@@ -3454,15 +3684,23 @@
       "tests": [
         {
           "name": "frobenius_algebra.test_1",
+          "kind": "computation",
           "statement": "For A=k[x] with form F_p[x], Fr fixes x and raises only coefficients to p-th powers."
         },
         {
           "name": "frobenius_algebra.test_2",
+          "kind": "non-example",
           "statement": "For trivial σ on A=k[x], linearizing Δ_p sends x to x^p and scalars to themselves; it is not the identity endomorphism of A."
         },
         {
           "name": "frobenius_algebra.test_3",
+          "kind": "computation",
           "statement": "Over F₉ a scalar a outside F₃ is restored to a by source inverse Frobenius followed by the p-semilinear map."
+        },
+        {
+          "name": "frobenius_algebra.test_4",
+          "kind": "compatibility",
+          "statement": "For W=k, the map a⊗μ↦a^pμ is a k-linear isomorphism k^(p)≅k, under which the tautological map k→k^(p) is a↦a^p; over F₉ it moves every scalar outside F₃."
         }
       ],
       "uses": [
@@ -3473,17 +3711,21 @@
         {
           "where": "SmithTheoryAndModPFunctoriality",
           "how": "Use this general construction rather than a Hecke-algebra-specific duplicate."
+        },
+        {
+          "where": "Treumann–Venkatesh §2.1 and §6.2 (SmithTheoryAndModPFunctoriality)",
+          "how": "The linkage definition twists a k-vector space by Frobenius; that Part II imports this module case rather than defining it again."
         }
       ],
       "planet": {
-        "name": "Frobenius twists of algebras"
+        "name": "Frobenius twists of modules and algebras"
       }
     }
   ],
   "requests": [
     {
       "supplier": "EnhancedDerivedSheaves:E1/enhanced-derived-category",
-      "need": "Enhanced unbounded derived étale categories and stable Verdier localizations, with enhancement-level coherence; not a replacement definition of DerivedCategory.",
+      "need": "Enhanced unbounded derived étale categories and stable Verdier localizations, with enhancement-level coherence; not a replacement definition of DerivedCategory. Upstream: TauCetiRoadmap pull request #908 (head ba9de88), Layers E1 and E3, which is now authoritative for this contract.",
       "neededBy": [
         "SheafTheoreticSmithTheory:equivariant-derived",
         "SheafTheoreticSmithTheory:tate-categories",
@@ -3492,7 +3734,7 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E1/k-flat-replacement",
-      "need": "Functorial K-flat coefficient resolutions suitable for equivariant group-ring sheaves and derived tensor.",
+      "need": "Functorial K-flat coefficient resolutions suitable for equivariant group-ring sheaves and derived tensor. Upstream: TauCetiRoadmap pull request #908 (head ba9de88), Layers E1 and E3, which is now authoritative for this contract.",
       "neededBy": [
         "SheafTheoreticSmithTheory:flat-complexes",
         "SheafTheoreticSmithTheory:tor-detection"
@@ -3500,7 +3742,7 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E1/coefficient-change-and-perfect-action",
-      "need": "Derived extension/restriction of coefficient rings, projection formula and perfect-module action, with finite-support compatibilities.",
+      "need": "Derived extension/restriction of coefficient rings, projection formula and perfect-module action, with finite-support compatibilities. Upstream: TauCetiRoadmap pull request #908 (head ba9de88), Layers E1 and E3, which is now authoritative for this contract.",
       "neededBy": [
         "SheafTheoreticSmithTheory:modular-satake",
         "SheafTheoreticSmithTheory:satake-standard-comparison",
@@ -3512,7 +3754,7 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E1/presentability-and-derived-tensor",
-      "need": "Presentability and derived tensor/Hom adjunctions used in sheaf and scalar-extended category constructions.",
+      "need": "Presentability and derived tensor/Hom adjunctions used in sheaf and scalar-extended category constructions. Upstream: TauCetiRoadmap pull request #908 (head ba9de88), Layers E1 and E3, which is now authoritative for this contract.",
       "neededBy": [
         "SheafTheoreticSmithTheory:flat-complexes",
         "SheafTheoreticSmithTheory:tate-periodicity",
@@ -3523,7 +3765,7 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E3/mates-and-beck-chevalley",
-      "need": "Enhanced mates/Beck–Chevalley coherences for fixed pullback, compact support, coefficient change and continuous descent.",
+      "need": "Enhanced mates/Beck–Chevalley coherences for fixed pullback, compact support, coefficient change and continuous descent. Upstream: TauCetiRoadmap pull request #908 (head ba9de88), Layers E1 and E3, which is now authoritative for this contract.",
       "neededBy": [
         "SheafTheoreticSmithTheory:finite-tor-pushforward",
         "SheafTheoreticSmithTheory:smith-pushforward",
@@ -3532,7 +3774,7 @@
     },
     {
       "supplier": "EnhancedDerivedSheaves:E3/exact-coproducts-colimits",
-      "need": "Exact filtered colimits and coproducts in sheaf categories, commuting with the cohomology used in periodic stabilization.",
+      "need": "Exact filtered colimits and coproducts in sheaf categories, commuting with the cohomology used in periodic stabilization. Upstream: TauCetiRoadmap pull request #908 (head ba9de88), Layers E1 and E3, which is now authoritative for this contract.",
       "neededBy": [
         "SheafTheoreticSmithTheory:equivariant-derived",
         "SheafTheoreticSmithTheory:tate-cohomology",
@@ -3542,7 +3784,7 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.0/constructible-ctf-complexes",
-      "need": "Constructible bounded torsion étale complexes with uniform finite Tor amplitude over the stated noetherian coefficient ring; W(k) is separately G1.",
+      "need": "Constructible bounded torsion étale complexes with uniform finite Tor amplitude over the stated noetherian coefficient ring; W(k) is separately G1. Upstream: TauCetiRoadmap pull request #1040 (head 88b1212); its coefficient convention allows any Noetherian torsion ring killed by an integer invertible on the base, which covers k, W_n(k) and their cyclic group rings, while its adic statements are for rings of integers of finite extensions of Q_p only.",
       "neededBy": [
         "SheafTheoreticSmithTheory:equivariant-derived",
         "SheafTheoreticSmithTheory:jmw-stratification"
@@ -3550,7 +3792,7 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.0",
-      "need": "The torsion étale six operations for separated finite-type maps with Rf! base change, projection formula, Künneth and cd_c≤2d. Rj* needs an ambient local bound, not a zero-dimensional fibre bound.",
+      "need": "The torsion étale six operations for separated finite-type maps with Rf! base change, projection formula, Künneth and cd_c≤2d. Rj* needs an ambient local bound, not a zero-dimensional fibre bound. Upstream: TauCetiRoadmap pull request #1040 (head 88b1212); its coefficient convention allows any Noetherian torsion ring killed by an integer invertible on the base, which covers k, W_n(k) and their cyclic group rings, while its adic statements are for rings of integers of finite extensions of Q_p only.",
       "neededBy": [
         "SheafTheoreticSmithTheory:finite-tor-pushforward",
         "SheafTheoreticSmithTheory:lft-compact-support",
@@ -3561,14 +3803,14 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality",
-      "need": "Constructible Verdier biduality for the permitted torsion coefficient/finite-Tor objects, to descend duality through the flat kernel.",
+      "need": "Constructible Verdier biduality for the permitted torsion coefficient/finite-Tor objects, to descend duality through the flat kernel. Upstream: TauCetiRoadmap pull request #1040 (head 88b1212); its coefficient convention allows any Noetherian torsion ring killed by an integer invertible on the base, which covers k, W_n(k) and their cyclic group rings, while its adic statements are for rings of integers of finite extensions of Q_p only.",
       "neededBy": [
         "SheafTheoreticSmithTheory:tate-six-operations"
       ]
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions",
-      "need": "Open–closed recollement triangles and adjunctions with their specified unit/counit maps on the permitted coefficient domains.",
+      "need": "Open–closed recollement triangles and adjunctions with their specified unit/counit maps on the permitted coefficient domains. Upstream: TauCetiRoadmap pull request #1040 (head 88b1212); its coefficient convention allows any Noetherian torsion ring killed by an integer invertible on the base, which covers k, W_n(k) and their cyclic group rings, while its adic statements are for rings of integers of finite extensions of Q_p only.",
       "neededBy": [
         "SheafTheoreticSmithTheory:fixed-restrictions",
         "SheafTheoreticSmithTheory:parity-complex",
@@ -3577,42 +3819,42 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.3",
-      "need": "Smooth-pair cohomological purity and its functorial Gysin comparison for a smooth fixed subvariety of a smooth stratum; no singular purity claim.",
+      "need": "Smooth-pair cohomological purity and its functorial Gysin comparison for a smooth fixed subvariety of a smooth stratum; no singular purity claim. Upstream: TauCetiRoadmap pull request #1040 (head 88b1212); its coefficient convention allows any Noetherian torsion ring killed by an integer invertible on the base, which covers k, W_n(k) and their cyclic group rings, while its adic statements are for rings of integers of finite extensions of Q_p only.",
       "neededBy": [
         "SheafTheoreticSmithTheory:smith-preserves-parity"
       ]
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.5/middle-perverse-t-structure",
-      "need": "Middle-perverse truncations and stalk/costalk inequalities on finite-dimensional torsion étale categories; integral flat hearts are an explicit extension in G1/G2.",
+      "need": "Middle-perverse truncations and stalk/costalk inequalities on finite-dimensional torsion étale categories; integral flat hearts are an explicit extension in G1/G2. Upstream: TauCetiRoadmap pull request #1040 (head 88b1212); its coefficient convention allows any Noetherian torsion ring killed by an integer invertible on the base, which covers k, W_n(k) and their cyclic group rings, while its adic statements are for rings of integers of finite extensions of Q_p only.",
       "neededBy": [
         "SheafTheoreticSmithTheory:modular-satake"
       ]
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.6/normalized-adic-system",
-      "need": "The existing normalized adic-system carrier, with common finite support stratification and cohomological/Tor bounds, for O finite over Z_p. Extension to W(k) and the Smith comparisons are G1, not an import.",
+      "need": "The existing normalized adic-system carrier, with common finite support stratification and cohomological/Tor bounds, for O finite over Z_p. Extension to W(k) and the Smith comparisons are G1, not an import. Upstream: TauCetiRoadmap pull request #1040 (head 88b1212); its coefficient convention allows any Noetherian torsion ring killed by an integer invertible on the base, which covers k, W_n(k) and their cyclic group rings, while its adic statements are for rings of integers of finite extensions of Q_p only.",
       "neededBy": [
         "SheafTheoreticSmithTheory:finite-tor-pushforward"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
-      "need": "Finite admissible invariant affine/coarse quotients, their universal property and the free-action torsor criterion.",
+      "need": "Finite admissible invariant affine/coarse quotients, their universal property and the free-action torsor criterion. Upstream: TauCetiRoadmap main (#779), §1.17 (finite and geometric quotients), §1.21 (quotient stacks) and §1.23 (coarse spaces of finite quotients).",
       "neededBy": [
         "SheafTheoreticSmithTheory:actions"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1/quotient-stack",
-      "need": "The quotient-stack groupoid and equivariant sheaf interpretation, retaining geometric rather than only coefficient actions.",
+      "need": "The quotient-stack groupoid and equivariant sheaf interpretation, retaining geometric rather than only coefficient actions. Upstream: TauCetiRoadmap main (#779), §1.17 (finite and geometric quotients), §1.21 (quotient stacks) and §1.23 (coarse spaces of finite quotients).",
       "neededBy": [
         "SheafTheoreticSmithTheory:equivariant-derived"
       ]
     },
     {
       "supplier": "GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian",
-      "need": "Equal-characteristic Beilinson–Drinfeld/affine Grassmannian carriers and factorization geometry. This imports geometry only, not a modular or W(k)-adic Satake equivalence.",
+      "need": "Equal-characteristic affine Grassmannian carriers and factorization geometry, needed over an arbitrary separably closed field F of characteristic different from p, not only over powers of the global curve over a finite field: the local Grassmannian Gr_H=LH/L^+H as the fibre of the Beilinson–Drinfeld Grassmannian of the affine line over F at a point, its positive-loop action and the Beauville–Laszlo description. This imports geometry only, not a modular or W(k)-adic Satake equivalence. The GS.1 node is stated for the roadmap's global curve; the field-independence of the construction is part of this contract.",
       "neededBy": [
         "SheafTheoreticSmithTheory:modular-satake",
         "SheafTheoreticSmithTheory:grassmannian-parity",
@@ -3641,7 +3883,7 @@
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
-      "need": "The integral pinned split reductive group with dual root datum; the geometric modular Tannaka identification is owned here.",
+      "need": "The integral pinned split reductive group with dual root datum; the geometric modular Tannaka identification is owned here. Upstream: TauCetiRoadmap pull request #785 (head 1e875b1), where the item keeps this slug in the README.",
       "neededBy": [
         "SheafTheoreticSmithTheory:coefficients",
         "SheafTheoreticSmithTheory:modular-satake",
@@ -3651,28 +3893,28 @@
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.5/galois-action-on-dual-group",
-      "need": "Pinned Galois action on the integral dual group, including the common cyclotomic normalization used in descent.",
+      "need": "Pinned Galois action on the integral dual group, including the common cyclotomic normalization used in descent. Upstream: TauCetiRoadmap pull request #785 (head 1e875b1), where the item keeps this slug in the README.",
       "neededBy": [
         "SheafTheoreticSmithTheory:base-change-galois"
       ]
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.5/dual-isogenies-and-products",
-      "need": "Compatibility of Langlands duality with products/isogenies, to identify Ĝ with Ĥ^p; no new root-datum construction.",
+      "need": "Compatibility of Langlands duality with products/isogenies, to identify Ĝ with Ĥ^p; no new root-datum construction. Upstream: TauCetiRoadmap pull request #785 (head 1e875b1), where the item keeps this slug in the README.",
       "neededBy": [
         "SheafTheoreticSmithTheory:feng-base-change"
       ]
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.0a/weil-restriction-separable-splitting",
-      "need": "Separable Weil restriction and geometric product splitting with its actual Galois permutation action.",
+      "need": "Separable Weil restriction and geometric product splitting with its actual Galois permutation action. Upstream: TauCetiRoadmap pull request #785 (head 1e875b1), where the item keeps this slug in the README.",
       "neededBy": [
         "SheafTheoreticSmithTheory:base-change-galois"
       ]
     },
     {
-      "supplier": "LanglandsParameterStacks:LP3",
-      "need": "The generic highest-weight representation input of LP3: Weyl/dual-Weyl modules, finite highest-weight ideals and Δ/∇ filtrations for split reductive groups. Extract this reusable prefix from parameter-stack applications; no Fargues–Scholze stack-specific restricted theorem is used as a generic good-filtration theorem.",
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+      "need": "EXTENSION, not existing Layer 9 content: the integral highest-weight theory of split reductive groups over a field of characteristic p, as requested of the candidate ReductiveGroupsIntegralRepresentationsPartII (PAPER-KISIN-PAPPAS-18 route 5, PAPER-KISIN-PAPPAS-ZHOU-26 route 3), now planned inside DESIGN-ReductiveGroupsPartIII (#3357) and not yet designed. Needed: Weyl and induced (dual Weyl) modules Δ(λ), ∇(λ) with their canonical map; the highest-weight structure on each finite saturated ideal of dominant weights, with Hom(Δ(λ),∇(μ)) one-dimensional for λ=μ and zero otherwise and Ext^{>0}(Δ(λ),∇(μ))=0; Δ- and ∇-filtrations and their multiplicities; and the Donkin–Wang–Mathieu theorem that tensor products of modules with good filtrations have good filtrations, with its Weyl-filtration dual. LanglandsParameterStacks LP3 imports the same inputs from this owner and does not plan them, so they are requested here from the same single owner.",
       "neededBy": [
         "SheafTheoreticSmithTheory:satake-standard-comparison",
         "SheafTheoreticSmithTheory:tilting-category",
@@ -3725,6 +3967,7 @@
       "stageId": "SheafTheoreticSmithTheory:ST.3",
       "status": "planned",
       "remaining": [
+        "Weyl and induced modules, finite highest-weight ideals and the good-filtration tensor theorem are requested from the integral highest-weight extension of tauceti:TauCetiRoadmap/ReductiveGroups Layer 9 (DESIGN-ReductiveGroupsPartIII, not yet designed).",
         "SheafTheoreticSmithTheory/G2: Étale modular Satake and parity transport",
         "The exact supplier contracts in requests remain imports to be discharged; no implementation is claimed."
       ]
@@ -3803,7 +4046,7 @@
     {
       "id": "SheafTheoreticSmithTheory/G2",
       "title": "Étale modular Satake and parity transport",
-      "detail": "Supply the equal-characteristic scheme-theoretic modular k/O branch over arbitrary separably closed F of characteristic different from p: fusion with signs, weight-functor exactness, integral dual-group reconstruction and the needed finite-Schubert/stratum geometry. Transport the JMW/LL complex-topological parity and integral Tate Hom results with their composition grading, equivariant realization, coefficient change and CT compatibility. Check the F_p-form against the geometric one. MV07 Theorem 14.1 gives a model through Z_p and scalar extension, but does not by itself document every W(k)-adic/LL compatibility. The B_dR^+ Satake roadmap is not a theorem covering this case.",
+      "detail": "Supply the equal-characteristic scheme-theoretic modular k/O branch over arbitrary separably closed F of characteristic different from p: fusion with signs, weight-functor exactness, integral dual-group reconstruction and the needed finite-Schubert/stratum geometry. Transport the JMW/LL complex-topological parity and integral Tate Hom results, with constant local systems on strata in positive characteristic (finding E38), with their composition grading, equivariant realization, coefficient change and CT compatibility. Check the F_p-form against the geometric one. MV07 Theorem 14.1 gives a model through Z_p and scalar extension, but does not by itself document every W(k)-adic/LL compatibility. The B_dR^+ Satake roadmap is not a theorem covering this case.",
       "neededBy": [
         "SheafTheoreticSmithTheory:modular-satake",
         "SheafTheoreticSmithTheory:satake-standard-comparison",
@@ -3872,7 +4115,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). At Corollary 3.11, p.16, the printed target category of Rf! is on the source Y; the functor lands on S. Misprint, affects nothing.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E16",
@@ -3888,7 +4136,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Lemmas 3.6–3.7 (p.15) and Corollary 3.11 (p.16) take inputs in D^b(Y;Λ[σ]) on a scheme with free geometric action, while the stalk formula in the proof of Lemma 3.6 needs geometric equivariance. With only a coefficient action, p permuted points carrying a trivial coefficient action push forward to a trivial module, not to the regular one.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E17",
@@ -3904,7 +4157,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Lemma 3.8, p.16, keeps only the standing assumptions of §3.2 (separated, locally finite type). On the disjoint union of all A^n with scalar rotation the !-restrictions of the constant sheaf are unbounded below, so the cone cannot lie in Flat^b. Every later use is in bounded dimension.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E18",
@@ -3920,7 +4178,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Example 3.4, p.14, calls the four-term sequence nullhomotopic. Over k[σ] the norm inclusion of the trivial module has no equivariant retraction, since N acts by p=0; the sequence is only exact, which is all the argument needs.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E19",
@@ -3936,7 +4199,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In §3.3.1, p.16, the pullback is written with k-coefficients while the descended functors are for Λ. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E20",
@@ -3952,7 +4220,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In Remark 3.5, p.15, the label (3.1) is attached to the inclusion of constructible into ind-constructible equivariant sheaves, whereas (3.1) is the functor between Tate categories. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E21",
@@ -3968,7 +4241,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Remark 3.13, p.18, calls C a bounded k[σ]-module, while it is a complex. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E22",
@@ -3984,7 +4262,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In §3.4.5, p.19, the base is called L and described as the spectrum of a separably closed field with the word field missing; the pushforward is from the fixed locus. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E23",
@@ -4000,7 +4283,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In §4.2, p.20, the sentence after (4.1) speaks of nonvanishing odd Ext groups in the JMW condition, which requires vanishing. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E24",
@@ -4016,7 +4304,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Remark 4.6(1), p.21, writes F and X where the object is E on Y. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E25",
@@ -4032,7 +4325,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Lemma 4.16, p.26, is stated for σ-equivariant normalized parity categories. On a point, the augmentation ideal I of O[σ] has no σ-invariants while I/pI has, so reduction is not full. For p≥5 the indecomposable k[σ]-module of length 2 does not lift to an O-lattice, so reduction is not essentially surjective. Section 4.6.3 uses only the non-equivariant case, which holds.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E26",
@@ -4048,7 +4346,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). The proof of Lemma 4.14 (pp.24–25) says the statement for F can be checked on the graded pieces of a perverse filtration. Neither Nm nor stalk cohomology of i^* is exact on perverse sequences, so this reduction is not justified. For the normalized parity inputs of §4.6.3, F is a direct sum of external products and no filtration is needed.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E27",
@@ -4064,7 +4367,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Section 4.6.3, p.26, factors L∘Psm∘Nm through Parity^0(Gr_G;O)⊗k by Lemma 4.16. That needs additivity and p-semilinearity on Hom groups, which §A.3 proves only on objects. The categorical Tate diagonal node supplies the missing morphism-level statement.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E28",
@@ -4080,7 +4388,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). The paragraph before Lemma 4.21, p.28, writes Perf_{L^+H}(Gr_G;T_k) and D_{L^+H}(Gr_H;T_k) where the constructible Tate category of Gr_H is meant. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E29",
@@ -4096,7 +4409,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In the proof of Lemma 4.24, the right face is reduced to the outer square of (4.9) because the middle column is a Verdier quotient of the left column. That only controls morphisms in the image, and T*ε* is not full there. On the minuscule P¹ for GL₂ with E=O[1], the index-one Tate endomorphism from H²(P¹;k) is killed by L but survives reduction to the k-Tate category, so the right face is false as a natural isomorphism.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E30",
@@ -4112,7 +4430,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In (4.9) and the diagram at the top of p.30, the corners carrying T*ε* and F are labelled with L^+G and Gr_G where L^+H and Gr_H are meant. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E31",
@@ -4128,7 +4451,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In (A.1) and (A.2), p.58, several target categories carry the subscripts of the source row (L^+G on Gr_H, L^+T on Gr_{T_H}, L^+G⋊σ on Gr_T). Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E32",
@@ -4144,7 +4472,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). After (A.5), p.59, the vertical (constant-term) arrows are said to be essentially surjective; they are not, and the essentially surjective arrows in that square are the inflations T*ε*. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E33",
@@ -4160,7 +4493,12 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). Section A.5, p.60, writes BC=Frob_p^{-1}∘BC^(p), against Definition 4.18. Both orders give the same scalar behaviour in the torus computation. Misprint.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E34",
@@ -4176,13 +4514,18 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). The paragraph after Lemma A.2, p.60, deduces the top face of (A.3) from the bottom face, using faithfulness of restriction to the dual torus and injectivity on tilting objects. A natural isomorphism after a faithful but non-full functor does not lift to one before it. The step gives Theorem 4.20 object by object and after torus restriction, not as the natural isomorphism used in Proposition 5.12. Gap in the proof.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     },
     {
       "id": "SheafTheoreticSmithTheory/E35",
       "source": "Feng24",
       "kind": "gap",
-      "locator": "Published version, Appendix A.2, pp.58–59",
+      "locator": "Published version, proof of Lemma A.2 after diagram (A.5), §A.4, p.59",
       "printed": "Essential surjectivity on normalized objects is used to promote the lifting/CT object comparison to a natural square.",
       "correction": "Prove CT is compatible with the graded Hom formula and its degree-zero projection; normalized torus objects have no positive Hom indices.",
       "reason": "Essential surjectivity on objects alone does not control the additional positive-index Tate maps. The graded CT comparison supplies the missing map-level argument.",
@@ -4192,7 +4535,75 @@
         "Published Cambridge article and PDF for DOI 10.1017/fmp.2023.32, read 19 October 2026.",
         "arXiv abstract/version record 2009.14236 and publisher/search results for an erratum or corrigendum; no separately published correction located.",
         "Accepted PAPER-FENG-24 extraction and REV-PAPER-FENG-24 findings."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at the locator in the published text (SHA-256 665ae06a…). In the proof of Lemma A.2 (§A.4, p.59), the right square of (A.5) is said to follow from the outer square because the inflations are essentially surjective and the maps on morphisms are given by (4.2). The second clause points to the needed ingredient, but the compatibility of constant terms with the index decomposition of (4.2) and its index-zero projection is not argued. Gap in the proof, as recorded.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
+    },
+    {
+      "id": "SheafTheoreticSmithTheory/E36",
+      "source": "Feng24",
+      "kind": "misprint",
+      "locator": "Published version, Lemma A.3 and its proof, p.61",
+      "printed": "The lemma is stated for the constructible orbit-stratified Tate category, while its proof starts from a nonzero object of the ind-constructible Tate category.",
+      "correction": "Take K in the constructible category Perf_{(L^+H)}(Gr_H;T_k), as in the statement; the argument is unchanged.",
+      "reason": "The proof uses only finite support and orbit constructibility, which hold in the constructible category. The comparison functor (3.1) is conservative, so nothing is lost.",
+      "affects": "nothing",
+      "known": "new; not among the PAPER-FENG-24 findings (this packet number is unrelated to PAPER-FENG-24/E36)",
+      "searched": [
+        "Published Cambridge article, DOI 10.1017/fmp.2023.32, read 19 October 2026",
+        "PAPER-FENG-24 extraction findings E1–E60 and the REV-PAPER-FENG-24 review",
+        "arXiv record 2009.14236; no erratum or corrigendum located"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review after reading Lemma A.3 at the locator.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
+    },
+    {
+      "id": "SheafTheoreticSmithTheory/E37",
+      "source": "Feng24",
+      "kind": "gap",
+      "locator": "Published version, §4.4, paragraph after Definition 4.7, p.22",
+      "printed": "The lifting functor of LL21 Theorem 5.6.6 is invoked under the assumption that all parity sheaves exist and have vanishing negative self-Ext groups.",
+      "correction": "Assume Hom(E(λ,L),E(μ,L′)[n])=0 for all pairs of parity sheaves and all n<0, which is the hypothesis of LL21 Theorem 5.6.6. On the affine Grassmannian for good p it holds because normalized parity sheaves are perverse.",
+      "reason": "Projection to the index-zero summand of (4.2) is compatible with composition only if no composite of components of opposite nonzero index lands in index zero. That requires the vanishing of negative Hom between different parity sheaves, not only of negative self-Ext. LL21 Theorem 5.6.6 (preprint p.25) assumes the cross condition.",
+      "affects": "nothing",
+      "known": "new; not among the PAPER-FENG-24 findings",
+      "searched": [
+        "Published Cambridge article, DOI 10.1017/fmp.2023.32, read 19 October 2026",
+        "LL21 arXiv:1708.08174 (SHA-256 339b2e57…), Theorem 5.6.6",
+        "PAPER-FENG-24 extraction findings and the REV-PAPER-FENG-24 review; no erratum located"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review after comparing §4.4 with LL21 Theorem 5.6.6. The packet already plans the stronger hypothesis in normalized-parity.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
+    },
+    {
+      "id": "SheafTheoreticSmithTheory/E38",
+      "source": "Feng24",
+      "kind": "error",
+      "locator": "Published version, §4.1, p.19, the sentence after the JMW condition; Lemma 4.16, p.26 (simple connectivity hypothesis)",
+      "printed": "The JMW condition, required for any two finite free local systems on a stratum, is said to hold for Kac–Moody flag varieties, in particular affine flag varieties, over arbitrary separably closed fields, with a reference to JMW14 §4.1, which works over the complex numbers.",
+      "correction": "Over a separably closed field of positive characteristic ℓ, impose the condition, and the simple connectivity used in Lemma 4.16, only for constant local systems on the strata, equivalently for local systems equivariant under the connected positive-loop or Iwahori stabilizers. The parity sheaves of §4.5 have constant local systems on their strata, so the later arguments are unaffected.",
+      "reason": "A one-dimensional Bruhat cell of the affine flag variety is A¹. For d≥3 prime to ℓ and a nontrivial character ψ of F_ℓ into k^× (which exists since p≠ℓ), the Artin–Schreier sheaf L_ψ(x^d) is a rank-one local system on A¹ with H¹(A¹,L_ψ(x^d)) of dimension d−1. So Ext¹ between the constant sheaf and a finite free local system on that stratum is nonzero, and A¹ is not simply connected for k-local systems.",
+      "affects": "nothing",
+      "known": "new; not among the PAPER-FENG-24 findings",
+      "searched": [
+        "Published Cambridge article, DOI 10.1017/fmp.2023.32, read 19 October 2026",
+        "JMW14 §4.1 (arXiv:0906.2994), which treats complex Kac–Moody flag varieties",
+        "PAPER-FENG-24 extraction findings and the REV-PAPER-FENG-24 review; no erratum located"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the independent review. The Artin–Schreier computation is the Weil/Grothendieck–Ogg–Shafarevich count for L_ψ(f) with deg f prime to ℓ.",
+        "by": "REV-DESIGN-SheafTheoreticSmithTheory"
+      }
     }
   ],
   "sourceVersions": [
@@ -4202,6 +4613,13 @@
       "read": "2026-10-19",
       "sha256": "665ae06a29b85c1c89f8b074037f295ed308c4138134af061c94aafaa1fd1b2c",
       "landingPage": "https://doi.org/10.1017/fmp.2023.32"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1708.08174",
+      "citation": "Leslie–Lonergan, Parity sheaves and Smith theory, arXiv:1708.08174 (cited for the hypothesis of its Theorem 5.6.6 in finding E37)",
+      "read": "2026-10-19",
+      "sha256": "339b2e57ababc44df85b1adbe3e614e48ffb5f8daed3f971fd9fa8fd05b057ff"
     }
   ],
   "sourceDispositions": [
@@ -4664,6 +5082,27 @@
     {
       "kind": "proof-engine-boundary",
       "proposal": "The modular exotic/Soergel engine G3 needs an owner and a complete plan before claiming good-prime parity perversity closed. Do not silently attribute it to the characteristic-zero SpringerCorrespondence roadmap. This packet retains the explicit gap and its precise consumed theorem."
+    },
+    {
+      "kind": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/ReductiveGroups",
+      "title": "Reductive algebraic groups, Part III: integral highest-weight theory (DESIGN-ReductiveGroupsPartIII, candidate ReductiveGroupsIntegralRepresentationsPartII)",
+      "need": "Weyl and induced modules, finite highest-weight ideals, Δ/∇-filtrations and the Donkin–Wang–Mathieu good-filtration tensor theorem for split reductive groups in characteristic p, as stated in the request to Layer 9. LanglandsParameterStacks LP3 already imports the same inputs from this candidate. Tilting modules, their tensor closure and derived generation are planned here in ST.3 and should be imported by that design, not planned again.",
+      "consumers": [
+        "SheafTheoreticSmithTheory:satake-standard-comparison",
+        "SheafTheoreticSmithTheory:tilting-category",
+        "SheafTheoreticSmithTheory:tilting-tensor",
+        "SheafTheoreticSmithTheory:derived-tilting-generation"
+      ]
+    },
+    {
+      "kind": "ownership",
+      "subject": "Modular equal-characteristic geometric Satake",
+      "owner": "SheafTheoreticSmithTheory:modular-satake",
+      "detail": "GlobalShtukasAndFunctionFieldLanglands GS.1 plans the rational-coefficient classical Satake equivalence and leaves integral and modular coefficients to other branches; GeometricSatakeAndFusion plans the B_dR^+ Grassmannian. ST.3 is therefore the single owner of the modular k/O equivalence on the scheme-theoretic Grassmannian over a separably closed field. The ShtukaTateCohomologyAndGlobalBaseChange Part II (PAPER-FENG-24 route 2, item 53: the Satake functor on shtukas with k-coefficients) must import it from ST.3 rather than plan it again.",
+      "consumers": [
+        "ShtukaTateCohomologyAndGlobalBaseChange (PAPER-FENG-24 route 2, not yet designed)"
+      ]
     }
   ],
   "ownershipAudit": {
@@ -4676,5 +5115,338 @@
     ],
     "boundary": "Reuse existing reductive-group rational representations, tori, integral dual/root data, enhanced sheaves, finite quotients and equal-characteristic Grassmannian geometry. No reviewed library or current upstream roadmap supplies the Smith/parity/modular-Satake targets as a whole. The newer upstream roadmaps were searched; none supplies these sheaf-level targets.",
     "tierMoves": "This route is outside the Caraiani–Newton 94-roadmap tier list. No upward-tier notion is moved; every named supplier is a genuine existing supplier or an explicit extension contract."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-SheafTheoreticSmithTheory",
+    "date": "2026-10-19",
+    "notes": "Accepted with corrections in place. Every node was checked at its locator in the published Feng text (SHA-256 665ae06a…) and in the arXiv versions of LL21, JMW14, JMW16, MR18, MV07, Braden03 and TV16 (hashes in the sources), and the Stacks tags were read online. Every match had copied the statement; all 65 were rewritten to say what the cited place states, and second sources were split into their own entries. All 70 unit tests now carry a PROTOCOL section 12 kind. All nine baseline declarations were read at the pins and are correctly described. Supplier contracts were checked against the supplier nodes and, for suppliers now upstream, against the TauCetiRoadmap pull-request heads (#908, #1040, #785) and main (#779). Corrections: the highest-weight inputs were retargeted from LanglandsParameterStacks LP3, which imports them, to the integral highest-weight extension of Tau Ceti ReductiveGroups Layer 9 named by the Feng route brief; the GS.1 Grassmannian request now states the general base field; ten node locators were corrected and several page ranges tightened; five API items, one test and two Treumann–Venkatesh special cases (owned here by that paper's route) were added; two obligation planets were removed and one renamed. Source findings E15–E35 were confirmed at their locators (E35 locator corrected); three new findings were added: E36 (Lemma A.3 category slip), E37 (§4.4 lifting hypothesis weaker than LL21 Theorem 5.6.6) and E38 (the JMW condition over fields of positive characteristic holds only for constant local systems; Artin–Schreier counterexample). The gaps G1–G5 are genuine and honestly recorded; in particular G5 is a real gap in Feng §A.4. All nine stages are correctly planned and none is closed. The suggested file was corrected (an empty uniqueness clause, two docstring locators) and elaborates at the pins with placeholder-proof warnings only.",
+    "checked": [
+      {
+        "nodeId": "SheafTheoreticSmithTheory:coefficients",
+        "verdict": "corrected",
+        "note": "Locator corrected: the coefficient and σ-action conventions are Feng §1.5 (Notation), p.7, not §2.1; goodness checked against the standard highest-root table. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:actions",
+        "verdict": "corrected",
+        "note": "Admissibility checked against SGA 1 V.1.7 as cited on p.14; API item for the closed fixed locus added. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:equivariant-derived",
+        "verdict": "corrected",
+        "note": "Locator corrected to §1.5 and display (3.2); the orbit-subscript convention cited to §4.2. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:cyclic-flat-free",
+        "verdict": "verified",
+        "note": "Stacks 051E: Lemma 10.101.2 is the flat-free-projective equivalence; Feng citation split into its own source. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:flat-complexes",
+        "verdict": "verified",
+        "note": "Definition 3.1 and Lemma 3.2 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tor-detection",
+        "verdict": "verified",
+        "note": "Stacks 08G1, 0DJJ, 0A5M, 051E read online; Feng citation split. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-categories",
+        "verdict": "corrected",
+        "note": "API item for the tensor-ideal structure added (used by the projection formula). Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-periodicity",
+        "verdict": "verified",
+        "note": "Example 3.4 and (3.5) read; E18 accounted for. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-cohomology",
+        "verdict": "verified",
+        "note": "Definitions in §§3.4.1–3.4.2 read; trivial k and O module values recomputed. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-exact-sequence",
+        "verdict": "corrected",
+        "note": "Locator corrected: §3.4.4 is on p.18. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:trivial-action-tate",
+        "verdict": "verified",
+        "note": "Lemma 3.14 and (4.1) read; p=3 values recomputed. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:integral-tate-stratification",
+        "verdict": "corrected",
+        "note": "LL21 locator corrected: the stratified quotient comparison is Corollary 4.5.2, p.14, not §4.9. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:finite-tor-pushforward",
+        "verdict": "verified",
+        "note": "Lemma 3.9 and the Rj* step of Lemma 3.7 read; separate contracts confirmed. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:lft-compact-support",
+        "verdict": "verified",
+        "note": "§3.3, Lemma 3.9 proof and Remark 3.10 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:free-quotient-flat",
+        "verdict": "corrected",
+        "note": "Locator corrected: Lemma 3.6 is on p.15. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:near-fixed-flat",
+        "verdict": "verified",
+        "note": "Lemma 3.7 read; the punctured-disc stalk [k[C_p]→k[C_p]] by 1−σ recomputed. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:fixed-restrictions",
+        "verdict": "verified",
+        "note": "Lemma 3.8 read; E17 accounted for. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:smith",
+        "verdict": "corrected",
+        "note": "API item for compatibility with coefficient reduction added (used in Lemma 4.24). Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:flat-pushforward",
+        "verdict": "verified",
+        "note": "Lemma 3.9 and Corollary 3.11 read; E15 accounted for. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-six-operations",
+        "verdict": "verified",
+        "note": "§3.3 and Appendix A.1 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:smith-pushforward",
+        "verdict": "verified",
+        "note": "Proposition 3.12 and §3.4.5 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:smith-localization",
+        "verdict": "verified",
+        "note": "(3.6) read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:modular-satake",
+        "verdict": "corrected",
+        "note": "MV07 labels corrected: 11.1 is a Proposition (p.31), 12.1 a Theorem (p.33), 14.1 a Theorem (p.40). Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:satake-standard-comparison",
+        "verdict": "corrected",
+        "note": "Highest-weight supplier retargeted from LP3 to the integral highest-weight extension of Tau Ceti ReductiveGroups Layer 9 (LP3 itself imports from there). Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tilting-category",
+        "verdict": "corrected",
+        "note": "Highest-weight supplier retargeted from LP3 to the ReductiveGroups Layer 9 extension; statement edited accordingly. SL₂ characteristic-3 test recomputed (Δ(3), T(3) of dimension 6). Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tilting-tensor",
+        "verdict": "corrected",
+        "note": "Supplier of the Donkin–Wang–Mathieu theorem retargeted from LP3 to the ReductiveGroups Layer 9 extension. Tensor square of the SL₂ standard module in characteristic 3 recomputed. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:derived-tilting-generation",
+        "verdict": "corrected",
+        "note": "Supplier of the finite highest-weight ideals retargeted from LP3 to the ReductiveGroups Layer 9 extension. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:jmw-stratification",
+        "verdict": "corrected",
+        "note": "Statement extended: in positive characteristic the class of local systems is the constant one (finding E38). JMW14 pariversity locator corrected to Definition 2.3, p.5. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:parity-complex",
+        "verdict": "verified",
+        "note": "JMW14 Definitions 2.4, 2.14 and Theorem 2.12 read; dimension-pariversity tests checked. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:parity-indecomposables",
+        "verdict": "verified",
+        "note": "JMW14 Remark 2.1 and Theorem 2.12 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:grassmannian-parity",
+        "verdict": "corrected",
+        "note": "Statement corrected: the JMW condition and simple connectivity hold for constant (equivalently equivariant) local systems only, in positive characteristic (finding E38); Artin–Schreier check added. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:parity-tilting",
+        "verdict": "verified",
+        "note": "Feng Theorem 4.8 and MR18 Corollary 1.6 with §6.5 read; good-prime hypothesis confirmed; G3 confirmed as a genuine missing foundation. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:parity-product",
+        "verdict": "verified",
+        "note": "Proof of Lemma 4.14 read; E26 replacement checked, including the Koszul sign on constant words for odd p. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:integral-tate-hom",
+        "verdict": "verified",
+        "note": "LL21 Propositions 4.6.1 and 5.5.2 read; P¹ graded endomorphisms recomputed. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-parity",
+        "verdict": "verified",
+        "note": "Definitions 4.2, 4.4 and LL21 5.3.1 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-parity-indecomposables",
+        "verdict": "verified",
+        "note": "Propositions 4.3, 4.5 and LL21 5.5.6, 5.6.3–5.6.4 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:parity-reduction",
+        "verdict": "corrected",
+        "note": "Hypothesis qualified for positive characteristic (finding E38). The equivariant non-example (augmentation ideal) recomputed. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:normalized-parity",
+        "verdict": "verified",
+        "note": "Definition 4.7 and LL21 Theorem 5.6.6 read; the cross-negative-Hom hypothesis is the cited theorem's, and Feng's weaker wording is recorded as E37. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:parity-lift",
+        "verdict": "verified",
+        "note": "§4.4, (4.3) and LL21 5.6.6 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:fixed-grassmannian",
+        "verdict": "verified",
+        "note": "Lemma 4.11 and the pariversity computation of §4.6.3 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:norm-functor",
+        "verdict": "corrected",
+        "note": "Locator corrected: Nm is Definition 4.12, not a Construction; API item for the decomposition of Nm of a sum added. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:norm-stalks",
+        "verdict": "verified",
+        "note": "Lemma 4.14 read; orbit count for p=3 rechecked. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:smith-preserves-parity",
+        "verdict": "verified",
+        "note": "Proposition 4.15 and its proof read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:categorical-tate-diagonal",
+        "verdict": "verified",
+        "note": "§4.6.3 and §A.3 read; the morphism-level target matches E27. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:frobenius-category",
+        "verdict": "verified",
+        "note": "Construction 4.17 read; F₉ test checked. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:satake-prime-field-form",
+        "verdict": "verified",
+        "note": "The paragraph after Definition 4.18 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:base-change-functor",
+        "verdict": "verified",
+        "note": "Definition 4.18, (4.7) and §A.5 read; E33 accounted for. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:hyperbolic-localization",
+        "verdict": "verified",
+        "note": "§A.4, MV07 §3 and Braden Theorem 1 read; the non-invariant-diagonal non-example recomputed (k versus k[−2]). Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:extreme-orbits",
+        "verdict": "verified",
+        "note": "MV07 Theorem 3.2 and (3.6) read; GL₂ minuscule case checked. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:constant-term-satake",
+        "verdict": "corrected",
+        "note": "MV07 locator corrected: 3.7 is a Corollary. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:constant-term-smith",
+        "verdict": "verified",
+        "note": "A.1 and (A.2) read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:constant-term-lifting",
+        "verdict": "verified",
+        "note": "Lemma A.2 and (A.3)–(A.5) read; E35 confirmed as a gap. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:torus-base-change",
+        "verdict": "verified",
+        "note": "§A.5 read; (2,−1,4)↦5 and scalar linearization checked. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:base-change-characters",
+        "verdict": "verified",
+        "note": "Theorem 4.20 and §§A.4–A.5 read; objectwise scope is what the argument gives. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:reductive-comparison-maps",
+        "verdict": "corrected",
+        "note": "Planet removed: this is the G5 proof obligation, not a named result. The gap is genuine (a natural isomorphism after a faithful, non-full functor does not lift). Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:feng-base-change",
+        "verdict": "verified",
+        "note": "Theorem 4.20 and Appendix A read; dependence on G5 is correct. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:constant-term-conservative",
+        "verdict": "verified",
+        "note": "Lemma A.3 read; its Shv/Perf slip recorded as E36. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:norm-smith-exact",
+        "verdict": "verified",
+        "note": "Lemma 4.21 and §A.6 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:equivariantization",
+        "verdict": "verified",
+        "note": "§4.6.4 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:base-change-galois",
+        "verdict": "verified",
+        "note": "Lemma 4.22 and Corollary 4.23 read. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:integral-comparison-objects",
+        "verdict": "corrected",
+        "note": "Planet renamed from a caveat to the source object, the coefficient comparison cube. P¹ counterexample recomputed. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:norm-image-comparison",
+        "verdict": "corrected",
+        "note": "Locator corrected: the back face is used in the proof of Proposition 5.12(i), p.39. Planet removed (G4 obligation). Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:algebra-tate-diagonal",
+        "verdict": "verified",
+        "note": "Definition 5.14 read; product-algebra and trivial-action tests checked. Match rewritten in the reviewer's words; statement and sketch verified against the source."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:tate-character-extension",
+        "verdict": "corrected",
+        "note": "Statement extended with the Treumann–Venkatesh bijection (3.4.1) as the case A′=A^σ, κ=k; TV16 cited; check added. Match rewritten in the reviewer's words."
+      },
+      {
+        "nodeId": "SheafTheoreticSmithTheory:frobenius-algebra",
+        "verdict": "corrected",
+        "note": "Vector-space twist of Treumann–Venkatesh §2.1 added (statement, API item, test, use), as the TV16 route brief assigns it here; TV16 cited. Match rewritten in the reviewer's words."
+      }
+    ]
   }
 }

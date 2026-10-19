@@ -34,7 +34,8 @@ universe u v
 abbrev CyclicGroupAlgebra (k : Type u) [CommRing k] (p : ℕ) :=
   MonoidAlgebra k (Multiplicative (ZMod p))
 
-/-- Stacks 051E, Lemma 10.101.3. No finite-generation assumption is imposed. -/
+/-- Stacks 051E, Lemma 10.101.2: over a local ring with nilpotent maximal ideal, flat modules are
+free. No finite-generation assumption is imposed, unlike `Module.free_of_flat_of_isLocalRing`. -/
 theorem free_of_flat_of_nilpotent_maximalIdeal
     (R : Type u) [CommRing R] [IsLocalRing R]
     (h : ∃ n : ℕ, (IsLocalRing.maximalIdeal R) ^ n = ⊥)
@@ -42,7 +43,8 @@ theorem free_of_flat_of_nilpotent_maximalIdeal
     Module.Free R M := by
   sorry
 
-/-- Feng §3.2, p.14: flat cyclic group-ring modules in characteristic p are free. -/
+/-- Feng §3.4.1, p.18 (and the proof of Lemma 3.2, p.14): flat cyclic group-ring modules in
+characteristic p are free, since `k[C_p] ≅ k[u]/(u^p)` is local with nilpotent maximal ideal. -/
 theorem cyclicGroupAlgebra_flat_free
     (k : Type u) [Field k] (p : ℕ) [Fact p.Prime] [CharP k p]
     (M : Type v) [AddCommGroup M] [Module (CyclicGroupAlgebra k p) M]
@@ -107,7 +109,8 @@ theorem cyclicNorm_add_transfer (p : ℕ) [Fact p.Prime]
 
 /-- ST.8 endpoint, Feng Lemma 5.15, p.42. S is a real existing subring carrier.
 The transfer-annihilating character need not exist; the theorem extends one
-when supplied. Its target field is perfect, and the action is F_p-linear. -/
+when supplied, and the extension is unique among all ring homomorphisms extending `χ`.
+Its target field is perfect, and the action is F_p-linear. -/
 theorem tate_character_extension (p : ℕ) [Fact p.Prime] [CharP A p]
     (σ : A ≃+* A) (hσ : σ ^ p = 1) (S : Subring A)
     (hfixed : ∀ a : S, σ a = a)
@@ -115,8 +118,29 @@ theorem tate_character_extension (p : ℕ) [Fact p.Prime] [CharP A p]
     (htrace : ∀ a : A, cyclicTrace p σ a ∈ S)
     (κ : Type v) [Field κ] [CharP κ p] [PerfectRing κ p]
     (χ : S →+* κ) (hχ : ∀ a : A, χ ⟨cyclicTrace p σ a, htrace a⟩ = 0) :
-    ∃! ψ : A →+* κ, (∀ a : S, ψ a = χ a) ∧
-      ∀ a : A, ψ a ^ p = χ ⟨cyclicNorm p σ a, hnorm a⟩ := by
+    ∃! ψ : A →+* κ, ∀ a : S, ψ a = χ a := by
+  sorry
+
+/-- The formula (5.20) for the extension: since every extension of a transfer-annihilating `χ`
+is `σ`-invariant, its `p`-th power is `χ` of the cyclic norm. Without `hχ` this fails: for `k^p`
+with rotation, a coordinate projection extends the diagonal character. -/
+theorem tate_character_extension_pow (p : ℕ) [Fact p.Prime] [CharP A p]
+    (σ : A ≃+* A) (hσ : σ ^ p = 1) (S : Subring A)
+    (hfixed : ∀ a : S, σ a = a)
+    (hnorm : ∀ a : A, cyclicNorm p σ a ∈ S)
+    (htrace : ∀ a : A, cyclicTrace p σ a ∈ S)
+    (κ : Type v) [Field κ] [CharP κ p]
+    (χ : S →+* κ) (hχ : ∀ a : A, χ ⟨cyclicTrace p σ a, htrace a⟩ = 0)
+    (ψ : A →+* κ) (hψ : ∀ a : S, ψ a = χ a) (a : A) :
+    ψ a ^ p = χ ⟨cyclicNorm p σ a, hnorm a⟩ := by
+  sorry
+
+/-- Treumann–Venkatesh (3.4.1), the easy half: a `σ`-invariant character kills every transfer,
+so it factors through `T⁰(A)`. -/
+theorem invariant_character_trace_eq_zero (p : ℕ)
+    (σ : A ≃+* A) (κ : Type v) [Field κ] [CharP κ p]
+    (ψ : A →+* κ) (hψ : ∀ a : A, ψ (σ a) = ψ a) (a : A) :
+    ψ (cyclicTrace p σ a) = 0 := by
   sorry
 
 /-- Degenerate action: the norm is the ordinary p-th power. -/

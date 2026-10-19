@@ -4,14 +4,14 @@
   "area": "geomlanglands",
   "parent": null,
   "summary": "Construct the Smith restriction functor from equivariant étale sheaves to a cyclic Tate quotient, its relative localization and six-operation comparisons, and the normalized integral Tate-parity lifting used in cyclic Satake base change. The final comparison identifies this functor with diagonal restriction of tilting representations under modular equal-characteristic geometric Satake. The plan separates valid ordinary coefficient reduction from false equivariant fullness, character equality from natural dual-group equivariance, and objectwise integral comparisons from their unresolved naturality. It also owns the general algebra Tate diagonal and Frobenius linearization needed by the global and local consumers.",
-  "readme": "## Aim\n\nConstruct cyclic Smith restriction and its parity-lifting refinement to the Satake base change functor. The endpoint is Feng Theorem 4.20: Sat_H BC is naturally isomorphic to restriction along the diagonal Ĥ→Ĥ^p composed with Sat_G on normalized parity sheaves, identified with tilting representations. Also export the general algebra Tate diagonal and character-extension theorem to the global and local consumers.\n\n## Conventions\n\nF is separably closed of characteristic different from the odd prime p, k=overline(F_p), O=W(k), G=H^p and σ cyclically rotates the factors. Require p good for the dual root system for parity–tilting and the final comparison. Sheaf functors are enhanced étale operations on bounded-dimensional finite-type supports; adic systems retain uniform Tor/cohomological bounds. Geometric equivariance differs from a coefficient action. Normalized CT uses [⟨2ρ,ν⟩], and inverse Frobenius is applied on the source of the semilinear functor.\n\n## Layers\n\nST.0 specifies actions, coefficients and Tor bounds. ST.1 constructs Tate quotients and cohomology. ST.2 constructs Smith operations and localization. ST.3 supplies the missing modular equal-characteristic Satake branch. ST.4 constructs parity, Tate parity and normalized lifting. ST.5 builds the norm and linear BC. ST.6 proves constant-term comparisons and identifies the natural diagonal-restriction proof obligation. ST.7 treats exactness, descent and the valid integral comparison. ST.8 exports the algebra diagonal and Frobenius linearization.\n\n## Sources and ownership\n\nThe main source is Feng, Smith theory and cyclic base change functoriality, Forum Math. Pi 12 (2024), e1, §§3–4 and Appendix A, with exact theorem/page locators in the packet and reader. Leslie–Lonergan, Juteau–Mautner–Williamson, Mautner–Riche, Mirković–Vilonen and Braden supply the recorded parity, Satake and localization inputs. Existing enhanced sheaves, torsion six operations, equal-characteristic Grassmannian geometry, integral dual groups, highest-weight inputs and upstream rational representations remain supplier imports. This roadmap does not replan root data, B_dR^+ Satake, module-level Tate cohomology or downstream shtuka/local Langlands applications.\n\nAll 63 routed items are assigned. This is a complete target-level plan with all nine stages planned and G1–G5 explicit; no stage is closed. Full definitions, APIs, worked Checks and remaining proof obligations are in research/blueprint/readmes/SheafTheoreticSmithTheory.md.\n",
+  "readme": "## Aim\n\nConstruct cyclic Smith restriction and its parity-lifting refinement to the Satake base change functor. The endpoint is Feng Theorem 4.20: Sat_H BC is naturally isomorphic to restriction along the diagonal Ĥ→Ĥ^p composed with Sat_G on normalized parity sheaves, identified with tilting representations. Also export the general algebra Tate diagonal and character-extension theorem to the global and local consumers.\n\n## Conventions\n\nF is separably closed of characteristic different from the odd prime p, k=overline(F_p), O=W(k), G=H^p and σ cyclically rotates the factors. Require p good for the dual root system for parity–tilting and the final comparison. Sheaf functors are enhanced étale operations on bounded-dimensional finite-type supports; adic systems retain uniform Tor/cohomological bounds. Geometric equivariance differs from a coefficient action. Normalized CT uses [⟨2ρ,ν⟩], and inverse Frobenius is applied on the source of the semilinear functor.\n\n## Layers\n\nST.0 specifies actions, coefficients and Tor bounds. ST.1 constructs Tate quotients and cohomology. ST.2 constructs Smith operations and localization. ST.3 supplies the missing modular equal-characteristic Satake branch. ST.4 constructs parity, Tate parity and normalized lifting. ST.5 builds the norm and linear BC. ST.6 proves constant-term comparisons and identifies the natural diagonal-restriction proof obligation. ST.7 treats exactness, descent and the valid integral comparison. ST.8 exports the algebra diagonal and Frobenius linearization.\n\n## Sources and ownership\n\nThe main source is Feng, Smith theory and cyclic base change functoriality, Forum Math. Pi 12 (2024), e1, §§3–4 and Appendix A, with exact theorem/page locators in the packet and reader. Leslie–Lonergan, Juteau–Mautner–Williamson, Mautner–Riche, Mirković–Vilonen and Braden supply the recorded parity, Satake and localization inputs. Existing enhanced sheaves, torsion six operations, equal-characteristic Grassmannian geometry, integral dual groups and upstream rational representations remain supplier imports. Weyl and induced modules and the good-filtration tensor theorem are requested from the integral highest-weight extension of Tau Ceti ReductiveGroups Layer 9 (DESIGN-ReductiveGroupsPartIII), the owner LanglandsParameterStacks also imports them from. Treumann–Venkatesh §§2.1 and 3.4 are special cases of ST.8. This roadmap does not replan root data, B_dR^+ Satake, module-level Tate cohomology or downstream shtuka/local Langlands applications.\n\nAll 63 routed items are assigned. This is a complete target-level plan with all nine stages planned and G1–G5 explicit; no stage is closed. Full definitions, APIs, worked Checks and remaining proof obligations are in research/blueprint/readmes/SheafTheoreticSmithTheory.md.\n",
   "prerequisites": [
     "EnhancedDerivedSheaves",
     "EtaleDualityAndPerverseSheaves",
     "GlobalShtukasAndFunctionFieldLanglands",
-    "LanglandsParameterStacks",
     "ReductiveGroupsPartII",
-    "SchemeAndStackFoundations"
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/ReductiveGroups"
   ],
   "stages": [
     {
@@ -53,14 +53,16 @@
     {
       "key": "ST.3",
       "title": "The modular equal-characteristic Satake branch",
-      "description": "Construct the missing equal-characteristic modular geometric Satake equivalence with fusion symmetry, k/O-flat coefficient change and the standard/costandard comparison. Reuse integral dual groups and rational representation carriers. Define rational tilting representations from the generic highest-weight inputs, prove tensor closure and bounded derived generation via finite highest-weight ideals. This is the modular scheme-theoretic branch, not a duplicate of the B_dR^+ Satake roadmap.",
+      "description": "Construct the missing equal-characteristic modular geometric Satake equivalence with fusion symmetry, k/O-flat coefficient change and the standard/costandard comparison. Reuse integral dual groups and rational representation carriers. Define rational tilting representations from the Weyl and induced modules requested from the integral highest-weight extension of Tau Ceti ReductiveGroups Layer 9, prove tensor closure and bounded derived generation via finite highest-weight ideals. This is the modular scheme-theoretic branch, not a duplicate of the B_dR^+ Satake roadmap.",
       "requires": [
         "EnhancedDerivedSheaves:E1",
         "EtaleDualityAndPerverseSheaves:EDC.0",
         "EtaleDualityAndPerverseSheaves:EDC.5",
         "GlobalShtukasAndFunctionFieldLanglands:GS.1",
-        "LanglandsParameterStacks:LP3",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
       ]
     },
     {
@@ -104,7 +106,8 @@
         "SheafTheoreticSmithTheory:ST.2",
         "SheafTheoreticSmithTheory:ST.3",
         "SheafTheoreticSmithTheory:ST.4",
-        "SheafTheoreticSmithTheory:ST.5"
+        "SheafTheoreticSmithTheory:ST.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
       ]
     },
     {
@@ -127,7 +130,7 @@
     {
       "key": "ST.8",
       "title": "The Tate diagonal of an algebra",
-      "description": "Construct the transfer ideal in the fixed subring of a commutative F_p-algebra and prove that the norm class is the additive/multiplicative Tate diagonal. Reuse module-level H0 and character independence, prove the unique extension of a transfer-annihilating character to a perfect field, and formulate algebra Frobenius twists and source linearization relative to a specified F_p-form. This general algebra input is shared by the global and local consumers.",
+      "description": "Construct the transfer ideal in the fixed subring of a commutative F_p-algebra and prove that the norm class is the additive/multiplicative Tate diagonal. Reuse module-level H0 and character independence, prove the unique extension of a transfer-annihilating character to a perfect field, and formulate Frobenius twists of vector spaces and algebras and source linearization relative to a specified F_p-form. The Treumann–Venkatesh twist of a vector space and their bijection on σ-fixed characters are the special cases imported by SmithTheoryAndModPFunctoriality. This general algebra input is shared by the global and local consumers.",
       "requires": [
         "SheafTheoreticSmithTheory:ST.0",
         "SheafTheoreticSmithTheory:ST.5"
@@ -249,6 +252,19 @@
       ],
       "accessed": "2026-10-19",
       "sha256": "a224c3d11819195bacf713777d4f08e7e63b2007772559d0accf387a51c27275"
+    },
+    {
+      "id": "TV16",
+      "title": "Functoriality, Smith theory, and the Brauer homomorphism",
+      "authors": "David Treumann and Akshay Venkatesh",
+      "edition": "Ann. of Math. 183 (2016), 177–228; arXiv:1407.2346, preprint pagination",
+      "url": "https://arxiv.org/abs/1407.2346",
+      "readSections": [
+        "§2.1, p.5: Frobenius twist of a k-vector space",
+        "§3.4 and (3.4.1), pp.11–12: Tate cohomology of a commutative algebra and the bijection on characters"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "34e2416f08ba0dc4a4fb8369875ef3d9f5a5b2ef8290733545442801baec9ee8"
     }
   ],
   "status": "draft"
