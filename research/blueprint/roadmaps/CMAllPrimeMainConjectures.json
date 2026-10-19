@@ -1,0 +1,251 @@
+{
+ "id": "CMAllPrimeMainConjectures",
+ "title": "Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures",
+ "area": "iwasawa",
+ "parent": "ModularIwasawaMainConjectures",
+ "summary": "For every CM newform of weight k ≥ 2 and every prime p, including p = 2 and the case K ⊂ Q(μ_{p^∞}), prove Kato's rational main conjecture ξ(H²(V(f))) = ξ(H¹(V(f))/Z(f)) (Burungale–Tian Theorem 2.6). The route goes through elliptic units: the CM ray tower and its unit and class modules, Kato's CM theta function and elliptic units, Kato's CM realization and elliptic-unit reciprocity law, the elliptic-unit Euler system and Johnson-Leung–Kings' all-prime main conjecture with Rubin's classical forms, the rational equivariant main conjecture with its Euler-factor correction, Kato's CM descent and the CM case of his Theorem 12.4, and the equality step and bridge to Beilinson–Kato elements. It extends ModularIwasawaMainConjectures, starting from its cohomological formulation L0.",
+ "readme": "# Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures\n\nThis roadmap is the Part II of ModularIwasawaMainConjectures for CM forms. That roadmap's L0 formulates Kato's cohomological main conjecture char H²\\_Iw(V) = char(H¹\\_Iw(V)/Z(f)) and its layers L1–L6 prove restricted ordinary, family and signed branches; it proves no CM case. This roadmap starts at L0's formulation and proves the conjecture rationally for every CM newform of weight k ≥ 2 and every prime p, including p = 2 and the primes dividing the order of the torsion of the ray-class group. This is Theorem 2.6 of Burungale–Tian, 'A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin' (Annals 203, 2026), whose proof is a few lines citing Kato §15 and Johnson-Leung–Kings. Planned in full, that proof has four parts.\n\n1. The elliptic-unit side over the CM field K (layers CZ.0–CZ.2): the ray tower K(p^∞f) and its unit and class modules h¹, h²; Kato's elliptic units and the module z ⊂ h¹; the elliptic-unit Euler system and Johnson-Leung–Kings' main conjecture for imaginary quadratic fields at every prime; Rubin's classical forms.\n2. The rational equivariant main conjecture (CZ.4): Burungale–Tian Theorem 2.1, corrected by the Euler factors at the primes of f prime to p that the printed statement omits.\n3. Kato's passage from K to Q (CZ.1, CZ.5): Kato's realization of Hecke characters, his explicit reciprocity law for elliptic units (Prop. 15.9), the comparison map (15.12.1), the descent lemma 15.13 and its variant 15.14 for K ⊂ Q(μ\\_{p^∞}), which covers the congruent-number case K = Q(i), p = 2; and the CM case of Kato's Theorem 12.4, proved from elliptic units alone.\n4. The equality (CZ.6): Kato §15 proves only an inequality (Prop. 15.17). The equality step applies Kato's Lemma 14.15 to both sides and cancels the a-torsion terms. With the bridge (15.16.1) from elliptic units to Beilinson–Kato elements, it gives Theorem 2.6. The roadmap exports the result and its normalization dictionary to CMRankZeroConverse.\n\nThe split-prime material of CZ.3 (two-variable Coleman map, Katz's measure, anticyclotomic θ-components) is part of the integral layer at the request of the Castella–Grossi–Lee–Skinner and Burungale–Kobayashi–Ota routes, which need Rubin's main conjecture in those forms; Theorem 2.6 does not use it.\n\n## Reading the plan\n\nEach layer states its targets and then lists its nodes. Definitions and constructions carry an API outline and unit tests. Theorems carry hypotheses, a proof route, acceptance checks and prerequisites. Every node cites the place in its sources where the result is stated or proved, in our own words. Node identifiers are relative to this roadmap; prerequisites in other roadmaps keep their full identifiers. The plan is at target level (PROTOCOL.md §2).\n\n## Conventions\n\n- K is an imaginary quadratic field with a fixed embedding K ⊂ C; Q̄ ⊂ C and fixed embeddings Q̄ ⊂ Q̄\\_p; (ζ\\_{p^n})\\_n a compatible system of primitive p-power roots of unity. K(a) is the ray class field of modulus a, K(p^∞f) = ∪\\_n K(p^n f), G = G\\_{p∞f} = Gal(K(p^∞f)/K) ≅ Z\\_p² × Δ\\_f.\n- Artin symbols: σ\\_a = (a, K′/K) is the usual (arithmetic) Artin symbol, as in Kato. Johnson-Leung–Kings use the inverse reciprocity map, so their η(a) is η^{-1}(σ\\_a); every node that imports one of their formulas states which convention it uses.\n- Cohomology over rings of S-integers uses Kato's convention 8.2, the direct image j\\_\\* from the open set where the coefficients are lisse. It is neither extension by zero nor the cohomology of an enlarged set of places. H^q\\_{p∞f}(T) is the limit over the ray tower along corestriction; H^q(T) (Kato) is the limit over Z\\[ζ\\_{p^n}, 1/p\\].\n- V\\_{F\\_λ}(f) is Kato's cohomological representation of a newform (Kato 8.3), the dual of the covariant ρ\\_f; f\\* is the form with conjugate coefficients. Hecke characters ψ of K have type (m, n) when ψ restricted to C^× is z ↦ z^m z̄^n; a CM newform of weight k corresponds to ψ of type (1 − k, 0), so r = k − 1 in Kato's §15.\n- Λ = O\\_λ\\[\\[G\\_∞\\]\\] with G\\_∞ = Gal(Q(μ\\_{p^∞})/Q) ≅ Z\\_p^× (including its torsion), Λ\\_Q = Λ\\[1/p\\]; G′\\_∞ = Gal(Q(μ\\_{p^∞})/K) when K ⊂ Q(μ\\_{p^∞}). R = Z\\_p\\[\\[G\\]\\], R\\_O = O\\[\\[G\\]\\]. ξ(M) is the characteristic ideal of a finitely generated torsion module over the normal ring after inverting p, the product of the height-one primes raised to the local lengths.\n- All main-conjecture equalities of CZ.4–CZ.6 hold over the Iwasawa algebra with p inverted. They are not integral, and they do not hold over the unrestricted ring Q\\_p\\[\\[T\\]\\]. The integral statements of CZ.2–CZ.3 say so explicitly.\n\n## Layer overview\n\n| Layer | Title | Main sources |\n| --- | --- | --- |\n| [CZ.0](#cz0) | CM ray towers, unit and class modules, and elliptic units | Kato 15.1–15.6; Johnson-Leung–Kings §§3–5; Burungale–Tian §2.1 |\n| [CZ.1](#cz1) | Kato's CM realization and the elliptic-unit reciprocity law | Kato 15.7–15.9 |\n| [CZ.2](#cz2) | The elliptic-unit Euler system and the integral main conjecture | Johnson-Leung–Kings §§2–6; Rubin 1991 §4 |\n| [CZ.3](#cz3) | Split primes: the Coleman map, Katz's measure and anticyclotomic components | Rubin 1991 §4; Castella–Grossi–Lee–Skinner §§1.2, 2.2 |\n| [CZ.4](#cz4) | The rational equivariant main conjecture | Johnson-Leung–Kings §7; Burungale–Tian Theorem 2.1 |\n| [CZ.5](#cz5) | CM descent and the CM case of Kato's Theorem 12.4 | Kato 13.5, 14.15, 15.10–15.17; Rohrlich 1988 |\n| [CZ.6](#cz6) | Kato's main conjecture for CM newforms at every prime | Kato 15.16–15.17; Burungale–Tian Theorem 2.6 |\n\n## Sources and editions\n\n- **Ashay A. Burungale and Ye Tian**, A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin. Annals of Mathematics 203 (2026), no. 1, 1–13; read in the author version arXiv:2506.03465v2 (11 October 2025), whose page numbers are used throughout. <https://arxiv.org/pdf/2506.03465v2> (SHA-256 cbb8284a13ed40bd…, read 2026-10-19). Read: Entire paper, pp. 1–7, with §2.1 (Theorem 2.1 and footnote 3), §2.2 (Theorems 2.3, 2.4, 2.6, footnote 4) and §3.1 read line by line.\n- **Kazuya Kato**, p-adic Hodge theory and values of zeta functions of modular forms. Astérisque 295 (2004), ix, 117–290 (Numdam scan; printed page = PDF page + 115). <https://www.numdam.org/item/AST_2004__295__117_0.pdf> (SHA-256 3c6e14b11fa60262…, read 2026-10-19). Read: Chapter III §13.4–13.8, pp. 226–229; Lemma 14.15, pp. 243–244; §15 in full, pp. 250–267 (15.1–15.23), with the page images of pp. 250, 253, 254, 258–260 and 263–265 checked; §3.8, pp. 136–138, for (3.8.1)–(3.8.2).\n- **Jennifer Johnson-Leung and Guido Kings**, On the equivariant and the non-equivariant main conjecture for imaginary quadratic fields. J. reine angew. Math. 653 (2011), 75–114; read in arXiv:0804.2828v2 (12 August 2009), whose numbering is used. <https://arxiv.org/pdf/0804.2828v2> (SHA-256 2af28fc5c53be95d…, read 2026-10-19). Read: Entire paper, pp. 1–38: §1 (conventions, Det and Div), §2 (Theorem 2.6, Corollaries 2.8 and 2.11, Proposition 2.9), §3 (Definition 3.2, Proposition 3.3, Corollary 3.4, Definition 3.5, Proposition 3.6, Lemma 3.7, Theorem 3.9, Corollary 3.10), §4 (Lemmas 4.3–4.7), §5 (Theorem 5.2, Corollary 5.3, Conjecture 5.5, Theorem 5.7, §5.4 Lemma 5.8), §6 (Theorem 6.4, Corollary 6.5, Lemmas 6.6–6.7), §7 (Lemmas 7.1–7.7, §§7.2–7.3).\n- **Karl Rubin**, The \"main conjectures\" of Iwasawa theory for imaginary quadratic fields. Inventiones mathematicae 103 (1991), 25–68 (GDZ scan, published version; printed page = PDF page + 23). <https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf> (SHA-256 96ca08e8ed1a7646…, read 2026-10-19). Read: Introduction and contents, pp. 25–27; §1 setting, p. 27; §4 in full, pp. 36–37 (Theorem 4.1 and Remarks); §5 opening, p. 38; end of §10 (case table) and §11 opening, pp. 58–59.\n- **Karl Rubin**, Euler systems (author's course draft of the Annals of Mathematics Studies 147 monograph). Hermann Weyl Lectures draft, 1999 (public copy). <https://swc-math.github.io/notes/files/99RubinES.pdf> (SHA-256 de47655dc35066fd…, read 2026-10-19). Read: Statements of Definition II.1.1 and Theorems II.3.2–II.3.3 as cited by Johnson-Leung–Kings §6.2 (the theorem numbering of the published book is II.2.1.1, II.2.3.2–2.3.3).\n- **David E. Rohrlich**, L-functions and division towers. Mathematische Annalen 281 (1988), 611–632 (GDZ scan, published version). <https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0281/LOG_0061.pdf> (SHA-256 4c067a8b08258d90…, read 2026-10-19). Read: Introduction with Theorems 1 and 2, pp. 611–612.\n- **Adebisi Agboola and Benjamin Howard**, Anticyclotomic Iwasawa theory of CM elliptic curves II. Mathematical Research Letters 12 (2005); read in arXiv:math/0401124v2. <https://arxiv.org/pdf/math/0401124v2> (SHA-256 8bdbebfadd90e2f1…, read 2026-10-19). Read: §3, Propositions 3.1 and 3.3 with proofs, pp. 3–5.\n- **Francesc Castella, Giada Grossi, Jaehoon Lee and Christopher Skinner**, On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes. Inventiones mathematicae 227 (2022), 517–580; read in arXiv:2008.02571v2 (final version). <https://arxiv.org/pdf/2008.02571v2> (SHA-256 7cd995e0d9ee1c93…, read 2026-10-19). Read: §1.2: Definition 1.2.1, Theorem 1.2.2 and its proof, Remark 1.2.3, pp. 7–8; §2.2: proof of Theorem 2.2.2 (functional equation step) and Theorem 2.2.3, p. 15.\n- Not read, and not freely available or in the cleared library: Yager, 'On two variable p-adic L-functions' (Ann. of Math. 115, 1982); de Shalit, Iwasawa theory of elliptic curves with complex multiplication (1987); Ribet, LNM 601 (1977); Huber–Kings (Duke Math. J. 119, 2003) Propositions 1.2.10 and 2.3.1; Itakura's preprint on the prime 2; Kato's 'Generalized explicit reciprocity laws' (KK3). Each use is a recorded gap.\n\n### Corrections used here\n\n- PAPER-BURUNGALE-TIAN-26/E1 (confirmed): Theorem 2.1 as printed omits the factors ξ(Z\\_p\\[\\[G/D\\_𝔩\\]\\]) for the primes 𝔩 | f with 𝔩 ∤ p; CZ.4/rational-equivariant-main-conjecture states the corrected form, and CZ.4/printed-equivariant-form-range the range of the printed one.\n- PAPER-BURUNGALE-TIAN-26/E2 (confirmed): Kato §15 proves only the inequality Prop. 15.17; the equality step is CZ.6/equality-descent.\n- PAPER-BURUNGALE-TIAN-26/E13 (confirmed): footnote 4 secures only the residue-field hypothesis of Kato's Lemma 15.13, not K ⊄ Q(μ\\_{p^∞}); the contained case is CZ.5/cm-contained-descent.\n- CMAllPrimeMainConjectures/E1 (new, this packet): Kato's proof of Prop. 15.17 (p. 265) cites 'Lemma 14.12' for what is Lemma 14.15 (pp. 243–244).\n- CMAllPrimeMainConjectures/E2 (new, this packet): in the proof of Lemma 15.11(2) (p. 262) Kato writes L\\_S(ψ, χ, k − 1) and L\\_S(f, χ, k − 1) where the results he invokes ((15.9.2), Theorem 6.6) give L\\_S(ψ̄, χ, k − 1) and L\\_S(f\\*, χ, k − 1); harmless, since L(f\\*, s) = L(ψ̄, s).\n- Kato's conventions are kept exactly: Prop. 15.9 and (15.9.1) involve L\\_{pf}(ψ̄, χ, r) (the complex conjugate character), (15.12.2) involves L\\_{{p}}(f\\*, χ, k − 1), and an idele a acts on V\\_{L\\_λ}(ψ) by a\\_v^r ψ(a)^{-1}.\n- PAPER-CASTELLA-ETAL-22/E3 and E16: the tamely ramified branch convention for L\\_ψ and the Δ\\_θ-invariants in (1.4), used in CZ.3/anticyclotomic-theta-main-conjecture.\n- The Burungale–Kobayashi–Ota route 6 item 'rubin-two-variable-main-conjecture' attributes to Rubin's Theorem 4.1(ii) an inert-prime equality char(X\\_∞^χ) = char(U\\_∞^χ/C̄\\_∞^χ); Rubin's 4.1(ii) concerns A\\_∞ and Ē\\_∞/C̄\\_∞, and his Remark 2 says X\\_∞ and U\\_∞/C̄\\_∞ are not torsion for nonsplit p. CZ.2/classical-two-variable-main-conjecture exports Rubin's statement as printed, which is what Agboola–Howard II Proposition 3.3(ii) uses.\n\n",
+ "prerequisites": [
+  "ModularIwasawaMainConjectures",
+  "tauceti:TauCetiRoadmap/ClassFieldTheory",
+  "IntegralIwasawaTheory",
+  "ComplexMultiplicationAndExplicitReciprocity",
+  "PadicMeasuresIwasawaAlgebras",
+  "tauceti:TauCetiRoadmap/GlobalNumberFields",
+  "AnalyticNumberTheory",
+  "AutomorphicPadicLFunctions",
+  "SelmerIwasawaCohomology",
+  "tauceti:TauCetiRoadmap/ModularCurves",
+  "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+  "ArithmeticGaloisDuality",
+  "KatoEulerSystems",
+  "AutomorphicLFunctionsAndLocalFactors",
+  "PadicHodgeRegulators",
+  "tauceti:TauCetiRoadmap/EllipticCurves",
+  "NoncommutativeAndEquivariantIwasawa",
+  "EulerSystemsAndKolyvaginSystems",
+  "ColemanPowerSeries",
+  "AutomorphicGaloisRepresentations",
+  "tauceti:TauCetiRoadmap/ModularForms"
+ ],
+ "stages": [
+  {
+   "key": "CZ.0",
+   "title": "CM ray towers, unit and class modules, and elliptic units",
+   "description": "For an imaginary quadratic K, a prime p and a nonzero ideal f: the ray tower K(p^∞f) with G = Gal(K(p^∞f)/K) ≅ Z_p² × Δ_f (imported from AutomorphicPadicLFunctions L0, with no hypothesis p ∤ #Δ_f), the Iwasawa algebra R = Z_p[[G]], its normalization after inverting p and the regular/singular height-one primes (**CM ray-class tower**). The Iwasawa cohomology H^q_{p∞f}(T) of the tower with Kato's j_* convention. The tower unit and class modules h¹ = lim (O_{K'}[1/p]^× ⊗ Z_p) and h² = lim Cl(K')(p) (**Tower unit and class modules**), the Kummer identification h¹ ≅ H¹_{p∞f}(Z_p(1)) (Kato (15.6.1)), the comparison h² → H²_{p∞f}(Z_p(1)) with finitely generated Z_p kernel and cokernel retaining the p-place and Brauer terms (15.6.2), and the localization sequence 0 → H²_p → H²_{pf} → ⊕_{𝔩|f,𝔩∤p} Z_p[[G/D_𝔩]] → 0. Finite generation, torsion-freeness and generic rank one of h¹, finite generation and torsion of h² (weak Leopoldt for the ray tower). Kato's CM theta function aθ_E (15.4) (**Kato's CM theta function**), the canonical CM pair of modulus f over K(f) (15.3), the standard elliptic units a z_f with integrality, norm relations and auxiliary independence (**Standard elliptic units**), Kronecker's limit formula (15.5.1)/(15.6.5) (**Kronecker limit formula**), the elliptic-unit module z ⊂ h¹ and the auxiliary-free element z_{p∞f} with (15.6.3)–(15.6.4) (**Elliptic-unit module**), and the torsion of h¹/z. Nothing in this layer depends on a main conjecture; it is the shared foundation imported by the Burungale–Kobayashi–Ota designs and by AnticyclotomicLocalUnits.",
+   "requires": [
+    "AnalyticNumberTheory:AN.4",
+    "ArithmeticGaloisDuality:D7",
+    "ArithmeticGaloisDuality:R02.4",
+    "AutomorphicLFunctionsAndLocalFactors:AL.1",
+    "AutomorphicPadicLFunctions:L0",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.2",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.3",
+    "IntegralIwasawaTheory:I.2",
+    "KatoEulerSystems:L0",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "PadicMeasuresIwasawaAlgebras:L4",
+    "SelmerIwasawaCohomology:L0",
+    "SelmerIwasawaCohomology:L3",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+    "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+    "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs"
+   ]
+  },
+  {
+   "key": "CZ.1",
+   "title": "Kato's CM realization and the elliptic-unit reciprocity law",
+   "description": "For ψ of type (−r, 0), r ≥ 1: Kato's realization V_L(ψ), V_{L_λ}(ψ) from the canonical CM pair, with the Galois action extended through η_σ, the de Rham line S(ψ), the period map per_ψ and the isomorphism (15.8.1) (**Kato's realization**), for every r (ComplexMultiplicationAndExplicitReciprocity CM.4 has only r = 1). The height-one generalized explicit reciprocity law applied to the 𝔭-divisible groups of the canonical CM curve (input requested from PadicHodgeRegulators D.2), the period evaluation (15.9.1)–(15.9.2) from the Eisenstein–Kronecker series of Kato 3.8, and Kato's Prop. 15.9 for every r ≥ 1, every p, every f inside the conductor and every finite layer (**Kato's elliptic-unit reciprocity law**). Its r = 1 case is the reciprocity Burungale–Kobayashi–Ota use. This layer depends on no main conjecture.",
+   "requires": [
+    "AutomorphicLFunctionsAndLocalFactors:AL.1",
+    "CMAllPrimeMainConjectures:CZ.0",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+    "PadicHodgeRegulators:D.2",
+    "PadicHodgeRegulators:L1",
+    "SelmerIwasawaCohomology:L4",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters"
+   ]
+  },
+  {
+   "key": "CZ.2",
+   "title": "The elliptic-unit Euler system and the integral main conjecture",
+   "description": "The Euler system of elliptic units and its twists by finite-order characters (Johnson-Leung–Kings §3) (**Euler system of elliptic units**). The integral Tamagawa number conjecture at s = 0 for abelian extensions of K (Johnson-Leung–Kings §2; p = 2 rests on Itakura's preprint, a recorded gap) and the identification of elliptic units with Tamagawa zeta elements at characters of large level (Theorem 3.9, Corollary 3.10). Rubin's Euler-system bound in the form of Johnson-Leung–Kings Theorem 6.4 and Corollary 6.5 (Kato's Theorem 15.2(1)). Johnson-Leung–Kings Theorem 5.2: for every prime p and every character χ, Div(κ_χ) = 0, i.e. the integral equality of characteristic ideals of H²(O_K[1/p], Λ(χ)(1)) and H¹/J_Λζ(χ) over the Z_p²-extension (**Main conjecture at every prime**), and its version over O_K[1/pf] with Euler factors (Corollary 5.3). Rubin's modules U_∞, Ē_∞, C̄_∞, A_∞, X_∞ and exact sequence (**Rubin's modules**), and Rubin's Theorem 4.1 with Johnson-Leung–Kings' all-prime classical form for p ∤ #Δ (**Rubin's two-variable main conjecture**). The integral equivariant Ω-form at singular primes (Johnson-Leung–Kings §7.3, needing μ = 0) is not a target. Consumers: InertAnticyclotomicCMMainConjecture, HeegnerPointEulerSystems HE.8b, RankZeroOneBSD BSD.7a; nothing here depends on ModularIwasawaMainConjectures L6 or BSD.7a.",
+   "requires": [
+    "ArithmeticGaloisDuality:D7",
+    "ArithmeticGaloisDuality:R02.4",
+    "CMAllPrimeMainConjectures:CZ.0",
+    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "EulerSystemsAndKolyvaginSystems:ES.8",
+    "IntegralIwasawaTheory:I.2",
+    "NoncommutativeAndEquivariantIwasawa:NE.2",
+    "PadicMeasuresIwasawaAlgebras:L4",
+    "SelmerIwasawaCohomology:L3",
+    "SelmerIwasawaCohomology:L4",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+   ]
+  },
+  {
+   "key": "CZ.3",
+   "title": "Split primes: the Coleman map, Katz's measure and anticyclotomic components",
+   "description": "For p = 𝔭𝔭̄ split in K under Rubin's hypotheses: the two-variable Coleman map on local units at 𝔭 for the height-one relative Lubin–Tate group of the CM curve (**Two-variable Coleman map**), the identification of the image of the elliptic units with Katz's two-variable measure (Yager, de Shalit; imported from AutomorphicPadicLFunctions L3 for the measure), the Katz form char(X_∞^χ) = (L_𝔭^χ) of the main conjecture in one and two variables (**Katz-measure form of the main conjecture**), the anticyclotomic θ-component statement used by Castella–Grossi–Lee–Skinner, including branches tamely ramified at p and the λ-equality λ(𝔛_θ) = λ(L_θ) (**Anticyclotomic θ-component main conjecture**), and the functional equation giving λ(L_ψ) = λ(L_φ) for ψ = φ^{-1}ω. Consumer: RankZeroOneBSD BSD.7a.",
+   "requires": [
+    "AutomorphicPadicLFunctions:L3",
+    "AutomorphicPadicLFunctions:L3h",
+    "CMAllPrimeMainConjectures:CZ.0",
+    "CMAllPrimeMainConjectures:CZ.2",
+    "ColemanPowerSeries:L1",
+    "ColemanPowerSeries:L2",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "PadicMeasuresIwasawaAlgebras:L4",
+    "SelmerIwasawaCohomology:L2",
+    "SelmerIwasawaCohomology:L3"
+   ]
+  },
+  {
+   "key": "CZ.4",
+   "title": "The rational equivariant main conjecture",
+   "description": "At every height-one prime q of Z_p[[G_{p∞f}]] with p ∉ q, length((h¹/z)_q) = length((H²_{pf})_q) = length(h²_q) + Σ_{𝔩|f,𝔩∤p} length(Z_p[[G/D_𝔩]]_q) (Johnson-Leung–Kings §7.2) (**Equality at regular height-one primes**). Burungale–Tian Theorem 2.1 in corrected form: ξ((h¹/z)_Q) = ξ(h²_Q)·∏_{𝔩|f,𝔩∤p} ξ(Z_p[[G/D_𝔩]]_Q) over Z_p[[G_{p∞f}]][1/p], equivalently ξ((h¹/z)_Q) = ξ((H²_{pf})_Q), for every prime p (**Rational equivariant main conjecture**). The printed form holds when every prime of f lies above p and on components ramified at every 𝔩 | f prime to p; it fails on the trivial component otherwise (PAPER-BURUNGALE-TIAN-26/E1). These are rational, not integral, equalities.",
+   "requires": [
+    "CMAllPrimeMainConjectures:CZ.0",
+    "CMAllPrimeMainConjectures:CZ.2"
+   ]
+  },
+  {
+   "key": "CZ.5",
+   "title": "CM descent and the CM case of Kato's Theorem 12.4",
+   "description": "The three characterizations of CM newforms (self-twist in the sense of ModularForms Layer 9, Kato's CM, θ_ψ of type (1 − k, 0)) with N = |d_K|N(f_ψ) (**Three characterizations of CM newforms**). Kato's normalizations (15.11.2)–(15.11.3) of the induction V(f) ≅ Ind V(ψ) (the induction itself requested from CM.4). Kato's comparison map (15.12.1) (**Kato's CM comparison map**) and the reciprocity law (15.12.2). The twisted tower cohomology of lattices T ⊂ V(ψ). Kato's Lemma 15.13 (**Kato's descent lemma**) and its variant 15.14 when K ⊂ Q(μ_{p^∞}) — exactly K = Q(√−p) with p ≡ 3 mod 4 and, for p = 2, K = Q(i) or Q(√−2) (**Descent in the contained case**). Kato's Lemma 14.15. Nonvanishing of cyclotomic twists of CM L-values (Kato 13.5; Rohrlich 1988 Theorem 1). The CM case of Kato's Theorem 12.4 at every prime, from elliptic units only, with no Beilinson–Kato class (**CM case of Kato's Theorem 12.4**), and Kato's inequality Prop. 15.17. Exports: KatoEulerSystems L4 (CM branch), CMRankZeroConverse.",
+   "requires": [
+    "AnalyticNumberTheory:AN.4",
+    "AutomorphicGaloisRepresentations:R19.1",
+    "AutomorphicGaloisRepresentations:R19.3",
+    "AutomorphicLFunctionsAndLocalFactors:AL.1",
+    "CMAllPrimeMainConjectures:CZ.0",
+    "CMAllPrimeMainConjectures:CZ.1",
+    "CMAllPrimeMainConjectures:CZ.2",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+    "PadicMeasuresIwasawaAlgebras:L4",
+    "SelmerIwasawaCohomology:L3",
+    "SelmerIwasawaCohomology:L4",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer"
+   ]
+  },
+  {
+   "key": "CZ.6",
+   "title": "Kato's main conjecture for CM newforms at every prime",
+   "description": "The equivariant equality on ψ-components with lattice coefficients, the Euler terms vanishing because f is the conductor of ψ. Kato's (15.16.1): the comparison map sends z_{p∞f} ⊗ γ ⊗ (ζ_{p^n})^{⊗(−1)} to the Beilinson–Kato element z_{γ′}(f) (**Elliptic units become Beilinson–Kato elements**). The equality step that Kato §15 does not contain: Lemma 14.15 applied to H²_{p∞f}(T)_q and H¹_{p∞f}(T)_q/A·(z ⊗ T(−1)), the a-torsion terms cancelling (**Equality descent**). Burungale–Tian Theorem 2.6: for every normalized CM newform f of weight k ≥ 2, every prime p and every λ | p, ξ(H²_Iw(V(f))) = ξ(H¹_Iw(V(f))/Z(f)) over O_λ[[Gal(Q(μ_{p^∞})/Q)]][1/p], in Kato's cohomological conventions (**Kato's main conjecture for CM newforms**). The CM divisibility in Z(f) form for KatoEulerSystems, the normalization dictionary exported to CMRankZeroConverse, and the acceptance cases K = Q(i), p = 2 (congruent-number curve, newform 32.2.a.a) and K = Q(√−3), p = 3 (newform 27.2.a.a). No ordinary p-adic L-function, integral BSD formula or extra restriction on p replaces these endpoints.",
+   "requires": [
+    "CMAllPrimeMainConjectures:CZ.0",
+    "CMAllPrimeMainConjectures:CZ.1",
+    "CMAllPrimeMainConjectures:CZ.4",
+    "CMAllPrimeMainConjectures:CZ.5",
+    "KatoEulerSystems:L2",
+    "KatoEulerSystems:L3",
+    "ModularIwasawaMainConjectures:L0",
+    "PadicMeasuresIwasawaAlgebras:L4",
+    "SelmerIwasawaCohomology:L3"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "burungale-tian-2026",
+   "title": "A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
+   "authors": "Ashay A. Burungale and Ye Tian",
+   "edition": "Annals of Mathematics 203 (2026), no. 1, 1–13; read in the author version arXiv:2506.03465v2 (11 October 2025), whose page numbers are used throughout",
+   "url": "https://arxiv.org/pdf/2506.03465v2",
+   "readSections": [
+    "Entire paper, pp. 1–7, with §2.1 (Theorem 2.1 and footnote 3), §2.2 (Theorems 2.3, 2.4, 2.6, footnote 4) and §3.1 read line by line"
+   ]
+  },
+  {
+   "id": "kato-2004-asterisque-295",
+   "title": "p-adic Hodge theory and values of zeta functions of modular forms",
+   "authors": "Kazuya Kato",
+   "edition": "Astérisque 295 (2004), ix, 117–290 (Numdam scan; printed page = PDF page + 115)",
+   "url": "https://www.numdam.org/item/AST_2004__295__117_0.pdf",
+   "readSections": [
+    "Chapter III §13.4–13.8, pp. 226–229",
+    "Lemma 14.15, pp. 243–244",
+    "§15 in full, pp. 250–267 (15.1–15.23), with the page images of pp. 250, 253, 254, 258–260 and 263–265 checked",
+    "§3.8, pp. 136–138, for (3.8.1)–(3.8.2)"
+   ]
+  },
+  {
+   "id": "johnson-leung-kings-2011",
+   "title": "On the equivariant and the non-equivariant main conjecture for imaginary quadratic fields",
+   "authors": "Jennifer Johnson-Leung and Guido Kings",
+   "edition": "J. reine angew. Math. 653 (2011), 75–114; read in arXiv:0804.2828v2 (12 August 2009), whose numbering is used",
+   "url": "https://arxiv.org/pdf/0804.2828v2",
+   "readSections": [
+    "Entire paper, pp. 1–38: §1 (conventions, Det and Div), §2 (Theorem 2.6, Corollaries 2.8 and 2.11, Proposition 2.9), §3 (Definition 3.2, Proposition 3.3, Corollary 3.4, Definition 3.5, Proposition 3.6, Lemma 3.7, Theorem 3.9, Corollary 3.10), §4 (Lemmas 4.3–4.7), §5 (Theorem 5.2, Corollary 5.3, Conjecture 5.5, Theorem 5.7, §5.4 Lemma 5.8), §6 (Theorem 6.4, Corollary 6.5, Lemmas 6.6–6.7), §7 (Lemmas 7.1–7.7, §§7.2–7.3)"
+   ]
+  },
+  {
+   "id": "rubin-1991-invent",
+   "title": "The \"main conjectures\" of Iwasawa theory for imaginary quadratic fields",
+   "authors": "Karl Rubin",
+   "edition": "Inventiones mathematicae 103 (1991), 25–68 (GDZ scan, published version; printed page = PDF page + 23)",
+   "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf",
+   "readSections": [
+    "Introduction and contents, pp. 25–27",
+    "§1 setting, p. 27",
+    "§4 in full, pp. 36–37 (Theorem 4.1 and Remarks)",
+    "§5 opening, p. 38",
+    "end of §10 (case table) and §11 opening, pp. 58–59"
+   ]
+  },
+  {
+   "id": "rubin-euler-systems-draft",
+   "title": "Euler systems (author's course draft of the Annals of Mathematics Studies 147 monograph)",
+   "authors": "Karl Rubin",
+   "edition": "Hermann Weyl Lectures draft, 1999 (public copy)",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "readSections": [
+    "Statements of Definition II.1.1 and Theorems II.3.2–II.3.3 as cited by Johnson-Leung–Kings §6.2 (the theorem numbering of the published book is II.2.1.1, II.2.3.2–2.3.3)"
+   ]
+  },
+  {
+   "id": "rohrlich-1988-math-ann",
+   "title": "L-functions and division towers",
+   "authors": "David E. Rohrlich",
+   "edition": "Mathematische Annalen 281 (1988), 611–632 (GDZ scan, published version)",
+   "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0281/LOG_0061.pdf",
+   "readSections": [
+    "Introduction with Theorems 1 and 2, pp. 611–612"
+   ]
+  },
+  {
+   "id": "agboola-howard-2005",
+   "title": "Anticyclotomic Iwasawa theory of CM elliptic curves II",
+   "authors": "Adebisi Agboola and Benjamin Howard",
+   "edition": "Mathematical Research Letters 12 (2005); read in arXiv:math/0401124v2",
+   "url": "https://arxiv.org/pdf/math/0401124v2",
+   "readSections": [
+    "§3, Propositions 3.1 and 3.3 with proofs, pp. 3–5"
+   ]
+  },
+  {
+   "id": "castella-grossi-lee-skinner-2022",
+   "title": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+   "authors": "Francesc Castella, Giada Grossi, Jaehoon Lee and Christopher Skinner",
+   "edition": "Inventiones mathematicae 227 (2022), 517–580; read in arXiv:2008.02571v2 (final version)",
+   "url": "https://arxiv.org/pdf/2008.02571v2",
+   "readSections": [
+    "§1.2: Definition 1.2.1, Theorem 1.2.2 and its proof, Remark 1.2.3, pp. 7–8",
+    "§2.2: proof of Theorem 2.2.2 (functional equation step) and Theorem 2.2.3, p. 15"
+   ]
+  }
+ ],
+ "status": "draft"
+}
