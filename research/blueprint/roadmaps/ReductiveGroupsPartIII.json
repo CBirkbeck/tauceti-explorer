@@ -24,7 +24,7 @@
     {
       "key": "RG3.0",
       "title": "Regular class functions and group conjugacy quotients",
-      "description": "For commutative Hopf algebras define the equalizer algebra of regular class functions and its conjugation/pullback API. For connected reductive groups in characteristic zero construct the affine conjugacy quotient and prove group Chevalley restriction C(O(G))≅O(T)^W, geometric semisimple-class classification, character separation and finiteness of the quotient map induced by a faithful representation. Supply the scheme-theoretic line-stabilizer theorem and the full character-lattice highest-weight character basis required for restriction. Construct the finite étale orthogonal Out′ action on actual SO factors and Conj′, excluding triality and Spin substitutions.",
+      "description": "For commutative Hopf algebras define the equalizer algebra of regular class functions and its conjugation/pullback API. For connected reductive groups in characteristic zero construct the affine conjugacy quotient and prove group Chevalley restriction C(O(G))≅O(T)^W, geometric semisimple-class classification, character separation and finiteness of the quotient map induced by a faithful representation. Import the existing scheme-theoretic line-stabilizer theorem from Tau Ceti, and prove the full character-lattice highest-weight character basis required for restriction. Construct the finite étale orthogonal Out′ action on actual SO factors and Conj′, excluding triality and Spin substitutions.",
       "requires": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
@@ -148,7 +148,7 @@
       "url": "https://www.numdam.org/item/PMIHES_1965__25__49_0.pdf",
       "sha256": "bda20c4a4b3cf4a7e9e5b17a4eacd0147d0c9370063ab3a3778114a53c8349b9",
       "readSections": [
-        "§§6.1–6.6, printed pp.64–65"
+        "§§6.1–6.6, printed pp.62–63"
       ],
       "accessed": "2026-10-19"
     },

@@ -21,49 +21,56 @@
         "kind": "declaration",
         "module": "Mathlib/Algebra/Algebra/Subalgebra/Basic.lean",
         "provides": "The subalgebra on which two algebra homomorphisms agree, over commutative semirings; used for regular class functions, not merely an invariant subring stable under an action.",
-        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19."
+        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19.",
+        "reviewedBy": "REV-DESIGN-ReductiveGroupsPartIII: statement and hypotheses independently read at the recorded pin on 2026-10-19"
       },
       {
         "ref": "tauceti:TauCeti.HopfAlgebra.conjugationAlgHom",
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Hopf/Conjugation.lean",
         "provides": "For a commutative Hopf algebra H over R, the algebra map H→H⊗H of left conjugation; the first tensor factor is the conjugating point.",
-        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19."
+        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19.",
+        "reviewedBy": "REV-DESIGN-ReductiveGroupsPartIII: statement and hypotheses independently read at the recorded pin on 2026-10-19"
       },
       {
         "ref": "tauceti:TauCeti.HopfAlgebra.productMap_comp_conjugationAlgHom",
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Hopf/Conjugation.lean",
         "provides": "Evaluation of the coordinate conjugation morphism at arbitrary algebra-valued points is g x g⁻¹.",
-        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19."
+        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19.",
+        "reviewedBy": "REV-DESIGN-ReductiveGroupsPartIII: statement and hypotheses independently read at the recorded pin on 2026-10-19"
       },
       {
         "ref": "tauceti:TauCeti.HopfAlgebra.tensorProduct_map_comp_conjugationAlgHom",
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Hopf/Conjugation.lean",
         "provides": "Naturality of the coordinate conjugation morphism under bialgebra homomorphisms of commutative Hopf algebras.",
-        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19."
+        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19.",
+        "reviewedBy": "REV-DESIGN-ReductiveGroupsPartIII: statement and hypotheses independently read at the recorded pin on 2026-10-19"
       },
       {
         "ref": "tauceti:TauCeti.reductiveCommHopfAlgProperty",
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Reductive/Basic.lean",
         "provides": "The existing reductivity predicate on finite-type commutative Hopf algebras: smooth, geometrically connected, with no nontrivial smooth connected normal geometric unipotent subgroup.",
-        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19."
+        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19.",
+        "reviewedBy": "REV-DESIGN-ReductiveGroupsPartIII: statement and hypotheses independently read at the recorded pin on 2026-10-19"
       },
       {
         "ref": "tauceti:TauCeti.HopfAlgebra.IsSemisimplePoint",
         "kind": "declaration",
         "module": "TauCeti/Algebra/AlgebraicGroup/Representation/SemisimplePoint.lean",
         "provides": "A convolution point acts semisimply on every finitely generated comodule. This supplies semisimple points, which this roadmap does not redefine.",
-        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19."
+        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19.",
+        "reviewedBy": "REV-DESIGN-ReductiveGroupsPartIII: statement and hypotheses independently read at the recorded pin on 2026-10-19"
       },
       {
         "ref": "mathlib:MulAction.sum_card_fixedBy_eq_card_orbits_mul_card_group",
         "kind": "declaration",
         "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
         "provides": "Burnside fixed-point counting for a finite group action, with finite fixed-point sets and finite orbit type; applied to the transitive coset action.",
-        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19."
+        "checked": "Complete statement and surrounding typeclass hypotheses read at the recorded pin on 2026-10-19.",
+        "reviewedBy": "REV-DESIGN-ReductiveGroupsPartIII: statement and hypotheses independently read at the recorded pin on 2026-10-19"
       }
     ]
   },
@@ -104,7 +111,7 @@
       "url": "https://www.numdam.org/item/PMIHES_1965__25__49_0.pdf",
       "sha256": "bda20c4a4b3cf4a7e9e5b17a4eacd0147d0c9370063ab3a3778114a53c8349b9",
       "readSections": [
-        "§§6.1–6.6, printed pp.64–65"
+        "§§6.1–6.6, printed pp.62–63"
       ],
       "accessed": "2026-10-19"
     },
@@ -294,39 +301,6 @@
       ]
     },
     {
-      "id": "ReductiveGroupsPartIII:RG3.0/chevalley-line-stabilizer",
-      "parentStageId": "ReductiveGroupsPartIII:RG3.0",
-      "realises": [
-        "ReductiveGroupsPartIII:RG3.0"
-      ],
-      "title": "Chevalley’s line-stabilizer theorem",
-      "kind": "theorem",
-      "statement": "Let G be an affine algebraic group of finite type over a field k and H⊂G a closed subgroup scheme. There is a finite-dimensional rational representation V of G and a one-dimensional subspace L⊂V whose scheme-theoretic stabilizer is H: for every commutative k-algebra A, H(A)={g∈G(A):g(L⊗A)=L⊗A}. The theorem does not require reductivity.",
-      "hypotheses": [
-        "The stabilizer preserves the line; it does not have to fix a chosen nonzero vector."
-      ],
-      "proofSteps": [
-        "Take the Hopf ideal I of H. Local finiteness of the regular comodule gives a finite-dimensional G-subcomodule W⊂O(G) containing ideal generators of I.",
-        "The stabilizer of U=I∩W equals H: its matrix-coefficient ideal is I, using the counit identity and the chosen generating set. This equality is scheme-theoretic.",
-        "Replace U⊂W by its top exterior line in ∧^dim(U) W. The exterior annihilator identity recovers U⊗A from that line over every k-algebra A, including rings with nilpotents."
-      ],
-      "acceptance": [
-        "In GL₂ the stabilizer of the line ℚe₁ is the upper triangular Borel, while the stabilizer of the vector e₁ forces its upper-left entry to be 1."
-      ],
-      "prerequisites": [
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components"
-      ],
-      "sources": [
-        {
-          "sourceId": "MilneAG",
-          "locator": "Theorem 4.27 and Lemma 4.28, pp.94–95",
-          "match": "Proves the scheme-theoretic stabilizer statement using a finite regular subcomodule and an exterior line."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
       "id": "ReductiveGroupsPartIII:RG3.0/highest-weight-character-basis",
       "parentStageId": "ReductiveGroupsPartIII:RG3.0",
       "realises": [
@@ -340,7 +314,7 @@
         "The lattice/central-isogeny descent condition is part of the statement."
       ],
       "proofSteps": [
-        "For existence, use a parabolic line stabilizer to obtain positive multiples of fundamental weights. On the big Bruhat cell construct the B-equivariant regular function of a desired dominant weight; a positive power extends globally, and normality of G makes the original function extend.",
+        "For existence, import Tau Ceti’s current Hopf-ideal line-stabilizer theorem through the requested Layer 1 dictionary and apply it to a parabolic subgroup to obtain positive multiples of fundamental weights. On the big Bruhat cell construct the B-equivariant regular function of a desired dominant weight; a positive power extends globally, and normality of G makes the original function extend.",
         "The regular representation is locally finite. Its generated highest-weight module has one-dimensional highest weight and a unique simple quotient. The root subgroup expansion proves all remaining weights lie below the highest weight; the direct-sum highest-vector argument proves uniqueness.",
         "Pass from a semisimple group times a torus through the central isogeny: a representation descends precisely when its highest character lies in X*(T). Normalizer representatives permute weight spaces, giving W-invariance.",
         "Subtract leading orbit sums, within each central-character coset; the dominance intervals involved are finite. This proves the triangular character basis needed for restriction, without planning modular representations or the Lie-algebra Weyl character formula again."
@@ -350,7 +324,6 @@
         "Over ℂ for GL_n, SL_n, SO_n and Sp_n, identify this classification with ClassicalGroups Layer 3 by the unique simple highest-weight representation; do not reconstruct its classical carriers or Schur functors. The new theorem is the rational algebraic-group statement for arbitrary connected reductive G, not a second Lie-module classification."
       ],
       "prerequisites": [
-        "ReductiveGroupsPartIII:RG3.0/chevalley-line-stabilizer",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
@@ -364,7 +337,7 @@
         },
         {
           "sourceId": "Steinberg65",
-          "locator": "§6.1 and Proposition 6.2, p.64",
+          "locator": "Theorem 6.1 and Lemma 6.3, pp.62–63",
           "match": "Uses highest weights and orbit-sum triangularity for the character basis."
         }
       ],
@@ -401,7 +374,7 @@
       "sources": [
         {
           "sourceId": "Steinberg65",
-          "locator": "§§6.1–6.6, pp.64–65",
+          "locator": "§§6.1–6.6, pp.62–63",
           "match": "Proves the character and restriction statements for semisimple groups; the stated reductive extension uses the same highest-weight argument with central characters."
         },
         {
@@ -449,7 +422,7 @@
         },
         {
           "sourceId": "Steinberg65",
-          "locator": "§§6.1–6.4, pp.64–65",
+          "locator": "§§6.1–6.4, pp.62–63",
           "match": "Restriction identifies the semisimple-group invariant coordinate algebra with torus Weyl invariants; the reductive extension is an explicit target here."
         }
       ],
@@ -543,7 +516,7 @@
       "sources": [
         {
           "sourceId": "Steinberg65",
-          "locator": "Corollary 6.6, p.65",
+          "locator": "Corollary 6.6, p.63",
           "match": "For semisimple groups equates conjugacy with equality of characters and representation classes; the reductive extension is supplied by group restriction."
         },
         {
@@ -926,7 +899,7 @@
       "sources": [
         {
           "sourceId": "KMPS22",
-          "locator": "Lemma 1.2.1, p.13",
+          "locator": "Lemma 1.2.1, pp.13–14",
           "match": "Constructs a global torus class with specified real value and trivial p-component."
         },
         {
@@ -968,7 +941,7 @@
       "sources": [
         {
           "sourceId": "KMPS22",
-          "locator": "Lemma 1.2.2, p.13",
+          "locator": "Lemma 1.2.2, p.14",
           "match": "States simultaneous approximation of maximal tori, including archimedean places."
         },
         {
@@ -1557,7 +1530,7 @@
       "sources": [
         {
           "sourceId": "KMPS22",
-          "locator": "§2.1.8, p.24; proof of Lemma 2.2.10, p.28",
+          "locator": "§2.1.8, p.24; proof of Lemma 2.2.10, pp.28–29",
           "match": "Uses connected cyclic closure for semisimple neat points and a uniform power to obtain them."
         }
       ],
@@ -1629,7 +1602,7 @@
       "sources": [
         {
           "sourceId": "KMPS22",
-          "locator": "Lemma 2.2.10 and proof, p.28",
+          "locator": "Lemma 2.2.10 and proof, pp.28–29",
           "match": "Uses finite adelic class number and a split distinguished prime to prove density, then a uniform power to obtain neat points."
         }
       ],
@@ -1751,7 +1724,7 @@
       ],
       "title": "Rational embeddings in quasi-split groups",
       "kind": "theorem",
-      "statement": "For a ℚ-torus T and a quasi-split connected reductive G*/ℚ, a Γ_ℚ-invariant geometric conjugacy class of maximal-torus embeddings T_ℚ̄↪G*_ℚ̄ has a representative defined over ℚ. In particular a common geometric torus-embedding class defined over every ℚ_l descends to a rational maximal-torus embedding into G*.",
+      "statement": "Let T be a ℚ-torus and G*/ℚ a quasi-split connected reductive group. Suppose a finite Galois orbit of geometric conjugacy classes of maximal-torus embeddings T_ℚ̄↪G*_ℚ̄ has the following property: at almost every finite place, a decomposition group fixes some class in that orbit. Then that orbit is a singleton and its class has a representative defined over ℚ. In particular, a common geometric maximal-torus embedding class with a local representative at every ℚ_l admits a rational representative. The general quasi-split embedding theorem is imported from ET.0; this target is its arithmetic descent application.",
       "hypotheses": [
         "The embeddings identify T with a maximal torus, not an arbitrary subtorus.",
         "The conclusion is the rationality of a maximal-torus embedding, not just of an element in the affine quotient."
@@ -2345,14 +2318,13 @@
   "requests": [
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-      "need": "The rational-representation/comodule dictionary, local finiteness of the regular representation and tensor generation from a closed faithful finite-dimensional representation, including duals and subquotients. No second construction is planned here.",
+      "need": "The rational-representation/comodule dictionary, local finiteness of the regular representation and tensor generation from a closed faithful finite-dimensional representation, including duals and subquotients. No second construction is planned here. For the highest-weight existence argument, expose the current Hopf-ideal line-stabilizer theorem through this dictionary: finite type gives a noetherian coordinate algebra and hence a finitely generated defining ideal. Import the existing exterior-power theorem; no line-stabilizer proof is requested.",
       "neededBy": [
         "ReductiveGroupsPartIII:RG3.0/torus-weyl-comparison",
         "ReductiveGroupsPartIII:RG3.0/character-separation",
         "ReductiveGroupsPartIII:RG3.0/faithful-quotient-finite",
         "ReductiveGroupsPartIII:RG3.3/prime-unit",
         "ReductiveGroupsPartIII:RG3.3/weil-point",
-        "ReductiveGroupsPartIII:RG3.0/chevalley-line-stabilizer",
         "ReductiveGroupsPartIII:RG3.0/highest-weight-character-basis"
       ]
     },
@@ -2363,8 +2335,7 @@
         "ReductiveGroupsPartIII:RG3.0/conjugacy-quotient",
         "ReductiveGroupsPartIII:RG3.0/orthogonal-outer-action",
         "ReductiveGroupsPartIII:RG3.1/central-product-injection",
-        "ReductiveGroupsPartIII:RG3.3/finite-orbit-rigidity",
-        "ReductiveGroupsPartIII:RG3.0/chevalley-line-stabilizer"
+        "ReductiveGroupsPartIII:RG3.3/finite-orbit-rigidity"
       ]
     },
     {
@@ -2489,7 +2460,7 @@
       "status": "planned",
       "remaining": [
         "Verify the Noot §1.5 original for the selected SO-factor outer action; the source gap is local to that construction.",
-        "Discharge the requested RG representation, subgroup, torus and root-theory interfaces."
+        "Discharge the requested RG representation, subgroup, torus and root-theory interfaces. The line-stabilizer input is a current-library import, not work to re-prove at the older pin."
       ]
     },
     {
@@ -2619,8 +2590,8 @@
         "ReductiveGroupsPartIII",
         "ReductiveGroupsStabilizersAndLeviPartII"
       ],
-      "detail": "The line-stabilizer theorem is needed for the character basis here and is planned once at RG3.0/chevalley-line-stabilizer. The other five Howe–Klevdal route items concern observable quotients, general Levi decompositions, adjoint kernels, equivariant unipotent groups and the local Steinberg/B(G) boundary.",
-      "proposal": "Retarget item /019 to RG3.0. Keep observable quotients, arbitrary characteristic-zero Levi decompositions and their exact variants in the stabilizer/Levi continuation; import the current RGII/BG ownership of local isocrystals and ET.0 torsor vanishing."
+      "detail": "Current Tau Ceti already implements the scheme-theoretic Chevalley line-stabilizer theorem, including arbitrary commutative value algebras. The highest-weight argument imports it through RG Layer 1. The other five Howe–Klevdal route items concern observable quotients, general Levi decompositions, adjoint kernels, equivariant unipotent groups and the local Steinberg/B(G) boundary.",
+      "proposal": "Retarget item /019 to the existing Tau Ceti HopfIdeal.exists_finite_subcomodule_exteriorPower_line_stabilizer declaration, not a new RG3.0 target. Keep observable quotients, arbitrary characteristic-zero Levi decompositions and their exact variants in the stabilizer/Levi continuation; import the current RGII/BG ownership of local isocrystals and ET.0 torsor vanishing."
     },
     {
       "action": "split",
@@ -2692,7 +2663,12 @@
         "arXiv 2103.09945v2 and https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf; compared the affected passages on 2026-10-19.",
         "https://www.dpmms.cam.ac.uk/~rz240/ and https://annals.math.princeton.edu/2025/202-3/p03; no linked correction located. The full Annals text was not obtained.",
         "Web search for the paper title with erratum/correction on 2026-10-19; no separate correction located. Findings are against the hashed preprint, not an assertion about the version of record."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v2 §6.1.1, p.55. Its H¹ label and the dual-Tate realization in §6.1.3 require the positive cohomological bidegrees. The reader consistently dualizes rather than identifying H₁ and H¹.",
+        "by": "REV-DESIGN-ReductiveGroupsPartIII"
+      }
     },
     {
       "id": "ReductiveGroupsPartIII/E2",
@@ -2708,7 +2684,12 @@
         "arXiv 2103.09945v2 and https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf; compared the affected passages on 2026-10-19.",
         "https://www.dpmms.cam.ac.uk/~rz240/ and https://annals.math.princeton.edu/2025/202-3/p03; no linked correction located. The full Annals text was not obtained.",
         "Web search for the paper title with erratum/correction on 2026-10-19; no separate correction located. Findings are against the hashed preprint, not an assertion about the version of record."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v2 Lemma 6.3.3, p.60. Eigenvalue moduli do not control the unipotent part: a nontrivial upper unipotent has all eigenvalues 1 and unbounded powers. The planned proof explicitly chooses a semisimple representative.",
+        "by": "REV-DESIGN-ReductiveGroupsPartIII"
+      }
     },
     {
       "id": "ReductiveGroupsPartIII/E3",
@@ -2724,7 +2705,12 @@
         "arXiv 2103.09945v2 and https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf; compared the affected passages on 2026-10-19.",
         "https://www.dpmms.cam.ac.uk/~rz240/ and https://annals.math.princeton.edu/2025/202-3/p03; no linked correction located. The full Annals text was not obtained.",
         "Web search for the paper title with erratum/correction on 2026-10-19; no separate correction located. Findings are against the hashed preprint, not an assertion about the version of record."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing justification in arXiv v2 Lemma 6.3.3, p.60. Lifting a central quotient point does not preserve a prescribed Conj class; G_m already detects this. The planned elliptic-torus character identity and restoration of the fixed positive scalar supply the missing argument.",
+        "by": "REV-DESIGN-ReductiveGroupsPartIII"
+      }
     },
     {
       "id": "ReductiveGroupsPartIII/E4",
@@ -2740,7 +2726,12 @@
         "https://math.berkeley.edu/~swshin/HT.pdf, hashed author copy dated 27 January 2021; affected statements and proofs read on 2026-10-19.",
         "https://keerthimadapusi.com/research lists the Duke paper; no separate correction is linked there. The publisher DOI 10.1215/00127094-2021-0063 did not serve its full text in this session.",
         "Web search for the paper title with erratum/correction on 2026-10-19; no separate correction located. Findings are scoped to the author PDF, not the Duke version of record."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in author-copy Lemma 2.2.11, p.29. The equalizers must be closed, which uses separatedness, and dense points determine a scheme map only on a reduced source. The dual-number and doubled-line examples both satisfy irreducibility and refute the unrestricted statement; the torus application has both repaired hypotheses.",
+        "by": "REV-DESIGN-ReductiveGroupsPartIII"
+      }
     },
     {
       "id": "ReductiveGroupsPartIII/E5",
@@ -2756,7 +2747,12 @@
         "https://math.berkeley.edu/~swshin/HT.pdf, hashed author copy dated 27 January 2021; affected statements and proofs read on 2026-10-19.",
         "https://keerthimadapusi.com/research lists the Duke paper; no separate correction is linked there. The publisher DOI 10.1215/00127094-2021-0063 did not serve its full text in this session.",
         "Web search for the paper title with erratum/correction on 2026-10-19; no separate correction located. Findings are scoped to the author PDF, not the Duke version of record."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the proof of author-copy Proposition 2.2.13, p.29. The indicated Sp₄ element has connected centralizer Sp₂×Sp₂, whose semisimple rank and root type exclude a proper Levi of Sp₄. Reductivity and conjugacy of maximal tori suffice for the argument.",
+        "by": "REV-DESIGN-ReductiveGroupsPartIII"
+      }
     },
     {
       "id": "ReductiveGroupsPartIII/E6",
@@ -2772,7 +2768,12 @@
         "arXiv 2103.09945v2 and https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf; compared the affected passages on 2026-10-19.",
         "https://www.dpmms.cam.ac.uk/~rz240/ and https://annals.math.princeton.edu/2025/202-3/p03; no linked correction located. The full Annals text was not obtained.",
         "Web search for the paper title with erratum/correction on 2026-10-19; no separate correction located. Findings are against the hashed preprint, not an assertion about the version of record."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v2 Lemma 6.2.6(2), p.58. Comparing the two distinct elements and projecting the product conjugator gives the corrected inverse orientation. Only the display changes, not the existence assertion.",
+        "by": "REV-DESIGN-ReductiveGroupsPartIII"
+      }
     }
   ],
   "sourceVersions": [
@@ -3389,8 +3390,8 @@
         },
         {
           "item": "PAPER-HOWE-KLEVDAL-26/019",
-          "target": "ReductiveGroupsPartIII:RG3.0/chevalley-line-stabilizer",
-          "disposition": "planned",
+          "target": "tauceti:TauCeti.HopfIdeal.exists_finite_subcomodule_exteriorPower_line_stabilizer",
+          "disposition": "import",
           "proposal": null
         },
         {
@@ -5867,19 +5868,256 @@
   ],
   "upstreamNotes": [
     {
-      "where": "TauCetiRoadmap current main a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; ReductiveGroupsPartII and AdelicAlgebraicGroups",
+      "where": "TauCetiRoadmap current main 0d144d044dacebca17b654695b6f1ad58f159b27; ReductiveGroupsPartII and AdelicAlgebraicGroups",
       "note": "Current RGII explicitly supplies Weil restriction/Deligne torus, parahorics and dual groups; current Adelic Algebraic Groups §4.3 owns neatness and tensor-eigenvalue generation. The atlas snapshot is older; this packet imports the current scopes and makes exact stage requests instead of replanning them."
     }
   ],
   "libraryAudit": {
     "reviewed": "data/library-coverage.json read on 2026-10-19",
     "result": "No reviewed ReductiveGroupsPartIII stage entries exist. The nearby HodgeStructures and Chebotarev audits were read: built Hodge carriers are imported through their existing owners, while Chebotarev Layer 10 is requested as planned mathematics. Absence of an audit entry is not a claim of nonexistence.",
-    "currentUpstreamCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "checks": [
       "Read current ReductiveGroups README and Suggested signatures and current ReductiveGroupsPartII scope/relevant layers; inspected current library algebraic-group Hopf conjugation, reductivity and semisimple-point APIs.",
       "Pinned searches for Conj(G), regular class-function subalgebra, Serre condition, Weil point and Mumford–Tate arithmetic comparison found no matching implementation. The existing Hopf conjugation map, reductivity predicate and semisimple-point predicate are cited instead of replanned.",
       "Inspected existing ShimuraData MT nodes, MC.6 tensor torsor nodes, AutomorphicBundles finite/absolute-Hodge tensor nodes, ET.0 conjugacy/cohomology nodes and AA.3 finite class number.",
-      "Searched Mathlib PR/documentation and Lean community search results for algebraic-group conjugacy quotients and invariant regular class functions on 2026-10-19; no matching implementation/design was located. This is a scoped negative search, not a claim about all unindexed work."
+      "Searched Mathlib PR/documentation and Lean community search results for algebraic-group conjugacy quotients and invariant regular class functions on 2026-10-19; no matching implementation/design was located. This is a scoped negative search, not a claim about all unindexed work.",
+      "Independent review read both current checkouts at the separately recorded commits. The existing Hopf-ideal exterior-power line-stabilizer theorem supplies the entire former RG3.0 target, so that node was removed and its consumer imports the theorem through RG Layer 1. Abstract pointwise class functions are not the regular coordinate equalizer planned here."
+    ],
+    "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentLibraryImports": [
+      {
+        "ref": "tauceti:TauCeti.HopfIdeal.exists_finite_subcomodule_exteriorPower_line_stabilizer",
+        "module": "TauCeti/Algebra/AlgebraicGroup/Representation/ExteriorStabilizer/Character.lean",
+        "commit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/AlgebraicGroup/Representation/ExteriorStabilizer/Character.lean#L101",
+        "provides": "For a commutative Hopf algebra over a field and a Hopf ideal I with I.toIdeal.FG, there is a finite-dimensional subcomodule V, an exterior degree n and a line L in ∧ⁿV, of dimension one, such that membership in the quotient-points subgroup is equivalent to preservation of L after base change to every commutative value algebra. The theorem also produces the unique character of the subgroup acting on L. Finite-type coordinate algebras over a field are noetherian, so this supplies the removed target for every closed subgroup scheme.",
+        "checked": "Full statement, surrounding field/Hopf assumptions and proof read independently on 2026-10-19; handles nonreduced subgroups and value algebras. The module is absent at the fixed Tau Ceti pin.",
+        "baselineStatus": "post-pin current-library import, not a baseline.declarations entry",
+        "usedBy": [
+          "ReductiveGroupsPartIII:RG3.0/highest-weight-character-basis"
+        ],
+        "via": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ReductiveGroupsPartIII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of every retained node, ten hashed public sources, all seven exact-pinned declarations, supplier statements, current roadmaps/library, nine API/test suites, routes and six source findings. Removed one theorem already implemented in current Tau Ceti and replaced it by an explicit post-pin import, corrected source locators and checkout attribution, and clarified the ET.0 rational-embedding boundary. All 41 retained nodes are verified or corrected. Six stages remain planned, with seven explicit gaps and fifteen requests; accepted as a complete planning pass, not dependency-closed or implemented mathematics.",
+    "checked": [
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/class-functions",
+        "verdict": "verified",
+        "note": "Verified the universal equalizer with the conjugator in the first tensor factor, both pointwise directions, pullback API and all four worked tests against the pinned Hopf maps."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/highest-weight-character-basis",
+        "verdict": "corrected",
+        "note": "Corrected the dependency to import the current Tau Ceti line-stabilizer theorem through RG Layer 1; corrected Steinberg to Theorem 6.1 and Lemma 6.3, pp.62–63. Milne’s proof supplies arbitrary connected reductive groups and the full character lattice; existing complex classical representations are imported."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/torus-weyl-comparison",
+        "verdict": "corrected",
+        "note": "Corrected Steinberg’s printed pages to 62–63. Highest-weight triangularity gives the reductive extension, geometric semisimple classes and descent; the source’s semisimple hypotheses are not silently attributed to general groups."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/conjugacy-quotient",
+        "verdict": "corrected",
+        "note": "Corrected Steinberg’s printed pages to 62–63. Checked the affine universal property, base change, semisimple-class limitation and four tests; quotient points are not rational conjugacy classes."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/character-separation",
+        "verdict": "corrected",
+        "note": "Corrected Corollary 6.6 to printed p.63. Separation uses every character, with semisimplicity essential; one faithful characteristic polynomial need not separate."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/faithful-quotient-finite",
+        "verdict": "verified",
+        "note": "Verified the weight-lattice finite-integrality argument and geometric descent. A faithful representation gives a finite quotient map, not an injective one; the reciprocal G_m example catches the distinction."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/orthogonal-outer-action",
+        "verdict": "verified",
+        "note": "Verified the actual SO-factor order-two action, permutation descent, finite quotient API and four tests. Spin replacements and triality are excluded; the unread original Noot convention remains an explicit gap."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.1/jordan-subgroup",
+        "verdict": "verified",
+        "note": "Verified Burnside counting on the finite coset action using the exact pinned declaration; a transitive action with every element fixing a point forces index one."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.1/degree-one-residue-descent",
+        "verdict": "verified",
+        "note": "Verified the finite residue-field reduction, degree-one local places and Jordan/Chebotarev argument. The statement requires almost every finite prime, not an arbitrary infinite set."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.1/finite-fibre-algebraicity",
+        "verdict": "verified",
+        "note": "Verified finiteness makes every coordinate integral over the rational base point, hence algebraic. This supplies algebraicity before the later rationality argument."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.1/inner-quotient-descent",
+        "verdict": "verified",
+        "note": "Verified that inner automorphisms act trivially on invariant functions, so a geometric inner twist gives canonical rational quotient descent; it does not descend individual group elements."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.1/diagonal-quotient-injection",
+        "verdict": "verified",
+        "note": "Verified product projection after splitting Weil restriction and the stated reductive-subgroup hypotheses; checked KZ Lemma 6.2.6(2) with its corrected conjugator orientation."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.1/central-product-injection",
+        "verdict": "verified",
+        "note": "Verified the antidiagonal central kernel and scalar adjustment on geometric semisimple classes, with the central-product and Weil-restriction contracts imported."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.2/auxiliary-torus-class",
+        "verdict": "corrected",
+        "note": "Corrected Lemma 1.2.1 to pp.13–14. Checked the real component and zero p-component using the exact middle localization sequence; the fine ET.0 request does not assume surjectivity of the last map."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.2/maximal-torus-approximation",
+        "verdict": "corrected",
+        "note": "Corrected KMPS Lemma 1.2.2 to p.14. The Lie-algebra weak-approximation proof requires the explicitly requested local openness and regular-centralizer interfaces; Harder’s unread original remains a gap."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.2/elliptic-maximal-torus",
+        "verdict": "verified",
+        "note": "Verified simultaneous real ellipticity and p-adic torus requirements against KMPS Proposition 1.2.5. The local Steinberg/completed-unramified and BG1 inputs are explicit supplier contracts."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.2/real-weyl-cocycle",
+        "verdict": "verified",
+        "note": "Verified n⁻¹c(n), anisotropic T_sc, its cocycle equation and the distinction between a complex lift and a real Weyl representative. The API and four examples track this orientation."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.2/global-cocharacter-twist",
+        "verdict": "verified",
+        "note": "Verified the global H¹ lift, trivial p-component and simply connected Hasse kernel. The proof transports μ as well as T, and its coboundary formula agrees with the real cocycle convention."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/serre-condition",
+        "verdict": "verified",
+        "note": "Verified equality of real-fixed and Galois-fixed rational cocharacters, descent of the real split/compact directions, isogeny compatibility and all four tests; equality of ranks alone is insufficient."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/prime-unit",
+        "verdict": "verified",
+        "note": "Verified boundedness of the full cyclic subgroup at finite places away from l, with no real condition. Local compactness comparisons are requested from RGII; the noncommuting matrix test rules out a false subgroup API."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/weil-number",
+        "verdict": "verified",
+        "note": "Verified integral weights including negative ones, finite-place unit condition, Galois invariance and multiplicative/inverse laws. All four numerical tests discriminate against integrality-only and one-embedding definitions."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/weil-point",
+        "verdict": "verified",
+        "note": "Verified independence of the faithful representation via tensor generation and subquotients, and all four tests. Nontrivial unipotents remain Weil points, so semisimplicity is a separate condition."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/cyclic-torus-and-neatness",
+        "verdict": "corrected",
+        "note": "Extended the Lemma 2.2.10 proof locator to pp.28–29. Imports current adelic neatness and proves only its semisimple diagonalizable-closure comparison, with the unipotent counterexample retained."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/serre-unit-criterion",
+        "verdict": "verified",
+        "note": "Verified the l-unit/Weil equivalence on Serre tori using character norms and the descended rational split quotient; the non-Serre real-quadratic counterexample detects the hypothesis."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/weil-point-density",
+        "verdict": "corrected",
+        "note": "Extended Lemma 2.2.10 and proof to pp.28–29. Checked the split distinguished prime, finite adelic class number, unit lattice and uniform power needed for dense neat Weil points."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.3/finite-orbit-rigidity",
+        "verdict": "verified",
+        "note": "Verified the repaired reduced separated statement: finitely many closed equalizers cover a dense set, irreducibility makes one equalizer all, and reducedness identifies morphisms. Both missing-hypothesis counterexamples are valid."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.4/common-source-conjugacy",
+        "verdict": "verified",
+        "note": "Verified connected-centralizer identifications, choice of a regular common-source point and finite-orbit rigidity; connected reductivity replaces the source’s unnecessary Levi assertion."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.4/galois-class-descent",
+        "verdict": "verified",
+        "note": "Verified continuity and finiteness of the orbit, decomposition-group fixed points, Chebotarev and Jordan. An embedding’s field of definition makes its orbit finite."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.4/rational-torus-embedding",
+        "verdict": "corrected",
+        "note": "Clarified the node as the arithmetic common-class application of ET.0’s requested quasi-split embedding theorem, not a second owner of that foundation. Galois-class descent supplies the invariant class; Kottwitz 1982 remains an explicit original-source gap."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.4/global-torus-transfer",
+        "verdict": "verified",
+        "note": "Verified the LR87 statement and anisotropic-place vanishing argument, with the modern simply connected Hasse input imported. The original Langlands obstruction theorem remains an explicit gap, not a proved prerequisite."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.4/common-realization-torus",
+        "verdict": "verified",
+        "note": "Verified that compactness is modulo the ambient centre, not merely existence of a compact Cartan. The conclusion uses connected-centralizer isomorphisms and all-neat-Weil-point common classes, precisely stated in the geometry/Noot gap."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.4/odd-unitary-hasse",
+        "verdict": "verified",
+        "note": "Verified Shin’s common-multiplier dual-centre/parity calculation for F=F⁺E. The arbitrary-CM extension is honestly an open proof contract; the special-case source is not claimed to prove it."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/hodge-convention-bridge",
+        "verdict": "verified",
+        "note": "Verified cohomological H¹ types, dual Tate module, geometric Frobenius multiplier q and inverse weight/scalar convention against KZ and Deligne. Existing ShimuraData Mumford–Tate carriers are imported."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/absolute-hodge-isomorphism-torsor",
+        "verdict": "verified",
+        "note": "Verified the tensor-isomorphism torsor and scalar-extension action against Deligne §§3.4–3.8 and MC.6. The absolute-Hodge comparison is requested explicitly from A4; all four API tests respect that input."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/simultaneous-mt-factorization",
+        "verdict": "verified",
+        "note": "Verified that a finite family of absolute Hodge tensors is defined after one finite extension, giving factorization for every l simultaneously. Existing finite tensor stabilizers and absolute-Hodge theorems stay with their owners."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/auxiliary-hodge-embedding",
+        "verdict": "verified",
+        "note": "Verified KZ Proposition 6.2.4/Lemma 6.2.6(1), including the common-multiplier group, central product, preserved residue field and very-special/connected-centre conditions. Geometry and parahoric suppliers are explicit."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/common-frobenius-class",
+        "verdict": "verified",
+        "note": "Verified algebraicity via a finite faithful quotient map, rationality via almost-all local realizations, and uniqueness via character separation. The strong geometric common-class theorem remains an explicit input; characteristic polynomials alone do not replace it."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/compact-weight-reality",
+        "verdict": "verified",
+        "note": "Verified the repaired elliptic-torus proof: select a semisimple representative, normalize by the specified positive scalar, use χ+cχ=mν and restore that same scalar. It preserves the actual Conj class, including the G_m boundary case."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/real-elliptic-frobenius",
+        "verdict": "verified",
+        "note": "Verified application of the cohomological weight/multiplier identities to compact-weight reality and the imported ShimuraData Cartan criterion. The representative is semisimple and in the prescribed common class."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/one-prime-patching",
+        "verdict": "verified",
+        "note": "Verified Kottwitz 1990 p.188 and 1986 Theorem 6.6: relative-inner-form obstruction, adelic tuple, Chebotarev auxiliary prime and local cancellation. The relative theorem is an explicit ET.0 extension, not supplied by the existing equal-form node alone."
+      },
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.5/rational-frobenius-representative",
+        "verdict": "verified",
+        "note": "Verified the final application retains good reduction p>2, simply connected derived group, quasi-splitness at p and the adelic input. The exceptional prime comes from the argument’s Chebotarev set and may change the rational representative."
+      }
+    ],
+    "removedNodes": [
+      {
+        "nodeId": "ReductiveGroupsPartIII:RG3.0/chevalley-line-stabilizer",
+        "reason": "Already implemented in current Tau Ceti; imported rather than re-planned. See libraryAudit.currentLibraryImports.",
+        "replacedBy": "tauceti:TauCeti.HopfIdeal.exists_finite_subcomodule_exteriorPower_line_stabilizer"
+      }
     ]
   }
 }
