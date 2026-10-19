@@ -11,7 +11,7 @@
     "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4",
     "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5"
   ],
-  "summary": "Complete target-level planning pass for the dyadic continuation authorized by issue 3347: 31 targets in six layers, including symmetric and quadratic Dedekind/global tables, completion and henselian rigidity, the total-cokernel obstruction, Q2 coordinates and integral examples. The independently routed polynomial-lattice and toral-joining directions have exact split inventories. The Eisenstein Arf map is zero under F2→F4; correcting it changes the quadratic table to [0,0,Z/2,Z/4]. Four explicit foundation/source gaps and ten supplier contracts remain; no stage is closed and no implementation is certified.",
+  "summary": "Complete target-level planning pass for the dyadic continuation authorized by issue 3347: 31 targets in six layers, including symmetric and quadratic Dedekind/global tables, completion and henselian rigidity, the total-cokernel obstruction, Q2 coordinates and integral examples. The independently routed polynomial-lattice and toral-joining directions have exact split inventories. The Eisenstein Arf map is zero under F2→F4; correcting it changes the quadratic table to [0,0,Z/2,Z/4]. Five explicit foundation/source gaps and ten supplier contracts remain; no stage is closed and no implementation is certified.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -20,61 +20,87 @@
         "ref": "mathlib:QuadraticMap",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Native homogeneous quadratic maps with bilinear companion, line 150; all finite-field and integral quadratic refinements reuse this carrier.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
       },
       {
         "ref": "mathlib:QuadraticMap.polarBilin",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "The full bilinear polar x,y↦Q(x+y)−Q(x)−Q(y), line 320; valid without 2 invertible.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
       },
       {
         "ref": "mathlib:QuadraticMap.proj",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "The quadratic map on a function module with value x_i x_j, line 636; builds the native characteristic-two binary examples.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
       },
       {
         "ref": "mathlib:QuadraticMap.weightedSumSquares",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Quadratic map Σ_i w_i x_i² on a finite function module, line 1418; used for the dyadic counterexample and corrected tensor.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
       },
       {
         "ref": "mathlib:QuadraticMap.Anisotropic",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
         "provides": "Anisotropy means every zero of the quadratic map is the zero vector, line 1064.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
       },
       {
         "ref": "mathlib:QuadraticMap.Equivalent",
         "module": "Mathlib/LinearAlgebra/QuadraticForm/IsometryEquiv.lean",
         "provides": "Nonempty type of linear isometry equivalences between two quadratic maps, line 47.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
       },
       {
         "ref": "mathlib:MonoidHom.range",
         "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
-        "provides": "The additive subgroup image of an additive homomorphism from an additive group; generated by to_additive from MonoidHom.range at line 66.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "provides": "Source generator MonoidHom.range at line 66, with to_additive generating AddMonoidHom.range : (B →+ D) → AddSubgroup D for additive groups. The additive declaration, rather than the multiplicative generator, is used by the suggested quotient expression and checked by elaboration. The source-text declaration index omits this generated name.",
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte.",
+        "generatedDeclaration": "AddMonoidHom.range"
       },
       {
         "ref": "mathlib:QuotientGroup.mk'",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
-        "provides": "Canonical additive homomorphism to the quotient by an additive subgroup; generated from QuotientGroup.mk' at line 88.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "provides": "Source generator QuotientGroup.mk' at line 88, with to_additive generating QuotientAddGroup.mk' : (N : AddSubgroup D) → (D →+ D ⧸ N) for additive groups. The generated additive quotient map is checked by elaboration; the source-text declaration index omits its name.",
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte.",
+        "generatedDeclaration": "QuotientAddGroup.mk'"
       },
       {
         "ref": "mathlib:Padic",
         "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
         "provides": "The Cauchy completion of Q for the p-adic norm, with field structure for prime p, line 531.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
       },
       {
         "ref": "tauceti:TauCeti.IntegralLattice",
         "module": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
         "provides": "An embedded full Z-lattice with rational symmetric bilinear form integral on its carrier, line 60. This carrier is already present; it is not recreated here.",
-        "checked": "Statement read at the pinned commit on 2026-10-19, including generated additive declarations where indicated."
+        "checked": "Independently read at the exact pinned commit on 2026-10-19; the six cited source files match the shared pinned build byte for byte."
+      },
+      {
+        "ref": "mathlib:AdicCompletion",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "The compatible inverse-limit carrier of the quotients M/I^n M, line 171; ordinary ideal-adic completion, without a number-field hypothesis.",
+        "checked": "Independently read at the exact pin on 2026-10-19; raw pinned source and shared build match byte for byte. The imported DVR instance’s full hypotheses were also read."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMulEquivQuotientProd",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "Chinese remainder ring equivalence R/(IJ)≃R/I×R/J for coprime ideals in any commutative ring, line 314; iterate for the finitely many powers of distinct dyadic primes.",
+        "checked": "Independently read at the exact pin on 2026-10-19; raw pinned source and shared build match byte for byte. The imported DVR instance’s full hypotheses were also read."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.HeightOneSpectrum.isAdicComplete_adicCompletionIntegers",
+        "module": "TauCeti/RingTheory/DedekindDomain/AdicValuation/Completion.lean",
+        "provides": "The ring of integers in the completion at any height-one prime of a Dedekind domain is complete for its maximal ideal, line 245; no finite-residue-field or number-field hypothesis. The imported Mathlib.NumberTheory.NumberField.Completion.FinitePlace DVR instance at line 78 likewise has arbitrary Dedekind scope.",
+        "checked": "Independently read at the exact pin on 2026-10-19; raw pinned source and shared build match byte for byte. The imported DVR instance’s full hypotheses were also read."
+      },
+      {
+        "ref": "tauceti:IsDedekindDomain.HeightOneSpectrum.residueFieldEquivAdicCompletionIntegers",
+        "module": "TauCeti/RingTheory/DedekindDomain/AdicValuation/Completion.lean",
+        "provides": "Canonical ring equivalence from R/p to the residue field of the completed integer ring for any Dedekind domain, line 307; the map on representatives is given at line 332.",
+        "checked": "Independently read at the exact pin on 2026-10-19; raw pinned source and shared build match byte for byte. The imported DVR instance’s full hypotheses were also read."
       }
     ]
   },
@@ -88,7 +114,8 @@
       "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
       "readSections": [
         "§2.2, Lemma 2.2.2, Theorem 2.2.4, Corollary 2.2.5 and Lemma 2.2.9, pp. 36–41",
-        "§2.3, pp. 41–48, including proofs and Examples 2.3.13–14"
+        "§2.3, pp. 41–48, including proofs and Examples 2.3.13–14",
+        "§3.2 introduction, pp. 54–55"
       ],
       "readDate": "2026-10-19"
     },
@@ -205,7 +232,7 @@
       ],
       "proofSteps": [
         "Import the residue coefficient line from GN.6 and request its L-theory localization form (R1).",
-        "Compute the boundary using the torsion linking pairing on the quotient of a lattice by its dual, identifying the coefficient by multiplication by π.",
+        "Compute the boundary using the torsion linking pairing on the dual lattice modulo the integral lattice, identifying the coefficient by multiplication by π.",
         "Diagonalize nonalternating summands over K; alternating summands are metabolic. Only finitely many primes divide denominators and the Gram determinant. Track the line when the uniformizer changes."
       ],
       "acceptance": [
@@ -269,23 +296,28 @@
       "tests": [
         {
           "name": "unitAtTwo",
-          "statement": "For Z_(2), ∂⟨3⟩=0."
+          "statement": "For Z_(2), ∂⟨3⟩=0.",
+          "kind": "computation"
         },
         {
           "name": "uniformizerAtTwo",
-          "statement": "For Z_(2), ∂⟨2⟩=⟨1⟩≠0 in Ws(F2)."
+          "statement": "For Z_(2), ∂⟨2⟩=⟨1⟩≠0 in Ws(F2).",
+          "kind": "computation"
         },
         {
           "name": "squareValuation",
-          "statement": "∂⟨4⟩=0, so merely testing divisibility by 2 gives the wrong map."
+          "statement": "∂⟨4⟩=0, so merely testing divisibility by 2 gives the wrong map.",
+          "kind": "non-example"
         },
         {
           "name": "oddPrimeSign",
-          "statement": "At 3 with π=3, ∂⟨6⟩=⟨2⟩ in Ws(F3), retaining the unit square class."
+          "statement": "At 3 with π=3, ∂⟨6⟩=⟨2⟩ in Ws(F3), retaining the unit square class.",
+          "kind": "computation"
         },
         {
           "name": "ramificationGuard",
-          "statement": "The residue arrow for Z→Z[i] at 2 is not the identity on the identified residue fields: the ramification factor must be included, as in Remark 2.2.6."
+          "statement": "For Z→Z[i], the residue map Ws(F2)→Ws(F2) at 2 and 1+i is zero, although the residue-field map is the identity: the ramified linking pairing has zero Witt class (Remark 2.2.6).",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -382,23 +414,28 @@
       "tests": [
         {
           "name": "hyperbolicPlane",
-          "statement": "Over F2, q(x,y)=xy has perfect polar and Arf 0."
+          "statement": "Over F2, q(x,y)=xy has perfect polar and Arf 0.",
+          "kind": "computation"
         },
         {
           "name": "anisotropicPlane",
-          "statement": "Over F2, x²+xy+y² has perfect polar and Arf 1; all three nonzero vectors have value 1."
+          "statement": "Over F2, x²+xy+y² has perfect polar and Arf 1; all three nonzero vectors have value 1.",
+          "kind": "computation"
         },
         {
           "name": "evenExtension",
-          "statement": "Over F4, x²+xy+y² has Arf 0 and is hyperbolic: if ζ²+ζ+1=0, (ζ,1) is isotropic."
+          "statement": "Over F4, x²+xy+y² has Arf 0 and is hyperbolic: if ζ²+ζ+1=0, (ζ,1) is isotropic.",
+          "kind": "compatibility"
         },
         {
           "name": "nonregularSquare",
-          "statement": "Over F2, x² has zero polar and is excluded despite being a nonzero quadratic map."
+          "statement": "Over F2, x² has zero polar and is excluded despite being a nonzero quadratic map.",
+          "kind": "non-example"
         },
         {
           "name": "zeroSpace",
-          "statement": "The zero-dimensional nonsingular form has invariant 0."
+          "statement": "The zero-dimensional nonsingular form has invariant 0.",
+          "kind": "degenerate"
         }
       ],
       "uses": [
@@ -516,7 +553,7 @@
       "prerequisites": [
         "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue",
         "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences",
-        "ArithmeticKTheory:N.2"
+        "ArithmeticKTheory:N.2/the-three-classical-rows"
       ],
       "sources": [
         {
@@ -599,7 +636,7 @@
         "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-injectivity",
         "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/field-l-adapter",
         "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue",
-        "ArithmeticKTheory:N.2"
+        "ArithmeticKTheory:N.2/the-three-classical-rows"
       ],
       "sources": [
         {
@@ -702,9 +739,10 @@
         "R Dedekind, char fraction field≠2; completion is ordinary ring completion, with bounded 2-torsion automatically satisfied."
       ],
       "proofSteps": [
-        "Factor the ideal (2)=∏p p^e_p. Chinese remainders identifies each finite quotient with the product of the p-power quotients.",
+        "Factor the ideal (2)=∏p p^e_p and iterate the pinned coprime-ideal Chinese remainder equivalence at each power. Use the existing AdicCompletion compatible-limit carrier, not a new completion definition.",
         "Use cofinality of e_p m among positive powers and commute a finite product with inverse limits.",
-        "Localize at p before completion and compare limits. The e_p affect the topology’s presentation, not the number of residue coordinates."
+        "Localize at p before completion and compare limits. The e_p affect the topology’s presentation, not the number of residue coordinates.",
+        "The existing completed integer ring is a complete DVR with residue R/p for arbitrary Dedekind R. Identify its maximal-ideal powers with the localized p-adic filtration; density of R_(p) identifies its compatible quotient limit with that ring. The new target is the product comparison, not a second local completion theory."
       ],
       "acceptance": [
         "Establish the stated maps and identifications, not only an abstract cardinality.",
@@ -712,7 +750,10 @@
         "Check the empty dyadic set and distinguish the inert F4 example from a ramified single prime."
       ],
       "prerequisites": [
-        "ArithmeticKTheory:N.1"
+        "mathlib:AdicCompletion",
+        "mathlib:Ideal.quotientMulEquivQuotientProd",
+        "tauceti:IsDedekindDomain.HeightOneSpectrum.isAdicComplete_adicCompletionIntegers",
+        "tauceti:IsDedekindDomain.HeightOneSpectrum.residueFieldEquivAdicCompletionIntegers"
       ],
       "sources": [
         {
@@ -755,24 +796,33 @@
           "name": "dyadicCompletion_empty",
           "role": "simp",
           "statement": "When (2)=R, C is the zero ring, not R."
+        },
+        {
+          "name": "dyadicCompletionEquiv_ext",
+          "role": "extensionality",
+          "statement": "Two ring maps into C agree if their composites with every completed-DVR projection agree; for an empty dyadic set the condition is vacuous."
         }
       ],
       "tests": [
         {
           "name": "integers",
-          "statement": "For R=Z there is one factor Z_2 with residue F2."
+          "statement": "For R=Z there is one factor Z_2 with residue F2.",
+          "kind": "computation"
         },
         {
           "name": "invertTwo",
-          "statement": "For Z[1/2] the dyadic set is empty and C=0."
+          "statement": "For Z[1/2] the dyadic set is empty and C=0.",
+          "kind": "degenerate"
         },
         {
           "name": "eisenstein",
-          "statement": "For Z[ζ3] there is one unramified quadratic factor with residue F4, not two factors and not F2."
+          "statement": "For Z[ζ3] there is one unramified quadratic factor with residue F4, not two factors and not F2.",
+          "kind": "computation"
         },
         {
           "name": "ramifiedPrime",
-          "statement": "For Z[i] the single dyadic factor remains one factor although (2) has exponent 2."
+          "statement": "For Z[i] the single dyadic factor remains one factor although (2) has exponent 2.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -810,7 +860,7 @@
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.6",
-        "StableHomotopyKTheory:H.5"
+        "StableHomotopyKTheory:H.5:spectra"
       ],
       "sources": [
         {
@@ -981,7 +1031,8 @@
         "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/arithmetic-fracture",
         "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/dyadic-completion",
         "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-comparison",
-        "ArithmeticKTheory:N.1"
+        "ArithmeticKTheory:N.1",
+        "ArithmeticKTheory:N.2/the-three-classical-rows"
       ],
       "sources": [
         {
@@ -1073,23 +1124,28 @@
       "tests": [
         {
           "name": "surjectiveGlobal",
-          "statement": "If Ws(R)→Ws(C) is onto, then A(R)=0, even if σ_C is not onto."
+          "statement": "If Ws(R)→Ws(C) is onto, then A(R)=0, even if σ_C is not onto.",
+          "kind": "characterisation"
         },
         {
           "name": "surjectiveQuadratic",
-          "statement": "If σ_C is onto, A(R)=0, even if the global image vanishes."
+          "statement": "If σ_C is onto, A(R)=0, even if the global image vanishes.",
+          "kind": "characterisation"
         },
         {
           "name": "diagonalParityModel",
-          "statement": "For D=(Z/2)^d, s the constant diagonal and q zero, the quotient has order 2^(d−1) for d≥1."
+          "statement": "For D=(Z/2)^d, s the constant diagonal and q zero, the quotient has order 2^(d−1) for d≥1.",
+          "kind": "computation"
         },
         {
           "name": "singlePrimeGuard",
-          "statement": "The parity quotient is zero at d=1, but it does not force A(R)=0; the Eisenstein computation supplies a nonzero example."
+          "statement": "The parity quotient is zero at d=1, but it does not force A(R)=0; the Eisenstein computation supplies a nonzero example.",
+          "kind": "non-example"
         },
         {
           "name": "emptyDyadicSet",
-          "statement": "When 2 is a unit, C=0 and A(R)=0."
+          "statement": "When 2 is a unit, C=0 and A(R)=0.",
+          "kind": "degenerate"
         }
       ],
       "uses": [
@@ -1323,7 +1379,7 @@
       "proofSteps": [
         "Use GN.6’s classical symmetric and quadratic degree-zero GW calculations, quotienting hyperbolic classes to obtain the two Witt groups. This avoids repeating the classification of integral forms.",
         "Alternatively use even-unimodular signature divisibility from the current IntegralLattices roadmap and E8 of signature 8. The bilinear form B, not B(x,x), is the polar of q.",
-        "Reduce the actual E8 quadratic refinement modulo 2 and compute a symplectic basis or count its zeros to get Arf 0. This is a required computation, not a consequence of the bilinear reduction alone."
+        "Reduce the actual E8 quadratic refinement modulo 2. In a simple-root basis q(x)=Σx_i²−Σ_edges x_i x_j, with the E8 graph having arms of lengths 2,4,1, enumerate 136 zeros among its 256 vectors. Since 136=2^7+2^3, its Arf invariant is 0. This checks the refinement, not merely the alternating bilinear reduction."
       ],
       "acceptance": [
         "Establish the stated maps and identifications, not only an abstract cardinality.",
@@ -1524,7 +1580,7 @@
         "E/Q2 unramified quadratic; symmetric residue groups, not quadratic Arf groups, occur in this diagram."
       ],
       "proofSteps": [
-        "Request the quadratic-extension Witt kernel/transfer exact sequence as an extension of QFI layer 9 (R4); the currently stated transfer and Frobenius reciprocity alone do not imply it.",
+        "Request the quadratic-extension Witt kernel/transfer exact sequence as an extension of QFI layer 9 (R4); the currently stated transfer and Frobenius reciprocity alone do not imply it. The unregistered exactness extension is G5; it is not inferred from Frobenius reciprocity.",
         "Apply the explicit ideal and annihilator computation of DA.4.",
         "Compare symmetric residue exact sequences. The right vertical map is rank parity and is an isomorphism; the kernel/cokernel lemma gives the integral comparison."
       ],
@@ -1552,6 +1608,9 @@
       },
       "sourceIssueIds": [
         "GeometryOfNumbersAndQuadraticArithmeticPartII/E1"
+      ],
+      "gapIds": [
+        "G5"
       ]
     },
     {
@@ -1657,7 +1716,7 @@
       "status": "planned",
       "remaining": [
         "G1: shared Poincaré foundations and field/shift identification.",
-        "G2/R3/R7: global residue exactness and function-field/divisor scope."
+        "G2/R3: global Witt residue kernel exactness for number fields and function fields; R7 is an existing general divisor import."
       ]
     },
     {
@@ -1690,7 +1749,7 @@
       "remaining": [
         "G1: shared Poincaré foundations and field/shift identification.",
         "Inherited dependencies G2–G4 through the arithmetic tables.",
-        "R4: quadratic-extension transfer exactness; independent verification of new source finding E3."
+        "G5/R4: register the quadratic-extension transfer exactness extension; E1–E3 are independently confirmed against arXiv v4."
       ]
     }
   ],
@@ -1698,74 +1757,147 @@
     {
       "id": "R1",
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization",
-      "need": "Expose the Ls version of the existing GW localization/dévissage theorem, with the canonical coefficient line, all integer shifts, and finite-support boundary. The packet node presently states only GW. Depend on the missing HermitianKTheoryOfPoincareCategories foundation when its registered stages exist; do not identify it with classical exact-category GW."
+      "need": "Expose the Ls version of the existing GW localization/dévissage theorem, with the canonical coefficient line, all integer shifts, and finite-support boundary. The packet node presently states only GW. Depend on the missing HermitianKTheoryOfPoincareCategories foundation when its registered stages exist; do not identify it with classical exact-category GW.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/symmetric-dedekind",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/characteristic-two",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/away-dyadic-devissage"
+      ]
     },
     {
       "id": "R2",
       "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal",
-      "need": "Import the existing genuine field Witt ring, Witt class, addition/tensor, signed determinant and base change. Current Tau Ceti already implements them; this is an import contract, not a request to rebuild the field carrier."
+      "need": "Import the existing genuine field Witt ring, Witt class, addition/tensor, signed determinant and base change. Current Tau Ceti already implements them; this is an import contract, not a request to rebuild the field carrier.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/field-l-adapter",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/q2-coordinates"
+      ]
     },
     {
       "id": "R3",
       "supplier": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences",
-      "need": "Part II extension: the number-field Dedekind Witt residue cokernel is Pic(R)/2, with coefficient lines and finite support. Layer 8 currently gives classification and local-global injection, and explicitly does not promise this residue exactness. The global-function-field version remains G2 with no fabricated upstream stage."
+      "need": "Part II extension: the number-field Dedekind Witt residue cokernel is Pic(R)/2, with coefficient lines and finite support. Layer 8 currently gives classification and local-global injection, and explicitly does not promise this residue exactness. The global-function-field version remains G2 with no fabricated upstream stage.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/global-residue-cokernel"
+      ]
     },
     {
       "id": "R4",
       "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula",
-      "need": "Part II extension: for a quadratic field extension F(√a)/F, exactness of restriction, Scharlau transfer for a functional s with s(1)=0, and multiplication by ⟨1,−a⟩. In particular ker res is its principal ideal and coker res identifies with its annihilator. The existing layer gives transfer/Frobenius reciprocity, not this exact sequence."
+      "need": "Part II extension: for a quadratic field extension F(√a)/F, exactness of restriction, Scharlau transfer for a functional s with s(1)=0, and multiplication by ⟨1,−a⟩. In particular ker res is its principal ideal and coker res identifies with its annihilator. The existing layer gives transfer/Frobenius reciprocity, not this exact sequence.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-restriction",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-table"
+      ]
     },
     {
       "id": "R5",
       "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field",
-      "need": "Import complete finite-extension-of-Q2 classification, the normalized Q2 Hilbert formula and square-class tests. Use it to derive the specific 32-class presentation here; do not duplicate field classification."
+      "need": "Import complete finite-extension-of-Q2 classification, the normalized Q2 Hilbert formula and square-class tests. Use it to derive the specific 32-class presentation here; do not duplicate field classification.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/q2-coordinates",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/number-field-quadratic",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/dyadic-integer-witt",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-symmetric",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-restriction"
+      ]
     },
     {
       "id": "R6",
       "supplier": "ArithmeticKTheory:N.1",
-      "need": "Import K0 of Dedekind arithmetic rings, projective extension under localization, finiteness of localized Picard groups, and standard number-field ring/prime/completion carriers. Generic Dedekind Picard/divisor statements in positive characteristic require the extension named in R7."
+      "need": "Import N.1’s S-integer localization and finite-extension projective-module comparisons and the finiteness of localized number-field Picard groups via its existing class-group sources. Generic Dedekind K0≃Z⊕Pic and K0(R)→K0(K) surjectivity are supplied by N.2/the-three-classical-rows (importing KTheoryLowDegrees Z.4), not proved by N.1. Prime and completion carriers are library inputs to the CRT/cofinality construction in DA.2.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/dyadic-completion",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/quadratic-fracture",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/number-field-quadratic",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-arithmetic"
+      ]
     },
     {
       "id": "R7",
-      "supplier": "ArithmeticKTheory:N.2",
-      "need": "State the divisor/principal-divisor/Picard exact sequence and its mod-2 cokernel for an arbitrary Dedekind domain with global fraction field, including characteristic 2; do not assume the number-field formulation alone covers function fields."
+      "supplier": "ArithmeticKTheory:N.2/the-three-classical-rows",
+      "need": "Import the existing divisor/principal-divisor/Picard exact sequence for any Dedekind domain, including characteristic 2. Reduce its divisor group and class map modulo 2 to obtain the parity cokernel Pic(R)/2. This is an existing general-Dedekind contract, not a new number-field or function-field extension; it supplies no global Witt residue kernel exactness (G2).",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/global-residue-cokernel",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/characteristic-two"
+      ]
     },
     {
       "id": "R8",
       "supplier": "GeneralAlgebraicKTheory:K.6",
-      "need": "Import nonconnective K-theory localization and the K0 image controls for perfect-complex localization. The stronger derived localization-completion and Poincaré criterion are G1, not consequences asserted by this stage alone."
+      "need": "Import GeneralAlgebraicKTheory:K.6/frobenius-spectrum-localization and K.6/dense-triangulated-class-criterion: exact Frobenius models give nonconnective localization, and dense full triangulated subcategories are detected by the image on K0. The comparison to the perfect-complex completion square and the Poincaré criterion remain G1.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/arithmetic-fracture"
+      ]
     },
     {
       "id": "R9",
-      "supplier": "StableHomotopyKTheory:H.5",
-      "need": "Import integer-indexed spectra, homotopy pullbacks, shifts and long exact homotopy sequences. Do not infer the Poincaré L construction merely from the existence of spectra."
+      "supplier": "StableHomotopyKTheory:H.5:spectra",
+      "need": "Import integer-indexed true homotopy groups, the stable homotopy category with suspension an autoequivalence, and its distinguished-triangle long exact sequences. Compute spectral pullbacks by stable fibres of the difference map. Use the true groups (or a justified semistable model), not naive homotopy groups of an arbitrary symmetric spectrum. The Poincaré L construction remains G1.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/arithmetic-fracture",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/quadratic-fracture",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/quadratic-dedekind"
+      ]
     },
     {
       "id": "R10",
       "supplier": "tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms",
-      "need": "Import the existing E8 lattice and its unimodular/even Gram model; current IntegralLattices additionally owns signature divisibility. The new arithmetic check here is the quadratic refinement’s Arf invariant modulo 2."
+      "need": "Import the existing E8 lattice and its unimodular/even Gram model; current IntegralLattices additionally owns signature divisibility. The new arithmetic check here is the quadratic refinement’s Arf invariant modulo 2.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/integer-witt"
+      ]
     }
   ],
   "gaps": [
     {
       "id": "G1",
       "title": "Unregistered Poincaré-category supplier",
-      "detail": "HermitianKTheoryOfPoincareCategories is routed by the Calmes extraction but has no registered roadmap/stage or target packet in this checkout. Needed: Dp with coefficient duality; Qq,Qs,Q^(≥m) and sign shifts; genuine versus periodic comparisons; L spectrum and field surgery/Witt identification; Poincaré–Verdier criterion [II] 4.5.5 and localizing invariance; derived localization/completion of perfect complexes, K0-controlled subcategories and rational Tate-vanishing. Existing GN.6 exact-category GW and StableHomotopyKTheory spectra do not supply these. DA.0 comparison, DA.1 field tables and DA.2 fracture are conditional on this exact inventory. Register/plan the one shared owner; do not create parallel foundations here."
+      "detail": "HermitianKTheoryOfPoincareCategories is routed by the Calmes extraction but has no registered roadmap/stage or target packet in this checkout. Needed: Dp with coefficient duality; Qq,Qs,Q^(≥m) and sign shifts; genuine versus periodic comparisons; L spectrum and field surgery/Witt identification; Poincaré–Verdier criterion [II] 4.5.5 and localizing invariance; derived localization/completion of perfect complexes, K0-controlled subcategories and rational Tate-vanishing. Existing GN.6 exact-category GW and StableHomotopyKTheory spectra do not supply these. DA.0 comparison, DA.1 field tables and DA.2 fracture are conditional on this exact inventory. Register/plan the one shared owner; do not create parallel foundations here.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-comparison",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/field-l-adapter",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/symmetric-dedekind",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/characteristic-two",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/sign-shifts",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/arithmetic-fracture",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/complete-rigidity"
+      ]
     },
     {
       "id": "G2",
       "title": "Global Witt residue exactness proof",
-      "detail": "DA.1/global-residue-cokernel needs full kernel exactness, not only a map onto Pic(R)/2. Calmes Corollary 2.3.2 cites Milnor–Husemoller (1973), Chapter IV §4 and Scharlau (1985), Chapter 6 §6 Theorem 6.11. Neither book is cleared in the library index. No other copy was used. The public paper’s statement and proof reduction were read; the referenced proofs were not verified. R3 requests a number-field extension of GlobalQuadraticForms layer 8. Its stated scope excludes global function fields; a separate registered supplier contract must cover those. The characteristic-two divisor argument is written explicitly and does not silently import a char≠2 field theorem."
+      "detail": "DA.1/global-residue-cokernel needs full kernel exactness, not only a map onto Pic(R)/2. Calmes Corollary 2.3.2 cites Milnor–Husemoller (1973), Chapter IV §4 and Scharlau (1985), Chapter 6 §6 Theorem 6.11. Neither book is cleared in the library index. No other copy was used. The public paper’s statement and proof reduction were read; the referenced proofs were not verified. R3 requests a number-field extension of GlobalQuadraticForms layer 8. Its stated scope excludes global function fields; a separate registered supplier contract must cover those. The characteristic-two divisor argument is written explicitly and does not silently import a char≠2 field theorem.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/global-residue-cokernel"
+      ]
     },
     {
       "id": "G3",
       "title": "Degree-one quadratic rigidity relations",
-      "detail": "The public Wall (1970) Lemma 1 and Theorem 2 and their proofs were read, and justify quadratic isometry lifting. Equivalence of Lq spectra additionally needs the L1 relation/kernel comparison in Wall (1973), On the classification of hermitian forms III, Inventiones 19, 59–71, Corollary 1, Lemma 1 and Proposition 4, as cited by Calmes Proposition 2.3.7. That complete text was not obtained. Verify those precise relation and free/projective comparisons; surjectivity on isometries or GW1 alone is insufficient."
+      "detail": "The public Wall (1970) Lemma 1 and Theorem 2 and their proofs were read, and justify quadratic isometry lifting. Equivalence of Lq spectra additionally needs the L1 relation/kernel comparison in Wall (1973), On the classification of hermitian forms III, Inventiones 19, 59–71, Corollary 1, Lemma 1 and Proposition 4, as cited by Calmes Proposition 2.3.7. That complete text was not obtained. Verify those precise relation and free/projective comparisons; surjectivity on isometries or GW1 alone is insufficient.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/complete-rigidity"
+      ]
     },
     {
       "id": "G4",
       "title": "Henselian approximation input",
-      "detail": "CMM arXiv:1803.10897v2 Remark 5.6 p. 39 was read and the reduction to finitely presented henselizations, Popescu ind-smoothness and Elkik splitting was checked at the argument level. The full Popescu theorem and Elkik Theorem 3.15 were not read or found in a matching supplier node. Record this general approximation contract once under the henselian/commutative algebra owner before closing DA.2. It is separate from the prime-to-p K-theory rigidity in KTheoryFiniteLocalFields L.2."
+      "detail": "CMM arXiv:1803.10897v2 Remark 5.6 p. 39 was read and the reduction to finitely presented henselizations, Popescu ind-smoothness and Elkik splitting was checked at the argument level. The full Popescu theorem and Elkik Theorem 3.15 were not read or found in a matching supplier node. Record this general approximation contract once under the henselian/commutative algebra owner before closing DA.2. It is separate from the prime-to-p K-theory rigidity in KTheoryFiniteLocalFields L.2.",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/henselian-rigidity"
+      ]
+    },
+    {
+      "id": "G5",
+      "title": "Unregistered quadratic-extension Witt exactness",
+      "neededBy": [
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-restriction",
+        "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-table"
+      ],
+      "detail": "R4 requires the quadratic-extension Witt exact sequence (Lam, Introduction to Quadratic Forms over Fields, VII Theorem 3.5, cited in Calmes Example 2.3.14 p. 47). QFI layer 9 supplies Scharlau transfer and Frobenius reciprocity but does not state exactness of restriction, transfer and multiplication by ⟨1,−a⟩. Lam is not cleared and its proof was not read. Register this precise Part II extension under the existing field-form owner before closing DA.5; it is not an already exported result of layer 9. The independent finite Q2 calculations verify the local arithmetic conditional on this standard exactness contract, rather than verifying the unread general theorem."
     }
   ],
   "sourceIssues": [
@@ -1778,12 +1910,19 @@
       "correction": "Use ⟨1,−3⟩ instead, together with 2⟨1⟩; equivalently use c=⟨1,3⟩ and 2⟨1⟩.",
       "reason": "Tensoring the printed binary form with c gives the anisotropic norm-difference form ⟨1,3,−2,−6⟩ over Q2. Tensoring the corrected form gives hyperbolic pairs ⟨1,−1⟩ and ⟨3,−3⟩ after square scaling. The abstract annihilator is still Z/4⊕Z/2.",
       "affects": "the proof",
-      "known": "Inherited extraction finding independently checked here. No dedicated correction located in the searched public versions; no claim about the unexamined journal PDF.",
+      "known": "Independently confirmed by REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII on 2026-10-19 against arXiv:2009.07225v4. No dedicated correction was found in the recorded searches; the restricted Annals journal PDF was not compared.",
       "searched": [
         "arXiv:2009.07225 version listing and v4 PDF, checked 2026-10-19",
         "Author-hosted HermKstableIII.pdf at bcalmes.perso.math.cnrs.fr, Example 2.3.14",
-        "Author publication listing and web search for the title with Eisenstein, correction and erratum; no dedicated correction found; Annals journal PDF was not compared"
-      ]
+        "Author publication listing and web search for the title with Eisenstein, correction and erratum; no dedicated correction found; Annals journal PDF was not compared",
+        "Independent review: Annals publisher access attempted and WRAP version metadata checked on 2026-10-19; published text remained unavailable, so findings remain preprint-scoped."
+      ],
+      "source": "CDHHLMNNS-III-v4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed generator ⟨1,−2⟩ tensors with c to ⟨1,3,−2,−6⟩, the anisotropic norm-difference form for the unramified quadratic extension. Independent Q2 Hilbert-symbol enumeration gives cv=4u≠0 and ann(c)=⟨2u,c⟩. The corrected ⟨1,−3⟩ tensors to two hyperbolic planes.",
+        "by": "REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII"
+      }
     },
     {
       "id": "GeometryOfNumbersAndQuadraticArithmeticPartII/E2",
@@ -1794,12 +1933,19 @@
       "correction": "Prove inertness separately by irreducibility of t²+t+1 over F2. The discriminant only proves that 2 is unramified.",
       "reason": "An unramified prime can split. For example, 2 is unramified but split in Q(√−7), where the integral-basis polynomial t²+t+2 reduces to t(t+1).",
       "affects": "the proof",
-      "known": "Inherited extraction finding independently checked here. The intended inertness conclusion is true, with the added polynomial calculation.",
+      "known": "Independently confirmed by REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII on 2026-10-19 against arXiv:2009.07225v4. No dedicated correction was found in the recorded searches; the restricted Annals journal PDF was not compared.",
       "searched": [
         "arXiv:2009.07225 version listing and v4 PDF, checked 2026-10-19",
         "Author-hosted HermKstableIII.pdf at bcalmes.perso.math.cnrs.fr, Example 2.3.14",
-        "Author publication listing and web search for the title with Eisenstein, correction and erratum; no dedicated correction found; Annals journal PDF was not compared"
-      ]
+        "Author publication listing and web search for the title with Eisenstein, correction and erratum; no dedicated correction found; Annals journal PDF was not compared",
+        "Independent review: Annals publisher access attempted and WRAP version metadata checked on 2026-10-19; published text remained unavailable, so findings remain preprint-scoped."
+      ],
+      "source": "CDHHLMNNS-III-v4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Discriminant −3 proves unramifiedness but does not exclude splitting. Reduction of t²+t+1 modulo 2 is irreducible and proves the intended inertness; t²+t+2 for Q(√−7) gives the stated unramified split counterexample.",
+        "by": "REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII"
+      }
     },
     {
       "id": "GeometryOfNumbersAndQuadraticArithmeticPartII/E3",
@@ -1809,12 +1955,19 @@
       "correction": "The quadratic factor map is zero, since the residue extension F2→F4 has even degree. The corrected quadratic groups in residues 0,1,2,3 are 0,0,Z/2,Z/4. The symmetric table and the intermediate symmetric restriction cokernel Z/4⊕Z/2 remain unchanged.",
       "reason": "The Arf-one plane x²+xy+y² becomes isotropic over F4, so the claimed identity cannot commute with reduction and rigidity. Over the Eisenstein completion the new Arf-one polar class t has signed determinant d=1−4ζ with Norm(d)=21 nonsquare in Q2, while the nonzero order-two class 2u in the global Z/4 has determinant −1 with square norm. Hence the global symmetric and local quadratic images intersect trivially, proving Wq(R)=0. Under the transfer description coker θ≃ann(c), the polar transfer diagonalizes as ⟨1,−1,4,−21/4⟩, whose Witt class is c. Thus A(R)=ann(c)/⟨c⟩=Z/4. See the final two target proof sketches for the maps and determinant normalization.",
       "affects": "a stated result",
-      "known": "New finding in this planning pass; no independent verdict is claimed. Both the Arf map and its effect on the final table need the job’s independent mathematical review.",
+      "known": "Independently confirmed by REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII on 2026-10-19 against arXiv:2009.07225v4. No dedicated correction was found in the recorded searches; the restricted Annals journal PDF was not compared.",
       "searched": [
         "arXiv:2009.07225 version listing and v4 PDF, checked 2026-10-19",
         "Author-hosted HermKstableIII.pdf at bcalmes.perso.math.cnrs.fr, Example 2.3.14",
-        "Author publication listing and web search for the title with Eisenstein, correction and erratum; no dedicated correction found; Annals journal PDF was not compared"
-      ]
+        "Author publication listing and web search for the title with Eisenstein, correction and erratum; no dedicated correction found; Annals journal PDF was not compared",
+        "Independent review: Annals publisher access attempted and WRAP version metadata checked on 2026-10-19; published text remained unavailable, so findings remain preprint-scoped."
+      ],
+      "source": "CDHHLMNNS-III-v4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Over F4, the vector (ζ,1) is a nonzero zero of x²+xy+y²; absolute trace sends 1 to 0, so quadratic base change is zero. The new Arf-one plane with last coefficient ζ has polar signed determinant of norm 21, separating it from global 2u. Independent exact transfer elimination yields ⟨1,−1,4,−21/4⟩ with class c; quotienting ann(c) by this local image gives Z/4 and the pullback kernel gives Wq(R)=0. This confirms the corrected [0,0,Z/2,Z/4] table against arXiv v4 only; it makes no claim about the unexamined journal text.",
+        "by": "REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII"
+      }
     }
   ],
   "restructure": [
@@ -2308,9 +2461,181 @@
     }
   ],
   "validation": {
-    "packetChecker": "Passed against the pinned declaration index: 0 errors and 0 warnings. Re-run on the final tree before submission.",
-    "lean": "lean-check succeeded at the pins; 122 lines, 14 declaration-uses-placeholder-proof warnings and no other warnings or errors. All data definitions have real bodies.",
-    "arithmeticAudit": "Exact rational and finite-field calculations checked all 32 Q2 coordinates are distinct under the explicit Hilbert formula, the generator orders and multiplication by c, corrected annihilator, local Arf-one polar class c+4u, transfer determinant 21 and Witt class c, and the F2/F4 isotropy distinction. This finite audit is not formalization.",
+    "packetChecker": "Independent review: final packet checked against the pinned declaration index with 0 errors and 0 warnings.",
+    "lean": "Independent review: lean-check succeeded at the pins; 135 lines, 16 declaration-uses-placeholder-proof warnings and no other warnings or errors. All data definitions have real bodies.",
+    "arithmeticAudit": "Exact rational and finite-field calculations checked all 32 Q2 coordinates are distinct under the explicit Hilbert formula, the generator orders and multiplication by c, corrected annihilator, local Arf-one polar class c+4u, transfer determinant 21 and Witt class c, and the F2/F4 isotropy distinction. This finite audit is not formalization. Independent review re-executed these checks and counted 136 zeros in the E8 half-norm refinement modulo 2 (Arf 0).",
     "implementation": "All nodes unchecked; elaborated target signatures do not prove their statements."
+  },
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.07225v4",
+      "read": "2026-10-19",
+      "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
+      "note": "All E1–E3 locators and independent verdicts concern this 63-page version. Annals pagination and any published corrections were not checked."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII",
+    "date": "2026-10-19",
+    "notes": "Independent review by Codex session codex-TVByiz, distinct from the design author. All 31 targets and locators, 14 exact pinned baseline entries, current upstream ownership, ten supplier contracts, APIs/tests, Lean signatures, planets and the 16/7/83 routing inventories were checked. Corrected dependency attributions, completion API/proof, linking quotient and test classifications; confirmed E1–E3 independently against preprint v4. Acceptance covers the finished target-level planning pass only: G1–G5 remain explicit, all six stages are planned rather than closed, and all implementation statuses remain unchecked. See the review report for source access limits and handoff.",
+    "checked": [
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-comparison",
+        "verdict": "verified",
+        "note": "Verified the degree-zero polarization comparison, invert-two equivalence and integral-versus-periodic conventions at §2.3, Proposition 2.3.9 and Remark 2.3.17; the absent Poincaré carriers remain G1."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-injectivity",
+        "verdict": "verified",
+        "note": "Verified the projective-lattice injection and its quadratic restriction in the proof of Proposition 2.3.1 and the argument following Corollary 2.3.16, including the admissible Lagrangian convention."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue",
+        "verdict": "corrected",
+        "note": "Corrected the linking quotient to dual lattice modulo integral lattice. Made the ramified Z→Z[i] residue map explicitly zero and classified its five tests; retained the canonical line and the GW-to-L supplier extension R1."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/finite-arf",
+        "verdict": "corrected",
+        "note": "Verified the absolute-trace Arf coordinate and extension-degree law, independently checked the F2/F4 planes, and classified all five tests."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/field-l-adapter",
+        "verdict": "verified",
+        "note": "Verified the field surgery/Witt adapter, alternating negative-sign case and periodic convention; field carriers are imports and the Poincaré identification is G1."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/symmetric-dedekind",
+        "verdict": "verified",
+        "note": "Verified the symmetric Dedekind four-periodic table and coefficient-line boundary against Proposition 2.3.1; it is conditional on the explicitly requested L localization."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/global-residue-cokernel",
+        "verdict": "corrected",
+        "note": "Replaced the broad divisor citation with the actual general-Dedekind classical-rows node. Checked the target against Corollary 2.3.2; full global residue kernel exactness remains G2/R3."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/global-symmetric",
+        "verdict": "verified",
+        "note": "Verified the global-field specialization, finite dyadic residue coordinates and Pic(R)/2 term; no function-field theorem is inferred from the number-field supplier."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/characteristic-two",
+        "verdict": "corrected",
+        "note": "Replaced the broad N.2 dependency with its existing general-Dedekind divisor sequence, which already includes characteristic two. Checked reduction modulo 2 and the two-periodic table; no new divisor extension is needed."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/local-symmetric",
+        "verdict": "verified",
+        "note": "Verified the DVR computation, including infinite residue fields and the characteristic-two alternative, against Remark 2.3.5."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1/sign-shifts",
+        "verdict": "verified",
+        "note": "Verified both Σ² sign shifts and their integer-degree indexing against Remarks 2.3.3 and 2.3.11; no genuine-symmetric periodicity is substituted."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/dyadic-completion",
+        "verdict": "corrected",
+        "note": "Replaced the false S-integer completion attribution with four exact pinned completion/CRT declarations. Expanded the native-carrier CRT/cofinality proof, added projection extensionality and classified four tests, including the empty product."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/arithmetic-fracture",
+        "verdict": "corrected",
+        "note": "Resolved the spectra dependency to H.5:spectra and read the actual localization/dense-subcategory exports. Checked Proposition 2.3.6 with ordinary/derived comparison and both K0 image controls; the missing categorical bridge remains G1."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/quadratic-lifting",
+        "verdict": "verified",
+        "note": "Verified Wall (1970), Lemma 1 and Theorem 2 with proofs, against the quadratic lifting used in Proposition 2.3.7. The full polar and absence of division by 2 are essential."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/complete-rigidity",
+        "verdict": "verified",
+        "note": "Verified the reduction from isometry lifting to rigidity as a conditional target; the unread degree-one relation/kernel and projective comparison results are explicitly G3, not supplied by lifting alone."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/henselian-rigidity",
+        "verdict": "verified",
+        "note": "Verified Remark 2.3.8 and CMM Remark 5.6 with the henselian-pair and filtered-colimit hypotheses. The full Popescu/Elkik approximation input remains G4."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/quadratic-fracture",
+        "verdict": "corrected",
+        "note": "Added the actual general-Dedekind K0/divisor supplier and separated it from the S-integer stage. Checked the Dedekind specialization removes K0 controls only after the projective-lattice argument."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/correction-term",
+        "verdict": "corrected",
+        "note": "Verified the native additive quotient by both images, total-cokernel universal property and restricted functoriality; classified five tests. Explicit additive range/projection uses elaborate at the pins."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/quadratic-dedekind",
+        "verdict": "verified",
+        "note": "Verified the four-periodic quadratic table and unsplit degree-three extension against Proposition 2.3.9; the correction is the total cokernel, not the symmetric restriction cokernel."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/number-field-quadratic",
+        "verdict": "verified",
+        "note": "Verified the number-field degree-two Arf coordinates and the finite-completion assumptions against Corollary 2.3.10; no quadratic characteristic-two global table is asserted."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/parity-obstruction",
+        "verdict": "verified",
+        "note": "Verified the diagonal rank-parity quotient and its nonzero consequence for at least two dyadic primes; checked d=1 does not determine A(R)."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/away-dyadic-devissage",
+        "verdict": "verified",
+        "note": "Verified quadratic dévissage away from dyadic primes and its failure-of-scope warning at 2 against Remark 2.3.15."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/q2-coordinates",
+        "verdict": "verified",
+        "note": "Independently checked all 32 Q2 coordinates, orders, products with c, ideal and corrected annihilator using the imported Hilbert formula and local classification. Confirmed source finding E1."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/integer-witt",
+        "verdict": "corrected",
+        "note": "Added a reproducible E8 half-norm reduction: its quadratic refinement has 136 zeros among 256 vectors, hence Arf 0. The integral Witt/signature calculations import existing GN.6 and lattice results."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/dyadic-integer-witt",
+        "verdict": "verified",
+        "note": "Verified the integral dyadic subgroup and quadratic polar image by second residue and local classification, distinguishing the nonsplit quadratic plane from its symmetric image."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4/integer-table",
+        "verdict": "verified",
+        "note": "Verified the symmetric and quadratic integer tables from the two general tables and the E8 comparison; all integer-degree periodicity conventions agree."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-arithmetic",
+        "verdict": "verified",
+        "note": "Independently checked t²+t+1 is irreducible modulo 2, giving one unramified quadratic dyadic factor with residue F4. Confirmed E2: unramifiedness alone would not prove inertness."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-symmetric",
+        "verdict": "verified",
+        "note": "Verified the Eisenstein symmetric image and cyclic order-four Witt group from Pic=0 and imported local-global classification."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-restriction",
+        "verdict": "corrected",
+        "note": "Explicitly recorded the unregistered quadratic-extension exactness contract as G5/R4. QFI transfer/Frobenius reciprocity does not already export it; conditional on that contract the ideal, kernel and annihilator computations were independently checked."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-arf-change",
+        "verdict": "verified",
+        "note": "Independently confirmed the zero quadratic Arf map, trace-one new local generator and norm 21 determinant obstruction. Its order-two class cannot lie in the global cyclic subgroup; this confirms the map correction in E3."
+      },
+      {
+        "nodeId": "GeometryOfNumbersAndQuadraticArithmeticPartII:DA.5/eisenstein-table",
+        "verdict": "verified",
+        "note": "Independently recomputed the pullback kernel and transferred local polar, obtaining Wq(R)=0 and A(R)=Z/4. Confirmed the corrected quadratic table [0,0,Z/2,Z/4] against preprint v4; the generic transfer exactness remains G5."
+      }
+    ]
   }
 }
