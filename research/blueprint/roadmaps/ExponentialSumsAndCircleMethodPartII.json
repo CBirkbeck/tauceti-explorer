@@ -12,13 +12,13 @@
     "ExponentialSumsAndCircleMethod",
     "LefschetzPencilsAndVanishingCycles",
     "tauceti:TauCetiRoadmap/AlgebraicTopology",
-    "FunctionFieldArithmetic"
+    "AlgebraicTopologyPartII"
   ],
   "stages": [
     {
       "key": "GCM.0",
       "title": "Affine dimension and degree geometry",
-      "description": "Export componentwise codimension bounds, the affine intersection inequality, constructible fibre-dimension strata, and the finite-projection/degree contract needed by polynomial counting. This is an independent geometry prefix. Its only external mathematical input is scheme/commutative-algebra foundations; it has no arithmetic circle-method, configuration or mapping-space input.",
+      "description": "Apply the existing SF.0 dimension and constructibility interfaces to affine intersections and Weyl fibre strata. Prove the finite-grid cumulative-degree bound by coordinate-hyperplane slicing, without a change of coordinates or coefficient-height assumption. This geometry prefix has no parent arithmetic, configuration or mapping-space dependency.",
       "requires": [
         "SchemeAndStackFoundations:SF.0"
       ]
@@ -26,7 +26,7 @@
     {
       "key": "GCM.1",
       "title": "Polynomial boxes over a function field",
-      "description": "For V in affine N-space over F_q(T), bound polynomial points of strict height less than q^h by C(degree V,N) q^(h dim V), uniformly in q and coefficients. Treat empty and zero-dimensional V and nonpositive h explicitly. The BV15 projection and height-uniformity proof audit is a recorded gap. This independent prefix exports polynomialbox to ES.0 and to ES.5 separately.",
+      "description": "Specialize the finite-grid bound to strict-height polynomial boxes over F_q(T), with explicit constant the geometric cumulative degree Δ. Treat empty and zero-dimensional sets and nonpositive height. This independent prefix exports polynomialbox to the parent arithmetic counts; no finite-projection audit remains.",
       "requires": [
         "ExponentialSumsAndCircleMethodPartII:GCM.0"
       ]
@@ -69,7 +69,7 @@
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
         "EtaleDualityAndPerverseSheaves:EDC.4",
         "FiniteFieldsAndCharacterSums:FF.2",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+        "AlgebraicTopologyPartII:AT2.1"
       ]
     },
     {
@@ -121,7 +121,7 @@
     {
       "key": "GCM.10",
       "title": "Comparison, spreading and irreducible mapping schemes",
-      "description": "Compare the normalized major-arc complex with mapping cohomology in the conservative strict range. Spread the entire pair (f,x), choosing a coefficient prime and good closed fibre with a common lisse open. Compute first-page and abutment support, the automatic high-degree degeneration range, and irreducibility when tδ>k−1. Record the sharper printed range and unconditional E1 degeneration as distinct unproved targets.",
+      "description": "Compare the normalized major-arc complex with mapping cohomology in the conservative strict range. Spread the entire pair (f,x), retaining prescribed admissible coefficients and choosing a good closed fibre with a common lisse open. Compute first-page and abutment support, the automatic high-degree degeneration range, and irreducibility when tδ>k−1. Record the sharper printed range and unconditional E1 degeneration as distinct unproved targets.",
       "requires": [
         "ExponentialSumsAndCircleMethodPartII:GCM.2",
         "ExponentialSumsAndCircleMethodPartII:GCM.3",
@@ -130,7 +130,8 @@
         "EtaleDualityAndPerverseSheaves:EDC.0",
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
         "EtaleDualityAndPerverseSheaves:EDC.6",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+        "SchemeAndStackFoundations:SF.0",
+        "AlgebraicTopologyPartII:AT2.2"
       ]
     },
     {
@@ -139,17 +140,17 @@
       "description": "Define the prescribed pointwise infinity germ and its compact-open topology, and prove continuity of polynomial-map inclusion in that topology. Build a shrinking phase, a smooth Fermat reference and an escaping loop. Construct the end-winding homomorphism using uniform projective charts on compact families; prove it is onto Z and obstructs the proposed compact-open double-loop comparison.",
       "requires": [
         "ExponentialSumsAndCircleMethodPartII:GCM.3",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "AlgebraicTopologyPartII:AT2.5"
       ]
     },
     {
       "key": "GCM.12",
       "title": "Controlled collars and the topology gate",
-      "description": "Define a fixed-radius weighted collar with normal coordinate divided by z^d uniformly close to one. Straighten on an inner disc without creating zeros and without claiming a strong deformation retract. Specialize the existing CW restriction-fibration interface to fixed-boundary extension spaces. State the missing global stronger-germ topology, algebraic inclusion continuity and double-loop equivalence as an explicit gate.",
+      "description": "Define a fixed-radius weighted collar with normal coordinate divided by z^d uniformly close to one. Straighten on an inner disc without creating zeros and without claiming a strong deformation retract. Request the parameterized mapping-restriction consequence of the existing CW cofibration HEP and specialize it to fixed-boundary extension spaces. State the missing global stronger-germ topology, algebraic inclusion continuity and double-loop equivalence as an explicit gate.",
       "requires": [
         "ExponentialSumsAndCircleMethodPartII:GCM.11",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
       ]
     },
@@ -161,9 +162,11 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.10",
         "ExponentialSumsAndCircleMethodPartII:GCM.12",
         "EtaleDualityAndPerverseSheaves:EDC.6",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
-        "FunctionFieldArithmetic:FA.5"
+        "AlgebraicTopologyPartII:AT2.3",
+        "AlgebraicTopologyPartII:AT2.4",
+        "AlgebraicTopologyPartII:AT2.5",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
       ]
     }
   ],
@@ -177,7 +180,7 @@
       "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
       "read": "2026-10-19",
       "readSections": [
-        "Entire published article, §§1–7 and references, pp.893–948; formula images checked at pp.903,920,934."
+        "Entire published article, §§1–7 and references, pp.893–948; formula images additionally checked at pp.893–894,898,901,903,915,920–921,934,942–943."
       ],
       "scope": "Primary proof source. Topology counterexamples and corrected conservative bounds are explicitly identified as additions rather than attributed theorems."
     },
@@ -192,7 +195,7 @@
       "readSections": [
         "§2.5, Lemma 2.8 and its proof, arXiv pp.12–13."
       ],
-      "scope": "Statement and projection proof read. Uniform projection/height proof closure is not claimed."
+      "scope": "Inclusive-height statement and its projection proof read. The strict-height target is justified instead by the independent finite-grid slicing argument."
     },
     {
       "id": "STACKS",
@@ -206,6 +209,19 @@
         "§12.24, tag 012K, Lemma 12.24.2; Lemma 12.24.13, tag 0BK5, statement and proof."
       ],
       "scope": "Public replacements for the constructibility input and finite-filtration convergence. Other geometric dependencies are requested explicitly from their owners."
+    },
+    {
+      "id": "LR14v2",
+      "title": "On the number of points of algebraic sets over finite fields",
+      "authors": "Gilles Lachaud and Robert Rolland",
+      "edition": "Public preprint arXiv:1405.3027v2, 25 July 2014; the page locators refer to this version, not the later journal pagination",
+      "url": "https://arxiv.org/pdf/1405.3027v2",
+      "sha256": "48b30c8820389dc4190c29e3cd9eba2121135daa57426308e78b7ece1c23e034",
+      "read": "2026-10-19",
+      "readSections": [
+        "§1, cumulative degree and Theorem 1.1, pp.2–3; §2.1, Theorem 2.1 and affine proof of Proposition 2.3, pp.3–5."
+      ],
+      "scope": "Cumulative-degree hyperplane inequality and coordinate-slicing proof. GCM adapts the latter to arbitrary finite grids in its own words and uses an inequality in place of the affine equality in Lemma 2.6 (E49). The references cited for the general Bezout theorem were not separately read; the required degree inequality is an explicit SF.0 supplier contract."
     }
   ],
   "status": "draft"

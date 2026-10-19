@@ -20,7 +20,7 @@
   ],
   "status": "complete",
   "granularity": "target",
-  "summary": "This continuation constructs the geometric circle method for polynomial maps to smooth affine hypersurfaces, with rank-Hankel arc strata, compact-support Fourier complexes, signed configuration-space first pages and monodromy parity. It separates independent dimension, polynomial-counting and prime-choice prefixes from the parent arithmetic estimates. Conservative comparison and irreducibility ranges are distinguished from unproved sharper targets. Explicit infinity-germ obstructions and controlled collars delimit a conditional, rather than unconditional, mapping-space degeneration argument.",
+  "summary": "This continuation constructs the geometric circle method for polynomial maps to smooth affine hypersurfaces, with rank-Hankel arc strata, compact-support Fourier complexes, signed configuration-space first pages and monodromy parity. It separates independent dimension, polynomial-counting and prime-choice prefixes from the parent arithmetic estimates. Conservative comparison and irreducibility ranges are distinguished from unproved sharper targets. Explicit infinity-germ obstructions and controlled collars delimit a conditional, rather than unconditional, mapping-space degeneration argument. Independent review replaces the projection audit by a cumulative-degree finite-grid proof and the unread Katz input by the exact accepted Fourier supplier. Four named gaps remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -114,7 +114,7 @@
       ],
       "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
       "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-      "existingOwners": "Import the current AlgebraicTopology CW/cofibration, fibration/transfer, relative homotopy and Hurewicz layers. Do not re-plan circle π₁, classical group carriers, completed IntegralLattices, or generic compact-open currying. CohomologicalPointCounting promises in atlas links were not found as current library implementations."
+      "existingOwners": "Import current AlgebraicTopology CW/cofibration, product/transfer, relative homotopy and higher Hurewicz layers. Request the missing parameterized mapping-restriction and degree-one abelianization extensions in AlgebraicTopologyPartII, and use current Stage 6 UCT. Do not re-plan circle π₁, classical group carriers, completed IntegralLattices, or generic compact-open currying. CohomologicalPointCounting promises are not current library implementations."
     }
   },
   "sources": [
@@ -127,7 +127,7 @@
       "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
       "read": "2026-10-19",
       "readSections": [
-        "Entire published article, §§1–7 and references, pp.893–948; formula images checked at pp.903,920,934."
+        "Entire published article, §§1–7 and references, pp.893–948; formula images additionally checked at pp.893–894,898,901,903,915,920–921,934,942–943."
       ],
       "scope": "Primary proof source. Topology counterexamples and corrected conservative bounds are explicitly identified as additions rather than attributed theorems."
     },
@@ -142,7 +142,7 @@
       "readSections": [
         "§2.5, Lemma 2.8 and its proof, arXiv pp.12–13."
       ],
-      "scope": "Statement and projection proof read. Uniform projection/height proof closure is not claimed."
+      "scope": "Inclusive-height statement and its projection proof read. The strict-height target is justified instead by the independent finite-grid slicing argument."
     },
     {
       "id": "STACKS",
@@ -156,6 +156,19 @@
         "§12.24, tag 012K, Lemma 12.24.2; Lemma 12.24.13, tag 0BK5, statement and proof."
       ],
       "scope": "Public replacements for the constructibility input and finite-filtration convergence. Other geometric dependencies are requested explicitly from their owners."
+    },
+    {
+      "id": "LR14v2",
+      "title": "On the number of points of algebraic sets over finite fields",
+      "authors": "Gilles Lachaud and Robert Rolland",
+      "edition": "Public preprint arXiv:1405.3027v2, 25 July 2014; the page locators refer to this version, not the later journal pagination",
+      "url": "https://arxiv.org/pdf/1405.3027v2",
+      "sha256": "48b30c8820389dc4190c29e3cd9eba2121135daa57426308e78b7ece1c23e034",
+      "read": "2026-10-19",
+      "readSections": [
+        "§1, cumulative degree and Theorem 1.1, pp.2–3; §2.1, Theorem 2.1 and affine proof of Proposition 2.3, pp.3–5."
+      ],
+      "scope": "Cumulative-degree hyperplane inequality and coordinate-slicing proof. GCM adapts the latter to arbitrary finite grids in its own words and uses an inequality in place of the affine equality in Lemma 2.6 (E49). The references cited for the general Bezout theorem were not separately read; the required degree inequality is an explicit SF.0 supplier contract."
     }
   ],
   "sourceVersions": [
@@ -164,6 +177,12 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
       "read": "2026-10-19",
       "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53"
+    },
+    {
+      "kind": "public-preprint-v2",
+      "url": "https://arxiv.org/pdf/1405.3027v2",
+      "read": "2026-10-19",
+      "sha256": "48b30c8820389dc4190c29e3cd9eba2121135daa57426308e78b7ece1c23e034"
     }
   ],
   "nodes": [
@@ -179,7 +198,7 @@
       "hypotheses": [],
       "proofSteps": [
         "Use the diagonal in A^M×A^M to express the intersection by M equations in Y×Z.",
-        "Apply the generalized principal ideal theorem componentwise and translate height to dimension for finite-type algebras over a field.",
+        "For each minimal prime P over the ideal of the intersection equations, localize at P. The localized ideal has unique minimal prime P, so Ideal.height_le_spanRank bounds that prime height by the number of equations. Translate back by the catenary dimension formula for finite-type domains; an unlocalized bound on the minimum height of the ideal is insufficient.",
         "For the consequence choose a maximal-dimensional component of V; do not infer nonempty intersection from a dimension inequality."
       ],
       "acceptance": [
@@ -189,7 +208,8 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.0",
-        "mathlib:Ideal.height_le_spanRank"
+        "mathlib:Ideal.height_le_spanRank",
+        "SchemeAndStackFoundations:SF.0/algebraic-scheme-dimension"
       ],
       "sources": [
         {
@@ -211,19 +231,22 @@
       "realises": [
         "ExponentialSumsAndCircleMethodPartII:GCM.0"
       ],
-      "title": "Degree-controlled projection for polynomial grids",
+      "title": "Degree bound for a finite Cartesian grid",
       "kind": "theorem",
-      "statement": "Let V⊂A^N over F_q(T) have dimension e≥0 and geometric total degree Δ, the sum of the projective degrees of its reduced geometric irreducible components. There is C(Δ,N), independent of q and the coefficients of V, such that for every nonempty finite subset S⊂F_q(T), #(V(F_q(T))∩S^N)≤C(Δ,N)|S|^e. Empty V contributes zero. Supply a degree-controlled projection/stratification or a direct finite-grid proof: the pieces and fibre bounds depend only on (Δ,N). A coordinate projection preserves polynomial strict height; any change of coordinates must carry an explicit height estimate. A merely generically finite projection is insufficient at exceptional fibres.",
+      "statement": "Let V⊂A^N_K be a nonempty closed algebraic set over any field K. Write V_i for its reduced geometric irreducible components, e_i=dim V_i, Δ_i=deg V_i, e=max_i e_i and Δ=Σ_i Δ_i. For every nonempty finite S⊂K, #(V(K)∩S^N)≤Σ_i Δ_i|S|^(e_i)≤Δ|S|^e. The empty set contributes zero; nilpotents do not change the count. No change of coordinates, field-size restriction or coefficient-height bound is required.",
       "hypotheses": [],
       "proofSteps": [
-        "Audit the projection step of BV15 Lemma 2.8, separating finite fibres from a finite morphism and from generic finiteness.",
-        "Provide a degree-bounded stratification or a direct finite-grid degree lemma; prove the exceptional-locus estimates and uniform constants.",
-        "Record the unresolved proof audit as G1; no choice of generic linear coordinates with uncontrolled coefficients proves polynomialbox."
+        "Base change to an algebraic closure and bound the union by the sum over its geometric irreducible components; the components need not descend to K.",
+        "Induct on the dimension of one component W. In dimension zero its number of geometric points is at most deg W.",
+        "If dim W=e>0, choose a coordinate x_j nonconstant on W. For a∈S, x_j=a does not contain W. Its nonempty section has pure dimension e−1 by the componentwise principal ideal theorem and finite-type dimension formula. The projective closure meets that hyperplane in a projective degree-deg W section with scheme multiplicities; deleting the part at infinity and passing to reduced components gives cumulative degree at most deg W. This is the degree-one case of LR14v2 Theorem 1.1.",
+        "Apply the induction hypothesis to each section, viewed in the remaining N−1 coordinates. Sum the disjoint slices over a∈S to obtain deg W·|S|^e, then sum the components. This adapts the affine coordinate-slicing proof of LR14v2 Proposition 2.3 from F_q to an arbitrary finite S.",
+        "Only the inequality for affine hyperplane-section degree is used. LR14v2 Lemma 2.6 states an equality that can fail when the projective intersection has points at infinity; E49 records the correction."
       ],
       "acceptance": [
-        "Projection of xy=1 to x has bounded fibres but is not a finite map onto A¹.",
-        "An exceptional positive-dimensional fibre must be counted rather than discarded.",
-        "Constants must not depend on q or on degrees in T of coefficients."
+        "A coordinate e-plane attains |S|^e with degree one.",
+        "A parabola y=x² has degree two but its section x=0 has degree one; an equality for every affine section is unnecessary.",
+        "A line together with arbitrarily many isolated points requires cumulative degree, not just the degree of its top-dimensional component.",
+        "The hyperbola xy=1 causes no exceptional-projection problem: the proof slices in the original coordinates."
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.0",
@@ -231,15 +254,20 @@
       ],
       "sources": [
         {
+          "sourceId": "LR14v2",
+          "locator": "§1, Theorem 1.1, p.3; §2.1, Proposition 2.3 and its affine proof, pp.4–5",
+          "match": "Own extension of the coordinate-hyperplane induction from a finite field grid to any finite subset of any field. The published finite-field point bound is not being quoted as an arbitrary-grid theorem; only the cumulative-degree hyperplane inequality and the slicing argument are imported."
+        },
+        {
           "sourceId": "BV15",
           "locator": "§2.5, Lemma 2.8 and proof, arXiv pp.12–13",
-          "match": "Let V⊂A^N over F_q(T) have dimension e≥0 and geometric total degree Δ, the sum of the projective degrees of its reduced geometric irreducible components. There is C(Δ,N), independent of q and the coefficients of V, such that for every nonempty finite subset S⊂F_q(T), #(V(F_q(T))∩S^N)≤C(Δ,N)|S|^e. Empty V contributes zero. Supply a degree-controlled projection/stratification or a direct finite-grid proof: the pieces and fibre bounds depend only on (Δ,N). A coordinate projection preserves polynomial strict height; any change of coordinates must carry an explicit height estimate. A merely generically finite projection is insufficient at exceptional fibres."
+          "match": "The original polynomial-box application motivates this adapter. The new slicing proof avoids its unrecorded coordinate-height issue."
         }
       ],
       "implementationStatus": "unchecked",
-      "proofStatus": "open-proof-audit",
+      "proofStatus": "proof-plan",
       "planet": {
-        "name": "Polynomial grid projection"
+        "name": "Finite grid degree bound"
       }
     },
     {
@@ -248,26 +276,27 @@
       "realises": [
         "ExponentialSumsAndCircleMethodPartII:GCM.0"
       ],
-      "title": "Fibre-dimension stratification",
+      "title": "Fibre-dimension strata for geometric Weyl differencing",
       "kind": "theorem",
-      "statement": "A finite-type morphism φ:V→Y of finite-type schemes over a field has a finite locally closed irreducible stratification W_j on which fibre dimension is constant e_j∈Z∪{−∞}. If e_j≥0, dim φ⁻¹(W_j)=dim W_j+e_j; empty fibres are recorded separately.",
+      "statement": "For a finite-type morphism φ:V→Y between finite-type schemes over a field, use the SF.0 constructibility and dimension exports to choose a finite partition of Y into irreducible locally closed W_j with constant fibre dimension e_j∈Z∪{−∞}. For e_j≥0, dim φ⁻¹(W_j)=dim W_j+e_j; the pieces with e_j=−∞ have empty inverse image. This is the finite stratification adapter used to maximize base dimension plus fibre cohomological degree in GCM.8.",
       "hypotheses": [],
       "proofSteps": [
-        "Use constructibility of the fibre-dimension level sets and Noetherian induction to refine to irreducible locally closed pieces.",
-        "Apply the dimension formula on the components dominating each piece; constant fibre dimension gives the maximum dimension of its inverse image."
+        "Import the constructibility of fibre-dimension level sets from SF.0/generic-fibre-spreading(c), whose dimension case is Stacks 05F9. Noetherian quasi-compactness makes these loci constructible, and finite refinement gives irreducible locally closed pieces.",
+        "Apply SF.0/fibre-dimension-formula to the finitely many components over each piece. Constant nonempty fibre dimension gives the maximum total dimension dim W_j+e_j; empty fibres are kept separate."
       ],
       "acceptance": [
         "The projection of a union of a horizontal and a vertical line has distinct fibre-dimension strata.",
         "A point outside the image has dimension −∞, not zero."
       ],
       "prerequisites": [
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0/generic-fibre-spreading",
+        "SchemeAndStackFoundations:SF.0/fibre-dimension-formula"
       ],
       "sources": [
         {
           "sourceId": "STACKS",
           "locator": "Lemma 37.30.3, tag 05F9; BS20 Proposition 5.5 proof, p.931",
-          "match": "A finite-type morphism φ:V→Y of finite-type schemes over a field has a finite locally closed irreducible stratification W_j on which fibre dimension is constant e_j∈Z∪{−∞}. If e_j≥0, dim φ⁻¹(W_j)=dim W_j+e_j; empty fibres are recorded separately."
+          "match": "Application adapter for BS20 Proposition 5.5: Stacks supplies local constructibility, not by itself the dimension equality; the latter is imported from the exact SF.0 dimension-formula node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -282,12 +311,12 @@
       ],
       "title": "Degree-uniform polynomial point bound",
       "kind": "theorem",
-      "statement": "Let V⊂A^N over F_q(T) have dimension e≥0 and geometric total degree Δ (summing all reduced geometric components), with polynomial equations over F_q[T]. There is C(Δ,N), independent of q and the coefficients, such that for every integer h≥1 the number of u∈V(F_q[T]) with max_j |u_j|<q^h is at most C(Δ,N)q^(he), where |0|=0 and |a|=q^(deg a) for a≠0. Empty V contributes zero; for e=0 use the degree bound. For h≤0 only the zero vector can occur, and it contributes exactly when it belongs to V.",
+      "statement": "Let V⊂A^N over F_q(T) be nonempty, of dimension e≥0 and geometric cumulative degree Δ. For each integer h≥1, the number of u∈V(F_q[T]) with max_j |u_j|<q^h is at most Δq^(he), where |0|=0 and |a|=q^(deg a) for a≠0. Empty V contributes zero. For h≤0 only the zero vector can occur, and it contributes exactly when it belongs to V. All constants are independent of q and of coefficient heights.",
       "hypotheses": [],
       "proofSteps": [
-        "Identify the strict ball with polynomials of degree <h; each coordinate has q^h choices for positive integral h.",
-        "Apply the degree-controlled finite-grid/projection contract and sum its degree-bounded pieces.",
-        "Keep the BV15 finite-projection and height-uniformity audit open (G1); the inclusive radius q^N in that lemma corresponds to h=N+1."
+        "For h≥1 take S={a∈F_q[T]:deg a<h}, including zero, so |S|=q^h.",
+        "Apply finite-projection-degree in the original coordinates with the explicit constant Δ; its proof uses no projection or coordinate change.",
+        "For h≤0 the strict ball contains only zero. In BV15 the inclusive height bound q^N corresponds to the present h=N+1; the boundary conventions therefore agree."
       ],
       "acceptance": [
         "A coordinate affine e-plane has exactly q^(he) points in the strict positive-height box.",
@@ -302,11 +331,16 @@
         {
           "sourceId": "BV15",
           "locator": "§2.5, Lemma 2.8, arXiv pp.12–13; BS20 Proposition 6.2 proof, p.939",
-          "match": "Let V⊂A^N over F_q(T) have dimension e≥0 and geometric total degree Δ (summing all reduced geometric components), with polynomial equations over F_q[T]. There is C(Δ,N), independent of q and the coefficients, such that for every integer h≥1 the number of u∈V(F_q[T]) with max_j |u_j|<q^h is at most C(Δ,N)q^(he), where |0|=0 and |a|=q^(deg a) for a≠0. Empty V contributes zero; for e=0 use the degree bound. For h≤0 only the zero vector can occur, and it contributes exactly when it belongs to V."
+          "match": "BV15 states the inclusive-height polynomial bound. This target uses the strict-height convention and an independent finite-grid proof, rather than treating BV15’s projection paragraph as the proof of height uniformity."
+        },
+        {
+          "sourceId": "LR14v2",
+          "locator": "§1, Theorem 1.1, p.3; §2.1, affine proof of Proposition 2.3, pp.4–5",
+          "match": "Own arbitrary-finite-grid adaptation, established in the prerequisite, yields the strict-height statement and the explicit cumulative-degree constant."
         }
       ],
       "implementationStatus": "unchecked",
-      "proofStatus": "open-proof-audit",
+      "proofStatus": "proof-plan",
       "planet": {
         "name": "Polynomial box bound"
       },
@@ -536,7 +570,7 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.0",
-        "EtaleDualityAndPerverseSheaves:EDC.4"
+        "EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology"
       ],
       "sources": [
         {
@@ -657,7 +691,10 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.3/phase",
         "SchemeAndStackFoundations:SF.2",
         "EtaleDualityAndPerverseSheaves:EDC.0",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -713,7 +750,7 @@
         {
           "name": "nontrivial-extension",
           "kind": "compatibility",
-          "statement": "For p=3 and ℓ=2, use E=Q₂(μ₃); no Q₂-valued nontrivial p-character is silently assumed."
+          "statement": "For k=3, p=5 and ℓ=2 use E=Q₂(μ₅). The order of 2 modulo 5 is four, and Q₂ itself has no nontrivial fifth-root-valued additive character."
         },
         {
           "name": "linear-cancellation",
@@ -744,7 +781,13 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.3/fouriercomplex",
         "EtaleDualityAndPerverseSheaves:EDC.0",
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
+        "FiniteFieldsAndCharacterSums:FF.2/character-sheaf-cohomology-vanishes",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -1125,7 +1168,8 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.3/fouriercomplex",
         "ExponentialSumsAndCircleMethodPartII:GCM.4/padeunique",
         "ExponentialSumsAndCircleMethodPartII:GCM.4/goodarc",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
+        "FiniteFieldsAndCharacterSums:FF.2/translation-cancellation"
       ],
       "sources": [
         {
@@ -1243,7 +1287,10 @@
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.5/remainder",
         "EtaleDualityAndPerverseSheaves:EDC.0",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -1330,7 +1377,12 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.5/remainder",
         "ExponentialSumsAndCircleMethodPartII:GCM.5/smallcomplex",
         "EtaleDualityAndPerverseSheaves:EDC.0",
-        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity"
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -1364,7 +1416,10 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.5/smallcomplex",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -1398,7 +1453,8 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.5/crtproduct",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
+        "FiniteFieldsAndCharacterSums:FF.2/translation-cancellation"
       ],
       "sources": [
         {
@@ -1431,7 +1487,12 @@
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.3/rev-smooth-projective-closure-of-x",
         "EtaleDualityAndPerverseSheaves:EDC.0",
-        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity"
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -1507,9 +1568,10 @@
       "statement": "For the standing smooth affine hypersurface and smooth leading boundary, RΓ_c(G_m×A^n,L_ψ(hf(a)))≅RΓ_(c,red)(X,E)[−2](−1). This is a complex isomorphism compatible with trace, not just an equality of exponential sums.",
       "hypotheses": [],
       "proofSteps": [
-        "Integrate first with the parameter h in A¹ and apply Fourier orthogonality to f.",
-        "Excise h=0 and identify the connecting map with the hypersurface trace.",
-        "The middle-extension identification cited as Katz §8.2.5(2) still needs its original-source proof audit; record G2 and the FF.2 request."
+        "Integrate over h∈A¹ first and use Artin–Schreier orthogonality. Excision of h=0 gives a triangle whose second and third terms are RΓ_c(X,E)[−2](−1) and E[−2n](−n). The third term is concentrated in degree 2n.",
+        "To prove that its top connecting map is nonzero, choose a coordinate in which f is nonconstant on the generic line. Over the open set of the other n−1 coordinates where its degree is between 1 and k<p, import FF.2/fourier-input-for-one-modulus: the G_m×A¹ fibre has cohomological degree at most two. On the exceptional locus, of dimension at most n−2, the elementary dimension bound is at most four. The total cohomological degree is therefore at most 2n in both pieces.",
+        "The long exact sequence now makes H_c^(2n−2)(X,E)(−1)→E(−n) surjective. Smooth geometric irreducibility makes its source rank one. Identify this nonzero scalar multiple of the trace and normalize it; taking its fibre gives the trace-reduced complex with shift −2 and twist −1. No equality of numerical trace functions substitutes for this argument.",
+        "The accepted FF.2 supplier proves its one-modulus input by Fourier–Deligne inversion and the absence of constant summands in a connected polynomial cover. This is a public-source replacement of the unavailable Katz citation, not a claim to have read that book."
       ],
       "acceptance": [
         "The h-parameter is nonzero.",
@@ -1519,17 +1581,24 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.5/reduced",
         "EtaleDualityAndPerverseSheaves:EDC.0",
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
+        "FiniteFieldsAndCharacterSums:FF.2/fourier-input-for-one-modulus",
+        "FiniteFieldsAndCharacterSums:FF.2/fourier-deligne-inversion",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
           "sourceId": "BS20",
           "locator": "§3, Lemma 3.7, p.917; proof pp.917–918, citing [15, 8.2.5(2)] = Katz, GKSM",
-          "match": "For the standing smooth affine hypersurface and smooth leading boundary, RΓ_c(G_m×A^n,L_ψ(hf(a)))≅RΓ_(c,red)(X,E)[−2](−1). This is a complex isomorphism compatible with trace, not just an equality of exponential sums."
+          "match": "Lemma 3.7 and the generic-line proof give the target and the top-map reduction. The unread Katz step is replaced by the exact accepted FF.2 one-modulus input; the open/exceptional-locus cohomological bound is spelled out here."
         }
       ],
       "implementationStatus": "unchecked",
-      "proofStatus": "supplier-source-gap",
+      "proofStatus": "proof-plan-with-reviewed-supplier",
       "routedItem": "PAPER-BROWNING-SAWIN-20/singleexponential"
     },
     {
@@ -1588,8 +1657,12 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.5/repeatedcancel",
         "ExponentialSumsAndCircleMethodPartII:GCM.5/singlecomplex",
         "ExponentialSumsAndCircleMethodPartII:GCM.5/crtproduct",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "AlgebraicTopologyPartII:AT2.1/configurations",
+        "AlgebraicTopologyPartII:AT2.1/configuration-torsor",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -1659,7 +1732,11 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.5/reduced",
         "ExponentialSumsAndCircleMethodPartII:GCM.3/rev-smooth-projective-closure-of-x",
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
-        "EtaleDualityAndPerverseSheaves:EDC.4"
+        "EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology",
+        "EtaleDualityAndPerverseSheaves:EDC.4/compact-support-vanishing-smooth-affine",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -1694,7 +1771,10 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.5/middleconcentrated",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -1905,7 +1985,12 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.5/middleconcentrated",
         "EtaleDualityAndPerverseSheaves:EDC.0",
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
-        "EtaleDualityAndPerverseSheaves:EDC.4"
+        "EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -1926,12 +2011,12 @@
       ],
       "title": "Extension by boundary and projective primitives",
       "kind": "theorem",
-      "statement": "Let 𝒱=R^(n−1)π!E for the universal affine family. There is a short exact sequence 0→h_(n−1)*Prim(Z)→𝒱→h_n*Prim(X̄)→0 with the primitive groups and parity-dependent hyperplane classes specified by the closure/boundary localization sequence. No canonical splitting of this extension is asserted.",
+      "statement": "Let 𝒱=R^(n−1)π!E for the universal affine family. Put Prim(Z)=H^(n−2)(Z,E) modulo the middle hyperplane class when n−2 is even, and Prim(X̄)=H^(n−1)(X̄,E) modulo that class when n−1 is even; in odd middle degree use the whole middle group. Over E these quotients identify with the corresponding primitive kernels using the nonzero hypersurface degree. There is a short exact sequence 0→h_(n−1)*Prim(Z)→𝒱→h_n*Prim(X̄)→0. The boundary term has no extra Tate twist. No canonical splitting of this extension is asserted.",
       "hypotheses": [],
       "proofSteps": [
-        "Use weak Lefschetz to identify the non-middle terms and isolate the primitive kernels.",
-        "Track the Gysin map and Tate convention when passing to the boundary term.",
-        "Export the sequence as a sequence of monodromy representations."
+        "Apply the localization sequence RΓ_c(X)→RΓ(X̄)→RΓ(Z) for the universal smooth pair.",
+        "Import the exact complete-intersection cohomology calculation: the cokernel in degree n−2 is the boundary primitive quotient and the kernel in degree n−1 is the projective primitive part. Identify the kernel with its primitive quotient over E by the nonzero hyperplane self-intersection; do not introduce a Gysin Tate twist into this restriction sequence.",
+        "Use proper smooth base change to make both primitive terms lisse and export the exact sequence of monodromy representations. The sequence itself need not split canonically."
       ],
       "acceptance": [
         "An eigenvalue statement for an extension does not make its action scalar.",
@@ -1939,13 +2024,13 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.6/universalcohom",
-        "EtaleDualityAndPerverseSheaves:EDC.4"
+        "EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology"
       ],
       "sources": [
         {
           "sourceId": "BS20",
           "locator": "§4, Lemma 4.2(2), p.923; proof p.923",
-          "match": "Let 𝒱=R^(n−1)π!E for the universal affine family. There is a short exact sequence 0→h_(n−1)*Prim(Z)→𝒱→h_n*Prim(X̄)→0 with the primitive groups and parity-dependent hyperplane classes specified by the closure/boundary localization sequence. No canonical splitting of this extension is asserted."
+          "match": "Lemma 4.2(2) uses the boundary primitive in degree n−2 and the homogenized primitive in degree n−1. The localization sequence fixes the absence of an extra twist; the parity-dependent quotient is now explicit."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2045,7 +2130,10 @@
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.6/universalcohom",
         "ExponentialSumsAndCircleMethodPartII:GCM.5/stratumformula",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -2078,7 +2166,10 @@
       ],
       "prerequisites": [
         "EtaleDualityAndPerverseSheaves:EDC.0",
-        "mathlib:CategoryTheory.Abelian.SpectralObject"
+        "mathlib:CategoryTheory.Abelian.SpectralObject",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -2200,7 +2291,10 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.6/universalpair",
         "ExponentialSumsAndCircleMethodPartII:GCM.6/relativestratum",
         "ExponentialSumsAndCircleMethodPartII:GCM.7/finite-localization-filtration",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -2438,7 +2532,13 @@
       "prerequisites": [
         "EtaleDualityAndPerverseSheaves:EDC.0",
         "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
+        "FiniteFieldsAndCharacterSums:FF.2/character-sheaf-cohomology-vanishes",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -2523,7 +2623,10 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.8/cohdegree",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -2557,7 +2660,10 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.8/cohdegree",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -2593,7 +2699,10 @@
       "prerequisites": [
         "EtaleDualityAndPerverseSheaves:EDC.0",
         "mathlib:nonempty_inter_closedPoints",
-        "mathlib:AlgebraicGeometry.LocallyOfFiniteType.jacobsonSpace"
+        "mathlib:AlgebraicGeometry.LocallyOfFiniteType.jacobsonSpace",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -2634,7 +2743,12 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.0/rev-fibre-dimension-stratification",
         "ExponentialSumsAndCircleMethodPartII:GCM.8/rev-closed-points-detect-constructible-supports",
         "EtaleDualityAndPerverseSheaves:EDC.0",
-        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity"
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -2682,7 +2796,7 @@
         "ExponentialSumsAndCircleMethod:ES.1/function-field-polar-count",
         "ExponentialSumsAndCircleMethod:ES.1/function-field-count-identity",
         "ExponentialSumsAndCircleMethod:ES.1/uniform-function-field-minor-count",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "FiniteFieldsAndCharacterSums:FF.2/dimension-from-point-counts"
       ],
       "sources": [
         {
@@ -2796,7 +2910,12 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.4/goodarciso",
         "ExponentialSumsAndCircleMethodPartII:GCM.9/minorcover",
         "EtaleDualityAndPerverseSheaves:EDC.0",
-        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity"
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes"
       ],
       "sources": [
         {
@@ -2855,29 +2974,36 @@
       ],
       "title": "Spreading out the pair and cohomology",
       "kind": "construction",
-      "statement": "For a general field K of characteristic zero or >k, spread both f and its fixed nonzero vector x to a finitely generated integral subring R⊂K. After localization preserve the degree, x≠0 and both smoothness conditions, and choose a common lisse open for the finitely many relevant compact-cohomology sheaves and maps. In characteristic zero choose a good closed finite-field fibre with p>k and even order of ℓ mod p; in positive characteristic choose ℓ by GCM.2. Transport ranks, signs and spectral-sequence maps by specialization. Spec K maps over the generic point of Spec R; it need not equal that generic point.",
+      "statement": "For a general field K of characteristic zero or >k, spread f and its fixed nonzero vector x to an integral finitely generated subring R⊂K. After localization preserve degree, x≠0 and both smoothness conditions; choose a common lisse open for the finitely many compact-cohomology sheaves and maps in the finite filtration. In characteristic zero, for a prescribed ℓ choose a good closed finite-field fibre with p>k and even order of ℓ modulo p. In characteristic p>k retain any prescribed admissible ℓ; choosing a new ℓ is allowed only for a coefficient-independent geometric conclusion. Transport ranks, signs and spectral-sequence maps by specialization. Spec K lies over the generic point of Spec R and need not be that point.",
       "hypotheses": [],
       "proofSteps": [
         "Include every coordinate of x in R and invert a chosen nonzero coordinate.",
         "Use constructibility and generic lissity for all complexes and maps in the finite filtration, not just a single cohomology group.",
-        "Use the two prime-choice adapters and existence of closed fibres over a cofinite set of rational characteristics.",
+        "In characteristic zero use the fixed-ℓ good-characteristic adapter, together with constructibility of the nonempty generic image over Spec Z, to obtain closed points over all sufficiently large primes. In positive characteristic retain admissible ℓ; use the fixed-p coefficient-prime adapter only if the conclusion permits choosing ℓ.",
         "Only noncanonical vector-space comparisons are asserted over general K. Frobenius equivariance belongs to the finite-field version."
       ],
       "acceptance": [
-        "For a general field K of characteristic zero or >k, spread both f and its fixed nonzero vector x to a finitely generated integral subring R⊂K. After localization preserve the degree, x≠0 and both smoothness conditions, and choose a common lisse open for the finitely many relevant compact-cohomology sheaves and maps. In characteristic zero choose a good closed finite-field fibre with p>k and even order of ℓ mod p; in positive characteristic choose ℓ by GCM.2. Transport ranks, signs and spectral-sequence maps by specialization. Spec K maps over the generic point of Spec R; it need not equal that generic point."
+        "The model includes the actual vector, not just its projective line or the coefficients of f.",
+        "For a statement with prescribed coefficients in positive characteristic, the coefficient prime is retained.",
+        "Comparisons over general K are noncanonical vector-space comparisons; finite-field Frobenius equivariance is asserted only where constructed."
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.2/fix-coefficient-prime-for-fixed-characteristic",
         "ExponentialSumsAndCircleMethodPartII:GCM.2/fix-good-characteristic-for-fixed-coefficient-prime",
         "ExponentialSumsAndCircleMethodPartII:GCM.3/mapping",
         "SchemeAndStackFoundations:SF.2",
-        "EtaleDualityAndPerverseSheaves:EDC.0"
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.0/enhanced-compact-pushforward",
+        "EtaleDualityAndPerverseSheaves:EDC.6/operation-reduction-comparisons",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "SchemeAndStackFoundations:SF.0/spreading-out-models",
+        "SchemeAndStackFoundations:SF.0/generic-fibre-spreading"
       ],
       "sources": [
         {
           "sourceId": "BS20",
           "locator": "§2, spreading-out paragraph after the proof of Theorem 2.7 (the proof of Theorem 1.1), pp. 906–907",
-          "match": "For a general field K of characteristic zero or >k, spread both f and its fixed nonzero vector x to a finitely generated integral subring R⊂K. After localization preserve the degree, x≠0 and both smoothness conditions, and choose a common lisse open for the finitely many relevant compact-cohomology sheaves and maps. In characteristic zero choose a good closed finite-field fibre with p>k and even order of ℓ mod p; in positive characteristic choose ℓ by GCM.2. Transport ranks, signs and spectral-sequence maps by specialization. Spec K maps over the generic point of Spec R; it need not equal that generic point."
+          "match": "The source spreads the finite-field construction. The local adapter explicitly spreads the full pair and keeps a prescribed admissible coefficient prime, separating that issue from coefficient-independent irreducibility."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3027,7 +3153,7 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.7/shiftE1",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+        "AlgebraicTopologyPartII:AT2.2/arrangement-cohomology"
       ],
       "sources": [
         {
@@ -3116,28 +3242,29 @@
       "realises": [
         "ExponentialSumsAndCircleMethodPartII:GCM.10"
       ],
-      "title": "Top compact cohomology and top-dimensional components",
+      "title": "Componentwise criterion for irreducible mapping schemes",
       "kind": "theorem",
-      "statement": "If M is a separated finite-type scheme of dimension a over an algebraically closed field, H_c^j(M,E)=0 for j>2a and H_c^(2a)(M,E)≅E(−a)^c, where c counts its a-dimensional irreducible components. If every component has dimension at least D, cohomology vanishes above 2D, and H_c^(2D) has rank one, then M is irreducible of dimension D.",
+      "statement": "Let M be a separated finite-type scheme over an algebraically closed field and D≥0. Assume every irreducible component of M has dimension at least D, H_c^j(M,E)=0 for j>2D, and dim_E H_c^(2D)(M,E)=1. Then M is irreducible of dimension D. The general top-cohomology formula is imported from EDC, not planned again here.",
       "hypotheses": [],
       "proofSteps": [
-        "Remove nilpotents and excise a closed subset of smaller dimension so the remaining top-dimensional locus is smooth.",
-        "Apply the smooth trace componentwise and the dimension bound to the excised part.",
-        "First exclude dimension greater than D, then use the componentwise lower bound to exclude smaller components."
+        "Import EDC.2:trace-purity/top-degree-compact-cohomology at finite levels and EDC.6 adic/rational transport: for a=dim M the top group is one E(−a) per a-dimensional component, and groups above 2a vanish. No trace isomorphism on a singular or nonreduced scheme is assumed.",
+        "If a>D, that nonzero top group contradicts vanishing above 2D. The componentwise lower bound and rank-one group imply nonemptiness and a=D.",
+        "All components now have dimension D, and the rank-one top group counts them, giving one component."
       ],
       "acceptance": [
         "A disjoint line and point has top cohomology rank one but is reducible.",
         "The lower bound on every component is necessary."
       ],
       "prerequisites": [
-        "EtaleDualityAndPerverseSheaves:EDC.0",
-        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity"
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/top-degree-compact-cohomology",
+        "EtaleDualityAndPerverseSheaves:EDC.6/adic-transport-of-duality-and-classes",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
           "sourceId": "BS20",
           "locator": "§2, proof of Corollary 2.9, pp.907–908",
-          "match": "If M is a separated finite-type scheme of dimension a over an algebraically closed field, H_c^j(M,E)=0 for j>2a and H_c^(2a)(M,E)≅E(−a)^c, where c counts its a-dimensional irreducible components. If every component has dimension at least D, cohomology vanishes above 2D, and H_c^(2D) has rank one, then M is irreducible of dimension D."
+          "match": "The source applies top cohomology to irreducibility. The reusable top-component theorem already belongs to EDC; this node retains only the componentwise criterion needed by the mapping-scheme application."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3367,7 +3494,7 @@
         {
           "name": "polynomial-germ",
           "kind": "computation",
-          "statement": "The Fermat tuple gives homogeneous lift [1:ζ:z^d:…:z^d] near infinity."
+          "statement": "For g=(T^d,ζT^d,1,0,…,0), the local homogeneous lift is [1:ζ:z^d:0:…:0:z^d], with the last coordinate the homogenizing coordinate."
         },
         {
           "name": "wrong-normal-order",
@@ -4041,7 +4168,8 @@
       ],
       "prerequisites": [
         "ExponentialSumsAndCircleMethodPartII:GCM.11/windingnonzero",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "AlgebraicTopologyPartII:AT2.5/fermat-loop-connectivity"
       ],
       "sources": [
         {
@@ -4230,10 +4358,10 @@
       ],
       "title": "Fixed-collar extension-space comparison contract",
       "kind": "theorem",
-      "statement": "Let β:S¹→X be a based loop and choose an extension β̃:D²→X. Its compact-open extension space Ext(β) is homotopy equivalent to Ω²X after choosing that reference extension. The based restriction Map_*(D²,X)→Map_*(S¹,X) is a Hurewicz fibration by the CW boundary cofibration; its total space contracts by a disc contraction fixing the boundary basepoint. This specializes the existing algebraic-topology interfaces and asserts no equivalence for Hco.",
+      "statement": "Let β:S¹→X be a based loop and choose an extension β̃:D²→X. Its compact-open extension space Ext(β) is homotopy equivalent to Ω²X after choosing that reference extension. The based restriction Map_*(D²,X)→Map_*(S¹,X) is a Hurewicz fibration by the CW boundary cofibration; its total space contracts by a disc contraction fixing the boundary basepoint. This uses the requested mapping-restriction extension of current CW homotopy-extension theory and asserts no equivalence for Hco.",
       "hypotheses": [],
       "proofSteps": [
-        "Import the boundary cofibration, compact-open restriction lifting and homotopy-fibre comparison from the existing AlgebraicTopology roadmap.",
+        "Import the existing Stage 4 boundary cofibration and homotopy-extension property. Request its parameterized compact-open mapping-restriction consequence explicitly: for a compact CW pair (A,B), based restriction Map_*(A,X)→Map_*(B,X) is a Hurewicz fibration. Current Stage 5 does not already state this export.",
         "Contract the disc to its chosen boundary basepoint, so the total based mapping space is contractible.",
         "Use the reference nullhomotopy to compare the fibre over β with the fibre over the constant boundary."
       ],
@@ -4244,7 +4372,6 @@
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
         "mathlib:ContinuousMap.curry"
       ],
@@ -4252,7 +4379,7 @@
         {
           "sourceId": "BS20",
           "locator": "Own specialization of the CW mapping-space argument for §7, Lemma 7.2, pp.940–941",
-          "match": "Let β:S¹→X be a based loop and choose an extension β̃:D²→X. Its compact-open extension space Ext(β) is homotopy equivalent to Ω²X after choosing that reference extension. The based restriction Map_*(D²,X)→Map_*(S¹,X) is a Hurewicz fibration by the CW boundary cofibration; its total space contracts by a disc contraction fixing the boundary basepoint. This specializes the existing algebraic-topology interfaces and asserts no equivalence for Hco."
+          "match": "Own specialization of the CW homotopy-extension argument to a compact disc pair. The needed mapping-restriction fibration is an explicit extension request, rather than an existing Stage 5 declaration or the invalid compact-open infinity-germ comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4359,7 +4486,9 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.11/localgerm",
         "ExponentialSumsAndCircleMethodPartII:GCM.11/rev-analytic-polynomial-map-inclusion-into",
         "ExponentialSumsAndCircleMethodPartII:GCM.10/irreduciblesafe",
-        "EtaleDualityAndPerverseSheaves:EDC.6"
+        "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
+        "EtaleDualityAndPerverseSheaves:EDC.6/trace-orientation-comparison",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes"
       ],
       "sources": [
         {
@@ -4447,7 +4576,10 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.11/windingnonzero",
         "ExponentialSumsAndCircleMethodPartII:GCM.10/cohsupport",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
-        "EtaleDualityAndPerverseSheaves:EDC.6"
+        "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
+        "EtaleDualityAndPerverseSheaves:EDC.6/trace-orientation-comparison",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
       ],
       "sources": [
         {
@@ -4491,10 +4623,13 @@
         "ExponentialSumsAndCircleMethodPartII:GCM.10/comparisonsafe",
         "ExponentialSumsAndCircleMethodPartII:GCM.10/comparisonsharpgate",
         "ExponentialSumsAndCircleMethodPartII:GCM.10/degenerationconjecture",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
-        "FunctionFieldArithmetic:FA.5",
-        "EtaleDualityAndPerverseSheaves:EDC.6"
+        "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
+        "EtaleDualityAndPerverseSheaves:EDC.6/trace-orientation-comparison",
+        "EtaleDualityAndPerverseSheaves:EDC.6/coefficient-extension-duality-and-classes",
+        "AlgebraicTopologyPartII:AT2.3/stable-diagonal",
+        "AlgebraicTopologyPartII:AT2.4/tame-polynomial",
+        "AlgebraicTopologyPartII:AT2.4/tame-bouquet",
+        "AlgebraicTopologyPartII:AT2.5/double-loop-betti"
       ],
       "sources": [
         {
@@ -4514,7 +4649,7 @@
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Existing schemes/morphisms, affine coefficient zero schemes, monic division as a regular map, smoothness and projective hypersurface connectedness, dimension/height translation and geometric base change. GCM.0 owns only the missing target-level intersection/projection/fibre-dimension adapters; do not introduce another scheme carrier.",
+      "need": "Import SF.0/algebraic-scheme-dimension, fibre-dimension-formula, generic-fibre-spreading and spreading-out-models at the exact node contracts cited below. Use existing scheme/morphism carriers, affine zero schemes, regular monic division and smooth projective hypersurface geometry. The only additional degree interface required is cumulative degree under a proper coordinate-hyperplane section: pure dimension drops by one and cumulative degree does not increase. LR14v2 Theorem 1.1, p.3 supplies the degree inequality; GCM proves the finite-grid application. SF.0 is itself under review; this request does not promote it to an accepted or implemented supplier.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.0/rev-affine-dimension-theorem-for-intersections",
         "ExponentialSumsAndCircleMethodPartII:GCM.0/finite-projection-degree",
@@ -4526,7 +4661,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Supply the established étale-site/compact-support interface, exceptional base change, connected-generic-fibre criterion for étale π₁, constructibility/generic lissity, and spreading over an integral finite-type arithmetic base with good closed fibres. The upstream CohomologicalPointCounting references are promises, not current-library declarations found in the audit.",
+      "need": "Requested étale extension: connected-geometric-generic-fibre surjectivity for étale π₁, constructibility and generic lissity for the finitely many compact-support E-complexes and maps used here, and smooth/proper base change. Current SF.2 coherent duality is not an ℓ-adic six-operation implementation. Spreading of the polynomial pair instead imports SF.0/spreading-out-models. The CohomologicalPointCounting/EtaleFoundations routes are future supplier contracts.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.3/fouriercomplex",
         "ExponentialSumsAndCircleMethodPartII:GCM.6/fundamentalsurject",
@@ -4535,7 +4670,7 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.0",
-      "need": "Bounded constructible E-complexes for E a finite extension of Q_ℓ, Rf!, localization triangles, projection formula, Künneth with Koszul symmetry, finite coefficient extension, constructible cohomology supports and support-dimension bounds. Give enhancement/filtered models so GCM.7 can build its finite localization spectral object; do not treat these as arbitrary Prop fields.",
+      "need": "Use the exact EDC.0/enhanced-compact-pushforward finite-torsion export, EDC.6/operation-reduction-comparisons and EDC.6/coefficient-extension-duality-and-classes. Required finite-E extension contract: bounded constructible compact direct image with exceptional base change, localization, projection formula, Künneth with Koszul symmetry, constructible supports and their cohomological dimension bounds, together with coherent filtered/enhanced models. The torsion export alone does not provide this finite-E package. GCM.7 constructs only its finite localization-filtration application, over the Mathlib spectral-object carrier.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.3/fouriercomplex",
         "ExponentialSumsAndCircleMethodPartII:GCM.3/orthogonality",
@@ -4549,7 +4684,7 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
-      "need": "Trace normalization RΓ_c(A^a,E)=E[−2a](−a), smooth relative top trace, compatibility with base change and products, and smooth Poincaré duality. GCM.10 derives the nonsmooth top-component statement by excision rather than assuming a trace isomorphism on a singular mapping scheme.",
+      "need": "Import EDC.2:trace-purity/affine-space-trace, top-degree-compact-cohomology and EDC.2:pairings/adic-and-rational-poincare-duality, with EDC.6/adic-transport-of-duality-and-classes and coefficient-extension-duality-and-classes for finite E. Preserve products/base change and the geometric-Frobenius convention. GCM.10 uses the existing nonsmooth top-component formula only to prove its componentwise irreducibility criterion; it does not duplicate that formula or assume a trace isomorphism for an arbitrary singular scheme.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.3/orthogonality",
         "ExponentialSumsAndCircleMethodPartII:GCM.5/remaindershift",
@@ -4561,7 +4696,7 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.4",
-      "need": "Affine Artin vanishing, ample weak Lefschetz, cohomology of smooth projective hypersurfaces and hyperplane-class restriction, including primitive kernels/quotients and parity. This supplies the general input to concentration and the two primitive universal local systems; hard Lefschetz is not a hidden assumption.",
+      "need": "Import EDC.4/compact-support-vanishing-smooth-affine and EDC.4/complete-intersection-cohomology with finite-E coefficient extension. The needed outputs are compact Artin vanishing, the non-middle hyperplane-class calculation, the middle primitive kernel/quotient and its lissity in smooth proper families. These exact exports replace a generic weak-Lefschetz stage promise.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.3/rev-smooth-projective-closure-of-x",
         "ExponentialSumsAndCircleMethodPartII:GCM.5/middleconcentrated",
@@ -4570,7 +4705,7 @@
     },
     {
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.6",
-      "need": "Étale–singular comparison with compact supports for the possibly singular coefficient mapping scheme, coefficient extension, cup products and the top trace; preserve these operations, not just Betti numbers.",
+      "need": "Import EDC.6/complex-analytic-comparison, trace-orientation-comparison and coefficient-extension-duality-and-classes. Apply compact-support comparison to the possibly singular mapping scheme; obtain the top trace through the component/dense-smooth-open identification and the complex orientation on that open, rather than by applying smooth purity to the whole scheme. Preserve cup products and the specified finite coefficient extension.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.13/tracepairingconjecture",
         "ExponentialSumsAndCircleMethodPartII:GCM.13/rev-conjecture-7-1-fails-for",
@@ -4579,7 +4714,7 @@
     },
     {
       "supplier": "FiniteFieldsAndCharacterSums:FF.2",
-      "need": "Artin–Schreier sheaf with nontrivial additive character over E=Q_ℓ(μ_p), additive translation cancellation and Fourier orthogonality, all-extension Lang–Weil point-count/dimension criterion, and the exact Fourier/middle-extension input cited by BS20 Lemma 3.7 as Katz, Gauss sums, Kloosterman sums, and monodromy groups §8.2.5(2). The Katz original is not read/cleared here: G2 requires source verification of its hypotheses and shifts.",
+      "need": "Import the accepted FF.2/artin-schreier-sheaf, character-sheaf-cohomology-vanishes, translation-cancellation and dimension-from-point-counts contracts. The exact FF.2/fourier-input-for-one-modulus, proved via fourier-deligne-inversion, replaces the unavailable Katz step in BS20 Lemma 3.7. Its hypothesis is nonconstant one-variable degree D with 1≤D<p and nontrivial ψ; the conclusion is vanishing above degree two on G_m×A¹. This removes G2 without claiming the Katz book was read.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.3/fouriercomplex",
         "ExponentialSumsAndCircleMethodPartII:GCM.3/orthogonality",
@@ -4599,36 +4734,19 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
-      "need": "Import current AlgebraicTopology Stage 4 CW boundary cofibration S¹↪D² and its based homotopy-extension property; this roadmap specializes it and does not re-plan the generic CW theory.",
+      "need": "Import current AlgebraicTopology Stage 4 CW boundary cofibration S¹↪D² and its based homotopy-extension property. Requested extension: parameterized compact-open restriction Map_*(A,X)→Map_*(B,X) is a Hurewicz fibration for a compact CW pair (A,B), with lifting natural in compact parameter spaces. This follows from the cofibration HEP and the compact-open exponential law but is not currently an explicit upstream target; GCM.12 only specializes it to the disc pair. This additional generic mapping-space export belongs to AlgebraicTopologyPartII; the current-stage reference routes the request until that companion has an exact target.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.12/fixedcollarloops"
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
-      "need": "Import current AlgebraicTopology Stage 5 finite-cover descent, product/Künneth and mapping-fibration interfaces. Requested extension in pending AlgebraicTopologyPartII, route ConfigurationSpacesAndRationalLoops: PConf_m and its ordered-root S_m-torsor over squarefree monic polynomials, exact rational/ℓ-adic equivariant configuration cohomology, range m+1…2m, the corrected configuration diagonal identity and source-qualified arrangement purity. Keep its character/trace/Euler-product proofs in that companion; G5 requires exact node ids and original-source closure.",
-      "neededBy": [
-        "ExponentialSumsAndCircleMethodPartII:GCM.5/configdescent",
-        "ExponentialSumsAndCircleMethodPartII:GCM.10/E1support",
-        "ExponentialSumsAndCircleMethodPartII:GCM.12/fixedcollarloops",
-        "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
-      "need": "Import current AlgebraicTopology Stage 8 homotopy/fibre comparison and degree-one Hurewicz plus rational universal coefficients. Requested companion AlgebraicTopologyPartII extension: Fermat/Milnor bouquet connectivity, the general smooth-affine-hypersurface bouquet theorem, Hilton/Witt and rational H-space double-loop cohomology with finite-type hypotheses and n≥4 for the full connected loop space. The original Broughton/Hilton/Sullivan source proofs have not been independently read here (G5). No new π₁ or loop-space carrier is planned in GCM.",
+      "need": "Import current AlgebraicTopology Stage 8 homotopy/fibre comparison. Requested degree-one extension: for any path component, H₁(−,Z)≅π₁(−)^ab, naturally, with no simple-connectivity hypothesis; rationalize and combine with Stage 6 universal coefficients. Stage 8 currently states the higher Hurewicz theorem only for n≥2. GCM uses this extension to carry the end-winding quotient to nonzero H₁ and H¹; no new π₁ or loop-space carrier is planned. The missing generic degree-one export belongs to AlgebraicTopologyPartII; the current-stage reference routes that extension and does not claim it is already planned there.",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.11/endwinding",
         "ExponentialSumsAndCircleMethodPartII:GCM.11/compactcounter",
         "ExponentialSumsAndCircleMethodPartII:GCM.12/fixedcollarloops",
         "ExponentialSumsAndCircleMethodPartII:GCM.13/rev-conjecture-7-1-fails-for",
-        "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration"
-      ]
-    },
-    {
-      "supplier": "FunctionFieldArithmetic:FA.5",
-      "need": "For the companion configuration trace computation, export the closed-point Euler product for A¹ and monic polynomials, including the sign and multiplicity exponents. This is a polynomial arithmetic input, not a second configuration-cohomology implementation.",
-      "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration"
       ]
     },
@@ -4645,6 +4763,49 @@
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.9/ddminor"
       ]
+    },
+    {
+      "supplier": "AlgebraicTopologyPartII:AT2.1",
+      "need": "Existing unreviewed companion nodes AT2.1/configurations and configuration-torsor supply the ordered configuration scheme, discriminant complement and finite étale S_m torsor in every characteristic; no averaging by m! in the base field is used. Exact E-coefficient invariants are legitimate in characteristic zero. Source closure of the companion remains G5.",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.5/configdescent"
+      ]
+    },
+    {
+      "supplier": "AlgebraicTopologyPartII:AT2.2",
+      "need": "Import the existing AT2.2/arrangement-cohomology contract with its full S_m action, ordinary Frobenius purity q^a and compact-support range m+1…2m for m>0, with m=0 a point. The packet is complete but unreviewed, so the original arrangement-source debt remains G5.",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.10/E1support"
+      ]
+    },
+    {
+      "supplier": "AlgebraicTopologyPartII:AT2.3",
+      "need": "Import AT2.3/stable-diagonal, including its weighted coefficient operation and d(n−3)≥j condition. Its Euler-product and character calculations remain with this existing owner; GCM has no direct FA.5 Euler-product dependency. Source closure remains G5.",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration"
+      ]
+    },
+    {
+      "supplier": "AlgebraicTopologyPartII:AT2.4",
+      "need": "Import AT2.4/tame-polynomial and tame-bouquet for a smooth leading form, plus the finite-type rational-loop framework used by the companion AT2.5/double-loop-betti. The Broughton/Hilton/Sullivan originals have not been independently read in this review, so G5 remains source-qualified.",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration"
+      ]
+    },
+    {
+      "supplier": "AlgebraicTopologyPartII:AT2.5",
+      "need": "Import AT2.5/fermat-loop-connectivity (n≥5) for the explicit compact-open obstruction, and double-loop-betti (n≥4) for the conditional general comparison. The existing companion supplies the Fermat retraction/connectivity chain and the connected full-double-loop formula. Its review/source closure remains G5.",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.11/compactcounter",
+        "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "need": "Use the current cohomological universal-coefficient theorem to identify H¹ of a path component over Q with Hom(H₁,Q), after the explicitly requested degree-one Hurewicz/abelianization extension. The Ext term from H₀ vanishes. This does not require the whole germ space to be path connected.",
+      "neededBy": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.13/rev-conjecture-7-1-fails-for"
+      ]
     }
   ],
   "coverage": [
@@ -4652,16 +4813,14 @@
       "stageId": "ExponentialSumsAndCircleMethodPartII:GCM.0",
       "status": "planned",
       "remaining": [
-        "G1: Uniform finite-projection and polynomial-height proof audit",
-        "Refine the finite-grid proof at G1 and connect the componentwise intersection and fibre-stratification targets to the exact SF.0 dimension interface."
+        "Connect the componentwise intersection and finite-grid applications to the exact SF.0 dimension/degree interfaces; the coordinate-slicing proof resolves the former G1."
       ]
     },
     {
       "stageId": "ExponentialSumsAndCircleMethodPartII:GCM.1",
       "status": "planned",
       "remaining": [
-        "G1: Uniform finite-projection and polynomial-height proof audit",
-        "Close G1 with uniform geometric-total-degree constants and strict-height, empty, zero-dimensional and nonpositive-height boundary cases."
+        "Formalize the finite-grid specialization with constant Δ, strict height and all boundary cases; no projection or coefficient-height audit remains."
       ]
     },
     {
@@ -4689,9 +4848,8 @@
       "stageId": "ExponentialSumsAndCircleMethodPartII:GCM.5",
       "status": "planned",
       "remaining": [
-        "G2: Original Katz Fourier/middle-extension input",
-        "G5: Configuration and rational-loop companion exports",
-        "Close the original Katz source debt G2 and instantiate exceptional base change, CRT factorization, trace reduction and signed ordered-root descent with their stated shifts."
+        "G5: Review and source closure of the existing configuration/loop companion",
+        "Instantiate exceptional base change, CRT factorization, the reviewed FF.2 one-modulus input, trace normalization and exact ordered-root descent with their stated shifts."
       ]
     },
     {
@@ -4721,9 +4879,8 @@
       "stageId": "ExponentialSumsAndCircleMethodPartII:GCM.9",
       "status": "planned",
       "remaining": [
-        "G1: Uniform finite-projection and polynomial-height proof audit",
         "G3: Sharper minor arcs, comparison and endpoint geometry",
-        "Close the imported projection/counting debt G1 and the separate sharp estimate G3; preserve the conservative remainder bound and the final odd-length stratum."
+        "Formalize the imported all-extension count and conservative remainder estimate; retain the final odd-length stratum. The independent finite-grid proof resolves G1."
       ]
     },
     {
@@ -4731,7 +4888,7 @@
       "status": "planned",
       "remaining": [
         "G3: Sharper minor arcs, comparison and endpoint geometry",
-        "G5: Configuration and rational-loop companion exports",
+        "G5: Review and source closure of the existing configuration/loop companion",
         "Verify spreading of the full pair and common lisse open; close G3 for the sharp range, equality endpoint and geometric trace outside conservative irreducibility."
       ]
     },
@@ -4739,8 +4896,9 @@
       "stageId": "ExponentialSumsAndCircleMethodPartII:GCM.11",
       "status": "planned",
       "remaining": [
-        "G5: Configuration and rational-loop companion exports",
-        "Import the exact Fermat connectivity export at G5 and verify the compact-family chart and end-winding constructions; the compact-open obstruction must be retained."
+        "G5: Review and source closure of the existing configuration/loop companion",
+        "Import the exact Fermat connectivity export at G5 and verify the compact-family chart and end-winding constructions; the compact-open obstruction must be retained.",
+        "Use the explicit degree-one Hurewicz/abelianization extension; current Stage 8 only states higher Hurewicz."
       ]
     },
     {
@@ -4748,7 +4906,8 @@
       "status": "planned",
       "remaining": [
         "G6: Global stronger-germ topology and algebraic inclusion",
-        "Close the global topology, compact-family control, polynomial-inclusion continuity and fixed-collar comparison target G6; the local weighted straightening alone is insufficient."
+        "Close the global topology, compact-family control, polynomial-inclusion continuity and fixed-collar comparison target G6; the local weighted straightening alone is insufficient.",
+        "Obtain the stated mapping-restriction fibration extension from the Stage 4 cofibration HEP."
       ]
     },
     {
@@ -4756,31 +4915,13 @@
       "status": "planned",
       "remaining": [
         "G3: Sharper minor arcs, comparison and endpoint geometry",
-        "G5: Configuration and rational-loop companion exports",
+        "G5: Review and source closure of the existing configuration/loop companion",
         "G6: Global stronger-germ topology and algebraic inclusion",
         "Close the source/interface debts G3, G5 and G6 and prove or explicitly assume the stated trace conjecture; the degeneration conclusion must remain conditional."
       ]
     }
   ],
   "gaps": [
-    {
-      "id": "G1",
-      "title": "Uniform finite-projection and polynomial-height proof audit",
-      "neededBy": [
-        "ExponentialSumsAndCircleMethodPartII:GCM.0/finite-projection-degree",
-        "ExponentialSumsAndCircleMethodPartII:GCM.1/polynomialbox",
-        "ExponentialSumsAndCircleMethodPartII:GCM.9/ddminor"
-      ],
-      "detail": "BV15 Lemma 2.8 and proof were read, but the claimed finite coordinate projection, exceptional fibres and uniform constant/height control are not certified. Prove a degree-controlled stratification or finite-grid bound with geometric total degree (sum over all components) and constant depending only on (Δ,N); then recover strict-height and zero-dimensional cases. This independent prefix is required by the parent arithmetic count; no numerical minor-arc theorem may bypass it."
-    },
-    {
-      "id": "G2",
-      "title": "Original Katz Fourier/middle-extension input",
-      "neededBy": [
-        "ExponentialSumsAndCircleMethodPartII:GCM.5/singleexponential"
-      ],
-      "detail": "The BS20 proof of Lemma 3.7, pp.917–918, cites Katz §8.2.5(2). Its original statement/proof was not available in the cleared sources used here. FF.2 must verify the nonconstant polynomial, trace surjectivity/middle-extension hypotheses, coefficient category and shifts. This is an explicit supplier source debt, not a locally assumed cohomology package."
-    },
     {
       "id": "G3",
       "title": "Sharper minor arcs, comparison and endpoint geometry",
@@ -4805,14 +4946,14 @@
     },
     {
       "id": "G5",
-      "title": "Configuration and rational-loop companion exports",
+      "title": "Review and source closure of the existing configuration/loop companion",
       "neededBy": [
         "ExponentialSumsAndCircleMethodPartII:GCM.5/configdescent",
         "ExponentialSumsAndCircleMethodPartII:GCM.10/E1support",
         "ExponentialSumsAndCircleMethodPartII:GCM.11/compactcounter",
         "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration"
       ],
-      "detail": "AlgebraicTopologyPartII has no packet/node ids at this snapshot. Its route owns the equivariant configuration presentation/purity, corrected diagonal identity, general bouquet theorem and rational double-loop product. The BS20 proofs were read, but their cited Broughton, Hilton, Sullivan and arrangement originals were not independently verified here. Obtain exact source-qualified exports, preserving n≥4 and all action/sign conventions; the special Fermat connectivity input is also required for compactcounter."
+      "detail": "AlgebraicTopologyPartII already has a complete 75-node packet, with exact configuration-torsor, arrangement-cohomology, stable-diagonal, tame-bouquet, double-loop-betti and Fermat connectivity exports. Those statements and their dependency interfaces were read here and match the local uses; the packet has no independent review yet. Its arrangement, Broughton, Hilton and Sullivan original-source proofs were not independently verified in this run. Obtain that companion review/source closure, preserving n≥4 for the full connected loop formula, the n≥5 Fermat connectivity use and all actions/signs. This is a supplier qualification, not a missing-packet or missing-node claim."
     },
     {
       "id": "G6",
@@ -4843,7 +4984,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For odd L=9, the coefficient vector supported at b₅ gives H₄ rank five. The displayed union ending before the last ceiling-indexed stratum misses it. This confirms a cover error independently of any numerical estimate.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E2",
@@ -4861,7 +5007,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Writing m=(k−1)q+r in the stratum cutoff gives 2dn−4qδ+4(r+1). At k=3,d=4,n=24,m=5 this is 192, above the proposed global cutoff 188. The argument therefore does not establish the sharper theorem; this is a proof gap, not a counterexample to that theorem.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E3",
@@ -4879,7 +5030,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed comparison is strict: at tδ=1 it requires i>0. Corollary 2.9 uses i=0 to obtain the component count. Its equality endpoint is not justified by that comparison; the conservative comparison needs tδ>k−1.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E4",
@@ -4897,7 +5053,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The standalone lemma includes n=3. For a smooth cubic Fermat fibre in three variables, the bouquet has eight 2-spheres, so π₀(Ω²X)=Z⁸ and degree-zero cohomology cannot be one-dimensional. The full connected-space formula needs n≥4.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E5",
@@ -4915,7 +5076,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equation (7.3) removes the weighted coefficient extraction while retaining a two-variable generating series. For n=4,N=1,j=0, the full expression 1−qU differs from its selected value one. The stable diagonal statement can survive after keeping the extraction operation.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E6",
@@ -4933,7 +5099,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page-942 image has compact-support subscripts in the two sums that use ordinary-cohomology purity. At m=1, ordinary H⁰(A¹)=E whereas compact H²(A¹)=E(−1); their traces differ by q. Duality must be inserted before switching supports.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E7",
@@ -4951,7 +5122,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The last product on p.943 drops the powers determined by the Lie multiplicities. Those powers occur in the preceding character product and cannot disappear under the stated substitution.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E8",
@@ -4969,7 +5145,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On p.945 the algebraic factor is written without compact supports despite the preceding conjectural pairing. The same paragraph treats the desired first-page equality as already available. The local conditional argument derives it from the two independent supplier formulas instead.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E9",
@@ -4987,7 +5168,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The kernel vector in Lemma 2.4(4) has m+1 entries. The page-903 displayed sum stops at m; multiplying the stated matrix by that vector requires the final entry as well.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E10",
@@ -5005,7 +5191,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof on p.907 assigns dimension m−1 to the ordered configuration space before taking the translation quotient. PConf₁=A¹ already distinguishes the two dimensions.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E11",
@@ -5023,7 +5214,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The affine-line compact complex is E[−2](−1). After removing that tensor factor the corresponding cohomological index increases by two; the displayed decrease on p.910 has the opposite sign. The vanishing conclusion is unaffected.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E12",
@@ -5041,7 +5237,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page-913 pushforward writes a positive shift for an affine fibre of dimension n(d−m). Its compact complex has shift −2n(d−m) and twist −n(d−m), as the lemma’s final formula itself requires.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E13",
@@ -5050,7 +5251,7 @@
       "kind": "misprint",
       "locator": "Published BS20, §3, final paragraph of proof of Lemma 3.5, p.915",
       "printed": "A final CRT denominator uses numerator names.",
-      "correction": "The denominator is l₁l₂.",
+      "correction": "No denominator correction is warranted in the published version. See E48 for the separate label slip.",
       "reason": "The two local fractions have denominators l₁ and l₂.",
       "affects": "nothing",
       "known": "No published correction located in the searches listed; this is not a priority claim.",
@@ -5059,7 +5260,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The page-915 formula image already has denominator l₁l₂. The reported numerator-name denominator is absent from the published version. A different label slip in the following sentence is recorded separately as E48.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E14",
@@ -5077,7 +5283,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A congruence modulo polynomials that controls the residue must retain the factor (T−a)⁻¹. Its omission from the displayed reduction on p.917 gives a polynomial with zero residue and does not express the intended phase.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E15",
@@ -5095,7 +5306,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "After isolating a₁, the remaining generic parameter space has coordinates a₂,…,a_n and dimension n−1. The displayed generic-coordinate lists stop at a_(n−1), while the subsequent dimension argument uses n−1 parameters.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E16",
@@ -5113,7 +5329,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Corollary 3.10 is stated without m≤d, but its use of Lemma 3.4 requires the division bundle of rank n(d−m). For m>d that construction and its shift are unavailable. The intended finite major-arc range is 0≤m≤d.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E17",
@@ -5131,7 +5352,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Figure 2 places the direct image associated with the numerator-forgetting projection on the good-arc source instead of the monic-denominator base. The source and target displayed for π₂ distinguish the two types.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E18",
@@ -5149,7 +5375,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The low-rank coincidences in the product-monodromy argument are orthogonal/symplectic dimension pairs (3,2) and (5,4). The page-924 order reverses the two group dimensions. This is a label correction, not a replacement proof of the unverified monodromy input.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E19",
@@ -5167,7 +5398,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The relative family has smooth affine fibres of dimension n−1. Its top trace is E(−(n−1)); the positive twist on p.925 gives the opposite geometric-Frobenius weight.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E20",
@@ -5185,7 +5421,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The opening degree-k polar computation on p.935 writes an equality with the full residue phase. Replacing f by f+1 changes that phase by b₁ while leaving all polar degree-k terms fixed. Only the top homogeneous part satisfies the displayed formula.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E21",
@@ -5203,7 +5444,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Proposition 6.2 refers to a locus in the b-coefficients, which number kd. Its ambient affine space is therefore A^(kd), whereas N=dn counts the distinct phase variables a.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E22",
@@ -5221,7 +5467,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "After shortening each polynomial vector by q^s, the error precision changes from c to c+s. The displayed c−s on p.938 disagrees with this substitution and with the surrounding shrinking calculation.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E23",
@@ -5239,7 +5490,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof of odd-page vanishing imports Lemma 4.3, which explicitly excludes the two cubic pairs. The standalone propositions omit those exclusions. The main n>2^k(k−1) range excludes both pairs, so its use is unaffected.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E24",
@@ -5257,7 +5513,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The fixed vector determines the affine leading-coefficient constraints. A coefficient ring for f alone need not contain that vector, and Spec K can be a field extension of the generic residue field. The spreading paragraph must include the vector and the maps in the finite filtration.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E25",
@@ -5275,7 +5536,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The smooth dense open used on p.908 counts only components of maximal dimension. A line disjoint from a point disproves the literal all-components inference. The mapping-scheme componentwise lower bound supplies the necessary final step.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E26",
@@ -5293,7 +5559,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The polynomial lattice in the paragraph before Lemma 6.4 has one coordinate for each of the N phase variables. Its displayed n-coordinate ambient module does not match that indexing.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E27",
@@ -5311,7 +5582,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 2.3 allows all m≥0 but writes a matrix with L−m rows. For m>L the literal integer shape is undefined. A finite range plus explicit saturation resolves this encoding omission; no rank claim inside 0≤m≤L is refuted.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E28",
@@ -5329,7 +5605,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equation (7.1) gives a pointwise germ condition, without topology or compact-family uniformity. The explicit escaping Fermat loop satisfies it individually but has end winding −1 in the compact-open subspace, whereas the comparison target is simply connected for n≥5. This rejects that topology interpretation, not every possible stronger topology.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E29",
@@ -5339,7 +5620,7 @@
       "locator": "Published BS20, §1, paragraph following Conjecture 1.3, p.898",
       "printed": "The advertised number of computed top cohomology groups uses the degeneration interval without intersecting the comparison interval.",
       "correction": "Intersect automatic degeneration with the applicable mapping comparison range.",
-      "reason": "For k=3,d=2,n=24 the conservative comparison reaches no nonpositive total degree.",
+      "reason": "Already in the printed sharp range, k=3,d=2,n=24 gives tδ=1 and excludes i≤0; the computed interval must be intersected with comparison.",
       "affects": "a stated result",
       "known": "No published correction located in the searches listed; this is not a priority claim.",
       "searched": [
@@ -5347,7 +5628,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Even granting the printed sharp comparison, k=3,d=2,n=24 gives tδ=1 and no nonpositive total degree in its strict range. The introductory count of computed top groups cannot follow from the automatic-degeneration interval without intersecting the comparison interval.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E30",
@@ -5365,7 +5651,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The relative stratum computation uses the same degree-d division bundle as the absolute formula. Lemma 4.4 therefore also needs m≤d; its statement on p.925 does not record this upper bound.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E31",
@@ -5374,7 +5665,7 @@
       "kind": "gap",
       "locator": "Published BS20, §3, Lemmas 3.7–3.11 and Corollaries 3.10,3.12, pp.917–920",
       "printed": "The middle-concentration proof uses geometric irreducibility and smooth projective closure without spelling out their derivation.",
-      "correction": "Prove smoothness at infinity from the smooth leading boundary, then connectedness and geometric irreducibility of the positive-dimensional projective closure.",
+      "correction": "No correction to the published hypotheses is required; retain the explicit closure/irreducibility adapter as formalization detail.",
       "reason": "Affine smoothness alone does not imply geometric irreducibility; the leading-boundary hypothesis supplies the missing geometry.",
       "affects": "the proof",
       "known": "No published correction located in the searches listed; this is not a priority claim.",
@@ -5383,7 +5674,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The standing hypotheses include smooth affine X and smooth leading projective boundary. The proof of Lemma 3.11 explicitly notes that the closure and boundary are smooth. Jacobian smoothness at infinity and connectedness of a positive-dimensional projective hypersurface give the required geometric irreducibility. Spelling out this standard consequence is useful for a formal plan, but its omission is not a source gap under the stated hypotheses.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E32",
@@ -5401,7 +5697,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page-920 image places the affine X in the sentence assigning non-middle projective hyperplane-class cohomology. The calculation and restriction map require X̄. Affine cohomology does not have those high-degree classes.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E33",
@@ -5419,7 +5720,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the page-921 diagram, arrow 6 is the finite-cover trace/invariants step and arrow 7 is the complex identification, opposite to the numbered prose. Their domains and codomains resolve the swap.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E34",
@@ -5437,7 +5743,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page-901 coefficient display uses T^j while summing over coefficient index i. The fixed-leading polynomial definition requires T^i, or all lower coefficients would occur at one coordinate-dependent exponent.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E35",
@@ -5455,7 +5766,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The introductory reference points to §6 for the continuous mapping-space candidate, which is defined by equation (7.1) in §7. Section 6 is the arithmetic minor-arc bound.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E36",
@@ -5473,7 +5789,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The rank-arc result invoked in Lemma 3.3 is Lemma 2.4, not a proposition. The universal pair space introduced in §4 is M_(n,k), so its other subscript variants in the cited proofs are typographical slips.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E37",
@@ -5491,7 +5812,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The plotted first-page column is m and the second coordinate is s. The caption reverses this order at its cited point; the configuration exponent in Theorem 1.1 fixes (m,s).",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E38",
@@ -5509,7 +5835,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Remark 1.5 uses a tuple of zero leading entries in projective-point notation. Such a tuple represents no projective point; the intended condition is simply that those remaining polynomials have degree at most d−1.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E39",
@@ -5527,7 +5858,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Proposition 5.5 concerns a polynomial in N variables. The induction and base dimension in its proof must use N; the later application takes N=dn, so substituting n changes the bound.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E40",
@@ -5545,7 +5881,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Specialized differences can lower the exact degree. The inductive construction must retain the upper degree parameter k: for G=a₁² the k=2 first-difference locus imposes a condition whereas its k=3 two-difference nonconstant part vanishes. This is an indexing clarification needed by the recursion.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E41",
@@ -5563,7 +5904,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page-936 polarization expansion uses one index both for a vector block and for a polynomial coefficient; they have different ranges. Separate indices recover the intended coefficient sum.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E42",
@@ -5581,7 +5927,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The lattice proof changes the case of the fixed indeterminate between displayed formulas. Its surrounding valuation and polynomial-ring notation use T; there is no independently introduced lower-case parameter.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E43",
@@ -5590,7 +5941,7 @@
       "kind": "gap",
       "locator": "Published BS20, §1, Remark 1.5, pp.898–899",
       "printed": "The small-degree dimension count applies variables-minus-equations before showing the restricted family is nonempty.",
-      "correction": "For n≥3 choose constant solutions of Σ_(j≥3)g_j^k+1=0 first.",
+      "correction": "Restrict the small-degree example to n≥3 (or explicitly retain the large-n hypothesis), and exhibit a constant kth root of −1 in the third coordinate to establish nonemptiness before applying the componentwise dimension bound.",
       "reason": "For n=2 the restricted equation is 1=0, so the suggested family is empty.",
       "affects": "the proof",
       "known": "No published correction located in the searches listed; this is not a priority claim.",
@@ -5599,7 +5950,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed ambient assumption is n≥2 on p.893. For n=2 the restricted family in Remark 1.5, pp.898–899, has equation 1=0 and is empty, so its variables-minus-equations count supplies no nonempty counterexample. For n≥3 a constant kth root of −1 in the third coordinate gives the missing witness; the corrected local target states that restriction. This finding concerns the omitted qualification in the example, not the large-n corollary.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E44",
@@ -5617,7 +5973,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.944 model has the homology of a bouquet of spheres, and the following Hilton calculation uses its free Lie algebra. A smash has different degree and rank, so the displayed operation is a notation slip.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E45",
@@ -5635,7 +5996,12 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The final rational-cohomology sentence needs the double-loop space as its target and the dual rational-homotopy generators. Its conclusion also presupposes the connected full-loop case, which is why the local import keeps n≥4.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
     },
     {
       "id": "ExponentialSumsAndCircleMethodPartII/E47",
@@ -5653,7 +6019,52 @@
         "arXiv record https://arxiv.org/abs/1711.10451, checked 2026-10-18; v3 dated 19 February 2020 is the latest listed version.",
         "Author publications page https://tdbrowning.github.io/pubs.html and title/author searches with erratum/corrigendum, checked 2026-10-19; no correction for this paper located."
       ],
-      "verification": "Published text read directly; inherited extraction findings re-expressed and used with the corrections here. Independent blueprint review is still required."
+      "verification": "Independently checked against the stated published locator on 2026-10-19; the review verdict controls whether this inherited candidate is an accepted source finding.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The spreading argument needs arbitrarily large admissible residue characteristics for a fixed ℓ, rather than only a choice of ℓ for fixed p. Dirichlet plus reciprocity gives the missing quantified input, including ℓ=2 and finite bad-set avoidance. This records an unstated proof input, not a false prime-existence assertion.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      }
+    },
+    {
+      "kind": "misprint",
+      "affects": "nothing",
+      "known": "This review checks the identified source version only and makes no priority claim.",
+      "id": "ExponentialSumsAndCircleMethodPartII/E48",
+      "source": "BS20",
+      "locator": "Published BS20, §3, final sentence of proof of Lemma 3.5, p.915",
+      "printed": "The final symmetry instruction names h₁,h₂ although the coprime denominator factors in this proof are l₁,l₂.",
+      "correction": "Interchange l₁,l₂ and the associated local numerator/remainder data. Keep the already correct denominator l₁l₂.",
+      "reason": "The displayed CRT identity uses the two l-factors; h₂ is not the name of the second factor in this argument.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The page-915 formula image confirms l₁l₂ in the denominator and the following sentence switches to h₁,h₂. Only the final label instruction needs correction.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      },
+      "searched": [
+        "Annals article landing page https://annals.math.princeton.edu/2020/191-3/p04 and its published PDF checked 2026-10-19; no linked correction found.",
+        "Title search with erratum and corrigendum, 2026-10-19; no correction addressing the CRT label found."
+      ]
+    },
+    {
+      "kind": "error",
+      "affects": "the proof",
+      "known": "This review checks the identified source version only and makes no priority claim.",
+      "id": "ExponentialSumsAndCircleMethodPartII/E49",
+      "source": "LR14v2",
+      "locator": "arXiv:1405.3027v2, §2.1, Lemma 2.6 and the affine proof of Proposition 2.3, p.5",
+      "printed": "Every nonempty proper affine hyperplane section is assigned the same degree as the original nondegenerate variety.",
+      "correction": "Use cumulative degree of the reduced affine section at most deg X. The projective hyperplane section has degree deg X with multiplicities, and deleting its part at infinity can lower the affine degree.",
+      "reason": "The nondegenerate affine parabola y=x² has degree two, while its section x=0 is the single reduced point (0,0), of degree one.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "This parabola satisfies the affine hypotheses of Lemma 2.6 over an algebraic closure. The strict degree loss refutes the stated equality. The inequality from Theorem 1.1 suffices for the point-bound induction, so the finite-field bound itself is not refuted.",
+        "by": "REV-DESIGN-ExponentialSumsAndCircleMethodPartII"
+      },
+      "searched": [
+        "arXiv record https://arxiv.org/abs/1405.3027 and the exact v2 PDF checked 2026-10-19.",
+        "Author/title search with corrigendum and erratum, and exact arXiv identifier with Lemma 2.6, 2026-10-19; no correction to this affine degree equality located. The journal version is not the version being assessed."
+      ]
     }
   ],
   "restructure": [
@@ -5673,8 +6084,8 @@
         "LefschetzPencilsAndVanishingCyclesPartII",
         "AlgebraicTopologyPartII"
       ],
-      "detail": "Two companion paper routes own generic universal monodromy and configuration/rational-loop theory; their target files are not yet available.",
-      "proposal": "Keep the generic UniversalHypersurfaceMonodromy route in LefschetzPencilsAndVanishingCyclesPartII and ConfigurationSpacesAndRationalLoops in AlgebraicTopologyPartII. GCM owns only their circle-method specializations. Replace LPV.5 and current AlgebraicTopology routing requests with exact companion exports when those designs exist; do not count these requests as fulfilled imports."
+      "detail": "Universal monodromy has a pending companion route; configuration/rational-loop theory already has an existing 75-node AlgebraicTopologyPartII packet.",
+      "proposal": "Keep generic universal monodromy in LefschetzPencilsAndVanishingCyclesPartII and configuration/rational-loop theory in AlgebraicTopologyPartII. GCM owns their circle-method specializations. Replace the LPV.5 extension request with exact nodes when available; the AT2 imports already use exact existing nodes and retain their outstanding review/source qualification."
     }
   ],
   "ownership": {
@@ -5689,8 +6100,445 @@
   "checks": {
     "routedInventory": "83 of 83 routed items have distinct target nodes; two supplementary adapters make 85 nodes.",
     "definitions": "Every definition/construction has a use-derived API and at least three discriminating tests.",
-    "dependencyDirection": "Early-prefix transitive prerequisite closure excludes all ES, late GCM and configuration stages. The stage and node graphs remain acyclic with the parent packet and proposed fine consumer edges; lineage metadata is not an execution edge.",
-    "validation": "Packet checker: zero errors and zero warnings. Reader matches every target, source locator, API and test. All 83 routes occur once; 54 planets obey the six-per-layer cap. The remainder identity and conservative bound were checked independently in 20,520 rational cases.",
-    "suggestedFile": "271 lines; lean-check at the pins exited successfully with 44 placeholder-proof warnings and no other warnings. No data definition has a placeholder body."
-  }
+    "dependencyDirection": "The 291-node local-plus-parent graph is acyclic with the two proposed fine consumer edges. The declared GCM/parent stage-interface graph is acyclic with GCM.0→ES.0 and GCM.1→ES.1. Early-prefix transitive closure excludes ES, late GCM and configuration stages. Collapsing every parent target to its stage exposes a pre-existing unrelated ES.0→ES.2→ES.1→ES.0 placement cycle; this is recorded for the parent owner and is not imported by GCM.9.",
+    "validation": "Independent packet checker and review-specific checks are recorded in the review report. All 83 routes occur once; 54 planets obey the six-per-layer cap. Node, source, API and test text is synchronized to the reader.",
+    "suggestedFile": "271 lines; lean-check at the pins exited successfully with 44 placeholder-proof warnings and no other warnings. No data definition has a placeholder body.",
+    "resolvedGaps": "G1: coordinate-hyperplane finite-grid induction with explicit cumulative-degree constant; G2: exact accepted FF.2/fourier-input-for-one-modulus, using Fourier inversion instead of the unread Katz book."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ExponentialSumsAndCircleMethodPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 85 targets, all 13 pinned baselines, 26 APIs/79 discriminating tests, supplier statements, current upstream overlap, 83 routes, 54 planets, suggested Lean and all 46 inherited source candidates. Corrected in place; G1 is resolved by direct finite-grid slicing and G2 by the accepted exact Fourier input. Four qualified gaps remain (G3–G6), all stages stay planned and open, and no result is claimed implemented. Source verdicts: 46 confirmed, two rejected, including two new findings. The review accepts this complete planning pass, not the open sharp/topological/monodromy assertions.",
+    "checked": [
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.0/rev-affine-dimension-theorem-for-intersections",
+        "verdict": "corrected",
+        "note": "The nonempty componentwise intersection hypothesis is necessary. Corrected the height argument by localization at each minimal prime and imported the exact dimension formula."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.0/finite-projection-degree",
+        "verdict": "corrected",
+        "note": "Replaced the open projection audit by the direct coordinate-slicing proof over any field, with cumulative degree and explicit constant Δ; LR14v2 supports the adapted argument."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.0/rev-fibre-dimension-stratification",
+        "verdict": "corrected",
+        "note": "Imported the exact SF.0 constructibility and dimension exports, narrowing this node to the finite-stratification adapter used by Weyl differencing."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.1/polynomialbox",
+        "verdict": "corrected",
+        "note": "Specialized the finite-grid proof to q^h polynomial choices. Strict height, h≤0, empty and zero-dimensional cases agree with the valuation convention."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.2/fix-coefficient-prime-for-fixed-characteristic",
+        "verdict": "verified",
+        "note": "The residue class −1 mod p gives order two, and Dirichlet supplies arbitrarily large primes distinct from p. The standing p>k≥3 excludes characteristic two."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.2/fix-good-characteristic-for-fixed-coefficient-prime",
+        "verdict": "verified",
+        "note": "For odd ℓ choose p≡1 mod4 and a quadratic nonresidue class mod ℓ; reciprocity gives (ℓ/p)=−1. For ℓ=2 take p≡5 mod8. Dirichlet avoids the finite bad set."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.3/mapping",
+        "verdict": "verified",
+        "note": "The coefficient zero scheme retains the actual nonzero leading vector. All L coefficient equations, zero coefficients and base change are accounted for."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.3/dimensionlower",
+        "verdict": "verified",
+        "note": "The fixed leading term already vanishes, leaving at most kd equations in dn variables. The componentwise Krull-height adapter gives dimension at least D, without asserting nonemptiness."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.3/rev-smooth-projective-closure-of-x",
+        "verdict": "corrected",
+        "note": "Affine Jacobian smoothness and the leading boundary cover the projective closure. Positive-dimensional projective connectedness plus smoothness gives geometric irreducibility; exact Lefschetz input replaces a blanket import."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.3/phase",
+        "verdict": "verified",
+        "note": "The residue pairs b_r with coefficient T^(r−1); the full phase includes lower terms of f, unlike its degree-k polar part. The fixed leading coefficient contributes no degree-kd equation."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.3/fouriercomplex",
+        "verdict": "corrected",
+        "note": "The stalk is a compact-support complex over E=Q_ℓ(μ_p). Added exact character/adic transports and repaired the coefficient-extension test to k=3,p=5,ℓ=2."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.3/orthogonality",
+        "verdict": "corrected",
+        "note": "Integration over L frequencies gives the scheme zero locus, shift −2L and twist −L; solving for mapping cohomology reverses both. Exact linear-character cancellation is now imported."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.4/hankel",
+        "verdict": "verified",
+        "note": "The (L−m) by (m+1) matrix uses zero-based coefficient i+j, equivalently one-based b_(i+j−1). Determinantal schemes are distinguished from their reduced rank loci."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.4/arcsclosed",
+        "verdict": "verified",
+        "note": "All (m+1)-minors define the functorial closed model; nesting is stated on reduced closed sets. The zero and saturated boundary indices are explicit."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.4/arcsfull",
+        "verdict": "verified",
+        "note": "At m=ceil(L/2) there are at most m rows. The L=9 anti-diagonal example rules out floor(L/2) as the full threshold."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.4/padeexist",
+        "verdict": "verified",
+        "note": "The kernel-vector argument gives a denominator of degree at most m, with the final column included. The restricted m range and Laurent truncation make the approximation inequality meaningful."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.4/padeunique",
+        "verdict": "verified",
+        "note": "Two reduced approximants agree by cross-multiplication and the degree bound only inside the asserted exact-stratum range. Monic normalization is needed for uniqueness."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.4/goodarc",
+        "verdict": "verified",
+        "note": "The good locus records monic denominator degree m, numerator degree below m, coprimality and the required approximation precision; it excludes cancellation to a lower stratum."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.4/goodarciso",
+        "verdict": "verified",
+        "note": "The regular inverse uses a nonzero Hankel minor on charts, not just set-theoretic Padé uniqueness. Dimension at most 2m follows from the degree-m numerator/denominator parameter space."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/boundarycancel",
+        "verdict": "corrected",
+        "note": "The bad-arc direction has a nonzero linear coefficient under the stated smooth-boundary hypothesis. The accepted FF translation-cancellation input supplies acyclicity."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/remainder",
+        "verdict": "verified",
+        "note": "Monic division gives regular remainder and quotient coordinates for m≤d, retaining the prescribed leading vector. The phase modulo polynomials depends only on the remainder."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/smallcomplex",
+        "verdict": "corrected",
+        "note": "The numerator/remainder compact direct image is on the monic-denominator base. Exact character-sheaf and finite-E operation interfaces are recorded."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/remaindershift",
+        "verdict": "corrected",
+        "note": "The quotient fibre has dimension n(d−m), so its compact factor is E[−2n(d−m)](−n(d−m)). The m=d boundary is valid."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/crtproduct",
+        "verdict": "corrected",
+        "note": "The CRT denominators l₁,l₂ and residue factorization agree. E13 is rejected; E48 separately corrects the final symmetry labels."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/repeatedcancel",
+        "verdict": "corrected",
+        "note": "For a repeated factor, smoothness gives either a nonzero derivative translation or a nonzero phase-value translation. The simple pole must remain in the residue calculation."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/reduced",
+        "verdict": "corrected",
+        "note": "The reduced object is the fibre of the top trace, with the cohomological convention fixed. Smooth geometric irreducibility makes the top trace rank one."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/singleexponential",
+        "verdict": "corrected",
+        "note": "Closed G2 using the exact accepted FF one-modulus Fourier input. Expanded the generic-line and exceptional-locus bounds that make the top map a nonzero multiple of the trace."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/singlecomplex",
+        "verdict": "verified",
+        "note": "For a monic linear denominator the root parameter does not occur in the residue phase. Exceptional base change makes the one-root complex constant with the stated shift/twist."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/configdescent",
+        "verdict": "corrected",
+        "note": "Replaced ordinary topological finite-cover promises by the exact AT2 configuration scheme and algebraic finite-étale S_m torsor. E-characteristic zero makes invariants exact even if ℓ divides m!."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/stratumcomplex",
+        "verdict": "verified",
+        "note": "Bad-arc and repeated-factor cancellations, affine quotient shift and ordered-root descent give the ungraded formula, only for 0≤m≤d."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/middleconcentrated",
+        "verdict": "corrected",
+        "note": "Compact affine vanishing and the projective-boundary localization sequence eliminate non-middle degrees. Exact EDC affine vanishing, primitive cohomology and rational duality are imported."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/hypersurfmiddle",
+        "verdict": "corrected",
+        "note": "Concentration puts the tensor power in degree m(n−1). Koszul permutation signs give sgn^(n−1), including the m=0 unit case."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.5/stratumformula",
+        "verdict": "verified",
+        "note": "The index a=i+m(n−1)−2nd follows by adding the two negative affine shifts and the middle tensor degree. The negative Tate exponent agrees with affine trace."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.6/universalpair",
+        "verdict": "verified",
+        "note": "The parameter space includes a nonzero boundary vector and both smoothness opens. It is not merely a projective boundary point or the unpointed hypersurface space."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.6/universalcohom",
+        "verdict": "corrected",
+        "note": "The smooth closure/boundary proper family yields a lisse middle extension by localization. The stated rank and coefficient conventions match the fibre formula."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.6/primitiveextension",
+        "verdict": "corrected",
+        "note": "Specified degrees n−2 and n−1 and the even-middle hyperplane quotient. The boundary has no extra twist; rational primitive kernel/quotient identification does not split the extension."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.6/fundamentalsurject",
+        "verdict": "verified",
+        "note": "The maps have the connected geometric generic fibres needed for étale π₁ surjectivity. Its requested SF.2/LPV extension is explicit and is not a current-library claim."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.6/minusone",
+        "verdict": "verified",
+        "note": "The eigenvalue conclusion for the extension is weaker than a scalar-action assertion. Both cubic exceptions are retained; the universal product-monodromy proof remains explicitly G4."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.6/relativestratum",
+        "verdict": "corrected",
+        "note": "The relative constant configuration factor and tensor powers of the universal middle local system have the same shifts and signs as the absolute calculation. The range m≤d is retained."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.7/finite-localization-filtration",
+        "verdict": "corrected",
+        "note": "The Stacks finite-filtration spectral sequence gives bidegree (r,1−r) and finite convergence. Mathlib supplies the spectral-object carrier, while the geometric localization/abutment adapter remains a distinct target."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.7/majorE1",
+        "verdict": "verified",
+        "note": "The finite arc filtration has associated graded compact stratum complexes, not ordinary restriction cohomology. All d+1 columns, including the unit zero column, occur."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.7/rev-relative-major-arc-spectral-sequence",
+        "verdict": "corrected",
+        "note": "Construction is relative over the same universal pair base with functorial maps, so monodromy acts on every differential. It is not inferred from unrelated fibre spectral sequences."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.7/oddpages",
+        "verdict": "verified",
+        "note": "The −1 eigenvalue separates column parities and forces an odd-column-distance differential to vanish. This uses the qualified G4 monodromy input and retains its exceptions."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.7/shiftE1",
+        "verdict": "verified",
+        "note": "Normalization by +2dn and twist +kd gives H_c^(s+mn) and twist kd−m−n(d−m). At m=0 the only entry is E(−D) in total degree zero."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.8/difference",
+        "verdict": "verified",
+        "note": "The degree parameter k remains data for degree-at-most-k polynomials. The nonconstant part after k−1 differences defines a closed locus, including specialized degree drops."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.8/cohdegree",
+        "verdict": "corrected",
+        "note": "Acyclic complexes receive −∞. Bounds, shift convention and affine constant-sheaf example are coherent; exact character cancellation and finite-E transports are imported."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.8/signconjugacy",
+        "verdict": "corrected",
+        "note": "Even multiplicative order puts −1 in the subgroup generated by ℓ modulo p. Coefficient automorphism sends ψ to ψ⁻¹ and preserves cohomological degrees, without an unjustified Q_ℓ-valued character."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.8/differencekun",
+        "verdict": "corrected",
+        "note": "The substitution (a,h)↦(a,a+h) identifies the difference complex with the tensor of G and −G, and Künneth doubles the extended top degree. The acyclic case is explicit."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.8/rev-closed-points-detect-constructible-supports",
+        "verdict": "corrected",
+        "note": "A nonzero constructible cohomology support contains a closed point over some finite extension, using the pinned Jacobson results. Testing only rational points over the initial field is insufficient."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.8/cohweyl",
+        "verdict": "corrected",
+        "note": "Finite fibre-dimension strata and Künneth yield the cohomological Weyl recursion; all closed points and N-variable indexing are explicit. The −∞ case is separate."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.9/ddminor",
+        "verdict": "corrected",
+        "note": "Read all ten exact ES.0–1 supplier contracts. The leading phase, all-extension uniform constants and finite-grid prefix match the dimension application; the exact FF dimension criterion is now cited."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.9/stalkminor",
+        "verdict": "verified",
+        "note": "The cohomological Weyl inequality applied to N=dn and dd bound gives the stated stalk cutoff. Closed-point support detection extends the finite-field stalk calculation geometrically."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.9/minorcover",
+        "verdict": "verified",
+        "note": "The nested reduced rank loci exhaust at ceil(L/2). Their complement after A_d is the finite union through index ceil(L/2)−1, including the odd-length final stratum."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.9/minorsafe",
+        "verdict": "corrected",
+        "note": "Keeping m=(k−1)q+r gives 2dn−4qδ+4(r+1), bounded by the conservative +4(k−1) cutoff for q≥t. The proof does not replace actual m by an upper multiple."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.9/minorsharpgate",
+        "verdict": "verified",
+        "note": "The sharper +4 statement is an explicitly open proposition at G3. No supported result silently assumes it."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/spread",
+        "verdict": "corrected",
+        "note": "Added exact SF.0 model/spreading imports, kept the whole pair, and corrected positive-characteristic coefficient choice: a prescribed admissible ℓ is retained."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/comparisonsafe",
+        "verdict": "verified",
+        "note": "Localization at the minor complement and Fourier normalization give the strict conservative comparison i>−4(tδ−(k−1)); the equality endpoint is excluded."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/comparisonsharpgate",
+        "verdict": "verified",
+        "note": "The printed strict range depends on the open sharp-minor estimate. Even that statement does not include i=0 when tδ=1."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/E1support",
+        "verdict": "corrected",
+        "note": "Exact AT2 arrangement cohomology gives compact support in m+1…2m for m>0 and the m=0 point. The companion review/source qualification remains G5."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/cohsupport",
+        "verdict": "verified",
+        "note": "The positive-total-degree first-page support vanishes, so conservative comparison gives H_c above 2D equal to zero in the asserted range."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/topdegeneration",
+        "verdict": "verified",
+        "note": "The first-page degree support and the odd-page vanishing exclude all relevant differentials in the automatic high-degree range; this alone does not imply geometric comparison."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/rev-top-compact-cohomology-and-top",
+        "verdict": "corrected",
+        "note": "Removed duplication of the existing EDC top-component theorem. The retained application criterion uses every component’s dimension lower bound to exclude isolated lower-dimensional components."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/irreduciblesafe",
+        "verdict": "verified",
+        "note": "At tδ>k−1, comparison reaches degree zero, top cohomology is rank one, and the componentwise criterion proves dimension D and geometric irreducibility. No equality endpoint is claimed."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/smallcounter",
+        "verdict": "verified",
+        "note": "The locus g₂=0 leaves d free coefficients of g₁ and a nonempty degree-at-most-(d−1) Fermat-polynomial family in n−2 coordinates. A constant kth root of −1 in coordinate three establishes nonemptiness when n≥3; the componentwise dimension bound then gives D−d+k−1>D."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.10/degenerationconjecture",
+        "verdict": "verified",
+        "note": "Conjecture 1.3 is a proposition with explicit parameter conditions. No axiom, typeclass or claim of unconditional degeneration is introduced."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/localgerm",
+        "verdict": "corrected",
+        "note": "Pointwise O-bounds fix the local homogeneous leading vector but give no uniform compact-family bounds. Corrected the Fermat projective-coordinate test."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/compacthom",
+        "verdict": "verified",
+        "note": "The compact-open subspace has the prescribed-germ set as carrier. Compactness of the source permits the stated currying/evaluation interface; membership does not impose a uniform radius."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/rev-analytic-polynomial-map-inclusion-into",
+        "verdict": "verified",
+        "note": "Joint evaluation extends continuously at infinity from the fixed nonzero leading vector. Currying gives a continuous map into the compact-open subspace."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/shrinkingphase",
+        "verdict": "verified",
+        "note": "The clamped transition winds once for each fixed r>0, but is eventually one as r→0 for every fixed s. The moving s=3r/2 sample is −1."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/phasefacts",
+        "verdict": "verified",
+        "note": "A continuous argument rises from zero to one in the prescribed orientation, so winding is +1. Fixed-parameter convergence does not imply a common tail for the family."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/fermatreference",
+        "verdict": "verified",
+        "note": "The cancellation T^(dk)+ζ^kT^(dk)=0 and constant third coordinate give a smooth Fermat map with the specified leading vector and degree d."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/escapingloop",
+        "verdict": "verified",
+        "note": "The radius 1/(4(1+|T|)) makes each parameter map eventually the reference, yet the projective family stays jointly continuous at infinity and retains a nontrivial moving phase."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/compactchart",
+        "verdict": "verified",
+        "note": "Compactness and evaluation continuity give a uniform target chart near the common infinity value. They do not give the stronger normal-ratio estimate; the normal coordinate remains nonzero away from infinity."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/endwinding",
+        "verdict": "verified",
+        "note": "Use the based normal-coordinate ratio on a sufficiently large circle and the pinned circle fundamental-group equivalence. The based component, radius choice and target-chart normalization are recorded."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/windingwell",
+        "verdict": "verified",
+        "note": "Uniform charts for compact based homotopies make winding independent of radius and homotopy; concatenation gives a homomorphism on the based fundamental group."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/windingnonzero",
+        "verdict": "verified",
+        "note": "The normal ratio of the escaping loop is the inverse scalar phase, so its winding is −1. Hence the homomorphism is onto Z and remains nonzero after abelianization."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.11/compactcounter",
+        "verdict": "corrected",
+        "note": "Imported the exact AT2 Fermat connectivity export. For n≥5, Ω² of the Fermat fibre is simply connected, whereas the compact-open based germ component has a Z quotient of π₁."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.12/weightedcollar",
+        "verdict": "verified",
+        "note": "The fixed radius, weighted sup control and |w−1|<1/2 ensure a nonzero normal ratio and family-uniform local estimates. The pointwise germ carrier alone does not provide them."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.12/collarstraightening",
+        "verdict": "verified",
+        "note": "The cutoff interpolation stays inside the convex disc avoiding zero and is continuous in the weighted topology. It is not a strong deformation retract because a smaller standard collar can move."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.12/fixedcollarloops",
+        "verdict": "corrected",
+        "note": "Corrected the upstream claim: CW HEP exists, but parameterized compact-open mapping restriction is a precise extension request. The disc mapping space contracts fixing its basepoint; a chosen extension identifies the fibre with Ω²X."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.12/stronggermgate",
+        "verdict": "verified",
+        "note": "Global topology, coordinate compatibility, compact-family control and polynomial-inclusion continuity remain explicit G6 obligations. The fixed-radius local interpolation does not close them."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.12/homloops",
+        "verdict": "verified",
+        "note": "The equivalence is conditional on the strong-germ gate and fixed-collar comparison. It is never applied to the obstructed compact-open topology."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.13/tracepairingconjecture",
+        "verdict": "corrected",
+        "note": "The topology, continuous inclusion and top trace are data of the proposition. Exact compact-support analytic comparison and orientation imports replace a bare stage promise; perfection remains conjectural."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.13/rev-conjecture-7-1-fails-for",
+        "verdict": "corrected",
+        "note": "For n=40,k=3,d=2, D=74 and conservative i>−4 give H_c^147=0. End winding gives nonzero H¹ of the based compact-open component via the explicitly requested degree-one Hurewicz extension and existing UCT."
+      },
+      {
+        "nodeId": "ExponentialSumsAndCircleMethodPartII:GCM.13/conditionaldegeneration",
+        "verdict": "corrected",
+        "note": "Replaced generic topology/Euler-product imports by the exact AT2 stable-diagonal, tame-bouquet and double-loop formulas. Dimension equality forces degeneration only where actual abutment comparison is known; all topology and trace assumptions remain explicit."
+      }
+    ]
+  },
+  "upstreamNotes": [
+    "Parent integration note, outside this review’s editable scope: ExponentialSumsAndCircleMethod:ES.0/vmv-weyl-bound imports ES.2/vinogradov-main-bound, while ES.2 imports Fourier-counting nodes in ES.1 and ES.1 imports ES.0. Its exact 206-node graph is acyclic, but collapsing all its targets to these stages gives a pre-existing stage-placement cycle. The ten exact ES.0–1 function-field inputs used by GCM.9 do not use that VMV branch. Preserve exact node execution and ask the parent owner to move the VMV corollary or refine the stage interfaces; never add an ES.5→ES.0 edge."
+  ]
 }
