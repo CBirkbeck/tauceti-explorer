@@ -1,57 +1,63 @@
-# Handoff: reconcile #6217 before redispatch
+# Handoff: #6217 needs a scheduling scope decision
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-cddZzU**, 19 October 2026.
-Branch: `codex-cddZzU-review-iwasawa-scope`.
-Input: `04cb708498128f6950ddab6a425b623428d764bc`.
-[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6257321233).
+Codex — **codex-O9Ld0I**, 19 October 2026.
+Branch: `codex-O9Ld0I-review-iwasawa-fixes`.
+Input: `76759b9a5dfee0c94b309d597c4515bc9a0bdd65`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6257699351).
 Submission: **blocked checkpoint**. No second job was claimed.
 
-## What is done
+## Completed in this run
 
-The issue's HE.0 fix review is already accepted by its prior independent
-reviewers. Its mathematical verdict and source/compilation receipts remain
-unchanged and retain their attribution. I reread the assignment after the
-bot confirmation, prior handoff/report, confirmed findings /2, /8, /9 and
-/10 and their verifier decisions, the round-two fix report, and scheduling
-code. The unchanged HE.0 packet passes its checker with zero errors and
-warnings: 78 nodes, 24 API items, 18 tests, 13 baseline declarations,
-21 gaps, 63 requests and eight planned stages.
+The HE.0 fixes already have an accepted independent review. Their verdict,
+mathematics, Lean signatures and source receipts remain unchanged and
+attributed to the original reviewers. No new source audit is claimed.
 
-Local and fresh live-main queues still require 21 review outputs, including
-ten packets, whereas the issued assignment names three outputs and one
-packet. All queue outputs exist. The actual completion function returns
-false for the queue entry and true with only the issue's three paths.
+The issue still assigns one packet and three outputs. The local and fresh
+live-main queues agree on ten packets and 21 review outputs. The actual
+completion function returns false for that queue entry and true when given
+only the three issued outputs. The associated fix record has expanded to
+35 outputs; older counts in earlier handoffs are superseded.
 
-## Concrete repair and where to resume
+New evidence beyond previous checkpoints:
 
-The new 19 October section of the [review report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
-documents an isolated execution of the actual `fix_rounds` function. Restoring
-the historical arrays alone is insufficient: its current selector expands
-them again to 31 fix / 21 review outputs. Selecting an existing round
-unconditionally preserves the exact historical four fix / three review
-outputs, and the restored review satisfies `deliverables_complete`.
-Template rendering and input discovery were stubbed; this is not a full
-queue-generator replay or a claim about all other jobs.
+- A **full generator replay**, with actual input discovery and templates,
+  confirms that restoring the historical four/three arrays alone is undone.
+  The one-line selector repair preserves their exact contents and generates
+  a distinct next round. All writes were intercepted; the repository queue,
+  prompts and generator were never changed.
+- Measured wider effects: 48 existing generated records change and 22 jobs
+  are added, with none removed, relative to the unmodified-selector replay.
+  These effects need maintainer review before a general generator change.
+- Existing queue/issue/follow-up tests against the candidate module:
+  59 run, one skipped, no failures.
+- Fresh HE.0 packet validation: zero errors and warnings; 78 nodes,
+  24 API items, 18 tests, 13 baseline declarations, 21 gaps, 63 requests and
+  eight planned stages. Source-issue/schema-version functions also pass.
+- Fresh `lean-check`: exit 0; 114 warnings, all admission warnings. Memory
+  availability was checked first. No implementation claim is made.
 
-The maintainer needs to reconcile one consistent assignment:
+## Resume here after a scope decision
 
-1. Restore both round-two output arrays from commit `88f9bcd44`, review the
-   documented generator preservation change, and allocate the additional
-   work to a distinct round with matching issue instructions; or
-2. Explicitly expand this review's issued scope, identifying the fixes to
-   check in the additional nine packets.
+The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) gives the exact
+repair, historical provenance, full-replay method, measurements and limits:
 
-The report below its latest section records all historical output paths,
-the completion reproducer, prior review outcomes and source receipts. No
-scratch artifact is needed. Do not rerun the completed HE.0 review simply
-to reproduce this scheduling blocker.
+1. Restore **only** the `outputs` arrays for the fix and review round two
+   from queue commit `88f9bcd44` (four and three paths respectively).
+2. In `make_queue.py`'s `fix_rounds`, select an existing next round using
+   `made = previous_jobs.get(following)`. Review the wider effects; do not
+   replace the whole queue with either experimental regeneration.
+3. Reconcile and publish any newly generated rounds as distinct assignments.
+
+Alternatively publish an expanded review scope identifying the additional
+fixes to examine. The existing accepted markers on other packets are not
+this job's verdicts. Do not repeat the completed HE.0 mathematical review
+merely to reproduce the scheduling failure.
 
 WORKERS.md restricts edits to issue-named files and scratch. Queue and
-generator are outside that scope and intake's allowed output paths. A scope
-question was sent in this run; no answer authorizing the repair arrived
-before checkpoint preparation. Only the report and this handoff change.
-No mathematical verdict, Lean file, scheduling file or promoted data changes.
-Primary sources were not reread and Lean was not rerun for these Markdown
-changes. No process is left running. Stop after this job's pull request;
-a maintainer scope decision is required before resuming dependent work.
+generator are not issue deliverables and are also outside intake's swarm
+output paths. A user scope question was sent, but no answer authorizing the
+repair had arrived at checkpoint preparation. This is a scope restriction,
+not an automatic approval-review rejection. Only this handoff and the
+review report change. No primary source passages or private paths are
+recorded. Scratch files are disposable; no process is left running.
