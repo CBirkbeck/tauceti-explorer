@@ -1,0 +1,2744 @@
+{
+  "roadmapId": "RankZeroOneBSD",
+  "protocol": "blueprint-v1",
+  "part": "BSD.7a",
+  "scope": [
+    "RankZeroOneBSD:BSD.7a"
+  ],
+  "status": "complete",
+  "summary": "Complete target-level planning pass for BSD.7a only: independent CGS and Keller–Yin good Eisenstein main-conjecture proofs. The graph corrects the Selmer orientation and BF base ring, distinguishes the full central-value BDP function from its square root, imports the existing CM and generic BF owners, and retains precise integral/lattice/source gaps. Planned is not mathematically closed or implemented.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:PowerSeries",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The univariate formal power series ring R⟦X⟧.",
+        "checked": "Declaration body and hypotheses read in the shared Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Ring homomorphism R⟦X⟧→R taking the coefficient of degree zero; the augmentation after a generator is chosen.",
+        "checked": "Declaration body and hypotheses read in the shared Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:PowerSeries.C",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Ring homomorphism embedding coefficients as constant series.",
+        "checked": "Declaration body and hypotheses read in the shared Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:PowerSeries.X",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The series with coefficient one in degree one and zero elsewhere.",
+        "checked": "Declaration body and hypotheses read in the shared Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_succ_mul_X",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Over a semiring, coeff(n+1)(f·X)=coeff(n)(f).",
+        "checked": "Declaration body and hypotheses read in the shared Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Over a ring R, IsUnit(f) if and only if IsUnit(constantCoeff(f)).",
+        "checked": "Declaration body and hypotheses read in the shared Mathlib source at 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "cgs",
+      "title": "Mazur's main conjecture at Eisenstein primes",
+      "authors": "Francesc Castella, Giada Grossi, Christopher Skinner",
+      "edition": "arXiv:2303.04373v2, 15 October 2025; version actually read",
+      "url": "https://arxiv.org/pdf/2303.04373v2",
+      "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and §§2–4, pp.1–20",
+        "Theorem 6.1.1, pp.21–22; proof mechanism in §§6.3–6.4, pp.23–28",
+        "§6.5, pp.28–29; §7.2, pp.29–31"
+      ]
+    },
+    {
+      "id": "ky",
+      "title": "On the anticyclotomic Iwasawa theory of newforms at Eisenstein primes of semistable reduction",
+      "authors": "Timo Keller, Mulun Yin",
+      "edition": "arXiv:2402.12781v2, 30 October 2024; preprint, not a verified published version",
+      "url": "https://arxiv.org/pdf/2402.12781v2",
+      "sha256": "bb64820b49aa1eb2574c912c0d03067f904e52b9bf71f441fda78bb6dba9c90a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction hypotheses; local and global character comparisons and residual diagrams, §§1.1–1.5, pp.9–31",
+        "Analytic comparison, §2.2, pp.32–34",
+        "Uniform bounds, actual lattice transfer, both main-conjecture statements and cyclotomic corollary, §3.0, pp.35–41"
+      ]
+    },
+    {
+      "id": "cgls",
+      "title": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+      "authors": "Francesc Castella, Giada Grossi, Jaehoon Lee, Christopher Skinner",
+      "edition": "Inventiones mathematicae 227 (2022), 517–580; published author PDF",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and hypotheses, printed pp.519–521",
+        "Definitions and character main-conjecture inputs, pp.528–532; Theorem 1.5.1 p.538",
+        "§2.2, pp.543–544",
+        "Remark 4.1.3, pp.568–569; Proposition 4.2.1 and Theorem 4.2.2, p.569; Corollary 4.2.3, p.570"
+      ]
+    },
+    {
+      "id": "wuthrich",
+      "title": "On the integrality of modular symbols and Kato’s Euler system for elliptic curves",
+      "authors": "Christian Wüthrich",
+      "edition": "Documenta Mathematica 19 (2014), 381–402; DOI 10.4171/DM/450",
+      "url": "https://ems.press/content/serial-article-files/26230?nt=1",
+      "sha256": "8fc88f778138f495b24de8a16b5520af76446df610b0d46ad93776eb43a27db5",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and distinguished quotient, pp.381–384; Proposition 8, pp.388–389",
+        "Integral Euler-system proof and integral divisibility, pp.393–398"
+      ]
+    },
+    {
+      "id": "ht94",
+      "title": "On the anticyclotomic main conjecture for CM fields",
+      "authors": "Haruzo Hida, Jacques Tilouine",
+      "edition": "Inventiones mathematicae 117 (1994), 89–147; digitized published scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0117/LOG_0011.pdf",
+      "sha256": "1481798eb0b299d1393bd7b3c413a515a30eca4b4ae5a693dea043ead55057a6",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and Theorem 0.3, printed pp.89–93 inspected as images; proof not read"
+      ]
+    },
+    {
+      "id": "rubin91",
+      "title": "The “main conjectures” of Iwasawa theory for imaginary quadratic fields",
+      "authors": "Karl Rubin",
+      "edition": "Inventiones mathematicae 103 (1991), 25–68; digitized published scan",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf",
+      "sha256": "96ca08e8ed1a7646d4bf40e2e088e0ea6e068319978ac7e5c5e3d45cc39ee23a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction p.25; Theorem 4.1 and specialization remark, pp.36–39 inspected as images; §§8–10 proof not read"
+      ]
+    },
+    {
+      "id": "hida10",
+      "title": "The Iwasawa μ-invariant of p-adic Hecke L-functions",
+      "authors": "Haruzo Hida",
+      "edition": "Annals of Mathematics 172 (2010), 41–137; published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf",
+      "sha256": "1a97277068aefe67926966d2ad1bb254f115fb610e82391c0d3123b45c80b9f1",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem I and hypotheses, pp.41–46; Lemma 3.17, p.95 and Corollary 3.19, p.97; relevant Lemma 5.2 only; full μ proof imported from its owner"
+      ]
+    },
+    {
+      "id": "hida10-addendum",
+      "title": "Addendum correcting Lemma 3.17 in the μ-invariant paper",
+      "authors": "Haruzo Hida",
+      "edition": "Author addendum dated 24 July 2022, one page",
+      "url": "https://www.math.ucla.edu/~hida/Addendam.pdf",
+      "sha256": "1eff02ca56c901d63612076b1a6e0116f83ee4d9c8b52f2c17b7798f7a440e25",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Whole one-page correction, including Lemma 0.2; inspected visually and tested on the coordinate-sum-zero counterexample. Its proposed repair is not accepted without further verification."
+      ]
+    },
+    {
+      "id": "hida07",
+      "title": "Non-vanishing modulo p of Hecke L-values and application",
+      "authors": "Haruzo Hida",
+      "edition": "LMS Lecture Note Series 320 (2007), 207–269; author copy",
+      "url": "https://www.math.ucla.edu/~hida/ELLC.pdf",
+      "sha256": "ca5b0161de89a28a448912db82bbd9c0b8226db494f1ac519c61be0b839ed113",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction pp.208–209; Theorem 5.1, pp.247–248; Corollary 5.6, p.263"
+      ]
+    },
+    {
+      "id": "hida07-correction",
+      "title": "Non-vanishing of integrals of a mod p modular form",
+      "authors": "Haruzo Hida",
+      "edition": "Author manuscript dated 27 March 2025; replacement proof of the 2007 application",
+      "url": "https://www.math.ucla.edu/~hida/EllrevF.pdf",
+      "sha256": "a41b6e91efff93dd7e21c774fb790efa19ca88db1667df291d463c0111f73980",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction pp.1–3; §6 introduction and assumptions, pp.33–35; Theorem 6.14 and Corollary 6.15, pp.42–43"
+      ]
+    },
+    {
+      "id": "bdp22",
+      "title": "On the failure of Gorensteinness at weight 1 Eisenstein points of the eigencurve",
+      "authors": "Adel Betina, Mladen Dimitrov, Alice Pozzi",
+      "edition": "arXiv:1804.00648v4, 3 May 2021; publication: American Journal of Mathematics 144 (2022), 227–265; locators refer to preprint",
+      "url": "https://arxiv.org/pdf/1804.00648v4",
+      "sha256": "a0a73bcb89b78eca706ddd287c97927b4bc076b431f6d2ff5939d24f333e10c2",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and Theorem A(i), Remark 0.1, pp.2–3; proof via Theorem 3.5, pp.20–21"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Ordinarity and local invariants at a good Eisenstein prime",
+      "kind": "lemma",
+      "statement": "Good reduction and a G_ℚ-stable line in E[p] imply ordinary reduction at p. Under CGS’s local exclusion both residual characters differ from 1 on G_p, so E(ℚ_p)[p]=0 and hence E(ℚ)[p]=0; for split p, E(K)[p]=0. In the Keller–Yin branch ordinarity still holds but this vanishing is not asserted.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed."
+      ],
+      "proofSteps": [
+        "Use the supersingular inertia description to exclude a residual one-dimensional G_p-subrepresentation; import the local representation classification.",
+        "Use φψ=ω. If either φ or ψ were trivial locally, φ would be 1 or ω. A local invariant vector would yield a trivial composition factor.",
+        "Restrict along K_v=ℚ_p to deduce E(K)[p]=0 only in the excluded-character case."
+      ],
+      "acceptance": [
+        "A rational p-torsion point has character 1 and fails the CGS exclusion even when reduction is good ordinary."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Introduction, p.1; proof of Theorem 4.3.1, pp.19–20",
+          "match": "The residual local exclusions justify precisely the no-invariants hypotheses used in CGS; KY removes them by a different lattice argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/eisenstein-ordinary-local-exclusion"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Ordinary, Greenberg and unramified Eisenstein Selmer comparisons",
+      "kind": "comparison",
+      "statement": "Fix T, V=T⊗Frac(O), W=V/T and the ordinary line T⁺ at p. Compact induced coefficients carry Ψ; discrete induced coefficients carry Ψ⁻¹, and Pontryagin duality carries ι(γ)=γ⁻¹. The Greenberg condition used throughout CGS, CGLS and KY is relaxed at v and strict at v̄, with unramified conditions away from p. Ordinary–relaxed means ordinary at v and relaxed at v̄; the complementary ordinary–strict condition enters the dual sequence. KY also uses the unramified condition at v̄. For its chosen rank-two lattice the Greenberg/unramified restriction kernel is finite cyclic (Lemma 1.3.6), giving equal height-one characteristic ideals. No equality of finite control groups or Fitting ideals follows from this.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd."
+      ],
+      "proofSteps": [
+        "Instantiate SIC’s kernels and inverse limits with arithmetic Frobenius and the inverse tautological action.",
+        "Identify the finite restriction kernel from KY Lemma 1.3.6 and take the Pontryagin dual with the involution.",
+        "Use the source’s exact local conditions, not a name-based identification of different Selmer modules."
+      ],
+      "acceptance": [
+        "The strict/unrestricted places must not be interchanged without the induced conjugation/involution.",
+        "A finite Λ-module can have unit characteristic ideal and nonunit Fitting ideal."
+      ],
+      "prerequisites": [
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-6"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Definition 3.1.1 and equation (3.1), pp.11–12",
+          "match": "Defines the three distinct p-local structures and the compact/discrete coefficient actions."
+        },
+        {
+          "sourceId": "cgls",
+          "locator": "Definition 1.2.1, printed p.529",
+          "match": "Uses relaxation at v and the zero condition at v̄, with the same orientation as CGS."
+        },
+        {
+          "sourceId": "ky",
+          "locator": "Definition 1.2.1, p.13; Lemmas 1.3.5–1.3.6, pp.21–22",
+          "match": "The rank-two Greenberg/unramified comparison has the stated finite restriction kernel; this is different from the character calculation in Proposition 1.1.3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/eisenstein-selmer-normalization"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-primitive-euler-comparison",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Primitive and imprimitive Euler factors",
+      "kind": "comparison",
+      "statement": "Let Σ contain the bad primes, v,v̄,∞ and have all finite places split in K. Put S=Σ∖{v,v̄,∞}. For each w∈S define P_w(V,X)=det(1−Frob_w X|V_{I_w}) on inertia coinvariants. For the anticyclotomic branch evaluate it at ℓ⁻¹γ_w, and for CGS’s cyclotomic branch at ℓ⁻¹γ_w⁺, where ℓ is the prime below w and γ is the image of arithmetic Frobenius. The inverse tautological action on the induced coefficient module is separate. Under the stated cotorsion and surjectivity conditions, char X^S=char X·∏_{w∈S}(P_w), and analytic removal multiplies by the same finite factors. Thus μ and λ corrections are those of exactly S before cancellation. This node supplies the locally excluded CGS/CGLS branch.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "The actual Selmer dual under comparison is torsion. For CGS’s cyclotomic comparison E(K)[p]=0 and global-to-local surjectivity are verified as in Proposition 3.3.2; the local exclusion above supplies E(K)[p]=0."
+      ],
+      "proofSteps": [
+        "Apply SIC’s primitive/imprimitive exact sequence under the verified invariants and surjectivity conditions.",
+        "Identify the local quotient characteristic polynomial with CGS Proposition 3.3.2 for the cyclotomic branch, and CGLS §1.5/Theorem 1.5.1 for the anticyclotomic branch; add its μ,λ only after proving torsion.",
+        "Match CGS Definition 2.5.2 and CGLS §1.5, using inertia coinvariants and ℓ⁻¹γ_w; cancel the same nonzero finite Euler product in the domain."
+      ],
+      "acceptance": [
+        "No infinite sum over all w∤p or archimedean Euler factor enters the λ formula."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary",
+        "ModularIwasawaMainConjectures:L0/ordinary-selmer-dual",
+        "ModularIwasawaMainConjectures:L0/canonical-ordinary-padic-l-function",
+        "AutomorphicPadicLFunctions:L0/euler-factor-elements",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgls",
+          "locator": "Published §1.5, pp.537–538; Theorem 1.5.1",
+          "match": "Only the finite S-indexed sum is used; the extraction’s E18 correction is retained."
+        },
+        {
+          "sourceId": "cgs",
+          "locator": "Definition 2.5.2, p.10; Proposition 3.3.2 and Corollary 3.3.3, p.13",
+          "match": "The cyclotomic Euler comparison has actual cotorsion and residual-invariant hypotheses; Definition 2.5.2 fixes the coinvariant/Frobenius convention."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/finite-euler-factor-comparison"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "CGLS residual extension and algebraic Iwasawa invariants",
+      "kind": "theorem",
+      "statement": "Under the locally excluded CGS conditions the unrestricted-at-v, strict-at-v̄ anticyclotomic dual X_E is torsion, μ(X_E)=0 and λ(X_E)=λ(X_φ)+λ(X_ψ)+Σ_{w∈S}(λ(P_w(φ))+λ(P_w(ψ))−λ(P_w(E))). The proof uses the actual residual extension E[p], residual Selmer comparison, and no finite Λ-submodules; it does not replace E[p] by its semisimplification as a representation.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed."
+      ],
+      "proofSteps": [
+        "Use the long exact cohomology sequence of 0→𝔽_p(φ)→E[p]→𝔽_p(ψ)→0 and the source local surjectivity/invariant vanishings to obtain the residual Selmer exact sequence (CGLS Proposition 1.4.1).",
+        "Use the elliptic-unit main-conjecture input for character modules and their μ=0. Identify residual dimension with λ using Proposition 1.4.2 and Corollary 1.4.3, whose no-finite-submodule proof is an input to this identification.",
+        "Remove imprimitive factors using cgs-primitive-euler-comparison, retaining only S."
+      ],
+      "acceptance": [
+        "Splitting the residual representation without checking the connecting map is rejected."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity",
+        "RankZeroOneBSD:BSD.7a/cgs-primitive-euler-comparison",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "AutomorphicPadicLFunctions:L3/katz-hida-tilouine-tame",
+        "AutomorphicPadicLFunctions:L3/katz-functional-equation",
+        "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+        "AutomorphicPadicLFunctions:L3h/hida-katz-mu-vanishing",
+        "SelmerIwasawaCohomology:L3/selmer-no-pseudonull",
+        "CMAllPrimeMainConjectures:CZ.3"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgls",
+          "locator": "Theorem 1.5.1, printed p.538; character inputs in Theorem 1.2.2, pp.531–532",
+          "match": "The theorem asserts cotorsion, μ=0 and the finite corrected λ formula."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/cgls-residual-character-comparison"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Kriz congruence and analytic Iwasawa invariants",
+      "kind": "theorem",
+      "statement": "For the ordinary weight-two newform f_E with reducible residual representation, compare its p-depleted q-expansion at CM points with the Eisenstein series attached to the residual characters. With the source’s integral periods and Euler factors, its anticyclotomic BDP function has μ=0 and λ(L_E)=λ(L_φ)+λ(L_ψ)+Σ_{w∈S}(λ(P_w(φ))+λ(P_w(ψ))−λ(P_w(E))). In KY’s local 1/ω case the analytic ordering of characters is relabelled so the first is unramified at p; it need not equal the ordering of the nonsplit lattice.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "Label the analytic characters with p∤cond(φ), as required by KY Theorem 2.2.2. This analytic ordering need not equal the chosen residual-lattice ordering."
+      ],
+      "proofSteps": [
+        "Apply CGLS Theorem 2.2.1/Kriz’s congruence to the p-depleted forms, including integral CM evaluation and the unit periods; KY Theorem 2.2.1 proves that p-depletion kills the otherwise unmatched constant term.",
+        "Factor the Eisenstein CM values into the two Katz character functions and the finite S Euler products of KY §2.2/CGLS §2.2, with P_w evaluated at ℓ⁻¹γ_w. This analytic calculation uses the interpolation/Euler-factor dictionary, not the narrower algebraic CGS surjectivity theorem.",
+        "Use the imported Hida Katz μ theorem under its exact hypotheses, then apply CGLS Theorem 2.2.2 or KY Theorem 2.2.2."
+      ],
+      "acceptance": [
+        "A change of lattice ordering cannot silently change the analytic character convention."
+      ],
+      "prerequisites": [
+        "AutomorphicCongruences:L0",
+        "PadicFamilies:L0",
+        "AutomorphicPadicLFunctions:L3/katz-hida-tilouine-tame",
+        "AutomorphicPadicLFunctions:L3/katz-functional-equation",
+        "AutomorphicPadicLFunctions:L0/euler-factor-elements",
+        "AutomorphicPadicLFunctions:L3h/hida-katz-mu-vanishing",
+        "CMAllPrimeMainConjectures:CZ.3/katz-functional-equation-lambda",
+        "PadicFamilies:L0/katz-padic-modular-functions",
+        "PadicFamilies:L0/ordinary-eisenstein-family"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorems 2.2.1–2.2.2, pp.32–34; proof of Theorem 2.2.3, p.34",
+          "match": "The congruence is for actual forms and CM values, including the broader character case."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/kriz-eisenstein-congruence"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgls-algebraic-analytic-invariants",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "CGLS equality of anticyclotomic Iwasawa invariants",
+      "kind": "theorem",
+      "statement": "Under CGS conditions μ(X_E)=μ(L_E)=0 and λ(X_E)=λ(L_E), with the same primitive anticyclotomic Greenberg module and full central-value BDP normalization. This is an independent residual/congruence computation; it gives equality of characteristic ideals only when combined with a proved one-sided divisibility.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed."
+      ],
+      "proofSteps": [
+        "Use cgls-character-lambda-comparison and eisenstein-cm-value-congruence.",
+        "Import equality of the character-module and Katz-function characteristic ideals from the elliptic-unit supplier, including its exceptional character conventions.",
+        "Cancel precisely the matching finite Euler correction terms."
+      ],
+      "acceptance": [
+        "Equal μ and λ alone do not imply equal distinguished polynomials."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+        "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgls",
+          "locator": "Theorems 2.2.2–2.2.3, printed pp.543–544",
+          "match": "This invariant equality is independent of the Heegner-system divisibility."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/cgls-equal-iwasawa-invariants"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-uniform-twist-specialization",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Uniform near-trivial Kolyvagin bound",
+      "kind": "theorem",
+      "statement": "Under CGS’s ordinary Heegner setup and E(K)[p]=0, let R be the integers of a finite extension Φ/ℚ_p and α an anticyclotomic character with α≡1 modulo ϖ^m. There are constants M₀,C≥0 depending only on T_pE and rank_ℤp R, independent of m and α in this neighborhood, such that for m≥M₀ and an actual κ∈KS(T_pE⊗R(α),F_ord,L_E) with κ₁≠0: the compact Selmer group has R-rank one, H¹_F(K,A)≅Φ/R⊕M⊕M for a finite M, and length_R M≤length_R(H¹_F(K,T)/Rκ₁)+C.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "E(K)[p]=0; the propagated ordinary self-dual local conditions and CGS’s admissible Kolyvagin primes/ideals are used."
+      ],
+      "proofSteps": [
+        "Import ES.4/uniform-near-trivial-bound; this node supplies its weight-two arithmetic specialization and hypothesis verification, rather than a second general descent theorem.",
+        "Specialize the generic error-tolerant descent of ES.4 to CGS §6.2’s two-copy structure, keeping finite error constants.",
+        "Use the residual truncated comparison at level m and complex conjugation. CGS §6.3 chooses primes controlling two eigenspaces with the fixed restriction error C₁+C₂.",
+        "Follow §6.4’s two-step decrease of the largest elementary divisors; this is the new bounded-error argument, not the earlier bound whose error grows with m.",
+        "Pass to the finite and divisible parts with the same uniform C."
+      ],
+      "acceptance": [
+        "The constants remain fixed as m grows; replacing them with C(α)≥m fails the augmentation argument."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "EulerSystemsAndKolyvaginSystems:ES.4/uniform-near-trivial-bound"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Theorem 6.1.1 and §§6.2–6.4, pp.21–28",
+          "match": "Uniformity is the reason specialization can approach augmentation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Uniform Kolyvagin bound"
+      },
+      "refines": "RankZeroOneBSD:BSD.7a/uniform-near-trivial-kolyvagin-bound"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-augmentation-divisibility",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Heegner divisibility including augmentation",
+      "kind": "theorem",
+      "statement": "For the actual early HE.8 Λ-adic Heegner Kolyvagin system κ^Hg with κ₁≠0, under CGS conditions S_ord(K∞⁻) has Λ-rank one and X_ord(K∞⁻) is pseudo-isomorphic to Λ⊕M⊕M, with M torsion and char_Λ(M) dividing char_Λ(S_ord/Λκ₁) in Λ[1/p]. The height-one prime (γ−1) is included; the prime (p) is still not included by this assertion.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed."
+      ],
+      "proofSteps": [
+        "Import the actual Heegner classes, local conditions and nonzero bottom class from early HE.8, not an anticyclotomic equality.",
+        "Apply the existing weak torsion-localized bound away from augmentation.",
+        "Apply cgs-uniform-twist-specialization along characters approaching 1 to bound the augmentation length and remove its inversion (CGS Theorems 6.5.1–6.5.2)."
+      ],
+      "acceptance": [
+        "No inference about the p-height-one length is made from a rational divisibility."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgs-uniform-twist-specialization",
+        "HeegnerPointEulerSystems:HE.8/lambda-heegner-derivative-class",
+        "HeegnerPointEulerSystems:HE.8/lambda-heegner-local-conditions",
+        "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+        "HeegnerPointEulerSystems:HE.8/weak-torsion-localized-divisibility",
+        "EulerSystemsAndKolyvaginSystems:ES.8/augmentation-prime-divisibility",
+        "HeegnerPointEulerSystems:HE.8/lambda-finite-singular-relation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Theorems 6.5.1–6.5.2, p.28",
+          "match": "The new argument includes augmentation but the theorem still states Λ[1/p]."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/augmentation-inclusive-heegner-divisibility"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Heegner index and BDP ideal comparison",
+      "kind": "comparison",
+      "statement": "For the actual ordinary Heegner class and propagated local conditions, the strict/relaxed Poitou–Tate sequence and integral logarithm reciprocity relate each direction of the Heegner index-square containment to the corresponding Greenberg/BDP containment. Over Λ[1/p] this is the CGLS Proposition 4.2.1 comparison. An integral version must retain the logarithm cokernel, finite local terms, isogeny indices, the involution and both lattice normalizations. The full central-value BDP function B already contains a square; the index is squared once. KY’s geometric-to-chosen lattice transfer and the p^{t+N} of its printed equivalence are recorded separately; no integral two-way equivalence for the unscaled line is assumed.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "Use either CGS no-invariants data or the chosen KY residual-invariant-free lattice, and the actual rank-one compact Selmer group."
+      ],
+      "proofSteps": [
+        "Use SIC’s strict/relaxed Poitou–Tate sequence and GZ.9’s actual Heegner logarithm formula with its Euler factor and isogeny/differential compatibility.",
+        "Within a fixed coefficient lattice identify κ∞ and κ₁ as generators of the same Λ-submodule as in CGLS Remark 4.1.3. Separately compare the geometric and chosen KY lattices through their actual maps: the fixed p^{t+N} contribution is not a unit change of generator of an integral Λ-line.",
+        "Take characteristic ideals in the correct unramified coefficient extension, track involution and the square, and record both implication directions separately."
+      ],
+      "acceptance": [
+        "A square-root BDP measure is not substituted for the squared L_E in the Greenberg equality."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+        "GrossZagierAndArithmeticHeights:GZ.9/bdp-weight-two-heegner-formula",
+        "GrossZagierAndArithmeticHeights:GZ.9/isogeny-and-differential-compatibility",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "ModularIwasawaMainConjectures:L0/ordinary-selmer-dual",
+        "ModularIwasawaMainConjectures:L0/canonical-ordinary-padic-l-function",
+        "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+        "HeegnerPointEulerSystems:HE.8/howard-stabilization-unit-comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgls",
+          "locator": "Proposition 4.2.1, printed p.569; Remark 4.1.3, pp.568–569",
+          "match": "Relates the two characteristic-ideal divisibilities and the actual Heegner line."
+        },
+        {
+          "sourceId": "cgs",
+          "locator": "Theorem 6.5.3 and Corollary 6.5.4, p.29",
+          "match": "Uses the comparison to pass between the integral Greenberg equality and the asserted Heegner equality."
+        },
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 3.0.8 and its proof, pp.39–40",
+          "match": "Tracks fixed p-power terms and distinct coefficient-ring labels."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/heegner-reciprocity-ideal-comparison"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-integral-greenberg-equality",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "CGS anticyclotomic Greenberg main conjecture",
+      "kind": "theorem",
+      "statement": "Under CGS conditions X_Gr(E/K∞⁻) is Λ-torsion and char_Λ X_Gr extended to Λ^ur equals the principal ideal of L_p^BDP(f_E/K) in the source’s full central-value normalization. The conclusion has no (Sel) corank-one assumption and is integral, including augmentation and the p-height-one prime.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed."
+      ],
+      "proofSteps": [
+        "Translate cgs-augmentation-divisibility to a one-sided Greenberg/BDP divisibility via heegner-greenberg-ideal-equivalence.",
+        "Use cgls-algebraic-analytic-invariants: μ=0 removes the remaining p-power ambiguity, and equality of λ makes the integral quotient a unit.",
+        "Conclude both ideal containments; this removes the earlier CGLS (Sel) restriction by the uniform bound."
+      ],
+      "acceptance": [
+        "The CGLS prototype alone cannot supply this unconditional-in-(Sel) equality."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgs-augmentation-divisibility",
+        "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence",
+        "RankZeroOneBSD:BSD.7a/cgls-algebraic-analytic-invariants"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Theorem 6.5.3, p.29; compare CGLS Theorem 4.2.2",
+          "match": "The improved proof removes (Sel), not the residual local exclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Eisenstein anticyclotomic main conjecture"
+      },
+      "refines": "RankZeroOneBSD:BSD.7a/cgs-anticyclotomic-main-conjecture"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-integral-heegner-equality-target",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "CGS Heegner index-square equality",
+      "kind": "theorem",
+      "statement": "Under CGS conditions the compact and dual ordinary anticyclotomic Selmer groups have Λ-rank one and char_Λ(X_tors)=char_Λ(S/Λκ∞)^2 integrally. The class is the actual geometric early HE.8 class, with its source lattice; κ∞ is not defined by this equality.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed."
+      ],
+      "proofSteps": [
+        "CGS Corollary 6.5.4 states the integral equality. First obtain the two-way comparison and the index-square equality over Λ[1/p] from the Greenberg equality and actual logarithm reciprocity.",
+        "To export the integral statement, prove the coefficient-prime part of the two-way comparison for the unscaled geometric Heegner line. The source refers back to CGLS in one sentence; μ(X_Gr)=0 alone does not compute μ(S/Λκ∞). This exact step is recorded as a gap, rather than inferred by deleting p-power factors."
+      ],
+      "acceptance": [
+        "Its exact characteristic equality includes the p-height-one prime."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgs-integral-greenberg-equality",
+        "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Corollary 6.5.4, p.29",
+          "match": "This is an output of BSD.7a for HE.8b and MIMC L6, never an input from them."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/cgs-heegner-index-square-equality"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-local-invariants-dictionary",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin local character cohomology",
+      "kind": "theorem",
+      "statement": "For KY’s induced discrete character module M_θ over the anticyclotomic Λ=O⟦Γ⟧, the local unramified restriction kernel at a p-place w is O-cofree of rank one when θ|G_w=1. Its dual has Λ-rank zero, rather than being Λ-free of rank one. For θ|G_w=ω the restriction kernel is zero; H¹(K_w,M_θ)^∨ has Λ-rank one, projective dimension at most one, two generators and no nonzero finite Λ-submodule. It is not Λ-free. For the global character Selmer dual X_θ, finite Λ-submodules may occur when θ|G_K=ω; this does not contradict the local assertion. Residual-to-p-torsion comparison uses the source’s actual diagrams.",
+      "hypotheses": [
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "θ is one of the finite-order residual character lifts used in KY §1.1; the full induced module and inverse tautological action are used."
+      ],
+      "proofSteps": [
+        "Apply local inflation–restriction and duality with the decomposed p-place; compute invariants case by case (KY Proposition 1.1.3).",
+        "Use the finite cyclic restriction kernel calculation and the residual diagrams of §1.2 instead of the earlier no-invariants/free-local-module shortcut.",
+        "Carry these kernels to the global-to-local comparison and retain the finite-submodule errors."
+      ],
+      "acceptance": [
+        "Rank one plus projective dimension at most one is insufficient to replace a two-generator module by Λ."
+      ],
+      "prerequisites": [
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "ArithmeticGaloisDuality:R02.4/poitou-tate",
+        "ArithmeticGaloisDuality:R02.4/lattice-rational-poitou-tate",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-6"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Proposition 1.1.3, pp.10–13; Lemma 1.2.4, pp.15–16; Theorem 1.2.5, pp.16–18",
+          "match": "These are the separate trivial and cyclotomic local cases absent from the CGS branch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-local-character-corrections"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin nonsplit residual lattice",
+      "kind": "theorem",
+      "statement": "For KY’s ordinary Eisenstein weight-two representation V, choose a stable lattice T with nonsplit residual extension 0→𝔽_p(φ)→T/pT→𝔽_p(ψ)→0 and H⁰(K,T/pT)=0. In the local 1/ω case orient it with φ|G_p=ω and ψ|G_p=1, while φ|G_K may equal ω. The chosen lattice need not be T_p of the original E. For an elliptic curve realize it by an isogenous curve and retain the source’s p-power index between lattices.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "Use Ribet’s lattice lemma for the irreducible characteristic-zero representation; do not require E[p] irreducible."
+      ],
+      "proofSteps": [
+        "Apply KY Proposition 1.3.1 (Ribet lattice) with the ordinary local orientation.",
+        "Verify that the nonsplit extension has no invariant vector even when its quotient is trivial.",
+        "Use elliptic Tate-module/isogeny correspondence to relate the chosen lattice to the original curve; preserve the finite p-power quotient and induced Selmer maps."
+      ],
+      "acceptance": [
+        "A curve with rational p-torsion can use the theorem after lattice/isogeny comparison; it cannot be declared residual-invariant-free itself."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "RankZeroOneBSD:BSD.7a/ky-local-invariants-dictionary",
+        "ArithmeticGaloisRepresentations:R01.1/ribet-nonsplit-lattice"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Proposition 1.3.1, p.18; §1.4, pp.23–24; Remark 3.0.9, p.40",
+          "match": "Vanishing is obtained on a chosen nonsplit lattice, not assumed for every isogenous curve."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-ribet-lattice"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin trivial-character augmentation correction",
+      "kind": "comparison",
+      "statement": "For the character Iwasawa modules in KY, μ(X_θ)=0. For θ|G_K≠1, char X_θ=(L_θ); in the trivial character case char X_1=(T·L_1), where T=γ−1. Consequently λ(X_1)=λ(L_1)+1. No p∤h_K, nonanomalous-prime, or p>3 hypothesis is added: the requisite Rubin/de Shalit specialization must provide precisely this version.",
+      "hypotheses": [
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "Use the full character modules and period-normalized Katz functions of KY Theorem 1.2.2."
+      ],
+      "proofSteps": [
+        "Import Rubin’s elliptic-unit comparison and Hida’s μ theorem from the existing CMAllPrimeMainConjectures owner.",
+        "Retain the trivial-isotypic global unit/augmentation term in de Shalit III.1.10/Yager’s specialization, rather than applying the nontrivial character formula unchanged.",
+        "Read μ and λ from the factor T and the nonzero character function."
+      ],
+      "acceptance": [
+        "The λ correction is one, whereas multiplication by T does not change μ."
+      ],
+      "prerequisites": [
+        "AutomorphicPadicLFunctions:L3/katz-hida-tilouine-tame",
+        "AutomorphicPadicLFunctions:L3/katz-functional-equation",
+        "ModularIwasawaMainConjectures:L0/ordinary-selmer-dual",
+        "ModularIwasawaMainConjectures:L0/canonical-ordinary-padic-l-function",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+        "AutomorphicPadicLFunctions:L3h/hida-katz-mu-vanishing",
+        "CMAllPrimeMainConjectures:CZ.3"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 1.2.2, p.14; proof of Theorem 2.2.3 and Remark 2.2.4, p.34",
+          "match": "The extra augmentation accounts for the global trivial-character λ correction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-trivial-character-main-conjecture"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-imprimitive-extension-sequence",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin imprimitive residual Selmer comparison",
+      "kind": "theorem",
+      "statement": "For the chosen invariant-free nonsplit weight-two lattice with residual subcharacter φ|G_p=ω and quotient ψ|G_p=1, let X_f^S, X_φ^S and X_ψ^S be the actual S-imprimitive unramified Selmer duals over Λ=O⟦Γ⟧. Both X_f^S and X_f are torsion with μ=0. If φ|G_K≠ω, λ(X_f^S)=λ(X_φ^S)+λ(X_ψ^S). If φ|G_K=ω (hence ψ|G_K=1), λ(X_f^S)+1=λ(X_φ^S)+λ(X_ψ^S). This is an imprimitive comparison; removing S is a separate theorem.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "The lattice is the actual nonsplit lattice of ky-invariant-free-lattice, with H⁰(K,M_f)=0. Σ contains v,v̄,∞ and every ramified place; its finite places split in K, and S=Σ∖{v,v̄,∞}. Character Selmer groups use KY’s same unramified normalization."
+      ],
+      "proofSteps": [
+        "Use the residual sequence 0→M_φ[p]→M_f[p]→M_ψ[p]→0 and the Greenberg/unramified restriction diagrams of KY §1.4. Character residual Selmer finiteness, together with the finite restriction kernel, implies X_f^S and X_f are Λ-torsion with μ=0.",
+        "Apply the five-term Perrin–Riou comparison with the actual finite kernels and coinvariants, as in Theorem 1.4.1 and its Lemmas 1.4.3–1.4.4. Distinguish globally trivial ψ: the one-dimensional correction remains even though finite modules have unit characteristic ideal."
+      ],
+      "acceptance": [
+        "The globally trivial quotient contributes +1 on the left; no λ=dim(X/p) shortcut suppresses finite-submodule terms."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+        "RankZeroOneBSD:BSD.7a/ky-local-invariants-dictionary",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization",
+        "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "§1.4, Theorem 1.4.1 and its proof, pp.23–31; Lemmas 1.4.3–1.4.4",
+          "match": "Separates the imprimitive residual-extension theorem from primitive Euler removal and retains the globally trivial +1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-imprimitive-residual-comparison"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-primitive-euler-comparison",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin finite Euler comparison",
+      "kind": "comparison",
+      "statement": "On KY’s chosen invariant-free lattice, and on its two character modules, the primitive and S-imprimitive unramified Selmer duals fit into 0→⊕_{w∈S}H¹(K_w,M_?)^∨→X_?^S→X_?→0. For ?=f,φ,ψ, define P_w(?)=det(1−Frob_w X|V_{?,I_w}) evaluated at X=ℓ⁻¹γ_w, where ℓ is the rational prime below w and γ_w is arithmetic Frobenius in Γ. Thus char(X_?^S)=char(X_?)·∏_{w∈S}(P_w(?)) and λ(X_?^S)=λ(X_?)+Σ_{w∈S}λ(P_w(?)). Inertia coinvariants and this Frobenius evaluation are fixed; the inverse tautological action on the induced coefficient module is a separate convention.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "Use the chosen invariant-free lattice with φ|G_p=ω and ψ|G_p=1. Σ and finite S are as in ky-imprimitive-extension-sequence. Every module uses KY’s unramified local condition, and each global-to-local map is proved surjective; cotorsion is supplied by the imprimitive residual and character theorems."
+      ],
+      "proofSteps": [
+        "For characters use KY Theorem 1.2.2 and Remark 1.2.3(ii) to prove surjectivity, retaining the corrected anticyclotomic/cyclotomic disjointness argument. For f use Remark 1.4.2: cotorsion from Theorem 1.4.1, Cartier-dual finite invariants, and the local coranks of Lemmas 1.3.5–1.3.6.",
+        "Dualize the primitive/imprimitive exact sequence. Compute local characteristic ideals using KY Lemma 1.1.1 and §1.5; KY Theorem 1.5.1 explicitly invokes the CGLS Theorem 1.5.1 proof after supplying these broader surjectivity hypotheses. Multiply only the finite S factors and then take μ,λ."
+      ],
+      "acceptance": [
+        "Neither E(K)[p]=0 on the original geometric Tate module nor the CGS local character exclusion is inserted into this broader chosen-lattice branch.",
+        "Do not infer finite-level control from height-one Euler-factor equality."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-imprimitive-extension-sequence",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization",
+        "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "AutomorphicPadicLFunctions:L0/euler-factor-elements",
+        "ArithmeticGaloisRepresentations:R01.1/ribet-nonsplit-lattice"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Lemma 1.1.1; Remark 1.2.3(ii), pp.14–15; Remark 1.4.2, p.25; §1.5 and Theorem 1.5.1, p.31",
+          "match": "The broader primitive comparison is justified by KY’s own cotorsion and global-to-local surjectivity, rather than by importing the locally excluded CGS branch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-finite-euler-factor-comparison"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-primitive-lambda-correction",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin residual extension and corrected lambda formula",
+      "kind": "theorem",
+      "statement": "For KY’s chosen nonsplit lattice with φ|G_p=ω, the primitive X_f is torsion with μ=0. If φ|G_K≠ω, λ(X_f)=λ(X_φ)+λ(X_ψ)+Σ_{w∈S}(λ(P_w(φ))+λ(P_w(ψ))−λ(P_w(f))). If φ|G_K=ω (so ψ|G_K=1), the left side is λ(X_f)+1. The same +1 occurs in the imprimitive relation λ(X_f^S)+1=λ(X_φ^S)+λ(X_ψ^S). S is finite and excludes v,v̄,∞.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "The chosen lattice is as in ky-invariant-free-lattice; the generic non-1/ω case is supplied by the CGLS comparison."
+      ],
+      "proofSteps": [
+        "Import the separate KY imprimitive residual comparison, including cotorsion, μ=0 and its globally trivial +1.",
+        "Apply the KY finite Euler comparison to f,φ,ψ under its chosen-lattice surjectivity hypotheses. Subtract the same finite S Euler λ terms.",
+        "Keep the +1 when φ|G_K=ω; it is cancelled only after importing the corresponding character main-conjecture correction in the subsequent algebraic/analytic comparison."
+      ],
+      "acceptance": [
+        "When ψ is globally trivial the uncorrected sum of λ invariants is off by one."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-imprimitive-extension-sequence",
+        "RankZeroOneBSD:BSD.7a/ky-primitive-euler-comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 1.4.1, pp.24–25, proof pp.25–31; Theorem 1.5.1, p.31",
+          "match": "The +1 is not suppressed by the fact that finite modules have unit characteristic ideal."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-residual-extension-lambda"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-algebraic-analytic-invariants",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin equality of analytic and algebraic invariants",
+      "kind": "theorem",
+      "statement": "For every good ordinary weight-two Eisenstein form in KY’s setting, μ(X_f)=μ(L_f)=0 and λ(X_f)=λ(L_f). In the globally trivial-character case the algebraic +1 in ky-primitive-lambda-correction cancels the character main conjecture’s λ(X_1)=λ(L_1)+1. The result is not obtained by imposing the CGS local exclusion.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd."
+      ],
+      "proofSteps": [
+        "Split the local cases. When both characters at G_p differ from 1 and ω, import cgls-algebraic-analytic-invariants. In the local 1/ω case use ky-primitive-lambda-correction on the chosen lattice and eisenstein-cm-value-congruence with its analytic relabelling.",
+        "Use ky-exceptional-character-specialization for the globally trivial constituent and the nontrivial character formulas for the others.",
+        "Cancel the same finite S factors and the explicit augmentation correction."
+      ],
+      "acceptance": [
+        "The correction survives even though finite global torsion does not change a characteristic ideal."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-primitive-lambda-correction",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization",
+        "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+        "RankZeroOneBSD:BSD.7a/cgls-algebraic-analytic-invariants"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 2.2.3, pp.33–34; Remark 2.2.4, p.34",
+          "match": "The equality uses the exceptional character formula, not only the CGLS argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-equal-iwasawa-invariants"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin integral Kolyvagin divisibility and lattice transfer",
+      "kind": "theorem",
+      "statement": "Target of KY Theorem 3.0.5: on the invariant-free chosen lattice, an actual Λ-adic Kolyvagin system with nontorsion bottom gives rank-one compact and dual ordinary Selmer modules, X∼Λ⊕M⊕M, and char(M) dividing char(S/Λκ₁) at every height-one prime, including (ϖ). ES.8/augmentation-prime-divisibility already owns the general specialization argument and marks its coefficient-prime branch conditional. The arithmetic adapter must supply an error bound uniform under the coefficient-prime specializations, or a separate μ comparison. Until that contract is verified only the Λ[1/p] bound is an established input to this plan. KY Theorem 3.0.6 additionally transfers the canonical geometric system: p^N bounds restriction descent, p^t kills a local trace cokernel, and p^m maps the canonical lattice into its intersection with the chosen lattice. None of these fixed exponents is silently zero.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "The chosen lattice has H⁰(K,T/pT)=0 and the actual transferred Heegner system has nonzero initial class."
+      ],
+      "proofSteps": [
+        "Import the generic uniform bound from ES.4/uniform-near-trivial-bound and the augmentation-inclusive Λ[1/p] theorem from ES.8/augmentation-prime-divisibility. Verify the invariant-free lattice, self-duality, ordinary local conditions and actual Kolyvagin system.",
+        "For the stronger integral target, discharge the supplier’s conditional (ϖ) specialization using a quantified error estimate valid as ramification grows, or an independent coefficient-prime μ comparison. KY p.37 cites Howard for this step; the present audit does not treat that citation as the missing estimate.",
+        "For the geometric system use the bounded restriction kernel/cokernel and local trace argument of KY Theorem 3.0.6, pp.37–39; retain N,t,m through the induced Selmer maps. The p^{t+N} in Theorem 3.0.8 is the source’s additional comparison factor, not a proof that the separate lattice inclusion is a unit."
+      ],
+      "acceptance": [
+        "The older HE weak divisibility after inverting p is not a substitute for this integral assertion."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+        "RankZeroOneBSD:BSD.7a/ky-uniform-twist-specialization",
+        "HeegnerPointEulerSystems:HE.8/lambda-heegner-derivative-class",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "EulerSystemsAndKolyvaginSystems:ES.8/augmentation-prime-divisibility",
+        "EulerSystemsAndKolyvaginSystems:ES.4/uniform-near-trivial-bound",
+        "HeegnerPointEulerSystems:HE.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorems 3.0.2 and 3.0.5–3.0.6, pp.35–39",
+          "match": "States the uniform and integral bounds and constructs a system despite local torsion; the integral specialization is kept as a precise verification obligation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-integral-kolyvagin-bound"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-integral-greenberg-equality",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin anticyclotomic Greenberg main conjecture",
+      "kind": "theorem",
+      "statement": "For KY’s weight-two good Eisenstein setup, the unramified Selmer dual X_f (and height-one-equivalent Greenberg dual) is Λ-torsion and char_Λ(X_f)Λ^nr=(L_f). First prove this on the chosen invariant-free lattice, then transfer to the original elliptic curve as in Remark 3.0.9. Local rational p-torsion is allowed. The equality is integral, and no unproved general finite-submodule vanishing is asserted.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd."
+      ],
+      "proofSteps": [
+        "Use the verified rational augmentation-inclusive bound for the transferred actual system and the rational Heegner/Greenberg comparison. The stronger coefficient-prime Kolyvagin target is unnecessary for this route.",
+        "Normalize both integral Greenberg and BDP generators by the independently computed μ=0 and equal λ invariants. A rational containment, or the printed containment with fixed p-power, then gives an integral containment between their distinguished parts; equal λ forces the quotient to be a unit.",
+        "Transfer through the actual lattice/isogeny maps of KY Remark 3.0.9 and compare the finite Greenberg/unramified restriction kernel. This extension must be verified for the original curve; no vanishing of its rational p-torsion is imposed."
+      ],
+      "acceptance": [
+        "A rational p-torsion original curve is accepted only with the proved transfer maps."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target",
+        "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence",
+        "RankZeroOneBSD:BSD.7a/ky-algebraic-analytic-invariants",
+        "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 3.0.8 (IMC2) and Remark 3.0.9, pp.39–40",
+          "match": "The result is the integral BDP/Greenberg equality in completed unramified coefficients."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Keller–Yin anticyclotomic main conjecture"
+      },
+      "refines": "RankZeroOneBSD:BSD.7a/ky-anticyclotomic-greenberg-equality"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-rational-heegner-equality",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin Heegner index-square equality",
+      "kind": "theorem",
+      "statement": "In the same KY setup the compact and dual ordinary Selmer groups have Λ-rank one and char_Λ(X_tors)=char_Λ(S/Λκ∞)^2 in the coefficient ring labelled Λ^ac in §3.0.8, with κ∞ the transferred actual Heegner class. Theorem B in the Introduction instead states Λ; record this internal ring discrepancy and require an integral two-way class/lattice comparison before exporting the stronger integral statement. The weaker rationalized index-square equality is retained; the integral Greenberg IMC2 is a separate output.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd."
+      ],
+      "proofSteps": [
+        "Use ky-integral-greenberg-equality and the reverse implication of heegner-greenberg-ideal-equivalence.",
+        "Return through the explicit lattice maps in the coefficient ring of the proved two-way comparison. Resolve the Theorem B/§3.0.8 ring discrepancy through the stated integral comparison gap."
+      ],
+      "acceptance": [
+        "The characteristic equality refers to the actual κ∞ line and retains the coefficient ring of the verified comparison."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-integral-greenberg-equality",
+        "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Introduction Theorem B, p.5; Theorem 3.0.8 (IMC1), p.40",
+          "match": "This is a BSD.7a output for the downstream HE.8b application."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-heegner-index-square-equality"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Distinguished Wüthrich lattice and integral Kato input adapter",
+      "kind": "comparison",
+      "statement": "For an elliptic curve E/ℚ and an odd good ordinary Eisenstein p, use Wüthrich’s distinguished E_• in its isogeny class: T_f=T_pE_• and the lattice of all modular symbols agrees with its Néron lattice after tensoring with ℤ_p. The cyclic X₁(N)-optimal quotient isogeny is étale. Kato’s z₀ is integral in H¹_Iw(T_pE_•) even in the nonfree maximal-ideal case, L_p^MSD(E) is integral, and char X_ord(E/ℚ∞) divides (L_p^MSD(E)) as integral ideals. The supplier is the requested Wüthrich addition to Kato L4, with Ferrero–Washington; Kato’s existing rational node is insufficient.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed."
+      ],
+      "proofSteps": [
+        "Import Wüthrich Theorem 4 and Proposition 8 for E_• and the actual lattice, valid at odd primes where reduction at that prime is semistable (not a global semistability hypothesis).",
+        "Import Theorem 13’s integral z₀ including the rational-torsion/nonfree case, and Theorem 16’s integral divisibility with Lemma 17’s isogeny comparison.",
+        "Apply Corollary 18 at good ordinary p. Record the split-multiplicative augmentation factor separately; it supplies no bad-prime BSD claim here."
+      ],
+      "acceptance": [
+        "The assumptions concern reduction at p. Additive reduction elsewhere does not disqualify the input.",
+        "For split multiplicative p the extra augmentation I is retained, without inferring a BSD formula."
+      ],
+      "prerequisites": [
+        "KatoEulerSystems:L4",
+        "IntegralIwasawaTheory:L4/fw-analytic-mu-zero",
+        "IntegralIwasawaTheory:L4/fw-arithmetic-mu-zero",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "KatoEulerSystems:L4/ordinary-selmer-divisibility",
+        "ModularSymbolsPadicLFunctions:L1"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "wuthrich",
+          "locator": "Theorem 4, p.384; Proposition 8, pp.388–389; Theorem 13, p.395; Theorem 16, p.397; Lemma 17 and Corollary 18, p.398",
+          "match": "The required containment is integral at the coefficient prime, including reducible representations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/distinguished-lattice-integral-input"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Integral Rankin functions and specialization normalization",
+      "kind": "comparison",
+      "statement": "Compare CGS’s actual two-variable Perrin–Riou Rankin function L_PR and Greenberg function L_Gr to the imported p-adic functions. Normalize L_PR with (deg π/c_π²)H_p(f), H_p(f)=(1−p/α_p²)(1−1/α_p²), and L_Gr with h_K times the anticyclotomic Katz factor. Cyclotomic projection of L_PR has ideal equal to the product of the Néron-period MSD functions of E and E^K; anticyclotomic projection of L_Gr has ideal equal to the full central-value BDP function. The CM-family congruence ideal and h_K factor must be supplied integrally, with Hida–Tilouine/Rubin input, rather than assumed units.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "α_p is the ordinary unit root; the modular parametrization and Néron differential are fixed."
+      ],
+      "proofSteps": [
+        "Import the actual Rankin interpolation from ModularSymbols/AutomorphicPadicLFunctions and the CM Hida family/congruence module from PadicFamilies.",
+        "Apply CGS Definitions 2.2.2 and 2.4.3 and Lemma 2.4.4, retaining deg π, the Manin constant, h_K and the Katz congruence factor.",
+        "Verify Propositions 2.2.4 and 2.4.5 with the same integral periods and full central-value BDP convention."
+      ],
+      "acceptance": [
+        "No condition p∤h_K is inserted to bypass the integral congruence argument."
+      ],
+      "prerequisites": [
+        "AutomorphicPadicLFunctions:L3/katz-hida-tilouine-tame",
+        "AutomorphicPadicLFunctions:L3/katz-functional-equation",
+        "PadicFamilies:L0",
+        "PadicFamilies:L1/congruence-module",
+        "PadicFamilies:L1/congruence-ideal",
+        "AutomorphicCongruences:L0",
+        "ModularSymbolsPadicLFunctions:L2/p-stabilisation",
+        "ModularSymbolsPadicLFunctions:L2/ordinary-integral-measure",
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "GrossZagierAndArithmeticHeights:GZ.9/bdp-weight-two-heegner-formula",
+        "ModularSymbolsPadicLFunctions:L1/integral-period-lattices",
+        "PadicFamilies:L0/ordinary-eisenstein-family",
+        "PadicFamilies:L0/arithmetic-specialization",
+        "AutomorphicPadicLFunctions:L3/cm-periods",
+        "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Definitions 2.2.2 and 2.4.3, pp.7,9; Lemma 2.4.4, pp.9–10; Propositions 2.2.4 and 2.4.5, pp.8,10",
+          "match": "The Katz/CM congruence input removes a genuine integral denominator, not just a rational scalar."
+        },
+        {
+          "sourceId": "ht94",
+          "locator": "Theorem 0.3, printed pp.91–92; statement only inspected",
+          "match": "CGS Lemma 2.4.4 uses this comparison and Rubin to bound its cuspidal congruence ideal."
+        },
+        {
+          "sourceId": "bdp22",
+          "locator": "Theorem A(i) and Remark 0.1, p.3; Theorem 3.5, pp.20–21",
+          "match": "The p-irregular quadratic weight-one point has a unique cuspidal family; its congruence series does not vanish at augmentation."
+        },
+        {
+          "sourceId": "hida07",
+          "locator": "Corollary 5.6, printed p.263",
+          "match": "CGS Corollary 4.1.3 invokes this reverse divisibility; the author has corrected its proof."
+        },
+        {
+          "sourceId": "hida07-correction",
+          "locator": "Introduction pp.1–3; §6.1 pp.34–35; Theorem 6.14 and Corollary 6.15, pp.42–43",
+          "match": "Provides a replacement congruence-divisibility proof with the class-number factor, while §6.1 retains a local nontriviality assumption whose irregular specialization must be justified."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/integral-two-variable-functions"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Integral Eisenstein specialization of Beilinson–Flach classes",
+      "kind": "construction",
+      "statement": "Construct the actual CGS class BF_α in H¹_ord,rel(K,T_f(α) completed-tensor Λ_K) by specializing the imported KLZ classes to the CM family. Use T_f=T_pE_• and the raw fractional-ideal Coleman maps of Theorem 4.1.1. Rescaling gives the two reciprocity image identities for L_PR and L_Gr, but compute the normalized height-one cokernels explicitly: the PR pseudo-null claim of Corollary 4.1.3 is incompatible with its stated raw map and H_p(f) scalar when H_p(f) is a nonunit (E13). After inverting p the scalar causes no discrepancy. Neither BF nor a map is defined by assigning its predicted image.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "Use Wüthrich’s distinguished quotient lattice and the actual CM Hida family, embeddings, coefficient extension and periods of CGS §§2.2–2.4 and §4.1. The KY local 1/ω extension is an additional verification target, not a hypothesis-free application."
+      ],
+      "proofSteps": [
+        "Specialize the actual KLZ classes owned by AutomorphicCongruences L2 through Shapiro and the CM family. Retain the fixed coefficient-lattice factor ϖ^r and auxiliary norm-relation factors. The existing supplier records an unread-KLZ gap; importing its node does not discharge that gap.",
+        "Apply CGS Theorem 4.1.1 for both explicit reciprocity laws on I_f and I_g^cusp, including injectivity and pseudo-null cokernel.",
+        "Use deg(π_•)I_f=ℤ_p, the integral de Rham comparison and the exact CM congruence ideal to rescale the image identities. Compute the normalized cokernel divisor rather than infer pseudo-nullity after multiplication by a nonunit; resolve E13 before an integral equivalence is used."
+      ],
+      "acceptance": [
+        "Both reciprocity images are checked on the same actual class and lattice, before any characteristic equality."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+        "PadicHodgeRegulators:L3",
+        "PadicFamilies:L1/congruence-module",
+        "PadicFamilies:L1/congruence-ideal",
+        "ArithmeticGaloisDuality:R02.1/completed-tensor-comparison",
+        "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "AutomorphicCongruences:L2/klz-beilinson-flach-classes",
+        "AutomorphicCongruences:L2/bf-explicit-reciprocity",
+        "PadicFamilies:L4/family-big-logarithm",
+        "AutomorphicCongruences:L0",
+        "ModularSymbolsPadicLFunctions:L1"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Theorem 4.1.1, Lemma 4.1.2, Corollary 4.1.3, pp.17–18",
+          "match": "Both maps and their actual common class carry the integral normalization used by the main-conjecture comparison."
+        },
+        {
+          "sourceId": "ht94",
+          "locator": "Theorem 0.3, printed pp.91–92; statement only inspected",
+          "match": "CGS Lemma 2.4.4 uses this comparison and Rubin to bound its cuspidal congruence ideal."
+        },
+        {
+          "sourceId": "bdp22",
+          "locator": "Theorem A(i) and Remark 0.1, p.3; Theorem 3.5, pp.20–21",
+          "match": "The p-irregular quadratic weight-one point has a unique cuspidal family; its congruence series does not vanish at augmentation."
+        },
+        {
+          "sourceId": "hida07",
+          "locator": "Corollary 5.6, printed p.263",
+          "match": "CGS Corollary 4.1.3 invokes this reverse divisibility; the author has corrected its proof."
+        },
+        {
+          "sourceId": "hida07-correction",
+          "locator": "Introduction pp.1–3; §6.1 pp.34–35; Theorem 6.14 and Corollary 6.15, pp.42–43",
+          "match": "Provides a replacement congruence-divisibility proof with the class-number factor, while §6.1 retains a local nontriviality assumption whose irregular specialization must be justified."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "EisensteinBF.class",
+          "role": "data",
+          "statement": "The actual specialized motivic Beilinson–Flach cohomology class, not a chosen inverse image of an L-function."
+        },
+        {
+          "name": "EisensteinBF.ordinary_local",
+          "role": "characterisation",
+          "statement": "The class lies in the ordinary-relaxed Selmer group with the source strict/relaxed places."
+        },
+        {
+          "name": "EisensteinBF.coleman_PR",
+          "role": "compatibility",
+          "statement": "The rescaled Coleman map on p⁻loc_v̄ sends the actual class to the integrally normalized L_PR."
+        },
+        {
+          "name": "EisensteinBF.coleman_Gr",
+          "role": "compatibility",
+          "statement": "The rescaled Coleman map on loc_v sends the same actual class to L_Gr with its Katz congruence factor."
+        },
+        {
+          "name": "EisensteinBF.twist_congruence",
+          "role": "compatibility",
+          "statement": "After the specified twist automorphism, congruent characters produce congruent images modulo the same coefficient power."
+        },
+        {
+          "name": "EisensteinBF.coleman_cokernel_divisor",
+          "role": "characterisation",
+          "statement": "Localize the actual normalized Coleman map at every height-one prime and compute its cokernel length. Under the simultaneously printed raw f-map/degree conventions the (p) length is v_p(H_p(f)); a corrected convention must identify exactly where this factor moves."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EisensteinBF.test_PR_projection",
+          "kind": "compatibility",
+          "statement": "Cyclotomic projection of the PR image agrees with the product of MSD functions of E_• and E_•^K in their Néron periods."
+        },
+        {
+          "name": "EisensteinBF.test_Gr_projection",
+          "kind": "compatibility",
+          "statement": "Anticyclotomic projection of the Gr image agrees with the full central-value BDP normalization, including the nonunit Katz/congruence factor."
+        },
+        {
+          "name": "EisensteinBF.test_zero_image",
+          "kind": "non-example",
+          "statement": "If an injective Coleman projection has nonzero reciprocal L-image then the actual localized class is nonzero; the zero class cannot pass."
+        },
+        {
+          "name": "EisensteinBF.test_lattice_rescaling",
+          "kind": "compatibility",
+          "statement": "Changing the distinguished quotient differential rescales class/map and period modules by the computed factors, preserving both laws together."
+        },
+        {
+          "name": "EisensteinBF.test_twist_congruence",
+          "kind": "compatibility",
+          "statement": "For α≡β mod ϖ^m, the two normalized reciprocity images agree mod ϖ^m after the same twist automorphism; allowing different integral period scalings invalidates this test."
+        },
+        {
+          "name": "EisensteinBF.test_nonunit_normalization",
+          "kind": "non-example",
+          "statement": "For α_p²≡1 mod p, multiplication by H_p(f) on the raw f-target after degree identification has positive (p)-cokernel length. A claim of unchanged pseudo-null cokernel for this same lattice fails."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CGS Proposition 4.2.1 and Theorem 4.3.1",
+          "how": "The two actual localization maps relate BF-index, ordinary and Greenberg characteristic containments."
+        },
+        {
+          "where": "CGS §7.2",
+          "how": "Nonzero twisted images and integral normalizations supply the cyclotomic reverse bound."
+        }
+      ],
+      "refines": "RankZeroOneBSD:BSD.7a/beilinson-flach-integral-reciprocity"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-duality-equivalence",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Beilinson–Flach divisibility comparison",
+      "kind": "comparison",
+      "statement": "Fix an anticyclotomic crystalline α and put A=Λ_K⁺, the cyclotomic algebra over K. Suppose BF_α⁺≠0 and E_•(K)[p]=0. CGS Proposition 4.2.1 identifies direction by direction: (i) rank_A S_ord,rel(α)=1, X_ord,str(α⁻¹) torsion, and char X_ord,str(α⁻¹) ⊃ char(S_ord,rel(α)/A·BF_α⁺); (ii) S_str,rel(α) and X_Gr(α) torsion, with char X_Gr(α)A^ur ⊃ (L_Gr(α)⁺); (iii) S_ord(α) and X_ord(α) torsion, with char X_ord(α) ⊃ (L_PR(α)⁺). Complex conjugation identifies the α and α⁻¹ ordinary characteristic ideals where used. Over A[1/p] these equivalences hold with every containment reversed as well. Integrally this is a target conditional on the correct height-one cokernel calculation for both normalized maps: with the printed raw PR map and H_p(f) scalar the cokernel divisor cannot be omitted (E13). A rational instance proves no containment at (p).",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "E_•(K)[p]=0, the relevant projected L_PR and L_Gr are nonzero, and the torsion/rank hypotheses in CGS Proposition 4.2.1 hold."
+      ],
+      "proofSteps": [
+        "Apply the two strict/relaxed Poitou–Tate exact sequences to the actual BF class.",
+        "Use the reciprocity image identities and actual normalized-map cokernel divisors. After inverting p, E13 causes no scalar defect; integrally resolve it and include all resulting length terms before asserting the uncorrected equivalence.",
+        "Take height-one characteristic lengths in each exact sequence, record both containment directions, and keep any inversion of p in the coefficient ring."
+      ],
+      "acceptance": [
+        "An equality for one projected Selmer group cannot be imported from downstream MIMC L6.",
+        "A nonunit scalar multiplying a map changes its height-one cokernel; pseudo-nullity is never inferred from the raw map alone."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-pr-image",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-greenberg-image",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "ModularIwasawaMainConjectures:L0/ordinary-selmer-dual",
+        "ModularIwasawaMainConjectures:L0/canonical-ordinary-padic-l-function",
+        "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+        "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-poitou-tate-sequence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Proposition 4.2.1, pp.18–19",
+          "match": "This is an equivalence of proved containments, not an assumed main conjecture."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/bf-poitou-tate-divisibility-comparison"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Nontrivial-twist rational Beilinson–Flach bound",
+      "kind": "theorem",
+      "statement": "For a nontrivial crystalline anticyclotomic α with BF_α⁺≠0, let A=Λ_K⁺. Under CGS Theorem 4.3.1’s verified characteristic-zero representation hypotheses, rank_A S_ord,rel(E_•(α)/K∞⁺)=1, X_ord,str(E_•(α⁻¹)/K∞⁺) is torsion, and char_A X_ord,str ⊃ char_A(S_ord,rel/A·BF_α⁺) in A[1/p]. The irreducibility assertion concerns V_pE⊗Ind_K^ℚ α over G_ℚ(μ_p∞), together with a rank-one σ-coinvariant condition. It does not assert residual irreducibility of E[p].",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "α is nontrivial and crystalline as in §4.3, BF_α≠0; the auxiliary σ and Euler-system hypotheses of Theorem 4.3.1 are verified."
+      ],
+      "proofSteps": [
+        "Use the actual BF Euler system and its projection to the initial class.",
+        "Verify the representation hypotheses by CGS’s non-CM/Serre argument and the explicit σ, not the clean irreducible residual MR theorem.",
+        "Apply the imported error-tolerant Euler-system bound to obtain the containment only after inverting p."
+      ],
+      "acceptance": [
+        "The coefficient-prime length is still unresolved by this node."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound",
+        "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
+        "EulerSystemsAndKolyvaginSystems:ES.8/rubin-rational-iwasawa-divisibility",
+        "EulerSystemsAndKolyvaginSystems:ES.8"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Theorem 4.3.1, pp.19–20",
+          "match": "The theorem supplies only the rational bound at this point."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/nontrivial-twist-rational-bf-bound"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-finite-power-congruences",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Congruent twists and integral characteristic series",
+      "kind": "theorem",
+      "statement": "For α≡1 modulo ϖ^m, the finite-S imprimitive L-functions of E and E(α) are congruent after the twist automorphism γ↦α(γ)γ. Under the source torsion and no-finite-submodule hypotheses, their ordinary Selmer characteristic generators are congruent modulo the same ϖ^m up to units. The proof identifies Fitting with characteristic ideals only after the finite-submodule condition, and compares actual residual Selmer modules.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "The primitive ordinary Selmer dual is torsion and E(K)[p]=0 for Proposition 3.4.4; use the finite imprimitive S of the relevant tower."
+      ],
+      "proofSteps": [
+        "Use CGS Lemma 2.5.1 for the analytic congruence.",
+        "Use residual coefficient/cohomology comparison and the imprimitive global-to-local surjectivity to compare Selmer modules modulo ϖ^m.",
+        "Apply Lemma 3.4.3’s no-finite-submodule assertion and Proposition 3.4.4’s Fitting comparison; retain the unit choice of generators."
+      ],
+      "acceptance": [
+        "A finite Λ-submodule cannot be discarded while taking Fitting ideals."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgs-primitive-euler-comparison",
+        "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "ModularIwasawaMainConjectures:L0/ordinary-selmer-dual",
+        "ModularIwasawaMainConjectures:L0/canonical-ordinary-padic-l-function",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-6",
+        "SelmerIwasawaCohomology:L3/selmer-fitting-characteristic",
+        "SelmerIwasawaCohomology:L3/selmer-no-pseudonull",
+        "SelmerIwasawaCohomology:L3/localization-surjective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Lemma 2.5.1, p.10; Lemma 3.4.3 and Proposition 3.4.4, p.16",
+          "match": "Large-power congruence controls μ and λ only after integral characteristic generators have been justified."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/congruent-characteristic-series"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-twisted-augmentation-control",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Twisted control and augmentation comparison",
+      "kind": "comparison",
+      "statement": "For a sufficiently near-trivial crystalline α with nonzero BDP specialization, under CGS Proposition 3.4.2’s conditions, the cyclotomic and anticyclotomic Greenberg characteristic generators specialize at augmentation with equal p-valuations. Their common expression retains the finite twisted Greenberg Selmer cardinality, #H⁰(K_v,W_{α⁻¹})² and every p-primary local Tamagawa term. Nonzero BDP specialization supplies BK corank one and nonzero ordinary localization; these are proved before applying control.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "E(K)[p]=0, the twisted BK Selmer group has corank one and the ordinary localization is nonzero as required by Lemma 3.4.1."
+      ],
+      "proofSteps": [
+        "Choose α away from the finitely many zeros of the nonzero BDP function.",
+        "Use actual Heegner reciprocity and the Kolyvagin bound to prove Lemma 3.4.1’s rank/local nonvanishing hypotheses.",
+        "Apply Proposition 3.4.2 to both towers and compare their finite terms; this is equality up to p-adic unit, not equality of arbitrary chosen generators."
+      ],
+      "acceptance": [
+        "No local H⁰ factor is dropped merely because E(K)[p]=0."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgs-uniform-twist-specialization",
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+        "GrossZagierAndArithmeticHeights:GZ.9/bdp-weight-two-heegner-formula",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-greenberg-equality",
+        "SelmerIwasawaCohomology:L4/bloch-kato-condition",
+        "SelmerIwasawaCohomology:L4/ordinary-finite-comparison",
+        "HeegnerPointEulerSystems:HE.8/crystalline-near-trivial-character",
+        "HeegnerPointEulerSystems:HE.8/near-trivial-bottom-nonvanishing"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Lemma 3.4.1, pp.14–15; Proposition 3.4.2, p.15; §7.2 Step 2, p.30",
+          "match": "These are the precise specialization hypotheses needed for the unit-quotient argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/twisted-control-augmentation-comparison"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-integral-twist-comparison",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Integral twisted cyclotomic equality",
+      "kind": "theorem",
+      "statement": "For the near-trivial nontrivial crystalline twists used by CGS §7.2, char X_ord(E_•(α)/K∞⁺)=(L_PR(E_•(α)/K)^+) integrally. First the BF bound is rational. Wüthrich’s untwisted integral containment and congruence give the μ inequality that removes its p-power denominator. The anticyclotomic equality and twisted control then show the remaining quotient has a nonzero unit augmentation, hence is a unit. Cyclotomic μ is allowed to be positive.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed."
+      ],
+      "proofSteps": [
+        "Use cgs-rational-bf-specialization and cgs-cyclotomic-duality-equivalence to obtain the rational ordinary/Greenberg containments.",
+        "Use wuthrich-integral-eisenstein-input plus cgs-finite-power-congruences for m large to compare μ and make the containment integral (CGS Lemma 7.2.2).",
+        "Compare the nonzero augmentation values with cgs-twisted-augmentation-control and the anticyclotomic main conjecture. A quotient of integral power series with unit augmentation is a unit (SU Lemma 3.2).",
+        "Translate the resulting Greenberg equality back to ordinary/L_PR using the two-way BF comparison."
+      ],
+      "acceptance": [
+        "A rational containment plus specialization at a zero augmentation does not establish equality."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-duality-equivalence",
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.7a/cgs-finite-power-congruences",
+        "RankZeroOneBSD:BSD.7a/cgs-twisted-augmentation-control",
+        "ModularIwasawaMainConjectures:L0/ordinary-selmer-dual",
+        "ModularIwasawaMainConjectures:L0/canonical-ordinary-padic-l-function",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-6",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "§7.2 Lemmas 7.2.1–7.2.2, pp.29–30; equations (7.10)–(7.11), p.30; Step 3, pp.30–31",
+          "match": "The μ inequality repairs integrality; anticyclotomic μ=0 is not reused as a cyclotomic μ=0 claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/integral-twisted-cyclotomic-equality"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgs-mazur-equality",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "CGS integral cyclotomic main conjecture",
+      "kind": "theorem",
+      "statement": "Under CGS’s good Eisenstein local exclusion, X_ord(E/ℚ∞) is Λ_ℚ-torsion and char_Λℚ X_ord(E/ℚ∞)=(L_p^MSD(E/ℚ)) integrally with Néron real periods. No μ=0 hypothesis or conclusion is imposed on the cyclotomic functions.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed."
+      ],
+      "proofSteps": [
+        "Use cgs-finite-power-congruences and cgs-integral-twist-comparison for arbitrarily close twists to equate μ and λ of the untwisted imprimitive ordinary characteristic and L_PR generators; combine with Wüthrich’s integral containment to get equality over K∞⁺ (Theorem 7.2.3).",
+        "Apply odd-p quadratic Shapiro splitting of the ordinary Selmer dual and the exact Néron-period product specialization of cgs-integral-rankin-normalizations.",
+        "Use Wüthrich’s individual integral containments for E and E^K. Equality of their product forces both quotients to be units. Return from E_• using the proved isogeny comparison."
+      ],
+      "acceptance": [
+        "The result is an output to MIMC L6; that stage’s reexport cannot be its input."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/cgs-integral-twist-comparison",
+        "RankZeroOneBSD:BSD.7a/cgs-finite-power-congruences",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.1/odd-selmer-sha-decomposition",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Theorem 7.1.1, p.29; §7.2, pp.29–31",
+          "match": "Both integral individual containments are essential to descend product equality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Eisenstein cyclotomic main conjecture"
+      },
+      "refines": "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-main-conjecture"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-mazur-equality",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin integral cyclotomic main conjecture",
+      "kind": "theorem",
+      "statement": "For every odd good Eisenstein p of an elliptic curve E/ℚ, including local or global rational p-torsion, X_ord(E/ℚ∞) is Λ_ℚ-torsion and char X_ord=(L_p^MSD(E/ℚ)) with its integral Néron-period normalization. This is KY Theorem 3.0.10 in weight two.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed."
+      ],
+      "proofSteps": [
+        "Repeat the CGS three-step cyclotomic argument using ky-integral-greenberg-equality in place of the locally excluded CGS equality.",
+        "Work on the chosen residual-invariant-free isogenous lattice where the congruence and finite-submodule hypotheses hold; use ky-invariant-free-lattice and Wüthrich’s distinguished integral comparison to return to the original curve.",
+        "Keep the original curve’s periods, torsion, p-power isogeny factors and finite control terms; a rational lattice comparison alone does not preserve the integral endpoint."
+      ],
+      "acceptance": [
+        "The original E may have rational p-torsion; the intermediate chosen lattice need not."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-integral-greenberg-equality",
+        "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation",
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 3.0.10 and proof, p.41",
+          "match": "KY substitutes its anticyclotomic theorem and lattice transfer into CGS, rather than deleting a hypothesis from CGS’s statement."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Keller–Yin cyclotomic main conjecture"
+      },
+      "refines": "RankZeroOneBSD:BSD.7a/ky-cyclotomic-main-conjecture"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/cgls-corank-one-prototype",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "CGLS anticyclotomic prototype",
+      "kind": "theorem",
+      "statement": "Under the CGS local exclusion and Heegner/split/discriminant conditions, and additionally corank_ℤp Sel_{p∞}(E/K)=1, the CGLS primitive Greenberg dual is Λ-torsion with char(X_E)Λ^ur=(L_E), where L_E is the full central-value BDP function. Its Heegner index-square consequence is initially stated in Λ^ac=Λ[1/p] in the published Corollary 4.2.3. This prototype retains (Sel); the stronger CGS equality above removes it by a new proof.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "The additional (Sel) condition of CGLS: corank_ℤp Sel_{p∞}(E/K)=1."
+      ],
+      "proofSteps": [
+        "Use the early Heegner weak divisibility and its source corank-one augmentation upgrade.",
+        "Translate to Greenberg/BDP using heegner-greenberg-ideal-equivalence.",
+        "Use cgls-algebraic-analytic-invariants to obtain the integral Greenberg equality, and record the published rational index-square consequence without silently upgrading its coefficient ring."
+      ],
+      "acceptance": [
+        "An analytic rank-two E cannot be fed to this source by omitting (Sel)."
+      ],
+      "prerequisites": [
+        "HeegnerPointEulerSystems:HE.8/weak-torsion-localized-divisibility",
+        "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence",
+        "RankZeroOneBSD:BSD.7a/cgls-algebraic-analytic-invariants"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgls",
+          "locator": "Theorem 4.2.2 and Corollary 4.2.3, printed pp.569–570",
+          "match": "The routed Theorem C/Corollary D prototype has an extra corank condition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/cgls-prototype-main-conjecture"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin cyclotomic input transfer",
+      "kind": "comparison",
+      "statement": "On the actual invariant-free KY lattice, establish the cohomological, finite-submodule, twisted congruence and Coleman/Poitou–Tate inputs needed for the three-step CGS cyclotomic argument, now permitting local characters 1/ω. Use KY’s anticyclotomic equality in the specialization step and Wüthrich’s distinguished integral lattice in the individual containment step. Track the maps between these two lattices rather than identifying them. The original curve’s integral Néron-period ordinary characteristic comparison is part of this transfer, not a consequence of rational isogeny comparison alone.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "Chosen KY lattice and actual comparison maps to the distinguished E_• lattice; every rank, H⁰, surjectivity and no-finite-submodule condition used in the CGS argument must be verified on the lattice where it is applied."
+      ],
+      "proofSteps": [
+        "KY Theorem 3.0.10 cites substitution of its 3.0.8/3.0.9 into CGS. Verify the §3.4 control and finite-submodule conditions through the exceptional local character diagrams of KY §§1.1–1.4.",
+        "Construct the actual transferred BF specialization and compare both Coleman images, twist congruences and integral characteristic/Fitting generators; preserve every p-power index.",
+        "Use the independent KY anticyclotomic equality, the integral Wüthrich individual bound and nonzero augmentation control to repeat CGS’s rational-bound/integral-repair/unit-quotient argument. The remaining source-to-interface verification is recorded explicitly as a gap."
+      ],
+      "acceptance": [
+        "A CGS lemma requiring φ|G_p≠1,ω cannot be applied to the KY branch merely by changing its name."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+        "RankZeroOneBSD:BSD.7a/ky-local-invariants-dictionary",
+        "RankZeroOneBSD:BSD.7a/ky-integral-greenberg-equality",
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+        "SelmerIwasawaCohomology:L3/iwasawa-selmer-duality",
+        "PadicHodgeRegulators:L3",
+        "ModularIwasawaMainConjectures:L0/ordinary-selmer-dual",
+        "ModularIwasawaMainConjectures:L0/canonical-ordinary-padic-l-function"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 3.0.10 and proof, p.41; Remark 3.0.9, p.40",
+          "match": "This records the adaptation obligation; the narrower CGS-hypothesis lemmas are not theorem inputs for an exceptional local character."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-cyclotomic-proof-inputs"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/ky-uniform-twist-specialization",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "Keller–Yin uniform near-trivial bound",
+      "kind": "theorem",
+      "statement": "For KY’s chosen stable self-dual weight-two lattice T with H⁰(K,T/pT)=0 and the actual ordinary conditions, let α≡1 mod ϖ^m. Constants M₀,C depend only on the representation/lattice and rank of the coefficient extension, not on m or α in this neighborhood. If m≥M₀ and κ₁ is nontorsion, the compact Selmer group has rank one, the discrete group is Φ/R⊕M_α⊕M_α, and length_R M_α≤length_R(S/Rκ₁)+C. This generalization requires the chosen nonsplit lattice but not CGS’s local exclusions on its characters.",
+      "hypotheses": [
+        "E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.",
+        "When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd.",
+        "The invariant-free lattice and propagated ordinary local/dual conditions are verified; an actual Kolyvagin system with nontorsion κ₁ is supplied."
+      ],
+      "proofSteps": [
+        "Import ES.4/uniform-near-trivial-bound; this node supplies its weight-two arithmetic specialization and hypothesis verification, rather than a second general descent theorem.",
+        "Use ky-invariant-free-lattice for the cohomological H⁰ hypothesis.",
+        "Use KY Lemma 3.0.3’s scalar-image argument (Bogomolov/Ribet) to bound the source C₁ on the representation; retain this supplier requirement explicitly.",
+        "Adapt the two-copy bounded-error descent of CGS §§6.2–6.4 to the KY lattice as Theorem 3.0.2 specifies; the error remains independent of m."
+      ],
+      "acceptance": [
+        "The lattice can be invariant-free when the original curve has rational p-torsion."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "SelmerIwasawaCohomology:L2/condition-propagation",
+        "EulerSystemsAndKolyvaginSystems:ES.4/uniform-near-trivial-bound"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "Theorem 3.0.2, p.35; Lemma 3.0.3 and Remark 3.0.4, pp.35–36",
+          "match": "This is the KY version; the narrower CGS-hypothesis theorem is not used on an exceptional local character."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/ky-uniform-near-trivial-bound"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/eisenstein-bf-pr-image",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "EisensteinBF.coleman_PR",
+      "kind": "lemma",
+      "statement": "The rescaled injective Coleman map sends p⁻loc_v̄ BF_α to L_PR(E_•(α)/K) with exactly the distinguished lattice, degree and H_p(f) normalization. Keep its actual cokernel divisor: under the raw conventions of Theorem 4.1.1 and Lemma 4.1.2 the (p) length is v_p(H_p(f)), so pseudo-nullity is asserted only after inverting p or after a verified correction of those conventions. This is the image compatibility API, not an unconditional integral pseudo-isomorphism.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "Use Wüthrich’s distinguished quotient lattice and the actual CM Hida family, embeddings, coefficient extension and periods of CGS §§2.2–2.4 and §4.1. The KY local 1/ω extension is an additional verification target, not a hypothesis-free application."
+      ],
+      "proofSteps": [
+        "Apply CGS Theorem 4.1.1 to the actual KLZ specialization.",
+        "Use Lemma 4.1.2 and cgs-integral-rankin-normalizations to rescale the image identity. Compute the localized cokernel, recording E13; do not drop H_p(f)."
+      ],
+      "acceptance": [
+        "The image equality uses the actual same class as the other reciprocity law."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Lemma 4.1.2 and Corollary 4.1.3, pp.17–18",
+          "match": "The actual localization/map compatibility is used by the characteristic-ideal comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/bf-pr-reciprocity"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.7a/eisenstein-bf-greenberg-image",
+      "parentStageId": "RankZeroOneBSD:BSD.7a",
+      "realises": [
+        "RankZeroOneBSD:BSD.7a"
+      ],
+      "title": "EisensteinBF.coleman_Gr",
+      "kind": "lemma",
+      "statement": "After verifying the exact CM congruence-ideal identity and its target lattice, the normalized injective Coleman map with pseudo-null cokernel sends loc_v BF_α to L_Gr(f(α)/K), with exactly the distinguished lattice and integral degree/CM congruence-ideal normalizations of Corollary 4.1.3. This promotes the consumed compatibility API to a separate declaration.",
+      "hypotheses": [
+        "E/ℚ has conductor N, p>2 is prime, p∤N, and E[p] has semisimplification 𝔽_p(φ)⊕𝔽_p(ψ) with φψ=ω and φ restricted to a decomposition group G_p different from 1 and ω. The chosen φ is the character on an actual cyclic isogeny kernel.",
+        "When K occurs: K is imaginary quadratic of odd fundamental discriminant D_K≠−3, every prime dividing N splits in K, and p=v v̄ splits in K. Thus p∤D_K; no p∤h_K condition is imposed.",
+        "Use Wüthrich’s distinguished quotient lattice and the actual CM Hida family, embeddings, coefficient extension and periods of CGS §§2.2–2.4 and §4.1. The KY local 1/ω extension is an additional verification target, not a hypothesis-free application."
+      ],
+      "proofSteps": [
+        "Apply CGS Theorem 4.1.1 to the actual KLZ specialization.",
+        "Use Lemma 4.1.2 and cgs-integral-rankin-normalizations to rescale the map, retaining the source factors as in Corollary 4.1.3."
+      ],
+      "acceptance": [
+        "The image equality uses the actual same class as the other reciprocity law."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BSD/EisensteinMainConjectures",
+        "namespace": "WeierstrassCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cgs",
+          "locator": "Corollary 4.1.3, p.18",
+          "match": "The actual localization/map compatibility is used by the characteristic-ideal comparison."
+        },
+        {
+          "sourceId": "ht94",
+          "locator": "Theorem 0.3, printed pp.91–92; statement only inspected",
+          "match": "CGS Lemma 2.4.4 uses this comparison and Rubin to bound its cuspidal congruence ideal."
+        },
+        {
+          "sourceId": "bdp22",
+          "locator": "Theorem A(i) and Remark 0.1, p.3; Theorem 3.5, pp.20–21",
+          "match": "The p-irregular quadratic weight-one point has a unique cuspidal family; its congruence series does not vanish at augmentation."
+        },
+        {
+          "sourceId": "hida07",
+          "locator": "Corollary 5.6, printed p.263",
+          "match": "CGS Corollary 4.1.3 invokes this reverse divisibility; the author has corrected its proof."
+        },
+        {
+          "sourceId": "hida07-correction",
+          "locator": "Introduction pp.1–3; §6.1 pp.34–35; Theorem 6.14 and Corollary 6.15, pp.42–43",
+          "match": "Provides a replacement congruence-divisibility proof with the class-number factor, while §6.1 retains a local nontriviality assumption whose irregular specialization must be justified."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "RankZeroOneBSD:BSD.7a/bf-greenberg-reciprocity"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "Actual good ordinary/residual local classification, minimal Weierstrass models and Tate algorithm including p=2,3/additive cases, logarithm and Néron local factors.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "need": "Actual torsion subgroup and prime-to-good-reduction bounds, rational cyclic isogeny kernels, Tate modules and the integral-coordinate torsion criterion used to exclude torsion on fixture37.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity",
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice"
+      ]
+    },
+    {
+      "supplier": "CMAllPrimeMainConjectures:CZ.3",
+      "need": "Extend the existing anticyclotomic theta-character specialization to exactly the CGLS/KY range: split conductor, p>2 split, no p∤h_K restriction, including global characters 1 and ω, p=3 and anomalous cases. Prove the character main conjecture with char(X_1)=(T·L_1), μ=0, and no extra augmentation for other characters; explain control/Tor and finite class-group terms. The current narrow theta node excludes 1/ω and records projection gaps; do not erase them. Rubin94 and de Shalit III.1.10 must be inspected or replaced by a verified accessible proof.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization"
+      ]
+    },
+    {
+      "supplier": "AutomorphicCongruences:L0",
+      "need": "Extend the existing CM congruence/Katz comparison to the p-irregular weight-one quadratic Eisenstein CM family of CGS Lemma 2.4.4 and Corollary 4.1.3. Prove both integral divisibilities between H_cusp(g), H(g) and h_K·Katz, with coefficient ideals and removed augmentation factor fixed. HT94 Theorem 0.3, Rubin, BDP22 A(i), and Hida07 Corollary 5.6 with its 2025 correction must be matched to this family. The existing L0/hida-tilouine-anticyclotomic assumes residual distinction and is not this specialization. Also supply the Kriz p-depleted CM congruence of CGLS Theorem 2.2.2/KY Theorem 2.2.2, including the trivial-character constant term and precise integral periods.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization"
+      ]
+    },
+    {
+      "supplier": "PadicFamilies:L0",
+      "need": "Supply the p-irregular quadratic weight-one CM cuspidal family and the nonvanishing-at-augmentation congruence-series property used in CGS Lemma 2.4.4. Import BDP22 Theorem A(i), Remark 0.1 p.3 and Theorem 3.5 pp.20–21, with its local coefficient/weight parameter. The existing arithmetic specialization node requires weight ≥2; it cannot be invoked at weight one.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "need": "Actual isogenies, duals, cyclic-kernel quotients and invariant differential pullbacks on the fixed models; no isogeny-degree-only substitute for local/global period indices.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+        "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target",
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input"
+      ]
+    },
+    {
+      "supplier": "HeegnerPointEulerSystems:HE.8",
+      "need": "Extend the existing derivative-class/local-condition/finite-singular construction exports to KY’s canonical lattice, where residual H⁰ may not vanish, using KY Theorem 3.0.6 pp.37–39. Supply restriction annihilator p^N, trace annihilator p^t and the separate lattice-intersection map p^m, all uniform in the Kolyvagin index; do not request a main-conjecture equality from HE.8b.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target"
+      ]
+    },
+    {
+      "supplier": "KatoEulerSystems:L4",
+      "need": "Add Wüthrich’s integral good ordinary Eisenstein divisibility: Theorem 4 p.384, Proposition 8 pp.388–389, Theorem 13 p.395 (including nonfree cohomology), Theorem 16 p.397, Lemma 17 and Corollary 18 p.398. Retain the distinguished quotient lattice, Néron periods, finite isogeny indices and Ferrero–Washington fine-Selmer μ input. The existing ordinary-selmer-divisibility is only rational in this reducible setting.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input"
+      ]
+    },
+    {
+      "supplier": "ModularSymbolsPadicLFunctions:L1",
+      "need": "Compare the existing saturated integral modular-symbol period line with the actual Néron period lattice of Wüthrich’s distinguished E_•, and transport it through isogenies with the exact odd-p differential/period indices. Its integral-period-lattices node and L2 bounded measure do not alone prove this arithmetic comparison.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:L3",
+      "need": "Supply the actual two integral ordinary Coleman maps on CGS’s specialized Rankin lattice and determine their exact fractional targets and height-one cokernel divisors under degree/H_p/Katz rescaling. Resolve E13: the printed raw f-map plus degree identity gives a (p)-cokernel of length v_p(H_p(f)) for the normalized map. Preserve the rational reciprocity comparison and identify any corrected integral normalization before exporting a pseudo-isomorphism. Generic regulators/family big logarithms do not supply these target-lattice calculations.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.1",
+      "need": "For the actual weight-two representations, supply the scalar-image bound C₁ in KY Lemma 3.0.3, pp.35–36 and the irreducibility/rank-one σ-coinvariant verification in CGS Theorem 4.3.1, pp.19–20. State characteristic-zero hypotheses, the finite coefficient-rank dependence and the non-CM/induced cases. Ribet’s nonsplit-lattice node is already imported separately; it is not this open-image theorem.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/ky-uniform-twist-specialization"
+      ]
+    },
+    {
+      "supplier": "EulerSystemsAndKolyvaginSystems:ES.8/augmentation-prime-divisibility",
+      "need": "Verify its conditional coefficient-prime branch in the KY specialization with a quantified uniform error bound or an independent μ comparison. The present CGS Λ[1/p] export includes augmentation but supplies no (ϖ) assertion.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target"
+      ]
+    },
+    {
+      "supplier": "AutomorphicCongruences:L2/klz-beilinson-flach-classes",
+      "need": "Resolve the existing unread-KLZ source gap and specialize the actual modular/CM classes to CGS’s integral distinguished lattice, retaining auxiliary norm factors and the fixed ϖ^r.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization"
+      ]
+    },
+    {
+      "supplier": "AutomorphicCongruences:L2/bf-explicit-reciprocity",
+      "need": "Resolve the existing unread-KLZ source gap and verify both global reciprocity laws for the same actual specialized class, fractional congruence ideals and integral period choices.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-pr-image",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-greenberg-image"
+      ]
+    },
+    {
+      "supplier": "EulerSystemsAndKolyvaginSystems:ES.8",
+      "need": "Provide the KLZ refinement of Rubin’s rational Iwasawa bound with the nontrivial ordinary local condition at p, as used in CGS Theorem 4.3.1 pp.19–20. Verify tower/Leopoldt hypotheses and translate the induced characteristic-zero representation and rank-one σ-coinvariants to the correct ordinary–strict dual. The existing generic rational Rubin node and ES.4 bound are ingredients; neither its residual-irreducible integral version nor a bare strict-at-all-p bound is the required arithmetic conclusion.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization"
+      ]
+    },
+    {
+      "supplier": "AutomorphicPadicLFunctions:L3h/hida-katz-mu-vanishing",
+      "need": "Verify a valid proof of the precise Hida anticyclotomic Katz μ theorem after the 2010 Lemma 3.17 correction. The 2022 Lemma 0.2 projection/intersection alternative also fails as written (E15). Check the independent second proof of Corollary 3.19, pp.97–98, or supply the actual geometric argument with its additional hypotheses. Retain Theorem I’s p-ordinary/unramified and (M1)–(M3) conditions; no generic cyclotomic elliptic μ-vanishing follows.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+        "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "RankZeroOneBSD:BSD.7a",
+      "status": "planned",
+      "remaining": [
+        "Exact CM character main-conjecture specialization",
+        "Integral p-irregular CM congruence and source correction",
+        "Integral Eisenstein arithmetic supplier exports",
+        "KY coefficient-prime specialization",
+        "Integral unscaled Heegner line comparison",
+        "KY cyclotomic adaptation and integral isogeny transfer",
+        "Normalized Coleman height-one cokernel",
+        "Hida Katz μ proof correction",
+        "Arithmetic Lean carriers at the pins"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Exact CM character main-conjecture specialization",
+      "detail": "The owner exists: CMAllPrimeMainConjectures CZ.2–CZ.3. Its current anti projection records Tor/control and exceptional-character gaps. Rubin91 Theorem 4.1 was inspected but its proof was not; Rubin94 pp.23–28 and de Shalit III.1.10 were not obtained in a cleared copy. KY Theorem 1.2.2 asserts the stronger exceptional range; the precise supplier request must verify p|h_K, θ=1/ω, p=3 and anomalous cases rather than assume them from the narrower existing node. Hida Katz μ=0 is separately imported from AP L3h with its 2022 correction.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization",
+        "RankZeroOneBSD:BSD.7a/ky-primitive-lambda-correction",
+        "RankZeroOneBSD:BSD.7a/ky-algebraic-analytic-invariants"
+      ]
+    },
+    {
+      "title": "Integral p-irregular CM congruence and source correction",
+      "detail": "The generic CM congruence node assumes a residual distinction absent at the CGS weight-one Eisenstein point. HT94 Theorem 0.3 was inspected only at statement level. CGS Lemma 2.4.4 uses H_cusp|h_K·Katz after removing augmentation by BDP22; Corollary 4.1.3 also uses h_K·Katz|H(g) from Hida07. The 2025 replacement proof retains (A2), local nontriviality of the branch character. Establish its applicability to the irregular family or give a separate proof; neither BDP22’s nonzero augmentation nor h_K being an integer makes this quotient a unit.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-greenberg-image"
+      ]
+    },
+    {
+      "title": "Integral Eisenstein arithmetic supplier exports",
+      "detail": "The exact Wüthrich addition to Kato L4, modular-symbol/Néron period comparison, actual KLZ specialization and both global reciprocity identities, integral Coleman lattice maps and arithmetic open/scalar-image inputs are requested from their existing owners. Generic KLZ nodes explicitly retain unread-source gaps. These contracts are not formal baseline theorems, and a rational Kato bound cannot replace Wüthrich at (ϖ).",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-twist-comparison",
+        "RankZeroOneBSD:BSD.7a/ky-uniform-twist-specialization"
+      ]
+    },
+    {
+      "title": "KY coefficient-prime specialization",
+      "detail": "The existing ES.8 augmentation-prime-divisibility node explicitly leaves the KY (ϖ) case conditional. KY Theorem 3.0.5 p.37 says the height-one computation also works there, but the uniform estimate under coefficient-prime ramified specialization has not been verified in this audit. Preserve the stronger theorem as a target; use the verified Λ[1/p] branch plus independent μ=0 for integral Greenberg equality.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target"
+      ]
+    },
+    {
+      "title": "Integral unscaled Heegner line comparison",
+      "detail": "CGS Corollary 6.5.4 asserts the integral index-square equality, but the p-prime comparison of the actual unscaled line must be made explicit. KY Introduction B uses Λ while §3.0.8 uses undefined Λ^ac; CGLS uses Λ^ac=Λ[1/p]. A fixed p-power in the lattice transfer changes the index characteristic ideal. Keep rationalized index-square equality as the verified comparison and require an integral two-way exact-sequence/logarithm/lattice calculation for the stronger export. Independent μ(X_Gr)=0 is not itself μ(S/Λκ∞)=0.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-heegner-equality-target",
+        "RankZeroOneBSD:BSD.7a/ky-rational-heegner-equality"
+      ]
+    },
+    {
+      "title": "KY cyclotomic adaptation and integral isogeny transfer",
+      "detail": "KY Theorem 3.0.10 p.41 gives a short substitution proof. Verify the CGS finite-power congruence, no-finite-submodule, control and BF/Poitou–Tate inputs on the chosen invariant-free lattice when characters are 1/ω, then compare it with Wüthrich’s distinguished lattice and the original curve including Néron period indices. The two chosen curves need not coincide. Narrow CGS local-exclusion statements are not automatically available here.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation",
+        "RankZeroOneBSD:BSD.7a/ky-mazur-equality"
+      ]
+    },
+    {
+      "title": "Normalized Coleman height-one cokernel",
+      "detail": "CGS v2 Theorem 4.1.1, Lemma 4.1.2 and Corollary 4.1.3 have incompatible simultaneous integral cokernel claims when H_p(f) is a nonunit (source issue E13). Determine the corrected raw target or retain the divisor of the normalized cokernel in both reciprocity/Poitou–Tate sequences. The PR image identity is retained, and the discrepancy disappears after inverting p. The integral two-way BF equivalence and its use at the end of the cyclotomic proof remain conditional on this calculation. No claim is made against the uninspected journal text.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-pr-image",
+        "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-duality-equivalence",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-twist-comparison",
+        "RankZeroOneBSD:BSD.7a/cgs-mazur-equality",
+        "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation",
+        "RankZeroOneBSD:BSD.7a/ky-mazur-equality"
+      ]
+    },
+    {
+      "title": "Hida Katz μ proof correction",
+      "detail": "Hida 2010 Lemma 3.17 is withdrawn by the 2022 addendum, but its replacement Lemma 0.2 also fails for the coordinate-sum-zero plane (E15). Import the intended anticyclotomic Katz μ theorem only with a valid geometric repair or a verified use of the independent second proof of Corollary 3.19, pp.97–98. The existing AP L3h owner retains this proof obligation; no elliptic cyclotomic μ=0 assertion is inferred.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+        "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization"
+      ]
+    },
+    {
+      "title": "Arithmetic Lean carriers at the pins",
+      "detail": "The reviewed BSD.7a audit reports the main-conjecture theory unbuilt. Actual Iwasawa Selmer modules, the global BF/Heegner systems, integral Coleman maps and their arithmetic normalization interfaces are unavailable as a compatible Lean API at the pins. The Suggested file names the omitted arithmetic targets and construction API/tests; its elaborated examples only test real Mathlib power-series algebra. No arithmetic conclusion is formalized by those examples.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity",
+        "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary",
+        "RankZeroOneBSD:BSD.7a/cgs-primitive-euler-comparison",
+        "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+        "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+        "RankZeroOneBSD:BSD.7a/cgls-algebraic-analytic-invariants",
+        "RankZeroOneBSD:BSD.7a/cgs-uniform-twist-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-augmentation-divisibility",
+        "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-greenberg-equality",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-heegner-equality-target",
+        "RankZeroOneBSD:BSD.7a/ky-local-invariants-dictionary",
+        "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+        "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization",
+        "RankZeroOneBSD:BSD.7a/ky-imprimitive-extension-sequence",
+        "RankZeroOneBSD:BSD.7a/ky-primitive-euler-comparison",
+        "RankZeroOneBSD:BSD.7a/ky-primitive-lambda-correction",
+        "RankZeroOneBSD:BSD.7a/ky-algebraic-analytic-invariants",
+        "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target",
+        "RankZeroOneBSD:BSD.7a/ky-integral-greenberg-equality",
+        "RankZeroOneBSD:BSD.7a/ky-rational-heegner-equality",
+        "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-duality-equivalence",
+        "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization",
+        "RankZeroOneBSD:BSD.7a/cgs-finite-power-congruences",
+        "RankZeroOneBSD:BSD.7a/cgs-twisted-augmentation-control",
+        "RankZeroOneBSD:BSD.7a/cgs-integral-twist-comparison",
+        "RankZeroOneBSD:BSD.7a/cgs-mazur-equality",
+        "RankZeroOneBSD:BSD.7a/ky-mazur-equality",
+        "RankZeroOneBSD:BSD.7a/cgls-corank-one-prototype",
+        "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation",
+        "RankZeroOneBSD:BSD.7a/ky-uniform-twist-specialization",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-pr-image",
+        "RankZeroOneBSD:BSD.7a/eisenstein-bf-greenberg-image"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2303.04373v2",
+      "citation": "Mazur's main conjecture at Eisenstein primes — arXiv:2303.04373v2, 15 October 2025; version actually read",
+      "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction and §§2–4, pp.1–20",
+        "Theorem 6.1.1, pp.21–22; proof mechanism in §§6.3–6.4, pp.23–28",
+        "§6.5, pp.28–29; §7.2, pp.29–31"
+      ],
+      "publicationAccess": "CGS is published in Math. Ann. 393 (2025), 2451–2506, DOI 10.1007/s00208-025-03239-x. The publisher PDF request returned HTML; the actual text read and all page locators here are arXiv v2. No finding is asserted against uninspected published text."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2402.12781v2",
+      "citation": "On the anticyclotomic Iwasawa theory of newforms at Eisenstein primes of semistable reduction — arXiv:2402.12781v2, 30 October 2024; preprint, not a verified published version",
+      "sha256": "bb64820b49aa1eb2574c912c0d03067f904e52b9bf71f441fda78bb6dba9c90a",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction hypotheses; local and global character comparisons and residual diagrams, §§1.1–1.5, pp.9–31",
+        "Analytic comparison, §2.2, pp.32–34",
+        "Uniform bounds, actual lattice transfer, both main-conjecture statements and cyclotomic corollary, §3.0, pp.35–41"
+      ]
+    },
+    {
+      "kind": "published",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "citation": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes — Inventiones mathematicae 227 (2022), 517–580; published author PDF",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction and hypotheses, printed pp.519–521",
+        "Definitions and character main-conjecture inputs, pp.528–532; Theorem 1.5.1 p.538",
+        "§2.2, pp.543–544",
+        "Remark 4.1.3, pp.568–569; Proposition 4.2.1 and Theorem 4.2.2, p.569; Corollary 4.2.3, p.570"
+      ]
+    },
+    {
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/26230?nt=1",
+      "citation": "On the integrality of modular symbols and Kato’s Euler system for elliptic curves — Documenta Mathematica 19 (2014), 381–402; DOI 10.4171/DM/450",
+      "sha256": "8fc88f778138f495b24de8a16b5520af76446df610b0d46ad93776eb43a27db5",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction and distinguished quotient, pp.381–384; Proposition 8, pp.388–389",
+        "Integral Euler-system proof and integral divisibility, pp.393–398"
+      ]
+    },
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0117/LOG_0011.pdf",
+      "citation": "On the anticyclotomic main conjecture for CM fields — Inventiones mathematicae 117 (1994), 89–147; digitized published scan",
+      "sha256": "1481798eb0b299d1393bd7b3c413a515a30eca4b4ae5a693dea043ead55057a6",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction and Theorem 0.3, printed pp.89–93 inspected as images; proof not read"
+      ]
+    },
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf",
+      "citation": "The “main conjectures” of Iwasawa theory for imaginary quadratic fields — Inventiones mathematicae 103 (1991), 25–68; digitized published scan",
+      "sha256": "96ca08e8ed1a7646d4bf40e2e088e0ea6e068319978ac7e5c5e3d45cc39ee23a",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction p.25; Theorem 4.1 and specialization remark, pp.36–39 inspected as images; §§8–10 proof not read"
+      ]
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf",
+      "citation": "The Iwasawa μ-invariant of p-adic Hecke L-functions — Annals of Mathematics 172 (2010), 41–137; published PDF",
+      "sha256": "1a97277068aefe67926966d2ad1bb254f115fb610e82391c0d3123b45c80b9f1",
+      "read": "2026-10-19",
+      "readScope": [
+        "Theorem I and hypotheses, pp.41–46; Lemma 3.17, p.95 and Corollary 3.19, p.97; relevant Lemma 5.2 only; full μ proof imported from its owner"
+      ]
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~hida/Addendam.pdf",
+      "citation": "Addendum correcting Lemma 3.17 in the μ-invariant paper — Author addendum dated 24 July 2022, one page",
+      "sha256": "1eff02ca56c901d63612076b1a6e0116f83ee4d9c8b52f2c17b7798f7a440e25",
+      "read": "2026-10-19",
+      "readScope": [
+        "Whole one-page correction, including Lemma 0.2; inspected visually and tested on the coordinate-sum-zero counterexample. Its proposed repair is not accepted without further verification."
+      ]
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~hida/ELLC.pdf",
+      "citation": "Non-vanishing modulo p of Hecke L-values and application — LMS Lecture Note Series 320 (2007), 207–269; author copy",
+      "sha256": "ca5b0161de89a28a448912db82bbd9c0b8226db494f1ac519c61be0b839ed113",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction pp.208–209; Theorem 5.1, pp.247–248; Corollary 5.6, p.263"
+      ]
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ucla.edu/~hida/EllrevF.pdf",
+      "citation": "Non-vanishing of integrals of a mod p modular form — Author manuscript dated 27 March 2025; replacement proof of the 2007 application",
+      "sha256": "a41b6e91efff93dd7e21c774fb790efa19ca88db1667df291d463c0111f73980",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction pp.1–3; §6 introduction and assumptions, pp.33–35; Theorem 6.14 and Corollary 6.15, pp.42–43"
+      ]
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1804.00648v4",
+      "citation": "On the failure of Gorensteinness at weight 1 Eisenstein points of the eigencurve — arXiv:1804.00648v4, 3 May 2021; publication: American Journal of Mathematics 144 (2022), 227–265; locators refer to preprint",
+      "sha256": "a0a73bcb89b78eca706ddd287c97927b4bc076b431f6d2ff5939d24f333e10c2",
+      "read": "2026-10-19",
+      "readScope": [
+        "Introduction and Theorem A(i), Remark 0.1, pp.2–3; proof via Theorem 3.5, pp.20–21"
+      ]
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~castella/Mazur.pdf",
+      "citation": "CGS linked author manuscript, dated September 2023",
+      "sha256": "4ca65e104b68ce441b2d62ba39af96bc4058fab26947919d5a8d4a6eb929382e",
+      "read": "2026-10-19",
+      "readScope": [
+        "Theorem 4.1.1, Lemma 4.1.2, Corollary 4.1.3 and H_p(f) definition: scalar/cokernel comparison with arXiv v2 only"
+      ]
+    },
+    {
+      "kind": "author copy",
+      "url": "https://web.math.ucsb.edu/~mulun/files/Eisenstein.pdf",
+      "citation": "KY linked author manuscript; separate PDF checked against v2",
+      "sha256": "83028d184418fafcd7c70e09b958203fd3ba83d86d2e8ecc807ba4d8e358719f",
+      "read": "2026-10-19",
+      "readScope": [
+        "Corresponding passages for E7–E10: compared with arXiv v2 only"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "RankZeroOneBSD/E7",
+      "source": "ky",
+      "kind": "misprint",
+      "locator": "arXiv:2402.12781v2, §1.2, proof of Remark 1.2.3(ii), pp.14–15",
+      "printed": "The source identifies ker(χ)=K_cyc as the cyclotomic Z_p-extension of K and claims linear disjointness between it and K_cyc.",
+      "correction": "Use the disjointness of the anticyclotomic Z_p-extension K_∞ and K_cyc. Distinguish the fixed field of ker χ from K_cyc by the finite cyclotomic part; only openness of χ(G_K∞) is needed.",
+      "reason": "An infinite extension is not linearly disjoint from itself. The preceding and following argument only needs the cyclotomic character to have infinite/open image on the anticyclotomic tower so a finite-order twist cannot make it trivial.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Rechecked the stated arXiv v2 locator on 2026-10-19; author-copy comparison and prior confirmed finding are recorded in the accepted BSD.7 packet.",
+        "Current arXiv version record and author copy were checked; no separate erratum located."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E8",
+      "source": "ky",
+      "kind": "gap",
+      "locator": "arXiv:2402.12781v2, Introduction Theorem B p.5 versus §3.0.8 (IMC1) p.40; same discrepancy in author copy",
+      "printed": "The source places Theorem B in Λ, while it places Theorem 3.0.8 (IMC1) in Λ^ac.",
+      "correction": "Clarify the coefficient ring and verify the integral two-way index comparison if the stronger introductory Λ statement is intended. Retain the weaker rationalized statement until this verification; IMC2 remains integral in Λ^nr.",
+      "reason": "The two statements identified as the same theorem give different ring labels; Λ^ac is not defined in this v2 text, while CGLS uses it for Λ[1/p]. Inverting p removes a substantive height-one assertion. The integral Kolyvagin bound alone does not identify the actual class/lattice scalar in both directions.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Rechecked the stated arXiv v2 locator on 2026-10-19; author-copy comparison and prior confirmed finding are recorded in the accepted BSD.7 packet.",
+        "Current arXiv version record and author copy were checked; no separate erratum located."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E9",
+      "source": "ky",
+      "kind": "misprint",
+      "locator": "arXiv:2402.12781v2, p.41, proof of Theorem 3.0.10; also author copy inspected",
+      "printed": "The source cites Theorem 3.0.9.",
+      "correction": "The reference is Remark 3.0.9, following Theorem 3.0.8.",
+      "reason": "The preceding item is explicitly labelled Remark 3.0.9. It discusses removal of H⁰(K,ρ_f)=0 and is the intended reference. This corrects the cross-reference, not the unresolved arithmetic adaptation interfaces.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Rechecked the stated arXiv v2 locator on 2026-10-19; author-copy comparison and prior confirmed finding are recorded in the accepted BSD.7 packet.",
+        "Current arXiv version record and author copy were checked; no separate erratum located."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E10",
+      "source": "ky",
+      "kind": "misprint",
+      "locator": "arXiv:2402.12781v2, §1.5, p.31, definition preceding Theorem 1.5.1; also author copy inspected",
+      "printed": "V_f = T_f ⊗ Q_ℓ",
+      "correction": "Use V_f=T_f⊗_O F, with the p-adic coefficient field F fixed in the Introduction and §1.3.",
+      "reason": "Here ℓ is the rational prime below w∤p. The representation attached to f and its O-lattice are p-adic, as explicitly defined in §1.3. The printed Q_ℓ cannot be the fraction field of this lattice. The new KY finite-Euler comparison uses the original p-adic V_f and inertia coinvariants.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Rechecked the stated arXiv v2 locator on 2026-10-19; author-copy comparison and prior confirmed finding are recorded in the accepted BSD.7 packet.",
+        "Current arXiv version record and author copy were checked; no separate erratum located."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E11",
+      "source": "hida10",
+      "kind": "error",
+      "locator": "Lemma 3.17, published p.95; author addendum p.1, 24 July 2022",
+      "printed": "The projection hypotheses are used to conclude that a free submodule N of A^m is all of A^m.",
+      "correction": "The author addendum withdraws the stronger conclusion and proposes an inductive alternative. That alternative also needs repair (E15). Supply a valid argument using the geometric hypotheses, or verify the independent second proof of Corollary 3.19 on pp.97–98; do not import the generic linear-algebra assertion unchanged.",
+      "reason": "Over a field, the subspace x+y+z=0 in A^3 projects onto every coordinate pair and onto the first two coordinates, yet has dimension two. The stronger conclusion cannot be used in the Katz μ proof.",
+      "affects": "the proof",
+      "known": "Hida, author addendum dated 24 July 2022, https://www.math.ucla.edu/~hida/Addendam.pdf",
+      "searched": [
+        "Author addendum read in full; published Theorem I and the supplier AP L3h statement checked."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E12",
+      "source": "hida07",
+      "kind": "gap",
+      "locator": "Corollary 5.6, printed p.263; author correction Introduction pp.1–3 and §6, pp.33–43",
+      "printed": "The proof of the congruence-series divisibility uses a stronger nonvanishing assertion than the corrected nonvanishing theorems establish.",
+      "correction": "Use the replacement proof in the 27 March 2025 manuscript, Theorem 6.14 and Corollary 6.15, retaining hi(M/F). Check its §6.1 assumptions before specializing to the p-irregular CGS family.",
+      "reason": "The author identifies the earlier all-but-finitely-many nonvanishing assertion as open and replaces the application by a different argument. The correction does not authorize dropping its local nontriviality assumption or the class-number factor.",
+      "affects": "the proof",
+      "known": "Hida, Non-vanishing of integrals of a mod p modular form, 27 March 2025, https://www.math.ucla.edu/~hida/EllrevF.pdf",
+      "searched": [
+        "Author 2007 Corollary 5.6 and 2025 Introduction, §6.1, Theorem 6.14 and Corollary 6.15 read; both directions of CGS’s cited congruence comparison checked."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E13",
+      "source": "cgs",
+      "kind": "error",
+      "locator": "arXiv:2303.04373v2, H_p(f) definition p.7; Theorem 4.1.1 p.17; Lemma 4.1.2 pp.17–18; Corollary 4.1.3 p.18",
+      "printed": "The raw f-Coleman map has pseudo-null cokernel in I_f⊗Λ_K, deg(π_•)I_f=ℤ_p, and multiplying this map by deg(π_•)H_p(f) is again claimed to give pseudo-null cokernel in Λ_K.",
+      "correction": "These claims require a corrected target lattice, raw-map normalization, or an explicit height-one cokernel term. With the stated raw target and degree identity, the normalized map has cokernel length v_p(H_p(f)) at (p). Retain the reciprocity image identity and the rationalized map comparison; do not assert the integral pseudo-null claim when H_p(f) is a nonunit.",
+      "reason": "Localize at the height-one prime (p). The raw map becomes an isomorphism, and degree multiplication identifies I_f with ℤ_p. Subsequent multiplication by H_p(f) has nonzero cokernel when α_p²≡1 mod p. The permitted ordinary case a_p≡−1 mod p gives α_p≡−1, so the local character exclusion does not force H_p(f) to be a unit. The inconsistency concerns these simultaneous normalization assertions, not a disproof of the main-conjecture endpoint.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv:2303.04373 version history (v2, 15 October 2025), checked 2026-10-19: https://arxiv.org/abs/2303.04373",
+        "Author publication page and linked Mazur.pdf checked 2026-10-19: https://web.math.ucsb.edu/~castella/; the September 2023 author copy has the same scalar/cokernel assertions.",
+        "Search for a CGS corrigendum/erratum and the Corollary 4.1.3 scalar discrepancy found no correction; publisher PDF refused access as recorded in sourceVersions. The finding is restricted to the inspected preprint."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E14",
+      "source": "cgs",
+      "kind": "misprint",
+      "locator": "arXiv:2303.04373v2, proof of Proposition 4.2.1, p.19, paragraph following (4.3)",
+      "printed": "The normalized E_• Coleman comparison is attributed to Corollary 4.1.1.",
+      "correction": "The numbered corollary is 4.1.3; item 4.1.1 is a theorem about the raw maps. Its normalization still needs the correction in E13.",
+      "reason": "The map Col_E_• used in this paragraph is introduced in Corollary 4.1.3, not Theorem 4.1.1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2303.04373 version history (v2, 15 October 2025), checked 2026-10-19: https://arxiv.org/abs/2303.04373",
+        "Author publication page and linked Mazur.pdf checked 2026-10-19: https://web.math.ucsb.edu/~castella/; the September 2023 author copy has the same scalar/cokernel assertions.",
+        "Search for a CGS corrigendum/erratum and the Corollary 4.1.3 scalar discrepancy found no correction; publisher PDF refused access as recorded in sourceVersions. The finding is restricted to the inspected preprint."
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD/E15",
+      "source": "hida10-addendum",
+      "kind": "error",
+      "locator": "Author addendum of 24 July 2022, p.1, Lemma 0.2 and its proof; PDF visually checked",
+      "printed": "The three projection hypotheses are claimed to allow the first m−1 coordinate factors to be identified inside N and to imply that N intersected with that coordinate hyperplane satisfies the same hypotheses with m reduced by one.",
+      "correction": "Neither inference follows from the stated projection hypotheses. Establish the needed arithmetic/geometric induction by an additional valid argument, or verify the published independent second proof of Corollary 3.19. An identification of the entire coordinate hyperplane inside N would itself force the full-rank conclusion and is not furnished by its surjective projection.",
+      "reason": "Take a field A, m=3 and N={(x,y,z):x+y+z=0}. N is free, all coordinate-pair projections and the first-two-coordinate projection are onto, and N≠A³. Its intersection with A²×0 is {(x,−x,0)}, whose projection to A² is not onto. Thus the asserted m=2 projection condition fails. The alleged containment A²×0⊂N also fails.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author current and older publication pages checked 2026-10-19: https://www.math.ucla.edu/~hida/ and https://www.math.ucla.edu/~hida/Old.htm; both lead to the 24 July 2022 addendum.",
+        "Searches for Lemma 3.17 and a correction to Addendam.pdf found the same one-page text and no subsequent repair. Scope is this addendum, not a claim that the μ-vanishing conclusion is false."
+      ]
+    }
+  ],
+  "proofOwnership": {
+    "independentInputs": [
+      "Actual early HE.8 derivative classes/local conditions/nonvanishing, extended to the canonical KY lattice as requested",
+      "Generic ES.4 uniform bound and ES.8 specialization, with their coefficient-prime limitation retained",
+      "Existing CMAllPrimeMainConjectures CZ.2–CZ.3; AP L3h Katz μ theorem and corrections",
+      "Wüthrich integral extension of Kato L4 and the generic AutomorphicCongruences L2 BF exports"
+    ],
+    "consumers": [
+      "RankZeroOneBSD:BSD.7",
+      "HeegnerPointEulerSystems:HE.8b",
+      "ModularIwasawaMainConjectures:L6",
+      "EllipticPeriodsAndSpecialValues:PS.6"
+    ],
+    "noCircularity": "No HE.8b main-conjecture equality, MIMC L6 Eisenstein equality, BSD formula or p-converse is a proof input.",
+    "boundary": "Only odd good Eisenstein primes in weight two. BSD endpoints are BSD.7; prime-part reconstruction and fixtures are BSD.8 and BSD.9. No bad-reduction BSD formula is asserted."
+  },
+  "libraryAudit": {
+    "reviewedAudit": "data/library-coverage.json, RankZeroOneBSD:BSD.7a: not built",
+    "currentReadOnlyRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentReadOnlyLibraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "findings": "Current EllipticCurves and ModularForms roadmap targets, all added roadmap directions and current TauCeti elliptic Tate-module/Galois files checked for overlap. The newer WeierstrassCurve.tateModuleGaloisRepresentation is not present in the pinned TauCeti git tree; cite the existing EllipticCurves Tate-module layer for prerequisites, not a fictitious pinned declaration. No new Iwasawa arithmetic theory was found in the current library.",
+    "upstreamDocuments": [
+      "EllipticCurves README and Suggested: relevant layers 1,2,4",
+      "ModularForms README and Suggested: relevant weight-two/newform comparison layer"
+    ]
+  },
+  "targetInventory": {
+    "RankZeroOneBSD:BSD.7a": [
+      "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity",
+      "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary",
+      "RankZeroOneBSD:BSD.7a/cgs-primitive-euler-comparison",
+      "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison",
+      "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence",
+      "RankZeroOneBSD:BSD.7a/cgls-algebraic-analytic-invariants",
+      "RankZeroOneBSD:BSD.7a/cgs-uniform-twist-specialization",
+      "RankZeroOneBSD:BSD.7a/cgs-augmentation-divisibility",
+      "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence",
+      "RankZeroOneBSD:BSD.7a/cgs-integral-greenberg-equality",
+      "RankZeroOneBSD:BSD.7a/cgs-integral-heegner-equality-target",
+      "RankZeroOneBSD:BSD.7a/ky-local-invariants-dictionary",
+      "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice",
+      "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization",
+      "RankZeroOneBSD:BSD.7a/ky-imprimitive-extension-sequence",
+      "RankZeroOneBSD:BSD.7a/ky-primitive-euler-comparison",
+      "RankZeroOneBSD:BSD.7a/ky-primitive-lambda-correction",
+      "RankZeroOneBSD:BSD.7a/ky-algebraic-analytic-invariants",
+      "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target",
+      "RankZeroOneBSD:BSD.7a/ky-integral-greenberg-equality",
+      "RankZeroOneBSD:BSD.7a/ky-rational-heegner-equality",
+      "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input",
+      "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations",
+      "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization",
+      "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-duality-equivalence",
+      "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization",
+      "RankZeroOneBSD:BSD.7a/cgs-finite-power-congruences",
+      "RankZeroOneBSD:BSD.7a/cgs-twisted-augmentation-control",
+      "RankZeroOneBSD:BSD.7a/cgs-integral-twist-comparison",
+      "RankZeroOneBSD:BSD.7a/cgs-mazur-equality",
+      "RankZeroOneBSD:BSD.7a/ky-mazur-equality",
+      "RankZeroOneBSD:BSD.7a/cgls-corank-one-prototype",
+      "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation",
+      "RankZeroOneBSD:BSD.7a/ky-uniform-twist-specialization",
+      "RankZeroOneBSD:BSD.7a/eisenstein-bf-pr-image",
+      "RankZeroOneBSD:BSD.7a/eisenstein-bf-greenberg-image"
+    ]
+  },
+  "refinementOf": {
+    "packet": "RankZeroOneBSD--BSD.7.json",
+    "reason": "That accepted mixed-scope packet already contains BSD.7a ids. This standalone pass corrects conventions, updates ownership and states integral verification obligations without editing another job’s deliverable. The mapping is an integration proposal; neither its old review nor an implementation claim is inherited.",
+    "nodeMap": [
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/eisenstein-ordinary-local-exclusion",
+        "replacement": "RankZeroOneBSD:BSD.7a/good-eisenstein-ordinarity"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/eisenstein-selmer-normalization",
+        "replacement": "RankZeroOneBSD:BSD.7a/selmer-convention-dictionary"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/finite-euler-factor-comparison",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-primitive-euler-comparison"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/cgls-residual-character-comparison",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgls-character-lambda-comparison"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/kriz-eisenstein-congruence",
+        "replacement": "RankZeroOneBSD:BSD.7a/eisenstein-cm-value-congruence"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/cgls-equal-iwasawa-invariants",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgls-algebraic-analytic-invariants"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/uniform-near-trivial-kolyvagin-bound",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-uniform-twist-specialization"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/augmentation-inclusive-heegner-divisibility",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-augmentation-divisibility"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/heegner-reciprocity-ideal-comparison",
+        "replacement": "RankZeroOneBSD:BSD.7a/heegner-greenberg-ideal-equivalence"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/cgs-anticyclotomic-main-conjecture",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-integral-greenberg-equality"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/cgs-heegner-index-square-equality",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-integral-heegner-equality-target"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-local-character-corrections",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-local-invariants-dictionary"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-ribet-lattice",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-invariant-free-lattice"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-trivial-character-main-conjecture",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-exceptional-character-specialization"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-imprimitive-residual-comparison",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-imprimitive-extension-sequence"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-finite-euler-factor-comparison",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-primitive-euler-comparison"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-residual-extension-lambda",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-primitive-lambda-correction"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-equal-iwasawa-invariants",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-algebraic-analytic-invariants"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-integral-kolyvagin-bound",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-coefficient-prime-divisibility-target"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-anticyclotomic-greenberg-equality",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-integral-greenberg-equality"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-heegner-index-square-equality",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-rational-heegner-equality"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/distinguished-lattice-integral-input",
+        "replacement": "RankZeroOneBSD:BSD.7a/wuthrich-integral-eisenstein-input"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/integral-two-variable-functions",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-integral-rankin-normalizations"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/beilinson-flach-integral-reciprocity",
+        "replacement": "RankZeroOneBSD:BSD.7a/eisenstein-bf-specialization"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/bf-poitou-tate-divisibility-comparison",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-duality-equivalence"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/nontrivial-twist-rational-bf-bound",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-rational-bf-specialization"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/congruent-characteristic-series",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-finite-power-congruences"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/twisted-control-augmentation-comparison",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-twisted-augmentation-control"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/integral-twisted-cyclotomic-equality",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-integral-twist-comparison"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/cgs-cyclotomic-main-conjecture",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgs-mazur-equality"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-cyclotomic-main-conjecture",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-mazur-equality"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/cgls-prototype-main-conjecture",
+        "replacement": "RankZeroOneBSD:BSD.7a/cgls-corank-one-prototype"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-cyclotomic-proof-inputs",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-integral-cyclotomic-adaptation"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/ky-uniform-near-trivial-bound",
+        "replacement": "RankZeroOneBSD:BSD.7a/ky-uniform-twist-specialization"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/bf-pr-reciprocity",
+        "replacement": "RankZeroOneBSD:BSD.7a/eisenstein-bf-pr-image"
+      },
+      {
+        "previous": "RankZeroOneBSD:BSD.7a/bf-greenberg-reciprocity",
+        "replacement": "RankZeroOneBSD:BSD.7a/eisenstein-bf-greenberg-image"
+      }
+    ]
+  },
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "RankZeroOneBSD",
+        "CMAllPrimeMainConjectures",
+        "AutomorphicCongruences",
+        "KatoEulerSystems",
+        "ModularSymbolsPadicLFunctions",
+        "PadicFamilies",
+        "PadicHodgeRegulators",
+        "ArithmeticGaloisRepresentations",
+        "HeegnerPointEulerSystems",
+        "EulerSystemsAndKolyvaginSystems"
+      ],
+      "detail": "RT-AREA-iwasawa-1/5’s missing elliptic-unit owner has since been supplied by CMAllPrimeMainConjectures, Part II. Do not create a duplicate roadmap. Exact stronger integral or exceptional inputs remain missing in existing supplier directions.",
+      "proposal": "Keep BSD.7a as the arithmetic Eisenstein adapter and owner of the resulting main-conjecture proofs. Put the requested exceptional CM specialization in CMAllPrimeMainConjectures CZ.3, integral p-irregular congruences in AutomorphicCongruences L0, Wüthrich in KatoEulerSystems L4, Néron period comparison in ModularSymbolsPadicLFunctions L1, weight-one specialization in PadicFamilies L0, exact Coleman cokernels in PadicHodgeRegulators L3, scalar-image verification in ArithmeticGaloisRepresentations R01.1, residual-H⁰ lattice transfer in early HE.8, and KLZ ordinary-local rational refinement in ES.8. Treat these as Part II additions beyond the existing exports, based on those roadmaps; do not reconstruct their existing objects in BSD.7a. The requests specify exact boundaries. Tau Ceti EllipticCurves stays the unchanged base."
+    }
+  ]
+}
