@@ -186,11 +186,11 @@
       "id": "TOTARO13",
       "title": "On the integral Hodge and Tate conjectures over a number field",
       "authors": "Burt Totaro",
-      "edition": "Author preprint; Theorem2.1 on pp.3–4 corresponds to published Theorem3.1",
+      "edition": "Author preprint; Theorem2.1 on p.3 corresponds to published Theorem3.1",
       "url": "https://www.math.ucla.edu/~totaro/papers/public_html/integral.pdf",
       "accessed": "2026-10-19",
       "readSections": [
-        "§2 Theorem 2.1 and its valuation/specialization proof pp.3–4; not the later degree-48 argument"
+        "§2 Theorem 2.1 and its valuation/specialization proof p.3, and the start of §3 on p.4; not the later degree-48 argument"
       ],
       "sha256": "ff883f6915a311ffd010065dc029e9942fdca64fa84dbaa223f6bfa991f9e785"
     },
@@ -289,9 +289,9 @@
           "statement": "The inverse-image Q-subspace just specified; membership is equivalent to i(v) lying in hs.piece p."
         },
         {
-          "name": "CycleConjectures.rationalClassesOfType_ext",
-          "role": "extensionality",
-          "statement": "Two such subspaces agree when their membership predicates agree for every rational vector."
+          "name": "CycleConjectures.mem_rationalClassesOfType",
+          "role": "simp",
+          "statement": "v lies in the subspace exactly when i(v) lies in hs.piece p; extensionality of these subspaces is then Submodule.ext."
         },
         {
           "name": "CycleConjectures.rationalClassesOfType_diagonal_iff",
@@ -356,8 +356,8 @@
         "MotivesAndAlgebraicCycles:MC.7/cycle-classes-are-hodge",
         "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture",
         "MotivesAndAlgebraicCycles:MC.7/rational-classes-of-type",
-        "MotivesAndAlgebraicCycles:MC.2",
-        "ComplexComparisonPartII:C5"
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "ComplexComparisonPartII:C5/proper-pure-hodge"
       ],
       "sources": [
         {
@@ -393,7 +393,7 @@
         "MotivesAndAlgebraicCycles:MC.7/strong-tate-conjecture",
         "MotivesAndAlgebraicCycles:MC.7/tate-beilinson-conjecture",
         "MotivesAndAlgebraicCycles:MC.7/rational-numerical-D",
-        "MotivesAndAlgebraicCycles:MC.2"
+        "MotivesAndAlgebraicCycles:MC.2/etale-realization"
       ],
       "sources": [
         {
@@ -432,12 +432,14 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology",
         "MotivesAndAlgebraicCycles:MC.2/cycle-class-degree",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "SchemeAndStackFoundations:SF.5/first-chern",
+        "SchemeAndStackFoundations:SF.5/ample"
       ],
       "sources": [
         {
           "sourceId": "KLEIMAN",
-          "locator": "§4 p.13, conjecture A(X,L)",
+          "locator": "§4 p.14, conjecture A(X,L) (the operators L and Λ are set up on p.13)",
           "match": "States Lefschetz on the algebraic subspaces of the fixed Weil cohomology."
         }
       ],
@@ -510,19 +512,20 @@
       ],
       "kind": "definition",
       "title": "Lefschetz standard conjecture",
-      "statement": "With the same k,H,X,η, B_H(X) means that for every 0≤i≤d the inverse of L^{d-i}:H^i(X)→H^{2d-i}(X) is induced by a rational algebraic correspondence of degree i-d, equivalently a class in CH^i(X×X)_Q acting from degree 2d-i to degree i. The dependence on η is removed by the comparison theorem, rather than assumed in the data. Equivalent formulations use an algebraic lowering operator Λ or primitive projectors with the specified Lefschetz convention.",
+      "statement": "With the same k,H,X,η, B_H(X) means that for every 0≤i≤d the inverse of L^{d-i}:H^i(X)→H^{2d-i}(X) is induced by a rational algebraic correspondence of degree i-d, equivalently a class in CH^i(X×X)_Q acting from degree 2d-i to degree i. This is Kleiman’s θ(X); his Theorem 4.1(3) shows it is equivalent to algebraicity of the lowering operator Λ, his B(X). The dependence on η is removed by the comparison theorem, rather than assumed in the data. Equivalent formulations use an algebraic lowering operator Λ or primitive projectors with the specified Lefschetz convention.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-A",
         "MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology",
         "MotivesAndAlgebraicCycles:MC.0/correspondence-action-on-cycles",
         "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
-        "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence"
+        "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence",
+        "MotivesAndAlgebraicCycles:MC.2/weil-pushforward"
       ],
       "sources": [
         {
           "sourceId": "KLEIMAN",
-          "locator": "§4 pp.13–15, definition B(X), Theorem 4.1",
+          "locator": "§4 pp.13–15: Λ on p.13, B(X) and θ(X) on p.14, Theorem 4.1 pp.14–15",
           "match": "Identifies algebraicity of inverse Lefschetz with the lowering-operator and primitive-projector formulations."
         }
       ],
@@ -605,7 +608,8 @@
         "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-A",
         "MotivesAndAlgebraicCycles:MC.2/trace-of-a-product",
         "SchemeAndStackFoundations:SF.5",
-        "ComplexComparisonPartII:C5"
+        "ComplexComparisonPartII:C5",
+        "SchemeAndStackFoundations:SF.5/hodge-index"
       ],
       "sources": [
         {
@@ -616,7 +620,7 @@
       ],
       "proofSteps": [
         "Use the imported rational intersection pairing and primitive kernel; record positive definiteness as a predicate.",
-        "In characteristic zero Betti Hodge–Riemann gives the assertion, and comparison transports it to the admitted étale theory. For surfaces it is the imported Hodge-index theorem."
+        "In characteristic zero Betti Hodge–Riemann gives the assertion, and comparison transports it to the admitted étale theory. For surfaces it is the imported Hodge-index theorem SF.5/hodge-index, once numerically trivial divisors are identified with homologically trivial ones (R-SF5); Kleiman §5 p.17 records the surface case in every characteristic."
       ],
       "acceptance": [
         "Positivity is not inferred from Tate in positive characteristic."
@@ -693,7 +697,9 @@
         "MotivesAndAlgebraicCycles:MC.7/rational-kunneth-C",
         "MotivesAndAlgebraicCycles:MC.7/rational-numerical-D",
         "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture-interface",
-        "MotivesAndAlgebraicCycles:MC.2",
+        "MotivesAndAlgebraicCycles:MC.2/weil-pushforward",
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/realization-quotients",
         "MotivesAndAlgebraicCycles:MC.0/correspondence-action-on-cycles",
         "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
         "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence"
@@ -731,7 +737,9 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.2/homological-equivalence",
         "MotivesAndAlgebraicCycles:MC.7/rational-kunneth-C",
-        "SchemeAndStackFoundations:SF.5",
+        "SchemeAndStackFoundations:SF.5/smooth-intersection",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push",
+        "SchemeAndStackFoundations:SF.5/lci-pullback",
         "MotivesAndAlgebraicCycles:MC.0/correspondence-action-on-cycles",
         "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
         "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence"
@@ -828,7 +836,7 @@
       ],
       "kind": "definition",
       "title": "Murre’s conjecture and its filtration",
-      "statement": "For each irreducible smooth projective d-fold X/k and a fixed Weil cohomology, Murre data consist of rational Chow correspondences π_0,…,π_{2d} lifting the cohomological projectors, with π_iπ_j=0 for i≠j, π_i²=π_i and sum π_i=Δ_X in CH^d(X×X)_Q. Require π_{2j+1},…,π_{2d} to kill CH^j_Q; put F^ν CH^j_Q=intersection_{r=0}^{ν-1} ker(π_{2j-r}) with π_i=0 for indices outside [0,2d]; require independence from the chosen projectors and F^1=CH^j_hom,Q. The strong form additionally makes π_0,…,π_{j-1} act as zero. The conjecture is existence of these data and laws for every X, with the corresponding choice-independent system.",
+      "statement": "For each irreducible smooth projective d-fold X/k and a fixed Weil cohomology, Murre data consist of rational Chow correspondences π_0,…,π_{2d} lifting the cohomological projectors, with π_iπ_j=0 for i≠j, π_i²=π_i and sum π_i=Δ_X in CH^d(X×X)_Q. Require π_{2j+1},…,π_{2d} to kill CH^j_Q; put F^ν CH^j_Q=intersection_{r=0}^{ν-1} ker(π_{2j-r}) with π_i=0 for indices outside [0,2d]; require independence from the chosen projectors and F^1=CH^j_hom,Q. The strong form additionally makes π_0,…,π_{j-1} act as zero. The conjecture is existence of these data and laws for every X, with the corresponding choice-independent system. Jannsen states it under the standing assumption that the Künneth components are algebraic; existence of the lifts contains that assumption.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/bloch-beilinson-axioms",
@@ -940,7 +948,7 @@
       "sources": [
         {
           "sourceId": "JANNSEN94",
-          "locator": "Theorem 5.2 p.288 and proof via Propositions5.3–5.8 pp.289–297",
+          "locator": "Theorem 5.2 p.288 and proof via Propositions5.3–5.8 pp.289–296",
           "match": "Gives both directions, equality of filtrations and the strong-form variant."
         }
       ],
@@ -964,12 +972,14 @@
       ],
       "kind": "definition",
       "title": "Motivic t-structure relative to a realization",
-      "statement": "Let k be a perfect field admitting resolution of singularities (in particular a characteristic-zero field) and DM_gm(k,Q) the rational idempotent-complete triangulated rigid tensor category supplied by MC.4. Fix a tensor triangulated Betti realization to D^b(Vec_Q) when k embeds in C, or geometric l-adic realization to D^b(Vec_Q_l), l≠char(k). A motivic t-structure μ is a Mathlib t-structure on this category whose cohomology is conservative (nondegenerate in Beilinson’s stated sense), whose unit belongs to the heart and whose tensor product satisfies μ^{≤a}⊗μ^{≤b}⊂μ^{≤a+b} and μ^{≥a}⊗μ^{≥b}⊂μ^{≥a+b} for all integers a,b, and for which the chosen realization is t-exact. Tensoring with a heart object is therefore t-exact; arbitrary shifted objects do not define t-exact tensor functors. Its heart is exactly μ^{≤0}∩μ^{≥0}. The conjecture asserts existence. Boundedness, uniqueness and Tannakian properties are consequences under this premise, not fields asserting that an arbitrary triangulated category is already abelian.",
+      "statement": "Let k be a perfect field admitting resolution of singularities (in particular a characteristic-zero field) and DM_gm(k,Q) the rational idempotent-complete triangulated rigid tensor category supplied by MC.4. Fix a tensor triangulated Betti realization to D^b(Vec_Q) when k embeds in C, or geometric l-adic realization to D^b(Vec_Q_l), l≠char(k). A motivic t-structure μ is a Mathlib t-structure on this category whose cohomology is conservative (nondegenerate in Beilinson’s stated sense), whose unit belongs to the heart (used implicitly in Beilinson §1.3 and made explicit here) and whose tensor product satisfies μ^{≤a}⊗μ^{≤b}⊂μ^{≤a+b} and μ^{≥a}⊗μ^{≥b}⊂μ^{≥a+b} for all integers a,b, and for which the chosen realization is t-exact. Tensoring with a heart object is therefore t-exact; arbitrary shifted objects do not define t-exact tensor functors. Its heart is exactly μ^{≤0}∩μ^{≥0}. Beilinson states the definition over an arbitrary base field; the restriction to perfect fields admitting resolution is the domain on which MC.4 currently supplies DM_gm(k,Q) as a rigid tensor triangulated category. The conjecture asserts existence. Boundedness, uniqueness and Tannakian properties are consequences under this premise, not fields asserting that an arbitrary triangulated category is already abelian.",
       "hypotheses": [],
       "prerequisites": [
         "mathlib:CategoryTheory.Triangulated.TStructure",
         "mathlib:CategoryTheory.Triangulated.TStructure.heart",
-        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivesAndAlgebraicCycles:MC.4/tate-stabilised-motives",
+        "MotivesAndAlgebraicCycles:MC.4/geometric-motives-rigid",
+        "MotivesAndAlgebraicCycles:MC.4/chow-motives-into-geometric-motives",
         "MotivesAndAlgebraicCycles:MC.2"
       ],
       "sources": [
@@ -986,7 +996,7 @@
       "acceptance": [
         "For projective d-fold X, the paper’s r(M(X)) is homology in cohomological degrees [-2d,0].",
         "The definition supplies no unconditional t-structure on DM.",
-        "The current MC.4 domain is perfect fields admitting resolution; a general positive-characteristic extension requires the explicit R-MC4 contract."
+        "The current MC.4 domain is perfect fields admitting resolution; stating the conjecture in Beilinson’s generality over other fields first needs MC.4 to supply DM_gm(k,Q) there."
       ],
       "implementationStatus": "unchecked",
       "api": [
@@ -1065,7 +1075,9 @@
         "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-predicate",
         "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-B",
         "MotivesAndAlgebraicCycles:MC.7/standard-implications",
-        "MotivesAndAlgebraicCycles:MC.4",
+        "MotivesAndAlgebraicCycles:MC.4/chow-motives-into-geometric-motives",
+        "MotivesAndAlgebraicCycles:MC.4/dual-of-motive-of-smooth-scheme",
+        "MotivesAndAlgebraicCycles:MC.4/geometric-motives-rigid",
         "MotivesAndAlgebraicCycles:MC.2",
         "MotivesAndAlgebraicCycles:MC.6",
         "ComplexComparisonPartII:C5"
@@ -1111,7 +1123,7 @@
       "sources": [
         {
           "sourceId": "KLEIMAN",
-          "locator": "§3 pp.11–12 and Theorem 4.1 pp.14–15",
+          "locator": "§3 p.12 (Künneth components π^i) and §4 p.14 (conjecture C(X)); Theorem 4.1 pp.14–15",
           "match": "Uses rational algebraic correspondences for the standard-conjecture implications."
         }
       ],
@@ -1195,7 +1207,7 @@
       "sources": [
         {
           "sourceId": "KLEIMAN",
-          "locator": "§3 pp.11–12; Proposition 5.1 pp.16–17",
+          "locator": "§5 p.17, conjecture D(X) and Proposition 5.1",
           "match": "Separates rational numerical and homological equivalence and relates them by primitive positivity."
         }
       ],
@@ -1274,7 +1286,8 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture-interface",
         "MotivesAndAlgebraicCycles:MC.2",
-        "ComplexComparisonPartII:C5"
+        "ComplexComparisonPartII:C5/proper-pure-hodge",
+        "ComplexComparisonPartII:C5/multiplicative-period-interface"
       ],
       "sources": [
         {
@@ -1365,7 +1378,7 @@
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Definition 1.19 and(1.58) pp.31–32; Definition 2.2 and(2.1) pp.36–37",
+          "locator": "Definition 1.19 and(1.58) pp.31–32; Definition 2.2 and(2.1) p.37",
           "match": "Combines topological admissibility and the integral Hodge condition."
         }
       ],
@@ -1582,7 +1595,10 @@
         "MotivesAndAlgebraicCycles:MC.7/realclosed-integral-hodge-predicate",
         "MotivesAndAlgebraicCycles:MC.2",
         "ComplexComparisonPartII:C5",
-        "SchemeAndStackFoundations:SF.3"
+        "SchemeAndStackFoundations:SF.3/picard-brauer-sequence",
+        "SchemeAndStackFoundations:SF.2/fppf-kummer-sequence",
+        "SchemeAndStackFoundations:SF.2",
+        "ComplexComparisonPartII:C3/proper-gaga-equivalence"
       ],
       "sources": [
         {
@@ -1592,8 +1608,8 @@
         },
         {
           "sourceId": "DELIGNE",
-          "locator": "§4 pp.4–5",
-          "match": "Complex integral divisor theorem via the exponential sequence."
+          "locator": "§2, Remarks (iii), p.2",
+          "match": "Complex integral divisor theorem via the exponential sequence, stated there for projective non-singular varieties; BW §2.1 p.36 uses it for smooth proper ones."
         },
         {
           "sourceId": "BENOIST",
@@ -1632,12 +1648,13 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/realclosed-integral-hodge-predicate",
         "MotivesAndAlgebraicCycles:MC.2",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.5/projective-bundle-formula",
+        "SchemeAndStackFoundations:SF.5/degree"
       ],
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Proposition 2.10 pp.40–41; Proposition 2.15 pp.44–45",
+          "locator": "Proposition 2.10 and proof p.40; Proposition 2.15 and proof pp.43–44",
           "match": "Gives real-point/norm generators and the diagonal argument for projective space."
         }
       ],
@@ -1676,7 +1693,7 @@
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Lemma 2.14 and equation(2.3) pp.43–44; Proposition 2.13 pp.42–44",
+          "locator": "Lemma 2.14 and equations(2.2)–(2.3) p.42; Proposition 2.13 and proof pp.41–42",
           "match": "Combines the equivariant blowup formula with the low-codimension and zero-cycle cases."
         }
       ],
@@ -1746,7 +1763,9 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/real-detector-orthogonality",
         "SchemeAndStackFoundations:SF.3",
-        "SchemeAndStackFoundations:SF.3/vector-bundle-riemann-roch"
+        "SchemeAndStackFoundations:SF.3/vector-bundle-riemann-roch",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "SchemeAndStackFoundations:SF.4/resolution-of-curves"
       ],
       "sources": [
         {
@@ -1781,18 +1800,19 @@
       ],
       "kind": "theorem",
       "title": "Curve existence and the first intermediate index",
-      "statement": "For X/R smooth proper geometrically integral with d≥2, a geometrically integral curve of odd geometric genus exists; if X(R)≠∅, one of even geometric genus exists as well. For a nonempty proper variety X/R, define ind₁ using the supplier’s gcd of χ(X,F) for coherent sheaves supported in dimension≤1. Then ind₁(X)=1 exactly when X(R)≠∅ or X contains a geometrically integral curve of even geometric genus; otherwise ind₁(X)=2. The index assertion allows singular X; the smooth curve-existence construction retains d≥2.",
+      "statement": "For X/R smooth proper geometrically integral with d≥2, a geometrically integral curve of odd geometric genus exists; if X(R)≠∅, one of even geometric genus exists as well. For a nonempty proper variety X/R, define ind₁ by MC.0/intermediate-index, the gcd of χ(X,F) for coherent sheaves supported in dimension≤1. Then ind₁(X)=1 exactly when X(R)≠∅ or X contains a geometrically integral curve of even geometric genus; otherwise ind₁(X)=2. The index assertion allows singular X; the smooth curve-existence construction retains d≥2.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent",
         "SchemeAndStackFoundations:SF.3",
         "SchemeAndStackFoundations:SF.4",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5/surface-adjunction",
+        "MotivesAndAlgebraicCycles:MC.0/intermediate-index"
       ],
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Proposition 3.9 pp.50–51; Proposition 3.10 and Corollary 3.11 pp.51–52",
+          "locator": "Proposition 3.9 and proof p.51; Proposition 3.10 and Corollary 3.11 pp.51–52",
           "match": "Uses Bertini/adjunction and the coherent-sheaf index formula."
         }
       ],
@@ -1858,7 +1878,8 @@
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/real-detector-orthogonality",
-        "MotivesAndAlgebraicCycles:MC.7/real-integral-hodge-predicate"
+        "MotivesAndAlgebraicCycles:MC.7/real-integral-hodge-predicate",
+        "MotivesAndAlgebraicCycles:MC.2"
       ],
       "sources": [
         {
@@ -1946,12 +1967,14 @@
         "MotivesAndAlgebraicCycles:MC.7/real-detector-orthogonality",
         "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent",
         "MotivesAndAlgebraicCycles:MC.7/real-curve-existence-and-index",
-        "MotivesAndAlgebraicCycles:MC.7/real-norm-detector-exactness"
+        "MotivesAndAlgebraicCycles:MC.7/real-norm-detector-exactness",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "SchemeAndStackFoundations:SF.3"
       ],
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Theorem 3.16 pp.55–56, proof via Theorem 3.6 and Proposition 3.9",
+          "locator": "Theorem 3.16 p.55, proof via Theorem 3.6 and Proposition 3.9",
           "match": "The algebraicity hypothesis identifies the image of φ with the image of ψ; the even-genus assertion needs its verified scope."
         }
       ],
@@ -1986,7 +2009,6 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases",
         "MotivesAndAlgebraicCycles:MC.7/real-algebraic-orthogonality",
-        "SchemeAndStackFoundations:SF.5",
         "MotivesAndAlgebraicCycles:MC.2"
       ],
       "sources": [
@@ -2028,7 +2050,7 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/real-norm-detector-exactness",
         "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent",
-        "SchemeAndStackFoundations:SF.5",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push",
         "MotivesAndAlgebraicCycles:MC.2"
       ],
       "sources": [
@@ -2151,12 +2173,13 @@
         "MotivesAndAlgebraicCycles:MC.7/real-obstruction-predicates",
         "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent",
         "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5/surface-pairing",
+        "MotivesAndAlgebraicCycles:MC.2"
       ],
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Examples4.5–4.6 pp.60–61",
+          "locator": "Examples4.5–4.6 p.60",
           "match": "Uses deformation of real quartics and Picard rank 1 to distinguish the Hodge obstruction."
         }
       ],
@@ -2195,13 +2218,13 @@
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Examples4.7–4.8 pp.61–62",
+          "locator": "Examples4.7–4.8 pp.60–61",
           "match": "Uses even projection degree and real approximation to produce genuine cycle-theoretic failure."
         },
         {
           "sourceId": "TOTARO13",
-          "locator": "Author preprint Theorem 2.1 pp.3–4, proof",
-          "match": "Primary valuation and DVR specialization argument; published theorem numbering is different."
+          "locator": "Author preprint Theorem 2.1 and proof p.3",
+          "match": "Primary valuation and DVR specialization argument, there for hypersurfaces of bidegree (3,4) in P¹×P³ reducing to the displayed quartic family over the algebraic closure of F_p; BW apply it to their bidegree (4,4) reductions. Published theorem numbering is different."
         }
       ],
       "proofSteps": [
@@ -2234,7 +2257,8 @@
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/real-rational-descent-and-constants",
-        "MotivesAndAlgebraicCycles:MC.7/realclosed-integral-hodge-predicate"
+        "MotivesAndAlgebraicCycles:MC.7/realclosed-integral-hodge-predicate",
+        "MotivesAndAlgebraicCycles:MC.2"
       ],
       "sources": [
         {
@@ -2264,20 +2288,21 @@
       ],
       "kind": "theorem",
       "title": "Unramified description of the torsion 1-cycle defect",
-      "statement": "Let X/R be smooth proper geometrically integral of dimension d≥3, and assume CH₀(X_C′) is supported on a surface for every algebraically closed extension C′ containing R. Write H_X^q(M) for the Zariski sheafification of U↦H_G^q(U(C),M), and H_X^q(M)_0 for the kernel of restriction to the real-locus sheaf of H^q(G,M). Then H^{d−3}(X,H_X^d(Q/Z(d−1))_0) is canonically the torsion subgroup of coker[CH₁(X)→A_G^{2d−2}(X(C),Z(d−1))]. If R is the real numbers or H²(O)=0, real IHC for 1-cycles is equivalent to vanishing of this group. In dimension 3 the left side is H³_nr(X,Q/Z(2))_0, classes whose restriction at every real point vanishes.",
+      "statement": "Let X/R be smooth proper geometrically integral of dimension d≥3 (BW state it for every d; for d≤2 the left-hand group has negative degree and the cokernel is torsion-free by the divisor and zero-cycle cases), and assume CH₀(X_C′) is supported on a surface for every algebraically closed extension C′ containing R (MC.0/universal-ch0-support with s=2). Write H_X^q(M) for the Zariski sheafification of U↦H_G^q(U(C),M), and H_X^q(M)_0 for the kernel of restriction to the real-locus sheaf of H^q(G,M). Then H^{d−3}(X,H_X^d(Q/Z(d−1))_0) is canonically the torsion subgroup of coker[CH₁(X)→A_G^{2d−2}(X(C),Z(d−1))]. If R is the real numbers or H²(O)=0, real IHC for 1-cycles is equivalent to vanishing of this group. In dimension 3 the left side is H³_nr(X,Q/Z(2))_0, classes whose restriction at every real point vanishes.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/real-integral-hodge-predicate",
         "MotivesAndAlgebraicCycles:MC.7/realclosed-integral-hodge-predicate",
         "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases",
         "MotivesAndAlgebraicCycles:MC.2",
-        "SchemeAndStackFoundations:SF.5",
-        "MotivesAndAlgebraicCycles:MC.0"
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "MotivesAndAlgebraicCycles:MC.0/universal-ch0-support",
+        "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing"
       ],
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Proposition 5.2 and Remarks5.3 pp.65–67, using Proposition 5.1 pp.62–65",
+          "locator": "Proposition 5.2 p.66 and Remarks5.3 p.67, using Proposition 5.1 pp.62–65",
           "match": "Combines Bloch–Ogus, rational support vanishing and the coefficient boundary to compute the torsion defect."
         }
       ],
@@ -2310,7 +2335,7 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/real-unramified-cycle-defect",
         "MotivesAndAlgebraicCycles:MC.2",
-        "SchemeAndStackFoundations:SF.5"
+        "SchemeAndStackFoundations:SF.5/chow-group"
       ],
       "sources": [
         {
@@ -2387,8 +2412,9 @@
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/integral-hodge-predicate",
         "MotivesAndAlgebraicCycles:MC.2",
-        "SchemeAndStackFoundations:SF.5",
-        "MotivesAndAlgebraicCycles:MC.0"
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "MotivesAndAlgebraicCycles:MC.0/diagonal-decomposition",
+        "MotivesAndAlgebraicCycles:MC.0/supported-diagonal-vanishing"
       ],
       "sources": [
         {
@@ -2425,8 +2451,9 @@
         "MotivesAndAlgebraicCycles:MC.7/real-integral-descent-criterion",
         "MotivesAndAlgebraicCycles:MC.7/real-norm-detector-exactness",
         "MotivesAndAlgebraicCycles:MC.2",
-        "SchemeAndStackFoundations:SF.5",
-        "MotivesAndAlgebraicCycles:MC.0"
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push",
+        "MotivesAndAlgebraicCycles:MC.0/quartic-universal-support"
       ],
       "sources": [
         {
@@ -2464,7 +2491,7 @@
       ],
       "kind": "comparison",
       "title": "Two quartic computations requiring completion of source sketches",
-      "statement": "The source sketches two further computations over the real numbers: for a smooth real-empty quartic threefold, CH₁(X)≃Z⊕F₂⊕(R/Z)^30; and for the specific smooth quartic x₀⁴+x₁⁴=x₂⁴+x₃⁴+x₄⁴, CH₁(X)_tors≃F₂⊕(Q/Z)^30. These are named proof-completion targets, not deductions already established by the preceding torsion theorem. The first needs the actual real intermediate-Jacobian group and comparison with the full Chow group. The second needs a real-point calculation of the admissible H_G⁴ lattice and H_G³ rank, plus real IHC. BW2 Proposition 7.7 gives a sufficient anticanonical criterion: for smooth Fano X with -K_X very ample and smooth S∈|-K_X|, a nonzero (-1)-eigenspace H^{1,1}_van(SC) makes the Gysin image algebraic; if H¹(S(R),F₂)→H¹(X(R),F₂) is onto, real IHC follows. Verification of that criterion for the displayed quartic remains a gap.",
+      "statement": "The source sketches two further computations over the real numbers: for a smooth real-empty quartic threefold, CH₁(X)≃Z⊕F₂⊕(R/Z)^30; and for the specific smooth quartic x₀⁴+x₁⁴=x₂⁴+x₃⁴+x₄⁴, CH₁(X)_tors≃F₂⊕(Q/Z)^30. These are named proof-completion targets, not deductions already established by the preceding torsion theorem. The first needs the actual real intermediate-Jacobian group and comparison with the full Chow group. The second needs a real-point calculation of the admissible H_G⁴ lattice and H_G³ rank, plus real IHC. BW2 Proposition 7.7 gives a sufficient anticanonical criterion: for a smooth Fano threefold X over the real numbers with -K_X very ample and smooth S∈|-K_X|, a nonzero (-1)-eigenspace H^{1,1}_van(SC) makes the Gysin image algebraic; if H¹(S(R),F₂)→H¹(X(R),F₂) is onto, real IHC follows. Verification of that criterion for the displayed quartic remains a gap.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/quartic-threefold-torsion",
@@ -2518,7 +2545,7 @@
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "Question2.1 p.36; Question2.6 p.38; Question2.16 p.45; Question4.9 p.62",
+          "locator": "Question2.1 p.36; Question2.6 p.38; Question2.16 p.44; Question4.9 p.61",
           "match": "Source-time questions distinguish general targets from proved families."
         }
       ],
@@ -2847,7 +2874,7 @@
       ],
       "kind": "comparison",
       "title": "Exact hypotheses for the Li–Liu cycle cases",
-      "statement": "For the two theorems below impose Assumption 1.3: E/F is CM, unramified at all finite places, all 2-adic places of F split in E (these conditions imply [F:Q] is even), n=2r; π is cuspidal on U(r,r)(A_F); each archimedean π_v is the holomorphic discrete series with Harish–Chandra parameters {(1−n)/2,(3−n)/2,…,(n−1)/2}; each split finite π_v is principal series; each inert finite π_v is unramified or almost unramified relative to K_{r,v}, and an almost-unramified v is unramified over Q; all finite π_v are tempered. Define R_π as ramified split places and S_π as almost-unramified inert places, and assume |S_π| odd. The associated incoherent totally positive V_π determines the coherent V of the preceding signature with the same finite local spaces; H=U(V). Hypothesis 6.6 is the all-prime local-global identity: for every l and coefficient embedding, the semisimplified G_E-representation Hom_H(π̃∞,colim H^{2r−1}_ét(X_L/Ebar,Q_lbar)) is the specified ρ^c_{Π_j(π̃∞)} for each π̃∞ matching the good unramified constituents in Lemma 3.15(b). Hypothesis 4.5, when separately invoked, says that for every neat L, L-invariant Schwartz φ and every complex-linear functional λ on CH^r(X_L)_C, λ(Z_φ(g)_L) converges absolutely and is an automorphic form in A^[r]. Formal modularity of a q-series is insufficient.",
+      "statement": "For the two theorems below impose Assumption 1.3: E/F is CM, unramified at all finite places, all 2-adic places of F split in E (these conditions imply [F:Q] is even), n=2r; π is cuspidal on U(r,r)(A_F); each archimedean π_v is the holomorphic discrete series with Harish–Chandra parameters {(1−n)/2,(3−n)/2,…,(n−1)/2}; each split finite π_v is principal series; each inert finite π_v is unramified or almost unramified relative to K_{r,v}, and an almost-unramified v is unramified over Q; all finite π_v are tempered. Define R_π as ramified split places and S_π as almost-unramified inert places, and assume |S_π| odd. The associated incoherent totally positive V_π determines the coherent V of the preceding signature with the same finite local spaces; H=U(V). Hypothesis 6.6 is the local-global identity, for a rational prime l and an arbitrary isomorphism Q_lbar≃C: for every irreducible admissible π̃∞ of H(A_F^∞) such that Π_v is the standard base change of π̃∞_v at all but finitely many finite places where π̃∞_v is unramified, and which is in situation (b) of Lemma 3.15, the semisimplified G_E-representation Hom_H(π̃∞,colim H^{2r−1}_ét(X_L⊗Ebar,Q_lbar)) is isomorphic to ρ^c_{Π_j(π̃∞)}. Hypothesis 4.5 in codimension m=r, when separately invoked, says that for every open compact L⊂H(A_F^∞) (the source quantifies over all of them; X_L is smooth at neat levels, which are cofinal), every L-invariant Schwartz φ and every complex-linear functional λ on CH^r(X_L)_C, λ(Z_φ(g)_L) converges absolutely and is an automorphic form in A^[r]. Formal modularity of a q-series is insufficient.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/unitary-bb-specialization",
@@ -2880,7 +2907,7 @@
       ],
       "kind": "theorem",
       "title": "Nonzero localized Chow group from a central derivative",
-      "statement": "Assume also the corrected almost-self-dual local index identity specified in G-AIP, whose later repair has not been verified in this pass. Under the Li–Liu hypothesis contract including Hypothesis 6.6, suppose L′(1/2,π)≠0. For a finite set R of finite places with R_π⊆R and |R\\V_F^spl|>2, fix the outside-R special maximal level L^R, Hecke character χ_π^R and maximal ideal m_π^R=kerχ_π^R over Qac. Then colim_{L_R}(CH^r(X_{L_R L^R})^0_Qac)_{m_π^R}≠0. The same nonvanishing is witnessed by the subgroup generated by the specified special cycles. This is localization at m, not an assertion about a nonzero m-eigenspace or its dimension, and does not use Hypothesis 4.5.",
+      "statement": "Assume also the corrected almost-self-dual local index identity specified in G-AIP, whose later repair has not been verified in this pass. Under the Li–Liu hypothesis contract including Hypothesis 6.6, suppose L′(1/2,π)≠0. For a finite set R of finite places with R_π⊆R and |R∩V_F^spl|≥2, fix the outside-R special maximal level L^R, Hecke character χ_π^R and maximal ideal m_π^R=kerχ_π^R over Qac. Then colim_{L_R}(CH^r(X_{L_R L^R})^0_Qac)_{m_π^R}≠0. The same nonvanishing is witnessed by the subgroup generated by the specified special cycles. This is localization at m, not an assertion about a nonzero m-eigenspace or its dimension, and does not use Hypothesis 4.5.",
       "hypotheses": [
         "Corrected local index identity, or its cited auxiliary conjectural premise until a verified replacement is supplied (PAPER-LI-LIU-21/E3)."
       ],
@@ -2893,7 +2920,7 @@
       "sources": [
         {
           "sourceId": "LI-LIU",
-          "locator": "Theorem 1.5 pp.5–6, Remark 1.6(2)–(4); proof §11 pp.51–52",
+          "locator": "Theorem 1.5 pp.5–6, Remark 1.6(2)–(4); §11, Lemma 11.1 p.49 and the proof of Theorem 1.5 p.52",
           "match": "Establishes localized nonvanishing without modularity, with the requirement of at least two split places in R."
         }
       ],
@@ -2904,7 +2931,7 @@
       ],
       "acceptance": [
         "Do not replace localization by the kernel of m or assert the full BB rank equality.",
-        "Retain R_π⊆R and at least two split places in R; the PDF text extraction corrupts both the intersection and inequality."
+        "Retain R_π⊆R and |R∩V_F^spl|≥2, at least two split places in R; the PDF text extraction corrupts both the intersection and the inequality, so read the rendered page."
       ],
       "implementationStatus": "unchecked",
       "logicalStatus": "Conditional proved case, exact theorem statement; deep input proofs remain supplier gaps."
@@ -2955,7 +2982,7 @@
       ],
       "kind": "application",
       "title": "Coefficient-sensitive register of Hodge, Tate and standard cases",
-      "statement": "The register fixes the predicate, field, characteristic, degree and proof scope of each case. H1: integral and rational HC in codimension1 over C for smooth proper varieties, by the divisor theorem. T1: strong Tate in codimension1 for abelian varieties over finite fields, l≠char(k). T2: the same for abelian varieties over number fields, using Faltings’s isogeny theorem. T3: Tate for divisors on abelian varieties over any field finitely generated over its prime field, l invertible. T4: Tate for divisors on smooth projective varieties over a number field with h^{2,0}=0. T5: Tate for divisors on K3 surfaces over number fields. T6: Tate for divisors on irreducible hyperkähler varieties over number fields. T7: Tate for divisors on smooth proper X over a finitely generated characteristic-zero field with h^{2,0}=1, provided some complex embedding admits a deformation over a smooth base on which the H² Hodge structure varies nontrivially. T8: Tate for divisors on K3 surfaces over finite fields, including characteristic2; the historical p>5 non-supersingular result alone does not cover all of T8. All T entries have Q_l cycle coefficients. TB1: CH^1(X)_Q→H²(X_ksep,Q_l(1)) is injective for smooth projective X over a finite field. B1: Lefschetz B for curves, surfaces, abelian varieties and generalized flag varieties G/P in the setting of Kleiman Proposition 4.3. C1: retain the dimension≤2, abelian, finite-field-algebraic-closure and product register of known-cases-of-conjecture-C, subject to its explicit primary-proof and realization-scope gaps. Hdg1: Hodge standard positivity in characteristic zero for the Betti theory and its compared étale theory. Entries H1 and TB1 have short proofs here; B1 and the other T/C entries retain primary-proof gaps rather than acquiring proofs from a survey citation.",
+      "statement": "The register fixes the predicate, field, characteristic, degree and proof scope of each case. H1: integral and rational HC in codimension1 over C for smooth proper varieties, by the divisor theorem. T1: strong Tate in codimension1 for abelian varieties over finite fields, l≠char(k). T2: the same for abelian varieties over number fields, using Faltings’s isogeny theorem. T3: Tate for divisors on abelian varieties over any field finitely generated over its prime field, l invertible. T4: Tate for divisors on smooth projective varieties over a number field with h^{2,0}=0. T5: Tate for divisors on K3 surfaces over number fields. T6: Tate for divisors on irreducible hyperkähler varieties over number fields. T7: Tate for divisors on smooth proper X over a finitely generated characteristic-zero field with h^{2,0}=1, provided some complex embedding admits a deformation over a smooth base on which the H² Hodge structure varies nontrivially. T8: Tate for divisors on K3 surfaces over finite fields, including characteristic2; the historical p>5 non-supersingular result alone does not cover all of T8. All T entries have Q_l cycle coefficients. TB1: CH^1(X)_Q→H²(X_ksep,Q_l(1)) is injective for smooth projective X over a finite field. B1: Lefschetz B for curves, for surfaces whose H¹ has dimension twice that of Pic⁰ (automatic for l-adic cohomology and in characteristic zero), for abelian varieties and for generalized flag varieties G/P, and B is stable under products and smooth hyperplane sections (Kleiman Proposition 4.3). C1: retain the dimension≤2, abelian, finite-field-algebraic-closure and product register of known-cases-of-conjecture-C, subject to its explicit primary-proof and realization-scope gaps. Hdg1: Hodge standard positivity in characteristic zero for the Betti theory and its compared étale theory. Hdg2: Hodge standard positivity for surfaces over an algebraically closed field of any characteristic (Segre, Grothendieck; Kleiman §5 p.17), from the Hodge index theorem once numerically trivial divisors are homologically trivial. Entries H1 and TB1 have short proofs here, and Hdg2 has one modulo the divisor identification requested in R-SF5; B1 and the other T/C entries retain primary-proof gaps rather than acquiring proofs from a survey citation.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture-interface",
@@ -2964,8 +2991,13 @@
         "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-B",
         "MotivesAndAlgebraicCycles:MC.7/hodge-standard-positivity",
         "MotivesAndAlgebraicCycles:MC.7/known-cases-of-conjecture-C",
-        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
-        "MotivesAndAlgebraicCycles:MC.2"
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+        "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison",
+        "DeligneWeightsAndPurity:DWP.9/hard-lefschetz-4-1-1",
+        "SchemeAndStackFoundations:SF.5/hodge-index"
       ],
       "sources": [
         {
@@ -2976,7 +3008,7 @@
         {
           "sourceId": "KLEIMAN",
           "locator": "Proposition 4.3 p.16; §5 pp.16–19",
-          "match": "Lists the Lefschetz cases and characteristic-zero positivity."
+          "match": "Lists the Lefschetz cases with the surface hypothesis dim H¹=2 dim Pic⁰, characteristic-zero positivity and positivity for surfaces in every characteristic (p.17)."
         },
         {
           "sourceId": "JANNSEN92",
@@ -2992,7 +3024,7 @@
       "proofSteps": [
         "For H1 apply the complex divisor theorem. For T4 use its rational form and the geometric étale comparison, then descend a finite collection of divisors by trace and divide by the extension degree.",
         "For TB1, Pic^0(k) is finite and the Néron–Severi group injects rationally into l-adic cohomology by Kummer; tensoring Pic^0(k) with Q gives0.",
-        "For T2 import the existing Faltings owner rather than restating its isogeny theorem. The other non-elementary entries have exact primary-proof contracts in G-KNOWN."
+        "For T2 import the existing Faltings owner rather than restating its isogeny theorem: R28.4 gives semisimplicity and End_K(A)⊗Z_l≅End_π(T_l A), and the polarization/Rosati identification of NS(A)⊗Q_l with the symmetric invariant endomorphisms turns these into strong divisor Tate. The other non-elementary entries have exact primary-proof contracts in G-KNOWN."
       ],
       "acceptance": [
         "No assertion of Tate in every codimension for all abelian varieties is made.",
@@ -3020,7 +3052,8 @@
         "SchemeAndStackFoundations:SF.5/first-chern",
         "SchemeAndStackFoundations:SF.5/projective-bundle-formula",
         "SchemeAndStackFoundations:SF.4",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.3"
       ],
       "sources": [
         {
@@ -3046,32 +3079,12 @@
   ],
   "requests": [
     {
-      "id": "R-MC0",
-      "supplier": "MotivesAndAlgebraicCycles:MC.0",
-      "need": "Extend correspondences, Part II, with universal CH₀ support on a surface after every algebraically closed extension, decomposition-of-diagonal action, and the resulting coniveau vanishing used in BW §5.1 pp.62–65. Supply quartic-threefold and anisotropic-quadric universal support with exact hypotheses. Existing correspondence-group/action/composition and numerical equivalence are imported, not reconstructed.",
-      "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/real-unramified-cycle-defect",
-        "MotivesAndAlgebraicCycles:MC.7/complex-unramified-cycle-defect",
-        "MotivesAndAlgebraicCycles:MC.7/quartic-threefold-torsion"
-      ],
-      "status": "open"
-    },
-    {
       "id": "R-MC2-EARLY",
       "supplier": "MotivesAndAlgebraicCycles:MC.2",
-      "need": "Early realization interface: actual geometric Betti/l-adic carriers, classical Weil products, Poincaré duality, cycle map, rational scalar comparisons and hard Lefschetz in the fixed theory. Realizations must accept rational Chow correspondences of codimension d+r acting H^i→H^{i+2r}(r). Import the geometric étale cycle map from EtaleDerivedCategories:EDC.3 and Hodge comparison from C5; do not make this early interface depend on MC.7 conjectures.",
+      "need": "Tensor triangulated realizations of geometric motives: for k on the MC.4 domain, the Betti realization r_ι:DM_gm(k,Q)→D^b(Vec_Q) for an embedding ι:k→C and the l-adic realization r_Ql:DM_gm(k,Q)→D^b(Vec_Ql), l≠char k, with r(M(X)) the homology of X in degrees [−2d,0], the comparison r_ι⊗Q_l≃r_Ql, and compatibility, through MC.4/chow-motives-into-geometric-motives and the change of variance, with MC.2/betti-realization, MC.2/etale-realization and MC.2/etale-betti-motivic-comparison, so that a morphism M(X)→M(X)(a)[2a], a class in CH^{d+a}(X×X)_Q, acts on homology as its correspondence. MC.5/completion-geometric-full gives a Betti realization only over Q, through Nori motives. The Chow-motive realizations, correspondence actions and homological kernels are exact MC.2 nodes cited directly by the other targets; this request does not depend on any MC.7 conjecture.",
       "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture-interface",
-        "MotivesAndAlgebraicCycles:MC.7/tate-variants-corrected",
-        "MotivesAndAlgebraicCycles:MC.7/standard-implications",
-        "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-A",
-        "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-B",
-        "MotivesAndAlgebraicCycles:MC.7/hodge-standard-positivity",
-        "MotivesAndAlgebraicCycles:MC.7/rational-kunneth-C",
-        "MotivesAndAlgebraicCycles:MC.7/rational-numerical-D",
         "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-predicate",
-        "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-consequences",
-        "MotivesAndAlgebraicCycles:MC.7/known-case-register"
+        "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-consequences"
       ],
       "status": "open"
     },
@@ -3089,13 +3102,11 @@
         "MotivesAndAlgebraicCycles:MC.7/real-blowup-and-birational-invariance",
         "MotivesAndAlgebraicCycles:MC.7/real-detector-orthogonality",
         "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent",
-        "MotivesAndAlgebraicCycles:MC.7/real-curve-existence-and-index",
         "MotivesAndAlgebraicCycles:MC.7/real-norm-detector-exactness",
         "MotivesAndAlgebraicCycles:MC.7/real-obstruction-predicates",
         "MotivesAndAlgebraicCycles:MC.7/real-algebraic-orthogonality",
         "MotivesAndAlgebraicCycles:MC.7/real-surface-and-enriques-cases",
         "MotivesAndAlgebraicCycles:MC.7/real-integral-descent-criterion",
-        "MotivesAndAlgebraicCycles:MC.7/real-obstruction-example-register",
         "MotivesAndAlgebraicCycles:MC.7/quartic-surface-hodge-obstructions",
         "MotivesAndAlgebraicCycles:MC.7/quartic-valuation-and-cycle-obstructions",
         "MotivesAndAlgebraicCycles:MC.7/anisotropic-quadric-constant-obstruction"
@@ -3140,16 +3151,6 @@
       "status": "open"
     },
     {
-      "id": "R-MC4",
-      "supplier": "MotivesAndAlgebraicCycles:MC.4",
-      "need": "Extend the geometric-motive interface to rational DM_gm(k,Q), the admitted field hypotheses, rigid triangulated tensor structure, and Hom(M(X),M(X)(a)[2a])=CH^{d+a}(X×X)_Q with action compatible with the homological realization. Existing effective/tate-stabilised motives and Chow embedding are imported; current MC.4 requires perfect fields admitting resolution. State characteristic-zero results on that supported domain and record any extension needed for general characteristic.",
-      "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-predicate",
-        "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-consequences"
-      ],
-      "status": "open"
-    },
-    {
       "id": "R-MC6",
       "supplier": "MotivesAndAlgebraicCycles:MC.6",
       "need": "Apply the existing early neutral-Tannakian/reconstruction interface to the exact faithful rigid tensor heart with End(1)=Q, allowing a Q_l-valued fiber functor and a Q-Tannakian category which is not asserted neutral over Q. Need the Tannakian criterion, finite length and conservativity; do not duplicate neutral reconstruction or the Zhu/Gleason–Lim–Xu routes.",
@@ -3161,23 +3162,21 @@
     {
       "id": "R-C5",
       "supplier": "ComplexComparisonPartII:C5",
-      "need": "Geometric pure Hodge structure on smooth proper complex cohomology, algebraic de Rham filtration/singular comparison, cycle classes of type(p,p), Hodge–Riemann on rational primitive classes, analytic exponential exact sequence and GAGA (including the equivariant line-bundle version over the real numbers). Abstract pure Hodge structures and their morphisms are already at the pinned Tau Ceti baseline and must be imported.",
+      "need": "Hodge–Riemann bilinear relations on rational primitive classes of a smooth projective complex variety, with hard Lefschetz for its Betti cohomology; the analytic exponential exact sequence, identifying c₁ of analytic line bundles with the boundary H¹(X^an,O*)→H²(X^an,Z(1)) and its kernel through H²(X^an,O); and the G-equivariant version over the real numbers. The geometric pure Hodge structure (C5/proper-pure-hodge), the integral/rational/complex coefficient distinctions (C5/multiplicative-period-interface) and proper GAGA (C3/proper-gaga-equivalence) are exact nodes cited directly.",
       "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture-interface",
-        "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases",
         "MotivesAndAlgebraicCycles:MC.7/hodge-standard-positivity",
         "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-consequences",
-        "MotivesAndAlgebraicCycles:MC.7/integral-hodge-predicate"
+        "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases"
       ],
       "status": "open"
     },
     {
       "id": "R-SF2",
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Cohomology/base-change facts beyond the exact projective-space-cohomology node: constancy of Euler characteristic in flat proper families of line bundles and its application to degree on projective lines. Provide the coherent finiteness used in real divisor Kummer comparison; equivariant topological cohomology is routed through MC.2, not assumed to be coherent sheaf cohomology.",
+      "need": "Cohomology/base-change facts beyond the exact projective-space-cohomology node: constancy of Euler characteristic in flat proper families of line bundles and its application to degree on projective lines. Provide the coherent finiteness used in real divisor Kummer comparison; equivariant topological cohomology is routed through MC.2, not assumed to be coherent sheaf cohomology. The diagonal of P^d×P^d used for zero-cycles and projective space comes from SF.5/projective-bundle-formula and needs nothing here.",
       "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction",
-        "MotivesAndAlgebraicCycles:MC.7/zero-cycle-and-projective-space-cases"
+        "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases",
+        "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction"
       ],
       "status": "open"
     },
@@ -3186,39 +3185,31 @@
       "supplier": "SchemeAndStackFoundations:SF.3",
       "need": "Use existing line-bundle-norm, abel-maps-high-degree, vector-bundle-riemann-roch, genus-base-change and picard-brauer-sequence. Additional exports: C^n→Sym^n C finite flat of degree n!, group-quotient norm pullback product, Pic(projective bundle)=Pic(base)⊕Z and connected-family constancy of fibre degree; then a fibre-trivial line bundle descends. For real curves export Geyer descent/Picard2-primary statements with empty-real-locus and genus parity hypotheses. The general Picard representability and high-degree Abel theorem are not requested anew.",
       "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction",
-        "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases",
+        "MotivesAndAlgebraicCycles:MC.7/real-detector-orthogonality",
         "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent",
         "MotivesAndAlgebraicCycles:MC.7/real-curve-existence-and-index",
-        "MotivesAndAlgebraicCycles:MC.7/real-norm-detector-exactness",
         "MotivesAndAlgebraicCycles:MC.7/real-algebraic-orthogonality",
-        "MotivesAndAlgebraicCycles:MC.7/real-surface-and-enriques-cases"
+        "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction"
       ],
       "status": "open"
     },
     {
       "id": "R-SF4",
       "supplier": "SchemeAndStackFoundations:SF.4",
-      "need": "SchemeAndStackFoundations, Part II: characteristic-zero weak factorization between smooth proper real varieties; normalization/resolution of curves; smooth geometrically integral real complete-intersection curves with imposed points and required genus parity, over a real closed field; geometric Bertini with imposed points after algebraic closure for smash nilpotence. Existing bertini-smoothness does not supply geometric integrality, point constraints or weak factorization.",
+      "need": "SchemeAndStackFoundations, Part II: characteristic-zero weak factorization between smooth proper real varieties; normalization/resolution of curves; smooth geometrically integral real complete-intersection curves with imposed points and required genus parity, over a real closed field; geometric Bertini with imposed points after algebraic closure for smash nilpotence. Existing bertini-smoothness does not supply geometric integrality, point constraints or weak factorization. The imposed-point geometrically integral Bertini statement is also requested by MC.0 (MC0-R2, ACMV Appendix A Theorem A.1); SF.4 supplies it once for both. Normalization of curves is the existing SF.4/resolution-of-curves.",
       "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction",
         "MotivesAndAlgebraicCycles:MC.7/real-blowup-and-birational-invariance",
         "MotivesAndAlgebraicCycles:MC.7/real-curve-existence-and-index",
-        "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent"
+        "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction"
       ],
       "status": "open"
     },
     {
       "id": "R-SF5",
       "supplier": "SchemeAndStackFoundations:SF.5",
-      "need": "Intersection-theory extension: proper DVR specialization on Chow groups preserving degree of zero-cycles and degree against a relative hyperplane/divisor, as used in Totaro preprint Theorem 2.1 pp.3–4. Existing SF.5/specialization concerns deformation to a normal cone and is not this theorem. Import existing Chow groups, exterior products, Chern classes, smooth intersection, finite-flat degree and projective-bundle formula. Hodge-index positivity must identify its numerical radical with the relevant homological kernel before asserting strict positivity on A_H.",
+      "need": "Intersection-theory extension: proper DVR specialization on Chow groups preserving degree of zero-cycles and degree against a relative hyperplane/divisor, as used in Totaro preprint Theorem 2.1 p.3. Existing SF.5/specialization concerns deformation to a normal cone and is not this theorem. Existing Chow groups, intersection products, Chern classes, proper pushforward, degree, adjunction, the surface pairing, the Hodge index theorem and the projective-bundle formula are cited as exact SF.5 nodes. For the surface case of the Hodge standard conjecture, identify numerically trivial divisors with homologically trivial ones (Matsusaka) before SF.5/hodge-index gives strict positivity on A_H^1.",
       "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-A",
-        "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-B",
         "MotivesAndAlgebraicCycles:MC.7/hodge-standard-positivity",
-        "MotivesAndAlgebraicCycles:MC.7/rational-kunneth-C",
-        "MotivesAndAlgebraicCycles:MC.7/rational-numerical-D",
-        "MotivesAndAlgebraicCycles:MC.7/bloch-beilinson-axioms",
         "MotivesAndAlgebraicCycles:MC.7/quartic-valuation-and-cycle-obstructions"
       ],
       "status": "open"
@@ -3242,15 +3233,6 @@
         "MotivesAndAlgebraicCycles:MC.7/li-liu-hypothesis-contract",
         "MotivesAndAlgebraicCycles:MC.7/li-liu-localized-nonvanishing",
         "MotivesAndAlgebraicCycles:MC.7/li-liu-arithmetic-inner-product"
-      ],
-      "status": "open"
-    },
-    {
-      "id": "R-FALTINGS",
-      "supplier": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
-      "need": "Import the isogeny/Hom theorem for abelian varieties over number fields to obtain divisor Tate via the polarization and Rosati correspondence; use the existing owner and its actual exact statement, including l and coefficient hypotheses.",
-      "neededBy": [
-        "MotivesAndAlgebraicCycles:MC.7/known-case-register"
       ],
       "status": "open"
     }
@@ -3295,7 +3277,7 @@
     {
       "id": "G-KNOWN",
       "title": "Primary proofs behind the classical known-case register",
-      "detail": "Read/route the exact primary proofs for T1 (Tate finite-field abelian isogeny/divisor theorem), T3 (Zarhin spread-out), T5 (Tankeev K3), T6 (André hyperkähler), T7 (Moonen with varying deformation), T8 (the finite-field K3 chain including characteristic2), and B1/C1 (Murre, Lieberman and Katz–Messing). Check which Weil theories the finite-field C statement supports; do not generalize an l-adic proof to every abstract Weil theory. Totaro §§3–5 and Jannsen92 Remarks1–2 were read as statement/proof-sketch registers, not these primary proofs. T2 imports R28.4. No hypothesis-free Hilbert/Picard modular-surface entry is invented from survey names.",
+      "detail": "Read/route the exact primary proofs for T1 (Tate finite-field abelian isogeny/divisor theorem), T3 (Zarhin spread-out), T5 (Tankeev K3), T6 (André hyperkähler), T7 (Moonen with varying deformation), T8 (the finite-field K3 chain including characteristic2), and B1/C1 (Murre, Lieberman and Katz–Messing). Check which Weil theories the finite-field C statement supports; do not generalize an l-adic proof to every abstract Weil theory. Totaro §§3–5 and Jannsen92 Remarks1–2 were read as statement/proof-sketch registers, not these primary proofs. T2 imports the exact R28.4 semisimplicity and Hom-comparison nodes. Hdg2 (surfaces in every characteristic) follows from SF.5/hodge-index once R-SF5 identifies numerically and homologically trivial divisors, so it is not a primary-proof gap; the B1 surface entry keeps Kleiman’s hypothesis dim H¹=2 dim Pic⁰. No hypothesis-free Hilbert/Picard modular-surface entry is invented from survey names.",
       "neededBy": [
         "MotivesAndAlgebraicCycles:MC.7/known-case-register",
         "MotivesAndAlgebraicCycles:MC.7/known-cases-of-conjecture-C"
@@ -3390,22 +3372,19 @@
       "stageId": "MotivesAndAlgebraicCycles:MC.7",
       "status": "planned",
       "remaining": [
-        "R-MC0: Extend correspondences, Part II, with universal CH₀ support on a surface after every algebraically closed extension, decomposition-of-diagonal action, and the resulting coniveau vanishing used in BW §5.1 pp.62–65. Supply quartic-threefold and anisotropic-quadric universal support with exact hypotheses. Existing correspondence-group/action/composition and numerical equivalence are imported, not reconstructed.",
-        "R-MC2-EARLY: Early realization interface: actual geometric Betti/l-adic carriers, classical Weil products, Poincaré duality, cycle map, rational scalar comparisons and hard Lefschetz in the fixed theory. Realizations must accept rational Chow correspondences of codimension d+r acting H^i→H^{i+2r}(r). Import the geometric étale cycle map from EtaleDerivedCategories:EDC.3 and Hodge comparison from C5; do not make this early interface depend on MC.7 conjectures.",
+        "R-MC2-EARLY: Tensor triangulated realizations of geometric motives: for k on the MC.4 domain, the Betti realization r_ι:DM_gm(k,Q)→D^b(Vec_Q) for an embedding ι:k→C and the l-adic realization r_Ql:DM_gm(k,Q)→D^b(Vec_Ql), l≠char k, with r(M(X)) the homology of X in degrees [−2d,0], the comparison r_ι⊗Q_l≃r_Ql, and compatibility, through MC.4/chow-motives-into-geometric-motives and the change of variance, with MC.2/betti-realization, MC.2/etale-realization and MC.2/etale-betti-motivic-comparison, so that a morphism M(X)→M(X)(a)[2a], a class in CH^{d+a}(X×X)_Q, acts on homology as its correspondence. MC.5/completion-geometric-full gives a Betti realization only over Q, through Nori motives. The Chow-motive realizations, correspondence actions and homological kernels are exact MC.2 nodes cited directly by the other targets; this request does not depend on any MC.7 conjecture.",
         "R-MC2-REAL: Integral equivariant and Borel–Haefliger cycle maps; admissibility via α_{k+i}=Sq^i α_k for every even integer i (negative squares zero); products, proper pushforward, smooth pullback, norm/forgetful and real components. Supply M, ψ and ψ′, the exact norm–Kummer sequence and finite-stalk duality used in BW §§3.1–3.3 pp.45–55. Top-degree generators, blowup formula with normal bundle O(-1), projective-space diagonal, Geyer Picard descent, and Picard Brauer comparison are separate exact export statements. Topology itself has the missing-owner contract G-TOPOLOGY. This is MC.2 Part II, separated from arithmetic Abel–Jacobi.",
         "R-MC2-CONIVEAU: Integral coniveau/Bloch–Ogus and torsion-cycle interface: BW §5.1 pp.62–65 and Theorem 5.4 pp.68–70, with real-locus-zero Q/Z sheaf, boundary preimage of coniveau and Bloch map λ. For S54 prove boundary^{-1}(N H_G^{2d−2}(Z(d−1)))=N H_G^{2d−3}(Q/Z(d−1)); λ is onto and is an isomorphism for d≤3. Obtain the primary image and injectivity theorems named in G-CONIVEAU. Supply the finite rank/torsion calculations for an empty-real quartic threefold in Lemmas5.8–5.9, keeping equivariance and twist.",
         "R-MC2-COMPATIBLE: Compatible realization category M_k^L of Ichino–Prasanna arXiv v2 §2.1 p.12, including every-prime comparison, morphisms, coefficient extension, and the source L-Hodge convention for nonreal L. Export cycle/correspondence compatibility; the simultaneous class predicate is owned here.",
         "R-MC2-ARITH: Arithmetic realization/Abel–Jacobi Part II: homologically trivial cycles on the unitary tower, cohomological local-global identity of Li–Liu Hypothesis 6.6 with semisimplification, all primes and ρ[π̃∞]; compare with the specified analytic L-factor. Import actual heights and special-cycle constructions from the pending arithmetic-inner-product owner G-AIP. Abstract cycle class maps and the étale Abel–Jacobi map are not duplicated in MC.7.",
-        "R-MC4: Extend the geometric-motive interface to rational DM_gm(k,Q), the admitted field hypotheses, rigid triangulated tensor structure, and Hom(M(X),M(X)(a)[2a])=CH^{d+a}(X×X)_Q with action compatible with the homological realization. Existing effective/tate-stabilised motives and Chow embedding are imported; current MC.4 requires perfect fields admitting resolution. State characteristic-zero results on that supported domain and record any extension needed for general characteristic.",
         "R-MC6: Apply the existing early neutral-Tannakian/reconstruction interface to the exact faithful rigid tensor heart with End(1)=Q, allowing a Q_l-valued fiber functor and a Q-Tannakian category which is not asserted neutral over Q. Need the Tannakian criterion, finite length and conservativity; do not duplicate neutral reconstruction or the Zhu/Gleason–Lim–Xu routes.",
-        "R-C5: Geometric pure Hodge structure on smooth proper complex cohomology, algebraic de Rham filtration/singular comparison, cycle classes of type(p,p), Hodge–Riemann on rational primitive classes, analytic exponential exact sequence and GAGA (including the equivariant line-bundle version over the real numbers). Abstract pure Hodge structures and their morphisms are already at the pinned Tau Ceti baseline and must be imported.",
-        "R-SF2: Cohomology/base-change facts beyond the exact projective-space-cohomology node: constancy of Euler characteristic in flat proper families of line bundles and its application to degree on projective lines. Provide the coherent finiteness used in real divisor Kummer comparison; equivariant topological cohomology is routed through MC.2, not assumed to be coherent sheaf cohomology.",
+        "R-C5: Hodge–Riemann bilinear relations on rational primitive classes of a smooth projective complex variety, with hard Lefschetz for its Betti cohomology; the analytic exponential exact sequence, identifying c₁ of analytic line bundles with the boundary H¹(X^an,O*)→H²(X^an,Z(1)) and its kernel through H²(X^an,O); and the G-equivariant version over the real numbers. The geometric pure Hodge structure (C5/proper-pure-hodge), the integral/rational/complex coefficient distinctions (C5/multiplicative-period-interface) and proper GAGA (C3/proper-gaga-equivalence) are exact nodes cited directly.",
+        "R-SF2: Cohomology/base-change facts beyond the exact projective-space-cohomology node: constancy of Euler characteristic in flat proper families of line bundles and its application to degree on projective lines. Provide the coherent finiteness used in real divisor Kummer comparison; equivariant topological cohomology is routed through MC.2, not assumed to be coherent sheaf cohomology. The diagonal of P^d×P^d used for zero-cycles and projective space comes from SF.5/projective-bundle-formula and needs nothing here.",
         "R-SF3: Use existing line-bundle-norm, abel-maps-high-degree, vector-bundle-riemann-roch, genus-base-change and picard-brauer-sequence. Additional exports: C^n→Sym^n C finite flat of degree n!, group-quotient norm pullback product, Pic(projective bundle)=Pic(base)⊕Z and connected-family constancy of fibre degree; then a fibre-trivial line bundle descends. For real curves export Geyer descent/Picard2-primary statements with empty-real-locus and genus parity hypotheses. The general Picard representability and high-degree Abel theorem are not requested anew.",
-        "R-SF4: SchemeAndStackFoundations, Part II: characteristic-zero weak factorization between smooth proper real varieties; normalization/resolution of curves; smooth geometrically integral real complete-intersection curves with imposed points and required genus parity, over a real closed field; geometric Bertini with imposed points after algebraic closure for smash nilpotence. Existing bertini-smoothness does not supply geometric integrality, point constraints or weak factorization.",
-        "R-SF5: Intersection-theory extension: proper DVR specialization on Chow groups preserving degree of zero-cycles and degree against a relative hyperplane/divisor, as used in Totaro preprint Theorem 2.1 pp.3–4. Existing SF.5/specialization concerns deformation to a normal cone and is not this theorem. Import existing Chow groups, exterior products, Chern classes, smooth intersection, finite-flat degree and projective-bundle formula. Hodge-index positivity must identify its numerical radical with the relevant homological kernel before asserting strict positivity on A_H.",
+        "R-SF4: SchemeAndStackFoundations, Part II: characteristic-zero weak factorization between smooth proper real varieties; normalization/resolution of curves; smooth geometrically integral real complete-intersection curves with imposed points and required genus parity, over a real closed field; geometric Bertini with imposed points after algebraic closure for smash nilpotence. Existing bertini-smoothness does not supply geometric integrality, point constraints or weak factorization. The imposed-point geometrically integral Bertini statement is also requested by MC.0 (MC0-R2, ACMV Appendix A Theorem A.1); SF.4 supplies it once for both. Normalization of curves is the existing SF.4/resolution-of-curves.",
+        "R-SF5: Intersection-theory extension: proper DVR specialization on Chow groups preserving degree of zero-cycles and degree against a relative hyperplane/divisor, as used in Totaro preprint Theorem 2.1 p.3. Existing SF.5/specialization concerns deformation to a normal cone and is not this theorem. Existing Chow groups, intersection products, Chern classes, proper pushforward, degree, adjunction, the surface pairing, the Hodge index theorem and the projective-bundle formula are cited as exact SF.5 nodes. For the surface case of the Hodge standard conjecture, identify numerically trivial divisors with homologically trivial ones (Matsusaka) before SF.5/hodge-index gives strict positivity on A_H^1.",
         "R-SF2-KOSZUL: Global regular-section Koszul resolution for a smooth complete intersection of four quadrics in P⁶_C, exact on the ambient projective space, and its O(2)-twist cohomology using SF.2/projective-space-cohomology. Existing DerivedDeRhamCohomology:DD.1/koszul-complex is the abstract construction, not this geometric exactness result.",
         "R-PS6: The single shared analytic/Selmer-side Beilinson–Bloch–Kato interface: motivic L-data, analytic continuation and order at zero, prime/coefficient independence, equivariant factorization, and the shift to the unitary center1/2. Supply a conditional comparison between finite cycle rank and the appropriate Selmer dimension only under the named Abel–Jacobi/comparison premises. MC.7 owns the cycle-rank predicate; PS.6 owns the L/Selmer statement and no rank equality is silently taken as a theorem.",
-        "R-FALTINGS: Import the isogeny/Hom theorem for abelian varieties over number fields to obtain divisor Tate via the polarization and Rosati correspondence; use the existing owner and its actual exact statement, including l and coefficient hypotheses.",
         "G-TOPOLOGY: Equivariant topology supplier is not yet registered",
         "G-HEIGHT: Primary primitive domain and height normalization",
         "G-AIP: Arithmetic-inner-product supplier designs and corrected local index proof",
@@ -3419,12 +3398,12 @@
         "G-COMPLEX-THREEFOLD: External complex integral curve cases",
         "G-TATE-VARIANTS: Primary proofs of the retained extended Tate variants"
       ],
-      "note": "All targets in the source-routing scope and all fifteen inherited MC.7 targets have exact target-level nodes or an explicit continuation record. Supplier and primary-proof gaps remain; no closure or implementation claim."
+      "note": "All targets in the source-routing scope and all fifteen inherited MC.7 targets have exact target-level nodes or an explicit continuation record. Prerequisites cite exact supplier nodes wherever a supplier packet has one (MC.0, MC.2, MC.4, C3/C5, SF.2–SF.5, DWP.9, R28.4); the remaining requests and the supplier and primary-proof gaps prevent closure. No implementation claim."
     }
   ],
   "conventions": {
     "geometry": "Unless an item explicitly admits proper nonprojective varieties, X/k is smooth projective of pure dimension d. Rational Chow groups mean integral Chow groups tensored with Q; equality in a realization never means equality in CH. Geometrically integral hypotheses are stated where used.",
-    "coefficients": "For the standard conjectures, k is algebraically closed, H is a fixed classical Weil cohomology with characteristic-zero coefficient field F, and hard Lefschetz for H is an input. A_H^i is the Q-span of rational algebraic classes in H^{2i}(X)(i). Positivity is on this rational space, never an order on Q_l. Scalar extensions are separate interfaces.",
+    "coefficients": "For the standard conjectures, k is algebraically closed, H is a fixed classical Weil cohomology with characteristic-zero coefficient field F, and hard Lefschetz for H is an input (for l-adic cohomology it is DeligneWeightsAndPurity:DWP.9/hard-lefschetz-4-1-1; for Betti cohomology it is part of R-C5). A_H^i is the Q-span of rational algebraic classes in H^{2i}(X)(i). Positivity is on this rational space, never an order on Q_l. Scalar extensions are separate interfaces.",
     "hodge": "The untwisted class of a codimension-p cycle has Hodge type (p,p) in weight 2p. After twist (p) it has type (0,0). Tau Ceti uses weight -2m and type (-m,-m) for its Tate object tate m. Rational and integral Hodge conjectures are separate predicates.",
     "real": "R denotes a specified real closed field, C=R(i), G=Gal(C/R). The notation real numbers means the Archimedean field. For general R use equivariant semialgebraic cohomology; do not postulate an analytic Hodge decomposition. Z(j) has G-action (-1)^j. Identifications of embedded twist lattices used by different authors require a scalar normalization.",
     "S3": "X/R is smooth proper geometrically integral, d>=1. The real-locus pairing is total cup-product degree H^{d-1}(X(R),F2) x H^1(X(R),F2) -> F2; no orientation is needed.",
@@ -3559,7 +3538,12 @@
       ],
       "neededBy": [
         "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Re-read the current tag page (HTML hash as recorded): the displayed computation of π*β_n writes the nth power of Σc₁(L_i) as n^n times the product and concludes (n!)^n α_n. Since c₁(L_i)²=0, only the n! orderings of the n distinct factors survive, so the coefficient is ((n−1)!)^n n! (2 for n=2, 48 for n=3). Any nonzero integer suffices for the torsion conclusion, so only the displayed identity is wrong.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.7"
+      }
     }
   ],
   "sourceVersions": [
@@ -3935,7 +3919,9 @@
       "Current AlgebraicVectorBundles README and Suggested.lean: vector bundles, operations and Chern-facing interfaces are imported; no new vector-bundle theory here.",
       "Current RealAlgebraicGeometry README and Suggested.lean: effective real algebra/semialgebraic interfaces are imported, but do not supply the required equivariant cohomology.",
       "Current completed HodgeStructures and current/pinned TauCeti Geometry/Hodge modules: import abstract pure Hodge structures and morphisms.",
-      "Mathlib TStructure Basic/Heart at the pin: import abstract t-structures and their hearts."
+      "Mathlib TStructure Basic/Heart at the pin: import abstract t-structures and their hearts.",
+      "Current TauCetiRoadmap main (2b35f483, 19 October 2026), AlgebraicVectorBundles “Successor roadmaps — motivation only”, item 3: it names a future realization roadmap and the Hodge Conjecture interface as motivation only; nothing there plans the cycle class map, Hodge classes or the conjecture, so MC.7 duplicates no Tau Ceti roadmap. Current Tau Ceti (a91d3aaf) has rational Hodge substructures but no Hodge-class or type-(p,p) rational subspace, so rational-classes-of-type is not in the library.",
+      "Accepted sibling packets merged after this plan was written supply exact nodes now cited directly: MC.0 (universal CH₀ support, diagonal decomposition and vanishing, quartic universal support, intermediate index), MC.2 (Betti and l-adic realizations, correspondence comparisons, realization quotients), and the base packet’s MC.4 nodes (DM_gm, rigidity, Chow embedding, duality)."
     ],
     "missingOwners": [
       "EquivariantTopologyRealVarieties",
@@ -3960,10 +3946,11 @@
   },
   "validation": {
     "blueprint": "python3 scripts/check_blueprint.py research/blueprint/packets/MotivesAndAlgebraicCycles--MC.7.json: zero errors and zero warnings. No complete baseline declaration index was available; the nine pinned declarations were checked directly in source.",
-    "lean": "lean-check research/blueprint/suggested/MotivesAndAlgebraicCycles--MC.7.lean: exit0; only the two admitted theorem warnings. The real-bodied definition and both discriminating examples elaborate at the pinned build.",
+    "lean": "lean-check research/blueprint/suggested/MotivesAndAlgebraicCycles--MC.7.lean: exit 0; only the three admitted theorem warnings (diagonal membership, functoriality, off-diagonal vanishing). The real-bodied definition, its proved membership simp lemma and both discriminating examples elaborate at the pinned build.",
     "routeAudit": "All71 expected MC.7 catalogue items occur exactly once in routedItems; all 15 inherited target identifiers occur in retainedTargets. IP003 is an out-of-scope supplier request.",
     "scope": "One stage at target level,50 nodes,16 definitions,72 API items,48 planning unit tests. Heavy geometric objects have README statements, not fictitious Lean carriers.",
-    "implementation": "All50 nodes are unchecked. The pass is complete and MC.7 is planned;12 gaps and16 supplier requests prevent closure."
+    "implementation": "All 50 nodes are unchecked. The pass is complete and MC.7 is planned; 12 gaps and 13 supplier requests prevent closure.",
+    "review": "Independent review: check_blueprint reports zero errors and zero warnings; lean-check of the suggested file exits 0 with only the expected admitted-proof warnings; reader regenerated from the corrected packet; all-packet node-level cycle scan finds no cycle through MC.7."
   },
   "restructure": [
     {
@@ -3972,7 +3959,7 @@
         "MotivesAndAlgebraicCycles"
       ],
       "detail": "Real-cycle and arithmetic compatibility consumers require different portions of MC.2; a single undifferentiated realization dependency risks a cycle with MC.7. Existing abstract pure Hodge/Tannaka carriers must remain imports.",
-      "proposal": "Keep the registered stages. Partition the MC.2 export contracts into early classical/geometric cycle classes (R-MC2-EARLY), real integral realization (R-MC2-REAL), coniveau/torsion (R-MC2-CONIVEAU), compatible all-prime realizations (R-MC2-COMPATIBLE), and arithmetic Abel–Jacobi (R-MC2-ARITH). The early contracts do not depend on MC.7 conjectures. MC.6 supplies early abstract Tannaka before its period applications. MC.7 owns only the cycle-conjecture predicates and their case register."
+      "proposal": "Keep the registered stages. The early classical cycle classes, correspondence actions and comparisons are the accepted MC.2 nodes, cited directly; R-MC2-EARLY keeps only the realizations of geometric motives used by the motivic t-structure. Partition the remaining MC.2 export contracts into real integral realization (R-MC2-REAL), coniveau/torsion (R-MC2-CONIVEAU), compatible all-prime realizations (R-MC2-COMPATIBLE), and arithmetic Abel–Jacobi (R-MC2-ARITH). The early contracts do not depend on MC.7 conjectures. MC.6 supplies early abstract Tannaka before its period applications. MC.7 owns only the cycle-conjecture predicates and their case register."
     },
     {
       "action": "rescope",
@@ -3982,5 +3969,263 @@
       "detail": "The existing cohomology, curve and intersection-theory nodes provide much of the geometric input but do not supply imposed-point geometric Bertini, weak factorization, proper DVR Chow specialization or the sheaf-level regular Koszul resolution required here.",
       "proposal": "Extend SchemeAndStackFoundations, Part II, through R-SF2-KOSZUL, R-SF3, R-SF4 and R-SF5. Import its existing norm, high-degree Abel, projective-space cohomology, intersection and projective-bundle nodes. Keep equivariant topology outside coherent sheaf cohomology and the new geometric exactness theorem outside the general Koszul construction."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MotivesAndAlgebraicCycles--MC.7",
+    "date": "2026-10-19",
+    "notes": "Every node was checked at its locator in the public sources (hashes match the packet); the Kleiman scan and the Li–Liu and Benoist–Wittenberg pages carrying contested symbols were read as rendered images. Corrections made in place: (1) Li–Liu Theorem 1.5 now has the printed condition |R∩V_F^spl|≥2 (the statement carried a text-extraction corruption); Hypothesis 4.5 keeps the source’s quantifier over every open compact level and Hypothesis 6.6 its exact condition on π̃∞. (2) Kleiman: B1 keeps the surface hypothesis dim H¹=2 dim Pic⁰; the surface case of the Hodge standard conjecture in every characteristic is added to the register; the B node says it is Kleiman’s θ(X). (3) Seventeen locators corrected (Kleiman A and D, Deligne divisor case, BW Def 2.2, Props 2.13/2.15/3.9/5.2, Lemma 2.14, Thm 3.16, Examples 4.5–4.8, Questions 2.16/4.9, Totaro Thm 2.1, Jannsen, Li–Liu). (4) Prerequisites now cite exact supplier nodes from the accepted MC.0, MC.2, base MC.4, ComplexComparisonPartII C3/C5, SF.2–SF.5, DWP.9 and R28.4 packets; R-MC0, R-MC4 and R-FALTINGS are withdrawn and R-MC2-EARLY, R-C5, R-SF2, R-SF4 and R-SF5 narrowed to what no node supplies; request consumer lists were made to match the prerequisites. (5) Source issue E-MC7-1 (Stacks 0FH9 coefficient) confirmed. (6) The suggested file gains the wrong-weight API theorem and a proved membership simp lemma, which replaces an API item that only restated Submodule.ext; it elaborates with only the expected admitted-proof warnings. Baseline: all nine declarations confirmed at the pins. Closure: every node’s chain ends in the libraries, an exact supplier node, a precise request or a recorded gap; no cycle through MC.7 in the all-packet scan. Planets, API and the three tests per definition were checked. The packet stays complete with MC.7 planned; 12 gaps and 13 requests remain.",
+    "checked": [
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/rational-classes-of-type",
+        "verdict": "corrected",
+        "note": "Replaced the API item rationalClassesOfType_ext, which restated Submodule.ext, by the membership simp lemma mem_rationalClassesOfType; the suggested file now states it, so every API name of this node occurs there."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture-interface",
+        "verdict": "corrected",
+        "note": "Replaced the MC.2 stage by the exact Betti cycle-class node MC.2/betti-realization (accepted MC.2 packet). Replaced the C5 stage by the exact node C5/proper-pure-hodge (pure Hodge structure on smooth proper complex cohomology)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-variants-corrected",
+        "verdict": "corrected",
+        "note": "Replaced the MC.2 stage by the exact geometric l-adic realization node MC.2/etale-realization."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-A",
+        "verdict": "corrected",
+        "note": "Kleiman locator corrected: A(X,L) is stated on p.14, not p.13 (scan read visually). Replaced the SF.5 stage by the exact nodes it uses (Chow group, first Chern class, ampleness); R-SF5 no longer lists it."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/lefschetz-standard-B",
+        "verdict": "corrected",
+        "note": "Statement now says that the inverse-Lefschetz formulation is Kleiman’s θ(X), equivalent to his B(X) by Theorem 4.1(3). Kleiman locator made page-exact. Added MC.2/weil-pushforward, which supplies the cohomological action of correspondences used in the proof."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/hodge-standard-positivity",
+        "verdict": "corrected",
+        "note": "Added the exact Hodge-index node SF.5/hodge-index used in the surface case; the SF.5 stage stays for the numerical/homological identification requested in R-SF5."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/standard-implications",
+        "verdict": "corrected",
+        "note": "Replaced the MC.2 stage by exact nodes: correspondence action (weil-pushforward), Betti cycle classes for the complex statements, and realization-quotients (homological kernels agree across the compared theories)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/bloch-beilinson-axioms",
+        "verdict": "corrected",
+        "note": "Replaced the SF.5 stage by the exact intersection-product, proper-pushforward and pullback nodes used by conditions (b)–(c)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/murre-axioms",
+        "verdict": "corrected",
+        "note": "Statement records Jannsen’s standing assumption (algebraic Künneth components) in Conjecture 5.1."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/murre-bloch-beilinson-equivalence",
+        "verdict": "corrected",
+        "note": "Jannsen locator corrected: the proof ends on p.296."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-predicate",
+        "verdict": "corrected",
+        "note": "Replaced the MC.4 stage by the exact DM_gm, rigidity and Chow-embedding nodes (accepted base packet); R-MC4 is withdrawn. Statement marks the unit-in-heart condition as an explicit form of what Beilinson uses in §1.3. Statement records that the field restriction comes from the MC.4 domain, not from the source."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure-consequences",
+        "verdict": "corrected",
+        "note": "Replaced the MC.4 stage by the exact Chow-embedding, duality and rigidity nodes used for lifting projectors and for the §1.5 pairing."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/rational-kunneth-C",
+        "verdict": "corrected",
+        "note": "Kleiman locator made page-exact."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/rational-numerical-D",
+        "verdict": "corrected",
+        "note": "Kleiman locator corrected: D(X) is stated in §5 on p.17, not in §3."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/integral-hodge-predicate",
+        "verdict": "corrected",
+        "note": "Replaced the C5 stage by the exact pure-Hodge and integral/complex coefficient nodes."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-integral-hodge-predicate",
+        "verdict": "corrected",
+        "note": "BW locator corrected: Definition 2.2 and (2.1) are on p.37."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/realclosed-integral-hodge-predicate",
+        "verdict": "verified",
+        "note": "BW Definition 2.3 and the preceding paragraph p.37 match, including the Hodge-cohomology vanishing hypothesis."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-rational-descent-and-constants",
+        "verdict": "verified",
+        "note": "BW Remark 2.4(ii) and the constant-class discussion pp.37–38 match; the k=0 exclusion is the confirmed paper finding E2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/lefschetz-one-one-cases",
+        "verdict": "corrected",
+        "note": "Deligne locator corrected: the exponential-sequence divisor argument is §2 Remarks (iii) p.2, not §4. Replaced the SF.3 stage by the exact Picard–Brauer and Kummer nodes; added proper GAGA (C3/proper-gaga-equivalence) and the SF.2 stage for the coherent finiteness requested in R-SF2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/zero-cycle-and-projective-space-cases",
+        "verdict": "corrected",
+        "note": "BW locator corrected: Proposition 2.15 is on p.43. Replaced the SF.2 stage (no coherent input is used) by the projective-bundle formula giving the diagonal of P^d×P^d and the degree map; removed from R-SF2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-blowup-and-birational-invariance",
+        "verdict": "corrected",
+        "note": "BW locator corrected: Lemma 2.14, (2.2) and (2.3) are on p.42 and Proposition 2.13 starts on p.41."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-detector-orthogonality",
+        "verdict": "verified",
+        "note": "BW Definitions 3.1–3.2 and Theorem 3.3 p.46 match; the SF.3 stage is now covered by R-SF3."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-genus-and-descent",
+        "verdict": "corrected",
+        "note": "Added the MC.2 stage (equivariant cycle map and its pushforward, R-MC2-REAL) and the exact normalization node SF.4/resolution-of-curves; removed from R-SF4."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-curve-existence-and-index",
+        "verdict": "corrected",
+        "note": "ind₁ now cites the exact MC.0/intermediate-index node. BW locator corrected: Proposition 3.9 is on p.51. Replaced the SF.5 stage by the exact adjunction node and added MC.0/intermediate-index (accepted MC.0 packet); removed from R-MC2-REAL."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-norm-detector-exactness",
+        "verdict": "verified",
+        "note": "BW Proposition 3.14 and Lemma 3.15 pp.53–54 match."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-obstruction-predicates",
+        "verdict": "corrected",
+        "note": "Added the MC.2 stage: the detector φ=ψ∘cl uses the equivariant cycle map of R-MC2-REAL directly."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-algebraic-orthogonality",
+        "verdict": "corrected",
+        "note": "Added the MC.2 stage (Borel–Haefliger cycle maps, R-MC2-REAL) and the SF.3 stage (Picard 2-primary descent, R-SF3). BW locator corrected: Theorem 3.16 is on p.55."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-surface-and-enriques-cases",
+        "verdict": "corrected",
+        "note": "Removed the unused SF.5 stage prerequisite; the Enriques classification input is the recorded gap G-COMPLEX-THREEFOLD."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-integral-descent-criterion",
+        "verdict": "corrected",
+        "note": "Replaced the SF.5 stage by the exact proper-pushforward node used for the norm of cycles."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-obstruction-example-register",
+        "verdict": "verified",
+        "note": "BW Examples 4.1–4.3 pp.58–59 and Remarks 3.21 p.57 match; source-only entries keep their gap."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/campedelli-construction-obstruction",
+        "verdict": "verified",
+        "note": "Rendered BW p.59: the displayed f is antiholomorphic with the stated ζ-coefficients and Λ_i is the ζ^{2i}-eigenspace. Recomputed: weights (1,7,2,6,3,5,0), weight spaces of dimensions 4/3, T on the weight-4 basis and T²=−1, Koszul twist; the obstruction holds."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/quartic-surface-hodge-obstructions",
+        "verdict": "corrected",
+        "note": "Replaced the SF.5 stage by the exact surface intersection pairing and added the MC.2 stage for the Borel–Haefliger classes (R-MC2-REAL). BW locator corrected: both examples are on p.60."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/quartic-valuation-and-cycle-obstructions",
+        "verdict": "corrected",
+        "note": "BW locator corrected: Example 4.7 starts on p.60 and Example 4.8 is on p.61. TOTARO13 locator corrected: Theorem 2.1 and its proof are on p.3."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/anisotropic-quadric-constant-obstruction",
+        "verdict": "corrected",
+        "note": "Added the MC.2 stage: algebraicity of ω⁴ is membership in the image of the equivariant cycle map (R-MC2-REAL)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-unramified-cycle-defect",
+        "verdict": "corrected",
+        "note": "Statement records that BW Proposition 5.2 has no dimension restriction. BW locator corrected: Proposition 5.2 is on p.66 and Remarks 5.3 on p.67. Replaced the MC.0 stage by the exact universal-support and real rational-vanishing nodes of the accepted MC.0 packet; R-MC0 is withdrawn."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-boundary-and-torsion-cycles",
+        "verdict": "corrected",
+        "note": "Replaced the SF.5 stage by SF.5/chow-group."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/real-torsion-orthogonality",
+        "verdict": "verified",
+        "note": "BW Theorem 5.4(ii) and Corollary 5.5 p.68 match under S54."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/complex-unramified-cycle-defect",
+        "verdict": "corrected",
+        "note": "Replaced the MC.0 stage by the exact diagonal-decomposition and supported-vanishing nodes (accepted MC.0 packet)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/quartic-threefold-torsion",
+        "verdict": "corrected",
+        "note": "Replaced the MC.0 stage by MC.0/quartic-universal-support; replaced the SF.5 stage by the Chow group and proper pushforward nodes."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/quartic-sketch-completion-targets",
+        "verdict": "corrected",
+        "note": "BW2 Proposition 7.7 is for Fano threefolds over R; statement corrected."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/cycle-question-ledger",
+        "verdict": "corrected",
+        "note": "BW locator corrected: Question 2.16 is on p.44 and Question 4.9 on p.61."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/compatible-hodge-tate-classes",
+        "verdict": "verified",
+        "note": "IP §2.1.2 p.12 and Definition 12.1 p.82 match; tests checked."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/beilinson-bloch-predicates",
+        "verdict": "verified",
+        "note": "Li–Liu introduction p.2 and (1.1) p.3 match."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/height-positivity-predicate",
+        "verdict": "verified",
+        "note": "Li–Liu Remark 1.10 p.8 and footnote 4 p.7 match; the primary Beilinson 1987 reference is the recorded gap G-HEIGHT."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/unitary-bb-specialization",
+        "verdict": "verified",
+        "note": "Li–Liu Conjecture 1.1 and footnote 2 p.3 match."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/li-liu-hypothesis-contract",
+        "verdict": "corrected",
+        "note": "Hypothesis 4.5 restated with the source’s quantifier over every open compact L (the plan had narrowed it to neat L) and its codimension m=r. Hypothesis 6.6 restated with the source’s exact condition on π̃∞ (standard base change at almost all unramified places, situation (b) of Lemma 3.15)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/li-liu-localized-nonvanishing",
+        "verdict": "corrected",
+        "note": "Corrected the set condition to the printed |R∩V_F^spl|≥2 (rendered author copy p.5); the plan’s statement carried the text-extraction corruption that its own Check warns about. Li–Liu locator made page-exact (Lemma 11.1 p.49, proof p.52)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/li-liu-arithmetic-inner-product",
+        "verdict": "verified",
+        "note": "Rendered Li–Liu pp.6–7: the identity, C_r, b_{2r}(0)>0 and Theorem 1.7(2) match."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/known-case-register",
+        "verdict": "corrected",
+        "note": "B1 now keeps Kleiman’s hypothesis dim H¹ = 2 dim Pic⁰ for surfaces and records stability under products and hyperplane sections (Proposition 4.3(1)–(2)). Added the surface case Hdg2 of the Hodge standard conjecture in every characteristic (Kleiman §5 p.17), which the register had omitted. Replaced the R28.4 stage by its exact semisimplicity/Tate-homomorphism and Hom-comparison nodes (accepted Faltings packet); R-FALTINGS is withdrawn. Replaced the MC.2 stage by the exact l-adic, Betti and comparison realization nodes; added l-adic hard Lefschetz (DWP.9/hard-lefschetz-4-1-1) for B1 and SF.5/hodge-index for Hdg2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence-proof-correction",
+        "verdict": "corrected",
+        "note": "Added the SF.3 stage: R-SF3 supplies the symmetric-power, norm-pullback and Picard-fibre exports this proof uses."
+      }
+    ]
+  }
 }
