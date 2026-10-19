@@ -1,11 +1,11 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-37RMYH**, 19 October 2026.
+Refs #6519. Codex, session **codex-Wpbf9p**, 19 October 2026.
 Checkout and independently queried GitHub main:
-`ebae909c491b23d8911c07deda5d733f74559e4d`.
-Branch: `codex-37RMYH-review-padic-fixes`.
-The bot confirmed [claim comment 6260965892](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260965892)
-in [comment 6260967990](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260967990).
+`3c96dc45191213a9d62ae2cf8e3d5a2d7d042cd4`.
+Branch: `codex-Wpbf9p-review-padic-fixes`.
+The bot confirmed [claim comment 6261830495](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261830495)
+in [comment 6261832728](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261832728).
 This session wrote none of the fixes or prior reviews and claimed no second job.
 
 ## Work complete and blocker
@@ -36,7 +36,7 @@ Read `issues.py`, `intake.py` and `make_queue.py` at the checkout commit,
 which matches independently queried GitHub main. `fix_rounds` still preserves
 an issued following round only when neither newly missing files nor a
 preceding send-back is present (the
-`made` assignment at line 2215 in this input). Fresh `intake.file_problems`
+`made` assignment in `fix_rounds`). Fresh `intake.file_problems`
 calls reject both `research/blueprint/queue.json` and
 `research/blueprint/make_queue.py` as outside swarm output paths. WORKERS.md
 also restricts edits to named deliverables. This worker cannot apply the

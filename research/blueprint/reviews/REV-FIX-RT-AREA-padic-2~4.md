@@ -1,19 +1,20 @@
 # Independent review of the round-four p-adic fixes
 
 **Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
-codex-37RMYH.** The issued three-packet review is complete. The generated
-queue still requires ten additional packets outside the live issue's permitted
-scope. The mathematical review, source records and successful Lean checks below
-retain their original authorship; this session did not repeat those audits.
+codex-Wpbf9p.** The issued three-packet review is already recorded as complete.
+The generated queue still requires ten additional packets outside the live
+issue's permitted scope. The mathematical review, source records and successful
+Lean checks below retain their original authorship; this session did not repeat
+those audits or change any verdict.
 
 The bot confirmed this session's
-[claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260965892)
-in [comment 6260967990](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260967990).
-The issue was fetched again after confirmation. This session wrote none of the
-fixes or previous reviews and claimed no second job.
+[claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261830495)
+in [comment 6261832728](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261832728).
+The issue was re-read after confirmation. This session wrote none of the fixes
+or previous reviews and held no second claim.
 
 The checkout and independently queried GitHub main both resolve to
-[`ebae909c491b23d8911c07deda5d733f74559e4d`](https://github.com/CBirkbeck/tauceti-explorer/commit/ebae909c491b23d8911c07deda5d733f74559e4d).
+[`3c96dc45191213a9d62ae2cf8e3d5a2d7d042cd4`](https://github.com/CBirkbeck/tauceti-explorer/commit/3c96dc45191213a9d62ae2cf8e3d5a2d7d042cd4).
 Fresh execution of the unmodified `issues.deliverables_complete` gives:
 
 | Contract | Outputs | Packets | Complete |
@@ -31,12 +32,13 @@ completed review and is not the blocker. No additional packet was reviewed or
 had its verdict replaced here.
 
 Fresh reads of `issues.py`, `intake.py` and `make_queue.py` confirm the repair
-boundary. `fix_rounds` still preserves an issued following round only when
-`not (missing or sent_back)` (line 2215 at this input). Fresh
+boundary. In `fix_rounds`, the `made` assignment still preserves an issued
+following round only when `not (missing or sent_back)`. Fresh
 `intake.file_problems` calls reject both `queue.json` and `make_queue.py` as
 outside swarm output paths. The live issue also limits edits to its named
 files. The existing historical-contract recovery, proposed repair and two
-write-free generator checks below retain their original attribution.
+write-free generator checks below retain their original attribution; they
+were not rerun in this continuation.
 
 Fresh checks of the three permitted packets against the pinned declaration
 index pass: **Faltings 56, Perfectoid 326, Adic 537 nodes; zero errors and zero
