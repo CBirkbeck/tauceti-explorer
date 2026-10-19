@@ -193,7 +193,7 @@
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
       ],
       "proofSteps": [
-        "Use the local invariant description of quaternion Brauer classes and the global Brauer theorem imported by GN.2.",
+        "Use the local invariant description and global Brauer theorem requested from ClassFieldTheory Layer 10; GN.2 supplies the quaternion arithmetic interface.",
         "Separate the zero Brauer class before imposing division in the analytic argument."
       ],
       "acceptance": [
@@ -273,7 +273,7 @@
         "Tensor the individual lines and track the coefficient pairing."
       ],
       "acceptance": [
-        "For d=2 there are four sign lines although type (1,1) has dimension two."
+        "For d=2 and both split weights equal to two, four sign lines give a two-dimensional type-(1,1) space. With split weights two and four, the four types are (3,−1),(2,0),(0,2),(−1,3), so there is no type-(1,1) line."
       ],
       "sources": [
         {
@@ -468,7 +468,7 @@
       ],
       "proofSteps": [
         "Build ψ from the existing exterior multiplication and top trivialization.",
-        "Use perfectness of the exterior pairing and compose the semilinear hermitian dual map."
+        "Regard the conjugate-linear hermitian dual map as an E-linear map out of the conjugate E-module before applying exteriorPower.map. Use the conjugate-module exterior identification and finite-free perfectness of the determinant pairing to obtain the semilinear operator on ∧²U."
       ],
       "acceptance": [
         "Check all six basis images with the chosen orientation."
@@ -629,7 +629,7 @@
       "proofSteps": [
         "Use L² and conjugate-linearity to verify the quaternion relations.",
         "Apply the skew identities to prove B-sesquilinearity and skew symmetry.",
-        "Prove nondegeneracy via its E-component; compare volume trivializations by norm rescaling."
+        "Prove nondegeneracy via its E-component. For d′_U=αd_U one has L′=α⁻¹L and J′=J/N(α); use j′↦jα⁻¹ (equivalently bar α⁻¹j) to compare the quaternion presentations, and verify transport of the action and form. Reuse current TauCeti.QuaternionAlgebra.normMulEquiv for this algebra equivalence when available; the pinned square-rescaling citation alone does not cover general α."
       ],
       "acceptance": [
         "Verify right multiplication order in the j-term."
@@ -1090,7 +1090,7 @@
       ],
       "proofSteps": [
         "Substitute the diagonal coefficients into all six exterior formulas.",
-        "Compare the B-action and form with the tensor product model, using the Brauer-symbol product relation."
+        "Compare the B-action and form with the tensor product model. Reuse current TauCeti.QuaternionAlgebra.tensorAlgEquivTensorMatrix and TauCeti.BrauerGroup.quaternionClass_mul for the common-slot algebra/Brauer identity; retain the requested global arithmetic interface separately."
       ],
       "acceptance": [
         "The displayed four-by-four semilinear matrix squares to J₁J₂ times the identity."
@@ -1392,7 +1392,7 @@
         {
           "name": "TauCeti.JacquetLanglandsHodge.weightMap.dominantCoefficient",
           "role": "compatibility",
-          "statement": "For l=(k−2,0,0), k even, the result is the four-dimensional unitary coefficient weight in §11.3."
+          "statement": "For l=(k−2,0,0), k even, the torus-order result is ((k−2)/2,−(k−2)/2,(k−2)/2,−(k−2)/2). Reorder the one-based coordinates as (1,3,2,4) to obtain the §11.3 Borel-dominant coefficient weight ((k−2)/2,(k−2)/2,−(k−2)/2,−(k−2)/2)."
         }
       ],
       "tests": [
@@ -1565,7 +1565,7 @@
         "Take its abelian quotient and compute the restriction of the center."
       ],
       "acceptance": [
-        "Use only the component-to-torus morphism; do not use a false bijection."
+        "Use only the component-to-torus morphism; do not assume the unproved component bijection. Non-simple-connectedness alone does not disprove that bijection."
       ],
       "sources": [
         {
@@ -1840,7 +1840,7 @@
       "title": "The polynomial Fock comparison",
       "kind": "comparison",
       "declaration": "TauCeti.JacquetLanglandsHodge.fockComparison",
-      "statement": "For the real quadratic model and ψ(x)=exp(2πix), the polynomial-times-Gaussian subspace of the Schrödinger Schwartz model is identified with C[z₁,…,z_m], sending φ₀(x)=exp(−πΣx_i²) to one. On a positive coordinate the creation operator x_i−(2π)⁻¹∂_i corresponds to (2πi)⁻¹z_i; the negative-coordinate convention has the sign in (8.2). The annihilation operators correspond to the stated ±2i derivatives. This is not an identification of all Schwartz functions with polynomials.",
+      "statement": "For the real quadratic model and ψ(x)=exp(2πix), identify the polynomial-times-Gaussian subspace of the Schrödinger model with C[z₁,…,z_m], sending φ₀(x)=exp(−πΣx_i²) to one. On a positive coordinate i, creation x_i−(2π)⁻¹∂_i corresponds to (2πi)⁻¹z_i and annihilation x_i+(2π)⁻¹∂_i to 2i∂/∂z_i. On a negative coordinate j the corresponding operators are −(2πi)⁻¹z_j and −2i∂/∂z_j. These are the four conventions of (8.2); the comparison does not identify all Schwartz functions with polynomials.",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "All dimensions, nondegeneracy assumptions, orientations and coefficient conventions are those explicitly fixed in this statement and its named input definitions."
@@ -1861,7 +1861,7 @@
         {
           "sourceId": "IP23",
           "locator": "§8.3 and equation (8.2), pp. 50–51",
-          "match": "For the real quadratic model and ψ(x)=exp(2πix), the polynomial-times-Gaussian subspace of the Schrödinger Schwartz model is identified with C[z₁,…,z_m], sending φ₀(x)=exp(−πΣx_i²) to one. On a positive coordinate the creation operator x_i−(2π)⁻¹∂_i corresponds to (2πi)⁻¹z_i; the negative-coordinate convention has the sign in (8.2). The annihilation operators correspond to the stated ±2i derivatives. This is not an identification of all Schwartz functions with polynomials."
+          "match": "For the real quadratic model and ψ(x)=exp(2πix), identify the polynomial-times-Gaussian subspace of the Schrödinger model with C[z₁,…,z_m], sending φ₀(x)=exp(−πΣx_i²) to one. On a positive coordinate i, creation x_i−(2π)⁻¹∂_i corresponds to (2πi)⁻¹z_i and annihilation x_i+(2π)⁻¹∂_i to 2i∂/∂z_i. On a negative coordinate j the corresponding operators are −(2πi)⁻¹z_j and −2i∂/∂z_j. These are the four conventions of (8.2); the comparison does not identify all Schwartz functions with polynomials."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1962,7 +1962,7 @@
       "title": "The harmonic restriction map",
       "kind": "comparison",
       "declaration": "TauCeti.JacquetLanglandsHodge.harmonicRestriction",
-      "statement": "In the six-dimensional quadratic model take X=span(e₁,e₂,e₅,e₆), X₀=span(e₃,e₄). Compose H^ℓ(X⊕X₀)⊂Sym^ℓ(X⊕X₀)→Sym^ℓX→H^ℓX; this is an O(X)-equivariant retraction of the harmonic inclusion. For relative forms also project the cotangent exterior factor. The harmonic projector commutes with this symmetric restriction in the diagram used in the proof of Proposition 8.1.",
+      "statement": "In the six-dimensional quadratic model take X=span(e₁,e₂,e₅,e₆), X₀=span(e₃,e₄). Compose H^ℓ(X⊕X₀)⊂Sym^ℓ(X⊕X₀)→Sym^ℓX→H^ℓX; this is an O(X)-equivariant retraction of the harmonic inclusion. For relative forms also project the cotangent exterior factor. Writing r for symmetric restriction and P for harmonic projection, the diagram in Proposition 8.1 means P_X∘r=harmRestrict∘P_{X⊕X₀}; raw restriction need not preserve harmonic tensors.",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "All dimensions, nondegeneracy assumptions, orientations and coefficient conventions are those explicitly fixed in this statement and its named input definitions."
@@ -1982,7 +1982,7 @@
         {
           "sourceId": "IP23",
           "locator": "§8.5, equation (8.3), pp. 52–54",
-          "match": "In the six-dimensional quadratic model take X=span(e₁,e₂,e₅,e₆), X₀=span(e₃,e₄). Compose H^ℓ(X⊕X₀)⊂Sym^ℓ(X⊕X₀)→Sym^ℓX→H^ℓX; this is an O(X)-equivariant retraction of the harmonic inclusion. For relative forms also project the cotangent exterior factor. The harmonic projector commutes with this symmetric restriction in the diagram used in the proof of Proposition 8.1."
+          "match": "In the six-dimensional quadratic model take X=span(e₁,e₂,e₅,e₆), X₀=span(e₃,e₄). Compose H^ℓ(X⊕X₀)⊂Sym^ℓ(X⊕X₀)→Sym^ℓX→H^ℓX; this is an O(X)-equivariant retraction of the harmonic inclusion. For relative forms also project the cotangent exterior factor. Writing r for symmetric restriction and P for harmonic projection, the diagram in Proposition 8.1 means P_X∘r=harmRestrict∘P_{X⊕X₀}; raw restriction need not preserve harmonic tensors."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2121,7 +2121,7 @@
       "title": "Quaternionic product theta lifting",
       "kind": "theorem",
       "declaration": "TauCeti.JacquetLanglandsHodge.productTheta",
-      "statement": "Let B=B₁·B₂ be the division quaternion algebra, and let σ_i be irreducible automorphic representations of B_i× with the same central character, for which the cuspidal JL transfers π_i exist. The theta lift from (B₁××B₂×)/anti F× to B× is zero unless π₁≅π₂; when they agree it is the nonzero transfer π_B of that representation. Its local archimedean components and central character use the fixed Weil splitting. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.",
+      "statement": "Let B=B₁·B₂ be the division quaternion algebra, and let σ_i be irreducible unitary automorphic representations of B_i× with the same central character, for which the cuspidal JL transfers π_i exist. The theta lift from (B₁××B₂×)/anti F× to B× is zero unless π₁≅π₂; when they agree it is the nonzero transfer π_B of that representation. Its local archimedean components and central character use the fixed Weil splitting. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "Global automorphic and cohomological assertions use Jacquet–Langlands Hodge data, its fixed unitary coefficient normalization, sufficiently small compatible finite levels, and the nonzero cuspidal lifts explicitly required in the statement."
@@ -2146,7 +2146,7 @@
         {
           "sourceId": "IP23",
           "locator": "§9.3, pp. 57–58; Lemma 9.2, p. 58",
-          "match": "Let B=B₁·B₂ be the division quaternion algebra, and let σ_i be irreducible automorphic representations of B_i× with the same central character, for which the cuspidal JL transfers π_i exist. The theta lift from (B₁××B₂×)/anti F× to B× is zero unless π₁≅π₂; when they agree it is the nonzero transfer π_B of that representation. Its local archimedean components and central character use the fixed Weil splitting. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient."
+          "match": "Let B=B₁·B₂ be the division quaternion algebra, and let σ_i be irreducible unitary automorphic representations of B_i× with the same central character, for which the cuspidal JL transfers π_i exist. The theta lift from (B₁××B₂×)/anti F× to B× is zero unless π₁≅π₂; when they agree it is the nonzero transfer π_B of that representation. Its local archimedean components and central character use the fixed Weil splitting. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2166,7 +2166,7 @@
       "title": "The backward-lift doubling point",
       "kind": "theorem",
       "declaration": "TauCeti.JacquetLanglandsHodge.doublingPoint",
-      "statement": "In the anisotropic rank-three quaternionic setup of Proposition 9.5, use the doubled skew-hermitian space and its degenerate principal series at s=3/2. The image of the normalized local intertwiner M_v*(3/2) is the local theta image R(W_v). After normalization the local doubling zeta integrals are holomorphic there, and test data can be chosen nonzero. At unramified places use the factorization and Euler factor of §9.5.3, including its adjoint L-factor and zeta factors; the global pole at s=3/2 is simple.",
+      "statement": "In the anisotropic rank-three quaternionic setup of Proposition 9.5, use the doubled space and I_v(s) with Levi transformation |Nrd(a)|^(s+5/2). Put a_v(s)=ζ_v(2s)ζ_v(2s−2)ζ_v(2s−4) and b_v(s)=ζ_v(2s+1)ζ_v(2s+3)ζ_v(2s+5). The normalized intertwiner M_v*(s)=(b_v(s)/a_v(s))M_v(s):I_v(s)→I_v(−s) is holomorphic for Re(s)≥0 and has image R(W_v)⊂I_v(−3/2) at s=3/2. For each v there exist a holomorphic section and matrix-coefficient vectors for which the unnormalized local doubling integral Z_v(s) is holomorphic and nonzero at 3/2; no holomorphy for all data is asserted. For normalized unramified data the global factor is L^S(s+1/2,ad τ⊗ξ_E)ζ^S(s+3/2)ζ^S(s+1/2)ζ^S(s−1/2)/[ζ^S(2s+1)ζ^S(2s+3)ζ^S(2s+5)], multiplied by ∏_{v∈S}Z_v(s). Suitable data give a nonzero simple residue at s=3/2.",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "Global automorphic and cohomological assertions use Jacquet–Langlands Hodge data, its fixed unitary coefficient normalization, sufficiently small compatible finite levels, and the nonzero cuspidal lifts explicitly required in the statement."
@@ -2191,7 +2191,7 @@
         {
           "sourceId": "IP23",
           "locator": "Lemma 9.7, p. 63; Lemma 9.8 and §9.5.3, pp. 63–64",
-          "match": "In the anisotropic rank-three quaternionic setup of Proposition 9.5, use the doubled skew-hermitian space and its degenerate principal series at s=3/2. The image of the normalized local intertwiner M_v*(3/2) is the local theta image R(W_v). After normalization the local doubling zeta integrals are holomorphic there, and test data can be chosen nonzero. At unramified places use the factorization and Euler factor of §9.5.3, including its adjoint L-factor and zeta factors; the global pole at s=3/2 is simple."
+          "match": "In the anisotropic rank-three quaternionic setup of Proposition 9.5, use the doubled space and I_v(s) with Levi transformation |Nrd(a)|^(s+5/2). Put a_v(s)=ζ_v(2s)ζ_v(2s−2)ζ_v(2s−4) and b_v(s)=ζ_v(2s+1)ζ_v(2s+3)ζ_v(2s+5). The normalized intertwiner M_v*(s)=(b_v(s)/a_v(s))M_v(s):I_v(s)→I_v(−s) is holomorphic for Re(s)≥0 and has image R(W_v)⊂I_v(−3/2) at s=3/2. For each v there exist a holomorphic section and matrix-coefficient vectors for which the unnormalized local doubling integral Z_v(s) is holomorphic and nonzero at 3/2; no holomorphy for all data is asserted. For normalized unramified data the global factor is L^S(s+1/2,ad τ⊗ξ_E)ζ^S(s+3/2)ζ^S(s+1/2)ζ^S(s−1/2)/[ζ^S(2s+1)ζ^S(2s+3)ζ^S(2s+5)], multiplied by ∏_{v∈S}Z_v(s). Suitable data give a nonzero simple residue at s=3/2."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2206,7 +2206,7 @@
       "title": "Nonvanishing of the backward lift",
       "kind": "theorem",
       "declaration": "TauCeti.JacquetLanglandsHodge.backwardLift",
-      "statement": "Let B be division and split at infinity, X a rank-three skew-hermitian B-space with U(X) F-anisotropic, and τ an automorphic representation of B× for which the forward theta lift Π is nonzero and cuspidal. If Π′ is an automorphic representation nearly equivalent to Π, then the backward theta lift of the complex conjugate Π′ to B× is nonzero. The proof uses the nonzero residue of the doubled integral at s=3/2 and the Siegel–Weil identity with the normalization of §9.5. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.",
+      "statement": "Let E/F be quadratic embedded in a division quaternion algebra B split at infinity. Let X be a rank-three skew-hermitian B-space with U(X) F-anisotropic, G=GU_B(X)^0, and H_N^+={h∈B×(A_F):Nrd(h)∈N(A_E×)}. Let τ be an irreducible unitary automorphic representation of H_N^+ whose forward theta lift Π to G is nonzero and cuspidal. If Π′ is an irreducible unitary automorphic representation of G nearly equivalent to Π, then θ_IP(bar Π′) to H_N^+ is nonzero. The proof uses the nonzero residue of the doubled integral at s=3/2 and the Siegel–Weil identity with the normalization of §9.5. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "Global automorphic and cohomological assertions use Jacquet–Langlands Hodge data, its fixed unitary coefficient normalization, sufficiently small compatible finite levels, and the nonzero cuspidal lifts explicitly required in the statement."
@@ -2218,7 +2218,7 @@
       ],
       "proofSteps": [
         "Factor the doubling integral away from a finite set and use the simple global pole.",
-        "Choose the finitely many local sections with nonzero normalized integrals.",
+        "Choose the finitely many local sections and matrix-coefficient vectors whose unnormalized integrals are holomorphic and nonzero at 3/2, as in Lemma 9.8.",
         "Apply the required Siegel–Weil residue identity and the theta pairing to deduce backward nonvanishing."
       ],
       "acceptance": [
@@ -2228,7 +2228,7 @@
         {
           "sourceId": "IP23",
           "locator": "Lemma 9.6, pp. 61–64",
-          "match": "Let B be division and split at infinity, X a rank-three skew-hermitian B-space with U(X) F-anisotropic, and τ an automorphic representation of B× for which the forward theta lift Π is nonzero and cuspidal. If Π′ is an automorphic representation nearly equivalent to Π, then the backward theta lift of the complex conjugate Π′ to B× is nonzero. The proof uses the nonzero residue of the doubled integral at s=3/2 and the Siegel–Weil identity with the normalization of §9.5. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient."
+          "match": "Let E/F be quadratic embedded in a division quaternion algebra B split at infinity. Let X be a rank-three skew-hermitian B-space with U(X) F-anisotropic, G=GU_B(X)^0, and H_N^+={h∈B×(A_F):Nrd(h)∈N(A_E×)}. Let τ be an irreducible unitary automorphic representation of H_N^+ whose forward theta lift Π to G is nonzero and cuspidal. If Π′ is an irreducible unitary automorphic representation of G nearly equivalent to Π, then θ_IP(bar Π′) to H_N^+ is nonzero. The proof uses the nonzero residue of the doubled integral at s=3/2 and the Siegel–Weil identity with the normalization of §9.5. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2248,7 +2248,7 @@
       "title": "Near-equivalence rigidity of theta lifts",
       "kind": "theorem",
       "declaration": "TauCeti.JacquetLanglandsHodge.nearEquivalence",
-      "statement": "Under the hypotheses of backward-lift, every automorphic Π′ nearly equivalent to θ(τ) is θ(τ′) for an automorphic representation τ′ of B× nearly equivalent to τ. Apply the backward nonvanishing to Π′, then local Howe duality and the unramified parameter recovery. The assertion concerns these rank-three anisotropic lifts, not strong multiplicity one for all unitary automorphic representations.",
+      "statement": "Under the hypotheses of backward-lift, every irreducible unitary automorphic Π′ of G nearly equivalent to θ_IP(τ) is θ_IP(τ′) for an irreducible unitary automorphic representation τ′ of H_N^+ nearly equivalent to τ. Take τ′=bar θ_IP(bar Π′), using backward nonvanishing, local Howe duality and unramified parameter recovery. The assertion concerns these rank-three anisotropic lifts, not strong multiplicity one for all unitary automorphic representations or a lift from the full group B×(A_F).",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "Global automorphic and cohomological assertions use Jacquet–Langlands Hodge data, its fixed unitary coefficient normalization, sufficiently small compatible finite levels, and the nonzero cuspidal lifts explicitly required in the statement."
@@ -2271,7 +2271,7 @@
         {
           "sourceId": "IP23",
           "locator": "Proposition 9.5, p. 61; §9.5.4, p. 64",
-          "match": "Under the hypotheses of backward-lift, every automorphic Π′ nearly equivalent to θ(τ) is θ(τ′) for an automorphic representation τ′ of B× nearly equivalent to τ. Apply the backward nonvanishing to Π′, then local Howe duality and the unramified parameter recovery. The assertion concerns these rank-three anisotropic lifts, not strong multiplicity one for all unitary automorphic representations."
+          "match": "Under the hypotheses of backward-lift, every irreducible unitary automorphic Π′ of G nearly equivalent to θ_IP(τ) is θ_IP(τ′) for an irreducible unitary automorphic representation τ′ of H_N^+ nearly equivalent to τ. Take τ′=bar θ_IP(bar Π′), using backward nonvanishing, local Howe duality and unramified parameter recovery. The assertion concerns these rank-three anisotropic lifts, not strong multiplicity one for all unitary automorphic representations or a lift from the full group B×(A_F)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2291,7 +2291,7 @@
       "title": "Global theta data",
       "kind": "definition",
       "declaration": "TauCeti.JacquetLanglandsHodge.globalThetaData",
-      "statement": "In the distinct-algebra case of JL.0 choose a common CM subfield E⊂B_i, write B_i=E⊕Ej_i, and take the spaces and groups of the exceptional diagram. Put H=B×, H_N^+={h∈H(A_F):Nrd(h)∈N(A_E×)}, and H_∞^+={h:Nrd(h_v)>0 for every real v}. These subgroups serve different purposes. Set ℓ_v=k_v−2 and take the Schwartz form φ′_{2,ℓ_v} at v∈Σ and φ′_{ℓ_v} elsewhere, with a pure-tensor finite Schwartz vector. For τ on H_N^+ use central character ξ_E, antiholomorphic minimal type of weight k_v+1 at Σ and holomorphic type outside Σ. The exterior isometry group is F-anisotropic: because d<n, at least one real localization is compact O(0,6), which excludes an F-split torus. Its adelic quotient modulo the center is compact. All theta-integral convergence claims use this fact. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.",
+      "statement": "In the distinct-algebra case of JL.0 choose a common CM subfield E⊂B_i, write B_i=E⊕Ej_i, and take the spaces and groups of the exceptional diagram. Put H=B×, H_N^+={h∈H(A_F):Nrd(h)∈N(A_E×)}, and H_∞^+={h:Nrd(h_v)>0 for every real v}. These subgroups serve different purposes. Set ℓ_v=k_v−2 and take the Schwartz form φ′_{2,ℓ_v} at v∈Σ and φ′_{ℓ_v} elsewhere, with a pure-tensor finite Schwartz vector. For an irreducible unitary automorphic τ on H_N^+ use central character ξ_E, antiholomorphic minimal type of weight k_v+1 at Σ and holomorphic type outside Σ. The exterior isometry group is F-anisotropic: because d<n, at least one real localization is compact O(0,6), which excludes an F-split torus. Its adelic quotient modulo the center is compact. All theta-integral convergence claims use this fact. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "Global automorphic and cohomological assertions use Jacquet–Langlands Hodge data, its fixed unitary coefficient normalization, sufficiently small compatible finite levels, and the nonzero cuspidal lifts explicitly required in the statement."
@@ -2317,7 +2317,7 @@
         {
           "sourceId": "IP23",
           "locator": "§§10.1–10.3, pp. 65–68; §12.2.4, p. 96",
-          "match": "In the distinct-algebra case of JL.0 choose a common CM subfield E⊂B_i, write B_i=E⊕Ej_i, and take the spaces and groups of the exceptional diagram. Put H=B×, H_N^+={h∈H(A_F):Nrd(h)∈N(A_E×)}, and H_∞^+={h:Nrd(h_v)>0 for every real v}. These subgroups serve different purposes. Set ℓ_v=k_v−2 and take the Schwartz form φ′_{2,ℓ_v} at v∈Σ and φ′_{ℓ_v} elsewhere, with a pure-tensor finite Schwartz vector. For τ on H_N^+ use central character ξ_E, antiholomorphic minimal type of weight k_v+1 at Σ and holomorphic type outside Σ. The exterior isometry group is F-anisotropic: because d<n, at least one real localization is compact O(0,6), which excludes an F-split torus. Its adelic quotient modulo the center is compact. All theta-integral convergence claims use this fact. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient."
+          "match": "In the distinct-algebra case of JL.0 choose a common CM subfield E⊂B_i, write B_i=E⊕Ej_i, and take the spaces and groups of the exceptional diagram. Put H=B×, H_N^+={h∈H(A_F):Nrd(h)∈N(A_E×)}, and H_∞^+={h:Nrd(h_v)>0 for every real v}. These subgroups serve different purposes. Set ℓ_v=k_v−2 and take the Schwartz form φ′_{2,ℓ_v} at v∈Σ and φ′_{ℓ_v} elsewhere, with a pure-tensor finite Schwartz vector. For an irreducible unitary automorphic τ on H_N^+ use central character ξ_E, antiholomorphic minimal type of weight k_v+1 at Σ and holomorphic type outside Σ. The exterior isometry group is F-anisotropic: because d<n, at least one real localization is compact O(0,6), which excludes an F-split torus. Its adelic quotient modulo the center is compact. All theta-integral convergence claims use this fact. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2878,7 +2878,7 @@
       "title": "The theta Arthur parameter",
       "kind": "theorem",
       "declaration": "TauCeti.JacquetLanglandsHodge.arthurParameter",
-      "statement": "Let σ be the cuspidal GL₂ transfer of the source τ, with central character ξ_E. Its quadratic base change σ_E is conjugate-orthogonal. If cuspidal, it gives the elliptic U(4) parameter ψ=σ_E⊠Sym¹; if noncuspidal, write σ_E=χ⊞χ⁻¹, where χ is conjugate-orthogonal and χ²≠1, and interpret ψ as the corresponding sum of two simple blocks. The sign follows from As⁺∘BC=Sym²⊕(∧²⊗ξ_E), so L(s,As⁺σ_E)=L(s,Sym²σ)ζ_F(s). This σ is the auxiliary central-character-ξ_E representation, distinct from the initial central-character-one π.",
+      "statement": "Choose an irreducible unitary cuspidal σ on GL₂(A_F), with central character ξ_E, whose B× Jacquet–Langlands transfer restricts to H_N^+ with a constituent τ. Its quadratic base change σ_E is independent of this choice and is conjugate-orthogonal. The subgroup representation τ itself is not an input to the usual GL₂ transfer. If cuspidal, it gives the elliptic U(4) parameter ψ=σ_E⊠Sym¹; if noncuspidal, write σ_E=χ⊞χ⁻¹, where χ is conjugate-orthogonal and χ²≠1, and interpret ψ as the corresponding sum of two simple blocks. The sign follows from As⁺∘BC=Sym²⊕(∧²⊗ξ_E), so L(s,As⁺σ_E)=L(s,Sym²σ)ζ_F(s). This σ is the auxiliary central-character-ξ_E representation, distinct from the initial central-character-one π.",
       "hypotheses": [
         "Use the fields and dimensions explicitly fixed in the statement; where E/F occurs it is quadratic of characteristic zero, with the local quadratic-étale variant only where stated.",
         "Global automorphic and cohomological assertions use Jacquet–Langlands Hodge data, its fixed unitary coefficient normalization, sufficiently small compatible finite levels, and the nonzero cuspidal lifts explicitly required in the statement."
@@ -2888,7 +2888,8 @@
         "GL2AutomorphicRepresentationsAndTransfer:R17.5/quadratic-induction",
         "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
         "ModularityAndLanglandsExtensions:ML.4",
-        "HodgeClassesForJacquetLanglands:JL.7/global-theta-data"
+        "HodgeClassesForJacquetLanglands:JL.7/global-theta-data",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6"
       ],
       "proofSteps": [
         "Import quadratic base change and the adjoint/Asai factorization in the required normalization.",
@@ -2900,8 +2901,8 @@
       "sources": [
         {
           "sourceId": "IP23",
-          "locator": "Equation (11.1) and Lemma 11.1, pp. 79–80",
-          "match": "Let σ be the cuspidal GL₂ transfer of the source τ, with central character ξ_E. Its quadratic base change σ_E is conjugate-orthogonal. If cuspidal, it gives the elliptic U(4) parameter ψ=σ_E⊠Sym¹; if noncuspidal, write σ_E=χ⊞χ⁻¹, where χ is conjugate-orthogonal and χ²≠1, and interpret ψ as the corresponding sum of two simple blocks. The sign follows from As⁺∘BC=Sym²⊕(∧²⊗ξ_E), so L(s,As⁺σ_E)=L(s,Sym²σ)ζ_F(s). This σ is the auxiliary central-character-ξ_E representation, distinct from the initial central-character-one π."
+          "locator": "Equation (11.1) and Lemma 11.1, pp. 79–80; §11.4, p. 86",
+          "match": "Choose an irreducible unitary cuspidal σ on GL₂(A_F), with central character ξ_E, whose B× Jacquet–Langlands transfer restricts to H_N^+ with a constituent τ. Its quadratic base change σ_E is independent of this choice and is conjugate-orthogonal. The subgroup representation τ itself is not an input to the usual GL₂ transfer. If cuspidal, it gives the elliptic U(4) parameter ψ=σ_E⊠Sym¹; if noncuspidal, write σ_E=χ⊞χ⁻¹, where χ is conjugate-orthogonal and χ²≠1, and interpret ψ as the corresponding sum of two simple blocks. The sign follows from As⁺∘BC=Sym²⊕(∧²⊗ξ_E), so L(s,As⁺σ_E)=L(s,Sym²σ)ζ_F(s). This σ is the auxiliary central-character-ξ_E representation, distinct from the initial central-character-one π."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3426,7 +3427,8 @@
         "HodgeClassesForJacquetLanglands:JL.7/all-sign-nonvanishing",
         "GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl",
         "GL2AutomorphicRepresentationsAndTransfer:R16.4/cohomological-rationality",
-        "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights"
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6"
       ],
       "proofSteps": [
         "Use the discrete-series signs of τ to identify the algebraic Hilbert weight and its common odd parity.",
@@ -3438,7 +3440,7 @@
       "sources": [
         {
           "sourceId": "IP23",
-          "locator": "§12.2.4, p. 96; §10.2, pp. 65–66",
+          "locator": "§12.2.4, pp. 96–97; §10.2, pp. 65–66",
           "match": "The τ chosen by all-sign-nonvanishing comes from a cohomological cuspidal GL₂(A_F) representation obtained from a holomorphic Hilbert modular form of weights k_v+1 and an odd algebraic norm weight r, with finite central character ξ_E. After the prescribed norm twist and JL transfer to B×, its restriction contains the required source representation: antiholomorphic above Σ and holomorphic outside Σ. Track restriction first to the positive-infinity subgroup and then to the norm subgroup; do not identify these two subgroups."
         }
       ],
@@ -3520,7 +3522,7 @@
       "sources": [
         {
           "sourceId": "IP23",
-          "locator": "§12.2.1, p. 94; Proposition 10.1, p. 70",
+          "locator": "§12.2.1, p. 94; Proposition 10.1, p. 70; Proposition 12.3 proof, p. 98",
           "match": "For distinct B₁,B₂ choose a finite place v₀ outside their ramification and the prescribed finite bad set, and a CM quadratic E/F ramified at v₀, nonsplit at every finite place ramified in either B_i. Then E embeds into both B_i, and sufficiently small levels can be chosen hyperspecial at v₀ while preserving the desired finite automorphic vectors. This supplies the additional local hypothesis used in Proposition 10.1."
         }
       ],
@@ -3873,7 +3875,7 @@
   "requests": [
     {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
-      "need": "Quaternion embedding criterion for E in B, local/global quaternion classification and norm-rescaling of symbol presentations. The consumer proofs use IP23 §§4.1, 5.2–5.3, 10.7 and 12.2.1; square-rescaling in the pinned quaternion API alone is insufficient.",
+      "need": "Quaternion embedding criterion for E in B and local/global quaternion classification, with the placewise nonsplitting condition used in IP23 §12.2.1, p. 94. Norm changes of quaternion symbols are already supplied by current TauCeti.QuaternionAlgebra.normMulEquiv and are not requested as new foundations.",
       "neededBy": [
         "HodgeClassesForJacquetLanglands:JL.10/auxiliary-cm"
       ]
@@ -3982,6 +3984,14 @@
       "neededBy": [
         "HodgeClassesForJacquetLanglands:JL.1/exceptional-isogeny"
       ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+      "need": "Automorphic restriction/extension for the norm-multiplier subgroup H_N^+ of B×(A_F): realize the relevant irreducible unitary source τ as a constituent of a full B× cuspidal representation and its GL₂ transfer σ, prove quadratic base change σ_E is independent of that choice, and compare restriction through H_∞^+ with the odd algebraic Hilbert weight and its unitary norm twist. IP23 §11.4, p. 86 and §12.2.4, pp. 96–97. The existing hilbert-algebraic-weights node supplies parity conventions, not this restriction/Clifford-theory statement.",
+      "neededBy": [
+        "HodgeClassesForJacquetLanglands:JL.8/arthur-parameter",
+        "HodgeClassesForJacquetLanglands:JL.10/auxiliary-hilbert-form"
+      ]
     }
   ],
   "gaps": [
@@ -4021,7 +4031,7 @@
         "HodgeClassesForJacquetLanglands:JL.7/auxiliary-character",
         "HodgeClassesForJacquetLanglands:JL.7/triple-product-type"
       ],
-      "detail": "The proposed MetaplecticAutomorphicFormsPartIIShimuraWaldspurger has no registered stage/node. MP.3 already owns quaternionic splittings, Morita comparison and unramified theta, so none is replanned. Needed in addition: the toric and quaternionic product-period nonvanishing identities of IP23 Lemmas 9.1–9.2, pp. 57–58; the local normalized intertwiner image and holomorphy at s=3/2 of Lemmas 9.7–9.8, pp. 63–64; the compatible anisotropic quaternionic Siegel–Weil residue yielding backward nonvanishing in Lemma 9.6, pp. 61–64; the local test-vector statement of Lemma 10.6, pp. 76–77; the compact norm-one idele quotient character-extension statement of Lemma 10.5, p. 76, with trivial archimedean restriction and finite-order conclusion; and the tensor-product discrete-series decomposition used by Lemma 10.7, p. 77. MP.6/rallis-inner-product is a GQT positive-range value formula with first-occurrence hypotheses; it cannot silently replace this residue identity."
+      "detail": "The proposed MetaplecticAutomorphicFormsPartIIShimuraWaldspurger has no registered stage/node. MP.3 already owns quaternionic splittings, Morita comparison and unramified theta, so none is replanned. Needed in addition: the toric and quaternionic product-period nonvanishing identities of IP23 Lemmas 9.1–9.2, pp. 57–58; the normalized intertwiner image at s=3/2 and existence of holomorphic nonzero local zeta data in Lemmas 9.7–9.8, pp. 63–64; the compatible anisotropic quaternionic Siegel–Weil residue yielding backward nonvanishing in Lemma 9.6, pp. 61–64; the local test-vector statement of Lemma 10.6, pp. 76–77; the compact norm-one idele quotient character-extension statement of Lemma 10.5, p. 76, with trivial archimedean restriction and finite-order conclusion; and the tensor-product discrete-series decomposition used by Lemma 10.7, p. 77. MP.6/rallis-inner-product is a GQT positive-range value formula with first-occurrence hypotheses; it cannot silently replace this residue identity."
     },
     {
       "title": "Compatible-realization category and Hodge–Tate tensors",
@@ -4104,7 +4114,8 @@
       "status": "planned",
       "remaining": [
         "Resolve supplier gap: Automorphic cohomology and rational coefficient descent interface.",
-        "Bind requested interface to a verified supplier node: ModularityAndLanglandsExtensions:ML.4."
+        "Bind requested interface to a verified supplier node: ModularityAndLanglandsExtensions:ML.4.",
+        "Bind requested interface to a verified supplier node: GL2AutomorphicRepresentationsAndTransfer:R16.6."
       ]
     },
     {
@@ -4129,7 +4140,7 @@
         "Resolve supplier gap: Compatible-realization category and Hodge–Tate tensors.",
         "Bind requested interface to a verified supplier node: GeometryOfNumbersAndQuadraticArithmetic:GN.2.",
         "Bind requested interface to a verified supplier node: tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences.",
-        "Independent review must verify the corrected invariant-component determinant argument (E8)."
+        "Bind requested interface to a verified supplier node: GL2AutomorphicRepresentationsAndTransfer:R16.6."
       ]
     }
   ],
@@ -4148,7 +4159,12 @@
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §2.1 p.14 only in the stated generic coefficient-field scope: conjugation sends the ι-summand to the bar ι-summand. The totally real coefficient field of the final self-dual application avoids the obstruction; the rational carrier with L-action is safe.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     },
     {
       "id": "HodgeClassesForJacquetLanglands/E2",
@@ -4164,7 +4180,12 @@
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §3.3 p.19: the displayed degree 2d is incompatible with d split real factors contributing degree one each. Degree d agrees with the later multiplicity and final correspondence formulas.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     },
     {
       "id": "HodgeClassesForJacquetLanglands/E3",
@@ -4180,23 +4201,33 @@
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the p.22 diagram: the indicated rank-one summand is a B-space, so its isometry group has B, not E, as the scalar label.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     },
     {
       "id": "HodgeClassesForJacquetLanglands/E4",
-      "kind": "error",
+      "kind": "gap",
       "affects": "the proof",
       "locator": "IP23, published 2023 version, §4.3, p. 24",
-      "printed": "The passage to the abelian quotient is described as giving the component identification used for a simply connected derived group.",
+      "printed": "The component set is identified with the torus Shimura variety without a separate component argument.",
       "correction": "Use only the Shimura morphism to the component torus and pullback of its degree-zero functions.",
-      "reason": "The actual derived group is (B₁¹×B₂¹)/μ₂ and is not simply connected. A torus morphism exists without the claimed component bijection, and suffices for c_η.",
+      "reason": "The derived group is (B₁¹×B₂¹)/μ₂ and is not simply connected, so the usual simply-connected sufficient criterion is unavailable. This alone is not a counterexample to the component bijection. Record the missing justification; the weaker Shimura morphism and pullback of torus functions suffice for c_η.",
       "known": "Previously identified in the routed paper extraction/review; rechecked here. No published correction located in the recorded search.",
       "searched": [
         "Cambridge published article and DOI 10.1017/fmp.2023.20, checked 2026-10-19.",
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing justification, after narrowing from error to gap. The non-simply-connected derived group prevents invocation of the usual sufficient criterion but does not itself disprove the claimed component bijection. The torus morphism alone suffices and is what the packet uses.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     },
     {
       "id": "HodgeClassesForJacquetLanglands/E5",
@@ -4212,7 +4243,12 @@
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §4.3 p.24: for t₁t₂=Nα the norm of (t₁t₂)⁻¹α is generally (t₁t₂)⁻¹, not one. A full Hecke character trivial on A_F× makes the formula well-defined and has the required center restriction.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     },
     {
       "id": "HodgeClassesForJacquetLanglands/E6",
@@ -4228,7 +4264,12 @@
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Proposition A.1(i) p.101: both denominator evaluations use the local cochain s_v. Only the second place subscript is missing; there is no extra factor.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     },
     {
       "id": "HodgeClassesForJacquetLanglands/E7",
@@ -4244,7 +4285,12 @@
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the proof of Proposition 11.6 p.88: the geometric pair is (k−1,k−1), and after the p.90 normalization it is (1,1). The delimiter defect has no mathematical effect.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     },
     {
       "id": "HodgeClassesForJacquetLanglands/E8",
@@ -4260,7 +4306,12 @@
         "Prasanna research page and its published hcfinal.pdf link, checked 2026-10-19.",
         "Web searches for the exact title with erratum and for Ichino Prasanna 2023.20 correction, 2026-10-19; no published erratum located."
       ],
-      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections."
+      "origin": "PAPER-ICHINO-PRASANNA-23 and its independent paper review; this design does not claim independent review of its own corrections.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the p.99 proof: a rational basis of component cohomology need not be Galois fixed. Independently checked the repair via j(s)=([s,s],s), reflex-norm functoriality and η_T(j(s))=1; taking invariant rational component parameters then successive determinant nonvanishing supplies the claimed simultaneous fixed class.",
+        "by": "REV-DESIGN-HodgeClassesForJacquetLanglands"
+      }
     }
   ],
   "restructure": [
@@ -4290,8 +4341,396 @@
       "OrthogonalSpinGroups: general spin, Clifford and low-rank foundations remain there; explicit hermitian exterior comparison is the present target.",
       "ReductiveGroups: central quotients, representations and component theory imported.",
       "ClassFieldTheory: global Brauer invariants, reciprocity and norm theorems imported.",
-      "HodgeStructures: existing pure structures, tensor/dual/Tate conventions imported; pinned implementations used where available."
+      "Current Tau Ceti Hodge modules: pure structures, tensor/dual/Tate conventions imported from the actual library; no current roadmap folder named HodgeStructures was used as evidence."
     ],
-    "currentLibraryRead": "Current Tau Ceti source was inspected separately from the pinned build. For example exteriorPower.map_top_eq_det_smul has moved to ExteriorPower/Basic.lean on current main; the baseline record cites its pinned module. No baseline claim is inferred from current main."
+    "currentLibraryRead": "Current Tau Ceti source was inspected separately from the pinned build. For example exteriorPower.map_top_eq_det_smul has moved to ExteriorPower/Basic.lean on current main; the baseline record cites its pinned module. No baseline claim is inferred from current main.",
+    "independentReview": {
+      "agent": "Codex — codex-dpm5k1",
+      "job": "REV-DESIGN-HodgeClassesForJacquetLanglands",
+      "issue": 3547,
+      "date": "2026-10-19",
+      "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "currentReuse": [
+        {
+          "declaration": "TauCeti.QuaternionAlgebra.normMulEquiv",
+          "module": "TauCeti/Algebra/Quaternion/SymbolEquiv.lean",
+          "use": "General norm change of the second symbol; transport the JL.1 exterior action/form through it. Not asserted present at the pinned baseline."
+        },
+        {
+          "declaration": "TauCeti.QuaternionAlgebra.tensorAlgEquivTensorMatrix",
+          "module": "TauCeti/Algebra/Quaternion/TensorProduct.lean",
+          "use": "Common-slot tensor algebra comparison, reused in JL.2."
+        },
+        {
+          "declaration": "TauCeti.BrauerGroup.quaternionClass_mul",
+          "module": "TauCeti/Algebra/Quaternion/BrauerClass.lean",
+          "use": "Common-slot Brauer bilinearity; retain the global arithmetic request for local invariants/embedding criteria."
+        }
+      ]
+    }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-HodgeClassesForJacquetLanglands",
+    "date": "2026-10-19",
+    "notes": "Independent source-level review of all 71 nodes, 8 pinned declarations, supplier statements, API/tests, planets and current upstream ownership. Corrected norm-subgroup hypotheses, coefficient Borel order, doubling normalization/data quantifiers, harmonic restriction wording and locators; removed duplicated current-library norm-rescaling planning and added a precise automorphic restriction/extension request. All eight source issues reviewed; E4 narrowed to a gap, E8 repair verified. Four supplier gaps and sixteen requests remain explicit; eleven stages are planned, none closed. Suggested-file elaboration is a typing check with admitted proofs, not formalization.",
+    "checked": [
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.0/data",
+        "verdict": "verified",
+        "note": "Coefficient normalization, d<n and the d=0 finite-set boundary agree with §§2–3; rational Hodge carrier plus L-action avoids the single-embedding problem E1. Quaternionic realization remains an explicit supplier gap."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.0/brauer-reduction",
+        "verdict": "corrected",
+        "note": "Equal real ramification cancels; over a number field the nonzero exponent-two product has a quaternion division representative. Corrected the proof attribution to the direct ClassFieldTheory Layer 10 request."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.0/multiplicity-realization",
+        "verdict": "verified",
+        "note": "Degree d, dimension 2^d, multiplicity Hom and duality V≅V∨(−d) agree with §3.3 after E2; finite-level representation factors and the realization gap are retained."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.0/sign-lines",
+        "verdict": "corrected",
+        "note": "Tensor sign indexing and opposite-sign duality are sound. Corrected the acceptance example to require both weights two and supplied the unequal-weight counterexample."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.0/tensor-correspondence",
+        "verdict": "verified",
+        "note": "Poincaré duality gives V₁⊗V₂(d)=Hom(V₁,V₂); the push-cup-pull construction and simultaneous fixed-tensor interpretation use the explicitly imported compatible-realization interface."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/volume",
+        "verdict": "verified",
+        "note": "Volume is the determinant pairing on d_U⁻¹(1); rescaling by α changes it by N(α)⁻¹. The three tests distinguish orientation, norm and nonsquare ambiguity."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/determinant-norm",
+        "verdict": "verified",
+        "note": "Top exterior determinant and induced multiplier ν^r give N(det g)=ν^n with the stated right-hermitian convention; the pinned top-exterior theorem has exactly the required finite-free hypotheses."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/exterior-star",
+        "verdict": "corrected",
+        "note": "All six complementary-basis images match (5.5). Clarified that exteriorPower.map is linear: the conjugate E-module is required before applying it to the hermitian dual map."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/exterior-square",
+        "verdict": "verified",
+        "note": "Paired complementary basis images give L²=vol, including the minus volume orientation; no generic Clifford foundation is duplicated."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/skew-identities",
+        "verdict": "verified",
+        "note": "The symmetric first skew identity and conjugated second identity match Lemma 5.4. The plane sign is correctly distinguished."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/quaternion-exterior",
+        "verdict": "corrected",
+        "note": "Right B-action and the j-term order match (5.6). Added general volume transport j′↦jα⁻¹ and reuse of the current norm-rescaling equivalence; the pinned square equivalence alone is insufficient."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/exceptional-isogeny",
+        "verdict": "verified",
+        "note": "Intertwining factor ν²/det g, multiplier ν², μ₂ kernel and dimension sixteen agree with Proposition 5.6; only the geometric algebraic isogeny is asserted."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.1/exceptional-projective",
+        "verdict": "verified",
+        "note": "Hilbert 90 chooses β/bar β=ν²/det g; scalar changes disappear projectively. The proof descends the algebraic isomorphism rather than claiming arbitrary pointwise isogeny surjectivity."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/quaternion-planes",
+        "verdict": "verified",
+        "note": "Quaternion plane action βxα⁻¹, multiplier and determinant match Lemma 5.12; the plane operator squares to −a₁a₂ and has the correct opposite pairing symmetry."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/block-exterior",
+        "verdict": "verified",
+        "note": "The mixed wedge and diagonal wedge summands have B-ranks two and one and are L-stable and orthogonal, as in (5.11)."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/block-isogeny",
+        "verdict": "verified",
+        "note": "Restriction of the exterior action has the same μ₂ kernel and equal-multiplier connected target of dimension eight; Proposition 5.10 supplies precisely this restriction."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/block-projective",
+        "verdict": "verified",
+        "note": "Projective block formula and anti-diagonal F× quotient agree with (5.13) and the explicit quaternion coordinates. Representative changes preserve the displayed class."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/block-groups",
+        "verdict": "verified",
+        "note": "Proposition 5.13 identifies the tensor block with the anti-diagonal quotient and the rank-one identity component with E×; the extra normalizer component is not lost."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/tensor-model",
+        "verdict": "corrected",
+        "note": "The four mixed-coordinate formulas, hermitian signs and square J₁J₂ agree with Example 5.14. Added current common-slot algebra and Brauer declaration reuse to the proof sketch."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/three-one",
+        "verdict": "verified",
+        "note": "The three-plus-one mixed summand is U₃⊗U₄, not ∧²U₃; its extension to B and the restricted exceptional map agree with (5.16) and Proposition 5.15."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.2/group-diagram",
+        "verdict": "verified",
+        "note": "The algebraic group diagram uses the equal multiplier condition and both central quotients; the preceding block/projective comparisons justify each arrow."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.3/morita-models",
+        "verdict": "verified",
+        "note": "Morita conversion gives the six- and four-dimensional quadratic spaces with signatures (4,2)/(0,6) and (2,2)/(0,4); generic Morita/splitting machinery stays with MP.3."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.3/split-torus",
+        "verdict": "verified",
+        "note": "The split torus monomials and multipliers match Lemma 6.1, with the same ordered basis; this is a coordinate specialization, not a second torus foundation."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.3/real-torus",
+        "verdict": "verified",
+        "note": "The real compact torus correspondence matches Lemma 6.2 and fixes the rotation-coordinate order used by weight-map."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.3/weight-map",
+        "verdict": "corrected",
+        "note": "The half-integral formula and inverse are correct on the even-sum lattice. Corrected dominantCoefficient to include the (1,3,2,4) Borel permutation; added a suggested-file example."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.3/archimedean-theta",
+        "verdict": "verified",
+        "note": "The noncompact D⁻ lift is q₁ and the compact D⁺ lift is harmonic with opposite compact lift zero; the real/quaternionic supplier refinement is explicitly requested."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.5/shimura-diagram",
+        "verdict": "verified",
+        "note": "The real Shimura homomorphisms and common reflex field agree with §4.2 and §12.2.2; canonical-model functoriality is imported and d=0 handled separately."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.5/component-torus",
+        "verdict": "corrected",
+        "note": "The torus and center formulas and cocharacter factor are correct. Narrowed E4: use the torus morphism without assuming an unproved component bijection; non-simple-connectedness is not a counterexample."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.5/component-class",
+        "verdict": "verified",
+        "note": "Full Hecke η evaluates the general idele argument and descends through the anti-diagonal quotient. Its center restriction is η(z⁻¹α), repairing E5."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.5/coefficient-structure",
+        "verdict": "verified",
+        "note": "The even harmonic degree, multiplier twist, Borel permutation and Q(k)-form match §11.3 and Proposition 12.2; Tits/Schur descent and rational block projection remain an explicit supplier gap."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.4/harmonics",
+        "verdict": "verified",
+        "note": "The contraction kernel, un-divided factorial pairing and orthogonal harmonic projection agree with (8.1); small degrees and the trace test distinguish the normalization."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.4/fock-comparison",
+        "verdict": "corrected",
+        "note": "Spelled out all four operators of (8.2), including both negative-coordinate signs. The comparison is restricted to polynomial-times-Gaussian vectors, not all Schwartz functions."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.4/schwartz-form",
+        "verdict": "verified",
+        "note": "The (4πi) exponent, ordered exterior factors, harmonic projection, closedness and oscillator weights match §8.4; the compact branch retains its separate sign convention."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.4/harmonic-restriction",
+        "verdict": "corrected",
+        "note": "Clarified the projected commuting diagram P_X r=harmRestrict P_big. Raw restriction need not be harmonic; complementary trace summands are killed by the small harmonic projector."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.4/restriction-split",
+        "verdict": "verified",
+        "note": "Proposition 8.1 gives exponent ℓ+2 with the specified cotangent orientation and v^ε/ℓ!; the undivided coefficient pairing cancels that factorial."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.4/restriction-compact",
+        "verdict": "verified",
+        "note": "Proposition 8.2 gives (−1)^ℓ and exponent ℓ, including odd ℓ even though the final application uses even degree."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.6/toric-theta",
+        "verdict": "verified",
+        "note": "Finite-order toric character and ramified-place non-norm condition match Lemma 9.1; IP/MP input-conjugation conversion is explicit and the period identity is a supplier gap."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.6/product-theta",
+        "verdict": "corrected",
+        "note": "Restored unitarity of σ_i in Lemma 9.2; equality of cuspidal transfers and the quaternionic product period give the stated nonvanishing, subject to the recorded supplier identity."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.6/doubling-point",
+        "verdict": "corrected",
+        "note": "Replaced the overbroad holomorphy claim by Lemma 9.8 existence of local data. Recorded I_v(s), a_v,b_v, intertwiner target and the exact (9.3) Euler quotient with nonzero simple residue."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.6/backward-lift",
+        "verdict": "corrected",
+        "note": "Restored irreducible unitary representations and the source/target norm subgroup H_N^+, together with E⊂B and G=GU_B(X)^0. Corrected the proof to use unnormalized local zeta data."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.6/near-equivalence",
+        "verdict": "corrected",
+        "note": "The backward candidate is bar θ_IP(bar Π′). Corrected its group to H_N^+ and retained irreducibility, unitarity, anisotropy and nonzero original cuspidality."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/global-theta-data",
+        "verdict": "corrected",
+        "note": "The norm subgroup and positive-infinity subgroup are distinct; restored irreducible unitary τ. The compact real factor proves F-anisotropy and justifies convergence."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/theta-class",
+        "verdict": "verified",
+        "note": "Theta class is closed and independent of the connected-real representative; central character cancellation uses Proposition A.1, with E6 a subscript correction only."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/eta-projection",
+        "verdict": "verified",
+        "note": "Normalized central projection, multiplication by c_η, choice of α_g, extension by zero and level averaging agree with §10.4; trace is to the actual image, not an assumed adelic surjection."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/scalar-seesaw",
+        "verdict": "verified",
+        "note": "The scalar restriction and triple-product identity are (10.7), not (10.8); compactness and cusp hypotheses justify the seesaw integrals with the explicit conjugation convention."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/sign-theta",
+        "verdict": "verified",
+        "note": "Lemma 10.3 gives one finite vector for all signs; even exponents remove the sign dependence of the nonzero Whittaker coefficient, allowing common nonzero normalization."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/norm-support",
+        "verdict": "verified",
+        "note": "Lemma 10.4 requires ramified E at a split, hyperspecial v₀. A non-norm unit exchanges the two support cosets while fixing the finite vectors."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/auxiliary-character",
+        "verdict": "verified",
+        "note": "χ_v²≠1 makes η non-norm at every B-ramified place. Character extension, trivial infinity restriction and finite order are retained as a precise supplier gap."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/toric-test-vector",
+        "verdict": "verified",
+        "note": "Lemma 10.6 fixes a toric theta vector nonzero on H_N^+ with real weights +1/−1; local normalization and the test-vector supplier gap are retained."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/triple-product-type",
+        "verdict": "verified",
+        "note": "The tensor-product discrete-series calculation gives the minimal weights k_v+1 and the contragredient source signs; its generic decomposition is explicitly supplier-owned."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.7/all-sign-nonvanishing",
+        "verdict": "verified",
+        "note": "One common τ, η and finite Schwartz choice works for every sign by the compact-quotient projection and sign normalization. This is stronger than separate existential choices."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.8/arthur-parameter",
+        "verdict": "corrected",
+        "note": "Corrected the ill-typed transfer of subgroup τ: choose full GL₂ σ restricting through its B× transfer, with choice-independent base change. Added the precise R16.6 restriction/extension request and p.86 locator."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.8/adams-johnson",
+        "verdict": "verified",
+        "note": "The three Adams–Johnson representatives and cohomology dimensions match Proposition 11.2. Local packet identification keeps the classification hypotheses and the noncuspidal parameter branch."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.8/negative-similitude",
+        "verdict": "verified",
+        "note": "The multiplier −1 involution exchanges q₀ and q₂ and preserves q₁, as Lemma 11.3 requires; it creates no extra degree-two type."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.8/hecke-eigenspace",
+        "verdict": "verified",
+        "note": "The rational away-S Hecke kernel includes all coefficient-conjugate eigenspaces. Rational projector and Matsushima compatibility are explicit supplier refinements, not inferred from a single complex eigenline."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.8/degree-selection",
+        "verdict": "verified",
+        "note": "Every split-place degree is at least two, so total degree 2d forces the q₁ degree-two factors; Remark 11.5 supplies the alternative near-equivalence route without the global packet classification."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.8/hodge-weight-comparison",
+        "verdict": "verified",
+        "note": "The six geometric Hodge pairs and shift (2−k,2−k) match Proposition 11.6; the k=4 check separates cochain indices from actual Hodge weights and incorporates E7."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.8/pure-hodge-space",
+        "verdict": "verified",
+        "note": "Normalized local type (1,1), compact degree zero and conjugate eigenspaces give purity (d,d) on the entire rational Hecke space used for descent."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.9/kottwitz-representation",
+        "verdict": "verified",
+        "note": "The dual representation is (∧²std⊗ν)∨ with the stated semidirect action and highest-weight extension. Ordinary tensor permutations introduce no graded signs."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.9/galois-semisimplification",
+        "verdict": "verified",
+        "note": "The arithmetic determinant ξ_E ε^(−w−1) admits an integral normalization because w is odd; bottom graded line ε⁻¹ at each split factor is cancelled by twist (d). The degree-wise Kottwitz embedding remains explicit."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.9/unipotent-splitting",
+        "verdict": "verified",
+        "note": "Local H¹_g with trivial coefficients permits only unramified additive characters; global reciprocity and class-group finiteness kill them. De Rham subquotients allow induction; the cyclotomic-log counterexample needs the omitted hypothesis."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.9/galois-triviality",
+        "verdict": "verified",
+        "note": "Geometric de Rham cohomology plus trivial semisimplification yields actual triviality for every ℓ. The argument preserves coefficient conjugates and stays conditional on the exact Kottwitz hypothesis."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/auxiliary-hilbert-form",
+        "verdict": "corrected",
+        "note": "Odd Hilbert weights and unitary norm normalization are correct. Added the missing R16.6 restriction/Clifford request as a direct prerequisite and completed the §12.2.4 locator through p.97."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/auxiliary-cm",
+        "verdict": "corrected",
+        "note": "Weak approximation simultaneously fixes CM signs, required nonsplitting and v₀ ramification. Added Proposition 12.3 p.98, where the support-place choice is used; levels are unramified there by construction."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/restriction-correspondence",
+        "verdict": "verified",
+        "note": "The rational restriction composes pullback, harmonic projection, component multiplication, normalized central trace, Hecke projection and finite-vector contraction in the source order; realization compatibility remains supplier-owned."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/complex-invertibility",
+        "verdict": "verified",
+        "note": "All-sign nonvanishing and opposite-sign duality give a diagonal operator with every entry nonzero. Merely one nonzero pairing would not establish rank 2^d."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/component-galois-invariants",
+        "verdict": "verified",
+        "note": "Independently verified the E8 repair: factor the torus cocharacter through j, use reflex-norm functoriality, and compute η_T(j(s))=η(s⁻¹)=1. Finite permutation invariants commute with scalar extension."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/rational-determinant-descent",
+        "verdict": "verified",
+        "note": "The bilinear restriction determinant is separately homogeneous. Expand its finite coefficient span over Q(k), then Q, and apply infinite-field nonvanishing successively; no averaging or rational-coefficient assumption is needed."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/main-hodge",
+        "verdict": "verified",
+        "note": "The Hodge theorem follows without JL.9 from rational descent and purity, including equal-algebra and d=0 branches. It makes no algebraicity or absolute-Hodge assertion."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/main-hodge-tate",
+        "verdict": "verified",
+        "note": "The same rational theta/component data give one tensor fixed for every ℓ under Kottwitz, using actual triviality and realization-compatible restriction. HT is the global compatible-realization subset, not just local p-adic Hodge–Tate."
+      },
+      {
+        "nodeId": "HodgeClassesForJacquetLanglands:JL.10/weight-two-corollary",
+        "verdict": "verified",
+        "note": "Weight two and L=Q remove the coefficient local systems; the Künneth correspondence acts on degree-d multiplicity spaces, with finite representation factors retained in the full isotypic interpretation."
+      }
+    ]
   }
 }

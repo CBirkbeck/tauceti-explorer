@@ -87,6 +87,13 @@ example : weightMap ![2, 0, 0] = ![1, -1, 1, -1] := by
 example : weightMap ![0, 0, 2] = ![1, 1, -1, -1] := by
   sorry
 
+/-- The Borel coefficient order is (1,3,2,4) in one-based torus coordinates. -/
+example :
+    ![weightMap ![2, 0, 0] 0, weightMap ![2, 0, 0] 2,
+      weightMap ![2, 0, 0] 1, weightMap ![2, 0, 0] 3] =
+      (![1, 1, -1, -1] : Fin 4 → ℚ) := by
+  sorry
+
 example : ¬ ∃ z : ℤ, weightMap ![1, 0, 0] 0 = (z : ℚ) := by
   sorry
 
