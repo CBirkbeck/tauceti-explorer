@@ -1,0 +1,216 @@
+{
+ "id": "CrystallineCohomologyPartII",
+ "title": "Crystalline cohomology, de Rham–Witt and logarithmic foundations, Part II: Witt vector cohomology of singular varieties",
+ "area": "padic",
+ "parent": "CrystallineCohomology",
+ "summary": "Witt vector cohomology of singular varieties in characteristic p, extending Crystalline cohomology: Witt vector sheaves and their rational and Frobenius-inverted cohomology, Bhatt–Scholze's h-descent, Berthelot–Bloch–Esnault's compactly supported Witt cohomology and its identification with the slope < 1 part of rigid cohomology, Chatzistamatiou–Rülling's action of correspondences on Hodge–Witt cohomology and Witt-rational singularities, and point-count congruences over finite fields: Ax–Katz modulo q, Serre's theta-divisor congruence, and Esnault's theorem for CH_0-trivial and WO-rational varieties.",
+ "readme": "# Crystalline cohomology, de Rham–Witt and logarithmic foundations, Part II: Witt vector cohomology of singular varieties\n\n**Purpose.** Crystalline cohomology computes the p-adic cohomology of smooth proper varieties in characteristic p, and its slope-[0, 1) part is the Witt vector cohomology H^*(X, WO_X) ⊗ ℚ. This Part II builds Witt vector cohomology as a cohomology theory of *singular* varieties: rational and Frobenius-inverted Witt vector cohomology, its descent for the h-topology (Bhatt–Scholze), compactly supported Witt vector cohomology and its identification with the slope < 1 part of rigid cohomology with compact supports (Berthelot–Bloch–Esnault), the action of algebraic correspondences on relative Hodge–Witt cohomology and Witt-rational singularities (Chatzistamatiou–Rülling), and the resulting congruences for numbers of rational points over finite fields: Ax–Katz modulo q, Serre's theta-divisor congruence, Esnault's theorem that rationally chain connected smooth projective varieties over F_q have a number of rational points congruent to 1 modulo q, and its extension to WO-rational singular varieties used by Gongyo–Nakamura–Tanaka and Hacon–Witaszek.\n\n**Scope and boundaries.** It starts where Crystalline cohomology, de Rham–Witt and logarithmic foundations (CrystallineCohomology) stops: CR.4 owns the de Rham–Witt complex, whose degree-zero part is W_rO, its quasi-coherence and étale descent, the comparison with crystalline cohomology and the slope spectral sequence of smooth proper schemes; CR.0 owns divided power envelopes. Rigid cohomology with and without compact supports, its Frobenius, finiteness, Poincaré duality, proper descent, the Lefschetz trace formula and the rigid–crystalline comparison are imported from P-adic differential equations, rigid cohomology and p-adic weights (PadicDifferentialEquationsAndRigidCohomology, RD.4–RD.7). The h- and v-topologies, abstract blowup squares and the h-descent criterion come from Arc topology and descent (AT.1) and Enhanced derived sheaves (E2); simplicial commutative rings and the simplicial Witt adapter from E5:animation; universal homeomorphisms, Frobenius, coherent duality, Chow groups, refined Gysin maps and de Jong's alterations from Scheme, stack, cohomology and intersection foundations (SF.0–SF.5); Galois alterations from AdicCoefficientsAndComparisonsPartII PA.6; correspondences of smooth projective varieties from Motives and algebraic cycles (MC.0, MC.2); Riemann–Roch on abelian varieties from Abelian schemes and arithmetic moduli (A2). The birational geometry that proves WO-rationality of klt threefolds and fourfolds (minimal model program, flips, dlt modifications) is not here; it imports the definitions and theorems of WV.5 and WV.6.\n\n**Conventions.** p is a prime, k a perfect field of characteristic p, W = W(k), K = W[1/p], σ the Frobenius of W. Witt vectors are p-typical (Mathlib's WittVector); F, V, R are Frobenius, Verschiebung and restriction, with FV = VF = p. Two rationalizations are used and never confused: WI_K := WI ⊗ ℚ (tensor convention, used with K-coefficients and compact supports) and WI_ℚ, the image in the Serre localization of sheaves of abelian groups at bounded-torsion sheaves (isogeny convention, used for WO-rationality); R^if_*(WI_ℚ) = 0 means a power of p kills R^if_*(WI). Slopes of F are normalized by v_p(p) = 1; over F_q, slopes of the linear Frobenius φ = F^a by v_q(q) = 1. 'Connected fibres' means connected after every base change to a field-valued point.\n\n**Sources.** Berthelot–Bloch–Esnault, On Witt vector cohomology for singular varieties (Compositio 2007; arXiv:math/0510349); Bhatt–Scholze, Projectivity of the Witt vector affine Grassmannian, §§2, 11.5 (Invent. Math. 2017; arXiv:1507.06490); Chatzistamatiou–Rülling, Hodge–Witt cohomology and Witt-rational singularities (Doc. Math. 2012; arXiv:1104.2145), with their earlier Higher direct images of the structure sheaf in positive characteristic (ANT 2011); Gongyo–Nakamura–Tanaka, Rational points on log Fano threefolds over a finite field (JEMS 2019), §2.5–2.6; Nakamura–Tanaka, A Witt Nadel vanishing theorem for threefolds (Compositio 2020), §2.4; Esnault, Varieties over a finite field with trivial Chow group of 0-cycles have a rational point (Invent. Math. 2003); Hacon–Witaszek, On the relative minimal model program for fourfolds in positive and mixed characteristic (Forum Math. Pi 2023), Corollaries 1.3 and 4.7.\n\n**Layers.** WV.0 Witt vector sheaves and rational Witt cohomology; WV.1 h-descent; WV.2 compact supports; WV.3 comparison with rigid cohomology; WV.4 Hodge–Witt cohomology with supports and correspondences; WV.5 Witt-rational singularities; WV.6 point counts and Esnault's theorem.\n\n**Non-goals.** Higher slopes (the full Ax–Katz congruences modulo q^κ for κ > 1 through Witt cohomology), Witt vector cohomology with coefficients, and the minimal model program are outside this roadmap; the convergent log F-isocrystals of Kisin–Madapusi Pera–Shin and the Cartier transforms of Esnault–Groechenig are separate Part IIs of CrystallineCohomology.\n",
+ "prerequisites": [
+  "CrystallineCohomology",
+  "PadicDifferentialEquationsAndRigidCohomology",
+  "SchemeAndStackFoundations",
+  "EnhancedDerivedSheaves",
+  "ArcTopologyAndDescent",
+  "MotivesAndAlgebraicCycles",
+  "AbelianSchemesAndArithmeticModuli",
+  "AdicCoefficientsAndComparisonsPartII",
+  "AdicSpacesPartII"
+ ],
+ "stages": [
+  {
+   "key": "WV.0",
+   "title": "Witt vector sheaves and rational Witt cohomology",
+   "description": "Witt vector sheaves W_nO_X, WO_X and Witt ideal sheaves W_nI, WI of a scheme in characteristic p, with R, F, V, Teichmüller and the Witt schemes W_nX; the two rationalizations (tensor with ℚ, and the isogeny category obtained as the Serre localization at bounded-torsion sheaves) with derived direct images on the latter; Frobenius-inverted Witt cohomology RΓ(X, WO_X)[1/F]. Targets: nil- and radical-invariance of rational Witt sheaves; invariance of Frobenius-inverted and rational Witt cohomology under finite universal homeomorphisms and the connected-fibre criterion WO_{Y,ℚ} ≅ f_*WO_{X,ℚ}; Mayer–Vietoris for closed covers; the higher-direct-image lemmas for W_nI and WI; finiteness and slopes in [0, 1) of H^i(X, WO_X)_K for proper X.",
+   "requires": [
+    "CrystallineCohomology:CR.4",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.2",
+    "SchemeAndStackFoundations:SF.4",
+    "EnhancedDerivedSheaves:E1"
+   ]
+  },
+  {
+   "key": "WV.1",
+   "title": "h-descent for Frobenius-inverted Witt vector cohomology",
+   "description": "Fppf descent for Witt vector cohomology; Frobenius-inverted Witt cohomology of derived self-products over an affine base equals that of classical self-products; the finite pushout Y′ = Spec(H⁰(X, O_X) ×_{H⁰(E, O_E)} A/J) replacing a blowup square; excision for Frobenius-inverted Witt cohomology along abstract blowup squares and all their self-products (Bhatt–Scholze Lemma 11.45). Targets: X ↦ RΓ(X, WO_X)[1/F] is an h-sheaf on finitely presented schemes over a noetherian F_p-scheme of finite Krull dimension (Bhatt–Scholze Proposition 11.41), and X ↦ RΓ(X, WO_X)[1/p] is an h-sheaf (Theorem 11.40, the descent of Berthelot–Bloch–Esnault).",
+   "requires": [
+    "CrystallineCohomologyPartII:WV.0",
+    "ArcTopologyAndDescent:AT.1",
+    "EnhancedDerivedSheaves:E2",
+    "EnhancedDerivedSheaves:E5:animation",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  },
+  {
+   "key": "WV.2",
+   "title": "Witt vector cohomology with compact supports",
+   "description": "Targets: the vanishing of higher direct images of Witt ideal sheaves along proper maps whose higher direct images of O vanish over the complement of the ideal, uniformly up to a power of p (Berthelot–Bloch–Esnault Theorem 2.4, Chatzistamatiou–Rülling Proposition 4.6.1), and its consequence R^qf_*WO_{X,ℚ} ≅ R^q(f|_E)_*WO_{E,ℚ} through the exceptional locus; Witt vector cohomology with compact supports RΓ_c(U, WO_{U,K}) of a separated k-scheme of finite type, independent of the compactification, contravariant for proper maps, covariant for open immersions, with excision triangles; its finiteness with slopes in [0, 1); proper hypercoverings and simplicial resolutions by smooth quasi-projective schemes; descent for compactly supported Witt cohomology along truncated proper hypercoverings that are étale over a dense open.",
+   "requires": [
+    "CrystallineCohomologyPartII:WV.0",
+    "SchemeAndStackFoundations:SF.2",
+    "SchemeAndStackFoundations:SF.4",
+    "AdicSpacesPartII:F0"
+   ]
+  },
+  {
+   "key": "WV.3",
+   "title": "Comparison with rigid cohomology: the slope < 1 part",
+   "description": "Slope parts E_λ and E^{<ρ} of F-isocrystals and slope factors of characteristic polynomials; the ring map A_{X,P} → WO_{X,K} from overconvergent functions on a tube defined by a Frobenius lift; the morphism a_U: RΓ_{rig,c}(U/K) → RΓ_c(U, WO_{U,K}), independent of choices, functorial, compatible with excision and equal for smooth proper X to the composite of the rigid–crystalline and crystalline–de Rham–Witt comparisons with the augmentation; simplicial embeddings with Frobenius lifts. Targets: the Berthelot–Bloch–Esnault theorem H^q_{rig,c}(X/K)^{<1} ≅ H^q_c(X, WO_{X,K}) for every separated k-scheme of finite type, and the vanishing of H^i_c(U, WO_{U,K}) for i ≠ dim U when U is smooth affine equidimensional.",
+   "requires": [
+    "CrystallineCohomologyPartII:WV.2",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.5",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+    "CrystallineCohomology:CR.0",
+    "CrystallineCohomology:CR.4"
+   ]
+  },
+  {
+   "key": "WV.4",
+   "title": "Hodge–Witt cohomology with supports and the action of correspondences",
+   "description": "The Witt canonical system W_•ω_X = H^{−d}(W_•(π)^!W_•(k)) with Ekedahl's duality for smooth schemes and the trace for proper maps; the pushforward on Hodge–Witt cohomology with supports along proper maps of smooth schemes (Gros), with f_*f^* = deg f for finite f; Gros's cycle classes as the unique morphism from Chow groups with supports; the category C_S of smooth quasi-projective S-schemes with proper correspondences. Targets: the functor Ĥ(?/S) from C_S to de Rham–Witt modules over S, compatible with F, V, d, with graphs acting by pullback and pushforward (Chatzistamatiou–Rülling Proposition 3.5.4); the vanishing lemmas for correspondences supported in positive codimension.",
+   "requires": [
+    "CrystallineCohomologyPartII:WV.0",
+    "CrystallineCohomology:CR.4",
+    "SchemeAndStackFoundations:SF.2",
+    "SchemeAndStackFoundations:SF.4",
+    "SchemeAndStackFoundations:SF.5",
+    "MotivesAndAlgebraicCycles:MC.0"
+   ]
+  },
+  {
+   "key": "WV.5",
+   "title": "Witt-rational singularities",
+   "description": "Finite quotients and topological finite quotients; quasi-resolutions and their existence from de Jong's Galois alterations; the projector realizing Witt cohomology of a finite quotient inside that of a smooth cover. Targets: Rf_*WO_{X,ℚ} ≅ WO_{Y,ℚ} and Rf_*Wω_{X,ℚ} ≅ Wω_{Y,ℚ} for a quasi-resolution of a topological finite quotient; WO-rational and Witt-rational singularities, tested on one quasi-resolution; topological finite quotients are Witt-rational and Witt-rationality is invariant under universal homeomorphisms; the Witt singularity complexes WS_{0,S}, WS_{d,S}; quasi-birational invariance of Witt cohomology; rational ⇒ Witt-rational ⇒ WO-rational ⇒ BE-Witt-rational; the criterion for isolated singularities through H^{>0}(E, WO_{E,ℚ}); the Bloch–Srinivas decomposition of the diagonal; vanishing of R^{>0}f_*WO_{X,ℚ} for projective fibrations with universally CH_0-trivial smooth generic fibre (Chatzistamatiou–Rülling Theorem 4.8.1).",
+   "requires": [
+    "CrystallineCohomologyPartII:WV.4",
+    "CrystallineCohomologyPartII:WV.2",
+    "SchemeAndStackFoundations:SF.4",
+    "SchemeAndStackFoundations:SF.5",
+    "AdicCoefficientsAndComparisonsPartII:PA.6",
+    "MotivesAndAlgebraicCycles:MC.2"
+   ]
+  },
+  {
+   "key": "WV.6",
+   "title": "Point counts modulo q and Esnault's theorem",
+   "description": "The Witt zeta function ζ^W and slope factors ζ^{<ρ}, with coefficients in ℤ_p; Ax's criterion relating congruences of point counts modulo q^κ to slope factors. Targets: ζ^{<1}(X, t) = ζ^W(X, t) for separated F_q-schemes of finite type; point-count congruences from isomorphisms on Witt cohomology (in particular from isomorphisms on H^i(O)) and for quotients by finite groups; congruences for quasi-birational projective schemes with WO-rational singularities; Witt cohomology of complete intersections of small degree and the Ax–Katz congruence modulo q; Serre's question: two theta divisors of an abelian variety over F_q have congruent point counts modulo q; universally CH_0-trivial and rationally chain connected varieties; Esnault's theorem that H^{>0}(X, WO_X)_ℚ = 0 for universally CH_0-trivial smooth projective X, and |X(F_q)| ≡ 1 mod q for such X and for projective schemes with WO-rational singularities having such a resolution.",
+   "requires": [
+    "CrystallineCohomologyPartII:WV.3",
+    "CrystallineCohomologyPartII:WV.5",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+    "SchemeAndStackFoundations:SF.2",
+    "SchemeAndStackFoundations:SF.5",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "MotivesAndAlgebraicCycles:MC.2"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BS17",
+   "title": "Projectivity of the Witt vector affine Grassmannian",
+   "authors": "Bhargav Bhatt and Peter Scholze",
+   "edition": "arXiv:1507.06490v3 (21 February 2017), published Invent. Math. 209 (2017), 329–423; page numbers are those of arXiv v3 (printed = PDF page)",
+   "url": "https://arxiv.org/pdf/1507.06490v3",
+   "readSections": [
+    "§2 (h-sheaves): Definitions 2.1, 2.5, 2.7, Lemma 2.6, Proposition 2.8, Theorem 2.9, Lemma 2.10, Corollary 2.11, pp. 4–8",
+    "§11.5 (descent for Witt vector cohomology): Theorem 11.40, Proposition 11.41, Notation 11.42, Lemma 11.43, Remark 11.44, Lemma 11.45, proof of Proposition 11.41, pp. 51–54"
+   ]
+  },
+  {
+   "id": "BBE07",
+   "title": "On Witt vector cohomology for singular varieties",
+   "authors": "Pierre Berthelot, Spencer Bloch and Hélène Esnault",
+   "edition": "arXiv:math/0510349v1 (17 October 2005), published Compositio Math. 143 (2007), 363–392; page numbers are those of arXiv v1 (printed = PDF page); the published version was not obtained",
+   "url": "https://arxiv.org/pdf/math/0510349v1",
+   "readSections": [
+    "All 42 pages: §1 introduction (Theorem 1.1, Corollaries 1.2, 1.3, 1.5, 1.6, Theorem 1.4)",
+    "§2 Witt vector cohomology with compact supports (Propositions 2.1, 2.2, Corollary 2.3, Theorem 2.4, Lemmas 2.5–2.7, 2.8, 2.9, Proposition 2.10), pp. 6–17",
+    "§3 descent (Definition 3.1, Proposition 3.2), pp. 17–21",
+    "§4 rigid comparison morphism (4.1–4.3, Proposition 4.4, Theorem 4.5, Proposition 4.6), pp. 21–28",
+    "§5 proof of Theorem 1.1 (Lemma 5.1, 5.2), pp. 28–33",
+    "§6 applications (6.1, Propositions 6.2–6.4, 6.5, Propositions 6.7–6.9, Lemma 6.10, Corollary 6.12, Remarks 6.13), pp. 33–40"
+   ]
+  },
+  {
+   "id": "CR12",
+   "title": "Hodge–Witt cohomology and Witt-rational singularities",
+   "authors": "Andre Chatzistamatiou and Kay Rülling",
+   "edition": "arXiv:1104.2145v1 (12 April 2011), published Doc. Math. 17 (2012), 663–781; page numbers are those of arXiv v1 (printed = PDF page); the published version could not be retrieved (the publisher page is script-rendered)",
+   "url": "https://arxiv.org/pdf/1104.2145v1",
+   "readSections": [
+    "Introduction (Theorems 1–5, Corollaries 1–2), pp. 2–6",
+    "§1.1 Witt schemes and the statements of §1.6–1.10 (Witt dualizing systems, Ekedahl's results), pp. 8–33",
+    "§2.3 pushforward (Definition 2.3.1, Propositions 2.3.3, 2.3.4, 2.4.1), pp. 39–40",
+    "§3.2–3.6 (Gros cycle class, Theorem 3.3.10, Proposition 3.4.3, §3.5 correspondences, Propositions 3.5.4, 3.5.6, 3.5.10, Lemmas 3.6.1–3.6.2), pp. 50–68",
+    "§3.7 isogeny categories (Proposition 3.7.7, Notation 3.7.9), pp. 68–72",
+    "§4.1–4.6 and §4.8 (Proposition 4.1.4 through Corollary 4.6.4, Theorem 4.8.1 and its proof), pp. 72–99"
+   ]
+  },
+  {
+   "id": "CR11",
+   "title": "Higher direct images of the structure sheaf in positive characteristic",
+   "authors": "Andre Chatzistamatiou and Kay Rülling",
+   "edition": "arXiv:0911.3599v2 (13 April 2011), published Algebra & Number Theory 5 (2011), 693–775 (cited as [CR09] in CR12)",
+   "url": "https://arxiv.org/pdf/0911.3599v2",
+   "readSections": [
+    "Introduction, pp. 2–5",
+    "§1.1–1.3 (weak cohomology theories with supports, Theorem 1.2.3, correspondences), pp. 5–22"
+   ]
+  },
+  {
+   "id": "GNT19",
+   "title": "Rational points on log Fano threefolds over a finite field",
+   "authors": "Yoshinori Gongyo, Yusuke Nakamura and Hiromu Tanaka",
+   "edition": "arXiv:1512.05003v3, published J. Eur. Math. Soc. 21 (2019), 3759–3795; page numbers are those of arXiv v3 (printed = PDF page)",
+   "url": "https://arxiv.org/pdf/1512.05003v3",
+   "readSections": [
+    "§1 (Theorems 1.1–1.3), p. 2",
+    "§2.5–2.6 (Witt vector cohomology, Remark 2.17, Lemmas 2.18–2.22, Proposition 2.23, Lemmas 2.24–2.25), pp. 13–18",
+    "§3 opening (condition (a), Remark 3.1), p. 19",
+    "§4 (Definition 4.5, Remark 4.6), p. 29"
+   ]
+  },
+  {
+   "id": "NT20",
+   "title": "A Witt Nadel vanishing theorem for threefolds",
+   "authors": "Yusuke Nakamura and Hiromu Tanaka",
+   "edition": "arXiv:1712.07358v2, published Compositio Math. 156 (2020); page numbers are those of arXiv v2",
+   "url": "https://arxiv.org/pdf/1712.07358v2",
+   "readSections": [
+    "§2.1 Notation (connected fibres), p. 5",
+    "Remark 2.2, p. 6",
+    "§2.4, Lemmas 2.17–2.21, Proposition 2.22, pp. 13–15"
+   ]
+  },
+  {
+   "id": "ESN03",
+   "title": "Varieties over a finite field with trivial Chow group of 0-cycles have a rational point",
+   "authors": "Hélène Esnault",
+   "edition": "arXiv:math/0207022v2 (2 September 2002), published Invent. Math. 151 (2003), 187–191; page numbers are those of arXiv v2",
+   "url": "https://arxiv.org/pdf/math/0207022v2",
+   "readSections": [
+    "All 6 pages: §1 (decomposition of the diagonal, Theorem 1.1, Corollaries 1.2–1.3), §2 (proof, Lemma 2.1), §3 comments"
+   ]
+  },
+  {
+   "id": "HW23",
+   "title": "On the relative minimal model program for fourfolds in positive and mixed characteristic",
+   "authors": "Christopher Hacon and Jakub Witaszek",
+   "edition": "Published version, Forum Math. Pi 11 (2023), e10, 1–35 (Cambridge open access; each download is stamped, so the hash is not reproducible); arXiv:2009.02631v2 compared for the Witt passages (there Corollary 4.6 is published Corollary 4.7 and the point-count Corollary 1.3 is absent)",
+   "url": "https://doi.org/10.1017/fmp.2023.6",
+   "readSections": [
+    "Introduction including Corollary 1.3, pp. 1–3",
+    "§2 definition of WO-rational singularities, p. 5",
+    "§4.3 Corollary 4.7 and the proof of Corollary 1.3, pp. 19–20",
+    "References [BBE07], [CR12], [GNH19], [NT20], pp. 31–34"
+   ]
+  }
+ ],
+ "status": "draft"
+}
