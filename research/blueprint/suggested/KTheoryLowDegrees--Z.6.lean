@@ -3,8 +3,11 @@ import TauCeti.Algebra.Category.ModuleCat.CartanMap
 /-!
 # Z.6: degree-zero comparison and tests
 
-Companion to KTheoryLowDegrees--Z.6.md. This file follows the compact
-2026-10-12 statement-only shape. All proof admissions are intentional.
+This file is not the roadmap and is not exhaustive. The companion
+KTheoryLowDegrees--Z.6.md is the definitive specification. These statements
+suggest Lean forms so contributors and reviewers can converge on names and
+signatures. The file follows the compact 2026-10-12 statement-only shape.
+All proof admissions are intentional.
 
 The reader imports the accepted Z.3 packet's 25 Z.6 targets and adds eight
 comparison refinements. No second Cartan map or Euler-class definition is made.
