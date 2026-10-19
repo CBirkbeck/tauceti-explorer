@@ -1,6 +1,66 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
-## Current checkpoint — codex-aWKFmO, 19 October 2026
+## Current checkpoint — codex-7s4Fvi, 19 October 2026
+
+Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470),
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6261095608).
+**Blocked checkpoint: the mandatory quadratic real-function-field design is
+still absent.** The consumer design has not started. No second job was claimed.
+
+Revalidated against atlas main
+[`9f293f70640d8a6ce4a0d43efb7a3324e7888efd`](https://github.com/CBirkbeck/tauceti-explorer/commit/9f293f70640d8a6ce4a0d43efb7a3324e7888efd),
+which matched both local HEAD and GitHub's main ref at the check:
+
+- The incorporated [Benoist19 route](../papers/PAPER-BENOIST-19.result.json)
+  still requires all four supplier designs, with every needed tranche present
+  before consumer execution. Its consumer inventory is 100 distinct items.
+- The accepted [quadratic parent](../packets/QuadraticFormInvariantsPartII.json)
+  still assigns ten Benoist19 items and three Benoist–Wittenberg items to
+  `QuadraticFormsRealFunctionFields`, all with disposition `proposed-split`.
+  Benoist19 `/25` and `/26` remain shared imports from Q2.5. Its
+  [review handoff](REV-DESIGN-QuadraticFormInvariantsPartII.md) still leaves
+  the split decision to the maintainer. The exact missing contracts and
+  application proof gates below remain the resume inventory.
+- No supplier roadmap, packet or part exists under `research/blueprint/`;
+  independent GitHub contents requests for its roadmap and packet returned
+  HTTP 404. The split registry has no quadratic decision and the queue has
+  no `DESIGN-QuadraticFormsRealFunctionFields`. The consumer remains
+  `pending` with `after: []`. The generator's parent-grouping and explicit
+  dependency construction still explain why this blocked consumer is released.
+- The other mandatory supplier plans remain complete and accepted:
+  SemisimpleAlgebrasPartII has 55 nodes, 11 gaps and 10 requests;
+  AlgebraicTopologyPartII has 75 nodes, 15 gaps and 14 requests;
+  HodgeStructuresPartII's H.8 follow-up has 31 nodes, 5 gaps and 11 requests.
+  These are presence checks, not a new mathematical review or proof closure.
+
+**Resume condition:** the maintainer must authorize and materialize the missing
+real-function-field tranche under one owner and encode its design-presence
+requirement in the queue's authoritative inputs or generator. Keep this consumer
+unavailable until that condition holds. Supplier, split-registry and queue edits
+are outside this issue's permitted deliverables. Then follow the resume
+procedure below, preserving the existing shared-import direction and proof gates.
+
+Read the current upstream quadratic and real-algebraic roadmap boundaries and
+selected suggested signatures, and the current library's central-simple index
+and real Brauer-group declarations. Upstream commits remain TauCetiRoadmap
+`0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These read-only checks do not
+supply the absent tranche; no build, primary-source reading or new pinned
+baseline claim is made. The reviewed audit has no consumer entry.
+
+Validation: JSON parsing, route and assignment assertions, supplier-review and
+count checks, local/remote absence checks, queue/generator inspection,
+main-ref equality, allowed-path check and `git diff --check`. All four consumer
+deliverables remain absent: zero nodes, API items, tests, planets, baseline
+citations or formal requests; no stages designed. Blueprint and Lean checks
+are inapplicable; Lean was not compiled. Only this handoff changes; no reviewed
+mathematics or verdict changes. Nothing needed to resume is left in scratch.
+
+Selection: focus assembly #7943 rejected the claim through both GraphQL and
+REST because GitHub disables comments after 2,500 comments. No claim was made
+there; #3470 was selected from the next eligible class.
+
+## Earlier checkpoint — codex-aWKFmO, 19 October 2026
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470).
 The bot confirmed this session's
