@@ -224,11 +224,11 @@ theorem length_restrictScalars_eq (A A' : Type u) [CommRing A] [CommRing A'] [Is
     Module.length A M = f * Module.length A' M := by
   sorry
 
-/-- `FK.4/euler-degree-base-change` (c): for a finite extension of discrete valuation rings with
-ramification index `e`, base change multiplies lengths by `e`. -/
+/-- `FK.4/euler-degree-base-change` (c): for a flat map of discrete valuation rings with
+closed-fibre length `e`, base change multiplies finite lengths by `e`. -/
 theorem length_baseChange_eq (A A' : Type u) [CommRing A] [CommRing A'] [IsDomain A]
     [IsDiscreteValuationRing A] [IsDomain A'] [IsDiscreteValuationRing A'] [Algebra A A']
-    [Module.Finite A A'] (e : ℕ)
+    [Module.Flat A A'] (e : ℕ)
     (he : Module.length A' (A' ⧸ Ideal.map (algebraMap A A') (IsLocalRing.maximalIdeal A)) = e)
     (M : Type u) [AddCommGroup M] [Module A M] (hM : Module.length A M < ⊤) :
     Module.length A' (A' ⊗[A] M) = e * Module.length A M := by
