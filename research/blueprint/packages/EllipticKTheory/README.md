@@ -1,4 +1,4 @@
-# Roadmap: K-theory of curves and elliptic curves
+# Roadmap: k-theory of curves and elliptic curves
 
 **Summary.** Build the algebraic K-theory of a regular curve over a field in degrees zero to three, and
 specialise it to an elliptic curve given by a Weierstrass equation. The roadmap starts from the
@@ -52,7 +52,9 @@ The libraries and other roadmaps supply the rest.
   `Divisor.principal`, `Divisor.eval`), the degree splitting of the class group
   (`WeilDivisor.OrderSystem.classGroupAddEquivPicZeroProdInt`), the identification of the point
   group with degree-zero divisor classes (`WeierstrassCurve.Affine.pointEquivDegreeZeroDivisorClass`),
-  torsion functions (`exists_principal_zsmul_pointPlace_sub_infinity`), the function-field
+  the principal-divisor criterion for rational points (the additive point/class equivalence
+  and `Divisor.divisorClass_eq_zero_iff`) and torsion functions
+  (`exists_principal_zsmul_pointPlace_sub_infinity`), the function-field
   isogeny theory (`TauCeti.Isogeny` with `degree`, `ker`, `fieldPullback`,
   `pullbackDifferential`, `frobeniusIsogeny`), scheme Weil divisors and line-bundle classes
   (`SchemeWeilDivisor.classGroupToLineBundleClassHom`, `LineBundleClass`), the point count and
@@ -63,7 +65,8 @@ The libraries and other roadmaps supply the rest.
   (`WeierstrassCurve.projModel` with `projModelOver`, `projModelZero`, `isProper_projModelOver`,
   `isIntegral_projModel`, `smoothOfRelativeDimension_one_projModelOver`, the chart rings
   `Projective.ChartRing` with `awayEquivChartRing`, and `projModelVariableChangeIso`), the
-  Cartier–Picard dictionary `classGroupAddEquivLineBundleClass`, the Hasse bound
+  scheme Weil-class/Picard equivalence `SchemeWeilDivisor.classGroupAddEquivLineBundleClass`,
+  the genus-one bijection `SchemeWeilDivisor.degreeOneEquivPicZero`, the Hasse bound
   `WeierstrassCurve.hasse_bound` and the Tate module of an elliptic curve. These are cited, never
   restated.
 - **ModularCurves** (Tau Ceti roadmap) owns the projective Weierstrass model `projModel W` over
@@ -85,6 +88,9 @@ The libraries and other roadmaps supply the rest.
 - **StableReduction** (Tau Ceti roadmap) owns blow-ups and contraction of exceptional curves on
   arithmetic surfaces (Layer 4) and regular and minimal models over a discrete valuation ring
   (Layer 5). This roadmap adds only the passage to a ring of `S`-integers.
+- **NeronModelsAndSemistableAbelianVarieties** §§1.8, 2.7, 6.5 owns the Néron model, its
+  identification with the smooth locus of the minimal regular model, and the equivalence between
+  good reduction and properness. These supply the comparisons with regular proper models.
 - **SchemeAndStackFoundations** (Tau Ceti roadmap) §5.7 owns geometric `K_0` and `G_0`
   (`Chow.K0`, `Chow.G0`) with pullback, rank, determinant and Euler pushforward.
 - **SchemeKTheoryOperations** owns the K-theory of schemes: derived pullback, proper
@@ -213,9 +219,14 @@ ring, as `Proj` of the homogeneous coordinate ring, with `projModelOver`, `projM
 domain (no ellipticity), `smoothOfRelativeDimension_one_projModelOver` for `W.IsElliptic`,
 `awayι_projModelOver`, the chart rings `Projective.ChartRing W i` with
 `Projective.awayEquivChartRing` and `chartRingBaseChangeEquiv`, and `projModelVariableChangeIso`;
-`AlgebraicGeometry.Scheme.CartierDivisor.ClassGroup` with `classGroupAddEquivLineBundleClass`
-(Cartier divisors modulo principal divisors `≃+ Additive (LineBundleClass X)` on an integral
-scheme); `WeierstrassCurve.hasse_bound` and `frobeniusTrace_sq_le_four_mul_card`; and the Tate
+`SchemeWeilDivisor.classGroupAddEquivLineBundleClass` in
+`TauCeti.AlgebraicGeometry.WeilDivisor.Scheme.Picard`: the class group of
+`WeilDivisor.OrderSystem.ofScheme X` is additively equivalent to
+`Additive (LineBundleClass X)` for integral noetherian `X` with codimension-one DVR stalks and
+`∀ y, coheight y ≤ 1`; and `SchemeWeilDivisor.degreeOneEquivPicZero` in
+`TauCeti.AlgebraicGeometry.WeilDivisor.Scheme.GenusOne`: for a proper genus-one curve, a chosen
+degree-one point and the base field integrally closed in its function field, degree-one points
+are in bijection with `Pic⁰` by `x ↦ O(x − x₀)`, with the addition/linear-equivalence rule; `WeierstrassCurve.hasse_bound` and `frobeniusTrace_sq_le_four_mul_card`; and the Tate
 module `free_tateModule`, `finrank_tateModule`. These postdate the pinned commit, so
 `Suggested.lean` does not use them.
 
@@ -313,11 +324,24 @@ localisation sequence of a Dedekind domain and injectivity of `K_2(O_{F,S}) → 
 finiteness of the positive even K-groups of `O_{F,S}` for a number field `F`; and finite generation of `K_n(R)` for `R` the coordinate ring of a smooth affine
 curve over a finite field and of `K_n(X)` for a smooth projective curve over a finite field.
 
-**From MotivicEtaleKTheory.** M.4: `K^M_n(F) ≅ H^n(F, ℤ(n))` and `H^i(F, A(j)) = 0` for `i > j`.
+**From MotivicEtaleKTheory.** M.4: the cycle complex and its Zariski descent and localisation
+for equidimensional schemes of finite type over any field; `K^M_n(F) ≅ H^n(F, ℤ(n))` and `H^i(F, A(j)) = 0` for `i > j`.
 M.5d: Bloch–Gabber–Kato `K^M_n(F)/p ≅ Ω^n_{F, log}` for a field of characteristic `p`. M.6:
 `K_m(X)_ℚ^{(j)} ≅ H^{2j−m}(X, ℚ(j))` for smooth `X` over a perfect field, and the motivic spectral
-sequence with finite coefficients. M.7: the Beilinson–Lichtenbaum comparison with étale cohomology
+sequence with finite coefficients. Its smooth perfect-field comparison does not supply the
+regular, possibly non-smooth case: §4.5 adds that extension. For arbitrary fields in §§4.6 and
+5.5, use filtered colimits of finitely generated extensions of the perfect prime field and
+then of smooth affine models; cycle complexes commute with these limits because cycles and
+relations have finite presentation, and K-theory commutes with filtered ring colimits
+(GeneralAlgebraicKTheory §3.2). M.7: the Beilinson–Lichtenbaum comparison with étale cohomology
 and étale descent for finite coefficients prime to the characteristic.
+
+**From DeligneWeightsAndPurity.** DWP.1 §§1.4, 1.6–1.7: the Weil bound for every smooth
+projective geometrically connected curve over a finite field in every extension degree; the
+base-point-free curve/Jacobian `H¹` comparison; the `2g` Frobenius roots of the Jacobian, of
+absolute value `√q` and paired by `α ↦ q/α`. These are used only for closed-point degrees and
+cohomology descent, independently of later purity results. The elliptic specialisation continues
+to use EllipticCurves' Hasse bound.
 
 **From StableHomotopyKTheory, EtaleDualityAndPerverseSheaves, WeightsInEtaleCohomology,
 ArithmeticGaloisDuality and ProfiniteCohomology.** StableHomotopyKTheory §7.1–7.4 and §7.8:
@@ -372,8 +396,8 @@ Let `W` be a Weierstrass curve over a field `F` with `W.IsElliptic`. Write `E_W`
 `WeierstrassCurve.projModel W` (ModularCurves Layer 1A), the closed subscheme of `ℙ²_F` cut out by the
 homogeneous cubic `G = Y²Z + a₁XYZ + a₃YZ² − X³ − a₂X²Z − a₄XZ² − a₆Z³`, that is `Proj` of the graded
 quotient `F[X, Y, Z]/(G)`, with structure morphism `projModelOver W` and zero section
-`O = projModelZero W`, the point `[0 : 1 : 0]`. Name it `EllipticScheme W` only as an abbreviation of
-`projModel W`.
+`O = projModelZero W`, the point `[0 : 1 : 0]`. The notation `E_W` throughout refers to this
+supplied scheme; it introduces no new scheme carrier.
 
 Prove the chart description that the rest of the roadmap uses. The standard opens are
 `D₊(Z)` and `D₊(Y)`; Tau Ceti identifies the ring of each chart with `Projective.ChartRing W i`, the
@@ -382,11 +406,9 @@ quotient of `F[X, Y, Z]` by `G` and `Xᵢ − 1` (`awayEquivChartRing`). Prove `
 `Spec W.toAffine.CoordinateRing` through `Proj.awayι` (dehomogenisation at `Z`), and `D₊(Y)` is the
 affine scheme of the dehomogenisation at `Y`. Prove `EllipticScheme.cover`:
 `D₊(Z) ∪ D₊(Y) = E_W`, because a point with `Y = Z = 0` on the cubic has `X³ = 0`, hence `X = 0`,
-which no point of `ℙ²` satisfies. Prove `EllipticScheme.zeroSection_mem`: the zero section factors
-through `D₊(Y)`, misses `D₊(Z)`, and its image is a closed point with residue field `F`
-(Poonen, *Rational points on varieties*, §5.7.6, display (5.7.29), PDF p. 158). The relation
-`EllipticScheme.ofBase` records that `E_W` is the field case of ModularCurves' model over an
-arbitrary ring, compatible with base change. *Needs:* ModularCurves Layer 1A; Mathlib `Proj`,
+which no point of `ℙ²` satisfies. Prove `EllipticScheme.zeroSection_mem`: under the two-chart comparison, the supplied zero section
+is the closed point in `D₊(Y) − D₊(Z)` with residue field `F`
+(Poonen, *Rational points on varieties*, §5.7.6, display (5.7.29), PDF p. 158). *Needs:* ModularCurves Layer 1A; Mathlib `Proj`,
 `Proj.awayι`, `WeierstrassCurve.IsElliptic`.
 
 **Checks.**
@@ -402,16 +424,6 @@ arbitrary ring, compatible with base change. *Needs:* ModularCurves Layer 1A; Ma
   version that drops `W.IsElliptic`, or uses only nonsingular points, does not see this.
 
 ### 1.2 Smoothness, properness and geometric integrality
-
-`E_W → Spec F` is proper and smooth of relative dimension one, and `E_W` is integral: these are
-Tau Ceti's `isProper_projModelOver`, `smoothOfRelativeDimension_one_projModelOver` and
-`isIntegral_projModel` (ModularCurves Layer 1A). Pinned Mathlib has
-properness of `Proj` of a graded algebra finitely generated over its degree-zero part, but its
-nonsingularity of Weierstrass curves is pointwise; smoothness of the scheme needs the Jacobian
-criterion `(G, G_x, G_y) = (1)` on each chart, which the pointwise statement gives only after the
-Nullstellensatz over an algebraic closure. Regularity does not imply smoothness in general: over
-`𝔽_p(t)` the curve `y² = x^p − t` is regular and not smooth, and the models of Layer 6 are regular
-and not smooth at their bad fibres (Stacks, Lemma 53.2.8, tag 0BY3).
 
 Prove `EllipticScheme.geometricallyIntegral` for every Weierstrass curve `W` over `F` (ellipticity
 is not needed): `E_W` is geometrically integral over `F` of dimension one, with `H⁰(E_W, O) = F` and
@@ -444,7 +456,9 @@ point is a discrete valuation ring. These are exactly the hypotheses `[IsIntegra
 `∀ y, coheight y ≤ 1` of Tau Ceti's `SchemeWeilDivisor.toInvertibleSheaf` and
 `classGroupToLineBundleClassHom`. The proof: smooth over a field implies regular local rings; a
 one-dimensional regular local ring is a discrete valuation ring; `Proj` of a finitely generated
-graded `F`-algebra is noetherian (Weibel, *K-book*, I.5.14, p. 57). *Needs:* §§1.1–1.2; Mathlib
+graded `F`-algebra is noetherian (Stacks, Lemma 29.15.6, tag 01T6, for the finite-type scheme;
+Lemma 10.140.3 for smooth algebras over a field; Lemma 10.119.7, tag 00PD, for dimension-one
+regular local rings). *Needs:* §§1.1–1.2; Mathlib
 `IsRegularLocalRing`; Tau Ceti `SchemeWeilDivisor.classGroupToLineBundleClassHom`.
 
 **Checks.**
@@ -456,17 +470,14 @@ graded `F`-algebra is noetherian (Weibel, *K-book*, I.5.14, p. 57). *Needs:* §�
 
 ### 1.4 The function field and closed points
 
-Prove `EllipticScheme.functionFieldEquiv`: the function field of `E_W` is identified, as an
-`F`-algebra, with `W.toAffine.FunctionField = FractionRing W.toAffine.CoordinateRing`. `D₊(Z)` is a
-non-empty affine open of the integral scheme `E_W`, so Mathlib's
-`functionField_isFractionRing_of_isAffineOpen` makes the function field a fraction field of the
-coordinate ring, and `IsFractionRing.algEquiv` identifies it with `W.toAffine.FunctionField`.
-ModularCurves records the same comparison as `projModelFunctionFieldEquiv` (Layer 2A); prove that
-the two agree. Then prove `EllipticScheme.closedPointEquivPlace`: closed points of `E_W` correspond
-to places `TauCeti.Place F W.toAffine.FunctionField`, with `[k(x) : F] = P.degree`, the origin
-corresponding to the place at infinity, and the rational points to the degree-one places through
-Tau Ceti's `pointEquivDegreeOnePlace` (AlgebraicCurves Layer 12B; Stacks, Theorem 53.2.6, tag
-0BY1). This is what turns every statement of Layer 3 about the K-theory of the function field into a
+Prove `EllipticScheme.closedPointEquivPlace_compat`: compose the supplied closed-point/place
+correspondence with the supplied function-field comparison, and identify its valuations and residue
+maps with Tau Ceti's Weierstrass-place API. This differs from the general curve correspondence by
+fixing the actual `F`-algebra map on the affine chart: for each closed point `x`, transport of
+`ord_x` is `P.ord`, its residue-field isomorphism intertwines reduction of local units with
+`P.residueUnit`, and `[k(x) : F] = P.degree`. At the origin it gives `Place.infinity W`; at rational
+points it agrees with `pointEquivDegreeOnePlace` (AlgebraicCurves Layer 12B and ModularCurves
+Layer 2A; Stacks, Theorem 53.2.6, tag 0BY1). This is what turns every statement of Layer 3 about the K-theory of the function field into a
 statement about the existing function-field API. `W.toAffine.CoordinateRing` is a Dedekind domain
 for elliptic `W` by Tau Ceti's `isIntegrallyClosed_coordinateRing` and
 `isDedekindDomain_coordinateRing_of_isIntegrallyClosed`; it is derived, not assumed. *Needs:*
@@ -474,8 +485,9 @@ for elliptic `W` by Tau Ceti's `isIntegrallyClosed_coordinateRing` and
 `pointEquivDegreeOnePlace`.
 
 **Checks.**
-- `functionFieldEquiv_algEquiv`: the comparison is an isomorphism of `F`-algebras and agrees with
-  `projModelFunctionFieldEquiv`.
+- `functionFieldEquiv_algEquiv`: the transported closed-point correspondence uses the supplied
+  `projModelFunctionFieldEquiv` as an `F`-algebra map, and intertwines orders and residue maps;
+  an arbitrary abstract field isomorphism would not suffice.
 - `origin_infinity`: the origin corresponds to the place at infinity, of degree one
   (`TauCeti.Place.degree_infinity`).
 - `nonrational_closed_point`: on `y² = x³ + 1` over `ℚ`, the closed point `x² + 2x + 4 = 0, y = 3`
@@ -484,18 +496,16 @@ for elliptic `W` by Tau Ceti's `isIntegrallyClosed_coordinateRing` and
 
 ### 1.5 Rational points and the group law
 
-Prove `EllipticScheme.pointsEquiv`: sending a section `s : Spec F → E_W` to its homogeneous
-coordinates is a bijection from the `F`-sections of `E_W → Spec F` onto `W.toAffine.Point`, with
-`O` going to the point at infinity and `[x : y : 1]` to the affine point `(x, y)`; under it the
-scheme-theoretic group law is Mathlib's addition on `W.toAffine.Point`. The bijection is
-ModularCurves Layer 1B(1) (`projModelPointsEquiv`) and the group-law agreement is Layer 1D(6);
-this target composes them with Mathlib's `Projective.Point.toAffineAddEquiv` and
-`Jacobian.Point.toAffineAddEquiv`, so the comparison reads in any coordinates, and with Tau Ceti's
-`pointEquivDegreeOnePlace` and `pointEquivDegreeZeroDivisorClass`, so that rational points,
-degree-one places and degree-zero divisor classes match (Weibel, *K-book*, Example I.5.16, p. 58,
-over an algebraically closed field). Over a general base this is ModularCurves 1B(4) and is not
-restated. *Needs:* §§1.1, 1.4; ModularCurves Layers 1B, 1D; Mathlib `WeierstrassCurve.Affine.Point`;
-Tau Ceti `pointEquivDegreeZeroDivisorClass`.
+Prove `EllipticScheme.pointsDivisor_compat`: the supplied field-valued points equivalence and
+group law commute with the Weierstrass-place and divisor-class identifications of Tau Ceti.
+Precisely, a section corresponding to `P : W.toAffine.Point` gives the degree-one place
+`pointEquivDegreeOnePlace P`, and its divisor difference from the zero section gives
+`pointEquivDegreeZeroDivisorClass P`. Also show the same diagram after the supplied projective
+and Jacobian coordinate changes (`Projective.Point.toAffineAddEquiv`,
+`Jacobian.Point.toAffineAddEquiv`). The target adds these diagrams, rather than another
+points equivalence or group law (Weibel, *K-book*, Example I.5.16, pp. 58–59, for the divisor
+interpretation; Tau Ceti's computation rule `val_pointEquivDegreeZeroDivisorClass_some`).
+*Needs:* §§1.1, 1.4; ModularCurves Layers 1B, 1D; Tau Ceti's two point/place/class equivalences.
 
 **Checks.**
 - `pointsEquiv_count`: for `y² = x³ − x` over `𝔽₅` both sides have eight elements and the group is
@@ -539,6 +549,10 @@ AlgebraicCurves Layer 12C; ModularCurves Layer 2B; Tau Ceti `TauCeti.Isogeny`,
   `m²`.
 - `zeroHom_not_finite`: the zero morphism is not finite and is not in the image of `toSchemeHom`;
   `[0]^*L ≅ O` for every line bundle `L`.
+- `zeroHom_origin`: every point maps to the origin; a constant map to a nonzero point fails this
+  Check even though it also trivialises line bundles.
+- `zeroHom_composition`: composing on either side with an origin-preserving isogeny is again
+  `zeroHom`; the identity morphism fails this Check for a nonconstant isogeny.
 
 ### Examples
 
@@ -588,8 +602,8 @@ its additivity is `eulerCharBelow_eq_add` under those hypotheses, and the induce
 `TauCeti.AbelianK0.lift`. Write `pushforwardToBase : K_0(X) → K_0(F) = ℤ` for SchemeAndStackFoundations' `Chow.kPushforward`
 along the structure morphism, `p_*[M] = Σ (−1)^i [R^i p_* M]` (Weibel, *K-book*, II.8.2.3, p. 147;
 SchemeKTheoryOperations §2.3), and prove `pushforwardToBase_eq_eulerChar`. Riemann–Roch
-`riemannRoch : χ(L) = deg L + 1 − g` is JacobianChallenge Layer B's, with degree and genus from
-Layers A–B (Stacks, Lemma 53.5.2, tag 0BS6); it is consumed here, in the form the Checks use. A rational point has degree one (Tau Ceti's
+`riemannRoch : χ(L) = deg L + χ(O_X)` is JacobianChallenge Layer B's, with degree from
+Layer A; it becomes `deg L + 1 − g` when `H⁰(O_X) = F` and `g = dim_F H¹(O_X)` (Stacks, Lemma 53.5.2, tag 0BS6); it is consumed here, in the form the Checks use. A rational point has degree one (Tau Ceti's
 `relativeDegree_ofPoint_of_section`). *Needs:* §2.1; JacobianChallenge Layers A–B;
 SchemeKTheoryOperations §§2.3, 2.6; Tau Ceti `eulerCharBelow`, `AbelianK0.lift`.
 
@@ -600,40 +614,43 @@ SchemeKTheoryOperations §§2.3, 2.6; Tau Ceti `eulerCharBelow`, `AbelianK0.lift
 - `factors_through_K0`: `χ` factors through `K_0(X)`.
 - `degree_ne_eulerChar_P1`: on `ℙ¹_F`, `χ(O(n)) = n + 1` while `deg O(n) = n`, so `χ` is not the degree.
 - `nonrational_point_degree`: on `ℙ¹_ℚ` the closed point `V(t² + 1)` has `deg O(x) = 2 = χ(O_x)`.
+- `constant_extension_RR`: view `ℙ¹_{𝔽₄}` as a regular proper integral curve over `𝔽₂`. Then
+  `χ(O) = 2`, `g = 0`, and `deg O = 0`; the unrestricted formula `deg L + 1 − g` would give one.
 
 ### 2.3 Line bundles and divisor classes
 
-Let `X` be an integral, separated, noetherian scheme of dimension one whose codimension-one local
-rings are discrete valuation rings (`E_W` by §1.3). Record `classGroupEquivPic`: `D ↦ O_X(D)` is a
-group isomorphism `Cl(X) ≅ Pic(X)`, and through the closed-point/place dictionary `Cl(X)` is the
-divisor class group of `F(X)/F`, a closed point `x` contributing with degree `[k(x) : F]` (Weibel,
-*K-book*, Proposition I.5.15, p. 58). Every piece is supplied: pinned Tau Ceti gives the additive map
-`classGroupToLineBundleClassHom`, its injectivity (`classGroupToLineBundleClass_injective`), the
-invertibility of its image (`isUnit_toLineBundleClass`) and the Weil–Cartier comparison
-`SchemeWeilDivisor.equivCartierDivisor`; current Tau Ceti gives the Cartier–Picard dictionary
-`classGroupAddEquivLineBundleClass`, which makes `Pic(X) = Additive (LineBundleClass X)` a group;
-JacobianChallenge Layer A states the same dictionary for curves. This target is the composite for the
-one-dimensional regular `X` used here, with its compatibility with function-field divisors. The comparison of scheme Weil divisors
-with function-field divisors, with degrees and principal divisors, is AlgebraicCurves Layer 12D
-through Tau Ceti's `WeilDivisor.OrderSystem.ofScheme` and `Place.orderSystem`. *Needs:* §§1.3–1.4;
+For an integral, separated, noetherian regular curve `X/F`, prove
+`classGroupEquivPic_functionField`: the supplied scheme Weil-class/Picard equivalence commutes
+with the supplied scheme/function-field divisor comparison on every divisor supported at closed
+points of `X`. The new assertion fixes the composite, including its sign and its restriction to
+an open curve: `D ↦ O_X(D)` corresponds to the same, rather than the negative, function-field
+divisor class. For proper `X` all places occur; otherwise only places with a centre in `X`
+occur. On a proper curve the degree of the resulting line bundle is
+`Σ_x n_x [k(x) : F]` (Weibel, *K-book*, Proposition I.5.15, p. 58).
+*Needs:* §§1.3–1.4; the current Tau Ceti equivalence in the supplier contracts;
 JacobianChallenge Layer A; AlgebraicCurves Layer 12D.
 
 **Checks.**
-- `classGroupEquivPic_bijective`: the map is additive and bijective.
+- `classGroupEquivPic_bijective`: the composite of the two supplied equivalences is additive and bijective, and its
+  closed-point classes are `O(x)`, not `O(−x)`.
 - `origin_degree_one`: `O_{E_W}(O)` has degree one.
+- `open_curve_places`: on `𝔸¹_F`, the point at infinity of `F(t)/F` is absent; `Cl(𝔸¹_F) = 0`
+  while the full proper-model class group is `Cl(ℙ¹_F) = ℤ`.
 - `principal_trivial`: a principal divisor maps to the trivial class (Tau Ceti's
   `toLineBundleClass_principalDivisor`).
 
 ### 2.4 The Picard group of an elliptic curve
 
 Prove `picardDecomposition`: on an elliptic curve with rational origin `O` the degree splits
-`Pic(E_W) ≅ Pic⁰(E_W) ⊕ ℤ`, and `Pic⁰(E_W)` is canonically `W.toAffine.Point`, the class of a point
+`Pic(E_W) ≅ ℤ ⊕ Pic⁰(E_W)`, and `Pic⁰(E_W)` is canonically `W.toAffine.Point`, the class of a point
 `P` corresponding to the class of `(P) − (O)`. The function-field form is proved in Tau Ceti:
 `classGroupAddEquivPicZeroProdInt` splits the class group of an order system with a weight-one
 rational point by degree, and `pointEquivDegreeZeroDivisorClass` identifies the point group with
 the degree-zero divisor classes of `W.toAffine.FunctionField`, with computation rule
-`val_pointEquivDegreeZeroDivisorClass_some`; together they give `Cl(F(W)/F) ≅ W.toAffine.Point × ℤ`.
-This target transports that statement through §2.3 to line bundles on the scheme (Weibel, *K-book*,
+`val_pointEquivDegreeZeroDivisorClass_some`; together, after exchanging factors, they give `Cl(F(W)/F) ≅ ℤ × W.toAffine.Point`.
+This target adds the commutative diagram identifying the group-valued Weierstrass
+point/class equivalence with the scheme genus-one bijection `degreeOneEquivPicZero`; it does not
+reconstruct either supplied equivalence. The degree-first splitting then follows through §2.3 (Weibel, *K-book*,
 Example I.5.16, pp. 58–59, over an algebraically closed field). The splitting depends on the chosen
 origin. Without a point of degree one the degree map need not be onto: its image is `iℤ` with `i`
 the index, an abstract splitting `Pic ≅ Pic⁰ ⊕ ℤ` still exists but its `ℤ`-component is not the
@@ -684,8 +701,8 @@ product ring. *Needs:* §§2.1, 2.4; KTheoryLowDegrees Z.5.
 **Checks.**
 - `skyscraper_product_zero`: `[O_x]·[O_y] = 0` for closed points `x, y`.
 - `lineBundle_minus_one_sq`: `([L] − 1)² = 0` for every line bundle `L`.
-- `not_product_ring`: `(0, 1, O)² = 0`, whereas in the product ring `ℤ × ℤ × E(F)` the element
-  `(0, 1, O)` would be idempotent.
+- `not_product_ring`: `(0, 1, O)² = 0`, whereas with componentwise multiplication on the two integer coordinates
+  the degree coordinate would instead square to one. No ring structure on `E(F)` is assumed.
 
 ### 2.7 K₀ of an elliptic curve
 
@@ -909,8 +926,9 @@ the generic point is the inclusion `F^× ⊂ F(X)^×`; and `curveSK1_norm`:
 `π_*((i_x)_* u) = N_{k(x)/F}(u)` for `u ∈ k(x)^×` (Weibel, *K-book*, V.6.12.1, proof, p. 417). Prove
 `curveSK1_affine_eq_stableSK1`: for an affine regular integral curve `Spec R`, the same kernel is the
 stable `SK_1(R) = ker(det)`, since `R^× → F(X)^×` is injective (Weibel, *K-book*, V.6.8, proof,
-p. 412). For proper `X` the invariant is in general non-zero although every affine open has vanishing
-stable `SK_1`: it is not the stable `SK_1` of an affine piece and it is not Zariski-local. Regularity
+p. 412). For proper `X` the invariant can be non-zero even when a covering by affine opens has
+vanishing stable `SK_1`, as the projective-line check shows. There is no assertion that every affine
+regular curve over an arbitrary field has vanishing stable `SK_1`. Regularity
 is used for `K = G` in the localisation sequence, not for the image statement. *Needs:* §§1.2, 3.1;
 KTheoryLowDegrees U.3; SchemeKTheoryOperations §§2.2–2.3, 5.5.
 
@@ -952,7 +970,7 @@ every `n ≥ 0` the short exact sequence
 ```text
 0 → coker(∂_{n+1} : K_{n+1}(F(X)) → ⊕ₓ Kₙ(k(x))) → Kₙ(X) → ker(∂ₙ : Kₙ(F(X)) → ⊕ₓ K_{n−1}(k(x))) → 0
 ```
-whose maps are those of the localisation sequence (Weibel, *K-book*, V.9.5 and (9.5.1), p. 437, and
+with `K_{−1}(k(x)) = 0` when `n = 0`; its maps are those of the localisation sequence (Weibel, *K-book*, V.9.5 and (9.5.1), p. 437, and
 V.9, opening, p. 435). The left term is in general non-zero: if `X` is proper with a rational point
 `P`, then `π_*P_* = id` makes `P_* : K_n(F) → F¹K_n(X)` injective; it may vanish: for `𝔸¹_F`,
 `K_n(𝔸¹_F) = K_n(F)` (homotopy invariance) injects into `K_n(F(t))` (Weibel, *K-book*, V.6.7.1,
@@ -962,7 +980,7 @@ SchemeKTheoryOperations §§2.3, 4.5, 5.1–5.2.
 
 **Checks.**
 - `two_columns`: for `X = Spec F` (dimension zero) there is one column and `F¹ = 0`; for a curve
-  exactly the columns `p = 0, 1` are non-zero.
+  only the columns `p = 0, 1` can be non-zero; individual entries can vanish.
 - `left_term_projectiveLine`: `F¹K_3(ℙ¹_F) = ∞_*K_3(F) ≅ K_3(F)` and `ker ∂_3 = K_3(F)`; for `F = ℚ`
   both are `ℤ/48` and `K_3(ℙ¹_ℚ) ≅ (ℤ/48)²`.
 - `left_term_affine_line`: `F¹K_3(𝔸¹_F) = 0`.
@@ -970,15 +988,15 @@ SchemeKTheoryOperations §§2.3, 4.5, 5.1–5.2.
 
 ### 4.4 The third K-group of a curve
 
-Prove `curveK3_extension`: for a smooth integral curve `X` over `F`, `K_3(X)` sits in the exact sequence
+Prove `curveK3_extension`: for a regular integral curve `X` over `F`, `K_3(X)` sits in the exact sequence
 ```text
 0 → coker(∂₄ : K₄(F(X)) → ⊕ₓ K₃(k(x))) → K₃(X) → ker(∂₃ : K₃(F(X)) → ⊕ₓ K₂(k(x))) → 0,
 ```
 the case `n = 3` of §4.3, with the maps of the localisation sequence (Weibel, *K-book*, V.6.12, p. 416;
 VI.6.8, proof, p. 505, for the notation). Both ends are needed: the kernel alone is the associated
-graded piece `K_3(X)/F¹`, not the group, and the extension carries the content. The indecomposable
-part `K_3^ind(F(X))`, the cokernel of `K^M_3 → K_3` (K3BlochGroups §2.1), maps into this description;
-the weights of §4.5 separate it from the geometry of the curve. *Needs:* §4.3; K3BlochGroups §§2.1,
+graded piece `K_3(X)/F¹`, not the group, and the extension carries the content. The quotient `K_3^ind(F(X)) = coker(K^M_3 → K_3)` (K3BlochGroups §2.1) is compared
+with this sequence rationally by the weight-two projection of §4.6. No integral map from that
+quotient into `K_3(X)` is asserted. *Needs:* §4.3; K3BlochGroups §§2.1,
 4.20.
 
 **Checks.**
@@ -994,9 +1012,30 @@ Let `X` be a regular curve over `F`. The Adams operations `ψ^k` of SchemeKTheor
 `K_n(X)`. Define `weightComponent n j := K_n(X)_ℚ^{(j)} = {a : ψ^k a = k^j a for all k}`. Prove
 `weightComponent_iSup_eq_top`: `K_n(X)_ℚ = ⊕_{0 ≤ j ≤ n+1} K_n(X)_ℚ^{(j)}`, with `weightProjector` the
 rational idempotents built from finitely many `ψ^k` (SchemeKTheoryOperations §6.9); and
-`weightComponent_motivic`: `K_n(X)_ℚ^{(j)} ≅ H^{2j−n}(X, ℚ(j))` (MotivicEtaleKTheory M.6), which vanishes
-outside `0 ≤ j ≤ n + 1` because `H^i(X, ℚ(j)) = 0` for `i > j + 1` on a curve (Weibel, *K-book*, VI.4,
-after Example 4.5(iv), p. 484). For `K_0` the decomposition is integral: `K_0(X) = ℤ·1 ⊕ ker(rank)` with
+`weightComponent_motivic`: `K_n(X)_ℚ^{(j)} ≅ H^{2j−n}(X, ℚ(j))`, where for a regular curve
+that is not smooth over `F` the right side means `CH^j(X,n) ⊗ ℚ`, using the cycle-complex
+cohomology of MotivicEtaleKTheory M.4. This is a regular-scheme extension of M.6's smooth
+perfect-field comparison, not an application outside that supplier's hypotheses.
+
+Construct `regularCurveMotivicTower` for every regular curve over any field by forming the
+simplicial spectra of perfect complexes on `X × Δ^m` with supports meeting all faces in
+codimension at least `j`. Import the support spectra, Cartan equivalence and homotopy invariance
+from SchemeKTheoryOperations §§2.6, 3.3, 5.1, the cycle complexes and localisation from
+MotivicEtaleKTheory M.4, and exact couples from StableHomotopyKTheory Layer 7. Prove the
+regular-curve adapter `regularCurveMotivicTower_layers`: the successive cofibres identify with
+the corresponding cycle complexes through the support-category cycle-class map; use the
+termwise `K = G` comparison, so smoothness over `F` is not assumed. Prove
+`regularCurveMotivicTower_converges` and `regularCurveMotivicTower_adams`: it abuts to `K(X)`
+and `ψ^k` acts on weight `j` by `k^j`. These are the curve specialisations of Levine,
+*K-theory and motivic cohomology of schemes, I*, §3.2, Lemma 3.3 and Proposition 3.5,
+pp. 12–14, Theorem 12.12 and proof, pp. 58–59, and Theorem 14.7 and proof, pp. 73–74.
+The differentials have torsion image because their source and target weights differ;
+rational degeneration, the finite filtration and the Adams projectors give
+`weightComponent_motivic` and `weightComponent_iSup_eq_top`. Compatibility with M.6 on
+smooth curves is `regularCurveMotivicTower_smoothComparison`, via the same support and
+cycle-class maps. The bound is `0 ≤ j ≤ n+1`, by Levine, Theorem 14.7(3),(5), p. 73;
+in cycle notation `CH^j(X,n) = 0` when `j > dim(X × Δ^n) = n+1`.
+For `K_0` the decomposition is integral: `K_0(X) = ℤ·1 ⊕ ker(rank)` with
 weights `0, 1`, since `ψ^k[L] = [L^{⊗k}]` and products of rank-zero classes vanish on a curve. For `K_1`,
 `π^*F^×` has weight one and `SK_1(X)` weight two, rationally, the latter by the Gysin weight shift
 `ψ^k ∘ (i_x)_* = k · (i_x)_* ∘ ψ^k` for codimension one (SchemeKTheoryOperations §6.11). Prove
@@ -1005,9 +1044,18 @@ weights `0, 1`, since `ψ^k[L] = [L^{⊗k}]` and products of rank-zero classes v
 to `ℓ`, the condition of SchemeKTheoryOperations §6.9; and `weightComponent_pullback`: pullback
 `f^*` maps `K_n(Y)_ℚ^{(j)}` into `K_n(X)_ℚ^{(j)}`, in particular along base change `F ⊂ F'`. In general
 the projectors have denominators: `K_0(ℙ²)` has no integral eigen-decomposition. *Needs:* §§2.1, 4.1,
-4.4; SchemeKTheoryOperations §§6.8–6.11; MotivicEtaleKTheory M.6.
+4.4; SchemeKTheoryOperations §§2.6, 3.3, 5.1, 6.8–6.11;
+MotivicEtaleKTheory M.4, M.6; StableHomotopyKTheory Layer 7.
 
 **Checks.**
+- `regularTower_P1`: on `ℙ¹_F`, the cycle layers give the two summands with the weight shift
+  of the hyperplane class; in degree zero they are exactly rank and degree.
+- `regularTower_imperfect_field`: in characteristic two, for `F = 𝔽₂(t)`, the regular curve
+  `Spec(F[x,y]/((y−x)²−t))` becomes non-reduced over `F(√t)`. Its tower and rational
+  comparison are still required over `F`; a smoothness prerequisite would wrongly exclude it.
+- `regularTower_not_coniveau`: for an elliptic curve, the motivic tower has the weight-two
+  `SK_1` layer, although the codimension-of-points coniveau sequence of §4.3 has only two
+  columns. The two filtrations are compared through their maps, not identified by their names.
 - `K0_curve_weights`: for `ℙ¹_F`, `ψ^k(1 − [O(−1)]) = k(1 − [O(−1)])`, so
   `K_0(ℙ¹_F) = ℤ·1 ⊕ ℤ·(1 − [O(−1)])` with weights `0, 1`.
 - `K0_P2_not_integral`: in `K_0(ℙ²_F) = ℤ[z]/(z³)`, `z = 1 − [O(−1)]`, the weight-one eigenvector is
@@ -1026,8 +1074,11 @@ it by `H³(L, ℤ(3)) ≅ K^M_3(L)` (MotivicEtaleKTheory M.4) and M.6 (Weibel, *
 p. 481). For a regular curve `X` over `F` prove `K3_curve_weights`: pullback maps `K_3^ind(F)_ℚ` into
 `K_3(X)_ℚ^{(2)}`, and `F¹K_3(X)_ℚ` has weights three and four, the Gysin shift of the weights two and
 three of the residue fields. This separates the base field's indecomposable contribution from the
-geometry of the curve. Rational coefficients are essential: integrally `K^M_3(L) → K_3(L)` can have a
-kernel killed by two (K3BlochGroups §2.2). *Needs:* §4.5; K3BlochGroups §§2.1–2.2, 2.5;
+geometry of the curve. Rational coefficients are essential to the claimed Adams eigenspace splitting: integral
+eigenvalues do not supply integral projectors. The map `K^M_3(L) → K_3(L)` itself is
+injective (Weibel, *K-book*, Proposition VI.4.3.2, p. 482); the weaker bound that its kernel
+is killed by two does not exhibit a nonzero kernel. The integral indecomposable quotient
+is supplied by K3BlochGroups §2.1. *Needs:* §4.5; K3BlochGroups §§2.1–2.2, 2.5;
 MotivicEtaleKTheory M.4, M.6; SchemeKTheoryOperations §§6.8, 6.11.
 
 **Checks.**
@@ -1161,13 +1212,36 @@ KTheoryFiniteLocalFields §1.7.
 - `projectiveLine_basis`: `[O] = (1, 0)`, `[O(−1)] = (0, 1)` and `[O_∞] = (1, −1)`.
 - `projectiveLine_F2`: over `𝔽₂`, `K_1(ℙ¹) = 0`, `K_2(ℙ¹) = 0` and `K_3(ℙ¹) ≅ (ℤ/3)²`.
 - `elliptic_K0_generated_iff`: for `37a1` over `𝔽₂`, `E(𝔽₂) ≅ ℤ/5`, so `K_0(E)` is not generated by
-  `[O_E], [O_E(−O)]`; for `y² + y = x³ + x + 1` over `𝔽₂`, `E(𝔽₂) = 0` but `#K_2(E) = 5 ≠ 0 = #K_2(ℙ¹)`.
+  `[O_E], [O_E(−O)]`; for `y² + y = x³ + x + 1` over `𝔽₂`, `E(𝔽₂) = 0` but `#K_2(E) = 5 ≠ 1 = #K_2(ℙ¹)`.
 - `projectiveLine_SK1`: `SK_1(ℙ¹_F) = ∞_*F^×`.
 
 ### 5.5 Arithmetic inputs over a finite field
 
-Four theorems about curves and fields of positive characteristic enter Harder's theorem. Let `X` be a
+Four arithmetic theorems and a degree-one zero-cycle construction enter the finite-field computation. Let `X` be a
 smooth projective geometrically connected curve over `F_q`, `q = p^r`, with function field `F`.
+
+Prove `closedPoints_coprimeDegrees`: there are closed points of two coprime degrees. More
+precisely, there is a closed point of every sufficiently large degree: Möbius inversion of
+`#X(F_{q^n}) = Σ_{d∣n} d · #X_closed_degree_d`, together with the curve Weil bound
+`|#X(F_{q^n}) − (q^n + 1)| ≤ 2g q^{n/2}`, makes the degree-`n` count positive for all sufficiently
+large `n`; choose two consecutive such degrees. The bound and Jacobian comparison are supplied by
+DeligneWeightsAndPurity DWP.1 §§1.6–1.7, not just the genus-one Hasse bound. Define
+`degreeOneZeroCycle` to be a chosen finite integral zero-cycle `z = Σ n_x[x]` with
+`Σ n_x[k(x):F_q] = 1`, obtained by Bézout from those degrees; its coefficients may be negative.
+Prove `zeroCycle_splitting`: `Σ n_x N_{k(x)/F_q} i_x^*` retracts structure pullback on every
+`K_n(F_q)`, since restriction followed by transfer is multiplication by `[k(x):F_q]`.
+In degree one, `u ↦ Σ n_x(i_x)_* res_x(u)` is a section of `π_*` into `SK_1(X)`, by the projection
+formula and `Σ n_x deg x = 1`. This supplies the base-point-free splitting needed below
+(Weibel, *K-book*, VI.6.5–6.7, pp. 504–505, together with the finite-transfer formula V.6.6.4, p. 410).
+API: `degreeOneZeroCycle_degree`, `degreeOneZeroCycle_of_point`, `zeroCycle_splitting`,
+`zeroCycle_SK1_section`.
+
+**Checks for the zero-cycle.**
+- On `ℙ¹` the rational origin is a one-term degree-one cycle, and the retraction is its pullback.
+- For points of degrees two and three, `z = [x₃] − [x₂]` has degree one; the induced composite is
+  `3 − 2 = 1`. Requiring effective coefficients would lose this construction.
+- A single degree-two point gives composite multiplication by two, so cannot replace `z`.
+- The zero cycle with all coefficients zero has degree zero and is rejected.
 
 `BMS_functionField`: if `R` is the coordinate ring of a smooth affine curve over a finite field, then
 `SK_1(R) = 0` (Bass–Milnor–Serre; Weibel, *K-book*, Variant III.2.5.1, p. 195). Hence for an affine
@@ -1205,10 +1279,16 @@ logarithmic-differential description of Bloch–Gabber–Kato (MotivicEtaleKTheo
 motivic spectral sequence with `ℤ/p^ν` coefficients (MotivicEtaleKTheory M.6) collapse with edge
 isomorphisms, giving (a); the surjection `K^M_n(k) → K_n(k; ℤ/p)` factors through `K_n(k)/p`, so the
 universal coefficient sequence (StableHomotopyKTheory §7.4) gives (b); the five lemma on
-multiplication by `p` gives (c).
+multiplication by `p` gives (c). For a field that is not finitely generated,
+`geisserLevine_filteredColimit` extends the result along the filtered system of its finitely
+generated subfields. For each such subfield use its smooth affine models over `𝔽_p`, then
+their dense opens; this applies M.6 over a perfect base without assuming the target field
+is perfect. The finite-presentation argument for cycles and symbols and
+GeneralAlgebraicKTheory §3.2 identify all three comparison maps in the colimit.
 
 *Needs:* §§3.1, 3.8, 4.1–4.2; KTheoryLowDegrees U.4; K2SymbolsBrauer T.2, T.4; KTheoryFiniteLocalFields
-§3.4; ArithmeticKTheory N.3; MotivicEtaleKTheory M.5d, M.6; StableHomotopyKTheory §7.4.
+§3.4; ArithmeticKTheory N.3; MotivicEtaleKTheory M.5d, M.6; StableHomotopyKTheory §7.4;
+DeligneWeightsAndPurity DWP.1 §§1.6–1.7.
 
 **Checks.**
 - `BMS_affine_line`: `SK_1(F_q[t]) = 0`, and for `R = F_q[t, t⁻¹]`, `K_1(R) = R^× ≅ F_q^× × ℤ`.
@@ -1282,21 +1362,23 @@ EtaleDualityAndPerverseSheaves §0.3; StableHomotopyKTheory §§7.4, 7.8.
 
 ### 5.8 Twisted cohomology descent
 
-For an elliptic curve `E/F_q`, `ℓ ≠ p` and `j ≥ 2`, prove `cohomologyDescent`: the natural maps give
-`H^r(E, ℚ_ℓ/ℤ_ℓ(j)) ≅ H^r(Ē, ℚ_ℓ/ℤ_ℓ(j))^G ≅ H^{r+1}(E, ℤ_ℓ(j))` for `r ≥ 0`, and these groups vanish for
-`r ≥ 3`. The geometric groups `H⁰, H¹, H²` are `ℚ_ℓ/ℤ_ℓ(j)`, `E(F̄_q)[ℓ^∞](j − 1)` and `ℚ_ℓ/ℤ_ℓ(j − 1)`;
-arithmetic Frobenius acts on the corresponding rational spaces with eigenvalues `q^j`; `q^{j−1}α`,
-`q^{j−1}β`; and `q^{j−1}`, where `αβ = q` and `|α| = |β| = √q`. So `F − 1` is invertible rationally and
-surjective on each divisible group. Proof: the Frobenius polynomial `X² − a_q X + q` on `T_ℓE`
-(WeightsInEtaleCohomology R34.2) and the Hasse bound (EllipticCurves Layer 3) fix `α, β`; arithmetic
-Frobenius on `H¹` untwisted has eigenvalues `1/α, 1/β`, that is `α/q, β/q` as a multiset, which become
-`q^{j−1}α, q^{j−1}β` after twist `j`; for `j ≥ 2` no eigenvalue is one; the continuous Hochschild–Serre
+For every smooth projective geometrically connected curve `X/F_q`, with Jacobian `J` of
+dimension `g`, `ℓ ≠ p` and `j ≥ 2`, prove `cohomologyDescent`: the natural maps give
+`H^r(X, ℚ_ℓ/ℤ_ℓ(j)) ≅ H^r(X̄, ℚ_ℓ/ℤ_ℓ(j))^G ≅ H^{r+1}(X, ℤ_ℓ(j))` for `r ≥ 0`, and these groups vanish for
+`r ≥ 3`. The geometric groups `H⁰, H¹, H²` are `ℚ_ℓ/ℤ_ℓ(j)`, `J(F̄_q)[ℓ^∞](j − 1)` and
+`ℚ_ℓ/ℤ_ℓ(j − 1)`. If the eigenvalues of `π` on `V_ℓJ` are `α₁,…,α_{2g}`, then
+`|α_s| = √q` and their multiset is stable under `α ↦ q/α` (DeligneWeightsAndPurity DWP.1
+§§1.4, 1.7). Arithmetic Frobenius on twisted cohomology has eigenvalues `q^j` in degree zero,
+`q^j/α_s`, equivalently the multiset `q^{j−1}α_s`, in degree one, and `q^{j−1}` in degree two.
+Thus `F − 1` is invertible on the rational spaces and surjective on the divisible groups.
+For an elliptic curve this specialises to the roots of `T² − a_qT + q`.
+For `j ≥ 2` no eigenvalue is one; the continuous Hochschild–Serre
 sequence (ArithmeticGaloisDuality R02.2) with `cd_ℓ Ẑ = 1` and `H¹(Ẑ, M) = M/(F − 1)M`
 (ProfiniteCohomology Layers 10–11) gives the invariants, and the coefficient triangle
 `ℤ_ℓ(j) → ℚ_ℓ(j) → ℚ_ℓ/ℤ_ℓ(j)` gives the degree shift (Weibel, *K-book*, VI.6.5–6.6, p. 504). The
 restriction `j ≥ 2` is essential: the K-book's paragraph before Example VI.6.5 asserts
 `H^*(X, ℚ_ℓ(i)) = H^*(X̄, ℚ_ℓ(i))^G` for every `i`, which fails for `i = 0`, where
-`H¹(Spec F_q, ℚ_ℓ) = ℚ_ℓ`. *Needs:* §5.7; WeightsInEtaleCohomology R34.2; EllipticCurves Layer 3;
+`H¹(Spec F_q, ℚ_ℓ) = ℚ_ℓ`. *Needs:* §5.7; DeligneWeightsAndPurity DWP.1 §§1.4, 1.6–1.7;
 EtaleDualityAndPerverseSheaves §§0.3, 0.5; ArithmeticGaloisDuality R02.2; ProfiniteCohomology
 Layers 10–11.
 
@@ -1305,6 +1387,8 @@ Layers 10–11.
   identity is false.
 - `descent_H1_twist`: `H¹(Ē, ℚ_ℓ/ℤ_ℓ(j))` carries elliptic torsion with twist `j − 1`.
 - `descent_j2_invertible`: for `j = 2` all three rational operators `F − 1` are invertible.
+- `descent_genus_zero`: for `ℙ¹`, `J = 0`, so the middle geometric cohomology group vanishes;
+  for genus two it has four rational Frobenius eigenvalues. The proof must cover both.
 
 ### 5.9 Descent of positive K-groups
 
@@ -1315,7 +1399,7 @@ Galois descent for scheme K-theory. By §5.6 compute `K_n(X)` one prime `ℓ ≠
 `K_{n+1}(X; ℚ_ℓ/ℤ_ℓ)` by universal coefficients; the curve's motivic spectral sequence with the descent of
 §5.8 in weights `j ≥ 2` identifies the geometric base-change map with taking invariants and has no
 surviving differentials; the `e`-invariant splitting handles the two odd summands. Treat `n = 1`
-separately by the exact reciprocity sequence and the origin section (§5.5), which covers the
+separately by the exact reciprocity sequence and the degree-one zero-cycle splitting of §5.5, which covers the
 weight-one boundary without applying §5.8 outside its range. Assemble the primary parts using finite
 support. The resulting map is the base-change map of K-theory, not an arbitrary additive equivalence.
 *Needs:* §§4.1–4.2, 5.5–5.8; MotivicEtaleKTheory M.6–M.7; StableHomotopyKTheory §§7.4, 7.8.
@@ -1331,7 +1415,9 @@ support. The resulting map is the base-change map of K-theory, not an arbitrary 
 ### 5.10 The twisted Frobenius kernel
 
 Let `k` be a finite field with `q` elements and characteristic `p`, `W` an elliptic Weierstrass curve
-over `k`, `L/k` a field extension and `i ≥ 0`. Define
+over `k`, `L/k` a field extension and `i ≥ 0`. The following subgroup definition also makes sense
+for the nonsingular point group of any Weierstrass equation; its interpretation as an elliptic
+K-group requires `W.IsElliptic`. Define
 ```text
 twistedFrobeniusKernel W L i := { P ∈ (W⁄L).Point | (∃ m > 0, gcd(m, p) = 1, m • P = 0) ∧ q^i • π(P) = P },
 ```
@@ -1366,8 +1452,8 @@ WeightsInEtaleCohomology R34.2.
 
 Prove `finiteFieldK_odd`: for a smooth projective geometrically connected curve `X` over `F_q` and
 `i ≥ 1`, `K_{2i−1}(X) ≅ K_{2i−1}(F_q) ⊕ K_{2i−1}(F_q) ≅ (ℤ/(q^i − 1))²` as abelian groups; in degree one,
-`K_1(X) ≅ F_q^× ⊕ F_q^×`. One summand is split by the structure morphism and a point of degree one (or
-the origin), the other by the `e`-invariant; cyclic generators are not canonical (§§5.7, 5.9;
+`K_1(X) ≅ F_q^× ⊕ F_q^×`. One summand is split by the structure morphism and a chosen degree-one zero-cycle
+(a rational origin suffices for an elliptic curve), the other by the `e`-invariant; cyclic generators are not canonical (§§5.7, 5.9;
 KTheoryFiniteLocalFields §1.7; Weibel, *K-book*, Theorem VI.6.7, p. 505). Prove `finiteFieldK_even`:
 `K_{2i}(X) ≅ ⊕_{ℓ ≠ p} J(F̄_q)_ℓ(i)^G`, and for an elliptic curve `E` with origin,
 `K_{2i}(E) ≅ twistedFrobeniusKernel W F̄_q i = ⊕_{ℓ ≠ p} ker(1 − q^i π : E[ℓ^∞] → E[ℓ^∞])`. Each primary
@@ -1415,7 +1501,7 @@ Layers 1–4; SchemeKTheoryOperations §§2.2–2.4, 5.5; GeneralAlgebraicKTheor
 KTheoryLowDegrees U.4, Z.6; K2SymbolsBrauer T.2, T.4; KTheoryFiniteLocalFields §§1.7, 1.9, 3.4;
 ArithmeticKTheory N.3; MotivicEtaleKTheory M.5d–M.7; StableHomotopyKTheory §§7.4, 7.8;
 EtaleDualityAndPerverseSheaves §§0.3, 0.5; WeightsInEtaleCohomology R34.2; ArithmeticGaloisDuality
-R02.2; ProfiniteCohomology Layers 10–11; ModularCurves Layer 2D; EllipticCurves Layers 1–3.
+R02.2; DeligneWeightsAndPurity DWP.1 §§1.4, 1.6–1.7; ProfiniteCohomology Layers 10–11; ModularCurves Layer 2D; EllipticCurves Layers 1–3.
 ## Layer 6: Regular models over S-integers and the integral part
 
 Over a number field the K-theory of `E` is compared with that of a regular arithmetic surface. This
@@ -1429,9 +1515,16 @@ elliptic curve over `F`.
 
 ### 6.1 Regular proper models
 
-Define `RegularProperModel O F C` for a curve `C` over `F` (here `C = E`): a scheme `𝓔` with a proper flat
+Define `RegularProperModel O F C toField` for a curve with fixed structure morphism
+`toField : C → Spec F` (here `C = E`): a scheme `𝓔` with a proper flat
 morphism `𝓔 → Spec O`, all of whose local rings are regular, together with an isomorphism
-`genericIso : 𝓔 ×_O F ≅ C` of the generic fibre with the scheme of §1.1 (Conrad, *Minimal models for elliptic curves*, Definition 3.1, p. 6, over a discrete
+`genericIso : 𝓔 ×_O F ≅ C` **over `F`**, expressed by
+`genericIso.hom ≫ toField = pullback.snd`; an absolute scheme isomorphism alone is insufficient.
+The bundling, the marked morphisms and the outgoing-minimality predicate make sense for any
+commutative ring `O`, field `F` with an `O`-algebra structure, and scheme `C → Spec F`; the
+uniqueness of marked morphisms in §6.3 needs only that `O` is Dedekind with fraction field `F`.
+The existence and terminal-model results below concern the stated number-field setting.
+The curve here is the scheme of Layer 1 (Conrad, *Minimal models for elliptic curves*, Definition 3.1, p. 6, over a discrete
 valuation ring; Scholl, *Integral elements in K-theory*, 1.1.1–1.1.2, p. 3, for projective regular models
 over rings of `S`-integers). Regularity is required at every point, including the closed points of the
 fibres, while the fibres themselves may be singular, reducible and non-reduced. For a closed point `v` of
@@ -1443,13 +1536,16 @@ ring `O_(v)` (Stacks, Lemma 55.9.1, tag 0C5Z). API: `RegularProperModel.isRegula
 `RegularProperModel.div_uniformiser`. Two natural candidates are compared, not excluded by fiat. Prove
 `weierstrassModel_regular_iff`: the projective Weierstrass model of an equation minimal at `v` is regular
 over `v` if and only if the minimal regular model has irreducible fibre at `v` (Conrad, Corollary 4.7 and
-proof, p. 12; this covers Kodaira types `I_0`, `I_1`, `II`). Prove `neronModel_isProper_iff`: the Néron
-model over `O` is proper if and only if `E` has good reduction at every prime of `O`; at a bad prime its
-fibre is the smooth locus of the minimal regular model's fibre and is not proper (Conrad, Example 5.3,
-p. 13). A smooth group scheme of finite type is therefore not a substitute for a regular proper model.
-*Needs:* §1.2; ArithmeticKTheory N.1; StableReduction Layer 5; ModularCurves Layer 1A over `O`.
+proof, p. 12; this covers Kodaira types `I_0`, `I_1`, `II`). The comparison Checks below use the
+Néron-model supplier contract: smoothness alone does not give a regular proper model.
+*Needs:* §1.2; ArithmeticKTheory N.1; StableReduction Layer 5; ModularCurves Layer 1A over `O`;
+NeronModelsAndSemistableAbelianVarieties §§1.8, 2.7, 6.5.
 
 **Checks.**
+- `genericIso_over_field`: with `O = F = ℚ(s)`, composing a marking with the absolute scheme
+  automorphism induced by `s ↦ s + 1` fails the required equality over the fixed `Spec F`.
+  The identity marking passes, and `genericFibreInclusion ≫ toBase` equals the fixed structure
+  map of `C` followed by `Spec(F) → Spec(O)`; this equality is a proved Lean example.
 - `weierstrass_37a1_regular`: for `y² + y = x³ − x` over `ℤ` (`Δ = 37`, type `I_1` at 37), the fibre at 37
   is singular only at `(5, 18)` and `F(5, 18) = 222 ≢ 0 mod 37²`, so the projective Weierstrass model is a
   regular proper model.
@@ -1472,8 +1568,9 @@ equation has unit discriminant. `W_O` is integral, two-dimensional, proper, flat
 the excellent Dedekind domain `O_{F,S}` (ModularCurves Layer 1A over `O`), so it has a resolution of
 singularities `X → W_O` by Lipman's theorem (Stacks, introduction to Resolution of Surfaces, tag 0ADX,
 with Theorem 54.14.5, tag 0BGP); `X` is regular and proper over `O`, and flat because it is integral and
-dominates `Spec O`; the resolution is an isomorphism over the normal locus (Stacks, Lemma 55.8.3, tag
-0C2U). Over each localisation `O_(v)` a minimal regular model exists and is unique in genus one
+dominates `Spec O`. Preservation of the regular locus follows by taking normalization and the
+normalized blow-ups supported at singular points in the proof of Stacks, Theorem 54.14.5,
+tag 0BGP; Lemma 55.8.3, tag 0C2U, supplies the local existence statement. A normal surface can still have singular points that must be resolved. Over each localisation `O_(v)` a minimal regular model exists and is unique in genus one
 (StableReduction Layer 5; Stacks, Lemma 55.10.1, tag 0C6B; Conrad, Theorem 3.10, p. 8). *Needs:* §6.1;
 StableReduction Layers 4–5; ModularCurves Layer 1A.
 
@@ -1482,6 +1579,8 @@ StableReduction Layers 4–5; ModularCurves Layer 1A.
 - `resolution_good_primes`: the resolution changes nothing over the primes of good reduction of an
   integral equation with unit discriminant there.
 - `resolution_11a1_nontrivial`: for `11a1` over `ℤ` the resolution is not an isomorphism over 11.
+- `normal_not_regular`: the surface `xy = z²` over a field of characteristic different from two is
+  normal and singular at its vertex; resolution cannot preserve the entire normal locus.
 
 ### 6.3 Model morphisms and minimality
 
@@ -1506,6 +1605,11 @@ properness are kept as separately verified properties; no second local model car
 `TauCeti.Model`, `genericFiberTowerIso`.
 
 **Checks.**
+- `modelHom_identity`: `Hom.id M` respects both triangles; every marked endomorphism is this map.
+- `modelHom_involution_rejected`: the nontrivial elliptic involution extends to the model of
+  `37a1`, but fails `Hom.generic` with fixed marking, although it is an automorphism over `ℤ`.
+- `modelHom_blowdown_direction`: the blow-down from a point blow-up is a marked morphism to
+  the original model; an inverse morphism would make the blow-down an isomorphism and cannot exist.
 - `smooth_37a1_minimal`: the model `y²z + yz² = x³ − xz²` over `ℤ[1/37]` is smooth, proper and minimal:
   `Δ = 37` is a unit and its fibres are smooth genus-one curves.
 - `nodal_37a1_minimal`: the same model over `ℤ` is regular and minimal although its fibre at 37 is nodal
@@ -1626,8 +1730,10 @@ Prove `integralPart_model_independent`: for regular proper flat models `𝓔, �
 model morphism `π : 𝓔' → 𝓔`. Then `j = π ∘ j'` gives `im j^* ⊆ im j'^*`; conversely for
 `a ∈ K_n(𝓔') = G_n(𝓔')`, `π_*a ∈ G_n(𝓔) = K_n(𝓔)` (Cartan, SchemeKTheoryOperations §2.6) and
 `j^*π_*a = j'^*a` by flat base change along `j`, `π` being an isomorphism over `E` (§2.4) (Scholl, 1.3.3,
-p. 8). No blow-up formula is used. Regularity cannot be dropped: for non-regular proper flat models with
-`K'`-theory in place of `K`-theory the image depends on the model (Scholl, Remark 1.1.7, p. 4).
+p. 8). No blow-up formula is used. This argument uses regularity of both total schemes for the Cartan
+isomorphisms. Scholl, Remark 1.1.7, p. 4, warns that the analogous model-independence assertion for
+`K'` of arbitrary non-regular proper flat models is false in general; it does not give an elliptic-curve
+counterexample here.
 *Needs:* §§3.7, 6.1–6.4; SchemeKTheoryOperations §§2.2, 2.4, 2.6, 3.7; K2SymbolsBrauer T.5.
 
 **Checks.**
@@ -1640,7 +1746,8 @@ p. 8). No blow-up formula is used. Regularity cannot be dropped: for non-regular
   `m(x) = x − 4`, `p = 2`; §6.10).
 - `all_primes_inverted`: if `S` is the set of all finite primes (`O_{F,S} = F`, allowed by Scholl 1.1.1), the
   `S`-integral variant is all of `K_2(E) ⊗ ℚ`.
-- `model_independence_nonregular`: for a non-regular proper flat model the `K'`-image can differ (Scholl,
+- `model_independence_Cartan`: on the regular models both Cartan maps are isomorphisms; on a
+  non-regular model the proof cannot replace `G_n` by `K_n` without an additional theorem (Scholl,
   Remark 1.1.7).
 
 ### 6.9 Good primes impose no condition
@@ -1667,8 +1774,9 @@ component `C` of `𝓔_v`, let `∂_C : K_2(F(E)) → k(C)^×` be the tame symbo
 `ord_C`, whose value on `π_v` is the multiplicity `m_C`. Prove `integralPart_iff_vertical`: for
 `α ∈ K_2(E) ⊗ ℚ`, viewed in `K_2(F(E)) ⊗ ℚ` (§3.7), `α ∈ K_2(E)_{ℤ,ℚ}` if and only if `∂_C(α) = 0` in
 `k(C)^× ⊗ ℚ` for every vertical `C`; at primes of good reduction the condition holds automatically, so it
-is a finite set of conditions; integrally, if every `∂_C(α)` is trivial then some positive multiple of `α`
-lies in `im(K_2(𝓔) → K_2(E))` (Dokchitser–de Jeu–Zagier, (3.5)–(3.6), p. 6, and Remark 3.8; Scholl,
+is a finite set of conditions. For an integral class `β ∈ K_2(E)`, if every vertical tame
+value of its generic restriction is one, then some positive integer multiple of `β` lies in
+`im(K_2(𝓔) → K_2(E))` (Dokchitser–de Jeu–Zagier, (3.5)–(3.6), p. 6, and Remark 3.8; Scholl,
 introduction, (0.1), p. 1). Proof: localisation for `𝓔 ⊃ 𝓔_U` and the colimit over dense opens of the base
 give the exact `K_2(𝓔) → K_2(E) → ⊕_v G_1(𝓔_v)` (SchemeKTheoryOperations §3.7); coniveau on the
 one-dimensional fibre (SchemeKTheoryOperations §4.5; Weibel, *K-book*, V.9.5, p. 437) shows that the kernel
@@ -1735,11 +1843,22 @@ in `α`, and `SymbolCandidate.toK2 α := Σ n_{(f,g)} {f, g} ∈ K_2(K)` through
 
 **Checks.**
 - `tameValue_unit_uniformizer`: for a uniformiser `t` and `ord_P u = 0`, `tameValue P u t = ū` and
-  `tameValue P t u = ū⁻¹`.
+  `tameValue P t u = ū⁻¹`; when `ū = 2` in characteristic zero these are `2` and `1/2`.
 - `tameValue_minus_one`: `tameValue P (−1) f = (−1)^{ord_P f}`, so `{−1, f}` sees only the parity of orders.
 - `tameValue_units`: `tameValue P f g = 1` when both are units at `P`.
 - `tameValue_self`: `tameValue P f f = (−1)^{ord_P f}`, which a version without the sign would get wrong at
   a simple zero.
+
+The candidate representation has its own Checks, separate from those of a single tame symbol.
+
+**Checks.**
+- `candidate_zero`: the zero finitely supported function has empty support, maps to zero in
+  `K_2(K)`, and has tame value one at every place.
+- `candidate_integer_coefficients`: for `α = [(f,g)] − [(f,h)]`, the tame value is
+  `tameValue P f g / tameValue P f h`; a two-term proved Lean example fixes subtraction.
+- `candidate_formal_not_quotient`: for `f ≠ 0, 1`, the formal candidate `[(f,1−f)]` is nonzero
+  (its coefficient is one), but its `toK2` image is zero and every tame value is one. The
+  candidate carrier therefore must precede the Steinberg quotient.
 
 ### 7.2 Certificates
 
@@ -1770,8 +1889,8 @@ recorded values must name the convention. *Needs:* §§3.1, 3.7, 7.1; K2SymbolsB
 - `certificate_convention_invariant`: `tame P α = 1` in K2SymbolsBrauer's convention if and only if the
   K-book's value at `P` is one.
 - `nonempty_iff_test`: on `11a3`, the candidate `5{x, y} + Σ_P {f_P, tame_P{x, y}}` over the four non-zero
-  rational torsion points, with `div f_P = 5(P) − 5(O)` (§7.5), has a certificate and all nine listed tame
-  values equal one.
+  rational torsion points, with `div f_P = 5(P) − 5(O)` (§7.5), has a certificate and every tame
+  value on the union of the supports equals one.
 
 ### 7.3 Integral certificates
 
@@ -1795,7 +1914,9 @@ multiplicative reduction, where `K_1'` of the fibre has rank one; elsewhere it i
   zero along the irreducible fibre at 11.
 - `unramified_not_integral_DGJK`: for `u = 1/3`, `α = {v, w} + {−1, h}` on `y² = x(x + 1)(x + u²)` has a
   certificate and no non-zero multiple has an integral certificate (§8.3).
-- `integral_of_constant`: `{c, d}` with `c, d ∈ O_k^×` has an integral certificate with `S = S' = ∅`.
+- `integral_of_constant`: `{c, d}` with `c, d ∈ O_k^×` has an integral certificate with horizontal
+  support `S = ∅` and `S'` containing the bad primes of the chosen model; every vertical value is one.
+  Taking `S' = ∅` is allowed only when all fibres meet the smoothness and irreducibility condition.
 
 ### 7.4 Reciprocity and the last rational point
 
@@ -1820,25 +1941,29 @@ embeddings of each `k(P)`, is the same identity; a product taking one value per 
 
 ### 7.5 Principal divisors on rational torsion
 
-Let `W` be an elliptic Weierstrass curve over `k` and `D = Σ n_i (P_i)` a degree-zero divisor of
-`W.toAffine.FunctionField` supported on `k`-rational points. Prove `principal_iff_sum_zero`: `D` is
-principal if and only if `Σ n_i P_i = 0` in `W.toAffine.Point`. Write `D = Σ n_i((P_i) − (O))` and apply
-the additive equivalence `pointEquivDegreeZeroDivisorClass` with its computation rule; a degree-zero class
-vanishes exactly when the divisor is principal (`Divisor.divisorClass_eq_zero_iff`). In particular:
-`torsionFunction`: for a rational `T` with `C · T = 0` there is `f_T` with `div f_T = C(T) − C(O)` (Tau
-Ceti's `exists_principal_zsmul_pointPlace_sub_infinity`); and `blochRho`: if all points of order `C` are
-rational, there is `ρ` with `div ρ = (C² − 1)(O) − Σ_{0 ≠ a ∈ E[C]} (a)`, because the points of `E[C]` sum to
-zero (pair `a` with `−a`; for even `C` the 2-torsion points sum to zero) (Bloch, *Higher regulators,
-algebraic K-theory and zeta functions of elliptic curves*, CRM Monograph 11, 10.1, p. 76). The non-rational
-case is handled by passing to a finite extension (§7.8). *Needs:* Layer 2; Tau Ceti
-`pointEquivDegreeZeroDivisorClass`, `val_pointEquivDegreeZeroDivisorClass_some`,
-`exists_principal_zsmul_pointPlace_sub_infinity`, `Divisor.divisorClass_eq_zero_iff`,
-`isIntegrallyClosed_coordinateRing`.
+Let `W` be elliptic over `k`. Define `blochRho`: for `C ≥ 1` prime to `char k`, if the full
+geometric `C`-torsion is rational, choose `ρ` with
+`div ρ = (C² − 1)(O) − Σ_{0 ≠ a ∈ E[C]} (a)`. This is the full-torsion aggregate needed for
+§7.7, beyond the supplied function for one torsion point. The divisor has degree zero and its
+point sum is zero: pair `a` and `−a`; the remaining subgroup is trivial for odd `C` and is
+`(ℤ/2)²`, whose sum is zero, for even `C`. Apply the supplied principal-divisor criterion.
+The named API is `divisor_blochRho`, `blochRho_unique_up_to_constant`, and the base-change
+compatibility `blochRho_baseChange` modulo a constant. The functions `f_T` used below are those
+of `exists_principal_zsmul_pointPlace_sub_infinity`; their scheme-divisor interpretation is
+`torsionFunction_divisor_compat`, through §1.4 and §2.3. Non-rational torsion is handled over a
+finite extension (§7.8). This is the divisor construction for the correction in Young,
+Lemma 3.1, pp. 37–38, specialised to full prime-to-characteristic torsion. *Needs:* §2.4;
+EllipticCurves Layer 2; the point/divisor and torsion-function supplier contracts.
 
 **Checks.**
 - `torsionFunctions_11a3`: on `11a3` the functions with divisor `5(P) − 5(O)` at the four non-zero rational
   torsion points are `x² + xy + y`, `−x² + (y + 1)x + (y + 1)`, `−2x² + (y + 3)x − 1` and `2x² + (y − 2)x + 1`;
   for instance the norm of the first to `ℚ(x)` is `−x⁵`.
+- `blochRho_characteristic_two`: on the ordinary elliptic curve `y² + xy = x³ + 1` over `𝔽₂`,
+  the geometric points of `E[2]` form `ℤ/2`, with nonzero point `(0, 1)`. They do not form
+  `(ℤ/2)²`, and their sum is nonzero; thus the full-torsion formula requires `char k ∤ C`.
+- `blochRho_C1`: when `C = 1`, the prescribed divisor is zero, so any nonzero constant
+  is a choice of `ρ`; its divisor remains zero after a field extension.
 - `blochRho_C2`: on `y² = x³ − x` over `ℚ` with `C = 2`, `ρ = 1/y` has divisor
   `3(O) − ((0, 0)) − ((1, 0)) − ((−1, 0))` and `f_{(0,0)} = x`.
 - `principal_sum_nonzero`: on `y² = x³ − x` over `ℚ`, `((0, 0)) − (O)` is not principal, since `(0, 0) ≠ O`.
@@ -1848,16 +1973,16 @@ case is handled by passing to a finite extension (§7.8). *Needs:* Layer 2; Tau 
 Let `E` be an elliptic curve over `k`, `T` a finite subgroup of `E(k)` and `C ≥ 1` with `C · T = 0`. Let
 `f, g ∈ k(E)^×` have divisors supported on `T`. For each non-zero `P ∈ T` let `f_P` have divisor
 `C(P) − C(O)` (§7.5) and `c_P = tame P {f, g} ∈ k^×`, `P` being rational. Prove `blochCorrection`: the
-candidate `C{f, g} + Σ_{0 ≠ P ∈ T} {f_P, c_P}` has tame value one at every place (Bloch, CRM Monograph 11,
-Proposition 10.1.1, p. 75; Young, Lemma 3.1, p. 37, for a finite group of rational torsion points). In
-Bloch's formulation `T = E[C]` with all points of order `C` rational; the proof needs only that the support is
-rational and killed by `C`. Outside `T` all functions are units; at a non-zero `P ∈ T`,
+candidate `C{f, g} + Σ_{0 ≠ P ∈ T} {f_P, c_P}` has tame value one at every place. This is the
+algebraic extension of Young, Lemma 3.1, pp. 37–38: there the coefficient is `#T` over a totally
+real number field; here any positive annihilator `C` works over any field by the following
+valuation and Weil-reciprocity argument. Outside `T` all functions are units; at a non-zero `P ∈ T`,
 `tame P {f_P, c} = c^{−C}`, so the value is `c_P^C · c_P^{−C} = 1`; at `O`, `tame O {f_P, c} = c^C` and the
 value is one by §7.4, all places of `T` having degree one. Equivalently, the tame symbol of `{f, g}` lies in
 `Div(E) ⊗ k^×`; its image in `Pic(E) ⊗ k^×` is `(O) ⊗ ∏ c_x + Σ (x − O) ⊗ c_x`, the first term vanishing by
 Weil reciprocity and the second killed by `C`, and the exact sequence
-`k(E)^× ⊗ k^× → Div(E) ⊗ k^× → Pic(E) ⊗ k^× → 0` supplies the correction. Bloch's printed proof leaves the
-use of reciprocity implicit. *Needs:* §§7.2, 7.4–7.5.
+`k(E)^× ⊗ k^× → Div(E) ⊗ k^× → Pic(E) ⊗ k^× → 0` supplies the correction. This tensor description is an alternative derivation of the
+explicit valuation calculation above. *Needs:* §§7.2, 7.4–7.5.
 
 **Checks.**
 - `blochCorrection_11a3`: on `11a3` with `T = E(ℚ)_tors` (order five), `f = x`, `g = y`, `C = 5`: the tame
@@ -1869,27 +1994,41 @@ use of reciprocity implicit. *Needs:* §§7.2, 7.4–7.5.
 
 ### 7.7 Bloch's classes S_a
 
-Let `E/k` have all points of order `C` rational, so `E[C] ≅ (ℤ/C)²` and, for `C ≥ 3`, `μ_C ⊂ k`; over `ℚ`
+Let `C ≥ 1` be prime to `char k` and let `E/k` have its full geometric `C`-torsion rational,
+so `E[C] ≅ (ℤ/C)²` and, for `C ≥ 3`, `μ_C ⊂ k`; over `ℚ`
 only `C ≤ 2` occurs, and classes over `ℚ` come from §7.9. Let `K_2^T(E)` be the kernel of the tame symbol on
-`K_2(k(E))` and `Q_E` the subgroup generated by torsion and the symbols `{c, d}` with `c, d ∈ k^×`. Define
-`blochClass a ∈ K_2^T(E) ⊗ ℤ[1/C]` for `0 ≠ a ∈ E[C]` as `1/C` times the class of
-`C{ρ, f_a} + Σ {f_i, c_i}`, the correction of §7.6 for `(ρ, f_a)` (Bloch, CRM Monograph 11, (10.1.2) and the
-following paragraph, p. 76). Prove `blochClass_wellDefined`: `S_a` is independent of the choices of `ρ` and
+`K_2(k(E))` and `Q_E` the subgroup generated by torsion and the symbols `{c, d}` with `c, d ∈ k^×`. Define the choice-dependent lift
+`blochClassLift a ∈ K_2^T(E) ⊗ ℤ[1/C]` for `0 ≠ a ∈ E[C]` as `1/C` times the class of
+`C{ρ, f_a} + Σ {f_i, c_i}`, the correction of §7.6 for `(ρ, f_a)`. Define the canonical class
+`blochClass a` in `(K_2^T(E)/Q_E) ⊗ ℤ[1/C]` as its image. Here `Q_E` means the subgroup of
+`K_2^T(E)` generated by its torsion and by constant symbols, which are unramified. Prove `blochClass_wellDefined`: `S_a` is independent of the choices of `ρ` and
 `f_a` (each fixed up to a constant) and of the correction, modulo `Q_E`; when `K_2(k)` is torsion (a number
-field) it is well defined modulo torsion. Two corrections differ by an element of the image of
+field) it is well defined modulo torsion. For this well-definedness target, use the following tensor-exactness argument: two corrections
+differ by an element of the image of
 `k(E)^× ⊗ k^×` in the kernel of the tame symbol, which is the image of `ker(div ⊗ id)`, generated by
-`k^× ⊗ k^×` and torsion `Tor(Pic(E), k^×)`; changing `ρ` or `f_a` by constants changes `C{ρ, f_a}` by symbols
-`{c, h}`, absorbed the same way. Bloch's text puts `{ρ, f_a}` itself in the kernel of the tame symbol modulo
-`k(E)^× ⊗ k^×`; only `C{ρ, f_a}` is correctable in general, which is why `S_a` lives in
-`K_2^T(E) ⊗ ℤ[1/C]`. The classes `S_a` are **not** asserted to be linearly independent: the independence in
-Bloch's text is independence of choices, and Dokchitser–de Jeu–Zagier's Proposition 4.3(1), p. 8, gives
-dependences. API: `blochRho`, `torsionFunction`, `blochClass`, `blochClass_wellDefined`,
-`divisor_blochRho`, `divisor_torsionFunction`. *Needs:* §§2.4, 7.2, 7.5–7.6.
+`k^× ⊗ k^×` together with lifts of `Tor(Pic(E), k^×)`. Explicit generators of the latter
+have the form `{h, ζ}`, where `div h = nD` and `ζ^n = 1`, and are themselves killed by `n`;
+thus the image is indeed contained in constants plus torsion, rather than merely having a
+torsion quotient by constants; changing `ρ` or `f_a` by constants changes `C{ρ, f_a}` by symbols
+`{c, h}`, absorbed the same way. Only `C{ρ, f_a}` is guaranteed to be correctable by §7.6, so division by `C` is made only
+after obtaining an unramified class. The construction combines §7.6 (Young, Lemma 3.1,
+pp. 37–38) with the tensor argument just given. **Gap: historical normalisation.** The
+comparison `blochClass_eq_Bloch` with Bloch's Lecture 10, (10.1.2), p. 76, remains unverified.
+It must identify the same quotient, the factor `1/C` and the tame-symbol orientation; the
+construction above does not establish that source identification.
+The classes are not claimed to be linearly independent; Dokchitser–de Jeu–Zagier,
+Proposition 4.3(1), p. 8, gives relations among the related three-point classes. API:
+`blochClassLift`, `blochClass`, `blochClass_wellDefined`, `blochClass_change_function`,
+`blochClass_change_correction`. *Needs:* §§2.4, 7.2, 7.5–7.6.
 
 **Checks.**
 - `blochClass_C2_needs_factor`: on `y² = x³ − x` over `ℚ`, `C = 2`, `a = (0, 0)`: `{1/y, x}` has tame values
   `(−1, 1, −1, 1)` at `((0, 0), (1, 0), (−1, 0), O)`, its image in `Pic(E) ⊗ ℚ^×` is `(1, 0) ⊗ (−1) ≠ 0`, so it
   cannot be corrected by symbols `{h, c}` with `c ∈ ℚ^×`; `2{1/y, x}` can.
+  For the nonzero tensor assertion, `(1,0)` is not twice a rational point: the doubling
+  formula would require a rational root of `z⁴−4z³+2z²+4z+1`, whose only possible
+  rational roots `±1` both give `4`. Apply the sign homomorphism `ℚ^× → ℤ/2` to the
+  tensor factor; the image is the nonzero class of `(1,0)` in `E(ℚ)/2E(ℚ)`.
 - `blochClass_not_independent`: for three rational points `P₁, P₂, P₃` with pairwise torsion differences,
   the symbols `S₁, S₂, S₃` of Dokchitser–de Jeu–Zagier's Construction 4.1 span a subgroup of rank at most
   one of `K_2^T` modulo torsion.
@@ -1905,8 +2044,8 @@ Let `L/k` be finite, `E_L = E ×_k L`, and `N : K_2(L(E)) → K_2(k(E))` the tra
 formula at `P` and the places of `L(E)` above it, which are the closed points of `E_L` above `P`). Hence `N`
 maps `K_2^T(E_L)` to `K_2^T(E)`, a certificate for `β` over `L` yields one for `N β` over `k` with residues
 computed by the norms, `N ∘ res = [L : k]`, and `N{f, c} = {N f, c}` for `c ∈ k^×` (Weibel, *K-book*, Remark
-III.6.3.1, p. 234, for the restriction half; Bloch, CRM Monograph 11, Exercise 10.1.2, p. 76, leaves the
-non-rational case to this route). *Needs:* §§3.6, 7.2; K2SymbolsBrauer T.3.
+V.6.6.3–6.6.4, p. 410, for compatibility of transfer with localisation;
+III.6.3.1, p. 234, for restriction). *Needs:* §§3.6, 7.2; K2SymbolsBrauer T.3.
 
 **Checks.**
 - `transfer_x3_minus_2x`: for `E : y² = x³ − 2x` over `ℚ`, `L = ℚ(√2)` and `β = {x − √2, y}`,
@@ -1984,7 +2123,9 @@ K2SymbolsBrauer T.3, T.5.
 **Checks.**
 - `E4_tame_values`: all eight tame values of `α` equal one.
 - `E4_specialisation_Q`: `i_Q^*(α) = {−1, 1 + u} = {−1, 5}`, and the tame symbol of `{−1, 5}` at 5 is `−1`.
-- `E4_divisor_degrees`: each of `(v)`, `(w)`, `(h)` has degree zero, so the listed support is exhaustive.
+- `E4_divisor_degrees`: each of `(v)`, `(w)`, `(h)` has degree zero. Exhaustiveness additionally
+  follows by factoring their numerator and denominator zero loci in the coordinate ring and checking
+  the order at `O`; degree zero alone would permit omitted pairs of a zero and a pole.
 
 ### 8.2 A residue at a closed point of degree two
 
@@ -2015,7 +2156,8 @@ denominators cleared, `v = V/Z`, `w = W/Z`) the local ring at the generic point 
 of the fibre at 3 is a discrete valuation ring with uniformiser 3: from `4vw = −3(v² − 1)(w² − 1)` with `w`
 and `(v² − 1)(w² − 1)` units at `η`, `v` is 3 times a unit. So `ord_η v = 1`, `ord_η w = 0`, and the vertical
 tame value of `{v, w}` is the class of `1/w`, of infinite order in `𝔽₃(w)^×`; that of `{−1, h}` is `±1`. A
-regular proper model maps onto this normal model and is an isomorphism over `η`, so no non-zero multiple of
+regular proper model can be chosen to map to this projective model and to be an isomorphism over
+the regular point `η`, so no non-zero multiple of
 `α` is integral (Dummigan–Golyshev–de Jeu–Kerr, proof of Proposition 10.2(2), pp. 30–31). Only split
 multiplicative primes can produce such a failure rationally: at good, additive and non-split fibres `K_1'`
 of the fibre is torsion, so vertical conditions hold after multiplying by an integer (Young, Theorem 3.3,
@@ -2049,6 +2191,11 @@ Layers 6–7; K2SymbolsBrauer T.3–T.5.
 
 ## References
 
+- Marc Levine, *K-theory and motivic cohomology of schemes, I*, author draft, December 2001,
+  [author PDF](https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf):
+  §3.2, Lemma 3.3 and Proposition 3.5 (pp. 12–14), Proposition 6.8 (pp. 19–20),
+  Theorem 12.12 (pp. 58–59) and Theorem 14.7 (pp. 73–74).
+
 - C. A. Weibel, *The K-book: an introduction to algebraic K-theory*, Graduate Studies in Mathematics 145,
   AMS, 2013; author-hosted combined draft of 29 August 2013,
   [Kbook.pdf](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf) (page `n` is PDF page `n + 8`), and
@@ -2057,8 +2204,9 @@ Layers 6–7; K2SymbolsBrauer T.3–T.5.
   III.6.7, III.6.7.1, III.7.2; IV.6.9, Exercise IV.6.13; V.1.5, V.3.3.2, V.3.11–3.12, V.6.6, V.6.6.3–6.6.4,
   V.6.7.1, V.6.8, V.6.12–6.12.1, V.6.13.2, V.9.5; VI.1.7, VI.4.3, VI.4.7, VI.6.1–6.8.
 - S. Bloch, *Higher regulators, algebraic K-theory, and zeta functions of elliptic curves*, CRM Monograph
-  Series 11, AMS, 2000 (the 1978 Irvine lectures): Lecture 10, Proposition 10.1.1 (p. 75), (10.1.2) and
-  Exercise 10.1.2 (p. 76).
+  Series 11, AMS, 2000 (the 1978 Irvine lectures): Lecture 10, (10.1.2), p. 76. This locator and
+  the historical identification are unverified; see the explicit gap in §7.7. The correction
+  theorem is sourced independently to Young and its displayed valuation proof in §7.6.
 - M. A. Young, *K₂ and L-series of elliptic curves over real quadratic fields*, PhD thesis, Durham, 1995,
   [Durham E-Theses 5114](https://etheses.durham.ac.uk/id/eprint/5114/1/5114_2567.PDF): Lemma 3.1 (p. 37),
   Theorem 3.3 (p. 41).

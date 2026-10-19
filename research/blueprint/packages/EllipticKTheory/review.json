@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-EllipticKTheory~adv",
+    "date": "2026-10-19",
+    "notes": "Completed fixing and adversarial review of all eight layers and three examples; removed current-library/upstream duplicates and corrected affine SK1, Picard factor order/open centres, regular-model marking and regular-locus resolution, torsion-characteristic and integral-certificate hypotheses, rational/integral and Bloch lift/quotient distinctions, finite-field generality and supplier contracts. Checked 15 reproducibly sampled source locators plus targeted sources and more than ten Lean signatures. Suggested.lean elaborates at the pinned build with only sorry warnings; packet validators and intake checks pass. One unresolved defect: README §7.7 blochClass_eq_Bloch, identification of the constructed class with Bloch Lecture 10 (10.1.2), p. 76, requires an authorised readable source check of quotient, factor 1/C and tame orientation. The locator is marked unverified; see the review report for the exact handoff."
+  }
+}
