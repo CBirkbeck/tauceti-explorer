@@ -1,14 +1,22 @@
-import Mathlib
+import Mathlib.Algebra.Group.Hom.Instances
+import Mathlib.Algebra.Group.Prod
+import Mathlib.Algebra.MvPolynomial.Basic
+import Mathlib.Algebra.Polynomial.Laurent
+import Mathlib.Data.Nat.Factorization.Basic
+import Mathlib.Data.ZMod.Basic
+import Mathlib.RingTheory.Ideal.Quotient.Defs
 
 /-!
-# RefinedTraceMethods: representative target signatures
+# RefinedTraceMethods: suggested signatures
 
-The roadmap is RefinedTraceMethods.md. This file records light definitions and
-representative end theorem signatures statable against the pinned Mathlib APIs;
-it is not exhaustive. In particular it distinguishes FV = p from VF = p, keeps
-positivity in the high-powered indexing condition, and records only the ordinary
-underlying coefficient quotient of the graded spectral presentation. The reader
-specifies the coherent categories, spectral realizations, filtrations and traces.
+This file is not the roadmap and is not exhaustive: the roadmap document
+`RefinedTraceMethods.md` is definitive. The statements below suggest Lean forms, so that
+contributors and reviewers converge on names and signatures. They are limited to light
+definitions and representative end statements over carriers the pinned Mathlib already has.
+In particular the file distinguishes FV = p from VF = p, keeps positivity in the high-powered
+indexing condition, and records only the ordinary underlying coefficient quotient of the graded
+spectral presentation. The roadmap document specifies the coherent categories, spectral
+realizations, filtrations and traces, which have no carrier at the pins.
 -/
 
 noncomputable section
@@ -17,22 +25,63 @@ namespace TauCetiRoadmap.RefinedTraceMethods
 
 universe u v
 
-/-! ## Layer RT.2: Cartier operators -/
+/-! ## Layer RT.2: classical Cartier modules -/
 
-/-- A classical p-typical Cartier structure. Only FV = p is imposed;
-Antieau–Nikolaus, section 3.1, p. 15. -/
+/-- `CartierStructure`: a classical p-typical Cartier structure on an abelian group. Only
+FV = p is imposed, not VF = p (Antieau–Nikolaus, §3.1, p. 15, and footnote 5). -/
 structure CartierStructure (p : ℕ) (M : Type u) [AddCommGroup M] where
   frobenius : M →+ M
   verschiebung : M →+ M
   frobenius_verschiebung : frobenius.comp verschiebung = p • AddMonoidHom.id M
 
-/-- On the integers, F = p and V = 1 satisfy the Cartier relation. -/
+namespace CartierStructure
+
+/-- `CartierStructure.IsMorphism`: an additive map is a Cartier map when it commutes with
+each operator, not merely with their composite. -/
+def IsMorphism {p : ℕ} {M : Type u} {N : Type v} [AddCommGroup M] [AddCommGroup N]
+    (c : CartierStructure p M) (d : CartierStructure p N) (f : M →+ N) : Prop :=
+  f.comp c.frobenius = d.frobenius.comp f ∧ f.comp c.verschiebung = d.verschiebung.comp f
+
+example {p : ℕ} {M : Type u} [AddCommGroup M] (c : CartierStructure p M) :
+    c.IsMorphism c (AddMonoidHom.id M) := by
+  constructor <;> ext x <;> rfl
+
+example {p : ℕ} {M : Type u} {N : Type v} [AddCommGroup M] [AddCommGroup N]
+    (c : CartierStructure p M) (d : CartierStructure p N) :
+    c.IsMorphism d 0 := by
+  constructor <;> ext x <;> simp
+
+end CartierStructure
+
+/-- `CartierModule.isogeny_iff_underlying`: a Cartier map is an isogeny of Cartier modules
+exactly when its underlying additive map is an isogeny. For the nontrivial direction replace
+an additive inverse g with denominator n by n • g, whose composites are n² • id: both operator
+defects of g land in ker f, which n annihilates. This is the corrected V-operator argument in
+the proof of AMMN, Proposition 3.1, p. 15. -/
+theorem CartierModule.isogeny_iff_underlying {p : ℕ} {M : Type u} {N : Type v}
+    [AddCommGroup M] [AddCommGroup N]
+    (c : CartierStructure p M) (d : CartierStructure p N)
+    (f : M →+ N) (hf : c.IsMorphism d f) :
+    (∃ (g : N →+ M) (n : ℕ), 0 < n ∧ d.IsMorphism c g ∧
+        g.comp f = n • AddMonoidHom.id M ∧ f.comp g = n • AddMonoidHom.id N) ↔
+      ∃ (g : N →+ M) (n : ℕ), 0 < n ∧
+        g.comp f = n • AddMonoidHom.id M ∧ f.comp g = n • AddMonoidHom.id N := by
+  sorry
+
+/-- Test `CartierModule.zero`: the zero group carries exactly one Cartier structure. -/
+example (p : ℕ) (c d : CartierStructure p PUnit) :
+    c.frobenius = d.frobenius ∧ c.verschiebung = d.verschiebung :=
+  ⟨AddMonoidHom.ext fun _ => Subsingleton.elim _ _,
+    AddMonoidHom.ext fun _ => Subsingleton.elim _ _⟩
+
+/-- Test `CartierModule.integer`: on ℤ, F = p and V = 1 satisfy the Cartier relation. -/
 example (p : ℕ) : ∃ c : CartierStructure p ℤ,
     c.frobenius = p • AddMonoidHom.id ℤ ∧ c.verschiebung = AddMonoidHom.id ℤ := by
   refine ⟨⟨p • AddMonoidHom.id ℤ, AddMonoidHom.id ℤ, ?_⟩, rfl, rfl⟩
   simp
 
-/-- For p > 1, taking both operators to be the identity on ℤ is excluded. -/
+/-- Test `CartierModule.integer`, second half: for p > 1, taking both operators to be the
+identity on ℤ is excluded. -/
 example (p : ℕ) (hp : 1 < p) (c : CartierStructure p ℤ)
     (hf : c.frobenius = AddMonoidHom.id ℤ)
     (hv : c.verschiebung = AddMonoidHom.id ℤ) : False := by
@@ -40,50 +89,34 @@ example (p : ℕ) (hp : 1 < p) (c : CartierStructure p ℤ)
   simp [hf, hv] at h
   omega
 
-/-- A Cartier map commutes with each operator, not merely their composite. -/
-def IsCartierMorphism {p : ℕ} {M : Type u} {N : Type v}
-    [AddCommGroup M] [AddCommGroup N]
-    (c : CartierStructure p M) (d : CartierStructure p N) (f : M →+ N) : Prop :=
-  f.comp c.frobenius = d.frobenius.comp f ∧
-    f.comp c.verschiebung = d.verschiebung.comp f
-
-example {p : ℕ} {M : Type u} [AddCommGroup M] (c : CartierStructure p M) :
-    IsCartierMorphism c c (AddMonoidHom.id M) := by
-  constructor <;> ext x <;> rfl
-
-example {p : ℕ} {M : Type u} {N : Type v} [AddCommGroup M] [AddCommGroup N]
-    (c : CartierStructure p M) (d : CartierStructure p N) :
-    IsCartierMorphism c d 0 := by
-  constructor <;> ext x <;> simp
-
-/-- Clearing the two operator defects lifts an additive isogeny inverse.
-This is the corrected V-operator argument in AMMN, Proposition 3.1, p. 15. -/
-theorem cartier_isogeny_inverse {p : ℕ} {M : Type u} {N : Type v}
-    [AddCommGroup M] [AddCommGroup N]
-    (c : CartierStructure p M) (d : CartierStructure p N)
-    (f : M →+ N) (hf : IsCartierMorphism c d f)
-    (g : N →+ M) (n : ℕ) (hn : 0 < n)
-    (hgf : g.comp f = n • AddMonoidHom.id M)
-    (hfg : f.comp g = n • AddMonoidHom.id N) :
-    IsCartierMorphism d c (n • g) ∧
-      (n • g).comp f = n ^ 2 • AddMonoidHom.id M ∧
-      f.comp (n • g) = n ^ 2 • AddMonoidHom.id N := by
-  sorry
+/-- Test `CartierModule.no_vf_axiom`: on (ℤ/p)² put F(x, y) = (x, 0) and V(x, y) = (0, x).
+Then FV = 0 = p • id, but VF(1, 0) = (0, 1), so VF ≠ p • id; a definition that also imposed
+VF = p would wrongly exclude this Cartier module. -/
+example (p : ℕ) [Fact p.Prime] : ∃ c : CartierStructure p (ZMod p × ZMod p),
+    c.verschiebung.comp c.frobenius ≠ p • AddMonoidHom.id (ZMod p × ZMod p) := by
+  refine ⟨⟨(AddMonoidHom.inl (ZMod p) (ZMod p)).comp (AddMonoidHom.fst (ZMod p) (ZMod p)),
+    (AddMonoidHom.inr (ZMod p) (ZMod p)).comp (AddMonoidHom.fst (ZMod p) (ZMod p)), ?_⟩, ?_⟩
+  · ext x <;> simp
+  · intro h
+    have h1 := congrArg Prod.snd (DFunLike.congr_fun h ((1 : ZMod p), (0 : ZMod p)))
+    simp at h1
 
 /-! ## Layer RT.5: the arithmetic indexing condition -/
 
-/-- High-powered integers in Meyer–Wagner, section 3.1, p. 30.
-A present 2-adic exponent must be even and at least four. -/
+/-- `HighPowered`: the high-powered integers of Meyer–Wagner, 3.3, p. 30. A present odd
+prime exponent is at least two; a present 2-adic exponent is even and at least four. -/
 def HighPowered (m : ℕ) : Prop :=
   0 < m ∧
     (m.factorization 2 = 0 ∨ (4 ≤ m.factorization 2 ∧ Even (m.factorization 2))) ∧
     ∀ p : ℕ, p.Prime → p ≠ 2 → m.factorization p = 0 ∨ 2 ≤ m.factorization p
 
-/-- Fourth powers give a divisibility-cofinal supply of admissible indices. -/
+/-- `HighPowered.fourthPower`: fourth powers give a divisibility-cofinal supply of
+admissible indices. -/
 theorem highPowered_fourth_power {d : ℕ} (hd : 0 < d) :
     HighPowered (d ^ 4) ∧ d ∣ d ^ 4 := by
   sorry
 
+/-- Tests `HighPowered.one` and `HighPowered.excludeZeroEightThirtyTwo` (the value 32). -/
 example : HighPowered 1 ∧ ¬ HighPowered 32 := by
   constructor
   · simp [HighPowered]
@@ -93,16 +126,17 @@ example : HighPowered 1 ∧ ¬ HighPowered 32 := by
       rw [Nat.factorization_pow]
       simp [Nat.prime_two.factorization]
     rw [hfac] at h
-    norm_num at h
+    rcases h with h | ⟨-, k, hk⟩ <;> omega
 
-/-- Factorization alone would incorrectly admit zero. -/
+/-- Test `HighPowered.excludeZeroEightThirtyTwo` (the value 0): factorization alone would
+incorrectly admit zero. -/
 example : ¬ HighPowered 0 := by
   simp [HighPowered]
 
 /-! ## Layer RT.6: the ordinary coefficient presentation -/
 
-/-- The underlying quotient A[u,v]/(uv−ξ). Its homotopical grading and
-spectral realization are specified in the reader; BMS2, Proposition 6.2. -/
+/-- `TracePresentation`: the underlying quotient A[u,v]/(uv−ξ). Its homotopical grading and
+spectral realization are specified in the roadmap document; BMS2, Proposition 6.2. -/
 abbrev TracePresentation (A : Type u) [CommRing A] (ξ : A) :=
   MvPolynomial (Fin 2) A ⧸
     Ideal.span {MvPolynomial.X (0 : Fin 2) * MvPolynomial.X (1 : Fin 2) - MvPolynomial.C ξ}
@@ -121,22 +155,23 @@ namespace TracePresentation
 
 variable {A : Type u} [CommRing A]
 
-/-- The canonical coefficient homomorphism. -/
+/-- `TracePresentation.coeff`: the canonical coefficient homomorphism. -/
 def coeff (ξ : A) : A →+* TracePresentation A ξ :=
   (Ideal.Quotient.mk _).comp MvPolynomial.C
 
 example (ξ : A) : coeff ξ (1 : A) = 1 := by
   exact map_one _
 
-/-- The degree-two generator in the graded presentation. -/
+/-- `TracePresentation.u`: the degree-two generator in the graded presentation. -/
 def u (ξ : A) : TracePresentation A ξ :=
   Ideal.Quotient.mk _ (MvPolynomial.X (0 : Fin 2))
 
-/-- The degree-minus-two generator; it is a second variable before quotienting. -/
+/-- `TracePresentation.v`: the degree-minus-two generator; it is a second variable before
+quotienting. -/
 def v (ξ : A) : TracePresentation A ξ :=
   Ideal.Quotient.mk _ (MvPolynomial.X (1 : Fin 2))
 
-/-- The two generators satisfy the relation in the actual quotient. -/
+/-- `TracePresentation.uv`: the two generators satisfy the relation in the actual quotient. -/
 example (ξ : A) : u ξ * v ξ = coeff ξ ξ := by
   apply sub_eq_zero.mp
   change Ideal.Quotient.mk _
@@ -146,15 +181,16 @@ example (ξ : A) : u ξ * v ξ = coeff ξ ξ := by
   apply Ideal.Quotient.eq_zero_iff_mem.mpr
   exact Ideal.subset_span (Set.mem_singleton _)
 
-/-- The universal coefficient presentation, including uniqueness. -/
+/-- `TracePresentation.lift`: the universal coefficient presentation, including uniqueness. -/
 theorem universal_property {B : Type v} [CommRing B] (ξ : A)
     (f : A →+* B) (a b : B) (h : a * b = f ξ) :
     ∃! g : TracePresentation A ξ →+* B,
       (∀ x, g (coeff ξ x) = f x) ∧ g (u ξ) = a ∧ g (v ξ) = b := by
   sorry
 
-/-- The two maps have distinct generator images and semilinear coefficients.
-BMS2, Propositions 6.2–6.3, pp. 245–247 in the published version. -/
+/-- `TracePresentation.can` and `TracePresentation.frobenius`: the two maps have distinct
+generator images and semilinear coefficients. BMS2, Propositions 6.2–6.3, pp. 245–247 in the
+published version. -/
 theorem can_and_frobenius (ξ : A) (φ : A →+* A) :
     (∃ can : TracePresentation A ξ →+* LaurentPolynomial A,
       (∀ x, can (coeff ξ x) = LaurentPolynomial.C x) ∧
@@ -168,11 +204,11 @@ theorem can_and_frobenius (ξ : A) (φ : A →+* A) :
 
 end TracePresentation
 
-/- The reader also specifies the mixed/cyclic enhancements of imported ordinary
-Hochschild theory; coherent THH, cyclotomic spectra, TR and TC; the DGM and
-Beilinson comparisons; complex KU and its cyclonic q-Hodge comparison; continuous
-localizing invariants and rigidification; motivic, Nygaard and syntomic trace
-filtrations, AΩ comparisons and the Habiro interfaces. Their carriers require the
-named spectral and coherent infinity-categorical supplier contracts. -/
+/- The roadmap document also specifies the mixed/cyclic enhancements of imported ordinary
+Hochschild theory; coherent THH, cyclotomic spectra, topological Cartier modules, the
+cyclotomic t-structure, TR and TC; the DGM and Beilinson comparisons; complex KU and its
+cyclonic q-Hodge comparison; continuous localizing invariants and rigidification; motivic,
+Nygaard and syntomic trace filtrations, AΩ comparisons and the Habiro interfaces. Their
+carriers require the named spectral and coherent infinity-categorical supplier contracts. -/
 
 end TauCetiRoadmap.RefinedTraceMethods
