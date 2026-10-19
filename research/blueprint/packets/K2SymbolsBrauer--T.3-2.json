@@ -1,0 +1,819 @@
+{
+  "roadmapId": "K2SymbolsBrauer",
+  "protocol": "blueprint-v1",
+  "part": "T.3-2",
+  "scope": [
+    "K2SymbolsBrauer:T.3"
+  ],
+  "status": "complete",
+  "summary": "A target-level integration of the umbrella T.3 stage. Native valuation-ring unit parts realize the existing tame pairing; an explicit normalization dictionary and degree-two map square connect it to higher Milnor residues and the actual localization boundary. All higher constructions, finite-support and transfer results retain their existing owners. Coverage is planned, with the inherited field, localization/product and generic complete-DVR inputs recorded as gaps; no implementation or closure is asserted.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:Valuation.ord",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "The additive order −WithZero.log(v(f)); ord(0)=0 is a junk value, so symbol inputs are field units.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.ord_mul",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "ord(fg)=ord(f)+ord(g), with f and g explicitly nonzero.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.ord_zpow",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "ord(f^m)=m ord(f) for integral exponents.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.ord_neg",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Negation preserves the order.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.ord_add_eq_min_of_ord_ne",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "For two nonzero inputs of different orders, the order of the sum is their minimum.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.mem_valuationSubring_iff_ord_nonneg",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Membership in the native valuation subring is equivalent to nonnegative order, including the zero case.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.isUnit_iff_ord_eq_zero",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "For a nonzero native valuation-ring element, being a ring unit is equivalent to order zero.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.nontrivial_valueGroup_of_surjective",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Supplies the Nontrivial instance required by the uniformizer/decomposition declarations from surjectivity.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.isUniformizer_iff_ord_eq_one_of_surjective",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "Under the value-group Nontrivial instance, v.IsUniformizer(t) is equivalent to ord_v(t)=1.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:Valuation.exists_eq_zpow_mul_unit_of_surjective",
+        "module": "TauCeti/RingTheory/Valuation/Discrete/Order.lean",
+        "provides": "For a uniformizer t and a nonzero f, produces u:Rˣ with f=t^ord_v(f) u; its existential witness supplies the light native adapter.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Units.map",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "Maps native units along a monoid homomorphism, preserving their field or residue values.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.ResidueField",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+        "provides": "The quotient R/maximalIdeal R, with its field instance.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.residue",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+        "provides": "The native quotient ring homomorphism R→k; its domain is R, not all of F.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.unitGroupMulEquiv",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "The multiplicative equivalence between the order-zero subgroup of Fˣ and ring units Rˣ.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.unitGroupToResidueFieldUnits",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "The existing residue homomorphism on that subgroup; it is Units.map(residue) composed with unitGroupMulEquiv.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits",
+        "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "provides": "Every element of kˣ lifts to an actual valuation-ring unit.",
+        "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Weibel-III",
+      "title": "The K-book: an introduction to algebraic K-theory, Chapter III",
+      "authors": "Charles A. Weibel",
+      "edition": "Public author chapter PDF; locators use chapter/PDF pagination rather than whole-book pagination.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "III.6.1–6.3.1, pp. 48–51",
+        "III.7.1–7.3.2, pp. 61–63",
+        "III.7.5–7.6.1, pp. 63–66",
+        "Exercises III.7.1–7.2 and III.7.5–7.10, pp. 72–73"
+      ]
+    },
+    {
+      "id": "Weibel-V",
+      "title": "The K-book: an introduction to algebraic K-theory, Chapter V",
+      "authors": "Charles A. Weibel",
+      "edition": "Public author chapter PDF; locators use chapter/PDF pagination rather than whole-book pagination.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Exercise V.5.3 and V.6.1–6.1.2, pp. 37–38",
+        "V.6.6–6.6.4, pp. 41–42"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "read": "2026-10-19",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf",
+      "read": "2026-10-19",
+      "sha256": "52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "K2SymbolsBrauer:T.3/native-unit-part",
+      "parentStageId": "K2SymbolsBrauer:T.3",
+      "realises": [
+        "K2SymbolsBrauer:T.3"
+      ],
+      "kind": "definition",
+      "title": "Native unit parts",
+      "statement": "For π∈Fˣ with ord_v(π)=1 and f∈Fˣ, define U_π(f)∈Rˣ to be the unique unit whose field value is f·π^(−ord_v(f)). Obtain its data by choosing the witness in Valuation.exists_eq_zpow_mul_unit_of_surjective after installing Valuation.nontrivial_valueGroup_of_surjective and translating ord_v(π)=1 to v.IsUniformizer(π). This is a native-carrier adapter to the unit decomposition used by the existing tame-symbol owner, rather than a new valuation ring or symbol presentation.",
+      "hypotheses": [
+        "F is a field; v:F→ℤᵐ⁰ is a surjective valuation, R=v.valuationSubring and k=IsLocalRing.ResidueField R. Write ord_v(f)=−log(v(f)) for nonzero f."
+      ],
+      "prerequisites": [
+        "tauceti:Valuation.exists_eq_zpow_mul_unit_of_surjective",
+        "tauceti:Valuation.nontrivial_valueGroup_of_surjective",
+        "tauceti:Valuation.isUniformizer_iff_ord_eq_one_of_surjective",
+        "tauceti:Valuation.ord_mul",
+        "tauceti:Valuation.ord_zpow",
+        "mathlib:Units.map"
+      ],
+      "proofSteps": [
+        "Use the existing existential decomposition to select an actual element of Rˣ. No axiom or missing data construction is needed for this adapter.",
+        "Cancel π^ord_v(f) in F to identify the selected unit with fπ^(−ord_v(f)); injectivity of R→F and of units→R proves uniqueness.",
+        "Use ord_mul and ord_zpow to obtain the multiplicative and power laws; cancellation also identifies the effect of replacing π by cπ."
+      ],
+      "acceptance": [
+        "The maps have the displayed native domains and codomains, and every equality uses the specified residue normalization."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.3, chapter/PDF p. 51; III.7.3, p. 62",
+          "match": "The symbol and specialization formulas use the unit factors of uniformizer expansions; the library already provides their existence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/TameSymbol/Native",
+        "namespace": "TauCeti.T3Native"
+      },
+      "api": [
+        {
+          "name": "TauCeti.T3Native.unitPart",
+          "role": "constructor",
+          "statement": "U_π(f) is an actual unit of R, for π and f in Fˣ and ord_v(π)=1."
+        },
+        {
+          "name": "TauCeti.T3Native.unitPart_coe",
+          "role": "characterisation",
+          "statement": "The field value of U_π(f) is fπ^(−ord_v(f)); equivalently f=π^ord_v(f) U_π(f). This equation uniquely characterizes U_π(f)."
+        },
+        {
+          "name": "unitPart_mul",
+          "role": "structure",
+          "statement": "U_π(fg)=U_π(f)U_π(g), hence U_π is a group homomorphism Fˣ→Rˣ and U_π(f^m)=U_π(f)^m for m∈ℤ."
+        },
+        {
+          "name": "unitPart_unit",
+          "role": "simp",
+          "statement": "For u∈Rˣ, U_π(u)=u, while U_π(π^m)=1 for every m∈ℤ."
+        },
+        {
+          "name": "unitPart_change_uniformizer",
+          "role": "compatibility",
+          "statement": "For c∈Rˣ, U_(cπ)(f)=c^(−ord_v(f)) U_π(f)."
+        },
+        {
+          "name": "unitPart_residue_bridge",
+          "role": "coercion",
+          "statement": "For z in R.unitGroup, the existing unitGroupToResidueFieldUnits(z) equals Units.map(residue)(R.unitGroupMulEquiv(z)); these are the same native residue map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "K2SymbolsBrauer:T.3/native-tame-formula",
+          "how": "Supplies integral units for every residue operation, including symbols with negative input orders."
+        },
+        {
+          "where": "K2SymbolsBrauer:T.3/higher-milnor-residues",
+          "how": "The existing specialization uses the same reduced unit factors."
+        }
+      ],
+      "tests": [
+        {
+          "name": "unit_part_at_5",
+          "kind": "computation",
+          "statement": "For F=ℚ, ord=ord_5 and π=5, U_5(10)=2 and U_5(1/25)=1. A function returning f itself fails both, and a natural-power-only normalization fails the second."
+        },
+        {
+          "name": "unit_part_change",
+          "kind": "computation",
+          "statement": "For π′=10 at ord_5, U_10(5)=1/2, whose residue in 𝔽_5 is 3; U_5(5)=1. The unit factor itself is not independent of π."
+        },
+        {
+          "name": "unit_part_existing_unit",
+          "kind": "compatibility",
+          "statement": "U_π(u)=u for every u∈Rˣ, and U_π(π^(−2))=1. This distinguishes the native ring unit from an arbitrary field-unit coercion."
+        }
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/native-tame-formula",
+      "parentStageId": "K2SymbolsBrauer:T.3",
+      "realises": [
+        "K2SymbolsBrauer:T.3"
+      ],
+      "kind": "comparison",
+      "title": "Native realization of the tame symbol",
+      "statement": "Let f,g∈Fˣ, a=ord_v(f), b=ord_v(g), π∈Fˣ of order one, and write r:Rˣ→kˣ for Units.map(IsLocalRing.residue R). The native expression T_π(f,g)=(−1)^(ab) r(U_π(f))^b r(U_π(g))^(−a) equals the existing tameSymbol_v(f,g). If z∈Rˣ has field value f^b g^(−a), then T_π(f,g)=(−1)^(ab)r(z). Such z exists because its field value has order zero. Consequently the expression agrees with the existing uniformizer-free implementation through R.unitGroupMulEquiv and is independent of π. This is an equality of pairings on Fˣ×Fˣ before any K-group quotient.",
+      "hypotheses": [
+        "F is a field; v:F→ℤᵐ⁰ is a surjective valuation, R=v.valuationSubring and k=IsLocalRing.ResidueField R. Write ord_v(f)=−log(v(f)) for nonzero f."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.3/native-unit-part",
+        "K2SymbolsBrauer:T.3/tame-symbol",
+        "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+        "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+        "K2SymbolsBrauer:T.3/ramification-formula",
+        "tauceti:Valuation.ord_mul",
+        "tauceti:Valuation.ord_zpow",
+        "tauceti:Valuation.isUnit_iff_ord_eq_zero",
+        "tauceti:Valuation.mem_valuationSubring_iff_ord_nonneg",
+        "mathlib:IsLocalRing.residue",
+        "mathlib:ValuationSubring.unitGroupMulEquiv",
+        "mathlib:ValuationSubring.unitGroupToResidueFieldUnits"
+      ],
+      "proofSteps": [
+        "Substitute f=π^a U_π(f) and g=π^b U_π(g). In f^b g^(−a), the π exponents cancel exactly, for arbitrary integers a,b.",
+        "The native unit factors identify z with U_π(f)^b U_π(g)^(−a). Apply the existing residue homomorphism; its definition through unitGroupMulEquiv gives the comparison to the predecessor formula.",
+        "Changing π to cπ introduces c^(−ab) and c^(ab), which cancel. Import the established bilinear/Steinberg proof plan and arbitrary valued-embedding ramification formula; no second quotient or ramification theory is constructed."
+      ],
+      "acceptance": [
+        "At ord_5, T_5(2,5)=2, T_5(5,2)=3, T_5(5,5)=4 and T_5(10,5)=3 in 𝔽_5ˣ.",
+        "For f=1/5 and g=4/5, the negative-order Steinberg test gives 1, including the sign.",
+        "Under a field embedding with positive ramification index e and the induced residue embedding, the target tame value is the e-th power of the mapped source tame value. Finite-dimensionality is not assumed."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.3 and III.6.3.1, chapter/PDF p. 51",
+          "match": "The source gives the inverse convention; invert its unit-factor expression and ramification identity to obtain this native realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K2SymbolsBrauer:T.3/tame-symbol",
+        "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence"
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/residue-convention-dictionary",
+      "parentStageId": "K2SymbolsBrauer:T.3",
+      "realises": [
+        "K2SymbolsBrauer:T.3"
+      ],
+      "kind": "theorem",
+      "title": "Residue convention dictionary",
+      "statement": "For every n≥1, let ∂^last_v:K^M_n(F)→K^M_(n−1)(k) be the existing residue normalized by ∂^last{u₁,…,u_(n−1),π}={ū₁,…,ū_(n−1)} and zero on all-unit symbols. Let ∂^first be the residue of Weibel III.7.3, normalized with π first. As homomorphisms, ∂^first_v=(−1)^(n−1)∂^last_v. In degree one both are ord_v; in degree two, under K^M_1(k)=kˣ, ∂^last is tameSymbolHom and ∂^first is its inverse. If d_π(x)=λ_π(x)+∂^last_v(x)Π in the existing Serre algebra, Π is on the right. For homogeneous x of degree i and y of degree j, ∂^last(xy)=λ_π(x)∂^last(y)+(−1)^j∂^last(x)ρ_π(y), where ρ_π{uπ^m}={(−1)^mū}. In the first normalization the corresponding law is ∂^first(xy)=(−1)^iλ_π(x)∂^first(y)+∂^first(x)ρ_π(y). For π′=cπ, λ_π′(x)=λ_π(x)−∂^last(x){c̄}, while ∂^last does not change.",
+      "hypotheses": [
+        "F is a field; v:F→ℤᵐ⁰ is a surjective valuation, R=v.valuationSubring and k=IsLocalRing.ResidueField R. Write ord_v(f)=−log(v(f)) for nonzero f."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.3/higher-milnor-residues",
+        "K2SymbolsBrauer:T.3/serre-residue-algebra",
+        "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
+        "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser",
+        "K2SymbolsBrauer:T.3/tame-symbol-hom",
+        "K2SymbolsBrauer:T.2/milnor-k-theory",
+        "K2SymbolsBrauer:T.2/milnor-alternating"
+      ],
+      "proofSteps": [
+        "Use the existing Serre-algebra coefficient splitting, not a second construction. Moving Π past a degree-(n−1) coefficient gives the factor (−1)^(n−1), including the 2-torsion relation Π²={−1}Π.",
+        "Expand d_π(x)d_π(y) using the explicit multiplication of the imported Serre algebra. Its coefficient on the right is the displayed last-normalization product law; substitute the degree signs to obtain the first-normalization law.",
+        "Apply the existing automorphism Π↦Π−{c̄} to identify specialization under π′=cπ. The residue coefficient is unchanged. The degree-two value is fixed by {u,π}, not by an unlabelled abstract group isomorphism."
+      ],
+      "acceptance": [
+        "In degree three both residues send {u₁,u₂,π} to {ū₁,ū₂}; in degree two they take inverse values on {2,5} at ord_5.",
+        "λ_5{5}=1 but λ_10{5}=3 in 𝔽_5ˣ. Independence of specialization would fail this test.",
+        "For x={5}, y={2}, the last-normalization product law gives 3 and the first-normalization law gives 2 in 𝔽_5ˣ."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.7.3, chapter/PDF p. 62; Exercises III.7.1 and III.7.10, pp. 72–73",
+          "match": "The theorem fixes π first. The exercise product formula uses the opposite convention; the corrected dictionary and parameter-dependence test reconcile them explicitly."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K2SymbolsBrauer:T.3/higher-milnor-residues",
+        "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
+        "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser"
+      ],
+      "planet": {
+        "name": "Residue conventions"
+      }
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/degree-two-residue-square",
+      "parentStageId": "K2SymbolsBrauer:T.3",
+      "realises": [
+        "K2SymbolsBrauer:T.3"
+      ],
+      "kind": "theorem",
+      "title": "The degree-two residue comparison square",
+      "statement": "Let R be the native DVR, with fraction field F and residue field k. Write μ_F:K^M_2(F)≃K₂^St(F) for the imported Matsumoto equivalence, c_F:K₂^St(F)≃K₂^Q(F) for T.1/k2-pi2 followed by the imported plus=Q comparison, η_F=c_F∘μ_F, and det_k:K₁^Q(k)≃kˣ for the imported field determinant comparison. For the actual localization boundary B^R₂:K₂^Q(F)→K₁^Q(k), normalized by B₁[π]=1 and the right module rule B(x·j*y)=B(x)·i*y, the following equalities of homomorphisms hold: tameSymbolHom^M_v=tameSymbolHom^St_v∘μ_F=inv∘det_k∘B^R₂∘η_F. Also ∂^last_v in degree two agrees with tameSymbolHom^M_v under K^M_1(k)=kˣ. Setting B^L₂=−B^R₂ gives det_k∘B^L₂∘η_F=tameSymbolHom^M_v. Here inv denotes inversion of the abelian group kˣ. These equalities concern the actual symbol, product and connecting maps, not arbitrary chosen isomorphisms. The same inversion is applied at every prime in the Dedekind boundary and cancels from either norm/residue square.",
+      "hypotheses": [
+        "F is a field; v:F→ℤᵐ⁰ is a surjective valuation, R=v.valuationSubring and k=IsLocalRing.ResidueField R. Write ord_v(f)=−log(v(f)) for nonzero f.",
+        "π∈Fˣ is a uniformizer of order one. The Milnor, classical, plus and Quillen identifications and the localization/product maps are the specified imported natural maps."
+      ],
+      "prerequisites": [
+        "K2SymbolsBrauer:T.3/native-tame-formula",
+        "K2SymbolsBrauer:T.3/residue-convention-dictionary",
+        "K2SymbolsBrauer:T.3/tame-symbol-hom",
+        "K2SymbolsBrauer:T.3/localization-boundary",
+        "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+        "K2SymbolsBrauer:T.3/quillen-transfer-norm-residue",
+        "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison",
+        "K2SymbolsBrauer:T.2/matsumoto",
+        "K2SymbolsBrauer:T.2/graded-map",
+        "K2SymbolsBrauer:T.1/k2-pi2",
+        "KTheoryLowDegrees:U.3/SK1-field",
+        "GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q",
+        "GeneralAlgebraicKTheory:K.2:plus/zero-one-ring-comparison",
+        "GeneralAlgebraicKTheory:K.3/dvr-degree-one-boundary",
+        "GeneralAlgebraicKTheory:K.3/localization-product-boundary",
+        "GeneralAlgebraicKTheory:K.3",
+        "GeneralAlgebraicKTheory:K.7"
+      ],
+      "proofSteps": [
+        "Import the actual connecting map from K.3 and its unit-product identification from K.7/T.2. Import det_k from U.3 through K.2:plus/zero-one-ring-comparison and c_F through T.1/k2-pi2 followed by K.2:plus/plus-equals-Q; the missing supplier contracts remain explicit gaps.",
+        "The degree-one index computation gives B₁[π]=1. The right module rule then gives det_k B₂([π]·[u])=ū. Graded commutativity and the symbol-product comparison give det_k B₂([u]·[π])=ū^(−1).",
+        "Expand arbitrary field entries into a uniformizer power times a ring unit. Bilinearity, the all-unit zero boundary and the relation {π,π}={π,−1} identify B₂ on every symbol with the inverse tame symbol. Symbol generation promotes this to equality of homomorphisms.",
+        "For a Dedekind domain restrict the actual sequence to each DVR; finite support gives the direct-sum map. Inversion is an automorphism of every residue unit group and commutes with residue norms, so both normalizations give the identical transfer square. Import, rather than reconstruct, the two transfer functors and their degree-two comparison."
+      ],
+      "acceptance": [
+        "On {2,5} over ℚ at 5, tameSymbolHom has value 2, whereas det_k B^R₂ η has value 3. The square commutes only with the displayed inversion.",
+        "On {5,5}, both degree-two normalizations give −1, which is 4 in 𝔽_5; diagonal tests alone do not detect inversion.",
+        "For finite integral closure S/R, both the Milnor and Quillen norm/residue squares have residue-field norms and no extra e_w factor. The restriction square has e_w instead."
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel-V",
+          "locator": "V.6.1.2, chapter/PDF p. 38; V.6.6–6.6.1, p. 41; V.(6.6.3)–(6.6.4), p. 42",
+          "match": "The index fixes the positive degree-one boundary, the product calculation identifies the degree-two boundary, and the finite-map diagram supplies its transfer compatibility."
+        },
+        {
+          "sourceId": "Weibel-III",
+          "locator": "III.6.3, chapter/PDF p. 51; III.7.1 and III.7.3, pp. 61–62",
+          "match": "The field symbols and higher residues fix the normalization against which the actual boundary is compared."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "K2SymbolsBrauer:T.3/localization-boundary",
+        "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison"
+      ],
+      "planet": {
+        "name": "Localization and tame residues"
+      }
+    }
+  ],
+  "imports": [
+    {
+      "id": "K2SymbolsBrauer:T.3/tame-symbol",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The signed uniformizer-unit pairing, with τ(u,π)=ū and τ(π,u)=ū^(−1).",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "Equality with the uniformizer-free signed residue expression.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "Bimultiplicativity and τ(f,1−f)=1 for f≠0,1, including negative orders.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/tame-symbol-hom",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The surjective homomorphisms from the actual Milnor and classical K₂ groups.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/ramification-formula",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "Any valued field embedding of positive ramification index e gives τ_w(ιf,ιg)=κ(τ_v(f,g))^e.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/serre-residue-algebra",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The graded algebra with L_n=K^M_n(k)⊕K^M_(n−1)(k)Π and Π on the right; Π²={−1}Π.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/serre-map-steinberg",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The genuine graded ring map induced by d_π(f)={ū_f}+ord_v(f)Π.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/higher-milnor-residues",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The surjective all-degree residue and specialization maps with their generator formulas.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The ρ-twisted product law for right-coefficient residues.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The residue is independent of π, whereas λ_(cπ)=λ_π−∂(−){c̄}.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/serre-map-kernel",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The kernel of d_π is the homogeneous ideal generated by principal-unit degree-one classes.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/rigidity",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "For complete F and positive q invertible in k, (λ_π,∂) modulo q is an isomorphism; this retains the kernel and Hensel inputs.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/finite-support",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "A family with finite nonzero-order support on every field unit gives finite support on each finite symbol sum.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/localization-boundary",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The actual Quillen DVR boundary, with its right/left sign distinguished.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The direct-sum boundary, exactness through K₁, kernel=image K₂(R), and the primewise tame comparison.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/quillen-transfer-norm-residue",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "Quillen transfer for finite extensions of Dedekind domains commutes with the localization boundary, with residue transfers.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "On degree two, the Bass–Tate/Kato norm is the Quillen finite-field transfer for every finite field extension.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/higher-ramification-formula",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "All-degree residue under restriction is multiplied by e; this node is parented in T.4 to precede its transfer construction.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "For E/F finite and S/R finite integral closure, ∂_v N=Σ_w N_(k_w/k_v)∂_w in every degree; parented in T.4, with its generic complete-DVR supplier gap.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The single owner of Milnor norms, for finite extensions including inseparable ones, and their tower law.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.4/milnor-projection-formula",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "N(res(x)·y)=x·N(y), and its graded right-hand version.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "N∘res=[E:F] on K^M_n(F); degree zero is degree and degree one is the ordinary field norm.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.4/transfer-base-change",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "Base change along arbitrary field extensions, with Artinian tensor-component lengths, not only finite base change.",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "K2SymbolsBrauer:T.4/complete-norm-residue",
+      "packet": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+      "provides": "The complete-DVR input needed by the general residue/norm comparison.",
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Signed classical formula and integral implementation",
+      "owners": [
+        "K2SymbolsBrauer:T.3/tame-symbol",
+        "K2SymbolsBrauer:T.3/native-unit-part",
+        "K2SymbolsBrauer:T.3/native-tame-formula"
+      ],
+      "closure": "Native carriers and unit decomposition are pinned; the pairing identities are planned, not formalized."
+    },
+    {
+      "target": "Uniformizer independence, bilinearity, Steinberg and surjectivity",
+      "owners": [
+        "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+        "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+        "K2SymbolsBrauer:T.3/tame-symbol-hom"
+      ],
+      "closure": "Import the existing owner and its four-case Steinberg proof; no second K₂ quotient."
+    },
+    {
+      "target": "Actual localization boundary and its sign",
+      "owners": [
+        "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "K2SymbolsBrauer:T.3/localization-boundary",
+        "K2SymbolsBrauer:T.3/dedekind-localization-boundary"
+      ],
+      "closure": "G-T3-localization, G-T3-product and G-T3-field-comparison remain."
+    },
+    {
+      "target": "Finite support of symbols and finite symbol sums",
+      "owners": [
+        "K2SymbolsBrauer:T.3/finite-support"
+      ],
+      "closure": "Requires the stated finite nonzero-order-support hypothesis on the valuation family."
+    },
+    {
+      "target": "Higher residues, specialization and their product signs",
+      "owners": [
+        "K2SymbolsBrauer:T.3/serre-residue-algebra",
+        "K2SymbolsBrauer:T.3/serre-map-steinberg",
+        "K2SymbolsBrauer:T.3/higher-milnor-residues",
+        "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
+        "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser",
+        "K2SymbolsBrauer:T.3/residue-convention-dictionary"
+      ],
+      "closure": "Imports the existing graded Milnor presentation; all coefficient-side signs are pinned."
+    },
+    {
+      "target": "Principal-unit kernel and complete-field mod-q check",
+      "owners": [
+        "K2SymbolsBrauer:T.3/serre-map-kernel",
+        "K2SymbolsBrauer:T.3/rigidity"
+      ],
+      "closure": "The completeness and q-invertibility hypotheses are mandatory."
+    },
+    {
+      "target": "Finite-extension transfer and its construction",
+      "owners": [
+        "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
+        "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula"
+      ],
+      "closure": "T.4 constructs Milnor norms; K.3 constructs Quillen transfers. T.3 imports both."
+    },
+    {
+      "target": "Ramification under restriction",
+      "owners": [
+        "K2SymbolsBrauer:T.3/ramification-formula",
+        "K2SymbolsBrauer:T.3/higher-ramification-formula"
+      ],
+      "closure": "Any embedding with e≥1 is allowed; e multiplies the residue after restriction."
+    },
+    {
+      "target": "Norm/residue compatibility",
+      "owners": [
+        "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+        "K2SymbolsBrauer:T.3/quillen-transfer-norm-residue",
+        "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison"
+      ],
+      "closure": "The Milnor formula assumes finite integral closure; G-T3-generic-DVR remains. Pushforward has residue norms and no extra ramification factor."
+    },
+    {
+      "target": "Restriction followed by transfer, and projection formula",
+      "owners": [
+        "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+        "K2SymbolsBrauer:T.4/milnor-projection-formula",
+        "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula"
+      ],
+      "closure": "For every finite extension, N res=[E:F] and the projection formula uses the actual product maps."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.3",
+      "need": "For a DVR or Dedekind domain R with fraction field F, identify the Serre quotient of finitely generated R-modules by the finitely generated torsion modules with finite-dimensional F-vector spaces, compatibly with the actual localization functor. Apply the existing abelian-localization, dévissage and resolution nodes to this equivalence. The index, DVR degree-one boundary and right product-boundary nodes are direct imports, not requests for duplicate constructions.",
+      "neededBy": [
+        "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "K2SymbolsBrauer:T.3/dedekind-localization-boundary"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.7",
+      "need": "For every field F and a,b∈Fˣ, prove that the ordered Quillen product [a]·[b] equals c_F(μ_F{a,b}) under the existing T.1 plus comparison and the T.2 field-symbol normalization. Supply the actual map-level compatibility to T.2/graded-map and T.3/localization-boundary. The right module-boundary identity remains K.3/localization-product-boundary.",
+      "neededBy": [
+        "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "K2SymbolsBrauer:T.3/localization-boundary"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "G-T3-localization: the ring localization application",
+      "neededBy": [
+        "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "K2SymbolsBrauer:T.3/dedekind-localization-boundary"
+      ],
+      "detail": "The generic K.3 abelian localization, dévissage and resolution nodes exist as plans, but its explicit identification of the quotient of finitely generated R-modules by the torsion Serre subcategory with finite-dimensional F-vector spaces is still the inherited requested application. The degree-one index and right product-boundary nodes are cited directly and are not missing baseline declarations. Supply the ring application before declaring the actual Dedekind sequence closed."
+    },
+    {
+      "title": "G-T3-product: product-symbol compatibility",
+      "neededBy": [
+        "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "K2SymbolsBrauer:T.3/localization-boundary",
+        "K2SymbolsBrauer:T.2/graded-map"
+      ],
+      "detail": "The Quillen product of the ordered unit classes [a]·[b] must equal the image of the chosen classical symbol under T.1/k2-pi2. K.7 owns products and T.2 owns the graded map; this exact square remains the inherited product-symbol request. Neither Matsumoto alone nor a free choice of group isomorphism supplies it."
+    },
+    {
+      "title": "G-T3-generic-DVR: precise incomplete supplier routing",
+      "neededBy": [
+        "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+        "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison",
+        "K2SymbolsBrauer:T.4/complete-norm-residue"
+      ],
+      "detail": "The predecessor routes finite extensions of complete DVR fraction fields with arbitrary residue field to a proposed, unregistered LocalFieldsRamification Part II (its restructure.supportPlan, DVR.0–DVR.3). The needed exports are extension valuations, finite integral-closure lattices and their rank, valuation/residue norm identities including inseparable residue extensions, and tensor-component lengths for arbitrary scalar extension. The finite-integral-closure completion product used in the general norm proof also remains an exact supplier request. Current AlgebraicCurves Layers 5 and 9 already own completion/valuation-ring/residue/uniformizer compatibility and coefficient expansions at arbitrary residue field; import those targets in their stated generality and do not re-plan them in the proposed Part II. Current LocalFieldsRamification finite-local-field results do not imply the missing generic extension/norm contracts. Registration must preserve this division of ownership and assign only the missing exports to their supplier. No claim is made to have freshly read or completed the Gille–Szamuely proof cited by the imported norm node."
+    },
+    {
+      "title": "G-T3-field-comparison: inherited field-presentation closure",
+      "neededBy": [
+        "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "K2SymbolsBrauer:T.3/tame-symbol-hom"
+      ],
+      "detail": "The actual μ_F and c_F are imported from T.2/matsumoto and T.1/k2-pi2 followed by K.2:plus/plus-equals-Q. The T.2 umbrella continuation records inherited stable-colimit and centrality gaps and ordinary Bruhat/root-coordinate refinements. This T.3 integration does not close those proofs or replace them with an abstract symbol-preserving isomorphism assumed as data. The elementary native pairing does not depend on this gap."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "K2SymbolsBrauer:T.3",
+      "status": "planned",
+      "nodes": [
+        "K2SymbolsBrauer:T.3/native-unit-part",
+        "K2SymbolsBrauer:T.3/native-tame-formula",
+        "K2SymbolsBrauer:T.3/residue-convention-dictionary",
+        "K2SymbolsBrauer:T.3/degree-two-residue-square"
+      ],
+      "imports": [
+        "K2SymbolsBrauer:T.3/tame-symbol",
+        "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+        "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+        "K2SymbolsBrauer:T.3/tame-symbol-hom",
+        "K2SymbolsBrauer:T.3/ramification-formula",
+        "K2SymbolsBrauer:T.3/serre-residue-algebra",
+        "K2SymbolsBrauer:T.3/serre-map-steinberg",
+        "K2SymbolsBrauer:T.3/higher-milnor-residues",
+        "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
+        "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser",
+        "K2SymbolsBrauer:T.3/serre-map-kernel",
+        "K2SymbolsBrauer:T.3/rigidity",
+        "K2SymbolsBrauer:T.3/finite-support",
+        "K2SymbolsBrauer:T.3/localization-boundary",
+        "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+        "K2SymbolsBrauer:T.3/quillen-transfer-norm-residue",
+        "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison",
+        "K2SymbolsBrauer:T.3/higher-ramification-formula",
+        "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+        "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
+        "K2SymbolsBrauer:T.4/milnor-projection-formula",
+        "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+        "K2SymbolsBrauer:T.4/transfer-base-change",
+        "K2SymbolsBrauer:T.4/complete-norm-residue"
+      ],
+      "note": "The scope is the umbrella stage, including both classical symbols and localization/transfer clauses. Every target is assigned in targetCoverage; the child-stage owners are imported unchanged. Only the native adapter and cross-owner comparisons are refined here.",
+      "remaining": [
+        "G-T3-localization: the ring localization application",
+        "G-T3-product: product-symbol compatibility",
+        "G-T3-generic-DVR: precise incomplete supplier routing",
+        "G-T3-field-comparison: inherited field-presentation closure"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "K2SymbolsBrauer/E9",
+      "source": "Weibel-III",
+      "kind": "error",
+      "locator": "Exercise III.7.1, author chapter III p. 72",
+      "printed": "The exercise requires both residue and specialization to be unchanged when the parameter changes.",
+      "correction": "Only the residue is parameter independent. For π′=cπ, λ_π′(x)=λ_π(x)−∂^last(x){c̄}.",
+      "reason": "At ord_5, λ_5{5}=1 and λ_10{5}=3 in 𝔽_5ˣ.",
+      "affects": "a stated result",
+      "known": "Inherited confirmed finding E9 in K2SymbolsBrauer--T.3.json, reviewed by REV-K2SymbolsBrauer--T.3; this is a convention carry-forward, not a new errata investigation.",
+      "searched": [
+        "The cited earlier packet and its independent review.",
+        "Author-hosted chapter III, freshly read on 2026-10-19.",
+        "The current author errata PDF URL returned 404 on 2026-10-19; the earlier packet records its historical errata evidence."
+      ]
+    },
+    {
+      "id": "K2SymbolsBrauer/E11",
+      "source": "Weibel-III",
+      "kind": "error",
+      "locator": "Theorem III.7.3, author chapter III p. 62; Exercise III.7.10, p. 73",
+      "printed": "The theorem uses the first-uniformizer residue, whereas the exercise product rule has the signs of the last-uniformizer residue.",
+      "correction": "For the theorem convention, ∂^first(xy)=(−1)^iλ(x)∂^first(y)+∂^first(x)ρ(y). The printed exercise formula is valid for ∂^last.",
+      "reason": "With x={5} and y={2} at ord_5, the theorem convention gives 2 and the unadjusted exercise formula gives 3.",
+      "affects": "a stated result",
+      "known": "Inherited confirmed finding E11 in K2SymbolsBrauer--T.3.json, reviewed by REV-K2SymbolsBrauer--T.3; this is a convention carry-forward, not a new errata investigation.",
+      "searched": [
+        "The cited earlier packet and its independent review.",
+        "Author-hosted chapter III, freshly read on 2026-10-19.",
+        "The current author errata PDF URL returned 404 on 2026-10-19; the earlier packet records its historical errata evidence."
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "AlgebraicCurves",
+      "note": "Current upstream main 0d144d044dacebca17b654695b6f1ad58f159b27 was read, especially Layers 2, 5, 9 and 12 and Suggested.lean. Its existing arbitrary-residue completion and residue-field comparisons are imported, not assigned to a duplicate generic-DVR support plan. The extension-lattice/norm/completion-product contracts needed by the predecessor are more specific than the displayed completion milestone and remain G-T3-generic-DVR."
+    },
+    {
+      "roadmap": "LocalFieldsRamification",
+      "note": "Current upstream main README and Suggested.lean were read for normalized valuations and extension scope. Its finite-residue local-field APIs and the current Tau Ceti library are not a generic arbitrary-residue complete-DVR extension/norm theorem. No generic toolkit is claimed from an IsNonarchimedeanLocalField theorem."
+    }
+  ],
+  "librarySearch": {
+    "date": "2026-10-19",
+    "audit": "data/library-coverage.json: K2SymbolsBrauer:T.3 and its two children",
+    "currentUpstream": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentTauCeti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "result": "Searched the current roadmap sources, including the nine roadmaps newer than the atlas snapshot, and current Tau Ceti sources for Milnor K, tame-symbol and Steinberg-symbol APIs. No implementation of this residue package was found. Native valuation and residue objects are already present and are cited above. GitHub open-PR searches in mathlib4 for tame symbol and Milnor K returned no results; a public Zulip search surfaced no usable design decision. These searches do not claim global nonexistence."
+  },
+  "planetSelection": [
+    {
+      "stageId": "K2SymbolsBrauer:T.3",
+      "nodes": [
+        "K2SymbolsBrauer:T.3/tame-symbol",
+        "K2SymbolsBrauer:T.3/higher-milnor-residues",
+        "K2SymbolsBrauer:T.3/residue-convention-dictionary",
+        "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "K2SymbolsBrauer:T.3/transfer-and-norm-residue"
+      ],
+      "note": "Five umbrella landmarks, retaining the original owners; native carrier plumbing is not a separate planet."
+    }
+  ],
+  "suggestedFile": "research/blueprint/suggested/K2SymbolsBrauer--T.3-2.lean"
+}
