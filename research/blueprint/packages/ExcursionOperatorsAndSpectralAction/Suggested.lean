@@ -174,6 +174,16 @@ theorem stratum_centre_embedding_independence (left right : D ⥤ C) (restrictio
 
 end StratumIndependence
 
+/-! ## Layer ES6:functoriality: products on nonquasicompact parameter spaces -/
+
+/-- The diagonal function on infinitely many components is not a finite sum of separated
+functions. Layer ES6:functoriality.3 uses this obstruction to distinguish the canonical
+ordinary tensor-product map of global spectral functions from an isomorphism. -/
+theorem infinite_diagonal_not_finite_separable_sum :
+    ¬ ∃ (n : ℕ) (a b : Fin n → ℕ → ℚ),
+      ∀ i j, (if i = j then (1 : ℚ) else 0) = ∑ k, a k i * b k j := by
+  sorry
+
 /-! ## Layer ES7:parabolic: restriction of centres and the twisted Levi inclusion -/
 
 section RestrictCentre
