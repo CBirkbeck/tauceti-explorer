@@ -257831,10 +257831,10 @@
    "kind": "gap",
    "locator": "Theorems 6.1 and 6.3 (preprint pp. 30, 34) and Theorem 7.1 (p. 37), in the IAS preprint; the proofs cite Friedlander-Lawson [9, 3.1] and [9, 3.2]",
    "printed": "The presheaf forms of the moving lemma and the duality theorem for smooth projective varieties are stated over an arbitrary field k.",
-   "correction": "State them over an infinite field (or a finite field large enough for the given degree bounds), or add an argument for finite fields, for example a transfer argument with two finite extensions of coprime degrees.",
+   "correction": "In the proof plan retain infinite fields, or supply a finite-field descent argument compatible with the presheaf homology. A degree-dependent large finite field does not provide one fixed field for every bound. This finding alone does not establish that the stated theorem is false.",
    "reason": "Friedlander-Lawson prove the moving lemma when k is infinite or a sufficiently large finite field (Theorem 3.1, p. 19, and the discussion of finite fields before Proposition 2.5, p. 17), the size depending on the degree bounds; for an arbitrary finite field they use two extensions of coprime degrees only in Theorem 3.4 (pp. 23-24), on rational equivalence of intersection products, not for the moving maps themselves. FV Lemma 6.6, used for Theorem 7.1, needs the moving maps over the fixed field k for every degree bound d, which a fixed finite field does not provide.",
-   "affects": "a stated result",
-   "known": "new",
+   "affects": "the proof",
+   "known": "No correction found in the public author versions checked; finding scoped to the IAS preprint. The published chapter was not collated.",
    "searched": [
     "Friedlander-Lawson, authors' preprint on Friedlander's USC page",
     "the Friedlander-Voevodsky preprint on Voevodsky's IAS publications page and the notes attached to it there"
@@ -257842,9 +257842,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
    "citation": "Eric M. Friedlander and Vladimir Voevodsky, Bivariant cycle cohomology, In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 138-187. Read in the preprint posted on Voevodsky's IAS publications page (55 pages); page numbers in locators are those of the preprint.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.4",
+   "reviewReason": "Confirmed only as an incomplete finite-field route in the IAS proof. No counterexample or finding about the uncollated published chapter is inferred."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E102",
@@ -257861,17 +257861,17 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
    "citation": "Vladimir Voevodsky, Triangulated categories of motives over a field, In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.4",
+   "reviewReason": "Confirmed: both deformation columns use the smooth-centre blow-up triangle, Proposition 3.5.2, not the resolution-dependent 4.1.3."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E103",
    "kind": "gap",
    "locator": "Construction of g_Z after Proposition 3.5.3 (preprint p. 37) and last step of the proof of Proposition 3.5.4 (p. 39)",
    "printed": "The composite of the Gysin map with the projection to Z(c)[2c] is stated to be the class of Z, and the isomorphism property of alpha(P^c, point) is said to follow easily from the construction, with a reference to Homology of schemes.",
-   "correction": "Both need an argument: the cycle-class identification through the deformation to the normal cone and the projective bundle formula for Chow groups, and then the normalisation alpha(P^c, point) = 1 in End(Z(c)[2c]) = Z by evaluating on CH^c(P^c).",
-   "reason": "No proof is written in the source, and the reference is to a different category (DM_h of Homology of schemes). MVW leave the analogous identification for (A^c, 0) as Exercise 15.14.",
+   "correction": "Supply the categorical deformation/Chow-class compatibility and prove that alpha(A^c,0) is the canonical quotient isomorphism, or compute alpha(P^c,pt) as multiplication by 1 with a justified cycle-class comparison. The normalization and sign are explicit remaining gaps in this plan.",
+   "reason": "The source does not give this comparison; its reference to Homology of schemes uses another motivic category and is not by itself a proof in the category here. MVW Exercise 15.14 isolates the corresponding local normalization. This records an omitted argument, not a counterexample to purity.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -257881,9 +257881,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
    "citation": "Vladimir Voevodsky, Triangulated categories of motives over a field, In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.4",
+   "reviewReason": "Confirmed as an omitted categorical normalization/comparison argument. The former packet had restated this bridge as proved; it is now an explicit gap."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E104",
@@ -257900,17 +257900,17 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
    "citation": "Vladimir Voevodsky, Triangulated categories of motives over a field, In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.4",
+   "reviewReason": "Confirmed as an omitted functoriality check. MVW 1A.13-1A.14 supplies the precise general-field comparison to request; this is not a false-functor finding."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E105",
    "kind": "error",
    "locator": "Proposition 4.23 with its one-line proof (preprint p. 34), used for Theorem 4.27 and, through its proof, Theorem 5.6",
-   "printed": "For every Zariski cover W = U union V of a smooth semi-local scheme, the Mayer-Vietoris sequence of a homotopy invariant pretheory is asserted to be short exact, by reference to Lemma 4.6 and the proof of Proposition 4.17.",
+   "printed": "Proposition 4.23 asserts a short exact Mayer-Vietoris sequence for any pretheory on any two-open cover of a smooth semilocal scheme, citing Lemma 4.6 and the proof of Proposition 4.17.",
    "correction": "MVW Lemma 22.10: given S = U_0 union V there is an open U in U_0 with S = U union V for which the sequence is exact; the argument must pass from U_0 to such a U. In this packet homotopy invariance of Nisnevich cohomology is imported from MotivicEtaleKTheory:M.5a/homotopy-invariant-sheaves (MVW Theorem 13.8, completed in Lectures 22-24) instead of CTP Theorem 5.6.",
-   "reason": "MVW state after Lemma 22.10 (pp. 185-186) that it corrects this result of Cohomological theory, which omitted the passage from U_0 to a smaller U; Voevodsky also said publicly that the proof of this key lemma is wrong (quoted on his IAS publications page).",
+   "reason": "MVW state after Lemma 22.10 (pp. 185-186) that it corrects this result of Cohomological theory, which omitted the passage from U_0 to a smaller U; Voevodsky also said publicly that the proof of this key lemma is wrong (acknowledged on his IAS publications page).",
    "affects": "the proof",
    "known": "MVW Lemma 22.10 and the remark after it (pp. 185-186); Voevodsky's statement on the IAS publications page (https://www.math.ias.edu/Voevodsky/voevodsky-publications_abstracts.html, entry for Cohomological theory of presheaves with transfers)",
    "searched": [
@@ -257920,9 +257920,50 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
    "citation": "Vladimir Voevodsky, Cohomological theory of presheaves with transfers, In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 87-137. Read in the K-theory preprint archive copy (preprint 0368, file s3.pdf, 56 pages) retrieved through the Internet Archive; page numbers in locators are those of that copy.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.4",
+   "reviewReason": "Confirmed against CTP p. 34 and MVW 22.10 with the following remark (pp. 185-186). The packet uses the corrected homotopy-invariant-sheaf route rather than silently inheriting CTP 5.6."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E106",
+   "kind": "misprint",
+   "locator": "IAS preprint, Theorem 7.1 (p. 37) and proof (p. 38)",
+   "printed": "The proof switches the order of the variables in the source of D and tests fibres with the other factor fixed, while the stated map has source z_equi(Y,X,r).",
+   "correction": "For the stated D, use the projection X x Y -> Y and the test fibres X x {y}, of dimension dim X. Apply the moving theorem with cycle dimension r + dim Y and test dimension dim X.",
+   "reason": "Its expected intersection dimension is r, precisely the criterion for relative dimension r over Y in FV Proposition 6.4. Testing {x} x Y instead addresses the transposed duality map.",
+   "affects": "nothing",
+   "known": "No correction found in the public IAS version; not collated against the published chapter.",
+   "searched": [
+    "IAS preprint, statement and proof of 7.1 and Proposition 6.4",
+    "Voevodsky IAS publications page"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
+   "citation": "Eric M. Friedlander and Vladimir Voevodsky, Bivariant cycle cohomology, In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 138-187. Read in the preprint posted on Voevodsky's IAS publications page (55 pages); page numbers in locators are those of the preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.4",
+   "reviewReason": "Confirmed by comparing the stated D with Proposition 6.4: the base is Y, so the tested fibres must be X x {y}."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E107",
+   "kind": "gap",
+   "locator": "IAS preprint, Theorem 6.1 (p. 30), parameter-extension proof (pp. 31-33)",
+   "printed": "The theorem asks for maps of effective-cycle monoids, while the extension from an open parameter uses an integral linear combination of two finite correspondences whose degrees have greatest common divisor one.",
+   "correction": "A signed correspondence gives an operation on cycle groups but need not preserve effective monoids. Use the positive finite-pushforward and crossed-constant construction of FL Theorem 3.8 (pp. 25-26), with its relative-family and field-of-definition checks.",
+   "reason": "The Bezout coefficients can include a negative integer. Linearity of transfers proves no positivity statement. FL 3.8 provides a positive route; this is a gap in the presented extension argument, not a claim that the moving theorem is false.",
+   "affects": "the proof",
+   "known": "No correction found in the IAS version checked; FL 3.8 provides an alternative positive extension. Published FV chapter not collated.",
+   "searched": [
+    "FV IAS preprint, proof of Theorem 6.1",
+    "FL author preprint, Theorem 3.8 and proof",
+    "Voevodsky IAS publications page"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
+   "citation": "Eric M. Friedlander and Vladimir Voevodsky, Bivariant cycle cohomology, In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 138-187. Read in the preprint posted on Voevodsky's IAS publications page (55 pages); page numbers in locators are those of the preprint.",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.4",
+   "reviewReason": "Confirmed narrowly: the displayed signed extension does not prove effective-monoid preservation. The positive FL 3.8 route still requires the explicit family-realization checks."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E48",
@@ -257941,9 +257982,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
    "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, Free author preprint Version 6, title dated 16 January 2017; author landing page identifies final version as 20 February 2017; page numbers are those of this preprint",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Checked in HM17 Version 6, proof of Proposition 9.3.1, p. 219: the edge used for ∂×id goes from (Y×A,Z×A∪Y×B) to (Y×A∪X×B,Z×A∪Y×B) and is called a functoriality edge, but the inclusion Y×A⊆Y×A∪X×B induces an edge in the opposite direction. HM25, p. 222, records the authors' erratum of 27 June 2025 crediting Paul Rodriguez, adds excision edges and keeps Theorem 9.3.4."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E49",
@@ -257962,29 +258003,169 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
    "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, annotated version, Author annotated version, 1 July 2025; page numbers differ from the published book and from Version 6",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Checked in HM25, p. 224: the corrected composite is excision edge, then a functoriality edge to (Y×A∪X×B,Z×A∪Y×B,n+m), then the boundary of the triple ending in Z×A∪Y×B (printed with a slip as Z×A×Y×B). The middle vertex must be a good pair, since Good^{eff,mod} has the vertices of Good^eff. In the packet's example a long exact sequence computation gives H^1(S,V)=Q and H^2(S,V)=Q^6, agreeing with the Mayer–Vietoris count, so the vertex is not good, rationally or integrally; the endpoints (Y,Z,0), (X,Y,1) and (A,B,2) are even very good. By naturality for V⊆T the boundary of X×A⊇S⊇T equals the three-edge composite in cohomology, and (S,T,n+m) is good by excision. The errata landing page, read 19 October 2026, lists only the Rodriguez correction for this construction."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E70",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.5.4(1), p. 168, Version 6 author preprint; unchanged in HM25, p. 172",
+   "printed": "Dualising the associativity square of the finite algebra E is said to give a cocommutative comultiplication on the dual E∨.",
+   "correction": "The dual of the associativity constraint gives a coassociative comultiplication. E∨ is cocommutative only when E is commutative.",
+   "reason": "For E=Mat_2(K) the dual coalgebra is the matrix coalgebra, with Δ(e_ij∨)=Σ_k e_ik∨⊗e_kj∨, which is not cocommutative; the displayed square is the coassociativity square.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "HM25 annotated version of 1 July 2025, Lemma 7.5.4, p. 172",
+    "Authors' errata landing page, read 19 October 2026"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, Free author preprint Version 6, title dated 16 January 2017; author landing page identifies final version as 20 February 2017; page numbers are those of this preprint",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Added by the review; the displayed diagram and the formula for μ* on p. 169 are the coassociativity statement."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E71",
+   "kind": "gap",
+   "locator": "Proof of Corollary 7.5.7, pp. 171–172, Version 6 author preprint; unchanged in HM25, pp. 175–176. The same step is in VW, proof of Satz 5.23 with Lemma 5.22, pp. 80–81",
+   "printed": "Given a comodule over the colimit coalgebra A(D,T), the proof lifts its finitely many coaction coefficients to one finite stage A(F,T) and declares the module an A(F,T)-comodule.",
+   "correction": "The lifted coaction is coassociative and counital only at a possibly larger finite stage, because the transition maps A(F,T)→A(D,T) need not be injective: pass to a stage where the finitely many coassociativity and counit equations hold, and lift comodule maps the same way, to obtain an inverse to the comparison functor.",
+   "reason": "The transitions are dual to restrictions End(T|F')→End(T|F), which need not be surjective. Two elements of A(F,T)⊗A(F,T) with the same image in A(D,T)⊗A(D,T) agree only at a later stage of the filtered colimit, so coassociativity over A(D,T) does not give it over A(F,T).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "HM25 annotated version of 1 July 2025, Corollary 7.5.7, pp. 174–176",
+    "Authors' errata landing page, read 19 October 2026",
+    "VW arXiv:1111.5146v1, Lemma 5.22 and Satz 5.23"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, Free author preprint Version 6, title dated 16 January 2017; author landing page identifies final version as 20 February 2017; page numbers are those of this preprint",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Added by the review; the packet's completion-filtered-descent proof already descends the equations to a later stage."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E72",
+   "kind": "gap",
+   "locator": "Proof of Corollary 2.3.15, p. 40, Version 6 author preprint; unchanged in HM25, p. 40",
+   "printed": "Vanishing of H^i(X,Z) above the dimension n of the affine X is derived from the pair sequence and Artin vanishing for X and for Z.",
+   "correction": "When Z contains an n-dimensional component of X, the degree n+1 needs H^n(X)→H^n(Z) onto. Replace X by the union X' of the components not contained in Z, using closed-cover excision H^*(X,Z)≅H^*(X',X'∩Z), where dim(X'∩Z)<n, before applying the sequence.",
+   "reason": "The sequence H^n(X)→H^n(Z)→H^{n+1}(X,Z)→H^{n+1}(X)=0 gives the vanishing directly only when H^n(Z)=0, which Artin vanishing guarantees when dim Z<n; the statement allows dim Z=n.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "HM25 annotated version of 1 July 2025, Corollary 2.3.15, p. 40",
+    "Authors' errata landing page, read 19 October 2026"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, Free author preprint Version 6, title dated 16 January 2017; author landing page identifies final version as 20 February 2017; page numbers are those of this preprint",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Added by the review; the statement is true and the packet's completion-affine-vanishing proof performs the reduction."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E73",
+   "kind": "gap",
+   "locator": "Proof of Proposition 9.2.18, p. 215, Version 6 author preprint; unchanged in HM25, p. 219",
+   "printed": "Independence of R(X•) from the cover and filtration is justified by the faithful exactness of the forgetful functor and the fact that the image of R(X•) computes singular cohomology.",
+   "correction": "Construct the comparison maps: refine covers to a common one, enlarge filtrations on the resulting finite diagram, and invert the resulting quasi-isomorphisms; prove the cocycle and naturality identities from a third simultaneous choice.",
+   "reason": "The derived functor of a faithful exact functor reflects isomorphisms but is not full, so an isomorphism of the singular-cohomology images does not produce a morphism in D^+(A). The proof's own construction of R(f) uses actual refinement maps, which is the needed argument.",
+   "affects": "the proof",
+   "known": "Harrer 2016, Proposition 7.2.3 and Theorem 7.2.4, pp. 201–204, gives the comparison maps with their cocycle and naturality in the more general correspondence setting.",
+   "searched": [
+    "HM25 annotated version of 1 July 2025, Proposition 9.2.18, p. 219",
+    "Authors' errata landing page, read 19 October 2026",
+    "Harrer arXiv:1609.05516, §7.2"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, Free author preprint Version 6, title dated 16 January 2017; author landing page identifies final version as 20 February 2017; page numbers are those of this preprint",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Added by the review; the packet's completion-all-pairs-extension and completion-comparison-zigzag construct the maps as the correction says."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E74",
+   "kind": "error",
+   "locator": "Corrected Proposition 9.3.1 and the corrected product path, pp. 223–224, annotated 1 July 2025 author version",
+   "printed": "The corrected proposition gives the weak product structure on both Good^{eff,mod} and VGood^{eff,mod}, with ∂×id realised by the path through the excision vertex.",
+   "correction": "The product structure holds on Good^{eff,mod} with the two-edge path of E49. On the very-good diagram it fails as stated whenever the second factor has B nonempty; the tensor structure on C(VGood) is obtained by transport along the equivalence of Theorem 9.2.22.",
+   "reason": "For very good (Y,Z,n), (X,Y,n+1) and (A,B,m) with B nonempty, dim X×B=n+m=dim(Y×A∪X×B), so the excision target (Y×A∪X×B,Z×A∪X×B,n+m) has subvariety of the same dimension as the ambient variety and is not very good. In the example of E49 it is ({0,1}×A²∪A¹×B, A¹×B), both of dimension two.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Authors' errata landing page, read 19 October 2026",
+    "HM25 annotated version of 1 July 2025, §9.3, pp. 222–225"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, annotated version, Author annotated version, 1 July 2025; page numbers differ from the published book and from Version 6",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Added by the review. Theorem 9.3.4(3) is unaffected: the extra edges map to inverses of existing isomorphisms, so the diagram categories agree."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E75",
+   "kind": "gap",
+   "locator": "Remark 7.3.2, p. 207, arXiv:1609.05516",
+   "printed": "The remark says it is clear from the construction that the effective realization extends the Huber–Müller-Stach functor on complexes of varieties, and computes its value on the cone of a very good pair as the Nori object in degree n.",
+   "correction": "For smooth X and Y the computation follows from the construction with a cellular filtration extending the given pair. For singular X or Y the realization is not constructed on varieties: comparing its value on the motive of a singular variety with the Huber–Müller-Stach complex needs a blow-up (cdh) compatibility of both functors, which the thesis does not prove.",
+   "reason": "The realization is defined on bounded complexes of finite correspondences between smooth varieties (proof of Theorem 7.3.1), and the main theorems are stated for smooth X; Remark 1.3.9 itself notes that non-smooth varieties need modifications.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Harrer arXiv:1609.05516, Remarks 1.3.9 and 7.3.2 and Theorems 7.3.1, 7.4.17"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Daniel Harrer, Comparison of the Categories of Motives defined by Voevodsky and Nori, Freiburg doctoral thesis, 2016, arXiv:1609.05516; printed thesis page numbers",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.5",
+   "reviewReason": "Added by the review; the main theorems are unaffected, and completion-geometric-effective now claims the value only for smooth pairs."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E48",
    "kind": "misprint",
-   "locator": "HMS author annotated edition 1 July 2025, Lemma 10.3.2, p.250 (also v6 p.240)",
+   "locator": "HMS author annotated edition 1 July 2025, Lemma 10.3.2, p.250",
    "printed": "In paraphrase: the weight-n graded piece is expressed using the Tate object with twist n/2.",
    "correction": "For the stated cohomological convention it is a sum of 1(−n/2) when n is even, and zero when n is odd. Equivalently L^r=1(−r) has weight 2r.",
    "reason": "Definition 10.2.4 assigns weight n to H^(n+2j)(Y)(j). Taking n=2,j=−1,Y=Spec k gives weight 2 for 1(−1). The displayed sign in Lemma 10.3.2 would instead assign weight −2 to that same object.",
    "affects": "nothing",
-   "known": "No correction to this sign located in the author errata page or its linked 1 July 2025 annotation; independent review is required.",
+   "known": "new",
    "searched": [
-    "Author errata webpage and linked annotated PDF accessed 19 October 2026",
-    "Comparison with the 2017 v6 author PDF, Definition 10.2.4 and Lemma 10.3.2"
+    "Author errata webpage and linked annotated PDF accessed 19 October 2026; compare Definition 10.2.4, p.246, with Lemma 10.3.2, p.250"
    ],
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.6.json",
-   "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions of Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, Author annotated edition, 1 July 2025; author-page numbered pagination, distinct from Springer print and 2017 v6",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.6",
+   "reviewReason": "The inspected annotated edition assigns weight 2 to L=1(−1) in Definition 10.2.4 but uses the opposite sign in Lemma 10.3.2. The target uses the consistent negative twist."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E49",
+   "kind": "error",
+   "locator": "Remark 2.7 after Theorem 2.6, p.10, arXiv:1105.0865v5, 21 May 2014",
+   "printed": "The coefficient-period isomorphism is asserted to extend to Dedekind coefficients when both representations have finite projective fibres.",
+   "correction": "The Dedekind map is the quotient by R-torsion, hence an isomorphism only if the period module is torsion-free. For finite F it is the bidual map P_F→P_F∨∨. The field statement remains valid.",
+   "reason": "For p→q with both representations Z at each vertex and arrow 2, edge-compatible map families are diagonal Z. The period module is Z e_p⊕Z e_q /〈2(e_q−e_p)〉≃Z⊕Z/2, and Ψ kills the nonzero order-two difference. In the free even symmetric tensor completion this gives P=Z[x,y]/(2(y−x)), A=Z[t], x,y↦t, so it also refutes the algebra extension. Modulo 2 detects the surviving difference.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1105.0865 abstract and version history: latest v5, no journal reference or DOI listed on 19 October 2026; finding scoped to this preprint",
+    "Official author errata page and linked 1 July 2025 book annotation; no correction to this preprint remark located; no assertion is made against a journal version"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.6.json",
+   "citation": "Annette Huber and Stefan Mueller-Stach, On the relation between Nori motives and Kontsevich periods, arXiv:1105.0865v5, 21 May 2014",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.6",
+   "reviewReason": "Independent calculation of the edge-relation quotient, its diagonal dual and the modulo-two detector gives a finite-free counterexample; the tensor completion retains it."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E-MC7-1",
@@ -258002,9 +258183,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.7.json",
    "citation": "The Stacks Project authors, Weil Cohomology Theories, Online tags accessed 19 October 2026; stable tag locators instead of changing chapter pagination",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.7",
+   "reviewReason": "Re-read the current tag page (HTML hash as recorded): the displayed computation of π*β_n writes the nth power of Σc₁(L_i) as n^n times the product and concludes (n!)^n α_n. Since c₁(L_i)²=0, only the n! orderings of the n distinct factors survive, so the coefficient is ((n−1)!)^n n! (2 for n=2, 48 for n=3). Any nonzero integer suffices for the torsion conclusion, so only the displayed identity is wrong."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E1",
@@ -269532,6 +269713,26 @@
    "status": "confirmed",
    "reviewedBy": "REV-PadicHodgeRegulators",
    "reviewReason": "Lemma 3.1 concerns special-unit symbols. Using generation by roots to prove integral containment while using containment to prove that generation is circular. The planned integral Bloch–Kato route avoids this issue."
+  },
+  {
+   "id": "PadicHodgeRegulators/E121",
+   "kind": "misprint",
+   "locator": "Section 2.4, p.5, final adjunction quantifier; arXiv:1108.5954v3 only",
+   "printed": "The second argument of the adjunction is quantified in H^1(K,V), although the preceding dual exponential has domain H^1(K,V*(1)).",
+   "correction": "Quantify that argument in H^1(K,V*(1)); retain the displayed positive adjunction in the declared pairing order.",
+   "reason": "Both the dual-exponential input and the second slot of local Tate duality require the dual Tate twist. The existing ordered root correction already uses the appropriate domains.",
+   "affects": "nothing",
+   "known": "No novelty or version-of-record claim; no correction located in the checked arXiv record and scoped text.",
+   "searched": [
+    "arXiv:1108.5954v3, p.5, and current submission history on 2026-10-19 (v3 is latest)",
+    "Author institutional publication searches; the Warwick PDF retrieval did not succeed. Publisher full text and a complete author errata list were not inspected."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "David Loeffler, Sarah Livia Zerbes, Iwasawa theory and p-adic L-functions over Z_p^2-extensions, arXiv:1108.5954v3 (22 April 2014); accepted version of Int. J. Number Theory 10(8) (2014)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PadicHodgeTheory/E1",
@@ -290323,6 +290524,27 @@
    "status": "confirmed",
    "reviewedBy": "REV-RefinedTraceMethods--RT.5~2",
    "reviewReason": "The p.36 image confirms the Z_p subscript. The immediately preceding classifier has both complexes relative to Z, and the global high-powered m is not restricted to one prime. Removing the stray p gives the transition being classified."
+  },
+  {
+   "id": "RefinedTraceMethods/E101",
+   "kind": "misprint",
+   "locator": "arXiv:1809.01714v2, construction of the map ϑ before Proposition 3.8, p. 19, and Remark 3.9, p. 20 (the same text in v1)",
+   "printed": "In the nullhomotopy of F_N applied to the defect map, the Verschiebung of the target is written with a lowercase subscript n; Remark 3.9 writes the defect map as g composed with V_M minus V_n composed with f_{hC_p}.",
+   "correction": "Both places mean the defect map gV_M−V_N g_{hC_p}:M_{hC_p}→N, as displayed just before on p. 19.",
+   "reason": "N is the target topological Cartier module and g:M→N the map under consideration; no object n or map f occurs in the construction, and only V_N:N_{hC_p}→N and g_{hC_p} make the composite typecheck.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1809.01714 v1 (2018) and v2 (12 January 2020): both print the same subscripts (checked 2026-10-19 on the rendered pages)",
+    "J. Amer. Math. Soc. 34 (2021) published PDF: the AMS server refused the download (HTTP 403), so the published text was not compared",
+    "Repository errata register data/source-issues.json: no entry for this paper (checked 2026-10-19)"
+   ],
+   "owner": "RefinedTraceMethods",
+   "file": "research/blueprint/packets/RefinedTraceMethods.json",
+   "citation": "Benjamin Antieau and Thomas Nikolaus, Cartier modules and cyclotomic spectra, arXiv:1809.01714v2, 12 January 2020; final journal version JAMS 34 (2021), 1–78. Locators here use the arXiv v2 printed pages.",
+   "status": "confirmed",
+   "reviewedBy": "REV-RefinedTraceMethods",
+   "reviewReason": "Found by this review on the rendered pages 19 and 20 of v2 and on v1; the intended meaning is clear from the display on p. 19."
   },
   {
    "id": "RelativeFarguesFontaine/E1",
