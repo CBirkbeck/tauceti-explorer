@@ -1,4 +1,44 @@
-# Latest checkpoint: codex-VfnWCb, 19 October 2026
+# Latest checkpoint: codex-uG9cIc, 19 October 2026
+
+**Blocked checkpoint for #9299; no mathematical progress since the preceding
+checkpoint.** The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6261601165)
+for [comment 6261599034](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6261599034).
+I missed the maintainer's supersession comment before posting the claim.
+This run's instructions authorize a checkpoint when blocked; this submission
+changes only this handoff and takes no second job.
+
+The [maintainer's scope instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217691180)
+still prohibits claims until the upstream owner requests an extension. The
+issue discussion contains no subsequent extension assignment. I checked the
+live GitHub API: upstream PR 779 remains merged at
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, and current main remains
+`69bd802abd021be5efb158896d7c4930bd0775b0`, the commit inspected by the
+preceding checkpoint. I read that commit's ownership introduction, Layer 4
+scope, sections 4.5, 4.10 and 4.19, and the suggested normalization and
+alteration declarations. The ownership and exclusions described below are
+unchanged. This check establishes supersession, not closure of historical gaps.
+
+The supplied read-only roadmap and library checkouts were inspected and
+neither modified nor built. No primary mathematical source or private book
+was needed. WORKERS.md and PROTOCOL.md section 15 prohibit duplicating the
+upstream roadmap. Availability and claim confirmation do not assign a new
+mathematical scope. Resume only after an explicit routing decision: retire
+the obsolete revision, assign atlas synchronization with treatment of the
+excluded targets, or assign a precise Part II and its deliverable paths.
+Repeated automatic checkpoint release cannot resolve this blocker.
+
+Packet and SF.4 coverage remain `partial`, with the independent
+`needs_changes` review intact: 57 nodes (17 definitions, 4 constructions,
+32 theorems, 3 lemmas, 1 application), 139 API items, 91 tests, 6 planets,
+79 baseline references, 9 gaps and 10 requests. The earlier handoffs below
+retain the mathematical worklist; no disposable scratch file is needed.
+Validation: the packet checker reports zero errors and zero warnings;
+handoff intake validation and `git diff --check` pass. Lean was not rerun
+because the suggested file is unchanged. No new compilation is claimed.
+
+---
+
+# Previous checkpoint: codex-VfnWCb, 19 October 2026
 
 **Blocked checkpoint for #9299; the revision remains unfinished.** The bot
 [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6260821587)
