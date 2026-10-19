@@ -1,0 +1,189 @@
+{
+  "id": "TopologicalMirrorSymmetryForHitchinSystems",
+  "title": "Topological mirror symmetry for Hitchin systems",
+  "area": "geomlanglands",
+  "parent": null,
+  "summary": "Plan the arithmetic and Hodge-theoretic comparison of Langlands-dual Hitchin systems by integrating gerbe characters over local-field fibres. The layers lead from stringy realizations and relative gerbe splittings through stable fixed-determinant spectral torsors to the SLn/PGLn mirror theorem, degree independence and its character refinement, with precise interfaces to existing geometric and arithmetic roadmaps.",
+  "readme": "The reader document is research/blueprint/readmes/TopologicalMirrorSymmetryForHitchinSystems.md. This is a target-level plan, not an implementation. It imports the generic Hitchin fibration and stack integration, and owns stringy realizations, principal splittings, abstract dual Hitchin systems and the stable SLn/PGLn comparison. All published locators are to GWZ20 unless a source version is explicitly named. Six layers separate realization theory, gerbes, abstract duality, stable spectral geometry, dual gerbes and applications. The complete pass records proof and supplier gaps and does not assert closure.",
+  "prerequisites": [
+    "AbelianSchemesAndArithmeticModuli",
+    "AlgebraicModuliForArithmeticGeometry",
+    "ArithmeticGaloisDuality",
+    "ArithmeticGaloisRepresentations",
+    "CohomologyComparisons",
+    "CountingBundlesAndHallAlgebrasOfCurves",
+    "DeligneWeightsAndPurity",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "EtaleDualityAndPerverseSheaves",
+    "HodgeStructuresPartII",
+    "LogicAndDefinabilityInNumberTheory",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge"
+  ],
+  "stages": [
+    {
+      "key": "TMS.0",
+      "title": "Realizations and stringy invariants",
+      "description": "Construct character E-realizations and stabilizer-weighted counts, finite-denominator Lefschetz powers with specified root systems, and untwisted/twisted stringy invariants. Prove equivariant Katz comparison, finite-denominator Tate-root existence, fractional comparison and the stringy comparison. Import geometric cohomology, equivariant blow-up presentations and transgression; their outstanding supplier contracts are explicit.",
+      "requires": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisRepresentations:R01.5",
+        "CohomologyComparisons:CP.3",
+        "DeligneWeightsAndPurity:DWP.7",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "LogicAndDefinabilityInNumberTheory:LD.3"
+      ]
+    },
+    {
+      "key": "TMS.1",
+      "title": "Arithmetic gerbes and relative splittings",
+      "description": "Define arithmetic gerbes, the relative stack of splittings and its rigidification, and the principal Picτ-torsor. Prove the constant-Brauer-class criterion with the middle-exact Hochschild–Serre sequence, and compare principal splittings with unitary splittings over C. Keep Picτ, Pic0, a point of Split′, Brauer neutrality and μr-neutrality distinct.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "HodgeStructuresPartII:H.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "key": "TMS.2",
+      "title": "Abstract Hitchin duality",
+      "description": "Specify abstract Hitchin systems and their duality data, including the codimension-two torsor locus and the local Brauer splitting condition used by integration. Construct compatible gauge forms; prove the twisted-count integral formula, equal fibre volumes, character cancellation, fibrewise arithmetic mirror symmetry and complex stringy mirror symmetry. Generic stack integration remains an import.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "ArithmeticGaloisDuality:R02.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "LogicAndDefinabilityInNumberTheory:LD.2",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.0",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+      ]
+    },
+    {
+      "key": "TMS.3",
+      "title": "Stable Higgs moduli and spectral torsors",
+      "description": "Extend the imported Higgs and spectral carriers to the stated families and construct stable trace-free fixed-determinant SLn spaces and their PGLn quotients. Prove smoothness and properness with their base and characteristic hypotheses; establish determinant twisting, the corrected norm fibre, the PGL Prym and its duality, the regular torsor locus and the corrected torsor calculus. Check low genus separately before using the abstract-system certificate.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "CountingBundlesAndHallAlgebrasOfCurves:CB.7",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties"
+      ]
+    },
+    {
+      "key": "TMS.4",
+      "title": "Degree independence and dual gerbes",
+      "description": "Prove GLn and SLn coprime-degree count comparisons with corrected determinant signs, then Betti/Hodge degree independence using an explicit purity input. Construct the Hausel–Thaddeus gerbes, prove their arithmetic splitting-torsor duality and local Brauer triviality, and assemble the SLn/PGLn dual pair. The algebraic family version of the complex gerbe proof is a recorded gate.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "CountingBundlesAndHallAlgebrasOfCurves:CB.7",
+        "CountingBundlesAndHallAlgebrasOfCurves:CB.9",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "LogicAndDefinabilityInNumberTheory:LD.2",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.1",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.2",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ]
+    },
+    {
+      "key": "TMS.5",
+      "title": "Mirror symmetry and refined cohomology",
+      "description": "Deduce the SLn/PGLn E-polynomial and finite-field equalities, the canonical-twist Hodge-number comparison, and the justified fibrewise virtual-character consequence. Keep the actual Galois-isomorphism claim as an unresolved target. Prove the determinant-sector variation formula and the character-isotypic refinement using the existing finite Fourier orthogonality and the normalized Weil pairing.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "ArithmeticGaloisDuality:R02.4",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "CountingBundlesAndHallAlgebrasOfCurves:CB.9",
+        "DeligneWeightsAndPurity:DWP.7",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.0",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.2",
+        "TopologicalMirrorSymmetryForHitchinSystems:TMS.4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "GWZ20",
+      "title": "Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration",
+      "authors": "Michael Groechenig; Dimitri Wyss; Paul Ziegler",
+      "edition": "Inventiones mathematicae 221 (2020), 505–596; published version, DOI 10.1007/s00222-020-00957-8",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-020-00957-8.pdf",
+      "sha256": "f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Definitions 2.2–2.4, pp.512–514; Definitions 2.12–2.16 and Theorems 2.15, 2.18–2.19, pp.521–528",
+        "Corollary 5.29, p.564; §6, pp.565–575",
+        "§7, pp.575–594, including the proofs and torsor normalizations",
+        "§5.4–5.5, Claim5.21/Proposition5.25 and the generic-to-special comparison, pp.560–563; read to retain the inherited E15/E16 gates"
+      ]
+    },
+    {
+      "id": "HT03",
+      "title": "Mirror symmetry, Langlands duality, and the Hitchin system",
+      "authors": "Tamás Hausel; Michael Thaddeus",
+      "edition": "arXiv math/0205236v1, 23 May 2002; published Invent. Math.153 (2003),197–229. Locators below use numbered preprint pages.",
+      "url": "https://arxiv.org/pdf/math/0205236v1",
+      "sha256": "aac3a1aad8513b1fc867b2d2619263e06cbfce3505b1418cc8f3c2283cb42d69",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3, numbered pp.8–13, especially Propositions 3.2 and 3.6 and their proofs",
+        "§6, numbered pp.17–18, including Theorems 6.1–6.4"
+      ]
+    },
+    {
+      "id": "ITO04",
+      "title": "Stringy Hodge numbers and p-adic Hodge theory",
+      "authors": "Tetsushi Ito",
+      "edition": "arXiv math/0211378v3, 31 July 2003; published Compos. Math.140 (2004),1499–1517. Locators use numbered preprint pages.",
+      "url": "https://arxiv.org/pdf/math/0211378v3",
+      "sha256": "a6c29d80b7d7321f8baa49298ff30c496a86661ac84e64fff735c683336a3a0b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4, Remark 4.2 and Lemma 4.3, pp.12–13",
+        "§5.1–5.3, Proposition 5.1, Definitions 5.2–5.3, Remark 5.4 and Example 5.5, pp.13–16"
+      ]
+    },
+    {
+      "id": "BITTNER04",
+      "title": "The universal Euler characteristic for varieties of characteristic zero",
+      "authors": "Franziska Bittner",
+      "edition": "arXiv math/0111062v1, 6 November 2001; published Compos. Math.140 (2004),1011–1032. Locator uses numbered preprint page.",
+      "url": "https://arxiv.org/pdf/math/0111062v1",
+      "sha256": "484d2c3586977503dc6f1b43fca158af059cd0f9c5322731d0ebae6d643e160c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§7, Lemma 7.1, numbered p.18, including the equivariant blow-up presentation and proof; distinction between the scissor ring and its further representation quotient"
+      ]
+    }
+  ],
+  "status": "draft"
+}
