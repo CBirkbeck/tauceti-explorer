@@ -105,6 +105,12 @@
         "module": "TauCeti.AlgebraicGeometry.WeilDivisor.Basic",
         "line": 357,
         "provides": "A single point divisor has degree its specified weight; validates the degree convention."
+      },
+      {
+        "ref": "mathlib:WittVector.Isocrystal",
+        "module": "Mathlib.RingTheory.WittVector.Isocrystal",
+        "line": 113,
+        "provides": "Existing Frobenius-semilinear automorphism structure over FractionRing(WittVector p k) for a perfect characteristic-p domain. For a perfect field k, use the Witt DVR identification with W(k)[1/p] and impose finite-dimensionality separately. This supplies HF1 for arbitrary perfect k, whereas VB0 fixes breve E."
       }
     ]
   },
@@ -118,12 +124,13 @@
       "sha256": "cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3",
       "readSections": [
         "Préface pp. 3–5, 9, 25–26, 32–35, 37 and 40, for the routed auxiliary targets",
+        "§1.1, p. 52, and §1.3, pp. 56–58, for the standing characteristic conventions and Witt bivectors",
         "§§1.4–1.10, pp. 61–95",
         "§§2.1–2.7, pp. 98–132",
         "§§3.1–3.6, pp. 133–149; §4.1, pp. 152–155",
         "§5.1, pp. 202–203",
         "§§6.1–6.7, pp. 243–259; §§7.1–7.9, pp. 261–276",
-        "Remark 11.1.11, p. 367; §§11.2.1–11.2.4, pp. 369–377"
+        "Remark 11.1.11, p. 366; §§11.2.1–11.2.4, pp. 369–377"
       ],
       "accessed": "2026-10-19"
     },
@@ -159,7 +166,7 @@
       "url": "https://arxiv.org/abs/math/0206056",
       "sha256": "e8a60a25f246692b048789235fb8efaf6d44ae65fdbb7cc738c8caeae67efcd5",
       "readSections": [
-        "§3, definition, Theorem A and Corollaries 3.1–3.5, pp. 7–10"
+        "§3, definition, Theorems A/B and Corollaries 3.1–3.5, pp. 7–10; Lemma 3.6, pp. 10–11"
       ],
       "accessed": "2026-10-19"
     }
@@ -189,7 +196,8 @@
         "RelativeFarguesFontaine:RF0/ramified-witt-universal-property",
         "RelativeFarguesFontaine:RF0:integral-Y/ramified-v-adic-expansion",
         "RelativeFarguesFontaine:RF0:annuli/relative-extended-robba-rings",
-        "RelativeFarguesFontaine:RF0:annuli/annular-coefficient-choice-and-anchor-comparisons"
+        "RelativeFarguesFontaine:RF0:annuli/annular-coefficient-choice-and-anchor-comparisons",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"
       ],
       "sources": [
         {
@@ -208,14 +216,14 @@
       ],
       "title": "Ramified Gauss norm calculus",
       "kind": "theorem",
-      "statement": "On B^b each interior Gauss norm is multiplicative, nonarchimedean and independent of pi. It is characterized by |[a]|_rho=|a|, |pi|_rho=rho and multiplicativity. For x in A and k>=0 put N_k(x)=max_(0<=n<=k)|x_n|. Then N_k(x+y)<=max(N_k(x),N_k(y)), N_k(xy)<=max_(i+j=k)N_i(x)N_j(y), N_k(pi x)=N_(k-1)(x) with N_(-1)=0, and N_k(phi x)=N_k(x)^q. These estimates pass to the completions. For rho=q^(-r), v_r(phi x)=q v_(r/q)(x).",
+      "statement": "On B^b each interior Gauss norm is multiplicative, nonarchimedean and independent of pi. It is given by the coefficient formula sup_n |x_n| rho^n; in particular |[a]|_rho=|a| and |pi|_rho=rho. These two values and multiplicativity alone are not a uniqueness assertion without the coefficient formula or a continuity hypothesis. For x in A and k>=0 put N_k(x)=max_(0<=n<=k)|x_n|. Then N_k(x+y)<=max(N_k(x),N_k(y)), N_k(xy)<=max_(i+j=k)N_i(x)N_j(y), N_k(pi x)=N_(k-1)(x) with N_(-1)=0, and N_k(phi x)=N_k(x)^q. These estimates pass to the completions. For rho=q^(-r), v_r(phi x)=q v_(r/q)(x).",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
         "Derive coefficient bounds from homogeneity and integrality of the ramified Witt addition and multiplication polynomials.",
-        "For multiplication use the first indices attaining the maximum to exclude cancellation in their initial term.",
-        "Apply uniqueness of the norm characterization to uniformizer change, and compute Frobenius on Teichmuller coefficients."
+        "For multiplicativity use the first minimizing indices n_0,m_0; the distinguished product coefficient is at index n_0+m_0, with pi exponent n_0+m_0. Its initial term cannot cancel. The printed product of the indices is corrected.",
+        "Compare the coefficient norms under uniformizer substitution using the Witt coefficient estimates and continuity; compute Frobenius on Teichmuller coefficients."
       ],
       "acceptance": [
         "Check [a]pi^n has norm |a|rho^n and Frobenius sends its norm to |a|^q rho^n, fixing the radius variance."
@@ -227,7 +235,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Lemma 1.4.2, Proposition 1.4.3 and Proposition 1.4.5, pp. 61–63",
+          "locator": "Lemma 1.4.2, Propositions 1.4.3 and 1.4.5, pp. 61–63; Proposition 1.4.9, p. 64",
           "match": "Check [a]pi^n has norm |a|rho^n and Frobenius sends its norm to |a|^q rho^n, fixing the radius variance."
         }
       ],
@@ -274,13 +282,13 @@
       ],
       "title": "Legendre transforms and Newton polygons",
       "kind": "definition",
-      "statement": "Import proper lower-semicontinuous EReal-valued convex functions and Fenchel–Moreau duality from OptimalTransport Layer 5. In the real dual pair specialize its conjugate P* by L(P)(r)=-P*(-r)=inf_x(P(x)+rx), so P(x)=sup_r(L(P)(r)-rx). The source slope is the negative geometric derivative. For nonzero x in B^b define Newt(x) as the lower closed convex hull of (n,v_F(x_n)); its transform is v_r(x). Specialize infimal convolution to these polygons; finite-slope multiplicity is horizontal length. This node owns the polygon and sign bridge, not general convex duality.",
+      "statement": "Import proper lower-semicontinuous EReal-valued convex functions and Fenchel–Moreau duality from OptimalTransport Layer 5. In the real dual pair specialize its conjugate P* by L(P)(r)=-P*(-r)=inf_x(P(x)+rx), so P(x)=sup_r(L(P)(r)-rx). The source slope is the negative geometric derivative. For nonzero x in B^b define Newt(x) as the greatest lower-semicontinuous convex decreasing minorant of the coefficient data (n,v_F(x_n)), with value +infinity left of v_pi(x). Its epigraph is the closed convex hull of the upper vertical and right horizontal rays from those points. Its transform equals v_r(x) for r>=0, including the coefficient-infimum value at r=0; for r<0 it is -infinity. The separate norm at radius zero remains v_pi, not this r=0 value. Specialize infimal convolution to these polygons; finite-slope multiplicity is horizontal length. This node owns the polygon and sign bridge, not general convex duality.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
         "Specialize the imported proper closed convex carrier to the real dual pair, retaining infinite endpoint values. Transport the generic conjugate identities through r |-> -r and output negation.",
-        "Take the lower closed convex hull of the coefficient points. Supporting affine lines and the coefficient formula give its Gauss valuation transform.",
+        "Adjoin upper vertical and right horizontal rays to the coefficient points before taking the closed convex hull. Supporting lines with nonpositive geometric slope and the coefficient formula give the Gauss transform for r>=0; the right rays force value -infinity for r<0.",
         "Use imported biduality to recover the polygon from that transform; use closed infimal convolution when needed."
       ],
       "acceptance": [
@@ -315,7 +323,7 @@
         {
           "name": "legendre_newton_conventions.coefficient_formula",
           "role": "compatibility",
-          "statement": "The transform of Newt(x) equals the imported Gauss valuation v_r(x)."
+          "statement": "For r>=0, L(Newt(x))(r)=inf_n(v_F(x_n)+nr); for r<0 it is -infinity. The r=0 coefficient-infimum is different from the radius-zero pi-adic norm."
         },
         {
           "name": "legendre_newton_conventions.convolution",
@@ -332,7 +340,7 @@
         {
           "name": "legendre_newton_conventions.monomial",
           "kind": "degenerate",
-          "statement": "For [a]pi^n the polygon has a single finite point (n,v_F(a)); its transform is v_F(a)+nr."
+          "statement": "For nonzero [a]pi^n, Newt is +infinity at x<n and equals v_F(a) for x>=n. Its transform is v_F(a)+nr for r>=0 and -infinity for r<0; a single finite point would fail this test."
         },
         {
           "name": "legendre_newton_conventions.sign_and_sum",
@@ -446,7 +454,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Lemma 1.6.10, Definition 1.6.11 and Definition 1.6.17–Proposition 1.6.20, pp. 71–75",
+          "locator": "Lemma 1.6.10 and Definition 1.6.11, pp. 71–72; Corollary 1.6.17 and Definition 1.6.18, p. 74; Corollary 1.6.19, Proposition 1.6.20 and Corollary 1.6.21, p. 75",
           "match": "For an interior linear zero the derivative drops by one; on compact I avoiding 1 only finitely many nonzero slopes occur."
         }
       ],
@@ -514,12 +522,13 @@
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
-        "At the endpoints of J fix nonzero valuations and stable one-sided derivatives.",
-        "Use the finite upper bound obtained from the two endpoint supporting lines, together with bounded absolute derivatives, on the compact parameter interval.",
-        "Choose n so the error valuation is above this uniform bound; the ultrametric inequality forces equality of norms everywhere. The single signed endpoint expression in the printed proof is not used."
+        "First take J contained in (0,1]. Stabilize the nonzero endpoint valuations and the available one-sided derivatives; use the corresponding supporting lines to bound the valuation on the compact parameter interval.",
+        "Choose the approximation error above this uniform finite bound. The ultrametric inequality forces equality at every radius in J. This is the positive-radius argument of Proposition 1.6.16, with the corrected endpoint bound.",
+        "If 0 belongs to J, pi-adic convergence fixes an initial finite coefficient segment and v_pi(f_n)=v_pi(f). A bound at one positive radius controls the remaining tail near zero; its higher pi powers are strictly smaller than the fixed first nonzero term on a sufficiently short initial interval. Combine that interval with the positive-radius compact argument. A singleton {0} uses only pi-adic stabilization.",
+        "Apply the equality of all positive-radius norms to the restricted Newton polygon. At radius zero record the stabilized v_pi separately."
       ],
       "acceptance": [
-        "The proof supplies a genuinely uniform finite bound even when endpoint derivatives have opposite signs."
+        "The positive-radius proof supplies a uniform finite bound even for opposite endpoint derivatives. An included radius zero is treated separately by pi-adic coefficient stabilization and a positive-radius tail bound, rather than by applying Proposition 1.6.16 outside its hypotheses."
       ],
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF0/completed-newton-polygon"
@@ -528,7 +537,7 @@
         {
           "sourceId": "FF17",
           "locator": "Proposition 1.6.16, p. 73; Corollary 1.6.19 and Proposition 1.6.20, p. 75",
-          "match": "The proof supplies a genuinely uniform finite bound even when endpoint derivatives have opposite signs."
+          "match": "The positive-radius proof supplies a uniform finite bound even for opposite endpoint derivatives. An included radius zero is treated separately by pi-adic coefficient stabilization and a positive-radius tail bound, rather than by applying Proposition 1.6.16 outside its hypotheses."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1153,9 +1162,9 @@
       },
       "api": [
         {
-          "name": "witt_bivectors.truncated_inclusion",
+          "name": "witt_bivectors.finite_laurent",
           "role": "constructor",
-          "statement": "Each truncated Witt vector maps through CWu and into compatible bivectors."
+          "statement": "A finite Teichmuller Laurent coefficient family in the perfect valuation ring O_F determines a compatible bivector via the unique q-power roots. No canonical section CW(R)->lim_V CW(R) for arbitrary discrete R is asserted."
         },
         {
           "name": "witt_bivectors.coeff_ext",
@@ -1285,14 +1294,15 @@
       ],
       "title": "Crystalline and holomorphic invariant periods",
       "kind": "theorem",
-      "statement": "For E=Q_p, B_(rho^p)^plus is contained in B_cris,rho^plus, which is contained in B_rho^plus. Consequently B^plus=intersection_(n>=0) phi^n(B_cris,rho^plus). For an isocrystal D over W(k)[1/p], k perfect embedded in F, and a nonzero t in B_cris,rho^plus with phi(t)=pt, the phi-fixed vectors in D tensor B^plus[1/t] and D tensor B_cris,rho^plus[1/t] coincide.",
+      "statement": "For E=Q_p, B_(rho^p)^plus is contained in B_cris,rho^plus, which is contained in B_rho^plus. Consequently B^plus=intersection_(n>=0) phi^n(B_cris,rho^plus). For a finite-dimensional isocrystal D over W(k)[1/p], k a perfect subfield of O_F (so the induced valuation on k is trivial), and a nonzero t in B_cris,rho^plus with phi(t)=pt, the phi-fixed vectors in D tensor B^plus[1/t] and D tensor B_cris,rho^plus[1/t] coincide.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
         "Compare divided-power factorial denominators with the p-adic unit-ball presentation of each positive-radius ring.",
         "Iterate Frobenius and use the characterization of its maximal bijective subring.",
-        "Use the finite-dimensional Frobenius matrix on D to move a fixed vector through all iterated radii after multiplying by one common power of t."
+        "Use the finite-dimensional Frobenius matrix on D to move a fixed vector through all iterated radii after multiplying by one common power of t.",
+        "For the arbitrary perfect subfield k, use the pinned WittVector.Isocrystal structure on the fraction field of W(k), with a separate finite-dimensionality hypothesis. Its usual W(k)[1/p] comparison follows from the Witt DVR structure. VB0 fixes the different coefficient field breve E and cannot supply this arbitrary-k carrier."
       ],
       "acceptance": [
         "The equality is of invariant periods after the indicated localization, not equality of B^plus and B_cris,rho^plus."
@@ -1300,7 +1310,7 @@
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF1/crystalline-radius-rings",
         "RelativeFarguesFontainePartII:HF1/positive-newton-and-frobenius",
-        "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block"
+        "mathlib:WittVector.Isocrystal"
       ],
       "sources": [
         {
@@ -1326,7 +1336,7 @@
       "proofSteps": [
         "The coefficient-infimum norm is multiplicative, hence p_boundary is prime.",
         "If one coefficient is a unit, invert its reduction and solve successively modulo the uniformly positive ideal.",
-        "Use completeness of the quotient for its induced boundary filtration to extend the map from the positive completion."
+        "For 0<rho<1 restrict B^plus to B_[rho,1]^plus, then to B_1^plus. The latter completed positive ring has the coefficient-infimum valuation; quotienting its ideal v_0>0 gives the same algebraic barB as A[1/pi]. Compose these maps to extend the quotient map. This does not assign an inherited Banach topology to quotient eigenspaces."
       ],
       "acceptance": [
         "Uniform positivity defining p_boundary differs from positivity of every coefficient defining m_boundary."
@@ -1385,7 +1395,7 @@
       "uses": [
         {
           "where": "HF6/eigen-banach-refinement",
-          "how": "Give a simpler complete quotient model for the topology of eigenvectors."
+          "how": "Give an algebraic quotient model for positive eigenspaces; its Banach topology is transported from the eigenspace, not inferred from the boundary quotient norm."
         }
       ]
     },
@@ -1599,7 +1609,7 @@
       ],
       "title": "Principal kernel criterion for theta",
       "kind": "theorem",
-      "statement": "Assume R is pi-torsion-free. If a=sum_n[a_n]pi^n lies in ker theta_Q and the zeroth untilt coordinate of a_0 is pi times a unit of R, then ker theta_Q=(a). If pi has a compatible system of Q-roots represented by varpi in R^{flat,Q}, the kernel is generated by [varpi]_Q-pi. These are algebraic kernel assertions, with the induced pi-adic quotient topology.",
+      "statement": "Assume R is pi-torsion-free. If a=sum_n[a_n]_Q pi^n lies in ker theta_Q and the zeroth untilt coordinate of a_0 is pi times a unit of R, then ker theta_Q=(a). If pi has a compatible system of Q-roots represented by varpi in R^{flat,Q}, the kernel is generated by [varpi]_Q-pi. These are algebraic kernel assertions, with the induced pi-adic quotient topology.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
@@ -2023,13 +2033,13 @@
       ],
       "title": "Metric and Berkovich topologies",
       "kind": "comparison",
-      "statement": "Embed the degree-one classical points into the multiplicative seminorm spectrum of B^b by f |-> q^(-v_y(f)/v_y(pi)). Equip that spectrum with pointwise convergence and require restriction to E to be the fixed pi-adic norm. The induced topology on the degree-one locus equals its metric topology. Gauss points are normalized by v_r/r. The proof uses min(v_y(f),delta)=min(v_z(f),delta) for delta=delta(y,z), not the false lower bound v_y(f)-v_z(f)>=delta.",
+      "statement": "Embed the degree-one classical points into the multiplicative seminorm spectrum of B^b by f |-> q^(-v_y(f)/v_y(pi)). Equip that spectrum with pointwise convergence and require restriction to E to be the fixed pi-adic norm. The induced topology on the degree-one locus equals its metric topology. Gauss points are normalized by v_r/r. The proof uses min(v_y(f),delta)=min(v_z(f),delta) for f in A and delta=delta(y,z), not the false lower bound v_y(f)-v_z(f)>=delta.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
         "Continuity of evaluation on B^b follows from the norm bound at rho=|pi|_y.",
-        "Use equality of the valuations below the common truncation precision and continuity of y |-> v_y(pi).",
+        "First use equality below the common truncation precision only for f in A. Extend continuity to B^b by inverting pi and nonzero Teichmuller elements, whose evaluations never vanish, and divide by the continuous positive function y |-> v_y(pi). The truncated identity itself is not asserted on B^b.",
         "For the reverse topology write a metric ball through the valuation of a primitive generator, adjusting for the continuous normalization denominator."
       ],
       "acceptance": [
@@ -2233,7 +2243,7 @@
       ],
       "title": "Weierstrass products near radius zero",
       "kind": "construction",
-      "statement": "For a sequence 0!=z_i in m_F with z_i->0, define W=product_(i>=1)(1-[z_i]/pi). The product converges in B^plus, uniformly for every compact positive-radius interval. For a nonzero f in B_I whose radii approach 0, list all zeros below a fixed rho_0 with multiplicity and choose their linear generators pi-[z_i]. Then f=Wg with g in B_(I union {0}) and no zeros below rho_0. If f in B_(0,1], then g in B^b; if f in B^plus, then g in A[1/pi].",
+      "statement": "For a finite or countable family 0!=z_i in m_F, tending to zero if infinite, define W=product_i(1-[z_i]/pi), with empty product 1. The product converges in B^plus, uniformly for every compact positive-radius interval. For a nonzero f in B_I whose radii approach 0, list all zeros below a fixed rho_0 with multiplicity and choose their linear generators pi-[z_i]. Then f=Wg with g in B_(I union {0}) and no zeros below rho_0. If f in B_(0,1], then g in B^b; if f in B^plus, then g in A[1/pi].",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
@@ -2292,7 +2302,7 @@
         {
           "name": "near_zero_weierstrass_product.single",
           "kind": "computed",
-          "statement": "A one-term product has the same simple zero as pi-[z]."
+          "statement": "A single factor gives 1-[z]/pi and the empty family gives 1. An infinite family with |z_i|->0 gives the same exact-divisor construction on every compact positive-radius interval."
         },
         {
           "name": "near_zero_weierstrass_product.tail",
@@ -2319,7 +2329,7 @@
       ],
       "title": "Locally finite divisors on period annuli",
       "kind": "definition",
-      "statement": "For I subset (0,1), define Div(Y_I) to be integer functions on the classical point set whose support meets Y_J in a finite set for every compact J subset I; Div^plus is its pointwise nonnegative submonoid. Restriction is coefficient restriction. For finite support use exactly the pinned TauCeti WeilDivisor carrier and its weightedDegree, via the canonical finite-support comparison. For nonzero f define div_I(f)(y)=ord_y(f), where ord_y is imported from the completed de Rham DVR. This divisor is locally finite and div(fg)=div(f)+div(g).",
+      "statement": "For I subset (0,1), define Div(Y_I) to be integer functions on the classical point set whose support meets Y_J in a finite set for every compact J subset I; Div^plus is its pointwise nonnegative submonoid. Restriction is coefficient restriction. For finite support use exactly the pinned TauCeti WeilDivisor carrier and its weightedDegree, via the canonical finite-support comparison. For nonzero f define div_I(f)(y)=ord_y(f), where ord_y is imported from the completed de Rham DVR. This divisor is locally finite and div(fg)=div(f)+div(g). If an interval notation includes 0 or 1, Div(Y_I) means this divisor object on I intersect (0,1), and local finiteness is tested only on compact subintervals of that interior. No finiteness at a compact interval reaching radius 1 is imposed.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
@@ -2963,14 +2973,15 @@
       ],
       "title": "Half-open Bezout theorem",
       "kind": "theorem",
-      "statement": "For 0<rho<1, B_(0,rho] is Bezout and its nonzero closed ideals are exactly its nonzero principal ideals. More generally on any I subset (0,1), the ideal (f,g) is principal iff min(div f,div g) is principal. The Robba colimit is Bezout; its carrier and standard discrete-coefficient special cases remain imported from the parent and RD.0.",
+      "statement": "For 0<rho<1, B_(0,rho] is Bezout and its nonzero closed ideals are exactly its nonzero principal ideals. More generally on any I subset (0,1) and for nonzero f,g, the ideal (f,g) is principal iff min(div f,div g) is principal. The Robba colimit is Bezout; its carrier and standard discrete-coefficient special cases remain imported from the parent and RD.0.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
         "If the minimum divisor is principal, divide by its generator and reduce to two functions with disjoint zero divisors.",
         "Each compact annulus supplies a Bezout relation. Lift compatible relations by successive small corrections along the dense Banach restriction maps; completeness makes the corrections converge, which is the needed lim-one vanishing argument.",
-        "On (0,rho] all effective divisors are principal by the exact near-zero product. Iterate the two-generator assertion and compare filtered unions."
+        "On (0,rho] all effective divisors are principal by the exact near-zero product. Iterate the two-generator assertion and compare filtered unions.",
+        "Handle a zero generator separately: (f,0)=(f) and (0,0)=0, without using the divisor of zero."
       ],
       "acceptance": [
         "The general-perfect-field theorem is new here; RD.0’s discrete coefficient hypothesis is not silently removed."
@@ -3000,27 +3011,31 @@
       ],
       "title": "A nonclosed maximal ideal of an open annulus",
       "kind": "application",
-      "statement": "If I has a missing boundary and admits a sequence of classical points escaping every compact subinterval towards it, B_I can have maximal ideals that are not closed. Choose a nonzero holomorphic function vanishing on such a locally finite sequence and form the increasing union of the principal ideals obtained by deleting progressively more of its zero factors. This union is a proper ideal dense on each compact annulus; any maximal ideal containing it is nonclosed. Hence the closed-ideal classification does not classify all ideals of a noncompact annulus.",
+      "statement": "If I subset (0,1) has a missing boundary and a sequence of distinct classical points escaping every compact subinterval towards it, B_I has a nonclosed maximal ideal. Choose a nonzero divisor majorant f for the sequence and a compact exhaustion J_n. Divide f by the finite product of all its primitive zero factors in J_n, with their full multiplicities, to obtain g_n in B_I. The increasing union of (g_n) is proper and dense. Any maximal ideal containing it is nonclosed. Removing only the prescribed sequence would not justify density if f had additional zeros.",
       "hypotheses": [
         "Use I=(0,rho], 0<rho<1, and points with radii tending to 0 for the explicit construction. No assertion is made that every interval automatically has such a sequence over every F."
       ],
       "proofSteps": [
-        "Use the divisor majorant to obtain a nonzero function with all chosen zeros and divide off successive primitive factors.",
-        "Every finite stage still vanishes at a point in the remaining tail, so the increasing union is proper.",
-        "On each compact interval a sufficiently late stage has no remaining chosen tail zeros; using the exact near-zero construction when approaching 0 ensures its tail generator is a unit there. Thus the ideal is dense, and a maximal ideal containing it cannot be closed."
+        "The general-field Weierstrass majorant gives a nonzero f with infinitely many escaping zeros. Its full divisor is locally finite. On each J_n form the finite product a_n of primitive generators with exactly the orders of f there; the divisor criterion shows g_n=f/a_n belongs to B_I.",
+        "For nested J_n, a_n divides a_(n+1), so (g_n) is contained in (g_(n+1)). Every g_n has at least one remaining escaping zero, hence is not a unit; the union is proper.",
+        "For a fixed J_m, a sufficiently late g_n has no zero there and is a unit in B_(J_m). Since B_I is dense in B_(J_m), (g_n) has dense image in B_(J_m). An exhaustion tests every finite family of seminorms, proving density in B_I.",
+        "A maximal ideal containing this proper dense ideal cannot be closed. In the near-zero case exact tail products give a direct example."
       ],
       "acceptance": [
-        "Take the explicit near-zero case I=(0,rho] and an exact tail product, so the density proof does not assume the outer majorant has no extra zeros."
+        "The compact deletion removes every zero of the chosen majorant, including extra zeros; a fixed compact restriction of a late generator is a unit. The ideal is therefore dense and proper without assuming an outer-boundary product is exact."
       ],
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF5/closed-ideal-divisor-classification",
-        "RelativeFarguesFontainePartII:HF3/near-zero-weierstrass-product"
+        "RelativeFarguesFontainePartII:HF3/near-zero-weierstrass-product",
+        "RelativeFarguesFontainePartII:HF4/general-field-weierstrass-products",
+        "RelativeFarguesFontainePartII:HF5/general-divisor-criterion",
+        "RelativeFarguesFontainePartII:HF0/frechet-completion-and-restriction"
       ],
       "sources": [
         {
           "sourceId": "FF17",
           "locator": "Compare Theorem 3.5.7, p. 147, and the distinction between closed ideals and ideals in §3.5.2, p. 146; construction from these results",
-          "match": "Take the explicit near-zero case I=(0,rho] and an exact tail product, so the density proof does not assume the outer majorant has no extra zeros."
+          "match": "The compact deletion removes every zero of the chosen majorant, including extra zeros; a fixed compact restriction of a late generator is a unit. The ideal is therefore dense and proper without assuming an outer-boundary product is exact."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3033,7 +3048,7 @@
       ],
       "title": "Meromorphic functions on the period domain",
       "kind": "definition",
-      "statement": "For positive-radius I define M(Y_I)=lim_(compact J subset I) Frac(B_J) with transition maps induced by the injective ring restrictions. A compatible family is a meromorphic function. Extend the local DVR order to its fractions and set div(f)=sum_y ord_y(f)[y], a locally finite integral divisor. This agrees with the imported finite Weil divisor operations on every compact subinterval.",
+      "statement": "For I subset (0,1) define M(Y_I)=lim_(compact J subset I) Frac(B_J) with transition maps induced by the injective ring restrictions. A compatible family is a meromorphic function. Extend the local DVR order to its fractions and set div(f)=sum_y ord_y(f)[y], a locally finite integral divisor. This agrees with the imported finite Weil divisor operations on every compact subinterval.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
@@ -3187,14 +3202,14 @@
       ],
       "title": "Banach topology of Frobenius eigenspaces",
       "kind": "comparison",
-      "statement": "For integers d>=0,h>=1, refine the imported space B^{phi^h=pi^d}=(B^plus)^{phi^h=pi^d} by its Banach E_h-topology: restriction to any fixed compact fundamental radial interval defines an equivalent norm. For d>0 its map to barB^{phi^h=pi^d} is a topological isomorphism, with inverse obtained by lim_k pi^(-kd) phi^(kh)(x) from a lift of a quotient eigenvector. The degree-zero space is E_h, and negative eigenvalues have no nonzero vectors. The positive-eigenvector equality and carrier remain owned by RF3 and VB1.",
+      "statement": "For integers d>=0,h>=1, refine the imported space B^{phi^h=pi^d}=(B^plus)^{phi^h=pi^d} by its Banach E_h-topology: restriction to any fixed compact fundamental radial interval defines an equivalent norm. For d>0 its map to barB^{phi^h=pi^d} is an algebraic E_h-linear isomorphism, with inverse obtained by lim_k pi^(-kd) phi^(kh)(x) from a lift of a quotient eigenvector. The degree-zero space is E_h, and negative degrees have no nonzero vectors. The positive-eigenvector equality and carrier remain owned by RF3 and VB1. The quotient eigenspace is given the Banach topology transported by this algebraic comparison; it is not given the inherited boundary valuation topology, which is discrete on a positive eigenspace because each nonzero eigenvector has v_0=0.",
       "hypotheses": [
         "For the E_h-scalar description assume F contains F_(q^h); otherwise use the corresponding unramified constant subfield actually present in F."
       ],
       "proofSteps": [
         "Use the imported eigenvector comparison, and control all radial norms by a fundamental interval and the eigen-equation.",
         "For d>0 the error between successive quotient lifts is uniformly positive in the boundary coefficient valuation, so the normalized iterates converge in every interior norm.",
-        "Prove the inverse identities and use the Banach open mapping theorem for the topology; treat d=0 separately rather than applying the positive contraction there."
+        "Prove the inverse identities algebraically. The fundamental-interval estimates prove equivalence and completeness of the norms on the original eigenspace. Transport this topology to the quotient eigenspace; do not invoke open mapping for its inherited boundary valuation. Treat d=0 separately."
       ],
       "acceptance": [
         "The quotient-limit formula is for d>0. The norm is on the stated eigenspace with its usual local-field scalars, not the endpoint-1 ring topology."
@@ -3240,7 +3255,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "§4.1.4, p. 154; Propositions 4.1.7–4.1.8, p. 155; §6.1.3, pp. 245–246",
+          "locator": "§6.1.1–6.1.3, pp. 243–244; Proposition 4.1.5, p. 154; Theorem 6.5.2, pp. 255–256",
           "match": "The twisting line lies in the field after inverting pi; the set of integral unit solutions alone is not an E_h-line. Separable extensions are required when etaleness is used."
         }
       ],
@@ -3273,7 +3288,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Theorem 6.1.1 and §6.1.1, pp. 243–244",
+          "locator": "Theorem 6.2.1, p. 245",
           "match": "The free object is a commutative monoid, not a group, and the theorem is restricted to homogeneous elements."
         }
       ],
@@ -3310,7 +3325,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Definition 6.2.1 and the degree definition, pp. 247–248",
+          "locator": "Definition 6.2.2, p. 245; Lemma 6.2.3, Definition 6.2.4 and Lemma 6.2.5, p. 246",
           "match": "The weight is the primitive degree, not merely one per orbit. The orbit divisor has finite support even though its pullback generally has infinitely many points."
         }
       ],
@@ -3396,7 +3411,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Propositions 6.2.3–6.2.4 and Theorem 6.2.7, pp. 248–250",
+          "locator": "Proposition 6.2.6, pp. 246–247; Theorem 6.2.7, p. 247",
           "match": "Frobenius rescales the vertical Newton coordinate by q as well as rescaling its slope parameter."
         }
       ],
@@ -3432,7 +3447,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Definition 6.2.8 and Proposition 6.2.9, pp. 250–251",
+          "locator": "§6.2.3, pp. 247–248; Definition 6.2.11, p. 250",
           "match": "The normalized factors b/pi^d, not the unnormalized iterates, converge to 1."
         }
       ],
@@ -3495,12 +3510,12 @@
       ],
       "title": "Negative Frobenius product as a difference equation",
       "kind": "theorem",
-      "statement": "Assume F algebraically closed. For nonzero b in B^{b,plus} with v_pi(b)=0, the solutions x in B^b to phi(x)=bx form an E-line. It has a generator in A minus pi A when b is in M_d. Its E^times-class is denoted Pi_minus(b); its divisor is sum_(n<0) phi^n(div b). This is a difference-equation construction and does not assert convergence of the naive unnormalized infinite negative product.",
+      "statement": "Assume F algebraically closed. For nonzero b in B^b with v_pi(b)=0, the solutions x in B^b to phi(x)=bx form an E-line. It has a generator in A minus pi A when b is in M_d. Its E^times-class is denoted Pi_minus(b); its divisor is sum_(n<0) phi^n(div b). This is a difference-equation construction and does not assert convergence of the naive unnormalized infinite negative product.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
-        "First solve the coefficient-zero equation x_0^q=b_0x_0 using algebraic closedness.",
+        "For general b in B^b with v_pi(b)=0, rescale the unknown by a nonzero Teichmuller constant to make its multiplier integral, using a (q-1)-st root in F. Then solve the coefficient-zero equation x_0^q=b_0x_0 over the algebraically closed field.",
         "Lift one pi-adic digit at a time by solving additive polynomials U^q-b_0U-c over F, and use the coefficient bounds to keep the lift in B^b (in A for normalized b).",
         "For uniqueness compare solutions in W_OE(F)[1/pi], whose phi-fixed field is E. Use the difference equation and local orders to identify the negative translates; the residual no-zero solution has the prescribed normalization."
       ],
@@ -3515,7 +3530,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Proposition 6.2.10 and the definition of Pi-minus, pp. 251–252",
+          "locator": "Proposition 6.2.10, p. 249; Definition 6.2.11, p. 250",
           "match": "The fixed-field uniqueness argument occurs in W_OE(F)[1/pi], not in Frac(B), whose Frobenius invariants are the nonconstant function field."
         }
       ],
@@ -3549,7 +3564,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "End of §6.2, pp. 252–253",
+          "locator": "Lemma 6.2.12, pp. 250–251",
           "match": "The construction is only canonical as an E^times-class, which is precisely the quotient used in the homogeneous monoid."
         }
       ],
@@ -3584,7 +3599,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Propositions 6.3.1–6.3.2 and the product comparison, pp. 253–254",
+          "locator": "Proposition 6.3.1, pp. 251–252; Remark 6.3.2, p. 252; comparison of Pi and the logarithm, p. 253",
           "match": "The existing LT.0 logarithm is characteristic-zero only; equal characteristic is an explicit supplier request."
         }
       ],
@@ -3619,7 +3634,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Theorem 6.4.1 and Remark 6.4.2, pp. 254–255",
+          "locator": "Theorem 6.4.1, pp. 253–254; Example 6.4.2, p. 254",
           "match": "The orbit separation hypothesis is checked before evaluation; repeated points mean higher de Rham jets, not multiple independent copies of the residue field."
         }
       ],
@@ -3636,28 +3651,32 @@
       ],
       "title": "Graded fibres and the corrected interpolation ideal",
       "kind": "theorem",
-      "statement": "Under the same geometric hypotheses, for t in P_1 vanishing at y the graded quotient P/tP identifies with {f in K_y[T]:f(0) in E}. If y_1,...,y_d satisfy the orbit separation condition above, then {x in B:phi^n(x) belongs to product_i m_(y_i) for all n>=0} is the principal ideal generated by phi(product_i Pi_minus(a_i)), for primitive generators a_i. The unshifted negative-half product omits the n=0 zeros. Without orbit separation the divisor condition must instead use the pointwise supremum of all backward translates of the initial divisor.",
+      "statement": "Assume F algebraically closed. For t in P_1 vanishing at y, P/tP identifies as a graded algebra with {f in K_y[T]:f(0) in E}. Let y_1,...,y_d be degree-one points, with repetitions allowed and y_i in phi^Z y_j implying y_i=y_j; choose primitive generators a_i in M_1. Set g=phi(product_i Pi_minus(a_i)), using integral generators of the negative-half products. Then g belongs to A, v_pi(g)=0 and v_0(g)=0. The ideal {x in A:phi^n(x) belongs to product_i p_(y_i) for every n>=0} is gA. After extension to B the analogous evaluation ideal is gB. The Frobenius shift supplies the n=0 zeros. Without orbit separation the required divisor is the pointwise supremum of the backward translates, not their sum.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
-        "Apply the fundamental sequence in each homogeneous degree and check multiplication after evaluating T in degree one.",
-        "Pull the evaluation condition back under phi^n to obtain the backward orbit divisor, including n=0.",
-        "Compare with div(phi Pi_minus); for overlapping orbits compute a supremum rather than adding duplicated translates. Test y_2=phi^(-1)y_1 to expose the missing hypothesis in the printed corollary."
+        "Apply the fundamental sequence degree by degree, with evaluation of the degree-one variable, and check multiplication to identify the graded fibre.",
+        "The conditions on phi^n(x) give the backward divisor including n=0; orbit separation identifies its sum with div(g). The divisor criterion first proves x/g belongs to B.",
+        "For x in A the quotient has no poles near radius zero, where g extends and is invertible, so the boundary-zero extension criterion puts x/g in the ring with a lower-bounded pi expansion. Since v_pi(g)=0 and v_pi(x)>=0, this quotient has v_pi>=0.",
+        "The primitive normalization gives v_0(g)=0. Taking the radius-one limit of multiplicative norms with |x|_1<=1 gives |x/g|_1<=1, so all coefficients of the quotient lie in O_F; hence x/g is in A. Conversely g and all its forward transforms satisfy the required ideal conditions.",
+        "For overlapping backward tails compute a pointwise supremum. The pair y_2=phi^(-1)y_1 detects the duplicated-multiplicity error."
       ],
       "acceptance": [
-        "The correction is mathematical: both the shift and the separation hypothesis are necessary. They are carried into the target instead of reproducing the printed formula."
+        "Retain the integral ideal in A from Theorem 6.4.4 as well as its B extension. Check the shift, the orbit condition and both integrality boundaries of x/g; a B-divisor argument alone does not prove the A assertion."
       ],
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF6/fundamental-exact-sequence",
         "RelativeFarguesFontainePartII:HF6/negative-weierstrass-solutions",
-        "RelativeFarguesFontainePartII:HF5/general-divisor-criterion"
+        "RelativeFarguesFontainePartII:HF5/general-divisor-criterion",
+        "RelativeFarguesFontainePartII:HF1/boundary-extension",
+        "RelativeFarguesFontainePartII:HF1/positive-annulus-subrings"
       ],
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Corollaries 6.4.3–6.4.4, p. 255, with the Frobenius shift and orbit-separation correction",
-          "match": "The correction is mathematical: both the shift and the separation hypothesis are necessary. They are carried into the target instead of reproducing the printed formula."
+          "locator": "Corollary 6.4.3 and Theorem 6.4.4, p. 254, with the Frobenius shift and orbit-separation correction",
+          "match": "Retain the integral ideal in A from Theorem 6.4.4 as well as its B extension. Check the shift, the orbit condition and both integrality boundaries of x/g; a B-divisor argument alone does not prove the A assertion."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3986,7 +4005,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "§6.1.3, pp. 245–246; Theorem 6.5.2(2), p. 255; Proposition 7.5.1, p. 269, with the unramified correction",
+          "locator": "§6.1.3, p. 244; Theorem 6.5.2(2), pp. 255–256; Proposition 7.5.1, p. 269, with the unramified correction",
           "match": "For equal-characteristic inseparable coefficient extensions, the tensor can be nonreduced; they are outside this etale statement."
         }
       ],
@@ -4044,8 +4063,8 @@
       ],
       "proofSteps": [
         "Use finite etale affine transition morphisms to construct the scheme inverse limit by its affine chart colimits.",
-        "For each closed point pass to a finite normal extension containing its finite stabilizer field. Its primes are then inert at every later stage.",
-        "For an element of a colimit chart ring its quotient has already stabilized as a finite product of truncated DVRs; apply the Dedekind criterion. Compare point images through the finite-orbit description."
+        "For each finite-orbit point choose a normal finite L/F with G_L contained in all stabilizers of its finitely many geometric conjugates. Its primes are then inert at every later finite stage, with unchanged uniformizer because the chart extensions are etale.",
+        "For a nonzero element f from a finite-level chart, the number of primes above its zeros and their orders eventually stabilize. Each local colimit is an unramified DVR with that uniformizer and a growing residue field. Its quotient by the fixed power of the uniformizer is a truncated DVR of fixed length. Thus the colimit quotient is a finite product of such rings; apply the Dedekind quotient criterion. The finite-stage residue fields, and therefore the quotient rings themselves, need not stabilize."
       ],
       "acceptance": [
         "The uncompleted algebraic closure and its completion give different curves; the noetherian claim uses eventual inertness, not an arbitrary filtered colimit theorem."
@@ -4102,7 +4121,7 @@
         {
           "name": "algebraic_closure_tower.inert_prime",
           "kind": "computed",
-          "statement": "Once a point stabilizer is killed by a normal finite stage, its prime ideal remains prime under every later finite extension."
+          "statement": "If a normal finite stage L has G_L contained in each stabilizer of a finite orbit, the associated primes remain prime at every later stage. Their residue fields may grow; only the number of primes and the ramification indices stabilize."
         }
       ],
       "uses": [
@@ -4207,17 +4226,20 @@
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
-        "Use interval bundle triviality over C to obtain a basis, and the unit description to define v_pi(lambda). Basis change modifies lambda by phi(u)/u, of valuation zero.",
+        "Use the imported annular Frobenius-descent equivalence and geometric bundle classification to send M tensor B_C to a rank-one bundle O(d) on X_C. Pull back its standard presentation, obtaining a free B_C-module with Frobenius multiplier pi^(-d). A general basis changes this by phi(u)/u, of pi valuation zero by the B-unit description. Half-open interval freeness alone would not provide a basis over B_C.",
         "Solve the geometric degree-zero difference equation to identify its invariant E-line.",
-        "Apply effective continuous semilinear module descent to reconstruct a line from a character; verify inverse constructions and the continuity on compact annuli."
+        "Apply effective continuous descent of interval bundles on all compact subintervals to reconstruct the line from its character; use HF9 to recover the B-module. Check inverse constructions and continuity on the same compact norms."
       ],
       "acceptance": [
         "The inverse character construction depends on HF10 effectivity, not just full faithfulness of a completed-cover functor."
       ],
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF8/absolute-frobenius-module-category",
-        "RelativeFarguesFontainePartII:HF10/effective-continuous-module-descent",
-        "RelativeFarguesFontainePartII:HF6/negative-weierstrass-solutions"
+        "RelativeFarguesFontainePartII:HF6/negative-weierstrass-solutions",
+        "RelativeFarguesFontainePartII:HF10/bundle-galois-descent",
+        "VectorBundlesAndIsocrystals:VB1/annular-frobenius-descent",
+        "VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles",
+        "RelativeFarguesFontainePartII:HF1/units-and-boundary"
       ],
       "sources": [
         {
@@ -4284,7 +4306,8 @@
       "proofSteps": [
         "Use the Lubin–Tate period sum L(x)=sum_(n in Z)[x^(q^-n)]pi^n and isolate its dominant Teichmuller term on the whole interval.",
         "Approximate the unit-ball generators [x], [a]/pi and pi/[b]. For the last use pi times (L(epsilon b^(-1/p^n))/L(epsilon))^(p^n), whose dominant term is pi/[b]. Its only denominator is a power of the chosen t=L(epsilon), so it belongs to Be_t. Division by this ratio would instead approximate pi[b] and introduce an inadmissible pole.",
-        "Obtain a uniform residue-ball surjection and iterate smaller corrections for density. Complete the chart functions in the specified norms, recover their adic spectra and glue using the radius action."
+        "Obtain a uniform residue-ball surjection and iterate smaller corrections for density. Complete the chart functions in the specified norms, recover their adic spectra and glue using the radius action.",
+        "Import the existing AdicSpaces Layer 6 annular and Frobenius-quotient constructions. In the current Tau Ceti library the Q_p topological carriers spaY/spaX, open quotient map and wandering windows already exist. The target here is their comparison with the completed schematic charts and norms, not a second quotient construction."
       ],
       "acceptance": [
         "The compact interval must avoid its Frobenius translate and the chosen pole. Recovery uses the family of norms as additional data."
@@ -4292,7 +4315,8 @@
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF8/rational-functions-and-ind-quotient",
         "RelativeFarguesFontainePartII:HF2/lubin-tate-parametrization",
-        "RelativeFarguesFontainePartII:HF1/units-and-boundary"
+        "RelativeFarguesFontainePartII:HF1/units-and-boundary",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve"
       ],
       "sources": [
         {
@@ -4314,17 +4338,17 @@
       ],
       "title": "The period interval site",
       "kind": "definition",
-      "statement": "Objects are nonempty intervals I in [0,1], morphisms are inclusions, and a family of subintervals covers I if its union is I and every compact subinterval of I is covered by finitely many members. Restriction sends I to the imported ring B_I. Bundle and coherent-module categories below are confined to I avoiding 1, whereas the ring sheaf statement includes both endpoints.",
+      "statement": "Objects are nonempty intervals I in [0,1], with inclusion morphisms. A family (I_alpha) of subintervals is admissible if, for each compact subinterval K of I, there are finitely many compact subintervals K_j of K whose union is K and each K_j is contained in some I_alpha. This finite compact-refinement condition implies union_alpha I_alpha=I. Restriction sends I to B_I. Bundle and coherent-module categories are confined to intervals avoiding 1; the ring site includes both endpoints. Merely requiring finitely many original cover members over K gives an incorrect topology.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
-        "Specify the interval poset, empty intersections being omitted from covers, and verify pullback and composition of admissible covers.",
+        "Omit empty intersections. Pull a finite compact refinement back by intersecting with a compact test interval. For composition, refine each compact piece by the finite compact refinements furnished by its member cover. These operations prove the pretopology axioms.",
         "Use the imported faithful restrictions to form the contravariant ring functor.",
         "Separate the topology of the whole interval site from the subsite [0,1) supporting noetherian annular algebra."
       ],
       "acceptance": [
-        "A pointwise union is not automatically an admissible cover: compact subsets must have finite subcovers."
+        "Finite compact refinements give pullback and composition, admit closed overlapping chains and compact exhaustions, and reject the disjoint adjacent half-open cover. The source finite-original-subcover wording is too weak for the claimed ring sheaf."
       ],
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF0/frechet-completion-and-restriction"
@@ -4333,7 +4357,7 @@
         {
           "sourceId": "FF17",
           "locator": "Remark 11.2.8, p. 371; Definitions 11.2.1 and 11.2.4, pp. 369–370",
-          "match": "A pointwise union is not automatically an admissible cover: compact subsets must have finite subcovers."
+          "match": "Finite compact refinements give pullback and composition, admit closed overlapping chains and compact exhaustions, and reject the disjoint adjacent half-open cover. The source finite-original-subcover wording is too weak for the claimed ring sheaf."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4354,7 +4378,7 @@
         {
           "name": "interval_site.compact_test",
           "role": "characterisation",
-          "statement": "Admissibility is exactly the finite-subcover condition on every compact subinterval."
+          "statement": "Admissibility is exactly the existence of a finite compact refinement subordinate to the family on every compact test interval."
         },
         {
           "name": "interval_site.endpoint_subsite",
@@ -4377,6 +4401,11 @@
           "name": "interval_site.singletons",
           "kind": "non-example",
           "statement": "The family of all singleton subintervals of [a,b], a<b, has union [a,b] but is not admissible."
+        },
+        {
+          "name": "interval_site.adjacent_half_open",
+          "kind": "non-example",
+          "statement": "For a<c<b, the family {[a,c),[c,b]} has a finite set-theoretic subcover but is not admissible: no finite compact refinement covers [a,c) up to c without a member crossing c. Otherwise the ring sheaf would force the domain B_[a,b] to be a product of two nonzero rings."
         }
       ],
       "uses": [
@@ -4438,7 +4467,7 @@
       "proofSteps": [
         "Use endpoint splitting for additive surjectivity.",
         "Use the explicit boundary-extension criteria to identify the intersection as the ring on the union, rather than inferring it just from injectivity.",
-        "Induct over finite chains of overlapping intervals and pass through compact exhaustions; dense complete restrictions remove the inverse-limit obstruction for the admissible covers."
+        "Use the admissible finite compact refinements, order their endpoints and refine further to closed chains with nonempty adjacent overlaps. Induct by the two-interval exact sequence on each compact test interval. Dense complete restrictions remove the inverse-limit obstruction along an exhaustion, giving sheaf descent and H^1=0 on the stated site."
       ],
       "acceptance": [
         "The equality of intersections takes place inside B_(I intersect J); arbitrary set-theoretic intersections of abstract rings are not intended."
@@ -4490,8 +4519,13 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "§11.2.1, pp. 369–370; Schneider–Teitelbaum §3, Theorems A/B and Corollaries 3.1–3.4, pp. 8–10",
+          "locator": "§11.2.1, pp. 369–370",
           "match": "The defining Banach algebras have the usual local-field scalar topology because 1 is excluded."
+        },
+        {
+          "sourceId": "ST02",
+          "locator": "§3, definition and Theorems A/B, pp. 7–9; Corollaries 3.1–3.5, pp. 9–10; Lemma 3.6, pp. 10–11",
+          "match": "The general complete nonarchimedean-field hypotheses, flat dense Banach system, exact sections and compact base change are imported through ND.2. No characteristic-zero hypothesis is added to §3."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4594,23 +4628,25 @@
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
-        "Apply Frechet–Stein exactness and base-change to the compatible bundle system.",
-        "Bound the number of global generators using its constant compact rank and compact PID presentations, with compatible approximation along the dense restrictions. Identify the resulting kernel similarly, obtaining finite presentation.",
-        "The compact localizations of the resulting module are finite free; their maximal ideals cover the relevant divisor points. The finite presentation and local-rank criterion give projectivity. For the half-open ring use Bezoutness, which makes every finite projective module free."
+        "Apply the imported Frechet–Stein exactness and base-change theorem to the compatible compact bundle system.",
+        "Supply G-GENERATORS: produce one finite family of compatible global sections generating on every compact annulus, with bounded approximation estimates. This gives a surjection O^n->E of coherent systems and a kernel bundle K.",
+        "Because E_J is finite free on every compact J, Hom(E_J,O_J^n)->Hom(E_J,E_J) is surjective. Apply exact global sections to these coherent Hom systems and lift id_E to a global splitting E->O^n. The resulting finite B_I-module is a direct summand of B_I^n, hence finite projective. This avoids any false assertion that classical compact points cover every maximal ideal of B_I.",
+        "Use base change and exactness to prove the mutually inverse tensor functors. For I=(0,rho], finite projectives over the Bezout domain are free. The splitting also gives a finitely generated kernel; it is not an independent consequence of bounded coadmissible rank."
       ],
       "acceptance": [
-        "Exactness of coadmissible sections alone does not prove finite generation. The uniform generator approximation is a separate proof obligation recorded in gap G-GENERATORS."
+        "Uniform finite generation remains G-GENERATORS. Conditional on those generators, exactness on the coherent Hom systems produces a splitting and proves projectivity even at nonclassical maximal ideals."
       ],
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF9/interval-bundles-and-coherent-systems",
         "RelativeFarguesFontainePartII:HF9/frechet-stein-comparison",
-        "RelativeFarguesFontainePartII:HF5/half-open-bezout"
+        "RelativeFarguesFontainePartII:HF5/half-open-bezout",
+        "LocallyAnalyticDistributionsPartII:ND.2/coadmissible-theorems"
       ],
       "sources": [
         {
           "sourceId": "FF17",
           "locator": "Propositions 11.2.2–11.2.3, pp. 369–370",
-          "match": "Exactness of coadmissible sections alone does not prove finite generation. The uniform generator approximation is a separate proof obligation recorded in gap G-GENERATORS."
+          "match": "Uniform finite generation remains G-GENERATORS. Conditional on those generators, exactness on the coherent Hom systems produces a splitting and proves projectivity even at nonclassical maximal ideals."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4841,17 +4877,17 @@
       ],
       "title": "Continuous descent of interval bundles",
       "kind": "theorem",
-      "statement": "For every I subset [0,1), Fib(Y_(F,I)) is equivalent to bundles on Y_(C,I) with a semilinear G_F-action whose action on sections over every compact subinterval is continuous. The equivalence and fixed-vector inverse commute with interval restriction, tensor products and Frobenius. The compact descent theorem is applied through a cofinal exhaustion with endpoints in |F^times|.",
+      "statement": "For every I subset [0,1), Fib(Y_(F,I)) is equivalent to bundles on Y_(C,I) with a semilinear G_F-action whose action on sections over every compact subinterval is continuous. The equivalence and fixed-vector inverse commute with interval restriction, tensor products and Frobenius. The compact descent theorem for value-group endpoints must be extended to arbitrary compact subintervals by G-RADIUS before taking the limit; density of |F^times| alone does not cover an irrational singleton or an included irrational endpoint.",
       "hypotheses": [
         "Standing E, F and norm conventions of the reader document; extra restrictions are stated explicitly."
       ],
       "proofSteps": [
-        "Perfect nontrivially valued F has p-divisible, hence dense, value group; choose the specified cofinal compact exhaustion.",
-        "Apply effective module descent at each compact stage; full faithfulness descends all base-change isomorphisms and their cocycles uniquely.",
-        "Take the 2-limit and compare its global sections by the bundle equivalence. Verify continuity and the Frobenius action on the same compact norms."
+        "Value-group compact intervals form convenient enclosing neighborhoods of any compact J away from 1, but need not be a cofinal exhaustion contained in the given interval. Prove G-RADIUS: finite-extension completed base change and the quantitative trace and matrix-cocycle estimates on J itself, with uniform constants from enclosing intervals, without assuming its object or cocycle extends to a neighborhood.",
+        "With this arbitrary-compact descent input, descend each compact module and its overlap identifications. Full faithfulness makes the cocycles and restriction comparisons unique.",
+        "Take the 2-limit over every compact subinterval and apply the interval bundle/global-section equivalence. Check continuity and Frobenius on exactly these compact module topologies."
       ],
       "acceptance": [
-        "The topology on the semilinear action is tested on every compact module, not only on an abstract inverse limit."
+        "The full interval theorem is conditional on G-RADIUS in addition to R-TATE and G-GENERATORS. Test an irrational singleton and a closed irrational endpoint; a contained value-group exhaustion cannot be used in either case."
       ],
       "prerequisites": [
         "RelativeFarguesFontainePartII:HF10/effective-continuous-module-descent",
@@ -4861,7 +4897,7 @@
         {
           "sourceId": "FF17",
           "locator": "Conclusion of §11.2.4, pp. 376–377",
-          "match": "The topology on the semilinear action is tested on every compact module, not only on an abstract inverse limit."
+          "match": "The full interval theorem is conditional on G-RADIUS in addition to R-TATE and G-GENERATORS. Test an irrational singleton and a closed irrational endpoint; a contained value-group exhaustion cannot be used in either case."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4893,7 +4929,7 @@
       "sources": [
         {
           "sourceId": "FF17",
-          "locator": "Remark 11.2.17, p. 376, and Remark 11.1.11, p. 367",
+          "locator": "Remark 11.2.17, p. 376, and Remark 11.1.11, p. 366",
           "match": "The target includes the actual counterexample obligation, since a failed contraction estimate alone does not disprove descent."
         }
       ],
@@ -5075,7 +5111,7 @@
       ],
       "implementationStatus": "unchecked",
       "planet": {
-        "name": "Closed primes of Ainf"
+        "name": "Closed primes of the integral period ring"
       }
     },
     {
@@ -5154,11 +5190,13 @@
     {
       "id": "R-TATE",
       "supplier": "PerfectoidSpaces:P3",
-      "need": "For an arbitrary nondiscretely valued perfect complete rank-one F of characteristic p and C=completion(Fbar), supply quantitative almost-trace cochain contractions proving C^{G_F}=F and the continuous additive, principal-unit and small-ball cohomology used here. Transport these estimates through every marked perfectoid untilt; prove H^1=0 for finite-length B_dR-plus modules and effective finite-generated complete B_dR-plus descent. Supply convergent noncommutative small-matrix-cocycle correction on every compact B_I, I subset [0,1), uniform under the root-refined finite-extension approximation. State constants and continuity for each Banach norm.",
+      "need": "For an arbitrary nondiscretely valued perfect complete rank-one F of characteristic p and C=completion(Fbar), supply quantitative almost-trace cochain contractions proving C^{G_F}=F and the continuous additive, principal-unit and small-ball cohomology used here. Transport these estimates through every marked perfectoid untilt; prove H^1=0 for finite-length B_dR-plus modules and effective finite-generated complete B_dR-plus descent. Supply convergent noncommutative small-matrix-cocycle correction on every compact B_I, I subset [0,1), uniform under the root-refined finite-extension approximation. State constants and continuity for each Banach norm. Include filtered principal-unit H^1 bounds strong enough to descend normalized primitive generators with the degree-independent square-root error. For arbitrary compact J subset [0,1), prove the trace and small-matrix bounds in its own norm; moving to an enclosing value-group interval must not assume the cocycle extends there.",
       "neededBy": [
         "RelativeFarguesFontainePartII:HF4/perfect-field-trace-cohomology",
         "RelativeFarguesFontainePartII:HF7/de-rham-jet-descent",
-        "RelativeFarguesFontainePartII:HF10/effective-continuous-module-descent"
+        "RelativeFarguesFontainePartII:HF10/effective-continuous-module-descent",
+        "RelativeFarguesFontainePartII:HF4/uniform-normalized-generators",
+        "RelativeFarguesFontainePartII:HF10/bundle-galois-descent"
       ],
       "status": "open",
       "reason": "P3 almost purity and the existing P9 finite-Galois theorem are inputs; P9 infinite-tower full faithfulness is weaker than this effectivity. Discretely valued Tate–Sen statements are not substituted for perfectoid fields."
@@ -5214,23 +5252,32 @@
       ],
       "status": "provided-by-roadmap",
       "reason": "Current upstream OptimalTransport README, Layer 5(1)–(2), already owns this general theory; the compact Suggested file states only available-carrier milestones. This is an import interface, not a request for a second convex-analysis theory."
+    },
+    {
+      "id": "R-ADIC",
+      "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
+      "need": "Import the Q_p interval carrier B^I and its complete Tate topology from Layer 6.3, and the Frobenius quotient and annular-chart construction from Layers 6.1–6.4 for arbitrary perfect complete nonarchimedean F. Match raw period radius rho=q^(-r) to the window parameter kappa=alpha/r when |varpi|=p^(-alpha). Keep its power-bounded plus ring distinct from HF1 B_I^plus. Current Tau Ceti already supplies spaY, spaX, the open orbit projection and wandering windows; complete sheaf/chart claims are the upstream roadmap input.",
+      "neededBy": [
+        "RelativeFarguesFontainePartII:HF0/absolute-annulus-comparison",
+        "RelativeFarguesFontainePartII:HF8/runge-and-adic-reconstruction"
+      ],
+      "status": "provided",
+      "reason": "Layer 6.3 explicitly defines the Q_p interval ring and radius dictionary; Layers 6.1–6.4 own the quotient. Their current statements and relevant Suggested signatures were read. Current library modules FarguesFontaine.Y and FarguesFontaine.Quotient provide the topological carriers; no existing topology or annular carrier is planned again."
     }
   ],
   "coverage": [
     {
       "stageId": "RelativeFarguesFontainePartII:HF0",
       "status": "planned",
-      "remaining": [
-        "Independent review of the target statements and supplier interfaces; no additional local mathematical gap is claimed."
-      ],
+      "remaining": [],
       "openInputs": []
     },
     {
       "stageId": "RelativeFarguesFontainePartII:HF1",
       "status": "planned",
       "remaining": [
-        "R-CRYS: For E=Q_p, a_rho={a in O_F:|a|<=rho} and b_rho=ker(W(O_F)->O_F/a_rho), identify the p-completed PD envelope of b_rho (compatible with the base divided powers on p) as the pro-final p-adic PD thickening computing H^0 of (O_F/a_rho)/Z_p. State the direction of the ring/affine-thickening universal property and the finite-level pro-object qualification; no terminal ordinary nilpotent thickening is asserted.",
-        "Resolve inherited input G-COORDINATE before declaring this stage closed."
+        "Resolve G-COORDINATE before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-CRYS before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "G-COORDINATE",
@@ -5241,7 +5288,7 @@
       "stageId": "RelativeFarguesFontainePartII:HF2",
       "status": "planned",
       "remaining": [
-        "R-LT: Extend the existing finite-Q_p Lubin–Tate module, inverse-division Tate module and convergent logarithm interfaces to a complete discretely valued coefficient field E with finite residue field, including equal characteristic. In equal characteristic use the corresponding additive E-action and prove the characteristic-p logarithmic period identity used by the positive-line function theory."
+        "Resolve R-LT before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "R-LT"
@@ -5250,16 +5297,14 @@
     {
       "stageId": "RelativeFarguesFontainePartII:HF3",
       "status": "planned",
-      "remaining": [
-        "Independent review of the target statements and supplier interfaces; no additional local mathematical gap is claimed."
-      ],
+      "remaining": [],
       "openInputs": []
     },
     {
       "stageId": "RelativeFarguesFontainePartII:HF4",
       "status": "planned",
       "remaining": [
-        "R-TATE: For an arbitrary nondiscretely valued perfect complete rank-one F of characteristic p and C=completion(Fbar), supply quantitative almost-trace cochain contractions proving C^{G_F}=F and the continuous additive, principal-unit and small-ball cohomology used here. Transport these estimates through every marked perfectoid untilt; prove H^1=0 for finite-length B_dR-plus modules and effective finite-generated complete B_dR-plus descent. Supply convergent noncommutative small-matrix-cocycle correction on every compact B_I, I subset [0,1), uniform under the root-refined finite-extension approximation. State constants and continuity for each Banach norm."
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "R-TATE"
@@ -5269,7 +5314,7 @@
       "stageId": "RelativeFarguesFontainePartII:HF5",
       "status": "planned",
       "remaining": [
-        "Resolve inherited input R-TATE before declaring this stage closed."
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "R-TATE"
@@ -5279,8 +5324,8 @@
       "stageId": "RelativeFarguesFontainePartII:HF6",
       "status": "planned",
       "remaining": [
-        "R-LT: Extend the existing finite-Q_p Lubin–Tate module, inverse-division Tate module and convergent logarithm interfaces to a complete discretely valued coefficient field E with finite residue field, including equal characteristic. In equal characteristic use the corresponding additive E-action and prove the characteristic-p logarithmic period identity used by the positive-line function theory.",
-        "Resolve inherited input R-TATE before declaring this stage closed."
+        "Resolve R-LT before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "R-LT",
@@ -5291,9 +5336,9 @@
       "stageId": "RelativeFarguesFontainePartII:HF7",
       "status": "planned",
       "remaining": [
-        "G-EQUALCHAR: Equal-characteristic transfer of the mixed-characteristic curve proofs",
-        "R-TATE: For an arbitrary nondiscretely valued perfect complete rank-one F of characteristic p and C=completion(Fbar), supply quantitative almost-trace cochain contractions proving C^{G_F}=F and the continuous additive, principal-unit and small-ball cohomology used here. Transport these estimates through every marked perfectoid untilt; prove H^1=0 for finite-length B_dR-plus modules and effective finite-generated complete B_dR-plus descent. Supply convergent noncommutative small-matrix-cocycle correction on every compact B_I, I subset [0,1), uniform under the root-refined finite-extension approximation. State constants and continuity for each Banach norm.",
-        "Resolve inherited input R-LT before declaring this stage closed."
+        "Resolve G-EQUALCHAR before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-LT before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "G-EQUALCHAR",
@@ -5305,9 +5350,9 @@
       "stageId": "RelativeFarguesFontainePartII:HF9",
       "status": "planned",
       "remaining": [
-        "G-MATRIX: A quantitative proof of interval matrix gluing",
-        "G-GENERATORS: Uniform generation for interval bundles",
-        "Resolve inherited input R-TATE before declaring this stage closed."
+        "Resolve G-GENERATORS before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve G-MATRIX before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "G-GENERATORS",
@@ -5319,13 +5364,15 @@
       "stageId": "RelativeFarguesFontainePartII:HF10",
       "status": "planned",
       "remaining": [
-        "G-BOUNDARY: Concrete boundary-one counterexample",
-        "R-TATE: For an arbitrary nondiscretely valued perfect complete rank-one F of characteristic p and C=completion(Fbar), supply quantitative almost-trace cochain contractions proving C^{G_F}=F and the continuous additive, principal-unit and small-ball cohomology used here. Transport these estimates through every marked perfectoid untilt; prove H^1=0 for finite-length B_dR-plus modules and effective finite-generated complete B_dR-plus descent. Supply convergent noncommutative small-matrix-cocycle correction on every compact B_I, I subset [0,1), uniform under the root-refined finite-extension approximation. State constants and continuity for each Banach norm.",
-        "Resolve inherited input G-GENERATORS before declaring this stage closed."
+        "Resolve G-BOUNDARY before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve G-GENERATORS before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve G-RADIUS before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "G-BOUNDARY",
         "G-GENERATORS",
+        "G-RADIUS",
         "R-TATE"
       ]
     },
@@ -5333,14 +5380,16 @@
       "stageId": "RelativeFarguesFontainePartII:HF8",
       "status": "planned",
       "remaining": [
-        "G-EQUALCHAR: Equal-characteristic transfer of the mixed-characteristic curve proofs",
-        "Resolve inherited input G-GENERATORS before declaring this stage closed.",
-        "Resolve inherited input R-LT before declaring this stage closed.",
-        "Resolve inherited input R-TATE before declaring this stage closed."
+        "Resolve G-EQUALCHAR before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve G-GENERATORS before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve G-RADIUS before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-LT before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "G-EQUALCHAR",
         "G-GENERATORS",
+        "G-RADIUS",
         "R-LT",
         "R-TATE"
       ]
@@ -5349,12 +5398,12 @@
       "stageId": "RelativeFarguesFontainePartII:HF11",
       "status": "planned",
       "remaining": [
-        "G-HOMOGENEITY: Valued homogeneity in the maximally complete Cp-type case",
-        "R-KT: Supply completed Kahler differentials with their canonical seminorm for analytic fields, the primitive-extension type-1/type-4 criterion of KT16 Lemma 2.4, and the positive-radius nested-disc construction and differential estimates in its Theorem 1.2. The vanishing after exchanging t and x must imply topological algebraicity over k((x)); it must not assert vanishing of relative differentials at a type-4 point over k((t)).",
-        "R-BC: Prove the explicit obstruction to representing the positive Banach–Colmez diamond B^{phi=p^2}, for F=C_p^flat, by an analytic or perfectoid space, as asserted in FF17 Préface Remark 2.32(iii), p. 25. Identify the obstruction and topology, rather than deriving nonrepresentability from the sufficient representability range 0<lambda<=1.",
-        "Resolve inherited input G-EQUALCHAR before declaring this stage closed.",
-        "Resolve inherited input R-LT before declaring this stage closed.",
-        "Resolve inherited input R-TATE before declaring this stage closed."
+        "Resolve G-EQUALCHAR before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve G-HOMOGENEITY before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-BC before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-KT before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-LT before declaring this stage closed; see the exact obligation and consuming nodes below.",
+        "Resolve R-TATE before declaring this stage closed; see the exact obligation and consuming nodes below."
       ],
       "openInputs": [
         "G-EQUALCHAR",
@@ -5378,7 +5427,7 @@
     {
       "id": "G-GENERATORS",
       "title": "Uniform generation for interval bundles",
-      "detail": "Supply the analytic finite-generation argument for a compatible system of compact finite-free modules of bounded rank, producing one finite set of global generators and a finite-projective global module with the specified base changes. Generic Frechet–Stein coadmissibility alone does not imply finite generation. Complete the source Proposition 11.2.2 argument, including the half-open freeness conclusion, with explicit compatible presentations.",
+      "detail": "Supply the analytic bounded-generator argument for compatible compact finite-free systems of bounded rank, producing one finite family of global sections generating every compact restriction. Generic Frechet–Stein coadmissibility does not imply finite generation. After this step, exactness on coherent Hom systems splits the finite-free presentation and proves projectivity, without claiming compact classical points exhaust the maximal spectrum. Prove the half-open freeness and closed-submodule conclusions with the same explicit compatible approximations.",
       "neededBy": [
         "RelativeFarguesFontainePartII:HF9/finite-projective-bundle-equivalence",
         "RelativeFarguesFontainePartII:HF9/closed-submodules-of-half-open-free"
@@ -5416,6 +5465,14 @@
       "neededBy": [
         "RelativeFarguesFontainePartII:HF1/cyclotomic-annulus-model"
       ]
+    },
+    {
+      "id": "G-RADIUS",
+      "title": "Effective descent on arbitrary compact radii",
+      "detail": "Extend the value-group-endpoint compact descent theorem to every compact J subset [0,1), including an irrational singleton and an included irrational endpoint. Prove finite-extension completed base change B_(L,K) completed_tensor_(B_(F,K)) B_(F,J) = B_(L,J) for an enclosing value-group compact K, together with the trace and small-matrix estimates in the J-norm. Objects and cocycles over J are not assumed to extend to K. Alternatively supply an explicit approximation theorem giving exactly that extension with quantitative control. Density of the value group by itself does not produce a contained cofinal compact exhaustion.",
+      "neededBy": [
+        "RelativeFarguesFontainePartII:HF10/bundle-galois-descent"
+      ]
     }
   ],
   "sourceIssues": [
@@ -5432,7 +5489,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The compact bound must pair each supporting derivative with its own endpoint value; evaluating the supplied two-line polygon confirms the cross-endpoint failure.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E42",
@@ -5447,7 +5509,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Reduction modulo pi must give the completed perfected power-series ring; the weak completion is required before forming the normed annular completion.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E43",
@@ -5462,7 +5529,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Computing on pi and on the coordinate X forces the r-th power. The raw Gauss norms have different scalar restrictions.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E44",
@@ -5477,7 +5549,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The successive cyclotomic levels give slopes (p-1)/p^m over Q_p; ramified pi normalization changes the slopes and horizontal lengths. This is not a formula for all E.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E45",
@@ -5485,14 +5562,19 @@
       "kind": "error",
       "locator": "§1.7.3, p. 83 (after Proposition 1.7.3), author copy courbe.pdf (16 avril 2017)",
       "printed": "The cyclotomic coordinate is used outside the strict period-radius range proved for it.",
-      "correction": "Use rho<q^(-(q-1)/q) for the asserted short-annulus comparison.",
+      "correction": "For E=Q_p and q=p, the short period-annulus range is rho<q^(-(q-1)/q), obtained by the stated reciprocal logarithmic radius conversion. Other coefficient fields require their actual Newton calculation, recorded in G-COORDINATE.",
       "reason": "For p=3 and r=1/2, the valuation of the cyclotomic coordinate is 5/6 rather than the value 1 of [t].",
       "affects": "a stated result",
       "known": "Previously identified in PAPER-FARGUES-FONTAINE-18/E45; published correction status not established by this job.",
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The reciprocal logarithmic conversion sends the ordinary radius threshold to the stated short period range only in the displayed Q_p model; scope is corrected here.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E46",
@@ -5507,7 +5589,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Hahn construction is an E-algebra and contains pi inverse, so integral coefficient bounds cannot describe its entire carrier.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E48",
@@ -5522,7 +5609,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Inside B^b the coefficient-infimum bound selects A[1/pi]. Starting with the whole B^b is essential to recover the intended subring.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E50",
@@ -5537,7 +5629,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Taking q-th powers of every Teichmuller coefficient multiplies the infimum of their valuations by q.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E54",
@@ -5552,22 +5649,32 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p=3 first carry check modulo 9 fixes the sign independently of later formulas.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E55",
       "source": "FF17",
       "kind": "gap",
       "locator": "Proposition 2.2.6 (proof), p. 107, author copy courbe.pdf (16 avril 2017)",
-      "printed": "The root argument stops modulo 4 when p=2, then invokes a square-root series.",
+      "printed": "The p=2 reduction explicitly leaves the refinement modulo 8 to the reader.",
       "correction": "Either lift the calculation modulo 8 or use the independent perfectoid untilt algebraic-closedness theorem, as HF2 does.",
-      "reason": "The binomial square-root series is not justified on all 1+4D by the stated estimate.",
+      "reason": "This is an omitted proof obligation, not a false theorem or an unnoticed claim of a completed calculation. The stated square-root estimate on 1+4D alone does not supply it; HF2 instead imports perfectoid untilt algebraic closedness.",
       "affects": "the proof",
       "known": "Previously identified in PAPER-FARGUES-FONTAINE-18/E55; published correction status not established by this job.",
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an explicit missing calculation in the p=2 proof, not as a false algebraic-closedness theorem. The independent perfectoid-untilt import bypasses this gap.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E62",
@@ -5582,7 +5689,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Evaluation on a Teichmuller constant gives the q^k rescaling directly; exact isometry without rescaling would fail.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E63",
@@ -5590,14 +5702,19 @@
       "kind": "error",
       "locator": "Proposition 2.3.16 (proof), p. 120, author copy courbe.pdf (16 avril 2017)",
       "printed": "The continuity proof gives a lower bound on a difference of two valuations.",
-      "correction": "Use min(v_y(f),delta(y,z))=min(v_z(f),delta(y,z)).",
+      "correction": "For f in A use min(v_y(f),delta(y,z))=min(v_z(f),delta(y,z)). Extend continuity to B^b by localization and the continuous normalization by v_y(pi); do not assert the truncated identity on all of B^b.",
       "reason": "A fixed Teichmuller constant has identical valuations at both points, contradicting the positive lower bound.",
       "affects": "the proof",
       "known": "Previously identified in PAPER-FARGUES-FONTAINE-18/E63; published correction status not established by this job.",
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The ideal comparison yields equal truncated valuations on A. A nonzero constant refutes the printed lower bound; localization is needed for continuity on B^b.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E64",
@@ -5612,7 +5729,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed norm conclusions require the mod-pi determinant and separable tensor computation. The source leaves that work, so the gap classification is retained.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E67",
@@ -5627,7 +5749,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A nonzero trace with iterated inverse Frobenius has valuation tending to zero and norm tending to one, precisely the direction required by the estimate.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E68",
@@ -5642,7 +5769,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Multiplicativity gives the relative-error denominator |a|_rho. Its omission is not harmless when a is a primitive element of norm below one.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E69",
@@ -5657,7 +5789,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A continuous valued embedding, with the stated possible rescaling, supplies the valuation-ring map. A bare field embedding does not.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E70",
@@ -5672,7 +5809,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Newton slopes are valuations, while the adjacent zero radius is q to the negative slope; the logarithm is forced by this convention.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E71",
@@ -5687,7 +5829,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Each conjugate linear factor has radius s, while only their constant-term product has radius s^d. The corrected maximum estimate is independent of d; its filtered descent input remains R-TATE.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E72",
@@ -5702,7 +5849,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Only the quotient after removing all chosen zeros is zero-free. Applying the extension criterion to the removed product would contradict its divisor.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E73",
@@ -5717,7 +5869,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The coefficient formula gives v_r(phi(x))=q v_(r/q)(x); the exponent h belongs only to an h-fold iterate.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E74",
@@ -5732,7 +5889,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A q^h-th root of a number in (0,1) is larger. The corrected ordered interval is the compact fundamental domain used by the estimates.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E124",
@@ -5747,7 +5909,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The immediately preceding divisor definition is on Frobenius orbits. The orbit quotient is necessary for finite-support generators.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E127",
@@ -5762,7 +5929,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The divisor of Pi_minus contains strictly negative iterates. One application of phi includes the original point, as required by the n=0 condition.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E128",
@@ -5777,7 +5949,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The ramified coefficient ratio may lie outside the old coefficient field; the twisting line and the scalar extension must be formed over the new field.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E130",
@@ -5792,7 +5969,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Veronese comparison concerns the graded ring with the new uniformizer and coefficient field. The mismatched subscript otherwise denotes no such piece.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E131",
@@ -5807,7 +5989,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Composing the corrected Koszul maps gives -ts+st=0. The alternative order gives a generally nonzero expression.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E132",
@@ -5822,7 +6009,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Both positive-line characters must appear in the Koszul argument. Multiplication for their product character alone is too weak; the corrected target retains the two twists and G-EQUALCHAR.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E133",
@@ -5837,7 +6029,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The leading Laurent term of the ratio is [b^(-1/p^n)]. The prefactor pi gives the desired limit pi/[b] and leaves the poles on the chosen section.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E134",
@@ -5852,7 +6049,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For an unramified extension, the same period ring is used with iterated Frobenius. A raw tensor over E splits it and cannot be the asserted domain.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E135",
@@ -5867,7 +6069,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An invertible linearization is necessary for the tensor category and its line classification. The zero Frobenius on a rank-one module is a direct counterexample to the weaker definition.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E136",
@@ -5882,7 +6089,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Only geometric degree-zero lines have a one-dimensional fixed E-space. Negative twists have no sections and positive twists have the fundamental-sequence quotient.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E178",
@@ -5897,7 +6109,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For negative Laurent exponents rho^n decreases as rho increases, giving the reversed endpoint monotonicity.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E179",
@@ -5912,7 +6129,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Restriction follows the reverse of interval inclusion. The endpoint-zero expansion and endpoint-one extension must be assigned to their respective sides.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E180",
@@ -5927,7 +6149,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The derivative at (1,Z) is U+ZVZ inverse. In the Laurent example with Z diagonal(T,T inverse), the lower-left image misses T inverse, so un-conjugated additive surjectivity is insufficient.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E181",
@@ -5942,7 +6169,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The contraction neighborhood depends on Z. Density before bounding that dependence is not a proof of factorization; G-MATRIX remains explicit.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E182",
@@ -5957,7 +6189,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The transition isomorphism is over the overlap, so both vector bundles must be restricted there before comparing them.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E193",
@@ -5972,7 +6209,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On pi_E the new radius-zero norm is q^(-ef), equal to the [E-prime:E]-th power of the old norm. This independently checks the endpoint rescaling.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E196",
@@ -5987,7 +6229,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The dense algebra of an E-annulus must contain pi inverse as well as X inverse. Nonnegative pi powers cannot approximate pi inverse in the stated topology.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E198",
@@ -6002,7 +6249,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The compact theorem concerns Spm(B_I). Replacing the ring by a punctured noncompact ring introduces nonclosed maximal ideals and changes the assertion.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E199",
@@ -6017,7 +6269,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A separable nonnormal extension is indexed by its embeddings, or G_F/G_L, rather than by its possibly smaller automorphism group.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E200",
@@ -6032,7 +6289,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The geometric-series factorization of X^p-1 has p summands after dividing by X-1; the upper index is p-1.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E203",
@@ -6047,7 +6309,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The coefficient Frobenius congruence is modulo pi. For ramified E, substituting p changes the quotient and is incorrect.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E211",
@@ -6062,7 +6329,12 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Adjacent orbit representatives impose a pointwise maximum on overlapping backward tails. Their sum overcounts orders; the separation condition prevents this.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     },
     {
       "id": "RelativeFarguesFontainePartII/E212",
@@ -6077,7 +6349,151 @@
       "searched": [
         "The atlas extraction PAPER-FARGUES-FONTAINE-18 and its sourceIssues",
         "The 16 April 2017 author copy at the stated locator; the published Astérisque volume was not collated."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The numerator is in the previously defined degree-k homogeneous piece. The alternate positive-line notation is not yet available at this proof step.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontainePartII/E28",
+      "source": "FF17",
+      "kind": "misprint",
+      "locator": "Proposition 1.4.9, proof, p. 64, author copy dated 16 April 2017",
+      "printed": "The distinguished product term is assigned the product of the two minimizing indices.",
+      "correction": "Use pi exponent n_0+m_0 in both occurrences.",
+      "reason": "Multiplication of the two initial monomials adds their exponents; the coefficient being isolated is indexed by n_0+m_0.",
+      "affects": "the proof",
+      "known": "Inherited from PAPER-FARGUES-FONTAINE-18/E28 and independently checked at this locator; published correction status not established.",
+      "searched": [
+        "The extraction sourceIssues and the public author copy at the stated locator; published volume not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Multiplication of the two initial monomials adds their exponents; the coefficient being isolated is indexed by n_0+m_0.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontainePartII/E38",
+      "source": "FF17",
+      "kind": "misprint",
+      "locator": "Proposition 1.6.25, proof, p. 77, author copy dated 16 April 2017",
+      "printed": "A lower bound for the negative-index tail is displayed as an equality.",
+      "correction": "Use v_r(tail)>=lambda-r>=lambda-r_1>0 in that step.",
+      "reason": "The supporting bound for negative exponents and the coefficient valuation bound imply an inequality; they do not identify a minimizing tail coefficient.",
+      "affects": "the proof",
+      "known": "Inherited from PAPER-FARGUES-FONTAINE-18/E38 and independently checked at this locator; published correction status not established.",
+      "searched": [
+        "The extraction sourceIssues and the public author copy at the stated locator; published volume not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The supporting bound for negative exponents and the coefficient valuation bound imply an inequality; they do not identify a minimizing tail coefficient.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontainePartII/E39",
+      "source": "FF17",
+      "kind": "misprint",
+      "locator": "Proposition 1.6.25, proof, p. 77, author copy dated 16 April 2017",
+      "printed": "The transform of the positive tail is evaluated with the wrong sign on the linear term.",
+      "correction": "The expression at coefficient index N+1 is Newt(x)(N+1)+(N+1)r.",
+      "reason": "The Legendre convention in this chapter is inf(P(t)+rt); the monomial pi^(N+1) detects the sign.",
+      "affects": "the proof",
+      "known": "Inherited from PAPER-FARGUES-FONTAINE-18/E39 and independently checked at this locator; published correction status not established.",
+      "searched": [
+        "The extraction sourceIssues and the public author copy at the stated locator; published volume not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Legendre convention in this chapter is inf(P(t)+rt); the monomial pi^(N+1) detects the sign.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontainePartII/E58",
+      "source": "FF17",
+      "kind": "misprint",
+      "locator": "Proposition 2.2.16, proof, p. 111, author copy dated 16 April 2017",
+      "printed": "The valuation of an element congruent to 1 modulo m_F is twice assigned a positive value.",
+      "correction": "Both displayed valuations v_F(epsilon) in that passage are 0.",
+      "reason": "The element epsilon lies in 1+m_F, hence has absolute value 1. Its difference from 1 can have positive valuation.",
+      "affects": "the proof",
+      "known": "Inherited from PAPER-FARGUES-FONTAINE-18/E58 and independently checked at this locator; published correction status not established.",
+      "searched": [
+        "The extraction sourceIssues and the public author copy at the stated locator; published volume not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The element epsilon lies in 1+m_F, hence has absolute value 1. Its difference from 1 can have positive valuation.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontainePartII/E195",
+      "source": "FF17",
+      "kind": "misprint",
+      "locator": "Proposition 1.6.25, final norm comparison, p. 78, author copy dated 16 April 2017",
+      "printed": "The conclusion retains the full initial radius interval instead of the compact subinterval used for the estimates.",
+      "correction": "The last radius quantifier in this compact approximation step ranges over J.",
+      "reason": "The positive- and negative-tail estimates immediately preceding it are uniform on the chosen compact J; they do not provide an estimate on all of I.",
+      "affects": "the proof",
+      "known": "Inherited from PAPER-FARGUES-FONTAINE-18/E195 and independently checked at this locator; published correction status not established.",
+      "searched": [
+        "The extraction sourceIssues and the public author copy at the stated locator; published volume not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The positive- and negative-tail estimates immediately preceding it are uniform on the chosen compact J; they do not provide an estimate on all of I.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontainePartII/E221",
+      "source": "FF17",
+      "kind": "error",
+      "locator": "Remark 11.2.8, p. 371, author copy dated 16 April 2017; page image checked",
+      "printed": "The interval covering condition asks for finitely many original cover members over each compact test interval.",
+      "correction": "Require a finite compact refinement subordinate to the cover on each compact test interval, as specified in HF9/interval-site.",
+      "reason": "The stated weaker condition admits [a,c),[c,b] covering [a,b]. The overlap is empty, so sheaf descent would identify the domain B_[a,b] with a product of two nonzero rings. The compact-refinement condition excludes this cover and is stable under pullback and composition.",
+      "affects": "a stated result",
+      "known": "Not found in the routed extraction sourceIssues; no published correction located by this review. The published Astérisque volume was not collated.",
+      "searched": [
+        "PAPER-FARGUES-FONTAINE-18 sourceIssues and routed packet findings",
+        "Public author-copy p. 371, including page image",
+        "Web search on 2026-10-19 for Fargues Fontaine courbe errata 11.2.8 and corrigenda 2017",
+        "Laurent Fargues public publications page, https://webusers.imj-prg.fr/~laurent.fargues/Publications.html; no erratum listed with the volume"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The stated weaker condition admits [a,c),[c,b] covering [a,b]. The overlap is empty, so sheaf descent would identify the domain B_[a,b] with a product of two nonzero rings. The compact-refinement condition excludes this cover and is stable under pullback and composition.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
+    },
+    {
+      "id": "RelativeFarguesFontainePartII/E222",
+      "source": "FF17",
+      "kind": "error",
+      "locator": "Section 1.7.2, p. 82, under the standing hypotheses of section 1.1, p. 52; author copy dated 16 April 2017",
+      "printed": "The q-power transition maps on the punctured disc are described as finite etale without restricting the characteristic of E.",
+      "correction": "Keep finite etaleness in characteristic zero; in equal characteristic p the q-power maps are finite radicial. HF1/perfected-annulus-model already makes this distinction.",
+      "reason": "The standing hypotheses in section 1.1 permit E=F_q((pi)). Then d(X^q)/dX=0, and the induced degree-q extension on the punctured-disc function field is purely inseparable. Thus the finite map is radicial in equal characteristic; etaleness holds only in characteristic zero.",
+      "affects": "a stated result",
+      "known": "Not found in the routed extraction sourceIssues; no published correction located by this review. The published Astérisque volume was not collated.",
+      "searched": [
+        "PAPER-FARGUES-FONTAINE-18 sourceIssues and routed packet findings",
+        "Public author copy, sections 1.1 and 1.7.2, pp. 52 and 80–82",
+        "Web search on 2026-10-19 for Fargues Fontaine 1.7.2 etale errata and corrigenda",
+        "Laurent Fargues public publications page, https://webusers.imj-prg.fr/~laurent.fargues/Publications.html; no erratum listed with the volume"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The standing hypotheses in section 1.1 permit E=F_q((pi)). Then d(X^q)/dX=0, and the induced degree-q extension on the punctured-disc function field is purely inseparable. Thus the finite map is radicial in equal characteristic; etaleness holds only in characteristic zero.",
+        "by": "REV-DESIGN-RelativeFarguesFontainePartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -6087,7 +6503,7 @@
       "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf",
       "read": "2026-10-19",
       "sha256": "cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3",
-      "qualification": "Only the 16 April 2017 author copy was read. Findings are scoped to it; the published Astérisque volume was not collated. Finding numbers preserve the extraction’s identifiers, with this roadmap prefix."
+      "qualification": "Only the 16 April 2017 author copy was read. Findings are scoped to it; the published Astérisque volume was not collated. Finding numbers preserve the extraction’s identifiers, with this roadmap prefix. E221 and E222 were added by this independent review."
     }
   ],
   "paperCoverage": [
@@ -8962,13 +9378,13 @@
   ],
   "upstreamNotes": [
     {
-      "note": "Current main, newer than the atlas snapshot, owns the general finite-projective/finite-locally-free and affine quasi-coherent module equivalences. HF9 is specifically the non-affine interval inverse-limit theorem; no affine theorem is replanned.",
+      "note": "Current main, newer than the atlas snapshot, owns the general finite-projective/finite-locally-free and affine quasi-coherent module equivalences. HF9 is specifically the non-affine interval inverse-limit theorem; no affine theorem is replanned. In the current library, TauCeti.AlgebraicGeometry.FiniteLocallyFreeSheaf.finiteProjectiveEquiv in VectorBundle.Affine.Basic implements the affine equivalence; it is read and reused, not a new target.",
       "roadmaps": [
         "AlgebraicVectorBundles"
       ]
     },
     {
-      "note": "Current main already contains the geometric Q_p period annuli and Frobenius quotient roadmap. HF0 compares the absolute author-copy norms; HF7 imports the geometric curve and extends only the general-perfect-field function-theory results.",
+      "note": "Current AdicSpaces Layer 6 owns Q_p annular carriers and the adic Frobenius quotient for arbitrary perfect F. Current Tau Ceti already defines TauCeti.FarguesFontaine.spaY, spaX, the open quotient map and the wandering-window topology; its Quotient module explicitly leaves the quotient sheaf and affinoid-chart identifications as subsequent work. HF0 imports the interval carrier and compares norms; HF8 proves the reconstruction comparison from schematic functions plus norms. Neither replans the existing topology or annular construction.",
       "roadmaps": [
         "AdicSpaces"
       ]
@@ -8992,5 +9408,558 @@
         "RelativeFarguesFontainePartII:HF9/corrected-matrix-factorization"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-RelativeFarguesFontainePartII",
+    "date": "2026-10-19",
+    "notes": "Independently checked all 109 node statements, hypotheses, source locators and matches, proof prerequisites, APIs/tests, 348 routing items, all 15 declarations at the pinned commits, current upstream ownership, and all 51 source findings. Corrected 37 nodes and synchronized the roadmap and reader; added no nodes and one definition test. The complete target-level pass remains planned with seven explicit mathematical gaps and five open supplier extensions, plus two provided interfaces. No stage is claimed closed and no result is claimed implemented. Suggested Lean elaborates at the pins with exactly ten intended proof-placeholder warnings. See the review report for corrections, baseline evidence and follow-up obligations.",
+    "checked": [
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/absolute-annulus-comparison",
+        "verdict": "corrected",
+        "note": "The common dense Witt localization fixes the absolute/relative norm dictionary and endpoint scalar topologies. Import current AdicSpaces Layer 6 for the Q_p interval carrier; no second carrier is planned."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/gauss-coefficient-calculus",
+        "verdict": "corrected",
+        "note": "The coefficient estimates and Proposition 1.4.9 supply multiplicativity. Added the omitted locator and additive initial exponent; removed the unjustified uniqueness claim from two generator values alone."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/radial-limits-and-completeness",
+        "verdict": "verified",
+        "note": "The coefficient-infimum limit is distinguished from the separate pi-adic endpoint norm. The coefficient estimates give the stated completeness and both limiting conventions."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/legendre-newton-conventions",
+        "verdict": "corrected",
+        "note": "Corrected to the convex decreasing envelope with right horizontal rays. The monomial test now distinguishes it from a single-point hull and checks the extended transform on negative parameters."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/newton-product-and-jensen",
+        "verdict": "verified",
+        "note": "Gauss multiplicativity and the imported negative-conjugate convention give closed infimal convolution. The two-linear-factor test checks concatenated slopes rather than their pairwise sums."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/frechet-completion-and-restriction",
+        "verdict": "verified",
+        "note": "Compact endpoint norms, dense common localization and stabilized Newton data give faithful restriction. The normalized scalar norm is used only away from radius one."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/completed-newton-polygon",
+        "verdict": "corrected",
+        "note": "The derivative-jump multiplicity and endpoint conventions agree with the source. Corrected Corollary 1.6.17/Definition 1.6.18 and the subsequent locators."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/compact-norm-stabilization",
+        "verdict": "corrected",
+        "note": "Separated the positive-radius compact proof from an included radius zero. Pi-adic stabilization of initial coefficients plus a positive-radius tail bound handles the latter without applying Proposition 1.6.16 outside its domain."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/rank-two-gauss-valuations",
+        "verdict": "verified",
+        "note": "The ordered pair of Gauss valuation and the chosen one-sided derivative is lexicographic; orientation, multiplicativity and the two directional tests agree with Proposition 1.6.12."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF0/coefficient-change-norms",
+        "verdict": "verified",
+        "note": "Finite coefficient changes retain ramification and residue degrees. The endpoint-zero norm is raised to the full extension degree, independently checked on pi_E."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/boundary-laurent-expansions",
+        "verdict": "verified",
+        "note": "Unique bounded-below expansions at radius zero have the source convergence conditions. Two-sided interior sums are not given an unsupported uniqueness or existence claim."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/boundary-extension",
+        "verdict": "verified",
+        "note": "The zero-free Newton condition and the separate boundary growth criterion give the two extension results. The positive and bounded carriers are kept distinct."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/units-and-boundary",
+        "verdict": "verified",
+        "note": "The Newton unit criterion is applied in the indicated interval rings, with the separate singleton and boundary cases. The source tail-estimate sign and compact-radius corrections are recorded."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/overconvergent-field-comparison",
+        "verdict": "verified",
+        "note": "The bounded overconvergent field and full Robba germ are separate imported carriers. The field claim is confined to the former and is not transferred to the full global B."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/positive-annulus-subrings",
+        "verdict": "verified",
+        "note": "The closure is that of A[1/pi], not the power-bounded subring. Constructors, restriction and coefficient-bound tests distinguish these two meanings of plus."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/positive-newton-and-frobenius",
+        "verdict": "verified",
+        "note": "The Newton positivity criterion and Frobenius intersection identify the indicated positive rings. Coefficient valuations scale by q under Frobenius."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/monomial-field-model",
+        "verdict": "verified",
+        "note": "Weak completion gives the completed perfection of k[[T]] modulo pi. The Laurent expansion and Frobenius action agree with the source coordinate model."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/perfected-annulus-model",
+        "verdict": "verified",
+        "note": "The norm power is forced by pi and X. The initial algebra inverts both, and the finite-etale assertion is restricted to characteristic zero; characteristic-p power maps are radicial."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/cyclotomic-annulus-model",
+        "verdict": "verified",
+        "note": "The displayed reciprocal-radius threshold is correctly restricted to E=Q_p. G-COORDINATE honestly retains the unresolved ramified-coefficient Newton calculation."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/equal-characteristic-symmetry",
+        "verdict": "verified",
+        "note": "The exchanged Laurent indices and reciprocal parameters preserve the stated convergence conditions. The common punctured two-variable adic locus explains the norm power."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/hahn-period-model",
+        "verdict": "verified",
+        "note": "The Hahn model allows rational Witt coefficients and its convergence conditions, so it contains pi inverse. The restricted maximal-completeness hypothesis is retained."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/witt-bivectors",
+        "verdict": "corrected",
+        "note": "Replaced an unsupported arbitrary-ring covector-to-bivector lift by the finite Laurent constructor over perfect O_F. Extensionality, summation and the exponential-versus-linear tail tests remain valid."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/crystalline-radius-rings",
+        "verdict": "verified",
+        "note": "The PD-envelope carriers are imported. R-CRYS keeps the finite-level/pro-final crystalline interpretation and direction of its universal property as an exact supplier obligation."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/crystalline-saturation",
+        "verdict": "corrected",
+        "note": "Added the perfect subfield of O_F and explicit finite dimension. Replaced the too-narrow VB0 coefficient-field import by the pinned WittVector.Isocrystal structure over arbitrary perfect k; the radius inclusions and invariant equality then match Corollary 1.10.13."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF1/boundary-valuation-quotient",
+        "verdict": "corrected",
+        "note": "Distinguished uniform positivity from coefficientwise positivity and replaced a vague completeness argument by the positive radius-one completion quotient. Its later eigenvector comparison is algebraic."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/q-compatible-tilt",
+        "verdict": "verified",
+        "note": "The Q-compatible inverse limit uses pi-adic completeness and the specified lift. Its ring law and mod-pi Frobenius comparison agree with the source and specialize to PreTilt."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/closed-ideal-tilt-invariance",
+        "verdict": "verified",
+        "note": "The closed-ideal comparison uses the stated topological nilpotence bounds. It does not silently replace a pi-complete quotient by an arbitrary abstract quotient."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/general-fontaine-map",
+        "verdict": "verified",
+        "note": "The Q-Teichmuller evaluation construction has the complete O_E-algebra hypotheses and the conditional surjectivity criterion. Its Q_p specialization consumes the existing Fontaine map."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/primitive-kernel-criterion",
+        "verdict": "corrected",
+        "note": "Corrected the generator expansion to Q-Teichmuller lifts. Pi-torsion-freeness and the zeroth-coordinate pi-times-unit condition are retained in the iterative division proof."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/primitive-degree",
+        "verdict": "verified",
+        "note": "The first unit coefficient, topologically nilpotent earlier coefficients and degree conventions match Definition 2.2.1. Tests distinguish degree one, higher degree and nonprimitive elements."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/degree-one-division",
+        "verdict": "verified",
+        "note": "The division and untilt conclusions retain the geometric and completeness assumptions. Algebraic closedness comes from the perfectoid-untilt supplier, avoiding the explicitly unfinished p=2 calculation."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/classical-point-comparison",
+        "verdict": "verified",
+        "note": "The degree-one primitive ideal, its marked untilt and topology agree with the parent interface. The simple [c]-pi presentation is conditional on compatible pi roots."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/valuative-point-metric",
+        "verdict": "verified",
+        "note": "The generator-independent delta is symmetric and valuatively ultrametric. The ordinary metric is q^(-delta); equal-characteristic and diagonal tests fix the orientation."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/bounded-point-completeness",
+        "verdict": "verified",
+        "note": "The restriction to a bounded primitive-point locus and the evaluation convergence argument match Proposition 2.3.4. It is not a completeness claim for every unbounded locus."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/lubin-tate-points",
+        "verdict": "verified",
+        "note": "The Q-Teichmuller torsion equation and the corrected p-term cyclotomic sum agree with the source. R-LT supplies the explicit all-local-field extension."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/lubin-tate-parametrization",
+        "verdict": "verified",
+        "note": "The parametrization, its unit equivalence and Frobenius valuation scaling agree with the cited propositions. The continuity and converse assertions use the specified topologies."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/berkovich-topology-comparison",
+        "verdict": "corrected",
+        "note": "Restricted the equal-truncation identity to A. Continuity on B^b then follows by localization and the continuous positive normalization v_y(pi), without asserting a false identity for all fractions."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF2/primitive-coefficient-norm",
+        "verdict": "verified",
+        "note": "The determinant norm modulo pi and separable untilt tensor decomposition provide the conditional norm construction. E64 records the source calculation left to be supplied."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF3/primitive-factorization",
+        "verdict": "verified",
+        "note": "Geometric factorization into degree-one primitive equations follows from approximate roots, bounded-point completeness and division. Multiplicity and unit ambiguity are preserved."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF3/evaluation-and-closed-division",
+        "verdict": "verified",
+        "note": "The evaluation bound and the closed principal kernel use the completed untilt DVR already owned by RF2. Division is not inferred from an abstract point set."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF3/linear-zero-extraction",
+        "verdict": "verified",
+        "note": "A positive Newton slope gives a degree-one zero in the geometric case, with order from repeated division. The source slope-to-radius conversion is retained."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF3/geometric-compact-ring-comparison",
+        "verdict": "verified",
+        "note": "The field/PID alternatives agree with Theorem 2.5.1 and the imported geometric PID owner. Radius zero is removed only from the classical indexing set, not from the ring."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF3/near-zero-weierstrass-product",
+        "verdict": "corrected",
+        "note": "Allowed finite and empty families as well as infinite null families. The compact product estimates give the exact near-zero divisor and extend the zero-free remainder."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF3/locally-finite-divisors",
+        "verdict": "corrected",
+        "note": "The finite-support specialization is the pinned WeilDivisor API. Clarified that endpoint notation uses I intersect (0,1); testing finiteness on intervals touching one would wrongly exclude eigenvector divisors."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF3/geometric-divisor-criterion",
+        "verdict": "verified",
+        "note": "Local primitive division on compact annuli and faithful restriction give the geometric divisibility criterion. The equality-of-divisors unit statement has nonzero inputs."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/perfect-field-trace-cohomology",
+        "verdict": "verified",
+        "note": "The trace norm tends to one and the cohomology is continuous. The quantitative cochain contractions for arbitrary perfectoid F are explicitly requested in R-TATE."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/witt-unit-cohomology",
+        "verdict": "verified",
+        "note": "Successive weak-Witt principal-unit quotients give actual convergent coboundary corrections. No general assertion that H^1 commutes with inverse limits is used."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/primitive-ideal-descent",
+        "verdict": "verified",
+        "note": "The stable ideal gives a continuous unit cocycle with the necessary norm denominator. The normalized generator descends using the stated weak-Witt H^1 input."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/finite-orbit-points",
+        "verdict": "verified",
+        "note": "The orbit product is reduced and indexed by G_F/G_L, including nonnormal L/F. Primitive degree is the finite geometric orbit size."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/finite-degree-untilts",
+        "verdict": "verified",
+        "note": "The degree is the finite extension degree of tilted fields. Markings are continuous valued embeddings; the special simple generator and degree-one surjectivity are not extended to higher degree."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/weighted-radius",
+        "verdict": "verified",
+        "note": "The d-th root of the primitive constant norm is the conjugate point radius. This agrees with the F-normalized untilt valuation and the weighted Newton convention."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/weighted-newton-zero-formula",
+        "verdict": "verified",
+        "note": "The source slope is -log_q of radius and carries deg(y) times local order. Geometric pullback has exactly deg(y) conjugates with that local order."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/uniform-normalized-generators",
+        "verdict": "verified",
+        "note": "The corrected estimate uses s for each conjugate radius rather than s^d. Its filtered unit-cocycle bounds are explicitly included in R-TATE, so unbounded primitive degrees cause no hidden inference."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF4/general-field-weierstrass-products",
+        "verdict": "verified",
+        "note": "The near-zero construction has the exact divisor, whereas the outer construction only majorizes it. The distinction is retained in all later uses."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/compact-field-pid-dichotomy",
+        "verdict": "verified",
+        "note": "The singleton exceptional field case uses the divisible hull of the value group. The integral boundary-zero subring has the extra pi ideal; its ambient maximal spectrum remains Spm(B_I)."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/general-divisor-criterion",
+        "verdict": "verified",
+        "note": "The arbitrary-perfect-field criterion descends the geometric one and uses nonzero functions on interior intervals. It does not claim an interior divisor detects a special endpoint-only ring."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/closed-ideal-divisor-classification",
+        "verdict": "verified",
+        "note": "Effective locally finite divisors correspond order-reversingly to nonzero closed ideals. Closure and compact base change are essential; the target does not classify every ideal."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/half-open-bezout",
+        "verdict": "corrected",
+        "note": "Added nonzero hypotheses for the minimum-divisor criterion and separate zero-generator cases. Dense compact corrections give the required compatible Bezout relation."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/nonclosed-maximal-ideal",
+        "verdict": "corrected",
+        "note": "Corrected the density proof by deleting all zeros of the majorant on each compact exhaustion member. Remaining escaping zeros give properness; late generators are compact units even if the majorant has extra zeros."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/meromorphic-functions",
+        "verdict": "corrected",
+        "note": "Restricted the divisor-bearing definition to I subset (0,1). The compatible inverse limit of compact fraction fields and local DVR orders has the required restriction and finite-support APIs."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/meromorphic-fraction-comparison",
+        "verdict": "verified",
+        "note": "A global divisor majorant clears all poles, giving Frac(B), rather than only compact fractions. The injection modulo units and nonnegative-divisor characterization have the correct direction."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF5/invariants-of-holomorphic-functions",
+        "verdict": "verified",
+        "note": "The invariant equalities use coefficient and zero-removal arguments with continuous G_F action. It is the zero-free quotient that extends across radius zero."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/eigen-banach-refinement",
+        "verdict": "corrected",
+        "note": "Corrected the barB comparison to an algebraic isomorphism and transported its Banach topology explicitly. Its inherited boundary valuation topology is discrete; negative degrees, rather than eigenvalues, vanish."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/eigen-coefficient-and-uniformizer-change",
+        "verdict": "corrected",
+        "note": "The twisting line is over the correct coefficient field and unramified changes iterate Frobenius. Corrected the subsection/page locators while retaining the residue-constant hypotheses."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/homogeneous-factoriality",
+        "verdict": "corrected",
+        "note": "The geometric factorization statement concerns the homogeneous monoid, not the entire ungraded ring. Corrected its source to Theorem 6.2.1, p. 245."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/orbit-divisors",
+        "verdict": "corrected",
+        "note": "The carrier is the existing finite WeilDivisor on Frobenius orbits and its primitive-degree weight. Corrected the definition and lemma locators; pullback is locally finite only in the interior."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/eigenvector-divisor-map",
+        "verdict": "corrected",
+        "note": "Degree and injectivity hold for every standing F; surjectivity is geometric. Corrected the proposition/theorem locators and retained the character obstruction in the general case."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/positive-weierstrass-product",
+        "verdict": "corrected",
+        "note": "The forward product, recurrence and divisor use the fixed ideal action of Frobenius. Corrected the product construction and Definition 6.2.11 locators."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/negative-weierstrass-solutions",
+        "verdict": "corrected",
+        "note": "Restored b in B^b with v_pi=0, using a Teichmuller rescaling before integral lifting. The object is a solution line, not an asserted convergent unnormalized negative product; corrected its locators."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/orbit-product-eigenvectors",
+        "verdict": "corrected",
+        "note": "Forward and backward recurrences give the full eigenvector and orbit divisor up to E units. Corrected the locator to Lemma 6.2.12, pp. 250–251."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/lubin-tate-product-logarithm",
+        "verdict": "corrected",
+        "note": "The logarithm product is grouped by torsion level, with the equal-characteristic R-LT input retained. Corrected Proposition 6.3.1/Remark 6.3.2 and the comparison-page locators."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/fundamental-exact-sequence",
+        "verdict": "corrected",
+        "note": "The sequence uses orbit-separated degree-one points, including repeated jets, and the strict Banach topology. Corrected to Theorem 6.4.1 and Example 6.4.2, pp. 253–254."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF6/graded-fibre-and-interpolation-ideal",
+        "verdict": "corrected",
+        "note": "Restored the integral ideal gA from Theorem 6.4.4 as well as gB. The quotient proof checks both integrality boundaries; the Frobenius shift and pointwise-supremum correction prevent omitted or duplicated zeros."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF7/geometric-chart-comparison",
+        "verdict": "verified",
+        "note": "The geometric chart, pole degree and PID criterion are imported/refined from the geometric owner. The suggested generic Bezout degree theorem does not assert the same PID conclusion for general F."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF7/de-rham-jet-descent",
+        "verdict": "verified",
+        "note": "The finite-jet and complete de Rham module statements keep the source topologies. R-TATE explicitly supplies effectivity and H^1, which P9 infinite full faithfulness alone cannot provide."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF7/positive-eigenvector-galois-cohomology",
+        "verdict": "verified",
+        "note": "The fundamental sequence, jet descent and filtered positive twists give continuous H^1 vanishing. The result depends on the quantitative descent request rather than bare scalar invariants."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF7/general-dedekind-chart",
+        "verdict": "verified",
+        "note": "Finite orbit jets give finite products of truncated de Rham DVRs. The quotient characterization yields Dedekind, not geometric principality, with units exactly E units."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF7/dedekind-class-group",
+        "verdict": "verified",
+        "note": "The continuous character class measures the general-field ideal class group. The positive eigenvector lifting and geometric comparison give the stated map and its inverse."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF7/degree-one-generation",
+        "verdict": "verified",
+        "note": "The Koszul next map has the corrected ordering and retains the cohomological inputs. The equal-characteristic separable quadratic and unit twist remain G-EQUALCHAR."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF7/general-schematic-curve",
+        "verdict": "verified",
+        "note": "The parent Proj is equipped with the general-field regular noetherian weighted curve structure. The product formula is not promoted to finite-type properness over E."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/rational-functions-and-ind-quotient",
+        "verdict": "verified",
+        "note": "The invariant rational-function field and the stated ind-scheme quotient use orbit divisors and affine charts. They are distinct from the topological or adic Frobenius quotient."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/coefficient-field-base-change",
+        "verdict": "corrected",
+        "note": "The unramified stage keeps B and iterates Frobenius; the ramified stage uses tensor and line twists. The supplier Veronese API has no generation hypothesis; corrected coefficient-change locators."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/finite-galois-field-cover",
+        "verdict": "verified",
+        "note": "The scheme quotient supplier requires affine orbit neighborhoods and freeness on geometric points. The residue action proves the latter; freeness on underlying closed points is not substituted."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/algebraic-closure-tower",
+        "verdict": "corrected",
+        "note": "Corrected eventual stabilization to the number of primes and ramification indices. Residue fields may grow; unramified colimit local rings retain a uniformizer. The normal-stage subgroup is contained in the point stabilizers."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/absolute-frobenius-module-category",
+        "verdict": "verified",
+        "note": "Objects have an invertible Frobenius linearization, tensor products, duals and interval-compatible base change. The rank-one zero-Frobenius nonexample detects the missing condition."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/rank-one-degree-and-characters",
+        "verdict": "corrected",
+        "note": "Added the actual annular Frobenius-descent and geometric classification suppliers to obtain a free B_C line. Character reconstruction uses all-interval descent and therefore retains G-RADIUS."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/positive-line-proj",
+        "verdict": "verified",
+        "note": "The multiplication proof keeps both character twists and the positive degree convention. Relative Proj/Veronese is imported; G-EQUALCHAR records the all-local-field transfer."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF8/runge-and-adic-reconstruction",
+        "verdict": "corrected",
+        "note": "The corrected approximant has dominant term pi/[b] and only the chosen pole. Existing AdicSpaces carriers and quotient topology are imported; the new claim is reconstruction from schematic charts plus radial norms."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/interval-site",
+        "verdict": "corrected",
+        "note": "Replaced the insufficient finite-original-subcover condition by finite compact refinements. Pullback/composition follow, and a new disjoint adjacent half-open cover test prevents a false product sheaf."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/endpoint-splitting",
+        "verdict": "verified",
+        "note": "The negative Laurent part has the corrected endpoint monotonicity. The endpoint-zero and endpoint-one extension arguments are assigned to the correct sides."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/mayer-vietoris-and-sheaf",
+        "verdict": "corrected",
+        "note": "The two-interval exact sequence is inside the common overlap ring. Updated the sheaf/H^1 proof to use the corrected finite compact refinements and closed chains."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/frechet-stein-comparison",
+        "verdict": "corrected",
+        "note": "The noetherian PID/field restrictions are flat and dense. Added a separate ST02 citation for general complete nonarchimedean fields and its exact-sections/base-change results through ND.2."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/interval-bundles-and-coherent-systems",
+        "verdict": "verified",
+        "note": "The compatible compact categories and their base-change maps match Definitions 11.2.1/11.2.4. The bundle/projectivity and arbitrary coadmissibility conditions remain separate."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/finite-projective-bundle-equivalence",
+        "verdict": "corrected",
+        "note": "After G-GENERATORS supplies finite global generators, exact sections of coherent Hom systems lift the identity to a splitting. This proves projectivity without a false claim that compact classical points exhaust all maximal ideals."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/coherent-module-classification",
+        "verdict": "verified",
+        "note": "The fibrewise boundedness and finite-presentation criteria keep the source distinctions between coherent systems and finitely generated or projective global modules."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/corrected-matrix-factorization",
+        "verdict": "verified",
+        "note": "The derivative is the conjugated sum U+ZVZ inverse. A bounded nonlinear section suffices for quadratic correction; the Laurent-matrix counterexample rules out the weaker tangent hypothesis."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/interval-gluing",
+        "verdict": "verified",
+        "note": "Exact-square module surjectivity and maximal-spectrum coverage are retained as the RF4 interface. G-MATRIX records the approximation-neighborhood dependence rather than declaring density sufficient."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF10/finite-extension-annuli",
+        "verdict": "verified",
+        "note": "The finite-etale and base-change statements retain compactness, value-group endpoints and exclusion of radius one. Finite perfectoid almost purity and normalized trace estimates are the stated inputs."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF10/completed-extension-invariants",
+        "verdict": "verified",
+        "note": "The scalar invariant theorem is separate from module effectivity, with Banach norms and the endpoint-zero Witt calculation. R-TATE propagates through its prerequisites."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF10/effective-continuous-module-descent",
+        "verdict": "verified",
+        "note": "The compact value-group theorem requires convergent small-matrix cocycle correction followed by finite Galois descent. The precise quantitative input is R-TATE, not infinite-tower full faithfulness."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF10/bundle-galois-descent",
+        "verdict": "corrected",
+        "note": "Removed the impossible contained value-group exhaustion for irrational singletons or included irrational endpoints. G-RADIUS explicitly supplies arbitrary-compact base change and norm estimates before the interval limit."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF10/endpoint-one-failure",
+        "verdict": "corrected",
+        "note": "The source assertions are retained as targets requiring actual counterexamples in G-BOUNDARY. Corrected Remark 11.1.11 to p. 366; failed contraction alone is not treated as an example."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF9/closed-submodules-of-half-open-free",
+        "verdict": "verified",
+        "note": "Closedness and finite ambient rank are essential to the finite-free result. The compact basis compatibility and uniform generators are explicitly left to G-GENERATORS."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF11/nonprincipal-positive-ideal",
+        "verdict": "verified",
+        "note": "Berger Remark 1.1.3 supplies a concrete geometric example with irrational limiting slopes. The statement does not claim non-Bezoutness for every F or for global B."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF11/strict-power-series-endomorphism",
+        "verdict": "verified",
+        "note": "KT16 Theorem 1.2 uses the positive-radius nested discs and the completed differential criterion. R-KT keeps the changed-base type-1/type-4 argument rather than asserting false differential vanishing at a type-4 point."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF11/exotic-untilt-residue-field",
+        "verdict": "verified",
+        "note": "KT16 Theorem 1.3 converts the strict endomorphism to a proper completed subfield and an untilt not isomorphic to C_p. The hypotheses, marking and topological qualification are retained."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF11/closed-primes-of-integral-period-ring",
+        "verdict": "corrected",
+        "note": "The weakly closed prime classification separates the vertical prime, primitive primes and the limiting coefficient prime. It is not a classification of all abstract primes. Renamed the planet to the integral period ring: Ainf without a ramified qualifier conventionally denotes the narrower p-typical carrier."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF11/maximal-completeness-and-orbits",
+        "verdict": "verified",
+        "note": "The transitivity formula is explicitly conditional on valued homogeneity. G-HOMOGENEITY retains the unread automorphism-extension theorem for the C_p-type case; arbitrary maximal completeness is not claimed sufficient."
+      },
+      {
+        "nodeId": "RelativeFarguesFontainePartII:HF11/higher-eigenvector-expansion-warning",
+        "verdict": "verified",
+        "note": "The explicit degree-two nonrepresentability assertion remains R-BC. It is not inferred by negating the sufficient positive-ball representability range, and no unsupported universal two-sided expansion is promised."
+      }
+    ]
+  }
 }
