@@ -216,6 +216,11 @@
           "statement": "The subalgebra of vertex endomorphism families satisfying all edge commutation equations."
         },
         {
+          "name": "Nori.compatibleEnd.mem_iff",
+          "role": "characterisation",
+          "statement": "A vertex family lies in the subalgebra exactly when it commutes with every edge map."
+        },
+        {
           "name": "Nori.compatibleEnd.eval",
           "role": "projection",
           "statement": "Evaluation at a vertex is a unital algebra homomorphism to its module endomorphism algebra."
@@ -348,7 +353,7 @@
       ],
       "implementationStatus": "unchecked",
       "planet": {
-        "name": "Nori coalgebra"
+        "name": "Diagram category as comodules"
       }
     },
     {
@@ -490,7 +495,7 @@
       "sources": [
         {
           "sourceId": "HM17",
-          "locator": "Definition 9.1.1, pp. 205–206; relative cohomology sequence (2.2), p. 32",
+          "locator": "Definition 9.1.1, pp. 205–206; Proposition 2.1.4 and Corollary 2.1.5 (the pair and triple sequences), p. 32",
           "match": "The pair representation includes functoriality arrows in the reversed geometric direction and the connecting arrows of triples."
         }
       ],
@@ -588,7 +593,7 @@
       ],
       "title": "Good algebraic filtrations",
       "kind": "construction",
-      "statement": "A cellular filtration of an affine variety X of dimension n is a finite increasing sequence of closed reduced subvarieties ∅=F_{−1}X⊆F_0X⊆…⊆F_nX=X, with dim F_i≤i, smooth F_i∖F_{i−1}, and relative integral cohomology of (F_i,F_{i−1}) finite free and concentrated in degree i. Repeated equal levels are allowed with zero relative cohomology. One may enlarge a prescribed dimension-bounded filtration to one of this form. Such filtrations exist by descending application of the Basic Lemma; compatible filtrations for a finite acyclic diagram of morphisms exist after enlargement.",
+      "statement": "A cellular filtration of an affine variety X of dimension n is a finite increasing sequence of closed reduced subvarieties ∅=F_{−1}X⊆F_0X⊆…⊆F_NX=X, for some N≥n, such that every step (F_iX,F_{i−1}X,i) is a very good pair in the sense of the canonical effective-pairs-diagram (HM17 Definition 9.2.1(2); Harrer Definition 4.2.1): F_iX∖F_{i−1}X is smooth and either dim F_iX=i and dim F_{i−1}X=i−1 with relative cohomology concentrated in degree i, or F_iX=F_{i−1}X of dimension less than i. For i≤n the first form is forced, so dim F_iX=i; repeated levels occur only above n, with zero relative cohomology, when varieties of different dimensions are filtered in one index range. The Basic Lemma makes every step integrally good as well, with finite free top group. The weaker conditions dim F_iX≤i, smooth differences and concentration do not suffice: they admit good steps that are not very good, whose terms are not vertices of VGood. One may enlarge a prescribed dimension-bounded filtration to one of this form. Such filtrations exist by descending application of the Basic Lemma; compatible filtrations for a finite acyclic diagram of morphisms exist after enlargement.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.5/completion-basic-lemma-proof",
@@ -599,6 +604,11 @@
           "sourceId": "HM17",
           "locator": "Proposition 9.2.3 and Corollary 9.2.4, pp. 210–211",
           "match": "Successive applications of the Basic Lemma give filtrations and compatible enlargements."
+        },
+        {
+          "sourceId": "HARRER",
+          "locator": "Definition 4.2.1, p. 128",
+          "match": "The steps of a cellular filtration are very good pairs, which is what places the cellular complex in the very-good-pair diagram category."
         }
       ],
       "proofSteps": [
@@ -608,19 +618,20 @@
       ],
       "acceptance": [
         "Every level is a closed algebraic subvariety, not a topological skeleton.",
-        "The degree of a relative term is its filtration index, so one cannot put the whole variety in degree zero indiscriminately."
+        "The degree of a relative term is its filtration index, so one cannot put the whole variety in degree zero indiscriminately.",
+        "Every step is a vertex of the canonical very-good-pair diagram, not merely a good pair."
       ],
       "implementationStatus": "unchecked",
       "api": [
         {
           "name": "Nori.CellularFiltration.level",
           "role": "projection",
-          "statement": "The closed level F_i, extended by ∅ below −1 and by X above n."
+          "statement": "The closed level F_i, extended by ∅ below −1 and by X above N."
         },
         {
           "name": "Nori.CellularFiltration.relative",
           "role": "data",
-          "statement": "The good pair (F_i,F_{i−1},i), with its integral concentration and freeness witness."
+          "statement": "The very good pair (F_i,F_{i−1},i), a vertex of VGood, with its integral concentration and freeness witness."
         },
         {
           "name": "Nori.CellularFiltration.enlarge",
@@ -653,6 +664,12 @@
           "name": "Nori.CellularFiltration.repeatedLevel",
           "kind": "characterisation",
           "statement": "A repeated level contributes the zero object. Replacing it by the unit would change the cohomology."
+        },
+        {
+          "name": "Nori.CellularFiltration.notVeryGood",
+          "kind": "non-example",
+          "statement": "On X=A², the chain ∅⊆{0}⊆{0}⊆A² has smooth differences, dim F_i≤i and relative cohomology concentrated in the right degrees (the top step is acyclic), but (A²,{0},2) is not very good because dim{0}=0≠1. It is not a cellular filtration; a definition asking only for dim F_i≤i and concentration accepts it.",
+          "addedBy": "REV-MotivesAndAlgebraicCycles--MC.5"
         }
       ],
       "uses": [
@@ -776,7 +793,7 @@
       ],
       "title": "Finite affine cover and filtration data",
       "kind": "construction",
-      "statement": "For a separated finite-type variety X choose a finite ordered affine open cover U_i. Its strictly increasing-index Čech terms are the finite disjoint unions U_{i_0}∩…∩U_{i_p}. These intersections are affine because X is separated, and the normalized cover direction is bounded by the number of opens. A cover-filtration consists of this cover and compatible cellular filtrations of the intersection diagram. For a finite acyclic geometric diagram, covers and filtrations can be chosen simultaneously after affine refinement. Pullbacks of affine opens along arbitrary morphisms are refined by affine opens; they are not assumed affine.",
+      "statement": "For a separated finite-type variety X choose a finite ordered affine open cover U_i. Its strictly increasing-index Čech terms are the finite disjoint unions U_{i_0}∩…∩U_{i_p}. These intersections are affine because X is separated, and the normalized cover direction is bounded by the number of opens. A cover-filtration consists of this cover and compatible cellular filtrations of the intersection diagram. For a finite acyclic geometric diagram, covers and filtrations can be chosen simultaneously after affine refinement. Pullbacks of affine opens along arbitrary morphisms are refined by affine opens; they are not assumed affine. A refinement is witnessed by a map of index sets, which is not unique (HM17 Example 9.2.6): two such maps induce cochain maps of the totalizations that agree up to an explicit Čech prism homotopy once filtrations compatible with the homotopy diagram are chosen. HM17 rigidifies the cover instead (Definition 9.2.7), which makes refinement maps unique (Remark 9.2.8); one of the two devices is used before comparison maps are composed.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.5/completion-cellular-filtration",
@@ -785,7 +802,7 @@
       "sources": [
         {
           "sourceId": "HM17",
-          "locator": "Definitions 9.2.7, 9.2.12–9.2.13 and Lemmas 9.2.9–9.2.16, pp. 212–214",
+          "locator": "Example 9.2.6, Definitions 9.2.7, 9.2.12–9.2.13, Remark 9.2.8 and Lemmas 9.2.9–9.2.16, pp. 212–214",
           "match": "Covers and compatible filtrations are the data for Čech realization; the normalized finite-cover variant has the same augmentation."
         },
         {
@@ -824,7 +841,7 @@
         {
           "name": "Nori.AffineCover.refine",
           "role": "functoriality",
-          "statement": "An affine refinement, with compatible filtrations, induces a comparison morphism; refinements compose."
+          "statement": "An affine refinement map, with compatible filtrations, induces a comparison morphism; two refinement maps between the same covers give chain-homotopic comparisons, and composite refinement maps give composite comparisons."
         },
         {
           "name": "Nori.AffineCover.bettiDescent",
@@ -847,6 +864,12 @@
           "name": "Nori.AffineCover.repeatedIndex",
           "kind": "non-example",
           "statement": "The unnormalized Čech nerve of even a singleton cover has terms in arbitrarily high cover degree, so finite cover cardinality alone does not bound that complex."
+        },
+        {
+          "name": "Nori.AffineCover.twoRefinementMaps",
+          "kind": "characterisation",
+          "statement": "For affine X, the cover {X} refines {X,X} by two index maps, which no further refinement equalizes (HM17 Example 9.2.6). Their comparison maps are chain homotopic, not equal; a construction that assumes a unique refinement map fails here.",
+          "addedBy": "REV-MotivesAndAlgebraicCycles--MC.5"
         }
       ],
       "uses": [
@@ -913,7 +936,7 @@
       ],
       "title": "The good-pair diagram with inverse excision edges",
       "kind": "construction",
-      "statement": "Let Good be the integral-good-pair diagram, represented over Q. Form Good_ex by adjoining the inverse of the cohomological restriction (S,T,n)→(S∖U,T∖U,n) whenever U is open in S and contained in T, with the representation assigning actual inverses to the new edges. The restriction is an isomorphism by algebraic closed-pair excision. In the diagram category its inverse already exists; hence C(Good_ex,H_B)≃C(Good,H_B), compatibly with fibres. For a boundary (Y,Z,n)→(X,Y,n+1) and a good pair (A,B,m), put S=Y×A∪X×B and T=Z×A∪X×B. The inverse excision edge from (Y×A,Z×A∪Y×B,n+m) to (S,T,n+m), followed directly by the boundary of X×A⊇S⊇T, defines the product boundary. Both endpoints of this boundary are good. It is unnecessary to pass through (S,Z×A∪Y×B,n+m), which need not be a good pair.",
+      "statement": "Let Good be the canonical diagram of effective good pairs of effective-pairs-diagram (rational concentration), represented by rational singular cohomology; HM17 Definition 9.2.1 asks for integral concentration with free top group, a full subdiagram with the same diagram category, and every statement below holds for either. Form Good_ex by adjoining the inverse of the cohomological restriction (S,T,n)→(S∖U,T∖U,n) whenever U is open in S and contained in T, with the representation assigning actual inverses to the new edges. The restriction is an isomorphism by algebraic closed-pair excision. In the diagram category its inverse already exists; hence C(Good_ex,H_B)≃C(Good,H_B), compatibly with fibres. For a boundary (Y,Z,n)→(X,Y,n+1) and a good pair (A,B,m), put S=Y×A∪X×B and T=Z×A∪X×B. The inverse excision edge from (Y×A,Z×A∪Y×B,n+m) to (S,T,n+m), followed directly by the boundary of X×A⊇S⊇T, defines the product boundary. Both endpoints of this boundary are good. It is unnecessary to pass through (S,Z×A∪Y×B,n+m), which need not be a good pair. The second-factor product (A,B,m)×∂ is defined in the same way with the factors exchanged. For very good inputs with B≠∅ the excision target (S,T,n+m) is good but not very good, because dim T=dim S, so these product paths live in Good_ex and not in the very-good diagram (MotivesAndAlgebraicCycles/E74).",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.5/completion-all-pairs-extension",
@@ -937,7 +960,8 @@
       ],
       "acceptance": [
         "The new edge goes against restriction, not in the original geometric direction.",
-        "The abelian category and its coalgebra description are preserved up to canonical fibre-compatible equivalence."
+        "The abelian category and its coalgebra description are preserved up to canonical fibre-compatible equivalence.",
+        "For very good factors with B≠∅, (S,T,n+m) satisfies dim T=dim S, so it is not a very good vertex; the tensor structure reaches C(VGood,H_B) only through the diagram-category equivalence."
       ],
       "implementationStatus": "unchecked",
       "api": [
@@ -1245,7 +1269,7 @@
       ],
       "title": "The sheaf input to equivariant Nori filtrations",
       "kind": "theorem",
-      "statement": "Let X be an affine Q-variety of dimension n, W⊂X closed of dimension <n, and R either Z or Q. Let F be a sheaf of R-modules on X(C), locally constant on the members of a finite stratification by locally closed Q-subvarieties, with finite free stalks. There is a dense Zariski open U⊆X∖W with complement of dimension <n such that H^q(X(C),j!j*F)=0 for q≠n and H^n(X(C),j!j*F) is isomorphic to a finite direct sum of stalks of F. A finite family of such sheaves has a common choice of U, by applying the statement to their direct sum. In particular the top group is finite free. This stronger statement is the input for quotient-invariant filtrations; it is not inferred from the constant-sheaf Basic Lemma.",
+      "statement": "Let k⊆C be a subfield (k=Q in the motivic application), Λ a ring, X an affine k-variety of dimension n and W⊂X closed of dimension <n. Let F be a weakly constructible sheaf of Λ-modules on X(C): locally constant on the members of a finite stratification by locally closed k-subvarieties (HM17 Definition 2.5.5). There is a dense Zariski open j:U⊆X∖W defined over k, with complement of dimension <n, such that H^q(X(C),j!j*F)=0 for q≠n and H^n(X(C),j!j*F) is isomorphic to a finite direct sum of stalks of F at points of U(C). A finite family of such sheaves has a common choice of U, by applying the statement to their direct sum. If the stalks of F are finite free over Λ (Λ=Z or Q and F constructible with free stalks, say), the top group is finite free. This stronger statement is the input for quotient-invariant filtrations; it is not inferred from the constant-sheaf Basic Lemma.",
       "hypotheses": [],
       "prerequisites": [
         "ComplexComparisonPartII:C0/repair-analytification",
@@ -1303,7 +1327,7 @@
       ],
       "proofSteps": [
         "For the finite quotient π:X→X/G, pushforward of analytic sheaves is exact by proper base change and finite fibres. On every orbit the kernel of the difference maps into the product over G is the constant diagonal subgroup; its image and cokernel have finite free integral stalks by Lemma 4.4.2.",
-        "Apply the preceding constructible-sheaf Basic Lemma over Z simultaneously to extension by zero of the constant sheaf, its finite pushforward, and the image/cokernel difference sheaves. This gives a dense open complement where all their relative cohomology is concentrated in the top degree. Its proof adapters are recorded in the geometric supplier gap. The integral version ensures membership in the canonical integral-good diagram before rational realization.",
+        "Apply the preceding constructible-sheaf Basic Lemma over Z simultaneously to extension by zero of the constant sheaf, its finite pushforward, and the image/cokernel difference sheaves. This gives a dense open complement where all their relative cohomology is concentrated in the top degree. Its proof adapters are recorded in the geometric supplier gap. Integral concentration with free top group implies rational concentration, so every step is a vertex of the canonical (rational) very-good-pair diagram; the integral form is what Harrer proves and is not needed beyond this.",
         "The two exact sequences identify integral relative cohomology of the quotient with the G-invariants upstairs; extension to Q commutes with these finite kernels. Include the nonsmooth loci upstairs and the inverse image of the nonsmooth locus downstairs in the prescribed bad subset. Pull the closed complement back to obtain an invariant closed subset containing it, and induct on dimension to obtain the filtrations with smooth successive differences.",
         "The quotient pullback is an actual morphism of Nori complexes. Its factorization through the invariant kernels is checked by faithful Betti realization; exactness identifies their fibres, and conservativity proves it is an isomorphism.",
         "For the diagram version assume each chosen quotient arrow has endpoints disjoint from those of every other chosen quotient, is the only arrow between its endpoints, and has no factorization through a third object. Induct by terminal quotient pairs, keeping a previously fixed initial segment when it contains both or neither endpoint of each quotient arrow."
@@ -1427,7 +1451,7 @@
       "sources": [
         {
           "sourceId": "HARRER",
-          "locator": "Definition 1.2.9, p. 20; Theorem 4.8.1, pp. 145–147; Definition 4.8.3 and Theorem 4.8.4, p. 148; Propositions 4.7.1–4.7.2, pp. 141–144; Definitions 4.9.1 and Propositions 4.9.2–4.9.7, pp. 149–154",
+          "locator": "Definition 1.2.9, p. 20; Theorem 4.8.1, pp. 145–147; Definition 4.8.3 and Theorem 4.8.4, p. 148; Propositions 4.7.1–4.7.2, pp. 141–144; Definition 4.9.1, Proposition 4.9.2, Definition 4.9.3, Remark 4.9.5 and Theorems 4.9.6–4.9.7, pp. 149–153",
           "match": "Eventual composition and equivariant refinement give functorial filtrations for hom-almost acyclic diagrams; product comparisons survive further enlargement."
         }
       ],
@@ -1579,7 +1603,7 @@
       ],
       "title": "Effective geometric motives have Nori realization",
       "kind": "theorem",
-      "statement": "Over Q there is a contravariant triangulated tensor functor R_N^eff:DM_gm^eff(Q,Q)→D^b(MM_Nori^eff(Q,Q)). On a smooth X its Betti image computes RΓ_sing(X(C),Q); on the motive of a very good pair (X,Y,n), its value is H_N^n(X,Y)[−n]. It extends the graph-only variety realization, is compatible with finite correspondences and carries the affine-line homotopy and Nisnevich Mayer–Vietoris relations to zero. Tensor compatibility is the natural external-product comparison of the constructed complexes. No equivalence of the two categories is asserted.",
+      "statement": "Over Q there is a contravariant triangulated tensor functor R_N^eff:DM_gm^eff(Q,Q)→D^b(MM_Nori^eff(Q,Q)). On a smooth X its Betti image computes RΓ_sing(X(C),Q); on the relative motive Cone(M(Y)→M(X)) of a very good pair (X,Y,n) with X and Y smooth, its value is H_N^n(X,Y)[−n]. For singular X or Y, Harrer Remark 7.3.2 asserts the same value without proof (MotivesAndAlgebraicCycles/E75); it is not claimed here. It extends the graph-only variety realization, is compatible with finite correspondences and carries the affine-line homotopy and Nisnevich Mayer–Vietoris relations to zero. Tensor compatibility is the natural external-product comparison of the constructed complexes. No equivalence of the two categories is asserted.",
       "hypotheses": [],
       "prerequisites": [
         "MotivesAndAlgebraicCycles:MC.5/completion-comparison-zigzag",
@@ -1763,7 +1787,12 @@
         "Author errata page https://home.mathematik.uni-freiburg.de/arithgeom/preprints/buch-errata/buch.html",
         "Annotated 1 July 2025 PDF §9.3",
         "arXiv:1105.0865v5 Appendix B and §1"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in HM17 Version 6, proof of Proposition 9.3.1, p. 219: the edge used for ∂×id goes from (Y×A,Z×A∪Y×B) to (Y×A∪X×B,Z×A∪Y×B) and is called a functoriality edge, but the inclusion Y×A⊆Y×A∪X×B induces an edge in the opposite direction. HM25, p. 222, records the authors' erratum of 27 June 2025 crediting Paul Rodriguez, adds excision edges and keeps Theorem 9.3.4.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
     },
     {
       "id": "MotivesAndAlgebraicCycles/E49",
@@ -1779,7 +1808,133 @@
         "Author errata landing page as accessed 19 October 2026",
         "Annotated PDF dated 1 July 2025, corrected path on p. 224",
         "Version 6 author preprint Proposition 9.3.1 for comparison"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked in HM25, p. 224: the corrected composite is excision edge, then a functoriality edge to (Y×A∪X×B,Z×A∪Y×B,n+m), then the boundary of the triple ending in Z×A∪Y×B (printed with a slip as Z×A×Y×B). The middle vertex must be a good pair, since Good^{eff,mod} has the vertices of Good^eff. In the packet's example a long exact sequence computation gives H^1(S,V)=Q and H^2(S,V)=Q^6, agreeing with the Mayer–Vietoris count, so the vertex is not good, rationally or integrally; the endpoints (Y,Z,0), (X,Y,1) and (A,B,2) are even very good. By naturality for V⊆T the boundary of X×A⊇S⊇T equals the three-edge composite in cohomology, and (S,T,n+m) is good by excision. The errata landing page, read 19 October 2026, lists only the Rodriguez correction for this construction.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E70",
+      "source": "HM17",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 7.5.4(1), p. 168, Version 6 author preprint; unchanged in HM25, p. 172",
+      "printed": "Dualising the associativity square of the finite algebra E is said to give a cocommutative comultiplication on the dual E∨.",
+      "correction": "The dual of the associativity constraint gives a coassociative comultiplication. E∨ is cocommutative only when E is commutative.",
+      "reason": "For E=Mat_2(K) the dual coalgebra is the matrix coalgebra, with Δ(e_ij∨)=Σ_k e_ik∨⊗e_kj∨, which is not cocommutative; the displayed square is the coassociativity square.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "HM25 annotated version of 1 July 2025, Lemma 7.5.4, p. 172",
+        "Authors' errata landing page, read 19 October 2026"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review; the displayed diagram and the formula for μ* on p. 169 are the coassociativity statement.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E71",
+      "source": "HM17",
+      "kind": "gap",
+      "locator": "Proof of Corollary 7.5.7, pp. 171–172, Version 6 author preprint; unchanged in HM25, pp. 175–176. The same step is in VW, proof of Satz 5.23 with Lemma 5.22, pp. 80–81",
+      "printed": "Given a comodule over the colimit coalgebra A(D,T), the proof lifts its finitely many coaction coefficients to one finite stage A(F,T) and declares the module an A(F,T)-comodule.",
+      "correction": "The lifted coaction is coassociative and counital only at a possibly larger finite stage, because the transition maps A(F,T)→A(D,T) need not be injective: pass to a stage where the finitely many coassociativity and counit equations hold, and lift comodule maps the same way, to obtain an inverse to the comparison functor.",
+      "reason": "The transitions are dual to restrictions End(T|F')→End(T|F), which need not be surjective. Two elements of A(F,T)⊗A(F,T) with the same image in A(D,T)⊗A(D,T) agree only at a later stage of the filtered colimit, so coassociativity over A(D,T) does not give it over A(F,T).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "HM25 annotated version of 1 July 2025, Corollary 7.5.7, pp. 174–176",
+        "Authors' errata landing page, read 19 October 2026",
+        "VW arXiv:1111.5146v1, Lemma 5.22 and Satz 5.23"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review; the packet's completion-filtered-descent proof already descends the equations to a later stage.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E72",
+      "source": "HM17",
+      "kind": "gap",
+      "locator": "Proof of Corollary 2.3.15, p. 40, Version 6 author preprint; unchanged in HM25, p. 40",
+      "printed": "Vanishing of H^i(X,Z) above the dimension n of the affine X is derived from the pair sequence and Artin vanishing for X and for Z.",
+      "correction": "When Z contains an n-dimensional component of X, the degree n+1 needs H^n(X)→H^n(Z) onto. Replace X by the union X' of the components not contained in Z, using closed-cover excision H^*(X,Z)≅H^*(X',X'∩Z), where dim(X'∩Z)<n, before applying the sequence.",
+      "reason": "The sequence H^n(X)→H^n(Z)→H^{n+1}(X,Z)→H^{n+1}(X)=0 gives the vanishing directly only when H^n(Z)=0, which Artin vanishing guarantees when dim Z<n; the statement allows dim Z=n.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "HM25 annotated version of 1 July 2025, Corollary 2.3.15, p. 40",
+        "Authors' errata landing page, read 19 October 2026"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review; the statement is true and the packet's completion-affine-vanishing proof performs the reduction.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E73",
+      "source": "HM17",
+      "kind": "gap",
+      "locator": "Proof of Proposition 9.2.18, p. 215, Version 6 author preprint; unchanged in HM25, p. 219",
+      "printed": "Independence of R(X•) from the cover and filtration is justified by the faithful exactness of the forgetful functor and the fact that the image of R(X•) computes singular cohomology.",
+      "correction": "Construct the comparison maps: refine covers to a common one, enlarge filtrations on the resulting finite diagram, and invert the resulting quasi-isomorphisms; prove the cocycle and naturality identities from a third simultaneous choice.",
+      "reason": "The derived functor of a faithful exact functor reflects isomorphisms but is not full, so an isomorphism of the singular-cohomology images does not produce a morphism in D^+(A). The proof's own construction of R(f) uses actual refinement maps, which is the needed argument.",
+      "affects": "the proof",
+      "known": "Harrer 2016, Proposition 7.2.3 and Theorem 7.2.4, pp. 201–204, gives the comparison maps with their cocycle and naturality in the more general correspondence setting.",
+      "searched": [
+        "HM25 annotated version of 1 July 2025, Proposition 9.2.18, p. 219",
+        "Authors' errata landing page, read 19 October 2026",
+        "Harrer arXiv:1609.05516, §7.2"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review; the packet's completion-all-pairs-extension and completion-comparison-zigzag construct the maps as the correction says.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E74",
+      "source": "HM25",
+      "kind": "error",
+      "locator": "Corrected Proposition 9.3.1 and the corrected product path, pp. 223–224, annotated 1 July 2025 author version",
+      "printed": "The corrected proposition gives the weak product structure on both Good^{eff,mod} and VGood^{eff,mod}, with ∂×id realised by the path through the excision vertex.",
+      "correction": "The product structure holds on Good^{eff,mod} with the two-edge path of E49. On the very-good diagram it fails as stated whenever the second factor has B nonempty; the tensor structure on C(VGood) is obtained by transport along the equivalence of Theorem 9.2.22.",
+      "reason": "For very good (Y,Z,n), (X,Y,n+1) and (A,B,m) with B nonempty, dim X×B=n+m=dim(Y×A∪X×B), so the excision target (Y×A∪X×B,Z×A∪X×B,n+m) has subvariety of the same dimension as the ambient variety and is not very good. In the example of E49 it is ({0,1}×A²∪A¹×B, A¹×B), both of dimension two.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Authors' errata landing page, read 19 October 2026",
+        "HM25 annotated version of 1 July 2025, §9.3, pp. 222–225"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review. Theorem 9.3.4(3) is unaffected: the extra edges map to inverses of existing isomorphisms, so the diagram categories agree.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E75",
+      "source": "HARRER",
+      "kind": "gap",
+      "locator": "Remark 7.3.2, p. 207, arXiv:1609.05516",
+      "printed": "The remark says it is clear from the construction that the effective realization extends the Huber–Müller-Stach functor on complexes of varieties, and computes its value on the cone of a very good pair as the Nori object in degree n.",
+      "correction": "For smooth X and Y the computation follows from the construction with a cellular filtration extending the given pair. For singular X or Y the realization is not constructed on varieties: comparing its value on the motive of a singular variety with the Huber–Müller-Stach complex needs a blow-up (cdh) compatibility of both functors, which the thesis does not prove.",
+      "reason": "The realization is defined on bounded complexes of finite correspondences between smooth varieties (proof of Theorem 7.3.1), and the main theorems are stated for smooth X; Remark 1.3.9 itself notes that non-smooth varieties need modifications.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Harrer arXiv:1609.05516, Remarks 1.3.9 and 7.3.2 and Theorems 7.3.1, 7.4.17"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the review; the main theorems are unaffected, and completion-geometric-effective now claims the value only for smooth pairs.",
+        "by": "REV-MotivesAndAlgebraicCycles--MC.5"
+      }
     }
   ],
   "sourceVersions": [
@@ -1854,7 +2009,7 @@
     "totalization": "On bidegree (i,j), use d=d_first+(-1)^i d_second. Harrer Convention 1.1.3, pp. 18–19, uses d_H=d_second+(-1)^j d_first. Multiplication by (-1)^(ij) is the chain isomorphism from our total complex to his. Conjugate all cited double-totalization and tensor comparisons by this map, and iterate for three directions. Cochain shifts satisfy H^i(A[r])=H^{i+r}(A); the contravariant realization reverses shifts."
   },
   "assembly": {
-    "planetPolicy": "The six planets here replace the original six MC.5 planets at assembly; never concatenate both selections.",
+    "planetPolicy": "At assembly the MC.5 layer keeps six planets in total, never the union of the canonical and completion selections. The final six: the canonical definitions diagram-category ('Diagram category') and nori-motives ('Nori motives'), and from this packet completion-universal-factorisation (\"Nori's universal property\"), completion-basic-lemma-proof (\"Nori's Basic Lemma\", replacing the canonical basic-lemma planet), completion-rigidity-proof ('Rigidity of Nori motives') and completion-geometric-full ('Nori realization'). The planets of completion-filtered-descent and completion-tensor-assembly and the other canonical ones are then removed.",
     "imports": "All unchanged MC.5 definition/construction ids in MotivesAndAlgebraicCycles.json remain the canonical objects; the new ids are proof refinements and adapters, not alternate definitions.",
     "refinements": {
       "MotivesAndAlgebraicCycles:MC.5/endomorphism-coalgebra": [
@@ -1898,11 +2053,159 @@
     "file": "research/blueprint/suggested/MotivesAndAlgebraicCycles--MC.5.lean",
     "policy": "WORKERS 12 October shape rule: only native-carrier statements and light real-bodied definitions. The definitive README retains every heavy construction, API, test and compatibility target. No admitted Nori data or fake Prop-valued carriers.",
     "kept": [
-      "Compatible-endomorphism subalgebra over a native ModuleCat-valued functor (the existing MC.5 end-algebra model).",
-      "Finite dimension and native End comparison signatures; two proved evaluation tests.",
+      "Compatible-endomorphism subalgebra over a native ModuleCat-valued functor (the existing MC.5 end-algebra model), with real-bodied evaluation and restriction homomorphisms and the membership characterisation.",
+      "Finite dimension and native End comparison signatures; the three finite-end-model unit tests as examples; two proved evaluation tests.",
       "Triple homology exactness/naturality examples over native TopTriple.",
       "Existing finite-comodule tensor carrier checks."
     ],
     "omitted": "Coalgebra colimit, diagram-category universal construction, cellular algebraic filtration, Nori and geometric-motive functors, relative de Rham hypercovers and comparison objects have no pinned carriers; all are exact README/packet targets."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MotivesAndAlgebraicCycles--MC.5",
+    "date": "2026-10-19",
+    "notes": "Independent review of the MC.5 follow-up plan (28 nodes). All six source texts fetched and identified by the recorded SHA-256; every node's locators read in HM17 Version 6, HM25 (1 July 2025), VW, Harrer, BVHP and HMS14. All 12 baseline declarations read at Mathlib 082e2d3 and Tau Ceti f790474; the cross-roadmap nodes (ComplexComparisonPartII C0/C5, MC.4, MC.6, the canonical MC.5 nodes) read and found to supply what is cited. E48 and E49 confirmed (E49 recomputed: H^1(S,V)=Q, H^2(S,V)=Q^6). Corrections: cellular filtrations now have very good steps (the old definition admitted (A²,{0},2), good but not very good), with a non-example test; the good-pair diagram is the canonical rational one; refinement maps of unrigidified covers are only unique up to homotopy (new test); the constructible Basic Lemma is stated in its sources' generality; the geometric realization's value on pairs is claimed for smooth pairs only; two locators fixed; planet of the comodule theorem renamed; the assembly planet policy now keeps the canonical definitions Diagram category and Nori motives among the layer's six. Six source findings added (E70–E75): a misprint and three proof gaps in HM17, the very-good clause of HM25's corrected Proposition 9.3.1, and Harrer Remark 7.3.2 for singular pairs. The suggested file now states the finite-end model's full API (real-bodied eval and restrict, mem_iff) and its three unit tests; lean-check at the pins: no errors, its only warnings are the five admitted proofs. Checker: 0 errors, 0 warnings. Coverage of MC.5 is planned, as recorded, with four honest gaps and six requests. See research/blueprint/reviews/REV-MotivesAndAlgebraicCycles--MC.5.md.",
+    "checked": [
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-finite-end-model",
+        "verdict": "corrected",
+        "note": "HM17 Definitions 7.1.8, 7.1.10 and Remarks 7.1.9, 7.1.11 (pp. 136–138) and VW Proposition 2.6 (pp. 13–15) checked. Added the mem_iff characterisation; the suggested file now states eval, restrict and the three unit tests at the pins."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-finite-dual",
+        "verdict": "verified",
+        "note": "HM17 Lemma 7.5.4 (pp. 168–170) and VW Satz 5.23 checked; the coaction formula and the left-module/right-comodule variance match. The source proof says \"cocommutative\" for coassociative (E70)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-filtered-descent",
+        "verdict": "corrected",
+        "note": "HM17 Corollary 7.5.7 (pp. 170–172) checked. The node already descends the coassociativity and counit equations to a later stage, which the source proof omits (E71, added). Planet renamed to \"Diagram category as comodules\": the node is the comodule description, not the coalgebra construction."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-abelian-reconstruction",
+        "verdict": "verified",
+        "note": "HM17 Theorem 7.1.20 (p. 142), Lemma 7.3.16 (pp. 155–158), Proposition 7.3.18 and the proof of 7.1.20 (pp. 158–160), and VW Sätze 3.27–3.28 checked; the X(p) route matches."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-universal-factorisation",
+        "verdict": "verified",
+        "note": "HM17 Theorem 7.1.13, Corollary 7.1.15 (pp. 138–140), Propositions 7.4.1–7.4.2 (pp. 164–165) and VW Satz 4.3 checked; uniqueness uses generation (Proposition 7.3.24), as the node says."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-pair-finiteness",
+        "verdict": "verified",
+        "note": "HM17 Proposition 2.6.10, Note 2.6.11 (p. 66), the proof of Proposition 2.6.9 (pp. 67–70) and Corollary 2.6.14 (p. 70) checked. The checks Spec Q(i) and (A¹,{0,1}) recomputed."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-triple-adapter",
+        "verdict": "corrected",
+        "note": "Locator \"(2.2), p. 32\" replaced by Proposition 2.1.4 and Corollary 2.1.5, p. 32 (the pair and triple sequences). Baseline TopTriple declarations read at the pin; the cohomological order of the sequence and the (A¹,{0,1}) check recomputed."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-affine-vanishing",
+        "verdict": "verified",
+        "note": "HM17 Theorem 2.3.12 and Corollary 2.3.15 (pp. 39–40) checked. The node's reduction to components not contained in Z is needed in degree n+1 and is missing from the source proof (E72, added)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-basic-lemma-proof",
+        "verdict": "verified",
+        "note": "HM17 Theorem 2.5.2 (pp. 45–46), Lemma 2.5.8 and the direct proof (pp. 47–49) checked; smoothness of X∖Z comes from the reduction in Lemma 2.5.8, and the F_p argument gives freeness."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-cellular-filtration",
+        "verdict": "corrected",
+        "note": "Definition tightened to very good steps (HM17 Definition 9.2.1(2), Proposition 9.2.3; Harrer Definition 4.2.1): the old conditions accepted ∅⊆{0}⊆{0}⊆A², whose top step (A²,{0},2) is good but not a vertex of VGood. Added the non-example test notVeryGood, a check and the Harrer locator; API level/relative adjusted."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-cellular-complex",
+        "verdict": "verified",
+        "note": "HM17 Definition 9.2.17 (p. 214), Proposition 9.2.18 (p. 215) and Harrer Definition 4.2.1, Proposition 4.2.3 (pp. 128–129) checked; the {0,1}⊆A¹ test recomputed (rank-one differential, H^0=Q)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-affine-cover",
+        "verdict": "corrected",
+        "note": "HM17 Definitions 9.2.7, 9.2.12–9.2.13 and Lemmas 9.2.9–9.2.16 checked. The node drops HM17's rigidification, so refinement maps are not unique (Example 9.2.6): the statement and the refine API now say the comparisons agree up to Čech prism homotopy, and a test twoRefinementMaps was added. Locator extended to Example 9.2.6 and Remark 9.2.8."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-all-pairs-extension",
+        "verdict": "verified",
+        "note": "HM17 Proposition 9.2.18, Corollary 9.2.20, Definition 9.2.21, Theorem 9.2.22 (pp. 215–217) and Harrer Proposition 7.2.3, Theorem 7.2.4 checked. The node constructs comparison maps where the HM17 proof infers them from Betti realization (E73, added)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-excision-completion",
+        "verdict": "corrected",
+        "note": "HM25 erratum and corrected Proposition 9.3.1 (pp. 222–224) checked; E49 confirmed by recomputation. \"Integral-good-pair diagram\" replaced by the canonical (rational) good-pair diagram of effective-pairs-diagram, with HM17's integral variant noted. Added the second-factor product and the fact that (S,T,n+m) is never very good when B is nonempty (E74, added), with a check."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-tensor-assembly",
+        "verdict": "verified",
+        "note": "HM25 Definition 8.1.3, Proposition 8.1.5 (pp. 180–183) and BVHP Definitions 2.11–2.15, Theorem 2.18 (pp. 11–14) checked. The sign translations were recomputed from δ(a×b)=δa×b+(−1)^{|a|}a×δb and agree with Definition 8.1.3(2)–(3); the identity End(T_F⊠T_G)=End(T_F)⊗End(T_G) follows from (A⊗W)∩(V⊗B)=A⊗B over a field."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-tate-localisation",
+        "verdict": "verified",
+        "note": "HM25 Definition 9.3.2, Proposition 9.3.3, Theorem 9.3.4, Remark 9.3.5 (pp. 224–225) and Proposition 8.2.5 (p. 191) checked; fullness of the effective inclusion is open in the source (Remark 9.3.5), and the node does not assume it."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-rigidity-proof",
+        "verdict": "verified",
+        "note": "HM25 Corollary 9.2.23, Lemmas 9.3.8–9.3.9, Theorem 9.3.10 (pp. 221–228), Proposition 8.3.4 and HMS14 Lemma 1.13, Theorem 1.14, Proposition C.4 checked. The source's use of Lemma 9.3.8 for the diagonal needs geometric connectedness (E28); the node keeps the Artin H^0 factor and its trace."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-de-rham-interface",
+        "verdict": "verified",
+        "note": "HM17 Definitions 3.2.6, 3.3.6, Proposition 3.3.7, Remark 3.3.8, Definition 5.4.1, Lemma 5.4.2, Lemma 5.5.1, Definitions 5.5.3–5.5.4 and Lemma 5.5.5 checked; the C5 nodes cited supply only the smooth proper and curve cases, as the gap says."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-two-fibres",
+        "verdict": "verified",
+        "note": "HM25 Theorem 9.1.10 (p. 212) and its proof in §9.3.1 (p. 228) checked; the comparison-category argument is HM17's proof of Corollary 7.1.15. MC.6/fibre-functor-extension read: it supplies the abstract extension."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-tate-period",
+        "verdict": "verified",
+        "note": "HM17 Example 11.1.4 (p. 246), Proposition 9.1.2 (p. 206) and C5/curve-residue-localization checked; ∫dz/z=2πi on the positive loop and the inverse-twist scalar recomputed."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-constructible-basic-lemma",
+        "verdict": "corrected",
+        "note": "HM17 Theorem 2.5.7, Lemmas 2.5.9–2.5.11, Theorem 2.5.12 (pp. 47–52) and Harrer Theorem 4.3.8 (p. 132) checked. The statement now has the generality of its sources (subfield k⊆C, any ring Λ, weakly constructible sheaves), with the finite free case as a consequence, in line with the reader's convention that geometric inputs are stated over k and applied at k=Q."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-equivariant-filtration",
+        "verdict": "corrected",
+        "note": "Harrer Theorem 4.3.8, Lemmas 4.4.1–4.4.2, Theorems 4.4.3, 4.4.5, Definition 4.4.6 and Lemma 4.4.7 (pp. 132–138) checked; the diagram hypotheses match Lemma 4.4.7. Wording of the integrality remark corrected: the canonical diagram is the rational one."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-correspondence-action",
+        "verdict": "verified",
+        "note": "Harrer Theorems 3.7.5, 3.7.7, Lemma 4.6.1, Definition 4.6.2, Lemma 4.6.3 and Propositions 4.7.1–4.7.2 (pp. 114–144) checked; the twoPoints test (sum of projections, no averaging) matches Definition 4.6.2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-simultaneous-correspondences",
+        "verdict": "corrected",
+        "note": "Harrer Definitions 1.2.9, 4.8.3, Theorems 4.8.1, 4.8.4 and §4.9 checked; the hom-almost-acyclic hypotheses match. Locator corrected: §4.9 has Definition 4.9.1, Proposition 4.9.2, Definition 4.9.3, Remark 4.9.5 and Theorems 4.9.6–4.9.7 (pp. 149–153), not Propositions 4.9.2–4.9.7."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-nisnevich-bridge",
+        "verdict": "verified",
+        "note": "Harrer Definitions 5.2.1, 5.2.4, 5.2.7, 5.2.14, Proposition 5.2.15, Definitions 5.3.1, 5.5.6, 6.1.1, 6.5.1, Proposition 5.5.7, Theorems 6.5.3, 6.6.2, Proposition 6.6.3, Definitions 7.1.2, 7.1.5, Theorem 7.1.3 and Remark 7.1.4 checked; covers first, filtrations second, and the bounded-below total complex are as in the source."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-comparison-zigzag",
+        "verdict": "verified",
+        "note": "Harrer Lemma 7.1.8, Corollary 7.1.11, Proposition 7.2.3 and Theorem 7.2.4 (pp. 199–204) checked; (a)–(c) of Theorem 7.2.4 are the identity, cocycle and naturality clauses of the node."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-geometric-effective",
+        "verdict": "corrected",
+        "note": "Harrer Theorems 7.3.1, 7.4.10 and Remark 7.3.2 (pp. 205–210) checked. The value on very good pairs is now claimed only for smooth X and Y: for singular varieties Remark 7.3.2 asserts it without proof (E75, added). Checks on Spec Q, A¹ and P¹ recomputed."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCycles:MC.5/completion-geometric-full",
+        "verdict": "verified",
+        "note": "Harrer Definition 1.10.6, Lemma 1.10.12, Lemma 7.4.15 and Theorems 7.4.16–7.4.17 (pp. 47–48, 212–213) checked. Λ_DM(1) is the reduced P¹ complex shifted by [−2] in cochain degrees, Lemma 7.4.15 gives Λ_Nori(−1)[0], and contravariance gives Q(1)[2]↦Q_N(−1)[−2] and M(j)[r]↦R(M)⊗Q_N(−j)[−r]; MC.4/motive-of-projective-space has M(P¹)=Q⊕Q(1)[2]."
+      }
+    ]
   }
 }
