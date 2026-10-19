@@ -1,0 +1,138 @@
+{
+  "id": "ModularIwasawaMainConjecturesPartII",
+  "title": "Main conjectures for modular forms and their families, Part II (import index)",
+  "area": "iwasawa",
+  "parent": "ModularIwasawaMainConjectures",
+  "summary": "Complete import-only reconciliation of issue #3338: its 47 original source targets and one later BKO Rubin addendum are already owned by CMAllPrimeMainConjectures and InertAnticyclotomicCMMainConjecture. Import 90 nodes with their existing APIs, tests, planets, 17 gaps and 34 requests; propose retiring this alias into those owners. The all-prime owner is partial with needs_changes, including four unverifiable nodes. No mathematical closure or implementation is claimed.",
+  "readme": "# Main conjectures for modular forms and their families, Part II\n\nComplete import-only reconciliation of issue #3338: its 47 original source targets and one later BKO Rubin addendum are already owned by CMAllPrimeMainConjectures and InertAnticyclotomicCMMainConjecture. Import 90 nodes with their existing APIs, tests, planets, 17 gaps and 34 requests; propose retiring this alias into those owners. The all-prime owner is partial with needs_changes, including four unverifiable nodes. No mathematical closure or implementation is claimed.\n\nThe complete reader is research/blueprint/readmes/ModularIwasawaMainConjecturesPartII.md. Alias CZ.0–CZ.6 import the corresponding all-prime owner layers; IC.0–IC.6 import the inert owner layers. All definitions, hypotheses and proof obligations keep their canonical owners.",
+  "prerequisites": [
+    "ModularIwasawaMainConjectures",
+    "CMAllPrimeMainConjectures",
+    "InertAnticyclotomicCMMainConjecture"
+  ],
+  "stages": [
+    {
+      "key": "CZ.0",
+      "title": "CM ray towers and elliptic units",
+      "description": "Import CMAllPrimeMainConjectures:CZ.0. At every prime p, specialize the existing completed group algebra to G=Gal(K(p^∞f)/K), retaining finite torsion Δ of possibly p-divisible order. Import inverse-norm p-units h¹, p-primary class groups h², j_* ray-tower cohomology and their Kummer/class/Brauer comparisons; normalized CM theta values and the full auxiliary-ideal elliptic-unit span z. For each l|f, l∤p retain E_l=Z_p[[G/D_l]] in H²_pf/H²_p. Finite generation, rank one and R-torsion-freeness have their canonical proof obligations; absence of Z_p-torsion does not prove R-torsion-freeness.",
+      "requires": [
+        "CMAllPrimeMainConjectures:CZ.0"
+      ]
+    },
+    {
+      "key": "CZ.1",
+      "title": "CM realizations and explicit reciprocity",
+      "description": "Import CMAllPrimeMainConjectures:CZ.1. Import the rank-one Betti, étale and de Rham realizations of a Hecke character ψ of type (−r,0), r≥1, with arithmetic Artin action ψ(a)⁻¹ and local idele factor a_v^r. Import Kato Proposition 15.9 with its conjugate character, period, trace and auxiliary factors. Relative O_p-height one includes ordinary p-height two at inert primes. Geometric de Rham comparison and the generalized reciprocity input remain owner gaps.",
+      "requires": [
+        "CMAllPrimeMainConjectures:CZ.1"
+      ]
+    },
+    {
+      "key": "CZ.2",
+      "title": "Elliptic-unit Euler systems and integral character equalities",
+      "description": "Import CMAllPrimeMainConjectures:CZ.2. Import the elliptic-unit Euler system, integral character projection and Johnson-Leung–Kings Theorem 5.2 with its finite-character Tamagawa input at every prime. Distinguish this theorem from the equivariant Ω-statement needing the μ-hypothesis. Import Rubin’s exact unit/class/local-unit modules: split primes have the torsion local-unit form, whereas nonsplit primes use Theorem 4.1(ii), class-group divisibility and equality only on the stated nontrivial decomposition-group character components.",
+      "requires": [
+        "CMAllPrimeMainConjectures:CZ.2"
+      ]
+    },
+    {
+      "key": "CZ.3",
+      "title": "Split-prime Coleman and Katz comparisons",
+      "description": "Import CMAllPrimeMainConjectures:CZ.3. Import the split-prime Coleman/Katz targets and CGLS anticyclotomic θ-components with split conductor support and θ|G_vbar different from 1 and ω. Permit the tame branch ωφ⁻¹. The exact Coleman domain, completed coefficient extension, image, integral one-variable control and Katz functional-equation factors are unresolved; three imported nodes are unverifiable. The p-divisible class-number case remains an explicit gap. No characteristic ideal is projected without its Tor and local corrections.",
+      "requires": [
+        "CMAllPrimeMainConjectures:CZ.3"
+      ]
+    },
+    {
+      "key": "CZ.4",
+      "title": "Rational equivariant CM equality",
+      "description": "Import CMAllPrimeMainConjectures:CZ.4. Import equality at height-one primes not containing p and deduce ξ((h¹/z)[1/p])=ξ(h²[1/p]) times the product of ξ(E_l[1/p]) for l|f, l∤p. The Euler factors disappear only in the stated conductor-ramified components or if no such primes occur. Inverting p removes singular primes; no integral equivariant theorem is added.",
+      "requires": [
+        "CMAllPrimeMainConjectures:CZ.4"
+      ]
+    },
+    {
+      "key": "CZ.5",
+      "title": "CM induction and cyclotomic descent",
+      "description": "Import CMAllPrimeMainConjectures:CZ.5. Import characterization of CM newforms, Kato’s Galois induction normalization, the corestriction/Shapiro comparison and the descent exact sequences of Lemma 15.13. Use §15.14 for K contained in Q(μ_p∞), including Gaussian p=2 and Eisenstein p=3. Retain the height-one and residue-characteristic hypotheses, the general-weight induction and nonvanishing gaps, and the finite-length specialization lemma. Kato’s archimedean map (15.11.3) is not used as a Galois identification.",
+      "requires": [
+        "CMAllPrimeMainConjectures:CZ.5"
+      ]
+    },
+    {
+      "key": "CZ.6",
+      "title": "All-prime rational Kato main conjecture",
+      "description": "Import CMAllPrimeMainConjectures:CZ.6. Import the compatible period normalization, inverse-semilinear twisting, rational elliptic-unit/Beilinson–Kato bridge and equality descent. The specialization proof cancels the H²[a] terms using Lemma 14.15 and vanishing of a-torsion in the rank-one quotient; Proposition 15.17 alone is an inequality. Endpoint: for every normalized CM newform f of weight k≥2 and every λ|p, ξ(H²_Iw(V(f)))=ξ(H¹_Iw(V(f))/Z(f)) over O_λ[[Gal(Q(μ_p∞)/Q)]][1/p]. No integral lattice comparison is inferred.",
+      "requires": [
+        "CMAllPrimeMainConjectures:CZ.6"
+      ]
+    },
+    {
+      "key": "IC.0",
+      "title": "Inert Gross datum and sign dictionary",
+      "description": "Import InertAnticyclotomicCMMainConjecture:IC.0. For p≥5 inert in K with p∤h_K, import the maximal-CM Gross Q-curve datum E/H, its good reduction above p, the avatar lattice T=R(φ_p), W=(T⊗_R L)/T and ε=W(φ). Import local/global anticyclotomic tower comparison, trace-dual coefficient conventions and integral scalar extension of the signed decomposition. Nontrivial order-p^r characters have local conductor p^(r+1); the trivial character belongs to the BKO plus set. Character-set labels swap between AH and BKO; point and Selmer labels do not.",
+      "requires": [
+        "InertAnticyclotomicCMMainConjecture:IC.0"
+      ]
+    },
+    {
+      "key": "IC.1",
+      "title": "Signed local conditions and Selmer modules",
+      "description": "Import InertAnticyclotomicCMMainConjecture:IC.1. Import actual signed formal-point Kummer images L_n^s and their exact Cartier-dual annihilators. Discrete Selmer kernels use L_n^s at p and zero away from p; strict uses zero at p, relaxed all local cohomology, ordinary the full Kummer image. The corresponding compact away-p condition is full cohomology. Form restriction colimits, compact corestriction limits and Pontryagin duals with γ acting by γ⁻¹ on evaluations; retain trace and inverse-different lattices.",
+      "requires": [
+        "InertAnticyclotomicCMMainConjecture:IC.1"
+      ]
+    },
+    {
+      "key": "IC.2",
+      "title": "Primitive elliptic units and Rubin’s L-function",
+      "description": "Import InertAnticyclotomicCMMainConjecture:IC.2. Import the primitive ν=1 elliptic-unit class ξ with its true conductor, exact central-value normalization and nonzero ε-signed projection. For a basis v_ε of V_R^ε define ξ=L_p v_ε and C∞=Λ_Rξ, giving V_R^ε/C∞≃Λ_R/(L_p). A unit basis change u gives u⁻¹L_p. For nontrivial χ in Ξ_BKO^ε the interpolation denominator is δ_(χ⁻¹)(v_ε); keep the separate trivial derivative. ξ is nonzero, not necessarily a basis.",
+      "requires": [
+        "InertAnticyclotomicCMMainConjecture:IC.2"
+      ]
+    },
+    {
+      "key": "IC.3",
+      "title": "Global elliptic units and integral descent",
+      "description": "Import InertAnticyclotomicCMMainConjecture:IC.3. Import the full auxiliary-ideal global module C, inverse-avatar twist and trace-dual lattice, Gross descent and the AH/BKO local dictionary. The compact relaxed module has rank one; strict vanishes in the decomposed setting. Rubin’s nonsplit Theorem 4.1(ii) is imported from CZ.2 and must be checked for K₀=H(E[p]), including nontriviality on the p-decomposition group. Keep Γ⁺ specialization, Tor and common correction divisors. The Gross normalization, primitive integral index and R-coefficient involution remain gaps.",
+      "requires": [
+        "InertAnticyclotomicCMMainConjecture:IC.3"
+      ]
+    },
+    {
+      "key": "IC.4",
+      "title": "Integral inert anticyclotomic main conjecture",
+      "description": "Import InertAnticyclotomicCMMainConjecture:IC.4. Import the Poitou–Tate sequence relating S_s, S_rel, H/H^s, X_s and X_str, opposite-sign torsion, and the conditional signed characteristic comparison. After the integral primitive-lattice comparison, obtain char_ΛR(X_(−ε))=(L_p), BKO Theorem 6.1. Λ_R=R[[Γ⁻]] throughout, including the prime above p. The four inherited gaps still constrain this planned proof; accepted review is not mathematical closure.",
+      "requires": [
+        "InertAnticyclotomicCMMainConjecture:IC.4"
+      ]
+    },
+    {
+      "key": "IC.5",
+      "title": "Finite-level signed control",
+      "description": "Import InertAnticyclotomicCMMainConjecture:IC.5. Import ω_n⁺ as the product of Φ_(p^k)(γ) for even k≥1, and ω_n⁻=(γ−1) times the odd-k product. Their product is γ^(p^n)−1. At n=0 they are 1 and γ−1. Local control is injective with finite cokernel under the decomposition; dual global control is surjective with finite kernel. Keep finite errors integrally, use rational signed splitting only after tensoring with L, and bound character dimensions by localized lengths with χ⁻¹ on duals.",
+      "requires": [
+        "InertAnticyclotomicCMMainConjecture:IC.5"
+      ]
+    },
+    {
+      "key": "IC.6",
+      "title": "Strict divisors and character rank bounds",
+      "description": "Import InertAnticyclotomicCMMainConjecture:IC.6. Import (L_p) contained in char(X_str), the at-most-one-dimensional ordinary/strict local difference and matching-sign control. For BKO Theorem 6.2 impose E/K in addition to the Gross assumptions; maximal CM then forces h_K=1 and permits R=O. A χ-component CM rank is bounded by ord_χ L_p for χ∈Ξ_BKO^ε and by ord_χ L_p+1 otherwise. The χ↔χ⁻¹ order comparison uses this O-valued descent; it is not asserted for arbitrary R-valued Gross data.",
+      "requires": [
+        "InertAnticyclotomicCMMainConjecture:IC.6"
+      ]
+    }
+  ],
+  "sources": [
+    "BKO21",
+    "AHII05",
+    "AHI06",
+    "RUB91",
+    "burungale-tian-2026",
+    "kato-2004-asterisque-295",
+    "johnson-leung-kings-2011",
+    "castella-grossi-lee-skinner-2022"
+  ],
+  "status": "proposed"
+}

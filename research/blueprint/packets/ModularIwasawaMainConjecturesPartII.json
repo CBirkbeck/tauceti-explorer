@@ -1,0 +1,3197 @@
+{
+  "roadmapId": "ModularIwasawaMainConjecturesPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "ModularIwasawaMainConjecturesPartII:CZ.0",
+    "ModularIwasawaMainConjecturesPartII:CZ.1",
+    "ModularIwasawaMainConjecturesPartII:CZ.2",
+    "ModularIwasawaMainConjecturesPartII:CZ.3",
+    "ModularIwasawaMainConjecturesPartII:CZ.4",
+    "ModularIwasawaMainConjecturesPartII:CZ.5",
+    "ModularIwasawaMainConjecturesPartII:CZ.6",
+    "ModularIwasawaMainConjecturesPartII:IC.0",
+    "ModularIwasawaMainConjecturesPartII:IC.1",
+    "ModularIwasawaMainConjecturesPartII:IC.2",
+    "ModularIwasawaMainConjecturesPartII:IC.3",
+    "ModularIwasawaMainConjecturesPartII:IC.4",
+    "ModularIwasawaMainConjecturesPartII:IC.5",
+    "ModularIwasawaMainConjecturesPartII:IC.6"
+  ],
+  "status": "complete",
+  "summary": "Complete import-only reconciliation of issue #3338: its 47 original source targets and one later BKO Rubin addendum are already owned by CMAllPrimeMainConjectures and InertAnticyclotomicCMMainConjecture. Import 90 nodes with their existing APIs, tests, planets, 17 gaps and 34 requests; propose retiring this alias into those owners. The all-prime owner is partial with needs_changes, including four unverifiable nodes. No mathematical closure or implementation is claimed.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Ideal.span_singleton_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "For a commutative semiring, span{x}=top iff x is a unit.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Ideal.span_singleton_le_span_singleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "For a commutative semiring, span{x} is contained in span{y} iff y divides x.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Ideal.span_singleton_mul_left_unit",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Multiplying the generator by a unit leaves its principal ideal unchanged.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Evaluate a polynomial over a semiring by eval₂ at the identity coefficient homomorphism.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Module.Basis",
+        "kind": "definition",
+        "module": "Mathlib/LinearAlgebra/Basis/Defs.lean",
+        "provides": "A basis is represented by a linear equivalence with finitely supported coordinate functions.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Module.length",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "For a module over a ring, length is the Krull dimension of its submodule lattice with bottom removed, valued in extended natural numbers.",
+        "checked": "Full declaration and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BKO21",
+      "title": "Rubin’s conjecture on local units in the anticyclotomic tower at inert primes",
+      "authors": "Ashay A. Burungale, Shinichi Kobayashi, Kazuto Ota",
+      "edition": "Annals of Mathematics 194 (2021), 943–966",
+      "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
+      "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2 pp.947–949; §6 pp.960–963, including Theorems 6.1–6.2 and the p.961 interpolation formula, also checked on a page image."
+      ]
+    },
+    {
+      "id": "AHII05",
+      "title": "Anticyclotomic Iwasawa theory of CM elliptic curves II",
+      "authors": "Adebisi Agboola, Benjamin Howard",
+      "edition": "Mathematical Research Letters 12 (2005), 611–621; published author PDF",
+      "url": "https://web.math.ucsb.edu/~agboola/papers/bisi_mrl_2005.pdf",
+      "sha256": "24f7a3ee7afd3f6bc2bc51ac2df48eb456be9878c9f63b1f6fce1baef9e53c5c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2 pp.612–613; §3 pp.614–616, including Propositions 3.3–3.4 and Theorem 3.6; §4 pp.616–617, Theorems 4.1–4.3; §5 pp.618–620, Lemma 5.1, Theorem 5.2 and Proposition 5.3."
+      ]
+    },
+    {
+      "id": "AHI06",
+      "title": "Anticyclotomic Iwasawa theory of CM elliptic curves",
+      "authors": "Adebisi Agboola, Benjamin Howard; appendix by Karl Rubin",
+      "edition": "Annales de l’Institut Fourier 56 (2006), 1001–1048",
+      "url": "https://web.math.ucsb.edu/~agboola/papers/bisi_aif_2006.pdf",
+      "sha256": "1c176f86e757830dd18d36568c3066e2682733e8e3de6193133f886090280741",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemma 2.4.5 and Corollary 2.4.6, pp.1028–1029, for the twisting/unit-class dictionary. Ordinary-prime hypotheses are retained; this is not an inert-prime theorem."
+      ]
+    },
+    {
+      "id": "RUB91",
+      "title": "The “main conjectures” of Iwasawa theory for imaginary quadratic fields",
+      "authors": "Karl Rubin",
+      "edition": "Inventiones Mathematicae 103 (1991), 25–68; scan from the Göttingen Digitization Center (GDZ)",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf",
+      "sha256": "96ca08e8ed1a7646d4bf40e2e088e0ea6e068319978ac7e5c5e3d45cc39ee23a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4 pp.36–37, standing hypotheses, sequence (5), Theorem 4.1 and Remarks 1–2, checked on page images."
+      ]
+    },
+    {
+      "id": "burungale-tian-2026",
+      "title": "A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
+      "authors": "Ashay A. Burungale and Ye Tian",
+      "edition": "Annals of Mathematics 203 (2026), no. 1, 1–13; read in the author version arXiv:2506.03465v2 (11 October 2025), whose page numbers are used throughout",
+      "url": "https://arxiv.org/pdf/2506.03465v2",
+      "sha256": "cbb8284a13ed40bd15df9713001485724bc4d2a3b5c38d8fd83f9b6f3f3e4664",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Author v2 §2, pp.3–5: Theorems 2.1, 2.3, 2.4 and 2.6 and the CM descent boundary."
+      ]
+    },
+    {
+      "id": "kato-2004-asterisque-295",
+      "title": "p-adic Hodge theory and values of zeta functions of modular forms",
+      "authors": "Kazuya Kato",
+      "edition": "Astérisque 295 (2004), ix, 117–290 (Numdam scan; printed page = PDF page + 115)",
+      "url": "https://www.numdam.org/item/AST_2004__295__117_0.pdf",
+      "sha256": "3c6e14b11fa60262db8aff782ce3cf4d83e9100c0be83621a7e4ce502cec605d",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§15, pp.250–267, focusing on the realization and descent statements; Lemma 14.15, pp.243–244. Formula checks at pp.263–265 distinguish the Galois map, archimedean normalization, contained case and one-sided inequality. No independent audit of all §15 proof inputs is claimed."
+      ]
+    },
+    {
+      "id": "johnson-leung-kings-2011",
+      "title": "On the equivariant and the non-equivariant main conjecture for imaginary quadratic fields",
+      "authors": "Jennifer Johnson-Leung and Guido Kings",
+      "edition": "J. reine angew. Math. 653 (2011), 75–114; read in arXiv:0804.2828v2 (12 August 2009), whose numbering is used",
+      "url": "https://arxiv.org/pdf/0804.2828v2",
+      "sha256": "2af28fc5c53be95d3b5431c8b22f4cf53ced6381d22f7def225240ab715cf543",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Author v2 Lemma 4.3 p.20; Theorem 5.2 and Corollary 5.3 pp.24–25; Theorem 5.7 and §5.4 pp.26–27; §7 opening and Lemmas 7.1–7.2 pp.34–35. These fix coefficient/open hypotheses and the integral/equivariant boundary."
+      ]
+    },
+    {
+      "id": "castella-grossi-lee-skinner-2022",
+      "title": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+      "authors": "Francesc Castella, Giada Grossi, Jaehoon Lee and Christopher Skinner",
+      "edition": "Inventiones mathematicae 227 (2022), 517–580; read in arXiv:2008.02571v2, with author-version page numbers",
+      "url": "https://arxiv.org/pdf/2008.02571v2",
+      "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Author v2 §1.2, Definition 1.2.1, Theorem 1.2.2 and Remark 1.2.3, pp.7–8; §2.2 equation (2.11) and Theorem 2.2.3, p.15."
+      ]
+    }
+  ],
+  "nodes": [],
+  "imports": [
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "definition",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "bfcf0bff20edb566feb96b26a826a57f63bebb5588e5144b1f35e69f3d5916b2",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-cohomology",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "82dfb5d847f290527ca2d94d37f078bf531b45550778e34dc6a97f9c8bd3ce96",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-unit-class-modules",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "definition",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "8c12699e399fe09b18f8662d0f7d468fd012c5840755d68f94976741dab22d70",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-kummer-identification",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "comparison",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "d84843cba1c240cc306645747549179b658b8d7538e56af06a356fc402e1540f",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/class-module-h2-comparison",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "comparison",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "ce1166c8d9fd17189d23ad2c404b314f45303172b04bd6479a5b230262d01950",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/h2-euler-comparison",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "cc157c3b76f5bfe2caaafa7e261b76e4757c250dcd3ae36abbd16a6feb1bcf4a",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-class-module-torsion",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "afce8acf30bbb2cb603c956e92abf8265d1b100a6b05c738612e391c33b6b573",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "9cd882f9697c7c91aa23ba329956302c6da78c99d7504b505011346a0ac003da",
+      "reviewBoundary": "unverifiable in canonical independent review",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/theta-eisenstein-kronecker",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "lemma",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "7b80635325d2e2b54f265ac6a456c6173ac91b2032b8b26b632caef7288b90c5",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/cm-theta-function",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "2bb419b313bca725f05d88e06a914c2ffc2ca034eef64e41f0e357a22158c278",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/canonical-cm-pair",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "comparison",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "672211053bb6eaea8d055ea92466b52bcbb03f51950e5d348973cda68c7ad53a",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "969913a6b1bc823180e4153b923cb54950b93fbff0eaf6758a7efb827bd12229",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/kronecker-limit-formula",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "18ef25eb02f548b24598c448f82819f492045d9b0d5322e03d9be3a0ff61778d",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-module",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "5a235819b4bca8ca31e96e9c6f3568ad7f8352fa5f9d98e0ca049476931234f9",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-cotorsion",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.0",
+      "nodeSha256": "856f89083e751c57b4716d1218c6c24f358fa8a2b74b10d8d441b2f6736495e9",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.1",
+      "nodeSha256": "64e4e907d9536ddbaa8a00657226e067266d2474d1d578c74be1a49021476486",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-p-divisible-reciprocity",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "lemma",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.1",
+      "nodeSha256": "ccdc3715257ad4e3641741c2f750e85e5d2f092c96eefb1432ec8187c6b0cc44",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-eisenstein-evaluation",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "lemma",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.1",
+      "nodeSha256": "08edf557b72beea19488d6e355f16ca5dcec972d25b84fac3b473c9f9195c0b9",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-elliptic-reciprocity",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.1",
+      "nodeSha256": "f48efe11af4285d3c06f0da1072cbc103ec721e73c3d5090d99c5a9efc3ba343",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "45bc924e02ce2b727c4ba56170c31026d04f4eae6be152ef5aad2ce1ae04a55b",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/tamagawa-s0-abelian",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "d83c7a3d6a0f9ce4245c1f5bbfc54ca5ecda366b380d7212c78f73274e54b219",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-zeta-element-comparison",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "9f520781160eaa079f7ac40143cd62a39bab9a4b998466638a675d56700f054f",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system-bound",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "49c28d2c999c2231691f5746c9c33f8852e3d820919445e38414c671a7f92e29",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "c5decd7f7e70a872118a5fd61e00372fbdfb801db0311020db6b8ffab703050d",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture-euler-factors",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "4e746fce1b3c999026b9625beaf8baf7325575a7df7ee007dca35a2413c854b0",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "definition",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "35292f12a1e064d4c974f5350a489b204d977891b65368d74eca7202601a7714",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.2",
+      "nodeSha256": "492e79b4c1b301232a33f30fa56cea2a2f66960f053787eb24121b3889f1a19e",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.3",
+      "nodeSha256": "db457c8ae12ff9eb7a8b20ab7457e1d741b4c064ec27f1e9808e24600db7857f",
+      "reviewBoundary": "unverifiable in canonical independent review",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/elliptic-units-to-katz-measure",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.3",
+      "nodeSha256": "90482d3deb1283ed22ffb1507b4f5a1cc1ef82e1a8ac47820df64c5628fddb36",
+      "reviewBoundary": "unverifiable in canonical independent review",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.3",
+      "nodeSha256": "fee9860241eac7566fea6059f273793db798f6da2279d391441d67f08fa3e16a",
+      "reviewBoundary": "unverifiable in canonical independent review",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.3",
+      "nodeSha256": "95f01ae1d45a54238e7e3370d1feebb531a8d1d3fa473c1f4d7f1dbc82fbaec1",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/katz-functional-equation-lambda",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.3",
+      "nodeSha256": "e42f92889fa59fe4b9901a95b474c0ff9aa221294114a97b6d2c289204b2809c",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.4/regular-prime-equality",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.4",
+      "nodeSha256": "4109de86fcd2c6e7caaca5da4d6df982d0ce2d4743b809205e03648e794f1fc7",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.4/rational-equivariant-main-conjecture",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.4",
+      "nodeSha256": "af7035770d6a0a48cb463bb711c4295b02394551a1777d3600f87878844d8e1a",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.4/printed-equivariant-form-range",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "application",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.4",
+      "nodeSha256": "e2602d0db7a3e4875b1193bf80d9c788d774d76ebb89687b8c063fe4a026a1d1",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "303174234f0673df42d0da5bc73f571189c7841acc8616d776570a475304913a",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-induction-normalization",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "comparison",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "d33f90860e210fdd1c540ae78649650f7d92bce65798f71abc1c35737dbf7731",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-twist-nonvanishing",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "cb0441f70dbc643afc9e6cefec00227ae19fddb5f67abd17c55a7051a66ff115",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-comparison-map",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "construction",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "4a4bc8d7445b017e82af019ea6651050b3e4c8e1e71438f8a3eab26b3b3ec536",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/twisted-tower-cohomology",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "a4a738ce9f4cbdff66220eb632b0f0c2edbd82c8a007a845ab71df940fae6278",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-descent-lemma",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "c3cac78a1706faeda6ffd324fd6b78fde3e4a4d5a4cace1161f06afc4763d225",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-contained-descent",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "65e3e2e96c4d9847da458122aba83601af3680f7943e368cd0670c1bf4115aca",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/grothendieck-length-lemma",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "lemma",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "dfa21510d669f461ee36544c7f1b5a6552b99006f4f5b10d45e4234864e247bd",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-h2-torsion",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "4c3b404f6df6d2ef314adf90a45f4259e53eeef1c8be2849e6b1a4fd5848bc93",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-length-inequality",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.5",
+      "nodeSha256": "f533be464d6c39a9040eaf6ea30d52dec21f9699491ead78f88de1b7560ffb05",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-period-normalization",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "comparison",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "80496bb8249f34f005d4157d938cb94d0aa3f8991489a1068ac38363fc97d940",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-coefficient-reciprocity",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "5c83724a54c2a5cb1a26a34664044af207321fb48203087bfd065a5a92737099",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/twisted-equivariant-equality",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "0b8f4dfb0d9a06e5e89e28b7c9274b66ea9a697910baf349e6a4a7be55227de8",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-zeta-bridge",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "0233e385825d35761e79b932c53e2df47081ae017bad533efa79ec5f1883d95a",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/equality-descent",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "caac92a5e4ffb4654ebf151484400269ac3254e309f009cde430f7a23cb0dbed",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-kato-main-conjecture",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "2a9333bf264846c49e3af199a56d07345979ff7a7f2aa5e50fa7cc305987385d",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-kato-divisibility",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "theorem",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "72f3c5b836fd761b4f9f618ca5cbc71ffb2574f5205fefec947c51157db1b249",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-kato-normalization-dictionary",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "comparison",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "3543dd03e7061fd1cddfb0da7f1fd04c5dabab7df8689f591765e30950580d4b",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/dyadic-and-triadic-acceptance",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "role": "application",
+      "canonicalStageId": "CMAllPrimeMainConjectures:CZ.6",
+      "nodeSha256": "c7c3d805aac188a2bd506bd3067b32bf2aed2c897485045dd6e3e8d84289c337",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "definition",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.0",
+      "nodeSha256": "f47ab64ec9e306178763c864f8f0db78718b74c5cdd1f04728e52d74634da1e2",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.0",
+      "nodeSha256": "73bf6e4797461d4c85cbf284bd868d9fff2f43e4961449e173bfead0a30ce778",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/character-dictionary",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.0",
+      "nodeSha256": "131397912b30c0a66a244b6513c3dc99493287c419c3764ddcc910d5762d4fb6",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/local-coefficients",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "comparison",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.0",
+      "nodeSha256": "d3377da19f11067ec15af999bf621203f75a91eeb84aa16871f5aebb9ab6e842",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/signed-scalar-extension",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.0",
+      "nodeSha256": "3cbdd215d2863ea7e3ffbff6f6ee91ee1df34b2a2a3ff672b78f462b3779210d",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/signed-kummer",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "construction",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.1",
+      "nodeSha256": "9fbb6402a1cbd27f82416f87e99b6d56ee730e05bf4eb04b851b180eb2443be2",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/choice-independence",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.1",
+      "nodeSha256": "74408639a801d183f31ea6fafa885281cd709155bf359cb8203d67ea7bbd7782",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.1",
+      "nodeSha256": "23d27ac8b0823df89d3159da21129943bd61cf7b2fb7243e29f76dd73eca8d18",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "definition",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.1",
+      "nodeSha256": "5e9f6c18cc54bc46a3ad5c553aea39258611d853ce6475e2a9759f0851ce7376",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "construction",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.1",
+      "nodeSha256": "29d64a0f3cfdd68f96d964d745f1e31ab0302094455af71e573b70ce48dc1927",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "construction",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.2",
+      "nodeSha256": "9d4ccdb0389e99d70b101553733f6aada1f2d03c19e59f8e6772d30433c1d054",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/normalization",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.2",
+      "nodeSha256": "389f7214f38ae2a917cb714b9b83c777d383f9979803b1b4c75a64924227698d",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/sign-and-nonzero",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.2",
+      "nodeSha256": "797ffb52b795631c42fd0f4b415e1baef4fc3e5b3b76e24453596ed3d88bd9c8",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/rubin-lfunction",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "definition",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.2",
+      "nodeSha256": "7f94ea4479cba71c9f62e06ee65e464654fd44269fc0f22f050c5502dcb986e6",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/interpolation",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.2",
+      "nodeSha256": "5610ca78469fa4162a899cca9dd017d012fdc81465a07e8a6c91158cb8433b89",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "construction",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.3",
+      "nodeSha256": "5233b1d81c8115e117e0d14dfd1f9295335a02913358e0b6f18440bb93842282",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.3",
+      "nodeSha256": "8020a82c7485341b9eb50fee61bd8d812253f0d75c6152696aa39a9634659a47",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/local-dictionary",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "comparison",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.3",
+      "nodeSha256": "775772cf69d5f6c2fa3c993627ef057b15da9039d83cf3aa76cb9eb7c6c5c8fe",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.3",
+      "nodeSha256": "080025a4fb246ee419a0b66bdbbbc467cc31dbe34f3d79fc25541092882b0af5",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.3",
+      "nodeSha256": "83aa2e1c11ddea2cbd9ef2d6b95dd651904be2ab282ab3e375615dabb27048f7",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/duality-sequence",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+      "nodeSha256": "330a6259949fd561cc7d5d27fca4a526410b939905ca7fe508aaba93dd64079f",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/opposite-torsion",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+      "nodeSha256": "a0650850ef7796e1bd0e8add0794f0983434a57f575ef9ea27396f7fb7b14698",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+      "nodeSha256": "70cead27319d51514d3c917fdfff4918ca1f717fdab70250f47f9d3887242420",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/signed-characteristic",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+      "nodeSha256": "20c105677d7acf3b75e210974d8b42e002df2c8a729e2e4c434bc995a414c7c0",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/primitive-lattice-comparison",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "comparison",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+      "nodeSha256": "35c28ccfd21ee5326e6baa6f4c935de4943bf02cd2f989d01c14c59dcba4ff86",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+      "nodeSha256": "43231733bb3bd246a745bb248479660a22e953e8025416afa6b5275b6ae2b64d",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/control-polynomials",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "definition",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+      "nodeSha256": "dde622e3ca3f5ed61cdabc639f56a9f26a0cc2d48b4bd396cbd412380950693f",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/local-control",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+      "nodeSha256": "a2f2404484b6eff92fe5bfc8c6856ffaa87807aab3268ba0b22fb09b7245318e",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+      "nodeSha256": "76b1b8a4f0faad22fc61ee1aaa6fd81f217a90108759b63259a52362f284e824",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+      "nodeSha256": "0aaf88a240104bef9cde99634320762c0cd34fa361ba330b2077c82d86161957",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "lemma",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+      "nodeSha256": "3a8e1d2ae0d4e76ffbdb2a4cc4ca792c6d6d315a3d3aa2fb506e50147398e585",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+      "nodeSha256": "cab676d84b6d3414cd4b3483217251c05d60de8d58e96afa50d68a32bea944fd",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/strict-divisor",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.6",
+      "nodeSha256": "eaf9edb18d8a788a638f72517d4829977b6c8a11d6c4f7b95852483507a4bf8e",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/local-codimension",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.6",
+      "nodeSha256": "35d4d18829d3d337c9c2f3230eb5585de46fbd03e2e1d770c11de37f4fff6623",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.6",
+      "nodeSha256": "79909ffb49baa5e83b7c8ee01a74779f3c066d3d4db59f5d031cde15a2700f2e",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/rank-bounds",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "role": "theorem",
+      "canonicalStageId": "InertAnticyclotomicCMMainConjecture:IC.6",
+      "nodeSha256": "e31cc81aa59dcc67e7a7d3bedf8aa15f58edb6c6bf85b4dad74f64d192881a87",
+      "reviewBoundary": "retain canonical review and inherited obligations",
+      "checked": "Statement, hypotheses, proof route, direct prerequisites and acceptance inspected on 2026-10-19; import of a planned target, not a formalization or independent closure claim."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/units-finite",
+      "title": "Finite generation of CM tower units",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "§2.1.1, p.3; Kato §15.1",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Finite generation is imported, but the owner’s full structure node remains unverifiable for its rank/torsion proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/classes-finite",
+      "title": "Finite generation of CM tower class groups",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "§2.1.1, p.3; Kato §15.1",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/tower-class-module-torsion",
+        "CMAllPrimeMainConjectures:CZ.0/tower-unit-class-modules"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/units-torsionfree",
+      "title": "Torsion-freeness of CM tower units",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "§2.1.1, p.3; Kato §15.1",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "R-torsion-freeness is not established by vanishing norm roots of unity; preserve the owner’s ray-tower gap."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/units-rank-one",
+      "title": "Generic rank of CM tower units",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "§2.1.1, p.3; Kato §15.1",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The all-p, finite-Δ ray-tower Euler-rank calculation is still an owner obligation."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/classes-torsion",
+      "title": "Torsion of the CM tower class module",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "§2.1.1, p.3; Kato §15.1",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/tower-class-module-torsion"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/elliptic-units",
+      "title": "Elliptic-unit submodule",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "§2.1.1, p.3; Kato §15.5, printed p.253",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-module",
+        "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/elliptic-unit-cotorsion",
+      "title": "Elliptic units have torsion quotient",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "§2.1.1, p.3",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-cotorsion"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/regular-prime-equality",
+      "title": "CM main conjecture at horizontal height-one primes",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.1, p.4; Johnson-Leung–Kings §7.2",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.4/regular-prime-equality"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/equivariant-main",
+      "title": "Rational equivariant CM main conjecture",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Theorem 2.1, p.4",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.4/rational-equivariant-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.4/printed-equivariant-form-range"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Use the corrected equality with tame Euler modules, not the unrestricted printed formula."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/class-cohomology",
+      "title": "Class groups and H² agree in codimension one",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Footnote 3, p.4; Kato (15.6.2), printed p.254",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/class-module-h2-comparison"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/h2-euler-comparison",
+      "title": "Euler-factor comparison of the two H² modules",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Implicit in Theorem 2.1 and footnote 3, p.4; Johnson-Leung–Kings §4.2 (purity as in Lemma 4.3) and Lemma 7.7",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/h2-euler-comparison"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-zeta-bridge",
+      "title": "Elliptic units specialize to Beilinson–Kato elements",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6, p.5; Kato (15.6.3)–(15.6.4), (15.16.1)",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.6/cm-zeta-bridge"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-descent",
+      "title": "Rational ray-tower to cyclotomic cohomology descent",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6 and footnote 4, p.5; Kato Lemma 15.13",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.5/cm-descent-lemma"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-contained-descent",
+      "title": "Descent when the CM field lies in the cyclotomic tower",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6, p.5; Kato §15.14 and last paragraph of Proposition 15.17",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.5/cm-contained-descent"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/equality-descent",
+      "title": "From the equivariant equality to Kato's equality at one-variable primes",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6, p.5; not in Kato, whose §15 proves only the inequality (Prop. 15.17, p.265)",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.6/equality-descent"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "An equality argument beyond Proposition 15.17 is required; use the recorded a-torsion cancellation."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-kato-main",
+      "title": "Kato's rational main conjecture for every CM newform and prime",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Theorem 2.6, p.5",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.6/cm-kato-main-conjecture"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-h2-torsion",
+      "title": "CM case of Kato Theorem 12.4",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Theorem 2.3, p.4, CM case; Kato 15.15 p.265, 15.14 p.264",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.5/cm-h2-torsion"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-realization",
+      "title": "Kato’s λ-adic realization of a CM Hecke character",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6, p.5; Kato 15.8, pp.256–257",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-comparison-map",
+      "title": "Kato’s CM comparison map (15.12.1)",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Kato (15.12.1), p.263",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.5/cm-comparison-map"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Use the compositum or finite étale tensor algebra at finite level; (15.11.2) is the Galois map."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/ray-coefficient-iwasawa-cohomology",
+      "title": "Iwasawa cohomology of the ray tower with general coefficients",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6, p.5; Kato 15.6, p.253",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-cohomology"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Perfectness and derived base change have only the stated JLK coefficient/open hypotheses; the general j_* comparison remains a gap."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/twisted-equivariant-equality",
+      "title": "Twisted equivariant main conjecture on a lattice",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6, p.5; Kato 15.15 and Prop. 15.17 proof, p.265",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.6/twisted-equivariant-equality"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-elliptic-reciprocity",
+      "title": "Kato’s explicit reciprocity for elliptic units",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "Proof of Theorem 2.6, p.5 (via (15.16.1)); Kato Prop. 15.9, p.258, its proof pp.258–260, and (15.12.2), p.263",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.1/cm-elliptic-reciprocity"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-TIAN-26/cm-characterization",
+      "title": "Three characterizations of CM newforms",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+      "extractionLocator": "BT §2.2.5, p.5; Kato Remark 12.8 (p.223) and 15.10 (p.260); Ribet, LNM 601 (1977) (Kato's [Ri2])",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/global-local-tower",
+      "title": "Global anticyclotomic tower and local completion",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.2, pp.961–962",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison",
+        "InertAnticyclotomicCMMainConjecture:IC.0/character-dictionary"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/cm-discrete-module",
+      "title": "Discrete CM Galois module",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.2, pp.961–962",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+        "InertAnticyclotomicCMMainConjecture:IC.0/local-coefficients"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/signed-local-kummer",
+      "title": "Signed CM local conditions",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.2, p.962",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.1/signed-kummer",
+        "InertAnticyclotomicCMMainConjecture:IC.1/choice-independence"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/away-p-local-vanishing",
+      "title": "Vanishing of the rational local condition away from p",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.2, p.962, Arnold Proposition 2.10",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/signed-selmer",
+      "title": "Signed CM anticyclotomic Selmer groups",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.2, p.962",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+        "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-hypothesis-translation",
+      "title": "Agboola–Howard comparison at prime-to-p class number",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Proof of Theorem 6.1, p.962",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
+        "InertAnticyclotomicCMMainConjecture:IC.4/primitive-lattice-comparison"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/opposite-selmer-torsion",
+      "title": "Torsion of the opposite-sign Selmer dual",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.2, p.962, Agboola–Howard Theorem 3.6 with BKO's extension",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.4/opposite-torsion"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/signed-main-conjecture",
+      "title": "Integral inert-anticyclotomic CM main conjecture",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Theorem 6.1, p.962",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-two-variable-input",
+      "title": "Elliptic-unit characteristic equality entering the signed proof",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§1, p.945; Theorem 6.1 proof, p.962; Agboola–Howard Proposition 3.3(i),(ii) and Theorem 4.2",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison",
+        "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The stale units-form wording is read through corrected Rubin 4.1(ii); Gross twisting and specialization are inherited G2, not a split-prime local-unit equality."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/strict-selmer-comparison",
+      "title": "Strict Selmer characteristic-ideal comparison",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Proof of Theorem 6.2, pp.962–963",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.6/strict-divisor"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/strict-control-bound",
+      "title": "Strict control and the one-dimensional local correction",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Proof of Theorem 6.2, p.963; Rubin Euler Systems Proposition 7.3.4",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
+        "InertAnticyclotomicCMMainConjecture:IC.6/local-codimension"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The corrected owner proves the injection/length inequality directly; it does not require an uncleared copy of Rubin’s book."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/signed-control-equality",
+      "title": "Correct-parity signed control",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Proof of Theorem 6.2, p.963; AH Theorem 5.2 and Proposition 5.3",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
+        "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
+        "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/bsd-correct-parity",
+      "title": "Rank bound at correct-parity characters",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Theorem 6.2, pp.962–963; introductory Theorem 2.4, pp.949–950",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.6/rank-bounds"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Add E/K for Theorem 6.2, retain selected CM dimension and the O-valued χ⁻¹-to-χ comparison."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/bsd-opposite-parity",
+      "title": "Rank bound at opposite-parity characters",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Theorem 6.2, pp.962–963; Theorem 2.4, pp.949–950",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.6/rank-bounds"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Add E/K and the same coefficient descent; the extra term is at most one selected CM local dimension."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/relaxed-ranks",
+      "title": "Ranks in the elliptic-unit descent input",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Agboola–Howard Proposition 3.3(i), as used by BKO Theorem 6.1",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/relaxed-strict-char",
+      "title": "Relaxed torsion and strict characteristic ideals",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Agboola–Howard Theorem 4.1, used in (4.2) and BKO Theorem 6.1",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Retain the involution composed with coefficient conjugation and inherited G5; AHI is an ordinary-prime proof template."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/global-signed-exact",
+      "title": "Global duality sequence for the signed local condition",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Agboola–Howard (3.3), used in Theorems 4.2–4.3 and BKO Theorem 6.1",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.4/duality-sequence"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/primitive-elliptic-unit",
+      "title": "The primitive elliptic unit ξ(E,Ω) = ξ_ν at trivial ν",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6 preamble and §6.0.1, p.961; Proposition 3.3, p.953",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+        "InertAnticyclotomicCMMainConjecture:IC.2/normalization",
+        "InertAnticyclotomicCMMainConjecture:IC.2/sign-and-nonzero"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-lfunction",
+      "title": "Rubin's anticyclotomic p-adic L-function",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.1, p.961",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.2/rubin-lfunction"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-interpolation",
+      "title": "Rubin interpolation with inverse-character denominator",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "§6.0.1, p.961",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.2/interpolation"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Nontrivial matching χ uses overline(φχ) in the numerator and δ_(χ⁻¹) in the denominator. Keep the trivial derivative separate."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-local-dictionary",
+      "title": "Agboola–Howard's local modules as BKO's (AH (3.2), Proposition 3.4)",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Agboola–Howard II, (3.2), proof of Proposition 3.4 and Conjecture 3.5; BKO, proof of Theorem 6.1, p.962",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.3/local-dictionary"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-conditional-equality",
+      "title": "Agboola–Howard (4.2): the characteristic ideal under Conjecture 3.5",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Agboola–Howard II, Theorem 4.2, (4.2) and its proof, p.6",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.4/signed-characteristic"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-elliptic-unit-generator",
+      "title": "Agboola–Howard Theorem 4.3: the elliptic units generate",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Agboola–Howard II, Theorem 4.3 and the paragraph after it; BKO p.961",
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.4/primitive-lattice-comparison"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "The existing owner node states this target with its hypotheses and source locator. Its prerequisite chain, acceptance conditions and unresolved obligations remain authoritative; this index creates no second proof."
+    },
+    {
+      "itemId": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-two-variable-main-conjecture",
+      "title": "Rubin's two-variable main conjecture in units form at an inert prime",
+      "extraction": "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+      "extractionLocator": "Used via Agboola–Howard II, Proposition 3.3(ii) and its proof (arXiv math/0401124v2, p.5); BKO, proof of Theorem 6.1, p.962",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules",
+        "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture",
+        "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "This later route addendum is accounted for in addition to the issue’s original 47 items. Correct nonsplit input: class groups versus global units, equality on nontrivial p-decomposition character parts. Translation to the Gross datum remains G2."
+    },
+    {
+      "itemId": "PAPER-CASTELLA-ETAL-22/9",
+      "title": "Rubin's main conjecture for imaginary quadratic fields, anticyclotomic character components",
+      "extraction": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+      "extractionLocator": "§1.2, proof of Theorem 1.2.2 and Remark 1.2.3, p. 8; §2.2, proof of Theorem 2.2.3, p. 15",
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.3/katz-functional-equation-lambda"
+      ],
+      "status": "imported-planned",
+      "implementationStatus": "unchecked",
+      "match": "Retain the local exclusions 1,ω and tame branch ωφ⁻¹. Remove the unnecessary D_K≠−3,−4 restriction: odd split p already gives p∤#O_K×. The Coleman/Katz and class-number gaps remain open."
+    }
+  ],
+  "importedDefinitionContracts": [
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra",
+      "apiNames": [
+        "CMRayTower",
+        "CMRayTower.iwasawaAlgebra",
+        "CMRayTower.torsion",
+        "CMRayTower.splitting",
+        "CMRayTower.restrictTo",
+        "CMRayTower.cyclotomicQuotient",
+        "CMRayTower.normalization_eq_pi",
+        "CMRayTower.IsRegularPrime",
+        "CMRayTower.xi",
+        "CMRayTower.xi_eq_iff_length"
+      ],
+      "testNames": [
+        "CMRayTower.torsion_gaussian_two",
+        "CMRayTower.torsion_gaussian_five",
+        "CMRayTower.not_normal_of_dvd",
+        "CMRayTower.normalization_inv_p",
+        "CMRayTower.rank_two"
+      ],
+      "apiSha256": "9454aa342683c80371f093dfac87b0f26da0c310bf0458da9b52e490a18a8e1d",
+      "testsSha256": "b5d50434b0aca76a7affcdd30877e3db5dd25d3650e7a24df2bc2bb94de30758",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-cohomology",
+      "apiNames": [
+        "rayIwasawaCohomology",
+        "rayIwasawaCohomology.shapiro",
+        "rayIwasawaCohomology.finite",
+        "rayIwasawaCohomology.vanishing",
+        "rayIwasawaCohomology.baseChange",
+        "rayIwasawaCohomology.twist",
+        "rayIwasawaCohomology.localization",
+        "rayIwasawaCohomology.map"
+      ],
+      "testNames": [
+        "rayIwasawaCohomology.h0_tate",
+        "rayIwasawaCohomology.twist_trivial",
+        "rayIwasawaCohomology.agrees_cyclotomic",
+        "rayIwasawaCohomology.not_unrestricted"
+      ],
+      "apiSha256": "4e55ee890f9eaf243f995b5099056c043e754bae722a17ba2538091e97ce7c2b",
+      "testsSha256": "7b45b186afc533572606be9efab1e77379bd4f486a481d7739fe0a30621e51d1",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-unit-class-modules",
+      "apiNames": [
+        "towerUnits",
+        "towerClasses",
+        "towerUnits.globalUnits",
+        "towerUnits.proj",
+        "towerClasses.proj",
+        "towerUnits.restrict",
+        "towerUnits.mk",
+        "towerUnits.ext"
+      ],
+      "testNames": [
+        "towerUnits.proj_norm",
+        "towerUnits.roots_of_unity_vanish",
+        "towerClasses.class_number_one_layer",
+        "towerUnits.global_subset"
+      ],
+      "apiSha256": "c23b265b489d82f120043ca3511f58e33060b530241ec3baca244a00d6946657",
+      "testsSha256": "775b0c43339bbe2e0900f34ef022a1fc79a44d532fec76ade7f9aec69f2438f5",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/cm-theta-function",
+      "apiNames": [
+        "CMTheta.theta",
+        "CMTheta.divisor",
+        "CMTheta.norm_invariant",
+        "CMTheta.unique",
+        "CMTheta.ofInt",
+        "CMTheta.isogeny_norm",
+        "CMTheta.two_ideals",
+        "CMTheta.baseChange"
+      ],
+      "testNames": [
+        "CMTheta.ofInt_eq_cTheta",
+        "CMTheta.divisor_degree",
+        "CMTheta.trivial_ideal",
+        "CMTheta.not_any_unit",
+        "CMTheta.isogeny_coprime_required"
+      ],
+      "apiSha256": "958ee0fd3f45aa5e64425dea4723fc8f09a48af5f8d2f15de6c506c04dc2a0da",
+      "testsSha256": "9df99a5f60e41d555677c243fd6e606bcb6d60df91d761606e23f14f769b214c",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit",
+      "apiNames": [
+        "ellipticUnit",
+        "ellipticUnitOf",
+        "ellipticUnitOf_indep_r",
+        "ellipticUnit.isUnit_away",
+        "ellipticUnit.norm_relation",
+        "ellipticUnit.aux_indep",
+        "ellipticUnit.galois"
+      ],
+      "testNames": [
+        "ellipticUnit.norm_tower",
+        "ellipticUnit.aux_indep_distinct",
+        "ellipticUnit.unit_two_primes",
+        "ellipticUnit.euler_factor",
+        "ellipticUnit.not_cyclotomic"
+      ],
+      "apiSha256": "f2166c3ec4705b1cceef2bb973d593ac2525136db6fa03e4f8f04a6fe7de384f",
+      "testsSha256": "b21fa0412118d2b356b197aade8e9b756f4d55052473c27a6467930dd67efd0c",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-module",
+      "apiNames": [
+        "ellipticUnitModule",
+        "zetaElement",
+        "zetaElement_indep",
+        "zetaElement_mul_mem",
+        "ellipticUnitModule_localization",
+        "cyclotomicIdeal_eq",
+        "zetaElement_restrict",
+        "zetaElement_eq_jlk"
+      ],
+      "testNames": [
+        "zetaElement_indep_two",
+        "cyclotomicIdeal_quotient",
+        "ellipticUnitModule_height_one",
+        "zetaElement.auxiliary_factor"
+      ],
+      "apiSha256": "d44b712e8ce875236866aecb09621bcfb78432742542d9bd6becd5b1b7a77f00",
+      "testsSha256": "f720a1a0b01d66f7e5a0a17bb876236a5fe282926db8431bb153dcd6db033325",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+      "apiNames": [
+        "CMRealization.betti",
+        "CMRealization.etale",
+        "CMRealization.galois_artin",
+        "CMRealization.galois_idele",
+        "CMRealization.deRham",
+        "CMRealization.period",
+        "CMRealization.dR_comparison",
+        "CMRealization.indep_conductor",
+        "CMRealization.rank_one"
+      ],
+      "testNames": [
+        "CMRealization.finrank_one",
+        "CMRealization.frobenius",
+        "CMRealization.r_one",
+        "CMRealization.not_unramified"
+      ],
+      "apiSha256": "261fc7205691746a44ddee54b079634479fe2da5d080004c85328c1ef586891c",
+      "testsSha256": "518b4edb2ab8a1010ce90de0bd2f6f8d08e03103042536d85b98be0cbac3117f",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system",
+      "apiNames": [
+        "ellipticEulerSystem",
+        "ellipticEulerSystem.isEulerSystem",
+        "ellipticEulerSystem.twist",
+        "ellipticEulerSystem.twist_isEulerSystem",
+        "ellipticEulerSystem.iwasawaClass",
+        "ellipticEulerSystem.projection",
+        "ellipticEulerSystem.twist_gamma"
+      ],
+      "testNames": [
+        "ellipticEulerSystem.trivial_twist",
+        "ellipticEulerSystem.euler_factor_unramified",
+        "ellipticEulerSystem.twist_compose",
+        "ellipticEulerSystem.not_norm_compatible_p"
+      ],
+      "apiSha256": "f9820b2359d5d6757c1ae9babc61e39ccbd04893594d17da7dbe73007a943e40",
+      "testsSha256": "d2b42881dcd1c729d9f7f194217dffecf21c8156f283af87003f69fbb273ab13",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules",
+      "apiNames": [
+        "RubinModules",
+        "RubinModules.chiPart",
+        "RubinModules.fundamentalSequence",
+        "RubinModules.toCohomology",
+        "RubinModules.char",
+        "RubinModules.restrictToZp"
+      ],
+      "testNames": [
+        "RubinModules.sequence_split",
+        "RubinModules.nonsplit_not_torsion",
+        "RubinModules.chi_trivial_hyp",
+        "RubinModules.compare_jlk"
+      ],
+      "apiSha256": "3e34187ac05f064def4387505226f27d2ef724296bcfbb393645c5ae96e58c23",
+      "testsSha256": "dc88cb317fe419c36fd168d00f8d45f8e8dcb8da3642fd00c57ad47917d7fc84",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+      "apiNames": [
+        "TwoVariableColeman.col",
+        "TwoVariableColeman.col_injective_chi",
+        "TwoVariableColeman.char_eq",
+        "TwoVariableColeman.restrict",
+        "TwoVariableColeman.cyclotomic_compat",
+        "TwoVariableColeman.interpolation_unique"
+      ],
+      "testNames": [
+        "TwoVariableColeman.col_cyclotomic_unit",
+        "TwoVariableColeman.col_trivial_unit",
+        "TwoVariableColeman.not_inert",
+        "TwoVariableColeman.char_compare"
+      ],
+      "apiSha256": "3263df606922b5152a5c0ccfdb3b1ce18a1bfaebf3d954b934a570e6910d2338",
+      "testsSha256": "6989e322ced534370c080b4a077065ee27cf87ccb46d473862564cc6f1f88fb2",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-comparison-map",
+      "apiNames": [
+        "cmComparison",
+        "cmComparison.semilinear",
+        "cmComparison.specialize",
+        "cmComparison.lattice",
+        "cmComparison.uses_15_11_2"
+      ],
+      "testNames": [
+        "cmComparison.finite_level",
+        "cmComparison.corestriction_compatible",
+        "cmComparison.contained_case",
+        "cmComparison.not_via_15_11_3"
+      ],
+      "apiSha256": "e26ffa38faf98906d7ad5283b9d4f611319d0360eedeb3b551a6dc10d2f37503",
+      "testsSha256": "2eacc0f4159e0b57158c65700bc52443430a895a9ba1de5adc550cfafe463412",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+      "apiNames": [
+        "InertCM.Datum.ofGrossCurve",
+        "InertCM.Datum.tateRestriction",
+        "InertCM.Datum.extendCoefficients",
+        "InertCM.Datum.periodChange"
+      ],
+      "testNames": [
+        "class_number_not_one",
+        "inert_not_ordinary",
+        "coefficient_extension"
+      ],
+      "apiSha256": "cb80042c710622149a39025dd77d6b3969c452c98303a69cc23d8a0ca477e9b2",
+      "testsSha256": "2449328135b85bf51ed5dfb4b2cbd25f2ab8f5c4235b03f3d52f6b8f2c1386fc",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/signed-kummer",
+      "apiNames": [
+        "InertCM.signedLocalCondition",
+        "InertCM.mem_signedLocalCondition",
+        "InertCM.signedCondition_restrict",
+        "InertCM.signedCondition_annihilator",
+        "InertCM.signedCondition_extend"
+      ],
+      "testNames": [
+        "same_parity_point",
+        "trivial_local_plus",
+        "restriction_kummer"
+      ],
+      "apiSha256": "8b58881fda36a21e4262b14d295adf37026ab22d9774fa7aa5993739fd22cd82",
+      "testsSha256": "68828d93d6527502638f4d0d6219c88156b375df06bf70df59562bf472be239f",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+      "apiNames": [
+        "InertCM.signedSelmer",
+        "InertCM.mem_signedSelmer",
+        "InertCM.strict_le_signed",
+        "InertCM.selmer_restrict",
+        "InertCM.selmer_restrictedRamification"
+      ],
+      "testNames": [
+        "local_obstruction",
+        "full_vs_strict",
+        "unramified_set_change"
+      ],
+      "apiSha256": "e181bdd48791fc23cd17f547b48d0cbeda2d7f52574bebc6414a4a2a202c11d8",
+      "testsSha256": "777cf9f720abd6a6d810e63e0049b2671378c6aa220a36eced12a4e7366208d9",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules",
+      "apiNames": [
+        "InertCM.selmerDual",
+        "InertCM.selmerDual_eval",
+        "InertCM.selmerDual_coinvariants",
+        "InertCM.compactSelmer",
+        "InertCM.dual_extendCoefficients"
+      ],
+      "testNames": [
+        "inverse_action",
+        "finite_group_error",
+        "ramified_coefficients"
+      ],
+      "apiSha256": "2c32fe17fc9af321227b2a3dc55b0a8def0149898e8604e6fc61818752216c12",
+      "testsSha256": "095dcba55c8ac19d88c74b19565ad7c392e3d27957ede23fdab836bc2f0431a6",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+      "apiNames": [
+        "InertCM.primitiveClass",
+        "InertCM.primitiveClass_localize",
+        "InertCM.primitiveClass_extend",
+        "InertCM.primitiveClass_period"
+      ],
+      "testNames": [
+        "trivial_auxiliary",
+        "p_divisible_vector",
+        "global_local_distinction"
+      ],
+      "apiSha256": "3d14fa7a6fde7b821c5c28a68f720b83cfbbe4617170a4f3c6b1c0fe3c3b6648",
+      "testsSha256": "4b4e7608ded1a124090e0d964d1b926f671a36761188f86900a73e2f4e8fe6dd",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/rubin-lfunction",
+      "apiNames": [
+        "InertCM.rubinLfunction",
+        "InertCM.primitiveClass_eq_coordinate",
+        "InertCM.rubinLfunction_basisChange",
+        "InertCM.signedQuotient_cyclic",
+        "InertCM.rubinLfunction_extend"
+      ],
+      "testNames": [
+        "zero_coordinate",
+        "basis_vector",
+        "unit_basis_change",
+        "coefficient_ring"
+      ],
+      "apiSha256": "497d6a92026de4eb36d1e8fb6b7d488e114257a14dc59596a2ce4ea98334fc35",
+      "testsSha256": "5c58e0801fa2e9191b573842d2f3aa889ba7c40bee10701f875d0a31e61a18db",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
+      "apiNames": [
+        "InertCM.globalEllipticUnitModule",
+        "InertCM.auxiliaryClass_mem",
+        "InertCM.unitModule_norm",
+        "InertCM.unitModule_specialize",
+        "InertCM.unitModule_signed"
+      ],
+      "testNames": [
+        "auxiliary_nonunit",
+        "twist_direction",
+        "localization_not_definition"
+      ],
+      "apiSha256": "2de3f3d8cf423049c2b9a11112ffbd406d30004611167d0286f6e7b818f09269",
+      "testsSha256": "ddbe91abd7c5a301e5a8515648a1e0866f0340e6accd4b7563233527b9de8209",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/control-polynomials",
+      "apiNames": [
+        "InertCM.controlPolynomial",
+        "InertCM.controlPolynomial_product",
+        "InertCM.controlPolynomial_eval",
+        "InertCM.signedPoints_annihilated"
+      ],
+      "testNames": [
+        "level_zero",
+        "order_p",
+        "order_p_squared",
+        "integral_not_comaximal"
+      ],
+      "apiSha256": "0a201b9fc057d52f7b706d9a1e22ca3da25f415617ff8cd35611b9e4e12371e7",
+      "testsSha256": "756bc352a8217afe437e7ad0ac3abaf7a4c71e9ae587fdc750a2867cb24c40bb",
+      "contract": "Exact signatures, hypotheses, uses and discriminating tests belong to this canonical node. No renamed API, duplicate tests or new definition is introduced by the alias."
+    }
+  ],
+  "importedPlanets": [
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra",
+      "name": "CM ray-class tower"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/tower-unit-class-modules",
+      "name": "Tower unit and class modules h¹ and h²"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/cm-theta-function",
+      "name": "Kato's CM theta function"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit",
+      "name": "Standard elliptic units"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/kronecker-limit-formula",
+      "name": "Kronecker limit formula for elliptic units"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-module",
+      "name": "Elliptic-unit module z and z_{p∞f}"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+      "name": "Kato's realization V(ψ), S(ψ), per_ψ"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.1/cm-elliptic-reciprocity",
+      "name": "Kato's elliptic-unit reciprocity law"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system",
+      "name": "Euler system of elliptic units"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture",
+      "name": "Main conjecture at every prime (Johnson-Leung–Kings)"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules",
+      "name": "Rubin's modules U∞, Ē∞, C̄∞, A∞, X∞"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture",
+      "name": "Rubin's two-variable main conjecture"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+      "name": "Two-variable Coleman map"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture",
+      "name": "Katz-measure form of the main conjecture"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+      "name": "Anticyclotomic θ-component main conjecture"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.4/regular-prime-equality",
+      "name": "Equality at regular height-one primes"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.4/rational-equivariant-main-conjecture",
+      "name": "Rational equivariant main conjecture (BT Theorem 2.1)"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization",
+      "name": "Three characterizations of CM newforms"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-comparison-map",
+      "name": "Kato's CM comparison map"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-descent-lemma",
+      "name": "Kato's descent lemma"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-contained-descent",
+      "name": "Descent in the contained case"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.5/cm-h2-torsion",
+      "name": "CM case of Kato's Theorem 12.4"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-zeta-bridge",
+      "name": "Elliptic units become Beilinson–Kato elements"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/equality-descent",
+      "name": "Equality descent"
+    },
+    {
+      "nodeId": "CMAllPrimeMainConjectures:CZ.6/cm-kato-main-conjecture",
+      "name": "Kato's main conjecture for CM newforms (BT Thm 2.6)"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+      "name": "Inert Gross CM datum"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison",
+      "name": "Global–local tower comparison"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/character-dictionary",
+      "name": "Conductor and sign dictionary"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/signed-kummer",
+      "name": "Signed Kummer condition"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing",
+      "name": "Away-p local vanishing"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+      "name": "Signed global Selmer group"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules",
+      "name": "Contragredient Selmer dual"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+      "name": "Primitive CM elliptic-unit class"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/sign-and-nonzero",
+      "name": "Signed primitive elliptic-unit line"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/rubin-lfunction",
+      "name": "Rubin’s anticyclotomic p-adic L-function"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
+      "name": "Global elliptic-unit module"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
+      "name": "Gross CM descent comparison"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+      "name": "Relaxed and strict Selmer ranks"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison",
+      "name": "Integral elliptic-unit main-conjecture input"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/duality-sequence",
+      "name": "Signed Poitou–Tate sequence"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/opposite-torsion",
+      "name": "Opposite signed Selmer torsion"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
+      "name": "Relaxed-dual characteristic comparison"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/signed-characteristic",
+      "name": "Signed elliptic-unit characteristic formula"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
+      "name": "Inert anticyclotomic CM main conjecture"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/control-polynomials",
+      "name": "Signed control polynomials"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/local-control",
+      "name": "Signed local control"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
+      "name": "Signed Selmer control"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
+      "name": "Finite signed Selmer decomposition"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
+      "name": "Strict Selmer specialization bound"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound",
+      "name": "Matching-parity CM Selmer bound"
+    },
+    {
+      "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/rank-bounds",
+      "name": "Finite-character CM rank bounds"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:CZ.0",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra",
+        "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-cohomology",
+        "CMAllPrimeMainConjectures:CZ.0/tower-unit-class-modules",
+        "CMAllPrimeMainConjectures:CZ.0/tower-kummer-identification",
+        "CMAllPrimeMainConjectures:CZ.0/class-module-h2-comparison",
+        "CMAllPrimeMainConjectures:CZ.0/h2-euler-comparison",
+        "CMAllPrimeMainConjectures:CZ.0/tower-class-module-torsion",
+        "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure",
+        "CMAllPrimeMainConjectures:CZ.0/theta-eisenstein-kronecker",
+        "CMAllPrimeMainConjectures:CZ.0/cm-theta-function",
+        "CMAllPrimeMainConjectures:CZ.0/canonical-cm-pair",
+        "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit",
+        "CMAllPrimeMainConjectures:CZ.0/kronecker-limit-formula",
+        "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-module",
+        "CMAllPrimeMainConjectures:CZ.0/elliptic-unit-cotorsion"
+      ],
+      "canonicalCoverage": {
+        "stageId": "CMAllPrimeMainConjectures:CZ.0",
+        "status": "partial",
+        "remaining": [
+          "Supply the CM ray-tower H¹ torsion lemma and all-p Euler-rank formula; vanishing of norm roots of unity does not prove R-torsion-freeness.",
+          "The Kronecker limit formula is planned from Kato (3.8.2); a lemma-level pass decomposes the analytic continuation of the Eisenstein–Kronecker series at s = 0."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:CZ.1",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+        "CMAllPrimeMainConjectures:CZ.1/cm-p-divisible-reciprocity",
+        "CMAllPrimeMainConjectures:CZ.1/cm-eisenstein-evaluation",
+        "CMAllPrimeMainConjectures:CZ.1/cm-elliptic-reciprocity"
+      ],
+      "canonicalCoverage": {
+        "stageId": "CMAllPrimeMainConjectures:CZ.1",
+        "status": "partial",
+        "remaining": [
+          "The height-one explicit reciprocity law is an input requested from PadicHodgeRegulators D.2 (gap)."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:CZ.2",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system",
+        "CMAllPrimeMainConjectures:CZ.2/tamagawa-s0-abelian",
+        "CMAllPrimeMainConjectures:CZ.2/elliptic-zeta-element-comparison",
+        "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system-bound",
+        "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture-euler-factors",
+        "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules",
+        "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture"
+      ],
+      "canonicalCoverage": {
+        "stageId": "CMAllPrimeMainConjectures:CZ.2",
+        "status": "partial",
+        "remaining": [
+          "The p = 2 Tamagawa input (Itakura) and the Huber–Kings comparison are recorded gaps; Rubin's own Kolyvagin-system proof (§§5–10) is not decomposed, since Johnson-Leung–Kings' cohomological proof supersedes it here."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:CZ.3",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+        "CMAllPrimeMainConjectures:CZ.3/elliptic-units-to-katz-measure",
+        "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.3/katz-functional-equation-lambda"
+      ],
+      "canonicalCoverage": {
+        "stageId": "CMAllPrimeMainConjectures:CZ.3",
+        "status": "partial",
+        "remaining": [
+          "The two-variable Coleman map and the Yager–de Shalit identification rest on sources not read (gap); the case p | h_K is a gap."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:CZ.4",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.4/regular-prime-equality",
+        "CMAllPrimeMainConjectures:CZ.4/rational-equivariant-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.4/printed-equivariant-form-range"
+      ],
+      "canonicalCoverage": {
+        "stageId": "CMAllPrimeMainConjectures:CZ.4",
+        "status": "planned",
+        "remaining": [
+          "Singular primes (p ∈ q) and the integral equivariant Ω-form are outside this roadmap: they need Johnson-Leung–Kings' μ-hypothesis (Conjecture 5.5), proved only for split p ∤ 6."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:CZ.5",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization",
+        "CMAllPrimeMainConjectures:CZ.5/cm-induction-normalization",
+        "CMAllPrimeMainConjectures:CZ.5/cm-twist-nonvanishing",
+        "CMAllPrimeMainConjectures:CZ.5/cm-comparison-map",
+        "CMAllPrimeMainConjectures:CZ.5/twisted-tower-cohomology",
+        "CMAllPrimeMainConjectures:CZ.5/cm-descent-lemma",
+        "CMAllPrimeMainConjectures:CZ.5/cm-contained-descent",
+        "CMAllPrimeMainConjectures:CZ.5/grothendieck-length-lemma",
+        "CMAllPrimeMainConjectures:CZ.5/cm-h2-torsion",
+        "CMAllPrimeMainConjectures:CZ.5/cm-length-inequality"
+      ],
+      "canonicalCoverage": {
+        "stageId": "CMAllPrimeMainConjectures:CZ.5",
+        "status": "partial",
+        "remaining": [
+          "Ribet's self-twist theorem, the weight-k CM induction (CM.4) and Rohrlich's nonvanishing proof are recorded gaps."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:CZ.6",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "CMAllPrimeMainConjectures:CZ.6/cm-period-normalization",
+        "CMAllPrimeMainConjectures:CZ.6/cm-coefficient-reciprocity",
+        "CMAllPrimeMainConjectures:CZ.6/twisted-equivariant-equality",
+        "CMAllPrimeMainConjectures:CZ.6/cm-zeta-bridge",
+        "CMAllPrimeMainConjectures:CZ.6/equality-descent",
+        "CMAllPrimeMainConjectures:CZ.6/cm-kato-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.6/cm-kato-divisibility",
+        "CMAllPrimeMainConjectures:CZ.6/cm-kato-normalization-dictionary",
+        "CMAllPrimeMainConjectures:CZ.6/dyadic-and-triadic-acceptance"
+      ],
+      "canonicalCoverage": {
+        "stageId": "CMAllPrimeMainConjectures:CZ.6",
+        "status": "partial",
+        "remaining": [
+          "The integral refinement of Theorem 2.6 (Burungale–Tian Remark 2.7) is not a target."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:IC.0",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+        "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison",
+        "InertAnticyclotomicCMMainConjecture:IC.0/character-dictionary",
+        "InertAnticyclotomicCMMainConjecture:IC.0/local-coefficients",
+        "InertAnticyclotomicCMMainConjecture:IC.0/signed-scalar-extension"
+      ],
+      "canonicalCoverage": {
+        "stageId": "InertAnticyclotomicCMMainConjecture:IC.0",
+        "status": "planned",
+        "remaining": [
+          "InertAnticyclotomicCMMainConjecture/G1: Early CM construction and analytic contracts have no registered supplier stage",
+          "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
+          "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:IC.1",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.1/signed-kummer",
+        "InertAnticyclotomicCMMainConjecture:IC.1/choice-independence",
+        "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing",
+        "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+        "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules"
+      ],
+      "canonicalCoverage": {
+        "stageId": "InertAnticyclotomicCMMainConjecture:IC.1",
+        "status": "planned",
+        "remaining": [
+          "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:IC.2",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+        "InertAnticyclotomicCMMainConjecture:IC.2/normalization",
+        "InertAnticyclotomicCMMainConjecture:IC.2/sign-and-nonzero",
+        "InertAnticyclotomicCMMainConjecture:IC.2/rubin-lfunction",
+        "InertAnticyclotomicCMMainConjecture:IC.2/interpolation"
+      ],
+      "canonicalCoverage": {
+        "stageId": "InertAnticyclotomicCMMainConjecture:IC.2",
+        "status": "planned",
+        "remaining": [
+          "InertAnticyclotomicCMMainConjecture/G1: Early CM construction and analytic contracts have no registered supplier stage",
+          "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:IC.3",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
+        "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
+        "InertAnticyclotomicCMMainConjecture:IC.3/local-dictionary",
+        "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+        "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison"
+      ],
+      "canonicalCoverage": {
+        "stageId": "InertAnticyclotomicCMMainConjecture:IC.3",
+        "status": "planned",
+        "remaining": [
+          "InertAnticyclotomicCMMainConjecture/G2: Inert units-form translation of Rubin's Theorem 4.1(ii) to the Gross avatar",
+          "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
+          "InertAnticyclotomicCMMainConjecture/G5: Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
+          "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:IC.4",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.4/duality-sequence",
+        "InertAnticyclotomicCMMainConjecture:IC.4/opposite-torsion",
+        "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
+        "InertAnticyclotomicCMMainConjecture:IC.4/signed-characteristic",
+        "InertAnticyclotomicCMMainConjecture:IC.4/primitive-lattice-comparison",
+        "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture"
+      ],
+      "canonicalCoverage": {
+        "stageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+        "status": "planned",
+        "remaining": [
+          "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
+          "InertAnticyclotomicCMMainConjecture/G5: Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
+          "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:IC.5",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.5/control-polynomials",
+        "InertAnticyclotomicCMMainConjecture:IC.5/local-control",
+        "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
+        "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
+        "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
+        "InertAnticyclotomicCMMainConjecture:IC.5/strict-control"
+      ],
+      "canonicalCoverage": {
+        "stageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+        "status": "planned",
+        "remaining": [
+          "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    },
+    {
+      "stageId": "ModularIwasawaMainConjecturesPartII:IC.6",
+      "status": "source_decomposed",
+      "remaining": [],
+      "imports": [
+        "InertAnticyclotomicCMMainConjecture:IC.6/strict-divisor",
+        "InertAnticyclotomicCMMainConjecture:IC.6/local-codimension",
+        "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound",
+        "InertAnticyclotomicCMMainConjecture:IC.6/rank-bounds"
+      ],
+      "canonicalCoverage": {
+        "stageId": "InertAnticyclotomicCMMainConjecture:IC.6",
+        "status": "planned",
+        "remaining": [
+          "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+        ]
+      },
+      "note": "Import accounting is complete. This alias owns no mathematical target and closes no proof gap. The canonical coverage, owner review, gaps and requests are retained in inheritedObligations; source_decomposed is not mathematical closure."
+    }
+  ],
+  "requests": [],
+  "gaps": [],
+  "inheritedObligations": [
+    {
+      "roadmapId": "CMAllPrimeMainConjectures",
+      "ownerPacket": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "ownerPacketSha256": "169e434d9b4a48a63870fe7c98b08a83832944a978ee1108693854bcd492ae5a",
+      "ownerStatus": "partial",
+      "ownerReviewStatus": "needs_changes",
+      "review": "research/blueprint/reviews/REV-DESIGN-CMAllPrimeMainConjectures.md",
+      "reviewSha256": "600a2e0056fac4644a44e8e8df7f27d26c00b4ada1ffeb58568525c66887dcb1",
+      "coverage": [
+        {
+          "stageId": "CMAllPrimeMainConjectures:CZ.0",
+          "status": "partial",
+          "remaining": [
+            "Supply the CM ray-tower H¹ torsion lemma and all-p Euler-rank formula; vanishing of norm roots of unity does not prove R-torsion-freeness.",
+            "The Kronecker limit formula is planned from Kato (3.8.2); a lemma-level pass decomposes the analytic continuation of the Eisenstein–Kronecker series at s = 0."
+          ]
+        },
+        {
+          "stageId": "CMAllPrimeMainConjectures:CZ.1",
+          "status": "partial",
+          "remaining": [
+            "The height-one explicit reciprocity law is an input requested from PadicHodgeRegulators D.2 (gap)."
+          ]
+        },
+        {
+          "stageId": "CMAllPrimeMainConjectures:CZ.2",
+          "status": "partial",
+          "remaining": [
+            "The p = 2 Tamagawa input (Itakura) and the Huber–Kings comparison are recorded gaps; Rubin's own Kolyvagin-system proof (§§5–10) is not decomposed, since Johnson-Leung–Kings' cohomological proof supersedes it here."
+          ]
+        },
+        {
+          "stageId": "CMAllPrimeMainConjectures:CZ.3",
+          "status": "partial",
+          "remaining": [
+            "The two-variable Coleman map and the Yager–de Shalit identification rest on sources not read (gap); the case p | h_K is a gap."
+          ]
+        },
+        {
+          "stageId": "CMAllPrimeMainConjectures:CZ.4",
+          "status": "planned",
+          "remaining": [
+            "Singular primes (p ∈ q) and the integral equivariant Ω-form are outside this roadmap: they need Johnson-Leung–Kings' μ-hypothesis (Conjecture 5.5), proved only for split p ∤ 6."
+          ]
+        },
+        {
+          "stageId": "CMAllPrimeMainConjectures:CZ.5",
+          "status": "partial",
+          "remaining": [
+            "Ribet's self-twist theorem, the weight-k CM induction (CM.4) and Rohrlich's nonvanishing proof are recorded gaps."
+          ]
+        },
+        {
+          "stageId": "CMAllPrimeMainConjectures:CZ.6",
+          "status": "partial",
+          "remaining": [
+            "The integral refinement of Theorem 2.6 (Burungale–Tian Remark 2.7) is not a target."
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "pointer": "/gaps/0",
+          "id": null,
+          "title": "Integral Tamagawa number conjecture at s = 0 for abelian extensions of K, at p = 2",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.2/tamagawa-s0-abelian",
+            "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture"
+          ],
+          "sha256": "20446b96e7c7b8f400f29760b66d762fe34061c8606ea810ce11f41e92757df1"
+        },
+        {
+          "pointer": "/gaps/1",
+          "id": null,
+          "title": "Height-one generalized explicit reciprocity",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.1/cm-p-divisible-reciprocity",
+            "CMAllPrimeMainConjectures:CZ.1/cm-elliptic-reciprocity"
+          ],
+          "sha256": "1a877739186b1962c8115040eb8e40f76891ad64fd13533a54a7fcc5a2834e99"
+        },
+        {
+          "pointer": "/gaps/2",
+          "id": null,
+          "title": "General-weight CM induction not yet planned in CM.4",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-induction-normalization",
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization"
+          ],
+          "sha256": "085c2850362d9c6bf997af697ebd443c6d629d7eae04b6bca11a5173361df2ef"
+        },
+        {
+          "pointer": "/gaps/3",
+          "id": null,
+          "title": "Ribet's characterization of self-twists",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization"
+          ],
+          "sha256": "d4345ab54643e62e990b2c20da0613f2a95b7e102e87b8c2eb46b79109e20d42"
+        },
+        {
+          "pointer": "/gaps/4",
+          "id": null,
+          "title": "Rohrlich's central nonvanishing and the infinite-order Hecke edge",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-twist-nonvanishing"
+          ],
+          "sha256": "7839fd22dfc3f41dd7fa27f378595fafbb08dfda10d783b1f7a25e1b8a86304e"
+        },
+        {
+          "pointer": "/gaps/5",
+          "id": null,
+          "title": "Two-variable Coleman map and its Katz image (de Shalit, Yager)",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+            "CMAllPrimeMainConjectures:CZ.3/elliptic-units-to-katz-measure",
+            "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture"
+          ],
+          "sha256": "cc38326eb3a146a7d9ac56d28cb7a623003a510f8e54d260c9e680fb28f51cb7"
+        },
+        {
+          "pointer": "/gaps/6",
+          "id": null,
+          "title": "Split-prime Katz form when p divides the class number",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+            "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture"
+          ],
+          "sha256": "ee8b46209e7bd1b21fa1f37b72e11993f3b9bc95add2e78b539ddb6fce811176"
+        },
+        {
+          "pointer": "/gaps/7",
+          "id": null,
+          "title": "Ray-tower j_* comparison and Euler-rank/torsion lemmas",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-cohomology",
+            "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure",
+            "CMAllPrimeMainConjectures:CZ.5/twisted-tower-cohomology",
+            "CMAllPrimeMainConjectures:CZ.5/cm-h2-torsion"
+          ],
+          "sha256": "a4df7224213d6a1fba6661d87408c05efe8a4e944a5884551c26b2abea138b36"
+        },
+        {
+          "pointer": "/gaps/8",
+          "id": null,
+          "title": "Geometric de Rham comparison for the CM tensor realization",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+            "CMAllPrimeMainConjectures:CZ.1/cm-p-divisible-reciprocity",
+            "CMAllPrimeMainConjectures:CZ.1/cm-elliptic-reciprocity"
+          ],
+          "sha256": "12ad85ee01ff5786df47e66eca3fa607e108163ecccbdd7538612fc02435bbd2"
+        },
+        {
+          "pointer": "/gaps/9",
+          "id": null,
+          "title": "Exact Coleman-map source and scalar-extension interface",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+            "CMAllPrimeMainConjectures:CZ.3/elliptic-units-to-katz-measure",
+            "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture"
+          ],
+          "sha256": "abaa9fe9808a15485c271fa3ace321de01b1a942db07694ce8c2b238ad872ccb"
+        },
+        {
+          "pointer": "/gaps/10",
+          "id": null,
+          "title": "One-variable Coleman/Katz control and functional-equation factors",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture",
+            "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+            "CMAllPrimeMainConjectures:CZ.3/katz-functional-equation-lambda"
+          ],
+          "sha256": "4cb5e65889b5587235d28753c511c6e2c8133f7bec2b2490b1832962278e6b02"
+        },
+        {
+          "pointer": "/gaps/11",
+          "id": null,
+          "title": "Theta-series converse and exact level",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization"
+          ],
+          "sha256": "d60e1bccb0c10dbf2759c72f45292a85672fe16db26f39e8f32f9a7d857d643a"
+        },
+        {
+          "pointer": "/gaps/12",
+          "id": null,
+          "title": "Arithmetic integrality of theta values",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit"
+          ],
+          "sha256": "3083e006c3880ad5fe35cc3c1e2c09f6732aea427a4036ccbb8860372c194858"
+        }
+      ],
+      "requests": [
+        {
+          "pointer": "/requests/0",
+          "supplier": "AutomorphicPadicLFunctions:L0",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra"
+          ],
+          "sha256": "d6e3096df1c386f5157f5919e1a1d79fb894aac27f44ccc795c132fb60ef8346"
+        },
+        {
+          "pointer": "/requests/1",
+          "supplier": "IntegralIwasawaTheory:I.2",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/tower-unit-class-modules",
+            "CMAllPrimeMainConjectures:CZ.0/tower-class-module-torsion",
+            "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules"
+          ],
+          "sha256": "5e619885e0a0b9e58a0fa7562d98a4bdd5e5b06176110579eb67aa4330233c0f"
+        },
+        {
+          "pointer": "/requests/2",
+          "supplier": "PadicMeasuresIwasawaAlgebras:L1",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra",
+            "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map"
+          ],
+          "sha256": "e7db4aefebc7282c092f647f7ce4e966eb2121d3f982e2a942a902ddbd212400"
+        },
+        {
+          "pointer": "/requests/3",
+          "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.4",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization",
+            "CMAllPrimeMainConjectures:CZ.5/cm-induction-normalization"
+          ],
+          "sha256": "d2f6529892fd464e265d6fdaf571cc4c25ff93f0320d9d0401d55ffd6a5f0b85"
+        },
+        {
+          "pointer": "/requests/4",
+          "supplier": "PadicHodgeRegulators:D.2",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.1/cm-p-divisible-reciprocity"
+          ],
+          "sha256": "c2a71328464e11c385264423c00c15dc8858a41488de99cec8878e2ed16d31ed"
+        },
+        {
+          "pointer": "/requests/5",
+          "supplier": "AnalyticNumberTheory:AN.4",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-twist-nonvanishing"
+          ],
+          "sha256": "68e4527d5adea07d1687f28e45e80c25deec7f01d35d2f2a35009466bdaab924"
+        },
+        {
+          "pointer": "/requests/6",
+          "supplier": "ColemanPowerSeries:L1",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map"
+          ],
+          "sha256": "cdf0bfcbe464bcedaf10d8c36fdbe801149cdd2fe2d3d46db8b7c547f20a46bd"
+        },
+        {
+          "pointer": "/requests/7",
+          "supplier": "ColemanPowerSeries:L2",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map"
+          ],
+          "sha256": "1a9ae9a0eb732f0b2039536857f206306aec375facaf125bb7b0c746e1e73838"
+        },
+        {
+          "pointer": "/requests/8",
+          "supplier": "AutomorphicPadicLFunctions:L3",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/elliptic-units-to-katz-measure",
+            "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture",
+            "CMAllPrimeMainConjectures:CZ.3/katz-functional-equation-lambda"
+          ],
+          "sha256": "cbc13a4f09361fb9fbd0ef21556902fe9eb4d3daf5ab897ec2dfe5508efd3be8"
+        },
+        {
+          "pointer": "/requests/9",
+          "supplier": "AutomorphicPadicLFunctions:L3h",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.3/anticyclotomic-theta-main-conjecture"
+          ],
+          "sha256": "3d2b129d2a30e49767555d9b1778df53780e324b8ec198928b614f933d6a5c98"
+        },
+        {
+          "pointer": "/requests/10",
+          "supplier": "ModularIwasawaMainConjectures:L0",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.6/cm-kato-main-conjecture",
+            "CMAllPrimeMainConjectures:CZ.6/cm-kato-normalization-dictionary"
+          ],
+          "sha256": "1c246ea8eb241b959b102ebba5f4009ba3f540f2018f04bf27c9e8cd9a3e2419"
+        },
+        {
+          "pointer": "/requests/11",
+          "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra"
+          ],
+          "sha256": "793152544020accaf6410b3b10e13e31d703b5d479ba78ed68ac1e707a0de1b5"
+        },
+        {
+          "pointer": "/requests/12",
+          "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/kronecker-limit-formula",
+            "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization"
+          ],
+          "sha256": "f6232b7806b3fa1df2a1a4618b94e0561b3c77d2f57d0041be92c8a0e706ef6e"
+        },
+        {
+          "pointer": "/requests/13",
+          "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization"
+          ],
+          "sha256": "81c699792094be654654ee4827cb033c9f1539333fce5fc4305d10f636bb8a66"
+        },
+        {
+          "pointer": "/requests/14",
+          "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/class-module-h2-comparison"
+          ],
+          "sha256": "ccda1e196ee1c6f59a00cb9568e60ffecb46236295164dc8f9fbd741eed62e11"
+        },
+        {
+          "pointer": "/requests/15",
+          "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra",
+            "CMAllPrimeMainConjectures:CZ.0/canonical-cm-pair",
+            "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit",
+            "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules"
+          ],
+          "sha256": "dbd3f0d6cd4513f6bd190631f81fe50a97dcb4995d5c73671e89d780df25ee81"
+        },
+        {
+          "pointer": "/requests/16",
+          "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-algebra"
+          ],
+          "sha256": "5f6e56d37bd625574a6c5fe1def0a74bd3fa3e7ce31c0809da91f7f617ebd864"
+        },
+        {
+          "pointer": "/requests/17",
+          "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization",
+            "CMAllPrimeMainConjectures:CZ.5/cm-twist-nonvanishing"
+          ],
+          "sha256": "a1e555311d5aa6e7c83a14f87153cfb2610e2dda76a7ddc3e508ed335e9696ba"
+        },
+        {
+          "pointer": "/requests/18",
+          "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-9-the-lmfdb-invariant-layer",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.5/cm-newform-characterization"
+          ],
+          "sha256": "9eff777b6f01465991c74f1fd1256f4412361256ed028c510f888288d53b7249"
+        },
+        {
+          "pointer": "/requests/19",
+          "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0a-relative-effective-cartier-divisors",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/cm-theta-function"
+          ],
+          "sha256": "bdd0ab76d9d4985227a77de1b0e6853b4b284765a4e61caca64e18e3d8967cb8"
+        },
+        {
+          "pointer": "/requests/20",
+          "supplier": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/cm-theta-function"
+          ],
+          "sha256": "b007972594a63e856cba7bf32cb58973e45d473cec0fa0af46334428d5f1cd55"
+        },
+        {
+          "pointer": "/requests/21",
+          "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization",
+            "CMAllPrimeMainConjectures:CZ.1/cm-p-divisible-reciprocity"
+          ],
+          "sha256": "eec18968cfe6ad219c8446f7b6f1fdb28f56dbc020d86660193694b5977cbbd9"
+        },
+        {
+          "pointer": "/requests/22",
+          "supplier": "SelmerIwasawaCohomology:L3",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.0/ray-tower-iwasawa-cohomology",
+            "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure"
+          ],
+          "sha256": "d61c069fb8294631c921cb93f506dc707355f8e2cf060572057d329b0e45edfd"
+        },
+        {
+          "pointer": "/requests/23",
+          "supplier": "SelmerIwasawaCohomology:L4",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.1/cm-hecke-realization"
+          ],
+          "sha256": "4939f0f52cfa33bb6e887c972d4d635f0396612bee3e6b7d53c363de849ddfd1"
+        },
+        {
+          "pointer": "/requests/24",
+          "supplier": "PadicMeasuresIwasawaAlgebras:L5",
+          "neededBy": [
+            "CMAllPrimeMainConjectures:CZ.2/tamagawa-s0-abelian",
+            "CMAllPrimeMainConjectures:CZ.2/lambda-main-conjecture"
+          ],
+          "sha256": "452603b334f047d8fed5a5d046e907531ec2d7028edb194a5f618598bf1d0dac"
+        }
+      ],
+      "handling": "Every listed obligation remains on its canonical owner. Neither a complete import index nor an accepted review discharges these gaps or requests."
+    },
+    {
+      "roadmapId": "InertAnticyclotomicCMMainConjecture",
+      "ownerPacket": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "ownerPacketSha256": "c58fb6ffeaef8b8099535369f91c7b52d23d32275e7969352becc01c9b578703",
+      "ownerStatus": "complete",
+      "ownerReviewStatus": "accepted",
+      "review": "research/blueprint/reviews/REV-DESIGN-InertAnticyclotomicCMMainConjecture.md",
+      "reviewSha256": "52ef909a46dbdcc7b048e96bb55fe7b531e0d4fc8f6171040c7a965d3fc02f30",
+      "coverage": [
+        {
+          "stageId": "InertAnticyclotomicCMMainConjecture:IC.0",
+          "status": "planned",
+          "remaining": [
+            "InertAnticyclotomicCMMainConjecture/G1: Early CM construction and analytic contracts have no registered supplier stage",
+            "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
+            "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+          ]
+        },
+        {
+          "stageId": "InertAnticyclotomicCMMainConjecture:IC.1",
+          "status": "planned",
+          "remaining": [
+            "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+          ]
+        },
+        {
+          "stageId": "InertAnticyclotomicCMMainConjecture:IC.2",
+          "status": "planned",
+          "remaining": [
+            "InertAnticyclotomicCMMainConjecture/G1: Early CM construction and analytic contracts have no registered supplier stage",
+            "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+          ]
+        },
+        {
+          "stageId": "InertAnticyclotomicCMMainConjecture:IC.3",
+          "status": "planned",
+          "remaining": [
+            "InertAnticyclotomicCMMainConjecture/G2: Inert units-form translation of Rubin's Theorem 4.1(ii) to the Gross avatar",
+            "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
+            "InertAnticyclotomicCMMainConjecture/G5: Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
+            "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+          ]
+        },
+        {
+          "stageId": "InertAnticyclotomicCMMainConjecture:IC.4",
+          "status": "planned",
+          "remaining": [
+            "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
+            "InertAnticyclotomicCMMainConjecture/G5: Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
+            "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+          ]
+        },
+        {
+          "stageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+          "status": "planned",
+          "remaining": [
+            "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+          ]
+        },
+        {
+          "stageId": "InertAnticyclotomicCMMainConjecture:IC.6",
+          "status": "planned",
+          "remaining": [
+            "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
+          ]
+        }
+      ],
+      "gaps": [
+        {
+          "pointer": "/gaps/0",
+          "id": "InertAnticyclotomicCMMainConjecture/G1",
+          "title": "Early CM construction and analytic contracts have no registered supplier stage",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+            "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison",
+            "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+            "InertAnticyclotomicCMMainConjecture:IC.2/sign-and-nonzero"
+          ],
+          "sha256": "b2e3ca4e347cf1180ee7dabbfe36ebf24924aa43558c948aee9020c875221493"
+        },
+        {
+          "pointer": "/gaps/1",
+          "id": "InertAnticyclotomicCMMainConjecture/G2",
+          "title": "Inert units-form translation of Rubin's Theorem 4.1(ii) to the Gross avatar",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+            "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison"
+          ],
+          "sha256": "6cc5efdd49e9a8a1d329f8a7d8f59824cf92ba315b473e4c23c99f6fa2cccbce"
+        },
+        {
+          "pointer": "/gaps/2",
+          "id": "InertAnticyclotomicCMMainConjecture/G3",
+          "title": "Integral Gross descent, trace, period and primitive-lattice comparisons",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.0/local-coefficients",
+            "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
+            "InertAnticyclotomicCMMainConjecture:IC.3/local-dictionary",
+            "InertAnticyclotomicCMMainConjecture:IC.4/primitive-lattice-comparison"
+          ],
+          "sha256": "109784a0c0dc8b36a98f40d2b5dd604a2f366b1ba676e225d150c08923ee2340"
+        },
+        {
+          "pointer": "/gaps/3",
+          "id": "InertAnticyclotomicCMMainConjecture/G5",
+          "title": "Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+            "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic"
+          ],
+          "sha256": "4425fa42714a1dcaae2cba7f6b6f4b91ca6a646ada474ad9469dff8e35fe69fe"
+        }
+      ],
+      "requests": [
+        {
+          "pointer": "/requests/0",
+          "supplier": "PadicMeasuresIwasawaAlgebras:L4",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.0/signed-scalar-extension",
+            "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
+            "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
+            "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
+            "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
+            "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound"
+          ],
+          "sha256": "1bf5adcefdac57537e655b2a3e2573d5a5ed709411569506007f5f4676a3060f"
+        },
+        {
+          "pointer": "/requests/1",
+          "supplier": "PadicMeasuresIwasawaAlgebras:L5",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+            "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
+            "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
+            "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition"
+          ],
+          "sha256": "b4715b1d77605936a68c4e2a1aa204818857bee14db3dad7c338eb65a6a16b7d"
+        },
+        {
+          "pointer": "/requests/2",
+          "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum"
+          ],
+          "sha256": "2b12ba643bac0ac1b66a68ac373287a243ea50e594e38f555faebffa3a014153"
+        },
+        {
+          "pointer": "/requests/3",
+          "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing"
+          ],
+          "sha256": "4da72b657731479baf2ad044c72c2baee0f6980ef21e0f238054a32562940605"
+        },
+        {
+          "pointer": "/requests/4",
+          "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing"
+          ],
+          "sha256": "633cde3896e3444f71605da35fa700a790062ec9c3836e2595bd99e437f0a2b1"
+        },
+        {
+          "pointer": "/requests/5",
+          "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels"
+          ],
+          "sha256": "90c4fda273b4843235aebbdcfaa466d6e47179bff621af6bcbf8bac555c8f235"
+        },
+        {
+          "pointer": "/requests/6",
+          "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison"
+          ],
+          "sha256": "829929ba21dbd1870825adc98701944929f09af55861ab34e216a55ad4b13769"
+        },
+        {
+          "pointer": "/requests/7",
+          "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison"
+          ],
+          "sha256": "3f32f753b286ab779167c5f25bcd08856dea44a3f0cd8901835e43bca96b7a61"
+        },
+        {
+          "pointer": "/requests/8",
+          "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+          "neededBy": [
+            "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison"
+          ],
+          "sha256": "9f76c3e7504b29d164f4c479d5d463fb6593f26b96c483389f6cb9eb48c46956"
+        }
+      ],
+      "handling": "Every listed obligation remains on its canonical owner. Neither a complete import index nor an accepted review discharges these gaps or requests."
+    }
+  ],
+  "unverifiableImports": [
+    "CMAllPrimeMainConjectures:CZ.0/tower-unit-module-structure",
+    "CMAllPrimeMainConjectures:CZ.3/two-variable-coleman-map",
+    "CMAllPrimeMainConjectures:CZ.3/elliptic-units-to-katz-measure",
+    "CMAllPrimeMainConjectures:CZ.3/katz-form-main-conjecture"
+  ],
+  "sourceIssues": [],
+  "sourceIssueReferences": [
+    {
+      "id": "CMAllPrimeMainConjectures/E2",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "handling": "Retain the canonical correction and its review; no new erratum is claimed here."
+    },
+    {
+      "id": "CMAllPrimeMainConjectures/E1",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "handling": "Retain the canonical correction and its review; no new erratum is claimed here."
+    },
+    {
+      "id": "CMAllPrimeMainConjectures/E3",
+      "packet": "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+      "handling": "Retain the canonical correction and its review; no new erratum is claimed here."
+    },
+    {
+      "id": "InertAnticyclotomicCMMainConjecture/E1",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "handling": "Retain the canonical correction and its review; no new erratum is claimed here."
+    },
+    {
+      "id": "InertAnticyclotomicCMMainConjecture/E2",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "handling": "Retain the canonical correction and its review; no new erratum is claimed here."
+    },
+    {
+      "id": "InertAnticyclotomicCMMainConjecture/E3",
+      "packet": "research/blueprint/packets/InertAnticyclotomicCMMainConjecture.json",
+      "handling": "Retain the canonical correction and its review; no new erratum is claimed here."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "ModularIwasawaMainConjecturesPartII",
+        "CMAllPrimeMainConjectures",
+        "InertAnticyclotomicCMMainConjecture"
+      ],
+      "detail": "All three continuations in issue #3338 already name existing canonical owners. BT and CGLS belong to CMAllPrimeMainConjectures; the signed inert branch belongs to InertAnticyclotomicCMMainConjecture, which imports Rubin’s nonsplit theorem from CMAllPrimeMainConjectures. The later BKO route-6 addendum uses the same owner boundary. A third mathematical plan would duplicate these targets.",
+      "proposal": "Keep both canonical roadmap ids and all 90 node ids, APIs, tests, planets, source corrections, coverage, gaps and requests. Map alias CZ.n to CMAllPrimeMainConjectures:CZ.n and IC.n to InertAnticyclotomicCMMainConjecture:IC.n for n=0,…,6. Retire this alias’s four publication files when the maintainer applies the split; preserve this handoff/crosswalk as the migration record and check live inbound references. No metadata or canonical owner was changed in this job."
+    }
+  ],
+  "baselineAudit": {
+    "path": "data/library-coverage.json",
+    "entries": [
+      "ModularIwasawaMainConjectures:L0",
+      "ModularIwasawaMainConjectures:L1",
+      "ModularIwasawaMainConjectures:L2",
+      "ModularIwasawaMainConjectures:L3",
+      "ModularIwasawaMainConjectures:L4",
+      "ModularIwasawaMainConjectures:L5",
+      "ModularIwasawaMainConjectures:L6"
+    ],
+    "finding": "Parent L0–L5 are not built at the pins and L6 is process in the reviewed audit. Their cohomological, ordinary/family and signed routes are not the all-prime CM equality. Existing overlaps with Selmer, Kato, congruence, Heegner and BSD roadmaps remain imports, not fresh parent or Part II targets."
+  },
+  "upstreamNotes": [
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+      "locator": "Layer 9; current TauCeti/Topology/Algebra/Group/Profinite/CompletedGroupAlgebra/{Basic,Map,PowerSeries}.lean",
+      "note": "The generic completed group algebra and projection/map API already exist in current Tau Ceti. CZ.0 specializes that object to an arithmetic ray group; no generic reconstruction is planned."
+    },
+    {
+      "roadmap": "PadicMeasuresIwasawaAlgebras",
+      "locator": "Inert canonical review/request claims upstream PR #780; compared with the designated current read-only main tree",
+      "note": "This checkout of current main does not expose a PadicMeasuresIwasawaAlgebras roadmap directory. Retain the canonical supplier contracts and do not use the review’s merge claim as evidence that a declaration exists at the pinned libraries. No other worktree or upstream file was edited."
+    }
+  ],
+  "currentLibraryInspection": {
+    "date": "2026-10-19",
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "tauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "read": [
+      "ModularForms Layers 7 and 9, EllipticCurves Layers 1, 2 and 7, ClassFieldTheory and GlobalNumberFields source boundaries",
+      "ProfiniteProPGroups Layer 9 and current completedGroupAlgebra definitions/projection/map API",
+      "Nine roadmap directories absent from the atlas snapshot listed in WORKERS.md, and the Completed directory; targeted searches for CM, Iwasawa, Selmer, Katz and Coleman targets"
+    ],
+    "boundary": "Read-only inspection, with no lake command in the upstream environment. Newer declarations are not certified at the older pins. The index owns no new mathematics, so it does not replan any newer roadmap target."
+  },
+  "conventions": {
+    "coverage": "All 14 alias stages are source_decomposed for import accounting only; zero stages are mathematically closed. Canonical stage statuses and remaining lists are preserved as metadata snapshots and remain authoritative. Empty local gaps/requests mean zero newly owned obligations.",
+    "sourceOrder": "Where canonical standalone readers predate their independent reviews, the corrected canonical packets and review notes control the import. This reader states the corrected boundaries without editing either owner.",
+    "normalizations": [
+      "Full cyclotomic Galois group, including finite torsion; Kato cohomological dual realization and j_* extension.",
+      "CZ.4/CZ.6 invert p; IC.4 retains the integral coefficient ring R and its vertical prime.",
+      "Untwisted-to-twisted ray map is Tw_(χ⁻¹)-semilinear. Pontryagin-dual character specialization uses χ⁻¹.",
+      "BKO character labels use conductor parity, AH labels use order parity; signed point/Selmer labels agree.",
+      "Primitive local ξ, its principal span C∞ and the full global auxiliary-ideal module C are distinct until the integral comparison is proved."
+    ]
+  },
+  "review": {
+    "status": "pending",
+    "notes": "Independent review must assess import coverage, corrected source boundaries and the split proposal. No independent review of this index has occurred."
+  }
+}
