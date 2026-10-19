@@ -186,7 +186,8 @@
       "readSections": [
         "Mathematical text, printed pp. 301–434, including Appendices 6.1–6.5. Bibliography pp. 435–443 used only to identify references."
       ],
-      "versionNote": "All locators below use the published pagination and numbering. The routed extraction primarily used arXiv v2, whose numbers differ."
+      "versionNote": "All locators below use the published pagination and numbering. The routed extraction primarily used arXiv v2, whose numbers differ.",
+      "independentReviewReadDate": "2026-10-19"
     }
   ],
   "nodes": [
@@ -295,7 +296,7 @@
       ],
       "title": "The reduced ramification divisor",
       "kind": "definition",
-      "statement": "For an elliptic admissible cover π:C→E over S, let Δ(H) be the smooth fixed locus C_sm^H with all fixed loci C_sm^K for strictly larger cyclic K removed. Define R_π as the disjoint union of Δ(H) over nontrivial cyclic H≤G, with the induced fixed-locus scheme structures. It is an effective Cartier divisor finite étale over S, with geometrically reduced fibres; it is reduced as a scheme exactly when S is reduced. On a connected base the origin ramification index e is constant; if e≥2, R_π has degree |G|/e and is the fibrewise reduced origin fibre. If e=1, R_π is empty and the full marking is the whole étale origin fibre.",
+      "statement": "For an elliptic admissible cover π:C→E over S, let Δ(H) be the smooth fixed locus C_sm^H with all fixed loci C_sm^K for strictly larger cyclic K removed. Define R_π as the disjoint union of Δ(H) over nontrivial cyclic H≤G, with the induced fixed-locus scheme structures. It is an effective Cartier divisor finite étale over S, with geometrically reduced fibres; it is reduced as a scheme if S is reduced. The converse holds when R_π→S is surjective, in particular for e≥2 on a nonempty connected base. On a connected base the origin ramification index e is constant; if e≥2, R_π has degree |G|/e and is the fibrewise reduced origin fibre. If e=1, R_π is empty and the full marking is the whole étale origin fibre.",
       "hypotheses": [
         "G finite; all bases over Z[1/|G|]; additional characteristic-zero or generation assumptions are stated in the target."
       ],
@@ -315,7 +316,7 @@
       ],
       "uses": [
         {
-          "where": "CHEN2024, §2.2, pp. 322–325; Proposition 2.2.3 and Corollary 2.2.4; Definition 3.2.1, pp. 351–352",
+          "where": "CHEN2024, §2.2, pp. 322–325; Proposition 2.2.3 and Remark 2.2.4; Definition 3.2.1, pp. 351–352",
           "how": "The the reduced ramification divisor supplies R_π is a closed effective Cartier divisor in C_sm.; R for the pulled-back cover is the pullback of R_π."
         },
         {
@@ -347,6 +348,11 @@
           "name": "TauCeti.NonabelianLevel.reduced_ramification.fixedLocus",
           "role": "compatibility",
           "statement": "Its geometric points are exactly points with nontrivial inertia above the origin."
+        },
+        {
+          "name": "TauCeti.NonabelianLevel.reduced_ramification.reducedIff",
+          "role": "characterisation",
+          "statement": "If R_π→S is surjective, R_π is reduced iff S is reduced; without surjectivity only the implication from S to R_π is asserted."
         }
       ],
       "tests": [
@@ -369,6 +375,11 @@
           "name": "reduced_ramification.nonreduced_base",
           "kind": "non-example",
           "statement": "After base change to k[ε]/(ε²), R_π remains finite étale and fibrewise reduced but need not be a reduced scheme; taking absolute reduction would break base change."
+        },
+        {
+          "name": "reduced_ramification.empty_nonreduced_base",
+          "kind": "non-example",
+          "statement": "For G=1 over S=Spec(k[ε]/(ε²)), R_π is empty and reduced although S is not reduced. This rejects the converse without surjectivity."
         }
       ],
       "library": {
@@ -378,8 +389,8 @@
       "sources": [
         {
           "sourceId": "CHEN2024",
-          "locator": "§2.2, pp. 322–325; Proposition 2.2.3 and Corollary 2.2.4; Definition 3.2.1, pp. 351–352",
-          "match": "For an elliptic admissible cover π:C→E over S, let Δ(H) be the smooth fixed locus C_sm^H with all fixed loci C_sm^K for strictly larger cyclic K removed. Define R_π as the disjoint union of Δ(H) over nontrivial cyclic H≤G, with the induced fixed-locus scheme structures. It is an effective Cartier divisor finite étale over S, with geometrically reduced fibres; it is reduced as a scheme exactly when S is reduced. On a connected base the origin ramification index e is constant; if e≥2, R_π has degree |G|/e and is the fibrewise reduced origin fibre. If e=1, R_π is empty and the full marking is the whole étale origin fibre."
+          "locator": "§2.2, pp. 322–325; Proposition 2.2.3 and Remark 2.2.4; Definition 3.2.1, pp. 351–352",
+          "match": "For an elliptic admissible cover π:C→E over S, let Δ(H) be the smooth fixed locus C_sm^H with all fixed loci C_sm^K for strictly larger cyclic K removed. Define R_π as the disjoint union of Δ(H) over nontrivial cyclic H≤G, with the induced fixed-locus scheme structures. It is an effective Cartier divisor finite étale over S, with geometrically reduced fibres; it is reduced as a scheme if S is reduced. The converse holds when R_π→S is surjective, in particular for e≥2 on a nonempty connected base. On a connected base the origin ramification index e is constant; if e≥2, R_π has degree |G|/e and is the fibrewise reduced origin fibre. If e=1, R_π is empty and the full marking is the whole étale origin fibre."
         }
       ],
       "implementationStatus": "unchecked",
@@ -400,7 +411,7 @@
       ],
       "title": "Monodromy of the ramification divisor",
       "kind": "theorem",
-      "statement": "Assume S connected and π as above with e≥2. For a geometric ramified point x with inertia H, all connected components of R_π are isomorphic finite étale Galois covers of S. Their deck groups embed in N_G(H)/H. If S is regular integral and contains a primitive e-th root of unity, these groups embed in C_G(H)/H. For a connected component X of A_G over Z[1/|G|,ζ_e], the same assertion holds for the universal ramification divisor, using a connected étale atlas and descent.",
+      "statement": "Assume S connected and π as above with e≥2. For a geometric ramified point x with inertia H, all connected components of R_π are isomorphic finite étale Galois covers of S. Their deck groups embed in N_G(H)/H. If S is regular integral and contains a primitive e-th root of unity, these groups embed in C_G(H)/H. For a connected component X of A_G over Z[1/|G|,ζ_e], the same assertion holds for the universal ramification divisor, by finite étale monodromy and descent of the inertia character.",
       "hypotheses": [
         "G finite; all bases over Z[1/|G|]; additional characteristic-zero or generation assumptions are stated in the target."
       ],
@@ -408,7 +419,7 @@
         "The G-action commutes with finite étale monodromy and is transitive on the whole geometric fibre G/H.",
         "An equivariant permutation is determined by its value at H; its stabilizer condition gives the normalizer quotient.",
         "The faithful inertia character, constant over a regular integral base containing ζ_e, forces centralization.",
-        "Apply this to an étale atlas of the universal stack, then descend the cover and deck action."
+        "For the universal stack, the fixed-subgroup loci of the finite étale ramification divisor are open and closed. On each connected component the faithful inertia character takes constant values in the constant group μ_e. Monodromy preserves that character, so its normalizer image centralizes H. Descend this character calculation through an atlas; a connected atlas alone need not preserve connected finite covers."
       ],
       "acceptance": [
         "The centralizer quotient, not the normalizer quotient, supplies d_X in the characteristic-zero congruence.",
@@ -430,7 +441,7 @@
         {
           "sourceId": "CHEN2024",
           "locator": "Proposition 2.2.5, pp. 325–326; Proposition 3.2.2, pp. 352–353",
-          "match": "Assume S connected and π as above with e≥2. For a geometric ramified point x with inertia H, all connected components of R_π are isomorphic finite étale Galois covers of S. Their deck groups embed in N_G(H)/H. If S is regular integral and contains a primitive e-th root of unity, these groups embed in C_G(H)/H. For a connected component X of A_G over Z[1/|G|,ζ_e], the same assertion holds for the universal ramification divisor, using a connected étale atlas and descent."
+          "match": "Assume S connected and π as above with e≥2. For a geometric ramified point x with inertia H, all connected components of R_π are isomorphic finite étale Galois covers of S. Their deck groups embed in N_G(H)/H. If S is regular integral and contains a primitive e-th root of unity, these groups embed in C_G(H)/H. For a connected component X of A_G over Z[1/|G|,ζ_e], the same assertion holds for the universal ramification divisor, by finite étale monodromy and descent of the inertia character."
         }
       ],
       "implementationStatus": "unchecked",
@@ -748,7 +759,7 @@
         "G finite; all bases over Z[1/|G|]; additional characteristic-zero or generation assumptions are stated in the target."
       ],
       "proofSteps": [
-        "Import the pending once-punctured-torus mapping-class and stack Riemann-existence contract G-MAPPING.",
+        "Import C.0/moduli-monodromy for the analytic ordered moduli stack. The additional Nielsen identification for the punctured torus, stack Riemann existence and compatible orientation remain the exact G-MAPPING contract.",
         "Apply the existing exterior-epimorphism fibre description to the elliptic universal family.",
         "Compute the four words and the stabilizer quotients, distinguishing stack and coarse fibres.",
         "Transport through characteristic-zero algebraically closed base extension."
@@ -763,7 +774,8 @@
         "InverseGaloisAndArithmeticFundamentalGroups:IG.3/exterior-epimorphisms",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-riemann-existence",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1/charzero-base-extension",
-        "tauceti:TauCeti.CoveringSpace.monodromyFunctor"
+        "tauceti:TauCeti.CoveringSpace.monodromyFunctor",
+        "MappingClassGroupsAndCanonicalRepresentations:C.0/moduli-monodromy"
       ],
       "uses": [
         {
@@ -1260,7 +1272,7 @@
       ],
       "title": "Normalization and gluing data at a cusp",
       "kind": "definition",
-      "statement": "Fix an algebraically closed characteristic-zero field k, compatible primitive roots, a nodal elliptic curve E and a standard normalization ν:P¹→E taking 1 to O and identifying 0 with ∞. A gluing datum is a possibly disconnected smooth right G-cover q:D→P¹, étale off {0,1,∞}, together with a G-equivariant bijection α between the reduced fibres D_0 and D_∞. Morphisms are G-equivariant cover isomorphisms respecting α. A precuspidal cover of E means the finite quotient obtained by gluing, without imposing flatness at its nodes.",
+      "statement": "Fix an algebraically closed characteristic-zero field k, compatible primitive roots, a nodal elliptic curve E and a standard normalization ν:P¹→E taking 1 to O and identifying 0 with ∞. A gluing datum is a finite right G-equivariant map q:D→P¹ from a possibly disconnected smooth curve whose restriction over P*=P¹\\{0,1,∞} is a right G-torsor, together with a G-equivariant bijection α between the reduced fibres D_0 and D_∞. Morphisms are G-equivariant cover isomorphisms respecting α. A precuspidal cover of E means the finite quotient obtained by gluing, without imposing flatness at its nodes.",
       "hypotheses": [
         "Algebraically closed characteristic-zero field; finite G; fixed standard nodal normalization and good tangential path."
       ],
@@ -1310,6 +1322,11 @@
           "name": "TauCeti.NonabelianLevel.cusp_gluing_data.changeNormalization",
           "role": "functoriality",
           "statement": "A change of standard normalization transports the datum and its gluing canonically."
+        },
+        {
+          "name": "TauCeti.NonabelianLevel.cusp_gluing_data.torsorOnComplement",
+          "role": "characterisation",
+          "statement": "Every geometric fibre over P* is a free transitive right G-set; the normalized cover has degree |G|."
         }
       ],
       "tests": [
@@ -1327,6 +1344,11 @@
           "name": "cusp_gluing_data.check_3",
           "kind": "compatibility",
           "statement": "Only reduced branch fibres are identified; gluing a scheme-theoretic fibre of length e at a branch would create the wrong singularity."
+        },
+        {
+          "name": "cusp_gluing_data.nonfree_quotient",
+          "kind": "non-example",
+          "statement": "For G=S3 and an order-two subgroup H, the faithful action on (H\\G)×P¹ has quotient P¹ but is not a gluing datum: its fibres have three points with nontrivial stabilizer, rather than six torsor points."
         }
       ],
       "library": {
@@ -1337,7 +1359,7 @@
         {
           "sourceId": "CHEN2024",
           "locator": "Definitions 4.1.1–4.1.3, pp. 361–362; Definition 4.4.1, p. 367; Definition 4.4.2, p. 367",
-          "match": "Fix an algebraically closed characteristic-zero field k, compatible primitive roots, a nodal elliptic curve E and a standard normalization ν:P¹→E taking 1 to O and identifying 0 with ∞. A gluing datum is a possibly disconnected smooth right G-cover q:D→P¹, étale off {0,1,∞}, together with a G-equivariant bijection α between the reduced fibres D_0 and D_∞. Morphisms are G-equivariant cover isomorphisms respecting α. A precuspidal cover of E means the finite quotient obtained by gluing, without imposing flatness at its nodes."
+          "match": "Fix an algebraically closed characteristic-zero field k, compatible primitive roots, a nodal elliptic curve E and a standard normalization ν:P¹→E taking 1 to O and identifying 0 with ∞. A gluing datum is a finite right G-equivariant map q:D→P¹ from a possibly disconnected smooth curve whose restriction over P*=P¹\\{0,1,∞} is a right G-torsor, together with a G-equivariant bijection α between the reduced fibres D_0 and D_∞. Morphisms are G-equivariant cover isomorphisms respecting α. A precuspidal cover of E means the finite quotient obtained by gluing, without imposing flatness at its nodes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2371,7 +2393,7 @@
       "acceptance": [
         "If every vertical stabilizer acts trivially, m′_X=1, not 0.",
         "d_X is the coarse degree, and cannot be replaced by the stack degree when generic stabilizers differ.",
-        "For a trivial character family, the least positive killing exponent is 1, and every integer is a multiple of it."
+        "For a character family with image orders 2 and 4, the least common killing exponent is lcm(2,4)=4, rather than the product 8."
       ],
       "prerequisites": [
         "NonabelianLevelStructures:NL.3/section-cotangent",
@@ -2427,8 +2449,8 @@
         },
         {
           "name": "degree_obstructions.check_3",
-          "kind": "compatibility",
-          "statement": "For a trivial character family, the least positive killing exponent is 1, and every integer is a multiple of it."
+          "kind": "computation",
+          "statement": "For a character family with image orders 2 and 4, the least common killing exponent is lcm(2,4)=4, rather than the product 8."
         }
       ],
       "library": {
@@ -2549,7 +2571,7 @@
       "kind": "definition",
       "statement": "For finite G and c∈G, let P_c be the generating pairs (u,h) for which [u,h] is conjugate to c. For each pair put M=⟨u,h^{-1}u^{-1}h⟩ and A={a∈C_G(M):[a,h]∈⟨u⟩}, as in NL.2. Define m′_c to be the least common multiple, over P_c, of the exponents of A∩⟨[u^{-1},h^{-1}]⟩. Define d′_c=|C_G(⟨c⟩)/⟨c⟩|. Each intersection is cyclic; the least common multiple of an empty family is 1. These are invariants of the conjugacy class of c.",
       "hypotheses": [
-        "Algebraically closed characteristic-zero field; connected admissible-cover component; origin inertia e≥2."
+        "Finite group G and c∈G; no geometric component or nontrivial-inertia hypothesis is required."
       ],
       "proofSteps": [
         "Form the finite family of cyclic ramification-point stabilizers using the cusp formula.",
@@ -2649,7 +2671,7 @@
       "kind": "theorem",
       "statement": "For any nonempty characteristic-zero G-cover component with Higman class c, the integer |c|/gcd(|c|,m′_c d′_c) divides its coarse j-degree. It also divides the cardinality of every Out^+(F2)-orbit on Epi^ext(F2,G) of that class. The unquotiented orbit has the coarse degree or twice that degree, according as γ−I fixes or does not fix an exterior pair. The claim is not that this modulus divides the number of cusps.",
       "hypotheses": [
-        "Algebraically closed characteristic-zero field; connected admissible-cover component; origin inertia e≥2."
+        "Finite G and c∈G; for the geometric assertion a nonempty connected component over an algebraically closed characteristic-zero field. The case c=1 is allowed and has modulus 1."
       ],
       "proofSteps": [
         "If c=1, the claimed modulus is 1 and the conclusion is immediate; otherwise the inertia order is at least 2.",
@@ -2677,7 +2699,7 @@
       "sources": [
         {
           "sourceId": "CHEN2024",
-          "locator": "Theorem 4.10.5 and Corollary 4.10.6, pp. 386–387",
+          "locator": "Theorem 4.10.5 and Remark 4.10.6, pp. 386–387",
           "match": "For any nonempty characteristic-zero G-cover component with Higman class c, the integer |c|/gcd(|c|,m′_c d′_c) divides its coarse j-degree. It also divides the cardinality of every Out^+(F2)-orbit on Epi^ext(F2,G) of that class. The unquotiented orbit has the coarse degree or twice that degree, according as γ−I fixes or does not fix an exterior pair. The claim is not that this modulus divides the number of cusps."
         }
       ],
@@ -3262,7 +3284,7 @@
       "sources": [
         {
           "sourceId": "CHEN2024",
-          "locator": "Proposition 5.2.4, p. 396",
+          "locator": "Lemma 5.2.4, p. 396",
           "match": "For any commutative ring R and A,B∈SL2(R), with x=tr A,y=tr B,z=tr AB, one has tr([A,B])=x²+y²+z²−xyz−2. Thus the fixed commutator-trace fibre t is the already-owned CA.4 Markoff level surface of level t+2. The identity is integral, including residue characteristics 2 and 3."
         }
       ],
@@ -3310,7 +3332,7 @@
       "sources": [
         {
           "sourceId": "CHEN2024",
-          "locator": "Proposition 5.2.5 and Remark 5.2.7, pp. 396–397",
+          "locator": "Proposition 5.2.5, pp. 396–397; factorization by inner and central inversion invariance",
           "match": "Right precomposition by Aut(F2) induces an antihomomorphism to polynomial automorphisms of A³_R. It factors through Out(F2)/⟨−I⟩≅PGL2(Z). The Nielsen generators r:(a,b)↦(a^{-1},b), s:(a,b)↦(b,a), t:(a,b)↦(a^{-1},ab) act by (x,y,xy−z), (y,x,z), (x,z,y). The central −I acts trivially. This identifies the image with the group generated by these Vieta/permutation moves, but asserts no faithfulness. The full CA.4 Markoff group also has even sign changes and must be compared as a larger group."
         }
       ],
@@ -4173,7 +4195,7 @@
       ],
       "title": "Trace orbit congruences",
       "kind": "theorem",
-      "statement": "Under the same q≥3,t≠2 hypotheses, every Aut^+(F2)-orbit O on X_t*(q) has size divisible by the component modulus in NL.6/sl2-degree-congruence, with a possible loss of a factor 2 from quotienting by D(q,G): in odd characteristic one may uniformly use n/gcd(n,4(q∓1)/n), in the appropriate torus case; in even characteristic use n/gcd(n,(q∓1)/n). For prime p≥3 and t=−2, every such orbit has size divisible by p. Consequently every orbit of the larger full Markoff move group on the punctured prime-field Markoff surface also has size divisible by p. More generally for t≠±2 and odd ℓ with r=ν_ℓ(n_q(t)),r+s=ν_ℓ(q³−q), every such orbit has size divisible by ℓ^max(r−s,0).",
+      "statement": "For q≥3 and t≠2, put n=n_q(t). In a semisimple case t≠±2, let m=q−1 if X²−tX+1 splits and m=q+1 if it is irreducible. Every Aut^+(F2)-orbit O on X_t*(q) has size divisible by n/gcd(n,4m/n) for odd q and by n/gcd(n,m/n) for even q. These are the moduli after the possible factor-two loss from the component congruence when quotienting by D(q,G). For prime p≥3 and t=−2, every such orbit has size divisible by p. Consequently every orbit of the larger full Markoff move group on the punctured prime-field Markoff surface also has size divisible by p. More generally for t≠±2 and odd ℓ with r=ν_ℓ(n_q(t)),r+s=ν_ℓ(q³−q), every such orbit has size divisible by ℓ^max(r−s,0).",
       "hypotheses": [
         "q=p^f≥3 unless an explicit q=2 boundary example is given; t≠2 where required."
       ],
@@ -4206,7 +4228,7 @@
         {
           "sourceId": "CHEN2024",
           "locator": "Theorem 5.4.4, pp. 413–414; Theorem 5.5.9, p. 417; Theorem 1.2.5, pp. 308–309",
-          "match": "Under the same q≥3,t≠2 hypotheses, every Aut^+(F2)-orbit O on X_t*(q) has size divisible by the component modulus in NL.6/sl2-degree-congruence, with a possible loss of a factor 2 from quotienting by D(q,G): in odd characteristic one may uniformly use n/gcd(n,4(q∓1)/n), in the appropriate torus case; in even characteristic use n/gcd(n,(q∓1)/n). For prime p≥3 and t=−2, every such orbit has size divisible by p. Consequently every orbit of the larger full Markoff move group on the punctured prime-field Markoff surface also has size divisible by p. More generally for t≠±2 and odd ℓ with r=ν_ℓ(n_q(t)),r+s=ν_ℓ(q³−q), every such orbit has size divisible by ℓ^max(r−s,0)."
+          "match": "For q≥3 and t≠2, put n=n_q(t). In a semisimple case t≠±2, let m=q−1 if X²−tX+1 splits and m=q+1 if it is irreducible. Every Aut^+(F2)-orbit O on X_t*(q) has size divisible by n/gcd(n,4m/n) for odd q and by n/gcd(n,m/n) for even q. These are the moduli after the possible factor-two loss from the component congruence when quotienting by D(q,G). For prime p≥3 and t=−2, every such orbit has size divisible by p. Consequently every orbit of the larger full Markoff move group on the punctured prime-field Markoff surface also has size divisible by p. More generally for t≠±2 and odd ℓ with r=ν_ℓ(n_q(t)),r+s=ν_ℓ(q³−q), every such orbit has size divisible by ℓ^max(r−s,0)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4267,13 +4289,13 @@
       ],
       "title": "Markoff components and Higman classes",
       "kind": "theorem",
-      "statement": "Let p≥5 be prime. Assume the full Vieta/permutation move group is transitive on the punctured coefficient-one Markoff surface over F_p (input G-DYNAMICS). Then Aut^+(F2) is already transitive: an orientation-reversing coordinate transposition fixes the point (3,3,3), so the stabilizer meets both orientation cosets. The stack M(SL2(F_p))_{−2} has precisely two geometric connected components, distinguished by the two noncentral trace −2 Higman classes; the diagonal outer involution exchanges them. Each coarse component is isomorphic to the coarse absolute-level curve M_p and has j-degree D=p(p+3) for p≡1 mod4 and p(p−3) for p≡3 mod4. Its compactification is a smooth proper geometrically connected curve.",
+      "statement": "Let p≥5 be prime. Assume the group generated by Vieta moves and coordinate permutations, without adjoining even sign changes, is transitive on the punctured coefficient-one Markoff surface over F_p (input G-DYNAMICS). Then Aut^+(F2) is already transitive: an orientation-reversing coordinate transposition fixes the point (3,3,3), so the stabilizer meets both orientation cosets. The stack M(SL2(F_p))_{−2} has precisely two geometric connected components, distinguished by the two noncentral trace −2 Higman classes; the diagonal outer involution exchanges them. Each coarse component is isomorphic to the coarse absolute-level curve M_p and has j-degree D=p(p+3) for p≡1 mod4 and p(p−3) for p≡3 mod4. Its compactification is a smooth proper geometrically connected curve.",
       "hypotheses": [
         "p≥5 prime; characteristic-zero moduli geometry; transitivity and MP inputs only where explicitly assumed."
       ],
       "proofSteps": [
         "Import the finite-field transitivity and point count from the lower combinatorial part of G-DYNAMICS, with the cross-stage ordering stated in that contract.",
-        "Use the fixed coordinate transposition at (3,3,3), an actual punctured point for p≥5, to pass from the full group to its orientation subgroup.",
+        "Use the Vieta/permutation group specified in G-DYNAMICS, without extra sign generators. The coordinate transposition fixing (3,3,3), an actual punctured point for p≥5, meets the reversing coset, so the orientation subgroup is transitive.",
         "Separate the two SL2 Higman classes and the free diagonal outer interchange; an orbit on the quotient meets each class in exactly one exterior-pair orbit.",
         "Use the existing smooth proper compactification and the trace/coarse correspondence."
       ],
@@ -4298,7 +4320,7 @@
         {
           "sourceId": "CHEN2024",
           "locator": "Theorem 5.5.7(b), p. 416; opening of §5.6 and Theorem 5.6.3, pp. 417–418",
-          "match": "Let p≥5 be prime. Assume the full Vieta/permutation move group is transitive on the punctured coefficient-one Markoff surface over F_p (input G-DYNAMICS). Then Aut^+(F2) is already transitive: an orientation-reversing coordinate transposition fixes the point (3,3,3), so the stabilizer meets both orientation cosets. The stack M(SL2(F_p))_{−2} has precisely two geometric connected components, distinguished by the two noncentral trace −2 Higman classes; the diagonal outer involution exchanges them. Each coarse component is isomorphic to the coarse absolute-level curve M_p and has j-degree D=p(p+3) for p≡1 mod4 and p(p−3) for p≡3 mod4. Its compactification is a smooth proper geometrically connected curve."
+          "match": "Let p≥5 be prime. Assume the group generated by Vieta moves and coordinate permutations, without adjoining even sign changes, is transitive on the punctured coefficient-one Markoff surface over F_p (input G-DYNAMICS). Then Aut^+(F2) is already transitive: an orientation-reversing coordinate transposition fixes the point (3,3,3), so the stabilizer meets both orientation cosets. The stack M(SL2(F_p))_{−2} has precisely two geometric connected components, distinguished by the two noncentral trace −2 Higman classes; the diagonal outer involution exchanges them. Each coarse component is isomorphic to the coarse absolute-level curve M_p and has j-degree D=p(p+3) for p≡1 mod4 and p(p−3) for p≡3 mod4. Its compactification is a smooth proper geometrically connected curve."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4449,7 +4471,7 @@
       "sources": [
         {
           "sourceId": "CHEN2024",
-          "locator": "Corollary 5.6.4, p. 419, with the isomorphism-class formulation corrected",
+          "locator": "Theorem 5.6.4, p. 419, with the isomorphism-class formulation corrected",
           "match": "Let K be a number field and p≥13 a prime satisfying the transitivity hypothesis and the verified genus≥2 bound. There are only finitely many geometric elliptic-curve isomorphism classes, equivalently j-invariants in K, admitting a K-rational point on either trace −2 level component; in particular this holds for elliptic curves over K carrying a geometrically connected SL2(F_p)-torsor on E\\O with that trace invariant. Apply Faltings after a finite extension over which the geometric components are defined. Do not conclude finiteness of K-isomorphism classes of elliptic curves: quadratic twists preserve j and can produce infinitely many such classes."
         }
       ],
@@ -4573,7 +4595,7 @@
       ],
       "proofSteps": [
         "Import the large alternating subgroup theorem, its exact prime set and density-one conclusion from G-DYNAMICS.",
-        "Use the geometric fibre identification to transfer the permutation group to projective level monodromy.",
+        "The orientation-preserving subgroup has normal image of index at most two in the full permutation image on the even-sign quotient. Since the latter contains A_{d_p}, d_p≥7, and A_{d_p} has no nontrivial quotient of order two, its intersection with the orientation image is all of A_{d_p}. Transfer this image to the geometric fibre.",
         "Compute the signs of the projective γ0 and γ1728 permutations to decide A versus S in each mod16 class."
       ],
       "acceptance": [
@@ -4808,7 +4830,7 @@
       "stageId": "NonabelianLevelStructures:NL.0",
       "status": "planned",
       "remaining": [
-        "Register the G-MAPPING supplier and discharge Q-GASCHUTZ, Q-DEFORMATION and Q-DM-COMPLETION, and expose Q-COARSE."
+        "Extend the G-MAPPING supplier beyond its imported C.0/moduli-monodromy node and discharge Q-GASCHUTZ, Q-DEFORMATION and Q-DM-COMPLETION, and expose Q-COARSE."
       ]
     },
     {
@@ -4864,8 +4886,8 @@
   "gaps": [
     {
       "id": "G-MAPPING",
-      "title": "Missing punctured-torus and stack comparison supplier",
-      "detail": "MappingClassGroupsAndCanonicalRepresentations has a design issue (#3370), but no registered stage/node contract at this checkout. Needed exactly: Nielsen Out(F2)≅GL2(Z), orientation subgroup SL2(Z); the oriented punctured elliptic fundamental group and positive peripheral commutator; π1(M(1)^an) and stack Riemann existence identifying its profinite completion; Asada cofinality for its finite étale covers; and the BBCL22 Theorem 2.2.3 strengthened curve consequence, giving a level component finite étale Galois over a nonempty open of any smooth projective Qbar curve. These are not supplied by PeripheralActions, whose current targets concern pro-p punctured-sphere peripheral automorphisms. Register the new supplier before replacing this explicit leaf by an import.",
+      "title": "Missing extensions of the punctured-torus and stack comparison supplier",
+      "detail": "MappingClassGroupsAndCanonicalRepresentations now has a 62-node packet. Its C.0/moduli-monodromy supplies π1 of the ordered analytic moduli stack as the pure mapping-class group and is imported in NL.0/monodromy-dictionary. The remaining exact inputs are: Nielsen Out(F2)≅GL2(Z) with orientation subgroup SL2(Z), the oriented punctured elliptic fundamental group and positive peripheral commutator, stack Riemann existence extending the scheme-only IG.3 contract, Asada cofinality for finite étale covers of M(1), and the BBCL22 Theorem 2.2.3 curve consequence giving a level component finite étale Galois over a nonempty open of any smooth projective Qbar curve. Extend or register those supplier nodes before replacing this leaf. PeripheralActions supplies pro-p punctured-sphere peripheral automorphisms, not this comparison.",
       "neededBy": [
         "NonabelianLevelStructures:NL.0/monodromy-dictionary",
         "NonabelianLevelStructures:NL.0/cofinality",
@@ -4908,7 +4930,7 @@
       "id": "NonabelianLevelStructures/E1",
       "source": "CHEN2024",
       "kind": "error",
-      "locator": "Published Definition 4.1.2, p. 361, and cuspidal-cover wording in §4.1",
+      "locator": "Published Proposition 2.4.4, p. 330; Definition 4.1.2, p. 361, and cuspidal-cover wording in §4.1",
       "printed": "The precuspidal quotient is required to be finite flat at its nodes.",
       "correction": "Retain finite quotient maps; omit flatness at ramified nodes, consistently with the admissible local model.",
       "reason": "At the balanced node x=ξ²,y=η², ξη=0, the fibre over x=y=0 has basis 1,ξ,η of length 3, rather than the generic rank 2.",
@@ -4918,8 +4940,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The nodal index-two local ring has generic rank 2 and a length-3 node fibre; the same flatness error also occurs in Proposition 2.4.4, p. 330.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E2",
@@ -4935,8 +4963,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The general-j proof does not establish the asserted direct-product invariant factors from its intersection bound. This is a proof gap, not a disproof; the j=0 argument used by NL.4 works.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E3",
@@ -4952,8 +4986,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Inner precomposition acts by conjugation and simultaneous inversion preserves all three traces; hence the Aut(F2) arrow is not injective.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E4",
@@ -4969,8 +5009,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For an irreducible quadratic norm form, its zero fibre over F_q consists of the zero vector. The starred fibre is empty, but the full conic is not.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E5",
@@ -4986,8 +5032,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The transform (y,z)↦(z,xz−y) has matrix rows (0,1),(-1,x) on column coordinates.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E6",
@@ -5003,8 +5055,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "One fixed point and (D−1)/3 length-three cycles give 1+(D−1)/3=(D+2)/3. Independent enumeration gives 14 at p=5.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E7",
@@ -5020,8 +5078,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Faltings controls coarse level points and therefore their j-values. It does not distinguish the possible infinitely many K-forms of a geometric elliptic curve.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E8",
@@ -5037,8 +5101,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the displayed exceptional list and the existing R01.4 Dickson contract: the octahedral case is S4. S5 cannot replace it.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E9",
@@ -5054,8 +5124,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "N/C contains the inner automorphism image G/Z(G); for SL2(F5) this already has 60 elements. Only N/(GC) is the outer image bounded by 2.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E10",
@@ -5071,8 +5147,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent F4 arithmetic gives a no-root characteristic polynomial and an order-5 rotation although its discriminant is a square. Polynomial splitting retains both torus cases.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E11",
@@ -5088,8 +5170,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The starred locus excludes dihedral projective images as well as reducible images; an absolutely irreducible dihedral representation need not land there.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E12",
@@ -5105,8 +5193,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 5.2.9 identifies absolute irreducibility with t−2 nonzero over a field, so the proof sentence needs t≠2.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E13",
@@ -5122,8 +5216,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "There is no part (c); the bound being used is the second assertion of (b).",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E14",
@@ -5139,8 +5239,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read arXiv v2 Theorem 2.5.2(7), p. 26: it uses the entire projective curve. Published pp. 337–338 instead use a nonempty open. A nonempty affine level component cannot finitely cover a proper curve.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E15",
@@ -5156,8 +5262,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read arXiv v2 proof, p. 82: it calls (3,3,3) fixed for the full action. A Vieta move changes it for p≥5. Published p. 416 correctly uses a coordinate transposition in the reversing coset.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E16",
@@ -5173,14 +5285,20 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The generic coarse fibre in Theorem 2.5.2 is an involution quotient of the exterior orbit, so its size is the orbit size or half, never double.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E17",
       "source": "CHEN2024",
       "kind": "error",
-      "locator": "arXiv v2 Corollary 1.1.2, compared with published Corollary 1.1.2, p. 305",
+      "locator": "arXiv v2 Theorem 1.1.2, p. 5, compared with published Corollary 1.1.2, p. 305",
       "printed": "The older introductory strengthening uses equality under γ−I for the extra factor 2.",
       "correction": "The extra factor occurs when γ−I does not fix the exterior epimorphism class. The published corollary omits that strengthening.",
       "reason": "The unquotiented orbit is twice its quotient exactly when the central involution acts freely on that orbit. This version note makes no claim that the published corollary retains the older sentence.",
@@ -5190,8 +5308,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the extra-factor sentence in arXiv v2 Theorem 1.1.2, p. 5. Doubling the quotient degree requires a free central involution, not a fixed exterior class. Published p. 305 omits that sentence.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E18",
@@ -5207,8 +5331,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At p=3 the punctured coefficient-one Markoff surface is empty; the surrounding geometric construction assumes p≥5.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E19",
@@ -5224,8 +5354,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The tangent-space coordinate sends the zero tangent vector to 0 and the selected nonzero tangent vector to 1; the punctured line removes 0.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E20",
@@ -5241,8 +5377,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Inverse transport places the fibre over t0, so the acting loop in that formula belongs to π1(P*,t0).",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E21",
@@ -5258,8 +5400,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The glued index-two node has fibre length 3 and generic degree 2, so the stated gluing argument cannot establish flatness.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E22",
@@ -5275,8 +5423,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two coordinate equations imply a Frobenius-fixed ratio, not Frobenius-fixed coordinates. Rationality of the line is sufficient to finish the nonsplit argument.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E23",
@@ -5292,8 +5446,14 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "From ACA⁻¹=C^n, applying A⁻¹ to a λ-eigenvector gives eigenvalue λ^n for C. The centralizer application has n=1 and is unchanged.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     },
     {
       "id": "NonabelianLevelStructures/E24",
@@ -5309,8 +5469,109 @@
         "Annals article page and correction search, https://annals.math.princeton.edu/2024/199-1/p05 (2026-10-18).",
         "arXiv:2011.12940 version listing and the published author-hosted PDF (2026-10-18).",
         "Author site and title/author erratum searches (2026-10-18); no separate correction located.",
-        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24."
-      ]
+        "Accepted PAPER-CHEN-24 extraction, its review REV-PAPER-CHEN-24 and verified red-team fixes RT-PAPER-CHEN-24.",
+        "Independent review: published author PDF, historical arXiv v2 where indicated, official Annals article page, author site and title/author correction search, 2026-10-19; no separate erratum located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equal cardinalities cannot compare infinite subgroups of a cyclic group. Equality of the finite indices in their common cyclic ambient group repairs the inclusion argument.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
+    },
+    {
+      "id": "NonabelianLevelStructures/E25",
+      "source": "CHEN2024",
+      "kind": "error",
+      "locator": "Published Remark 2.2.4, p. 324; Proposition 3.2.2(a), p. 352",
+      "printed": "Absolute reducedness is stated equivalent to reducedness of the base, and the universal ramification divisor is assigned degree |G|/e without excluding e=1.",
+      "correction": "Reducedness of S implies reducedness of R_π; the converse requires R_π→S surjective. Its degree is |G|/e for e≥2, while e=1 gives the empty divisor.",
+      "reason": "Take G=1 over Spec(k[ε]/(ε²)): the ramification divisor is empty and reduced over a nonreduced base and has degree 0, not 1. The nonempty finite étale case has the converse by faithfully flat descent.",
+      "known": "New independent-review finding; no separate correction located.",
+      "affects": "a stated result",
+      "searched": [
+        "Published author-hosted PDF, official Annals article page, author site and title/author correction search, 2026-10-19."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Take G=1 over Spec(k[ε]/(ε²)): the ramification divisor is empty and reduced over a nonreduced base and has degree 0, not 1. The nonempty finite étale case has the converse by faithfully flat descent.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
+    },
+    {
+      "id": "NonabelianLevelStructures/E26",
+      "source": "CHEN2024",
+      "kind": "error",
+      "locator": "Published §4.11, p. 388, odd-dihedral example",
+      "printed": "The centralizer obstruction d′ for D_{2k}, k odd, is assigned value 2.",
+      "correction": "For a primitive rotation c, C_G(⟨c⟩)=⟨c⟩, so d′=1. The normalizer quotient has order 2.",
+      "reason": "A reflection conjugates c to c⁻¹ and does not centralize it for odd k≥3; quotienting its cyclic centralizer by ⟨c⟩ is trivial. The existing NL.2 example already uses the correct value.",
+      "known": "New independent-review finding; no separate correction located.",
+      "affects": "a stated result",
+      "searched": [
+        "Published author-hosted PDF, official Annals article page, author site and title/author correction search, 2026-10-19."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A reflection conjugates c to c⁻¹ and does not centralize it for odd k≥3; quotienting its cyclic centralizer by ⟨c⟩ is trivial. The existing NL.2 example already uses the correct value.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
+    },
+    {
+      "id": "NonabelianLevelStructures/E27",
+      "source": "CHEN2024",
+      "kind": "error",
+      "locator": "Published proof of Proposition 3.2.2(b), p. 353",
+      "printed": "The forgetful map M_{g,n}→M_g for distinct markings is called proper, with each step identified as a complete universal curve.",
+      "correction": "Use smooth surjectivity with nonempty geometrically connected configuration-space fibres. Those properties suffice for connected pullback; no properness is needed.",
+      "reason": "After a first marking, the next point varies on the curve minus its existing markings, an open nonproper fibre. The connected-cover argument uses openness and connected fibres and survives this repair.",
+      "known": "New independent-review finding; no separate correction located.",
+      "affects": "the proof",
+      "searched": [
+        "Published author-hosted PDF, official Annals article page, author site and title/author correction search, 2026-10-19."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "After a first marking, the next point varies on the curve minus its existing markings, an open nonproper fibre. The connected-cover argument uses openness and connected fibres and survives this repair.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
+    },
+    {
+      "id": "NonabelianLevelStructures/E28",
+      "source": "CHEN2024",
+      "kind": "gap",
+      "locator": "Published proof of Proposition 5.2.16(d), p. 402",
+      "printed": "The dihedral converse assumes that both members of an arbitrary projective generating pair are involutions.",
+      "correction": "If one generator is a rotation and one a reflection, the reflection and their product are involutions; if both are reflections, use those two. Thus at least two of the three traces vanish.",
+      "reason": "Over F7 take A=diag(2,4) and B with rows (0,6),(1,0). Their projective orders are 3 and 2, they generate a dihedral image, and their traces are (6,0,0). This missing case repairs the argument without changing the criterion.",
+      "known": "New independent-review finding; no separate correction located.",
+      "affects": "the proof",
+      "searched": [
+        "Published author-hosted PDF, official Annals article page, author site and title/author correction search, 2026-10-19."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Over F7 take A=diag(2,4) and B with rows (0,6),(1,0). Their projective orders are 3 and 2, they generate a dihedral image, and their traces are (6,0,0). This missing case repairs the argument without changing the criterion.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
+    },
+    {
+      "id": "NonabelianLevelStructures/E29",
+      "source": "CHEN2024",
+      "kind": "error",
+      "locator": "Published Lemma 5.3.1, p. 405, parenthetical before the orbit conclusion",
+      "printed": "The condition (tr B,tr AB)≠(0,0) is said to exclude dihedral type.",
+      "correction": "Only the simultaneous vanishing of the last two coordinates is excluded. Full non-dihedral type additionally excludes the other two-zero patterns. The stated orbit calculation still works under its displayed weaker hypothesis.",
+      "reason": "Swap the matrices of E28: the absolutely irreducible dihedral pair has trace triple (0,6,0) over F7 and commutator trace 6≠2, while the last two coordinates are not both zero. NL.6 already imposes the stronger non-dihedral hypothesis where needed.",
+      "known": "New independent-review finding; no separate correction located.",
+      "affects": "nothing",
+      "searched": [
+        "Published author-hosted PDF, official Annals article page, author site and title/author correction search, 2026-10-19."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Swap the matrices of E28: the absolutely irreducible dihedral pair has trace triple (0,6,0) over F7 and commutator trace 6≠2, while the last two coordinates are not both zero. NL.6 already imposes the stronger non-dihedral hypothesis where needed.",
+        "by": "REV-DESIGN-NonabelianLevelStructures"
+      }
     }
   ],
   "sourceVersions": [
@@ -5320,6 +5581,19 @@
       "citation": "Annals of Mathematics 199 (2024), no. 1, 301–443; published author-hosted PDF, DOI 10.4007/annals.2024.199.1.5",
       "read": "2026-10-18",
       "sha256": "9386db34c31671966440f18bccfefe11bd806aa221010e0e3336fecf8ff920ac"
+    },
+    {
+      "kind": "historical-arxiv-v2",
+      "url": "https://arxiv.org/pdf/2011.12940v2",
+      "citation": "arXiv:2011.12940v2, historical collation only",
+      "read": "2026-10-19",
+      "sha256": "f60283b0b406554c064e3135b18d4446617aed05eb74f7b8d7b66a2f453980cc",
+      "locators": [
+        "Theorem 1.1.2, p. 5",
+        "Theorem 2.5.2(7), p. 26",
+        "Proof of Theorem 5.5.7(a), p. 82"
+      ],
+      "use": "Only E14, E15 and E17 are collated here; published numbering controls every roadmap target."
     }
   ],
   "extractionCoverage": [
@@ -5830,7 +6104,15 @@
       "RepresentationTheory/SemisimpleAlgebras Layer 5 exact Skolem–Noether hypotheses."
     ],
     "currentLibraryCommit": "a91d3aa",
-    "nonDuplication": "The current new roadmaps AlgebraicVectorBundles, DifferentialGeometry, IntegralLattices, LocalGaloisGroups, OperatorTheory, OrthogonalSpinGroups, PeripheralActions, ProfiniteArithmetic and RealAlgebraicGeometry were checked before allocating targets. General admissibility, curve carriers, stacks/rigidification, integral invariants, Dickson classification, Markoff surfaces/moves and Faltings are not replanned."
+    "nonDuplication": "The current new roadmaps AlgebraicVectorBundles, DifferentialGeometry, IntegralLattices, LocalGaloisGroups, OperatorTheory, OrthogonalSpinGroups, PeripheralActions, ProfiniteArithmetic and RealAlgebraicGeometry were checked before allocating targets. General admissibility, curve carriers, stacks/rigidification, integral invariants, Dickson classification, Markoff surfaces/moves and Faltings are not replanned.",
+    "independentReview": {
+      "by": "REV-DESIGN-NonabelianLevelStructures",
+      "date": "2026-10-19",
+      "reviewedAuditResult": "The reviewed data/library-coverage.json (generated 2026-09-21) has no NonabelianLevelStructures layer entry. Read the exact statements of all 22 baseline declarations at the pins; no citation removed or replaced. The shared Tau Ceti source files equal the f790474 git blobs; Mathlib HEAD is 082e2d3.",
+      "currentRoadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "currentLibraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "supplierChecks": "Read all 33 exact external node statements and the five requested-stage scopes. Read current PeripheralActions and ProfiniteArithmetic scope/contracts and Suggested declarations, ModularCurves 9D quotient smoothness/coarse interfaces, StableReduction interfaces and SemisimpleAlgebras Layer 5. Searched Suggested files recursively in all nine newer roadmap directories and current Tau Ceti for the specific targets. C.0/moduli-monodromy is a partial supplier and is now imported; no exact replacement for the four recorded gaps was found."
+    }
   },
   "restructure": [
     {
@@ -5851,5 +6133,338 @@
       "roadmap": "tauceti:TauCetiRoadmap/PeripheralActions",
       "detail": "Its punctured-sphere pro-p peripheral generators do not supply the discrete punctured-torus Nielsen and stack mapping-class comparison G-MAPPING. No proposed changes to that upstream roadmap are made."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-NonabelianLevelStructures",
+    "date": "2026-10-19",
+    "notes": "Independently checked all 65 targets and published source locators, all 22 pinned declarations, supplier statements/requests, APIs, discriminating tests, planets and compact Lean signatures. Corrected the reducedness converse, cusp torsor scope, character-exponent test, geometric hypotheses, quotient-modulus wording, source labels and two proof transitions; imported the existing partial mapping-class supplier. Confirmed 24 inherited source findings and added E25–E29. All eight stages remain planned, none closed; four gaps and fourteen requests remain explicit. Lean elaborates with only the 19 expected admitted-proof warnings. The review report records exact finite checks and source/version boundaries.",
+    "checked": [
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/elliptic-admissible-covers",
+        "verdict": "verified",
+        "note": "Checked genus-one restriction, balanced finite node charts and the full unramified marking against §§2.1,2.4 and IG.5."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/reduced-ramification",
+        "verdict": "corrected",
+        "note": "Restricted the reducedness converse to a surjective ramification divisor, added the empty-divisor counterexample and its API; corrected Remark 2.2.4 locator (E25)."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/ramification-monodromy",
+        "verdict": "corrected",
+        "note": "Made the universal centralizer proof use the constant faithful inertia character, avoiding an unjustified connected-atlas argument and the source proof's unnecessary properness assertion (E27)."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/higman-invariant",
+        "verdict": "verified",
+        "note": "Checked faithful cotangent character, compatible roots and the positive [b,a] peripheral convention."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/higman-components",
+        "verdict": "verified",
+        "note": "Checked the root-dependent conjugacy invariant and the open/closed decomposition, without identifying a stratum with one component."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/g-structures",
+        "verdict": "verified",
+        "note": "Checked sheafification versus actual torsors, geometric stalks and the centerless descent comparison."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/level-moduli",
+        "verdict": "verified",
+        "note": "Checked finite étaleness and the exact coarse base-change range; quotient smoothness is the existing ModularCurves 9D contract."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/monodromy-dictionary",
+        "verdict": "corrected",
+        "note": "Imported the existing C.0 analytic moduli-monodromy node; kept only the additional punctured-torus/stack comparison as an open supplier contract."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/deformation-and-density",
+        "verdict": "verified",
+        "note": "Checked the balanced smoothing exponent, formal comparison requests and smooth dense locus; missing equivariant theory stays in Q-DEFORMATION."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/compactified-level-stack",
+        "verdict": "verified",
+        "note": "Checked center rigidification, retained cusp inertia, compactified coarse smoothness and generic-degree conventions."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/quotient-functor",
+        "verdict": "verified",
+        "note": "Checked quotient torsors and naturality; surjectivity uses exactly the Gaschütz extension request."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/absolute-structures",
+        "verdict": "verified",
+        "note": "Checked outer-automorphism quotient, Higman-orbit condition and normalized coarse compactification."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.0/cofinality",
+        "verdict": "verified",
+        "note": "Checked published Theorem 2.5.2(7), including the nonempty open target and Galois strengthening; the unprovided Asada/BBCL proof remains G-MAPPING."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/cusp-gluing-data",
+        "verdict": "corrected",
+        "note": "Specified the free transitive torsor restriction and added an API projection and a faithful-but-nonfree quotient counterexample."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/normalization-gluing",
+        "verdict": "verified",
+        "note": "Checked the conductor/pushout equivalence and balanced connected restriction; no finite-flat assertion is used."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/precuspidal-datum",
+        "verdict": "verified",
+        "note": "Checked commuting left Π/right G actions and the left-coset ambiguity; NC.0 supplies the tangential fibre comparison."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/cusp-component-graph",
+        "verdict": "verified",
+        "note": "Checked half-edge incidence, reversal, loops/multiple edges and the generation criterion against §4.5 and StableReduction."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/balanced-cuspidal-data",
+        "verdict": "verified",
+        "note": "Checked the inverse/conjugation balance equation and the equivalent generating pair conditions."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/delta-classes",
+        "verdict": "verified",
+        "note": "Checked simultaneous conjugation and the commuting left twist h↦u^k h; three quotient tests discriminate conventions."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/standard-cusp",
+        "verdict": "verified",
+        "note": "Checked the explicit torsor action, fibre gluing and normalization subgroup, including disconnected normalization."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/delta-classification",
+        "verdict": "verified",
+        "note": "Checked independence of base point and coset representative, the classifying bijection and retained stack automorphisms."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.1/cusp-inversion",
+        "verdict": "verified",
+        "note": "Checked the symmetric-path hypothesis, inversion of both generators and the distinction between a lift and a splitting."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.2/cusp-automorphism-data",
+        "verdict": "verified",
+        "note": "Checked centralizer membership, commutator convention and the positive twist period on existing group carriers."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.2/automorphism-exact-sequence",
+        "verdict": "verified",
+        "note": "Checked that the commutator restriction is a homomorphism, kernel Z(G), image and period/cardinality formula."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.2/cusp-stabilizers",
+        "verdict": "verified",
+        "note": "Checked vertical/full/marked stabilizers, the possible nonsplit extension and the representability criterion."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.2/abelian-level-comparison",
+        "verdict": "verified",
+        "note": "Checked A=Z(G), n≥3, Weil-pairing components and reuse of R13.2 full levels."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.2/dihedral-obstruction",
+        "verdict": "verified",
+        "note": "Checked d′=1, m′=k, degree-three components and the rotation/reflection period. Added source issue E26 for the printed d′=2."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.3/section-cotangent",
+        "verdict": "verified",
+        "note": "Checked conormal ideals rather than differentials, the power e, smooth source section and arbitrary-base-change dualizing request."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.3/hodge-degree",
+        "verdict": "verified",
+        "note": "Checked deg λ=1/24 and the generic-stabilizer correction n_X/n_Y; Q-DEGREE does not close SF.5's foundational gap."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.3/degree-obstructions",
+        "verdict": "corrected",
+        "note": "Replaced the repeated trivial-character test with an lcm-versus-product test."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.3/local-character-bounds",
+        "verdict": "verified",
+        "note": "Checked the exponent-12 target automorphism bound, centralizer quotient and faithful tame local character hypotheses."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.3/main-degree-congruence",
+        "verdict": "verified",
+        "note": "Checked 12e | m_X d_X D by rational stack pullback, then gcd cancellation and positive coarse degree."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.3/combinatorial-obstructions",
+        "verdict": "corrected",
+        "note": "Removed irrelevant geometric and e≥2 hypotheses so the trivial-group and empty-family tests lie in scope."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.3/combinatorial-congruence",
+        "verdict": "corrected",
+        "note": "Allowed c=1, as already required by its proof, and corrected Remark 4.10.6 locator."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.4/j-zero-group-bound",
+        "verdict": "verified",
+        "note": "Checked the j=0 direct-product argument and valuation bounds; no unproved general-j extension is used."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.4/j-zero-degree-bound",
+        "verdict": "verified",
+        "note": "Checked rounding/cancellation for every prime ℓ and explicit j=0 scope."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.4/simple-group-congruence",
+        "verdict": "verified",
+        "note": "Checked the deduction from the explicitly assumed cube bound; G-VDOVIN is an unresolved classification input, not a proved theorem here."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/trace-invariant",
+        "verdict": "verified",
+        "note": "Checked the root-dependent Higman generator, SL2 trace class and base-change/naturality tests."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/admissible-traces",
+        "verdict": "verified",
+        "note": "Checked the small-field generating trace exceptions, including both 1 and 3 for q=5; independently enumerated q=2,3,5,7."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/noncentral-trace-order",
+        "verdict": "verified",
+        "note": "Checked the odd/even unipotent orders and split/nonsplit eigenvalue orders, excluding central matrices."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/rank-two-character-variety",
+        "verdict": "verified",
+        "note": "Checked the scheme-coaction invariant meaning, integral base change and precise good-filtration request to LP3."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/fricke-trace-polynomial",
+        "verdict": "corrected",
+        "note": "Corrected the published theorem type or locator: Proposition 5.2.4 → Lemma 5.2.4."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/outer-trace-action",
+        "verdict": "corrected",
+        "note": "Corrected the published theorem type or locator: Proposition 5.2.5 and Remark 5.2.7, pp. 396–397 → Proposition 5.2.5, pp. 396–397; factorization by inner and central inversion invariance."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/matrix-algebra-criterion",
+        "verdict": "verified",
+        "note": "Checked the determinant/unit criterion over a ring and absolute irreducibility only after passing to a field."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/finite-field-trace-bijection",
+        "verdict": "verified",
+        "note": "Checked unrestricted trace surjectivity, GL2 orbit uniqueness and the field-only Skolem–Noether supplier. Independent small-field enumeration passed."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/diagonal-outer-action",
+        "verdict": "verified",
+        "note": "Checked N/(GC), its order gcd(2,q−1) for full SL2, and the distinction from arbitrary field automorphisms."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/sl2-normalizer-descent",
+        "verdict": "verified",
+        "note": "Checked Frobenius scalar descent for every n and use of the existing finite-dimensional central-simple Skolem–Noether contract."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.5/finite-subgroup-refinements",
+        "verdict": "verified",
+        "note": "Checked S4, actual subfield embeddings and the outer quotient; the exceptional central-extension refinements are explicit Q-DICKSON requests."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/trace-level-subsets",
+        "verdict": "verified",
+        "note": "Checked starred versus full-generating loci, the non-dihedral condition and prime-field trace −2 identification; q=2 is separated."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/trace-moduli-dictionary",
+        "verdict": "verified",
+        "note": "Checked the representation-image decomposition, outer quotients, anti-action and explicit coarse branch transforms."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/rotation-conics",
+        "verdict": "verified",
+        "note": "Checked the imported Markoff carrier and matrix rows (0,1),(-1,a); arbitrary coefficient-ring base change tests are meaningful."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/rotation-order",
+        "verdict": "verified",
+        "note": "Checked all split, nonsplit and unipotent cases, excluding the fixed eigenspace by t≠2. Independent F4 exact periods agree."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/sl2-vertical-stabilizers",
+        "verdict": "verified",
+        "note": "Checked rotation period plus cusp exact sequence, the ambient center and q≥3 restriction."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/sl2-character-exponents",
+        "verdict": "verified",
+        "note": "Checked the vertical bound 2 for odd q and 1 for even q, and full bounds 24 and 12."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/sl2-centralizer-bounds",
+        "verdict": "verified",
+        "note": "Checked unipotent/split/nonsplit centralizers and the precise divisor n; characteristic two uses polynomial splitting."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/sl2-degree-congruence",
+        "verdict": "verified",
+        "note": "Checked the unquotiented component moduli, parabolic p-divisibility and the even-characteristic vertical factor."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/trace-orbit-congruence",
+        "verdict": "corrected",
+        "note": "Stated divisibility by the corrected quotient modulus directly; removed the contradictory initial assertion of divisibility by the stronger component modulus."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.6/conic-fibre-geometry",
+        "verdict": "verified",
+        "note": "Checked full and starred degenerate slices; a nonsplit zero norm fibre is a singleton, not empty."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.7/geometric-markoff-components",
+        "verdict": "corrected",
+        "note": "Made the transitivity input explicitly use the Vieta/permutation group, without silently adjoining sign generators to the orientation argument."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.7/markoff-branch-data",
+        "verdict": "verified",
+        "note": "Checked the corrected (D+2)/3 count, mod-8 fixed-point count and Φ cusp formula against exact enumeration."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.7/markoff-genus",
+        "verdict": "verified",
+        "note": "Checked all four residue formulas, g(5,7,11)=(0,0,1), exact evaluation at 337 primes below 2304 and the stated elementary tail bound."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.7/bounded-field-finiteness",
+        "verdict": "corrected",
+        "note": "Corrected the published theorem type or locator: Corollary 5.6.4 → Theorem 5.6.4."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.7/projective-absolute-quotient",
+        "verdict": "verified",
+        "note": "Checked free even-sign quotient, degree D/4≥7 and compatibility of projective exterior classes."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.7/alternating-monodromy",
+        "verdict": "corrected",
+        "note": "Supplied the index-two normal-image argument needed to retain the large alternating subgroup after restricting orientation."
+      },
+      {
+        "nodeId": "NonabelianLevelStructures:NL.7/noncongruence-components",
+        "verdict": "verified",
+        "note": "Checked the finite-reduction composition-factor request and the elementary order obstruction to A_d≅PSL2(F_ℓ), d≥7."
+      }
+    ]
+  }
 }
