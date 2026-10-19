@@ -80,7 +80,7 @@
         "§5.5, pp. 833–834",
         "§6.1–6.2, pp. 836, 839",
         "§7.2, pp. 851–855",
-        "Appendix A.3.2, pp. 887–888"
+        "Appendix A.3.2, pp. 886–888"
       ],
       "accessed": "2026-10-19",
       "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5"
@@ -111,7 +111,7 @@
         "§2.1.7–2.1.22, pp. 7–9",
         "§2.2.9 and §2.3.12, pp. 14, 17",
         "§2.6–2.7, pp. 21–24",
-        "§2.9.8–2.9.9, pp. 28–29",
+        "§2.9.1–2.9.9, pp. 27–29",
         "§4.3.1, pp. 46–47",
         "§5.6, p. 58"
       ],
@@ -150,8 +150,8 @@
       "url": "https://arxiv.org/abs/1810.12056",
       "readSections": [
         "§1.1–1.1.2, pp. 6–10",
-        "Propositions 3.14 and 3.16, pp. 35–36",
-        "Proposition 4.1, p. 37",
+        "Propositions 3.14 and 3.16, pp. 36–38",
+        "Proposition 4.1, p. 38",
         "§5, Lemmas 5.1–5.5 and Theorem 5.7, pp. 54–55"
       ],
       "accessed": "2026-10-19",
@@ -201,7 +201,7 @@
       "edition": "arXiv:1605.05065v1, 17 May 2016; Proposition 1.14 is numbered 1.5.8 in the version cited by BCGP21",
       "url": "https://arxiv.org/abs/1605.05065v1",
       "readSections": [
-        "§1, Proposition 1.14 and Remark 1.15, manuscript pp. 11–12"
+        "Definition 1.9, Theorem 1.12 and Proposition 1.14, manuscript pp. 9–12"
       ],
       "accessed": "2026-10-19",
       "sha256": "0ce608bb46acab36a1de3f4985a6e8f243bb9a3e56996c1d02d0ae20cc866d73"
@@ -225,6 +225,29 @@
       "url": "https://www.kwlan.org/articles/van-tor-aut-gen-err.pdf",
       "readSections": [
         "Items (1)–(9), pp. 1–2"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "H90",
+      "title": "Automorphic forms and the cohomology of vector bundles on Shimura varieties",
+      "authors": "M. Harris",
+      "edition": "Automorphic Forms, Shimura Varieties, and L-functions II, Perspectives in Mathematics 11 (1990), pp. 41–91; public scan hosted by J. S. Milne; printed pagination",
+      "url": "https://www.jmilne.org/math/Books/AA1988b.pdf",
+      "readSections": [
+        "Proposition 2.2 and §§2.3–2.7, pp. 53–59; §§3.0–3.6, pp. 59–64"
+      ],
+      "accessed": "2026-10-19",
+      "sha256": "ead5b841dbafb65c1796f8dc7d4f331271947b63b3ef2923efa1cdadf5bff62d"
+    },
+    {
+      "id": "GK19",
+      "title": "Strata Hasse invariants, Hecke algebras and Galois representations",
+      "authors": "W. Goldring and J.-S. Koskivirta",
+      "edition": "Invent. Math. 217 (2019), 887–984; published open-access PDF; printed pagination",
+      "url": "https://link.springer.com/article/10.1007/s00222-019-00882-5",
+      "readSections": [
+        "Theorem 10.1.2, Remark 10.1.3 and Corollary 10.1.4, pp. 962–963"
       ],
       "accessed": "2026-10-19"
     }
@@ -279,6 +302,16 @@
           "name": "integral-graded-frame-torsor.generic_comparison",
           "role": "compatibility",
           "statement": "After inverting p, the associated bundles agree with B1–B3 through the Hodge filtration."
+        },
+        {
+          "name": "integral-graded-frame-torsor.action_laws",
+          "role": "functoriality",
+          "statement": "The frame action preserves ψ₂=c(ψ₁ᵗ)⁻¹ and obeys identity and multiplication laws."
+        },
+        {
+          "name": "integral-graded-frame-torsor.base_change",
+          "role": "compatibility",
+          "statement": "Pulling back the model and polarization pulls back this torsor with its action and frame trivializations."
         }
       ],
       "tests": [
@@ -361,6 +394,16 @@
           "name": "integral-automorphic-coefficients.sub_to_can",
           "role": "constructor",
           "statement": "The boundary ideal inclusion gives ω^κ_sub→ω^κ_can, functorially in the coefficient."
+        },
+        {
+          "name": "integral-automorphic-coefficients.coefficient_map",
+          "role": "functoriality",
+          "statement": "An M-equivariant integral module map induces a bundle map; identities and composites are preserved."
+        },
+        {
+          "name": "integral-automorphic-coefficients.tensor_transport",
+          "role": "compatibility",
+          "statement": "Use B0’s tensor/dual comparisons with the integral representation maps and boundary twists; do not identify a dual-Weyl dual with the same weight in positive characteristic."
         }
       ],
       "tests": [
@@ -478,6 +521,16 @@
           "name": "coherent-cohomology-complexes.boundary_arrow",
           "role": "functoriality",
           "statement": "Coefficient morphisms commute with C_sub→C_can."
+        },
+        {
+          "name": "coherent-cohomology-complexes.coefficient_functor",
+          "role": "functoriality",
+          "statement": "RΓ sends identity and composite coefficient maps to identity and composites, additively and O-linearly."
+        },
+        {
+          "name": "coherent-cohomology-complexes.triangle",
+          "role": "compatibility",
+          "statement": "The boundary ideal sequence gives the full derived triangle and long exact cohomology sequence, naturally for coefficient maps."
         }
       ],
       "tests": [
@@ -559,6 +612,16 @@
           "name": "coherent-homology.finite_coefficients",
           "role": "equivalence",
           "statement": "A_n≃Hom_O(A_n,E/O) through a↦(b↦ab/ϖ^n mod O), with the chosen uniformizer."
+        },
+        {
+          "name": "coherent-homology.coefficient_functor",
+          "role": "functoriality",
+          "statement": "A map F→G induces H_i(F)→H_i(G) by dualizing the contravariant dual-coefficient map; identity and composition are preserved."
+        },
+        {
+          "name": "coherent-homology.pairing_equivariance",
+          "role": "compatibility",
+          "statement": "Evaluation satisfies ⟨δλ,δx⟩=⟨λ,x⟩ and is O-balanced; finite étale pullback and trace are adjoint under it."
         }
       ],
       "tests": [
@@ -575,7 +638,7 @@
         {
           "name": "coherent-homology.check_3",
           "kind": "non-example",
-          "statement": "For ramified O/Z_p, an unchosen identification with Hom_Zp(−,Q_p/Z_p) does not give the stated O-linear evaluation pairing."
+          "statement": "For p odd, O=Z_p[ϖ] with ϖ²=p has different (2ϖ). The trace character identifies the Z_p-dual lattice with (2ϖ)⁻¹O, whereas the definition evaluates in E/O. A claimed canonical identification using O itself and no inverse different fails this ramified example."
         }
       ],
       "uses": [
@@ -677,13 +740,23 @@
           "name": "equivariant-cech.refinement",
           "role": "functoriality",
           "statement": "Cover refinement induces the canonical derived isomorphism compatible with Δ and coefficient reduction."
+        },
+        {
+          "name": "equivariant-cech.coefficient_maps",
+          "role": "functoriality",
+          "statement": "A coefficient map induces the termwise Δ-equivariant cochain map, preserving identity and composition."
+        },
+        {
+          "name": "equivariant-cech.coefficient_reduction",
+          "role": "compatibility",
+          "statement": "Derived A_n→A_m reduction, m≤n, agrees with the corresponding geometric derived coefficient comparison and commutes with cover refinement."
         }
       ],
       "tests": [
         {
           "name": "equivariant-cech.check_1",
           "kind": "computation",
-          "statement": "For a trivial Δ-torsor over an affine X, the degree-zero term is Γ(X,F)⊗O O[Δ]."
+          "statement": "For a trivial Δ-torsor over an affine X with the single-open cover, the degree-zero term is (Γ(X,F)⊗_O A_n)⊗_(A_n) A_n[Δ], with the regular deck action; no integral O[Δ] coefficient remains."
         },
         {
           "name": "equivariant-cech.check_2",
@@ -829,6 +902,16 @@
           "name": "equivariant-perfect-model.model_change",
           "role": "equivalence",
           "statement": "Two finite projective models carry a homotopy equivalence inducing the same derived identification."
+        },
+        {
+          "name": "equivariant-perfect-model.transport_morphism",
+          "role": "functoriality",
+          "statement": "Transport geometric morphisms through the chosen derived identifications, independent up to homotopy of projective representatives."
+        },
+        {
+          "name": "equivariant-perfect-model.coefficient_descent",
+          "role": "compatibility",
+          "statement": "The model comparisons commute with derived deck coinvariants and coefficient reduction as proved by coefficient-descent."
         }
       ],
       "tests": [
@@ -946,6 +1029,16 @@
           "name": "coherent-correspondence.coefficient_map",
           "role": "functoriality",
           "statement": "Precomposition in F and postcomposition in G act functorially on correspondences."
+        },
+        {
+          "name": "coherent-correspondence.ext",
+          "role": "extensionality",
+          "statement": "On fixed legs two correspondences agree exactly when their coefficient arrows Lp₂*F→p₁!G agree."
+        },
+        {
+          "name": "coherent-correspondence.linear",
+          "role": "structure",
+          "statement": "For fixed legs the coefficient arrows form an O-module; coefficient pre/postcomposition is O-linear."
         }
       ],
       "tests": [
@@ -1027,6 +1120,16 @@
           "name": "correspondence-action.degree_zero",
           "role": "compatibility",
           "statement": "For the B5 finite-flat correspondence and its trace, H⁰(T) is B5/hecke-section-operator."
+        },
+        {
+          "name": "correspondence-action.linear",
+          "role": "compatibility",
+          "statement": "The global-action map for fixed legs preserves zero, addition and O-scaling of coefficient arrows."
+        },
+        {
+          "name": "correspondence-action.composition",
+          "role": "functoriality",
+          "statement": "With the properness and base-change assumptions of correspondence-composition, convolution acts by composition of the two derived global maps."
         }
       ],
       "tests": [
@@ -1099,7 +1202,7 @@
       ],
       "title": "Correspondences from a fundamental class",
       "kind": "construction",
-      "statement": "For equidimensional projectively embeddable maps p₁,p₂:C⇒X of the same relative dimension over S, a coefficient morphism Lp₂*F→Lp₁*G and the coherent fundamental class Lp₁*G→p₁!G define T. In the finite-flat case this is the finite duality trace. Boundary twists require the reduced-relative-Cartier and inverse-image boundary hypotheses of A0/fundamental-class-boundary, or its explicitly stated determinant variant.",
+      "statement": "Let C and X be S-schemes of the same pure relative dimension, p₁,p₂:C⇒X, with p₁ projectively embeddable and satisfying the SF.2 fundamental-class hypotheses. Fix the resulting degree-zero class O_C→p₁!O_X. For perfect G (in particular finite locally free G) and a coefficient arrow Lp₂*F→Lp₁*G, tensoring this class with G and using the projection formula defines Lp₂*F→p₁!G. Equal dimensions alone do not supply the class. For finite locally free p₁ its adjoint is the algebra trace. Boundary twists use the reduced-relative-Cartier and inverse-image boundary hypotheses of A0/fundamental-class-boundary; its determinant route additionally retains the normal/smooth dense-open and relative normal-crossings hypotheses of P20 Lemma 4.2.4.1(1).",
       "hypotheses": [
         "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
       ],
@@ -1114,13 +1217,13 @@
         "Check the boundary ideal map using the exact Cartier hypotheses, before applying RΓ."
       ],
       "acceptance": [
-        "No fundamental class is invoked for an arbitrary non-embeddable map."
+        "Check the existence hypotheses for the degree-zero fundamental class and the perfect-coefficient projection formula separately; the relative dimensions here belong to C/S and X/S."
       ],
       "sources": [
         {
           "sourceId": "P20",
           "locator": "§4.3.1, p. 19; BCGP21 Definitions 3.9.1–3.9.2, p. 226",
-          "match": "For equidimensional projectively embeddable maps p₁,p₂:C⇒X of the same relative dimension over S, a coefficient morphism Lp₂*F→Lp₁*G and the coherent fundamental class Lp₁*G→p₁!G define T. In the finite-flat case this is the finite duality trace. Boundary twists require the reduced-relative-Cartier and inverse-image boundary hypotheses of A0/fundamental-class-boundary, or its explicitly stated determinant variant."
+          "match": "Let C and X be S-schemes of the same pure relative dimension, p₁,p₂:C⇒X, with p₁ projectively embeddable and satisfying the SF.2 fundamental-class hypotheses. Fix the resulting degree-zero class O_C→p₁!O_X. For perfect G (in particular finite locally free G) and a coefficient arrow Lp₂*F→Lp₁*G, tensoring this class with G and using the projection formula defines Lp₂*F→p₁!G. Equal dimensions alone do not supply the class. For finite locally free p₁ its adjoint is the algebra trace. Boundary twists use the reduced-relative-Cartier and inverse-image boundary hypotheses of A0/fundamental-class-boundary; its determinant route additionally retains the normal/smooth dense-open and relative normal-crossings hypotheses of P20 Lemma 4.2.4.1(1)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1139,6 +1242,16 @@
           "name": "fundamental-class-correspondence.boundary",
           "role": "compatibility",
           "statement": "Under the A0 boundary hypotheses the same construction sends subcanonical coefficients to subcanonical coefficients."
+        },
+        {
+          "name": "fundamental-class-correspondence.coefficient_naturality",
+          "role": "functoriality",
+          "statement": "Perfect coefficient maps commute with tensoring the fixed fundamental class; zero and sums of input coefficient arrows are preserved."
+        },
+        {
+          "name": "fundamental-class-correspondence.base_change",
+          "role": "compatibility",
+          "statement": "The boundary class commutes with open base change, and in the finite-flat case with base changes retaining the Cartier conditions, exactly as in A0."
         }
       ],
       "tests": [
@@ -1220,6 +1333,16 @@
           "name": "correspondence-tensor.flat_comparison",
           "role": "equivalence",
           "statement": "For A[Δ]-flat F the derived coinvariant coefficient equals its ordinary quotient."
+        },
+        {
+          "name": "correspondence-tensor.associativity",
+          "role": "functoriality",
+          "statement": "Iterated derived scalar extension agrees with extension along the composite coefficient map, with the same T action."
+        },
+        {
+          "name": "correspondence-tensor.augmentation",
+          "role": "compatibility",
+          "statement": "The A[Δ]→A augmentation comparison is compatible with coefficient reduction and subgroup descent, using derived coinvariants throughout."
         }
       ],
       "tests": [
@@ -1331,6 +1454,16 @@
           "name": "correspondence-twist.tensor_cocycle",
           "role": "functoriality",
           "statement": "Successive twists agree with the tensor product transport."
+        },
+        {
+          "name": "correspondence-twist.coefficient_naturality",
+          "role": "functoriality",
+          "statement": "A map between coefficient transports commuting with the two legs intertwines the twisted correspondences."
+        },
+        {
+          "name": "correspondence-twist.composition",
+          "role": "compatibility",
+          "statement": "A transport satisfying the cocycle law for composed correspondences makes twisting commute with convolution."
         }
       ],
       "tests": [
@@ -1424,7 +1557,7 @@
       "sources": [
         {
           "sourceId": "BP26",
-          "locator": "Proposition 2.7.3, pp. 23–24; CG20 Appendix A.3.2, pp. 887–888",
+          "locator": "Proposition 2.7.3, pp. 23–24; CG20 Appendix A.3.2, pp. 886–888",
           "match": "For smooth X,C over S and finite locally free legs p₁,p₂, coherent duality transposes T:p₂*F→p₁!G into Tᵗ:p₁*D_XG→p₂!D_XF, where D_X=RHom(−,f!O_S), for dualizable coefficients in the stated bounded categories. With X proper, its RΓ action is adjoint to RΓ(T). Swapping the legs also swaps and dualizes the coefficient; a Hecke double coset need not be self-adjoint."
         }
       ],
@@ -1446,13 +1579,12 @@
         "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
       ],
       "prerequisites": [
-        "AutomorphicBundlesPartII:coherent-correspondence",
-        "SchemeAndStackFoundations:SF.2/supports-localization-triangle"
+        "AutomorphicBundlesPartII:coherent-correspondence"
       ],
       "proofSteps": [
         "Read inverse images as subsets, independently of scheme multiplicities.",
         "Pass to the complementary inclusion p₂⁻¹U⊆p₁⁻¹U.",
-        "Use support functors and their natural transformations to obtain the filtered diagram, conditional on the enhancement input recorded as a gap."
+        "Separate this set-theoretic definition from the completion/compact-support filtered construction, whose solid enhancement is G-solid."
       ],
       "acceptance": [
         "Set-theoretic contraction must not be strengthened to scheme-theoretic ideal containment."
@@ -1480,6 +1612,16 @@
           "name": "contracted-filtration.nilpotent_invariance",
           "role": "compatibility",
           "statement": "Changing the closed subscheme structure without changing its support preserves contraction."
+        },
+        {
+          "name": "contracted-filtration.restriction",
+          "role": "compatibility",
+          "statement": "Intersecting each Z_l with a correspondence-stable open preserves contraction."
+        },
+        {
+          "name": "contracted-filtration.transpose",
+          "role": "relation",
+          "statement": "Transposing the legs exchanges contracted and expanded filtrations, including the empty and total closed sets."
         }
       ],
       "tests": [
@@ -1514,44 +1656,6 @@
       }
     },
     {
-      "id": "AutomorphicBundlesPartII:filtered-correspondence-action",
-      "parentStageId": "AutomorphicBundlesPartII:IC.3",
-      "realises": [
-        "AutomorphicBundlesPartII:IC.3"
-      ],
-      "title": "Equivariance of localization triangles and Cousin sequences",
-      "kind": "theorem",
-      "statement": "For a contracted finite filtration, proper p₁ and a bounded-above coefficient F admitting the six operations, T induces a morphism of the entire support filtration of RΓ(X,F). Therefore it acts on the localization triangles and on every page of the Cousin spectral sequence, commuting with differentials and abutment. The open term in the localization triangle is extension by zero j!, rather than j*, in the support convention used here.",
-      "hypotheses": [
-        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
-      ],
-      "prerequisites": [
-        "AutomorphicBundlesPartII:contracted-filtration",
-        "AutomorphicBundlesPartII:correspondence-action",
-        "SchemeAndStackFoundations:SF.2/supports-localization-triangle",
-        "SchemeAndStackFoundations:SF.2/kempf-cousin-resolution"
-      ],
-      "proofSteps": [
-        "Use contraction to compare inverse-image support and complementary opens on C.",
-        "Construct a single natural transformation of filtered support objects using unit, T and trace.",
-        "Apply the spectral-sequence functor to this filtered morphism; rectify the printed open-term labels before comparing triangles."
-      ],
-      "acceptance": [
-        "Commutation with all spectral-sequence differentials follows from the filtered map, rather than independent maps on associated graded groups."
-      ],
-      "sources": [
-        {
-          "sourceId": "BP26",
-          "locator": "Proposition 2.9.9 and proof, pp. 28–29",
-          "match": "For a contracted finite filtration, proper p₁ and a bounded-above coefficient F admitting the six operations, T induces a morphism of the entire support filtration of RΓ(X,F). Therefore it acts on the localization triangles and on every page of the Cousin spectral sequence, commuting with differentials and abutment. The open term in the localization triangle is extension by zero j!, rather than j*, in the support convention used here."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Equivariant Cousin spectral sequence"
-      }
-    },
-    {
       "id": "AutomorphicBundlesPartII:formal-completion-comparison",
       "parentStageId": "AutomorphicBundlesPartII:IC.3",
       "realises": [
@@ -1559,7 +1663,7 @@
       ],
       "title": "Derived formal completion of coherent coefficients",
       "kind": "theorem",
-      "statement": "For a pseudo-coherent complex F on the relevant Noetherian p-adic model, its completed pullback and pushforward agrees with Rlim_n(F⊗^L_O O/p^n). Under proper formal-functions hypotheses the same comparison holds after RΓ and respects correspondences whose integral coefficient morphisms and traces extend. Underived completion and unrestricted exchange of RΓ with inverse limit are not asserted.",
+      "statement": "For a qcqs Noetherian model X, a coherent ideal I defining Z, and a pseudo-coherent solid coefficient F in the BP26 setting, the completion locale î:Ẑ→X satisfies î_*î*F≃Rlim_n(F⊗^L_(O_X)O_X/Iⁿ), and RΓ(X,î_*î*F)≃Rlim_n RΓ(X,F⊗^L O_X/Iⁿ). The I=(p) case is the p-adic specialization. The comparison with ordinary discrete coherent formal functions is a separate SF.4/P7 input under properness and coherent boundedness assumptions. Integral correspondence maps and traces extending to the completion must commute with these comparison maps; the solid/discrete identification remains G-solid.",
       "hypotheses": [
         "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
       ],
@@ -1570,9 +1674,9 @@
         "SchemeAndStackFoundations:SF.4"
       ],
       "proofSteps": [
-        "Use the imported derived p-completion theorem for pseudo-coherent coefficients.",
-        "Apply proper formal functions and derived inverse limit, retaining derived reductions.",
-        "Compare integral morphisms and trace before passing to the limit."
+        "Apply BP26 Lemma 2.9.3 to the closed locale and its solid completed algebra; use pseudo-coherence in commuting tensor with the inverse limit.",
+        "For the discrete proper model import formal functions and derived p-completion from SF.4/P7, rather than identifying the two coefficient categories without G-solid.",
+        "Compare the extended integral coefficient morphism, projection formula and trace before taking the inverse limit."
       ],
       "acceptance": [
         "A coefficient with p-torsion must be reduced derivedly; the solid/discrete comparison remains a named gap."
@@ -1580,11 +1684,48 @@
       "sources": [
         {
           "sourceId": "BP26",
-          "locator": "§2.3, discrete/formal comparison preceding §2.3.12, pp. 16–17",
-          "match": "For a pseudo-coherent complex F on the relevant Noetherian p-adic model, its completed pullback and pushforward agrees with Rlim_n(F⊗^L_O O/p^n). Under proper formal-functions hypotheses the same comparison holds after RΓ and respects correspondences whose integral coefficient morphisms and traces extend. Underived completion and unrestricted exchange of RΓ with inverse limit are not asserted."
+          "locator": "Lemma 2.9.3 and proof, pp. 27–28 (solid completion); SF.4/P7 supply the separate discrete formal-functions comparison",
+          "match": "For a qcqs Noetherian model X, a coherent ideal I defining Z, and a pseudo-coherent solid coefficient F in the BP26 setting, the completion locale î:Ẑ→X satisfies î_*î*F≃Rlim_n(F⊗^L_(O_X)O_X/Iⁿ), and RΓ(X,î_*î*F)≃Rlim_n RΓ(X,F⊗^L O_X/Iⁿ). The I=(p) case is the p-adic specialization. The comparison with ordinary discrete coherent formal functions is a separate SF.4/P7 input under properness and coherent boundedness assumptions. Integral correspondence maps and traces extending to the completion must commute with these comparison maps; the solid/discrete identification remains G-solid."
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundlesPartII:filtered-correspondence-action",
+      "parentStageId": "AutomorphicBundlesPartII:IC.3",
+      "realises": [
+        "AutomorphicBundlesPartII:IC.3"
+      ],
+      "title": "Equivariance of the completion and compact-support filtration",
+      "kind": "theorem",
+      "statement": "Let X be qcqs over the fixed base, F∈D⁻(O_(X,solid)), and ∅=Z_(−1)⊆Z₀⊆⋯⊆Z_d=X a finite closed filtration contracted by a cohomological correspondence T with proper p₁. Write U_l=X∖Z_l and Ẑ_l for the closed locale with I_l-adically completed algebra. The triangles RΓ_c(U_l,F)→RΓ(X,F)→RΓ(Ẑ_l,F) form a T-equivariant filtered object, with graded terms RΓ_c(Ẑ_l∖Ẑ_(l−1),F). Thus E₁^(s,t)=H_c^(s+t)(Ẑ_s∖Ẑ_(s−1),F)⇒H^(s+t)(X,F) is T-equivariant on every page. Its j! term belongs to the completion triangle j!j*F→F→î_*î*F. Ordinary local cohomology instead uses î_*î!F→F→Rj_*j*F; identifying these two filtrations is not asserted.",
+      "hypotheses": [
+        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
+      ],
+      "prerequisites": [
+        "AutomorphicBundlesPartII:contracted-filtration",
+        "AutomorphicBundlesPartII:correspondence-action",
+        "AutomorphicBundlesPartII:formal-completion-comparison"
+      ],
+      "proofSteps": [
+        "Use the complementary inclusion of inverse-image opens to construct the j! transformation through unit, T and the shriek counit.",
+        "Use the solid completion localization triangles to assemble one filtered transformation; retain G-solid for the stable enhancement and its coherences.",
+        "Apply the filtered-complex spectral-sequence construction of BP26 Theorem 2.9.7; this is the completion/compact-support spectral sequence, rather than the ordinary Kempf resolution."
+      ],
+      "acceptance": [
+        "A single filtered map must induce all differentials and the abutment; do not replace the ordinary local-cohomology triangle by a j! triangle."
+      ],
+      "sources": [
+        {
+          "sourceId": "BP26",
+          "locator": "§2.9.1, Lemmas 2.9.3 and 2.9.6, Theorem 2.9.7 and Proposition 2.9.9, pp. 27–29",
+          "match": "Let X be qcqs over the fixed base, F∈D⁻(O_(X,solid)), and ∅=Z_(−1)⊆Z₀⊆⋯⊆Z_d=X a finite closed filtration contracted by a cohomological correspondence T with proper p₁. Write U_l=X∖Z_l and Ẑ_l for the closed locale with I_l-adically completed algebra. The triangles RΓ_c(U_l,F)→RΓ(X,F)→RΓ(Ẑ_l,F) form a T-equivariant filtered object, with graded terms RΓ_c(Ẑ_l∖Ẑ_(l−1),F). Thus E₁^(s,t)=H_c^(s+t)(Ẑ_s∖Ẑ_(s−1),F)⇒H^(s+t)(X,F) is T-equivariant on every page. Its j! term belongs to the completion triangle j!j*F→F→î_*î*F. Ordinary local cohomology instead uses î_*î!F→F→Rj_*j*F; identifying these two filtrations is not asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Equivariant completion spectral sequence"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII:coherent-hecke-action",
@@ -1637,6 +1778,16 @@
           "name": "coherent-hecke-action.degree_zero",
           "role": "compatibility",
           "statement": "The induced H⁰ action equals the parent B5 pull–trace/convolution action."
+        },
+        {
+          "name": "coherent-hecke-action.coefficient_naturality",
+          "role": "functoriality",
+          "statement": "Maps of Hecke-linearized coefficients intertwine the individual derived operators and the boundary arrow."
+        },
+        {
+          "name": "coherent-hecke-action.relations_boundary",
+          "role": "compatibility",
+          "statement": "The degree-zero comparison does not assert higher integral convolution; use integral-hecke-relations for the hyperspecial integral algebra action."
         }
       ],
       "tests": [
@@ -1709,88 +1860,6 @@
       }
     },
     {
-      "id": "AutomorphicBundlesPartII:localized-perfect-model",
-      "parentStageId": "AutomorphicBundlesPartII:IC.4",
-      "realises": [
-        "AutomorphicBundlesPartII:IC.4"
-      ],
-      "title": "Localized coherent perfect complexes",
-      "kind": "construction",
-      "statement": "Assume a commuting Hecke-algebra action on C_n^∨ has been supplied (for the integral geometric application use integral-hecke-relations, not merely the individual IC.3 operators). Let T_n be its finite A_n-algebra image in End_D(C_n^∨). For a maximal ideal m, its Artinian local-factor idempotent splits C_n^∨ into a perfect summand C_(n,m)^∨ and its complement, with H^i(C_(n,m)^∨)=H^i(C_n^∨)_m. The dual chain summand localizes at the transposed Hecke ideal, with character twists transported explicitly. This is not localization at an arbitrary prime by an idempotent over an arbitrary base.",
-      "hypotheses": [
-        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
-      ],
-      "prerequisites": [
-        "AutomorphicBundlesPartII:chain-lifts",
-        "DeformationAndDerivedPatchingAlgebra:P7/finite-derived-action-localization",
-        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-retract",
-        "IntegralHeckeAndGaloisDeterminants:IHG.2"
-      ],
-      "proofSteps": [
-        "Use finiteness of derived endomorphism groups of a perfect finite-coefficient complex to get finite T_n.",
-        "Apply the imported Artinian idempotent decomposition and perfect retract theorem.",
-        "Identify cohomology and transport the dual action via the transpose pairing."
-      ],
-      "acceptance": [
-        "The localization projector is an endomorphism in the derived category and is represented up to homotopy."
-      ],
-      "sources": [
-        {
-          "sourceId": "CG18",
-          "locator": "§7.2, p. 400",
-          "match": "Assume a commuting Hecke-algebra action on C_n^∨ has been supplied (for the integral geometric application use integral-hecke-relations, not merely the individual IC.3 operators). Let T_n be its finite A_n-algebra image in End_D(C_n^∨). For a maximal ideal m, its Artinian local-factor idempotent splits C_n^∨ into a perfect summand C_(n,m)^∨ and its complement, with H^i(C_(n,m)^∨)=H^i(C_n^∨)_m. The dual chain summand localizes at the transposed Hecke ideal, with character twists transported explicitly. This is not localization at an arbitrary prime by an idempotent over an arbitrary base."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "api": [
-        {
-          "name": "localized-perfect-model.projector",
-          "role": "constructor",
-          "statement": "Produce the local-factor idempotent and its perfect image."
-        },
-        {
-          "name": "localized-perfect-model.localized_cohomology",
-          "role": "equivalence",
-          "statement": "Cohomology of the summand is the ordinary T_n-localized cohomology."
-        },
-        {
-          "name": "localized-perfect-model.dual_ideal",
-          "role": "compatibility",
-          "statement": "The dual summand uses the ideal pulled back by transpose and the specified central twist."
-        }
-      ],
-      "tests": [
-        {
-          "name": "localized-perfect-model.check_1",
-          "kind": "computation",
-          "statement": "For T_n=A_n×A_n acting on C⊕D, the first maximal factor selects C."
-        },
-        {
-          "name": "localized-perfect-model.check_2",
-          "kind": "degenerate",
-          "statement": "An ideal outside the support gives the zero perfect complex."
-        },
-        {
-          "name": "localized-perfect-model.check_3",
-          "kind": "non-example",
-          "statement": "Over Z, localization at (p) is not in general obtained from an idempotent in Z."
-        }
-      ],
-      "uses": [
-        {
-          "where": "CG18 §7.2",
-          "how": "Output handed to patching, whose algebra remains in P7–P9."
-        },
-        {
-          "where": "P20 §15.2.3",
-          "how": "Provides the finite integral Hecke algebra through which complex localization is interpreted."
-        }
-      ],
-      "planet": {
-        "name": "Localized coherent perfect complex"
-      }
-    },
-    {
       "id": "AutomorphicBundlesPartII:normalized-coefficient-action",
       "parentStageId": "AutomorphicBundlesPartII:IC.4",
       "realises": [
@@ -1838,6 +1907,16 @@
           "name": "normalized-coefficient-action.coefficient_dictionary",
           "role": "equivalence",
           "statement": "The normalized W and V realizations agree with their stated central parameters."
+        },
+        {
+          "name": "normalized-coefficient-action.twist_composition",
+          "role": "functoriality",
+          "statement": "Successive multiplier twists add their exponents and transport composite coefficient correspondences compatibly."
+        },
+        {
+          "name": "normalized-coefficient-action.boundary_arrow",
+          "role": "compatibility",
+          "statement": "The ν⁻³ twist uses the same scalar on canonical and subcanonical coefficients, so their comparison arrow remains equivariant."
         }
       ],
       "tests": [
@@ -1919,6 +1998,16 @@
           "name": "integral-normalization.rational_comparison",
           "role": "compatibility",
           "statement": "After inverting ϖ the integral U equals ϖ⁻kT; the p-level operators use only this rational formula."
+        },
+        {
+          "name": "integral-normalization.coefficient_naturality",
+          "role": "functoriality",
+          "statement": "Maps between torsion-free factorizations intertwine their divided maps by uniqueness after multiplication by ϖ^k."
+        },
+        {
+          "name": "integral-normalization.flat_base_change",
+          "role": "compatibility",
+          "statement": "A flat coefficient extension preserving the divisibility factorization carries U to the normalized extended map; arbitrary torsion reduction is not a uniqueness argument."
         }
       ],
       "tests": [
@@ -1982,122 +2071,6 @@
         }
       ],
       "implementationStatus": "unchecked"
-    },
-    {
-      "id": "AutomorphicBundlesPartII:coherent-non-eisenstein-specialization",
-      "parentStageId": "AutomorphicBundlesPartII:IC.4",
-      "realises": [
-        "AutomorphicBundlesPartII:IC.4"
-      ],
-      "title": "Non-Eisenstein coherent localization",
-      "kind": "comparison",
-      "statement": "Use current IHG.3’s Galois-type/non-Eisenstein predicates for the normalized geometric Hecke algebra: after finite residue-field extension the spherical degree-four polynomials agree with a continuous absolutely irreducible residual representation. When the application requires a representation into GSp₄ with specified multiplier, retain its alternating form and multiplier as additional hypotheses. Transport residual systems through the actual coefficient-normalization algebra map and transpose involution; generic residual polynomial transport is imported from IHG.3.",
-      "hypotheses": [
-        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
-      ],
-      "prerequisites": [
-        "AutomorphicBundlesPartII:hecke-polynomial-dictionary",
-        "AutomorphicBundlesPartII:localized-perfect-model",
-        "IntegralHeckeAndGaloisDeterminants:IHG.3",
-        "ArithmeticGaloisRepresentations:R01.1"
-      ],
-      "proofSteps": [
-        "Pull the imported residual polynomial system through the geometric algebra identification.",
-        "Extend the residue field when needed and retain absolute irreducibility and the symplectic multiplier.",
-        "Compare ideals on dual cohomology via the transposed geometric operators and their cyclotomic twist."
-      ],
-      "acceptance": [
-        "An arbitrary GL₄ residual witness does not itself supply a symplectic form or a GSp₄ multiplier."
-      ],
-      "sources": [
-        {
-          "sourceId": "BCGP21",
-          "locator": "§3.10, p. 236; CG20 §7.2, pp. 852–855",
-          "match": "Use current IHG.3’s Galois-type/non-Eisenstein predicates for the normalized geometric Hecke algebra: after finite residue-field extension the spherical degree-four polynomials agree with a continuous absolutely irreducible residual representation. When the application requires a representation into GSp₄ with specified multiplier, retain its alternating form and multiplier as additional hypotheses. Transport residual systems through the actual coefficient-normalization algebra map and transpose involution; generic residual polynomial transport is imported from IHG.3."
-        }
-      ],
-      "implementationStatus": "unchecked"
-    },
-    {
-      "id": "AutomorphicBundlesPartII:complex-hecke-localization",
-      "parentStageId": "AutomorphicBundlesPartII:IC.4",
-      "realises": [
-        "AutomorphicBundlesPartII:IC.4"
-      ],
-      "title": "Congruence localization of complex coherent cohomology",
-      "kind": "definition",
-      "statement": "Fix a finite O-Hecke image T and an embedding of its characteristic-zero coefficient field into C. For a residual maximal ideal m, define M_(m,C) as the sum of the generalized characteristic-zero Hecke eigenspaces whose integral characters reduce to m after passing to a common finite coefficient extension. This is (M_O)_m⊗_O C for a finite integral lattice with that action, through the product decomposition of T⊗E. A maximal ideal of T⊗C alone does not encode residual congruence.",
-      "hypotheses": [
-        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
-      ],
-      "prerequisites": [
-        "AutomorphicBundlesPartII:localized-perfect-model",
-        "AutomorphicBundlesPartII:coherent-non-eisenstein-specialization",
-        "IntegralHeckeAndGaloisDeterminants:IHG.2"
-      ],
-      "proofSteps": [
-        "Use the finite integral algebra and its local factor at m.",
-        "Decompose its generic fibre into generalized character factors, allowing finite field extension.",
-        "Compare with localization of the integral lattice and scalar extension to C."
-      ],
-      "acceptance": [
-        "The residual ideal and chosen embeddings must remain visible in the notation."
-      ],
-      "sources": [
-        {
-          "sourceId": "P20",
-          "locator": "§15.2.3, p. 108",
-          "match": "Fix a finite O-Hecke image T and an embedding of its characteristic-zero coefficient field into C. For a residual maximal ideal m, define M_(m,C) as the sum of the generalized characteristic-zero Hecke eigenspaces whose integral characters reduce to m after passing to a common finite coefficient extension. This is (M_O)_m⊗_O C for a finite integral lattice with that action, through the product decomposition of T⊗E. A maximal ideal of T⊗C alone does not encode residual congruence."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "api": [
-        {
-          "name": "complex-hecke-localization.character_criterion",
-          "role": "characterisation",
-          "statement": "A characteristic-zero eigenspace lies in M_(m,C) exactly when its integral character reduces to m."
-        },
-        {
-          "name": "complex-hecke-localization.lattice_independence",
-          "role": "equivalence",
-          "statement": "Compatible finite stable lattices give the same generic localized summand."
-        },
-        {
-          "name": "complex-hecke-localization.coefficient_extension",
-          "role": "compatibility",
-          "statement": "Finite extension of O and compatible embeddings transport the congruence summand as expected."
-        }
-      ],
-      "tests": [
-        {
-          "name": "complex-hecke-localization.check_1",
-          "kind": "computation",
-          "statement": "Two distinct characteristic-zero eigencharacters congruent modulo ϖ both occur in the same residual summand."
-        },
-        {
-          "name": "complex-hecke-localization.check_2",
-          "kind": "degenerate",
-          "statement": "If no character reduces to m the complex localized space is zero."
-        },
-        {
-          "name": "complex-hecke-localization.check_3",
-          "kind": "non-example",
-          "statement": "Localizing only at one maximal ideal of T⊗C can discard a second congruent characteristic-zero character."
-        }
-      ],
-      "uses": [
-        {
-          "where": "P20 Corollary 15.2.3.1",
-          "how": "Selects all automorphic representations congruent to the residual system."
-        },
-        {
-          "where": "CG20 Theorem 7.11 proof",
-          "how": "Interprets non-Eisenstein localization of complex cohomology."
-        }
-      ],
-      "planet": {
-        "name": "Congruence localization"
-      }
     },
     {
       "id": "AutomorphicBundlesPartII:gaga-and-tower-comparison",
@@ -2187,6 +2160,16 @@
           "name": "formally-canonical-coefficients.coefficient_base_change",
           "role": "functoriality",
           "statement": "The specified finite filtrations and monomial expansions commute with the base changes allowed in Lan17."
+        },
+        {
+          "name": "formally-canonical-coefficients.restriction",
+          "role": "functoriality",
+          "statement": "Restriction to a boundary chart and an allowed fan refinement preserves the completed expansion and its finite filtration."
+        },
+        {
+          "name": "formally-canonical-coefficients.isomorphism_invariant",
+          "role": "characterisation",
+          "statement": "A coefficient isomorphism carrying the chart filtrations and monomial expansions transports the formally canonical property."
         }
       ],
       "tests": [
@@ -2283,7 +2266,7 @@
       "sources": [
         {
           "sourceId": "CG20",
-          "locator": "Proof of Theorem 5.1, pp. 822–824; LanSuh Corollary 7.24(2), manuscript p. 44",
+          "locator": "Proof of Theorem 5.1, pp. 822–824; LanSuh Corollary 7.24(2), manuscript p. 43",
           "match": "For the smooth hyperspecial Siegel threefold over k of characteristic p, specialize Lan–Suh Corollary 7.24(2) to μ=(α,β;c) with α≥β≥0, α+β<p−3 and ν=(t,t;0), t>0. For a Kostant representative w with length ℓ(w), it gives vanishing of H^(i−ℓ(w))(W^∨_(w·μ−ν),sub) when i>3, under the source’s smallness hypotheses; in this specialization these include a−b+1≤p and 2<p. The three resulting weights are (β+2+t,−α+t), (α+3+t,1−β+t) and (α+3+t,β+3+t). The generic integral BGG and logarithmic Deligne–Illusie inputs remain with their suppliers."
         }
       ],
@@ -2386,10 +2369,7 @@
           "match": "On the smooth hyperspecial integral Siegel threefold with residue field k of characteristic p, if b≥4 and 0≤a−b≤p−4, then H^i(X_k,ω(a,b)(−D))=0 for i>0. The lower boundary of each displayed weight range is included. The level is neat and prime to p, and the finite field may be extended without changing the conclusion."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Positive-degree vanishing"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AutomorphicBundlesPartII:siegel-serre-dual-weight",
@@ -2420,7 +2400,7 @@
       "sources": [
         {
           "sourceId": "CG20",
-          "locator": "§5.3, pp. 830–831; Appendix A.3.2, pp. 887–888",
+          "locator": "§5.3, pp. 830–831; Appendix A.3.2, pp. 886–888",
           "match": "For a smooth proper toroidal Siegel threefold in characteristic zero, or in characteristic p with 0≤a−b≤p−1 so the symmetric-power dual identification is valid, the Serre dual of ω(a,b) is ω(3−b,3−a)(−D), and H^i_can(ω(a,b))^∨≃H^(3−i)_sub(ω(3−b,3−a)). The normalized Hecke equivariance includes inverse double cosets and the determinant/cyclotomic twist from CG20 Appendix A.3.2. For larger weights use the actual divided-power dual rather than this symmetric-power formula."
         }
       ],
@@ -2512,7 +2492,6 @@
         "SchemeAndStackFoundations:SF.2/kempf-cousin-resolution",
         "SchemeAndStackFoundations:SF.2/depth-local-cohomology-vanishing",
         "AutomorphicBundlesPartII:relative-subcanonical-vanishing",
-        "AutomorphicBundlesPartII:filtered-correspondence-action",
         "ShimuraCompactifications:C5"
       ],
       "proofSteps": [
@@ -2582,14 +2561,14 @@
       ],
       "prerequisites": [
         "AutomorphicBundlesPartII:eo-cousin-computation",
-        "AutomorphicBundlesPartII:filtered-correspondence-action",
         "SchemeAndStackFoundations:SF.2/finite-formula",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension/fundamental-class-boundary"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/fundamental-class-boundary",
+        "SchemeAndStackFoundations:SF.2/supports-localization-triangle"
       ],
       "proofSteps": [
         "Pull back the EO regular sequences and check the finite-flat or duality hypotheses for both legs.",
         "Construct the maps on local Ext/Koszul representatives, with cofinal powers when generators change.",
-        "Identify them with the stable filtered-support map, proving differential compatibility and the interior comparison."
+        "Use the natural maps of ordinary local-cohomology support sequences and their Ext/Koszul representatives to prove compatibility with incidence differentials and augmentation; compare on the interior. BP26’s completion/compact-support filtration is a separate construction."
       ],
       "acceptance": [
         "A map on Cousin terms alone is insufficient; the incidence/boundary differentials must commute."
@@ -2611,16 +2590,17 @@
       ],
       "title": "Integral prime-to-p Hecke relations at hyperspecial level",
       "kind": "theorem",
-      "statement": "For the BCGP21 Hilbert–Siegel models with K_p=∏_(v|p)GSp₄(Z_p), prime-to-p Hecke operators act through the abstract integral Hecke algebra on RΓ of canonical and subcanonical automorphic coefficients. For the G₁ quotient model, retain the prime-to-p component-group order or prove the direct-factor descent of Proposition 3.8.3. The integral algebra relations are detected termwise on the EO Cousin complex by restriction to the interior. Arbitrary p-level integral relations are outside this statement.",
+      "statement": "For the BCGP21 Hilbert–Siegel models with p split completely in F and K_p=∏_(v|p)GSp₄(O_(F_v)), prime-to-p Hecke operators act through the abstract integral Hecke algebra on RΓ of canonical and subcanonical automorphic coefficients. For the G₁ quotient model, retain the prime-to-p component-group order or prove the direct-factor descent of Proposition 3.8.3. The integral algebra relations are detected termwise on the EO Cousin complex by restriction to the interior. Arbitrary p-level integral relations are outside this statement.",
       "hypotheses": [
-        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
+        "In the totally real case write K_p=∏_(v|p)GSp₄(O_(F_v)); this is ∏GSp₄(Z_p) under the maintained assumption that p splits completely in F. The geometric, coefficient and quotient hypotheses in the statement are retained."
       ],
       "prerequisites": [
         "AutomorphicBundlesPartII:cousin-hecke-map",
         "AutomorphicBundlesPartII:boundary-interior-injection",
         "AutomorphicBundlesPartII:coherent-hecke-action",
-        "AutomorphicBundlesPartII:formal-completion-comparison",
-        "SmoothRepresentationsOfLocalGroups:SR.1"
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SchemeAndStackFoundations:SF.4",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-derived-completion-comparison"
       ],
       "proofSteps": [
         "On the open Shimura variety use finite étale correspondences and the known convolution relations.",
@@ -2634,13 +2614,229 @@
         {
           "sourceId": "BCGP21",
           "locator": "Proposition 3.9.15 and Remark 3.9.16, pp. 231–232",
-          "match": "For the BCGP21 Hilbert–Siegel models with K_p=∏_(v|p)GSp₄(Z_p), prime-to-p Hecke operators act through the abstract integral Hecke algebra on RΓ of canonical and subcanonical automorphic coefficients. For the G₁ quotient model, retain the prime-to-p component-group order or prove the direct-factor descent of Proposition 3.8.3. The integral algebra relations are detected termwise on the EO Cousin complex by restriction to the interior. Arbitrary p-level integral relations are outside this statement."
+          "match": "For the BCGP21 Hilbert–Siegel models with p split completely in F and K_p=∏_(v|p)GSp₄(O_(F_v)), prime-to-p Hecke operators act through the abstract integral Hecke algebra on RΓ of canonical and subcanonical automorphic coefficients. For the G₁ quotient model, retain the prime-to-p component-group order or prove the direct-factor descent of Proposition 3.8.3. The integral algebra relations are detected termwise on the EO Cousin complex by restriction to the interior. Arbitrary p-level integral relations are outside this statement."
         }
       ],
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Integral coherent Hecke action"
       }
+    },
+    {
+      "id": "AutomorphicBundlesPartII:localized-perfect-model",
+      "parentStageId": "AutomorphicBundlesPartII:IC.5",
+      "realises": [
+        "AutomorphicBundlesPartII:IC.5"
+      ],
+      "title": "Localized coherent perfect complexes",
+      "kind": "construction",
+      "statement": "Assume a commuting Hecke-algebra action on C_n^∨ has been supplied (for the integral geometric application use integral-hecke-relations, not merely the individual IC.3 operators). Let T_n be its finite A_n-algebra image in End_D(C_n^∨). For a maximal ideal m, its Artinian local-factor idempotent splits C_n^∨ into a perfect summand C_(n,m)^∨ and its complement, with H^i(C_(n,m)^∨)=H^i(C_n^∨)_m. The dual chain summand localizes at the transposed Hecke ideal, with character twists transported explicitly. This is not localization at an arbitrary prime by an idempotent over an arbitrary base.",
+      "hypotheses": [
+        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
+      ],
+      "prerequisites": [
+        "AutomorphicBundlesPartII:chain-lifts",
+        "DeformationAndDerivedPatchingAlgebra:P7/finite-derived-action-localization",
+        "DeformationAndDerivedPatchingAlgebra:P7/p7ii-perfect-retract",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "AutomorphicBundlesPartII:integral-hecke-relations"
+      ],
+      "proofSteps": [
+        "Use finiteness of derived endomorphism groups of a perfect finite-coefficient complex to get finite T_n.",
+        "Apply the imported Artinian idempotent decomposition and perfect retract theorem.",
+        "Identify cohomology and transport the dual action via the transpose pairing."
+      ],
+      "acceptance": [
+        "The localization projector is an endomorphism in the derived category and is represented up to homotopy."
+      ],
+      "sources": [
+        {
+          "sourceId": "CG18",
+          "locator": "§7.2, p. 400",
+          "match": "Assume a commuting Hecke-algebra action on C_n^∨ has been supplied (for the integral geometric application use integral-hecke-relations, not merely the individual IC.3 operators). Let T_n be its finite A_n-algebra image in End_D(C_n^∨). For a maximal ideal m, its Artinian local-factor idempotent splits C_n^∨ into a perfect summand C_(n,m)^∨ and its complement, with H^i(C_(n,m)^∨)=H^i(C_n^∨)_m. The dual chain summand localizes at the transposed Hecke ideal, with character twists transported explicitly. This is not localization at an arbitrary prime by an idempotent over an arbitrary base."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "localized-perfect-model.projector",
+          "role": "constructor",
+          "statement": "Produce the local-factor idempotent and its perfect image."
+        },
+        {
+          "name": "localized-perfect-model.localized_cohomology",
+          "role": "equivalence",
+          "statement": "Cohomology of the summand is the ordinary T_n-localized cohomology."
+        },
+        {
+          "name": "localized-perfect-model.dual_ideal",
+          "role": "compatibility",
+          "statement": "The dual summand uses the ideal pulled back by transpose and the specified central twist."
+        },
+        {
+          "name": "localized-perfect-model.orthogonal_factors",
+          "role": "structure",
+          "statement": "Local-factor projectors sum to identity and are mutually orthogonal; the resulting perfect decomposition is functorial for maps commuting with T_n."
+        },
+        {
+          "name": "localized-perfect-model.model_independence",
+          "role": "compatibility",
+          "statement": "A Hecke-equivariant derived equivalence of perfect models identifies their local factors and the coefficient-descent comparisons whenever the idempotents correspond."
+        }
+      ],
+      "tests": [
+        {
+          "name": "localized-perfect-model.check_1",
+          "kind": "computation",
+          "statement": "For T_n=A_n×A_n acting on C⊕D, the first maximal factor selects C."
+        },
+        {
+          "name": "localized-perfect-model.check_2",
+          "kind": "degenerate",
+          "statement": "An ideal outside the support gives the zero perfect complex."
+        },
+        {
+          "name": "localized-perfect-model.check_3",
+          "kind": "non-example",
+          "statement": "Over Z, localization at (p) is not in general obtained from an idempotent in Z."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CG18 §7.2",
+          "how": "Output handed to patching, whose algebra remains in P7–P9."
+        },
+        {
+          "where": "P20 §15.2.3",
+          "how": "Provides the finite integral Hecke algebra through which complex localization is interpreted."
+        }
+      ],
+      "planet": {
+        "name": "Localized coherent perfect complex"
+      }
+    },
+    {
+      "id": "AutomorphicBundlesPartII:coherent-non-eisenstein-specialization",
+      "parentStageId": "AutomorphicBundlesPartII:IC.5",
+      "realises": [
+        "AutomorphicBundlesPartII:IC.5"
+      ],
+      "title": "Non-Eisenstein coherent localization",
+      "kind": "comparison",
+      "statement": "Use current IHG.3’s Galois-type/non-Eisenstein predicates for the normalized geometric Hecke algebra: after finite residue-field extension the spherical degree-four polynomials agree with a continuous absolutely irreducible residual representation. When the application requires a representation into GSp₄ with specified multiplier, retain its alternating form and multiplier as additional hypotheses. Transport residual systems through the actual coefficient-normalization algebra map and transpose involution; generic residual polynomial transport is imported from IHG.3.",
+      "hypotheses": [
+        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
+      ],
+      "prerequisites": [
+        "AutomorphicBundlesPartII:hecke-polynomial-dictionary",
+        "AutomorphicBundlesPartII:localized-perfect-model",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ],
+      "proofSteps": [
+        "Pull the imported residual polynomial system through the geometric algebra identification.",
+        "Extend the residue field when needed and retain absolute irreducibility and the symplectic multiplier.",
+        "Compare ideals on dual cohomology via the transposed geometric operators and their cyclotomic twist."
+      ],
+      "acceptance": [
+        "An arbitrary GL₄ residual witness does not itself supply a symplectic form or a GSp₄ multiplier."
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP21",
+          "locator": "§3.10, p. 236; CG20 §7.2, pp. 852–855",
+          "match": "Use current IHG.3’s Galois-type/non-Eisenstein predicates for the normalized geometric Hecke algebra: after finite residue-field extension the spherical degree-four polynomials agree with a continuous absolutely irreducible residual representation. When the application requires a representation into GSp₄ with specified multiplier, retain its alternating form and multiplier as additional hypotheses. Transport residual systems through the actual coefficient-normalization algebra map and transpose involution; generic residual polynomial transport is imported from IHG.3."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundlesPartII:complex-hecke-localization",
+      "parentStageId": "AutomorphicBundlesPartII:IC.5",
+      "realises": [
+        "AutomorphicBundlesPartII:IC.5"
+      ],
+      "title": "Congruence localization of complex coherent cohomology",
+      "kind": "definition",
+      "statement": "Fix a finite O-Hecke image T and an embedding of its characteristic-zero coefficient field into C. For a residual maximal ideal m, define M_(m,C) as the sum of the generalized characteristic-zero Hecke eigenspaces whose integral characters reduce to m after passing to a common finite coefficient extension. This is (M_O)_m⊗_O C for a finite integral lattice with that action, through the product decomposition of T⊗E. A maximal ideal of T⊗C alone does not encode residual congruence.",
+      "hypotheses": [
+        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
+      ],
+      "prerequisites": [
+        "AutomorphicBundlesPartII:localized-perfect-model",
+        "AutomorphicBundlesPartII:coherent-non-eisenstein-specialization",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2"
+      ],
+      "proofSteps": [
+        "Use the finite integral algebra and its local factor at m.",
+        "Decompose its generic fibre into generalized character factors, allowing finite field extension.",
+        "Compare with localization of the integral lattice and scalar extension to C."
+      ],
+      "acceptance": [
+        "The residual ideal and chosen embeddings must remain visible in the notation."
+      ],
+      "sources": [
+        {
+          "sourceId": "P20",
+          "locator": "§15.2.3, p. 108",
+          "match": "Fix a finite O-Hecke image T and an embedding of its characteristic-zero coefficient field into C. For a residual maximal ideal m, define M_(m,C) as the sum of the generalized characteristic-zero Hecke eigenspaces whose integral characters reduce to m after passing to a common finite coefficient extension. This is (M_O)_m⊗_O C for a finite integral lattice with that action, through the product decomposition of T⊗E. A maximal ideal of T⊗C alone does not encode residual congruence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "complex-hecke-localization.character_criterion",
+          "role": "characterisation",
+          "statement": "A characteristic-zero eigenspace lies in M_(m,C) exactly when its integral character reduces to m."
+        },
+        {
+          "name": "complex-hecke-localization.lattice_independence",
+          "role": "equivalence",
+          "statement": "Compatible finite stable lattices give the same generic localized summand."
+        },
+        {
+          "name": "complex-hecke-localization.coefficient_extension",
+          "role": "compatibility",
+          "statement": "Finite extension of O and compatible embeddings transport the congruence summand as expected."
+        },
+        {
+          "name": "complex-hecke-localization.functorial",
+          "role": "functoriality",
+          "statement": "A map commuting with the fixed finite integral Hecke image preserves each residual congruence summand and respects identity and composition."
+        },
+        {
+          "name": "complex-hecke-localization.direct_sum",
+          "role": "structure",
+          "statement": "The residual local-factor projectors are orthogonal and sum to identity; retain generalized generic eigenspaces without assuming semisimplicity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "complex-hecke-localization.check_1",
+          "kind": "computation",
+          "statement": "Take T=O[t]/(t(t−ϖ)), with generic characters t↦0 and t↦ϖ acting on E⊕E. Both reduce to m=(ϖ,t); hence M_(m,C)=C⊕C, although T⊗C has two distinct maximal ideals."
+        },
+        {
+          "name": "complex-hecke-localization.check_2",
+          "kind": "degenerate",
+          "statement": "If no character reduces to m the complex localized space is zero."
+        },
+        {
+          "name": "complex-hecke-localization.check_3",
+          "kind": "non-example",
+          "statement": "Localizing only at one maximal ideal of T⊗C can discard a second congruent characteristic-zero character."
+        }
+      ],
+      "uses": [
+        {
+          "where": "P20 Corollary 15.2.3.1",
+          "how": "Selects all automorphic representations congruent to the residual system."
+        },
+        {
+          "where": "CG20 Theorem 7.11 proof",
+          "how": "Interprets non-Eisenstein localization of complex cohomology."
+        }
+      ]
     },
     {
       "id": "AutomorphicBundlesPartII:interior-cohomology",
@@ -2690,6 +2886,16 @@
           "name": "interior-cohomology.hecke_stability",
           "role": "compatibility",
           "statement": "Commuting coefficient Hecke squares induce endomorphisms of H̄^i."
+        },
+        {
+          "name": "interior-cohomology.linear_structure",
+          "role": "structure",
+          "statement": "The image is an O-submodule (or complex subspace), with its canonical inclusion; it is the range rather than the source modulo an unspecified kernel."
+        },
+        {
+          "name": "interior-cohomology.coefficient_functor",
+          "role": "functoriality",
+          "statement": "A commuting canonical/subcanonical square induces a unique image map; these maps preserve identity, composition, addition and scalars."
         }
       ],
       "tests": [
@@ -2752,7 +2958,7 @@
       "sources": [
         {
           "sourceId": "Su24",
-          "locator": "Propositions 3.14 and 3.16, pp. 35–36; conventions §1.1, pp. 6–10",
+          "locator": "Propositions 3.14 and 3.16, pp. 36–38; conventions §1.1, pp. 6–10",
           "match": "Let (G,X) be a connected Shimura datum satisfying Su’s condition that the maximal Q-split central torus A_G is also maximal R-split in Z_G, K neat, Σ a smooth toroidal fan and V a finite-dimensional holomorphic P_h-representation. The logarithmic differentiably-moderate-growth Dolbeault complex is a fine resolution of V_can on the toroidal compactification; its global sections identify with the relative (p_o,K_o) Chevalley–Eilenberg complex of C∞_dmg(G)^K⊗V. The central A_G factor and the finite-adelic action on V_o are retained."
         }
       ],
@@ -2788,7 +2994,7 @@
       "sources": [
         {
           "sourceId": "Su24",
-          "locator": "Proposition 4.1, p. 37; Theorem 5.7 and proof, pp. 54–55",
+          "locator": "Proposition 4.1, p. 38; Theorem 5.7 and proof, pp. 54–55",
           "match": "Under the preceding Su hypotheses, H^i(X_(K,Σ),V_can)≃H^i(p_o,K_o;A(G)^(A_G(R)^0K)⊗V), naturally in V and finite-level Hecke operators. At the tower level the isomorphism is G(A_f)-equivariant with the modified coefficient V_o on which the central A_G component acts inversely. The map is induced by inclusion of automorphic forms into uniformly moderate growth functions. This theorem does not identify all canonical cohomology with cusp cohomology."
         }
       ],
@@ -2816,9 +3022,9 @@
         "AutomorphicFormsOnReductiveGroups:AF.1a/relative-lie-cochain-complex"
       ],
       "proofSteps": [
-        "Construct the rapidly decreasing cusp Dolbeault map into subcanonical cohomology and its compatible L² canonical map.",
-        "Apply the injectivity and image comparison stated by Harris as used in the checked sources.",
-        "Compare end degrees by holomorphic forms and Serre duality; leave the uninspected Harris primary proof as a precise verification gap."
+        "Construct the rapid-decay and slow-growth Dolbeault comparisons using H90 Theorems 2.4.1 and 2.4.4, pp. 56–57.",
+        "Use H90 Theorem 2.7, p. 58, and the harmonic/relative-cohomology identification (3.0.1), p. 59, for the injection and L²-image containment.",
+        "Apply Proposition 2.7.2, p. 59, in end degrees; retain the precise full-group and product conventions as G-Harris."
       ],
       "acceptance": [
         "Do not turn the L²-image containment into equality with the entire canonical space, and do not discard residual multiplicity."
@@ -2828,6 +3034,11 @@
           "sourceId": "CG20",
           "locator": "Theorem 5.2, p. 825; BCGP21 proof of Theorem 3.10.1, pp. 239–240",
           "match": "In the characteristic-zero toroidal Siegel setting, relative (p^−,K_h)-cohomology of cuspidal automorphic forms maps injectively into interior coherent cohomology, and interior cohomology lies in the image of the L² automorphic comparison in canonical cohomology. The cusp map is an isomorphism in degrees 0 and 3 for the Siegel threefold. The totally real product version gives cusp→interior→L²-image inclusions, with central character and multiplicities retained. The full comparison diagram uses a separate cusp/subcanonical map; Su’s theorem alone does not supply it."
+        },
+        {
+          "sourceId": "H90",
+          "locator": "Theorems 2.4.4 and 2.7, pp. 57–58; Proposition 2.7.2 and (3.0.1), p. 59",
+          "match": "Growth comparison, cusp injection, interior containment in the harmonic L² image, and end-degree equality."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2883,6 +3094,16 @@
           "name": "automorphic-image-subspaces.hecke",
           "role": "functoriality",
           "statement": "Each image is stable under the compatible finite Hecke action."
+        },
+        {
+          "name": "automorphic-image-subspaces.linear_image",
+          "role": "structure",
+          "statement": "Use the linear range of the named relative-cohomology comparison map with its kernel quotient; finite sums and scalars stay in the image."
+        },
+        {
+          "name": "automorphic-image-subspaces.level_maps",
+          "role": "functoriality",
+          "statement": "Compatible level changes preserve each cusp, L² and tempered image and commute with inclusion into canonical cohomology."
         }
       ],
       "tests": [
@@ -2961,6 +3182,16 @@
           "name": "coherent-isotypic-contribution.nonzero",
           "role": "characterisation",
           "statement": "Contribution is equivalent to nonzero image, not merely occurrence in the spectral decomposition."
+        },
+        {
+          "name": "coherent-isotypic-contribution.comparison_kernel",
+          "role": "characterisation",
+          "statement": "Its image is the source summand divided by the actual comparison kernel; the dimension equals the source dimension only if that restriction is injective."
+        },
+        {
+          "name": "coherent-isotypic-contribution.level_functor",
+          "role": "functoriality",
+          "statement": "Finite-level maps and Hecke operators preserve the contribution and its multiplicity space through the same spectral comparison."
         }
       ],
       "tests": [
@@ -3041,7 +3272,8 @@
         "AutomorphicBundlesPartII:harris-cusp-interior-comparison",
         "AutomorphicBundlesPartII:coherent-isotypic-contribution",
         "AutomorphicBundlesPartII:W-V-comparison",
-        "AutomorphicSpectralTheory:AS.4"
+        "AutomorphicSpectralTheory:AS.4",
+        "AutomorphicFormsOnReductiveGroups:AF.4/bhr-large-weight"
       ],
       "proofSteps": [
         "Identify holomorphic cusp functions with subcanonical sections by the degree-zero cusp comparison.",
@@ -3144,6 +3376,16 @@
           "name": "siegel-chambers.wall_overlap",
           "role": "relation",
           "statement": "The intersection of C₀ and C₁ contains precisely x≥0,y=0 on that common wall."
+        },
+        {
+          "name": "siegel-chambers.inequality_congruence",
+          "role": "extensionality",
+          "statement": "Replacing coordinates by equal integers preserves chamber membership; each predicate is the conjunction of its two displayed inequalities."
+        },
+        {
+          "name": "siegel-chambers.wall_specialization",
+          "role": "compatibility",
+          "statement": "For a≥2, the shifted weights of ω(a,2) and ω(a,3−a) lie on the respective C₀/C₁ and C₁/C₂ common walls; retain both memberships."
         }
       ],
       "tests": [
@@ -3257,7 +3499,7 @@
       ],
       "title": "Tempered coherent chamber vanishing",
       "kind": "theorem",
-      "statement": "The tempered L²-image part of H^i_can(X_C,ω(a,b)) is zero unless (a−1,b−2;c) lies in C_i with the central coordinate ignored by the chamber inequalities. A tempered archimedean contributor is the discrete-series or limit representation π((a−1,b−2;−w),C_i). This constrains the tempered image, and does not assert the vanishing of arbitrary canonical coherent cohomology.",
+      "statement": "The tempered L²-image part of H^i_can(X_C,ω(a,b)) is zero unless (a−1,b−2;c) lies in C_i with the central coordinate ignored by the chamber inequalities. A tempered archimedean contributor is the discrete-series or limit representation π((a−1,b−2;−w),C_i). This constrains the tempered image, and does not assert the vanishing of arbitrary canonical coherent cohomology. This degree restriction uses the fixed Siegel Hodge pair and its specified extension across components, as in AF.4/bhr-large-weight; it is conditional on that full-group transport and is not deduced from the general other-degree vanishing assertion in H90 Theorem 3.4.",
       "hypotheses": [
         "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
       ],
@@ -3266,7 +3508,8 @@
         "AutomorphicBundlesPartII:infinitesimal-character",
         "AutomorphicBundlesPartII:automorphic-image-subspaces",
         "AutomorphicFormsOnReductiveGroups:AF.4/bhr-coherent-cohomology",
-        "AutomorphicFormsOnReductiveGroups:AF.4/harris-limits-gsp2g"
+        "AutomorphicFormsOnReductiveGroups:AF.4/harris-limits-gsp2g",
+        "AutomorphicFormsOnReductiveGroups:AF.4/bhr-large-weight"
       ],
       "proofSteps": [
         "Use the discrete L² decomposition and the imported local tempered coherent-cohomology calculation.",
@@ -3274,13 +3517,19 @@
         "Apply the comparison map to obtain image vanishing; carry compact components as required by AF.4."
       ],
       "acceptance": [
-        "At a singular wall more than one degree can occur; tempered image is not replaced by the full coherent group."
+        "At a singular wall more than one degree can occur; tempered image is not replaced by the full coherent group.",
+        "Keep the Hodge-pair/full-group hypothesis: the published general other-degree vanishing claim is not an unconditional substitute."
       ],
       "sources": [
         {
           "sourceId": "CG20",
           "locator": "Theorem 5.5 and Theorem 5.6(3), pp. 828–829",
-          "match": "The tempered L²-image part of H^i_can(X_C,ω(a,b)) is zero unless (a−1,b−2;c) lies in C_i with the central coordinate ignored by the chamber inequalities. A tempered archimedean contributor is the discrete-series or limit representation π((a−1,b−2;−w),C_i). This constrains the tempered image, and does not assert the vanishing of arbitrary canonical coherent cohomology."
+          "match": "The tempered L²-image part of H^i_can(X_C,ω(a,b)) is zero unless (a−1,b−2;c) lies in C_i with the central coordinate ignored by the chamber inequalities. A tempered archimedean contributor is the discrete-series or limit representation π((a−1,b−2;−w),C_i). This constrains the tempered image, and does not assert the vanishing of arbitrary canonical coherent cohomology. This degree restriction uses the fixed Siegel Hodge pair and its specified extension across components, as in AF.4/bhr-large-weight; it is conditional on that full-group transport and is not deduced from the general other-degree vanishing assertion in H90 Theorem 3.4."
+        },
+        {
+          "sourceId": "GK19",
+          "locator": "Remark 10.1.3, p. 962",
+          "match": "The general Harris other-degree vanishing assertion needs correction; use the specified Siegel Hodge-pair result instead."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3329,17 +3578,18 @@
       ],
       "title": "Large singular-weight interior decomposition",
       "kind": "theorem",
-      "statement": "For the Siegel threefold, choose R from Harris’s large-weight theorem and let k≥R−1 with parameter λ₁=−k−1<0, c=k+4. The interior H⁰ and H¹ for Ω^(k,2) decompose into holomorphic and generic archimedean-limit contributions, respectively, with their actual cuspidal multiplicities. The local one-dimensionality in these two degrees is imported from AF.4; the large-weight bound is −λ₁≥R. The full compact-group convention must be verified before asserting vanishing in every other degree.",
+      "statement": "For the Siegel threefold, choose R from the AF.4/bhr-large-weight singular classification and let k≥R−1 with parameter λ₁=−k−1<0, c=k+4. The interior H⁰ and H¹ for Ω^(k,2) decompose into holomorphic and generic archimedean-limit contributions, respectively, with their actual cuspidal multiplicities. The local one-dimensionality in these two degrees is imported from AF.4; the large-weight bound is −λ₁≥R. The full compact-group convention must be verified before asserting vanishing in every other degree.",
       "hypotheses": [
         "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
       ],
       "prerequisites": [
         "AutomorphicBundlesPartII:harris-cusp-interior-comparison",
         "AutomorphicBundlesPartII:coherent-kunneth",
-        "AutomorphicFormsOnReductiveGroups:AF.4/bhr-coherent-cohomology"
+        "AutomorphicFormsOnReductiveGroups:AF.4/bhr-coherent-cohomology",
+        "AutomorphicFormsOnReductiveGroups:AF.4/bhr-large-weight"
       ],
       "proofSteps": [
-        "Apply the large negative λ₁ coherent realization with the corrected sign of the bound.",
+        "Use the AF.4 singular large-weight contract as reported in P20 Theorem 15.2.2.1; retain −λ₁≥R. H90’s regular all-root criterion is not this result.",
         "Use Harris’s interior comparison and the local holomorphic/generic one-dimensional groups.",
         "Keep the spectral multiplicity and compact component actions; only assert the two checked degrees."
       ],
@@ -3350,7 +3600,7 @@
         {
           "sourceId": "P20",
           "locator": "§15.2.2.1–15.2.3.1, p. 108",
-          "match": "For the Siegel threefold, choose R from Harris’s large-weight theorem and let k≥R−1 with parameter λ₁=−k−1<0, c=k+4. The interior H⁰ and H¹ for Ω^(k,2) decompose into holomorphic and generic archimedean-limit contributions, respectively, with their actual cuspidal multiplicities. The local one-dimensionality in these two degrees is imported from AF.4; the large-weight bound is −λ₁≥R. The full compact-group convention must be verified before asserting vanishing in every other degree."
+          "match": "For the Siegel threefold, choose R from the AF.4/bhr-large-weight singular classification and let k≥R−1 with parameter λ₁=−k−1<0, c=k+4. The interior H⁰ and H¹ for Ω^(k,2) decompose into holomorphic and generic archimedean-limit contributions, respectively, with their actual cuspidal multiplicities. The local one-dimensionality in these two degrees is imported from AF.4; the large-weight bound is −λ₁≥R. The full compact-group convention must be verified before asserting vanishing in every other degree."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3509,44 +3759,6 @@
       "implementationStatus": "unchecked"
     },
     {
-      "id": "AutomorphicBundlesPartII:hilbert-boundary-degree-zero",
-      "parentStageId": "AutomorphicBundlesPartII:IC.8",
-      "realises": [
-        "AutomorphicBundlesPartII:IC.8"
-      ],
-      "title": "Degree-zero Hilbert–Siegel boundary vanishing",
-      "kind": "theorem",
-      "statement": "Let F be totally real, p totally split, K=K^p∏_(v|p)K_v with K^p neat and K_v hyperspecial, paramodular, Siegel parahoric, Klingen parahoric or Iwahori (BCGP21 Definition 3.3.3, pp. 204–205), κ=(k_v,l_v)_v with k_v≥l_v≥2 and k_v≡l_v mod 2, and normalized central diamond |·|². For a non-Eisenstein residual ideal, H⁰(D_C,ω_κ|D)_m=0. Decompose the minimal boundary into zero-dimensional and Hilbert modular pieces. The point contribution vanishes for nonparallel weights; the curve-type contribution vanishes unless the l_v are parallel, then has Hilbert weight (k_v). In the parallel scalar case use π_*O_D=O_∂ via π_*I_D=I_∂ and R¹π_*I_D=0. No positive-degree boundary vanishing is asserted.",
-      "hypotheses": [
-        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
-      ],
-      "prerequisites": [
-        "AutomorphicBundlesPartII:relative-subcanonical-vanishing",
-        "AutomorphicBundlesPartII:coherent-non-eisenstein-specialization",
-        "AutomorphicBundlesPartII:boundary-Satake-reducibility",
-        "ShimuraCompactifications:C5"
-      ],
-      "proofSteps": [
-        "Compute the boundary coefficient pushforward by Fourier–Jacobi expansion, using the exact characteristic-zero weight restriction.",
-        "Handle the scalar parallel case with the projection formula and the boundary ideal exact sequence.",
-        "Use the boundary Satake reducibility statement to eliminate every residual eigensystem at m."
-      ],
-      "acceptance": [
-        "The output is H⁰ boundary vanishing over C; it does not supply integral or all-degree vanishing."
-      ],
-      "sources": [
-        {
-          "sourceId": "BCGP21",
-          "locator": "Lemma 3.10.7 and Remark 3.10.6, pp. 237–239; BR16 Proposition 1.14, pp. 11–12",
-          "match": "Let F be totally real, p totally split, K=K^p∏_(v|p)K_v with K^p neat and K_v hyperspecial, paramodular, Siegel parahoric, Klingen parahoric or Iwahori (BCGP21 Definition 3.3.3, pp. 204–205), κ=(k_v,l_v)_v with k_v≥l_v≥2 and k_v≡l_v mod 2, and normalized central diamond |·|². For a non-Eisenstein residual ideal, H⁰(D_C,ω_κ|D)_m=0. Decompose the minimal boundary into zero-dimensional and Hilbert modular pieces. The point contribution vanishes for nonparallel weights; the curve-type contribution vanishes unless the l_v are parallel, then has Hilbert weight (k_v). In the parallel scalar case use π_*O_D=O_∂ via π_*I_D=I_∂ and R¹π_*I_D=0. No positive-degree boundary vanishing is asserted."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Hilbert–Siegel boundary vanishing"
-      }
-    },
-    {
       "id": "AutomorphicBundlesPartII:boundary-Satake-reducibility",
       "parentStageId": "AutomorphicBundlesPartII:IC.8",
       "realises": [
@@ -3580,6 +3792,44 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicBundlesPartII:hilbert-boundary-degree-zero",
+      "parentStageId": "AutomorphicBundlesPartII:IC.8",
+      "realises": [
+        "AutomorphicBundlesPartII:IC.8"
+      ],
+      "title": "Degree-zero Hilbert–Siegel boundary vanishing",
+      "kind": "theorem",
+      "statement": "Let F be totally real, p totally split, K=K^p∏_(v|p)K_v with K^p neat and K_v hyperspecial, paramodular, Siegel parahoric, Klingen parahoric or Iwahori (BCGP21 Definition 3.3.3, pp. 204–205), κ=(k_v,l_v)_v with k_v≥l_v≥2 and k_v≡l_v mod 2, and normalized central diamond |·|². For a non-Eisenstein residual ideal, H⁰(D_C,ω_κ|D)_m=0. Decompose the minimal boundary into zero-dimensional and Hilbert modular pieces. The point contribution vanishes for nonparallel weights; the curve-type contribution vanishes unless the l_v are parallel, then has Hilbert weight (k_v). In the parallel scalar case use π_*O_D=O_∂ via π_*I_D=I_∂ and R¹π_*I_D=0. No positive-degree boundary vanishing is asserted.",
+      "hypotheses": [
+        "The coefficient, geometric, level and normalization assumptions in the statement are part of the target; the conventions at the beginning of the reader apply."
+      ],
+      "prerequisites": [
+        "AutomorphicBundlesPartII:relative-subcanonical-vanishing",
+        "AutomorphicBundlesPartII:coherent-non-eisenstein-specialization",
+        "AutomorphicBundlesPartII:boundary-Satake-reducibility",
+        "ShimuraCompactifications:C5"
+      ],
+      "proofSteps": [
+        "Compute the boundary coefficient pushforward by Fourier–Jacobi expansion, using the exact characteristic-zero weight restriction.",
+        "Handle the scalar parallel case with the projection formula and the boundary ideal exact sequence.",
+        "Use the boundary Satake reducibility statement to eliminate every residual eigensystem at m."
+      ],
+      "acceptance": [
+        "The output is H⁰ boundary vanishing over C; it does not supply integral or all-degree vanishing."
+      ],
+      "sources": [
+        {
+          "sourceId": "BCGP21",
+          "locator": "Lemma 3.10.7 and Remark 3.10.6, pp. 237–239; BR16 Theorem 1.12 and Proposition 1.14, pp. 10–12",
+          "match": "Let F be totally real, p totally split, K=K^p∏_(v|p)K_v with K^p neat and K_v hyperspecial, paramodular, Siegel parahoric, Klingen parahoric or Iwahori (BCGP21 Definition 3.3.3, pp. 204–205), κ=(k_v,l_v)_v with k_v≥l_v≥2 and k_v≡l_v mod 2, and normalized central diamond |·|². For a non-Eisenstein residual ideal, H⁰(D_C,ω_κ|D)_m=0. Decompose the minimal boundary into zero-dimensional and Hilbert modular pieces. The point contribution vanishes for nonparallel weights; the curve-type contribution vanishes unless the l_v are parallel, then has Hilbert weight (k_v). In the parallel scalar case use π_*O_D=O_∂ via π_*I_D=I_∂ and R¹π_*I_D=0. No positive-degree boundary vanishing is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hilbert–Siegel boundary vanishing"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII:localized-degree-zero-one",
@@ -3834,7 +4084,8 @@
       "supplier": "SchemeAndStackFoundations:SF.4",
       "need": "Proper formal functions and pseudo-coherent derived p-adic completion, with correspondence and trace compatibility. The separate solid comparison is G-solid.",
       "neededBy": [
-        "AutomorphicBundlesPartII:formal-completion-comparison"
+        "AutomorphicBundlesPartII:formal-completion-comparison",
+        "AutomorphicBundlesPartII:integral-hecke-relations"
       ]
     },
     {
@@ -4024,15 +4275,16 @@
     },
     {
       "id": "AutomorphicBundlesPartII/G-Harris",
-      "title": "Harris primary-source comparison and full compact groups",
-      "detail": "The statements of Harris’s comparison and large-weight theorem were checked through CG20 Theorem 5.2, P20 §15.2 and BCGP21 §3.10. The primary Harris 1990 Perspect. Math. 11 chapter, Theorem 2.7/Proposition 2.7.2 and Theorem 3.4, was not available in the cleared library or located on the author publication page. Verify its growth/subcanonical map, the bound R and full compact-group components. AF.4 already records the missing full-group extension of its local BHR calculation; do not identify an identity-component computation with that result.",
+      "title": "Full-group coherent comparison and singular large-weight input",
+      "detail": "H90 Theorem 2.7 and Proposition 2.7.2, pp. 58–59, now verify the cusp/interior comparison directly, with the growth resolution in Theorem 2.4.4, p. 57. H90 Theorem 3.4, p. 63, does not justify arbitrary other-degree vanishing: GK19 Remark 10.1.3, p. 962, records a published correction. Use AF.4’s specified Hodge-pair and component conventions. The singular large-weight classification is the separate AF.4/bhr-large-weight contract, reported by P20 Theorem 15.2.2.1 and BCGP21 Theorem 3.10.1; its original BHR proof remains uninspected. H90 Theorem 3.6.3, p. 64, has a regular all-root bound and cannot replace that singular-wall input. Verify full-group transport before applying concentration or packet counts.",
       "neededBy": [
         "AutomorphicBundlesPartII:harris-cusp-interior-comparison",
         "AutomorphicBundlesPartII:coherent-kunneth",
         "AutomorphicBundlesPartII:large-singular-interior",
         "AutomorphicBundlesPartII:Q-singular-cuspidal-exhaustion",
         "AutomorphicBundlesPartII:conditional-packet-pairing",
-        "AutomorphicBundlesPartII:localized-cuspidal-decomposition"
+        "AutomorphicBundlesPartII:localized-cuspidal-decomposition",
+        "AutomorphicBundlesPartII:tempered-chamber-vanishing"
       ]
     },
     {
@@ -4099,10 +4351,8 @@
         "ShimuraCompactificationsPartII:C14: Use the compactified Klingen/paramodular p-correspondences and Cartier boundary; verify precisely the formal canonical coefficient criterion required for Lan relative vanishing.",
         "SmoothRepresentationsOfLocalGroups:SR.0: Smooth tower action and exact finite-deck invariants in characteristic zero; no integral invariant exactness when p divides the deck order.",
         "SmoothRepresentationsOfLocalGroups:SR.4: Exact normalized Satake restriction of the degree-four spin polynomial to the Klingen boundary Levi, including all q-powers and the character χ in ρ₂⊕ρ₂χ. Compare the corrected four monomials; abstract Satake alone does not fix normalization.",
-        "IntegralHeckeAndGaloisDeterminants:IHG.2: Finite Hecke image in derived endomorphisms, commuting local factors and their coefficient/base-change compatibility; strict chain-level action is not requested.",
         "IntegralHeckeAndGaloisDeterminants:IHG.3: Import current upstream §3a–3b’s GSp₄ spin polynomial, Galois-type/non-Eisenstein predicate and residual twist/dual polynomial transport. Atlas stage prose is older; identify the current upstream targets rather than duplicate them here.",
-        "ModularityAndLanglandsExtensions:ML.0: Registry for ν⁻³, central scalars, geometric Frobenius ε(Frob_v)=q_v⁻¹ and reciprocal spin-polynomial conventions.",
-        "ArithmeticGaloisRepresentations:R01.1: Continuous residual representation and scalar-extension/semisimplification API; retain symplectic form/multiplier when required."
+        "ModularityAndLanglandsExtensions:ML.0: Registry for ν⁻³, central scalars, geometric Frobenius ε(Frob_v)=q_v⁻¹ and reciprocal spin-polynomial conventions."
       ]
     },
     {
@@ -4115,9 +4365,13 @@
         "ShimuraCompactificationsPartII:C13: Use the existing all-genus deep Siegel toroidal model target and its polarized logarithmic Hodge data; do not construct these integral models in this roadmap.",
         "ShimuraCompactificationsPartII:C14: Use the compactified Klingen/paramodular p-correspondences and Cartier boundary; verify precisely the formal canonical coefficient criterion required for Lan relative vanishing.",
         "LanglandsParameterStacks:LP3: Integral Weyl/dual-Weyl modules, the right-B-equivariant function realization with left translation, and allowed base change. The current Tau Ceti Young-symmetrizer construction over Q-algebras does not supply integral dual-Weyl lattices.",
+        "SchemeAndStackFoundations:SF.4: Proper formal functions and pseudo-coherent derived p-adic completion, with correspondence and trace compatibility. The separate solid comparison is G-solid.",
         "SmoothRepresentationsOfLocalGroups:SR.1: Integral Hecke convolution and opposite-algebra conventions; apply to the actual geometric coherent correspondence operators.",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2: Finite Hecke image in derived endomorphisms, commuting local factors and their coefficient/base-change compatibility; strict chain-level action is not requested.",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3: Import current upstream §3a–3b’s GSp₄ spin polynomial, Galois-type/non-Eisenstein predicate and residual twist/dual polynomial transport. Atlas stage prose is older; identify the current upstream targets rather than duplicate them here.",
         "DerivedDeRhamCohomology:DD.6: Extend the logarithmic comparison direction with the coefficient logarithmic Deligne–Illusie splitting used by Lan–Suh: W₂ lift, Cartier type, nilpotent residues, dimension/p and small-weight conditions, and the integral dual BGG graded decomposition. Ordinary de Rham comparison does not supply this theorem.",
         "CrystallineCohomology:CR.5: Provide the logarithmic crystalline/de Rham coefficient comparison and W₂ logarithmic lift inputs underlying Lan–Suh Theorem 7.22 and Corollary 7.24; retain the residue and dimension restrictions.",
+        "ArithmeticGaloisRepresentations:R01.1: Continuous residual representation and scalar-extension/semisimplification API; retain symplectic form/multiplier when required.",
         "AutomorphicBundlesPartII/G-models: There is no HilbertSiegelModularVarieties supplier in the current atlas. The genus-two Res_(F/Q)GSp₄ models, EO strata, their affine images and codimension/regular-sequence properties must be supplied, together with the G₁ quotient direct-factor statement under p∤#Δ(K^p). H1’s Hilbert modular varieties have genus one and do not supply these inputs. C13/C14 supply the stated Siegel models over Q only.",
         "AutomorphicBundlesPartII/G-boundary-regular: BCGP21 Lemma 3.9.12 uses injectivity after inverting a boundary equation. Check that each relevant EO component meets the interior and prove the boundary equation is regular on every cofinal CM regular-sequence quotient. The source proof does not spell out this geometric input; dimension alone is not a proof for an arbitrary thickening.",
         "AutomorphicBundlesPartII/G-formal-models: Verify Lan17 Definition 8.5 chart by chart for the C14 Klingen/paramodular model and the G₁ quotient. A deck group free on the open variety need not be free on the boundary; retain the prime-to-p stabilizer condition or prove local exact descent. Lan17 Remark 8.9 allows singular fans by refinement, but does not remove these coefficient/model hypotheses."
@@ -4131,7 +4385,7 @@
         "SmoothRepresentationsOfLocalGroups:SR.3: Admissible finite-adelic representations and finite-level invariant spaces with finite multiplicity.",
         "AutomorphicSpectralTheory:AS.4: Multiplicity-counted discrete cusp/L² spectral decomposition and Petersson adjoint relations for commuting spherical Hecke operators; no unproved multiplicity-one simplification.",
         "AutomorphicSpectralTheory:AS.5: Growth Dolbeault analytic inputs, regularization C∞_umg→C∞_dmg for the parabolic pair, finite-central-character functor Fin_J acyclicity and the relative cohomology spectral sequences in Su24 §5, with Hecke equivariance.",
-        "AutomorphicBundlesPartII/G-Harris: The statements of Harris’s comparison and large-weight theorem were checked through CG20 Theorem 5.2, P20 §15.2 and BCGP21 §3.10. The primary Harris 1990 Perspect. Math. 11 chapter, Theorem 2.7/Proposition 2.7.2 and Theorem 3.4, was not available in the cleared library or located on the author publication page. Verify its growth/subcanonical map, the bound R and full compact-group components. AF.4 already records the missing full-group extension of its local BHR calculation; do not identify an identity-component computation with that result."
+        "AutomorphicBundlesPartII/G-Harris: H90 Theorem 2.7 and Proposition 2.7.2, pp. 58–59, now verify the cusp/interior comparison directly, with the growth resolution in Theorem 2.4.4, p. 57. H90 Theorem 3.4, p. 63, does not justify arbitrary other-degree vanishing: GK19 Remark 10.1.3, p. 962, records a published correction. Use AF.4’s specified Hodge-pair and component conventions. The singular large-weight classification is the separate AF.4/bhr-large-weight contract, reported by P20 Theorem 15.2.2.1 and BCGP21 Theorem 3.10.1; its original BHR proof remains uninspected. H90 Theorem 3.6.3, p. 64, has a regular all-root bound and cannot replace that singular-wall input. Verify full-group transport before applying concentration or packet counts."
       ]
     },
     {
@@ -4141,7 +4395,7 @@
         "SmoothRepresentationsOfLocalGroups:SR.4: Exact normalized Satake restriction of the degree-four spin polynomial to the Klingen boundary Levi, including all q-powers and the character χ in ρ₂⊕ρ₂χ. Compare the corrected four monomials; abstract Satake alone does not fix normalization.",
         "ModularityAndLanglandsExtensions:ML.4: Conditional GSp₄ global classification list, archimedean local packets and component-group multiplicity formula as used in CG20 pp. 854–855/P20 §15.2.4; compatible reducible Galois systems for excluded types, purity and the exact general-type multiplicity-one/pairing statement.",
         "AutomorphicGaloisRepresentations:R19.3: Purity and compatible-system input for the conditional classification step excluding non-general-type GSp₄ systems.",
-        "AutomorphicBundlesPartII/G-Harris: The statements of Harris’s comparison and large-weight theorem were checked through CG20 Theorem 5.2, P20 §15.2 and BCGP21 §3.10. The primary Harris 1990 Perspect. Math. 11 chapter, Theorem 2.7/Proposition 2.7.2 and Theorem 3.4, was not available in the cleared library or located on the author publication page. Verify its growth/subcanonical map, the bound R and full compact-group components. AF.4 already records the missing full-group extension of its local BHR calculation; do not identify an identity-component computation with that result."
+        "AutomorphicBundlesPartII/G-Harris: H90 Theorem 2.7 and Proposition 2.7.2, pp. 58–59, now verify the cusp/interior comparison directly, with the growth resolution in Theorem 2.4.4, p. 57. H90 Theorem 3.4, p. 63, does not justify arbitrary other-degree vanishing: GK19 Remark 10.1.3, p. 962, records a published correction. Use AF.4’s specified Hodge-pair and component conventions. The singular large-weight classification is the separate AF.4/bhr-large-weight contract, reported by P20 Theorem 15.2.2.1 and BCGP21 Theorem 3.10.1; its original BHR proof remains uninspected. H90 Theorem 3.6.3, p. 64, has a regular all-root bound and cannot replace that singular-wall input. Verify full-group transport before applying concentration or packet counts."
       ]
     },
     {
@@ -4156,7 +4410,7 @@
         "AutomorphicGaloisRepresentations:R19.1: GL₂/Q cusp and Eisenstein Galois polynomial systems used to recognize Q boundary eigensystems as reducible degree-four systems.",
         "AutomorphicGaloisRepresentations:R19.2: Hilbert modular cusp/Eisenstein Galois polynomial systems, including their normalized central characters, for the totally real boundary calculation.",
         "AutomorphicBundlesPartII/G-models: There is no HilbertSiegelModularVarieties supplier in the current atlas. The genus-two Res_(F/Q)GSp₄ models, EO strata, their affine images and codimension/regular-sequence properties must be supplied, together with the G₁ quotient direct-factor statement under p∤#Δ(K^p). H1’s Hilbert modular varieties have genus one and do not supply these inputs. C13/C14 supply the stated Siegel models over Q only.",
-        "AutomorphicBundlesPartII/G-Harris: The statements of Harris’s comparison and large-weight theorem were checked through CG20 Theorem 5.2, P20 §15.2 and BCGP21 §3.10. The primary Harris 1990 Perspect. Math. 11 chapter, Theorem 2.7/Proposition 2.7.2 and Theorem 3.4, was not available in the cleared library or located on the author publication page. Verify its growth/subcanonical map, the bound R and full compact-group components. AF.4 already records the missing full-group extension of its local BHR calculation; do not identify an identity-component computation with that result.",
+        "AutomorphicBundlesPartII/G-Harris: H90 Theorem 2.7 and Proposition 2.7.2, pp. 58–59, now verify the cusp/interior comparison directly, with the growth resolution in Theorem 2.4.4, p. 57. H90 Theorem 3.4, p. 63, does not justify arbitrary other-degree vanishing: GK19 Remark 10.1.3, p. 962, records a published correction. Use AF.4’s specified Hodge-pair and component conventions. The singular large-weight classification is the separate AF.4/bhr-large-weight contract, reported by P20 Theorem 15.2.2.1 and BCGP21 Theorem 3.10.1; its original BHR proof remains uninspected. H90 Theorem 3.6.3, p. 64, has a regular all-root bound and cannot replace that singular-wall input. Verify full-group transport before applying concentration or packet counts.",
         "AutomorphicBundlesPartII/G-Phi: P20 p. 109 cites Freitag IV Satz 4.4 for T_(ℓ,2)=2T_ℓ on the boundary. Freitag was not available for inspection, and coverage of the vector-valued coefficient and this normalization is unverified. Give a direct boundary correspondence calculation or inspect a cleared primary source; do not infer the residual contradiction by dividing this trace identity by 2. The full Satake-polynomial route is requested independently."
       ]
     }
@@ -4218,7 +4472,7 @@
     {
       "id": "AutomorphicBundlesPartII/E1",
       "kind": "error",
-      "locator": "CG18 §7.2, p. 399",
+      "locator": "CG18 §7.2, p. 400",
       "printed": "The trace is presented as an isomorphism from the whole shifted dualizing cohomology complex to the coefficient ring.",
       "correction": "Use the trace counit RΓ(ω)[d]→A_n; only an appropriate top-cohomology trace can be an isomorphism under connectedness hypotheses.",
       "reason": "A positive-genus proper curve has additional cohomology in the shifted complex.",
@@ -4228,7 +4482,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "CG18"
+      "source": "CG18",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On printed p. 400 the whole dualizing cohomology complex is identified with the trace target. A smooth proper positive-genus curve has extra cohomology, so the counit rather than a whole-complex isomorphism is needed.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E2",
@@ -4243,7 +4502,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "CG20"
+      "source": "CG20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 5.5 reuses λ for its shifted parameter and its fourth chamber label repeats C₄; the four inequalities fix μ and C₀ through C₃.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E3",
@@ -4258,7 +4522,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "CG20"
+      "source": "CG20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For q∈G(Q) the real multiplier alone is not invariant. The sign and finite adelic norm restore the product-formula identity; the underlying bundle identification is separate.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E4",
@@ -4273,22 +4542,32 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "BP26"
+      "source": "BP26",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed right-B function model requires left translation by m′⁻¹m; the printed argument reverses the two variables.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E5",
       "kind": "misprint",
       "locator": "BP26 proof of Proposition 2.9.9, p. 29",
-      "printed": "The open terms in the localization-triangle display are assigned the wrong direct-image functor, and one complementary-open codomain is inconsistent.",
-      "correction": "Use the extension-by-zero open term j! in the support convention and place inverse-image opens in C.",
-      "reason": "The support triangle and leg domains determine these types.",
+      "printed": "The later explanatory chain in the proof uses j_* where the completion-triangle construction needs j!, and writes inverse-image open immersions with codomain X instead of C. The initial triangle display has the correct j! term.",
+      "correction": "Retain j! throughout that completion-triangle chain and the appropriate adjunctions, and place inverse-image opens in C. The ordinary local-cohomology triangle with Rj_* is a distinct triangle.",
+      "reason": "BP26 §2.9.1 supplies two triangles; Proposition 2.9.9 is acting on the completion/compact-support one.",
       "affects": "nothing",
       "known": "No published correction located in the source versions and pages searched; not asserted to be a new discovery.",
       "searched": [
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "BP26"
+      "source": "BP26",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Narrowed to the later explanatory chain and open codomains. The initial triangle is already correct; the two localization triangles in §2.9.1 must remain distinct.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E6",
@@ -4303,7 +4582,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "BCGP21"
+      "source": "BCGP21",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The short proof refers to the preceding regular-sequence description. An omitted formalization detail does not establish a published proof gap. Retain G-boundary-regular as a verification obligation until the actual EO geometry is supplied.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E7",
@@ -4318,7 +4602,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "BCGP21"
+      "source": "BCGP21",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The four spin monomials require the four distinct diagonal representatives stated in the correction; the duplicated printed entries cannot list these four weights.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E8",
@@ -4333,7 +4622,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Substitution of λ₁=−k−r+1 into the holomorphic parameter gives 1−k−r; the opposite sign conflicts with the conventions on the same page.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E9",
@@ -4348,7 +4642,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A coefficient correspondence has target p₁! of its target coefficient, not of the structure sheaf; the preceding correspondence convention fixes this type.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E10",
@@ -4363,7 +4662,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "With k=−λ₁−1, the large-positive-k range is −λ₁≥R. The following theorem uses exactly k≥R−1.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E11",
@@ -4378,7 +4682,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The H¹ summands are restricted to characters congruent to m, while the left hand side omits the localization subscript. Add it as for H⁰.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E12",
@@ -4393,22 +4702,32 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding pushforward formula distinguishes k=0; the later parenthetical k=2 contradicts that formula.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E13",
-      "kind": "error",
+      "kind": "misprint",
       "locator": "P20 proof of Corollary 15.2.3.1, pp. 108–109",
-      "printed": "The boundary ideal sequence is used as a short exact sequence of coherent cohomology groups.",
+      "printed": "A three-term segment of the boundary long exact sequence is called short exact, although no endpoint zeros are displayed.",
       "correction": "Use its long exact sequence; H⁰ boundary vanishing gives H⁰ isomorphism and H¹ injection into the canonical group.",
-      "reason": "The next boundary cohomology group can obstruct surjectivity in degree one.",
-      "affects": "the proof",
+      "reason": "The proof needs exactness at the middle term to obtain an H¹ injection after H⁰ boundary vanishing; it does not need either endpoint to vanish.",
+      "affects": "nothing",
       "known": "No published correction located in the source versions and pages searched; not asserted to be a new discovery.",
       "searched": [
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a label misprint, not a substantive proof error. The displayed three terms are a long-exact-sequence segment and suffice for the injection the proof requests.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E14",
@@ -4423,7 +4742,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The large-k range and λ₁=−k−1 require negative λ₁; the proposition reverses this sign.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E15",
@@ -4438,7 +4762,12 @@
         "Checked the cited author/publisher manuscript and the routed extraction’s sourceIssues.",
         "Targeted author-site and arXiv/publisher searches on 2026-10-19 did not locate a separate correction for this finding."
       ],
-      "source": "P20"
+      "source": "P20",
+      "review": {
+        "verdict": "rejected",
+        "reason": "Freitag IV Satz 4.4 was not inspected, so its failure to cover vector weights has not been established. Keep G-Phi and a full normalized characteristic-polynomial comparison; an unverified citation is not itself a proven source error.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E-Lan17",
@@ -4452,7 +4781,12 @@
       "searched": [
         "Read the author’s errata PDF in full, p. 1, and the corrected manuscript."
       ],
-      "source": "Lan17"
+      "source": "Lan17",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The author’s one-page errata explicitly repairs finite étale group-scheme descent and the dimension-one Koecher exception; the corrected manuscript and retained conditions are required.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     },
     {
       "id": "AutomorphicBundlesPartII/E-LanSuh",
@@ -4466,7 +4800,31 @@
       "searched": [
         "Read the full two-page errata and §7.2–7.4 of the author manuscript."
       ],
-      "source": "LanSuh"
+      "source": "LanSuh",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The author’s two-page errata requires the corrected symplectic-dual restrictions, torsion Picard statement and shifted two-sided §8 bounds; the p>2 specialization retains those corrections.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
+    },
+    {
+      "id": "AutomorphicBundlesPartII/E-Harris90",
+      "kind": "error",
+      "source": "H90",
+      "locator": "Theorem 3.4(i), printed p. 63; corrected by GK19 Remark 10.1.3, printed p. 962",
+      "printed": "The general coherent-cohomology theorem asserts vanishing outside its distinguished degree.",
+      "correction": "Retain the one-dimensional distinguished contribution; verify other degrees with the exact group and relative pair.",
+      "reason": "Goldring–Koskivirta give a GL₂ obstruction and restrict the general concentration assertion.",
+      "affects": "a stated result",
+      "known": "Published correction: Goldring–Koskivirta, Invent. Math. 217 (2019), Remark 10.1.3, p. 962; also recorded by the AF.4 supplier.",
+      "searched": [
+        "Read H90 printed pp. 58–64 and GK19 published Theorem 10.1.2 and Remark 10.1.3, p. 962."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published correction preserves the contributing degree, not general concentration.",
+        "by": "REV-DESIGN-AutomorphicBundlesPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -4572,6 +4930,21 @@
       "kind": "author copy",
       "url": "https://www.kwlan.org/articles/van-tor-aut-gen-err.pdf",
       "citation": "Authors’ two-page published errata, linked from the author publication list",
+      "read": "2026-10-19"
+    },
+    {
+      "source": "H90",
+      "kind": "published",
+      "url": "https://www.jmilne.org/math/Books/AA1988b.pdf",
+      "citation": "Automorphic Forms, Shimura Varieties, and L-functions II, Perspectives in Mathematics 11 (1990), pp. 41–91; public scan hosted by J. S. Milne; printed pagination",
+      "read": "2026-10-19",
+      "sha256": "ead5b841dbafb65c1796f8dc7d4f331271947b63b3ef2923efa1cdadf5bff62d"
+    },
+    {
+      "source": "GK19",
+      "kind": "published",
+      "url": "https://link.springer.com/article/10.1007/s00222-019-00882-5",
+      "citation": "Invent. Math. 217 (2019), 887–984; published open-access PDF; printed pagination",
       "read": "2026-10-19"
     }
   ],
@@ -5279,6 +5652,364 @@
       "Current Tau Ceti WeylModule.Basic is a Young-symmetrizer construction over Q-algebras, not the required integral dual-Weyl representation.",
       "Current curve Serre duality does not supply relative smooth threefold duality over O/ϖ^n.",
       "Mathlib K-projective lifting is baseline; chain-lifts owns its application to the geometric endomorphism, not a second lifting theorem."
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AutomorphicBundlesPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 70 nodes, all six pinned baseline declarations, source locators and 18 source findings, supplier contracts, current upstream ownership, API/tests, reader and the entire suggested file. Corrected completion versus ordinary support, fundamental-class hypotheses, stage ordering, coefficient tests, source locators and Harris attribution. Every definition/construction now has five API clauses and three checks. Six named gaps and 33 requests remain honest planned-stage obligations; acceptance does not close them. See the review report for verification and per-node decisions.",
+    "checked": [
+      {
+        "nodeId": "AutomorphicBundlesPartII:integral-graded-frame-torsor",
+        "verdict": "corrected",
+        "note": "BP26 §4.3.1, p.46: retained the polarized extended Hodge factors and right Levi action, rather than arbitrary semi-abelian data. Added restriction and coefficient-compatible transport API to the torsor checks."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:integral-automorphic-coefficients",
+        "verdict": "corrected",
+        "note": "BP26 pp.46–47: integral dual-Weyl function realization has the corrected left action; generic associated-bundle operations stay in B0/AlgebraicVectorBundles. Added transport and representation-map API."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:siegel-weight-dictionary",
+        "verdict": "verified",
+        "note": "CG20 pp.823,826–827 and BP26 p.47 agree after separating the multiplier coordinate, rank-two dual and symmetric-power convention. No new generic representation theory is claimed."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-cohomology-complexes",
+        "verdict": "corrected",
+        "note": "CG18 pp.395–398 and BP26 p.2: derived coefficient complexes use the supplied coherent category; pinned Tau Ceti supplies only underlying additive cohomology. Added coefficient functoriality and the boundary triangle API."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-homology",
+        "verdict": "corrected",
+        "note": "CG18 pp.395–396: kept the Matlis dual in E/O and contragredient deck action. Corrected the ramified test to the inverse different (2ϖ)⁻¹O and added coefficient-map/pairing API."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:finite-coefficient-serre-duality",
+        "verdict": "verified",
+        "note": "CG18 pp.395–396,399–400 checked against SF.2 smooth-proper duality: pure relative dimension and finite locally free coefficient remain explicit. The trace is a counit, not a whole-complex isomorphism."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:equivariant-cech",
+        "verdict": "corrected",
+        "note": "CG18 pp.397–398: corrected the trivial-torsor test to A_n coefficients with regular deck action. Added coefficient-map and derived-reduction compatibility; cover/refinement input stays in SF.2."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:galois-projectivity",
+        "verdict": "verified",
+        "note": "BP26 Lemma 2.6.11, p.22, and CG18 p.398: use finite étale torsor descent and projectivity over the deck group ring. No division by the group order is used integrally."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:integral-cech-freeness",
+        "verdict": "verified",
+        "note": "CG18 Lemmas 7.5–7.7, pp.397–398: retained the nilpotent lifting and infinite-rank requirements. P7 is asked for that algebra, rather than assuming finite-dimensional terms."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:equivariant-perfect-model",
+        "verdict": "corrected",
+        "note": "CG18 pp.398–400: the finite projective replacement is equivariant and has the stated amplitude; it is not an invariant-by-averaging construction. Added independence/transport and coefficient-descent API."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coefficient-descent",
+        "verdict": "verified",
+        "note": "CG18 pp.398–400 and CG20 p.853: derived tensor/coinvariants and hyper-Tor edges are used, so non-flat reduction is not replaced by an underived equality."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-correspondence",
+        "verdict": "corrected",
+        "note": "BP26 pp.7,14,17 and P20 p.19: the coefficient arrow has target p₁!G, with properness/boundedness for the discrete adjunction and a separate solid enhancement. Added extensionality and linearity."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:correspondence-action",
+        "verdict": "corrected",
+        "note": "P20 p.19 and BP26 pp.14,17: the global map uses unit, coefficient arrow and the proper duality counit in the right order. Added linearity and compatibility with convolution."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:correspondence-composition",
+        "verdict": "verified",
+        "note": "BP26 §§2.2.9,2.3.12: fibre-product composition retains the proper/duality/base-change assumptions; the result concerns derived morphisms, not chosen strict chain maps."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:fundamental-class-correspondence",
+        "verdict": "corrected",
+        "note": "P20 p.19 and BCGP21 p.226: corrected the relative dimensions to C/S and X/S, retained projective embeddability and SF.2 class hypotheses, and required perfect coefficient projection. Boundary determinant hypotheses come from A0, not equal dimensions alone."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:correspondence-tensor",
+        "verdict": "corrected",
+        "note": "BP26 pp.21–22: scalar extension and deck coinvariants remain derived. Added associativity and augmentation compatibility; the tests reject ordinary coinvariants when higher Tor survives."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:correspondence-base-change",
+        "verdict": "verified",
+        "note": "BP26 pp.22–23: retained Tor-independent/proper base-change conditions and trace naturality. No unrestricted coherent base-change claim is made."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:correspondence-twist",
+        "verdict": "corrected",
+        "note": "BP26 pp.21–23,47: the transport between coefficient pullbacks supplies the twist, and isogeny inversion is restricted to the rational setting. Added transport naturality and cocycle/composition API."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:rational-isogeny-transport",
+        "verdict": "verified",
+        "note": "BP26 p.47: an isogeny gives the required coefficient identification after inverting p; the plan does not claim an integral inverse."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:transpose-correspondence",
+        "verdict": "corrected",
+        "note": "BP26 Proposition 2.7.3, pp.23–24, and CG20 Appendix A.3.2, pp.886–888: duality reverses legs and double cosets and carries the coefficient twist. Corrected the appendix starting-page locator."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:contracted-filtration",
+        "verdict": "corrected",
+        "note": "BP26 Definition 2.1.19, p.9: contraction has p₁⁻¹Z⊆p₂⁻¹Z and complementary open inclusion reversed. Removed an unnecessary support-triangle dependency; added restriction and transpose API."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:formal-completion-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the source to BP26 Lemma 2.9.3, pp.27–28, and stated general ideal-adic solid completion. Discrete proper formal functions and its trace comparison remain separate SF.4/P7 inputs; ordered before the filtered action."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:filtered-correspondence-action",
+        "verdict": "corrected",
+        "note": "Replaced the conflated support spectral sequence by BP26 Theorem 2.9.7/Proposition 2.9.9, pp.28–29: completion and compact-support graded terms, j! triangle and finite closed filtration. The ordinary local-cohomology Cousin triangle is explicitly distinct."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-hecke-action",
+        "verdict": "corrected",
+        "note": "BCGP21 pp.226–227, CG18 pp.398–400 and P20 p.24: individual higher derived operators precede integral algebra relations. Added coefficient naturality and boundary/relation API without inferring relations from H⁰."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:chain-lifts",
+        "verdict": "verified",
+        "note": "CG18 pp.399–400: K-projective lifting gives unique homotopy classes. Both Mathlib declarations were read at the pin; no strict chain-level Hecke algebra action is asserted."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:normalized-coefficient-action",
+        "verdict": "corrected",
+        "note": "CG20 pp.833–834 and P20 pp.24–25: ν⁻³ gives W(a,b;3−a−b), V(−b,−a;6−a−b) and scalar exponent a+b−6. Added composition and boundary-arrow API; inverse Frobenius convention retained."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:integral-normalization",
+        "verdict": "corrected",
+        "note": "P20 p.19,pp.102–105: divisibility must be proved in a torsion-free factorization before dividing. Added naturality and flat-base-change API; arbitrary torsion reduction does not preserve uniqueness."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:hecke-polynomial-dictionary",
+        "verdict": "verified",
+        "note": "BCGP21 p.236 and CG20/P20 generator conventions checked. Current IHG §3a–3b owns the generic spin polynomial; this node compares geometric generators and preserves q-powers and central character."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:gaga-and-tower-comparison",
+        "verdict": "verified",
+        "note": "CG20 pp.824–825: proper/projective GAGA suppliers are explicit and finite-level recovery uses exact invariants in characteristic zero. It does not give integral invariants when p divides the deck order."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:formally-canonical-coefficients",
+        "verdict": "corrected",
+        "note": "Lan17 Definition 8.5, p.34, and Propositions 7.5/7.15: completed monoids and the finite coefficient filtration are part of the property. Added restriction/isomorphism API; quotient/bad-level chart verification remains G-formal-models."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:relative-subcanonical-vanishing",
+        "verdict": "verified",
+        "note": "Lan17 Theorem 8.6, pp.34–35, P20 p.30 and BP26 p.58: kept n>0 for canonical and n≥0 for subcanonical, the allowed base and chart condition. Canonical n=0 is not inferred."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:lan-suh-gsp4-weights",
+        "verdict": "corrected",
+        "note": "CG20 pp.822–824 and Lan–Suh Corollary 7.24(2) checked; corrected its manuscript locator to p.43. Kept α+β<p−3, positive parallel twist, p>2 and the logarithmic/BGG supplier obligations."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:vanishing-above-two",
+        "verdict": "verified",
+        "note": "CG20 Theorem 5.1(1), pp.822–824: the length-one representative and its shift give exactly the displayed integral weight range. Endpoints and the finite-field extension hypothesis are retained."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:vanishing-above-one",
+        "verdict": "verified",
+        "note": "CG20 Theorem 5.1(2), pp.822–824: the length-two representative gives the specified range; positivity and p-smallness remain in the stated inequalities."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:positive-degree-vanishing",
+        "verdict": "corrected",
+        "note": "CG20 Theorem 5.1(3), pp.822–824: b≥4 and 0≤a−b≤p−4 are the claimed range. Removed this redundant landmark so IC.5 retains six representative planets."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:siegel-serre-dual-weight",
+        "verdict": "corrected",
+        "note": "CG20 pp.830–831 and Appendix A.3.2: ω(3−b,3−a)(−D) uses the symmetric-power dual only in its valid range; divided-power duals remain required otherwise. Corrected appendix locator."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:singular-weight-modp-vanishing",
+        "verdict": "verified",
+        "note": "CG20 Corollary 5.8, pp.830–831: duality transports the exact finite-field ranges; no general all-weight integral symmetric-power dual is substituted."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:large-parallel-twist",
+        "verdict": "verified",
+        "note": "CG20 p.836 and p.843: both reduction and boundary restriction are obtained from appropriate H¹ vanishing after a sufficiently large parallel twist. No uniform bound independent of varying geometry is asserted."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:eo-cousin-computation",
+        "verdict": "corrected",
+        "note": "BCGP21 pp.229–230: separated ordinary Kempf/local-Ext computation from the solid completion filtration. Acyclicity uses affine minimal stratum images, cofinal regular thickenings, Koszul resolutions and relative subcanonical vanishing."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:boundary-interior-injection",
+        "verdict": "verified",
+        "note": "BCGP21 Lemma 3.9.12, p.230: only termwise Cousin injection is claimed, with regularity on each thickening explicit. E6 is not established as a source error; the geometric verification stays in G-boundary-regular."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:cousin-hecke-map",
+        "verdict": "corrected",
+        "note": "BCGP21 pp.230–231: ordinary local-cohomology support triangles and local Ext/Koszul systems supply differential compatibility. Removed the completion/compact-support action as a spurious dependency."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:integral-hecke-relations",
+        "verdict": "corrected",
+        "note": "BCGP21 pp.231–232: made K_p over O_(F_v) and complete splitting explicit, retained the G₁ component-order hypothesis and actual integral dual coefficient. Replaced solid completion by ordinary SF.4/P7 formal functions for the inverse limit."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:localized-perfect-model",
+        "verdict": "corrected",
+        "note": "CG18 p.400: moved after the integral relations into IC.5 and added that prerequisite. Local projectors act on a perfect complex with a commuting finite Hecke image, not unrelated chosen lifts; added orthogonal-factor/model-independence API."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-non-eisenstein-specialization",
+        "verdict": "corrected",
+        "note": "BCGP21 p.236 and CG20 pp.852–855: moved with its localized model into IC.5. The residual spin polynomial and symplectic multiplier are imported from IHG; a GL₄ residual witness alone is insufficient."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:complex-hecke-localization",
+        "verdict": "corrected",
+        "note": "P20 p.108: moved into IC.5 and strengthened the congruence test to T=O[t]/(t(t−ϖ)), where both generic characters reduce to one m. Added functorial/direct-sum API and removed its duplicate landmark."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:interior-cohomology",
+        "verdict": "corrected",
+        "note": "CG20 pp.824–825: image of the boundary-ideal coefficient map is the genuine construction. Added module-image and coefficient-square API; Lean uses the existing additive cohomology image, with scalar comparison honestly requested."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:growth-dolbeault-comparison",
+        "verdict": "corrected",
+        "note": "Su24 Propositions 3.14/3.16: corrected locators to manuscript pp.36–38 and retained logarithmic growth with all derivatives and central reduction. Analytic regularization remains AS.5, not a formal consequence of GAGA."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:su-canonical-comparison",
+        "verdict": "corrected",
+        "note": "Su24 Proposition 4.1, p.38, and Theorem 5.7, pp.54–55: fixed locator and kept the connected group, central split condition, neat/smooth data and (p_o,K_o) pair. Canonical comparison does not supply cusp/subcanonical comparison."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:harris-cusp-interior-comparison",
+        "verdict": "corrected",
+        "note": "Added primary H90 Theorem 2.7 and Proposition 2.7.2, pp.58–59, with growth construction pp.56–57 and harmonic identification p.59. Removed the obsolete source-access gap; retained component/product verification and did not strengthen L²-image containment to equality."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:automorphic-image-subspaces",
+        "verdict": "corrected",
+        "note": "CG20 pp.825–826: cusp, L² and tempered images remain separate from their source relative cohomology and interior image. Added linear-image and level-map API without assuming injectivity of every comparison."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-isotypic-contribution",
+        "verdict": "corrected",
+        "note": "CG20 pp.828–829 and BCGP21 p.236: retained actual spectral multiplicity and finite-level invariants before taking the coherent image. Added spectral-functor and coefficient naturality API; no multiplicity-one assumption."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:W-V-comparison",
+        "verdict": "verified",
+        "note": "CG20 Definition 5.3/Lemma 5.4, pp.826–827: underlying bundle comparison is separated from adelic Hecke linearization. The finite norm/sign factor in E3 is essential for rational equivariance."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:holomorphic-cusp-eigensystems",
+        "verdict": "corrected",
+        "note": "P20 pp.24–25, CG20 p.839 and cleared Sch15 manuscript p.83 checked. Added the AF.4 arbitrary-irreducible H⁰ classification input. Scalar Petersson semisimplicity uses the source weight bounds; one eigencharacter does not prove global uniqueness."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-kunneth",
+        "verdict": "verified",
+        "note": "BCGP21 pp.239–240: tensor-product relative complexes give the field Künneth sum; the binomial count requires the local one-dimensional groups and compatible component invariants. Full-group concentration remains an explicit obligation."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:siegel-chambers",
+        "verdict": "corrected",
+        "note": "CG20 p.828: checked all four weak-inequality chambers, common walls and shifted Siegel weights. Added equality-transport/wall API; Lean examples confirm overlaps and reject a disjoint-chamber interpretation."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:infinitesimal-character",
+        "verdict": "verified",
+        "note": "CG20 p.829 and BP26 pp.3–4: checked the ρ shift and central parameter, Weyl representative and regular-case uniqueness. Generic limits stay in AF.4, including the rational cone and component conventions."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:GL4-archimedean-transfer",
+        "verdict": "verified",
+        "note": "CG20 Theorem 5.6(2), p.829, and p.834: the transfer parameter and multiplier twist are a comparison with SR.4/ML.4, not a new local Langlands construction."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:tempered-chamber-vanishing",
+        "verdict": "corrected",
+        "note": "CG20 pp.828–829: limited the statement to the tempered L² image and explicitly required the fixed Siegel Hodge-pair/full-group transport from AF.4. Added the published GK19 correction; general Harris other-degree vanishing is not used."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:singular-char0-ranges",
+        "verdict": "verified",
+        "note": "CG20 p.830: characteristic-zero boundary weights retain their closed-chamber overlaps; this is distinct from the p-small mod-p theorem and makes no assertion about all canonical non-tempered classes."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:large-singular-interior",
+        "verdict": "corrected",
+        "note": "P20 p.108: corrected the attribution of R to AF.4’s separate singular large-weight contract and added that direct prerequisite. H90 Theorem 3.6.3 requires regularity at every root and cannot supply the singular-wall bound."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:conditional-packet-pairing",
+        "verdict": "verified",
+        "note": "P20 pp.109–110 and CG20 pp.854–855: the exact classification, purity, packet-multiplicity and local coherent assumptions remain conditional. The corrected λ₁<0 convention is retained; no unconditional multiplicity-one claim."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:boundary-nerve-specialization",
+        "verdict": "verified",
+        "note": "HZ01 pp.61–63 and CG20 pp.852–853: rational-Q/simple-adjoint and component-group hypotheses remain explicit. The general parabolic induction/nerve theorem belongs to AF.2/C5, not a new duplicate here."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:Q-boundary-localized-vanishing",
+        "verdict": "verified",
+        "note": "CG20 Lemma 7.10, pp.852–853: all-degree boundary vanishing is the Q Siegel case, obtained via its nerve and reducibility contradiction. It is not extrapolated to totally real all-degree boundary cohomology."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:Q-boundary-phi-calculation",
+        "verdict": "verified",
+        "note": "P20 pp.108–109: degree-zero Φ calculation retains the k=0 exception. Uninspected Freitag vector-weight normalization stays G-Phi; E15 is rejected as an established error, and trace division by 2 is not a residual polynomial argument."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:boundary-Satake-reducibility",
+        "verdict": "verified",
+        "note": "BCGP21 pp.238–239: retained the full degree-four polynomial factorization and q-powers as an SR.4 request. The four corrected diagonal monomials are distinct; no characteristic-2 argument divides a trace relation by 2."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:hilbert-boundary-degree-zero",
+        "verdict": "corrected",
+        "note": "BCGP21 pp.237–239 and BR16 pp.10–12: added Theorem 1.12 to the locator for the corank/parallel-weight restriction, alongside Proposition 1.14. Only degree-zero boundary vanishing is claimed over F."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:localized-degree-zero-one",
+        "verdict": "verified",
+        "note": "BCGP21 p.239 and P20 pp.108–109: H⁰ boundary vanishing gives an H⁰ isomorphism and H¹ injection via the long exact sequence, not all-degree equality. E13 is only an exact-sequence label error."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:Q-singular-cuspidal-exhaustion",
+        "verdict": "verified",
+        "note": "CG20 pp.854–855: all a≥2 in the rational singular range remain conditional on classification, purity and full-group local inputs. Large-weight equality is not used to cover small weights."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:localized-cuspidal-decomposition",
+        "verdict": "verified",
+        "note": "BCGP21 Theorem 3.10.1, pp.236–240: kept i=0,1 injection, H⁰ equality and large-gap equality distinct, with actual multiplicity spaces and every real-place condition. No totally real higher-degree equality is inferred."
+      },
+      {
+        "nodeId": "AutomorphicBundlesPartII:coherent-dimension-equality",
+        "verdict": "verified",
+        "note": "BCGP21 Corollary 3.10.5, p.237: the l₀ factor comes from exactly the permitted one-place generic changes, conditional packet equality and component compatibility. If l₀=0 the specified degree-one sum is zero."
+      }
     ]
   }
 }

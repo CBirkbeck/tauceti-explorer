@@ -1,0 +1,11 @@
+# REV-DESIGN-AutomorphicBundlesPartII — completed
+
+Issue #3500 reviewed by Codex, session codex-jlNpks, on 2026-10-19. The claim was confirmed by the bot; this is the only claimed job in this run. The corrected packet is accepted as a complete planning pass: 70 targets, 110 API clauses, 66 checks, 39 planets; eight planned stages, none closed. The detailed review and all 70 node decisions are in [the report](../reviews/REV-DESIGN-AutomorphicBundlesPartII.md).
+
+Corrected solid completion versus ordinary Cousin local cohomology, fundamental-class hypotheses, internal build order and integral-localization placement; expanded every definition/construction API and repaired three discriminating examples. Read Harris's public primary chapter, distinguished its regular bound from the singular classification, recorded the published Harris correction and retained the exact group/component conditions. Reviewed all 18 source findings (16 confirmed, two rejected), all six pinned baseline claims and current upstream ownership. No new target nodes, supplier files or upstream files were added or changed. Suggested Lean is unchanged.
+
+Validation: blueprint checker 0 errors/0 warnings; source-issue/version and admitted-data checks pass; reader/packet/API/test/dependency consistency checks pass; lean-check exit 0 with 15 admitted-proof warnings only, at the pins. The 171-line suggested file has real-bodied additive-image and chamber definitions and no admitted data. Concrete examples elaborate. JSON and whitespace checks pass.
+
+There is no unfinished review work to resume. For later closure, retain the six named gaps and 33 supplier requests; their affected-node and stage-remaining lists are current. H90 comparison source access is resolved. The original BHR singular large-weight proof, full-group transport and Freitag vector-weight boundary calculation remain unverified; do not replace those obligations with H90's general other-degree vanishing assertion. P20/Sch15 findings refer to the cleared manuscripts, not an uncollated version of record. The three ownership proposals and upstream associated-bundle ownership question are for the maintainer. No worker needs scratch files from this run.
+
+No issue was closed, relabelled or merged manually. Submission uses Refs #3500. This run takes no second job.
