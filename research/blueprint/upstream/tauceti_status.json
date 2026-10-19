@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-19T08:10Z",
+ "updated": "2026-10-19T08:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -595,7 +595,7 @@
   "GlobalGaloisDeformations": {
    "stage": "pr",
    "pr": 920,
-   "head": "91910dc",
+   "head": "e3728ea",
    "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
    "review": {
     "recommendation": "approve",
@@ -1087,12 +1087,12 @@
   "AInfCohomology": {
    "stage": "pr",
    "pr": 1044,
-   "head": "39da79c",
+   "head": "c0bc673",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
    "review": {
-    "recommendation": "changes",
+    "recommendation": "approve",
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },

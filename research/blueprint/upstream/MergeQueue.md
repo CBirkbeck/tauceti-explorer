@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T08:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T08:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -106,7 +106,7 @@ Generated 2026-10-19T08:10Z from the README supplier graph of every open pull re
 - #922 DiamondEtaleCohomology — ready; waits on #814, #818, #820, #858, #875, #908, #938
 - #928 AlgebraicModularFormsAndSerreWeights — draft; waits on #848, #849, #856, #879, #913, #938
 - #929 DeligneWeightsAndPurity — draft; waits on #785, #849, #850, #856, #858, #873, #913, #938
-- #1044 AInfCohomology — draft; waits on #1042, #813, #814, #818, #857, #858, #868, #875, #879, #908, #940, #942
+- #1044 AInfCohomology — ready (approved at an earlier head); waits on #1042, #813, #814, #818, #857, #858, #868, #875, #879, #908, #940, #942
 
 ## Wave 19
 - #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
