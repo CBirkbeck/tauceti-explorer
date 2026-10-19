@@ -1,4 +1,9 @@
-import Mathlib
+import Mathlib.Analysis.InnerProductSpace.PiL2
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.FieldTheory.IntermediateField.Adjoin.Defs
+import Mathlib.LinearAlgebra.Span.Defs
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.Tactic.NormNum
 
 /-!
 # Heights, rational points and obstructions, Part II: uniform Bogomolov and uniform Mordell–Lang
