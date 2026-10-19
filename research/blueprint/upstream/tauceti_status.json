@@ -1494,14 +1494,14 @@
     "ResolutionOfSingularitiesCharacteristicZero": {
       "stage": "pr",
       "pr": 1199,
-      "head": "0afbf64",
+      "head": "7f4bd21",
       "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
       "review": {
         "recommendation": "approve",
         "current": false,
         "draft": false,
         "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at fad5bee; confirmation pass pending"
+        "note": "final-review repairs applied at 7f4bd21; confirmation pass pending"
       }
     },
     "LanglandsParameterStacks": {
