@@ -1,48 +1,37 @@
-# Handoff: #6217 remains blocked on published versus queued scope
+# Handoff: #6217 requires a scope decision before redispatch
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-iAhOWA**, 19 October 2026.
-Branch: `codex-iAhOWA-review-iwasawa-fixes`.
-Input: `1634ea539f881e9dd1a96cacedcd866a4ccad598`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6258129912).
+Codex — **codex-mFu2rq**, 19 October 2026.
+Branch `codex-mFu2rq-review-iwasawa`; input `2432b6dd277d7824449e26d8e7815aaef5ac2cb4`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6258801622).
 Submission: **blocked checkpoint**. No second job was claimed.
 
-## Resume after the scope decision
+The existing HE.0 mathematical fix review is accepted and unchanged. Do not
+repeat that audit to reproduce this scheduling blocker. The published
+issue assigns three outputs; the queue now requires twelve packets and
+25 outputs. WORKERS.md limits edits to issue-named files, and intake excludes
+the queue and generator from swarm output paths. A session clarification
+asked for authorization to apply the concrete repair; no reply had arrived
+at checkpoint preparation. No out-of-scope edit was made.
 
-The HE.0 mathematical fix review is already accepted. Its attributed verdict
-and Lean signatures remain unchanged. The live issue permits one packet and
-three outputs, but the queue requires ten packets and 21 outputs. Do not
-repeat the completed HE.0 source audit to reproduce this scheduling failure.
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) records the current
+completion predicate, packet check, 59 tests, and a fresh full generator
+replay. No Lean file changed or was recompiled in this session; the prior
+checkpoint records successful compilation with only admission warnings.
+No mathematical verdict or implementation claim is added.
 
-The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) records fresh
-packet and Lean checks, the full generator replay and the wider effects.
-New verification beyond the preceding checkpoint establishes that all 46
-other changed generated records retain exactly their existing queue output
-lists, and identifies the eleven new fix/review pairs and their dependencies.
+## Concrete repair awaiting authorization
 
-A scope clarification was requested; no authorization had arrived at
-checkpoint preparation. WORKERS.md restricts edits to issue-named files.
-Queue and generator changes need an explicit scope decision and maintainer
-intake; they are outside normal swarm output paths. This is not an automatic
-approval-review rejection.
-
-After authorization, apply the following patch, inspect the wider effects
-listed in the report, and reconcile the published instructions. Alternatively
-publish an expanded mathematical assignment specifying the additional fixes.
-No generated job state or mathematical verdict should be changed by hand.
-
-## Complete proposed patch
-
-This patch is a proposal, **not applied**. The queue portion restores only
-the two issued `outputs` arrays from commit `88f9bcd44`; the selector repair
-prevents regeneration from expanding them again. Context is from the input
-commit above. It is sufficient to reconstruct the candidate after scratch
-is deleted. Do not replace the whole queue with an experimental regeneration.
+The following patch is **not applied**. It restores only the issued fix and
+review output arrays from commit `88f9bcd44`, and prevents the generator
+from expanding existing following rounds. It preserves every state and
+review verdict. It is refreshed against the current queue, including the
+new ModularIwasawaMainConjectures and AutomorphicPadicLFunctions assignments.
 
 ```diff
 --- a/research/blueprint/queue.json
 +++ b/research/blueprint/queue.json
-@@ -98934,38 +98934,7 @@
+@@ -99425,44 +99425,7 @@
      "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes-2.md",
      "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
      "research/blueprint/readmes/HeegnerPointEulerSystems--HE.0.md",
@@ -61,6 +50,9 @@ is deleted. Do not replace the whole queue with an experimental regeneration.
 -    "research/blueprint/readmes/HeightsRationalPointsAndObstructions.md",
 -    "research/blueprint/suggested/HeightsRationalPointsAndObstructions.lean",
 -    "research/blueprint/handoff/BP-HeightsRationalPointsAndObstructions~2.md",
+-    "research/blueprint/packets/ModularIwasawaMainConjectures.json",
+-    "research/blueprint/readmes/ModularIwasawaMainConjectures.md",
+-    "research/blueprint/suggested/ModularIwasawaMainConjectures.lean",
 -    "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
 -    "research/blueprint/readmes/RankZeroOneBSD--BSD.0.md",
 -    "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
@@ -68,6 +60,9 @@ is deleted. Do not replace the whole queue with an experimental regeneration.
 -    "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
 -    "research/blueprint/readmes/HeegnerPointEulerSystems--HE.8b.md",
 -    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.8b.lean",
+-    "research/blueprint/packets/AutomorphicPadicLFunctions.json",
+-    "research/blueprint/readmes/AutomorphicPadicLFunctions.md",
+-    "research/blueprint/suggested/AutomorphicPadicLFunctions.lean",
 -    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
 -    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems.md",
 -    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems.lean",
@@ -82,7 +77,7 @@ is deleted. Do not replace the whole queue with an experimental regeneration.
     ],
     "after": [
      "FIX-RT-AREA-iwasawa-1"
-@@ -98994,25 +98963,7 @@
+@@ -99491,29 +99454,7 @@
     "outputs": [
      "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
      "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
@@ -90,8 +85,10 @@ is deleted. Do not replace the whole queue with an experimental regeneration.
 -    "research/blueprint/packets/HeegnerPointEulerSystems--HE.8.json",
 -    "research/blueprint/packets/GrossZagierAndArithmeticHeights.json",
 -    "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+-    "research/blueprint/packets/ModularIwasawaMainConjectures.json",
 -    "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
 -    "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
+-    "research/blueprint/packets/AutomorphicPadicLFunctions.json",
 -    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
 -    "research/blueprint/packets/SelmerIwasawaCohomology.json",
 -    "research/blueprint/packets/KatoEulerSystems.json",
@@ -100,8 +97,10 @@ is deleted. Do not replace the whole queue with an experimental regeneration.
 -    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.8.lean",
 -    "research/blueprint/suggested/GrossZagierAndArithmeticHeights.lean",
 -    "research/blueprint/suggested/HeightsRationalPointsAndObstructions.lean",
+-    "research/blueprint/suggested/ModularIwasawaMainConjectures.lean",
 -    "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
 -    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.8b.lean",
+-    "research/blueprint/suggested/AutomorphicPadicLFunctions.lean",
 -    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems.lean",
 -    "research/blueprint/suggested/SelmerIwasawaCohomology.lean",
 -    "research/blueprint/suggested/KatoEulerSystems.lean"
@@ -122,19 +121,25 @@ is deleted. Do not replace the whole queue with an experimental regeneration.
              why = (f"This is round {k} of the fix. The review of round {k - 1} sent it back: make the corrections research/blueprint/reviews/{review}.md asks for.\n"
 ```
 
-## Verification to repeat after applying
+## After authorization
 
-1. Check that the affected fix and review have exactly four and three output
-   paths, respectively, with no other queue record or state changed.
-2. Run `issues.deliverables_complete` on the restored review record: it
-   should return true using the existing accepted HE.0 verdict.
-3. Replay the generator without installing its output. The repaired selector
-   preserves those lists and generates a separate third fix/review round.
-4. Run `test_redteam_queue`, `test_issues` and `test_followups`: the candidate
-   passes all 59 tests, with one skipped. This does not certify the additional
-   mathematical work generated by the queue.
+1. Apply the narrow patch, preserving current state metadata. Review its
+   wider effects: the dry-run candidate preserves 48 existing assignments'
+   output arrays, generates eleven separate fix/review pairs and removes
+   none. Do not install the entire dry-run queue.
+2. Verify that only the two intended queue arrays and the selector changed.
+   The issued fix/review arrays must have four/three paths respectively.
+3. Run the real `issues.deliverables_complete` on the restored review. Its
+   existing attributed HE.0 verdict should make it true. Do not assign
+   review verdicts to unexamined additional packets.
+4. Replay regeneration read-only: the restored arrays must survive and the
+   newly available mathematical work must enter a separate third round.
+   Check the dependency and independence contracts of the added reviews.
+5. Run `test_redteam_queue`, `test_issues` and `test_followups`, and reconcile
+   published instructions with the resulting queue through maintainer
+   intake. The repair touches paths normal swarm intake does not accept.
 
-Fresh `check_blueprint.py`: zero errors/warnings. Fresh `lean-check`: exit 0,
-114 admission warnings and no other warning or error. No new source audit or
-implementation claim is made. Only the report and this handoff are changed;
-no process remains running and no scratch artifact needs retention.
+Alternatively publish a new expanded mathematical assignment identifying
+which additional fixes to review. Until one of these decisions is made,
+this is an administrative scope blocker, not unfinished HE.0 mathematics.
+The full patch and evidence survive scratch deletion; no process remains.
