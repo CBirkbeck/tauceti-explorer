@@ -1,3 +1,88 @@
+# Independent continuation: topology fix round 4
+
+Refs #6521. Codex, session `codex-iuSTeN`, 19 October 2026,
+branch `codex-iuSTeN-review-topology`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6258675587).
+This reviewer authored neither the original fixes nor their preceding audits.
+
+**Blocked checkpoint.** The live issue authorizes three parent packet/suggested
+pairs and this report; the unchanged queue requires four further pairs. The
+four excluded packet reviews still identify their whole-plan reviewers, so the
+actual completion predicate is false. The issue's explicit file restriction
+prevents recording this job's verdicts there without authorization. Requested
+permission for the four packet paths while continuing the authorized review;
+no authorization has arrived. No excluded path, queue entry or predicate was
+changed. The excluded readers remain separately assigned follow-ups.
+
+The inherited 27 finding dispositions below remain applicable: /13 needs
+changes in the reader; the other findings accept qualified supplier/routing
+repairs or identify remaining maintainer action. This does not accept all of
+ArithmeticQuantumTopology's geometric/comparison obligations or certify its
+whole plan. The four prepared packet dispositions and scope-reconciliation
+instructions are retained in the [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md).
+Earlier reviews, source checks and Lean results below retain their original
+authorship; they are not presented as new experiments by this session.
+
+## New correction: a complete factor-cocycle proof outline
+
+The authorized QSeries Kontsevich node previously explained the negative-real
+cut sign, then invoked an unspecified integral weight shift by two. Replace
+that step with the following argument, and add direct prerequisites for the
+eta transformation law, nonvanishing and denominator cocycle. The statement,
+Lean signature and analytic gaps are unchanged.
+
+Write D_gamma(z)=cz+d and v_gamma=v_eta(gamma), with principal powers.
+On the upper half-plane, the eta law and nonvanishing make
+A_gamma(z)=v_gamma^(-1) D_gamma(z)^(-1/2) a multiplicative factor: it is
+eta(z)/eta(gamma z). Squaring the eta transformation law shows that v_gamma^2
+is a character, because the square of the principal square root is D_gamma
+and D itself satisfies the denominator cocycle.
+
+For lower-half-plane w, conjugating A_gamma(conj(w)) gives
+s_gamma v_gamma D_gamma(w)^(-1/2). Here s_gamma=-1 precisely when c=0,d<0,
+and is 1 otherwise. The eta multiplier has norm one; conjugation of the
+principal half power fails only on the negative-real cut. Multiply this
+conjugated factor by the character v_gamma^(-2) and the integral-weight
+factor D_gamma(w)^(-1). The result is
+
+    s_gamma v_gamma^(-1) D_gamma(w)^(-3/2).
+
+Each factor satisfies the multiplicative law, so the product does too. Taking
+lower boundary limits away from intermediate and product poles proves the
+corrected QuantumCocycleCondition. At -I its constant multiplier is -i and
+its boundary power is i, giving total factor 1. This is an argument for the
+factor's consistency for every matrix, beyond the inherited finite diagnostic;
+it does not establish the analytic transformation law of the Kontsevich
+function. It is a proof sketch for later formalization, not a newly compiled
+Lean theorem. Preserve the packet's analytic and multiplier-extension gaps.
+
+The inputs are the packet's QM.1/eta-transformation-law and unit eta-multiplier
+contract, with pinned Mathlib's ModularForm.eta_ne_zero (nonvanishing on the
+upper half-plane) and UpperHalfPlane.denom_cocycle (non-real argument).
+Their source declarations were inspected at the audited Mathlib pin. The
+lower-half-plane denominator never vanishes, so the conjugation and division
+steps apply throughout that domain.
+
+## Validation in this session
+
+The three authorized parent packets pass check_blueprint.py with the supplied
+pinned declaration index: zero errors and warnings. No nodes, gaps or requests
+were removed. The QSeries preceding bounded review is preserved once in
+reviewHistory before recording this continuation. The inherited separate
+whole-plan audits are not replaced by a whole-plan acceptance. Current-run
+Lean results: all three authorized suggested files elaborate successfully,
+with only admitted-declaration warnings (Polylogarithms 462, HabiroNahmSeries
+442, QSeries 1491). They were checked serially through lean-check with more
+than 20 GB available before each run. No Lean file changed. Intake checks
+pass for all three changed paths, and git diff --check passes. No compiler
+or language server remains running.
+
+## Preserved preceding report (codex-YFJHa3)
+
+The following report, including its source comparisons, finite experiments
+and compilation table, is preserved as preceding work. References to “this
+run” below mean codex-YFJHa3, not codex-iuSTeN.
+
 # Independent review of topology fix round 4
 
 Refs #6521. Codex, session `codex-YFJHa3`, 19 October 2026;

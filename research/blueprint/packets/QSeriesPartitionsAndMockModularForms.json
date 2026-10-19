@@ -29286,7 +29286,8 @@
       ],
       "proofSteps": [
         "\u03c6(x) = \u2212\u00bd\u00b7(radial limit of \u03b7\u0303 at x) by strange-identity, \u03b7\u0303 = \u221a24\u00b7(Eichler integral of weight 1/2 of \u03b7) (eichler-integral).",
-        "Compare upper- and lower-half-plane principal powers by complex conjugation. They differ by a sign precisely for c=0,d<0, where the denominator lies on the negative-real branch cut. Apply this sign to the inverse eta multiplier. Integral weight shifts by 2 leave the cocycle unchanged. This gives the full weight-3/2 lower-boundary factor, including \u03b5(\u2212I)=\u2212i, before propagating the S/T laws.",
+        "Put D_gamma(z)=cz+d and v_gamma=v_eta(gamma). On the upper half-plane the eta transformation law and eta nonvanishing show that A_gamma(z)=v_gamma^(-1) D_gamma(z)^(-1/2) is a multiplicative automorphy factor. Squaring the eta law, using (D_gamma(z)^(1/2))^2=D_gamma(z) and the ordinary denominator cocycle, shows that gamma maps to v_gamma^2 is a character.",
+        "For w in the lower half-plane, conjugate A_gamma(conj(w)). Since |v_gamma|=1, this is s_gamma v_gamma D_gamma(w)^(-1/2), where s_gamma=-1 exactly when c=0,d<0, and s_gamma=1 otherwise: only the negative-real principal-power cut prevents conjugation from commuting with the half power. Multiply this conjugated factor by the character v_gamma^(-2) and the integral-weight factor D_gamma(w)^(-1). The product is s_gamma v_gamma^(-1) D_gamma(w)^(-3/2), hence satisfies the full factor cocycle. Take lower boundary limits away from intermediate and product poles to obtain QuantumCocycleCondition for epsilon=s_gamma v_gamma^(-1). In particular epsilon(-I)=-i and epsilon(-I)j_(3/2)(-I,x)=1. This establishes consistency of the factor, not the analytic transformation of the Kontsevich function.",
         "Transformation of the non-holomorphic Eichler integral \u03b7* on H\u207b under S and T: the computation of nonholomorphic-eichler-transformation with the \u03b7-multiplier \u03c8 (QM.1/dedekind-eta-multiplier) in place of Shimura's, giving \u03b7* \u2212 \u03b5(\u03b3)\u00b7(\u03b7*|\u03b3) = r_{\u03b7,\u2212d/c} (eichler-period-integral for \u03b7).",
         "Agreement of expansions of \u03b7\u0303 and \u03b7* at every rational (eichler-asymptotic-agreement, whose L-function inputs are here the periodic L-functions L(2s \u2212 1, \u03a6_\u03be) of ZMod.LFunction, entire with the required vertical growth, in place of twisted-cusp-form-l-function).",
         "Pass to boundary values as in half-integral-eichler-quantum-modular, using nonholomorphic-eichler-nontangential-limit.",
@@ -29309,7 +29310,10 @@
         "QSeriesPartitionsAndMockModularForms:QM.5/quantum-modular-cocycle",
         "QSeriesPartitionsAndMockModularForms:QM.5/kontsevich-value-formula",
         "QSeriesPartitionsAndMockModularForms:QM.1/dedekind-eta-multiplier",
-        "mathlib:ZMod.LFunction"
+        "mathlib:ZMod.LFunction",
+        "QSeriesPartitionsAndMockModularForms:QM.1/eta-transformation-law",
+        "mathlib:ModularForm.eta_ne_zero",
+        "mathlib:UpperHalfPlane.denom_cocycle"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/QSeries/Kontsevich",
@@ -44488,7 +44492,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-19",
-    "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /13: The reader still states a global inverse eta multiplier, contradicting the corrected packet/Lean branch. Proved the two -I factor diagnostics directly from boundaryFactor without admissions; an exact finite check of 162340 admissible products finds no corrected-factor failure and 23072 naive-inverse failures. Read Zagier QMF p.2 and Examples 3-5 pp.10-12, Lawrence-Zagier pp.98-99 and rendered Strange identity section 6 theorem pp.958-959. Preserve the independent whole-plan objections and analytic/multiplier-extension gaps. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Independent bounded continuation by Codex, session codex-iuSTeN. Preserve the complete predecessor review in reviewHistory and its whole-plan objections. /13 still needs changes in the excluded reader, which states the naive inverse eta multiplier. Refined the authorized Kontsevich proof sketch: derive the full corrected lower-half-plane factor cocycle from eta nonvanishing/transformation, the character v_eta squared, conjugation across the negative-real cut and the integral-weight denominator factor; added the three direct prerequisites. This is a mathematical proof outline, not a Lean proof of modularity. The existing analytic and multiplier-extension gaps remain. Fresh validation and scope status are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md; inherited compiler and finite-experiment results retain their original attribution."
   },
   "reviewHistory": [
     {
@@ -50120,6 +50124,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
       "notes": "Independent bounded fix review by Codex, session codex-waB1gJ, following codex-sP1hgJ checkpoint PR #10426; complete predecessor review preserved in reviewHistory. Rechecked /13 against Zagier Quantum modular forms p.2 and Examples 3-5 pp.10-12, Lawrence-Zagier Theorems 1-2 pp.98-99 and the rendered Strange identity section 6 equations (38)-(39) pp.958-959. Added the -I central-element acceptance check and corrected/naive slash-factor examples to the suggested file. The packet and Lean already use the negative-real-cut correction; the reader still asserts a global inverse eta multiplier and requires synchronization outside the live issue scope. Earlier whole-plan objections and proof gaps remain. All seven queue packets pass check_blueprint with zero errors/warnings; all seven suggested files elaborate serially with only admitted-declaration warnings. This is not a new whole-plan audit or a claim of formalisation. Completion remains blocked by four packet pairs required by the queue but omitted from the live issue. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-19",
+      "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /13: The reader still states a global inverse eta multiplier, contradicting the corrected packet/Lean branch. Proved the two -I factor diagnostics directly from boundaryFactor without admissions; an exact finite check of 162340 admissible products finds no corrected-factor failure and 23072 naive-inverse failures. Read Zagier QMF p.2 and Examples 3-5 pp.10-12, Lawrence-Zagier pp.98-99 and rendered Strange identity section 6 theorem pp.958-959. Preserve the independent whole-plan objections and analytic/multiplier-extension gaps. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
     }
   ],
   "revisionDisposition": {
