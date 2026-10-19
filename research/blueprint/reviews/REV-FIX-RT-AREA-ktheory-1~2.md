@@ -1,6 +1,146 @@
 # Independent review: REV-FIX-RT-AREA-ktheory-1~2
 
-## Current continuation: Codex codex-FcWva7, 19 October 2026
+## Current continuation: Codex codex-KwyvX3, 19 October 2026
+
+Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6262919229)
+was confirmed by the bot on 19 October 2026 at 08:23:47 UTC. This session
+wrote none of the original fixes and took no second job.
+
+**Blocked checkpoint.** The live issue names seven packet/Lean pairs; the
+actual queue requires nineteen. Calling the unmodified
+`issues.deliverables_complete` on the actual queue job returns false for the
+twelve additional packets listed in the handoff. The seven existing area
+verdicts, including the negative K.1/K.6 verdicts, already satisfy that
+predicate individually. Historical seventeen/ten inventories in their review
+notes are obsolete; this continuation does not renew those mathematical
+verdicts.
+
+[WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
+names.” Expanded authorization was requested for all twelve additional
+packet/Lean pairs, but no authorizing response has arrived. Only this report
+and the handoff change. The new contribution below is a proof reconstruction
+for the specific supplier obstruction identified in finding /37, with the
+local-coefficient and homotopy-uniqueness steps made explicit. It is not a
+review stamp on an additional packet.
+
+### Finding /37: a general-target proof route with its missing interface exposed
+
+The finite-field consumer still attributes an equivalence to the weaker,
+abelian-target `H.3/plus-construction-universal-property`. The preceding
+diagnosis remains valid. The supplier already suggests a pushout argument
+without using it. The following reconstruction explains how that argument
+can establish the general-target factorization without first assuming that
+BGL(R)⁺ is an abelian space.
+
+Let f : X → Y be a plus construction relative to a perfect normal subgroup
+P of π₁X, with X and Y connected CW complexes. Let g : X → Z be a map to
+any connected CW complex such that g kills P on π₁. Then there is a map
+h : Y → Z with h f homotopic to g, and any two such h are freely homotopic.
+This is the contract of Weibel, *The K-book*, IV, Theorem 1.5(2), printed
+p. IV.5. His paragraph preceding the theorem delegates its proof to
+obstruction theory; the argument here instead uses the packet's proposed
+pushout and the public local-coefficient results below.
+
+1. Make the maps cellular and use the double mapping cylinder
+   W = Y ∪ (X × I) ∪ Z, attaching the ends by f and g. Equivalently,
+   glue the mapping cylinder M_f to Z along its domain-end X. This is a
+   homotopy pushout, with a CW inclusion i : Z → W and a map j : Y → W;
+   the cylinder supplies the homotopy j f ≃ i g. Ordinary gluing without
+   this cofibration replacement would not justify the argument.
+2. Write A = π₁X and B = π₁Z, choosing the connecting paths in the
+   cylinder. Van Kampen identifies π₁W with the group pushout of
+   B ← A → A/P. This is B modulo the normal closure of g_*(P), hence B
+   because g_*(P) is trivial. In particular i induces an isomorphism on
+   π₁. No assumption that B is abelian is used.
+3. For each local coefficient system L on W, relative excision for this
+   cylinder gluing identifies H_n(W,Z;L) with
+   H_n(M_f,X;L restricted along M_f → W). Acyclicity of f gives the
+   homology isomorphism with every coefficient system pulled back from
+   M_f ≃ Y, by `H.3/acyclic-map-homology-criterion`; the relative groups
+   therefore vanish in every degree. The long exact sequence gives that
+   i is a homology isomorphism for every L. This step requires excision
+   with local coefficients, not just excision with a constant coefficient
+   object in an abelian category.
+4. In particular take the regular π₁W-module ℤ[π₁W]. Its homology is the
+   integral homology of the corresponding cover. Because i induces an
+   isomorphism on π₁, the pulled-back cover over Z is its connected
+   universal cover. Thus the lift between the universal covers is an
+   integral homology isomorphism between simply connected CW complexes.
+   Homological Whitehead makes that lift a homotopy equivalence. Covering
+   theory then gives isomorphisms on all higher homotopy groups for i;
+   together with its π₁ isomorphism, ordinary Whitehead makes i a homotopy
+   equivalence. This uses only the simply connected homological Whitehead
+   theorem supplied by upstream AlgebraicTopology Stage 8.
+5. Choose a homotopy inverse r : W → Z and put h = r j. The cylinder
+   homotopy and r i ≃ id_Z give h f ≃ g.
+6. For uniqueness, suppose h₀ f ≃ g ≃ h₁ f. Each chosen homotopy defines
+   a map k_a : W → Z that restricts to id_Z on Z and to h_a on Y, by the
+   double mapping cylinder's defining property. Since k_a i = id_Z and
+   i is a homotopy equivalence, both k_a are homotopic to r. Restricting
+   these homotopies along j gives h₀ ≃ h₁. This proves free homotopy
+   uniqueness; it asserts no canonical based homotopy or literal equality.
+
+The precise remaining supplier interface is the local-coefficient excision
+isomorphism in step 3, natural under cylinder gluing and restriction of L.
+Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf),
+§3.H, printed p.333, gives relative local-coefficient homology, its long
+exact sequence and excision via subdivision. Example 3H.2, printed p.329,
+identifies regular-module homology with universal-cover homology. Theorem
+1.20, printed p.43, supplies van Kampen; Corollary 4.33 with its proof,
+printed pp.367–368, supplies the simply connected homological Whitehead
+step. I directly read these passages. The cylinder-gluing application and
+the uniqueness argument above are this session's reconstruction, rather
+than a claim that the source supplies a new ready-made packet node.
+
+Three discriminating controls for the future supplier repair are:
+
+- P = 1, f = id and g = id on B(S₃): the factor must be homotopic to the
+  identity although the target's fundamental group is nonabelian.
+- g = f with Z = Y: the factor is homotopic to id_Y. Applied to two plus
+  constructions relative to the same P in both directions, uniqueness
+  makes their comparison maps inverse equivalences under X.
+- Hatcher's Example 4.35, printed pp.368–369, must be rejected as an
+  acyclic input: S¹ → (S¹ ∨ Sⁿ) ∪_(2t−1) e^(n+1), n > 1, is a π₁
+  and integral homology isomorphism. Its universal-cover relative
+  differential is multiplication by 2t−1 over ℤ[t,t⁻¹]; its cokernel is
+  nonzero (evaluation t = 1/2 maps it onto ℤ[1/2]). Taking constant
+  coefficients replaces this differential by 1 and loses the obstruction.
+
+This route does not finish finding /37: the consumer must still import
+`H.3/plus-hspace-recognition` and `H.4/plus-hspace-block-sum`, discharge
+their hypotheses for F_q, and retain the separate gaps in
+`L.1/quillen-homology-iso`. General factorization alone is not the
+finite-field equivalence. The twelve packets remain outside the authorized
+edit scope, so no supplier gap was deleted and no extra verdict was issued.
+
+### Current-library boundary and validation
+
+I read the current upstream AlgebraicTopology and GrothendieckEulerForms
+READMEs, and inspected the relevant AlgebraicTopology suggested signatures.
+At current Tau Ceti commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`,
+`LocalCoefficientSystem`, its `pullback`, `TopPair.twistedChainComplex`,
+`TopPair.shortExact_twistedChainComplexShortComplex` and the three
+`TopPair.twistedHomology_exact_*` lemmas already exist. Their definitions
+and statements were read in `AlgebraicTopology/LocalCoefficient.lean` and
+`AlgebraicTopology/Singular/Twisted/Relative.lean`. These objects must be
+consumed, never planned again. The latter file does not exist at the older
+f790474 pin; the current-library observation is not a pinned-baseline claim.
+The actual `TopPair.isIso_singularHomologyMap_of_open_cover` in
+`AlgebraicTopology/Singular/Excision.lean` uses a single coefficient object;
+its statement does not supply step 3's variable local system. No declaration
+of twisted excision was found in the current tree. Do not infer that
+stronger theorem from the ordinary theorem's coefficient-category generality.
+
+All nineteen queue packets pass `scripts/check_blueprint.py` with the shared
+pinned declaration index: zero errors and zero warnings. The twelve extra
+checks are read-only structural checks. There are no standalone link-map or
+restructuring outputs. No Lean file changed or was compiled; inherited
+elaborations remain attributed below. `git diff --check` is part of the
+submission checks. The actual completion predicate remains false for the
+twelve missing area verdicts, independently of the mathematical observations
+above. Source hashes and the concrete resumption steps are in the handoff.
+
+## Previous continuation: Codex codex-FcWva7, 19 October 2026
 
 Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261679883)
 was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261682054).
