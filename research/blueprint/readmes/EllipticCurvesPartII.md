@@ -462,6 +462,26 @@ j-valuation cases, explicit eight-element subgroups, the exact minus-one
 prime fields. These are evidence for conventions and counterexamples, not
 proofs of the general planned theorems. Details and counts are in the handoff.
 
+## Independent review
+
+[REV-DESIGN-EllipticCurvesPartII](../reviews/REV-DESIGN-EllipticCurvesPartII.md)
+accepted this import index on 2026-10-19. The review independently checked
+the seven source mappings, all 37 imported statements and proof routes,
+the 16 pinned baseline declarations, all eight definition contracts and
+their 33 API items and 27 tests, and the 19 imported planets. No mathematical
+correction or new declaration was needed. The existing coordinate finding
+was confirmed at BS20, proof of Lemma 6.6, p.371; it remains owned by the
+canonical plan.
+
+The suggested file passed `lean-check` with no errors or warnings. Fresh
+finite arithmetic checks covered the halving criterion at 12,876 affine
+points, 616 corrected local halving tuples, and 4,160 twist-trace cases,
+including square scalars. These checks do not establish the general
+theorems or the owner's native prototype. The
+[review handoff](../handoff/REV-DESIGN-EllipticCurvesPartII.md) records the
+other regression counts and the remaining work. All four owner gaps and
+three supplier requests remain, and the merger is still a maintainer action.
+
 ## Sources and provenance
 
 BS20: Michael A. Bennett and Samir Siksek,
