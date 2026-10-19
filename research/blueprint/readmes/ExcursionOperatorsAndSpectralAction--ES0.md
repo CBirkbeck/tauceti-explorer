@@ -18,7 +18,7 @@ E is a nonarchimedean local field of residue characteristic p and residue cardin
 
 G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
 
-D denotes D_lis(Bun_G,Lambda); D^omega is its compact subcategory. Z^P=[Z^1(W_E/P,H)_Lambda/H]. End and functor categories in mathematical statements are enhanced unless explicitly called ordinary.
+D denotes D_lis(Bun_G,Lambda); D^omega is its compact subcategory. Z^P=[Z^1(W_E/P,H)_Lambda/H]. End and functor categories in mathematical statements are enhanced unless explicitly called ordinary. An eligible P is contained in wild inertia, open in wild inertia, normal in W_E and contained in ker(W_E -> Q).
 
 The center-order condition |pi_0 Z(G)| invertible is distinct from the DVR integral-action condition ell not dividing |pi_1(H)_tors|. The rational action has no latter restriction; the excursion route and ES5 work at excluded primes.
 
@@ -220,7 +220,7 @@ For a finite-wild compact Hecke category D^P, the LP2 algebra Exc(W,H) tensor La
 
 Use the name `excursion_algebra_to_bernstein_center` for this theorem.
 
-P is open normal in wild inertia, acts trivially on the pinned H action, and D^P consists of compact A whose entire Hecke family descends to W_E/P. W is a dense discrete tame discretization of W_E/P.
+P is contained in wild inertia, open in wild inertia and normal in W_E; it lies in the kernel of the pinned H action. D^P consists of compact A whose entire Hecke family descends to W_E/P. W is a dense discrete tame discretization of W_E/P.
 
 The construction proceeds as follows.
 
@@ -369,13 +369,13 @@ Enhanced Hecke-compatible center and finite-wild coordinate comparison.
 
 ## ES1:finite-ramification: Finite ramification and component decomposition
 
-For a compact object, choose one open normal wild subgroup that works for every representation and every finite leg set. The tensor-generator reduction is essential: selecting a different subgroup for each representation does not prove the statement. The proof uses relatively discrete condensed endomorphisms, compact inertia image and the incompatibility between an infinite pro-p image and a locally pro-ell automorphism group.
+For a compact object, choose one subgroup of wild inertia, open in wild inertia and normal in W_E, that works for every representation and every finite leg set. The tensor-generator reduction is essential: selecting a different subgroup for each representation does not prove the statement. The proof uses relatively discrete condensed endomorphisms, compact inertia image and the incompatibility between an infinite pro-p image and a locally pro-ell automorphism group.
 
 The resulting full subcategory D^P has all its Hecke images in the quotient-equivariant category. A universal homeomorphism of coordinate spectra transports the clopen component idempotents even where the rings are not isomorphic. Split these on compact objects and pass through the finite-wild union. The compact category is a direct sum of component categories; its Ind completion is their product. A compact object has finitely many components, while a noncompact product object can have unbounded wild conductor.
 
 ### Uniform finite wild ramification
 
-For every compact A in D_lis(Bun_G,Lambda), there is an open normal subgroup P of wild inertia, contained in the kernel of W_E->Q, such that for every finite set I and every V in Rep((H semidirect Q)^I), T_V(A) descends to an object equivariant for (W_E/P)^I. The subgroup depends on A and works simultaneously for all I,V.
+For every compact A in D_lis(Bun_G,Lambda), there is a subgroup P of wild inertia which is open in wild inertia and normal in W_E, contained in the kernel of W_E->Q, such that for every finite set I and every V in Rep((H semidirect Q)^I), T_V(A) descends to an object equivariant for (W_E/P)^I. The subgroup depends on A and works simultaneously for all I,V.
 
 Use the name `uniform_wild_subgroup` for this theorem.
 
@@ -384,7 +384,9 @@ The construction proceeds as follows.
 1. Use vanishing of the Lambda-homology of pro-p P^I to prove quotient-equivariant pullback fully faithful.
 2. Choose a tensor generator; a relatively discrete condensed endomorphism algebra has compact inertia image inside a finite Z_ell-module, whose automorphism group is locally pro-ell. Shrink P to kill its pro-p image.
 3. Tensor/fusion identifies independent leg actions; close under duals, subquotients and extensions as justified by exact representations, then exterior tensors and reindexing.
-4. Replace P by its normal core and intersect with the finite pinned-action kernel.
+4. Take the kernel of the finite wild-inertia image of the tensor-generator Weil action; this kernel is stable under W_E-conjugation. Intersect with ker(W_E->Q), preserving openness in wild inertia and normality in W_E, and apply quotient-equivariant full faithfulness for enhanced descent.
+
+Openness is relative to wild inertia; normality is in W_E, as required by the group quotient W_E/P.
 
 Quantifiers are for every compact A, there exists P, for all I,V. Test a compactly induced representation through its stratum embedding. A noncompact sum with unbounded wild conductors need not have any common P. The coefficient condition is ell != p, not the integral-action good-prime restriction.
 
@@ -435,7 +437,7 @@ For eligible P, define D^P as the full subcategory of compact D_lis objects A su
 
 Use the name `finiteWildCategory` for this definition.
 
-P is open normal in wild inertia and lies in the pinned action kernel.
+P is contained in wild inertia, open in wild inertia and normal in W_E, and lies in the pinned action kernel.
 
 The construction proceeds as follows.
 
