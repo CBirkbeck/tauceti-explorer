@@ -1,6 +1,7 @@
 import Mathlib.Combinatorics.Enumerative.Partition.Basic
 
-/-!+# Twisted automorphic descents: suggested arithmetic interface
+/-!
+# Twisted automorphic descents: suggested arithmetic interface
 
 The reader carries the full eight-layer mathematical plan. At the pinned libraries,
 automorphic Fourier images, residual packets and zeta operators lack their required
@@ -11,7 +12,7 @@ Theorems are proposed API signatures; examples check concrete computations.
 The README is definitive; this file suggests forms rather than an exhaustive
 checklist of declarations or a prescribed implementation.
 Source: Jiang–Zhang, Annals 191 (2020), (2.9), pp.755–756; (5.8)–(5.9), p.785;
-(6.7)–(6.8), pp.800–801. Statements are in our own words.
+(6.9), p.802. Statements are in our own words.
 -/
 
 namespace TauCeti.AutomorphicDescent

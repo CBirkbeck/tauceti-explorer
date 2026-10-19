@@ -74,8 +74,20 @@
       "sha256": "c016d9729f7f0cdca451e14a62015bd85cde861a9e07d3135e8feff071d0b15f",
       "readDate": "2026-10-19",
       "readSections": [
-        "Whole mathematical text §§1–7, printed pp.739–810, including the proof of each routed result. Appendix A, pp.810–816, and Appendix B, pp.816–823, read in full; problematic block formulas and dual conventions also inspected on rendered page images.",
-        "Bibliography pp.823–827 inspected for the descent, residual-classification, normalized-intertwiner and local nonvanishing inputs. Referenced originals are not claimed as read."
+        "Whole mathematical text §§1–7, printed pp.739–810, including the proof of each routed result. Appendix A, pp.810–817, and Appendix B, pp.817–820, read; dual conventions and the problematic block formulas checked on rendered pages. These are source checks, not a claim that the deferred proofs have been supplied.",
+        "Bibliography pp.820–827 inspected for descent, residual-classification, normalized-intertwiner and local nonvanishing inputs. Referenced originals are not claimed as read unless separately identified in the review report."
+      ]
+    },
+    {
+      "id": "Zhang2022",
+      "title": "Note on the unramified computation of Rankin-Selberg integrals for quasi-split classical groups of Bessel model case",
+      "authors": "Lei Zhang",
+      "edition": "RIMS Kôkyûroku 2230, note on the 2022 RIMS talk; eight-page public PDF",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2230-10.pdf",
+      "sha256": "3a0b766dd859ae0faf2f8a7816a5a3034bf90c85ad3bccf315d869617b35b710",
+      "readDate": "2026-10-19",
+      "readSections": [
+        "Eight-page note read on rendered images. Theorem 1.1, pp.2–3, states the unramified target; Proposition 2.1 p.4 states nonarchimedean analytic properties. Sections 3–5, pp.4–7, give the comparison strategy, with some notation and calculations deferred. This is partial evidence for G4, not its discharge."
       ]
     }
   ],
@@ -86,6 +98,13 @@
       "citation": "Annals of Mathematics 191 (2020), 739–827; published version of record, revised 26 November 2019",
       "read": "2026-10-19",
       "sha256": "c016d9729f7f0cdca451e14a62015bd85cde861a9e07d3135e8feff071d0b15f"
+    },
+    {
+      "kind": "public-note",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2230-10.pdf",
+      "citation": "Lei Zhang, RIMS Kôkyûroku 2230, eight-page note on the 2022 RIMS talk",
+      "read": "2026-10-19",
+      "sha256": "3a0b766dd859ae0faf2f8a7816a5a3034bf90c85ad3bccf315d869617b35b710"
     }
   ],
   "nodes": [
@@ -170,19 +189,24 @@
       },
       "api": [
         {
-          "name": "bessel_partition.parts",
+          "name": "besselPartition_parts",
           "role": "data",
           "statement": "The parts multiset is {2ell+1} plus d−2ell−1 ones."
         },
         {
-          "name": "bessel_partition.size",
+          "name": "besselPartition_sum",
           "role": "simp",
-          "statement": "The sum of the parts is d and the length is d−2ell."
+          "statement": "The sum of the parts is d."
         },
         {
-          "name": "bessel_partition.zero",
+          "name": "besselPartition_card",
+          "role": "simp",
+          "statement": "The number of parts is d−2ell."
+        },
+        {
+          "name": "besselPartition_zero",
           "role": "compatibility",
-          "statement": "At ell=0 the partition is the existing partition of d into ones, while its Bessel coefficient is restriction to the chosen subgroup."
+          "statement": "At ell=0 the partition is the existing partition of d into ones; the geometric Bessel coefficient is separately restriction to the chosen subgroup."
         }
       ],
       "tests": [
@@ -194,7 +218,7 @@
         {
           "name": "bessel_partition.zero_index",
           "kind": "degenerate",
-          "statement": "d=3, ell=0 gives [1,1,1]; its Bessel subgroup has dimension 2, although the nilpotent is zero."
+          "statement": "d=3, ell=0 gives [1,1,1]; its stabilizer defining space has dimension 2, although the nilpotent is zero. The algebraic group SO₂ has dimension 1 and U₂ has dimension 4."
         },
         {
           "name": "bessel_partition.even_boundary",
@@ -322,7 +346,7 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "§2.4, (2.13)–(2.16), Proposition 2.5, pp.758–759",
+          "locator": "§2.4, (2.13)–(2.14), Proposition 2.5, pp.758–759",
           "match": "The proposition identifies the stabilizer space and its two possible anisotropic dimensions. The target corrects its sign criterion."
         }
       ],
@@ -448,7 +472,7 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "§2.3, (2.8)–(2.10), pp.754–756; §6.2, (6.7)–(6.8), pp.800–801",
+          "locator": "§2.3, (2.8)–(2.10), pp.754–756; §6.2, (6.9), p.802",
           "match": "The source forms the span of the Fourier coefficients of an actual automorphic realization and its partition support. The target distinguishes that smooth image from its cuspidal Hilbert closure."
         }
       ],
@@ -505,7 +529,7 @@
           "how": "Its maximal nonzero Bessel module is cuspidal."
         },
         {
-          "where": "JZ2020 (6.8), p.801",
+          "where": "JZ2020 (6.9), p.802",
           "how": "The critical module of a residual realization is the twisted descent."
         }
       ],
@@ -592,7 +616,7 @@
           "how": "Specifies which branching module must have a generic summand."
         },
         {
-          "where": "JZ2020 (6.7), pp.800–801",
+          "where": "JZ2020 (6.7), p.801",
           "how": "Determines the smaller group and the critical descent index."
         }
       ]
@@ -1268,7 +1292,7 @@
       ],
       "title": "Standard local L-ratio",
       "kind": "definition",
-      "statement": "For π,σ with relevant generic global parameters, define the paper-convention local ratio ℒ_v(s;τ,π,σ)=L_v(s+1/2,τ×φ_π)/(L_v(s+1,τ×φ_σ)L_v(2s+1,τ,ρ)). Here ρ=∧² if H_X is even orthogonal, ρ=Sym² if it is odd orthogonal, and ρ=Asai^{(−1)^m} for U(X), where m=dim_E W, not floor(m/2). Use the standard local parameters for ramified and archimedean factors; this is not a definition by the gcd of these Bessel integrals. In the unitary branch the comparison of this paper-convention ratio with the actual bilinear integral and Shahidi root representation is an explicit, unresolved convention obligation G1.",
+      "statement": "For π,σ with relevant generic global parameters, define the (4.47) local ratio ℒ_v(s;τ,π,σ)=L_v(s+1/2,τ×φ_π∨)/(L_v(s+1,τ×φ_σ)L_v(2s+1,τ,ρ)). The published numerator uses the complex conjugate of the unitary representation π, whose parameter is φ_π∨. Also record the distinct (5.13) candidate ℒ_v^{13}, with φ_π in place of φ_π∨. These agree for self-dual orthogonal standard parameters; no such equality is assumed for unitary parameters. Here ρ=∧² if H_X is even orthogonal, ρ=Sym² if it is odd orthogonal, and ρ=Asai^{(−1)^m} for U(X), where m=dim_E W. Use standard local parameters for ramified and archimedean factors, not a gcd definition. G1 must reconcile the two printed candidates with the actual bilinear integral, its argument order, the normalizer and the descent output.",
       "hypotheses": [
         "Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified."
       ],
@@ -1292,8 +1316,8 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "§4.6, (4.47), pp.780–781; §5.1, (5.3)–(5.4), p.783",
-          "match": "Equation (4.47) defines the shifted tensor/type L-quotient through standard parameters. Its unitary comparison is not inferred merely from the printed notation."
+          "locator": "§4.6, (4.47), p.780; (4.48), p.781; §5.1, (5.3)–(5.4), p.783; §5.3, (5.13), p.787",
+          "match": "Rendered equation (4.47) has a conjugate π in its numerator, whereas rendered (5.13) has π without conjugation. The target records both, uses (4.47) for ℒ and retains their unitary comparison as G1. Equations (5.3)–(5.4) specify the type factor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1319,6 +1343,11 @@
           "name": "standard_ratio.outer_invariance",
           "role": "functoriality",
           "statement": "O-conjugate even-SO standard parameters yield equal meromorphic ratios."
+        },
+        {
+          "name": "standard_ratio.dual_argument",
+          "role": "relation",
+          "statement": "By the parameter duality identifications, ℒ_v^{13}(s;τ,π,σ)=ℒ_v(s;τ,π∨,σ). This changes the representation argument; it does not assert equality for fixed π."
         }
       ],
       "tests": [
@@ -1335,18 +1364,21 @@
         {
           "name": "standard_ratio.no_automatic_self_duality",
           "kind": "non-example",
-          "statement": "A conjugate-self-dual U_1 base-change character χ need not satisfy χ=χ∨; the tensor factor χ×χ cannot be replaced by χ×χ∨ without a comparison theorem."
+          "statement": "For a nonquadratic conjugate-self-dual U₁ base-change character χ and τ=χ, the (4.47) numerator is χ×χ∨ while the (5.13) numerator is χ×χ. They must not be identified merely from conjugate self-duality."
         }
       ],
       "uses": [
         {
           "where": "JZ2020 Theorem 4.8, p.781",
-          "how": "Specifies the intended spherical answer."
+          "how": "Specifies the spherical answer using the (4.47) ratio, not the distinct unitary candidate printed in (5.13)."
         },
         {
           "where": "JZ2020 Proposition 5.4, p.787",
           "how": "Normalizes the finite product at s=1/2."
         }
+      ],
+      "gapReferences": [
+        "G1: Unitary pairing and normalizer dictionary"
       ]
     },
     {
@@ -1357,7 +1389,7 @@
       ],
       "title": "Unramified Bessel integral calculation",
       "kind": "theorem",
-      "statement": "At an unramified finite place, with hyperspecial volume 1, the specified standard unramified additive character, normalized spherical Whittaker value 1, normalized section, and b_v(v_π,v_σ)=1, prove Z_v(s)=ℒ_v(s). Include all orthogonal forms and all unitary inert and split cases for both a>ell and a≤ell. The unitary statement is conditional on G1’s corrected convention comparison. This is a target proof: the published paper states it but sends its general calculation to an unpublished reference.",
+      "statement": "At an unramified finite place, with hyperspecial volume 1, the specified standard unramified additive character, normalized spherical Whittaker value 1, normalized section, and b_v(v_π,v_σ)=1, prove Z_v(s)=ℒ_v(s) with ℒ_v defined by the conjugated numerator of (4.47). Include all orthogonal forms and all unitary inert and split cases for both a>ell and a≤ell. The unitary statement is conditional on G1’s corrected convention comparison. This is a target proof: the published paper states it but defers its general calculation to [43], listed there as in preparation. The different numerator in (5.13) is not silently substituted.",
       "hypotheses": [
         "Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified."
       ],
@@ -1379,7 +1411,12 @@
         {
           "sourceId": "JZ2020",
           "locator": "Theorem 4.8 and (4.48), p.781; [43], bibliography p.823",
-          "match": "Theorem 4.8 states that normalized unramified data evaluate to that quotient and refers its general proof to unpublished work."
+          "match": "Theorem 4.8 and (4.48) state the normalized spherical formula for the (4.47) ratio and defer the general proof to [43]. This does not identify it with the differently printed (5.13) ratio in the unitary case."
+        },
+        {
+          "sourceId": "Zhang2022",
+          "locator": "Theorem 1.1, PDF pp.2–3; §§3–5, PDF pp.4–7",
+          "match": "A later public strategy for the unramified calculation: comparison with descent integrals and a normalized Whittaker–Shintani functional. It leaves some notation and case calculations deferred and does not supply all-place continuation or settle G1. It is supplementary evidence, not a replacement proof of the full target."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1391,6 +1428,7 @@
         "name": "Unramified Bessel formula"
       },
       "gapReferences": [
+        "G1: Unitary pairing and normalizer dictionary",
         "G4: Unpublished local continuation and spherical calculation"
       ]
     },
@@ -1402,7 +1440,7 @@
       ],
       "title": "Tempered local factors and ramified normalizers",
       "kind": "theorem",
-      "statement": "For bounded tempered local Weil–Deligne parameters in characteristic zero, their tensor, symmetric/exterior and correctly signed Asai L-factors are holomorphic and nonzero for Re(z)>0. For a local component of a generic unitary global GL or classical parameter, express its standard module as tempered blocks with paired exponents ±α, 0<α<1/2, and zero exponents. Deduce that the shifted numerator L_v(1,τ×π) and denominator factors L_v(3/2,τ×σ)L_v(2,τ,ρ) and the analogous normalizing factors used in Proposition 5.6 are finite and nonzero at s=1/2. Include archimedean Gamma factors and split unitary parameters, not just unramified determinants.",
+      "statement": "For bounded tempered local Weil–Deligne parameters in characteristic zero, their tensor, symmetric/exterior and correctly signed Asai L-factors are holomorphic and nonzero for Re(z)>0. For a local component of a generic unitary global GL or classical parameter, express its standard module as tempered blocks with paired exponents ±α, 0<α<1/2, and zero exponents. Deduce that the shifted numerator L_v(1,τ×π∨) for ℒ (and L_v(1,τ×π) for ℒ^{13}) and denominator factors L_v(3/2,τ×σ)L_v(2,τ,ρ) and the analogous normalizing factors used in Proposition 5.6 are finite and nonzero at s=1/2. Include archimedean Gamma factors and split unitary parameters, not just unramified determinants.",
       "hypotheses": [
         "Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified."
       ],
@@ -1425,7 +1463,7 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "§5.3, proof of Proposition 5.6, pp.789–790; Appendix B (B.5)–(B.7), pp.818–820",
+          "locator": "§5.3, proof of Proposition 5.6, pp.789–790; Appendix B (B.5)–(B.7), p.819",
           "match": "The proof of Proposition 5.6 and Appendix B reduce the normalizing factors to positive-half-plane tempered factors using strict generic unitary exponent bounds."
         }
       ],
@@ -1466,7 +1504,7 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "Proposition A.1, pp.811–816; (A.6), p.812; Proposition 5.5, pp.788–789",
+          "locator": "Proposition A.1, pp.811–817; (A.6), p.812; Proposition 5.5, pp.788–789",
           "match": "Proposition A.1 constructs local data giving a regular nonzero value at a prescribed complex point, and Proposition 5.5 applies it to finitely many bad places."
         }
       ],
@@ -1490,7 +1528,7 @@
       ],
       "title": "Pairing and contragredient dictionary",
       "kind": "comparison",
-      "statement": "For every relevant pair prove Q_ψ(f,g)=P_ψ(f,conj g), conj(P_ψ(f,g))=P_{ψ^(−1)}(conj f,conj g), and the corresponding local Hom identifications with smooth contragredients. For the actual Eisenstein induction compute, from its L-group action on the unipotent radical, which standard parameter or dual occurs in the cross factor of the normalizer. Match that computation to the argument order in Z, its spherical formula, the residue pairing and the parameter of the critical module. Orthogonal standard parameters are self-dual, with representation duality retained up to the appropriate even-SO outer action. In the unitary case construct a fully commuting dictionary: a bilinear pairing with π detects π∨ in the Fourier module, and L(s,τ×BC(π)) has the required self-pair pole only when τ≅BC(π)∨. A Hermitian statement must dualize its second argument explicitly. Establish whether the printed unitary chain is obtained by these transports or needs a corrected induction and dual output; this comparison is unresolved G1, not an assumed identity χ=χ∨.",
+      "statement": "For every relevant pair prove Q_ψ(f,g)=P_ψ(f,conj g), conj(P_ψ(f,g))=P_{ψ^(−1)}(conj f,conj g), and the corresponding local Hom identifications with smooth contragredients. For the actual Eisenstein induction compute, from its L-group action on the unipotent radical, which standard parameter or dual occurs in the cross factor of the normalizer. Match that computation to the argument order in Z, its spherical formula, the residue pairing and the parameter of the critical module. Orthogonal standard parameters are self-dual, with representation duality retained up to the appropriate even-SO outer action. In the unitary case construct a fully commuting dictionary: a bilinear pairing with π detects π∨ in the Fourier module, and the (4.47) numerator L(s,τ×BC(π)∨) has the full self-pair pole when τ≅BC(π), whereas the (5.13) candidate L(s,τ×BC(π)) requires τ≅BC(π)∨ for the same full pole. A Hermitian statement must track conjugation of its second argument explicitly; (5.6) and Theorem 5.3 already display conjugates inside Hermitian brackets, producing bilinear periods, and are not examples of wholly omitted conjugation. Establish whether the printed unitary chain is obtained by these transports or needs a corrected induction and dual output; this comparison is unresolved G1, not an assumed identity χ=χ∨.",
       "hypotheses": [
         "Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified."
       ],
@@ -1514,8 +1552,8 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "§4.1, (4.7)–(4.12), pp.766–767; (4.47), pp.780–781; (5.6), p.785; Theorems 5.3 and 5.7, pp.786,791; §6.2 and §7.1, pp.800–801,807–808",
-          "match": "These passages use both bilinear and Hermitian pairings while transferring parameters between zeta integrals, residues and descents. G1 records the unresolved full unitary comparison."
+          "locator": "§4.1, (4.7)–(4.12), pp.766–767; (4.47), p.780; (5.6), p.785; Theorem 5.3, p.786; (5.13), p.787; §5.5 and Theorem 5.7, p.791; §6.2, pp.801–803; §7.1, pp.807–808",
+          "match": "The integral (4.7) is bilinear; (5.6) and Theorem 5.3 explicitly conjugate the second argument of Hermitian brackets. The remaining discrepancy is the conjugated numerator in (4.47) versus the unconjugated numerator in (5.13), together with the dual transport in §5.5. G1 requires a full comparison rather than declaring all these periods Hermitian or silently deleting a printed bar."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1541,7 +1579,7 @@
       ],
       "proofSteps": [
         "Use the imported constant-term and normalized-intertwiner theory with the actual L/epsilon convention to bound pole order by r. The type-L-function pole theorem is an AL.3 request.",
-        "Take the leading coefficient in the meromorphic automorphic family and its right-translation span. The same actual realization is used for all sections."
+        "Take the one-variable leading Laurent coefficient using AS.0/operator-meromorphic, which supplies continuous coefficient operators after a common-denominator regularization, and then its right-translation span. The same actual realization is used for all sections. AS.2/residue-calculus supplies the automorphic setting, not an identification of an order-r pole with r successive residues."
       ],
       "acceptance": [
         "One variable with an order-r pole is not r successive residues in that variable.",
@@ -1549,6 +1587,7 @@
       ],
       "prerequisites": [
         "TwistedAutomorphicDescents:TAD.2/zeta-integral",
+        "AutomorphicSpectralTheory:AS.0/operator-meromorphic",
         "AutomorphicSpectralTheory:AS.2/residue-calculus",
         "AutomorphicSpectralTheory:AS.2/jiang-zhang-holomorphy",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles",
@@ -1614,7 +1653,7 @@
           "how": "Its Bessel coefficient is paired with the original cuspidal representation."
         },
         {
-          "where": "JZ2020 (6.8), p.801",
+          "where": "JZ2020 (6.9), p.802",
           "how": "Its critical Bessel module defines twisted descent."
         }
       ],
@@ -1768,7 +1807,7 @@
       ],
       "title": "Holomorphy at the critical point",
       "kind": "theorem",
-      "statement": "Assume a=N, k=a−j−1 for the prescribed relevant pair, τ=⊞τ_i distinct, a nonzero inner bilinear period P(π,σ), and the self-pair pole condition that L(s+1/2,τ×BC(π)) has order r at s=1/2. In particular this condition is met by τ≅BC(π)∨; for orthogonal standard parameters it is the usual τ=BC(π). Then for factorizable holomorphic smooth sections, Z_S^*(s) is holomorphic at s=1/2. There exist such data, retaining prescribed nonzero inner-period vectors after the allowed local choices, for which Z_S^*(1/2)≠0 and the inner global period is nonzero. The full statements require the actual spherical/root-factor convention bridge in the unitary case.",
+      "statement": "Assume a=N, k=a−j−1 for the prescribed relevant pair, τ=⊞τ_i distinct, a nonzero inner bilinear period P(π,σ), and the self-pair pole condition that L(s+1/2,τ×BC(π)∨) has order r at s=1/2. In particular this condition is met by τ≅BC(π), using the (4.47) ratio ℒ. Using the different (5.13) candidate would instead require the dual transfer in this pole calculation. Then for factorizable holomorphic smooth sections, Z_S^*(s) is holomorphic at s=1/2. There exist such data, retaining prescribed nonzero inner-period vectors after the allowed local choices, for which Z_S^*(1/2)≠0 and the inner global period is nonzero. The full statements require the actual spherical/root-factor convention bridge in the unitary case.",
       "hypotheses": [
         "Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified."
       ],
@@ -1778,7 +1817,7 @@
         "At archimedean places keep the holomorphic smooth section class and the continuous functional throughout."
       ],
       "acceptance": [
-        "The self-pair numerator uses the dual of BC(π) when it is not self-dual.",
+        "For the (4.47) numerator the second tensor argument is BC(π)∨ and the full self-pair choice is τ=BC(π); for (5.13) the choice is τ=BC(π)∨. Neither convention can be substituted without G1.",
         "The local choices produce a single global restricted tensor section and a nonzero inner period."
       ],
       "prerequisites": [
@@ -1801,6 +1840,7 @@
         "namespace": "TauCeti.AutomorphicDescent"
       },
       "gapReferences": [
+        "G1: Unitary pairing and normalizer dictionary",
         "G5: Appendix-A coordinate and archimedean verification"
       ]
     },
@@ -1812,7 +1852,7 @@
       ],
       "title": "Reciprocal nonvanishing of Bessel periods",
       "kind": "theorem",
-      "statement": "For a prescribed relevant pair (G,H), cuspidal realizations C_π,C_σ with generic parameters, j=(d−m−1)/2, a=N, and k=a−j−1≥0, induce from τ⊗σ^t with t=Ad(w_q^k). Suppose τ has the required distinct blocks and type, R_{τ,σ^t}≠0, and the numerator self-pair pole condition in normalized-holomorphy. Assume the actual local/global integral and normalizer comparisons of TAD.3–4. Then there are vectors with P_k(R_{τ,σ^t},π)≠0 if and only if there are vectors with P_j(π,σ)≠0, with the explicitly transported characters. In the orthogonal case τ is the standard transfer of π; the unitary bilinear version needs τ=BC(π)∨ and its corresponding parameter/type compatibility, whose transport to the printed same-parameter statement is G1. The forward implication does not need the self-pair pole condition; the reverse uses it and proves a nonzero residual coefficient as well.",
+      "statement": "For a prescribed relevant pair (G,H), cuspidal realizations C_π,C_σ with generic parameters, j=(d−m−1)/2, a=N, and k=a−j−1≥0, induce from τ⊗σ^t with t=Ad(w_q^k). Suppose τ has the required distinct blocks and type, R_{τ,σ^t}≠0, and the numerator self-pair pole condition in normalized-holomorphy. Assume the actual local/global integral and normalizer comparisons of TAD.3–4. Then there are vectors with P_k(R_{τ,σ^t},π)≠0 if and only if there are vectors with P_j(π,σ)≠0, with the explicitly transported characters. In the orthogonal case τ is the standard transfer of π; with ℒ from (4.47), the self-pair choice is also τ=BC(π) in the unitary case. Compatibility of this choice with the bilinear period, actual normalizer and output parameter is still G1; the distinct (5.13) candidate would give the dual choice and is not identified with ℒ. The forward implication does not need the self-pair pole condition; the reverse uses it and proves a nonzero residual coefficient as well.",
       "hypotheses": [
         "Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified."
       ],
@@ -2056,7 +2096,7 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "§5.2, (5.8)–(5.9), p.785; §6.2, (6.7)–(6.8), pp.800–801; §6.3, p.804",
+          "locator": "§5.2, (5.8)–(5.9), p.785; §6.2, (6.9), p.802; §6.3, p.804",
           "match": "The special-data and descent formulas relate the original Bessel index to the critical index in the enlarged group."
         }
       ],
@@ -2070,17 +2110,17 @@
       },
       "api": [
         {
-          "name": "critical_index.dimension",
+          "name": "critical_stabilizer_dimension",
           "role": "simp",
           "statement": "The critical stabilizer dimension is 2a+m−2k₀−1=d."
         },
         {
-          "name": "critical_index.partition",
+          "name": "critical_partition_parts",
           "role": "compatibility",
           "statement": "The critical Nat.Partition is [2k₀+1,1^d], with total 2a+m."
         },
         {
-          "name": "critical_index.boundary",
+          "name": "criticalIndex_minimal",
           "role": "characterisation",
           "statement": "If a=j+1 then k₀=0; the original d-dimensional form is a line complement in dimension d+1."
         }
@@ -2368,7 +2408,7 @@
       "sources": [
         {
           "sourceId": "JZ2020",
-          "locator": "§6.2, (6.7)–(6.8), pp.800–801; Conjecture 6.7, pp.801–802",
+          "locator": "§6.2, diagrams (6.7)–(6.8), p.801, definition (6.9), p.802, and Conjecture 6.7, pp.802–803",
           "match": "The source defines twisted descent as the critical Fourier module of the specified Eisenstein residue."
         }
       ],
@@ -2421,7 +2461,7 @@
       ],
       "uses": [
         {
-          "where": "JZ2020 Conjecture 6.7 and Theorem 7.1, pp.801–802,807–808",
+          "where": "JZ2020 Conjecture 6.7, pp.802–803, and Theorem 7.1, pp.807–808",
           "how": "Proposes and identifies concrete cuspidal modules."
         },
         {
@@ -3156,6 +3196,7 @@
       "stageId": "TwistedAutomorphicDescents:TAD.3",
       "status": "planned",
       "remaining": [
+        "G1: Unitary pairing and normalizer dictionary",
         "G3: Full relative Bruhat and open-cell comparison",
         "G4: Unpublished local continuation and spherical calculation",
         "G5: Appendix-A coordinate and archimedean verification",
@@ -3270,8 +3311,11 @@
   "gaps": [
     {
       "title": "G1: Unitary pairing and normalizer dictionary",
-      "detail": "Prove a commuting comparison between the bilinear zeta integral, Hermitian branching period, inverse additive character, contragredients, actual unipotent-radical L-factor and residue output. Test a nonquadratic U₁ character: Q(χ,χ) can be nonzero while P(χ,χ)=0. At split U₃ compute the two cross weights χ₁μ⁻¹ and μχ₂. The displayed self-pair tensor numerator has a pole for a dual pair, not for an arbitrary conjugate-self-dual nonselfdual pair. A mere replacement of one printed bar does not close the full chain. Conditional statements require this dictionary; no unqualified unitary reciprocity or recovery theorem is claimed.",
+      "detail": "Prove a commuting comparison between the bilinear zeta integral, Hermitian branching period, inverse additive character, contragredients, actual unipotent-radical L-factor and residue output. Rendered (4.47), p.780, has L(s+1/2,τ×conj π); rendered (5.13), p.787, instead has τ×π. With ℒ defined by (4.47), the full self-pair choice is τ=BC(π); for the (5.13) candidate it is τ=BC(π)∨. Do not identify these for nonselfdual unitary parameters. Equations (5.6) and Theorem 5.3 already put a conjugate in the second Hermitian argument, so absence of all conjugation is not the defect. Audit also §5.5 p.791, where the induction from conjugate σ and the central cross factor must be transported explicitly. Test a nonquadratic U₁ character: Q(χ,χ) can be nonzero while P(χ,χ)=0. At split U₃ compute the two cross weights χ₁μ⁻¹ and μχ₂. A replacement of one bar does not close this chain; unitary reciprocity and recovery remain conditional.",
       "neededBy": [
+        "TwistedAutomorphicDescents:TAD.4/normalized-holomorphy",
+        "TwistedAutomorphicDescents:TAD.3/spherical-calculation",
+        "TwistedAutomorphicDescents:TAD.3/standard-ratio",
         "TwistedAutomorphicDescents:TAD.4/pairing-dictionary",
         "TwistedAutomorphicDescents:TAD.4/pole-order",
         "TwistedAutomorphicDescents:TAD.4/reciprocity",
@@ -3303,7 +3347,7 @@
     },
     {
       "title": "G4: Unpublished local continuation and spherical calculation",
-      "detail": "The source assigns unrestricted local continuation and the full unramified formula to Jiang–Soudry–Zhang [43], still in preparation in its published bibliography. Supply the actual cell-integral estimates and all-place continuation of J_s and Z_v, then compute the spherical integral for split and inert unitary and nonsplit orthogonal cases with the convention test G1. No accessible full proof was found or read.",
+      "detail": "JZ2020 assigns unrestricted local continuation and the full unramified formula to Jiang–Soudry–Zhang [43], listed as in preparation in its published bibliography. The later public Zhang2022 note, Theorem 1.1 PDF pp.2–3 and §§3–5 pp.4–7, supplies a comparison strategy via descent integrals and Whittaker–Shintani functions; Proposition 2.1 p.4 states nonarchimedean analytic properties. It still defers notation and calculations and does not supply all-place continuation or resolve G1. Supply the actual cell-integral estimates and all-place continuation of J_s and Z_v, then the spherical calculation for split and inert unitary and nonsplit orthogonal cases with every normalization. No complete replacement proof was established in this review.",
       "neededBy": [
         "TwistedAutomorphicDescents:TAD.2/whittaker-transform",
         "TwistedAutomorphicDescents:TAD.3/local-integral",
@@ -3397,7 +3441,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §2.3 p.754, with the actual Witt-index convention of §2.1 pp.748–749: the nonsplit quasi-split even quadratic form has a two-dimensional anisotropic kernel. Use actual r rather than the dimension label n.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E2",
@@ -3412,7 +3461,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the orthogonal-sum equation in Proposition 2.5 p.759: isotropy of V_an plus Ey_{−κ} requires representation of the opposite value, hence y_κ.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E3",
@@ -3427,28 +3481,38 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at (2.13) p.758: central norm-one scalars stabilize the character by trivial conjugation but do not fix flag vectors. The specified pointwise subgroup H cannot be the whole unitary Levi stabilizer.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E4",
       "kind": "gap",
       "sourceId": "JZ2020",
-      "locator": "Published JZ2020, (4.7), (4.47), (5.6), Theorems 5.3,5.7, (6.10), §7.1; pp.766,780–781,785–786,791,801,807–808",
-      "printed": "Paraphrase: The bilinear integral and Hermitian branching pairings are linked while tensor parameters and duals are not transported consistently in the unitary chain.",
+      "locator": "Published JZ2020, (4.7) p.766, (4.47) p.780, (5.6) p.785, Theorem 5.3 p.786, (5.13) p.787, §5.5 and Theorem 5.7 p.791",
+      "printed": "Paraphrase: The numerator in (4.47) involves conjugate π, while (5.13) has π without conjugation; §5.5 also changes the inducing dual while using central cross factors.",
       "correction": "Supply G1: explicit conjugation, inverse-character and contragredient transports plus the actual normalizer factor. State each unitary consequence conditionally until they commute.",
-      "reason": "For a nonquadratic U₁ character χ, its Hermitian self-period is nonzero whereas its bilinear self-period integrates χ² and is zero. Conjugate self-duality does not imply self-duality.",
+      "reason": "The printed bars in (5.6) and Theorem 5.3 already convert their Hermitian brackets into bilinear periods. They do not reconcile the two distinct L-numerators. For a nonquadratic U₁ character the factors χ×χ∨ and χ×χ differ; conjugate self-duality is insufficient. The remaining normalizer and output transport must be verified.",
       "affects": "a stated result",
       "known": "Previously flagged in the paper extraction/review; checked against the published version in this design pass. No published correction located in the searches below.",
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with narrowed attribution after inspecting rendered pp.766,780,785–787,791. Both (5.6) and Theorem 5.3 explicitly contain conjugation. The actual unresolved discrepancy is (4.47) versus (5.13), and the dual/central-factor transport in §5.5. Corrected ℒ and its pole hypothesis to follow (4.47); no counterexample to the final theorem is asserted.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E5",
       "kind": "gap",
       "sourceId": "JZ2020",
-      "locator": "Published JZ2020, Theorem 4.8 pp.780–781 and reference [43] p.825",
+      "locator": "Published JZ2020, Theorem 4.8 pp.780–781 and reference [43] p.823",
       "printed": "Paraphrase: The full spherical proof and local theory are delegated to joint work still described as in preparation.",
       "correction": "Provide G4 or a permitted published replacement with all group and place cases.",
       "reason": "The accessible paper gives the target formula but not a complete general proof.",
@@ -3456,8 +3520,14 @@
       "known": "Previously flagged in the paper extraction/review; checked against the published version in this design pass. No published correction located in the searches below.",
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
-        "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+        "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs.",
+        "Independent review 2026-10-19: read the public Lei Zhang RIMS 2022 note, Theorem 1.1 pp.2–3, Proposition 2.1 p.4, and the comparison strategy pp.4–7; useful partial later evidence, not a complete all-place replacement. URL: https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2230-10.pdf"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof-availability obligation in this published source, Theorem 4.8 p.781 and [43] p.823. This does not assert that no subsequent proof exists. A replacement must be read and checked in all required cases before closing G4. The later public Zhang2022 note was read: it provides an unramified strategy, but not the full estimates and all-place proof required by G4.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E6",
@@ -3472,7 +3542,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Lemma 6.5 p.798 by substituting dim W=2r_W+1 and output dimension a into 2a+dim W−2k₀−1=a. This forces k₀=a/2+r_W.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E7",
@@ -3487,7 +3562,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at pp.798–799 by the stabilizer dimension formula and the number of weights in (6.6); the output dimension is a and the final character must be retained.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E8",
@@ -3502,7 +3582,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.796 by the displayed matrix acting as −1 on both coordinates of the selected vector; the flag action compensates in the character, rather than fixing the vector.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E9",
@@ -3517,13 +3602,18 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on rendered pp.813–814. Writing C for the upper-right coefficient before g*, multiplication of (A.12) and (A.13) on (E₁,0,E₂) gives C E₂=(I−g)E₁+YY′E₂. The rectangular Y notation must also be typed consistently. A restricted vanishing slice still needs proof; this is not a disproof of Proposition A.1.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E10",
       "kind": "gap",
       "sourceId": "JZ2020",
-      "locator": "Published JZ2020, Appendix B pp.816–823; use of generic normalized operators",
+      "locator": "Published JZ2020, Appendix B pp.817–820; use of generic normalized operators",
       "printed": "Paraphrase: The reduction invokes generic normalized-intertwiner results in a scope broader than their stated split nonarchimedean case.",
       "correction": "The AS.2 supplier must establish G6 for all places and inner forms, and prove nonvanishing of the composition rather than only its individual factors.",
       "reason": "Additional archimedean, unitary and inner-form cases and a kernel/image argument are needed.",
@@ -3532,7 +3622,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing scope/reduction proof, not a disproof of Proposition B.2. The cited CKPSS Theorem 11.1 p.225 treats nonarchimedean components of globally generic representations of split classical groups. Appendix B pp.817–820 needs extra all-place, inner-form and unitary arguments, as well as nonzero composition.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E11",
@@ -3547,7 +3642,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an all-member support obligation in Proposition 6.3 pp.794–795: minimality for the displayed residue cannot alone classify every residual packet member. The packet correctly separates the particular-residue argument and G7.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     },
     {
       "id": "TwistedAutomorphicDescents/E12",
@@ -3562,7 +3662,12 @@
       "searched": [
         "2026-10-19: publisher article and official PDF; arXiv 1508.03205 metadata/version record.",
         "Web searches for the exact title with erratum/correction, author names with corrigendum, and 1508.03205 with errata; existing PAPER-JIANG-ZHANG-20 and its independent review/red-team verdicts consulted as leads, not substitute proofs."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §7.2 p.809 using the index-zero stabilizer formula: in the even unitary regular case the smaller dimension is 1 and U₁ is not trivial. The chosen character and ambient dimension 2N+1 must remain.",
+        "by": "REV-DESIGN-TwistedAutomorphicDescents"
+      }
     }
   ],
   "ownership": {
@@ -4051,8 +4156,261 @@
     }
   ],
   "validation": {
-    "blueprint": "scripts/check_blueprint.py passed with zero errors and zero warnings against the machine pinned declaration index on 2026-10-19; all eight stages planned, no implementation claimed.",
-    "lean": "lean-check completed with exit 0 at the pinned shared build on 2026-10-19, with only nine expected proof-admission warnings. The 91-line file has two real-bodied light definitions, nine proposed theorem signatures and six checked examples. No absent carrier or data placeholder.",
+    "blueprint": "Independent review: scripts/check_blueprint.py passed with zero errors and zero warnings on 2026-10-19. All eight stages are planned and none closed; transitive gap lists were recomputed after correction. No implementation claimed.",
+    "lean": "Independent review: lean-check exited 0 at the pinned shared build on 2026-10-19; only nine expected proof-admission warnings. The 92-line file contains two real-bodied light definitions, nine proposed theorem signatures and six checked examples. No data placeholder or missing carrier is encoded.",
     "coverage": "All 60 routed items have explicit targets. Every definition/construction has at least three API items and discriminating tests."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-TwistedAutomorphicDescents",
+    "date": "2026-10-19",
+    "notes": "Independent source and supplier review of all 49 target-level nodes and 60 routed items; all six baseline statements confirmed at the two pins. Corrected the (4.47)/(5.13) numerator attribution and dependent pole conventions, locators, one defining-space test, arithmetic API names and the Laurent-coefficient prerequisite. All twelve source issues reviewed with qualified verdicts. Accepted as a complete planning pass with eleven explicit proof/source gaps and eleven supplier requests; no stage is proof-closed or implemented. Reader and Lean synchronized. Suggested file elaborated with only nine proof-admission warnings.",
+    "checked": [
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.0/group-coordinate-comparison",
+        "verdict": "verified",
+        "note": "§2.1 pp.748–750 and §4.1 pp.764–765 checked; retain actual Witt index, normalized modulus and hermitian supplier request. Existing group theory is imported."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.0/bessel-partition",
+        "verdict": "corrected",
+        "note": "(2.9) pp.755–756 checked. Corrected the index-zero test to dimension of the defining space, split size API into sum/card, and aligned arithmetic API names with Lean."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.0/rational-orbit-comparison",
+        "verdict": "verified",
+        "note": "§§2.3–2.4 pp.754–758 checked; rational-orbit comparison is explicitly a requested extension of algebraically closed orbit theory, including inverse character and index zero."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.0/vector-normal-form",
+        "verdict": "verified",
+        "note": "Lemma 2.4 pp.758–759 checked with the pinned extension/reflection statements. The ell<r and nondegenerate perpendicular hypotheses support determinant correction."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.0/stabilizer-witt-index",
+        "verdict": "corrected",
+        "note": "Proposition 2.5 pp.758–759 checked; corrected locator to (2.13)–(2.14). Sign and extra unitary central torus corrections remain explicit (E2/E3)."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.0/prescribed-ambient-datum",
+        "verdict": "verified",
+        "note": "Proposition 2.6 p.759, (4.30)–(4.34) pp.774–775 and (5.7)–(5.9) pp.785–786 checked. Uses an actual complement isometry and ambient-index normalizer twist."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.1/bessel-module",
+        "verdict": "corrected",
+        "note": "(2.8)–(2.10) pp.754–756 and (6.9) p.802 checked; corrected descent locator. Smooth image and Hilbert closure stay distinct, with G11 for its carrier."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.1/first-occurrence",
+        "verdict": "corrected",
+        "note": "Proposition 2.2 pp.756–757 checked; finite maximal nonzero index is conditional on existence of support, not genericity. Corrected diagram-use locator to p.801."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.1/first-cuspidal",
+        "verdict": "verified",
+        "note": "Proposition 2.2 p.756 checked. Tower constant-term calculation is G2, not established by the unread GRS citation; Hilbert carrier remains G11."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.1/multiplicity-free",
+        "verdict": "verified",
+        "note": "(2.10) p.756 and Theorem 6.6 pp.799–800 checked. Local uniqueness plus the specified discrete carrier support the target; G11 prevents an unjustified torus decomposition."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.1/generic-summand",
+        "verdict": "verified",
+        "note": "Conjecture 2.3 pp.756–757 and §7.1 pp.807–808 checked. Definition of a proposition with actual realization and Hermitian period, not a theorem or a Whittaker-genericity claim."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.2/zeta-integral",
+        "verdict": "verified",
+        "note": "(4.1)–(4.10) pp.764–767 checked; two argument orders and normalized induction retained. Noncuspidal inducing generality is an AS.2 request."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.2/abstract-factorization",
+        "verdict": "verified",
+        "note": "(4.11)–(4.13) pp.766–767 and §4.3 pp.769–770 checked. Uniqueness is limited to suitable irreducible induced modules and a global scalar remains."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.2/relative-bruhat",
+        "verdict": "verified",
+        "note": "Proposition 4.1 pp.767–768 and §4.7 pp.781–782 checked; omitted uniform and type-D calculations are precisely G3."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.2/open-cell",
+        "verdict": "verified",
+        "note": "§§4.2–4.5 pp.768–779 and Corollaries 4.4/4.6 checked; rational open-cell and cancellation proof requires G3, not merely a dimension argument."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.2/whittaker-transform",
+        "verdict": "verified",
+        "note": "(4.28)–(4.39) pp.774–776 and (A.4)–(A.5) pp.811–812 checked. Meromorphic continuation is G4; the actual character and section are retained."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.2/inner-datum",
+        "verdict": "verified",
+        "note": "Propositions 4.2/4.3 pp.774–776, (4.42)–(4.46) pp.778–779 and §4.7 checked. Both index ranges and the normalizer-twisted smaller datum remain explicit under G3."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.3/local-integral",
+        "verdict": "verified",
+        "note": "(4.40)–(4.41) pp.776–777, (4.45)–(4.46) p.779 and (A.1)–(A.3) pp.810–811 checked; all-place continuation remains G4, including continuous archimedean categories."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.3/euler-product",
+        "verdict": "verified",
+        "note": "Theorems 4.5/4.7 and Corollaries 4.4/4.6 pp.775–779 checked. Unramified normalizations and the global scalar are choices; inherited G3/G4 are not treated as solved."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.3/standard-ratio",
+        "verdict": "corrected",
+        "note": "Rendered (4.47) p.780 and (5.13) p.787 checked. Corrected ℒ to the conjugated numerator of (4.47), recorded the distinct candidate ℒ^{13}, added dual-argument API and a discriminating character test; G1 remains."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.3/spherical-calculation",
+        "verdict": "corrected",
+        "note": "Theorem 4.8 p.781 checked against rendered (4.47); corrected numerator attribution and added later public Zhang2022 as partial evidence. G1/G4 remain, with split and inert cases required."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.3/tempered-factors",
+        "verdict": "corrected",
+        "note": "Proposition 5.6 pp.789–790 and (B.5)–(B.7) p.819 checked. Corrected numerator convention and locator; strict exponent bounds and all-place factors are precise supplier requests."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.3/local-nonvanishing",
+        "verdict": "corrected",
+        "note": "Proposition A.1 pp.811–817 and Proposition 5.5 pp.788–789 checked; corrected proof page range. Rendered block multiplication confirms G5 rather than certifying its missing slice and archimedean proof."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.4/pairing-dictionary",
+        "verdict": "corrected",
+        "note": "Rendered (4.7), (4.47), (5.6), Theorem 5.3, (5.13) and §5.5 inspected. Corrected the attribution: explicit conjugations already occur in the periods; G1 now isolates the actual ratio and dual transports."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.4/leading-residue",
+        "verdict": "corrected",
+        "note": "Proposition 5.2 pp.782–784 and §6.1 p.792 checked. Added AS.0/operator-meromorphic as direct supplier for one-variable Laurent coefficients, distinct from successive residues; corrected descent-use locator."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.4/pole-order",
+        "verdict": "verified",
+        "note": "Proposition 5.2 and (5.1)–(5.4) pp.782–784 checked, including epsilon factors. Criterion uses the actual normalizer cross factor, all-place G6 and unitary G1."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.4/normalized-product",
+        "verdict": "verified",
+        "note": "(4.49) p.781 and (5.10)–(5.12) pp.786–787 checked; meromorphic quotient, completed product and normalization scalar retained. ℒ now explicitly means (4.47)."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.4/normalized-holomorphy",
+        "verdict": "corrected",
+        "note": "Propositions 5.4–5.6 pp.787–790 checked. Corrected self-pair choice to τ=BC(π) for (4.47), distinguished the dual choice for (5.13), and exposed G1 alongside G5."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.4/reciprocity",
+        "verdict": "corrected",
+        "note": "Theorem 5.3 p.786 and §5.4 p.790 checked on rendered periods. Corrected the stated self-pair choice to the (4.47) convention; full unitary argument/output transport remains conditional G1."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.4/period-central-value",
+        "verdict": "verified",
+        "note": "Theorem 5.7 pp.790–791 checked; functional-equation duals and normalizer-factor identification remain explicit through G1, rather than an assumed self-duality."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/residual-parameter",
+        "verdict": "verified",
+        "note": "§6.1 p.792, (6.3) p.795 and §6.3 pp.803–804 checked. Direct-sum rank, ν₂ tensor and parity are formal parameter data, not automorphic existence."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/residue-packet",
+        "verdict": "verified",
+        "note": "Proposition 6.1 pp.792–793 and §6.3 p.804 checked. Nongeneric inner-form packet membership is G7; generic classification is not silently extended."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/critical-index",
+        "verdict": "corrected",
+        "note": "(5.8)–(5.9) p.785 and (6.9) p.802 checked; corrected locator/API naming. The dimension identity retains j<a; six actual arithmetic examples compile in the suggested file."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/higher-vanishing",
+        "verdict": "verified",
+        "note": "Proposition 6.2 pp.793–794 checked; one good-place argument and determinant-one exceptions are G8, with no unread GRS theorem claimed as proved."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/critical-cuspidality",
+        "verdict": "verified",
+        "note": "Proposition 6.3 pp.794–795 checked. Particular residue and all-member assertion are distinguished; G2/G7 remain necessary."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/outer-stability",
+        "verdict": "verified",
+        "note": "Proposition 6.4 pp.795–797 checked; the vector is negated and the flag action compensates. Rational normalizer, rather than a line stabilizer alone, gives the outer action."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/critical-satake",
+        "verdict": "verified",
+        "note": "Lemma 6.5 pp.797–799 checked; corrected source indices and retained unitary final weight in the original plan. Full split/inert and determinant-one calculation remains G8."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/critical-structure",
+        "verdict": "verified",
+        "note": "Theorem 6.6 pp.799–800 checked; conditional classification, all-member support, all-good-place transfer and discrete carrier are visible as G1/G7/G8/G11."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.5/twisted-descent",
+        "verdict": "corrected",
+        "note": "Definition (6.9) p.802 and Conjecture 6.7 pp.802–803 checked; corrected their locators. Actual residual image is permitted to vanish and keeps rational orbit, twist and carrier."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.6/support-partitions",
+        "verdict": "verified",
+        "note": "§6.3 pp.803–804 checked; the two parity branches and total size agree with the critical-index identity and no rational orbit is inferred from partition alone."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.6/fourier-support-conjecture",
+        "verdict": "verified",
+        "note": "Conjecture 6.8 pp.803–804 checked; existential quantification over coherent relevant inner forms and σ is retained. This is a proposition, with unitary central-factor comparison G1."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.6/support-special-cases",
+        "verdict": "verified",
+        "note": "Proposition 6.9 p.805 and §7.2 p.809 checked; original GRS and anisotropic SO₂ witnesses remain G9, rather than being claimed as read."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.6/central-value-period",
+        "verdict": "verified",
+        "note": "Theorem 6.10 pp.805–806 checked. Nonzero support is an explicit hypothesis, followed by critical cuspidality and a discrete constituent, with inherited gaps."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.6/orthogonal-rank-one",
+        "verdict": "verified",
+        "note": "Corollary 6.11 pp.806–807 checked; anisotropic SO₂ witness and explicit orbit/normalization comparison stay G9, without importing a general global GGP conclusion."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.7/module-conjecture",
+        "verdict": "verified",
+        "note": "Principle 1.1 pp.743–744, Conjecture 6.7 pp.802–803 and §7.1 p.807 checked. The endpoint has one copy per distinct outer conjugate and asserts no conjectural axiom."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.7/recovery",
+        "verdict": "verified",
+        "note": "Theorem 7.1 pp.807–808 checked; Generic Summand and the precise local GGP proposition are hypotheses. Realization, dual/inverse-character transport, multiplicity and outer orbit remain separate."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.7/regular-case",
+        "verdict": "verified",
+        "note": "§7.2 and Corollary 7.2 p.809, diagram (6.8) pp.801–802 checked. Even unitary recovery retains actual U₁ and its character (E12); the original-witness comparison stays G9."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.7/subregular-summand",
+        "verdict": "verified",
+        "note": "Proposition 7.3 pp.809–810 checked. Split SO₃, unitary collapse/U₂ and dominance reductions are G10; the unread Jiang–Liu–Savin theorem is not asserted as a complete supplier."
+      },
+      {
+        "nodeId": "TwistedAutomorphicDescents:TAD.7/subregular-recovery",
+        "verdict": "verified",
+        "note": "Corollary 7.4 p.810 and §7.3 p.809 checked; recovery inherits the explicit generic-summand/orbit-raising and convention obligations, rather than treating subregular partitions as identical."
+      }
+    ]
   }
 }
