@@ -90,6 +90,11 @@ variable (ρ : Representation O Δ M) (χ : Δ →* Oˣ)
 theorem mem_chiComponent (x : M) : x ∈ chiComponent ρ χ ↔ ∀ δ, ρ δ x = (χ δ : O) • x :=
   Iff.rfl
 
+/-- Scalar injectivity is needed on the module itself, not merely on the coefficient ring. -/
+theorem chiComponent_trivial_eq_bot (δ : Δ)
+    (hδ : Function.Injective (fun x : M => ((χ δ : O) - 1) • x)) :
+    chiComponent (Representation.trivial O Δ M) χ = ⊥ := sorry
+
 variable [Fintype Δ]
 
 /-- **`L0/chi-sum`**: the twisted sum `∑_δ χ(δ)⁻¹ δ x`; for `M = Lˣ ⊗ O` written additively this
@@ -102,6 +107,12 @@ theorem chiSum_mem (x : M) : chiSum ρ χ x ∈ chiComponent ρ χ := sorry
 /-- API: on the `χ`-component, `chiSum` is multiplication by `|Δ|`. -/
 theorem chiSum_of_mem {x : M} (hx : x ∈ chiComponent ρ χ) :
     chiSum ρ χ x = (Fintype.card Δ : O) • x := sorry
+
+/-- API: equivariant linear maps commute with the finite character sum. -/
+theorem chiSum_map {N : Type*} [AddCommGroup N] [Module O N]
+    (ρ' : Representation O Δ N) (f : M →ₗ[O] N)
+    (hf : ∀ δ x, f (ρ δ x) = ρ' δ (f x)) (x : M) :
+    f (chiSum ρ χ x) = chiSum ρ' χ (f x) := sorry
 
 /-- **`L0/chi-sum-frobenius`**: if `v = u - ρ(φ⁻¹) u` then `chiSum v = (1 - χ(φ)⁻¹) chiSum u`.
 This is the algebra behind Rubin's `c_ℚ = ξ_{L,χ}^{1 - χ⁻¹(p)}`. -/
@@ -122,10 +133,15 @@ example {O M Δ : Type*} [CommRing O] [AddCommGroup M] [Module O M]
     [Group Δ] (ρ : Representation O Δ M) (x : M) :
     x ∈ chiComponent ρ 1 ↔ x ∈ ρ.invariants := sorry
 
-/-- A nontrivial character on a trivial representation has zero eigensubmodule. -/
+/-- For the coefficient ring as module, the domain hypothesis gives scalar injectivity. -/
 example {O Δ : Type*} [CommRing O] [IsDomain O] [Group Δ]
     (χ : Δ →* Oˣ) (δ : Δ) (hδ : (χ δ : O) ≠ 1) :
     chiComponent (Representation.trivial O Δ O) χ = ⊥ := sorry
+
+/-- Torsion rejects the false extension of the preceding test to arbitrary modules:
+every integral unit character reduces to the trivial character modulo 2. -/
+example {Δ : Type*} [Group Δ] (χ : Δ →* ℤˣ) :
+    chiComponent (Representation.trivial ℤ Δ (ZMod 2)) χ = ⊤ := sorry
 
 /-- Twisted sums are not normalized projections. -/
 example {Δ : Type*} [Group Δ] [Fintype Δ] (x : ℤ) :
