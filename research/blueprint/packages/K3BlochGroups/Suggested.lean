@@ -32,15 +32,19 @@ theorem comparison_apply (q : P ≃+ K) (h : P ≃+ H) (j : J ≃+ H)
 
 example : comparison (AddEquiv.refl ℤ) (AddEquiv.refl ℤ)
     (AddEquiv.refl ℤ) (AddEquiv.refl ℤ) 3 = 3 := by
-  sorry
+  rfl
 
 example (q : ZMod 5 ≃+ ZMod 5) (hq : ∀ x, q x = (2 : ZMod 5) * x) :
     comparison q (AddEquiv.refl (ZMod 5)) (AddEquiv.refl (ZMod 5))
       (AddEquiv.refl (ZMod 5)) 1 = 3 := by
-  sorry
+  change q.symm 1 = 3
+  apply q.injective
+  rw [q.apply_symm_apply, hq]
+  decide
 
-example (q : P ≃+ K) (h : P ≃+ H) (j : J ≃+ H) (b : J ≃+ S) (x : K) :
-    comparison q h j b x = 0 ↔ x = 0 := by
+/-- The comparison detects zero; its injectivity is essential. -/
+theorem comparison_eq_zero (q : P ≃+ K) (h : P ≃+ H) (j : J ≃+ H)
+    (b : J ≃+ S) (x : K) : comparison q h j b x = 0 ↔ x = 0 := by
   sorry
 
 /-- The trivial integral coefficient representation; this is Mathlib's carrier. -/
@@ -67,19 +71,27 @@ theorem eval3_surjective (c : A ≃+ groupHomology (integralRep G) 3) :
   sorry
 
 example (c : A ≃+ groupHomology (integralRep G) 3) : eval3 c 0 = 0 := by
-  sorry
+  exact map_zero _
 
 example (c : A ≃+ groupHomology (integralRep G) 3)
     (w : (Fin 4 → G) →₀ ℤ) :
     eval3 c (groupHomology.toCycles (integralRep G) 4 3 w) = 0 := by
-  sorry
+  change c.symm ((groupHomology.π (integralRep G) 3)
+    (groupHomology.toCycles (integralRep G) 4 3 w)) = 0
+  have hz := congrArg (fun f => f w)
+    ((groupHomology.inhomogeneousChains (integralRep G)).toCycles_comp_homologyπ 4 3)
+  change (groupHomology.π (integralRep G) 3)
+    (groupHomology.toCycles (integralRep G) 4 3 w) = 0 at hz
+  rw [hz, map_zero]
 
-example : groupHomology.inhomogeneousChains.d (integralRep G) 3
+/-- Identity entries survive in the unnormalised bar complex: d₄[1|1|1|1]=[1|1|1]. -/
+theorem bar_four_identity_boundary : groupHomology.inhomogeneousChains.d (integralRep G) 3
     (Finsupp.single (fun _ : Fin 4 => (1 : G)) 1) =
       Finsupp.single (fun _ : Fin 3 => (1 : G)) 1 := by
   sorry
 
-example (g : G) (hg : g ≠ 1) :
+/-- The chain [g|1|1] is not a cycle when g is nonidentity. -/
+theorem bar_noncycle (g : G) (hg : g ≠ 1) :
     groupHomology.inhomogeneousChains.d (integralRep G) 2
       (Finsupp.single (fun i : Fin 3 => if i = 0 then g else 1) 1) ≠ 0 := by
   sorry
@@ -88,11 +100,13 @@ end K3Homological
 
 /-! ## Layer 2: Decomposable and indecomposable K₃ -/
 
-example : (24 : ZMod 48) ≠ 0 ∧
+/-- The number-field model retains a nonzero decomposable element in the kernel. -/
+theorem rational_quotient_kernel : (24 : ZMod 48) ≠ 0 ∧
     ZMod.castHom (show 24 ∣ 48 by decide) (ZMod 24) (24 : ZMod 48) = 0 := by
   sorry
 
-example : ¬ ∃ s : ZMod 24 →+ ZMod 48,
+/-- The rational K₃ quotient model has no additive section. -/
+theorem rational_quotient_nonsplit : ¬ ∃ s : ZMod 24 →+ ZMod 48,
     (ZMod.castHom (show 24 ∣ 48 by decide) (ZMod 24)).toAddMonoidHom.comp s =
       AddMonoidHom.id (ZMod 24) := by
   sorry
@@ -127,27 +141,24 @@ theorem fiveTermRaw_oneSub (x y : F) (h : Admissible x y)
   sorry
 
 example : rawSymbol (0 : F) = 0 ∧ rawSymbol (1 : F) = 0 := by
-  sorry
+  simp [rawSymbol]
 
 example : rawSymbol (2 : ℚ) ≠ 0 := by
-  sorry
+  simp [rawSymbol, FreeAbelianGroup.of_ne_zero]
 
 example (x : F) : ¬ Admissible x x ∧ ¬ Admissible x 1 := by
-  sorry
+  simp [Admissible]
 
 example : Admissible (2 : ℚ) 3 := by
-  sorry
+  norm_num [Admissible]
 
 example (h : Admissible (2 : ℚ) 3) :
     fiveTermRaw (2 : ℚ) 3 h = rawSymbol 2 - rawSymbol 3 + rawSymbol (3 / 2) -
       rawSymbol (3 / 4) + rawSymbol (1 / 2) := by
-  sorry
+  norm_num [fiveTermRaw]
 
-example : ((1 - (2 : ℚ)) / (1 - 3),
-    (1 - (2 : ℚ)⁻¹) / (1 - (3 : ℚ)⁻¹), (3 : ℚ) / 2) = (1/2, 3/4, 3/2) := by
-  sorry
-
-example : padicValRat 2 (3 : ℚ) * padicValRat 3 (1 - (3 : ℚ)) -
+/-- The ordered valuation pairing sends the boundary of [3] to −1 (§3.5). -/
+theorem blochBoundary_valuation_sign : padicValRat 2 (3 : ℚ) * padicValRat 3 (1 - (3 : ℚ)) -
     padicValRat 3 (3 : ℚ) * padicValRat 2 (1 - (3 : ℚ)) = -1 := by
   sorry
 
@@ -165,12 +176,6 @@ theorem cyclic_seven_power_two
       ∀ z, e (groupHomology.map (powMonoidHom 2) φ 3 z) = 4 * e z := by
   sorry
 
-example : (2 : ZMod 7)^2 = 4 ∧ (2 : ZMod 7)^2 ≠ 2 := by
-  sorry
-
-example : (1 : ZMod 5) * (-1) = -1 := by
-  sorry
-
 /-! ## Layer 5: Finite fields and arithmetic examples -/
 
 /-- The prime-to-characteristic part of unstable SL₂ homology is cyclic of order q²−1.
@@ -182,12 +187,6 @@ theorem finite_sl2_localized_homology (F : Type) [Field F] [Fintype F]
         (Matrix.SpecialLinearGroup (Fin 2) F)
         (Localization (Submonoid.powers (p : ℤ)))) 3 ≃+
       ZMod (Fintype.card F ^ 2 - 1)) := by
-  sorry
-
-example : (5^2 - 1 : ℕ) = 24 ∧ 120 / 3 = (40 : ℕ) ∧ 24 / 3 = (8 : ℕ) := by
-  sorry
-
-example : (4^2 - 1 : ℕ) = 15 ∧ 30 / 5 = (6 : ℕ) ∧ 15 / 5 = (3 : ℕ) := by
   sorry
 
 /-! ## Layer 6: Certificates and coefficient comparisons -/
@@ -223,23 +222,33 @@ theorem rootCoefficient_denominator_independent (δ : P →+ W) (x : P) (m l : �
 
 example (h : (Int.castAddHom (ZMod 2)) (2 • (1 : ℤ)) = 0) :
     (rootMultiple (Int.castAddHom (ZMod 2)) 1 2 h : ℤ) = 2 := by
-  sorry
+  rfl
 
 example (δ : P →+ W) (x : P) (h : δ (0 • x) = 0) :
     rootMultiple δ x 0 h = 0 := by
-  sorry
+  apply Subtype.ext
+  exact zero_nsmul x
 
 example (h : (Int.castAddHom (ZMod 2)) (2 • (1 : ℤ)) = 0)
     (u : (ZMod 5)ˣ) (hu : (u : ZMod 5) = 2) :
     rootCoefficient (Int.castAddHom (ZMod 2)) 1 2 h u hu =
       rootMultiple (Int.castAddHom (ZMod 2)) 1 2 h ⊗ₜ[ℤ] (3 : ZMod 5) := by
-  sorry
+  unfold rootCoefficient
+  congr 1
+  rw [show u = (⟨2, 3, by decide, by decide⟩ : (ZMod 5)ˣ) by
+    apply Units.ext
+    exact hu]
+  decide
 
 example (δ : P →+ W) (m : ℕ) (h : δ (m • (0 : P)) = 0)
     (u : Rˣ) (hu : (u : R) = (m : R)) : rootCoefficient δ 0 m h u hu = 0 := by
-  sorry
+  have hz : rootMultiple δ 0 m h = 0 := by
+    apply Subtype.ext
+    exact nsmul_zero m
+  simp [rootCoefficient, hz]
 
-example : (∃ t : (Int.castAddHom (ZMod 2)).ker ⊗[ℤ] ZMod 2,
+/-- Tensoring a kernel inclusion with a nonflat ring can destroy injectivity (§6.4). -/
+theorem nonflat_kernel_control : (∃ t : (Int.castAddHom (ZMod 2)).ker ⊗[ℤ] ZMod 2,
     t ≠ 0 ∧ TensorProduct.map (Int.castAddHom (ZMod 2)).ker.subtype.toIntLinearMap
       (LinearMap.id : ZMod 2 →ₗ[ℤ] ZMod 2) t = 0) ∧ ¬ IsUnit (2 : ZMod 2) := by
   sorry
@@ -266,22 +275,26 @@ theorem SuslinLift.unique_difference (q : K →+ B) (i : T →+ K)
 
 example : Fintype.card
     (SuslinLift (ZMod.castHom (show 6 ∣ 24 by decide) (ZMod 6)).toAddMonoidHom 1) = 4 := by
-  sorry
+  decide
 
-example : ¬ ∃ s : ZMod 6 →+ ZMod 24,
+/-- The finite-field torsor model has four lifts but no additive choice of lifts. -/
+theorem finite_lift_nonsplit : ¬ ∃ s : ZMod 6 →+ ZMod 24,
     (ZMod.castHom (show 6 ∣ 24 by decide) (ZMod 6)).toAddMonoidHom.comp s =
       AddMonoidHom.id (ZMod 6) := by
   sorry
 
 example (q : K →+ B) (i : T →+ K) (hi : ∀ t, q (i t) = 0)
     (β : B) (a : SuslinLift q β) : SuslinLift.translate q i hi β a 0 = a := by
-  sorry
+  apply Subtype.ext
+  simp [SuslinLift.translate]
 
 example (q : K →+ B) (i : T →+ K) (hi : ∀ t, q (i t) = 0)
     (β : B) (a : SuslinLift q β) (s t : T) :
     SuslinLift.translate q i hi β (SuslinLift.translate q i hi β a t) s =
       SuslinLift.translate q i hi β a (s + t) := by
-  sorry
+  apply Subtype.ext
+  simp only [SuslinLift.translate, map_add]
+  abel
 
 end Lifts
 
@@ -309,13 +322,17 @@ theorem BarLiftCertificate.exists_of_surjective
 
 example (ψ : groupHomology (integralRep G) 3 →ₗ[ℤ] B) :
     ∃ c : BarLiftCertificate ψ 0, BarLiftCertificate.chain ψ 0 c = 0 := by
+  refine ⟨⟨0, by simp⟩, ?_⟩
+  exact map_zero _
+
+/-- The trivial group cannot provide a lift of a nonzero Bloch value. -/
+theorem BarLiftCertificate.trivial_nonzero [Subsingleton G]
+    (ψ : groupHomology (integralRep G) 3 →ₗ[ℤ] B) (β : B) (hβ : β ≠ 0) : IsEmpty (BarLiftCertificate ψ β) := by
   sorry
 
-example [Subsingleton G] (ψ : groupHomology (integralRep G) 3 →ₗ[ℤ] B)
-    (β : B) (hβ : β ≠ 0) : IsEmpty (BarLiftCertificate ψ β) := by
-  sorry
-
-example [Subsingleton G] (ψ : groupHomology (integralRep G) 3 →ₗ[ℤ] B) :
+/-- A nonzero boundary and zero are distinct chain certificates for the same value. -/
+theorem BarLiftCertificate.trivial_boundary [Subsingleton G]
+    (ψ : groupHomology (integralRep G) 3 →ₗ[ℤ] B) :
     ∃ c : BarLiftCertificate ψ 0,
       BarLiftCertificate.chain ψ 0 c = Finsupp.single (fun _ : Fin 3 => (1 : G)) 1 ∧
       BarLiftCertificate.chain ψ 0 c ≠ 0 := by
@@ -348,16 +365,13 @@ theorem finiteCoefficientBlochEquiv_on_quotient {n : ℕ} {L : Type*}
 
 example (c r : ZMod 5 ≃+ ZMod 5) (hc : ∀ x, c x = (2 : ZMod 5) * x)
     (hr : ∀ x, r x = (3 : ZMod 5) * x) : finiteCoefficientBlochEquiv c r 1 = 4 := by
-  sorry
+  apply r.injective
+  change r (r.symm (c 1)) = r 4
+  rw [r.apply_symm_apply, hc, hr]
+  decide
 
 example (c r : ZMod 1 ≃+ ZMod 1) : finiteCoefficientBlochEquiv c r 0 = 0 := by
-  sorry
-
-example : ¬ Nonempty (ZMod 1 ≃+ ZMod 5) := by
-  sorry
-
-example : (2 : ZMod 31)^5 = 1 ∧ (2 : ZMod 31) ≠ 1 := by
-  sorry
+  exact map_zero _
 
 end FiniteCoefficients
 
@@ -378,10 +392,10 @@ configComplex, projective coinvariants, rank-two spectral sequence and psiGL2;
 generalPositionComplex, precyclic rotations, cyclicComplexD, psiPrime and psiGL3;
 monomial plus-space maps, pi3Ind, enhancedTor, enhancedRootsOfUnity,
 closureTorsionDetector and the cyclic Chern/Bockstein normalization;
-finite indecomposable quotient, finiteStabilization, finiteBlochHom, finiteK3Bloch,
+finite indecomposable quotient, algebraicClosureStabilization, finiteStabilization, finiteBlochHom, finiteK3Bloch,
 cartanEmbedding and realRogersHom; FiveTermCertificate, BoundaryCertificate,
 ofData, ofBoundaryCertificate, rootClassMod, rootClassLoc and rootClassPadic;
 field-specific SuslinLift and BarLiftCertificate maps, genuine K₃(F;ℤ/n), the étale
-coefficient Bloch group and their finite Chern comparison. -/
+coefficient Bloch group, finiteChernIndEquiv and their finite Chern comparison. -/
 
 end TauCetiRoadmap.K3BlochGroups
