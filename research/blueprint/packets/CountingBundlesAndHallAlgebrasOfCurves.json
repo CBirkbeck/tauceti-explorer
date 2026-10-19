@@ -172,6 +172,18 @@
       "readSections": [
         "Selected §5 pp.19–21, §6 pp.23–26, §7 pp.29–31: admissibility interfaces and integral HLV conclusion. The graph-combinatorial proof in earlier sections is not fully read; G8 retains it as an imported prerequisite."
       ]
+    },
+    {
+      "id": "WII",
+      "title": "La conjecture de Weil : II",
+      "authors": "Pierre Deligne",
+      "edition": "Publications Mathématiques de l’IHÉS 52 (1980), 137–252; version of record",
+      "url": "https://www.numdam.org/item/PMIHES_1980__52__137_0.pdf",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3.5.1–3.5.3, pp.210–211, to confirm the equidistribution reference in S16 Appendix B. The proof inputs in earlier sections were not audited for closure."
+      ]
     }
   ],
   "nodes": [
@@ -663,7 +675,7 @@
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:SF.1",
-        "ReductiveGroupsPartII:RG2.3"
+        "ReductiveGroupsPartII:RG2.3/lang-theorem"
       ],
       "sources": [
         {
@@ -706,7 +718,7 @@
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/krull-schmidt",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/endomorphism-radical",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality",
-        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.3/lang-theorem",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.0/indecomposable-counts"
       ],
       "sources": [
@@ -1447,8 +1459,13 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.1, p.315; Schiffmann 2010 §1.2, pp.2–3",
-          "match": "Compare two-step exact-sequence diagrams and their homotopy fibres; hereditary Coh(X) eliminates Ext². The target fixes the conventions and boundary cases stated above."
+          "locator": "§4.1, p.316",
+          "match": "The extension/Hom coproduct and automorphism-weighted Green pairing are stated here; completion and tensor twist must be retained."
+        },
+        {
+          "sourceId": "HN10",
+          "locator": "§1.2–1.3, pp.2–3",
+          "match": "Supplies the completed curve Hall coproduct and twisted bialgebra convention; the Green pairing itself is read in S16 §4.1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1574,8 +1591,8 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§3.3, equation (3.3), p.315",
-          "match": "Expand the ordered Hall product by successive subobjects. The target fixes the conventions and boundary cases stated above."
+          "locator": "§4.2, equation (4.1), p.316",
+          "match": "The ordered Hall product paired with the total-sheaf cutoff is the flag mass, multiplied by v to the sum of ordered Euler pairings."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1654,7 +1671,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.3–4.5, pp.317–319",
+          "locator": "§4.3, pp.317–318; §4.4, p.319",
           "match": "Package homogeneous characteristic coefficients as formal distributions. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -1743,7 +1760,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.4, Theorem 4.2(i), p.318",
+          "locator": "§4.3, Theorem 4.2(ii), p.318",
           "match": "Compute the torsion modification correspondence on bundles. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -1787,7 +1804,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.4, Theorem 4.2(ii)–(iii), p.318",
+          "locator": "§4.3, Theorem 4.2(iii), p.318",
           "match": "Expand Δ′ by extensions and apply the Euler form to fix q-powers. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -1828,7 +1845,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.4, Theorem 4.2(iv), p.318; §1.3, p.303",
+          "locator": "§4.3, Theorem 4.2(iv), p.318; §1.3, p.303",
           "match": "Use Harder’s rank-one Eisenstein residue theorem. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -1872,7 +1889,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.5, equation (4.4), p.319",
+          "locator": "§4.4, equation (4.4), p.319",
           "match": "Use the unique HN split into negative-slope quotient and nonnegative-slope subobject. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -1912,8 +1929,13 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.6, pp.319–320; Schiffmann 2010 §1.3, p.3",
+          "locator": "§4.5, pp.319–320",
           "match": "Take the generated subalgebra in the imported function space. The target fixes the conventions and boundary cases stated above."
+        },
+        {
+          "sourceId": "HN10",
+          "locator": "§1.3, p.3",
+          "match": "Defines the spherical subalgebra from torsion and rank-one generators; the source uses the opposite Euler normalization, which must be translated."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2001,8 +2023,13 @@
       "sources": [
         {
           "sourceId": "HN10",
-          "locator": "Schiffmann 2010, Theorem 3.1, pp.5–7; S16 §4.6, p.319",
-          "match": "Apply the source’s induction on rank and HN polygon to recover semistable characteristics from rank-one generators. The target fixes the conventions and boundary cases stated above."
+          "locator": "Theorem 3.1 and its proof, pp.5–8; Corollary 3.5, p.8",
+          "match": "Harder–Narasimhan induction puts the semistable characteristic functions in the completed spherical algebra and yields the coherent cutoff statement."
+        },
+        {
+          "sourceId": "S16",
+          "locator": "§4.5, Theorem 4.3, p.319",
+          "match": "Uses the spherical HN-membership theorem in the v²=q convention of this roadmap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2044,8 +2071,8 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.6, Theorem 4.4, pp.319–320; Schiffmann–Vasserot §1.11, pp.13–14",
-          "match": "Use the shuffle presentation to construct the torus coefficient algebra and its torsion-free generated form. The target fixes the conventions and boundary cases stated above."
+          "locator": "§4.5, Theorem 4.4, pp.319–320; §4.6, p.321",
+          "match": "States the generic spherical form and its uniqueness argument; the comparison with SV12, invariant coefficients and square-root descent remains G3."
         },
         {
           "sourceId": "SV12",
@@ -2098,7 +2125,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§4.6, Corollaries 4.5–4.6, pp.320–321; Theorem 1.1, p.299",
+          "locator": "§4.5, Corollaries 4.5–4.6, pp.320–321; §4.6, p.321; Theorem 1.1, p.299",
           "match": "Express every fixed-cutoff flag mass by spherical pairings and apply generic-form. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -2232,7 +2259,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§5.2, Proposition 5.1, pp.322–324",
+          "locator": "§5.1, Proposition 5.1 and proof, pp.321–323",
           "match": "Insert E_r=E_r^vec E_0(q^−r/2 z) in the ordered product. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -3084,12 +3111,13 @@
       ],
       "title": "Canonical Higgs sheaves and stability",
       "kind": "definition",
-      "statement": "A canonical Higgs sheaf is (F,θ:F→F⊗Ω_X), with morphisms commuting with θ. For rank r>0 its slope is d/r. It is semistable if every nonzero proper θ-invariant coherent subsheaf W has μ(W)≤μ(F), and stable if all such inequalities are strict, assigning torsion slope +∞. Saturated subsheaves suffice for bundles. Positive-rank semistable Higgs sheaves are bundles. This category has HN filtrations by Higgs subsheaves; its Ext groups are hypercohomology of the two-term Hom complex and need not vanish in degree 2.",
+      "statement": "A canonical Higgs sheaf is (F,θ:F→F⊗Ω_X), with morphisms commuting with θ. For rank r>0 its slope is d/r. It is semistable if every nonzero proper θ-invariant coherent subsheaf W has μ(W)≤μ(F), and stable if all such inequalities are strict, assigning torsion slope +∞. Saturated subsheaves suffice for bundles. Positive-rank semistable Higgs sheaves are bundles. This category has HN filtrations by Higgs subsheaves; its Ext groups are hypercohomology of the two-term Hom complex and need not vanish in degree 2. On locally free objects this reuses ET.2b/hitchin-moduli-stack for G=GL_r and D=Ω_X. Also define the full positive subcategory A_K^+ by μ_min(F)≥0, with the exact structure induced from coherent Higgs sheaves. Relative (semi)stability tests invariant subobjects belonging to A_K^+ (the quotient is then positive). It is not defined by intersecting the usual semistable locus with A_K^+. For g≥1 and d>binom(r,2)(2g−2), the relative and usual semistable moduli agree; outside that range no equality is asserted.",
       "hypotheses": [],
       "proofSteps": [
-        "Form the category of Ω-twisted sheaf endomorphisms using the supplier tensor and canonical bundle.",
+        "Reuse the canonical GL_r bundle Higgs carrier from ET.2b; extend its interface to coherent sheaves and the HN-nonnegative exact subcategory without defining another bundle carrier.",
         "Show the torsion subsheaf is invariant; it destabilizes every positive-rank object with torsion.",
-        "Establish bounded maximal Higgs slopes and the HN induction; compute the two-term deformation complex with the supplier coherent cohomology."
+        "Establish bounded maximal Higgs slopes and the HN induction; compute the two-term deformation complex with the supplier coherent cohomology.",
+        "For a semistable Higgs bundle of rank s, consecutive underlying HN slopes differ by at most 2g−2. The binomial degree bound forces positivity; applying the same bound to a semistable destabilizer proves the converse comparison of the two stability conditions (MS14 Corollary 3.3)."
       ],
       "acceptance": [
         "Do not require every underlying bundle to be semistable.",
@@ -3098,13 +3126,20 @@
       "prerequisites": [
         "GlobalShtukasAndFunctionFieldLanglands:GS.0",
         "SchemeAndStackFoundations:SF.3",
-        "SchemeAndStackFoundations:SF.1"
+        "SchemeAndStackFoundations:SF.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/hitchin-moduli-stack",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2b/schiffmann-boundedness"
       ],
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§6.2, pp.336–337; Mozgovoy–Schiffmann §2, Theorem 2.1, pp.3–5",
-          "match": "Form the category of Ω-twisted sheaf endomorphisms using the supplier tensor and canonical bundle. The target fixes the conventions and boundary cases stated above."
+          "locator": "§6.2, pp.336–337",
+          "match": "Defines canonical Higgs stability and the coherent Serre-duality setting. The existing ET.2b bundle carrier is reused; coherent and positive-category interfaces are specified here."
+        },
+        {
+          "sourceId": "MS14",
+          "locator": "§1, p.2; §2.1, Theorem 2.1 and Corollaries 2.2–2.4, pp.3–4; §3, pp.5–7, especially Corollary 3.3, p.6",
+          "match": "Distinguishes semistability internal to the positive category from usual Higgs semistability, gives eventual equality above the binomial degree bound, and supplies the two-term Ext complex."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3139,6 +3174,21 @@
           "name": "higgs_baseChange",
           "role": "functoriality",
           "statement": "Geometric (semi)stability is preserved and detected by field extension; the definition used for moduli is geometric."
+        },
+        {
+          "name": "higgs_morphism_ext",
+          "role": "extensionality",
+          "statement": "Two Higgs morphisms are equal when their underlying coherent maps agree; a coherent isomorphism lifts to a Higgs isomorphism exactly when it intertwines the two fields."
+        },
+        {
+          "name": "positiveHiggs_exact",
+          "role": "structure",
+          "statement": "A short exact coherent Higgs sequence with positive endpoints has positive middle object; positivity is preserved by quotients. Do not assert that every coherent subobject of a positive object is positive."
+        },
+        {
+          "name": "positiveHiggs_stability_comparison",
+          "role": "compatibility",
+          "statement": "For g≥1 and d>binom(r,2)(2g−2), the relative semistable positive moduli identify with the usual semistable Higgs moduli, compatibly with field extension."
         }
       ],
       "tests": [
@@ -3156,6 +3206,16 @@
           "name": "torsion_destabilizes",
           "kind": "non-example",
           "statement": "A nonzero torsion summand in a positive-rank Higgs sheaf is invariant and violates semistability."
+        },
+        {
+          "name": "positive_not_subobject_closed",
+          "kind": "non-example",
+          "statement": "On P¹, O(−1) injects into O² with quotient O(1). The middle object and quotient are positive but the subobject is not; for zero Higgs fields the induced exact category must not be treated as an abelian subcategory."
+        },
+        {
+          "name": "relative_test_domain",
+          "kind": "non-example",
+          "statement": "The relative stability predicate quantifies only over invariant subobjects with μ_min≥0. A test with μ_min<0 belongs to the usual predicate but is excluded from the relative predicate, even when its average slope is positive."
         }
       ],
       "uses": [
@@ -3423,7 +3483,7 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§6.4, equations (6.2)–(6.3), pp.339–340",
+          "locator": "§6.4, equation (6.2), p.340; §6.6, equation (6.3), p.341",
           "match": "Apply Hom(−,F) to the universal quotient and use strong-generation Ext vanishing. The target fixes the conventions and boundary cases stated above."
         }
       ],
@@ -3539,13 +3599,14 @@
       "statement": "For g≥1, r>0, gcd(r,d)=1 put l=2g−2 and B=d/r−(r−1)l. Choose the least integer d_1≥0 with d_1>2g−1−B and (1−g+d_1)r+d>0. Set l_1=(1−g+d_1)r+d. Choose the least integer d_2≥max(d_1+2g,2g+d+(r+1)d_1,0) with d_2−d_1≡1 mod l_1, and set l_2=(1−g+d_2)r+d. Degree −d_i line bundles from the degree-one divisor satisfy the requested good-line conditions. Then l_i>0,gcd(l_1,l_2)=1. Define C(g,r,d)=l_1l_2; p>C is a safe sufficient characteristic bound for the central deformation.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the Higgs/indecomposable HN gap ≤l to get μ_min≥B; the same bound applies to a semistable destabilizing Higgs subobject of slope>d/r.",
-        "The standard curve criterion μ_min(F)+d_i>2g−1 implies strong generation by degree −d_i. For K⊂L_1^{l_1}, μ_max(K)≤−d_1 gives μ_min(K)≥−d−(r+1)d_1 if K≠0.",
-        "The chosen d_2 gives strong generation of all these kernels and L_1 itself. Since l_2≡r mod l_1 and gcd(l_1,r)=1, the dimensions are coprime; nonzero proper determinants have absolute value ≤l_1l_2."
+        "For an indecomposable bundle or semistable canonical Higgs bundle, the adjacent HN gaps are ≤l=2g−2, so μ_min≥μ−(r−1)l≥B. A positive-rank semistable destabilizer has rank s≤r and slope>d/r, hence the same bound B. Every torsion sheaf is strongly generated by any line: its H¹ vanishes and its evaluation is surjective.",
+        "Use the requested degree-only criterion μ_min(F)+d_i>2g−1 for strong generation. For a nonzero kernel K of L1^{l1}↠F, let t=rk K=l1−r. Since μ_max(K)≤−d1 and deg K=−l1d1−d, μ_min(K)≥deg K−(t−1)μ_max(K)≥−d−(r+1)d1. If t=0, K is the zero bundle and is strongly generated.",
+        "The bound on d2 is strictly stronger than the generation threshold for these kernels and for L1. The congruence gives l2≡r mod l1, while l1≡d mod r, so gcd(l1,l2)=1. Every nonzero proper bounded dimension vector has nonzero integer determinant, of absolute value at most l1l2; characteristic p>l1l2 preserves nonvanishing."
       ],
       "acceptance": [
         "The cutoff depends on g as well as r,d.",
-        "The explicit degree inequalities are a requested ET.2b strengthening whose verification is recorded as G7, rather than attributed verbatim to Lemma 6.1."
+        "The explicit degree inequalities are verified by the displayed slope and fixed-source kernel argument, relative to the requested generation criterion; Lemma 6.1 supplies existence rather than this numerical recipe.",
+        "The proof includes torsion destabilizers, zero kernels and l1=1. For g=2,r=2,d=1 the choice is d1=5,l1=9,d2=24,l2=47,C=423."
       ],
       "prerequisites": [
         "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
@@ -3557,8 +3618,8 @@
       "sources": [
         {
           "sourceId": "S16",
-          "locator": "§6.1, p.336; Lemma 6.1, pp.338–339; §6.7, p.343; explicit safe bound derived here",
-          "match": "Use the Higgs/indecomposable HN gap ≤l to get μ_min≥B; the same bound applies to a semistable destabilizing Higgs subobject of slope>d/r. The target fixes the conventions and boundary cases stated above."
+          "locator": "§6.1, p.336; §6.3, Lemma 6.1, pp.338–339; §6.5, pp.340–341; §6.7, p.344; explicit sufficient bound derived here",
+          "match": "The source supplies sufficiently negative generating lines and the determinant characteristic obstruction. The displayed numerical choice follows from the HN spread and fixed-source kernel estimates in the proof steps, using the requested strong-generation criterion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3989,7 +4050,7 @@
         "CountingBundlesAndHallAlgebrasOfCurves:CB.8/moment-indecomposable",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/coprime-absolute",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.0/indecomposable-counts",
-        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.3/lang-theorem",
         "SchemeAndStackFoundations:SF.3",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality"
       ],
@@ -4021,16 +4082,17 @@
       ],
       "title": "HN integration for canonical Higgs sheaves",
       "kind": "theorem",
-      "statement": "For g≥1 use the HN-nonnegative Higgs category. With K the canonical divisor, define I_K^+(r,d)=q^{(1−g)r²}mass(all canonical Higgs bundles of class (r,d) with underlying μ_min≥0). For semistable Higgs E,F with μ(E)<μ(F), Ext²(E,F)=Hom(F,E)*=0. With quotient-left/subobject-right Hall multiplication, the HN product is ordered from smaller slopes on the left to larger slopes on the right and integrates multiplicatively; this does not give a Green bialgebra for the whole Higgs category. The same-slope DT invariants Ω_K satisfy 1+∑_{r>0,d/r=τ}q^{(1−g)r²}mass(Higgs^ss_(r,d))T^rz^d=Exp(∑_{d/r=τ}Ω_K(r,d)T^rz^d/(q−1)).",
+      "statement": "For g≥1 use A_K^+ and its relative semistability from CB.7/canonical-higgs. Define I_K^+(r,d)=q^{(1−g)r²}mass(all canonical Higgs bundles of class (r,d) with underlying μ_min≥0). Define Ω_K^+ by 1+∑I_K^+(r,d)T^rz^d=Exp(∑Ω_K^+(r,d)T^rz^d/(q−1)). MS14 Theorem 1.2 identifies each fixed-slope Exp factor with the q^{(1−g)r²}-normalized mass of relatively semistable positive Higgs bundles. With quotient-left/subobject-right multiplication, the HN product places smaller slopes on the left. For usual semistable E,F with μ(E)<μ(F), Ext²(E,F)=Hom(F,E)*=0; the positive-category factorization uses the ordered integration theorem of MS14 §3.1, rather than identifying relative factors with usual ones. No Green bialgebra for the whole Higgs category is inferred. The untruncated DT invariants are defined separately by 1+∑_{r>0,d/r=τ}q^{(1−g)r²}mass(Higgs^ss_(r,d))T^rz^d=Exp(∑_{d/r=τ}Ω_K(r,d)T^rz^d/(q−1)).",
       "hypotheses": [],
       "proofSteps": [
-        "Use the two-term Higgs deformation complex and its duality to show the needed Ext² vanishing in the HN order.",
-        "Apply the Hall integration map on precisely those ordered products, with the factor q^{(1−g)r²}.",
-        "Use unique Higgs HN filtrations and slopewise plethystic logarithms to define Ω_K."
+        "Use the two-term Higgs deformation complex and Serre duality to prove Ext² vanishing for usual semistable factors in the displayed slope order.",
+        "Apply MS14 Theorem 1.2 and §3.1 to the positive-category HN factorization, with relative semistable factors and the normalization q^{(1−g)r²}; keep this separate from any claim that relative semistability is usual semistability.",
+        "Take the coefficientwise plethystic logarithm and its slope factors to define Ω_K^+. Define Ω_K by the independent usual-semistable same-slope formula; compare them only in the eventual degree range."
       ],
       "acceptance": [
         "State the order of slopes in the Ext² vanishing.",
-        "For a coprime class, Ω_K=(q−1)q^{(1−g)r²}mass(Higgs^st)."
+        "For a coprime class, Ω_K=(q−1)q^{(1−g)r²}mass(Higgs^st).",
+        "Relative positive semistable masses are not obtained merely by restricting the usual semistable stack to underlying μ_min≥0."
       ],
       "prerequisites": [
         "CountingBundlesAndHallAlgebrasOfCurves:CB.7/canonical-higgs",
@@ -4042,8 +4104,8 @@
       "sources": [
         {
           "sourceId": "MS14",
-          "locator": "Mozgovoy–Schiffmann §2.1–2.3 and §3.1, pp.3–7",
-          "match": "Use the two-term Higgs deformation complex and its duality to show the needed Ext² vanishing in the HN order. The target fixes the conventions and boundary cases stated above."
+          "locator": "Theorem 1.2, p.2; §2.1–2.3, pp.3–5; §3.1, pp.6–7",
+          "match": "The theorem gives the exact positive-category integration factorization and eventual comparison, while Corollary 2.4 states the usual-semistable Ext² vanishing. The two stability conditions are kept distinct."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4066,7 +4128,7 @@
       "hypotheses": [],
       "proofSteps": [
         "For the positive bundle cutoff, apply the same Krull–Schmidt Euler product to the Serre-dual cotangent fibre: ∑I_K^+=Exp(∑q A_X^{≥0}/(q−1)).",
-        "Compare its slope factors using HN integration. For d>binom(r,2)(2g−2), both the Higgs and indecomposable cutoff invariants agree with the untruncated ones.",
+        "Compare the relative positive-category slope factors using MS14 Theorem 1.2. For d>binom(r,2)(2g−2), MS14 Corollary 3.3 and Theorem 1.2 identify both the positive Higgs invariants and the indecomposable cutoff counts with the untruncated ones.",
         "Remove the cutoff by degree-r periodicity; in a coprime class convert the stable stack mass to coarse points by its neutral G_m-gerbe."
       ],
       "acceptance": [
@@ -4425,9 +4487,9 @@
       ],
       "title": "Regular-sequence deformation at z=1",
       "kind": "theorem",
-      "statement": "Let R contain Q(t)[q±1] and inject into R*=R⊗_{Q(t)[q±1]}Q(q,t). Suppose Ω[X]=∑_λ c_λ H̃_λ[X] has c_empty=1 and (q−1)Log Ω with coefficients in R. For a regular symmetric Laurent sequence f(u)=1+∑_{j>0}u^j f^(j), put Ω_f[X]=∑_λ c_λ H̃_λ[X] f_λ(u). Then (q−1)Log Ω_f has coefficients in R[[u]], and its reduction modulo q−1 equals that of (q−1)Log Ω. In this theorem q is Mellit’s deformation parameter, hence z in the curve formula.",
+      "statement": "Let R be a λ-ring containing Q(t)[q±1] and inject into R*=R⊗_{Q(t)[q±1]}Q(q,t). Suppose Ω[X]=∑_λ c_λ H̃_λ[X] has c_empty=1 and (q−1)Log Ω with coefficients in R. For a regular symmetric Laurent sequence f(u)=1+∑_{j>0}u^j f^(j), put Ω_f[X]=∑_λ c_λ H̃_λ[X] f_λ(u). Then (q−1)Log Ω_f has coefficients in R[[u]], and its reduction modulo q−1 equals that of (q−1)Log Ω. In this theorem q is Mellit’s deformation parameter, hence z in the curve formula.",
       "hypotheses": [
-        "The coefficient rings carry compatible Adams operations and the symmetric-function completion used by the imported Macdonald theory; R→R* is injective."
+        "R is a rational λ-ring with Adams operations compatible with Q(t)[q±1] and the imported symmetric-function completion; R→R* is injective."
       ],
       "proofSteps": [
         "Use modified Macdonald orthogonality for the Hall pairing with S=−(q−1)(t−1).",
@@ -4436,7 +4498,8 @@
       ],
       "acceptance": [
         "The coefficient-ring injection is a hypothesis.",
-        "The conclusion concerns the logarithm and divisibility, not termwise regularity of Ω_f."
+        "The conclusion concerns the logarithm and divisibility, not termwise regularity of Ω_f.",
+        "A ring containing Q(t)[q±1] without the specified λ-ring and Adams structure is not an admissible input."
       ],
       "prerequisites": [
         "QSeriesPartitionsAndMockModularForms:QM.0",
@@ -4445,8 +4508,8 @@
       "sources": [
         {
           "sourceId": "M20",
-          "locator": "Mellit 2020 §5, Definition 5.1 and Lemma 5.1, pp.315–319",
-          "match": "Use modified Macdonald orthogonality for the Hall pairing with S=−(q−1)(t−1). The target fixes the conventions and boundary cases stated above."
+          "locator": "§5, Definition 5.1, p.315, and Lemma 5.1, pp.316–319",
+          "match": "The coefficient ring is a λ-ring containing Q(t)[q±1] with injective localization. A regular-sequence deformation changes the logarithm by coefficients divisible by q−1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4468,16 +4531,17 @@
       ],
       "title": "Laurent integrality of the Mellit coefficients",
       "kind": "theorem",
-      "statement": "For every g≥1,r>0, H_{g,r} belongs to Z[q±1,z±1,α_1±1,…,α_g±1]. In particular it is regular at z=1. The same regular-deformation argument proves that the S16 logarithmic numerator has only the pole controlled by (1−z), with z=1 value H_{g,r}(q,1,α).",
+      "statement": "For every g≥1,r>0, H_{g,r} belongs to Z[q±1,z±1,α_1±1,…,α_g±1]. In particular it is regular at z=1. Separately, let H^Sch_{g,r}=(1−z)A_{g,r}(z), where A_{g,r}(z) is the Schiffmann logarithmic count series of CB.6/explicit-count. Mellit Theorem 5.2(i), with q_M=z and t_M=q, gives H^Sch_{g,r}∈Q(q)[z±1,α_1±1,…,α_g±1]. Theorem 5.2(ii) gives H^Sch_{g,r}(q,1,α)=H_{g,r}(q,1,α). Thus A_{g,r}(z) has no poles at nonzero finite z other than possibly z=1. No integral-coefficient assertion for H^Sch before specialization is inferred.",
       "hypotheses": [],
       "proofSteps": [
         "Apply HLV-kernel admissibility to remove denominators from H_g.",
-        "Use the deformation theorem at z=1 and the partitionwise finite denominator bounds before setting u=1.",
+        "Apply the regular-sequence deformation and finite denominator bounds to obtain the global Laurent conclusion of Mellit Theorem 5.2(i); use part (ii) for equality at z=1. Keep q_M=z and t_M=q throughout.",
         "Upgrade rational coefficients to integral coefficients through the integral modified-Macdonald expansion. This last generic input remains within G8."
       ],
       "acceptance": [
         "Laurent integrality does not itself define evaluation at the affine-cone origin.",
-        "No genus-zero claim is imported from Mellit’s g≥1 theorem."
+        "No genus-zero claim is imported from Mellit’s g≥1 theorem.",
+        "The function F(z)=1/(1−z²) has (1−z)F(z)=1/(1+z), regular at 1 but with a pole at −1. Local regularity alone would not imply degree independence; the global Laurent statement excludes this example."
       ],
       "prerequisites": [
         "CountingBundlesAndHallAlgebrasOfCurves:CB.10/admissible-deformation",
@@ -4488,8 +4552,8 @@
       "sources": [
         {
           "sourceId": "M20",
-          "locator": "Mellit 2020 §5, Theorem 5.2, pp.319–321; Mellit 2018 §7, Theorem 7.1 and Corollary 7.2, pp.29–31",
-          "match": "Apply HLV-kernel admissibility to remove denominators from H_g. The target fixes the conventions and boundary cases stated above."
+          "locator": "§5, Theorem 5.2(i)–(ii), pp.319–321",
+          "match": "After q_M=z and t_M=q, the Schiffmann logarithmic numerator is globally Laurent polynomial in z over Q(q)[α±1]; its value at z=1 agrees with the HLV logarithm. This is stronger than regularity at z=1 alone."
         },
         {
           "sourceId": "M18",
@@ -4520,12 +4584,13 @@
       "hypotheses": [],
       "proofSteps": [
         "Compare the S16 logarithmic numerator and Mellit H using the regular deformation.",
-        "Regularity of the logarithmic numerator at z=1 forces the S16 count-generating rational function to have only the degree-independent simple-pole contribution; apply Fourier residue extraction.",
+        "Global Laurentness of H^Sch=(1−z)A removes every nonzero finite pole of A except possibly 1. The CB.6 Taylor expansion at 0 removes negative powers there. Its rational form is therefore a polynomial plus H^Sch(1)/(1−z); the polynomial changes only finitely many truncated coefficients. Fourier residue extraction gives the same eventual count H(1) in every degree class.",
         "Use universal density to promote equality at every curve to equality in R_g."
       ],
       "acceptance": [
         "Distinguish equality in R_g from an unjustified polynomial presentation in 2g independent variables.",
-        "For g=1 all ranks give P_X(1)."
+        "For g=1 all ranks give P_X(1).",
+        "Equality at z=1 without global pole control does not establish the theorem; the nontrivial roots in the μ_r residue sum must first be excluded."
       ],
       "prerequisites": [
         "CountingBundlesAndHallAlgebrasOfCurves:CB.10/z-one-regularity",
@@ -5099,7 +5164,7 @@
       "stageId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8",
       "status": "planned",
       "remaining": [
-        "Verify primary-proof obligations G5: BB–Hesselink primary proof; G6: Canonical Higgs moduli and tight quiver comparison; G7: Uniform computable good-line characteristic bound.",
+        "Verify primary-proof obligations G5: BB–Hesselink primary proof; G6: Canonical Higgs moduli and tight quiver comparison.",
         "Discharge the exact supplier contracts from SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.3, AlgebraicModuliForArithmeticGeometry:R09.2, EndoscopicTransferAndUnitaryTraceComparison:ET.2b, AlgebraicModuliForArithmeticGeometry:R09.5, QSeriesPartitionsAndMockModularForms:QM.0, ReductiveGroupsPartII:RG2.3."
       ]
     },
@@ -5172,7 +5237,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.3",
-      "need": "Riemann–Roch and natural Serre duality for coherent sheaves on a smooth projective geometrically connected curve, Picard schemes and degree-d torsors, canonical bundle of degree 2g−2, finite-dimensional proper coherent cohomology, genus-zero bundle splitting, and the criterion μ_min(F)>2g−1 for strong generation by O_X. Use the existing AlgebraicCurves/JacobianChallenge owners; no second bundle carrier.",
+      "need": "Riemann–Roch and natural Serre duality for coherent sheaves on a smooth projective geometrically connected curve, Picard schemes and degree-d torsors, canonical bundle of degree 2g−2, finite-dimensional proper coherent cohomology, genus-zero bundle splitting, and the criterion μ_min(F)>2g−1 for strong generation by O_X. Use the existing AlgebraicCurves/JacobianChallenge owners; no second bundle carrier. The existing SF.3/vector-bundle-riemann-roch and SF.3/curve-serre-duality nodes supply the locally free cases; the requested Ext¹(V,W)*≃Hom(W,V⊗Ω) must also cover coherent V,W, naturally in both variables.",
       "neededBy": [
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/count-normalizations",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/hom-transfer",
@@ -5206,8 +5271,9 @@
     },
     {
       "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
-      "need": "Extension of ET.2b in its canonical-twist direction: for fixed (g,r,d) choose negative lines L1,L2 strongly generating all indecomposable bundles and semistable canonical Higgs sheaves; L2 strongly generates L1 and every kernel of L1^{l1}↠F for this fixed l1, and each unstable Higgs object has a destabilizer strongly generated by both. Supply the explicit slope-derived degrees and congruence proposed in CB.8/framing-cutoff, or a corrected computable bound. Canonical stable coarse moduli and properness remain owned by CB.7, beyond ET.2b’s current sufficiently positive twist.",
+      "need": "Reuse ET.2b/hitchin-moduli-stack, whose carrier allows D=Ω_X, and ET.2b/schiffmann-boundedness, which already states canonical good-line existence. Integrate the corrected fixed-source form: L2 must strongly generate every kernel of L1^{l1}↠F for this fixed l1, rather than arbitrary source dimension. Export the degree-only strong-generation criterion needed by the explicit bound of CB.8/framing-cutoff. The new work here is the computable sufficient choice, positive Higgs category, stable canonical coarse geometry and two-line comparison; positive-twist smoothness or anisotropic properness does not supply the full canonical stable coarse result.",
       "neededBy": [
+        "CountingBundlesAndHallAlgebrasOfCurves:CB.7/canonical-higgs",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.7/higgs-moduli",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.7/two-line-chart",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.8/framing-cutoff",
@@ -5250,7 +5316,7 @@
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.3",
-      "need": "Requested extension of RG2.3 shared with the existing Lang source routes: for every smooth connected linear algebraic group over a finite field, the Lang map is surjective and H¹(k,G)=1, compatibly with extension fields. Apply also to unit groups of finite endomorphism algebras. The current parahoric/congruence statement alone does not provide it; connected-band H² is a distinct G1 obligation.",
+      "need": "Integrate the existing RG2.3/lang-theorem node: smooth connected algebraic groups over finite fields have surjective Lang map and trivial H¹, including extension fields. For a finite-dimensional endomorphism algebra, its unit group is a smooth geometrically connected open in affine space, so the theorem applies. This is use of an existing planned result, not a request for a new general Lang theorem. Connected-band H² neutrality remains the separate G1 obligation.",
       "neededBy": [
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1/galois-orbits",
@@ -5331,7 +5397,7 @@
         "CountingBundlesAndHallAlgebrasOfCurves:CB.4/universal-counts",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.10/mellit-identification"
       ],
-      "detail": "The S16 Appendix B argument was read. Its Katz–Sarnak universal-family monodromy and Deligne equidistribution primary inputs need a supplier continuation; no UniversalHypersurfaceMonodromy stage or DWP.8:equidistribution node exists in the current atlas. Fixed odd q and all finite extensions suffice for uniqueness; char-2 family monodromy is not needed."
+      "detail": "The S16 Appendix B argument was read. Weil II §3.5.1–3.5.3, pp.210–211, was also read to verify the equidistribution attribution. Its Katz–Sarnak universal-family monodromy, normalization and equidistribution application still need a supplier continuation; no UniversalHypersurfaceMonodromy stage or DWP.8:equidistribution node exists in the current atlas. Fixed odd q and all finite extensions suffice for uniqueness; char-2 family monodromy is not needed."
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/G5",
@@ -5349,15 +5415,7 @@
         "CountingBundlesAndHallAlgebrasOfCurves:CB.7/higgs-moduli",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.8/king-slope"
       ],
-      "detail": "The complete S16 application was read, but Hitchin properness, nilpotent Lagrangian equidimensionality, connectedness and characteristic-uniform stable moduli, and Álvarez-Cónsul–King Lemma 5.5 under the exact two-line tightness hypotheses need primary-proof closure. The requested GIT extension is also required. None follows from ET.2b’s current positive-twist statement."
-    },
-    {
-      "id": "CountingBundlesAndHallAlgebrasOfCurves/G7",
-      "title": "Uniform computable good-line characteristic bound",
-      "neededBy": [
-        "CountingBundlesAndHallAlgebrasOfCurves:CB.8/framing-cutoff"
-      ],
-      "detail": "The source gives sufficiently negative lines, not the displayed numerical recipe. Check the proposed HN spread and kernel-slope proof, including torsion destabilizers, l1=r zero-kernel cases and a single choice valid over every curve of genus g. Verify the congruence d2−d1≡1 mod l1 and the bound |l2a1−l1a2|≤l1l2. Until these are checked, the explicit C is a proposed strengthened target, while the source still proves existence of a bound."
+      "detail": "The complete S16 application was read, but Hitchin properness, nilpotent Lagrangian equidimensionality, connectedness and characteristic-uniform stable moduli, and Álvarez-Cónsul–King Lemma 5.5 under the exact two-line tightness hypotheses need primary-proof closure. The requested GIT extension is also required. ET.2b already supplies the canonical carrier and existential good lines; its positive-twist smoothness and anisotropic properness statements do not give this full canonical stable coarse theorem."
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/G8",
@@ -5418,7 +5476,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For M_i repeated n times, End(M_i^n)=Mat_n(End M_i). The radical block is Mat_n(rad End M_i), of dimension n² dim(rad), so n diagonal copies cannot be the displayed full block.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E2",
@@ -5434,7 +5497,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Euler form of a rank-r bundle against torsion of degree l is rl. With v²=q and quotient-left multiplication the required factor is v^(−rl); S16 equation (4.3), p.317, uses that same rank-dependent factor.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E3",
@@ -5450,7 +5518,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Proposition 5.1 and its coefficient proof: the ordered Hall factors on the two sides must have the same ranks, and the Y-series has s variables. Reversal in X and a z_r argument do not match the defining pairing.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E4",
@@ -5466,7 +5539,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Jordan classes count blocks, so class(F)=∑i iα_i. A single size-two block already distinguishes this from ∑α_i; the T-exponent in the same computation has the required weight.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E5",
@@ -5482,7 +5560,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The logarithm is obtained from Coh≥0 and therefore gives the truncated absolute count. Proposition 2.1 identifies it with the full count only in the large-degree range.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E6",
@@ -5498,7 +5581,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The stable deformation complex has one-dimensional scalar automorphisms and dual obstructions: the coarse dimension is 2+2(g−1)r²=2D and the stack dimension is 2D−1. The printed entire-stack dimension does not follow.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E7",
@@ -5514,7 +5602,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Diagonal scalars act trivially, so every moment functional annihilates them. A submersion to all of g* is impossible. The chosen central line is invariant and must be selected before forming the quotient.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E8",
@@ -5530,7 +5623,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The coefficient of the characteristic polynomial homogeneous of degree i in θ scales by t^i. Rank two already has weights 1 and 2, rather than a uniform weight one.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E9",
@@ -5546,7 +5644,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A rank-a affine bundle contributes compact cohomology shifted by 2a with twist −a. Taking a=D or b_i gives the corrected indices. Rank-one Picard×A^g confirms the factor two.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E10",
@@ -5562,7 +5665,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The nilpotent cone has dimension D, while Higgs moduli have dimension 2D. Projective duality of the fixed loci gives q^D in the reciprocal trace formula, and component classes lie in cohomological degree 2D. The rank-one Picard example checks both corrections.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E11",
@@ -5578,7 +5686,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding corollary concerns evaluation at the coordinate origin. The displayed rank-three/four formulas depend only on g and cannot be the full Weil-parameter counts; they are the origin constants.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E12",
@@ -5594,7 +5707,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The S16 bibliography identifies Del74 as Weil I. Independently read Deligne Weil II §3.5.1–3.5.3, pp.210–211: Theorem 3.5.3 is the equidistribution result needed in Appendix B. This confirms the reference correction without closing the monodromy gap G4.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E13",
@@ -5610,7 +5728,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The literal target of Theorem 7.1 is R_g-valued. The parallel spherical-Hall computation described in §7.2 yields the localized form unless denominators are removed separately. Confirmed as an unclosed proof obligation, not a counterexample to the theorem; G10 retains it.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     },
     {
       "id": "CountingBundlesAndHallAlgebrasOfCurves/E14",
@@ -5626,7 +5749,12 @@
         "Published Annals PDF and article landing page https://annals.math.princeton.edu/2016/183-1/p06, checked 2026-10-19.",
         "Existing PAPER-SCHIFFMANN-16 extraction and confirmed correction register in this repository, consulted against the published pages.",
         "Public search for the article title with erratum/corrigendum, 2026-10-19; no separate journal correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An isomorphism on global Hom spaces does not force its evaluation to be surjective. On a genus-two curve choose deg L1=−5 and an effective nonspecial degree-two M with h⁰(M)=1; F=(L1⊗M)⊕B, deg B=4, has Ext¹(L1,F)=0 and Hom dimension 9, but its first evaluation summand has base points. A sufficiently negative L2 generates F; the combined quotient with both Hom frames still fails restricted L1-surjectivity. The corrected open imposes that condition explicitly.",
+        "by": "REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves"
+      }
     }
   ],
   "sourceVersions": [
@@ -5635,6 +5763,12 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf",
       "read": "2026-10-19",
       "sha256": "8e486963410368afe461a6f2a848eb7ddb618aa48fda7db2c0bd51710286c7a5"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/PMIHES_1980__52__137_0.pdf",
+      "read": "2026-10-19",
+      "sha256": "b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71"
     }
   ],
   "restructure": [
@@ -5658,11 +5792,10 @@
       "action": "rescope",
       "roadmaps": [
         "AlgebraicModuliForArithmeticGeometry",
-        "EndoscopicTransferAndUnitaryTraceComparison",
-        "ReductiveGroupsPartII"
+        "EndoscopicTransferAndUnitaryTraceComparison"
       ],
-      "detail": "Existing stages do not yet state the routed good-line, reductive character-GIT or Lang contracts.",
-      "proposal": "Extend ET.2b by the canonical good-line boundedness contract, R09.5 by a Part II for reductive character quotients and RG2.3 by its shared Lang theorem extension. Stable canonical Higgs moduli and the central deformation remain CB.7–CB.8. These are requested extensions, not claims of existing coverage."
+      "detail": "R09.5 does not yet supply reductive character GIT. ET.2b already plans the canonical Higgs carrier and existential good lines, but its kernel clause needs the fixed-source interpretation used here. RG2.3/lang-theorem already supplies general finite-field Lang and needs no new planning.",
+      "proposal": "Request a R09.5 Part II for reductive character quotients. Integrate ET.2b’s existing canonical carrier and good-line theorem with the fixed-l1 kernel condition and degree-only generation criterion, rather than planning either again. Stable canonical coarse geometry, the positive exact category and central deformation remain CB.7–CB.8."
     }
   ],
   "upstreamNotes": [
@@ -5681,6 +5814,14 @@
     {
       "roadmapId": "DeligneWeightsAndPurity",
       "detail": "The extraction refers to DWP.8:equidistribution, but the current atlas has no such stage. DWP.8 concerns mixed complexes. G4 and the Part II proposal retain the unmet equidistribution input explicitly."
+    },
+    {
+      "roadmapId": "EndoscopicTransferAndUnitaryTraceComparison",
+      "detail": "Review read ET.2b/hitchin-moduli-stack and ET.2b/schiffmann-boundedness in the ET.0 packet. The canonical carrier and existential good-line result already belong there and are imported. The boundedness node quantifies over arbitrary source dimension in its kernel clause; only the fixed l1 version is used here. The source-open correction E14 and full canonical stable coarse geometry remain separate."
+    },
+    {
+      "roadmapId": "ReductiveGroupsPartII",
+      "detail": "Review found the existing RG2.3/lang-theorem node and now cites it directly. The old claim that a general finite-field Lang extension still needed planning was obsolete. No generic Lang target is added here."
     }
   ],
   "catalogueCoverage": [
@@ -6050,5 +6191,423 @@
     }
   ],
   "planningLevel": "target",
-  "suggestedScope": "Only arithmetic interfaces over pinned finite fields, integers, polynomials and the existing YoungDiagram carrier can be stated compactly. Heavy sheaf, stack, Hall, cohomology and Macdonald targets, including their APIs and tests, are authoritative in the reader. No placeholder data carrier is introduced in Lean."
+  "suggestedScope": "Only arithmetic interfaces over pinned finite fields, integers, polynomials and the existing YoungDiagram carrier can be stated compactly. Heavy sheaf, stack, Hall, cohomology and Macdonald targets, including their APIs and tests, are authoritative in the reader. No placeholder data carrier is introduced in Lean.",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves",
+    "date": "2026-10-19",
+    "notes": "Independent review of all 82 target nodes, all ten exact pinned baseline signatures, 29 definition/construction APIs and tests, 49 planets, fourteen supplier contracts and fourteen source issues. Corrected source locators, relative positive Higgs semistability, Mellit λ-ring hypotheses and global pole control, and obsolete Lang/canonical-carrier ownership claims. Verified the explicit framing bound relative to the requested strong-generation criterion, discharging G7. All twelve stages remain planned, none closed; eleven explicit proof/interface gaps remain. The compact suggested Lean file elaborates at the pins with only permitted theorem-placeholder warnings. No new node or baseline replacement was needed.",
+    "checked": [
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.0/coefficient-frame",
+        "verdict": "verified",
+        "note": "S16 pp.299,302–303: reciprocal GSp coordinates, full invariant Laurent ring and Adams specialization agree; genus zero keeps q as an independent coordinate."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.0/indecomposable-counts",
+        "verdict": "verified",
+        "note": "S16 pp.299,307–308,334,353: unweighted geometric indecomposable counts and HN truncations are distinct, finite classwise, and rank-zero torsion conventions are explicit."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/count-normalizations",
+        "verdict": "verified",
+        "note": "S16 pp.299,334–335: degree-r periodicity uses a degree-one divisor, not a rational point; duality and rank-one/genus-zero boundary values agree with Picard torsors."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/hom-transfer",
+        "verdict": "verified",
+        "note": "S16 p.309 plus pinned module statements: Hom(M,−) on add(M) lands in finite projectives over End(M)^op and is fully faithful. No finite-length hypothesis on Coh(X) is smuggled in."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/krull-schmidt",
+        "verdict": "verified",
+        "note": "S16 Lemma 2.3, p.309: finite-dimensional endomorphisms and splitting idempotents give coherent Krull–Schmidt through the stated transfer; module locality hypotheses are available there."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/endomorphism-radical",
+        "verdict": "verified",
+        "note": "S16 Lemma 2.4, p.309: repeated summands require full matrix radical blocks, not diagonal copies. The node already uses the corrected ideal and semisimple quotient."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/nilpotent-matrix-count",
+        "verdict": "verified",
+        "note": "S16 Corollary 2.5, p.309, Appendix A: exponent n(n−1), including n=0, is the needed numerator; GL cardinality alone cannot prove it. Primary enumeration remains G2."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/nilpotent-unit-ratio",
+        "verdict": "verified",
+        "note": "S16 Corollary 2.5, p.309: radical fibres cancel from nilpotent/unit ratios and each residue field contributes its own Q_i and multiplicity."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality",
+        "verdict": "corrected",
+        "note": "S16 Lemma 2.6, p.311: connected-band H² gives existence, Lang H¹ gives uniqueness. Replaced obsolete broad Lang request by the existing RG2.3/lang-theorem; G1 remains."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/galois-orbits",
+        "verdict": "corrected",
+        "note": "S16 Lemma 2.6 and (2.4)–(2.5), pp.310–311: residue extension degree equals orbit size and divides rank/degree in the stated divisor formula. Cited existing Lang node directly."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/coprime-absolute",
+        "verdict": "verified",
+        "note": "S16 Lemma 2.6 and Lemma 6.2: coprimality forces residue field k; End need not equal k, since its radical remains. Scalar-plus-nilpotent trace argument uses this distinction."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.1/large-degree",
+        "verdict": "verified",
+        "note": "S16 Proposition 2.1, p.308, and MS14 Lemma 4.1/Corollary 4.2, p.8: HN gap bound gives eventual equality of truncated and full counts with the strict displayed degree threshold."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.2/groupoid-mass",
+        "verdict": "verified",
+        "note": "S16 pp.308–309,313–315: equivalence-invariant automorphism weights and homotopy-fibre Fubini match flag integration. The action-groupoid and zero-object tests detect orbit-count mistakes."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.2/nilpotent-pairs",
+        "verdict": "verified",
+        "note": "S16 Proposition 2.2: objects, commuting isomorphisms and zero-pair mass are correct. A nilpotent fibre contributes #nilpotents/#Aut, not the number of conjugacy classes."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.2/nilpotent-exponential",
+        "verdict": "verified",
+        "note": "S16 Proposition 2.2, pp.311–312: Krull–Schmidt Euler products plus finite-field orbit conversion give the plethystic identity, with Adams acting on coefficients and grading variables."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.2/jordan-type",
+        "verdict": "verified",
+        "note": "S16 §3.1 and §5.6: Jordan multiplicities have weighted total ∑i iα_i, including rank-zero tails; generic partition size uses the same weights."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.2/filtered-sheaves",
+        "verdict": "verified",
+        "note": "S16 §3.2–3.3: total-sheaf HN cutoff and ordered quotients match the flag groupoids. Zero steps may be deleted without imposing a cutoff on each graded factor."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.2/jordan-functors",
+        "verdict": "verified",
+        "note": "S16 §3.2: (ker θ^i+im θ)/im θ supplies the required filtration. π=π″π′, classes and cutoff equivalence agree with the source construction."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.2/jordan-fibres",
+        "verdict": "verified",
+        "note": "S16 Proposition 3.1, pp.313–315: the Hom/Ext fibre groupoids give the stated Euler exponents d,d′,d″ with grading identifications fixed. No ordinary-set fibre replaces them."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.3/hall-algebra",
+        "verdict": "verified",
+        "note": "S16 §4.1, pp.315–316: quotient-left/subobject-right multiplication, v²=q twist, extension/Hom coproduct and HN completion conventions agree."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.3/green-pairing",
+        "verdict": "corrected",
+        "note": "Read S16 pairing on p.316 and HN10 coproduct on pp.2–3. Corrected the pairing locator and separated the second source; automorphism weights and tensor twist are retained."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.3/characteristic-functions",
+        "verdict": "verified",
+        "note": "S16 §4.2 and §4.5: characteristic functions distinguish bundle/coherent/HN support. The corrected torsion factor is v^(−rl), as also checked against Eisenstein arguments."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.3/flag-pairing",
+        "verdict": "corrected",
+        "note": "Corrected source to S16 §4.2 (4.1), p.316. Its ordered Euler sum and total-cutoff pairing give precisely the flag mass; §3.3 (3.3) was the wrong formula."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.3/basic-masses",
+        "verdict": "verified",
+        "note": "S16 Theorem 4.1, pp.316–317, Appendix A: bundle masses have fixed central degree and convergent numerical products; torsion Exp and rank-zero conventions match."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/eisenstein-series",
+        "verdict": "corrected",
+        "note": "Corrected S16 series locator to §4.3, pp.317–318, and cutoff §4.4, p.319. Coherent/bundle torsion factor and regional coefficient completions match."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-hecke",
+        "verdict": "corrected",
+        "note": "Corrected to S16 §4.3 Theorem 4.2(ii), p.318. The Hecke commutation uses the specified q-shifts and expansion region, rather than part (i)."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-coproduct",
+        "verdict": "corrected",
+        "note": "Corrected to S16 §4.3 Theorem 4.2(iii), p.318. Extended coproduct, rank split and shifted arguments agree with its displayed identity."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/bundle-residue",
+        "verdict": "corrected",
+        "note": "Corrected to S16 §4.3 Theorem 4.2(iv), p.318. Ordered normalized residues and rank-dependent prefactor agree with the bundle series, not ordinary differential residues."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/hn-relations",
+        "verdict": "corrected",
+        "note": "Corrected equation (4.4) to S16 §4.4, p.319. HN product order and coefficientwise finite support are part of the equality."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/spherical-algebra",
+        "verdict": "corrected",
+        "note": "Corrected S16 spherical locator to §4.5 and separated HN10 §1.3. Generic quivers are imports; this is the curve-specific torsion/rank-one subalgebra in its HN completion."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/hn-membership",
+        "verdict": "corrected",
+        "note": "HN10 Theorem 3.1 proof and Corollary 3.5 were read through p.8, with S16 §4.5 Theorem 4.3. Corrected the locator omitting the last page and the S16 section."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/generic-form",
+        "verdict": "corrected",
+        "note": "S16 Theorem 4.4 is in §4.5; SV12 §1.11 uses a different coefficient formulation. Corrected locator and retained G3 for invariant, pairing and half-q normalization descent."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.4/universal-counts",
+        "verdict": "corrected",
+        "note": "Corrected S16 §4.5 corollaries versus §4.6 proof distinction. K_g specialization and uniqueness use the explicit density obligation G4, not a presumed equidistribution stage."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/pairing-series",
+        "verdict": "verified",
+        "note": "S16 §5.1–5.2: G,Y pairing order, total-degree variable and expansion regions agree; a zero bundle slot is a unit while a coherent zero-rank slot is torsion."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/torsion-separation",
+        "verdict": "corrected",
+        "note": "Proposition 5.1 belongs to S16 §5.1, pp.321–323. Corrected locator; the node already fixes the rank/variable misprints and preserves the exact torsion factor."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/bilateral-pairing",
+        "verdict": "verified",
+        "note": "S16 Lemma 5.2, p.324: bilateral pairing is interpreted as a distribution with denominator clearing. No undefined product of arbitrary bilateral series is introduced."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/rank-one-shuffle",
+        "verdict": "verified",
+        "note": "S16 Proposition 5.3, pp.325–331: symmetrization is an unaveraged permutation sum, with the indicated kernel and ordered Hall variables."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/expansion-separation",
+        "verdict": "verified",
+        "note": "S16 Lemma 5.4, p.328: distinct regional expansions are compared only after multiplying by a common denominator; this avoids invalid formal-series rearrangements."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/block-residue-pairing",
+        "verdict": "verified",
+        "note": "S16 §5.5 (5.14)–(5.15), p.331: block residues run in the specified order and include the v-power prefactor. Zero blocks introduce no extra residue."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/jordan-sum",
+        "verdict": "verified",
+        "note": "S16 §5.6: weighted Jordan class constraint and torsion-tail coefficient finiteness are explicit; source E4 is corrected in the target."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/positive-arm-product",
+        "verdict": "verified",
+        "note": "S16 Lemma 5.5, p.333: positive arms select the claimed product. A vertical partition has no positive-arm factors, checking the empty-product convention."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/jordan-product",
+        "verdict": "verified",
+        "note": "S16 (5.16)–(5.18), pp.332–333: the Jordan sum reduces to the partition product with the same normalization, using residue kernels as prerequisites."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.0/residue-conventions",
+        "verdict": "verified",
+        "note": "S16 pp.303–304: ordinary dz/z residues and normalized Hall residues differ by a sign only at simple poles. The supplied double-pole example correctly detects that limitation."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.5/partition-kernels",
+        "verdict": "verified",
+        "note": "S16 (1.1)–(1.3), pp.303–304: the number of parts controls residue variables, ζ* supplies q^(1−g)P(1)/(q−1), and empty and zero-multiplicity blocks have unit conventions."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.6/generating-identity",
+        "verdict": "verified",
+        "note": "S16 (5.19)–(5.21), pp.333–334: cancelling the rank-zero torsion exponential yields the stated positive-rank universal generating series, expanded at z=0."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.6/residue-extraction",
+        "verdict": "verified",
+        "note": "S16 (5.22), pp.334–335: eventual periodicity leaves simple μ_r poles plus a polynomial. The ordinary differential residue sign and Fourier factor ξ^(−d) are correct."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.6/explicit-count",
+        "verdict": "verified",
+        "note": "S16 Theorem 1.6 and §5.7–5.8: logarithm normalization matches the truncated series and finite-rank partition algorithm; untruncated values are recovered by the proven residue lemma."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.6/rank-two-check",
+        "verdict": "verified",
+        "note": "S16 p.305 and Appendix C: the rational rank-two expression and genus-zero/elliptic simplifications match, with reciprocal-pair constraints and extension across displayed denominators distinguished."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.6/origin-constant",
+        "verdict": "verified",
+        "note": "S16 §5.9: evaluation uses regularity in the paired affine-cone local ring, not total division or arbitrary Laurent evaluation. Universal denominator/weight justification remains explicitly G9."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.6/constant-formula",
+        "verdict": "verified",
+        "note": "S16 Corollary 1.9, pp.305–306: rank-three/four formulas are origin constants. Partition logarithm sign and genus examples agree; no full-count identity is inferred from them."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.7/canonical-higgs",
+        "verdict": "corrected",
+        "note": "S16 §6.2 and MS14 pp.2,5–7: added positive exact category, relative stability and large-degree comparison; imported existing ET.2b carrier/boundedness, added morphism extensionality and discriminating tests."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.7/serre-higgs",
+        "verdict": "verified",
+        "note": "S16 (6.1), p.337: natural Serre duality identifies the two Ext maps with the invariant-subsheaf factorization. The coherent, not just locally free, supplier export remains requested."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.7/higgs-moduli",
+        "verdict": "verified",
+        "note": "S16 pp.337,349–352: g≥1 stable coarse dimension 2D, scalar-gerbe dimension 2D−1 and proper nilpotent fibre are correctly separated. Full primary geometry remains G6."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.7/two-line-chart",
+        "verdict": "verified",
+        "note": "S16 pp.337–339: the corrected open imposes both restricted evaluations surjective, not merely Hom-frame isomorphisms. Quotients and principal frame bundles use this open; source E14 is confirmed."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.7/cotangent-moment",
+        "verdict": "corrected",
+        "note": "Corrected the dual tangent locator to S16 (6.2), p.340, and moment formula to (6.3), p.341. Dual exact sequence and annihilator of scalar Lie algebra agree."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.7/kronecker-chart",
+        "verdict": "verified",
+        "note": "S16 §6.6–6.7: the two-line composition gives the Kronecker arrows, doubled moment is equivariant, and conormal ambiguity leaves the effective moment functional unchanged."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/framing-cutoff",
+        "verdict": "corrected",
+        "note": "Verified the explicit sufficient bound from HN spread, torsion generation and the fixed-source kernel estimate, including zero kernels and l1=1. Corrected source locators; discharged G7 relative to the requested generation criterion."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/king-stability",
+        "verdict": "verified",
+        "note": "S16 Lemma 6.3: δ=l1a2−l2a1 has the stated slope determinant, and positive coprime total dimensions exclude weight zero for proper nonzero bounded subdimensions."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/moment-indecomposable",
+        "verdict": "verified",
+        "note": "S16 Lemma 6.2: scalar-plus-nilpotent endomorphisms and the central trace condition characterize indecomposability in the coprime case. The proof retains its p bound."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/smooth-locus",
+        "verdict": "verified",
+        "note": "S16 Lemmas 6.4–6.5: differential moment image annihilates stabilizers; effective projective-group freeness gives smoothness only in the effective dual, as corrected in E7."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/king-slope",
+        "verdict": "verified",
+        "note": "S16 §6.8: Higgs-invariant subsheaves are compared with tight quiver subrepresentations in the good-line open. The non-routine tightness comparison is honestly G6."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/deformation-family",
+        "verdict": "verified",
+        "note": "S16 §6.7–6.9: select the invariant central line before quotienting, use effective GIT and identify the zero fibre with stable canonical Higgs moduli; nonzero scaling trivialization is valid."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/bb-deformation",
+        "verdict": "verified",
+        "note": "S16 Proposition 6.9 and pp.348–349: projective-to-affine GIT and positive weights supply the limit hypotheses for the BB application. Its primary theorem and descent remain G5."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/stable-higgs-count",
+        "verdict": "corrected",
+        "note": "S16 Theorem 1.2: each coprime indecomposable contributes q^(1−χ)=q^D after scalar-gerbe conversion. Cited existing Lang node directly; characteristic-bounded geometry remains separate from MS14."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/higgs-hall-integration",
+        "verdict": "corrected",
+        "note": "MS14 Theorem 1.2 and §3.1: separated positive relative slope factors and Ω_K^+ from usual semistable factors and Ω_K. Added the precise normalized factorization and retained correct Ext² order."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.8/all-characteristic-count",
+        "verdict": "corrected",
+        "note": "MS14 Theorem 4.3/Corollaries 4.4–4.5: updated proof to use relative positive HN factors and Corollary 3.3 before eventual comparison and degree-r periodicity remove the cutoff."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.9/higgs-purity",
+        "verdict": "verified",
+        "note": "S16 §6.10–6.11: BB affine ranks yield doubled cohomological shifts, weight one symplectic action gives a_i+b_i=D, and equality is in the Frobenius Grothendieck group, not a canonical splitting."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.9/trace-positivity",
+        "verdict": "verified",
+        "note": "S16 Corollary 1.5 and §6.10: all-extension power sums plus pure weights give signed traces and nonnegative coprime coefficients. Universal monomial/origin closure remains G9."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.9/complex-poincare",
+        "verdict": "verified",
+        "note": "S16 Corollary 1.3 and pp.350–351: signed compact polynomial convention matches rank one. Spread-out comparison and genus-wise topological constancy remain the explicit G12 input."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.9/nilpotent-cone",
+        "verdict": "verified",
+        "note": "S16 Corollary 1.4 and §6.11: corrected q^D reciprocal prefactor and top degree 2D are already used; projective fixed-locus duality and rank-one Picard checks support E10."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.10/mellit-kernel",
+        "verdict": "verified",
+        "note": "M20 Theorem 1.1, pp.302–303: cell numerator/denominator and plethystic sign use q_M=z,t_M=q. Rank-one evaluation gives P_X(1), and unmarked specialization is not parabolic."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.10/partition-deformation",
+        "verdict": "verified",
+        "note": "M20 Proposition 3.1 and §4: regular symmetric sequences satisfy the shifted insertion relation, yielding the stated partition interpolation and deformation specialization."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.10/admissible-deformation",
+        "verdict": "corrected",
+        "note": "M20 Definition 5.1/Lemma 5.1: made the λ-ring hypothesis explicit alongside localization injection and compatible Adams operations. Generic admissibility remains the precise G8 supplier obligation."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.10/z-one-regularity",
+        "verdict": "corrected",
+        "note": "M20 Theorem 5.2(i)–(ii), M18 Theorem 7.1/Corollary 7.2: separated integral H from global Laurent H^Sch=(1−z)A over Q(q), and added a root-of-unity counterexample to using local regularity alone."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.10/mellit-identification",
+        "verdict": "corrected",
+        "note": "M20 Theorems 1.1/5.2: replaced the invalid local-regularity inference by global Laurent pole exclusion, Taylor regularity at zero and Fourier extraction. Hence the surviving eventual coefficient is independent of degree."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.11/quasi-parabolic",
+        "verdict": "verified",
+        "note": "S16 §7: quasi-parabolic flags at rational marks may repeat steps, with their type held fixed. Forgetting flags, trivial flags and degree-one twist are correctly specified."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.11/parabolic-universality",
+        "verdict": "verified",
+        "note": "S16 Theorem 7.1 literally targets R_g; parallel localized Hall calculations do not prove denominator removal. The statement is retained with explicit G10, rather than weakened silently or claimed closed."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.11/hn-refined-counts",
+        "verdict": "verified",
+        "note": "S16 §8.1–8.2: slope-cut and exact HN-type counts remain distinct, and a nontrivial HN filtration need not split. Fixed-type R_g regularity is not a proved theorem here."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.11/cutoff-universality",
+        "verdict": "verified",
+        "note": "S16 Corollary 8.1: slope-cut universality is K_g-valued, with twist and duality. Neither exact HN-type universality nor denominator cancellation is asserted."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.11/euler-hall-lie",
+        "verdict": "verified",
+        "note": "S16 §8.3: constructible Euler integration in characteristic zero, direct-sum coproduct and primitives are distinguished from finite-field specialization. Primary Hopf construction remains G11."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.11/open-assertions",
+        "verdict": "verified",
+        "note": "S16 Conjectures 8.2–8.4: the objects are propositions to formulate, with no proof or unconditional export. Origin regularity and finite-dimensionality are included before root-multiplicity equalities."
+      },
+      {
+        "nodeId": "CountingBundlesAndHallAlgebrasOfCurves:CB.10/all-degree-positivity",
+        "verdict": "verified",
+        "note": "M20 degree independence and S16 coprime positivity: choose a coprime degree of the same rank and transport equality. This transfers the coprime conclusions but settles no parabolic or fixed-HN conjecture."
+      }
+    ]
+  }
 }
