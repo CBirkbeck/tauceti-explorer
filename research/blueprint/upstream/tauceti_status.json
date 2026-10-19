@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-19T13:00Z",
+ "updated": "2026-10-19T13:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -570,7 +570,7 @@
   "ModularCurvesPartII": {
    "stage": "pr",
    "pr": 913,
-   "head": "2f3a763",
+   "head": "3a466fa",
    "note": "N3 CHANGES answered 10-16; draft",
    "review": {
     "recommendation": "approve",
@@ -1486,9 +1486,9 @@
    "head": "30a4a19",
    "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
