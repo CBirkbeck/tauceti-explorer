@@ -151506,6 +151506,44 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv.md"
+  },
+  {
+   "id": "FIX-PKG-BorelRegulators~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "BorelRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-BorelRegulators~adv2.md",
+    "research/blueprint/packages/BorelRegulators/review.json",
+    "research/blueprint/packages/BorelRegulators/README.md",
+    "research/blueprint/packages/BorelRegulators/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-KTheoryFiniteLocalFields~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "KTheoryFiniteLocalFields"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-KTheoryFiniteLocalFields~adv2.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/review.json",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/README.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv2.md"
   }
  ]
 }
