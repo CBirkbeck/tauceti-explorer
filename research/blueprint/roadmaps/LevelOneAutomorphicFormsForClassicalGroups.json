@@ -1,0 +1,227 @@
+{
+  "id": "LevelOneAutomorphicFormsForClassicalGroups",
+  "title": "Level-one automorphic forms for classical groups",
+  "area": "automorphic",
+  "parent": null,
+  "summary": "Build the unitary level-one cuspidal spectrum of PGL_m/Q, the intrinsic Rankin–Selberg exclusion method, explicit classical Arthur packet characters and exact geometric mass recovery. Use those interfaces to classify the indicated cusp forms through motivic weight 24, compute regular Siegel cusp dimensions through genus eight, determine every scalar cusp space through weight thirteen, realize the four weight-thirteen forms by harmonic lattice theta series, and prove stable scalar dimension and theta theorems at genus 2k. The plan distinguishes native imported theories, exact certificate obligations and source corrections; none of its targets is claimed implemented.",
+  "readme": "research/blueprint/readmes/LevelOneAutomorphicFormsForClassicalGroups.md",
+  "prerequisites": [
+    "AnalyticNumberTheory",
+    "AutomorphicBundles",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "ComputationalNumberTheory",
+    "FiniteFieldsAndCharacterSums",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "MetaplecticAutomorphicForms",
+    "ModularityAndLanglandsExtensions",
+    "tauceti:Completed/IntegralLattices",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+  ],
+  "stages": [
+    {
+      "key": "LO.1",
+      "title": "Level-one cuspidal forms and classical infinitesimal characters",
+      "description": "Start with the adelic automorphic objects supplied by AF and specialize to the unitary algebraic level-one spectrum. The archimedean ring records the actual real Weil representation, including its zero characters; a multiset of nonzero weights alone loses determinant and epsilon information. Doubled integral coordinates make half-integrality and common parity exact. The classical-group dictionary distinguishes the standard dimension of G from that of its dual and has an inverse only on three specified parity images. The only repeated coordinates permitted by classical regularity are the central double zero in dimension divisible by four. Fibre cardinalities retain actual cuspidal classes: the two classes coming from S₂₄ have the same infinity type and remain distinct. The stage supplies labels and normalizations used by every subsequent computation. For every fixed regular w, N(w) and N⊥(w) are finite and N−N⊥ is even. The inverse highest-weight dictionary is defined on exactly its three regular parity images, with the type-D outer sign normalized.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.4",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicSpectralTheory:AS.4",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+      ]
+    },
+    {
+      "key": "LO.2",
+      "title": "Rankin–Selberg positivity and certified exclusions",
+      "description": "This is the owner of the level-one Stark–Odlyzko argument. The starting theorem is an intrinsic bilinear explicit formula for completed Rankin–Selberg L-functions, with the Fourier convention fixed before positivity is asserted. Finite Satake terms are positive semidefinite, whereas the corrected zero contribution yields nonnegativity only on the cone of nonnegative coefficients. The admissible finite matrix retains A_F/m on its diagonal and checks that active epsilon factors are real signs. A local Rayleigh minimum must be proved to have the least eigenvalue; the existing Mathlib theorem supplies only the eigenvector assertion. Principal faces reduce discovery to finite spectral problems. CN supplies exact and interval certification, complete ellipsoid covers and the average multiplicity lift. This stage proves the comparison from those certificates to the intrinsic automorphic inequality. Unconditional F tests and GRH-dependent G tests have separate hypotheses. For POS(F), C^F(x,x)≥0 for every finite nonnegative automorphic vector x, and m distinct classes at U imply J_F(U²)≤A_F/m. The average lift proves strict-negativity equivalence for compressed blocks. The two Miller families vanish for n≤12 with the stated trivial exception.",
+      "requires": [
+        "AnalyticNumberTheory:AN.3",
+        "AutomorphicFormsOnReductiveGroups:AF.5",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "ComputationalNumberTheory:CN.4",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.1",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
+      ]
+    },
+    {
+      "key": "LO.3",
+      "title": "Arthur parameters, packet characters and triangular counts",
+      "description": "Specialize the general ML classification rather than rebuilding it. A parameter is a sum of distinct pairs (π,d), so the same cuspidal representation can occur at several different lengths. The finite component group and its global epsilon character are compared with the imported real packet pairing. Regular holomorphic packets and the three scalar cases have explicit finite sign formulas, including all zero-character and omitted-position branches. Their local multiplicity-one conclusions are used only in the proved holomorphic cases. The Euler–Poincaré packet projector includes nontempered parameters and the even-orthogonal outer convention. Separating simple tempered parameters gives a triangular relation between EP and self-dual cuspidal counts. Its induction measure is dual standard dimension, not the motivic weight, and all nonsimple terms use smaller cuspidal rank. For every valid level-one Sp parameter with the specified holomorphic real constituent, occurrence is equivalent to χ=ε. For every permitted G and dominant λ, EP(G;λ)=κ(G,λ)N⊥(w(λ))+R(G,λ), where κ≠0 and R uses only smaller cuspidal rank.",
+      "requires": [
+        "AutomorphicBundles:B4",
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.4",
+        "AutomorphicSpectralTheory:AS.6",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.1",
+        "ModularityAndLanglandsExtensions:ML.0",
+        "ModularityAndLanglandsExtensions:ML.4"
+      ]
+    },
+    {
+      "key": "LO.4",
+      "title": "Geometric torsion classes and exact mass recovery",
+      "description": "Define masses through the normalized geometric trace distribution before describing any data file. They are signed rational coefficients of geometric conjugacy classes. Characteristic polynomials compress those coefficients, with a separate two-class phenomenon in even SO and a separate central-negation orbit factor. The spinor constraint removes impossible orthogonal columns. Exact torsion character evaluation then turns certified analytic vanishings into rational linear systems. The SO₃ calculation fixes signs and measures. Coarse tables use no previously classified spectrum; they establish the 27 known low-weight classes. Those classes strengthen the exclusion method and give the refined Sp₁₄, SO₁₆ and SO₁₇ tables. Sp₁₆ combines direct orbital values on easy columns with a 766-column hard system. This ordering prevents the refined classification from being used to establish its own input masses. Recover all signed masses for the discrete-series SO_d with d≤17 and for Sp₂,…,Sp₁₆. The refined systems have ranks 1158,992,2948 for Sp₁₄,SO₁₆,SO₁₇; the Sp₁₆ hard system has rank 766, inside 2521 total sign orbits.",
+      "requires": [
+        "AutomorphicSpectralTheory:AS.6",
+        "ComputationalNumberTheory:CN.4",
+        "ComputationalNumberTheory:CN.5",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.1",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.2",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.3",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+      ]
+    },
+    {
+      "key": "LO.5",
+      "title": "Cuspidal classifications through motivic weight twenty-four",
+      "description": "A finite classification theorem needs both a complete candidate cover and a sound exclusion for every removed point. Keep those obligations separate. Positive definiteness and the A_F/m fibre bound establish finiteness through weight 23. The weight-at-most-22 and top-simple weight-23 theorems combine independent existence with exhaustion. Repeated-top weight 23 has an exceptional two-class case: the published argument needs an additional self-dual m=2 certificate, and that required witness is recorded explicitly. The 181-vector residual contains the exceptional vector. The weight-24 theorem first obtains a rank bound, then uses the refined masses to exhaust regular self-dual parameters. The GRH theorem is a separate conditional restriction and asserts at most one class at its surviving parameter; it supplies no existence assertion. Prove the exhaustive 11-class weight≤22 list, 13-class top-simple weight-23 list and three-class regular self-dual weight-24 list. Repeated-top weight 23 has 181 possible vectors and at most 182 classes; under GRH only the specified rank-16 vector can remain, with at most one class.",
+      "requires": [
+        "ComputationalNumberTheory:CN.4",
+        "ComputationalNumberTheory:CN.5",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.1",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.2",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.3",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.4"
+      ]
+    },
+    {
+      "key": "LO.6",
+      "title": "Lattice theta maps and first occurrence",
+      "description": "Import the current IntegralLattices carrier and its Gram/isometry API. The current upstream roadmap constructs reference rank-16 and rank-24 lattices but does not thereby prove completeness. Those completeness theorems have explicit suppliers. On the unweighted free space of lattice classes, the genus-g theta map has constant coefficient one on each basis vector and commutes with the Siegel operator. First occurrence is a least nonzero genus, independent of the genus of a subsequent lift. Earlier lattice Hecke eigenparameters and degrees precede the new all-genus cusp classification. The square-integrable Rallis relation uses the actual lift genus; the degree remains in the strict growth bound. Harmonic coefficients use determinant covariance and every mixed Laplacian. Native algebraic modular-form assignments carry stabilizer denominators, while coinvariant generators give ordinary lattice sums. The five needed Böcherer specializations are stated with a precise source boundary. Construct unweighted θ_g:ℂ[X_n]→M_{n/2}(Γ_g) with Φθ_g=θ_{g−1}, and identify all 24 rank-24 eigenlines and their degrees. For a square-integrable lift use ψ_G=ψ_F⊕[n−2g−1] when n>2g+1 and the reversed sum when n<2g+1. Positive determinant degree ν gives harmonic theta weight n/2+ν and cuspidality.",
+      "requires": [
+        "AutomorphicBundles:B4",
+        "AutomorphicBundles:B5",
+        "AutomorphicFormsOnReductiveGroups:AF.5",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.3",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.5",
+        "MetaplecticAutomorphicForms:MP.3",
+        "MetaplecticAutomorphicForms:MP.5",
+        "MetaplecticAutomorphicForms:MP.6",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "tauceti:Completed/IntegralLattices#layer-1-lattices-with-forms",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+      ]
+    },
+    {
+      "key": "LO.7",
+      "title": "Siegel cusp dimensions and the four weight-thirteen forms",
+      "description": "Combine the exact self-dual count algorithm with the holomorphic packet formulas to count Siegel eigenlines. For regular dominant weights the finite computation terminates for every top weight, and genus at most eight lies in the recovered mass range. At top weight at most thirteen, exact enumeration gives 223 actual positive-genus parameters and 58 survivors. Collapsing the two weight-23 GL₂ labels gives 198 shapes and the same 58 survivors; genus zero is not included. The nonscalar table has 29 one-dimensional spaces. For scalar weights, the regular rows must be joined to all I/H1/H2 cases in the singular range. Earlier theta degrees remove noncuspidal H1 lifts without a circular appeal to the table being proved. Three exceptional singular rows complete the scalar table. Odd weight then identifies the four weight-13 modular spaces with their cusp spaces. Compute dim S_k(Γ_g) for every 1≤g≤8 and k_g>g. In the top-weight≤13 range prove exactly 29 nonscalar one-dimensional rows and the 32 scalar eigenparameter rows. Prove M₁₃=S₁₃ is one-dimensional exactly in genera 8,12,16,24 and zero in every other positive genus.",
+      "requires": [
+        "AutomorphicBundles:B4",
+        "AutomorphicBundles:B5",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.3",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.4",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.5",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.6",
+        "MetaplecticAutomorphicForms:MP.6"
+      ]
+    },
+    {
+      "key": "LO.8",
+      "title": "Harmonic theta realizations and stable scalar forms",
+      "description": "Use the cusp classification to prove theta spanning in weights 4, 8 and 12 by induction with the Siegel operator. For weight 13, the five meromorphic order checks identify harmonic theta images, while the Golay alternating forms provide explicit nonzero Leech Fourier coefficients. Rooted Niemeier lattices contribute no positive-degree alternating invariants. Exact group and code certificates support the one-dimensional Leech invariant lines and the coefficient counts; generic code, lattice and finite-group infrastructure stays with its owners. Finally the stable parameter remainder and character test are independent of genus at g≥2k. This proves stable dimensions and bijectivity of Φ at the boundary, then transports the known strict-range theta spanning theorem down to g=2k. The stable argument works in arbitrary weight and does not require unbounded-rank mass tables. Prove low-weight theta spanning for k=4,8,12 and the alternating rank-24 theta isomorphism onto S₁₃ in every genus. For every k,g≥0 with g≥2k prove dim M_k(Γ_g)=dim M_k(Γ_{2k}), vanishing unless 4|k, and bijectivity of Φ_{g+1}; for 4|k prove θ_g:ℂ[X_{2k}]→M_k(Γ_g) is an isomorphism.",
+      "requires": [
+        "AutomorphicBundles:B4",
+        "AutomorphicBundles:B5",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "FiniteFieldsAndCharacterSums:FF.4",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.3",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.4",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.6",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.7",
+        "MetaplecticAutomorphicForms:MP.5",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CT20",
+      "title": "Discrete series multiplicities for classical groups over Z and level 1 algebraic cusp forms",
+      "authors": "Gaëtan Chenevier and Olivier Taïbi",
+      "edition": "Publications Mathématiques de l’IHÉS 131 (2020), 261–323; published pagination",
+      "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-020-00115-z.pdf",
+      "sha256": "ea90fb0faabeaaa56be15f2c6f9c22450e7891c2181130fd79fe356cd83ba3de",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1–5.5, pp.261–319, including every definition, proof and displayed formula used by this roadmap; Tables 1–6, especially Tables 5–6 pp.319–320; references pp.320–323. The SO₃ normalization, §2.4 compression, §3.3 recursion, §4 residuals and §5.2 scalar character branches were rechecked individually."
+      ]
+    },
+    {
+      "id": "Tai17",
+      "title": "Dimensions of spaces of level one automorphic forms for split classical groups using the trace formula",
+      "authors": "Olivier Taïbi",
+      "edition": "Annales scientifiques de l’École Normale Supérieure 50 (2017), 269–344; published pagination",
+      "url": "https://www.numdam.org/item/10.24033/asens.2321.pdf",
+      "sha256": "1d81643d7b37ba26127d5d55360fa928757f2d9e9d6dbc4ff89e6489ed924c65",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3.3.4, Theorems 3.3.3–3.3.5 pp.301–303; §4.1.2 pp.307–312; §4.2.2 pp.316–322, especially Theorem 4.2.3 and Corollary 4.2.4 p.321; §4.3 pp.322–323. Other local orbital and centralizer-volume proofs are supplier/source obligations, not claimed read in full."
+      ]
+    },
+    {
+      "id": "CL14",
+      "title": "Formes automorphes et réseaux unimodulaires pairs",
+      "authors": "Gaëtan Chenevier and Jean Lannes",
+      "edition": "Public French preprint arXiv:1409.7616; printed preprint pages and chapter numbering. The 2019 English book is not the edition read.",
+      "url": "https://arxiv.org/pdf/1409.7616",
+      "sha256": "ee20dcf191d37290a74c79c4b15d9fbfe5c2b3673bd6c53283ff44d19762708d",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, Theorems E–F pp.11–14; V §1 pp.135–137 and §2 pp.137–140; V §4.1 and Proposition-Definition 4.4 pp.143–146; IX §3.16, Lemma 3.15 and Proposition 3.17 pp.303–305; IX Lemma 3.36 and Propositions 3.37–3.38 pp.321–323; IX §4.4 pp.326–327 and §5.2 pp.328–330; Table C.5 p.440. These are targeted readings, not a claim to have read the entire preprint."
+      ]
+    },
+    {
+      "id": "CT19b",
+      "title": "Level-one tables, verification programs and source data",
+      "authors": "Gaëtan Chenevier and Olivier Taïbi",
+      "edition": "Author companion site and levelone_src_data.tar.gz; SHA-256 is of the archive, not of readme.html",
+      "url": "https://otaibi.perso.math.cnrs.fr/levelone/levelone_src_data.tar.gz",
+      "sha256": "b0bd028b886b91d996d0562798c0800fdf465d7b39dc82eeea1a2e22ec6be87b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Companion landing page and readme.html; gp/vvalued.gp; explicit scalar formulas in gp/without_GRH.gp; relevant enumeration routines in sage/enum_cc.sage, exact character routines in sage/trace_alg_rep.sage, sage/verify_low_weight.sage and setup/check routines in sage/verify.sage; the known-class list in gp/testfin.gp and the exact integer/domain fields of contradict_vect/db_w23_mult1. The original Sage/PARI verification suite was not executed."
+      ]
+    },
+    {
+      "id": "BoechererNote",
+      "title": "Verification of Böcherer’s criterion for the weight-13 forms",
+      "authors": "Chenevier–Taïbi companion material",
+      "edition": "Three-page author companion note verif_bocherer.pdf; PDF pagination",
+      "url": "https://otaibi.perso.math.cnrs.fr/levelone/verif_bocherer.pdf",
+      "sha256": "40f4ae15a4130408aed1776b57d02ea44e8a5b505b88a2b6051e6584f431701f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire three-page note: criterion and normalizations p.1; five meromorphic products and order computations pp.2–3. The cited original Böcherer 1989 Theorem 5 was not available in the sources read."
+      ]
+    },
+    {
+      "id": "CT19a",
+      "title": "Siegel modular forms of weight 13 and the Leech lattice",
+      "authors": "Gaëtan Chenevier and Olivier Taïbi",
+      "edition": "arXiv:1907.08781v1, 20 July 2019; preprint pagination",
+      "url": "https://arxiv.org/pdf/1907.08781v1",
+      "sha256": "38e2e76048f7c31b5796039a39add872c0958a07c70fbea9fc08eb12653eb566",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and Theorems 1–2 pp.1–4; §1 pp.5–8, Facts 1.1–1.2, Lemma 1.3, Proposition 1.4 and Definition 1.5; §2 pp.9–13, Lemmas 2.1, 2.3–2.4 and Proposition 2.2; Proposition 3.5 and beginning of Proposition 3.6 p.17; Proposition 3.13 and Corollary 3.14 p.24; §4 pp.25–28, Propositions 4.1–4.2, Corollary 4.3 and Theorem 4.4. Remaining details of §3 lattice classifications are assigned to GN.3."
+      ]
+    }
+  ],
+  "status": "draft"
+}
