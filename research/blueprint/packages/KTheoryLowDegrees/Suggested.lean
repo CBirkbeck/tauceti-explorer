@@ -97,7 +97,7 @@ theorem projective_cancellation {R : Type u} [CommRing R]
     Nonempty (P.obj ≃ₗ[R] Q.obj) := by
   sorry
 
-/-! ## Layer 6: stable general linear and elementary groups -/
+/-! ## Layer 6: finite matrices and stable representatives -/
 
 /-- Finite-rank elementary matrices generate a subgroup of the native general linear group.
 The generators have distinct row and column indices. -/
@@ -161,10 +161,17 @@ theorem euclidean_elementary_generation (R : Type u) [EuclideanDomain R]
     g ∈ finiteElementaryGroup R n := by
   sorry
 
+/-- Size zero cannot satisfy the positive-rank surjectivity claim for the determinant:
+the only empty matrix has determinant one, whereas −1 is a distinct rational unit. -/
+theorem sizeZero_det_not_surjective :
+    ¬ Function.Surjective
+      (Matrix.GeneralLinearGroup.det : Matrix.GeneralLinearGroup (Fin 0) ℚ →* ℚˣ) := by
+  sorry
+
 /-! ## Layer 12: regular curves, rank and determinant -/
 
-/-- Change from (rank, degree) to coefficients in the ordered basis ([O],[O(−1)])
-of K₀ of the projective line. -/
+/-- Change between coefficients in the ordered basis ([O],[O(−1)]) and (rank, degree)
+on K₀ of the projective line; the same formula gives the inverse. -/
 def projectiveLineCoordinates : (ℤ × ℤ) →+ (ℤ × ℤ) where
   toFun x := (x.1 + x.2, -x.2)
   map_zero' := by simp
@@ -204,10 +211,10 @@ theorem koszulSign_add_left (R : Type u) [CommRing R] (a b c : ℤ) :
   sorry
 
 /-
-The README also specifies FreeSummandData, freeSummandData, IdempotentPresentation,
-idempotent, imageIdempotent, StableIdempotent, zeroPad and conjugate;
+The README also specifies FreeSummandData, IdempotentPresentation,
+imageIdempotent, StableIdempotent, zeroPad and conjugate;
 moduleEquivalenceSubmoduleOrderIso, finiteProjectiveEquivalence, moritaK0Equiv, matrixRingK0Equiv,
-PatchedProjective, freePatch, milnorBoundary, rank, rankSection, reducedK0, ReducedK0,
+the opposite-transpose patching comparisons, rank, rankSection, ReducedK0,
 clopenModule, componentwiseFree and rankFibres; lambdaTotal, lambdaOp,
 exteriorExtensionFiltration, PreLambdaRing, PreLambdaHom, LambdaIdeal, line elements,
 binomial and monoid-ring structures, lambdaProductPoly, lambdaComposePoly,
@@ -219,19 +226,21 @@ decompositionMap, weightPart, formalCharacter, reductiveFormalCharacter, glProdu
 associatedProjective and associatedRepresentationK0;
 picardClassDifference, dedekindRankPicEquiv, coprimeIdealRepresentative,
 dedekindK0Localization, dedekindTransferCoordinates, lineMapIndexIdeal and Picard norm;
-StableGL, ofMatrix, blockSum, StableElementary, RingK1, matrixClass, unitsToK1,
+finite-representative equality and block-sum class formulas, matrixRingK1Equiv, matrixClass, unitsToK1,
 projectiveAutClass, rightModuleEnd, the Bass automorphism group,
-projectiveTensorK1Action, transfer, SpecialK1, DieudonneDet and circleEvaluation;
-RelativeGL, RelativeK1, RelativeUnits, IdealDouble, RelativeK0 and relativeK0Boundary;
+projectiveTensorK1Action, transfer comparisons, SpecialK1, DieudonneDet, circleEvaluation
+and specialLinear_QR_deformation;
+RelativeGL, RelativeK1, RelativeUnits and relative K₀ opposite-side comparisons;
 MennickePairs, IsMennickeSymbol, UniversalMennicke, firstRowPair, specialK1Symbol,
 kubotaValue, kubotaHom, RelativeUnimodularColumn, OrientedRelated,
 ExtensionConditions, StandardForm, standardFormValue, extendedValue,
 MultiplierSubgroup, ValueConjugationStabilizer, reflectedTranspose, extendedHom,
 FiniteLevelDefect, arithmeticSymbol, defectExponent, defectOrder, CongruenceCompletion,
 LatticeCongruenceKernel, SerreElementary and RelativeCentralExtension;
-curveDivisorClassToK0, rankDegree, ringK0ComponentsEquiv, congruenceLoop,
+curveDivisorClassToK0, rankDegree, the Euler/Cartan and transfer comparisons, congruenceLoop,
 relativeK1PlusEquiv, the normalized inverse lifted-word boundary and double comparisons;
-GradedLine, projectiveGradedDet, projectiveLoopClass, ringSpectrumDet,
+GradedLine, projectiveGradedDet, projectiveGroupCompletion_spectrumComparison,
+projectiveLoopClass, ringSpectrumDet,
 schemeSpectrumDet and wittSupportedDet.
 
 -/
