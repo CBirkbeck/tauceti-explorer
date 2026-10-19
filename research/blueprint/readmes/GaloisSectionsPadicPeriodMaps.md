@@ -4,9 +4,9 @@ Betts and Stix prove that for a number field without CM subfield and a curve of 
 
 ## Purpose and scope
 
-This roadmap formalises L. A. Betts and J. Stix, Galois sections and p-adic period mappings (Annals of Mathematics 201 (2025), 79–166; arXiv:2204.13674, whose numbering is used throughout because the published revision is not openly available). Its end theorems are Theorem A, the finiteness of loc\_v(Sec^Sel(Y/K)) at every finite place v when K has no CM subfield, and Theorem B, the finiteness of the projections of the finite descent locus; on the way it proves the finiteness of the Lawrence–Venkatesh locus at every self-conjugate place (Theorem 6.5), which also gives the Mordell conjecture, and the general statement that Selmer sections localise into that locus (Theorem 7.1).
+This roadmap formalises L. A. Betts and J. Stix, Galois sections and p-adic period mappings (Annals of Mathematics 201 (2025), 79–166; arXiv:2204.13674v1, whose statements and numbering are used throughout; the published revision has not been compared). Its end theorems are Theorem A, the finiteness of loc\_v(Sec^Sel(Y/K)) at every finite place v when K has no CM subfield, and Theorem B, the finiteness of the projections of the finite descent locus; on the way it proves the finiteness of the Lawrence–Venkatesh locus at every self-conjugate place (Theorem 6.5), which also gives the Mordell conjecture, and the general statement that Selmer sections localise into that locus (Theorem 7.1).
 
-It is a Part II of AnabelianGeometryAndNonabelianChabauty, whose Layer 7.1 supplies Galois section classes Sect(X/k), the section map κ\_X, its injectivity over number fields and Grothendieck's section conjecture as a named proposition (atlas nodes NC.6/section-classes, NC.6/section-class-map, NC.6/section-map-injective, NC.6/section-conjecture). This roadmap starts there: it restricts sections to decomposition groups, defines Selmer sections, and builds the Lawrence–Venkatesh obstruction for them. The section conjecture is never assumed.
+It is a Part II of AnabelianGeometryAndNonabelianChabauty, whose Layer 7.1 supplies Galois section classes Sect(X/k), the section map κ\_X, its field-general divisibility criterion for injectivity, its number-field corollary and Grothendieck's section conjecture as a named proposition (atlas nodes NC.6/section-classes, NC.6/section-class-map, NC.6/section-map-injective, NC.6/section-conjecture). This roadmap starts there: it restricts sections to decomposition groups, defines Selmer sections, and builds the Lawrence–Venkatesh obstruction for them. The section conjecture is never assumed.
 
 ## What is imported
 
@@ -18,7 +18,7 @@ It is a Part II of AnabelianGeometryAndNonabelianChabauty, whose Layer 7.1 suppl
 - PadicHodgeTheory R06.2, R06.3, R06.5, P8: period functors, filtered (φ, N)-modules with descent data, D\_pst, the p-adic monodromy theorem, de Rham pairs, Scholze's relative comparison with its compatibilities, Shimizu's horizontal periods and relative monodromy theorem.
 - CohomologyComparisons CP.6: compatibility of Scholze's c\_dR with cup products, base change, traces, duality, cycle and Chern classes.
 - AdicSpacesPartII R1, AlgebraicModuliForArithmeticGeometry R09.1, AbelianSchemesAndArithmeticModuli A6, ComplexComparisonPartII C5, EtaleDualityAndPerverseSheaves EDC.2, ArithmeticGaloisDuality R02.3, WeightsInEtaleCohomology R34.1: rigid analytification, flag varieties, Weil restriction, the Gauss–Manin connection, Poincaré duality on curves, Hermite–Minkowski, purity.
-- Tau Ceti: ClassFieldTheory Layers 7 and 11, LocalFieldsRamification Layers 0, 2 and 4, ReductiveGroups Layers 0 and 3, Chebotarev Layer 10; Mathlib's absolute Galois groups, CM fields, bilinear forms, Dirichlet's theorem and ζ(4).
+- Tau Ceti: ClassFieldTheory Layers 7 and 11, GlobalNumberFields Layers 2, 7 and 8, LocalFieldsRamification Layers 0, 2 and 4, LocalGaloisGroups Layer 7 (finite generation of the full local Galois group), ReductiveGroups Layers 0 and 3, Chebotarev Layer 10; Mathlib's absolute Galois groups, CM fields, bilinear forms, Dirichlet's theorem and ζ(4).
 
 ## Conventions
 
@@ -32,7 +32,7 @@ It is a Part II of AnabelianGeometryAndNonabelianChabauty, whose Layer 7.1 suppl
 
 ## Corrections to the source
 
-The paper extraction PAPER-BETTS-STIX-25 records E1–E8; this roadmap uses their corrected statements, and records nine further mistakes found by the extraction's red team and confirmed by its verifier (this roadmap's E1–E9, scoped to arXiv v1), and one in Stix's 2008 appendix used for local injectivity (E10).
+The extraction PAPER-BETTS-STIX-25 supplies the first eight corrections below. The further Betts–Stix findings E1–E9 and E11 concern arXiv v1; the Annals revision has not been compared. E10 is a clarification of the local-field domain of Stix’s Remark 46, rather than an established erratum. All statements below use these hypotheses and conventions.
 
 | Finding | Locator | Correction used here |
 | --- | --- | --- |
@@ -46,14 +46,15 @@ The paper extraction PAPER-BETTS-STIX-25 records E1–E8; this roadmap uses thei
 | Extraction E8 | Proof of Theorem 3.22, p. 31; Definition 3.24 | Potential horizontal semistability from Shimizu Lemma 8.9 with Theorem 7.4; the definition is Shimizu Definition 5.6. |
 | This roadmap E1 | arXiv v1, proof of Proposition 5.3, (5.1) and the following paragraph, pp. 40–41 | Use the columns of T⁻¹ (the solution of dS = Sω, S(0) = I): Φ\_{y₀}(y) is the pullback (T(y))⁻¹(F^i) of the fixed filtration, not its push-forward. |
 | This roadmap E2 | arXiv v1, Lemma 4.7, p. 35 | Assume π smooth and proper (as in every application, where π is an abelian-by-finite family). |
-| This roadmap E3 | arXiv v1, Corollary 5.10 and Remark 5.11, p. 43 | Assume Y proper (projective), as in every application. |
+| This roadmap E3 | arXiv v1, Corollary 5.10 and Remark 5.11, p. 43 | Keep Corollary 5.10 as a local statement on a closed disc. For the global finite-disc argument of Remark 5.11 assume Y proper, as in all applications. Properness guarantees compactness; smoothness alone does not. |
 | This roadmap E4 | arXiv v1, §3.5, paragraph after the proof of Theorem 3.3, p. 29 | It begins the proof of Theorem 3.22; Theorem 3.3 has just been deduced from it. |
 | This roadmap E5 | arXiv v1, §4.2 before Lemma 4.8, p. 36 | P is the Poincaré bundle on X ×\_{Y′} X^∨, as on pp. 33–35. |
 | This roadmap E6 | arXiv v1, (4.3), p. 38 | Index the product by the closed points y′\_i, i ∈ I. |
 | This roadmap E7 | arXiv v1, proof of Lemma 6.17, p. 50 | For all j. |
 | This roadmap E8 | arXiv v1, Remark 6.23(I), p. 54 | Of q − 1. |
-| This roadmap E9 | arXiv v1, Example 2.2, p. 7 | Weil I treats smooth projective varieties; for smooth proper ones cite Weil II (3.3.9), with integrality from SGA 7 XXI 5. Every use in the paper is H¹ of abelian varieties, which are projective. |
-| This roadmap E10 | arXiv:0809.0017v1, Appendix B, Remark 46, p. 22 | It holds over non-archimedean local fields, where A(L) is a profinite group; it fails over ℝ and ℂ, where the identity component of A(ℝ) or A(ℂ) is a divisible torus, and there the section map only sees connected components. |
+| This roadmap E9 | arXiv v1, Example 2.2, p. 7 | Weil I, Theorem 1.6, p. 276, has the smooth projective hypothesis. For smooth proper varieties use Weil II, Corollary 3.3.9, p. 218, which states both integral coefficients independent of ℓ and purity. The abelian varieties used here are already projective. |
+| This roadmap E10 (scope clarification) | arXiv:0809.0017v1, Appendix B, Remark 46, p. 22 | For this roadmap take local fields to mean finite extensions of Q\_p. Here A(L) is profinite and has no nonzero point divisible by every positive integer. Compactness without total disconnectedness does not give the assertion over R or C, where the section map sees components. |
+| This roadmap E11 | arXiv v1, Remark 2.20, CM case, p. 14 | Insert finite-power descent of the character along N\_{K/E}, using its factored algebraic type and finiteness of ray class groups. Apply the conjugation argument to the resulting character of E, then pull it back by the local norm. |
 
 ## How to read the build
 
@@ -97,7 +98,7 @@ SPM.0 and SPM.1 are the global, section-theoretic half and need nothing from p-a
 - `SectionClasses.restrictPlace_spec` (degenerate): For X = Spec K, Sect(X/K) and Sect(X\_{K\_u}/K\_u) are one-point sets and res\_u is the unique map between them.
 - `SectionClasses.restrictPlace_gm` (compatibility): For X = G\_{m,K} with the reference sections of the point 1, res\_u corresponds under SectionClasses.equivH1 to restriction H¹(K, Ẑ(1)) → H¹(K\_u, Ẑ(1)); on Kummer classes it sends the class of a ∈ K^× to the class of a ∈ K\_u^×.
 - `SectionClasses.restrictPlace_complex` (computation): At a complex place u, G\_u is trivial, Sect(X\_{K\_u}/K\_u) is a single point and res\_u is constant.
-- `SectionClasses.restrictPlace_not_on_homomorphisms` (non-example): For X = G\_{m,Q}, u the real place and two embeddings ι, ι ∘ σ with σ acting on Ẑ(1) by inversion, the restricted homomorphisms G\_ℝ → π₁(X\_ℝ) differ as maps while their classes agree; a definition on raw homomorphisms is not independent of ι.
+- `SectionClasses.restrictPlace_not_on_homomorphisms` (non-example): In the split extension Ẑ(1) ⋊ C₂ with the generator c acting by inversion, the sections sending c to (2,c) and (−2,c) are distinct continuous homomorphisms but are conjugate by the geometric-kernel element (−2,1). Thus raw sections depend on the chosen transport even when their section classes agree; this is the real G\_m local model.
 
 **Uses.**
 
@@ -129,7 +130,7 @@ SPM.0 and SPM.1 are the global, section-theoretic half and need nothing from p-a
 
 **Proof sketch.**
 
-1. By NC.6/section-map-injective it suffices that A(L) has no nonzero element divisible by every n ≥ 1, for each abelian variety A over L.
+1. Apply the field-general first assertion of NC.6/section-map-injective (Stix, Appendix B, Proposition 44 and Theorem 45), rather than its number-field corollary: it suffices that every abelian variety A/L has no nonzero rational point divisible by every positive integer.
 2. A(L) is a compact Hausdorff totally disconnected topological group: it is closed in a projective space over L, which is compact and totally disconnected; so A(L) is a profinite abelian group (Stix, Appendix B, Remark 46, which gives compactness as the reason).
 3. For every open subgroup U of A(L), the quotient A(L)/U is finite of some exponent e\_U, so an element divisible by e\_U lies in U; an element divisible by every n therefore lies in every open subgroup, and the open subgroups of a profinite group intersect in 0.
 4. For a curve of genus ≥ 1 with an L-point b, the Abel–Jacobi map at b is a closed immersion into the Jacobian (HeightsRationalPointsAndObstructions §6.4, as cited by NC.6/section-map-injective); if X(L) = ∅ there is nothing to prove.
@@ -171,8 +172,8 @@ SPM.0 and SPM.1 are the global, section-theoretic half and need nothing from p-a
 - `SelmerSections.loc` (data): loc\_u: Sec^Sel(X/K) → X(K\_u) for a finite place u, when κ\_{X\_{K\_u}} is injective.
 - `SelmerSections.loc_spec` (characterisation): κ\_{X\_{K\_u}}(loc\_u c) = res\_u(c), and loc\_u c is the only point with this property.
 - `SelmerSections.ofPoint` (constructor): κ\_X(x) ∈ Sec^Sel(X/K) for x ∈ X(K), with loc\_u(κ\_X x) = x in X(K\_u).
-- `SelmerSections.map` (functoriality): A K-morphism f: X → X' maps Selmer sections to Selmer sections, with loc\_u ∘ map f = f ∘ loc\_u.
-- `SelmerSections.restrict` (functoriality): For a finite extension L/K, restriction of sections to G\_L maps Sec^Sel(X/K) into Sec^Sel(X\_L/L), and loc\_w(c|G\_L) = loc\_v(c) for w | v.
+- `SelmerSections.map` (functoriality): A K-morphism f: X → X′ maps Selmer sections to Selmer sections. At a finite place u where both local section maps are injective, loc\_u ∘ map f = f ∘ loc\_u.
+- `SelmerSections.restrict` (functoriality): For a finite extension L/K, restriction of sections to G\_L maps Sec^Sel(X/K) into Sec^Sel(X\_L/L). For finite w | v, when the local section maps over both K\_v and L\_w are injective, loc\_w(c|G\_L) is the image of loc\_v(c) in X(L\_w).
 - `SelmerSections.eq_empty_of_no_local_point` (other): If X(K\_u) = ∅ for some place u then Sec^Sel(X/K) = ∅.
 - `SelmerSections.eq_range_of_sectionConjecture` (compatibility): If SectionConjecture(Y/K) holds (NC.6/section-conjecture), then Sec^Sel(Y/K) = κ\_Y(Y(K)).
 
@@ -181,7 +182,7 @@ SPM.0 and SPM.1 are the global, section-theoretic half and need nothing from p-a
 - `SelmerSections.spec_field` (degenerate): For X = Spec K, Sec^Sel(X/K) = Sect(X/K) is one point and each loc\_u takes the value Spec K\_u.
 - `SelmerSections.loc_ofPoint` (computation): For Y of genus ≥ 1 and y ∈ Y(K), loc\_u(κ\_Y(y)) is the image of y in Y(K\_u) at every finite place u.
 - `SelmerSections.empty_of_no_real_point` (non-example): If Y(ℝ) = ∅ for a real place of K then Sec^Sel(Y/K) = ∅, even when Y(K\_u) ≠ ∅ for every finite u: a definition that imposes the condition only at finite places is wrong.
-- `SelmerSections.loc_two_torsion` (characterisation): For an elliptic curve E over Q\_p with full rational 2-torsion, the four 2-torsion points have distinct section classes, so loc\_p is well defined on the Selmer sections of E over Q (genus one).
+- `SelmerSections.loc_two_torsion` (characterisation): For an elliptic curve E/Q with full rational 2-torsion and any prime p, the four global 2-torsion points define Selmer classes whose localisations in E(Q\_p) are pairwise distinct, by local injectivity.
 - `SelmerSections.sectionConjecture` (compatibility): Under the section conjecture for Y/K, Sec^Sel(Y/K) = Sect(Y/K) and κ\_Y identifies it with Y(K).
 
 **Uses.**
@@ -300,19 +301,20 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 
 ### Symplectic modules and symplectic pairs
 
-**Definition** (`SPM.1/symplectic-pair`). Planet: Symplectic pairs. Let C be a Q\_p-linear symmetric monoidal category of finite-dimensional objects with a fibre functor to Q\_p-vector spaces: the continuous Q\_p-representations of a profinite group G, the filtered discrete (φ, N, G\_v)-modules of SPM.2/restriction-induction, or the Q\_p-local systems on a scheme. An algebra in C is a commutative unital algebra object A; for G-representations, a finite-dimensional commutative Q\_p-algebra with a continuous G-action by algebra automorphisms. A symplectic A-module in C is a triple (V, L, ω) with V an A-module in C that is finite locally free over A, L an A-module in C free of rank one over A, and ω: ∧²\_A V → L a morphism in C that is A-linear and perfect (it induces V ≅ Hom\_A(V, L)). A symplectic pair is (A, V) with V a symplectic A-module (L and ω understood); a morphism (A, V) → (A′, V′) is a triple of morphisms f\_A: A → A′ of algebras, f\_V: V → V′ and f\_L: L → L′ in C, compatible with the module structures (f\_V(av) = f\_A(a)f\_V(v), and likewise for f\_L) and with the pairings (f\_L ∘ ω = ω′ ∘ ∧²f\_V). SP(C) is the category of symplectic pairs and π₀SP(C) its set of isomorphism classes. For G-representations, Σ\_A := Hom\_{Q\_p-alg}(A, Q\_p) is a finite set with a continuous right G-action; for ψ ∈ Σ\_A with stabiliser G\_ψ, V\_ψ := Q\_p ⊗\_{A,ψ} V is a symplectic representation of G\_ψ with similitude line L\_ψ.
+**Definition** (`SPM.1/symplectic-pair`). Planet: Symplectic pairs. Let C be one of the Q\_p-linear tensor categories below, with its underlying-module realisations: the continuous Q\_p-representations of a profinite group G, the filtered discrete (φ, N, G\_v)-modules of SPM.2/restriction-induction, or the Q\_p-local systems on a scheme. An algebra in C is a commutative unital algebra object A; for G-representations, a finite-dimensional commutative Q\_p-algebra with a continuous G-action by algebra automorphisms. A symplectic A-module in C is a triple (V, L, ω) with V an A-module in C that is finite locally free over A, L an A-module in C free of rank one over A, and ω: ∧²\_A V → L a morphism in C that is A-linear and perfect (it induces V ≅ Hom\_A(V, L)). A symplectic pair is (A, V) with V a symplectic A-module (L and ω understood); a morphism (A, V) → (A′, V′) is a triple of morphisms f\_A: A → A′ of algebras, f\_V: V → V′ and f\_L: L → L′ in C, compatible with the module structures (f\_V(av) = f\_A(a)f\_V(v), and likewise for f\_L) and with the pairings (f\_L ∘ ω = ω′ ∘ ∧²f\_V). SP(C) is the category of symplectic pairs and π₀SP(C) its set of isomorphism classes. For G-representations, Σ\_A := Hom\_{Q\_p-alg}(A, Q\_p) is a finite set with a continuous right G-action; for ψ ∈ Σ\_A with stabiliser G\_ψ, V\_ψ := Q\_p ⊗\_{A,ψ} V is a symplectic representation of G\_ψ with similitude line L\_ψ.
 
 **Hypotheses and conventions.**
 
-- A is a finite-dimensional commutative Q\_p-algebra, possibly non-reduced or non-split; Σ\_A consists of its Q\_p-points only, not its Q̄\_p-points.
+- For G-representations, A is a finite-dimensional commutative Q\_p-algebra, possibly non-reduced or non-split, and Σ\_A consists of its Q\_p-points only, not its Q̄\_p-points. In MF(φ,N,G\_v), the corresponding finite algebras are over the realisation fields Q\_p^nr and K\_v.
 - V is finite locally free over A, of constant rank 2d when A is connected; L is free of rank one.
+- The definition is internal to C; finiteness, local freeness and the rank of the line are checked on its underlying coefficient modules. A Q\_p-valued neutral fibre functor is not assumed for MF(φ, N, G\_v): its de Rham realisation is K\_v-valued and its potentially semistable realisation is Q\_p^nr-valued.
 
 **Proof sketch.**
 
 1. Take ∧²\_A V in C using the symmetric monoidal structure and the A-module structure; perfectness is a condition on the underlying A-modules.
 2. Base change along ψ: A → Q\_p preserves perfectness, giving (V\_ψ, L\_ψ, ω\_ψ) with an action of G\_ψ.
 3. If A = ∏\_{ψ∈Σ} Q\_p is split and Σ is one G-orbit with base point ψ₀, then V ≅ ∏\_ψ V\_ψ and V = Ind\_{G\_{ψ₀}}^{G} V\_{ψ₀} as symplectic modules over A = Ind\_{G\_{ψ₀}}^G Q\_p (structure of modules over artinian rings, as in the proof of Betts–Stix Proposition 6.7).
-4. A ⊗-functor F: C → C′ sends symplectic pairs to symplectic pairs, since it preserves ∧², rank-one objects and perfect pairings; an exact faithful ⊗-functor reflects isomorphism of pairs when it is fully faithful.
+4. The tensor functors used here, compatible with the underlying-module realisations (restriction, coefficient extension, and D\_pH), preserve finite locally free modules, rank-one lines and perfect alternating pairings. A fully faithful such functor reflects isomorphism classes of pairs.
 
 **API.**
 
@@ -322,11 +324,12 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 - `SymplecticPair.fibre` (functoriality): V\_ψ = Q\_p ⊗\_{A,ψ} V, a symplectic representation of the stabiliser G\_ψ.
 - `SymplecticPair.decompose` (characterisation): For split A, V ≅ ∏\_{ψ∈Σ\_A} V\_ψ, and on a transitive orbit V ≅ Ind\_{G\_{ψ₀}}^{G} V\_{ψ₀}.
 - `SymplecticPair.restrict` (functoriality): Restriction of a pair of G-representations to a closed subgroup H gives a pair of H-representations.
-- `SymplecticPair.mapFunctor` (functoriality): A ⊗-functor F: C → C′ induces SP(C) → SP(C′), with map\_id and map\_comp.
+- `SymplecticPair.mapFunctor` (functoriality): A tensor functor compatible with the underlying-module realisations and preserving finite locally free modules and rank-one lines induces SP(C) → SP(C′), with map\_id and map\_comp.
 - `SymplecticModule.IsIsotropic` (data): A submodule W ≤ V with ω(W, W) = 0.
 - `SymplecticModule.IsLagrangian` (data): An isotropic W equal to its own orthogonal; over a field with V of dimension 2d, an isotropic subspace of dimension d.
 - `SymplecticPair.isoClasses` (data): π₀SP(C), the set of isomorphism classes, the target of the maps of Proposition 4.11.
 - `SymplecticPair.toPeriodVariety` (compatibility): Forgetting the G-action, a symplectic module over a finite étale algebra over a field is the datum of MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety, whose Lagrangian submodules form the period domain.
+- `SymplecticPair.Hom.ext` (extensionality): Two morphisms of pairs are equal if their algebra, module and line components are equal; a morphism is an isomorphism exactly when all three components are isomorphisms.
 
 **Unit tests.**
 
@@ -335,6 +338,7 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 - `SymplecticPair.induced` (computation): For A = Q\_p × Q\_p with G acting through a quotient Z/2 by swapping the factors, a pair (A, V) is the same as a symplectic representation W of the index-two subgroup H together with V = Ind\_H^G W; Σ\_A has two points exchanged by G.
 - `SymplecticPair.non_split_points` (non-example): For A = Q\_{p²} with trivial action, Σ\_A = Hom\_{Q\_p-alg}(Q\_{p²}, Q\_p) = ∅ although A is étale of dimension 2: Σ\_A counts Q\_p-points, not geometric points.
 - `SymplecticPair.degenerate_form` (non-example): On V = Q\_p² with A = Q\_p, the alternating form ω = 0 is not perfect, so (Q\_p, V) with ω = 0 is not a symplectic pair.
+- `SymplecticPair.wrong_line` (non-example): For A = Q\_p, V = 0 and L = Q\_p² the unique pairing is alternating and induces 0 ≅ Hom\_A(0,L), but it is not a symplectic module because L has rank two. Perfectness alone does not impose the rank-one condition.
 
 **Uses.**
 
@@ -583,7 +587,7 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 
 - `adelicLVLocus.rationalPoint` (computation): For y ∈ Y(K), (y)\_u lies in Y(A\_K)^LV\_X, interpolated by H^{≤1}\_ét(X\_{y,K̄}, Q\_p).
 - `adelicLVLocus.constantFamily` (degenerate): For the constant family Y × A₀ → Y every adelic point lies in the locus, interpolated by (Q\_p, H¹\_ét(A₀,K̄, Q\_p)): a constant family gives no obstruction.
-- `adelicLVLocus.localOnly` (non-example): The locus is smaller in general than the set of adelic points whose local pairs are merely de Rham with the right weights: for the Kodaira–Parshin family X\_q with q chosen as in SPM.8/kodaira-parshin-choice it is finite at self-conjugate places (SPM.9/lv-locus-finite) while Y(K\_v) is infinite.
+- `adelicLVLocus.localOnly` (non-example): Assume Y(A\_K) is nonempty. For a Kodaira–Parshin family X\_q with q chosen as in SPM.8/kodaira-parshin-choice at a self-conjugate finite v, the projection of the adelic Lawrence–Venkatesh locus is finite, whereas Y(K\_v) is infinite. Fixing points at all other places and varying y\_v gives adelic points with geometric, hence de Rham, fibre pairs of the correct weights which cannot all admit one globally interpolating pair.
 - `adelicLVLocus.projection` (characterisation): y\_v ∈ Y(K\_v)^LV\_X if and only if y\_v is the v-component of some point of Y(A\_K)^LV\_X.
 
 **Uses.**
@@ -672,7 +676,7 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 - `DpH_induce` (compatibility): D\_pH(Ind\_{G\_w}^{G\_v} V) ≅ Ind\_{G\_w}^{G\_v} D\_pH(V).
 - `pHCohomology` (constructor): H^•\_pH(X/K\_v) for a smooth proper K\_v-variety, a graded algebra in MF(φ, N, G\_v), contravariant in X.
 - `pHCohomology_baseChange` (compatibility): (2.1): H^•\_pH(X\_{L\_w}/L\_w) ≅ H^•\_pH(X/K\_v)|G\_w.
-- `pHCohomology_weilRestriction` (compatibility): (2.2): for an L\_w-variety X, H^•\_pH(X/K\_v) ≅ Ind\_{G\_w}^{G\_v} H^•\_pH(X/L\_w).
+- `pHCohomology_viewOverBase` (compatibility): (2.2): for a smooth proper L\_w-variety X viewed as a K\_v-scheme by composition with Spec L\_w → Spec K\_v, H^•\_pH(X/K\_v) ≅ Ind\_{G\_w}^{G\_v} H^•\_pH(X/L\_w). This is not the cohomology of the Weil restriction scheme Res\_{L\_w/K\_v} X.
 
 **Unit tests.**
 
@@ -706,7 +710,7 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 
 ### Automorphism groups and retwisted filtrations
 
-**Definition** (`SPM.2/automorphism-group`). Planet: Automorphism groups of (φ, N, G\_v)-modules. Let D be a (φ, N, G\_v)-module (SPM.2/restriction-induction). Its endomorphism algebra End(D) is the Q\_p-algebra of Q\_p^nr-linear maps D → D commuting with φ, N and G\_v, and Aut(D) is the functor on Q\_p-algebras R ↦ the group of R ⊗\_{Q\_p} Q\_p^nr-linear automorphisms of R ⊗\_{Q\_p} D commuting with 1 ⊗ φ, 1 ⊗ N and G\_v, that is R ↦ (R ⊗\_{Q\_p} End(D))^×; it is represented by an affine algebraic group over Q\_p (SPM.2/automorphism-dimension-bound). For a symplectic (φ, N, G\_v)-module (D, L, ω) (L of dimension one, ω: ∧²D → L perfect and equivariant), Aut^GSp(D) ⊆ Aut(D) is the closed subgroup of automorphisms preserving ω up to a similitude factor, the factor being part of the data; the scalars give central cocharacters G\_m → Aut(D) and G\_m → Aut^GSp(D). For a filtered discrete module D = (D\_pst, D\_dR, c\_BO), Aut(D\_pst) acts on Res^{K\_v}\_{Q\_p} GL(D\_dR) by transporting 1 ⊗ ψ through c\_BO and taking G\_v-invariants, hence on Res^{K\_v}\_{Q\_p} G, where G is the flag variety of filtrations of D\_dR with the dimension data of F^•; for Φ ∈ G(K\_v), M(Φ) := (D\_pst, D\_dR with the filtration Φ, c\_BO).
+**Definition** (`SPM.2/automorphism-group`). Planet: Automorphism groups of (φ, N, G\_v)-modules. Let D be a (φ, N, G\_v)-module (SPM.2/restriction-induction). Its endomorphism algebra End(D) is the Q\_p-algebra of Q\_p^nr-linear maps D → D commuting with φ, N and G\_v, and Aut(D) is the functor on Q\_p-algebras R ↦ the group of R ⊗\_{Q\_p} Q\_p^nr-linear automorphisms of R ⊗\_{Q\_p} D commuting with 1 ⊗ φ, 1 ⊗ N and G\_v, that is R ↦ (R ⊗\_{Q\_p} End(D))^×; it is represented by the unit group scheme of the finite-dimensional algebra End(D). For a symplectic (φ, N, G\_v)-module (D, L, ω) (L of dimension one, ω: ∧²D → L perfect and equivariant), Aut^GSp(D) is the closed subgroup of Aut(D) × G\_m whose R-points are pairs (f,c) satisfying ω(fx,fy) = cω(x,y); the factor c is part of the data even when D = 0. The scalar maps are λ ↦ λ id in Aut(D) and λ ↦ (λ id,λ²) in Aut^GSp(D), and have central image. For a filtered discrete module D = (D\_pst, D\_dR, c\_BO), Aut(D\_pst) acts on Res^{K\_v}\_{Q\_p} GL(D\_dR) by transporting 1 ⊗ ψ through c\_BO and taking G\_v-invariants, hence on Res^{K\_v}\_{Q\_p} G, where G is the flag variety of filtrations of D\_dR with the dimension data of F^•; for Φ ∈ G(K\_v), M(Φ) := (D\_pst, D\_dR with the filtration Φ, c\_BO).
 
 **Hypotheses and conventions.**
 
@@ -714,8 +718,8 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 
 **Proof sketch.**
 
-1. End(D) is a Q\_p-algebra; representability of Aut(D) by the unit group scheme of the finite-dimensional algebra End(D) uses finite-dimensionality from SPM.2/automorphism-dimension-bound and the closed-subgroup and functor-of-points results of Tau Ceti ReductiveGroups Layers 0 and 3.
-2. Preserving ω up to a scalar is a closed condition, so Aut^GSp(D) is a closed subgroup scheme.
+1. First establish finite-dimensionality of End(D), before constructing the group scheme: the Frobenius descent/trace argument given in the first three proof steps of SPM.2/automorphism-dimension-bound proves that Q\_p^nr ⊗ End(D) → End\_{Q\_p^nr}(D) is injective, using only the φ and G\_v structures. It therefore bounds dim End(D) by (dim D)². Then represent Aut(D) by the unit group of this finite-dimensional algebra (Tau Ceti ReductiveGroups Layers 0 and 3). The later dimension theorem records the estimates for these already constructed groups; algebraicity does not depend on that theorem.
+2. Inside Aut(D) × G\_m impose the bilinear equations ω(fx,fy) = cω(x,y). These define a closed subgroup scheme with multiplication (f,c)(g,d) = (fg,cd). The projection to Aut(D) is a closed immersion when D ≠ 0; when D = 0 it is the map G\_m → 1.
 3. For ψ ∈ Aut(D\_pst)(R), the R ⊗ K̄\_v-linear map 1 ⊗ ψ on R ⊗ K̄\_v ⊗ D\_pst ≅ R ⊗ K̄\_v ⊗ D\_dR is G\_v-equivariant, so its G\_v-invariants give an R ⊗ K\_v-linear automorphism of R ⊗ D\_dR, not necessarily filtered (Betts–Stix Remark 2.14). This is an action on Res^{K\_v}\_{Q\_p} GL(D\_dR), hence on Res^{K\_v}\_{Q\_p} of the flag variety (AlgebraicModuliForArithmeticGeometry R09.1/flag-bundle, Weil restriction A6).
 4. M(Φ) is again a filtered discrete module: only the filtration changed.
 
@@ -723,12 +727,13 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 
 - `PhiNGModule.End` (data): The Q\_p-algebra End(D) of endomorphisms commuting with φ, N and G\_v.
 - `PhiNGModule.Aut` (constructor): The affine Q\_p-group Aut(D), R ↦ (R ⊗\_{Q\_p} End(D))^×.
-- `PhiNGModule.AutGSp` (constructor): The closed subgroup Aut^GSp(D) of a symplectic module, with similitude character Aut^GSp(D) → G\_m.
-- `PhiNGModule.scalars` (data): The central cocharacter G\_m → Aut(D), λ ↦ multiplication by λ, factoring through Aut^GSp(D).
+- `PhiNGModule.AutGSp` (constructor): The closed subgroup of Aut(D) × G\_m of pairs (f,c) with ω(fx,fy) = cω(x,y), with similitude character (f,c) ↦ c.
+- `PhiNGModule.scalars` (data): The central scalar maps λ ↦ λ id into Aut(D) and λ ↦ (λ id,λ²) into Aut^GSp(D); forgetting the factor recovers the first map.
 - `PhiNGModule.actFlag` (functoriality): The action of Aut(D\_pst) on Res^{K\_v}\_{Q\_p} G through c\_BO, functorial in R.
 - `FilteredPhiNGModule.retwist` (constructor): M(Φ) = (D\_pst, (D\_dR, Φ), c\_BO) for Φ ∈ G(K\_v).
 - `FilteredPhiNGModule.retwist_self` (simp): M(F^•) = D.
-- `PhiNGModule.scalars_act_trivially` (other): The scalars act trivially on Res^{K\_v}\_{Q\_p} G, so the action factors through Aut(D\_pst)/G\_m.
+- `PhiNGModule.scalars_act_trivially` (other): Scalar multiplication fixes every filtration, so the flag action factors through the quotient of Aut(D\_pst) by the image of the scalar map. For D\_pst ≠ 0 this image is G\_m; for D\_pst = 0 the flag variety and its action are trivial.
+- `PhiNGModule.AutGSp.ext` (extensionality): Two R-points are equal exactly when both their automorphism and similitude components agree. The forgetful map to Aut(D)(R) is injective for D ≠ 0; for D = 0 its kernel is all of G\_m(R).
 
 **Unit tests.**
 
@@ -751,7 +756,7 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 
 **Sources.**
 
-- L. Alexander Betts and Jakob Stix, Definition 2.13 and footnote 6, p. 11. Automorphisms of a (φ, N, G\_v)-module, their R-points as a functor on Q\_p-algebras, the symplectic subgroup preserving the pairing up to similitude, and the central scalars.
+- L. Alexander Betts and Jakob Stix, Definition 2.13 and footnote 6, p. 11. Automorphisms of a (φ, N, G\_v)-module, their R-points as a functor on Q\_p-algebras, the similitude group with the multiplier retained as data, and the central scalar maps.
 - L. Alexander Betts and Jakob Stix, Remark 2.14 and the construction after it, p. 11. Automorphisms of D\_pst act on de Rham realizations through c\_BO and Galois invariants, hence on the Weil restriction of the flag variety of filtrations; M(Φ) replaces the filtration by Φ.
 
 **Needs.** [Filtered discrete (φ, N, G\_v)-modules: restriction and induction](#spm-2-restriction-induction); `AlgebraicModuliForArithmeticGeometry:R09.1/flag-bundle`; `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `TauCeti.Symplectic.groupScheme`.
@@ -775,7 +780,7 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 
 **Checks.**
 
-- For D\_dR of dimension two with jumps {0, 1} and Aut(D\_pst) = G\_m² acting on P¹ through the eigenbasis, the orbits are the two eigenlines and their complement: three isomorphism classes of retwists.
+- For K\_v = Q\_p and D\_dR of dimension two with jumps {0, 1} and Aut(D\_pst) = G\_m² acting on P¹ through the eigenbasis, the orbits are the two eigenlines and their complement: three isomorphism classes of retwists.
 
 **Sources.**
 
@@ -799,7 +804,7 @@ Stages used: `AnabelianGeometryAndNonabelianChabauty:NC.6`, `ArithmeticGaloisRep
 2. G\_v-equivariance of the ψ\_i gives Σσ(αλ\_i)ψ\_i = 0 for α ∈ Q\_p^nr and σ ∈ G\_v; G\_v acts on Q\_p^nr through Gal(Q\_p^nr/K\_{v,0}) only.
 3. Since the ψ\_i commute with φ, which is semilinear for the Frobenius of Q\_p^nr, conjugating by φ gives ΣFrob(λ\_i)ψ\_i = 0. Frobenius and the image of G\_v generate a dense subgroup of Gal(Q\_p^nr/Q\_p); averaging over a finite quotient through which the λ\_i and α are fixed gives Σtr(αλ\_i)ψ\_i = 0 for the normalised trace to Q\_p, so λ\_i = 0 by non-degeneracy of the trace form (repair of the printed argument, extraction E2).
 4. So End(D) has Q\_p-dimension ≤ d², Aut(D) is its unit group scheme, and the injection induces a closed immersion Aut(D)\_{Q\_p^nr} → GL\_{Q\_p^nr}(D), whence dim Aut(D) ≤ d².
-5. (2): Aut^GSp(D)\_{Q\_p^nr} embeds in GSp\_{Q\_p^nr}(D), of dimension d(2d + 1) + 1.
+5. (2): after base extension to Q\_p^nr, Aut^GSp(D) embeds in the group of pairs (f,c) in GL(D) × G\_m satisfying ω(fx,fy) = cω(x,y). For d > 0 this is GSp\_{2d}, of dimension d(2d + 1) + 1. For d = 0 it is G\_m, of dimension 1, so the same formula holds with the retained-factor convention.
 
 **Checks.**
 
@@ -919,8 +924,9 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `AlgebraicModuliForArithmet
 **Proof sketch.**
 
 1. Replacing χ by χ · χ\_cyc^{n/2} (n is even by SPM.3/conjugate-places-weights), reduce to n = 0.
-2. No CM subfield: r\_u = 0 at every u | p, so the associated idele class character is finitely ramified at every place (LV.1/de-rham-character-locally-algebraic); it factors through a ray class group, which is finite, so χ has finite order (Tau Ceti ClassFieldTheory Layer 11).
-3. With E = E\_K the maximal CM subfield: let η₀ be the restriction of the idele class character to A\_E^×. Its component at v₀ = v|\_E agrees near 1 with the r\_{v₀}-th power of the norm, where r\_{v₀} = Σ\_{u | v₀}[K\_u : E\_{v₀}]r\_u; conjugate places have r\_{v₀} + r\_{v̄₀} = 0, so η₀η̄₀ is finitely ramified and of finite order; hence η\_v² is of finite order on E\_{v₀}^× ⊆ K\_v^×, and since η\_v is finitely ramified, η\_v and χ|G\_v have finite order.
+2. No CM subfield: r\_u = 0 at every u | p, so the associated idele class character is finitely ramified at every place (LV.1/de-rham-character-locally-algebraic); it factors through a ray class group, which is finite, so χ has finite order (GlobalNumberFields Layers 2 and 7, with ClassFieldTheory Layer 11 for the Galois–idele character dictionary).
+3. CM case: put E = E\_K. The infinity-type factorisation of LV.1 gives an algebraic character on E whose composite with N\_{K/E} is the algebraic local type of the weight-zero idele character η of K. Realise a positive power of that type by a Q\_p-valued idele class character θ of E: choose a modulus on whose global units the algebraic character is trivial, define the character on principal ideals, and raise to an exponent killing the finite ray class group to extend it to all ideals without extracting roots in Q\_p. Consequently η^m/(θ ∘ N\_{K/E}) has trivial algebraic type at p and finite ramification everywhere, hence finite order by global class field theory. This finite-power norm descent is part of this target’s proof, not an assertion that restriction of η to A\_E isolates one local component.
+4. Conjugate infinity types of θ add to zero, so θθ̄ is finitely ramified everywhere and has finite order. At the self-conjugate prime v₀ = v|\_E its local type is zero, so θ\_{v₀} has finite image on units. For a uniformiser π, conjugation sends π to πu for a unit u. Thus θ\_{v₀}(π)² differs from (θθ̄)\_{v₀}(π) by a finite-order unit value, so θ\_{v₀} has finite order on E\_{v₀}^×. The norm descent then makes η\_v^m finite order, hence η\_v and χ|G\_v finite order.
 
 **Checks.**
 
@@ -930,7 +936,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `AlgebraicModuliForArithmet
 
 - L. Alexander Betts and Jakob Stix, Remark 2.20, p. 14. At a self-conjugate place a pure de Rham Q\_p^×-valued character is a finite-order character times a power of the cyclotomic character; the argument reduces to weight zero and uses finiteness of ray class groups, with an extra step through the maximal CM subfield.
 
-**Needs.** [Hodge–Tate weights of pure characters at conjugate places](#spm-3-conjugate-places-weights); `MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`.
+**Needs.** [Hodge–Tate weights of pure characters at conjugate places](#spm-3-conjugate-places-weights); `MordellLawrenceVenkatesh:LV.1/infinity-type-factorization`; `MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`; `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers`; `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary`; `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles`.
 
 <a id="spm-3-average-hodge-tate-weight"></a>
 
@@ -963,7 +969,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `AlgebraicModuliForArithmet
 
 ### Dependencies of SPM.3
 
-Stages used: `ArithmeticGaloisRepresentations:R01.1`, `MordellLawrenceVenkatesh:LV.1`, `WeightsInEtaleCohomology:R34.1`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`.
+Stages used: `ArithmeticGaloisRepresentations:R01.1`, `MordellLawrenceVenkatesh:LV.1`, `WeightsInEtaleCohomology:R34.1`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles`.
 
 ## Layer SPM.4: Model-free period maps control D\_pst
 
@@ -1381,7 +1387,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `CohomologyComparisons:CP.6
 **Unit tests.**
 
 - `periodLVLocus.hodgePoint` (computation): If y₀ ∈ Y(K\_v)^LV\_{X,S}, the Hodge point F¹H¹\_dR(X\_{y₀}) lies in H\_{y₀}(K\_v)^LV\_{X,S}.
-- `periodLVLocus.constantFamily` (degenerate): For a constant family the period map is constant and condition (i) fails; the criterion does not apply, consistently with the locus being all of Y(K\_v).
+- `periodLVLocus.constantFamily` (degenerate): For a constant family of positive relative dimension the period domain has positive dimension, the period map is constant and condition (i) fails; the criterion does not apply, consistently with the locus being all of Y(K\_v).
 - `periodLVLocus.orbitUnion` (characterisation): H\_{y₀}(K\_v)^LV\_{X,S} is a union of orbits of the automorphism group of the pair (H⁰\_pst, H¹\_pst) of the base fibre (SPM.2/orbit-lemma).
 - `periodLVLocus.affine_curve` (non-example): For a non-proper curve the criterion fails: for the Legendre family over P¹ ∖ {0, 1, ∞} over Q\_p, the infinite set {p^{−n}} meets every closed disc in finitely many points (the counterexample behind this packet's E3).
 
@@ -1583,7 +1589,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `CohomologyComparisons:CP.6
 **Unit tests.**
 
 - `Algebra.IsTypeC.trivial` (degenerate): A = Q\_p with trivial action is of type (c) for every d: one point in an orbit of size 1 ≥ 1/(d + 1).
-- `Algebra.IsTypeC.quintic` (computation): For A = H⁰\_pH(Spec L) with L/K\_v of degree 5, Σ\_A is one orbit of size 5, so A is not of type (c) for any d.
+- `Algebra.IsTypeC.quintic` (computation): For A = H⁰\_ét((Spec L)\_{K̄\_v}, Q\_p) with L/K\_v of degree 5, Σ\_A is one orbit of size 5, so A is not of type (c) for any d.
 - `SymplecticPair.IsTypeA.index` (non-example): A pair with A = Q\_p is never of type (a): the unique point has index 1 < 4.
 - `SymplecticPair.IsTypeB.weights` (computation): For V\_ψ = H¹\_ét(E\_{K̄}, Q\_p) of an elliptic curve with good ordinary reduction at w\_ψ (rank two, so every line is isotropic), the unramified line is G\_{w\_ψ}-stable of Hodge–Tate weight 0 and gives nothing; type (b) needs a stable line of weight 1, which exists only when the extension of the weight-1 quotient by the unramified line splits, as for curves with complex multiplication split at w\_ψ.
 
@@ -1635,7 +1641,7 @@ Stages used: `ArithmeticGaloisRepresentations:R01.2`, `ArithmeticGaloisRepresent
 - `typeAClasses.degreeOne` (degenerate): If δ = 1 (Y′ = Y), only L = K occurs, and T\_i is the set of local classes of GSp-irreducible weight-one representations of G\_K unramified outside S.
 - `typeAClasses.ellipticCurve` (computation): For a closed point y′\_i of degree one (K\_v(y′\_i) = K\_v), d\_i = 1 and an elliptic curve E/K with good reduction outside S and no CM, D\_pH,w(H¹\_ét(E\_{K̄}, Q\_p)|G\_w) lies in T\_i, with L = K (H¹ of a non-CM elliptic curve is irreducible, hence GSp-irreducible).
 - `typeAClasses.reducible_excluded` (non-example): The class D\_pH,w(Q\_p ⊕ Q\_p(−1)) is not produced by this pair, which is not GSp-irreducible (and not pure of weight 1): only GSp-irreducible representations contribute.
-- `typeALagrangians.orbitUnion` (characterisation): Each class in T\_i contributes one orbit of Lagrangians, by the orbit lemma.
+- `typeALagrangians.orbitUnion` (characterisation): Each class in T\_i contributes either no Lagrangians, when its underlying unfiltered symplectic module is not that of the fixed fibre, or exactly one automorphism orbit, by the orbit lemma.
 
 **Uses.**
 
@@ -1718,7 +1724,7 @@ Stages used: `ArithmeticGaloisRepresentations:R01.2`, `ArithmeticGaloisRepresent
 
 **Proof sketch.**
 
-1. Given Φ in the set with its pair (A, V) and point ψ of type (a): the algebra part of the isomorphism is D\_pH of an isomorphism H⁰\_ét(X\_{y₀}) ≅ A|G\_v (full faithfulness, requested from R06.3), so ψ corresponds to a K\_v-point of Y′\_{y₀}, i.e. a closed point y′\_i with an embedding; after moving ψ in its G\_v-orbit, the fixed embedding of L\_{w\_i}.
+1. Given Φ in the set with its pair (A, V) and point ψ of type (a): the algebra part of the isomorphism is D\_pH of an isomorphism H⁰\_ét(X\_{y₀}) ≅ A|G\_v (full faithfulness, requested from R06.3), so ψ corresponds to a geometric K̄\_v-point of Y′\_{y₀}, i.e. a closed point y′\_i together with a K\_v-embedding of its residue field into K̄\_v; after moving ψ in its G\_v-orbit, the fixed embedding of L\_{w\_i}.
 2. Then [L\_{w\_i} : K\_v] = [G\_v : G\_{w\_ψ}] ≥ 4 and D\_pH,w\_ψ(V\_ψ|G\_{w\_ψ}) ≅ M¹\_i(Φ′\_i) by SPM.5/period-domain-decomposition, and (L\_ψ, w\_ψ, V\_ψ) witnesses [M¹\_i(Φ′\_i)] ∈ T\_i; so Φ′\_i ∈ H\_{y′\_i}(L\_{w\_i})\_(a).
 3. So the set lies in ⋃\_{i: [L\_{w\_i}:K\_v] ≥ 4} (pr\_i)⁻¹(closure of H\_{y′\_i}(L\_{w\_i})\_(a)), a finite union of proper closed subsets by SPM.7/type-a-factor-non-density and the product decomposition (4.3).
 
@@ -1842,7 +1848,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `ArithmeticGaloisDuality:R0
 
 ## Layer SPM.8: Kodaira–Parshin families and points of type (c)
 
-**Targets.** The proportion size\_v of points in G\_v-orbits of size < 4 and its monotonicity. The count n\_v of quadratic and cubic extensions of K\_v, finite, and equal to 7 for v ∤ 6 (Betts–Stix Remark 6.21). Isotropy of the fixed classes of index-2 and index-3 subgroups on H¹\_ét(Y\_{K̄\_v}, Z/k) and the bound n\_v k^g. Proposition 6.20: for q − 1 coprime to 4 and to the odd primes of q\_v(q\_v + 1)(q\_v³ − 1) and q − 1 ≥ 9n\_v, the Kodaira–Parshin family X\_q has no points of type (c). Corollary 6.22 (choice of q by Dirichlet). Remark 6.23 comparing the pairs (v, q) covered here and by Lawrence–Venkatesh, with (I) corrected (extraction E6).
+**Targets.** The proportion size\_v of points in G\_v-orbits of size < 4 and its monotonicity. The count n\_v of quadratic and cubic extensions of K\_v, finite, and equal to 7 for v ∤ 6 (Betts–Stix Remark 6.21). Isotropy of the fixed classes of index-2 and index-3 subgroups on H¹\_ét(Y\_{K̄\_v}, Z/k) and the bound n\_v k^g. Proposition 6.20: for q − 1 not divisible by 4 or by any odd prime factor of q\_v(q\_v + 1)(q\_v³ − 1) and q − 1 ≥ 9n\_v, the Kodaira–Parshin family X\_q has no points of type (c). Corollary 6.22 (choice of q by Dirichlet). Remark 6.23 comparing the pairs (v, q) covered here and by Lawrence–Venkatesh, with (I) corrected (extraction E6).
 
 <a id="spm-8-small-orbit-proportion"></a>
 
@@ -1900,7 +1906,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `ArithmeticGaloisDuality:R0
 
 **Proof sketch.**
 
-1. Finiteness: subfields of degree n correspond to open subgroups of index n of G\_v, and G\_v is topologically finitely generated (TauCetiRoadmap LocalGaloisGroups, Layer 7), so there are finitely many; the bound depends only on [K\_v : Q\_p] through the number of generators.
+1. Subfields of degree n correspond to open subgroups of index n of G\_v. LocalGaloisGroups Layer 7, isTopologicallyFinitelyGenerated\_absoluteGaloisGroup and rank\_absoluteGaloisGroup, provide [K\_v : Q\_p] + 2 topological generators of the full G\_v. A continuous map to S\_n is determined by their images, so there are at most (n!)^{[K\_v:Q\_p]+2} such maps and finitely many index-n subgroups. This proves the claimed uniform bound for n = 2,3; the maximal pro-p quotient would not suffice.
 2. For p ≥ 5 an open subgroup of index 2 or 3 contains the pro-p wild inertia, so it comes from the tame quotient ⟨σ, τ | στσ⁻¹ = τ^{q\_v}⟩ (Tau Ceti LocalFieldsRamification Layer 4).
 3. Index 2: the abelianised tame group is Ẑ × Z/(q\_v − 1) with q\_v − 1 even, so Hom(−, Z/2) has four elements: three quadratic extensions.
 4. Index 3, normal: Hom(Ẑ × Z/(q\_v − 1), Z/3) has 9 elements if 3 | q\_v − 1 and 3 otherwise, giving 4 or 1 cyclic cubic extensions.
@@ -1969,7 +1975,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `ArithmeticGaloisDuality:R0
 
 **Sources.**
 
-- L. Alexander Betts and Jakob Stix, §6.4, Proposition 6.20 and proof, footnotes 22–24, pp. 52–53. For q − 1 coprime to 4 and to the odd primes of q\_v(q\_v + 1)(q\_v³ − 1) and at least 9n\_v, no fibre algebra of the Kodaira–Parshin family is of type (c): the fibres map with equal fibres to surjections onto Z/k, of which too few lie in small orbits because fixed classes are isotropic for the Weil pairing.
+- L. Alexander Betts and Jakob Stix, §6.4, Proposition 6.20 and proof, footnotes 22–24, pp. 52–53. For q − 1 not divisible by 4 or by any odd prime factor of q\_v(q\_v + 1)(q\_v³ − 1) and at least 9n\_v, no fibre algebra of the Kodaira–Parshin family is of type (c): the fibres map with equal fibres to surjections onto Z/k, of which too few lie in small orbits because fixed classes are isotropic for the Weil pairing.
 
 **Needs.** `MordellLawrenceVenkatesh:LV.8/kodaira-parshin-family`; `MordellLawrenceVenkatesh:LV.8/kodaira-parshin-fibre-map`; `MordellLawrenceVenkatesh:LV.8/singly-ramified-surjections`; `MordellLawrenceVenkatesh:LV.0/commutator-product-map`; `MordellLawrenceVenkatesh:LV.0/affine-group-centralizer`; `MordellLawrenceVenkatesh:LV.0/generating-tuples-card`; [The proportion of points in small G\_v-orbits](#spm-8-small-orbit-proportion); [Few torsion classes lie in small G\_v-orbits](#spm-8-small-orbit-isotropic-count); [Counting the quadratic and cubic extensions of a local field](#spm-8-small-extension-count); [Types (a), (b), (c) and their loci](#spm-6-trichotomy-loci); [The algebra of a fibre and its points](#spm-6-fibre-algebra-points); `MordellLawrenceVenkatesh:LV.8`; `hasSum_zeta_four`.
 
@@ -2028,7 +2034,7 @@ Stages used: `AbelianSchemesAndArithmeticModuli:A6`, `ArithmeticGaloisDuality:R0
 
 ### Dependencies of SPM.8
 
-Stages used: `EtaleDualityAndPerverseSheaves:EDC.2:trace-purity`, `GaloisSectionsPadicPeriodMaps:SPM.3`, `GaloisSectionsPadicPeriodMaps:SPM.6`, `MordellLawrenceVenkatesh:LV.0`, `MordellLawrenceVenkatesh:LV.1`, `MordellLawrenceVenkatesh:LV.10`, `MordellLawrenceVenkatesh:LV.11`, `MordellLawrenceVenkatesh:LV.7`, `MordellLawrenceVenkatesh:LV.8`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`.
+Stages used: `EtaleDualityAndPerverseSheaves:EDC.2:trace-purity`, `GaloisSectionsPadicPeriodMaps:SPM.3`, `GaloisSectionsPadicPeriodMaps:SPM.6`, `MordellLawrenceVenkatesh:LV.0`, `MordellLawrenceVenkatesh:LV.1`, `MordellLawrenceVenkatesh:LV.10`, `MordellLawrenceVenkatesh:LV.11`, `MordellLawrenceVenkatesh:LV.7`, `MordellLawrenceVenkatesh:LV.8`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`, `tauceti:TauCetiRoadmap/LocalGaloisGroups#layer-7-exact-rank-of-the-full-absolute-galois-group`.
 
 ## Layer SPM.9: Finiteness of the Lawrence–Venkatesh locus and Theorems A and B
 
@@ -2204,18 +2210,23 @@ Each request names a statement this roadmap uses and the layer that should state
 - `MordellLawrenceVenkatesh:LV.7`: Isotropic general position for four Lagrangians (Betts–Stix Sublemma 6.18 and Remark 6.19, p. 51; routed to LV.7 by the reviewed extraction PAPER-BETTS-STIX-25, route 5): for a symplectic space (V, ω) over a field F and r ≥ 4, the r-tuples (Φ\_s) of Lagrangians for which some non-zero isotropic W ≤ V has dim(Φ\_j ∩ W) ≥ ½ dim W for all j lie in a proper Zariski-closed subset of LGrass(V, ω)^r. The witness: Φ₁ = ⟨e\_α⟩, Φ₂ = ⟨f\_α⟩ dual Lagrangians, Φ₃, Φ₄ the graphs of e\_α ↦ f\_α and e\_α ↦ λ\_α f\_α with distinct non-zero λ\_α. LV.7/lagrangian-general-position states Lawrence–Venkatesh Lemma 6.4, which needs r ≥ 5 but no isotropy; the isotropic r = 4 version is the one Betts–Stix need for degree-4 residue fields. Needed by: [Non-density of type (b) Lagrangians after Weil restriction](#spm-7-type-b-factor-non-density).
 - `MordellLawrenceVenkatesh:LV.8`: Kodaira–Parshin fibres over local points (Betts–Stix §6.4 and footnote 23, p. 52; the extraction PAPER-BETTS-STIX-25 lists the Kodaira–Parshin family /88 as planned in LV.8 and LV.10). LV.8/hurwitz-space and LV.8/kodaira-parshin-family state the description of the fibre π⁻¹(y) only G\_K-equivariantly for y ∈ Y(K). Needed: for every field extension F/K of characteristic zero and y ∈ Y(F), a G\_F-equivariant bijection between Y′\_{q,y}(F̄) and Surj^{out,\*}(π₁^ét(Y\_{F̄} ∖ {y}), Aff(q)), the Aff(q)-conjugacy classes of surjections non-trivial on an inertia generator at y (in particular for F = K\_v and G\_v); and the equal-fibre property of Surj^{out,\*} → Surj(π₁^ét(Y\_{F̄}), F\_q^×) induced by Aff(q) → F\_q^× (Lawrence–Venkatesh Lemma 2.11, LV.0/commutator-product-map, with the quotient by conjugation, which is free because Aff(q) has trivial centre, LV.0/affine-group-centralizer). Needed by: [Kodaira–Parshin families have no points of type (c)](#spm-8-type-c-empty).
 - `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`: Existing Tau Ceti layer, cited as it stands: Chebotarev density, used in the proof of the Harari–Stix theorem (hypothesis (\*\*)) and for the equidistribution of q\_v in Remark 6.23(I). Needed by: [Harari–Stix: finite descent and Galois sections](#spm-0-harari-stix-finite-descent), [Which pairs (v, q) the argument covers](#spm-8-parameter-comparison).
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`: Existing Tau Ceti layer, cited as it stands: global class field theory and finiteness of ray class groups, used to show a weight-zero pure de Rham character is of finite order (Betts–Stix Remark 2.20). Needed by: [Pure characters at self-conjugate places](#spm-3-self-conjugate-character-restriction).
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`: Existing Tau Ceti layer: global Artin reciprocity, the Galois–idele character dictionary and its norm compatibility. Ray-class finiteness and the idele ray-class quotient are imported separately from GlobalNumberFields Layers 2 and 7. Needed by: [Pure characters at self-conjugate places](#spm-3-self-conjugate-character-restriction).
 - `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`: Existing Tau Ceti layer, cited as it stands: the local Artin map and its normalisation (uniformiser to arithmetic Frobenius), used to read Hodge–Tate weights of characters on units. Needed by: [Pure characters at self-conjugate places](#spm-3-self-conjugate-character-restriction).
-- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`: Existing Tau Ceti layer, cited as it stands: local fields and their finite extensions, for the finiteness of extensions of degree 2 and 3 of K\_v. Needed by: [Counting the quadratic and cubic extensions of a local field](#spm-8-small-extension-count).
+- `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`: Existing Tau Ceti layer: the local-field structures and finite-extension carriers used in the quadratic and cubic subfield count. Finiteness of the set of such subfields uses full-G\_v finite generation from existing LocalGaloisGroups Layer 7 (the separate catalogue gap), and the explicit tame count uses LocalFieldsRamification Layer 4. Needed by: [Counting the quadratic and cubic extensions of a local field](#spm-8-small-extension-count).
 - `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius`: Existing Tau Ceti layer, cited as it stands: unramified extensions and Frobenius, used in the residue-field-F₂ case of the reduction to polyannuli and in the action of Frobenius on μ\_k. Needed by: [Reduction from closed polydiscs to spherical polyannuli](#spm-4-polydisc-reduction).
 - `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`: Existing Tau Ceti layer, cited as it stands: the tame quotient ⟨σ, τ | στσ⁻¹ = τ^q⟩ of the absolute Galois group, used to count the quadratic and cubic extensions of K\_v for v ∤ 6. Needed by: [Counting the quadratic and cubic extensions of a local field](#spm-8-small-extension-count).
 - `tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary`: Existing Tau Ceti layer, cited as it stands: functor-of-points description of affine group schemes, used to represent Aut(D) of a (φ, N, G\_v)-module as the unit group scheme of End(D). Needed by: [Automorphism groups and retwisted filtrations](#spm-2-automorphism-group).
-- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`: Existing Tau Ceti layer, cited as it stands: closed subgroups and orbit closures of affine algebraic groups acting on varieties, used for Aut^GSp(D) and the dimension of orbit closures in the orbit lemma. Needed by: [Automorphism groups and retwisted filtrations](#spm-2-automorphism-group), [The orbit lemma for retwisted filtrations](#spm-2-orbit-lemma).
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`: Existing Tau Ceti layer supplies closed subgroup schemes and quotient statements, used for Aut^GSp(D). Also needed for the orbit lemma: for a morphism of finite-type varieties f: X → Z, dim closure(f(X)) ≤ dim X, applied to the orbit map after quotienting the central scalar torus. The current Layer 3 does not explicitly state the orbit-dimension consequence; that requested extension is recorded in gaps. Needed by: [Automorphism groups and retwisted filtrations](#spm-2-automorphism-group), [The orbit lemma for retwisted filtrations](#spm-2-orbit-lemma).
+- `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers`: Existing Tau Ceti layer: finite\_rayClassGroup for every number-field modulus, used to kill ray-class obstructions and finite-ramification characters. Needed by: [Pure characters at self-conjugate places](#spm-3-self-conjugate-character-restriction).
+- `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary`: Existing Tau Ceti layer: the surjective rayClassQuotient with its specified congruence kernel, used to factor a character with finite ramification at every place through a finite ray class group. Needed by: [Pure characters at self-conjugate places](#spm-3-self-conjugate-character-restriction).
+- `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles`: Existing Tau Ceti layer: norm maps on ideles and idele classes with their local component formula, used for finite-power descent along N\_{K/E} and its local restriction. Needed by: [Pure characters at self-conjugate places](#spm-3-self-conjugate-character-restriction).
 
 ## Open inputs
 
 - **PadicHodgeTheory has no Part II for the inputs of the model-free comparison.** Three inputs routed to PadicHodgeTheory by the reviewed extraction PAPER-BETTS-STIX-25 are not planned there: Shimizu's specialisation isomorphism and D^∇\_pst (Betts–Stix Definition 3.24, Lemma 3.25, Corollary 3.26), the Galois category of a spherical polyannulus (Lemma 3.27), and the full faithfulness of D\_pH on de Rham representations (Theorem 2.9). PadicHodgeTheory is a TauCetiRoadmap pull request, and its Part II (DESIGN-PadicHodgeTheoryPartII) has not been designed; the needs are filed at P8 and R06.3. Re-point the requests when the Part II's stages exist.
 - **MordellLawrenceVenkatesh plans only the good-reduction forms of the Lawrence–Venkatesh inputs.** The reviewed routes 2–5 of PAPER-BETTS-STIX-25 make Betts–Stix a source of LV.1, LV.2, LV.3 and LV.7, but the accepted MordellLawrenceVenkatesh packet and package plan the residue-disk, good-model, friendly-place and r ≥ 5 forms only. The model-free statements (symplectic Faltings lemma, fibre symplectic structures over a field, model-free period maps and their complex comparison at K\_v-points, the isotropic four-Lagrangian lemma, Kodaira–Parshin fibres over K\_v-points) are filed as requests at LV.1, LV.2, LV.3, LV.7 and LV.8. They are needed before the targets of SPM.4–SPM.8 can be formalised.
+- **Catalogue edge to the existing LocalGaloisGroups roadmap.** The existing TauCetiRoadmap LocalGaloisGroups README, Layer 7 (exact rank of the full absolute Galois group), and Suggested.lean, isTopologicallyFinitelyGenerated\_absoluteGaloisGroup and rank\_absoluteGaloisGroup, supply topological finite generation of the full G\_v with [K\_v:Q\_p]+2 generators. These statements were read in current upstream main; no new theory is planned here. LocalGaloisGroups is one of the roadmaps absent from this atlas snapshot, so its layer id cannot yet be a validated prerequisite. Register that existing layer in the atlas catalogue and replace this recorded graph gap by its exact layer edge; the mathematical dependency is already supplied upstream.
+- **Orbit-dimension input beyond the stated ReductiveGroups Layer 3.** The orbit-map proof of Betts–Stix Lemma 2.15, p. 12, needs the finite-type image-dimension bound dim closure(f(X)) ≤ dim X, and hence dim closure(H·x) ≤ dim(H/Z) when a closed central scalar torus Z acts trivially. Existing ReductiveGroups Layer 3 states closed subgroups and quotients but does not state this orbit-dimension result. Import the generic geometric bound from its eventual owner, or have the ReductiveGroups request supply this consequence, before discharging this target; do not treat it as an already supplied theorem.
 
 ## Structure
 
@@ -2226,7 +2237,7 @@ Each request names a statement this roadmap uses and the layer that should state
 
 ## References
 
-- L. Alexander Betts and Jakob Stix, *Galois sections and p-adic period mappings*, arXiv:2204.13674v1 (28 April 2022, the only arXiv version, 59 pages); published in Annals of Mathematics 201 (2025), no. 1, 79–166, doi:10.4007/annals.2025.201.1.2, revised after v1 and not openly available, so all locators are arXiv v1's. https://arxiv.org/pdf/2204.13674v1
+- L. Alexander Betts and Jakob Stix, *Galois sections and p-adic period mappings*, arXiv:2204.13674v1 (28 April 2022, 59 pages); published in Annals of Mathematics 201 (2025), no. 1, 79–166, doi:10.4007/annals.2025.201.1.2, the published revision has not been compared, and all statements and locators here refer to arXiv v1. https://arxiv.org/pdf/2204.13674v1
 - David Harari and Jakob Stix, *Descent obstruction and fundamental exact sequence*, arXiv:1005.1302v2 (26 May 2010); published in The Arithmetic of Fundamental Groups (PIA 2010), Contributions in Mathematical and Computational Sciences 2, Springer 2012, 147–166, where Betts–Stix cite it as [HS12, Theorem 11]; locators are the arXiv numbering (Theorem 2.1). https://arxiv.org/pdf/1005.1302v2
 - Michael Stoll, *Finite descent obstructions and rational points on curves*, arXiv:math/0606465v3; published in Algebra & Number Theory 1 (2007), 349–391; locators are the arXiv pagination (printed page = PDF page). https://arxiv.org/pdf/math/0606465v3
 - Jakob Stix, *On cuspidal sections of algebraic fundamental groups*, arXiv:0809.0017v1 (2008); published in Galois–Teichmüller Theory and Arithmetic Geometry, Adv. Stud. Pure Math. 63 (2012), 519–563; locators use the arXiv v1 pagination. https://arxiv.org/pdf/0809.0017v1
