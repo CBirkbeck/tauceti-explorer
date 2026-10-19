@@ -3,8 +3,8 @@
  "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants, Part II: prismatic Dieudonné theory",
  "area": "padic",
  "parent": "PrismaticCohomology",
- "summary": "A completed target-level planning and independent review pass for prismatic Dieudonné theory, with 83 nodes in eight planned layers and 15 explicit closure gaps. The target is the contravariant classification of p-divisible groups over quasi-syntomic rings. Corrected frame, duality, display and étale-site conventions; imported the parent-owned coefficient comparison; and moved the upward Hodge–Tate input here. The review requests changes because the unrestricted Zink–Lau proof and its identification with the specific prismatic display functor remain unverified. Nothing here is claimed to be formalized.",
- "readme": "The full roadmap, API outlines, tests and review obligations are in research/blueprint/readmes/PrismaticCohomologyPartII.md.\n\nThis Part II plans prismatic Dieudonné theory over quasi-syntomic rings, with the contravariant convention BT(R)^op ≃ DM^adm(R). The parent PrismaticCohomology owns prisms, cohomology, Nygaard filtrations, twists and the coefficient vector-bundle comparison. AInfCohomology owns BKF linear algebra; this roadmap owns the admissible prismatic interpretation. The Hodge–Tate map/sequence and general display convention are owned here so that this tier-13 bundle imports no higher roadmap.\n\nThe target-level pass is complete, with explicit gaps in site/internal-Ext infrastructure, compatible covers, period-theoretic inputs, crystalline coefficients and display comparisons. The independent review requests changes: the unrestricted Lau08 proof and its comparison with the specific display functor remain unverified. This is a plan, not formalized mathematics.\n\nScholze–Weinstein uses the naive dual of the contravariant module, with p⁻¹-normalized covariant crystalline Frobenius. Česnavičius–Scholze uses composition with Cartier duality. These conventions are distinct. Other routed directions (crystalline local systems, F-smoothness and integral Riemann–Hilbert) remain separate proposed roadmaps.",
+ "summary": "A complete target-level plan for the contravariant classification of p-divisible groups over quasi-syntomic rings, with crystalline and display comparisons and the regular-local endpoint in every dimension. The display endpoint uses Lau’s unrestricted crystalline proof, compatible full-BT presentations and a separate PD-compatible comparison with the actual prismatic functor. PD.0 is closed at target level; the other seven layers are planned with eight explicit closure gaps. Nothing is claimed to be formalized.",
+ "readme": "The full roadmap, API outlines, discriminating tests and source locators are in research/blueprint/readmes/PrismaticCohomologyPartII.md.\n\nA complete target-level plan for the contravariant classification of p-divisible groups over quasi-syntomic rings, with crystalline and display comparisons and the regular-local endpoint in every dimension. The display endpoint uses Lau’s unrestricted crystalline proof, compatible full-BT presentations and a separate PD-compatible comparison with the actual prismatic functor. PD.0 is closed at target level; the other seven layers are planned with eight explicit closure gaps. Nothing is claimed to be formalized.\n\nThe parent PrismaticCohomology owns prisms, cohomology, Nygaard filtrations, twists and the coefficient vector-bundle comparison. AInfCohomology supplies BKF linear algebra. The Hodge–Tate map/sequence and general displays are owned here so that this tier-13 bundle imports no higher roadmap. Scholze–Weinstein’s naive dual with p⁻¹-normalized crystalline Frobenius is distinguished from the Česnavičius–Scholze Cartier-dual normalization. The other routed directions remain separate proposed roadmaps.",
  "prerequisites": [
   "PrismaticCohomology",
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -43,17 +43,18 @@
   {
    "key": "PD.2",
    "title": "The prismatic Dieudonné functor",
-   "description": "Functorial resolution and derived Yoneda; the contravariant internal-Ext Dieudonné functor and its pushforward and Tate-module descriptions. Construct the needed internal Ext sheaves rather than identify them with Mathlib global Ext. Compatible infinite quasi-syntomic root covers are a recorded gap. Source: AL23 §§4.2 and 4.4, pp. 39–43, 52–53.",
+   "description": "Functorial resolution and derived Yoneda; the contravariant internal-Ext Dieudonné functor and its pushforward and Tate-module descriptions. Compatible full-BT presentations support crystalline/display descent; compatible p-power division covers prove exactness of the universal-cover sequence. The coefficient completion argument is supplied separately in PD.4. Reuse existing ordinary internal Hom; its derived relative-site specialization remains an explicit gap. Source: AL23 §§4.2 and 4.4, pp. 39–43, 52–53.",
    "requires": [
     "PrismaticCohomologyPartII:PD.1",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
-    "AbelianSchemesAndArithmeticModuli:A4"
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
    ]
   },
   {
    "key": "PD.3",
    "title": "The perfectoid case",
-   "description": "Own the p-divisible Hodge–Tate map/sequence; Scholze–Weinstein pairs and BKF classification over 𝒪_C; formal abelian covers and crystalline realization; the integral-perfectoid classification and its prismatic identification. Distinguish the absolute PD envelope and p⁻¹ covariant normalization. The Hodge–Tate proof, period-image/rigid inputs, Witt v-descent and nonnoetherian effectivity remain gaps. Sources: SW13 §5; SW20 Lectures 12, 14, 15 and Appendix 17; AL23 §4.3.",
+   "description": "Own the p-divisible Hodge–Tate map/sequence; Scholze–Weinstein pairs and BKF classification over 𝒪_C; formal abelian covers and p-adic crystalline evaluations; the integral-perfectoid classification and its prismatic identification. Distinguish the absolute PD envelope and p⁻¹ covariant normalization. The Hodge–Tate proof, period-image/rigid inputs, Witt v-descent and nonnoetherian effectivity remain gaps. Sources: SW13 §5; SW20 Lectures 12, 14, 15 and Appendix 17; AL23 §4.3; Lau13 §2.",
    "requires": [
     "PrismaticCohomologyPartII:PD.2",
     "AInfCohomology:AI.2",
@@ -65,7 +66,7 @@
   {
    "key": "PD.4",
    "title": "Abelian schemes, finiteness, admissibility and crystalline comparison",
-   "description": "Exterior Hodge–Tate/prismatic cohomology of abelian schemes, primitive elements, Ext finiteness, admissibility and Lie quotient; finite and truncated BT Ext crystals; crystalline and classical comparisons and exactness. At p=2 retain the precise abelian-lifting gap. Mixed-characteristic crystalline coefficient evaluations require their own compatible construction. Source: AL23 §§4.3, 4.5–4.6, pp. 43–65.",
+   "description": "Exterior Hodge–Tate/prismatic cohomology of abelian schemes, primitive elements, Ext finiteness, admissibility and Lie quotient; finite and truncated BT Ext crystals; characteristic-p and mixed-characteristic crystalline comparisons and exactness. Keep the precise abelian-lifting gap at p=2. Source: AL23 §§4.3, 4.5–4.6, pp. 43–65.",
    "requires": [
     "PrismaticCohomologyPartII:PD.3",
     "AbelianSchemesAndArithmeticModuli:A4",
@@ -96,14 +97,15 @@
   {
    "key": "PD.7",
    "title": "Regular local rings, displays and the étale comparison",
-   "description": "Import regular perfectoid towers, prove automatic admissibility and the one-variable Breuil–Kisin comparison with its separate characteristic-p connection gap; identify Kisin via the parent Fargues-pair compatibility. Own Witt frames, all-window displays, the correctly normalized Nygaard map, general formal groups and the display functor. The unrestricted Zink–Lau comparison is unverified; its printed prismatic proof is retracted. Étale comparison distinguishes the integral v-site, α and generic-fibre j. Sources: AL23 §§5.2–5.4, pp. 78–93 and erratum; Zink02; Lau08 attribution only.",
+   "description": "Regular perfectoid towers, automatic admissibility and the all-dimensional Breuil–Kisin comparison by multivariable prismatic descent; Kisin compatibility. Witt frames, all-window displays, general formal groups, compatible full-BT presentations, the crystalline display functor, truncated displays and Lau’s unrestricted equivalence. Compare the actual Nygaard-to-Witt functor over PD thickenings before deriving the contravariant formal classification. Construct the integral v-site and α,j for the étale comparison. Sources: AL23 §§5.2–5.4 and erratum; Lau13 §§1–5,8; Ito25 §§6–7.",
    "requires": [
     "PrismaticCohomologyPartII:PD.5",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
     "PerfectoidSpaces:P7",
     "PrismaticCohomology:PR.4",
     "PerfectoidQuotients:Q2",
-    "DiamondsAndVStacks:D3"
+    "DiamondsAndVStacks:D2",
+    "DiamondsAndVStacks:D6"
    ]
   }
  ],
@@ -237,7 +239,7 @@
    "edition": "Inventiones Mathematicae 171 (2008), 617–628",
    "url": "https://doi.org/10.1007/s00222-007-0090-x",
    "readSections": [
-    "Not directly read. The published DOI and attribution are known; ALerr confirms the classification survives through Zink and Lau. The unrestricted proof and its comparison with Z_R are explicit gaps."
+    "Not directly read: the DOI is retained for historical attribution only. The unrestricted proof used here is the directly read independent argument in Lau13 Theorems 5.1/5.3; no identification with the explicit Zink BT construction is needed. Lau13 §8.2 records and repairs an error in the older proof."
    ]
   },
   {
@@ -279,6 +281,31 @@
    "sha256": "567d794c7e2ff4db80ac47a0ca2466148c92b8c0f3cfa039a68c7adf67bbe20c",
    "readSections": [
     "Definition 4.16, p. 28; Remark 4.85, p. 66; Remark 5.7 and Theorem 5.12, pp. 73–74; §5.3, pp. 83–85"
+   ]
+  },
+  {
+   "id": "Lau13",
+   "title": "Smoothness of the truncated display functor",
+   "authors": "Eike Lau",
+   "edition": "arXiv:1006.2723v1 (14 June 2010), printed pages; published J. Amer. Math. Soc. 26 (2013), 129–165. All locators here refer to the preprint, not the journal pagination.",
+   "url": "https://arxiv.org/abs/1006.2723v1",
+   "sha256": "e3d4c594402d71f6ec9f270b76ecfbcb74524709c74aec37e64eaca125496115",
+   "readSections": [
+    "Lemma 1.6, p. 5; §§2.1–2.4, pp. 6–12",
+    "§§3.1–3.4 and §4, pp. 12–23",
+    "§5, pp. 23–27; §7, pp. 29–32; Lemma 8.1, p. 33; §§8.1–8.2, pp. 36–37"
+   ]
+  },
+  {
+   "id": "Ito25",
+   "title": "Prismatic G-displays and descent theory",
+   "authors": "Kazuhiro Ito",
+   "edition": "arXiv:2303.15814v3 (2 November 2024), printed pages; published Algebra & Number Theory 19 (2025), 1685–1770. Locators refer to the preprint.",
+   "url": "https://arxiv.org/abs/2303.15814v3",
+   "sha256": "0973c0e7185dab1341493635879f3d07fff7886336f2b32d54952b1ee3cee504",
+   "readSections": [
+    "Introduction Theorem 1.1.1 and Remark 1.1.2, p. 2",
+    "§§6.1–6.5, pp. 49–61; §7.1, p. 62, and Remark 7.2.2, p. 63"
    ]
   }
  ],

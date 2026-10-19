@@ -1,13 +1,10 @@
-import Mathlib.RingTheory.Henselian
-import Mathlib.Algebra.Module.Projective
-import Mathlib.RingTheory.Finiteness.Defs
-import Mathlib.RingTheory.Jacobson.Ideal
-import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib
 
 /-!
 # Prismatic Dieudonné theory: representative suggested statements
 
-The README specifies all eight layers, including the missing carriers and the review's gaps.
+These are suggested forms, not an exhaustive checklist. The README is the definitive
+specification of all eight layers, including targets whose carriers are absent at the pins.
 At the pinned libraries one can state the frame data over rings, the integral height predicate,
 and the henselian projective-lifting milestones. The frame convention is Cais–Lau's radical
 condition, with a separately specified scalar. Completeness is imposed only at uses.
@@ -28,7 +25,7 @@ variable (p : ℕ) [Fact p.Prime]
 
 /-- A frame in the sense of Lau and Zink (Layer PD.0): a ring `A`, an ideal `fil`, a Frobenius lift
 `frob`, a divided Frobenius `frobOne` on `fil` and an element `ϖ` with `frob = ϖ * frobOne` on `fil`.
-Following Lau, completeness is replaced by `fil + (p) ⊆ Rad A`. -/
+Use the general Cais–Lau convention `fil + (p) ⊆ Rad A`. -/
 structure Frame (A : Type*) [CommRing A] where
   /-- The filtration ideal `Fil A`. -/
   fil : Ideal A
@@ -98,16 +95,31 @@ def HasHeightAtMostOne {M : Type*} [AddCommGroup M] [Module A M] (φ : A →+* A
   (∀ (a : A) (m : M), φM (a • m) = φ a • φM m) ∧
     ∀ m : M, d • m ∈ Submodule.span A (Set.range φM)
 
-/-- `MinusculeBK.unit_isMinuscule`: `(A, φ)` is minuscule. -/
+/-- The unit Frobenius satisfies the integral height bound: its image contains `1`.
+This tests the height component of `MinusculeBK.unit_isMinuscule`. -/
 example (φ : A →+* A) (d : A) : HasHeightAtMostOne φ d φ.toAddMonoidHom := by
   refine ⟨fun a m => by simp [smul_eq_mul], fun m => ?_⟩
-  sorry
+  have h : (1 : A) ∈ Submodule.span A (Set.range φ.toAddMonoidHom) :=
+    Submodule.subset_span ⟨1, map_one φ⟩
+  simpa only [smul_eq_mul, mul_one] using
+    (Submodule.smul_mem (Submodule.span A (Set.range φ.toAddMonoidHom)) (d * m) h)
 
 /-- `MinusculeBK.square_not_minuscule`: over `ℤ` with `φ = id` and `d = 2`, multiplication by
 `d² = 4` is not minuscule: `2` is not in the ideal `(4)`. -/
 example : ¬ HasHeightAtMostOne (RingHom.id ℤ) 2 ((AddMonoidHom.mulLeft (4 : ℤ)).comp
     (RingHom.id ℤ).toAddMonoidHom) := by
-  sorry
+  intro h
+  have hspan : Submodule.span ℤ
+      (Set.range (((AddMonoidHom.mulLeft (4 : ℤ)).comp
+        (RingHom.id ℤ).toAddMonoidHom))) ≤ Ideal.span {(4 : ℤ)} := by
+    apply Submodule.span_le.mpr
+    rintro _ ⟨n, rfl⟩
+    apply Ideal.mem_span_singleton.mpr
+    exact ⟨n, by simp⟩
+  have htwo : (2 : ℤ) ∈ Ideal.span {(4 : ℤ)} := by
+    simpa using hspan (h.2 1)
+  have := Ideal.mem_span_singleton.mp htwo
+  norm_num at this
 
 end Height
 
