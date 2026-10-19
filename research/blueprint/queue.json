@@ -147630,6 +147630,100 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/DESIGN-LawrenceVenkateshMethod.md",
    "note": "claimed on GitHub issue #10741"
+  },
+  {
+   "id": "PKG-HabiroNahmSeries~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/packages/HabiroNahmSeries/README.md",
+    "research/blueprint/packages/HabiroNahmSeries/Suggested.lean",
+    "research/blueprint/packages/HabiroNahmSeries/metadata.toml",
+    "research/blueprint/handoff/PKG-HabiroNahmSeries~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-HabiroNahmSeries~codex.md"
+  },
+  {
+   "id": "PKG-AutomorphicPadicLFunctions~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AutomorphicPadicLFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/packages/AutomorphicPadicLFunctions/README.md",
+    "research/blueprint/packages/AutomorphicPadicLFunctions/Suggested.lean",
+    "research/blueprint/packages/AutomorphicPadicLFunctions/metadata.toml",
+    "research/blueprint/handoff/PKG-AutomorphicPadicLFunctions~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-AutomorphicPadicLFunctions~codex.md"
+  },
+  {
+   "id": "BP-QSeriesPartitionsAndMockModularForms~3",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean",
+    "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~3.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~3.md",
+   "scope": [
+    "QSeriesPartitionsAndMockModularForms:QM.0",
+    "QSeriesPartitionsAndMockModularForms:QM.1",
+    "QSeriesPartitionsAndMockModularForms:QM.2",
+    "QSeriesPartitionsAndMockModularForms:QM.3",
+    "QSeriesPartitionsAndMockModularForms:QM.4",
+    "QSeriesPartitionsAndMockModularForms:QM.5",
+    "QSeriesPartitionsAndMockModularForms:QM.6"
+   ],
+   "after": [
+    "REV-QSeriesPartitionsAndMockModularForms~2"
+   ],
+   "revisionOf": "BP-QSeriesPartitionsAndMockModularForms"
+  },
+  {
+   "id": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 715800,
+   "roadmapIds": [
+    "QSeriesPartitionsAndMockModularForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-QSeriesPartitionsAndMockModularForms~3.md",
+    "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+    "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+    "research/blueprint/suggested/QSeriesPartitionsAndMockModularForms.lean"
+   ],
+   "after": [
+    "BP-QSeriesPartitionsAndMockModularForms~3"
+   ],
+   "avoidAccountOf": "BP-QSeriesPartitionsAndMockModularForms~3",
+   "independentOf": [
+    "BP-QSeriesPartitionsAndMockModularForms",
+    "BP-QSeriesPartitionsAndMockModularForms~2",
+    "BP-QSeriesPartitionsAndMockModularForms~3"
+   ],
+   "state": "pending"
   }
  ]
 }
