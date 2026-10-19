@@ -566,6 +566,10 @@ theorem formalGaussian_sq (Λ : Matrix (Fin N) (Fin N) ℝ) (hΛ : Λ.IsSymm) (i
 example : formalGaussian (1 : Matrix (Fin 1) (Fin 1) ℝ) (MvPolynomial.X 0 ^ 4) = 3 := sorry
 -- test `odd_vanishes` (degenerate)
 example : formalGaussian (1 : Matrix (Fin 1) (Fin 1) ℝ) (MvPolynomial.X 0 ^ 3) = 0 := sorry
+-- test `negative_precision_is_formal_only`: no positivity is needed for the formal bracket.
+-- The precision `-1` cannot satisfy the hypothesis of `integral_mul_gaussian`.
+example : formalGaussian (!![-1] : Matrix (Fin 1) (Fin 1) ℝ)
+    (MvPolynomial.X 0 ^ 2) = -1 := sorry
 -- test `off_diagonal_second_moment` (computation)
 example : formalGaussian (!![2, 1; 1, 2] : Matrix (Fin 2) (Fin 2) ℝ)
     (MvPolynomial.X 0 * MvPolynomial.X 1) = -1 / 3 := sorry

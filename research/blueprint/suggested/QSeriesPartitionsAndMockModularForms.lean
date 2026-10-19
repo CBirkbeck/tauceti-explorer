@@ -6169,6 +6169,12 @@ theorem kontsevichPhi_isQuantumModularForm :
       ∀ x : ℚ, x ≠ 0 → kontsevichPhi x +
         (Complex.I * x) ^ (-(3 / 2 : ℂ)) * kontsevichPhi (-1 / x) = g x := sorry
 
+/-- Central-element check for the lower-boundary branch: the corrected multiplier acts trivially. -/
+example (x : ℝ) : (-Complex.I) * boundaryFactor (3 / 2) (-1) x = 1 := sorry
+
+/-- Negative control: the unmodified inverse eta value gives the wrong central action. -/
+example (x : ℝ) : Complex.I * boundaryFactor (3 / 2) (-1) x = -1 := sorry
+
 /-! ### Cohen's σ at roots of unity -/
 
 /-- `σ(ξ) = 1 + Σ(−1)ⁿξ^{n+1}(ξ; ξ)_n` (terminating). -/

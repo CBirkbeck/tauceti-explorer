@@ -2173,7 +2173,7 @@
       ],
       "title": "Formal Gaussian integration",
       "kind": "construction",
-      "statement": "For a symmetric invertible N x N matrix Lambda over a Q-algebra R, the formal Gaussian bracket <f>_Lambda of f(w,h) in R[[w, w^3 h^{-1}, h]] is exp((h/2) sum_{i,j} (Lambda^{-1})_{ij} d/dw_i d/dw_j) f evaluated at w = 0 (GSWZ (110)). In one variable <sum_j c_j w^j>_Lambda = sum_l (2l - 1)!! c_{2l} (h/Lambda)^l. GZ's operator I_Lambda (GZ (13), (14)) is the same operator at h = 1 on functions whose x^n-coefficients have valuation tending to infinity: I_Lambda[sum_j c_j x^j] = sum_l (2l - 1)!! c_{2l} Lambda^{-l}. On polynomials both agree with the normalised Gaussian expectation (HB.4/gaussian-moments); the construction itself uses no measure theory.",
+      "statement": "For a symmetric invertible N x N matrix Lambda over a Q-algebra R, the formal Gaussian bracket <f>_Lambda of f(w,h) in R[[w, w^3 h^{-1}, h]] is exp((h/2) sum_{i,j} (Lambda^{-1})_{ij} d/dw_i d/dw_j) f evaluated at w = 0 (GSWZ (110)). In one variable <sum_j c_j w^j>_Lambda = sum_l (2l - 1)!! c_{2l} (h/Lambda)^l. GZ's operator I_Lambda (GZ (13), (14)) is the same operator at h = 1 on functions whose x^n-coefficients have valuation tending to infinity: I_Lambda[sum_j c_j x^j] = sum_l (2l - 1)!! c_{2l} Lambda^{-l}. On polynomials the two formal operators agree at h = 1. After specialization to real symmetric positive-definite Lambda, their value agrees with the normalised Gaussian expectation (HB.4/gaussian-moments); the formal construction itself uses no measure theory and requires no positivity.",
       "hypotheses": [
         "Lambda is symmetric and invertible over a Q-algebra; the rationals must be present because of the factorials.",
         "The argument f lies in the completed ring R[[w, w^3 h^{-1}, h]], the exact domain in which the odd-order terms are controlled; the cube in w^3 h^{-1} is what makes the expansion converge formally.",
@@ -2184,7 +2184,7 @@
         "Define the bracket as the exponential of (h/2) times that operator, applied termwise and evaluated at w = 0; check that the exponential is well defined on the stated domain because each coefficient receives only finitely many contributions.",
         "Prove the one-variable closed formula with the double factorials, by computing the action on a monomial.",
         "Prove linearity, the behaviour under a linear change of variables, and the translation rule used in the source's periodicity argument, namely that translating w by h changes the integrand in the way that the shift of the congruence class does.",
-        "Record the normalisation against the analytic integral, so that the prefactor (2 pi)^{-N/2} det^{-1/2} of the Gaussian density never appears twice."
+        "For real positive-definite Lambda, distinguish precision Lambda from covariance Lambda^{-1}: the unnormalised Gaussian integral is (2 pi)^{N/2} det(Lambda)^{-1/2}, and the probability density has prefactor (2 pi)^{-N/2} det(Lambda)^{1/2}. The formal bracket is already normalised, so neither prefactor is inserted a second time."
       ],
       "acceptance": [
         "With Lambda = 1 in one variable, <w^2> = h and <w^4> = 3h^2 (GSWZ form); I_1[x^2] = 1 and I_1[x^4] = 3 (GZ form).",
@@ -2292,7 +2292,12 @@
         {
           "name": "gz_normalisation",
           "kind": "compatibility",
-          "statement": "I_Lambda[f] equals <f>_Lambda at h = 1 for polynomial f, and equals the normalised Gaussian integral of f (HB.4/gaussian-moments)."
+          "statement": "For polynomial f, I_Lambda[f] equals <f>_Lambda at h = 1. Comparison with a normalised real Gaussian integral additionally assumes Lambda real symmetric positive definite (HB.4/gaussian-moments)."
+        },
+        {
+          "name": "negative_precision_is_formal_only",
+          "kind": "degenerate",
+          "statement": "For the one-variable precision Lambda = -1, the formal bracket at h = 1 sends x^2 to -1. The function exp(x^2/2) is not integrable on R, so this example cannot instantiate the positive-definite analytic comparison."
         },
         {
           "name": "off_diagonal_second_moment",
@@ -9669,8 +9674,8 @@
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
-    "date": "2026-10-18",
-    "notes": "Codex, session codex-sP1hgJ: independent bounded review of FIX-RT-AREA-topology~4, issue #6521. Finding /11: accept the six-export ownership contract, retaining all its qualifications. Re-read GSWZ v2 Theorems 3/5 p.14, section 1.8 pp.16-17, Definition 2.11 and equations (117)-(119) pp.29-30, equation (126) p.31, and Theorem 8 pp.35-36; GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6. Invertible formal Hessians do not require positive definiteness; the analytic theorem does, with odd coprime orders and branch/remainder conditions. Keep HB.8 refined-Gaussian comparison gaps, HB.9 Kummer/gluing obligations, HB.4 coefficientwise descent/normalization gaps and HB.10 scalar-change/global-line/cohomology qualifications. Restricted module membership proves no knot invariance or quantum modularity. The reader introduction still mislocates Theorem 3 on p.13 instead of p.14; its path is outside the live issue. No mathematical payload or suggested signature changed. All seven queue packets pass the checker with zero errors/warnings; all seven suggested files elaborate serially through lean-check at pinned Mathlib with only admitted-declaration warnings. Follows codex-BsNNY8, 17 October 2026, whose complete review is retained in reviewHistory. This is not a new whole-plan audit. Completion remains blocked by the live issue/queue scope mismatch; see the report and handoff."
+    "date": "2026-10-19",
+    "notes": "Independent bounded fix review by Codex, session codex-waB1gJ, following codex-sP1hgJ checkpoint PR #10426; complete predecessor review preserved in reviewHistory. Rechecked /11 against GZ Theorem 3.1 pp.5-6 and GSWZ v2 Theorem 5 p.14, section 1.8 pp.16-17, equations (110)-(119) pp.28-30 and Theorem 8 pp.35-36. Clarified that only real positive-definite precision admits the analytic Gaussian comparison; distinguished the precision and covariance determinant normalizations. Added the formal negative-precision test to the packet and suggested file. All formal completion, coefficient transfer, Kummer, finite-etale and gluing gaps remain. All seven queue packets pass check_blueprint with zero errors/warnings; all seven suggested files elaborate serially with only admitted-declaration warnings. This is not a new whole-plan audit or a claim of formalisation. Completion remains blocked by four packet pairs required by the queue but omitted from the live issue. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -10393,6 +10398,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-17",
       "notes": "Bounded independent review of finding /11 by Codex (GPT-6), codex-BsNNY8. Checked the six formal, analytic and arithmetic exports against GSWZ v2 Theorems 3/5, p.14, section 1.8 pp.16-17, (110)-(111) p.28, Definition 2.11 and (117)-(119) pp.29-30, (126) p.31, Theorem 8 pp.35-36; GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6. Retain invertible formal Hessians versus positive-definite analytic data, odd coprime orders, Laurent coefficients before t-completion and the restricted coefficient-line membership. HB.4 follow-up retains coefficientwise Kummer and normalization gaps; HB.10 retains scalar-change, gluing and global-line gaps. Neither module membership nor its numerical examples establish knot invariance, analytic state integrals or quantum modularity. No mathematical payload changed; this is not a new whole-plan audit. Follows codex-r5QH15’s bounded review of 11 October, preserved whole in reviewHistory."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-18",
+      "notes": "Codex, session codex-sP1hgJ: independent bounded review of FIX-RT-AREA-topology~4, issue #6521. Finding /11: accept the six-export ownership contract, retaining all its qualifications. Re-read GSWZ v2 Theorems 3/5 p.14, section 1.8 pp.16-17, Definition 2.11 and equations (117)-(119) pp.29-30, equation (126) p.31, and Theorem 8 pp.35-36; GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6. Invertible formal Hessians do not require positive definiteness; the analytic theorem does, with odd coprime orders and branch/remainder conditions. Keep HB.8 refined-Gaussian comparison gaps, HB.9 Kummer/gluing obligations, HB.4 coefficientwise descent/normalization gaps and HB.10 scalar-change/global-line/cohomology qualifications. Restricted module membership proves no knot invariance or quantum modularity. The reader introduction still mislocates Theorem 3 on p.13 instead of p.14; its path is outside the live issue. No mathematical payload or suggested signature changed. All seven queue packets pass the checker with zero errors/warnings; all seven suggested files elaborate serially through lean-check at pinned Mathlib with only admitted-declaration warnings. Follows codex-BsNNY8, 17 October 2026, whose complete review is retained in reviewHistory. This is not a new whole-plan audit. Completion remains blocked by the live issue/queue scope mismatch; see the report and handoff."
     }
   ]
 }
