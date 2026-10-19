@@ -21,126 +21,126 @@
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
     "provides": "Ext groups in an abelian category, for grades and depths of modules.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 118."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 118. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:IsLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
     "provides": "Local rings: the patched rings, deformation rings and supports.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 30."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 30. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:IsNoetherianRing",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
     "provides": "Noetherian rings, hypothesis of the fibre-product freeness lemma.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 196."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 196. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:IsRegularLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
     "provides": "Regular local rings, for the power-series cancellation in the regular case and for freeness of maximal Cohen–Macaulay modules.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 51."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 51. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:LinearMap.ker",
     "kind": "def",
     "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
     "provides": "Kernels, used to define fibre products of modules as the equaliser of two maps from the product.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 60."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 60. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Matrix.GeneralLinearGroup",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
     "provides": "GL₂ over a ring, for Galois representations and level groups.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 43."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 43. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Module.FaithfullyFlat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/FaithfullyFlat/Basic.lean",
     "provides": "Faithful flatness, the conclusion of the big R = big T theorem.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 63."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 63. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Module.Finite",
     "kind": "class",
     "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
     "provides": "Finitely generated modules, hypothesis of the freeness lemmas.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 117."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 117. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Module.Flat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/Basic.lean",
     "provides": "Flatness, the conclusion of miracle flatness.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 113."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 113. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Module.Free",
     "kind": "class",
     "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
     "provides": "Free modules; freeness over scheme-theoretic supports.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 43."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 43. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Module.annihilator",
     "kind": "def",
     "module": "Mathlib/RingTheory/Ideal/Maps.lean",
     "provides": "Annihilator ideals; the scheme-theoretic support A/Ann_A(M).",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 860."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 860. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Module.support",
     "kind": "def",
     "module": "Mathlib/RingTheory/Support.lean",
     "provides": "Support of a module, for the support conditions of patching functors.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 49."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 49. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:MvPowerSeries",
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
     "provides": "Multivariable power series rings, the shape of R∞ and S∞.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 86."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 86. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Nat.Prime",
     "kind": "def",
     "module": "Mathlib/Data/Nat/Prime/Defs.lean",
     "provides": "Primality of p in the generic global datum.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 42."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 42. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:PowerSeries",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
     "provides": "One-variable power series rings, for the cancellation lemma.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 60."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 60. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Representation",
     "kind": "abbrev",
     "module": "Mathlib/RepresentationTheory/Basic.lean",
     "provides": "Group representations, for Serre weights and K-representations.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 49."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 49. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:Submodule.spanFinrank",
     "kind": "def",
     "module": "Mathlib/Algebra/Module/SpanRank.lean",
-    "provides": "Minimal number of generators, for generation by r elements.",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 67."
+    "provides": "Minimal number of generators for finitely generated modules; the definition uses toNat, so its natural-number value must not be interpreted this way without finiteness.",
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 67. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    },
    {
     "ref": "mathlib:WittVector",
     "kind": "structure",
     "module": "Mathlib/RingTheory/WittVector/Defs.lean",
     "provides": "Witt vectors W(𝔽), the coefficient ring O = W(𝔽).",
-    "checked": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: declaration read in the pinned index (Mathlib 082e2d3) on 2026-10-19; signature line 52."
+    "checked": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII: full declaration and surrounding hypotheses read in the source module at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; declaration line 52. The statement supplies only the listed foundational carrier or predicate, not the roadmap’s deeper theorem."
    }
   ]
  },
@@ -156,7 +156,10 @@
    "readSections": [
     "§1.1–1.4, pp. 2–11",
     "§2.2, p. 13",
-    "§8.1–8.5 with all statements and proofs, pp. 86–109"
+    "§8.1–8.5 with all statements and proofs, pp. 86–109",
+    "§2.3 fundamental-character conventions, p. 14",
+    "Proposition 4.2.1, p. 28; Corollary 4.2.6, pp. 33–34; §4.3 and Proposition 4.3.1, pp. 34–35 (gap contract statements)",
+    "§4.3, Proposition 4.3.1 and proof, Lemma 4.3.2 and Proposition 4.3.3 with proofs, pp. 34–40"
    ]
   },
   {
@@ -170,7 +173,9 @@
    "readSections": [
     "§2.1 (Definition 2.1.1, Lemmas 2.1.2–2.1.6, the description of D(ρ)), pp. 9–11",
     "Propositions 3.5.1–3.5.2, pp. 14–15",
-    "§6.1–6.4 (Definitions 6.1.1, 6.1.3, Lemma 6.1.4, the quaternionic spaces, (6.1) and functorial patching), pp. 32–37"
+    "§6.1–6.4 (Definitions 6.1.1, 6.1.3, Lemma 6.1.4, the quaternionic spaces, (6.1) and functorial patching), pp. 32–37",
+    "Theorems 7.1.1 and 7.2.1, pp. 42–43",
+    "§10.1, definitions and proof of Proposition 10.1.11, pp. 59–65"
    ]
   },
   {
@@ -184,7 +189,7 @@
    "readSections": [
     "Appendix A.1 (Definitions A.2, A.5, Proposition A.4, Lemmas A.7–A.9), pp. 42–44",
     "§§A.12–A.30 (Proposition A.13, Lemmas A.15–A.19, A.21–A.28, Corollary A.29, Proposition A.30), pp. 45–50",
-    "§4.3, Proposition 4.3.1, p. 31"
+    "§4.3, Proposition 4.3.1 and proof, pp. 31–32"
    ]
   },
   {
@@ -198,7 +203,9 @@
    "readSections": [
     "Introduction, Theorems A and B, pp. 2–4",
     "§5.2 (Remark 5.2.2), p. 26",
-    "§5.5 (Definitions 5.5.2–5.5.3, Corollary 5.5.4 and proof), pp. 33–35"
+    "§5.5 (Definitions 5.5.2–5.5.3, Corollary 5.5.4 and proof), pp. 33–35",
+    "§5.4.1, the augmentation surjection and module comparison, pp. 30–31",
+    "Corollary 5.5.7 and proof, pp. 35–36"
    ]
   },
   {
@@ -223,7 +230,7 @@
    "sha256": "8ccde4d9e336a9d637abd5a0da6a80f21de7884b9a389c93f38e3143e570a814",
    "accessed": "2026-10-19",
    "readSections": [
-    "Lemma 4.5 and its proof, §4"
+    "Lemma 4.5 and its proof, §4, p. 16"
    ]
   },
   {
@@ -235,7 +242,7 @@
    "sha256": "28d6965b625c1706b6d81503bed27d22b9cacf675a49609547ba2819a67e771e",
    "accessed": "2026-10-19",
    "readSections": [
-    "§4, Lemma 4.5 and Proposition 4.6 with their proofs"
+    "§4, Lemma 4.5 and Proposition 4.6 with their proofs, pp. 14–15"
    ]
   },
   {
@@ -261,7 +268,7 @@
    "accessed": "2026-10-19",
    "readSections": [
     "§2.12, Proposition 2.13, Remark 2.14 and the proof, p. 34",
-    "Lemmas 4.17–4.18 (statements)"
+    "Lemmas 4.17–4.18 and proofs, pp. 62–66"
    ]
   },
   {
@@ -269,11 +276,12 @@
    "title": "On power-invariance",
    "authors": "Eloise Hamann",
    "edition": "Pacific Journal of Mathematics 61 (1975), no. 1, 153–159",
-   "url": "https://msp.org/pjm/1975/61-1/p18.xhtml",
+   "url": "https://msp.org/pjm/1975/61-1/pjm-v61-n1-p17-p.pdf",
    "accessed": "2026-10-19",
    "readSections": [
-    "Theorem 4, as quoted in BHHMS Lemma 8.1.2 (the article page is free on msp.org)"
-   ]
+    "Theorem 4 and proof, printed p. 155 (PDF p. 4), read directly"
+   ],
+   "sha256": "29b601cf166b3c8c9771a1e57e659b77f8b731f61fca6d484db8900cedd52931"
   },
   {
    "id": "STACKS",
@@ -286,6 +294,18 @@
     "Tag 05G8 (surjective endomorphisms of finite modules are injective)",
     "Tag 00MK (local criterion of flatness)",
     "Tag 090V (Auslander–Buchsbaum)"
+   ]
+  },
+  {
+   "id": "BRE14",
+   "title": "Sur un problème de compatibilité local-global modulo p pour GL₂",
+   "authors": "Christophe Breuil, with an appendix by Lassina Dembélé",
+   "edition": "Public author copy; Journal für die reine und angewandte Mathematik 692 (2014), 1–76; locators use the author-copy pagination",
+   "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/compamodp.pdf",
+   "sha256": "583a4a4d069b4b069c663db9571047b7f4d02ea27e836c8df02f081809504d2a",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Lemma 9.2 and its proof, pp. 54–55"
    ]
   }
  ],
@@ -436,14 +456,14 @@
    ],
    "title": "The Buzzard–Diamond–Jarvis set of Serre weights",
    "kind": "definition",
-   "statement": "Let K/ℚ_p be unramified of degree f with residue field k, embeddings κ_j = κ_0 ∘ φ^j : k → 𝔽, and let ρ : G_K → GL₂(𝔽) be continuous. A Serre weight is an irreducible 𝔽-representation σ_{t,s} = ⊗_{j=0}^{f−1}(det^{t_j} Sym^{s_j} k²) ⊗_{k, κ_j} 𝔽 of GL₂(k), 0 ≤ s_j, t_j ≤ p − 1, not all t_j equal to p − 1. The set W(ρ) of Buzzard–Diamond–Jarvis is a set of Serre weights depending only on ρ, with W(ρ) ⊆ W(ρ^ss). For semisimple reducible ρ, σ_{t,s} ∈ W(ρ) if and only if there is J ⊆ {0, …, f − 1} with ρ|I_K ≅ ω_f^{Σ_j t_j p^j} ⊗ (ω_f^{Σ_{j∈J}(s_j+1)p^j} ⊕ ω_f^{Σ_{j∉J}(s_j+1)p^j}); for irreducible ρ, σ_{t,s} ∈ W(ρ) if and only if there is J ⊆ {0, …, 2f − 1}, antisymmetric in the sense that i ∈ J exactly when i + f ∉ J (indices modulo 2f, s_j extended f-periodically), with ρ|I_K ≅ ω_f^{Σ_j t_j p^j} ⊗ (ω_{2f}^{Σ_{j∈J}(s_j+1)p^j} ⊕ ω_{2f}^{Σ_{j∉J}(s_j+1)p^j}). For a nonsplit reducible ρ, W(ρ) is the subset of W(ρ^ss) of those weights for which the extension class of ρ lies in the subspace L_α ⊆ H¹(G_K, 𝔽(χ₁χ₂^{−1})) attached by BDJ10 §3.2 to the weight and its subset J: the classes that are reductions of crystalline extensions with the associated labelled Hodge–Tate weights, enlarged to all of H¹ when χ₁χ₂^{−1} is cyclotomic, b = (p, …, p) and J is everything, and by the unramified classes when χ₁χ₂^{−1} is trivial and J is not everything. The displayed descriptions use the fundamental characters of EGS15 §2.1, which are the reciprocals of those of BDJ10 §3, BHHMS §2.3 and MP.3; the set is the same object, written in either normalisation.",
+   "statement": "Let K/ℚ_p be unramified of degree f with residue field k, embeddings κ_j = κ_0 ∘ φ^j : k → 𝔽, and let ρ : G_K → GL₂(𝔽) be continuous. A Serre weight is an irreducible 𝔽-representation σ_{t,s} = ⊗_{j=0}^{f−1}(det^{t_j} Sym^{s_j} k²) ⊗_{k, κ_j} 𝔽 of GL₂(k), 0 ≤ s_j, t_j ≤ p − 1, not all t_j equal to p − 1. The set W(ρ) of Buzzard–Diamond–Jarvis is a set of Serre weights depending only on ρ, with W(ρ) ⊆ W(ρ^ss). For semisimple reducible ρ, σ_{t,s} ∈ W(ρ) if and only if there is J ⊆ {0, …, f − 1} with ρ|I_K ≅ ω_f^{Σ_j t_j p^j} ⊗ (ω_f^{Σ_{j∈J}(s_j+1)p^j} ⊕ ω_f^{Σ_{j∉J}(s_j+1)p^j}); for irreducible ρ, σ_{t,s} ∈ W(ρ) if and only if there is J ⊆ {0, …, 2f − 1}, antisymmetric in the sense that i ∈ J exactly when i + f ∉ J (indices modulo 2f, s_j extended f-periodically), with ρ|I_K ≅ ω_f^{Σ_j t_j p^j} ⊗ (ω_{2f}^{Σ_{j∈J}(s_j+1)p^j} ⊕ ω_{2f}^{Σ_{j∉J}(s_j+1)p^j}). For a nonsplit reducible ρ, W(ρ) is the subset of W(ρ^ss) of those weights for which the extension class of ρ lies in the subspace L_α ⊆ H¹(G_K, 𝔽(χ₁χ₂^{−1})) attached by BDJ10 §3.2 to the weight and its subset J: the classes that are reductions of crystalline extensions with the associated labelled Hodge–Tate weights, enlarged to all of H¹ when χ₁χ₂^{−1} is cyclotomic, b = (p, …, p) and J is everything, and by the unramified classes when χ₁χ₂^{−1} is trivial and J is not everything. The displayed descriptions use BDJ10 §3 and BHHMS §2.3: ω_f is the character I_K → O_K^× → k^× → 𝔽^× induced by inverse geometric Artin reciprocity, with ω₁ equal to the mod p cyclotomic character. EGS15 uses the inverse fundamental characters; with the same Galois representation as input its set D is related by W(ρ) = D_EGS(ρ^∨), not by W(ρ) = D_EGS(ρ).",
    "hypotheses": [
     "K/ℚ_p unramified; for ramified K the Buzzard–Diamond–Jarvis recipe is replaced by the generalisations of Schein and Gee, which are not needed here.",
-    "Normalisation: EGS15 §2.1 define ω_f as the reciprocal of I_K → O_K^× → k^× → 𝔽^× (so ω₁ = ε^{−1}), whereas BDJ10, BHHMS §2.3 and MP.3 use the character itself with uniformizers corresponding to geometric Frobenius; the descriptions in the statement are EGS15's, and bdjWeights_eq_tameWeights records the translation.",
+    "Use the BDJ/BHHMS fundamental characters throughout. EGS15 §2 has κ_{j+1}^p = κ_j and writes weights using κ_{−j}; hence its weight embeddings κ_{−j} agree with our κ₀ ∘ φ^j. Its ω_f is our ω_f^{−1}, so comparison with its formula requires dualising the input Galois representation.",
     "BHHMS use W(r̄_w^∨), the weight set of the dual representation, because their patched rings are deformation rings of r̄_w^∨ (BHHMS §8.1, (61))."
    ],
    "proofSteps": [
-    "Take the definition of BDJ10 §3 in the form recalled in EGS15 §2.1: the semisimple description by subsets J (reducible) and antisymmetric subsets J (irreducible), and the inclusion W(ρ) ⊆ W(ρ^ss).",
+    "Use BDJ10 §3.1–3.2 directly for the semisimple recipes, including the antisymmetric subset condition, and for W(ρ) ⊆ W(ρ^ss). Translate EGS15 §2 by both its embedding convention and its inverse fundamental characters: W(ρ) = D_EGS(ρ^∨).",
     "For the nonsplit reducible case the subset condition is BDJ10's L_J condition, phrased through crystalline lifts with prescribed labelled Hodge–Tate weights (LocalGaloisDeformationRings R08.3 supplies the crystalline lifting rings and their points).",
     "When ρ is tame and its inertial parameter is 1-deep, the description agrees with the parametrisation of MP.3/tame-weight-set by the extension-graph labels; prove agreement by matching the subset J with the sign vector of MP.3."
    ],
@@ -451,7 +471,6 @@
     "ModpRepresentationsOfGL2OverLocalFields:MP.3/tame-weight-set",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/serre-weights-compact-induction",
-    "AlgebraicModularFormsAndSerreWeights:R15.4/recipe-well-definedness-and-twisting",
     "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
     "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
     "mathlib:Representation"
@@ -460,7 +479,7 @@
     {
      "sourceId": "EGS15",
      "locator": "§2.1, pp. 10–11, the description of D(ρ) after Definition 2.1.4 and Lemma 2.1.6",
-     "match": "For semisimple ρ the weights are given by subsets J (reducible case) or antisymmetric subsets (irreducible case); in general D(ρ) ⊆ D(ρ^ss); for generic ρ every weight is regular and none has s = 0."
+     "match": "For semisimple ρ the weights are given by subsets J (reducible case) or antisymmetric subsets (irreducible case); in general D(ρ) ⊆ D(ρ^ss); for generic ρ every weight is regular and none has s = 0. These statements use EGS’s inverse fundamental characters; translate to this node by D_EGS(ρ^∨) = W(ρ)."
     },
     {
      "sourceId": "BDJ10",
@@ -523,7 +542,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.bdjWeights_f1_reducible",
      "kind": "computation",
-     "statement": "For K = ℚ_p and ρ|I ≅ ω^{s+1} ⊕ 1 with 0 < s < p − 2, W(ρ^ss) = {Sym^s 𝔽², det^{s+1} ⊗ Sym^{p−3−s} 𝔽²}; for p = 5, s = 1 this is {Sym¹, det² ⊗ Sym¹}."
+     "statement": "For K = ℚ_p and ρ|I ≅ ω^{s+1} ⊕ 1 with 0 < s < p − 3, W(ρ^ss) = {Sym^s 𝔽², det^{s+1} ⊗ Sym^{p−3−s} 𝔽²}; for p = 5, s = 1 this is {Sym¹, det² ⊗ Sym¹}."
     },
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.bdjWeights_f1_irreducible",
@@ -544,6 +563,11 @@
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.bdjWeights_tame_agrees",
      "kind": "compatibility",
      "statement": "For a tame 1-deep ρ the Finset agrees with MP.3/tame-weight-set elementwise."
+    },
+    {
+     "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.bdjWeights_boundary_and_duality",
+     "kind": "non-example",
+     "statement": "For p = 5 and semisimple ρ|I = ω³ ⊕ 1, the boundary s = p − 3 gives three weights {Sym², det³, det³ ⊗ Sym⁴}; the two-weight formula applies only away from this boundary. EGS15 computes these weights from the dual inertial input ω_EGS³ ⊕ 1. Using its inverse character on ρ itself fails this test."
     }
    ],
    "uses": [
@@ -576,7 +600,7 @@
    ],
    "title": "Quaternionic spaces of mod p forms and their residual eigenspaces",
    "kind": "construction",
-   "statement": "Fix a generic global datum and a compact open V = ∏_w V_w ⊆ U with V_w = (O_D)_w^× outside S ∪ {w₁}. For a continuous representation σ of K_S = ∏_{w∈S} V_w on a finite O-module with a central character compatible with ψ, let σ(θ) be its twist by the square roots θ_w of the central characters (p > 2), and extend the action to V·(𝔸_F^∞)^× by letting (𝔸_F^∞)^× act through (𝔸_F^∞)^×/F^× → G_F^{ab} → O^× composed with ψ^{−1}. In the indefinite case let X_V be the smooth projective Shimura curve over F (sign convention of BDJ10), replaced by its quotient by the free action of the finite group V(𝔸_F^∞)^×/VF^×, and S(σ) = H¹(X_V ×_F F̄, F_{σ(θ)^*}); in the definite case S(σ) is the space of functions f : D^×∖(D ⊗_F 𝔸_F^∞)^× → σ(θ)^* with f(gu) = u^{−1}f(g) for u ∈ V(𝔸_F^∞)^×. The algebra T^{S,univ} = O[T_w, S_w : w ∉ S ∪ {w₁}] acts through the double cosets of diag(ϖ_w, 1) and diag(ϖ_w, ϖ_w); 𝔪 is the maximal ideal generated by T_w − S_w tr r̄(Frob_w) and Norm(w) − S_w det r̄(Frob_w). Then σ ↦ S(σ)_𝔪 is exact; in the indefinite case the evaluation map Hom_{T(σ)_𝔪[G_{F,S}]}(ρ(σ)_𝔪, S(σ)_𝔪) ⊗_{T(σ)_𝔪} ρ(σ)_𝔪 → S(σ)_𝔪 is an isomorphism, where ρ(σ)_𝔪 : G_{F,S} → GL₂(T(σ)_𝔪) is induced from the universal deformation; and M(σ) is the Pontryagin dual of Hom_{T(σ)_𝔪[G_{F,S}]}(ρ(σ)_𝔪, S(σ)_𝔪) (indefinite) or of S(σ)_𝔪 (definite). For σ = 𝔽 trivial the r̄-part Hom_{G_F}(r̄, H¹_ét(X_V ×_F F̄, 𝔽)) is unchanged by the passage to the quotient curve.",
+   "statement": "Fix a generic global datum and a compact open V = ∏_w V_w ⊆ U with V_w = (O_D)_w^× outside S ∪ {w₁}. For a continuous representation σ of K_S = ∏_{w∈S} V_w on a finite O-module with a central character compatible with ψ, let σ(θ) be its twist by the square roots θ_w of the central characters (p > 2), and extend the action to V·(𝔸_F^∞)^× by letting (𝔸_F^∞)^× act through (𝔸_F^∞)^×/F^× → G_F^{ab} → O^× composed with ψ^{−1}. In the indefinite case let X_V be the smooth projective Shimura curve over F (sign convention of BDJ10), replaced by its quotient by the free action of the finite group V(𝔸_F^∞)^×/VF^×, and S(σ) = H¹(X_V ×_F F̄, F_{σ(θ)^*}); in the definite case S(σ) is the space of functions f : D^×∖(D ⊗_F 𝔸_F^∞)^× → σ(θ)^* with f(gu) = u^{−1}f(g) for u ∈ V(𝔸_F^∞)^×. The algebra T^{S,univ} = O[T_w, S_w : w ∉ S ∪ {w₁}] acts through the double cosets of diag(ϖ_w, 1) and diag(ϖ_w, ϖ_w); 𝔪 is the maximal ideal generated by T_w − S_w tr r̄(Frob_w) and Norm(w) − S_w det r̄(Frob_w). Then σ ↦ S(σ)_𝔪 is contravariantly exact; in the indefinite case the evaluation map Hom_{T(σ)_𝔪[G_{F,S}]}(ρ(σ)_𝔪, S(σ)_𝔪) ⊗_{T(σ)_𝔪} ρ(σ)_𝔪 → S(σ)_𝔪 is an isomorphism, where ρ(σ)_𝔪 : G_{F,S} → GL₂(T(σ)_𝔪) is induced from the universal deformation; and M(σ) is the Pontryagin dual of Hom_{T(σ)_𝔪[G_{F,S}]}(ρ(σ)_𝔪, S(σ)_𝔪) (indefinite) or of S(σ)_𝔪 (definite). The resulting σ ↦ M(σ) is covariantly exact. For σ = 𝔽 trivial, when its central character is compatible, the r̄-part Hom_{G_F}(r̄, H¹_ét(X_V ×_F F̄, 𝔽)) is unchanged by the passage to the quotient curve.",
    "hypotheses": [
     "V sufficiently small in the sense of Kisin (2.1.2), guaranteed by the choice of V_{w₁}; 𝔪 non-Eisenstein because r̄ is absolutely irreducible.",
     "The action of (𝔸_F^∞)^× is through ψ^{−1}, not ψ: BHHMS Remark 8.1.3(i) corrects EGS15 §6.2 here (recorded as a source finding).",
@@ -587,7 +611,7 @@
     "Construct S(σ) on the HMV R18.4 finite-level cohomology with the R18.4 algebraic local systems (indefinite) and on the R18.3 definite class set with its fixed-central-character forms (definite).",
     "The Hecke operators T_w, S_w are the R18.4 correspondences; 𝔪 is the R18.3 residual Hecke ideal in the normalisation of BDJ10 §4 (BHHMS Remark 8.1.3(ii)).",
     "Local systems: a finite σ factoring through K_S/V′ for V′ ⊆ V open normal gives a local system by descent of the constant sheaf along the finite Galois cover X_{V′} → X_V, the same torsor construction as R18.4/quaternion-local-systems for algebraic coefficients.",
-    "Exactness: localisation at the non-Eisenstein 𝔪 kills H⁰ and H² of every finite coefficient system (R18.4/residual-eisenstein-vanishing over 𝔽, by dévissage for finite length coefficients), so the long exact sequences give exactness of σ ↦ S(σ)_𝔪; taking ψ-parts is exact by R18.4/central-character-exactness.",
+    "Exactness: localisation at the non-Eisenstein 𝔪 kills H⁰ and H² of every finite coefficient system (R18.4/residual-eisenstein-vanishing over 𝔽, by dévissage for finite length coefficients), so the long exact sequences give contravariant exactness of σ ↦ S(σ)_𝔪, since the coefficient system uses σ^*; the additional dual in M restores covariance; taking ψ-parts is exact by R18.4/central-character-exactness.",
     "The Galois representation ρ(σ)_𝔪 comes from R18.4/early-quaternionic-galois-hecke-support (constant weight-two coefficients) through the map from the universal deformation ring: for σ trivial on V′, T(σ)_𝔪 is a quotient of the Hecke algebra acting on constant-coefficient cohomology at level V′; the evaluation isomorphism is the Eichler–Shimura/Boston–Lenstra–Ribet statement cited by EGS15 §6.2 (Carayol, Théorème 4).",
     "Quotient curve: the finite group acts freely (R18.1/quaternionic-effective-stabilizers), the quotient is a smooth projective curve over F, and Hom_{G_F}(r̄, H¹) does not change (BHHMS Remark 8.1.3(iii), arguing as in Breuil–Diamond Theorem 3.7.1)."
    ],
@@ -630,7 +654,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.spaceOfForms",
      "role": "constructor",
-     "statement": "S(σ) for a finite O-representation σ of K_S with compatible central character, in both cases, functorial in σ."
+     "statement": "S(σ) for a finite O-representation σ of K_S with compatible central character, in both cases, functorial in σ. A map σ → σ′ induces S(σ′) → S(σ)."
     },
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.residualIdeal",
@@ -640,7 +664,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.spaceOfForms_localized_exact",
      "role": "characterisation",
-     "statement": "σ ↦ S(σ)_𝔪 is exact on finite O-representations with the fixed central character."
+     "statement": "For 0 → σ₁ → σ₂ → σ₃ → 0, there is an exact sequence 0 → S(σ₃)_𝔪 → S(σ₂)_𝔪 → S(σ₁)_𝔪 → 0; the modules M give the covariant exact sequence."
     },
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.evaluation_iso",
@@ -667,7 +691,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.spaceOfForms_trivial_indefinite",
      "kind": "compatibility",
-     "statement": "For σ = 𝔽 with trivial action, S(σ) is H¹(X_V ×_F F̄, 𝔽) of HMV R18.4/finite-cohomology with constant coefficients."
+     "statement": "If the trivial coefficient has the required central character, S(𝔽) is the constant-coefficient H¹ of the central quotient curve used in the definition. Comparison with the original Shimura curve is asserted on its r̄-part, not on all of H¹."
     },
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.residualIdeal_charpoly",
@@ -677,7 +701,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.unlocalized_not_exact",
      "kind": "non-example",
-     "statement": "Without localising at 𝔪 the functor σ ↦ S(σ) is not exact in the indefinite case: H²(X_V, 𝔽) ≠ 0 contributes a connecting map, which 𝔪 kills because r̄ is not Eisenstein."
+     "statement": "A concrete obstruction before localisation: for a connected étale C_p-cover of a proper connected curve, the augmentation 𝔽[C_p] → 𝔽 sends the invariant norm vector to p = 0, so H⁰ of the associated local systems is not right exact. Its long exact sequence gives a nonzero connecting class and failure of exactness on H¹. Dualise the coefficients to express this as a failure of exactness of S; non-Eisenstein localisation removes it."
     }
    ],
    "uses": [
@@ -701,17 +725,17 @@
    "realises": [
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0"
    ],
-   "title": "Freeness of the residual eigenspaces over the level quotient",
+   "title": "Projectivity and injectivity of the residual eigenspaces over the level quotient",
    "kind": "theorem",
-   "statement": "Let V′ ⊆ V be compact open subgroups of (D ⊗_F 𝔸_F^∞)^×, V′ normal in V, with V sufficiently small in the sense of Kisin (2.1.2) (for example V_{w₁} unipotent upper triangular modulo w₁), so that G = V/V′ (modulo the central part, as in GK.0/residual-eigenspaces) acts freely on the quotient curve X_{V′}, respectively on D^×∖(D ⊗ 𝔸_F^∞)^×/V′(𝔸_F^∞)^×. Then H¹_ét(X_{V′} ×_F F̄, 𝔽)_𝔪 (indefinite) and S(V′, 𝔽)_𝔪 (definite) are free 𝔽[G]-modules, hence injective; for every finite 𝔽[V]-representation σ factoring through G, the Hochschild–Serre map identifies the 𝔪-localised cohomology at level V with coefficients in σ^∗ with Hom_G(σ, H¹_ét(X_{V′} ×_F F̄, 𝔽)_𝔪) (resp. Hom_G(σ, S(V′, 𝔽)_𝔪)), compatibly with the Hecke operators away from S ∪ {w₁} and with G_F. The same holds with W(𝔽)/pⁿ coefficients, with freeness over (W(𝔽)/pⁿ)[G].",
+   "statement": "Let V′ ⊆ V be compact open subgroups of (D ⊗_F 𝔸_F^∞)^×, V′ normal in V, with V sufficiently small in the sense of Kisin (2.1.2) (for example V_{w₁} unipotent upper triangular modulo w₁), so that G = V/V′ (modulo the central part, as in GK.0/residual-eigenspaces) acts freely on the quotient curve X_{V′}, respectively on D^×∖(D ⊗ 𝔸_F^∞)^×/V′(𝔸_F^∞)^×. Then H¹_ét(X_{V′} ×_F F̄, 𝔽)_𝔪 (indefinite) and S(V′, 𝔽)_𝔪 (definite) are finite projective 𝔽[G]-modules, hence injective; for every finite 𝔽[V]-representation σ factoring through G, the Hochschild–Serre map identifies the 𝔪-localised cohomology at level V with coefficients in σ^∗ with Hom_G(σ, H¹_ét(X_{V′} ×_F F̄, 𝔽)_𝔪) (resp. Hom_G(σ, S(V′, 𝔽)_𝔪)), compatibly with the Hecke operators away from S ∪ {w₁} and with G_F. The same holds with W(𝔽)/pⁿ coefficients, with projectivity and injectivity over (W(𝔽)/pⁿ)[G]. When G is a p-group these projective modules are free, since the group algebra is local; this includes the Taylor–Wiles quotients and the pro-p congruence quotients used below.",
    "hypotheses": [
     "𝔪 is non-Eisenstein because r̄ is absolutely irreducible; the free action of G at small level is the condition imposed by the auxiliary place w₁ (EGS15 §6.2; BHHMS Remark 8.1.3(iii), citing Breuil–Diamond Lemme 3.6.2)."
    ],
    "proofSteps": [
     "Indefinite case: X_{V′} → X_V is a finite étale Galois cover with group G, so RΓ(X_{V′}, 𝔽) ≅ RΓ(X_V, 𝔽[G]) is a perfect complex of 𝔽[G]-modules computed by the Hochschild–Serre spectral sequence of R18.4/finite-level-descent (the case where p divides |G|).",
-    "After localisation at 𝔪, H⁰ and H² vanish (R18.4/residual-eisenstein-vanishing), so the localised complex has cohomology only in degree 1 and that cohomology is a projective 𝔽[G]-module, hence free over the local factors and injective (group algebras of finite groups are self-injective).",
+    "After localisation at 𝔪, H⁰ and H² vanish (R18.4/residual-eisenstein-vanishing). The remaining finite module has finite projective dimension over 𝔽[G]. The finite group algebra is self-injective, so finite projective dimension forces projectivity and hence injectivity. For W(𝔽)/pⁿ the same argument uses its Frobenius group algebra and the corresponding perfect coefficient complex. Projective implies free when G is a p-group, not for an arbitrary finite G.",
     "The Hochschild–Serre spectral sequence for coefficients σ therefore degenerates and gives the Hom description; Hecke operators and G_F commute with the comparison maps.",
-    "Definite case: S(V′, 𝔽) is the space of functions on a finite set on which G acts freely, so it is free over 𝔽[G] before localisation; the 𝔪-part is a direct summand (as in R18.3/tw-freeness, which is the Taylor–Wiles instance of this statement)."
+    "Definite case: S(V′, 𝔽) is the space of functions on a finite set on which G acts freely, so it is free over 𝔽[G] before localisation; the 𝔪-part is a direct summand (as in R18.3/tw-freeness, which is the Taylor–Wiles instance of this statement). A direct summand is projective; no assertion that it is free for arbitrary G is needed."
    ],
    "prerequisites": [
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/residual-eigenspaces",
@@ -740,7 +764,7 @@
    },
    "implementationStatus": "unchecked",
    "acceptance": [
-    "Freeness is over the group algebra of the level quotient (modulo its central part), not only over the central quotient of HMV R18.4/central-character-exactness.",
+    "Projectivity and injectivity hold for arbitrary finite level quotients; freeness is asserted only for p-group quotients. For odd p, the one-dimensional trivial summand of 𝔽[C₂] is projective but not free, so replacing projective by free in the general statement fails a dimension check.",
     "The level must be small enough for G to act freely; this is where the auxiliary place w₁ enters."
    ]
   },
@@ -841,12 +865,12 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.infiniteLevelRep_twist",
      "kind": "compatibility",
-     "statement": "Replacing r̄ by r̄ ⊗ χ for a character χ unramified outside S replaces π by π ⊗ (χ̃ ∘ det), χ̃ the character of F_v^× attached to χ|G_{F_v}."
+     "statement": "Under a compatible global character twist r̄ ↦ r̄ ⊗ χ, ψ changes to ψχ², so the new central character is ψ^{−1}χ^{−2}. The corresponding local determinant twist, when levels and away-from-v weights are transported, is χ̃^{−1} ∘ det. The positive twist gives the wrong central character."
     },
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.infiniteLevelRep_not_finite",
      "kind": "non-example",
-     "statement": "π is not finite-dimensional: a nonzero smooth representation of GL₂(F_v) with central character whose K-socle contains a Serre weight σ_v ∈ W(r̄_v^∨) and which is admissible but infinite-dimensional (its Gelfand–Kirillov dimension f ≥ 1 is the main theorem)."
+     "statement": "For the nonzero weighted π, GK.5/patched-gk-dimension gives dimension f ≥ 1. A finite-dimensional smooth representation has dimension 0 because its dual is a finite-length Iwasawa module. Thus π is infinite-dimensional; this is a downstream consequence, not an assumption in its definition."
     }
    ],
    "uses": [
@@ -986,7 +1010,7 @@
    ],
    "title": "Cancellation of a power-series variable (Hamann)",
    "kind": "theorem",
-   "statement": "If R and S are local rings and R⟦x⟧ ≅ S⟦x⟧ as rings, then R ≅ S. In the form used here: if A and B are complete Noetherian local W(𝔽)-algebras with residue field 𝔽 and A⟦x⟧ ≅ B⟦x⟧ as W(𝔽)-algebras with B ≅ W(𝔽)⟦X₁, …, X_n⟧, then A ≅ W(𝔽)⟦X₁, …, X_{n−1}⟧.",
+   "statement": "If R and S are commutative local rings and R⟦x⟧ ≅ S⟦x⟧ as rings, then R ≅ S. In the complete regular case used here, if A is a complete Noetherian local W(𝔽)-algebra with residue field 𝔽 and A⟦x⟧ ≅ W(𝔽)⟦X₁, …, X_n⟧ as W(𝔽)-algebras, with n ≥ 1, then A ≅ W(𝔽)⟦X₁, …, X_{n−1}⟧. If instead A⟦x⟧ ≅ B⟦x⟧ with B ≅ W(𝔽)⟦X₁, …, X_n⟧, cancellation gives A ≅ B with n variables.",
    "hypotheses": [
     "The general statement is Hamann's theorem for local rings; every application in this roadmap is the complete regular case, which has the elementary proof below."
    ],
@@ -1034,7 +1058,7 @@
    "kind": "construction",
    "statement": "For a generic global datum and integers q ≥ [F : ℚ], put R^loc = (⊗̂_{w∈S∖S_p} R_{r̄_w}^{ψ_w}) ⊗̂ (⊗̂_{w∈S_p∖{v}} R_{r̄_w}^{(0,−1),τ_w,ψ_w}) ⊗̂ R_{r̄_v}^{ψ_v} over W(𝔽), where R^{ψ_w} is the framed deformation ring of r̄_w with determinant ε^{−1}ψ_w and R^{(0,−1),τ_w,ψ_w} its reduced p-torsion-free quotient of parallel Hodge–Tate weights (0, −1) and inertial type τ_w; R∞ = R^loc⟦X₁, …, X_{q−[F:ℚ]+|S|−1}⟧ and S∞ = W(𝔽)⟦x₁, …, x_{4|S|+q−1}⟧ with a local W(𝔽)-algebra map S∞ → R∞. Then R_{r̄_w}^{ψ_w} ≅ W(𝔽)⟦X₁, X₂, X₃⟧ for w ∈ S ∖ S_p, R_{r̄_v}^{ψ_v} ≅ W(𝔽)⟦X₁, …, X_{3+3f}⟧, R_{r̄_w}^{(0,−1),τ_w,ψ_w} ≅ R_{r̄_w^∨}^{(1,0),τ_w^∨,ψ_w^{−1}} ≅ W(𝔽)⟦X₁, …, X_{3+[F_w:ℚ_p]}⟧ for w ∈ S_p ∖ {v}, and consequently R∞ ≅ R_{r̄_v}^{ψ_v}⟦X₁, …, X_{4(|S|−1)+q−f}⟧ ≅ W(𝔽)⟦X₁, …, X_{4|S|+q−1+2f}⟧; in particular dim R∞ − dim S∞ = 2f.",
    "hypotheses": [
-    "The fixed-determinant rings are related to the unfixed ones by R ≅ R^ψ⟦X⟧ (GK14 Remark 5.2.2), and the extra variable is cancelled with GK.1/power-series-cancellation.",
+    "For a fixed Hodge and inertial type, the unfixed-determinant lifting ring is the fixed-determinant ring with one unramified determinant variable (GK14 Remark 5.2.2). The analogous one-variable assertion is not made for the unrestricted local deformation ring at v, where determinant characters have ramified directions as well.",
     "Formal smoothness of R_{r̄_w}^{ψ_w} for w ∈ S ∖ S_p is a hypothesis of the datum; for R_{r̄_v}^{ψ_v} BHHMS deduce it from genericity of r̄_v (the reason, supplied here, is that H²(G_{F_v}, ad⁰ r̄_v) vanishes by local duality).",
     "The structure of the potentially Barsotti–Tate rings at w ∈ S_p ∖ {v} is EGS15 Theorem 7.2.1(2), a recorded gap owned by the pending design LocalGaloisDeformationRingsPartII (issue #3432)."
    ],
@@ -1137,7 +1161,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.unfixedDeterminant_extraVariable",
      "kind": "non-example",
-     "statement": "With unfixed determinants every local factor acquires one more variable (R ≅ R^ψ⟦X⟧), and the difference of dimensions would no longer be 2f: the fixed-determinant convention is essential."
+     "statement": "A fixed Hodge/inertial-type quotient gains one unramified determinant variable when its determinant is released (GK14 Remark 5.2.2). For the unrestricted factor at v, local class field theory gives f + 1 determinant directions for p > 2; treating this factor as a one-variable extension of its fixed-determinant ring gives the wrong dimension."
     },
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.patchedRing_trivialPrime",
@@ -1259,7 +1283,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.typeQuotient_not_crystalline",
      "kind": "non-example",
-     "statement": "For τ trivial and λ_j = (2, −1) at one embedding the quotient is a crystalline ring that is not Barsotti–Tate; it is not a quotient of R∞^{(1,0),τ}."
+     "statement": "For τ trivial and λ_j = (2, −1) at one embedding, a nonzero characteristic-zero point is crystalline but not Barsotti–Tate: its labelled Hodge–Tate weights differ from (1, 0). This point cannot factor through the Barsotti–Tate quotient. The test makes no nonzero-point assertion for a zero quotient."
     }
    ],
    "uses": [
@@ -1408,7 +1432,7 @@
    ],
    "title": "The patching functor of Shimura curves at v",
    "kind": "construction",
-   "statement": "Let a generic global datum be given. For each w ∈ S_p ∖ {v} fix a tame inertial type τ_w such that JH(σ(τ_w^∨)) contains exactly one Serre weight σ_w of W(r̄_w^∨), and a GL₂(O_{F_w})-stable lattice σ°(τ_w^∨), free over W(𝔽); put σ_p^v = ⊗_{w∈S_p∖{v}} σ°(τ_w^∨), a representation of ∏_{w∈S∖{v}} U_w through its quotient ∏_{w∈S_p∖{v}} GL₂(O_{F_w}). Taylor–Wiles–Kisin patching of the modules M(σ_p^v ⊗ σ_v) at auxiliary levels produces integers q ≥ [F:ℚ], the rings S∞ → R∞ of GK.1/patched-deformation-ring and an exact functor M∞ = M∞^{σ_p^v} : σ_v ↦ M∞(σ_p^v ⊗ σ_v) from continuous representations of K = GL₂(O_{F_v}) on finitely generated W(𝔽)-modules with central character ψ^{−1}|I_{F_v} to finitely generated R∞-modules, such that: M∞(σ_v)/(x₁, …, x_{4|S|+q−1}) ≅ M(σ_p^v ⊗ σ_v), compatibly with R∞/(x) ≅ R_S^{univ}; the action of R^loc on M∞(σ_v) factors through the fixed-determinant quotient at v and, at w ∈ S_p ∖ {v}, through R_{r̄_w}^{(0,−1),τ_w,ψ_w}; M∞(σ_v) is free over S∞ when σ_v is free over W(𝔽), and free over S∞/(p) when σ_v is free over 𝔽; and M∞ is a fixed-determinant patching functor.",
+   "statement": "Let a generic global datum be given. For each w ∈ S_p ∖ {v} fix a tame inertial type τ_w such that JH(σ(τ_w^∨)) contains exactly one Serre weight σ_w of W(r̄_w^∨), and a GL₂(O_{F_w})-stable lattice σ°(τ_w^∨), free over W(𝔽); put σ_p^v = ⊗_{w∈S_p∖{v}} σ°(τ_w^∨), a representation of ∏_{w∈S∖{v}} U_w through its quotient ∏_{w∈S_p∖{v}} GL₂(O_{F_w}). Taylor–Wiles–Kisin patching of the modules M(σ_p^v ⊗ σ_v) at auxiliary levels produces integers q ≥ [F:ℚ], the rings S∞ → R∞ of GK.1/patched-deformation-ring and an exact functor M∞ = M∞^{σ_p^v} : σ_v ↦ M∞(σ_p^v ⊗ σ_v) from continuous representations of K = GL₂(O_{F_v}) on finitely generated W(𝔽)-modules with central character ψ^{−1}|I_{F_v} to finitely generated R∞-modules, such that: M∞(σ_v)/(x₁, …, x_{4|S|+q−1}) ≅ M(σ_p^v ⊗ σ_v), compatibly with a surjection R∞/(x) ↠ R_S^{loc-cond}, where R_S^{loc-cond} is the global deformation ring with the specified local conditions; the action of R^loc on M∞(σ_v) factors through the fixed-determinant quotient at v and, at w ∈ S_p ∖ {v}, through R_{r̄_w}^{(0,−1),τ_w,ψ_w}; M∞(σ_v) is free over S∞ when σ_v is free over W(𝔽), and free over S∞/(p) when σ_v is free over 𝔽; and M∞ is a fixed-determinant patching functor.",
    "hypotheses": [
     "The weights and types at w ∈ S_p ∖ {v} come from EGS15 Proposition 3.5.1 (a type isolating one weight), part of the recorded gap on tame types owned by LocalGaloisDeformationRingsPartII.",
     "The construction uses one choice (non-principal ultrafilter or diagonal subsequence) for all σ_v simultaneously, so that M∞ is a functor: there are only countably many isomorphism classes of finite length σ_v (EGS15 §6.4).",
@@ -1417,7 +1441,7 @@
    "proofSteps": [
     "Taylor–Wiles data Q_N (GlobalGaloisDeformations R04.5; the generator count in Gee's convention, R04.5/taylor-wiles-generator-count, gives q − [F:ℚ] + |S| − 1 patching variables, with q ≥ [F:ℚ] for p > 5 and r̄|G_{F(ζ_p)} absolutely irreducible) at level N, with the spaces at auxiliary level free over the group rings of the Δ_{Q_N} (GK.0/non-eisenstein-freeness; R18.3/tw-freeness is its definite Taylor–Wiles instance).",
     "Patch the modules M(σ_p^v ⊗ σ_v)_{Q_N} with their framings over S∞ by the finite-data extraction of DeformationAndDerivedPatchingAlgebra R03.5 (patching-extraction, patched-module, patched-ring-action), simultaneously for all finite length σ_v; extend to finitely generated σ_v by inverse limits.",
-    "Exactness: σ ↦ S(σ)_𝔪 is exact (GK.0/residual-eigenspaces) at every auxiliary level, and the patched functor of an exact system of finite free S∞-modules is exact.",
+    "The functor σ ↦ S(σ)_𝔪 is contravariantly exact (GK.0/residual-eigenspaces); its dual multiplicity module M is covariantly exact at every auxiliary level. Patching preserves this exact system, giving covariant exactness of M∞.",
     "Support at w ∈ S_p ∖ {v}: local–global compatibility for the type σ°(τ_w^∨) (EGS15 §6.4). Support at v for lattices in types: local–global compatibility; for Serre weights: the Gee–Kisin support statements that EGS15 §6.4 cites as Corollaries 5.6.4 and 4.5.7 of the 2012 version (the Breuil–Mézard gap).",
     "Maximal Cohen–Macaulay: M∞(σ°(τ)) is finite free over the regular ring S∞ and dim R∞^{ψ,τ} = dim S∞, so Auslander–Buchsbaum gives the maximal depth (EGS15 §6.4)."
    ],
@@ -1463,7 +1487,8 @@
    "implementationStatus": "unchecked",
    "acceptance": [
     "The functor is defined on representations of GL₂(O_{F_v}) only; σ_p^v is fixed once and for all.",
-    "The same patching choice is used for all σ_v, so that M∞ is a functor and not just a family of modules."
+    "The same patching choice is used for all σ_v, so that M∞ is a functor and not just a family of modules.",
+    "The augmentation identifies modules, while its comparison of deformation rings is initially only a surjection (GK14 §5.4.1, pp. 30–31); no early big R = big T assertion is used."
    ],
    "api": [
     {
@@ -1474,7 +1499,7 @@
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.shimuraPatchingFunctor_augmentation",
      "role": "compatibility",
-     "statement": "M∞(σ_v)/(x₁, …, x_{4|S|+q−1}) ≅ M(σ_p^v ⊗ σ_v), naturally in σ_v, compatibly with R∞/(x) ≅ R_S^{univ}."
+     "statement": "M∞(σ_v)/(x₁, …, x_{4|S|+q−1}) ≅ M(σ_p^v ⊗ σ_v), naturally in σ_v, with a compatible surjection R∞/(x) ↠ R_S^{loc-cond} to the global ring with the chosen local conditions. An isomorphism of these rings is not part of the patching construction."
     },
     {
      "name": "TauCetiRoadmap.HilbertModularVarietiesAndShimuraCurvesPartII.shimuraPatchingFunctor_free_S",
@@ -1549,7 +1574,7 @@
    ],
    "title": "Fibres of the patching functor at the maximal ideal",
    "kind": "theorem",
-   "statement": "For every continuous representation σ_v of K = GL₂(O_{F_v}) on a finitely generated W(𝔽)-module with central character ψ^{−1}|I_{F_v} on which some V_v ⊆ 1 + pM₂(O_{F_v}), normal in K, acts trivially, there are natural isomorphisms of finite-dimensional 𝔽-vector spaces M∞(σ_v)/𝔪∞ ≅ Hom_{U_v/V_v}(σ_v, Hom_{U^v/V^v}(⊗_{w∈S_p∖{v}}σ_w, Hom_{G_F}(r̄, H¹_ét(X_V ×_F F̄, 𝔽))))^∨ ≅ Hom_K(σ_v, π)^∨ in the indefinite case, with S(V, 𝔽)[𝔪] in place of the r̄-part in the definite case, where π is the weighted representation of GK.0/infinite-level-representation and σ_w the unique weight of W(r̄_w^∨) in JH(σ(τ_w^∨)). In particular M∞(σ_v) ≠ 0 if and only if JH(σ_v) ∩ W(r̄_v^∨) ≠ ∅.",
+   "statement": "For every continuous representation σ_v of K = GL₂(O_{F_v}) on a finitely generated W(𝔽)-module with central character ψ^{−1}|I_{F_v} on which some V_v ⊆ 1 + pM₂(O_{F_v}), normal in K, acts trivially, there are natural isomorphisms of finite-dimensional 𝔽-vector spaces M∞(σ_v)/𝔪∞ ≅ Hom_{U_v/V_v}(σ_v, Hom_{U^v/V^v}(⊗_{w∈S_p∖{v}}σ_w, Hom_{G_F}(r̄, H¹_ét(X_V ×_F F̄, 𝔽))))^∨ ≅ Hom_K(σ_v, π)^∨ in the indefinite case, with S(V, 𝔽)[𝔪] in place of the r̄-part in the definite case, where π is the weighted representation of GK.0/infinite-level-representation and σ_w the unique weight of W(r̄_w^∨) in JH(σ(τ_w^∨)). In particular M∞(σ_v) ≠ 0 if and only if JH(σ_v/pσ_v) ∩ W(r̄_v^∨) ≠ ∅.",
    "hypotheses": [
     "V_w = U_w for w ∉ S_p and V_w ⊆ 1 + pM₂(O_{F_w}) normal in GL₂(O_{F_w}) for w ∈ S_p.",
     "The fibre is taken at the maximal ideal 𝔪∞ of R∞, after the augmentation of S∞."
@@ -1558,7 +1583,7 @@
     "Reduce M∞(σ_v) modulo (x₁, …) and then modulo the maximal ideal of R_S^{univ}: by the augmentation isomorphism this is M(σ_p^v ⊗ σ_v)/𝔪, which in the indefinite case is dual to the r̄-part of S(σ_p^v ⊗ σ_v)[𝔪] by the evaluation isomorphism (GK.0/residual-eigenspaces).",
     "Hochschild–Serre for the normal subgroup V ⊆ U (GK.0/non-eisenstein-freeness: finite quotient acting freely, non-Eisenstein localisation) identifies the r̄-part at level U with coefficients σ_p^v ⊗ σ_v with Hom_{U/V}((σ_p^v ⊗ σ_v)/ϖ, r̄-part at level V) (BHHMS (64), citing the proofs of BDJ10 Lemma 4.11 and Breuil–Diamond Lemme 3.6.2).",
     "Since JH(σ°(τ_w^∨)/ϖ) contains only one weight σ_w of W(r̄_w^∨), and weights outside W(r̄_w^∨) contribute nothing by GK.0/bdj-weight-theorem, the type lattice at w may be replaced by σ_w; passing to the colimit over V_v gives Hom_K(σ_v, π)^∨ (BHHMS (68)).",
-    "Nonvanishing: by exactness and Nakayama, M∞(σ_v) ≠ 0 iff some Jordan–Hölder constituent has nonzero fibre, iff it lies in W(r̄_v^∨) by the weight theorem."
+    "Nonvanishing: use M∞(σ_v)/p ≅ M∞(σ_v/pσ_v), Nakayama for the finite R∞-module, and exactness. The finite-length representation σ_v/pσ_v has a constituent in W(r̄_v^∨) exactly when M∞(σ_v) is nonzero. Jordan–Hölder factors are not assigned directly to an infinite-length O-lattice."
    ],
    "prerequisites": [
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/shimura-curve-patching-functor",
@@ -2037,7 +2062,7 @@
    "proofSteps": [
     "If M is flat, (ϖ, x₁, …, x_r) is an M-regular sequence (M/(ϖ, x)M ≠ 0 by Nakayama), and GK.2/iwasawa-grade-and-power-series (1) gives the equality of grades.",
     "Conversely, for x ∈ {ϖ, x_i} show by induction: j_A(M) = j_{A/x}(M/xM) (from the chain of inequalities in (2) and the hypothesis); x is M-regular (a nonzero x-power torsion submodule would have the full dimension by purity of Cohen–Macaulay modules, Venjakob Propositions 3.5 and 3.9, contradicting the grade equality); and M/xM is Cohen–Macaulay over A/x (long exact Ext sequence).",
-    "So (ϖ, x₁, …, x_r) is M-regular; M is finitely generated over A, hence ideal-separated for the (ϖ, x)-adic topology, and the local criterion of flatness (Stacks 00MK, Matsumura Theorem 22.3) gives flatness over O⟦x₁, …, x_r⟧."
+    "The regular sequence gives flatness modulo every power of the maximal ideal 𝔞 = (ϖ, x₁, …, x_r) of B = O⟦x₁, …, x_r⟧. For every ideal I of B, I ⊗_B M is finitely generated over the Noetherian algebra A; since 𝔞A lies in its Jacobson radical it is 𝔞-adically separated. Apply the adic flatness criterion to these tensor modules, not just to M (Gee–Newton proof of Proposition A.30, p. 50, adapting Stacks 00MK / Matsumura Theorem 22.3). This proves B-flatness although M need not be finite over B."
    ],
    "prerequisites": [
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2/iwasawa-cohen-macaulay",
@@ -2230,12 +2255,12 @@
    "statement": "Let σ_v ∈ W(r̄_v^∨), P_{σ_v} = Proj_{GL₂(k)}σ_v and P̃_{σ_v} its finite free projective lift to W(𝔽)[GL₂(k)], inflated to K. Then π^{K₁} ≅ D₀(r̄_v^∨)^{⊕r} as GL₂(k)-representations, dim_𝔽 Hom_K(P_{σ_v}, π) = r, and M∞(P̃_{σ_v}) is free of rank r over R∞/∩_τ p_τ, where τ runs over the tame inertial types with σ_v ∈ JH(σ(τ)) and p_τ = ker(R∞ ↠ R∞^{(1,0),τ}).",
    "hypotheses": [
     "r is the rank of GK.3/weight-and-type-freeness; D₀(r̄_v^∨) is the Breuil–Paškūnas representation of ModpRepresentationsOfGL2OverLocalFields MP.3/diamond-socle.",
-    "The identification π^{K₁} ≅ D₀(r̄_v^∨)^{⊕r} is proved in BHHMS's proof of Proposition 8.2.6 (the injection W ↪ D₀^{⊕r}, an isomorphism on socles) and quoted as such in the proof of Proposition 8.3.7; it is made part of the statement here.",
-    "The identification π^{K₁} ≅ D₀(r̄_v^∨)^{⊕r} is proved in BHHMS's proof of Proposition 8.2.6 (the injection W ↪ D₀^{⊕r}, an isomorphism on socles) and quoted as such in the proof of Proposition 8.3.7; it is made part of the statement here.",
+    "The upper embedding W = π^{K₁} ↪ D₀(r̄_v^∨)^{⊕r} follows from BHHMS Proposition 8.2.6 and LMS22 Proposition 4.6. Being an isomorphism on socles alone does not prove it is an isomorphism. The reverse embedding is the independent global extension argument below.",
     "P̃_{σ_v}[1/p] ≅ ⊕_τ σ(τ), each tame type with σ_v ∈ JH(σ(τ)) occurring once (tame-type gap)."
    ],
    "proofSteps": [
     "Generation by r elements: by Nakayama and GK.1/patched-fibre-identity it suffices that dim Hom_K(P_{σ_v}, π) = dim Hom_{GL₂(k)}(P_{σ_v}, W) = r for W = π^{K₁}. By GK.3/weight-and-type-freeness (i), dim Hom(σ, W) = r for each modular weight; since Hom(P_{σ_v}, D₀/soc D₀) = 0 it suffices to embed W into D₀(r̄_v^∨)^{⊕r}, equivalently to find a surjection (D₀^∨)^{⊕r} ↠ W^∨, which follows as in Le–Morra–Schraen Lemma 4.5 and Proposition 4.6 with 1 replaced by r.",
+    "For the reverse embedding, embed R′ = soc(D₀^{⊕r}) into the weighted π using the weight theorem and its multiplicity r. Put R = D₀^{⊕r}; by the defining property of D₀, R/R′ has no modular Serre weight, so Hom_K(R/R′, π) = 0. Apply the argument of Breuil Lemma 9.2 to the finite-level spaces: localisation makes Hom(−, S)_𝔪 exact by GK.0/non-eisenstein-freeness; the zero quotient Hom space remains zero after localisation by Nakayama. Restriction Hom(R, S)_𝔪 → Hom(R′, S)_𝔪 is therefore an isomorphism. Taking the residual Hecke eigenspace, the Galois multiplicity space, and the fixed weights away from v preserves this isomorphism. The socle embedding extends uniquely to R → π and is injective since every nonzero submodule of R meets its socle. Thus D₀^{⊕r} ↪ W. Both modules are finite-dimensional, so together with the upper embedding this gives W ≅ D₀^{⊕r}, without GK.4 or GK.5.",
     "Support: P̃_{σ_v}[1/p] is the direct sum of the σ(τ), each once, so by BHHMS (71)–(72) and GK.3/weight-and-type-freeness (ii) M∞(P̃_{σ_v})[1/p] is free of rank r over S[1/p], S the scheme-theoretic support.",
     "A surjection S^r ↠ M∞(P̃_{σ_v}) is an isomorphism after inverting p and M∞(P̃_{σ_v}) has no p-torsion, so it is injective; S = R∞/∩_τ p_τ because the R∞^{(1,0),τ} are domains, so the support of each M∞(σ(τ)°)[1/p] is exactly R∞/p_τ."
    ],
@@ -2246,7 +2271,9 @@
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/infinite-level-representation",
     "ModpRepresentationsOfGL2OverLocalFields:MP.3/diamond-socle",
     "ModpRepresentationsOfGL2OverLocalFields:MP.5/projective-adjoint",
-    "ModpRepresentationsOfGL2OverLocalFields:MP.8/projective-lattice"
+    "ModpRepresentationsOfGL2OverLocalFields:MP.8/projective-lattice",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/non-eisenstein-freeness",
+    "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/bdj-weight-theorem"
    ],
    "sources": [
     {
@@ -2257,12 +2284,17 @@
     {
      "sourceId": "BHHMS23",
      "locator": "proof of Proposition 8.3.7, p. 101",
-     "match": "By the proof of Proposition 8.2.6, π^{K₁} is D₀(r̄_v^∨)^{⊕r}."
+     "match": "The proof invokes an identification of π^{K₁} with D₀^{⊕r}. Proposition 8.2.6 explicitly supplies the upper embedding; the reverse embedding is justified separately here by the extension argument used in the proof of Theorem 8.4.1(i), p. 104."
     },
     {
      "sourceId": "LMS22",
      "locator": "Lemma 4.5, p. 14, and Proposition 4.6, p. 15",
      "match": "Under multiplicity-one hypotheses on Hom spaces into Serre weights and into lattices in tame types, no modular weight lies in the radical of D₀^∨, and there is a surjection D₀^∨(ρ) ↠ D₀^∨; BHHMS follow these arguments with 1 replaced by r."
+    },
+    {
+     "sourceId": "BRE14",
+     "locator": "Lemma 9.2 and its proof, pp. 54–55 of the author copy",
+     "match": "Restriction from a finite representation to an essential subrepresentation is an isomorphism on maps into residual automorphic eigenspaces when the quotient shares no constituent with the modular socle. Exactness is obtained after non-Eisenstein localisation, and an embedding extends injectively because the subrepresentation contains the socle. Applied here with multiplicity r and with the same localized exactness for Shimura-curve cohomology."
     }
    ],
    "library": {
@@ -2272,7 +2304,8 @@
    "implementationStatus": "unchecked",
    "acceptance": [
     "The intersection runs over all tame types whose σ(τ) contains σ_v, each counted once.",
-    "The identification π^{K₁} ≅ D₀(r̄_v^∨)^{⊕r} is part of the statement and is reused in GK.4/generation-transfer and GK.5/patched-gk-dimension."
+    "The identification π^{K₁} ≅ D₀(r̄_v^∨)^{⊕r} is part of the statement and is reused in GK.4/generation-transfer and GK.5/patched-gk-dimension.",
+    "Prove both embeddings. The upper embedding and equality of socles alone are insufficient; the reverse embedding uses no later second-congruence or dimension result."
    ],
    "planet": {
     "name": "Freeness for projective lifts"
@@ -2698,7 +2731,7 @@
     "The presentation of the multi-type ring R_{r̄_v^∨}^{≤(3,0),σ_v} (BHHMS Proposition 4.3.1), its prime ideals (Lemma 4.3.2) and the membership p ∈ q₁^{(j),(2,1)} ∩ q₂^{(j),(2,1)} + p₂^{(j),(3,0)} (Proposition 4.3.3) are the recorded multi-type gap, owned by LocalGaloisDeformationRingsPartII; all R∞^{λ,τ} are domains by the single-type gap."
    ],
    "proofSteps": [
-    "Twist all deformations by ε: the weights become (2, 1) and (3, 0), and σ_v ∈ JH(σ(τ)) becomes σ_v ⊗ det^{−1} ∈ JH(σ(τ)). Induct on j; j = −1 is GK.3/projective-lift-freeness.",
+    "Use the twist/reindexing of BHHMS proof of Theorem 8.3.9: after twisting deformations by ε the labelled weights are (2, 1) and (3, 0), the determinant is ε³ψ_v^{−1}, and the type-index condition is σ_v ⊗ (N_{k/𝔽_p} ∘ det^{−1}) ∈ JH(σ(τ)) in that proof’s reindexed notation. Keep this negative norm twist in the type-to-prime bijection as well (the positive sign in its displayed ι on p. 102 is inconsistent with the defining index set). Induct on j; j = −1 is GK.3/projective-lift-freeness.",
     "Generation of M∞(N_j): M∞(N_j) = M∞(L_{j−1}) ×_{M∞(Y_j)} M∞(T′_{2,j}) by exactness, the three modules are free of rank r over their supports (induction, GK.4/adjoint-type-lattices), so by GK.2/fibre-product-freeness it suffices that Ann(M∞(Y_j)) ⊆ Ann(M∞(L_{j−1})) + Ann(M∞(T′_{2,j})); as Ann(M∞(Y_j)) = (p) + Ann(M∞(T′_{2,j})) (GK.4/adjoint-type-lattices), it suffices that p ∈ Ann(M∞(L_{j−1})) + Ann(M∞(T′_{2,j})).",
     "Use the multi-type ring R∞^{≤(3,0),σ_v} = R∞/∩_{λ,τ}p_{λ,τ} ≅ S⟦X₁, …, X_h⟧ with S an explicit completed tensor product of rings S^{(j)} modulo an ideal, the explicit primes p_k^λ = Σ_j p_{k_j}^{(j),λ_j} indexed by k ∈ {1, 2}^f via a bijection with the types, and τ₀ ↔ k = (2, …, 2). Then Ann(M∞(T′_{2,j})) = p₂^{λ(j)} and Ann(M∞(L_{j−1})) ⊇ q₁^{(j),(2,1)} ∩ q₂^{(j),(2,1)}, so the needed membership is p ∈ q₁^{(j),(2,1)} ∩ q₂^{(j),(2,1)} + p₂^{(j),(3,0)}, which is BHHMS Proposition 4.3.3.",
     "By GK.4/generation-transfer M∞(L_j) is generated by r elements; as in GK.3/projective-lift-freeness M∞(L_j)[1/p] is free of rank r over its support (BHHMS (71)–(72) with GK.4/adjoint-lattice-freeness and the induction hypothesis), so any surjection S^r ↠ M∞(L_j) is an isomorphism."
@@ -2945,7 +2978,7 @@
     "x induces a lift ρ_x : G_{F_v} → GL₂(E′) of r̄_v^∨ (up to the duality convention); V(x) is the candidate of CEGGPS for the p-adic Langlands correspondence, now known to be nonzero."
    ],
    "proofSteps": [
-    "Admissibility and unitarity: M∞ is finite over S∞⟦K⟧ and ker(x) induces an open ideal of S∞, so V(x) is admissible unitary (CEGGPS Proposition 2.13; LocallyAnalyticDistributionsPartII ND.6 for the duality between admissible Banach representations and finitely generated Iwasawa modules).",
+    "Admissibility and unitarity: let x̄ : R∞ → 𝔽′ be x followed by residue reduction. The kernel of x̄ on S∞ is open; the kernel of x itself need not be open. The finite generation of M∞ over S∞⟦K⟧ and topological Nakayama imply finite generation of M∞ ⊗_{R∞,x} O′ over O′⟦K⟧, using its finite residual module. CEGGPS Proposition 2.13 and the duality of LocallyAnalyticDistributionsPartII ND.6 then give an admissible unitary Banach representation.",
     "Nonvanishing: M∞ is flat over R∞ (GK.5/patched-faithful-flatness), so M∞ ⊗_{R∞,x} O′ is flat over O′, that is torsion free; it is nonzero since its reduction is π^∨ ⊗ 𝔽′ ≠ 0; Schikhof duality (Schneider–Teitelbaum, Theorem 1.2) then gives V(x) ≠ 0.",
     "The unit ball reduces to the dual of M∞ ⊗_{R∞} 𝔽′ = (M∞/𝔪∞) ⊗ 𝔽′ ≅ π^∨ ⊗ 𝔽′, i.e. to π ⊗ 𝔽′."
    ],
@@ -2988,7 +3021,7 @@
    ],
    "title": "Gelfand–Kirillov dimension of mod p cohomology of Shimura curves (BHHMS Theorem 1.1)",
    "kind": "theorem",
-   "statement": "Let a generic global datum be given (with S = S_D ∪ S_r) and let V^v = ∏_{w∉S_D∪S_r}(O_D)_w^× · ∏_{w∈(S_D∪S_r)∖{v}} V_w ⊆ ∏_{w≠v}(O_D)_w^× be a compact open subgroup with V_w ⊆ 1 + pM₂(O_{F_w}) for w ∈ S_p ∖ {v}, such that π ≠ 0, where π = colim_{V_v} Hom_{G_F}(r̄, H¹_ét(X_{V^vV_v} ×_F F̄, 𝔽)) in the indefinite case and π = colim_{V_v} S(V^vV_v, 𝔽)[𝔪] in the definite case. Then dim_{GL₂(F_v)}(π) = [F_v : ℚ_p]. Without the condition V_w ⊆ 1 + pM₂(O_{F_w}) at w ∈ S_p ∖ {v} one still has dim_{GL₂(F_v)}(π) ≤ [F_v : ℚ_p]; and the equality holds for V^v = ∏_{w∉S}(O_D)_w^× ∏_{w∈S∖{v}}V_w for any finite S ⊇ S_D ∪ S_r such that the framed deformation ring of r̄_w is formally smooth for w ∈ S ∖ S_p.",
+   "statement": "Let a generic global datum be given (with S = S_D ∪ S_r) and let V^v = ∏_{w∉S_D∪S_r}(O_D)_w^× · ∏_{w∈(S_D∪S_r)∖{v}} V_w ⊆ ∏_{w≠v}(O_D)_w^× be a compact open subgroup with V_w ⊆ 1 + pM₂(O_{F_w}) for w ∈ S_p ∖ {v}, such that π ≠ 0, where π = colim_{V_v} Hom_{G_F}(r̄, H¹_ét(X_{V^vV_v} ×_F F̄, 𝔽)) in the indefinite case and π = colim_{V_v} S(V^vV_v, 𝔽)[𝔪] in the definite case. Then dim_{GL₂(F_v)}(π) = [F_v : ℚ_p]. Without the condition V_w ⊆ 1 + pM₂(O_{F_w}) at w ∈ S_p ∖ {v} one still has dim_{GL₂(F_v)}(π) ≤ [F_v : ℚ_p]; and the equality holds for V^v = ∏_{w∉S}(O_D)_w^× ∏_{w∈S∖{v}}V_w for any finite S ⊇ S_D ∪ S_r, with the same nonvanishing and pro-p conditions at the other places above p, such that the framed deformation ring of r̄_w is formally smooth for w ∈ S ∖ S_p.",
    "hypotheses": [
     "The hypotheses on r̄: absolutely irreducible on G_{F(ζ_p)}, generic at the places above p other than v, of the stated semisimple inertial shape at v (so p > 23), formally smooth local rings at the bad places away from p.",
     "In the definite case 𝔪 is the ideal of BHHMS Remark 8.1.3(ii) for S large; the eigenspace does not depend on S (BDJ10 Lemma 4.6(a))."
@@ -2996,7 +3029,7 @@
    "proofSteps": [
     "Upper bound: the dimension of a subrepresentation is at most that of the space, so shrink V^v: take V_{w₁} unipotent upper triangular modulo w₁ and V_w ⊆ 1 + pM₂(O_{F_w}) normal at w ∈ S_p ∖ {v}; then S = S_D ∪ S_r and U = ∏U_w (U_w = V_w off S_p, U_w = GL₂(O_{F_w}) on S_p) satisfy GK.0/generic-global-datum.",
     "Dévissage (BHHMS (83)): π ≅ colim Hom_{U^v/V^v}(⊗_w(Ind_{V_w}^{GL₂(O_{F_w})}1)_Z, Hom_{G_F}(r̄, H¹)); filtering the induced representations by Serre weights and using that H¹_𝔪 is injective over U^v/V^v (GK.0/non-eisenstein-freeness), and that the dimension of an extension is the maximum and that of a subrepresentation at most that of the whole (grades in short exact sequences, GK.2/iwasawa-cohen-macaulay), dim π is the maximum over weight tuples of the dimensions of the weighted π, which are f or zero by GK.5/patched-gk-dimension and GK.0/bdj-weight-theorem; so dim π ≤ f, with equality as soon as one modular tuple occurs, which π ≠ 0 forces.",
-    "Equality for the original V^v: by GK.0/ihara-at-auxiliary-place π(V^v)^{⊕2} ≅ π(V′^v) after changing the level at w₁, so the dimension is unchanged; shrinking V_w at w ∈ S_p ∖ {v} to 1 + pM₂(O_{F_w}) can only increase the dimension, which is still bounded by f, and the previous step gives equality there.",
+    "For the lower bound at the original levels V_w ⊆ K₁,w, enlarge those levels to K₁,w. The original nonzero smooth representation of the compact pro-p group ∏ K₁,w has nonzero invariant vectors; the weight theorem then provides a modular weight tuple whose weighted π embeds at these enlarged levels and has dimension f by GK.5/patched-gk-dimension. The inclusion from enlarged-level cohomology into the original smaller-level space gives dimension at least f. Remove the auxiliary level at w₁ with GK.0/ihara-at-auxiliary-place: its doubling does not change dimension. Together with the upper bound this gives equality at the original level; shrinking to K₁,w would reverse the required inclusion.",
     "The variant with a larger S (BHHMS Remark 8.4.7) is the same argument with S in place of S_D ∪ S_r."
    ],
    "prerequisites": [
@@ -3044,6 +3077,7 @@
    ],
    "proofSteps": [
     "Specialise the completed cohomology and completed Hecke algebra of CompletedCohomologyPartII CC.8 (completed-hecke-algebra, completed-residual-localisation) to the quaternionic Shimura-curve tower of HMV R18.4/finite-cohomology with level varying at v, with the ψ^{−1}-isotypic projection of the centre.",
+    "CC.8 defines finite Hecke images on the derived cohomology complexes. After the non-Eisenstein localisation, H⁰ and H² vanish, so the indefinite complex is concentrated in degree 1 and is its H¹ shifted; in the definite case it is concentrated in degree 0. Thus those derived Hecke images agree with the images on the cohomology modules used here, compatibly through the tower. This identifies the imported construction rather than silently changing its carrier.",
     "The deformation ring is GlobalGaloisDeformations' universal deformation ring with fixed determinant (R04.1/fixed-determinant-functors, R04.3/global-framed-ring); the map R^ψ_{r̄,S∪{w₁}} → T̂ is the inverse limit of the finite-level maps given by the Galois representations on localized Hecke algebras (HMV R18.4/early-quaternionic-galois-hecke-support), sending traces of Frobenius to Hecke operators; CompletedCohomologyAndLocalGlobalCompatibility R31.3/deformation-to-hecke-surjection is the analogue for the modular tower."
    ],
    "prerequisites": [
@@ -3224,7 +3258,7 @@
    "stageId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1",
    "status": "planned",
    "remaining": [
-    "Replace the tame-types, single-type-rings and breuil-mezard-pbt gaps by nodes of LocalGaloisDeformationRingsPartII once that design is accepted."
+    "Replace the tame-types and single-type-rings gaps by nodes of LocalGaloisDeformationRingsPartII after its design is accepted; replace breuil-mezard-pbt only after an owner is assigned and its supplier nodes are reviewed."
    ]
   },
   {
@@ -3280,7 +3314,7 @@
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/adjoint-lattice-freeness",
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/glued-lattice-freeness"
    ],
-   "detail": "For generic ρ̄ : G_K → GL₂(𝔽), K/ℚ_p unramified of degree f, and a tame type τ: (1) EGS15 Theorem 7.2.1: the fixed-determinant potentially Barsotti–Tate ring R^{(1,0),τ,ψ} is a power series ring over W(𝔽) in 3 + f variables when it is nonzero (for the types of (62)), regular when JH(σ(τ)) ∩ W(ρ̄) has at most two elements, with special fibre the reduced union of the weight loci; (2) BHHMS Proposition 4.2.1: for ρ̄ as in BHHMS §4.1 and λ_j ∈ {(1,0), (2,−1)} (after twisting, (2,1), (3,0)) the rings R^{λ,τ} are domains; (3) BHHMS Corollary 4.2.6: the special fibre of R^{(2,−1)_j,τ} is reduced. With GK14 Remark 5.2.2 for fixed versus unfixed determinants. Owner: the pending design DESIGN-LocalGaloisDeformationRingsPartII (issue #3432), route LocalGaloisDeformationRingsPartIITamePotentiallyBarsottiTate, items PAPER-BREUIL-ETAL-23/def-rings, def-ring-single, special-fibre-reduced and the Kisin-module items kisin-matrices to theta-bijection on which they rest."
+   "detail": "For generic ρ̄ : G_K → GL₂(𝔽), K/ℚ_p unramified of degree f, and a tame type τ: (1) EGS15 Theorem 7.2.1: the fixed-determinant potentially Barsotti–Tate ring R^{(1,0),τ,ψ} is a power series ring over W(𝔽) in 3 + f variables when the type isolates one predicted weight (the types of (62)); it is regular when JH(σ(τ)) ∩ W(ρ̄) has at most two elements, with special fibre the reduced union of the weight loci; (2) BHHMS Proposition 4.2.1: for ρ̄ as in BHHMS §4.1 and λ_j ∈ {(1,0), (2,−1)} (after twisting, (2,1), (3,0)) the rings R^{λ,τ} are domains; (3) BHHMS Corollary 4.2.6: the special fibre of R^{(2,−1)_j,τ} is reduced. With GK14 Remark 5.2.2 for fixed versus unfixed determinants. Owner: the pending design DESIGN-LocalGaloisDeformationRingsPartII (issue #3432), route LocalGaloisDeformationRingsPartIITamePotentiallyBarsottiTate, items PAPER-BREUIL-ETAL-23/def-rings, def-ring-single, special-fibre-reduced and the Kisin-module items kisin-matrices to theta-bijection on which they rest."
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurvesPartII/gap/multi-type-ring",
@@ -3288,7 +3322,7 @@
    "neededBy": [
     "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/glued-lattice-freeness"
    ],
-   "detail": "BHHMS Proposition 4.3.1 (a presentation R_{ρ̄}^{≤(3,0),σ_v} ≅ S⟦X₁, …, X_h⟧ with S = (⊗̂_{j} S^{(j)})/J explicit, the primes p_k^λ = Σ_j p_{k_j}^{(j),λ_j} for k ∈ {1,2}^f and a bijection between tame types τ with σ_v ⊗ det ∈ JH(σ(τ)) and {1,2}^f), Lemma 4.3.2 (the primes q_1^{(j),(2,1)}, q_2^{(j),(2,1)} of S^{(j)} contained in p_k^λ when λ_j = (2,1)) and Proposition 4.3.3 (p ∈ q_1^{(j),(2,1)} ∩ q_2^{(j),(2,1)} + p_2^{(j),(3,0)}), all computed by hand in BHHMS Tables 1–5. Owner: the pending design DESIGN-LocalGaloisDeformationRingsPartII (issue #3432), route LocalGaloisDeformationRingsPartIITamePotentiallyBarsottiTate, items PAPER-BREUIL-ETAL-23/def-ring-multi, q-ideals and p-membership-multi."
+   "detail": "For a generic residual representation ρ̄ and a modular indexing weight σ as in BHHMS §4.3: Proposition 4.3.1, pp. 34–35, gives the stabilised presentation R_{ρ̄}^{≤(3,0),σ}⟦X₁, …, X_{2f}⟧ ≅ S⟦Y₁, …, Y₄⟧, with S = (⊗̂_j S^{(j)})/J explicit. The relevant types satisfy σ ⊗ (N_{k/𝔽_p} ∘ det^{−1}) ∈ JH(σ(τ)); their labels k ∈ {1,2}^f give the prime ideals p_k^λ (with the embedding reversal of Proposition 4.3.1 included in the labelling). After the relabelling 3 → 1 used in §8.3, Lemma 4.3.2, p. 39, gives q_1^{(j),(2,1)}, q_2^{(j),(2,1)}, and Proposition 4.3.3, pp. 39–40, gives p ∈ q_1^{(j),(2,1)} ∩ q_2^{(j),(2,1)} + p_2^{(j),(3,0)}. For the patched ring, increasing q and applying Hamann cancellation gives a presentation S⟦X₁, …, X_h⟧ with h ≥ 1; no unstabilised presentation of the bare local ring is asserted. Apply the residual and weight twists as in Theorem 8.3.9, pp. 101–102. Owner: the pending design DESIGN-LocalGaloisDeformationRingsPartII (issue #3432), route LocalGaloisDeformationRingsPartIITamePotentiallyBarsottiTate, items PAPER-BREUIL-ETAL-23/def-ring-multi, q-ideals and p-membership-multi."
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurvesPartII/gap/breuil-mezard-pbt",
@@ -3312,9 +3346,17 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv:2009.03127v7 (the version marked final, SHA-256 8f06c68b…), read 2026-10-19; the earlier extraction PAPER-BREUIL-ETAL-23 records only its E1 (Theorem 1.8 labelled as Corollary 8.3.9). The Springer version was not accessible from this machine."
+    "arXiv:2009.03127v7 (the version marked final, SHA-256 8f06c68b…), read 2026-10-19; the earlier extraction PAPER-BREUIL-ETAL-23 records only its E1 (Theorem 1.8 labelled as Corollary 8.3.9). The Springer version was not accessible from this machine.",
+    "Public author copy https://www.math.toronto.edu/~herzig/GK.pdf checked 2026-10-19 at the corresponding passages.",
+    "Author publication page https://www.math.toronto.edu/~herzig/ checked 2026-10-19; no correction linked for this paper.",
+    "Publisher landing page https://link.springer.com/article/10.1007/s00222-023-01202-8 checked 2026-10-19; subscription-only full text, no correction located on that page."
    ],
-   "handling": "GK.4/generation-transfer uses dim Hom_K(σ_v, π) = r."
+   "handling": "GK.4/generation-transfer uses dim Hom_K(σ_v, π) = r.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in arXiv v7 p. 100 and the public author copy p. 104: (68) and Proposition 8.2.3 give r, not f.",
+    "by": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII"
+   }
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurvesPartII/E2",
@@ -3330,7 +3372,12 @@
     "BHHMS arXiv v7 Remark 8.1.3",
     "EGS15 arXiv v3 (the latest arXiv version)"
    ],
-   "handling": "GK.0/residual-eigenspaces and GK.1/shimura-curve-patching-functor use ψ^{−1}."
+   "handling": "GK.0/residual-eigenspaces and GK.1/shimura-curve-patching-functor use ψ^{−1}.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as the already published correction in BHHMS Remark 8.1.3(i), relative to the EGS15 arXiv v3 convention.",
+    "by": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII"
+   }
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurvesPartII/E3",
@@ -3346,7 +3393,12 @@
     "BHHMS arXiv v7 Remark 8.1.3",
     "EGS15 arXiv v3"
    ],
-   "handling": "GK.0/residual-eigenspaces uses the quotient curve."
+   "handling": "GK.0/residual-eigenspaces uses the quotient curve.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as the already published correction in BHHMS Remark 8.1.3(iii); the packet uses the quotient construction.",
+    "by": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII"
+   }
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurvesPartII/E5",
@@ -3362,7 +3414,12 @@
     "Gee–Kisin arXiv:1208.3179v5 (SHA-256 65cb5797…), read 2026-10-19",
     "EGS15 arXiv v3 (the latest arXiv version)"
    ],
-   "handling": "The breuil-mezard-pbt gap names the statements by content and by the v5 sections."
+   "handling": "The breuil-mezard-pbt gap names the statements by content and by the v5 sections.",
+   "review": {
+    "verdict": "rejected",
+    "reason": "Different numbering in a later edition does not establish a misprint in a reference explicitly citing the 2012 preprint. Retain the version map for readers, but reject the allegation of a source mistake.",
+    "by": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII"
+   }
   },
   {
    "id": "HilbertModularVarietiesAndShimuraCurvesPartII/E4",
@@ -3376,9 +3433,39 @@
    "known": "new",
    "searched": [
     "Gee–Newton arXiv:1609.06965v5 (SHA-256 068818a4…), read 2026-10-19",
-    "BHHMS arXiv v7"
+    "BHHMS arXiv v7",
+    "Public author copy https://www.math.toronto.edu/~herzig/GK.pdf checked 2026-10-19 at the corresponding passages.",
+    "Author publication page https://www.math.toronto.edu/~herzig/ checked 2026-10-19; no correction linked for this paper.",
+    "Publisher landing page https://link.springer.com/article/10.1007/s00222-023-01202-8 checked 2026-10-19; subscription-only full text, no correction located on that page."
    ],
-   "handling": "Nodes cite Gee–Newton Proposition A.30 with the arXiv v5 numbering and note BHHMS's label."
+   "handling": "Nodes cite Gee–Newton Proposition A.30 with the arXiv v5 numbering and note BHHMS's label.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a cross-version label mismatch only: GN arXiv v5 p. 49 labels the result Proposition A.30. This is not a mathematical error or a verified error in the journal text.",
+    "by": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII"
+   }
+  },
+  {
+   "id": "HilbertModularVarietiesAndShimuraCurvesPartII/E6",
+   "source": "BHHMS23",
+   "kind": "misprint",
+   "locator": "arXiv:2009.03127v7, proof of Theorem 8.3.9, displayed type-to-prime bijection ι, p. 102; public author copy p. 105",
+   "printed": "The type-index set in the displayed bijection uses σ_v ⊗ (N_{k/𝔽_p} ∘ det), with a positive determinant exponent.",
+   "correction": "Use σ_v ⊗ (N_{k/𝔽_p} ∘ det^{−1}), as in the defining intersection immediately above it and the twist on p. 101.",
+   "reason": "These displays must index the same primes. The defining condition of §4.3, p. 34, is σ ∈ JH(σ(τ) ⊗ N_{k/𝔽_p} ∘ det), equivalently σ ⊗ N_{k/𝔽_p} ∘ det^{−1} ∈ JH(σ(τ)). A positive twist changes that set.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Public author copy https://www.math.toronto.edu/~herzig/GK.pdf checked 2026-10-19 at the corresponding passages.",
+    "Author publication page https://www.math.toronto.edu/~herzig/ checked 2026-10-19; no correction linked for this paper.",
+    "Publisher landing page https://link.springer.com/article/10.1007/s00222-023-01202-8 checked 2026-10-19; subscription-only full text, no correction located on that page."
+   ],
+   "handling": "GK.4/glued-lattice-freeness and the multi-type-ring gap retain the negative norm twist consistently.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read all three displays and the §4.3 definition in arXiv v7, and the corresponding displays in the public author copy. The defining intersection fixes the intended sign.",
+    "by": "REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII"
+   }
   }
  ],
  "restructure": [
@@ -3715,12 +3802,309 @@
   },
   {
    "roadmapId": "PadicMeasuresIwasawaAlgebras",
-   "note": "Current Tau Ceti (a91d3aaf) has `completedGroupAlgebra` under TauCeti/Topology/Algebra/Group/Profinite/CompletedGroupAlgebra; it is not at the pinned commit f790474, so the suggested Lean file does not use it."
+   "note": "Read the current Tau Ceti source TauCeti/Algebra/CompletedGroupAlgebra/Basic.lean: TauCeti.completedGroupAlgebra R Γ is the inverse limit over open normal subgroups. It is not at f790474, so it is an imported current-library carrier, never a new target or a carrier assumed in the suggested file."
+  },
+  {
+   "roadmapId": "UPSTREAM:TauCetiRoadmap",
+   "note": "Independent review on 2026-10-19 read current TauCetiRoadmap main at 0d144d044dacebca17b654695b6f1ad58f159b27, read-only. Checked the nine post-snapshot roadmaps and the neighbouring RepresentationTheory and ModularInduction documents; their carriers and representation APIs are suppliers, not replanned here. No existing global BHHMS §8 roadmap was found."
+  },
+  {
+   "roadmapId": "UPSTREAM:TauCeti",
+   "note": "Independent review on 2026-10-19 read current Tau Ceti main at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, read-only, including the completed-group-algebra carrier and neighbouring representation declarations. These existing carriers are suppliers, not targets for development here; the suggested file continues to use only the pinned baseline."
   }
  ],
  "paperRoutes": [
   "PAPER-BREUIL-ETAL-23 → HilbertModularVarietiesAndShimuraCurvesPartIIModpCohomologyGK (planned here)",
   "PAPER-ICHINO-PRASANNA-23 → HilbertModularVarietiesAndShimuraCurvesPartIIQuaternionic (split)",
   "PAPER-BOXER-CALEGARI-GEE-PILLONI-21 → HilbertSiegelModularVarieties (split)"
- ]
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/2009.03127v7",
+   "read": "2026-10-19",
+   "sha256": "8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1305.1594v3",
+   "read": "2026-10-19",
+   "sha256": "5bc8520f1317af40af528efc8e7c1ab810351c5397872b7e4ee9256b2e97a1e1"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1609.06965v5",
+   "read": "2026-10-19",
+   "sha256": "068818a4b0e12f97184d72cd7704663f5269f9297f017ff99172325ed5f67601"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1208.3179v5",
+   "read": "2026-10-19",
+   "sha256": "65cb5797bbe10e328843b5fdc73f2623c80e19fa89ceb72ce6cd296881eb68f9"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1909.12219v2",
+   "read": "2026-10-19",
+   "sha256": "8c4f82ec57c4b961bca5d9adc8a3862e5614e97fb28cfd09c2cc5e3516cfaab3"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1708.04582v2",
+   "read": "2026-10-19",
+   "sha256": "8ccde4d9e336a9d637abd5a0da6a80f21de7884b9a389c93f38e3143e570a814"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1608.07987v3",
+   "read": "2026-10-19",
+   "sha256": "28d6965b625c1706b6d81503bed27d22b9cacf675a49609547ba2819a67e771e"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/0810.2106v5",
+   "read": "2026-10-19",
+   "sha256": "29515a96071cc632970d41394a6a867f938ba8b09ae39a22862073fbf3ceb237"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1310.0831v5",
+   "read": "2026-10-19",
+   "sha256": "32acd023be82598de73c1757aba877fbeb89e5b82c23a64bcb378cc0f83b1077"
+  },
+  {
+   "kind": "published",
+   "url": "https://msp.org/pjm/1975/61-1/pjm-v61-n1-p17-p.pdf",
+   "read": "2026-10-19",
+   "sha256": "29b601cf166b3c8c9771a1e57e659b77f8b731f61fca6d484db8900cedd52931"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/compamodp.pdf",
+   "read": "2026-10-19",
+   "sha256": "583a4a4d069b4b069c663db9571047b7f4d02ea27e836c8df02f081809504d2a"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.toronto.edu/~herzig/GK.pdf",
+   "read": "2026-10-19",
+   "sha256": "b72458bd849101318871fe68f37f6ff2c0c9beac5e7f0e38bcfc6db34aff51dc",
+   "note": "Checked the corresponding passages for E1 and E6 (author-copy pp. 104–105); both discrepancies persist. This does not establish the text of the publisher PDF."
+  },
+  {
+   "kind": "published",
+   "url": "https://link.springer.com/article/10.1007/s00222-023-01202-8",
+   "read": "2026-10-19",
+   "note": "Publisher landing page and bibliography accessible; full article is subscription-only. Mathematical findings are scoped to arXiv v7 and the public author copy, not claimed verified against the version of record."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII",
+  "date": "2026-10-19",
+  "notes": "Independently checked all 40 targets, source locators, all 18 pinned baseline declarations, supplier contracts, APIs, tests, planets, closure and scope. Corrected statement and proof errors in place; the four explicit local-ring/Breuil–Mézard gaps and three precise supplier requests remain open. Complete means a complete planning pass, not formalisation or gap-free implementation. See the independent report for the per-node evidence and validation.",
+  "checked": [
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/generic-global-datum",
+    "verdict": "verified",
+    "note": "Checked both inertial boxes, the dual representation, the prescribed modular level V, the auxiliary place and the two quaternionic cases. The prime-29 consequence is derived arithmetic, not an attributed theorem. Checked against BHHMS23 §8.1, pp. 86–88; EGS15 Definition 2.1.1, p. 10 and §6.2, pp. 34–35."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/bdj-weight-set",
+    "verdict": "corrected",
+    "note": "Matched the subset recipes, antisymmetry and exceptional extension-class conditions. The comparison is W(ρ) = D_EGS(ρ^∨); the p = 5 boundary has three weights. Checked against BDJ10 §§3.1–3.2, pp. 18–26; EGS15 §2.1, pp. 10–11."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/residual-eigenspaces",
+    "verdict": "corrected",
+    "note": "Checked the centre quotient and ψ⁻¹, the contravariance of S and covariance of its dual M, and the augmentation counterexample before non-Eisenstein localisation. Checked against EGS15 §6.2, pp. 34–35; BHHMS23 Remark 8.1.3 and (64), pp. 88–89."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/non-eisenstein-freeness",
+    "verdict": "corrected",
+    "note": "The perfect localized complex gives a projective and injective module for any finite deck group. Freeness needs a p-group; a prime-to-p direct summand need not be free. Checked against BHHMS23 (64), p. 89 and Corollary 8.4.6(i), p. 107; EGS15 §6.2, p. 35."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/infinite-level-representation",
+    "verdict": "corrected",
+    "note": "Checked the infinite-level multiplicity carrier, fixed away-from-v weights, admissibility and ψ⁻¹ central character. Twisting r̄ by χ twists π by χ⁻¹ composed with determinant. Checked against BHHMS23 (65)–(68), pp. 89–90; DL21 §6.2, pp. 54–55."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/bdj-weight-theorem",
+    "verdict": "verified",
+    "note": "Checked the global irreducibility and small-prime conditions and the unramified weight identification. Nonvanishing for precisely the modular weights still depends on the explicit Breuil–Mézard gap. Checked against GK14 Theorem B, p. 3, Corollary 5.4.5, p. 33 and Corollaries 5.5.4, 5.5.7, pp. 34–36."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.0/ihara-at-auxiliary-place",
+    "verdict": "verified",
+    "note": "The auxiliary-place eigenvalue exclusions make the degeneracy Gram determinant a unit. Localized non-Eisenstein control supplies the doubling, so GK dimension is unchanged. Checked against BHHMS23 Corollary 8.4.6(ii), p. 107; EGS15 §6.2, p. 35."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/power-series-cancellation",
+    "verdict": "corrected",
+    "note": "Read Hamann directly and corrected the variable count: A[[x]] ≅ B[[x]] with B ≅ W[[n]] gives A ≅ W[[n]], whereas A[[x]] ≅ W[[n]] gives n−1 variables. Checked against HAM75 Theorem 4, printed p. 155; BHHMS23 Lemma 8.1.2, p. 88."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/patched-deformation-ring",
+    "verdict": "corrected",
+    "note": "Checked the dimensions of R∞ and S∞. The one-variable fixed/unfixed determinant comparison concerns fixed-Hodge/inertial-type loci; unrestricted local determinant characters have f+1 parameters. Checked against BHHMS23 (63), pp. 88–89; GK14 Remark 5.2.2, p. 26."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/type-quotients",
+    "verdict": "corrected",
+    "note": "Checked the type and Hodge quotient conventions and domain assumptions. A non-Barsotti–Tate quotient example requires a nonzero characteristic-zero point with different Hodge–Tate weights. Checked against BHHMS23 (69), pp. 90–91; EGS15 Theorems 7.1.1–7.2.1, pp. 42–43."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/fixed-determinant-patching-functor",
+    "verdict": "verified",
+    "note": "Checked exactness, maximal Cohen–Macaulay conditions on the weight and type supports, covariant variance, reduction compatibility and the separate rank-one minimality condition. Checked against EGS15 Definitions 6.1.1, 6.1.3 and Lemma 6.1.4, pp. 32–34."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/shimura-curve-patching-functor",
+    "verdict": "corrected",
+    "note": "The augmentation gives the module comparison and a ring surjection to the locally constrained global ring. An isomorphism or the unrestricted global ring is not supplied at this stage. Checked against EGS15 §§6.2–6.4, pp. 34–37; GK14 §5.4.1, pp. 30–31; BHHMS23 (62)–(64), pp. 88–89."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/patched-fibre-identity",
+    "verdict": "corrected",
+    "note": "Checked the Pontryagin dual of Hom at the patched fibre and exactness. For an integral lattice, the relevant Jordan–Hölder constituents are those of σ/pσ, with Nakayama used afterwards. Checked against BHHMS23 (64)–(68), pp. 89–90."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.1/big-patched-module",
+    "verdict": "verified",
+    "note": "Checked the compact-module GL₂ action and S∞[[K₁/Z₁]] freeness. No finiteness over R∞ is asserted; the completed-cohomology fibre needs p inert. Checked against DL21 Theorem 6.2 and §6.2, pp. 53–55; BHHMS23 Theorem 8.4.1(ii), p. 104 and (84), p. 108."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2/iwasawa-cohen-macaulay",
+    "verdict": "verified",
+    "note": "Checked Ext grade, the convention for the zero module, depth and canonical dimension. Auslander regularity and the local GK carrier remain imports, rather than duplicate targets. Checked against GN22 Definitions A.2, A.5, Proposition A.4 and Lemmas A.7–A.9, pp. 42–44."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2/freeness-from-extension",
+    "verdict": "verified",
+    "note": "Checked r ≥ 1, the annihilator-quotient isomorphism and generation by r elements. The kernel argument needs surjective endomorphisms of finite modules to be injective; no Noetherian hypothesis is smuggled in. Checked against BHHMS23 Lemma 8.2.1, pp. 90–91; Stacks Tag 05G8."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2/fibre-product-freeness",
+    "verdict": "verified",
+    "note": "Checked both surjections, nonzero finite free modules of a common rank over their supports, the intersection annihilator and the equivalent sum-ideal criterion. Bases can be aligned over the local quotient. Checked against BHHMS23 Lemma 8.3.8, p. 101."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2/iwasawa-grade-and-power-series",
+    "verdict": "verified",
+    "note": "Checked each grade identity and inequality with its finiteness hypotheses over the smaller and larger algebras; the central power-series and regular-sequence cases have different shifts. Checked against GN22 Proposition A.13 and Lemmas A.15–A.19, pp. 45–47."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2/iwasawa-cohen-macaulay-transfer",
+    "verdict": "verified",
+    "note": "Checked central regular-sequence grade transfer, finite projective dimension and purity. The conclusion transfers Cohen–Macaulayness without assuming the flatness that the next target will prove. Checked against GN22 Lemmas A.21–A.28 and Corollary A.29, pp. 47–49."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.2/iwasawa-miracle-flatness",
+    "verdict": "corrected",
+    "note": "Checked Noetherian local base, central ideal, depth and grade bounds. The lifting argument requires adic separation of every I tensor M; finiteness over the larger Noetherian algebra supplies it. Checked against GN22 Proposition A.30, pp. 49–50; Stacks Tags 00MK and 090V."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.3/patched-maximal-cohen-macaulay",
+    "verdict": "verified",
+    "note": "Checked that finite S∞-freeness and the support dimension force depth to equal dimension for finite-length coefficients; deeper rings and modules remain README targets. Checked against BHHMS23 Lemma 8.2.2, p. 91."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.3/weight-and-type-freeness",
+    "verdict": "verified",
+    "note": "Checked the weight-isolating types, the lattice comparisons and propagation of a single positive rank r across all modular weights and tame types. Local ring inputs are explicitly gaps. Checked against BHHMS23 Proposition 8.2.3, pp. 91–92; EGS15 Proposition 10.1.11 and proof, pp. 63–65."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.3/locally-algebraic-lattices",
+    "verdict": "verified",
+    "note": "Checked the reduced support, maximal Cohen–Macaulay assertion and regular characteristic-zero loci. The imported potential-diagonalisability argument supplies local freeness without forcing r = 1. Checked against BHHMS23 Corollary 8.2.4 and Remark 8.2.5, pp. 92–93; CEGGPS16 Lemmas 4.17–4.18, pp. 62–66."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.3/projective-lift-freeness",
+    "verdict": "corrected",
+    "note": "Separated the upper embedding into D₀^r from its reverse. Breuil’s localized extension argument gives the reverse embedding using essential socle and absence of modular constituents in the quotient; neither the GK bound nor GK.4 is used. Checked against BHHMS23 Proposition 8.2.6, pp. 93–94; LMS22 Lemma 4.5 and Proposition 4.6, pp. 14–15; BRE14 Lemma 9.2, pp. 54–55."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/glued-lattices",
+    "verdict": "verified",
+    "note": "Checked the integral pullbacks defining L_j and N_j, the maps to P, the comparison lattices and the unique τ₀ with all modular constituents. The endpoint lattice R is imported from MP.8. Checked against BHHMS23 §8.3, pp. 95, 98–99 and 101."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/loewy-length-three",
+    "verdict": "verified",
+    "note": "Checked all four distinct conditions on the quotient and its socle, the K₁-invariance statement and the extra hypotheses for Loewy length at most three. None is silently implied by a shared socle. Checked against BHHMS23 Lemma 8.3.1, pp. 94–95."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/adjoint-lattice-generation",
+    "verdict": "verified",
+    "note": "Checked the mod-radical relations in the projective presentation and the minimal-generator count. The patched multiplicity is the common r, not an assumed multiplicity one. Checked against BHHMS23 Lemma 8.3.2, pp. 95–96; LE19 Lemma 4.5, p. 16."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/adjoint-type-lattices",
+    "verdict": "verified",
+    "note": "Checked the characteristic-zero type decomposition, the nonmodular constituents killed by exact patching and the special-fibre comparison M∞(T′/p) ≅ M∞(Y). Checked against BHHMS23 Proposition 8.3.3, pp. 96–98 and Lemma 8.3.5, p. 99."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/adjoint-lattice-freeness",
+    "verdict": "verified",
+    "note": "Checked the support prime intersection, the adjoint-type lattice decomposition and the use of the extension freeness criterion. Its generation prerequisite is the preceding target, not the later glued-lattice theorem. Checked against BHHMS23 Theorem 8.3.4, p. 98."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/comparison-lattice-truncation",
+    "verdict": "verified",
+    "note": "Checked the comparison of L_j and N_j modulo the third radical and its relative-projectivity input from MP.9. It identifies this truncation, not the whole lattices. Checked against BHHMS23 Lemma 8.3.6, pp. 99–100."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/generation-transfer",
+    "verdict": "verified",
+    "note": "Checked the contradiction via a Loewy-length-three quotient, relative projectivity and the repaired D₀ identification. The needed Hom dimension is r; the source’s occurrence of f is recorded as E1. Checked against BHHMS23 Proposition 8.3.7, pp. 100–101."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/glued-lattice-freeness",
+    "verdict": "corrected",
+    "note": "Checked the full norm-determinant twist, prime relabelling and fibre-product induction. Only a stabilized bare-local-ring presentation is imported; increasing q and cancellation give the patched power-series presentation. Checked against BHHMS23 Theorem 8.3.9, pp. 101–103 and Proposition 4.3.1, pp. 34–38."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.4/second-truncation-multiplicity",
+    "verdict": "verified",
+    "note": "Checked the endpoint L_{f−1}, its imported projective-envelope reduction and the fibre multiplicity isomorphism. The isomorphism is after quotienting by 𝔪∞ and does not assert equality before the fibre. Checked against BHHMS23 Corollary 8.3.10, Theorem 8.3.11 and Remark 8.3.12, p. 103."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.5/patched-gk-dimension",
+    "verdict": "verified",
+    "note": "Checked all three hypotheses of the imported local GK bound, including second-truncation multiplicity, and the independent lower bound from the S∞-free big module and grade inequalities. Checked against BHHMS23 Theorem 8.4.1, pp. 104–105."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.5/second-congruence-invariants",
+    "verdict": "verified",
+    "note": "Checked the enlarged socle construction and the multiplicities furnished by the second-truncation theorem. The structural identification uses MP.6 and does not assume faithful flatness. Checked against BHHMS23 Theorem 8.4.2, p. 105."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.5/patched-faithful-flatness",
+    "verdict": "verified",
+    "note": "Checked the Cohen–Macaulay transfer and grade 2f, the miracle-flatness hypotheses and nonzero residual fibre for faithfulness. Finiteness is over the larger Iwasawa algebra. Checked against BHHMS23 Theorem 8.4.3, pp. 105–106; GN22 Corollary A.29 and Proposition A.30, pp. 49–50."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.5/banach-lifts",
+    "verdict": "corrected",
+    "note": "Checked the integral specialization, nonzero residual fibre and the bounded dual Banach construction. Topological Nakayama uses the open residual kernel of x̄, not the kernel of the characteristic-zero point. Checked against BHHMS23 Corollary 8.4.4, p. 106; CEGGPS16 Proposition 2.13 and Remark 2.14, p. 34."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.5/shimura-curve-gk-dimension",
+    "verdict": "corrected",
+    "note": "Checked finite-level dévissage and auxiliary-place doubling. For the lower bound, enlarge the other pro-p levels to K₁ and take nonzero invariants; the larger-S variant retains nonvanishing and level hypotheses. Checked against BHHMS23 Corollary 8.4.6, pp. 106–107 and Remark 8.4.7, p. 108."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.5/completed-cohomology-and-big-hecke",
+    "verdict": "corrected",
+    "note": "Checked the inverse-limit central-character cohomology and Hecke carrier. Non-Eisenstein H⁰ and H² vanishing identifies the imported derived Hecke image with the H¹-image definition used here. Checked against BHHMS23 §8.5, pp. 108–109; CompletedCohomologyPartII CC.8."
+   },
+   {
+    "nodeId": "HilbertModularVarietiesAndShimuraCurvesPartII:GK.5/big-r-equals-big-t",
+    "verdict": "verified",
+    "note": "Checked p inert, the completed-cohomology fibre and the chain of surjections. Faithful flatness kills its kernels and descends the regular patching sequence, giving the complete intersection conclusion. Checked against BHHMS23 Corollary 8.5.1, p. 109; GN22 Proposition 4.3.1, pp. 31–32."
+   }
+  ]
+ }
 }
