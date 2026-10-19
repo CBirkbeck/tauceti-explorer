@@ -97,7 +97,7 @@
         {
           "sourceId": "FGV",
           "locator": "§2.1, Lemma 2.3, pp. 235–237",
-          "match": "The cited result supplies universal cyclic bott class, with the conventions and corrections stated here."
+          "match": "Lemma 2.3 identifies the Bockstein-normalized cyclic class and its character image; the polynomial assertion uses the odd Moore multiplication exception stated immediately before it."
         }
       ],
       "proofSteps": [
@@ -136,7 +136,7 @@
         {
           "sourceId": "FGV",
           "locator": "§2.4, Definition 2.6 and (2.3)–(2.4), pp. 239–240; Appendix A.1, pp. 301–304",
-          "match": "The cited result supplies picard-to-k map, with the conventions and corrections stated here."
+          "match": "Definition 2.6 gives the invertible-module groupoid and its tensor-induced K-map. The fractional-ideal presentation is corrected by E19; Appendix A supplies the additive machine, with multiplicative coherence requested separately."
         }
       ],
       "proofSteps": [
@@ -172,18 +172,18 @@
       ],
       "tests": [
         {
-          "name": "picard-k-map_1",
-          "kind": "discriminating test",
+          "name": "picard_k_map_1",
+          "kind": "computation",
           "statement": "For a field F, π₀ is trivial and π₁=F×, so the groupoid is not replaced by its component set."
         },
         {
-          "name": "picard-k-map_2",
-          "kind": "discriminating test",
+          "name": "picard_k_map_2",
+          "kind": "computation",
           "statement": "Over Z, the class of the tensor unit maps to 1∈K₀(Z); sending every object to additive zero fails."
         },
         {
-          "name": "picard-k-map_3",
-          "kind": "discriminating test",
+          "name": "picard_k_map_3",
+          "kind": "non-example",
           "statement": "For R=Z, the fractional ideals 2Z and 3Z are isomorphic by multiplication by 3/2; restricting morphisms to Z× incorrectly removes that arrow."
         }
       ],
@@ -225,8 +225,8 @@
       "sources": [
         {
           "sourceId": "FGV",
-          "locator": "Corollary 2.12, pp. 244–245; Proposition 2.9, pp. 242–243",
-          "match": "The cited result supplies cyclotomic picard classes, with the conventions and corrections stated here."
+          "locator": "Corollary 2.12, pp. 245–246; Proposition 2.9, pp. 242–243",
+          "match": "Corollary 2.12 identifies reduced ideal classes times an odd Bott power with the positive even group; Proposition 2.9 supplies the connective comparison ranges, retaining degree one as an exception."
         }
       ],
       "proofSteps": [
@@ -268,7 +268,7 @@
         {
           "sourceId": "FGV",
           "locator": "Proposition 2.15 and proof, pp. 247–248; Lemmas 2.11 and 2.14, pp. 243–247",
-          "match": "The cited result supplies cyclotomic transfer descent, with the conventions and corrections stated here."
+          "match": "Proposition 2.15 proves the coinvariant transfer isomorphism from the two étale tables. Its duality discussion uses the trace-dual inverse different, whose principal class removes the twist in this case."
         }
       ],
       "proofSteps": [
@@ -309,7 +309,7 @@
         {
           "sourceId": "FGV",
           "locator": "Proposition 2.17, pp. 248–250; §7.2, pp. 284–285",
-          "match": "The cited result supplies artin–bott transfer square, with the conventions and corrections stated here."
+          "match": "Proposition 2.17 compares the Artin class-group map and K-transfer. Section 7.2 uses the odd conjugation action to identify the absolute kernel with the relative group for ⟨c⟩."
         }
       ],
       "proofSteps": [
@@ -346,7 +346,7 @@
         {
           "sourceId": "FGV",
           "locator": "§§3.1–3.3, pp. 250–254",
-          "match": "The cited result supplies betti and hodge maps, with the conventions and corrections stated here."
+          "match": "Definitions 3.1 and 3.3 use forgetting the form and the topological symplectic-to-unitary equivalence. The linear-first imaginary-part convention requires the recorded sign adapter to the native compatible structure."
         }
       ],
       "proofSteps": [
@@ -383,18 +383,18 @@
       ],
       "tests": [
         {
-          "name": "betti-hodge_1",
-          "kind": "discriminating test",
+          "name": "betti_hodge_1",
+          "kind": "computation",
           "statement": "A symplectic plane has Betti rank 2 and Hodge rank 1."
         },
         {
-          "name": "betti-hodge_2",
-          "kind": "discriminating test",
+          "name": "betti_hodge_2",
+          "kind": "compatibility",
           "statement": "In degree 4k−2 complex conjugation is −1 on ku; in degree 4k it is +1."
         },
         {
-          "name": "betti-hodge_3",
-          "kind": "discriminating test",
+          "name": "betti_hodge_3",
+          "kind": "non-example",
           "statement": "For a rank-one module, c_B H([Z])=2[Z] even after inverting 2; an unscaled retraction c_B H=id is rejected."
         }
       ],
@@ -432,7 +432,7 @@
         {
           "sourceId": "FGV",
           "locator": "§2.6, Remark 2.8, pp. 240–243; §3.6, pp. 257–258",
-          "match": "The cited result supplies bott-inverted symplectic k-theory, with the conventions and corrections stated here."
+          "match": "Remark 2.8 and §3.6 use v₁ self-maps and compatible periodic spectra, with p-adic groups defined by completion. The iterated mod-3 construction is retained without an associative Moore product."
         }
       ],
       "proofSteps": [
@@ -468,18 +468,18 @@
       ],
       "tests": [
         {
-          "name": "bott-ksp_1",
-          "kind": "discriminating test",
+          "name": "bott_ksp_1",
+          "kind": "computation",
           "statement": "For q=5, m=8; this definition does not give a degree-two Bott class over Z without adjoining ζ₅."
         },
         {
-          "name": "bott-ksp_2",
-          "kind": "discriminating test",
+          "name": "bott_ksp_2",
+          "kind": "non-example",
           "statement": "At q=3 an iterated v₁ self-map is allowed, whereas associativity of S/3 is not."
         },
         {
-          "name": "bott-ksp_3",
-          "kind": "discriminating test",
+          "name": "bott_ksp_3",
+          "kind": "compatibility",
           "statement": "The coefficient reduction from p^{n+1} to p^n intertwines telescope maps after compatible iteration; independently chosen periodicity isomorphisms do not suffice."
         }
       ],
@@ -516,7 +516,7 @@
         {
           "sourceId": "FGV",
           "locator": "§§4.2–4.3, pp. 260–265",
-          "match": "The cited result supplies hermitian coefficient-line groupoids, with the conventions and corrections stated here."
+          "match": "Definitions 4.2–4.4 give perfect coefficient-line pairings, isometries, conjugate tensor factors and the P⁺ action on P⁻. Norm-one units are the automorphisms; μ_q is only the subgroup used for Bott classes."
         }
       ],
       "proofSteps": [
@@ -552,18 +552,18 @@
       ],
       "tests": [
         {
-          "name": "hermitian-lines_1",
-          "kind": "discriminating test",
+          "name": "hermitian_lines_1",
+          "kind": "computation",
           "statement": "For E=Q(i), O=Z[i], the standard positive line has automorphisms {±1,±i}, not every nonzero element of E."
         },
         {
-          "name": "hermitian-lines_2",
-          "kind": "discriminating test",
+          "name": "hermitian_lines_2",
+          "kind": "non-example",
           "statement": "For odd q, the norm-one units of O_q include μ_{2q}; identifying the automorphism group with μ_q loses −1."
         },
         {
-          "name": "hermitian-lines_3",
-          "kind": "discriminating test",
+          "name": "hermitian_lines_3",
+          "kind": "compatibility",
           "statement": "Tensor of two skew coefficient-line objects changes the coefficient involution to a positive one; declaring P⁻ closed under the same tensor law fails."
         }
       ],
@@ -602,7 +602,7 @@
         {
           "sourceId": "FGV",
           "locator": "§§4.1–4.3, pp. 259–265; Appendix A.5 discussion, pp. 316–317",
-          "match": "The cited result supplies trace polarization and cm realization, with the conventions and corrections stated here."
+          "match": "Section 4.3 constructs the trace polarization and positive Hermitian form for a unique CM type, then applies complex uniformization. The native almost-complex convention reverses J_H; positive-line Serre tensor and the negative unit line have distinct effects."
         }
       ],
       "proofSteps": [
@@ -637,7 +637,7 @@
         {
           "sourceId": "FGV",
           "locator": "Lemma 4.8, pp. 266–267",
-          "match": "The cited result supplies split primes with prescribed signs, with the conventions and corrections stated here."
+          "match": "Lemma 4.8 applies Chebotarev to the narrow class field of the real subfield and its disjoint CM extension. E2 corrects the real-embedding and rational-prime notation in the printed proof."
         }
       ],
       "proofSteps": [
@@ -675,7 +675,7 @@
         {
           "sourceId": "FGV",
           "locator": "Proposition 4.7 and proof, pp. 265–267",
-          "match": "The cited result supplies cm types and ideal differences, with the conventions and corrections stated here."
+          "match": "Proposition 4.7 realizes every type and the anti-conjugate ideal ratio. Its split-prime sign correction permits the two representatives to have the same type without fixing each individual ideal class."
         }
       ],
       "proofSteps": [
@@ -715,7 +715,7 @@
         {
           "sourceId": "FGV",
           "locator": "§5, pp. 267–272, especially (5.1) and (5.3)",
-          "match": "The cited result supplies cm bott classes, with the conventions and corrections stated here."
+          "match": "The maps (5.1)–(5.3) use the specified root-of-unity automorphisms of CM lines to send the universal stable Bott class to KSp. Their degree and coefficient conventions give the exponent 2k−1."
         }
       ],
       "proofSteps": [
@@ -751,19 +751,19 @@
       ],
       "tests": [
         {
-          "name": "cm-class_1",
-          "kind": "discriminating test",
+          "name": "cm_class_1",
+          "kind": "computation",
           "statement": "At k=1 the output lies in degree two; replacing β^{2k−1} by β^k fails for k=2."
         },
         {
-          "name": "cm-class_2",
-          "kind": "discriminating test",
+          "name": "cm_class_2",
+          "kind": "computation",
           "statement": "At q=5, the types {1,2} and {−1,2} give Hodge scalars 3 and 1 in F₅ for k=1."
         },
         {
-          "name": "cm-class_3",
-          "kind": "discriminating test",
-          "statement": "Changing the ideal data while preserving type can change the Betti image and must leave the Hodge scalar unchanged."
+          "name": "cm_class_3",
+          "kind": "compatibility",
+          "statement": "For two CM lines of the same type Φ their Hodge images agree. Their Betti difference is tr(β^{2k−1}([L₁]−[L₂])); a nonzero transfer therefore gives distinct classes with equal Hodge images."
         }
       ],
       "uses": [
@@ -802,7 +802,7 @@
         {
           "sourceId": "FGV",
           "locator": "Proposition 5.2, pp. 268–270; Proposition 3.8, pp. 256–257",
-          "match": "The cited result supplies hodge type character formula, with the conventions and corrections stated here."
+          "match": "Proposition 5.2 computes the unitary character sum. Switching one conjugate pair changes an odd power sum by a unit, giving the independent surjectivity input for Proposition 3.8."
         }
       ],
       "proofSteps": [
@@ -841,7 +841,7 @@
         {
           "sourceId": "FGV",
           "locator": "§5.2, diagram (5.7) and Corollary 5.4, pp. 271–272",
-          "match": "The cited result supplies betti transfer formula, with the conventions and corrections stated here."
+          "match": "Diagram (5.7) and Corollary 5.4 identify forgetting the form with K-transfer. Conjugation removes the transferred odd Bott unit term, leaving the reduced ideal class."
         }
       ],
       "proofSteps": [
@@ -883,7 +883,7 @@
         {
           "sourceId": "FGV",
           "locator": "Theorem 3.5 and Corollary 3.6, pp. 253–256",
-          "match": "The cited result supplies betti–hodge splitting theorem, with the conventions and corrections stated here."
+          "match": "Theorem 3.5 and Corollary 3.6 give the odd-primary two-factor comparison and positive p-adic degree table. The proof uses c_BH=1+ψ⁻¹, so E18 corrects the earlier retraction normalization."
         }
       ],
       "proofSteps": [
@@ -924,8 +924,8 @@
       "sources": [
         {
           "sourceId": "FGV",
-          "locator": "Proposition 5.1 and proof, pp. 267–268, 272",
-          "match": "The cited result supplies cm classes generate symplectic k-theory, with the conventions and corrections stated here."
+          "locator": "Proposition 5.1, pp. 267–268, and §5.3, pp. 272–273",
+          "match": "Proposition 5.1 is proved in §5.3 by four CM classes with one common type: their Hodge terms cancel and their Betti term is twice the transferred reduced ideal class. The prior independent Hodge calculation avoids a dependency cycle."
         }
       ],
       "proofSteps": [
@@ -965,7 +965,7 @@
         {
           "sourceId": "FGV",
           "locator": "Corollary 3.10 and Remark 3.11, pp. 257–258",
-          "match": "The cited result supplies periodic and k(1)-local comparison, with the conventions and corrections stated here."
+          "match": "Corollary 3.10 gives the all-degree periodic splitting and connective KSp range. Remark 3.11 identifies the completed height-one localization, with the generic telescope comparison requested from H.6."
         }
       ],
       "proofSteps": [
@@ -1003,7 +1003,7 @@
         {
           "sourceId": "FGV",
           "locator": "Appendix A.4, pp. 313–315",
-          "match": "The cited result supplies polarized abelian γ-groupoid, with the conventions and corrections stated here."
+          "match": "Appendix A.4 uses Rosati-selfadjoint idempotents and selected-factor isomorphisms to model ppav products over finite pointed sets. E15 and E17 fix strict terminality and which datum defines Rosati."
         }
       ],
       "proofSteps": [
@@ -1039,18 +1039,18 @@
       ],
       "tests": [
         {
-          "name": "ppav-gamma_1",
-          "kind": "discriminating test",
+          "name": "ppav_gamma_1",
+          "kind": "computation",
           "statement": "For T={*,a,b}, two non-basepoint factors of dimensions 1 and 2 have grade (1,2)."
         },
         {
-          "name": "ppav-gamma_2",
-          "kind": "discriminating test",
+          "name": "ppav_gamma_2",
+          "kind": "computation",
           "statement": "Folding a and b to one non-basepoint gives their product, dimension 3; sending b to * removes that selected factor."
         },
         {
-          "name": "ppav-gamma_3",
-          "kind": "discriminating test",
+          "name": "ppav_gamma_3",
+          "kind": "degenerate",
           "statement": "For T={*}, all ambient ppav objects have selected factor zero and unique selected-factor morphisms; the nerve is contractible rather than literally one point."
         }
       ],
@@ -1088,7 +1088,7 @@
         {
           "sourceId": "FGV",
           "locator": "Appendix A.4, pp. 314–315",
-          "match": "The cited result supplies rigidified ppav simplicial model, with the conventions and corrections stated here."
+          "match": "Appendix A.4 constructs embedding atlases and their Čech nerve. The target specifies Hilbert-polynomial pieces and r+1 factors rather than asserting finite type for the whole unbounded union."
         }
       ],
       "proofSteps": [
@@ -1124,18 +1124,18 @@
       ],
       "tests": [
         {
-          "name": "rigidified-model_1",
-          "kind": "discriminating test",
+          "name": "rigidified_model_1",
+          "kind": "degenerate",
           "statement": "The zero-dimensional ppav is represented and gives the monoidal unit."
         },
         {
-          "name": "rigidified-model_2",
-          "kind": "discriminating test",
+          "name": "rigidified_model_2",
+          "kind": "computation",
           "statement": "At simplicial degree one the data contain two embeddings and one isomorphism, not one embedding."
         },
         {
-          "name": "rigidified-model_3",
-          "kind": "discriminating test",
+          "name": "rigidified_model_3",
+          "kind": "non-example",
           "statement": "For T=S⁰, arbitrarily large genera occur in different grades; replacing U(T) by a single fixed finite-type parameter scheme omits objects."
         }
       ],
@@ -1177,7 +1177,7 @@
         {
           "sourceId": "FGV",
           "locator": "Appendix A.3–A.4, Proposition A.13, pp. 311–315",
-          "match": "The cited result supplies betti model of symplectic k-theory, with the conventions and corrections stated here."
+          "match": "The uniformization in A.3 and Proposition A.13 identify the analytic ppav nerve with the symplectic Γ model. Siegel contractibility gives each BSp component; the zeroth Segal step is group completion."
         }
       ],
       "proofSteps": [
@@ -1217,7 +1217,7 @@
         {
           "sourceId": "FGV",
           "locator": "§6.1, (6.1) and Proposition 6.2, pp. 274–276; Appendix A.5, pp. 315–317",
-          "match": "The cited result supplies galois action on the symplectic spectrum, with the conventions and corrections stated here."
+          "match": "Proposition 6.2 and A.5 compare algebraic conjugation with componentwise arithmetic realization. The p=3 Moore construction and coherent Γ/coefficient compatibility remain the explicitly propagated G1/R22 obligation."
         }
       ],
       "proofSteps": [
@@ -1253,18 +1253,18 @@
       ],
       "tests": [
         {
-          "name": "spectrum-action_1",
-          "kind": "discriminating test",
+          "name": "spectrum_action_1",
+          "kind": "compatibility",
           "statement": "Check the inverse in the structure-map formula by composing σ then τ. The discrete groupoid A_g(C) has many isomorphism-class components, while its analytic realization is connected for fixed g; those models must not be identified."
         },
         {
-          "name": "spectrum-action_2",
-          "kind": "discriminating test",
+          "name": "spectrum_action_2",
+          "kind": "non-example",
           "statement": "For the coproduct ∐_N Spec C the construction preserves the discrete N grading; ungraded profinite completion of components fails."
         },
         {
-          "name": "spectrum-action_3",
-          "kind": "discriminating test",
+          "name": "spectrum_action_3",
+          "kind": "non-example",
           "statement": "At p=3, the genus-one H₁ obstruction prevents direct use of the H¹=0 comparison. Moore smashing must precede it."
         }
       ],
@@ -1304,7 +1304,7 @@
         {
           "sourceId": "FGV",
           "locator": "Propositions 6.1–6.2 and Lemma 6.4, pp. 275–276",
-          "match": "The cited result supplies finite-genus detection of the action, with the conventions and corrections stated here."
+          "match": "Propositions 6.1–6.2 and Lemma 6.4 combine CM generation, the discrete-point map and continuous conjugation. The printed genus in the proof is repaired by rational stabilization at the stated conservative bound."
         }
       ],
       "proofSteps": [
@@ -1329,7 +1329,7 @@
       ],
       "kind": "theorem",
       "title": "Groupoid CM reciprocity formula",
-      "statement": "Let E/Q be a Galois CM field with full Hilbert class field H. Choose lifts w_τ:H→C of τ:E→C with w_{cτ}=c w_τ=w_τ c. Transport of a CM line of type Φ by σ∈Aut(C) has type σΦ and is tensoring by a positive Hermitian line (X,h), depending only on σ and Φ. Under arithmetic Artin reciprocity its ideal class is represented by ∏_{τ∈Φ} w_{στ}^{−1}σw_τ∈Gal(H/E). The functorial comparison with ST and Serre tensor respects polarization and O-action. The formula is in Gal(H/E); H_q denotes the p-subfield only after specialization.",
+      "statement": "Let E/Q be a Galois CM field with full Hilbert class field H. Choose lifts w_τ:H→C of τ:E→C with w_{cτ}=c w_τ=w_τ c. Transport by σ∈Aut(C) sends type Φ to σΦ. On isometry classes in a fixed-type fiber it is tensoring by a Hermitian line (X,h)∈P⁺_E, depending only on σ and Φ; its archimedean signs need not be positive. In particular σ=c uses (O,−1). Under arithmetic Artin reciprocity its ideal class is represented by ∏_{τ∈Φ} w_{στ}^{−1}σw_τ∈Gal(H/E). Transport commutes naturally with Serre tensor by positive Hermitian lines. For E=K_q the induced stable map sends β_q^j[L,b] to β_q^jF_σ[L,b]; at q=3 interpret powers as the compatible iterated Bott maps. This Bott-linearity is needed before applying reciprocity to the spanning stable CM classes. The formula is in Gal(H/E); H_q denotes the p-subfield only after specialization.",
       "hypotheses": [],
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocity:CM.2/polarization-reciprocity-dictionary",
@@ -1344,17 +1344,19 @@
         {
           "sourceId": "FGV",
           "locator": "Theorem 6.6 and (6.3)–(6.4), pp. 277–278",
-          "match": "The cited result supplies groupoid cm reciprocity formula, with the conventions and corrections stated here."
+          "match": "Theorem 6.6(i) computes the translating P⁺ line on each type fiber and its Artin class; this line can have negative signatures, as the c example shows. Part (ii) gives the stable Bott-linearity needed for the arithmetic cocycle."
         }
       ],
       "proofSteps": [
         "Invoke the CM owner’s polarization/reflex reciprocity dictionary with arithmetic Artin normalization.",
         "Translate its idelic expression to the chosen conjugation-compatible lifts and the ideal class of X; R12 requests this precise groupoid adapter.",
-        "Use the Serre-tensor comparison and the discrete-point equivariance to transport the formula to stable CM classes."
+        "Use the Serre-tensor comparison and the discrete-point equivariance to transport the formula to stable CM classes.",
+        "Use positive-line Serre tensor naturality to obtain a module map on stable nerves, then the Bott-linearity of Theorem 6.6(ii); positivity is used for this acting subgroup, not for the translating line X."
       ],
       "acceptance": [
         "For σ=1 all factors are identity with normalized identical lifts.",
-        "For E=K_q, σ sends the type subset to χ_cyc(σ)Φ while the transported O-action remains the specified one."
+        "For E=K_q, σ sends the type subset to χ_cyc(σ)Φ while the transported O-action remains the specified one.",
+        "For σ=c the line (O,−1) changes Φ to its conjugate. A positive translating line would preserve Φ and contradict this case."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -1380,7 +1382,7 @@
         {
           "sourceId": "FGV",
           "locator": "Definition 7.3, pp. 279–280",
-          "match": "The cited result supplies split extension category, with the conventions and corrections stated here."
+          "match": "Definition 7.3 allows arbitrary induced kernel maps and requires a section over H. E5 corrects the section equation, keeping the sectioned and unsectioned categories distinct."
         }
       ],
       "proofSteps": [
@@ -1416,18 +1418,18 @@
       ],
       "tests": [
         {
-          "name": "extension-category_1",
-          "kind": "discriminating test",
+          "name": "extension_category_1",
+          "kind": "degenerate",
           "statement": "With H=G, every object is a G-split M⊕T; the object M→M with zero kernel is initial as well as terminal."
         },
         {
-          "name": "extension-category_2",
-          "kind": "discriminating test",
+          "name": "extension_category_2",
+          "kind": "computation",
           "statement": "For G=1, M=Λ and T=Λ, projection and the inclusion section satisfy πs=id_M, while sπ≠id_V."
         },
         {
-          "name": "extension-category_3",
-          "kind": "discriminating test",
+          "name": "extension_category_3",
+          "kind": "characterisation",
           "statement": "The map M⊕T→M killing T is a valid morphism to the terminal object; requiring identity on kernels would wrongly exclude it."
         }
       ],
@@ -1465,11 +1467,11 @@
         {
           "sourceId": "FGV",
           "locator": "§7.1, (7.5)–(7.8) and Lemma 7.4, pp. 280–281",
-          "match": "The cited result supplies relative bar convention comparison, with the conventions and corrections stated here."
+          "match": "Equations (7.5)–(7.8) and Lemma 7.4 present relative H₁ by the left-coefficient cocycle relation. The source is compared explicitly with the inverse-action native differential in degrees one and two; R13 owns the full natural comparison."
         }
       ],
       "proofSteps": [
-        "Use the native direct-sum bar chains with an explicit inversion/reversal-and-coefficient adapter; verify the differential rather than matching only the carrier.",
+        "In degrees zero, one and two use T₀=id, T₁([g]⊗m)=[g⁻¹]⊗m and T₂([g,g′]⊗m)=[g′⁻¹,g⁻¹]⊗m. Check d_native T₁=T₀ d_FGV and d_native T₂=T₁ d_FGV using the actual inverse-action differential. Extend this to a natural comparison in all degrees through R13.",
         "Pass to the quotient by H-chains, whose degree-zero inclusion is the identity.",
         "Read the degree-two boundary as the cocycle relation. Compare its long exact sequence and subgroup functoriality with the imported relative homology interface."
       ],
@@ -1491,7 +1493,7 @@
         {
           "name": "relativeBar_native",
           "role": "equivalence",
-          "statement": "The chain comparison identifies absolute and relative homology with the existing native bar complex, naturally in coefficient and group-pair maps."
+          "statement": "The natural chain comparison has T₀=id, T₁([g]⊗m)=[g⁻¹]⊗m and T₂([g,g′]⊗m)=[g′⁻¹,g⁻¹]⊗m. These formulas intertwine the low differentials and descend to the pair quotient; the full comparison identifies the imported absolute and relative homology."
         },
         {
           "name": "relativeBar_pairMap",
@@ -1501,19 +1503,24 @@
       ],
       "tests": [
         {
-          "name": "relative-bar_1",
-          "kind": "discriminating test",
+          "name": "relative_bar_1",
+          "kind": "degenerate",
           "statement": "For H=G every relative chain group is zero, hence H₁=0."
         },
         {
-          "name": "relative-bar_2",
-          "kind": "discriminating test",
+          "name": "relative_bar_2",
+          "kind": "computation",
           "statement": "For G=Z, H=1 and trivial M=Z, H₁≅Z with [r]⊗m↦rm."
         },
         {
-          "name": "relative-bar_3",
-          "kind": "discriminating test",
+          "name": "relative_bar_3",
+          "kind": "computation",
           "statement": "For G=C₂, H=1 and M=Z/5 with sign action, the relation [c²]⊗m=[c]⊗(−m)+[c]⊗m imposes zero; H₁(G,1;M)≅Z/5. Omitting the coefficient action would incorrectly force it to vanish."
+        },
+        {
+          "name": "relative_bar_inverse_action",
+          "kind": "computation",
+          "statement": "For G=C₃=⟨g⟩ and M=F₇ with g·m=2m, d_FGV([g]⊗1)=1, while d_native([g]⊗1)=3 since g⁻¹ acts by 4. After T₁ the native boundary of [g⁻¹]⊗1 is 1. A sign C₂ test alone cannot distinguish these inverse conventions."
         }
       ],
       "uses": [
@@ -1549,7 +1556,7 @@
         {
           "sourceId": "FGV",
           "locator": "Lemmas 7.4 and 7.6, pp. 281–282",
-          "match": "The cited result supplies universal relative extension, with the conventions and corrections stated here."
+          "match": "Lemmas 7.4 and 7.6 identify extensions with the undercategory of relative H₁ and justify forgetting the section under homological vanishing. In the actual odd sign case the conjugation idempotent supplies its unique section."
         }
       ],
       "proofSteps": [
@@ -1589,12 +1596,12 @@
         {
           "sourceId": "FGV",
           "locator": "Lemma 7.7, pp. 282–284",
-          "match": "The cited result supplies finite arithmetic galois action, with the conventions and corrections stated here."
+          "match": "Lemma 7.7 uses the spanning CM classes and reciprocity to factor the action, identify the odd Hodge character and fix the arithmetic kernel. Its conjugation splitting is not an equivariant splitting for the whole Galois group. Fixing the p-Hilbert field kills the p-primary ideal class, which suffices modulo q, without forcing the whole ideal class to be principal."
         }
       ],
       "proofSteps": [
         "Compute Galois transport on the spanning CM Bott classes using reciprocity and the type character formula.",
-        "If σ fixes H_q then its Hermitian tensor line has principal ideal class and produces zero difference under both detection maps.",
+        "If σ fixes H_q then its CM type is fixed and its Hermitian tensor line has zero p-primary ideal class. Its ideal class therefore vanishes modulo q, so both detection differences vanish; the full ideal class need not be principal.",
         "Differences between classes of a fixed CM type give fixed arithmetic-kernel generators. Complex conjugation gives the unique splitting because it is −1 on M_q and +1 on T_q."
       ],
       "acceptance": [
@@ -1630,8 +1637,8 @@
       "sources": [
         {
           "sourceId": "FGV",
-          "locator": "§7.3, (7.12)–(7.20), pp. 284–288",
-          "match": "The cited result supplies cm reciprocity identifies the universal cocycle, with the conventions and corrections stated here."
+          "locator": "§7.3, (7.12)–(7.19), pp. 285–287",
+          "match": "The calculation (7.12)–(7.19) identifies the section defect with the Artin–Bott homology class after quotienting boundaries. E6 retains the odd Bott exponent, and the kernel inclusion is scaled consistently with E18."
         }
       ],
       "proofSteps": [
@@ -1670,8 +1677,8 @@
       "sources": [
         {
           "sourceId": "FGV",
-          "locator": "Theorem 7.1, Remark 7.2 and completion of proof, pp. 279–280, 288",
-          "match": "The cited result supplies finite-coefficient universal extension theorem, with the conventions and corrections stated here."
+          "locator": "Theorem 7.1 and Remark 7.2, pp. 279–280; completion of proof in §7.3, pp. 285–287",
+          "match": "Theorem 7.1(iii), Remark 7.2 and the end of §7.3 identify the cocycle-induced kernel map as an isomorphism. This proves initiality, with the normalized inclusion (1/2)H and the uniquely determined conjugation section."
         }
       ],
       "proofSteps": [
@@ -1708,7 +1715,7 @@
         {
           "sourceId": "FGV",
           "locator": "§7.4, pp. 288–289; §7.5, pp. 290–292",
-          "match": "The cited result supplies continuous universal extensions, with the conventions and corrections stated here."
+          "match": "Sections 7.4–7.5 pass finite universal extensions to compact p-adic modules via completed relative homology. The target states finite-type and limit hypotheses for the actual arithmetic groups and keeps finite-free reduction exact."
         }
       ],
       "proofSteps": [
@@ -1724,7 +1731,7 @@
         {
           "name": "continuousExtension_reduce",
           "role": "functoriality",
-          "statement": "Finite coefficient reduction respects projection, kernel action and the specified H-section."
+          "statement": "For finite-free M the reduction 0→T/p^nT→V/p^nV→M/p^nM→0 is exact, with induced continuous action and H-section. Freeness removes the Tor term; this is not asserted for arbitrary torsion quotients M."
         },
         {
           "name": "continuousExtension_bar",
@@ -1744,18 +1751,18 @@
       ],
       "tests": [
         {
-          "name": "continuous-extension_1",
-          "kind": "discriminating test",
+          "name": "continuous_extension_1",
+          "kind": "degenerate",
           "statement": "For Γ=H=1 and M=Z_p the initial object has zero kernel, not a free extra kernel."
         },
         {
-          "name": "continuous-extension_2",
-          "kind": "discriminating test",
-          "statement": "For a finite Γ and M annihilated by p^n the finite-level construction recovers AK2.5."
+          "name": "continuous_extension_2",
+          "kind": "computation",
+          "statement": "For Γ=C₂=⟨c⟩, H=1 and M=Z_p with sign action, completed relative H₁ is Z_p. The universal object is Z_p⊕Z_p with c(m,t)=(−m,t+m). Reducing modulo p^n gives the nonzero-kernel AK2.5 object over Z/p^n; its kernel is Z/p^n, not zero."
         },
         {
-          "name": "continuous-extension_3",
-          "kind": "discriminating test",
+          "name": "continuous_extension_3",
+          "kind": "compatibility",
           "statement": "For Γ=Z_p, H=1 and M=Z_p trivial, the completed H₁ is Z_p; replacing Γ by a discrete group or forgetting its topology is not the defining construction."
         }
       ],
@@ -1797,7 +1804,7 @@
         {
           "sourceId": "FGV",
           "locator": "Theorem 7.8 and proof, p. 289",
-          "match": "The cited result supplies p-adic universal extension theorem, with the conventions and corrections stated here."
+          "match": "Theorem 7.8 takes the compatible p-Hilbert tower limit of Theorem 7.1. E7 repairs the acting-group and theorem-number slips; finiteness makes the homotopy-limit comparison exact."
         }
       ],
       "proofSteps": [
@@ -1822,7 +1829,7 @@
       ],
       "kind": "theorem",
       "title": "Local splitting and relative homology",
-      "statement": "Let Q(p) be the maximal extension of Q unramified outside p, G=Gal(Q(p)/Q), and choose a c-fixed prime above p, giving a decomposition subgroup G_𝔭. Choose it compatibly in H_∞; let D_q⊂G_q be its image. The natural map of pairs (G,G_𝔭)→(G_q,D_q) induces H₁^cts(G,G_𝔭;M_q)≅H₁(G_q,D_q;M_q)≅H₁(G_q,⟨c⟩;M_q). Here D_q≅Gal(K_q/Q) because the principal prime above p splits in H_q/K_q. The KSp extension is uniquely D_q-split and its section has image ker c_B.",
+      "statement": "Let Q(p) be the maximal extension of Q unramified outside p and G=Gal(Q(p)/Q). First choose a compatible c-fixed prime above p in H_∞. Extend that place arbitrarily to Q(p), obtaining G_𝔭, and let D_q⊂G_q be its image. The subgroup D_q contains c; the extended place itself is not required to be c-fixed and no assertion c∈G_𝔭 is used. The natural map of pairs (G,G_𝔭)→(G_q,D_q) induces H₁^cts(G,G_𝔭;M_q)≅H₁(G_q,D_q;M_q)≅H₁(G_q,⟨c⟩;M_q). Here D_q≅Gal(K_q/Q) because the principal prime above p splits in H_q/K_q. The KSp extension is uniquely D_q-split and its section has image ker c_B.",
       "hypotheses": [
         "p is an odd prime, n≥1 and q=p^n; coefficients Λ_q=Z/q.",
         "ζ_q=exp(2πi/q); twists M(j)=μ_q(C)^{⊗j} carry the left action χ_cyc^j; negative powers mean dual tensor powers."
@@ -1837,17 +1844,17 @@
       "sources": [
         {
           "sourceId": "FGV",
-          "locator": "§7.5, Lemmas 7.11–7.13, pp. 290–292",
-          "match": "The cited result supplies local splitting and relative homology, with the conventions and corrections stated here."
+          "locator": "§7.5 setup and Remark 7.11, pp. 289–291; Lemmas 7.12–7.13, pp. 291–292",
+          "match": "The §7.5 setup chooses c-fixed primes only in H_∞ and extends the place to Q(p). Lemmas 7.12–7.13 compare the relative homology kernels using the cyclotomic decomposition quotient and class field theory."
         }
       ],
       "proofSteps": [
-        "An odd-size set of primes above p has a c-fixed member; choose compatible fixed members through the finite tower and extend the place to Q(p).",
+        "The finite prime sets in the p-Hilbert tower have odd size, so each has a c-fixed member. Compactness of the inverse system gives compatible fixed members; extend the resulting place arbitrarily to Q(p).",
         "Use the principal cyclotomic prime to identify D_q and its action. Its central conjugation kills homology of the odd coefficient twist.",
         "Apply the relative Hochschild–Serre edge to the kernels of the cyclotomic quotients. Class field theory identifies the maximal abelian p-extension unramified everywhere and split at p with H_q."
       ],
       "acceptance": [
-        "Without a c-fixed choice, the statement that ker c_B is the chosen local section is not automatic.",
+        "The c-fixed condition is imposed in H_∞. Its image puts c in every D_q and identifies ker c_B with the local section, even if the extended place in Q(p) is not fixed by c.",
         "D_q is the cyclotomic quotient, while Gal(H_q/K_q) is the p-class-group kernel; they must not be interchanged."
       ],
       "implementationStatus": "unchecked",
@@ -1875,7 +1882,7 @@
         {
           "sourceId": "FGV",
           "locator": "Theorem 7.10 and proof, pp. 290–292",
-          "match": "The cited result supplies universal locally split galois extension, with the conventions and corrections stated here."
+          "match": "Theorem 7.10 applies the local relative-homology comparison and inverse limits. The local section is unique because its image group contains an element acting by −1 on the quotient; the global kernel can remain nonzero."
         }
       ],
       "proofSteps": [
@@ -1912,7 +1919,7 @@
         {
           "sourceId": "FGV",
           "locator": "Theorem 7.14 and Remark 7.15, p. 293",
-          "match": "The cited result supplies bott-inverted universal extension theorem, with the conventions and corrections stated here."
+          "match": "Theorem 7.14 transports finite-level universality through compatible v₁ periods, then takes the p-adic limit. Remark 7.15 distinguishes this all-twist statement from a single uniform p-adic period."
         }
       ],
       "proofSteps": [
@@ -1950,7 +1957,7 @@
         {
           "sourceId": "FGV",
           "locator": "§7.7, pp. 294–295, including footnote 13",
-          "match": "The cited result supplies trivial action in degree 4k−1, with the conventions and corrections stated here."
+          "match": "Section 7.7 obtains surjectivity of the rational elliptic symplectic unit through the finite-field sphere-unit comparison. The factor two is invertible, giving trivial action; E9 corrects the comparison reference and twist."
         }
       ],
       "proofSteps": [
@@ -1985,7 +1992,7 @@
         {
           "sourceId": "FGV",
           "locator": "Remark 7.9, pp. 289–290",
-          "match": "The cited result supplies vandiver and conjugation-fixed primes, with the conventions and corrections stated here."
+          "match": "Remark 7.9 concerns the conjugation-fixed part of the prime torsor. The corrected formulation distinguishes its plus-class-group condition from vanishing of the entire p-class group and leaves the tower control theorem with its owner."
         }
       ],
       "proofSteps": [
@@ -2016,7 +2023,7 @@
         {
           "sourceId": "FGV",
           "locator": "§8 and §8.1, (8.2)–(8.3), Example 8.3, pp. 297–299",
-          "match": "The cited result supplies integral homology indecomposables, with the conventions and corrections stated here."
+          "match": "Equations (8.2)–(8.3) and Example 8.3 motivate killing both integral products and Bocksteins of coefficient products. E11 separates the denominator from its quotient and retains positive integral finite-type homology."
         }
       ],
       "proofSteps": [
@@ -2052,18 +2059,18 @@
       ],
       "tests": [
         {
-          "name": "integral-indecomposables_1",
-          "kind": "discriminating test",
+          "name": "integral_indecomposables_1",
+          "kind": "degenerate",
           "statement": "For X=point the ideal and quotient are both zero, including degree zero."
         },
         {
-          "name": "integral-indecomposables_2",
-          "kind": "discriminating test",
+          "name": "integral_indecomposables_2",
+          "kind": "computation",
           "statement": "For X=S¹×S¹, the product of its two degree-one generators vanishes in Q^int_2, while the degree-one quotient is Z_p²."
         },
         {
-          "name": "integral-indecomposables_3",
-          "kind": "discriminating test",
+          "name": "integral_indecomposables_3",
+          "kind": "computation",
           "statement": "For X=RP∞ and p=2, Q^int_i is Z/2 precisely in degrees 2^a−1, a≥1, and zero in other positive degrees; quotienting only by I² incorrectly leaves every odd degree."
         }
       ],
@@ -2100,7 +2107,7 @@
         {
           "sourceId": "FGV",
           "locator": "Lemma 8.5, p. 299",
-          "match": "The cited result supplies product formula for integral indecomposables, with the conventions and corrections stated here."
+          "match": "Lemma 8.5 proves the product comparison by integral Künneth. Mixed tensor products are decomposable and mixed Tor classes are represented by Bocksteins of products, so both disappear in this quotient."
         }
       ],
       "proofSteps": [
@@ -2135,7 +2142,7 @@
         {
           "sourceId": "FGV",
           "locator": "Theorem 8.4 and its proof, pp. 298–299, with restricted range and finite-type correction",
-          "match": "The cited result supplies low-range integral hurewicz theorem, with the conventions and corrections stated here."
+          "match": "Theorem 8.4 supplies the Postnikov/product proof route. E11–E12 restrict its interpretation to positive integral finite-type spectra and stop before the possible delooped P¹ extension; the endpoint is left as G2."
         }
       ],
       "proofSteps": [
@@ -2160,7 +2167,7 @@
       ],
       "kind": "theorem",
       "title": "Integral stable symplectic comparison",
-      "statement": "Let p be odd. For 1≤i≤2p−3, the stable Hurewicz quotient KSp_i(Z)⊗Z_p→Q^int_i(BSp∞(Z)) is an isomorphism and is Aut(C)-equivariant for the arithmetic action from the ppav model. Stabilization is used in the conservative range g>2i+5. In even degree i=2m in this range, the primitive Hodge class ch_m(ω), with m<p, pairs through this quotient and corresponds to c_H after the usual topological Bott normalization. The primitive condition kills products; its integral lift and Bockstein compatibility kill the enlarged denominator.",
+      "statement": "Let p be odd. For 1≤i≤2p−3, the stable Hurewicz quotient KSp_i(Z)⊗Z_p→Q^int_i(BSp∞(Z)) is an isomorphism and is Aut(C)-equivariant for the arithmetic action from the ppav model. Stabilization is used in the conservative range g>2i+5. In even degree i=2m in this range, put ω=Lie(A)^∨ and define ĉh_m(ω)=(−1)^m ch_m(ω)=ch_m(Lie(A)). For m<p this primitive integral class pairs through the quotient and evaluates as c_H on the matching Bott generator. The unnormalized ch_m(ω) evaluates as (−1)^m c_H. The primitive condition kills products; its integral lift and Bockstein compatibility kill the enlarged denominator.",
       "hypotheses": [],
       "prerequisites": [
         "ArithmeticKTheoryPartII:AK2.8/low-hurewicz",
@@ -2173,8 +2180,8 @@
       "sources": [
         {
           "sourceId": "FGV",
-          "locator": "§8, (8.2) and proof of Theorem 8.1, pp. 296–297; Theorem 8.4, pp. 298–299",
-          "match": "The cited result supplies integral stable symplectic comparison, with the conventions and corrections stated here."
+          "locator": "§§3.3, 4.3 and 7.2, pp. 251–253, 262–263, 284; §8, (8.2) and Theorem 8.4, pp. 296–299",
+          "match": "The proof of Theorem 8.1 applies stable homology and Theorem 8.4 to KSp. The earlier unitary and tangent-space identifications fix the dual Hodge sign; R17 supplies integral finite type, and only the repaired Hurewicz range is used."
         }
       ],
       "proofSteps": [
@@ -2184,7 +2191,8 @@
       ],
       "acceptance": [
         "In degree zero the indecomposable quotient is zero, so no isomorphism with KSp₀⊗Z_p is asserted.",
-        "At an even application degree 2m, m<p gives 2m≤2p−4, strictly within the proven range."
+        "At an even application degree 2m, m<p gives 2m≤2p−4, strictly within the proven range.",
+        "For m odd, dualizing the tangent representation negates its Chern character. The normalized class ĉh_m pairs to 1 on a c_H-normalized Bott generator; ch_m(ω) pairs to −1."
       ],
       "implementationStatus": "unchecked",
       "planet": {
@@ -2199,7 +2207,7 @@
       ],
       "kind": "theorem",
       "title": "Rational stable Hodge generators",
-      "statement": "The stable rational p-adic cohomology of Sp_{2g}(Z) is Q_p[x₂,x₆,x₁₀,…], with primitive generator x_{4k−2} represented by the normalized odd Hodge Chern character ch_{2k−1}(ω). Its arithmetic action is cyclotomic weight 2k−1 in cohomology with the convention that x_{4k−2} is fixed as a class in H^{4k−2}(−;Q_p(2k−1)); the untwisted class therefore has inverse cyclotomic character. Products have the sum of the weights. The rational algebra calculation and stability are imported from BorelRegulators; the identification with the ppav action is the new comparison here.",
+      "statement": "The stable rational p-adic cohomology of Sp_{2g}(Z) is Q_p[x₂,x₆,x₁₀,…], with primitive generator x_{4k−2} represented by ĉh_{2k−1}(ω)=−ch_{2k−1}(ω)=ch_{2k−1}(Lie(A)). Using the unnormalized Hodge character instead changes only the generator sign. Its arithmetic action is cyclotomic weight 2k−1 in cohomology with the convention that x_{4k−2} is fixed as a class in H^{4k−2}(−;Q_p(2k−1)); the untwisted class therefore has inverse cyclotomic character. Products have the sum of the weights. The rational algebra calculation and stability are imported from BorelRegulators; the identification with the ppav action is the new comparison here.",
       "hypotheses": [],
       "prerequisites": [
         "ArithmeticKTheoryPartII:AK2.4/spectrum-action",
@@ -2210,8 +2218,8 @@
       "sources": [
         {
           "sourceId": "FGV",
-          "locator": "Introduction, §1.2, pp. 228–231; §8, pp. 295–297",
-          "match": "The cited result supplies rational stable hodge generators, with the conventions and corrections stated here."
+          "locator": "Introduction, §§1.1–1.2, pp. 226–231; §8, pp. 295–297",
+          "match": "The introduction states the stable polynomial symplectic cohomology and its Hodge interpretation. Algebraic Chern classes are fixed with their Tate coefficients, so untwisted cohomology has inverse cyclotomic weight; tangent normalization fixes the generator sign."
         }
       ],
       "proofSteps": [
@@ -2250,13 +2258,13 @@
         {
           "sourceId": "FGV",
           "locator": "Theorem 8.1 and proof, pp. 295–297, with strict prime bound",
-          "match": "The cited result supplies bernoulli divisibility for ppav families, with the conventions and corrections stated here."
+          "match": "Theorem 8.1 caps the algebraic fundamental class with Hodge characters and contradicts universal initiality using a nonzero Bernoulli kernel. The target uses p>max n_j and the safe even Hurewicz range; G3 retains the prime equality boundary."
         }
       ],
       "proofSteps": [
         "The algebraic classifying map and fundamental class give an equivariant Z_p(d)→H_{2d}(A_g(C);Z_p). Cap with the integral Chern characters other than the chosen part to obtain Z_p(n_i)→H_{2n_i}.",
         "If s were a p-adic unit this would split the Hodge pairing. Stabilize by a rational ppav and pass through integral indecomposables and the safe-range Hurewicz comparison.",
-        "This yields a global Galois section of the universal extension with quotient Z_p(n_i). The Iwasawa/Bernoulli contract makes its arithmetic kernel nonzero, contradicting initiality."
+        "Multiply the chosen odd Hodge pairing by −1 to identify it with c_H on tangent K-theory. A unit splitting remains a unit splitting, so this yields a global Galois section with quotient Z_p(n_i). The Iwasawa/Bernoulli contract makes its arithmetic kernel nonzero, contradicting initiality."
       ],
       "acceptance": [
         "For the one-part partition n₁=11 and p=691, B₁₂=−691/2730 gives s∈691 Z_(691).",
@@ -2412,7 +2420,7 @@
     {
       "id": "R4",
       "supplier": "RefinedTraceMethods:RT.4:topological",
-      "need": "Export ku, KU, Bott and conjugation with π_*ku=Z[β], π_*KU=Z[β,β⁻¹], ψ⁻¹(β)=−β; topological Sp(R)←U homotopy equivalence, contractible compatible-complex-structure space, and the Hodge/Chern-character pairing normalized to evaluate to 1 on the matching Bott generator. Include integral lifts for ch_m when m<p, primitive coproduct and coefficient-Bockstein compatibility. Existing connective-ku and homotopy-of-ku nodes are imported; these exact naturality and symplectic interfaces extend them.",
+      "need": "Export ku, KU, Bott and conjugation with π_*ku=Z[β], π_*KU=Z[β,β⁻¹], ψ⁻¹(β)=−β; topological Sp(R)←U homotopy equivalence, contractible compatible-complex-structure space, and the tangent Chern-character pairing normalized to evaluate to 1 on the matching Bott generator. For ω=Lie(A)^∨ explicitly compare this with ĉh_m(ω)=(−1)^m ch_m(ω); the raw odd Hodge pairing evaluates to −1. Include integral lifts for ch_m when m<p, primitive coproduct and coefficient-Bockstein compatibility. Existing connective-ku and homotopy-of-ku nodes are imported; these exact naturality and symplectic interfaces extend them.",
       "neededBy": [
         "ArithmeticKTheoryPartII:AK2.0/universal-bott",
         "ArithmeticKTheoryPartII:AK2.1/betti-hodge",
@@ -2513,7 +2521,7 @@
     {
       "id": "R12",
       "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.2",
-      "need": "Add the groupoid adapter from the existing polarized reciprocity dictionary to FGV Theorem 6.6: chosen lifts w_{cτ}=cw_τ=w_τc, type Φ↦σΦ, positive Hermitian tensor line X, and arithmetic Artin class ∏_{τ∈Φ}w_{στ}^{−1}σw_τ in Gal(H/E), natural on isometries and compatible with Serre tensor/polarization. Keep the generic main theorem of CM at this owner.",
+      "need": "Add the groupoid adapter from the existing polarized reciprocity dictionary to FGV Theorem 6.6: chosen lifts w_{cτ}=cw_τ=w_τc, type Φ↦σΦ, Hermitian tensor line X∈P⁺ with its possibly negative archimedean signatures (X=(O,−1) for c), and arithmetic Artin class ∏_{τ∈Φ}w_{στ}^{−1}σw_τ in Gal(H/E), natural on isometries and compatible with Serre tensor/polarization. Also export Theorem 6.6(ii): the stable action commutes with the compatible Bott maps, including iterates at q=3, by positive-line Serre tensor naturality. Keep the generic main theorem of CM at this owner.",
       "neededBy": [
         "ArithmeticKTheoryPartII:AK2.5/cm-reciprocity"
       ],
@@ -2668,7 +2676,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with the faithful H₁ action of rank 2g and the CM elliptic square: End⁰ is M₂(E), so the claim must be about a chosen commutative CM subalgebra/order.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E2",
@@ -2685,7 +2698,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Lemma 4.8: the real embeddings belong to E⁺ and ramification is at the rational prime p, not the prime power q. The corrected Chebotarev argument has the required disjointness.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E3",
@@ -2702,7 +2720,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a genus misindex in the proof, not a false surjectivity bound: an O_q-line has Z-rank φ(q) and abelian dimension φ(q)/2. Rational stabilization proves the stated conservative bound.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E4",
@@ -2719,7 +2742,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an undeclared-base-field slip. Restricting each lift difference to E gives the identity, so the Artin product belongs to Gal(H/E).",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E5",
@@ -2736,7 +2764,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by types: πs acts on M and is the identity; sπ acts on V and is a projector. The split rank-two example distinguishes them.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E6",
@@ -2753,7 +2786,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by degree and the adjoining transfer diagram: β^{2k−1} has degree 4k−2. The arithmetic ideal factor must be reduced consistently with Corollary 5.4.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E7",
@@ -2770,7 +2808,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the theorem setup and proof. The Hilbert-tower group is Γ, and the finite theorem is 7.1; G and the later local formula belong to a different setting.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E8",
@@ -2787,7 +2830,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an ambiguity that needs the c-fixed qualifier: after a fixed basepoint the prime torsor has fixed subgroup equal to the plus class group. The whole torsor is trivial only when both eigensummands vanish.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E9",
@@ -2804,7 +2852,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the earlier theorem numbering and the finite-field group degree. The Betti–Hodge theorem is 3.5 and the dual local coefficient has exponent 2k.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E10",
@@ -2821,7 +2874,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing integrality argument at the equality boundary, not as a counterexample to divisibility. The denominator of ch_p need not be a p-unit; the corrected target uses strict inequality and G3 retains the question.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E11",
@@ -2838,7 +2896,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with two qualifications made explicit: the denominator must be quotiented out, and ordinary homology of discrete K(Z_p,1) has H₁=Z_p⊗_Z Z_p. Positive integral finite type is used in the repaired theorem, with no degree-zero assertion.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E12",
@@ -2855,7 +2918,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an endpoint proof obligation: the delooped first reduced-power extension prevents using the stated H-space splitting at 2p−2 without another argument. No conclusion that the endpoint theorem itself is false is drawn; G2 retains it.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E13",
@@ -2872,16 +2940,21 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as interchanged descriptions of the examples. Volume calculations apply to the locally symmetric examples, while the Torelli construction supplies abelian families from curve families; no arithmetic target depends on this sentence.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E14",
       "source": "FGV",
       "origin": "PAPER-FENG-GALATIUS-VENKATESH-22/E14",
       "kind": "gap",
-      "locator": "Appendix A.2, property (iii), p. 305, and the comparison in A.5, p. 315",
+      "locator": "Appendix A.2, property (iii), p. 305, and the comparison in A.5, p. 315; compare Proposition A.2, p. 309",
       "printed": "The stated realization criterion lacks its finite-type and component qualifications.",
-      "correction": "Use degreewise finite-dimensional mod-p cohomology on each specified connected grade and take their coproduct after completion.",
+      "correction": "Use degreewise finite-dimensional mod-p cohomology on each specified connected grade and take their coproduct after completion. Proposition A.2 already states finite-type hypotheses; the correction concerns the unqualified use in the infinite genus union.",
       "reason": "The ppav model has infinitely many genus components; completing them as one pro-finite object changes its degree-zero homology.",
       "affects": "the proof",
       "known": "Already recorded by PAPER-FENG-GALATIUS-VENKATESH-22/E14. No published correction located in the bounded publisher/arXiv and title-plus-erratum checks on 2026-10-19; this asserts neither novelty nor exhaustive absence.",
@@ -2889,7 +2962,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed narrowly for property (iii) and the ungraded use in A.5. Proposition A.2 on p. 309 does state finite-type hypotheses; the finding does not accuse that proposition of omitting them. The infinite genus coproduct requires the componentwise comparison requested here.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E15",
@@ -2906,7 +2984,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a mismatch between literal terminality in the definition and the ambient-object examples. Their selected-factor groupoid at {*} has unique arrows but multiple objects, hence contractible nerve; an equivalent reduced model resolves it.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E16",
@@ -2923,7 +3006,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as two presentation errors. A smooth surjection does not force its base smooth (take the identity of a singular variety), and the Čech degree r has r+1 factors. The ppav application uses smooth atlas pieces.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E17",
@@ -2940,7 +3028,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at both locators: λ, not the ring action φ, defines Rosati; and discrete ppav isomorphism classes form many components at fixed genus, unlike the connected analytic realization.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E18",
@@ -2957,7 +3050,12 @@
         "Published version-of-record PDF and DOI article page.",
         "arXiv 2007.15078 version-history page.",
         "Title with erratum/corrigendum/correction search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed using rank in degree zero and the proof on p. 256. The unscaled forgetful-hyperbolic composite is 1+ψ⁻¹ and equals 2 on the positive summand. Retraction or inclusion must be divided by two.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     },
     {
       "id": "ArithmeticKTheoryPartII/E19",
@@ -2972,7 +3070,12 @@
       "searched": [
         "Published PDF, §2.4.",
         "Publisher/arXiv pages and title-plus-erratum search, 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the explicit 2Z→3Z map x↦(3/2)x. Fraction-field units give arrows between distinct fractional ideals; ring units give their automorphisms. The abstract invertible-module definition already has the correct arrows.",
+        "by": "REV-DESIGN-ArithmeticKTheoryPartII"
+      }
     }
   ],
   "restructure": [
@@ -2992,7 +3095,7 @@
         "RefinedTraceMethods"
       ],
       "detail": "The existing supplier owns this mathematical direction, but its current statement does not include the precise interface used here.",
-      "proposal": "Propose a Part II of that supplier for the additional interface, retaining its existing layer as the import boundary until accepted: Export ku, KU, Bott and conjugation with π_*ku=Z[β], π_*KU=Z[β,β⁻¹], ψ⁻¹(β)=−β; topological Sp(R)←U homotopy equivalence, contractible compatible-complex-structure space, and the Hodge/Chern-character pairing normalized to evaluate to 1 on the matching Bott generator. Include integral lifts for ch_m when m<p, primitive coproduct and coefficient-Bockstein compatibility. Existing connective-ku and homotopy-of-ku nodes are imported; these exact naturality and symplectic interfaces extend them."
+      "proposal": "Propose a Part II of that supplier for the additional interface, retaining its existing layer as the import boundary until accepted: Export ku, KU, Bott and conjugation with π_*ku=Z[β], π_*KU=Z[β,β⁻¹], ψ⁻¹(β)=−β; topological Sp(R)←U homotopy equivalence, contractible compatible-complex-structure space, and the tangent Chern-character pairing normalized to evaluate to 1 on the matching Bott generator. For ω=Lie(A)^∨ explicitly compare this with ĉh_m(ω)=(−1)^m ch_m(ω); the raw odd Hodge pairing evaluates to −1. Include integral lifts for ch_m when m<p, primitive coproduct and coefficient-Bockstein compatibility. Existing connective-ku and homotopy-of-ku nodes are imported; these exact naturality and symplectic interfaces extend them."
     },
     {
       "action": "rescope",
@@ -3019,7 +3122,7 @@
         "ComplexMultiplicationAndExplicitReciprocity"
       ],
       "detail": "The existing supplier owns this mathematical direction, but its current statement does not include the precise interface used here.",
-      "proposal": "Propose a Part II of that supplier for the additional interface, retaining its existing layer as the import boundary until accepted: Add the groupoid adapter from the existing polarized reciprocity dictionary to FGV Theorem 6.6: chosen lifts w_{cτ}=cw_τ=w_τc, type Φ↦σΦ, positive Hermitian tensor line X, and arithmetic Artin class ∏_{τ∈Φ}w_{στ}^{−1}σw_τ in Gal(H/E), natural on isometries and compatible with Serre tensor/polarization. Keep the generic main theorem of CM at this owner."
+      "proposal": "Propose a Part II of that supplier for the additional interface, retaining its existing layer as the import boundary until accepted: Add the groupoid adapter from the existing polarized reciprocity dictionary to FGV Theorem 6.6: chosen lifts w_{cτ}=cw_τ=w_τc, type Φ↦σΦ, Hermitian tensor line X∈P⁺ with its possibly negative archimedean signatures (X=(O,−1) for c), and arithmetic Artin class ∏_{τ∈Φ}w_{στ}^{−1}σw_τ in Gal(H/E), natural on isometries and compatible with Serre tensor/polarization. Also export Theorem 6.6(ii): the stable action commutes with the compatible Bott maps, including iterates at q=3, by positive-line Serre tensor naturality. Keep the generic main theorem of CM at this owner."
     },
     {
       "action": "rescope",
@@ -3117,10 +3220,10 @@
   "leanValidation": {
     "command": "lean-check research/blueprint/suggested/ArithmeticKTheoryPartII.lean",
     "date": "2026-10-19",
-    "result": "Exit 0; nine admitted-proof warnings only; no other warnings or errors.",
-    "lines": 95,
-    "availableMemoryGiB": 86,
-    "scope": "Two real-bodied formulas on existing linear-map/representation carriers, three API theorems and six examples. All missing high-level carriers are README targets."
+    "result": "Independent review: exit 0; nine admitted-proof warnings only; no other warnings or errors. Both added convention examples have checked proofs.",
+    "lines": 106,
+    "availableMemoryGiB": 82,
+    "scope": "Two real-bodied formulas on existing linear-map/representation carriers, three API theorems and eight examples. All missing high-level carriers are README targets."
   },
   "routing": {
     "extraction": "PAPER-FENG-GALATIUS-VENKATESH-22",
@@ -3366,6 +3469,224 @@
         "targets": [
           "ArithmeticKTheoryPartII:AK2.4/spectrum-action"
         ]
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ArithmeticKTheoryPartII",
+    "date": "2026-10-19",
+    "notes": "Independent check of all 42 targets against the published FGV locators, all eight pinned baseline statements, supplier contracts, target closure, APIs, tests and planets. Corrected reciprocity signatures and added the required stable Bott-linearity; corrected the local place choice, tangent/dual Hodge sign, native bar comparison and finite-free reduction test and p-primary class argument; repaired locators and all test kinds/names. Every source match is now specific. All 19 source findings have individual independent verdicts. Accepted as a complete planning pass: nine layers remain planned, every implementation status is unchecked, 24 supplier requests and G1–G3 remain open. Acceptance makes no closed-proof or implementation claim.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.0/universal-bott",
+        "verdict": "verified",
+        "note": "Lemma 2.3 identifies the Bockstein-normalized cyclic class and its character image; the polynomial assertion uses the odd Moore multiplication exception stated immediately before it."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.0/picard-k-map",
+        "verdict": "corrected",
+        "note": "Definition 2.6 gives the invertible-module groupoid and its tensor-induced K-map. The fractional-ideal presentation is corrected by E19; Appendix A supplies the additive machine, with multiplicative coherence requested separately."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.0/picard-bott",
+        "verdict": "corrected",
+        "note": "Corollary 2.12 identifies reduced ideal classes times an odd Bott power with the positive even group; Proposition 2.9 supplies the connective comparison ranges, retaining degree one as an exception."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.0/transfer-descent",
+        "verdict": "verified",
+        "note": "Proposition 2.15 proves the coinvariant transfer isomorphism from the two étale tables. Its duality discussion uses the trace-dual inverse different, whose principal class removes the twist in this case."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.0/artin-transfer",
+        "verdict": "verified",
+        "note": "Proposition 2.17 compares the Artin class-group map and K-transfer. Section 7.2 uses the odd conjugation action to identify the absolute kernel with the relative group for ⟨c⟩."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.1/betti-hodge",
+        "verdict": "corrected",
+        "note": "Definitions 3.1 and 3.3 use forgetting the form and the topological symplectic-to-unitary equivalence. The linear-first imaginary-part convention requires the recorded sign adapter to the native compatible structure."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.1/bott-ksp",
+        "verdict": "corrected",
+        "note": "Remark 2.8 and §3.6 use v₁ self-maps and compatible periodic spectra, with p-adic groups defined by completion. The iterated mod-3 construction is retained without an associative Moore product."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.2/hermitian-lines",
+        "verdict": "corrected",
+        "note": "Definitions 4.2–4.4 give perfect coefficient-line pairings, isometries, conjugate tensor factors and the P⁺ action on P⁻. Norm-one units are the automorphisms; μ_q is only the subgroup used for Bott classes."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.2/serre-tate-comparison",
+        "verdict": "verified",
+        "note": "Section 4.3 constructs the trace polarization and positive Hermitian form for a unique CM type, then applies complex uniformization. The native almost-complex convention reverses J_H; positive-line Serre tensor and the negative unit line have distinct effects."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.2/sign-prime",
+        "verdict": "verified",
+        "note": "Lemma 4.8 applies Chebotarev to the narrow class field of the real subfield and its disjoint CM extension. E2 corrects the real-embedding and rational-prime notation in the printed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.2/cm-type-realization",
+        "verdict": "verified",
+        "note": "Proposition 4.7 realizes every type and the anti-conjugate ideal ratio. Its split-prime sign correction permits the two representatives to have the same type without fixing each individual ideal class."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.3/cm-class",
+        "verdict": "corrected",
+        "note": "The maps (5.1)–(5.3) use the specified root-of-unity automorphisms of CM lines to send the universal stable Bott class to KSp. Their degree and coefficient conventions give the exponent 2k−1."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.3/hodge-character",
+        "verdict": "verified",
+        "note": "Proposition 5.2 computes the unitary character sum. Switching one conjugate pair changes an odd power sum by a unit, giving the independent surjectivity input for Proposition 3.8."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.3/betti-transfer",
+        "verdict": "verified",
+        "note": "Diagram (5.7) and Corollary 5.4 identify forgetting the form with K-transfer. Conjugation removes the transferred odd Bott unit term, leaving the reduced ideal class."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.3/betti-hodge-splitting",
+        "verdict": "verified",
+        "note": "Theorem 3.5 and Corollary 3.6 give the odd-primary two-factor comparison and positive p-adic degree table. The proof uses c_BH=1+ψ⁻¹, so E18 corrects the earlier retraction normalization."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.3/cm-generation",
+        "verdict": "corrected",
+        "note": "Proposition 5.1 is proved in §5.3 by four CM classes with one common type: their Hodge terms cancel and their Betti term is twice the transferred reduced ideal class. The prior independent Hodge calculation avoids a dependency cycle."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.3/periodic-comparison",
+        "verdict": "verified",
+        "note": "Corollary 3.10 gives the all-degree periodic splitting and connective KSp range. Remark 3.11 identifies the completed height-one localization, with the generic telescope comparison requested from H.6."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.4/ppav-gamma",
+        "verdict": "corrected",
+        "note": "Appendix A.4 uses Rosati-selfadjoint idempotents and selected-factor isomorphisms to model ppav products over finite pointed sets. E15 and E17 fix strict terminality and which datum defines Rosati."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.4/rigidified-model",
+        "verdict": "corrected",
+        "note": "Appendix A.4 constructs embedding atlases and their Čech nerve. The target specifies Hilbert-polynomial pieces and r+1 factors rather than asserting finite type for the whole unbounded union."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.4/betti-model",
+        "verdict": "verified",
+        "note": "The uniformization in A.3 and Proposition A.13 identify the analytic ppav nerve with the symplectic Γ model. Siegel contractibility gives each BSp component; the zeroth Segal step is group completion."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.4/spectrum-action",
+        "verdict": "corrected",
+        "note": "Proposition 6.2 and A.5 compare algebraic conjugation with componentwise arithmetic realization. The p=3 Moore construction and coherent Γ/coefficient compatibility remain the explicitly propagated G1/R22 obligation."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.4/finite-genus-surjection",
+        "verdict": "verified",
+        "note": "Propositions 6.1–6.2 and Lemma 6.4 combine CM generation, the discrete-point map and continuous conjugation. The printed genus in the proof is repaired by rational stabilization at the stated conservative bound."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.5/cm-reciprocity",
+        "verdict": "corrected",
+        "note": "Theorem 6.6(i) computes the translating P⁺ line on each type fiber and its Artin class; this line can have negative signatures, as the c example shows. Part (ii) gives the stable Bott-linearity needed for the arithmetic cocycle."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.5/extension-category",
+        "verdict": "corrected",
+        "note": "Definition 7.3 allows arbitrary induced kernel maps and requires a section over H. E5 corrects the section equation, keeping the sectioned and unsectioned categories distinct."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.5/relative-bar",
+        "verdict": "corrected",
+        "note": "Equations (7.5)–(7.8) and Lemma 7.4 present relative H₁ by the left-coefficient cocycle relation. The source is compared explicitly with the inverse-action native differential in degrees one and two; R13 owns the full natural comparison."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.5/universal-relative-extension",
+        "verdict": "verified",
+        "note": "Lemmas 7.4 and 7.6 identify extensions with the undercategory of relative H₁ and justify forgetting the section under homological vanishing. In the actual odd sign case the conjugation idempotent supplies its unique section."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.6/finite-action",
+        "verdict": "corrected",
+        "note": "Lemma 7.7 uses the spanning CM classes and reciprocity to factor the action, identify the odd Hodge character and fix the arithmetic kernel. Its conjugation splitting is not an equivariant splitting for the whole Galois group. Fixing the p-Hilbert field kills the p-primary ideal class, which suffices modulo q, without forcing the whole ideal class to be principal."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.6/cocycle-identification",
+        "verdict": "corrected",
+        "note": "The calculation (7.12)–(7.19) identifies the section defect with the Artin–Bott homology class after quotienting boundaries. E6 retains the odd Bott exponent, and the kernel inclusion is scaled consistently with E18."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.6/finite-universality",
+        "verdict": "corrected",
+        "note": "Theorem 7.1(iii), Remark 7.2 and the end of §7.3 identify the cocycle-induced kernel map as an isomorphism. This proves initiality, with the normalized inclusion (1/2)H and the uniquely determined conjugation section."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.7/continuous-extension",
+        "verdict": "corrected",
+        "note": "Sections 7.4–7.5 pass finite universal extensions to compact p-adic modules via completed relative homology. The target states finite-type and limit hypotheses for the actual arithmetic groups and keeps finite-free reduction exact."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.7/padic-universality",
+        "verdict": "verified",
+        "note": "Theorem 7.8 takes the compatible p-Hilbert tower limit of Theorem 7.1. E7 repairs the acting-group and theorem-number slips; finiteness makes the homotopy-limit comparison exact."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.7/local-homology",
+        "verdict": "corrected",
+        "note": "The §7.5 setup chooses c-fixed primes only in H_∞ and extends the place to Q(p). Lemmas 7.12–7.13 compare the relative homology kernels using the cyclotomic decomposition quotient and class field theory."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.7/local-universality",
+        "verdict": "verified",
+        "note": "Theorem 7.10 applies the local relative-homology comparison and inverse limits. The local section is unique because its image group contains an element acting by −1 on the quotient; the global kernel can remain nonzero."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.7/all-twists",
+        "verdict": "verified",
+        "note": "Theorem 7.14 transports finite-level universality through compatible v₁ periods, then takes the p-adic limit. Remark 7.15 distinguishes this all-twist statement from a single uniform p-adic period."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.7/odd-degree",
+        "verdict": "verified",
+        "note": "Section 7.7 obtains surjectivity of the rational elliptic symplectic unit through the finite-field sphere-unit comparison. The factor two is invertible, giving trivial action; E9 corrects the comparison reference and twist."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.7/vandiver-fixed-prime",
+        "verdict": "verified",
+        "note": "Remark 7.9 concerns the conjugation-fixed part of the prime torsor. The corrected formulation distinguishes its plus-class-group condition from vanishing of the entire p-class group and leaves the tower control theorem with its owner."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.8/integral-indecomposables",
+        "verdict": "corrected",
+        "note": "Equations (8.2)–(8.3) and Example 8.3 motivate killing both integral products and Bocksteins of coefficient products. E11 separates the denominator from its quotient and retains positive integral finite-type homology."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.8/indecomposable-product",
+        "verdict": "verified",
+        "note": "Lemma 8.5 proves the product comparison by integral Künneth. Mixed tensor products are decomposable and mixed Tor classes are represented by Bocksteins of products, so both disappear in this quotient."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.8/low-hurewicz",
+        "verdict": "verified",
+        "note": "Theorem 8.4 supplies the Postnikov/product proof route. E11–E12 restrict its interpretation to positive integral finite-type spectra and stop before the possible delooped P¹ extension; the endpoint is left as G2."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.8/stable-symplectic-homology",
+        "verdict": "corrected",
+        "note": "The proof of Theorem 8.1 applies stable homology and Theorem 8.4 to KSp. The earlier unitary and tangent-space identifications fix the dual Hodge sign; R17 supplies integral finite type, and only the repaired Hurewicz range is used."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.8/rational-stable-hodge",
+        "verdict": "corrected",
+        "note": "The introduction states the stable polynomial symplectic cohomology and its Hodge interpretation. Algebraic Chern classes are fixed with their Tate coefficients, so untwisted cohomology has inverse cyclotomic weight; tangent normalization fixes the generator sign."
+      },
+      {
+        "nodeId": "ArithmeticKTheoryPartII:AK2.8/characteristic-divisibility",
+        "verdict": "corrected",
+        "note": "Theorem 8.1 caps the algebraic fundamental class with Hodge characters and contradicts universal initiality using a nonzero Bernoulli kernel. The target uses p>max n_j and the safe even Hurewicz range; G3 retains the prime equality boundary."
       }
     ]
   }
