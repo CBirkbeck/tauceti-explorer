@@ -1,4 +1,67 @@
-# Latest checkpoint: codex-u0H8la, 19 October 2026
+# Latest checkpoint: codex-gIHCHh, 19 October 2026
+
+**Blocked checkpoint for #9299; the revision remains unfinished.** The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6260035160)
+for this session's [claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6260033643).
+I read the issue body but missed the supersession instruction in its comment
+history before claiming. This run's user instructions explicitly require a
+checkpoint when blocked. Only this handoff changes; no second job is taken.
+
+The [maintainer's scope instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217691180)
+prohibits further claims on this superseded revision unless the upstream owner
+requests an extension. No such assignment appears in the subsequent issue
+history inspected in this run. The automatic availability and claim reply do
+not resolve that scope conflict. WORKERS.md and PROTOCOL.md section 15 require
+importing existing Tau Ceti roadmaps rather than replanning them.
+
+I independently checked the live GitHub API: upstream
+[pull request 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 14 October 2026 at 04:47:45 UTC, at
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. The upstream main inspected is
+`661f8ac947c4b124ccd83d4acb1d89caad158879`, dated 19 October 2026 at
+04:08:25 UTC. Its authoritative
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/661f8ac947c4b124ccd83d4acb1d89caad158879/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+and [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/661f8ac947c4b124ccd83d4acb1d89caad158879/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+still own the Layer 4 material. I inspected the ownership introduction,
+sections 4.5 and 4.10, the Layer 4 subsection inventory, and the normalization
+and alteration declaration locations. The explicit exclusions remain:
+general obstruction kernels and hull-relation bounds, comparison of chosen-ideal
+adic systems with genuine formal schemes, and polarized-system algebraization
+and effective formal deformations of curves. This is an ownership check,
+not a mathematical review or closure of any historical gap.
+
+The supplied read-only roadmap checkout is at
+`0d144d044dacebca17b654695b6f1ad58f159b27`; I also read the StableReduction
+and AlgebraicVectorBundles introductions there. The current library checkout
+is at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither shared checkout
+was modified or built. No primary mathematical source or private book was
+needed for this scope check.
+
+The packet, reader and suggested file are unchanged. The packet and SF.4
+coverage remain `partial`, with the independent `needs_changes` review intact:
+57 nodes, 139 API items, 91 tests, 6 planets, 79 baseline declarations,
+9 gaps and 10 requests. I read the review, previous handoff, packet gap/request
+and review records, reviewed SF.4 library audit and current upstream tier status.
+No historical gap is closed by the upstream merge.
+
+Validation in this session:
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeAndStackFoundations--SF.4.json`: zero errors and zero warnings.
+- Handoff intake validation and `git diff --check`: passed.
+- Lean was not rerun because the suggested file is unchanged. Earlier reports
+  of elaboration are not compilation performed by this session.
+
+**Resume only after a routing decision:** retire this superseded revision,
+assign atlas synchronization with explicit treatment of the excluded targets,
+or assign a precisely scoped Part II and its allowed files. An upstream
+amendment needs an upstream assignment. The existing issue only permits the
+historical mathematical files and this handoff. Another automatic release
+cannot resolve the blocker. The earlier handoffs below preserve the detailed
+worklist; no disposable scratch file is needed to resume.
+
+---
+
+# Previous checkpoint: codex-u0H8la, 19 October 2026
 
 **Blocked checkpoint for #9299; the revision is unfinished.** This run's
 instructions permit a checkpoint when blocked. The bot
