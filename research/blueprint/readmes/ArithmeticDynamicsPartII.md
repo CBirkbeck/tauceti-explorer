@@ -4,6 +4,8 @@ This continuation studies the polynomial dynamics of Markoff triples over finite
 
 The endpoint of the elementary route is eventual connectivity of the ordered Markoff graph and positive integral lifting at every sufficiently large prime. A second route retains Chen’s oriented and generalized congruences, whose nonabelian-level input has not yet been assigned an atlas supplier. The squarefree endpoint is simultaneous lifting on the primitive locus. Full affine lifting at squarefree moduli is false: the point (40,40,40) modulo 65 gives a concrete obstruction.
 
+Independently reviewed on 19 October 2026: accepted at target level after the corrections recorded below. All five named proof/certificate gaps remain open.
+
 This is a completed **target-level design pass**, with all eight layers `planned`. It is not a closed or source-decomposed proof package. In particular the quoted bound p>3.489·10^392 remains a target with a local-estimate and certificate gap. The corresponding Lean statement is a goal, not evidence that the gap is closed.
 
 ## Conventions and existing ownership
@@ -16,7 +18,7 @@ CA.4 already owns the integer/affine carriers and moves. Import these nodes from
 
 For an affine variety V/Z, “strong approximation mod n” is the ordinary surjectivity predicate for V(Z)→V(Z/n); it is not CA.4’s positive-nonzero root predicate. No new scheme or point-functor carrier is constructed here. Its API is: every residue point has an integral preimage; integral isomorphisms preserve the predicate; prime Markoff connectivity implies the full affine predicate after adding the origin. Three checks distinguish it: A¹ lifts at every positive modulus; x²+1=0 fails modulo 5 despite having two residue roots; M fails modulo 65 at the mixed-zero point. See C24 Definition 5.5.6, p. 415.
 
-The pinned Mathlib declarations below provide generic permutations, actions, graphs, finite divisors, element order, CRT and primitive-action predicates. No Markoff theory was found in either current upstream checkout or the pinned library. The current upstream README commit inspected is `0d144d044dacebca17b654695b6f1ad58f159b27`. The pinned build uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Current upstream dependencies are newer, so baseline claims were checked in the pinned sources. The full AlgebraicCodingTheory and DenseGraphLimits readers were used as the target-density examples.
+The pinned Mathlib declarations below provide generic permutations, actions, graphs, finite divisors, element order, CRT, primitive-action predicates and the cyclotomic norm facts used by the opening game. No Markoff theory was found in either current upstream checkout or the pinned library. The current upstream README commit inspected is `0d144d044dacebca17b654695b6f1ad58f159b27`. The pinned build uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Current upstream dependencies are newer, so baseline claims were checked in the pinned sources. The full AlgebraicCodingTheory and DenseGraphLimits readers were used as the target-density examples.
 
 ## Layer route
 
@@ -55,7 +57,9 @@ Proof or construction route:
 
 Inputs: `ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution`, `ClassicalArithmeticCompletion:CA.4/markoff-hurwitz-moves`, `mathlib:Subgroup.closure`, `mathlib:Equiv.Perm`.
 
-Source: M25, §1, p. 624; PAPER-MARTIN-25/14–15. The proof distinguishes move orbits from the BGS action with permutations.
+Source: M25, §1, p. 623; §2, p. 625. Martin supplies the move group and graph convention.
+
+Source: BGS16, §1, pp. 1–2. BGS adds coordinate permutations to the move generators.
 
 API obligations:
 
@@ -123,7 +127,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.0/action-groups`, `ArithmeticDynamicsPartII:MD.0/move-graph`, `mathlib:SimpleGraph.Reachable`, `mathlib:SimpleGraph.ConnectedComponent`, `mathlib:MulAction.orbit`.
 
-Source: M25, §1, p. 624; §2, pp. 625–626. The counting proof uses exactly the finite sets closed under the three moves.
+Source: M25, §1, p. 623; §2, p. 625. The counting proof uses exactly the finite sets closed under the three moves.
 
 Acceptance:
 
@@ -143,7 +147,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.0/move-graph`, `ArithmeticDynamicsPartII:MD.0/components`, `ClassicalArithmeticCompletion:CA.4/markoff-coefficient-three-twist`, `ClassicalArithmeticCompletion:CA.4/markoff-type-point-count-mod-p`.
 
-Source: M25, §2, p. 626, together with direct finite computation. The omitted characteristic-three exception is visible in the eight-vertex cube.
+Source: M25, §1, pp. 623–624; direct finite calculation, not a printed table. The graph definition supplies the formulas; the stated small cases are independently enumerated here.
 
 Acceptance:
 
@@ -166,7 +170,7 @@ Proof or construction route:
 
 Inputs: `ClassicalArithmeticCompletion:CA.4/markoff-triples`, `mathlib:ZMod`.
 
-Source: M25, §2, pp. 625–626. These weights make summation work on vertices with a zero coordinate.
+Source: M25, §2, equation (2.1), pp. 624–625. These weights make summation work on vertices with a zero coordinate.
 
 API obligations:
 
@@ -220,7 +224,7 @@ Proof or construction route:
 
 Inputs: `mathlib:Equiv.Perm`.
 
-Source: M25, §2, pp. 625–626. The averaging identity is the full finite-set argument underlying the proof.
+Source: M25, §2, equations (2.3)–(2.5), p. 625. The averaging identity is the full finite-set argument underlying the proof.
 
 Acceptance:
 
@@ -240,7 +244,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.1/weight-identities`, `ArithmeticDynamicsPartII:MD.1/involution-balance`, `ArithmeticDynamicsPartII:MD.0/components`, `ArithmeticDynamicsPartII:MD.0/finite-regressions`, `mathlib:ZMod.natCast_eq_zero_iff`.
 
-Source: M25, Theorem 1.4, p. 624, proof §2, pp. 625–626. This is Martin’s elementary proof with the necessary characteristic-three correction.
+Source: M25, Theorem 1.4, p. 624; proof §2, pp. 624–625. This is Martin’s elementary proof with the necessary characteristic-three correction.
 
 Acceptance:
 
@@ -298,7 +302,9 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.2/conic-rotations`.
 
-Source: BGS16, §2, pp. 4–6; C24 Proposition 5.3.3, pp. 406–408. The explicit parametrizations include all exceptional slice types.
+Source: BGS16, §2, pp. 4–6. The explicit parametrizations include all exceptional slice types.
+
+Source: C24, §5.3, pp. 406–408. Chen uses these slice types in the point and rotation counts.
 
 Acceptance:
 
@@ -375,7 +381,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.2/conic-rotations`, `ArithmeticDynamicsPartII:MD.2/slice-classification`.
 
-Source: BGS16, §3, pp. 6–9. The endgame supplies a common orbit for the largest rotation cycles.
+Source: BGS16, §3.2, p. 11; endgame §3.1, pp. 7–11. The endgame supplies a common orbit for the largest rotation cycles.
 
 API obligations:
 
@@ -389,7 +395,7 @@ Distinguishing checks:
 - [ ] **degenerate** — For p≡3 mod4 no parabolic point is added, since those slices are empty.
 - [ ] **compatibility** — At a=0 an eigenvalue has order 4; it is not treated as a generic maximal-order nondegenerate trace.
 
-Used by: `ArithmeticDynamicsPartII:MD.3/endgame`: large orders enter a common orbit; `ArithmeticDynamicsPartII:MD.5/effective-intervals`: disconnectedness is tested against the cage orbit
+Used by: `ArithmeticDynamicsPartII:MD.3/primitive-intersections`: large orders enter a common orbit; `ArithmeticDynamicsPartII:MD.5/effective-intervals`: disconnectedness is tested against the cage orbit
 
 Acceptance:
 
@@ -409,7 +415,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.2/slice-classification`, `FiniteFieldsAndCharacterSums:FF.2/weil-bound-multiplicative`.
 
-Source: BGS16, Proposition 6, p. 6. Quadratic-character estimates connect the conic incidence graph.
+Source: BGS16, Proposition 6 and proof, pp. 6–7. Quadratic-character estimates connect the conic incidence graph.
 
 Acceptance:
 
@@ -419,18 +425,19 @@ Acceptance:
 
 `ArithmeticDynamicsPartII:MD.3/primitive-intersections` — theorem.
 
-Fix δ>0. For sufficiently large p, any nondegenerate rotation orbit of length L≥p^(1/2+δ) contains a point with another coordinate of maximal order in a split or nonsplit torus; maximal-order conic slices belong to a single Γ-orbit. Uniformly in the parameters occurring here, primitive split traces on a length-L cycle are counted by Lφ(p−1)/(p−1)+O_ε(p^(1/2+ε)); use the analogous norm-one count when required.
+Fix δ>0. For sufficiently large p, any nondegenerate rotation orbit of length L≥p^(1/2+δ) contains a point with another coordinate of maximal order in a split or nonsplit torus; maximal-order conic slices belong to a single Γ-orbit. Uniformly in the parameters occurring here, cycle points whose selected other coordinate is a primitive split trace are counted by Lφ(p−1)/(2(p−1))+O_ε(p^(1/2+ε)); use the analogous norm-one count when required.
 
 Proof or construction route:
 
 1. Write the intersection as αt+β/t=y+y⁻¹ with αβ=κ≠1.
-2. BGS Lemma 8 proves irreducibility of the power-cover curves by inspecting divisors; apply a sharp genus-dependent curve Weil bound, not a uniform degree estimate with uncontrolled constants.
+2. Use BGS Lemma 8’s factorization argument for irreducibility of the power-cover curves, with uniform genus and puncture bounds, then apply the sharp curve Weil bound Q2.
 3. Use Möbius inclusion-exclusion over divisors of p±1 and φ(n)/n=n^{-o(1)} to obtain positive primitive counts.
-4. Combine primitive intersections to connect maximal slices, including the explicit parabolic adapters.
+4. The Möbius sum P(H) counts pairs (cycle parameter t, primitive eigenvalue y). Each resulting cycle point has exactly the two inverse choices y,y⁻¹ for a nonparabolic primitive trace. Divide P(H) by 2; the norm-one case has the same factor. Positivity and the eventual endgame are unchanged.
+5. Combine primitive intersections to connect maximal slices, including the explicit parabolic adapters.
 
 Inputs: `ArithmeticDynamicsPartII:MD.3/cage`, `ArithmeticDynamicsPartII:MD.3/slice-incidence`, `ArithmeticDynamicsPartII:MD.2/slice-classification`, `AnalyticNumberTheory:AN.5/plan/eventual-divisor-subpower-bound`, `AnalyticNumberTheory:AN.5/plan/totient-reciprocal-bound`, `WeilConjectures:WC.3`.
 
-Source: BGS16, Proposition 7 and Lemma 8, pp. 7–9. This is the arithmetic endgame and the actual connectedness argument for the cage.
+Source: BGS16, Proposition 7, Lemma 8 and equations (25)–(33), pp. 7–11; §3.2, p. 11. The primitive-eigenvalue pair count yields half as many cycle points; the endgame then connects the maximal slices.
 
 Acceptance:
 
@@ -451,11 +458,15 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.3/primitive-intersections`, `ArithmeticDynamicsPartII:MD.2/slice-classification`, `FiniteFieldsAndCharacterSums:FF.2`, `AnalyticNumberTheory:AN.5/plan/eventual-divisor-subpower-bound`, `AnalyticNumberTheory:AN.5/plan/totient-reciprocal-bound`.
 
-Source: BGS16, §4, pp. 10–16; EFLMT24 Lemma 2.1, pp. 4–5. The chosen proof uses the subsequent rational-function subgroup estimate for the middle range.
+Source: BGS16, §4, pp. 11–15. The increasing-order middle-game strategy is retained.
+
+Source: CZ13, Theorem 2 and Corollary 2, pp. 1929–1930; §5, pp. 1939–1942. The requested subgroup-intersection estimate replaces the projective-incidence and Appendix routes.
+
+Source: EFLMT24, Lemma 2.1, pp. 4–5. The local application is used with the conservative repaired constants of MD.5/subgroup-intersection.
 
 Acceptance:
 
-- [ ] Retain the dependence δ(ε) and both torus orders; subpower bounds are requested in Q3.
+- [ ] Retain the dependence δ(ε) and both torus orders. The two cited AN.5 nodes supply the asymptotic subpower and totient bounds; Q3 concerns only explicit constants for MD.5.
 
 ### The opening game
 
@@ -466,13 +477,13 @@ There are c>0 and P such that for every prime p>P every Γ-orbit on X*(F_p) has 
 Proof or construction route:
 
 1. A finite characteristic-zero orbit forces all coordinate eigenvalues to be roots of unity; after a complex embedding their traces lie in [-2,2]. For u²+v²+w²=uvw the bound |uvw|≤(2/3)(u²+v²+w²) forces the origin.
-2. For a purported small finite-field orbit, bound the three coordinate orders by its size. Lift roots of unity of those orders and take the norm of the nonzero Markoff relation.
-3. The norm has absolute value at most 20^{φ(N)} with N the lcm of the orders and is divisible by p. Since N is at most their product, obtain the logarithmic lower bound.
+2. For a purported small finite-field orbit, bound the three coordinate eigenvalue orders by its size, excluding the already large parabolic cycles. Put N equal to their lcm; p∤N. In Q(ζ_N), choose roots reducing to the given eigenvalues at a prime above p, and form the integral Markoff relation α.
+3. The characteristic-zero argument makes α nonzero. RingOfIntegers.dvd_norm shows α divides its integral norm, so reduction at that prime forces p to divide the nonzero integer norm. Algebra.norm_eq_prod_embeddings bounds its absolute value by 20^{[Q(ζ_N):Q]}=20^{φ(N)}. Since N is at most the product of the three orders, obtain the logarithmic lower bound.
 4. Treat orders 1,2 and trace zero separately; trace zero has eigenvalue order 4.
 
-Inputs: `ArithmeticDynamicsPartII:MD.2/conic-rotations`, `ArithmeticDynamicsPartII:MD.2/slice-classification`.
+Inputs: `ArithmeticDynamicsPartII:MD.2/conic-rotations`, `ArithmeticDynamicsPartII:MD.2/slice-classification`, `mathlib:RingOfIntegers.dvd_norm`, `mathlib:Algebra.norm_eq_prod_embeddings`, `mathlib:Algebra.norm_ne_zero_iff`, `mathlib:IsCyclotomicExtension.finrank`.
 
-Source: BGS16, Propositions 11–12, pp. 16–18. Cyclotomic norms prevent small nonzero action orbits.
+Source: BGS16, Propositions 11–12 and proofs, pp. 16–17. Cyclotomic norms prevent small nonzero action orbits.
 
 Acceptance:
 
@@ -491,9 +502,9 @@ Proof or construction route:
 3. Outside the cage orbit all coordinates have small order. Choose η sufficiently small relative to ε, then use the quadratic equation to bound the number of triples.
 4. Use the point count to deduce uniqueness of the giant orbit.
 
-Inputs: `ArithmeticDynamicsPartII:MD.3/middle-game`, `ArithmeticDynamicsPartII:MD.2/point-count-adapter`, `AnalyticNumberTheory:AN.5`, `AnalyticNumberTheory:AN.5/plan/eventual-divisor-subpower-bound`, `AnalyticNumberTheory:AN.5/plan/totient-reciprocal-bound`.
+Inputs: `ArithmeticDynamicsPartII:MD.3/middle-game`, `ArithmeticDynamicsPartII:MD.2/point-count-adapter`, `AnalyticNumberTheory:AN.5/plan/eventual-divisor-subpower-bound`, `AnalyticNumberTheory:AN.5/plan/totient-reciprocal-bound`.
 
-Source: BGS16, Theorem 1, p. 2; §§3–5, pp. 6–17. The giant complement is small in the group action proved by BGS.
+Source: BGS16, Theorem 1, p. 2; §§3–5, pp. 7–17. The giant complement is small in the group action proved by BGS.
 
 Acceptance:
 
@@ -538,7 +549,9 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.0/action-groups`, `ArithmeticDynamicsPartII:MD.0/components`, `ClassicalArithmeticCompletion:CA.4/markoff-root-generation`, `ClassicalArithmeticCompletion:CA.4/markoff-reduction-mod-p`, `ClassicalArithmeticCompletion:CA.4/markoff-strong-approximation`.
 
-Source: M25, §1, p. 624; BGS16 §1, pp. 1–2. This supplies the missing logical bridge between the two group conventions.
+Source: M25, §1, pp. 623–624. This supplies the missing logical bridge between the two group conventions.
+
+Source: BGS16, §1, pp. 1–2. Normality of the move group and symmetry of the root bridge the two orbit conventions.
 
 Acceptance:
 
@@ -558,7 +571,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.1/component-divisibility`, `ArithmeticDynamicsPartII:MD.3/giant-orbit`, `ArithmeticDynamicsPartII:MD.4/root-orbit`.
 
-Source: M25, Theorems 1.2–1.4, pp. 623–624; §2, p. 626. Giant-orbit size and the elementary divisibility identity imply the endpoint.
+Source: M25, Theorems 1.2–1.4 and argument following Theorem 1.4, p. 624. Giant-orbit size and the elementary divisibility identity imply the endpoint.
 
 Acceptance:
 
@@ -578,7 +591,9 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.4/root-orbit`, `ArithmeticDynamicsPartII:MD.0/finite-regressions`, `ClassicalArithmeticCompletion:CA.4/markoff-coefficient-three-twist`, `ClassicalArithmeticCompletion:CA.4/markoff-level-surface`.
 
-Source: C24, Theorem 5.5.7(c), pp. 416–417; M25 §1, p. 624. Prime lifting follows from a single symmetric root orbit.
+Source: C24, Definition 5.5.6 and Theorem 5.5.7(c), pp. 415–416. Prime lifting follows from a single symmetric root orbit.
+
+Source: M25, §1, pp. 623–624. Root-orbit connectivity gives positive lifting; adding the origin gives affine lifting.
 
 Acceptance:
 
@@ -597,7 +612,9 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.0/move-graph`, `ArithmeticDynamicsPartII:MD.4/root-orbit`.
 
-Source: M25, Conjecture 1.1, p. 623; C24 Conjecture 1.2.2, p. 306. This preserves the open all-prime target as a proposition.
+Source: M25, Conjecture 1.1, p. 624. This preserves the open all-prime target as a proposition.
+
+Source: C24, Conjecture 1.2.2, p. 307. The coefficient-one formulation uses vacuous transitivity at 3, not nonempty graph connectedness.
 
 API obligations:
 
@@ -733,9 +750,9 @@ Proof or construction route:
 
 1. Express the rational inequalities over positive denominators; give the 2-power condition as equality after multiplying by nonnegative powers of 2.
 2. Show identity maps are reducing and composition preserves all three conditions.
-3. For coprime source and target factorizations, extend reducing maps by products.
+3. For coprime source and target factorizations, extend reducing maps by products. For the ratio inequality write A_i=m_i/f_i(d_i), B_i=n_i/d_i. If B_i=1 then A_i=1; discard that pair. If some A_i=1<B_i, the product ratio is at most 1/B_i≤1/λ(B₁B₂)≤λ(A₁A₂)/λ(B₁B₂). If both A_i>1, use the ordinary product/minimum identity and the factor with minimal λ(A_i). The ratio is also at most 1. This handles terminal quotients instead of replacing a ratio of minima by an unsupported inequality.
 
-Inputs: `ArithmeticDynamicsPartII:MD.5/maximal-divisors`, `mathlib:Nat.divisors`.
+Inputs: `ArithmeticDynamicsPartII:MD.5/maximal-divisors`, `mathlib:Nat.divisors`, `mathlib:Nat.minFac`.
 
 Source: EFLMT24, Notation 3.3, Definition 3.4 and Lemmas 3.7–3.8, pp. 8–10. The map controls divisor antichains without repeated loss in the size comparison.
 
@@ -752,6 +769,7 @@ Distinguishing checks:
 - [ ] **computation** — For odd primes 3≤q, q^i↦3^i is reducing D(q^a)→D(3^a).
 - [ ] **degenerate** — D(1)→D(1), 1↦1 is reducing and the ratios are all 1.
 - [ ] **non-example** — The map D(3)→D(5), 1↦1,3↦5 is not reducing since f(3)>3.
+- [ ] **degenerate** — For quotient pairs (A₁,B₁)=(1,1) and (A₂,B₂)=(3,5), the true least-prime-factor ratio is 3/5, while the ratio of the separate minima is 1. The product proof must discard the terminal pair rather than assert equality or a lower bound by 1.
 
 Used by: `ArithmeticDynamicsPartII:MD.5/padding-injection`: obtain an antichain injection; `ArithmeticDynamicsPartII:MD.5/reduced-domination`: compose exponent-exchange reductions
 
@@ -887,7 +905,7 @@ Source: EFLMT24, Lemmas 3.18–3.19, p. 17; Theorem 3.21 and proof, pp. 19–20.
 
 Acceptance:
 
-- [ ] n=4,k=0 disproves a bound claimed indiscriminately for all normalized ranks; retain only the central version.
+- [ ] Only the central normalized comparison is claimed by EFLMT Theorem 3.21. The n=4,k=0 example rejects an off-central extension, not the source theorem; see rejected allegation E7 and rank-index misprint E16.
 
 ### Reduced-integer certificates
 
@@ -1012,7 +1030,9 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.5/connectivity-certificate`, `ArithmeticDynamicsPartII:MD.4/root-orbit`, `AnalyticNumberTheory:AN.5`.
 
-Source: M25, §1, p. 624; EFLMT24 Theorem 1.4 and proof, p. 22. The routed numerical endpoint remains visible with its exact unresolved proof obligations.
+Source: M25, §1, p. 624. Martin quotes the conservative decimal threshold.
+
+Source: EFLMT24, Theorem 1.4, p. 3; proof and Algorithm 1, pp. 21–22; Remark 4.6, p. 26. The exact candidate and enumeration are source claims; G3/G4 retain the missing verification.
 
 Acceptance:
 
@@ -1039,7 +1059,7 @@ Proof or construction route:
 
 Inputs: `ClassicalArithmeticCompletion:CA.4/markoff-level-surface`.
 
-Source: C24, Theorem 5.2.10, pp. 398–400; Propositions 5.2.16–5.2.20, pp. 402–404. This is an adapter to shared trace and moduli theory, not a duplicate construction.
+Source: C24, Theorem 5.2.10, pp. 398–400; Propositions 5.2.16–5.2.20, pp. 401–404. This is an adapter to shared trace and moduli theory, not a duplicate construction.
 
 Acceptance:
 
@@ -1061,7 +1081,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.6/trace-moduli`, `mathlib:orderOf`.
 
-Source: C24, Definition 5.1.4 and Proposition 5.1.5, pp. 391–393; Theorem 5.4.4, p. 413. The orbit modulus uses noncentral conjugacy classes.
+Source: C24, Definition 5.1.4 and Proposition 5.1.5, pp. 393–394; Theorem 5.4.4, p. 413. The orbit modulus uses noncentral conjugacy classes.
 
 API obligations:
 
@@ -1123,7 +1143,7 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.6/general-congruences`, `ArithmeticDynamicsPartII:MD.6/trace-order`.
 
-Source: C24, Theorem 5.5.9, p. 417; Theorem 1.2.7, pp. 307–308. The semisimple congruence yields the advertised odd-prime power divisor.
+Source: C24, Theorem 5.5.9, p. 417; Theorem 1.2.7, pp. 308–309. The semisimple congruence yields the advertised odd-prime power divisor.
 
 Acceptance:
 
@@ -1189,7 +1209,9 @@ Proof or construction route:
 
 Inputs: `ClassicalArithmeticCompletion:CA.4/markoff-level-surface`, `ClassicalArithmeticCompletion:CA.4/markoff-coefficient-three-twist`, `mathlib:ZMod.chineseRemainder`, `ArithmeticDynamicsPartII:MD.0/action-groups`.
 
-Source: MP18, §1, pp. 3–4; C24 Theorem 5.5.8, pp. 416–417. The squarefree theorem is about the nonzero-at-every-prime locus.
+Source: MP18, §1, pp. 3–4. The squarefree theorem is about the nonzero-at-every-prime locus.
+
+Source: C24, Theorem 5.5.8(a), p. 417. The primitive CRT locus is the domain of the simultaneous orbit theorem.
 
 API obligations:
 
@@ -1258,7 +1280,9 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.2/conic-rotations`, `ArithmeticDynamicsPartII:MD.7/sign-blocks`, `mathlib:orderOf`.
 
-Source: MP18, Theorems 1.3–1.4, p. 3; C24 equation (5.8), p. 416. The condition ensures the local sign-block action is primitive.
+Source: MP18, Theorems 1.3–1.4, p. 3. The condition ensures the local sign-block action is primitive.
+
+Source: C24, Equation (5.8), p. 416. The same order condition is used in the squarefree application.
 
 API obligations:
 
@@ -1308,7 +1332,7 @@ Let p₁,…,p_r≥5 be distinct primes whose Q_p actions are primitive. Order t
 Proof or construction route:
 
 1. Use primitive-group socle structure and the fact #Y*(p)=p(p±3)/4 is not a prime power for p≠7 to exclude the affine case. At p=7 use the source’s alternative: a nonidentity rotation power fixes more than half of the seven points, impossible for a nonidentity affine transformation.
-2. When rotation orders differ, a power kills one local action but not the other; commutators with minimal normal factors generate the subsequent socle.
+2. When rotation orders differ, a power kills one local action but not the other; commutators with minimal normal factors generate the subsequent socle. Keep the later-prime action Q_q throughout and use distinct K₁ and K₂ commutators in the two-factor case; see E18.
 3. For coinciding orders, use MP18’s finite-group bounds and the equation p²−1=q(q²−1); certify the finite check below q=203897, including the special 11/5 pair.
 4. Use nested commutators to kill all earlier prime actions simultaneously without killing any required subsequent simple factor.
 
@@ -1331,11 +1355,11 @@ Under the preceding local primitivity hypotheses, the kernel Λ_j of Γ acting o
 Proof or construction route:
 
 1. The subsequent nonabelian simple socle survives passing through the solvable sign-block kernel; a direct product of nonabelian simple groups has no subgroup of index 2 or 3.
-2. Construct commutators between suitable rotation powers to exchange the four signs while fixing all earlier primes.
+2. Construct commutators between suitable rotation powers to exchange the four signs while fixing all earlier primes. In the p≡1 mod4 case the second commutator uses rotation 2 in both occurrences and is a separate element h₂; see E17.
 3. For p≡3 mod4 use a point with two elliptic coordinates whose eigenvalue orders are divisible by 4. The character count is at least (p−11√p)/4 for p>121, with exact checks for smaller p except 3,11.
 4. Enlarge to include the auxiliary primes 2,5,7,11, certify transitivity at their product 770, and project away auxiliary factors. This finite certificate is G5.
 
-Inputs: `ArithmeticDynamicsPartII:MD.7/subdirect-independence`, `ArithmeticDynamicsPartII:MD.7/sign-blocks`, `ArithmeticDynamicsPartII:MD.2/slice-classification`.
+Inputs: `ArithmeticDynamicsPartII:MD.7/subdirect-independence`, `ArithmeticDynamicsPartII:MD.7/sign-blocks`, `ArithmeticDynamicsPartII:MD.2/slice-classification`, `FiniteFieldsAndCharacterSums:FF.2/weil-bound-multiplicative`.
 
 Source: MP18, Lemmas 5.4–5.5 and Proposition 5.6, pp. 21–24. The source’s sign-lifting step is a separate argument after independence on Y*.
 
@@ -1359,7 +1383,9 @@ Proof or construction route:
 
 Inputs: `ArithmeticDynamicsPartII:MD.7/primitive-squarefree-locus`, `ArithmeticDynamicsPartII:MD.7/block-primitivity`, `ArithmeticDynamicsPartII:MD.7/subdirect-independence`, `ArithmeticDynamicsPartII:MD.7/sign-lifting`, `ClassicalArithmeticCompletion:CA.4/markoff-root-generation`.
 
-Source: MP18, Theorem 1.9, p. 4; §5, pp. 19–27; C24 Theorem 5.5.8(a), p. 417. The primitive simultaneous orbit theorem is the correct composite-modulus endpoint.
+Source: MP18, Theorem 1.9, p. 4; §5, pp. 19–27. The primitive simultaneous orbit theorem is the correct composite-modulus endpoint.
+
+Source: C24, Theorem 5.5.8(a), p. 417. The primitive simultaneous orbit endpoint is retained.
 
 Acceptance:
 
@@ -1424,7 +1450,7 @@ Not supplied by a geometric character sum for a fixed p. The underlying CKSZ pro
 
 Use the existing quadratic-character bound for geometrically non-square polynomials with their distinct-root count and excluded poles, uniformly in the slice parameters. The non-square tests belong here, not to a new character-sum theorem.
 
-Needed by: `ArithmeticDynamicsPartII:MD.3/slice-incidence`, `ArithmeticDynamicsPartII:MD.7/block-primitivity`.
+Needed by: `ArithmeticDynamicsPartII:MD.3/slice-incidence`, `ArithmeticDynamicsPartII:MD.7/block-primitivity`, `ArithmeticDynamicsPartII:MD.7/sign-lifting`.
 
 
 
@@ -1450,7 +1476,7 @@ Needed by: `ArithmeticDynamicsPartII:MD.5/complement-four-p`, `ArithmeticDynamic
 
 ### ArithmeticDynamicsPartII/G4 — Sharp local constants and the quoted numerical endpoint
 
-Source finding E4: the four-punctured genus-one curve and degree-two coordinate maps give a safe (3/2)max((32td)^(1/3),16td/p) bound from CZ13, not the source’s (3/2)max((6td)^(1/3),4td/p). Either independently prove the sharper bound, or run and verify a complete certificate with the repaired constants. The published PLMS 2025 proof could not be retrieved (403); this finding concerns the dated author revision only. Source algorithms report 124720785 reduced integers and 48066 expensive checks; none is a delivered certificate. The exact N and central coefficient were checked but cannot close the gap.
+Source finding E4: the four-punctured genus-one curve and degree-two coordinate maps give a safe (3/2)max((32td)^(1/3),16td/p) bound from CZ13, not the source’s (3/2)max((6td)^(1/3),4td/p). Either independently prove the sharper bound, or run and verify a complete certificate with the repaired constants. The published PLMS 2025 proof could not be retrieved (403); this finding concerns the dated author revision only. Source algorithms report 124720785 reduced-integer outputs in the search and 48066 outputs below the eventual cutoff (Remark 4.6, p. 26); none is a delivered certificate. The exact N and central coefficient were checked but cannot close the gap.
 
 Needed by: `ArithmeticDynamicsPartII:MD.5/effective-bound`, `ArithmeticDynamicsPartII:MD.5/connectivity-certificate`.
 
@@ -1460,219 +1486,297 @@ MP18 §5.1, pp. 19–21 relies on transitivity for the auxiliary product 2·5·7
 
 Needed by: `ArithmeticDynamicsPartII:MD.7/sign-lifting`.
 
-## Source findings requiring independent review
+## Independently reviewed source findings
 
-These are proposed corrections, with prior extraction findings identified separately. No reviewer verdict or author notification is implied. All descriptions below are in our own words.
+The review confirms seventeen findings and rejects E7 as stated. The corrected rank-index diagnosis is E16; E14 also replaces the design pass’s invalid proposed repair. These are independent review decisions, not author notifications. Descriptions are in our own words.
 
-### ArithmeticDynamicsPartII/E1 — error; affects a stated result
+### ArithmeticDynamicsPartII/E1 — error; review confirmed
 
-M25, Published Theorem 1.4, p. 624; proof §2, pp. 625–626.
+M25, Published Theorem 1.4, p. 624; proof §2, pp. 624–625.
 
 Source assertion: The coefficient-three graph divisibility statement is given for every prime.
 
-Correction: Require p≠3; handle p=2 by finite enumeration and p>3 by weights.
+Proposed correction: Require p≠3; handle p=2 by finite enumeration and p>3 by weights.
 
 Check: At p=3 the nonzero locus is {±1}³, the graph is a connected eight-vertex cube, and 3 does not divide 8. In the proof the denominator 3 is not invertible.
 
+Independent verdict: **confirmed** — Confirmed in the published statement and proof: the proof starts with p>3, and direct enumeration gives a connected eight-point coefficient-three graph at 3. The corrected range includes 2 by its four-point graph.
+
 Prior status: Already identified in PAPER-MARTIN-25 item 33; checked here against the published HTML.
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E2 — error; affects a stated result
+### ArithmeticDynamicsPartII/E2 — error; review confirmed
 
 C24, Published author copy, Theorem 5.5.8(b) and proof, p. 417.
 
 Source assertion: Under the local transitivity and MP hypotheses, full affine integral reduction is claimed surjective at squarefree n.
 
-Correction: Keep transitivity and lifting on the primitive locus. For distinct primes ≥5 satisfying the hypotheses, the full affine image is exactly the origin together with the primitive locus.
+Proposed correction: Keep transitivity and lifting on the primitive locus. For distinct primes ≥5 satisfying the hypotheses, the full affine image is exactly the origin together with the primitive locus.
 
 Check: Take n=65. The coefficient-three point (40,40,40) satisfies the equation, reduces to the origin at 5 and the root at 13. Every nonzero integral coefficient-three solution can be made positive by double sign changes and has pairwise coprime coordinates by CA.4 integer descent, so cannot reduce to the origin at 5. The point cannot lift. The corresponding coefficient-one point is (55,55,55). Both 5,13 satisfy MP and direct finite orbit checks give transitivity.
 
+Independent verdict: **confirmed** — Confirmed at printed p. 417. The mod-65 points solve their respective equations and vanish at 5 only. The imported positive descent and coprimality theorem forbid such a reduction of any nonzero integral triple; local transitivity at 5 and 13 was independently enumerated.
+
 Prior status: new
 
-Search: 2026-10-19: Chen’s author publication page and linked Annals author PDF; Annals 199 article page; arXiv:2011.12940 version history; searches for Chen Markoff squarefree erratum/correction. No correction located. This is a proposed new finding pending independent review.
+Search receipt from the design/review passes: 2026-10-19: Chen’s author publication page and linked Annals author PDF; Annals 199 article page; arXiv:2011.12940 version history; searches for Chen Markoff squarefree erratum/correction. No correction located. This is a proposed new finding pending independent review.
 
-### ArithmeticDynamicsPartII/E3 — error; affects the proof
+### ArithmeticDynamicsPartII/E3 — error; review confirmed
 
 C24, Published author copy, proof of Theorem 5.5.8(b), p. 417, characteristic-three assertion.
 
 Source assertion: The proof describes the coefficient-three locus at 3 as two single-point orbits represented by the origin and the root.
 
-Correction: There are two orbits, but the nonzero one has eight points; each Vieta move flips its selected sign.
+Proposed correction: There are two orbits, but the nonzero one has eight points; each Vieta move flips its selected sign.
 
 Check: The equation modulo 3 is x²+y²+z²=0. Besides the origin its solutions are exactly {±1}³, and R_i changes one sign.
 
+Independent verdict: **confirmed** — Confirmed at p. 417. Direct arithmetic gives exactly eight nonzero coefficient-three solutions at 3; the three moves independently change signs, yielding one orbit of size eight.
+
 Prior status: new
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E4 — gap; affects the proof
+### ArithmeticDynamicsPartII/E4 — gap; review confirmed
 
 EFLMT24, 29 July 2024 author revision, Lemma 2.1 and proof, pp. 4–5; not collated with PLMS 2025.
 
 Source assertion: The CZ application counts three removed points and uses the subgroup exponents as the degrees, yielding (3/2)max((6td)^(1/3),4td/p).
 
-Correction: The direct CZ13 argument gives the safe bound (3/2)max((32td)^(1/3),16td/p) for nonparabolic traces. Prove a sharper estimate by another argument or redo the interval and certificate constants. This finding does not assert the lemma’s bound or final numerical theorem is false.
+Proposed correction: The direct CZ13 argument gives the safe bound (3/2)max((32td)^(1/3),16td/p) for nonparabolic traces. Prove a sharper estimate by another argument or redo the interval and certificate constants. This finding does not assert the lemma’s bound or final numerical theorem is false.
 
 Check: After normalization the plane cubic is αX²Y−XY²−XZ²+βYZ²=0, αβ=κ≠0,1. Its boundary consists of [1:0:0], [0:1:0], [0:0:1], [1:α:0]. It is smooth of genus one, so χ=4. Each coordinate map has degree 2, and the t,d power maps have degrees 2t,2d. CZ13 Theorem 2 gives max(3(32td)^(1/3),48td/p) for pairs; each nonparabolic trace has two inverse eigenvalues.
 
+Independent verdict: **confirmed** — Confirmed as a gap in the specified author-revision proof, not a disproof of the bound or a claim about the inaccessible PLMS proof. The smooth cubic has four distinct punctures, χ=4, and coordinate degrees two; direct substitution into CZ13 gives the conservative constants recorded in the packet.
+
 Prior status: new
 
-Search: 2026-10-19: Fuchs’s and Martin’s author publication links, arXiv:2308.07579v1 and version history, Wiley DOI 10.1112/plms.70027 and PDF/epdf endpoints (403), title/correction searches. Published proof inaccessible; finding scoped only to the author revision read.
+Search receipt from the design/review passes: 2026-10-19: Fuchs’s and Martin’s author publication links, arXiv:2308.07579v1 and version history, Wiley DOI 10.1112/plms.70027 and PDF/epdf endpoints (403), title/correction searches. Published proof inaccessible; finding scoped only to the author revision read.
 
-### ArithmeticDynamicsPartII/E5 — error; affects a stated result
+### ArithmeticDynamicsPartII/E5 — error; review confirmed
 
 C24, Published author copy, Theorem 5.5.7(b), pp. 415–416.
 
 Source assertion: The connectedness assertion includes the SL₂ epimorphism moduli locus at p=2,3.
 
-Correction: Add p≥5. At p=2,3 that locus is empty; keep the separate finite trace-action and affine lifting assertions.
+Proposed correction: Add p≥5. At p=2,3 that locus is empty; keep the separate finite trace-action and affine lifting assertions.
 
 Check: Chen §5.6 explicitly identifies the empty small-prime epimorphism loci. Nonemptiness is necessary for the intended connectedness statement.
 
+Independent verdict: **confirmed** — Confirmed for the intended nonempty geometric connectedness assertion by comparing Theorem 5.5.7(b) with §5.6, p. 417. Keep p≥5 and the separate small-prime trace/affine statements.
+
 Prior status: Already identified in REV-PAPER-CHEN-24, item 93 note.
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E6 — misprint; affects a stated result
+### ArithmeticDynamicsPartII/E6 — misprint; review confirmed
 
 EFLMT24, arXiv:2308.07579v1, Theorem 1.3; compare 29 July 2024 author revision, p. 2.
 
 Source assertion: The earlier statement uses equality with the entropy main term for each individual integer.
 
-Correction: Use an upper bound with the indicated error, as in the author revision.
+Proposed correction: Use an upper bound with the indicated error, as in the author revision.
 
 Check: Integers of sparse prime factorization have far fewer maximal divisors than the displayed main term; the proof supplies an upper bound.
 
+Independent verdict: **confirmed** — Confirmed version-specific: arXiv v1 uses equality, whereas the 29 July 2024 author PDF Theorem 1.3 uses ≤. The correction was already made in that author revision.
+
 Prior status: Corrected to ≤ in the 29 July 2024 author revision; retained to prevent reuse of the old extraction.
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E7 — error; affects the proof
+### ArithmeticDynamicsPartII/E7 — error; review rejected
 
 EFLMT24, 29 July 2024 author revision, proof of Theorem 3.21, pp. 19–20, intermediate claim (24).
 
-Source assertion: A τ-normalized binomial comparison is used as though it held at every rank.
+Rejected allegation: A τ-normalized binomial comparison is used as though it held at every rank.
 
-Correction: For the needed conclusion first bound an antichain by the central rank, then prove the normalized comparison only at that central rank.
+Proposed correction: For the needed conclusion first bound an antichain by the central rank, then prove the normalized comparison only at that central rank.
 
 Check: For n=4 at rank k=0, C₀(4)=1 whereas τ(4)·binom(2,0)/2²=3/4. The central comparison at k=1 is valid and suffices for the final theorem.
 
+Independent verdict: **rejected** — Rejected as stated. Theorem 3.21 and its proof restrict the normalized comparison to the central rank. Page 20 explicitly uses distance from floor(Ω(n)/2); no assertion for every rank is made. The n=4,k=0 example disproves only an unclaimed extension. Page 19 instead has two missing /2 rank-index misprints, recorded separately as E16.
+
 Prior status: new
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E8 — misprint; affects the proof
+### ArithmeticDynamicsPartII/E8 — misprint; review confirmed
 
 EFLMT24, 29 July 2024 author revision, proof of Theorem 4.2, p. 22, chain following (29).
 
 Source assertion: A subsequent loop-guard comparison carries factor 3 although (29) and the algorithm use factor 8.
 
-Correction: Use 8 in that comparison and retain the eighth power on the rank bound in every substitution.
+Proposed correction: Use 8 in that comparison and retain the eighth power on the rank bound in every substitution.
 
 Check: The preceding displayed chain is n+2<8(3C_k(n))^8; it does not imply the smaller right-hand side. Our certificate derives its own guard from the repaired local constants.
 
+Independent verdict: **confirmed** — Confirmed by the chain following (29), p. 22: one intermediate substitution drops the eighth power, and a later comparison uses 3 where the loop guard needs 8. The packet derives a fresh guard and does not infer the numerical theorem from this line.
+
 Prior status: new
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E9 — misprint; affects nothing
+### ArithmeticDynamicsPartII/E9 — misprint; review confirmed
 
-EFLMT24, 29 July 2024 author revision, §4.1, p. 21, introductory definition of M_d.
+EFLMT24, 29 July 2024 author revision, §4.1 introductory definition and Theorem 4.2, pp. 20–21.
 
 Source assertion: The two maximal-divisor sets are joined by union inside one cardinality.
 
-Correction: Use #M_d(p−1)+#M_d(p+1), as in Theorem 3.2.
+Proposed correction: Use #M_d(p−1)+#M_d(p+1), as in Theorem 3.2.
 
 Check: A common divisor belongs to two distinct torus contributions and must count twice. The subsequent bound by twice the larger cardinality uses the sum convention.
 
+Independent verdict: **confirmed** — Confirmed on pp. 20–21 against Theorem 3.2, p. 7. Split and nonsplit subgroup contributions require a sum of cardinalities, counting common divisors twice.
+
 Prior status: new
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E10 — error; affects the proof
+### ArithmeticDynamicsPartII/E10 — error; review confirmed
 
 BGS16, arXiv:1607.01530v1, §4, p. 14, proof after (53).
 
 Source assertion: The projective-incidence route uses that every proper subgroup of SL₂(F_p) has trivial second derived subgroup.
 
-Correction: Account for the exceptional finite projective subgroups, or use the CZ13 subgroup-intersection route chosen in MD.3.
+Proposed correction: Account for the exceptional finite projective subgroups, or use the CZ13 subgroup-intersection route chosen in MD.3.
 
-Check: For suitable primes there is a proper binary icosahedral subgroup of SL₂(F_p), whose quotient A₅ is perfect, so its second derived subgroup is nontrivial. Nonvanishing of a double commutator alone does not establish Zariski/group generation in all cases.
+Check: For suitable primes there is a proper binary icosahedral subgroup of SL₂(F_p), whose quotient A₅ is perfect, so its second derived subgroup is nontrivial. Nonvanishing of a double commutator alone does not establish Zariski/group generation in all cases. Independently, over F₁₁ the matrices A=[[0,10],[1,0]] and B=[[0,2],[5,1]] generate a group of order 120 whose derived group also has order 120, whereas #SL₂(F₁₁)=1320. Exact finite multiplication verifies a proper perfect counterexample.
+
+Independent verdict: **confirmed** — Confirmed for the universal subgroup assertion at BGS16 p. 14; it persists in BGS24 p. 20. Exact enumeration of the displayed order-120 perfect subgroup in SL₂(F₁₁) independently refutes the shortcut. The chosen CZ route avoids it.
 
 Prior status: new
 
-Search: 2026-10-19: arXiv:1607.01530 history, Sarnak IAS publication page and subsequent 2024 author manuscript, §4, p. 20 (the shortcut persists); title/erratum searches. No correction located. This plan avoids that route.
+Search receipt from the design/review passes: 2026-10-19: arXiv:1607.01530 history, Sarnak IAS publication page and subsequent 2024 author manuscript, §4, p. 20 (the shortcut persists); title/erratum searches. No correction located. This plan avoids that route.
 
-### ArithmeticDynamicsPartII/E11 — error; affects a stated result
+### ArithmeticDynamicsPartII/E11 — error; review confirmed
 
 BGS16, arXiv:1607.01530v1, Appendix A, Corollary 15, p. 20.
 
 Source assertion: Every nonidentity projective transformation is claimed to meet a roots-of-unity subgroup in O(t^(3/4)) points.
 
-Correction: Exclude transformations preserving the multiplicative subgroup or prove a suitable restricted version. This plan uses CZ13 instead.
+Proposed correction: Exclude transformations preserving the multiplicative subgroup or prove a suitable restricted version. This plan uses CZ13 instead.
 
 Check: The nonidentity transformation σ(y)=1/y preserves U_t, so the intersection has t points. Unbounded t with t∣p−1 and t≤p^(3/4) contradict the stated uniform sublinear bound.
 
+Independent verdict: **confirmed** — Confirmed at BGS16 Corollary 15, p. 20, and retained in BGS24 Corollary 21, p. 29. Inversion preserves every root-of-unity subgroup. The blanket nonidentity hypothesis cannot give a uniform sublinear bound.
+
 Prior status: new
 
-Search: 2026-10-19: arXiv:1607.01530 history; subsequent 2024 IAS author manuscript Appendix A, Corollary 21, pp. 29–30 retains the nonidentity-only hypothesis; title/erratum searches. No correction located; finding here is scoped to arXiv v1.
+Search receipt from the design/review passes: 2026-10-19: arXiv:1607.01530 history; subsequent 2024 IAS author manuscript Appendix A, Corollary 21, pp. 29–30 retains the nonidentity-only hypothesis; title/erratum searches. No correction located; finding here is scoped to arXiv v1.
 
-### ArithmeticDynamicsPartII/E12 — misprint; affects the proof
+### ArithmeticDynamicsPartII/E12 — misprint; review confirmed
 
 BGS16, arXiv:1607.01530v1, §5, equation (63), p. 16 and following paragraph, p. 17.
 
 Source assertion: Some inverse eigenvalues have the wrong index in the cyclotomic relation, and the all-zero trace exception is assigned order 2.
 
-Correction: Use the inverse of the same eigenvalue in each coordinate, and eigenvalue order 4 for trace zero.
+Proposed correction: Use the inverse of the same eigenvalue in each coordinate, and eigenvalue order 4 for trace zero.
 
 Check: The characteristic polynomial at trace zero is T²+1; its roots ±i have order 4 in characteristic zero. Correct indices are needed before reducing the cyclotomic relation modulo p.
 
-Prior status: The subsequent 2024 IAS author manuscript §5, equations (82) and following paragraph, p. 22 corrects the order to 4; the index slips in the displayed relation persist.
+Independent verdict: **confirmed** — Confirmed in BGS16 equation (63), p. 16, and the following paragraph on p. 17. The polynomial T²+1 gives order four, and each trace uses its own inverse root. BGS24 equation (80), p. 22, fixes the order in the following paragraph but retains index slips.
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Prior status: The subsequent 2024 IAS author manuscript §5, equation (80) and following paragraph, p. 22 corrects the order to 4; the index slips in the displayed relation persist.
 
-### ArithmeticDynamicsPartII/E13 — misprint; affects nothing
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+
+### ArithmeticDynamicsPartII/E13 — misprint; review confirmed
 
 MP18, arXiv:1702.08358v2, Corollary 5.11 proof, p. 25.
 
 Source assertion: The first exclusion of the affine primitive-group case says #Y*(p)=p(p±3)/4 is never a prime power for p≥5.
 
-Correction: Separate p=7, where #Y*(7)=7. The alternative rotation fixed-point argument in the same paragraph excludes the affine case there.
+Proposed correction: Separate p=7, where #Y*(7)=7. The alternative rotation fixed-point argument in the same paragraph excludes the affine case there.
 
 Check: The p≡3 mod4 formula gives 7(7−3)/4=7. The source already supplies a second argument which does not use this numerical claim.
 
+Independent verdict: **confirmed** — Confirmed at MP18 p. 25: #Y*(7)=7 is a prime power. The same paragraph offers the valid fixed-point argument, so this does not invalidate the endpoint.
+
 Prior status: The same paragraph supplies a valid alternative proof using a nonidentity element fixing more than half the points.
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E14 — misprint; affects nothing
+### ArithmeticDynamicsPartII/E14 — misprint; review confirmed
 
 EFLMT24, 29 July 2024 author revision, Lemma 3.7 proof, p. 9, first displayed least-prime-factor comparison.
 
 Source assertion: The least prime factor of a product of two divisor quotients is replaced by the minimum of their least prime factors, including quotients equal to 1.
 
-Correction: Use ≥ at that step, which is enough for the rest of the proof. With λ(1)=1 the equality requires both factors greater than 1 (or a separate terminal case).
+Proposed correction: Separate quotient-one cases in the product of reducing maps. If a denominator quotient equals 1, its numerator equals 1 and that pair can be discarded. If a numerator quotient equals 1 with denominator >1, bound the product ratio by the reciprocal of that denominator. Use least-prime-factor product/minimum identities only once both numerator factors exceed 1.
 
-Check: For quotients 1 and 3, λ(1·3)=3 whereas min(λ(1),λ(3))=1. The lower-bound direction needed by the reducing-map proof is valid.
+Check: With λ(1)=1 the product/minimum identity fails. Replacing it by ≥ does not repair a ratio containing both numerator and denominator minima: (A₁,B₁)=(1,1), (A₂,B₂)=(3,5) gives actual ratio 3/5 and ratio of minima 1. The case split in reducing-functions proves the needed product inequality.
+
+Independent verdict: **confirmed** — Confirmed as a product/minimum misprint; the author-pass proposed ≥ repair is rejected and replaced. The explicit terminal-pair example shows that its first ratio comparison is still false. The corrected case split establishes product stability without assuming that comparison.
 
 Prior status: new
 
-Search: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
+Search receipt from the design/review passes: 2026-10-19: source arXiv version history and linked author publication pages; searches for the title with erratum/correction. No correction found; independent review still required.
 
-### ArithmeticDynamicsPartII/E15 — misprint; affects nothing
+### ArithmeticDynamicsPartII/E15 — misprint; review confirmed
 
 C24, Published author copy, proof of Proposition 5.4.2, p. 412, nonsplit case.
 
 Source assertion: A Frobenius-stable eigenline is treated as though every chosen nonzero vector on it already has coordinates in the base field.
 
-Correction: Normalize one nonzero coordinate to 1. The ratio of the two coordinates is Frobenius-fixed, so the line has a base-field generator; that generator, rather than the original vector, contradicts nonsplitness.
+Proposed correction: Normalize one nonzero coordinate to 1. The ratio of the two coordinates is Frobenius-fixed, so the line has a base-field generator; that generator, rather than the original vector, contradicts nonsplitness.
 
 Check: From x^q=ax and y^q=ay one cannot conclude x^(q−1)=y^(q−1)=1 for arbitrary a. A non-base-field scalar multiple of a base-field vector is a counterexample to that intermediate assertion. The coordinate-ratio argument repairs the proof, including a separate zero-coordinate case.
 
+Independent verdict: **confirmed** — Confirmed at Chen p. 412. A Frobenius-stable line has a base-field generator after normalization; an arbitrary scalar multiple need not be fixed. The ratio argument repairs exactly that intermediate step.
+
 Prior status: new
 
-Search: 2026-10-19: Chen author publication page and published PDF, Annals article page, arXiv history, and a search for the title with Proposition 5.4.2 correction/erratum. No correction found; independent review required.
+Search receipt from the design/review passes: 2026-10-19: Chen author publication page and published PDF, Annals article page, arXiv history, and a search for the title with Proposition 5.4.2 correction/erratum. No correction found; independent review required.
+
+### ArithmeticDynamicsPartII/E16 — misprint; review confirmed
+
+EFLMT24, 29 July 2024 author revision, proof of Theorem 3.21, p. 19, the two specifications of k before (24).
+
+Source assertion: Two occurrences choose k=floor(Ω(n)), although the theorem and comparison concern the central rank.
+
+Proposed correction: Use k=floor(Ω(n)/2) in both occurrences.
+
+Check: Theorem 3.21 states the central coefficient; the continuation on p. 20 measures distance from floor(Ω(n)/2). This is a rank-index misprint, not an all-ranks comparison. It supersedes the rejected diagnosis E7.
+
+Independent verdict: **confirmed** — Theorem 3.21 states the central coefficient; the continuation on p. 20 measures distance from floor(Ω(n)/2). This is a rank-index misprint, not an all-ranks comparison. It supersedes the rejected diagnosis E7.
+
+Prior status: Identified in independent review; no author notification implied.
+
+Search receipt from the design/review passes: 2026-10-19: compared the public version identified above and its available publication/version metadata; no separately published correction located.
+
+### ArithmeticDynamicsPartII/E17 — misprint; review confirmed
+
+MP18, arXiv:1702.08358v2, proof of Lemma 5.5, p. 22, second commutator in Case 1.
+
+Source assertion: The displayed second sign-changing commutator reuses rotation 1 and the name h₁ after the preceding argument uses rotation 2.
+
+Proposed correction: Use rotation 2 in both positions of that commutator and call it h₂.
+
+Check: The second coordinate must stay fixed. For p=13, exponent (p²−1)/4=42 makes rotation 1 send (0,x,ix) to (0,−x,−ix), whereas rotation 2 gives the stated (0,x,−ix). The second-index construction repairs the proof; the node now states it explicitly.
+
+Independent verdict: **confirmed** — The second coordinate must stay fixed. For p=13, exponent (p²−1)/4=42 makes rotation 1 send (0,x,ix) to (0,−x,−ix), whereas rotation 2 gives the stated (0,x,−ix). The second-index construction repairs the proof; the node now states it explicitly.
+
+Prior status: Identified in independent review; no author notification implied.
+
+Search receipt from the design/review passes: 2026-10-19: compared the public version identified above and its available publication/version metadata; no separately published correction located.
+
+### ArithmeticDynamicsPartII/E18 — misprint; review confirmed
+
+MP18, arXiv:1702.08358v2, proof of Lemma 5.13, Case 1, pp. 25–26.
+
+Source assertion: Some group labels switch between the earlier and later prime, and the two-factor commutator repeats h₁ in both coordinates.
+
+Proposed correction: Use Q_q for the later-prime action and its centralizer, the K₂ component [g,h₂] in the commutator, and π_q for the final later-prime image.
+
+Check: Here g acts on Y*(q), h₁∈K₁, h₂∈K₂, and the target is the image in Q_q. The surrounding definitions force these types and indices; the corrected construction has both nontrivial components.
+
+Independent verdict: **confirmed** — Here g acts on Y*(q), h₁∈K₁, h₂∈K₂, and the target is the image in Q_q. The surrounding definitions force these types and indices; the corrected construction has both nontrivial components.
+
+Prior status: Identified in independent review; no author notification implied.
+
+Search receipt from the design/review passes: 2026-10-19: compared the public version identified above and its available publication/version metadata; no separately published correction located.
 
 ## Source versions and reading extent
 
@@ -1680,11 +1784,11 @@ Search: 2026-10-19: Chen author publication page and published PDF, Annals artic
 
 - **BGS16** — Jean Bourgain, Alexander Gamburd, Peter Sarnak, *Markoff Surfaces and Strong Approximation: 1*, arXiv:1607.01530v1, 6 July 2016. [Source](https://arxiv.org/pdf/1607.01530v1). Read: §§1–6 and Appendix, PDF pp. 1–24; all proof sections read SHA-256: `50f3dcde0c4a3a841f4eb3556838ecd162a7988ea3d3c1235f53c9c427b03e9e`.
 
-- **C24** — William Y. Chen, *Nonabelian level structures, Nielsen equivalence, and Markoff triples*, Annals of Mathematics 199 (2024), 301–443; published author copy. [Source](https://www.williamyunchen.com/s/Chen-Nonabelian-level-structures-Nielsen-equivalence-and-Markoff-triples.pdf). Read: §5.2.1–10, pp. 395–400; §5.2.17–22, pp. 402–404; §5.3, pp. 406–410; §§5.4–5.5, pp. 410–417. General moduli proofs before §5 are supplier inputs, not claimed decomposed here. SHA-256: `9386db34c31671966440f18bccfefe11bd806aa221010e0e3336fecf8ff920ac`.
+- **C24** — William Y. Chen, *Nonabelian level structures, Nielsen equivalence, and Markoff triples*, Annals of Mathematics 199 (2024), 301–443; published author copy. [Source](https://www.williamyunchen.com/s/Chen-Nonabelian-level-structures-Nielsen-equivalence-and-Markoff-triples.pdf). Read: Review: introductory finite-field endpoints, pp. 306–309; §5.1 and §5.2, pp. 391–404; §5.3, pp. 406–410; §§5.4–5.5 and start of §5.6, pp. 410–417. General moduli proofs before §5 remain G1, not decomposed here. SHA-256: `9386db34c31671966440f18bccfefe11bd806aa221010e0e3336fecf8ff920ac`.
 
-- **EFLMT24** — Jillian Eddy, Elena Fuchs, Matthew Litman, Daniel Martin, Nico Tripeny, *Connectivity of Markoff mod-p graphs and maximal divisors*, Author revision dated 29 July 2024, 30 pp.; distinct from arXiv v1 and from PLMS 130 (2025), e70027. [Source](https://www.math.ucdavis.edu/~efuchs/Markoffconnectivity.pdf). Read: §§1–4, pp. 1–26; §5 numerical examples, pp. 26–28; Appendix §6, pp. 28–29. Algorithms and their soundness proofs read; no large computation rerun. SHA-256: `0795f7cd9c28c147ed642392919cd0879714a36e461ca353b379f7ea66bee8c0`.
+- **EFLMT24** — Jillian Eddy, Elena Fuchs, Matthew Litman, Daniel Martin, Nico Tripeny, *Connectivity of Markoff mod-p graphs and maximal divisors*, Author revision dated 29 July 2024, 30 pp.; distinct from arXiv v1 and from PLMS 130 (2025), e70027. [Source](https://www.math.ucdavis.edu/~efuchs/Markoffconnectivity.pdf). Read: §§1–4, pp. 1–26; §5, p. 27; Appendix §6, pp. 28–29. Algorithms and soundness arguments read; the large enumeration was not rerun. SHA-256: `0795f7cd9c28c147ed642392919cd0879714a36e461ca353b379f7ea66bee8c0`.
 
-- **MP18** — Chen Meiri, Doron Puder; appendix Dan Carmon, *The Markoff Group of Transformations in Prime and Composite Moduli*, arXiv:1702.08358v2, manuscript dated 18 April 2018. [Source](https://arxiv.org/pdf/1702.08358v2). Read: §1, pp. 2–5; §3 and §4.1–4.2, pp. 9–17; §5.1–5.3, pp. 19–27. General permutation-group input remains a gap; CFSG route §4.3 is not required. SHA-256: `b3e0b479344b829e83565cf05362aab6f92a7764949145702a869af06efa7461`.
+- **MP18** — Chen Meiri, Doron Puder; appendix Dan Carmon, *The Markoff Group of Transformations in Prime and Composite Moduli*, arXiv:1702.08358v2, manuscript dated 18 April 2018. [Source](https://arxiv.org/pdf/1702.08358v2). Read: §§1–2, pp. 2–8; §3 and §4.1–4.2, pp. 9–17; §5.1–5.3, pp. 19–27. Generic primitive-group source proofs remain G2; the CFSG route is not used. SHA-256: `b3e0b479344b829e83565cf05362aab6f92a7764949145702a869af06efa7461`.
 
 - **CZ13** — Pietro Corvaja, Umberto Zannier, *Greatest common divisors of u−1, v−1 in positive characteristic and rational points on curves over finite fields*, Journal of the European Mathematical Society 15 (2013), 1927–1942; publisher PDF. [Source](https://ems.press/content/serial-article-files/31918?nt=1). Read: Theorem 2 and Corollaries 1–2, pp. 1929–1930; §5, pp. 1939–1942. General function-field estimate is a supplier request. SHA-256: `78df155f3c10d6756aed5acc91c7c8ec926c0e502f6a037c879a2ac5fe4c22b4`.
 
@@ -1700,36 +1804,25 @@ Every following declaration statement was read at the pinned Mathlib commit. The
 | --- | --- | --- |
 
 | `mathlib:SimpleGraph` | Graph carrier with symmetric loopless adjacency | `Mathlib/Combinatorics/SimpleGraph/Basic.lean` |
-
 | `mathlib:SimpleGraph.Reachable` | Nonempty walk relation, including the zero-length walk | `Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean` |
-
 | `mathlib:SimpleGraph.ConnectedComponent` | Quotient by graph reachability | `Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean` |
-
 | `mathlib:Subgroup.closure` | Subgroup generated by a set, as an intersection | `Mathlib/Algebra/Group/Subgroup/Lattice.lean` |
-
 | `mathlib:MulAction.orbit` | Set.range of the orbit map | `Mathlib/GroupTheory/GroupAction/Defs.lean` |
-
 | `mathlib:Equiv.Perm` | Permutation group as self equivalences | `Mathlib/Logic/Equiv/Defs.lean` |
-
 | `mathlib:ZMod` | Integer modulus carrier, with modulus zero equal to the integers | `Mathlib/Data/ZMod/Defs.lean` |
-
 | `mathlib:ZMod.natCast_eq_zero_iff` | For natural a,b, (a:ZMod b)=0 iff b divides a | `Mathlib/Data/ZMod/Basic.lean` |
-
 | `mathlib:ZMod.chineseRemainder` | Ring equivalence for coprime natural moduli | `Mathlib/Data/ZMod/Basic.lean` |
-
 | `mathlib:orderOf` | Multiplicative element order, zero when no positive period exists | `Mathlib/GroupTheory/OrderOfElement.lean` |
-
 | `mathlib:Nat.divisors` | Finite positive divisors of a natural number; empty at zero | `Mathlib/NumberTheory/Divisors.lean` |
-
 | `mathlib:Nat.totient` | Number of coprime residues in the finite interval below n | `Mathlib/Data/Nat/Totient.lean` |
-
 | `mathlib:Nat.factorization` | Finite prime-exponent function, zero away from primes | `Mathlib/Data/Nat/Factorization/Defs.lean` |
-
 | `mathlib:Nat.minFac` | Least prime divisor with minFac 1=1 and minFac 0=2 | `Mathlib/Data/Nat/Prime/Defs.lean` |
-
 | `mathlib:MulAction.IsBlock` | Distinct translates of a block are disjoint | `Mathlib/GroupTheory/GroupAction/Blocks.lean` |
-
 | `mathlib:MulAction.IsPreprimitive` | Pretransitive action with only trivial blocks | `Mathlib/GroupTheory/GroupAction/Primitive.lean` |
+| `mathlib:RingOfIntegers.dvd_norm` | In a finite Galois extension, an algebraic integer divides the image of its relative norm | `Mathlib/NumberTheory/NumberField/Norm.lean` |
+| `mathlib:Algebra.norm_eq_prod_embeddings` | For a finite separable extension, the norm is the product of all embeddings into an algebraic closure | `Mathlib/RingTheory/Norm/Transitivity.lean` |
+| `mathlib:Algebra.norm_ne_zero_iff` | Over domains with a finite free extension, the norm is nonzero exactly when its argument is nonzero | `Mathlib/RingTheory/Norm/Basic.lean` |
+| `mathlib:IsCyclotomicExtension.finrank` | A cyclotomic extension with irreducible cyclotomic polynomial has degree equal to the totient of its conductor | `Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean` |
 
 ## Routing and proposed splits
 
