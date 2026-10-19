@@ -11,6 +11,7 @@
     "AutomorphicGaloisRepresentationsPartII",
     "AutomorphicLFunctionsAndLocalFactors",
     "DeformationAndDerivedPatchingAlgebra",
+    "EndoscopicTransferAndUnitaryTraceComparison",
     "GlobalGaloisDeformations",
     "HigherHidaAndColemanTheory",
     "HodgeTateAndCanonicalSubgroups",
@@ -53,8 +54,9 @@
     {
       "key": "NR2",
       "title": "Singular-weight Galois interpolation",
-      "description": "Construct number fields for coherent eigensystems and apply the all-degree Pilloni–Stroh interpolation to their characteristic-zero actions. State the precise qualified Mok crystalline specialization, the no-Steinberg scalar-weight obstruction, ordinary weight-two Galois systems, the pure general-type monodromy upgrade, dual-spin overconvergent interpolation and completed-eigenspace isotypy. Preserve every classification, local and spectral-exactness qualification.",
+      "description": "Construct number fields for coherent eigensystems and apply the all-degree Pilloni–Stroh interpolation to their characteristic-zero actions. State the precise qualified Mok crystalline specialization, the no-Steinberg scalar-weight obstruction, ordinary weight-two Galois systems, the pure general-type monodromy upgrade, dual-spin overconvergent interpolation and completed-eigenspace isotypy through the GSp₄ semisimplicity criteria. Preserve every classification and local qualification.",
       "requires": [
+        "ArithmeticGaloisRepresentations:R01.5",
         "AutomorphicBundles:B3",
         "AutomorphicBundles:B4",
         "AutomorphicBundles:B5",
@@ -81,6 +83,8 @@
       "requires": [
         "AutomorphicBundles:B4",
         "AutomorphicBundles:B5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6",
         "GSp4NonregularModularityLifting:NR1",
         "GSp4NonregularModularityLifting:NR2",
         "IntegralHeckeAndGaloisDeterminants:IHG.1",
@@ -119,7 +123,7 @@
     {
       "key": "NR6",
       "title": "Klingen Taylor–Wiles level control",
-      "description": "Construct the labelled Klingen block projector. Prove the high-weight integral pullback/trace comparison, descend through Hasse and secondary-Hasse strata with explicit H¹ reverse induction, and induct over O/ϖᵐ before passing to E/O. Separate this degree-zero comparison from the BCGP21 derived comparison and module-coinvariant supplier interface.",
+      "description": "Construct the labelled Klingen block projector. Prove the high-weight integral pullback/trace comparison, with inverse (tr∘pr_Q∘i)⁻¹∘tr rather than the degree-normalized trace, descend through Hasse and secondary-Hasse strata with explicit H¹ reverse induction, and induct over O/ϖᵐ before passing to E/O. Separate this degree-zero comparison from the BCGP21 derived comparison and module-coinvariant supplier interface.",
       "requires": [
         "AutomorphicBundles:B3",
         "AutomorphicBundles:B5",
@@ -182,7 +186,7 @@
     {
       "key": "NR10",
       "title": "Characteristic-zero higher-Hida patching",
-      "description": "Fix the distinct BCGP25 weight-two and integral-enormity data, including its dyadic neat-prime condition. Construct four localized higher-Hida modules and their two-direction torus diamonds, prove weight/diamond freeness, construct the full-multiplier deformation action and projective Satake coinvariant comparison. Apply a corrected open-ideal patching theorem to obtain local freeness at the characteristic-zero point; rank zero remains possible.",
+      "description": "Fix the distinct BCGP25 weight-two and integral-enormity data, including its dyadic neat-prime condition. Construct four localized higher-Hida modules and their two-direction torus diamonds, prove weight/diamond freeness, construct the full-multiplier deformation action (with the GSp₄ coefficient descent valid at p=2, BCGP25 Lemma 7.4.8) and the projective Satake coinvariant comparison. Apply a corrected open-ideal patching theorem to obtain local freeness at the characteristic-zero point; rank zero remains possible.",
       "requires": [
         "ArithmeticGaloisRepresentations:G7",
         "DeformationAndDerivedPatchingAlgebra:R03.3",
@@ -207,6 +211,7 @@
       "description": "Define the two-wall R-regular weight condition and compute multiplicity one only at nonzero regular points on the relevant component. Retain all five conditions of each dyadic/odd automorphic-seed alternative. Prove support through the singular point using the appropriate regular ordinary lifting and solvable descent suppliers, then rank one separately in all four chambers. Apply the image/de Rham/four-multiplicity higher-Coleman criterion to deduce classical weight-two modularity, retaining all unresolved proof gates.",
       "requires": [
         "ArithmeticGaloisRepresentations:G7",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
         "GSp4NonregularModularityLifting:NR10",
         "GSp4NonregularModularityLifting:NR2",
         "GlobalGaloisDeformations:G7",
@@ -262,7 +267,7 @@
       "id": "PS16",
       "title": "Cohomologie cohérente et représentations galoisiennes",
       "authors": "Vincent Pilloni and Benoît Stroh",
-      "edition": "Public author text, 30 pages, read 2026-10-19; author pagination.",
+      "edition": "Public author text, 30 pages, read 2026-10-19; author pagination. The same file (identical SHA-256) is served at https://www.imo.universite-paris-saclay.fr/~pilloni/koko.pdf.",
       "url": "https://webusers.imj-prg.fr/~benoit.stroh/coco.pdf",
       "sha256": "2c9f90c39f0efacd3fa076ef189b1d552da900d1968e34c3c8b3e551dcb4e3a1",
       "readSections": [

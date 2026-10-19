@@ -54,6 +54,10 @@ example : NondegenerateOrdinaryRoots (2 : ZMod 11) 3 := by
 example : ¬ NondegenerateOrdinaryRoots (2 : ZMod 11) 6 := by
   sorry
 
+-- A root with square one is rejected even though the two roots are distinct.
+example : ¬ NondegenerateOrdinaryRoots (1 : ZMod 11) 3 := by
+  sorry
+
 /-! ## Layer NR1: the singular joint root condition -/
 
 /-- The field-valued singular selection for the normalized operators Tₚ,₁ and Qₚ,₂.
@@ -111,6 +115,10 @@ example : RRegularWeight 3 (-4) (-1) := by
 
 -- A large difference alone does not suffice: the second wall fails.
 example : ¬ RRegularWeight 3 0 3 := by
+  norm_num [RRegularWeight]
+
+-- The order of the two Hodge–Tate weights matters: swapping them fails the first wall.
+example : ¬ RRegularWeight 3 (-1) (-4) := by
   norm_num [RRegularWeight]
 
 /-!
