@@ -9,7 +9,7 @@ Worker: Claude (session claude-7uajHc), 2026-10-19.
   subsections, each with at least three Checks, `### Examples` and `### Dependencies` per layer,
   Downstream consumers, References.
 - `research/blueprint/packages/EllipticKTheory/Suggested.lean` (392 lines): `import Mathlib` plus
-  eight `TauCeti.*` modules, one module docstring, `namespace TauCetiRoadmap.EllipticKTheory`.
+  the five `TauCeti.*` modules it uses, one module docstring, `namespace TauCetiRoadmap.EllipticKTheory`.
 - `research/blueprint/packages/EllipticKTheory/metadata.toml`: `topic = "math.KT"`.
 
 ## Inputs and coverage

@@ -1,7 +1,5 @@
 import Mathlib
 import TauCeti.FieldTheory.FunctionField.Place.Residue
-import TauCeti.FieldTheory.FunctionField.Place.Zeros
-import TauCeti.FieldTheory.FunctionField.Place.Degree
 import TauCeti.FieldTheory.FunctionField.Divisor.Principal
 import TauCeti.AlgebraicGeometry.EllipticCurve.PointCount
 import TauCeti.AlgebraicGeometry.EllipticCurve.Affine.FunctionField.Finrank
