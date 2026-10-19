@@ -4,7 +4,7 @@
  "area": "arithmeticgeometry",
  "parent": "ArakelovGeometryAndAbelianHeights",
  "summary": "Part II of ArakelovGeometryAndAbelianHeights, starting where it stops (hermitian degree, ĈH¹ and heights of points). It plans the projective model theory of arithmetic intersection numbers, metrized Deligne pairings and arithmetic volumes; Yuan–Zhang adelic line bundles on quasi-projective schemes over ℤ or a field with their analytification, intersection theory, volumes, heights, height inequality, equidistribution and invariant extensions; Moriwaki heights; Zhang's admissible metrics on curves and Yuan's canonical admissible bundles on curve families; the global ε, φ and Noether divisors; Yuan's theorem that the admissible canonical bundle is nef and big under maximal variation; potential bigness; and the uniform comparison of Zhang's admissible self-intersection with the stable Faltings height.",
- "readme": "# Arakelov geometry and heights of abelian varieties, Part II: adelic bigness on curve families\n\nThis roadmap is the Part II of ArakelovGeometryAndAbelianHeights (TauCetiRoadmap pull request #1000). That roadmap builds the hermitian degree over rings of integers, arithmetic divisors with smooth Green functions and ĈH¹ on regular arithmetic schemes, heights of algebraic points for metrized line bundles, the Faltings metric and the relative and stable Faltings heights; it explicitly leaves out higher arithmetic intersection products and general adelic intersection theory. This roadmap starts there. Its end points are the two theorems of Xinyi Yuan's \"Arithmetic bigness and a uniform Bogomolov-type result\" (Annals 203, 2026) that concern the admissible canonical bundle itself:\n\n1. **Bigness.** For a smooth family π : X → S of curves of genus g > 1 with maximal variation over a flat quasi-projective normal integral scheme S over ℤ or a field, Yuan's canonical admissible adelic line bundle ω\\_{X/S,a} is nef and big on X, and π\\_\\*⟨ω\\_a, ω\\_a⟩ is nef and big on S (Theorems 1.3, 3.1, 3.2; AH.11). Together with the theta identities it gives potential bigness of the theta pullbacks along the Abel, difference and universal-shift maps (Theorems 4.1, 4.5; AH.12).\n\n2. **Uniform comparison.** There are c₃(g), c₄(g) > 0 with c₃·max{h\\_Fal(C), 1} ≤ [ω²\\_{C/K,a}] ≤ c₄·max{h\\_Fal(C), 1} for every curve of genus g over every number field and (non-isotrivial) over every one-variable function field (Theorem 1.4; AH.13).\n\nTo get there the roadmap plans the theory those theorems are written in: the projective model case of arithmetic intersection theory (AH.0), Yuan–Zhang's adelic divisors and adelic line bundles on quasi-projective schemes with their analytification, intersection theory, Deligne pairing, volumes, heights, height inequality, fundamental inequality, equidistribution and invariant extensions (AH.1–AH.5), Moriwaki's heights over finitely generated fields (AH.6), Zhang's admissible metrics on curves (AH.7) and their family version (AH.8), the theta identities (AH.9) and the global ε, φ and Noether divisors (AH.10). The uniform Bogomolov theorem itself (Yuan Theorem 1.1) and the small-points bounds are the work of HeightsRationalPointsAndObstructionsPartII, which imports AH.4, AH.5, AH.8, AH.12 and AH.13.\n\n## Reading the plan\n\nEach layer states its targets and then its nodes, numbered §k.i. Definitions and constructions carry an API outline and unit tests that a plausible wrong definition fails; theorems carry hypotheses, a proof route, acceptance checks and prerequisites. Every node cites where its sources state or prove it, in our own words, with theorem and page numbers. The plan is at target level (PROTOCOL.md §2): smaller steps stay in the proof routes. Node identifiers are relative to this roadmap; prerequisites in other roadmaps keep their full identifiers. Every node is a plan, not a formalization.\n\n## Conventions\n\n- k is ℤ (the arithmetic case) or a field (the geometric case). A projective arithmetic variety is an integral scheme projective and flat over ℤ; \"quasi-projective arithmetic variety\" likewise. All adelic objects are over the base k, written P̂ic(X/k).\n- Green functions use −log‖s‖, so d̂iv(f) = (div f, −log\\|f\\|) and c₁(L̄) = (1/πi)∂∂̄log‖s‖ + δ\\_div(s) (Yuan–Zhang §2.1). The parent roadmap uses −log‖s‖² (Gillet–Soulé); the comparison doubles Green functions (§0.1).\n- Heights over a number field K are absolute: h\\_L̄(x) = deĝ(L̄\\|\\_x)/[K(x) : ℚ], with archimedean places weighted 1 (real) or 2 (complex). Over a one-variable function field K/k the normalization is by residue degrees over the fixed k: ‖·‖\\_v = e^{−[k(v):k] ord\\_v}, and h = deĝ/[K(x) : K].\n- The Faltings metric is ‖α‖² = (i^{g²}/2^g)∫α∧ᾱ (Faltings' normalization, as in Yuan §4.3.1 and the parent's §2.1); Deligne's and Yuan–Zhang's is (2π)^{−g}\\|∫α∧ᾱ\\|, and h\\_Del = h\\_Fal + (g/2)log π (parent §2.7). h\\_Fal always denotes the stable height.\n- Curves: a smooth relative curve is smooth projective with geometrically connected fibres. Every target from AH.7 on assumes genus g > 1; Yuan states several results for g > 0, but the genus-one normalization is not proved (PAPER-YUAN-26/E8, E28). Maximal variation means the moduli map S → M\\_{g,k} is generically finite (StableReductionPartII MC.6/maximal-variation); over a function field K/k it is taken over the constant field k (PAPER-YUAN-26/E1).\n- w = ω̄\\_{X/S,a}, D = Ō(Δ)\\_a, P = π\\_\\*⟨w, w⟩, ⟨A, B⟩ = π\\_\\*⟨A, B⟩, and Θ̄ is the canonical [2]-invariant extension of the symmetric rigidified twice-theta bundle Θ = Δ\\_J^\\*P^∨ on J = Pic⁰\\_{X/S}. ĥ = ½ĥ\\_Θ is the Néron–Tate height of the symmetric theta class.\n- Graph invariants (ε, φ, τ, δ, δᵢ) are Zhang's, for unit edge lengths on the minimal regular model and \\|ϖ\\| = e^{−1}; under a finite extension they scale by the ramification index (PAPER-YUAN-26/E3).\n\n## Layer overview\n\n| Layer | Title | Main sources |\n| --- | --- | --- |\n| AH.0 | Projective arithmetic intersection theory: the model case | Yuan–Zhang §2.1, §§4.2–4.4, §5.2; Yuan 2008 §2 |\n| AH.1 | Adelic divisors and adelic line bundles | Yuan–Zhang §§2.2–2.7; Yuan §2.1 pp. 18–21, 23–25 |\n| AH.2 | Berkovich analytification and metrized line bundles | Yuan–Zhang Chapter 3, Lemma 5.1.2; Yuan §2.1 pp. 21–22, §3.2 p. 47, §A.6 p. 119 |\n| AH.3 | Intersection numbers and the adelic Deligne pairing | Yuan–Zhang §§4.1, 4.5, 4.6; Yuan Lemmas 2.1–2.2 pp. 25–27 |\n| AH.4 | Effective sections, volumes and heights | Yuan–Zhang §§5.1–5.3; Yuan §2.1 pp. 22–25, §4.1.2 pp. 63–65, Remark 4.4 p. 67 |\n| AH.5 | Equidistribution, invariant extensions and the adelic Hodge bundle | Yuan–Zhang §§5.4, 5.5, 6.1, 6.2; Yuan §3.1.3 pp. 43–44; DeMarco–Mavraki–Ye §4 |\n| AH.6 | Moriwaki heights over finitely generated fields | Moriwaki 2000 §3; Gao–Habegger Appendix A; Yuan–Zhang §5.3 |\n| AH.7 | Local admissible metrics on curves | Yuan Appendix A, pp. 101–119; Zhang 1993 as reproved there |\n| AH.8 | Admissible adelic bundles on curve families | Yuan §§2.2–2.3, pp. 28–35; Yuan–Zhang Theorem 6.5.1 |\n| AH.9 | Theta identities and nefness of the admissible canonical bundle | Yuan Theorems 2.9–2.10, pp. 35–38 |\n| AH.10 | Graph invariants and the global ε, φ and Noether divisors | Yuan §§3.2–3.4, 4.5.2, pp. 46–55 and 89–91; Zhang 2010; Cinkir 2011; Baker–Rumely 2007; de Jong 2018; Wilms 2017 |\n| AH.11 | Bigness of the admissible canonical bundle | Yuan §§3.4–3.5 and §3.1, pp. 40, 55–59 |\n| AH.12 | Potential bigness | Yuan §§4.1–4.2, pp. 59–70, and p. 82 |\n| AH.13 | Admissible self-intersection and the Faltings height | Yuan §4.3.1, §4.5, pp. 70–73 and 84–96; Wilms 2017, 2022; Looper–Silverman–Wilms |\n\n",
+ "readme": "# Arakelov geometry and heights of abelian varieties, Part II: adelic bigness on curve families\n\nThis roadmap is the Part II of ArakelovGeometryAndAbelianHeights (TauCetiRoadmap pull request #1000). That roadmap builds the hermitian degree over rings of integers, arithmetic divisors with smooth Green functions and ĈH¹ on regular arithmetic schemes, heights of algebraic points for metrized line bundles, the Faltings metric and the relative and stable Faltings heights; it explicitly leaves out higher arithmetic intersection products and general adelic intersection theory. This roadmap starts there. Its end points are the two theorems of Xinyi Yuan's \"Arithmetic bigness and a uniform Bogomolov-type result\" (Annals 203, 2026) that concern the admissible canonical bundle itself:\n\n1. **Bigness.** For a smooth family π : X → S of curves of genus g > 1 with maximal variation over a flat quasi-projective normal integral scheme S over ℤ or a field, Yuan's canonical admissible adelic line bundle ω\\_{X/S,a} is nef and big on X, and π\\_\\*⟨ω\\_a, ω\\_a⟩ is nef and big on S (Theorems 1.3, 3.1, 3.2; AH.11). Together with the theta identities it gives potential bigness of the theta pullbacks along the Abel, difference and universal-shift maps (Theorems 4.1, 4.5; AH.12).\n\n2. **Uniform comparison.** There are c₃(g), c₄(g) > 0 with c₃·max{h\\_Fal(C), 1} ≤ [ω²\\_{C/K,a}] ≤ c₄·max{h\\_Fal(C), 1} for every curve of genus g over every number field and (non-isotrivial) over every one-variable function field (Theorem 1.4; AH.13).\n\nTo get there the roadmap plans the theory those theorems are written in: the projective model case of arithmetic intersection theory (AH.0), Yuan–Zhang's adelic divisors and adelic line bundles on quasi-projective schemes with their analytification, intersection theory, Deligne pairing, volumes, heights, height inequality, fundamental inequality, equidistribution and invariant extensions (AH.1–AH.5), Moriwaki's heights over finitely generated fields (AH.6), Zhang's admissible metrics on curves (AH.7) and their family version (AH.8), the theta identities (AH.9) and the global ε, φ and Noether divisors (AH.10). The uniform Bogomolov theorem itself (Yuan Theorem 1.1) and the small-points bounds are the work of HeightsRationalPointsAndObstructionsPartII, which imports AH.4, AH.5, AH.8, AH.12 and AH.13.\n\n## Reading the plan\n\nEach layer states its targets and then its nodes, numbered §k.i. Definitions and constructions carry an API outline and unit tests that a plausible wrong definition fails; theorems carry hypotheses, a proof route, acceptance checks and prerequisites. Every node cites where its sources state or prove it, in our own words, with theorem and page numbers. The plan is at target level (PROTOCOL.md §2): smaller steps stay in the proof routes. Node identifiers are relative to this roadmap; prerequisites in other roadmaps keep their full identifiers. Every node is a plan, not a formalization.\n\n## Conventions\n\n- k is ℤ (the arithmetic case) or a field (the geometric case). A projective arithmetic variety is an integral scheme projective and flat over ℤ; \"quasi-projective arithmetic variety\" likewise. All adelic objects are over the base k, written P̂ic(X/k).\n- Green functions use −log‖s‖, so d̂iv(f) = (div f, −log\\|f\\|) and c₁(L̄) = (1/πi)∂∂̄log‖s‖ + δ\\_div(s) (Yuan–Zhang §2.1). The parent roadmap uses −log‖s‖² (Gillet–Soulé); the comparison doubles Green functions (§0.1).\n- Heights over a number field K are absolute: h\\_L̄(x) = deĝ(L̄\\|\\_x)/[K(x) : ℚ], with archimedean places weighted 1 (real) or 2 (complex). Over a one-variable function field K/k the normalization is by residue degrees over the fixed k: ‖·‖\\_v = e^{−[k(v):k] ord\\_v}, and h = deĝ/[K(x) : K].\n- The Faltings metric is ‖α‖² = (i^{g²}/2^g)∫α∧ᾱ (Faltings' normalization, as in Yuan §4.3.1 and the parent's §2.1); Deligne's and Yuan–Zhang's is (2π)^{−g}\\|∫α∧ᾱ\\|, and h\\_Del = h\\_Fal + (g/2)log π (parent §2.7). h\\_Fal always denotes the stable height.\n- Curves: a smooth relative curve is smooth projective with geometrically connected fibres. The canonical curve-pair and relative admissible-bundle targets assume genus g > 1; Yuan states several results for g > 0, but the genus-one normalization is not proved (PAPER-YUAN-26/E8, E28). Maximal variation means the moduli map S → M\\_{g,k} is generically finite (StableReductionPartII MC.6/maximal-variation); over a function field K/k it is taken over the constant field k (PAPER-YUAN-26/E1).\n- w = ω̄\\_{X/S,a}, D = Ō(Δ)\\_a, P = π\\_\\*⟨w, w⟩, ⟨A, B⟩ = π\\_\\*⟨A, B⟩, and Θ̄ is the canonical [2]-invariant extension of the symmetric rigidified twice-theta bundle Θ = Δ\\_J^\\*P^∨ on J = Pic⁰\\_{X/S}. ĥ = ½ĥ\\_Θ is the Néron–Tate height of the symmetric theta class.\n- Graph invariants (ε, φ, τ, δ, δᵢ) are Zhang's, for unit edge lengths on the minimal regular model and \\|ϖ\\| = e^{−1}; under a finite extension they scale by the ramification index (PAPER-YUAN-26/E3).\n\n## Layer overview\n\n| Layer | Title | Main sources |\n| --- | --- | --- |\n| AH.0 | Projective arithmetic intersection theory: the model case | Yuan–Zhang §2.1, §§4.2–4.4, §5.2; Yuan 2008 §2 |\n| AH.1 | Adelic divisors and adelic line bundles | Yuan–Zhang §§2.2–2.7; Yuan §2.1 pp. 18–21, 23–25 |\n| AH.2 | Berkovich analytification and metrized line bundles | Yuan–Zhang Chapter 3, Lemma 5.1.2; Yuan §2.1 pp. 21–22, §3.2 p. 47, §A.6 p. 119 |\n| AH.3 | Intersection numbers and the adelic Deligne pairing | Yuan–Zhang §§4.1, 4.5, 4.6; Yuan Lemmas 2.1–2.2 pp. 25–27 |\n| AH.4 | Effective sections, volumes and heights | Yuan–Zhang §§5.1–5.3; Yuan §2.1 pp. 22–25, §4.1.2 pp. 63–65, Remark 4.4 p. 67 |\n| AH.5 | Equidistribution, invariant extensions and the adelic Hodge bundle | Yuan–Zhang §§5.4, 5.5, 6.1, 6.2; Yuan §3.1.3 pp. 43–44; DeMarco–Mavraki–Ye §4 |\n| AH.6 | Moriwaki heights over finitely generated fields | Moriwaki 2000 §3; Gao–Habegger Appendix A; Yuan–Zhang §5.3 |\n| AH.7 | Local admissible metrics on curves | Yuan Appendix A, pp. 101–119; Zhang 1993 as reproved there |\n| AH.8 | Admissible adelic bundles on curve families | Yuan §§2.2–2.3, pp. 28–35; Yuan–Zhang Theorem 6.5.1 |\n| AH.9 | Theta identities and nefness of the admissible canonical bundle | Yuan Theorems 2.9–2.10, pp. 35–38 |\n| AH.10 | Graph invariants and the global ε, φ and Noether divisors | Yuan §§3.2–3.4, 4.5.2, pp. 46–55 and 89–91; Zhang 2010; Cinkir 2011; Baker–Rumely 2007; de Jong 2018; Wilms 2017 |\n| AH.11 | Bigness of the admissible canonical bundle | Yuan §§3.4–3.5 and §3.1, pp. 40, 55–59 |\n| AH.12 | Potential bigness | Yuan §§4.1–4.2, pp. 59–70, and p. 82 |\n| AH.13 | Admissible self-intersection and the Faltings height | Yuan §4.3.1, §4.5, pp. 70–73 and 84–96; Wilms 2017, 2022; Looper–Silverman–Wilms |\n",
  "prerequisites": [
   "ArakelovGeometryAndAbelianHeights",
   "ArithmeticDynamics",
@@ -53,7 +53,7 @@
   {
    "key": "AH.3",
    "title": "Intersection numbers and the adelic Deligne pairing",
-   "description": "**Targets.** The absolute intersection pairing of integrable adelic line bundles, the relative Deligne pairing along projective flat morphisms with normal base, its composition and projection formulas, and injectivity of pullback along fibrations with geometrically connected fibres with descent of fibrewise constant metrics.\n\n**Sources.** Yuan–Zhang §§4.1, 4.5, 4.6; Yuan Lemmas 2.1–2.2 pp. 25–27.",
+   "description": "**Targets.** The absolute intersection pairing of integrable adelic line bundles, the relative Deligne pairing along projective flat morphisms with normal base, its composition and projection formulas, and injectivity of pullback along fibrations with geometrically reduced and geometrically connected fibres with descent of fibrewise constant metrics.\n\n**Sources.** Yuan–Zhang §§4.1, 4.5, 4.6; Yuan Lemmas 2.1–2.2 pp. 25–27.",
    "requires": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.0",
     "ArakelovGeometryAndAbelianHeightsPartII:AH.1",
@@ -103,7 +103,7 @@
   {
    "key": "AH.7",
    "title": "Local admissible metrics on curves",
-   "description": "**Targets.** For a smooth projective geometrically integral curve C of genus g > 0 over a complete non-archimedean field: Tate's admissible metrics on abelian varieties, admissibility on C through the Jacobian and on C², the canonical admissible measure, Zhang's canonical pair of admissible metrics on ω_C and O(Δ), the explicit graph formulas at split semistable reduction, rescaling, good reduction and trivially valued fields, and the global admissible bundles ω_{C/K,a} and O(Δ)_a over a global field. The archimedean theory is GrossZagierAndArithmeticHeights GZ.2; graph measures and Green functions are TropicalAndBerkovichArithmetic TB.3/TB.6.\n\n**Sources.** Yuan Appendix A, pp. 101–119; Zhang 1993 as reproved there.",
+   "description": "**Targets.** For a smooth projective geometrically integral curve C over a complete non-archimedean field, with g > 1 for the canonical curve-pair: Tate's admissible metrics on abelian varieties, admissibility on C through the Jacobian and on C², the canonical admissible measure, Zhang's canonical pair of admissible metrics on ω_C and O(Δ), the explicit graph formulas at split semistable reduction, rescaling, good reduction and trivially valued fields, and the global admissible bundles ω_{C/K,a} and O(Δ)_a over a global field. The archimedean theory is GrossZagierAndArithmeticHeights GZ.2; graph measures and Green functions are TropicalAndBerkovichArithmetic TB.3/TB.6.\n\n**Sources.** Yuan Appendix A, pp. 101–119; Zhang 1993 as reproved there.",
    "requires": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.0",
     "ArakelovGeometryAndAbelianHeightsPartII:AH.1",
@@ -162,12 +162,13 @@
     "ArakelovGeometryAndAbelianHeightsPartII:AH.9",
     "ArakelovGeometryAndAbelianHeights:R35.3",
     "GrossZagierAndArithmeticHeights:GZ.2",
-    "MotivesAndAlgebraicCycles:MC.0",
+    "MotivesAndAlgebraicCycles:MC.2",
     "SchemeAndStackFoundations:SF.5",
     "StableReductionPartII:MC.5",
     "StableReductionPartII:MC.6",
     "TropicalAndBerkovichArithmetic:TB.3",
-    "TropicalAndBerkovichArithmetic:TB.6"
+    "TropicalAndBerkovichArithmetic:TB.6",
+    "TropicalAndBerkovichArithmetic:TB.0"
    ]
   },
   {
@@ -224,8 +225,9 @@
    "id": "yuan-2026",
    "title": "Arithmetic bigness and a uniform Bogomolov-type result",
    "authors": "Xinyi Yuan",
-   "edition": "Annals of Mathematics 203 (2026), no. 1, 15–119; read in the author manuscript dated 21 August 2024 (126 pp., the journal revision date), whose numbering and page numbers (printed = PDF) are used; identical in the cited passages to arXiv:2108.05625v4",
+   "edition": "Annals of Mathematics 203 (2026), no. 1, 15–119; read in the author manuscript dated 21 August 2024 (126 pp., the journal revision date), whose numbering and page numbers (printed = PDF) are used",
    "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+   "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
    "readSections": [
     "§1 (pp. 3–16, statements of Theorems 1.1–1.4 and the proof sketch of §1.4)",
     "§2.1–2.3 (pp. 18–39: adelic recollections, Lemmas 2.1–2.2, Theorem 2.3, Definition 2.5, Propositions 2.6–2.7, Theorems 2.8–2.10)",
@@ -233,7 +235,8 @@
     "§4.1 (Theorem 4.1, pp. 59–63), §4.2 (Theorem 4.2 proof, Lemma 4.3, Remark 4.4, pp. 64–67), Theorem 4.5 (pp. 68–70), §4.3.1 (pp. 70–73), Lemma 4.9 (pp. 75–76), §4.4.1 (p. 78), p. 82, §4.5 (Theorems 4.11 and 4.14 with proofs, Remarks 4.12–4.13, pp. 84–96)",
     "Appendix A (pp. 101–119)",
     "Bibliography (pp. 120–126)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "yuan-zhang-2025",
@@ -241,6 +244,7 @@
    "authors": "Xinyi Yuan and Shou-Wu Zhang",
    "edition": "arXiv:2105.13587v9 (14 June 2025), 262 pp.; printed page = PDF page; to appear as cited by DeMarco–Mavraki–Ye (Forum Math. Pi 14 (2026) e4). Yuan cites v6, whose Theorem 5.3.5 is Theorem 5.3.7 here",
    "url": "https://arxiv.org/pdf/2105.13587v9",
+   "sha256": "3de89c1736979c44592447edd3bc5a14be9202fc9a07a0ea9d158e422a25145a",
    "readSections": [
     "§2.1 (pp. 23–28)",
     "§§2.2–2.7 statements (pp. 28–62: Lemma 2.4.1, Lemma 2.4.3, Proposition 2.5.1, Definition 2.5.2, Lemma 2.6.1, §2.7)",
@@ -248,7 +252,8 @@
     "§4.1–4.6 statements (Propositions 4.1.1–4.1.2, Theorem 4.1.3, Theorem 4.2.3, Theorem 4.3.1, Lemmas 4.4.1–4.4.4, Lemma 4.6.1)",
     "§5.1–5.5 statements (Lemma 5.1.2, Lemma 5.1.7, Theorems 5.2.1, 5.2.2, 5.2.9, 5.3.1, 5.3.3, 5.3.7, 5.3.8, 5.4.3, 5.5.1, §5.3.5)",
     "§6.1–6.2 statements (Theorems 6.1.1–6.1.2, 6.2.2–6.2.3), Theorem 6.5.1, Theorem 6.5.4"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "yuan-2008",
@@ -256,9 +261,11 @@
    "authors": "Xinyi Yuan",
    "edition": "Inventiones mathematicae 173 (2008), 603–649; read in arXiv:math/0612424v2 (11 January 2012)",
    "url": "https://arxiv.org/pdf/math/0612424v2",
+   "sha256": "512d295e84eb99a5905243a4c7498fb5b81dd9c3de1d00c3b163e5c54b01c4bc",
    "readSections": [
     "§2.1, Definition 2.1, Theorem 2.2, Theorem 2.3 and Corollary 2.4 (pp. 10–11)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "moriwaki-2000",
@@ -266,10 +273,12 @@
    "authors": "Atsushi Moriwaki",
    "edition": "Inventiones mathematicae 140 (2000), 101–142; read in arXiv:math/9809016v2 (1 June 1999)",
    "url": "https://arxiv.org/pdf/math/9809016v2",
+   "sha256": "f555bf087f409fb3587b76010685cf6330d12c59152290e4b280d5a97de68de0",
    "readSections": [
     "§3.1–3.4 (pp. 10–16: polarizations, Definition 3.3.6, Proposition 3.3.7, Propositions 3.4.1–3.4.2)",
     "Theorem 4.3 statement (p. 20)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "gao-habegger-2019",
@@ -277,9 +286,11 @@
    "authors": "Ziyang Gao and Philipp Habegger",
    "edition": "Annals of Mathematics 189 (2019), no. 2, 527–604; read in arXiv:1801.05762v3 (28 January 2019)",
    "url": "https://arxiv.org/pdf/1801.05762v3",
+   "sha256": "ffe408dc6ba034b2a635488600decace1e89d61ad04860c391bef9409f2fd34e",
    "readSections": [
     "Appendix A (§§A.1–A.3, pp. 54–57)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "demarco-mavraki-ye-2026",
@@ -287,10 +298,12 @@
    "authors": "Laura DeMarco, Niki Myrto Mavraki and Hexi Ye",
    "edition": "Forum of Mathematics, Pi (2026); read in arXiv:2405.17343v3, whose page numbers are used",
    "url": "https://arxiv.org/pdf/2405.17343v3",
+   "sha256": "bb103ede86e058ca2a2601ce9f6a18bb3590f014ee186f6766c198c0eeeb4384",
    "readSections": [
     "§1 (pp. 1–6, statements and outline)",
     "§4 (pp. 19–21: the invariant extensions, Deligne pairings along critical graphs, non-degeneracy, height inequality and equidistribution)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "zhang-2010",
@@ -298,12 +311,14 @@
    "authors": "Shou-Wu Zhang",
    "edition": "Inventiones mathematicae 179 (2010), 1–73; read in arXiv:0812.0371v1",
    "url": "https://arxiv.org/pdf/0812.0371v1",
+   "sha256": "e01d3c31193ff442141931a1c22371d4d4d6f24d4c641bcc5fdb5336d60c2c4c",
    "readSections": [
     "§1.1 and §1.3 (Theorem 1.3.1, Corollary 1.3.3, pp. 3–8)",
     "Proposition 2.5.3 (p. 38)",
     "Lemma 3.5.4 (p. 62)",
     "§4.1 including (4.1.4) (pp. 64–66)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "cinkir-2011",
@@ -311,9 +326,11 @@
    "authors": "Zubeyir Cinkir",
    "edition": "Inventiones mathematicae 183 (2011), no. 3, 517–562; read in arXiv:0901.3945v2 (3 June 2009), whose theorem numbers are used",
    "url": "https://arxiv.org/pdf/0901.3945v2",
+   "sha256": "378def7b7451ab30e2b6e40aa6acc2abea39c3f04fb7294a0a7ffb88492efff2",
    "readSections": [
     "§2 (Conjectures 2.6–2.8, Theorems 2.9–2.12, pp. 4–5)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "baker-rumely-2007",
@@ -321,9 +338,11 @@
    "authors": "Matthew Baker and Robert Rumely",
    "edition": "Canadian Journal of Mathematics 59 (2007), 225–275; read in arXiv:math/0407427v2",
    "url": "https://arxiv.org/pdf/math/0407427v2",
+   "sha256": "2f2f4cdeb472e0c6203644624a1f30c4b2ef7a0809322366d82b699a58dd0e4c",
    "readSections": [
     "§14 (Theorem 14.1 and Lemma 14.4, pp. 36–37)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "de-jong-2018",
@@ -331,10 +350,12 @@
    "authors": "Robin de Jong",
    "edition": "Journal of Algebraic Geometry 27 (2018), 339–381; read in arXiv:1610.01932v2",
    "url": "https://arxiv.org/pdf/1610.01932v2",
+   "sha256": "ff03975dc6e54a86581ff584a588d2e93f92153fb10d90f1bec8095863b23cb1",
    "readSections": [
     "Theorem 8.1 (p. 28)",
     "Propositions 9.2–9.3 and Theorem 9.4 (pp. 31–33)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "wilms-2017",
@@ -342,10 +363,12 @@
    "authors": "Robert Wilms",
    "edition": "Inventiones mathematicae 209 (2017), 481–539; read in arXiv:1605.00847v3",
    "url": "https://arxiv.org/pdf/1605.00847v3",
+   "sha256": "ea66440d78954d939a1530e7df19a8dea8432c766aec76e5a3ba26f8989b3e09",
    "readSections": [
     "§1.1 (Theorem 1.1, Corollary 1.2, pp. 1–2)",
     "§2.1–2.2 including (2.11) (pp. 2–10)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "wilms-2022",
@@ -353,9 +376,11 @@
    "authors": "Robert Wilms",
    "edition": "Journal of Algebraic Geometry 31 (2022), 397–424; read in arXiv:1903.12159v2",
    "url": "https://arxiv.org/pdf/1903.12159v2",
+   "sha256": "279412548e62fb16d1caa1cc0c9d0cbe1aa95c5ddbccc144e82b21b6bd00b590",
    "readSections": [
     "§1 (Theorem 1.2, p. 3)"
-   ]
+   ],
+   "accessed": "2026-10-19"
   },
   {
    "id": "looper-silverman-wilms-2021",
@@ -363,9 +388,64 @@
    "authors": "Nicole Looper, Joseph Silverman and Robert Wilms",
    "edition": "arXiv:2101.11593v3",
    "url": "https://arxiv.org/pdf/2101.11593v3",
+   "sha256": "d62e2a0cba65103acdd92f5a48b3db0c96aac75db1b8a71fc9b965c7a93b8629",
    "readSections": [
     "Proposition 6.1 (p. 14)"
-   ]
+   ],
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "stacks-pullback",
+   "title": "The Stacks Project: universally trivial structure-sheaf pushforward and Frobenius",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online version read 19 October 2026; stable tags 0E0L, 0FW2 and 0CCB; unpaginated",
+   "url": "https://stacks.math.columbia.edu/tag/0E0L",
+   "readSections": [
+    "Tag 0E0L, Lemma 36.32.6",
+    "Tag 0FW2, Lemma 50.19.5 (finite flat relative Frobenius)",
+    "Tag 0CCB, Lemma 33.36.6 (relative Frobenius is a universal homeomorphism)"
+   ],
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "wazir-2006",
+   "title": "On the specialization theorem for abelian varieties",
+   "authors": "Rania Wazir",
+   "edition": "arXiv:math/0306438v2 (9 February 2004), 5 pp.; preprint of Bull. London Math. Soc. 38 (2006), 555–560; preprint numbering 0.2–0.3 differs from the published numbering cited by Gao–Habegger",
+   "url": "https://arxiv.org/pdf/math/0306438v2",
+   "sha256": "648d2b745e45f470a40be3234ce2269f9331ea923611a79ad45caefe8390ad3a",
+   "readSections": [
+    "Polarization and height machine, pp. 2–4",
+    "Theorems 0.2–0.3 and degree-one base height, pp. 4–5"
+   ],
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "cinkir-2015",
+   "title": "Admissible invariants of genus 3 curves",
+   "authors": "Zubeyir Cinkir",
+   "edition": "arXiv:1405.7413v1 (28 May 2014), 19 pp.; preprint of Manuscripta Math. 148 (2015), 317–339; preprint page numbers used",
+   "url": "https://arxiv.org/pdf/1405.7413v1",
+   "sha256": "0bd5c36bab5c714500386abdcc5ce5f6bf1bef8ad99eb47ba2bc593f0d0d7816",
+   "readSections": [
+    "Introduction item (iii), p. 1",
+    "§6, type XIV and its formulas, pp. 13–14",
+    "Concluding summary of the sharp genus-three bounds, p. 18"
+   ],
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "gaudron-remond-2014",
+   "title": "Théorème des périodes et degrés minimaux d’isogénies",
+   "authors": "Éric Gaudron and Gaël Rémond",
+   "edition": "arXiv:1105.1230v1 (6 May 2011), 38 pp.; preprint of Comment. Math. Helv. 89 (2014), 343–403; preprint page numbers used",
+   "url": "https://arxiv.org/pdf/1105.1230v1",
+   "sha256": "d0eefd98c2be51e655bea147341c642b7a568b0709ae801fa9ed845ddbb91ef2",
+   "readSections": [
+    "§2.3, Definition 2.1, pp. 6–7",
+    "Appendix Corollary 8.4, p. 37"
+   ],
+   "accessed": "2026-10-19"
   }
  ],
  "status": "draft"
