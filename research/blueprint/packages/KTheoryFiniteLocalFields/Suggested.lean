@@ -85,6 +85,10 @@ example :
 example (r s : ℤ) (u v : (ZMod 2)ˣ) : tameCoordinate r s u v = 1 := by
   exact Subsingleton.elim _ _
 
+/-- The coordinate definition also covers the zero ring, whose unit group is trivial. -/
+example (r s : ℤ) (u v : (ZMod 1)ˣ) : tameCoordinate r s u v = 1 := by
+  exact Subsingleton.elim _ _
+
 end Tame
 
 /-! ## Layer 4: the logarithmic trace and localization -/
@@ -172,6 +176,7 @@ coefficient map on Witt vectors modulo p,
 modified Verschiebung, the Frobenius-twisted derivation and hW module, logarithmic trace
 structure maps, the normalized log-THH class κ, the Lubin–Tate unit and α coordinates,
 TR Bott classes, the Dwyer–Friedlander comparison, the early étale edge and Chern maps,
+the left-exactness, torsion-freeness and bounded-exponent lemmas on the supplied Tate module,
 the weightwise twisted-TR inverse limits, and arithmetic and
 semilocal completion maps. The Tate-module carrier is supplied by the current Tau Ceti library.
 The logarithmic, cyclotomic, hermitian and finite-rank symplectic milestones remain in README.md.

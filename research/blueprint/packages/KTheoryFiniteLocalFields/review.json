@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-KTheoryFiniteLocalFields~adv",
+    "date": "2026-10-19",
+    "notes": "Independent source, supplier, current-library/upstream and adversarial mathematics review. Fixed the Witt tensor base, low-degree orbit cokernel and dlog degree, overgeneral higher-form divisibility, false dyadic coefficient splitting (Q2 K2 mod 2 is Z/4), Chern factorial sign, source locators, Tate-module API claims and hermitian ownership/duplication; added negative controls. Lean exits 0 with 15 sorry warnings only. Remaining closure defects: absent topological completion/continuous Adams and Eilenberg-Moore exports, universal absolute logarithmic Witt foundation, independent early Chern/Lang comparison avoiding the M7-rigidity cycle, Geisser-Levine/Popescu contracts, undecomposed space-level splitting and an authorized supplier layer/bundle order. See REV-PKG-KTheoryFiniteLocalFields~adv.md for all 39 flagged source entries, the additional random 15-locator sample, statement pass table and concrete repair contracts."
+  }
+}
