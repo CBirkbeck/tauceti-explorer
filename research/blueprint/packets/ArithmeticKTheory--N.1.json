@@ -5518,10 +5518,10 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
+  "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
   "date": "2026-10-19",
-  "notes": "Codex session codex-kUKQAc, independent of the fixes; follows the immediately preceding review preserved verbatim in reviewHistory. The area-fix mathematical ownership and coefficient contracts are retained, including the integral orientation twist, degree-one rank exception and independent finiteness before Birch–Tate. The current WORKERS Suggested.lean rule is not met: seven actual admitted data definitions, including rankClassGroupEquiv, K0 baseChange/transfer and K1 det/map/transfer, remain. Move unsupported constructions to prose targets and retain only light real-bodied definitions and statements over pinned carriers. Elaboration alone does not discharge this objection. All seven authorized packets pass check_blueprint with zero errors/warnings, and their actual Lean declarations elaborate serially at Mathlib 082e2d3 / Tau Ceti f790474 with only admitted-declaration warnings (K.1 none). Source readings, retained evidence and per-finding boundaries are distinguished in the review report. The current nineteen-packet queue remains blocked by the seven-packet issue authorization; no additional supplier is certified by this verdict."
+  "notes": "The area-fix contracts retain twisted Steinberg coefficients, degree-one rank exceptions and finiteness independent of Birch–Tate. Corrected the binding Suggested.lean shape: removed admitted K0/K1 and Tate-twist construction data; kept localization milestones, light S-integer/rank definitions and discriminating examples over pinned carriers. The full target statements, APIs and checks already remain in the reader and packet. Supplier gaps remain open. Codex session codex-WBAmLh, independent of the original fixes; follows the immediately preceding review preserved verbatim in reviewHistory. All seven authorized packet checks pass with zero errors/warnings; their actual Lean declarations elaborate serially at the pins with admitted-proof warnings only. This is a scoped fix review, not external supplier closure. The nineteen-packet queue remains blocked by the seven-packet issue authorization; twelve additional reviews are not stamped."
  },
  "reviewHistory": [
   {
@@ -5775,6 +5775,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
    "date": "2026-10-10",
    "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped accepted verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+   "date": "2026-10-19",
+   "notes": "Codex session codex-kUKQAc, independent of the fixes; follows the immediately preceding review preserved verbatim in reviewHistory. The area-fix mathematical ownership and coefficient contracts are retained, including the integral orientation twist, degree-one rank exception and independent finiteness before Birch–Tate. The current WORKERS Suggested.lean rule is not met: seven actual admitted data definitions, including rankClassGroupEquiv, K0 baseChange/transfer and K1 det/map/transfer, remain. Move unsupported constructions to prose targets and retain only light real-bodied definitions and statements over pinned carriers. Elaboration alone does not discharge this objection. All seven authorized packets pass check_blueprint with zero errors/warnings, and their actual Lean declarations elaborate serially at Mathlib 082e2d3 / Tau Ceti f790474 with only admitted-declaration warnings (K.1 none). Source readings, retained evidence and per-finding boundaries are distinguished in the review report. The current nineteen-packet queue remains blocked by the seven-packet issue authorization; no additional supplier is certified by this verdict."
   }
  ]
 }
