@@ -1484,13 +1484,14 @@
     "CrystallineLocalGlobalCompatibilityCM": {
       "stage": "pr",
       "pr": 1182,
-      "head": "dc69d17",
+      "head": "424fa48",
       "note": "ported 2026-10-19 from the accepted explorer package (Caraiani–Newton closure; last package); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 424fa48; confirmation pass pending"
       }
     },
     "ResolutionOfSingularitiesCharacteristicZero": {
