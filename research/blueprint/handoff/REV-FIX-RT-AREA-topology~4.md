@@ -1,3 +1,86 @@
+# REV-FIX-RT-AREA-topology~4: blocked continuation, codex-iuSTeN
+
+Refs #6521. Codex, 19 October 2026, branch
+`codex-iuSTeN-review-topology`, input `0440c8a90a62095f8d37267a113e834655690c2e`.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6258675587).
+Only this job was claimed. This submission is a checkpoint, not a completed
+review. All earlier material below retains its original attribution.
+
+## Work added by this session
+
+- Read the live issue and its comments after confirmation, all assigned finding
+  claims/evidence/verifier reasons, the fix report and preceding review, and the
+  affected parent contracts. Rechecked the library-coverage entries and current
+  AT, DG and GT supplier contracts in the supplied read-only trees. No upstream
+  tree was edited or used for a build.
+- Re-read the relevant public source passages for the supplier boundaries:
+  Zagier's Dilogarithm I.3 equation (5), p.11 and I.4 equations (7)–(9), pp.13–14;
+  GZ v1 equations (13)–(14), p.4 and Theorem 3.1, pp.5–6;
+  GSWZ v2 Theorems 3/5, equation (38), p.14, section 1.8, pp.16–17,
+  Theorem 8, pp.35–36 and Remark 4.2, p.48;
+  Quantum modular forms definition p.2 and Examples 3/5, pp.10/12;
+  Lawrence–Zagier Theorems 1–2 and the periodic mean-zero proposition,
+  pp.98–99 and section 4, pp.103–104;
+  Habiro v1 Theorems 9.4/10.1/10.2, pp.34–35 and section 11.4.
+  Source URLs and qualified finding dispositions are in the preserved report.
+  The preceding session's rendered Strange identity checks and finite cocycle
+  experiment remain earlier evidence, not new experiments by this session.
+- Corrected an incomplete argument in the authorized QSeries Kontsevich proof
+  sketch. The corrected multiplier's full cocycle now follows explicitly from
+  the reciprocal eta automorphy factor, the character v_eta squared, lower
+  half-plane conjugation and its negative-real-cut sign, then the integral
+  weight denominator factor. Added the eta transformation, nonvanishing and
+  denominator-cocycle prerequisites, after reading the pinned declarations.
+  This is a mathematical proof outline, not a formal proof of modularity.
+- Preserved the entire preceding QSeries bounded review once in reviewHistory
+  and recorded this continuation with needs_changes. The reader still asserts
+  the naive inverse multiplier. No theorem statement, Lean signature, node,
+  gap, request or whole-plan audit was removed. The prior two proved Lean
+  central-element diagnostics remain unchanged.
+
+## Exact blocker and resumption
+
+WORKERS.md, Doing the work, says: “Edit only the files the issue names, plus your
+own scratch space.” The live issue permits seven outputs; the queue requires
+fifteen. Requested explicit authorization for these four omitted packet paths,
+which are already allowed by intake:
+
+- `research/blueprint/packets/ArithmeticQuantumTopology.json`
+- `research/blueprint/packets/Polylogarithms--P.2.json`
+- `research/blueprint/packets/HabiroNahmSeries--HB.4.json`
+- `research/blueprint/packets/HabiroNahmSeries--HB.10.json`
+
+No authorization arrived before submission; no excluded path was edited.
+The actual issues.deliverables_complete predicate is still false: those four
+reviews name their separate whole-plan reviewers, while all three authorized
+parents already name this review job. A negative mathematical verdict is
+permitted and is not the blocker. Neither queue nor predicates nor labels
+were changed.
+
+Before redispatch, reconcile the issue with the queue or explicitly authorize
+these four packet paths. Then apply the prepared bounded dispositions below,
+archive the complete preceding whole-plan reviews, and add QT.5's direct P.2
+volume-formula dependency after rechecking its graph. Keep the excluded QSeries
+and HB reader repairs as follow-ups; a negative review can finish without
+editing them. Do not redispatch unchanged scope merely to refresh metadata or
+repeat checks. The report contains all 27 finding dispositions; upstream
+notices are maintainer actions, not permission to edit upstream roadmaps here.
+
+## Current-run verification
+
+- The three authorized parent packets pass check_blueprint.py against the
+  supplied pinned declaration index, with zero errors/warnings.
+- All three authorized suggested files elaborate successfully through
+  lean-check, checked serially with more than 20 GB available before each.
+  Only sorry warnings: Polylogarithms 462, HabiroNahmSeries 442, QSeries 1491.
+  No Lean file changed; no compiler or language server remains running.
+- Intake check-files reports zero problems for all three changed paths;
+  git diff --check passes. No source downloads or excerpts are committed.
+- The actual completion predicate was executed read-only and returned false
+  for precisely the four reviewer-identity mismatches listed above.
+
+## Earlier handoff and prepared patches (preserved)
+
 # REV-FIX-RT-AREA-topology~4: scope reconciliation required
 
 ## Current blocked run: codex-mLXTx9
