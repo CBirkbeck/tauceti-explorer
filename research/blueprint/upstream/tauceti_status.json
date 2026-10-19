@@ -1603,8 +1603,12 @@
     "SchemeKTheoryOperations": {
       "stage": "pr",
       "pr": 1229,
-      "head": "900144a",
-      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running"
+      "head": "31db101",
+      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
+      "review": {
+        "current": false,
+        "note": "final-review repairs applied at 31db101; confirmation pass pending"
+      }
     },
     "VStackSheavesAndLisseCategories": {
       "stage": "pr",
