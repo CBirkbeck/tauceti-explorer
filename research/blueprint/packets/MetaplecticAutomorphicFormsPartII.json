@@ -1,0 +1,1907 @@
+{
+  "roadmapId": "MetaplecticAutomorphicFormsPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "MetaplecticAutomorphicFormsPartII:FW.0",
+    "MetaplecticAutomorphicFormsPartII:FW.1",
+    "MetaplecticAutomorphicFormsPartII:FW.2",
+    "MetaplecticAutomorphicFormsPartII:FW.3",
+    "MetaplecticAutomorphicFormsPartII:FW.4"
+  ],
+  "status": "complete",
+  "summary": "This Part II develops the finite, odd-characteristic representation theory needed by tame and classical p-adic types. Starting from the parent roadmap’s algebraic Heisenberg extension, it constructs Schrödinger models, proves central-character uniqueness including cyclic centers of higher p-power order, and normalizes a genuine finite symplectic action. Partial-polarization restriction retains the quadratic determinant twist, and isotropic induction and tensor fixed vectors supply the finite inputs to Fintzen and Stevens. The independent automorphic theta-correspondence routes have an explicit companion-roadmap proposal.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:LinearMap.BilinForm.IsAlt",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+        "provides": "Alternating bilinear forms over the native module carrier; no real symplectic-form wrapper.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.Nondegenerate",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/Properties.lean",
+        "provides": "The two-sided native nondegeneracy predicate.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinForm.finrank_orthogonal",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/BilinearForm/Orthogonal.lean",
+        "provides": "For nondegenerate B on a finite-dimensional space, dim(W orthogonal)=dim(V)-dim(W).",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.BilinForm.isometryGroup",
+        "kind": "declaration",
+        "module": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+        "provides": "The subgroup of native linear equivalences preserving a bilinear form; its elements act on vectors.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.BilinForm.mem_isometryGroup_iff",
+        "kind": "declaration",
+        "module": "TauCeti/LinearAlgebra/BilinearForm/Isometry.lean",
+        "provides": "Membership is exactly B(gx,gy)=B(x,y) for all x,y.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:AddChar.IsPrimitive.of_ne_one",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "A nontrivial additive character of a field is primitive, including extension fields where it is not injective.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:AddChar.sum_mulShift",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
+        "provides": "The sum of a primitive additive character over a scaled finite field is the cardinality at scale zero and zero otherwise.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:quadraticChar",
+        "kind": "declaration",
+        "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+        "provides": "The existing integer-valued multiplicative quadratic character; cast its values to complex units on nonzero inputs.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:FDRep.ofLinearCharacter",
+        "kind": "declaration",
+        "module": "TauCeti/RepresentationTheory/LinearCharacter.lean",
+        "provides": "The native one-dimensional FDRep associated with a homomorphism to coefficient-field units.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.indFDRep",
+        "kind": "declaration",
+        "module": "TauCeti/RepresentationTheory/Induction/FiniteDimensional/Basic.lean",
+        "provides": "Finite-index induction of an FDRep from a subgroup, using the native induction model.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.finrank_indFDRep",
+        "kind": "declaration",
+        "module": "TauCeti/RepresentationTheory/Induction/FiniteDimensional/Basic.lean",
+        "provides": "Dimension of finite-index induction is subgroup index times input dimension.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.Submodule.exists_isCompl",
+        "kind": "declaration",
+        "module": "Mathlib/RepresentationTheory/Maschke.lean",
+        "provides": "Invariant complements over a field when the finite group order is invertible; used only over C.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:FDRep.char_orthonormal",
+        "kind": "declaration",
+        "module": "Mathlib/RepresentationTheory/Character.lean",
+        "provides": "Normalized character pairing of two simple finite-group FDReps over an algebraically closed splitting field is the isomorphism indicator.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:FDRep.simple_iff_char_is_norm_one",
+        "kind": "declaration",
+        "module": "Mathlib/RepresentationTheory/FinGroupCharZero.lean",
+        "provides": "Over an algebraically closed characteristic-zero field, character norm one characterizes simplicity.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:FDRep.simple_iff_end_is_rank_one",
+        "kind": "declaration",
+        "module": "Mathlib/RepresentationTheory/FinGroupCharZero.lean",
+        "provides": "Schur scalar endomorphisms for a simple FDRep over an algebraically closed field, with invertible group order.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsProjectiveRep",
+        "kind": "declaration",
+        "module": "TauCeti/RepresentationTheory/ProjectiveRepresentation/Basic.lean",
+        "provides": "Normalized projective operators with their multiplicative scalar factor set; rescaling changes that factor by a coboundary.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.det",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/Determinant.lean",
+        "provides": "Determinant of an automorphism as a unit, with multiplicativity inherited from LinearMap.det.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Representation.invariants",
+        "kind": "declaration",
+        "module": "Mathlib/RepresentationTheory/Invariants.lean",
+        "provides": "The native submodule of vectors fixed by a representation; used after restricting to a subgroup.",
+        "checked": "Actual declaration and hypotheses read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Rep.indResHomEquiv",
+        "kind": "declaration",
+        "module": "Mathlib/RepresentationTheory/Induced.lean",
+        "provides": "The native linear Frobenius-reciprocity equivalence between morphisms from induction and morphisms to restriction; use the existing indFDRep forgetful comparison.",
+        "checked": "Actual declaration and hypotheses read at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply",
+        "kind": "declaration",
+        "module": "TauCeti/RepresentationTheory/Induction/FiniteDimensional/Basic.lean",
+        "provides": "Finite-index induction has a right-coset function model, with action by right translation and the subgroup coset factor.",
+        "checked": "Actual declaration and hypotheses read at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:SemidirectProduct",
+        "kind": "declaration",
+        "module": "Mathlib/GroupTheory/SemidirectProduct.lean",
+        "provides": "Native group carrier with normal subgroup first and multiplication (n,g)(n′,g′)=(n·φ(g)n′,gg′).",
+        "checked": "Actual declaration and hypotheses read at the pinned commit on 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "F21",
+      "title": "Types for tame p-adic groups",
+      "authors": "Jessica Fintzen",
+      "edition": "Annals of Mathematics 193 (2021), arXiv:1810.04198v2; page locators below refer to this 39-page version",
+      "url": "https://arxiv.org/pdf/1810.04198v2",
+      "sha256": "bd332fd73956082656d767870566fdafd0fce3d834cccb223779a7724c3da8cc",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Section 7, pp. 30–34: Lemmas 7.7, 7.8 and 7.10; footnote 3 on p. 33."
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "The supercuspidal representations of p-adic classical groups",
+      "authors": "Shaun Stevens",
+      "edition": "Inventiones mathematicae 172 (2008), 289–352; arXiv:math/0607622v2, 55 pages; page locators refer to arXiv",
+      "url": "https://arxiv.org/pdf/math/0607622v2",
+      "sha256": "b5b409260344f0d86fbe98bee2c046971a5e9042ab8174f199343d10b5857109",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 3.5, p. 14.",
+        "Lemma 5.6 and Corollary 5.7, pp. 29–31.",
+        "Lemma 5.12 and its proof, pp. 32–33."
+      ]
+    },
+    {
+      "id": "N02",
+      "title": "An Explicit Construction of the Metaplectic Representation over a Finite Field",
+      "authors": "Markus Neuhauser",
+      "edition": "Journal of Lie Theory 12 (2002), 15–30; publisher PDF; journal page numbers",
+      "url": "https://www.heldermann-verlag.de/jlt/jlt12/NEUHAUSLAT2E.PDF",
+      "sha256": "1f8b7011be2d894640db21a9aa94b5916481bcb1f8783e287c27a4df069807c3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Section 2, pp. 16–17: Schrödinger model and Lemma 2.1.",
+        "Theorem 3.3, p. 18: generators.",
+        "Theorem 4.1, pp. 19–20: generator operators.",
+        "Theorem 4.2, pp. 20–22: parity subspaces.",
+        "Theorem 4.3 and following determinant calculation, pp. 22–23.",
+        "Example 4.4, pp. 23–24."
+      ]
+    },
+    {
+      "id": "FS25",
+      "title": "Construction of tame supercuspidal representations in arbitrary residue characteristic",
+      "authors": "Jessica Fintzen and David Schwein",
+      "edition": "Author manuscript dated April 15, 2025, 53 pages; only the odd-characteristic parts are used",
+      "url": "https://www.math.uni-bonn.de/people/schwein/documents/fintzen_schwein25.pdf",
+      "sha256": "9d8bdc451c612c5be1afd086bd8f944387405ab6a308de996f45b103c2576d16",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Section 3.1, pp. 8–11: odd-order Heisenberg groups and the standard model.",
+        "Section 3.3, pp. 14–16: Lemmas 3.3.1 and 3.3.4.",
+        "Section 3.4, pp. 16–18: Construction 3.4.2, Remark 3.4.3 and Definitions 3.4.4–3.4.5."
+      ]
+    }
+  ],
+  "conventions": "H(V) is the native factor-set extension supplied by MetaplecticAutomorphicForms:MP.0: coordinates (t,v), product (t,v)(s,w)=(t+s+B(v,w)/2,v+w), commutator ghg⁻¹h⁻¹=(B(v,w),0). Sp(V) is TauCeti.BilinForm.isometryGroup B. For V=X⊕X*, B((x,y),(x′,y′))=y′(x)−y(x′). In coordinates y(z) is a dot product. ψ is unit-valued, and scalar equations use its image in C. Native semidirect products put the normal subgroup first: H(V)⋊Sp(V). The notation Sp(V)⋉H(V) in papers denotes this same group after exchanging the coordinate order.",
+  "nodes": [
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.0",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.0"
+      ],
+      "title": "Adapted finite symplectic coordinates",
+      "kind": "construction",
+      "statement": "For every isotropic subspace I≤V there are an isotropic subspace J and a nondegenerate subspace V₀ such that V=I⊕V₀⊕J, I⊥=I⊕V₀, and B pairs I and J perfectly. The resulting linear equivalence identifies B with the orthogonal sum of B₀ and B((x,y),(x′,y′))=y′(x)−y(x′) on I⊕I*. It gives dim V=2 dim I+dim V₀, dim V₀ even, and a full polarization by taking a Lagrangian in V₀. Use native Submodule, LinearEquiv and BilinForm; the output is witness data, not a second symplectic-form carrier.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate.",
+        "I is isotropic: B vanishes on I×I."
+      ],
+      "proofSteps": [
+        "Induct on dim I. For a nonzero e in I use nondegeneracy to choose f with B(e,f)=1, and split off the nondegenerate plane ke+kf using the native orthogonal dimension theorem.",
+        "Project the rest of I to the orthogonal complement, repeat, and alter the dual vectors by half the matrix of their mutual pairings to make their span J isotropic. This uses 2 invertible and preserves B(eᵢ,fⱼ)=δᵢⱼ.",
+        "The orthogonal complement V₀ of I⊕J is nondegenerate. Apply the same plane induction to V₀ for even dimension and a Lagrangian; identify J with I* by y(x)=B(x,y)."
+      ],
+      "acceptance": [
+        "The complement to I in I⊥ is the quotient symplectic space, with its induced form.",
+        "No assertion is made that a fixed chosen complement is preserved by its parabolic stabilizer."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap.BilinForm.IsAlt",
+        "mathlib:LinearMap.BilinForm.Nondegenerate",
+        "mathlib:LinearMap.BilinForm.finrank_orthogonal"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW0",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "FS25",
+          "locator": "Example 3.1.6, pp. 9–10; Lemma 3.3.4, pp. 14–15",
+          "match": "The standard odd Heisenberg model and partial polarizations require precisely these decompositions; the finite-dimensional plane-induction proof is supplied here."
+        },
+        {
+          "sourceId": "N02",
+          "locator": "Section 2, p. 16",
+          "match": "The coordinate construction starts from a split finite symplectic space."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "adaptedPolarization_coordinates",
+          "role": "equivalence",
+          "statement": "The coordinate map I⊕V₀⊕I*≃ₗ[k]V preserves the displayed alternating form."
+        },
+        {
+          "name": "adaptedPolarization_perp",
+          "role": "characterisation",
+          "statement": "I⊥ corresponds to I⊕V₀⊕0, and its quotient by I is isometric to V₀."
+        },
+        {
+          "name": "adaptedPolarization_finrank",
+          "role": "relation",
+          "statement": "dim V=2 dim I+dim V₀; both V and V₀ have even dimension."
+        },
+        {
+          "name": "adaptedPolarization_transport",
+          "role": "functoriality",
+          "statement": "An isometry carrying I to I′ transports the chosen witness data and the induced quotient isometry."
+        }
+      ],
+      "tests": [
+        {
+          "name": "adapted_zero",
+          "kind": "example",
+          "statement": "I=0 permits V₀=V and J=0; it does not force V=0."
+        },
+        {
+          "name": "adapted_plane",
+          "kind": "example",
+          "statement": "For V=k² with B((x,y),(x′,y′))=xy′−yx′ and I=k(1,0), take J=k(0,1), V₀=0."
+        },
+        {
+          "name": "adapted_rank_four",
+          "kind": "example",
+          "statement": "In two orthogonal planes, choosing I as the first x-axis leaves the second plane as V₀ of dimension two."
+        },
+        {
+          "name": "adapted_nonexample",
+          "kind": "example",
+          "statement": "The whole nonzero symplectic plane is not isotropic and cannot be supplied as I."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FW.1 Schrödinger models",
+          "how": "Choose finite coordinates and dimension qⁿ."
+        },
+        {
+          "where": "Fintzen, Lemma 7.10, pp. 32–34",
+          "how": "Split off the isotropic plus space and identify its symplectic quotient."
+        }
+      ],
+      "planet": {
+        "name": "Partial polarization"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.1",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.1"
+      ],
+      "title": "Finite Schrödinger representation",
+      "kind": "construction",
+      "statement": "For a full polarization V=X⊕X*, construct the native FDRep Sψ of H(V) on Fun(X,C), by (π(t,x,y)f)(z)=ψ(t+y(z)+y(x)/2)f(z+x). Supply a linear equivalence with native induction from A={(t,0,y)} of its character (t,0,y)↦ψ(t). Here induction is realized as functions F(ah)=ψ(tₐ)F(h), with H acting by right translation; restriction to representatives (0,x,0) fixes the coordinate convention. Its dimension is |X|=qⁿ.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "A full polarization has been chosen."
+      ],
+      "proofSteps": [
+        "Use the imported bilinear factor-set multiplication and the displayed formula to check π(h)π(h′)=π(hh′): the two cross terms differ by B(v,v′)/2. Inverses give invertible operators.",
+        "Linearity and finite X bundle the operators into an FDRep. For functions F(ah)=ψ(tₐ)F(h), set f(z)=F((0,z,0)); right translation by (t,x,y) has subgroup factor (t+y(z)+y(x)/2,0,y), giving the displayed formula. Use TauCeti.Rep.indSubtypeEquivPi_ρ_apply and the existing induction–coinduction comparison to identify this with native induction.",
+        "A delta-function basis identifies dimension with |X|. Central action is ψ(t), translations are z↦z+x, and modulations are multiplication by ψ(y(z))."
+      ],
+      "acceptance": [
+        "Check the native induction comparison on center, translation and modulation generators, rather than only comparing dimensions."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
+        "MetaplecticAutomorphicForms:MP.0/bilinear-factor-set",
+        "MetaplecticAutomorphicForms:MP.0/half-form-commutator",
+        "MetaplecticAutomorphicForms:MP.0/polarization-equivalence",
+        "tauceti:FDRep.ofLinearCharacter",
+        "tauceti:TauCeti.indFDRep",
+        "tauceti:TauCeti.finrank_indFDRep",
+        "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW1",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "N02",
+          "locator": "Section 2, pp. 16–17",
+          "match": "The explicit finite Schrödinger action supplies the formula and its central character."
+        },
+        {
+          "sourceId": "FS25",
+          "locator": "Example 3.1.6, pp. 9–10; Lemma 3.3.4, pp. 14–15",
+          "match": "The odd standard model and induction construction supply the compatible induced realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "schrodinger_apply",
+          "role": "simp",
+          "statement": "The action on f,z is exactly ψ(t+y(z)+y(x)/2)f(z+x)."
+        },
+        {
+          "name": "schrodinger_center",
+          "role": "compatibility",
+          "statement": "π(t,0)=ψ(t)·id; dim Sψ=qⁿ."
+        },
+        {
+          "name": "schrodinger_mul",
+          "role": "relation",
+          "statement": "π(h)π(h′)=π(hh′), with ghg⁻¹h⁻¹ producing ψ(B(v,w))."
+        },
+        {
+          "name": "schrodinger_indFDRep",
+          "role": "equivalence",
+          "statement": "Sψ is isomorphic to TauCeti.indFDRep of FDRep.ofLinearCharacter on A, with explicit restriction-to-cosets maps."
+        },
+        {
+          "name": "schrodinger_changeCoordinates",
+          "role": "functoriality",
+          "statement": "Changing a polarization along an isometry transports the H action by pullback and gives an intertwiner, unique up to scalar after the uniqueness theorem."
+        }
+      ],
+      "tests": [
+        {
+          "name": "schrodinger_F3_commutator",
+          "kind": "example",
+          "statement": "For k=F₃ and ζ=exp(2πi/3), translation by 1 followed by modulation by 1 equals ζ times their reverse product."
+        },
+        {
+          "name": "schrodinger_zero",
+          "kind": "example",
+          "statement": "For V=0, Sψ is the one-dimensional central character ψ on H(0)=k, not a zero representation."
+        },
+        {
+          "name": "schrodinger_delta",
+          "kind": "example",
+          "statement": "In the plane over F₃, π(0,0,1)δ₁=ζδ₁ and π(0,1,0)δ₁=δ₀."
+        },
+        {
+          "name": "schrodinger_trivial_character",
+          "kind": "example",
+          "statement": "Replacing ψ by the trivial character in a nonzero plane leaves a translation representation with a fixed constant line; it is not the promised irreducible model."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Neuhauser, Section 4, pp. 19–23",
+          "how": "Intertwine this exact action to normalize symplectic operators."
+        },
+        {
+          "where": "Fintzen, Lemmas 7.8 and 7.10, pp. 31–34",
+          "how": "Supply each finite Heisenberg factor."
+        }
+      ],
+      "planet": {
+        "name": "Schrödinger representation"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.1/character",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.1",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.1"
+      ],
+      "title": "Finite Schrödinger character",
+      "kind": "theorem",
+      "statement": "The character of Sψ at (t,v) is qⁿψ(t) if v=0 and is 0 otherwise. Thus its normalized character norm is 1. This holds for every nontrivial additive character of any finite odd field, including characters with a nontrivial additive kernel.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field."
+      ],
+      "proofSteps": [
+        "For x≠0, translation has no fixed basis vector, so the diagonal trace is zero. For x=0, sum ψ(t+y(z)) over X; a nonzero functional y is onto k and primitive-character orthogonality makes this sum zero.",
+        "For v=0 the scalar action gives qⁿψ(t). Sum χ(h)χ(h⁻¹) over the q-element center, divide by |H|=q^(2n+1), and get 1. The order follows from the imported extension equivalence with k×V."
+      ],
+      "acceptance": [
+        "The test must distinguish nontrivial from faithful ψ over F₉; nonzero y is detected by a suitable scalar multiple even when ψ(y(z))=1 for one z."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
+        "mathlib:AddChar.IsPrimitive.of_ne_one",
+        "mathlib:AddChar.sum_mulShift"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW1",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "N02",
+          "locator": "Lemma 2.1 and its proof, pp. 16–17",
+          "match": "The character is concentrated on the center; its norm and completeness are then computed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Schrödinger character"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.1",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.1"
+      ],
+      "title": "Finite Stone–von Neumann theorem",
+      "kind": "theorem",
+      "statement": "Sψ is irreducible. Every irreducible complex representation of H(V) on which (t,0) acts as ψ(t) is isomorphic to Sψ; it has dimension qⁿ and scalar endomorphisms. In an arbitrary finite-dimensional representation with this central action, every irreducible constituent is Sψ, so it is Sψ-isotypic.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field."
+      ],
+      "proofSteps": [
+        "Apply the native character-norm criterion to the preceding character. For another simple representation with this central character, pair its character with that of Sψ: only the center contributes and the pairing equals dim(A)/qⁿ, a positive number. Native orthogonality forces an isomorphism.",
+        "Maschke decomposes any finite-dimensional representation into simples, each with the prescribed scalar central action. Native Schur gives scalar endomorphisms."
+      ],
+      "acceptance": [
+        "For n=0 this reduces to the character ψ of the additive center.",
+        "Uniqueness is an isomorphism class, not a distinguished nonzero vector or a uniquely normalized intertwiner."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/character",
+        "mathlib:FDRep.simple_iff_char_is_norm_one",
+        "mathlib:FDRep.char_orthonormal",
+        "mathlib:MonoidAlgebra.Submodule.exists_isCompl",
+        "mathlib:FDRep.simple_iff_end_is_rank_one",
+        "MetaplecticAutomorphicForms:MP.0/half-form-center"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW1",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "N02",
+          "locator": "Section 2, Lemma 2.1 and following completeness argument, pp. 16–17",
+          "match": "The trace calculation yields irreducibility and the unique nontrivial-central-character representation."
+        },
+        {
+          "sourceId": "FS25",
+          "locator": "Lemma 3.3.1, p. 14",
+          "match": "The finite Stone–von Neumann statement is given for center of order p; the field model follows by the same character calculation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite Stone–von Neumann theorem"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.1",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.1"
+      ],
+      "title": "Stone–von Neumann with a cyclic center",
+      "kind": "theorem",
+      "statement": "Let J be a finite group, H normal in J, J/H abelian, and θ:H→Cˣ invariant under conjugation by J. Assume that for each g∉H there is x∈J with θ(gxg⁻¹x⁻¹)≠1. Then there is exactly one isomorphism class of irreducible η with η(h)=θ(h)·id. Its dimension d satisfies d²=[J:H], and its character is dθ on H and zero off H. Every representation containing θ is η-isotypic on its θ-isotypic J-subrepresentation. In the routed application J is a finite p-group, p odd, J/H is an Fp-vector space with nondegenerate θ-commutator pairing; H/ker θ can have order pᵃ. No exponent-p or standard-Heisenberg-isomorphism hypothesis is needed.",
+      "hypotheses": [
+        "J is finite; H is normal; every commutator lies in H.",
+        "θ is J-invariant and its commutator radical in J/H is zero.",
+        "All representations are complex and finite-dimensional."
+      ],
+      "proofSteps": [
+        "Induce the existing one-dimensional θ representation from H. J-invariance implies its H action is scalar θ; it is nonzero by its positive dimension. Maschke supplies a nonzero simple constituent η.",
+        "For g∉H choose x detecting its commutator. Since commutators act scalarly, conjugating η(g) multiplies its trace by the nontrivial scalar θ([g,x]) (or its inverse, according to the conjugation direction), so the trace vanishes.",
+        "Character norm of a simple η is |H|d²/|J|=1, hence d²=[J:H]. Pair any two such simple representations: the same calculation gives 1, and character orthogonality yields an isomorphism. Decompose the θ-isotypic subrepresentation by Maschke."
+      ],
+      "acceptance": [
+        "Test a central product of the order-p³ standard Heisenberg group with C_(p²), identifying their order-p central subgroups: the faithful cyclic central character has one representation of dimension p.",
+        "The nonabelian group of order p³ and exponent p² is also covered; it need not admit a special isomorphism to the exponent-p standard group.",
+        "If the commutator pairing is degenerate, uniqueness can fail: an abelian J with H proper has many extensions of a fixed H-character."
+      ],
+      "prerequisites": [
+        "tauceti:FDRep.ofLinearCharacter",
+        "tauceti:TauCeti.indFDRep",
+        "tauceti:TauCeti.finrank_indFDRep",
+        "mathlib:MonoidAlgebra.Submodule.exists_isCompl",
+        "mathlib:FDRep.char_orthonormal"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW1",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "S08",
+          "locator": "Proposition 3.5, p. 14, with its cited finite Heisenberg argument",
+          "match": "The target used by Stevens is uniqueness and the square-root dimension for the θ-isotypic representation. The explicit trace proof here applies to cyclic center of order pᵃ and even to the stated finite-group generality."
+        },
+        {
+          "sourceId": "F21",
+          "locator": "Lemma 7.8, p. 31, using Lemma 7.7, pp. 30–31",
+          "match": "The type argument needs uniqueness for a finite central-character quotient, then isotypy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cyclic-center Stone–von Neumann theorem"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.1/polarization-intertwiner",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.1",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.1"
+      ],
+      "title": "Intertwiners between finite polarizations",
+      "kind": "construction",
+      "statement": "For Lagrangians A,B≤V let S_A be functions F:H→C with F((t,a)h)=ψ(t)F(h) for a∈A, acted on by right translation. Define T_BA:S_A→S_B by (T_BA F)(h)=∑_(b∈B)F((0,b)h). It is a nonzero H-intertwiner and an isomorphism. With this unnormalized convention, T_AA=|A|id and T_AB∘T_BA=|A|·|A∩B|id. These are chosen intertwiners, not an assertion that all triple compositions are exactly 1.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "A and B are Lagrangian."
+      ],
+      "proofSteps": [
+        "Use the imported Heisenberg product and isotropy of B to reindex the B sum, proving its left covariance; right translation commutes with left averaging.",
+        "Apply T_BA to the function supported on the inducing subgroup of A; its value at 1 is |A∩B|, hence it is nonzero. Stone–von Neumann makes it an isomorphism.",
+        "For the composite, sum ψ of the commutator character on the finite quotient; character orthogonality leaves |A|·|A∩B|. Equal Lagrangians give |A|id directly."
+      ],
+      "acceptance": [
+        "Every sum is a finite sum; no Haar measure or local-field topology is imported."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "tauceti:TauCeti.indFDRep",
+        "mathlib:AddChar.sum_mulShift",
+        "MetaplecticAutomorphicForms:MP.0/half-form-commutator"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW1",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "FS25",
+          "locator": "Lemma 3.3.4 and proof, pp. 14–15",
+          "match": "Induction and restriction-to-zero identify polarized models and their intertwining spaces."
+        },
+        {
+          "sourceId": "N02",
+          "locator": "Theorem 4.1, pp. 19–20",
+          "match": "The transverse-coordinate intertwiner is a finite Fourier transform; the averaging normalization here is specified independently."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "polarizationIntertwiner_apply",
+          "role": "simp",
+          "statement": "T_BA is the displayed left average, commuting with all right H translations."
+        },
+        {
+          "name": "polarizationIntertwiner_nonzero",
+          "role": "structure",
+          "statement": "T_BA is a nonzero linear equivalence between the native induced FDReps."
+        },
+        {
+          "name": "polarizationIntertwiner_self",
+          "role": "relation",
+          "statement": "T_AA=|A|id and T_AB T_BA=|A|·|A∩B|id."
+        },
+        {
+          "name": "polarizationIntertwiner_isometry",
+          "role": "functoriality",
+          "statement": "An isometry of V transports the sum and both inducing subgroups, with no extra counting factor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "intertwiner_same_F3",
+          "kind": "example",
+          "statement": "For a line A=B in the F₃ plane, T_AA=3id and the double composite is 9id."
+        },
+        {
+          "name": "intertwiner_transverse_F3",
+          "kind": "example",
+          "statement": "For distinct Lagrangian lines in the F₃ plane, T_AB T_BA=3id, so an identity-normalized guess fails."
+        },
+        {
+          "name": "intertwiner_zero",
+          "kind": "example",
+          "statement": "For V=0 the sums have one term and every T is the identity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FW.2 projective symplectic action",
+          "how": "Supply the nonzero intertwiners and scalar ambiguity."
+        },
+        {
+          "where": "Changing special coordinates in finite type constructions",
+          "how": "Transport between polarized models through actual H-isomorphisms."
+        }
+      ],
+      "planet": {
+        "name": "Polarization intertwiner"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.2/projective-action",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.2",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.2"
+      ],
+      "title": "Projective symplectic action",
+      "kind": "construction",
+      "statement": "For every g∈Sp(V) choose μ(g)∈GL_C(Sψ) with μ(1)=1 and μ(g)π(h)μ(g)⁻¹=π(g·h), where g·(t,v)=(t,gv) is the parent isometry action. There is a unique c(g,g′)∈Cˣ such that μ(g)μ(g′)=c(g,g′)μ(gg′); c is normalized and satisfies the native factor-set identity. Bundle this as TauCeti.IsProjectiveRep. No splitting is inferred merely from this construction.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field."
+      ],
+      "proofSteps": [
+        "The parent isometry action fixes the center. Stone–von Neumann identifies π with its pullback along g and supplies an invertible intertwiner; choose the identity at g=1.",
+        "Schur makes the discrepancy of two compositions a unique nonzero scalar. Associativity and μ(1)=1 give the native cocycle equations.",
+        "Changing μ(g) to a(g)μ(g), a(1)=1, changes c by a(g)a(g′)/a(gg′), exactly the native projective-representation rescaling convention."
+      ],
+      "acceptance": [
+        "The native central extension of a projective representation is a different construction from a linear representation of Sp(V)."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "MetaplecticAutomorphicFormsPartII:FW.1/polarization-intertwiner",
+        "MetaplecticAutomorphicForms:MP.0/isometry-action",
+        "tauceti:TauCeti.BilinForm.isometryGroup",
+        "tauceti:TauCeti.BilinForm.mem_isometryGroup_iff",
+        "tauceti:TauCeti.IsProjectiveRep"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW2",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "N02",
+          "locator": "Theorem 4.1, pp. 19–20",
+          "match": "The symplectic action is first constructed by intertwining the Schrödinger representation, with scalar ambiguity."
+        },
+        {
+          "sourceId": "FS25",
+          "locator": "Construction 3.4.2, pp. 16–17",
+          "match": "The finite symplectic action first defines a projective representation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "projectiveWeil_egorov",
+          "role": "relation",
+          "statement": "μ(g)π(t,v)μ(g)⁻¹=π(t,gv)."
+        },
+        {
+          "name": "projectiveWeil_factor",
+          "role": "compatibility",
+          "statement": "μ and c satisfy TauCeti.IsProjectiveRep, with c(1,g)=c(g,1)=1."
+        },
+        {
+          "name": "projectiveWeil_rescale",
+          "role": "functoriality",
+          "statement": "A normalized scalar change multiplies c by its displayed coboundary."
+        }
+      ],
+      "tests": [
+        {
+          "name": "projective_identity",
+          "kind": "example",
+          "statement": "μ(1)=id, so both identity factors are 1."
+        },
+        {
+          "name": "projective_F3_scalar",
+          "kind": "example",
+          "statement": "Multiplying a nonidentity intertwiner by ζ changes its cocycle; the resulting projective action still satisfies Egorov."
+        },
+        {
+          "name": "projective_zero",
+          "kind": "example",
+          "statement": "For V=0 the intertwiner space is Cˣ and the next determinant normalization removes every scalar choice."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Neuhauser, Theorem 4.3, p. 22",
+          "how": "Provide the scalar factors which the determinant argument cancels."
+        }
+      ],
+      "planet": {
+        "name": "Projective Weil representation"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.2",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.2"
+      ],
+      "title": "Determinant normalization of the Weil action",
+      "kind": "construction",
+      "statement": "Let Rf(z)=f(−z), S⁺=ker(R−1), S⁻=ker(R+1). Their dimensions are (qⁿ+1)/2 and (qⁿ−1)/2. Every μ(g) commutes with R. Put κ(g)=det μ(g)/(det(μ(g)|S⁺))² and ω(g)=κ(g)μ(g). Then ω:Sp(V)→GL_C(Sψ) is a genuine homomorphism with Egorov covariance, independent of the chosen scalar representatives μ. It is characterized among scalar corrections by det ω(g)=(det(ω(g)|S⁺))². This specifies a preferred action even for Sp₂(F₃), where arbitrary linearizations are not unique.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field."
+      ],
+      "proofSteps": [
+        "Parity implements the central symplectic element −1. Its conjugate by μ(g) is a scalar multiple of R by Schur. As trace R=1, conjugacy invariance of trace makes this scalar 1.",
+        "Decompose functions into even and odd parts using 1/2. The only fixed point of z↦−z is 0, giving the dimensions and dim S−2 dim S⁺=−1.",
+        "For μ(g)μ(g′)=c μ(gg′), determinants give κ(g)κ(g′)=c⁻¹κ(gg′). Thus the corrected operators multiply exactly. Rescaling μ by a multiplies κ by a⁻¹; the normalized action is independent of choices.",
+        "Apply the same exponent −1 to any two scalar corrections satisfying the determinant condition to prove uniqueness of this preferred normalization."
+      ],
+      "acceptance": [
+        "A proof that uses perfectness of every finite symplectic group fails at Sp₂(F₃); the determinant proof must handle it directly."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.2/projective-action",
+        "mathlib:LinearEquiv.det",
+        "mathlib:FDRep.simple_iff_end_is_rank_one"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW2",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "N02",
+          "locator": "Theorem 4.3, p. 22, using Theorem 4.2, pp. 20–22",
+          "match": "The ratio of determinants on the whole space and its even subspace removes the projective multiplier."
+        },
+        {
+          "sourceId": "FS25",
+          "locator": "Construction 3.4.2, pp. 16–17",
+          "match": "Sp₂(F₃) is the exceptional case for unrestricted uniqueness of a finite Weil linearization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "weil_normalized_apply",
+          "role": "simp",
+          "statement": "ω(g)=(det μ(g)/(det μ⁺(g))²)μ(g)."
+        },
+        {
+          "name": "weil_map_mul",
+          "role": "structure",
+          "statement": "ω(1)=1, ω(gg′)=ω(g)ω(g′), and ω satisfies Egorov."
+        },
+        {
+          "name": "weil_independent_intertwiners",
+          "role": "characterisation",
+          "statement": "The result is unchanged under every normalized scalar rescaling of μ."
+        },
+        {
+          "name": "weil_determinant_characterization",
+          "role": "universal-property",
+          "statement": "The determinant relation on S⁺ uniquely selects the scalar correction for every g, including q=3,n=1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "weil_scalar_line",
+          "kind": "example",
+          "statement": "For n=0 and μ(g)=a(g)id on C, κ(g)=a(g)⁻¹ and ω(g)=id."
+        },
+        {
+          "name": "weil_F3_exception",
+          "kind": "example",
+          "statement": "For the F₃ plane and ψ(1)=ζ, a nontrivial order-three character twist of ω remains genuine and has Egorov covariance but fails the determinant characterization."
+        },
+        {
+          "name": "weil_parity_dimensions",
+          "kind": "example",
+          "statement": "For the F₅ plane the even and odd dimensions are 3 and 2, so 5−2·3=−1; reversing the determinant ratio would double rather than cancel a generic multiplier."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FW.3 parabolic restriction",
+          "how": "Fix the determinant character, which would change under arbitrary exceptional twists."
+        },
+        {
+          "where": "Fintzen–Schwein, Definition 3.4.5(a), p. 17",
+          "how": "Supply a genuine finite symplectic action for compatible special-coordinate transport."
+        }
+      ],
+      "planet": {
+        "name": "Finite Weil representation"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.2/generator-formulas",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.2",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.2"
+      ],
+      "title": "Normalized finite Weil generators",
+      "kind": "theorem",
+      "statement": "In X=kⁿ coordinates write u(C)=(I,0;C,I), m(A)=(A,0;0,A⁻ᵀ), and J=(0,I;−I,0), C symmetric and A invertible. Then ω(u(C))f(z)=ψ(−zᵀCz/2)f(z), ω(m(A))f(z)=χ_k(det A)f(A⁻¹z), and ω(J)=κ_J Fψ, where Fψ f(z)=q^(−n/2)∑_w ψ(z·w)f(w) and κ_J=det Fψ/(det(Fψ|S⁺))². χ_k is the existing quadraticChar, cast to C on kˣ. These are formulas for the homomorphism already constructed, so all generator relations hold. The J here is the negative of Mathlib Matrix.J; its action must not be identified by name alone.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "The full coordinate polarization and its standard bases are fixed; q^(−n/2) is the positive real normalization."
+      ],
+      "proofSteps": [
+        "Check Egorov on translations and modulations for each displayed unnormalized operator. Use the native symplectic isometry group, rather than silently switching the sign of J.",
+        "For u(C), pair z and −z in the determinant to obtain κ=1. For m(A), the even-subspace permutation determinant squares to 1, so the ratio is the sign of the permutation z↦A⁻¹z on all of X. This is χ_k(det A): elementary transvections have odd order and sign +1; a diagonal scaling reduces to its permutation of k, whose sign is its quadratic character since kˣ is cyclic. The other coordinates repeat this permutation an odd number of times.",
+        "For J use the displayed determinant ratio, which requires no unproved choice of Gauss-sum square root. Finite Fourier inversion gives Fψ²=R. The preferred normalization then yields the formulas and their relations."
+      ],
+      "acceptance": [
+        "For q=3,n=1, ψ(1)=exp(2πi/3), obtain ω(u(1))=diag(1,ζ,ζ), ω(m(−1))=−R and κ_J=−i.",
+        "For q=5,n=1, ψ(1)=exp(2πi/5), κ_J=−1 and ω(m(2))δ₀=−δ₀.",
+        "Retain κ_J as a determinant formula; no local Weil index or analytic Gauss-sum evaluation is a prerequisite."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "mathlib:quadraticChar",
+        "mathlib:AddChar.sum_mulShift",
+        "mathlib:AddChar.IsPrimitive.of_ne_one",
+        "tauceti:TauCeti.BilinForm.isometryGroup"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW2",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "N02",
+          "locator": "Theorem 3.3, p. 18; Theorem 4.1, pp. 19–20; determinant calculations after Theorem 4.3, pp. 22–23",
+          "match": "The generators, their intertwining operators and their determinant corrections give the formulas."
+        },
+        {
+          "sourceId": "N02",
+          "locator": "Example 4.4, pp. 23–24",
+          "match": "The F₅ example tests the nontrivial Fourier and diagonal correction factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Weil generator formulas"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.2/weil-heisenberg",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.2",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.2"
+      ],
+      "title": "Weil–Heisenberg semidirect representation",
+      "kind": "construction",
+      "statement": "On the native semidirect product H(V)⋊Sp(V), with (h,g)(h′,g′)=(h(g·h′),gg′), define Ω(h,g)=π(h)ω(g). This is a genuine complex FDRep. Its restriction to H(V) is Sψ, its restriction to Sp(V) is the normalized Weil action, and its center acts by ψ. Transport along isometries is compatible up to the unique scalar ambiguity of the underlying Heisenberg intertwiner; the transported normalized symplectic action is exact after conjugation.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field."
+      ],
+      "proofSteps": [
+        "Use the parent isometry action to form the existing native SemidirectProduct; no new group carrier is needed.",
+        "Insert Egorov into π(h)ω(g)π(h′)ω(g′) to obtain π(h(g·h′))ω(gg′). Bundle the finite-dimensional representation.",
+        "Conjugate both π and ω by a nonzero Heisenberg intertwiner. The determinant characterization is preserved under conjugation, so the resulting normalized action agrees."
+      ],
+      "acceptance": [
+        "The representation is genuine on a finite semidirect product; no local metaplectic double cover is introduced."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
+        "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "MetaplecticAutomorphicForms:MP.0/isometry-action",
+        "mathlib:SemidirectProduct"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW2",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "FS25",
+          "locator": "Construction 3.4.2 and Definition 3.4.5(a), pp. 16–17",
+          "match": "The finite Weil action extends the Heisenberg action to the symplectic semidirect product."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "weilHeisenberg_apply",
+          "role": "simp",
+          "statement": "Ω(h,g)=π(h)ω(g) in native normal-first coordinates."
+        },
+        {
+          "name": "weilHeisenberg_restrictions",
+          "role": "compatibility",
+          "statement": "The two canonical subgroup restrictions are Sψ and ω; the center is ψ."
+        },
+        {
+          "name": "weilHeisenberg_map_mul",
+          "role": "structure",
+          "statement": "The displayed semidirect multiplication is respected exactly."
+        },
+        {
+          "name": "weilHeisenberg_isometry",
+          "role": "functoriality",
+          "statement": "An isometry and a chosen Schrödinger intertwiner conjugate Ω to the corresponding transported representation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "semidirect_plane",
+          "kind": "example",
+          "statement": "On the F₃ plane, conjugating translation by J gives modulation by −1, as required by J(x,0)=(0,−x)."
+        },
+        {
+          "name": "semidirect_zero",
+          "kind": "example",
+          "statement": "For V=0, Sp(V) is trivial and Ω is ψ on the center."
+        },
+        {
+          "name": "semidirect_order",
+          "kind": "example",
+          "statement": "For a nontrivial g and h, reversing π(h)ω(g) to ω(g)π(h) changes the h coordinate by g; the unadjusted reversed formula fails the stated multiplication."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Fintzen, proof of Lemma 7.10, pp. 32–34",
+          "how": "Use the finite Weil action and Heisenberg action on the same space."
+        },
+        {
+          "where": "FW.2 special-coordinate transport",
+          "how": "Pull Ω back to a finite quotient with a compatible symplectic action."
+        }
+      ],
+      "planet": {
+        "name": "Weil–Heisenberg representation"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.2/special-transport",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.2",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.2"
+      ],
+      "title": "Transport through compatible special coordinates",
+      "kind": "construction",
+      "statement": "Let P be an abstract finite group with a specified isomorphism j:P≃H(V) inducing the given identification P/Z(P)≃V and its given central character. Let K act on P, let s:K→Sp(V), and require j(k·a)=s(k)·j(a) for every k,a. Then (a,k)↦(j(a),s(k)) is a homomorphism P⋊K→H(V)⋊Sp(V), and its pullback of Ω is a genuine extension of the Heisenberg representation to P⋊K. Merely having a special isomorphism on quotients, or an arbitrary center-fixing action, does not imply this equivariance hypothesis.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "j is a group isomorphism with the stated center and quotient identifications.",
+        "s is a homomorphism and the displayed equivariance is part of the input."
+      ],
+      "proofSteps": [
+        "Check the native semidirect multiplication using precisely the equivariance assumption, then restrict the representation along the resulting homomorphism.",
+        "Central action and the representation on P follow from j; the K action follows from s. Changing j compatibly conjugates the pulled-back action.",
+        "Do not manufacture j from nondegeneracy alone. Cyclic-center groups of order pᵃ and exponent-p² groups are handled by the separate uniqueness theorem, without a false standard-group identification."
+      ],
+      "acceptance": [
+        "An inner translation in Aut_Z(P) generally adds a nonzero central linear term in j coordinates, and is not a pure symplectic action under this fixed j."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.2/weil-heisenberg",
+        "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+        "mathlib:SemidirectProduct"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW2",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "FS25",
+          "locator": "Definitions 3.4.4 and 3.4.5(a), p. 17; Remark 3.4.3, pp. 16–17",
+          "match": "The definition of a compatible special isomorphism includes the semidirect equivariance needed to pull back a linear Weil action. The full center-fixing automorphism group has an obstruction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "specialTransport_hom",
+          "role": "constructor",
+          "statement": "Equivariance gives the homomorphism (a,k)↦(j(a),s(k)) of native semidirect products."
+        },
+        {
+          "name": "specialTransport_restrict",
+          "role": "compatibility",
+          "statement": "Restriction to P is Sψ pulled back by j; K acts through the normalized ω∘s."
+        },
+        {
+          "name": "specialTransport_change",
+          "role": "functoriality",
+          "statement": "A compatible isomorphism of the j,s data gives an isomorphism of pulled-back representations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "special_identity",
+          "kind": "example",
+          "statement": "For P=H(V), j=id, K=Sp(V), s=id, the pullback is Ω."
+        },
+        {
+          "name": "special_inner_nonexample",
+          "kind": "example",
+          "statement": "For V a nonzero F₃ plane, a noncentral inner automorphism is the identity on V but adds B(v,−) to the center, so j=id is not equivariant with s=1."
+        },
+        {
+          "name": "special_exponent_nonexample",
+          "kind": "example",
+          "statement": "The order-p³ exponent-p² group cannot be isomorphic to the standard exponent-p group; it still satisfies the cyclic-center uniqueness theorem when its commutator pairing is nondegenerate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "SmoothRepresentationsPartII, finite quotients in Yu-type constructions",
+          "how": "The p-adic owner must prove existence and equivariance of its chosen special isomorphisms before invoking this extension."
+        }
+      ],
+      "planet": {
+        "name": "Compatible special isomorphism"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.3/mixed-model",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.3",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.3"
+      ],
+      "title": "Partial-polarization induced model",
+      "kind": "construction",
+      "statement": "For an adapted decomposition V=I⊕V₀⊕J, let K=H(I⊥)=H(I⊕V₀). Projection K→H(V₀) has kernel I={(0,i)}. Inflate Sψ,₀ along this projection. Then Sψ,V≅Ind_K^H(V)(Sψ,₀), with mixed realization Fun(J,Sψ,₀). Using representatives (0,j), the action of i∈I on the value at j is multiplication by ψ(B(j,i)), and its fixed vectors are exactly the functions supported at 0. Evaluation at 0 identifies Sψ,V^I with Sψ,₀, of dimension q^(dim V₀/2). Use native induction and native representation invariants.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "I is isotropic and adapted coordinates have been chosen."
+      ],
+      "proofSteps": [
+        "Use the parent half-form product: the projection K→H(V₀) is a homomorphism and its kernel is I, because I pairs trivially with I⊥.",
+        "The native induced representation has the right central character and dimension |J|q^(dim V₀/2)=qⁿ. Stone–von Neumann and Maschke make it the unique Sψ,V, with multiplicity one.",
+        "Evaluate the induced functions on representatives (0,j). The identity (0,j)(0,i)=(B(j,i),i)(0,j) gives the multiplier ψ(B(j,i)). Nondegeneracy and primitivity show that only j=0 has trivial I-character. Evaluation and zero extension are inverse on fixed vectors."
+      ],
+      "acceptance": [
+        "The fixed subspace has the smaller Heisenberg action; its parabolic action still requires the next determinant-character theorem."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
+        "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "tauceti:TauCeti.indFDRep",
+        "tauceti:TauCeti.finrank_indFDRep",
+        "mathlib:Representation.invariants",
+        "mathlib:AddChar.IsPrimitive.of_ne_one",
+        "MetaplecticAutomorphicForms:MP.0/half-form-commutator",
+        "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW3",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "FS25",
+          "locator": "Lemma 3.3.4 and proof, pp. 14–15",
+          "match": "The partial-polarization induction and its fixed subspace are identified by functions supported at zero."
+        },
+        {
+          "sourceId": "F21",
+          "locator": "Proof of Lemma 7.10, pp. 32–34",
+          "match": "The plus-space fixed vectors are the smaller symplectic Weil module."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "mixedModel_indFDRep",
+          "role": "equivalence",
+          "statement": "Sψ,V≅TauCeti.indFDRep of the inflated Sψ,₀, with the subgroup K specified above."
+        },
+        {
+          "name": "mixedModel_action_I",
+          "role": "simp",
+          "statement": "Using representatives (0,j), (π(0,i)F)(j)=ψ(B(j,i))F(j); this is ψ(−B(i,j)), fixing the sign convention."
+        },
+        {
+          "name": "mixedModel_fixed_iff",
+          "role": "characterisation",
+          "statement": "A mixed-model function is I-fixed exactly when its support is contained in {0}."
+        },
+        {
+          "name": "mixedModel_eval_zero",
+          "role": "equivalence",
+          "statement": "Evaluation at 0 and extension supported at 0 are inverse H(V₀)-equivariant linear equivalences, using Representation.invariants."
+        }
+      ],
+      "tests": [
+        {
+          "name": "mixed_zero_I",
+          "kind": "example",
+          "statement": "For I=0, K=H(V), induction has index one and the fixed subspace is the whole Sψ,V."
+        },
+        {
+          "name": "mixed_lagrangian",
+          "kind": "example",
+          "statement": "For I Lagrangian, V₀=0 and the I-fixed subspace is the single δ₀ line."
+        },
+        {
+          "name": "mixed_rank_four_F3",
+          "kind": "example",
+          "statement": "For a one-dimensional I in a four-dimensional F₃ symplectic space, S has dimension 9 and its I-fixed subspace has dimension 3, not 1 or 9."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Fintzen, Lemma 7.10, p. 33",
+          "how": "Identify the smaller module carrying the action of the symplectic quotient."
+        },
+        {
+          "where": "Stevens, Corollary 5.7 and Lemma 5.12, pp. 30–33",
+          "how": "The standard model explains the invariant-space calculation; the next cyclic theorem handles its more general group."
+        }
+      ],
+      "planet": {
+        "name": "Mixed Schrödinger model"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.3/parabolic-invariants",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.3",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.3"
+      ],
+      "title": "Parabolic fixed-space representation",
+      "kind": "theorem",
+      "statement": "Let P≤Sp(V) stabilize I. It acts on I and on V̄=I⊥/I, giving p₁:P→GL(I) and p₂:P→Sp(V̄). There is an isomorphism of P⋉H(V̄)-representations Sψ,V^I≅(χ_k∘det∘p₁)⊗Ωψ,V̄, where Ω is pulled back along p₂ on P and the identity on H(V̄). The H(V̄) action is obtained from H(I⊥)/I; an adapted complement identifies V̄ with V₀ but need not be P-stable.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "I is isotropic; P is its full stabilizer or any subgroup of that stabilizer."
+      ],
+      "proofSteps": [
+        "The mixed-model evaluation identifies the smaller Heisenberg action. For the Levi subgroup GL(I)×Sp(V₀), the generator formulas give χ_k(det on I) times the smaller normalized Weil action.",
+        "In adapted coordinates, the parabolic unipotent radical has p₂=1. Its quadratic and mixed phases evaluate to 1 at the zero I-coordinate, so it acts trivially on the fixed subspace. This can be checked on the symmetric shear and off-diagonal generators of that radical.",
+        "Combine the Levi and radical actions and express the result intrinsically through p₁,p₂. This proves independence of the adapted complement and includes the determinant correction in Fintzen’s footnote."
+      ],
+      "acceptance": [
+        "For V the F₅ plane and I its y-axis, m(2) acts on I by 2⁻¹=3 and on the fixed constant-function line by χ₅(3)=−1. Equivalently choose I the x-axis and its δ₀ line, where χ₅(2)=−1.",
+        "For I=0 the character is trivial and the result is Ωψ,V.",
+        "For I Lagrangian the fixed subspace is one-dimensional and its entire P action is χ_k(det p₁)."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.3/mixed-model",
+        "MetaplecticAutomorphicFormsPartII:FW.2/generator-formulas",
+        "MetaplecticAutomorphicFormsPartII:FW.2/weil-heisenberg",
+        "mathlib:quadraticChar"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW3",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "F21",
+          "locator": "Proof of Lemma 7.10, p. 33, especially footnote 3",
+          "match": "The parabolic restriction uses a quadratic determinant twist on the plus space; the footnote corrects its omission from the cited Gérardin formula."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Parabolic fixed-space formula"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.3/corrected-restriction",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.3",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.3"
+      ],
+      "title": "Corrected Gérardin induction formula",
+      "kind": "theorem",
+      "statement": "With P,I,V̄ as above, set Q=P⋉H(I⊥)≤P⋉H(V), using the same normal-first convention when formalizing. Inflate (χ_k∘det p₁)⊗Ωψ,V̄ to Q via H(I⊥)→H(V̄). Then Ωψ,V restricted to P⋉H(V) is isomorphic to Ind_Q^(P⋉H(V)) of that inflated representation. Its index factor is q^(dim I); the output dimension is qⁿ. The quadratic determinant factor is part of the inducing representation.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "P stabilizes the isotropic I."
+      ],
+      "proofSteps": [
+        "Use the fixed subspace as a Q-subrepresentation of Sψ,V. Its H(I⊥) action factors through H(V̄), and its P action is the preceding formula.",
+        "Finite Frobenius reciprocity gives a nonzero map from induction to Ωψ,V. Its image is stable under H(V); irreducibility of Sψ,V makes the map surjective.",
+        "Native induction dimension is q^(dim I)q^(dim V̄/2)=qⁿ, so the map is an isomorphism. This recovers the corrected induction formula without relying on an unread proof."
+      ],
+      "acceptance": [
+        "Dimension and restriction to the smaller Heisenberg subgroup must both agree.",
+        "A formula omitting χ_k(det p₁) fails the F₅ Lagrangian test."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.3/parabolic-invariants",
+        "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "tauceti:TauCeti.indFDRep",
+        "tauceti:TauCeti.finrank_indFDRep",
+        "mathlib:Rep.indResHomEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW3",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "F21",
+          "locator": "Proof of Lemma 7.10 and footnote 3, p. 33",
+          "match": "The corrected inducing representation includes the quadratic character of the determinant on the isotropic plus space."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Corrected Gérardin restriction formula"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.3/cyclic-isotropic-induction",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.3",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.3"
+      ],
+      "title": "Isotropic induction for cyclic-center quotients",
+      "kind": "theorem",
+      "statement": "Assume the cyclic-center theorem data, now with J/H an Fp-vector space and θ([−,−])=ψ(B(−,−)) for nondegenerate alternating B and nontrivial ψ:Fp→Cˣ. Let I be isotropic, Q the inverse image of I⊥ in J, and U≤J map isomorphically onto I under J→J/H (more generally its kernel U∩H is allowed if θ is trivial there). Put H_I=HU and θ_I(hu)=θ(h). Then θ_I is a well-defined Q-invariant character; Q/H_I≅I⊥/I has the nondegenerate induced pairing. Let η_I be its unique irreducible representation. There are isomorphisms Ind_Q^J η_I≅η and η^U≅η_I as Q-representations; dim η_I=p^(dim(I⊥/I)/2). The invariant subspace is Q-stable because commutators [Q,U] lie in ker θ, even when U itself is not normal in Q.",
+      "hypotheses": [
+        "J,H,θ satisfy the cyclic-center theorem, and the θ-commutator pairing is as stated over Fp.",
+        "U is a subgroup mapping onto I and θ is trivial on U∩H."
+      ],
+      "proofSteps": [
+        "For h∈H,u∈U, J-invariance of θ and triviality on U∩H show that θ_I is well-defined and multiplicative. Orthogonality I⊥ makes it Q-invariant. Compute its radical as H_I using the nondegeneracy of the quotient form.",
+        "Apply cyclic-center Stone–von Neumann to Q,H_I,θ_I. Its induction to J has central H-character θ and dimension [J:Q]p^(dim(I⊥/I)/2)=p^(dim(J/H)/2), so isotypy makes it exactly η.",
+        "In the induced coset model indexed by J/Q, U acts on the identity coset trivially and on every other coset through a nontrivial character detected by the pairing. Thus only the identity coset contributes U-fixed vectors, giving η_I."
+      ],
+      "acceptance": [
+        "For I=0 take U⊂H with θ(U)=1: Q=J and η_I=η.",
+        "For a Lagrangian I, Q=H_I and η_I is the line θ_I; induction has dimension pⁿ.",
+        "An isotropic quotient does not itself guarantee existence of a subgroup U with θ(U∩H)=1; that splitting is an explicit input supplied by the p-adic owner."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+        "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
+        "tauceti:TauCeti.indFDRep",
+        "tauceti:TauCeti.finrank_indFDRep",
+        "mathlib:AddChar.IsPrimitive.of_ne_one",
+        "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW3",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "S08",
+          "locator": "Lemma 5.6, pp. 29–30; Corollary 5.7 and proof, pp. 30–31; Lemma 5.12, pp. 32–33",
+          "match": "Stevens uses the parabolic subgroup, the extended character and induction from the smaller Heisenberg representation, with the original representation recovered from its unipotent fixed vectors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Isotropic Heisenberg induction"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.4/iterated-fixed-line",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.4",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.4"
+      ],
+      "title": "Iterated fixed line for unipotent actions",
+      "kind": "theorem",
+      "statement": "Let I≤V be isotropic and U≤P=Stab(I). Suppose p₂(U) stabilizes a Lagrangian L₀≤V̄=I⊥/I. Let L be the inverse image of L₀ in I⊥, so L is Lagrangian in V. The line Sψ,V^L is U-stable and U acts on it by χ_k(det(u|I))χ_k(det(p₂(u)|L₀)). If both determinants are squares for every u∈U, this line is pointwise fixed and contains a nonzero U-fixed vector. In particular this holds when the two induced actions are unipotent. Apply this finite statement factor by factor to the plus-space and smaller Lagrangian in Fintzen’s Lemma 7.10.",
+      "hypotheses": [
+        "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
+        "V is finite-dimensional over k; B is alternating and nondegenerate; dim(V)=2n.",
+        "ψ:k→Cˣ is a nontrivial additive character. It need not be faithful if k is not a prime field.",
+        "U stabilizes I and its quotient action stabilizes L₀.",
+        "For the fixed-vector conclusion, both displayed determinant characters are trivial; unipotence is a sufficient condition."
+      ],
+      "proofSteps": [
+        "Apply the parabolic fixed-space theorem to I, then to the Lagrangian L₀ of its quotient. The remaining Heisenberg space is zero, so its module is a line.",
+        "The two determinant twists multiply. Equivalently the filtration 0⊂I⊂L gives det(u|L)=det(u|I)det(p₂(u)|L₀).",
+        "Unipotent matrices have determinant 1, and quadraticChar(1)=1. A nonzero vector in this one-dimensional space is therefore fixed. This avoids false small-rank claims about commutator subgroups of GL."
+      ],
+      "acceptance": [
+        "With V₀=0 the second determinant is the determinant on a zero-dimensional space, hence 1.",
+        "If a nonsquare scalar acts on I in an F₅ plane, the line is stable but has eigenvalue −1, so invariance cannot be concluded.",
+        "For I=0 the result is the standard fixed line attached to a U-stable Lagrangian."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.3/parabolic-invariants",
+        "MetaplecticAutomorphicFormsPartII:FW.3/mixed-model",
+        "mathlib:quadraticChar"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW4",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "F21",
+          "locator": "Lemma 7.10 and proof, pp. 32–34, especially pp. 33–34",
+          "match": "The proof takes plus-space invariants and then a Lagrangian fixed line in the smaller symplectic module; its unipotent actions kill the determinant twists."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Unipotent fixed line"
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII:FW.4/tensor-export",
+      "parentStageId": "MetaplecticAutomorphicFormsPartII:FW.4",
+      "realises": [
+        "MetaplecticAutomorphicFormsPartII:FW.4"
+      ],
+      "title": "Tensor compatibility and finite-type exports",
+      "kind": "theorem",
+      "statement": "For an orthogonal sum V=⊥ᵢVᵢ and a single ψ, pull Sψ,V back along ∏ᵢH(Vᵢ)→H(V), (tᵢ,vᵢ)↦(∑tᵢ,∑vᵢ). It is isomorphic to ⊗ᵢSψ,Vᵢ; central tuples with ∑tᵢ=0 act trivially. Under ∏ᵢSp(Vᵢ)→Sp(V), this isomorphism intertwines the normalized Weil actions, and hence the Weil–Heisenberg actions. For any group U acting through these symplectic factors, nonzero fixed vectors vᵢ supplied by the preceding theorem have a nonzero U-fixed pure tensor. Dimensions multiply to q^(∑ᵢdim Vᵢ/2); the empty family is the one-dimensional trivial symplectic module. Together with cyclic-center uniqueness and isotropic induction, these are the finite inputs exported to the tame-type and classical-type roadmaps.",
+      "hypotheses": [
+        "The family is finite, every Vᵢ is a finite nondegenerate odd-field symplectic space, and ψ is common to the factors.",
+        "Each U action factors through ∏Sp(Vᵢ), and each chosen vᵢ is nonzero and U-fixed."
+      ],
+      "proofSteps": [
+        "In product Schrödinger coordinates Fun(∏Xᵢ,C) is the native tensor product of the finite function spaces; evaluate pure tensors by multiplying their values. This directly intertwines the Heisenberg action. Alternatively apply Stone–von Neumann and the dimension formula.",
+        "For two factors, the even subspace of the tensor product is S₁⁺⊗S₂⁺ ⊕ S₁⁻⊗S₂⁻. The determinant of the candidate ω₁⊗ω₂ satisfies the preferred determinant relation because dim Sᵢ⁺−dim Sᵢ⁻=1. Uniqueness of the parity normalization gives tensor compatibility even in the F₃ exception; induct on the family.",
+        "The tensor action fixes the pure tensor. Choose linear functionals ℓᵢ with ℓᵢ(vᵢ)=1; their tensor product evaluates it to 1, proving nonvanishing. Treat the empty family as the monoidal unit.",
+        "Export only these finite statements. The p-adic consumers prove their own filtration quotients, equivariant special coordinates, subgroup splittings, and identification of κ-factors."
+      ],
+      "acceptance": [
+        "Two F₃ planes have a nine-dimensional tensor model and one fixed tensor line for the product of their standard unipotent subgroups.",
+        "No finite-quotient construction for a p-adic group is claimed here.",
+        "Central characters in the product must agree with the sum map on centers; independent incompatible ψᵢ cannot be collapsed through that map."
+      ],
+      "prerequisites": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "MetaplecticAutomorphicFormsPartII:FW.2/weil-heisenberg",
+        "MetaplecticAutomorphicFormsPartII:FW.2/special-transport",
+        "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+        "MetaplecticAutomorphicFormsPartII:FW.3/cyclic-isotropic-induction",
+        "MetaplecticAutomorphicFormsPartII:FW.4/iterated-fixed-line"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/FiniteWeil/FW4",
+        "namespace": "TauCeti.FiniteWeil"
+      },
+      "sources": [
+        {
+          "sourceId": "F21",
+          "locator": "Lemma 7.8, p. 31; Lemma 7.10, pp. 32–34; tensor description preceding Lemma 7.6, p. 30",
+          "match": "The finite factors are assembled in a tensor product; uniqueness and the invariant vectors are the finite representation-theoretic inputs."
+        },
+        {
+          "sourceId": "S08",
+          "locator": "Proposition 3.5, p. 14; Corollary 5.7, pp. 30–31; Lemma 5.12, pp. 32–33",
+          "match": "The second consumer uses central-character uniqueness and the smaller-group invariant/induction comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tensor product of Weil representations"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "MetaplecticAutomorphicFormsPartII:FW.0",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "MetaplecticAutomorphicFormsPartII:FW.1",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "MetaplecticAutomorphicFormsPartII:FW.2",
+      "status": "planned",
+      "remaining": [
+        "Independently compare the preferred Sp₂(F₃) normalization with the Gérardin normalization cited by the p-adic sources."
+      ]
+    },
+    {
+      "stageId": "MetaplecticAutomorphicFormsPartII:FW.3",
+      "status": "planned",
+      "remaining": [
+        "Read the original Gérardin Theorem 2.4(b) to check the corrected formula against its printed hypotheses; the finite proof and correction are supplied here from Fintzen."
+      ]
+    },
+    {
+      "stageId": "MetaplecticAutomorphicFormsPartII:FW.4",
+      "status": "closed",
+      "remaining": []
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Original Gérardin normalization comparison",
+      "neededBy": [
+        "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "MetaplecticAutomorphicFormsPartII:FW.2/generator-formulas",
+        "MetaplecticAutomorphicFormsPartII:FW.3/parabolic-invariants",
+        "MetaplecticAutomorphicFormsPartII:FW.3/corrected-restriction"
+      ],
+      "detail": "The original 1977 article, Théorème 2.4(a,b), was not obtained: publisher PDF requests returned HTTP 403 and the publisher API returned 406 on 2026-10-19. Neuhauser supplies a complete independent parity-determinant linearization and generator formulas, including q=3,n=1; Fintzen p. 33 supplies the corrected parabolic formula. A reviewer must compare their exact preferred normalization in the exceptional Sp₂(F₃) case with Gérardin before claiming literal identification with that original normalization. This is a source-comparison gap, not a missing existence proof."
+    }
+  ],
+  "sourceAccess": [
+    {
+      "title": "Gérardin, Weil representations associated to finite fields, Journal of Algebra 46 (1977), 54–101",
+      "url": "https://doi.org/10.1016/0021-8693(77)90394-5",
+      "accessed": "2026-10-19",
+      "read": false,
+      "detail": "Metadata and citations checked; original text inaccessible. Used only as the object of Fintzen’s explicitly attributed correction, never as a directly read proof."
+    },
+    {
+      "title": "Yu, Construction of tame supercuspidal representations, JAMS 14 (2001), 579–622",
+      "url": "https://doi.org/10.1090/S0894-0347-01-00363-0",
+      "accessed": "2026-10-19",
+      "read": false,
+      "detail": "Publisher requests returned 403. Compatible special-isomorphism input is stated from the publicly read Fintzen–Schwein definitions; no unread Yu theorem is treated as a verified supplier."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/InductionRestriction",
+      "detail": "Current README and Suggested.lean were read. Native finite-index induction, its dimension and one-dimensional characters already exist at the pin and are cited directly; no new induction carrier or Frobenius-reciprocity layer is planned."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/CharacterTheory",
+      "detail": "Current README was read. Native finite-group character orthogonality, Maschke and Schur supply the uniqueness proofs; no duplicate character theory is planned."
+    },
+    {
+      "library": "TauCeti current main a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "detail": "TauCeti/GroupTheory/SpecificGroups/Heisenberg.lean defines the rank-one Heisenberg group with product z+z′+xy′, its coordinate equivalence, cardinality and commutator. Do not replan them. The parent MP.0 polarization equivalence specializes to (t,x,y)↦(x,y,z=t+xy/2), matching the current native plane carrier. This is a current-main comparison, not a declaration claimed at the pinned baseline."
+    }
+  ],
+  "ownershipAudit": {
+    "parent": "Read MP.0–MP.8 atlas descriptions, the complete parent README, the reviewed library audit, and the MP.0 packet. Import its generic bilinear-factor-set, half-form commutator/center, polarization equivalence and isometry-action nodes exactly. Do not import its local smooth Stone–von Neumann theorem as a finite theorem.",
+    "neighbors": "Read current InductionRestriction and CharacterTheory, searched all current upstream roadmap READMEs/Suggested files and current TauCeti for finite symplectic/Heisenberg/Weil targets, including the nine roadmaps newer than the atlas snapshot. No finite oscillator package was located. OrthogonalSpinGroups is not an odd finite symplectic owner; ProfiniteArithmetic uses the rank-one Heisenberg group rather than supplying this representation theory. The parent MP.4/finite-weil-representation is a discriminant-lattice module C[L∨/L] with an Mp₂(Z) action and signature phase; it is not a finite-field Sp(V) action. Its carrier, T/S operators and lattice statements remain with that node. The proposed companion also imports parent MP.5/global-theta-lift and MP.6/rallis-inner-product rather than replanning them.",
+    "links": "Screened every research/blueprint/links JSON for the parent and proposed roadmap and read atlas touching stage edges; no additional finite supplier found.",
+    "area": "Retain issue area automorphic and parent MetaplecticAutomorphicForms. The finite paper route’s proposed representations area does not override this design issue."
+  },
+  "restructure": [
+    {
+      "action": "split",
+      "roadmaps": [
+        "MetaplecticAutomorphicFormsPartII",
+        "MetaplecticAutomorphicFormsPartIIShimuraWaldspurger"
+      ],
+      "detail": "The design issue explicitly permits independent directions to be separated. Five finite items need algebraic finite sums and finite groups in odd characteristic; the other 78 concern characteristic-zero local/global theta correspondences and automorphic spectra. Neither branch needs the other. The older finite-route alias FiniteWeilRepresentationsPartII maps to this issue’s required id, not a third roadmap.",
+      "proposal": "Keep FW.0–FW.4 here, in the issue area automorphic with parent MetaplecticAutomorphicForms. Create the companion MetaplecticAutomorphicFormsPartIIShimuraWaldspurger in automorphic with the same parent, with SW.0–SW.8 and the exact item inventory below. This is a concrete design proposal for that independent branch; no claim of having blueprinted its 78 targets is made. Updated parent nodes already cover several older route suggestions and must be imported, not replanned.",
+      "proposedRoadmap": {
+        "id": "MetaplecticAutomorphicFormsPartIIShimuraWaldspurger",
+        "parent": "MetaplecticAutomorphicForms",
+        "area": "automorphic",
+        "title": "Theta correspondences and the Shimura–Waldspurger correspondence",
+        "stages": [
+          {
+            "key": "SW.0",
+            "title": "Genuine local representations",
+            "items": [
+              "PAPER-GAN-ICHINO-18/metaplectic-induction-adelic",
+              "PAPER-GAN-ICHINO-18/mp-standard-modules",
+              "PAPER-GAN-ICHINO-18/rmk-5-3",
+              "PAPER-GAN-ICHINO-18/unramified-unitarity",
+              "PAPER-GAN-ICHINO-18/whittaker-mp"
+            ],
+            "boundary": "Import MP.1–MP.4 cover/oscillator infrastructure and MP.3/mp-odd-orthogonal-unramified. Own only genuine induction and Langlands/Whittaker/adelic extensions not already covered there; parameters retain their ψ dependence."
+          },
+          {
+            "key": "SW.1",
+            "title": "Local Shimura correspondence and parameters",
+            "items": [
+              "PAPER-GAN-ICHINO-18/local-shimura",
+              "PAPER-GAN-ICHINO-18/local-parameters",
+              "PAPER-GAN-ICHINO-18/llc-mp",
+              "PAPER-GAN-ICHINO-18/lemma-5-2",
+              "PAPER-GAN-ICHINO-18/rev-epsilon-dichotomy-and-coherence",
+              "PAPER-GAN-ICHINO-18/rev-square-class-labelling"
+            ],
+            "boundary": "Import MP.3 Howe duality, first occurrence, conservation, induction and unramified correspondence. Own the Shimura correspondence as a bijection and its ψ-relative LLC/packet labels. Import SO LLC and A-packets from ML.4."
+          },
+          {
+            "key": "SW.2",
+            "title": "Stable range and rank",
+            "items": [
+              "PAPER-GAN-ICHINO-18/rank",
+              "PAPER-GAN-ICHINO-18/stable-range-local",
+              "PAPER-GAN-ICHINO-18/rank-global",
+              "PAPER-GAN-ICHINO-18/li-inequalities"
+            ],
+            "boundary": "Own J.-S. Li rank and stable-range local/global results needed for multiplicity comparisons; import the oscillator, theta modules and measure conventions from MP.0–MP.6."
+          },
+          {
+            "key": "SW.3",
+            "title": "Global theta applications",
+            "items": [
+              "PAPER-GAN-ICHINO-18/abstract-theta",
+              "PAPER-GAN-ICHINO-18/kudla-rallis-irreducibility",
+              "PAPER-GAN-ICHINO-18/tower-property",
+              "PAPER-GAN-ICHINO-18/rallis-inner-product",
+              "PAPER-GAN-ICHINO-18/multiplicity-preservation",
+              "PAPER-GAN-ICHINO-18/furusawa",
+              "PAPER-GAN-ICHINO-18/jiang-soudry-supercuspidal",
+              "PAPER-GAN-ICHINO-18/rev-cuspidality-criterion-for-global-theta",
+              "PAPER-ICHINO-PRASANNA-23/075",
+              "PAPER-ICHINO-PRASANNA-23/076",
+              "PAPER-ICHINO-PRASANNA-23/080",
+              "PAPER-ICHINO-PRASANNA-23/081",
+              "PAPER-ICHINO-PRASANNA-23/082",
+              "PAPER-ICHINO-PRASANNA-23/083",
+              "PAPER-ICHINO-PRASANNA-23/084",
+              "PAPER-GAN-SAVIN-23-B/125"
+            ],
+            "boundary": "Import MP.5/global-theta-lift, MP.5/theta-integral-convergence, MP.5/regularized-theta-integral, MP.6/first-term-identity, MP.6/second-term-identity, MP.6/local-doubling-integral, MP.6/rallis-inner-product and MP.6/global-theta-nonvanishing at their exact ranges. Own only remaining global irreducibility, tower/cuspidality and multiplicity-preservation comparisons and specific quaternionic/similitude or boundary cases not supplied by these nodes. For Ichino–Prasanna §9 retain GU plus-subgroups and extension by zero, Lemma 9.3 factorization, the doubling seesaw, Lemma 9.7 image of M_v*(3/2), the unramified zeta normalization and Lemma 9.8 local nonvanishing; import Appendix A splittings from MP.3–MP.4, Eisenstein series from AS.1–AS.2 and local L-factors from AL.4. Gan–Savin item 125 adds the global Sp₆→O₈ case at dim V=2n+2 and L(1,std), with nonzero/generic PGSp₆×PGSO₈ lifts and the tower cuspidality test; the local similitude lift already belongs to MP.3/pgsp6-pgso8-similitude-theta."
+          },
+          {
+            "key": "SW.4",
+            "title": "Discrete spectrum and near equivalence",
+            "items": [
+              "PAPER-GAN-ICHINO-18/discrete-spectrum",
+              "PAPER-GAN-ICHINO-18/near-equivalence",
+              "PAPER-GAN-ICHINO-18/mp-satake-exponent-bound",
+              "PAPER-GAN-ICHINO-18/prop-3-1",
+              "PAPER-GAN-ICHINO-18/thm-1-1",
+              "PAPER-GAN-ICHINO-18/rmk-1-2",
+              "PAPER-GAN-ICHINO-18/rmk-1-3",
+              "PAPER-GAN-ICHINO-18/rmk-3-2",
+              "PAPER-GAN-ICHINO-18/rmk-3-3",
+              "PAPER-GAN-ICHINO-18/rev-the-partial-l-function-of",
+              "PAPER-GAN-ICHINO-18/rev-the-spectral-decomposition-of-l",
+              "PAPER-GAN-ICHINO-18/rev-weak-lift-of-a-genuine",
+              "PAPER-GAN-ICHINO-18/complete-l-function-mp"
+            ],
+            "boundary": "Own the cover spectral adaptation, standard L-function exponent bound and near-equivalence decomposition of Theorem 1.1. Import AF.1–AF.3, AS.4, AL.3–AL.4 and the weak SO→GL lift from ML.5; do not replace the necessary Euler-product nonvanishing by meromorphic continuation."
+          },
+          {
+            "key": "SW.5",
+            "title": "Generic component groups",
+            "items": [
+              "PAPER-GAN-ICHINO-18/global-component-group",
+              "PAPER-GAN-ICHINO-18/cuspidal-support",
+              "PAPER-GAN-ICHINO-18/prop-4-1",
+              "PAPER-GAN-ICHINO-18/cor-4-2",
+              "PAPER-GAN-ICHINO-18/lemma-4-3",
+              "PAPER-GAN-ICHINO-18/pi-tilde",
+              "PAPER-GAN-ICHINO-18/prop-4-4"
+            ],
+            "boundary": "Own generic component-group labels, the sign character, transported packets and Proposition 4.4. Import Arthur SO classification from ML.4 and endoscopic comparison from ET.6."
+          },
+          {
+            "key": "SW.6",
+            "title": "Comparison of local theta lifts",
+            "items": [
+              "PAPER-GAN-ICHINO-18/prop-5-4",
+              "PAPER-GAN-ICHINO-18/prop-6-1",
+              "PAPER-GAN-ICHINO-18/lemma-6-2",
+              "PAPER-GAN-ICHINO-18/lemma-6-3",
+              "PAPER-GAN-ICHINO-18/lemma-6-4",
+              "PAPER-GAN-ICHINO-18/gan-takeda-standard-module",
+              "PAPER-GAN-ICHINO-18/lemma-6-8",
+              "PAPER-GAN-ICHINO-18/lemma-6-9",
+              "PAPER-GAN-ICHINO-18/lemma-6-10",
+              "PAPER-GAN-ICHINO-18/lemma-6-11",
+              "PAPER-GAN-ICHINO-18/lemma-6-12"
+            ],
+            "boundary": "Own Propositions 5.4 and 6.1 and their local-to-global comparison, with r>2n+1 and almost-tempered input explicit. Import the parent induction/unramified/conservation nodes instead of reproducing them."
+          },
+          {
+            "key": "SW.7",
+            "title": "Globalization and relative Poincaré series",
+            "items": [
+              "PAPER-GAN-ICHINO-18/symplectic-supercuspidal-existence",
+              "PAPER-GAN-ICHINO-18/prop-6-5",
+              "PAPER-GAN-ICHINO-18/prop-6-6",
+              "PAPER-GAN-ICHINO-18/cor-6-7",
+              "PAPER-GAN-ICHINO-18/prop-a-1",
+              "PAPER-GAN-ICHINO-18/prop-a-2",
+              "PAPER-GAN-ICHINO-18/ilm-globalization-inputs",
+              "PAPER-GAN-ICHINO-18/prop-a-3",
+              "PAPER-GAN-ICHINO-18/prop-a-4",
+              "PAPER-GAN-ICHINO-18/psp-lemma",
+              "PAPER-GAN-ICHINO-18/rev-number-fields-with-prescribed-completions",
+              "PAPER-GAN-ICHINO-18/rev-whittaker-poincare-series-on-mp",
+              "PAPER-GAN-ICHINO-18/rev-whittaker-plancherel-support-and-weak",
+              "PAPER-GAN-ICHINO-18/rev-quaternion-algebras-with-prescribed-ramification"
+            ],
+            "boundary": "Own the relative/Whittaker Poincaré-series globalization construction for reductive groups and finite central covers. Import abstract weak containment and Fell closure from SmoothRepresentationsPartIIUnitaryDual; Gan–Savin item 91 imports this construction here. Retain the corrected supercuspidal-descent hypothesis of Proposition A.2. Use GZ.4–GZ.5 for toric distinction, and the existing global quadratic-form and class-field suppliers for arithmetic choices."
+          },
+          {
+            "key": "SW.8",
+            "title": "Generic metaplectic multiplicity formula",
+            "items": [
+              "PAPER-GAN-ICHINO-18/thm-1-4",
+              "PAPER-GAN-ICHINO-18/cor-1-6"
+            ],
+            "boundary": "Deduce Theorem 1.4 for generic elliptic A-parameters from the local comparison and the generic nonsplit SO near-equivalence multiplicity formula of ML.4, including (6.1). State the multiplicity indicator Δ*η=ε_φ and Corollary 1.6. Do not claim the nongeneric nonsplit input from Ishimoto."
+          }
+        ]
+      },
+      "reviewCorrections": [
+        "Proposition A.2 requires the local descent theta lift at v₀ to be supercuspidal (no S₂ in its parameter), not merely exclusion of the odd Weil representation at n=1.",
+        "The proof of Proposition 3.1 uses absolute convergence and nonvanishing of the Euler product in Re(s)>n+1.",
+        "Import the parent theta integral with conjugate(f), and use conjugate(ψ) in the Whittaker functional.",
+        "Input (6.1) includes the nonsplit SO near-equivalence decomposition; Ishimoto supplies the generic case.",
+        "Use a Hasse-invariant convention equal to 1 on split spaces, with the required correction to a raw localHasse convention."
+      ],
+      "sourceStatus": "The reviewed extraction briefs and their exact item records were read to design this assignment. Primary theta papers are not claimed as directly read in this finite-branch job; the companion designer must verify their sources."
+    }
+  ],
+  "routedItems": [
+    {
+      "item": "PAPER-FINTZEN-21/27",
+      "owner": "MetaplecticAutomorphicFormsPartII",
+      "nodes": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+        "MetaplecticAutomorphicFormsPartII:FW.4/tensor-export"
+      ]
+    },
+    {
+      "item": "PAPER-FINTZEN-21/27a",
+      "owner": "MetaplecticAutomorphicFormsPartII",
+      "nodes": [
+        "MetaplecticAutomorphicFormsPartII:FW.2/projective-action",
+        "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "MetaplecticAutomorphicFormsPartII:FW.2/generator-formulas",
+        "MetaplecticAutomorphicFormsPartII:FW.2/weil-heisenberg",
+        "MetaplecticAutomorphicFormsPartII:FW.2/special-transport"
+      ]
+    },
+    {
+      "item": "PAPER-FINTZEN-21/27b",
+      "owner": "MetaplecticAutomorphicFormsPartII",
+      "nodes": [
+        "MetaplecticAutomorphicFormsPartII:FW.3/mixed-model",
+        "MetaplecticAutomorphicFormsPartII:FW.3/parabolic-invariants",
+        "MetaplecticAutomorphicFormsPartII:FW.3/corrected-restriction",
+        "MetaplecticAutomorphicFormsPartII:FW.4/iterated-fixed-line"
+      ]
+    },
+    {
+      "item": "PAPER-STEVENS-08/75",
+      "owner": "MetaplecticAutomorphicFormsPartII",
+      "nodes": [
+        "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center"
+      ]
+    },
+    {
+      "item": "PAPER-STEVENS-08/170",
+      "owner": "MetaplecticAutomorphicFormsPartII",
+      "nodes": [
+        "MetaplecticAutomorphicFormsPartII:FW.3/cyclic-isotropic-induction"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "MetaplecticAutomorphicFormsPartII/E1",
+      "source": "F21",
+      "kind": "misprint",
+      "locator": "Fintzen, arXiv:1810.04198v2, p. 33 footnote 3, reporting the correction to Gérardin 1977, Theorem 2.4(b). The original Gérardin text was not obtained.",
+      "printed": "Fintzen reports that the inducing representation in the cited Gérardin formula omits the quadratic determinant character of the isotropic plus space.",
+      "correction": "Before induction, tensor the pullback of the smaller Weil–Heisenberg representation with χ_k(det on I), trivial on the Heisenberg factor.",
+      "reason": "In the F₅ symplectic plane, the stabilizer element m(2) acts by −1 on the Lagrangian fixed line. An untwisted zero-dimensional smaller Weil module would give +1. The fixed-space and corrected-induction nodes retain the sign.",
+      "affects": "a stated result",
+      "known": "Already documented in Fintzen, arXiv:1810.04198v2, p. 33 footnote 3, crediting Loren Spice. This finding is an attributed correction, not a claim to have inspected the original misprint.",
+      "searched": [
+        "Read Fintzen v2 p. 33 footnote 3 and its surrounding proof.",
+        "Read Fintzen–Schwein Construction 3.4.2, pp. 16–17, for its reference to the preferred Gérardin action.",
+        "Checked the original DOI/publisher metadata; original PDF inaccessible."
+      ]
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII/E2",
+      "source": "FS25",
+      "kind": "misprint",
+      "locator": "Fintzen–Schwein author manuscript dated April 15, 2025, equation (3.3.3), p. 14; visually checked in the PDF. The same symbol occurs in arXiv:2501.18553v2 HTML at equation (3.3.3).",
+      "printed": "The displayed commutator defining the pairing on xZ(P),yZ(P) uses [x,z], with z absent from the input and not defined there.",
+      "correction": "Use [x,y] for the commutator of the two representatives, followed by the specified center identification.",
+      "reason": "The formula must depend on the two displayed cosets, and the following identification with the alternating form and the imported half-form commutator use precisely [x,y]. No change to the ensuing arguments is needed.",
+      "affects": "nothing",
+      "known": "new (minor symbol correction scoped to the two explicitly inspected preprint versions; no separate correction located).",
+      "searched": [
+        "Author manuscript April 15, 2025, p. 14, visually checked.",
+        "arXiv:2501.18553 version history and v2 HTML equation (3.3.3), inspected 2026-10-19.",
+        "Fintzen research page and Schwein research page, inspected 2026-10-19; no separate erratum listed."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1810.04198v2",
+      "read": "2026-10-19",
+      "sha256": "bd332fd73956082656d767870566fdafd0fce3d834cccb223779a7724c3da8cc"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0607622v2",
+      "read": "2026-10-19",
+      "sha256": "b5b409260344f0d86fbe98bee2c046971a5e9042ab8174f199343d10b5857109"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.heldermann-verlag.de/jlt/jlt12/NEUHAUSLAT2E.PDF",
+      "read": "2026-10-19",
+      "sha256": "1f8b7011be2d894640db21a9aa94b5916481bcb1f8783e287c27a4df069807c3"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.uni-bonn.de/people/schwein/documents/fintzen_schwein25.pdf",
+      "read": "2026-10-19",
+      "sha256": "9d8bdc451c612c5be1afd086bd8f944387405ab6a308de996f45b103c2576d16"
+    }
+  ],
+  "leanPrototype": {
+    "policy": "WORKERS.md streamlined shape, 2026-10-12; README is exhaustive and this file states targets over existing pinned carriers.",
+    "file": "research/blueprint/suggested/MetaplecticAutomorphicFormsPartII.lean",
+    "compiled": true,
+    "compiler": "lean-check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCeti f790474821cf4256814db967cb154e7af3d0c369, 2026-10-19",
+    "result": "Exit 0; only declaration-uses-placeholder-proof warnings. No data definition has a placeholder.",
+    "emitted": [
+      {
+        "declaration": "TauCeti.FiniteWeil.schrodingerValue",
+        "target": "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
+        "detail": "Light real-bodied function formula over Fin n→k and existing AddChar; three examples test identity, zero symplectic dimension and the F₃ translation sign."
+      },
+      {
+        "declaration": "TauCeti.FiniteWeil.finiteSymplectic_evenDimension",
+        "target": "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
+        "detail": "Even-dimension endpoint over native BilinForm."
+      },
+      {
+        "declaration": "TauCeti.FiniteWeil.cyclicCenter_stoneVonNeumann",
+        "target": "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+        "detail": "Full existence, dimension and uniqueness signature over native FDRep; no new carrier."
+      },
+      {
+        "declaration": "TauCeti.FiniteWeil.parityLinearization",
+        "target": "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "detail": "Generic determinant-cancellation endpoint using native IsProjectiveRep, submodules and linear equivalences."
+      }
+    ],
+    "omissionLedger": [
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
+        "detail": "Only its endpoint/formula listed above is emitted; the full witness, API and tests below remain reader targets."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
+        "detail": "Only its endpoint/formula listed above is emitted; the full witness, API and tests below remain reader targets."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.1/character",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+        "detail": "Only its endpoint/formula listed above is emitted; the full witness, API and tests below remain reader targets."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.1/polarization-intertwiner",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.2/projective-action",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "detail": "Only its endpoint/formula listed above is emitted; the full witness, API and tests below remain reader targets."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.2/generator-formulas",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.2/weil-heisenberg",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.2/special-transport",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.3/mixed-model",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.3/parabolic-invariants",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.3/corrected-restriction",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.3/cyclic-isotropic-induction",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.4/iterated-fixed-line",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      },
+      {
+        "node": "MetaplecticAutomorphicFormsPartII:FW.4/tensor-export",
+        "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      }
+    ]
+  }
+}
