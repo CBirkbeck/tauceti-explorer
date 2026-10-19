@@ -3,33 +3,35 @@
  "title": "Algebraic moduli and representability for arithmetic geometry, Part II: numerical Picard groups and contraction descent",
  "area": "algebraicgeometry",
  "parent": "AlgebraicModuliForArithmeticGeometry",
- "summary": "This Part II of AlgebraicModuliForArithmeticGeometry builds the numerical theory of invertible sheaves on proper schemes and the descent of contractions it controls. NP.0–NP.1 define degrees on curves over residue fields, relative numerical triviality Pic^τ(X/S), the groups Num(X/S), N¹(X/S), N₁(X/S), the cone NE‾(X/S), relative nefness and bigness, and prove the numerical Néron–Severi theorem. NP.2 extends the Picard theory of the parent and of JacobianChallenge Layer D to arbitrary proper schemes over a field: Murre–Oort representability, the Brauer obstruction over the affinization, Pic^τ_{X/k} of finite type, the étale local system Num_{X/k} and Schröer's positive-power criterion. NP.3–NP.4 prove Schröer's descent theorems: with constant Num, geometric contractions with projective target descend (Theorem 1.3), and for contractions of smooth proper surfaces fibre dual graphs, residue fields and edge labels descend (Theorem 2.1, corrected). NP.5 supplies the general numerical statements the mixed-characteristic MMP papers of Hacon–Witaszek and Bhatt et al. use: restriction to the special fibre over a DVR, numerical versus actual lifts, lifting with H²(O) = 0, cone identification, nef-and-big transfer, descent of semiample numerically trivial sheaves, Cascini–Tanaka vertical descent, extremal curves and the Alexeev–Hacon–Kawamata rank. The stable-surface moduli direction routed to the same parent is proposed as a separate roadmap, and the MMP-internal steps are assigned to the birational-geometry continuation of SchemeAndStackFoundations.",
- "readme": "Purpose: the numerical theory of invertible sheaves on proper schemes over fields and Noetherian bases, the Picard scheme of an arbitrary proper scheme over a field with its torsion component and numerical local system, and the descent of contractions and fibre graphs that constancy of Num controls (Schröer 2023, §§1–2), together with the general numerical statements used by the mixed-characteristic minimal model program (Hacon–Witaszek 2023, Bhatt et al. 2023). Scope: six layers NP.0–NP.5; it starts where AlgebraicModuliForArithmeticGeometry stops (relative Picard sheaves and their representability with universal functions) and builds on SchemeAndStackFoundations (intersection theory, descent, Stein factorisation), JacobianChallenge Layers A–D and StableReduction Layers 1, 2 and 4. Conventions: degrees are taken over the residue field of the base point; Pic^τ(X/S) denotes the subgroup of Pic(X) of relatively numerically trivial classes and Pic^τ_{X/k} the group scheme; curves over S lie over closed points. Non-goals: stable-surface moduli (a separate proposed roadmap), the minimal model program itself, and the Enriques-specific applications, which EnriquesSurfacesAndIntegralNonexistence owns.",
+ "summary": "This Part II of AlgebraicModuliForArithmeticGeometry builds the numerical theory of invertible sheaves on proper schemes and the descent of contractions it controls. NP.0–NP.1 import curve degree and define its relative numerical pairing, relative numerical triviality Pic^τ(X/S), the groups Num(X/S), N¹(X/S), N₁(X/S), the cone NE‾(X/S), relative nefness and bigness, and prove the numerical Néron–Severi theorem. NP.2 extends the Picard theory of the parent and of JacobianChallenge Layer D to arbitrary proper schemes over a field: Murre–Oort representability, the Brauer obstruction over the affinization, Pic^τ_{X/k} of finite type, the étale local system Num_{X/k} and Schröer's positive-power criterion. NP.3–NP.4 prove Schröer's descent theorems: with constant Num, geometric contractions with projective target descend (Theorem 1.3), and for contractions of smooth proper surfaces fibre dual graphs, residue fields and edge labels descend (Theorem 2.1, corrected). NP.5 supplies the general numerical statements the mixed-characteristic MMP papers of Hacon–Witaszek and Bhatt et al. use: restriction to the special fibre over a DVR, numerical versus actual lifts, lifting with H²(O) = 0, cone identification, nef-and-big transfer, descent of semiample numerically trivial sheaves, Cascini–Tanaka vertical descent, extremal curves and the complex projective Alexeev–Hacon–Kawamata rank (its relative positive-characteristic extension remains open). The stable-surface moduli direction routed to the same parent is proposed as a separate roadmap, and the MMP-internal steps are assigned to the birational-geometry continuation of SchemeAndStackFoundations. The review records explicit proof/supplier gaps G1–G7; a complete planning pass does not certify closure of the later layers.",
+ "readme": "Purpose: the numerical theory of invertible sheaves on proper schemes over fields and Noetherian bases, the Picard scheme of an arbitrary proper scheme over a field with its torsion component and numerical local system, and the descent of contractions and fibre graphs that constancy of Num controls (Schröer 2023, §§1–2), together with the general numerical statements used by the mixed-characteristic minimal model program (Hacon–Witaszek 2023, Bhatt et al. 2023). Scope: six layers NP.0–NP.5; it uses the existing degree and matrix theory rather than reconstructing it, and starts where AlgebraicModuliForArithmeticGeometry stops (relative Picard sheaves and their representability with universal functions) and builds on SchemeAndStackFoundations (intersection theory, descent, Stein factorisation), JacobianChallenge Layers A–D and StableReduction Layers 1, 2 and 4. Conventions: degrees are taken over the residue field of the base point; Pic^τ(X/S) denotes the subgroup of Pic(X) of relatively numerically trivial classes and Pic^τ_{X/k} the group scheme; curves over S lie over closed points. Non-goals: stable-surface moduli (a separate proposed roadmap), the minimal model program itself, and the Enriques-specific applications, which EnriquesSurfacesAndIntegralNonexistence owns.",
  "prerequisites": [
   "AlgebraicModuliForArithmeticGeometry",
   "SchemeAndStackFoundations",
   "ComplexComparisonPartII",
   "tauceti:TauCetiRoadmap/JacobianChallenge",
-  "tauceti:TauCetiRoadmap/StableReduction"
+  "tauceti:TauCetiRoadmap/StableReduction",
+  "tauceti:TauCetiRoadmap/AlgebraicVectorBundles"
  ],
  "stages": [
   {
    "key": "NP.0",
    "title": "Degrees on curves and relative numerical triviality",
-   "description": "**Targets.** The degree deg_κ(L) of an invertible sheaf on a proper scheme of dimension ≤ 1 over a field κ, with tensor, cycle, finite-pullback, base-field and field-extension laws; the curve index d_C of an integral proper curve (Das–Waldron Lemma 4.1, Bhatt et al. Lemma 2.47); the predicate L ≡_f 0 of relative numerical triviality for proper f : X → S over a Noetherian base, with the subgroup Pic^τ(X/S) ⊂ Pic(X); invariance of numerical triviality under extension of the base field; the theorem that closed points of S suffice; detection of numerical triviality by proper surjective pullback.",
+   "description": "**Targets.** Compatibility and application of the imported degree deg_κ(L) of an invertible sheaf on a proper scheme of dimension ≤ 1 over a field κ, with tensor, cycle, finite-pullback, base-field and field-extension laws; the curve index d_C of an integral proper curve (Das–Waldron Lemma 4.1, Bhatt et al. Lemma 2.47); the predicate L ≡_f 0 of relative numerical triviality for proper f : X → S over a Noetherian base, with the subgroup Pic^τ(X/S) ⊂ Pic(X); invariance of numerical triviality under extension of the base field; the theorem that closed points of S suffice; detection of numerical triviality by proper surjective pullback.",
    "requires": [
     "SchemeAndStackFoundations:SF.0",
     "SchemeAndStackFoundations:SF.3",
     "SchemeAndStackFoundations:SF.5",
     "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
     "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
-    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
    ]
   },
   {
    "key": "NP.1",
    "title": "Numerical groups, cones, nefness and bigness",
-   "description": "**Targets.** Num(X/S) = Pic(X)/Pic^τ(X/S), N¹(X/S)_ℚ, N¹(X/S)_ℝ and ρ(X/S); the space N₁(X/S) of 1-cycles on curves over closed points and the cone NE‾(X/S); the numerical Néron–Severi theorem for proper schemes over a field (Num free of finite rank, with the étale rank bound) and its relative version over a Noetherian base; relative nefness and the nef cone; bigness on integral proper schemes with the nef criterion. Compatibility with SchemeAndStackFoundations §5.10 (surfaces) and with the characteristic-zero numerical theory of the upstream AbundanceStatement roadmap.",
+   "description": "**Targets.** Num(X/S) = Pic(X)/Pic^τ(X/S), N¹(X/S)_ℚ, N¹(X/S)_ℝ and ρ(X/S); the space N₁(X/S) of 1-cycles on curves over closed points and the cone NE‾(X/S); the numerical Néron–Severi theorem for proper schemes over a field (Num free of finite rank, with the étale rank bound) and its relative version over a Noetherian base; relative nefness and the nef cone; bigness on integral proper schemes with the nef criterion. Compatibility with SchemeAndStackFoundations §5.10 (surfaces) and with the characteristic-zero numerical theory of the upstream AbundanceStatement roadmap. G1–G3 record the cohomological supplier, reducible-fibre reduction and arbitrary proper nef-and-big extension still needed.",
    "requires": [
     "AlgebraicModuliForArithmeticGeometryPartII:NP.0",
     "SchemeAndStackFoundations:SF.2",
@@ -42,7 +44,7 @@
   {
    "key": "NP.2",
    "title": "The Picard scheme of a proper scheme over a field and the numerical local system",
-   "description": "**Targets.** Representability of Pic_{X/k} for an arbitrary proper k-scheme (Murre–Oort, Kleiman Corollary 4.18.3), with no condition on H⁰(X, O_X); the affinization X^aff and h_*G_m; torsion of Brauer groups of finite algebras and the Leray obstruction Pic(X) → Pic_{X/k}(k) → Br(X^aff) (Schröer Lemma 1.4); the torsion component Pic^τ_{X/k} open, closed, of finite type, with points the numerically trivial classes; the étale local system Num_{X/k} with stalk ℤ^ρ and constancy; norms along finite field extensions and torsion of split Pic^τ-torsors; Schröer's positive-power criterion (Lemma 1.1, with d ≥ 1); the doubling lift through a 2-torsion kernel; finiteness of rational τ-classes over finite fields and torsion of numerically trivial sheaves over algebraic extensions of finite fields.",
+   "description": "**Targets.** Representability of Pic_{X/k} for an arbitrary proper k-scheme (Murre–Oort, Kleiman Corollary 4.18.3), with no condition on H⁰(X, O_X); the affinization X^aff and h_*G_m; torsion of Brauer groups of finite algebras and the Leray obstruction Pic(X) → Pic_{X/k}(k) → Br(X^aff) (Schröer Lemma 1.4); the torsion component Pic^τ_{X/k} open, closed, of finite type, with points the numerically trivial classes; the étale local system Num_{X/k} with stalk ℤ^ρ and constancy; norms along finite field extensions and torsion of split Pic^τ-torsors; Schröer's positive-power criterion (Lemma 1.1, with d ≥ 1); the doubling lift through a 2-torsion kernel; finiteness of rational τ-classes over finite fields and torsion of numerically trivial sheaves over algebraic extensions of finite fields. Arbitrary proper representability requires the nonflat-descent input G4; it is not deduced from the projective geometrically integral case alone.",
    "requires": [
     "AlgebraicModuliForArithmeticGeometryPartII:NP.0",
     "AlgebraicModuliForArithmeticGeometryPartII:NP.1",
@@ -68,13 +70,14 @@
     "SchemeAndStackFoundations:SF.4",
     "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
     "AlgebraicModuliForArithmeticGeometry:R09.1",
-    "AlgebraicModuliForArithmeticGeometry:R09.3"
+    "AlgebraicModuliForArithmeticGeometry:R09.3",
+    "SchemeAndStackFoundations:SF.3"
    ]
   },
   {
    "key": "NP.4",
    "title": "Component graphs and contractions of smooth surfaces",
-   "description": "**Targets.** The component dual graph of a Noetherian scheme and the induced maps (edges go to edges or vertices); the curve criterion (Schröer Proposition 1.2, for schemes with all components one-dimensional); intersection matrices and intersection-labelled graphs of curves on a smooth proper surface; the trichotomy for contractions of smooth proper surfaces (point, birational, fibre type); negative definiteness of exceptional curves (Du Val, Mumford, Lipman Lemma 14.1); Zariski's lemma for fibres; Schröer's Theorem 2.1: graph descent, purely inseparable residue fields of reducible geometric fibres, and descent of edge labels (with κ(a) = k).",
+   "description": "**Targets.** The component dual graph of a Noetherian scheme and the induced maps (edges go to edges or vertices); the curve criterion (Schröer Proposition 1.2, for schemes with all components one-dimensional); intersection matrices and intersection-labelled graphs of curves on a smooth proper surface; the trichotomy for contractions of smooth proper surfaces (point, birational, fibre type); negative definiteness of exceptional curves (Du Val, Mumford, Lipman Lemma 14.1); Zariski's lemma for fibres; Schröer's Theorem 2.1: graph descent, purely inseparable residue fields of reducible geometric fibres, and descent of edge labels (with κ(a) = k). Add negative-curve descent via the proper Hilbert space and its tangent formula (G5). This independent repair proves κ(a)=k for reducible geometric fibres and yields label preservation by full Cartier-divisor base change.",
    "requires": [
     "AlgebraicModuliForArithmeticGeometryPartII:NP.2",
     "AlgebraicModuliForArithmeticGeometryPartII:NP.3",
@@ -82,13 +85,14 @@
     "SchemeAndStackFoundations:SF.4",
     "SchemeAndStackFoundations:SF.5",
     "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
-    "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+    "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+    "AlgebraicModuliForArithmeticGeometry:R09.2"
    ]
   },
   {
    "key": "NP.5",
    "title": "Numerical theory in families and descent along contractions",
-   "description": "**Targets.** For a proper scheme over a DVR, the injective restriction N¹(𝒳/S) → N¹(X) to the special fibre and numerical surjectivity; numerical surjectivity gives numerical, not actual, lifts (Hacon–Witaszek E7); lifting of line bundles over a complete DVR when H²(X, O_X) = 0 (Hacon–Witaszek Lemma 6.3); identification of relative cones under numerical surjectivity; transfer of nef and big from the special to the generic fibre; descent of relatively semiample, relatively numerically trivial sheaves along contractions (the general step behind Bhatt et al. Propositions 2.51 and 9.16 and Hacon–Witaszek Proposition 5.4); vertical numerical descent (Cascini–Tanaka Lemma 2.17); extremal curves of minimal normalised degree (Bhatt et al. Definition 9.30); the Alexeev–Hacon–Kawamata birational Picard rank.",
+   "description": "**Targets.** For a proper scheme over a DVR, the injective restriction N¹(𝒳/S) → N¹(X) to the special fibre and numerical surjectivity; numerical surjectivity gives numerical, not actual, lifts (the source already uses numerical equivalence); lifting of line bundles over a complete DVR when H²(X, O_X) = 0 (Hacon–Witaszek Lemma 6.3); identification of relative cones under numerical surjectivity; transfer of nef and big from the special to the generic fibre; descent of relatively semiample, relatively numerically trivial sheaves along contractions (the general step behind Bhatt et al. Propositions 2.51 and 9.16 and Hacon–Witaszek Proposition 5.4); vertical numerical descent (Cascini–Tanaka Lemma 2.17); extremal curves of minimal normalised degree (Bhatt et al. Definition 9.30); the complex projective Alexeev–Hacon–Kawamata birational Picard rank; its relative positive-characteristic extension is G7. Vertical descent in the full excellent generality requires G6.",
    "requires": [
     "AlgebraicModuliForArithmeticGeometryPartII:NP.0",
     "AlgebraicModuliForArithmeticGeometryPartII:NP.1",
@@ -123,7 +127,9 @@
    "readSections": [
     "Remark 4.18, Theorems 4.18.1–4.18.5, Corollary 4.18.3 (pp. 33–35)",
     "Definitions 6.1–6.2, Theorem 6.3 (pp. 52–53)",
-    "Definition 6.8 to Remark 6.22 (pp. 56–60)"
+    "Definitions 6.1–6.2 through Remark 6.22 (pp. 52–60)",
+    "Theorem 2.5 and Remark 2.11 (pp. 17–21)",
+    "Proposition 5.19 and proof (p. 47)"
    ]
   },
   {
@@ -134,10 +140,10 @@
    "url": "https://arxiv.org/pdf/2012.15801v3",
    "readSections": [
     "§2.5 from Lemma 2.21 to Remark 2.23 (pp. 18–19)",
-    "Lemma 2.47 to Lemma 2.54 (pp. 25–27)",
+    "Lemma 2.47 to Lemma 2.54 (pp. 25–28)",
     "Theorem 9.15, Proposition 9.16 and proof (pp. 103–107)",
-    "Lemmas 9.24–9.26 (pp. 110–111)",
-    "Definition 9.30 (p. 116)"
+    "Lemmas 9.24–9.26 (pp. 110–112)",
+    "Definition 9.30 and the following paragraph (pp. 116–117)"
    ]
   },
   {
@@ -159,8 +165,9 @@
    "edition": "arXiv:2002.11915v2; published Annals of Mathematics 195 (2022), 655–705",
    "url": "https://arxiv.org/pdf/2002.11915v2",
    "readSections": [
-    "§2 definitions of relative nef, semiample and big (p. 7)",
-    "uses of Keel 1999 Lemma 2.16 and Cascini–Tanaka Lemma 2.17 located by search; statements as recorded in PAPER-WITASZEK-22"
+    "§2 definitions (p. 7)",
+    "Proposition 5.3 and proof (p. 34)",
+    "Proposition 6.6 and proof (p. 41); Corollary 6.7 (pp. 42–43)"
    ]
   },
   {
@@ -181,7 +188,7 @@
    "edition": "arXiv:1706.04845v3; published Proc. London Math. Soc. 121 (2020)",
    "url": "https://arxiv.org/pdf/1706.04845v3",
    "readSections": [
-    "Lemma 2.17 and proof (pp. 16–17)"
+    "Lemma 2.17 and proof (pp. 16–18)"
    ]
   },
   {
@@ -228,7 +235,9 @@
     "Lemma 74.13.2 (0D3D)",
     "Lemma 35.25.6 (0D2P)",
     "Situation 55.9.3 (0C61) and Lemma 55.9.7 (0C66)",
-    "tag 00PH"
+    "tag 00PH",
+    "Lemma 33.15.5 (0BDG)",
+    "Proposition 99.9.4 (0CZX) and Remark 99.7.10 (0CZV)"
    ]
   },
   {
@@ -242,30 +251,25 @@
    ]
   },
   {
-   "id": "SGA6",
-   "title": "Théorie des intersections et théorème de Riemann–Roch (SGA 6), Exposé XIII: Les théorèmes de finitude pour le foncteur de Picard",
-   "authors": "Steven L. Kleiman (exposé), in P. Berthelot, A. Grothendieck, L. Illusie",
-   "edition": "Lecture Notes in Math. 225, Springer, 1971",
+   "id": "KEE99",
+   "title": "Basepoint freeness for nef and big line bundles in positive characteristic",
+   "authors": "Seán Keel",
+   "edition": "Annals of Mathematics 149 (1999), 253–286; arXiv:math/9901149v1; printed page = PDF page + 252",
+   "url": "https://arxiv.org/pdf/math/9901149v1",
    "readSections": [
-    "Not read: not freely available; cited only for Theorems 4.7 and 5.1, whose statements are reproduced in the free survey KLE05 (Remarks 6.14 and 6.19) and in SCH23 §1"
+    "Definition–Lemma 0.0 (printed p. 254, PDF p. 2)",
+    "Lemma 1.7 (printed p. 262, PDF p. 10)",
+    "Lemma 2.16 and proof (printed p. 270, PDF p. 18)"
    ]
   },
   {
-   "id": "LAZ04",
-   "title": "Positivity in Algebraic Geometry I",
-   "authors": "Robert Lazarsfeld",
-   "edition": "Ergebnisse 48, Springer, 2004",
+   "id": "LMFDB11",
+   "title": "Elliptic curve 11.a2 (Cremona 11a1)",
+   "authors": "The LMFDB collaboration",
+   "edition": "online, read 19 October 2026",
+   "url": "https://www.lmfdb.org/EllipticCurve/Q/11/a/2",
    "readSections": [
-    "Not read: not freely available; cited for the standard criterion that nef and positive top self-intersection is big (Theorem 2.2.16) and Fujita vanishing (Theorem 1.4.35)"
-   ]
-  },
-  {
-   "id": "DEB01",
-   "title": "Higher-Dimensional Algebraic Geometry",
-   "authors": "Olivier Debarre",
-   "edition": "Universitext, Springer, 2001",
-   "readSections": [
-    "Not read: not freely available; cited for the rigidity lemma (Lemma 1.15), whose proof is given in full in NP.3/rigidity"
+    "Minimal equation, rational Mordell–Weil group, bad-prime data"
    ]
   }
  ],
