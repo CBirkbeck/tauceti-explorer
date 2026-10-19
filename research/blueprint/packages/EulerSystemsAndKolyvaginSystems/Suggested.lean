@@ -13,6 +13,40 @@ namespace TauCetiRoadmap.EulerSystemsAndKolyvaginSystems
 
 open Polynomial
 
+namespace KolyvaginSystems
+
+/-! ## Layer 0: duality over a finite self-injective coefficient ring
+
+A Matlis generator of a finite ring `R` is an additive map `λ : R → ℝ/ℤ` whose kernel contains no
+nonzero ideal. For such `λ`, `f ↦ λ ∘ f` identifies `Hom_R(X, R)` with the Pontryagin dual of every
+finite `R`-module `X`, which turns Pontryagin local and global duality into `R`-linear duality
+(README, Layer 0.5). -/
+
+/-- `λ` is a Matlis generator of `R`: no nonzero ideal of `R` lies in its kernel. -/
+def IsMatlisGenerator {R : Type*} [CommRing R] (lam : R →+ UnitAddCircle) : Prop :=
+  ∀ I : Ideal R, (∀ x ∈ I, lam x = 0) → I = ⊥
+
+/-- The zero map is not a Matlis generator of a nonzero ring: the unit ideal lies in its kernel. -/
+example {R : Type*} [CommRing R] [Nontrivial R] :
+    ¬ IsMatlisGenerator (0 : R →+ UnitAddCircle) := fun h =>
+  top_ne_bot (h ⊤ fun _ _ => rfl)
+
+/-- On `ℤ/N`, the embedding `j ↦ j/N` into `ℝ/ℤ` is a Matlis generator. -/
+example (N : ℕ) [NeZero N] : IsMatlisGenerator (ZMod.toAddCircle : ZMod N →+ UnitAddCircle) := by
+  intro I hI
+  rw [eq_bot_iff]
+  intro x hx
+  exact (Ideal.mem_bot).2 (ZMod.toAddCircle_injective N (by rw [hI x hx, map_zero]))
+
+/-- Layer 0.5(a): a finite local ring is injective as a module over itself exactly when it has a
+Matlis generator. -/
+theorem injective_iff_exists_isMatlisGenerator {R : Type*} [CommRing R] [Finite R]
+    [IsLocalRing R] :
+    Module.Injective R R ↔ ∃ lam : R →+ UnitAddCircle, IsMatlisGenerator lam := by
+  sorry
+
+end KolyvaginSystems
+
 namespace ErrorTolerant
 
 /-! ## Layer 1: exponents, orders and the abundance exponent of Liu–Tian–Xiao–Zhang–Zhu
@@ -341,6 +375,18 @@ EulerSystem.locSingularInf, EulerSystem.eval, EulerSystem.evalAt, EulerSystem.aT
 KolyvaginSystem.LambdaSelmerStructure, KolyvaginSystem.lambdaKSBar,
 KolyvaginSystem.bottomClass, KolyvaginSystem.specRep, KolyvaginSystem.specialize,
 KolyvaginSystem.perturb, KolyvaginSystem.indKS and KolyvaginSystem.IsLambdaPrimitive.
+The self-injective duality of Layer 0 is stated in the README as
+KolyvaginSystems.IsSelfInjectiveCoefficient, KolyvaginSystems.dualEquivPontryagin,
+KolyvaginSystems.cartierDualEquiv, KolyvaginSystems.localDualityCoeff,
+KolyvaginSystems.annihilator_eq_orthogonal, KolyvaginSystems.selmer_global_duality and
+KolyvaginSystems.dual_propagate_quotient; the order theory of Layer 4 as
+KolyvaginSystems.divisionValuation, KolyvaginSystems.divisionIntegers,
+KolyvaginSystems.maximalOrder_eq_endLattice, KolyvaginSystems.endLattice_isMaximalOrder and
+KolyvaginSystems.maximalOrder_prod; the corrected 2016 hypotheses of Layer 1 as
+KolyvaginSystems.MR16Hypotheses with its restrictFrobenius and quotient constructions; and the
+coefficient-prime inputs of Layer 8 as KolyvaginSystems.ordinaryFiltration,
+KolyvaginSystems.ordinaryLocalCondition, KolyvaginSystems.anticyclotomicSelmerStructure,
+KolyvaginSystems.iwasawaChangeOfConditions and KolyvaginSystems.iwasawaRankDifference.
 The arithmetic Iwasawa comparison of Layer 8, the coinduced Euler-system lift,
 and the higher-rank regulator also remain README targets. Their coefficient,
 local-duality and geometric carriers are supplied by the named
