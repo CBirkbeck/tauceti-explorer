@@ -41998,7 +41998,8 @@
     "BP-EulerSystemsAndKolyvaginSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-EulerSystemsAndKolyvaginSystems~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10780"
   },
   {
    "kind": "blueprint",
@@ -55160,7 +55161,8 @@
     "PKG-GrossZagierAndArithmeticHeights~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10902"
   },
   {
    "id": "PKG-GrossZagierAndArithmeticHeightsPartII",
