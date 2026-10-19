@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-19T01:50Z",
+ "updated": "2026-10-19T02:10Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -779,7 +779,7 @@
    "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
    "review": {
     "recommendation": "changes",
-    "current": false,
+    "current": true,
     "draft": true,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -787,7 +787,7 @@
   "ModularSymbolsPadicLFunctions": {
    "stage": "pr",
    "pr": 968,
-   "head": "0e05be3",
+   "head": "33a264b",
    "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at bf4b921; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
