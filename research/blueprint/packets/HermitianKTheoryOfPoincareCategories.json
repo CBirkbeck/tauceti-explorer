@@ -13,112 +13,112 @@
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
         "provides": "t-structures on triangulated categories, the homotopy-category shadow of the Postnikov t-structure of HK.6.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:CategoryTheory.Triangulated.TStructure.heart",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Heart.lean",
         "provides": "The heart t.le 0 ⊓ t.ge 0 of a t-structure.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:DerivedCategory.TStructure.t",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean",
-        "provides": "The canonical t-structure on the derived category of an abelian category.",
-        "checked": "statement read at the pinned commit"
+        "provides": "The cohomological t-structure on the ordinary derived category of an abelian category. Reindex cochain i as homological −i to match this roadmap’s ≥0 connectivity convention; the ∞-categorical enhancement remains an import.",
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:DerivedCategory",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
-        "provides": "The derived category, the homotopy category of D^p(R) and D(R).",
-        "checked": "statement read at the pinned commit"
+        "provides": "The ordinary derived category of cochain complexes localized at quasi-isomorphisms; for modules it models the homotopy category of D(R). The perfect subcategory and its stable ∞-enhancement are separate GN imports.",
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:CategoryTheory.HasProjectiveDimensionLE",
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
         "provides": "Projective dimension ≤ n via vanishing of Ext; global dimension ≤ d is this for every module.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:Module.Invertible",
         "kind": "class",
         "module": "Mathlib/RingTheory/PicardGroup.lean",
         "provides": "Invertible modules over a commutative ring: the line bundles of Example R.2(i).",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:IsDedekindDomain",
         "kind": "class",
         "module": "Mathlib/RingTheory/DedekindDomain/Basic.lean",
-        "provides": "Dedekind domains (Mathlib's definition includes fields), global dimension ≤ 1.",
-        "checked": "statement read at the pinned commit"
+        "provides": "The Dedekind-domain predicate (including fields), used as a hypothesis. Its global-dimension bound is a planned theorem in HK.6, not supplied by this declaration.",
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:IsSemisimpleRing",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/SimpleModule/Basic.lean",
-        "provides": "Semisimple rings: global dimension 0.",
-        "checked": "statement read at the pinned commit"
+        "provides": "The semisimple-ring predicate; its equivalence with global dimension zero is a planned HK.6 theorem.",
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:IsNoetherianRing",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
-        "provides": "Noetherian rings, which are coherent.",
-        "checked": "statement read at the pinned commit"
+        "provides": "The Noetherian-ring predicate, used as a hypothesis in the planned Noetherian-implies-coherent theorem.",
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:Module.FinitePresentation",
         "kind": "class",
         "module": "Mathlib/Algebra/Module/FinitePresentation.lean",
         "provides": "Finitely presented modules, used to define coherence.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:HomotopyEquiv",
         "kind": "structure",
         "module": "Mathlib/Algebra/Homology/Homotopy.lean",
         "provides": "Homotopy equivalences of complexes, for representing perfect complexes by short complexes.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:Module.Projective",
         "kind": "class",
         "module": "Mathlib/Algebra/Module/Projective.lean",
         "provides": "Projective modules.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:ChainComplex",
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "Chain complexes, the carrier of Ranicki's Poincaré complexes.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "mathlib:HomologicalComplex.homology",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean",
         "provides": "Homology of a homological complex, for connectivity of complexes.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "tauceti:Rep.FiniteCyclicGroup.tateCohomologyIsoEven",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean",
         "provides": "Even-degree Tate cohomology of a finite cyclic group as the homology of norm then difference.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       },
       {
         "ref": "tauceti:Rep.FiniteCyclicGroup.tateCohomologyIsoOdd",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Homological/TateCohomology/Periodic.lean",
         "provides": "Odd-degree Tate cohomology of a finite cyclic group as the homology of difference then norm.",
-        "checked": "statement read at the pinned commit"
+        "checked": "Independently read declaration and hypotheses at the pinned commit; confirmed by REV-DESIGN-HermitianKTheoryOfPoincareCategories."
       }
     ]
   },
@@ -127,7 +127,7 @@
       "id": "cdh-iii",
       "title": "Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings",
       "authors": "Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus, Wolfgang Steimle",
-      "edition": "arXiv:2009.07225v4 (28 April 2026, 63 pp.; to appear in Annals of Mathematics); statement numbers and printed page numbers (printed = PDF page)",
+      "edition": "arXiv:2009.07225v4 (28 April 2026, 63 pp.); all locators below use its statement numbers and printed pages (= PDF pages). Published as Annals of Mathematics 204(1) (2026), 119–220, DOI 10.4007/annals.2026.204.1.2; the version of record was not served by Project Euclid and was not compared.",
       "url": "https://arxiv.org/abs/2009.07225v4",
       "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
       "readSections": [
@@ -153,9 +153,10 @@
         "Corollary 2.4.6 (p. 43)",
         "Definition 3.1.1 (p. 47)",
         "Lemma 3.2.5, Construction 3.2.6, Examples 3.2.8 and 3.2.12 (pp. 52–53)",
-        "§3.5 opening, Lemma 3.5.1, Proposition 3.5.3 (p. 59)",
+        "§3.5 opening, Lemma 3.5.1 and Proposition 3.5.3 with proof (pp. 59–60)",
         "Definitions 4.2.2, 4.2.4 (p. 68)",
-        "Proposition 4.2.22 to Definition 4.2.26 and p. 74 (pp. 73–74)"
+        "Proposition 4.2.22 to Definition 4.2.26 and p. 74 (pp. 73–74)",
+        "Proposition 4.2.18 (pp. 71–72), the non-abelian derivation input recorded as G4"
       ],
       "accessed": "2026-10-19"
     },
@@ -180,9 +181,9 @@
       "edition": "Proceedings of the London Mathematical Society (3) 40 (1980), 87–192; author's archive copy",
       "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/ats1.pdf",
       "readSections": [
-        "§1 (symmetric Poincaré complexes and their cobordism)",
-        "§3 (Wu classes and even complexes)",
-        "§4 statement of Proposition 4.5 (finite global dimension comparison)"
+        "§1, printed pp. 96–104 and 112–114 (PDF pp. 10–18 and 26–28): dimension, Q-groups and Wu classes",
+        "§3, printed pp. 133–139 (PDF pp. 47–53): Poincaré pairs, cobordism and the even theory",
+        "§4, Proposition 4.5, printed p. 153 (PDF p. 67)"
       ],
       "accessed": "2026-10-19"
     },
@@ -193,7 +194,7 @@
       "edition": "Author version dated 18 September 2017; page numbers of that PDF",
       "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
       "readSections": [
-        "§7.2.2, Proposition 7.2.2.18 and Corollary 7.2.2.19 with proof (pp. 1245–1246)"
+        "§7.2.2, Proposition 7.2.2.18 and Corollary 7.2.2.19 with proof (pp. 1244–1246)"
       ],
       "accessed": "2026-10-19"
     }
@@ -204,7 +205,35 @@
       "url": "https://arxiv.org/pdf/2009.07225v4",
       "read": "2026-10-19",
       "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
-      "citation": "arXiv v4; the Annals typeset text (vol. 204, 2026) was not compared"
+      "citation": "arXiv v4, independently read at every node locator. All findings E1–E9 apply to this preprint only. Annals metadata confirms publication 204(1) (2026), 119–220. The Annals full-article link redirects through DOI to Project Euclid, whose .full and .pdf endpoints returned HTTP 200 text/html containing an Incapsula request-unsuccessful challenge, not the text (2026-10-19); the version of record could not be compared."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.07223v3",
+      "read": "2026-10-19",
+      "sha256": "2c423b7f8fa95e1ee236c1d59a22d559de26fb8882328d9604e7680f31a7c68e",
+      "citation": "arXiv:2009.07223v3 (27 December 2021); printed page = PDF page"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.07224v5",
+      "read": "2026-10-19",
+      "sha256": "eaa19b40046c953f6aedc5d11ed86eaee16018fcad995fcbafeb4746af6239a3",
+      "citation": "arXiv:2009.07224v5 (11 April 2025); printed page = PDF page"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/ats1.pdf",
+      "read": "2026-10-19",
+      "sha256": "f8da5efcdb26cf6ed96ce1454a304b3aaab8833b27fc8ebdf5fc7da091cc2da7",
+      "citation": "Proceedings of the London Mathematical Society (3) 40 (1980), 87–192; author's archive copy"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
+      "read": "2026-10-19",
+      "sha256": "112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3",
+      "citation": "Author version dated 18 September 2017; page numbers of that PDF"
     }
   ],
   "nodes": [
@@ -213,16 +242,16 @@
       "parentStageId": "HermitianKTheoryOfPoincareCategories:HK.0",
       "title": "Operations on invertible modules with involution",
       "kind": "construction",
-      "statement": "Let R be an associative unital ring and M an invertible ℤ-module with involution over R (an R⊗R-module with an involution m ↦ m̄ exchanging the two actions, finitely generated projective for either action, with R → Hom_R(M,M) an isomorphism; GN §6.8a `DerivedCoefficientLine`, Calmès et al. III Definition R.1). (i) For R commutative, every finitely generated projective rank-one R-module L with the identity involution and r⊗s acting by rs is such an M. (ii) For a unit ε ∈ R and an ε-involution on R (a ring isomorphism r ↦ r̄ from R to R^op with r̄̄ = εrε⁻¹ and ε̄ = ε⁻¹), M = R with r⊗s·x = r x s̄ and involution x ↦ ε x̄ is invertible; it is denoted R(ε). (iii) The sign twist −M has the same R⊗R-module and the involution m ↦ −m̄; −R = R(−1) and −(−M) = M. (iv) The dual M^∨ = Hom_R(M,R) is an invertible ℤ-module with involution over R^op.",
+      "statement": "Let R be an associative unital ring and M an invertible ℤ-module with involution over R (an R⊗R-module with an involution m ↦ m̄ exchanging the two actions, finitely generated projective for either action, with the map R → Hom_R(M₁,M₂) sending 1 to the involution an isomorphism (M₁ uses the first R-action and M₂ the second); GN §6.8a `DerivedCoefficientLine`, Calmès et al. III Definition R.1). (i) For R commutative, every finitely generated projective rank-one R-module L with the identity involution and r⊗s acting by rs is such an M. (ii) For a unit ε ∈ R and an ε-involution on R (a ring isomorphism r ↦ r̄ from R to R^op with r̄̄ = εrε⁻¹ and ε̄ = ε⁻¹), M = R with r⊗s·x = r x s̄ and involution J(x) = ε⁻¹x̄ (the correction E8 to the displayed convention in the source) is invertible; it is denoted R(ε). (iii) The sign twist −M has the same R⊗R-module and the involution m ↦ −m̄; −R = R(−1) and −(−M) = M. (iv) The dual M^∨ = Hom_R(M,R) is an invertible ℤ-module with involution over R^op.",
       "hypotheses": [
         "R associative and unital, not necessarily commutative.",
         "In (ii) the involution is an anti-automorphism up to conjugation by ε, not necessarily involutive."
       ],
       "proofSteps": [
         "(i) A rank-one projective L is invertible as an R-module (Mathlib `Module.Invertible`), so R → End_R(L) is bijective; the identity involution exchanges the two equal actions.",
-        "(ii) Check the R⊗R-linearity of x ↦ εx̄ against the twisted action r⊗s·x = r x s̄ and that applying it twice is the identity by r̄̄ = εrε⁻¹ and ε̄ = ε⁻¹; R is free of rank one for either action and the unit map is the identity.",
-        "(iii) Negating an involution keeps it R⊗R-linear and involutive, and does not change the underlying module, so invertibility is unaffected.",
-        "(iv) Hom_R(M,R) is finitely generated projective over R^op because M is finitely generated projective; the involution is transported by precomposition."
+        "(ii) With J(x) = ε⁻¹x̄, compute J²(x) = ε⁻¹εxε⁻¹ε = x and J(r x s̄) = ε⁻¹s̄̄ x̄ r̄ = s J(x) r̄. Thus J is linear from the action-swapped module M^op to M. Both actions make R free of rank one, and the unit map r ↦ rJ identifies R with Hom_R(M₁,M₂); it is not the ordinary scalar map into End_R(M₁).",
+        "(iii) Negating J preserves J² = 1 and J((r⊗s)m) = (s⊗r)J(m); invertibility of the action-swapping unit map is unchanged.",
+        "(iv) On finitely generated projective right modules, transport the coefficient duality Hom_R(−,M) through the contravariant Morita equivalence Hom_R(−,R). The resulting duality has coefficient Hom_R(M,R) at R^op, with its involution and bidual coherence induced by transport. Finite projectivity and the Morita evaluation equivalences prove invertibility. This coefficient construction precedes the transport of Q in HK.0/opposite-ring-transport (Remark R.11)."
       ],
       "acceptance": [
         "R(1) for the identity involution on a commutative ring is the symmetric coefficient R with trivial involution, and R(−1) = −R.",
@@ -237,7 +266,7 @@
         {
           "sourceId": "cdh-iii",
           "locator": "Example R.2, p. 7",
-          "match": "Lists line bundles with trivial involution, the module R(ε) built from an ε-involution, the sign twist −M with −R = R(−1), and the dual M^∨ as an invertible module with involution over the opposite ring."
+          "match": "Lists line bundles with trivial involution, the module R(ε) built from an ε-involution, the sign twist −M with −R = R(−1), and the dual M^∨ as an invertible module with involution over the opposite ring. The noncentral ε formula is corrected as recorded in E8; the other constructions agree."
         },
         {
           "sourceId": "cdh-i",
@@ -272,7 +301,7 @@
         {
           "name": "CoefficientLine.ofEpsInvolution",
           "role": "constructor",
-          "statement": "R(ε) from a unit ε and an ε-involution."
+          "statement": "For r̄̄ = εrε⁻¹ and ε̄ = ε⁻¹, R(ε) has action (r⊗s)x = r x s̄ and involution J(x) = ε⁻¹x̄."
         },
         {
           "name": "CoefficientLine.neg",
@@ -293,13 +322,23 @@
           "name": "CoefficientLine.dual_dual",
           "role": "equivalence",
           "statement": "The canonical isomorphism M^∨∨ ≅ M respects involutions."
+        },
+        {
+          "name": "CoefficientLine.involution_apply",
+          "role": "simp",
+          "statement": "J(J(m)) = m and J((r⊗s)m) = (s⊗r)J(m)."
+        },
+        {
+          "name": "CoefficientLine.ext",
+          "role": "extensionality",
+          "statement": "An equivalence is an R⊗R-linear equivalence commuting with J; two such maps agree when their underlying functions agree."
         }
       ],
       "tests": [
         {
           "name": "neg_one_eq_neg",
           "kind": "computation",
-          "statement": "For any ring with trivial involution, R(−1) is −R(1), and the two have the same underlying R⊗R-module."
+          "statement": "For any commutative ring with the identity involution, R(−1) is −R(1), and the two have the same underlying R⊗R-module."
         },
         {
           "name": "char_two_neg_eq_self",
@@ -315,6 +354,11 @@
           "name": "z_sign_twist_tate",
           "kind": "computation",
           "statement": "For R = ℤ: Ĥ^even(C₂;ℤ) = ℤ/2 and Ĥ^odd(C₂;ℤ) = 0 for the trivial involution, and the parities are exchanged for −ℤ, so the twist changes Tate cohomology."
+        },
+        {
+          "name": "noncentral_epsilon",
+          "kind": "non-example",
+          "statement": "In R = Mat₂(ℤ), take U = [[1,1],[0,1]], x̄ = UxᵀU⁻¹ and ε = U(Uᵀ)⁻¹ = [[0,1],[−1,1]]. Then x̄̄ = εxε⁻¹ and ε̄ = ε⁻¹. The incorrect J_bad(x) = εx̄ has J_bad²(E₁₁) = [[0,1],[0,1]] ≠ E₁₁; J(x) = ε⁻¹x̄ squares to 1 and swaps the actions."
         }
       ]
     },
@@ -429,7 +473,7 @@
         "Tate cohomology of the underlying abelian group with C₂-action, π_{−k} convention."
       ],
       "proofSteps": [
-        "The fibre of τ_{≥m+1}E → τ_{≥m}E is Σ^m Hπ_m E; with E = HM^{tC₂}, π_m E = Ĥ^{−m}(C₂;M) (RefinedTraceMethods RT.2/tate-of-eilenberg-maclane).",
+        "The cofibre of τ_{≥m+1}E → τ_{≥m}E is Σ^m Hπ_m E; with E = HM^{tC₂}, π_m E = Ĥ^{−m}(C₂;M) (RefinedTraceMethods RT.2/tate-of-eilenberg-maclane).",
         "Q^{≥m}_M is the pullback of Q^s_M along Map_R(−,τ_{≥m}HM^{tC₂}) → Map_R(−,HM^{tC₂}) (GN §6.8a), so an equivalence of covers gives an equivalence of Poincaré structures with the same duality, hence of GW and L.",
         "Ĥ^*(C₂;−) is 2-periodic (Tau Ceti `Rep.FiniteCyclicGroup.tateCohomologyIsoEven`/`IsoOdd`).",
         "If 2 is a unit it acts invertibly and by zero on Tate cohomology, which therefore vanishes.",
@@ -571,6 +615,11 @@
           "name": "GW_opposite",
           "role": "simp",
           "statement": "GW(R^op;Q^∨) ≃ GW(R;Q), and likewise for L."
+        },
+        {
+          "name": "Poincare.opposite_opposite",
+          "role": "compatibility",
+          "statement": "Double transport recovers Q through the canonical evaluation equivalences and (R^op)^op ≃ R."
         }
       ],
       "tests": [
@@ -791,11 +840,11 @@
       "kind": "theorem",
       "statement": "For a Poincaré ∞-category (C,Q), GW(Met(C,Q)) ≃ K(C) naturally, via the Poincaré functors lag : Met(C,Q) ⇄ Hyp(C) : can and the equivalence GW(Hyp(C)) ≃ K(C). Under this identification the Bott–Genauer sequence becomes a fibre sequence of spectra GW(C,Q[−1]) →^{fgt} K(C) →^{hyp} GW(C,Q), where fgt is induced by forgetting the form, Pn(C,Q[−1]) → C^≃, and hyp by the hyperbolic form, C^≃ → Pn(C,Q). Writing U(C,Q) := fib(hyp) and V(C,Q) := fib(fgt), one has U(C,Q) ≃ GW(C,Q[−1]) and V(C,Q) ≃ ΩGW(C,Q[1]), hence V(C,Q) ≃ ΩU(C,Q[2]).",
       "hypotheses": [
-        "K is the (connective) K-theory of the stable ∞-category C (GeneralAlgebraicKTheoryPartII KII.0); GW the stable GW spectrum of GN §6.8a."
+        "K is connective K-theory of C: use τ_{≥0}K^nc(C) ≃ K(C) from KII.0/nonconnective-k. GW is the generally nonconnective stable spectrum of GN §6.8a. No idempotent-completed quotient localization of connective K is inferred."
       ],
       "proofSteps": [
         "lag and can (the Poincaré functors of Calmès et al. I, Construction 2.3.8) induce inverse equivalences on GW (Calmès et al. II, Corollary 4.3.1, deduced there from its Example 2.3.3 and Corollary 3.1.5).",
-        "GW(Hyp(C)) ≃ K(C) by hermitian additivity (GN §6.8a, the check that GW of the hyperbolic category is K).",
+        "GW(Hyp(C)) ≃ K(C) by hermitian additivity (GN §6.8a, the check that GW of the hyperbolic category is K). Here Hyp(C) = C^op × C with factor-exchange duality is GN §6.8a’s stable hyperbolic category, rather than the exact hyperbolic object of GN.6/hyperbolic-space.",
         "Apply GW to the Bott–Genauer sequence, which is a Poincaré–Verdier sequence, using that GW is Verdier localising (GN §6.8a `stableGWVerdierLocalization`).",
         "Read off U and V: the fibre of hyp is the first term; the sequence for Q[1] shows that the fibre of fgt : GW(C,Q) → K(C) is ΩGW(C,Q[1]); compare with U(C,Q[2]) ≃ GW(C,Q[1])."
       ],
@@ -807,8 +856,7 @@
         "HermitianKTheoryOfPoincareCategories:HK.1/bott-genauer-sequence",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
         "GeneralAlgebraicKTheoryPartII:KII.0/perfect-categories",
-        "GeneralAlgebraicKTheoryPartII:KII.0/nonconnective-k",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.6/hyperbolic-space"
+        "GeneralAlgebraicKTheoryPartII:KII.0/nonconnective-k"
       ],
       "sources": [
         {
@@ -1122,7 +1170,8 @@
         "M is finitely generated projective, so by HK.2/r-symmetric-m-quadratic the cofibre is m-connective; the symmetric bound is checked the same way on the fibre."
       ],
       "acceptance": [
-        "For commutative R and M = R with trivial involution, R^op = R, M^∨ = R and the genuine structures satisfy (Q^{≥m}_R)^∨ = Q^{≥m}_R; for a nontrivial line bundle L, L^∨ = L^{−1} ≠ L, so the statement transports bounds between different coefficients."
+        "For commutative R and M = R with trivial involution, R^op = R, M^∨ = R and the genuine structures satisfy (Q^{≥m}_R)^∨ = Q^{≥m}_R; for a line bundle L with L⊗L not isomorphic to R, L^∨ = L^{−1} is not isomorphic to L, so the statement transports bounds between different coefficients.",
+        "A nontrivial line of order two satisfies L^∨ ≅ L; nontriviality alone does not distinguish the transported coefficient."
       ],
       "prerequisites": [
         "HermitianKTheoryOfPoincareCategories:HK.2/r-symmetric-m-quadratic",
@@ -1339,6 +1388,11 @@
           "name": "metabolicSurgery",
           "role": "constructor",
           "statement": "Surgery along a general datum (Z → W) → (L → X), with L′ = fib(L/Z → D(W/Z))."
+        },
+        {
+          "name": "LagrangianSurgeryDatum.map",
+          "role": "functoriality",
+          "statement": "An exact Poincaré functor carries a surgery datum, its specified null-homotopy and the resulting relative cobordism to the corresponding datum and result."
         }
       ],
       "tests": [
@@ -1453,6 +1507,11 @@
           "name": "boundedL.representingInterval",
           "role": "other",
           "statement": "Objects are represented in [(−n−a)/2, (−n+a)/2]; Lagrangians in the intervals of the two parity cases."
+        },
+        {
+          "name": "boundedL.lift",
+          "role": "universal-property",
+          "statement": "A monoid map out of π₀Pn^a_n factors uniquely through boundedL exactly when it sends every allowed metabolic boundary in π₀M^{a,b}_n to zero."
         }
       ],
       "tests": [
@@ -1740,7 +1799,7 @@
       "parentStageId": "HermitianKTheoryOfPoincareCategories:HK.4",
       "title": "Degree-zero L-groups are classical Witt groups",
       "kind": "theorem",
-      "statement": "If Q is 0-quadratic, W(Proj(R);Q) → L₀(R;Q) is an isomorphism. Consequently (i) L^gs_0(R;M) is the Witt group of M-valued symmetric forms over R, (ii) L^ge_0(R;M) the Witt group of M-valued even forms, and (iii) L₀(R;Q^{≥m}_M) the Witt group of M-valued quadratic forms for every m ≥ 2. Combined with L^gs_{−2k}(R;M((−1)^k)) ≅ L₀(R;Q^{≥k}_M) (HK.1/bordism-invariant-periodicity), every even non-positive genuine symmetric L-group is a Witt group of symmetric (k = 0), even (k = 1) or quadratic (k ≥ 2) forms; the odd groups in degrees ≤ 1 have analogous descriptions by symmetric, even and quadratic formations, which the source leaves to the reader.",
+      "statement": "If Q is 0-quadratic, W(Proj(R);Q) → L₀(R;Q) is an isomorphism. Consequently (i) L^gs_0(R;M) is the Witt group of M-valued symmetric forms over R, (ii) L^ge_0(R;M) the Witt group of M-valued even forms, and (iii) L₀(R;Q^{≥m}_M) the Witt group of M-valued quadratic forms for every m ≥ 2. Combined with L^gs_{−2k}(R;M((−1)^k)) ≅ L₀(R;Q^{≥k}_M) (HK.1/bordism-invariant-periodicity), every even non-positive genuine symmetric L-group is a Witt group of symmetric (k = 0), even (k = 1) or quadratic (k ≥ 2) forms; the analogous descriptions of odd groups in degrees ≤ 1 by symmetric, even and quadratic formations are the unplanned extension G5, left to the reader in the source and not claimed proved by this node.",
       "hypotheses": [
         "Q 0-quadratic (every Q^{≥m}_M with m ≥ 0)."
       ],
@@ -1851,7 +1910,7 @@
         },
         {
           "sourceId": "ranicki-ats1",
-          "locator": "§1 (algebraic Poincaré complexes, Wu classes, even complexes) and §3 (Poincaré pairs, cobordism, the symmetric and even symmetric L-groups)",
+          "locator": "§1, printed pp. 96–104 (PDF pp. 10–18: complexes, dimensions, standard resolution and Q-groups), pp. 112–114 (PDF pp. 26–28: Wu classes); §3, pp. 133–139 (PDF pp. 47–53: pairs, cobordism and even symmetric groups)",
           "match": "Defines n-dimensional ε-symmetric Poincaré complexes over a ring with involution and their Wu classes, with even complexes those whose zeroth Wu class vanishes, and in the cobordism section Poincaré pairs, relative Wu classes and the symmetric and even symmetric L-groups."
         }
       ],
@@ -1913,6 +1972,11 @@
           "name": "wuClassZero",
           "role": "other",
           "statement": "The Wu class v₀(q) : H^n(C) → Ĥ^0(C₂;M)."
+        },
+        {
+          "name": "shortL.lift",
+          "role": "universal-property",
+          "statement": "An additive invariant of Poincaré complexes descends uniquely to shortL when it vanishes on boundaries of allowed Poincaré pairs."
         }
       ],
       "tests": [
@@ -2126,12 +2190,12 @@
       "parentStageId": "HermitianKTheoryOfPoincareCategories:HK.5",
       "title": "Poincaré structures on compact modules over a connective ring spectrum",
       "kind": "construction",
-      "statement": "Let A be a connective E₁-ring (a connective associative algebra in spectra, ⊗ over 𝕊) and Mod^ω_A its stable ∞-category of compact left modules; Proj(A) ⊆ Mod^ω_A are the retracts of A^n. Let M be an invertible module with involution over A (Calmès et al. I, Definition 3.1.1) that is projective in either A-module structure, so the duality D = hom_A(−,M) preserves Proj(A). The quadratic and symmetric structures are Q^q_M(X) = hom_{A⊗A}(X⊗X,M)_{hC₂} and Q^s_M(X) = hom_{A⊗A}(X⊗X,M)^{hC₂}; the genuine symmetric structure Q^gs_M is the pullback of Q^s_M(X) → hom_A(X,M^{tC₂}) along hom_A(X,τ_{≥0}M^{tC₂}); for a connective E∞-ring B the Tate structure Q^t_B is the pullback of Q^s_B(Y) → hom_B(Y,B^{tC₂}) along the Tate-valued Frobenius hom_B(Y,B) → hom_B(Y,B^{tC₂}); and on Mod^ω_𝕊 the universal structure Q^u has linear part hom(−,𝕊) and agrees with Q^t_𝕊. An A-module is k-connective if its underlying spectrum is; Q is m-quadratic if the cofibre of Q^q_M → Q is m-connective on A, equivalently on Proj(A); Λ_Q denotes the linear part. Pn^a_n, M^{a,b}_n and L^{a,b}_n(A;Q) are defined verbatim from HK.3/bounded-l-monoids. The maps A → π₀A and M → π₀M induce Poincaré functors (Mod^ω_A, Q^α_M) → (Mod^ω_{π₀A}, Q^α_{π₀M}) for α = q, gs, and B → π₀B induces one for Q^t.",
+      "statement": "Let A be a connective E₁-ring (a connective associative algebra in spectra, ⊗ over 𝕊) and Mod^ω_A its stable ∞-category of compact left modules; Proj(A) ⊆ Mod^ω_A are the retracts of A^n. Let M be an invertible module with involution over A (Calmès et al. I, Definition 3.1.1) that is projective in either A-module structure, so the duality D = hom_A(−,M) preserves Proj(A). The quadratic and symmetric structures are Q^q_M(X) = hom_{A⊗A}(X⊗X,M)_{hC₂} and Q^s_M(X) = hom_{A⊗A}(X⊗X,M)^{hC₂}; the genuine symmetric structure Q^gs_M is the pullback of Q^s_M(X) → hom_A(X,M^{tC₂}) along hom_A(X,τ_{≥0}M^{tC₂}); for a connective E∞-ring B the Tate structure Q^t_B is the pullback of Q^s_B(Y) → hom_B(Y,B^{tC₂}) along the Tate-valued Frobenius hom_B(Y,B) → hom_B(Y,B^{tC₂}); and on Mod^ω_𝕊 the universal structure Q^u has linear part hom(−,𝕊) and agrees with Q^t_𝕊. An A-module is k-connective if its underlying spectrum is; Q is m-quadratic if the cofibre of Q^q_M → Q is m-connective on A, equivalently on Proj(A); Λ_Q denotes the linear part. Pn^a_n, M^{a,b}_n and L^{a,b}_n(A;Q) are defined verbatim from HK.3/bounded-l-monoids. The maps A → π₀A and M → π₀M induce Poincaré functors (Mod^ω_A, Q^α_M) → (Mod^ω_{π₀A}, Q^α_{π₀M}) for α = q, gs, and B → π₀B induces one for Q^t. A map of spectra is k-connective when its fibre is k-connective, equivalently its cofibre is (k+1)-connective; thus a 1-connective map induces an isomorphism on π₀ and a surjection on π₁.",
       "hypotheses": [
         "A connective E₁-ring; M projective in both module structures; B connective E∞ for Q^t."
       ],
       "proofSteps": [
-        "Mod^ω_A and its tensor products are EnhancedDerivedSheaves E5:abstract/module-objects and E5:presentability/compact-objects; compact A-modules form a small stable idempotent-complete category (GeneralAlgebraicKTheoryPartII KII.0/ring-k-theory).",
+        "Mod^ω_A and its tensor products are EnhancedDerivedSheaves E5:abstract/module-objects and E5:presentability/compact-objects; compact A-modules form a small stable idempotent-complete category (GeneralAlgebraicKTheoryPartII KII.0/ring-k-theory). KII.0/ring-k-theory uses right modules: apply it to A^op to obtain compact left A-modules, and use B^op for extension of scalars along A → B.",
         "The formulas define Poincaré structures with duality hom_A(−,M) by Calmès et al. I, §3 (Lemma 3.2.5, Construction 3.2.6, Examples 3.2.8 and 3.2.12); the pullback along a connective cover of the Tate term is the genuine construction of GN §6.8a over a ring spectrum.",
         "The universal structure is Calmès et al. I, Example 1.2.15; its linear part is hom(−,𝕊), and the Frobenius 𝕊 → 𝕊^{tC₂} identifies it with Q^t_𝕊.",
         "Base change along A → π₀A preserves compact modules and the forms, giving the Poincaré functors."
@@ -2215,6 +2279,11 @@
           "name": "ConnRingPoincare.linearPart",
           "role": "projection",
           "statement": "Λ_Q(A) = cofib(Q^q_M(A) → Q(A))."
+        },
+        {
+          "name": "ConnRingPoincare.isConnectiveMap",
+          "role": "data",
+          "statement": "A map f is k-connective iff fib(f) is k-connective, iff π_i(f) is an isomorphism for i < k and surjective for i = k."
         }
       ],
       "tests": [
@@ -2237,6 +2306,11 @@
           "name": "compact_not_projective",
           "kind": "non-example",
           "statement": "Compact is weaker than projective: over A = 𝕊 the cofibre 𝕊/2 of 2 : 𝕊 → 𝕊 is compact and connective, but π₀(𝕊/2) = ℤ/2 is not a projective ℤ-module, so 𝕊/2 ∉ Proj(𝕊)."
+        },
+        {
+          "name": "connectivity_uses_fibre",
+          "kind": "non-example",
+          "statement": "Hℤ → H𝔽₂ has 1-connective cofibre but fibre H(2ℤ) in degree 0, so it is only 0-connective and fails the 1-connective hypothesis of Proposition 1.2.29. A → Hπ₀A for connective A has 1-connective fibre."
         }
       ]
     },
@@ -2360,7 +2434,7 @@
       "kind": "theorem",
       "statement": "Fix m, p ∈ ℤ. Let f : A → B be a 1-connective map of connective ring spectra, M and N projective invertible modules with involution over A and B, and Q_M, Q_N Poincaré structures on Mod^ω_A and Mod^ω_B that are m-quadratic with respect to M and N. Suppose f_! refines to a Poincaré functor (Mod^ω_A,Q_M) → (Mod^ω_B,Q_N) whose map on bilinear parts M = B_{Q_M}(A,A) → B_{Q_N}(B,B) = N is 1-connective and whose map on linear parts Λ_{Q_M}(A) → Λ_{Q_N}(B) is p-connective. Then L_n(A;Q_M) → L_n(B;Q_N) is an isomorphism for n ≤ min(2p−1, 2m) and surjective for n = min(2p, 2m+1).",
       "hypotheses": [
-        "f 1-connective (cofibre 1-connective on underlying spectra)."
+        "f and the bilinear comparison are 1-connective on underlying spectra: their fibres are 1-connective, equivalently their cofibres are 2-connective. The linear comparison has p-connective fibre."
       ],
       "proofSteps": [
         "For X with DX r-connective, compare the cofibre sequences Q^q(X) → Q(X) → Λ_Q(X) for M and N: the map on the quadratic terms is (2r+1)-connective (bilinear part 1-connective) and on linear terms (r+p)-connective; hence Q_M(X) → Q_N(f_!X) is min(2r+1, r+p)-connective.",
@@ -2368,7 +2442,7 @@
         "Injectivity for n ≤ min(2p−1, 2m): with b ∈ {0,1}, n + 1 + b even, a Lagrangian over B may be taken with L and its fibre ((−n−1−b)/2)-connective; write L = fib(U → V) with U, V projective shifts, factor L → f_!X through f_!Q, lift U → V and the map to Q, and check that Q_M(L′) → Q_N(f_!L′) is injective on π_n and onto on π_{n+1}, which follows from the estimate with r′ = (n+1−b)/2."
       ],
       "acceptance": [
-        "f = id, Q_M = Q^q_M: recovers HK.4/quadratic-low-degree-comparison over A (p = m − 1 effectively, via Corollary 1.2.30).",
+        "f = id with form map Q^q_M → Q on A: Corollary 1.2.30 uses p = m − 1 and recovers the quadratic-to-Q comparison. The two structures need not be equal.",
         "For Q^q structures (Λ = 0 on both sides, p = ∞) and m = ∞ the map is an isomorphism in all degrees."
       ],
       "prerequisites": [
@@ -2430,7 +2504,7 @@
       "parentStageId": "HermitianKTheoryOfPoincareCategories:HK.5",
       "title": "Comparison of the L-theory of a ring spectrum with that of its π₀",
       "kind": "theorem",
-      "statement": "Let A be a connective ring spectrum, M a projective invertible module with involution over A and B a connective E∞-ring. (i) L^q(A;M) → L^q(π₀A;π₀M) is an equivalence. (ii) L^t_n(B) → L^t_n(π₀B) is an isomorphism for n ≤ 0 and surjective for n = 1. (iii) L^gs_n(A;M) → L^gs_n(π₀A;π₀M) is an isomorphism for n ≤ −3 and surjective for n = −2; if the C₂-action on the spectrum underlying M is trivial, it is an isomorphism for n ≤ −1 and surjective for n = 0. The range in (iii) cannot be improved in general: for 𝕊^{2−2σ} ⊗ ko over ko, (𝕊^{2−2σ}⊗ko)^{tC₂} → ℤ^{tC₂} is not onto on π₀, since π_*(ko^{tC₂}) = ℤ^∧₂[u^{±1}] with |u| = 4 gives Σ²ko^{tC₂} trivial π₀ while ℤ^{tC₂} has π₀ = ℤ/2; 𝕊^{2−2σ} over 𝕊 is another example.",
+      "statement": "Let A be a connective ring spectrum, M a projective invertible module with involution over A and B a connective E∞-ring. (i) L^q(A;M) → L^q(π₀A;π₀M) is an equivalence. (ii) L^t_n(B) → L^t_n(π₀B) is an isomorphism for n ≤ 0 and surjective for n = 1. (iii) L^gs_n(A;M) → L^gs_n(π₀A;π₀M) is an isomorphism for n ≤ −3 and surjective for n = −2; if the C₂-action on the spectrum underlying M is trivial, it is an isomorphism for n ≤ −1 and surjective for n = 0. The linear-part connectivity estimate used in (iii) is optimal: for 𝕊^{2−2σ} ⊗ ko over ko, (𝕊^{2−2σ}⊗ko)^{tC₂} → ℤ^{tC₂} is not onto on π₀, since π_*(ko^{tC₂}) = ℤ^∧₂[u^{±1}] with |u| = 4 gives Σ²ko^{tC₂} trivial π₀ while ℤ^{tC₂} has π₀ = ℤ/2; 𝕊^{2−2σ} over 𝕊 is another example. This example alone does not prove failure of an L-group isomorphism outside the stated range; its Tate computation remains the explicit input G3.",
       "hypotheses": [
         "A → π₀A is 1-connective; M projective invertible."
       ],
@@ -2438,7 +2512,7 @@
         "Apply HK.5/connective-comparison to A → π₀A: for Q^q the linear parts vanish (p = ∞, m = ∞), giving (i) in all degrees.",
         "For Q^t, B is 0-quadratic and the map on linear parts B → π₀B is 1-connective (p = 1): iso for n ≤ min(1, 0) = 0, onto for n = 1.",
         "For Q^gs, 0-quadratic, the map on linear parts τ_{≥0}M^{tC₂} → τ_{≥0}(π₀M)^{tC₂} is (−1)-connective (p = −1): iso for n ≤ −3, onto for n = −2. With trivial action, M is a retract of M^{hC₂}, so π₀M^{hC₂} → π₀(π₀M)^{hC₂} = π₀M is onto, hence π₀ of the Tate map is onto and the linear map is 0-connective (p = 0): iso for n ≤ −1, onto n = 0.",
-        "For the counterexample use ko^{tC₂} from ChromaticHomotopyTheory CH.11 (real K-theory) and its Tate computation, recorded as an input."
+        "For the linear-part counterexample use ko from ChromaticHomotopyTheory CH.11/real-k-theory. The separate calculation π_*(ko^{tC₂}) = ℤ₂^∧[u^{±1}], |u| = 4, is quoted in Remark 1.2.34, p. 26 and recorded in G3; it is not supplied by CH.11."
       ],
       "acceptance": [
         "(i) is the algebraic π–π theorem of Lurie's notes, recovered here.",
@@ -2453,7 +2527,7 @@
         {
           "sourceId": "cdh-iii",
           "locator": "Corollary 1.2.33 and Remark 1.2.34, p. 26",
-          "match": "Derives from Proposition 1.2.29 the comparisons of quadratic, Tate and genuine symmetric L-theory of a connective ring spectrum with those of π₀, improves the genuine symmetric range for trivial actions, and shows optimality with 𝕊^{2−2σ} ⊗ ko and 𝕊^{2−2σ}."
+          "match": "Derives from Proposition 1.2.29 the comparisons of quadratic, Tate and genuine symmetric L-theory of a connective ring spectrum with those of π₀, improves the genuine symmetric range for trivial actions, and shows optimality of the linear-part connectivity estimate with 𝕊^{2−2σ} ⊗ ko and 𝕊^{2−2σ}."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2577,9 +2651,14 @@
           "statement": "Dedekind domains have global dimension ≤ 1."
         },
         {
-          "name": "finitePresentation_hasProjectiveDimensionLE",
+          "name": "finitePresentation_finiteProjectiveResolution",
           "role": "other",
           "statement": "Over a coherent ring of global dimension ≤ d, finitely presented modules have length-≤d resolutions by finitely generated projectives."
+        },
+        {
+          "name": "finitePresentation_hasProjectiveDimensionLE",
+          "role": "other",
+          "statement": "The weaker projective-dimension conclusion in Suggested.lean follows immediately from HasGlobalDimensionLE, without coherence; it does not construct a finitely generated resolution."
         }
       ],
       "tests": [
@@ -2621,7 +2700,8 @@
         "The lowest non-vanishing homology of a perfect complex is finitely presented by coherence; a finite resolution by finitely generated projectives (HK.6/coherent-global-dimension) shows truncations remain perfect.",
         "The t-structure axioms are inherited from D(R) (Mathlib `DerivedCategory.TStructure.t` on the homotopy category, enhanced as in GeneralAlgebraicKTheoryPartII KII.3/bounded-t-structure).",
         "D(D^p(R)_{≥0}) ⊆ D^p(R)_{≤0} is the one-sided width criterion (HK.2/width-criterion, Remark 1.1.7).",
-        "D(D^p(R)_{≤0}) ⊆ D^p(R)_{≥−d} follows from the universal coefficient spectral sequence for H_*Hom_R(X,M), since Ext^i_R(−,M) = 0 for i ≥ d+1."
+        "D(D^p(R)_{≤0}) ⊆ D^p(R)_{≥−d} follows from the universal coefficient spectral sequence for H_*Hom_R(X,M), since Ext^i_R(−,M) = 0 for i ≥ d+1.",
+        "Mathlib DerivedCategory uses cochain complexes. Reindex cochain degree i to homological degree −i; its cohomological t.le 0 corresponds to homological connectivity ≥0 and t.ge 0 to homological truncation ≤0. Transport shifts, truncations and homology through that reindexing before applying either duality bound."
       ],
       "acceptance": [
         "For R = ℤ (d = 1): D(ℤ/2[0]) = ℤ/2[−1] lies in D^p(ℤ)_{≥−1} and not in D^p(ℤ)_{≥0}.",
@@ -2770,6 +2850,11 @@
           "name": "boundedLT_perfect_eq",
           "role": "equivalence",
           "statement": "For C = D^p(R) with the Postnikov t-structure, agrees with boundedL."
+        },
+        {
+          "name": "boundedLT.lift",
+          "role": "universal-property",
+          "statement": "The same cokernel universal property as boundedL.lift, with all three connectivity bounds interpreted in the chosen t-structure."
         }
       ],
       "tests": [
@@ -2787,6 +2872,11 @@
           "name": "t_structure_dependence",
           "kind": "non-example",
           "statement": "Shifting the t-structure by [1] changes Pn^a_n: the same Poincaré object can be ((−n−a)/2)-connective for one t-structure and not for the shifted one, so the monoids depend on the t-structure, not only on (C,Q)."
+        },
+        {
+          "name": "one_sided_duality_bound",
+          "kind": "non-example",
+          "statement": "On Perf(K), transport symmetric duality through the shift [1], obtaining D(X) = X^∨[2] and a symmetric Poincaré form on K[1]. With the standard bounded t-structure D(C_{≤0}) ⊆ C_{≥0}, so d = 0 is allowed. For n = a = b = 0, K[1] is an allowed 0-connective object but is not 0-truncated. Thus boundedLT uses connectivity and does not assert concentration in [0,0]."
         }
       ]
     },
@@ -2795,10 +2885,10 @@
       "parentStageId": "HermitianKTheoryOfPoincareCategories:HK.6",
       "title": "Surgery for r-symmetric Poincaré structures",
       "kind": "theorem",
-      "statement": "Let C be a stable ∞-category with a t-structure, Q an r-symmetric Poincaré structure with duality D such that D(C_{≤0}) ⊆ C_{≥−d} for some d ≥ 0. Fix n ∈ ℤ and integers a ≥ d − 1, b ≥ d with b ≥ a, n + a even and a ≥ −n + 2d − 2r. Then (i) every Poincaré object of (C,Q[−n]) is cobordant to a ((−n−a)/2)-connective one; (ii) every Lagrangian L → X of a ((−n−a)/2)-connective Poincaré object is cobordant relative to X to a Lagrangian L′ → X with L′ ⌈(−n−1−b)/2⌉-connective and fib(L′ → X) ⌊(−n−1−b)/2⌋-connective. In particular L^{a,b}_n(C,Q) → L_n(C,Q) is an isomorphism and π₀M^{a,b}_n → π₀Pn^a_n → L^{a,b}_n is exact in the middle. The objects in (i) are concentrated in [(−n−a)/2, (−n+a)/2] and the Lagrangians in [⌈(−n−1−b)/2⌉, ⌈(−n−1+b)/2⌉]. (The source assumes the t-structure bounded; its proof does not use boundedness.)",
+      "statement": "Let C be a stable ∞-category with a bounded t-structure, Q an r-symmetric Poincaré structure with duality D such that D(C_{≤0}) ⊆ C_{≥−d} for some d ≥ 0. Fix n ∈ ℤ and integers a ≥ d − 1, b ≥ d with b ≥ a, n + a even and a ≥ −n + 2d − 2r. Then (i) every Poincaré object of (C,Q[−n]) is cobordant to a ((−n−a)/2)-connective one; (ii) every Lagrangian L → X of a ((−n−a)/2)-connective Poincaré object is cobordant relative to X to a Lagrangian L′ → X with L′ ⌈(−n−1−b)/2⌉-connective and fib(L′ → X) ⌊(−n−1−b)/2⌋-connective. In particular L^{a,b}_n(C,Q) → L_n(C,Q) is an isomorphism and π₀M^{a,b}_n → π₀Pn^a_n → L^{a,b}_n is exact in the middle. For C = D^p(R) with the discrete coefficient duality Hom_R(−,M), the width criterion HK.2/width-criterion additionally represents objects in [(−n−a)/2, (−n+a)/2] and Lagrangians in [⌈(−n−1−b)/2⌉, ⌈(−n−1+b)/2⌉]. These interval assertions are not conclusions for a general C under the single stated duality bound (E9).",
       "hypotheses": [
         "Statement for a general C, not D^p(R) (corrected; sourceIssues E2).",
-        "The source assumes a bounded t-structure; the proof only uses truncations, exactness of the fibre of Q → Q^s_D and the duality bound."
+        "The t-structure is bounded, as in Proposition 1.3.1. Only the connectivity conclusions and bounded-L comparison are claimed in the general setting."
       ],
       "proofSteps": [
         "(i) Put k = (−n−a−2)/2, W := Ω^nDτ_{≤k}X and f : W → Ω^nDX ≃ X dual to X → τ_{≤k}X.",
@@ -2809,19 +2899,20 @@
       ],
       "acceptance": [
         "Numerical core: with n + a even, a ≥ d − 1 and a ≥ −n + 2d − 2r, k = (−n−a−2)/2 satisfies n + 2k + d < 0 and k + d − r < 0 (checked by omega in Suggested.lean).",
-        "r = ∞, d = 0: symmetric surgery for a duality exchanging the two halves, which gives the Witt groups of the heart (GN §6.8a `symmetricHeartLTheory`)."
+        "r = ∞, d = 0 with the additional condition that D exchanges both halves: symmetric surgery gives the Witt groups of the heart (GN §6.8a `symmetricHeartLTheory`). The single inclusion D(C_{≤0}) ⊆ C_{≥0} does not by itself say that both halves are exchanged."
       ],
       "prerequisites": [
         "HermitianKTheoryOfPoincareCategories:HK.6/t-structure-bounded-l",
         "HermitianKTheoryOfPoincareCategories:HK.3/lagrangian-surgery",
         "HermitianKTheoryOfPoincareCategories:HK.3/cobordism-presentation",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "HermitianKTheoryOfPoincareCategories:HK.2/width-criterion"
       ],
       "sources": [
         {
           "sourceId": "cdh-iii",
           "locator": "Proposition 1.3.1 and Remark 1.3.2, p. 27; proof pp. 28–29; Remark 1.3.6, p. 29",
-          "match": "States and proves symmetric surgery for an r-symmetric structure on a t-structured stable category with D(C_{≤0}) ⊆ C_{≥−d} by surgery along duals of truncations, with the concentration intervals and exactness in the middle; parts (i) and (ii) are printed with D^p(R) in place of C."
+          "match": "Proves the connectivity and bounded-L comparison for a bounded t-structure with D(C_{≤0}) ⊆ C_{≥−d}, by surgery along dual truncations, with exactness in the middle. Correct D^p(R) to C in parts (i),(ii) (E2). Restrict Remark 1.3.2’s concentration claim to the discrete-ring setting where Lemma 1.1.6 applies (E9)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2982,7 +3073,7 @@
         },
         {
           "sourceId": "ranicki-ats1",
-          "locator": "Proposition 4.5 (§4)",
+          "locator": "Proposition 4.5, §4, printed p. 153 (PDF p. 67)",
           "match": "Ranicki's comparison of the short symmetric L-groups of a Noetherian ring of finite global dimension with the periodic ones in a range of degrees."
         }
       ],
@@ -3144,7 +3235,8 @@
       "kind": "construction",
       "statement": "A form parameter λ on (R,M) (Bak, Baues, Schlichting) is a quadratic R-module Q_λ with maps M_{C₂} →^τ Q_λ →^ρ M^{C₂} composing to the trace, whose R-action has cross-effect (a ⟂ b)x = τ((a⊗b)ρ(x)); a λ-hermitian form on P ∈ Proj(R) is a σ-symmetric M-valued form φ with a map q : P → Q_λ such that q(rv) = r·q(v), q(v+u) − q(v) − q(u) = τ(φ(v,u)) and ρ q(v) = φ(v,v). The functor P ↦ {λ-hermitian forms on P} extends as a non-abelian derived functor to a Poincaré structure Q^{gλ}_M on D^p(R) with duality Hom_R(−,M). Q_λ = M^{C₂}, M_{C₂} and im(M_{C₂} → M^{C₂}) give Q^gs, Q^gq and Q^ge. Since Q^{gλ}_M(P[0]) is discrete, Q^{gλ}_M is 0-quadratic and 0-symmetric (1- or 2-symmetric, resp. 1- or 2-quadratic, in the even and symmetric, resp. even and quadratic, cases). For R coherent of global dimension ≤ 1, L^{gλ}_n(R) → L^s_n(R) is injective for n = 3 and bijective for n ≥ 4, and L^{gλ}_2(R) is the Witt group of the form parameter (−M, ker(M → Q_λ)).",
       "hypotheses": [
-        "R with an invertible ℤ-module with involution M; R coherent of global dimension ≤ 1 for the comparison claims (the source writes '1-dimensional ring'; corrected, sourceIssues E7)."
+        "R with an invertible ℤ-module with involution M; R coherent of global dimension ≤ 1 for the comparison claims (the source writes '1-dimensional ring'; corrected, sourceIssues E7).",
+        "The general construction and its consequences are conditional on the unplanned form-parameter/polynomial-functor equivalence and non-abelian derivation in G4. GN supplies the three standard flavours, not this arbitrary-parameter extension."
       ],
       "proofSteps": [
         "Schlichting's equivalence between form parameters and reduced degree-two polynomial functors on Proj(R) gives the functor of λ-hermitian forms; extend by Calmès et al. I, Proposition 4.2.18 (non-abelian derivation) to D^p(R).",
@@ -3222,6 +3314,11 @@
           "name": "FormParameter.zeroSymmetric",
           "role": "other",
           "statement": "Q^{gλ}_M is 0-symmetric and 0-quadratic."
+        },
+        {
+          "name": "FormParameter.mapForms",
+          "role": "functoriality",
+          "statement": "A map of quadratic R-modules commuting with τ and ρ sends (φ,q) to (φ,f∘q), preserves sums and pullbacks, and induces the derived Poincaré functor conditional on G4."
         }
       ],
       "tests": [
@@ -3351,7 +3448,7 @@
       "proofSteps": [
         "The fundamental fibre sequence K(D^p(R),Q)_{hC₂} → GW(D^p(R),Q) → L(D^p(R),Q) for Q = Q^gs_M (GN §6.8a `stableGWFundamentalSquare`).",
         "K(R;M) is connective, so K(R;M)_{hC₂} is connective (RefinedTraceMethods RT.2/homotopy-orbits-fixed-points); hence π₀GW^gs → π₀L^gs is onto and τ_{≥0} preserves the fibre sequence.",
-        "τ_{≥0}GW^gs(R;M) ≃ GW^s_cl(R;M) by Hebestreit–Steimle (GN §6.8a `weightHeartGWComparison`), compatibly with hyp.",
+        "τ_{≥0}GW^gs(R;M) ≃ GW^s_cl(R;M) by Hebestreit–Steimle (GN §6.8a `weightHeartGWComparison`), compatibly with hyp. Form the classical connective spectrum with GN §6.1.6’s symmetric-monoidal-groupoid/Γ-space adapter; the H.4 homology-localization theorem alone does not construct this spectrum.",
         "π_nτ_{≥0}L^gs(R;M) ≅ L^short_n(R;M) for n ≥ 0 by Theorem 5 (HK.4/ranicki-genuine-symmetric).",
         "If 2 is a unit all genuine structures agree (HK.0/tate-collapse-criterion), L^s is 4-periodic (HK.1/bordism-invariant-periodicity) and its groups are Witt groups of forms and formations."
       ],
@@ -3364,8 +3461,7 @@
         "HermitianKTheoryOfPoincareCategories:HK.0/tate-collapse-criterion",
         "HermitianKTheoryOfPoincareCategories:HK.1/bordism-invariant-periodicity",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
-        "RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points",
-        "StableHomotopyKTheory:H.4/group-completion"
+        "RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points"
       ],
       "sources": [
         {
@@ -3468,7 +3564,8 @@
       "kind": "theorem",
       "statement": "Let R be coherent of global dimension d and M invertible. Then the polarisation map GW^q_{cl,n}(R;M) → GW^s_{cl,n}(R;M) is injective for n ≥ d + 2 and an isomorphism for n ≥ d + 3. If moreover R is commutative and 2-torsion free and M = R, it is injective for n ≥ d and an isomorphism for n ≥ d + 1. The same holds for right-coherent rings of finite right global dimension, and the first statement (ranges d + 2 and d + 3) holds with the Grothendieck–Witt groups of any form parameter in place of quadratic forms.",
       "hypotheses": [
-        "R left-coherent of global dimension d (or right-coherent of right global dimension d)."
+        "R left-coherent of global dimension d (or right-coherent of right global dimension d).",
+        "The arbitrary-form-parameter extension is conditional on G4, as in HK.7/form-parameter-structures; the quadratic-to-symmetric theorem itself has no such extra input."
       ],
       "proofSteps": [
         "For n ≥ 0, GW^q_{cl,n} = GW^gq_n and GW^s_{cl,n} = GW^gs_n (Hebestreit–Steimle, GN §6.8a).",
@@ -3507,7 +3604,7 @@
   "requests": [
     {
       "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
-      "need": "Existing upstream roadmap GeometryOfNumbersAndQuadraticArithmetic (TauCetiRoadmap PR #851, head d63953a), cited as it stands. Layer 6 §6.8a: `PoincareInfinityCategory`, `PoincareObject` with Lagrangians and isotropic surgery, `PoincareSurgeryDatum`, `DerivedCoefficientLine` (invertible modules with involution, CDH I Definition 4.2.2), `PerfectDerivedInfinity` and `perfectDerivedHom`, `symmetricPoincareStructure`, `quadraticPoincareStructure`, `genuinePoincareStructure M m` (the family Q^{≥m}_M with its identification on projectives), `stableGrothendieckWittSpectrum`, `stableLTheorySpectrum` (with L_i = L₀(Q[−i]) and integer-shift delooping), `PoincareVerdierSequence`, `stableGWVerdierLocalization`, `additiveHermitianBordification`, `stableGWFundamentalSquare` (the fibre sequence K_{hC₂} → GW → L), `poincareLinearPart`, `weightHeartGWComparison` (Hebestreit–Steimle, and CDH III Corollary 1.3.15), `symmetricHeartLTheory` (CDH III Corollary 1.3.8); §6.1a C₂-spectra, homotopy orbits, fixed points and Tate; §6.4 exact Witt and GW groups; §6.10a integral L-theory comparisons and calculations over ℤ; §6.10b, 6.10.6 (two-inverted genuine L-comparison). This roadmap plans the general-ring statements of CDH III §1 on top of these carriers; §6.10a's ℤ-statements are special cases.",
+      "need": "Existing upstream roadmap GeometryOfNumbersAndQuadraticArithmetic (TauCetiRoadmap PR #851, head d63953a), cited as it stands. Layer 6 §6.8a: `PoincareInfinityCategory`, `PoincareObject` with Lagrangians and isotropic surgery, `PoincareSurgeryDatum`, `DerivedCoefficientLine` (invertible modules with involution, CDH I Definition 4.2.2), `PerfectDerivedInfinity` and `perfectDerivedHom`, `symmetricPoincareStructure`, `quadraticPoincareStructure`, `genuinePoincareStructure M m` (the family Q^{≥m}_M with its identification on projectives), `stableGrothendieckWittSpectrum`, `stableLTheorySpectrum` (with L_i = L₀(Q[−i]) and integer-shift delooping), `PoincareVerdierSequence`, `stableGWVerdierLocalization`, `additiveHermitianBordification`, `stableGWFundamentalSquare` (the fibre sequence K_{hC₂} → GW → L), `poincareLinearPart`, `weightHeartGWComparison` (Hebestreit–Steimle, and CDH III Corollary 1.3.15), `symmetricHeartLTheory` (CDH III Corollary 1.3.8); §6.1a C₂-spectra, homotopy orbits, fixed points and Tate; §6.4 exact Witt and GW groups; §6.10a integral L-theory comparisons and calculations over ℤ; §6.10b, 6.10.6 (two-inverted genuine L-comparison). This roadmap plans the general-ring statements of CDH III §1 on top of these carriers; §6.10a's ℤ-statements are special cases. For the classical connective spectra, §6.1.6 supplies the symmetric-monoidal-groupoid adapter to GeneralizedCohomology G2.8’s Γ-space group completion. Use the connective K-spectrum of §6.1b in the fundamental sequence.",
       "neededBy": [
         "HermitianKTheoryOfPoincareCategories:HK.0/flavour-notation",
         "HermitianKTheoryOfPoincareCategories:HK.0/module-with-involution-operations",
@@ -3618,7 +3715,8 @@
       "stageId": "HermitianKTheoryOfPoincareCategories:HK.8",
       "status": "planned",
       "remaining": [
-        "Karoubi's splitting inherits GN §6.10b's open multiplicative input (Paper IV); see gap G6."
+        "Karoubi's splitting inherits GN §6.10b's open multiplicative input (Paper IV); see gap G6.",
+        "The arbitrary-form-parameter extension of Theorem 3 inherits G4; the quadratic-to-symmetric comparison is planned independently of it."
       ]
     }
   ],
@@ -3642,14 +3740,15 @@
       "neededBy": [
         "HermitianKTheoryOfPoincareCategories:HK.5/pi0-comparison"
       ],
-      "detail": "The optimality remark uses π_*(ko^{tC₂}) = ℤ^∧₂[u^{±1}] with |u| = 4. ChromaticHomotopyTheory CH.11/real-k-theory constructs ko but does not compute its C₂-Tate construction; this input is quoted."
+      "detail": "The linear-part-estimate optimality remark uses π_*(ko^{tC₂}) = ℤ^∧₂[u^{±1}] with |u| = 4. ChromaticHomotopyTheory CH.11/real-k-theory constructs ko but does not compute its C₂-Tate construction; this input is quoted. No sharpness of the resulting L-group range follows solely from this calculation."
     },
     {
       "title": "G4. Form parameters and polynomial functors",
       "neededBy": [
-        "HermitianKTheoryOfPoincareCategories:HK.7/form-parameter-structures"
+        "HermitianKTheoryOfPoincareCategories:HK.7/form-parameter-structures",
+        "HermitianKTheoryOfPoincareCategories:HK.8/quadratic-symmetric-gw-comparison"
       ],
-      "detail": "The genuine Poincaré structure of a form parameter uses Schlichting's equivalence between form parameters and reduced degree-two polynomial functors on Proj(R) (Calmès et al. I, p. 74, citing Schlichting, Lemma A.16) and the non-abelian derivation of Calmès et al. I, Proposition 4.2.18; neither is planned in the atlas (GN §6.8a derives only the quadratic, even and symmetric cases)."
+      "detail": "The genuine Poincaré structure of a form parameter uses Schlichting's equivalence between form parameters and reduced degree-two polynomial functors on Proj(R) (Calmès et al. I, p. 74, citing Schlichting, Lemma A.16) and the non-abelian derivation of Calmès et al. I, Proposition 4.2.18; neither is planned in the atlas (GN §6.8a derives only the quadratic, even and symmetric cases). The arbitrary-parameter extension of the endpoint Theorem 3 is conditional on this same input; the three standard flavours and the quadratic-to-symmetric theorem do not require it."
     },
     {
       "title": "G5. Odd genuine L-groups as formation groups",
@@ -3679,8 +3778,17 @@
       "known": "PAPER-CALMES-ETAL-26/E1 (the paper extraction); no published erratum found",
       "searched": [
         "arXiv v4 abstract page and comments",
-        "the accepted extraction PAPER-CALMES-ETAL-26"
-      ]
+        "the accepted extraction PAPER-CALMES-ETAL-26",
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The injectivity paragraph starts with n ≤ 2m − 3; substituting n for m in its last line contradicts both that hypothesis and the stated range. Checked against arXiv v4; no assertion about the inaccessible version of record.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
     },
     {
       "id": "HermitianKTheoryOfPoincareCategories/E2",
@@ -3694,8 +3802,17 @@
       "known": "PAPER-CALMES-ETAL-26/E2; no published erratum found",
       "searched": [
         "arXiv v4",
-        "the accepted extraction PAPER-CALMES-ETAL-26"
-      ]
+        "the accepted extraction PAPER-CALMES-ETAL-26",
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proposition quantifies over C and its proof uses truncations in C; no R is introduced. Its application to torsion objects confirms the intended general category. Checked against arXiv v4; no assertion about the inaccessible version of record.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
     },
     {
       "id": "HermitianKTheoryOfPoincareCategories/E3",
@@ -3708,8 +3825,17 @@
       "affects": "nothing",
       "known": "PAPER-CALMES-ETAL-26/E3",
       "searched": [
-        "arXiv v4"
-      ]
+        "arXiv v4",
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Item 1.1.6 is headed Lemma on p. 12, not Remark; the cited width criterion is that lemma. Checked against arXiv v4; no assertion about the inaccessible version of record.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
     },
     {
       "id": "HermitianKTheoryOfPoincareCategories/E4",
@@ -3723,8 +3849,17 @@
       "known": "new to this packet; also raised by the unreviewed red team RT-PAPER-CALMES-ETAL-26/14",
       "searched": [
         "arXiv v4",
-        "PAPER-CALMES-ETAL-26 sourceIssues (not recorded there)"
-      ]
+        "PAPER-CALMES-ETAL-26 sourceIssues (not recorded there)",
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The comparison in degree −2 uses the vanishing of the even Witt group over 𝔽₂. Degree zero instead contains the nonzero symmetric Witt class of a line, so whole-spectrum vanishing cannot be intended. Checked against arXiv v4; no assertion about the inaccessible version of record.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
     },
     {
       "id": "HermitianKTheoryOfPoincareCategories/E5",
@@ -3738,8 +3873,17 @@
       "known": "new to this packet; also raised by the unreviewed red team RT-PAPER-CALMES-ETAL-26/15",
       "searched": [
         "arXiv v4",
-        "PAPER-CALMES-ETAL-26 sourceIssues (not recorded there)"
-      ]
+        "PAPER-CALMES-ETAL-26 sourceIssues (not recorded there)",
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Paper II Corollary 4.4.13 applies naturally to all structures with the same duality and hence the same K-orbit term. Theorem 1 of Paper III only covers classical symmetric GW. Checked against arXiv v4; no assertion about the inaccessible version of record.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
     },
     {
       "id": "HermitianKTheoryOfPoincareCategories/E6",
@@ -3752,8 +3896,17 @@
       "affects": "nothing",
       "known": "new to this packet; also raised by the unreviewed red team RT-PAPER-CALMES-ETAL-26/48",
       "searched": [
-        "arXiv v4"
-      ]
+        "arXiv v4",
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The diagonal satisfies b(rx,rx)=r²b(x,x); the usual scalar action fails already for xy over 𝔽₂[t]. This confirms an omitted Frobenius-action convention, not a failure of the symplectic conclusion. Checked against arXiv v4; no assertion about the inaccessible version of record.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
     },
     {
       "id": "HermitianKTheoryOfPoincareCategories/E7",
@@ -3766,8 +3919,61 @@
       "affects": "a stated result",
       "known": "new to this packet; also raised by the unreviewed red team RT-PAPER-CALMES-ETAL-26/22",
       "searched": [
-        "arXiv v4"
-      ]
+        "arXiv v4",
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The invoked comparison and Witt results require coherent global dimension ≤1. Krull dimension alone does not imply this, as the singular order ℤ[√−3] shows. Checked against arXiv v4; no assertion about the inaccessible version of record.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
+    },
+    {
+      "id": "HermitianKTheoryOfPoincareCategories/E8",
+      "source": "cdh-iii",
+      "kind": "error",
+      "locator": "Example R.2(ii), p. 7 (arXiv v4 only; version of record unavailable)",
+      "printed": "With r̄̄ = εrε⁻¹, ε̄ = ε⁻¹ and (r⊗s)x = r x s̄, the coefficient involution is given as x ↦ εx̄.",
+      "correction": "For this conjugation convention use J(x)=ε⁻¹x̄; alternatively reverse the convention for the double anti-involution. The stated εx̄ is correct when ε is central, including ε=±1.",
+      "reason": "The displayed map squares to x ↦ ε²xε⁻², which need not be x, and need not swap the two actions. For U=[[1,1],[0,1]], x̄=UxᵀU⁻¹ on Mat₂(ℤ), ε=U(Uᵀ)⁻¹=[[0,1],[−1,1]], its square sends E₁₁ to [[0,1],[0,1]]. In contrast ε⁻¹x̄ squares to x and satisfies J(r x s̄)=s J(x) r̄.",
+      "affects": "a stated result",
+      "known": "New finding in REV-DESIGN-HermitianKTheoryOfPoincareCategories; no linked correction located in the sources searched.",
+      "searched": [
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked both identities algebraically and on matrix units; the noncentral matrix witness is also in Suggested.lean. Finding scoped to arXiv v4.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
+    },
+    {
+      "id": "HermitianKTheoryOfPoincareCategories/E9",
+      "source": "cdh-iii",
+      "kind": "error",
+      "locator": "Remark 1.3.2 following Proposition 1.3.1, p. 27 (arXiv v4 only; version of record unavailable)",
+      "printed": "The connectivity conclusions for a general t-structured category are interpreted as concentration in the same finite intervals as for discrete-ring coefficients.",
+      "correction": "Keep the connectivity conclusions in general. The stated intervals require additional control of the duality in the other direction, as provided for discrete coefficients by Lemma 1.1.6; they hold in the original discrete-ring setting.",
+      "reason": "On Perf(K), transport the standard symmetric duality through [1]. Then D(X)=X^∨[2], Q is symmetric and K[1] is Poincaré. The standard bounded t-structure satisfies D(C_{≤0})⊆C_{≥0}, so d=0; n=a=b=0 satisfies Proposition 1.3.1 (choose r=0). K[1] is an allowed 0-connective object but is not concentrated in [0,0]. The single lower duality bound cannot give the asserted upper bound. Taking K=ℚ and transporting the one-dimensional form ⟨1⟩ gives a nonzero Witt class. A Poincaré object supported only in degree zero for this shifted duality must be zero, so even choosing another cobordant representative cannot recover the asserted interval.",
+      "affects": "a stated result",
+      "known": "New finding in REV-DESIGN-HermitianKTheoryOfPoincareCategories; no linked correction located in the sources searched.",
+      "searched": [
+        "https://arxiv.org/abs/2009.07225v4 (version history and comments, 2026-10-19)",
+        "https://annals.math.princeton.edu/2026/204-1/p02 (journal metadata; no linked correction; full text on Project Euclid returned an Incapsula challenge)",
+        "https://www.math.uni-bielefeld.de/~hebestreit/ (publication list; no erratum linked for this paper)",
+        "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-three/index_en.html (author paper page; no correction linked)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The shifted-duality example meets the proposition’s boundedness and one-sided duality hypotheses while violating the remark’s upper bound. The surgery connectivity theorem is retained unchanged.",
+        "by": "REV-DESIGN-HermitianKTheoryOfPoincareCategories"
+      }
     }
   ],
   "restructure": [
@@ -4559,5 +4765,323 @@
       ],
       "imports": []
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-HermitianKTheoryOfPoincareCategories",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 62 nodes, 16 pinned baseline declarations, all 13 definition/construction APIs and tests, sources, supplier interfaces and current upstream ownership. Corrected noncentral coefficient involution, connectivity conventions, overgeneral concentration and optimality claims, dependency adapters and explicit conditional scope. Confirmed E1–E7 and added E8–E9, all scoped to arXiv v4 because Project Euclid did not serve the version of record. All nine stages are planned in the protocol sense, with recorded gaps G1–G6; acceptance is of this complete pass, not a claim of closed formalization.",
+    "checked": [
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.0/module-with-involution-operations",
+        "verdict": "corrected",
+        "note": "Correct the weak anti-involution sign, specify both actions in the unit map, and use transported duality for the dual coefficient; add a noncentral matrix regression and involution API."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.0/flavour-notation",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Notation R.12, p. 11, and Definition R.3, p. 8; Notation 4.2.23, p. 73. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.0/tate-collapse-criterion",
+        "verdict": "corrected",
+        "note": "Replace fibre by cofibre in the truncation triangle."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.0/shift-periodicity",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Proposition R.6, p. 9; Lemma 3.5.1 and Proposition 3.5.3, pp. 59–60, and Corollary 4.2.24, p. 73; Discussion before Corollary 4.3.4, p. 101. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.0/opposite-ring-transport",
+        "verdict": "corrected",
+        "note": "Complete the applicable transport, functoriality or quotient API."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.0/shifted-gw-symplectic",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark R.7, p. 9. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.1/metabolic-category",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Definition 2.3.5, p. 36, and Lemma 2.3.7, p. 37; Recollection, pp. 9–10, and §1.1, pp. 13–14. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.1/bott-genauer-sequence",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Example 1.2.5, p. 20; Lemma 2.3.7, p. 37; Recollection, pp. 9–10. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.1/forgetful-hyperbolic-sequence",
+        "verdict": "corrected",
+        "note": "Import connective K through its cover comparison and use GN’s stable hyperbolic category rather than an exact-category hyperbolic space."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.1/karoubi-periodicity",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Theorem R.8, p. 10; Corollary 4.3.4, p. 101. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.1/karoubi-periodicity-special-cases",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark R.9, p. 10. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.1/bordism-invariant-periodicity",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Recollection pp. 10–11 and Corollary R.10, p. 10; Lemma 3.5.6 and Proposition 3.5.8, p. 87; Example 3.5.7, p. 87. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.2/r-symmetric-m-quadratic",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark 1.1.1, Definition 1.1.2 and Remark 1.1.3, p. 12; Corollary 1.3.6, p. 23. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.2/genuine-family-bounds",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Example 1.1.4, p. 12. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.2/opposite-ring-bounds",
+        "verdict": "corrected",
+        "note": "A nontrivial line can be self-dual: require its square to be nontrivial for L∨ ≠ L."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.2/width-criterion",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Lemma 1.1.6 and Remarks 1.1.7–1.1.8, pp. 12–13. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.2/shifted-projective-connectivity",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Lemma 1.2.10, p. 17. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.3/cobordism-presentation",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Definition 1.1.9 and Remark 1.1.10, pp. 13–14; Lemma 2.3.10 and Definition 2.3.11, p. 38; Definition 4.2.6 and Corollary 4.2.7, p. 100. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.3/lagrangian-surgery",
+        "verdict": "corrected",
+        "note": "Complete the applicable transport, functoriality or quotient API."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.3/bounded-l-monoids",
+        "verdict": "corrected",
+        "note": "Complete the applicable transport, functoriality or quotient API."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.3/strictly-metabolic-witt",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark 1.2.4, pp. 15–16. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.3/strictly-metabolic-hyperbolic",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark 1.2.5, p. 16; Corollary 2.4.6, p. 43. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.3/widen-lagrangian-bound",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Proposition 1.2.14, pp. 18–19. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/quadratic-surgery",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Proposition 1.2.6 and Remark 1.2.7, p. 16; proof pp. 17–18; Remark 1.2.11, p. 18. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/quadratic-representatives",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Example 1.2.8, pp. 16–17. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/genuine-symmetric-representatives",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.2.9, p. 17. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/quadratic-low-degree-comparison",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.2.12 and Remark 1.2.13, p. 18. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/witt-group-computes-L0",
+        "verdict": "corrected",
+        "note": "Identify the odd-formation statement as the unplanned extension G5, rather than a proved consequence."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/controlled-variants",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark 1.2.18, p. 20. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/ranicki-short-complexes",
+        "verdict": "corrected",
+        "note": "Replace whole-section source locators by the definitions actually used, with printed and PDF pages. Complete the applicable transport, functoriality or quotient API."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/short-to-bounded",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Construction before Proposition 1.2.23, p. 21, and Proposition 1.2.23, p. 21. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/genuine-symmetric-bounded-agreement",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Lemma 1.2.24, p. 22. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/short-even-comparison",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Proof of Theorem 1.2.22, p. 22. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/ranicki-genuine-symmetric",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Theorem 1.2.22, p. 21, with proof p. 22; Theorem 5 and its addendum, p. 4. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.4/ranicki-quadratic-wall",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark 1.2.25, p. 23. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/ring-spectrum-setting",
+        "verdict": "corrected",
+        "note": "Translate the right-module supplier through A^op; define connectivity of maps by the fibre and add a test excluding a weaker cofibre condition."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/compact-connective-pi0",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Lemma 1.2.27, p. 23, and Remark 1.2.28, pp. 23–24; Remark 1.2.28, p. 23. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/ring-spectrum-surgery",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Proposition 1.2.26 and its proof, p. 23. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/lifting-projectives",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 7.2.2.19, pp. 1245–1246; Remark 1.2.32, p. 25. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/connective-comparison",
+        "verdict": "corrected",
+        "note": "Correct the map-connectivity convention and clarify the identity-base-change acceptance check."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/ring-spectrum-quadratic-comparison",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.2.30 and Example 1.2.31, pp. 24–25. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/pi0-comparison",
+        "verdict": "corrected",
+        "note": "Restrict optimality to the connectivity estimate for the linear part; CH.11 supplies ko, not its Tate calculation."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.5/sphere-integers-comparison",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Example 1.2.35, p. 27. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.6/coherent-global-dimension",
+        "verdict": "corrected",
+        "note": "Separate the finite generated projective resolution target from the weaker suggested projective-dimension theorem."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.6/perfect-postnikov-t-structure",
+        "verdict": "corrected",
+        "note": "State the cochain-to-homological indexing adapter explicitly."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.6/t-structure-bounded-l",
+        "verdict": "corrected",
+        "note": "Add the shifted-duality counterexample that prevents inferring an upper concentration bound from the single duality bound. Complete the applicable transport, functoriality or quotient API."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.6/symmetric-surgery",
+        "verdict": "corrected",
+        "note": "Restore boundedness as in the source and restrict the concentration intervals to discrete-ring coefficients (E9)."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.6/coherent-symmetric-surgery",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.3.3, p. 28. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.6/low-dimension-witt",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.3.4 and Remark 1.3.5, p. 28; Example 1.3.7, p. 30. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/symmetric-comparison-range",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.3.9 and proof, p. 30. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/genuine-comparison-theorem",
+        "verdict": "corrected",
+        "note": "Add the precise printed/PDF page of Ranicki’s older comparison."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/sharpness-examples",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Example 1.3.11, p. 31. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/right-coherent-version",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark 1.3.12, p. 31. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/dedekind-comparison",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.3.14, pp. 31–32, and Corollary 1.3.15, p. 32. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/two-torsion-free-improvement",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Remark 1.3.16, p. 32. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/form-parameter-structures",
+        "verdict": "corrected",
+        "note": "Make the unsupplied polynomial-functor/derivation input G4 explicit in the hypotheses. Complete the applicable transport, functoriality or quotient API."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/burnside-l-theory",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Example 1.3.18, pp. 32–33. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.7/field-l-groups",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Corollary 1.3.4 and Remark 1.3.5, p. 28; Example 1.3.11, p. 31; Corollary R.10, p. 10. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.8/classical-gw-fibre-sequence",
+        "verdict": "corrected",
+        "note": "Use GN §6.1.6 for E∞ group completion; H.4’s homology theorem does not supply it."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.8/quadratic-gw-fibre-sequence",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Introduction, p. 4. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.8/karoubi-splitting-recovered",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, source match and proof route checked at Introduction, p. 2; Corollary 4.4.14, p. 107. Prerequisites support the planned target with the explicitly recorded imported inputs."
+      },
+      {
+        "nodeId": "HermitianKTheoryOfPoincareCategories:HK.8/quadratic-symmetric-gw-comparison",
+        "verdict": "corrected",
+        "note": "Propagate the form-parameter construction gap G4 to that optional extension of Theorem 3."
+      }
+    ]
+  }
 }

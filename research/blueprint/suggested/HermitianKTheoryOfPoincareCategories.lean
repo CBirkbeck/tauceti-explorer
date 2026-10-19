@@ -34,6 +34,7 @@ What is here:
 * two form identities: the Frobenius-twisted linearity of `x ↦ b(x,x)` (source issue
   `HermitianKTheoryOfPoincareCategories/E6`) and that even forms are alternating in
   characteristic two (layer HK.7, `field-l-groups`);
+* a noncentral matrix test for the corrected coefficient involution (source issue `E8`);
 * the Tate cohomology input `Ĥ^{-1}(C₂; ℤ) = 0` of the collapse criterion (layer HK.0), from Tau Ceti.
 -/
 
@@ -78,9 +79,9 @@ theorem IsDedekindDomain.hasGlobalDimensionLE_one (A : Type u) [CommRing A] [IsD
     HasGlobalDimensionLE A 1 := by
   sorry
 
-/-- Over a coherent ring of global dimension `≤ d`, a finitely presented module has a projective
-resolution of length `≤ d` by finitely generated projectives; here, the projective dimension
-bound for finitely presented modules. -/
+/-- The projective-dimension bound for a finitely presented module. This is weaker than the
+README target `finitePresentation_finiteProjectiveResolution`, which also requires a resolution
+by finitely generated projectives; the bound alone does not construct that resolution. -/
 theorem finitePresentation_hasProjectiveDimensionLE {d : ℕ} (_hcoh : IsLeftCoherentRing R)
     (hd : HasGlobalDimensionLE R d) (M : ModuleCat.{u} R) [Module.FinitePresentation R M] :
     HasProjectiveDimensionLE M d :=
@@ -263,6 +264,34 @@ theorem even_form_alternating_charTwo {K V : Type*} [Field K] [CharP K 2] [AddCo
   exact CharTwo.add_self_eq_zero (c x x)
 
 end Forms
+
+/-! ## Layer HK.0: noncentral weak anti-involution regression
+
+Source issue E8, Calmès et al. III, Example R.2(ii), arXiv v4 p. 7. For
+`bar(x) = U xᵀ U⁻¹` and `ε = U (Uᵀ)⁻¹`, the bimodule involution is
+`J(x) = ε⁻¹ bar(x)`. The source's `ε bar(x)` fails already on a matrix unit.
+The change-of-basis matrices and coefficient units have determinant one, with explicit inverses.
+-/
+
+/-- The incorrect sign gives a map whose square is not the identity. -/
+example :
+    let U : Matrix (Fin 2) (Fin 2) ℤ := !![1, 1; 0, 1]
+    let Ui : Matrix (Fin 2) (Fin 2) ℤ := !![1, -1; 0, 1]
+    let ε : Matrix (Fin 2) (Fin 2) ℤ := !![0, 1; -1, 1]
+    let X : Matrix (Fin 2) (Fin 2) ℤ := !![1, 0; 0, 0]
+    let bad := fun Y => ε * (U * Y.transpose * Ui)
+    bad (bad X) ≠ X := by
+  decide
+
+/-- The corrected inverse sign passes the same noncentral regression. -/
+example :
+    let U : Matrix (Fin 2) (Fin 2) ℤ := !![1, 1; 0, 1]
+    let Ui : Matrix (Fin 2) (Fin 2) ℤ := !![1, -1; 0, 1]
+    let εi : Matrix (Fin 2) (Fin 2) ℤ := !![1, -1; 1, 0]
+    let X : Matrix (Fin 2) (Fin 2) ℤ := !![1, 0; 0, 0]
+    let good := fun Y => εi * (U * Y.transpose * Ui)
+    good (good X) = X := by
+  decide
 
 /-! ## Layer HK.0: Tate cohomology input of the collapse criterion -/
 
