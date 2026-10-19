@@ -39,7 +39,9 @@ In `Mathlib/RingTheory/Valuation/ValuationSubring.lean`, `Valuation.mem_unitGrou
 
 The degree-two presentation is imported from `K2SymbolsBrauer:T.2:symbols/field-proof/tensor-realization`; its identification with degree two of the homogeneous quotient uses `.../homogeneous-components` and the existing `K2SymbolsBrauer:T.2/milnor-k-theory`. The classical comparison is `K2SymbolsBrauer:T.2/matsumoto`. The sign identities for an arbitrary pairing are supplied by `.../field-calculus`; their proof uses the field Steinberg relation directly and does not require Matsumoto injectivity.
 
-The current read-only TauCetiRoadmap tree and current Tau Ceti library were also searched, including the newer roadmaps missing from the atlas snapshot. No implementation of the tame symbol, integral Milnor K-theory or this generic valuation unit-part function was found. The current place residue is already accounted for above. GrothendieckEulerForms and GlobalNumberFields were read as upstream models for quotient APIs, exact hypotheses, comparisons and discriminating checks. Their categorical K₀ and arithmetic residue constructions do not own this field-symbol pairing. Public Mathlib pull-request searches found no tame-symbol or Milnor-K implementation to consume.
+The current read-only TauCetiRoadmap tree and current Tau Ceti library were also searched, including the newer roadmaps missing from the atlas snapshot. No implementation of the tame symbol or integral Milnor K-theory was found. The generic valuation unit-part function extends the local-field component described next. The current place residue is already accounted for above. GrothendieckEulerForms and GlobalNumberFields were read as upstream models for quotient APIs, exact hypotheses, comparisons and discriminating checks. Their categorical K₀ and arithmetic residue constructions do not own this field-symbol pairing. A public open Mathlib pull-request search for tame symbols and Milnor K-theory found no relevant implementation to consume. The public Zulip archive’s [Ideals over algebras discussion](https://leanprover-community.github.io/archive/stream/217875-Is-there-code-for-X%3F/topic/Ideals.20over.20algebras.html) motivates the tensor-algebra quotient but supplies no implementation of these objects.
+
+Current LocalFieldsRamification, Layer 1, already owns the topological uniformizer splitting of a nonarchimedean local field. Current Tau Ceti implements it as `TauCeti.unitsEquivIntProd`, with `coe_unitsEquivIntProd_apply_snd`, `existsUnique_eq_zpow_mul` and `coe_unitsEquivIntProd_apply_snd_eq_mul` in `TauCeti/NumberTheory/LocalField/UnitsDecomposition.lean`. These declarations are absent at the recorded pin and are consumed through that upstream owner. The packet records its precise Layer 1 supplier-stage prerequisite and request for the compatibility API only; the generic construction needs no local-field splitting. This layer extends only the algebraic unit component to arbitrary discretely valued fields, including incomplete ℚ at 5; it gives no new local-field splitting, topology, or local compactness theorem.
 
 ## Unit parts and their API
 
@@ -66,10 +68,15 @@ All names in this paragraph have prefix `TauCeti.TameSymbol`:
 | `unitPart_inv` | u_t(f⁻¹)=u_t(f)⁻¹. |
 | `unitPart_zpow` | u_t(f^n)=u_t(f)^n for every n∈ℤ. |
 | `unitPart_change` | If t′=tε for ε∈U_R then u_t′(f)=u_t(f)ε^(−ord(f)). |
+| `unitPart_localField` | Under the explicit order comparison below, the underlying field unit equals the second coordinate of the existing local-field splitting. |
 
 Cancellation proves uniqueness, and commutativity together with order additivity proves the group identities. The parameter-change formula follows by expanding (tε)^(−ord(f)). It is needed both for parameter independence of the pairing and for comparing calculations made with different choices of uniformizer. The subgroup equivalence serves the DVR-facing API; the decomposition serves the uniqueness theorem. No theorem claims that the unit part itself is independent of t.
 
 **Checks.** The identity test u_t(1)=1 detects an extraneous constant factor. Agreement on arbitrary existing R-units detects an accidental residue or quotient carrier. The negative-power test u_t(t⁻²)=1 detects replacing the integer order by its absolute value: that replacement produces t⁻⁴, which has negative order. For ℚ at 5 with t=5, the unit parts of 2, 10 and 2/5 are all the rational unit 2; a constant-one function fails these computations. With t′=10, the unit part of 5 is 1/2, whereas it is 1 with t=5. This last test detects the sign of the parameter-change exponent.
+
+For `unitPart_localField`, take a nonarchimedean local field K with its existing valuation relation and topology. Let v:K→ℤᵐ⁰ satisfy ord_v(x)=(TauCeti.normalizedValuation K x).toAdd for every x∈Kˣ, and take t with normalized valuation ofAdd(1). This equality supplies ord_v(t)=1. The target identifies, in Kˣ, u_t(x) with the second coordinate of `TauCeti.unitsEquivIntProd K t ht x`. Substitute the order equality into the existing `coe_unitsEquivIntProd_apply_snd` formula (current source lines 145–147). No equality of subtype carriers is assumed. **Check:** for x=t⁻²u and u in the existing depth-zero unit subgroup, both underlying unit components are u. This comparison and `unitPart_localField_compatibility` remain reader targets because the local-field splitting is newer than the pins.
+
+The five other checks have the names `unitPart_identity`, `unitPart_unit_compatibility`, `unitPart_negative_power`, `unitPart_five_values` and `unitPart_change_five`. They are named theorem targets in the suggested file; its two proved unit-part examples test the identity and negative-power cases directly from the definition.
 
 ## The pairing and its API
 
@@ -106,9 +113,11 @@ There is no alternatingness assertion ∂{f,f}=1 in general. The diagonal value 
 | (2,3) | (0,0) | 1 |
 | (1/5,4/5) | (−1,−1) | 1 |
 
-The first two reject the inverse convention. The next two reject omission of the sign. The unit-unit and identity-input checks reject a spurious nontrivial factor. The final pair is complementary: without the sign its value is 4≠1, so the unsigned formula cannot descend. In residue characteristic two the sign is one; at the 2-adic valuation ∂{2,2}=1. These computations are stated in the suggested file in the actual quotient residue field, rather than under an assumed comparison isomorphism whose hypotheses might have no witness.
+The first two reject the inverse convention. The next two reject omission of the sign. The unit-unit and identity-input checks reject a spurious nontrivial factor. The final pair is complementary: without the sign its value is 4≠1, so the unsigned formula cannot descend. In residue characteristic two the sign is one; at the 2-adic valuation ∂{2,2}=1. These computations are named theorem targets in the suggested file in the actual quotient residue field. They are not admitted examples. Its two proved pairing examples check the identity and the signed uniformizer diagonal directly from the definition.
 
 For a rational function field k(X) at X−b, ∂{a,X−b}=a for a∈kˣ, and the swapped value is a⁻¹. This is the compatibility check with constants and places, not a claim of a reciprocity product.
+
+The corresponding suggested theorem names are `tameSymbol_rat_five`, `tameSymbol_rat_five_sign`, `tameSymbol_units`, `tameSymbol_needs_sign`, `tameSymbol_not_kbook` and `tameSymbol_char_two`. These targets retain the displayed values, the unsigned negative-order counterexample and the distinction of conventions.
 
 ## Parameter independence
 

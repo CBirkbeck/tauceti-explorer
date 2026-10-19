@@ -1,5 +1,4 @@
-import Mathlib.NumberTheory.Padics.PadicNumbers
-import Mathlib.RingTheory.Valuation.ValuationSubring
+import Mathlib
 import TauCeti.FieldTheory.FunctionField.Place.Residue
 import TauCeti.RingTheory.Valuation.Discrete.Order
 
@@ -91,19 +90,31 @@ theorem unitPart_change (t' : Fˣ) (ht' : v.ord (t' : F) = 1)
     unitPart v t' ht' f = unitPart v t ht f * ε ^ (-v.ord (f : F)) := by
   sorry
 
--- unitPart_identity: a degenerate case which rejects a nontrivial constant unit part.
-example : unitPart v t ht 1 = 1 := by
-  sorry
+/-- The identity check has no extraneous constant unit factor. -/
+theorem unitPart_identity : unitPart v t ht 1 = 1 := by
+  apply Subtype.ext
+  simp [unitPart]
 
--- unitPart_unit_compatibility: this is equality in the existing subgroup, not a new carrier.
-example (w : v.valuationSubringˣ) :
+/-- Compatibility is equality in the existing subgroup, rather than a residue class. -/
+theorem unitPart_unit_compatibility (w : v.valuationSubringˣ) :
     unitPart v t ht (v.valuationSubring.unitGroupMulEquiv.symm w : Fˣ) =
       v.valuationSubring.unitGroupMulEquiv.symm w := by
   sorry
 
--- unitPart_negative_power: negative orders must not be replaced by natAbs.
+/-- Negative orders are integer exponents, not absolute values. -/
+theorem unitPart_negative_power : (unitPart v t ht (t ^ (-2 : ℤ)) : Fˣ) = 1 := by
+  simp only [coe_unitPart, Units.val_zpow_eq_zpow_val, v.ord_zpow, ht]
+  norm_num
+
+/-- A nontrivial constant factor fails this test of the new unit-part definition. -/
+example : unitPart v t ht 1 = 1 := by
+  apply Subtype.ext
+  simp [unitPart]
+
+/-- The absolute-value-of-order formula fails this pole test. -/
 example : (unitPart v t ht (t ^ (-2 : ℤ)) : Fˣ) = 1 := by
-  sorry
+  simp only [coe_unitPart, Units.val_zpow_eq_zpow_val, v.ord_zpow, ht]
+  norm_num
 
 /-- The existing uniformizer-free tame-symbol input lies in the unit subgroup. -/
 theorem zpow_ord_mul_zpow_neg_ord_mem_unitGroup (f g : Fˣ) :
@@ -183,6 +194,19 @@ theorem tameSymbol_unique (c : Fˣ → Fˣ → (ResidueField v)ˣ)
     c = tameSymbol v hv := by
   sorry
 
+/-- The identity input leaves no residual sign or unit factor. -/
+example (f : Fˣ) : tameSymbol v hv f 1 = 1 := by
+  simp only [tameSymbol, Units.val_one, v.ord_one, mul_zero, zpow_zero, one_zpow,
+    mul_one, one_mul]
+  change (res v) 1 = 1
+  exact (res v).map_one
+
+/-- The uniformizer diagonal retains its sign; a falsely alternating formula fails. -/
+example : tameSymbol v hv t t = -1 := by
+  simp only [tameSymbol, ht, mul_one, zpow_one, zpow_neg, mul_inv_cancel]
+  change (-1 : (ResidueField v)ˣ) * (res v) 1 = -1
+  rw [map_one, mul_one]
+
 section RationalTests
 
 local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
@@ -194,48 +218,56 @@ private theorem five_order_one : (v₅).ord (5 : ℚ) = 1 := by
   sorry
 
 -- unitPart_five_values: a unit, a positive order and a pole with a nontrivial unit part.
-example :
+theorem unitPart_five_values :
     (unitPart v₅ ⟪5⟫ five_order_one ⟪2⟫ : ℚˣ) = ⟪2⟫ ∧
     (unitPart v₅ ⟪5⟫ five_order_one ⟪10⟫ : ℚˣ) = ⟪2⟫ ∧
     (unitPart v₅ ⟪5⟫ five_order_one ⟪2 / 5⟫ : ℚˣ) = ⟪2⟫ := by
   sorry
 
 -- unitPart_change_five: changing 5 to 10 changes the unit part of 5 to 1/2.
-example : ∃ h10 : (v₅).ord (10 : ℚ) = 1,
+theorem unitPart_change_five : ∃ h10 : (v₅).ord (10 : ℚ) = 1,
     (unitPart v₅ ⟪10⟫ h10 ⟪5⟫ : ℚˣ) = ⟪1 / 2⟫ := by
   sorry
 
--- The inherited construction's computations, stated in its actual residue field.
-example : (s₅ ⟪2⟫ ⟪5⟫ : ResidueField v₅) = 2 ∧
+-- The inherited construction's theorem targets, stated in its actual residue field.
+theorem tameSymbol_rat_five : (s₅ ⟪2⟫ ⟪5⟫ : ResidueField v₅) = 2 ∧
     (s₅ ⟪5⟫ ⟪2⟫ : ResidueField v₅) = 3 := by
   sorry
 
-example : (s₅ ⟪5⟫ ⟪5⟫ : ResidueField v₅) = 4 ∧
+theorem tameSymbol_rat_five_sign : (s₅ ⟪5⟫ ⟪5⟫ : ResidueField v₅) = 4 ∧
     (s₅ ⟪10⟫ ⟪5⟫ : ResidueField v₅) = 3 ∧
     (s₅ ⟪2⟫ ⟪3⟫ : ResidueField v₅) = 1 := by
   sorry
 
 -- The unsigned pairing fails on this Steinberg pair, whose two orders are negative.
-example : s₅ ⟪1 / 5⟫ ⟪4 / 5⟫ = 1 ∧
+theorem tameSymbol_needs_sign : s₅ ⟪1 / 5⟫ ⟪4 / 5⟫ = 1 ∧
     (res v₅ ⟨_, zpow_ord_mul_zpow_neg_ord_mem_unitGroup v₅ ⟪1 / 5⟫ ⟪4 / 5⟫⟩ :
       ResidueField v₅) = 4 ∧ (4 : ResidueField v₅) ≠ 1 := by
   sorry
 
 -- The inverse convention differs, so normalizations distinguish the two maps.
-example : (s₅ ⟪5⟫ ⟪2⟫ : ResidueField v₅) ≠
+theorem tameSymbol_not_kbook : (s₅ ⟪5⟫ ⟪2⟫ : ResidueField v₅) ≠
     (s₅ ⟪2⟫ ⟪5⟫ : ResidueField v₅) := by
+  sorry
+
+/-- Unit-unit and identity checks for the descended formula. -/
+theorem tameSymbol_units : s₅ ⟪2⟫ ⟪3⟫ = 1 ∧ ∀ f : ℚˣ, s₅ f 1 = 1 := by
   sorry
 
 end RationalTests
 
 -- Characteristic two keeps the definition but identifies its sign with one.
-example [Fact (Nat.Prime 2)] :
+theorem tameSymbol_char_two [Fact (Nat.Prime 2)] :
     tameSymbol (Rat.padicValuation 2) (Rat.surjective_padicValuation 2)
       (Units.mk0 (2 : ℚ) (by norm_num)) (Units.mk0 (2 : ℚ) (by norm_num)) = 1 := by
   sorry
 
 /-!
-README targets requiring unimplemented carriers:
+README targets requiring carriers unavailable at the pins:
+
+* unitPart_localField and unitPart_localField_compatibility consume the current
+  TauCeti.unitsEquivIntProd and its second-coordinate formula, with explicit
+  equality of the integer orders. The local-field splitting is not reconstructed.
 
 * K2SymbolsBrauer:T.3/tame-symbol-hom: descend to K₂ᴹ and transport to classical
   K₂ through K2SymbolsBrauer:T.2/matsumoto. Give evaluation, extensionality,
