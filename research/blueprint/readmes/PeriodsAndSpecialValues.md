@@ -4,6 +4,8 @@ This roadmap connects geometric comparison periods to special values of arithmet
 
 The scope is PS.0–PS.9. Conjectures are predicates with precise hypotheses; proved special cases enter only through source-qualified theorem witnesses. Certified numerical enclosures test normalization and nonvanishing but do not prove algebraicity or period-map injectivity. The quartic target includes its geometric marking and integral mirror map. The quintic target includes the formal Frobenius matrix and the specified bridge to the actual crystalline lattice. The multiple-zeta target includes the motivic Hoffman basis and numerical spanning; numerical independence is a separate conjectural assertion.
 
+The [whole-scope packet](../packets/PeriodsAndSpecialValues.json) records coverage for all ten layers. Its `targetImports` lists the 79 stable target IDs in the accepted [PS.0–PS.7 packet](../packets/PeriodsAndSpecialValues--PS.0.json) and [PS.8–PS.9 packet](../packets/PeriodsAndSpecialValues--PS.8.json). Those packets remain the declaration owners: the whole-scope packet imports their statements, APIs, tests and planets, and adds no duplicate nodes. This reader presents those targets together. All ten layers have status `planned`; the twelve proof/interface obligations below remain explicit.
+
 ## Ownership and library inputs
 
 The boundaries follow the neighbouring roadmap interfaces and the EllipticCurves link map:
@@ -2569,7 +2571,7 @@ Every convergent numerical MZV of weight N is a rational linear combination of n
 | --- | --- |
 | PS.0 | Complex-matrix covariance, a selected-component coefficient-unit relation, scalar Tate periods and pinned Tate-Hodge tests. The simultaneous coefficient quotient, geometric real involution, full Deligne quotient comparison and elliptic cycle matrix require their actual geometric carriers. |
 | PS.1 | Integer gamma-pole exclusions, unit criticality, off-diagonal intervals and fixed nonzero scalar-period algebraicity. Euler products, analytic continuation and motivic realization comparisons remain reader targets. |
-| PS.2 | Formal-period algebras, full Nori fibres, torsors and actual relative integration require the MC.6/C5 suppliers. Existing localization is consumed through its native API. |
+| PS.2 | Native away-localization examples check the Tate unit, evaluation of its inverse and the product after evaluation. The effective evaluation map must be supplied with its nonzero Tate normalization. Formal-period algebras, full Nori fibres, torsors and actual relative integration require the MC.6/C5 suppliers. |
 | PS.3–PS.6 | Perfect-complex Picard functors, relative K-theory, arithmetic motivic lines, regulators and Selmer objects require the typed supplier interfaces. Their factor lists, orientation gates, API and tests remain reader targets. |
 | PS.7 | Rational arctangent sums, actual Legendre integrals and substitution/error milestones. Cycle identification, the certified interval algorithm and the full normalized-value/conjecture predicates remain reader targets. |
 | PS.8 quartic | Polynomial and local residue coefficient, explicit operator/Gram/monodromy matrices, Frobenius coefficients, hypergeometric symmetric square, mirror coordinate and inverse/integrality milestone. Global quotient/resolution, marked local systems, analytic continuation and normalized inverse-j objects remain reader targets. The scalar local-reflection identity is not the based-path theorem. |
@@ -2804,6 +2806,8 @@ Consumers: `PeriodsAndSpecialValues:PS.8/quartic-lattice`.
 
 ## Source findings and version boundaries
 
+The whole-scope packet keeps PS.0–PS.7 findings E1–E7 under those identifiers and assigns E8–E11 to PS.8–PS.9 findings E1–E4. The latter retain their qualified inherited identifiers below. Their prior independent reviews apply to the part findings; they do not constitute a review of the whole-scope packet.
+
 The two packets use overlapping E1–E4 labels. Each label below is qualified by its source and layer range. The findings concern the exact checked version, and the corrected target statements above retain all source-specific hypotheses. A proof-interface gap is not attributed as an error in a source theorem.
 
 ### PS.0–PS.7 E1 — BCGP
@@ -2888,7 +2892,7 @@ Version scope and prior record: Independently recorded in NoncommutativeAndEquiv
 
 **BV version record (published).** [Documenta Mathematica extra volume Coates (2006), pp. 165–209; published text collated separately from the author final.](https://ftp.gwdg.de/pub/misc/EMIS/journals/DMJDMV/vol-coates/burns_venjakob.pdf).
 
-### PS.8–PS.9 E1 — H
+### Whole-scope E8 — H (PS.8–PS.9 E1)
 
 H, Proposition 4.26 and Example 4.27, PDF p.21; §4.7 normalization; checked arXiv 1101.4601v1 only
 
@@ -2900,7 +2904,7 @@ Reason: Put θ=−t∂_t/4. Both sides of the corrected identity have derivative
 
 Version scope and prior record: No separate correction is recorded for the checked version.
 
-### PS.8–PS.9 E2 — H
+### Whole-scope E9 — H (PS.8–PS.9 E2)
 
 H, Theorem 4.28, PDF p.22, U₁ upper parameters; compared with NS formula (26), p.9; checked arXiv 1101.4601v1 only
 
@@ -2912,7 +2916,7 @@ Reason: Changing from t⁻⁴ to 1−t⁴ includes the hypergeometric inversion 
 
 Version scope and prior record: The source being cited, Nagura–Sugiyama hep-th/9312159, formula (26), already has the correct equal pair; no separate Hartmann erratum located.
 
-### PS.8–PS.9 E3 — H
+### Whole-scope E10 — H (PS.8–PS.9 E3)
 
 Theorem 4.12, PDF p.15, arXiv 1101.4601v1 only; K3 application on p.16
 
@@ -2924,7 +2928,7 @@ Reason: Let L=U⊕U⊕⟨−6⟩ with hyperbolic bases e₁,f₁,e₂,f₂ and g
 
 Version scope and prior record: Scoped to the checked preprint; no assertion about the unread published theorem.
 
-### PS.8–PS.9 E4 — H
+### Whole-scope E11 — H (PS.8–PS.9 E4)
 
 Proof of Theorem 4.29, PDF p.23, arXiv 1101.4601v1 only; compare Proposition 4.24, p.20
 
