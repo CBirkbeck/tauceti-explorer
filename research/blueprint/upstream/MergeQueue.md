@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-18T23:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T00:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -44,7 +44,7 @@ Generated 2026-10-18T23:50Z from the README supplier graph of every open pull re
 - #896 CharacteristicClasses (kim-em, other author)
 
 ## Wave 5
-- #785 ReductiveGroupsPartII — ready (approved at an earlier head); waits on #908, #446, #447
+- #785 ReductiveGroupsPartII — draft; waits on #908, #446, #447
 - #816 PerfectoidTowers — ready (approved at an earlier head); waits on #813, #814, #815, #818, #820
 - #938 EtaleCohomologyFoundations — ready (approved at an earlier head); waits on #813, #908
 - #942 TangentialBordism (kim-em, other author)
@@ -193,3 +193,6 @@ Generated 2026-10-18T23:50Z from the README supplier graph of every open pull re
 ## Wave 32
 - #1048 EllipticCurveModularityImaginaryQuadratic — draft; waits on #1004, #1006, #1007, #1018, #1020, #1034, #1071, #1075, #848, #850, #852, #856, #871, #873, #913, #920, #923, #931, #933
 - #1081 PotentialAutomorphyInfrastructure — draft; waits on #1006, #1019, #1034, #1062, #1075, #1084, #1085, #1087, #1090, #785, #856, #871, #924, #925, #999
+
+## Wave 33
+- #1180 ModularityAndLanglandsExtensions — draft; waits on #1006, #1007, #1018, #1019, #1020, #1034, #1036, #1037, #1046, #1063, #1071, #1075, #1081, #1084, #1090, #1126, #1171, #785, #792, #820, #854, #856, #858, #871, #879, #908, #913, #920, #922, #923, #924, #925, #927, #931, #938, #964, #965, #999
