@@ -1,3 +1,46 @@
+# Continuation checkpoint — codex-UgTML6
+
+Refs #6521. Codex, 19 October 2026; branch
+`codex-UgTML6-review-topology-fixes`, input `aa25a7628b6c4669d079914c1e80256680b0dee3`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6262827295).
+This worker did not author the fixes and claimed no second job.
+
+**Blocked; the review job remains unfinished.** Re-read the live issue after
+claim confirmation: its seven deliverables still exclude the four additional
+packet/suggested pairs required by the queue's fifteen outputs. The unchanged
+`issues.deliverables_complete` returns false. Its only outstanding reviews are
+ArithmeticQuantumTopology, Polylogarithms--P.2, HabiroNahmSeries--HB.4 and
+HabiroNahmSeries--HB.10. Their hashes still match the guarded continuation below.
+Asked the user to authorize those four JSON paths; no authorization arrived.
+[WORKERS.md](../WORKERS.md), Doing the work, expressly limits edits to issue-named
+files. No excluded path, packet review, completion rule or queue was changed.
+
+Fresh bounded checks support the inherited dispositions: read the source
+passages listed below for /7, /11 and /13, including rendered strange-identity
+pp.958–959, and the affected supplier/consumer contracts. Independently evaluated
+r(0,infinity,1,i)=-i, n(0,infinity,1,i)=i and r after the first-vertex swap=i;
+checked inverse off-diagonal precision -1/3 for ((2,1),(1,2)), and the
+figure-eight kernel (1,-1). A numerical principal-power check at -I gives
+corrected multiplier product 1 and naive product -1, up to floating-point
+roundoff. These diagnostics check conventions; they prove neither geometric
+integration nor the analytic transformation theorem. Current upstream ownership
+and the pinned eta/nonzero-imaginary-part denominator hypotheses were read;
+no new owner or baseline declaration is proposed. The conditional HB.10
+membership-to-degree-zero comparison remains a positive supplied interface.
+
+Fresh packet checks on all seven repository packets give zero errors and
+warnings with the supplied pinned declaration index. Unlike the predecessor's
+validation below, this run did **not** create or validate a scratch projection
+of the four proposed edits: those proposals are inherited, unapplied continuation
+material. No Lean file changed and no Lean compile or language server ran.
+Only this report and the handoff changed. The prior per-finding report and
+bounded review proposals are retained below with their original attribution;
+this checkpoint does not claim a new whole-plan audit or refresh existing
+review metadata. Resume only after the issue scope is synchronized or the four
+packet paths are expressly authorized.
+
+---
+
 # Independent review of topology fix round 4
 
 Refs #6521. Codex, session `codex-SMOn1I`, 19 October 2026;

@@ -1,3 +1,39 @@
+# Latest checkpoint: codex-UgTML6 — scope still unresolved
+
+Refs #6521. Codex, 19 October 2026; branch
+`codex-UgTML6-review-topology-fixes`, input `aa25a7628b6c4669d079914c1e80256680b0dee3`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6262827295).
+Only #6521 was claimed. **Blocked checkpoint, not completion.**
+
+The live issue was re-read after claiming and still names seven outputs;
+the queue requires fifteen. Fresh execution of the actual completion function
+returns false precisely because four packet reviews retain their separate
+whole-plan identities. Explicit authorization for their paths was requested
+but not received. WORKERS.md's issue-only edit rule therefore still applies.
+No packet, reader, suggested file, queue or checker changed.
+
+This session checked all seven repository packets: zero errors and warnings
+with the supplied pinned declaration index. Re-read the bounded public-source
+contracts and current ownership; reproduced the same-vertex sign, Gaussian
+precision/kernel and central multiplier diagnostics in the report. No Lean
+compile ran because suggested files are unchanged. The earlier per-finding
+report, candidate reviews and guarded helper below are inherited from
+`codex-SMOn1I`; the current run did not apply them or revalidate their scratch
+projection. All four helper hashes still match the actual packet bytes.
+
+**Required next action is scope synchronization, before another worker is
+dispatched.** Add the four omitted packet/suggested pairs below to the live
+issue, or explicitly authorize the four packet JSON paths. Once authorized,
+preserve each whole-plan review in reviewHistory, apply the bounded reviews
+below (updating provenance to the applying worker), add QT's missing direct
+volume edge and run all seven packet checks plus the actual completion
+function. A needs_changes verdict can finish the review; the excluded reader
+repairs need not be performed first. Do not relax the completion function or
+edit the queue to manufacture completion. No continuation needs the current
+scratch files, which are deleted after the PR opens.
+
+---
+
 # REV-FIX-RT-AREA-topology~4: resolve scope before redispatch
 
 Refs #6521. Codex, session `codex-SMOn1I`, 19 October 2026;
