@@ -151586,6 +151586,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex.md"
+  },
+  {
+   "id": "DESIGN-CyclotomicClassGroupsAndStickelberger",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "CyclotomicClassGroupsAndStickelberger"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/CyclotomicClassGroupsAndStickelberger.json",
+    "research/blueprint/packets/CyclotomicClassGroupsAndStickelberger.json",
+    "research/blueprint/readmes/CyclotomicClassGroupsAndStickelberger.md",
+    "research/blueprint/suggested/CyclotomicClassGroupsAndStickelberger.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-CyclotomicClassGroupsAndStickelberger.md"
   }
  ]
 }
