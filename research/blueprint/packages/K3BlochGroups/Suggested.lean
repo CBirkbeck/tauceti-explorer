@@ -98,6 +98,10 @@ theorem bar_noncycle (g : G) (hg : g ≠ 1) :
 
 end K3Homological
 
+/-- The sphere-unit witness is the transposition on two free summands (§1.5). -/
+example : (Matrix.det (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ)) = -1 := by
+  norm_num [Matrix.det_fin_two]
+
 /-! ## Layer 2: Decomposable and indecomposable K₃ -/
 
 /-- The number-field model retains a nonzero decomposable element in the kernel. -/
@@ -165,6 +169,77 @@ theorem blochBoundary_valuation_sign : padicValRat 2 (3 : ℚ) * padicValRat 3 (
 end Symbols
 
 /-! ## Layer 4: Configuration homology and the Suslin sequence -/
+
+/-- The three face matrices for the explicit rank-two bar lift of §4.11. -/
+def rankTwoFaceMatrices {F : Type*} [Field F] (a : F) :
+    Fin 3 → Matrix (Fin 2) (Fin 2) F :=
+  ![!![0, 1; a - 1, 1], !![1 - a, a; 0, a], !![1, 0; 0, a]]
+
+/-- Determinants distinguish the three lifts and their excluded parameters. -/
+theorem rankTwoFaceMatrices_det {F : Type*} [Field F] (a : F) :
+    (rankTwoFaceMatrices a 0).det = 1 - a ∧
+    (rankTwoFaceMatrices a 1).det = a * (1 - a) ∧
+    (rankTwoFaceMatrices a 2).det = a := by
+  sorry
+
+example : (rankTwoFaceMatrices (2 : ℚ) 0).det = -1 ∧
+    (rankTwoFaceMatrices (2 : ℚ) 1).det = -2 ∧
+    (rankTwoFaceMatrices (2 : ℚ) 2).det = 2 := by
+  norm_num [rankTwoFaceMatrices, Matrix.det_fin_two, Matrix.cons_val_two,
+    Matrix.vecHead, Matrix.vecTail]
+
+example : (rankTwoFaceMatrices (0 : ℚ) 2).det = 0 ∧
+    (rankTwoFaceMatrices (1 : ℚ) 0).det = 0 ∧
+    (rankTwoFaceMatrices (2 : ZMod 3) 1).det = 1 := by
+  norm_num [rankTwoFaceMatrices, Matrix.det_fin_two, Matrix.cons_val_two,
+    Matrix.vecHead, Matrix.vecTail]
+  decide
+
+/-- The change of splitting which cancels the exterior coordinate of d³ (§4.11). -/
+def rankTwoBoundarySplit {V T : Type*} [AddCommGroup V] [AddCommGroup T]
+    (alt : T →+ V) : (V × T) ≃+ (V × T) where
+  toFun z := (z.1 + alt z.2, z.2)
+  invFun z := (z.1 - alt z.2, z.2)
+  left_inv z := by simp
+  right_inv z := by simp
+  map_add' z z' := by simp [map_add, add_add_add_comm]
+
+example {V T : Type*} [AddCommGroup V] [AddCommGroup T]
+    (alt : T →+ V) (t : T) :
+    rankTwoBoundarySplit alt (-alt t, t) = (0, t) ∧
+    (rankTwoBoundarySplit alt).symm (0, t) = (-alt t, t) := by
+  simp [rankTwoBoundarySplit]
+
+example : rankTwoBoundarySplit (AddMonoidHom.id ℤ) (1, -1) = (0, -1) ∧
+    rankTwoBoundarySplit (0 : ℤ →+ ℤ) (1, -1) = (1, -1) ∧
+    rankTwoBoundarySplit (AddMonoidHom.id ℤ) (2, -2) = (0, -2) := by
+  decide
+
+/-- An integral change of basis for the D₈ permutation subgroup (§4.15). -/
+def permutationSylowBasis : Matrix (Fin 4) (Fin 4) ℤ :=
+  !![1, 1, 1, 0; 1, 1, 0, 0; 1, 0, 0, 1; 1, 0, 0, 0]
+
+example : permutationSylowBasis.det = 1 ∧
+    (!![0, 0, 0, 1; 0, 1, 0, -1; 1, -1, 0, 0; 0, 0, 1, -1] :
+      Matrix (Fin 4) (Fin 4) ℤ) * permutationSylowBasis = 1 ∧
+    permutationSylowBasis *
+      (!![0, 0, 0, 1; 0, 1, 0, -1; 1, -1, 0, 0; 0, 0, 1, -1] :
+        Matrix (Fin 4) (Fin 4) ℤ) = 1 := by
+  decide
+
+example :
+    let Γinv : Matrix (Fin 4) (Fin 4) ℤ :=
+      !![0, 0, 0, 1; 0, 1, 0, -1; 1, -1, 0, 0; 0, 0, 1, -1]
+    Γinv * !![0, 1, 0, 0; 1, 0, 0, 0; 0, 0, 1, 0; 0, 0, 0, 1] *
+        permutationSylowBasis =
+      !![1, 0, 0, 0; 0, 1, 1, 0; 0, 0, -1, 0; 0, 0, 0, 1] ∧
+    Γinv * !![1, 0, 0, 0; 0, 1, 0, 0; 0, 0, 0, 1; 0, 0, 1, 0] *
+        permutationSylowBasis =
+      !![1, 0, 0, 1; 0, 1, 0, -1; 0, 0, 1, 0; 0, 0, 0, -1] ∧
+    Γinv * !![0, 0, 1, 0; 0, 0, 0, 1; 1, 0, 0, 0; 0, 1, 0, 0] *
+        permutationSylowBasis =
+      !![1, 1, 0, 0; 0, -1, 0, 0; 0, 0, 0, 1; 0, 0, 1, 0] := by
+  decide
 
 /-- The power-two endomorphism acts on cyclic H₃ with weight two, rather than weight one. -/
 theorem cyclic_seven_power_two
@@ -374,28 +449,5 @@ example (c r : ZMod 1 ≃+ ZMod 1) : finiteCoefficientBlochEquiv c r 0 = 0 := by
   exact map_zero _
 
 end FiniteCoefficients
-
-/- Definitions and constructions specified in README.md whose carriers are not at the pins:
-bStPlus, elementaryCover and its lifted H-space, the canonical field/ring K₃ comparison,
-milnorToQuillen3, K3ind and its quotient maps, motivicEdgeQuotientEquiv,
-real-place Milnor basis, decomposableSignature, totallyImaginaryQuotientEquiv,
-stableHurewiczQuotientEquiv; antisymSquare and its exterior/negative-eigenspace comparisons;
-projective crossRatio and orbit equivalence; fiveTermSubgroup, preBloch, blochBoundary,
-blochGroup, BlochGroup.c, the inversion homomorphism and extBloch;
-LectureBloch.lambda, its raw kernel, K_raw, muRel and obstruction;
-GoncharovB2, GoncharovCurve, curve specialization and the conditional K_curv comparison;
-cgzBloch/B_old, CGZPublished.negativeTensor, boundary, B_new and exact convention maps;
-group-module hyperhomology, unimodularChains, stabilityCoinvariants and its products,
-frameConnecting, milnorHomologyTheta, the frame retraction and splitting;
-diagonalSubgroup, permSubgroup, monomialSubgroup and stable inclusions;
-configComplex, projective coinvariants, rank-two spectral sequence and psiGL2;
-generalPositionComplex, precyclic rotations, cyclicComplexD, psiPrime and psiGL3;
-monomial plus-space maps, pi3Ind, enhancedTor, enhancedRootsOfUnity,
-closureTorsionDetector and the cyclic Chern/Bockstein normalization;
-finite indecomposable quotient, algebraicClosureStabilization, finiteStabilization, finiteBlochHom, finiteK3Bloch,
-cartanEmbedding and realRogersHom; FiveTermCertificate, BoundaryCertificate,
-ofData, ofBoundaryCertificate, rootClassMod, rootClassLoc and rootClassPadic;
-field-specific SuslinLift and BarLiftCertificate maps, genuine K₃(F;ℤ/n), the étale
-coefficient Bloch group, finiteChernIndEquiv and their finite Chern comparison. -/
 
 end TauCetiRoadmap.K3BlochGroups
