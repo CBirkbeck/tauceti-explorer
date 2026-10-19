@@ -5139,5 +5139,7 @@
  "BP-RankZeroOneBSD--BSD.8": 10920,
  "BP-RankZeroOneBSD--BSD.9": 10921,
  "BP-DrinfeldModulesAndTModules": 10922,
- "BP-PeriodsAndSpecialValues": 10923
+ "BP-PeriodsAndSpecialValues": 10923,
+ "FIX-PKG-StableHomotopyKTheory~adv": 10926,
+ "FIX-PKG-GeneralAlgebraicKTheory~adv": 10924
 }
