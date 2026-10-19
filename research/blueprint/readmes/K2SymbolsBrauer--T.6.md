@@ -1,6 +1,6 @@
 # Rings with symbols, relative K₂ and Tate comparisons
 
-These layers connect explicit Steinberg words to relative nilpotent calculations and to the arithmetic cup product. They use the stable classical K₂ of T.1 and the symbol-preserving Matsumoto equivalence of T.2. Additive notation is used for K₂ and Brauer groups; roots of unity are written multiplicatively. A homotopy K₂ is identified with its classical counterpart only through the specified comparison map.
+**Summary.** These layers connect explicit Steinberg words to relative nilpotent calculations and to the arithmetic cup product. They use the stable classical K₂ of T.1 and the symbol-preserving Matsumoto equivalence of T.2. Additive notation is used for K₂ and Brauer groups; roots of unity are written multiplicatively. A homotopy K₂ is identified with its classical counterpart only through the specified comparison map.
 
 The old notation with 1+ab and the modern notation with 1−rs must be distinguished. This document uses **D(r,s)** for the modern symbol and **P(a,b)** for the old plus word. Their conversion is D(r,s)=P(−r,s), without inversion. The source-version warning is explained after the targets.
 
@@ -10,9 +10,9 @@ The old notation with 1+ab and the modern notation with 1−rs must be distingui
 - **GeneralAlgebraicKTheory K.5** supplies the homotopy-fibre definition of relative K-theory. The relative Steinberg comparison belongs to this layer’s adapter; it is not inferred from K₁ alone.
 - **MotivicEtaleKTheory M.1, M.3 and M.8** supply twists and étale/Galois comparisons, the Galois symbol and arithmetic Tate theorems, and finite étale Chern classes. Their exact existing nodes are the prerequisites below. Their proofs and retained gaps are imported unchanged.
 - **ClassicalArithmeticCompletion CA.1** owns local m-th power norm-residue symbols, their Steinberg and skew-symmetry laws, and higher Hilbert reciprocity. No second local-symbol construction is introduced here.
-- **Tau Ceti ClassFieldTheory** supplies local Artin reciprocity, the invariant and global Brauer sequence. **QuadraticFormInvariants 7B** supplies the generic crossed-product comparison with H²; 6E supplies the quadratic Hilbert comparison. The additional all-m cyclic-symbol and normalization adapters are the work of T.7.
+- **Tau Ceti ClassFieldTheory** supplies the primitive-root coefficient pairing, Kummer-to-Brauer map, all-degree Kummer cup–cyclic class theorem, local Artin reciprocity, invariant and global Brauer sequence. **QuadraticFormInvariants 7B** supplies the generic crossed-product comparison with H²; 6E supplies the quadratic Hilbert comparison. T.7 transports these maps to the explicit symbol algebra and the K₂ and twist interfaces.
 
-The pinned declarations listed in the packet were read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The current read-only Tau Ceti and TauCetiRoadmap checkouts were also inspected. Current `h2MuEquivZMod` and `toRatAddCircle_h2MuEquivZMod` identify the local coordinate by k↦k/m; current `brauerCohomologyEquiv_crossedProductClass` already compares a general finite Galois crossed product. These are imports beyond the pins, not new baseline declarations. The suggested file uses only the pinned carriers.
+The pinned declarations listed in the packet were read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The current read-only Tau Ceti and TauCetiRoadmap checkouts were also inspected. At Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, `kummerCupPairing` implements the exponent contraction; `h2MuToBr_cup_kummerClass` compares the ordered Kummer cup to the negative cyclic class with the second input defining the extension, including proper-degree cases. `h2MuEquivZMod` and `toRatAddCircle_h2MuEquivZMod` identify the local coordinate by k↦k/m; `brauerCohomologyEquiv_crossedProductClass` already compares a general finite Galois crossed product. The corresponding read-only TauCetiRoadmap revision was 0d144d044dacebca17b654695b6f1ad58f159b27. These are imports beyond the pins, not new baseline declarations. The suggested file uses only the pinned carriers.
 
 ## T.6 — Rings with symbols and relative groups
 
@@ -236,7 +236,7 @@ For a split quotient A→A/I, the K₃ map is surjective, so the relative-to-abs
 **Prerequisites.** `K2SymbolsBrauer:T.6/relative-steinberg-group`, `KTheoryLowDegrees:U.5/double-congruence-isom`, `KTheoryLowDegrees:U.5/double-relative-K1-isom`, `KTheoryLowDegrees:U.5/relative-comparison-of-sequences`, `GeneralAlgebraicKTheory:K.5/relative-K-theory`.
 
 
-**Sources.** [WeibelIII] III.5.7, pp.39–40 of the separate chapter. Defines the relative Steinberg quotient and the relative exact sequence. [Levine1989] §2.1, printed pp.289–290. Recalls the natural relative group, comparison and K₃-to-K₁ exact segment, citing Loday and Keune; it does not supply their proof.
+**Sources.** [WeibelIII] Definition III.5.7, p.40 of the separate chapter. Defines the relative Steinberg quotient and the relative exact sequence. [Levine1989] §2.1, printed pp.289–290. Recalls the natural relative group, comparison and K₃-to-K₁ exact segment, citing Loday and Keune; it does not supply their proof.
 
 
 ### Relative Dennis–Stein presentation with the input guard
@@ -270,7 +270,7 @@ The input guard is essential. In A=𝔽₃[x,y]/(x²,y²), I=(xy), take (r,s,t)=
 **Prerequisites.** `K2SymbolsBrauer:T.6/relative-homotopy-fibre-comparison`, `K2SymbolsBrauer:T.6/general-relations-calculus`, `mathlib:Ideal.jacobson`, `K2SymbolsBrauer:T.6/relative-presentation`.
 
 
-**Sources.** [Levine1989] §2.1, Theorem 2.1 (Keune [18], Theorem 15), p.290. States the Jacobson-radical hypothesis and the input-guarded relative relations. [KallenMaazenStienstra1975] §2.6, Theorem 2, pp.935–936. The announced split-pair presentation has an extra splitting hypothesis and cannot close the general relative proof.
+**Sources.** [Levine1989] The unnumbered theorem in §2.1, p.290, attributed to Keune Theorem 15. States the Jacobson-radical hypothesis and the input-guarded relative relations. [KallenMaazenStienstra1975] §2.6, Theorem 2, p.935. The announced split-pair presentation has an extra splitting hypothesis and cannot close the general relative proof.
 
 
 ### The relative differential symbol
@@ -323,7 +323,7 @@ The presentation descends these values to a homomorphism. Pure tensors x⊗d(b) 
 **Prerequisites.** `K2SymbolsBrauer:T.6/guarded-relative-presentation`, `mathlib:KaehlerDifferential`, `mathlib:KaehlerDifferential.D`.
 
 
-**Sources.** [WeibelIII] Exercise III.5.14(a)–(b), printed pp.46–47 of the separate chapter. The exercise gives the relative differential and its square-zero kernel; the proof here checks each guarded relation. [KallenDual1971] pp.1204–1207. The dual-number differential comparison motivates the generator formula and the torsion test.
+**Sources.** [WeibelIII] Exercise III.5.14(a)–(b), printed p.46 of the separate chapter. The exercise gives the relative differential and its square-zero kernel; the proof here checks each guarded relation. [KallenDual1971] The unnumbered theorem and corollary, p.1204, with proof pp.1205–1207. The dual-number differential comparison motivates the generator formula and the torsion test.
 
 
 ### The square-zero kernel of the differential
@@ -357,7 +357,7 @@ For a sharp non-example take A=ℚ⊕ℚ² with square-zero ideal I=ℚ². For r
 **Prerequisites.** `K2SymbolsBrauer:T.6/relative-differential`, `K2SymbolsBrauer:T.6/general-relations-calculus`, `mathlib:TrivSqZeroExt`.
 
 
-**Sources.** [WeibelIII] Exercise III.5.14(a)–(b), printed pp.46–47 of the separate chapter. Gives the square-zero differential kernel and the relevant examples; the tensor-presentation proof supplies the missing argument.
+**Sources.** [WeibelIII] Exercise III.5.14(a)–(b), printed p.46 of the separate chapter. Gives the square-zero differential kernel and the relevant examples; the tensor-presentation proof supplies the missing argument.
 
 
 ### Relative K₂ of dual numbers with two invertible
@@ -389,7 +389,7 @@ The inverse sends a db to D(aε,b); additivity, balanced Leibniz and independenc
 **Prerequisites.** `K2SymbolsBrauer:T.6/square-zero-differential-kernel`, `K2SymbolsBrauer:T.6/relative-homotopy-fibre-comparison`, `mathlib:DualNumber`, `mathlib:DualNumber.eps_mul_eps`.
 
 
-**Sources.** [KallenDual1971] Theorems and proof sketch, printed pp.1204–1207. Computes dual-number relative K₂ and exhibits the integral two-torsion obstruction. [WeibelIII] Exercise III.5.14(c), p.47 of the separate chapter. Dual numbers and their odd-characteristic specializations are among the required tests.
+**Sources.** [KallenDual1971] The unnumbered theorem, corollary and Example 1, p.1204; proof pp.1205–1207. Computes dual-number relative K₂ and exhibits the integral two-torsion obstruction. [WeibelIII] Exercise III.5.14(c), p.47 of the separate chapter. Dual numbers and their odd-characteristic specializations are among the required tests.
 
 
 ### A detector for K₂ of ℤ/4
@@ -497,7 +497,7 @@ For a field F, m≥2 invertible in F and a,b∈Fˣ, the imported map h_{F,m}:K�
 
 Import M.3/galois-symbol, M.1/finite-tate-twist and the field étale/Galois comparison. The formula and Steinberg descent are owned there, not constructed again.
 
-At the pinned Tau Ceti declarations, kummerMap_eq_kummerCocycleClass identifies the actual Kummer class. explicitCup11 uses the cocycle (g,h)↦κ(a)(g)⊗gκ(b)(h), rather than an abstract bilinear operation with unspecified comparison.
+At the pinned Tau Ceti declarations, kummerMap_eq_kummerCocycleClass identifies the actual Kummer class. explicitCup11 uses the cocycle (g,h)↦κ(a)(g)⊗gκ(b)(h), rather than an abstract bilinear operation with unspecified comparison. The pinned kummerMap_eq_one_iff supplies vanishing on m-th powers; this existing Kummer-kernel fact is imported, not a new target.
 
 Transport that cocycle through the coefficient identification supplied by M.1 and the cup-compatible field comparison. Equality on symbols gives equality of the homomorphisms by T.2’s generator theorem. Coefficient power maps and field restriction are those of M.3/galois-symbol.
 
@@ -509,10 +509,10 @@ Transport that cocycle through the coefficient identification supplied by M.1 an
 - For m=2 and F=ℝ, {−1,−1} maps to the nonzero quaternion class after contraction.
 
 
-**Prerequisites.** `MotivicEtaleKTheory:M.3/galois-symbol`, `MotivicEtaleKTheory:M.1/finite-tate-twist`, `MotivicEtaleKTheory:M.1/field-etale-galois-comparison`, `K2SymbolsBrauer:T.2/symbols-generate`, `tauceti:TauCeti.kummerMap_eq_kummerCocycleClass`, `tauceti:TauCeti.ContCohomology.explicitCup11`.
+**Prerequisites.** `MotivicEtaleKTheory:M.3/galois-symbol`, `MotivicEtaleKTheory:M.1/finite-tate-twist`, `MotivicEtaleKTheory:M.1/field-etale-galois-comparison`, `K2SymbolsBrauer:T.2/symbols-generate`, `tauceti:TauCeti.kummerMap_eq_kummerCocycleClass`, `tauceti:TauCeti.ContCohomology.explicitCup11`, `tauceti:TauCeti.kummerMap_eq_one_iff`.
 
 
-**Sources.** [WeibelIII] III.6.9–III.6.10, printed pp.56–58 of the separate chapter. The Galois symbol is the cup product; M.3 is the existing owner of its construction.
+**Sources.** [WeibelIII] Formula (III.6.10.2), p.58, and Proposition III.6.10.3, p.59 of the separate chapter. The Galois symbol is the cup product; M.3 is the existing owner of its construction.
 
 
 ### Primitive-root contraction and the Brauer symbol
@@ -527,9 +527,9 @@ Suppose μ_m⊆F and ζ∈F is primitive of order m. The trivialization τ_{ζ,j
 
 **Argument.**
 
-Use M.1’s tensor and dual twist modules. The primitive-root logarithm identifies the weight-one coefficient module with ℤ/m and defines c_ζ by exponent multiplication, not by multiplication of two roots of unity.
+Use M.1’s tensor and dual twist modules. Import ClassFieldTheory.kummerCupPairing and its bil_apply formula from current Tau Ceti: its value on ζⁱ,ζʲ is ζ^{ij}. The new rootCupContraction API transports that existing bilinear pairing across M.1’s tensor universal property; it does not reconstruct the coefficient pairing.
 
-The exponent formula is bilinear and equivariant because ζ lies in F. The field Kummer sequence gives the injection to cohomological Br, with image Br[m]; the generic Brauer equivalence of QFI 7B supplies the algebraic interpretation.
+The exponent formula is bilinear and equivariant because ζ lies in F. Import ClassFieldTheory.h2MuToBr and h2MuToBr_injective, with their m-torsion image, rather than constructing another Kummer-to-Brauer map. Transport M.1’s coefficient model to this map; QFI 7B supplies its central-simple-algebra interpretation.
 
 Replacing ζ by ζᵘ changes each input exponent by u⁻¹ and the output root by u; the combined factor is u⁻¹. For τ in degree j the factor is uʲ, including inverse powers for dual twists. Naturality is with respect to root-preserving field embeddings.
 
@@ -539,7 +539,7 @@ For m=2 the primitive root is −1 and c_ζ is canonical. The existing quaternio
 **API.**
 
 - `rootTwistTrivialization`: The ℤ/m-linear equivalence τ_{ζ,j}, with the tensor basis in nonnegative degree and dual basis in negative degree.
-- `rootCupContraction`: The equivariant bilinear map c_ζ with c_ζ(ζⁱ⊗ζʲ)=ζ^{ij}.
+- `rootCupContraction`: The tensor-factorization of the imported kummerCupPairing, with c_ζ(ζⁱ⊗ζʲ)=ζ^{ij}; this is a coefficient-model adapter.
 - `brauerSymbol`: The unique additive map β_ζ with value [c_ζ(κ(a)∪κ(b))] on symbols.
 - `rootTwistTrivialization_change`: τ_{ζᵘ,j}=τ_{ζ,j}∘(uʲ·) for u a unit modulo m.
 - `brauerSymbol_change`: β_{ζᵘ}(x)=u⁻¹β_ζ(x), with the same target Br(F)[m].
@@ -564,10 +564,10 @@ For m=2 the primitive root is −1 and c_ζ is canonical. The existing quaternio
 - Root multiplication is not bilinear on the additive root module; the exponent-product formula is essential.
 
 
-**Prerequisites.** `K2SymbolsBrauer:T.7/native-kummer-cup-comparison`, `MotivicEtaleKTheory:M.1/finite-tate-twist`, `MotivicEtaleKTheory:M.1/etale-kummer-sequences`, `mathlib:IsPrimitiveRoot.zmodEquivZPowers`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.
+**Prerequisites.** `K2SymbolsBrauer:T.7/native-kummer-cup-comparison`, `MotivicEtaleKTheory:M.1/finite-tate-twist`, `MotivicEtaleKTheory:M.1/etale-kummer-sequences`, `mathlib:IsPrimitiveRoot.zmodEquivZPowers`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`.
 
 
-**Sources.** [WeibelIII] III.6.9.2 and Remark III.6.10.4, pp.56–58 of the separate chapter. The root choice reads the weight-two symbol in Brauer cohomology; the exponent calculation pins its change of root. [MilneCFT2020] III §4, Steps 1–2, pp.111–112. Kummer roots, cup products and cyclic classes are compared with explicit coefficient conventions.
+**Sources.** [WeibelIII] Proposition III.6.9.2, p.57; Example III.6.10.1, p.58; Remark III.6.10.4, p.59 of the separate chapter. The root choice reads the weight-two symbol in Brauer cohomology; the exponent calculation pins its change of root. [MilneCFT2020] III §4, Steps 1–2, pp.111–112. Kummer roots, cup products and cyclic classes are compared with explicit coefficient conventions.
 
 
 ### The cyclic symbol algebra
@@ -584,11 +584,11 @@ For a field F with m≥2 invertible and ζ primitive of order m in F, and a,b∈
 
 Give the vector space with the displayed basis its multiplication by commuting Y-powers past X-powers and reducing exponents with a and b. The factor ζ^{j i′} and the two carry factors make multiplication associative; verify this on basis triples.
 
-Over a separable closure choose αᵐ=a, βᵐ=b. Represent X diagonally with entries αζⁱ and Y by the cyclic shift times β, choosing the direction so YX=ζXY. The diagonal idempotents and shifts span all matrix units, giving a split algebra of degree m.
+Over a separable closure choose αᵐ=a. On a basis e₀,…,e_{m−1}, put Xe_i=αζⁱe_i, Ye_i=e_{i−1} for i>0 and Ye₀=b e_{m−1}. Then Xᵐ=a, Yᵐ=b and YX=ζXY. The distinct diagonal entries give every diagonal idempotent, and the invertible weighted shift supplies all matrix units, so the algebra is Mat_m.
 
 Faithful field extension descends centrality and simplicity. The basis construction gives the universal property and root-preserving scalar-extension isomorphisms.
 
-For a=αᵐ with α∈F the same matrix construction works over F, so the algebra is already split. The case m=2 has generators anticommuting and recovers the quaternion algebra.
+If a=αᵐ with α∈F, the same weighted-shift construction is defined over F using b itself; no m-th root of b is required. Hence the algebra is already split. The case m=2 has anticommuting generators and recovers the quaternion algebra.
 
 
 **API.**
@@ -597,7 +597,7 @@ For a=αᵐ with α∈F the same matrix construction works over F, so the algebr
 - `cyclicSymbolAlgebra.lift`: A pair of elements in an F-algebra satisfying Xᵐ=a, Yᵐ=b, YX=ζXY induces a unique F-algebra map.
 - `cyclicSymbolAlgebra.basis`: The m² monomials XⁱYʲ form an F-basis.
 - `cyclicSymbolAlgebra.baseChange`: Root-preserving field embeddings give the canonical scalar-extension algebra isomorphism, with identity and composition laws.
-- `cyclicSymbolAlgebra.split`: Over a field containing m-th roots of a and b, the algebra is isomorphic to Mat_m of that field.
+- `cyclicSymbolAlgebra.split`: After adjoining an m-th root of a, the algebra is isomorphic to Mat_m of that field; an m-th root of b is unnecessary.
 - `cyclicSymbolAlgebra.quaternion`: For m=2 and ζ=−1 the algebra is the quaternion algebra (a,b).
 
 
@@ -616,19 +616,20 @@ For a=αᵐ with α∈F the same matrix construction works over F, so the algebr
 
 - The relation is YX=ζXY; changing it to XY=ζYX reverses the Brauer class for m>2.
 - The algebra has dimension m² even if the Kummer field has smaller degree.
+- Splitting is proved from the displayed matrices; a nonscalar u with uᵐ=1 alone is insufficient without dim_F F[u]=m (the correction to Weibel III.6.9.1).
 
 
 **Prerequisites.** `K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.
 
 
-**Sources.** [WeibelIII] Remark III.6.10.4, p.58 of the separate chapter. Names the cyclic-algebra interpretation, whose explicit basis and degenerate-degree construction are supplied here. [MilneCFT2020] III §4, Step 1, p.111 and Step 2, p.112. Cyclic extensions and the corresponding cup/carry cocycle support the Brauer comparison.
+**Sources.** [WeibelIII] Cyclic Algebras III.6.9, p.57, and Remark III.6.10.4, p.59 of the separate chapter. Defines the cyclic symbol algebra and its basis; the weighted-shift argument here checks splitting when only a is an m-th power. [MilneCFT2020] III §4, Step 1, p.111 and Step 2, p.112. Cyclic extensions and the corresponding cup/carry cocycle support the Brauer comparison.
 
 
 ### Cyclic algebras represent the Brauer symbol
 
 **Target:** `K2SymbolsBrauer:T.7/cyclic-algebra-cup-comparison`.
 
-Under the hypotheses of cyclic-symbol-algebra, [A_ζ(a,b)]=β_ζ{a,b} in Br(F)[m]. This equality uses the existing generic crossed-product comparison of QuadraticFormInvariants 7B and proves the additional all-m Kummer/cyclic adapter here; QFI’s specialized quaternion theorem is only the m=2 instance.
+Under the hypotheses of cyclic-symbol-algebra, [A_ζ(a,b)]=β_ζ{a,b} in Br(F)[m]. Import current ClassFieldTheory.h2MuToBr_cup_kummerClass and QFI 7B’s generic crossed-product comparison. The new adapter identifies the displayed symbol algebra, including its proper-degree matrix corner, with those existing cyclic-class and cup maps.
 
 
 **Hypotheses.** F is a field with μ_m⊆F, m invertible, ζ primitive, and a,b∈Fˣ.
@@ -640,11 +641,11 @@ Choose αᵐ=a, let L=F(α), d=[L:F] dividing m, and e=m/d. Write ζ_d=ζᵉ. Th
 
 The étale algebra F[X]/(Xᵐ−a) has e factors F[X]/(Xᵈ−ηʲc), η=ζᵈ, each isomorphic to L. Conjugation by Y cycles their primitive idempotents. The corner at the factor Xᵈ=c is generated by X,Yᵉ, satisfies (Yᵉ)ᵈ=b and YᵉX=ζ_dXYᵉ, and is the cyclic crossed product (L/F,σ,b). The orbit gives A_ζ(a,b)≅Mat_e((L/F,σ,b)). For d=1 this is split.
 
-For d>1 let p(g)∈{0,…,d−1} describe g(α)/α=ζ_d^{p(g)}. The crossed-product carry cocycle is B(g,h)=b^{floor((p(g)+p(h))/d)}. Choose βᵈ=b and write g(β)/β=ζ_d^{q(g)}. The contracted cup cocycle is C(g,h)=ζ_d^{p(g)q(h)}.
+Import current ClassFieldTheory.h2MuToBr_cup_kummerClass with its inputs reversed, namely (b,a), the root α and generator σ. Its hypotheses allow any d dividing m and σ(α)=ζ^{m/d}α. It identifies β_ζ{b,a} with minus the inflation of cyclicClass(σ,b). This theorem is already proved for arbitrary fields, not only local fields.
 
-For the one-cochain f(g)=β^{p(g)}, its multiplicative coboundary is df=C_flip·B, where C_flip(g,h)=ζ_d^{q(g)p(h)}. The one-cochain u(g)=ζ_d^{p(g)q(g)} satisfies du=(C·C_flip)⁻¹. Therefore [C_flip]=−[C] and [B]=[C] in H²(F,F_sˣ). Both cochains are continuous because they factor through finite extensions.
+Use the imported symmetry of kummerCupPairing and graded skew-symmetry of the degree-(1,1) cup to obtain β_ζ{a,b}=infl(cyclicClass(σ,b)). No new Kummer/carry-cocycle comparison is planned. In carry coordinates the class is B(g,h)=b^{floor((p(g)+p(h))/d)}, where g(α)/α=ζ_d^{p(g)}; this pins the orientation for the algebra comparison.
 
-At the m-level κ_m(a) has exponent e p(g), so contraction of κ_m(a)∪κ_m(b) is the same d-level cup using the d-th root β=(b^{1/m})ᵉ. Thus no full-degree assumption enters. QFI’s generic brauerCohomologyEquiv_crossedProductClass identifies B with the cyclic algebra class and completes the equality.
+QFI’s existing brauerCohomologyEquiv_crossedProductClass identifies that cyclic carry class with the corner (L/F,σ,b). Transport through its existing cohomology and Brauer equivalences, then use the matrix decomposition. For d=1 the imported cyclic class and cup are zero and the algebra is split. The same argument therefore covers every degree-drop case.
 
 
 **Checks.**
@@ -654,10 +655,10 @@ At the m-level κ_m(a) has exponent e p(g), so contraction of κ_m(a)∪κ_m(b) 
 - At m=2 this agrees with brauerCohomologyEquiv_quaternionClass already implemented in current Tau Ceti.
 
 
-**Prerequisites.** `K2SymbolsBrauer:T.7/cyclic-symbol-algebra`, `K2SymbolsBrauer:T.7/native-kummer-cup-comparison`, `K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter`, `tauceti:TauCeti.ContCohomology.explicitCup11_eq_neg_flip`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`.
+**Prerequisites.** `K2SymbolsBrauer:T.7/cyclic-symbol-algebra`, `K2SymbolsBrauer:T.7/native-kummer-cup-comparison`, `K2SymbolsBrauer:T.7/root-brauer-coefficient-adapter`, `tauceti:TauCeti.ContCohomology.explicitCup11_eq_neg_flip`, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality`.
 
 
-**Sources.** [MilneCFT2020] III §4, Step 1 and Step 2, pp.111–112. The Kummer cup, character and cyclic carry cocycle motivate this explicit comparison. [WeibelIII] Remark III.6.10.4, p.58 of the separate chapter. The cyclic-algebra statement is the target; the corner and cochain calculations remove its degree and convention ambiguities.
+**Sources.** [MilneCFT2020] III §4, Step 1 and Step 2, pp.111–112. The Kummer cup, character and cyclic carry cocycle motivate this explicit comparison. [WeibelIII] Remark III.6.10.4, p.59 of the separate chapter. States the cyclic-algebra interpretation; the matrix corner and the imported ordered Kummer/cyclic comparison specify the algebra and its sign.
 
 
 ### The Hilbert symbol and the normalized local invariant
@@ -729,7 +730,7 @@ ClassFieldTheory Layer 14 supplies only the quadratic reciprocity specialization
 **Prerequisites.** `K2SymbolsBrauer:T.7/normalized-local-invariant-comparison`, `ClassicalArithmeticCompletion:CA.1/norm-residue-symbol-at-a-place`, `ClassicalArithmeticCompletion:CA.1/hilbert-product-formula-of-degree-n`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`.
 
 
-**Sources.** [WeibelIII] III.6.10 and following discussion, pp.57–58 of the separate chapter. The arithmetic symbol and Brauer reciprocity are compared; the two general reciprocity theorems are imported from their existing owners.
+**Sources.** [MilneCFT2020] V Example 5.4, p.179; VII Theorem 8.1(b), p.221. The first gives the all-place Hilbert product formula from global Artin reciprocity; the second states the sum of Brauer invariants. Their constructions remain imports from CA.1 and ClassFieldTheory Layer 10.
 
 
 ### Tate comparisons through the actual localization maps
@@ -763,7 +764,7 @@ Do not infer the ring isomorphism by injecting finite H²(O) into H²(F). The Ku
 **Prerequisites.** `K2SymbolsBrauer:T.7/native-kummer-cup-comparison`, `MotivicEtaleKTheory:M.3/tate-local`, `MotivicEtaleKTheory:M.3/tate-global`, `MotivicEtaleKTheory:M.3/tate-s-integer`, `MotivicEtaleKTheory:M.3/symbol-residue-compatibility`, `MotivicEtaleKTheory:M.1/s-integer-galois-comparison`, `MotivicEtaleKTheory:M.1/localization-gysin-sequence`, `MotivicEtaleKTheory:M.2/degree-two-localization-diagram`.
 
 
-**Sources.** [WeibelIII] III.6.10, pp.57–58 of the separate chapter. Motivates the arithmetic specialization; the detailed local, global and ring theorem sources are the imported M.3 nodes, not new claims from this chapter.
+**Sources.** [WeibelIII] III.6.10, pp.58–59 of the separate chapter. Motivates the arithmetic specialization; the detailed local, global and ring theorem sources are the imported M.3 nodes, not new claims from this chapter.
 
 
 ### The product-normalized étale Chern comparison
@@ -780,7 +781,7 @@ For a field F, m≥2 invertible in F and x∈K₂^cl(F), let θ₂ be T.1’s Hu
 
 Import c_{2,2} from M.8/finite-etale-chern and c_{1,1}=κ from its normalization. T.2’s product theorem identifies θ₂♮{a,b} with θ₁(a)·θ₁(b).
 
-Soulé Proposition 2.2.2.3, pp.42–44, computes the Chern class of a product of integral K₁ elements: its degree-(2,2) value is −c_{1,1}(a)∪c_{1,1}(b). The suspension and diagonal calculation in that proof fixes the minus.
+Soulé Proposition 2.2.2.3, pp.42–44, applies to integral K₁ inputs. Its hypothesis (M) is automatic for the degree-(2,2) term: 2i−k=2j−k′=1 and k+k′=2 force i=j=k=k′=1 among nonnegative cohomological degrees. Its factorial coefficient is −1, giving −c_{1,1}(a)∪c_{1,1}(b). The proof’s suspension and diagonal calculation fixes the sign.
 
 Reduce this integral product modulo m and apply the imported natural coefficient map. This uses integral inputs before reduction; it does not require a finite-coefficient product for m=2 or 4, where the separate coefficient-product construction has extra hypotheses.
 
@@ -801,6 +802,26 @@ Finally θ₂♮=θ₂∘(ε·) implies the raw-Hurewicz formula −εh. The exa
 
 **Sources.** [SouleThesis1978] Proposition 2.2.2.3 and proof, printed pp.42–44. The product formula and its suspension computation give coefficient −1 for two integral K₁ inputs.
 
+
+## Representative Lean signatures
+
+The suggested file uses the namespace `TauCetiRoadmap.K2SymbolsBrauer`, with subnamespaces `T6` and `T7`. Its three light definitions have real bodies: `T6.IsThreefoldStable` is the simultaneous-unit predicate; `T6.zmodFourSymbolParity` is the finite detector table; `T7.rootCupCoordinate` multiplies exponent coordinates. Two proved examples per definition test respectively 𝔽₅ versus 𝔽₃, the nonzero and zero/admissibility entries of the detector, and exponent contraction together with the inverse first-power root-change factor.
+
+The remaining nine declarations are theorem targets, with these exact names and meanings:
+
+| Declaration | Statement represented |
+| --- | --- |
+| `T6.threefoldStable_product_five` | The nonlocal product 𝔽₅×𝔽₅ satisfies threefold stability. |
+| `T6.not_threefoldStable_four` | The local ring ℤ/4 fails threefold stability. |
+| `T6.modernWord_matrix` | The four elementary matrices in the modern Dennis–Stein word multiply to diag(1−rs,(1−rs)⁻¹). |
+| `T6.dennisStein_second_relation_unit` | The two D2 unit hypotheses imply admissibility of its combined argument. |
+| `T6.zmodFourSymbolParity_relations` | The detector respects D1–D3 on their exact admissible domains. |
+| `T6.squareZero_unit` | If x²=0, then (1−rx)(1+rx)=1. |
+| `T6.relative_guard_test` | On the native iterated dual-number carrier over 𝔽₃, x,y,x+y lie outside (xy), while the relevant products lie in that square-zero ideal. The differential defect is computed in the guarded-relative target above. |
+| `T7.rootCupCoordinate_change` | Two inverse input-coordinate changes and one output-coordinate change give the inverse first power. |
+| `T7.kummerCup_power` | The actual native continuous cup of Kummer classes vanishes when either input is an m-th power, for any continuous equivariant bilinear coefficient pairing. |
+
+The full stable/relative K₂, tensor-twist, cyclic-algebra and Chern targets remain specified above. Their absent pinned carriers are not introduced as admitted data definitions. The theorem targets retain `sorry` and every implementation status remains `unchecked`.
 
 ## Exact remaining proof inputs
 
@@ -828,9 +849,11 @@ Read and decompose Keune 1978 Theorem 15, proving full relative generation and k
 Consumed by `K2SymbolsBrauer:T.6/guarded-relative-presentation`, `K2SymbolsBrauer:T.6/relative-differential`, `K2SymbolsBrauer:T.6/square-zero-differential-kernel`, `K2SymbolsBrauer:T.6/dual-number-differential-isom`.
 
 
-## Source convention finding
+## Source findings
 
 In the separately paginated author Chapter III PDF specified below, the warning after III.5.11 on printed p.44 adds an inverse to the old-to-modern symbol conversion. Literal substitution in the two Steinberg words gives D(r,s)=P(−r,s), and the tame residue of D(2,(1−t)/2) over ℚ(t) is 2 rather than 1/2. This finding is scoped to that author chapter and its recorded SHA-256, without making a claim about the bound published edition. Morrow Remark 3.10 uses the corrected parameter change. The author’s K-book page and its errata link were checked on 19 October 2026; the linked errata PDF returned 404. This is recorded as `K2SymbolsBrauer/E-T6-old-symbol-inverse` in the packet.
+
+The same author chapter’s Lemma III.6.9.1, printed p.57, claims splitting from a nonscalar u with uⁿ=1. Its proof needs the stronger hypothesis dim_F F[u]=n, or minimal polynomial Tⁿ−1, to obtain n nonzero orthogonal idempotents. For a counterexample to the printed claim, take F=ℂ(s,t), the quaternion division algebra D=(s,t)_F, A=Mat₂(D), n=4 and u=diag(1,−1). Then u⁴=1 and u is nonscalar, but A is not Mat₄(F). Division of D can be checked over ℂ(s)((t)): reduce a hypothetical primitive integral zero of a²−sb²−tc²+std² modulo t; the nonsquare s forces a,b to be divisible by t. Dividing by t and reducing again forces c,d to be divisible by t, a contradiction. Adding the minimal-polynomial hypothesis repairs the idempotent argument. The cyclic-algebra target above uses its explicit matrices, and its Brauer comparison imports the existing Kummer/cyclic theorem, so neither depends on the false criterion. This is `K2SymbolsBrauer/E-T6-cyclic-splitting-minimal-polynomial`, independently confirmed during this review and scoped to the same hashed chapter. No correction was located on the checked author page or targeted author-site searches; its linked errata PDF returned 404. No novelty claim is made.
 
 ## Planets
 
@@ -866,7 +889,7 @@ All results and proof descriptions above are written in our own words. The follo
 - **Levine1989**: Marc Levine, [The indecomposable K₃ of fields](https://www.numdam.org/item/10.24033/asens.1585.pdf). Annales scientifiques de l’École Normale Supérieure, series 4, 22 (1989), 255–344. Read: §2.1, pp.289–290.
 
 
-- **MilneCFT2020**: James S. Milne, [Class Field Theory](https://www.jmilne.org/math/CourseNotes/CFT.pdf?download=1). Version 4.03, 6 August 2020. Read: III Proposition 3.6, p.109; III §4 Steps 1–4 and Remark 4.5, pp.111–114.
+- **MilneCFT2020**: James S. Milne, [Class Field Theory](https://www.jmilne.org/math/CourseNotes/CFT.pdf?download=1). Version 4.03, 6 August 2020. Read: III Proposition 3.6, p.109; III §4 Steps 1–4 and Remark 4.5, pp.111–114; V Example 5.4, p.179; VII Theorem 8.1(b), p.221.
 
 
 - **SouleThesis1978**: Christophe Soulé, [K-théorie des anneaux d’entiers de corps de nombres et cohomologie étale](https://www.ihes.fr/~soule/documents/These_Christophe_Soule.pdf). June 1978 doctoral thesis, author scan; printed page numbers. Read: Proposition 2.2.2.3 and proof, pp.42–44.

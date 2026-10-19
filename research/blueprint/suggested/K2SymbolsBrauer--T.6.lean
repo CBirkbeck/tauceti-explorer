@@ -1,13 +1,9 @@
-import Mathlib.Algebra.DualNumber
-import Mathlib.Algebra.Field.ZMod
-import Mathlib.Algebra.TrivSqZeroExt.Ideal
-import Mathlib.LinearAlgebra.Matrix.Notation
-import Mathlib.RingTheory.Kaehler.Basic
+import Mathlib
 import TauCeti.FieldTheory.GaloisCohomology.Kummer
 import TauCeti.RepresentationTheory.Homological.ContCohomology.Cup.Product
 
 /-!
-# Rings with symbols and the arithmetic comparison interfaces
+# K₂ symbols and Brauer groups: representative target signatures
 
 The README specifies stable/relative Steinberg K₂, the guarded presentation,
 the differential, cyclic algebras, Brauer and Chern adapters. These carriers
@@ -17,10 +13,15 @@ definitions or arbitrary groups equipped with the desired conclusions.
 The declarations below state only interfaces available over actual pinned
 carriers: unit conditions, threefold stability, the Z/4 detector, square-zero
 arithmetic, scalar coefficient changes and the native Kummer/cup pairing.
-All new definitions have real bodies. The file is a statement skeleton.
+All new definitions have real bodies. The README is the definitive specification;
+this file is representative and is not an exhaustive list of targets.
 -/
 
-namespace K2SymbolsBrauerT6
+namespace TauCetiRoadmap.K2SymbolsBrauer
+
+/-! ## Layer T.6: Rings with symbols and relative groups -/
+
+namespace T6
 
 /-- Three simultaneous unimodular pairs can be perturbed to units. -/
 def IsThreefoldStable (A : Type*) [CommRing A] : Prop :=
@@ -29,17 +30,19 @@ def IsThreefoldStable (A : Type*) [CommRing A] : Prop :=
     ∃ t : A, ∀ i, IsUnit (a i + b i * t)
 
 example : IsThreefoldStable (ZMod 5) := by
-  sorry
+  unfold IsThreefoldStable
+  native_decide
 
 example : ¬ IsThreefoldStable (ZMod 3) := by
-  sorry
+  unfold IsThreefoldStable
+  native_decide
 
 /-- The nonlocal product is allowed by the simultaneous-unit condition. -/
-example : IsThreefoldStable (ZMod 5 × ZMod 5) := by
+theorem threefoldStable_product_five : IsThreefoldStable (ZMod 5 × ZMod 5) := by
   sorry
 
 /-- A local ring need not satisfy the threefold condition. -/
-example : ¬ IsThreefoldStable (ZMod 4) := by
+theorem not_threefoldStable_four : ¬ IsThreefoldStable (ZMod 4) := by
   sorry
 
 /-- The four elementary factors in the modern word map to diag(u,u⁻¹).
@@ -72,19 +75,14 @@ theorem zmodFourSymbolParity_relations :
         zmodFourSymbolParity (r * s) t + zmodFourSymbolParity (r * t) s) := by
   sorry
 
-example : zmodFourSymbolParity 2 2 = 1 := by decide
-example : zmodFourSymbolParity 3 2 = 1 := by decide
-example : zmodFourSymbolParity 1 2 = 0 := by decide
-example : ¬ IsUnit (1 - (1 : ZMod 4) * 1) := by decide
+example : zmodFourSymbolParity 2 2 = 1 ∧ zmodFourSymbolParity 3 2 = 1 := by decide
+example : zmodFourSymbolParity 1 2 = 0 ∧
+    ¬ IsUnit (1 - (1 : ZMod 4) * 1) := by decide
 
 /-- Nilpotent ideal elements make the Dennis–Stein unit condition automatic. -/
 theorem squareZero_unit {A : Type*} [CommRing A]
     (x r : A) (hx : x * x = 0) :
     (1 - r * x) * (1 + r * x) = 1 := by
-  sorry
-
-example {R : Type*} [CommRing R] :
-    (DualNumber.eps : DualNumber R) * DualNumber.eps = 0 := by
   sorry
 
 /-- The input guard differs from mere eligibility of the three output pairs.
@@ -100,21 +98,23 @@ theorem relative_guard_test :
       (x * y) * (x * y) = 0 := by
   sorry
 
-/-- The differential defect is nonzero in the stated two-dimensional target. -/
-example : ((-1, 0) : ZMod 3 × ZMod 3) - ((1, 1) + (0, 1)) = (1, 1) ∧
-    ((1, 1) : ZMod 3 × ZMod 3) ≠ 0 := by decide
+end T6
 
-end K2SymbolsBrauerT6
+/-! ## Layer T.7: Tate comparisons and Hilbert symbols -/
 
-namespace K2SymbolsBrauerT7
+namespace T7
 
 /-- The contraction in primitive-root exponent coordinates multiplies exponents.
 Multiplication of root *values* would add them and would be wrong. -/
 def rootCupCoordinate (m : ℕ) (i j : ZMod m) : ZMod m := i * j
 
 example : rootCupCoordinate 5 2 3 = 1 := by decide
-example : rootCupCoordinate 5 0 3 = 0 := by decide
-example : rootCupCoordinate 5 1 1 = 1 := by decide
+/-- Changing the primitive root by u = 2 gives u⁻¹ = 3, not u⁻² = 4. -/
+example :
+    (2 : ZMod 5) * rootCupCoordinate 5 (3 * 2) (3 * 3) =
+      3 * rootCupCoordinate 5 2 3 ∧
+    (2 : ZMod 5) * rootCupCoordinate 5 (3 * 2) (3 * 3) ≠
+      4 * rootCupCoordinate 5 2 3 := by decide
 
 /-- Two input changes and one output change give u⁻¹, not u⁻². -/
 theorem rootCupCoordinate_change (m : ℕ) (u : (ZMod m)ˣ) (i j : ZMod m) :
@@ -122,12 +122,6 @@ theorem rootCupCoordinate_change (m : ℕ) (u : (ZMod m)ˣ) (i j : ZMod m) :
         ((↑u⁻¹ : ZMod m) * j) =
       (↑u⁻¹ : ZMod m) * rootCupCoordinate m i j := by
   sorry
-
-example : (2 : ZMod 5)⁻¹ = 3 ∧ ((2 : ZMod 5)⁻¹) ^ 2 = 4 := by
-  sorry
-
-/-- The cubic sign test separates the invariant coordinate from its negative. -/
-example : -(1 : ZMod 3) = 2 ∧ -(1 : ZMod 3) ≠ 1 := by decide
 
 /-!
 The normalized invariant coordinate e_m takes [k/m] in (Q/Z)[m] to k in Z/m.
@@ -142,11 +136,6 @@ open TauCeti TauCeti.ContCohomology
 
 variable (F : Type*) [Field F] (m : ℕ) (hm : IsUnit (m : F))
 
-/-- The imported Kummer map kills powers in its actual pinned H¹ carrier. -/
-example (a : Fˣ) :
-    Multiplicative.toAdd (TauCeti.kummerMap F m hm (a ^ m)) = 0 := by
-  sorry
-
 variable {P : Type*} [AddCommGroup P] [TopologicalSpace P] [IsTopologicalAddGroup P]
   [DistribMulAction (AbsoluteGaloisGroup F) P]
   [ContinuousSMul (AbsoluteGaloisGroup F) P]
@@ -156,7 +145,8 @@ variable {P : Type*} [AddCommGroup P] [TopologicalSpace P] [IsTopologicalAddGrou
   (heq : ∀ (g : AbsoluteGaloisGroup F) (x y : TauCeti.KummerCoeff F m),
     μ (g • x) (g • y) = g • μ x y)
 
-/-- The actual native cup on Kummer classes kills powers in either input.
+/-- The actual native cup on Kummer classes kills powers in either input,
+using the imported `TauCeti.kummerMap_eq_one_iff`.
 For the intrinsic tensor pairing, M.1 supplies P as the actual weight-two twist;
 for a chosen primitive root, the coefficient map is its exponent contraction.
 This quantified coefficient interface does not assert a substitute K₂ theorem. -/
@@ -183,4 +173,6 @@ README-only end targets, because their carriers are absent at the pins:
 The complete hypotheses, maps, proofs and examples are in the reader document.
 -/
 
-end K2SymbolsBrauerT7
+end T7
+
+end TauCetiRoadmap.K2SymbolsBrauer
