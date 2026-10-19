@@ -120,12 +120,18 @@ example : (∀ w ∈ ({0, 1, -2} : Set ℤ), w ≤ 1) ∧
 
 A neutral G-family requires each geometric fibre functor to have the standard form;
 these fibre identifications are not extra choices in the object.
+The rigid-base type theorem retains an independent full-rank de Rham criterion over
+arbitrary p-adic fields as an open input. Finite-Q_p-field rigidity and a theorem whose
+Levi-type hypothesis is already fixed do not establish that criterion.
 -/
 
 /-! ## Layer AP7: neutral Hodge structures and period domains
 
 The universal Hodge family has weight homomorphism `2ν`. Geometric connectedness of its
 domain is established after the duality in AP9.
+A family-level inverse from Hodge structures to neutral admissible pairs requires a
+globally constant isocrystal realization with a chosen frame; pointwise classification
+does not trivialize its frame torsor.
 -/
 
 /-! ## Layer AP8: Hodge loci and special admissible subspaces
