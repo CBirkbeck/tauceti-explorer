@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-Polylogarithms~adv",
+    "date": "2026-10-19",
+    "notes": "Independent completed review by Codex (GPT-6), session codex-4Sobgu. Read all six packets (169 targets), all 47 README subsections, the compact Lean file, author-flagged source/proof boundaries and a random sample of 15 additional citation paragraphs. Corrected Z90, BFT, G94, G95 and Schneider locators; corrected Chow, resolution, analytification and Coleman supplier ownership; imported existing analytic-cycle/El Mir constructions and current local logarithms; clarified grading and weight ranges; strengthened configuration examples and incidence/transfer/map Checks. Adversarial pass and exact rational configuration calculations are recorded in REV-PKG-Polylogarithms~adv.md. Lean elaborates with 18 sorry warnings only, 21 proved examples and no errors. Three remaining defects: G1 unplanned weight-four and ideal-region supplier layers; G2 unverified quotient-level top configuration normalization r6=18M3; G3 missing multiplicity-preserving universal incidence/base-change construction. The official NSW pages could not be independently reverified because the authors' URL returned HTML. All six packet checks and intake file checks pass. This is a completed review, not a checkpoint."
+  }
+}

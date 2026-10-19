@@ -220,6 +220,25 @@ example : projectedCrossRatio
   norm_num [Matrix.cons_val_two, Matrix.cons_val_three, Matrix.cons_val_four,
     Matrix.vecHead, Matrix.vecTail]
 
+example : projectedCrossRatio
+    (![![1,1,1], ![1,2,4], ![1,3,9], ![1,7,49], ![1,5,25]] :
+      Fin 5 → Fin 3 → ℚ) = 5 / 6 := by
+  simp only [projectedCrossRatio]
+  simp only [Matrix.det_fin_three, Matrix.of_apply]
+  norm_num [Matrix.cons_val_two, Matrix.cons_val_three, Matrix.cons_val_four,
+    Matrix.vecHead, Matrix.vecTail]
+
+example : tripleRatio (fun i : Fin 6 =>
+    match i.val with
+    | 0 => (![1,1,1] : Fin 3 → ℚ)
+    | 1 => ![1,2,4]
+    | 2 => ![1,3,9]
+    | 3 => ![1,5,25]
+    | 4 => ![1,7,49]
+    | _ => ![1,11,121]) = 10 / 9 := by
+  norm_num [tripleRatio, Matrix.det_fin_three, Matrix.of_apply, Matrix.cons_val_two,
+    Matrix.vecHead, Matrix.vecTail]
+
 example : tripleRatio (fun i : Fin 6 =>
     match i.val with
     | 0 => (![1,0,0] : Fin 3 → ℚ)
@@ -338,7 +357,8 @@ presentations; the Bigrassmannian, Gale duality and its signed configuration map
 K-theory comparisons, transfers and regulator-image containment; inductive higher Bloch groups,
 specialization and their complexes; the three distinct Zagier assertions, presentation lifting
 and its obstruction; weight-four polynomial residues and the stated homotopy conjecture;
-compact test-form LF topology, currents, analytic cycle currents and logarithmic Green forms;
+compact test-form LF topology, currents, LF and normalization adapters for cycle integrals;
+admissible multiplicity-bearing incidence cycles, logarithmic Green forms;
 logarithmic r and Wang forms, normal-variety residues and current identities; Deligne and support
 complexes, cubical/simplicial/mixed regulators and the universal Beilinson comparison; Chow
 parameter forms and Arakelov cones; curve complexes, Chow dilogarithms and reciprocity homotopies;
