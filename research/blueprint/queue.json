@@ -38374,7 +38374,8 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.2",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10800"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.4",
@@ -53738,8 +53739,9 @@
     "PKG-EulerSystemsAndKolyvaginSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsAndKolyvaginSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11034"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11034",
+   "finishedAt": "2026-10-19T20:29:12Z"
   },
   {
    "id": "PKG-EulerSystemsCyclotomicMainConjecture",
@@ -53895,8 +53897,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ExcursionOperatorsAndSpectralAction.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11081"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11081",
+   "finishedAt": "2026-10-19T20:29:16Z"
   },
   {
    "id": "REV-PKG-ExcursionOperatorsAndSpectralAction",
@@ -55549,8 +55552,9 @@
     "PKG-GrossZagierAndArithmeticHeights~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11037"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11037",
+   "finishedAt": "2026-10-19T20:29:20Z"
   },
   {
    "id": "PKG-GrossZagierAndArithmeticHeightsPartII",
@@ -59400,8 +59404,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11082"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11082",
+   "finishedAt": "2026-10-19T20:29:24Z"
   },
   {
    "id": "REV-PKG-NoncommutativeAndEquivariantIwasawa",
@@ -150605,8 +150610,9 @@
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~4",
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~5"
    ],
-   "state": "external",
-   "note": "claimed on GitHub issue #10992"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10992",
+   "finishedAt": "2026-10-19T20:29:29Z"
   },
   {
    "id": "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv",
@@ -150753,8 +150759,9 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES0~4",
     "BP-ExcursionOperatorsAndSpectralAction--ES0~5"
    ],
-   "state": "external",
-   "note": "claimed on GitHub issue #11020"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11020",
+   "finishedAt": "2026-10-19T20:29:32Z"
   },
   {
    "id": "PKG-KTheoryLowDegrees~codex",
@@ -150940,9 +150947,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv.md",
-   "note": "claimed on GitHub issue #11063"
+   "note": "deliverables arrived from an external worker on issue #11063",
+   "finishedAt": "2026-10-19T20:29:35Z"
   },
   {
    "id": "PKG-ArithmeticKTheory~codex",
@@ -151022,9 +151030,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticKTheory~adv.md",
-   "note": "claimed on GitHub issue #11068"
+   "note": "deliverables arrived from an external worker on issue #11068",
+   "finishedAt": "2026-10-19T20:29:38Z"
   },
   {
    "id": "REV-PKG-EllipticRegulators~adv",
@@ -151043,9 +151052,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticRegulators~adv.md",
-   "note": "claimed on GitHub issue #11069"
+   "note": "deliverables arrived from an external worker on issue #11069",
+   "finishedAt": "2026-10-19T20:29:42Z"
   },
   {
    "id": "REV-PKG-Polylogarithms~adv",
@@ -151105,9 +151115,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-PeriodsAndSpecialValues~adv.md",
-   "note": "claimed on GitHub issue #11093"
+   "note": "deliverables arrived from an external worker on issue #11093",
+   "finishedAt": "2026-10-19T20:29:45Z"
   },
   {
    "id": "REV-PKG-IntegralIwasawaTheory~adv",
@@ -151126,9 +151137,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-IntegralIwasawaTheory~adv.md",
-   "note": "claimed on GitHub issue #11095"
+   "note": "deliverables arrived from an external worker on issue #11095",
+   "finishedAt": "2026-10-19T20:29:48Z"
   },
   {
    "id": "REV-PKG-KTheoryLowDegrees~adv",
