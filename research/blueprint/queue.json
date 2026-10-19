@@ -15667,8 +15667,8 @@
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3570",
-   "finishedAt": "2026-10-19T14:13:02Z"
+   "finishedAt": "2026-10-19T14:13:02Z",
+   "note": "deliverables arrived from an external worker on issue #3570"
   },
   {
    "id": "DESIGN-GSp4NonregularModularityLifting",
@@ -25329,8 +25329,8 @@
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES6.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #10809",
-   "finishedAt": "2026-10-19T14:13:07Z"
+   "finishedAt": "2026-10-19T14:13:07Z",
+   "note": "deliverables arrived from an external worker on issue #10809"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES6",
@@ -25866,8 +25866,8 @@
    "prompt": "research/blueprint/prompts/BP-GeneralizedHeegnerCycles.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #10914",
-   "finishedAt": "2026-10-19T14:13:08Z"
+   "finishedAt": "2026-10-19T14:13:08Z",
+   "note": "deliverables arrived from an external worker on issue #10914"
   },
   {
    "id": "REV-GeneralizedHeegnerCycles",
@@ -26785,8 +26785,8 @@
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "deliverables arrived from an external worker on issue #10811",
-   "finishedAt": "2026-10-19T14:13:08Z"
+   "finishedAt": "2026-10-19T14:13:08Z",
+   "note": "deliverables arrived from an external worker on issue #10811"
   },
   {
    "id": "REV-IntegralIwasawaTheory--L1",
@@ -27041,8 +27041,8 @@
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.6.md",
    "state": "done",
    "suppliers": [],
-   "note": "deliverables arrived from an external worker on issue #10820",
-   "finishedAt": "2026-10-19T14:13:11Z"
+   "finishedAt": "2026-10-19T14:13:11Z",
+   "note": "deliverables arrived from an external worker on issue #10820"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.6",
@@ -31030,8 +31030,8 @@
     "BP-RankZeroOneBSD--BSD.0",
     "BP-RankZeroOneBSD--BSD.9"
    ],
-   "note": "deliverables arrived from an external worker on issue #10923",
-   "finishedAt": "2026-10-19T14:13:13Z"
+   "finishedAt": "2026-10-19T14:13:13Z",
+   "note": "deliverables arrived from an external worker on issue #10923"
   },
   {
    "id": "REV-PeriodsAndSpecialValues",
@@ -36028,8 +36028,8 @@
    "followUpOf": "BP-GeometricSatakeAndFusion--GS0",
    "prompt": "research/blueprint/prompts/BP-GeometricSatakeAndFusion--GS3-fusion.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10915",
-   "finishedAt": "2026-10-19T14:13:13Z"
+   "finishedAt": "2026-10-19T14:13:13Z",
+   "note": "deliverables arrived from an external worker on issue #10915"
   },
   {
    "id": "REV-GeometricSatakeAndFusion--GS3-fusion",
@@ -36938,8 +36938,8 @@
    "followUpOf": "BP-K2SymbolsBrauer--T.1",
    "prompt": "research/blueprint/prompts/BP-K2SymbolsBrauer--T.3-localization-comparison.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10813",
-   "finishedAt": "2026-10-19T14:13:13Z"
+   "finishedAt": "2026-10-19T14:13:13Z",
+   "note": "deliverables arrived from an external worker on issue #10813"
   },
   {
    "id": "REV-K2SymbolsBrauer--T.3-localization-comparison",
@@ -37359,8 +37359,8 @@
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.4.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10818",
-   "finishedAt": "2026-10-19T14:13:15Z"
+   "finishedAt": "2026-10-19T14:13:15Z",
+   "note": "deliverables arrived from an external worker on issue #10818"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.4",
@@ -37405,8 +37405,8 @@
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10819",
-   "finishedAt": "2026-10-19T14:13:17Z"
+   "finishedAt": "2026-10-19T14:13:17Z",
+   "note": "deliverables arrived from an external worker on issue #10819"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.5",
@@ -37877,8 +37877,8 @@
    "followUpOf": "BP-RankZeroOneBSD--BSD.0",
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.7a.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10919",
-   "finishedAt": "2026-10-19T14:13:19Z"
+   "finishedAt": "2026-10-19T14:13:19Z",
+   "note": "deliverables arrived from an external worker on issue #10919"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.7a",
@@ -37923,8 +37923,8 @@
    "followUpOf": "BP-RankZeroOneBSD--BSD.0",
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.8.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10920",
-   "finishedAt": "2026-10-19T14:13:19Z"
+   "finishedAt": "2026-10-19T14:13:19Z",
+   "note": "deliverables arrived from an external worker on issue #10920"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.8",
@@ -41972,8 +41972,8 @@
    "revisionOf": "BP-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10808",
-   "finishedAt": "2026-10-19T14:13:19Z"
+   "finishedAt": "2026-10-19T14:13:19Z",
+   "note": "deliverables arrived from an external worker on issue #10808"
   },
   {
    "priority": 2,
@@ -42580,8 +42580,8 @@
    "revisionOf": "BP-IntegralIwasawaTheory--I.1",
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--I.1~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10810",
-   "finishedAt": "2026-10-19T14:13:21Z"
+   "finishedAt": "2026-10-19T14:13:21Z",
+   "note": "deliverables arrived from an external worker on issue #10810"
   },
   {
    "priority": 2,
@@ -44073,8 +44073,8 @@
    "revisionOf": "BP-NoncommutativeAndEquivariantIwasawa",
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10835",
-   "finishedAt": "2026-10-19T14:13:23Z"
+   "finishedAt": "2026-10-19T14:13:23Z",
+   "note": "deliverables arrived from an external worker on issue #10835"
   },
   {
    "priority": 2,
@@ -51236,8 +51236,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ColemanPowerSeries.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10760",
-   "finishedAt": "2026-10-19T14:13:24Z"
+   "finishedAt": "2026-10-19T14:13:24Z",
+   "note": "deliverables arrived from an external worker on issue #10760"
   },
   {
    "id": "REV-PKG-ColemanPowerSeries",
@@ -53515,8 +53515,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EulerSystemsCyclotomicMainConjecture.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10764",
-   "finishedAt": "2026-10-19T14:13:31Z"
+   "finishedAt": "2026-10-19T14:13:31Z",
+   "note": "deliverables arrived from an external worker on issue #10764"
   },
   {
    "id": "REV-PKG-EulerSystemsCyclotomicMainConjecture",
@@ -55133,8 +55133,8 @@
    "revisionOf": "PKG-GrossZagierAndArithmeticHeights",
    "prompt": "research/blueprint/prompts/PKG-GrossZagierAndArithmeticHeights~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10770",
-   "finishedAt": "2026-10-19T14:13:38Z"
+   "finishedAt": "2026-10-19T14:13:38Z",
+   "note": "deliverables arrived from an external worker on issue #10770"
   },
   {
    "id": "REV-PKG-GrossZagierAndArithmeticHeights~2",
@@ -57987,6 +57987,49 @@
    "state": "pending"
   },
   {
+   "id": "PKG-MixedHodgeModulesAndIrregularHodgeTheory",
+   "kind": "package",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/MixedHodgeModulesAndIrregularHodgeTheory/README.md",
+    "research/blueprint/packages/MixedHodgeModulesAndIrregularHodgeTheory/Suggested.lean",
+    "research/blueprint/packages/MixedHodgeModulesAndIrregularHodgeTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-MixedHodgeModulesAndIrregularHodgeTheory.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/PKG-MixedHodgeModulesAndIrregularHodgeTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-MixedHodgeModulesAndIrregularHodgeTheory",
+   "kind": "review",
+   "priority": 2,
+   "order": 4500,
+   "roadmapIds": [
+    "MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-MixedHodgeModulesAndIrregularHodgeTheory.md",
+    "research/blueprint/packages/MixedHodgeModulesAndIrregularHodgeTheory/review.json",
+    "research/blueprint/packages/MixedHodgeModulesAndIrregularHodgeTheory/README.md",
+    "research/blueprint/packages/MixedHodgeModulesAndIrregularHodgeTheory/Suggested.lean",
+    "research/blueprint/packages/MixedHodgeModulesAndIrregularHodgeTheory/metadata.toml"
+   ],
+   "after": [
+    "PKG-MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "avoidAccountOf": "PKG-MixedHodgeModulesAndIrregularHodgeTheory",
+   "independentOf": [
+    "PKG-MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "prompt": "research/blueprint/prompts/REV-PKG-MixedHodgeModulesAndIrregularHodgeTheory.md",
+   "state": "pending"
+  },
+  {
    "id": "PKG-ModpRepresentationsOfGL2OverLocalFields",
    "kind": "package",
    "priority": 2,
@@ -58179,8 +58222,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ModularIwasawaMainConjectures.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10773",
-   "finishedAt": "2026-10-19T14:13:44Z"
+   "finishedAt": "2026-10-19T14:13:44Z",
+   "note": "deliverables arrived from an external worker on issue #10773"
   },
   {
    "id": "REV-PKG-ModularIwasawaMainConjectures",
@@ -59547,8 +59590,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PhiGammaModulesAndIwasawaCohomology.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #10776",
-   "finishedAt": "2026-10-19T14:13:49Z"
+   "finishedAt": "2026-10-19T14:13:49Z",
+   "note": "deliverables arrived from an external worker on issue #10776"
   },
   {
    "id": "REV-PKG-PhiGammaModulesAndIwasawaCohomology",
@@ -78570,6 +78613,53 @@
     "REV-DESIGN-ProfiniteCohomologyPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-DESIGN-ProfiniteCohomologyPartII.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 562,
+   "name": "new roadmap DESIGN-MixedHodgeModulesAndIrregularHodgeTheory: Mixed Hodge modules, exponential mixed Hodge structures and the irregular Hodge filtration",
+   "target": "DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
+   "roadmapIds": [
+    "MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.result.json",
+    "research/blueprint/redteam/RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
+    "REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "prompt": "research/blueprint/prompts/RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
+   "kind": "review",
+   "priority": 2,
+   "order": 562,
+   "name": "new roadmap DESIGN-MixedHodgeModulesAndIrregularHodgeTheory: Mixed Hodge modules, exponential mixed Hodge structures and the irregular Hodge filtration",
+   "roadmapIds": [
+    "MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.review.json",
+    "research/blueprint/reviews/REV-RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.md"
+   ],
+   "after": [
+    "RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "avoidAccountOf": "RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
+   "independentOf": [
+    "RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
+    "DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
+    "REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.md",
    "state": "pending"
   },
   {
@@ -109647,12 +109737,19 @@
     "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
     "research/blueprint/readmes/HeegnerPointEulerSystems--HE.8b.md",
     "research/blueprint/suggested/HeegnerPointEulerSystems--HE.8b.lean",
+    "research/blueprint/packets/RankZeroOneBSD--BSD.7a.json",
+    "research/blueprint/readmes/RankZeroOneBSD--BSD.7a.md",
+    "research/blueprint/suggested/RankZeroOneBSD--BSD.7a.lean",
     "research/blueprint/packets/AutomorphicPadicLFunctions.json",
     "research/blueprint/readmes/AutomorphicPadicLFunctions.md",
     "research/blueprint/suggested/AutomorphicPadicLFunctions.lean",
     "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
     "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems.md",
     "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems.lean",
+    "research/blueprint/handoff/BP-EulerSystemsAndKolyvaginSystems~2.md",
+    "research/blueprint/packets/GeneralizedHeegnerCycles.json",
+    "research/blueprint/readmes/GeneralizedHeegnerCycles.md",
+    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean",
     "research/blueprint/packets/SelmerIwasawaCohomology.json",
     "research/blueprint/readmes/SelmerIwasawaCohomology.md",
     "research/blueprint/suggested/SelmerIwasawaCohomology.lean",
@@ -109698,8 +109795,10 @@
     "research/blueprint/packets/ModularIwasawaMainConjectures.json",
     "research/blueprint/packets/RankZeroOneBSD--BSD.0.json",
     "research/blueprint/packets/HeegnerPointEulerSystems--HE.8b.json",
+    "research/blueprint/packets/RankZeroOneBSD--BSD.7a.json",
     "research/blueprint/packets/AutomorphicPadicLFunctions.json",
     "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+    "research/blueprint/packets/GeneralizedHeegnerCycles.json",
     "research/blueprint/packets/SelmerIwasawaCohomology.json",
     "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
     "research/blueprint/packets/KatoEulerSystems.json",
@@ -109711,8 +109810,10 @@
     "research/blueprint/suggested/ModularIwasawaMainConjectures.lean",
     "research/blueprint/suggested/RankZeroOneBSD--BSD.0.lean",
     "research/blueprint/suggested/HeegnerPointEulerSystems--HE.8b.lean",
+    "research/blueprint/suggested/RankZeroOneBSD--BSD.7a.lean",
     "research/blueprint/suggested/AutomorphicPadicLFunctions.lean",
     "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems.lean",
+    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean",
     "research/blueprint/suggested/SelmerIwasawaCohomology.lean",
     "research/blueprint/suggested/EulerSystemsCyclotomicMainConjecture.lean",
     "research/blueprint/suggested/KatoEulerSystems.lean"
@@ -110067,13 +110168,19 @@
    ],
    "outputs": [
     "research/blueprint/redteam/RT-AREA-iwasawa-3.fixes-2.md",
+    "research/blueprint/packets/GeneralizedHeegnerCycles.json",
+    "research/blueprint/readmes/GeneralizedHeegnerCycles.md",
+    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean",
     "research/blueprint/packets/KatoEulerSystems.json",
     "research/blueprint/readmes/KatoEulerSystems.md",
     "research/blueprint/suggested/KatoEulerSystems.lean",
     "research/blueprint/handoff/BP-KatoEulerSystems~2.md",
     "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
     "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
-    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean",
+    "research/blueprint/packets/PeriodsAndSpecialValues.json",
+    "research/blueprint/readmes/PeriodsAndSpecialValues.md",
+    "research/blueprint/suggested/PeriodsAndSpecialValues.lean"
    ],
    "after": [
     "FIX-RT-AREA-iwasawa-3"
@@ -110099,10 +110206,14 @@
    ],
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-3~2.md",
+    "research/blueprint/packets/GeneralizedHeegnerCycles.json",
     "research/blueprint/packets/KatoEulerSystems.json",
     "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/packets/PeriodsAndSpecialValues.json",
+    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean",
     "research/blueprint/suggested/KatoEulerSystems.lean",
-    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean",
+    "research/blueprint/suggested/PeriodsAndSpecialValues.lean"
    ],
    "after": [
     "FIX-RT-AREA-iwasawa-3~2"
@@ -110215,9 +110326,12 @@
     "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
     "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
     "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean",
-    "research/blueprint/packets/PeriodsAndSpecialValues--PS.8.json",
-    "research/blueprint/readmes/PeriodsAndSpecialValues--PS.8.md",
-    "research/blueprint/suggested/PeriodsAndSpecialValues--PS.8.lean"
+    "research/blueprint/packets/GeneralizedHeegnerCycles.json",
+    "research/blueprint/readmes/GeneralizedHeegnerCycles.md",
+    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean",
+    "research/blueprint/packets/PeriodsAndSpecialValues.json",
+    "research/blueprint/readmes/PeriodsAndSpecialValues.md",
+    "research/blueprint/suggested/PeriodsAndSpecialValues.lean"
    ],
    "after": [
     "FIX-RT-AREA-iwasawa-3~3"
@@ -110246,11 +110360,13 @@
     "research/blueprint/packets/GeneralizedHeegnerCycles--GH.0.json",
     "research/blueprint/packets/KatoEulerSystems.json",
     "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
-    "research/blueprint/packets/PeriodsAndSpecialValues--PS.8.json",
+    "research/blueprint/packets/GeneralizedHeegnerCycles.json",
+    "research/blueprint/packets/PeriodsAndSpecialValues.json",
     "research/blueprint/suggested/GeneralizedHeegnerCycles--GH.0.lean",
     "research/blueprint/suggested/KatoEulerSystems.lean",
     "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean",
-    "research/blueprint/suggested/PeriodsAndSpecialValues--PS.8.lean"
+    "research/blueprint/suggested/GeneralizedHeegnerCycles.lean",
+    "research/blueprint/suggested/PeriodsAndSpecialValues.lean"
    ],
    "after": [
     "FIX-RT-AREA-iwasawa-3~4"
@@ -110407,6 +110523,7 @@
     "research/blueprint/packets/IntegralIwasawaTheory--I.1.json",
     "research/blueprint/readmes/IntegralIwasawaTheory--I.1.md",
     "research/blueprint/suggested/IntegralIwasawaTheory--I.1.lean",
+    "research/blueprint/handoff/BP-IntegralIwasawaTheory--I.1~2.md",
     "research/blueprint/packets/PadicFamilies.json",
     "research/blueprint/readmes/PadicFamilies.md",
     "research/blueprint/suggested/PadicFamilies.lean",
@@ -113592,12 +113709,18 @@
     "research/blueprint/packets/KTheoryLowDegrees--U.4.json",
     "research/blueprint/readmes/KTheoryLowDegrees--U.4.md",
     "research/blueprint/suggested/KTheoryLowDegrees--U.4.lean",
+    "research/blueprint/packets/K2SymbolsBrauer--T.3-localization-comparison.json",
+    "research/blueprint/readmes/K2SymbolsBrauer--T.3-localization-comparison.md",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.3-localization-comparison.lean",
     "research/blueprint/packets/K2SymbolsBrauer--T.1-classical.json",
     "research/blueprint/readmes/K2SymbolsBrauer--T.1-classical.md",
     "research/blueprint/suggested/K2SymbolsBrauer--T.1-classical.lean",
     "research/blueprint/packets/K3BlochGroups--V.1.json",
     "research/blueprint/readmes/K3BlochGroups--V.1.md",
     "research/blueprint/suggested/K3BlochGroups--V.1.lean",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.5.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--Z.5.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.5.lean",
     "research/blueprint/packets/KTheoryFiniteLocalFields.json",
     "research/blueprint/readmes/KTheoryFiniteLocalFields.md",
     "research/blueprint/suggested/KTheoryFiniteLocalFields.lean",
@@ -113645,8 +113768,10 @@
     "research/blueprint/packets/MotivicEtaleKTheory--M.5d.json",
     "research/blueprint/packets/SchemeKTheoryOperations.json",
     "research/blueprint/packets/KTheoryLowDegrees--U.4.json",
+    "research/blueprint/packets/K2SymbolsBrauer--T.3-localization-comparison.json",
     "research/blueprint/packets/K2SymbolsBrauer--T.1-classical.json",
     "research/blueprint/packets/K3BlochGroups--V.1.json",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.5.json",
     "research/blueprint/packets/KTheoryFiniteLocalFields.json",
     "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
     "research/blueprint/suggested/GeneralAlgebraicKTheory--K.1.lean",
@@ -113664,8 +113789,10 @@
     "research/blueprint/suggested/MotivicEtaleKTheory--M.5d.lean",
     "research/blueprint/suggested/SchemeKTheoryOperations.lean",
     "research/blueprint/suggested/KTheoryLowDegrees--U.4.lean",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.3-localization-comparison.lean",
     "research/blueprint/suggested/K2SymbolsBrauer--T.1-classical.lean",
     "research/blueprint/suggested/K3BlochGroups--V.1.lean",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.5.lean",
     "research/blueprint/suggested/KTheoryFiniteLocalFields.lean"
    ],
    "after": [
@@ -113855,6 +113982,7 @@
     "research/blueprint/packets/IntegralIwasawaTheory--I.1.json",
     "research/blueprint/readmes/IntegralIwasawaTheory--I.1.md",
     "research/blueprint/suggested/IntegralIwasawaTheory--I.1.lean",
+    "research/blueprint/handoff/BP-IntegralIwasawaTheory--I.1~2.md",
     "research/blueprint/packets/Polylogarithms--P.6.json",
     "research/blueprint/readmes/Polylogarithms--P.6.md",
     "research/blueprint/suggested/Polylogarithms--P.6.lean",
@@ -113877,6 +114005,12 @@
     "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
     "research/blueprint/readmes/KTheoryLowDegrees--U.1.md",
     "research/blueprint/suggested/KTheoryLowDegrees--U.1.lean",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.6.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--Z.6.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.6.lean",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.5.json",
+    "research/blueprint/readmes/KTheoryLowDegrees--Z.5.md",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.5.lean",
     "research/blueprint/handoff/BP-KTheoryLowDegrees--U.1~2.md",
     "research/blueprint/handoff/BP-KTheoryLowDegrees--U.1~3.md",
     "research/blueprint/packets/MotivicEtaleKTheory--M.1.json",
@@ -113938,6 +114072,8 @@
     "research/blueprint/packets/SchemeAndStackFoundations--SF.2.json",
     "research/blueprint/packets/SchemeKTheoryOperations.json",
     "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.6.json",
+    "research/blueprint/packets/KTheoryLowDegrees--Z.5.json",
     "research/blueprint/packets/MotivicEtaleKTheory--M.1.json",
     "research/blueprint/suggested/EllipticKTheory.lean",
     "research/blueprint/suggested/EllipticKTheory--E.5.lean",
@@ -113969,6 +114105,8 @@
     "research/blueprint/suggested/SchemeAndStackFoundations--SF.2.lean",
     "research/blueprint/suggested/SchemeKTheoryOperations.lean",
     "research/blueprint/suggested/KTheoryLowDegrees--U.1.lean",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.6.lean",
+    "research/blueprint/suggested/KTheoryLowDegrees--Z.5.lean",
     "research/blueprint/suggested/MotivicEtaleKTheory--M.1.lean"
    ],
    "after": [
@@ -114082,10 +114220,16 @@
     "research/blueprint/packets/GeometricSatakeAndFusion--GS0.json",
     "research/blueprint/readmes/GeometricSatakeAndFusion--GS0.md",
     "research/blueprint/suggested/GeometricSatakeAndFusion--GS0.lean",
+    "research/blueprint/packets/GeometricSatakeAndFusion--GS3-fusion.json",
+    "research/blueprint/readmes/GeometricSatakeAndFusion--GS3-fusion.md",
+    "research/blueprint/suggested/GeometricSatakeAndFusion--GS3-fusion.lean",
     "research/blueprint/handoff/BP-GeometricSatakeAndFusion--GS0~2.md",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
     "research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.md",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
+    "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES6.json",
+    "research/blueprint/readmes/ExcursionOperatorsAndSpectralAction--ES6.md",
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES6.lean",
     "research/blueprint/packets/HeckeStacksAndLocalShtukas.json",
     "research/blueprint/readmes/HeckeStacksAndLocalShtukas.md",
     "research/blueprint/suggested/HeckeStacksAndLocalShtukas.lean",
@@ -114180,7 +114324,9 @@
    "outputs": [
     "research/blueprint/reviews/REV-FIX-RT-AREA-geomlanglands~2.md",
     "research/blueprint/packets/GeometricSatakeAndFusion--GS0.json",
+    "research/blueprint/packets/GeometricSatakeAndFusion--GS3-fusion.json",
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.json",
+    "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES6.json",
     "research/blueprint/packets/HeckeStacksAndLocalShtukas.json",
     "research/blueprint/packets/LanglandsParameterStacks.json",
     "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES0.json",
@@ -114200,7 +114346,9 @@
     "research/blueprint/packets/EndoscopicTransferAndUnitaryTraceComparison--ET.5.json",
     "research/blueprint/packets/IgusaVarietiesAndTorsionConcentration.json",
     "research/blueprint/suggested/GeometricSatakeAndFusion--GS0.lean",
+    "research/blueprint/suggested/GeometricSatakeAndFusion--GS3-fusion.lean",
     "research/blueprint/suggested/EndoscopicTransferAndUnitaryTraceComparison--ET.6a.lean",
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES6.lean",
     "research/blueprint/suggested/HeckeStacksAndLocalShtukas.lean",
     "research/blueprint/suggested/LanglandsParameterStacks.lean",
     "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES0.lean",
