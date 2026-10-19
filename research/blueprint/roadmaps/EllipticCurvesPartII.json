@@ -1,0 +1,77 @@
+{
+  "id": "EllipticCurvesPartII",
+  "title": "Elliptic curves, Part II: Legendre interfaces (import index)",
+  "area": "arithmeticgeometry",
+  "parent": "tauceti:TauCetiRoadmap/EllipticCurves",
+  "summary": "This Part II identifier indexes the seven Bennett–Siksek Legendre targets already planned by EllipticLegendreCharacterInterfaces. It imports that accepted plan’s equations, normalization, split readings of native descent, character-conductor interfaces, finite-field torsion and trace results without assigning duplicate declarations or planets. Its six layers are import records pending a maintainer merger; the owner’s mathematical layers remain planned with their existing gaps and supplier requests.",
+  "readme": "# Elliptic curves, Part II: Legendre interfaces\n\nThis Part II identifier indexes the seven Bennett–Siksek Legendre targets already planned by EllipticLegendreCharacterInterfaces. It imports that accepted plan’s equations, normalization, split readings of native descent, character-conductor interfaces, finite-field torsion and trace results without assigning duplicate declarations or planets. Its six layers are import records pending a maintainer merger; the owner’s mathematical layers remain planned with their existing gaps and supplier requests.\n\nUse EllipticLegendreCharacterInterfaces as the single mathematical owner. The detailed document gives the source-to-owner crosswalk, imported APIs and tests, pinned conventions and remaining supplier obligations. No mathematical closure or completed merger is asserted.\n",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/EllipticCurves",
+    "EllipticLegendreCharacterInterfaces"
+  ],
+  "stages": [
+    {
+      "key": "LG.0",
+      "title": "Legendre equations and root orderings",
+      "description": "Import LG.0 of EllipticLegendreCharacterInterfaces. Over a commutative ring, Lλ has coefficients (0,−(1+λ),0,λ,0), and Ld,λ has (0,−d(1+λ),0,d²λ,0). Their discriminants are 16λ²(1−λ)² and 16d⁶λ²(1−λ)². Over a field with 2≠0, d≠0 and λ≠0,1 give ellipticity. Import normalization of full rational two-torsion to Ld,λ, the six labelled root-ordering parameters, the three root two-torsion points and exhaustion of the doubling kernel. The native twist parameters are (0,−d/4). These are imports of the owner’s 11 nodes, not new declarations.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.0"
+      ]
+    },
+    {
+      "key": "LG.1",
+      "title": "Good reduction and character conductors",
+      "description": "Import the five nodes of EllipticLegendreCharacterInterfaces:LG.1. For F/Q elliptic with full rational two-torsion and semistable at odd primes, every associated λ and every odd good prime p satisfy v_p(λ)=v_p(1−λ)=0. The unscaled unit-parameter model has integral coefficients and unit discriminant over Z_p. For ω in {±1,±2}, the odd part of the primitive CA.1 character conductor of ωλ divides the actual elliptic conductor M of F, allowing character conductor 1. Minimal local models, primitive characters and actual conductor comparisons keep their existing suppliers and recorded obligations.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.1"
+      ]
+    },
+    {
+      "key": "LG.2",
+      "title": "Split-cubic readings of native descent",
+      "description": "Import the eight nodes of EllipticLegendreCharacterInterfaces:LG.2 under 2≠0,d≠0,λ≠0,1. Evaluate the existing cubic algebra at roots (0,d,dλ) to identify it with K×K×K, and transport unit squareclasses. Read the existing native μ rather than constructing another descent: at a nonroot x it gives ([x],[x−d],[x−dλ]); at a root use the corrected derivative representative. All coordinate products are 1. A native affine point is twice a point iff its three x-differences are squares in K, with zero allowed only as a field square, not as a unit class.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.2"
+      ]
+    },
+    {
+      "key": "LG.3",
+      "title": "Two-primary torsion over prime fields",
+      "description": "Import the seven nodes of EllipticLegendreCharacterInterfaces:LG.3. For prime p≡3 mod4 and η≠0,±1 in F_p, L_(η²)(F_p) contains Z/2×Z/4, so 8 divides its projective count. If i²=−1 in a field of characteristic other than two, (i,1−i) on L_(-1) doubles to (0,0) and has order four; its first descent class is [i]. At primes p≡5 mod8, only the zero-root two-torsion point is divisible, none of its halves is divisible, and v₂(pointCount L_(-1))=3. The exclusion of Z/4×Z/4 is retained.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.3"
+      ]
+    },
+    {
+      "key": "LG.4",
+      "title": "Corrected order-four point on the twist by two",
+      "description": "Import the four nodes of EllipticLegendreCharacterInterfaces:LG.4. In a field with 2≠0, assume t,v≠0, i²=−1 and 2t²+2v²=1, and put λ=2t². The native point (2λ+4itv,8itv(t+iv)) on y²=x(x−2)(x−2λ) doubles to (2λ,0), has exact order four and third split descent class [4itv]. The correction is the existing source finding EllipticLegendreCharacterInterfaces/E1. The theorem is local algebra, independent of large-exponent progression assumptions.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.4"
+      ]
+    },
+    {
+      "key": "LG.5",
+      "title": "Trace and twist interfaces",
+      "description": "Import both nodes of EllipticLegendreCharacterInterfaces:LG.5. For prime p≡3 mod4 and u≠0 in F_p, y²=x(x−u)(x+u) has projective count p+1 and native trace zero. For odd p, d≠0 and λ≠0,1 in F_p, specialize the BSD.0 generic twist comparison to Ld,λ: its trace is quadraticChar(d) times that of Lλ, and its good Euler polynomial is 1−quadraticChar(d)a_p(Lλ)T+pT². For p≡5 mod8,d=2 this changes the sign. The generic comparison remains owned by BSD.0; these are equation-specific imports.",
+      "requires": [
+        "EllipticLegendreCharacterInterfaces:LG.5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BS20",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
+      "authors": "Michael A. Bennett and Samir Siksek",
+      "edition": "Annals of Mathematics 191 (2020), no. 2, 355–392; publisher version of record",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
+      "sha256": "3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§5, proof of Lemma 5.2, pp.365–366; §6, pp.367–372, including equation (17), Lemmas 6.2, 6.3, 6.5 and the local coordinate argument in Lemma 6.6."
+      ]
+    }
+  ],
+  "status": "draft"
+}
