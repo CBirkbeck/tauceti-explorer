@@ -26,11 +26,15 @@ types what is statable over the pinned carriers with real bodies:
 * the Galois-lattice core of the positive-power criterion (README 2.10);
 * the doubling lift through a 2-torsion kernel (README 2.11);
 * torsion-freeness of numerical quotients (README 1.1);
-* the linear algebra of Zariski's lemma (README 4.6);
+* a matrix computation checking the imported Zariski-lemma interface (README 4.6);
 * the minimum of normalised degrees on a ray (README 5.8);
 * the triviality of Picard groups of semilocal rings used in README 2.3.
 
 Every other target is listed at the end, grouped by the carrier it needs.
+Current upstream owns the curve-degree construction and relative Spec. Current Tau Ceti also
+proves the matrix inequalities used by Zariski's lemma, so they are imported in the roadmap
+instead of being proposed again here. These later declarations are distinct from the pins.
+The README records the unresolved proof inputs G1–G7; this scaffold does not close them.
 -/
 
 open AlgebraicGeometry CategoryTheory
@@ -159,27 +163,9 @@ theorem extremal_independent {ι : Type*} (lam : ι → ℚ) (h h' : ℚ) (hh : 
 
 end Numerical
 
-/-! ## Layer 4: the linear algebra of Zariski's lemma -/
+/-! ## Layer 4: a computation for the imported matrix interface -/
 
 namespace DualGraph
-
-/-- README 4.6 (linear-algebra core of Zariski's lemma): let `N` be a symmetric rational
-matrix with nonnegative off-diagonal entries, `m` a vector with positive entries and `N m = 0`,
-and suppose no proper nonempty set of indices is orthogonal to its complement. Then `-N` is
-positive semidefinite and its kernel is the line through `m`. -/
-theorem zariski_linearAlgebra {r : ℕ} (N : Matrix (Fin r) (Fin r) ℚ) (hsymm : N.IsSymm)
-    (hoff : ∀ i j, i ≠ j → 0 ≤ N i j) (m : Fin r → ℚ) (hm : ∀ i, 0 < m i)
-    (hker : N.mulVec m = 0)
-    (hconn : ∀ I : Finset (Fin r), I.Nonempty → I ≠ Finset.univ → ∃ i ∈ I, ∃ j ∉ I, N i j ≠ 0) :
-    (-N).PosSemidef ∧ ∀ v : Fin r → ℚ, v ⬝ᵥ N.mulVec v = 0 → ∃ q : ℚ, v = q • m := sorry
-
-/-- README 4.6: every proper subset of components is negative definite; in index form, a vector
-supported on a proper subset with zero self-intersection vanishes. -/
-theorem zariski_properSubset {r : ℕ} (N : Matrix (Fin r) (Fin r) ℚ) (hsymm : N.IsSymm)
-    (hoff : ∀ i j, i ≠ j → 0 ≤ N i j) (m : Fin r → ℚ) (hm : ∀ i, 0 < m i)
-    (hker : N.mulVec m = 0)
-    (hconn : ∀ I : Finset (Fin r), I.Nonempty → I ≠ Finset.univ → ∃ i ∈ I, ∃ j ∉ I, N i j ≠ 0)
-    (v : Fin r → ℚ) (i₀ : Fin r) (hv : v i₀ = 0) (h0 : v ⬝ᵥ N.mulVec v = 0) : v = 0 := sorry
 
 /-- Test (README 4.6, computation): the fibre of type I₂ has `N = [[-2, 2], [2, -2]]` and
 `m = (1, 1)`, with `N m = 0`. -/
@@ -196,6 +182,8 @@ The following README targets, API items and checks have no carrier at the pinned
 Tau Ceti; the README states each of them. They are grouped by layer, with the carrier they need.
 
 * Layer 0 (needs degrees of invertible sheaves on proper curves over residue fields (no Euler-characteristic degree or Chow c₁ at the pins)):
+  the degree API is imported from StableReduction/JacobianChallenge and SF.3; the local names
+  below specify compatibility and the relative pairing, not a second degree construction:
   `Numerical.curveDegree`, `Numerical.curveDegree_tensor`, `Numerical.curveDegree_inv`,
   `Numerical.curveDegree_cycle`, `Numerical.curveDegree_finite_pullback`,
   `Numerical.curveDegree_baseField`, `Numerical.curveDegree_fieldExtension`,
@@ -264,14 +252,19 @@ Tau Ceti; the README states each of them. They are grouped by layer, with the ca
   contraction-descent (theorem), ampleness-openness (theorem).
 * Layer 4 (needs intersection numbers of curves on surfaces and fibres of morphisms as schemes):
   `DualGraph.vertexMap`, `DualGraph.vertexMap_adj`, `DualGraph.IsGraphIso`,
-  `DualGraph.baseChange`, `DualGraph.componentGraph_disjointLines`,
+  `DualGraph.baseChange`, `DualGraph.baseChange_iso_of_vertex_bijective`,
+  `DualGraph.componentGraph_disjointLines`,
   `DualGraph.componentGraph_axes`, `DualGraph.vertexMap_contracts_edge`,
+  `DualGraph.vertexBijection_not_iso`,
   curve-criterion (theorem), `DualGraph.intersectionMatrix`, `DualGraph.IsNegDef`,
   `DualGraph.labelledGraph`, `DualGraph.label_pos_iff_adj`, `DualGraph.labelledGraph_baseChange`,
   `DualGraph.intersectionMatrix_twoLines`, `DualGraph.intersectionMatrix_exceptional`,
   `DualGraph.intersectionMatrix_single`, `DualGraph.labelledGraph_residueScaling`,
+  `DualGraph.inseparableAmbientMultiplicity`,
   surface-contraction-trichotomy (theorem), exceptional-negativity (theorem),
-  zariski-lemma (theorem), fibre-graph-descent (theorem), reducible-fibre-residue (theorem),
+  zariski-lemma (geometric application of imported matrix theorems),
+  negative-curve-descent (theorem, README 4.7; proper Hilbert-space input G5),
+  fibre-graph-descent (theorem), reducible-fibre-residue (theorem),
   fibre-label-descent (theorem).
 * Layer 5 (needs schemes over a DVR with special and generic fibres as above, ℚ-Cartier divisors, resolutions):
   `Numerical.specialFibreRestriction`, `Numerical.specialFibreRestriction_injective`,
