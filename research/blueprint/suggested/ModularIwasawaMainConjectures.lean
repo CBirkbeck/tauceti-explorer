@@ -1,7 +1,7 @@
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Claude (Anthropic), session claude-5sHW61
+Authors: Claude (Anthropic), session claude-5sHW61; independent review by Codex, session codex-zwwmND
 -/
 import Mathlib.RepresentationTheory.Invariants
 import Mathlib.LinearAlgebra.Matrix.ToLin
@@ -118,6 +118,13 @@ example [IsDomain O] [IsDiscreteValuationRing O] :
     ¬ HasRankOneCoinvariants (LinearMap.id : (Fin 2 → O) →ₗ[O] (Fin 2 → O)) := by
   sorry
 
+/-- Residual unipotence alone does not imply an actual unipotent lift: this determinant-one
+matrix reduces to `[[1,1],[0,1]]` modulo `7`, but `det (g - 1) = -7`.
+This is the matrix obstruction in source issue E4, not a Galois-image counterexample. -/
+example : Matrix.det !![(1 : ℤ), 1; 7, 8] = 1 ∧
+    Matrix.det (!![(1 : ℤ), 1; 7, 8] - (1 : Matrix (Fin 2) (Fin 2) ℤ)) = -7 := by
+  decide
+
 end RankOneImage
 
 section MuLambda
@@ -164,7 +171,12 @@ example : ∀ a : ZMod 3, a ≠ 0 → a ^ 2 = 1 := by decide
 eigenvalue `μ(5)·5⁻¹ = -5⁻¹ = 4 ≠ 1` modulo `7` (that is, `5 · 4 = -1`). -/
 example : ((6 : ZMod 7) ≠ 0) ∧ ((5 : ZMod 7) * 4 = -1) ∧ ((4 : ZMod 7) ≠ 1) := by decide
 
-/-- `η(z)⁴η(5z)⁴` at `p = 13` is Eisenstein: `a_2 = -4 ≡ 1 + 2³` and `13 ∣ 5⁴ - 1`. -/
+/-- The Frobenius polynomial at `2` of the higher-weight example has nonsquare discriminant
+`a₂² - 4 * 2³ = -16 = 5` modulo `7`, certifying irreducibility over `𝔽₇`. -/
+example : ((-4 : ZMod 7) ^ 2 - 4 * 2 ^ 3 = 5) ∧
+    (∀ x : ZMod 7, x ^ 2 ≠ 5) := by decide
+
+/-- Diagnostic only, not a reducibility certificate: `η(z)⁴η(5z)⁴` at `p = 13` has `a_2 = -4 ≡ 1 + 2³` and `13 ∣ 5⁴ - 1`. -/
 example : ((-4 : ZMod 13) = 1 + 2 ^ 3) ∧ (13 ∣ 5 ^ 4 - 1) := by decide
 
 end Examples
