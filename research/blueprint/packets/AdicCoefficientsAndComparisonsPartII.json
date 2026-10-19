@@ -252,7 +252,8 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf",
       "sha256": "1f4ac06f2f31430abdd984d8e635a324defb6de340f6a599f708c04996fbfba4",
       "readSections": [
-        "2026-10-19: published article, §§1, 3 and 4 read in full (pp. 97–102, 112–124); §2 read for the statements consumed from LocalFieldsRamificationPartII; locators are journal pages."
+        "2026-10-19: published article, §§1, 3 and 4 read in full (pp. 97–102, 112–124); §2 read for the statements consumed from LocalFieldsRamificationPartII; locators are journal pages.",
+        "2026-10-19 (review): the whole article read, published version."
       ]
     },
     {
@@ -263,7 +264,8 @@
       "url": "https://arxiv.org/abs/1207.3648",
       "sha256": "18a6193d6b71ff5ac91eae4443e1c8a54ab8f27f2173fda200d4bec547e3644a",
       "readSections": [
-        "2026-10-19: Exposé X in full (pp. 135–170); Exposé VI §§1–3 (pp. 69–76); Exposé VIII §1, §§3.3–3.4 and the statements of §§4–5 (pp. 85–86, 107–112)."
+        "2026-10-19: Exposé X in full (pp. 135–170); Exposé VI §§1–3 (pp. 69–76); Exposé VIII §1, §§3.3–3.4 and the statements of §§4–5 (pp. 85–86, 107–112).",
+        "2026-10-19 (review): Exposé X in full (pp. 135–170); Exposé VI §§1–3 (pp. 69–76); Exposé VIII §1 and §§3.3.7–3.4.9 (pp. 85–86, 107–112)."
       ]
     },
     {
@@ -274,7 +276,8 @@
       "url": "https://arxiv.org/abs/0707.3953",
       "sha256": "f08e3a912438c1755995b95b34214463352c7bc5612534dceccff935e03da225",
       "readSections": [
-        "2026-10-19: §1 (pp. 1–6), statements of Theorems 1.1, 1.2, 1.5, Corollaries 1.3, 1.4, 1.6 and the overview of §§2–5."
+        "2026-10-19: §1 (pp. 1–6), statements of Theorems 1.1, 1.2, 1.5, Corollaries 1.3, 1.4, 1.6 and the overview of §§2–5.",
+        "2026-10-19 (review): §1 and §3.2 (pp. 1–6, 15–17)."
       ]
     },
     {
@@ -285,7 +288,8 @@
       "url": "http://www.numdam.org/item?id=PMIHES_1996__83__51_0",
       "sha256": "9e4e7dab2525e9a0fb0820752434c5a168914873b6118f5a967fcccae257ffb7",
       "readSections": [
-        "2026-10-19: §7 (Theorem 7.3 and 7.5–7.11, pp. 87–89) and §8 (Theorem 8.2 and 8.3–8.6, pp. 91–92)."
+        "2026-10-19: §7 (Theorem 7.3 and 7.5–7.11, pp. 87–89) and §8 (Theorem 8.2 and 8.3–8.6, pp. 91–92).",
+        "2026-10-19 (review): §7 (Theorem 7.3 and its proof 7.5–7.16, pp. 87–90) and §8 (8.1, Theorem 8.2 and its proof 8.3–8.8, pp. 91–92)."
       ]
     },
     {
@@ -296,7 +300,8 @@
       "url": "https://arxiv.org/abs/1412.0868",
       "sha256": "4ef87334b650bb451b0e9801496dd7c95b361233ca3615b1c45e2bef50a3f9ec",
       "readSections": [
-        "2026-10-19: Introduction, Theorem 1.1 and Corollaries 1.2–1.3 (pp. 3–4); remaining chapters not read."
+        "2026-10-19: Introduction, Theorem 1.1 and Corollaries 1.2–1.3 (pp. 3–4); remaining chapters not read.",
+        "2026-10-19 (review): Theorem 1.1, Corollaries 1.2–1.3 and Remark 1.4 (pp. 3–4)."
       ]
     },
     {
@@ -307,7 +312,8 @@
       "url": "https://arxiv.org/abs/0905.2191",
       "sha256": "93844cc84ee1b23f1f505054867d3c9408999b304b73ee295db30126e33a4e35",
       "readSections": [
-        "2026-10-19: Introduction, Theorems 0.1–0.3 (pp. 2–4)."
+        "2026-10-19: Introduction, Theorems 0.1–0.3 (pp. 2–4).",
+        "2026-10-19 (review): Theorems 0.1–0.3 and Corollary 0.4 (pp. 3–4)."
       ]
     },
     {
@@ -318,7 +324,8 @@
       "url": "https://arxiv.org/abs/2012.01307",
       "sha256": "f9f26f7d8d6b5cb6bf86d04bf97f8f99069d8d676623cebe706e90ea8dcb2c1f",
       "readSections": [
-        "2026-10-19: Proposition 3.4 and its proof (p. 8)."
+        "2026-10-19: Proposition 3.4 and its proof (p. 8).",
+        "2026-10-19 (review): Proposition 3.4 and its proof (p. 8)."
       ]
     },
     {
@@ -329,7 +336,8 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p01-p.pdf",
       "sha256": "26dde9260f6475e4f6acbfbe651e18fac0d443a5f318fbf3974efc9f809f7d71",
       "readSections": [
-        "2026-10-19: Theorem 2.11 and its use in the proof of Theorem 2.10 (p. 24)."
+        "2026-10-19: Theorem 2.11 and its use in the proof of Theorem 2.10 (p. 24).",
+        "2026-10-19 (review): Theorem 2.11 and its use in the proof of Theorem 2.10 (pp. 24–25)."
       ]
     },
     {
@@ -339,7 +347,8 @@
       "edition": "online, accessed 2026-10-19",
       "url": "https://stacks.math.columbia.edu",
       "readSections": [
-        "Tags 081R, 0815, 052A (flattening, generic flatness); 0AVK (finite normalization); 0C45, 0BI4 (resolution of curves)."
+        "Tags 081R, 0815, 052A (flattening, generic flatness); 0AVK (finite normalization); 0C45, 0BI4 (resolution of curves).",
+        "2026-10-19 (review): Tags 081R, 0815, 052A, 0AVK, 0C45, 0BI4 rechecked; 05K0 (Zariski's main theorem) for the pseudo-projective step."
       ]
     }
   ],
@@ -362,7 +371,7 @@
         "For the finiteness statement: if f : X → S is dominant of finite type with S noetherian, its image is constructible (Chevalley) and contains the generic points, hence a dense open U. A prime p with S_p ⊆ S ∖ U is detected by a codimension-one point of an irreducible component T of S of characteristic zero (Krull's principal ideal theorem applied to p on T), or p is the characteristic of a component; S ∖ U has finitely many such points, so char(S) ∖ char(X) is finite (Temkin §4.3.2)."
       ],
       "acceptance": [
-        "char(Spec Q) = ∅, char(Spec Z_(2)) = {2} and char(Spec Z) is the set of all primes, as printed in Temkin §2.1.1.",
+        "char(Spec Q) = ∅ and char(Spec Z_(2)) = {2} (the two examples printed in Temkin §2.1.1), and char(Spec Z) is the set of all primes.",
         "For f : X → Y, char(X) ⊆ char(Y); equality holds when f is surjective."
       ],
       "prerequisites": [
@@ -412,6 +421,11 @@
           "name": "mem_residueChars_iff_not_isUnit",
           "role": "characterisation",
           "statement": "For p prime: p ∈ char(X) ⇔ the image of p in Γ(X, O_X) is not a unit."
+        },
+        {
+          "name": "residueChars_eq_empty_iff",
+          "role": "characterisation",
+          "statement": "char(X) = ∅ ⇔ every prime is a unit of Γ(X, O_X), that is, X is a Q-scheme."
         },
         {
           "name": "residueChars_mono",
@@ -486,7 +500,7 @@
       ],
       "proofSteps": [
         "Define maximal points as generic points of irreducible components (Mathlib's irreducible components and generic points of irreducible closed subsets).",
-        "Equivalence with density of X ×_S η_S: the maximal points of X lying over maximal points of S are exactly the maximal points of the generic fibre, and a subset of a noetherian space is dense iff it contains all maximal points."
+        "Equivalence with density of X ×_S η_S: the maximal points of X lying over maximal points of S are exactly the maximal points of the generic fibre. The generic fibre is stable under generization in X, and a generization-stable subset of a noetherian space is dense exactly when it contains every maximal point (an arbitrary dense subset, such as the set of closed points of A^1_k, need not contain one)."
       ],
       "acceptance": [
         "The inclusion of a dense open subscheme is maximally dominating.",
@@ -866,7 +880,7 @@
       ],
       "proofSteps": [
         "Define the property by the existence of the factorisation.",
-        "If f is separated, a local isomorphism X → X̄ over S with X̄ separated over S is an open immersion (the argument of ILO X 3.1.9 for separated étale morphisms which are open embeddings on a dense open), so f is quasi-projective; properness then makes the open immersion an isomorphism onto a closed and open part."
+        "If f = g ∘ h is separated, then h : X → X̄ is separated, of finite type and étale (a local isomorphism), hence quasi-finite. By Zariski's main theorem (Stacks 05K0) h factors as a quasi-compact open immersion into a scheme T finite over X̄; T → X̄ → S is projective over the qcqs S, so f is quasi-projective. A separated local isomorphism need not be an open immersion (two disjoint copies of an open subscheme of X̄ map to X̄), so this step cannot use the open-immersion criterion of ILO X 3.1.9, which needs an open embedding on a dense open. If f is moreover proper, the image of X in T is also closed, so X is open and closed in a scheme projective over S and f is projective (ILO X Remark 3.1.7(ii))."
       ],
       "acceptance": [
         "The affine plane with doubled origin is pseudo-projective over k, but its blow-up at one of the origins is not (ILO X 3.1.7(i)).",
@@ -962,13 +976,13 @@
       ],
       "title": "Flattening of finite-type morphisms by admissible blow-ups",
       "kind": "theorem",
-      "statement": "Let S be quasi-compact and quasi-separated, U ⊆ S a quasi-compact open, f : X → S a quasi-separated morphism of finite type and F a quasi-coherent O_X-module of finite type such that F|_{f⁻¹U} is flat over U and of finite presentation. Then there is a U-admissible blow-up S′ → S (centre disjoint from U, finitely presented ideal) such that the strict transform of F is flat over S′ and of finite presentation. In particular (F = O_X) the strict transform of X is flat and of finite presentation over S′. For noetherian integral S and dense U this extends Scheme and stack foundations' `flattening_by_blowup` from proper to arbitrary finite-type f.",
+      "statement": "Let S be quasi-compact and quasi-separated and U ⊆ S a quasi-compact open. (i) If f : X → S is of finite type and quasi-separated and X_U → U is flat and locally of finite presentation, there is a U-admissible blow-up S′ → S (centre disjoint from U, cut out by a finite-type ideal) such that the strict transform of X is flat and of finite presentation over S′ (Stacks 081R). (ii) If X is quasi-compact and locally of finite presentation over S and F is a quasi-coherent O_X-module of finite type with F_U of finite presentation and flat over U, there is a U-admissible blow-up S′ → S such that the strict transform of F is of finite presentation and flat over S′ (Stacks 0815). For noetherian integral S and dense U, (i) extends Scheme and stack foundations' `flattening_by_blowup` from proper to arbitrary finite-type f.",
       "hypotheses": [
-        "S qcqs; U ⊆ S quasi-compact open; f quasi-separated of finite type; F of finite type, flat and finitely presented over U."
+        "S qcqs; U ⊆ S quasi-compact open; in (i) f of finite type and quasi-separated with X_U → U flat and locally of finite presentation; in (ii) X quasi-compact and locally of finite presentation over S, F of finite type with F_U flat and of finite presentation."
       ],
       "proofSteps": [
-        "For separated f, reduce to f of finite presentation by noetherian approximation and the closed immersion into a finitely presented X-scheme (AdicCoefficientsAndComparisons L2); Stacks 081R treats quasi-separated finite-type f directly.",
-        "Apply Raynaud–Gruson's flattening theorem (RG Thm 5.2.2 locally, globalised in §5.7) as in Stacks 0815, and descend the admissible blow-up; Stacks 081R removes the finite-presentation hypothesis on f.",
+        "(ii) is Raynaud–Gruson's flattening theorem (RG Theorem 5.2.2 locally, globalised in §5.7) in the form of Stacks 0815. For separated f, (i) reduces to (ii) through a closed immersion of X into a separated finitely presented S-scheme and noetherian approximation (AdicCoefficientsAndComparisons L2); Stacks 081R treats quasi-separated finite-type f directly.",
+        "The blow-ups are U-admissible and are descended from the local constructions; no finite presentation of f itself is needed in (i), only over U.",
         "Strict transforms along modifications are those of Scheme and stack foundations §4.11; generic flatness (§4.12) gives the dense U when S is integral (Stacks 052A)."
       ],
       "acceptance": [
@@ -985,7 +999,7 @@
         {
           "sourceId": "stacks",
           "locator": "Tag 081R (Lemma 38.31.1) and Tag 0815 (Theorem 38.30.7)",
-          "match": "Raynaud–Gruson flattening by U-admissible blow-up for finite-type quasi-separated morphisms over qcqs bases, without finite presentation of the morphism."
+          "match": "Tag 081R flattens a quasi-separated finite-type morphism by a U-admissible blow-up when it is flat and locally of finite presentation over U; Tag 0815 is the module version for a quasi-compact X locally of finite presentation over the base."
         },
         {
           "sourceId": "temkin17",
@@ -1335,9 +1349,9 @@
         "S noetherian, excellent, dim S ≤ 2."
       ],
       "proofSteps": [
-        "Y is excellent of dimension ≤ 2 (proper over S). By CJS Theorem 0.1, Y_red has a canonical resolution by a finite sequence of blow-ups in permissible centres in the singular locus; each step is projective, so the composite Y₁ → Y is a projective modification with Y₁ regular.",
-        "Replace Z by its preimage and blow up along it (projective), then resolve again; now the preimage D of Z is the support of an effective Cartier divisor on a regular excellent surface Y₂.",
-        "Apply CJS Theorem 0.3 (embedded resolution with boundary) to D_red ⊆ Y₂ with empty boundary, in its version allowing boundary components (CJS Theorem 5.9): the result is a sequence of blow-ups π : Y′ → Y₂ with the strict transform D′ regular and meeting the exceptional snc divisor transversally. Every point of π⁻¹(D) lies on D′ or on an exceptional component, so π⁻¹(D) is a union of components of the snc divisor D′ ∪ B′ (PA.0/snc-support), hence an snc support."
+        "Y is excellent of dimension ≤ 2, being of finite type and generically finite over S. By Cossart–Jannsen–Saito Theorem 0.1, Y_red has a canonical resolution by a finite sequence of blow-ups in permissible centres inside the singular locus, so Y₁ → Y is a projective modification with Y₁ regular.",
+        "Let D ⊆ Y₁ be the reduced preimage of Z, nowhere dense because Y₁ → Y is an isomorphism over a dense open. Cossart–Jannsen–Saito Corollary 0.4, applied to the regular excellent Y₁ and the reduced closed subscheme D of dimension ≤ 1, gives a projective surjective π : Y′ → Y₁, an isomorphism off D, with Y′ regular and π⁻¹(D)_red a strict normal crossings divisor (its proof applies Theorem 0.3 with empty boundary and then blows up the regular strict transform).",
+        "The composite Y′ → Y is a projective modification with Y′ regular, and the preimage of Z is π⁻¹(D), an snc support (PA.0/snc-support)."
       ],
       "acceptance": [
         "For S = Spec of a two-dimensional excellent regular local ring and Z its closed point, the blow-up of the closed point is a resolution with Z′ the exceptional curve."
@@ -1351,8 +1365,8 @@
       "sources": [
         {
           "sourceId": "cjs",
-          "locator": "Theorems 0.1–0.3, arXiv v2 pp. 2–4",
-          "match": "Canonical resolution of reduced excellent noetherian schemes of dimension at most two by permissible blow-ups, canonical embedded resolution in a regular excellent ambient scheme, and embedded resolution with a simple normal crossings boundary."
+          "locator": "Theorems 0.1–0.3 and Corollary 0.4, arXiv v2 pp. 3–4",
+          "match": "Canonical resolution of reduced excellent noetherian schemes of dimension at most two by permissible blow-ups, embedded resolution with boundary, and, for a reduced closed subscheme of dimension at most two of a regular excellent scheme, a projective modification, an isomorphism off it, after which its reduced preimage is a strict normal crossings divisor."
         },
         {
           "sourceId": "ilo14",
@@ -1374,14 +1388,14 @@
       ],
       "title": "Universal resolvability of quasi-excellent threefolds",
       "kind": "theorem",
-      "statement": "Every noetherian quasi-excellent scheme S of dimension at most three is universally resolvable: for every alteration Y → S and nowhere dense closed Z ⊆ Y there is a projective modification Y′ → Y with Y′ regular and the preimage of Z an snc support.",
+      "statement": "Every noetherian quasi-excellent scheme S of dimension at most three is universally resolvable: for every alteration Y → S and nowhere dense closed Z ⊆ Y there is a projective modification Y′ → Y with Y′ regular and the preimage of Z an snc support. For separated S the proper version is established here; the global projectivity of Y′ → Y is established when Y is affine and is open gap G1 otherwise.",
       "hypotheses": [
         "S noetherian, quasi-excellent, dim S ≤ 3."
       ],
       "proofSteps": [
         "Y is quasi-excellent of dimension ≤ 3. By Cossart–Piltant Theorem 1.1 the reduced separated pieces of Y admit a proper birational π : Y₁ → Y_red with Y₁ regular, π an isomorphism over the regular locus and π⁻¹(Sing Y) snc; π is projective over each member of a chosen finite affine cover.",
-        "Blow up the preimage of Z and resolve again, so that the preimage D of Z is the support of an effective Cartier divisor on a regular quasi-excellent Y₂. A regular quasi-excellent scheme is Cohen–Macaulay, hence universally catenary, hence excellent (Scheme and stack foundations §§0.16–0.21), so CJS Theorem 0.3 applies to D_red ⊆ Y₂ (D_red has dimension ≤ 2) and makes the preimage of D a union of components of an snc divisor, as in PA.0/resolvability-excellent-dimension-two.",
-        "Global projectivity of the composite: the Cossart–Piltant step is only known to be projective over the members of an affine cover; the blow-ups are projective. Global projectivity of the first step is recorded as gap G1."
+        "Let D ⊆ Y₁ be the reduced preimage of Z, nowhere dense of dimension ≤ 2. A regular quasi-excellent scheme is Cohen–Macaulay, hence universally catenary, hence excellent (Scheme and stack foundations §§0.16–0.21), so Cossart–Jannsen–Saito Corollary 0.4 gives a projective π : Y′ → Y₁, an isomorphism off D, with Y′ regular and π⁻¹(D)_red a strict normal crossings divisor, as in PA.0/resolvability-excellent-dimension-two.",
+        "Global projectivity of the composite: the Cossart–Piltant step is projective over each member of a chosen finite affine cover, hence globally projective when Y is affine (it is then the blow-up of an ideal, Cossart–Piltant Remark 1.4); the Corollary 0.4 step is projective. Global projectivity of the first step for non-affine Y is recorded as gap G1."
       ],
       "acceptance": [
         "For S = Spec of a reduced complete noetherian local ring of dimension three, Cossart–Piltant Corollary 1.2 gives a projective good resolution."
@@ -1395,8 +1409,8 @@
       "sources": [
         {
           "sourceId": "cp19",
-          "locator": "Theorem 1.1, arXiv v2 pp. 3–4; Corollary 1.2, p. 4",
-          "match": "Resolution of reduced separated noetherian quasi-excellent schemes of dimension at most three by a proper birational morphism that is an isomorphism over the regular locus with snc preimage of the singular locus, projective over a specified finite affine cover; projective in the complete local case."
+          "locator": "Theorem 1.1, arXiv v2 pp. 3–4; Corollary 1.2 and Remark 1.4, p. 4",
+          "match": "Resolution of reduced separated noetherian quasi-excellent schemes of dimension at most three by a proper birational morphism that is an isomorphism over the regular locus with snc preimage of the singular locus, projective over a specified finite affine cover; projective in the complete local case, and the blow-up of an ideal when the scheme is affine."
         },
         {
           "sourceId": "temkin17",
@@ -1405,8 +1419,8 @@
         },
         {
           "sourceId": "cjs",
-          "locator": "Theorem 0.3, arXiv v2 pp. 3–4",
-          "match": "Embedded resolution with boundary for two-dimensional subschemes of a regular excellent scheme."
+          "locator": "Corollary 0.4 (with Theorem 0.3), arXiv v2 p. 4",
+          "match": "For a reduced closed subscheme of dimension at most two of a regular excellent scheme, a projective modification, an isomorphism off it, after which its reduced preimage is a strict normal crossings divisor."
         }
       ],
       "library": {
@@ -2516,7 +2530,7 @@
       ],
       "proofSteps": [
         "Repair E6: a maximal unrestricted P-extension may contain purely inseparable subextensions when char K ∈ P, so Theorem 3.2.12 does not give a separable K′.",
-        "K̄^s is separably P-closed (GF.0/separably-p-closed). Separable P-closedness of K̄^s is P-closedness of its perfection (GF.2/perfection-tame-tower), and the separable tame tower is unchanged by the purely inseparable base change to the perfection, so L K̄^s/K̄^s is S̄-tame at all points of residue characteristic in P (PA.2/p-closed-p-tame, separable part).",
+        "A maximal separable P-extension K̄^s of K exists by Zorn's lemma inside K^s, as for maximal P-extensions (GF.0/maximal-p-extension), and it is separably P-closed (GF.0/separably-p-closed): a finite separable P-extension of it is a separable P-extension of K. Separable P-closedness of K̄^s is P-closedness of its perfection (GF.2/perfection-tame-tower), and the separable tame tower is unchanged by the purely inseparable base change to the perfection, so L K̄^s/K̄^s is S̄-tame at all points of residue characteristic in P (PA.2/p-closed-p-tame, separable part).",
         "Repeat the compactness argument of Theorem 3.2.12 with finite separable K_x ⊆ K̄^s."
       ],
       "acceptance": [
@@ -2527,7 +2541,7 @@
         "AdicCoefficientsAndComparisonsPartII:PA.2/p-closed-p-tame",
         "LocalFieldsRamificationPartII:GF.0/separably-p-closed",
         "LocalFieldsRamificationPartII:GF.2/perfection-tame-tower",
-        "LocalFieldsRamificationPartII:GF.3/maximal-ramification-extension"
+        "LocalFieldsRamificationPartII:GF.0/maximal-p-extension"
       ],
       "sources": [
         {
@@ -2557,7 +2571,7 @@
       "proofSteps": [
         "Define D_x via Mathlib's `MulAction.stabilizer` for the action on points and G_x as the kernel of D_x → Aut κ(x).",
         "Inertia specializing ⇔ every X^H is closed (ILO X 3.1.3); separated X, or X covered by G-stable separated opens, gives an inertia specializing action (X 3.1.4(i)).",
-        "Admissible actions have quotients: glue the affine invariant quotients (ModularCurves 0C, Tau Ceti `AffineInvariantQuotient`); for Y projective over a noetherian S this is Scheme and stack foundations §1.17 `finiteGroupQuotient_projective`."
+        "Admissible actions have quotients: glue the affine invariant quotients (ModularCurves 0C; Tau Ceti `AffineInvariantQuotient`, present in Tau Ceti main but not at the pinned f790474); for Y projective over a noetherian S this is Scheme and stack foundations §1.17 `finiteGroupQuotient_projective`."
       ],
       "acceptance": [
         "±1 acting on A^2_k (char k ≠ 2) has inertia G at the origin and trivial inertia elsewhere; the action is tame.",
@@ -2666,7 +2680,7 @@
         {
           "name": "not_inertia_specializing_doubled_origin",
           "kind": "non-example",
-          "statement": "Z/2 acting on the plane with doubled origin by y ↦ −y and swapping the origins is not inertia specializing: X^G is not closed (ILO X 3.1.1)."
+          "statement": "For char k ≠ 2, Z/2 acting on the plane with doubled origin by y ↦ −y and swapping the origins is not inertia specializing: X^G is not closed (ILO X 3.1.1)."
         },
         {
           "name": "decompositionGroup_one",
@@ -2934,7 +2948,7 @@
       ],
       "proofSteps": [
         "Define from PA.1/absolute-rz and PA.2/tame-locus.",
-        "Bound: a finite tame-failing extension of a valued field of residue characteristic p has degree divisible by p, so p ≤ [k(Y) : k(X)]; and p is a residue characteristic of a valuation centred on X, hence of a point of X."
+        "Bound: if k(Y)/k(X) is wild at a point of residue characteristic p, the corresponding factor L_x^h/K^h of k(Y) ⊗ K^h is a henselian extension that is not tame, so its degree is divisible by p (a henselian extension of degree prime to the residue characteristic is tame); as [L_x^h : K^h] ≤ [k(Y) : k(X)], p ≤ deg f. The degree [k(Y) : k(X)] itself need not be divisible by p. And p is a residue characteristic of a valuation centred on X, hence of a point of X."
       ],
       "acceptance": [
         "Spec Z[i] → Spec Z has P^w = {2}."
@@ -3566,7 +3580,7 @@
         {
           "name": "satLogBlowup_differs",
           "kind": "non-example",
-          "statement": "For a log regular toric pair whose monoid P is saturated but not free (the A_1 cone generated by (2,0), (1,1), (0,2)), the unsaturated log blow-up of an ideal of P need not be normal; its saturation is the normalized blow-up."
+          "statement": "For the A_1 monoid P ⊂ Z² generated by (2,0), (1,1), (0,2) (Spec k[P] = Spec k[u, v, w]/(uw − v²)) and the ideal of P generated by (2,0) and (0,2), the unsaturated log blow-up, which is the ordinary blow-up along (u, w), has the non-normal chart Spec k[u, v, s]/(v² − u²s) with s = w/u; its saturation adjoins v/u and is the normalized blow-up, with regular chart Spec k[u, v/u]."
         }
       ]
     },
@@ -3589,7 +3603,7 @@
       ],
       "acceptance": [
         "For X regular with snc boundary, F̃^log(X) is the identity.",
-        "For the log regular pair (Spec k[u, v, w]/(uw − v²), V(v)), F̃^log is the toric resolution given by subdividing the cone of the A_1 singularity, whose underlying morphism is the blow-up of the vertex."
+        "For the log regular pair (Spec k[u, v, w]/(uw − v²), V(v)), F̃^log is the toric resolution given by subdividing the cone of the A_1 singularity, whose underlying morphism is the blow-up of the vertex. (ILO VIII 1.2(b) identifies the log blow-up of the vertex with the canonical resolution of this toric singularity.)"
       ],
       "prerequisites": [
         "AdicCoefficientsAndComparisonsPartII:PA.4/log-blowup",
@@ -3641,7 +3655,7 @@
         "Glue the local constructions f(G_x, X_x, Z_x) along specializations, which uses G_x ⊆ G_y (inertia specializing), and bound the normalization threshold by the log-inertia combinatorics (ILO X 3.1.5 proof)."
       ],
       "acceptance": [
-        "For ±1 on (A^2_k, ∅), char k ≠ 2: the blow-up of the origin satisfies all the conclusions, with X′ log regular, Z′ the exceptional line and the action very tame; it is not log smooth over k (VIII 1.2(a))."
+        "For ±1 on (A^2_k, ∅), k algebraically closed of characteristic ≠ 2: the blow-up f : X′ → A^2_k of the origin satisfies all the conclusions, with (X′, Z′) log regular for Z′ the exceptional line and the action very tame. The morphism f is not log smooth (its fibre over the origin is Z′ with the log structure of N sending 1 to 0), although (X′, Z′) is log smooth over k (ILO VIII 1.2(a))."
       ],
       "prerequisites": [
         "AdicCoefficientsAndComparisonsPartII:PA.4/monoidal-desingularization",
@@ -3823,7 +3837,7 @@
       ],
       "proofSteps": [
         "Apply Gabber's preparation lemma with G = 1: (i) Q = {1}, P^× torsion free, gives X̃ étale over an affine space times Spec Λ[P] with P free on the branches, i.e. smooth with relative snc boundary.",
-        "(ii) Q = N with 1 ↦ π, P = Z^μ ⊕ N^ν; the image of 1 in P gives the exponents (a_i), (b_j), and the invertibility of the torsion of Coker(Z → P^gp) gives gcd(p, a, b) = 1; the horizontal part of Ẽ is cut out by further coordinates t_j."
+        "(ii) Q = N with 1 ↦ π, and P = P^× ⊕ P₁ with P^× free abelian and P₁ ≅ N^m (the branches of Ẽ through the point); the image of 1 in P gives the exponents (b_j) on the unit coordinates and (a_i) on the branches, the invertibility of the torsion of Coker(Z → P^gp) gives gcd(p, a, b) = 1, and the horizontal part of Ẽ is cut out by further coordinates t_j. ILO prints the two ranks inconsistently (source issue E13)."
       ],
       "acceptance": [
         "For X̃ = Spec Z_p[x, y]/(xy − p) over Spec Z_p with Ẽ the special fibre, the local form has a_1 = a_2 = 1."
@@ -4053,7 +4067,7 @@
       ],
       "title": "Equivariance of stable modification",
       "kind": "theorem",
-      "statement": "In the existence theorem, if S′ is normal, the natural actions of Aut(S′/S) and of Aut_S(C, D) × Aut_S(S′) on (C, D) ×_S S′ lift equivariantly to the stable modification (C′^st, D′^st).",
+      "statement": "In the existence theorem, if S′ is normal, the natural action of Aut_S(C, D) × Aut_S(S′) on (C, D) ×_S S′ lifts equivariantly to the stable modification (C′^st, D′^st).",
       "hypotheses": [
         "As in PA.5/stable-modification-existence, with S′ normal."
       ],
@@ -4070,7 +4084,7 @@
         {
           "sourceId": "temkin10",
           "locator": "Corollary 1.6, arXiv v3 p. 4",
-          "match": "States that the actions of the automorphism groups lift equivariantly to the stable modification when S′ is normal."
+          "match": "States that for normal S′ the natural actions of automorphism groups on (C, D) ×_S S′, in particular of Aut_S((C, D)) × Aut_S(S′), lift equivariantly to the stable modification."
         }
       ],
       "library": {
@@ -4347,12 +4361,12 @@
       ],
       "title": "Desingularization by char(X)-alterations",
       "kind": "theorem",
-      "statement": "Let X be a scheme with a nowhere dense closed subset Z, admitting a morphism of finite type to a noetherian quasi-excellent scheme S with dim S ≤ 3. Then there is a projective char(X)-alteration b : X′ → X with X′ regular and b⁻¹(Z) an snc support. If S = Spec k with k perfect, b can be chosen separable.",
+      "statement": "Let X be a scheme with a nowhere dense closed subset Z, admitting a morphism of finite type to a noetherian quasi-excellent scheme S with dim S ≤ 3. Then there is a projective char(X)-alteration b : X′ → X with X′ regular and b⁻¹(Z) an snc support. If S = Spec k with k perfect, b can be chosen separable. When S is handled through the Cossart–Piltant input (dimension three, or dimension two and not excellent), the projectivity of b rests on gap G1.",
       "hypotheses": [
-        "X → S of finite type; S noetherian, quasi-excellent, separated, dim S ≤ 3; Z ⊆ X nowhere dense closed."
+        "X → S of finite type; S noetherian, quasi-excellent, dim S ≤ 3; Z ⊆ X nowhere dense closed. Through Cossart–Piltant the proof uses S separated; gap G1 covers the non-separated case and global projectivity."
       ],
       "proofSteps": [
-        "Replace S by the closure of the image and then by an open subscheme containing the image of X with char(S) = char(X): char(S) ∖ char(X) is finite for a dominant finite-type map (PA.0/residue-characteristics), and the fibres over those primes are removed.",
+        "Replace X by the disjoint union of its irreducible components with reduced structure (an alteration of X, so resolving it suffices) and treat each separately; each maps dominantly, hence maximally dominantly, to the closure of its image in S, which is again noetherian, quasi-excellent and of dimension ≤ 3. Then replace S by an open subscheme containing the image of X with char(S) = char(X): char(S) ∖ char(X) is finite for a dominant finite-type map (PA.0/residue-characteristics), and the fibres over those primes are removed.",
         "S is universally resolvable (PA.0/resolvability-dimension-three; for dim S ≤ 2 excellent, PA.0/resolvability-excellent-dimension-two; dim ≤ 1, PA.0/resolvability-dimension-one), hence universally char(S)-resolvable.",
         "By PA.6/universal-p-resolvability-inheritance with P = char(S) = char(X), X is universally char(X)-resolvable; apply it to the alteration id_X. Over a perfect field use PA.6/perfect-field-separable."
       ],
@@ -4400,10 +4414,10 @@
       "kind": "theorem",
       "statement": "Let f : X → S be a maximally dominating morphism of finite type, Z ⊆ X nowhere dense closed, X separated and S of finite type over a noetherian quasi-excellent scheme of dimension at most three. (i) There are char(S)-alterations a : S′ → S and b : X′ → X with regular sources, both projective, a quasi-projective f′ : X′ → S′ compatible with f, and snc supports W′ ⊆ S′, Z′ ⊆ X′ with Z′ = b⁻¹(Z) ∪ f′⁻¹(W′) and (X′, Z′) → (S′, W′) log smooth. (ii) If S = Spec k with k perfect, a can be taken an isomorphism and b separable. Without separatedness of X the same holds with f′ pseudo-projective.",
       "hypotheses": [
-        "f maximally dominating of finite type; X separated; S of finite type over a noetherian qe scheme of dimension ≤ 3 (separated)."
+        "f maximally dominating of finite type; X separated; S of finite type over a noetherian quasi-excellent scheme T of dimension ≤ 3. When T is handled through Cossart–Piltant (dimension three, or dimension two and not excellent), T is taken separated and the projectivity of a and b rests on gap G1."
       ],
       "proofSteps": [
-        "S is universally char(S)-resolvable: PA.0/resolvability-dimension-three for the base threefold and PA.6/universal-p-resolvability-inheritance for S over it.",
+        "S is universally char(S)-resolvable by the argument of PA.6/char-x-altered-desingularization (Temkin §4.3.2): work componentwise, replace T by the closure of the image of S and then by an open subscheme containing it with char(T) = char(S); T is universally resolvable (PA.0/resolvability-dimension-three, or PA.0/resolvability-dimension-one and PA.0/resolvability-excellent-dimension-two in low dimension), and PA.6/universal-p-resolvability-inheritance applies to S → T with P = char(T).",
         "Apply PA.6/morphism-p-desingularization with P = char(S); f′ is pseudo-projective, and quasi-projective because X′ is separated (PA.0/pseudo-projective).",
         "(ii) is PA.6/perfect-field-separable."
       ],
@@ -4415,7 +4429,8 @@
         "AdicCoefficientsAndComparisonsPartII:PA.6/universal-p-resolvability-inheritance",
         "AdicCoefficientsAndComparisonsPartII:PA.6/perfect-field-separable",
         "AdicCoefficientsAndComparisonsPartII:PA.0/resolvability-dimension-three",
-        "AdicCoefficientsAndComparisonsPartII:PA.0/pseudo-projective"
+        "AdicCoefficientsAndComparisonsPartII:PA.0/pseudo-projective",
+        "AdicCoefficientsAndComparisonsPartII:PA.6/char-x-altered-desingularization"
       ],
       "sources": [
         {
@@ -4662,7 +4677,7 @@
       ],
       "proofSteps": [
         "Follow the proof of de Jong's Theorem 4.1 (Scheme and stack foundations §4.19) equivariantly: reduce to X projective, Z a divisor and X normal (dJ96 7.7–7.9).",
-        "Apply the fibration lemma 4.11 to X/G and the branch locus, take the G-equivariant fibration of X, use Lemma 4.13 for the three-point divisor, and the equivariant stable curve and nodal resolution steps (dJ96 7.10–7.18, Scheme and stack foundations §4.18), with G-strict normal crossings (dJ96 7.1–7.2)."
+        "Apply the fibration lemma 4.11 to X/G and the branch locus, take the G-equivariant fibration of X, use Lemma 4.13 for the three-point divisor, and the equivariant stable curve and nodal resolution steps (dJ96 7.10–7.16, Scheme and stack foundations §4.18), with G-strict normal crossings (dJ96 7.1–7.2)."
       ],
       "acceptance": [
         "For G = 1 this is de Jong's Theorem 4.1 over an algebraically closed field with a Galois alteration."
@@ -4675,7 +4690,7 @@
       "sources": [
         {
           "sourceId": "dejong96",
-          "locator": "Theorem 7.3, p. 88; proof 7.5–7.18, pp. 88–90",
+          "locator": "Theorem 7.3, p. 88; proof 7.5–7.16, pp. 88–90",
           "match": "The equivariant alteration theorem over an algebraically closed field, with G-strict normal crossings boundary and purely inseparable extension of invariant function fields."
         },
         {
@@ -4717,7 +4732,7 @@
       "sources": [
         {
           "sourceId": "dejong96",
-          "locator": "§8.1 and Theorem 8.2, p. 91; proof 8.3–8.4, pp. 91–92",
+          "locator": "§8.1 and Theorem 8.2, p. 91; proof 8.3–8.8, pp. 91–92",
           "match": "Altered semistable reduction for varieties over a Dedekind scheme with global fraction field: regular projective compactification with snc boundary, relative normal crossings over an open and strict semistable pairs at the remaining points after a finite extension of Dedekind schemes."
         },
         {
@@ -4788,7 +4803,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
-      "need": "Consume the affine invariant quotient of a finite group action (Tau Ceti `AffineInvariantQuotient`): Spec A → Spec A^G finite, surjective, with orbit fibres. No new statement is requested.",
+      "need": "Consume the affine invariant quotient of a finite group action (Tau Ceti `AffineInvariantQuotient`, present in Tau Ceti main but not at the pinned f790474): Spec A → Spec A^G finite, surjective, with orbit fibres. No new statement is requested.",
       "neededBy": [
         "AdicCoefficientsAndComparisonsPartII:PA.3/finite-group-action"
       ]
@@ -4848,7 +4863,7 @@
         "AdicCoefficientsAndComparisonsPartII:PA.6/char-x-altered-desingularization",
         "AdicCoefficientsAndComparisonsPartII:PA.6/char-s-desingularization-of-morphisms"
       ],
-      "detail": "Universal P-resolvability is used with projective resolving alterations (ILO Exposé X §3.3.3; source issue E5). Cossart–Piltant Theorem 1.1 resolves a reduced separated noetherian quasi-excellent scheme Y of dimension at most three by a proper birational morphism that is projective only over the members of a specified finite affine cover (projective when Y = Spec of a complete local ring, Corollary 1.2). Neither Temkin §4.3.2 nor ILO X Remark 3.3.4 derives a globally projective resolution of an arbitrary (possibly non-affine, possibly non-separated) alteration Y of a qe threefold with snc preimage of a given nowhere dense Z. The embedded part is supplied by Cossart–Jannsen–Saito Theorem 0.3 in the regular (hence excellent) ambient; global projectivity of the first step, and the non-separated case, are not established here. This affects the projectivity of a and b in Temkin Theorems 1.2.5 and 1.2.9 when the base threefold is not covered by excellent schemes of dimension at most two; the dimension ≤ 2 excellent and dimension ≤ 1 cases, and every statement over fields and one-dimensional bases (ILO X 2.1, 2.4, Jannsen 2.11, Dittmann–Pop 3.4), do not depend on it."
+      "detail": "Universal P-resolvability is used with projective resolving alterations (ILO Exposé X §3.3.3; source issue E5). Cossart–Piltant Theorem 1.1 resolves a reduced separated noetherian quasi-excellent scheme Y of dimension at most three by a proper birational morphism that is projective only over the members of a specified finite affine cover (projective when Y = Spec of a complete local ring, Corollary 1.2). Neither Temkin §4.3.2 nor ILO X Remark 3.3.4 derives a globally projective resolution of an arbitrary (possibly non-affine, possibly non-separated) alteration Y of a qe threefold with snc preimage of a given nowhere dense Z. The embedded part is supplied by Cossart–Jannsen–Saito Corollary 0.4 (from their Theorem 0.3) in the regular (hence excellent) ambient, and the first step is projective when Y is affine (Cossart–Piltant Remark 1.4); global projectivity of the first step, and the non-separated case, are not established here. This affects the projectivity of a and b in Temkin Theorems 1.2.5 and 1.2.9 whenever the base is handled through the Cossart–Piltant input (dimension three, or dimension two and not excellent); the dimension ≤ 2 excellent and dimension ≤ 1 cases, and every statement over fields and one-dimensional bases (ILO X 2.1, 2.4, Jannsen 2.11, Dittmann–Pop 3.4), do not depend on it."
     }
   ],
   "sourceIssues": [
@@ -4866,7 +4881,12 @@
         "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
         "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on pp. 121–122 of the published article: Theorem 4.2.1 assumes only char(X) ⊆ P, and Step 4 applies Theorem 3.3.6, whose bottom factor is a P^w-alteration with P^w the wild primes of S̄ → S, contained in char(S); wild primes over the fibres that f(X) misses can lie outside P. Theorem 4.3.1 uses 4.2.1 only under char(S) ⊆ P, the scope the packet states.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E2",
@@ -4874,7 +4894,7 @@
       "kind": "misprint",
       "locator": "Ann. of Math. 186 (2017), proof of Lemma 3.3.7, p. 120; page image checked",
       "printed": "The source calls the direct implication immediate and proves the inverse. It places the induced valuations on L_i in S′ for every K-isomorphism L_i = L, concludes that each L_i/K is tame, and identifies L with the composite of L₁, …, L_n to deduce tameness of L/K.",
-      "correction": "The inverse implication is obvious, so let us prove the direct one. … hence the induced valuations on L_i lie in S … and since L′ is the composite of L₁, …, L_n, the extension L′/K is tame too.",
+      "correction": "Exchange the two directions: the implication from S′-tameness of L′/K to S-tameness of L/K is the immediate one (subextensions of tame extensions are tame), and the argument that follows proves the converse. In that argument the valuations induced on the conjugates L_i lie in S, not S′, and the composite of the L_i is the Galois closure L′, so the conclusion is that L′/K is tame.",
       "reason": "'L′/K is S′-tame ⇒ L/K is S-tame' is the obvious direction, since subextensions of tame extensions are tame. The argument shows 'L/K S-tame ⇒ L′/K S′-tame', and the composite of the conjugates L_i is the Galois closure L′, not L. The same text is in arXiv v2.",
       "affects": "nothing",
       "known": "new (first recorded in the PAPER-TEMKIN-17 extraction of this atlas)",
@@ -4882,7 +4902,12 @@
         "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
         "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on p. 120: the proof calls the direct implication obvious and proves the other one, but the argument given (tameness of every conjugate L_i, then of their composite) is the non-trivial passage from L to its Galois closure; the induced valuations on L_i lie in S and the composite of the L_i is L′.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E3",
@@ -4890,7 +4915,7 @@
       "kind": "misprint",
       "locator": "Ann. of Math. 186 (2017), proof of Theorem 2.6.6, p. 112; page image checked",
       "printed": "The source cites Corollary 2.5.6(ii) for d = 1 and then restricts attention to d > 1.",
-      "correction": "The case d = 1 is covered by Corollary 2.5.6, …",
+      "correction": "Cite Corollary 2.5.6 itself for height one; it has a single assertion and no part (ii).",
       "reason": "Corollary 2.5.6 has a single assertion, that p-closed valued fields of height one are tame; there is no part (ii). Also in arXiv v2.",
       "affects": "nothing",
       "known": "new (first recorded in the PAPER-TEMKIN-17 extraction of this atlas)",
@@ -4898,7 +4923,12 @@
         "2026-09-29: the Annals article is freely available at annals.math.princeton.edu (SHA-256 1f4ac06f…) and was read; arXiv:1508.06255v2 (21 Feb 2017, 'final version') was compared: same statements and numbering, and E1–E3 are present in both.",
         "2026-09-29: the Annals page and Crossref list no erratum. Not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on p. 112: the proof of Theorem 2.6.6 cites part (ii) of Corollary 2.5.6, which has a single assertion.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E4",
@@ -4914,15 +4944,20 @@
         "29 September 2026: the Annals article page https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; the Crossref record of doi:10.4007/annals.2017.186.1.3 has no update-to or updated-by relation, and a Crossref search for works updating it returns none.",
         "29 September 2026: arXiv https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as the last version; the same sentence is on its p. 13.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on pp. 111–112: by §2.6.2 the exponent p_i of the residue field of K_i is 1 for i < n, so 'p = char(K̃_i)' fails there; the argument needs the residue characteristic of the valued field K̃_i, which is that of K, and then concludes as the packet says.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E5",
       "source": "temkin17",
       "kind": "gap",
       "locator": "Ann. of Math. 186 (2017), §4.1.4, p. 121, and §4.3.2, p. 124 (arXiv v2, pp. 21, 23)",
-      "printed": "The source specifies an alteration of type P.",
-      "correction": "Use a projective P-alteration in universal P-resolvability, as in Exposé X §3.3.3. Prove from the construction behind 4.3.1(ii) that the inverse image b⁻¹(Z) itself is snc when establishing (i); projectivity plus an snc enlargement is insufficient.",
+      "printed": "Section 4.1.4 defines universal P-resolvability through P-alterations that are only required to be proper, while Theorems 1.2.5 and 4.3.1(ii) conclude that the resolving alterations are projective, and the proof of 4.3.1 obtains (i) from (ii) by the argument of [IT14b, Th. 3.5].",
+      "correction": "Use a projective P-alteration in universal P-resolvability, as in Exposé X §3.3.3. Prove from the construction behind 4.3.1(ii) that the inverse image b⁻¹(Z) itself is snc when establishing (i); projectivity plus an snc enlargement is insufficient. The repair used here (PA.6/universal-p-resolvability-inheritance) first blows up the alteration along Z, so that the preimage of Z is the support of an effective Cartier divisor and hence a union of components of the snc divisor produced by (ii).",
       "reason": "Temkin's alteration definition is proper, not projective. Exposé X includes projectivity, but its proof of Theorem 3.5 also infers (i) from (ii) without explaining the exact inverse-image condition. For S=X=Spec of a regular excellent two-dimensional local ring, f=a=b=f′=id, Z the closed point and W′=Z′=V(xy), all boundary/log-smooth conclusions of (ii) hold but b⁻¹(Z) is a point, not a divisor. Thus neither the old extraction note nor (ii) alone supplies the needed claim. The blueprint must track the stronger construction.",
       "affects": "the proof",
       "known": "Illusie–Temkin, Exposé X §3.3.3 includes projectivity in the source definition; the construction-level inverse-image obligation remains explicit.",
@@ -4931,7 +4966,12 @@
         "2026-09-30: https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; Crossref work 10.4007/annals.2017.186.1.3 has relation {}, no update-to or updated-by.",
         "2026-09-30: https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as latest; the author publication page and a title/erratum search disclosed no correction. This is not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "§4.1.4 (p. 121) omits the projectivity that Exposé X §3.3.3 (p. 159) requires and that Step 9 of 4.2.1 and the projectivity conclusions of 1.2.5 and 4.3.1 need; Exposé X derives (i) from (ii) in one sentence (proof of 3.5, p. 162), which does not control b⁻¹(Z) itself. The packet's example with identity maps and Z′ = V(xy) satisfies (ii) with b⁻¹(Z) a point.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E6",
@@ -4948,7 +4988,12 @@
         "2026-09-30: https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; Crossref work 10.4007/annals.2017.186.1.3 has relation {}, no update-to or updated-by.",
         "2026-09-30: https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as latest; the author publication page and a title/erratum search disclosed no correction. This is not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Step 4 of 4.2.1 (p. 122) uses Theorem 3.3.6 also in the separable alternative; the field K′ of Theorem 3.2.12 is taken in a maximal P-extension, which has inseparable subextensions when char K ∈ P, so the bottom factor need not be separable. The separable variants through the perfection repair it.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E7",
@@ -4965,7 +5010,12 @@
         "2026-09-30: https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; Crossref work 10.4007/annals.2017.186.1.3 has relation {}, no update-to or updated-by.",
         "2026-09-30: https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as latest; the author publication page and a title/erratum search disclosed no correction. This is not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on p. 117: injectivity of O_x′[t, f′(t)⁻¹]/(f) → L is justified by f being the minimal polynomial of a, but Chevalley's presentation only provides a monic f with f′(a) a unit; with f = t(t − 1) over Z_(p) and a = 0 the map kills an idempotent. Replacing f by the minimal polynomial, which divides f in O_x[t] since O_x is integrally closed, repairs it.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E8",
@@ -4982,7 +5032,12 @@
         "2026-09-30: https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; Crossref work 10.4007/annals.2017.186.1.3 has relation {}, no update-to or updated-by.",
         "2026-09-30: https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as latest; the author publication page and a title/erratum search disclosed no correction. This is not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on p. 115: the projection Val_K(X) → Val_K is said to be injective exactly when X is separated; for the F_p-point t = 1 of the doubled-origin line over F_p, Val_K(X) has one element, so the projection is injective although X is not separated. Only the forward implication is used.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E9",
@@ -4999,7 +5054,12 @@
         "2026-09-30: https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; Crossref work 10.4007/annals.2017.186.1.3 has relation {}, no update-to or updated-by.",
         "2026-09-30: https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as latest; the author publication page and a title/erratum search disclosed no correction. This is not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on p. 117: the proof of Lemma 3.2.10 refers to the first part of 'the theorem'; the statement is a lemma.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E10",
@@ -5016,7 +5076,12 @@
         "2026-09-30: https://annals.math.princeton.edu/2017/186-1/p03 lists no erratum; Crossref work 10.4007/annals.2017.186.1.3 has relation {}, no update-to or updated-by.",
         "2026-09-30: https://arxiv.org/abs/1508.06255 lists v2 (21 February 2017) as latest; the author publication page and a title/erratum search disclosed no correction. This is not an exhaustive novelty claim.",
         "2026-10-19: rechecked at the locator in the published article for this roadmap."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked on p. 123: Step 10 calls the composite morphism log regular, uses T̄ without definition and writes (X, S) for the target pair; ILO X 3.4 Step 10 (pp. 161–162) has the intended statements.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E11",
@@ -5024,14 +5089,19 @@
       "kind": "gap",
       "locator": "Temkin, Remark 1.2.3 and §4.3.2, pp. 99 and 124; with ILO Exposé X, Remark 3.3.4(ii), arXiv v1 p. 159, and Cossart–Piltant Theorem 1.1, arXiv v2 pp. 3–4",
       "printed": "Temkin takes qe threefolds to be universally resolvable by Cossart–Piltant and deduces projective char(X)-alterations; ILO X 3.3.3 requires the resolving morphisms to be projective.",
-      "correction": "Universal resolvability with projective resolutions and snc preimages of arbitrary nowhere dense closed subsets must be derived: the embedded part follows from Cossart–Jannsen–Saito Theorem 0.3 in the regular (hence excellent) resolved scheme, but Cossart–Piltant's Theorem 1.1 gives projectivity only over a chosen affine cover of a separated Y, so the global projectivity of the resolution of a non-affine alteration remains to be proved (gap G1 of this packet).",
+      "correction": "Universal resolvability with projective resolutions and snc preimages of arbitrary nowhere dense closed subsets must be derived: the embedded part follows from Cossart–Jannsen–Saito Corollary 0.4 (from their Theorem 0.3) in the regular (hence excellent) resolved scheme, but Cossart–Piltant's Theorem 1.1 gives projectivity only over a chosen affine cover of a separated Y, so the global projectivity of the resolution of a non-affine alteration remains to be proved (gap G1 of this packet).",
       "reason": "Cossart–Piltant Theorem 1.1 states (i) X′ regular, (ii) isomorphism over the regular locus, (iii) snc preimage of the singular locus, and projectivity of π⁻¹(U_i) → U_i for a specified affine cover; global projectivity and the embedded statement for an arbitrary Z are not stated.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "2026-10-19: Cossart–Piltant arXiv:1412.0868v2 introduction and §1 (Theorem 1.1, Corollaries 1.2–1.3); the journal version was not read.",
         "2026-10-19: Temkin's Annals article (Remarks 1.2.3, 1.2.6) and arXiv v2 list no correction; ILO arXiv v1 Exposé X §3.3."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Cossart–Piltant Theorem 1.1 (arXiv v2 pp. 3–4) gives a resolution projective over each member of a prescribed finite affine cover of a separated scheme (globally projective in the affine case, Remark 1.4) and says nothing about arbitrary nowhere dense Z; Temkin §4.3.2 (p. 124) and ILO X Remark 3.3.4(ii) (p. 159) pass from resolution to universal resolvability without addressing global projectivity. The embedded part is covered by Cossart–Jannsen–Saito Corollary 0.4.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     },
     {
       "id": "AdicCoefficientsAndComparisonsPartII/E12",
@@ -5045,7 +5115,31 @@
       "known": "new",
       "searched": [
         "2026-10-19: ILO arXiv:1207.3648v1, Exposé X §3.5; the arXiv listing has one version; no erratum to Astérisque 363–364 was found on the SMF site listing for the volume."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rechecked in the proof of ILO X 3.5, Step 3 (p. 163): the union b⁻¹(Z) ∪ f′⁻¹(W′) is asserted to be a subdivisor of Z′, which needs b⁻¹(Z) to be a divisor; the packet's example (the origin of A^2_k with Z′ = V(xy)) shows the reduction fails as written, and blowing up Z first repairs it.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
+    },
+    {
+      "id": "AdicCoefficientsAndComparisonsPartII/E13",
+      "source": "ilo14",
+      "kind": "misprint",
+      "locator": "ILO Exposé X, proof of Theorem 2.4 (§2.6), Step 3, arXiv v1 p. 155",
+      "printed": "The ranks of the unit part P* and of the sharp part P1 of the chart monoid are introduced as μ and ν, and the same sentence then decomposes P as a free abelian group of rank ν times N^μ; the later decomposition of P follows the second convention.",
+      "correction": "Take P* free abelian of rank ν and P1 ≅ N^μ (equivalently, swap the two letters in the first clause); the argument is unchanged.",
+      "reason": "The two clauses of one sentence assign the ranks μ and ν to opposite factors; the subsequent splitting of P into unit coordinates and branches uses ν for the units and μ for the branches.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-10-19: ILO arXiv:1207.3648v1, Exposé X §2.6 (the arXiv listing has a single version); the Astérisque version was not read, so the finding is scoped to the arXiv text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review after reading the locator.",
+        "by": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -5068,5 +5162,338 @@
       "sha256": "4ef87334b650bb451b0e9801496dd7c95b361233ca3615b1c45e2bef50a3f9ec"
     }
   ],
-  "restructure": []
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AdicCoefficientsAndComparisonsPartII",
+        "SchemeAndStackFoundations"
+      ],
+      "detail": "PA.0 plans general scheme-theoretic inputs that the merged Tau Ceti SchemeAndStackFoundations stops short of and that other routes also need: flattening of finite-type, not necessarily proper, morphisms (Stacks 081R; also requested by PAPER-BHATT-18 route 6 and by MotivesAndAlgebraicCycles), the non-separated Chow lemma, and universal resolvability of quasi-excellent schemes of dimension at most three (Cossart–Jannsen–Saito, Cossart–Piltant; also needed by PAPER-BHATT-ETAL-23 route 2). The PAPER-TEMKIN-17 routing sent these to SchemeAndStackFoundations SF.4, which is now an upstream Tau Ceti roadmap that does not plan them.",
+      "proposal": "Keep PA.0/finite-type-flattening, PA.0/nonseparated-chow-lemma and the three PA.0 resolvability nodes as the single owners of these statements, and let other consumers import them from PA.0. When the design of SchemeAndStackFoundations, Part II (issue #3361) is written, it either imports them from PA.0 or takes them over; in the second case these nodes are re-pointed to it."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AdicCoefficientsAndComparisonsPartII",
+    "date": "2026-10-19",
+    "notes": "Independent review of the design by Claude session claude-EzBIka (issue #3486), which did no part of the design (claude-ddRwUd, PR #10601). Every node was read against its source at the locator: Temkin 2017 read in full (published Annals text), ILO Travaux de Gabber Exposé X in full with Exposés VI §§1–3 and VIII §1, §§3.3–3.4 (arXiv v1), Temkin 2010 §§1 and 3.2, de Jong 1996 §§7–8, Cossart–Piltant §1, Cossart–Jannsen–Saito §0, Dittmann–Pop Proposition 3.4, Jannsen Theorem 2.11 and Stacks 081R, 0815, 052A, 0AVK, 0C45, 0BI4, 05K0; all eight SHA-256 values recorded in the packet match the files downloaded for this review. Result: 45 nodes verified, 18 corrected, none added. The corrections are local: a false step in the pseudo-projective proof (a local isomorphism with separated source need not be an open immersion; replaced by Zariski's main theorem), a module form of finite-type flattening that the cited Stacks tags do not give (restated as 081R and 0815), the embedded step of the resolvability nodes routed through Cossart–Jannsen–Saito Corollary 0.4, the dependence of the dimension-three, char(X) and char(S) theorems on gap G1 made explicit in their statements, a wrong supplier (GF.3 for a maximal separable P-extension), the wild-primes degree bound, an acceptance item of Gabber's absolute theorem that misread ILO VIII 1.2(a), de Jong locators misread from the OCR (7.5–7.16, 8.3–8.8), and several tests made definite. Baseline: all 32 declarations exist at Mathlib 082e2d3 and Tau Ceti f790474, and their statements were read; none removed. Suppliers read and confirmed: LocalFieldsRamificationPartII GF.0–GF.6, CrystallineCohomology CR.5:log-algebra, ClassicalAdicEtaleCohomology H1:henselian, AdicCoefficientsAndComparisons L2 (all accepted), and the SchemeAndStackFoundations sections and declaration names on TauCetiRoadmap main 69bd802; the CR.5 request is precise. Duplication: TauCetiRoadmap main 69bd802 (all 255 README and Suggested files) and the atlas packets were screened for alterations, Riemann–Zariski spaces of pointed schemes, log regular pairs, Gabber's theorems, stable modification and Cossart–Piltant; no other owner, and StableReduction's Lipman-type resolution is limited to models of smooth curves over a DVR. A rescope note records that the general inputs of PA.0 (finite-type flattening, non-separated Chow, resolvability in dimension ≤ 3) are owned here until the SchemeAndStackFoundations Part II design (#3361) decides. Source issues: E1–E12 rechecked and confirmed; E2, E3 and E5 rewritten in our own words where they paraphrased the source's sentences; E13 added (ILO X §2.6 ranks). Gap G1 is real (Cossart–Piltant give projectivity only over an affine cover) and is recorded honestly; it affects only bases handled through Cossart–Piltant. Suggested file: `import Mathlib` replaced by individual modules, residueChars_eq_empty_iff added, closing comment made accurate; lean-check at the pins exit 0 with admitted-proof warnings only. Reader resynced from the corrected packet by the generator's template (all 63 sections reproduce the packet). A dry atlas assembly adds 28 stages and 43 stage edges with no skipped links.",
+    "checked": [
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/residue-characteristics",
+        "verdict": "corrected",
+        "note": "Temkin §1.2.1 (p. 98), §2.1.1 (p. 103), §4.3.2 (p. 124) checked. Corrected the acceptance item, which attributed char(Spec Z) to Temkin's printed examples (only Q and Z_(2) are printed); added the API item residueChars_eq_empty_iff (Q-schemes), used by the char-zero acceptance items of PA.0 and PA.6, and its Lean signature."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/maximally-dominating",
+        "verdict": "corrected",
+        "note": "Temkin §4.1.1 (pp. 120–121) and ILO X §2 (p. 148) checked. Corrected the density step: a subset of a noetherian space containing no maximal point can be dense (closed points of A^1), so the equivalence uses that the generic fibre is stable under generization."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/alteration",
+        "verdict": "verified",
+        "note": "Temkin §4.1.2 (p. 121) and ILO X §3.3.1 (p. 158) checked; matches upstream SchemeAndStackFoundations §4.16 `IsAlteration` (proper, dominant, finite over a nonempty open) in the integral case. Frobenius and extra-point tests recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/p-alteration",
+        "verdict": "verified",
+        "note": "Temkin §1.2.1 (p. 98) and ILO X §2 (p. 148), §3.3.1 (p. 158) checked; tests (Frobenius, Z[i], t ↦ t² over Q) recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/pseudo-projective",
+        "verdict": "corrected",
+        "note": "ILO X §3.1.6 and Remark 3.1.7 (p. 157) checked, including the blown-up doubled-origin example. Corrected the proof step claiming that a local isomorphism with separated source is an open immersion (false for two copies of an open); separated pseudo-projective now goes through Zariski's main theorem (Stacks 05K0)."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/finite-type-flattening",
+        "verdict": "corrected",
+        "note": "Stacks 081R and 0815 fetched and read. The statement claimed a module version for merely finite-type f, which neither tag gives; it now states 081R (schemes, finite type and quasi-separated, flat and locally of finite presentation over U) and 0815 (modules, X locally of finite presentation), which is all the consumers (Temkin 3.1.6, 3.3.6; ILO X 3.4 Steps 2 and 7) use."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/nonseparated-chow-lemma",
+        "verdict": "verified",
+        "note": "ILO X Proposition 3.1.8 and Lemma 3.1.9 (pp. 157–158) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/snc-support",
+        "verdict": "verified",
+        "note": "ILO X §3.3.3 convention (p. 159) and upstream SchemeAndStackFoundations §4.17 (`SNCData`, `IsStrictNormalCrossings`, `.of_subset`) checked on TauCetiRoadmap main 69bd802; the Cartier sub-support argument verified."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/universal-p-resolvability",
+        "verdict": "verified",
+        "note": "Temkin §4.1.4 (p. 121) and ILO X §3.3.3–3.3.4 (p. 159) checked; projectivity follows ILO (E5). The non-quasi-excellent DVR test checked against ILO X 3.3.4(iv)."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/resolvability-dimension-one",
+        "verdict": "verified",
+        "note": "ILO X Remark 3.3.4(ii) (p. 159) and Stacks 0C45, 0BI4 checked; upstream `resolution_of_curves` (SSF §4.13) supplies the finite-normalization step."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/resolvability-excellent-dimension-two",
+        "verdict": "corrected",
+        "note": "Cossart–Jannsen–Saito Theorems 0.1–0.3 and Corollary 0.4 (pp. 3–4) read. Replaced the detour through Theorem 0.3 with boundary components (Theorem 5.9) and a preliminary blow-up by Corollary 0.4, which is exactly the needed embedded statement for a reduced closed subscheme of a regular excellent scheme; locator updated."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.0/resolvability-dimension-three",
+        "verdict": "corrected",
+        "note": "Cossart–Piltant Theorem 1.1, Corollary 1.2 and Remark 1.4 (pp. 3–4) read: projective over a prescribed affine cover, globally projective for affine X. The statement now says which part is established (proper version for separated S, projective when Y is affine) and that global projectivity is gap G1; the embedded step cites CJS Corollary 0.4."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/pointed-scheme",
+        "verdict": "verified",
+        "note": "Temkin §3.1.1 and §3.1.5 (pp. 112–114) checked; filteredness and cofinality of tight modifications verified."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/riemann-zariski-space",
+        "verdict": "verified",
+        "note": "Temkin §3.1.1 (pp. 112–113) checked; tests (DVR, A^1, rank-two valuation) recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/valuative-points",
+        "verdict": "verified",
+        "note": "Temkin §3.1.2 (p. 113) and Temkin 2010 §3.2 checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/rz-compact-valuative",
+        "verdict": "verified",
+        "note": "Temkin Lemma 3.1.3 (p. 113) and Temkin 2010 Corollaries 3.2.4–3.2.5 (pp. 15–16) checked; Mathlib `compactSpace_withConstructibleTopology`, `IsProper.eq_valuativeCriterion` and `LocalSubring.exists_le_valuationSubring` read at 082e2d3."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/rz-functoriality",
+        "verdict": "verified",
+        "note": "Temkin §3.1.5 (pp. 113–114) checked; restriction tests over Q(i) recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/rz-openness",
+        "verdict": "verified",
+        "note": "Temkin Lemma 3.1.6 and proof (pp. 114–115) checked; Mathlib `Flat.generalizingMap`, `isOpenMap_of_generalizingMap` (needs local finite presentation, available after flattening) and `Scheme.Hom.isConstructible_image` read."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/absolute-rz",
+        "verdict": "verified",
+        "note": "Temkin §3.1.7 (p. 115) checked; Tau Ceti `ValuationSpectrum`, `comap`, `continuous_comap` and `compactSpace_patchTopology` exist at f790474 with the stated content."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.1/rz-affine-comparison",
+        "verdict": "verified",
+        "note": "Temkin §3.1.1 and Temkin 2010 Remark 3.2.8 (p. 17) checked; the supplier ClassicalAdicEtaleCohomology H1:henselian/zariski-riemann-space-as-limit (accepted) states the needed homeomorphism."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.2/tame-locus",
+        "verdict": "verified",
+        "note": "Temkin §3.2.1 and §3.2.7 (pp. 115–116) checked; suppliers GF.2/tame-extension and GF.2/unramified-extension read. Tests (Q(i) at 2 and 5, trivial valuation, Artin–Schreier at t) recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.2/s-tameness",
+        "verdict": "verified",
+        "note": "Temkin §§3.2.2–3.2.4 (p. 116) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.2/p-closed-p-tame",
+        "verdict": "verified",
+        "note": "Temkin Lemma 3.2.5 and Remark 3.2.6 (p. 116) checked; the separable variant matches GF.6/separable-p-closed-tameness and GF.2/perfection-tame-tower."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.2/locus-tower",
+        "verdict": "verified",
+        "note": "Temkin Lemma 3.2.8 (p. 116) checked; supplier GF.2/tower-laws covers both parts. Q(i, √3) example recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.2/locus-openness",
+        "verdict": "verified",
+        "note": "Temkin Lemma 3.2.10 (p. 117) checked with the E7 repair; Mathlib `Algebra.IsEtaleAt.exists_isStandardEtale` read (finite presentation hypothesis met by the étale algebra)."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.2/field-tame-distillation",
+        "verdict": "verified",
+        "note": "Temkin Theorem 3.2.12 and proof (p. 118) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.2/separable-field-tame-distillation",
+        "verdict": "corrected",
+        "note": "Temkin Theorem 3.2.12 (p. 118) and E6 checked. The prerequisite GF.3/maximal-ramification-extension (maximal extensions for the six ramification properties) does not supply a maximal separable P-extension; replaced by GF.0/maximal-p-extension with the Zorn argument inside K^s and the separable P-closedness of the result spelled out."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/finite-group-action",
+        "verdict": "corrected",
+        "note": "Temkin §3.3.2 (p. 118), ILO X 3.1.1–3.1.4 (pp. 155–156) and VI §3.1 (p. 73) checked. Added the hypothesis char k ≠ 2 to the doubled-origin test (as in ILO X 3.1.1), and recorded that Tau Ceti `AffineInvariantQuotient` is in Tau Ceti main but not at the pin f790474 (also in the ModularCurves request)."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/galois-alteration",
+        "verdict": "verified",
+        "note": "Temkin §3.3.1 and §3.3.3 (pp. 118–119) and ILO X 3.3.1–3.3.2 (p. 158) checked; tests recomputed (Z[i], Z[1/2, i], Frobenius, Z[∛2])."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/normalization-in-extension",
+        "verdict": "verified",
+        "note": "Temkin §3.3.3 (p. 119) and Stacks 0AVK checked; Mathlib `Scheme.Hom.normalization` (relative normalization of a qcqs morphism) read; the non-Japanese DVR test is SSF §0.22 `nonJapaneseDVR` on main."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/wild-primes-set",
+        "verdict": "corrected",
+        "note": "Temkin §3.2.11 (p. 117) and §3.3.5 (p. 120) checked. Corrected the degree bound: a wild point forces the local henselian degree, not [k(Y) : k(X)], to be divisible by p; the bound p ≤ deg f is unchanged."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/tame-covering-after-modification",
+        "verdict": "verified",
+        "note": "Temkin Lemma 3.3.4 and proof (p. 119) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/galois-closure-tameness",
+        "verdict": "verified",
+        "note": "Temkin Lemma 3.3.7 (p. 120) checked; E2 confirmed; Q(∛2) example recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/alteration-tame-distillation",
+        "verdict": "verified",
+        "note": "Temkin Theorem 3.3.6 and proof (p. 120) checked; the separability of L′/K′ from tameness at the trivial valuation, needed for the Galois closure, is a correct addition to the source's argument."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.3/separable-alteration-tame-distillation",
+        "verdict": "verified",
+        "note": "Theorem 3.3.6 with the E6 repair checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/log-regular-pair",
+        "verdict": "verified",
+        "note": "ILO VI 1.2–1.4 (p. 69), X 3.2.1 (p. 158) and Temkin §1.2.7 (pp. 99–100) checked; the A_1 quotient test recomputed. The general closed-subset log structure is correctly requested from CR.5:log-algebra."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/very-tame-action",
+        "verdict": "verified",
+        "note": "ILO VI §3.1 (p. 73) and VIII 1.2(a)–(b) (p. 86) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/very-tame-quotient",
+        "verdict": "verified",
+        "note": "ILO VI Theorem 3.2, Corollary 3.3, Proposition 3.5, Corollary 3.6 (pp. 73–75) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/log-blowup",
+        "verdict": "corrected",
+        "note": "ILO VIII 3.3.7–3.3.11 (pp. 107–108) and 3.4.3–3.4.6 (pp. 110–111) checked. The test satLogBlowup_differs said only that a log blow-up 'need not be normal'; it now names the ideal ((2,0), (0,2)) of the A_1 monoid, whose blow-up has the non-normal chart k[u, v, s]/(v² − u²s), recomputed."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/monoidal-desingularization",
+        "verdict": "corrected",
+        "note": "ILO VIII 3.3.14–3.3.15 (p. 109) and 3.4.8–3.4.9 (p. 111) checked. The A_1 acceptance item now cites VIII 1.2(b), which identifies the log blow-up of the vertex with the canonical resolution."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/gabber-modification-absolute",
+        "verdict": "corrected",
+        "note": "ILO VIII Theorem 1.1 (p. 85) and 1.2 (p. 86), X 3.1.5 (p. 156) checked. Corrected the acceptance item: in VIII 1.2(a) it is the modification f that is not log smooth; (X′, Z′) itself is smooth with a smooth boundary, hence log smooth over k."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/gabber-preparation-lemma",
+        "verdict": "verified",
+        "note": "ILO X Proposition 1.2 and proof (pp. 136–139) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/gabber-modification-log-smooth",
+        "verdict": "verified",
+        "note": "ILO X Theorem 1.1 (pp. 135–136), proof §§1.3–1.8, Theorem 1.11 (p. 148) and 3.1.5(ii) (p. 156) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/log-smooth-subdivisor",
+        "verdict": "verified",
+        "note": "ILO X Lemma 3.5.2 and proof (p. 165) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.4/log-smooth-local-forms",
+        "verdict": "corrected",
+        "note": "ILO X §2.3 Step 3 (p. 152), §2.6 Step 3 (pp. 154–155) and §3.5.3 (pp. 165–166) checked. ILO prints the ranks of P^× and P₁ inconsistently (new E13); the proof step now uses rank-free notation."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.5/multipointed-curve",
+        "verdict": "verified",
+        "note": "Temkin 2010 §1.2 (pp. 2–3) and ILO X 3.2.2 (p. 158) checked; tests recomputed (the blown-up smooth point is semistable, not stable)."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.5/stable-modification-projectivity",
+        "verdict": "verified",
+        "note": "Temkin 2010 Theorem 1.1 and proof (p. 3) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.5/stable-modification-existence",
+        "verdict": "verified",
+        "note": "Temkin 2010 Theorems 1.2, 1.5 and Corollary 1.3 (pp. 3–4) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.5/stable-modification-equivariance",
+        "verdict": "corrected",
+        "note": "Temkin 2010 Corollary 1.6 (p. 4) checked. The statement listed 'Aut(S′/S) and Aut_S(C, D) × Aut_S(S′)', the first already a factor of the second; it now names the product action, and the source match was reworded accordingly."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.5/semistable-curve-log-smooth",
+        "verdict": "verified",
+        "note": "ILO X Proposition 3.2.3 (p. 158) and VI Proposition 1.9 with its chart (pp. 70–71) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.5/relative-curve-resolution",
+        "verdict": "verified",
+        "note": "Temkin Theorem 4.2.1 and proof (pp. 121–123) and ILO X Theorem 3.4 with Steps 1–10 (pp. 159–162) checked; stated under char(S) ⊆ P (E1)."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/morphism-p-desingularization",
+        "verdict": "verified",
+        "note": "Temkin Theorem 4.3.1(ii) (p. 123) and ILO X Theorem 3.5 with Steps 1–6 (pp. 162–165) checked; Step 3 carries the E12 repair, and Step 4 is used only for (iii), as in ILO."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/universal-p-resolvability-inheritance",
+        "verdict": "verified",
+        "note": "Temkin 4.3.1(i) and ILO X 3.5 (p. 162) checked; the blow-up repair of E5 verified."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/perfect-field-separable",
+        "verdict": "verified",
+        "note": "Temkin 4.3.1(iii) and ILO X 3.5(iii), Remark 3.5.1 (pp. 162–165) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/char-x-altered-desingularization",
+        "verdict": "corrected",
+        "note": "Temkin Theorem 1.2.5 (p. 99), Remark 1.2.6 and §4.3.2 (p. 124) checked. The hypotheses added 'separated' silently; the statement now keeps Temkin's hypotheses and says where Cossart–Piltant needs separatedness and where the projectivity of b rests on G1. Added the reduction to irreducible components needed for maximal domination, which the source passes over."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/char-s-desingularization-of-morphisms",
+        "verdict": "corrected",
+        "note": "Temkin Theorem 1.2.9 (p. 100) and §4.3.3 (p. 124) checked. The first proof step applied inheritance to S over the threefold T without the shrinking of T to char(T) = char(S) of §4.3.2; it now runs that argument, with PA.6/char-x-altered-desingularization added as a prerequisite (no cycle), and the hypotheses record the G1 dependence."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/char-x-refinement",
+        "verdict": "verified",
+        "note": "Temkin Remark 4.3.4 (p. 124) checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/gabber-ell-prime-field",
+        "verdict": "verified",
+        "note": "ILO X Theorem 2.1 (p. 149), §2.3 and §3.5.3 checked; the statement keeps the source's hypotheses."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/gabber-ell-prime-dimension-one",
+        "verdict": "verified",
+        "note": "ILO X Theorem 2.4 (p. 152), §2.6 and §3.5.3 checked."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/prime-to-ell-variety-alteration",
+        "verdict": "verified",
+        "note": "Jannsen 2016 Theorem 2.11 (p. 24) checked against ILO X 2.1; the consumer HigherLocalFieldsAndHigherClassFieldTheory HL.6 (gap G13) exists."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/odd-degree-model-alteration",
+        "verdict": "verified",
+        "note": "Dittmann–Pop Proposition 3.4 proof (arXiv v2 p. 8) checked: it invokes ILO X 2.4 with ℓ = 2 for a projective model over the henselization of a non-dyadic place; the consumer LogicAndDefinabilityInNumberTheoryPartII FG.2 (gap G-ALT) exists."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/de-jong-galois-alteration",
+        "verdict": "corrected",
+        "note": "de Jong Theorem 7.3 (p. 88) and its proof read on Numdam. The proof runs 7.5–7.16 (the number 7.18 in the locator came from an OCR misreading of 7.12); locator and proof step corrected."
+      },
+      {
+        "nodeId": "AdicCoefficientsAndComparisonsPartII:PA.6/de-jong-arithmetic-semistable",
+        "verdict": "corrected",
+        "note": "de Jong §8.1, Theorem 8.2 (p. 91) and the proof 8.3–8.8 (pp. 91–92) read; the locator cited only 8.3–8.4 although the proof steps use 8.5–8.8. Corrected."
+      }
+    ]
+  }
 }
