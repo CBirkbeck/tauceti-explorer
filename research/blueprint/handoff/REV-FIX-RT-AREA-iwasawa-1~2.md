@@ -1,21 +1,24 @@
 # Handoff: #6217 needs a scope decision
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-2jxtZG**, 19 October 2026.
-Branch `codex-2jxtZG-review-iwasawa-fixes`;
-input `84c400fa116c1f6ec339db0fcd9a4843fef7e88d`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6259371234).
+Codex — **codex-NvosJ5**, 19 October 2026.
+Branch `codex-NvosJ5-review-iwasawa-fixes`;
+input `9efd39b7c7a372a1aae5b57765d15a1120ce2071`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6260047584).
 Submission: **blocked checkpoint**. No second job was claimed.
 
 The accepted HE.0 mathematical verdict is preserved. Do not repeat that
-audit. The issued review has three outputs; the queue requires twelve
-packets and 25 outputs. WORKERS.md limits edits to issue-named files;
+audit. The issued review has three outputs; the queue requires thirteen
+packets and 27 outputs. WORKERS.md limits edits to issue-named files;
 intake also rejects the two repair paths. A session clarification asked
 for authorization to apply the concrete repair; it had no answer when
-this checkpoint was prepared. No out-of-scope edit was made.
+this checkpoint was prepared. No out-of-scope edit was made. This session claimed only #6217. Its
+attempted claim of #7943 failed before a claim was created because GitHub
+refuses further comments on that issue.
 
 The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) records the fresh
-completion check, packet check, 59 tests and full generator comparison.
+completion check, packet check, 59 tests (one skipped), four scratch checks of the real
+round-generation function and a full generator comparison.
 No Lean statement changed or was recompiled. The previous attributed
 review's successful Lean check is historical evidence only. No new
 mathematical or implementation claim is made.
@@ -33,7 +36,7 @@ this narrow repair.
 ```diff
 --- a/research/blueprint/queue.json
 +++ b/research/blueprint/queue.json
-@@ -99459,44 +99459,7 @@
+@@ -101624,47 +101624,7 @@
      "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes-2.md",
      "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
      "research/blueprint/readmes/HeegnerPointEulerSystems--HE.0.md",
@@ -71,6 +74,9 @@ this narrow repair.
 -    "research/blueprint/packets/SelmerIwasawaCohomology.json",
 -    "research/blueprint/readmes/SelmerIwasawaCohomology.md",
 -    "research/blueprint/suggested/SelmerIwasawaCohomology.lean",
+-    "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
+-    "research/blueprint/readmes/EulerSystemsCyclotomicMainConjecture.md",
+-    "research/blueprint/suggested/EulerSystemsCyclotomicMainConjecture.lean",
 -    "research/blueprint/packets/KatoEulerSystems.json",
 -    "research/blueprint/readmes/KatoEulerSystems.md",
 -    "research/blueprint/suggested/KatoEulerSystems.lean",
@@ -79,7 +85,7 @@ this narrow repair.
     ],
     "after": [
      "FIX-RT-AREA-iwasawa-1"
-@@ -99525,29 +99488,7 @@
+@@ -101693,31 +101653,7 @@
     "outputs": [
      "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
      "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
@@ -93,6 +99,7 @@ this narrow repair.
 -    "research/blueprint/packets/AutomorphicPadicLFunctions.json",
 -    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
 -    "research/blueprint/packets/SelmerIwasawaCohomology.json",
+-    "research/blueprint/packets/EulerSystemsCyclotomicMainConjecture.json",
 -    "research/blueprint/packets/KatoEulerSystems.json",
 -    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
 -    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.8c.lean",
@@ -105,6 +112,7 @@ this narrow repair.
 -    "research/blueprint/suggested/AutomorphicPadicLFunctions.lean",
 -    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems.lean",
 -    "research/blueprint/suggested/SelmerIwasawaCohomology.lean",
+-    "research/blueprint/suggested/EulerSystemsCyclotomicMainConjecture.lean",
 -    "research/blueprint/suggested/KatoEulerSystems.lean"
 +    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean"
     ],
@@ -149,7 +157,7 @@ Save this script outside the repository, run it from the repository root,
 and pass an on-disk scratch directory as its only argument. It writes
 only replay results, a lock and the candidate patch in that scratch
 directory. It replays the actual generator twice with all repository
-writes blocked. On the recorded input it reports 6,338 versus 6,362 jobs,
+writes blocked. On the recorded input it reports 6,360 versus 6,384 jobs,
 50 preserved assignments, 24 additions and no removals. As new sources
 and blueprints arrive, these counts may change; the assertions are the
 contracts to inspect. The script expects the unapplied selector.
