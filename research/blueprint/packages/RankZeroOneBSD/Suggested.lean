@@ -7,6 +7,8 @@ import TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist
 The roadmap is README.md. This file records light definitions and representative
 milestone signatures statable against the pinned Mathlib and Tau Ceti APIs; it is
 not exhaustive. The quadratic comparison uses the actual twist point equivalence.
+Conjugation uses the existing Point.map directly. Concrete modular-curve and
+32a2 data are inputs to README applications, with no computation targets here.
 Rational certificates cover reduced numerator and denominator support, while
 positivity is a separate input to reconstruction. The analytic and Iwasawa
 constructions and their arithmetic end theorems remain targets in README.md.
@@ -15,11 +17,7 @@ constructions and their arithmetic end theorems remain targets in README.md.
 namespace TauCetiRoadmap.RankZeroOneBSD
 
 open WeierstrassCurve
-open scoped WeierstrassCurve.Affine
-
-/-! ## Layer 0: Analytic normalizations and quadratic L-factor comparisons -/
-
-/-! ## Layer 1: Rational modular-symbol periods -/
+open scoped WeierstrassCurve.Affine Matrix
 
 /-! ## Layer 2: Quadratic descent and BSD comparisons -/
 
@@ -28,12 +26,6 @@ namespace QuadraticPoints
 variable (E : WeierstrassCurve ℚ) [E.IsElliptic]
 variable (K : Type*) [Field K] [Algebra ℚ K] [DecidableEq K]
   [Algebra.IsQuadraticExtension ℚ K] [Algebra.IsSeparable ℚ K]
-
-/-- Conjugation on the actual elliptic point group, specializing Mathlib's
-algebra-homomorphism map. The nontrivial automorphism is an explicit argument. -/
-noncomputable def quadraticConj (σ : K ≃ₐ[ℚ] K) :
-    (E⁄K).Point →+ (E⁄K).Point :=
-  Affine.Point.map (W' := E.toAffine) σ.toAlgHom
 
 /-- Quadratic descent after multiplication by two: the rational and twisted
 rational images contain 2 • P. This retains the integral dyadic obstruction
@@ -44,9 +36,14 @@ theorem two_smul_decomposition (P : (E⁄K).Point) :
         E.quadraticTwistPointEquiv K K (Affine.Point.baseChange ℚ K R) := by
   sorry
 
+/-- Conjugation fixes the group identity, including over quadratic fields. -/
+example (σ : K ≃ₐ[ℚ] K) :
+    Affine.Point.map (W' := E.toAffine) σ.toAlgHom (0 : (E⁄K).Point) = 0 := by
+  sorry
+
 /-- A rational point is fixed by conjugation, including nonzero rational points. -/
 example (σ : K ≃ₐ[ℚ] K) (Q : (E⁄ℚ).Point) :
-    quadraticConj E K σ (Affine.Point.baseChange ℚ K Q) =
+    Affine.Point.map (W' := E.toAffine) σ.toAlgHom (Affine.Point.baseChange ℚ K Q) =
       Affine.Point.baseChange ℚ K Q := by
   sorry
 
@@ -54,32 +51,12 @@ example (σ : K ≃ₐ[ℚ] K) (Q : (E⁄ℚ).Point) :
 conjugation; the positive eigenspace would give the wrong descent comparison. -/
 example (σ : K ≃ₐ[ℚ] K) (hσ : σ ≠ 1)
     (R : ((E.quadraticTwist K)⁄ℚ).Point) :
-    quadraticConj E K σ
+    Affine.Point.map (W' := E.toAffine) σ.toAlgHom
         (E.quadraticTwistPointEquiv K K (Affine.Point.baseChange ℚ K R)) =
       -E.quadraticTwistPointEquiv K K (Affine.Point.baseChange ℚ K R) := by
   sorry
 
 end QuadraticPoints
-
-/-! ## Layer 3: Auxiliary quadratic fields and nonvanishing -/
-
-/-! ## Layer 4: Definite congruence periods -/
-
-/-! ## Layer 5: Analytic rank one -/
-
-/-! ## Layer 6: Analytic rank zero and whole-Sha finiteness -/
-
-/-! ## Layer 7: Positive rational defects and integral index comparisons -/
-
-/-! ## Layer 8: Early signed zeta elements and reciprocity comparison -/
-
-/-! ## Layer 9: Integral anticyclotomic and signed main-conjecture arguments -/
-
-/-! ## Layer 10: Prime parts with irreducible residual representation -/
-
-/-! ## Layer 11: Independent main conjectures at Eisenstein primes -/
-
-/-! ## Layer 12: Prime parts at good Eisenstein primes -/
 
 /-! ## Layer 13: Finite-support certificates and the full formula -/
 
@@ -125,6 +102,19 @@ example : primeSupport ((2 : ℚ) * (1 / 2)) = ∅ ∧
     primeSupport (2 : ℚ) ∪ primeSupport (1 / 2 : ℚ) = {2} := by
   sorry
 
+/-- The canonical normal form makes support independent of a displayed fraction. -/
+example : primeSupport (12 / 70 : ℚ) = primeSupport (6 / 35 : ℚ) := by
+  sorry
+
+/-- Negation retains denominator primes as well as numerator primes. -/
+example : primeSupport (-6 / 35 : ℚ) = {2, 3, 5, 7} := by
+  sorry
+
+/-- Inversion preserves support; zero remains totalized at zero. -/
+example : primeSupport ((0 : ℚ)⁻¹) = ∅ ∧
+    primeSupport ((6 / 35 : ℚ)⁻¹) = {2, 3, 5, 7} := by
+  sorry
+
 /-- One admits a certificate with an empty prime list. -/
 example : ∃ c : PrimeValuationCertificate (1 : ℚ), c.primes = ∅ := by
   sorry
@@ -136,7 +126,7 @@ example : ¬ Nonempty (PrimeValuationCertificate (1 / 4 : ℚ)) := by
 
 end RationalCertificates
 
-/-! ## Layer 14: Arithmetic and analytic comparison examples -/
+/-! ## Layer 14: Conditional applications and rational obstructions -/
 
 namespace RationalCertificates
 
@@ -174,68 +164,138 @@ example : (∀ p : ℕ, p.Prime → Odd p → padicValRat p (1 / 4 : ℚ) = 0) �
 
 end RationalCertificates
 
-namespace DyadicFixture
 
-/-- The 32a2 model y² = x³ - x. This model differs from the upstream
-EllipticCurves CM example y² = x³ + x and is used for its dyadic BSD tests. -/
-def fixture32 : WeierstrassCurve ℚ where
-  a₁ := 0
-  a₂ := 0
-  a₃ := 0
-  a₄ := -1
-  a₆ := 0
 
-/-- The discriminant is 64, so the model is elliptic over the rationals. -/
-theorem fixture32_elliptic : fixture32.IsElliptic := by
+/-! ## Normalization checks
+
+These computations test the scalar and existing algebraic carriers in the
+README conventions, §0.4, §2.4–§2.6, §4.1, §7.2–§7.4, §11.6–§11.8 and §14.6.
+They do not construct an elliptic L-function, Iwasawa class or example certificate.
+-/
+
+namespace NormalizationChecks
+
+/-- The constant and linear Taylor terms distinguish both functional-equation signs. -/
+example (t : ℚ) : (1 + t) + (1 - t) = 2 ∧
+    (1 + t) - (1 - t) = 2 * t := by
+  constructor <;> ring
+
+/-- Order two uses the factorial, while order one does not. -/
+example : iteratedDeriv 2 (fun z : ℂ => 3 * (z - 1) ^ 2) 1 / (2 : ℂ) = 3 ∧
+    deriv (fun z : ℂ => z - 1) 1 = 1 := by
   sorry
 
-attribute [local instance] fixture32_elliptic
+/-- A Fricke eigenvalue and root number have opposite signs. -/
+example : -(1 : ℤ) = -1 ∧ -(-1 : ℤ) = 1 := by
+  norm_num
 
-/-- The affine origin is nonsingular on this model. -/
-theorem fixture32_origin_nonsingular : fixture32.toAffine.Nonsingular 0 0 := by
-  sorry
+/-- Relative quadratic height and the pinned half-x-height convention are separate factors. -/
+example : (2 : ℚ) * (3 / 2) = 3 ∧ (2 : ℚ) * (2 * (3 / 2)) = 6 := by
+  norm_num
 
-/-- The actual affine point (0,0) on 32a2, rather than the point at infinity. -/
-def point32 : fixture32.toAffine.Point :=
-  Affine.Point.some 0 0 fixture32_origin_nonsingular
+/-- Index two multiplies a rank-one Gram determinant by four. -/
+example : Matrix.det (2 • (!![(3 : ℚ)] : Matrix (Fin 1) (Fin 1) ℚ)) = 6 ∧
+    Matrix.det (!![(2 : ℚ)] * !![3] * (!![2])ᵀ) = 12 := by
+  norm_num [Matrix.mul_apply, Matrix.transpose_apply, Matrix.vecMul, dotProduct, Fin.sum_univ_succ]
 
-/-- The affine origin is a nonzero point of exact order two. -/
-theorem point32_order : point32 ≠ 0 ∧ addOrderOf point32 = 2 := by
-  sorry
+/-- The rank-zero determinant is already the empty determinant of Mathlib. -/
+example : Matrix.det (1 : Matrix (Fin 0) (Fin 0) ℚ) = 1 := by
+  simp
 
-/-- This discriminant and j-invariant distinguish the model from the CM model
-with the opposite sign of its linear coefficient. -/
-example : fixture32.Δ = 64 ∧ fixture32.j = 1728 := by
-  sorry
+/-- Quadratic gluing can remove the entire relative rank-one factor two. -/
+example : (2 : ℚ)^1 / 4^0 = 2 ∧ (2 : ℚ)^1 / 4^1 = 1/2 := by
+  norm_num
 
-/-- All three rational roots give two-torsion coordinates, not a cyclic group
-of order four generated by the affine origin. -/
-example : fixture32.toAffine.Equation (-1) 0 ∧
-    fixture32.toAffine.Equation 0 0 ∧ fixture32.toAffine.Equation 1 0 := by
-  sorry
+/-- Covolume three gives complex period twelve; index two gives rectangular area six. -/
+example : (4 : ℚ) * 3 = 12 ∧ 2 * 3 = 6 ∧ (2 * 2 * 2 : ℚ) / 4 = 2 := by
+  norm_num
 
-/-- The chosen point is affine, although doubling it gives the identity. -/
-example : point32 ≠ 0 ∧ point32 + point32 = 0 := by
-  sorry
+/-- Uniformizer length one has cardinality p^f, not always p. -/
+example : Fintype.card (ZMod 5 × ZMod 5) = 25 ∧ Fintype.card (ZMod 5) = 5 := by
+  norm_num
 
-/-- Negation fixes the chosen nonzero two-torsion point. -/
-example : -point32 = point32 := by
-  sorry
+/-- Principal-ideal containment follows divisibility in the opposite written order. -/
+example : Ideal.span ({25} : Set ℤ) ≤ Ideal.span ({5} : Set ℤ) ∧
+    ¬ Ideal.span ({5} : Set ℤ) ≤ Ideal.span ({25} : Set ℤ) := by
+  constructor <;> rw [Ideal.span_singleton_le_span_singleton] <;> norm_num
 
-end DyadicFixture
+/-- Unit and zero ideals cannot be interchanged. -/
+example : Ideal.span ({1} : Set ℤ) = ⊤ ∧ Ideal.span ({0} : Set ℤ) = ⊥ := by
+  simp
+
+/-- Squaring a BDP square root doubles its first nonzero exponent. -/
+example : PowerSeries.coeff 1 ((PowerSeries.X : PowerSeries ℚ)^2) = 0 ∧
+    PowerSeries.coeff 2 ((PowerSeries.X : PowerSeries ℚ)^2) = 1 := by
+  simp
+
+/-- The Euler factor uses the inverse norm but a positive Galois exponent. -/
+example : PowerSeries.coeff 0 (1 - PowerSeries.C (1/2 : ℚ) * PowerSeries.X) = 1 ∧
+    PowerSeries.coeff 1 (1 - PowerSeries.C (1/2 : ℚ) * PowerSeries.X) = -1/2 := by
+  norm_num
+
+/-- The globally trivial character adds a simple augmentation zero. -/
+example : PowerSeries.coeff 0 ((PowerSeries.X : PowerSeries ℚ) * (1 + PowerSeries.X)) = 0 ∧
+    PowerSeries.coeff 1 ((PowerSeries.X : PowerSeries ℚ) * (1 + PowerSeries.X)) = 1 := by
+  simp [PowerSeries.coeff_succ_X_mul]
+
+/-- Nonsplit geometric I₅ has five components but only one rational component. -/
+example : Fintype.card (ZMod 5) = 5 ∧
+    {x : ZMod 5 | -x = x} = {0} := by
+  constructor
+  · norm_num
+  · ext x
+    change (-x = x) ↔ x = 0
+    revert x
+    decide
+
+/-- At p=2, the two eigensigns coincide on nonzero two-torsion. -/
+example : (1 : ZMod 2) ≠ 0 ∧ -(1 : ZMod 2) = 1 := by
+  decide
+
+/-- An Artin–Schreier twist over the smallest field reverses the nonzero trace. -/
+example : Fintype.card {xy : ZMod 2 × ZMod 2 //
+      xy.2^2 + xy.1 * xy.2 = xy.1^3 + 1} + 1 = 4 ∧
+    Fintype.card {xy : ZMod 2 × ZMod 2 //
+      xy.2^2 + xy.1 * xy.2 = xy.1^3 + xy.1^2 + 1} + 1 = 2 := by
+  decide
+
+/-- There is no one-element field; the smallest finite field has two elements. -/
+example : Fintype.card (ZMod 2) = 2 ∧ Fintype.card (ZMod 2) ≠ 1 := by
+  norm_num
+
+/-- A free index two and torsion order five give full index ten, but height factor four. -/
+example : (2 : ℚ) * 5 = 10 ∧ (2 : ℚ)^2 = 4 ∧ (2 * 5 : ℚ)^2 = 100 := by
+  norm_num
+
+/-- Rank-one defect valuations are negatives of those of the rank-zero twist. -/
+example : (3 : ℤ) + (-3) = 0 ∧ (3 : ℤ) + 3 ≠ 0 := by
+  norm_num
+
+/-- Missing torsion square changes the 11a3 analytic valuation by two. -/
+example : (1/25 : ℚ) * 5^2 = 1 ∧ padicValRat 5 (1/25 : ℚ) = -2 := by
+  constructor
+  · norm_num
+  · let : Fact (Nat.Prime 5) := ⟨by decide⟩
+    have h : (1/25 : ℚ) = ((5 : ℚ)^2)⁻¹ := by norm_num
+    have h5 : padicValRat 5 (5 : ℚ) = 1 := by
+      simpa using padicValRat.self (by decide : 1 < 5)
+    rw [h, padicValRat.inv, padicValRat.pow, h5]
+    norm_num
+
+/-- Full-period and torsion conventions distinguish the two 32a2 quotient inputs. -/
+example : (1/8 : ℚ) * 4^2 / 2 = 1 ∧ (1/2 : ℚ) * 4^2 / 2 = 4 := by
+  norm_num
+
+end NormalizationChecks
 
 /-!
-Definitions and constructions specified in README.md whose arithmetic carriers
-or construction proofs are not available together in the pinned APIs:
-completedEllipticL, rootNumber, analyticRank, leadingTerm,
-quadraticRes, quadraticTrace, twistEmbed, quadraticPeriod,
-LocalPrescription, LocalPrescription.Admissible,
-LocalPrescription.heegner, LocalPrescription.generalizedHeegner,
-heegnerIndex, heegnerIndexFree, bsdDefect, bstwZetaElement,
-EisensteinBF.class, PrimeValuationCertificate.ofAllPrimes,
-PrimeValuationCertificate.ofExceptionSet.
-The analytic, Selmer, Iwasawa, integral control and certified arithmetic
-endpoints and all their hypotheses are given in the corresponding README layers.
+The arithmetic targets whose carriers are unavailable at the pins are stated
+in README.md: completedEllipticL, rootNumber, analyticRank, leadingTerm,
+quadraticTrace, twistEmbed, quadraticPeriod, LocalPrescription and its
+Admissible/heegner/generalizedHeegner API, heegnerIndex, heegnerIndexFree,
+bsdDefect, bstwZetaElement and EisensteinBF.class. The named supplier extension
+contracts there retain their actual lattices and local hypotheses. The certificate
+constructors ofAllPrimes and ofExceptionSet are specified in §13.13 and §13.17.
 -/
 
 end TauCetiRoadmap.RankZeroOneBSD
