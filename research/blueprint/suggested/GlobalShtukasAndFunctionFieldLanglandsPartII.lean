@@ -23,7 +23,14 @@ elementary combinatorics this roadmap owns:
 * weight counts of explicit weight lists, and the certificates that exclude extraneous points in
   the proof of Theorem 10.3 for `Sp(6)` (Remark 8.6) and for the `F₄` orbit `B₃`
   (RA.8/extraneous-weight-certificates, with the corrections E3 and E5 of the extraction);
-* the test representations of the dual group by Cartan type (RA.5/test-representations).
+* the finite fundamental-weight index lists used for the dual-group test representations
+  (RA.5/test-representations). These lists do not implement Γ-stable representations: for a
+  nonsplit group use the Γ-orbit and induction construction in the reader.
+
+The numerical Sp6/F₄ comparisons below concern explicit weight lists. Identifying those lists
+with the profiles of named nilpotent orbits requires the supplier contracts in gap G12; this
+file does not prove those identifications. Arithmetic purity and fixed-ι purity are distinct
+reader targets and are not represented by these integer lists.
 -/
 
 namespace TauCeti.FunctionFieldRamanujan
@@ -108,7 +115,8 @@ end WeightArray
 /-! ## RA.8: weight counts of explicit weight lists -/
 
 /-- The Frobenius weight `2⟨μ, x⟩` of the eigenvalue on the weight `μ` at a real Satake part `x`,
-computed from the integral coordinates of `μ` and the doubled coordinates `x₂ = 2x`. -/
+computed from integral coordinate lists `μ` and `x₂ = 2x` of the same length.
+`List.zipWith` truncates on unequal lengths; only equal-length inputs represent this pairing. -/
 def frobWeight (μ x₂ : List ℤ) : ℤ := (List.zipWith (· * ·) μ x₂).sum
 
 /-- The weight count `n_x(i)`: the number of weights `μ` (with multiplicity) in the list with
@@ -176,7 +184,9 @@ inductive CartanType
   deriving DecidableEq
 
 /-- The fundamental weights `ω̂ᵢ` of the simply connected dual group whose representations are used
-beside the adjoint representation (the table after Ciubotaru–Harris Theorem 5.4). -/
+beside the adjoint representation (the table after Ciubotaru–Harris Theorem 5.4).
+For nonsplit groups the reader retains the full Γ-orbit; an outer type-D action can add the
+other half-spin weight. This function records only the listed split representatives. -/
 def testWeights : CartanType → List ℕ
   | .A r => if (r + 1) % 2 = 0 then [1] else []
   | .B n => [n]
