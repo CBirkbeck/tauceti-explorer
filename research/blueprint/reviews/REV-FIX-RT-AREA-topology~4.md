@@ -1,21 +1,22 @@
 # Independent review of topology fix round 4
 
-Refs #6521. Codex, session `codex-RhP4EX`, 19 October 2026;
-branch `codex-RhP4EX-review-topology-fixes`, input
-`474bd10b3e20d05f17fe2108bd67c895dec94385`.
-The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6260779943).
+Refs #6521. Codex, session `codex-SMOn1I`, 19 October 2026;
+branch `codex-SMOn1I-review-topology-fixes`, input
+`d209ac1a2159a88913badfc83cbd78df5cb48305`.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6261708555).
 This session authored neither the fixes nor their preceding reviews and took
 no second job.
 
 ## Verdict and scope blocker
 
-**Blocked checkpoint.** The independent review of the issue's three named
-packets is recorded under this session: Polylogarithms and HabiroNahmSeries
+**Blocked checkpoint, not a completed review job.** The issue's three named
+packets already record this job's verdicts: Polylogarithms and HabiroNahmSeries
 accepted; QSeriesPartitionsAndMockModularForms needs_changes for its inconsistent
-reader multiplier. Each complete predecessor review is archived once in
-`reviewHistory`. Added a same-vertex sign acceptance check to
-`Polylogarithms:P.2/hyperbolic-volume`; no definition, theorem statement,
-prerequisite, gap, request, coverage or suggested Lean declaration changed.
+reader multiplier. This session's bounded source checks support those verdicts.
+Session `codex-RhP4EX` added the same-vertex acceptance check in P.2; that is
+inherited work, not a correction made here. This checkpoint changes only the
+report and handoff, avoiding another identical parent review-history entry.
+No packet, reader or suggested Lean file changes.
 
 The live issue names this report and three parent packet/suggested pairs,
 whereas the queue requires seven pairs. The actual unchanged
@@ -29,10 +30,11 @@ checkpoint. The queue already permits them at intake, but that does not remove
 the live issue's narrower work instruction. Neither the queue nor completion
 predicate nor excluded packets/readers were changed.
 
-The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) retains the predecessor's
-four proposed bounded reviews and guarded application helper. All four input
-hashes still match. Those proposals are unapplied and retain their original
-authorship; they are instructions for an authorized continuation. A negative
+The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) supplies four concrete
+bounded reviews and a guarded application helper. The review objects follow
+the predecessor's proposals, with this session's assessment and an explicit
+qualification preserving HB.10's existing degree-zero export. All four input
+hashes still match. The proposals remain unapplied in the repository. A negative
 review is a completed review once all required review objects are authorized
 and recorded. Open mathematical gaps alone are not a reason to keep this
 review job unfinished: PROTOCOL section 0 permits planned targets ending in
@@ -40,7 +42,8 @@ explicit gaps. Scope authorization is the present completion blocker.
 
 ## Findings reviewed
 
-Read all 27 assigned claims, their evidence and verifier reasons, the full
+Rechecked the preceding report's dispositions below against all 27 assigned
+claims, their evidence and verifier reasons, the full
 round-four fix report, the round-three review, previous report/handoff and the
 affected contracts. The table judges the fixes and routing within that task;
 it does not reopen the independent whole-plan audits or certify that a routed
@@ -55,7 +58,7 @@ upstream-only notes remain obligations of their owners.
 | /4 | Accept allocation. General Lie type needs its general quantum-group and admissible-root inputs rather than a rank-one substitution. |
 | /5 | Accept the comparison obligation. Color, framing, variable and unknot conventions must accompany the Jones owner import. |
 | /6 | Accept the P.1/P.2 and V.3/V.4/V.6 supplier split. Additional premises require an explicit mathematical use. |
-| /7 | Accept the P.2 repair with its geometry and calibration gaps. QT needs changes: its signed-volume import lacks the direct formula prerequisite and an explicit conversion from Neumann's reciprocal shape/orientation convention. Added a concrete same-vertex sign acceptance check to the permitted P.2 parent; the QT corrections remain outside scope. |
+| /7 | Accept the P.2 repair with its geometry and calibration gaps. QT needs changes: its signed-volume import lacks the direct formula prerequisite and an explicit conversion from Neumann's reciprocal shape/orientation convention. The inherited same-vertex sign acceptance check in the permitted P.2 parent is correct; the QT corrections remain outside scope. |
 | /8 | Accept the extension request. Early ideal-boundary/region geometry precedes P.2; complete cusped manifolds and ideal triangulations are stronger QT inputs. |
 | /9 | Accept the separate extended-Bloch contract. Flattenings, lifted Rogers descent and complex-volume periods do not follow from an ordinary Bloch class or a canonical Suslin lift. |
 | /10 | Accept the conditional NZ bridge. Integral unimodular B, parity, nondegeneracy and normalization remain actual hypotheses. |
@@ -94,14 +97,14 @@ judgments; no downloaded source or source passage is committed.
 | [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf), Theorems 1–2 and periodic mean-zero proposition, pp.98–99 | Poincaré-sphere WRT values require the analytic radial-limit and asymptotic comparison, beyond formal root evaluation. |
 | [Zagier, Strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf), §6, (38)–(39) and theorem, pp.958–959 | Inspected the rendered theorem as well as extracted text: the principal-power scalar transformation and smooth period function have the stated scope. The paper's proof indication does not close the packet's remaining analytic obligations. |
 
-## Convention checks and correction
+## Convention checks and remaining corrections
 
 For the identical ordered vertices T=(0,infinity,1,i), homogeneous determinant
 cross-ratios give the P.2/Zagier value r(T)=-i and Neumann's value n(T)=i.
 Generally r=1/n, so the Bloch–Wigner inversion identity gives D(r)=-D(n).
 Exchanging the first two vertices gives r=i and reverses the supplier's signed
 volume. This session evaluated both formulas and that swap independently.
-The new P.2 acceptance check records precisely this diagnostic. It follows
+The inherited P.2 acceptance check records precisely this diagnostic. It follows
 from the supplier's existing convention, rather than changing its volume
 normalization. It is a roadmap check, not an implemented geometric test.
 
@@ -141,7 +144,14 @@ inverse eta multiplier gives -1. This checks consistency of the convention,
 not the analytic transformation theorem. The existing analytic proof gaps
 remain. The excluded QSeries reader still says the multiplier is globally the
 inverse eta multiplier; its statement, hypotheses and direct prerequisites
-must be synchronized with the corrected packet.
+must be synchronized with the corrected packet. A numerical principal-power
+diagnostic independently reproduces the products 1 and -1 at -I.
+
+The HB.10 part already has a conditional positive degree-zero export. Once
+coefficient-ring membership is supplied, its imported HR.5/HR.6 comparison
+maps give eta_R into H^0. The proposed bounded review preserves that result
+and distinguishes it from the separate higher-degree geometric comparison
+obligations. It does not repeat those comparison sources’ separate audit.
 
 Read the actual statements of `ModularForm.eta_ne_zero` and
 `UpperHalfPlane.denom_cocycle` with `git show` at Mathlib
@@ -165,7 +175,7 @@ the older baseline pin. No upstream tree was edited or built.
 ## Validation and remaining work
 
 Fresh `scripts/check_blueprint.py` checks with the supplied pinned declaration
-index give **zero errors and zero warnings** for each changed parent packet:
+index give **zero errors and zero warnings** for each unchanged parent packet:
 
 | Packet | Nodes | Gaps | Requests | Verdict |
 |---|---:|---:|---:|---|
@@ -173,13 +183,24 @@ index give **zero errors and zero warnings** for each changed parent packet:
 | HabiroNahmSeries | 109 | 22 | 9 | accepted |
 | QSeriesPartitionsAndMockModularForms | 537 | 24 | 27 | needs_changes |
 
-Semantic comparison with the input verifies that only the P.2 acceptance item,
-three top-level review objects and their complete predecessor archives changed
-in the packets. No link map or restructuring result is under review here.
-Suggested files are unchanged, so no Lean compile was needed or started.
-Earlier compiler results belong to their original sessions and are not fresh
-validation by this worker. No language server or background compiler was
-started. Intake file checks and whitespace checks pass. The canonical
-completion result is still false for exactly the four excluded packet reviews.
-Resume only after scope authorization or synchronization of the issue and
-queue; the handoff identifies the minimum remaining edits and their limits.
+Semantic comparison with the input confirms that no packet or suggested file
+changed. No link map or restructuring result is under review here. Suggested
+files are unchanged, so no Lean compile was needed or started. Earlier compiler
+results belong to their original sessions and are not fresh validation by this
+worker. No language server or background compiler was started.
+
+Fresh checks of the four scratch candidates also give zero errors and warnings,
+retaining node/gap/request counts QT 106/8/19, P.2 14/2/3, HB.4 13/3/1 and
+HB.10 14/5/3. Their complete predecessor reviews retain the 106/14/13/14 checked
+entries. The only proposed mathematical payload change is the direct QT volume
+prerequisite; the proposed QT verdict remains needs_changes for the missing
+orientation comparison. The additional HB.10 note preserves the existing
+conditional degree-zero export rather than implying that no export exists.
+
+The actual unchanged completion function returns false against the repository.
+It returns true against a scratch projection of the fifteen required outputs
+using the four unapplied candidates and existing other outputs. This is a
+continuation check, not completion of the real job. File-intake and whitespace
+checks pass for this report and handoff. Resume only after scope authorization
+or synchronization of the issue and queue; the handoff identifies the minimum
+remaining edits and their limits.

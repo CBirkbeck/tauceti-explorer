@@ -1,28 +1,24 @@
-# REV-FIX-RT-AREA-topology~4: scope authorization required
+# REV-FIX-RT-AREA-topology~4: resolve scope before redispatch
 
-Refs #6521. Codex, session `codex-RhP4EX`, 19 October 2026;
-branch `codex-RhP4EX-review-topology-fixes`, input
-`474bd10b3e20d05f17fe2108bd67c895dec94385`.
-Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6260779943).
+Refs #6521. Codex, session `codex-SMOn1I`, 19 October 2026;
+branch `codex-SMOn1I-review-topology-fixes`, input
+`d209ac1a2159a88913badfc83cbd78df5cb48305`.
+Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6261708555).
 Only this job was claimed. **Blocked checkpoint; the job is not complete.**
 
 ## What this session completed
 
-Reviewed all 27 assigned finding claims, verified evidence and fix dispositions;
-read the affected contracts, seven public source PDFs, actual pinned eta and
-denominator statements, reviewed library-coverage entries and current read-only
-AT/DG/GT owners and relevant Tau Ceti geometry APIs. The
-[review report](../reviews/REV-FIX-RT-AREA-topology~4.md) gives every disposition,
-source locators and the limits of this bounded review.
+Rechecked all 27 finding dispositions, the fix report, affected contracts,
+seven public sources, pinned eta/denominator statements and current upstream
+ownership. The [report](../reviews/REV-FIX-RT-AREA-topology~4.md) identifies the
+bounded judgments and exact source locators. The earlier P.2 same-vertex
+acceptance correction is inherited from session `codex-RhP4EX`; this session
+independently reproduced its cross-ratio witness, the Gaussian inverse-precision
+witness and the central-element multiplier diagnostic.
 
-Updated all three issue-authorized packet reviews with this session's judgments,
-archiving each complete predecessor once. Polylogarithms and HabiroNahmSeries
-are accepted; QSeries needs_changes because its excluded reader still states
-the old inverse eta multiplier. Added a concrete same-vertex sign check at
-`Polylogarithms:P.2/hyperbolic-volume`: T=(0,infinity,1,i) has r(T)=-i and
-supplier signed volume -D(i); swapping the first two vertices gives r=i.
-This follows from the existing supplier convention. No other mathematical
-payload changed, and no suggested Lean file changed.
+No packet, reader, suggested file, queue or checker was edited. Existing parent
+verdicts remain supported; this checkpoint avoids another identical metadata
+refresh. The concrete continuation below is unapplied and requires permission.
 
 ## Blocking scope discrepancy — resolve before redispatch
 
@@ -48,21 +44,26 @@ that is not permission to exceed the issue. No additional suggested-file edits
 are currently needed. Reader corrections outside both scopes can remain
 needs_changes; negative reviews can finish the review job.
 
-## Prepared continuation, preserved with attribution
+## Prepared continuation
 
-The four proposed reviews and guarded helper below were prepared by preceding
-session `codex-eRZ2jm` and remain unapplied. This session verified their four
-input hashes still match and rechecked the concrete volume-convention omission;
-it did not repeat the predecessor's intercepted-write experiment, graph count
-or four-part whole-plan audits. Before application, record the authorized
-reviewer's own date/session and bounded assessment, retain complete previous
-review objects and checked arrays, and rerun validation and actual completion.
+The four proposals below follow the preceding `codex-eRZ2jm` proposals, with
+this session's bounded assessment. HB.10's note now explicitly preserves the
+existing conditional eta_R degree-zero comparison: actual coefficient-ring
+membership followed by the imported HR.5/HR.6 maps gives an H^0 class. This is
+distinct from a higher-degree geometric comparison, which remains a requested
+input. The bounded review does not repeat the comparison sources' whole audit.
 
-QT needs_changes is for its missing orientation/carrier conversion and direct
-formula import, not merely for having explicit G4/G5 gaps. PROTOCOL section 0
-permits planned targets ending in named gaps. Preserve all eight gaps and
-nineteen requests and the original 106-node whole-plan review. The prepared
-part-packet reviews are bounded /7 or /11 assessments, not fresh full audits.
+All four input hashes still match. Scratch application preserves the complete
+previous reviews and their checked entries, adds only the direct QT prerequisite
+as mathematical payload, and passes all four packet checkers. The actual
+unchanged completion function passes on the scratch projection of the fifteen
+outputs and fails on the repository. This proves the minimum continuation can
+finish the review job after authorization; it does not authorize those edits.
+
+QT needs_changes records the missing orientation/carrier comparison, not the
+mere existence of explicit G4/G5 gaps. Keep all eight gaps, nineteen requests,
+conditional NZ/Habiro hypotheses, contour obligations and conjectural knot
+modularity. These are bounded /7 or /11 reviews, not new whole-plan audits.
 
 <!-- proposed-review-objects -->
 ```json
@@ -75,7 +76,7 @@ part-packet reviews are bounded /7 or /11 assessments, not fresh full audits.
       "status": "needs_changes",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-ArithmeticQuantumTopology~2. Preserve that complete whole-plan review and its checked entries in reviewHistory. RT-AREA-topology/7 still needs an explicit orientation comparison at QT.5/volume-and-chern-simons: for identical ordered vertices, Neumann §3 pp.420-421 uses n with n(0,infinity,1,z)=z, whereas P.2 uses r=1/n and Vol_P(T)=D(r)=-D(n). State the carrier relabelling or orientation reversal before importing the signed volume formula; the missing direct Polylogarithms:P.2/hyperbolic-volume prerequisite is added separately. The existing figure-eight numerical test alone does not check this carrier conversion. G4/G5 being explicit planned gaps is not the rejection rationale; preserve all eight gaps, nineteen requests, conditional NZ/Habiro hypotheses, analytic-contour obligations and conjectural knot/matrix modularity. This is a bounded fix review, not a repeated 106-node source audit, closed coverage or implementation."
+      "notes": "Independent bounded review by Codex, session codex-SMOn1I, following independent-review-REV-ArithmeticQuantumTopology~2. Preserve that complete whole-plan review and its checked entries in reviewHistory. RT-AREA-topology/7 still needs an explicit orientation comparison at QT.5/volume-and-chern-simons: for identical ordered vertices, Neumann §3 pp.420-421 uses n with n(0,infinity,1,z)=z, whereas P.2 uses r=1/n and Vol_P(T)=D(r)=-D(n). State the carrier relabelling or orientation reversal before importing the signed volume formula; the missing direct Polylogarithms:P.2/hyperbolic-volume prerequisite is added separately. The existing figure-eight numerical test alone does not check this carrier conversion. G4/G5 being explicit planned gaps is not the rejection rationale; preserve all eight gaps, nineteen requests, conditional NZ/Habiro hypotheses, analytic-contour obligations and conjectural knot/matrix modularity. This is a bounded fix review, not a repeated 106-node source audit, closed coverage or implementation."
     }
   },
   {
@@ -86,7 +87,7 @@ part-packet reviews are bounded /7 or /11 assessments, not fresh full audits.
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-Polylogarithms--P.2. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/7. The Milnor-angle node supplies the single P.2 tetrahedron formula under the stated curvature, orientation and angle conventions. It retains the ideal-boundary, measurable-region, signed-integration and exact regulator-calibration gaps. Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14 support this ownership boundary. This does not repeat the 14-node whole-plan audit or claim its gaps are closed."
+      "notes": "Independent bounded review by Codex, session codex-SMOn1I, following independent-review-REV-Polylogarithms--P.2. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/7. The Milnor-angle node supplies the single P.2 tetrahedron formula under the stated curvature, orientation and angle conventions. It retains the ideal-boundary, measurable-region, signed-integration and exact regulator-calibration gaps. Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14 support this ownership boundary. This does not repeat the 14-node whole-plan audit or claim its gaps are closed."
     }
   },
   {
@@ -97,7 +98,7 @@ part-packet reviews are bounded /7 or /11 assessments, not fresh full audits.
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-HabiroNahmSeries--HB.4. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The analytic branch uses symmetric positive-definite data, odd root orders coprime to the compatible denominator, chosen branches and cancellation-safe all-orders remainders. The formal Gaussian export has a different domain and supplies no analytic convergence for a singular knot matrix. GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6 support the analytic restrictions; retain the coefficientwise Kummer and rational-data arithmetic gaps and the existing 13-node audit."
+      "notes": "Independent bounded review by Codex, session codex-SMOn1I, following independent-review-REV-HabiroNahmSeries--HB.4. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The analytic branch uses symmetric positive-definite data, odd root orders coprime to the compatible denominator, chosen branches and cancellation-safe all-orders remainders. The formal Gaussian export has a different domain and supplies no analytic convergence for a singular knot matrix. GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6 support the analytic restrictions; retain the coefficientwise Kummer and rational-data arithmetic gaps and the existing 13-node audit."
     }
   },
   {
@@ -108,7 +109,7 @@ part-packet reviews are bounded /7 or /11 assessments, not fresh full audits.
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-HabiroNahmSeries--HB.10. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The quartic module export remains conditional on HB.9 gluing and finite-etale scalar change, with a specified noncanonical K3 lift, tame-kernel prime restrictions and orders prime to Delta. A restricted module element gives neither knot invariance nor an arbitrary geometric cohomology class. GSWZ v2 Theorem 5 p.14 supports the restricted formal membership boundary. Preserve the global-line, order-one freeness and geometric-comparison obligations and the separate 14-node audit."
+      "notes": "Independent bounded review by Codex, session codex-SMOn1I, following independent-review-REV-HabiroNahmSeries--HB.10. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The quartic module export remains conditional on HB.9 gluing and finite-etale scalar change, with a specified noncanonical K3 lift, tame-kernel prime restrictions and orders prime to Delta. A restricted module element gives neither knot invariance nor an arbitrary geometric cohomology class. GSWZ v2 Theorem 5 p.14 supports the restricted formal membership boundary. Preserve the global-line, order-one freeness and geometric-comparison obligations and the separate 14-node audit. The explicit eta_R degree-zero export is retained: once an element has actually been shown to lie in the stated coefficient ring, the imported HR.5/HR.6 comparisons give an H^0 class. This is distinct from the requested higher-degree geometric comparison; this bounded review does not reject that existing coefficient-ring export or repeat its separate source audit."
     }
   }
 ]
@@ -129,9 +130,11 @@ part-packet reviews are bounded /7 or /11 assessments, not fresh full audits.
    the actual unchanged function. Leave the excluded readers to separately
    authorized follow-ups. No metadata-only refresh resolves the scope blocker.
 
-The following application helper has **not been applied**. A dry run intercepted
-all writes, preserved the old checked arrays (106/14/13/14 entries), and passed
-the real packet checker on all four proposed packets with zero errors/warnings.
+The following application helper has **not been applied**. This session applied
+the candidates only in scratch, preserved the old checked arrays
+(106/14/13/14 entries), and ran the real packet checker on all four with zero
+errors/warnings. The real completion function also passed on the scratch
+projection; the repository completion result remains false.
 It checks every input before any write and preserves each preceding whole-plan
 review. Its only write targets are the four packet paths awaiting authorization. Run it from the
 repository root only after permission and current-date review:
@@ -234,24 +237,23 @@ reported through needs_changes without editing them in this job.
 
 ## Validation and provenance
 
-Fresh checks of the three changed parents using `scripts/check_blueprint.py`
-with the supplied pinned declaration index report zero errors and zero warnings.
-Node/gap/request counts remain P 75/19/21, HB 109/22/9, QSeries 537/24/27.
-Semantic comparison proves that packet changes are exactly the one P.2 acceptance
-item, three reviews and their complete predecessor archives. All other payloads
-are unchanged. Intake file checks and whitespace checks pass. The actual
-completion function remains false for the four paths listed above.
+The three unchanged permitted packets and four scratch candidates pass the real
+packet checker with the supplied pinned declaration index: zero errors and
+warnings. Parent counts are P 75/19/21, HB 109/22/9, QSeries 537/24/27;
+candidate counts QT 106/8/19, P.2 14/2/3, HB.4 13/3/1, HB.10 14/5/3.
+Candidate predecessor checked arrays retain 106/14/13/14 entries. Repository
+changes are restricted to the report and handoff; intake file and whitespace
+checks pass. Actual completion remains false for the four excluded reviews.
 
-No Lean file changed or compile was started. Prior serial lean-check results
-remain attributed to the earlier sessions: parent P/HB/QSeries had
-462/442/1491 sorry warnings; P.2/QT/HB.4/HB.10 had 52/65/31/28. These are
-inherited results, not this session's validation. Current installed library
-HEADs are newer than the audit pins; this worker used `git show` for the two
-Mathlib declaration checks and did not claim a new pinned Tau Ceti build.
-Current hyperbolic-model/volume APIs were read only to avoid duplicate planning.
+No Lean file changed or compile was started. Historical serial lean-check
+results belong to their earlier sessions: parent P/HB/QSeries had
+462/442/1491 sorry warnings, and P.2/QT/HB.4/HB.10 had 52/65/31/28.
+They are not this session's compiler validation. No language server, Lake
+build/update/cache command or background compiler was started.
 
-Public PDFs, rendered pages and scratch logs are removed after opening the PR.
-The report's source URLs/locators and this guarded continuation contain what the
-next worker needs. No compiler, language server or background task is left
-running. Do not run another identical review merely to refresh this checkpoint;
-resolve the scope discrepancy first.
+The source PDFs, rendered pages and scratch projection are removed after the
+PR opens. No continuation depends on them: public URLs and locators are in the
+report, and the guarded candidate application is above. Resolve the scope
+discrepancy before redispatch; another identical metadata refresh cannot finish
+the job. Negative verdicts can finish it once all four review paths are
+authorized, so reader repairs need not hold up that administrative completion.
