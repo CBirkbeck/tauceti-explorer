@@ -53776,8 +53776,8 @@
    ],
    "revisionOf": "PKG-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/PKG-EulerSystemsAndKolyvaginSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11135"
+   "state": "superseded",
+   "note": "Superseded 2026-10-19: the revision PR #11197 conflicted with main and was closed; its content was reconciled onto the current package by FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3 (#11247). Further rounds continue as FIX/REV jobs on the current package."
   },
   {
    "id": "REV-PKG-EulerSystemsAndKolyvaginSystems~2",
@@ -53803,7 +53803,8 @@
     "PKG-EulerSystemsAndKolyvaginSystems~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsAndKolyvaginSystems~2.md",
-   "state": "pending"
+   "state": "superseded",
+   "note": "Superseded 2026-10-19: the revision PR #11197 conflicted with main and was closed; its content was reconciled onto the current package by FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3 (#11247). Further rounds continue as FIX/REV jobs on the current package."
   },
   {
    "id": "PKG-EulerSystemsCyclotomicMainConjecture",
