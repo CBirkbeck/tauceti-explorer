@@ -8,7 +8,7 @@ The parent roadmap supplies the analytic sites, existing traces, the proper tors
 
 ## Conventions and library boundary
 
-Fix a prime p. Unless a target states a different base, C is a complete algebraically closed rank-one extension of Q_p, with valuation ring O_C and maximal ideal 𝔪_C. For Galois-equivariant conclusions, K is a complete rank-one nonarchimedean field of mixed characteristic (0,p) and C is its completed algebraic closure. The formal-duality layer also uses such valuation rings O_K. An admissible model is flat and topologically finitely presented over the valuation ring; use separated qcqs models in global comparisons, and restrict locally for the sheaf statements. The adjective “pure-d” records pure relative dimension d, not merely an upper bound.
+Fix a prime p. Unless a target states a different base, C is a complete algebraically closed rank-one extension of Q_p, with valuation ring O_C and maximal ideal 𝔪_C. For Galois-equivariant conclusions, K is a complete rank-one nonarchimedean field of mixed characteristic (0,p) and C is its completed algebraic closure. The formal-duality layer also uses such valuation rings O_K. An admissible model is flat and topologically finitely presented over the valuation ring; use separated models wherever formal dualizing complexes are invoked, separated qcqs models in global comparisons, and restrict locally for the sheaf statements. The canonical generic identification and model-independent coherent trace in PD.1 use algebraically closed C, as in Z §2.7. The adjective “pure-d” records pure relative dimension d, not merely an upper bound.
 
 Write 𝔛₀=𝔛⊗O_C/p and 𝔛̄=𝔛⊗O_C/𝔪_C. These fibres are different: even a nice model need not have reduced 𝔛₀. Almostification uses 𝔪_C; it is compatible with derived tensor because the ideal is flat and idempotent. On a perfectoid base over C, the pseudouniformizer almost convention in SW uses the corresponding ideal of arbitrarily small positive valuation. A sheaf annihilated by the almost ideal is zero in the almost category, whereas a sheaf killed by p need not be.
 
@@ -22,9 +22,9 @@ Mathlib is pinned at `082e2d37e8b0463410cdb532e111cd43d5a66174`, and Tau Ceti at
 - `mathlib:Representation.invariants` in `Mathlib.RepresentationTheory.Invariants`: The submodule of vectors v fixed by every ρ(g), with membership characterized pointwise. PD.4’s derived almost invariants have this as their ordinary degree-zero specialization.
 - `mathlib:IsPGroup.exists_fixed_point_of_prime_dvd_card_of_fixed_point` in `Mathlib.GroupTheory.PGroup`: For an action of a p-group on a finite type whose cardinality is divisible by p, a given fixed point has a distinct second fixed point. Apply to the underlying additive set of a nonzero finite F_p-representation, with the zero fixed point, in the unipotent-filtration proof.
 
-The compact [suggested file](../suggested/ClassicalAdicEtaleCohomologyPartII.lean) contains one finite-representation milestone and three algebraic checks, all on actual pinned carriers. The formal, analytic and almost derived carriers are targets of this reader. They are not represented by substitute propositions, unimplemented data structures or auxiliary developments in that file. Its successful elaboration verifies those finite algebraic signatures only.
+The compact [suggested file](../suggested/ClassicalAdicEtaleCohomologyPartII.lean) contains four algebraic compatibility examples on actual pinned carriers. The geometric carriers remain reader targets. Elaboration verifies these signatures; the two examples with `sorry` remain proof obligations.
 
-**Finite algebra milestone.** The suggested declaration `TauCeti.AdicDuality.FiniteAlgebraChecks.exists_nonzero_invariant` states: for a prime p, a finite p-group G and a nonzero finite F_p-vector space V with a G-representation, the invariant subspace contains a nonzero vector. This is the fixed-vector step of `PD.5/local-system-duality`, not a second group-cohomology theory. Apply Mathlib’s p-group fixed-point theorem to the finite additive set V: its cardinality is divisible by p and zero is fixed. Repeat on quotients to obtain the unipotent filtration (Z Theorem 5.4.2, pp. 78–79). The three executable examples check the existing invariant-submodule membership criterion, the two-adjoint perfect-pairing criterion and nonsurjectivity of multiplication by a nonunit. The 78 geometric definition tests remain the exact reader specifications below.
+**Existing finite algebra input.** For a finite p-group G acting on a nonzero finite F_p-vector space V, the invariant subspace contains a nonzero vector. The suggested file records an unnamed example of this input to `PD.5/local-system-duality` (Z Theorem 5.4.5, pp. 80–81). At the pins it follows from Mathlib’s finite-set fixed-point theorem, since zero is fixed and the cardinality is divisible by p. Current Tau Ceti already supplies the stronger `Representation.exists_common_fixed_vector_of_isPGroup` and `Representation.invariants_ne_bot_of_isPGroup` in `TauCeti.RepresentationTheory.Unipotent.PowerOrder`: the field has exponential characteristic p, V is nonzero finite-dimensional, and G can be infinite. Reuse these declarations when packaging against current upstream; do not allocate a new fixed-vector theorem here. They were checked at Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, separately from the pinned elaboration baseline. The other three examples check invariant membership, both perfect-pairing adjoints and multiplication by a nonunit. All 78 geometric definition tests remain reader specifications below.
 
 ## Build order and acceptance
 
@@ -39,7 +39,7 @@ The compact [suggested file](../suggested/ClassicalAdicEtaleCohomologyPartII.lea
 | PD.6 | Proper smooth relative finiteness | planned | 4 |
 | PD.7 | Zariski-constructible proper base change | planned | 4 |
 
-The packet is complete as a target-level planning pass: every target has a statement, source, acceptance criterion and dependency chain ending in the libraries, an exact supplier node, a requested stage or a named gap. No layer is claimed closed. G1–G5 below identify proof inputs requiring further decomposition; the requested stages are contracts, not implementation claims. The initial 96 Zavyalov, three Berkeley and one Heuer route items are all accounted for in the packet’s `sourceCoverage`, merged into 64 target-level nodes.
+The [independent review](../reviews/REV-DESIGN-ClassicalAdicEtaleCohomologyPartII.md) accepts the packet as a target-level planning pass: every target has a statement, source, acceptance criterion and dependency chain ending in the libraries, an exact supplier node, a requested stage or a named gap. No layer is claimed closed. G1–G5 below identify proof inputs requiring further decomposition; the requested stages are contracts, not implementation claims. The initial 96 Zavyalov, three Berkeley and one Heuer route items are all accounted for in the packet’s `sourceCoverage`, merged into 64 target-level nodes.
 
 The core build path is PD.0 → PD.1 → PD.2 → PD.3 → PD.4 → PD.5. PD.6 uses the existing primitive comparison and quasi-pro-étale base-change inputs and is independent of the proof of duality. PD.7 uses relative finiteness and the proper p-adic cohomology comparison. This continuation is placed after the existing AInfCohomology/PadicHodgeTheory bundle and the needed DiamondEtaleCohomology input. It introduces no upward prerequisite into the parent roadmap.
 
@@ -53,7 +53,7 @@ Specialize the abstract almost-module formalism to admissible formal O_C-models.
 
 **Definition** · `formal-almost-coherence` · Planet: Almost coherent formal sheaves.
 
-For a qcqs admissible formal O_C-scheme 𝔛, with I=(p) and almost ideal 𝔪_C, an almost sheaf Fᵃ is adically quasi-coherent when its left-adjoint representative F! is I-adically complete with quasi-coherent reductions on every formal affine. It is almost coherent when locally its module of sections is almost finitely presented. D_acoh(𝔛)ᵃ is the full subcategory of D(O_𝔛ᵃ) whose cohomology sheaves have this property. The same notation on 𝔛₀ denotes almost quasi-coherent almost coherent sheaves on the scheme modulo p.
+For a qcqs admissible formal O_C-scheme 𝔛, with I=(p) and almost ideal 𝔪_C, an almost sheaf Fᵃ is almost adically quasi-coherent when its left-adjoint representative F! is I-adically complete with quasi-coherent reductions on every formal affine. It is almost coherent when locally its module of sections is almost finitely presented. D_acoh(𝔛)ᵃ is the full subcategory of D(O_𝔛ᵃ) whose cohomology sheaves have this property. The same notation on 𝔛₀ denotes almost quasi-coherent almost coherent sheaves on the scheme modulo p.
 
 **Proof/construction.**
 
@@ -153,13 +153,13 @@ For an admissible formal O_C-scheme 𝔛 with d-dimensional generic fibre X, wri
 
 **Construction** · `generic-fibre-almost-complexes` · Planet: Generic fibres of almost complexes.
 
-For the specialization map sp:X_an→𝔛_Zar, define F_K=Lsp^*F=sp⁻¹F⊗ᴸ_{sp⁻¹O_𝔛}O_X. It kills 𝔪_C-almost-zero objects, hence descends from almost complexes to ordinary O_X-complexes. It sends bounded almost coherent complexes to bounded coherent complexes and commutes with proper pushforward between admissible models. In particular (Rν_*Ô_X^{+a})_K≅Rμ_*Ô_X.
+For the specialization map sp:X_an→𝔛_Zar, define F_K=Lsp^*F=sp⁻¹F⊗ᴸ_{sp⁻¹O_𝔛}O_X. It kills 𝔪_C-almost-zero objects, hence descends from almost complexes to ordinary O_X-complexes. It sends bounded almost coherent complexes to bounded coherent complexes and commutes with proper pushforward between admissible models. When X is smooth, (Rν_*Ô_X^{+a})_K≅Rμ_*Ô_X.
 
 **Proof/construction.**
 
 1. Invert a nonzero topologically nilpotent scalar on formal affines, then pull back and glue.
 2. Use almost coherent approximation and coherent generic-fibre comparison to identify cohomology and proper direct images.
-3. Compare the two ringed-site pullbacks and the integral/rational completed structure sheaves for the last identification.
+3. Compare the two ringed-site pullbacks and the integral/rational completed structure sheaves for the last identification. Smoothness supplies coherent rational Hodge–Tate cohomology in Z Lemma C.9; it is not needed for the generic-fibre functor itself.
 
 **Uses.** Z Theorem 3.4.12: compares BMS and Scholze after inversion; Z Lemma 3.6.4: checks trace compatibility on the generic fibre.
 
@@ -167,7 +167,7 @@ For the specialization map sp:X_an→𝔛_Zar, define F_K=Lsp^*F=sp⁻¹F⊗ᴸ_
 
 - `TauCeti.AdicDuality.generic_fibre_almost_complexes.exact` (functoriality): Generic fibre is exact on coherent and almost coherent cohomology and preserves derived tensor products.
 - `TauCeti.AdicDuality.generic_fibre_almost_complexes.proper_pushforward` (compatibility): For proper f, (R f_*F)_K≅R f_K,*(F_K).
-- `TauCeti.AdicDuality.generic_fibre_almost_complexes.nearby` (equivalence): The generic fibre of A_𝔛 is Rμ_*Ô_X, compatible with cup and finite étale trace.
+- `TauCeti.AdicDuality.generic_fibre_almost_complexes.nearby` (equivalence): For smooth generic fibre X, the generic fibre of A_𝔛 is Rμ_*Ô_X, compatible with cup and finite étale trace.
 
 **Unit tests.**
 
@@ -185,7 +185,7 @@ For the specialization map sp:X_an→𝔛_Zar, define F_K=Lsp^*F=sp⁻¹F⊗ᴸ_
 
 ## PD.1. Formal canonical sheaves and traces
 
-Construct coherent formal dualizing complexes as derived inverse limits, with canonical flat bottom sheaf and finite-level reduction. Prove étale/algebraic comparison and Hartogs gluing for geometrically reduced residue fibres. Construct bottom traces, the generic top-differential identification and model-independent coherent traces on equal-dimensional smooth rigid spaces. G1 and G2 supply the valuation-base geometry.
+Construct coherent formal dualizing complexes as derived inverse limits, with canonical flat bottom sheaf and finite-level reduction. Prove étale/algebraic comparison and Hartogs gluing for geometrically reduced residue fibres. Construct bottom traces, the generic top-differential identification and model-independent coherent traces on equal-dimensional smooth rigid spaces. G1 and G2 supply the valuation-base geometry. The generic identification and coherent rigid trace construction use algebraically closed C; separatedness is explicit for formal duality.
 
 **Layer inputs:** `AInfCohomology:AI.1`, `AdicSpacesPartII:F0`, `AdicSpacesPartII:R2`, `AdicSpacesPartII:R3`, `ClassicalAdicEtaleCohomologyPartII:PD.0`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:key`.
 
@@ -193,7 +193,7 @@ Construct coherent formal dualizing complexes as derived inverse limits, with ca
 
 **Construction** · `formal-dualizing-complex` · Planet: Formal dualizing complexes.
 
-For a flat admissible formal O_K-scheme 𝔛 with pure relative dimension d, put 𝔛_n=𝔛×Spec(O_K/pⁿ), n≥1. Choose compatible scheme dualizing complexes ω•_{𝔛_n}=f_n!O_K/pⁿ and define ω•_𝔛=Rlim_n ω•_{𝔛_n}. Its isomorphism class is independent of choices, but no canonical identification of these complexes is asserted. The bottom sheaf ω_𝔛=H⁻ᵈ(ω•_𝔛) is canonical and O_K-flat. The complex is coherent of amplitude [−d,0], reduces derivedly to ω•_{𝔛_n}, and for smooth 𝔛 is Ω̂ᵈ_{𝔛/O_K}[d].
+For a separated flat admissible formal O_K-scheme 𝔛 with pure relative dimension d, put 𝔛_n=𝔛×Spec(O_K/pⁿ), n≥1. Choose compatible scheme dualizing complexes ω•_{𝔛_n}=f_n!O_K/pⁿ and define ω•_𝔛=Rlim_n ω•_{𝔛_n}. Its isomorphism class is independent of choices, but no canonical identification of these complexes is asserted. The bottom sheaf ω_𝔛=H⁻ᵈ(ω•_𝔛) is canonical and O_K-flat. The complex is coherent of amplitude [−d,0], reduces derivedly to ω•_{𝔛_n}, and for smooth 𝔛 is Ω̂ᵈ_{𝔛/O_K}[d].
 
 **Proof/construction.**
 
@@ -225,7 +225,7 @@ For a flat admissible formal O_K-scheme 𝔛 with pure relative dimension d, put
 
 **Theorem** · `formal-dualizing-comparison`.
 
-Bounded coherent complexes on an admissible formal model are derived p-complete. For an étale g:𝔜→𝔛 of pure-d models, g^*ω_𝔛≅ω_𝔜 canonically and g^*ω•_𝔛≅ω•_𝔜 as isomorphism classes. If 𝔛 is the p-adic completion of a flat finitely presented O_K-scheme with pure-d generic fibre, its formal dualizing complex is the derived completion of the scheme one, and their bottom sheaves agree under completion.
+Bounded coherent complexes on an admissible formal model are derived p-complete. For an étale g:𝔜→𝔛 of separated pure-d models, g^*ω_𝔛≅ω_𝔜 canonically and g^*ω•_𝔛≅ω•_𝔜 as isomorphism classes. If 𝔛 is the p-adic completion of a separated flat finitely presented O_K-scheme with pure-d generic fibre, its formal dualizing complex is the derived completion of the scheme one, and their bottom sheaves agree under completion.
 
 **Proof/construction.**
 
@@ -274,7 +274,7 @@ Let 𝔘⊂𝔛 be a formal open and F a sheaf. Define Glue_𝔘(F) as the kerne
 
 **Theorem** · `formal-hartogs` · Planet: Hartogs extension for canonical sheaves.
 
-Suppose 𝔛 is admissible, has smooth pure-d generic fibre and geometrically reduced residue special fibre 𝔛̄=𝔛⊗k. Then ω_𝔛 is reflexive. For an open 𝔘 containing a dense open of 𝔛̄ and on which 𝔛 is smooth, ω_𝔛→Glue_𝔘(ω_𝔛) is an isomorphism. The same gluing assertion holds for any coherent reflexive F under the hypotheses of Z Lemmas 2.5.3–2.5.4.
+Suppose 𝔛 is separated admissible, has smooth pure-d generic fibre and geometrically reduced residue special fibre 𝔛̄=𝔛⊗k. Then ω_𝔛 is reflexive. For an open 𝔘 containing a dense open of 𝔛̄ and on which 𝔛 is smooth, ω_𝔛→Glue_𝔘(ω_𝔛) is an isomorphism. More generally, on an admissible formal model with reduced residue special fibre, every coherent reflexive F satisfies F≅Glue_𝔘(F) for every dense formal open 𝔘; this last assertion needs neither smooth generic fibre nor smoothness of 𝔘.
 
 **Proof/construction.**
 
@@ -292,7 +292,7 @@ Suppose 𝔛 is admissible, has smooth pure-d generic fibre and geometrically re
 
 **Construction** · `formal-bottom-trace` · Planet: Formal canonical traces.
 
-For proper f:𝔜→𝔛 between flat admissible pure-d models, the proper duality counits on all reductions give compatible bottom traces f_*ω_𝔜→ω_𝔛. Here f_* denotes underived direct image. These traces compose and agree with the scheme trace under algebraization/completion. This construction does not assert a general formal-scheme exceptional inverse image.
+For proper f:𝔜→𝔛 between separated flat admissible pure-d models, the proper duality counits on all reductions give compatible bottom traces f_*ω_𝔜→ω_𝔛. Here f_* denotes underived direct image. These traces compose and agree with the scheme trace under algebraization/completion. This construction does not assert a general formal-scheme exceptional inverse image.
 
 **Proof/construction.**
 
@@ -324,7 +324,9 @@ For proper f:𝔜→𝔛 between flat admissible pure-d models, the proper duali
 
 **Comparison** · `canonical-generic-identification`.
 
-For a separated qcqs admissible O_K-model 𝔛 with smooth pure-d generic fibre X and geometrically reduced residue special fibre, there is a canonical s_𝔛:Ωᵈ_{X/K}≅(ω_𝔛)_K and an identification Ωᵈ_X[d]≅(ω•_𝔛)_K. The bottom identification is independent of algebraization and compatible with proper rig-isomorphisms between models with these hypotheses. The complex comparison is not asserted to be canonical.
+Let K=C be algebraically closed. For a separated qcqs admissible O_K-model 𝔛 with smooth pure-d generic fibre X and geometrically reduced residue special fibre, there is a canonical s_𝔛:Ωᵈ_{X/K}≅(ω_𝔛)_K and an identification Ωᵈ_X[d]≅(ω•_𝔛)_K. The bottom identification is independent of algebraization and compatible with proper rig-isomorphisms between models with these hypotheses. The complex comparison is not asserted to be canonical.
+
+**Additional hypotheses.** The construction in Z §2.7 uses an algebraically closed base field; only the preceding formal duality targets are asserted over general K.
 
 **Proof/construction.**
 
@@ -342,7 +344,9 @@ For a separated qcqs admissible O_K-model 𝔛 with smooth pure-d generic fibre 
 
 **Construction** · `rigid-coherent-trace` · Planet: Coherent rigid traces.
 
-For a proper morphism f:Y→X of smooth separated qcqs rigid K-spaces, both pure of dimension d, define Tr_f:f_*Ωᵈ_Y→Ωᵈ_X by a proper map of admissible models and their bottom trace, transported by s. The map is independent of models, composes, and for finite étale f equals the coefficient trace under Ωᵈ_Y≅f^*Ωᵈ_X. Pullback in this last formula is the usual inverse image of differential bundles.
+Over the algebraically closed field C, for a proper morphism f:Y→X of smooth separated qcqs rigid C-spaces, both pure of dimension d, define Tr_f:f_*Ωᵈ_Y→Ωᵈ_X by a proper map of admissible models and their bottom trace, transported by s. The map is independent of models, composes, and for finite étale f equals the coefficient trace under Ωᵈ_Y≅f^*Ωᵈ_X. Pullback in this last formula is the usual inverse image of differential bundles.
+
+**Additional hypotheses.** The model-independent construction uses the algebraically closed setting of Z §2.7 and its reduced-model cofinality input G2.
 
 **Proof/construction.**
 
@@ -360,7 +364,7 @@ For a proper morphism f:Y→X of smooth separated qcqs rigid K-spaces, both pure
 
 **Unit tests.**
 
-- `rigid-coherent-trace.point_extension` (example): For a finite separable field extension L/K and d=0, the map is the field trace L→K.
+- `rigid-coherent-trace.identity` (example): For the identity on a smooth rigid C-space, the coherent trace is the identity on its top differential bundle.
 - `rigid-coherent-trace.split_cover` (example): For r disjoint copies of X the trace is summation.
 - `rigid-coherent-trace.power_torus` (example): On T↦Tʳ, Tr(dlog T)=dlog S and Tr(f^*dlog S)=r dlog S, since dlog S=r dlog T.
 
@@ -485,19 +489,20 @@ For a nice model, the generic fibre of Φⁿ is Scholze’s canonical Ωⁿ_X(�
 1. Use the existing rational Hodge–Tate comparison of P8; verify its coordinate normalization on G_m and products by the Kummer character.
 2. Compare the BMS cotangent cocycle with Fontaine dlog in the one-coordinate case, then exterior powers.
 3. Reduce to a dense smooth open with finite étale toric coordinates and extend equality of vector-bundle maps on the connected smooth generic fibre.
-4. For finite étale f, compare multiplication trace with the pro-étale counit, using the algebra trace calculation.
+4. Correct Z equation (3.7) as recorded in E21: after inversion use Ψ′=j∘Φ⁻¹=Sch⁻¹, with no additional scalar on the source. This agrees with the smooth integral inverse, whose defining square uses inclusion of the image lattice.
+5. For finite étale f, compare multiplication trace with the pro-étale counit, using the algebra trace calculation.
 
-**Acceptance.** Coordinate tori suffice for normalization; no splitting of the entire Hodge–Tate complex is asserted.
+**Acceptance.** Coordinate tori suffice for normalization; no splitting of the entire Hodge–Tate complex is asserted. On the one-dimensional torus, Ψ′ sends the normalized coordinate character back to dlog T with its Tate twist; a residual factor (1−ζ_p)⁻¹ would fail this normalization.
 
-**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.0/generic-fibre-almost-complexes`, `ClassicalAdicEtaleCohomologyPartII:PD.2/bms-maps-general-model`, `ClassicalAdicEtaleCohomologyPartII:PD.2/smooth-faltings-inverse`, `ClassicalAdicEtaleCohomologyPartII:PD.1/rigid-coherent-trace`, `PadicHodgeTheory:P8`, `AdicSpacesPartII:R3`.
+**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.0/generic-fibre-almost-complexes`, `ClassicalAdicEtaleCohomologyPartII:PD.2/bms-maps-general-model`, `ClassicalAdicEtaleCohomologyPartII:PD.2/smooth-faltings-inverse`, `ClassicalAdicEtaleCohomologyPartII:PD.1/rigid-coherent-trace`, `PadicHodgeTheory:P8`, `AdicSpacesPartII:R3`, `ClassicalAdicEtaleCohomologyPartII:PD.2/nice-formal-model`.
 
-**Source:** Z Lemmas 3.4.5, 3.4.7–3.4.8, Corollary 3.4.9, Theorem 3.4.12 and Definitions 3.4.13–3.4.14, pp. 38–44.
+**Source:** Z Lemmas 3.4.5, 3.4.7–3.4.8, Corollary 3.4.9, Theorem 3.4.12, Definitions 3.4.13–3.4.14 and Remark 3.4.15, pp. 38–44; equation (3.7) corrected by E21.
 
 ### Nice formal models
 
 **Definition** · `nice-formal-model` · Planet: Nice formal models.
 
-A nice model of dimension d is a qcqs separated admissible formal O_C-scheme whose generic fibre is smooth of pure dimension d and whose residue special fibre modulo 𝔪_C is reduced. Its reduction modulo p need not be reduced. A smooth model is nice; the local theory is extended to non-quasi-compact spaces by restriction to the qcqs opens to which the statements apply.
+A nice model of dimension d is a qcqs separated admissible formal O_C-scheme whose generic fibre is smooth of pure dimension d and whose residue special fibre modulo 𝔪_C is reduced. Its reduction modulo p need not be reduced. A separated qcqs smooth model of pure dimension d is nice; the local theory is extended to non-quasi-compact spaces by restriction to the qcqs opens to which the statements apply.
 
 **Proof/construction.**
 
@@ -649,7 +654,7 @@ Define standard polystable models and their p-power root towers, with product-on
 
 **Definition** · `polystable-model` · Planet: Polystable models.
 
-For blocks i=1,…,l with n_i≥0 and 0≠ϖ_i∈O_C, a standard polystable algebra is R⁺=O_C⟨t_{i,j}:0≤j≤n_i⟩/(∏_j t_{i,j}−ϖ_i for every i). Its relative dimension is d=Σ_i n_i. A polystable formal scheme admits an étale cover with étale maps to such models. Unit ϖ_i are allowed; zero ϖ_i are excluded. These are nice models, and ω is invertible with ω•≅ω[d].
+For blocks i=1,…,l with n_i≥0 and 0≠ϖ_i∈O_C, a standard polystable algebra is R⁺=O_C⟨t_{i,j}:0≤j≤n_i⟩/(∏_j t_{i,j}−ϖ_i for every i). Its relative dimension is d=Σ_i n_i. A polystable formal scheme admits an étale cover with étale maps to such models. Unit ϖ_i are allowed; zero ϖ_i are excluded. A separated qcqs polystable model of pure dimension d is nice; on such a model ω is invertible with ω•≅ω[d].
 
 **Proof/construction.**
 
@@ -662,7 +667,7 @@ For blocks i=1,…,l with n_i≥0 and 0≠ϖ_i∈O_C, a standard polystable alge
 **API.**
 
 - `TauCeti.AdicDuality.polystable_model.dimension` (projection): The dimension of the chart is Σ n_i, unchanged under étale maps.
-- `TauCeti.AdicDuality.polystable_model.canonical_line` (structure): ω is an invertible sheaf and ω•=ω[d].
+- `TauCeti.AdicDuality.polystable_model.canonical_line` (structure): For a separated pure-d polystable model, ω is an invertible sheaf and ω•=ω[d].
 - `TauCeti.AdicDuality.polystable_model.etale_local` (characterisation): Polystability is defined by the stated étale charts and is preserved under étale restriction.
 
 **Unit tests.**
@@ -1179,6 +1184,7 @@ Under the preceding hypotheses, for every finite-rank étale F_p-local system L 
 2. The remaining p-group representation over F_p has a filtration with trivial one-dimensional quotients: its finite underlying set has a nonzero invariant by the existing p-group fixed-point congruence; repeat on the quotient.
 3. Apply the constant theorem and the five lemma along that filtration, with evaluation and connecting-map signs.
 4. Use restriction and finite étale trace to split L off the pushed-forward pullback: their composite is the prime-to-p degree, a unit.
+5. Reuse the existing finite-dimensional p-group fixed-vector theorem in current Tau Ceti, Representation.exists_common_fixed_vector_of_isPGroup (RepresentationTheory.Unipotent.PowerOrder); the pinned Mathlib fixed-point theorem also supplies the finite F_p case. This algebraic input is not a new target owned here.
 
 **Acceptance.** The mod-p filtration argument includes p=2. A degree-p trace alone would not split the local system.
 
@@ -1203,7 +1209,7 @@ For a proper rigid C-space of pure dimension d, not necessarily smooth, RΓ_ét(
 
 **Direct prerequisites:** `ClassicalAdicEtaleCohomology:H3/proper-torsion-cohomological-amplitude`, `ClassicalAdicEtaleCohomology:H3/proper-projection-formula-all-torsion`, `ClassicalAdicEtaleCohomologyPartII:PD.0/nearby-cycle-complexes`, `PadicHodgeTheory:P8`, `ArithmeticGaloisDuality:D7`, `AInfCohomology:AI.1`, `AdicSpacesPartIIPartII:RZ.5/rigid-resolution`.
 
-**Source:** Z Lemma 5.5.1, p. 81; PS Theorem 3.17, pp. 19–20.
+**Source:** Z Lemma 5.5.1, p. 81; PS Theorem 3.17 and proof, pp. 19–20.
 
 ### Finite p-power derived Poincaré duality
 
@@ -1297,7 +1303,7 @@ For smooth proper pure-d X/K, cup and t_{X,Q_p} give a perfect Galois-equivarian
 
 Over strictly totally disconnected perfectoid bases prove coherence, relative strict-containment finite-presentation factorization and the spectral-sequence factorization lemma. Deduce almost finite presentation of relative O⁺/p cohomology. Combine continuous elementary divisors, primitive comparison and all-p quasi-pro-étale base change to obtain finite local systems Rⁱf_*L for proper smooth f. Include finite p-power coefficients and finitely generated lisse Z_p higher direct images with their limit comparisons.
 
-**Layer inputs:** `AInfCohomology:AI.1`, `AdicSpacesPartII:R1`, `AdicSpacesPartII:R2`, `ArithmeticGaloisDuality:D7`, `ClassicalAdicEtaleCohomology:H0`, `ClassicalAdicEtaleCohomology:H3`, `DiamondEtaleCohomology:C1`, `DiamondsAndVStacks:D1`, `DiamondsAndVStacks:D3`, `EnhancedDerivedSheaves:E2`, `PadicHodgeTheory:P8`, `PerfectoidSpaces:P0`, `PerfectoidSpaces:P3`, `SchemeAndStackFoundations:SF.0`.
+**Layer inputs:** `AInfCohomology:AI.1`, `AdicSpacesPartII:R1`, `AdicSpacesPartII:R2`, `ArithmeticGaloisDuality:D7`, `ClassicalAdicEtaleCohomology:H0`, `ClassicalAdicEtaleCohomology:H3`, `DiamondEtaleCohomology:C1`, `DiamondsAndVStacks:D1`, `EnhancedDerivedSheaves:E2`, `PadicHodgeTheory:P8`, `PerfectoidSpaces:P0`, `PerfectoidSpaces:P3`, `SchemeAndStackFoundations:SF.0`, `PerfectoidSpaces:P5`, `PerfectoidSpaces:P6`.
 
 ### Coherent integral reductions of disconnected bases
 
@@ -1362,7 +1368,7 @@ Let S=Spa(R,R⁺) be a strictly totally disconnected perfectoid over C and let U
 
 **Acceptance.** Finitely presented as an algebra does not mean finitely presented as a module; the next containment theorem adds that stronger conclusion only for a factorization.
 
-**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.6/disconnected-coherent-reduction`, `AdicSpacesPartII:R2`, `DiamondsAndVStacks:D1`, `DiamondsAndVStacks:D3`.
+**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.6/disconnected-coherent-reduction`, `AdicSpacesPartII:R2`, `DiamondsAndVStacks:D1`, `PerfectoidSpaces:P5`, `PerfectoidSpaces:P6`.
 
 **Source:** SW Lemma 10.5.9 and proof, p. 89.
 
@@ -1469,11 +1475,11 @@ For f as above and a finite free lisse Z_p-sheaf T, each Rⁱf_ét,*(T/pⁿ) is 
 
 1. Induct on n using 0→T/p→T/pⁿ⁺¹→T/pⁿ→0 and the exact-sequence category of finite local systems.
 2. Use finite stalk cohomology for the Mittag–Leffler argument and retain the derived inverse-limit sequence until lim¹ vanishes.
-3. Use the local-system/pro-étale lattice equivalence with its finite-generation topology to identify the integral sheaf. This formal passage is included in the D7 request, not inferred from arbitrary inverse limits of sheaves.
+3. Import P8’s étale/pro-étale lattice equivalence and its lisse direct-image comparison. Extend from finite free lattices to finitely generated modules by their finite torsion submodule and free quotient, using H0’s finite local systems. D7 supplies the derived-limit/Mittag–Leffler algebra; no assertion about arbitrary inverse limits of sheaves is used.
 
 **Acceptance.** An extension in finite coefficient local systems need not be free over Z/pⁿ; torsion in integral fibre cohomology is permitted.
 
-**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.6/relative-mod-p-finiteness`, `ArithmeticGaloisDuality:D7`, `ClassicalAdicEtaleCohomology:H0`.
+**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.6/relative-mod-p-finiteness`, `ArithmeticGaloisDuality:D7`, `ClassicalAdicEtaleCohomology:H0`, `PadicHodgeTheory:P8/plan/lisse-sheaves-etale-proetale-equivalence`.
 
 **Source:** SW paragraph following Theorem 10.5.1, p. 82; relative comparison motivation on p. 83.
 
@@ -1515,7 +1521,7 @@ For a rigid K-space in characteristic zero and Λ=Z/n, n>0, an étale Λ-sheaf i
 
 **Direct prerequisites:** `ClassicalAdicEtaleCohomology:H0/classical-constructible-sheaves`, `AdicSpacesPartIIPartII:RZ.0`, `EnhancedDerivedSheaves:E1`.
 
-**Source:** BH Definition 1.2, Example 1.3, p. 2; Definition 3.1 and Remark 3.2, pp. 14–15.
+**Source:** BH Definition 3.1 and Warning 3.2, pp. 14–15.
 
 ### Affinoid constructible algebraization
 
@@ -1545,11 +1551,11 @@ Zariski-constructibility of finite torsion étale sheaves in characteristic-zero
 
 1. Use the affine constructible comparison G4 and the maximal lisse open; flat restriction maps preserve it, so the complement glues to a coherent closed subset.
 2. Induct on dimension to prove locality, using descent of coherent ideals.
-3. For generators, pass to a prime-to-ℓ finite étale cover on a dense lisse stratum, with unipotent residual monodromy, and extend it to a finite branched cover; use localization and direct summands. G4 includes the branched-cover extension theorem.
+3. For generators, pass to a prime-to-ℓ finite étale cover on a dense lisse stratum, with unipotent residual monodromy, and extend it to a finite branched cover; use localization and direct summands. G4 includes the branched-cover extension theorem. The unipotent filtration is a finite-group representation argument; reuse current Tau Ceti’s fixed-vector results, or the pinned Mathlib fixed-point baseline, without invoking geometric Poincaré duality.
 
 **Acceptance.** Use the affinoid comparison owned by this Part II; its nonproper comparison and branched-cover input remain G4.
 
-**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.7/affinoid-constructible-algebraization`, `ClassicalAdicEtaleCohomologyPartII:PD.7/zariski-constructible-complex`, `AdicSpacesPartIIPartII:RZ.1`, `AdicSpacesPartII:R3`, `ClassicalAdicEtaleCohomologyPartII:PD.5/local-system-duality`.
+**Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.7/affinoid-constructible-algebraization`, `ClassicalAdicEtaleCohomologyPartII:PD.7/zariski-constructible-complex`, `AdicSpacesPartIIPartII:RZ.1`, `AdicSpacesPartII:R3`, `mathlib:Representation.invariants`, `mathlib:IsPGroup.exists_fixed_point_of_prime_dvd_card_of_fixed_point`.
 
 **Source:** BH Theorem 3.5, Proposition 3.6, Proposition 3.7 and proof of Theorem 3.5, pp. 15–17.
 
@@ -1626,7 +1632,7 @@ Let K be complete algebraically closed over Q_p, g:Z→Spa K proper rigid, n≥1
 
 **Direct prerequisites:** `ClassicalAdicEtaleCohomologyPartII:PD.7/proper-base-change-all-torsion`, `ClassicalAdicEtaleCohomologyPartII:PD.7/proper-constructible-pushforward`, `ClassicalAdicEtaleCohomology:H0`.
 
-**Source:** H §2.6, Proposition 2.18 and proof, pp. 278–279.
+**Source:** H §2.6, Proposition 2.18 and proof, p. 279.
 
 **Closure checks for PD.7.** G1, G2, G3, G4, G5. Resolve the supplier contracts listed below and verify the tests above before changing this layer from planned to closed.
 
@@ -1696,7 +1702,7 @@ Used by: `proper-constructible-pushforward`.
 
 ### `ArithmeticGaloisDuality:D7`
 
-Continuous and finite-group derived cochains, bar resolutions, Hochschild–Serre, induced-module Shapiro, coefficient reduction and derived inverse limits. Include the finite-generation/Mittag–Leffler and pro-étale lattice comparisons needed for relative lisse finitely generated Z_p higher direct images; a limit of finite coefficient sheaves alone is insufficient.
+Continuous and finite-group derived cochains, bar resolutions, Hochschild–Serre, induced-module Shapiro, coefficient reduction and derived inverse limits, compatible with upstream ProfiniteCohomology. Retain finite-generation/Mittag–Leffler hypotheses; the geometric étale/pro-étale lattice equivalence is imported from P8, not assigned to D7.
 
 Used by: `equivariant-almost-descent`, `proper-p-adic-perfectness`, `p-adic-traces`, `relative-integral-finiteness`.
 
@@ -1736,9 +1742,15 @@ Strictly totally disconnected perfectoid covers, their topological sheaf descrip
 
 Used by: `disconnected-coherent-reduction`, `relative-strict-containment`, `relative-finite-presentation`, `relative-local-constancy-criterion`, `relative-mod-p-finiteness`.
 
-### `DiamondsAndVStacks:D3`
+### `PerfectoidSpaces:P5`
 
-Finite-presentation descent of rational embeddings and finite étale charts through completed inverse limits of perfectoid bases, with descent of the integral/power-bounded chart after Reduced Fibre modification.
+Finite-stage approximation and descent of finite étale and qcqs étale charts through completed inverse limits of affinoid perfectoid bases (ECD 6.4(i)–(iii)); retain the henselian approximation hypotheses. G2 separately supplies the reduced integral model and its power-bounded base change.
+
+Used by: `relative-finite-presentation`.
+
+### `PerfectoidSpaces:P6`
+
+The affinoid finite-stage assertion ECD 6.4(iv), rational-chart and pro-étale limit calculus needed to approximate the relative smooth affinoid chart in SW Lemma 10.5.9; P5 alone does not guarantee affinoidness.
 
 Used by: `relative-finite-presentation`.
 
@@ -1756,9 +1768,9 @@ Used by: `spectral-factorization`, `proper-constructible-pushforward`.
 
 ### `PadicHodgeTheory:P8`
 
-Use the exact early smooth-proper primitive comparison and relative primitive comparison where their hypotheses hold. G3 requests the additional singular proper primitive comparison/finiteness of PS Theorem 3.17, the general almost coherent nearby-cycle theorem AC 6.13.5–6.13.6, and the toric integral perfectoid field-extension calculation in BH Lemma 3.25; the existing smooth-proper P8 node does not imply these extensions.
+Use the exact early smooth-proper primitive comparison and relative primitive comparison where their hypotheses hold. G3 requests the additional singular proper primitive comparison/finiteness of PS Theorem 3.17, the general almost coherent nearby-cycle theorem AC 6.13.5–6.13.6, and the toric integral perfectoid field-extension calculation in BH Lemma 3.25; the existing smooth-proper P8 node does not imply these extensions. Also import its geometric-hodge-tate-direct-images and plan/lisse-sheaves-etale-proetale-equivalence nodes for their exact smoothness and lattice ranges. PD.6 extends the latter comparison to finitely generated direct images by separating their finite torsion part and finite free quotient.
 
-Used by: `nearby-cycle-complexes`, `generic-hodge-tate-trace-comparison`, `proper-p-adic-perfectness`, `proper-field-extension`.
+Used by: `nearby-cycle-complexes`, `generic-hodge-tate-trace-comparison`, `proper-p-adic-perfectness`, `proper-field-extension`, `relative-integral-finiteness`.
 
 ### `PerfectoidSpaces:P0`
 
@@ -1816,7 +1828,7 @@ Direct consumers: `relative-restriction-factorization`, `relative-local-constanc
 
 ## Source corrections and version discipline
 
-All statements above use the corrected forms. The packet records the complete reasons and searches for E1–E20 in the worker’s own words. E1–E12 were already identified by the accepted Zavyalov extraction and were checked again. E19 is the correction explicitly stated in SW Remark 10.5.7. The remaining findings refer only to the versions actually read; the Annals and EMS published texts were not compared. An author-hosted PDF is not certified to be the published edition.
+All statements above use the corrected forms. The packet records the complete reasons and searches for E1–E21 in the worker’s own words. E1–E12 were already identified by the accepted Zavyalov extraction and were checked again. E19 is the correction explicitly stated in SW Remark 10.5.7. The remaining findings refer only to the versions actually read; the Annals and EMS published texts were not compared. An author-hosted PDF is not certified to be the published edition.
 
 - **E1** (misprint; nothing), Z v3, Theorem 2.2.3, p. 11: Use the finite-presentation category over S in this theorem. The objects and functor in the same statement are S-schemes, so the displayed category is a type error.
 - **E2** (misprint; nothing), Z v3, Lemma 2.2.7(2), p. 13: For the source’s f:X→Y, f! takes bounded coherent complexes on Y to bounded coherent complexes on X. Exceptional pullback goes from the target of f to its source.
@@ -1833,21 +1845,23 @@ All statements above use the corrected forms. The packet records the complete re
 - **E13** (error; a stated result), Z v3, §4.2.2, p. 53, and Lemma 4.2.15, p. 54; same assertions in the author’s current PDF: Keep the additive completed character decomposition, but multiply the normalized monomials with their block-parameter factors; the line multiplication need not be onto. PD.3 uses derived root-algebra duality rather than strong grading. For R⁺=O_C⟨u,v⟩/(uv−ϖ) with nonzero nonunit ϖ, the opposite weight lines are O_Cu and O_Cv. Their product is ϖO_C inside the weight-zero line O_C, which is a proper submodule.
 - **E14** (error; a stated result), Z v3, Theorems 5.5.2, 5.5.4, 5.5.6, pp. 81–83; same targets in the author’s current PDF: Use Λ[−2d] as the target and RHom(−,Λ)[−2d] as the adjoint target, for Λ=Z/pⁿ, Z_p and Q_p, with the indicated Tate twist on the second factor. On P¹ over C the nonzero top cohomology is in degree 2; pairing it with H⁰ must land in Λ[−2]. The finite-level trace is defined on H²ᵈ. An unshifted perfect pairing would identify a complex in degrees [0,2d] with its dual in [−2d,0].
 - **E15** (misprint; nothing), Z v3, proof of Proposition 4.3.6, p. 61: Choose the scalar bound with the finite-stage index m in the block parameters ϖ_i^{1/pᵐ}. The finite algebra being reduced in that step is R_m⁺, so its defining parameter valuations determine the bound.
-- **E16** (misprint; nothing), AC arXiv:2110.10773v3, Theorem 5.5.5, p. 130; same direction in v5: For f:X→Y, Rf_* goes from the derived almost quasi-coherent category on X to that on Y. Direct image and its right adjoint f! have opposite directions. The adjunction and proof determine the intended functors.
-- **E17** (misprint; nothing), AC arXiv:2110.10773v3, Lemma 5.5.6, p. 131; same category label in v5: The comparison is in the derived almost category on Y. Both Rf_* internal Hom and internal Hom of Rf_* objects are sheaves on Y.
+- **E16** (misprint; nothing), AC arXiv:2110.10773v3, Theorem 5.5.5, p. 129; same direction in v5, p. 130: For f:X→Y, Rf_* goes from the derived almost quasi-coherent category on X to that on Y. Direct image and its right adjoint f! have opposite directions. The adjunction and proof determine the intended functors.
+- **E17** (misprint; nothing), AC arXiv:2110.10773v3, Lemma 5.5.6, p. 130; same category label in v5, p. 131: The comparison is in the derived almost category on Y. Both Rf_* internal Hom and internal Hom of Rf_* objects are sheaves on Y.
 - **E18** (error; a stated result), AC arXiv:2110.10773v3, Lemma 4.9.7(2), pp. 113–114; v5, p. 114: For the bounded-below coherent Hom conclusion, put the first input in D⁻_acoh and the second in D⁺_acoh, as used by the proof and the duality application. Take the first input to be the unit in degree zero and the second to have a nonzero copy of the coefficient module in every negative degree. They satisfy the displayed input bounds, but internal Hom equals the second input and is not bounded below.
 - **E19** (error; a stated result), SW Remark 10.5.7, printed pp. 86–87, correcting the assertion cited there as Scholze (2018), Lemma 8.8: Require only factorization through an almost finitely presented module. When the map is an identity, the module is a retract and hence almost finitely presented. SW explicitly records this correction and proves the factorization lemma. The present relative-finiteness proof uses only factorization and the identity retract argument.
 - **E20** (misprint; nothing), BH arXiv:2101.09759v2, proof of Theorem 3.10, p. 18: It is a dense Zariski-open subset of the reduced target Y, and the restricted map is X×_Y U→U. Theorem 2.29 is a statement about an open of Y; the same proof then restricts over its closed complement in Y.
 
-The two corrections that affect the mathematical shape of the main proof are the weight-line multiplication and the derived trace shift. In the nodal algebra uv=ϖ, opposite normalized weight lines multiply into ϖO_C, so they do not form a strongly graded integral algebra. The plan instead uses the monomial projection and derived Ext calculation. For a smooth proper curve, a top trace is a map to Λ[−2]; leaving the derived coefficient target unshifted cannot give the stated duality.
+- **E21** (misprint; a stated result), Z arXiv:2111.01830v3, Theorem/Definition 3.4.13, equation (3.7), p. 43; compare Theorem 3.4.12, p. 42, and Remark 3.4.15, p. 44: Use the identity on that left vertical arrow, so Ψ′=j∘Φ⁻¹=Sch⁻¹. Equivalently, if the scalar arrow is retained, scale the bottom inverse by the same scalar. Equation (3.6) says Φ=Sch∘j. The displayed (3.7) would therefore give Ψ′=(1−ζ_p)⁻ⁿSch⁻¹, contrary to Remark 3.4.15 and the smooth integral inverse of Theorem/Definition 3.3.4. The latter square uses inclusion of the image lattice; its scalar appears in both inverse and twist and cancels. The discrepancy is already detected in degree one on the smooth torus.
+
+The weight-line multiplication, derived trace shift and rational inverse normalization affect the main proof. E21 removes the extra scalar in the rational inverse square: Φ=Sch∘j forces Ψ′=j∘Φ⁻¹=Sch⁻¹, matching the smooth integral construction. All 21 discrepancies have independent confirmed verdicts in the packet; these verdicts concern the identified versions. In the nodal algebra uv=ϖ, opposite normalized weight lines multiply into ϖO_C, so they do not form a strongly graded integral algebra. The plan instead uses the monomial projection and derived Ext calculation. For a smooth proper curve, a top trace is a map to Λ[−2]; leaving the derived coefficient target unshifted cannot give the stated duality.
 
 ## Sources and reading record
 
 - **Z** — Bogdan Zavyalov, [Mod-p Poincaré Duality in p-adic analytic geometry](https://arxiv.org/pdf/2111.01830v3). arXiv:2111.01830v3, 21 February 2024; preprint page and theorem numbers throughout. Published in Annals of Mathematics 201 (2025), 647–773; the published text was not compared. Read: §§1–5, pp. 1–83; Appendices A–D, pp. 84–99; references. Accessed 19 October 2026.
 - **AC** — Bogdan Zavyalov, [Almost coherent modules and almost coherent sheaves](https://arxiv.org/pdf/2110.10773v3). arXiv:2110.10773v3, 28 August 2022; numbering used by Z. Latest v5 (16 March 2026) checked at the affected §4.9 and §5.5 statements only. Read: §§4.5–4.9, pp. 94–114 (definitions, affine equivalences and Hom); §5.1, pp. 114–118; §5.5, pp. 129–131; §6.13, pp. 170–172. Accessed 19 October 2026.
 - **SW** — Peter Scholze and Jared Weinstein, [Berkeley lectures on p-adic geometry](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf). Authors’ version, 27 March 2020, §10.5, printed pp. 82–89; read in the maintainer’s cleared library. Annals of Mathematics Studies 207, Princeton University Press, 2020. Read: §10.5, Theorem 10.5.1 through the proof of Proposition 10.5.10, pp. 82–89. Accessed 19 October 2026.
-- **BH** — Bhargav Bhatt and David Hansen, [The six functors for Zariski-constructible sheaves in rigid geometry](https://arxiv.org/pdf/2101.09759v2). arXiv:2101.09759v2, 22 September 2021; preprint page numbers. Compositio Mathematica 158 (2022), 437–482. Read: §1 definitions; §2.3, Theorems 2.27 and 2.29, pp. 13–14; §§3.1–3.3, pp. 14–20; §3.5, Lemma 3.25 and its proof, p. 25. Accessed 19 October 2026.
-- **H** — Ben Heuer, [A p-adic Simpson correspondence for smooth proper rigid varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf). Inventiones Mathematicae 242 (2025), 267–357; published open-access PDF. Read: Conventions on the algebraically closed field, §1; §2.6, Proposition 2.18 and proof, pp. 278–279. Accessed 19 October 2026.
+- **BH** — Bhargav Bhatt and David Hansen, [The six functors for Zariski-constructible sheaves in rigid geometry](https://arxiv.org/pdf/2101.09759v2). arXiv:2101.09759v2, 22 September 2021; preprint page numbers. Compositio Mathematica 158 (2022), 437–482. Read: Introduction and Definition 3.1; §2.3, Theorems 2.27 and 2.29, pp. 13–14; §§3.1–3.3, pp. 14–20; §3.5, Lemma 3.25 and its proof, p. 25. Accessed 19 October 2026.
+- **H** — Ben Heuer, [A p-adic Simpson correspondence for smooth proper rigid varieties](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf). Inventiones Mathematicae 240 (2025), 261–312; published open-access PDF. Read: Conventions on the algebraically closed field, §1; §2.6, Proposition 2.18 and proof, p. 279. Accessed 19 October 2026.
 - **U** — Bogdan Zavyalov, [Altered Local Uniformization Of Rigid-Analytic Spaces](https://arxiv.org/pdf/2102.04752). Author’s current arXiv PDF of 2102.04752, accessed 19 October 2026; only the main theorem statements read. Published in Israel Journal of Mathematics 263 (2024). Read: Introduction, Theorems 1.3–1.4, pp. 4–5; proof not independently decomposed here. Accessed 19 October 2026.
 - **PS** — Peter Scholze, [Perfectoid spaces: a survey](https://arxiv.org/pdf/1303.5948). Author’s arXiv:1303.5948 version in the cleared library; printed pages. Read: §3.2, Theorem 3.17 and proof, pp. 19–20; surrounding constructible comparison argument, pp. 17–19. Accessed 19 October 2026.
 

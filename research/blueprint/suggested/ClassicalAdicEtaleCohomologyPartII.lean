@@ -7,8 +7,8 @@ Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 
 The analytic, formal, almost and derived carriers required by the roadmap are
-README targets. This file contains only a finite-representation milestone in
-PD.5 and algebraic checks for PD.3/PD.4. It introduces no replacement carriers
+README targets. This file contains only algebraic compatibility examples for
+PD.3–PD.5. It introduces no replacement carriers
 for the missing geometric theory. Elaboration checks types, not these proofs.
 -/
 import Mathlib.GroupTheory.PGroup
@@ -18,11 +18,14 @@ import Mathlib.Data.ZMod.Basic
 
 namespace TauCeti.AdicDuality.FiniteAlgebraChecks
 
-/-- PD.5/local-system-duality: the fixed-vector step in the unipotent filtration
-of a finite p-group representation. Zavyalov v3, Theorem 5.4.2, pp. 78–79.
-Apply the existing p-group fixed-point theorem to the finite additive set V;
-zero is fixed and its cardinality is a positive power of p. -/
-theorem exists_nonzero_invariant (p : ℕ) [Fact p.Prime]
+/-- PD.5/local-system-duality: compatibility example for the fixed-vector input
+to the unipotent filtration (Zavyalov v3, Theorem 5.4.5, pp. 80–81).
+Current Tau Ceti already supplies the stronger theorem
+`Representation.exists_common_fixed_vector_of_isPGroup` in
+`TauCeti.RepresentationTheory.Unipotent.PowerOrder`; this example does not
+allocate a new theorem. At the pins, apply the existing p-group fixed-point
+theorem to the finite additive set V, with zero as the first fixed point. -/
+example (p : ℕ) [Fact p.Prime]
     (G : Type*) [Group G] [Finite G] (hG : IsPGroup p G)
     (V : Type*) [AddCommGroup V] [Module (ZMod p) V]
     [Finite V] [Nontrivial V] (ρ : Representation (ZMod p) G V) :
