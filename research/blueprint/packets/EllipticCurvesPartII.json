@@ -1016,7 +1016,12 @@
       "priorFinding": "PAPER-BENNETT-SIKSEK-20/E14",
       "locator": "BS20, proof of Lemma 6.6, p.371",
       "correction": "Use the native point with x=2λ+4itv and y=8itv(t+iv). The published y expression fails the local curve equation in the F₅ witness; the x-coordinate, double and third descent class are preserved.",
-      "status": "Existing independently confirmed atlas finding; no new erratum claim and no new correction search performed in this import job."
+      "status": "Existing independently confirmed atlas finding; no new erratum claim and no new correction search performed in this import job.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the publisher proof of Lemma 6.6, p.371. For the existing F₅ witness t=v=2,i=3,λ=3, the printed pair (4,4) fails y²=x(x−2)(x−2λ), while (4,3) satisfies it and doubles to (1,0). The r=2t,s=2iv calculation verifies the general correction. This confirms the existing finding only; no new erratum or correction search is claimed.",
+        "by": "REV-DESIGN-EllipticCurvesPartII"
+      }
     }
   ],
   "baselineAudit": {
@@ -1059,6 +1064,196 @@
     "The seven route items are local/rational interfaces, not the global progression theorem."
   ],
   "review": {
-    "status": "unreviewed"
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EllipticCurvesPartII",
+    "date": "2026-10-19",
+    "notes": "Accepted as an import index and maintainer merger proposal. Independently checked all seven BS20 source targets at pp.365–372, all 37 imported owner statements and proof routes, all 16 alias baseline declarations at the exact pins, the eight definition contracts with 33 API items and 27 tests, 19 imported planets, six layer mappings, current supplier refinements and current upstream ownership boundaries. Confirmed the existing source-finding reference and added this review record and synchronized reader/report; no mathematical correction, new node, baseline removal or ownership change was needed. Structural and finite arithmetic checks passed. The alias suggested file elaborated cleanly with lean-check at the pins. Acceptance asserts zero closed mathematical layers, does not validate the owner’s full prototype, and preserves its four gaps and three supplier requests. The merger remains for the maintainer to apply.",
+    "checked": [
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-model",
+        "verdict": "verified",
+        "note": "The five coefficients and factored equation agree over any commutative ring; singular endpoints remain allowed as models."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-model",
+        "verdict": "verified",
+        "note": "The coefficient scaling is d,d²,d³; the scalar-d model uses native twist parameters (0,−d/4). The three owner tests distinguish the normalization and d=0."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-parameters",
+        "verdict": "verified",
+        "note": "The six expressions retain labels and repeated values. The four rational tuples and all three reciprocal pairs agree with the owner contract."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-invariants",
+        "verdict": "verified",
+        "note": "Direct substitution gives Δ=16λ²(1−λ)² and c₄=16(λ²−λ+1); ellipticity and division for j carry the required hypotheses."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/scaled-invariants",
+        "verdict": "verified",
+        "note": "The discriminant scales by d⁶ and c₄ by d². Nonzero d is required over fields; equal j is not treated as a ground-field isomorphism."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/parameters-from-root-orderings",
+        "verdict": "verified",
+        "note": "Recomputed all six labelled ratios in the stated order, including (210) before (201). No action on the normalized family is inferred."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/split-normalization",
+        "verdict": "verified",
+        "note": "Translation by the first root produces roots 0,d,dλ without adjoining a square root. The corresponding scalar is recomputed under each permutation."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/full-two-torsion-normalization",
+        "verdict": "verified",
+        "note": "Completing the square and transporting the doubling kernel supplies three distinct rational roots; the root-count, separability and point-transport inputs are explicit. Native refinement remains with the owner."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion",
+        "verdict": "verified",
+        "note": "The three roots yield distinct nonzero native points, each killed by doubling. Coordinates and the horizontal-line sum distinguish them from O."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/scaled-legendre-twist-identity",
+        "verdict": "verified",
+        "note": "The native quadratic discriminant at (0,−d/4) is d. The exact coefficient identity supplies the later BSD.0 specialization."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.0/legendre-two-torsion-exhausts",
+        "verdict": "verified",
+        "note": "In characteristic other than two, affine doubling-kernel points have y=0; the split cubic gives exactly the three labelled roots, together with O."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/legendre-j-valuation",
+        "verdict": "verified",
+        "note": "The three nonunit valuation cases are correct also at p=3. Rational regression checks passed; integral j, rather than unit j, is the needed local conclusion."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/good-prime-units",
+        "verdict": "verified",
+        "note": "BS20 Lemma 6.2(i), pp.367–368, matches the rational hypotheses. The alternative valuation proof and minimal-model local comparison are separated explicitly."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/legendre-good-model",
+        "verdict": "verified",
+        "note": "The unscaled equation has integral coefficients and unit discriminant when λ and 1−λ are units at odd p. No claim is made for every scaled twist."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/character-odd-support",
+        "verdict": "verified",
+        "note": "The CA.1 supplier gives primitive conductor, odd parity support, squarefree odd part and conductor 1. Each allowed ω is a unit at every odd prime."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.1/character-conductor-divides",
+        "verdict": "verified",
+        "note": "BS20 Lemma 6.2(ii), pp.367–368, uses the actual elliptic conductor. The R01.3 statement and local-independence prerequisite fit; their retained request is not replaced by an Ogg exponent."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-crt",
+        "verdict": "verified",
+        "note": "Three distinct roots give the native cubic-algebra CRT. Evaluation, equality detection, root and unit tests match; no second algebra or descent is introduced."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-equivalence",
+        "verdict": "verified",
+        "note": "The CRT transports units and their square quotient to three native field squareclasses. Its triviality criterion and square/nonsquare tests agree with the quotient convention."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/descent-off-roots",
+        "verdict": "verified",
+        "note": "Away from the three roots the native representative reads x,x−d,x−dλ, all nonzero. The stated exclusions suffice to form all unit classes."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/descent-at-root",
+        "verdict": "verified",
+        "note": "The native corrected representative evaluates to f′ at the selected root. Recomputed all three displayed triples; none uses a zero unit representative."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/descent-product",
+        "verdict": "verified",
+        "note": "Off roots the product is y²; at a root the derivative correction makes the product a nonzero square; O gives the identity. The direct case proof avoids an unprovided norm theorem."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/halving-square-criterion",
+        "verdict": "verified",
+        "note": "The native kernel theorem and quotient triviality give the three-square criterion, including the corrected root branch. Checked against actual doubling at 12,876 finite-field affine points."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/two-by-four-subgroup",
+        "verdict": "verified",
+        "note": "BS20 Lemma 6.3, p.368, retains p≡3 mod4 and η≠0,±1. A half of one nonzero root and an independent two-torsion point give the injected product; finite subgroup checks passed."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order-four",
+        "verdict": "verified",
+        "note": "The pair (i,1−i) lies on L_(−1) under 2≠0 and i²=−1. Its two F₅ coordinate tests and nonzero-double test distinguish the intended native point."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-no-order-eight",
+        "verdict": "verified",
+        "note": "At p≡5 mod8 only the zero-root two-torsion point is divisible; all its halves have nonsquare first coordinate ±i. The argument concerns every possible order-eight point."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-point-count",
+        "verdict": "verified",
+        "note": "BS20 Lemma 6.5, p.370, requires exact 2-adic valuation three. The owner separately excludes Z/4×Z/4 by testing divisibility of the other roots; absence of order eight alone is not used as sufficient."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-point",
+        "verdict": "verified",
+        "note": "BS20 Lemma 6.6, p.371, has the existing y-coordinate finding. With r=2t,s=2iv, the corrected y=rs(r+s) proves membership. Its 616 local finite-field checks passed beyond the source progression hypotheses."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-double",
+        "verdict": "verified",
+        "note": "Using r²−s²=2, the tangent slope is r+s and the double is (r²,0)=(2λ,0). The factors r,s,r+s are nonzero under the stated hypotheses."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-order",
+        "verdict": "verified",
+        "note": "The double is a nonzero two-torsion point, giving exact order four. The local theorem has no large-exponent or progression assumption."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.4/twist-halving-descent",
+        "verdict": "verified",
+        "note": "The corrected point is away from the roots and x−2λ=4itv≠0. Thus the third native descent class is unchanged by the corrected y-coordinate."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.5/symmetric-cubic-trace-zero",
+        "verdict": "verified",
+        "note": "BS20 Lemma 5.2 proof, p.366, supplies this local symmetric model. Pairing x and −x in the quadratic-character count proves p+1 and integer trace zero, including p=3."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.5/twist-euler-factor-specialization",
+        "verdict": "verified",
+        "note": "Read BSD.0/finite-field-twist-trace: odd finite fields, all d≠0 including squares, and native (0,−d/4). The Legendre adapter gives the stated trace and good Euler polynomial; the generic request remains open."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-cubic-evaluation",
+        "verdict": "verified",
+        "note": "The promoted evaluation target is exactly the CRT constructor API consumed by the native descent readings."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.2/split-squareclass-unit-reading",
+        "verdict": "verified",
+        "note": "The promoted unit-reading target is exactly the quotient transport API consumed by the nonroot and root calculations."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-double",
+        "verdict": "verified",
+        "note": "The native tangent calculation doubles the stated half to (0,0), with nonzero denominator under the given field hypotheses."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-order",
+        "verdict": "verified",
+        "note": "The nonzero two-torsion double proves exact order four, rather than only annihilation by four."
+      },
+      {
+        "nodeId": "EllipticLegendreCharacterInterfaces:LG.3/minus-one-first-descent",
+        "verdict": "verified",
+        "note": "The half is away from the roots, so its first native descent coordinate is [i]. This is the nonsquare obstruction used at p≡5 mod8."
+      }
+    ]
   }
 }
