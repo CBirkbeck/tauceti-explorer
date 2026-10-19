@@ -9,7 +9,7 @@
   "IgusaVarietiesAndTorsionConcentrationPartII:IG.11"
  ],
  "status": "complete",
- "summary": "Part II of Igusa varieties, compactified period fibers and torsion concentration: the compact endgame of Caraiani–Scholze (Ann. of Math. 2017). Layer IG.8 fixes the compact unitary PEL data of Cases 1 (Kottwitz's simple Shimura varieties) and 2 (quasi-split at finite places, F⁺ ≠ ℚ), their smooth proper integral models, the local datum at an auxiliary prime split in the imaginary quadratic field 𝒦 with the embedding sets S_i, the Hecke algebra 𝕋^S with its Hecke polynomials, the dual ideal 𝔪^∨, Hecke-equivariant Poincaré duality, and the auxiliary-prime condition with its existence. Layer IG.9 proves Theorem 5.5.7 for Case 2 from the stable Igusa trace identity, the Newton reduction lemma and the spectral expansion; Layer IG.10 proves Corollaries 5.6.2–5.6.3 for Case 1 through the stable Lefschetz identity for the proper Shimura variety; Layer IG.11 assembles Hochschild–Serre to perfectoid level, the Leray reduction to Igusa varieties and minimal-stratum concentration into Theorem 6.3.1, Theorem 1.1 and the integral and twisted-coefficient forms. The Igusa geometry, the period fibres and the perversity are the parent's; the trace formulas are EndoscopicTransferAndUnitaryTraceComparison's; the Galois representations are AutomorphicGaloisRepresentationsPartII's. One gap is recorded: base change for the division-algebra groups of Case 1 (sourceIssues E1).",
+ "summary": "Part II of Igusa varieties, compactified period fibers and torsion concentration: the compact endgame of Caraiani–Scholze (Ann. of Math. 2017). Layer IG.8 fixes the compact unitary PEL data of Cases 1 (Kottwitz's simple Shimura varieties) and 2 (quasi-split at finite places, F⁺ ≠ ℚ), their smooth proper integral models, the local datum at an auxiliary prime split in the imaginary quadratic field 𝒦 with the embedding sets S_i, the Hecke algebra 𝕋^S with its Hecke polynomials, the dual ideal 𝔪^∨, Hecke-equivariant Poincaré duality, and the auxiliary-prime condition with its existence. Layer IG.9 proves Theorem 5.5.7 for Case 2 from the stable Igusa trace identity, the Newton reduction lemma and the spectral expansion; Layer IG.10 proves Corollaries 5.6.2–5.6.3 for Case 1 through the stable Lefschetz identity for the proper Shimura variety; Layer IG.11 assembles Hochschild–Serre to perfectoid level, the Leray reduction to Igusa varieties and minimal-stratum concentration into Theorem 6.3.1, Theorem 1.1 and the integral and twisted-coefficient forms. The Igusa geometry, the period fibres and the perversity are the parent's; the trace formulas are EndoscopicTransferAndUnitaryTraceComparison's; the Galois representations are AutomorphicGaloisRepresentationsPartII's. Two gaps are recorded: Case 1 base change and Galois assembly (sourceIssues E1), and Case 2 auxiliary-character finite avoidance. The end-theorem chains remain conditional on the recorded Case 1 base-change/assembly gap and Case 2 auxiliary-character avoidance gap; coefficient variants require an admissible trivializing level.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -118,6 +118,18 @@
    "readSections": [
     "§1: setting, Theorem 1.1, Remark 1.2, §1.1 proof (Lemma 1.3, Proposition 1.4, the claim and the two-prime argument), pp. 1–5"
    ]
+  },
+  {
+   "id": "Shin11",
+   "title": "Galois representations arising from some compact Shimura varieties",
+   "authors": "Sug Woo Shin",
+   "edition": "Annals of Mathematics 173 (2011), 1645–1741; journal page numbers",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n3-p09-p.pdf",
+   "sha256": "8a0aca35f1817d60967c48a7e0070d20973b5b057d2dde945780e70ca4a09678",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "§7.1, Lemma 7.1 and proof, p. 1722; statement of Lemma 7.2, pp. 1722–1723 (used only to delimit the auxiliary-character input, not as a proof of finite avoidance)"
+   ]
   }
  ],
  "nodes": [
@@ -129,7 +141,7 @@
    ],
    "title": "Compact unitary PEL data of Caraiani–Scholze (Cases 1 and 2)",
    "kind": "definition",
-   "statement": "Let F⁺ be a totally real field, 𝒦 an imaginary quadratic field and F = F⁺·𝒦 their compositum, a CM field with complex conjugation c. A compact unitary PEL datum of Caraiani–Scholze type is a rational PEL datum (B, *, V, ⟨·,·⟩, h) of type (A) whose similitude group G over ℚ satisfies one of the following.\nCase 1 (Kottwitz's simple Shimura varieties). B is a central division algebra over F of degree n, * is an involution of the second kind (it restricts to c on F), and V ≅ B is the simple left B-module.\nCase 2. B = F, * = c, V is an F-vector space of dimension n with an alternating form ⟨·,·⟩ hermitian for c, F⁺ ≠ ℚ, G is quasi-split at every finite place, and every rational prime ramified in F lies in Spl_{F/F⁺}, the set of rational primes q such that every place of F⁺ above q splits in F.\nIn both cases one assumes the Shimura varieties are compact: G^ad is anisotropic over ℚ. The datum fixes: the signatures (p_τ, q_τ) of G_ℝ at each embedding τ : F ↪ ℂ, with p_τ + q_τ = n and (p_{τc}, q_{τc}) = (q_τ, p_τ); the Hodge cocharacter μ and the reflex field E ⊂ ℂ; a finite set S of rational primes such that F and G are unramified outside S (in Case 2 with S ⊂ Spl_{F/F⁺}); and a sufficiently small compact open K = K_S·K^S ⊂ G(𝔸_f) with K^S a product of hyperspecial maximal compact subgroups K_q ⊂ G(ℚ_q). S_K denotes the PEL moduli problem over E, which is the disjoint union of |ker¹(ℚ, G)| copies of the Shimura variety Sh_K(G, X), and d := dim S_K = Σ_{τ∈Φ} p_τq_τ for any CM type Φ of F; equivalently d = ⟨2ρ, μ⟩.",
+   "statement": "Let F⁺ be a totally real field, 𝒦 an imaginary quadratic field and F = F⁺·𝒦 their compositum, a CM field with complex conjugation c. A compact unitary PEL datum of Caraiani–Scholze type is a rational PEL datum (B, *, V, ⟨·,·⟩, h) of type (A) whose similitude group G over ℚ satisfies one of the following.\nCase 1 (Kottwitz's simple Shimura varieties). B is a central division algebra over F of degree n, * is an involution of the second kind (it restricts to c on F), and V ≅ B is the simple left B-module.\nCase 2. B = F, * = c, V is an F-vector space of dimension n with an alternating form ⟨·,·⟩ hermitian for c, F⁺ ≠ ℚ, G is quasi-split at every finite place, and every rational prime ramified in F lies in Spl_{F/F⁺}, the set of rational primes q such that every place of F⁺ above q splits in F.\nIn both cases one assumes the Shimura varieties are compact: G^ad is anisotropic over ℚ. The datum fixes: the signatures (p_τ, q_τ) of G_ℝ at each embedding τ : F ↪ ℂ, with p_τ + q_τ = n and (p_{τc}, q_{τc}) = (q_τ, p_τ); the Hodge cocharacter μ and the reflex field E ⊂ ℂ; a finite set S of rational primes such that F and G are unramified outside S (in Case 2 with S ⊂ Spl_{F/F⁺}); and a sufficiently small compact open K = K_S·K^S ⊂ G(𝔸_f) with K^S a product of hyperspecial maximal compact subgroups K_q ⊂ G(ℚ_q). S_K denotes the PEL moduli problem over E, which is the disjoint union over a ∈ ker¹(ℚ, G) of Shimura varieties Sh_{K^{(a)}}(G^{(a)}, X^{(a)}), with G^{(a)} locally isomorphic to G and levels transported through fixed finite-local identifications, and d := dim S_K = Σ_{τ∈Φ} p_τq_τ for any CM type Φ of F; equivalently d = ⟨2ρ, μ⟩.",
    "hypotheses": [
     "F = F⁺·𝒦 with F⁺ totally real and 𝒦 imaginary quadratic; the field 𝒦 is part of the datum.",
     "Case 1: B a central division algebra over F with an involution of the second kind, V ≅ B.",
@@ -140,7 +152,7 @@
    "proofSteps": [
     "Take the rational PEL datum, its similitude group and its signatures from PELModuli M0 (PELModuli:M0/rational-pel-datum, PELModuli:M0/similitude-group, PELModuli:M0/signatures); for Case 2 the unitary PEL data with prescribed signatures are PELModuli:M5/unitary-pel-datum.",
     "The involution of the second kind gives type (A) in Kottwitz's classification (PELModuli:M0/albert-types; the page reference of CS17 p. 730 is corrected to [Kot92b] in PAPER-CARAIANI-SCHOLZE-17/E63).",
-    "The moduli problem S_K and its decomposition into |ker¹(ℚ, G)| copies of Sh_K(G, X) are PELModuli:M3/ker1-classification and PELModuli:M4/canonical-model-identification; the dimension formula is PELModuli:M2/kodaira-spencer-dimension.",
+    "The moduli problem S_K and its decomposition over ker¹(ℚ, G) into the Shimura varieties of the corresponding locally isomorphic inner forms are PELModuli:M3/ker1-classification and PELModuli:M4/canonical-model-identification; the dimension formula is PELModuli:M2/kodaira-spencer-dimension.",
     "Record the two cases as two constructors of one structure, so that every statement of Layers IG.9–IG.11 names the case it uses."
    ],
    "acceptance": [
@@ -206,12 +218,12 @@
     {
      "name": "CompactUnitaryDatum.case1",
      "role": "constructor",
-     "statement": "Builds a Case 1 datum from a central division algebra B over F with an involution of the second kind and V = B."
+     "statement": "Builds a Case 1 datum from an underlying rational PEL datum with its positivity and Shimura homomorphism h, a central division algebra B over F with an involution of the second kind, and V ≅ B."
     },
     {
      "name": "CompactUnitaryDatum.case2",
      "role": "constructor",
-     "statement": "Builds a Case 2 datum from a hermitian F-space of dimension n with F⁺ ≠ ℚ, quasi-split local groups at finite places and ramification inside Spl_{F/F⁺}."
+     "statement": "Builds a Case 2 datum from an underlying rational PEL datum (including h and positivity), B = F, F⁺ ≠ ℚ, quasi-split groups at finite places, the required ramification condition, and a proof that G^ad is anisotropic over ℚ."
     },
     {
      "name": "CompactUnitaryDatum.signature",
@@ -237,6 +249,11 @@
      "name": "CompactUnitaryDatum.moduli_eq_ker1_copies",
      "role": "relation",
      "statement": "S_K is the disjoint union over ker¹(ℚ, G) of Sh_K of the inner forms G^{(i)} (PELModuli M3–M4)."
+    },
+    {
+     "name": "CompactUnitaryDatum.ext",
+     "role": "extensionality",
+     "statement": "Two structures agree when their underlying rational PEL data and case tags agree; the compactness and local hypotheses are proposition-valued fields."
     }
    ],
    "tests": [
@@ -296,6 +313,7 @@
     "Representability and smoothness of the PEL moduli problem at a good prime: PELModuli:M2/representability; relative dimension d from PELModuli:M2/kodaira-spencer-dimension.",
     "Case 1: End_B(V) = B^op is a division algebra, so the moduli problem is proper by PELModuli:M2/properness-when-division.",
     "Case 2: the boundary of the smooth toroidal compactification of ShimuraCompactifications:C5/integral-toroidal-space is indexed by cusp labels (ShimuraCompactifications:C1/cusp-label), which come from rational parabolic subgroups of G; G^ad anisotropic means there are none, so the toroidal compactification equals the moduli problem and the latter is proper (valuative properness of the toroidal compactification).",
+    "Representability initially gives a smooth algebraic space. Choose a projective admissible fan in ShimuraCompactifications:C5/integral-toroidal-space for either case; its projective toroidal compactification is a scheme. Anisotropy leaves no rational cusp labels, so it equals the moduli space. This supplies the scheme assertion as well as properness, without strengthening PELModuli:M2/representability.",
     "Prime-to-p Hecke correspondences: level change and Hecke action PELModuli:M1/hecke-action and finite étaleness of level-forgetting maps PELModuli:M6/level-forgetting-maps."
    ],
    "acceptance": [
@@ -430,7 +448,7 @@
     {
      "name": "SplitPrimeDatum.harris_taylor_single",
      "kind": "computation",
-     "statement": "For the Harris–Taylor signature and a suitable 𝔭, exactly one S_i contains an embedding with p_τq_τ ≠ 0, namely τ₀ with (p,q) = (1, n−1)."
+     "statement": "For the Harris–Taylor signature with n ≥ 2 and a suitable 𝔭, exactly one S_i contains an embedding with p_τq_τ ≠ 0, namely τ₀ with (p,q) = (1, n−1)."
     },
     {
      "name": "SplitPrimeDatum.central_twist",
@@ -456,7 +474,7 @@
    ],
    "title": "The Hecke algebra 𝕋^S, the operators T_{i,v} and the Hecke polynomial",
    "kind": "definition",
-   "statement": "Let Spl_{𝒦/ℚ} be the set of rational primes split in 𝒦 and ℓ a prime. The abstract Hecke algebra is 𝕋^S := ⊗'_{q ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ})} ℤ[G(ℚ_q)//K_q], the restricted tensor product of the spherical Hecke rings. For q ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ}) and a place v of F above q, G(ℚ_q) = ∏_w GL_n(F_w) × ℚ_q^× with w over the place of 𝒦 below v; T_{i,v} ∈ ℤ[G(ℚ_q)//K_q] (0 ≤ i ≤ n) is the characteristic function of GL_n(O_{F_v})·diag(ϖ_v^{(i)}, 1^{(n−i)})·GL_n(O_{F_v}) × ∏_{w≠v} GL_n(O_{F_w}) × ℤ_q^×, with i entries ϖ_v, and T_{n,v} is invertible. The Hecke polynomial at v is P_v(X) = Σ_{i=0}^n (−1)^i q_v^{i(i−1)/2} T_{i,v} X^{n−i} ∈ 𝕋^S[X], q_v = |O_F/𝔭_v|. 𝕋^S acts on H^i(S_{K,Ē}, Λ) for every coefficient ring Λ through the Hecke correspondences, and on the cohomology of Igusa varieties through the action of G(𝔸_f^p). A maximal ideal 𝔪 ⊂ 𝕋^S has finite residue field 𝕋^S/𝔪 of characteristic ℓ when it is in the support of H^*(S_K, 𝔽_ℓ).",
+   "statement": "Let Spl_{𝒦/ℚ} be the set of rational primes split in 𝒦 and ℓ a prime. The abstract Hecke algebra is 𝕋^S := ⊗'_{q ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ})} ℤ[G(ℚ_q)//K_q], the restricted tensor product of the spherical Hecke rings. For q ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ}) and a place v of F above q, G(ℚ_q) = ∏_w GL_n(F_w) × ℚ_q^× with w over the place of 𝒦 below v; T_{i,v} ∈ ℤ[G(ℚ_q)//K_q] (0 ≤ i ≤ n) is the characteristic function of GL_n(O_{F_v})·diag(ϖ_v^{(i)}, 1^{(n−i)})·GL_n(O_{F_v}) × ∏_{w≠v} GL_n(O_{F_w}) × ℤ_q^×, with i entries ϖ_v, and T_{n,v} is invertible. The Hecke polynomial at v is P_v(X) = Σ_{i=0}^n (−1)^i q_v^{i(i−1)/2} T_{i,v} X^{n−i} ∈ 𝕋^S[X], q_v = |O_F/𝔭_v|. 𝕋^S acts on H^i(S_{K,Ē}, Λ) for every coefficient ring Λ through the Hecke correspondences, and its subalgebra 𝕋^{S∪{p}} acts on the cohomology of Igusa varieties through G(𝔸_f^p); the p-factor of 𝕋^S does not act through this prime-to-p action. A maximal ideal 𝔪 ⊂ 𝕋^S has finite residue field 𝕋^S/𝔪 of characteristic ℓ when it is in the support of H^*(S_K, 𝔽_ℓ).",
    "hypotheses": [
     "S as in the datum; ℓ any prime; v above q ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ})."
    ],
@@ -550,6 +568,11 @@
      "name": "compactUnitaryHecke.satake",
      "role": "compatibility",
      "statement": "Under the Satake isomorphism of SR.4 the image of P_v is Π_j (X − q_v^{(n−1)/2} x_j) in the Satake variables of GL_n(F_v), so P_v matches the GL_n generators of SR.4/gln-generators."
+    },
+    {
+     "name": "compactUnitaryHecke.igusa_action",
+     "role": "compatibility",
+     "statement": "The prime-to-p action on Igusa cohomology is a 𝕋^{S∪{p}}-action, compatible with restriction of the finite-level Shimura Hecke action."
     }
    ],
    "tests": [
@@ -577,6 +600,11 @@
      "name": "compactUnitaryHecke.satake_compat",
      "kind": "compatibility",
      "statement": "For n = 2 the Satake image of P_v is (X − q_v^{1/2}x_1)(X − q_v^{1/2}x_2), agreeing with SR.4/gln-generators: S(T_1) = q_v^{1/2}(x_1 + x_2), S(T_2) = x_1x_2."
+    },
+    {
+     "name": "compactUnitaryHecke.igusa_away_from_p",
+     "kind": "non-example",
+     "statement": "If p ∉ S ∪ {ℓ}, the spherical p-factor belongs to 𝕋^S but has no action supplied by G(𝔸_f^p); forgetting this factor gives exactly the stipulated 𝕋^{S∪{p}}-action."
     }
    ],
    "planet": {
@@ -768,7 +796,7 @@
     {
      "name": "IsCSAuxiliaryPair.repeated_eigenvalue",
      "kind": "non-example",
-     "statement": "ρ̄ = χ ⊕ χ at 𝔭_i (n = 2) is not decomposed generic (ratio 1), although it satisfies the weaker ACC+ condition λ_a ≠ qλ_b."
+     "statement": "For n = 2, residue cardinality q = 7 and ℓ = 11, repeated Frobenius eigenvalues {3,3} fail decomposed genericity (ratio 1) but satisfy the weaker inequalities λ_a ≠ qλ_b. The weaker assertion requires q ≠ 1 modulo ℓ; it is not asserted for arbitrary q."
     },
     {
      "name": "IsCSAuxiliaryPair.ratio_q",
@@ -960,7 +988,7 @@
     "Cohomological type at ∞: Π^n⃗_∞ is cohomological for Ξ(φ_n⃗), not for the trivial representation, when n⃗ is proper (PAPER-CARAIANI-SCHOLZE-17/E77; ET.4/archimedean-lefschetz-functions).",
     "At p: base change at the split prime p is injective, so tr(Π^n⃗_p(f^n⃗_p) ∘ A′_p) = ± tr π^n⃗_p(φ^n⃗_p), and Lemma 5.4.2 (ET.7b/red-trace-duality) rewrites it as tr Red^b_n⃗(π^n⃗_p)(φ_p).",
     "Extension to all φ_p: the Frobenius-twist argument of [Shi09, Lemma 6.4] (ET.5/central-shift-character-separation; the printed reference is corrected in PAPER-CARAIANI-SCHOLZE-17/E78 and /E88).",
-    "(2): rewrite the (f^n⃗)^{S′} traces through ζ̃* (ET.4/unramified-transfers) and BC*, and separate unramified Hecke characters by linear independence, as in ET.7b/hecke-character-separation; only the total coefficient of an eigensystem is detected (PAPER-CARAIANI-SCHOLZE-17/E79), so the hypothesis of (2) is on that total."
+    "(2): rewrite the (f^n⃗)^{S′} traces through ζ̃* (ET.4/unramified-transfers) and BC*, and apply linear independence of the finitely many distinct characters of the commutative unramified Hecke algebra occurring after fixing the test functions at the bad places (an elementary character-separation argument, valid in rank n); only the total coefficient of an eigensystem is detected (PAPER-CARAIANI-SCHOLZE-17/E79), so the hypothesis of (2) is on that total."
    ],
    "acceptance": [
     "With φ_p = 0 every term vanishes.",
@@ -977,7 +1005,6 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/newton-reduction",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.5/central-shift-character-separation",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.7b/hecke-character-separation",
     "IgusaVarietiesAndTorsionConcentration:IG.1/alternating-igusa-cohomology"
    ],
    "sources": [
@@ -1072,6 +1099,11 @@
      "name": "igusaGaloisPart_frobenius",
      "role": "compatibility",
      "statement": "For a constituent of the r-part, the Satake parameters of Π^{S′} at v | q ∈ Spl_{𝒦/ℚ} ∖ (S′ ∪ {ℓ}) are the roots of the characteristic polynomial of r(Frob_v) (via ι_ℓ)."
+    },
+    {
+     "name": "igusaGaloisPart.similitude_independent",
+     "role": "relation",
+     "statement": "The r-index is determined by the normalized GL_n(𝔸_F)-component; two constituents differing only in the GL₁(𝔸_𝒦) similitude character have the same r-index."
     }
    ],
    "tests": [
@@ -1093,7 +1125,7 @@
     {
      "name": "igusaGaloisPart_n1",
      "kind": "computation",
-     "statement": "For n = 1 every Π^{S′} is a character, each r_{Π^{S′},ℓ} is a character of Gal(F̄/F), and the r-parts are the isotypic parts for pairwise distinct characters: two constituents with different unramified characters lie in different r-parts."
+     "statement": "For n = 1, Π = ψ ⊗ Π⁰ has a GL₁(𝔸_𝒦) similitude factor ψ and a GL₁(𝔸_F) factor Π⁰. Distinct Π⁰-components outside S′ give distinct Galois characters (with the fixed normalization); changing only ψ while fixing Π⁰ leaves the r-index unchanged. Thus r-parts need not distinguish full automorphic characters of 𝒢₁."
     }
    ],
    "library": {
@@ -1159,7 +1191,7 @@
    ],
    "acceptance": [
     "If every S_i contains no τ with p_τq_τ ≠ 0 (G_ℝ definite), B(G, μ^{−1}) is a point and the statement is empty.",
-    "For [F⁺:ℚ] = 2, n = 2, signature (1,1) at τ₀ and (2,0) at τ₁ ∈ Φ (a compact Case 2 datum: the hermitian plane is definite at τ₁) and p totally split in F, B(G, μ^{−1}) has two classes, ordinary and basic at the factor of τ₀; for a generic r the basic class does not contribute."
+    "Local rank-two check: at a split GL₂-factor with minuscule signature (1,1), the Newton set has an ordinary class and a basic class with non-quasi-split J_b. Keeping all other factors of an existing admissible Case 2 datum fixed, a generic r excludes this basic factor. This is a local calculation and asserts no existence of a global datum with arbitrarily prescribed signatures."
    ],
    "prerequisites": [
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.9/igusa-spectral-expansion",
@@ -1243,14 +1275,14 @@
    ],
    "proofSteps": [
     "Since S_K is proper, H^*(S_{K,Ē}, ℚ̄_ℓ) ≅ H^*(S_K(ℂ), ℂ) through ι_ℓ and Artin's comparison (EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison), Hecke-equivariantly.",
-    "Arthur's L²-Lefschetz formula, here for a compact quotient: for f ∈ C_c^∞(G(𝔸_f)), tr(f | [H(Sh)]) = Σ_π m(π) tr π_f(f) ep(π_∞) = I^G(f · f_EP) (AutomorphicSpectralTheory:AS.6/l2-lefschetz with AS.6/compact-trace-specialization and the Euler–Poincaré function AS.6/general-euler-poincare); the geometric side has only elliptic terms because f_EP is stable cuspidal.",
+    "Arthur's L²-Lefschetz formula, here for a compact quotient: for f ∈ C_c^∞(G(𝔸_f)), tr(f | [H(Sh)]) = Σ_{a∈ker¹(ℚ,G)} Σ_{π on G^{(a)}} m_a(π) tr π_f(f) ep(π_∞) = Σ_a I^{G^{(a)}}(f^{(a)} · f_EP^{(a)}) (AutomorphicSpectralTheory:AS.6/l2-lefschetz with AS.6/compact-trace-specialization and the Euler–Poincaré function AS.6/general-euler-poincare); the geometric side has only elliptic terms because f_EP is stable cuspidal. All terms use the fixed local identifications with G; stabilize this sum over the PEL components. Constants in the displayed identity refer to this PEL convention, as in CS17 §5.6, pp. 749–750.",
     "Stabilize the elliptic terms (ET.4/elliptic-stabilization); the proper endoscopic terms vanish by the local-index argument of the simple Igusa trace identity, leaving ι(G, G_n) ST^{G_n}_e(f^{G_n}) ([Shi12, Prop. 6.3] as cited in CS17).",
     "Take f = φ^p · f_p with f_p := φ^{G_n}_p transported to G(ℚ_p): by Lemma 5.4.2 (ET.7b/red-trace-duality) tr π_p(f_p) = tr Red^b_n(π_p)(φ_p). The archimedean test functions differ by the nonzero factor ε_G d(G_ℝ) (ET.4/archimedean-lefschetz-functions). Comparing with the simple Igusa trace identity gives the trace identity for acceptable φ_p.",
     "Extend to all φ_p ∈ C_c^∞(J_b(ℚ_p)) by [Shi09, Lemma 6.4] (ET.5/central-shift-character-separation; the printed reference [Shi11] is corrected in PAPER-CARAIANI-SCHOLZE-17/E88), and conclude in the Grothendieck group by nondegeneracy of the trace pairing."
    ],
    "acceptance": [
     "For b basic in the Harris–Taylor case this specializes to the formula expressing the Igusa class of the basic stratum through the Jacquet–Langlands transfer of the global cohomology.",
-    "Applying the identity to the zero element is trivial; for the μ-ordinary b, Red^b_n is a normalized Jacquet functor to M_b = J_b."
+    "Applying the identity to the zero element is trivial; for the μ-ordinary b, Red^b_n is the normalized opposite Jacquet functor to M_b = J_b followed by the modulus twist δ̄_{P(ν_b)}^{1/2}; the twist is retained also in the μ-ordinary case."
    ],
    "prerequisites": [
     "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
@@ -1286,18 +1318,19 @@
    ],
    "title": "Igusa cohomology of simple Shimura varieties in terms of automorphic representations (CS17 Corollary 5.6.2)",
    "kind": "theorem",
-   "statement": "In the Case 1 setting, in Groth(G(𝔸_f^p) × J_b(ℚ_p)), [ι_ℓH_c(I^b_Mant, ℚ̄_ℓ)] = (−1)^{q(G)} Σ_{π_f} c(π_f) [π_f^p] [Red^b_n(π_p)], the sum over the irreducible admissible π_f of G(𝔸_f) such that π_f ⊗ π_∞ is automorphic for some π_∞ cohomological for the trivial representation, with c(π_f) := (−1)^{q(G)}(ε_G d(G_ℝ))^{−1} Σ_{π_∞} m(π_f ⊗ π_∞) ep(π_∞), where m is the automorphic multiplicity, ep(π_∞) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π_∞) and q(G) = ½ dim G(ℝ)/K_∞A_{G,∞}^0. The sum is locally finite: for each compact open subgroup only finitely many terms have invariants.",
+   "statement": "In the Case 1 setting, in Groth(G(𝔸_f^p) × J_b(ℚ_p)), [ι_ℓH_c(I^b_Mant, ℚ̄_ℓ)] = (−1)^{q(G)} Σ_{π_f} c(π_f) [π_f^p] [Red^b_n(π_p)], the sum over the irreducible admissible π_f of G(𝔸_f) such that π_f ⊗ π_∞ is automorphic on some G^{(a)} for some π_∞ cohomological for the trivial representation, with c(π_f) := (−1)^{q(G)}(ε_G d(G_ℝ))^{−1} Σ_{a∈ker¹(ℚ,G)} Σ_{π_∞ on G^{(a)}} m_a(π_f ⊗ π_∞) ep(π_∞), where m_a is the automorphic multiplicity on the PEL component G^{(a)}, with finite parts transported to G by the fixed local identifications, ep(π_∞) = Σ_i (−1)^i dim H^i(𝔤, K_∞; π_∞) and q(G) = ½ dim G(ℝ)/K_∞A_{G,∞}^0. The sum is locally finite: for each compact open subgroup only finitely many terms have invariants.",
    "hypotheses": [
     "Case 1 datum of Layer IG.8 (B a central division algebra of degree n over F with an involution of the second kind, V ≅ B), p ∉ S split in 𝒦 (so B is split at every place of F above p and G(ℚ_p) ≅ ∏_i GL_n(F_{𝔭_i}) × ℚ_p^×), K_p hyperspecial, G_n the quasi-split inner form of G over ℚ with a fixed isomorphism G_n ≅ G over ℚ_p; ι_ℓ fixed."
    ],
    "proofSteps": [
-    "Matsushima's formula for the compact quotient: H^*(S_K(ℂ), ℂ) = ⊕_π m(π) π_f^K ⊗ H^*(𝔤, K_∞; π_∞) (ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison, with the discrete decomposition of the compact quotient AutomorphicSpectralTheory:AS.4/compact-quotient-spectrum); hence [H(Sh)] = Σ_{π_f}(Σ_{π_∞} m(π_fπ_∞) ep(π_∞))[π_f].",
+    "Apply Matsushima separately to each component Sh_{K^{(a)}}(G^{(a)}, X^{(a)}) of S_K: H^*(S_K(ℂ), ℂ) = ⊕_a ⊕_{π on G^{(a)}} m_a(π) π_f^K ⊗ H^*(𝔤, K_∞; π_∞) (ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison and AutomorphicSpectralTheory:AS.4/compact-quotient-spectrum). Thus the coefficient of [π_f] in [H(Sh)] is Σ_a Σ_{π_∞} m_a(π_fπ_∞) ep(π_∞). One may replace the sum over a by |ker¹| times a single coefficient only after proving those coefficients agree.",
     "Apply the stable Lefschetz identity and divide by ε_G d(G_ℝ); Red^b_n acts only on the p-component.",
     "Only π_∞ with H^*(𝔤, K_∞; π_∞) ≠ 0 contribute, i.e. cohomological for the trivial representation."
    ],
    "acceptance": [
-    "When every contributing π_∞ is a discrete series, ep(π_∞) = (−1)^{q(G)} and c(π_f) = (ε_G d(G_ℝ))^{−1} Σ_{π_∞} m(π_f ⊗ π_∞), a multiple of the automorphic multiplicity.",
-    "One-dimensional automorphic representations (π_∞ trivial) contribute with ep(1) = Euler characteristic of the compact dual."
+    "When every contributing π_∞ is a discrete series, ep(π_∞) = (−1)^{q(G)} and c(π_f) = (ε_G d(G_ℝ))^{−1} Σ_a Σ_{π_∞} m_a(π_f ⊗ π_∞), a multiple of the automorphic multiplicity.",
+    "One-dimensional automorphic representations (π_∞ trivial) contribute with ep(1) = Euler characteristic of the compact dual.",
+    "If ker¹ has two components with transported multiplicities m₁ and m₂, the coefficient uses m₁ + m₂; retaining only one component fails this test. If all component multiplicities coincide it becomes |ker¹| times the single-component coefficient."
    ],
    "prerequisites": [
     "ArithmeticLocallySymmetricSpaces:ALS.5/automorphic-comparison",
@@ -1325,15 +1358,16 @@
    ],
    "title": "Galois representations for cohomological automorphic representations of the division-algebra unitary group",
    "kind": "theorem",
-   "statement": "In the Case 1 setting, let π = π_f ⊗ π_∞ be an automorphic representation of G(𝔸) with π_∞ cohomological for the trivial representation, and S_π the finite set of primes where G or π ramifies. Then there is an isobaric automorphic representation Π = ψ ⊗ Π⁰ of GL_1(𝔸_𝒦) × GL_n(𝔸_F), Π⁰ = Π_1 ⊞ ⋯ ⊞ Π_r with Π_j discrete and conjugate self-dual, such that Π_v ≅ BC_v(π_v) for every finite place v ∉ S_π and for every v ∈ S_π split in 𝒦 at which B is split above v, and Π⁰_∞ has the infinitesimal character of the base change of the trivial representation. Consequently there is a continuous semisimple r_{π,ℓ} : Gal(F̄/F) → GL_n(ℚ̄_ℓ), unramified at the places above primes q ∈ Spl_{𝒦/ℚ} ∖ (S_π ∪ {ℓ}), with the characteristic polynomial of r_{π,ℓ}(Frob_v) the image of P_v under the Satake parameters of π_v, and with WD(r_{π,ℓ}|_{Gal(F̄_w/F_w)})^{F-ss} ≅ ι_ℓ^{−1}rec(Π⁰_w|det|^{(1−n)/2}) at every place w ∤ ℓ of F above a prime split in 𝒦 at which B is split.",
+   "statement": "In the Case 1 setting, let π = π_f ⊗ π_∞ be an automorphic representation of G(𝔸) with π_∞ cohomological for the trivial representation, and S_π the finite set of primes where G or π ramifies. Then there is an isobaric automorphic representation Π = ψ ⊗ Π⁰ of GL_1(𝔸_𝒦) × GL_n(𝔸_F), Π⁰ = Π_1 ⊞ ⋯ ⊞ Π_r with Π_j discrete and conjugate self-dual, such that Π_v ≅ BC_v(π_v) for every finite place v ∉ S_π and for every v ∈ S_π split in 𝒦 at which B is split above v, and Π⁰_∞ has the infinitesimal character of the base change of the trivial representation. Consequently there is a continuous semisimple r_{π,ℓ} : Gal(F̄/F) → GL_n(ℚ̄_ℓ), unramified at every finite place of F above q ∉ S_π ∪ {ℓ}, including q not split in 𝒦, with the characteristic polynomial of r_{π,ℓ}(Frob_v) the image of P_v under the Satake parameters of π_v, and with WD(r_{π,ℓ}|_{Gal(F̄_w/F_w)})^{F-ss} ≅ ι_ℓ^{−1}rec(Π⁰_w|det|^{(1−n)/2}) at every place w ∤ ℓ of F above a prime split in 𝒦 at which B is split.",
    "hypotheses": [
     "Case 1 datum of Layer IG.8 (B a central division algebra of degree n over F with an involution of the second kind, V ≅ B), p ∉ S split in 𝒦 (so B is split at every place of F above p and G(ℚ_p) ≅ ∏_i GL_n(F_{𝔭_i}) × ℚ_p^×), K_p hyperspecial, G_n the quasi-split inner form of G over ℚ with a fixed isomorphism G_n ≅ G over ℚ_p; ι_ℓ fixed.",
     "π_∞ cohomological for the trivial representation.",
-    "This node records the input CS17 attributes to Shin's appendix to [Gol14]; see the gap recorded for the division-algebra case."
+    "This node records the input CS17 attributes to Shin's appendix to [Gol14]; see the gap recorded for the division-algebra case.",
+    "The arbitrary-rank division-inner-form base change and Galois assembly are requested from AG2.2 and remain the recorded Case 1 gap; the rank-2n assembly already written there is not a proof of this rank-n statement."
    ],
    "proofSteps": [
     "Base change (Shin's appendix, Theorem 1.1): the Kottwitz point-counting formula for the proper Shimura variety S_K, its stabilization against the twisted trace formula of Res_{𝒦/ℚ}G_𝒦, and purity of weights to rule out cancellation; for B = F this is Theorem 1.1 of the appendix. For B a division algebra the base change lands on the inner form Res_{𝒦/ℚ}(G ×_ℚ 𝒦) whose finite-adelic points involve (B ⊗ F_w)^× at the places where B ramifies, so the transfer to GL_n(𝔸_F) also needs the global Jacquet–Langlands correspondence; this step is not in the cited appendix (gap recorded; requested from AutomorphicGaloisRepresentationsPartII AG2.2).",
-    "Galois representations of the conjugate self-dual discrete pieces Π_j (after the algebraic twist): AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris and the discrete assembly AG2.2/discrete-unitary-galois-assembly; local–global compatibility away from ℓ: AG2.5/caraiani-upgrade-away-from-p-and-temperedness.",
+    "After the requested inner-form transfer, apply Galois construction to the conjugate self-dual discrete pieces Π_j with their algebraic twists. AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris supplies the construction inputs and AG2.5/caraiani-upgrade-away-from-p-and-temperedness supplies local compatibility. Assembly for every rank n, its twists and unramifiedness at all good finite places are part of the AG2.2 request: the existing AG2.2/discrete-unitary-galois-assembly is stated for rank 2n and cannot silently be substituted.",
     "Hecke polynomial matching at v | q ∈ Spl_{𝒦/ℚ} ∖ (S_π ∪ {ℓ}): unramified base change identity (ET.4/unramified-transfers) and the Satake normalization of the Hecke algebra node."
    ],
    "acceptance": [
@@ -1343,7 +1377,6 @@
    "prerequisites": [
     "AutomorphicGaloisRepresentationsPartII:AG2.2",
     "AutomorphicGaloisRepresentationsPartII:AG2.1a/polarized-construction-inputs-shin-and-chenevier-harris",
-    "AutomorphicGaloisRepresentationsPartII:AG2.2/discrete-unitary-galois-assembly",
     "AutomorphicGaloisRepresentationsPartII:AG2.5/caraiani-upgrade-away-from-p-and-temperedness",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/simple-division-algebra-trace-identity",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/unramified-transfers",
@@ -1597,13 +1630,13 @@
     "Compact PEL datum of type (A) with good reduction at p (Layer IG.8 integral model)."
    ],
    "proofSteps": [
-    "The Hodge–Tate period map for Hodge type: PerfectoidShimuraVarieties:S3/hodge-open-period-map; the Hecke operators away from p act trivially on Fℓ_{G,μ}, so the pushforward is a sheaf of 𝕋^{S∪{p}}-modules and localization commutes with stalks and with RΓ (filtered colimit).",
+    "The Hodge–Tate period map for Hodge type: PerfectoidShimuraVarieties:S3/hodge-open-period-map; the Hecke operators away from p act trivially on Fℓ_{G,μ}, so the pushforward is a sheaf of 𝕋^{S∪{p}}-modules and localization commutes with stalks, and with cohomology on the quasi-compact, quasi-separated locally noetherian analytic flag variety by ClassicalAdicEtaleCohomology:H0/torsion-sheaf-colimit-of-constructible. The bounded-below pushforward and finite torsion cohomological dimension permit the corresponding derived localization.",
     "Stalks: the compact fibre theorem IgusaVarietiesAndTorsionConcentration:IG.3/compact-fibre-theorem (CS17 Theorem 4.4.4), Hecke-equivariantly, for the proper integral model of Layer IG.8.",
     "Stalks at all geometric points (including higher-rank points) are controlled by rank-one points (IgusaVarietiesAndTorsionConcentration:IG.3/rank-one-cohomology-lemma); the strata Fℓ^b cover Fℓ_{G,μ}.",
     "Leray: RΓ(𝒮_{K^p}, 𝔽_ℓ)_𝔪 = RΓ(Fℓ_{G,μ}, (Rπ_HT*𝔽_ℓ)_𝔪) (ArithmeticGaloisDuality:D7/grothendieck-spectral-sequence on the étale sites of DiamondEtaleCohomology:C0/etale-site); if all stalks vanish the complex is zero, and if all stalks lie in degrees ≥ d so does the complex and its hypercohomology."
    ],
    "acceptance": [
-    "For the μ-ordinary class, Fℓ^{b_ord} is the set of ℚ_p-rational flags (dimension 0) and the stalks there are the ordinary Igusa cohomology."
+    "For the split local GL₂ datum with μ = (1,0), the μ-ordinary part of the flag variety ℙ¹ is ℙ¹(ℚ_p), and its stalks are ordinary Igusa cohomology. For general restriction-of-scalars factors the flags use the corresponding local field; the statement does not identify all ordinary strata with ℚ_p-rational flags."
    ],
    "prerequisites": [
     "PerfectoidShimuraVarieties:S3/hodge-open-period-map",
@@ -1613,7 +1646,8 @@
     "ArithmeticGaloisDuality:D7/grothendieck-spectral-sequence",
     "DiamondEtaleCohomology:C0/etale-site",
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/hecke-contraction",
-    "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/proper-smooth-integral-model"
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/proper-smooth-integral-model",
+    "ClassicalAdicEtaleCohomology:H0/torsion-sheaf-colimit-of-constructible"
    ],
    "sources": [
     {
@@ -1637,7 +1671,7 @@
    ],
    "title": "From the minimal Newton stratum to a nonzero dual Galois summand",
    "kind": "theorem",
-   "statement": "Let 𝔪 ⊂ 𝕋^{S∪{p}} be maximal and b ∈ B(G, μ^{−1}) with d_b = ⟨2ρ, ν_b⟩ minimal among the classes with RΓ(Ig^b, 𝔽_ℓ)_𝔪 ≠ 0. Then: (1) H^i(Ig^b, 𝔽_ℓ)_𝔪 ≠ 0 only for i = d_b; for every Mantovan level m large enough the finite-level H^i(I^b_{Mant,m}, 𝔽_ℓ)_𝔪 is nonzero exactly for i = d_b; (2) H^*(I^b_{Mant,m}, ℤ_ℓ)_𝔪 is free over ℤ_ℓ and concentrated in degree d_b, and H^*_c(I^b_{Mant,m}, ℤ_ℓ)_{𝔪^∨} is free and concentrated in degree d_b, nonzero; (3) the 𝔪^∨-part of [H_c(I^b_Mant, ℚ̄_ℓ)]^{S′-ur} (the sum of the constituents whose Hecke eigenvalues away from S ∪ {p, ℓ} reduce to 𝔪^∨) is a nonzero element of the Grothendieck group; (4) there is a constituent whose unramified component Π^{S′} (Case 2: an irreducible subrepresentation of BC^{S′}([H_c(I^b_Mant, ℚ̄_ℓ)]^{S′-ur}); Case 1: π_f^{S′} for π_f in the simple Igusa cohomology formula) has Hecke eigenvalues lifting 𝔪^∨, and the r-part of the Igusa class for r = r_{Π^{S′},ℓ} (resp. r_{π,ℓ}) is nonzero.",
+   "statement": "Let 𝔪 ⊂ 𝕋^{S∪{p}} be maximal and b ∈ B(G, μ^{−1}) with d_b = ⟨2ρ, ν_b⟩ minimal among the classes with RΓ(Ig^b, 𝔽_ℓ)_𝔪 ≠ 0. Then: (1) H^i(Ig^b, 𝔽_ℓ)_𝔪 ≠ 0 only for i = d_b; for every Mantovan level m large enough the finite-level H^i(I^b_{Mant,m}, 𝔽_ℓ)_𝔪 is nonzero exactly for i = d_b; (2) H^*(I^b_{Mant,m}, ℤ_ℓ)_𝔪 is free over ℤ_ℓ and concentrated in degree d_b, and H^*_c(I^b_{Mant,m}, ℤ_ℓ)_{𝔪^∨} is free and concentrated in degree d_b, nonzero; (3) the 𝔪^∨-part of [H_c(I^b_Mant, ℚ̄_ℓ)]^{S′-ur} (obtained by first selecting eigenvalues reducing to 𝔪^∨, then restricting to the operators away from S′_fin ∪ {ℓ}) is a nonzero element of the Grothendieck group; (4) there is a constituent whose unramified component Π^{S′} (Case 2: an irreducible subrepresentation of BC^{S′}([H_c(I^b_Mant, ℚ̄_ℓ)]^{S′-ur}); Case 1: π_f^{S′} for π_f in the simple Igusa cohomology formula) has Hecke eigenvalues lifting 𝔪^∨ ∩ 𝕋^{S′_fin}, and the r-part of the Igusa class for r = r_{Π^{S′},ℓ} (resp. r_{π,ℓ}) is nonzero.",
    "hypotheses": [
     "Compact unitary datum (Case 1 or 2) of Layer IG.8 with S, K = K_SK^S, ℓ a prime and 𝕋^S its Hecke algebra; p a prime in Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ}) with K = K_pK^p, K_p hyperspecial; all cohomology is étale cohomology after base change to an algebraically closed field (C = ℂ_p for the adic spaces).",
     "Localization at 𝔪 ⊂ 𝕋^{S∪{p}} (contracted ideal).",
@@ -1647,7 +1681,7 @@
     "(1): compact minimal-stratum concentration IgusaVarietiesAndTorsionConcentration:IG.4/compact-minimal-stratum-concentration (CS17 Corollary 6.1.4) with S ∪ {p} in place of S and the subalgebra 𝕋^{S∪{p}}; m-torsion and m-localization vanish together since H^i(Ig^b) = lim→ H^i(I^b_{Mant,m}) with split injective transition maps. Taking invariants under a pro-p compact open of J_b(ℚ_p) is exact on 𝔽_ℓ-modules (ℓ ≠ p), giving the finite-level statement (IG.1/perfection-of-mantovan, IG.1/igusa-group-actions).",
     "(2): a bounded complex of finite ℤ_ℓ-modules whose reduction mod ℓ is concentrated in one degree has free cohomology in that degree only (universal coefficients and Nakayama). Hecke-equivariant Poincaré duality on I^b_{Mant,m} (Layer IG.8) turns this into the statement for H_c at 𝔪^∨.",
     "(3): after ⊗ℚ̄_ℓ the 𝔪^∨-part of H_c^* is concentrated in degree d_b and nonzero, so no cancellation occurs in the alternating sum; the S′-unramified part keeps it since the level outside S′ is hyperspecial.",
-    "(4): Case 2: by the spectral expansion (Layer IG.9) and its part (2), some Π^{S′} occurs in BC^{S′} with nonzero total contribution; its Hecke eigenvalues lie in a finite extension and reduce to 𝔪^∨ by the Deligne–Serre lemma (AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma) applied to the finite free ℤ_ℓ-lattice H^{d_b}_c(I^b_{Mant,m}, ℤ_ℓ)_{𝔪^∨}. Case 1: the same with the simple Igusa cohomology formula. The printed 'Theorem 5.5.5' is Corollary 5.5.5 (PAPER-CARAIANI-SCHOLZE-17/E99); the dual ideal enters through PAPER-CARAIANI-SCHOLZE-17/E98."
+    "(4): Case 2: by the spectral expansion (Layer IG.9) and its part (2), some Π^{S′} occurs in BC^{S′} with nonzero total contribution; its Hecke eigenvalues lie in a finite extension and reduce to 𝔪^∨ by the Deligne–Serre lemma (AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma) applied to the finite free ℤ_ℓ-lattice H^{d_b}_c(I^b_{Mant,m}, ℤ_ℓ)_{𝔪^∨}. Case 1: the same with the simple Igusa cohomology formula. The printed 'Theorem 5.5.5' is Corollary 5.5.5 (PAPER-CARAIANI-SCHOLZE-17/E99); the dual ideal enters through PAPER-CARAIANI-SCHOLZE-17/E98. Deligne–Serre gives a lift before forgetting operators at Ram(ϖ), but Π^{S′} remembers only the contraction to 𝕋^{S′_fin}. The polynomial comparison for its Galois representation is therefore claimed only outside S′_fin ∪ {ℓ}."
    ],
    "acceptance": [
     "If b is μ-ordinary, d_b = d = dim S_K.",
@@ -1693,18 +1727,20 @@
    "statement": "Let 𝔪 ⊂ 𝕋^S be a maximal ideal with H^i(S_K, 𝔽_ℓ)_𝔪 ≠ 0 for some i. There is a unique continuous semisimple ρ_𝔪 : Gal(F̄/F) → GL_n(𝔽̄_ℓ), unramified outside the places above S ∪ {ℓ}, such that for every finite place v of F above q ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ}) the characteristic polynomial of ρ_𝔪(Frob_v) is the image of P_v(X) = Σ_i (−1)^i q_v^{i(i−1)/2} T_{i,v} X^{n−i} under a fixed embedding 𝕋^S/𝔪 ↪ 𝔽̄_ℓ.",
    "hypotheses": [
     "Compact unitary datum (Case 1 or 2) of Layer IG.8 with S, K = K_SK^S, ℓ a prime and 𝕋^S its Hecke algebra; all cohomology is étale cohomology after base change to an algebraically closed field (C = ℂ_p for the adic spaces).",
-    "Case 1 or Case 2; no condition at an auxiliary prime."
+    "Case 1 or Case 2; no condition at an auxiliary prime.",
+    "The auxiliary-character finite-avoidance input requested from ET.0 is an open prerequisite in Case 2. Case 1 also depends on the recorded AG2.2 gap. The unconditional source theorem is the target; this packet does not claim its prerequisite chains are closed."
    ],
    "proofSteps": [
     "Choose p ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ}) and contract 𝔪 to 𝔪′ ⊂ 𝕋^{S∪{p}} (hecke-contraction). By Hecke-equivariant Poincaré duality on S_K, H^*(S_K, 𝔽_ℓ)_{𝔪^∨} ≠ 0 too.",
     "Hochschild–Serre (perfectoid-hochschild-serre (a)) gives RΓ(𝒮_{K^p}, 𝔽_ℓ)_{𝔪′} ≠ 0, so by the Leray reduction some RΓ(Ig^b, 𝔽_ℓ)_{𝔪′} ≠ 0; take b with d_b minimal.",
-    "The minimal-stratum node gives Π^{S′} with eigenvalues lifting (𝔪′)^∨ and nonzero r-part; its Galois representation (AG2.7/unitary-discrete-parameter-export in Case 2, simple-base-change-galois in Case 1) has semisimplified reduction ρ_{(𝔪′)^∨} with the required Frobenius polynomials at the places above Spl_{𝒦/ℚ} ∖ (S ∪ {p, ℓ}) (reduction of characteristic polynomials: AG2.7/residual-representation-of-pi); dualize and twist by the dual-ideal node to get ρ_{𝔪′} = ρ_𝔪 at those places.",
+    "In Case 2 choose the auxiliary character ϖ and set S′ = S ∪ {p,∞} ∪ Ram(ϖ). The minimal-stratum node gives a constituent Π^{S′} lifting (𝔪′)^∨ ∩ 𝕋^{S′_fin}. AG2.7/unitary-discrete-parameter-export and AG2.7/residual-representation-of-pi give a residual representation unramified outside S′_fin ∪ {ℓ}, with the required polynomials at v above Spl_{𝒦/ℚ} ∖ (S′_fin ∪ {ℓ}). Dualize and twist by dual-hecke-ideal. In Case 1 use the requested simple-base-change-galois with the bad set S ∪ {p}. Do not discard Ram(ϖ) from the Case 2 comparison.",
     "Uniqueness: two semisimple representations with the same Frobenius characteristic polynomials on a density-one set of places are isomorphic (Chebotarev ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen and Brauer–Nesbitt R01.1/brauer-nesbitt).",
-    "Places above p: run the argument with a second auxiliary prime p′ ∈ Spl_{𝒦/ℚ} ∖ (S ∪ {ℓ, p}); by uniqueness the two representations agree, and the second one is unramified with the required polynomial at the places above p (PAPER-CARAIANI-SCHOLZE-17/E97)."
+    "To remove every extra bad prime, fix an arbitrary rational q ∉ S ∪ {ℓ}. Choose p ≠ q, and in Case 2 choose ϖ unramified above q using the finite-avoidance request to ET.0. This gives a construction unramified at all places of F above q, and, when q splits in 𝒦, the desired polynomial there. All constructions agree by uniqueness on their common density-one set. Varying q proves unramifiedness outside S ∪ {ℓ} and all the stated polynomials. Merely choosing two p removes those auxiliary primes but does not by itself remove Ram(ϖ). This strengthens the use of the two-prime observation E97; the finite-avoidance step is recorded as a gap rather than assumed proved."
    ],
    "acceptance": [
     "For n = 1, ρ_𝔪 is the reduction of the Galois character attached by class field theory to the Hecke character of G.",
-    "ρ_{𝔪^∨} ≅ ρ_𝔪^∨ ⊗ ε̄^{1−n}."
+    "ρ_{𝔪^∨} ≅ ρ_𝔪^∨ ⊗ ε̄^{1−n}.",
+    "Bad-set check: if q lies in Ram(ϖ) but not in S ∪ {p,ℓ}, one construction supplies no unramifiedness at q. A second construction must avoid q in both its auxiliary prime and its character ramification before uniqueness can remove q."
    ],
    "prerequisites": [
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/hecke-contraction",
@@ -1718,7 +1754,8 @@
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-base-change-galois",
     "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen",
     "ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt",
-    "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction"
+    "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0"
    ],
    "sources": [
     {
@@ -1847,20 +1884,21 @@
    ],
    "title": "Integral coefficients and twisted coefficient systems (CS17 Remarks 1.3 and 1.7.1)",
    "kind": "theorem",
-   "statement": "Let 𝔪 ⊂ 𝕋^S satisfy the conclusion of middle-degree concentration: H^i(S_K, 𝔽_ℓ)_𝔪 = 0 for i ≠ d. (1) Then H^i(S_K, ℤ_ℓ)_𝔪 = 0 for i ≠ d and H^d(S_K, ℤ_ℓ)_𝔪 is a free ℤ_ℓ-module. (2) Let K′ ⊂ K be a normal compact open subgroup with K′_q = K_q for q ∉ S′ (S′ ⊇ S finite), V a finite 𝔽_ℓ[K/K′]-module and L_V the associated local system on S_K. Let 𝔪 ⊂ 𝕋^{S′} be maximal and suppose that, if H^*(S_{K′}, 𝔽_ℓ)_𝔪 ≠ 0, the representation ρ_𝔪 attached at level K′ (Galois representations for torsion eigensystems with S′ in place of S) admits a CS-auxiliary pair. Then H^i(S_K, L_V)_𝔪 ≠ 0 only for i = d. (3) For an irreducible algebraic representation ξ of G over a finite extension E_λ/ℚ_ℓ with a K-stable O_λ-lattice, the same holds for the ℤ_ℓ-local system L_ξ under the hypothesis of (2) at a normal compact open K′ ⊂ K on which L_ξ ⊗ 𝔽_ℓ becomes constant: H^i(S_K, L_ξ)_𝔪 = 0 for i ≠ d and H^d(S_K, L_ξ)_𝔪 is free over O_λ.",
+   "statement": "Let 𝔪 ⊂ 𝕋^S satisfy the conclusion of middle-degree concentration: H^i(S_K, 𝔽_ℓ)_𝔪 = 0 for i ≠ d. (1) Then H^i(S_K, ℤ_ℓ)_𝔪 = 0 for i ≠ d and H^d(S_K, ℤ_ℓ)_𝔪 is a free ℤ_ℓ-module. (2) Let K′ ⊂ K be a normal compact open subgroup with K′_q = K_q for q ∉ S′ (S′ ⊇ S finite), V a finite 𝔽_ℓ[K/K′]-module and L_V the associated local system on S_K. Let 𝔪 ⊂ 𝕋^{S′} be maximal and suppose that, if H^*(S_{K′}, 𝔽_ℓ)_𝔪 ≠ 0, the representation ρ_𝔪 attached at level K′ (Galois representations for torsion eigensystems with S′ in place of S) admits a CS-auxiliary pair. Then H^i(S_K, L_V)_𝔪 ≠ 0 only for i = d. (3) For an irreducible algebraic representation ξ of G over a finite extension E_λ/ℚ_ℓ with a K-stable O_λ-lattice, the same holds for the ℤ_ℓ-local system L_ξ under the hypothesis of (2) at a normal compact open K′ ⊂ K on which L_ξ ⊗ 𝔽_ℓ becomes constant: H^i(S_K, L_ξ)_𝔪 = 0 for i ≠ d and H^d(S_K, L_ξ)_𝔪 is free over O_λ. In (2)–(3) K′ is required to be an admissible level for the constant-coefficient theorem; in Case 2 S′ ⊂ Spl_{F/F⁺}. The coefficient variant here is conditional on the existence of this level and does not claim to cover every ξ of Remark 1.7.1.",
    "hypotheses": [
     "Compact unitary datum (Case 1 or 2) of Layer IG.8 with S, K = K_SK^S, ℓ a prime and 𝕋^S its Hecke algebra; all cohomology is étale cohomology after base change to an algebraically closed field (C = ℂ_p for the adic spaces).",
-    "(2)–(3): Hecke operators only at primes where K′ = K."
+    "(2)–(3): Hecke operators only at primes where K′ = K.",
+    "(2)–(3): the datum and level K′ must still satisfy all hypotheses of the constant-coefficient theorem with S′ replacing S; in Case 2 this requires S′ ⊂ Spl_{F/F⁺}. For (3) existence of such a trivializing level is an explicit hypothesis, not an assertion for every algebraic ξ."
    ],
    "proofSteps": [
     "(1): RΓ(S_K, ℤ_ℓ)_𝔪 is a perfect complex of ℤ_ℓ-modules with RΓ(S_K, ℤ_ℓ)_𝔪 ⊗^L 𝔽_ℓ = RΓ(S_K, 𝔽_ℓ)_𝔪 concentrated in degree d; the universal coefficient sequences 0 → H^i(ℤ_ℓ)_𝔪/ℓ → H^i(𝔽_ℓ)_𝔪 → H^{i+1}(ℤ_ℓ)_𝔪[ℓ] → 0 and Nakayama give vanishing for i ≠ d and torsion-freeness in degree d.",
     "(2): the finite Galois cover S_{K′} → S_K with group K/K′ trivializes L_V; the Hochschild–Serre spectral sequence (SchemeAndStackFoundations:SF.2/hochschild-serre-galois-covering) E_2^{a,b} = H^a(K/K′, H^b(S_{K′}, 𝔽_ℓ) ⊗ V) ⇒ H^{a+b}(S_K, L_V) is 𝕋^{S′}-equivariant. Localized at 𝔪, the E_2 page vanishes outside the row b = d by middle-degree concentration at level K′ (and vanishes entirely if H^*(S_{K′}, 𝔽_ℓ)_𝔪 = 0), so H^i(S_K, L_V)_𝔪 = 0 for i < d.",
-    "Upper bound: Poincaré duality with local-system coefficients (EtaleDualityAndPerverseSheaves:EDC.2:pairings/poincare-duality-torsion for locally constant constructible sheaves) identifies H^i(S_K, L_V)_𝔪 with the dual of H^{2d−i}(S_K, L_{V^∨}(d))_{𝔪^∨}, which vanishes for 2d − i < d by the lower bound for V^∨ and 𝔪^∨.",
+    "Upper bound: Poincaré duality with local-system coefficients (EtaleDualityAndPerverseSheaves:EDC.2:pairings/poincare-duality-torsion for locally constant constructible sheaves) identifies H^i(S_K, L_V)_𝔪 with the dual of H^{2d−i}(S_K, L_{V^∨}(d))_{𝔪^∨}, which vanishes for 2d − i < d by the lower bound for V^∨ and 𝔪^∨. The dual-ideal and auxiliary-pair nodes give the same genericity hypothesis for 𝔪^∨ at the same admissible level K′, so the lower bound really applies to the dual coefficients.",
     "(3): apply (1)–(2) to L_ξ/ℓ (a local system attached to a finite 𝔽_ℓ[K/K′]-module) and pass to ℤ_ℓ by (1)."
    ],
    "acceptance": [
     "For V = 𝔽_ℓ (trivial module, K′ = K), (2) is middle-degree concentration itself.",
-    "Without localization, H^0(S_K, L_V) = V^{K/K′} ⊗ H^0 may be nonzero."
+    "Without localization, H⁰(S_K,L_V) = (H⁰(S_{K′},𝔽_ℓ) ⊗ V)^{K/K′}; the action on components cannot be ignored. For trivial V this can be nonzero."
    ],
    "prerequisites": [
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/middle-degree-concentration",
@@ -1880,7 +1918,7 @@
     {
      "sourceId": "CS17",
      "locator": "Remark 1.7.1, p. 652",
-     "match": "States that an argument with the Hochschild–Serre spectral sequence and Poincaré duality gives the theorem for nontrivial Hecke-equivariant coefficient systems; neither remark is proved in the paper (PAPER-CARAIANI-SCHOLZE-17 item 2)."
+     "match": "States that an argument with the Hochschild–Serre spectral sequence and Poincaré duality gives the theorem for nontrivial Hecke-equivariant coefficient systems; neither remark is proved in the paper (PAPER-CARAIANI-SCHOLZE-17 item 2). The node proves this only for coefficient systems admitting a trivializing level within the hypotheses of Theorem 6.3.1; it does not supply the unrestricted level extension."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1892,9 +1930,16 @@
  "requests": [
   {
    "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.2",
-   "need": "For the unitary similitude group G of a central division algebra B of degree n over a CM field F = F⁺·𝒦 with an involution of the second kind (Kottwitz's simple Shimura varieties, arbitrary signature), and π automorphic on G(𝔸) with π_∞ cohomological for the trivial representation: an isobaric conjugate self-dual Π on GL_1(𝔸_𝒦) × GL_n(𝔸_F) with Π_v ≅ BC_v(π_v) at all finite places outside the ramification of π and G and at the ramified places split in 𝒦 where B is split, hence Galois representations r_{π,ℓ} with Frobenius polynomials given by Satake parameters and local–global compatibility away from ℓ at those places. CS17 §5.6 (p. 749) attributes this to Shin's appendix to Goldring (2014), whose Theorem 1.1 covers only B = F (recorded as E1); the PAPER-CARAIANI-SCHOLZE-17 route (item 156) assigns it to AG2.2.",
+   "need": "For the unitary similitude group G of a central division algebra B of degree n over a CM field F = F⁺·𝒦 with an involution of the second kind (Kottwitz's simple Shimura varieties, arbitrary signature), and π automorphic on G(𝔸) with π_∞ cohomological for the trivial representation: an isobaric conjugate self-dual Π on GL_1(𝔸_𝒦) × GL_n(𝔸_F) with Π_v ≅ BC_v(π_v) at all finite places outside the ramification of π and G and at the ramified places split in 𝒦 where B is split, hence Galois representations r_{π,ℓ} with Frobenius polynomials given by Satake parameters and local–global compatibility away from ℓ at those places. CS17 §5.6 (p. 749) attributes this to Shin's appendix to Goldring (2014), whose Theorem 1.1 covers only B = F (recorded as E1); the PAPER-CARAIANI-SCHOLZE-17 route (item 156) assigns it to AG2.2. The contract includes assembly for arbitrary n (not only the rank-2n unitary assembly currently in AG2.2), and unramifiedness at every place of F outside S_π ∪ {ℓ}, not only places above split rational primes. The base-change input must cover each locally isomorphic inner form occurring in the PEL component decomposition.",
    "neededBy": [
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-base-change-galois"
+   ]
+  },
+  {
+   "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+   "need": "For any finite set D of rational primes disjoint from S, choose the auxiliary odd Hecke character ϖ of 𝒦 extending the quadratic character of 𝒦/ℚ, with the archimedean type required by ET.0, Ram(ϖ) ⊂ Spl_{F/F⁺}, and Ram(ϖ) ∩ D = ∅. In particular one must be able to avoid each q ∉ S ∪ {ℓ} while choosing an auxiliary p ≠ q. The existing ET.0/unitary-elliptic-endoscopic-data fixes the character with its quadratic restriction but does not establish this ramification control with finite avoidance. Shin11 Lemma 7.1, p. 1722, proves ramification is contained in Spl_{F/F⁺}; its statement does not impose avoidance of an arbitrary finite D. A proof of this stronger character-choice statement, or another argument removing the character ramification from the final residual representation, is required.",
+   "neededBy": [
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/torsion-galois-representations"
    ]
   }
  ],
@@ -1918,14 +1963,15 @@
    "stageId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.10",
    "status": "planned",
    "remaining": [
-    "Close the recorded gap on base change for division-algebra unitary groups (request to AutomorphicGaloisRepresentationsPartII AG2.2); the constants ε_G and d(G_ℝ) are left as produced by the archimedean comparison, without a closed formula."
+    "Close the recorded gap on base change for division-algebra unitary groups (request to AutomorphicGaloisRepresentationsPartII AG2.2); the constants ε_G and d(G_ℝ) are left as produced by the archimedean comparison, without a closed formula. Include all PEL inner forms, arbitrary rank, and all good finite places."
    ]
   },
   {
    "stageId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11",
    "status": "planned",
    "remaining": [
-    "Case 1 of the end theorems rests on the IG.10 gap; Case 2 is closed at target level."
+    "Case 1 depends on the IG.10 base-change and arbitrary-rank assembly gap. Case 2 needs the ET.0 auxiliary-character finite-avoidance request to remove Ram(ϖ); neither end-theorem prerequisite chain is closed.",
+    "The integral form follows under the stated mod-ℓ concentration hypothesis. The coefficient variant is proved only for normal trivializing levels K′ that remain admissible (Case 2: S′ ⊂ Spl_{F/F⁺}); extending to arbitrary coefficient systems or proving such a level always exists is not supplied."
    ]
   }
  ],
@@ -1938,9 +1984,20 @@
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-genericity-forces-mu-ordinary",
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/torsion-galois-representations",
     "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/middle-degree-concentration",
-    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/compact-generic-vanishing"
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/compact-generic-vanishing",
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/integral-and-twisted-coefficients"
    ],
-   "detail": "Case 1 of Theorem 6.3.1 needs, for every π on the division-algebra unitary group G with π_∞ cohomological for the trivial representation, an isobaric base change Π to GL_1 × GL_n with compatibility at the split places where B is split, and the attached Galois representations. CS17 cites Shin's appendix to [Gol14], whose Theorem 1.1 assumes B = F (sourceIssues E1). The missing step is the passage from the inner form Res_{𝒦/ℚ}(G_𝒦) to GL_n(𝔸_F) (global Jacquet–Langlands for GL_m(D)) combined with the base change of the appendix, or an alternative published reference (Labesse's CM base change for inner forms, Kottwitz 1992 for simple Shimura varieties, neither read here). Requested from AutomorphicGaloisRepresentationsPartII AG2.2. Case 2 does not use this input."
+   "detail": "Case 1 of Theorem 6.3.1 needs, for every π on the division-algebra unitary group G with π_∞ cohomological for the trivial representation, an isobaric base change Π to GL_1 × GL_n with compatibility at the split places where B is split, and the attached Galois representations. CS17 cites Shin's appendix to [Gol14], whose Theorem 1.1 assumes B = F (sourceIssues E1). The missing step is the passage from the inner form Res_{𝒦/ℚ}(G_𝒦) to GL_n(𝔸_F) (global Jacquet–Langlands for GL_m(D)) combined with the base change of the appendix, or an alternative published reference (Labesse's CM base change for inner forms, Kottwitz 1992 for simple Shimura varieties, neither read here). Requested from AutomorphicGaloisRepresentationsPartII AG2.2. Case 2 does not use this input. The same request includes arbitrary-rank Galois assembly and unramifiedness at all good places; the existing rank-2n assembly is only a model. The locally isomorphic PEL inner forms must be covered as well."
+  },
+  {
+   "title": "Auxiliary-character finite avoidance in the Case 2 torsion Galois construction",
+   "neededBy": [
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/torsion-galois-representations",
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/middle-degree-concentration",
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/compact-generic-vanishing",
+    "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/integral-and-twisted-coefficients"
+   ],
+   "detail": "For any finite set D of rational primes disjoint from S, choose the auxiliary odd Hecke character ϖ of 𝒦 extending the quadratic character of 𝒦/ℚ, with the archimedean type required by ET.0, Ram(ϖ) ⊂ Spl_{F/F⁺}, and Ram(ϖ) ∩ D = ∅. In particular one must be able to avoid each q ∉ S ∪ {ℓ} while choosing an auxiliary p ≠ q. The existing ET.0/unitary-elliptic-endoscopic-data fixes the character with its quadratic restriction but does not establish this ramification control with finite avoidance. Shin11 Lemma 7.1, p. 1722, proves ramification is contained in Spl_{F/F⁺}; its statement does not impose avoidance of an arbitrary finite D. A proof of this stronger character-choice statement, or another argument removing the character ramification from the final residual representation, is required. Without this step the spectral construction yields only unramifiedness outside S ∪ {p,ℓ} ∪ Ram(ϖ). This is a closure gap in this blueprint, not a claim that the published theorem is false."
   }
  ],
  "restructure": [
@@ -1987,7 +2044,12 @@
     "Annals of Mathematics article page for 186 (2017), no. 3 (no erratum listed, 2026-10-19)",
     "arXiv 1511.02418 (only v1 exists; the same sentence is there)",
     "Shin's homepage copy of the appendix (BCofU.pdf), which states Theorem 1.1 for hermitian forms on F^n only"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read CS17 §5.6 p. 749, arXiv v1 §5.6 and all five pages of Shin-BCU. The appendix fixes a hermitian F-vector space and hence B = F before Theorem 1.1; it does not state the division-inner-form base change invoked for Case 1. This confirms a missing cited input, not a contradiction to the main theorem. An inner-form transfer theorem and the relevant global Jacquet–Langlands step still need a checked reference or proof.",
+    "by": "REV-DESIGN-IgusaVarietiesAndTorsionConcentrationPartII"
+   }
   }
  ],
  "inheritedSourceIssues": [
@@ -2033,6 +2095,13 @@
    "read": "2026-10-19",
    "sha256": "6bfc5628627f6d62bd3b8403094671fdd07ce5950c1a475823d8e6e7914348ea",
    "citation": "Shin's appendix to Goldring (Compositio 2014), author's copy; the Compositio typesetting was not obtained."
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n3-p09-p.pdf",
+   "read": "2026-10-19",
+   "sha256": "8a0aca35f1817d60967c48a7e0070d20973b5b057d2dde945780e70ca4a09678",
+   "citation": "Shin, Ann. of Math. 173 (2011), Lemma 7.1 p. 1722 and Lemma 7.2 pp. 1722–1723; only the character-choice input was consulted."
   }
  ],
  "upstreamNotes": [],
@@ -2063,5 +2132,153 @@
    "route": "IgusaVarietiesAndTorsionConcentrationPartIISiegelOrdinary",
    "disposition": "Not planned here: an independent direction, proposed as its own roadmap in restructure (split)."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-IgusaVarietiesAndTorsionConcentrationPartII",
+  "date": "2026-10-19",
+  "notes": "Independent target-level review of all 28 nodes, 9 pinned baseline declarations, all external prerequisite contracts (136 occurrences, 96 distinct references in the corrected packet), source locators, APIs/tests, current upstream roadmaps/library and the reader/Lean pair. Corrected the PEL-component coefficients, prime-to-p action, rank-specific supplier mismatches, examples and coefficient-level scope. Both prerequisite gaps and the restricted coefficient variant are explicit: this accepts a finished planning pass, not a closed proof or formalization. See the review report for source and validation details.",
+  "checked": [
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/compact-unitary-pel-datum",
+    "verdict": "corrected",
+    "note": "Corrected PEL component decomposition and constructors; added extensionality; checked CS17 pp. 730–731, 749, 756–757 against PEL M0–M5."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/proper-smooth-integral-model",
+    "verdict": "corrected",
+    "note": "Distinguished smooth algebraic-space representability from the scheme assertion; projective toroidal compactification with no cusp labels supplies the latter in either case."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/split-prime-decomposition",
+    "verdict": "corrected",
+    "note": "Verified product/Shapiro and central shift against BG1 and CS17 pp. 747–750; qualified the Harris–Taylor nontrivial-factor test by n ≥ 2."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/hecke-algebra-and-polynomial",
+    "verdict": "corrected",
+    "note": "Restricted Igusa action to the algebra away from p; added API and a test; the finite-level Hecke polynomial and Satake conventions agree."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/dual-hecke-ideal",
+    "verdict": "verified",
+    "note": "Verified double-coset inversion, q^(n−1) reciprocal roots and the geometric-Frobenius dual twist; the numerical roots mod 11 are correct."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/hecke-poincare-duality",
+    "verdict": "verified",
+    "note": "Verified the smooth proper duality and dual ideal at Shimura and finite Mantovan levels, including local coefficients and the dimension d_b."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/auxiliary-prime-condition",
+    "verdict": "corrected",
+    "note": "Qualified the weaker-genericity comparison by q ≠ 1 mod ℓ using q=7, ℓ=11 and repeated eigenvalue 3."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.8/auxiliary-prime-existence",
+    "verdict": "verified",
+    "note": "Checked Chebotarev construction and corrected Remark 6.3.3 against the inherited E95; no assumption that the initial generic place has residue degree one."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.9/igusa-trace-identity",
+    "verdict": "verified",
+    "note": "Verified stable trace identity, allowable local test functions, factor |ker¹|τ(G), and endoscopic coefficients against CS17 Theorem 5.3.2."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.9/red-kills-generic-principal-series",
+    "verdict": "verified",
+    "note": "Verified normalized Jacquet/transfer nonvanishing obstruction using ET.6–ET.7b; no generic principal series transfers to the indicated non-quasi-split factor."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.9/igusa-spectral-expansion",
+    "verdict": "corrected",
+    "note": "Removed rank-2n Hecke-separation citation; use finite character independence directly in rank n, retaining total-contribution and coefficient-system corrections E77/E79."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.9/galois-summand",
+    "verdict": "corrected",
+    "note": "Corrected n=1 test: the Galois r-index ignores the separate similitude GL₁-character; added the compatibility API."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.9/nonordinary-nonquasisplit-factor",
+    "verdict": "verified",
+    "note": "Verified nonordinary factor obstruction with the minuscule single-noncentral-factor hypothesis and the central correction already in IG.8."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.9/genericity-forces-mu-ordinary",
+    "verdict": "corrected",
+    "note": "Replaced unjustified global prescribed-signature example by the local GL₂ ordinary/basic test; checked Theorem 5.5.7 and all local-compatibility prerequisites."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-igusa-trace-identity",
+    "verdict": "verified",
+    "note": "Verified division-index endoscopy vanishing for the arbitrary-signature trace argument; the narrower Harris–Taylor supplier is not used as a substitute."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-stable-lefschetz",
+    "verdict": "corrected",
+    "note": "Made the Lefschetz proof sum all PEL inner-form components and retained the ordinary modulus twist."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-igusa-cohomology",
+    "verdict": "corrected",
+    "note": "Corrected c(π_f) to sum multiplicities over ker¹; Matsushima is applied componentwise, with an explicit two-component check."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-base-change-galois",
+    "verdict": "corrected",
+    "note": "Removed rank-2n assembly as a purported arbitrary-rank proof; enlarged the existing AG2.2 request to all ranks, PEL inner forms and all good places."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-galois-summand",
+    "verdict": "verified",
+    "note": "Verified r-projection of the simple cohomology formula, conditional on the explicit Case 1 Galois input; its API and four tests are discriminating."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.10/simple-genericity-forces-mu-ordinary",
+    "verdict": "verified",
+    "note": "Verified reuse of the local obstruction and split-genericity argument for Case 1, conditional on the recorded Galois gap."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/hecke-contraction",
+    "verdict": "verified",
+    "note": "Verified localization at the contraction and finite coefficient support; ordinary localization at the smaller algebra is the precise conclusion."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/perfectoid-hochschild-serre",
+    "verdict": "verified",
+    "note": "Verified continuous Hochschild–Serre and the corrected nonvanishing consequence E96; equivariance is away from p."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/leray-reduction-to-igusa",
+    "verdict": "corrected",
+    "note": "Restricted the rational-flag example to split local GL₂; checked compact-fibre stalk identification and the Leray lower-bound argument. Added the precise qcqs analytic colimit supplier for the localization step."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/minimal-stratum-constituent",
+    "verdict": "corrected",
+    "note": "Made the post-base-change eigenvalue assertion use the contraction away from the full spectral bad set S′, preserving the dual ideal and noncancellation argument."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/torsion-galois-representations",
+    "verdict": "corrected",
+    "note": "Recorded character finite avoidance as a requested gap and gave the per-prime comparison that would remove p and Ram(ϖ); no unsupported good-prime assertion remains in the proof sketch."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/middle-degree-concentration",
+    "verdict": "verified",
+    "note": "Verified the lower bound, duality upper bound and μ-ordinary minimal-stratum argument, conditional on the Galois construction and Case 1 input."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/compact-generic-vanishing",
+    "verdict": "verified",
+    "note": "Verified reduction from the introduction to Theorem 6.3.1 by the two auxiliary-prime-existence cases, with componentwise scope stated correctly."
+   },
+   {
+    "nodeId": "IgusaVarietiesAndTorsionConcentrationPartII:IG.11/integral-and-twisted-coefficients",
+    "verdict": "corrected",
+    "note": "Required admissible trivializing levels in the coefficient variant, verified the dual-ideal hypothesis, and corrected the H⁰ invariants formula."
+   }
+  ]
+ }
 }
