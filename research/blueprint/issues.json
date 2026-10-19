@@ -5189,5 +5189,11 @@
  "PKG-ExcursionOperatorsAndSpectralAction": 11081,
  "PKG-NoncommutativeAndEquivariantIwasawa": 11082,
  "REV-PKG-ExcursionOperatorsAndSpectralAction": 11083,
- "REV-PKG-NoncommutativeAndEquivariantIwasawa": 11084
+ "REV-PKG-NoncommutativeAndEquivariantIwasawa": 11084,
+ "BP-PadicHodgeRegulators~2": 11092,
+ "FIX-PKG-PeriodsAndSpecialValues~adv": 11093,
+ "REV-PKG-HabiroNahmSeries~adv": 11094,
+ "REV-PKG-IntegralIwasawaTheory~adv": 11095,
+ "REV-PKG-KTheoryLowDegrees~adv": 11096,
+ "REV-PadicHodgeRegulators~2": 11097
 }
