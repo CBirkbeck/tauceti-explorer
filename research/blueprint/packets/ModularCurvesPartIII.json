@@ -36,7 +36,7 @@
       {
         "ref": "mathlib:Matrix.ProjectiveSpecialLinearGroup",
         "module": "Mathlib/LinearAlgebra/Matrix/ProjectiveSpecialLinearGroup.lean",
-        "provides": "The quotient of SL by its centre supplies PSL and its field comparison with PGL.",
+        "provides": "The quotient of SL by its centre supplies the native PSL carrier used in the proper-subgroup-index argument; this definition alone does not assert a comparison theorem with PGL.",
         "checked": "Declaration and ambient hypotheses read on 2026-10-19 at the exact Mathlib/Tau Ceti pins. The Tau Ceti build source was compared byte-for-byte with its pinned Git blob. This checks the imported carrier/convention, not the planned geometric theorem."
       },
       {
@@ -1357,7 +1357,7 @@
           "BT16"
         ],
         "locator": "Lemma 9, p.721",
-        "match": "Prime-to-p cyclic Hecke inverse images of radius-R cusp balls lie in balls of radius R+log m+O(1) at the inverse cusps."
+        "match": "For sufficiently large p and an integer m≥1 prime to p, assume log p+C<R and R+log m<2 log p−C, for a uniform constant C. Then the inverse cyclic Hecke image of a radius-R cusp ball lies in the union of balls of radius R+log m+C at the inverse cusps."
       },
       "imports": [
         "GeometricFreyMazur:GF.1/cusp-coordinates"
@@ -1366,7 +1366,7 @@
         "Use the branch imaginary-part factor between 1/m and m together with the two q-radius estimates."
       ],
       "acceptance": [
-        "The condition R+log m<2 log p−O(1) remains in the application."
+        "Both bounds log p+C<R and R+log m<2 log p−C are required; the upper bound alone does not justify the q-disc comparison. The parameter m is a positive integer prime to p."
       ],
       "status": "imported-planned",
       "implementationStatus": "unchecked"
@@ -3062,7 +3062,7 @@
     "readRoadmaps": [
       "FuchsianOrbifolds",
       "ConformalMapping",
-      "ModularCurves (0D, 2C, 5B and corresponding Suggested interfaces)"
+      "ModularCurves (0D, 0E, 2C, 5B, 5C and corresponding Suggested interfaces)"
     ],
     "searchScope": "Current read-only TauCetiRoadmap and Tau Ceti source trees, including roadmaps absent from the atlas snapshot. Whole-word searches for Frey–Mazur, gonality and systole; source inspection of the projective-level and Hecke boundaries.",
     "result": "No additional owner for the route-specific rigidity/repulsion targets was found in this bounded search. Existing quotient charts, uniformization and level objects remain imported. The current library is not substituted for the fixed pins."
@@ -3075,7 +3075,7 @@
     }
   ],
   "leanCoverage": {
-    "policy": "The alias owns no definitions or theorems. Its suggested file contains anonymous checks on native matrices, rational arithmetic and Sym. Heavy surface, metric-cycle and elliptic-scheme targets remain with their existing owner, and no record postulates their conclusions. Compiling this file does not certify the canonical suggested file.",
+    "policy": "The alias owns no definitions or theorems. Its suggested file contains anonymous checks on native matrices, rational arithmetic, Sym and ZMod. The ZMod examples check sign separation at p=7 and its failure at p=2. Heavy surface, metric-cycle and elliptic-scheme targets remain with their existing owner, and no record postulates their conclusions. Compiling this file does not certify the canonical suggested file.",
     "ownerSuggested": "research/blueprint/suggested/GeometricFreyMazur.lean"
   },
   "conventions": [
@@ -3085,5 +3085,348 @@
     "Metric normalization is curvature −1, max-product balls and sum area, with vol=2πDeg and injectivity radius half the shortest closed length.",
     "Cyclic ψ(m), signed reconstruction, projected non-Hecke hypotheses, weighted cycles and the negative Hurwitz term are retained.",
     "No new finding or independent acceptance of the canonical plan is claimed."
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ModularCurvesPartIII",
+    "date": "2026-10-19",
+    "notes": "Independent review by Codex session codex-gJPyB0 of the import index and merger proposal, not a new review verdict on the canonical owner. Read the three public primary sources and all 64 route entries; checked the 67 import contracts, 11 pinned baseline citations, inherited supplier statements and 19 requests, 13 definition/construction contracts (80 API names and 40 tests), 53 planets and 21 accepted finding references. Restored both Hecke cusp-radius bounds in item 36 and synchronized the reader/roadmap; narrowed the PSL baseline description; replaced the rational sign example by F7/F2 tests. The 18 native examples elaborate with no warnings. No nodes or ownership were added; every owner implementation status, coverage record and supplier obligation remains unchanged. Acceptance completes import accounting only; no mathematical layer is closed and the proposed merger is for the maintainer.",
+    "checked": [
+      {
+        "nodeId": "GeometricFreyMazur:GF.0/projective-frames",
+        "verdict": "verified",
+        "note": "Import contract: The adapter imports R13.4a, retains both determinant classes, residual inversion and the left action by inverse precomposition; it adds no fine moduli carrier."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.0/diagonal-quotient",
+        "verdict": "verified",
+        "note": "Import contract: Diagonal orbit fibres, quotient descent and determinant-component transport agree with the imported finite-quotient contract; projectivity and cycle-map extensions stay requested."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.0/cm-strata",
+        "verdict": "verified",
+        "note": "Import contract: The signs use compatible tangent characters, with orders two and three distinguished by j-value; equal j alone does not imply common inertia."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.0/singular-bicusps",
+        "verdict": "verified",
+        "note": "Import contract: Common nonidentity cusp inertia is equality of the order-p subgroups; arbitrary cusp pairs are not declared singular."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.0/quotient-branch-locus",
+        "verdict": "verified",
+        "note": "Import contract: Pairwise coprime inertia orders exclude mixed strata; the branch list and orders 2,3,p agree with the level supplier."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.0/hecke-loci",
+        "verdict": "verified",
+        "note": "Import contract: The owner imports the cyclic correspondence and its boundary from R14.1 and adds its quotient image. The degree is ψ(m); the m=4 test distinguishes it from σ₁."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/triangle-uniformization",
+        "verdict": "verified",
+        "note": "Import contract: The p>5 condition gives the hyperbolic triangle; filling kills the peripheral pth power. Compact Ξ and cusped Γ remain distinct."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/triangle-coordinates",
+        "verdict": "verified",
+        "note": "Import contract: The chosen determinant-one lifts, order relations and p=5 exclusion are retained; changes of marking do not alter traces or distances."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/surviving-systolic-witness",
+        "verdict": "verified",
+        "note": "Import contract: The accepted surviving word remains the witness. The elementary p=7 and p=11 checks verify only its determinant and cusped trace, not its compact trace asymptotic."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/cusped-systole",
+        "verdict": "verified",
+        "note": "Import contract: The Γ(p) lower trace argument and surviving upper witness give the cusped length; the alias does not use the killed word as a compact witness."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/cusp-separation",
+        "verdict": "verified",
+        "note": "Import contract: Triangle-star cusp separation is available before the global injectivity-radius argument, avoiding a circular proof."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/metric-comparison",
+        "verdict": "verified",
+        "note": "Import contract: The filled and punctured metrics have the correct inequality directions; the comparison parameter is fixed before the prime grows."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/compact-injectivity-radius",
+        "verdict": "verified",
+        "note": "Import contract: Radius is half the shortest surviving length. The corrected lower argument counts all deep cusp visits, including repeated visits to the same cusp."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.1/cusp-coordinates",
+        "verdict": "corrected",
+        "note": "Import contract: Corrected routed item 36, reader and roadmap to retain both log p+C<R and R+log m<2 log p−C, with integer m≥1 prime to p, as in Lemma 9 p.721 and the owner statement."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.2/height-adapter",
+        "verdict": "verified",
+        "note": "Import contract: The native norm is the entrywise supremum, with the factor two in multiplication; operator-norm conventions are not substituted."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.2/short-elliptic-displacement",
+        "verdict": "verified",
+        "note": "Import contract: Integral SL₂ lifts are restricted to component-preserving transformations; both elliptic charts and the height exponent remain explicit."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.2/cusp-lift-height",
+        "verdict": "verified",
+        "note": "Import contract: The lift retains the cusp rotation factor and uses the preceding short-displacement estimate."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.2/cusp-double-coset",
+        "verdict": "verified",
+        "note": "Import contract: Both cusp-stabilizer factors are required; the double coset has not been replaced by a single integral lift."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.2/cusp-unique-lift",
+        "verdict": "verified",
+        "note": "Import contract: The corrected smallness margin forces the relevant O(p^(8δ)) entry below p; the printed wider range is not restored."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.2/cusp-lens",
+        "verdict": "verified",
+        "note": "Import contract: Distinct centres, the unique-lift parameter margin and the uniform additive radius constant are retained."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.2/cusp-ball-count",
+        "verdict": "verified",
+        "note": "Import contract: The O(p^(24δ)) count is kept for later overlap estimates; it is not replaced by a disjointness assertion."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.3/small-height-reconstruction",
+        "verdict": "verified",
+        "note": "Import contract: Cofactor reconstruction retains determinant sign and primitivity; a negative determinant requires the reflected complex structure, including boundary incidence."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.3/cm-centralizer",
+        "verdict": "verified",
+        "note": "Import contract: Gaussian and Eisenstein centralizers use their distinct norm polynomials; the order-three polynomial is a²−ab+b²."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.3/heegner-repulsion",
+        "verdict": "verified",
+        "note": "Import contract: The author erratum restricts ordinary low-degree Hecke repulsion to CM⁺; no integral lift of the other normalizer coset is assumed."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.3/conjugate-hecke",
+        "verdict": "verified",
+        "note": "Import contract: The companion is real analytic after complex realization. Its API transports tubes and signs and assigns no Cartier-divisor intersection."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.3/hecke-avoids-anti",
+        "verdict": "verified",
+        "note": "Import contract: The ordinary Hecke locus avoids CM⁻, but this does not imply the withdrawn ordinary anti-Heegner repulsion claim."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.3/three-bicusp-repulsion",
+        "verdict": "verified",
+        "note": "Import contract: Three distinct bicusps determine a signed small-Hecke locus; the owner also retains tube proximity and separation from every cusp needed in GF.5."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.4/big-diagonals",
+        "verdict": "verified",
+        "note": "Import contract: Both coordinate equalities and the threshold 2R are present; codimension-two point multiplicity remains separate from divisor intersection."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.4/quadratic-centralizer-count",
+        "verdict": "verified",
+        "note": "Import contract: The logarithmic count is restricted to a reduced nonscalar quadratic algebra; nilpotent and scalar cases return to their separate branches."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.4/diagonal-overlap",
+        "verdict": "verified",
+        "note": "Import contract: The signed overlap dichotomy includes the bicusp and ordinary/conjugate small-Hecke alternatives with uniform constants."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.4/bicusp-rotation-count",
+        "verdict": "verified",
+        "note": "Import contract: The rotation identity retains the additive identity contribution, sinh R and the separate d=0 bound; the false circumference estimate is not used."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/degree-conventions",
+        "verdict": "verified",
+        "note": "Import contract: Projection multiplicities are weighted, constant coordinates contribute degree zero, and vol=2πDeg is kept separate from algebraic Hurwitz."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/heegner-multiplicity",
+        "verdict": "verified",
+        "note": "Import contract: The disjoint-ball and small-Hecke terms retain independent parameter exponents; summing cyclic degrees costs O(d³)."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/anti-heegner-multiplicity",
+        "verdict": "verified",
+        "note": "Import contract: The erratum route uses conjugate-diagonal tube volume with the correct small-to-large sinh ratio, without an intersection with a real locus."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/bicusp-multiplicity",
+        "verdict": "verified",
+        "note": "Import contract: The stronger p-weighted saving includes both signs and the cusp-overlap cost. δ₃ is chosen before δ₁,δ₂, and 3δ₁<2δ₃ remains explicit."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/cusped-measure",
+        "verdict": "verified",
+        "note": "Import contract: The definition and three tests retain zero measure for constant cusp coordinates, integrability at nonconstant cusp preimages and cycle weights."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/cusped-volume-error",
+        "verdict": "verified",
+        "note": "Import contract: The positive measure difference uses the exact index/cusp/genus counts and gives a uniform O(1/p) bound on every measurable subset."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/hecke-tube-comparison",
+        "verdict": "verified",
+        "note": "Import contract: The comparison is made on the cusp complement, followed by weighted holomorphic pull-push; conjugate tubes use their own volume estimate."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.5/big-diagonal-multiplicity",
+        "verdict": "verified",
+        "note": "Import contract: Both projected cycles must be nonconstant and non-Hecke. The point-ball supplier request and corrected projected cusp-overlap argument remain unresolved implementation inputs."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.6/surface-symmetric-power",
+        "verdict": "verified",
+        "note": "Import contract: The projective finite quotient and relative cycle morphism remain scheme targets; the native Sym carrier supplies only unordered point multisets."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.6/image-normalization",
+        "verdict": "verified",
+        "note": "Import contract: The image reduction retains the requested gonality-domination lemma, justified by norm-pushforward of a pencil, including nonproper source curves."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.6/pencil-cycle-map",
+        "verdict": "verified",
+        "note": "Import contract: The finite-flat fibre cycle retains ramification multiplicities; generic degree one uses birationality of the map from the source curve."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.6/normalized-pullback",
+        "verdict": "verified",
+        "note": "Import contract: A dominating component is normalized and its stabilizer is taken inside the wreath group; no étaleness at a branch point is inferred."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.6/projection-cycles",
+        "verdict": "verified",
+        "note": "Import contract: The actual component gives nonconstant non-Hecke weighted projections and excludes big diagonals; degree sums retain the generic map degree."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.7/ramification-support",
+        "verdict": "verified",
+        "note": "Import contract: The support list includes both CM signs, SBC and both-coordinate big diagonals; normalization uses effective branch inertia."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.7/local-indices",
+        "verdict": "verified",
+        "note": "Import contract: Cyclic curve inertia contributes one factor p, bounded by 6n!p, rather than p per slot; the p and n hypotheses remain."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.7/ramification-decay",
+        "verdict": "verified",
+        "note": "Import contract: The p-weighted SBC, separate CM signs and qualified big-diagonal bounds combine using the weighted projection degree sums."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.7/hurwitz-contradiction",
+        "verdict": "verified",
+        "note": "Import contract: The exact equality retains −2 deg α. The independent largest-coordinate projection gives the incompatible lower bound Deg(C)/(2n)."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.7/complex-geometric-rigidity",
+        "verdict": "verified",
+        "note": "Import contract: The threshold is taken over finitely many positive gonalities below N; constant maps and the vacuous N≤1 case are handled separately."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.8/modular-gonality",
+        "verdict": "verified",
+        "note": "Import contract: Abramovich Theorem 0.1 and §§1.4–1.7 give 7/800 through the imported 21/100 gap, area πD/3 and Li–Yau bound; the empty small-spectrum convention remains."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.8/proper-subgroup-index",
+        "verdict": "verified",
+        "note": "Import contract: Order-p transvections act trivially on fewer than p cosets and generate SL₂ at the pin; pulling back from PSL preserves the index."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.8/full-linear-monodromy",
+        "verdict": "verified",
+        "note": "Import contract: The conclusion is actual SL₂ image with the fixed pairing, not merely projective fullness; the threshold and nonisotriviality remain explicit."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.8/no-quadratic-self-twist",
+        "verdict": "verified",
+        "note": "Import contract: An actual intertwiner makes the character factor through SL₂, and pinned perfectness applies for p>3. This auxiliary theorem is separate from final descent."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/actual-torsion-classifying-map",
+        "verdict": "verified",
+        "note": "Import contract: The coarse map uses the projective class but retains the actual equivariant Ψ as input; nonconstant j gives nonconstancy."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/nonisotrivial-hom-lattice",
+        "verdict": "verified",
+        "note": "Import contract: The nonisotrivial geometric endomorphism ring is Z; the rank-one Hom lattice, sign action and degree scaling support descent."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/geometric-prime-to-p-isogeny",
+        "verdict": "verified",
+        "note": "Import contract: The lift through the cyclic correspondence supplies the essential equality f[p]=λΨ and prime-to-p degree, not just some geometric isogeny."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/actual-linear-descent",
+        "verdict": "verified",
+        "note": "Import contract: Equivariance of Ψ and odd p remove the Hom sign. Full monodromy is not a prerequisite; the finite-field boundary examples now test the sign step."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/extend-isogeny-over-base",
+        "verdict": "verified",
+        "note": "Import contract: Read the existing abelian-scheme Néron-model and extension supplier statements. Their hypotheses apply over the original smooth curve. BLR locators remain inherited; no fresh reading of that book is claimed."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/characteristic-zero-spread",
+        "verdict": "verified",
+        "note": "Import contract: Only a finitely generated model field is embedded in C. Closed Hecke containment descends faithfully flatly and then gives the cyclic lift over the target field."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/characteristic-zero-monodromy",
+        "verdict": "verified",
+        "note": "Import contract: The separate monodromy spread uses geometric finite-étale invariance for algebraically closed characteristic-zero extensions."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/geometric-frey-mazur",
+        "verdict": "verified",
+        "note": "Import contract: The family conclusion follows from rigidity, the scalar-compatible Hecke lift, actual-linear descent and extension over the original U; no analytic spectral bound is added to this route."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.9/function-field-form",
+        "verdict": "verified",
+        "note": "Import contract: The generic-fibre and good-reduction-open formulations use actual equivariant torsion maps and unchanged gonality of the proper model."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.10/bounded-genus",
+        "verdict": "verified",
+        "note": "Import contract: The strict gonality threshold is enlarged to N+1 after gon≤g+1; constant maps remain an explicit alternative."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.10/rational-elliptic-curves",
+        "verdict": "verified",
+        "note": "Import contract: The statement uses normalization genus zero or one and a common gonality threshold, including singular integral images."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.10/quotient-resolution",
+        "verdict": "verified",
+        "note": "Import contract: Only the cyclic quotient resolution application is imported. The general surface resolution and intersection formulas remain supplier requests."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.10/known-rational-curves",
+        "verdict": "verified",
+        "note": "Import contract: A nonexceptional rational curve has the same normalization as its image, so rigidity classifies its strict transform; exceptional components are retained separately."
+      },
+      {
+        "nodeId": "GeometricFreyMazur:GF.10/known-curve-minimal-model",
+        "verdict": "verified",
+        "note": "Import contract: The conclusion is existence through successive rational (−1)-contractions. It neither makes every Hecke curve contractible nor claims uniqueness or general type."
+      }
+    ]
+  }
 }
