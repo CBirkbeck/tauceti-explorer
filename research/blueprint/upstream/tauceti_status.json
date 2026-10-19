@@ -247,10 +247,10 @@
       ],
       "note": "ported 2026-10-13 (Codex); Lean 783 lines, README 5,400 lines; cites CohomologicalPointCounting subroadmaps, AlgebraicModuli and EnhancedDerivedSheaves by name; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
+        "head": "164e3b1",
         "current": true,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "date": "2026-10-12"
       }
     },
     "GeometryOfNumbersAndQuadraticArithmetic": {

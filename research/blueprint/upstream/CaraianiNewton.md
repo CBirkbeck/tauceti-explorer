@@ -51,7 +51,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 6
 
-- **InverseGaloisAndArithmeticFundamentalGroups** — Inverse Galois theory and arithmetic fundamental groups. Plan 1/1 accepted · package not yet · CN needs 3/7 layers · **Tau Ceti: pull request #850 open** · reviewer recommends approval · cites outside the 94: InductionRestrictionPartII (14)
+- **InverseGaloisAndArithmeticFundamentalGroups** — Inverse Galois theory and arithmetic fundamental groups. Plan 1/1 accepted · package not yet · CN needs 3/7 layers · **Tau Ceti: pull request #850 open** · cites outside the 94: InductionRestrictionPartII (14)
 - **AbelianSchemesAndArithmeticModuli** — Abelian Schemes And Arithmetic Moduli. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #849 open** · reviewer recommends approval (at earlier head None; current head 4f9da15) · move down: FiniteFlatGroupsAndIntegralPadicHodgeTheory (3), ArithmeticGaloisRepresentations (1)
 
 ## Tier 7
