@@ -1,0 +1,295 @@
+{
+  "id": "FaltingsFinitenessAndIsogenyTheoremsPartII",
+  "title": "Faltings finiteness and isogeny theorems, Part II",
+  "area": "arithmeticgeometry",
+  "parent": "FaltingsFinitenessAndIsogenyTheorems",
+  "summary": "This continuation makes isogeny finiteness quantitative through Rosati norms, period estimates, order class indices and polarization removal. It plans dimension-only geometric degree bounds, a quadratic elliptic bound and uniform integral Tate-algebra indices over finitely generated characteristic-zero fields. The distinct open-image briefs receive a full y assigned split proposal. Primary-proof and supplier boundaries remain explicit; no formal implementation or closure of those boundaries is claimed.",
+  "readme": "The definitive reader is research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheoremsPartII.md. Start from the parent qualitative Tate/isogeny theorem and the existing abelian-scheme, Arakelov, geometry-of-numbers and algebra owners. QI.1–QI.6 prove quantitative factorization and geometric isogeny bounds; QI.7–QI.8 prove uniform integral Tate-algebra estimates. Every local target is stated in the stage descriptions. All heights are stable Faltings heights, all degree bounds clamp with 1, and polarizations remain explicit until QI.4 removes their degree dependence. The incoming open-image programme has the concrete split proposal in the packet; its six proposed layers and all incoming route items are preserved. The packet is a complete planning pass with explicit gaps, not a closed proof or an implementation claim.",
+  "prerequisites": [
+    "AbelianSchemesAndArithmeticModuli",
+    "ArakelovGeometryAndAbelianHeights",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "ArithmeticGaloisRepresentations",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "AutomorphicBundles",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  ],
+  "stages": [
+    {
+      "key": "QI.1",
+      "title": "Rosati metrics and coordinate bounds",
+      "description": "Rational and complex representations. For a polarized complex abelian variety A=V/Λ of dimension g, a Z-basis of Λ and a complex basis of V give injective ring representations ρ:End(A)→Mat(2g,Z) and κ:End(A)→Mat(g,C). For a period matrix P their convention is κ(v)P=Pρ(v). In normalized principally polarized coordinates with P=(I,τ), block signs are chosen so that ρ=[[a,−b],[−c,d]] and κ=a−τc. Extend both representations Q-linearly to End⁰(A). Changing either basis conjugates the corresponding representation.\n\nRosati length. Fix a polarization λ on A. Use the existing involution v†=λ⁻¹v∨λ on End⁰(A). For v∈End⁰(A), set qλ(v)=Tr_A(vv†) and ℓλ(v)=sqrt(qλ(v)), where Tr_A(1)=2g is the A6 abelian trace. This is a norm on the finite-dimensional real scalar extension of End⁰(A). It is not the regular algebra trace and does not require † to preserve the integral order.\n\nRosati discriminant. For an order O=End_k(A) or End_k̄(A), choose a Z-basis e₁,…,e_r of its finite free underlying group and define Dλ(O)=det(Tr_A(e_i e_j†))>0. For rank zero set the empty determinant equal to 1. It is independent of the basis. Under a principal polarization the pairing is integral, hence Dλ(O) is a positive integer. For a nonprincipal λ the same positive rational determinant is allowed; do not assume integral adjoints. For End_k use a k-defined polarization so the rational involution preserves End⁰_k; the geometric order uses a geometric polarization.\n\nRosati submultiplicativity. For v,w∈End⁰(A), qλ(vw)≤qλ(v)qλ(w), equivalently ℓλ(vw)≤ℓλ(v)ℓλ(w).\n\nDegree polynomial in coordinates. Let A,B be complex abelian varieties of the same dimension g, and use positively oriented Z-bases of their period lattices. For f in Hom(A,B), deg(f)=det ρ(f), where degree is the finite-kernel degree for an isogeny and zero otherwise. Consequently deg(∑ t_i f_i)=det(∑ t_i ρ(f_i)) is a homogeneous polynomial of total degree 2g in the rational variables t_i, or the zero polynomial. The same assertion holds for number-field varieties after a complex embedding. For g=0 the empty determinant and polynomial are 1.\n\nRosati degree inequality. For g≥1 and v∈End(A), with degree zero on nonisogenies, deg(v)≤(qλ(v)/(2g))^g. The same inequality holds for rational endomorphisms with the A6 rational degree.\n\nCoordinate trace formula. In normalized principally polarized coordinates write τ=x+iy in Siegel space and let ε be the standard alternating matrix in the chosen symplectic lattice basis. Then qλ(v)=tr(ρ(v)ερ(v)ᵀε⁻¹)=2 Re tr(κ(v)y overline(κ(v))ᵀy⁻¹). The bilinear Gram entry is 2 Re tr(κ(v)y overline(κ(w))ᵀy⁻¹). In orthonormal real coordinates this becomes tr(MMᵀ).\n\nWeak Siegel coordinate bounds. Fix g≥1 and 0<δ≤1. Suppose τ=x+iy, y₀=diag(y₁,…,y_g), δy₀≤y≤δ⁻¹y₀, y_i≥δ, and |x_ij|≤δ⁻¹. For ρ(v)=[[a,−b],[−c,d]], each |a_ij|≤C sqrt(y_i/y_j)ℓ(v), |b_ij|≤C sqrt(y_i y_j)ℓ(v), |c_ij|≤C ℓ(v)/sqrt(y_i y_j), and |d_ij|≤C sqrt(y_j/y_i)ℓ(v), where C=C(g,δ). No ordering of the y_i is needed.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ]
+    },
+    {
+      "key": "QI.2",
+      "title": "Periods and endomorphism estimates",
+      "description": "Minimal period subvariety. For a polarized complex abelian variety G defined over Q̄ and a period ω∈ker(exp_G), let G_ω be the smallest connected abelian subvariety B⊂G defined over Q̄ whose complex tangent space contains ω. Use scheme-theoretic identity components of intersections. Its normalized degree is Δ_L(B)=c₁(L)^(dimB)[B]/(dimB)!; Δ_L(0)=1.\n\nMasser–Wüstholz period theorem. For each g≥1 there are C_g,κ_g>0 such that for every principally polarized G/k of dimension g, D=[k:Q], every complex embedding and every period ω, Δ_L(G_ω)≤C_g max(1,D,h_F(G),q_L(ω))^κ_g. Here q_L is the squared Hermitian period norm, and h_F is stable. Replacing q by its square root changes only the exponent. The field of definition of G_ω need not be k.\n\nShort period bases. For each g there are C_g,c_g>0: if A/k is principally polarized of dimension≤g and B⊂A is an abelian subvariety, its period lattice has a Z-basis ω₁,…,ω_(2dimB) with q_L(ω_i)≤C_g(D max(1,h_F(A)))^c_g Δ_L(B)². B need not be k-defined. Empty bases are allowed for B=0.\n\nCusp value height bound. For each g fix once and for all a weight and a finite Q-rational Fourier-normalized family of scalar Siegel cusp forms with no common zero on H_g, and the analytic trivialization used for that Fourier normalization. For a ppav A/k represented by τ, at least one nonzero valueu from this fixed family satisfies log max(1,|u(τ)|⁻¹)≤C_g D max(1,h_F(A)). The choice and scaling of the family are part of the theorem, not arbitrary input.\n\nSiegel imaginary-part height bound. For each g and 0<δ≤1 there is C_(g,δ)>0. Let τ=x+iy represent a ppav A/k, with y₀=diag(y_i), y≥δy₀ and y_i≥δ. Then every y_i≤C_(g,δ)D max(1,h_F(A)). No bound on x and no upper comparison y≤δ⁻¹y₀ is require d.\n\nShort endomorphism spanning set. For each g and polarization degree δ there are C_(g,δ),κ_g>0 such that End_k(A)⊗Q is spanned over Q by integral endomorphisms v with qλ(v)≤C_(g,δ)max(1,D,h_F(A))^κ_g, for A/k of dimension g with a k-defined polarization λ of map-degree δ. For δ=1 the constant depends only ong. This is a spanning set, not yet a Z-basis.\n\nEndomorphism discriminant estimate. For each g≥1 there are C_g,κ_g>0 such that a ppav A/k of dimension g satisfies Dλ(End_k(A))≤C_g max(1,D,h_F(A))^κ_g. The same bound holds for End_k̄(A), after enlarging constants and exponent only ing. Both orders have a Z-basis whose qλ-lengths satisfy a bound of this form.\n\nShort off-diagonal isogeny. For principally polarized isogenous complexA,B of dimension g, there exist isogenies f:A→B andf̃:B→A such thatv∈End(A×B), v(x,y)=(f̃(y),f(x)), has ℓ(v)≤C_g sqrt(D(End(A×B))). No arithmetic height assumption is used here.\n\nPolarized rational isogeny estimate. Fix dimension g and map-degreesδ_A,δ_B of k-defined polarizations. There are C_(g,δ_A,δ_B),κ_g>0 such that k-isogenous A,B/k admit a k-isogeny A→B of degree≤C_(g,δ_A,δ_B)max(1,D,h_F(A))^κ_g. The chosen isogeny is not require d to preserve the polarizations.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.4",
+        "AutomorphicBundles:B4",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ]
+    },
+    {
+      "key": "QI.3",
+      "title": "Order discriminants and class indices",
+      "description": "Regular-trace order discriminant. Let B be a finite-dimensional semisimple Q-algebra of Q-dimension m, and O⊂B a unital full Z-lattice subring. Puttr_B(x)=Tr_Q(L_x:B→B), the regular trace, anddisc(O)=det(tr_B(e_i e_j)) for a Z-basis. Retain the sign and use|disc(O)| in inequalities. Division algebras and isotypic matrix algebras are both included. This refines the existing algebra/lattice carriers and creates no second CSA, order or lattice type.\n\nOrder class index. For O⊂D as above and e≥1, consider every finitely generated torsion-free left O-module M with dim_D(D⊗_O M)=e, where the rationalization is understood as Q⊗_Z M. Let b(M) be the least index[M:F] among free left O-submodulesF≅O^e of full Z-rank. Such F exist by clearing denominators in a D-basis. Define i_e(O)=sup_M b(M) in N∪{∞}; also i_0(O)=1. Finiteness is the class-index theorem, not a defining assumption.\n\nDivision-algebra norm body. For D/Q of dimension m, let N_D(x)=det_Q(L_x), extended to D_R. In any Q-lattice basis Λ put p(D)=sqrt(|disc(Λ)|) times the supremum of the coordinate volumes of bounded centrally symmetric convex bodiesC⊂{x:|N_D(x)|<1}. The use of strict interior may be replaced by limiting compact bodies. The product is independent of Λ and the chosen basis; it is a positive real number, with finite upper bound supplied by Minkowski applied to any full order lattice.\n\nDivision norm-body bound. Every finite-dimensional division Q-algebra D of Q-dimension m satisfies p(D)≥2^m.\n\nMasser–Wüstholz class-index bound. For every full order O in a division Q-algebra D and e≥1, i_e(O) is finite and i_e(O)≤|disc(O)|^(e/2). In particular no qualitative finiteness theorem for order lattices is assumed in its definition.\n\nIsotypic trace comparison. Let A be isotypic of dimension g≥1 and O=End_k(A) of Q-rank m, where the k-isotypic decomposition and its rational endomorphism algebra use the same field. For every k-defined polarization λ, (2g)^m |disc(O)|=m^m Dλ(O), with disc computed using regular trace on End⁰_k(A). The same formula holds geometrically with geometric isotypy and geometric End. No such single proportionality is asserted for arbitrary products of nonisogenous factors.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields"
+      ]
+    },
+    {
+      "key": "QI.4",
+      "title": "Cross-discriminants and polarization removal",
+      "description": "Hom cross-discriminant. Let A,B/k be k-simple k-isogenous abelian varieties of dimension g. Put M=Hom_k(B,A), M′=Hom_k(A,B), and D=End⁰_k(A), of Q-dimension m. The pairing M×M′→Q is(u,v)↦tr_D(u∘v). Define c(M,M′)=det(pairing in Z-bases)², a positive rational number independent of bases. It is the square of the determinant, not its absolute value.\n\nProduct endomorphism discriminants. For a k-isotypic A with D=End⁰_k(A) of Q-dimension m, disc(End_k(A²))=(−1)^m 2^(4m) disc(End_k(A))^4. For k-simple k-isogenousA,B, disc(End_k(A×B))=(−1)^m 2^(4m)c(Hom(B,A),Hom(A,B)) disc(End_k(A))disc(End_k(B)). All traces are regular traces of the corresponding whole endomorphism algebra.\n\nSimple cross-discriminant isogeny bound. For k-simple k-isogenousA,B of dimension g≥1 there is a k-isogeny B→A of degree≤c(Hom(B,A),Hom(A,B))^g.\n\nStable-power isogeny bound. Let A/k be k-simple of dimension g, O=End_k(A), and let B⊂A^N be a k-abelian subvariety k-isogenous to A^e, e≥1. Then some k-isogeny B→A^e has degree≤i_e(O)^(2ge). The bound is independent of N.\n\nPolarization-free discriminant bounds. For each g there are C_g,κ_g>0 such that for any k-simple A/k of dimension g the absolute regular discriminant of End_k(A) and the cross-discriminant c(Hom_k(A∨,A),Hom_k(A,A∨)) are at most C_g max(1,D,h_F(A))^κ_g. In the cross pairing use the regular trace on End⁰_k(A). No polarization degree enters the constant.\n\nStable subvariety isogeny bound. For each g there are C_g,κ_g>0. Let A=∏A_i^(e_i) be an actual product overk of pairwise k-nonisogenous k-simple varieties, withdimA=g. IfB⊂A^8 is k-defined and k-isogenous to A, some k-isogeny B→A has degree≤C_g max(1,D,h_F(A))^κ_g.\n\nSmall product-dual isogeny. For A an actual product as in the previous node, there is a k-isogeny A→A∨ of degree≤C_g max(1,D,h_F(A))^κ_g, with constants depending only ong.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.6",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3"
+      ]
+    },
+    {
+      "key": "QI.5",
+      "title": "Unpolarized factorization and isogenies",
+      "description": "Isogeny to a simple-factor product. Let A/k be an actual product of pairwise nonisogenous k-simple powers, of dimension g, and let A*/k be k-isogenous to A. There is a k-isogeny A*→A of degree≤C_g max(1,D,h_F(A))^κ_g. Only the height of the product target A occurs.\n\nQuantitative simple factorization. For each g≥1 there are C_g,κ_g>0 such that A/k of dimension g admits a k-isogeny A→∏A_i^(e_i), where the A_i are pairwise nonisogenous k-simple k-abelian subvarieties of A and degree≤C_g max(1,D,h_F(A))^κ_g. The factors are not assumed principally polarized.\n\nUnpolarized rational isogeny estimate. For each g≥1 there are C_g,κ_g>0: if A,B/k of dimension g are k-isogenous over a number field of degree D, some k-isogeny A→B has degree≤C_g max(1,D,h_F(A))^κ_g. No polarization is included in the input, and the constants depend only ong.\n\nRelative-field isogeny estimate. Let k be a number field and k⊂K⊂k̄. For K-isogenousA,B defined overk, there is a K-isogeny of degree≤C_g max(1,[k:Q],h_F(A))^κ_g. In particular the bound is independent of[K:k], even when K/k is infinite. For an arbitrary field extensionK/k, useHom rigidity to descend its Hom data to the relative algebraic closure ofk in K and apply the same bounded torsion-field argument.\n\nGeometric isogeny estimate. For every g≥1 there are C_g,κ_g>0 such that geometrically isogenous dimension-g abelian varietiesA,B over the same number field k admit a k̄-isogeny A→B of degree≤C_g max(1,h_F(A),[k:Q])^κ_g. The map need not be k-defined or preserve a polarization. The same geometric bound holds after any algebraically closed overfield ofk̄ by rigidity of Hom.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.4",
+        "ArakelovGeometryAndAbelianHeights:R35.6",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.4"
+      ]
+    },
+    {
+      "key": "QI.6",
+      "title": "Quadratic elliptic isogeny estimates",
+      "description": "Non-CM period graph. Let E₁,E₂/k be geometrically isogenous elliptic curves without CM. Choose period bases(ω₁₁,ω₁₂),(ω₂₁,ω₂₂), and let ω=(ω₁₁,ω₁₂,ω₂₁,ω₂₂) in Lie(E₁²×E₂²). The minimal period subvariety G_ω is, after an extension of degree≤2, isomorphic to E₁×E₂. IfN is the least geometric isogeny degree E₁→E₂, the finite intersectionG_ω∩(0²×E₂²) has order N.\n\nCM period graph. For geometrically isogenous CM elliptic curvesE₁,E₂/k, choose shortest nonzero periodsω₁,ω₂ in their complex period lattices and put ω=(ω₁,ω₂) in Lie(E₁×E₂). Its minimal period subvariety is elliptic after an extension of degree≤12. Its two projections are isogenies of degreesN₁,N₂, and dualizing the first then composing the second gives E₁→E₂ of degree N₁N₂.\n\nQuadratic elliptic isogeny bound. There is an absoluteC>0 such that geometrically isogenous elliptic curvesE₁,E₂/k, D=[k:Q]≥1, admit a geometric isogeny of degree≤C D² max(1,h_F(E₁),logD)². Both CM and non-CM cases are included; no k-rationality of the isogeny is asserted.\n\nElliptic j-height isogeny bound. There is an absoluteC>0 such that for D=[k:Q]≥2, any geometrically isogenous elliptic E₁,E₂/k admit a geometric isogeny of degree≤C D²(logD)²(1+h(j(E₁)))², where h is absolute logarithmic Weil height. For D=1 useC max(1,h(j(E₁)))² instead.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArakelovGeometryAndAbelianHeights:R35.4",
+        "ArakelovGeometryAndAbelianHeights:R35.5",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2"
+      ]
+    },
+    {
+      "key": "QI.7",
+      "title": "Uniform integral Tate bounds over number fields",
+      "description": "Integral image algebra. Let A/K in characteristic zero have all geometric endomorphisms defined over K. Put T=∏_ℓT_ℓ(A), E=End_K̄(A), and Z=Cent_End_Ẑ(T)(E). For a closed subgroup V of the adelic Galois image U defineB(V)=Ẑ[V], the unital algebra of finite Ẑ-linear combinations of elements of V inside End_Ẑ(T); products stay in that span becauseV is a group. Also denote its topological closure by B̄(V). The source product comparison is a separate target, not built into this definition. Use the existing ProfiniteArithmetic Layer 0 native profinite-integer ring.\n\nAdelic algebra product comparison. For the adelic Galois image U of A over a number field with all geometric endomorphisms defined, and every open U′⊂U, B(U′) is closed and equals ∏_ℓ Z_ℓ[pr_ℓU′] inside End_Ẑ(T). Consequently its finite additive index in Z is the product of the local additive indices. This statement includes the distinction between the algebraic and closed generated algebras.\n\nIntegral centralizer reduction. Choose an embeddingK̄→C, L=H₁(A(C),Z), E₀=End_Z(L), and generators e₁,…,e_r of E=End_K̄(A). Let ψ:E₀→E₀^r be f↦([f,e_i])_i, Z₀=kerψ, and W⊂E₀∨ the lattice spanned by the rows of ψ. Put M_A=[sat(W):W]. For every prime ℓ the natural Z₀⊗F_ℓ→End_Fℓ(L/ℓL) is injective. For ℓ∤M_A its image equals Cent_End_Fℓ(L/ℓL)(E⊗F_ℓ), and Z₀⊗Z_ℓ identifies with the integral Tate centralizer.\n\nFixed-prime uniform index. For A/k over a number field with End_k=End_k̄, fix ℓ andd≥1. There is M_ℓ(A,k,d) such that for every open subgroup V of U_ℓ=ρ_ℓ(G_k) with[U_ℓ:V]≤d, the additive index[Z_ℓ:Z_ℓ[V]] is finite and≤M_ℓ, where Z_ℓ is the integral centralizer of End_k̄(A).\n\nUniform residual Tate refinement. Let A/k be over a number field with End_k=End_k̄ andd≥1. There is M′(A,k,d) such that for every finite extensionk′/k of degree≤d and every prime ℓ>M′, A[ℓ] is semisimple as an F_ℓ[G_k′]-module and End_Gk′(A[ℓ])=End_k̄(A)⊗F_ℓ inside End_Fℓ(A[ℓ]). The bound is simultaneous ink′ and ℓ.\n\nLarge-prime full integral algebra. For A/k andd as above, if ℓ>max(M_A,M′(A,k,d)), then for every open U′⊂U with[U:U′]≤d, Z_ℓ[pr_ℓU′]=Z_ℓ, where Z_ℓ is the integral End centralizer. In particular all large-prime local indices are 1.\n\nUniform integral Tate bound. For A/k over a number field with End_k=End_k̄ and every d≥1 there is M(A,k,d)≥1 such that for all open U′⊂U with[U:U′]≤d, the additive index[Z:B(U′)]≤M. Here T=∏T_ℓ(A), U=ρ(G_k), Z is its geometric-End centralizer, and B denotes the algebraic unitalẐ-generated algebra defined above.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AbelianSchemesAndArithmeticModuli:A5",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.5",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem"
+      ]
+    },
+    {
+      "key": "QI.8",
+      "title": "Specialization and finitely generated fields",
+      "description": "Tate comparison over finitely generated fields. IfK/Q is finitely generated as a field, A,B/K are abelian varieties and ℓ is any prime, then Hom_K(A,B)⊗Z_ℓ→Hom_GK(T_ℓA,T_ℓB) is an isomorphism, and V_ℓA is semisimple. K need not be a number field. Finite generation as a Q-algebra is not the hypothesis.\n\nEndomorphism-preserving specialization. For A/K with K/Q finitely generated, after a finite extension making all geometric endomorphisms rational and a normal model over a number field, there is a closed fiberA₀/F such that the generic and special adelic Tate modules are identified, the specialized adelic image U_F embeds in U_K, and specialization identifiesEnd_K̄(A) with End_F̄(A₀). At a chosen auxiliary prime ℓ₀ one may require equality of ℓ₀-adic images; simultaneous equality at every prime is not asserted.\n\nSupported connected adelic image. For the adelic image U⊂∏_pGL(T_p), embedGL(T_p) as the subgroup acting trivially at all other primes. Put U_p=U∩GL(T_p), let G_p be its Q_p-Zariski closure, U_p⁰=U_p∩G_p⁰(Q_p), and W(U)=∏_pU_p⁰⊂U. The final inclusion follows by limits of finite products in the compact closed group U. U_p is a supported subgroup, not the projectionpr_pU.\n\nUniform supported-image Tate bound. Let K/Q be finitely generated, A/K with End_K=End_K̄, U its adelic image and W=W(U). For every d≥1 there is M(A,K,d)≥1 such that for each open W′⊂W with[W:W′]≤d, [Z:B(W′)]≤M, with the same geometric-End centralizerZ.\n\nUniform finitely-generated-field Tate bound. Let K/Q be finitely generated, A/K with End_K=End_K̄, U its adelic image and Z its geometric-End centralizer. For every d≥1 there is M(A,K,d)≥1 such that every open U′⊂U with[U:U′]≤d satisfies[Z:B(U′)]≤M. This is the full finitely-generated-field form of RY25 Theorem 4.7.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArithmeticGaloisRepresentations:G7",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+        "FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "mw95",
+      "title": "Factorization estimates for abelian varieties",
+      "authors": "David Masser and Gisbert Wüstholz",
+      "edition": "Publications Mathématiques de l’IHÉS 81 (1995), 5–24",
+      "readSections": [
+        "Full mathematical argument, Theorems I–II and §§2–7, printed pp 5–23; class-index exponent verified in page image."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.numdam.org/item/PMIHES_1995__81__5_0.pdf",
+      "sha256": "b572f1a720da973efee23bbec33c45ee6ab03ab1610287d80426e597199734e4"
+    },
+    {
+      "id": "mw94-preprint",
+      "title": "Endomorphism estimates for abelian varieties",
+      "authors": "David Masser and Gisbert Wüstholz",
+      "edition": "MPI/91-51 author preprint; published Math. Z.215 (1994),641–653",
+      "readSections": [
+        "Complete 13-page author preprint, §§1–6. Locators below use its internal pages; published proof pagination not independently checked."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://archive.mpim-bonn.mpg.de/1350/1/preprint_1991_51.pdf",
+      "sha256": "4d47e3fa958457f92ef13fffe591cf48f9585b94d2ad1fca19e65097ae6433c2"
+    },
+    {
+      "id": "mw93-isog-preprint",
+      "title": "Isogeny estimates for abelian varieties, and finiteness theorems",
+      "authors": "David Masser and Gisbert Wüstholz",
+      "edition": "MPI/91-28 author preprint; published Annals137 (1993),459–472",
+      "readSections": [
+        "§4 Lemmas4.1–4.2, internal pp 5–6; §5 Lemma 5.1. Remaining proof not claimed read."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://archive.mpim-bonn.mpg.de/1497/1/preprint_1991_28.pdf",
+      "sha256": "b7440d681efa31e2fe8247e1b4d700b82e1d779e2853d873fb8c18ab4d9378cf"
+    },
+    {
+      "id": "mz20",
+      "title": "Abelian varieties isogenous to no Jacobian",
+      "authors": "David Masser and Umberto Zannier",
+      "edition": "Annals of Mathematics191 (2020),635–674",
+      "readSections": [
+        "§2 Lemma 2.2 p644; §4 pp 652–657; §5.3 pp 666–667. Quantitative targets and coordinate normalizations."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf",
+      "sha256": "8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60"
+    },
+    {
+      "id": "ts18",
+      "title": "The André-Oort conjecture for A_g",
+      "authors": "Jacob Tsimerman",
+      "edition": "Annals of Mathematics187 (2018),379–390",
+      "readSections": [
+        "Theorem 2.3 pp 382–383, with its reference to MW95 Theorem II and final p23."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
+      "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc"
+    },
+    {
+      "id": "ry25",
+      "title": "Generalised André-Pink-Zannier conjecture for Shimura varieties of abelian type",
+      "authors": "Rodolphe Richard and Andrei Yafaev",
+      "edition": "Publications Mathématiques de l’IHÉS141 (2025),249–331",
+      "readSections": [
+        "§2.1 pp 252–254; §4.6 pp 260–265, full proofs of Theorem 4.7 and Proposition 4.8, including the distinction between supported and projected local images."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.numdam.org/item/10.1007/s10240-025-00154-4.pdf",
+      "sha256": "3f3af58def7bb398b3d365ecf828a6571a9477fd7f2b7b891706f146fec05b9e"
+    },
+    {
+      "id": "gr14",
+      "title": "Théorème des périodes et degrés minimaux d’isogénies",
+      "authors": "Éric Gaudron and Gaël Rémond",
+      "edition": "Commentarii Mathematici Helvetici89 (2014),343–403",
+      "readSections": [
+        "Introduction Theorems1.1–1.4; complete §7 pp 382–394. Proposition 6.9 is used there but its proof has not been read."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://lmbp.uca.fr/~gaudron/art11.pdf",
+      "sha256": "d6b02e1adb9c8f2ab5a574bd8f8c301b5dfcfb8e14db3516bd2ae099b216ac54"
+    },
+    {
+      "id": "noot95",
+      "title": "Abelian varieties—Galois representation and properties of ordinary reduction",
+      "authors": "Rutger Noot",
+      "edition": "Compositio Mathematica97 (1995),161–171",
+      "readSections": [
+        "§§1.1–1.6, especially Proposition 1.3 and Corollary 1.5 pp 163–165, with their proofs."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.numdam.org/item/CM_1995__97_1-2_161_0.pdf",
+      "sha256": "6cb049905d74734b6dc9cdaf878b3f4054f1861163f1c4dfee2f0490124d08b9"
+    },
+    {
+      "id": "bost95",
+      "title": "Périodes et isogénies des variétés abéliennes sur les corps de nombres",
+      "authors": "Jean-Benoît Bost",
+      "edition": "Séminaire Bourbaki1994–1995, exp.795,115–161",
+      "readSections": [
+        "§§2.1–3.2 and §5.1, statements and reduction of period theorem to auxiliary estimates. Full auxiliary-section proof not read."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.numdam.org/item/SB_1994-1995__37__115_0.pdf",
+      "sha256": "13d2911a3b4460552d2ba649609f626a0342beae85966929940ab7df205b0edb"
+    },
+    {
+      "id": "mw93-periods",
+      "title": "Periods and minimal abelian subvarieties",
+      "authors": "David Masser and Gisbert Wüstholz",
+      "edition": "Annals137 (1993),407–458",
+      "readSections": [
+        "Primary full proof unavailable in this run. Theorem and Lemmas8.4/8.6 are read only through MW94 §4, MZ20 Lemma 4.3 and Bost95; gap G1 records proof acquisition."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v137-n2-p05-p.pdf"
+    },
+    {
+      "id": "mw95-refine",
+      "title": "Refinements of the Tate conjecture for abelian varieties",
+      "authors": "David Masser and Gisbert Wüstholz",
+      "edition": "In Abelian varieties, de Gruyter (1995), chapter beginning p211",
+      "readSections": [
+        "Primary chapter unavailable: publisher PDF returned no document. Theorems1–2 and Corollary 1 are cited only as precisely restated and used in RY25 pp 261–262; gap G5 records the missing proof."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.degruyterbrill.com/document/doi/10.1515/9783110889437.211/pdf"
+    },
+    {
+      "id": "igusa",
+      "title": "Theta Functions",
+      "authors": "Jun-ichi Igusa",
+      "edition": "Springer (1972)",
+      "readSections": [
+        "Book not accessed and not cleared in the supplied library. Lemma 20 p104 is cited indirectly by MZ20 Lemma 4.3; no book proof or text is claimed read."
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "fw84",
+      "title": "Rational points, Chapter VI",
+      "authors": "Gerd Faltings and Gisbert Wüstholz, editors",
+      "edition": "Vieweg (1984), ChapterVI §3",
+      "readSections": [
+        "Not acquired. Noot95 Corollary 1.5 points to this finitely-generated-field extension of the Tate theorem; gap G7 records the exact missing input."
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "deligne84",
+      "title": "Preuve des conjectures de Tate et de Shafarevitch",
+      "authors": "Pierre Deligne",
+      "edition": "Astérisque121–122 (1985), exposé616,25–41",
+      "readSections": [
+        "§2 Theorem 2.7 printed p39, read in the original page image; statement and adjacent reduction only, not the complete height proof."
+      ],
+      "accessed": "2026-10-19",
+      "url": "https://www.numdam.org/item/SB_1983-1984__26__25_0.pdf",
+      "sha256": "b0865c63f3c65e768c388e5d575a1395ab401c0edaf45a49305679fb16c73a77"
+    }
+  ],
+  "status": "draft"
+}
