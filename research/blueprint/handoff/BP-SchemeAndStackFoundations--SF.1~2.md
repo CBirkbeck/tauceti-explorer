@@ -1,15 +1,15 @@
 # Blocked checkpoint: SF.1 already has an upstream owner
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296; Codex session
-`codex-pCm39X`, 2026-10-19. The bot
-[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6260635410).
+`codex-vl3eO2`, 2026-10-19. The bot
+[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6261607418).
 This run claimed no second job. **The blueprint revision remains unfinished.**
 This note consolidates the previous ownership checkpoints; their history remains
 in Git and the issue discussion.
 
 ## Blocking instruction and resume condition
 
-The full issue body and its 85 comments were read after claiming. The
+The full issue body and its 89 comments were read after claiming. The
 [maintainer’s instruction of 2026-10-13](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
 stops further atlas blueprint rounds: the upstream roadmap is authoritative and
 changes belong there. No subsequent comment supplies a new mathematical scope.
@@ -57,8 +57,8 @@ R09.3/R09.4 remain consumers. No consumer edges or supplier requests change here
 The supplied read-only roadmap checkout is at the pre-merge commit
 `0d144d044dacebca17b654695b6f1ad58f159b27` and lacks this roadmap. Its absence
 there cannot establish missing upstream work. The supplied Tau Ceti checkout
-is at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; I read its quasi-coherent
-module and finite-Galois descent interfaces without changing it. Neither
+is at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; I read its scheme-module
+forgetful functor and finite-Galois descent interfaces without changing it. Neither
 checkout was modified; no Lake command or Lean process was started. No
 mathematical paper or book was needed for this ownership check.
 
@@ -75,6 +75,12 @@ reports zero errors and zero warnings. The preserved inventory is 58 nodes
 four planets, 83 baseline declaration entries, eleven gaps and four requests.
 Lean was not run because no Lean changed. The submission also passes the
 intake file check and `git diff --check`.
+
+This session rechecked the live upstream API and the files at the commit above.
+The release after checkpoint #10592 supplied no new scope or reversal of the
+maintainer’s instruction. The supplied roadmap tree remains at its pre-merge
+commit, so the live upstream files are necessary to resolve ownership. The
+assignment still needs maintainer disposition before mathematical work resumes.
 
 The exact unfinished mathematical ledger remains in the packet’s `gaps` and
 coverage `remaining` lists and
