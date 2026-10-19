@@ -53736,7 +53736,8 @@
     "PKG-EulerSystemsAndKolyvaginSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsAndKolyvaginSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11034"
   },
   {
    "id": "PKG-EulerSystemsCyclotomicMainConjecture",
@@ -53892,7 +53893,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ExcursionOperatorsAndSpectralAction.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11081"
   },
   {
    "id": "REV-PKG-ExcursionOperatorsAndSpectralAction",
@@ -55545,7 +55547,8 @@
     "PKG-GrossZagierAndArithmeticHeights~3"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11037"
   },
   {
    "id": "PKG-GrossZagierAndArithmeticHeightsPartII",
@@ -150600,7 +150603,8 @@
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~4",
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~5"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10992"
   },
   {
    "id": "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv",
@@ -150747,7 +150751,8 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES0~4",
     "BP-ExcursionOperatorsAndSpectralAction--ES0~5"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11020"
   },
   {
    "id": "PKG-KTheoryLowDegrees~codex",
@@ -151034,8 +151039,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-EllipticRegulators~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-EllipticRegulators~adv.md",
+   "note": "claimed on GitHub issue #11069"
   },
   {
    "id": "REV-PKG-Polylogarithms~adv",
@@ -151054,8 +151060,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-Polylogarithms~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-Polylogarithms~adv.md",
+   "note": "claimed on GitHub issue #11071"
   },
   {
    "id": "REV-PKG-HabiroNumberFields~adv",
@@ -151093,8 +151100,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-PeriodsAndSpecialValues~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PeriodsAndSpecialValues~adv.md",
+   "note": "claimed on GitHub issue #11093"
   },
   {
    "id": "REV-PKG-IntegralIwasawaTheory~adv",
@@ -151113,8 +151121,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-IntegralIwasawaTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-IntegralIwasawaTheory~adv.md",
+   "note": "claimed on GitHub issue #11095"
   },
   {
    "id": "REV-PKG-KTheoryLowDegrees~adv",
@@ -151133,8 +151142,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryLowDegrees~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryLowDegrees~adv.md",
+   "note": "claimed on GitHub issue #11096"
   },
   {
    "id": "REV-PKG-HabiroNahmSeries~adv",
