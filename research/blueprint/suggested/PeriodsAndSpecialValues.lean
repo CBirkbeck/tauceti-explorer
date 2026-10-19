@@ -147,7 +147,35 @@ example : ¬ fixedPeriodAlgebraic ℚ 0 0 := by
 example : fixedPeriodAlgebraic ℚ ((-1 : ℂ) / 24 * tatePeriod 2) (tatePeriod 2) := by
   sorry
 
-/-! PS.2–PS.6 remain reader targets at their actual missing supplier carriers.
+/-! PS.2: native localization checks. R stands for the supplied effective period
+algebra and S for its away-localization only after MC.6 constructs those objects.
+The supplied map g must be actual integration; these examples do not construct it.
+-/
+
+example {R S : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    (L : R) [IsLocalization.Away L S] :
+    algebraMap R S L * (IsLocalization.Away.invSelf L : S) = 1 := by
+  sorry
+
+example {R S : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    (L : R) [IsLocalization.Away L S] (g : R →+* ℂ)
+    (hL : g L = 2 * (Real.pi : ℂ) * Complex.I) (hg : g L ≠ 0) :
+    (IsLocalization.Away.lift L (isUnit_iff_ne_zero.mpr hg) : S →+* ℂ)
+      (IsLocalization.Away.invSelf L) = (2 * (Real.pi : ℂ) * Complex.I)⁻¹ := by
+  sorry
+
+example {R S : Type*} [CommRing R] [CommRing S] [Algebra R S]
+    (L : R) [IsLocalization.Away L S] (g : R →+* ℂ)
+    (hL : g L = 2 * (Real.pi : ℂ) * Complex.I) (hg : g L ≠ 0) :
+    (IsLocalization.Away.lift L (isUnit_iff_ne_zero.mpr hg) : S →+* ℂ)
+      (algebraMap R S L * IsLocalization.Away.invSelf L) = 1 ∧
+      (2 * (Real.pi : ℂ) * Complex.I) *
+        (IsLocalization.Away.lift L (isUnit_iff_ne_zero.mpr hg) : S →+* ℂ)
+          (IsLocalization.Away.invSelf L) = 1 := by
+  sorry
+
+/-! The geometric PS.2 interfaces and PS.3–PS.6 remain reader targets at their actual
+missing supplier carriers.
 The existing localization lift and determinant theory are cited rather than reconstructed.
 In particular the inverse FK determinant is not an unshifted BV leading-term pair:
 the supplier must first provide the shifted/dual complex and its typed comparison.
