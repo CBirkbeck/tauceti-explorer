@@ -1,0 +1,87 @@
+# BP-IntegralIwasawaTheory--I.1~2 — revision handoff
+
+Codex, session `codex-s1mizX`, 2026-10-19. Refs #10810. This finishes one target-level revision, not a checkpoint or an independent review. The earlier review was by session `codex-zfjoCq`; its negative verdict describes the preceding version. The revised packet awaits another independent review.
+
+The four deliverables are the packet, reader, representative suggested file and this note. The packet has 68 targets, 188 API items, 102 definition/construction checks, 33 planets, 35 pinned declaration references and 33 supplier requests. All eleven scoped stages are planned under Protocol §0; none is closed. The two additional targets are uniform capitulation and the real-unit square-class radical. Every target retains implementation status `unchecked`.
+
+## Resolution of the earlier review
+
+The following table accounts for all fourteen gap IDs of the earlier packet. “Planned” means an explicit statement and proof route with named dependencies, not a formalized or already accepted theorem. Cross-roadmap extensions remain exact requests at their existing owners.
+
+| Earlier gap | Revision and source of the proof plan |
+| --- | --- |
+| G-I2-H2 | `I.2/weak-leopoldt` uses ordinary compact homology/discrete cohomology, the truncated Euler formula and the homological Λ criterion. NSW 5.6.15–17, pp. 331–332; 8.3.20, pp. 464–465; 8.7.5–7, pp. 509–511; 10.3.22–25, pp. 639–641. Exact real-dyadic extensions are requested from ArithmeticGaloisDuality R02.4 and PadicMeasuresIwasawaAlgebras L5. No real ordinary cohomological-dimension bound is asserted. |
+| G-I2-FEDERER | `I.2/cm-minus-class-modules`, `I.2/real-unit-radical` and `I.4/dyadic-real-place-correction` give a Kummer/Hochschild–Serre proof of the norm-minus comparison and its correction rank. The proof does not cite an unread Federer original as established evidence. |
+| G-I2-IWASAWA83 | `I.2/real-unit-galois-cohomology` gives the invariant-ideal/capitulation argument and uses Yamashita 1984, §2 Lemma 3 and equation (2), p. 77; §3 Lemmas 4, 5, 7, pp. 78–79; §4 theorem and proof, p. 79. It does not claim to have read Iwasawa 1983. The finite factor is #B[2]=#B/2B, not #B. |
+| G-I2-REAL-UNITS | `I.2/global-local-unit-sequence` includes finite real μ₂ factors and the tower module (Λ/2)^{r₁}. It proves the comparison with the p-only unit closures using the vanishing compact homology limit and E∞[2]=0. NSW 10.3.13, pp. 630–632; 10.3.24, p. 640. The sign module is not asserted to inject into 𝔛. |
+| G-I2-UNIT-FINITENESS | `I.2/iwasawa-finiteness` first proves local multiplicative and principal-unit limit finite generation using local reciprocity, H₂(Γ,Z_p)=0 and compact Nakayama. Global unit finite generation follows later from the injection into U∞. NSW §11.2, pp. 731–735. This avoids a circular weak-Leopoldt proof. |
+| G-I4-ENLARGE | `I.4/s-enlargement-euler-factors` uses the augmented global–local diagram and old-unit injectivity to prove the local inertia injection. Its Frobenius normalization retains κ(Frob_v)=⟨Nv⟩ and the Teichmüller factor. |
+| G-I5-WILES | `I.5/wiles-main-conjecture` gives an alternate proof of the Wiles conclusion through the independent I.7→I.9→I.10 route, Kurihara Theorem 4.1 and the two remarks, pp. 24–27. It distinguishes ψ-quotients, rational eigenspaces and integral prime-to-p eigenspaces. The Q Eisenstein proof remains separate. No reconstruction of the unread Wiles 1990 original is claimed. |
+| G-I5-CONGRUENCE | `I.5/hida-hecke-eisenstein-ideal` computes the particular Q congruence quotient from the normalized constant-term functional and its Hecke element T₀. Sharifi AWS Theorem 4.3.3, pp. 50–52. The unavailable arbitrary-module Ψ_λ comparison is no longer a prerequisite. Generic congruence ownership stays at IHG.1. |
+| G-I5-INDUCTION | `I.5/going-up-induction` now has the arbitrary-prime proof from Greenberg 1983, Propositions 1–3, pp. 78–80, and Proposition 5, pp. 84–85. Analytic induction compares G/H with poles retained; generator change and type-W twisting are explicit. “Even” concerns the character field, not real-valued characters. No general μ statement is inferred. |
+| G-I10-REALPLACE | `I.4/dyadic-real-place-correction` and `I.10/kurihara-kolster-module-dictionary` give both actual exact sequences, the real-unit correction rank, the order-two descent cokernel and the dual/twist substitution. `I.10/finite-euler-characteristic-comparison` keeps finite Tor terms until their Euler quotients cancel, and uses invariants of the discrete class module. Kolster 1989, Theorem 1 and Lemma 2, pp. 249–250; Kurihara Lemma 4.2, pp. 25–26. |
+| G-I7-NORM-PRESENTATIONS | `I.7/kurihara-theorem-2-12` retains finite square presentations, including possible zero determinants. Intrinsic field-change maps replace the unsupported coherent free matrices. DK Appendix B, Lemmas B.1–B.3, pp. 90–92; BKS Proposition 2.4, pp. 571–574. The generic controlled-limit contract and the exact I.9 consumer edits are specified below. |
+| G-I7-RIBET-RESIDUAL | The IHG.6 Part II request states the weighted local existence theorem for every residual component, with the matrix-lattice topology, local generators and Fitting conclusion. The existing narrower `local_ribet` is not used outside its hypotheses. DKSW Ribet Theorem 2.1 and Remark 2.2, p. 8; §2.1, pp. 9–10. Distinct residual characters use the indicated b-method; no identical canonical difference quotient is asserted. |
+| G-I7-GALOIS-SUPPLIER | R19.2 Part II is requested for all primes and arbitrary totally real degree at finite weight, including coefficient orders, ordinary local shape and old/new local representations. The narrower odd-prime/even-degree node and the unnecessary family-level supplier are removed from this proof chain. DKSW Brumer–Stark §3.3, Lemmas 3.10–12 and Theorem 3.14, pp. 27–30. |
+| G-I7-MODULAR-SUPPLIERS | AutomorphicPadicLFunctions L3 Part II is requested for DK Theorems 8.8, 8.9 and 8.15, pp. 54, 58–59, together with the actual all-cusp, weight, level, coefficient and ordinary-Hecke range. The prime-to-p-level q-expansion and narrower Λ-adic Hilbert signatures are not treated as full-range suppliers. DKSW §3.1–3.2, pp. 22–26, supplies the extra old-form construction. |
+
+The Q Ribet representation is scoped to tame level one, p≥5 and a nonzero Eisenstein local factor; a unit ξ gives automatic divisibility without a representation. The class-number/Ferrero–Washington degree comparison includes the exceptional branch through its unit numerator; p=3 has no nonexceptional even branches and is covered by the same comparison. The broader abelian-field assertion uses the general all-prime route plus the separately owned arithmetic and analytic Ferrero–Washington targets, not an unsupported extension of the tame-level-one Hecke proof.
+
+## The dyadic maps and the rank calculation
+
+These are the key statements for reviewing the new proof rather than merely its bibliography. Let F be totally real, d=[F:Q], K∞=F∞(i), J=Gal(K∞/F∞), D=Q₂/Z₂ and Λ=Z₂[[Γ]]. Put ℰ_R=colim O_{F_n}^×/{±1}, W_F=ℰ_R/2ℰ_R and C_F=W_F^∨.
+
+A CM unit x has x/Jx a root of unity. The roots of unity in K∞ are 2-divisible, so x is a real unit modulo roots of unity. Thus V=O_{K∞}^×⊗D has trivial J-action and V[2]=W_F. Finite-level Hasse unit-index errors are not assumed zero. Uniform capitulation (NSW 11.1.9, p. 730), invariant principal ideals and the unit theorem give dim W_F^{Γ_n}=d·2^n+O(1). Compact Nakayama and the F₂[[Γ]] structure theorem give rank C_F=d and char_Λ(C_F)=(2^d). Finite submodules of C_F are allowed.
+
+If H=H¹(G_S(K∞),μ_{2∞}), Y=(H^{J=−1})^∨ and A⁻ is the ordinary norm-minus class direct limit, the actual sequences are
+
+- 0→(A⁻)^∨→Y→C_F→0;
+- 0→Y→𝔛_S(F∞)(−1)→Z/2(−1)→0.
+
+The finite transfer kernel between norm-minus and negative-eigen classes has order at most two at each layer. Its direct-limit dual embeds into a module with no finite Λ-submodule, so it vanishes. This proves the identification used in the first sequence. The second is ordinary Hochschild–Serre on the untwisted trivial D, followed by duality and twisting. This separates the tower factor 2^d from the finite order-two error.
+
+For Kolster’s covariant Hom module N let f_F include its full 2-power content. With ι_u(γ)=uγ⁻¹ and u=κ(γ), the sequences give char(ι_u𝔛_S)=(2^d f_F). The compact specialization has H²=X(−2)_Γ and H³=Z₂(−2)_Γ. Its finite Euler quotient retains w₂(F)₂. The class-side discrete term uses Γ-invariants and has order |f_F(u⁻¹)|₂⁻¹. A finite error contributes #E_Γ/#E^Γ=1; dropping only its invariant term would be incorrect.
+
+## Required integration in the separately owned part I.8
+
+This job is authorized to edit only the four listed deliverables. It does not modify `IntegralIwasawaTheory--I.8.json`, its reader or its suggested file. Its existing gaps G1–G3 and its independent review stand. The following replacement is necessary before packaging or treating its stronger finite-to-infinite contract as supplied.
+
+1. At `I.9/selmer-modified-iwasawa-limit`, retain the existing Selmer carrier, intrinsic norm maps and T-modification triangle. Add the coefficient-control statement M/I_nM≅M_n for the T-modified minus module, where I_n=(γ^{p^n}−1). Use the existing derived-control supplier on the actual T-modified complex, rather than assuming norm-compatible free bases. BKS §2.1–2.2, Definition 2.1 and Proposition 2.4, pp. 569–574, identifies H² with Sel_S^T and H³ with the dual of the torsion S,T-units. The torsion-free T hypothesis makes H³ zero. Perfection is used in its stated ramification range. Top-cohomology right exactness after derived coefficient change then gives the quotient control, including the minus quotient at p=2. Compact exactness identifies the limit H². State the compatibility with both the field-change maps and the T triangle. This is the untwisted minus module: apply L6 before the Tate twist, or transport I_n by its automorphism. The twist does not preserve the ordinary finite-layer quotient ideal.
+2. At `I.9/twisted-selmer-fitting`, replace the first proof step about norm-compatible square presentations by the controlled Fitting/quadratic-presentation request at PadicMeasuresIwasawaAlgebras L6. Add that stage as a prerequisite. Do not retain “compatible” if it means compatible choices of finite matrices. The assertion needed is that the limit module has a square presentation.
+3. Use Fitting base change and closedness of ideals to get Fitt_R(M)=∩ preimage Fitt_{R/I_n}(M_n). For genuine profinite limits use the ideals (p^a,I_n); the I_n alone are not a neighborhood basis. Finite Stickelberger compatibility supplies the compatible limit generator.
+4. Obtain a square presentation without compatible matrices: over each local factor choose a minimal free cover R^r→M with kernel K. The finite square presentations bound the number of generators of the finite relation image by r, by cancelling surplus generators. For large n, Artin–Rees gives K∩I_nR^r⊂Jac(R)K. Consequently that relation image detects K/Jac(R)K. Nakayama gives at most r generators of K; add zero columns for a square matrix. This is the generic proof contained in the L6 request, not another arithmetic construction.
+5. Only at the infinite level prove that its determinant is a nonzerodivisor, by nonvanishing in every characteristic-zero character component after including the stated T factors. Then infer injectivity and projective dimension at most one. At finite levels a split depletion prime can make the determinant zero; no finite regularity assertion is available.
+6. Keep the existing twist/minus-to-plus comparison and T-local Euler cancellation. In the requested ψ-quotient comparison use the actual derived T triangle and its presentation; a formal tensor of the height-one determinant equality alone is insufficient at p-primary characters. Kurihara §4.2, second remark, p. 27, supplies this stronger quotient conclusion.
+
+The local I.10 nonequivariant node explicitly lists the L6 Part II contract as well as the I.9 theorem, so this revision does not hide its controlled-limit input behind the older proof wording. The finite Theorem 2.12 is independent of I.9. The internal proof order is I.7→I.9→I.10→the Wiles conclusion. No Wiles premise is fed into I.7. The combined 121-node graph of the two packets, with shared stage references expanded, was checked to be acyclic.
+
+## Supplier and ownership work
+
+The packet contains the full hypotheses, outputs, proof locators and `neededBy` lists. The material extensions to existing owners are:
+
+- **IHG.6 Part II:** all-residual weighted local Ribet existence, retaining the finite matrix lattice, its induced adic topology, prescribed local vectors and the weighted Fitting inclusion. The arithmetic I.7 nodes verify these inputs.
+- **AutomorphicGaloisRepresentations R19.2 Part II:** all-prime finite-weight ordinary Hilbert representations and their old/new local shape over the coefficient orders used by I.7. No whole-family theorem is required for this step.
+- **AutomorphicPadicLFunctions L3 Part II:** all-prime cusp congruences, prescribed constant terms, cusp correction and coefficient/level changes in the precise DK/DKSW ranges.
+- **ArithmeticGaloisDuality R02.4 Part II:** the ordinary truncated Euler formula and compact duality/unit sequence in the real dyadic range.
+- **PadicMeasuresIwasawaAlgebras L5 extension:** the NSW homological Λ criterion, compact exactness and topological Nakayama. The free-H₂ clause retains its cohomological-dimension hypothesis and is used only after adjoining i when necessary.
+- **PadicMeasuresIwasawaAlgebras L6 Part II:** controlled Fitting continuity and lifting a bounded square presentation, as just described. The generic all-index Fitting carrier already exists in current Tau Ceti.
+
+The six ownership proposals in the packet are preserved or made precise. The Q theorem has one owner at EulerSystemsCyclotomicMainConjecture L3, with independent proof routes. IntegralIwasawaTheory and that owner are outside the 94-roadmap Caraiani–Newton order, so no invented tier placement is asserted. Generic codimension-zero congruence modules remain at IHG.1; this revision removes its unavailable arbitrary-module comparison from the active proof. Group-ring Eisenstein families remain at AutomorphicPadicLFunctions L3. Leopoldt’s map/defect remains at I.2. No direct unitary Igusa prerequisite is introduced.
+
+## Sources and library audit
+
+The reader reproduces all sixteen source records, exact editions, locators, hashes where available, and the separate planning/review/revision reading records. The added public primary sources are NSW electronic edition 2.3, Yamashita 1984, Greenberg 1983 and Burns–Kurihara–Sano 2016. The relevant statements and proofs were read directly. The DKSW Ribet v2 source was read only from the maintainer-cleared library, in place. No source file or verbatim source passage was added to the repository.
+
+Federer 1982, Iwasawa 1983 and Wiles 1990 were not read as originals; their conclusions needed here have the explicit alternate proof routes above. No claim is made to reconstruct their proofs. Mazur–Wiles 1984 is historically credited; the Q proof plan is read from Sharifi’s AWS treatment of the Ohta/Emerton route. The independent source-issue confirmations for Kolster’s dyadic Δ description and the local Ribet vector sign are retained unchanged as verdicts on those source issues. Earlier per-node and whole-packet verdicts have been removed because they do not review this revision.
+
+All 35 baseline declaration statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The relative ideal norm and algebraic-only cyclotomic character roles remain explicit. Nearby upstream ProfiniteArithmetic and LocalGaloisGroups documents were read. Current TauCetiRoadmap main `0d144d044dacebca17b654695b6f1ad58f159b27` and current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were checked read-only. Their completed group algebra, compact-module completed action, all-index Fitting ideals and local unit filtration are imported, never replanned.
+
+## Validation and resumption
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/IntegralIwasawaTheory--I.1.json`: zero errors and zero warnings.
+- Combined internal dependency check: 121 nodes, 549 edges after expanding shared stages, no cycles. The I.7 keystone does not depend on the Wiles node.
+- Reader consistency: every target statement, hypothesis, proof step, API item, check, use, acceptance condition, source locator and supplier contract is reproduced from the packet. The reader includes the complete source and baseline audits.
+- `lean-check research/blueprint/suggested/IntegralIwasawaTheory--I.1.lean`: exit 0 at the pinned shared build, with only the fourteen expected `sorry` warnings. Available memory was over 80 GB. The 209-line file uses individual imports and light real-bodied definitions. Its new Z/4 check is proved by computation. No language server, Lake build, update or cache command was run.
+- `git diff --check`: clean.
+
+Next work is an independent review of this revision, followed by the exact supplier extensions and separate I.9 consumer integration before packaging. This is not a claim that the roadmap is accepted, closed or ready to formalize without those interfaces. No second job was claimed.
