@@ -1,0 +1,274 @@
+{
+  "id": "ModpRepresentationsOfGL2OverLocalFields",
+  "title": "Smooth mod p representations of GL_2 over a local field: finiteness, blocks and the ordinary part",
+  "area": "langlands",
+  "parent": null,
+  "summary": "A target-level plan for the smooth mod p representation inputs routed from BHHMS and CDN: augmented Iwasawa finite presentation, Q_p finite-length criteria, ordinary parts for F≠Q_p, tame Serre-weight and Diamond combinatorics, nonuniform Iwahori graded rings and dimension bounds, and first-order projective-cover lattices. Existing smooth categories, duality, Q_p classification, Gabriel blocks and Montreal functors are imported from their owners. The construction keeps the Q_p finiteness results separate from the unramified higher-degree dimension calculation, and fixes all central actions, coefficient choices and prime bounds. The final targets are the local dimension upper bound and the integral realization and relative projectivity of first radical truncations.",
+  "readme": "The definitive detailed plan is research/blueprint/readmes/ModpRepresentationsOfGL2OverLocalFields.md. MP.0–MP.2 cover smooth finite presentation and ordinary parts; MP.3–MP.7 cover tame weights, Iwahori algebra and the local GK bound; MP.8–MP.9 construct and analyse projective-cover lattices. Generic smooth categories, compact induction, Pontryagin/Schikhof duality, and Q_p block/Montreal theory are imported from existing owners. No automorphic patching or new general mod p Langlands correspondence is claimed.",
+  "prerequisites": [
+    "CompletedCohomologyPartII",
+    "DeformationAndDerivedPatchingAlgebra",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "NoncommutativeAndEquivariantIwasawa",
+    "PadicLocalLanglandsForGL2Qp",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "MP.0",
+      "title": "Smooth finiteness and augmented Iwasawa algebras",
+      "description": "Admissibility on primary torsion representations: Let O be the integers of a finite extension E/Q_p, with maximal ideal m and residue field k. In the existing O-linear smooth category for a p-adic Lie group H, restrict to objects V in which every vector is killed by a power of m. Call V torsion-admissible when V^U[m^j] has finite O-length for every compact open U and j≥1; call it locally torsion-admissible when each O[H]v is torsion-admissible. Finite generation and finite length retain the existing module predicates over O[H].\n\nThe augmented Iwasawa algebra: For p-adic Lie H and compact open U, form A_H=O[H]⊗_{O[U]}O[[U]] as a left O[H]-module. It has a unique associative O-algebra structure extending both O[H] and O[[U]], with the tensor relations identifying the two O[U] actions. For another compact open U′ there is a canonical algebra isomorphism commuting with the H and completed compact subgroup maps. Every smooth primary torsion O[H]-module extends uniquely to A_H.\n\nFinite presentation in the smooth category: For smooth primary torsion V, finite presentation means that there are compact opens U_1,U_2 and smooth finite O-length representations W_i of U_i with an exact sequence c-Ind_{U_1}^H W_1 → c-Ind_{U_2}^H W_2 → V → 0. Finite generation is equivalent to being a quotient of one such compact induction, and to finite generation over A_H. Finite presentation is equivalent to finite presentation as an A_H-module; it is not defined as finite presentation over the abstract group ring O[H].\n\nExact-sequence and finite-index calculus: In a short exact sequence 0→V_1→V_2→V_3→0 of smooth primary torsion H-representations: finite type is extension-stable; if V_1,V_3 are finitely presented then V_2 is finitely presented; if V_2 is finitely presented and V_1 finite type then V_3 is finitely presented; if V_2 is finite type and V_3 finitely presented then V_1 is finite type. Finite type and finite presentation are preserved and reflected by restriction to a finite-index open subgroup.\n\nCoherence for amalgams of compact open groups: If a p-adic Lie group H is an amalgam U_1*_{U_0}U_2 of two compact open subgroups over their open intersection, A_H is left coherent. Consequently the finitely presented smooth primary torsion H-representations form an abelian subcategory. This applies to SL_2(F); for GL_2(F) use H_0={g:det g∈O_F^×}, its amalgam decomposition, and the index-two subgroup H_0 of G′=GL_2(F)/⟨varpi_F I_2⟩. Thus finitely presented G′-representations form an abelian subcategory.\n\nHom base change and residue fields of irreducibles: If k is a finite field, L/k a field extension, V a finitely generated k[H]-module and W any k[H]-module, the natural map Hom_H(V,W)⊗_k L→Hom_H(V⊗L,W⊗L) is an isomorphism. For an admissible irreducible smooth k[H]-module pi, End_H(pi) is a finite extension k′/k, pi is absolutely irreducible as a k′-representation, and its scalar extension to an algebraic closure decomposes over the embeddings k′→kbar into pairwise nonisomorphic absolutely irreducible representations.\n\nThe five-term finite-presentation criterion: In an exact sequence A→B→C→D→E of smooth primary torsion G′-representations, if A,B,D,E are finitely presented then C is finitely presented. Here G′=GL_2(F)/⟨varpi_F I_2⟩ and F/Q_p is any finite extension.\n\nThe compact-induction obstruction space: Let F/Q_p be finite, G=GL_2(F), K=GL_2(O_F), and let W be a finite-dimensional smooth k[KZ]-module with central character. For a G-equivariant quotient q:c-Ind_{KZ}^G W→V set P^+={(a,b;0,1):a∈O_F\\{0}, b∈O_F}, w=(0,1;varpi_F,0). Let I^+(W) be the span of standard generators [g,v] with g∈P^+,v∈W, and I^−(W)=wI^+(W). Put Delta(W,V)=q(I^+(W))∩q(I^−(W)) inside V. It is stable under IZ and w. It is an obstruction attached to this specified presentation, distinct from the finite Diamond invariant module D_1(rho).",
+      "requires": [
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs"
+      ]
+    },
+    {
+      "key": "MP.1",
+      "title": "Finite-length criteria over Q_p",
+      "description": "Proper quotients of Serre-weight compact induction: For F=Q_p, k finite of characteristic p and any Serre weight sigma with the prescribed central action, every proper quotient of I(sigma)=c-Ind_{KZ}^{GL_2(Q_p)} sigma has finite length. The compact induction itself is infinite-dimensional and has infinite length.\n\nA finite-type filtration by Serre-weight inductions: For F/Q_p finite and G′=GL_2(F)/⟨varpi_F I_2⟩, a smooth k[G′]-representation V is finite type iff it has a finite filtration whose successive factors are quotients of Serre-weight compact inductions I(sigma).\n\nFinite type implies finite presentation over Q_p: For F=Q_p and G′ as above, every smooth finite-type k[G′]-representation is finitely presented.\n\nCentral characters and finite Ext support: For G′=GL_2(Q_p)/⟨p I_2⟩, every irreducible smooth representation over a finite field k of characteristic p has a central character over k. If pi has finite length and a central character and pi′ is irreducible with central character, Ext^1_G(pi,pi′) is finite-dimensional over k and is nonzero for only finitely many isomorphism classes of pi′.\n\nFinite length detected by the cosocle: Let G′=GL_2(Q_p)/⟨p I_2⟩ and V be a finite-type smooth k[G′]-representation. Then V has finite length if and only if Hom_G′(V,pi′) is finite-dimensional for every irreducible pi′ and vanishes for all but finitely many isomorphism classes pi′. This is the finite-cosocle formulation of the admissible-cosocle criterion; it does not posit an algebraic maximal semisimple quotient for an arbitrary infinite-length object.\n\nFinite length detected by smooth vectors in the dual: Let G′=GL_2(Q_p)/⟨p I_2⟩ and V a finite-type smooth k[G′]-representation. Give V^*=Hom_k(V,k) its compact pointwise topology and contragredient action; let (V^*)^sm be its smooth vectors. Then V has finite length iff dim_k (V^*)^sm is finite. Moreover, every finite-type infinite-length V admits a nonzero map V→I(sigma) for some Serre weight sigma.",
+      "requires": [
+        "CompletedCohomologyPartII:CC.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.0",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "PadicLocalLanglandsForGL2Qp:R30.2",
+        "PadicLocalLanglandsForGL2Qp:R30.5",
+        "PadicLocalLanglandsForGL2Qp:R30.6",
+        "SmoothRepresentationsOfLocalGroups:SR.0"
+      ]
+    },
+    {
+      "key": "MP.2",
+      "title": "Admissible finite presentation and ordinary parts",
+      "description": "Emerton ordinary parts for GL_2(F): Let B=TN be the upper Borel of G=GL_2(F) and bar B its lower opposite. On admissible smooth primary torsion representations, use unnormalised smooth induction Ind_{bar B}^G and construct its right adjoint Ord_B. For N_0=N∩GL_2(O_F) and T^+ contracting N_0, the construction is the locally T-finite part of Hom_{O[T^+]}(O[T], V^{N_0}), where T^+ acts on invariants through the Hecke trace operators. It is independent of the contracting compact subgroup, left exact, and has the adjunction counit Ind_{bar B}^G Ord_B(V)→V.\n\nOrdinary parts on ordinary constituents away from Q_p: Assume F≠Q_p. For every admissible smooth primary torsion T-representation U, Ord_B Ind_{bar B}^G U≅U and R^1 Ord_B(Ind_{bar B}^G U)=0. For a smooth torsion character chi of F^×, Ord_B(St⊗chi∘det)=chi⊗chi and R^1Ord_B of this twist is zero; both Ord_B(chi∘det) and R^1Ord_B(chi∘det) vanish.\n\nFinite obstruction and admissible length: Let k be a finite characteristic-p field, with scalar extension to kbar permitted. For a finite-type smooth G=GL_2(F) representation V with central character and a finite-dimensional generating KZ-submodule W⊂V, the natural presentation c-Ind_{KZ}^G W→V has finitely generated kernel iff Delta(W,V) is finite-dimensional. This finite-kernel property holds for one such W iff it holds for every such W. If sigma is an irreducible KZ-weight and V is an admissible proper quotient of its compact induction with finite-dimensional Delta(sigma,V), then V has finite length.\n\nAdmissible finitely presented representations: For any finite F/Q_p set G=GL_2(F). Let C_O(G) be the full subcategory of smooth primary torsion O[G]-representations that are both torsion-admissible and finitely presented in the compact-induction sense. Its objects have finite length and it is stable under subobjects, quotients and extensions. For F=Q_p it equals the finite-length category. For F≠Q_p its irreducible constituents, after finite scalar extension, are characters, twists of Steinberg and principal series, with no supersingular constituent.\n\nExact ordinary parts and the finite-error counit: Assume F≠Q_p. On C_O(GL_2(F)), Ord_B is exact and Ord_B(V) is a finite O-module. If Ord_B(V)=0 then V is a finite O-module. For every V in C, the kernel and cokernel of the counit Ind_{bar B}^G Ord_B(V)→V are finite O-modules.\n\nAn induced approximation of an admissible Banach lattice: Assume F≠Q_p. Let Pi be an admissible unitary E-Banach representation of GL_2(F), and Theta a stable open bounded O-lattice such that Theta/varpi_E Theta belongs to C_O(G). There is a finite O-module sigma with continuous T-action and a continuous G-equivariant map Ind_{bar B}^G(sigma)→Theta whose kernel and cokernel are finite O-modules; here induction is continuous induction on the integral complete coefficient module.",
+      "requires": [
+        "CompletedCohomologyPartII:CC.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.0",
+        "PadicLocalLanglandsForGL2Qp:R30.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "MP.3",
+      "title": "Tame weights and extension coordinates",
+      "description": "Regular weights and alcove depth: Assume F/Q_p is unramified of degree f≥1, residue field k_F=F_{p^f}, and a finite coefficient field k containing all embeddings of k_F. Index embeddings by J=Z/fZ, with Frobenius cycling them. A weight lambda=((a_i,b_i)) has r_i=a_i−b_i; F(lambda)=⊗_i (Sym^{r_i} k^2 ⊗ det^{b_i})^{(i)} when 0≤r_i≤p−1. The regular region used here has 0≤r_i≤p−2. Define lambda to be N-deep by N<r_i+1<p−N for every i. The weight lattice modulo central weights is Z^J, with basis eta_i and root sublattice (2Z)^J; alpha_i maps to 2eta_i.\n\nThe extension-graph coordinate map: Let lambda=((a_i,b_i)) be regular and Lambda_W^lambda={omega∈Z^J : 0≤r_i+omega_i≤p−2 for every i}. Write uniquely omega_i=2n_i+delta_i with delta_i∈{0,1}. Define t_lambda(omega), modulo (p−pi)X^0(T), by its i-th pair: (a_i+n_i+delta_i,b_i−n_i) when delta_{i+1}=0, and (b_i−1−n_i,a_i+n_i+delta_i−p+1) when delta_{i+1}=1. Indices are cyclic. Let Sigma={∑_{i∈A}eta_i:A⊆J}. Two lattice points are adjacent when their difference is ±eta_i for one i.\n\nChange of origin and extensions between regular weights: For omega∈Lambda_W^mu and a lift lambda of t_mu(omega), put w_omega in {±1}^J with its i-th sign selected by the parity of omega_{i+1}. Then t_lambda(omega′)=t_mu(w_omega^{-1}omega′+omega), with the corresponding domains identified. This change of origin preserves adjacency. For omega,omega′∈Lambda_W^mu, dim_k Ext^1_{GL_2(k_F)}(F(t_mu(omega)),F(t_mu(omega′))) is 1 when they are adjacent and 0 otherwise.\n\nTame Galois weights: Let rho:G_F→GL_2(k) be tame. Write s=(s_i) in (S_2)^J, let r be the order of s_0s_{f−1}⋯s_1, put f′=rf, and fix an extension of the chosen residue embedding to the unramified extension F′/F of degree r. Let omega_{f′}:I_F→k^× be the residue of the inverse local Artin map on inertia followed by that embedding; Artin sends a uniformizer to geometric Frobenius. Extend s_i and nu_i periodically and put a_j=s_1^{-1}⋯s_j^{-1}(nu_j), with the empty product at j=0. Define tau(s,nu) on inertia as the sum of the two characters omega_{f′}^{sum_{j=0}^{f′−1}p^j a_{j,c}}, c=1,2. Suppose rho|_{I_F}≅tau(s,mu) and mu−eta is 1-deep, where eta_i=(1,0). Define W(rho)={F(t_{mu−eta}(s omega)):omega∈Sigma}. This is independent of the inertial presentation and equals the obvious Serre-weight set.\n\nThe finite Diamond socle modules: For a finite set D of pairwise nonisomorphic Serre weights let D_0(D) be the largest submodule of Inj_{GL_2(k_F)}(⊕_{sigma∈D}sigma) whose multiplicity of every sigma∈D is one. It has socle ⊕_D sigma and splits into D_{0,sigma}(D) with irreducible socle sigma. For tame generic rho put D_0(rho)=D_0(W(rho)) and D_1(rho)=D_0(rho)^{I_1}, inflated to I. Only this K-module and its Iwahori invariants are needed; no choice of the extra normaliser action of a full basic diagram is included.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
+      ]
+    },
+    {
+      "key": "MP.4",
+      "title": "Iwahori filtrations and Gelfand–Kirillov dimension",
+      "description": "Gelfand–Kirillov dimension of an admissible representation: For compact p-adic analytic H, coefficient field k of characteristic p and finite k[[H]]-module M, set j_H(M)=inf{n≥0:Ext^n_{k[[H]]}(M,k[[H]])≠0}, with j_H(0)=∞; use Ext in left modules, valued as right modules. For admissible smooth V of a p-adic Lie group G, choose an open uniform pro-p H and its finitely generated compact contragredient dual M=V^∨. Define dim_G(V)=dim_{Q_p}H−j_H(M), independent of H, and dim_G(0)=−∞. For uniform H this equals the dimension of the graded support of gr M over gr k[[H]].\n\nQuotient and central-regular-sequence dimension comparison: If a closed normal analytic subgroup N of a p-adic Lie group G acts trivially on an admissible smooth V, then dim_G V=dim_{G/N}V. In addition let H be analytic pro-p without p-torsion, A=k[[H]], and suppose gr_m A is Auslander-regular. If a homogeneous central regular sequence z_1,…,z_r generates J, gr_m A/J is a polynomial ring in dim H−r variables, and J annihilates gr M for a finite A-module M, then dim H−j_A(M) equals the support dimension of gr M over gr A/J.\n\nThe nonuniform pro-p Iwahori valuation: Assume p>3 and F/Q_p unramified of degree f. Put K=GL_2(O_F), K_1=1+pM_2(O_F), I the upper Iwahori, I_1 its pro-p radical, Z_1=Z∩I_1, and P=I_1∩SL_2(F)≅I_1/Z_1. On g=((1+pa,b),(pc,1+pd))∈P define omega(g)=min{1+v_p(a),1/2+v_p(b),1/2+v_p(c),1+v_p(d)}. It is a saturated p-valuation. The logarithm identifies its valued Lie algebra with O_F⊗_{Z_p}{((pa,b),(pc,−pa)):a,b,c∈Z_p}; e,f have degree 1/2 and h degree 1.\n\nThe graded pro-p Iwahori algebra: For P=I_1/Z_1 and p>3, let A=k[[P]] and m its augmentation ideal. In characteristic p, gh−1≡(g−1)+(h−1) mod m², g^{-1}−1≡−(g−1) mod m², and g^p−1∈m^p. If w is the induced Lazard valuation then m^{2j}={x:w(x)≥j} for j∈(1/2)N. After doubling degrees, gr_m A≅⊗_{i∈J}U_k(h_i), where h_i has basis e_i,f_i,h_i in degrees 1,1,2 and sole nonzero bracket [e_i,f_i]=h_i. For H=I/I_1, the conjugation weights are alpha_i,alpha_i^{-1},1. This ring is Auslander-regular, the h_i form a central regular sequence, and its quotient by them is k[e_i,f_i:i∈J].\n\nThe crossing quotient algebra: For a field k and finite index set J, define C_J(k)=k[X_i,Y_i:i∈J]/(X_iY_i:i∈J). Its Krull dimension is |J| and it is a commutative Cohen–Macaulay complete intersection. In the graded Iwahori algebra, the two-sided ideal I_P generated by h_i and e_if_i has quotient C_J(k), equivariantly for H; all generators of I_P have degree two and trivial H-character.\n\nTruncated projective Iwahori modules: For p>3 and a smooth character chi:I→k^×, define W_{chi,n}=Proj_{I/Z_1}(chi)/m_{I_1}^n for n≥1 in the pseudocompact category. With I=I_1⋊H, it is the finite smooth module chi⊗_k(k[[I_1/Z_1]]/m^n), where I_1 acts by left multiplication and H by conjugation. Its canonical quotient to chi identifies W_{chi,1}=chi. For n=2,3 these are the first radical layers of the projective cover, not its socle truncations.\n\nA multiplicity criterion for GK dimension: Assume p>3, F/Q_p unramified of degree f, and V an admissible smooth k-representation of I/Z_1. Suppose that for each character chi with Hom_I(chi,V)≠0, precomposition with W_{chi,3}→chi identifies Hom_I(chi,V) with Hom_I(W_{chi,3},V). Then I_P annihilates gr_m(V^∨) and dim_I V=dim_{I/Z_1}V≤f.",
+      "requires": [
+        "CompletedCohomologyPartII:CC.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs"
+      ]
+    },
+    {
+      "key": "MP.5",
+      "title": "Finite and first-order extension modules",
+      "description": "Iwahori character extensions and truncation embeddings: For p>3, Ext^1_{I/Z_1}(chi,chi′) is nonzero exactly when chi′=chi alpha_i or chi alpha_i^{-1} for some i, and then has dimension one. Write E_{chi′,chi} for its nonsplit extension 0→chi′→E→chi→0. It is K_1-trivial iff chi′=chi alpha_i. Every nonzero map W_{chi′,2}→W_{chi,3} for such chi′ is injective. For p>5, every chi′≠chi has multiplicity at most one in W_{chi,3}; the additional bound excludes the f=1,p=5 collision recorded in the source issues.\n\nFinite Borel injectives and their conjugates: Let B(k_F)=T(k_F)N(k_F). For a character chi of T(k_F), put I_chi=Ind_{T(k_F)}^{B(k_F)}chi, the injective envelope of chi for the finite Borel. Its socle and cosocle are chi; every other constituent is chi alpha_0^{-j}, 0<j<q−1, once. Writing j=∑j_i p^i, the unique proper submodule with cosocle chi alpha_0^{-j} has constituents chi alpha_0^{-ell} with 0≤ell_i≤j_i. Inflate to I and define J_chi by conjugation with w=((0,1),(p,0)); its socle/cosocle are chi^s and its other factors chi^s alpha_0^j with the same digit order.\n\nFinite principal series and finite injective hulls: For lambda with 0<r_i<p−1, Ind_I^K chi_lambda^s is multiplicity-free with factors F(t_lambda(−eta_A)), A⊆J. If 0<r_i<p−2, the distinct factors of Inj_{GL_2(k_F)}F(lambda) are F(t_lambda(∑a_i eta_i)), a_i∈{−1,0,1}. For such a factor sigma_a, the unique multiplicity-free submodule I(F(lambda),sigma_a) with cosocle sigma_a and F(lambda) once has factors indexed by b_i∈{0,a_i}, and length 2^{|{i:a_i≠0}|}.\n\nFirst-order Serre-weight hulls: Let p>2, A=k[[K/Z_1]]/m_{K_1}² and Gamma=GL_2(k_F). For a 2-deep Serre weight sigma and tau in JH(Inj_A sigma), a submodule V of this hull with cosoc V=tau and [V:sigma]=1 is unique and multiplicity-free. If tau already occurs in Inj_Gamma sigma, then K_1 acts trivially on V and V is the finite interval I(sigma,tau). Dually, for a 2-deep tau a quotient of Proj_A tau with simple socle sigma and [V:tau]=1 is unique. If Q is a quotient of Proj_A tau, [Q:tau]=1, and every simple socle constituent lies in JH(Proj_Gamma tau), then Q is multiplicity-free and K_1-trivial. For distinct regular Serre weights sigma,sigma′, inflation identifies Ext^1_Gamma(sigma,sigma′) with Ext^1_{K/Z_1}(sigma,sigma′), also with Ext^1_A(sigma,sigma′). Self-Ext vanishes for regular sigma when f≥2; when f=1 require 0≤r≤p−3 for this self-Ext assertion.",
+      "requires": [
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.4",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
+      ]
+    },
+    {
+      "key": "MP.6",
+      "title": "Diamond boxes and multiplicity-preserving enlargements",
+      "description": "Rectangular multiplicity-free K-modules: Let epsilon_i∈{±1}, B_i≥0 and d_i=(1+epsilon_{i−1})/2, with cyclic indices. Assume B_i≡1−d_i mod 2. If epsilon_i=−1 require B_i≤r_i≤p−2−d_i; if epsilon_i=1 require B_i≤p−2−r_i≤p−2−d_i. There exists a multiplicity-free K/Z_1-module V(lambda,epsilon,B) with factors sigma_a=F(t_lambda(∑epsilon_i a_i eta_i)), 0≤a_i≤B_i, such that the unique submodule with cosocle sigma_a has exactly the factors sigma_b for 0≤b_i≤a_i. Its socle is F(lambda). The target is existence with this structure, not a claim that arbitrary extensions with these factors are unique.\n\nK_1 invariance and the box torsion filtration: If V is finite-dimensional smooth over K with soc_K V=F(lambda), 2<r_i<p−3, [V:F(lambda)]=1 and every factor of V occurs in Inj_{GL_2(k_F)}F(lambda), then K_1 acts trivially. For V(lambda,epsilon,B), retain the predecessor parity and strengthen the bounds: epsilon_i=−1 requires 3+2⌊B_i/2⌋≤r_i≤p−4; epsilon_i=1 requires 3≤r_i≤p−4−2⌊B_i/2⌋. Then for 0≤n−1≤∑⌊B_i/2⌋, V[m_{K_1}^n] has cosocle ⊕sigma_a over 0≤a_i≤B_i with each a_i odd or equal to B_i, and ∑⌊a_i/2⌋=n−1. Its submodule is the union of the corresponding lower intervals.\n\nCosocles and Ext control after Iwahori induction: Write chi=chi_lambda. For chi′=chi alpha_i^{-1}, Ind_I^K E_{chi′,chi} and Ind_I^K chi have the same cosocle. For chi′=chi alpha_i and 0<r_j<p−3, Ind_I^K E_{chi′,chi} is multiplicity-free; if 2<r_j<p−3, Ind_I^K W_{chi,2} is multiplicity-free. Under the latter bounds, put sigma_chi=F(lambda). The unique nonzero map P_{sigma_chi}→Ind_I^K E_{chi alpha_i,chi} up to scalar has image with JH equal to the intersection of the two JH sets. For every quotient Q of this induced extension with [Q:sigma_chi]=0, Ext^1_K(tau,sigma_chi)=0 for every tau∈JH(Q).\n\nThe modules D_{lambda,epsilon}: For a 1-deep lambda and epsilon∈{−1,0,1}^J set J_epsilon={i:epsilon_i≠0} and D_{lambda,epsilon}=I(F(lambda),F(t_lambda(∑epsilon_i eta_i))). Its factors are F(t_lambda(∑_{i∈A}epsilon_i eta_i)), A⊆J_epsilon, with the Boolean lower-interval submodule order. It has length 2^{|J_epsilon|}, socle F(lambda), and the indicated full-support cosocle. For epsilon=−1 it is Ind_I^K chi_lambda^s; for 2-generic semisimple rho each D_{0,sigma}(rho) is of this form with all epsilon_i=±1.\n\nTensoring Diamond boxes by an adjoint factor: For 2<r_i<p−4, D_{lambda,epsilon}⊗F(alpha_j) is multiplicity-free with constituents F(t_lambda(2u eta_j+∑_{i∈A}epsilon_i eta_i)), u∈{−1,0,1}, A⊆J_epsilon. Its socle has the three labels 2u eta_j, and its cosocle has the three labels 2u eta_j+∑epsilon_i eta_i. If lambda is 4-deep and epsilon_j≠0, it has an increasing three-step filtration with graded pieces D_{lambda+epsilon_j alpha_j,epsilon}, D_{lambda,epsilon}, D_{lambda−epsilon_j alpha_j,epsilon}; the first embedding has cokernel socle F(lambda)⊕F(t_lambda(−2epsilon_j eta_j)). If epsilon_j=0 the tensor is the direct sum of the three root shifts. If lambda is 5-deep every adjacent pair of its constituents appears in a nonsplit length-two subquotient in one orientation.\n\nThe maximal first-order enlargement of a Diamond box: Assume lambda is 7-deep and epsilon∈{±1}^J. Put W_{−epsilon}={F(t_lambda(−∑_{i∈A}epsilon_i eta_i)):A⊆J}. Let W be the largest submodule of Inj_{K/Z_1}F(lambda)[m_{K_1}²] with [W:tau]=delta_{F(lambda),tau} for tau∈W_{−epsilon}. Then W is multiplicity-free, W^{K_1}=D_{lambda,epsilon}, and 0→D_{lambda,epsilon}→W→⊕_i D_{lambda+epsilon_i alpha_i,epsilon}→0 is exact. Its cosocle has labels 2epsilon_j eta_j+∑epsilon_i eta_i, one for each j. The unique submodule with cosocle sigma_a has exactly those constituents sigma_b of W with 0≤b_i≤a_i, where sigma_a=F(t_lambda(∑epsilon_i a_i eta_i)).\n\nMultiplicity-preserving enlargement of a tame socle: Let tame rho have mu−eta 8-deep, and let tau=⊕_{sigma∈W(rho)}sigma^{m_sigma}, m_sigma≥1. The largest submodule V⊂Inj_{K/Z_1}tau[m_{K_1}²] preserving these W(rho)-multiplicities splits as ⊕V_sigma^{m_sigma}. Distinct V_sigma have disjoint JH sets. If sigma=F(lambda) corresponds to its signed Diamond box, V_sigma^{K_1}=D_{0,sigma}(rho), and its constituents are the sigma_a with a_i≥0 and ∑⌊a_i/2⌋≤1 within the corresponding box support (a_i≤3); its submodule order is the lower-interval order. Hence V^{K_1}=⊕D_{0,sigma}(rho)^{m_sigma}.",
+      "requires": [
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
+      ]
+    },
+    {
+      "key": "MP.7",
+      "title": "Multiplicity one and the local dimension bound",
+      "description": "Connected semisimple Iwahori character sets: A semisimple smooth I-representation V is connected in the sense used here when, for distinct characters chi,chi″ occurring in V with chi″ in soc_I(W_{chi,3}), there exists a character chi′ occurring in V such that Ext^1_{I/Z_1}(chi,chi′)≠0 and Ext^1_{I/Z_1}(chi′,chi″)≠0. The predicate depends only on the set of characters, not on their multiplicities. It is a condition on completing length-two extension paths, not ordinary connectedness of an undirected graph.\n\nVanishing on an induced Loewy-three socle: Let chi=chi_lambda with 2<r_i<p−3. Suppose a finite-length smooth I-module W has both socle and cosocle chi, soc W properly contained in rad W, and rad W/soc W semisimple. For a nonzero quotient Q of Ind_I^K W with [Q:F(lambda)]=1, the adjunction map W→Q|_I vanishes on soc W=chi.\n\nConnectedness of tame Diamond invariants: For tame rho with mu−eta 6-deep, D_1(rho) is connected. Consequently any semisimple I-module with its character set, with arbitrary positive multiplicities, is connected.\n\nNo new maps from the second Iwahori radical layer: Let pi be an admissible smooth G-representation. Assume pi[m_{K_1}²] embeds into ⊕_{sigma∈S} Dtilde_sigma^{m_sigma}, m_sigma≥1, with soc_K Dtilde_sigma=sigma. Assume Dtilde=⊕_S Dtilde_sigma is multiplicity-free and every constituent tau satisfies chi_tau≠chi_tau^s, equivalently 1<dim_k tau<q. For each chi=chi_lambda occurring in pi^{I_1} with 2<r_i<p−3, the quotient W_{chi,2}→chi gives Hom_I(chi,pi)≅Hom_I(W_{chi,2},pi). For every chi′ in pi^{I_1} with Ext^1_{I/Z_1}(chi,chi′)≠0 there is no embedding E_{chi′,chi}→pi.\n\nMultiplicity one through the third Iwahori layer: Let pi be an admissible smooth G-representation. Assume pi[m_{K_1}²] embeds into ⊕_{sigma∈S} Dtilde_sigma^{m_sigma}, m_sigma≥1, with soc_K Dtilde_sigma=sigma. Assume Dtilde=⊕_S Dtilde_sigma is multiplicity-free and every constituent tau satisfies chi_tau≠chi_tau^s, equivalently 1<dim_k tau<q. Assume additionally that pi^{I_1} is connected. For chi=chi_lambda in pi^{I_1} with 2<r_i<p−3, the natural quotient W_{chi,3}→chi induces Hom_I(chi,pi)≅Hom_I(W_{chi,3},pi).\n\nThe local Gelfand–Kirillov bound: Assume p>3, F/Q_p unramified of degree f, k sufficiently large, and tame rho:G_F→GL_2(k) with inertial parameter tau(s,mu) such that mu−eta is 8-deep. Let pi be an admissible smooth k-representation of GL_2(F) with a central character. Suppose (i) JH(soc_K pi)=W(rho) as sets, allowing positive multiplicities; (ii) [pi[m_{K_1}²]:sigma]=[soc_K pi:sigma] for every sigma∈W(rho); and (iii) JH(pi^{I_1})=JH(D_1(rho)) as sets. Then dim_{GL_2(F)}pi≤f.",
+      "requires": [
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.4",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.6"
+      ]
+    },
+    {
+      "key": "MP.8",
+      "title": "Bockstein maps and projective-cover lattices",
+      "description": "The infinitesimal action and coinvariant Bockstein sequence: Assume p>2 and E/Q_p unramified with O=W(k). Let V° be a K/Z_1-stable finite free O-lattice in a continuous finite-dimensional E-representation, with K_1 acting trivially on V°/p. For x∈sl_2(k_F), v∈V°/p, choose lifts and set beta_{V°}(x⊗v)=p^{-1}(rho(exp(p x_tilde))v_tilde−v_tilde) mod p. This gives a well-defined k-linear map sl_2(k_F)⊗_{F_p}(V°/p)→V°/p and an exact sequence sl_2(k_F)⊗(V°/p)→^{beta}V°/p→^{p}(V°/p²)_{K_1}→V°/p→0.\n\nBockstein exactness for preimage lattices: With V° as in the Bockstein construction and W⊂V°/p a K-submodule, let V_1° be its preimage in V°. Then sl_2(k_F)⊗_{F_p}W→^{beta}V°/p→^{p}(V_1°/p²V°)_{K_1}→W→0 is exact. The inclusions W⊂V°/p and V_1°⊂V° give a commutative comparison with the original Bockstein sequence.\n\nThe adjoint contraction automorphism: For a 2-deep weight lambda=(a,b) of GL_2/k with r=a−b, let L(lambda) be the algebraic highest-weight module and v_lambda a highest-weight vector. Fix d_lambda:L(lambda)→sl_2(k)⊗L(lambda) by d_lambda(v_lambda)=2e⊗f v_lambda+r h⊗v_lambda. Put psi_lambda=([−,−]⊗id)∘(id⊗d_lambda). On the summands L(lambda+alpha),L(lambda),L(lambda−alpha), its eigenvalues are respectively −2r,4,2(r+2), hence it is invertible. For a Serre weight sigma=F(lambda) with every component 2-deep, choose nonzero d_{sigma,i} in each embedding component. Their sum d_sigma gives an invertible Psi=([−,−]⊗id)∘(id⊗d_sigma) on sl_2(k_F)⊗_{F_p}sigma.\n\nThe projective-cover fibre-product lattice: Assume p>2, E/Q_p unramified, O=W(k), and sigma=F(lambda) 3-deep. Let P_sigma be the finite GL_2(k_F) projective cover of sigma and Ptilde_sigma its finite free projective O[GL_2(k_F)] lift. Put R_1=Ptilde_sigma, R_2=sl_2(O_F)⊗_{Z_p}Ptilde_sigma=⊕_i R_{2,i}. Fix the projective decomposition R_{2,i}/p≅P_sigma⊕P_{F(lambda−alpha_i)}⊕P_{F(lambda+alpha_i)} and its inclusion iota_i:P_sigma→R_{2,i}/p. Let iota=(iota_i)_i and R_2′ be the preimage of iota(P_sigma) in R_2. Define R={(x_1,x_2)∈R_1⊕R_2:x_2 mod p=iota(x_1 mod p)}. It is a K-stable full O-lattice in (1⊕sl_2(F))⊗_{Q_p}Ptilde_sigma[1/p]. The partial fibre products L_j impose the same conditions only for i≤j, beginning at L_{−1}=R_1; L_{f−1} identifies with R.\n\nCoinvariants and reduction of the glued lattice: With the 3-deep projective lattice data, (R_2′/pR_2′)_{K_1}≅P_sigma, and the induced map R_2′/p→iota(P_sigma) is this quotient. There is a K-equivariant short exact sequence 0→R_2/pR_2→R/pR→P_sigma→0; its right map induces (R/pR)_{K_1}≅P_sigma. Tensoring the socle inclusion sigma→P_sigma with sl_2(k_F) identifies its image with the full socle of sl_2(k_F)⊗P_sigma; the dual projection gives the full cosocle.\n\nThe first radical truncation of a projective cover: For the 3-deep sigma above, cosoc_K(R/pR)=sigma and R/pR≅Proj_{K/Z_1}(sigma)/m_{K_1}² as K-representations. In particular dim_k(R/pR)=(3f+1)dim_k P_sigma. The same object is L_{f−1}/pL_{f−1} in the introductory iterated-gluing notation.",
+      "requires": [
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.6",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
+      ]
+    },
+    {
+      "key": "MP.9",
+      "title": "Endomorphisms and relative projectivity",
+      "description": "Endomorphisms of the first projective truncation: If sigma=F(lambda) with 2<r_i<p−4 for every i, then End_K(Proj_{K/Z_1}sigma/m_{K_1}²) is commutative of k-dimension 2^f(f+1).\n\nCyclic Hom modules between projective truncations: Assume 5<r_i<p−7 and let T_sigma=R_sigma/pR_sigma. For every Serre weight tau in JH(T_sigma), Hom_K(T_tau,T_sigma) is cyclic as a right End_K(T_tau)-module under precomposition.\n\nRelative projectivity of all quotients: Assume 5<r_i<p−7. For every quotient Q of T_sigma and every subquotient Q′ of Q, precomposition with T_sigma→Q induces Hom_K(Q,Q′)≅Hom_K(T_sigma,Q′). If cosoc_K Q′≅sigma, there is a K-equivariant surjection Q→Q′. Equivalently Q is projective in the smallest full abelian subcategory of k[[K/Z_1]]/m_{K_1}²-modules generated by its subquotients.",
+      "requires": [
+        "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.8",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BHHMS23",
+      "title": "Gelfand–Kirillov dimension and mod p cohomology for GL_2",
+      "authors": "Christophe Breuil, Florian Herzig, Yongquan Hu, Stefano Morra, Benjamin Schraen",
+      "edition": "Invent. Math. 234 (2023), 1–128; locators use arXiv:2009.03127v7, 9 June 2023",
+      "url": "https://arxiv.org/pdf/2009.03127v7",
+      "sha256": "8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a",
+      "readSections": [
+        "Introduction pp. 2–10; §2 pp. 11–18; §5–7 pp. 46–86"
+      ]
+    },
+    {
+      "id": "CDN23",
+      "title": "Factorisation de la cohomologie étale p-adique de la tour de Drinfeld",
+      "authors": "Pierre Colmez, Gabriel Dospinescu, Wiesława Nizioł",
+      "edition": "Forum Math. Pi 11 (2023), e16, 1–62; published text",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf",
+      "sha256": "b007a4e37b824ca5986ac6152ed9fabcf38dde97e16d8f5f7f60756fe77d3418",
+      "readSections": [
+        "§1.1–1.5 pp. 9–23; Lemma 2.9 pp. 26–28; §4 p. 40–41; bibliography pp. 56–62"
+      ]
+    },
+    {
+      "id": "SHOTTON20",
+      "title": "The category of finitely presented smooth mod p representations of GL_2(F)",
+      "authors": "Jack Shotton",
+      "edition": "Doc. Math. 25 (2020), 143–157; 15-page author copy",
+      "url": "https://www.maths.dur.ac.uk/users/jack.g.shotton/papers/coherence.pdf",
+      "sha256": "852bb5c8084cde5d723057fd7e4980cb7e77451b3cae472dcd1c1746e26dbab5",
+      "readSections": [
+        "§2–3 pp. 1–9; §4–5 pp. 11–12"
+      ]
+    },
+    {
+      "id": "BP12",
+      "title": "Towards a modulo p Langlands correspondence for GL_2",
+      "authors": "Christophe Breuil, Vytautas Paškūnas",
+      "edition": "Mem. Amer. Math. Soc. 216 (2012), no. 1016; locators use author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~breuil/PUBLICATIONS/supersingular.pdf",
+      "sha256": "a63c41e222e226f1019282f6b7dab7078afe61f908572f1b0f90523f7fdf2d51",
+      "readSections": [
+        "Corollary 3.12 p. 26; Corollaries 5.6–5.7 pp. 37–38; Proposition 13.1 and Corollary 13.2 pp. 75–76; Lemma 14.7 and Theorem 14.8 pp. 82–83"
+      ]
+    },
+    {
+      "id": "EMERTON1",
+      "title": "Ordinary parts of admissible representations of p-adic reductive groups I. Definition and first properties",
+      "authors": "Matthew Emerton",
+      "edition": "Astérisque 331 (2010), 355–402; locators use 42-page author copy",
+      "url": "https://www.math.uchicago.edu/~emerton/pdffiles/ord-one.pdf",
+      "sha256": "4300be5ff118fb60556b2b478281631d7fd2eb5147c0d192a859e41ad6fb0429",
+      "readSections": [
+        "§3.1 pp. 14–17; Proposition 3.2.4 p. 21; §3.3 pp. 22–24; Proposition 4.3.4 pp. 33–34; Theorem 4.4.6 pp. 36–38"
+      ]
+    },
+    {
+      "id": "EMERTON2",
+      "title": "Ordinary parts of admissible representations of p-adic reductive groups II. Derived functors",
+      "authors": "Matthew Emerton",
+      "edition": "Astérisque 331 (2010), 403–459; author copy",
+      "url": "https://www.math.uchicago.edu/~emerton/pdffiles/ord-two.pdf",
+      "sha256": "3ecb1ba39a611ad931caf29d2f5215ca7d72d3ffdf9f58a04ec4f27faa67c00a",
+      "readSections": [
+        "Theorem 4.2.12 p. 30 and surrounding GL_2(Q_p) computations"
+      ]
+    },
+    {
+      "id": "HAUSEUX",
+      "title": "Extensions entre séries principales p-adiques et modulo p de G(F)",
+      "authors": "Julien Hauseux",
+      "edition": "Author copy, Corollary 4.2.4 pp. 34–35",
+      "url": "https://julien-hauseux.perso.math.cnrs.fr/pdf/extensions.pdf",
+      "sha256": "10cc9747f598036eeb05c589f1e8e06e1d0d3e750a686ce9511701267b66ab66",
+      "readSections": [
+        "Corollary 4.2.4 and proof pp. 34–35"
+      ]
+    },
+    {
+      "id": "DEG",
+      "title": "Localization of smooth p-power torsion representations of GL_2(Q_p)",
+      "authors": "Andrea Dotto, Matthew Emerton, Toby Gee",
+      "edition": "64-page author copy; its introduction assumes p≥5",
+      "url": "https://math.uchicago.edu/~emerton/pdffiles/localizationGL2Qp.pdf",
+      "sha256": "45177d930d238c3df6c0a59146454143b1782886d6d9776cc241e7f84a17d690",
+      "readSections": [
+        "Introduction p. 1; Lemma 4.2.1 and Proposition 4.2.2 pp. 48–49"
+      ]
+    },
+    {
+      "id": "HW22",
+      "title": "On the mod p cohomology for GL_2: the non-semisimple case",
+      "authors": "Yongquan Hu, Haoran Wang",
+      "edition": "arXiv:2009.09640v4, 20 July 2022",
+      "url": "https://arxiv.org/pdf/2009.09640v4",
+      "sha256": "018c887761324a2134c614c3328d2aa4d25e9a8640c6c0e8fe704d9a99e795b1",
+      "readSections": [
+        "Genericity convention p. 8; Lemma 2.10 p. 12; Theorem 2.23, Corollaries 2.25–2.26 p. 17; Theorem 2.30 and Corollary 2.31 p. 20"
+      ]
+    },
+    {
+      "id": "VIGNERAS11",
+      "title": "Le foncteur de Colmez pour GL(2,F)",
+      "authors": "Marie-France Vignéras",
+      "edition": "Arithmetic Geometry and Automorphic Forms, ALM 19 (2011), 531–557; author-uploaded public full text",
+      "url": "https://www.researchgate.net/publication/292473119_Le_foncteur_de_Colmez_pour_GL2_F",
+      "readSections": [
+        "Theorem 5.3(e)–(f), Proposition 5.5 pp. 549–550 and Proposition 5.6, Remark 5.7 and Proposition 5.8 p. 551"
+      ]
+    },
+    {
+      "id": "HU12",
+      "title": "Diagrammes canoniques et représentations modulo p de GL_2(F)",
+      "authors": "Yongquan Hu",
+      "edition": "J. Inst. Math. Jussieu 11 (2012), 67–118; locators use arXiv:0904.3991v3, 2 July 2010",
+      "url": "https://arxiv.org/pdf/0904.3991v3",
+      "sha256": "cd4bf2768c7b5cb8768b200cc2d2ef56ba49e8b0144f09af82c7b6e37e10610e",
+      "readSections": [
+        "§3.1.1 pp. 17–18; §3.3 pp. 30–32; Theorem 4.3 pp. 33–34; Proposition 4.4 and Lemma 4.5 pp. 34–36; Corollary 4.7 p. 37"
+      ]
+    },
+    {
+      "id": "KOHLHAASE17",
+      "title": "Smooth duality in natural characteristic",
+      "authors": "Jan Kohlhaase",
+      "edition": "Adv. Math. 317 (2017), 1–49; locators use author copy",
+      "url": "https://esaga.uni-due.de/f/jan.kohlhaase/Kohlhaase_Smooth_Duality.pdf",
+      "sha256": "7950a05ee57ab100abd005c300af8c02872d88cd220b4da87d1417db56ac9421",
+      "readSections": [
+        "Proposition 3.9 and Remark 3.10, pp. 18–19"
+      ]
+    }
+  ],
+  "status": "draft"
+}
