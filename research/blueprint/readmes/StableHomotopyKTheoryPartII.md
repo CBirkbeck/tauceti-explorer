@@ -255,19 +255,20 @@ For bounded-below spectra with degreewise finite-dimensional mod-p homology, bui
 
 ### adams-resolution: The mod-p Adams resolution
 
-**Construction.** For H=HF_p, let I=fib(S→H). For a spectrum B form the tower B_s=I^{⊗s}⊗B, s≥0, with B_0=B, and structure maps induced by I→S. The cofiber at filtration s is H⊗I^{⊗s}⊗B. Equivalently use the augmented H-cobar cosimplicial spectrum B⊗H^{⊗(n+1)}. Its normalized exact couple gives the mod-p Adams spectral sequence, indexed E_2^{s,t}=Ext_{A_p}^{s,t}(H*(B;F_p),F_p), with d_r:(s,t)↦(s+r,t+r−1) and stem t−s.
+**Construction.** For H=HF_p, let I=fib(S→H). For a spectrum B form the tower B_s=I^{⊗s}⊗B, s≥0, with B_0=B, and structure maps induced by I→S. The cofiber at filtration s is H⊗I^{⊗s}⊗B. Equivalently use the augmented H-cobar cosimplicial spectrum B⊗H^{⊗(n+1)}. Its normalized exact couple gives the mod-p Adams spectral sequence. When B is bounded below with degreewise finite-dimensional mod-p homology, its E₂ page is identified as E_2^{s,t}=Ext_{A_p}^{s,t}(H*(B;F_p),F_p), with d_r:(s,t)↦(s+r,t+r−1) and stem t−s.
 
 **Direct prerequisites:** `StableHomotopyKTheoryPartII:PO.1/steenrod-algebra`, `StableHomotopyKTheoryPartII:PO.1/milnor-dual`, `StableHomotopyKTheory:H.5:spectra/derived-smash-product`, `StableHomotopyKTheory:H.6/filtered-spectrum-spectral-sequence`, `StableHomotopyKTheory:H.6/exact-couple`.
 
 **Construction/proof route:**
 
 1. Use the unit S→H and derived smash to form the functorial tower and its cofiber sequences.
-2. Identify the E₁ complex with the normalized cobar resolution using the H-coaction; pass to the graded Ext description.
+2. For B bounded below and mod-p degreewise finite type, identify the E₁ complex with the normalized cobar resolution using the H-coaction and degreewise duality; pass to the graded Ext description. The tower itself needs neither hypothesis.
 3. Relate the partial totalizations of the cosimplicial resolution to the exact-couple tower. Convergence is a separate theorem below.
 
 **Checks and worked cases:**
 
 - No convergence is inferred just from the displayed E₂ page.
+- The tower is defined for every B, but this cohomological Ext identification is asserted only in the bounded-below degreewise finite-type range.
 
 **API outline:**
 
@@ -275,7 +276,7 @@ For bounded-below spectra with degreewise finite-dimensional mod-p homology, bui
 | --- | --- | --- |
 | `PowerOperations.adamsResolution.layer` | projection | cofib(B_{s+1}→B_s)≃H⊗I^{⊗s}⊗B naturally in B. |
 | `PowerOperations.adamsResolution.map` | functoriality | A spectrum map induces a map of towers, exact couples and spectral sequences. |
-| `PowerOperations.adamsResolution.cobar` | compatibility | The normalized cobar differential agrees with the exact-couple E₁ differential and gives the stated Ext grading. |
+| `PowerOperations.adamsResolution.cobar` | compatibility | The normalized cobar differential agrees with the exact-couple E₁ differential; for bounded-below B with degreewise finite-dimensional mod-p homology it gives the stated Ext grading. |
 
 **Unit tests:**
 
@@ -290,7 +291,7 @@ For bounded-below spectra with degreewise finite-dimensional mod-p homology, bui
 
 **Sources:**
 
-- `lnr12`, §2.1, construction preceding Proposition 2.2, pp.864–866. The canonical Adams resolutions produce the spectral sequences used in the inverse-limit comparison.
+- `lnr12`, §2.1, construction preceding Proposition 2.2, pp.864–866. The canonical Adams resolutions exist without finiteness; the cohomological Ext identification here uses the bounded-below finite-type hypotheses of §2.1.
 
 **Atlas planet:** Mod-p Adams resolution.
 
@@ -456,7 +457,7 @@ For bounded-below spectra with degreewise finite-dimensional mod-p homology, bui
 
 ### singer-tate-tower: The extended-power Singer approximation
 
-**Construction.** For B bounded below and degreewise finite type over F_p, form U_n(B)=Σ^{1+n}D_{C_p}(Σ^{−n}B), n≥0, with the bonding maps from inclusions of successive multiples of the reduced regular representation. There is a cofinal comparison U_n(B)≃(B^{⊗p})^{tC_p}[1−(p−1)n] to the Greenlees Tate tower and hence holim_n U_n(B)≃T_p(B). Each U_n(B) is individually bounded below and mod-p finite type, with no uniform lower bound asserted. The Tate tower and its generic norm construction remain imported from RT.2; this node owns the explicit cyclic extended-power approximation and its finiteness.
+**Construction.** For B bounded below and degreewise finite type over F_p, form U_n(B)=Σ^{1+n}D_{C_p}(Σ^{−n}B), n≥0, with the bonding maps from inclusions of successive multiples of the reduced regular representation. There is a cofinal comparison U_n(B)≃(B^{⊗p})^{tC_p}[1−(p−1)n] to the Greenlees Tate tower. Here Z^{tC_p}[k] denotes its kth Greenlees filtration stage as in LNR Definition 4.3, not the suspension Σ^k(Z^{tC_p}); hence holim_n U_n(B)≃T_p(B). Each U_n(B) is individually bounded below and mod-p finite type, with no uniform lower bound asserted. The Tate tower and its generic norm construction remain imported from RT.2; this node owns the explicit cyclic extended-power approximation and its finiteness.
 
 **Direct prerequisites:** `StableHomotopyKTheoryPartII:PO.1/extended-powers`, `StableHomotopyKTheoryPartII:PO.1/milnor-dual`, `RefinedTraceMethods:RT.2/norm-map-tate`, `RefinedTraceMethods:RT.2/genuine-g-spectra`, `RefinedTraceMethods:RT.2/geometric-fixed-points`, `StableHomotopyKTheory:H.6/homotopy-limit-of-tower`.
 
@@ -477,7 +478,7 @@ For bounded-below spectra with degreewise finite-dimensional mod-p homology, bui
 | --- | --- | --- |
 | `PowerOperations.singerTower.map` | functoriality | Maps B→C induce compatible maps U_n(B)→U_n(C). |
 | `PowerOperations.singerTower.limit` | equivalence | The comparison identifies holim_n U_n(B) with (B^{⊗p})^{tC_p}. |
-| `PowerOperations.singerTower.cofinal` | compatibility | U_n(B) identifies with the Tate stage indexed 1−(p−1)n, including bonding maps. |
+| `PowerOperations.singerTower.cofinal` | compatibility | U_n(B) identifies with the Greenlees Tate filtration stage indexed 1−(p−1)n, including bonding maps; the bracket is a filtration index, not a suspension. |
 | `PowerOperations.singerTower.finiteType` | structure | Each U_n(B) is bounded below and each H_i(U_n(B);F_p) is finite-dimensional. |
 
 **Unit tests:**
@@ -863,7 +864,7 @@ Refine the Tate diagonal and E∞-ring Frobenius through W=F_p^× homotopy fixed
 
 **Sources:**
 
-- `ns18`, §IV.1, Example IV.1.2(i)–(ii), pp.324–325. The spectral Frobenius reduces to a↦a^p on ordinary rings and is an endomorphism for compact p-complete spectra.
+- `ns18`, §IV.1, Example IV.1.2(i)–(ii), pp.324–325. The spectral Frobenius reduces to a↦a^p on ordinary rings. For the sphere and its finite-cell/retract extensions, the source’s compactness terminology is replaced by the explicit finite/dualizable argument recorded in E4.
 
 ### spherical-witt: Spherical Witt vectors of a finite field
 
@@ -1205,7 +1206,7 @@ Construct Atiyah cyclic powers on virtual K-theory, compute the C_p and C_{p²} 
 
 **Sources:**
 
-- `bmms86`, Chapter VIII §4, Theorem 4.1, Proposition 4.2 and Lemma 4.3 (scan PDF pp.137–138). The complex-of-bundles construction extends tensor powers to virtual K-theory and agrees with the spectrum power.
+- `bmms86`, Chapter VIII §4, Theorem 4.1, Proposition 4.2 and Lemma 4.3 (scan PDF pp.141–142). The complex-of-bundles construction extends tensor powers to virtual K-theory and agrees with the spectrum power.
 - `ns18`, §IV.1, proof of Proposition IV.1.12(i), pp.329–330. Atiyah’s cyclic power evaluated away from the trivial character becomes the Adams operation.
 
 **Atlas planet:** Atiyah cyclic power.
@@ -1399,7 +1400,7 @@ For arbitrary simply connected based Y prove convergence and increasing connecti
 
 **Sources:**
 
-- `ns18`, §IV.3, Proposition IV.3.2 and Corollary IV.3.3, pp.352–353; Theorem IV.3.7 and proof, pp.354–355; §II.4, Corollary II.4.9, p.265. The cyclic loop-space Frobenius is the totalized Tate diagonal, and the genuine comparison follows from the cyclic pullback criterion.
+- `ns18`, §IV.3, Proposition IV.3.2 and Corollary IV.3.3, pp.347–351; Theorem IV.3.7 and proof, pp.354–355; §II.4, Corollary II.4.9, p.265. The cyclic loop-space Frobenius is the totalized Tate diagonal, and the genuine comparison follows from the cyclic pullback criterion.
 
 **Atlas planet:** Free-loop Segal theorem.
 
@@ -1444,27 +1445,31 @@ The 16 items of the PowerOperationsAndSegalConjecture continuation are merged in
 
 ## Source corrections
 
-All descriptions below are in our own words. Corrected formulas are used throughout. The full four-page 2019 correction was checked; it concerns typesetting and does not settle these points.
+All descriptions below are in our own words. Corrected formulas are used throughout. Independent review confirmed the six findings below after correcting E1’s unsupported exponent allegation. The full four-page 2019 correction concerns typesetting and does not settle these points. No published or author correction of these findings was located; earlier atlas records are identified separately.
 
 ### E1: Example I.2.3(iii), p.220; online publisher PDF with SHA-256 recorded under ns18.
 
-In the multiplicative-coordinate p-series the printed expression retains a constant term and the exponent in the p² case is mistyped.
+In the multiplicative-coordinate formulas for [p](x) and [p²](x), the source uses x−1 where the chosen coordinate requires 1+x. The exponent p² itself is printed correctly.
 
 Use [p](x)=(1+x)^p−1 and [p²](x)=(1+x)^{p²}−1.
 
-Every formal-group p-series vanishes at x=0; factoring the corrected expressions gives the cyclotomic coefficient fields used by the source.
+At x=0 the printed expressions give −2 for odd p, whereas a formal-group p-series must vanish there. The corrected coordinate gives the cyclotomic coefficient fields used subsequently. The design’s additional claim of an exponent misprint is withdrawn.
 
-**Reach:** nothing. **Prior record:** Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E4; not addressed by the 2019 typesetting correction.
+**Reach:** nothing. **Prior atlas record:** Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E4; not addressed by the 2019 typesetting correction.
 
-### E2: Displays immediately before Theorem IV.1.15, p.332; online publisher PDF with SHA-256 recorded under ns18.
+**Independent review:** confirmed. The coordinate-sign misprint is visible in Example I.2.3(iii), p.220, and fails the zero-constant-term test at odd p. The separate exponent allegation was unsupported and has been removed; the displayed exponent is p².
 
-The odd-primary invariant decomposition uses suspension shifts without the factor two required by the degree-two Laurent generator.
+### E2: Displays before and statement of Theorem IV.1.15, p.332; online publisher PDF with SHA-256 recorded under ns18.
 
-Use shifts 2j(p−1) and 2j(p−1)+1 for HF_p, and 2j(p−1) for HZ.
+The odd-primary invariant decomposition and the reduced-power component codomains omit the factor two required by the degree-two Laurent generator.
+
+Use shifts 2j(p−1) and 2j(p−1)+1 for HF_p, and 2j(p−1) for HZ. The operation codomains have shifts 2i(p−1) for P^i and 2i(p−1)+1 for βP^i.
 
 At p=3 the P¹ component is degree 4, whereas an uncorrected shift would place it in degree 2; the normalizer-invariant coefficient generator has homotopy degree −2(p−1).
 
-**Reach:** nothing. **Prior record:** Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E5; not addressed by the 2019 typesetting correction.
+**Reach:** nothing. **Prior atlas record:** Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E5; not addressed by the 2019 typesetting correction.
+
+**Independent review:** confirmed. The degree of the cyclic Laurent class and its normalizer weight force the factor two, both in the invariant decomposition and in the P^i and βP^i targets. The roadmap already uses these corrected degrees.
 
 ### E3: Remark IV.1.11, p.328; online publisher PDF with SHA-256 recorded under ns18.
 
@@ -1474,7 +1479,9 @@ The transfer quotient in this comparison is a quotient of R⁰(X×BΣ_p).
 
 The power operation and transfer have this target before passing to the Tate comparison; dropping X changes the cohomology group.
 
-**Reach:** nothing. **Prior record:** Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E9; not addressed by the 2019 typesetting correction.
+**Reach:** nothing. **Prior atlas record:** Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E9; not addressed by the 2019 typesetting correction.
+
+**Independent review:** confirmed. Remark IV.1.11, p.328, defines the transfer ideal in the cohomology of X×BΣ_p. Its quotient must retain X, as do the preceding power operation and the comparison map.
 
 ### E4: Example IV.1.2(ii), p.325; online publisher PDF with SHA-256 recorded under ns18.
 
@@ -1484,9 +1491,33 @@ Use the p-completion of a finite spectrum, or a finite cell S_p^∧-module retra
 
 In Sp_p^∧ the filtered diagram S_p^∧ --p→ S_p^∧ --p→⋯ has zero colimit, since completion kills its p-inverted colimit. The colimit of π₀Map(S_p^∧,−) is instead Z_p[1/p]=Q_p, so the sphere is not compact. The constant-to-Tate equivalence extends from the sphere across finite cofibers and retracts and gives exactly the stated finite/dualizable examples.
 
-**Reach:** the proof. **Prior record:** New terminology/inference issue identified in this pass; the 2019 correction does not address it. The original assertion under actual categorical compactness is not claimed false.
+**Reach:** the proof. **Prior atlas record:** New terminology/inference issue recorded by the design and confirmed by this independent review; the 2019 correction does not address it. The assertion under actual categorical compactness is not claimed false.
 
-The fourth finding is a new terminology/inference observation for independent review. It does not challenge the constant-map equivalence under actual categorical compactness; the target here uses the explicit finite/dualizable class needed for the examples.
+**Independent review:** confirmed. The p-inversion filtered diagram has zero colimit in p-complete spectra but colimit Q_p on π₀ maps from S_p^∧, disproving categorical compactness of that example. Exactness and closure under finite cofibers and retracts prove the corrected comparison on the finite/dualizable class used here. Only the inference for the illustrated examples is challenged; the assertion under actual categorical compactness is not claimed false.
+
+### E5: Proofs of Lemmas IV.1.18 and IV.1.20, pp.335 and 339; online publisher PDF with SHA-256 recorded under ns18.
+
+The power-operation symbol in each proof acquires a degree index k that has not been specified.
+
+Use the degree-n operation P_p^n consistently with equation (12), the two lemma statements and Theorem IV.1.21.
+
+Both proofs start with a class or suspension in degree n; no degree k is introduced, and changing that degree would change the target twist.
+
+**Reach:** nothing. **Prior atlas record:** Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E10; not addressed by the 2019 typesetting correction.
+
+**Independent review:** confirmed. The surrounding domains, equation (12), and the degree-n lemma statements fix the index as n. The isolated k in each cited proof is a notation misprint.
+
+### E6: Definition of the cohomological power operation and statement of Lemma IV.1.20, p.338; compare Lemma IV.1.19, pp.336–337, and Theorem IV.1.21, p.339; online publisher PDF with SHA-256 recorded under ns18.
+
+The twisted-cohomology targets on p.338 repeatedly omit the BΣ_p factor from the base space.
+
+The target of P_p^n on R^n(X) is R^{nρ}(X×BΣ_p), including in the statement of Lemma IV.1.20; the twist is pulled back from the permutation representation over BΣ_p.
+
+The constructed representative has domain (X×BΣ_p)^{−nρ}. Lemma IV.1.19 identifies precisely this group with maps into (Σ^{nρ}R)^{hΣ_p}, and Theorem IV.1.21 retains the full base.
+
+**Reach:** nothing. **Prior atlas record:** New to this packet and not listed in the existing paper extraction or the 2019 correction; no further author/publisher correction was located on 2026-10-19.
+
+**Independent review:** confirmed. The explicit Thom-spectrum domain and the adjacent adjunction and comparison theorem require X×BΣ_p. Omitting that factor removes the space carrying the permutation bundle. The roadmap already states the correct target.
 
 ## Sources and versions read
 
@@ -1498,7 +1529,7 @@ Thomas Nikolaus and Peter Scholze. Acta Mathematica 221 (2018), 203–409; corre
 
 [On topological cyclic homology](https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf). Accessed 2026-10-19. SHA-256: `8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef`.
 
-Read for the targets above: I.2 Examples I.2.3 and Lemmas I.2.6–I.2.9, pp.219–224; II.4 Lemma II.4.1 and Corollary II.4.9, pp.260–265; III.1, pp.285–292; IV.1, pp.324–340; IV.3 Propositions IV.3.1–IV.3.2, Corollary IV.3.3 and Theorem IV.3.7 with proof, pp.352–355.
+Read for the targets above: I.2 Examples I.2.3 and Lemmas I.2.6–I.2.9, pp.219–224; II.4 Lemma II.4.1 and Corollary II.4.9, pp.260–265; III.1, pp.285–292; IV.1, pp.324–340; IV.3 Lemma IV.3.1, Proposition IV.3.2 and Corollary IV.3.3, pp.345–351; Theorem IV.3.7 and proof, pp.354–355.
 
 ### ns19-correction: Correction to On topological cyclic homology
 
@@ -1530,7 +1561,7 @@ Robert R. Bruner, J. Peter May, James E. McClure and Mark Steinberger. Lecture N
 
 [H∞ ring spectra and their applications](https://www.math.uchicago.edu/~may/BOOKS/h_infty.pdf). Accessed 2026-10-19. SHA-256: `91a6bdea3f047979d5a53af9301411ddc8ae0b40b5da6a2d6b1d8b592bab5d56`.
 
-Read for the targets above: VIII.1 Propositions 1.1–1.4, scan PDF pp.130–132; VIII.2 Propositions 2.1–2.4 and Adem proof, scan PDF pp.133–135; VIII.4 Theorem 4.1, Proposition 4.2 and Lemma 4.3, scan PDF pp.137–138.
+Read for the targets above: VIII.1 Propositions 1.1–1.4, scan PDF pp.130–132; VIII.2 Propositions 2.1–2.4 and Adem proof, scan PDF pp.133–135; VIII.4 Theorem 4.1, Proposition 4.2 and Lemma 4.3, scan PDF pp.141–142.
 
 ### milnor58: The Steenrod algebra and its dual
 
