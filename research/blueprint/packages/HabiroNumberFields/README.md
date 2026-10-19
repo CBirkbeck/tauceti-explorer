@@ -76,7 +76,7 @@ Define `excludedInteger F = 6 |disc F| #K₂(O_F)` and the auxiliary `excludedIn
 
 **Checks.**
 - For ℚ, #K₂(ℤ)=2 gives M=12 and M′=4. Thus n=3 is admitted by M′ only through the 9∤n variant, whereas n=9 is not.
-- For ℚ(i), |disc|=4 and #K₂(O)=1 give M=24 and M′=8; the argument still excludes ramification at 2.
+- For ℚ(i), |disc|=4 and #K₂(O)=1 give M=24 and M′=8; the argument still excludes ramification at 2. The trivial tame kernel is recorded in Belabas–Gangl, §7, table on p. 24, at discriminant −4.
 - n=1 is coprime to either integer and all finite-coefficient conclusions reduce to maps between trivial groups. Replacing coprimality by n≠M would fail at n=2M.
 
 ### 0.3 Tate untwisting and the finite Chern map
@@ -294,13 +294,13 @@ Interpret k=0 as [∞] and k=±1 as [0]; all other denominators are nonzero. Pro
 
 ### 1.8 Positive cyclic chains and the Bott element
 
-In the normalized bar complex of C_N with positive generator t define the positive odd chains beginning with `α₁=[t]` and `α₃=Σ_(0≤j<N)[t|t^j|t]`, with the standard alternating boundary. Specify the even chain and comparison with the two-periodic resolution so that its norm differential is positive and its odd differential agrees with the chosen left/right conversion. Prove `alpha_three_cycle`, `alpha_three_generator` in H₃(C_N,ℤ)≃ℤ/N and `alpha_two_bockstein` with boundary N[t]. The isomorphism with abstract cyclic group homology must carry this named positive chain to +1. (Hutchinson 2024 §2.2, preprint pp. 3–4; Hutchinson 2013 §6.4, pp. 32–33.) Needs: existing bar and cyclic resolutions.
+In the normalized bar complex of C_N with positive generator t define the positive odd chains beginning with `α₁=[t]` and `α₃=Σ_(0≤j<N)[t|t^j|t]`, with the standard alternating boundary. Take the even chain `α₂=Σ_(0≤j<N)[t^j|t]`, and compare with the two-periodic resolution so that its norm differential is positive and its odd differential agrees with the chosen left/right conversion. Prove `alpha_three_cycle`, `alpha_three_generator` in H₃(C_N,ℤ)≃ℤ/N and `alpha_two_bockstein` with boundary N[t]. The isomorphism with abstract cyclic group homology must carry this named positive chain to +1. (Hutchinson 2024 §2.1, Lemma 2.1 and Corollary 2.2, preprint p. 2; Hutchinson 2013 §6.4, pp. 32–33.) Needs: existing bar and cyclic resolutions.
 
-For a ring containing primitive ζ_N and N odd, use the supplied finite-coefficient K-theory to construct `bott ζ ∈ K₂(B;ℤ/N)` from the positive root cycle. Prove `∂ bott=ζ`, `c_(1,0)(bott)=ζ`, naturality and `bott(ζ^k)=k bott(ζ)`. The Bott construction itself does not require N invertible in B; the étale Chern assertion does. It is not in general an integral element of K₂(B)/N because its Bockstein is nonzero. (Hutchinson 2024 §2, preprint pp. 2–4.) Needs: H.6, K.7 and the early Chern prefix.
+For a ring containing primitive ζ_N and N odd, use the supplied finite-coefficient K-theory to construct `bott ζ ∈ K₂(B;ℤ/N)` from the positive root cycle. Prove `∂ bott=ζ`, `c_(1,0)(bott)=ζ`, naturality and `bott(ζ^k)=k bott(ζ)`. The Bott construction itself does not require N invertible in B; the étale Chern assertion does. It is not in general an integral element of K₂(B)/N because its Bockstein is nonzero. (Hutchinson 2024 §4 and Lemma 4.1, preprint p. 6; the Chern conventions are in §2.3, pp. 4–5.) Needs: H.6, K.7 and the early Chern prefix.
 
 **Checks.**
 - N=1 gives zero homology and a zero Bott element. It is not a positive-order generator statement in a nonzero group.
-- For N=3 the three summands of α₃ have telescoping boundary; the Bockstein of the positive even chain is +[t]. Changing the right-periodic differential from 1−t to t−1 without changing the comparison fails this sign test.
+- For N=3 normalization leaves `α₂=[t|t]+[t²|t]` and `α₃=[t|t|t]+[t|t²|t]`. Their boundaries are respectively `3[t]` and zero, so the Bockstein of the positive even chain is +[t]. Changing the right-periodic differential from 1−t to t−1 without changing the comparison fails this two-term sign test.
 - For nontrivial ζ, ∂bott=ζ rules out a lift from K₂(B)/N. A definition placing bott in that smaller group fails exactness.
 - Replacing ζ by its inverse negates bott and its degree-zero Chern class, independently of any eta calculation.
 - For B=ℤ[ζ_p] and p odd, bott is defined even though p is not invertible in B. Its étale Chern evaluation is used only after inverting p; a definition requiring invertibility for the Bott element itself is too restrictive.
@@ -401,7 +401,7 @@ This layer consumes Layer 0, the Bloch and finite-K-theory suppliers, complex an
 
 ### 2.1 Compatible roots and transitions between orders
 
-Choose `compatibleRoots` with ζ₁=1, ζ_ab=ζ_aζ_b for coprime a,b, and ζ_(p^(k+1))^p=ζ_(p^k). A complex witness is `ζ_m=exp(2πi Σ_(p|m) p^(−v_p(m)))`. Prove primitivity and the two compatibilities. For m=p^k m′ with p∤m′, the embedding A_m→A_pm sends ζ_m to ζ_pm^e, where `e≡p mod p^(k+1)` and `e≡1 mod m′`. State this CRT exponent as a residue, not an arbitrary integer choice. The construction must work on full cyclotomic algebras and commute on iterated order transitions. Require `compatibleRoots_primitive`, `orderTransition_spec`, `orderTransition_comp` and `rootDifference_topologicallyNilpotent`. (Wagner thesis §2.11, p. 31; GSWZ §1.3, pp. 5–6.) Needs: primitive roots, CRT and cyclotomic algebras.
+Choose `compatibleRoots` with ζ₁=1, ζ_ab=ζ_aζ_b for coprime a,b, and ζ_(p^(k+1))^p=ζ_(p^k). A complex witness is `ζ_m=exp(2πi Σ_(p|m) p^(−v_p(m)))`. Prove primitivity and the two compatibilities. For m=p^k m′ with p∤m′, the embedding A_m→A_pm sends ζ_m to ζ_pm^e, where `e≡p mod p^(k+1)` and `e≡1 mod m′`. State this CRT exponent as a residue, not an arbitrary integer choice. The construction must work on full cyclotomic algebras and commute on iterated order transitions. Require `compatibleRoots_primitive`, `orderTransition_spec`, `orderTransition_comp` and `rootDifference_topologicallyNilpotent`. (Wagner thesis §2.2, item 2.11, p. 31; GSWZ §1.3, pp. 5–6.) Needs: primitive roots, CRT and cyclotomic algebras.
 
 At a prime p, c=ζ_pm−ζ_m has positive p-adic valuation; on each factor its valuation is `1/φ(p^(k+1))` with v_p(p)=1. It is therefore topologically nilpotent, even though it is usually a nonzero element of a reduced ring. A generic formal substitution theorem requiring a nilpotent constant is not the re-expansion theorem needed here.
 
@@ -429,7 +429,7 @@ Use the existing unramified Frobenius φ_R on R̂_p. Its gluing extension `coeff
 
 Specialize the supplied re-expansion to c=ζ_pm−ζ_m in the complete coefficient algebra A_pm(R̂_p). Define `arithmeticReexpand p m` on integral series by
 `rex_c(Σ a_j x^j)=Σ_i (Σ_(j≥i) binom(j,i)a_j c^(j−i))x^i`.
-Every inner sum converges p-adically. Prove that this is a ring homomorphism, commutes with the coefficient Frobenius fixing c, composes with a second admissible shift, and agrees with polynomial substitution. Its target is complete; it is not an algebraic substitution into A_pm(R)[[x]] followed by a completion after the fact. (GSWZ §1.3 and Definition 1.1, pp. 5–7; Wagner thesis §§2.11–2.12, pp. 31–32.) Needs: HC.3 and §§2.1–2.2.
+Every inner sum converges p-adically. Prove that this is a ring homomorphism, commutes with the coefficient Frobenius fixing c, composes with a second admissible shift, and agrees with polynomial substitution. Its target is complete; it is not an algebraic substitution into A_pm(R)[[x]] followed by a completion after the fact. (GSWZ §1.3 and Definition 1.1, pp. 5–7; Wagner thesis §2.2, item 2.11 and Lemma 2.12, pp. 31–32.) Needs: HC.3 and §§2.1–2.2.
 
 **Checks.**
 - On x, rex_c gives x+c; on x² it gives x²+2cx+c². Both the sign of the shift and the binomial coefficient are fixed.
@@ -817,8 +817,9 @@ The finite Chern sign comparison, the early finite-Chern supplier prefix, the pr
 ## References
 
 - F. Calegari, S. Garoufalidis and D. Zagier, *Bloch groups, algebraic K-theory, units, and Nahm's conjecture*, Ann. Sci. Éc. Norm. Supér. 56 (2023), 383–426. The [author-hosted published text](https://math.uchicago.edu/~fcale/papers/CGZ.pdf) fixes the published Bloch convention and introductory theorem statements. Detailed locators marked “v3” refer instead to [arXiv:1712.04887v3](https://arxiv.org/abs/1712.04887v3), 2021, §§2–5, pp. 7–30, and Theorem 7.4, pp. 37–39. These versions use different Bloch presentations, which are compared through K3BlochGroups rather than identified integrally.
+- K. Belabas and H. Gangl, *Generators and relations for K₂O_F, F imaginary quadratic*, [author-hosted text](https://www.maths.dur.ac.uk/users/herbert.gangl/K2.pdf), §7, p. 24. The discriminant −4 entry supplies the numerical tame-kernel check in §0.2.
 - S. Garoufalidis, P. Scholze, C. Wheeler and D. Zagier, *The Habiro ring of a number field*, [arXiv:2412.04241v2](https://arxiv.org/abs/2412.04241v2), 2025. Page references are the printed pages of this 73-page version: definitions in §§1.3–1.5, pp. 5–11; Pochhammer formulas in §2.1, pp. 18–19; local regulators and sections in §§3.1–3.3, pp. 37–45; arithmetic Taylor lattices in §§5.1–5.2, pp. 59–65.
 - K. Hutchinson, *The Chern class for K₃ and the cyclic quantum dilogarithm*, J. Algebra 649 (2024), 433–443. Locators here use the accessible [arXiv:2104.14413v4](https://arxiv.org/abs/2104.14413v4), 2024, §§2–4, pp. 2–8. The finite product sign and the tensor identification must be compared as specified in §1.10.
 - K. Hutchinson, *A Bloch–Wigner complex for SL₂*, [arXiv:1107.0264v2](https://arxiv.org/abs/1107.0264v2), 2013. The configuration comparison and finite cyclic specialization used here are in §§6.2–6.4, pp. 31–33; generic constructions are supplied by K3BlochGroups.
 - S. Garoufalidis and D. Zagier, *Asymptotics of Nahm sums at roots of unity*, Ramanujan J. 55 (2021), 219–238, [author-hosted article](https://people.mpim-bonn.mpg.de/stavros/publications/printed/asymptotics_of_nahm_sums_at_roots_of_unity.pdf). Appendix A, Proposition 8.1 and (55)–(60), pp. 235–237, provide the KMS proof route. The uniform tails, Gaussian scaling and phase targets are stated explicitly rather than inferred from its abbreviated asymptotic argument.
-- F. Wagner, *q-Hodge filtrations, Habiro cohomology, and ku*, [author-hosted thesis](https://ferdinand-wagner.github.io/papers/q-Thesis.pdf), §2.11 and Lemma 2.12, pp. 31–32. These supply compatible-root and re-expansion descriptions; the local-chart comparison here retains the full cyclotomic algebra and does not assume Φ_m irreducible modulo p.
+- F. Wagner, *q-Hodge filtrations, Habiro cohomology, and ku*, [author-hosted thesis](https://ferdinand-wagner.github.io/papers/q-Thesis.pdf), §2.2, item 2.11 and Lemma 2.12, pp. 31–32. These supply compatible-root and re-expansion descriptions; the local-chart comparison here retains the full cyclotomic algebra and does not assume Φ_m irreducible modulo p.
