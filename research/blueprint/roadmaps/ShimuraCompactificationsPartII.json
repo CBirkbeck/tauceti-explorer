@@ -1,0 +1,286 @@
+{
+ "id": "ShimuraCompactificationsPartII",
+ "title": "Toroidal compactifications and boundary geometry, Part II: integral models of Hodge type and at bad level",
+ "area": "arithmeticgeometry",
+ "parent": "ShimuraCompactifications",
+ "summary": "Integral toroidal and minimal compactifications of Shimura varieties of Hodge type at every level and of PEL Shimura varieties at bad primes, built by normalizing good Siegel compactifications: Madapusi Pera's description of the boundary through p-adic Hodge theory of degenerating abelian varieties, smooth canonical compactifications at hyperspecial level, Lan's normalized compactifications with lattice collections, and the Siegel models at deep, Iwahori, Klingen and paramodular level used in higher Hida theory, with the GSpin boundary used for Hecke orbits.",
+ "readme": "This roadmap is Part II of Toroidal compactifications and boundary geometry (ShimuraCompactifications) and starts where that roadmap stops: its integral models are smooth PEL compactifications at good primes (C5), together with finite normalizations at higher p-level of a good model and Lan's normalized blow-ups, which take a normal projective minimal model as an input. Here the integral theory is extended in three directions. For Shimura data of Hodge type at any level, the toroidal model is the normalization of a good Siegel compactification in the characteristic-zero toroidal compactification, and Madapusi Pera's theorem describes its boundary exactly, by a rationality property of Hodge cycles proved with the semistable comparison for degenerating abelian varieties. For PEL data at bad primes, Lan's normalizations over collections of auxiliary moduli give normal proper models with the expected strata, charts and degenerating families, and supply the minimal-model input of the parent's normalized blow-ups. The applications are the Siegel models at deep and Iwahori level of Boxer–Pilloni, the Klingen and paramodular threefolds of Pilloni, the good reduction of boundary torus torsors used by Farb–Kisin–Wolfson, and the GSpin boundary used by Maulik–Shankar–Tang.\n\nConventions. O is O_{E,(v)} for a place v | p of the reflex field, or its completion. Normalization of an algebraic space or stack S in a finite map from a normal scheme over a dense open is the relative spectrum of the integral closure of O_S in the pushforward. Cone decompositions are those of ShimuraCompactifications C0; induced decompositions may be nonsmooth. Interior models are opens of normalized toroidal models; their moduli interpretations and local models belong to Complex Shimura varieties and canonical models, Part II (ShimuraVarietiesPartII), whose statements this roadmap takes as recorded inputs. ℤ_p^cycl is the union ℤ_p[ζ_{p^∞}].\n\nLayers. C7 normalization models; C8 Lan's normalized PEL compactifications; C9 Hodge cycles on degenerating abelian varieties; C10 toroidal compactifications of Hodge type; C11 hyperspecial level; C12 minimal compactifications of Hodge type; C13 Siegel models at deep level; C14 genus two at Klingen and paramodular level; C15 orthogonal Shimura varieties at the boundary.\n\nNot here. Kisin's and Kisin–Pappas's interior integral models, local models and parahoric moduli (ShimuraVarietiesPartII); automorphic vector bundles and their extensions (AutomorphicBundles); vanishing of higher direct images to minimal compactifications (IntegralCoherentHeckeComplexes); Igusa towers and their partial compactifications (IgusaVarietiesAndTorsionConcentration Part II); higher Hida and Coleman theory (HigherHidaAndColemanTheory).\n",
+ "prerequisites": [
+  "ShimuraCompactifications",
+  "PELModuli",
+  "ShimuraVarieties",
+  "ShimuraData",
+  "AutomorphicBundles",
+  "HodgeTateAndCanonicalSubgroups",
+  "CrystallineCohomology",
+  "CohomologyComparisons",
+  "NeronModelsAndSemistableAbelianVarieties",
+  "AbelianSchemesAndArithmeticModuli",
+  "ReductiveGroupsPartII",
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "PadicHodgeTheory",
+  "PadicDifferentialEquationsAndRigidCohomology",
+  "AlgebraicModuliForArithmeticGeometry",
+  "SchemeAndStackFoundations",
+  "ModularCurvesPartII"
+ ],
+ "stages": [
+  {
+   "key": "C7",
+   "title": "Normalization models over auxiliary Siegel compactifications",
+   "description": "Auxiliary Siegel data for a Hodge-type datum at an arbitrary level K = K_pK^p: finite families of Hodge embeddings into Siegel data with self-dual lattices and hyperspecial auxiliary levels, conjugated by elements of G(𝔸_f) (Madapusi Pera §4.1.1; Lan 2016 §§2–4; Boxer–Pilloni §3.4.19); Zarhin's replacement making any lattice self-dual and the finiteness of the induced map 𝒜_{g,d} → 𝒜_{8g,1} on moduli. Induced (pulled-back, possibly nonsmooth) cone decompositions and the finite map of characteristic-zero toroidal compactifications identifying Sh^Σ_K with a normalization (Harris's lemma). The normalized toroidal model 𝒮^Σ_K: the normalization of the product of good Siegel toroidal models over O_{E,(v)} in Sh^Σ_K, normal, proper and flat, with its open dense interior 𝒮_K; transitivity of normalization and the dependence on auxiliary choices; normalized boundary towers, twisted torus embeddings and strata; the variant over ℤ_p^cycl = ℤ_p[ζ_{p^∞}].",
+   "requires": [
+    "ShimuraCompactifications:C1",
+    "ShimuraCompactifications:C2",
+    "ShimuraCompactifications:C3",
+    "ShimuraCompactifications:C5",
+    "ShimuraData:D4",
+    "PELModuli:M5",
+    "PELModuli:M6",
+    "PadicDifferentialEquationsAndRigidCohomology:RD.5",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.1"
+   ]
+  },
+  {
+   "key": "C8",
+   "title": "Normalized PEL compactifications with lattice collections",
+   "description": "Lan's theory (Forum Math. Sigma 2016) for PEL data with a collection J of lattices at arbitrary level and ramification at p: normalized interior and minimal models (Propositions 6.1, 6.4) with the extended polarized abelian schemes and the ample Hodge line; normalized toroidal models and the Proj description of the minimal model (Lemma 7.9, Proposition 7.11); putative boundary charts by normalization (§8); stratification, formal completions along strata and flatness of strata (Theorems 9.13, 10.13, Corollaries 10.15–10.18); degenerating families over the toroidal model, the universal property and independence of auxiliary choices (Theorems 11.2, 11.4, Corollary 11.7); strata of the minimal model (Theorem 12.16); level changes, subcollections and Hecke twists (§13); transfer of local properties, regularity and the lci property from the interior (Propositions 14.1–14.2); and the minimal-model input that Lan's 2017 normalized blow-ups (ShimuraCompactifications C5.31) require.",
+   "requires": [
+    "ShimuraCompactificationsPartII:C7",
+    "ShimuraCompactifications:C4",
+    "ShimuraCompactifications:C5",
+    "PELModuli:M1",
+    "PELModuli:M2"
+   ]
+  },
+  {
+   "key": "C9",
+   "title": "Hodge cycles on degenerating abelian varieties",
+   "description": "The p-adic Hodge theory input of Madapusi Pera §§1 and 3.1–3.5: realizations of 1-motives (étale, de Rham, Betti) with weight and Hodge filtrations; absolute Hodge tensors on boundary 1-motives (Brylinski) and their descent to canonical models; agreement of the tensors of the 1-motive and of the abelian scheme near the boundary; the log Dieudonné crystal of a degenerating abelian scheme over a complete normal local base (Proposition 1.3.5, Appendix A.1); the semistable comparison for abelian varieties with semi-abelian reduction and the Coleman–Iovita criterion (Proposition 1.4.10, Theorem 6); the canonical φ-module at a boundary point of the Siegel chart with its weight filtration and monodromy (§3.2); canonical crystalline tensors matching étale and de Rham tensors (Corollary 3.3.9) with stabilizer G_{K_0} by Steinberg's theorem; and the crystalline rationality theorem K_0 ⊗ B_G ≅ (Lie U_wt,G)(−1) (Theorem 3.4.3(1), §3.5).",
+   "requires": [
+    "ShimuraCompactifications:C1",
+    "ShimuraCompactifications:C4",
+    "AutomorphicBundles:B1",
+    "HodgeTateAndCanonicalSubgroups:T1",
+    "CrystallineCohomology:CR.5",
+    "CrystallineCohomology:CR.6",
+    "CohomologyComparisons:CP.4",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3",
+    "ReductiveGroupsPartII:RG2.1"
+   ]
+  },
+  {
+   "key": "C10",
+   "title": "Toroidal compactifications of Hodge type",
+   "description": "Madapusi Pera's main theorem at arbitrary level: the canonical reduction of the Siegel boundary torus torsor to the torus of B_G (Theorem 3.4.3(2), §3.6) and the local structure of 𝒮^Σ_K at boundary points as completions of twisted torus embeddings (Theorem 3.4.3(3), §3.7); the abelian-scheme torsor of the boundary tower under the level hypothesis K_p = K‡(n)_p ∩ G(ℚ_p) (Theorem 4.1.5(1)); stratification with flat normal strata (4.1.5(2)–(3), 4.2.4); the normalized boundary mixed Shimura model as an E_K(Φ)-torsor (4.1.5(4), 4.2.8, 4.2.11); formal completions along strata (4.1.5(5)); Theorem 1 (Cartier boundary, étale-local charts, singularities no worse than the interior); refinements and independence of the Siegel decomposition; functoriality for embeddings of data and Hecke correspondences (4.1.13); the properness criterion (4.1.7), Morita's conjecture (Theorem 5), connected components (4.1.11) and the étale rationality of Hodge cycles (Theorem 4).",
+   "requires": [
+    "ShimuraCompactificationsPartII:C7",
+    "ShimuraCompactificationsPartII:C9",
+    "ShimuraCompactifications:C2",
+    "ShimuraCompactifications:C3",
+    "ShimuraCompactifications:C4",
+    "ShimuraCompactifications:C5",
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ]
+  },
+  {
+   "key": "C11",
+   "title": "Hyperspecial level: smooth canonical compactifications",
+   "description": "At hyperspecial level with a p-integral Hodge embedding (§4.3.2) and Kisin's smoothness of the interior (an input recorded as a gap): reductive models of the boundary data and smoothness of the boundary towers; smooth (projective for projective Σ) toroidal compactifications with relative normal crossings boundary, independent of the embedding (Theorem 2); canonical integral models of the boundary mixed Shimura varieties (Proposition 4.3.5); the logarithmic de Rham bundle H_dR(Σ), the extension of the de Rham tensors and the G_{ℤ_(p)}- and P_μ-torsors over the compactification, independent of the embedding (4.3.1, 4.3.7, 4.3.9, 4.3.10); unramified good reduction of the boundary torus torsors ξ_K → C_K and their torus embeddings (Farb–Kisin–Wolfson Corollary 3.3.18); canonicity of the minimal compactification and smoothness of the stratum maps (Theorem 5.3.1).",
+   "requires": [
+    "ShimuraCompactificationsPartII:C10",
+    "ShimuraCompactificationsPartII:C12",
+    "ReductiveGroupsPartII:RG2.3",
+    "AutomorphicBundles:B1",
+    "AutomorphicBundles:B3"
+   ]
+  },
+  {
+   "key": "C12",
+   "title": "Minimal compactifications of Hodge type",
+   "description": "The Hodge line on the normalized toroidal model and its boundary decomposition (Definition 5.1.1, 5.1.4); semiampleness, invariance of its sections under refinement and finite generation (Proposition 5.1.3); Fourier–Jacobi expansions, their independence of the cone and positivity of support (5.1.5–5.1.8); the minimal compactification 𝒮^min_K as Proj of the Hodge section algebra with its contraction, universal property, flat boundary, ample Hodge line, stratification by Δ^fin_K(Φ)\\𝒮_{K_Φ,h}, compatibility with toroidal strata and the Koecher principle (5.2.1–5.2.11); complete local rings at boundary points (Corollary 5.2.8); Hecke correspondences on 𝒮^min_K (Proposition 5.2.13); and the coordinates and unipotent action at zero-dimensional cusps used by Maulik–Shankar–Tang §8.2.",
+   "requires": [
+    "ShimuraCompactificationsPartII:C10",
+    "ShimuraCompactifications:C2",
+    "ShimuraCompactifications:C5"
+   ]
+  },
+  {
+   "key": "C13",
+   "title": "Siegel models at deep level at p",
+   "description": "Boxer–Pilloni's integral models for GSp_{2g} of every genus at any level K_p: de Jong's 𝒜_{g,d} with polarization-type loci 𝒜_{g,δ} and K_δ (§3.4.19); the normalized toroidal models S^tor_K of products ∏ A^tor_{g,d_i} over ℤ_p and ℤ_p^cycl (§3.4.23) as instances of C7–C8 and C10; the semi-abelian G, G^∨ and λ over A^tor_{g,d} for p | d; the Iwahori-level model of level p^n (n ≥ 1) with d_i = p^{n(g−i)} and the extension of the self-dual isogeny chain to semi-abelian schemes (§4.1.1); the graded pieces Gr_i as quasi-finite flat group schemes, not finite at the boundary; and, at n = 1, the toroidal compactification of the Iwahori lattice-chain moduli (Remark 4.1.2).",
+   "requires": [
+    "ShimuraCompactificationsPartII:C7",
+    "ShimuraCompactificationsPartII:C8",
+    "ShimuraCompactificationsPartII:C10",
+    "PELModuli:M5",
+    "PELModuli:M6",
+    "ShimuraCompactifications:C4"
+   ]
+  },
+  {
+   "key": "C14",
+   "title": "Genus two at Klingen and paramodular level",
+   "description": "Pilloni's Siegel threefolds over ℤ_p: the paramodular lattice V_1, the groups Γ, Γ_par, Γ_Kli(p) and the Klingen and paramodular moduli with the chain G → G/H → G/H^⊥ → G (§§6.1.1–6.1.5.1); boundary charts of 1-motives and good cone decompositions (§§6.1.5.2–6.1.5.3); the toroidal compactifications X_Kli(p) and X_par with strata, completions and Cartier boundary (Theorem 6.1.5.1(1)); normality and the lci property, with non-smooth loci in the non-ordinary special fibre of codimension at least 2 (6.1.5.1(4), §7.1); extension of p_1, p_2 and of the chain G → G′ → G (6.1.5.1(3), §7.1); the compactified T_{p,2}-correspondence over ℤ_p (§14.9.2); the sheaves ω_G, Ω^(k,r) and the independence of their cohomology from Σ (§6.2.1); the minimal compactifications X^⋆_par and X^⋆_Kli(p), descent of det ω_G → det ω_{G′} and finiteness of X^⋆_Kli(p) → X^⋆ over the p-rank ≥ 1 locus (§6.2.2, p. 101); and Stroh's extension of the Klingen subgroup across the boundary.",
+   "requires": [
+    "ShimuraCompactificationsPartII:C8",
+    "ShimuraCompactificationsPartII:C10",
+    "ReductiveGroupsPartII:RG2.3",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+    "ModularCurvesPartII:R12.3",
+    "ShimuraCompactifications:C3",
+    "AutomorphicBundles:B3"
+   ]
+  },
+  {
+   "key": "C15",
+   "title": "Orthogonal Shimura varieties at the boundary",
+   "description": "The GSpin Shimura datum of a quadratic lattice of signature (n, 2) with its Kuga–Satake embedding, p-integral when the lattice is self-dual at p; the cusps of its minimal compactification, zero-dimensional for isotropic lines and one-dimensional for isotropic planes, with flat stratification; uniqueness of cone decompositions over one-dimensional cusps, the description of their preimages as finite quotients of ℰ ⊗ Λ-torsors over modular curves (Λ = I^⊥/I) and the unique extension of prime-to-p Hecke correspondences over the complement of the zero-dimensional cusps; the zero-dimensional cusps with their Lorentzian cones and invariant power-series coordinates (Maulik–Shankar–Tang §§8.1–8.5).",
+   "requires": [
+    "ShimuraCompactificationsPartII:C11",
+    "ShimuraCompactificationsPartII:C12",
+    "ShimuraData:D4",
+    "ShimuraVarieties:V2"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "MP19",
+   "title": "Toroidal compactifications of integral models of Shimura varieties of Hodge type",
+   "authors": "Keerthi Madapusi Pera",
+   "edition": "arXiv:1211.1731v6 (11 March 2018); Annales scientifiques de l'École normale supérieure 52 (2019), 393–514",
+   "url": "https://arxiv.org/abs/1211.1731v6",
+   "readSections": [
+    "Introduction and Theorems 1–6, pp. 1–8",
+    "§1.1–1.4 statements, pp. 9–19",
+    "§3.1–3.5 (3.1.2, 3.1.4, 3.1.6, 3.2.1–3.2.7, 3.3.9, 3.4.1–3.4.4, 3.5.1–3.5.7), pp. 43–63",
+    "§3.7.4, p. 69",
+    "§4.1–4.3, pp. 69–82",
+    "§5.1–5.3, pp. 83–89",
+    "Appendix A.1.1, p. 89; statement numbers of A.1.10, A.3.2–A.3.8 located"
+   ]
+  },
+  {
+   "id": "Lan16",
+   "title": "Compactifications of PEL-type Shimura varieties in ramified characteristics",
+   "authors": "Kai-Wen Lan",
+   "edition": "Author's compilation with errata corrected (cpt-ram-flat.pdf, 78 pp.); Forum of Mathematics, Sigma 4 (2016), e1. Page numbers are the author copy's.",
+   "url": "https://www.kwlan.org/articles/cpt-ram-flat.pdf",
+   "readSections": [
+    "§1 Introduction, pp. 1–5",
+    "§6 Propositions 6.1 and 6.4, pp. 32–35",
+    "§7 Proposition 7.4, Lemma 7.9, Proposition 7.11, Theorem 7.14, pp. 36–40",
+    "§9 Lemmas 9.11–9.12, Theorem 9.13, p. 51",
+    "§10 Theorem 10.13, Corollaries 10.15–10.18, pp. 53–55",
+    "§11 Theorems 11.2, 11.4, Corollaries 11.7–11.9, pp. 55–57",
+    "§12 Theorem 12.16, p. 62",
+    "§14 Propositions 14.1–14.2, p. 69",
+    "statement list of §§2–5, 8, 12–13, 15"
+   ]
+  },
+  {
+   "id": "Lan17",
+   "title": "Integral models of toroidal compactifications with projective cone decompositions",
+   "authors": "Kai-Wen Lan",
+   "edition": "Author's compilation (cpt-ram-nbl.pdf, 36 pp.); International Mathematics Research Notices 2017, no. 11, 3237–3280",
+   "url": "https://www.kwlan.org/articles/cpt-ram-nbl.pdf",
+   "readSections": [
+    "Introduction, pp. 1–2",
+    "statement locations of Theorem 6.1, Proposition 7.5, Theorems 8.6–8.9"
+   ]
+  },
+  {
+   "id": "BP26",
+   "title": "Higher Hida theory for Siegel modular forms",
+   "authors": "George Boxer and Vincent Pilloni",
+   "edition": "Authors' version of 5 November 2025 (higherhidaSiegel.pdf, 65 pp.); Inventiones mathematicae 244 (2026), doi:10.1007/s00222-025-01393-2",
+   "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/higherhidaSiegel.pdf",
+   "readSections": [
+    "§3.2–3.4 (Shimura varieties, Igusa towers, §§3.4.15–3.4.25), pp. 34–40",
+    "§4.1.1–4.1.11 and §4.2.1–4.2.2, pp. 40–43"
+   ]
+  },
+  {
+   "id": "Pil20",
+   "title": "Higher coherent cohomology and p-adic modular forms of singular weights",
+   "authors": "Vincent Pilloni",
+   "edition": "Author's version (17 June 2019, as cited by the extraction); Duke Mathematical Journal 169 (2020), 1647–1807. Read in the maintainer-cleared copy; also free at the author's page.",
+   "url": "https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf",
+   "readSections": [
+    "§6.1–6.2, pp. 26–31",
+    "§7.1, p. 38",
+    "p. 101 (proof of Lemma 14.x on the p-rank ≥ 1 locus)",
+    "§14.9.2, p. 104"
+   ]
+  },
+  {
+   "id": "FKW",
+   "title": "Essential dimension via prismatic cohomology",
+   "authors": "Benson Farb, Mark Kisin and Jesse Wolfson",
+   "edition": "arXiv:2110.05534v2 (27 February 2024)",
+   "url": "https://arxiv.org/abs/2110.05534v2",
+   "readSections": [
+    "§2.2.12–2.2.14, p. 15",
+    "§3.3.11–3.3.19, pp. 33–37"
+   ]
+  },
+  {
+   "id": "MST22",
+   "title": "Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture",
+   "authors": "Davesh Maulik, Ananth N. Shankar and Yunqing Tang",
+   "edition": "Authors' manuscript of 25 December 2021 (GSpincharp.pdf); Inventiones mathematicae 228 (2022), 1075–1143",
+   "url": "https://math.berkeley.edu/~ytang/GSpincharp.pdf",
+   "readSections": [
+    "§8.1–8.5, pp. 36–39"
+   ]
+  },
+  {
+   "id": "FC90",
+   "title": "Degeneration of Abelian Varieties",
+   "authors": "Gerd Faltings and Ching-Li Chai",
+   "edition": "Ergebnisse der Mathematik und ihrer Grenzgebiete (3) 22, Springer, 1990 (maintainer-cleared copy; cited through the parent roadmap's C4)",
+   "readSections": [
+    "Chapter I, Proposition 2.7, pp. 9–11 (through ShimuraCompactifications C4.8)"
+   ]
+  },
+  {
+   "id": "Bry83",
+   "title": "1-motifs et formes automorphes (théorie arithmétique des domaines de Siegel)",
+   "authors": "Jean-Luc Brylinski",
+   "edition": "Journées automorphes (Dijon, 1981), Publ. Math. Univ. Paris VII 15 (1983), 43–106",
+   "readSections": [
+    "Not read; Théorème 2.2.5 is cited through Madapusi Pera, Proposition 3.1.2, p. 44"
+   ]
+  },
+  {
+   "id": "Str15",
+   "title": "Compactifications de variétés de Siegel aux places de mauvaise réduction (and the Astérisque 370 sequel)",
+   "authors": "Benoît Stroh",
+   "edition": "Bull. SMF 138 (2010), 259–315; Astérisque 370 (2015), 269–304",
+   "readSections": [
+    "Not read; Astérisque 370, Lemma 2.4.3 is cited through Pilloni, footnote 27, p. 105"
+   ]
+  },
+  {
+   "id": "BZ21",
+   "title": "Special cycles on toroidal compactifications of orthogonal Shimura varieties",
+   "authors": "Jan Hendrik Bruinier and Shaul Zemel",
+   "edition": "Mathematische Annalen (2021)",
+   "readSections": [
+    "Not read; §§3.2–3.3, Lemma 3.18 and Proposition 3.19 are cited through Maulik–Shankar–Tang §§8.1, 8.4–8.5"
+   ]
+  },
+  {
+   "id": "Zem20",
+   "title": "The structure of integral parabolic subgroups of orthogonal groups",
+   "authors": "Shaul Zemel",
+   "edition": "Journal of Algebra 559 (2020), 95–128",
+   "readSections": [
+    "Not read; §4, Proposition 4.3 and Theorem 4.5 are cited through Maulik–Shankar–Tang §8.5"
+   ]
+  }
+ ],
+ "status": "draft"
+}
