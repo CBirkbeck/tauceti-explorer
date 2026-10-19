@@ -188,7 +188,7 @@
     {
       "key": "BM.10",
       "title": "Integral algebraic étale motives",
-      "description": "Construct the presentable stable infinity-category of integral algebraic étale motives over a field and its comparison maps. For algebraically closed discrete fields prove compact dualizable generation, rational K-theory and prime-to-characteristic completed mapping formulas, and equivalence with Berkovich motives.",
+      "description": "Construct the presentable stable infinity-category of integral algebraic étale motives over a field and its comparison maps. For algebraically closed discrete fields prove compact dualizable generation, rational K-theory and prime-to-characteristic completed mapping formulas, and equivalence with Berkovich motives. Normalize the rational mapping spectrum by K(X)_Q^(j)[−2j], with π_i=K_{i+2j}(X)_Q^(j).",
       "requires": [
         "AdicCoefficientsAndComparisons:L5",
         "EnhancedDerivedSheaves:E0",
