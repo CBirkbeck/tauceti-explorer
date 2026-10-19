@@ -1,10 +1,19 @@
-import Mathlib
+import Mathlib.Algebra.MonoidAlgebra.MapDomain
+import Mathlib.FieldTheory.AbsoluteGaloisGroup
+import Mathlib.FieldTheory.Galois.Infinite
+import Mathlib.GroupTheory.Torsion
+import Mathlib.NumberTheory.BernoulliPolynomials
+import Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter
+import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
+import Mathlib.RingTheory.Polynomial.Eisenstein.Distinguished
+import Mathlib.Tactic.Ring
 
 /-!
 # IntegralIwasawaTheory, part I.1: representative target signatures
 
-Independent review: several README proof contracts remain open. No theorem below asserts
-the unresolved real-place comparison or the dyadic local-Ribet supplier extension.
+The README specifies the arithmetic proof targets and the exact Part II supplier contracts.
+Those contracts are planning interfaces, not declarations available at the pins. The dyadic
+Kummer comparison and local Ribet extension therefore remain README targets.
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/IntegralIwasawaTheory--I.1.md` is definitive; the statements below
@@ -117,6 +126,13 @@ theorem omega_isDistinguishedAt (p n : ℕ) [Fact p.Prime] :
 /-- `ω_1` is not a multiple of `X^p`: the kernel of the passage to the first layer is not `(T^p)`. -/
 example (p : ℕ) [Fact p.Prime] : ¬ (Polynomial.X ^ p ∣ omega p 1) := by
   sorry
+
+/-! ## Layer I.2: a finite-unit cohomology check -/
+
+/-- A finite 2-group contributes its 2-rank to the unit-cohomology formula.
+For `B = Z/4`, the 2-torsion has order two, while `B` has order four. -/
+example : Fintype.card {x : ZMod 4 // (2 : ZMod 4) * x = 0} = 2 := by
+  decide
 
 /-! ## Layer I.3: Stickelberger elements over Q -/
 

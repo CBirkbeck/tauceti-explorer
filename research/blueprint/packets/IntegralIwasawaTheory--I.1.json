@@ -15,8 +15,8 @@
   "IntegralIwasawaTheory:I.9",
   "IntegralIwasawaTheory:L0"
  ],
- "status": "partial",
- "summary": "Independent target-level review of 66 nodes spanning arithmetic cyclotomic towers, Iwasawa modules, Stickelberger elements, classical main-conjecture arguments, CM Selmer/Ritter–Weiss modules, the Brumer–Stark Fitting theorem and classical comparisons. Clear mathematical and ownership errors have been corrected. The pass is complete as a review, but I.2, I.4, I.5, I.7 and I.10 remain partial with explicit proof or supplier gaps; in particular the real dyadic map-level comparison is not established. I.8, I.9 and L0 belong to the separate I.8 packet, whose stronger supplier requests require reconciliation. The current library’s completed group algebra and higher Fitting ideals are imported, never replanned. No implementation or packaging readiness is claimed.",
+ "status": "complete",
+ "summary": "Target-level revision of cyclotomic arithmetic, unit and Galois limits, classical main conjectures, the all-prime Brumer–Stark proof and the Kurihara–Kolster comparison. There are 68 mathematical targets, with explicit dyadic Kummer/unit proof plans and exact Part II supplier contracts. The generic completed algebra and Fitting carriers are imported. I.8/I.9/L0 retain their separate owner; their finite-to-infinite consumer correction is specified in the handoff. Complete means planned under Protocol §0, not accepted, closed, implemented, or that the requested supplier extensions already exist.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -290,6 +290,9 @@
    ],
    "reviewReadSections": [
     "Independent review: §§1–3, pp. 3–27; §§5–9, pp. 31–43 and 50–77; Appendices A–B, pp. 78–97."
+   ],
+   "revisionReadSections": [
+    "§8.2–8.3, Theorems 8.8, 8.9, 8.15, 8.17–8.18 with their proofs and uses, pp. 54, 58–60; Appendix B in full, pp. 89–96, including all Lemmas B.1–B.7 and Theorem B.8."
    ]
   },
   {
@@ -307,6 +310,9 @@
    ],
    "reviewReadSections": [
     "Independent review: §§1–3, pp. 3–10 and 12–30, including the inclusion/equality argument, local Ribet hypotheses and modular construction statements."
+   ],
+   "revisionReadSections": [
+    "§2.7, Theorems 2.14–2.16 and proof, pp. 17–21; §3.1–3.3 in full, pp. 22–30, including the cusp, old-form, Hecke-order and Galois constructions."
    ]
   },
   {
@@ -320,6 +326,9 @@
    ],
    "reviewReadSections": [
     "Independent review: Theorems 1.1–1.2, pp. 2–4, and Theorem 2.1 with §2.1, pp. 7–10, read from the maintainer-cleared copy."
+   ],
+   "revisionReadSections": [
+    "§2, Theorem 2.1, Remark 2.2 and §2.1, pp. 7–11, read in place from the maintainer-cleared copy."
    ]
   },
   {
@@ -429,6 +438,9 @@
    ],
    "reviewReadSections": [
     "Introduction, main-conjecture discussion, p. 14."
+   ],
+   "revisionReadSections": [
+    "§3, p. 14, read directly; its μψ=0 sentence explicitly assumes the additional μ=0 hypothesis. The I.5 proof uses Kurihara instead of deducing integral μ equality from this sentence."
    ]
   },
   {
@@ -445,6 +457,9 @@
    ],
    "reviewReadSections": [
     "§1, §§1.0.3–1.0.4, pp. 2–4."
+   ],
+   "revisionReadSections": [
+    "§1.0.3–§2.2.3, pp. 2–4, read directly for cyclotomic coefficient/tower conventions."
    ]
   },
   {
@@ -459,7 +474,64 @@
    ],
    "reviewReadSections": [
     "Theorem 15.3, p. 66."
+   ],
+   "revisionReadSections": [
+    "§13.1–13.2, Lemmas 13.4 and 13.6, Definition 13.5 and the Galois modules, p. 66. The former reviewReadSections locator Theorem 15.3 on p. 66 is a locator error; the cited material on that page is §13."
    ]
+  },
+  {
+   "id": "NSW-2.3",
+   "title": "Cohomology of Number Fields",
+   "authors": "Jürgen Neukirch; Alexander Schmidt; Kay Wingberg",
+   "edition": "electronic edition 2.3, May 2020, corrected second edition; printed page numbers",
+   "url": "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf",
+   "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91",
+   "readSections": [
+    "§5.6, Lemma 5.6.15, Proposition 5.6.16 and Theorem 5.6.17 with proofs, pp. 331–332",
+    "§8.3, Theorem 8.3.20, pp. 464–465; §8.7, Theorems 8.7.5–8.7.7 and their proofs, pp. 509–511",
+    "§10.3, Lemma 10.3.13, pp. 630–632; Theorem 10.3.22 and Corollary 10.3.24, pp. 639–640; Theorem 10.3.25, pp. 640–641",
+    "§11.1, Theorem 11.1.8 and Proposition 11.1.9, pp. 729–730",
+    "§11.2, opening finite-generation argument and principal-unit sequences, pp. 731–735",
+    "§11.3, Theorems 11.3.2 and 11.3.5 and Proposition 11.3.10, pp. 736–741 (the section’s imaginary hypothesis at p = 2 is retained)",
+    "§11.6, Theorem 11.6.16, p. 781 (statement only)"
+   ],
+   "notes": "Read directly for this revision on 2026-10-19; statements and proof contracts below are in our own words."
+  },
+  {
+   "id": "YAMASHITA-1984",
+   "title": "The second cohomology groups of the group of units of a Z_p-extension",
+   "authors": "Hiroshi Yamashita",
+   "edition": "Tohoku Math. J. 36 (1984), 75–80",
+   "url": "https://www.jstage.jst.go.jp/article/tmj1949/36/1/36_1_75/_pdf",
+   "sha256": "c6795c7d8517c6a0f2ba6d7e7de851041149b5512a8030e7a635beb7f5204a4d",
+   "readSections": [
+    "Entire six-page article: §1, Lemmas 1–2, pp. 75–77; §2, Lemma 3 and exact sequence (2), p. 77; §3, Lemmas 4, 5, 7, pp. 78–79; §4, Theorem and divisibility proof, p. 79"
+   ],
+   "notes": "Read directly for this revision on 2026-10-19; statements and proof contracts below are in our own words."
+  },
+  {
+   "id": "GREENBERG-1983",
+   "title": "On p-adic Artin L-functions",
+   "authors": "Ralph Greenberg",
+   "edition": "Nagoya Math. J. 89 (1983), 77–87",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7553544640D5E8A25438318D20A35A09/S0027763000020250a.pdf/div-class-title-on-em-class-italic-p-em-adic-artin-em-class-italic-l-em-functions-div.pdf",
+   "sha256": "ece6c5b30f266cf4aa3462b64a2f6f24aa3af1f8c65fd17645c7683957dbef04",
+   "readSections": [
+    "Entire article: §1, Propositions 1–3, pp. 78–80; §2, induction and type-W formulas, pp. 80–83; §3, Proposition 5, pp. 83–85; final integrality discussion, pp. 85–87"
+   ],
+   "notes": "Read directly for this revision on 2026-10-19; statements and proof contracts below are in our own words."
+  },
+  {
+   "id": "BKS-2016",
+   "title": "On zeta elements for G_m",
+   "authors": "David Burns; Masato Kurihara; Takamichi Sano",
+   "edition": "Documenta Mathematica 21 (2016), 555–626; published open-access PDF, printed page numbers",
+   "url": "https://ems.press/content/serial-article-files/26320",
+   "sha256": "aede51fac2aecec7de2fbf08e6682717c3bd4dcbe602415757c0b484b205b4be",
+   "readSections": [
+    "§2.1–2.2, Definition 2.1, Propositions 2.2 and 2.4 with proofs, pp. 569–574"
+   ],
+   "notes": "Used for the finite T-modified complex and its canonical cohomology/control interface; the generic derived Iwasawa construction remains owned by ArithmeticGaloisDuality and SelmerIwasawaCohomology."
   }
  ],
  "sourceVersions": [
@@ -545,6 +617,34 @@
    "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2, 19 December 2024",
    "read": "2026-10-19",
    "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+  },
+  {
+   "kind": "author-publication",
+   "url": "https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf",
+   "citation": "Jürgen Neukirch; Alexander Schmidt; Kay Wingberg, Cohomology of Number Fields, electronic edition 2.3, May 2020, corrected second edition; printed page numbers",
+   "read": "2026-10-19",
+   "sha256": "abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91"
+  },
+  {
+   "kind": "author-publication",
+   "url": "https://www.jstage.jst.go.jp/article/tmj1949/36/1/36_1_75/_pdf",
+   "citation": "Hiroshi Yamashita, The second cohomology groups of the group of units of a Z_p-extension, Tohoku Math. J. 36 (1984), 75–80",
+   "read": "2026-10-19",
+   "sha256": "c6795c7d8517c6a0f2ba6d7e7de851041149b5512a8030e7a635beb7f5204a4d"
+  },
+  {
+   "kind": "author-publication",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7553544640D5E8A25438318D20A35A09/S0027763000020250a.pdf/div-class-title-on-em-class-italic-p-em-adic-artin-em-class-italic-l-em-functions-div.pdf",
+   "citation": "Ralph Greenberg, On p-adic Artin L-functions, Nagoya Math. J. 89 (1983), 77–87",
+   "read": "2026-10-19",
+   "sha256": "ece6c5b30f266cf4aa3462b64a2f6f24aa3af1f8c65fd17645c7683957dbef04"
+  },
+  {
+   "kind": "published",
+   "url": "https://ems.press/content/serial-article-files/26320",
+   "citation": "David Burns; Masato Kurihara; Takamichi Sano, On zeta elements for G_m, Documenta Mathematica 21 (2016), 555–626; published open-access PDF, printed page numbers",
+   "read": "2026-10-19",
+   "sha256": "aede51fac2aecec7de2fbf08e6682717c3bd4dcbe602415757c0b484b205b4be"
   }
  ],
  "nodes": [
@@ -2228,15 +2328,18 @@
    ],
    "title": "The global–local unit sequence",
    "kind": "theorem",
-   "statement": "Let K_∞/K be cyclotomic, S = S_p ∪ S_∞, and assume p is odd or K is totally imaginary. (a) At a finite layer, 0 → Ē(K_n) → U(K_n) → Gal(M_S(K_n)/K_n) → Gal(L(K_n)/K_n) → 0 is exact, with Ē the image of completed global units. (b) Taking compact inverse limits gives 0 → Ē_∞ → U_∞ → 𝔛_S(K_∞) → X(K_∞) → 0. Identifying E_∞ with Ē_∞ requires a separate weak-Leopoldt comparison and is not part of inverse-limit exactness. (c) The S-unit version is 0 → Ē_{∞,S} → ℱ_∞ → 𝔛_S(K_∞) → X′_S(K_∞) → 0. (d) If μ_{2p} ⊆ K, Kummer duality gives 0 → A_∞^∨(1) → 𝔛_S(K_∞) → Hom_{Z_p}(O_{K∞}^× ⊗ Z_p, Z_p(1)) → 0. For p = 2 and real K, the finite local product must also include real sign factors and specify the wide/narrow class convention; that extension remains open.",
+   "statement": "Let K∞/K be cyclotomic, S=S_p∪S∞, and use wide ordinary class groups X=lim Cl(K_n)(p). Put Σ_n=∏_{v real of K_n} μ_2 if p=2, and Σ_n=0 otherwise; let Σ∞=lim Σ_n under the local norm (product over places above v). At every finite layer the exact sequence is 0→D_n→E_n→U_n⊕Σ_n→𝔛_S(K_n)→Cl(K_n)(p)→0, where D_n=H_2(G_S(K_n),Z_p); the image of E_n is its compact local closure. The S-unit version replaces E_n by E_{n,S_p}, U_n by ℱ_n=∏_{v|p}(K_{n,v}^×)^∧_p, and the last term by the p-split class group. Compact norm limits and weak Leopoldt give 0→E∞→U∞⊕Σ∞→𝔛_S(K∞)→X→0 and the analogous S-unit sequence. E∞ is also canonically isomorphic to lim of the images in U_n alone, and is finitely generated over Λ as a submodule of U∞. Thus Σ∞ may be omitted precisely when p is odd or K has no real places; if p=2 then Σ∞≅(Λ/(2))^{r_1(K)}. For μ_{2p}⊆K, the separate discrete Kummer sequence is 0→O_{K∞}^×⊗D→H¹(G_S(K∞),μ_{p∞})→A∞→0, using ordinary direct-limit classes; its Pontryagin dual is 0→A∞^∨(1)→𝔛_S(K∞)→(O_{K∞}^×⊗D)^∨(1)→0. All duals here are contragredient.",
    "hypotheses": [
-    "K_∞/K cyclotomic, S = S_p ∪ S_∞; p odd or K totally imaginary for (a)–(c).",
-    "For (d), μ_{2p} ⊆ K."
+    "K∞/K cyclotomic, p any prime, S=S_p∪S∞. Wide classes require real sign factors at p=2.",
+    "For the last Kummer-dual sequence μ_{2p}⊆K; do not identify discrete unit direct limits with compact norm limits."
    ],
    "proofSteps": [
-    "(a) is the class-field-theoretic description of the maximal p-ramified abelian pro-p extension (Sharifi Theorem 1.5.4).",
-    "Apply compact inverse-limit exactness to the finite-layer sequences; this proves the sequence with Ē_∞, not the additional assertion E_∞ ≅ Ē_∞. Sharifi Proposition 3.3.6, p. 86, imposes the odd-prime or no-real-place hypothesis.",
-    "(d): Kummer theory for H¹(G_{K∞,S}, μ_{p^∞}) and Pontryagin duality (Sharifi Propositions 3.3.9, Corollary 3.3.14)."
+    "Apply global Artin reciprocity and Poitou–Tate to finite completed units. With T=∅ in NSW 10.3.13 the local product contains principal p-units and μ_2 at real places; its cokernel maps to the ordinary wide class group. With T=S_p use completed local multiplicative groups and S_p-classes. Infinity is already in S, not inverted as an additional finite prime.",
+    "Take norms everywhere. Inverse limits of exact systems of compact abelian groups are exact, including the images of the finite-layer maps. Weak Leopoldt gives lim D_n=H_2(H_S,Z_p)=0. This proves injectivity of E∞ into the augmented local product and identifies E∞ with the inverse limit of its augmented closures (NSW 10.3.24).",
+    "To remove signs only from the unit-closure comparison, let K_n^0=ker(E_n→U_n). Then 2K_n^0⊆D_n at p=2, since all signs have exponent two. Consequently lim K_n^0 is killed by 2. But E∞[2]=0: each finite-layer element of order at most two is ±1, and its norm across a quadratic layer is 1. Hence lim K_n^0=0. Compact limit exactness now gives E∞≅lim image(E_n→U_n). The odd-p/no-real case has no sign term from the outset.",
+    "The real places split completely throughout the cyclotomic tower. Identify their sign groups at layer n with F_2[Γ/Γ_n]^{r_1(K)}. The local norm is the group-ring projection (sum in additive notation), so Σ∞ is the completed module (Λ/(2))^{r_1(K)}. This does not assert that Σ∞ injects into 𝔛_S; global unit signatures remain in the sequence.",
+    "By local finite generation in iwasawa-finiteness, U∞ is a finitely generated Λ-module. The injective E∞→U∞ and noetherianity give finite generation of E∞, without Leopoldt at each layer.",
+    "For the discrete Kummer sequence, take roots of elements with ideal a^{p^m}; eventual total ramification above p makes their valuations divisible by p^m at a later layer, so the target is ordinary A∞, not only p-split classes. Kummer exactness and Pontryagin duality give the stated sequence with its twist (Sharifi 3.3.9–3.3.14)."
    ],
    "acceptance": [
     "For K = Q(μ_p), p odd, (b) is the sequence 0 → ℰ_∞ → 𝒰_∞ → 𝔛_∞ → X_∞ → 0 of Sharifi's AWS notes (2.5.1), and its plus part is the L1 sequence 0 → E^+/C^+ → U^+/C^+ → X^+ → Y^+ → 0 after dividing by cyclotomic units."
@@ -2248,7 +2351,9 @@
     "IntegralIwasawaTheory:I.2/maximal-abelian-pro-p-extensions",
     "PadicMeasuresIwasawaAlgebras:L5",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "IntegralIwasawaTheory:I.2/weak-leopoldt",
+    "IntegralIwasawaTheory:I.2/iwasawa-finiteness"
    ],
    "sources": [
     {
@@ -2260,6 +2365,11 @@
      "sourceId": "SHARIFI-AWS",
      "locator": "§2.5, (2.5.1) and p. 24",
      "match": "States the exact sequence 0 → ℰ_∞ → 𝒰_∞ → 𝔛_∞ → X_∞ → 0 with injectivity on the left by weak Leopoldt."
+    },
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "Lemma 10.3.13, pp. 630–631; Corollary 10.3.24, p. 640",
+     "match": "Gives the augmented finite sequence, specifies real local μ_2, and identifies compact norm limits of units with local closures using weak Leopoldt. The p-only comparison is derived above using exponent two and absence of 2-torsion in E∞."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2275,7 +2385,7 @@
    ],
    "title": "Finite generation and torsion of the arithmetic modules",
    "kind": "theorem",
-   "statement": "For the cyclotomic Z_p-extension K_∞/K and finite S ⊇ S_p: (a) X(K_∞) = X_∞ and X'_S(K_∞) are finitely generated torsion Λ_K-modules; (b) 𝔛_S(K_∞) is a finitely generated Λ_K-module; (c) A_∞^∨ is finitely generated torsion, pseudo-isomorphic to X_∞^ι, and has no nonzero finite Λ_K-submodule; (d) E_∞ and U_∞ are finitely generated Λ_K-modules. Iwasawa's growth formula for #A_n is imported from IntegralIwasawaTheory L2 and PadicMeasuresIwasawaAlgebras L4.",
+   "statement": "For the cyclotomic Z_p-extension K_∞/K and finite S ⊇ S_p: (a) X(K_∞) = X_∞ and X'_S(K_∞) are finitely generated torsion Λ_K-modules; (b) 𝔛_S(K_∞) is a finitely generated Λ_K-module; (c) A_∞^∨ is finitely generated torsion, pseudo-isomorphic to X_∞^ι, and has no nonzero finite Λ_K-submodule; (d) U_∞ is finitely generated over Λ_K; finite generation of E_∞ is the subsequent corollary of global-local-unit-sequence, after the weak-Leopoldt identification. This order avoids using unit injectivity to prove weak Leopoldt. Iwasawa's growth formula for #A_n is imported from IntegralIwasawaTheory L2 and PadicMeasuresIwasawaAlgebras L4.",
    "hypotheses": [
     "K_∞/K cyclotomic; S finite containing S_p."
    ],
@@ -2283,7 +2393,7 @@
     "Control sequence (3.2.1) of class-field-identification shows (X_∞)_{Γ^{p^m}} has bounded Z_p-rank and finite-index image in A_m; compact Nakayama (PadicMeasuresIwasawaAlgebras L5) gives finite generation, and boundedness of ranks gives torsion (Sharifi Proposition 3.2.11).",
     "Duality between inverse and direct limits (Sharifi Proposition 3.2.14, Corollary 3.2.15).",
     "𝔛_S is finitely generated because its Γ-coinvariants are finitely generated over Z_p (Sharifi Theorem 3.3.3 proof).",
-    "For (d), local norm-compatible unit structure must first give finite generation of U_∞. To deduce finite generation of E_∞ as a closed submodule, one also needs E_∞ ≅ Ē_∞ from weak Leopoldt. These steps, including real sign factors at 2, are not supplied by the cited class-group finiteness theorem (G-I2-UNIT-FINITENESS)."
+    "For each p-adic completion k and its local tower k∞, local reciprocity identifies A∞ = lim_n (k_n^×)^∧_p with the abelianization of the kernel of the local pro-p Galois quotient onto Γ. Its Γ-coinvariants embed in (k^×)^∧_p, which is finitely generated over Z_p, because H_2(Γ,Z_p)=0. Compact Nakayama gives finite generation over Z_p[[Γ]]. The inverse-limit principal units are a submodule of A∞, so are finitely generated by noetherianity. Inducing from the finitely many open decomposition groups and taking their product proves finite generation of U∞ (NSW §11.2, pp. 731–735). This argument uses neither global unit injectivity nor strong Leopoldt."
    ],
    "acceptance": [
     "For K = Q, X_∞ = 0; for K = Q(μ_p) with p regular, X_∞ = 0."
@@ -2293,7 +2403,11 @@
     "IntegralIwasawaTheory:I.2/class-group-limit",
     "PadicMeasuresIwasawaAlgebras:L5",
     "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism",
-    "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem"
+    "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem",
+    "IntegralIwasawaTheory:I.2/semilocal-principal-units",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
    ],
    "sources": [
     {
@@ -2305,6 +2419,11 @@
      "sourceId": "KOLSTER-2009",
      "locator": "Lecture 1, §1, p. 7",
      "match": "Records that X_∞ and X'_∞ are finitely generated Λ-torsion and that X_S is finitely generated."
+    },
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "§11.2, pp. 731–735, opening reciprocity/Nakayama argument and principal-unit valuation sequences",
+     "match": "Supplies finite generation of local multiplicative norm limits; principal-unit limits are their submodules. The arithmetic semilocal induction is performed here."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2317,15 +2436,17 @@
    ],
    "title": "Weak Leopoldt for the cyclotomic tower",
    "kind": "theorem",
-   "statement": "Let K_∞/K be the cyclotomic Z_p-extension of a number field K and S ⊇ S_p ∪ S_∞ finite. (a) The Leopoldt defects δ(K_n, p) are bounded in n; if μ_{2p} ⊆ K then δ(K_n, p) ≤ λ(X'_{S_p}(K_∞)) for every n. (b) rank_{Λ_K} 𝔛_S(K_∞) = r_2(K); in particular 𝔛_S(K_∞) is Λ_K-torsion iff K is totally real. (c) 𝔛_S(K_∞) has no nonzero finite Λ_K-submodule. (d) Equivalently to (b), H²(G_S(K_∞), Q_p/Z_p) = 0, where G_S(K_∞) is the Galois group of the maximal extension of K_∞ unramified outside S; in particular this holds for K_∞ = F(μ_{p^∞}) when μ_{2p} ⊆ F. Leopoldt's conjecture for K itself is not assumed.",
+   "statement": "Let K∞/K be cyclotomic, Γ=Gal(K∞/K), Λ=Z_p[[Γ]], S⊇S_p∪S∞ finite, H_S=Gal(K_S/K∞), and D=Q_p/Z_p with trivial Galois action. The following equivalent conditions hold: the defects δ(K_n,p) are bounded; H_2(H_S,Z_p)=0; H²(H_S,D)=0; and 𝔛_S(K∞) is finitely generated over Λ, has rank r_2(K), and has no nonzero finite Λ-submodule. For μ_{2p}⊆K the sharper bound is δ(K_n,p)≤λ(X′_{S_p}(K∞)). Real places may ramify at p=2. H² is ordinary continuous cohomology of the discrete trivial module D, with restriction/inflation in the tower; its dual is compact homology with corestriction. Vanishing of this particular H² does not assert cd_2(H_S)≤2 when K has real places. Strong Leopoldt at the individual layers is not assumed.",
    "hypotheses": [
-    "K a number field, p a prime, K_∞/K cyclotomic, S ⊇ S_p ∪ S_∞ finite."
+    "K a number field, p any prime, S⊇S_p∪S∞ finite, K_S maximal extension unramified outside S.",
+    "Coefficients Z_p in compact homology and D with trivial action in discrete cohomology; real dyadic ramification is allowed."
    ],
    "proofSteps": [
-    "Sharifi Theorem 3.3.4, p. 85, bounds defects using the class module with primes above p split, X′_{S_p}; it does not justify replacing this module by an arbitrary further S-quotient.",
-    "(b): rank_{Z_p} 𝔛_S(K_n) = p^n r_2(K) + 1 + δ_n and (𝔛_S)_{Γ_n} has rank p^n r_2 + δ_n; bounded δ_n gives rank_Λ = r_2 (Sharifi Theorem 3.3.3).",
-    "(c): Iwasawa's theorem for the cyclotomic Z_p-extension (cited by Kolster p. 7).",
-    "The H² formulation is an outstanding comparison (G-I2-H2), not a consequence of boundedness alone. For p = 2 with real places, ordinary G_S contains order-two decomposition groups and has infinite 2-cohomological dimension even when S includes infinity. A proof must specify ordinary or modified cohomology and its transition maps; none is supplied here."
+    "The finite-layer Poitou–Tate/Kummer sequence identifies H_2(G_S(K_n),Z_p) with the kernel of completed global units into the augmented local product (NSW 10.3.13); it is Z_p-torsion-free by the global duality theorem used in NSW 8.7.7. The defect equals its Z_p-rank. This is a finite-layer statement, independent of any inverse-limit unit identification.",
+    "Use compact Nakayama to obtain finite generation of 𝔛_S from finite generation of the finite-layer abelian pro-p Galois group. The R02.4 Part II truncated ordinary Euler formula is χ₂(G_S)=−r₂ even for p=2 with real places; finite-layer H²(G_S,D) is divisible by the torsion-free compact homology statement. The PMIL L5 homological Λ criterion, NSW 5.6.17, identifies H₂(H_S,Z_p)=0 with rank r₂ and absence of finite submodules. Hochschild–Serre then identifies H₂(G_S(K_n),Z_p) with 𝔛_S^{Γ_n}; its ranks are bounded by the Z_p-rank of the maximal discrete Λ-submodule. The compact-support Euler theorem with the hypothesis p odd or no real places is not being applied to the real dyadic case.",
+    "Conversely, bounded defects make lim_n H_2(G_S(K_n),Z_p) a finitely generated Z_p-module. For odd p or totally imaginary K this limit is Λ-free by the homological freeness criterion NSW 5.6.15(ii), hence zero. When p=2 and K has real places, adjoin i. For the imaginary subgroup H′_S of index two the same H_2 is Λ-free. The group H²(H_S,D) is divisible, since the finite-layer H_2 groups are torsion-free; cor∘res=2 implies cor:H²(H′_S,D)→H²(H_S,D) is onto. Its dual injects H_2(H_S,Z_2) into the Λ-free imaginary group. A Λ-free module has no nonzero Λ-stable submodule finite over Z_2, so that limit is zero (NSW 10.3.22, pp. 639–640).",
+    "To establish boundedness in the cyclotomic case, descend from a finite base extension containing μ_{2p}. Over that tower K∞ contains μ_{p∞}. Global duality identifies the dual H_2 with the Tate–Shafarevich H² for μ_{p∞}. Poitou–Tate and Kummer identify this with colim_{n,m} Cl_S(K_n)/p^m, where the m-transition is multiplication by p; it is colim_n Cl_S(K_n)⊗D=0 because each class group is finite. Thus H_2=0 (NSW 10.3.25). No real cohomological-dimension bound enters.",
+    "The explicit δ_n≤λ(X′_{S_p}) bound follows instead by adjoining p-power roots of units whose local images are sufficiently p-divisible; the resulting extensions split above p and give quotients (Z/p^m)^{δ_n} of X′_{S_p}. The torsion module structure bounds their rank by λ (Sharifi 3.3.4)."
    ],
    "acceptance": [
     "K totally real: 𝔛_S(K_∞) is Λ_K-torsion.",
@@ -2333,12 +2454,12 @@
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.2/leopoldt-map-and-defect",
-    "IntegralIwasawaTheory:I.2/global-local-unit-sequence",
     "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
-    "ArithmeticGaloisDuality:D7/compact-support-euler-characteristic",
-    "mathlib:NumberField.InfinitePlace.nrComplexPlaces"
+    "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+    "PadicMeasuresIwasawaAlgebras:L5",
+    "ArithmeticGaloisDuality:R02.4"
    ],
    "sources": [
     {
@@ -2350,6 +2471,11 @@
      "sourceId": "KOLSTER-2009",
      "locator": "Lecture 1, §1, p. 7",
      "match": "Cites Iwasawa for: for the cyclotomic Z_p-extension, X_S has no nontrivial finite Λ-submodule and Λ-rank r_2, so it is torsion iff F is totally real."
+    },
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "Lemma 10.3.13, pp. 630–631; Theorem 10.3.22, pp. 639–640; Theorem 10.3.25, pp. 640–641",
+     "match": "Proves the equivalent homological, defect and module formulations, including the adjoining-i restriction/corestriction argument at real dyadic places, and proves cyclotomic vanishing."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2365,14 +2491,16 @@
    ],
    "title": "Minus class modules of CM towers and their duals",
    "kind": "construction",
-   "statement": "Let K be a CM field, K^+ its maximal real subfield, j complex conjugation, and K_∞/K cyclotomic (a CM field with real subfield K^+_∞). For p odd, A_n^- is the −1-eigenspace of j on A_n = Cl(K_n) ⊗ Z_p, and A_∞^- = colim A_n^-, X_∞^- = lim A_n^-. For p = 2 eigenspaces are not available and the norm-kernel convention is used: A_n^- := ker(N_{K_n/K_n^+} : A(K_n) → A(K_n^+)), A_∞^- := colim_n A_n^-, with Pontryagin dual (A_∞^-)^∨ a compact Λ-module; the quotient convention M/(1 + j)M is a different functor and is compared with the norm kernel only up to explicit finite kernels and cokernels killed by 2. For p odd, the maps A_n^- → A_∞^- are injective and X_∞^- has no nonzero finite Λ-submodule; for p = 2, (A_∞^-)^∨ has no nonzero finite Λ-submodule (Federer).",
+   "statement": "Let K be a CM field, K^+ its maximal real subfield, j complex conjugation, and K_∞/K cyclotomic (a CM field with real subfield K^+_∞). For p odd, A_n^- is the −1-eigenspace of j on A_n = Cl(K_n) ⊗ Z_p, and A_∞^- = colim A_n^-, X_∞^- = lim A_n^-. For p=2 the negative eigenspace still exists but does not define an exact direct-summand functor; use the norm-kernel convention: A_n^- := ker(N_{K_n/K_n^+} : A(K_n) → A(K_n^+)), A_∞^- := colim_n A_n^-, with Pontryagin dual (A_∞^-)^∨ a compact Λ-module; the quotient convention M/(1 + j)M is a different functor and is compared with the norm kernel only up to explicit finite kernels and cokernels killed by 2. For p odd, the maps A_n^- → A_∞^- are injective and X_∞^- has no nonzero finite Λ-submodule; For p=2 and K∞=F∞(i) with F totally real (the tower used by Federer–Kolster), (A∞^-)^∨ is finitely generated torsion and has no nonzero finite Λ-submodule. At finite layers A_n^-⊆A_n^{j=−1} has cokernel ker(Cl(F_n)(2)→Cl(K_n)(2)), of order at most two. At the direct limit this cokernel vanishes. No no-finite-submodule claim for arbitrary dyadic CM towers lacking μ_4 is imported from Kolster.",
    "hypotheses": [
-    "K a CM field, p a prime, K_∞/K cyclotomic; for p = 2 the norm-kernel convention is fixed."
+    "K a CM field, p a prime, K_∞/K cyclotomic; for p = 2 the norm-kernel convention is fixed.",
+    "The dyadic no-finite-submodule conclusion is for K∞=F∞(i), F totally real; the norm-kernel construction itself is defined for every CM tower."
    ],
    "proofSteps": [
     "For p odd, multiplication by (1 − j)/2 is an idempotent projector on Z_p-modules, and the eigenspace decomposition commutes with norms and extension maps.",
     "Injectivity of j_n^- and absence of finite submodules for p odd (Sharifi Propositions 3.4.1, 3.4.2).",
-    "For p = 2, Federer's theorem on (A_∞^-)^∨ is imported as stated by Kolster 1989 (via SpecialValuesBirchTate) and recorded as a source gap for its original proof (gap G-I2-FEDERER)."
+    "For the dyadic conclusion use Kummer and Hochschild–Serre, with D trivial and J=Gal(K∞/F∞): if V=O_{K∞}^×⊗D, V is divisible and J acts trivially: a CM unit x has x/Jx a root of unity by Kronecker, and taking a square root in the 2-divisible roots of unity of K∞ makes x real modulo roots of unity, so H¹(J,V with sign action)=V/2V=0. Thus 0→V[2]→H¹(G_S(K∞),μ_{2∞})^{J=−1}→A∞^{J=−1}→0 is exact. Hochschild–Serre on D has kernel H¹(J,D)=Z/2 and zero obstruction H²(J,D)=0, hence dualizes to an injection of the dual of the middle term into 𝔛_S(F∞)(−1), with finite cokernel Z/2. The dual of A∞^{J=−1} is a submodule of this module, which is finitely generated torsion and has no finite Λ-submodule by weak Leopoldt.",
+    "At finite levels the wide Hilbert class field of F_n is totally real, hence disjoint from K_n; global class field theory makes the norm Cl(K_n)(2)→Cl(F_n)(2) surjective. As j∘N=1+J, its restriction to the negative eigenspace has kernel A_n^- and image ker j. The transfer kernel embeds in H¹(J,O_{K_n}^×). A norm-one CM unit is a root of unity, and (J−1)μ=μ², so this H¹ has order at most two. Taking direct limits gives a cokernel of order at most two between norm-minus and negative-eigen class modules. Its dual would be a finite submodule of (A∞^{J=−1})^∨, so it is zero. This proves the desired identification and no-finite-submodule theorem, with finite-layer errors accounted for."
    ],
    "acceptance": [
     "For K = Q(μ_p), p odd, X_∞^- is the minus part of the classical module of RJW and Sharifi §3.4."
@@ -2382,7 +2510,9 @@
     "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
     "mathlib:NumberField.IsCMField",
     "mathlib:NumberField.IsCMField.complexConj",
-    "mathlib:NumberField.maximalRealSubfield"
+    "mathlib:NumberField.maximalRealSubfield",
+    "IntegralIwasawaTheory:I.2/weak-leopoldt",
+    "IntegralIwasawaTheory:I.2/global-local-unit-sequence"
    ],
    "sources": [
     {
@@ -2394,6 +2524,16 @@
      "sourceId": "KURIHARA",
      "locator": "§3, pp. 15–17",
      "match": "Works with (A_{K∞}^-)^∨ and its Fitting ideal over Z_p[[Gal(K_∞/k)]]^- for a CM field, distinguishing ω and non-ω components."
+    },
+    {
+     "sourceId": "KOLSTER-1989",
+     "locator": "Tower and norm-kernel definitions, pp. 248–249; Lemma 2 and its preceding no-finite-submodule input, p. 250",
+     "match": "Fixes the dyadic scope. The proof is replaced here by the explicit Kummer/Hochschild–Serre and finite norm-transfer argument rather than citing an unread Federer original."
+    },
+    {
+     "sourceId": "SHARIFI",
+     "locator": "Proposition 3.3.9, pp. 86–88",
+     "match": "Ordinary class-group Kummer exact sequence used before taking the negative eigenspace; its exactness at two is checked through V/2V=0, not presumed."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2452,12 +2592,183 @@
     {
      "name": "IntegralIwasawaTheory.minusClassModule_quotient_comparison",
      "role": "relation",
-     "statement": "For p = 2, the natural map from the norm kernel to M/(1 + j)M has kernel and cokernel killed by 2, made explicit."
+     "statement": "For p=2, compare the norm kernel, negative eigenspace and minus quotient by their natural maps and explicit kernels/cokernels. Only norm-minus→negative-eigen in K∞=F∞(i) is proved an isomorphism at the direct limit; no general quotient identification is asserted."
     },
     {
      "name": "IntegralIwasawaTheory.minusClassModule_injective",
      "role": "characterisation",
      "statement": "For p odd, A_n^- → A_∞^- is injective."
+    },
+    {
+     "name": "IntegralIwasawaTheory.minusClassModule_dyadic_no_finite",
+     "role": "structure",
+     "statement": "For K∞=F∞(i), the contragredient dual of the norm-minus direct limit embeds in 𝔛_S(F∞)(−1), hence is finitely generated torsion with no nonzero finite Λ-submodule."
+    }
+   ]
+  },
+  {
+   "id": "IntegralIwasawaTheory:I.2/uniform-capitulation",
+   "parentStageId": "IntegralIwasawaTheory:I.2",
+   "realises": [
+    "IntegralIwasawaTheory:I.2"
+   ],
+   "title": "Uniform bound for capitulation in a Z_p-tower",
+   "kind": "theorem",
+   "statement": "For the cyclotomic Z_p-extension K∞/K of a number field there is a constant C such that #ker(Cl(K_n)(p)→Cl(K_m)(p))≤C for every n≤m≤∞. The same holds for S-class groups when S⊇S_p∪S∞ is fixed and finite. These are extension maps, including the map to the discrete direct limit; no injectivity of ordinary finite-layer class groups is asserted.",
+   "hypotheses": [
+    "K∞/K the cyclotomic Z_p-extension; class groups are ordinary wide groups; S-version as stated."
+   ],
+   "proofSteps": [
+    "Choose a layer n0 after all ramified primes are totally ramified. The class-field control description writes Cl(K_n)(p)=Xnr/ν_{n,n0}Y with Y a finite-index Λ-submodule of Xnr, and extension maps are multiplication by ν_{m,n}.",
+    "Pass from Y to its quotient by its maximal finite Λ-submodule. Once n1 is large enough, ν_{m,n} is injective on this quotient for all m≥n≥n1, by the elementary-module structure and disjointness of the relevant cyclotomic factors from its height-one support.",
+    "The remaining kernels come only from the fixed finite submodule and the fixed finite-index changes; their orders have a uniform bound. The finitely many lower layers add a fixed factor. Passing to the direct limit proves the m=∞ case. Apply the same argument to S-split class modules for the S-version (NSW 11.1.9)."
+   ],
+   "acceptance": [
+    "The bound is independent of both the starting and ending layers; a separate bound for each n would not imply the unit square-class rank estimate."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:I.2/class-field-identification",
+    "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
+    "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem"
+   ],
+   "sources": [
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "Proposition 11.1.9 and proof, p. 730",
+     "match": "Proves uniform bounds for ordinary and S-class capitulation kernels, including the infinite layer, using the finite submodule and the ν control maps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "IntegralIwasawaTheory:I.2/real-unit-radical",
+     "how": "bounds 2-ranks of H¹(Γ_n,E) uniformly in n"
+    },
+    {
+     "where": "IntegralIwasawaTheory:I.2/real-unit-galois-cohomology",
+     "how": "controls the finite kernel in the unit/invariant-ideal cohomology sequence"
+    }
+   ]
+  },
+  {
+   "id": "IntegralIwasawaTheory:I.2/real-unit-radical",
+   "parentStageId": "IntegralIwasawaTheory:I.2",
+   "realises": [
+    "IntegralIwasawaTheory:I.2"
+   ],
+   "title": "Real unit square classes in the cyclotomic tower",
+   "kind": "construction",
+   "statement": "Let F be totally real, p=2, d=[F:Q], F∞/F cyclotomic, K∞=F∞(i), J=Gal(K∞/F∞), Γ=Gal(F∞/F), Λ=Z_2[[Γ]], and D=Q_2/Z_2. Define ℰ_R=colim_n O_{F_n}^×/{±1}, W_F=ℰ_R/2ℰ_R and C_F=W_F^∨ with the contragredient action. If V=O_{K∞}^×⊗D, the Kummer map x mod 2↦x⊗(1/2 mod Z_2) identifies W_F with V[2]. J acts trivially on V. The compact module C_F is finitely generated over F_2[[Γ]] with rank d. As a torsion Λ-module char_Λ(C_F)=(2^d); it may have finite Λ-submodules, so freeness is not asserted. For Γ_n=Gal(F∞/F_n), dim_F2 W_F^{Γ_n}=d·2^n+O(1).",
+   "hypotheses": [
+    "F totally real, K∞=F∞(i) contains all 2-power roots of unity; units are ordinary units, not 2-units.",
+    "W_F is a discrete direct-limit quotient; C_F has its compact Pontryagin-dual topology."
+   ],
+   "proofSteps": [
+    "For a CM unit x, x/Jx has every complex absolute value one, hence is a root of unity by Kronecker. Since μ(K∞) is 2-divisible, choose a root of unity ζ with ζ²=x/Jx; then x/ζ is real. Consequently O_{K∞}^×=μ(K∞)·O_{F∞}^× and the quotients by all roots of unity agree canonically with ℰ_R. Tensoring with D kills μ(K∞), and torsion-freeness gives V[2]≅ℰ_R/2ℰ_R. This is an equality at the infinite level; the finite Hasse unit-index errors must not be assumed zero at every layer.",
+    "For Γ_n, 0→μ_2→O_{F∞}^×→ℰ_R→0 shows ℰ_R^{Γ_n}/(O_{F_n}^×/{±1}) has order at most two. It is finitely generated torsion-free of rank d·2^n−1 by the unit theorem.",
+    "The invariant-principal-ideal argument in uniform-capitulation gives 0→B_n→H¹(Γ_n,O_{F∞}^×)→I∞^{Γ_n}/I_{F_n}, where #B_n is uniformly bounded and the last group has 2-rank at most s=#S_2(F∞), independently of n after a fixed initial layer. Thus H¹(Γ_n,ℰ_R)[2] has uniformly bounded F_2-dimension; removing μ_2 changes this bound by at most one.",
+    "Apply Γ_n-invariants to 0→ℰ_R→×2ℰ_R→W_F→0: 0→ℰ_R^{Γ_n}/2→W_F^{Γ_n}→H¹(Γ_n,ℰ_R)[2]→0. This proves dim W_F^{Γ_n}=d·2^n+O(1), in particular finite dimension for n=0.",
+    "Compact Nakayama gives finite generation of C_F over F_2[[Γ]]. The one-variable module structure theorem says dim(C_F)_{Γ_n}=rank(C_F)·2^n+O(1). Comparison gives rank d. Localizing over Λ at (2) turns C_F into a length-d module over its residue field, while every other height-one localization vanishes; hence char(C_F)=(2^d)."
+   ],
+   "acceptance": [
+    "A finite-layer sign group cannot replace this radical: the proof needs the uniform O(1) bound and all tower invariants.",
+    "The characteristic factor is determined by the F_2[[Γ]] rank; the construction does not assert an injection of the real sign module into the ramified Galois module."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:I.2/unit-limits",
+    "IntegralIwasawaTheory:I.2/uniform-capitulation",
+    "mathlib:NumberField.Units.rank",
+    "mathlib:NumberField.IsCMField",
+    "PadicMeasuresIwasawaAlgebras:L5",
+    "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences"
+   ],
+   "sources": [
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "Proposition 11.1.9, p. 730; §11.2, p. 731, compact Nakayama method",
+     "match": "The uniform capitulation bound and compact Nakayama support the new explicit square-class growth proof above; the rank conclusion is a derivation here, not a quotation of this source."
+    },
+    {
+     "sourceId": "SHARIFI",
+     "locator": "Proposition 3.3.9 and proof, pp. 86–88",
+     "match": "Supplies the ordinary-unit Kummer radical over the cyclotomic tower. The CM-unit and mod-two calculation above isolates its real correction term."
+    },
+    {
+     "sourceId": "KOLSTER-1989",
+     "locator": "Proof of Theorem 1, pp. 249–250",
+     "match": "Uses real unit square classes; provides the finite-level cohomological check on the correction factor."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "IntegralIwasawaTheory:I.10/kurihara-kolster-module-dictionary",
+     "how": "C_F is the exact Kummer correction with characteristic factor 2^[F:Q]"
+    },
+    {
+     "where": "IntegralIwasawaTheory:I.4/dyadic-real-place-correction",
+     "how": "supplies the height-one dyadic factor without an unsupported real-inertia freeness assertion"
+    }
+   ],
+   "api": [
+    {
+     "name": "IntegralIwasawaTheory.realUnitSquareClasses",
+     "role": "constructor",
+     "statement": "W_F=(colim O_{F_n}^×/{±1})/2 with its continuous discrete Γ-action."
+    },
+    {
+     "name": "IntegralIwasawaTheory.realUnitSquareClassDual",
+     "role": "constructor",
+     "statement": "C_F=Hom_cont(W_F,D), compact with the contragredient Γ-action."
+    },
+    {
+     "name": "IntegralIwasawaTheory.realUnitSquareClasses_mk_eq",
+     "role": "characterisation",
+     "statement": "Two units at finite layers define the same class iff their ratio at some common later layer is ± a square of a real unit."
+    },
+    {
+     "name": "IntegralIwasawaTheory.realUnitSquareClasses_lift",
+     "role": "universal-property",
+     "statement": "A compatible family of Γ-equivariant homomorphisms from O_{F_n}^× killing ±1 and squares induces a unique homomorphism W_F→M for any exponent-two discrete Γ-module M."
+    },
+    {
+     "name": "IntegralIwasawaTheory.realUnitSquareClasses_kummer",
+     "role": "equivalence",
+     "statement": "The ordinary-unit Kummer map identifies W_F with (O_{K∞}^×⊗D)[2]."
+    },
+    {
+     "name": "IntegralIwasawaTheory.realUnitSquareClassDual_rank",
+     "role": "structure",
+     "statement": "C_F is finite over F_2[[Γ]] of rank [F:Q], so char_Λ(C_F)=(2^[F:Q])."
+    },
+    {
+     "name": "IntegralIwasawaTheory.realUnitSquareClasses_baseChange",
+     "role": "functoriality",
+     "statement": "Extension and norm of real units induce maps of W and, contravariantly, of C; their composite for a finite base change is multiplication by its degree."
+    }
+   ],
+   "tests": [
+    {
+     "name": "real_unit_squareclass_rat_zero_layer",
+     "kind": "computation",
+     "statement": "For F=Q, O_Q^×/{±1}=0 at layer zero, but C_Q has F_2[[Γ]]-rank one. A construction using only the base units fails."
+    },
+    {
+     "name": "real_unit_squareclass_kills_sign",
+     "kind": "degenerate",
+     "statement": "The class of −1 is zero in W_F; keeping it would add a spurious torsion class to the radical map."
+    },
+    {
+     "name": "real_unit_squareclass_real_quadratic",
+     "kind": "computation",
+     "statement": "For F=Q(√2), the free unit 1+√2 defines a nonzero element in O_F^×/({±1}(O_F^×)^2), while every square maps to zero. The tower dual has rank two."
+    },
+    {
+     "name": "real_unit_radical_not_sign_module",
+     "kind": "non-example",
+     "statement": "C_F has the same height-one characteristic ideal as (Λ/2)^[F:Q], but this does not identify their finite submodules or assert the independence of archimedean inertia."
     }
    ]
   },
@@ -2469,14 +2780,15 @@
    ],
    "title": "Galois cohomology of the real unit limit at p = 2",
    "kind": "theorem",
-   "statement": "Let F be totally real, p = 2, F_n^+ the layers of the cyclotomic Z_2-extension F_∞^+ = F_∞ of F (Kolster's tower), U^+_∞ = lim→ U(F_n^+) the direct limit of the unit groups and ℰ = U^+_∞/μ_2 its free part, Γ = Gal(F_∞/F). Then H¹(Γ, ℰ) ≅ B ⊕ (Q_2/Z_2)^r with B finite and H²(Γ, ℰ) ≅ (Q_2/Z_2)^{r−1} for some r with 1 ≤ r ≤ d, d the number of dyadic places of F_∞; consequently #H¹(Γ, μ_2 ⊗ ℰ) = 2^{s+r−1} with 2^s = #(B/2B) = #B[2], and μ_2 ⊗ ℰ_F has order 2^{[F:Q]−1}, ℰ_F being the free part of the unit group of F. These are the inputs of Kolster's Theorem 1 relating K_2(O_F)(2) to the minus class module.",
+   "statement": "Let F be totally real, p = 2, F_n^+ the layers of the cyclotomic Z_2-extension F_∞^+ = F_∞ of F (Kolster's tower), U^+_∞ = lim→ U(F_n^+) the direct limit of the unit groups and ℰ = U^+_∞/μ_2 its torsion-free quotient, Γ = Gal(F_∞/F). Then H¹(Γ, ℰ) ≅ B ⊕ (Q_2/Z_2)^r with B finite and H²(Γ, ℰ) ≅ (Q_2/Z_2)^{r−1} for some r with 1 ≤ r ≤ d, d the number of dyadic places of F_∞; consequently #H¹(Γ, μ_2 ⊗ ℰ) = 2^{s+r−1} with 2^s = #(B/2B) = #B[2], and μ_2 ⊗ ℰ_F has order 2^{[F:Q]−1}, ℰ_F being the free part of the unit group of F. These are the inputs of Kolster's Theorem 1 relating K_2(O_F)(2) to the minus class module.",
    "hypotheses": [
     "F totally real, p = 2."
    ],
    "proofSteps": [
-    "Iwasawa's Proposition 2 (Amer. J. Math. 105 (1983)), cited in Kolster 1989; the original is not read here (gap G-I2-IWASAWA83).",
-    "The order of μ_2 ⊗ ℰ^Γ from Dirichlet's unit theorem for F (Mathlib NumberField.Units.rank).",
-    "Apply the long exact sequence of 0 → ℰ → ℰ → ℰ/2ℰ → 0. It uses the 2-rank of the finite group B, rather than its order; for B = Z/4 the contribution has order 2."
+    "Let E=O_{F∞}^× and I∞ be the discrete group of fractional ideals obtained by extension. Hilbert 90 and 0→E→F∞^×→P∞→0 identify H¹(Γ,E)=P∞^Γ/P_F. Mapping to I∞^Γ/I_F has finite kernel ker(Cl(F)(2)→Cl(F∞)(2)), bounded by uniform-capitulation. After an eventual-total-ramification base layer, I∞^Γ/I_F is D^{s0}, with s0 the number of ramified primes, and its image in the class direct limit is the subgroup D∞ generated by the invariant ramified ideal products. Thus H¹(Γ,E) is cofinite with corank r=s0−corank(D∞). The finitely many initial ramification indices change only finite groups.",
+    "Yamashita §2, Lemma 3 and sequence (2), and §§3–4 compute H²(Γ,E). The local unit-idele H² direct limit is D^{s0}; the quotient idele/unit limit has corank corank(Cl(F∞)(2)^Γ)+1. Together with the D∞ term this gives corank H²=s0−corank(D∞)−1=r−1. Inflation sends a finite cyclic norm class x to x² in the next layer; this proves 2-divisibility, so H²(Γ,E)≅D^{r−1}. Hence r≥1 and r≤s0≤#S_2(F∞).",
+    "The exact sequence 0→μ_2→E→ℰ→0, and cd_2(Γ)=1 for finite 2-primary coefficients, give H²(Γ,ℰ)≅H²(Γ,E) and a finite quotient comparison in H¹. Therefore H¹(Γ,ℰ)≅B⊕D^r with B finite. This use of cd_2(Γ)=1 does not imply vanishing of H² with the torsion-free discrete coefficient ℰ.",
+    "From 0→ℰ→×2ℰ→ℰ/2ℰ→0, H¹(Γ,ℰ/2ℰ) is an extension of H¹(Γ,ℰ)/2 by H²(Γ,ℰ)[2]. Its order is #B/2B·2^{r−1}. The fixed real units have rank [F:Q]−1, giving #ℰ^Γ/2=2^{[F:Q]−1}. Fixed units modulo μ_2 can differ from finite-layer free units by a group of order at most two, which does not change their free rank; it is the rank, not a falsely asserted equality of these groups, that is used."
    ],
    "acceptance": [
     "Kolster 1989, proof of Theorem 1, p. 250."
@@ -2485,13 +2797,20 @@
     "IntegralIwasawaTheory:I.2/unit-limits",
     "IntegralIwasawaTheory:I.1/cyclotomic-layers",
     "mathlib:NumberField.Units.rank",
-    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences"
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+    "IntegralIwasawaTheory:I.2/uniform-capitulation",
+    "IntegralIwasawaTheory:I.2/class-field-identification"
    ],
    "sources": [
     {
      "sourceId": "KOLSTER-1989",
      "locator": "Proof of Theorem 1, pp. 249–250",
      "match": "Quotes Iwasawa's description of H^i(Γ, ℰ) for the free part of the direct limit of real units and derives the order of H¹(Γ, μ_2 ⊗ ℰ) and the factor 2^{[F:Q]−1}."
+    },
+    {
+     "sourceId": "YAMASHITA-1984",
+     "locator": "§2, Lemma 3 and sequence (2), p. 77; §3, Lemmas 4, 5, 7, pp. 78–79; §4, Theorem and proof, p. 79",
+     "match": "Provides a direct original proof of the H² structure and divisibility. The H¹ corank is derived above from the invariant-ideal sequence; this replaces reliance on the unread Iwasawa 1983 original."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3155,7 +3474,7 @@
     "v ∉ S, v ∤ p, v unramified in F/k; D_v ⊆ G the decomposition group, open by tower-ramification."
    ],
    "proofSteps": [
-    "(a): the maximal S'-ramified extension differs from the S-ramified one by tame inertia at the primes above v, which is a quotient of Z_p(1) (pro-p tame inertia), and by weak Leopoldt there is no further kernel (global–local unit sequence with S'). The injectivity of this inertia term remains G-I4-ENLARGE; weak Leopoldt alone is not a proof of the asserted exact sequence.",
+    "At each finite layer use the augmented ordinary-unit class-field sequence for S and S′. The two rows have the same global units and wide class groups; the extra local factor is the p-completion of the residue-unit group at v. Pass to compact norm limits, keeping the real sign factors in both rows. Weak Leopoldt identifies the global unit limits with their images already in the S-local product. An element of the new local factor lying in the diagonal image of E∞ would therefore have zero image in the old S-local product and must vanish. The snake lemma gives 0→U_{v,∞}→𝔛_{S′}→𝔛_S→0. This proves injectivity, rather than assuming tame inertia has no global-unit relation.",
     "The inverse limit of the local p-primary roots of unity is the cyclic D_v-module with relation Frob_v − Nv; induction gives the displayed Λ-quotient. A unit relation gives the zero module. At p = 2 the criterion is absence of μ_2, not absence of μ_4. Since Nv is a p-adic unit, Frob_v − Nv and 1 − Nv^{-1}Frob_v generate the same ideal.",
     "On the cyclotomic Z_p-quotient κ(Frob_v) = ⟨Nv⟩, so evaluate at κ^nψ with the Teichmüller adjustment displayed in (c). The full cyclotomic character need not factor through this quotient."
    ],
@@ -3186,6 +3505,11 @@
      "sourceId": "DK-2023",
      "locator": "§3.1, Lemma 3.1 and the change-of-depletion sequence, pp. 19–20",
      "match": "Uses 0 → Y_{H,Σ∖Σ0} → Sel_Σ → Sel_{Σ0} → 0 and the Euler factor (1 − ψ(v)) when enlarging the depletion set."
+    },
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "Lemma 10.3.13, pp. 630–631; Corollary 10.3.24, p. 640; Theorem 11.3.5, pp. 738–739",
+     "match": "The finite augmented diagram and weak-Leopoldt unit identification prove the all-prime local injection above. Theorem 11.3.5 gives the corresponding induction formula in the odd-prime/totally-imaginary scope of that section; its real dyadic case is not cited without the diagram argument."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3198,14 +3522,16 @@
    ],
    "title": "Real-place corrections at p = 2",
    "kind": "theorem",
-   "statement": "Let F be totally real with r_1 = [F : Q], p = 2, S = S_2 ∪ S_∞. (a) The following comparison is a target still awaiting G-I10-REALPLACE. The S-ramified module X(F) = 𝔛_S(F_∞) must allow ramification at the real places; the module 𝔛^+ with real places unramified differs from it, and characteristic ideals change by explicit factors of 2: char(ι_u X(F)) = (2^{r_1} f_F) in the comparison with Kolster's minus module (consumed by SpecialValuesBirchTate B.6). (b) For even n ≥ 2, ζ_F(1 − n) ∼_2 #H²_et(O_F[1/2], Z_2(n))/#H¹_et(O_F[1/2], Z_2(n)) once the 2-adic main conjecture for F and the trivial character holds, with #H¹ ∼_2 w_n(F) ∼_2 κ(γ)^n − 1. (c) The local real-place groups H^i(R, Z_2(n)) are finite of order 2 in the relevant degrees and are recorded separately in every finite Euler characteristic; a finite group at one layer is invisible to a Λ-characteristic ideal, but a norm-compatible induced tower module Λ/(2) is supported at the height-one prime (2) and changes that ideal. Its rank and maps must be proved before claiming the factor in (a).",
+   "statement": "Let F be totally real, d=[F:Q], p=2, S=S_2∪S∞, K∞=F∞(i), J=Gal(K∞/F∞), D=Q_2/Z_2 and Λ=Z_2[[Γ]]. Let X=𝔛_S(F∞) allow real ramification, A^- be the ordinary norm-minus class direct limit of K∞, H=H¹(G_S(K∞),μ_{2∞}), Y=(H^{J=−1})^∨, and C_F the real-unit square-class dual of I.2/real-unit-radical. There are canonical exact sequences 0→(A^-)^∨→Y→C_F→0 and 0→Y→X(−1)→Z/2(−1)→0, with the contragredient dual convention. Consequently char_Λ(X(−1))=(2^d)·char_Λ((A^-)^∨). These sequences, including the finite descent cokernel, supply the dyadic correction; they do not identify the module split at infinity with the norm-minus class dual. Conditionally on the trivial-character 2-adic main conjecture, for every even n≥2 one also has ζ_F(1−n)∼_2 #H²_et(O_F[1/2],Z_2(n))/#H¹_et(O_F[1/2],Z_2(n)), where #H¹=w_n(F)_2. Finite real local cohomology groups and the tower module (Λ/2)^d are different objects.",
    "hypotheses": [
-    "F totally real; p = 2; n even ≥ 2 in (b)."
+    "F totally real, p=2; ordinary wide classes, S=S_2∪S∞, K∞=F∞(i).",
+    "All duals in the exact sequences are continuous Pontryagin duals with the contragredient action; the even-weight zeta consequence is conditional on the stated main conjecture."
    ],
    "proofSteps": [
-    "Class field theory gives a quotient of a sum of Λ/(2) real inertia modules. It does not by itself prove injectivity, the number of independent factors, or the comparison with the norm-kernel class module. Those are exactly G-I10-REALPLACE.",
-    "(b): Rognes–Weibel Appendix A, Theorem A.1 and its proof (with twisted-coinvariant-descent (d) and coinvariant-euler-characteristic), using Remark A.4(b) for the equality of μ-invariants in the trivial-character case.",
-    "(c): local Tate cohomology of Gal(C/R) with Z_2(n) coefficients."
+    "Apply the ordinary-unit Kummer sequence 0→V→H→A∞→0, V=O_{K∞}^×⊗D. The CM-unit argument of real-unit-radical gives trivial J-action on V and V[2]≅W_F. Taking J=−1 is exact at A∞: after the sign twist its obstruction is H¹(J,V with sign)=V/2V=0. Thus 0→W_F→H^{J=−1}→A∞^{J=−1}→0 is exact. The norm-minus/negative-eigen comparison of cm-minus-class-modules identifies its last term with A^- at the direct limit, retaining the order-at-most-two transfer kernels before that passage.",
+    "Dualize this exact sequence to obtain 0→(A^-)^∨→Y→C_F→0. With trivial D, inflation–restriction for G_S(K∞)⊂G_S(F∞) has kernel H¹(J,D)=D[2]≅Z/2 and obstruction H²(J,D)=D/2D=0. Twist its dual by −1 to obtain the second exact sequence. This is also the comparison underlying Kurihara Lemma 4.2(1), pp. 25–26.",
+    "The new real-unit-radical target proves finite generation of C_F over F_2[[Γ]] and rank d by uniform capitulation, the unit theorem and dim W_F^{Γ_n}=d·2^n+O(1). Characteristic ideals multiply in the first sequence. The second sequence has finite cokernel, of characteristic ideal one, giving the asserted factor 2^d. This proof supplies the rank and the maps instead of inferring them from a quotient of sign modules.",
+    "For the conditional even-weight consequence apply twisted-coinvariant-descent and coinvariant-euler-characteristic to the assumed main conjecture. Its pole correction evaluated at κ(γ)^n−1 has order w_n(F)_2; the finite-prime factors at 2 are units. The local C_2 cohomology at infinity is computed with the actual parity: for trivial Z_2(n), positive even degrees give Z/2 and odd degrees give zero; for the sign action these roles interchange. Modified compact support retains these local terms (Rognes–Weibel Theorem A.1, pp. 45–47)."
    ],
    "acceptance": [
     "F = Q: ζ(−1) = −1/12 ∼_2 #H²_et(Z[1/2], Z_2(2))/#H¹_et(Z[1/2], Z_2(2)) with #H¹ = w_2(Q)_2 = 8; this is the 2-part of the Birch–Tate formula for Q (K_2(Z) = Z/2)."
@@ -3216,7 +3542,11 @@
     "IntegralIwasawaTheory:I.2/maximal-abelian-pro-p-extensions",
     "IntegralIwasawaTheory:I.2/weak-leopoldt",
     "IntegralIwasawaTheory:I.3/deligne-ribet-dictionary",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+    "IntegralIwasawaTheory:I.2/real-unit-radical",
+    "IntegralIwasawaTheory:I.2/cm-minus-class-modules",
+    "IntegralIwasawaTheory:I.2/global-local-unit-sequence",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences"
    ],
    "sources": [
     {
@@ -3228,6 +3558,21 @@
      "sourceId": "KOLSTER-2009",
      "locator": "Lecture 2, Corollary 3.4 and Birch–Tate Conjecture 3.5, p. 15",
      "match": "States ζ_F(1 − n) = ±h_n(F)/w_n(F) up to powers of 2 for odd primes and notes the 2-primary part for abelian F."
+    },
+    {
+     "sourceId": "KURIHARA",
+     "locator": "Lemma 4.2(1) and proof, pp. 25–26",
+     "match": "The inflation–restriction map has precisely the order-two descent cokernel. The additional unit filtration and its rank are derived here, rather than attributed to an archimedean-inertia statement in this lemma."
+    },
+    {
+     "sourceId": "SHARIFI",
+     "locator": "Proposition 3.3.9, pp. 86–88",
+     "match": "Supplies the ordinary-unit/class Kummer sequence; the dyadic eigenspace step is justified through divisibility of V."
+    },
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "Proposition 11.1.9, p. 730",
+     "match": "The uniform capitulation bound used in the separately proved real-unit square-class rank calculation."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3367,26 +3712,23 @@
    ],
    "title": "Ordinary Hecke algebras and the Eisenstein ideal",
    "kind": "construction",
-   "statement": "Over Q (tame level 1, p ≥ 5, k even with k ≢ 0 mod p − 1): let 𝔐 = 𝔐(1, Λ)^ord ⊇ 𝔖 = 𝔖(1, Λ)^ord be Hida's ordinary Λ-adic modular and cusp forms, ℌ and 𝔥 their Hecke algebras (inverse diamond operators), ℰ_θ the Λ-adic Eisenstein series of character θ = ω^{k−2} with constant term ½ the Kubota–Leopoldt power series. The Eisenstein ideal I_k ⊆ 𝔥 is generated by U_p − 1, T_ℓ − 1 − ℓ⟨ℓ⟩ (ℓ ≠ p) and ⟨j⟩ − ω^{k−2}(j) (j ∈ μ_{p−1}); 𝔪_k = I_k + (p, ⟨υ⟩ − 1) and 𝔥_k = 𝔥_{𝔪_k}. Then 𝔥_k ≠ 0 iff p divides B_{2,ω^{k−2}}, and (Mazur–Wiles) 𝔥_k/I ≅ Λ/(ξ_k) with ξ_k(v^s − 1) = L_p(ω^k, s − 1); the congruence module of 0 → 𝔖 → 𝔐 → Λ → 0 (nearly split by ℰ) is Λ/(ξ_k). Over a totally real F the same construction uses Wiles's and Hida's ordinary Λ-adic Hilbert forms and Hecke algebras (PadicFamilies L5), the Hilbert Eisenstein families of AutomorphicPadicLFunctions L3 with constant term the Deligne–Ribet series, and an Eisenstein ideal for each even character ψ; the codimension-zero congruence module and ideal are those owned by IntegralHeckeAndGaloisDeterminants IHG.1.",
+   "statement": "Over Q (tame level 1, p ≥ 5, k even with k ≢ 0 mod p − 1): let 𝔐 = 𝔐(1, Λ)^ord ⊇ 𝔖 = 𝔖(1, Λ)^ord be Hida's ordinary Λ-adic modular and cusp forms, ℌ and 𝔥 their Hecke algebras (inverse diamond operators), ℰ_θ the Λ-adic Eisenstein series of character θ = ω^{k−2} with constant term ½ the Kubota–Leopoldt power series. The Eisenstein ideal I_k ⊆ 𝔥 is generated by U_p − 1, T_ℓ − 1 − ℓ⟨ℓ⟩ (ℓ ≠ p) and ⟨j⟩ − ω^{k−2}(j) (j ∈ μ_{p−1}); 𝔪_k = I_k + (p, ⟨υ⟩ − 1) and 𝔥_k = 𝔥_{𝔪_k}. Then 𝔥_k ≠ 0 iff p divides B_{2,ω^{k−2}}, and (Mazur–Wiles) 𝔥_k/I ≅ Λ/(ξ_k) with ξ_k(v^s − 1) = L_p(ω^k, s − 1); the congruence module of 0 → 𝔖 → 𝔐 → Λ → 0 (nearly split by ℰ) is Λ/(ξ_k). This target is the Q construction. The all-prime totally real proof uses I.7 and I.9 instead; its Hilbert forms are imported there from AutomorphicPadicLFunctions, rather than supplied by this construction. More precisely, if c:𝔐→Λ is the normalized (involuted) constant-term map and Q(Λ)ℰ is the Eisenstein line, its congruence module is Λ/c(𝔐∩Q(Λ)ℰ). The first nonconstant coefficient of ℰ is one, so 𝔐∩Q(Λ)ℰ=Λℰ and c has image (ξ_k/2) on this lattice. This is Λ/(ξ_k), with the equivalent rational-splitting definition s(Λ)/(s(Λ)∩𝔐); it is not a formula for an arbitrary augmented finite-flat module.",
    "hypotheses": [
-    "p odd (p ≥ 5 in the Q-case as in the source); k even; ψ even of type S for the totally real version."
+    "Q, tame level 1, p≥5; k even and k not congruent to 0 modulo p−1; inverse diamond convention as stated."
    ],
    "proofSteps": [
     "Hida duality between 𝔐 and ℌ; the Eisenstein series gives ℌ → Λ with kernel the Eisenstein ideal ℐ.",
     "The constant-term functional gives T_0 ∈ ℌ with ℌ/(T_0) ≅ 𝔥 and image ½ξ in ℌ/ℐ ≅ Λ, hence 𝔥/I ≅ Λ/(ξ) (Emerton's proof, Sharifi AWS Theorem 4.3.3).",
-    "The Q congruence quotient is supplied directly by Sharifi AWS Theorem 4.3.3, pp. 50–52. The general codimension-zero Ψ_λ/η_λ interface requested from IHG.1 is an ownership proposal, not an available theorem in current TauCetiRoadmap; its precise coefficient and augmentation hypotheses remain G-I5-CONGRUENCE."
+    "The pairing between the full ordinary forms and their Hecke algebra identifies the constant-term functional with T_0. The image of T_0 in the Eisenstein quotient ℌ/ℐ≅Λ is ξ/2; since 2 is a unit, quotienting by T_0 gives exactly Λ/(ξ). This proves the needed particular congruence module directly (Sharifi AWS Theorem 4.3.3, pp. 50–52), without using a generic codimension-zero Ψ_λ(M) comparison."
    ],
    "acceptance": [
     "p = 691, k = 12, level 1: Δ ≡ E_12 mod 691 (τ(ℓ) ≡ 1 + ℓ^{11}), so the Eisenstein maximal ideal of the ordinary Hecke algebra is proper."
    ],
    "prerequisites": [
     "PadicFamilies:L5/nearly-ordinary-hecke-algebra",
-    "PadicFamilies:L5/lambda-adic-hilbert-forms",
     "PadicFamilies:L0a/finite-ordinary-projector",
     "PadicFamilies:L1/congruence-ideal",
-    "IntegralHeckeAndGaloisDeterminants:IHG.1",
     "DirichletPadicLFunctions:L4/full-eisenstein-total-series",
-    "AutomorphicPadicLFunctions:L3/hilbert-eisenstein-series",
     "IntegralIwasawaTheory:I.3/deligne-ribet-dictionary",
     "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
     "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields"
@@ -3469,7 +3811,7 @@
     {
      "name": "IntegralIwasawaTheory.eisenstein_congruenceModule",
      "role": "compatibility",
-     "statement": "The congruence module of 0 → 𝔖 → 𝔐 → Λ → 0 is Λ/(ξ_k), an instance of IHG.1's congruence module."
+     "statement": "The cokernel of the constant-term functional on the Eisenstein complement of the ordinary forms is Λ/(ξ_k), via the explicit ℌ/(ℐ,T_0) calculation."
     },
     {
      "name": "IntegralIwasawaTheory.eisensteinQuotient_generator",
@@ -3489,16 +3831,17 @@
    ],
    "title": "Ribet's construction and the divisibility of characteristic ideals",
    "kind": "theorem",
-   "statement": "With 𝔥 = 𝔥_k, I and ξ = ξ_k as in hida-hecke-eisenstein-ideal: let ρ : G_Q → GL_2(Q(𝔥)) be the Galois representation on 𝒯 ⊗ Q(𝔥) in a basis adapted to the ordinary filtration at p (𝒯 the ordinary Λ-adic Tate module). Then a(σ) − det ρ(σ), d(σ) − 1 and b(σ)c(τ) lie in I; the 𝔥-spans B, C of b and c are faithful; ψ_c(σ) = det ρ(σ)^{-1}c(σ) mod IC is a cocycle whose restriction to G_{Q(μ_{p^∞})} is unramified everywhere and factors through X_∞^{(ω^{1−k})}, giving a surjection of Λ-modules X_∞^{(ω^{1−k})}(1) ↠ C/IC; and faithfulness gives Fitt_𝔥(C) = 0, hence Fitt_{𝔥/I}(C/IC) = 0; via 𝔥/I ≅ Λ/(ξ), this implies Fitt_Λ(C/IC) ⊆ (ξ) and therefore (ξ) divides char_Λ(C/IC), hence f_k | char(X_∞^{(ω^{1−k})}) with f_k(v^s − 1) = ξ(v^{s+1} − 1). Over a totally real F the analogous construction, with Wiles's ordinary Hilbert representations and auxiliary twisting to control ramification above p, is intended to give G*_{ψ,S} | g*_{ψ,S} for even ψ of type S and p odd; the μ-comparison and the missing totally-real proof are separate inputs (G-I5-WILES).",
+   "statement": "If ξ_k is a unit, the divisibility f_k | char(X∞^{ω^{1−k}}) is automatic and no Ribet representation is asserted. In the nonunit case, with 𝔥 = 𝔥_k, I and ξ = ξ_k as in hida-hecke-eisenstein-ideal: let ρ : G_Q → GL_2(Q(𝔥)) be the Galois representation on 𝒯 ⊗ Q(𝔥) in a basis adapted to the ordinary filtration at p (𝒯 the ordinary Λ-adic Tate module). Then a(σ) − det ρ(σ), d(σ) − 1 and b(σ)c(τ) lie in I; the 𝔥-spans B, C of b and c are faithful; ψ_c(σ) = det ρ(σ)^{-1}c(σ) mod IC is a cocycle whose restriction to G_{Q(μ_{p^∞})} is unramified everywhere and factors through X_∞^{(ω^{1−k})}, giving a surjection of Λ-modules X_∞^{(ω^{1−k})}(1) ↠ C/IC; and faithfulness gives Fitt_𝔥(C) = 0, hence Fitt_{𝔥/I}(C/IC) = 0; via 𝔥/I ≅ Λ/(ξ), this implies Fitt_Λ(C/IC) ⊆ (ξ) and therefore (ξ) divides char_Λ(C/IC), hence f_k | char(X_∞^{(ω^{1−k})}) with f_k(v^s − 1) = ξ(v^{s+1} − 1).",
    "hypotheses": [
-    "p odd; the Q-case as in Sharifi AWS §4.3 (tame level 1, p ≥ 5); the totally real case for p odd."
+    "Q, tame level 1, p≥5, k as in hida-hecke-eisenstein-ideal.",
+    "For the representation and faithful coefficient modules, ξ_k is a nonunit, equivalently the Eisenstein local factor is nonzero. The unit case is the automatic divisibility stated separately."
    ],
    "proofSteps": [
+    "Separate ξ_k a unit, when f_k is a unit and the divisibility is immediate. For the representation construction assume ξ_k a nonunit, as in Sharifi AWS Remark 4.3.2, p. 50.",
     "Ordinary local shape of ρ at p and the Čebotarev density of Frobenii give the congruences of Lemma 4.3.4 (Kurihara, Harder–Pink, Ohta) (Tau Ceti Chebotarev Layer 10).",
     "Faithfulness of B and C: BC ⊆ I contains a positive density of T_ℓ − 1 − ℓ⟨ℓ⟩.",
     "Unramifiedness at p: the cocycle is unramified at p by the choice of basis adapted to the ordinary filtration; elsewhere ρ is unramified.",
-    "C is finite and faithful over 𝔥, so Fitt_𝔥(C) ⊆ Ann_𝔥(C) = 0. Base change gives Fitt_{𝔥/I}(C/IC) = 0. Since 𝔥/I ≅ Λ/(ξ), base change from Λ shows Fitt_Λ(C/IC) ⊆ (ξ). Localising at each height-one prime of the regular ring Λ turns this into the required length inequality (Sharifi AWS p. 52).",
-    "Totally real case: replace modular curves by Wiles's Λ-adic Hilbert forms and R19.2/wiles-ordinary-hilbert-representation; the original argument (Wiles 1990) is not read here (gap G-I5-WILES). Only distinguished-polynomial divisibility is asserted without the separate μ-input."
+    "C is finite and faithful over 𝔥, so Fitt_𝔥(C) ⊆ Ann_𝔥(C) = 0. Base change gives Fitt_{𝔥/I}(C/IC) = 0. Since 𝔥/I ≅ Λ/(ξ), base change from Λ shows Fitt_Λ(C/IC) ⊆ (ξ). Localising at each height-one prime of the regular ring Λ turns this into the required length inequality (Sharifi AWS p. 52)."
    ],
    "acceptance": [
     "Sharifi AWS p. 52: f_k | char(X_∞^{(1−k)}) for every even k, which with the analytic class number formula gives the main conjecture over Q."
@@ -3508,7 +3851,6 @@
     "IntegralHeckeAndGaloisDeterminants:IHG.6/distinct-character-ribet",
     "IntegralHeckeAndGaloisDeterminants:IHG.6/zeroth-fitting-ideal",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hida-family-representation",
-    "AutomorphicGaloisRepresentations:R19.2/wiles-ordinary-hilbert-representation",
     "IntegralIwasawaTheory:I.2/class-field-identification",
     "IntegralIwasawaTheory:I.1/arithmetic-compact-action",
     "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
@@ -3579,14 +3921,15 @@
    ],
    "title": "One divisibility implies the main conjecture",
    "kind": "theorem",
-   "statement": "(a) Over Q (p odd): if f_k | char(X_∞^{(ω^{1−k})}) for every even k, then equality holds for every k. (b) Over a totally real F (p odd): if (G_{ψ,S}) | char(X_S(F_ψ)_ψ) for every even ψ of type S of order prime to p and the μ-invariants satisfy μ(G) ≥ μ(X), then equality holds. The input is an analytic class number formula: over Q, |A_n^-| is a product of Bernoulli numbers and λ(X^-) = Σ_j λ(Λ/(f_{2j})), with μ = 0 by Ferrero–Washington; over F, the analytic class number formula for the CM fields F_ψ(μ_p)_n (minus parts) compares the product of the characteristic ideals with the product of the p-adic L-functions.",
+   "statement": "Over Q, for odd p, suppose f_k divides char(X∞^{ω^{1−k}}) for every nonexceptional even branch k. Then equality holds for every such k. The exceptional branch is treated by its pole-cancelled unit ideal. The analytic class number formula compares the product of the minus class-group orders with the product of generalized Bernoulli values. Ferrero–Washington gives μ=0 on both sides; the class number growth formula then equates the sums of λ-invariants. Each individual divisibility contributes a nonnegative degree difference, so all differences vanish. This target is the Q comparison; it makes no claim to supply Wiles’s original totally real proof.",
    "hypotheses": [
     "p odd."
    ],
    "proofSteps": [
     "Over Q: Sharifi AWS Remark 2.5.2: the class number formula expresses h_n^- through generalised Bernoulli numbers, which gives the equality of total λ- and μ-invariants; a divisibility between monic polynomials of equal total degree for every character is an equality.",
     "μ = 0 over abelian fields from IntegralIwasawaTheory L4/fw-arithmetic-mu-zero (μ for the analytic side from L4/fw-analytic-mu-zero).",
-    "Over F: the analytic class number formula for CM fields (AnalyticNumberTheory AN.4 Dedekind residue) and Wiles's comparison; the original argument is recorded as gap G-I5-WILES."
+    "Apply the class number identity at all sufficiently high layers, using the norm-control and bounded finite error terms from the class module growth theorem, to equate total λ. A quotient of monic distinguished polynomials with degree zero is one, so each branch gives equality (Sharifi AWS Remark 2.5.2, p. 23).",
+    "Include the exceptional branch in the degree sum: its pole-cancelled numerator is a unit, so f_0=1 divides its class characteristic ideal tautologically. Nonnegative degree differences over all branches, including that branch, then force its degree to be zero as well. When p=3 there are no nonexceptional even branches; the same class-number/Ferrero–Washington argument already gives the assertion, without applying the p≥5 Hecke construction (Sharifi AWS §§2.4–2.5, pp. 22–23)."
    ],
    "acceptance": [
     "Sharifi AWS Remark 2.5.2: to prove the main conjecture it suffices to show one divisibility for all even k."
@@ -3620,15 +3963,16 @@
    "realises": [
     "IntegralIwasawaTheory:I.5"
    ],
-   "title": "The Mazur–Wiles theorem",
+   "title": "The Eisenstein proof of the Mazur–Wiles main conjecture",
    "kind": "theorem",
-   "statement": "Let p be an odd prime. For every even integer k, char_Λ(X_∞^{(ω^{1−k})}) = (f_k), where X_∞ is the unramified Iwasawa module of Q(μ_{p^∞}), f_k(v^s − 1) = L_p(ω^k, s) for k ≢ 0 mod p − 1 and f_k = 1 for k ≡ 0 mod p − 1; equivalently (main-conjecture-statement) char(𝔛_∞^{(k)}) = (g_k) and char(E_∞^{(k)}/C_∞^{(k)}) = char(X_∞^{(k)}). More generally, for a totally real abelian field F and an even character ψ of type S whose field F_ψ is abelian over Q, MainConjecture(F, p, ψ, S) holds in the strong form. Consequence: |A_{Q(μp)}^{(ω^{1−k})}| = p^{v_p(B_{1,ω^{k−1}})} for every even k ≢ 0 mod p − 1. The Q characteristic-ideal identity is the common theorem owned by EulerSystemsCyclotomicMainConjecture L3; this layer plans its Eisenstein-ideal proof and the comparison with that interface.",
+   "statement": "Let p be an odd prime. For every even integer k, char_Λ(X_∞^{(ω^{1−k})}) = (f_k), where X_∞ is the unramified Iwasawa module of Q(μ_{p^∞}), f_k(v^s − 1) = L_p(ω^k, s) for k ≢ 0 mod p − 1 and f_k = 1 for k ≡ 0 mod p − 1; equivalently (main-conjecture-statement) char(𝔛_∞^{(k)}) = (g_k) and char(E_∞^{(k)}/C_∞^{(k)}) = char(X_∞^{(k)}). More generally, for a totally real abelian field F and an even character ψ of type S whose field F_ψ is abelian over Q, MainConjecture(F, p, ψ, S) holds in the strong form. Consequence: |A_{Q(μp)}^{(ω^{1−k})}| = p^{v_p(B_{1,ω^{k−1}})} for every even k ≢ 0 mod p − 1. The Q characteristic-ideal identity is the shared theorem at EulerSystemsCyclotomicMainConjecture L3; this node supplies its Eisenstein proof and the normalization interface. It does not import the Euler-system proof as a premise.",
    "hypotheses": [
     "p odd; in the generalisation both F and F_ψ are abelian over Q."
    ],
    "proofSteps": [
     "Divisibility from ribet-extension-construction; equality from divisibility-to-equality (a).",
-    "The finite-level consequence: descend to n = 0 with coinvariant-euler-characteristic, using that X_∞^- has no nonzero finite submodule (I.2/cm-minus-class-modules) and f_k(0) ≡ −B_{1,ω^{k−1}} up to units."
+    "The finite-level consequence: descend to n = 0 with coinvariant-euler-characteristic, using that X_∞^- has no nonzero finite submodule (I.2/cm-minus-class-modules) and f_k(0) ≡ −B_{1,ω^{k−1}} up to units.",
+    "For the broader totally real abelian-over-Q clause use the weak general theorem wiles-main-conjecture (and its type-S normalization) to compare distinguished factors. Ferrero–Washington gives μ=0 for the abelian class modules and for the abelian p-adic L-functions. The odd-prime Kummer comparison identifies the real p-ramified component with the corresponding minus class dual up to the explicit local Euler factors, which have μ=0. Thus equality of distinguished factors upgrades to the stated strong form. This argument is independent of the Q Eisenstein proof, which was scoped to tame level one; it makes no claim that that proof alone handles arbitrary abelian conductors."
    ],
    "acceptance": [
     "p = 37, k = 32: |A^{(ω^5)}| = 37.",
@@ -3640,7 +3984,10 @@
     "IntegralIwasawaTheory:I.5/divisibility-to-equality",
     "IntegralIwasawaTheory:I.2/cm-minus-class-modules",
     "IntegralIwasawaTheory:I.4/coinvariant-euler-characteristic",
-    "IntegralIwasawaTheory:I.3/kubota-leopoldt-stickelberger-dictionary"
+    "IntegralIwasawaTheory:I.3/kubota-leopoldt-stickelberger-dictionary",
+    "IntegralIwasawaTheory:I.5/wiles-main-conjecture",
+    "IntegralIwasawaTheory:L4/fw-arithmetic-mu-zero",
+    "IntegralIwasawaTheory:L4/fw-analytic-mu-zero"
    ],
    "sources": [
     {
@@ -3677,21 +4024,22 @@
     "F totally real, p odd (p = 2 allowed for F = Q), ψ even of type S."
    ],
    "proofSteps": [
-    "The intended totally-real Eisenstein argument gives distinguished-polynomial divisibility G* | g*, not the strong ideal divisibility for arbitrary p-power-order ψ. Its missing details remain G-I5-WILES.",
-    "Compare degrees using the analytic class number argument for the polynomial statement. Only for ψ of order prime to p invoke Wiles Theorem 1.4 for equality of μ-invariants (Kolster 2009, pp. 13–14; Kakde §3, p. 14).",
-    "Characters of type W and general ψ are reduced to type S by going-up-induction.",
-    "The original proof is not read here; the statement is taken from Kolster, Kakde and Rognes–Weibel Appendix A (gap G-I5-WILES)."
+    "Use I.10/nonequivariant-characteristic-ideal, proved from the all-prime determinant theorem I.9 and the keystone I.7 by Kurihara §4.2. Its proof does not use this Wiles node. For N=F_ψ with N∩F∞=F it gives char(X_S(N)_ψ-quotient)=(ψ(g)) for nontrivial ψ and ((γ−1)ψ(g)) for ψ=1.",
+    "The Deligne–Ribet dictionary gives ψ(g)=G_{ψ,S}/H_ψ. For a type-S character H_ψ=1 unless ψ is trivial; in the trivial case H_1=γ−1, cancelled by the cohomological factor. Thus the ψ-quotient has characteristic generator G_{ψ,S}.",
+    "If the chosen S omits a prime ramified in N/F, first enlarge to S₀ containing S_ram(N/F) to apply I.10. Remove the added primes using the induced local Euler modules. On the ψ-character quotient a ramified inertia group has zero invariants after inverting p, so it contributes no distinguished factor. For prime-to-p ψ, the integral inertia idempotent makes the same statement exactly, preserving μ as well. Thus the result has the stated finite-S range, instead of tacitly imposing the larger S₀ hypothesis.",
+    "If ψ has order prime to p, the integral idempotent identifies the quotient with the eigenspace, yielding the strong form including its μ-invariant. For arbitrary finite-order ψ, after inverting p the finite-group algebra is semisimple and quotient and eigenspace agree. Their distinguished polynomials therefore agree. Modules killed by a power of p cannot be discarded for the μ assertion, so no stronger integral eigenspace statement is inferred in that range.",
+    "This is an alternate proof of the theorem historically proved by Wiles, using Kurihara Theorem 4.1 and its second remark, pp. 24–27. It does not claim to reconstruct the unread Wiles original. The Q Eisenstein proof remains a separate target; arbitrary type-W twists are handled by going-up-induction."
    ],
    "acceptance": [
-    "Kakde §3, p. 14: h_ψ(T) and G*_ψ(T) generate the same ideal (Wiles Theorem 1.3), and μ_ψ = 0 when p ∤ #Gal(F_ψ/F) (Wiles Theorem 1.4 under μ = 0)."
+    "Kakde §3, p. 14: h_ψ(T) and G*_ψ(T) generate the same ideal (Wiles Theorem 1.3), and μ_ψ = 0 when p ∤ #Gal(F_ψ/F) (Wiles Theorem 1.4 under μ = 0).",
+    "The dependency chain is Wiles conclusion ← I.10 ← I.9 ← I.7. No I.7 or I.9 proof step imports the Wiles conclusion."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.5/main-conjecture-statement",
-    "IntegralIwasawaTheory:I.5/ribet-extension-construction",
-    "IntegralIwasawaTheory:I.5/divisibility-to-equality",
-    "IntegralIwasawaTheory:I.5/going-up-induction",
+    "IntegralIwasawaTheory:I.10/nonequivariant-characteristic-ideal",
     "IntegralIwasawaTheory:I.3/deligne-ribet-dictionary",
-    "IntegralIwasawaTheory:I.2/weak-leopoldt"
+    "IntegralIwasawaTheory:I.1/character-decomposition-integrality",
+    "IntegralIwasawaTheory:I.4/s-enlargement-euler-factors"
    ],
    "sources": [
     {
@@ -3713,6 +4061,11 @@
      "sourceId": "DK-2023",
      "locator": "§1.1, p. 7",
      "match": "Notes that earlier progress on Brumer–Stark used the main conjecture for totally real fields proved by Wiles."
+    },
+    {
+     "sourceId": "KURIHARA",
+     "locator": "Theorem 4.1, Lemma 4.2 and proof, pp. 24–27; second remark, p. 27",
+     "match": "Proves the usual characteristic-ideal main conjecture from the all-prime keystone independently of Wiles. Integral prime-to-p idempotents and rational semisimplicity then give precisely the strong and weak forms stated here."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3728,15 +4081,16 @@
    ],
    "title": "Going-up and induction for the main conjecture",
    "kind": "theorem",
-   "statement": "Let K be totally real and p a prime. (a) If MainConjecture(K, p, χ, S) holds for every real one-dimensional χ of type S over K, then for every finite totally real F/K, MainConjecture(F, p, ψ, S) holds for every real one-dimensional ψ of type S over F with F_ψ abelian over K. (b) Under induction Ind_H^G ψ = Σ_χ χ, the Deligne–Ribet power series satisfy G_ψ(T_e) = ∏_χ G_χ(T) with T_e = (1 + T)^{p^e} − 1, where p^e = [F ∩ K_∞ : K] (Kolster writes p = 2), and when e = 0 the Iwasawa characteristic polynomials behave the same way under induction; (c) a character χ = λρ with λ of type S and ρ of type W has G*_χ(T) equal to G*_λ(ρ(γ)(1 + T) − 1) up to a root of unity.",
+   "statement": "Let K be totally real and p any prime. Suppose the distinguished-polynomial MainConjecture(K,p,χ,S) holds for every even one-dimensional type-S Artin character χ over K. If F/K is finite totally real and ψ is an even one-dimensional type-S character over F whose character field F_ψ is abelian over K, then MainConjecture(F,p,ψ,S) holds. Here even means the character field is totally real, not that the values are real numbers. Over a common splitting coefficient field, inflation leaves the algebraic characteristic polynomial unchanged; induction and type-W twisting obey the same rules as the analytic distinguished factors. If e is defined by [F∩K∞:K]=p^e, the generator change is T_e=(1+T)^{p^e}−1. Analytic induction is an identity of G/H, with its pole factors H retained, rather than an unqualified product identity of numerators. For a type-W twist ρ, the substitutions on algebraic and analytic distinguished factors are T↦ρ(γ)(1+T)−1, followed by monic normalization. These conclusions concern distinguished factors, and do not assert a general μ comparison.",
    "hypotheses": [
-    "K totally real; F/K finite totally real; ψ real one-dimensional of type S over F with F_ψ/K abelian."
+    "F/K finite totally real, p any prime, ψ even one-dimensional of type S over F, F_ψ/K abelian.",
+    "Use one finite coefficient field splitting the relevant finite groups; normalize distinguished factors to be monic and keep pole denominators."
    ],
    "proofSteps": [
-    "Factor p-adic L-functions under induction (Artin formalism for the Deligne–Ribet functions).",
-    "Compare roots of the distinguished polynomials under T ↦ T_e and under twisting by type-W characters.",
-    "On the Iwasawa side, identify W(N)_ψ with W(L)_λ for L = K_λ and compute the action of the generator γ_N = δγ_e (Rognes–Weibel Appendix A, proof of Theorem A.2).",
-    "The read source, Rognes–Weibel Theorem A.2, pp. 47–49, proves this going-up argument at p = 2. The extension to arbitrary p needs its induction and coefficient-field hypotheses checked; it remains G-I5-INDUCTION rather than a citation to that theorem."
+    "Choose a common finite Galois extension containing the character fields and disjoint from the cyclotomic tower where type S applies. For inflation, pass to the quotient by the finite kernel of the larger Galois group. Restriction on maximal p-ramified groups has finite-index image; transfer and multiplication by the kernel order show that it is an isomorphism after tensoring Q_p. This proves equality of the algebraic polynomials (Greenberg Proposition 1, pp. 78–79).",
+    "For each generalized eigenspace of γ−1 over the common splitting field, the multiplicity of a root in the χ polynomial is its inner product with the character of that eigenspace. Frobenius reciprocity proves equality for induction (Greenberg Proposition 2, p. 79). When F∞ and K∞ start at different base layers, γ_F=γ_K^{p^e}; use T_e to compare the eigenvalues.",
+    "A type-W twist changes a chosen lift of γ by a central finite-order element. Its action on the character multiplicity space scales γ by ρ(γ), giving the stated substitution (Greenberg Proposition 3, pp. 79–80). The analytic substitution and induction follow from Artin formalism and the interpolation uniqueness of the Deligne–Ribet functions; retain G/H and its type-W denominator (Greenberg §2, pp. 80–83).",
+    "Since F_ψ/K is abelian, Ind ψ is a sum of one-dimensional characters after the chosen coefficient extension. Reduce each to type S by a type-W twist, apply the assumed main conjecture, and compare the same substitutions on both sides. If a cyclotomic base intersection is present, compare root multiplicities after T_e; this substitution is injective on rational functions, so equality descends. Greenberg Proposition 5, pp. 84–85, proves independence of this procedure by Frobenius reciprocity and nonnegative root multiplicities. Rognes–Weibel Theorem A.2, pp. 47–49, gives the explicit p=2 instance of the same argument."
    ],
    "acceptance": [
     "Rognes–Weibel Corollary A.3: the 2-adic formula of Theorem A.1 holds for all totally real abelian fields, by going-up from Q."
@@ -3752,6 +4106,11 @@
      "sourceId": "ROGNES-WEIBEL-2000",
      "locator": "Appendix A (Kolster), Theorem A.2, Corollary A.3 and the proof of Theorem A.2, pp. 45–49",
      "match": "Proves the going-up of the main conjecture to characters ψ over F with F_ψ abelian over K by factoring the p-adic L-functions under induction and comparing the roots of the distinguished polynomials."
+    },
+    {
+     "sourceId": "GREENBERG-1983",
+     "locator": "Propositions 1–3, pp. 78–80; §2 induction and twist identities, pp. 80–83; Proposition 5, pp. 84–85",
+     "match": "Supplies the arbitrary-prime rational polynomial argument, coefficient extension, T_e substitution and the independence proof missing from the dyadic-only citation."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4757,7 +5116,7 @@
     "Hida–Silliman forms V_k ≡ 1 mod p^m (DK Theorem 8.8) and Silliman's group-ring forms with prescribed constant terms (DK Theorem 8.9) and the cuspidal correction (DK Theorem 8.15).",
     "Form x W_1 V_{k−1} − W_k − xΘ^#H_k (case 1) or e^ord_P(W_1 V_{k−1} − Θ^#H_k) (case 2), cuspidal by Theorems 8.17–8.18; apply e^ord and the factors (U_𝔭 − 𝛙(𝔭)) (DK Corollaries 8.19, 8.21; PadicFamilies L0a ordinary projector).",
     "For p = 2, use DKSW Theorem 2.14, pp. 17–18, to reduce to these minimal sets. Choose the auxiliary prime by Lemma 3.10, and use the separate ℓ-old cusp form construction and congruences in §3.2, pp. 24–26. Here t = #(Σ′ ∩ S_∞) = d; n in the ideal level is unrelated to d.",
-    "The cited supplier nodes cover Eisenstein series and constant terms, but the Hida–Silliman forms V_k ≡ 1 and the group-ring cuspidal correction are additional nonroutine inputs. Request their exact all-prime/level statements from the Hilbert-form owner, rather than using the narrower p-odd Λ-adic PadicFamilies L5 contract (G-I7-MODULAR-SUPPLIERS)."
+    "Invoke the exact APL L3 Part II contract for V_k, prescribed constants, cuspidal correction and integral expansions at these levels. DK Theorems 8.8, 8.9 and 8.15 provide these inputs with the ranges written in the request. The ordinary finite-weight construction and the separate ℓ-old formulas are read directly in DKSW §3.2; the p-odd Λ-adic Hilbert supplier is not used to justify them."
    ],
    "acceptance": [
     "DK Remark 8.20: the congruence (105) is a congruence of all Fourier coefficients c(m, ·)."
@@ -4767,10 +5126,9 @@
     "AutomorphicPadicLFunctions:L3/eisenstein-constant-terms",
     "AutomorphicPadicLFunctions:L3/hilbert-eisenstein-series",
     "PadicFamilies:L0a/finite-ordinary-projector",
-    "PadicFamilies:L5/lambda-adic-hilbert-forms",
     "IntegralIwasawaTheory:I.6/smoothed-stickelberger",
     "IntegralIwasawaTheory:I.3/deligne-ribet-dictionary",
-    "AutomorphicBundles:B5/hilbert-expansion-principle"
+    "AutomorphicPadicLFunctions:L3"
    ],
    "sources": [
     {
@@ -4805,17 +5163,15 @@
     "W is the image of the T̃-span of F_k(𝛙) in ∏_𝔞 R/xΘ^# under Fourier coefficients (DK proof of Theorem 8.23).",
     "Hecke formulas (97) for group-ring forms show the map is Hecke-equivariant; Artin–Rees for the completions.",
     "The last property uses the factor x in the congruence of case 1a (DK p. 77).",
-    "Use the precise quotient and cancellation statement in DKSW Theorem 3.9, pp. 26–27. In the ℓ-old case retain the quadratic U_ℓ algebra and its possible nilpotents; no embedding of T̃ into a product of fields is asserted."
+    "Use the precise quotient and cancellation statement in DKSW Theorem 3.9, pp. 26–27. In the ℓ-old case retain the quadratic U_ℓ algebra and its possible nilpotents; no embedding of T̃ into a product of fields is asserted.",
+    "The finite Hecke order is the image on these finite-weight integral cusp spaces. Use their faithful q-expansion pairing and finite coefficient extension from the APL L3 request. In the odd-prime construction the commuting characteristic-zero eigenforms give a reduced field product; in the dyadic ℓ-old construction retain the full quadratic principal algebra instead. No Hilbert Λ-adic reducedness or total-fraction-ring theorem is imported here."
    ],
    "acceptance": [
     "DK Theorem 8.23(ii): φ(T_𝔩) = ε^{k−1}_cyc(𝔩) + 𝛙(𝔩) for 𝔩 ∤ np."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.7/extra-congruence-cusp-form",
-    "PadicFamilies:L5/nearly-ordinary-hecke-algebra",
-    "PadicFamilies:L5/hecke-total-fraction-ring",
-    "PadicFamilies:L5/hilbert-hecke-reduced",
-    "AutomorphicBundles:B5/hecke-expansion-compatibility"
+    "AutomorphicPadicLFunctions:L3"
    ],
    "sources": [
     {
@@ -4839,12 +5195,12 @@
    ],
    "title": "The Galois representation of the Eisenstein-localised Hecke algebra",
    "kind": "theorem",
-   "statement": "For p odd: With K = Frac(T_𝔐) = ∏_{f∈M̄} E (the reduced odd-prime case), there is a continuous ρ = ∏_f ρ_f : G_F → GL_2(K) unramified outside np, with characteristic polynomial x² − T_𝔩 x + 𝛙(𝔩)ε^{k−1}_cyc(𝔩) at Frob_𝔩 for 𝔩 ∤ np (DK (113)), whose restriction to each decomposition group at 𝔭 | p has the ordinary shape (𝛙η_𝔭^{-1}ε^{k−1}_cyc ∗; 0 η_𝔭) with η_𝔭 unramified and η_𝔭(rec(ϖ^{-1})) = U_𝔭 (DK (114)); its characteristic polynomials lie in T_𝔐[x] and factor residually as (x − ε^{k−1}_cyc)(x − 𝛙); there is τ ∈ G_F with χ(τ) ≠ 1 moving every local ordinary line V_{𝔭,f} (Proposition 9.3), so in a basis of ρ(τ)-eigenvectors the off-diagonal entries satisfy A_{f,𝔭} ≠ 0 and C_{f,𝔭} ≠ 0 (key point (111)). The inputs are: Wiles's ordinary Hilbert representations, irreducibility on open subgroups for non-CM forms (Ribet; Balasubramanyam–Ghate–Vatsal), splitting of p in the CM field for p-ordinary CM forms (Hara–Ochiai), and the CM ordinary line moved by complex conjugation. For p = 2 use K = Frac(T̃_𝔐) with the finite local principal factors K_f of the preceding construction. Assemble ρ_f over these factors; the reduction in each field factor is irreducible. Its characteristic polynomial lies in T_𝔐[X] and is congruent to (X−χ)(X−𝛙) modulo I, χ = ε_cyc^{k−1}. On each v ∈ Σ ∪ P, P = {v | p : v ∉ Σ}, provide a local lower-triangular basis with characters (η_v, ξ_v), ξ_v ≡ 𝛙 on G_v for v ∈ Σ, and ξ_v ≡ χ on inertia for v ∈ P. The product ∏_{v∈P}(ξ_v(σ_v)−χ(σ_v)) agrees with the Hecke cancellation factor up to units as required by DKSW Theorem 2.16. No global basis with distinct residual eigenvalues is available or required at 2. The full arithmetic range is a target: the particular R19.2 prerequisite currently listed does not cover p = 2 or odd-degree F, so those cases are not dependency-closed.",
+   "statement": "For p odd: With K = Frac(T_𝔐) = ∏_{f∈M̄} E (the reduced odd-prime case), there is a continuous ρ = ∏_f ρ_f : G_F → GL_2(K) unramified outside np, with characteristic polynomial x² − T_𝔩 x + 𝛙(𝔩)ε^{k−1}_cyc(𝔩) at Frob_𝔩 for 𝔩 ∤ np (DK (113)), whose restriction to each decomposition group at 𝔭 | p has the ordinary shape (𝛙η_𝔭^{-1}ε^{k−1}_cyc ∗; 0 η_𝔭) with η_𝔭 unramified and η_𝔭(rec(ϖ^{-1})) = U_𝔭 (DK (114)); its characteristic polynomials lie in T_𝔐[x] and factor residually as (x − ε^{k−1}_cyc)(x − 𝛙); there is τ ∈ G_F with χ(τ) ≠ 1 moving every local ordinary line V_{𝔭,f} (Proposition 9.3), so in a basis of ρ(τ)-eigenvectors the off-diagonal entries satisfy A_{f,𝔭} ≠ 0 and C_{f,𝔭} ≠ 0 (key point (111)). The inputs are: Wiles's ordinary Hilbert representations, irreducibility on open subgroups for non-CM forms (Ribet; Balasubramanyam–Ghate–Vatsal), splitting of p in the CM field for p-ordinary CM forms (Hara–Ochiai), and the CM ordinary line moved by complex conjugation. For p = 2 use K = Frac(T̃_𝔐) with the finite local principal factors K_f of the preceding construction. Assemble ρ_f over these factors; the reduction in each field factor is irreducible. Its characteristic polynomial lies in T_𝔐[X] and is congruent to (X−χ)(X−𝛙) modulo I, χ = ε_cyc^{k−1}. On each v ∈ Σ ∪ P, P = {v | p : v ∉ Σ}, provide a local lower-triangular basis with characters (η_v, ξ_v), ξ_v ≡ 𝛙 on G_v for v ∈ Σ, and ξ_v ≡ χ on inertia for v ∈ P. The product ∏_{v∈P}(ξ_v(σ_v)−χ(σ_v)) agrees with the Hecke cancellation factor up to units as required by DKSW Theorem 2.16. A global basis with distinct residual eigenvalues is not assumed at 2. The exact finite-weight all-prime R19.2 Part II contract below supplies the representations in this range; current narrower R19.2 nodes are used only for the subcases their hypotheses cover.",
    "hypotheses": [
     "As in group-ring-hecke-eisenstein-homomorphism; p odd in DK, p = 2 in DKSW with auxiliary prime."
    ],
    "proofSteps": [
-    "The cited R19.2/wiles-ordinary-hilbert-representation is restricted to p odd and even [F:Q]. It therefore supplies only that subcase. The p = 2 and arbitrary-degree finite-weight ordinary representations, with the Hecke normalisation and local lines required by DKSW Theorem 3.14, need a widened R19.2 contract (G-I7-GALOIS-SUPPLIER).",
+    "Import the R19.2 Part II finite-weight/all-prime existence, coefficient and local-shape theorem with the exact hypotheses in requests. This is a supplier target, not a claim that current wiles-ordinary-hilbert-representation already has that range. For each eigenform use its finite coefficient field, then extend scalars to K_f when necessary.",
     "Non-CM f: R19.2/virtual-reducibility-implies-cm gives irreducibility on open subgroups (DK Lemma 9.1). CM f: R19.2/ordinary-cm-primes-split and R19.2/cm-ordinary-line-complex-conjugation (DK Lemma 9.2).",
     "For p odd choose τ by DK Proposition 9.3 and split its two distinct residual roots by Hensel’s lemma. This step is confined to the residually distinguishable component.",
     "In the odd-prime case assemble the representations over the product of coefficient fields. For p = 2, retain the ℓ-old quadratic algebras, use nonscalar Frobenius from Lemma 3.10, and the simultaneous local statements of DKSW Theorem 3.14, pp. 27–30. Check each local congruence and the unit factors against Theorem 2.16."
@@ -4854,13 +5210,12 @@
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.7/group-ring-hecke-eisenstein-homomorphism",
-    "AutomorphicGaloisRepresentations:R19.2/wiles-ordinary-hilbert-representation",
     "AutomorphicGaloisRepresentations:R19.2/virtual-reducibility-implies-cm",
     "AutomorphicGaloisRepresentations:R19.2/ordinary-cm-primes-split",
     "AutomorphicGaloisRepresentations:R19.2/cm-ordinary-line-complex-conjugation",
     "AutomorphicGaloisRepresentations:R19.2/hilbert-uniqueness-determinant-oddness-irreducibility",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hida-family-representation",
-    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+    "AutomorphicGaloisRepresentations:R19.2"
    ],
    "sources": [
     {
@@ -4884,29 +5239,27 @@
    ],
    "title": "The Ribet module and cohomology class of the Eisenstein ideal",
    "kind": "construction",
-   "statement": "For p odd in the distinct-residual setting: In a basis of ρ(τ)-eigenvectors write ρ(σ) = (a(σ) b(σ); c(σ) d(σ)). Let Ĩ = ker φ ⊆ T̃_𝔐 and I = Ĩ ∩ T_𝔐. Then tr ρ(σ) ≡ ε^{k−1}_cyc(σ) + 𝛙(σ) mod I, a(σ) ≡ ε^{k−1}_cyc(σ) and d(σ) ≡ 𝛙(σ) mod I. Let B_0 be the T_𝔐-module generated by the b(σ), B = (B_0, A_𝔭/C_𝔭 : 𝔭 ∈ Σ ∖ S_∞), B' = B(I_p) the submodule generated by b of inertia at the primes above p not in Σ, and B̄_p = B/(IB, B', p^m B) with submodule B̄_0. Then κ(σ) = b(σ)𝛙(σ)^{-1} defines a class κ ∈ H¹(G_F, B̄_p(𝛙^{-1})) (with ε_cyc^{k−1} ≡ 1 after the choice of k) that is unramified away from Σ', tamely ramified at Σ', locally trivial at Σ, and whose cocycle values generate B̄_0. The general algebra (Ribet modules with local conditions, the cocycle and its Fitting bound) is IntegralHeckeAndGaloisDeterminants IHG.6; this node verifies its hypotheses for the Hilbert–Eisenstein representation. For p = 2 the τ-eigenbasis construction is replaced by IHG.6 local_ribet. Apply it to T_𝔐 ⊂ T̃_𝔐, χ = ε_cyc^{k−1} and ψ = 𝛙, with the local triangular data above. Its difference-matrix construction supplies a finite T_𝔐-module N_0, a continuous cocycle κ_0 ∈ Z¹(G_F,N_0(χψ^{-1})), and elements y_v for v ∈ Σ ∖ {v_0}. They satisfy κ_0(G_{v_0}) = 0, κ_0(σ) = (χψ^{-1}(σ)−1)y_v on G_v, and κ_0(I_v) = 0 for v ∈ P. The module is generated by the cocycle values together with these y_v. Put N̄ = N_0/(IN_0+p^mN_0). Because χ ≡ 1 mod p^m and R → T/I is surjective, κ_0 reduces to a cocycle with values in N̄(ψ^{-1}), satisfying DKSW Theorem 2.3 and generating N̄ together with the local y_v. A class-group map alone need not generate N̄. Supplier limitation: the current IHG.6 local_ribet signature assumes χ ≡ ψ modulo m_T. Apply that signature only on components satisfying this hypothesis. Components with distinct residual characters need a local weighted theorem with the same nonreduced coefficient and topology hypotheses; the distinct-character global theorem alone does not supply it (G-I7-RIBET-RESIDUAL).",
+   "statement": "For p odd in the distinct-residual setting: In a basis of ρ(τ)-eigenvectors write ρ(σ) = (a(σ) b(σ); c(σ) d(σ)). Let Ĩ = ker φ ⊆ T̃_𝔐 and I = Ĩ ∩ T_𝔐. Then tr ρ(σ) ≡ ε^{k−1}_cyc(σ) + 𝛙(σ) mod I, a(σ) ≡ ε^{k−1}_cyc(σ) and d(σ) ≡ 𝛙(σ) mod I. Let B_0 be the T_𝔐-module generated by the b(σ), B = (B_0, A_𝔭/C_𝔭 : 𝔭 ∈ Σ ∖ S_∞), B' = B(I_p) the submodule generated by b of inertia at the primes above p not in Σ, and B̄_p = B/(IB, B', p^m B) with submodule B̄_0. Then κ(σ) = b(σ)𝛙(σ)^{-1} defines a class κ ∈ H¹(G_F, B̄_p(𝛙^{-1})) (with ε_cyc^{k−1} ≡ 1 after the choice of k) that is unramified away from Σ', tamely ramified at Σ', locally trivial at Σ, and whose cocycle values generate B̄_0. The general algebra (Ribet modules with local conditions, the cocycle and its Fitting bound) is IntegralHeckeAndGaloisDeterminants IHG.6; this node verifies its hypotheses for the Hilbert–Eisenstein representation. For p = 2 replace the τ-eigenbasis construction by the all-residual local weighted IHG.6 Part II existence theorem. Apply it to T_𝔐 ⊂ T̃_𝔐, χ = ε_cyc^{k−1} and ψ = 𝛙, with the local triangular data above. This supplies a finite T_𝔐-module N_0, a continuous cocycle κ_0 ∈ Z¹(G_F,N_0(χψ^{-1})), and elements y_v for v ∈ Σ ∖ {v_0}. They satisfy κ_0(G_{v_0}) = 0, κ_0(σ) = (χψ^{-1}(σ)−1)y_v on G_v, and κ_0(I_v) = 0 for v ∈ P. The module is generated by the cocycle values together with these y_v. Put N̄ = N_0/(IN_0+p^mN_0). Because χ ≡ 1 mod p^m and R → T/I is surjective, κ_0 reduces to a cocycle with values in N̄(ψ^{-1}), satisfying DKSW Theorem 2.3 and generating N̄ together with the local y_v. A class-group map alone need not generate N̄. Use the all-residual local weighted existence theorem requested from IHG.6 Part II. The current local_ribet supplies its coincident-residual branch; the b-coefficient branch of DKSW-RIBET Remark 2.2 supplies distinct residues. The latter is requested with all the same local generators, weighted Fitting and topology conclusions, without identifying its module with the narrower theorem’s canonical quotient.",
    "hypotheses": [
     "As in hecke-galois-representation; m ≥ ord_p(#G_p)."
    ],
    "proofSteps": [
     "For p odd, obtain the trace congruence by Hecke eigenvalues and Chebotarev; the τ argument gives diagonal congruences because the residual roots are distinct. This argument is not used at p = 2.",
-    "For p odd, matrix multiplication gives the upper-right cocycle modulo IB. At p = 2 import the difference-matrix/local-generator construction of IHG.6 local_ribet rather than dividing by an eigenvalue gap.",
+    "For the odd-prime distinct-residual branch matrix multiplication gives the upper-right cocycle modulo IB. At p=2 use the IHG.6 Part II all-residual local existence contract: the current difference-matrix theorem proves its coincident branch, while the distinct branch uses the b-coefficient method with adjoined local generators. No division by a vanishing residual eigenvalue gap is used.",
     "Ramification: unramified at 𝔩 ∤ np by ρ; tame at Σ' by pro-p cohomology of tame inertia (DK Proposition 9.4); unramified above p outside Σ by quotienting by B'; locally trivial at Σ by (116) and φ(U_𝔭) = 1 (DK Proposition 9.5).",
     "Verify the extra current-upstream topology hypothesis as follows. Each field-valued ρ_f has a stable coefficient lattice, and the finitely many K_f are finite-dimensional p-adic algebras, including the quadratic nonreduced factors. Compactness bounds all matrix entries in a finite O-lattice. Enlarge that lattice to contain the two difference modules and their products, and close it under the finite O-algebra T; this is still finite. The induced topology and the m_T-adic topology agree on this lattice by the finite-module adic topology theorem (T is a finite local O-algebra). Supply this lattice to local_ribet. If a packaging supplier does not expose that topology theorem, it must be included in the IHG.6 contract.",
     "At p = 2 reduce modulo I and p^m only after obtaining the local generators and weighted Fitting bound. The ramification outside Σ ∪ Σ′ ∪ P comes from ρ, inertia at P is killed by the local theorem, and finite places in Σ′ have residue characteristic different from p, giving the tame condition (DKSW Theorem 2.16, pp. 20–21).",
-    "Check hres explicitly before invoking current upstream local_ribet. At p = 2, ψ can have nontrivial odd-order residual part on G′, so χ ≡ 1 does not imply χ ≡ ψ. In those components the all-component theorem still needs a distinct-residual local interface (G-I7-RIBET-RESIDUAL)."
+    "Split the supplier proof by residual coincidence. Check hres before applying current local_ribet. If ψ has nontrivial odd-order residual part, use the distinct-residual branch of the Part II request, justified by DKSW-RIBET Remark 2.2. Both branches output precisely the same existence interface needed here, so the arithmetic proof treats every residual component."
    ],
    "acceptance": [
     "DK Corollary 9.6: a canonical R^#-surjection α : Cl^{Σ'}_Σ(H)_{R#} ↠ B̄_0(𝛙^{-1})."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.7/hecke-galois-representation",
-    "IntegralHeckeAndGaloisDeterminants:IHG.6/ribet-difference-modules",
-    "IntegralHeckeAndGaloisDeterminants:IHG.6/canonical-ribet-cocycle",
-    "IntegralHeckeAndGaloisDeterminants:IHG.6/local-ribet-quotient",
     "IntegralIwasawaTheory:I.6/smoothed-class-groups",
     "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+    "IntegralHeckeAndGaloisDeterminants:IHG.6"
    ],
    "sources": [
     {
@@ -4916,7 +5269,7 @@
     },
     {
      "sourceId": "DKSW-RIBET",
-     "locator": "§2, Theorem 2.1 and §2.1, pp. 7–10",
+     "locator": "§2, Theorem 2.1, Remark 2.2 and §2.1, pp. 7–10",
      "match": "Constructs the module N and the cocycle with local conditions in the general GL_2 setting, without residual distinguishability."
     },
     {
@@ -4961,6 +5314,11 @@
      "name": "dyadicRibet_local_generators",
      "kind": "non-example",
      "statement": "When Σ has more than one place, local_ribet generates N̄ by κ(G_F) and the y_v; asserting generation by κ alone drops the local part needed for the ∇ surjection."
+    },
+    {
+     "name": "dyadicRibet_odd_order_residue",
+     "kind": "non-example",
+     "statement": "At p=2, an odd-order nontrivial residual ψ need not equal χ≡1. Such a component must use the distinct-residual local existence branch, with weighted local conclusion; the hres difference-quotient theorem is inapplicable."
     }
    ],
    "api": [
@@ -4977,7 +5335,7 @@
     {
      "name": "IntegralIwasawaTheory.ribetClass",
      "role": "constructor",
-     "statement": "κ ∈ H¹(G_F, B̄_p(𝛙^{-1})), κ(σ) = b(σ)𝛙(σ)^{-1}. In the dyadic branch use the difference-matrix cocycle κ_0 reduced in N̄(ψ^{-1})."
+     "statement": "κ ∈ H¹(G_F, B̄_p(𝛙^{-1})), κ(σ) = b(σ)𝛙(σ)^{-1}. In the dyadic branch use the all-residual local cocycle κ_0 reduced in N̄(ψ^{-1})."
     },
     {
      "name": "IntegralIwasawaTheory.ribetClass_unramified",
@@ -5009,7 +5367,7 @@
    ],
    "title": "A surjection from the Ritter–Weiss module",
    "kind": "theorem",
-   "statement": "For p odd: There is an R^#-module surjection β : ∇^{Σ'}_Σ(H)_{R#} ↠ B̄_p(𝛙^{-1}) completing the diagram whose rows are 0 → Cl^{Σ'}_Σ(H)_{R#} → ∇_{R#} → (X_{H,Σ})_{R#} → 0 and 0 → B̄_0 → B̄_p → B̄_1 → 0, with outer maps α (from eisenstein-cohomology-class) and γ : (X_{H,Σ})_{R#} ↠ B̄_1(𝛙^{-1}) (DK Proposition 9.7). At p = 2 apply DKSW Theorem 2.3 to N̄(ψ^{-1}), the representative κ and all y_v to obtain ∇^{Σ′}_Σ(H)_R ↠ N̄(ψ^{-1}). Surjectivity uses their joint generation from local_ribet, not a claimed surjection from the class-group term alone. Supplier limitation: the current IHG.6 local_ribet signature assumes χ ≡ ψ modulo m_T. Apply that signature only on components satisfying this hypothesis. Components with distinct residual characters need a local weighted theorem with the same nonreduced coefficient and topology hypotheses; the distinct-character global theorem alone does not supply it (G-I7-RIBET-RESIDUAL).",
+   "statement": "For p odd: There is an R^#-module surjection β : ∇^{Σ'}_Σ(H)_{R#} ↠ B̄_p(𝛙^{-1}) completing the diagram whose rows are 0 → Cl^{Σ'}_Σ(H)_{R#} → ∇_{R#} → (X_{H,Σ})_{R#} → 0 and 0 → B̄_0 → B̄_p → B̄_1 → 0, with outer maps α (from eisenstein-cohomology-class) and γ : (X_{H,Σ})_{R#} ↠ B̄_1(𝛙^{-1}) (DK Proposition 9.7). At p = 2 apply DKSW Theorem 2.3 to N̄(ψ^{-1}), the representative κ and all y_v to obtain ∇^{Σ′}_Σ(H)_R ↠ N̄(ψ^{-1}). Surjectivity uses their joint generation from local_ribet, not a claimed surjection from the class-group term alone. Use the all-residual local weighted existence theorem requested from IHG.6 Part II. The current local_ribet supplies its coincident-residual branch; the b-coefficient branch of DKSW-RIBET Remark 2.2 supplies distinct residues. The latter is requested with all the same local generators, weighted Fitting and topology conclusions, without identifying its module with the narrower theorem’s canonical quotient.",
    "hypotheses": [
     "As in eisenstein-cohomology-class."
    ],
@@ -5025,7 +5383,8 @@
     "IntegralIwasawaTheory:I.7/eisenstein-cohomology-class",
     "IntegralIwasawaTheory:I.6/ritter-weiss-galois-cohomology",
     "IntegralIwasawaTheory:I.6/ritter-weiss-module",
-    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences"
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+    "IntegralHeckeAndGaloisDeterminants:IHG.6"
    ],
    "sources": [
     {
@@ -5049,7 +5408,7 @@
    ],
    "title": "The Fitting-ideal bound",
    "kind": "theorem",
-   "statement": "For p odd, Fitt_R(B̄_p) ⊆ (Θ^#), hence the corresponding ∇ and Selmer bounds follow by the surjection and transpose. For p = 2 put A = Θ^#/2^d in the DKSW minimal-set case. The local Ribet theorem gives the weighted bound P_loc·Fitt_T(N_0) ⊆ Ĩ, where P_loc = ∏_{v∈P}(ξ_v(σ_v)−χ(σ_v)). It does not assert Fitt_T(N_0) ⊆ I. The Hecke cancellation property, R → T/I surjective, and A | p^m then yield Fitt_R(N̄) ⊆ (A). Twisting and the dyadic ∇ surjection give Fitt(∇_{p,−}) ⊆ (Θ/2^d); inclusion-implies-equality and change of depletion/smoothing sets give the general t = #(Σ′ ∩ S_∞) formulation. Supplier limitation: the current IHG.6 local_ribet signature assumes χ ≡ ψ modulo m_T. Apply that signature only on components satisfying this hypothesis. Components with distinct residual characters need a local weighted theorem with the same nonreduced coefficient and topology hypotheses; the distinct-character global theorem alone does not supply it (G-I7-RIBET-RESIDUAL).",
+   "statement": "For p odd, Fitt_R(B̄_p) ⊆ (Θ^#), hence the corresponding ∇ and Selmer bounds follow by the surjection and transpose. For p = 2 put A = Θ^#/2^d in the DKSW minimal-set case. The local Ribet theorem gives the weighted bound P_loc·Fitt_T(N_0) ⊆ Ĩ, where P_loc = ∏_{v∈P}(ξ_v(σ_v)−χ(σ_v)). It does not assert Fitt_T(N_0) ⊆ I. The Hecke cancellation property, R → T/I surjective, and A | p^m then yield Fitt_R(N̄) ⊆ (A). Twisting and the dyadic ∇ surjection give Fitt(∇_{p,−}) ⊆ (Θ/2^d); inclusion-implies-equality and change of depletion/smoothing sets give the general t = #(Σ′ ∩ S_∞) formulation. Use the all-residual local weighted existence theorem requested from IHG.6 Part II. The current local_ribet supplies its coincident-residual branch; the b-coefficient branch of DKSW-RIBET Remark 2.2 supplies distinct residues. The latter is requested with all the same local generators, weighted Fitting and topology conclusions, without identifying its module with the narrower theorem’s canonical quotient.",
    "hypotheses": [
     "As in surjection-from-nabla."
    ],
@@ -5066,12 +5425,9 @@
    "prerequisites": [
     "IntegralIwasawaTheory:I.7/surjection-from-nabla",
     "IntegralIwasawaTheory:I.7/group-ring-hecke-eisenstein-homomorphism",
-    "IntegralHeckeAndGaloisDeterminants:IHG.6/weighted-fitting-containment",
-    "IntegralHeckeAndGaloisDeterminants:IHG.6/global-ribet-theorem",
-    "IntegralHeckeAndGaloisDeterminants:IHG.6/local-ribet-theorem",
-    "IntegralHeckeAndGaloisDeterminants:IHG.6/distinct-character-ribet",
     "IntegralIwasawaTheory:I.6/ritter-weiss-transpose",
-    "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic"
+    "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+    "IntegralHeckeAndGaloisDeterminants:IHG.6"
    ],
    "sources": [
     {
@@ -5081,7 +5437,7 @@
     },
     {
      "sourceId": "DKSW-RIBET",
-     "locator": "§2, Theorem 2.1 and §2.1, pp. 7–10",
+     "locator": "§2, Theorem 2.1, Remark 2.2 and §2.1, pp. 7–10",
      "match": "The local theorem includes the y_v and a product of local character differences multiplying Fitt_T(N); it applies without residual distinguishability. IHG.6 supplies the explicit finite-lattice/topology version used here."
     },
     {
@@ -5145,14 +5501,14 @@
    ],
    "title": "Kurihara's Theorem 2.12: Fitting ideals of modified Selmer and Ritter–Weiss modules",
    "kind": "theorem",
-   "statement": "Let K/k be a finite abelian CM extension of a totally real field, p any prime, S ⊇ S_∞ ∪ S_ram(K/k) and T a finite set of places disjoint from S with (O^T_{K,S})^× torsion-free. Then Fitt_{Z_p[G]^-}(∇^T_S(K)_{p,−}) = θ^T_{K/k,S}·Z_p[G]^- and Fitt_{Z_p[G]^-}(Sel^T_S(K)_p^-) = (θ^T_{K/k,S})^#·Z_p[G]^-. Both modules admit square finite free presentations. Their determinant can be zero on trivial-zero character components: if S contains a completely split finite prime, θ^T_{K/k,S} = 0. The intrinsic module maps and the Fitting identities are compatible with change of field; the cited sources do not choose coherent norm-compatible free bases and matrices. Any I.9 consumer requiring that stronger contract must instead use a proved inverse-limit/derived-presentation interface (G-I7-NORM-PRESENTATIONS).",
+   "statement": "Let K/k be a finite abelian CM extension of a totally real field, p any prime, S ⊇ S_∞ ∪ S_ram(K/k) and T a finite set of places disjoint from S with (O^T_{K,S})^× torsion-free. Then Fitt_{Z_p[G]^-}(∇^T_S(K)_{p,−}) = θ^T_{K/k,S}·Z_p[G]^- and Fitt_{Z_p[G]^-}(Sel^T_S(K)_p^-) = (θ^T_{K/k,S})^#·Z_p[G]^-. Both modules admit square finite free presentations. Their determinant can be zero on trivial-zero character components: if S contains a completely split finite prime, θ^T_{K/k,S} = 0. The intrinsic module maps and the Fitting identities are compatible with change of field; the cited sources do not choose coherent norm-compatible free bases and matrices. The I.9 consumer uses its derived module-control theorem together with the controlled Fitting/quadratic-presentation contract requested from PadicMeasuresIwasawaAlgebras L6. That contract needs no choices of compatible finite-level bases; the finite theorem here remains independent of I.9.",
    "hypotheses": [
     "k totally real, K/k CM abelian, p any prime (p = 2 included), S ⊇ S_∞ ∪ S_ram(K/k), T disjoint with (O^T_{K,S})^× torsion-free."
    ],
    "proofSteps": [
     "Deduce from keystone-fitting-theorem (b) by moving the places of S_ram ∖ S_p and of S ∖ S_ram between depletion and smoothing sets, using the Euler-factor identities of I.3/stickelberger-functoriality and the depletion sequence for Selmer modules (Kurihara §2.6, after Lemma 6 of Dasgupta–Kakde–Silliman's ETNC paper).",
     "The Selmer statement follows by transpose (I.6/ritter-weiss-transpose (d); Burns–Kurihara–Sano Lemma 2.8).",
-    "DK Appendix B.1, Lemmas B.1–B.3, pp. 89–91, supplies intrinsic functorial module maps, not a coherent system of free bases. Kurihara §4.2, pp. 24–25, uses Fitting-ideal continuity for the tower; verify that exact limit contract rather than assuming norm-compatible matrices."
+    "DK Appendix B.1, Lemmas B.1–B.3, pp. 90–92, gives intrinsic functorial module maps compatible with the local maps. At p=2 take derived coefficient change by Z_p[G]⁻ and use right exactness only for the highest cohomology; minus projection is not exact. For the I.9 application, its T-modified cohomology model has highest H² equal to the modified Selmer module and no H³ under the torsion-free T hypothesis (BKS Proposition 2.4, pp. 571–574). I.9’s derived control then gives M/I_nM≅M_n, not coherent free matrices. Its limit Fitting identity and quadratic presentation follow from the separate generic L6 contract. This is a consumer interface and creates no I.7→I.9 proof dependency."
    ],
    "acceptance": [
     "Kurihara Theorem 2.12 with S ⊇ S_ram: the case used for the equivariant main conjecture."
@@ -5173,19 +5529,24 @@
     },
     {
      "sourceId": "DK-2023",
-     "locator": "Appendix B.1, Lemmas B.1–B.3, pp. 90–93",
+     "locator": "Appendix B.1, Lemmas B.1–B.3, pp. 90–92",
      "match": "Proves the functoriality of the presentation V^θ → B^θ of ∇ under passage to fixed fields, compatible with the maps α_v, β_v."
+    },
+    {
+     "sourceId": "BKS-2016",
+     "locator": "§2.1–2.2, Definition 2.1, Propositions 2.2 and 2.4, pp. 569–574",
+     "match": "The intrinsic T-modified complex has Selmer H², torsion-unit dual H³, and canonical field-change/coefficient maps. This supplies the finite cohomology identification for I.9’s derived-control interface, not a choice of norm-compatible free bases."
     }
    ],
    "implementationStatus": "unchecked",
    "uses": [
     {
      "where": "IntegralIwasawaTheory:I.9/selmer-modified-iwasawa-limit",
-     "how": "finite-level square presentations compatible under norms"
+     "how": "intrinsic norm maps and finite square presentations; I.9 derives M/I_nM≅M_n from its cohomological control model, without compatible bases"
     },
     {
      "where": "IntegralIwasawaTheory:I.9/twisted-selmer-fitting",
-     "how": "the Iwasawa Selmer Fitting identity is the limit of these finite identities"
+     "how": "Fitting ideals commute with controlled quotient base change; L6 continuity and a bounded-relation argument give the limit square presentation"
     },
     {
      "where": "NoncommutativeAndEquivariantIwasawa:NE.6/unconditional-abelian-minus-main-theorem",
@@ -5389,9 +5750,9 @@
     "k totally real, F/k finite abelian totally real, p any prime, S as stated."
    ],
    "proofSteps": [
-    "Apply IntegralIwasawaTheory I.9/integral-determinant-main-conjecture, Det(C_{F∞,S})^{-1} = g_{F∞/k,S}Λ_{F∞}, with H²(C) = X and H³(C) = Z_p (I.8/compact-complex-cohomology).",
+    "Apply IntegralIwasawaTheory I.9/integral-determinant-main-conjecture, Det(C_{F∞,S})^{-1} = g_{F∞/k,S}Λ_{F∞}, with H²(C) = X and H³(C) = Z_p (I.8/compact-complex-cohomology). Use the I.9 controlled-limit replacement specified in the handoff and the L6 Part II request: quotient control on the untwisted T-modified Selmer module, closed-ideal Fitting continuity and bounded-relation lifting of its square presentation. Apply the twist/minus-to-plus comparison after this step; a Tate twist sends I_n to its image ideal and must not be silently identified with the same finite-layer quotient.",
     "Localise at height-one primes (PadicMeasuresIwasawaAlgebras L5): (Z_p)_𝔭 = 0 unless 𝔭 is the augmentation prime, where Det(Z_p) contributes γ − 1 (Kurihara §4.2, first remark, p. 27).",
-    "Base change along ψ : Λ_{F∞} → O_ψ[[Gal(k_∞/k)]] using perfectness, and identify characteristic ideals of ψ-quotients (Kurihara §4.2, second remark).",
+    "Apply the same smoothed-Selmer proof after ψ coefficient change, not only a formal tensor of the height-one equality: use its projective presentation, the T-local Euler modules, and the derived base-change triangle. The quotient has characteristic ideal ψ(g) for ψ≠1 and (γ−1)ψ(g) for ψ=1 (Kurihara §4.2, second remark, p. 27). For prime-to-p ψ this is an exact idempotent summand; in the p-power part retain Tor terms until the presentation comparison.",
     "Compare with I.5/main-conjecture-statement for p odd using I.3/deligne-ribet-dictionary (vi)."
    ],
    "acceptance": [
@@ -5403,10 +5764,10 @@
     "IntegralIwasawaTheory:I.8/compact-complex-cohomology",
     "IntegralIwasawaTheory:I.3/deligne-ribet-dictionary",
     "IntegralIwasawaTheory:I.5/main-conjecture-statement",
-    "IntegralIwasawaTheory:I.5/wiles-main-conjecture",
     "PadicMeasuresIwasawaAlgebras:L5",
     "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
-    "IntegralIwasawaTheory:I.1/equivariant-iwasawa-algebra"
+    "IntegralIwasawaTheory:I.1/equivariant-iwasawa-algebra",
+    "PadicMeasuresIwasawaAlgebras:L6"
    ],
    "sources": [
     {
@@ -5433,19 +5794,19 @@
    ],
    "title": "The Kurihara–Kolster module dictionary at p = 2",
    "kind": "comparison",
-   "statement": "Let F be totally real, p = 2, S = S_2 ∪ S_∞, F_∞/F cyclotomic, K_∞ = F(μ_{2^∞}) = F_∞(√−1), Δ' = Gal(K_∞/F_∞) = ⟨ρ⟩, Γ = Gal(F_∞/F) with generator γ (Kolster's γ_0 restricted) and u = κ(γ). This comparison target has sourced input (a), but (b)–(c) remain open under G-I10-REALPLACE; they must not be used as an established supplier theorem. The proposed map-level identifications retain each finite kernel and cokernel: (a) Kummer duality gives an injection (Sel_S(K_∞)_2)^-(1) → X_{F∞,S} with cokernel Z/2 (IntegralIwasawaTheory I.9/dyadic-selmer-comparison), and dually Hom(X_{F∞,S}, Q_2/Z_2) → ((Sel_S(K_∞)_2)^∨)^{ρ=−1}(−1) is surjective with kernel Z/2; (b) the inertia subgroups at the real places of F_∞ generate a quotient of ⊕_{v real of F} Λ/(2), and the S_2-ramified module split at infinity is Kummer-dual, in Kolster's covariant convention (γφ)(x) = φ(γx), to the norm-kernel minus class module A^-_∞ of K_∞; (c) the missing rank/injectivity and Kummer comparisons are required to establish char(ι_u X_{F∞,S}) = (2^{[F:Q]}·f_F), where f_F is the characteristic polynomial of Kolster's Ǎ^-_∞ = Hom(A^-_∞, Q_2/Z_2) and ι_u is the automorphism γ ↦ κ(γ)γ^{-1} of Λ (T ↦ u(1 + T)^{-1} − 1); (d) H²(C_{F∞,S}) = X_{F∞,S} and H³ = Z_2 in the Burns–Flach compact-support convention, not an ordinary compact-support convention at real places; (e) every identification is compatible with enlarging S by places v ∤ 2 through the factors (1 − Nv^{-1}Frob_v) of I.4/s-enlargement-euler-factors; (f) for an abelian extension of Q the classical going-up comparison of Rognes–Weibel Appendix A.2–A.3 is I.5/going-up-induction.",
+   "statement": "Let F be totally real, p=2, d=[F:Q], S=S_2∪S∞, K∞=F∞(i), Γ=Gal(F∞/F), γ a generator and u=κ(γ). Put X=𝔛_S(F∞) with real ramification allowed. Let A^- be the ordinary norm-minus class direct limit of K∞, and define N=Hom(A^-,Q_2/Z_2) with the covariant action (γφ)(a)=φ(γa). Choose a generator f_F(γ) of char_Λ(N), including its 2-power content; its distinguished polynomial alone is insufficient when μ(N)≠0. Then char_Λ(ι_u X)=(2^d f_F), where ι_u(γ)=uγ^{-1}, equivalently T↦u(1+T)^{-1}−1. The actual maps are the filtration 0→(A^-)^∨→Y→C_F→0 and 0→Y→X(−1)→Z/2(−1)→0 of I.4/dyadic-real-place-correction. Also Y=(Sel_S(K∞)_2)^−, so its twist by 1 injects into X with cokernel Z/2 as in I.9/dyadic-selmer-comparison. In the Burns–Flach compact-support convention H²(C_{F∞,S})=X and H³(C)=Z_2. Enlargement of S uses the local Euler modules of I.4, with finite and height-one errors kept separate. The abelian going-up comparison is I.5/going-up-induction.",
    "hypotheses": [
     "F totally real, p = 2, S = S_2 ∪ S_∞."
    ],
    "proofSteps": [
-    "(a): Kurihara Lemma 4.2(1): H¹(Δ', Q_2/Z_2) ≅ Z/2 and H²(Δ', Q_2/Z_2) = 0 in the Hochschild–Serre sequence for K_∞/F_∞.",
-    "(b): class field theory for the real places: each real place of F splits completely in F_∞ and contributes inertia of order dividing 2 in the S-ramified extension; Kummer duality as in I.2/global-local-unit-sequence (d) with the norm-kernel convention of I.2/cm-minus-class-modules.",
-    "An exact sequence with kernel (Λ/2)^{[F:Q]} would give the asserted characteristic factor, but being a quotient of such a module is insufficient. Construct the map and prove its kernel and cokernel first. Finite Λ-modules have trivial characteristic ideal, whereas Λ/2 is height-one torsion. This is the outstanding G-I10-REALPLACE, not a completed deduction.",
-    "The precise real-place injectivity and the exact form of Federer's comparison are recorded as gap G-I10-REALPLACE (Federer 1982 and Iwasawa 1983 not read)."
+    "Use the two exact sequences proved in I.4/dyadic-real-place-correction, whose correction module is the dual of real unit square classes and has characteristic ideal (2^d). Kurihara Lemma 4.2 identifies Y with the minus quotient of the inverse-limit Selmer module, since its dual is H^{J=−1}. The descent cokernel has order two; it is not the module C_F.",
+    "The standard contragredient dual (A^-)^∨ has γ acting by precomposition with γ^{-1}, so char((A^-)^∨)=ι(f_F), where ι(γ)=γ^{-1}. The exact filtration gives char(X(−1))=2^d ι(f_F). With the explicit Tate convention M(j):γm=u^jγ_Mm, a characteristic series h of M changes to h(u^{-j}γ). Apply ι to h_X(uγ)=2^d f_F(γ^{-1}): this is h_X(uγ^{-1})=2^d f_F(γ), which is the stated ι_u formula.",
+    "This derivation fixes the dual/twist convention before using Kolster Lemma 2, p. 250. In these coordinates the scalar specialization is f_F(u^{-1}), or f_F(u^{-1}−1) if f_F is written as a series in T. A different convention for Hom reverses γ and must change the substitution too.",
+    "Import the compact-support cohomology identifications from I.8; the ordinary real étale compact-support complex is not substituted for that modified convention. For added primes use the exact local modules, retaining the finite descent error until derived specialisation; no real-inertia freeness assertion is needed."
    ],
    "acceptance": [
     "SpecialValuesBirchTate B.6/kolster-kurihara-comparison-table consumes (a)–(e).",
-    "Kolster 1989, Conjecture 3: (G) = (2^{[F:Q]} f) is Federer's 2-adic main conjecture; with (c) and B.6's series dictionary it is equivalent to the nonequivariant main conjecture."
+    "Kolster 1989, Conjecture 3 and Lemma 2, pp. 249–250: after the stated covariant dual convention, the analytic series and 2^d f_F give the same dyadic characteristic-ideal formulation, with full 2-power content retained."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.10/nonequivariant-characteristic-ideal",
@@ -5457,7 +5818,9 @@
     "IntegralIwasawaTheory:I.4/coinvariant-euler-characteristic",
     "IntegralIwasawaTheory:I.1/iwasawa-algebra-coordinate",
     "IntegralIwasawaTheory:I.5/going-up-induction",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+    "IntegralIwasawaTheory:I.4/dyadic-real-place-correction",
+    "IntegralIwasawaTheory:I.2/real-unit-radical"
    ],
    "sources": [
     {
@@ -5474,6 +5837,11 @@
      "sourceId": "ROGNES-WEIBEL-2000",
      "locator": "Appendix A (Kolster), Theorem A.2 and Corollary A.3, pp. 45–49",
      "match": "Gives the going-up comparison of the main conjecture for abelian extensions."
+    },
+    {
+     "sourceId": "NSW-2.3",
+     "locator": "Proposition 11.1.9, p. 730, through I.2/real-unit-radical",
+     "match": "The correction rank is now proved from units and the uniform capitulation bound; it is not inferred from a quotient of real inertia."
     }
    ],
    "implementationStatus": "unchecked"
@@ -5486,19 +5854,19 @@
    ],
    "title": "The weight-two finite Euler characteristic with all factors",
    "kind": "theorem",
-   "statement": "Let F be totally real, p = 2, S = S_2 ∪ S_∞ and X = X_{F∞,S} (real places may ramify). Then: (a) X(−2)^Γ = 0 and X(−2)_Γ is finite, with v_2(#X(−2)_Γ) = v_2(ζ_F(−1)) + v_2(w_2(F)); (b) #X(−2)_Γ = #H²_et(O_F[1/2], Z_2(2)) and #H¹_et(O_F[1/2], Z_2(2)) = w_2(F)_2; hence ζ_F(−1) ∼_2 #H²_et(O_F[1/2], Z_2(2))/#H¹_et(O_F[1/2], Z_2(2)); (c) the derived specialisation C_{F∞,S} ⊗^L_{Λ, κ²} Z_2 has finite cohomology, its Euler characteristic is computed by (a)–(b), and the Tor terms, the order-two cokernel of kurihara-kolster-module-dictionary (a) and the factor 2^{[F:Q]} at p = 2 appear explicitly in the comparison with Kolster's |(T ⊗ A^-_∞)^Γ| and |K_2(O_F)(2)| = 2^{[F:Q]}|(T ⊗ A^-_∞)^Γ|; (d) the identities are compatible with enlarging S. For odd p, the twist κ² does not factor through Gal(F_∞/F) unless ω² is trivial on Gal(F(μ_p)/F), and the corresponding statement is I.5/special-value-endpoint over F(μ_p). The implication to K_2 and W_2 is owned by SpecialValuesBirchTate B.6. In the compact-support convention H² after specialisation is X(−2)_Γ and H³ is Z_2(−2)_Γ of order w_2(F)_2, giving Euler quotient #H²/#H³. The comparison of this complex with Kolster’s norm-kernel module and its real-place factor is conditional on G-I10-REALPLACE; the zeta-value identity (a)–(b) does not by itself discharge that map-level comparison.",
+   "statement": "Let F be totally real, p = 2, S = S_2 ∪ S_∞ and X = X_{F∞,S} (real places may ramify). Then: (a) X(−2)^Γ = 0 and X(−2)_Γ is finite, with v_2(#X(−2)_Γ) = v_2(ζ_F(−1)) + v_2(w_2(F)); (b) #X(−2)_Γ = #H²_et(O_F[1/2], Z_2(2)) and #H¹_et(O_F[1/2], Z_2(2)) = w_2(F)_2; hence ζ_F(−1) ∼_2 #H²_et(O_F[1/2], Z_2(2))/#H¹_et(O_F[1/2], Z_2(2)); (c) the derived specialisation C_{F∞,S} ⊗^L_{Λ, κ²} Z_2 has finite cohomology, its Euler characteristic is computed by (a)–(b), and the Tor terms, the order-two cokernel of kurihara-kolster-module-dictionary (a) and the factor 2^{[F:Q]} at p = 2 appear explicitly in the comparison with Kolster's |(T ⊗ A^-_∞)^Γ| and |K_2(O_F)(2)| = 2^{[F:Q]}|(T ⊗ A^-_∞)^Γ|; (d) the identities are compatible with enlarging S. For odd p, the twist κ² does not factor through Gal(F_∞/F) unless ω² is trivial on Gal(F(μ_p)/F), and the corresponding statement is I.5/special-value-endpoint over F(μ_p). The implication to K_2 and W_2 is owned by SpecialValuesBirchTate B.6. In the compact-support convention H² after specialisation is X(−2)_Γ and H³ is Z_2(−2)_Γ of order w_2(F)_2, giving Euler quotient #H²/#H³. The two exact sequences of I.4 supply the map-level comparison with Kolster’s norm-kernel module. All finite errors are retained in the associated derived specialisation triangles before their Euler quotients cancel.",
    "hypotheses": [
     "F totally real; p = 2; S = S_2 ∪ S_∞."
    ],
    "proofSteps": [
     "(a): evaluate char(X) = ((γ − 1)g) (nonequivariant-characteristic-ideal (c)) at κ(γ)² − 1 after the twist, use that X has no nonzero finite Λ-submodule (I.2/weak-leopoldt (c)) and the interpolation κ²(g) = L_S(−1, 1) = ζ_F(−1)∏_{v|p}(1 − Nv) (I.3/deligne-ribet-dictionary (i); κ² factors through Γ at p = 2 because ω² = 1), the Euler factors 1 − Nv for v | 2 being odd, and v_2(κ(γ)² − 1) = v_2(w_2(F)) (I.4/coinvariant-euler-characteristic).",
     "(b): I.4/twisted-coinvariant-descent (d), together with H¹(O_F[1/2], Z_2(2)) ≅ H⁰(F, Q_2/Z_2(2)) for F totally real (Kolster Lecture 1, §2; Rognes–Weibel p. 47).",
-    "Derived specialisation of the H² = X, H³ = Z_2 complex gives the twisted coinvariants and invariant Tor terms. Finiteness and the absence of invariants give H² = X(−2)_Γ and H³ = Z_2(−2)_Γ. Kolster 1989 Theorem 1, pp. 249–250, instead uses the Γ-invariants of the discrete direct-limit module T ⊗ A^-_∞. Comparing the two, including real inertia, still requires G-I10-REALPLACE.",
+    "For the modified compact-support complex the derived coinvariant spectral sequence has H²=X(−2)_Γ and H³=Z_2(−2)_Γ; possible invariant Tor terms vanish here by finiteness and absence of finite submodules. To compare to classes, use the two exact sequences of I.4 before specializing. A finite error E contributes #E_Γ/#E^Γ=1 because both groups have the same order, so its Tor term cannot be dropped separately. The contragredient dual of the discrete (Tate module Z_2(1)⊗A^-) has series f_F(u^{-1}γ^{-1}); its coinvariants are dual to the discrete Γ-invariants. Their order is |f_F(u^{-1})|_2^{-1}, using no finite submodules of (A^-)^∨ and finiteness at this specialization. The dictionary gives |h_X(u²)|_2^{-1}=2^d|f_F(u^{-1})|_2^{-1}. Hence #X(−2)_Γ=2^d#(Z_2(1)⊗A^-)^Γ, agreeing with Kolster Theorem 1. This calculation includes μ through the full series f_F.",
     "(d): I.4/s-enlargement-euler-factors."
    ],
    "acceptance": [
     "F = Q, p = 2: v_2(ζ(−1)) = −2 and #H²_et(Z[1/2], Z_2(2))/#H¹_et(Z[1/2], Z_2(2)) = 2/8.",
-    "Recover the zeta-value conclusion of Rognes–Weibel Theorem A.1 after importing the all-prime main conjecture; this does not establish the separate real-place module comparison."
+    "Recover Rognes–Weibel Theorem A.1 from the all-prime main conjecture, and recover Kolster Theorem 1 through the actual Kummer filtration and the finite-error Euler quotient."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.10/nonequivariant-characteristic-ideal",
@@ -5573,14 +5941,6 @@
    "kind": "existing-supplier-contract"
   },
   {
-   "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.1",
-   "need": "The codimension-zero congruence module Ψ_λ(M) and congruence ideal η_λ of an augmented finite flat O-algebra, with the finite-flat comparison Ψ ≅ O/η (red-team finding RT-AREA-langlands-1/27), instantiated by I.5 for the Eisenstein augmentation of the ordinary Hecke algebra. Ownership is proposed; this exact interface is not present in the supplied current upstream (G-I5-CONGRUENCE).",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.5/hida-hecke-eisenstein-ideal"
-   ],
-   "kind": "missing-supplier-contract"
-  },
-  {
    "supplier": "PadicMeasuresIwasawaAlgebras:L1",
    "need": "Import the completed group-algebra carrier and finite-level projections already in the current Tau Ceti library, with a pinned-availability adapter when packaging. The universal property and arithmetic action are distinct contracts; no generic carrier is replanned here.",
    "neededBy": [
@@ -5601,14 +5961,15 @@
   },
   {
    "supplier": "PadicMeasuresIwasawaAlgebras:L5",
-   "need": "Determinant lines of perfect complexes over Λ_{F∞}, height-one localisation, compact inverse-limit exactness and topological Nakayama.",
+   "need": "Determinant lines of perfect complexes over Λ_{F∞}, height-one localisation, compact inverse-limit exactness and topological Nakayama. Part II homological Iwasawa criterion: for 1→H→G→Γ≅Z_p→1 with h_i=dim H^i(G,F_p) finite for i≤2 and X=H₁(H,Z_p) finitely generated over Λ, prove (X has no nonzero finite Λ-submodule and rankΛ X=−χ₂(G)) iff H²(H,Q_p/Z_p)=0 and H²(G,Q_p/Z_p) is p-divisible (NSW 5.6.17, pp. 331–332). If cd_p G≤2, H₂(H,Z_p) is finite free over Λ (5.6.15(ii), p. 331). Proof: use the compact free presentation/rank Euler formula of 5.6.16 and the Hochschild–Serre exact sequence for Γ; pd≤1 is equivalent to the required divisibility of H¹(Γ,H¹(H,D)), so vanishing of H²(H,D) gives the equivalence. The cd hypothesis is only used for the free H₂ assertion, after adjoining i in the real dyadic case.",
    "neededBy": [
     "IntegralIwasawaTheory:I.1/equivariant-iwasawa-algebra",
     "IntegralIwasawaTheory:I.10/nonequivariant-characteristic-ideal",
     "IntegralIwasawaTheory:I.2/global-local-unit-sequence",
     "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
     "IntegralIwasawaTheory:I.4/finite-layer-descent",
-    "IntegralIwasawaTheory:I.4/s-enlargement-euler-factors"
+    "IntegralIwasawaTheory:I.4/s-enlargement-euler-factors",
+    "IntegralIwasawaTheory:I.2/weak-leopoldt"
    ],
    "kind": "existing-supplier-contract"
   },
@@ -5659,7 +6020,8 @@
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
    "need": "Local class field theory, for the local modules of Ritter–Weiss.",
    "neededBy": [
-    "IntegralIwasawaTheory:I.6/ritter-weiss-module"
+    "IntegralIwasawaTheory:I.6/ritter-weiss-module",
+    "IntegralIwasawaTheory:I.2/iwasawa-finiteness"
    ],
    "kind": "existing-supplier-contract"
   },
@@ -5693,7 +6055,8 @@
    "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
    "need": "Units of local fields and the principal-unit filtration.",
    "neededBy": [
-    "IntegralIwasawaTheory:I.2/semilocal-principal-units"
+    "IntegralIwasawaTheory:I.2/semilocal-principal-units",
+    "IntegralIwasawaTheory:I.2/iwasawa-finiteness"
    ],
    "kind": "existing-supplier-contract"
   },
@@ -5754,7 +6117,8 @@
    "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
    "need": "Cohomological dimension, for the vanishing of pro-p cohomology of tame inertia away from p.",
    "neededBy": [
-    "IntegralIwasawaTheory:I.7/eisenstein-cohomology-class"
+    "IntegralIwasawaTheory:I.7/eisenstein-cohomology-class",
+    "IntegralIwasawaTheory:I.2/iwasawa-finiteness"
    ],
    "kind": "existing-supplier-contract"
   },
@@ -5818,8 +6182,8 @@
   },
   {
    "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.6",
-   "kind": "missing-supplier-contract",
-   "need": "Local weighted Ribet theorem for residually distinct components as well as coincident components, allowing the finite quadratic nonreduced K_f; include finite matrix lattice/topology input and the local generators. Current local_ribet hres is not automatic at p=2 (G-I7-RIBET-RESIDUAL).",
+   "kind": "Part-II-supplier-contract",
+   "need": "Part II: an all-residual local weighted Ribet existence theorem, with the following contract. Let T⊂T̃ be commutative noetherian rings, T local, both complete for m_T; in this application T̃ is finite over T. Let 0≠Ĩ≠T̃, I=Ĩ∩T, K=Frac(T̃) an Artinian principal ideal ring (finite product of local principal rings, allowed nonreduced). Let G be compact, ρ:G→GL₂(K) continuous and irreducible after every field quotient; χ,ψ:G→T× continuous. Require every characteristic polynomial to lie in T[X] and reduce to (X−χ(g))(X−ψ(g)) modulo I. Give finite local data S=Σ⊔P, G_v and I_v⊂G_v, a lower triangular basis over K with diagonal η_v,ξ_v:G_v→T̃×, ξ_v≡ψ on G_v for v∈Σ and ξ_v≡χ on I_v for v∈P; choose v₀∈Σ when nonempty and σ_v∈G_v for v∈P. Include a finite T-lattice in M₂(K) containing Δχ,Δψ whose induced topology is m_T-adic. Output a finite T-module N, continuous κ∈Z¹(G,N(χψ⁻¹)), and y_v for v∈Σ\\{v₀}, jointly generating N with κ(G), with κ(G_v₀)=0, κ(g)=(χψ⁻¹(g)−1)y_v on the other G_v, κ(I_v)=0 for v∈P, and the cohomology class unramified wherever ρ is. Require (∏_{v∈P}(ξ_v(σ_v)−χ(σ_v)))·Fitt_T(N)T̃⊂Ĩ. No residual coincidence hypothesis. Source: DKSW-BSZ Theorem 2.15, pp. 18–19; DKSW-RIBET Theorem 2.1 and Remark 2.2, pp. 7–9. Proof route: use current local_ribet with its actual hres when χ≡ψ mod m_T; for distinct residues use the b-coefficient lattice proof cited by Remark 2.2 with the same adjoined local generators and weighted relation-matrix determinant calculation. Only existence of N is required in this branch, not an unproved identification with the current canonical difference quotient. The existing hres theorem alone does not fulfill this Part II request.",
    "neededBy": [
     "IntegralIwasawaTheory:I.7/eisenstein-cohomology-class",
     "IntegralIwasawaTheory:I.7/surjection-from-nabla",
@@ -5828,20 +6192,39 @@
   },
   {
    "supplier": "AutomorphicGaloisRepresentations:R19.2",
-   "kind": "missing-supplier-contract",
-   "need": "Finite-weight ordinary Hilbert representations for every totally real degree and p=2 with the exact local and coefficient data of DKSW Theorem 3.14. The current wiles-ordinary-hilbert-representation supplier is only odd-p/even-degree (G-I7-GALOIS-SUPPLIER).",
+   "kind": "Part-II-supplier-contract",
+   "need": "Part II: finite-weight ordinary Hilbert eigenform representations for every totally real F, every p including 2, and parallel integer weight k>1. For a cuspidal eigenform of level n, nebentypus ψ and coefficient field E, supply a continuous irreducible ρ_f:G_F→GL₂(E), unramified outside np, with trace c(q,f) and determinant ψ(q)κ(q)^{k−1} at arithmetic Frob_q for q∤np. At each p-adic ordinary place give a lower triangular basis with η unramified, η(Frob_p)=U_p, and ξ=ψκ^{k−1}η⁻¹. Include coefficient descent to a finite field extension and extension of scalars to the finite quadratic principal algebra E[U_ℓ]/(U_ℓ²−c(ℓ,f)U_ℓ+ψ(ℓ)Nℓ^{k−1}); repeated roots are allowed. At an auxiliary ℓ, a newform needs the Steinberg local description; an ℓ-old form needs unramified nonscalar Frobenius, its minimal polynomial equal to the Hecke polynomial, and the companion-matrix triangularization over this quadratic algebra. Source: DKSW-BSZ §3.3, Lemmas 3.10–3.12, equations (46)–(47) and Theorem 3.14, pp. 27–30. R19.2 owns the general finite-weight existence and local representation statements; I.7 owns their assembly over the finite Hecke order and the congruence checks. Its present odd-p/even-degree wiles-ordinary-hilbert-representation is only a subcase, and is not cited as the full supplier.",
    "neededBy": [
     "IntegralIwasawaTheory:I.7/hecke-galois-representation"
    ]
   },
   {
    "supplier": "AutomorphicPadicLFunctions:L3",
-   "kind": "missing-supplier-contract",
-   "need": "Hida–Silliman forms congruent to 1, prescribed constant terms and the cuspidal correction of DK Theorems 8.8, 8.9, 8.15, plus the dyadic ℓ-old extension. Verify the q-expansion/level/coefficient contracts with AutomorphicBundles and PadicFamilies (G-I7-MODULAR-SUPPLIERS).",
+   "kind": "Part-II-supplier-contract",
+   "need": "Part II: all-prime finite-weight Hilbert modular forms over the character coefficient orders used by DK and DKSW, with arbitrary totally real degree and the indicated p-power and auxiliary-ℓ raised levels. (1) For every m and sufficiently large N, a parallel-weight k multiple of (p−1)p^N admits V_k∈M_k(1,Z_p), all its normalized cusp expansions integral and V_k≡1 mod p^m (DK Theorem 8.8, p. 54; DKSW-BSZ Theorem 3.2, p. 24). (2) For sufficiently large odd weights, supply the group-ring forms with prescribed total constant terms on C∞(n) and vanishing on C∞(P,n)\\C∞(n), with the narrow-class/sign normalization of DK Theorem 8.9, p. 54. (3) Given a finite character family f_ψ with constants divisible by p^m, m≥v_p(#G_p), supply h over the character group-ring order such that f_ψ−(p^m/#G_p)h_ψ has zero constants on C∞(P,n); it is cuspidal for P=1 and becomes cuspidal after e_P^ord otherwise (DK Theorem 8.15, p. 58). (4) Supply integral q-expansion faithfulness and coefficient change, the finite ordinary projector, Hecke and degeneracy formulas for these precise finite-weight spaces and coefficient orders, including p=2 and ℓ-old quadratic U_ℓ algebras. These inputs give DK Theorems 8.17–8.18, pp. 59–60, and the separate DKSW-BSZ Theorem 3.3, Theorem 3.5 and Corollaries 3.6, 3.8, pp. 24–26; I.7 combines them into its specified cusp congruences and Hecke map. APL remains the owner of the Hilbert-form/Eisenstein suppliers and uses AutomorphicBundles B5 for the needed integral expansion extension. No p-odd Λ-adic control theorem or reduced Hecke algebra is assumed in the all-prime finite-weight branch.",
    "neededBy": [
     "IntegralIwasawaTheory:I.7/extra-congruence-cusp-form",
     "IntegralIwasawaTheory:I.7/group-ring-hecke-eisenstein-homomorphism"
    ]
+  },
+  {
+   "supplier": "PadicMeasuresIwasawaAlgebras:L6",
+   "kind": "Part-II-supplier-contract",
+   "need": "Part II, controlled Fitting/quadratic-presentation limit: R is a complete noetherian semilocal O-order finite free over O[[Γ]], such as an abelian tower group algebra or its torsion-free minus quotient, with I_n=(γ^{p^n}−1), I_n eventually contained in every power of the Jacobson radical. Let M be a finitely generated R-module and give compatible isomorphisms M/I_nM≅M_n. Then Fitt_R(M)R/I_n=Fitt_{R/I_n}(M_n), and Fitt_R(M)=∩_n preimage(Fitt_{R/I_n}(M_n)); ideals are closed by noetherian completeness. For genuinely profinite inverse limits one also uses (p^a,I_n), not a claim that the I_n alone form an adic neighborhood basis. If every M_n has a square free presentation, M has one as well: decompose the semilocal ring into local factors, take a minimal finite free cover R^r→M with kernel K, and cancel surplus free generators in finite presentations (or apply Schanuel) to bound the number of generators of its finite relation image by r. Artin–Rees and I_n⊂Jac(R)^N for large n give K∩I_nR^r⊂Jac(R)K, so a sufficiently deep relation image detects K/Jac(R)K. Nakayama supplies at most r relations for K; pad by zero columns to obtain a square matrix. Minors and closed ideals give the Fitting limit identity with no compatible finite bases. If a compatible θ∞ generates every finite Fitting ideal, it generates Fitt_R(M); prove θ∞ is a non-zerodivisor separately by nonvanishing in every characteristic-zero character component before inferring injectivity or projective dimension one. Source/application: Kurihara §4.2, pp. 24–25; the stated bounded-relation proof is the generic algebraic interface supplied here to the existing owner. Current TauCeti.fittingIdeal already provides the all-index carrier; this request only concerns the additional continuity/control theorem. Apply this contract before Tate twisting, or transport the ideals I_n by the twist automorphism; a twist does not preserve the ordinary finite-layer quotient ideal.",
+   "neededBy": [
+    "IntegralIwasawaTheory:I.9/selmer-modified-iwasawa-limit",
+    "IntegralIwasawaTheory:I.9/twisted-selmer-fitting",
+    "IntegralIwasawaTheory:I.10/nonequivariant-characteristic-ideal"
+   ]
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:R02.4",
+   "kind": "Part-II-supplier-contract",
+   "neededBy": [
+    "IntegralIwasawaTheory:I.2/weak-leopoldt",
+    "IntegralIwasawaTheory:I.2/global-local-unit-sequence"
+   ],
+   "need": "Part II: for a number field K, finite S⊇S_p∪S∞ and ordinary restricted-ramification G_S(K), finite-dimensional H^i(G_S,F_p) for i≤2, truncated Euler sum χ₂=−r₂(K), and H₂(G_S,Z_p) torsion-free (equivalently H²(G_S,Q_p/Z_p) divisible), including p=2 and real K. Supply the finite-unit Poitou–Tate identification with augmented real μ₂ terms, and compact-homology/discrete-cohomology duality and their corestriction/restriction tower compatibility. Sources: NSW 8.3.20, 8.7.5, 8.7.7 as used explicitly in Theorem 10.3.22, pp. 639–640; the unit sequence is 10.3.13, pp. 630–632. I.2 owns the arithmetic unit map and the resulting weak-Leopoldt argument. This is a truncated ordinary Euler statement, not the false assertion cd₂(G_S)≤2 in the real case; the current D7 compact-support Euler theorem has the narrower hypothesis (P) and is not a supplier for this extension."
   }
  ],
  "coverage": [
@@ -5849,213 +6232,82 @@
    "stageId": "IntegralIwasawaTheory:I.1",
    "status": "planned",
    "remaining": [
-    "Resolve the exact character-ring descent interfaces used by I.9; the corrected height-one claim requires reflexive or invertible objects.",
-    "Use current completedGroupAlgebra when packaging; the generic PadicMeasures owner is not a merged roadmap in the supplied upstream."
+    "The character-ring/reflexive descent and completed-algebra interfaces remain with PadicMeasuresIwasawaAlgebras. Package against the current library carrier instead of reintroducing it."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.10",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "G-I10-REALPLACE: construct and verify the Kurihara–Kolster comparison, including its twist, finite cokernel and real inertia rank.",
-    "Use Γ-invariants of Kolster’s discrete module, retaining the derived Tor terms."
+    "The two dyadic Kummer exact sequences, real-unit correction rank, covariant/contragredient dictionary and finite-error Euler cancellation are planned here. The main-conjecture proof uses the separately owned I.9 theorem with its required controlled-limit correction; see the exact handoff."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.2",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "G-I2-H2: prove the H² comparison with its real-place convention.",
-    "G-I2-REAL-UNITS and G-I2-UNIT-FINITENESS: supply sign factors and unit-limit comparisons.",
-    "G-I2-FEDERER and G-I2-IWASAWA83: original dyadic class/unit comparisons remain secondary-source inputs."
+    "The precise ordinary truncated-Euler/duality and homological Λ criteria are requested from ArithmeticGaloisDuality R02.4 and PadicMeasuresIwasawaAlgebras L5; these include the real dyadic range. The local arithmetic weak-Leopoldt, unit-limit and norm-minus proofs are stated here."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.3",
    "status": "planned",
    "remaining": [
-    "AutomorphicPadicLFunctions L3 (the Deligne–Ribet and group-ring Eisenstein supplier) has no accepted review yet; re-check node ids when it is reviewed.",
-    "AnalyticNumberTheory AN.4 continuation of finite-order Hecke L-functions over totally real fields is requested."
+    "The analytic continuation/Artin formalism and Deligne–Ribet modular suppliers remain explicit external contracts; use their reviewed normalizations when packaging."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.4",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "G-I4-ENLARGE: prove the injective local inertia term, with the corrected arithmetic-character normalisation.",
-    "G-I10-REALPLACE: prove the real-place map and Λ/(2)-rank; a finite-layer sign group is not a tower characteristic factor."
+    "Uses the requested generic compact-limit and Euler-characteristic interfaces. The S-enlargement injection and dyadic correction maps/rank are planned here."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.5",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "G-I5-WILES: supply the totally-real Eisenstein argument and the separate μ-comparison.",
-    "G-I5-CONGRUENCE: obtain the exact generic congruence API from its proposed owner.",
-    "G-I5-INDUCTION: verify the going-up argument beyond the dyadic source.",
-    "Reconcile the common Q theorem owner EulerSystemsCyclotomicMainConjecture L3."
+    "Keep the shared Q theorem at EulerSystemsCyclotomicMainConjecture L3 and its Eisenstein proof here. The Wiles conclusion uses the independent I.7→I.9→I.10 route, including I.9’s controlled-limit integration described in the handoff; it does not assume that conclusion in its own proof."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.6",
    "status": "planned",
    "remaining": [
-    "Refine ritter-weiss-module to the lemma level of Dasgupta–Kakde Appendix A (Lemmas A.1–A.9) and DKSW §4–5 (class-formation duality), read here by statement."
+    "Generic reciprocity, cohomology, character-ring and transpose APIs remain imported from their existing owners. No second Selmer or Ritter–Weiss object is introduced."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.7",
-   "status": "partial",
+   "status": "planned",
    "remaining": [
-    "G-I7-NORM-PRESENTATIONS: reconcile I.9’s stronger contract with intrinsic norm maps and Fitting continuity.",
-    "G-I7-RIBET-RESIDUAL: supply the local weighted theorem in every residual component.",
-    "G-I7-GALOIS-SUPPLIER and G-I7-MODULAR-SUPPLIERS: obtain the actual p=2/arbitrary-degree ordinary representation and cusp-correction contracts."
+    "IHG.6 Part II must expose the all-residual weighted local existence theorem, R19.2 Part II the all-prime finite-weight ordinary representations, and APL L3 Part II the exact all-prime constant-term/cusp/level contracts. Each request gives hypotheses, conclusions and primary-source proof locators. The currently narrower signatures do not already fulfill these requests.",
+    "The finite theorem supplies intrinsic norm maps and finite square presentations. The I.9 owner must use the controlled-module/Artin–Rees Fitting interface requested at PMIL L6, replacing its old coherent-matrix wording."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.8",
    "status": "planned",
    "remaining": [
-    "Planned in research/blueprint/packets/IntegralIwasawaTheory--I.8.json (accepted 2026-10-18); this packet does not replan it. Its supplier contracts on I.1, I.2, I.3, I.6 and I.7 are addressed by the nodes listed in the handoff note; the remaining items of that packet (gaps G1–G3) stand."
+    "Owned by the separately accepted IntegralIwasawaTheory--I.8 packet; its own recorded gaps G1–G3 remain. This revision does not certify or duplicate that plan. The handoff gives exact edits to its Selmer-limit/Fitting consumers: establish M/I_nM≅M_n by derived control, use the PMIL L6 closed-ideal and bounded-relation theorem, and remove any assumption of coherent norm-compatible matrices. Those consumer edits must be integrated in that owner’s files."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:I.9",
    "status": "planned",
    "remaining": [
-    "Planned in research/blueprint/packets/IntegralIwasawaTheory--I.8.json (accepted 2026-10-18); this packet does not replan it. Its supplier contracts on I.1, I.2, I.3, I.6 and I.7 are addressed by the nodes listed in the handoff note; the remaining items of that packet (gaps G1–G3) stand."
+    "Owned by the separately accepted IntegralIwasawaTheory--I.8 packet; its own recorded gaps G1–G3 remain. This revision does not certify or duplicate that plan. The handoff gives exact edits to its Selmer-limit/Fitting consumers: establish M/I_nM≅M_n by derived control, use the PMIL L6 closed-ideal and bounded-relation theorem, and remove any assumption of coherent norm-compatible matrices. Those consumer edits must be integrated in that owner’s files."
    ]
   },
   {
    "stageId": "IntegralIwasawaTheory:L0",
    "status": "planned",
    "remaining": [
-    "Planned in research/blueprint/packets/IntegralIwasawaTheory--I.8.json (accepted 2026-10-18); this packet does not replan it. Its supplier contracts on I.1, I.2, I.3, I.6 and I.7 are addressed by the nodes listed in the handoff note; the remaining items of that packet (gaps G1–G3) stand."
+    "Owned by the separately accepted IntegralIwasawaTheory--I.8 packet; its own recorded gaps G1–G3 remain. This revision does not certify or duplicate that plan. The handoff gives exact edits to its Selmer-limit/Fitting consumers: establish M/I_nM≅M_n by derived control, use the PMIL L6 closed-ideal and bounded-relation theorem, and remove any assumption of coherent norm-compatible matrices. Those consumer edits must be integrated in that owner’s files."
    ]
   }
  ],
- "gaps": [
-  {
-   "id": "G-I2-H2",
-   "title": "Source for the H² form of weak Leopoldt",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.2/weak-leopoldt"
-   ],
-   "detail": "Prove the equivalence between the rank/defect form of weak Leopoldt and the asserted H² vanishing, specifying coefficients and limit maps. The proposed cd_p ≤ 2 argument fails at p = 2 with real places, whose order-two decomposition groups give infinite ordinary cohomological dimension. Kurihara §4.1, p. 23, uses weak Leopoldt but does not supply this proof."
-  },
-  {
-   "id": "G-I2-FEDERER",
-   "title": "Federer's theorem on the dual minus class module at 2",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.2/cm-minus-class-modules"
-   ],
-   "detail": "That (A_∞^-)^∨ has no nonzero finite Λ-submodule for p = 2 with the norm-kernel convention is quoted by Kolster 1989 from Federer (Birkhäuser 1982), which was not read."
-  },
-  {
-   "id": "G-I2-IWASAWA83",
-   "title": "Iwasawa's 1983 computation of H^i(Γ, ℰ)",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.2/real-unit-galois-cohomology"
-   ],
-   "detail": "Iwasawa, On cohomology groups of units for Z_p-extensions, Amer. J. Math. 105 (1983), Proposition 2, is used as quoted in Kolster 1989; the original was not read."
-  },
-  {
-   "id": "G-I4-ENLARGE",
-   "title": "Left exactness when enlarging S",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.4/s-enlargement-euler-factors"
-   ],
-   "detail": "Injectivity of the inertia map Λ_{F∞}/(Frob_v − Nv) → 𝔛_{S∪{v}}(F_∞) is argued from weak Leopoldt (vanishing H²); the classical source (Greenberg, Nagoya Math. J. 67 (1977)) was not read."
-  },
-  {
-   "id": "G-I5-WILES",
-   "title": "Wiles 1990 and Mazur–Wiles 1984 not read",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.5/ribet-extension-construction",
-    "IntegralIwasawaTheory:I.5/divisibility-to-equality",
-    "IntegralIwasawaTheory:I.5/wiles-main-conjecture"
-   ],
-   "detail": "Wiles, The Iwasawa conjecture for totally real fields, Ann. of Math. 131 (1990), 493–540, and Mazur–Wiles, Invent. Math. 76 (1984), 179–330, were not read in this pass. The Q-case is planned from Sharifi's AWS notes (§4.3, a complete sketch in the Ohta–Emerton form); the totally real case (Λ-adic Hilbert forms, auxiliary twisting to control ramification above p, the μ-comparison Theorem 1.4) is stated from Kolster, Kakde, Rognes–Weibel and Dasgupta–Kakde's account."
-  },
-  {
-   "id": "G-I10-REALPLACE",
-   "title": "Real-place correction at p = 2",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.10/kurihara-kolster-module-dictionary",
-    "IntegralIwasawaTheory:I.10/finite-euler-characteristic-comparison"
-   ],
-   "detail": "Construct the inertia map at infinity and prove its kernel, cokernel and Λ/(2)-rank before deducing 2^{[F:Q]} or the twist ι_u. A quotient of a sum of Λ/(2) modules gives no such equality. Compare the precise norm-kernel minus class module of Kolster 1989, Theorem 1 and Conjecture 3, pp. 248–250, with Kurihara Lemma 4.2, p. 25; retain the finite order-two cokernel and use invariants for Kolster’s discrete module."
-  },
-  {
-   "id": "G-I2-REAL-UNITS",
-   "title": "Real sign factors in the dyadic global–local sequence",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.2/global-local-unit-sequence",
-    "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
-    "IntegralIwasawaTheory:I.10/kurihara-kolster-module-dictionary"
-   ],
-   "detail": "For real K at p = 2, specify the local ±1 factors, the wide or narrow class group, and the maps before passing to limits. Prove the weak-Leopoldt identification E_∞ → Ē_∞ separately. The unaugmented sequence cited from Sharifi does not supply this case."
-  },
-  {
-   "id": "G-I2-UNIT-FINITENESS",
-   "title": "Finite generation of norm-compatible unit modules",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.2/iwasawa-finiteness"
-   ],
-   "detail": "Supply the local Iwasawa unit-module theorem for U_∞ and the injectivity/comparison E_∞ ≅ Ē_∞ needed to use noetherianity. Sharifi Proposition 3.2.11 proves the class-module statement, not these unit assertions. Avoid a circular reliance on the global–local sequence."
-  },
-  {
-   "id": "G-I5-CONGRUENCE",
-   "title": "Codimension-zero congruence interface",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.5/hida-hecke-eisenstein-ideal"
-   ],
-   "detail": "RT-AREA-langlands-1/27 proposes IHG.1 as the generic owner. Current upstream has congruence ideals but no matching Ψ_λ(M) finite-flat comparison. Supply that API with its augmentation and finiteness hypotheses, or give the particular Q argument directly; do not treat a proposed owner as an implemented contract."
-  },
-  {
-   "id": "G-I5-INDUCTION",
-   "title": "General-prime going-up interface",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.5/going-up-induction"
-   ],
-   "detail": "Rognes–Weibel Appendix A.2 proves the dyadic case. Supply a source or a complete target-level argument for arbitrary p, including coefficient fields for induction, distinguished-polynomial substitutions and type-S/type-W factorisation."
-  },
-  {
-   "id": "G-I7-NORM-PRESENTATIONS",
-   "title": "The exact finite-to-infinite presentation contract",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.7/kurihara-theorem-2-12"
-   ],
-   "detail": "The finite module/Fitting theorem and intrinsic field-change maps are sourced. A coherent system of norm-compatible free matrices is not. Reconcile the I.9 supplier request with Kurihara §4.2 Fitting-ideal continuity or a derived presentation theorem; do not infer regular determinants in the presence of trivial zeros."
-  },
-  {
-   "id": "G-I7-RIBET-RESIDUAL",
-   "title": "Local weighted Ribet input for distinct residual components",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.7/eisenstein-cohomology-class",
-    "IntegralIwasawaTheory:I.7/surjection-from-nabla",
-    "IntegralIwasawaTheory:I.7/fitting-ideal-calculation"
-   ],
-   "detail": "The checked current IHG.6 local_ribet and atlas local-ribet-theorem assume χ≡ψ modulo the maximal ideal. The global distinct-character theorem has no local weighted conclusion. At p=2 a character with nontrivial odd-order part need not be residually trivial. Request a local distinct-character theorem (including possibly nonreduced K_f and the finite-lattice topology), or a uniform local statement matching DKSW Theorem 2.15; do not silently drop hres. DKSW Remark 2.2, p. 8, explicitly states the source theorem also holds without residual coincidence; the gap here concerns the exact supplier signature, not the truth of that mathematical extension."
-  },
-  {
-   "id": "G-I7-GALOIS-SUPPLIER",
-   "title": "Ordinary Hilbert representations in the required range",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.7/hecke-galois-representation"
-   ],
-   "detail": "The read R19.2/wiles-ordinary-hilbert-representation statement assumes p odd and [F:Q] even. I.7 needs finite-weight ordinary Hilbert representations for arbitrary totally real F and p=2, with trace/determinant normalisation, coefficient descent and local triangular data. DKSW Theorem 3.14 states the needed arithmetic input; route the general representation theorem to its existing R19.2 owner rather than attributing the broader result to the narrower node."
-  },
-  {
-   "id": "G-I7-MODULAR-SUPPLIERS",
-   "title": "Cusp correction and all-prime Hilbert modular supplier range",
-   "neededBy": [
-    "IntegralIwasawaTheory:I.7/extra-congruence-cusp-form",
-    "IntegralIwasawaTheory:I.7/group-ring-hecke-eisenstein-homomorphism"
-   ],
-   "detail": "Supply exact contracts for DK Theorems 8.8, 8.9 and 8.15 (forms congruent to 1, prescribed constant terms, cuspidal correction), and the dyadic ℓ-old construction of DKSW §3.2. Existing PadicFamilies L5 Λ-adic Hilbert statements assume odd p and contain conditional control inputs; the read AutomorphicBundles Hilbert expansion principle is in a prime-to-p-level setup. Check the precise level and coefficient-change range used in I.7."
-  }
- ],
+ "gaps": [],
  "sourceIssues": [
   {
    "id": "IntegralIwasawaTheory/E1",
@@ -6117,7 +6369,7 @@
     "PadicFamilies"
    ],
    "detail": "RT-AREA-langlands-1/27: the codimension-zero congruence module and ideal have no generic owner; PadicFamilies L1 currently plans them.",
-   "proposal": "IntegralHeckeAndGaloisDeterminants IHG.1 owns the congruence module and ideal (the confirmed fix); I.5/hida-hecke-eisenstein-ideal imports IHG.1 (requested) and cites PadicFamilies L1/congruence-ideal only as the present planned statement, to be re-pointed when IHG.1 is extended. This is an ownership proposal; the exact generic supplier statement is still missing (G-I5-CONGRUENCE)."
+   "proposal": "Keep the confirmed generic ownership proposal at IntegralHeckeAndGaloisDeterminants IHG.1. This packet does not require its unavailable arbitrary-module comparison: I.5 proves its Q congruence quotient directly by the constant-term Hecke functional. For the regular augmented algebra A itself, Ψ_λ(A)=coker(Ann_A ker λ→O)=O/λ(Ann_A ker λ) is the relevant elementary definition; a formula for arbitrary M requires additional rank and duality hypotheses and is not asserted here. No new generic congruence object is owned by IntegralIwasawaTheory."
   },
   {
    "action": "rescope",
@@ -6153,7 +6405,7 @@
     "EulerSystemsCyclotomicMainConjecture"
    ],
    "problem": "The Q characteristic-ideal main conjecture appears in both I.5 and EulerSystemsCyclotomicMainConjecture L3.",
-   "proposal": "Keep one common statement at EulerSystemsCyclotomicMainConjecture L3; I.5 supplies its Eisenstein proof and dictionary. Reconcile tier or bundle placement before adding a backwards dependency."
+   "proposal": "Keep the shared theorem at EulerSystemsCyclotomicMainConjecture L3. The general MainConjecture proposition and its normalization are specified by I.5/main-conjecture-statement; I.5/mazur-wiles-theorem supplies the Eisenstein proof of the Q instance, rather than another owner of the common theorem. Euler L3 retains its independent Euler-system proof. This is a statement/proof interface, with no import of Euler L3 as a theorem prerequisite and no backward proof edge."
   }
  ],
  "upstreamNotes": [
@@ -6179,351 +6431,19 @@
    "roadmaps": [
     "IntegralHeckeAndGaloisDeterminants"
    ],
-   "note": "Current IHG.6 local_ribet requires an explicit finite matrix lattice with the correct induced adic topology in addition to algebraic trace and local conditions. I.7 must verify that arithmetic input. RT-AREA-langlands-1/27 identifies an owner for codimension-zero congruence modules, but current IHG.1 does not yet supply the requested Ψ_λ API."
+   "note": "Current IHG.6 local_ribet requires an explicit finite matrix lattice with the correct induced adic topology in addition to algebraic trace and local conditions. I.7 must verify that arithmetic input. RT-AREA-langlands-1/27 identifies an owner for codimension-zero congruence modules, but current IHG.1 does not yet supply the requested Ψ_λ API. The revision no longer depends on that absent generic comparison: its Q congruence module is computed directly."
   },
   {
    "roadmaps": [
     "EulerSystemsCyclotomicMainConjecture"
    ],
    "note": "The Q characteristic-ideal main-conjecture statement is already a target of EulerSystemsCyclotomicMainConjecture L3. I.5 should import that common statement and give the Eisenstein proof/comparison; it must not create a second owner for the theorem."
+  },
+  {
+   "roadmaps": [
+    "LocalGaloisGroups"
+   ],
+   "note": "Current main also supplies the local pro-p Galois finite-generation setting (LocalGaloisGroups Layer 7). This newer roadmap is absent from the atlas snapshot, so it is an availability observation, not a fabricated declaration in the pinned baseline. The packet uses the known local-reciprocity, multiplicative-group and procyclic-cohomology suppliers, with the arithmetic norm-limit/Nakayama proof stated in iwasawa-finiteness."
   }
- ],
- "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-IntegralIwasawaTheory--I.1",
-  "date": "2026-10-19",
-  "notes": "Independent review by Codex, session codex-zfjoCq. All 66 target nodes and all 35 pinned declaration statements were read; Ideal.spanNorm was replaced by the multiplicative Ideal.relNorm and cyclotomic-character continuity was separated from the algebraic API. Corrected statements, tests, integral/dyadic conventions, local weighted Ribet data and ownership. Current upstream and supplier statements were checked separately from the pins. The packet is partial: unresolved real-place maps, unit/weak-Leopoldt and classical proof contracts, general-prime induction, residual/local Ribet scope, ordinary Hilbert supplier range and the I.9 limit contract prevent acceptance. See the independent report and each explicit gap.",
-  "checked": [
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/cyclotomic-zp-extension",
-    "verdict": "corrected",
-    "note": "Separated algebraic cyclotomicCharacter from the finite-level continuity proof; completed the uniqueness argument. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/cyclotomic-layers",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/full-cyclotomic-tower",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/tower-ramification",
-    "verdict": "corrected",
-    "note": "Replaced the insufficient class-number argument by local cyclotomic ramification at every p-adic place, and used projected Frobenius away from p. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/iwasawa-algebra-coordinate",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/finite-level-kernel",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against SHARIFI Remark 2.4.3 and Lemma 2.4.4, pp. 52–53; KOLSTER-2009 Lecture 1, §1, p. 5. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/arithmetic-compact-action",
-    "verdict": "corrected",
-    "note": "Restricted surjectivity of limit projections to surjective transition maps and added a counterexample. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/equivariant-iwasawa-algebra",
-    "verdict": "corrected",
-    "note": "Corrected the splitting argument: it is the torsion-free rank-one Z_p quotient that splits, rather than an arbitrary extension by an open Z_p. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.1/character-decomposition-integrality",
-    "verdict": "corrected",
-    "note": "Restricted height-one descent to suitable invertible or reflexive objects; arbitrary integral ideals are not determined by character values or height-one data alone. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/class-group-limit",
-    "verdict": "corrected",
-    "note": "Replaced the impossible finite-S test by a finite-level class-generation test; corrected the norm citation. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/unit-limits",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/semilocal-principal-units",
-    "verdict": "corrected",
-    "note": "Distinguished the pinned Z_p principal units from the newer general local-field unit filtration. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/leopoldt-map-and-defect",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/maximal-abelian-pro-p-extensions",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/class-field-identification",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against SHARIFI Proposition 3.2.6 and Corollary 3.2.7, p. 79; Proposition 3.2.11 and (3.2.1), p. 80; Propositions 3.2.19–3.2.20, p. 83; KOLSTER-2009 Lecture 1, §1, p. 7. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/global-local-unit-sequence",
-    "verdict": "unverifiable",
-    "note": "Restricted the unaugmented global–local sequence to odd p or totally imaginary K and removed the unproved limit-unit identification. The real dyadic extension and E_∞ comparison remain open."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
-    "verdict": "unverifiable",
-    "note": "Exposed the missing finite-generation proof for global and semilocal unit limits. The unit finite-generation argument is missing."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/weak-leopoldt",
-    "verdict": "unverifiable",
-    "note": "Used X′_{S_p} in the defect bound and removed the false assertion that including real places gives cd_2 ≤ 2. The H² equivalence has no verified proof in the stated dyadic scope."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/cm-minus-class-modules",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against SHARIFI §3.4, Proposition 3.4.1 p. 89, Proposition 3.4.2 p. 90; KURIHARA §3, pp. 15–17. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.2/real-unit-galois-cohomology",
-    "verdict": "unverifiable",
-    "note": "Corrected the finite 2-group rank: 2^s is #B[2] = #B/2B, not #B. The corrected unit-cohomology formula still relies on unread Iwasawa 1983."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.3/stickelberger-elements",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.3/stickelberger-functoriality",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against DK-2023 §1, pp. 4–7, equations (5) and (7); §1.1 observation (c), p. 6; KURIHARA §2.3, pp. 6–7; §3.1, p. 16. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.3/smoothed-integrality",
-    "verdict": "corrected",
-    "note": "Restored all DKSW conditions and allowed infinity to be partitioned between depletion and smoothing. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.3/deligne-ribet-dictionary",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against KURIHARA §4.1, pp. 22–24; KOLSTER-2009 Lecture 1, §1, p. 8; KAKDE-2013 §3, p. 14. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.3/kubota-leopoldt-stickelberger-dictionary",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against SHARIFI §5.3, Proposition 5.3.3 to Theorem 5.3.13, pp. 138–142; Corollaries 5.3.15–5.3.16, p. 142; SHARIFI-AWS §2.5, p. 23. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.3/interpolation-uniqueness",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against KURIHARA §4.1, p. 23; SHARIFI Proposition 5.3.3 and Remark 5.3.4, pp. 138–139. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.4/arithmetic-iwasawa-complex",
-    "verdict": "corrected",
-    "note": "Corrected the finite-layer non-example: inflation supplies a Λ-action, but does not replace the Iwasawa limit. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.4/finite-layer-descent",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against SHARIFI Theorem 3.3.3, proof, p. 84; KURIHARA §4.2, pp. 24–26; KOLSTER-2009 Lecture 2, §3, pp. 13–14. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.4/coinvariant-euler-characteristic",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against KOLSTER-2009 Lecture 1, Lemma 1.1, p. 6, and Lemma 1.2, p. 7; KOLSTER-2009 Lecture 2, §3, Propositions 3.1–3.2, p. 14; ROGNES-WEIBEL-2000 Appendix A (Kolster), proof of Theorem A.1, p. 47. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.4/twisted-coinvariant-descent",
-    "verdict": "corrected",
-    "note": "Restricted the integral character comparison to prime-to-p eigenspaces, p odd and weights n ≥ 2; kept the separate even dyadic case. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.4/s-enlargement-euler-factors",
-    "verdict": "corrected",
-    "note": "Restricted to addition of one prime and corrected κ(Frob_v) to ⟨Nv⟩, including the Teichmüller factor in specialisation. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.4/dyadic-real-place-correction",
-    "verdict": "unverifiable",
-    "note": "Marked the real-place comparison as open and corrected height-one visibility of tower sign modules. The exact real-place map and rank have not been established."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/main-conjecture-statement",
-    "verdict": "corrected",
-    "note": "Separated weak and strong conjectures and restricted the Q branch equivalences; added the Ferrero–Washington input. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/hida-hecke-eisenstein-ideal",
-    "verdict": "unverifiable",
-    "note": "Recorded that the proposed IHG.1 codimension-zero congruence interface is not present in current upstream and remains a supplier gap. The general codimension-zero supplier interface is not available."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/ribet-extension-construction",
-    "verdict": "corrected",
-    "note": "Specified the rings in the Fitting argument and limited the unverified totally-real extension to distinguished-polynomial divisibility. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/hecke-class-group-comparison",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against SHARIFI-AWS Remark 4.3.2, p. 50; §4.3, p. 52. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/divisibility-to-equality",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against SHARIFI-AWS Remark 2.5.2, p. 23; KOLSTER-2009 Lecture 2, §3, p. 13. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/mazur-wiles-theorem",
-    "verdict": "corrected",
-    "note": "Restricted the abelian generalisation to the case where the character field is abelian over Q, and imported the common Q main-conjecture statement. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/wiles-main-conjecture",
-    "verdict": "unverifiable",
-    "note": "Kept Wiles distinguished-polynomial equality separate from the prime-to-p μ-comparison. The totally-real Wiles proof contract remains incomplete."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/going-up-induction",
-    "verdict": "unverifiable",
-    "note": "Distinguished the dyadic theorem actually sourced in Rognes–Weibel from the proposed general-prime induction argument. Only the dyadic going-up argument was verified against the source."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.5/special-value-endpoint",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against KOLSTER-2009 Lecture 2, §3, Propositions 3.1–3.2, Theorem 3.3 and Corollary 3.4, pp. 13–15. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/cm-minus-parts-and-duals",
-    "verdict": "corrected",
-    "note": "Replaced the ambiguous Z/4 test by a free-module counterexample separating the minus quotient from the eigenspace. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/smoothed-class-groups",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/smoothed-stickelberger",
-    "verdict": "corrected",
-    "note": "Restricted anti-invariance to the range that kills the trivial character, and restored the DKSW integrality hypotheses. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/sinnott-kurihara-ideal",
-    "verdict": "corrected",
-    "note": "Added a working characterisation, extensionality or universal-property API after checking the stated construction. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/minus-class-number-formula",
-    "verdict": "corrected",
-    "note": "Removed the claim that an away-from-two splitting by itself determines the integral power of two. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/selmer-module",
-    "verdict": "corrected",
-    "note": "Restricted minus Selmer exact sequences and the vanishing archimedean term to coefficients in which 2 is invertible. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/ritter-weiss-module",
-    "verdict": "corrected",
-    "note": "Separated the generalised DKSW projective presentation from the original V^θ presentation. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/ritter-weiss-transpose",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against DK-2023 §6.1, Lemma 6.1 and Corollary 6.2, p. 40; Appendix A.4, Lemma A.8, pp. 86–87; KURIHARA §2.6, pp. 13–14. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.6/ritter-weiss-galois-cohomology",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against DK-2023 §6.2, Lemma 6.3, equations (82)–(84) and Lemma 6.4, pp. 41–42; §A.5, Lemma A.9, pp. 87–89; DKSW-BSZ §2.1, Theorem 2.3, p. 8. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/inclusion-implies-equality",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against DK-2023 §5, Theorem 5.1 and Lemmas 5.2–5.7, Remark 5.8, pp. 31–39; §2.3, pp. 16–18; DKSW-BSZ §2.5, Theorem 2.7, Theorem 2.10 and Lemmas 2.11–2.13, pp. 12–17. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/extra-congruence-cusp-form",
-    "verdict": "unverifiable",
-    "note": "Separated the odd-prime cusp congruences from the DKSW minimal-set construction; defined d = [F:Q] independently of the level. Corrected the source statement, but the constant-term correction and full all-prime modular supplier interface remain missing."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/group-ring-hecke-eisenstein-homomorphism",
-    "verdict": "corrected",
-    "note": "Replaced the false embedding of the dyadic Hecke algebra into a product of coefficient rings by its possibly nonreduced finite algebra and exact cancellation contract. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/hecke-galois-representation",
-    "verdict": "unverifiable",
-    "note": "Separated the distinct-residual τ basis from the dyadic representation with its local triangular bases and nonreduced coefficient algebra. The source construction is clear, but its listed ordinary-Galois supplier excludes p=2 and odd-degree F."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/eisenstein-cohomology-class",
-    "verdict": "unverifiable",
-    "note": "Added the dyadic local Ribet module, local generators and the finite-lattice/topology verification required by current upstream. Corrected the dyadic algebra and local data, but the exact local weighted supplier contract for all residual components is not available."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/surjection-from-nabla",
-    "verdict": "unverifiable",
-    "note": "Specified the dyadic surjection from the generalised Ritter–Weiss module using all local generators. Corrected the dyadic algebra and local data, but the exact local weighted supplier contract for all residual components is not available."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/fitting-ideal-calculation",
-    "verdict": "unverifiable",
-    "note": "Restored the weighted local Fitting bound and its cancellation argument; the unweighted global Ribet theorem is insufficient. Corrected the dyadic algebra and local data, but the exact local weighted supplier contract for all residual components is not available."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/keystone-fitting-theorem",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against DK-2023 §1, Theorem 1.7, p. 12; §3.2, Theorem 3.3, p. 20; DKSW-BSZ §1.2, conditions (A1)–(A5) and Theorem 1.2, pp. 4–5. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/kurihara-theorem-2-12",
-    "verdict": "unverifiable",
-    "note": "Removed the false non-zerodivisor determinant assertion and the unsupported choice of norm-compatible free matrices. The I.9 consumer’s stronger presentation contract remains unresolved."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/partial-kurihara-and-strong-brumer-stark",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against DK-2023 §3.3, Theorem 3.7, Corollary 3.8 and Lemma 3.9, pp. 22–25; DKSW-BSZ §2.2, Theorem 2.4 and its proof, pp. 8–9. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/kurihara-fitting-formula",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against DK-2023 §1.1, Theorem 1.4, p. 7; §3.3, Theorem 3.5, p. 21; Appendix B, Lemmas B.1–B.7 and Theorem B.8, pp. 89–97; KURIHARA §2.5, Theorem 2.8 and Corollary 2.9, p. 11. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/brumer-stark-theorem",
-    "verdict": "corrected",
-    "note": "Removed the claimed logical equivalence of annihilation and the anti-unit construction, and separated the degree-one case. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.7/rubin-conjecture-consequence",
-    "verdict": "corrected",
-    "note": "Separated the fixed depletion set from the split places; the old right side vanished identically. "
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.10/nonequivariant-characteristic-ideal",
-    "verdict": "verified",
-    "note": "Checked the statement, hypotheses, proof outline and stated conventions against KURIHARA §4.1–4.2, Theorem 4.1, the proof and the three remarks, pp. 24–27; ROGNES-WEIBEL-2000 Appendix A (Kolster), pp. 45–47. No local correction needed; imported proof inputs retain their stated supplier conditions."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.10/kurihara-kolster-module-dictionary",
-    "verdict": "unverifiable",
-    "note": "Made the unproved real-place map/rank comparison an explicit open target rather than a consequence of a quotient presentation. The real-place comparison is still a target, not a proved supplier."
-   },
-   {
-    "nodeId": "IntegralIwasawaTheory:I.10/finite-euler-characteristic-comparison",
-    "verdict": "unverifiable",
-    "note": "Corrected Kolster’s direct-limit formula to Γ-invariants and stated the derived degrees and conditional comparison explicitly. The zeta/descent statement is sourced, but the full Kolster comparison remains conditional."
-   }
-  ]
- }
+ ]
 }
