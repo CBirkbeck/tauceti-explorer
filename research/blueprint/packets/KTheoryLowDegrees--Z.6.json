@@ -1,0 +1,941 @@
+{
+  "roadmapId": "KTheoryLowDegrees",
+  "protocol": "blueprint-v1",
+  "part": "Z.6",
+  "status": "complete",
+  "scope": [
+    "KTheoryLowDegrees:Z.6"
+  ],
+  "summary": "Complete target-level continuation of the accepted Z.3 packet’s 25 Z.6 targets: eight comparison/coherence refinements, exact support/descent supplier routing, discriminating degree-zero tests and a compact native suggested file. No second K₀, Cartan map, geometric determinant, support category or projective-bundle theorem is planned. Coverage is planned, with inherited enriched-coherence and arbitrary-regular approximation requests explicit.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.ExactK0.hom_ext",
+        "kind": "theorem",
+        "module": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+        "provides": "Equality of additive maps checked on object classes, with the exact structure fixed.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      },
+      {
+        "ref": "tauceti:TauCeti.cartanMap",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Inclusion of finite projectives into finite modules on exact K₀, for any ring.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      },
+      {
+        "ref": "tauceti:TauCeti.cartanMap_apply",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Factorisation of that Cartan map through the finite-resolution equivalence.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      },
+      {
+        "ref": "tauceti:TauCeti.moduleEulerClassOf",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Existing Euler class of one module with a finite-projective-resolution witness.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      },
+      {
+        "ref": "tauceti:TauCeti.moduleEulerClassOf_eq",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Any such finite resolution computes the existing Euler class.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      },
+      {
+        "ref": "tauceti:TauCeti.moduleResolutionEquiv",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Exact K₀ equivalence for the subcategory of modules admitting finite projective resolutions.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      },
+      {
+        "ref": "tauceti:TauCeti.moduleResolutionEquiv_symm_of",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "Inverse on a resolved module class is moduleEulerClassOf.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      },
+      {
+        "ref": "tauceti:TauCeti.fromFiniteProjectiveResolution_of",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+        "provides": "The finite-resolution inclusion preserves the underlying module class.",
+        "checked": "2026-10-19: read the declaration and enclosing hypotheses at the exact Tau Ceti pin; CartanMap source blob 2fee1cb54d9c3b880174857c3bc0a4169c25ab51 matches the existing shared Lean build. No library build was run."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook.2013",
+      "title": "The K-book: an introduction to algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted combined draft dated 29 August 2013; PDF page = printed book page + 8. Published-edition collation is not claimed.",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "readSections": [
+        "II.2 pp.68–69; II.8 pp.145–149; II.9.2 pp.161–163, II.9.7.5–9.8 pp.169–170; IV.6.1–6.2 pp.318–319; IV.7.1–7.2 p.328; V.1.5.4 p.371 and V.2.7.2–2.7.4 pp.383–384."
+      ]
+    },
+    {
+      "id": "BS17.v3",
+      "title": "Projectivity of the Witt vector affine Grassmannian",
+      "authors": "Bhargav Bhatt and Peter Scholze",
+      "edition": "arXiv:1507.06490v3, 21 February 2017. PDF and printed page numbers coincide. No new published-source erratum or full published/preprint collation is claimed.",
+      "url": "https://arxiv.org/pdf/1507.06490v3",
+      "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
+      "readSections": [
+        "§5 pp.18–20; Lemma6.11 and both proofs pp.24–25; §12 pp.54–59."
+      ]
+    },
+    {
+      "id": "TauCeti.pin",
+      "title": "Tau Ceti exact Grothendieck groups and module Cartan comparison",
+      "authors": "The Tau Ceti contributors",
+      "edition": "Git commit f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+      "readSections": [
+        "CartanMap.lean definitions and statements for the induced exact structures, finite-resolution subcategory, Euler classes and Cartan factorisation (lines96–490); Exact.lean object-class universal property and hom_ext."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-19",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1507.06490v3",
+      "read": "2026-10-19",
+      "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Naturality of the affine degree-zero comparison diagram",
+      "kind": "theorem",
+      "statement": "Write c_A for the existing comparison RingK0(A) ≅ ExactK0(P(A)) ≅ π₀K(P(A)). For every unital ring map f:A→B, c_B ∘ RingK0.map(f) = π₀K(B⊗_A−) ∘ c_A. For commutative A the affine sheafification comparison and E↦E[0] identify this SAME map with K₀(Vect(Spec A))→π₀K(Perf(Spec A)); the diagram remains commutative after base change. On commutative rings all comparisons preserve tensor products and units. The noncommutative version uses perfect module complexes, without invoking Spec A.",
+      "hypotheses": [
+        "P(A) is the essentially small exact category of finite projective left A-modules with its induced split exact structure. Fix universe/small-model transports as in K.1.",
+        "The scheme comparison is asserted only for commutative unital rings. No flatness of f is needed on projectives: their exact sequences split."
+      ],
+      "proofSteps": [
+        "Use the old Z.1 equivalence with ExactK0 and K.1’s loop-class normalisation. Both composites on [P] give the loop class of B⊗_A P; ExactK0.hom_ext proves equality.",
+        "For commutative A use S.2/affine-k-theory-comparison and the finite-projective/sheaf equivalence imported by Z.5. The object P sheafifies to P~ and both routes give P~[0].",
+        "Check tensor comparison on pairs of projective classes using the imported biexact pairing, and the unit on [A]. For general rings use K.4/gillet-waldhausen and Weibel V.2.7.2, not S.2’s scheme-only affine statement."
+      ],
+      "acceptance": [
+        "The zero ring has zero K₀; no integer-rank isomorphism is claimed for it.",
+        "For a field extension F→E, the resulting ℤ→ℤ map is the identity, not multiplication by [E:F].",
+        "For F×F→F the first projection sends the two idempotent projectives to F and 0."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.1/ring-k0-exact",
+        "KTheoryLowDegrees:Z.1/ring-k0-map",
+        "KTheoryLowDegrees:Z.6/ring-k-zero-pi-zero",
+        "KTheoryLowDegrees:Z.6/vector-bundle-k-zero-pi-zero",
+        "KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison",
+        "GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0",
+        "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+        "GeneralAlgebraicKTheory:K.4/gillet-waldhausen",
+        "SchemeKTheoryOperations:S.2/affine-k-theory-comparison",
+        "SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison",
+        "SchemeKTheoryOperations:S.2/tensor-product-pairings",
+        "tauceti:TauCeti.ExactK0.hom_ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.2, book pp.68–69 (PDF pp.76–77); IV Proposition 6.2, book p.319 (PDF p.327); IV Corollary 7.2, book p.328 (PDF p.336); V.2.7.2, book p.383 (PDF p.391)",
+          "match": "These locators give scalar extension, the object-class loop, the plus/Q comparison and the ring-complex model, respectively."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/ring-k-zero-pi-zero",
+        "KTheoryLowDegrees:Z.6/vector-bundle-k-zero-pi-zero"
+      ],
+      "planet": {
+        "name": "Degree-zero K-theory comparison"
+      }
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/resolution-euler-cartan-square",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "The Euler and Cartan comparison square",
+      "kind": "theorem",
+      "statement": "Let R be a ring, M a module admitting a finite resolution by finite projectives, and h the corresponding admitsFiniteResolution witness. Under c_R, the class of a bounded cochain resolution P•→M[0] (P^i=0 for i>0) is moduleEulerClassOf(R,h)=Σ_i(−1)^i[P^i]. Applying the EXISTING cartanMap sends it to the class of M in ExactK0(finiteModulesExactStructure R). For commutative noetherian R this is precisely π₀ of the scheme Cartan map on Spec R. For flat maps between commutative noetherian rings the resulting Euler/Cartan square commutes with scalar extension on both sides.",
+      "hypotheses": [
+        "No global regularity assumption on R is required for a single M with the stated finite resolution.",
+        "The scheme/G-theory and flat-base-change assertions assume commutative noetherian rings. Arbitrary scalar extension on all finitely generated modules is not used as an exact G₀ functor."
+      ],
+      "proofSteps": [
+        "Import the finite-resolution equivalence, its inverse-on-classes formula, and moduleEulerClassOf_eq from the pin. Do not construct another resolution class.",
+        "The pinned factorisation cartanMap = fromFiniteProjectiveResolution ∘ moduleResolutionEquiv sends the inverse image of [M] to [M]; this proves the native identity without assuming every finite module has a finite resolution.",
+        "K.4/gillet-waldhausen and the alternating truncation filtration identify the perfect-complex class with that resolution class. S.2/cartan-degree-zero-compatibility identifies the affine target map.",
+        "Flat scalar extension preserves the resolution and is exact on finite modules; compare generators. More general finite-Tor-dimension derived G-pullback belongs to S.2, not to this elementary square."
+      ],
+      "acceptance": [
+        "The one-term projective resolution gives cartanMap([P])=[P].",
+        "For ℤ/p, the two terms ℤ in degrees −1 and 0 cancel, so its G₀(ℤ) class is zero.",
+        "For k[ε]/ε², the map in projective-rank/simple-length bases is ×2; no inverse or finite projective resolution of its residue field is inferred."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+        "KTheoryLowDegrees:Z.6/perfect-complex-euler-class",
+        "KTheoryLowDegrees:Z.6/cartan-map-comparison",
+        "SchemeKTheoryOperations:S.2/cartan-degree-zero-compatibility",
+        "SchemeKTheoryOperations:S.2/cartan-map",
+        "tauceti:TauCeti.cartanMap",
+        "tauceti:TauCeti.cartanMap_apply",
+        "tauceti:TauCeti.moduleEulerClassOf",
+        "tauceti:TauCeti.moduleEulerClassOf_eq",
+        "tauceti:TauCeti.moduleResolutionEquiv",
+        "tauceti:TauCeti.moduleResolutionEquiv_symm_of",
+        "tauceti:TauCeti.fromFiniteProjectiveResolution_of"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II Theorem 9.2.2 and proof, book pp.162–163 (PDF pp.170–171); II.9.7.5, book p.169 (PDF p.177)",
+          "match": "The class of a bounded projective complex is the alternating class of its terms."
+        },
+        {
+          "sourceId": "TauCeti.pin",
+          "locator": "CartanMap.lean: moduleEulerClassOf_eq, moduleResolutionEquiv_symm_of, fromFiniteProjectiveResolution_of and cartanMap_apply (lines358–409)",
+          "match": "These existing formulas give the comparison with the same Cartan map, including its exact structures."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/perfect-complex-euler-class",
+        "KTheoryLowDegrees:Z.6/cartan-map-comparison"
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/localisation-rank-pic-square",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Localisation, support and rank–Pic coordinates",
+      "kind": "theorem",
+      "statement": "For a commutative ring A and multiplicative set S, the degree-zero support-forgetful and restriction maps form K₀(A on S)→RingK0(A)→RingK0(S⁻¹A), exact at the middle. A supported strictly perfect cochain complex maps to its alternating class and then to zero; [P] restricts to [S⁻¹P]. If A is Dedekind, under the existing rank–Pic isomorphisms restriction is (r,L)↦(r,S⁻¹L) for S not containing zero; the rank–Pic coordinates of a supported Euler class are (Σ(−1)^i rk P^i, ⊗_i det(P^i)^{(−1)^i}). The affine scheme diagram and the Cartan diagram for this flat localisation commute.",
+      "hypotheses": [
+        "For a single open-support localisation sequence on schemes require a qcqs open complement; arbitrary S uses the ring localisation model/filtered limit, not an unproved quasi-compactness assertion for Spec S⁻¹A→Spec A.",
+        "The rank–Pic equivalence is imported only in its Dedekind hypotheses. If 0∈S the target ring is zero and there is no target rank copy of ℤ."
+      ],
+      "proofSteps": [
+        "Import the support category and the exact degree-zero sequence. Compare restriction on projectives using affine-comparison-diagram; use the finite-complex Euler formula for the forgetful arrow.",
+        "For Dedekind A apply Z.4/k0-localization to the rank and determinant maps. Extension of invertible modules respects tensor and dual, hence the indicated Pic map.",
+        "Flatness of localisation gives resolution-euler-cartan-square. Compare the determinant formula term by term with rank-pic-determinant-square. Exactness at K₀(A) never adds an unsupported surjectivity assertion on K₀(S⁻¹A)."
+      ],
+      "acceptance": [
+        "For A=ℤ and S=ℤ\\{0}, restriction is identity on ℤ and the support-forgetful map is zero.",
+        "For A=F×F and S generated by (1,0), restriction (a,b)↦a kills [0×F].",
+        "For I=(2,1+√−5) in ℤ[√−5], the resolution I→A in degrees −1,0 forgets to [A]−[I], with determinant I⁻¹. It dies over the fraction field, although its global class is nonzero."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+        "KTheoryLowDegrees:Z.6/resolution-euler-cartan-square",
+        "KTheoryLowDegrees:Z.6/rank-pic-determinant-square",
+        "KTheoryLowDegrees:Z.6/localisation-projective-class",
+        "KTheoryLowDegrees:Z.4/k0-localization",
+        "KTheoryLowDegrees:Z.6/nonprincipal-ideal-test",
+        "SchemeKTheoryOperations:S.3/affine-support-comparison",
+        "SchemeKTheoryOperations:S.3/connective-localisation-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II.9.7.5–9.8.1, book pp.169–170 (PDF pp.177–178); II Theorem8.1, book pp.145–146 (PDF pp.153–154)",
+          "match": "Supported perfect complexes forget by Euler class; localisation is exact at the middle and rank/determinant are additive invariants."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/perfect-complex-euler-class",
+        "KTheoryLowDegrees:Z.6/localisation-projective-class",
+        "KTheoryLowDegrees:Z.6/nonprincipal-ideal-test"
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/rank-pic-determinant-square",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Components of the graded determinant agree with Euler rank and Picard class",
+      "kind": "theorem",
+      "statement": "For qcqs X, the map π₀Det_X:π₀K(Perf X)→π₀Pic^ℤ(X)=H⁰(X,ℤ)⊕Pic(X) has, on a strictly perfect cochain representative P•, value (Σ_i(−1)^i rk P^i, ⊗_i det P^i to exponent (−1)^i). Precomposition with K₀(Vect X)→π₀K(Perf X) is exactly the existing rank–determinant map of Z.5; when X has the resolution property this is a comparison through an isomorphism. This equality is natural for derived pullback. Composing only the component-group map with Pic projection gives the ordinary determinant homomorphism, without a symmetric-monoidal forget-grade factorisation.",
+      "hypotheses": [
+        "Rank is a locally constant integer function. Do not replace H⁰(X,ℤ) by ℤ unless X is nonempty and connected.",
+        "A global term formula is used only when a global bounded vector-bundle representative is given; general perfect objects use descent of the local formulas.",
+        "Pic^ℤ uses the symmetry (−1)^{fg} times the line-bundle flip, with line first and grade second when writing a Picard object (L,f)."
+      ],
+      "proofSteps": [
+        "Use old bounded-complex-det and graded-det-pi-zero, identifying their projective and affine normalisations by affine-comparison-diagram. The tensor product in Pic^ℤ is the image of direct sum in K, not the K-ring product.",
+        "On a bundle E[0] the formula is (rk E,det E), so generator extensionality identifies it with Z.5’s map. Shift introduces the additive inverse and line dual; triangle additivity gives the Euler sum.",
+        "Pullback preserves the imported finite-locally-free determinant and the coherent spectrum map. The sign survives passage to automorphisms; forgetting it is valid only after taking components."
+      ],
+      "acceptance": [
+        "On F×F, [F×0] has grade (1,0), not an integer constant.",
+        "O_X[1] has object (O_X,−1), while the zero complex has (O_X,0).",
+        "Over a field of characteristic ≠2, interchanging two rank-one summands acts as −1 on their determinant line. An unsigned Picard target fails this check.",
+        "On ℙ¹, z=[O]−[O(−1)] has components (0,O(1)); its rank is zero but its determinant is nontrivial."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+        "KTheoryLowDegrees:Z.6/bounded-complex-det",
+        "KTheoryLowDegrees:Z.6/graded-det-pi-zero",
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "KTheoryLowDegrees:Z.3/graded-line-groupoid",
+        "KTheoryLowDegrees:Z.3/forget-grade",
+        "KTheoryLowDegrees:Z.5/vector-bundle-determinant",
+        "KTheoryLowDegrees:Z.5/vector-bundle-rank"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "§5, Construction5.1 and Proposition5.3, pp.18–19; §12, Example12.2(iii) and Corollary12.17, pp.54–55,59",
+          "match": "The signed graded determinant preserves direct sums and has the stated affine/scheme normalisation."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II Theorem8.1, book pp.145–146 (PDF pp.153–154)",
+          "match": "Its rank and determinant maps are the component invariants compared here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/bounded-complex-det",
+        "KTheoryLowDegrees:Z.6/graded-det-pi-zero"
+      ],
+      "planet": {
+        "name": "Rank and graded determinant"
+      }
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/projective-line-functorial-coordinates",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Functorial comparison of the two projective-line coordinate systems",
+      "kind": "theorem",
+      "statement": "Use the existing projective-bundle coordinates x=a[O]+b[O(−1)] on K₀(ℙ¹_F), and the existing rank–determinant coordinates (r,d). For every field extension F→E, base change is the identity on BOTH copies of ℤ² and conjugates the comparison (a,b)↦(a+b,−b). Under it proper pushforward π_* is (a,b)↦a=(r,d)↦r+d and either standard section pullback σ* is (a,b)↦a+b=(r,d)↦r. These assertions use the SAME π₀K comparison and Cartan equivalence as the affine tests. The ring product in rank–degree coordinates is (r,d)(s,e)=(rs,re+sd).",
+      "hypotheses": [
+        "F and E are fields, ℙ¹ has O(−1) as its projective-bundle generator. Pushforward is the existing proper perfect pushforward.",
+        "The coordinate statements concern K₀, not a direct-sum splitting of graded Picard spectra or an origin-free genus-one formula."
+      ],
+      "proofSteps": [
+        "Import S.5/projective-line-k-theory and the three existing Z.6 projective-line nodes, rather than reproving the projective bundle theorem or Pic(ℙ¹).",
+        "Evaluate pullback of O and O(−1) under the field extension, preserving these two ordered generators. Their coordinate columns prove both identities and the commuting base-change diagram.",
+        "Use π_*O=1, π_*O(−1)=0 and σ*O=σ*O(−1)=1 from S.5. Substitution gives π_*=r+d and σ*=r. The Z.5 ring formula transports the product."
+      ],
+      "acceptance": [
+        "O(m) has (a,b)=(m+1,−m), (r,d)=(1,m), including m=−2 where π_* is −1.",
+        "The rational skyscraper z has (1,−1) and (0,1); π_*z=1, σ*z=0 in K₀, and z²=0. Section pullback here is DERIVED; naive restriction of the skyscraper at the section would give the wrong answer.",
+        "The coordinate matrix [[1,1],[0,−1]] squares to identity. Swapping the O(1)/O(−1) convention changes the signs and fails the preceding tests."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+        "KTheoryLowDegrees:Z.6/rank-pic-determinant-square",
+        "KTheoryLowDegrees:Z.6/projective-line-regular-curve",
+        "KTheoryLowDegrees:Z.6/projective-line-rank-pic",
+        "KTheoryLowDegrees:Z.6/projective-line-change-of-basis",
+        "SchemeKTheoryOperations:S.5/projective-line-k-theory",
+        "KTheoryLowDegrees:Z.5/curve-k-zero-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "II Theorem8.5 and Corollary8.6, book p.149 (PDF p.157); V Theorem1.5.4, book p.371 (PDF p.379)",
+          "match": "These give the ordered two-generator basis and its twisting relation; the functorial coordinate comparison is obtained by applying the imported pullbacks and pushforward."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/projective-line-change-of-basis",
+        "KTheoryLowDegrees:Z.6/projective-line-rank-pic"
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Affine descent comparison for the scheme determinant",
+      "kind": "theorem",
+      "statement": "The ordinary scheme determinant already specified in scheme-spectrum-det is the Zariski descent of the affine signed determinant with its scalar-extension comparison. Its affine restriction comparison is compatible with identity/composition of pullbacks, the zero object, shifts, and additivity paths for enhanced cofiber sequences. Consequently its component map is the one in rank-pic-determinant-square. A change of affine presentation gives equivalent determinant data through the descent comparison, not merely an equality of Picard classes.",
+      "hypotheses": [
+        "X is qcqs; no regularity or resolution property is needed for Det on Perf(X).",
+        "Use enhanced Perf and mapping spaces (or Picard-groupoid pseudofunctors with monoidal natural isomorphisms after truncation). A bare triangulated category does not supply canonical triangle/octahedral comparison data.",
+        "The coherent generic truncation/descent and filtered additivity interfaces are explicit supplier requests; no new generic spectra theory is owned here."
+      ],
+      "proofSteps": [
+        "Import the affine map and its Zariski-sheafified normalisation from Z.3. Identify scalar-extension restrictions by affine-comparison-diagram and the finite-locally-free pullback/determinant operations owned by AlgebraicVectorBundles L0A–L0C.",
+        "Pic^ℤ is a Zariski stack; the affine normalisations and their overlap isomorphisms descend to a map K(Perf X)→Pic^ℤ(X), as in BS17 Prop5.3. This only needs descent for maps INTO the stack; no claim that an arbitrary connective K presheaf is itself hypercomplete is required.",
+        "Use K.4’s requested coherent additivity to transport enhanced triangles and filtrations, retaining the extension paths. Apply π₀ to recover the earlier Euler comparison."
+      ],
+      "acceptance": [
+        "On a singular affine scheme the map still exists, without identifying Vect K and Perf K on all schemes.",
+        "On the doubled affine plane the Perf determinant exists; the failed Vect→Perf equivalence must not be used to define it.",
+        "A swap of two degree-zero lines has sign −1 in characteristic ≠2; neither descent nor passing to a new representative erases that automorphism."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "KTheoryLowDegrees:Z.6/determinant-triangle",
+        "KTheoryLowDegrees:Z.6/rank-pic-determinant-square",
+        "KTheoryLowDegrees:Z.3/zariski-sheafified-det",
+        "KTheoryLowDegrees:Z.3/ring-spectrum-det",
+        "KTheoryLowDegrees:Z.3/graded-line-groupoid",
+        "SchemeKTheoryOperations:S.1/perfect-complex",
+        "SchemeKTheoryOperations:S.2/affine-k-theory-comparison",
+        "StableHomotopyKTheory:H.5:spectra/picard-one-truncated-spectra",
+        "GeneralAlgebraicKTheory:K.4/waldhausen-additivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "§5 Proposition5.3 and its proof, pp.18–19; §12 Corollary12.17 and Proposition12.18, p.59",
+          "match": "The scheme map is obtained from the affine determinant and Zariski descent, with a groupoid/spectrum-valued target."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+        "KTheoryLowDegrees:Z.6/determinant-triangle"
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "The sheafified comparison defining the supported Witt determinant",
+      "kind": "theorem",
+      "statement": "On the site of perfect qcqs F_p-schemes let A=τ≤1K(Perf−), B=τ≤1K(W(−) on −), P=Pic^ℤ, and a_v denote sheafification in 1-truncated connective spectra/Picard groupoids. The supplier gives a_vα:a_vA≃a_vB, and ordinary determinant gives a_vA≃P. Define e:a_vB≃P as their composite using the inverse of a_vα. The EXISTING supported determinant is K(W(−) on −)→B→a_vB→e P. Restriction along α identifies it with Det, including the extension homotopy. Precomposition along α induces an equivalence of natural mapping spaces into P; its homotopy fibre over the specified ordinary Det is contractible. This is uniqueness of NATURAL extensions with the extension homotopy.",
+      "hypotheses": [
+        "p is prime, W denotes p-typical Witt vectors, and the support input is the S.3 enhanced formal-Witt category.",
+        "P is a v-stack; use the universal properties of τ≤1 and sheafification at the level of mapping groupoids/spaces, requested from the indicated suppliers.",
+        "There is no assertion that α_X is an equivalence for every X, nor that all maps out of the supported K-spectrum at a fixed X form a contractible space."
+      ],
+      "proofSteps": [
+        "Replace the old broad support/site edges by S.3/witt-supported-perfect-complexes, S.3/witt-special-fibre-k-map, S.4/perfect-scheme-h-and-v-sites and S.4/witt-k-one-truncation-sheafification. Keep W(X) formal; on affines its model is Spec W(R) with p support.",
+        "Use Z.3/graded-pic-v-descent and ordinary Det normalisation. The maps A→P and α become equivalences after sheafification; their inverse/composite gives e.",
+        "For a 1-truncated sheaf P, natural maps from supported K to P factor through B and then a_vB. Precomposition by a_vα is an equivalence; a fibre of an equivalence over a specified point is contractible. This proves the extension property and its coherent uniqueness together.",
+        "The h-local proof of the α comparison uses regular finite-type perfections and alterations, so the smooth case suffices. The broader arbitrary regular Cor5.6 claim remains subject to the supplier’s Popescu/continuity gap; do not reproduce its faulty blanket smooth-lift step."
+      ],
+      "acceptance": [
+        "Over a perfect field k, the residue module α(k) maps to (k,1).",
+        "W(k)/p² has supported determinant grade2 even though its ordinary W(k)-projective resolution has virtual W(k)-rank0. The two determinant targets differ.",
+        "The zero object has (O,0). W(k)[0] is not a supported input when k is a nonzero field.",
+        "The mapping-space argument retains the chosen extension homotopy; equality on π₀ is insufficient to prove uniqueness."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+        "KTheoryLowDegrees:Z.6/witt-supported-det",
+        "KTheoryLowDegrees:Z.6/witt-det-uniqueness",
+        "KTheoryLowDegrees:Z.3/graded-pic-v-descent",
+        "SchemeKTheoryOperations:S.3/witt-supported-perfect-complexes",
+        "SchemeKTheoryOperations:S.3/witt-special-fibre-k-map",
+        "SchemeKTheoryOperations:S.4/perfect-scheme-h-and-v-sites",
+        "SchemeKTheoryOperations:S.4/witt-k-one-truncation-sheafification",
+        "StableHomotopyKTheory:H.5:spectra/picard-one-truncated-spectra"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "§5 Theorem5.7 and proof, pp.19–20; Proposition12.18, p.59",
+          "match": "The proof sheafifies the one-truncations and determines the supported extension with its natural homotopy; it does not give objectwise equivalence for all perfect schemes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/witt-supported-input",
+        "KTheoryLowDegrees:Z.6/v-sheafified-first-k",
+        "KTheoryLowDegrees:Z.6/witt-supported-det",
+        "KTheoryLowDegrees:Z.6/witt-det-uniqueness"
+      ],
+      "planet": {
+        "name": "Determinant of Witt torsion"
+      }
+    },
+    {
+      "id": "KTheoryLowDegrees:Z.6/witt-filtered-base-change-square",
+      "parentStageId": "KTheoryLowDegrees:Z.6",
+      "realises": [
+        "KTheoryLowDegrees:Z.6"
+      ],
+      "title": "Filtration and base-change comparisons for supported determinants",
+      "kind": "theorem",
+      "statement": "For a finite enhanced filtration 0=C₀→⋯→C_n=C in Perf(W(X) on X), supplied identifications cofib(C_{j−1}→C_j)≃α_X(D_j) give Det~(C)≃⊗_{j=1}^n Det(D_j), ordered by increasing filtration index. These isomorphisms commute with perfect-scheme derived pullback and with specified refinement diagrams through the K-theory additivity paths. In particular, for perfect k, a finite-length W(k)-module Q, and perfect qcqs k-scheme X, a finite filtration of Q_X by finite projective O_X-graded pieces has product determinant line pulled back from the k-line underlying Det~(Q). It is trivializable, with locally constant grade length_{W(k)}Q. No canonical basis or individual triviality of every graded determinant is asserted.",
+      "hypotheses": [
+        "The filtration includes actual enhanced maps, cofiber identifications and refinement comparisons; a list of equal component classes is insufficient.",
+        "In the constant-module clause k is a nonzero perfect field, X is a perfect k-scheme, Q_X is the derived Witt base change, agreeing with the ordinary tensor module here; W(O_X) is flat over the DVR W(k) on affines.",
+        "For arbitrary filtrations, comparison follows the specified paths. Contractible uniqueness of the global natural extension is not a claim that every automorphism of each determinant line is trivial."
+      ],
+      "proofSteps": [
+        "Use the requested coherent Waldhausen additivity to obtain the path [C]=Σ[α(D_j)] in supported K, then apply the SAME Det~ of witt-determinant-sheafification-square and its specified extension homotopy.",
+        "Naturality of additivity and of Det~ gives the base-change square. The octahedral/refinement coherence is imported from K.4, not inferred from the triangulated axioms alone.",
+        "For constant Q, naturality identifies Det~(Q_X) with pullback of Det~(Q). Every line over k has a basis, hence its pullback is trivializable. A composition series of Q has length ℓ and k-graded pieces, giving grade ℓ. Any other specified filtration gives the same determinant via additivity."
+      ],
+      "acceptance": [
+        "Q=0 gives the empty tensor product and grade0.",
+        "Q=k gives a trivializable line with grade1; Q=W(k)/p² gives grade2, not the graded tensor unit.",
+        "A nontrivial automorphism u∈k× acts on the residue-line determinant; trivializable does not mean canonically trivialized.",
+        "Refining the length-two p-adic filtration preserves its ordered determinant comparison and commutes with base change to any perfect k-scheme."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square",
+        "KTheoryLowDegrees:Z.6/witt-filtration-det",
+        "KTheoryLowDegrees:Z.6/finite-length-det-trivial",
+        "KTheoryLowDegrees:Z.6/determinant-triangle",
+        "GeneralAlgebraicKTheory:K.4/waldhausen-additivity",
+        "SchemeKTheoryOperations:S.3/witt-special-fibre-k-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "BS17.v3",
+          "locator": "§5 Theorem5.7, pp.19–20; Lemma6.11 and its K-theoretic proof, pp.24–25",
+          "match": "The constant Witt-torsion determinant is a pullback of a field line; coherent additivity converts a filtration to its product determinant without selecting a basis."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "KTheoryLowDegrees:Z.6/witt-filtration-det",
+        "KTheoryLowDegrees:Z.6/finite-length-det-trivial"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "KTheoryLowDegrees:Z.6",
+      "status": "planned",
+      "note": "All original degree-zero comparison/test targets and the BS17 scheme/Witt determinant extension are accounted for by the inherited targetDisposition and the eight refinement nodes. The new packet imports every earlier target by its existing ID; it does not replace or duplicate the accepted packet. Each imported construction has an API/test audit in the reader.",
+      "remaining": [
+        "Supply enriched Picard/truncation/sheafification mapping interfaces and coherent K-theory filtration additivity at the owners named in requests.",
+        "The arbitrary-regular Cor5.6 target retains the supplier’s Popescu/supported-continuity gap; the smooth finite-type case suffices for the determinant descent route.",
+        "Formalise the planned comparison maps when their actual carriers exist; the native Lean companion records only signatures available at the pins."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Enriched natural mapping and sheafification interface",
+      "detail": "The accepted H.5 Picard comparison is stated only at homotopy-theory/2-category level and has an explicit unread comparison gap. A homotopy-category equivalence alone does not supply the mapping-groupoid universal properties used to prove contractibility of natural determinant extensions. Request the precise 1-truncated enriched interface, including sheafification into Picard stacks; S.4’s one-truncation equivalence by itself does not specify it.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+      ]
+    },
+    {
+      "title": "Coherent finite-filtration additivity interface",
+      "detail": "Ordinary triangle relations in TriangulatedK0 and the homotopy-category Waldhausen additivity statement do not fix natural determinant isomorphisms and refinement diagrams. The generic owner must supply enhanced cofiber-additivity paths, naturality, unit and octahedral/refinement coherence. The read source asserts the determinant theorem, but these formal supplier interfaces remain open.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+        "KTheoryLowDegrees:Z.6/witt-filtered-base-change-square"
+      ]
+    },
+    {
+      "title": "Inherited arbitrary-regular Witt comparison gap",
+      "detail": "S.3/witt-regular-perfection-devissage explicitly leaves Popescu approximation and continuity of the supported Witt comparison for arbitrary regular noetherian F_p-algebras open. Import its corrected contract; do not justify it by a smooth Frobenius lift for arbitrary R₀. This is needed for the inherited broader Cor5.6 target, while the smooth alteration-basis proof of the supported determinant avoids that broader case.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "StableHomotopyKTheory:H.5:spectra/picard-one-truncated-spectra",
+      "need": "Extend the Picard/1-truncated connective spectrum comparison to mapping groupoids (symmetric monoidal functors and monoidal natural isomorphisms), compatible with functor-category limits and τ≤1’s universal property. Identify the homotopy fibre of precomposition by an equivalence over a specified map with a contractible space.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+      ]
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.4/witt-k-one-truncation-sheafification",
+      "need": "Expose the Picard-stack/1-truncated spectrum sheafification universal property: natural maps B→P for a v-stack P are equivalent as mapping groupoids to maps a_v B→P, with pullback, units and extension homotopies retained. This is an interface extension to the existing comparison, not a second support/descent theorem.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.4/waldhausen-additivity",
+      "need": "Expose enhanced cofiber-sequence additivity paths in K, naturality under exact functors and maps of filtrations, empty-filtration/unit compatibility, and common-refinement/octahedral coherence. Do not replace them by equalities only on π₀ or arbitrary choices of cones.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+        "KTheoryLowDegrees:Z.6/witt-filtered-base-change-square"
+      ]
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.3/witt-regular-perfection-devissage",
+      "need": "Complete the already recorded Popescu plus supported-Witt/perfection continuity bridge for arbitrary regular noetherian R₀; keep the smooth finite-type lift proof distinct. This request continues the existing E31 correction and records no new source finding.",
+      "neededBy": [
+        "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison"
+      ]
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [],
+  "targetDisposition": [
+    {
+      "target": "KTheoryLowDegrees:Z.6/ring-k-zero-pi-zero",
+      "title": "Ring K₀ is π₀ of K-theory",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/affine-comparison-diagram"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/vector-bundle-k-zero-pi-zero",
+      "title": "K₀ of vector bundles is π₀ of scheme K-theory",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/affine-comparison-diagram"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/perfect-complex-euler-class",
+      "title": "The class of a perfect complex is its Euler class",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/resolution-euler-cartan-square",
+        "KTheoryLowDegrees:Z.6/localisation-rank-pic-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/localisation-projective-class",
+      "title": "Localisation on K₀",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/localisation-rank-pic-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/cartan-map-comparison",
+      "title": "There is one Cartan map",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/resolution-euler-cartan-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/field-test",
+      "title": "Test: fields",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": []
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/integers-test",
+      "title": "Test: the integers",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": []
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/field-product-test",
+      "title": "Test: a product of two fields",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": []
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/nonprincipal-ideal-test",
+      "title": "Test: a nonprincipal ideal",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/localisation-rank-pic-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/projective-line-regular-curve",
+      "title": "The projective line as a regular curve",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": []
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/projective-line-rank-pic",
+      "title": "K₀ of the projective line by rank and Pic",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/projective-line-functorial-coordinates"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/projective-line-change-of-basis",
+      "title": "The two bases of K₀ of the projective line",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/projective-line-functorial-coordinates"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/elliptic-test",
+      "title": "Test: an elliptic curve",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": []
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/pointless-conic-test",
+      "title": "Test: a conic without rational points",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": []
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+      "title": "Determinant of perfect complexes",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/determinant-triangle",
+      "title": "Coherent determinant additivity",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/bounded-complex-det",
+      "title": "Determinant of a bounded projective complex",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/rank-pic-determinant-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/graded-det-pi-zero",
+      "title": "Class determinant is the component map",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/rank-pic-determinant-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/witt-supported-input",
+      "title": "Supported Witt perfect complexes",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/witt-regular-perfection-comparison",
+      "title": "Witt support comparison on a regular perfection",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": []
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/v-sheafified-first-k",
+      "title": "First K-truncation on the perfect site",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/witt-supported-det",
+      "title": "Determinant with Witt support",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/witt-det-uniqueness",
+      "title": "Contractible determinant extension",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/witt-filtration-det",
+      "title": "Determinant through a supported filtration",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/witt-filtered-base-change-square"
+      ]
+    },
+    {
+      "target": "KTheoryLowDegrees:Z.6/finite-length-det-trivial",
+      "title": "Constant finite-length Witt determinant",
+      "disposition": "Import the accepted target; its statement, API and tests remain owned by KTheoryLowDegrees--Z.3.json.",
+      "refinements": [
+        "KTheoryLowDegrees:Z.6/witt-filtered-base-change-square"
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmap": "TauCetiRoadmap/GrothendieckEulerForms",
+      "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "read": "README and relevant Suggested signatures, Layers2–5",
+      "use": "Exact/split/triangulated K₀, the module Euler class and the single Cartan map are imported. The resolution comparison is already implemented at the pin; new work only compares it to enhanced K models."
+    },
+    {
+      "roadmap": "TauCetiRoadmap/AlgebraicVectorBundles",
+      "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "read": "README and Suggested, Layers L0A–L0C",
+      "use": "Tensor, duality, pullback and finite-locally-free determinants are this current upstream owner’s work. No general vector-bundle geometry is replanned in Z.6."
+    },
+    {
+      "roadmap": "TauCeti current main",
+      "commit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "read": "CartanMap/Basic.lean existing declarations and source-tree searches for K-theory/signed Picard comparisons",
+      "use": "The current Cartan file has moved to CartanMap/Basic.lean; the relevant maps and resolution formulas remain present. No existing spectrum-valued determinant or this comparison package was found. The pin’s older import path is used by the suggested file."
+    }
+  ],
+  "planetAudit": {
+    "inherited": [
+      {
+        "node": "KTheoryLowDegrees:Z.6/projective-line-change-of-basis",
+        "name": "The two bases of K₀(P¹)"
+      }
+    ],
+    "new": [
+      "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+      "KTheoryLowDegrees:Z.6/rank-pic-determinant-square",
+      "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square"
+    ],
+    "totalForLayer": 4
+  },
+  "suggestedCoverage": {
+    "policy": "2026-10-12 compact statement-only shape; no unavailable carrier is represented by an opaque proposition or a replacement structure.",
+    "native": [
+      "ExactK0/Cartan generator normalisation, finite-resolution Euler/Cartan identity and the corresponding existing inverse normalisation.",
+      "Integer arithmetic shadows of the P¹ coordinate identities, explicitly not declarations of K(ℙ¹) itself."
+    ],
+    "omitted": [
+      {
+        "node": "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+        "reason": "The target uses unimplemented enhanced K/Perf/Picard/site or projective-line K carriers; no stand-in is introduced."
+      },
+      {
+        "node": "KTheoryLowDegrees:Z.6/resolution-euler-cartan-square",
+        "reason": "The full comparison needs RingK0/Perf/K-spectrum/signed-Picard/site carriers absent at the pins. Exact mathematical targets, prerequisites and tests are in the reader; the native Cartan identities cover only the existing categorical portion."
+      },
+      {
+        "node": "KTheoryLowDegrees:Z.6/localisation-rank-pic-square",
+        "reason": "The target uses unimplemented enhanced K/Perf/Picard/site or projective-line K carriers; no stand-in is introduced."
+      },
+      {
+        "node": "KTheoryLowDegrees:Z.6/rank-pic-determinant-square",
+        "reason": "The target uses unimplemented enhanced K/Perf/Picard/site or projective-line K carriers; no stand-in is introduced."
+      },
+      {
+        "node": "KTheoryLowDegrees:Z.6/projective-line-functorial-coordinates",
+        "reason": "The target uses unimplemented enhanced K/Perf/Picard/site or projective-line K carriers; no stand-in is introduced."
+      },
+      {
+        "node": "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+        "reason": "The target uses unimplemented enhanced K/Perf/Picard/site or projective-line K carriers; no stand-in is introduced."
+      },
+      {
+        "node": "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square",
+        "reason": "The target uses unimplemented enhanced K/Perf/Picard/site or projective-line K carriers; no stand-in is introduced."
+      },
+      {
+        "node": "KTheoryLowDegrees:Z.6/witt-filtered-base-change-square",
+        "reason": "The target uses unimplemented enhanced K/Perf/Picard/site or projective-line K carriers; no stand-in is introduced."
+      }
+    ]
+  },
+  "importedConstructionAudit": [
+    {
+      "node": "KTheoryLowDegrees:Z.6/scheme-spectrum-det",
+      "uses": [
+        "Euler/rank–Pic comparison",
+        "Theorem5.7 Witt extension"
+      ],
+      "apiSuffixes": [
+        "affine",
+        "object",
+        "pullback",
+        "shift",
+        "triangle"
+      ],
+      "apiPrefix": "TauCeti.GradedDeterminant.scheme_spectrum_det_",
+      "tests": [
+        "L[0]↦(L,1), zero↦(O,0), O[1]↦(O,−1)",
+        "Two rank-one summands have signed swap −1 in characteristic not two",
+        "The doubled-plane Perf determinant does not imply a Vect/Perf equivalence"
+      ],
+      "disposition": "Import the old construction, API and tests; the new gluing and component comparison nodes refine its compatibility."
+    },
+    {
+      "node": "KTheoryLowDegrees:Z.6/witt-supported-input",
+      "uses": [
+        "Supported determinant input and extension map",
+        "Finite Witt torsion filtrations"
+      ],
+      "apiSuffixes": [
+        "support",
+        "alpha",
+        "object",
+        "natural",
+        "zero"
+      ],
+      "apiPrefix": "TauCeti.GradedDeterminant.witt_supported_input_",
+      "tests": [
+        "k has the supported two-term W(k) resolution",
+        "Zero is supported, W(k)[0] is not",
+        "W(k)/p² has two residue graded pieces",
+        "The special-fibre map commutes with specified derived pullback"
+      ],
+      "disposition": "Category and special-fibre map now supplied by the exact S.3 Witt nodes; do not define them a second time."
+    },
+    {
+      "node": "KTheoryLowDegrees:Z.6/witt-supported-det",
+      "uses": [
+        "Witt filtration determinant comparison",
+        "Constant finite-length determinant line"
+      ],
+      "apiSuffixes": [
+        "extension",
+        "pullback",
+        "additivity",
+        "zero",
+        "unique"
+      ],
+      "apiPrefix": "TauCeti.GradedDeterminant.witt_supported_det_",
+      "tests": [
+        "k has grade1 and W(k)/p² grade2",
+        "Zero gives the tensor unit",
+        "A constant finite-length module gives a trivializable line with its length grade",
+        "Nontrivial residue-field units act on the determinant line"
+      ],
+      "disposition": "Import the old construction with its specified extension homotopy; the new mapping-space argument gives the precise comparison contract."
+    }
+  ],
+  "regressionTests": {
+    "nonprincipalIdeal": "The ideal I=(2,1+s) in Z[s]/(s²+5) has quotient F₂; its norm-two nonprincipality and I²=(2) calculation are worked in the reader. Since its class has order two, the P¹ and order-four elliptic tests additionally detect inversion signs.",
+    "ellipticFiniteEnumeration": "For y²=x³−x over F₅ enumerate all eight points and the group law. Q=(2,1) has double (0,0) and order4; three nonzero points have order2. E(F₅) is Z/4×Z/2. Imported E.2 identifies the degree-zero Picard test class with Q.",
+    "projectiveLine": "The inverse coordinate matrix, all integer twists, the tensor-product formula, proper pushforward and derived section-pullback are compared, including z²=0 and O(−2)."
+  },
+  "validation": {
+    "blueprint": "Zero errors and zero warnings with the pinned declaration index.",
+    "lean": "Whole 111-line file elaborated via lean-check at the shared pinned build, exit0; nine intentional proof-admission warnings, no other warnings.",
+    "meaning": "Packet checks and admitted signature elaboration do not establish implementation or close the three supplier gaps."
+  }
+}
