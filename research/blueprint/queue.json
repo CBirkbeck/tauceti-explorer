@@ -151676,6 +151676,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv.md"
+  },
+  {
+   "id": "REV-PKG-K2SymbolsBrauer~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-K2SymbolsBrauer~adv.md",
+    "research/blueprint/packages/K2SymbolsBrauer/review.json",
+    "research/blueprint/packages/K2SymbolsBrauer/README.md",
+    "research/blueprint/packages/K2SymbolsBrauer/Suggested.lean",
+    "research/blueprint/packages/K2SymbolsBrauer/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~adv.md"
   }
  ]
 }
