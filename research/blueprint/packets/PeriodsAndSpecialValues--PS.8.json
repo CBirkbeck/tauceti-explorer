@@ -473,7 +473,7 @@
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.8/quartic-pencil",
-        "PeriodsAndSpecialValues:PS.0",
+        "PeriodsAndSpecialValues:PS.0/comparison-period-line",
         "ComplexComparisonPartII:C5/gauss-manin-connection"
       ],
       "sources": [
@@ -582,7 +582,7 @@
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.8/quartic-pencil",
-        "PeriodsAndSpecialValues:PS.0"
+        "PeriodsAndSpecialValues:PS.0/comparison-period-line"
       ],
       "sources": [
         {
@@ -2641,7 +2641,8 @@
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.9/hoffman-motivic-basis",
         "PeriodsAndSpecialValues:PS.9/motivic-mzv-algebra",
-        "PeriodsAndSpecialValues:PS.2",
+        "PeriodsAndSpecialValues:PS.2/integration-evaluation",
+        "PeriodsAndSpecialValues:PS.2/torsor-integration-comparison",
         "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
         "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
         "MotivesAndAlgebraicCycles:MC.6/period-point"
