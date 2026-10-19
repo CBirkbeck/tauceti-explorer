@@ -177059,9 +177059,85 @@
    "owner": "ArithmeticKTheory",
    "file": "research/blueprint/packets/ArithmeticKTheory.json",
    "citation": "Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory, Inventiones mathematicae 230 (2022), 225–319, DOI 10.1007/s00222-022-01127-8; published PDF, printed page = PDF page + 224.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory",
+   "reviewReason": "Verified the source and multiplier twists in the published proof. Weight addition gives 2k, consistent with Lemma2.11; only that proof label changes."
+  },
+  {
+   "id": "ArithmeticKTheory/E-REV-CDH1",
+   "kind": "misprint",
+   "locator": "Corollary 1.2.12 proof, arXiv v4 p.18, final sentence.",
+   "printed": "The final injectivity range replaces the parameter m by n in the inequality n≤2n−3.",
+   "correction": "The intended range is n≤2m−3, as in the corollary and the preceding injectivity argument.",
+   "reason": "The proof assumes n≤2m−3 and explicitly computes its connectivity bound from m. For m=0 the corollary includes negative n≤−3, which the last printed inequality would exclude.",
+   "affects": "the proof",
+   "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+   "searched": [
+    "arXiv:2009.07225 version record and v4 PDF; Annals article listing and title/corrigendum search, 2026-10-19. No verified correction located."
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory.json",
+   "citation": "Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle, Hermitian K-theory for stable infinity-categories III: Grothendieck–Witt groups of rings, arXiv:2009.07225v4, 28 April 2026, 63 pages. Published Annals of Mathematics 204 (2026), 119–220; locators here refer only to the read arXiv version, not an uncollated version of record.",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory",
+   "reviewReason": "The proof assumes n≤2m−3 and explicitly computes its connectivity bound from m. For m=0 the corollary includes negative n≤−3, which the last printed inequality would exclude."
+  },
+  {
+   "id": "ArithmeticKTheory/E-REV-FGV2",
+   "kind": "misprint",
+   "locator": "Remark 2.13, published p.246 (PDF p.22), displayed degree-zero coefficient group.",
+   "printed": "The middle expression for finite-coefficient K0 retains an infinite free Z summand and the unreduced Picard group.",
+   "correction": "Use Z/q⊕Pic(O′_q)/q for K0(O′_q;Z/q).",
+   "reason": "The connective coefficient sequence identifies K0 with K0(O′_q)/q. Rank is reduced modulo q, and so is Pic. For q=3 the printed infinite rank summand already contradicts that sequence. The following finite-coefficient comparison argument is valid after this correction.",
+   "affects": "the proof",
+   "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+   "searched": [
+    "Published Springer article and PDF; arXiv:2007.15078 version record, author publication page, and title/corrigendum search, 2026-10-19. No verified correction located."
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory.json",
+   "citation": "Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory, Inventiones mathematicae 230 (2022), 225–319, DOI 10.1007/s00222-022-01127-8; published PDF, printed page = PDF page + 224.",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory",
+   "reviewReason": "The connective coefficient sequence identifies K0 with K0(O′_q)/q. Rank is reduced modulo q, and so is Pic. For q=3 the printed infinite rank summand already contradicts that sequence. The following finite-coefficient comparison argument is valid after this correction."
+  },
+  {
+   "id": "ArithmeticKTheory/E-REV-KBOOK1",
+   "kind": "misprint",
+   "locator": "VI.10.1(6), author combined draft book p.527 (PDF p.535).",
+   "printed": "The order in degree 8k+6 uses the numerator c_(2k+1).",
+   "correction": "The index is c_(2k+2), in the source convention c_j=|num(B_(2j)/(4j))|.",
+   "reason": "The even degree 8k+6 is 4(2k+2)−2. Table10.1.1 on the next page and the conditional Table10.2.1 use the corrected index. At k=2, K22 has order691=c6, whereas the printed c5 is1.",
+   "affects": "a stated result",
+   "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+   "searched": [
+    "Author K-book page and linked Kbook.errata.pdf (the link returned 404); indexed errata metadata and searches for Theorem10.1/c2k+1 corrections, 2026-10-19. No verified correction located. The printed edition was not collated."
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author-hosted combined draft, 29 August 2013. Book page = PDF page − 8; not a collation with the printed AMS edition.",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory",
+   "reviewReason": "The even degree 8k+6 is 4(2k+2)−2. Table10.1.1 on the next page and the conditional Table10.2.1 use the corrected index. At k=2, K22 has order691=c6, whereas the printed c5 is1."
+  },
+  {
+   "id": "ArithmeticKTheory/E-REV-KBOOK2",
+   "kind": "misprint",
+   "locator": "Paragraph preceding VI.10.6, author combined draft book p.531 (PDF p.539).",
+   "printed": "The parity conditions for a trivial constituent of R×⊗μ_l^(i−1) are reversed, and the restricted congruence is shifted.",
+   "correction": "For odd i there is one trivial constituent. For even i it occurs only if i≡0 mod(l−1).",
+   "reason": "VI.10.4.2 gives R×/l=μ_l⊕μ_l^0⊕μ_l^2⊕…⊕μ_l^(l−3). After twisting by i−1 the root term is invariant exactly if l−1 divides i; among the remaining terms exactly one is invariant when i is odd. For l=5, degrees3 and5 of Z[1/5] with these coefficients have ranks0 and1, respectively. Theorem10.6 has the right generator degrees.",
+   "affects": "the proof",
+   "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+   "searched": [
+    "Author K-book page, linked errata PDF (404), and searches for the parity correction around VI.10.6, 2026-10-19. No verified correction located. The printed edition was not collated."
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author-hosted combined draft, 29 August 2013. Book page = PDF page − 8; not a collation with the printed AMS edition.",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory",
+   "reviewReason": "VI.10.4.2 gives R×/l=μ_l⊕μ_l^0⊕μ_l^2⊕…⊕μ_l^(l−3). After twisting by i−1 the root term is invariant exactly if l−1 divides i; among the remaining terms exactly one is invariant when i is odd. For l=5, degrees3 and5 of Z[1/5] with these coefficients have ranks0 and1, respectively. Theorem10.6 has the right generator degrees."
   },
   {
    "id": "ArithmeticKTheoryPartII/E1",
@@ -210839,14 +210915,15 @@
     "https://arxiv.org/abs/1805.08448 submission history (v1 only)",
     "https://davidburnsmaths.github.io/newdbpublist.html and KCL accepted-manuscript record; no accessible correction located",
     "Web search for BSS II Hypothesis 4.7 errata, 2026-10-06; no explicit correction located",
-    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum."
+    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum.",
+    "Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence."
    ],
    "owner": "EulerSystemsAndKolyvaginSystems",
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "David Burns, Ryotaro Sakamoto and Takamichi Sano, On the theory of higher rank Euler, Kolyvagin and Stark systems, II, arXiv:1805.08448v1 (22 May 2018), 51 pp., read 2026-10-06; the only version on arXiv",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~2",
-   "reviewReason": "Independently checked BSS arXiv v1 p.22 against the definition of K(T) in §3 and Hypothesis 3.2(ii). The printed subgroup acts trivially on T, making its coinvariants T. The printed trivializing-field restriction cannot support a higher-rank T; the larger Galois subgroup fixing the cyclotomic/unit tower resolves the mismatch. The KCL accepted PDF still returned HTTP403 on 2026-10-10; this verdict concerns v1 only."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "reviewReason": "Independently checked v1 Hypothesis 4.7(ii), p.22, against the trivializing field in §3: every element of the printed subgroup acts trivially, so its coinvariants equal T. Omitting K(T) gives the required nontrivial rank-one coinvariant hypothesis. Verdict remains scoped to arXiv v1."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E2",
@@ -210860,14 +210937,15 @@
    "searched": [
     "Web search for Rubin Euler systems errata Chapter IX rigidity, 2026-10-06; no explicit correction located",
     "1999 SWC draft and https://www.wstein.org/people/rubin/book/hEulerSystems.pdf §9.1: wording persists in both author copies; publisher version not certified",
-    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum."
+    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum.",
+    "Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence."
    ],
    "owner": "EulerSystemsAndKolyvaginSystems",
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Karl Rubin, Euler systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., read 2026-10-06; chapter-relative numbering as in the draft",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~2",
-   "reviewReason": "Independently checked the course draft p.133 and visually inspected the matching public book-format author copy p.175 (PDF181), with hashes matching both recorded files. For an extension ramified only at N the norm product has no factors; choosing zero away from the base contradicts a nonzero base class. Requiring no ramification at N gives the source’s intended counterexample. Publisher collation is not certified."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "reviewReason": "Independently read the 1999 draft IX.1 and checked the isolated-base family: the tower must be unramified at primes dividing N for all non-base Euler factors to vanish in that example. The printed outside-N condition does not give that example. No fresh inspection of the historical book-format mirror is claimed."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E3",
@@ -210882,14 +210960,15 @@
     "Web search for Mazur Rubin Kolyvagin systems errata Proposition 3.4.4, 2026-10-06; no explicit correction located",
     "https://sites.harvard.edu/barry-mazur/projects/ search result; direct fetch failed (502)",
     "https://www.ams.org/memo/0799/memo0799.pdf version-of-record download attempted; HTTP 403, not collated",
-    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum."
+    "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum.",
+    "Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence."
    ],
    "owner": "EulerSystemsAndKolyvaginSystems",
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society 168 (2004), no. 799; authors' copy, 96 pp., read 2026-10-06",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~2",
-   "reviewReason": "Independently checked Definition 3.4.2 and Proposition 3.4.4(ii), archived author-copy pp.26–27. The one-vertex stalk ℤ_p/p is locally cyclic, has a hub and trivial monodromy, but its section module is nonzero torsion and cannot be an ideal of the domain ℤ_p. The principal-artinian application remains valid; the AMS version of record was unavailable."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "reviewReason": "Independently read the archived author-copy Proposition 3.4.4(ii). The one-vertex sheaf with stalk ℤ_p/p has a hub and trivial monodromy but torsion sections, and cannot be an ideal in ℤ_p. Arithmetic applications use free hub stalks or the stated principal-artinian scope."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E4",
@@ -210903,14 +210982,15 @@
    "searched": [
     "MR16 arXiv v1 p.32 and published Numdam version p.182, independently read 2026-10-10",
     "BSS II §3.2 pp.15–17, independently read 2026-10-10",
-    "AMS Memoirs version-of-record download unavailable; finding scoped to the archived author copy"
+    "AMS Memoirs version-of-record download unavailable; finding scoped to the archived author copy",
+    "Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence."
    ],
    "owner": "EulerSystemsAndKolyvaginSystems",
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society 168 (2004), no. 799; authors' copy, 96 pp., read 2026-10-06",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~2",
-   "reviewReason": "The explicit two-dimensional representation disproves the unrestricted assertion, and the published Gomez erratum specifies precisely the coefficient-ideal restriction. The packet proof has been corrected rather than relying on the faulty induction."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "reviewReason": "Independently read MR04 Lemma 2.1.4 and published MR16 p.182, where the Gomez correction is credited. The S₃ matrices over 𝔽₃ have zero common fixed space and a trivial nonzero quotient, so arbitrary subquotients fail. BSS II Proposition 3.5 and Corollary 3.8 supply the coefficient-ideal/annihilator repair."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E5",
@@ -210926,14 +211006,36 @@
     "Barry Mazur projects page https://sites.harvard.edu/barry-mazur/projects/ indexed record; direct fetch failed",
     "MR16 arXiv v1 Proposition9.3 and published Proposition9.3: the analogous assertion is in principal-artinian coefficient scope, not a correction at general scope",
     "MR16 published Gomez erratum p.182 corrects Lemma2.1.4, not this proposition",
-    "AMS https://www.ams.org/memo/0799/memo0799.pdf unavailable; no claim about an uncollated publisher edition"
+    "AMS https://www.ams.org/memo/0799/memo0799.pdf unavailable; no claim about an uncollated publisher edition",
+    "Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence."
    ],
    "owner": "EulerSystemsAndKolyvaginSystems",
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society 168 (2004), no. 799; authors' copy, 96 pp., read 2026-10-06",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~2",
-   "reviewReason": "The two-vertex example meets the printed locally-cyclic/hub hypotheses and violates ideal-power generation at the hub. The Lean API already has the correct hub hypothesis; the packet and reader now agree with it. Verdict scoped to the archived author copy."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "reviewReason": "Independently read MR04 Proposition 3.4.4(iii). In the recorded 𝔽₃[[x,y]] example, x generates m times R/(y), but does not generate (x,y) at the free hub. Propagation from a hub remains valid; arbitrary-vertex valuation propagation needs the narrower arithmetic scope."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E6",
+   "kind": "error",
+   "locator": "Published JTNB 28 (2016), Theorem 8.7(ix), p.167, and Theorem 13.4(ix), p.176; preprint 1312.4052v1 Theorems 8.9(ix), p.19, and 13.4(ix), p.26; MR04 author-copy Corollary 5.2.13(ii), pp.58–59 has the same boundary",
+   "printed": "For every nonzero Stark or stub Kolyvagin system over a DVR, equality between the dual-Selmer length and the initial divisibility is asserted to characterize primitivity, without requiring finite length.",
+   "correction": "Keep the extended-natural inequality for all nonzero systems. Equality characterizes primitivity when the initial component is nonzero, equivalently when the dual Selmer group has finite length. With a zero initial component both sides are infinite regardless of primitivity. Equivalently the unguarded equality condition is initial component zero OR system primitive. The eventual-divisibility criterion and finite torsion-quotient formula need no change.",
+   "reason": "The same structure theorem makes the dual length infinite exactly when the leading component vanishes. If a primitive generator κ₀ has positive order, πκ₀ is nonzero and nonprimitive because the system module is free of rank one, while both initial components vanish. Both systems therefore satisfy ∞=∞. This case occurs for T₅ of E:y²+y=x³+x²−2x (389.a1) with canonical conditions: the curve has rank two and full 5-adic image (LMFDB arithmetic record), so MR04 §6.2 applies with core rank one. The classical Selmer corank is at least two; strict localization at 5 removes at most the corank-one local Kummer image, leaving positive dual corank. This uses no BSD or Sha-finiteness assertion.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-19: https://arxiv.org/abs/1312.4052 submission history, v1 only.",
+    "2026-10-19: Numdam version-of-record item https://www.numdam.org/item/JTNB_2016__28_1_145_0/ and its PDF; both published theorem passages and the unrelated Gomez erratum on p.182 were read.",
+    "2026-10-19: Rubin author-publication/errata search and exact searches for Mazur Rubin 8.9 primitive errata, Kolyvagin systems 5.2.13 infinite, and Stark Kolyvagin equality primitive correction; no correction of this finite-length boundary located."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+   "citation": "Barry Mazur and Karl Rubin, Controlling Selmer groups in the higher core rank case, Journal de Théorie des Nombres de Bordeaux 28 (2016), 145–183; Numdam version of record, read 2026-10-10",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "reviewReason": "Independent scaling check at positive dual corank; the unrestricted equality criterion fails at infinity. Published Theorem 8.7, rather than preprint 8.9, is the primary locator. The added finite-length guard repairs exactly this boundary."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E801",
@@ -212320,14 +212422,15 @@
     "arXiv https://arxiv.org/abs/2102.13459 lists v4 (2024-11-27) as accepted version; no erratum notice on the record.",
     "Authors’ publication pages https://people.mpim-bonn.mpg.de/scholze/papers.html and https://webusers.imj-prg.fr/~laurent.fargues/Publications.html; no relevant correction linked.",
     "Search for Fargues Scholze Geometrization VIII.4 cartesian errata; no relevant correction found.",
-    "2026-10-10 independent review repeated the publisher/sample, arXiv and both author-page checks and the targeted search. Hamann https://web.math.princeton.edu/~lhamann/Unitary_Groups.pdf, p. 26 footnote 2, records a different cartesian-diagram issue in IX.6.1, not a correction to VIII.4.1."
+    "2026-10-10 independent review repeated the publisher/sample, arXiv and both author-page checks and the targeted search. Hamann https://web.math.princeton.edu/~lhamann/Unitary_Groups.pdf, p. 26 footnote 2, records a different cartesian-diagram issue in IX.6.1, not a correction to VIII.4.1.",
+    "2026-10-19 independent review repeated the publisher record and public 10-page sample, arXiv version record, both author publication pages and targeted VIII.4.1/cartesian/errata search. No relevant correction found; sample pagination differs and does not expose the proof."
    ],
    "owner": "ExcursionOperatorsAndSpectralAction",
    "file": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES0.json",
    "citation": "Laurent Fargues and Peter Scholze, Geometrization of the local Langlands correspondence, Author-hosted 356-page PDF; version is identified here by its SHA-256, not an unverified arXiv byte equivalence. Printed page numbers equal PDF page numbers.",
    "status": "confirmed",
-   "reviewedBy": "REV-ExcursionOperatorsAndSpectralAction--ES0~3",
-   "reviewReason": "Independently opened printed p. 292 in the hash-identified author manuscript and enumerated the trivial-group C2 fold-map square over F2: eight pullback pairs, two source images, with an off-diagonal witness. Fusion needs commutativity only. Fresh publisher sample, arXiv record and author-page checks found no correction. The published proof passage was not available. A search hit in Hamann, Unitary Groups, p. 26 footnote 2 concerns IX.6.1, not this VIII.4.1 square."
+   "reviewedBy": "REV-ExcursionOperatorsAndSpectralAction--ES0~4",
+   "reviewReason": "Independently read printed/PDF p. 292 of the hash-identified author manuscript. Recomputed the F2 fold-map counterexample: 8 pullback pairs versus 2 source images; a function supported on one off-diagonal pair with scalar zero is a witness. Fusion uses only commutativity. Fresh publisher/sample, arXiv and author-page checks and targeted correction search found no relevant erratum. The published proof passage remains unavailable; confirmation concerns only the author-copy assertion."
   },
   {
    "id": "ExcursionOperatorsAndSpectralAction/E2",
@@ -230216,6 +230319,733 @@
    "reviewReason": "Independently checked the proof of Lemma 18.3 in arXiv v4 and the linked author PDF against Remark 2.13. Substituting r = n+1 in the Joyal formula gives exponents p^{n+1} and p^n in the first two terms; n = 0 recovers φ(x) = x^p + pδ(x). The induction still works because the earlier terms remain in the kernel and the last term is unchanged. Confirmation is scoped to those copies; the version of record was not read."
   },
   {
+   "id": "HabiroCohomologyFoundations/E1",
+   "kind": "misprint",
+   "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",
+   "printed": "The source depicts the filtered module with the zeroth filtration step occupying both initial positions; the arrow runs from the second position towards the first.",
+   "correction": "The second term should be the first filtration step: the display should read the zeroth step, then the first step, then the second, with arrows pointing leftwards.",
+   "reason": "The very next clause of the same definition requires the filtration to be descending with the zeroth step the derived q-de Rham complex, and the body definition of the same notion displays the diagram correctly with the steps indexed zero, one, two.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page for a later version, which lists v2 as current on the date of access",
+    "the body definition in the same file, which is correct",
+    "the companion paper on connective complex K-theory, which cites the body definition"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E2",
+   "kind": "misprint",
+   "locator": "Section 3, the proposition on Habiro descent for q-de Rham complexes (Proposition 3.47), clause (b)",
+   "printed": "The clause identifies the q-1 decalage of the q-Hodge complex for S over A with the q-de Rham complex for R over A.",
+   "correction": "The right-hand side should be the q-de Rham complex of S over A; the letter R does not occur in the statement of this proposition.",
+   "reason": "The proposition fixes a pair whose underlying algebra is called S and is assumed smooth over A; the following sentence of the same clause, and the whole proof, are about S. The letter R is the name used for a general animated algebra elsewhere in the section.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page for a later version",
+    "the surrounding remark and the proof of the same proposition, both of which use S",
+    "the introduction's remark quoting the same statement, which also uses S"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E3",
+   "kind": "misprint",
+   "locator": "Section 3, the construction of the twisted q-Hodge filtration p-adically and the two paragraphs on its lax symmetric monoidal structure (paragraphs 3.32, 3.34 and 3.35)",
+   "printed": "In three displays, the source uses the q-Witt Hodge filtration symbol on the twisted q-de Rham complex after p-completion. This symbol denotes the filtration defined for q-de Rham-Witt complexes.",
+   "correction": "In all three places the symbol should be the one for the twisted q-Hodge filtration, the object the construction is defining; the q-Witt Hodge filtration is a filtration of a different object.",
+   "reason": "The construction is labelled as the one defining the twisted q-Hodge filtration, the recursion is on that object, and the very next display in the same subsection, as well as the global construction and the deformation proposition, use the twisted q-Hodge symbol for the same object. The two symbols denote filtrations of different complexes, so the printed form does not typecheck.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract page for a later version",
+    "the neighbouring displays in the same subsection, which use the intended symbol",
+    "the global construction and the deformation proposition, which are stated with the intended symbol"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Sources of the blueprint of HabiroCohomologyFoundations",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E101",
+   "kind": "misprint",
+   "locator": "Remark 1.8, p. 5 (arXiv v2)",
+   "printed": "The source refers to Lemma A.5 together with Theorem A.1(c).",
+   "correction": "The second equivalence, (q-dR)^∧_p[1/p]^∧_{(q−1)} ≃ (dR)^∧_p[1/p]⟦q−1⟧, is Lemma A.4 (applied to R̂_p), not Lemma A.5.",
+   "reason": "Lemma A.5 is the technical estimate for δ and γ_q in (qD ⊗ ℚ)^∧_{(q−1)}. The rationalised q-crystalline equivalence is Lemma A.4, whose label the text evidently meant.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E102",
+   "kind": "misprint",
+   "locator": "Convention 3.1, p. 20 (arXiv v2)",
+   "printed": "fil⋆M/(qm−1) := fil⋆M ⊗L(qm−1)⋆A[q] A",
+   "correction": "The base change should be to A[q]/(q^m−1) with its trivial filtration. For m = 1 this is A, as printed.",
+   "reason": "Under the Rees presentation A[q, β, t]/(βt − (q^m−1)), base change to A sends q to 1 and so also kills q−1. For m ≥ 2 that is not the quotient by q^m−1. The formula stated next in the same convention, n-th piece cofib((q^m−1): fil^{n−1} → fil^n), is the base change to A[q]/(q^m−1). Later uses (Definition 3.2(b) for m = 1, and the twisted filtrations over A[q]/(q^m−1)) agree with it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E103",
+   "kind": "misprint",
+   "locator": "Proof of Lemma A.5(b), last sentence, p. 71 (arXiv v2)",
+   "printed": "The source concludes that γq(p−α(q−1)nx) belongs to p−(pα+1)(q−1)n q-D.",
+   "correction": "The conclusion should be p^{−(pα+1)}(q−1)^{n+1} qD, as stated in Lemma A.5(b).",
+   "reason": "The first term, p^{−α}γ_q((q−1)^n x), lies in p^{−α}(q−1)^{n+1}qD by the previous step. The second, (q−1)^{np}x^pδ(p^{−α}), lies in p^{−(pα+1)}(q−1)^{np}qD, and np ≥ n+1 for n ≥ 1 and p ≥ 2. So the proof gives exactly the stated exponent n+1; the printed n is weaker than what is claimed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E104",
+   "kind": "misprint",
+   "locator": "Paragraph 3.14 (Twisted q-de Rham complexes), last part, p. 29 (arXiv v2)",
+   "printed": "The source takes (B, J) to be the prism (ÂpJq−1K, [p]q), sets T := Ŝp[ζp], and asserts (q-ΩS/A)∧p ≃ ΔT/B.",
+   "correction": "T should be the Frobenius twist Ŝ_p^{(p)}[ζ_p], with Ŝ_p^{(p)} = (S ⊗_{A,ψ^p} A)^∧_p, as in Theorem A.1(b). The two agree when ψ^p is the identity on Â_p, for instance for A = ℤ.",
+   "reason": "Theorem A.1(b) of the same paper, and Bhatt–Scholze Theorem 16.18 (arXiv:1905.08229, checked), identify q-crystalline cohomology with prismatic cohomology of the base change along the Frobenius of D, which on Â_p is ψ^p. For A with nontrivial ψ^p, such as a toric polynomial ring, Ŝ_p[ζ_p] and Ŝ_p^{(p)}[ζ_p] are different B/J-algebras. The gluing argument only needs (qΩ)^∧_p to be Δ_{T/B} for some smooth B/J-algebra T, so it is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements",
+    "Bhatt–Scholze, Prisms and prismatic cohomology, arXiv:1905.08229, Theorem 16.18"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E105",
+   "kind": "gap",
+   "locator": "Paragraph 3.14 (Twisted q-de Rham complexes), p. 29 (arXiv v2)",
+   "printed": "The source claims that (q−1)-completeness of q-ΩS/A makes its p-completion coincide with its [pα]q-completion.",
+   "correction": "The argument needs α ≥ 1. For α = v_p(m/pd) = 0 the claim (Lη_{[1]_q} qΩ)^∧_p ≃ Lη_{[1]_q}(qΩ)^∧_p holds trivially, since Lη_1 is the identity, but not for the stated reason.",
+   "reason": "[1]_q = 1, and completion at a unit is zero, so for α = 0 'p-completion agrees with [p^α]_q-completion' is false. For α ≥ 1, [p^α]_q ≡ p^α modulo q−1, so the two completions agree on (q−1)-complete objects.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E106",
+   "kind": "gap",
+   "locator": "Paragraph A.14, first paragraph, p. 76 (arXiv v2)",
+   "printed": "The source claims its construction places it in a pullback square.",
+   "correction": "The square with upper right corner Π_p q-dR_{R̂_p/Â_p} is a pullback because all its corners are (q−1)-complete and, modulo q−1, it is the arithmetic fracture square of dR_{R/A} (using (dR_{R/A})^∧_p ≃ dR_{R̂_p/Â_p}); derived Nakayama then applies.",
+   "reason": "Animating the defining square of qΩ gives a pullback of the animated corners. But the animation of S ↦ Π_p qΩ_{Ŝ_p/Â_p} is not obviously Π_p qdR_{R̂_p/Â_p}: infinite products need not commute with the geometric realisations that compute the animation, because the terms are not uniformly bounded. So 'by construction' does not justify the square as displayed. The argument in the correction does.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E107",
+   "kind": "misprint",
+   "locator": "Paragraph 1.22(a), p. 10 (arXiv v2)",
+   "printed": "The source uses Gr(C) for the ∞-category of graded objects in C, and Fil(Sp) for the ∞-category of objects in C with descending filtrations.",
+   "correction": "Fil(C), not Fil(Sp).",
+   "reason": "The sentence defines both categories for a general stable C, and the next paragraph writes Fil(C).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E108",
+   "kind": "misprint",
+   "locator": "Paragraph 1.22(a), ascending filtrations, p. 11 (arXiv v2)",
+   "printed": "The source denotes the associated graded object by gr∗X and defines grnX := cofib(fil^{n−1}X → fil^nX), using superscript indices in its LaTeX.",
+   "correction": "gr_nX := cofib(fil_{n−1}X → fil_nX), with subscripts, since ascending filtrations are written fil_n.",
+   "reason": "The LaTeX writes \\gr_nX := \\cofib(\\fil^{n-1}X → \\fil^nX), using the superscript indices of descending filtrations for an ascending one.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E109",
+   "kind": "misprint",
+   "locator": "Proof of Theorem A.1, first paragraph, p. 75 (arXiv v2)",
+   "printed": "The source identifies the reduced pullback with the ordinary arithmetic fracture square of ΩR/A.",
+   "correction": "Ω_{S/A}: the proof concerns a smooth A-algebra S, and R does not occur.",
+   "reason": "Same slip as E2, where R is used for S. The construction and the rest of the proof are about S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing of 2510.04782 (v1 of 6 Oct 2025, v2 of 8 Oct 2025): v2, the version read, is the latest",
+    "the surrounding text of the same paper, including the cited statements"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E201",
+   "kind": "misprint",
+   "locator": "q-Witt vectors and q-Hodge complexes (arXiv:2410.23078v5), Lemma 3.7, p. 39",
+   "printed": "d o F_n = n (d o V_n)",
+   "correction": "d o F_n = n (F_n o d)",
+   "reason": "The proof computes d F_{m/d}(w) = F_{m/d}(d V_{m/d} F_{m/d}(w)) = [m/d]_{q^d} F_{m/d}(dw), i.e. d o F = (m/d)(F o d); the printed right-hand side d o V_n does not even have the same source and target as d o F_n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Witt vectors and q-Hodge complexes, arXiv:2410.23078v5, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E202",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), section 3.3, the paragraph before Proposition 3.19, p. 31",
+   "printed": "The source asserts the relation d o F_{m/d} = (m/d) o F_{m/d}.",
+   "correction": "d o F_{m/d} = (m/d)(F_{m/d} o d)",
+   "reason": "The next sentence rescales F by (m/d)^n in degree n to obtain a map of differential graded algebras, which is right exactly for d o F = (m/d)(F o d) (q-Witt v5 Lemma 3.7, proof); the printed relation compares maps of different degrees.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E203",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), Corollaries 3.25 and 3.26, pp. 34-35",
+   "printed": "Corollary 3.25 quantifies over n >= 0 and alpha >= 0. Corollary 3.26 quantifies over every animated A-algebra R and alpha >= 0.",
+   "correction": "alpha >= 1 in both corollaries.",
+   "reason": "The Nygaard filtration of paragraph 3.21 is defined through the Verschiebung from index p^{alpha-1}, and Corollary 3.25's target involves phi^{alpha-1} and q^{p^{alpha-1}}; for alpha = 0 neither makes sense. Lemmas 3.23 and 3.24, from which the corollaries are deduced, and Lemma 3.30 are for alpha >= 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E204",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Lemma 3.27, p. 35",
+   "printed": "fil_n^conj(qdR^{(p^{alpha-1})}/Phi_{p^alpha}(q))/(q^{p^alpha - 1} - 1)",
+   "correction": "The quotient is by q^{p^{alpha-1}} - 1.",
+   "reason": "The right-hand side of the same display and the statement of the lemma involve A[q]/(q^{p^{alpha-1}}-1); q^{p^alpha - 1} - 1 is a different polynomial.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E205",
+   "kind": "gap",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof sketch of Lemma 3.3, p. 22, and Example 4.24",
+   "printed": "The source says a straightforward check rules out any gamma~_q(x) with the specified properties in the prismatic envelope above, referring to Example 4.24 below for details.",
+   "correction": "Example 4.24 carries out the computation for the free (non-perfect) p-complete delta-ring Z_p{x} over itself, where delta(x) is a polynomial variable. For the witness of Lemma 3.3, the free p-complete perfect delta-ring over the p-completion of A, the same computation needs that delta(x) is not divisible by p there; this holds because its reduction modulo p is a non-zero Witt coordinate of a perfect F_p-algebra. The packet's witness lemma supplies this step.",
+   "reason": "The referenced example is about a different ring; the transfer is routine but not stated.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E206",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), section 3.2, the sentence before Theorem 3.11, p. 25",
+   "printed": "The source cites [Wag24, Definition 3.12] for the q-de Rham Witt complex truncated at m.",
+   "correction": "[Wag24, Definition 3.13]",
+   "reason": "In q-Witt v5 (the version cited, of the same date), 3.12 is the existence proposition and 3.13 the definition; the introduction of the same paper (paragraph 1.10) cites Definition 3.13.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E207",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Corollary 3.13, p. 27",
+   "printed": "For etale R, the source claims the conclusion follows by joining this observation to Theorem 3.11(a) and [Wag24, Proposition 3.31].",
+   "correction": "Theorem 3.11(b)",
+   "reason": "The identification of the Habiro-Hodge complex modulo q^m-1 with qW_m(R/A) comes from the filtration of clause (b), whose graded pieces vanish in positive degrees for etale R; clause (a) only asserts the factorisation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E208",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), Corollary 3.54(a), p. 51",
+   "printed": "The source identifies fil^{qW_m Omega}_* with the Whitehead filtration tau_{>= *}(qHhdg/(q^m-1)).",
+   "correction": "tau^{<= *}, in the cohomological indexing the proof uses.",
+   "reason": "The filtration is ascending in *, while tau_{>= *} in homological indexing is descending; the proof of the same corollary writes tau^{<= *} and tau^{<= * + 1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E209",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof sketch of Proposition 3.19, the fracture square, p. 31",
+   "printed": "The source reduces the corner at the upper right modulo Phi_{d_p}(q^{v_p(m)}).",
+   "correction": "modulo Phi_{d_p}(q^{p^{v_p(m)}})",
+   "reason": "The quoted source, q-Witt v5 Corollary 4.37, has Phi_{d_p}(q^{p^{v_p(m)}}), and so do Proposition 4.2 of q-Witt v5 and the proof of Proposition 3.39 of this paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E210",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), proof of Lemma 3.46, p. 47",
+   "printed": "The source permits A to be any ordinary R-algebra.",
+   "correction": "for any ordinary A-algebra R",
+   "reason": "A is the fixed base Lambda-ring throughout section 3 and qW_d Omega_{R/A} is formed for A-algebras R.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E211",
+   "kind": "misprint",
+   "locator": "q-Hodge complexes over the Habiro ring (arXiv:2510.04782v2), paragraph 3.21, p. 32",
+   "printed": "The source describes the Nygaard filtration as fil_N qW_m Omega, with subcomplex fil_N^n qW_{p^alpha} Omega as its n-th term.",
+   "correction": "the filtration fil_N qW_{p^alpha} Omega",
+   "reason": "The definition is for the prime-power index p^alpha, as the displayed subcomplex and every later use show.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv abstract pages, accessed 2026-09-25, which list v2 of arXiv:2510.04782 and v5 of arXiv:2410.23078 as the latest versions",
+    "the other statements and proofs of the same paper that use the passage"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E301",
+   "kind": "misprint",
+   "locator": "Lemma 4.2(a), p. 54, arXiv:2510.04782v2 (identical in v1)",
+   "printed": "The source asserts that Fil^{[0,n]} D(Z) → Fil^{⩾0} D(Z) admits a left adjoint τ*_n. It describes its action on objects as setting the filtration to 0 in every degree ⋆ ⩾ n+1.",
+   "correction": "The functor that replaces the degrees ⩾ n+1 by 0 is the RIGHT adjoint of the inclusion (extension by zero); it is the left adjoint of the fully faithful functor extending an object constantly above degree n, and is therefore a localisation. The left adjoint of the inclusion would be the quotient by the (n+1)-st step.",
+   "reason": "A map from an object Y vanishing above n into M is a family of maps Y^i → M^i for i ≤ n with no further condition, so Hom(ιY, M) = Hom(Y, τ*_n M); a map M → ιY must in addition kill M^{n+1} → M^n. Test: for M = Z(j), j ≥ n+1, and Y = Z(n), Hom(τ*_n M, Y) = Z while Hom(M, ιY) = 0. The source's own proof uses the stated direction: it writes the counit τ*_n Z(j) → Z(j) and says τ*_n Z(i+j) and τ*_n Z(i+n) are both Z(n), and the proof of Lemma 4.6 uses that the right adjoint of τ*_n is fully faithful.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2 (same text)",
+    "the uses of the lemma in Paragraph 4.3 and the proofs of Lemmas 4.6 and 4.10",
+    "the author's companion ku paper (no restatement)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E302",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.22, p. 66, arXiv:2510.04782v2 (identical in v1)",
+   "printed": "The source attributes the construction of these lifts in this case to [MW24, Lemma 3.17].",
+   "correction": "[MW24, Lemma 3.16]: in Meyer–Wagner arXiv:2410.23115v4 (8 October 2025, the version current with the source) Lemma 3.16 constructs the lifts γ̃^{(n)}_q(x^α) ∈ fil^{p^n}; Lemma 3.17 is the auxiliary statement that certain quotients Z_p{x}[q]/J are p-torsion free, used in the proof of 3.16. In v3 of the preprint neither number is this lemma.",
+   "reason": "Read Meyer–Wagner v4 section 3.2 (Lemmas 3.16 and 3.17) and v3's numbering (3.16 is a base change lemma, 3.17 a paragraph); the source's Example 4.24 itself refers to [MW24, §3.2] for these lifts.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2",
+    "arXiv:2410.23115v3 and v4 numbering"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E303",
+   "kind": "gap",
+   "locator": "Paragraph 1.16, p. 8, arXiv:2510.04782v2 (v1 states the same claim over 'the completion of H[1/N]' without the word 'Habiro', and without 'tentative' in the next sentence)",
+   "printed": "The source claims that, for X smooth and proper over Z[1/N] with N divisible by every prime p ⩽ dim(X/Z), RΓ(X, q-Hdg_{X/Z}) is perfect over the Habiro-completion of H[1/N].",
+   "correction": "The claim needs a proof, which the paper does not give: neither the gluing of q-Hdg to schemes nor perfectness is treated in the body. A proof would need perfectness of the cohomology of q-W_m Ω^i of smooth proper schemes over Z[1/N][q]/(q^m − 1) and a criterion deducing perfectness of a Habiro-complete object from its reductions modulo q^m − 1 (Appendix B gives only conservativity and degree detection).",
+   "reason": "Searched the body for any scheme-level statement or perfectness claim: the only occurrences are in Paragraph 1.16. The claim is plausible but not routine: the reductions modulo q^m − 1 are filtered by q-de Rham–Witt cohomology, whose finiteness over the mixed-characteristic base is not established in the paper, and Habiro completion is a limit over all m.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2, full text search for 'perfect' and 'proper' (v2 revised the sentence but added no proof)",
+    "the companion ku paper arXiv:2510.06057v1",
+    "the q-Witt paper arXiv:2410.23078v5 (no perfectness statement for the Habiro-completed object)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E304",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 6.15, p. 86, arXiv:2510.06057v1",
+   "printed": "The source attributes q-Hdg_{O_F[1/∆]/Z} ≃ H_{O_F[1/∆]} to [Wag25, Corollary 3.12].",
+   "correction": "[Wag25, Corollary 3.13] (the étale case of the descent theorem); 3.12 is an Example (the framed smooth case) in both arXiv versions of the q-Hodge paper.",
+   "reason": "Checked the numbering in arXiv:2510.04782v1 and v2: 3.12 Example, 3.13 Corollary (if R is étale over A, q-Hdg_{R/A} is H_{R/A}). The same companion paper's other hard-coded references to the q-Hodge paper are partly off as well (it cites a Proposition 3.49 where 3.49 is a Remark), which suggests numbering from an earlier draft.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.06057v1 (only version)",
+    "arXiv:2510.04782v1 and v2 numbering"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-de Rham cohomology and topological Hochschild homology over ku, arXiv:2510.06057v1, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E305",
+   "kind": "error",
+   "locator": "Paragraph 4.12(b) and Corollary 4.16, pp. 58–60, arXiv:2510.04782v2 (identical in v1); the same recipe in Paragraph 4.32",
+   "printed": "The source considers (S1, . . . , Si) → (S′1, . . . , S′i′), a morphism over α: ⟨i⟩ → ⟨i′⟩. It says membership in Sm_{A[dim!−1]} is equivalent to condition (a) holding for its source and target, and for the target of a cocartesian lift of α from (S1, . . . , Si).",
+   "correction": "When A is not a Q-algebra (for A a Q-algebra every smooth A-algebra lies in Sm_{A[dim!^{-1}]} and the class is closed): The morphisms so described are not closed under composition, so they do not define a sub-∞-operad (a subcategory of Sm⊗_A); the stated 'equivalent' form (morphisms that factor through a cocartesian lift of their image) is a different, larger class. Corollary 4.16 should be read with the domain the largest simplicial subset of Sm⊗_A whose vertices and edges satisfy (a) and (b), and 'functor of ∞-operads' as a map of simplicial sets over N(Fin_*) preserving the cocartesian edges it contains; the A_r-conclusions of 4.12 only use simplices all of whose edges satisfy (b).",
+   "reason": "Over A = Z: f = (x ↦ 0, x ↦ 0): (Z[x], Z[x]) → (Z, Z) over id_⟨2⟩ satisfies (b) (its lift target is its source, with entries of dimension 1, no prime needed); the multiplication g: (Z, Z) → Z over ⟨2⟩ → ⟨1⟩ satisfies (b) (Z ⊗ Z = Z); but g ∘ f has cocartesian-lift target Z[x] ⊗ Z[x] = Z[x, y], of dimension 2 with 2 not invertible, so it fails (b). It does factor through the cocartesian lift g, so it belongs to the 'equivalent' class. The same example shows that the bounded variant Sm^{⩽1,⊗}_{Z[1!^{−1}]} used in the proof of Corollary 4.16 is not closed under composition.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782v1 and v2 (same text)",
+    "the proof sketch of Corollary 4.16 and Paragraph 4.32, which use the same recipe without addressing composition",
+    "the companion ku paper (no restatement)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E401",
+   "kind": "misprint",
+   "locator": "Section 3, the paragraph after Example 3.12 (printed p. 26 of arXiv:2510.04782v2), against the sentence before the twisted q-Hodge filtrations, the display defining gr of the animated stupid filtration, and Corollary 3.31",
+   "printed": "The source says that $\\Sigma^{-n}\\qIW_m\\deRham_{S/A}^n\\simeq \\qIW_m\\Omega_{S/A}^n$ is valid for every $n$, citing the later \\cref{cor:qDRWSmoothAnimation}.",
+   "correction": "The paper uses two conventions for q-W_m dR^n that differ by the shift Σ^{-n}. With its definition of q-W_m dR^n as the n-th graded piece of the animated stupid filtration fil_{Hhodge_m} (gr^n_{Hhodge_m} q-W_m dR ≃ q-W_m dR^n), Corollary 3.31 is right, and the sentence after Example 3.12 should read q-W_m dR^n_{S/A} ≃ Σ^{-n} q-W_m Ω^n_{S/A}. The graded identifications Σ^{-*} q-W_m dR^* of Theorem 3.11(b) are to be read with one fixed convention; the blueprint states them convention-free, with q-W_m Ω^i in cohomological degree i.",
+   "reason": "The sentence after Example 3.12 and Corollary 3.31 (to which it refers) assert Σ^{-n} X ≃ Y and X ≃ Σ^{-n} Y for the same X = q-W_m dR^n and Y = q-W_m Ω^n, which cannot both hold for n ≥ 1 unless Y is zero. The definition by animating the stupid filtration places q-W_m Ω^n in cohomological degree n in the n-th graded piece, which is Corollary 3.31's form. Found by reviewer R3 while checking HQ.5; checked by the coordinating reviewer in the LaTeX source (lines 883, 923, 941 and 1410 of the e-print).",
+   "affects": "nothing",
+   "known": "none found",
+   "searched": [
+    "the arXiv abstract page of arXiv:2510.04782, accessed 2026-09-25, which lists v2 as the latest version",
+    "the other statements of the same paper that use q-W_m dR^n (Theorem 3.11(b) and the displays of Sections 3 and 4)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E801",
+   "kind": "misprint",
+   "locator": "Notation 16.1, p. 106, arXiv:1905.08229v4",
+   "printed": "The source claims, for every complex of $A$-modules, that derived $(p,[p]_q)$-completion agrees with derived $(p,[p]_q)$-completion.",
+   "correction": "derived (p, [p]_q)-completion coincides with derived (p, q−1)-completion for any complex of A-modules.",
+   "reason": "The sentence is deduced ('In particular') from the two congruences just stated: [p]_q ≡ p modulo q−1 puts [p]_q in (p, q−1), and (q−1)^{p−1} = p·unit modulo [p]_q puts (q−1)^{p−1} in (p, [p]_q), so the two ideals have the same radical and define the same derived completion. As printed the sentence is a tautology. arXiv v1, v2 and v3 print (p, q−1).",
+   "affects": "nothing",
+   "known": "new in arXiv v4; v1, v2 and v3 of arXiv:1905.08229 print the correct (p, q−1); the published version (Annals of Mathematics 196, 2022) was not checked",
+   "searched": [
+    "arXiv:1905.08229 v1, v2, v3 and v4 LaTeX sources",
+    "the arXiv abstract page (no erratum or comment listed)"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E802",
+   "kind": "misprint",
+   "locator": "Section 3, the example R = ℤ[T], p. 6, arXiv:1606.01796v1",
+   "printed": "H^1(q\\!\\op-\\!\\Omega^\\bullet_{R[[q-1]]/\\bb Z[[q-1]]}) = \\bb Z[[q-1]]\\oplus \\widehat{\\bigoplus}_{n\\in \\bb Z,n\\neq -1} \\bb Z[[q-1]] / [n+1]_q \\bb Z[[q-1]]",
+   "correction": "For R = ℤ[T]: H^1 is the (q−1)-completed direct sum over n ≥ 0 of ℤ⟦q−1⟧/[n+1]_q, with no free summand. The printed formula is the one for the Laurent polynomial ring ℤ[T^{±1}] (the example G_m of section 2), with [n+1]_q read as (q^{n+1} − 1)/(q − 1) for n + 1 < 0.",
+   "reason": "In q-Ω_{ℤ[T]}, ∇_q(T^n) = [n]_q T^{n−1}dT for n ≥ 0 only, so the cokernel of ∇_q is the completed sum of ℤ⟦q−1⟧/[m+1]_q · T^m dT over m ≥ 0; the free summand is the class of dT/T, which does not exist in Ω^1_{ℤ[T]}. At q = 1 the corrected formula gives ⊕_{n≥0} ℤ/(n+1) = H^1_dR(A^1_ℤ), the value in the paper's own footnote, while the printed one gives the G_m answer ℤ ⊕ ⊕_{n≠−1} ℤ/(n+1) of section 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1606.01796 (only v1 exists)",
+    "the arXiv abstract page"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Peter Scholze, Canonical q-deformations in arithmetic geometry, arXiv:1606.01796v1, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E803",
+   "kind": "misprint",
+   "locator": "Construction 16.19, p. 114, arXiv:1905.08229v4 (identical in v1–v3)",
+   "printed": "\\nabla_q:P \\to \\Omega^1_{P/S} := \\widehat{\\bigoplus}_{s \\in S} P dX_s",
+   "correction": "Ω^1_{P/D}: the continuous differentials of P over the base D, free on the dX_s.",
+   "reason": "S is the set of coordinates, not a ring; the next display of the same construction and Construction 16.20 write Ω^1_{P/D}.",
+   "affects": "nothing",
+   "known": "new; present in all four arXiv versions",
+   "searched": [
+    "arXiv:1905.08229 v1–v4 LaTeX sources"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E804",
+   "kind": "misprint",
+   "locator": "Construction 16.20, p. 114, arXiv:1905.08229v4 (identical in v1–v3)",
+   "printed": "The source takes DJ,q(P) to be the q-PD envelope specified by Construction 16.10.",
+   "correction": "as in Lemma 16.10 (Existence of q-PD envelopes).",
+   "reason": "The label qPDEnvConstruct is on Lemma 16.10; there is no Construction 16.10.",
+   "affects": "nothing",
+   "known": "new; present in all four arXiv versions",
+   "searched": [
+    "arXiv:1905.08229 v1–v4 LaTeX sources"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E805",
+   "kind": "misprint",
+   "locator": "§A.1, first paragraph, p. 70, arXiv:2510.04782v2 (identical in v1)",
+   "printed": "The source declares (ÂpJq −1K, (q −1)) to be a q-PD pair in the sense of [BS19, Definition 16.1].",
+   "correction": "[BS19, Definition 16.2].",
+   "reason": "In Bhatt–Scholze (arXiv v4, the numbering the paper cites elsewhere: Theorems 15.3, 16.18, 16.22, Lemma 16.10) 16.1 is the Notation fixing ℤ_p⟦q−1⟧ and [p]_q, and q-PD pairs are Definition 16.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2510.04782 v1 and v2",
+    "arXiv:1905.08229 v4 numbering"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E806",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 18.3, displayed Joyal-operation formula, p. 124, arXiv:1905.08229v4; same display in the author PDF linked from Scholze’s papers page (published text not obtained)",
+   "printed": "\\phi^{n+1}(\\frac{g_i}{d}) = (\\frac{g_i}{d})^{p^n} + p \\delta_1(\\frac{g_i}{d})^{p^{n-1}} + ... + p^n \\delta_n(\\frac{g_i}{d})^p + p^{n+1} \\delta_{n+1}(\\frac{g_i}{d}).",
+   "correction": "The correct formula is φ^{n+1}(x) = ∑_{j=0}^{n+1} p^j δ_j(x)^{p^{n+1−j}}. In particular the first two exponents are p^{n+1} and p^n, not p^n and p^{n−1}.",
+   "reason": "Remark 2.13 characterizes the δ_j by φ^r(x) = ∑_{j=0}^r p^j δ_j(x)^{p^{r−j}}. Substitute r = n+1. At n=0 this gives the defining identity φ(x)=x^p+pδ(x), not x+pδ(x). The induction of Lemma 18.3 still works with the correction: all earlier terms lie in the kernel because it is closed under powers, and the last term is unchanged.",
+   "affects": "nothing",
+   "known": "new; scoped to the arXiv v4 and author-copy proof display; no claim about the unaccessed version of record",
+   "searched": [
+    "arXiv:1905.08229v4 proof display compared with Remark 2.13 in the same source",
+    "Scholze’s papers page https://people.mpim-bonn.mpg.de/scholze/papers.html: no separate erratum linked for this paper; linked prisms.pdf has the same display",
+    "Annals landing page https://annals.math.princeton.edu/2022/196-3/p05: metadata inspected, no correction linked there; attempted publisher PDF endpoint returned 404; published text not read"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Prisms and prismatic cohomology, arXiv:1905.08229v4, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HabiroCohomologyFoundations/E901",
+   "kind": "error",
+   "locator": "Proof of Lemma 2.12, §2.2, printed p.18, arXiv:2510.04782v2; the prime-completed Taylor comparison",
+   "printed": "The argument identifies F_ell[q]/Phi_m(q) with a field by asserting irreducibility when gcd(m,ell)=1.",
+   "correction": "Use squarefreeness, not irreducibility. Interpret Z_ell[zeta_m] as Z_ell tensor_Z Z[zeta_m], the full finite étale cyclotomic algebra. It can be a product of unramified integer rings. The Taylor map is an equivalence on each factor: Phi_m has a simple root zeta_m, so Phi_m( zeta_m+X ) is X times a unit. The residue comparison is therefore with the full finite étale algebra F_ell[q]/Phi_m, and derived completeness lifts it.",
+   "reason": "For m=7 and ell=2, Phi_7(q)=(q^3+q+1)(q^3+q^2+1) in F_2[q]. Both cubic factors are irreducible and distinct. Coprimality guarantees a finite étale product, and the factorwise simple-root argument proves the required Taylor comparison without a field identification.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv abstract/version history https://arxiv.org/abs/2510.04782 accessed 2026-10-19: v2 is listed as current, with no linked erratum",
+    "the v2 proof of Lemma 2.12 itself",
+    "targeted web search for Wagner q-Hodge Habiro Lemma 2.12 erratum/corrigendum on 2026-10-19; no correction located"
+   ],
+   "owner": "HabiroCohomologyFoundations",
+   "file": "research/blueprint/packets/HabiroCohomologyFoundations.json",
+   "citation": "Ferdinand Wagner, q-Hodge complexes over the Habiro ring: v2 source archive, arXiv:2510.04782v2, PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCyclotomicCompletions/E19",
    "kind": "error",
    "locator": "arXiv v2, Proposition 5.1, p. 62, (313), and its table",
@@ -243690,9 +244520,9 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.5.json",
    "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter III: K1 and K2 of a ring, Author's online chapter file Kbook.III.pdf; cited by the chapter's own printed page numbers, which equal its PDF pages.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.5",
+   "reviewReason": "Read the attribution in the author’s Chapter III, p.43, and all of Milnor §9, pp.71–80. Milnor 9.11 assumes commutativity and 9.13 covers fields; 9.12 gives monomial containment for skew fields but does not extend the symbol-generation proof. This confirms a missing reference in that attribution, not a disproof of the division-ring theorem. The archived three-page author errata contain no entry for this passage."
   },
   {
    "id": "K2SymbolsBrauer/E-T6-old-symbol-inverse",
@@ -243711,9 +244541,29 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.6.json",
    "citation": "Charles A. Weibel, The K-book, separate Chapter III: K₁ and K₂ of a ring, Author’s separately paginated chapter PDF; printed page numbers here are its own pp.1–72, not those of the bound book.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.6",
+   "reviewReason": "Independently read the scanned Stein–Dennis Proposition 1.1 and van der Kallen §5.2 words, Morrow Remark 3.10, and the recorded Weibel warning. Literal substitution gives D(r,s)=P(−r,s); the tame residue at ℚ(t), r=2, s=(1−t)/2 is 2 rather than 1/2. Confirmation is restricted to the hashed author chapter; no bound edition was collated."
+  },
+  {
+   "id": "K2SymbolsBrauer/E-T6-cyclic-splitting-minimal-polynomial",
+   "kind": "error",
+   "locator": "Lemma III.6.9.1 and its proof, printed p.57 in the separately paginated author chapter PDF with the recorded SHA-256",
+   "printed": "A central simple F-algebra of dimension n² is asserted to split whenever F contains a primitive n-th root of unity and the algebra has a nonscalar element u with uⁿ=1.",
+   "correction": "Require dim_F F[u]=n, equivalently that the minimal polynomial of u is Tⁿ−1. The weaker nonscalar condition does not imply this. With the added hypothesis the n nonzero orthogonal idempotents force splitting. The symbol-algebra targets instead use the explicit weighted-shift representation and the existing Kummer/cyclic comparison.",
+   "reason": "Take F=ℂ(s,t), D=(s,t)_F and A=Mat₂(D). The quaternion algebra D is division, so A has degree four and is not Mat₄(F), whereas u=diag(1,−1) is nonscalar and u⁴=1. To verify division, extend to ℂ(s)((t)): a primitive integral zero of the norm a²−sb²−tc²+std² reduces modulo t to a²−sb²=0. Since s is nonsquare in ℂ(s), a and b are divisible by t. Divide the equation by t and reduce again to force c and d divisible by t, contradicting primitivity. Thus the norm is anisotropic. The proof in the source incorrectly identifies F[u] with F[T]/(Tⁿ−1); in this example its dimension is two, not four.",
+   "affects": "a stated result",
+   "known": "No correction was located in the places checked; no novelty claim is made.",
+   "searched": [
+    "Weibel author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its errata link (the linked PDF returned 404 on 2026-10-19)",
+    "Targeted searches of the author site for Lemma 6.9.1 and an erratum; the independently checked counterexample does not rely on a search result"
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.6.json",
+   "citation": "Charles A. Weibel, The K-book, separate Chapter III: K₁ and K₂ of a ring, Author’s separately paginated chapter PDF; printed page numbers here are its own pp.1–72, not those of the bound book.",
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.6",
+   "reviewReason": "Added during independent review after visually checking printed p.57. The degree-four matrix algebra over the generic quaternion division algebra gives a counterexample, with division verified by the t-adic norm argument. Requiring degree n for the minimal polynomial repairs the exact failing step. The corrected target uses its explicit matrices, not this false unrestricted criterion."
   },
   {
    "id": "K3BlochGroups/E31",
@@ -258346,14 +259196,36 @@
    "searched": [
     "Author K-book page and its linked Kbook.errata.pdf (including the sites.math and www.math Rutgers hosts), 2026-10-19: PDF link returned 404.",
     "Author August 29, 2013 PDF: V.11.3, V.11.10–11.13, and visual check of VI.4.3 p.481.",
-    "Web search for K-book errata c_{3,3} / page 481, 2026-10-19: no verified correction found."
+    "Web search for K-book errata c_{3,3} / page 481, 2026-10-19: no verified correction found.",
+    "Independent review, 2026-10-19: author page, the exact errata link (also HTTP, www.math host and query-string variant), and targeted web search. Direct PDF requests returned 404; the search engine indexed an errata snippet, which does not verify whether this sign has a published correction."
    ],
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6.json",
-   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author PDF, August 29, 2013; printed pages cited (PDF page = printed page + 8)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6",
+   "reviewReason": "Independently inspected VI.4.3 visually: the author copy has −2. V.11.13 gives (−1)²·2!=+2, and V.11.12(4) identifies reduction with the same étale classes. Two applications of the diagonal product sign give the same result. The exponent conclusion is unchanged. The linked errata PDF again returned 404; the indexed search snippet is not a full errata inspection, so novelty remains unestablished."
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-M6-2",
+   "kind": "misprint",
+   "locator": "August 29, 2013 author PDF, proof of V.11.11, printed p.459 / PDF p.467: Whitney localization display, the definitions of f′ and f″, and the final polynomial factorization.",
+   "printed": "The first term of the localization display uses P(F″), although the stated closed immersion is P(F′) into P(F). The subsequent Chern polynomials omit the powers of ξ accompanying the lower Chern coefficients, including the displayed c_1 terms. (Description in our own words.)",
+   "correction": "The Gysin source is H^{2n−2n″,n′}(P(F′)); the weight n′ is unchanged. The open term remains P(F″). Write every rank-r Chern polynomial as C_E(T)=Σ_{i=0}^r(−1)^i c_i(E)T^(r−i), with c_0=1, and the factorization as C_F(T)=C_F′(T)C_F″(T).",
+   "reason": "The closed immersion has codimension n″, which determines its Gysin source, whereas homotopy invariance identifies the open complement with P(F″). Each polynomial term c_i(E)ξ^(r−i) has bidegree (2r,r); omitting ξ^(r−1) from c_1 gives a different bidegree when r>1. The initial monic relation on the same page already includes the required powers. Both corrections leave the intended Whitney formula intact.",
+   "affects": "the proof",
+   "known": "The localization-bundle typo is already recorded and independently confirmed as K3BlochGroups/E31 (for the separate author chapter PDF). No published correction of these displays was verified; novelty of the polynomial typo is unestablished.",
+   "searched": [
+    "The current programme finding K3BlochGroups/E31 and its review, read 2026-10-19; its first-term correction agrees with the complete author PDF used here.",
+    "Author K-book page and linked errata PDF on Rutgers hosts, 2026-10-19: direct requests returned 404; the indexed search snippet is not a full errata inspection.",
+    "Targeted searches for Weibel V.11.11 Whitney errata and missing powers in the Chern polynomial, 2026-10-19: no accessible published correction verified."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Author PDF, August 29, 2013; printed pages cited (PDF page = printed page + 8)",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6",
+   "reviewReason": "Independently inspected the rendered p.459 as well as its extracted text. The geometry fixes P(F′) in the first term, and homogeneous bidegrees fix the missing ξ powers. The already recorded K3BlochGroups/E31 is a prior programme finding, not evidence of a published erratum."
   },
   {
    "id": "MotivicEtaleKTheory/E-HCT-boundary-rank",
@@ -258366,14 +259238,17 @@
    "known": "new: no correction was identified in the versions and searches listed; this does not assert novelty of the observation.",
    "searched": [
     "arXiv:math/0510334v1, Theorem 6.4.1 and surrounding text",
-    "arXiv record and web search for Levine homotopy coniveau tower boundary K₀ correction, 2026-10-19"
+    "arXiv record and web search for Levine homotopy coniveau tower boundary K₀ correction, 2026-10-19",
+    "Independent review, 2026-10-19: https://arxiv.org/abs/math/0510334 lists only v1; no later arXiv correction is available there.",
+    "Independent review, 2026-10-19: https://www.esaga.uni-due.de/marc.levine/pub/ links the journal paper without an erratum or corrigendum entry for it.",
+    "Independent review, 2026-10-19: https://londmathsoc.onlinelibrary.wiley.com/doi/pdf/10.1112/jtopol/jtm004 returned HTTP 403; the published text could not be collated. Findings are restricted to the cited preprint."
    ],
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6a.json",
    "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6a",
+   "reviewReason": "Confirmed at Theorem 6.4.1, p. 36 of arXiv v1. For n=1 the Chinese remainder theorem gives boundary F×F and K₀=ℤ², so the asserted single rank group is false. The corrected injectivity argument through any vertex, together with K₁ surjectivity, proves the same relative K₀ vanishing."
   },
   {
    "id": "MotivicEtaleKTheory/E-HCT-normal-frame",
@@ -258386,14 +259261,17 @@
    "known": "new: no correction was identified in the versions and searches listed; the stated purity conclusion is not declared false.",
    "searched": [
     "arXiv:math/0510334v1, Proposition 4.2.2 and Corollary 4.2.4",
-    "Web search for Levine homotopy coniveau tower errata 4.2.4 normal bundle, 2026-10-19"
+    "Web search for Levine homotopy coniveau tower errata 4.2.4 normal bundle, 2026-10-19",
+    "Independent review, 2026-10-19: https://arxiv.org/abs/math/0510334 lists only v1; no later arXiv correction is available there.",
+    "Independent review, 2026-10-19: https://www.esaga.uni-due.de/marc.levine/pub/ links the journal paper without an erratum or corrigendum entry for it.",
+    "Independent review, 2026-10-19: https://londmathsoc.onlinelibrary.wiley.com/doi/pdf/10.1112/jtopol/jtm004 returned HTTP 403; the published text could not be collated. Findings are restricted to the cited preprint."
    ],
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6a.json",
    "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6a",
+   "reviewReason": "Confirmed as a proof gap at Corollary 4.2.4, p. 26 of arXiv v1: the displayed rank-d pullback is identified with a line using one diagonal section. This cannot be a full frame for d>1. Trivialised local purity suffices for the vanishing argument; K-specific dévissage and rank give the coefficient comparison. No general canonical purity theorem or error in its conclusion is asserted here."
   },
   {
    "id": "MotivicEtaleKTheory/E-M6b-1",
@@ -258410,9 +259288,9 @@
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
    "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6b",
+   "reviewReason": "Confirmed in the entire published 1989 erratum: the sequential comparison is available for countably generated extensions; general cd-one descent uses Bott-annihilated kernel and cokernel. This is an already published correction."
   },
   {
    "id": "MotivicEtaleKTheory/E-M6b-2",
@@ -258422,7 +259300,7 @@
    "correction": "The interchange degree is (−1)^(nm); the resulting Leibniz boundary uses (−1)^n when a degree-n sphere passes one suspension.",
    "reason": "For n=m=1, interchanging the two circle factors on S² has degree −1, whereas the printed exponent gives +1. For n=0,m=1 the unit interchange has degree +1. The page was checked in the rendered PDF as well as text.",
    "affects": "the proof",
-   "known": "No correction located in the author catalogue or targeted search; pending independent review, with no novelty claim.",
+   "known": "No correction located in the author catalogue or targeted search; confirmed by independent review, with no novelty claim.",
    "searched": [
     "Author publication catalogue https://esaga.net/marc.levine/pub/ and the linked KthyMotI12.01.pdf.",
     "Targeted search for Levine Appendix D.6 and errata on 2026-10-19."
@@ -258430,9 +259308,9 @@
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
    "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6b",
+   "reviewReason": "Confirmed on the rendered December 2001 p.96. The interchange on S¹∧S¹ has degree −1 and the unit interchange on S⁰∧S¹ has degree +1; both require the product exponent nm. The Leibniz sign in the roadmap is correct."
   },
   {
    "id": "MotivicEtaleKTheory/E-M6b-3",
@@ -258442,7 +259320,7 @@
    "correction": "Those finite-generation/rank assertions here concern K_n(O_S), with S finite, not K_n(F).",
    "reason": "Localization for Q gives K₂(Q) a quotient ⊕_p F_p×, since K₁(Z)→K₁(Q) is injective. That direct sum is infinite. Arithmetic finite generation imported in this packet has ring-of-S-integers domain.",
    "affects": "nothing",
-   "known": "Author errata page was located, but the linked Kbook.errata.pdf returned 404; no matching correction was obtained. Pending independent review; no novelty claim.",
+   "known": "Author errata page was located, but the linked Kbook.errata.pdf returned 404; no matching correction was obtained. Confirmed by independent review; no novelty claim.",
    "searched": [
     "https://sites.math.rutgers.edu/~weibel/Kbook.html and its published-version errata link.",
     "Targeted author-domain search for VI 8.1 on 2026-10-19."
@@ -258450,29 +259328,30 @@
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
    "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6b",
+   "reviewReason": "Confirmed at printed p.513. Localization for Z⊂Q and injectivity of Z×→Q× make K₂(Q) surject onto ⊕_p F_p×, contradicting the field finiteness assertion. The finite-S ring statement used here is the appropriate one."
   },
   {
    "id": "MotivicEtaleKTheory/E-M6b-4",
    "kind": "misprint",
-   "locator": "Theorem 5.9 display, p.59, arXiv:1309.7620v5",
+   "locator": "Published Theorem 5.9 display and proof, p.1779, with regulator definition p.1778, Algebra & Number Theory 10 (2016); also arXiv:1309.7620v5 p.59",
    "printed": "In own words: the theorem display uses geometric cohomological degree i+1 in both H¹_st and H¹, although the regulator just defined above and the final proof diagram use degree i.",
    "correction": "Use H¹_st(G_K,H^i_et(X_bar,Q_p(r)))⊂H¹(G_K,H^i_et(X_bar,Q_p(r))) for the regulator r^et_(r,i).",
    "reason": "The Hochschild–Serre edge lowers geometric degree from total i+1 to i. The definition directly preceding the theorem, its proof diagram and Remark 5.10 agree on H^i. The rendered page confirms the i+1 display.",
    "affects": "a stated result",
-   "known": "No erratum found in the arXiv record/targeted author-title search. This is recorded as a display-index correction, pending independent review; the regulator proof uses the consistent i degree.",
+   "known": "No erratum found in the arXiv record/targeted author-title search. This is recorded as a display-index correction, confirmed by independent review; the regulator proof uses the consistent i degree.",
    "searched": [
     "arXiv:1309.7620v5, p.59, including definition, proof and following remark.",
-    "Targeted search for an erratum to arXiv:1309.7620 on 2026-10-19."
+    "Targeted search for an erratum to arXiv:1309.7620 on 2026-10-19.",
+    "Independent review: publisher PDF, §5B pp.1778–1779, collated with arXiv v5; the same display-index slip occurs in both."
    ],
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
    "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6b",
+   "reviewReason": "Confirmed both in arXiv v5 p.59 and the rendered publisher Theorem 5.9 p.1779. The regulator definition on published p.1778 and the last proof diagram/Remark 5.10 on p.1779 have H^i; the theorem display has H^(i+1). This is a display correction, not a failure of the factorization argument."
   },
   {
    "id": "MotivicEtaleKTheory/E-M6b-5",
@@ -258482,7 +259361,7 @@
    "correction": "The numerator in that even-group sentence is h^(2,i)(2), the order of H²(R,Z₂(i)); the theorem’s order ratio is unchanged.",
    "reason": "Theorem 9.11 identifies this even K group with ker[H²(R,Z₂(i))→(Z/2)^r₁]. Its order is therefore the H² order divided by the real quotient order, rather than the H¹ order. This packet does not use Theorem 9.12 as a prerequisite.",
    "affects": "the proof",
-   "known": "Author errata link was unavailable (404); no matching correction located. Pending independent review; no novelty claim.",
+   "known": "Author errata link was unavailable (404); no matching correction located. Confirmed by independent review; no novelty claim.",
    "searched": [
     "https://sites.math.rutgers.edu/~weibel/Kbook.html and linked errata.",
     "Comparison with VI Theorem 9.11, pp.524–525, and targeted author-domain search on 2026-10-19."
@@ -258490,9 +259369,9 @@
    "owner": "MotivicEtaleKTheory",
    "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
    "citation": "Sources of the blueprint of MotivicEtaleKTheory",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivicEtaleKTheory--M.6b",
+   "reviewReason": "Confirmed at printed p.525 against Theorem 9.11: the relevant even group is the kernel in H², so its order is h^(2,i)(2)/2^r₁. The theorem’s ratio and this packet’s torsion table do not require alteration."
   },
   {
    "id": "MotivicStructuresInModuliOfCurves/E1",
@@ -267660,6 +268539,488 @@
    "status": "confirmed",
    "reviewedBy": "REV-PadicHodgeRegulators--L3",
    "reviewReason": "Confirmed as a fixed-coordinate correction, rather than a claim that the source forgot an abstract identification. Equation(2) is L=Col M nu; therefore the preimage of the period subspace is V_(i,eta) M(x_i)^(-1). The weight-two lines span(1,2) and span(-2,5) exhibit the distinction."
+  },
+  {
+   "id": "PadicHodgeRegulators/E101",
+   "kind": "gap",
+   "locator": "§1.5, after (19), p. 9 (arXiv 2412.04241v2)",
+   "printed": "Equation (19) identifies a Bloch-presentation dilogarithm with a regulator on K₃ without restricting the symbols to special units.",
+   "correction": "Besser–de Jeu Theorem 1.6(2) (and 1.10, 1.12) shows the coincidence only on classes presented by special units of the valuation ring (and on roots of unity); the identity for arbitrary elements is their Conjecture 1.14. D_p should be defined on K_3(K_p; Z_p) as the regulator, and the dilogarithm formula used only for special-unit presentations at p, which covers GSWZ's uses (Lemma 3.1 concerns special units; the Nahm and knot examples use global units).",
+   "reason": "The cited special-unit complex requires all wedge factors to be units and its symbol argument to be a special unit. The general formula is stated as Conjecture 1.14, with the possibility of too few special units explicitly acknowledged.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241v2 (read in this job, §1.5 and §3.1)",
+    "the errata search of PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 (29 September 2026: no erratum, corrigendum or journal version)",
+    "the recorded findings of PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 (E10, E38, E39, E56, E80): this point is not among them",
+    "arXiv math/0110334 v2 (the version read)",
+    "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E102",
+   "kind": "gap",
+   "locator": "Theorem 9 and proof, p. 39 (arXiv 2412.04241v2)",
+   "printed": "The proof passes from root-symbol generation of a single local factor to generation of a product without a separate component-isolation argument.",
+   "correction": "For K_p = ∏_i Q_{p^{s_i}} with more than one factor and ζ restricted to roots of unity with every component ≠ 1 (GSWZ E38), generation needs Proposition 3.3 in a product form: the Z_p-span of {p^{−2}D(ζ) − p^{−2}D(ζ')} is also Z_{p^s} (D.3/residue-spanning (b), (c)), which follows from the same counting bound. For the nonzero admissible domain use (p^s−2)/(p−2) when s>1; s=1 requires the separate zero/nonzero-value argument, not the original q−1 count.",
+   "reason": "Proposition 3.3 is proved for one factor Q_{p^s}; a tuple ζ = (ζ_i) with all ζ_i ≠ 1 cannot isolate a single factor, so the product statement needs the difference argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241v2 (read in this job, §1.5 and §3.1)",
+    "the errata search of PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 (29 September 2026: no erratum, corrigendum or journal version)",
+    "the recorded findings of PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 (E10, E38, E39, E56, E80): this point is not among them",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E103",
+   "kind": "gap",
+   "locator": "Remark 1.13, p. 6 (arXiv math/0110334v2)",
+   "printed": "The remark treats the link between higher-weight Gros values and the modified polylogarithm regulator as immediate.",
+   "correction": "On identical de Jeu symbols, applying (1−σ/p^n) preserves the factor ε_n(n−1)!. Before comparing with Gros’s separate higher-weight formula one must identify its symbol map and Chern-class normalization. That identification has not been established, so no source correction is asserted here; in weight two the factorial is 1.",
+   "reason": "A difference between coefficients of differently defined symbols does not establish an error. This remains a rejected allegation and an explicit normalization obligation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv math/0110334 v2 (the version read)",
+    "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E104",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.12, p. 41 (arXiv math/0110334v2)",
+   "printed": "The root-order argument excludes p-primary exponent one, and its preprint special-unit evaluation omits the theorem’s factorial and sign.",
+   "correction": "Include s=1 in the distribution argument and carry the factor ±(n−1)! in the special-unit regulator value; the latter is already restored in the published version.",
+   "reason": "The case s = 1 (order divisible by p exactly once) is not special and must be covered by the same argument; Theorem 1.6(2) has the factor ±(n − 1)!.",
+   "affects": "nothing",
+   "known": "known",
+   "searched": [
+    "arXiv math/0110334 v2 (the version read)",
+    "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E105",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.10 and (4.4), pp. 24–25 (arXiv math/0110334v2)",
+   "printed": "The preprint puts the homotopy-coordinate differential outside its ordered pair and uses a different letter for that coordinate in the lemma proof.",
+   "correction": "(dω, (1 − φ∗/q^n)ω − dε), as the cone differential (4.1) d(a, b) = (da, f(a) − db) requires; and '(ω, η)' should read (ω, ε).",
+   "reason": "Apply (4.1) with f = 1 − φ*/q^n.",
+   "affects": "nothing",
+   "known": "known",
+   "searched": [
+    "arXiv math/0110334 v2 (the version read)",
+    "web search on 2026-10-06 for an erratum to Besser–de Jeu, Ann. Sci. ENS 36 (2003): none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E106",
+   "kind": "misprint",
+   "locator": "§1, p. 2 and §2.4.3, p. 23 (arXiv 1505.06471v4)",
+   "printed": "CN’s remainder interval includes its upper endpoint p−1, making the decomposition ambiguous there.",
+   "correction": "0 ≤ b(r) ≤ p − 2 (equivalently a(r) = ⌊r/(p − 1)⌋, as in Nekovář–Nizioł §4.1).",
+   "reason": "With b(r) ≤ p − 1, r = p − 1 has two decompositions (a, b) = (0, p − 1) and (1, 0), so a(r) is not determined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1505.06471 v4 (the version read); the Inventiones version was not read",
+    "web search on 2026-10-06 for an erratum: none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Pierre Colmez, Wiesława Nizioł, Syntomic complexes and p-adic nearby cycles, arXiv:1505.06471v4 (29 May 2016); published Invent. Math. 208 (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E107",
+   "kind": "gap",
+   "locator": "Theorem 1.1(ii), p. 2, against Theorem 5.4(ii), p. 54 (arXiv 1505.06471v4)",
+   "printed": "The introduction advertises a bound depending on the ramification index, whereas the descent theorem uses a field-dependent bound.",
+   "correction": "The proof supports the conservative N(K,p,r) of Theorem 5.4(ii). Dependence only on e is not established by the descent argument read here; the stronger introduction claim is not disproved.",
+   "reason": "The descent constant of Lemma 5.9 involves the conductor c(K); Remark 1.7 only hopes for dependence on the different.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1505.06471 v4 (the version read); the Inventiones version was not read",
+    "web search on 2026-10-06 for an erratum: none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Pierre Colmez, Wiesława Nizioł, Syntomic complexes and p-adic nearby cycles, arXiv:1505.06471v4 (29 May 2016); published Invent. Math. 208 (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E108",
+   "kind": "error",
+   "locator": "Remark 4.14, p. 54 (arXiv 1309.7620v5)",
+   "printed": "The remark asserts that all diagram arrows are isomorphisms as soon as twist exceeds cohomological degree.",
+   "correction": "Assume r ≥ q + 2.",
+   "reason": "For X = Spec K, q = 0 and r = 1, exp_BK : K → H^1(G_K, Q_p(1)) is not surjective (dimensions [K : Q_p] and [K : Q_p] + 1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1309.7620 v5 (the version read)",
+    "web search on 2026-10-06 for an erratum: none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E109",
+   "kind": "misprint",
+   "locator": "Theorem 5.9, p. 59 (arXiv 1309.7620v5)",
+   "printed": "The semistable edge term is written with geometric cohomology degree i+1.",
+   "correction": "H^i in place of H^{i+1}, as in Theorem B (p. 7).",
+   "reason": "r^et_{r,i} lands in H^1(G_K, H^i_et(X_K̄, Q_p(r))).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1309.7620 v5 (the version read)",
+    "web search on 2026-10-06 for an erratum: none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E110",
+   "kind": "error",
+   "locator": "Proposition 2.16, p. 15 (arXiv 1309.7620v5)",
+   "printed": "The comparison proposition asserts a derived semistable/Galois isomorphism under vanishing of the first filtration step.",
+   "correction": "Exclude the trivial representation: the stated F¹=0 hypothesis is insufficient. The proof’s H²=0 step additionally excludes Q_p(1), for example by requiring F^{-1}D_K=0. No optimal corrected general theorem for F⁰=0 is claimed; use the verified stronger ranges in applications.",
+   "reason": "V = Q_p has F^1 = 0, but H^1_st(G_K, Q_p) = K_0/(1 − σ) has dimension 1 while H^1(G_K, Q_p) has dimension [K : Q_p] + 1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1309.7620 v5 (the version read)",
+    "web search on 2026-10-06 for an erratum: none found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E111",
+   "kind": "misprint",
+   "locator": "Definition 0.4.5, p. 6 (arXiv math/0612611v1)",
+   "printed": "The alternating trace formula sums signs of permutations while leaving the indices in the trace unpermuted.",
+   "correction": "Tr(x_{σ(1)} ∘ ⋯ ∘ x_{σ(2n−1)}).",
+   "reason": "As printed σ does not act on the summand, so the alternating sum vanishes for n ≥ 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv math/0612611 v1 (the version read)",
+    "web search on 2026-10-06: no erratum found",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Annette Huber, Guido Kings, A p-adic analogue of the Borel regulator and the Bloch–Kato exponential map, arXiv:math/0612611v1 (20 December 2006); published J. Inst. Math. Jussieu 10 (2011), 149–190",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E112",
+   "kind": "misprint",
+   "locator": "Lemma II.1, p. 10 (arXiv math/0209283v1)",
+   "printed": "The preprint includes n=0 in an overlapping case and does not state the ψ-fixed hypothesis used in the proof.",
+   "correction": "The second case is n=0, and the statement requires ψ(y)=y as used by its proof and applications; both defects are corrected in the published lemma.",
+   "reason": "The first case of the lemma covers n ≥ 1; the proof writes 'ψ(y) = y means that …'.",
+   "affects": "nothing",
+   "known": "known",
+   "searched": [
+    "arXiv math/0209283 v1 and the Documenta version (read by this job's L2 reading)",
+    "Berger's errata page (cited by PadicHodgeTheory P7, https://perso.ens-lyon.fr/laurent.berger/articles/errata.pdf) was not re-read here",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Laurent Berger, Bloch and Kato's exponential map: three explicit formulas, arXiv:math/0209283v1 (21 September 2002)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E113",
+   "kind": "gap",
+   "locator": "Proof of Proposition 6.36(1), p. 150",
+   "printed": "The book draft justifies nonvanishing of degree-one cohomology of the negative Tate twist by pairing it with degree-zero trivial coefficients.",
+   "correction": "Non-vanishing (dimension 1) follows from the Euler characteristic formula, since H^0(Q_p(−1)) = H^2(Q_p(−1)) = 0; Tate duality pairs H^1(Q_p(−1)) with H^1(Q_p(2)), not with H^0.",
+   "reason": "Local Tate duality pairs H^i(V) with H^{2−i}(V^*(1)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the book draft at staff.ustc.edu.cn (the version read)",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Jean-Marc Fontaine, Yi Ouyang, Theory of p-adic Galois representations, book draft (author PDF)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E114",
+   "kind": "misprint",
+   "locator": "Appendix A, Proposition A.3, p. 47 (arXiv math/0101071v2)",
+   "printed": "The global unit injection uses a ring-of-integers label different from the field in its cohomology target.",
+   "correction": "(O_F^*)^∧.",
+   "reason": "F is the number field; the proof and Proposition 2.3.2 use O_F.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv math/0101071 v2 (the version read)",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Annette Huber, Guido Kings, Bloch–Kato conjecture and main conjecture of Iwasawa theory for Dirichlet characters, arXiv:math/0101071v2; published Duke Math. J. 119 (2003)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E115",
+   "kind": "misprint",
+   "locator": "Proof of Theorem A.3, p. 126 (Documenta version)",
+   "printed": "The proof calls a representation positive where the paper’s convention assigns that word the opposite weight inequality.",
+   "correction": "With the paper's convention (positive = Hodge–Tate weights ≤ 0, p. 105) the case treated has weights ≥ 0; 'positive' should read 'with nonnegative Hodge–Tate weights'.",
+   "reason": "Compare the definition on p. 105.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Documenta version (the version read)",
+    "Berger's errata page was not re-read here",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Laurent Berger, Bloch and Kato's exponential map: three explicit formulas, Documenta Mathematica, Extra Volume Kato (2003), 99–129",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E116",
+   "kind": "misprint",
+   "locator": "§2, p. 7 (arXiv 1108.5954v3)",
+   "printed": "The Wach/ψ discussion cites Theorem A.2 for the ψ-fixed-vector result.",
+   "correction": "[Ber03, Theorem A.3] (Theorem A.2 is the characterisation of Wach modules).",
+   "reason": "In both versions of Berger's paper the ψ-invariants statement is Theorem A.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1108.5954 v3 (the version read)",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "David Loeffler, Sarah Livia Zerbes, Iwasawa theory and p-adic L-functions over Z_p^2-extensions, arXiv:1108.5954v3 (22 April 2014); accepted version of Int. J. Number Theory 10(8) (2014)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E117",
+   "kind": "misprint",
+   "locator": "Remark 3.2(1), p. 15 (arXiv 2003.08888v2)",
+   "printed": "The regulator comparison is attributed to a remark instead of the indicated proposition item.",
+   "correction": "[Be1, Proposition 8.6.3], as Besser–de Jeu cite the same item.",
+   "reason": "Besser–de Jeu 2003 p. 21 cite 'Proposition 8.6.3' of the same paper for the comparison of syntomic and modified syntomic cohomology.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2003.08888 v2 (the version read)",
+    "Independent review 2026-10-06: public primary versions and obtainable published/accepted versions compared as detailed in review.reason; no author contact.",
+    "Independent round-2 review on 2026-10-08: recorded public primary versions and listed obtainable published/accepted versions checked at the relevant loci; public author errata and publication records checked; no author contact or claim about unread publisher text."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Masanori Asakura, Masataka Chida (Appendix B by François Brunault), A numerical approach toward the p-adic Beilinson conjecture for elliptic curves over Q, arXiv:2003.08888v2 (8 September 2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E301",
+   "kind": "error",
+   "locator": "Published Proposition 5.11, first sentence of proof, p. 1129; compare arXiv:1006.5163v2 Proposition 5.11 and Remark 5.12, p. 25.",
+   "printed": "The proof asks for elements that are nonzero and meet the subsequent conditions.",
+   "correction": "The displayed integral GL(2,O_E) conclusion requires 1-e1e2 to be a UNIT. Choose nonzero e1,e2 in the maximal ideal, avoiding finitely many exceptional slopes. Nonvanishing alone only proves invertibility over E.",
+   "reason": "In Z_5 take e1=1,e2=-4: determinant 5 is nonzero and not a unit. The finite-avoidance construction repairs the proof without changing the proposition.",
+   "affects": "the proof",
+   "known": "The sufficient maximal-ideal choice is already explicit in arXiv v2 Remark 5.12. No separate published corrigendum located; no novelty claim.",
+   "searched": [
+    "Downloaded MSP version of record on 2026-10-06; published pp.1127/1129 visually inspected and p.1118 extracted text collated.",
+    "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located.",
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E302",
+   "kind": "misprint",
+   "locator": "Published Proposition 4.2 proof, p. 1118, after the definition of S double-prime.",
+   "printed": "S′ ⊂ S",
+   "correction": "S is contained in S′. An arbitrary combination of the old basis lies in S′; it lies in S exactly when its coefficient row belongs to S double-prime.",
+   "reason": "S imposes the conditions of S′ plus one more. For d=1, zero evaluations at 0 and 5 give S=(X(X-5)) and S′=(X), witnessing the direction. The subsequent matrix product uses the correct condition.",
+   "affects": "nothing",
+   "known": "No correction located in the publication/preprint comparisons and searches listed; novelty not asserted.",
+   "searched": [
+    "Downloaded MSP version of record on 2026-10-06; published pp.1127/1129 visually inspected and p.1118 extracted text collated.",
+    "Compared arXiv1006.5163v2 and its Remark5.12; searched title with erratum/correction and Proposition5.9; no separate correction located.",
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E303",
+   "kind": "misprint",
+   "locator": "Published Proposition5.9, p.1127, displayed ordered-pair quotient functional; compared arXiv1006.5163v2.",
+   "printed": "ρ(g(X), h(X)) = (2 − a_p)g(0) − (p − 1)h(0).",
+   "correction": "For the preceding ordered pair (Col_1,Col_2), use rho(g,h)=(p-1)g(0)-(2-a_p)h(0), or its negative. Alternatively reverse the two coordinates explicitly. The coefficient-valued quotient is E unless E=Q_p.",
+   "reason": "The preceding k=2 relation is (2-a_p)Col_2(0)=(p-1)Col_1(0). At p=5,a_p=0 the pair (1,2) obeys that line, but the printed rho gives -6. Our rho vanishes. An E-linear nonzero quotient of E^2 cannot be Q_p for a nontrivial coefficient extension.",
+   "affects": "a stated result",
+   "known": "No correction located in the comparisons/search listed; no novelty or independent-review claim.",
+   "searched": [
+    "Downloaded MSP version of record; visually inspected p.1127; compared preceding M(0) and k=2 relation.",
+    "Compared arXiv1006.5163v2 Proposition5.9; same ordered-functional text.",
+    "Search on 2026-10-06 for exact title with erratum/correction/Proposition5.9 and journal metadata; no separate correction located.",
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E304",
+   "kind": "misprint",
+   "locator": "Published Corollary4.13, p.1124; scalar ring of the displayed sequence.",
+   "printed": "The source describes the sequence as short exact over H(Γ₁).",
+   "correction": "As written with bounded N(V), state the sequence over Lambda_E(Gamma_1). For H_E scalar action, analytically extend the source and target (equivalently use the corresponding analytic Wach modules), retaining the period embedding in the quotient map.",
+   "reason": "Theorem2.12 identifies the bounded psi-zero target with Lambda_E^d. Multiplying a basis vector by the unbounded analytic factor ell_0 is not an element of that bounded module. Proposition2.11 separately supplies its analytic scalar extension, so the two carrier versions must be distinguished.",
+   "affects": "a stated result",
+   "known": "No separate correction located; submitted typing/coordinate clarification, with no novelty or independent-review claim.",
+   "searched": [
+    "Downloaded MSP version of record on 2026-10-06 and read the cited statement and surrounding proof.",
+    "Compared the LLZ preprint and the source’s separate bounded/analytic basis and matrix constructions.",
+    "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located.",
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicHodgeRegulators/E305",
+   "kind": "misprint",
+   "locator": "Published Proposition4.11, p.1123, identification of the Coleman coefficient-space subspaces.",
+   "printed": "V_i = V_{i,η}",
+   "correction": "In the ordered nu period coordinates, the Coleman row subspace is W_(i,eta)=V_(i,eta) M(x_i)^(-1). Its codimension agrees with V_(i,eta); the period and coefficient subspaces are not literally the same in fixed coordinates.",
+   "reason": "Equation(2) says L=Col M nu. Thus L(x_i) in V_(i,eta) means Col(x_i) M(x_i) in V_(i,eta). At p=5,k=2,a_p=0 the preceding modular relation gives Coleman line span(1,2), whereas M(0)=[[0,5],[-1,0]] sends it to the period line span(-2,5). These fixed-coordinate lines differ.",
+   "affects": "a stated result",
+   "known": "No separate correction located; submitted typing/coordinate clarification, with no novelty or independent-review claim.",
+   "searched": [
+    "Downloaded MSP version of record on 2026-10-06 and read the cited statement and surrounding proof.",
+    "Compared the LLZ preprint and the source’s separate bounded/analytic basis and matrix constructions.",
+    "Exact-title erratum/correction search and MSP publication metadata inspected; no separate correction located.",
+    "Independent review on 2026-10-06: exact-title erratum searches, MSP publication result, Antonio Lei publications page and arXiv record inspected; no separate linked corrigendum found. This is a bounded search, not an exhaustive novelty assertion."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "PadicHodgeTheory/E1",
