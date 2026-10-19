@@ -212,10 +212,10 @@
       ],
       "note": "N2 CHANGES answered 10-16: stage-level split with kim-em #953/#992/#918; draft",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "recommendation": "approve",
+        "head": "7228a4d",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "AbelianSchemesAndArithmeticModuli": {
