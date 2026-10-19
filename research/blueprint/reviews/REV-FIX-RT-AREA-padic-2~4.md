@@ -1,19 +1,19 @@
 # Independent review of the round-four p-adic fixes
 
 **Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
-codex-AiG9Yd.** The issued three-packet review is complete; the generated queue
+codex-gbB7sE.** The issued three-packet review is complete; the generated queue
 still requires ten additional packets outside the issue's permitted scope.
 This continuation updates this notice and the
 [handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md), preserving the mathematical
 verdicts and their original source-reading and Lean-check attribution below.
 
-The bot confirmed [claim comment 6258313463](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258313463)
-in [comment 6258315044](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258315044).
+The bot confirmed [claim comment 6258875598](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258875598)
+in [comment 6258877114](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258877114).
 The issue was fetched again after confirmation. This session wrote none of
 the fixes or previous reviews and claimed no second job.
 
 The checkout and independently queried GitHub main are both
-[`7ca94a7aedccf497edcaa40ea7a9e4d6fbf5445e`](https://github.com/CBirkbeck/tauceti-explorer/commit/7ca94a7aedccf497edcaa40ea7a9e4d6fbf5445e).
+[`77050f986591bf66a5451e158e28993500aadde6`](https://github.com/CBirkbeck/tauceti-explorer/commit/77050f986591bf66a5451e158e28993500aadde6).
 The issue permits **seven outputs / three packets**. Both generated queues
 require the same ordered **27 outputs / thirteen packets**; the corresponding
 fix requires 46 outputs. Every output exists. Fresh execution of the
@@ -47,9 +47,10 @@ Faltings and Adic are accepted for these fixes; Perfectoid has `needs_changes`.
 The predicate accepts `needs_changes` as a finished review, so that verdict
 is not the administrative blocker.
 
-Freshly fetched `issues.py`, `intake.py` and `make_queue.py` are byte-identical
-to the checkout. In `fix_rounds`, the `made` assignment still preserves an
-existing following round only when `not (missing or sent_back)`. Fresh
+Read `issues.py`, `intake.py` and `make_queue.py` in the checkout whose
+commit matches the independently queried GitHub main. In `fix_rounds`, the
+`made` assignment still preserves an existing following round only when
+`not (missing or sent_back)`. Fresh
 `intake.file_problems` calls reject both `research/blueprint/queue.json` and
 `research/blueprint/make_queue.py` as outside swarm output paths. WORKERS.md
 also restricts edits to the issue's named files and the job's handoff.
@@ -69,6 +70,7 @@ previous successful runs remain attributed to the sessions that performed them.
 
 The maintainer must reconcile the issued and generated contracts and preserve
 the restored contracts through regeneration before assigning a continuation.
+Repeated assignment under the present contract cannot advance this job.
 The concrete repair and acceptance conditions are in the handoff. All durable
 reproduction material remains in this report; no scratch file is needed.
 
