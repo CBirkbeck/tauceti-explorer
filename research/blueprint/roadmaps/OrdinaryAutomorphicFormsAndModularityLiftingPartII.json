@@ -1,0 +1,160 @@
+{
+ "id": "OrdinaryAutomorphicFormsAndModularityLiftingPartII",
+ "title": "Ordinary automorphic forms and ordinary modularity lifting, Part II: dyadic unitary and symplectic ordinary lifting",
+ "area": "langlands",
+ "parent": "OrdinaryAutomorphicFormsAndModularityLifting",
+ "summary": "This roadmap extends ordinary automorphic forms and ordinary modularity lifting beyond the rank-two Hilbert and quaternionic theory to the two higher-rank ordinary R = T theorems used for the modularity of abelian surfaces: a 2-adic ordinary automorphy lifting and finiteness theorem for definite unitary groups with nearly adequate residual image (Boxer–Calegari–Gee–Pilloni, Theorem 5.7.14), and an ordinary GSp₄ lifting theorem for p > 2 with GSp₄-reasonable and tidy residual image, minimal at p (Theorem 6.3.4). It plans the dyadic deformation theory with its unavoidable dual Selmer class, ordinary unitary Hecke algebras at p = 2, the patching with Ihara avoidance and removal of an auxiliary place, and the selected ordinary GSp₄ problem with its Hida–Hecke algebra; generic deformation rings, local ordinary geometry, patching algebra and the l-odd unitary Hida theory are imported.",
+ "readmeMarkdown": "research/blueprint/readmes/OrdinaryAutomorphicFormsAndModularityLiftingPartII.md",
+ "prerequisites": [
+  "OrdinaryAutomorphicFormsAndModularityLifting",
+  "AbelianSurfacesPotentialModularity",
+  "ArithmeticGaloisRepresentations",
+  "AutomorphicGaloisRepresentationsPartII",
+  "DeformationAndDerivedPatchingAlgebra",
+  "GlobalGaloisDeformations",
+  "LocalGaloisDeformationRings",
+  "ModularityAndLanglandsExtensions",
+  "PotentialAutomorphyInfrastructure",
+  "PotentialAutomorphyInfrastructurePartII",
+  "SmoothRepresentationsOfLocalGroups"
+ ],
+ "stages": [
+  {
+   "key": "OL.0",
+   "title": "Dyadic polarized deformation problems and the unavoidable dual Selmer class",
+   "description": "Deformation theory of 𝒢_n-valued representations when p = 2, as needed for ordinary lifting over CM fields. **Targets:** polarized global deformation problems over a weight algebra Λ = ⊗̂Λ_v with strict equivalence by the full kernel Ĝ_n (including its GL_1 factor), T-framed rings, the relative dimension (n² + 1)#T − 1 and the map from the local rings (BCGP §5.4); the classes µ_v = ker(H¹(ad r̄) → H¹(𝔤_n r̄)), of dimension ≤ 1, zero at split places and one-dimensional at strongly residually odd real places, and the dyadic dual Selmer group H¹_{𝒮^⊥,T} cut out by µ_v^⊥ on T and L_v^⊥ off T, with h² = h¹_{𝒮^⊥,T} (BCGP (5.4.3)); the equivalence of the three forms of weak adequacy, hence BCGP's near adequacy equals the relaxed adequacy already planned at PotentialAutomorphyInfrastructurePartII PL.4/relaxed-adequacy (Lemma 5.3.1); and the unavoidable dual Selmer class: for every Taylor–Wiles datum of large level h¹_{𝒮_Q^⊥,T} ≥ 1, the surviving class being the scalar class of the totally real quadratic extension F⁺K⁺_m/F⁺ (Lemma 5.5.3). Taylor–Wiles data under near adequacy (Proposition 5.5.6) are imported from PL.3/taylor-wiles-primes-two-adic with PL.4/relaxed-adequacy.",
+   "requires": [
+    "ArithmeticGaloisRepresentations:G7",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "GlobalGaloisDeformations:G7",
+    "LocalGaloisDeformationRings:R08.1",
+    "LocalGaloisDeformationRings:R08.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.3",
+    "PotentialAutomorphyInfrastructurePartII:PL.4"
+   ]
+  },
+  {
+   "key": "OL.1",
+   "title": "Ordinary Hecke algebras of definite unitary groups at p = 2",
+   "description": "The Hecke side of the dyadic ordinary theorem. **Targets:** under Hypothesis 5.7.1 (F/F⁺ unramified at all finite places, places above 2 split, n[F⁺:ℚ] ≡ 0 mod 4), the algebraic modular forms S_{λ,{χ_v}}(U, A) on the definite unitary group with l = 2, sufficiently small levels (Definition 5.7.2), Iwahori levels U(l^{b,c}), the normalised operators U^j_{λ,ϖ_ṽ}, the diamond operators, the weight algebra Λ = O⟦T(l)⟧ with T(l) the kernel of reduction to ∏T(k(v)), the ordinary idempotent and the universal ordinary Hecke algebra with its twisted Λ-structure u ↦ ∏τ(u_i)^{1−i}⟨u⟩ (BCGP §5.7, pp. 130–132); Hida theory at p = 2: finiteness over Λ, reducedness, weight independence, density of the arithmetic primes ℘_λ and the control identification (5.7.4); and the dictionary between ordinary constituents and ordinary RACSDC representations of GL_n through Labesse's base change. The l-odd versions are PotentialAutomorphyInfrastructurePartII PL.2, which this layer specialises to l = 2.",
+   "requires": [
+    "LocalGaloisDeformationRings:L8",
+    "PotentialAutomorphyInfrastructure:PA.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "PotentialAutomorphyInfrastructurePartII:PL.2"
+   ]
+  },
+  {
+   "key": "OL.2",
+   "title": "The ordinary global problem, its dimension and the Hecke-valued Galois representation",
+   "description": "**Targets:** the ordinary global problem S_{χ} of (5.7.6): Geraghty's ordinary condition above 2 over Λ_{GL_n,v}, fixed inertial characters at R, no condition elsewhere, multiplier ε^{1−n}δ^n_{F/F⁺}, and R^{T,ord} (Definition 5.7.11); the lower bound dim ≥ dim Λ = 1 + n[F⁺:ℚ] for every component of R_{S_{χ}} from the equidimensional local ring (5.7.8) and a presentation with at most n²#T + [F⁺:ℚ]n(n−1)/2 relations (Lemma 5.7.7, with the printed value of dim Λ corrected); the surjection R_{S_{χ}} ↠ T^{T,ord}_{{χ_v}}(U(l^∞), O)_m of Λ-algebras with Frobenius characteristic polynomials given by the Hecke operators (Proposition 5.7.9, with Thorne 2017 Lemma 2.4 in place of the p > 2 lemma of Clozel–Harris–Taylor); uniform local fixed vectors for all automorphic lifts of a residual representation at a place prime to 2 (Lemma 5.7.12); and sufficiently deep tame levels (Definition 5.7.13).",
+   "requires": [
+    "OrdinaryAutomorphicFormsAndModularityLiftingPartII:OL.0",
+    "OrdinaryAutomorphicFormsAndModularityLiftingPartII:OL.1",
+    "ArithmeticGaloisRepresentations:G7",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5",
+    "GlobalGaloisDeformations:G7",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:L8",
+    "LocalGaloisDeformationRings:R08.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3"
+   ]
+  },
+  {
+   "key": "OL.3",
+   "title": "The dyadic ordinary R = T theorem",
+   "description": "BCGP Theorem 5.7.14 and its proof. **Targets:** the solvable preparation (F = F⁺(√−1), trivial residual representation and unipotent ramification at T, large local degrees above 2, Iwahori-fixed vectors and 2-power roots of unity at T ∖ S_2, residual image unchanged by near adequacy) and the auxiliary neat place v₁ with regular semisimple residual Frobenius (Remark 5.7.15); the patched modules H_{1,∞}, H_{χ,∞} for the unipotent and distinct-character problems, free over S_∞ = Λ⟦X_1, …, X_{q+(n²+1)#T−1}⟧ with q = h¹_{𝒮^⊥,T} − 1, and the dimension identity (5.7.17); the structure of the irreducible components of the patched rings modulo each minimal prime of Λ (the argument of Boxer–Calegari–Gee–Newton–Thorne Lemma 3.2.4); component support by Taylor's Ihara avoidance and an ordinary RACSDC lift on every choice of local components at R and above 2; removal of the auxiliary place by a second solvable base change; and the theorem: under hypotheses (1)–(6) (ordinary RACSDC residual automorphy, the splitting conditions, n[F⁺:ℚ] ≡ 0 mod 4, near adequacy, a regular semisimple element, strong residual oddness for n even), R^{T,ord} is finite over Λ, and for sufficiently deep levels (R^{T,ord})_red ≅ T^{T,ord}(U(l^∞))_m.",
+   "requires": [
+    "OrdinaryAutomorphicFormsAndModularityLiftingPartII:OL.0",
+    "OrdinaryAutomorphicFormsAndModularityLiftingPartII:OL.1",
+    "OrdinaryAutomorphicFormsAndModularityLiftingPartII:OL.2",
+    "DeformationAndDerivedPatchingAlgebra:R03.4",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "GlobalGaloisDeformations:R04.4",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.2",
+    "PotentialAutomorphyInfrastructure:PA.2",
+    "PotentialAutomorphyInfrastructurePartII:PL.0",
+    "PotentialAutomorphyInfrastructurePartII:PL.1",
+    "PotentialAutomorphyInfrastructurePartII:PL.3",
+    "PotentialAutomorphyInfrastructurePartII:PL.4"
+   ]
+  },
+  {
+   "key": "OL.4",
+   "title": "GSp₄ deformation problems, reasonable residual images and the selected ordinary problem",
+   "description": "The symplectic side for p > 2. **Targets:** GSp₄ deformation problems with similitude ε^{−1} over a weight algebra, strict equivalence by ĜSp₄, T-framed rings of relative dimension 11#T − 1 and the framing ring 𝒯 with R^T_𝒮 ≅ R_𝒮 ⊗̂_Λ 𝒯 (BCGP §6.1); GSp₄-reasonable residual representations (Whitmore Definition 3.19: no 𝔰𝔭₄^∨-invariants and a semisimple-element trace condition on simple submodules over F(ζ_{p^n}) for large n, with H¹ = 0 when ζ_p lies in the field cut out by 𝔰𝔭₄^∨), implied by vastness; Taylor–Wiles data with semisimple Frobenius killing the dual Selmer group for reasonable images (Whitmore Proposition 3.18); ordinary GSp₄ seed data (Hypothesis 6.3.1: reasonable, tidy, ordinary of weight 2 at p with compatible stabilizations, the seed point on a unique component of R^△_v, trivial residual representation with q_v ≡ 1 mod p (mod 9 if p = 3) and Iwahori vectors at R, and the auxiliary place w₀); the problems S_1 and S_{1,π} with Geraghty-style flag-image conditions at p and the component through the seed; and the Galois representation over the GSp₄ Hida–Hecke algebra with surjection R_{S_1} ↠ T_{S_1} (Whitmore Theorem 7.8 with the flag-image condition, using only O_{E′}-points).",
+   "requires": [
+    "AbelianSurfacesPotentialModularity:AP.0",
+    "AbelianSurfacesPotentialModularity:AP.1",
+    "AbelianSurfacesPotentialModularity:AP.2",
+    "ArithmeticGaloisRepresentations:G7",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "GlobalGaloisDeformations:R04.2",
+    "GlobalGaloisDeformations:R04.3",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.1",
+    "LocalGaloisDeformationRings:R08.2",
+    "ModularityAndLanglandsExtensions:ML.4"
+   ]
+  },
+  {
+   "key": "OL.5",
+   "title": "The symplectic ordinary R = T theorem for p > 2",
+   "description": "BCGP Theorem 6.3.4 and its proof. **Targets:** the global verification that each selected component R^{△,π}_v surjects onto Spec Λ_{GSp₄,v}, which is the hypothesis of Lemma 6.2.6; the patched Hida modules M^1_∞, M^χ_∞ for the selected problem, free over S_∞ = 𝒯⟦Δ_∞⟧, maximal Cohen–Macaulay, with dim(R_∞)′ = dim S_∞ (Whitmore Proposition 7.11 with I = ∅); the reduced R = T theorem (R_{S_{1,π}})_red ≅ T_{S_{1,π}} on exactly the selected components, by Ihara avoidance and special-fibre points lying on single components (Lemma 6.2.6 above p, BCGP21 Proposition 7.4.7 at R, formal smoothness at w₀); and finiteness of R_{S_{1,π}} over Λ_{GSp₄,F⁺}.",
+   "requires": [
+    "OrdinaryAutomorphicFormsAndModularityLiftingPartII:OL.4",
+    "AbelianSurfacesPotentialModularity:AP.2",
+    "AbelianSurfacesPotentialModularity:AP.3",
+    "DeformationAndDerivedPatchingAlgebra:P9",
+    "DeformationAndDerivedPatchingAlgebra:R03.4",
+    "DeformationAndDerivedPatchingAlgebra:R03.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.6",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.1",
+    "LocalGaloisDeformationRings:R08.2"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BCGP25",
+   "title": "Modularity theorems for abelian surfaces",
+   "authors": "George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni",
+   "edition": "arXiv:2502.20645v1 (28 February 2025); PDF page = printed page",
+   "url": "https://arxiv.org/pdf/2502.20645v1",
+   "readSections": [
+    "§5 (5.1–5.7), pp. 114–139, complete",
+    "§6.1–6.4, pp. 139–151, complete",
+    "§7.5, pp. 174–179 (consumers of Theorems 5.7.14 and 6.3.4)",
+    "bibliography, pp. 224–230"
+   ]
+  },
+  {
+   "id": "WHI22",
+   "title": "The Taylor–Wiles method for reductive groups",
+   "authors": "Dmitri Whitmore",
+   "edition": "arXiv:2205.05062v3 (the version using 'Ĝ-reasonable'; v4 renames the notion)",
+   "url": "https://arxiv.org/pdf/2205.05062v3",
+   "readSections": [
+    "§1, pp. 1–5",
+    "§3.2, Definition 3.15 to Lemma 3.20, pp. 21–24",
+    "§7.3, Theorem 7.7 to Proposition 7.11 and Theorem 7.12, pp. 64–68"
+   ]
+  },
+  {
+   "id": "BCGNT25",
+   "title": "The Ramanujan and Sato–Tate conjectures for Bianchi modular forms",
+   "authors": "George Boxer, Frank Calegari, Toby Gee, James Newton, Jack A. Thorne",
+   "edition": "Forum of Mathematics, Pi 13 (2025), e10; author-hosted published copy",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/SatoTate.pdf",
+   "readSections": [
+    "Lemma 3.2.4 and proof, pp. 33–34"
+   ]
+  }
+ ],
+ "status": "draft"
+}
