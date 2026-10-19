@@ -144,25 +144,25 @@ theorem isUnit_one_sub_of_pow_eq_one {O : Type*} [CommRing O] [IsDomain O] {ω :
 /- Examples for the definitions and normalization choices in Layer 0. -/
 
 /-- The norm of `1-i` and of `i-1` is 2, although `ζ₂-1=-2` (§0.6). -/
-example {L : Type*} [Field L] [CharZero L] [IsCyclotomicExtension {4} ℚ L]
+theorem quartic_norm_sign_test {L : Type*} [Field L] [CharZero L] [IsCyclotomicExtension {4} ℚ L]
     {ι : L} (hι : IsPrimitiveRoot ι 4) :
     Algebra.norm ℚ (1 - ι) = 2 ∧ Algebra.norm ℚ (ι - 1) = 2 := sorry
 
 /-- A primitive sixth root satisfies `ζ₆-1=ζ₃`; the step of degree one retains its sign. -/
-example {L : Type*} [Field L] [CharZero L] {ζ : L} (hζ : IsPrimitiveRoot ζ 6) :
+theorem sixthRoot_sub_one_test {L : Type*} [Field L] [CharZero L] {ζ : L} (hζ : IsPrimitiveRoot ζ 6) :
     ζ - 1 = ζ ^ 2 := sorry
 
 /-- The conductor-one value at 2 uses the degree-one norm. -/
-example : Algebra.norm ℚ (1 - (-1 : ℚ)) = 2 := sorry
+example : Algebra.norm ℚ (1 - (-1 : ℚ)) = 2 := by norm_num
 
 /-- In the regular representation of a two-element group, the sign sum is a difference. -/
-example {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (hs : s ≠ 1)
+theorem chiSum_regular_sign_test {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (hs : s ≠ 1)
     (hcard : Fintype.card Δ = 2) (χ : Δ →* ℤˣ) (hχ : χ s = -1) :
     chiSum (Representation.leftRegular ℤ Δ) χ (MonoidAlgebra.single 1 1) =
       MonoidAlgebra.single 1 1 - MonoidAlgebra.single s 1 := sorry
 
 /-- An order-four character detects the inverse in the Frobenius factor (§0.20). -/
-example {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (χ : Δ →* ℂˣ)
+theorem chiSum_orderFour_frobenius_test {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (χ : Δ →* ℂˣ)
     (hχ : (χ s : ℂ) = Complex.I) :
     chiSum (Representation.leftRegular ℂ Δ) χ
         (MonoidAlgebra.single 1 1 - MonoidAlgebra.single s⁻¹ 1) =
@@ -170,35 +170,45 @@ example {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (χ : Δ →* ℂˣ)
         chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single 1 1) := sorry
 
 /-- Inverse arithmetic Frobenius at conductor seven uses exponent four, not two (§0.5). -/
-example {L : Type*} [Field L] [CharZero L] {η : L} (hη : IsPrimitiveRoot η 7) :
+theorem seventhRoot_inverse_frobenius_test {L : Type*} [Field L] [CharZero L] {η : L} (hη : IsPrimitiveRoot η 7) :
     (1 + η ^ 4) * (1 - η ^ 4) = 1 - η ∧
       (1 + η ^ 4) * (1 - η ^ 2) ≠ 1 - η := sorry
 
 /-- The trivial character gives the existing invariants. -/
 example {O M Δ : Type*} [CommRing O] [AddCommGroup M] [Module O M]
     [Group Δ] (ρ : Representation O Δ M) (x : M) :
-    x ∈ chiComponent ρ 1 ↔ x ∈ ρ.invariants := sorry
+    x ∈ chiComponent ρ 1 ↔ x ∈ ρ.invariants := by
+  simp [chiComponent, Representation.mem_invariants]
 
 /-- For the coefficient ring as module, the domain hypothesis gives scalar injectivity. -/
-example {O Δ : Type*} [CommRing O] [IsDomain O] [Group Δ]
+theorem chiComponent_domain_test {O Δ : Type*} [CommRing O] [IsDomain O] [Group Δ]
     (χ : Δ →* Oˣ) (δ : Δ) (hδ : (χ δ : O) ≠ 1) :
     chiComponent (Representation.trivial O Δ O) χ = ⊥ := sorry
 
 /-- Torsion rejects the false extension of the preceding test to arbitrary modules:
 every integral unit character reduces to the trivial character modulo 2. -/
 example {Δ : Type*} [Group Δ] (χ : Δ →* ℤˣ) :
-    chiComponent (Representation.trivial ℤ Δ (ZMod 2)) χ = ⊤ := sorry
+    chiComponent (Representation.trivial ℤ Δ (ZMod 2)) χ = ⊤ := by
+  ext x
+  simp only [Submodule.mem_top, iff_true, mem_chiComponent]
+  intro δ
+  rcases Int.units_eq_one_or (χ δ) with h | h <;>
+    simp [h, Representation.trivial, CharTwo.neg_eq x]
 
 /-- Twisted sums are not normalized projections. -/
 example {Δ : Type*} [Group Δ] [Fintype Δ] (x : ℤ) :
-    chiSum (Representation.trivial ℤ Δ ℤ) 1 x = (Fintype.card Δ : ℤ) • x := sorry
+    chiSum (Representation.trivial ℤ Δ ℤ) 1 x = (Fintype.card Δ : ℤ) • x := by
+  simp [chiSum, Representation.trivial]
 
 /-- For the trivial group the sum is the identity. -/
-example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5 : ℤ) = 5 := sorry
+example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5 : ℤ) = 5 := by
+  simp [chiSum, Representation.trivial]
 
 /-- The quotient printed as an Euler-system element in RJW is torsion. -/
 example {F : Type*} [Field F] {ζ : F} (hζ0 : ζ ≠ 0) (hζ1 : ζ ≠ 1) :
-    (ζ⁻¹ - 1) / (ζ - 1) = -ζ⁻¹ := sorry
+    (ζ⁻¹ - 1) / (ζ - 1) = -ζ⁻¹ := by
+  field_simp
+  ring
 
 /-- Zero is not a root of unity: omitting its exclusion makes the ratio identity false. -/
 example : (((0 : ℚ)⁻¹ - 1) / (0 - 1)) = 1 ∧ -(0 : ℚ)⁻¹ = 0 := by norm_num
@@ -218,9 +228,70 @@ example : ¬ IsUnit (1 - (-1 : ℤ)) := by decide
 
 /- The four-term sequence, finite descent and main-conjecture equality are in §§3.1–3.5. -/
 
+/-- The zero map ℤ/9→ℤ/3 has kernel length 2 and cokernel length 1 (§3.3).
+Thus the finite-level length minus the source length is 1-2=-1. -/
+example :
+    (Finset.univ.filter (fun x : ZMod 9 => (0 : ZMod 9 →+ ZMod 3) x = 0)).card = 9 ∧
+    (Finset.univ.image (fun x : ZMod 9 => (0 : ZMod 9 →+ ZMod 3) x)).card = 1 ∧
+    Fintype.card (ZMod 3) = 3 ∧ (1 : ℤ) - 2 = -1 := by
+  decide
+
 /-! ## Layer 4: Abelian fields and the prime 2 -/
 
 /- Integral character quotients, all-prime descent and the finite formulas are in §§4.1–4.26. -/
+
+/-- The conductor-one unit h₂=2-X has the stated D-log numerator (§4.7).
+The opposite derivative convention would give 1-X. -/
+example : (1 - X) * derivative (2 - X : ℚ[X]) = X - 1 := by
+  simp
+
+/-- The Coleman unit condition is on the constant term, not the whole series (§4.7). -/
+example : ((C 2 - X : (ZMod 5)[X]) ^ 4).coeff 0 = 1 ∧
+    ((C 2 - X : (ZMod 5)[X]) ^ 4).coeff 4 = 1 := by
+  have h : (C 2 - X : (ZMod 5)[X]) ^ 4 =
+      C 16 - C 32 * X + C 24 * X ^ 2 - C 8 * X ^ 3 + X ^ 4 := by
+    simp only [C_ofNat]
+    ring
+  norm_num [h, coeff_add, coeff_sub, coeff_C_mul]
+  decide
+
+/-- Smoothing the meromorphic r(Y) gives the genuine h₂ logarithmic derivative (§4.7). -/
+example {K : Type*} [Field K] (y : K) (h₁ : 1 - y ≠ 0) (h₂ : 1 + y ≠ 0) :
+    2 * y ^ 2 / (1 - y ^ 2) - y / (1 - y) = -y / (1 + y) := by
+  have hsq : 1 - y ^ 2 ≠ 0 := by
+    rw [show 1 - y ^ 2 = (1 - y) * (1 + y) by ring]
+    exact mul_ne_zero h₁ h₂
+  field_simp
+  ring
+
+/-- At p=5, h₂ gives boundary coefficient -1, fixing the raw/normalized sign (§4.7).
+The second rational series is its arithmetic Frobenius substitution. -/
+example : PowerSeries.coeff 1
+    (-((1 - PowerSeries.X : PowerSeries ℚ) * (PowerSeries.C 2 - PowerSeries.X)⁻¹) +
+      (1 - PowerSeries.X) ^ 5 * (1 + (1 - PowerSeries.X) ^ 5)⁻¹) = -1 := by
+  have inv₁ (f : PowerSeries ℚ) : PowerSeries.coeff 1 f⁻¹ =
+      -(PowerSeries.constantCoeff f)⁻¹ ^ 2 * PowerSeries.coeff 1 f := by
+    rw [PowerSeries.coeff_inv]
+    simp [Finset.Nat.antidiagonal_succ,
+      PowerSeries.coeff_zero_eq_constantCoeff, pow_two]
+    ring
+  norm_num [PowerSeries.coeff_one_mul, PowerSeries.coeff_one_pow,
+    inv₁, PowerSeries.coeff_zero_eq_constantCoeff]
+
+/-- Γ-inversion through degree two has coefficient +1 at T² (§4.7).
+This is the inverse of 1+T modulo T³; substitution T↦-T omits this term. -/
+example : (1 + X) * (1 - X + X ^ 2 : ℚ[X]) = 1 + X ^ 3 ∧
+    (1 - X + X ^ 2 : ℚ[X]).coeff 2 = 1 := by
+  constructor
+  · ring
+  · simp [coeff_add, coeff_sub, coeff_X, coeff_one]
+
+/-- The norm in the nonsemisimple C₃-module ℤ/9 has nonzero finite kernel (§4.21). -/
+example : ((4 : ZMod 9) ^ 3 = 1) ∧
+    (1 + (4 : ZMod 9) + 4 ^ 2 = 3) ∧
+    (Finset.univ.filter (fun x : ZMod 9 => 3 * x = 0)).card = 3 ∧
+    (Finset.univ.image (fun x : ZMod 9 => 3 * x)).card = 3 := by
+  decide
 
 /-! ## Layer 5: Finite and Selmer consequences -/
 
