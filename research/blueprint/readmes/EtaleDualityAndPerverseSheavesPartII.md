@@ -1259,10 +1259,10 @@ Version-specific findings are recorded in the packet’s sourceIssues. The rever
 - [G04] Ofer Gabber, *Notes on some t-structures*. Geometric aspects of Dwork theory (2004), 711–734; public author PDF, whose own page numbers are used. [Public source](https://www.ihes.fr/~gabber/t-str.pdf).
 - [SGA4half] Pierre Deligne, *Cohomologie étale*. Lecture Notes in Mathematics 569 (1977), [Th. finitude]; published scan on the IAS publications site. [Public source](https://publications.ias.edu/sites/default/files/Number32.pdf).
 - [K10] Franz-Viktor Kuhlmann, *A correction to Epp’s paper “Elimination of wild ramification”*. arXiv:1003.5687v1 (29 March 2010 upload); locators use the three-page arXiv PDF. [Public source](https://arxiv.org/abs/1003.5687v1).
-- [ILO-final-II] Fabrice Orgogozo, *Énoncés des théorèmes d’uniformisation locale*. Astérisque 363–364 (2014), Exposé II, pp. 21–35; published Numdam scan. [Public source](https://www.numdam.org/item/AST_2014__363-364__21_0/).
+- [ILO-final-II] Fabrice Orgogozo, *Topologies adaptées à l’uniformisation locale*. Astérisque 363–364 (2014), Exposé II, pp. 21–36; published Numdam scan. [Public source](https://www.numdam.org/item/AST_2014__363-364__21_0/).
 - [ILO-final-IX] Luc Illusie, *Uniformisation locale première à ℓ*. Astérisque 363–364 (2014), Exposé IX, pp. 161–165; published Numdam scan. [Public source](https://www.numdam.org/item/AST_2014__363-364__161_0/).
 - [ILO-final-XII] Fabrice Orgogozo, *Descente cohomologique orientée*. Astérisque 363–364 (2014), Exposé XII-A, pp. 235–249; published Numdam scan. [Public source](https://www.numdam.org/item/AST_2014__363-364__235_0/).
-- [ILO-final-XIV] Fabrice Orgogozo, *Fonctions de dimension et chaînes maximales*. Astérisque 363–364 (2014), Exposé XIV, pp. 277–294; published Numdam scan. [Public source](https://www.numdam.org/item/AST_2014__363-364__277_0/).
+- [ILO-final-XIV] Vincent Pilloni and Benoît Stroh, *Fonctions de dimension*. Astérisque 363–364 (2014), Exposé XIV, pp. 277–292; published Numdam scan. [Public source](https://www.numdam.org/item/AST_2014__363-364__277_0/).
 
 - [Ill03] L. Illusie, *Perversité et variation*, Manuscripta Math. 112 (2003), 271–295. Original proof not read; the precise proof audit remains a gap.
 

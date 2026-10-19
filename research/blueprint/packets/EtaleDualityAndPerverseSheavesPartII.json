@@ -207,9 +207,9 @@
   },
   {
    "id": "ILO-final-II",
-   "title": "Énoncés des théorèmes d’uniformisation locale",
+   "title": "Topologies adaptées à l’uniformisation locale",
    "authors": "Fabrice Orgogozo",
-   "edition": "Astérisque 363–364 (2014), Exposé II, pp. 21–35; published Numdam scan",
+   "edition": "Astérisque 363–364 (2014), Exposé II, pp. 21–36; published Numdam scan",
    "url": "https://www.numdam.org/item/AST_2014__363-364__21_0/",
    "readSections": [
     "§4.2, Théorème 4.2.1 and Remarque 4.2.2, pp. 33–34; §4.3, pp. 34–35"
@@ -237,9 +237,9 @@
   },
   {
    "id": "ILO-final-XIV",
-   "title": "Fonctions de dimension et chaînes maximales",
-   "authors": "Fabrice Orgogozo",
-   "edition": "Astérisque 363–364 (2014), Exposé XIV, pp. 277–294; published Numdam scan",
+   "title": "Fonctions de dimension",
+   "authors": "Vincent Pilloni and Benoît Stroh",
+   "edition": "Astérisque 363–364 (2014), Exposé XIV, pp. 277–292; published Numdam scan",
    "url": "https://www.numdam.org/item/AST_2014__363-364__277_0/",
    "readSections": [
     "Corollaire 2.5.2, p. 289 (collation of the induced-dimension formula)"
