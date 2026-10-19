@@ -1,0 +1,238 @@
+{
+  "id": "PadicFamiliesPartII",
+  "title": "Hida and Coleman families, Part II: higher coherent cohomology",
+  "area": "padic",
+  "parent": "PadicFamilies",
+  "summary": "This Part II extends single-degree p-adic families to PEL analytic continuation, singular genus-two spherical control, Hilbert mixed ordinary families and doubling, completed-cohomology Eichler–Shimura comparisons, the singular Sen obstruction, and four integral projective Siegel Hida modules. It imports the already planned general supported Hida and Coleman theory by exact node identifiers. Integral, rational, cuspidal and noncuspidal hypotheses remain distinct, and unresolved analytic, descent and automorphic inputs remain explicit gaps.",
+  "readme": "This roadmap begins after PadicFamilies single-degree ordinary and finite-slope families. It imports general supported Hida/Coleman theory from HigherHidaAndColemanTheory and adds the PEL, Hilbert and completed-cohomology refinements detailed in its reader. The plan distinguishes proven source statements, corrected proof steps and open supplier contracts; complete means every stage has a target-level plan, not that any declaration is formalized or that the graph is closed.",
+  "prerequisites": [
+    "AdicSpacesPartII",
+    "AutomorphicBundles",
+    "AutomorphicGaloisRepresentationsPartII",
+    "AutomorphicSpectralTheory",
+    "CompletedCohomologyPartII",
+    "DeformationAndDerivedPatchingAlgebra",
+    "HigherHidaAndColemanTheory",
+    "HodgeTateAndCanonicalSubgroups",
+    "IntegralHeckeAndGaloisDeterminants",
+    "LocallyAnalyticDistributions",
+    "PELModuli",
+    "PadicFamilies",
+    "PadicHodgeTheory",
+    "PadicMeasuresIwasawaAlgebras",
+    "PerfectoidShimuraVarieties",
+    "SchemeAndStackFoundations",
+    "ShimuraCompactifications",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "P0",
+      "title": "PEL degrees and normalized correspondences",
+      "description": "Fix Morita-normalized degrees, the multi-place Iwahori correspondences and their scalar factors. Prove degree monotonicity and the uniform progress estimate used by continuation.",
+      "requires": [
+        "HodgeTateAndCanonicalSubgroups:T0",
+        "PELModuli:M4"
+      ]
+    },
+    {
+      "key": "P1",
+      "title": "PEL analytic continuation and classicality",
+      "description": "Construct the bad-complement filtration and Kassaei path sums. Prove bounded gluing and algebraization under an explicit positive-weight strict inequality; state the boundary and dimension hypotheses.",
+      "requires": [
+        "AdicSpacesPartII:R3",
+        "AdicSpacesPartII:R3/proper-gaga",
+        "PadicFamiliesPartII:P0",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "K2",
+      "title": "Singular Siegel weight: spherical and slope refinements",
+      "description": "Extend the imported Klingen complex by the spherical operator, rank-zero nilpotence, a corrected BGG slope comparison, and the localized Euler theorem. Keep the stronger torsion claim as a conjectural boundary.",
+      "requires": [
+        "AutomorphicBundles:B5",
+        "AutomorphicSpectralTheory:AS.5",
+        "HigherHidaAndColemanTheory:D1/ordinary-localization",
+        "HigherHidaAndColemanTheory:F5/automorphic-bgg",
+        "HigherHidaAndColemanTheory:X8/klingen-complex",
+        "HigherHidaAndColemanTheory:X8/klingen-control",
+        "IntegralHeckeAndGaloisDeterminants:IHG.3",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:key/coherent-duality",
+        "ShimuraCompactifications:C5",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ]
+    },
+    {
+      "key": "H3",
+      "title": "Hilbert partial-ordinary Hida complexes",
+      "description": "Build the multivariable height-one tower, universal coefficient sheaf and normalized commuting operators. Prove fixed-weight amplitude and derived family control, keeping the precise degree-zero and degree-one spherical comparison.",
+      "requires": [
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "HigherHidaAndColemanTheory:D1/ordinary-localization",
+        "HodgeTateAndCanonicalSubgroups:T5",
+        "PELModuli:M2",
+        "PadicFamiliesPartII:K2",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "D4",
+      "title": "Hilbert weight-two doubling",
+      "description": "Define the partial Frobenius and its normalized trace actions. Prove the quadratic operator relation, generalized-eigenspace doubling injection and the two unit-root projectors without importing the stronger auxiliary vanishing theorem.",
+      "requires": [
+        "AutomorphicBundles:B2",
+        "PadicFamiliesPartII:H3",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:key/coherent-duality",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "mathlib:LinearMap.coprod",
+        "mathlib:LinearMap.prod"
+      ]
+    },
+    {
+      "key": "C5",
+      "title": "Hilbert higher Coleman families and comparison",
+      "description": "Use analytic coefficient torsors on all mixed loci, finite perfect slope blocks and corrected relative BGG scaling. Prove multi-place small-slope continuation, then the rational one-Klingen-place ordinary comparison.",
+      "requires": [
+        "AutomorphicBundles:B5",
+        "AutomorphicSpectralTheory:AS.5",
+        "HigherHidaAndColemanTheory:F5/analytic-sheaves",
+        "HigherHidaAndColemanTheory:F5/automorphic-bgg",
+        "HigherHidaAndColemanTheory:F5/perfect-slopes",
+        "HodgeTateAndCanonicalSubgroups:T5",
+        "PadicFamiliesPartII:H3",
+        "PadicFamiliesPartII:K2",
+        "PadicFamiliesPartII:P0",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "E6",
+      "title": "Completed cohomology and Eichler–Shimura",
+      "description": "Bind the completed tower to coherent analytic localization. Construct the higher-Coleman spectral sequence and its arithmetic Sen action, with the ordinary degree indexing and the genus-two boundary localization explicit.",
+      "requires": [
+        "AutomorphicBundles:B3",
+        "CompletedCohomologyPartII:CC.2/derived-completed-tower",
+        "CompletedCohomologyPartII:CC.6/analytic-classical-comparison",
+        "CompletedCohomologyPartII:CC.7/derived-completed-support-triangle",
+        "HigherHidaAndColemanTheory:B7/sharp-siegel",
+        "HigherHidaAndColemanTheory:C4/bruhat-cousin",
+        "HigherHidaAndColemanTheory:C4/finite-level-geometry",
+        "HigherHidaAndColemanTheory:C4/geometric-vanishing",
+        "HigherHidaAndColemanTheory:X8/c2-weight-table",
+        "LocallyAnalyticDistributions:L0",
+        "PerfectoidShimuraVarieties:S3",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
+      ]
+    },
+    {
+      "key": "S7",
+      "title": "Singular Sen operator and classicality",
+      "description": "At λ=(1,1;w), construct the two-step repeated Sen block. Identify its nilpotent map with the supported Cousin differential and deduce classicality from a de Rham eigenpacket with balanced four-piece multiplicities.",
+      "requires": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.1a",
+        "AutomorphicSpectralTheory:AS.5",
+        "HigherHidaAndColemanTheory:C4/interior-cousin",
+        "PadicFamiliesPartII:E6",
+        "PadicHodgeTheory:R06.2"
+      ]
+    },
+    {
+      "key": "F8",
+      "title": "Four integral projective Hida modules",
+      "description": "Extract the four finite projective genus-two modules from the imported ordinary complexes. Prove classical and higher-Coleman specialization, integral duality, tame group-ring projectivity and fixed-central-character base change.",
+      "requires": [
+        "DeformationAndDerivedPatchingAlgebra:P7",
+        "HigherHidaAndColemanTheory:B7/family-comparison",
+        "HigherHidaAndColemanTheory:H2/regular-control",
+        "HigherHidaAndColemanTheory:I3/derived-control",
+        "HigherHidaAndColemanTheory:I3/family-duality",
+        "HigherHidaAndColemanTheory:I3/integral-amplitudes",
+        "HigherHidaAndColemanTheory:I3/iwasawa-complex",
+        "HigherHidaAndColemanTheory:X8/c2-weight-table",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "ShimuraCompactifications:C3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BPS",
+      "title": "Classicité de formes modulaires surconvergentes",
+      "authors": "Stéphane Bijakowski, Vincent Pilloni and Benoît Stroh",
+      "edition": "Annals of Mathematics 183 (2016), no. 3, 975–1014; DOI 10.4007/annals.2016.183.3.5. Locators use journal pagination. Read 2026-10-19.",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n3-p05-p.pdf",
+      "sha256": "13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c",
+      "readSections": [
+        "Hypothesis 1.1.1 and Lemma 1.1.4, pp. 976–981",
+        "§§2–3, pp. 985–994",
+        "§4.1–4.5, pp. 995–1008",
+        "§5.1–5.3, pp. 1008–1012"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BP26",
+      "title": "Higher Hida theory for Siegel modular forms",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "Author version of 5 November 2025, 65 printed pages; Inventiones mathematicae 244 (2026), 45–141, DOI 10.1007/s00222-025-01393-2. Page locators use the author version. Read 2026-10-19.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/higherhidaSiegel.pdf",
+      "sha256": "af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6",
+      "readSections": [
+        "§§1–2, pp. 2–33, ordinary/support conventions and imported target verification",
+        "§§4–5, pp. 42–61, fixed-weight/control/duality statements",
+        "§5.6 and §6.2, pp. 61–64, integral versus rational amplitudes and comparisons"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "P20",
+      "title": "Higher coherent cohomology and p-adic modular forms of singular weights",
+      "authors": "Vincent Pilloni",
+      "edition": "Cleared author PDF dated 17 June 2019, 113 printed pages. Duke Mathematical Journal 169 (2020), no. 9, 1647–1807, DOI 10.1215/00127094-2019-0075. Locators use the author PDF, not journal pagination. Read in place 2026-10-19.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/complexhidatheorygsp4.pdf",
+      "sha256": "4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58",
+      "readSections": [
+        "§1, pp. 2–5",
+        "§§7–8, pp. 37–54",
+        "§13.3, pp. 88–90",
+        "§§14.6–14.8, pp. 97–102",
+        "§15, pp. 106–110"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BCGP21",
+      "title": "Abelian surfaces over totally real fields are potentially modular",
+      "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
+      "edition": "arXiv:1812.09269v3, 28 November 2021; Publ. Math. IHÉS 134 (2021), 153–501, DOI 10.1007/s10240-021-00128-2. Locators use the printed page numbers of arXiv v3.",
+      "url": "https://arxiv.org/pdf/1812.09269v3",
+      "sha256": "7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed",
+      "readSections": [
+        "§§4.1–4.2, pp. 73–94",
+        "§§4.3–4.6, pp. 95–117",
+        "§§5.2–5.8, pp. 119–136",
+        "§§6.1–6.4, pp. 138–154",
+        "§§6.5–6.6, pp. 156–168"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "BCGP25",
+      "title": "Modularity theorems for abelian surfaces",
+      "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
+      "edition": "arXiv:2502.20645v1, 28 February 2025, 230-page PDF. Locators use its printed pages. Read 2026-10-19; the version-history check returned only v1.",
+      "url": "https://arxiv.org/pdf/2502.20645v1",
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
+      "readSections": [
+        "§3.5–3.6, pp. 56–67, completed localization and singular overlap proof",
+        "§4.7–4.12, pp. 99–114",
+        "§7.3, pp. 163–167"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}
