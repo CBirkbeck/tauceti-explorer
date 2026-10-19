@@ -23,105 +23,112 @@
         "kind": "def",
         "module": "Mathlib/ModelTheory/Algebra/Ring/Basic.lean",
         "provides": "The language with addition, multiplication, negation, zero and one; no inverse symbol.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "mathlib:Set.Definable",
         "kind": "def",
         "module": "Mathlib/ModelTheory/Definability.lean",
         "provides": "A set of finite tuples is realized by a formula with the specified parameter set.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "mathlib:Field.FG",
         "kind": "class",
         "module": "Mathlib/Algebra/Field/Subfield/Basic.lean",
         "provides": "There is a finite set whose subfield closure is the whole field. This is field generation, not finite generation as a ring.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.ValuationSpectrum.patchTopology",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AdicSpace/PatchPresentation.lean",
         "provides": "Patch topology on Spv(A), induced by its Boolean comparison table.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.ValuationSpectrum.compactSpace_patchTopology",
         "kind": "lemma",
         "module": "TauCeti/AlgebraicGeometry/AdicSpace/PatchPresentation.lean",
         "provides": "Spv(A) is compact for the patch topology for every commutative ring A.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.ValuationSpectrum.isClopen_patchTopology_basicOpen",
         "kind": "lemma",
         "module": "TauCeti/AlgebraicGeometry/AdicSpace/PatchPresentation.lean",
         "provides": "Each rational comparison basicOpen(f,s) is patch clopen.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.Place.exists_ne_zero_forall_mem_ord_eq",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Approximation.lean",
         "provides": "Prescribe finitely many integer orders at one-variable function-field places with a nonzero function.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.Place.exists_ord_eq_neg_and_forall_ne_ord_nonneg",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean",
         "provides": "For a function field with relatively integrally closed constants and n≥2 genus, obtain a nonzero function with its sole pole of order n at the chosen place.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "mathlib:FirstOrder.Language.Sentence.Realize",
         "kind": "def",
         "module": "Mathlib/ModelTheory/Semantics.lean",
         "provides": "Truth of a closed formula in the specified structure.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "mathlib:FirstOrder.Ring.compatibleRingOfRing",
         "kind": "def",
         "module": "Mathlib/ModelTheory/Algebra/Ring/Basic.lean",
         "provides": "The ring-language structure with the given addition,multiplication,negation,zero and one.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "mathlib:Set.Definable₁",
         "kind": "def",
         "module": "Mathlib/ModelTheory/Definability.lean",
         "provides": "One-coordinate definability using the specified parameter set.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.Place",
         "kind": "structure",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
         "provides": "A surjective normalized Zᵐ⁰-valued valuation trivial on constants.",
-        "checked": "Statement read in the existing build at the exact Tau Ceti pin. Current main differs by an additional integers_def theorem; that newer theorem is not used. Suggested signatures elaborate at the pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.Place.integers",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
         "provides": "The valuation subring defined by the underlying valuation.",
-        "checked": "Statement read in the existing build at the exact Tau Ceti pin. Current main differs by an additional integers_def theorem; that newer theorem is not used. Suggested signatures elaborate at the pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.Place.ord",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
         "provides": "Integer additive order on nonzero elements, with junk value zero at zero.",
-        "checked": "Statement read in the existing build at the exact Tau Ceti pin. Current main differs by an additional integers_def theorem; that newer theorem is not used. Suggested signatures elaborate at the pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
       },
       {
         "ref": "tauceti:TauCeti.Place.exists_forall_mem_valuation_sub_le_and_forall_mem_integers",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Consequences/StrongApproximation.lean",
         "provides": "For a one-variable function field with relatively integrally closed constants, a proper subset S of places and finite s⊆S, approximate targets on s and remain integral on S\\s.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-19. Tau Ceti files independently byte-compared with raw GitHub at the pin; Mathlib tree HEAD equals the recorded pin."
+        "checked": "Declaration and surrounding hypotheses independently read at the exact recorded pin on 2026-10-19; its source module was byte-compared with raw GitHub at that pin. Current-main-only extensions are not used."
+      },
+      {
+        "ref": "mathlib:FiniteField.ringEquivOfCardEq",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Finite/GaloisField.lean",
+        "provides": "For two fields with Fintype instances and equal Fintype.card, constructs a ring equivalence; used only after the exact-cardinality sentence supplies finiteness.",
+        "checked": "Statement at line 277 and its Field/Fintype context independently read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; module byte-compared with raw GitHub at that pin."
       }
     ]
   },
@@ -258,17 +265,17 @@
       "tests": [
         {
           "name": "hd_rational_shift",
-          "kind": "value",
+          "kind": "computation",
           "statement": "Q(s,t) has δ=3, whereas Q(s) has δ=2 and fails H₃."
         },
         {
           "name": "hd_char_two_three",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "F₂(s,t,u) satisfies H₃ without a resolution premise."
         },
         {
           "name": "hd_char_two_four",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "The H₄ claim for F₂(s,t,u,v) requires both clauses of resolution above F₂; field generation alone is insufficient."
         }
       ],
@@ -401,6 +408,53 @@
       ]
     },
     {
+      "id": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
+      "parentStageId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0"
+      ],
+      "title": "Global arithmetic formula inputs",
+      "kind": "theorem",
+      "statement": "In the class of global fields, one fixed-arity formula family exhausts the nontrivial finite valuation rings, with every fiber either such a ring or empty. Number fields are first-order distinguishable from global function fields. The integer ring of a number field and the finite constant field of a global function field are uniformly definable; with a suitable transcendental parameter in a global function field, the polynomial subring and the powers needed for arithmetic sequence coding are definable.",
+      "hypotheses": [
+        "The function-field polynomial subring is the distinguished rational polynomial ring in the chosen parameter, not automatically the full ring of functions regular outside an arbitrary point."
+      ],
+      "proofSteps": [
+        "Take the precise uniformity clauses from Rumely Introduction I–III as cited in Poonen Theorem 2.2.",
+        "First establish these formulas in an ambient global field. Later consumers use LD.0 to relativize them to an already definable global subfield; the present theorem does not depend on constructing that subfield family.",
+        "Keep G-RUM open until the original proofs of the valuation family, integer ring and coding apparatus have been audited; their statements are not a new axiom of fields."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "LogicAndDefinabilityInNumberTheory:LD.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "po",
+          "locator": "Theorem 2.2,pp.3–4",
+          "match": "The quoted theorem contracts from Rumely distinguish the global-field types and uniformly define their arithmetic subrings and finite valuation rings."
+        },
+        {
+          "sourceId": "akns",
+          "locator": "Lemmas 3.7–3.8,pp.22–23",
+          "match": "The dimension-one arithmetic coding argument identifies the polynomial and sequence-decoding inputs supplied by Rumely."
+        },
+        {
+          "sourceId": "dp",
+          "locator": "Remark 4.4,p.15; Proposition 5.1,pp.15–17",
+          "match": "The global arithmetic families are consumed by the low-dimensional divisor construction and the arithmetic normalization argument."
+        }
+      ],
+      "acceptance": [
+        "The valuation family for a number field includes all finite primes, not its real orderings.",
+        "The polynomial-ring assertion must retain its distinguished transcendental parameter."
+      ],
+      "implementationStatus": "unchecked",
+      "auditLeaves": [
+        "LogicAndDefinabilityInNumberTheoryPartII/G-RUM"
+      ]
+    },
+    {
       "id": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/char-zero-constants",
       "parentStageId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0",
       "realises": [
@@ -422,7 +476,8 @@
         "QuadraticFormInvariantsPartII:Q2.1/quadratic-pfister",
         "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-        "LogicAndDefinabilityInNumberTheory:LD.0"
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas"
       ],
       "sources": [
         {
@@ -437,7 +492,8 @@
       ],
       "implementationStatus": "unchecked",
       "auditLeaves": [
-        "LogicAndDefinabilityInNumberTheoryPartII/G-PO"
+        "LogicAndDefinabilityInNumberTheoryPartII/G-PO",
+        "LogicAndDefinabilityInNumberTheoryPartII/G-RUM"
       ]
     },
     {
@@ -462,7 +518,9 @@
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/dimension-definability",
         "QuadraticFormInvariantsPartII:Q2.5/transcendental-ci",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
-        "LogicAndDefinabilityInNumberTheory:LD.0"
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/arithmetic-normalization",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension"
       ],
       "sources": [
         {
@@ -500,12 +558,13 @@
       "prerequisites": [
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/char-zero-constants",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/positive-global-subfields",
-        "LogicAndDefinabilityInNumberTheory:LD.0"
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas"
       ],
       "sources": [
         {
           "sourceId": "po",
-          "locator": "Theorem 1.3,p.2 and its proof,p.11; Theorem 2.2,p.3",
+          "locator": "Theorem 1.3,p.2 and its proof,p.11; Theorem 1.1,p.1; Theorem 2.2,pp.3–4",
           "match": "The empty global-subfield family gives the correct finite-field boundary."
         }
       ],
@@ -516,7 +575,9 @@
       "planet": {
         "name": "Constant field"
       },
-      "auditLeaves": []
+      "auditLeaves": [
+        "LogicAndDefinabilityInNumberTheoryPartII/G-RUM"
+      ]
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-subfield-definability",
@@ -542,8 +603,13 @@
       "sources": [
         {
           "sourceId": "dp",
-          "locator": "§4,pp.13–14; Poonen Proposition 4.10,p.11",
-          "match": "The global subfields supply the bases over which the test parameters are chosen."
+          "locator": "§4,pp.13–14",
+          "match": "The construction consumes a uniformly definable relatively closed global subfield."
+        },
+        {
+          "sourceId": "po",
+          "locator": "Proposition 4.10,p.11; Theorem 1.3 and proof,p.11",
+          "match": "The positive-characteristic family and the characteristic-zero constant field provide the two branches."
         }
       ],
       "acceptance": [
@@ -569,6 +635,7 @@
         "For the relative assertion K/L is finitely generated and L is relatively algebraically closed in K."
       ],
       "proofSteps": [
+        "For n=0 the empty tuple is independent over every field; choose the always-false dependence formula. Use the following construction only for n≥1.",
         "After adjoining roots of −1 and X²+X+1, use diagonal forms with degree d=3 in characteristic two and d=2 otherwise. Dependent tuples pass the C-field/global bound.",
         "For an independent tuple pass to the maximal separable subextension over a transcendence basis, choose an étale specialization, then a global place split in its residue extension. A non-d-th-power residue and a uniformizer give the anisotropic initial form. Append the regular parameters using the distinct-values-mod-d argument of Appendix A.4–A.5.",
         "Purely inseparable descent uses odd-degree quadratic descent or degree-three descent across quadratic extensions. These degree-three inputs are part of G-PO, not a consequence of quadratic Pfister theory.",
@@ -582,7 +649,9 @@
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
         "FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev",
         "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-        "LogicAndDefinabilityInNumberTheory:LD.0"
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/arithmetic-normalization",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension"
       ],
       "sources": [
         {
@@ -593,7 +662,8 @@
       ],
       "acceptance": [
         "Over Q, (s,s²) is dependent and (s,t) independent in Q(s,t).",
-        "Over F₂(s), t is transcendental in F₂(s,t); the cubic branch must return independence."
+        "Over F₂(s), t is transcendental in F₂(s,t); the cubic branch must return independence.",
+        "At n=0 the dependence formula is false, including over finite fields; its negation defines the independence of the empty tuple."
       ],
       "implementationStatus": "unchecked",
       "auditLeaves": [
@@ -671,7 +741,7 @@
       "tests": [
         {
           "name": "relative_constants_rational",
-          "kind": "value",
+          "kind": "computation",
           "statement": "In Q(s,t), using u₂=s gives k_t=Q(s), where t₂=s²−s."
         },
         {
@@ -681,7 +751,7 @@
         },
         {
           "name": "relative_constants_char_two",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "In characteristic two, X²−X−t_i remains separable; replacing it by X²−t_i loses the required comparison."
         }
       ],
@@ -768,12 +838,12 @@
         },
         {
           "name": "nice_zero_slot",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "a₀=0 is excluded even though the characteristic-two Pfister API allows it more generally."
         },
         {
           "name": "nice_isotropic_tail",
-          "kind": "value",
+          "kind": "computation",
           "statement": "A tail with a₁=1 is isotropic everywhere and is nice, but the resulting full form cannot serve as an anisotropic detector."
         },
         {
@@ -842,7 +912,8 @@
       "prerequisites": [
         "LogicAndDefinabilityInNumberTheoryPartII:FG.1/global-approximation-input",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.1/nice-form",
-        "QuadraticFormInvariantsPartII:Q2.4/independent-values"
+        "QuadraticFormInvariantsPartII:Q2.4/independent-values",
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"
       ],
       "sources": [
         {
@@ -984,7 +1055,7 @@
         },
         {
           "name": "test_three_dimensional",
-          "kind": "value",
+          "kind": "computation",
           "statement": "At d=3 there is exactly one shift a₂=t₂−ε₂, not an empty middle tuple."
         },
         {
@@ -1231,7 +1302,7 @@
         },
         {
           "name": "root_repeated_odd",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "Over Q with a_d/θ²=−1/4, α=1/2 and K_θ=Q; the nonreduced quadratic quotient is forbidden."
         },
         {
@@ -1241,7 +1312,7 @@
         },
         {
           "name": "root_choice",
-          "kind": "invariance",
+          "kind": "characterisation",
           "statement": "Replacing either generator by 1 minus itself leaves the composite field unchanged."
         }
       ],
@@ -1517,7 +1588,7 @@
         },
         {
           "name": "anisotropy_singleton_ball",
-          "kind": "comparison",
+          "kind": "characterisation",
           "statement": "For data with V_a={w} and w(a_d)=1, b_a is exactly the maximal ideal of O_w, including zero."
         }
       ],
@@ -1606,7 +1677,7 @@
         },
         {
           "name": "stabilizer_subring",
-          "kind": "comparison",
+          "kind": "characterisation",
           "statement": "For Z⊂Q the stabilizer is exactly Z; replacing the condition by xB=B would wrongly keep only its units."
         }
       ],
@@ -1695,7 +1766,7 @@
         },
         {
           "name": "detector_single_zero",
-          "kind": "value",
+          "kind": "computation",
           "statement": "If a_d has a unique zero w of odd order and the test form is anisotropic at w, then V_a={w}; poles do not enter."
         }
       ],
@@ -1778,12 +1849,12 @@
       "tests": [
         {
           "name": "ball_order_one",
-          "kind": "value",
+          "kind": "computation",
           "statement": "At w(a)=1, a unit of O_w is outside the ball and a uniformizer is inside."
         },
         {
           "name": "ball_order_three",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "At w(a)=3, an element of value 1 is outside while one of value 2 is inside."
         },
         {
@@ -1793,7 +1864,7 @@
         },
         {
           "name": "ball_ideal_comparison",
-          "kind": "comparison",
+          "kind": "characterisation",
           "statement": "For a uniformizer π and w(a)=3, B_w(a)=π²O_w, including zero."
         }
       ],
@@ -1959,44 +2030,6 @@
       "auditLeaves": []
     },
     {
-      "id": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
-      "parentStageId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4",
-      "realises": [
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4"
-      ],
-      "title": "Global arithmetic formula inputs",
-      "kind": "theorem",
-      "statement": "In the class of global fields, one fixed-arity formula family exhausts the nontrivial finite valuation rings, with every fiber either such a ring or empty. Number fields are first-order distinguishable from global function fields. The integer ring of a number field and the finite constant field of a global function field are uniformly definable; with a suitable transcendental parameter in a global function field, the polynomial subring and the powers needed for arithmetic sequence coding are definable.",
-      "hypotheses": [
-        "The function-field polynomial subring is the distinguished rational polynomial ring in the chosen parameter, not automatically the full ring of functions regular outside an arbitrary point."
-      ],
-      "proofSteps": [
-        "Take the precise uniformity clauses from Rumely Introduction I–III as cited in Poonen Theorem 2.2.",
-        "Relativize the global formulas to the definable global subfield by the LD.0 interpretation machinery.",
-        "Keep G-RUM open until the original proofs of the valuation family, integer ring and coding apparatus have been audited; their statements are not a new axiom of fields."
-      ],
-      "prerequisites": [
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-subfield-definability",
-        "LogicAndDefinabilityInNumberTheory:LD.0",
-        "LogicAndDefinabilityInNumberTheory:LD.1"
-      ],
-      "sources": [
-        {
-          "sourceId": "dp",
-          "locator": "Remark 4.4,p.15; Proposition 5.1,p.16; Poonen Theorem 2.2,p.3",
-          "match": "These are the exact global arithmetic formula contracts used for niceness, terminal arithmetic places and coding."
-        }
-      ],
-      "acceptance": [
-        "The valuation family for a number field includes all finite primes, not its real orderings.",
-        "The polynomial-ring assertion must retain its distinguished transcendental parameter."
-      ],
-      "implementationStatus": "unchecked",
-      "auditLeaves": [
-        "LogicAndDefinabilityInNumberTheoryPartII/G-RUM"
-      ]
-    },
-    {
       "id": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability",
       "parentStageId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4",
       "realises": [
@@ -2009,14 +2042,14 @@
         "The tail slots are nonzero and belong to the global subfield."
       ],
       "proofSteps": [
-        "Quantify over the Rumely finite-valuation parameters. Dyadic means 2 lies in the maximal ideal (there are no dyadic places in characteristic two); translate v(a₀)≠0, v(a₁)<0 and unit conditions into membership and inverse membership.",
+        "Quantify over the Rumely finite-valuation parameters. The dyadic condition is 2≠0 and 2∈m_v, so it is false in characteristic two. Translate v(a₀)≠0, v(a₁)<0 and unit conditions into membership and inverse membership, with explicit nonzero guards on inverted elements.",
         "For henselian isotropy at a rank-one place, scale the coefficients to be integral and use a primitive integral vector x and a nonzero partial derivative D: either q(x)=0 already, or v(q(x))>2v(D(x)). Hensel applied in one coordinate gives a primitive zero. Conversely approximate a nonsingular henselian zero sufficiently closely by base-field coordinates, retaining primitivity and the strict inequality. Express strict comparisons by maximal-ideal membership of quotients. In characteristic two the nonsingular quadratic tail still has a nonzero partial derivative.",
         "At real places the characteristic-zero tail is diagonal with entries 1,−a₀,−a₁,a₀a₁. It is anisotropic precisely at an ordering with both a₀ and a₁ negative. The absence of such an ordering is equivalent to −1 lying in the preordering generated by −a₀ and −a₁. Use the existing RealAlgebraicGeometry Layer 1 preordering-extension target, not a second proof plan here. A number field has Pythagoras number at most four by Hasse–Minkowski applied to five variables, so four squares for each of the four preordering coefficients gives a fixed finite formula.",
         "This replaces the unjustified inference from henselian to base-field isotropy identified in inherited extraction E17; the local test is a Hensel witness, not an isotropic vector over the global field."
       ],
       "prerequisites": [
         "LogicAndDefinabilityInNumberTheoryPartII:FG.1/nice-form",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
         "LogicAndDefinabilityInNumberTheory:LD.0",
         "LogicAndDefinabilityInNumberTheory:LD.1"
@@ -2031,7 +2064,8 @@
       "acceptance": [
         "A tail isotropic over Q₂ but anisotropic over Q must pass the Q₂ test.",
         "At a real ordering with both slots negative, the tail must fail niceness.",
-        "The same test works in characteristic two without diagonalizing a quadratic form."
+        "The same test works in characteristic two without diagonalizing a quadratic form.",
+        "In characteristic two, 2=0 belongs to every maximal ideal but no place is dyadic; the nonzero guard must prevent the dyadic trigger."
       ],
       "implementationStatus": "unchecked",
       "auditLeaves": [
@@ -2063,7 +2097,8 @@
         "LogicAndDefinabilityInNumberTheoryPartII:FG.3/anisotropy-set",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.3/stabilizer-intersection",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability",
-        "LogicAndDefinabilityInNumberTheory:LD.0"
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "tauceti:TauCeti.Place.exists_ne_zero_forall_mem_ord_eq"
       ],
       "sources": [
         {
@@ -2124,12 +2159,12 @@
         },
         {
           "name": "valuation_filter_singleton",
-          "kind": "value",
+          "kind": "computation",
           "statement": "A tuple constructed at P by the odd sole-pole theorem gives exactly O_P."
         },
         {
           "name": "valuation_filter_whole_field",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "The empty detecting set gives raw_b=K and is rejected by the omitted-element clause."
         }
       ],
@@ -2231,7 +2266,7 @@
       ],
       "prerequisites": [
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/curve-symbol-inputs",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "LogicAndDefinabilityInNumberTheory:LD.0"
       ],
       "sources": [
@@ -2290,12 +2325,12 @@
       "tests": [
         {
           "name": "curve_shift_zero",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For every x, x*1=x and x∘2=x; using 0 and 1 as the shifted units fails."
         },
         {
           "name": "curve_shift_char_two",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "In characteristic two the shifted multiplicative unit is the field element 0, since 2=0; it is distinct from the shifted additive zero 1."
         },
         {
@@ -2305,7 +2340,7 @@
         },
         {
           "name": "curve_char_two_principal_units",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "In k=F₂(t), n=3 and δ=t, the t-adic condition is v_t(β−1)>0. It accepts β=1 and β=1+t, both local cubes; a threshold involving v_t(6)=∞ would wrongly reject even 1."
         }
       ],
@@ -2368,7 +2403,7 @@
         "Use the properness, field and dimension guards on every tuple. Keep G-LOW for the underlying surface/cohomology and adapted-base proof audits; the theorem is a proof target, not a declaration of completed implementation."
       ],
       "prerequisites": [
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/curve-singleton-isolation",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-subfield-definability",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/dimension-definability",
@@ -2377,8 +2412,13 @@
       "sources": [
         {
           "sourceId": "dp",
-          "locator": "Remark 4.4,p.15; Pop Theorem 1.2,p.2093 and Conclusion 5.2,p.2110",
-          "match": "The families needed in residue fields include both low-dimensional boundaries."
+          "locator": "Remark 4.4,p.15",
+          "match": "The main construction is supplemented by global-field and dimension-two families."
+        },
+        {
+          "sourceId": "pop17",
+          "locator": "Theorem 1.2,p.2093; Conclusion 5.2,p.2110",
+          "match": "The curve-symbol recipe uniformly recovers the required geometric divisor rings in dimension two."
         }
       ],
       "acceptance": [
@@ -2408,7 +2448,7 @@
       ],
       "prerequisites": [
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/constant-definability",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/arithmetic-normalization"
       ],
       "sources": [
@@ -2465,17 +2505,17 @@
       "tests": [
         {
           "name": "normalization_number_field",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For K=Q and T empty, R_T=Z while S_T=Q."
         },
         {
           "name": "normalization_function_field",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For K=F_q(t), T={t}, both rings equal F_q[t]; 1/t is excluded."
         },
         {
           "name": "normalization_finite_field",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "For a finite field and empty T, both normalizations are K itself."
         },
         {
@@ -2494,13 +2534,13 @@
       ],
       "title": "Finite normalizations with full fraction field",
       "kind": "theorem",
-      "statement": "For every such K,T, R_T is a normal finitely generated domain, finite as an A[T]-module, and its fraction field in K is K. The analogous assertions hold for S_T over κ[T].",
+      "statement": "For every such K,T, R_T is a normal domain, finite as an A[T]-module and finitely generated as a ring, with fraction field K inside K. The normal domain S_T is finite as a κ[T]-module and finitely generated as a κ-algebra, with the same fraction field K. Finite generation of S_T as a ring is not asserted in characteristic zero.",
       "hypotheses": [
         "K/κ(T) is finite, possibly inseparable."
       ],
       "proofSteps": [
         "Import arithmetic-normalization for the excellent bases A and κ; the finite-normalization theorem does not require a separating transcendence basis.",
-        "A is finitely generated over the prime ring, hence a finite A[T]-module is finitely generated as a ring.",
+        "A is finitely generated over the prime ring, hence a finite A[T]-module is finitely generated as a ring. The corresponding argument for S_T gives finite generation as a κ-algebra; κ need not be finitely generated as a ring.",
         "For x∈K, clear the denominators in a monic equation over κ(T) after scaling x by a nonzero element of A[T]; this produces b≠0 with bx∈R_T. The same argument applies to S_T."
       ],
       "prerequisites": [
@@ -2515,7 +2555,8 @@
         }
       ],
       "acceptance": [
-        "For inseparable finite extensions the finiteness statement remains required."
+        "For inseparable finite extensions the finiteness statement remains required.",
+        "For K=Q(t) and T={t}, R_T=Z[t] is finitely generated as a ring, whereas S_T=Q[t] is not; S_T is finite over κ[T]."
       ],
       "implementationStatus": "unchecked",
       "auditLeaves": []
@@ -2579,7 +2620,7 @@
         "LogicAndDefinabilityInNumberTheoryPartII:FG.5/normalization-rings",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/uniform-divisors",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/small-dimension-families",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "LogicAndDefinabilityInNumberTheory:LD.1"
       ],
       "sources": [
@@ -2636,12 +2677,12 @@
       "tests": [
         {
           "name": "flag_empty",
-          "kind": "value",
+          "kind": "computation",
           "statement": "For K=Q and e=0, ⋂_{V_∅}O_v=Z; omitting empty flags would give Q."
         },
         {
           "name": "flag_rational_surface",
-          "kind": "value",
+          "kind": "computation",
           "statement": "In Q(s,t), a flag at s=1 then t=1 has residue Q and geometric rank two; appending the 3-adic place gives rank three."
         },
         {
@@ -2651,7 +2692,7 @@
         },
         {
           "name": "flag_integral_parameters",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "A flag containing T need not contain T after appending an arbitrary arithmetic place; V_T tests the composite ring again."
         }
       ],
@@ -2792,7 +2833,7 @@
         "LogicAndDefinabilityInNumberTheoryPartII:FG.5/normalization-finite",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.5/geometric-intersection",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.5/arithmetic-intersection",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "LogicAndDefinabilityInNumberTheory:LD.0",
         "LogicAndDefinabilityInNumberTheory:LD.1"
       ],
@@ -2830,7 +2871,7 @@
         "Use the arithmetic injection criterion in AKNS Proposition2.23/Corollary2.24. Arithmetic self-interpretations are definably homotopic to the identity (Lemma2.7),and the finite generating tuple makes two arithmetic presentations homotopic (Lemma2.26). Apply this to the injection just constructed. The original positive-characteristic decoding proof is the remaining G-RUM leaf."
       ],
       "prerequisites": [
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "LogicAndDefinabilityInNumberTheory:LD.0"
       ],
       "sources": [
@@ -2948,8 +2989,13 @@
       "sources": [
         {
           "sourceId": "dp",
-          "locator": "Bi-interpretability proof,p.17;AKNS Examples2.9(4),p.13",
-          "match": "These are the explicit inverse comparison maps between a field and its normalization."
+          "locator": "Bi-interpretability proof,p.17",
+          "match": "The field is compared with the fraction field of its definable normal domain."
+        },
+        {
+          "sourceId": "akns",
+          "locator": "Example 2.9(4),p.13",
+          "match": "Localization and its definable comparison graph supply the interpretation mechanism."
         }
       ],
       "acceptance": [
@@ -3120,11 +3166,12 @@
       ],
       "proofSteps": [
         "Write the exact-cardinality sentence using q variables and all finitely many disequalities.",
-        "A finite field of order q is unique up to isomorphism; import that standard classification rather than choosing an arbitrary ring of that cardinality."
+        "The exact-cardinality witnesses supply a Fintype presentation. Apply the pinned FiniteField.ringEquivOfCardEq to identify any field model with F_q; no classification of arbitrary rings of cardinality q is used."
       ],
       "prerequisites": [
         "mathlib:FirstOrder.Language.ring",
-        "LogicAndDefinabilityInNumberTheory:LD.0"
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "mathlib:FiniteField.ringEquivOfCardEq"
       ],
       "sources": [
         {
@@ -3170,12 +3217,12 @@
       "tests": [
         {
           "name": "finite_sentence_two",
-          "kind": "value",
+          "kind": "computation",
           "statement": "F₂ realizes θ₂ and F₃ does not."
         },
         {
           "name": "finite_sentence_four",
-          "kind": "value",
+          "kind": "computation",
           "statement": "F₄ realizes θ₄ and F₂ does not, despite equal characteristic."
         },
         {
@@ -3185,7 +3232,7 @@
         },
         {
           "name": "finite_sentence_infinite",
-          "kind": "boundary",
+          "kind": "degenerate",
           "statement": "Q fails every θ_q, since no finite tuple exhausts its elements."
         }
       ],
@@ -3247,7 +3294,7 @@
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/relative-independence",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.2/auxiliary-root-fields",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.3/anisotropy-set",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/valuation-filter",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/curve-valuation-construction",
@@ -3275,7 +3322,7 @@
         "LogicAndDefinabilityInNumberTheoryPartII:FG.2/coarsening-constant-trivial",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.3/valuation-ball",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.3/anisotropy-union",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/curve-singleton-isolation",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.5/geometric-intersection",
@@ -3288,11 +3335,12 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
-      "need": "Use Hasse–Minkowski for global fields and their real/nonarchimedean local fields, including the norm criterion for a two-fold tail, finite-place isotropy bounds, and the number-field four-square bound for sums of squares. No formally-real global cd₂ bound is imported.",
+      "need": "Consume the existing NUMBER-FIELD Hasse–Minkowski target, its real/nonarchimedean local norm criterion for a two-fold tail and the four-square consequence for number fields. Request an extension to GLOBAL FUNCTION FIELDS, including nonsingular quadratic forms in characteristic two: local isotropy bounds and the unramified quadratic norm criterion that a nonzero norm has even valuation. The current Layer 5 explicitly excludes characteristic two and does not already promise this extension. Retain real conditions in the number-field branch; no formally-real global cd₂ bound is imported.",
       "neededBy": [
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/char-zero-constants",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/relative-independence",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability"
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.1/global-nice-tail"
       ]
     },
     {
@@ -3361,9 +3409,11 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:A0-extension",
-      "need": "Extend the finite generic normalization contract to the formal-étale completion comparison at a chosen rational base point: a finite étale local algebra with separable residue k_ε has completion k_ε[[π₂,…,π_{d−1}]], with compatible embeddings of fraction fields into the ordered iterated Laurent series field. No Hilbert scheme construction is needed.",
+      "need": "Extend the finite generic normalization contract to the formal-étale completion comparison at a chosen rational base point: a finite étale local algebra with separable residue k_ε has completion k_ε[[π₂,…,π_{d−1}]], with compatible embeddings of fraction fields into the ordered iterated Laurent series field. No Hilbert scheme construction is needed. The same comparison, for the number of regular parameters in question and with nonzero base coordinates only where required, supplies the higher-dimensional smooth specializations in Poonen Proposition 4.10 and Lemma 5.3. The curve-only affine-model contract is insufficient for these specializations.",
       "neededBy": [
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.1/etale-specialization-input"
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.1/etale-specialization-input",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/positive-global-subfields",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/relative-independence"
       ]
     },
     {
@@ -3385,7 +3435,10 @@
         "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy for its listed consuming targets; see requests.need.",
         "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev for its listed consuming targets; see requests.need.",
         "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places for its listed consuming targets; see requests.need.",
-        "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge for its listed consuming targets; see requests.need."
+        "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge for its listed consuming targets; see requests.need.",
+        "Obtain the exact supplier receipt from LogicAndDefinabilityInNumberTheory:LD.1 for its listed consuming targets; see requests.need.",
+        "Obtain the exact supplier receipt from AlgebraicModuliForArithmeticGeometry:A0-extension for its listed consuming targets; see requests.need.",
+        "LogicAndDefinabilityInNumberTheoryPartII/G-RUM: Primary uniform arithmetic and sequence decoding proofs"
       ]
     },
     {
@@ -3397,7 +3450,8 @@
         "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences for its listed consuming targets; see requests.need.",
         "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles for its listed consuming targets; see requests.need.",
         "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields for its listed consuming targets; see requests.need.",
-        "Obtain the exact supplier receipt from AlgebraicModuliForArithmeticGeometry:A0-extension for its listed consuming targets; see requests.need."
+        "Obtain the exact supplier receipt from AlgebraicModuliForArithmeticGeometry:A0-extension for its listed consuming targets; see requests.need.",
+        "Obtain the exact supplier receipt from tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy for its listed consuming targets; see requests.need."
       ]
     },
     {
@@ -3481,14 +3535,16 @@
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/positive-global-subfields",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.0/relative-independence"
       ],
-      "detail": "Poonen §§3–5 and Appendix A were read in full. The remaining external proof leaves are Moret–Bailly’s elliptic constancy theorem used at p.4, the positive-characteristic ordinary elliptic point-count/Albanese-twist inputs at pp.6–10, and the general degree-three C_i and anisotropy descent inputs used in characteristic two. Quadratic Pfister theory does not cover the latter. The generic elliptic/Albanese and all-degree C_i owners must receive exact extension contracts before source closure; no second elliptic geometry foundation is specified here."
+      "detail": "Poonen §§3–5 and Appendix A were independently read. Remaining external proof leaves are Moret–Bailly’s elliptic constancy theorem at p.4, the ordinary elliptic point-count and Albanese-twist inputs at pp.6–10, and the degree-three anisotropy descent used in characteristic two. Q2.5/transcendental-ci already owns all-degree C_i ascent; obtain its exact degree-three application receipt rather than planning that theory again. Route only the remaining elliptic/Albanese and cubic descent extensions to their existing owners. These external proof receipts are not claimed source-closed."
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/G-RUM",
       "title": "Primary uniform arithmetic and sequence decoding proofs",
       "neededBy": [
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas",
-        "LogicAndDefinabilityInNumberTheoryPartII:FG.6/dimension-one-coding"
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.6/dimension-one-coding",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/char-zero-constants",
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0/constant-definability"
       ],
       "detail": "Rumely 1980 Introduction I–III is identified in the author-uploaded copy and its use is checked against Poonen Theorem 2.2 and AKNS Lemmas 3.7–3.8. The valuation, integer-ring, polynomial-ring and Gödel decoding proofs,especially p.211,are not read in full. AMS PDF access returned HTTP403; the author-copy download link and CiteSeer retrieval did not return a usable PDF during acquisition. Preserve the uniformity and all-fibers contracts when acquiring the primary text."
     },
@@ -3532,6 +3588,15 @@
       "layer": "Layer 1: univariate real algebra (field preorderings and orderings subsection)",
       "detail": "Current main already plans extension of a proper field preordering to an ordering. Import that target for the real-place niceness formula; do not plan a second extension theorem. This roadmap postdates the atlas snapshot, so no synthetic atlas stage ID or pinned-library declaration is asserted. G-UPSTREAM records the missing machine-readable receipt.",
       "neededBy": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability"
+      ]
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/GlobalQuadraticForms",
+      "layer": "Layer 5: Hasse–Minkowski isotropy",
+      "detail": "Current main has a number-field scope and explicitly excludes characteristic two. The existing request now separates its available number-field contract from the required global-function-field and characteristic-two extension. Route that extension through the existing owner or its Part II; it is not an existing library theorem or a duplicate quadratic-form foundation.",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.1/global-nice-tail",
         "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability"
       ]
     }
@@ -3735,7 +3800,7 @@
     },
     {
       "item": "PAPER-DITTMANN-POP-23/rumely-global-definitions",
-      "target": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/global-arithmetic-formulas"
+      "target": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas"
     },
     {
       "item": "PAPER-DITTMANN-POP-23/low-dimensional-biinterpretability",
@@ -3952,7 +4017,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a notational ambiguity: the characteristic-two tensor factors must be bilinear. The cited bilinear-form convention supplies the intended meaning; this is not a counterexample to the theorem.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E2",
@@ -3968,7 +4038,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Expanding u_i²(1−1/u_i−ε_i/u_i²) recovers u_i²−u_i−ε_i. The displayed plus sign does not, outside characteristic two.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E3",
@@ -3984,7 +4059,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The number-field terminal residue in the proof requires a full geometric flag. A single divisor of Q(s,t) leaves Q(t), so the reused rank-one notation cannot supply the stated residue.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E4",
@@ -4000,7 +4080,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Roots of unity have nonzero residue. Restricting the nonvanishing specialization to the torus supplies the missing condition without changing the argument.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E6",
@@ -4016,7 +4101,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The global intermediate field can be formally real and then has infinite cd₂. The needed henselian nonreal local base change has the finite dimension bound, giving the stated repair.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E7",
@@ -4032,7 +4122,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "AKNS requires finite generation in its specified finite language. Q is a field-generated counterexample to the unexpanded ring-language inference; total inverse gives the required finite generation and can be eliminated on fields.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E9",
@@ -4048,7 +4143,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The open set is in the space of valuations, and its point must be w. The form q supplies the isotropy condition defining that neighborhood.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E10",
@@ -4064,7 +4164,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "One outer factor already produces q(x)−πq(y), so the parity sign is necessary in odd characteristic. Each block has the full N+1 coordinates of q.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E11",
@@ -4080,7 +4185,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The constructed valuations live on different root extensions. Restriction to L is necessary before patch compactness on Val(L), and the henselization embedding preserves the required anisotropy implication.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E15",
@@ -4096,7 +4206,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The last coefficient need not lie in the relative-constant field. The lower-slot form is defined there and inherits the real isotropy of its nice tail, so it supplies the usable dimension-bound input.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E16",
@@ -4112,7 +4227,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The indicated constant-field symbol is undefined at this point. The already defined k_t=k_u supplies exactly the constant field for the proper curve and its places.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E17",
@@ -4128,7 +4248,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an omitted formula contract, not a false isotropy theorem. Henselian isotropy requires the finite approximation/Hensel witness; real isotropy requires its separate ordering test. The displayed recipe does not spell out these clauses.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E18",
@@ -4144,7 +4269,12 @@
         "The inherited extraction sourceIssues and its correction history",
         "The final author version27April2023 and its bibliography",
         "The authors’ public paper/version metadata;publisher text not collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The written normalization argument assumes d≥3 although the conclusion includes infinite fields of dimensions one and two. Remark 4.4 and the global arithmetic case give the missing branches specified here.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E19",
@@ -4160,7 +4290,12 @@
         "The inspected author/publisher PDF and its bibliography",
         "The relevant paper-extraction sourceIssues in this repository",
         "The public author/version metadata identified for the paper;no comprehensive erratum search claimed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding sequence coding guarantees surjectivity without unique codes. Thus the polynomial interpretation requires the decoding-equality quotient or canonical codes before an injection is available.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E20",
@@ -4176,7 +4311,12 @@
         "The inspected author/publisher PDF and its bibliography",
         "The relevant paper-extraction sourceIssues in this repository",
         "The public author/version metadata identified for the paper;no comprehensive erratum search claimed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Finite generation and dimension one do not imply normality: Z[√5] is the arithmetic core of Z[√5,t] and is not Dedekind. The restricted normal-domain theorem needed here has a normal core and supports the subsequent ideal coding.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E21",
@@ -4192,7 +4332,12 @@
         "The inspected author/publisher PDF and its bibliography",
         "The relevant paper-extraction sourceIssues in this repository",
         "The public author/version metadata identified for the paper;no comprehensive erratum search claimed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For a uniformizer δ the earlier V_δ omits its place, but δ is still integral. The recipe must test failure of unit membership, covering zeros and poles, to recover that definition.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     },
     {
       "id": "LogicAndDefinabilityInNumberTheoryPartII/E22",
@@ -4208,7 +4353,12 @@
         "The publisher PDF, Notation3.5 and Recipe5.1",
         "The author paper listing and search for an erratum on 19October2026; none found in those results",
         "The source papers explicitly choosing n=3 in characteristic two; no comprehensive erratum search claimed"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At char k=2,n=3 the scalar 2n is zero, so its infinite valuation makes the strict bound reject even β=1. Taking c_n=n=3 there gives the finite threshold required by Hensel; outside characteristic two the existing 2n works.",
+        "by": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -4259,10 +4409,309 @@
   "validation": {
     "suggestedShape": "Light real-bodied definitions and representative end signatures only;no data definitions have missing bodies. Heavy carriers and all remaining targets are specified in the reader.",
     "sourceDiscipline": "Mathematical results,source discrepancies and proof contracts are written in own words. No source passage,section-by-section source summary or source file is included.",
-    "baseline": "Mathlib082e2d3,TauCetif790474;actual statements read at the pins,current-main-only material kept separate.",
+    "baseline": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369: all 16 declaration statements read, with source modules byte-compared to raw GitHub at those pins. The unchanged suggested Lean file elaborates with only the permitted proof-placeholder warnings.",
     "completedSourceAudits": [
       "AKNS §1.3 and §§2.1–2.9:quotient semantics,localization,saturation,finite-module codes,flat tensor algebra coding,arithmetic rigidity and the injective-code bi-interpretation test read. The Nies standardness citation remains explicitly separate.",
-      "Full-flag integrality refinement supplied by reducing the residue field to the already requested étale specialization and avoiding finitely many arithmetic primes. No duplicate general flag theorem is planned."
+      "Full-flag integrality refinement supplied by reducing the residue field to the already requested étale specialization and avoiding finitely many arithmetic primes. No duplicate general flag theorem is planned.",
+      "Independent review checked all 58 target statements and source locators, the 17 inherited source discrepancies, every fine-grained imported target and each stage request. Exact-pin modules were byte-compared to GitHub; the seven separately recorded proof-audit leaves remain open."
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 58 nodes, 16 exact-pin baseline declarations, every supplier contract, API/tests, planets and 17 source issues. Corrected early Rumely ordering, direct dependencies, characteristic-two dyadic guard, S_T finite-generation scope, zero-arity dependence, source identifiers and test-kind vocabulary. Eight stages remain planned, none closed: seven proof-audit gaps and precise supplier extension requests remain explicit. Acceptance records a sound finished planning pass, not completed formalization or source closure.",
+    "checked": [
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/hypothesis-hd",
+        "verdict": "verified",
+        "note": "Checked DP pp.1–2,5 and HL.6/resolution-f2: the characteristic-two condition starts above dimension three and contains both geometric clauses."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/uniform-family",
+        "verdict": "verified",
+        "note": "Checked Theorem 1.3 and Recipe 4.3: fixed arity, exhaustion and every-fiber control agree; the three tests distinguish failed guards and variable arity."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/dimension-definability",
+        "verdict": "verified",
+        "note": "Poonen Theorem 2.3 supplies the precise statement. The differently numbered Pop preprint does not close the published proof audit; G-DIM remains explicit."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-arithmetic-formulas",
+        "verdict": "corrected",
+        "note": "Moved to FG.0 and removed its dependence on the later global-subfield family. Poonen Theorem 2.2 and AKNS pp.22–23 support the contracts; primary Rumely proofs remain G-RUM."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/char-zero-constants",
+        "verdict": "corrected",
+        "note": "Checked Poonen Lemmas 3.2–3.7; added the earlier Rumely number-field filter as a direct prerequisite and retained G-PO/G-RUM."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/positive-global-subfields",
+        "verdict": "corrected",
+        "note": "Checked Poonen Proposition 4.10 and Appendix A. Added finite normalization and the higher-dimensional étale comparison request; the characteristic-two cubic and split-field-factor branches are retained."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/constant-definability",
+        "verdict": "corrected",
+        "note": "Checked Poonen Theorems 1.1,1.3,2.2; added the direct global arithmetic supplier and its audit leaf. The finite-field empty intersection correctly equals K."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/global-subfield-definability",
+        "verdict": "corrected",
+        "note": "Checked the two characteristic branches against DP §4 and Poonen Proposition 4.10; separated their source locators."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/relative-independence",
+        "verdict": "corrected",
+        "note": "Checked Poonen Lemma 5.3 and Appendix A; supplied n=0 explicitly and the higher-dimensional étale specialization prerequisites. Degree-three descent remains in G-PO."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.0/relative-constant-field",
+        "verdict": "verified",
+        "note": "Checked DP Notation 4.1: relative algebraic closure, not just the rational subfield; separable Artin–Schreier comparison survives characteristic two."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.1/nice-form",
+        "verdict": "verified",
+        "note": "Checked Definition 3.3 and Q2.1/Q2.4 conventions: global tail data, real places and the finite exceptional places are retained."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.1/global-approximation-input",
+        "verdict": "verified",
+        "note": "Checked Lemma 3.5 and approximation suppliers. The function-field off-one-place theorem is already pinned; the number-field request explicitly requires archimedean conditions."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.1/global-nice-tail",
+        "verdict": "corrected",
+        "note": "Checked Lemma 3.5. Added the direct local quadratic norm criterion and distinguished the requested function-field/characteristic-two extension from the existing number-field roadmap."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.1/separating-parameters",
+        "verdict": "verified",
+        "note": "Checked Lemma 3.6 and the finite-extension/place contract; the odd value and separating transcendence parameters have the needed hypotheses."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.1/test-form",
+        "verdict": "verified",
+        "note": "Checked Definition 3.7: the positive-a₁ trigger forces each shift parameter to be a unit at exactly those places; d=3 has one middle slot."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.1/etale-specialization-input",
+        "verdict": "verified",
+        "note": "Checked Proposition 3.8 and A0 arithmetic normalization: the completion comparison is an explicit supplier extension, only after shrinking to the finite étale locus."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.1/test-abundance",
+        "verdict": "verified",
+        "note": "Checked Proposition 3.8: nonzero torus specialization, separable residue extension, nice-tail construction and independent regular-parameter values supply anisotropy."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/nice-detection",
+        "verdict": "verified",
+        "note": "Checked Proposition 3.4(1), HL.6 branches and odd-degree restriction; G-ALT retains the prime-to-two alteration receipt instead of using arbitrary alterations."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/nice-parity",
+        "verdict": "verified",
+        "note": "Checked Proposition 3.4(2) with Q2.4 unit reduction: non-dyadicness and the odd nonconstant slot follow from local anisotropy and the nice tail."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/auxiliary-root-fields",
+        "verdict": "verified",
+        "note": "Checked Proposition 3.10 and Notation 4.1: actual root fields, degrees at most four, split and repeated-root cases, and generator invariance have discriminating tests."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/detecting-nonnegative",
+        "verdict": "verified",
+        "note": "Checked Claim 1 of Proposition 3.10. The corrected negative epsilon coefficient gives the principal unit; no source plus-sign error enters the plan."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/detecting-domination",
+        "verdict": "verified",
+        "note": "Checked Claim 2 of Proposition 3.10: its inequalities are imposed on finite families of θ and at the fixed auxiliary stage before compactness."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/compact-detecting-valuation",
+        "verdict": "verified",
+        "note": "Checked Lemma 3.9, Proposition 3.10, Q2.7 and the pinned patch declarations; restrict to L before intersecting closed conditions on the common compact space."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/coarsening-constant-trivial",
+        "verdict": "verified",
+        "note": "Checked Claim 3 with Q2.6: the lower-slot subform is defined over the relative constants, and the unit-isotropy criterion includes the intermediate henselian fields."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.2/refined-detection",
+        "verdict": "verified",
+        "note": "Checked the conclusion of Proposition 3.10: the coarsened nontrivial constant-trivial valuation becomes a curve place, with positive odd last-slot value."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/anisotropy-set",
+        "verdict": "verified",
+        "note": "Checked Notation 4.1: nonzero θ, root-field anisotropy and the explicit zero output agree; isotropic and singleton tests catch reversed membership."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/multiplicative-stabilizer",
+        "verdict": "verified",
+        "note": "Checked Notation 4.1: containment xB⊆B, not equality; empty set and {1} tests correctly prevent an unconditional subring assertion."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/detecting-divisor-set",
+        "verdict": "verified",
+        "note": "Checked Notation 4.1 and finite divisor support: only positive last-slot places with henselian anisotropy occur, over the correct k_t."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/valuation-ball",
+        "verdict": "verified",
+        "note": "Checked Notation 4.1 against normalized integer orders: strict half-value threshold and explicit zero branch agree with the pinned Place.ord convention."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/ball-stabilizer",
+        "verdict": "verified",
+        "note": "Checked the discrete minimum ball value: multiplying by a negative-order element leaves the ball, whereas integral elements preserve it."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/anisotropy-union",
+        "verdict": "verified",
+        "note": "Checked Theorem 4.2(1): the local half-value test and refined detection give both inclusions, including zero and the empty detecting set."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/stabilizer-intersection",
+        "verdict": "verified",
+        "note": "Checked Theorem 4.2(1) and pinned finite prescribed-order approximation: finite unions require the place-separating argument, not an arbitrary set-theoretic stabilizer identity."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.3/single-divisor",
+        "verdict": "verified",
+        "note": "Checked Theorem 4.2(2) and pinned high-degree sole-pole theorem; choose an odd allowable pole order and invert to isolate the desired positive place."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/niceness-definability",
+        "verdict": "corrected",
+        "note": "Checked Definition 3.3 and the finite Hensel/preordering adapters. Added 2≠0 to the dyadic trigger so characteristic two is not misclassified."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/valuation-filter",
+        "verdict": "corrected",
+        "note": "Checked Recipe 4.3 and the properness/valuation alternative. Added direct pinned place approximation for excluding intersections of two distinct DVRs."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/uniform-divisors",
+        "verdict": "verified",
+        "note": "Checked Theorem 1.3 and Theorem 4.2: the guarded construction gives all-fibers control and the singleton theorem gives surjectivity under precisely H_d."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/curve-symbol-inputs",
+        "verdict": "verified",
+        "note": "Checked Pop Theorem 2.1 and §§3A–3B: invertible prime 2 or 3, surface residue sequence, norm criterion and approximation are separate contracts, with G-LOW explicit."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/curve-valuation-construction",
+        "verdict": "verified",
+        "note": "Checked Pop §§3B–4B and Key Lemma 4.7: shifted operations and stabilizer conditions are retained; the corrected unit trigger and nonzero Hensel scalar handle characteristic two."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/curve-singleton-isolation",
+        "verdict": "verified",
+        "note": "Checked Key Lemma 4.7 and §§5A–5B: fundamental equality and the place-separating construction isolate one prolongation; all admissibility conditions remain in the formula."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.4/small-dimension-families",
+        "verdict": "corrected",
+        "note": "Checked DP Remark 4.4 and Pop Theorem 1.2/Conclusion 5.2; separated source locators and retained the adapted-base and surface input requests."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/normalization-rings",
+        "verdict": "verified",
+        "note": "Checked Proposition 5.1: arithmetic and geometric bases differ in characteristic zero; all four tests, including empty T, distinguish them."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/normalization-finite",
+        "verdict": "corrected",
+        "note": "Corrected the overstatement for S_T: finite over κ[T] gives a finitely generated κ-algebra, not a finitely generated ring in characteristic zero. Added Q[t] counterexample."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/geometric-intersection",
+        "verdict": "verified",
+        "note": "Checked Proposition 5.1 and R03.3 normal height-one intersection; geometric valuation rings recover S_T only, with the field/empty-intersection case included."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/arithmetic-flags",
+        "verdict": "verified",
+        "note": "Checked Fact 5.2 and Lemma 5.3 after the full-flag correction; rank and terminal arithmetic residue are correct, including geometric length zero."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/flag-refinement",
+        "verdict": "verified",
+        "note": "Checked Proposition 5.1/Lemma 5.3: shrink the finite étale locus for finitely many residue denominators and avoid the terminal arithmetic primes."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/coefficient-detection",
+        "verdict": "verified",
+        "note": "Checked Lemma 5.3 Claim: torus specialization and roots of unity give nonintegrality; split-prime approximation is used only with its number-field hypotheses."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/arithmetic-intersection",
+        "verdict": "verified",
+        "note": "Checked Lemma 5.3 using all prolongations and all split roots with multiplicities; the generic supplier does not assume the intersection has full base fraction field."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.5/normalization-definability",
+        "verdict": "verified",
+        "note": "Checked Proposition 5.1/Remark 5.4: fixed-depth interpreted flags and nonempty fibers express the two intersections, retaining the low-dimensional families."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.6/dimension-one-coding",
+        "verdict": "verified",
+        "note": "Checked AKNS Lemmas 3.7–3.8 and the arithmetic injection criterion; positive-characteristic polynomial decoding is an explicit Rumely proof leaf."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.6/one-dimensional-subring-finite",
+        "verdict": "verified",
+        "note": "Checked AKNS Lemma 3.6 and Theorem 3.1 proof: the requested one-dimensional core finiteness is stated separately from normality."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.6/normal-domain-biinterpretability",
+        "verdict": "verified",
+        "note": "Checked AKNS Theorem 3.1, localization, saturation and finite-module codes. Restricting to normal domains justifies the Dedekind core; module-generator bounds do not bound polynomial degree."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.6/field-ring-biinterpretation",
+        "verdict": "corrected",
+        "note": "Checked DP p.17 and AKNS localization: fraction pairs modulo cross multiplication have definable comparison graphs in both composites; source locators separated."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.6/low-dimensional-biinterpretation",
+        "verdict": "verified",
+        "note": "Checked DP Remark 4.4 with normalization and the normal-domain theorem; dimensions one and two are supplied rather than silently omitted."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.6/main-biinterpretability",
+        "verdict": "verified",
+        "note": "Checked Theorem 1.2 and p.17: finite fields excluded, all infinite dimensions handled and resolution imposed only in characteristic two above dimension three."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.7/qfa-transfer",
+        "verdict": "verified",
+        "note": "Checked AKNS Proposition 2.28 and Lemma 2.29: finite language and finite structure generation retained; Nies standardness remains G-QFA."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.7/inverse-language-bridge",
+        "verdict": "verified",
+        "note": "Checked the finite-generation distinction and the total inverse graph: finite-language structure generation equals field generation, and recursive graph elimination preserves sentences on fields."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.7/finite-field-sentence",
+        "verdict": "corrected",
+        "note": "Added pinned FiniteField.ringEquivOfCardEq for the uniqueness-of-finite-fields step. Exact cardinality plus field axioms, closedness and four discriminating tests agree."
+      },
+      {
+        "nodeId": "LogicAndDefinabilityInNumberTheoryPartII:FG.7/main-single-sentence",
+        "verdict": "verified",
+        "note": "Checked Theorem 1.1 and final proof: finite and infinite branches yield a parameter-free ring sentence among all finitely generated fields, without a resolution premise on comparison fields."
+      }
     ]
   }
 }
