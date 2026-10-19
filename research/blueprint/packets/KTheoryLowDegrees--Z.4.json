@@ -312,7 +312,15 @@
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/ClassGroup.lean",
         "sha256": "752771bcb6438cd69369ad6e04ddf90dc2aad5e06e2ac3c19a5eb3b3ae20b889"
       }
-    ]
+    ],
+    "review": {
+      "verdict": "confirmed",
+      "by": "REV-KTheoryLowDegrees--Z.4",
+      "date": "2026-10-19",
+      "declarations": 35,
+      "sourceFiles": 11,
+      "method": "Read declarations with enclosing hypotheses from the exact pinned Git objects; all eleven file hashes match this inventory and the shared Lean build. Native carriers, quotient direction, tensor evaluation, norm localization and finiteness requirements agree with their uses. Other baseline evidence in imported prerequisite chains retains its accepted provenance."
+    }
   },
   "sources": [
     {
@@ -354,6 +362,21 @@
         "Example 4.6, printed p. 71, PDF p. 73.",
         "Section 5, S-units, printed p. 90, PDF p. 92."
       ]
+    },
+    {
+      "id": "Cohen",
+      "title": "Advanced Computational Algebraic Number Theory",
+      "authors": "Henri Cohen",
+      "edition": "Public author manuscript dated 11 July 2001, 592 PDF pages; not collated against the published volume.",
+      "url": "https://www.math.utoronto.ca/~ila/Cohen%20--%20Advanced%20topics%20in%20computational%20number%20theory.pdf",
+      "sha256": "0b01c8f1755378c216c563c7d75e05edbf1c3a95843524f4ede6f0216a1cb159",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Corollary 1.2.11, printed p.5/PDF p.19; Lemma 1.2.20 and Theorem 1.2.19, printed pp.9-10/PDF pp.23-24.",
+        "Corollaries 1.2.24-1.2.27, printed pp.11-12/PDF pp.25-26; Definition 1.2.33, printed p.15/PDF p.29; Theorem 1.2.35, printed p.16/PDF p.30.",
+        "Relative integral pseudo-bases, printed p.77/PDF p.91; Definition 2.2.11 and Propositions 2.2.12-2.2.13, printed pp.80-82/PDF pp.94-96; Exercise 2.22, printed p.130/PDF p.144."
+      ],
+      "reviewedBy": "REV-KTheoryLowDegrees--Z.4"
     }
   ],
   "sourceVersions": [
@@ -374,6 +397,13 @@
       "url": "https://www.jmilne.org/math/CourseNotes/ANT.pdf",
       "read": "2026-10-19",
       "sha256": "24b83c789a89f25aebffb3cbe4ae5ca29edd0075acc072de093d140770630847"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.utoronto.ca/~ila/Cohen%20--%20Advanced%20topics%20in%20computational%20number%20theory.pdf",
+      "citation": "Public author manuscript dated 11 July 2001, 592 PDF pages; not collated against the published volume.",
+      "read": "2026-10-19",
+      "sha256": "0b01c8f1755378c216c563c7d75e05edbf1c3a95843524f4ede6f0216a1cb159"
     }
   ],
   "nodes": [],
@@ -932,7 +962,65 @@
       "KTheoryLowDegrees/E18",
       "KTheoryLowDegrees/E29"
     ],
-    "note": "Existing source corrections, not new findings. E1, E2, E16 and E18 were checked in the chapter versions listed here. Cohen provenance, including E6, E17 and E29, is inherited from the accepted owner; no Cohen copy was read in this pass."
+    "note": "Existing source corrections, not new findings. This independent review reread all seven in the public chapter/manuscript versions listed here. Original novelty searches and combined-draft/published-version evidence remain inherited; no fresh full errata or published-book collation is asserted.",
+    "checked": [
+      {
+        "sourceIssueId": "KTheoryLowDegrees/E1",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed the chapter-local p.25 single-prime case: its exponent group is Z. The historical combined-draft correction remains inherited; no new combined/published collation is claimed.",
+          "by": "REV-KTheoryLowDegrees--Z.4"
+        }
+      },
+      {
+        "sourceIssueId": "KTheoryLowDegrees/E2",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed II p.11 transposes P and Q in the summand. P=R and Q=0 contradict the subsequent vanishing bounds until the factors are restored.",
+          "by": "REV-KTheoryLowDegrees--Z.4"
+        }
+      },
+      {
+        "sourceIssueId": "KTheoryLowDegrees/E6",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed Cohen printed p.9/PDF p.23 omits nonzero for the scaling scalar. Multiplication by zero sends a nonzero ideal to zero, so it cannot be an equivalence.",
+          "by": "REV-KTheoryLowDegrees--Z.4"
+        }
+      },
+      {
+        "sourceIssueId": "KTheoryLowDegrees/E16",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed II p.14 asserts both composites. For Q to Q times Q, pullback after transfer takes (1,0) to (1,1), while its kernel contains all (a,-a); only transfer after pullback is multiplication by [B].",
+          "by": "REV-KTheoryLowDegrees--Z.4"
+        }
+      },
+      {
+        "sourceIssueId": "KTheoryLowDegrees/E17",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed Cohen printed p.9/PDF p.23 uses the positive-rank form without stating its exception. The next page handles the zero module separately, as the imported node does.",
+          "by": "REV-KTheoryLowDegrees--Z.4"
+        }
+      },
+      {
+        "sourceIssueId": "KTheoryLowDegrees/E18",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed I p.18 requires the nonzero-ideal qualification to classify Picard objects: the zero ideal of a domain has rank zero.",
+          "by": "REV-KTheoryLowDegrees--Z.4"
+        }
+      },
+      {
+        "sourceIssueId": "KTheoryLowDegrees/E29",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed Cohen printed p.82/PDF p.96 demands an integral beta with the prescribed fractional valuations. I=(1/2)Z over Q forces valuation -1 at 2. Clearing denominators first repairs the proof without changing the norm-span result.",
+          "by": "REV-KTheoryLowDegrees--Z.4"
+        }
+      }
+    ]
   },
   "importProvenance": {
     "packet": "research/blueprint/packets/KTheoryLowDegrees--Z.3.json",
@@ -982,7 +1070,12 @@
     "path": "research/blueprint/suggested/KTheoryLowDegrees--Z.4.lean",
     "sha256": "e5048b9c2b51c3eb58c4fa81ee5e3a065cb9a493bc6d97ec02265b12a4b3949a",
     "lines": 195,
-    "result": "lean-check exit 0, 18 intentional theorem-admission warnings and no other diagnostics; checked 2026-10-19. No admitted data definitions. Heavy constructions and full APIs/tests remain README targets under the 2026-10-12 shape rule."
+    "result": "lean-check exit 0, 18 intentional theorem-admission warnings and no other diagnostics; checked 2026-10-19. No admitted data definitions. Heavy constructions and full APIs/tests remain README targets under the 2026-10-12 shape rule.",
+    "independentReview": {
+      "by": "REV-KTheoryLowDegrees--Z.4",
+      "date": "2026-10-19",
+      "result": "Unchanged file independently elaborated with lean-check: exit 0; 18 intentional theorem-admission warnings, no other diagnostics. check_sorry_data passed; available memory 81 GiB."
+    }
   },
   "dependencyCheck": {
     "importedRootNodes": 43,
@@ -992,6 +1085,234 @@
     "cycles": 0,
     "intersectingGapRecords": [],
     "intersectingRequestRecords": [],
-    "note": "Graph traversal from imported IDs through blueprint and integrated nodes. This verifies resolution and acyclicity; inherited baseline evidence is not relabelled as a fresh audit of 219 declarations."
+    "note": "Graph traversal from imported IDs through blueprint and integrated nodes. This verifies resolution and acyclicity; inherited baseline evidence is not relabelled as a fresh audit of 219 declarations.",
+    "independentReview": {
+      "by": "REV-KTheoryLowDegrees--Z.4",
+      "date": "2026-10-19",
+      "result": "Recomputed all imports, owner SHA, coverage partition, API/test/planet counts, reader names, cycles and unresolved leaves; all recorded values match. No gap/request neededBy intersects the reachable closure."
+    }
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-KTheoryLowDegrees--Z.4",
+    "date": "2026-10-19",
+    "notes": "Independent review of the standalone packet, all 43 imported contracts and their source matches, 35 direct baseline declarations at the exact pins, closure, all 45 API items/26 tests/six planets, current upstream ownership and native Lean signatures. No mathematical correction, new node or baseline replacement was needed. Added fresh public Cohen version/locator evidence, independent confirmations of seven inherited source corrections, and synchronized the reader. The authoritative Z.3 owner remains unchanged; 219 transitive baseline references retain their accepted provenance. The 2026-10-09 target-level detail setting and 2026-10-12 compact Lean shape override the issue template’s older lemma-level/full-signature wording. Lean elaborated unchanged: 195 lines, 18 intentional theorem-admission warnings and no other diagnostics.",
+    "checked": [
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/coprime-ideal-representative",
+        "verdict": "verified",
+        "note": "Cohen Cor. 1.2.11, p.5; approximation gives an integral representative. The I=R branch avoids asserting the approximation scalar is nonzero without justification."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/coprime-ideal-sum",
+        "verdict": "verified",
+        "note": "Cohen Lem. 1.2.20, p.9; the explicit section and kernel (z,-z) work over any commutative ring under comaximality."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/ideal-sum",
+        "verdict": "verified",
+        "note": "Cohen Lem. 1.2.20, p.9; nonzero scaling before and after the coprime calculation preserves both ideal modules."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/projective-ideal-summands",
+        "verdict": "verified",
+        "note": "Weibel I p.18; induct on a finite free ambient module, split the coordinate image ideal, and count rank-one summands. The empty decomposition handles zero."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/steinitz",
+        "verdict": "verified",
+        "note": "Cohen Th. 1.2.19, pp.9-10, corrected at rank zero; iterated ideal-sum and the imported determinant API identify the final ideal class."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/projective-classification",
+        "verdict": "verified",
+        "note": "Weibel I Prop. 3.4, p.17; Cohen Cor. 1.2.24, p.11. Equal positive rank and determinant identify the ideal summands; zero is separate."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/line-class-product",
+        "verdict": "verified",
+        "note": "Weibel I Prop. 3.5, pp.17-18 and II Cor. 2.6.2, p.11. Tensor product of ideal lines is ideal multiplication; ideal-sum gives the square-zero reduced classes."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/reduced-line-class",
+        "verdict": "verified",
+        "note": "The subtraction of [R] makes the trivial line zero. The ideal-sum identity proves additivity; determinant is a left inverse and the normal form identifies the rank kernel."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/projective-class-normal-form",
+        "verdict": "verified",
+        "note": "Weibel I Prop. 3.4, p.17; for P=0 the coefficient is -1 and the determinant line is R, so the formula still gives zero."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-equivalence",
+        "verdict": "verified",
+        "note": "Weibel II Cor. 2.6.3, p.11 and Milne Th. 3.31, pp.57-58. Generator normal forms and the SplitK0 universal property prove the inverse on all integers."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-apply",
+        "verdict": "verified",
+        "note": "The two coordinates are the imported rank and determinant, not a new invariant. Rank-domain supplies finrank on actual projectives."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-inverse",
+        "verdict": "verified",
+        "note": "The inverse is (n-1)[R]+[L]; n=0 and n=-1 check its integer normalization without restricting to actual projective ranks."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-mul",
+        "verdict": "verified",
+        "note": "Weibel I Ex. 3.4, p.24 and II Def. 2.6.1, p.11. The rank-weighted integer exponents agree with the independent reduced-class square-zero calculation."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/rank-pic-ring-equiv",
+        "verdict": "verified",
+        "note": "Weibel II Cor. 2.6.2-2.6.3, p.11. The target is the existing square-zero extension with additive Pic; determinant alone is not a tensor-product homomorphism."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/class-group-pic-mk0",
+        "verdict": "verified",
+        "note": "Weibel I Prop. 3.5, pp.17-18; unfolding the pinned equivPic compares the embedded ideal with its native module through the injective fraction-field map."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/ideal-class-representative-independence",
+        "verdict": "verified",
+        "note": "Milne Th. 3.31, p.58 and Cohen Cor. 1.2.24, p.11. Pic equality and linear equivalence make the K0 inverse independent of the chosen nonzero ideal."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/rank-class-group-equivalence",
+        "verdict": "verified",
+        "note": "Transport rankPicEquiv through the existing equivPic. The representative formula and the zero-class test retain the original carriers and normalization."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/pic-map-extended-hom",
+        "verdict": "verified",
+        "note": "Weibel I Prop. 3.2, p.16 and Ex. 3.5, p.24. Injectivity over a Dedekind domain supplies flatness and identifies the tensor ideal with its extended ideal."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/k0-base-change-coordinates",
+        "verdict": "verified",
+        "note": "Weibel II Ex. 2.8.1, p.13. Arbitrary maps preserve constant rank and base-change determinant; only the ideal-class description requires injectivity."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/localization-eq-integer",
+        "verdict": "verified",
+        "note": "Weibel I p.19 and Ex. 3.8, p.25; Milne p.90. The nonzero denominator ideal and prime-disjointness argument prove the localization conditions only for the specified S_M."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/localization-class-group",
+        "verdict": "verified",
+        "note": "Weibel I Ex. 3.8, p.25. Transport the pinned Set.integer quotient along the localization equivalence and preserve its actual extension map."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/k0-localization",
+        "verdict": "verified",
+        "note": "The rank coordinate is fixed and the class coordinate is the quotient. Its reduced-ideal generators have the opposite sign to the Cartan residue classes."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/k0-ring-of-integers",
+        "verdict": "verified",
+        "note": "Milne Th. 3.31, p.58 and Weibel I p.19. Finite class group identifies exactly the torsion and the class-number-one case, after rank/ClassGroup classification."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/k0-s-integers",
+        "verdict": "verified",
+        "note": "Milne p.90; the native integerClassGroupEquiv and its extension formula apply directly to Set.integer. No unproved assertion that every Dedekind overring is a localization is used."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/zsqrtd-neg-five-integers",
+        "verdict": "verified",
+        "note": "Milne Ex. 4.6, p.71. The imported quadratic generator and squarefree mod-four criterion identify Zsqrtd(-5) with the number-field integers."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/nonprincipal-ideal-class",
+        "verdict": "verified",
+        "note": "Milne Ex. 4.6, p.71. The norm equation excludes principality, I squared is (2), and the displayed scalar identifies I with J; x is nonzero of order two."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/pic-norm",
+        "verdict": "verified",
+        "note": "Cohen Def. 2.2.11, p.80 and Prop. 2.2.13, p.82, with E29 denominator clearing. The real body transports the existing class-group norm, so normalization and degree power follow."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/invertible-injection-class",
+        "verdict": "verified",
+        "note": "Cohen Def. 1.2.33, p.15 motivates the index; the explicitly broader proof follows from dual evaluation and Pic tensor/dual formulas."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/top-exterior-inclusion-injective",
+        "verdict": "verified",
+        "note": "For nonzero J, both restrictions have rank d. Fraction-field base change makes their top-exterior map an isomorphism; torsion-freeness then gives injectivity."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-eq-rel-norm",
+        "verdict": "verified",
+        "note": "Cohen Def. 2.2.11 and Prop. 2.2.12(3), pp.80-81. Localize at maximal ideals, principalize J in the semilocal Dedekind algebra, and use the pinned norm-localization and determinant formulas. The field case is explicit."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/ideal-restriction-determinant",
+        "verdict": "verified",
+        "note": "Cohen Th. 1.2.35, p.16 and Cor. 1.2.25, p.11 motivate the relation. Index-ideal evaluation plus the norm comparison gives det_R J=N(J) det_R B, with the algebra determinant retained."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/restriction-rank",
+        "verdict": "verified",
+        "note": "Weibel II Ex. 2.8.1, p.13. Finite torsion-free over a Dedekind domain supplies projectivity; fraction-field localization and the dimension tower law give d times the B-rank."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/restriction-determinant",
+        "verdict": "verified",
+        "note": "Cohen Cor. 1.2.25, p.11 and the relative integral pseudo-basis discussion p.77. Steinitz over B reduces positive rank to the ideal formula; rank zero gives 1=1."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/k0-transfer-coordinates",
+        "verdict": "verified",
+        "note": "Weibel II Ex. 2.8.1 and Ex. 2.2, pp.13-14, with E16. Additive extension from projective classes gives (dr,N(C) sigma^r), including negative r; push-pull is multiplication by [B]."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/restriction-determinant-product",
+        "verdict": "verified",
+        "note": "Use the imported finite-product K0 equivalence and composition of transfers. Each component keeps its own rank exponent; the empty family has zero K0."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/number-field-extension-k0",
+        "verdict": "verified",
+        "note": "Specialize the verified finite-injective formula to integer rings. Cohen p.77 and Ex. 2.22, p.130 supply the nonfree-algebra warning; extra upstairs inverted primes do not preserve finiteness automatically."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/projective-class-injective",
+        "verdict": "verified",
+        "note": "Apply rank and determinant to equality in native SplitK0, then projective classification. No circular assumption of cancellation is needed."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/projective-cancellation",
+        "verdict": "verified",
+        "note": "Cancel integer ranks and invertible determinant classes, then use projective classification. Zero common summands are allowed."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/index-ideal",
+        "verdict": "verified",
+        "note": "Cohen Def. 1.2.33, p.15 is the motivation, not a claim of identical generality. The native evaluation range is defined for arbitrary modules and maps, with three distinct image tests."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-evaluation",
+        "verdict": "verified",
+        "note": "Tensoring an injection with the flat dual and composing with the evaluation equivalence proves injectivity; its range is a nonzero invertible ideal over a domain."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-congr",
+        "verdict": "verified",
+        "note": "Pre/postcomposition acts by an equivalence on the evaluation source, preserving its range. The reader correctly notes that this argument also works without the imported stronger hypotheses."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-free",
+        "verdict": "verified",
+        "note": "The dual basis evaluates a rank-one map to its scalar generator, including scalar zero. Thus the result is (a), not always the unit ideal."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.4/index-ideal-localisation",
+        "verdict": "verified",
+        "note": "The finite-projective dual-base-change supplier identifies the two evaluation maps; localization of their images agrees. No arbitrary-dual base-change assertion is made."
+      }
+    ]
   }
 }
