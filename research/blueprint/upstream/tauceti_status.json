@@ -465,10 +465,10 @@
       ],
       "note": "N3 CHANGES answered 10-16; draft",
       "review": {
-        "recommendation": "approve",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "recommendation": "changes",
+        "head": "d824ab9",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "DeformationAndDerivedPatchingAlgebraPartII": {
