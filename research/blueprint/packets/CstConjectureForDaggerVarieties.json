@@ -74,6 +74,18 @@
       "readSections": [
         "§1, pp. 1–8, for theorem scope and conjectures; §5, pp. 31–39, filtered modules and period Hom; §§6–9, pp. 39–58, diagrams, qBC filtration, geometric cases, limits and recovery; Appendix A, pp. 58–60, with the reviewed L0 qualification. Definitions 4.1–4.5 and the reasonable-Pair/filtration arguments in §4.3–4.4 were also read to fix the functor category; the §2–4 inputs are imported by their named owner contracts, not re-proved here."
       ]
+    },
+    {
+      "id": "GK04",
+      "title": "De Rham cohomology of rigid spaces",
+      "authors": "Elmar Grosse-Klönne",
+      "edition": "Mathematische Zeitschrift 247 (2004), 223–240; public arXiv:1408.3330v1 (14 August 2014), with locators in its own 20-page pagination.",
+      "url": "https://arxiv.org/pdf/1408.3330v1",
+      "sha256": "8adbb83b2cd20e134f5175d810a10d0d82f222da6063edb791b0270a33619dc1",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 3.7 and Corollary 3.8, pp.14–16, for the unfiltered comparison and its chart hypotheses."
+      ]
     }
   ],
   "conventions": [
@@ -419,12 +431,13 @@
       ],
       "title": "Bounded eigenspaces and period kernels",
       "kind": "definition",
-      "statement": "For r∈N, M with φ-slopes in [0,r], and a lattice L satisfying M⊗tʳB_dR⁺⊆tʳL⊆M⊗B_dR⁺, define the VS-valued X_stʳ(M)=(M⊗B_st⁺)^{N=0,φ=pʳ} and V_stʳ(M,L)=ker(X_stʳ(M)→(M⊗B_dR⁺)/tʳL). The bounded positive ring is essential: the displayed quotient map is not defined on the unrestricted B_st eigenspace. In the acyclic case this is a short exact sequence and V_stʳ=tʳV_st inside M⊗B_dR. More generally for k≥0 the t⁻ᵏB_st⁺-version maps onto (M⊗t⁻ᵏB_dR⁺)/tʳL iff the pair is acyclic, with the same kernel.",
+      "statement": "For r∈N, M with φ-slopes in [0,r], and a lattice L satisfying M⊗tʳB_dR⁺⊆tʳL⊆M⊗B_dR⁺, define the VS-valued X_stʳ(M)=(M⊗B_st⁺)^{N=0,φ=pʳ} and V_stʳ(M,L)=ker(X_stʳ(M)→(M⊗B_dR⁺)/tʳL). The bounded positive ring is essential: the displayed quotient map is not defined on the unrestricted B_st eigenspace. In the acyclic case this is a short exact sequence and V_stʳ=tʳV_st inside M⊗B_dR. More generally for k≥0 the t⁻ᵏB_st⁺-version maps onto (M⊗t⁻ᵏB_dR⁺)/tʳL iff the pair is acyclic, with the same kernel. For any such M, X_stʳ(M) is a finite BC object of curvature ≤0 and height dim M: it is H⁰ of the nonnegative-slope bundle attached to M{−r} with lattice M⊗B_dR⁺.",
       "hypotheses": [
         "The common conventions and the hypotheses in the statement apply."
       ],
       "proofSteps": [
         "Form invariant subobjects of the imported period Vector Spaces and the indicated kernel.",
+        "Use the VB1 gluing comparison to identify X_stʳ(M) with H⁰(E(M{−r},M⊗B_dR⁺)); its slopes are r minus the Newton slopes of M. Standard-bundle cohomology, the Le Bras equivalence and Euler height give finite BC, curvature ≤0 and height dim M.",
         "Use Remark 5.16 and the graded comparison of successive t-denominator levels to prove the criterion."
       ],
       "acceptance": [
@@ -434,13 +447,16 @@
         "CstConjectureForDaggerVarieties:CS.0/filtered-module-c",
         "CstConjectureForDaggerVarieties:CS.0/acyclicity-criteria",
         "PadicHodgeTheory:R06.1/plan/semistable-period-ring",
-        "VectorBundlesAndIsocrystals:VB3:general-BC/semistable-period-example"
+        "VectorBundlesAndIsocrystals:VB1",
+        "VectorBundlesAndIsocrystals:VB1/cohomology-of-twists",
+        "VectorBundlesAndIsocrystals:VB3:general-BC/le-bras-equivalence",
+        "VectorBundlesAndIsocrystals:VB3:general-BC/euler-poincare-height"
       ],
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "Remark 5.16, pp. 36–37; Proposition 5.20, p. 38 (positive-ring correction)",
-          "match": "Supplies the bounded normalization needed for the two Hom computations."
+          "locator": "Remark 5.16, pp.36–37; Proposition 5.18, p.37; Proposition 5.20, p.38 (positive-ring correction)",
+          "match": "Supplies the bounded normalization and the finite-BC curvature/height calculation used in the period-Hom comparisons."
         }
       ],
       "implementationStatus": "unchecked",
@@ -493,6 +509,11 @@
           "name": "PeriodKernel.nonexample_bounds",
           "kind": "characterisation",
           "statement": "For r=0 and L=t⁻¹B_dR⁺ the upper bound fails, although the pair is acyclic; do not apply the bounded theorem."
+        },
+        {
+          "name": "PeriodKernel.monodromy_sign",
+          "kind": "characterisation",
+          "statement": "Take φ(e₀)=e₀, φ(e₁)=pe₁, N(e₀)=0 and N(e₁)=e₀. With φ(u)=pu and N_B=−d/du, e₁+ue₀ belongs to X_st¹(M); e₁−ue₀ has diagonal monodromy 2e₀ and does not. This tests the imported monodromy sign."
         }
       ],
       "uses": [
@@ -520,7 +541,7 @@
       ],
       "proofSteps": [
         "Reduce modulo t by Nakayama.",
-        "Untwist nilpotent monodromy using exp(−uN) with the source-compatible sign of u; reduce to B_cris⁺.",
+        "Use the imported coordinate with N_B=−d/du. The horizontal lift is exp(uN_M)m, since (N_M−∂/∂u)exp(uN_M)m=0; its inverse exp(−uN_M) removes monodromy and reduces to B_cris⁺. This translates the source coordinate convention.",
         "Apply Dieudonné–Manin blocks of slope a/h and U_{h,rh−a}; independence of the conjugate Q_{pʰ}-characters shows their reductions span Cʰ."
       ],
       "acceptance": [
@@ -561,7 +582,7 @@
       ],
       "proofSteps": [
         "Use generation for injectivity.",
-        "The curvature/height period-Hom rank theorem identifies both B_dR-ranks with rank M, proving surjectivity over B_dR.",
+        "Use the finite-BC realization and height dim M of X_stʳ(M), then the period-Hom theorem of Proposition 3.27(i), pp.19–20: for curvature ≤0 the B_dR-valued natural Hom module is finite free of rank equal to height. This gives the required rank equality and surjectivity over B_dR; Euler height alone is not a Hom theorem.",
         "Choose an admissible lattice and use its finite-dimensional period realization to force B_st-valued functionals to have B_st coefficients."
       ],
       "acceptance": [
@@ -570,12 +591,13 @@
       "prerequisites": [
         "CstConjectureForDaggerVarieties:CS.0/eigenspace-generation",
         "CstConjectureForDaggerVarieties:CS.0/acyclicity-criteria",
-        "VectorBundlesAndIsocrystals:VB3:general-BC/euler-poincare-height"
+        "VectorBundlesAndIsocrystals:VB3:general-BC/euler-poincare-height",
+        "CstConjectureForDaggerVarieties:CS.0/bounded-period-spaces"
       ],
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "Proposition 5.18 and Remark 5.19, pp. 37–38",
+          "locator": "Proposition 5.18 and Remark 5.19, pp.37–38; Proposition 3.27(i), p.20",
           "match": "Computes the two Hom modules using rank and generation."
         }
       ],
@@ -606,7 +628,7 @@
         "For B_st choose a weakly admissible sublattice L′⊆L and evaluate on its finite Q_p period space."
       ],
       "acceptance": [
-        "The sublattice direction is L′⊆L; no Ext¹ with target equal to the torsion quotient is used."
+        "The sublattice direction is L′⊆L. The required Ext¹ has target B_dR, as already printed in the checked source; E5 is rejected."
       ],
       "prerequisites": [
         "CstConjectureForDaggerVarieties:CS.0/bounded-period-spaces",
@@ -617,7 +639,7 @@
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "Proposition 5.20 and Remark 5.21, p. 38 (corrected lattice inclusion and Ext target)",
+          "locator": "Proposition 5.20 and Remark 5.21, p. 38 (corrected lattice inclusion; the printed Ext target is already correct)",
           "match": "Extends the Hom computation through the finite torsion quotient."
         }
       ],
@@ -896,7 +918,7 @@
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "§6.4 and Conjecture 6.21, pp. 43–44; equation (6.16), p. 43 (sign convention)",
+          "locator": "§6.4 and Conjecture 6.21, pp. 43–44; square (6.16) and sequence (6.17), p.43 (difference-map convention)",
           "match": "Specifies the conjectural square and its exact-sequence formulation without claiming it is always bicartesian."
         }
       ],
@@ -1491,7 +1513,7 @@
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "Proposition 7.10 proof, p. 48; Remark 3.10, p. 16; Remark 3.8, p. 15",
+          "locator": "Proposition 7.10 proof, p. 48; Equation (3.10) and Remark 3.11, p.15; Remark 3.13(iv), p.16",
           "match": "Computes the two numerical defects and uses the stronger sign for H¹ of bundles."
         }
       ],
@@ -1568,14 +1590,15 @@
       ],
       "proofSteps": [
         "Vary r in the degreewise equivalence and use twist invariance.",
-        "When invoking curvature, twist the adjacent syntomic degree back into the valid pro-étale comparison range."
+        "For the adjacent positive-curvature piece use the bundle-cohomology twist identification h¹_i(r)≅h¹_i(r+1) from the failure objects. At r+1 the comparison range includes degree r+1; this identifies the finite positive piece needed for the induction. No comparison of the full syntomic group in degree r+1 at twist r is asserted."
       ],
       "acceptance": [
         "All degrees are quantified; a height identity in one degree is not used to prove acyclicity in every degree."
       ],
       "prerequisites": [
         "CstConjectureForDaggerVarieties:CS.2/local-equivalence",
-        "CstConjectureForDaggerVarieties:CS.1/twist-and-induction"
+        "CstConjectureForDaggerVarieties:CS.1/twist-and-induction",
+        "CstConjectureForDaggerVarieties:CS.2/failure-objects"
       ],
       "sources": [
         {
@@ -1954,27 +1977,35 @@
       ],
       "title": "Comparison for semistable tube complements",
       "kind": "application",
-      "statement": "Let 𝔛/O_K be weak formal with local étale charts Spf(O_K{T₁,…,T_n}/(T₁⋯T_s−π)), 1≤s≤m≤n. Let 𝔝 be locally either ⋂_{j=s+1}^mV(T_j) or ⋃_{j=s+1}^mV(T_j), with the stated compatible charts, and assume 𝔛_K smooth proper. For U=]𝔛_k∖𝔝_k[_𝔛, the base change U_C has de Rham slopes ≥0 and hence bicartesian fundamental diagrams. The comparison RΓ_dR(𝔛_K∖𝔝_K)→RΓ_dR(U) is a filtered quasi-isomorphism; compatible HK and B_dR comparisons transfer the filtered pairs.",
+      "statement": "Let 𝔛/O_K be weak formal with local étale charts Spf(O_K{T₁,…,T_n}/(T₁⋯T_s−π)), 1≤s≤m≤n. Let 𝔝 be locally either ⋂_{j=s+1}^mV(T_j) or ⋃_{j=s+1}^mV(T_j), with the stated compatible charts, and assume 𝔛_K smooth proper. For U=]𝔛_k∖𝔝_k[_𝔛, the base change U_C has de Rham slopes ≥0 and hence bicartesian fundamental diagrams. The restriction RΓ_dR(𝔛_K∖𝔝_K)→RΓ_dR(U) is an unfiltered quasi-isomorphism, compatible with the natural filtration map; no filtered-complex quasi-isomorphism is claimed. The compatible HK comparison identifies the underlying coefficients, and naturality gives inclusion of the induced full B_dR⁺ lattices. That inclusion, rather than equality of the filtrations, suffices for acyclicity.",
       "hypotheses": [
         "The common conventions and the hypotheses in the statement apply."
       ],
       "proofSteps": [
-        "Use the chartwise tube-complement invariance of Proposition 8.3, including its union variant.",
-        "Apply the almost proper theorem to the generic complement.",
-        "Transport its filtered pairs using the natural comparisons and HK base change; check the quasi-compact tube is small."
+        "Use Grosse-Klönne Corollary 3.8(a),(c) for the unfiltered tube-complement comparison in the stated charts. Proposition 8.3 of CN25 overstates this as a filtered quasi-isomorphism; E16 records the correction.",
+        "Apply the almost proper theorem to V=(𝔛_K∖𝔝_K)_C, and use the compatible HK comparison to identify its punctured bundle with that of U_C.",
+        "Quasi-compactness of U_C gives smallness. The natural filtration map sends L_V into L_U inside the common localized period module. These are full lattices, so E_i(V)→E_i(U_C) is injective with finite-length cokernel at ∞. Torsion sheaves have H¹=0; the cohomology sequence therefore transfers H¹=0 from E_i(V) to E_i(U_C)."
       ],
       "acceptance": [
-        "Both intersection and union versions require the stated coordinate description; an arbitrary closed formal subscheme is not covered."
+        "Both intersection and union versions require the stated coordinate description; an arbitrary closed formal subscheme is not covered.",
+        "For the weak formal projective line and the infinity section, restriction from the affine line to the dagger closed unit disc is not a quasi-isomorphism on gr⁰ of the naive Hodge filtration: (1−πT)⁻¹ is overconvergent on the disc but has a pole on the affine line. This rules out the stronger filtered-complex claim without affecting unfiltered de Rham invariance or the lattice-inclusion argument."
       ],
       "prerequisites": [
         "CstConjectureForDaggerVarieties:CS.3/almost-proper-slopes",
-        "CstConjectureForDaggerVarieties:CS.3/nonnegative-de-rham-slopes"
+        "CstConjectureForDaggerVarieties:CS.3/nonnegative-de-rham-slopes",
+        "CstConjectureForDaggerVarieties:CS.0/modified-bundle",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/two-affine-cover-cohomological-dimension"
       ],
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "Proposition 8.3 and the following example, pp. 51–52",
-          "match": "Gives a tube-complement application of the almost proper theorem under explicit semistable coordinates."
+          "locator": "Proposition 8.3 and the following example, pp.51–52, with E16 filtration correction",
+          "match": "The chart hypotheses and slope application are retained; lattice containment replaces the unjustified filtered-complex equivalence."
+        },
+        {
+          "sourceId": "GK04",
+          "locator": "Corollary 3.8(a),(c), p.16; Proposition 3.7, pp.14–16, in arXiv v1 pagination",
+          "match": "Proves the underlying de Rham comparison for both the intersection and union charts; it does not assert an equivalence on the associated graded Hodge complexes."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1994,28 +2025,35 @@
       ],
       "title": "Small tubular neighbourhoods in projective space",
       "kind": "application",
-      "statement": "Let X=Pⁿ_K and let Z=Z₁×_X⋯×_XZ_c be a smooth scheme-theoretic complete intersection of c hypersurfaces in the codimension-c setting of Proposition 8.4. There is ε₀∈|K×| such that for positive ε∈|K×| with ε<ε₀, removing the specified tubular neighbourhood Z(ε) instead of Z induces compatible quasi-isomorphisms in de Rham and HK cohomology. The same comparison holds for the union of the Z_j by analytic Čech descent under the source’s complete-intersection hypotheses. The resulting dagger complement over C has de Rham slopes ≥0. The chosen tube definition and its radius inequalities must be part of the geometric supplier.",
+      "statement": "Let X=Pⁿ_K and let Z=Z₁×_X⋯×_XZ_c be a smooth scheme-theoretic complete intersection of c hypersurfaces in the codimension-c setting of Proposition 8.4. There is ε₀∈|K×| such that for positive ε∈|K×| with ε<ε₀, removing the specified tubular neighbourhood Z(ε) instead of Z induces compatible quasi-isomorphisms in de Rham and HK cohomology. The same comparison holds for the union of the Z_j by analytic Čech descent under the source’s complete-intersection hypotheses. The resulting dagger complement over C has de Rham slopes ≥0. The chosen tube definition and its radius inequalities must be part of the geometric supplier. The restriction preserves the induced filtration, but equality of filtration lattices or a filtered-complex quasi-isomorphism is not required: lattice containment transfers acyclicity through a torsion quotient at ∞.",
       "hypotheses": [
         "The common conventions and the hypotheses in the statement apply."
       ],
       "proofSteps": [
-        "Use the local normal-coordinate description along the smooth complete intersection and tube invariance of de Rham cohomology.",
-        "Transfer to HK through its comparison and naturality; apply Čech descent for the union statement.",
-        "Transport the almost proper filtered pairs and smallness to the tube complement."
+        "Use the local normal-coordinate description along the smooth complete intersection and the unfiltered tube invariance of de Rham cohomology in Grosse-Klönne Proposition 3.7.",
+        "Transfer to HK through its comparison and naturality; check analytic Čech descent for all strata used in the union statement. The precise radius and descent compatibility remain part of G-GEOMETRIC.",
+        "Use quasi-compact smallness and naturality to include the induced lattice of the almost proper complement in that of the tube complement. The resulting injective bundle map has torsion cokernel at ∞; its cohomology sequence transfers H¹=0 as in the semistable tube case."
       ],
       "acceptance": [
         "No theorem for every radius or for a singular complete intersection is asserted.",
-        "Before closing this target, verify the tube comparison at the induced B_dR filtration, not just underlying de Rham groups."
+        "Before closing this target, establish the compatible HK comparison and natural inclusion of the induced B_dR⁺ lattices, and verify the strata and radius hypotheses for the union descent. Underlying de Rham invariance alone supplies no equality of filtrations."
       ],
       "prerequisites": [
         "CstConjectureForDaggerVarieties:CS.3/almost-proper-slopes",
-        "CstConjectureForDaggerVarieties:CS.3/nonnegative-de-rham-slopes"
+        "CstConjectureForDaggerVarieties:CS.3/nonnegative-de-rham-slopes",
+        "CstConjectureForDaggerVarieties:CS.0/modified-bundle",
+        "VectorBundlesAndIsocrystals:VB2:ampleness/two-affine-cover-cohomological-dimension"
       ],
       "sources": [
         {
           "sourceId": "CN25",
           "locator": "Proposition 8.4 and the following paragraph, p. 52",
           "match": "Applies invariance for sufficiently small tubes; the local product uses a local piece of Z."
+        },
+        {
+          "sourceId": "GK04",
+          "locator": "Proposition 3.7, pp.14–16, in arXiv v1 pagination",
+          "match": "Supplies the unfiltered de Rham invariance after the required local product and radius hypotheses have been checked."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2192,7 +2230,7 @@
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "Lemma 8.10, Remark 8.11 and footnote 22, p. 53; Remark 3.15, p. 17",
+          "locator": "Lemma 8.10, Remark 8.11 and footnote 22, p. 53; Remark 3.15, p.16",
           "match": "Reduces the difficult pro-étale limit to truncated de Rham cohomology."
         }
       ],
@@ -2264,7 +2302,7 @@
         "The common conventions and the hypotheses in the statement apply."
       ],
       "proofSteps": [
-        "Pass to the completions of the partial-proper dagger pieces using analytic invariance.",
+        "Compare the derived inverse systems of dagger pieces and their rigid completions using cofinal strict shrinkings of the Stein exhaustion and the analytic descent contract. The affinoid pieces are not partially proper, so a termwise completion isomorphism is not used.",
         "On the quasi-compact completions use the étale realization relevant to the comparison.",
         "Apply proper-factor étale Künneth; the finite-dimensional proper groups commute with the inverse-limit computation.",
         "Use the Stein/affinoid diagram and the analytic Stein limit theorem for S_n to kill R¹lim of the second factor."
@@ -2632,7 +2670,7 @@
       "sources": [
         {
           "sourceId": "CN25",
-          "locator": "Remark 9.9(i),(iii), p. 58; Conjectures 1.6, 1.8 and 9.1, pp. 3–4,55",
+          "locator": "Remark 9.9(i),(iii), p. 58; Conjectures 1.6, 1.8 and 9.1, pp.5,55",
           "match": "States precisely what is and is not obtained by the proved recovery theorems."
         }
       ],
@@ -2649,7 +2687,7 @@
       "status": "planned",
       "remaining": [
         "G-LEAN: Neither pinned search nor the read current-library audit supplies genuine dagger analytic cohomology, qBC/Pairs, geometric FF modified bundles and the requisite strict derived completed period interfaces. The suggested file therefore checks only existing categorical and module conventions and the sign test; its examples encode none of the comparison theorems. Replace no carrier by an arbitrary type, opaque placeholder or mathematical assertion parameter. Instantiate mathematical targets only when their owners provide the actual carriers.",
-        "G-PERIOD-HOM: Supply arbitrary VS-to-B_dR bounded-image Hom vanishing and Ext¹,natural vanishing on finite torsion periods (Corollary 3.18, Lemma 3.26); the reviewed VB3 packet itself leaves G-HOM and G-EXT open. Supply the compatibility of VS and natural Topological Vector Space Hom in §9.2, arithmetic Fontaine Hom vanishing, and the smaller weakly admissible filtration with the same bounds (Lemmas 5.3–5.4) needed by bounded arithmetic reconstruction. R06.2 owns the generic arithmetic period functors and reconstruction, not a second definition here. Correct the degree and containment conventions before use."
+        "G-PERIOD-HOM: Supply arbitrary VS-to-B_dR bounded-image Hom vanishing and Ext¹,natural vanishing on finite torsion periods (Corollary 3.18, Lemma 3.26); the reviewed VB3 packet itself leaves G-HOM and G-EXT open. Supply the compatibility of VS and natural Topological Vector Space Hom in §9.2, arithmetic Fontaine Hom vanishing, and the smaller weakly admissible filtration with the same bounds (Lemmas 5.3–5.4) needed by bounded arithmetic reconstruction. R06.2 owns the generic arithmetic period functors and reconstruction, not a second definition here. Correct the degree and containment conventions before use. Include Proposition 3.27(i), pp.19–20: for every finite BC W of curvature ≤0, Hom_VS(W,B_dR) is finite free over B_dR of rank ht(W), with the natural evaluation comparison. Euler height by itself supplies no period-Hom rank theorem."
       ],
       "note": "Every stated target has a node and backward prerequisites or an explicit unresolved contract. No stage is proof-closed or promotion-ready."
     },
@@ -2657,9 +2695,9 @@
       "stageId": "CstConjectureForDaggerVarieties:CS.1",
       "status": "planned",
       "remaining": [
-        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract.",
+        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract. For Proposition 8.12 specifically, supply the comparison of derived inverse systems of dagger affinoid pieces and their rigid completions after cofinal strict shrinkings. Partial-proper invariance cannot be applied separately to those affinoid pieces.",
         "G-ETALE: Supply finite/perfect proper Z_p-cohomology and Bhatt–Hansen proper base change in the smooth rigid setting needed for Lemma 8.13, p.54, together with the rational/pro-étale comparison for the completed quasi-compact pieces in Proposition 8.12. The underlying proper factor, not the arbitrary second factor, is the perfect complex used in the projection formula. Existing algebraic period comparison is not a proof of this analytic input.",
-        "G-GEOMETRIC: Supply finite-free B_dR⁺/HK cohomology and compatible Künneth over C, HK GAGA for finite-type algebraic C-varieties, characteristic-zero resolution of smooth proper rigid pairs with arbitrary closed boundary, the logarithmic comparison sequence, and the filtered/HK tube comparisons of Propositions 8.3–8.4. Read F1 nodes for de Rham finiteness/Künneth have discretely valued bases, and its resolution lemma is affinoid; they do not supply these C/global cases. In particular unfiltered cohomology invariance alone does not justify transport of the B_dR filtration in the tube application.",
+        "G-GEOMETRIC: Supply finite-free B_dR⁺/HK cohomology and compatible Künneth over C, HK GAGA for finite-type algebraic C-varieties, characteristic-zero resolution of smooth proper rigid pairs with arbitrary closed boundary, the logarithmic comparison sequence, and compatible unfiltered de Rham/HK tube comparisons for Propositions 8.3–8.4. Include naturality of the induced filtration map, full-lattice containment inside the common localized period module, the tube radius definition and the strata/radius checks for union descent. Read F1 nodes have discretely valued finiteness/Künneth hypotheses and affinoid resolution scope, and do not supply these C/global cases. Do not request a filtered-complex quasi-isomorphism: E16 shows that is too strong. Lattice containment with torsion quotient, not equality, is the input needed for the slope application.",
         "G-LEAN: Neither pinned search nor the read current-library audit supplies genuine dagger analytic cohomology, qBC/Pairs, geometric FF modified bundles and the requisite strict derived completed period interfaces. The suggested file therefore checks only existing categorical and module conventions and the sign test; its examples encode none of the comparison theorems. Replace no carrier by an arbitrary type, opaque placeholder or mathematical assertion parameter. Instantiate mathematical targets only when their owners provide the actual carriers."
       ],
       "note": "Every stated target has a node and backward prerequisites or an explicit unresolved contract. No stage is proof-closed or promotion-ready."
@@ -2668,8 +2706,8 @@
       "stageId": "CstConjectureForDaggerVarieties:CS.2",
       "status": "planned",
       "remaining": [
-        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract.",
-        "G-FA: The read L0/compact-type-extension-duality node retains hypotheses H1 (strict strong-dual sequence) and H2 (continuous bidual map). Its reviewed E102 flags the source’s move from stereotype to strong topology on an unknown middle term. Supply those hypotheses for the spaces in Proposition 7.15, pp.49–50, or a separate valid splitting argument. Do not use an unqualified extension-closure theorem; this gap is confined to the splitting branch and not made an input to Theorem 8.1 or recovery.",
+        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract. For Proposition 8.12 specifically, supply the comparison of derived inverse systems of dagger affinoid pieces and their rigid completions after cofinal strict shrinkings. Partial-proper invariance cannot be applied separately to those affinoid pieces.",
+        "G-FA: The read L0/compact-type-extension-duality node retains hypotheses H1 (strict strong-dual sequence) and H2 (continuous bidual map). The source uses stereotype duals; neither the required strong-dual strictness nor continuity on the unknown middle term follows from the endpoint identifications alone. Supply H1/H2 for the spaces in Proposition 7.15, pp.49–50, or another valid splitting argument. This is a qualified missing import, not an assertion that the extension theorem is false; G-FA is confined to the splitting branch and is not an input to Theorem 8.1 or recovery.",
         "G-LEAN: Neither pinned search nor the read current-library audit supplies genuine dagger analytic cohomology, qBC/Pairs, geometric FF modified bundles and the requisite strict derived completed period interfaces. The suggested file therefore checks only existing categorical and module conventions and the sign test; its examples encode none of the comparison theorems. Replace no carrier by an arbitrary type, opaque placeholder or mathematical assertion parameter. Instantiate mathematical targets only when their owners provide the actual carriers.",
         "G-QBC: Supply CN25 §§2,4: the actual natural Topological Vector Space category of Definition 4.1 (not just ordinary C-point topologies), reasonable B_dR⁺-Pairs, qBC recognition, canonical curvature filtration, signed height additivity, natural TVS realization and compatibility with finite BC. Include the dense finite-torsion presentations, the adjacent syntomic positive piece of Proposition 7.10 and countable BC inverse-limit vanishing of Remark 3.15. VB3’s read packet supplies finite BC only. The proposed VectorBundlesAndIsocrystalsPartII is not yet defined and is requested as an extension rather than an existing prerequisite."
       ],
@@ -2679,7 +2717,7 @@
       "stageId": "CstConjectureForDaggerVarieties:CS.3",
       "status": "planned",
       "remaining": [
-        "G-GEOMETRIC: Supply finite-free B_dR⁺/HK cohomology and compatible Künneth over C, HK GAGA for finite-type algebraic C-varieties, characteristic-zero resolution of smooth proper rigid pairs with arbitrary closed boundary, the logarithmic comparison sequence, and the filtered/HK tube comparisons of Propositions 8.3–8.4. Read F1 nodes for de Rham finiteness/Künneth have discretely valued bases, and its resolution lemma is affinoid; they do not supply these C/global cases. In particular unfiltered cohomology invariance alone does not justify transport of the B_dR filtration in the tube application.",
+        "G-GEOMETRIC: Supply finite-free B_dR⁺/HK cohomology and compatible Künneth over C, HK GAGA for finite-type algebraic C-varieties, characteristic-zero resolution of smooth proper rigid pairs with arbitrary closed boundary, the logarithmic comparison sequence, and compatible unfiltered de Rham/HK tube comparisons for Propositions 8.3–8.4. Include naturality of the induced filtration map, full-lattice containment inside the common localized period module, the tube radius definition and the strata/radius checks for union descent. Read F1 nodes have discretely valued finiteness/Künneth hypotheses and affinoid resolution scope, and do not supply these C/global cases. Do not request a filtered-complex quasi-isomorphism: E16 shows that is too strong. Lattice containment with torsion quotient, not equality, is the input needed for the slope application.",
         "G-LEAN: Neither pinned search nor the read current-library audit supplies genuine dagger analytic cohomology, qBC/Pairs, geometric FF modified bundles and the requisite strict derived completed period interfaces. The suggested file therefore checks only existing categorical and module conventions and the sign test; its examples encode none of the comparison theorems. Replace no carrier by an arbitrary type, opaque placeholder or mathematical assertion parameter. Instantiate mathematical targets only when their owners provide the actual carriers."
       ],
       "note": "Every stated target has a node and backward prerequisites or an explicit unresolved contract. No stage is proof-closed or promotion-ready."
@@ -2688,7 +2726,7 @@
       "stageId": "CstConjectureForDaggerVarieties:CS.4",
       "status": "planned",
       "remaining": [
-        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract.",
+        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract. For Proposition 8.12 specifically, supply the comparison of derived inverse systems of dagger affinoid pieces and their rigid completions after cofinal strict shrinkings. Partial-proper invariance cannot be applied separately to those affinoid pieces.",
         "G-ETALE: Supply finite/perfect proper Z_p-cohomology and Bhatt–Hansen proper base change in the smooth rigid setting needed for Lemma 8.13, p.54, together with the rational/pro-étale comparison for the completed quasi-compact pieces in Proposition 8.12. The underlying proper factor, not the arbitrary second factor, is the perfect complex used in the projection formula. Existing algebraic period comparison is not a proof of this analytic input.",
         "G-LEAN: Neither pinned search nor the read current-library audit supplies genuine dagger analytic cohomology, qBC/Pairs, geometric FF modified bundles and the requisite strict derived completed period interfaces. The suggested file therefore checks only existing categorical and module conventions and the sign test; its examples encode none of the comparison theorems. Replace no carrier by an arbitrary type, opaque placeholder or mathematical assertion parameter. Instantiate mathematical targets only when their owners provide the actual carriers.",
         "G-QBC: Supply CN25 §§2,4: the actual natural Topological Vector Space category of Definition 4.1 (not just ordinary C-point topologies), reasonable B_dR⁺-Pairs, qBC recognition, canonical curvature filtration, signed height additivity, natural TVS realization and compatibility with finite BC. Include the dense finite-torsion presentations, the adjacent syntomic positive piece of Proposition 7.10 and countable BC inverse-limit vanishing of Remark 3.15. VB3’s read packet supplies finite BC only. The proposed VectorBundlesAndIsocrystalsPartII is not yet defined and is requested as an extension rather than an existing prerequisite."
@@ -2699,10 +2737,10 @@
       "stageId": "CstConjectureForDaggerVarieties:CS.5",
       "status": "planned",
       "remaining": [
-        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract.",
+        "G-ANALYTIC: Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract. For Proposition 8.12 specifically, supply the comparison of derived inverse systems of dagger affinoid pieces and their rigid completions after cofinal strict shrinkings. Partial-proper invariance cannot be applied separately to those affinoid pieces.",
         "G-CRIS: Remark 9.9(ii), p.58 strengthens Remarks 5.19/5.21 from a bounded sandwich to an exact B_cris⁺ Hom equality and Frobenius recovery after completion of Fⁿʳ. Its last equality uses a criterion involving all positive Frobenius iterates lying in B_dR⁺. The public LaTeX source itself discusses the distinction between B_cris⁺ and B_max⁺ in a commented justification, so a formal proof must identify the exact additional condition on these restricted Hom maps, or pass through a justified B_max⁺ argument; mere localization or the t^{−i} bound is insufficient. This stronger positivity input was not independently established in this pass. Keep the target and this gap; Theorems 9.3 and 9.8 do not depend on it.",
         "G-LEAN: Neither pinned search nor the read current-library audit supplies genuine dagger analytic cohomology, qBC/Pairs, geometric FF modified bundles and the requisite strict derived completed period interfaces. The suggested file therefore checks only existing categorical and module conventions and the sign test; its examples encode none of the comparison theorems. Replace no carrier by an arbitrary type, opaque placeholder or mathematical assertion parameter. Instantiate mathematical targets only when their owners provide the actual carriers.",
-        "G-PERIOD-HOM: Supply arbitrary VS-to-B_dR bounded-image Hom vanishing and Ext¹,natural vanishing on finite torsion periods (Corollary 3.18, Lemma 3.26); the reviewed VB3 packet itself leaves G-HOM and G-EXT open. Supply the compatibility of VS and natural Topological Vector Space Hom in §9.2, arithmetic Fontaine Hom vanishing, and the smaller weakly admissible filtration with the same bounds (Lemmas 5.3–5.4) needed by bounded arithmetic reconstruction. R06.2 owns the generic arithmetic period functors and reconstruction, not a second definition here. Correct the degree and containment conventions before use.",
+        "G-PERIOD-HOM: Supply arbitrary VS-to-B_dR bounded-image Hom vanishing and Ext¹,natural vanishing on finite torsion periods (Corollary 3.18, Lemma 3.26); the reviewed VB3 packet itself leaves G-HOM and G-EXT open. Supply the compatibility of VS and natural Topological Vector Space Hom in §9.2, arithmetic Fontaine Hom vanishing, and the smaller weakly admissible filtration with the same bounds (Lemmas 5.3–5.4) needed by bounded arithmetic reconstruction. R06.2 owns the generic arithmetic period functors and reconstruction, not a second definition here. Correct the degree and containment conventions before use. Include Proposition 3.27(i), pp.19–20: for every finite BC W of curvature ≤0, Hom_VS(W,B_dR) is finite free over B_dR of rank ht(W), with the natural evaluation comparison. Euler height by itself supplies no period-Hom rank theorem.",
         "G-QBC: Supply CN25 §§2,4: the actual natural Topological Vector Space category of Definition 4.1 (not just ordinary C-point topologies), reasonable B_dR⁺-Pairs, qBC recognition, canonical curvature filtration, signed height additivity, natural TVS realization and compatibility with finite BC. Include the dense finite-torsion presentations, the adjacent syntomic positive piece of Proposition 7.10 and countable BC inverse-limit vanishing of Remark 3.15. VB3’s read packet supplies finite BC only. The proposed VectorBundlesAndIsocrystalsPartII is not yet defined and is requested as an extension rather than an existing prerequisite."
       ],
       "note": "Every stated target has a node and backward prerequisites or an explicit unresolved contract. No stage is proof-closed or promotion-ready."
@@ -2712,7 +2750,7 @@
     {
       "id": "CstConjectureForDaggerVarieties/G-ANALYTIC",
       "title": "Model-free analytic cohomology package and limit descent",
-      "detail": "Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract.",
+      "detail": "Supply the actual complexes, topologies, natural VS lifts, strict α_r:τ≤rRΓ_syn→τ≤rRΓ_proét, HK and B_dR⁺ comparisons, φ-slope bound [0,min(i,dim X)], syntomic fiber and filtered triangle, and functorial partial-proper completion and countable exhaustion descent summarized in Proposition 6.1, pp.39–40 and Remark 8.9, p.53. CN Part I Theorems 4.27,5.8,5.12 and its §7.3 are cited by CN25 but not independently checked here. The extraction’s proposed SyntomicCohomologyAndSteinComparison is not a defined roadmap in this checkout, and the earlier model-based Stein route is narrower. Route a model-free extension through the comparison owners; no existing proper comparison stage is represented as supplying this contract. For Proposition 8.12 specifically, supply the comparison of derived inverse systems of dagger affinoid pieces and their rigid completions after cofinal strict shrinkings. Partial-proper invariance cannot be applied separately to those affinoid pieces.",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.1/cohomology-notation",
         "CstConjectureForDaggerVarieties:CS.1/small-variety",
@@ -2753,7 +2791,7 @@
     {
       "id": "CstConjectureForDaggerVarieties/G-PERIOD-HOM",
       "title": "Qualified period Hom, torsion Ext and bounded filtered interfaces",
-      "detail": "Supply arbitrary VS-to-B_dR bounded-image Hom vanishing and Ext¹,natural vanishing on finite torsion periods (Corollary 3.18, Lemma 3.26); the reviewed VB3 packet itself leaves G-HOM and G-EXT open. Supply the compatibility of VS and natural Topological Vector Space Hom in §9.2, arithmetic Fontaine Hom vanishing, and the smaller weakly admissible filtration with the same bounds (Lemmas 5.3–5.4) needed by bounded arithmetic reconstruction. R06.2 owns the generic arithmetic period functors and reconstruction, not a second definition here. Correct the degree and containment conventions before use.",
+      "detail": "Supply arbitrary VS-to-B_dR bounded-image Hom vanishing and Ext¹,natural vanishing on finite torsion periods (Corollary 3.18, Lemma 3.26); the reviewed VB3 packet itself leaves G-HOM and G-EXT open. Supply the compatibility of VS and natural Topological Vector Space Hom in §9.2, arithmetic Fontaine Hom vanishing, and the smaller weakly admissible filtration with the same bounds (Lemmas 5.3–5.4) needed by bounded arithmetic reconstruction. R06.2 owns the generic arithmetic period functors and reconstruction, not a second definition here. Correct the degree and containment conventions before use. Include Proposition 3.27(i), pp.19–20: for every finite BC W of curvature ≤0, Hom_VS(W,B_dR) is finite free over B_dR of rank ht(W), with the natural evaluation comparison. Euler height by itself supplies no period-Hom rank theorem.",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.0/eigenspace-period-hom",
         "CstConjectureForDaggerVarieties:CS.0/filtered-period-hom",
@@ -2768,7 +2806,7 @@
     {
       "id": "CstConjectureForDaggerVarieties/G-GEOMETRIC",
       "title": "Analytic finiteness, GAGA, logarithmic pairs and tube invariance",
-      "detail": "Supply finite-free B_dR⁺/HK cohomology and compatible Künneth over C, HK GAGA for finite-type algebraic C-varieties, characteristic-zero resolution of smooth proper rigid pairs with arbitrary closed boundary, the logarithmic comparison sequence, and the filtered/HK tube comparisons of Propositions 8.3–8.4. Read F1 nodes for de Rham finiteness/Künneth have discretely valued bases, and its resolution lemma is affinoid; they do not supply these C/global cases. In particular unfiltered cohomology invariance alone does not justify transport of the B_dR filtration in the tube application.",
+      "detail": "Supply finite-free B_dR⁺/HK cohomology and compatible Künneth over C, HK GAGA for finite-type algebraic C-varieties, characteristic-zero resolution of smooth proper rigid pairs with arbitrary closed boundary, the logarithmic comparison sequence, and compatible unfiltered de Rham/HK tube comparisons for Propositions 8.3–8.4. Include naturality of the induced filtration map, full-lattice containment inside the common localized period module, the tube radius definition and the strata/radius checks for union descent. Read F1 nodes have discretely valued finiteness/Künneth hypotheses and affinoid resolution scope, and do not supply these C/global cases. Do not request a filtered-complex quasi-isomorphism: E16 shows that is too strong. Lattice containment with torsion quotient, not equality, is the input needed for the slope application.",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.1/small-variety",
         "CstConjectureForDaggerVarieties:CS.3/product-slopes",
@@ -2793,7 +2831,7 @@
     {
       "id": "CstConjectureForDaggerVarieties/G-FA",
       "title": "Strong-dual strictness for the syntomic splitting",
-      "detail": "The read L0/compact-type-extension-duality node retains hypotheses H1 (strict strong-dual sequence) and H2 (continuous bidual map). Its reviewed E102 flags the source’s move from stereotype to strong topology on an unknown middle term. Supply those hypotheses for the spaces in Proposition 7.15, pp.49–50, or a separate valid splitting argument. Do not use an unqualified extension-closure theorem; this gap is confined to the splitting branch and not made an input to Theorem 8.1 or recovery.",
+      "detail": "The read L0/compact-type-extension-duality node retains hypotheses H1 (strict strong-dual sequence) and H2 (continuous bidual map). The source uses stereotype duals; neither the required strong-dual strictness nor continuity on the unknown middle term follows from the endpoint identifications alone. Supply H1/H2 for the spaces in Proposition 7.15, pp.49–50, or another valid splitting argument. This is a qualified missing import, not an assertion that the extension theorem is false; G-FA is confined to the splitting branch and is not an input to Theorem 8.1 or recovery.",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.2/syntomic-filtration-splitting"
       ]
@@ -2863,22 +2901,24 @@
   "requests": [
     {
       "supplier": "VectorBundlesAndIsocrystals:VB1",
-      "need": "The read VB1 description owns effective bundle gluing, isocrystal-to-bundle comparison, tensor/dual compatibility and H⁰/H¹. Supply the punctured B_e/completed B_dR⁺ lattice gluing interface over the geometric curve, reusing AlgebraicVectorBundles and the existing scheme sheaf API.",
+      "need": "The read VB1 description owns effective bundle gluing, isocrystal-to-bundle comparison, tensor/dual compatibility and H⁰/H¹. Supply the punctured B_e/completed B_dR⁺ lattice gluing interface over the geometric curve, reusing AlgebraicVectorBundles and the existing scheme sheaf API. In particular identify (M⊗B_st⁺)^{N=0,φ=pʳ} with H⁰(E(M{−r},M⊗B_dR⁺)), naturally in every finite (φ,N)-module M with slopes in [0,r]. This general statement cannot be supplied by the rank-two semistable-period example.",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.0/modified-bundle",
-        "CstConjectureForDaggerVarieties:CS.0/acyclicity-criteria"
+        "CstConjectureForDaggerVarieties:CS.0/acyclicity-criteria",
+        "CstConjectureForDaggerVarieties:CS.0/bounded-period-spaces"
       ],
       "scope": "existing-scope"
     },
     {
       "supplier": "VectorBundlesAndIsocrystals:VB3:general-BC",
-      "need": "Route the proposed VectorBundlesAndIsocrystals, Part II for reasonable Pairs and qBC (§§2,4), and resolve the read finite-BC G-HOM/G-EXT needs. Existing finite BC nodes are imported exactly; infinite Pairs, qBC and arbitrary continuous Hom are recorded as G-QBC/G-PERIOD-HOM, not claimed covered by this stage.",
+      "need": "Route the proposed VectorBundlesAndIsocrystals, Part II for reasonable Pairs and qBC (§§2,4), and resolve the read finite-BC G-HOM/G-EXT needs. Existing finite BC nodes are imported exactly; infinite Pairs, qBC and arbitrary continuous Hom are recorded as G-QBC/G-PERIOD-HOM, not claimed covered by this stage. Include the exact finite-BC period-Hom rank formula of Proposition 3.27(i), pp.19–20, for curvature ≤0; G-PERIOD-HOM retains it until the owner provides that interface.",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.2/canonical-qbc-filtration",
         "CstConjectureForDaggerVarieties:CS.2/defect-sequence",
         "CstConjectureForDaggerVarieties:CS.2/height-defect",
         "CstConjectureForDaggerVarieties:CS.4/derived-limit-criterion",
-        "CstConjectureForDaggerVarieties:CS.5/recovery-c"
+        "CstConjectureForDaggerVarieties:CS.5/recovery-c",
+        "CstConjectureForDaggerVarieties:CS.0/eigenspace-period-hom"
       ],
       "scope": "extension-routing-only"
     },
@@ -2906,7 +2946,7 @@
     },
     {
       "supplier": "AdicSpacesPartII:F1",
-      "need": "Import the actual dagger objects and de Rham complex. Extend analytic finiteness/Künneth from the read discretely valued base to C, resolution from affinoid pairs to proper rigid pairs, and supply the specified tube constructions and filtered invariance. These are G-GEOMETRIC, not claims supplied by the existing narrower nodes.",
+      "need": "Import the actual dagger objects and de Rham complex. Extend analytic finiteness/Künneth from the read discretely valued base to C, resolution from affinoid pairs to proper rigid pairs, and supply the specified tube constructions, compatible unfiltered de Rham/HK invariance and natural inclusion of the induced B_dR⁺ lattices, with the radius/strata checks for union descent. These are G-GEOMETRIC, not claims supplied by the existing narrower nodes. No equivalence on associated graded Hodge complexes is requested (E16).",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.1/small-variety",
         "CstConjectureForDaggerVarieties:CS.3/product-slopes",
@@ -2928,7 +2968,7 @@
     },
     {
       "supplier": "ClassicalAdicEtaleCohomology:H3",
-      "need": "Route proper rigid finite/perfect Z_p-cohomology, analytic proper base change and the completed quasi-compact étale/pro-étale interfaces used in Lemma 8.13 and Proposition 8.12. G-ETALE remains open pending an exact owner-level theorem; no general arbitrary analytic Z_p-cohomology perfection is assumed.",
+      "need": "Route proper rigid finite/perfect Z_p-cohomology, analytic proper base change and the completed quasi-compact étale/pro-étale interfaces used in Lemma 8.13 and Proposition 8.12. G-ETALE remains open pending an exact owner-level theorem; no general arbitrary analytic Z_p-cohomology perfection is assumed. The completion comparison used in Proposition 8.12 is for derived inverse systems after cofinal strict shrinkings; it is not a termwise invariance assertion for dagger affinoids.",
       "neededBy": [
         "CstConjectureForDaggerVarieties:CS.1/proper-comparison-k",
         "CstConjectureForDaggerVarieties:CS.1/proper-comparison-c",
@@ -3592,7 +3632,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At §5.1.2, p.32, the printed sign conflicts with the slope convention: decreasing the filtration decreases t_H and must decrease degree in Lemma 5.3. The bundle normalization and the O(±1) tests require t_H−t_N.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E2",
@@ -3608,7 +3653,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Lemma 5.4, p.33, only the maximal nonzero step i₀ is changed. The unchanged-index condition must exclude i₀, not zero.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E3",
@@ -3624,7 +3674,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Proposition 5.20, p.38, the kernel maps to a quotient of M⊗B_dR⁺. Its domain must be the bounded positive eigenspace; the proof itself uses X_stʳ.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E4",
@@ -3640,23 +3695,33 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At the proof on p.38, Remark 5.14(iii) supplies a smaller weakly admissible lattice. Containment L′⊆L is needed to include its period kernel in the one being studied.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E5",
       "source": "CN25",
       "kind": "misprint",
       "locator": "CN5 author manuscript / arXiv v4: Proposition 5.20 proof, p.38",
-      "printed": "The cited Ext-vanishing expression names the torsion quotient where the target period field is required.",
-      "correction": "Use Ext¹,natural(X_dR^r,B_dR)=0 in the contravariant Hom long exact sequence.",
-      "reason": "The surjectivity of Hom(X_st^r,B_dR)→Hom(V_st^r,B_dR) requires the connecting Ext with target B_dR.",
-      "affects": "the proof",
-      "known": "Already flagged in the accepted PAPER-COLMEZ-NIZIOL-25 extraction; rechecked here, with no published correction located in the consulted sources.",
+      "printed": "The author PDF and arXiv v4 already use Ext¹,natural(X_dR^r,B_dR)=0, with the period field as target.",
+      "correction": "No source correction: retain the printed Ext¹,natural(X_dR^r,B_dR)=0.",
+      "reason": "Independent reading of p.38 and the corresponding public LaTeX formula shows the earlier allegation of a torsion-quotient target was a transcription error in the extraction.",
+      "affects": "nothing",
+      "known": "Rejected in this independent review; retained only to correct the extraction/design audit trail.",
       "searched": [
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Independent reading of p.38 and the corresponding public LaTeX formula shows the earlier allegation of a torsion-quotient target was a transcription error in the extraction.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E6",
@@ -3672,7 +3737,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Proposition 5.23, p.39, comparison with the statement identifies the upper-left source as M∨⊗(B_dR⁺/tᵏ). The factor tʳ belongs to the composite, not this source.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E7",
@@ -3688,7 +3758,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Remark 6.13, p.42, the relevant modification is by the induced F⁰ lattice. The unfiltered positive cohomology lattice omits the Hodge convolution used in Theorem 6.8.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E8",
@@ -3704,13 +3779,18 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Corollary 6.19, p.43, the diagram comes from α_r and Theorem 6.14, which have pro-étale input; the printed étale notation cannot replace it in this analytic case.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E9",
       "source": "CN25",
       "kind": "error",
-      "locator": "CN5 author manuscript / arXiv v4: Equation (6.16), p.43",
+      "locator": "CN5 author manuscript / arXiv v4: Sequence (6.17), p.43 (associated to square (6.16))",
       "printed": "The square’s two routes are added in v while the two components of u have the same sign.",
       "correction": "For a commutative square c a=d b choose u=(a,b), v=(c,−d), or change one sign in u instead.",
       "reason": "For the degree-zero point square, u(1)=(1,1) and the printed sum sends it to 2. The difference sends it to zero, as a complex requires.",
@@ -3720,7 +3800,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The defect is in sequence (6.17), p.43, associated to square (6.16). With the printed same-sign diagonal, the sum composite sends 1 to 2 for the point. The difference map makes the composite zero.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E10",
@@ -3736,7 +3821,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At (8.7), p.52, the global sequence has no free n index; Remark 8.9(iii), p.53, takes limits of (8.8), not (6.11).",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E11",
@@ -3752,7 +3842,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Lemma 8.13, p.54, perfection is available for the proper factor Y, and it is precisely its coefficient complex that must commute with cohomology on arbitrary T. No perfection on T is assumed.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E12",
@@ -3768,7 +3863,12 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Lemma 7.13/Remark 7.14, p.49, the fixed-degree block set is J_i and the j-th block has denominator h_j; both corrections follow from the immediately preceding slope decomposition.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E13",
@@ -3784,23 +3884,33 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Theorem 9.8, pp.57–58, X is already over C and the proof applies natural TVS Hom to a qBC object, which need not be a period Pair. The target statements already use the corrected category.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E14",
       "source": "CN25",
       "kind": "gap",
       "locator": "CN5 author manuscript / arXiv v4: Proposition A.4 proof, p.59",
-      "printed": "The duality argument moves between stereotype and strong topologies on the unknown extension term without establishing the needed strictness and bidual continuity.",
+      "printed": "Proposition A.4 uses stereotype duals in an exact left-heart sequence and a bidual comparison to prove compact-type extension closure.",
       "correction": "Use the conditional L0/compact-type-extension-duality interface and prove H1/H2 for the spaces in Proposition 7.15, or replace the argument.",
-      "reason": "Duality of the two known compact-type endpoints does not identify the dual topology on their unknown middle extension. The read owner node explicitly retains these proof obligations.",
+      "reason": "The read source does not supply the strict dual sequence and continuous bidual map needed by the owner’s chosen strong-dual repair. This confirms the missing import for this formalisation route, without asserting that stereotype and strong topologies are interchangeable or that the extension theorem is false.",
       "affects": "the proof",
-      "known": "Inherited from the reviewed L0 E102 and its qualified extension-duality node; no independent verdict is claimed here.",
+      "known": "Independently checked against Appendix A and the exact qualified L0 node; confirmed as a formalisation proof obligation inherited from reviewed L0 E102.",
       "searched": [
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The read source does not supply the strict dual sequence and continuous bidual map needed by the owner’s chosen strong-dual repair. This confirms the missing import for this formalisation route, without asserting that stereotype and strong topologies are interchangeable or that the extension theorem is false.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     },
     {
       "id": "CstConjectureForDaggerVarieties/E15",
@@ -3816,7 +3926,34 @@
         "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
         "arXiv:2108.12785v4 public source (25 November 2024)",
         "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Remark 9.9(ii), p.58, the positive equality needs more than Remarks 5.19/5.21’s t-denominator bound. The public source discussion distinguishes B_cris⁺ and B_max⁺; the gap is confirmed as an unprovided positivity input, not a counterexample to the recovery theorem.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
+    },
+    {
+      "id": "CstConjectureForDaggerVarieties/E16",
+      "source": "CN25",
+      "kind": "error",
+      "locator": "CN5 author manuscript / arXiv v4: Proposition 8.3, p.51 and its B_dR follow-up, p.52; compare GK04 Corollary 3.8, p.16",
+      "printed": "The tube-complement restriction is called a filtered quasi-isomorphism, and the same strength is then asserted for B_dR cohomology.",
+      "correction": "Use the unfiltered de Rham/HK comparison and the natural map of induced full B_dR⁺ lattices. Its containment gives a bundle injection with torsion cokernel, enough to transfer acyclicity. Do not claim an equivalence of the naive-Hodge filtered complexes.",
+      "reason": "Take the weak formal projective line with boundary the infinity section. The map is restriction from the analytic affine line to the dagger closed unit disc. For gr⁰ of the naive Hodge filtration its H⁰ is the restriction on functions; (1−πT)⁻¹ is overconvergent on the disc but has a pole at π⁻¹ in the affine line, so restriction is not onto. GK04 Corollary 3.8 asserts only the underlying de Rham isomorphism.",
+      "affects": "a stated result",
+      "known": "New finding in this independent review, scoped to the read author/arXiv text; it does not contradict the unfiltered comparison or the slope application after the stated repair.",
+      "searched": [
+        "Author CN5 manuscript https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf (24 November 2024)",
+        "arXiv:2108.12785v4 public source (25 November 2024)",
+        "Web search on 2026-10-19 for Colmez Niziol C_st-conjecture erratum: no separate author correction located. Publisher version was not consulted; these findings concern the specified author/arXiv texts only.",
+        "Grosse-Klönne arXiv:1408.3330v1, Proposition 3.7 and Corollary 3.8, read 2026-10-19; targeted web searches for a correction to CN25 Proposition 8.3 found none."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Take the weak formal projective line with boundary the infinity section. The map is restriction from the analytic affine line to the dagger closed unit disc. For gr⁰ of the naive Hodge filtration its H⁰ is the restriction on functions; (1−πT)⁻¹ is overconvergent on the disc but has a pole at π⁻¹ in the affine line, so restriction is not onto. GK04 Corollary 3.8 asserts only the underlying de Rham isomorphism.",
+        "by": "REV-DESIGN-CstConjectureForDaggerVarieties"
+      }
     }
   ],
   "restructure": [
@@ -3852,7 +3989,7 @@
   "upstreamNotes": [
     {
       "roadmap": "AdicSpaces",
-      "note": "Read the current upstream README and declaration inventory at roadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27. Reuse its adic and completed-topological foundations. It does not supply the model-free dagger cohomology comparison targeted here; the source-specific packages remain explicit supplier contracts."
+      "note": "Read the current upstream README and declaration inventory at roadmap commit 0d144d044dacebca17b654695b6f1ad58f159b27. Reuse its adic rings, rational localizations and complete separated topological rings. It explicitly leaves fiber products, properness, completed tensor interfaces and period-bundle structure to later work. It does not supply the model-free dagger cohomology comparison targeted here; the source-specific packages remain explicit supplier contracts."
     },
     {
       "roadmap": "AlgebraicVectorBundles",
@@ -3886,11 +4023,258 @@
       "sha256": "1c58d1b7687880b7ec820d8437584b63575cae7d81165c0ba566ac1d16ee2933",
       "kind": "preprint",
       "note": "The publisher version of record was not read. Findings are scoped to this text and require journal collation by the source-review workflow."
+    },
+    {
+      "sourceId": "GK04",
+      "kind": "preprint",
+      "version": "arXiv:1408.3330v1, 14 August 2014",
+      "url": "https://arxiv.org/pdf/1408.3330v1",
+      "read": "2026-10-19",
+      "sha256": "8adbb83b2cd20e134f5175d810a10d0d82f222da6063edb791b0270a33619dc1",
+      "note": "Proposition 3.7 and Corollary 3.8 read for the predecessor of CN25 Proposition 8.3; journal collation not asserted."
     }
   ],
   "suggestedCoverage": {
     "policy": "WORKERS.md fixed roadmap shape of 12 October 2026 overrides the older issue prototype instructions.",
     "covered": "Only pinned categorical/module convention examples and the difference-map sign check.",
     "omitted": "Every new target requires a missing heavy geometric/period carrier; its exact mathematical statement, API and tests remain in the reader. No opaque placeholders, arbitrary carriers or assertion parameters are introduced."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-CstConjectureForDaggerVarieties",
+    "date": "2026-10-19",
+    "notes": "All 46 nodes checked at the named public-source locators, all six baseline declarations read at the pins, and external supplier statements/current upstream overlap checked. Corrected monodromy convention, near-miss BC citation, period-Hom and inverse-system closure, tube filtration overstatement, and locators; aligned reader and roadmap. Sixteen source findings independently reviewed: fifteen confirmed (including two qualified proof obligations), E5 rejected. Eight explicit gap/request classes and all six planned/nonclosed statuses remain honest. Suggested Lean convention examples elaborate without warnings; none implements a comparison target.",
+    "checked": [
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/filtered-module-c",
+        "verdict": "verified",
+        "note": "Read §5.3.1, p.36. Full B_dR⁺ lattice, diagonal operators and lattice-preserving morphisms match; existing arithmetic coefficients are reused without asserting a canonical C embedding."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/modified-bundle",
+        "verdict": "verified",
+        "note": "Read §5.3.1, p.36 and the VB1 supplier scope. The particular B_e/B_dR⁺ gluing and section equalizer are correct; effective gluing remains an exact VB1 request, not baseline implementation."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/acyclic-module-c",
+        "verdict": "verified",
+        "note": "Read Definition 5.13, p.36 and the corrected degree convention on p.32. The O(1), O(−1) and zero tests distinguish acyclicity, weak admissibility and curvature."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/acyclicity-criteria",
+        "verdict": "verified",
+        "note": "Read Remark 5.14(ii)–(iii), p.36, Lemma 5.3 and the cited bundle cohomology/classification contracts. The smaller-lattice direction and H¹ criterion are correct."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/bounded-period-spaces",
+        "verdict": "corrected",
+        "note": "Read Remark 5.16, pp.36–37 and Proposition 5.20, p.38. Removed the rank-two-only supplier citation. Added a general H⁰/gluing contract and explicit finite-BC/height derivation from the existing slope cohomology and Le Bras nodes; added the rank-two monodromy-sign test."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/eigenspace-generation",
+        "verdict": "corrected",
+        "note": "Read Lemma 5.17, p.37 and the R06.1 period coordinate. With imported N_B=−d/du, exp(uN_M) is horizontal and exp(−uN_M) removes monodromy; translated the proof convention explicitly."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/eigenspace-period-hom",
+        "verdict": "corrected",
+        "note": "Read Proposition 5.18, p.37 and Proposition 3.27(i), p.20. Added the general finite-BC prerequisite and requested the exact Hom-rank theorem; Euler height alone does not imply it."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/filtered-period-hom",
+        "verdict": "corrected",
+        "note": "Read Proposition 5.20/Remark 5.21, p.38. The mathematical target and smaller-lattice direction are valid; corrected the citation/check that falsely advertised an Ext-target misprint (E5)."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.0/truncated-period-hom",
+        "verdict": "verified",
+        "note": "Read Proposition 5.23, pp.38–39. The k≥2r range, tʳ kernel and t²ʳ cokernel bounds, source-domain correction and bounded weak-admissibility request are retained."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/cohomology-notation",
+        "verdict": "verified",
+        "note": "Read Proposition 6.1, pp.39–40 and the induced-filtration conventions. Images differ from filtered-complex cohomology, and the actual analytic/derived/VS package remains G-ANALYTIC."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/small-variety",
+        "verdict": "verified",
+        "note": "Read §1.2.2 and §7.2, p.47. Finite freeness in every degree, rather than pointwise finite dimensions alone, is the definition. The C-valued finiteness extension is honestly G-GEOMETRIC."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/fundamental-square",
+        "verdict": "corrected",
+        "note": "Read §6.4, pp.43–44. The conjectural square and difference complex are correct; located the sign defect in sequence (6.17), associated to square (6.16). BicartesianSq itself is existing Mathlib."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/twist-and-induction",
+        "verdict": "verified",
+        "note": "Read Remark 6.23(ii)–(iii), pp.44–45. Preserves the valid comparison range and distinguishes cohomological images from filtered-complex groups."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/proper-comparison-k",
+        "verdict": "verified",
+        "note": "Read Theorem 6.4/Remark 6.7, pp.40–41. Proper arithmetic comparison, Galois-compatible Hom and weak topology have the stated scope; analytic and étale input is explicit."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/proper-comparison-c",
+        "verdict": "verified",
+        "note": "Read Theorem 6.8/Remark 6.13, pp.41–42. The modification uses the induced F⁰ lattice, and the geometric recovery states only the information justified by its input."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/stein-affinoid-diagram",
+        "verdict": "verified",
+        "note": "Read Theorem 6.14, p.42 and Corollary 6.19, p.43. The simplified diagram has the stated Stein/affinoid range and pro-étale corner; F1’s strict-differential node is used with its missing analytic extension recorded."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.1/elementary-bicartesian-cases",
+        "verdict": "verified",
+        "note": "Read Corollaries 6.15 and 6.19, pp.42–43. Proper/Stein/affinoid bicartesianness follows from the preceding comparison nodes independently of the splitting branch."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/failure-objects",
+        "verdict": "verified",
+        "note": "Read §7.2, p.47. Both bundle-cohomology terms use the simultaneous Frobenius/lattice twist; the shifted-point test correctly cancels the two contributions."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/failure-kernel-cokernel",
+        "verdict": "verified",
+        "note": "Read the diagram and sequence (7.6), p.47. Kernel/cokernel identification is in the left heart and retains the analytic and qBC input rather than forgetting topology."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/canonical-qbc-filtration",
+        "verdict": "verified",
+        "note": "Read Corollary 7.9, p.47 and the Definition 4.5 qBC convention. The three graded pieces and curvature order are correct; reasonable Pairs and qBC remain an extension request."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/defect-sequence",
+        "verdict": "verified",
+        "note": "Read sequences (7.7)–(7.8), p.47. The torsion image kernel and the two finite BC terms are kept distinct, with all natural maps induced from the fundamental diagram."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/height-defect",
+        "verdict": "corrected",
+        "note": "Read Proposition 7.10, pp.47–48, equation (3.10)/Remark 3.11, p.15, and Remark 3.13(iv), p.16. Fixed nonexistent/misnumbered numerical locators; signed height and H¹ negativity support the formulas."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/local-equivalence",
+        "verdict": "verified",
+        "note": "Read Proposition 7.10, pp.47–48. The adjacent syntomic positive piece is included, so the degreewise implication does not assume a comparison outside i≤r."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/global-equivalence",
+        "verdict": "corrected",
+        "note": "Read Corollary 7.11/Remark 7.12, p.48. Added the failure-object prerequisite and spelled out twisting the finite positive piece; no full adjacent syntomic/pro-étale isomorphism outside the valid range is invoked."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/crystalline-eigenspace-splitting",
+        "verdict": "verified",
+        "note": "Read Lemma 7.13/Remark 7.14, pp.48–49. The source block indices are corrected, and Dieudonné–Manin plus the qualified period interface supplies the noncanonical splitting target."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.2/syntomic-filtration-splitting",
+        "verdict": "verified",
+        "note": "Read Proposition 7.15, pp.49–50 and Appendix A, pp.58–60. r≥dim X and the noncanonical nature are preserved; H1/H2 of L0 remain G-FA confined to this branch."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.3/nonnegative-de-rham-slopes",
+        "verdict": "verified",
+        "note": "Read §8.1, p.50. The predicate includes smallness and acyclicity in every degree, so a non-small infinite union is correctly excluded even if all its components qualify."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.3/product-slopes",
+        "verdict": "verified",
+        "note": "Read Theorem 8.1(a), p.50. Filtered cup product gives lattice containment and a torsion modification; equality of filtrations and a general pro-étale tensor formula are not asserted."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.3/algebraic-analytification",
+        "verdict": "verified",
+        "note": "Read Theorem 8.1(b), pp.50–51. Algebraic comparison and the lattice modification transfer H¹ vanishing; HK GAGA and the C/global analytic extension remain requested."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.3/almost-proper-slopes",
+        "verdict": "verified",
+        "note": "Read Theorem 8.1(c), p.51. The proper ambient space and arbitrary closed boundary are reduced through global pair resolution and log comparison, whose scope exceeds the affinoid supplier and remains a gap."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.3/etale-proetale-defect",
+        "verdict": "verified",
+        "note": "Read Remark 8.2, p.51. The comparison of two-term defects uses the logarithmic filtration rather than identifying the full étale and pro-étale groups."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.3/semistable-tube-complement",
+        "verdict": "corrected",
+        "note": "Read CN25 Proposition 8.3 and its application, pp.51–52, and GK04 Corollary 3.8, p.16. Removed the false filtered-complex quasi-isomorphism, recorded E16 and the affine-line/disc test, and supplied the lattice-inclusion/torsion-cokernel proof of the slope application."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.3/projective-tube-complement",
+        "verdict": "corrected",
+        "note": "Read Proposition 8.4, p.52 and GK04 Proposition 3.7, pp.14–16. Made the weaker lattice-inclusion proof explicit and retained precise radius/Čech-strata compatibility in G-GEOMETRIC; no filtered-complex invariance is requested."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.4/exhaustion-data",
+        "verdict": "verified",
+        "note": "Read (8.5)–(8.8), p.52. The F/A image and the filtered cohomology group are separate; cofinality and limit descent are the needed API, with the corrected global stage index."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.4/limit-obstruction",
+        "verdict": "verified",
+        "note": "Read Remark 8.9, p.53. The R¹lim obstruction sequence uses the stagewise sequence (8.8), with the free global index and wrong cross-reference corrected."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.4/derived-limit-criterion",
+        "verdict": "corrected",
+        "note": "Read Lemma 8.10/Remark 8.11, p.53 and Remark 3.15, p.16. Corrected the latter page; countable BC-limit vanishing is already explicitly in G-QBC and is not silently assumed."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.4/proper-factor-kunneth",
+        "verdict": "verified",
+        "note": "Read Lemma 8.13, p.54. The perfect coefficient object is RΓ_ét(Y,Z_p) for the proper factor, while the second factor is arbitrary; G-ETALE supplies finiteness/base change."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.4/proper-stein-limit-vanishing",
+        "verdict": "corrected",
+        "note": "Read Proposition 8.12/Remark 8.16(i), p.54. Replaced invalid termwise partial-proper invariance on affinoid pieces by the derived-system/cofinal-shrinking comparison, expressly retained in G-ANALYTIC."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.4/proper-stein-proetale-kunneth",
+        "verdict": "verified",
+        "note": "Read Remark 8.16(ii), p.54. The formula uses finite proper-factor cohomology with the specified cohomological topology after the established limit theorem, not a general tensor formula."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.4/proper-stein-fundamental-diagram",
+        "verdict": "verified",
+        "note": "Read Proposition 8.17, pp.54–55. The limit-vanishing criterion yields the non-small product case without importing a finite-rank recovery conclusion."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.5/differential-period-hom-vanishing",
+        "verdict": "verified",
+        "note": "Read Lemma 9.5, pp.55–56. Arithmetic differential Hom vanishing has its stated K/G_K input and is qualified by the exact imported Fontaine/analytic interface."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.5/arithmetic-torsion-hom-vanishing",
+        "verdict": "verified",
+        "note": "Read Lemma 9.6, pp.56–57. The rational truncation and torsion-kernel vanishing retain their arithmetic Galois scope; arbitrary continuous maps over C are not substituted."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.5/recovery-k",
+        "verdict": "verified",
+        "note": "Read Theorem 9.3 and proof, pp.55–57. Acyclic small or affinoid hypotheses, smooth Galois Hom, operators, descent, convolution filtration and topology are retained; conjectural unrestricted recovery is excluded."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.5/recovery-c",
+        "verdict": "verified",
+        "note": "Read Theorem 9.8 and proof, pp.57–58. Uses natural TVS Hom, the dense torsion-Pair presentation and the bounded period theorem to recover only the extended modules."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.5/crystalline-positive-hom-bounds",
+        "verdict": "verified",
+        "note": "Read Remarks 5.19/5.21 and 9.9(ii), p.58 plus the public LaTeX positivity discussion. Exact B_cris⁺ recovery remains the qualified G-CRIS target; the weaker t^{−i} sandwich is not presented as a proof."
+      },
+      {
+        "nodeId": "CstConjectureForDaggerVarieties:CS.5/limits-of-recovery",
+        "verdict": "corrected",
+        "note": "Read Remark 9.9(i),(iii), p.58 and Conjectures 1.6/1.8, p.5, 9.1, p.55. Corrected the introductory page; rank/free-module recovery does not restore the discarded φ,N/filtration data or settle the unrestricted conjectures."
+      }
+    ]
   }
 }

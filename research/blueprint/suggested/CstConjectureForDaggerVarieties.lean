@@ -63,7 +63,7 @@ example (X Y : C) [HasBinaryBiproduct X Y] :
 
 end Squares
 
-/-! The trivial rank-one point tests the sign of equation (6.16). -/
+/-! The trivial rank-one point tests the difference-map sign of sequence (6.17), associated to square (6.16). -/
 
 example : (1 : ℚ) - 1 = 0 := sub_self _
 
