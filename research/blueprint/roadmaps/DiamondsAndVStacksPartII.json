@@ -1,0 +1,188 @@
+{
+ "id": "DiamondsAndVStacksPartII",
+ "title": "Pro-étale descent, diamonds and small v-stacks, Part II: integral recovery and kimberlite specialization",
+ "area": "padic",
+ "parent": "DiamondsAndVStacks",
+ "summary": "Extends DiamondsAndVStacks to formal and integral objects: diamondification forgets universal homeomorphisms and perfection; Gleason's reduction functor, formally adic maps, specializing v-sheaves, prekimberlites, kimberlites and formal and tubular neighbourhoods; recovery of flat normal formal and proper schemes over O_E from their v-sheaves (Scholze–Weinstein Proposition 18.4.1, Lourenço's specialization-triple theorem, de Jong's theorem on power-bounded functions); v-closures; and Gleason's theorem that the specialization map of a topologically normal rich smelted kimberlite is a bijection on connected components.",
+ "readme": "This roadmap extends DiamondsAndVStacks from analytic adic spaces to formal and integral objects.\nDiamondsAndVStacks constructs the integral pre-adic v-sheaf `X^♢` of an arbitrary pre-adic space\nover `ℤ_p`, its Galois quotient and its point map, and proves seminormal full faithfulness on rigid\nspaces over a fixed field; it stops there. This Part II starts at that point. It proves what\ndiamondification forgets (universal homeomorphisms and perfection), constructs Gleason's reduction\nfunctor and specialization theory for v-sheaves that behave like formal schemes (prekimberlites,\nkimberlites, formal and tubular neighbourhoods), recovers flat normal formal and proper schemes over\n`O_E` from their v-sheaves (Scholze–Weinstein, Proposition 18.4.1), and proves Gleason's\nconnected-components theorem for topologically normal rich smelted kimberlites.\n\nSources: Scholze–Weinstein, Berkeley lectures on p-adic geometry (Lectures 10 and 18); Gleason,\nSpecialization maps for Scholze's category of diamonds (arXiv:2012.05483v4); Anschütz–Gleason–\nLourenço–Richarz, On the p-adic theory of local models (arXiv:2201.01234v2, §2); Lourenço, The\nRiemannian Hebbarkeitssätze for pseudorigid spaces (arXiv:1711.06903v1, §6); de Jong, Crystalline\nDieudonné module theory via formal and rigid geometry (Publ. IHÉS 82, §7); Kisin–Pappas–Zhou,\nIntegral models of Shimura varieties with parahoric level structure II (arXiv:2409.03689v3, §§3.1,\n3.4); Gleason–Lim–Xu, The connected components of affine Deligne–Lusztig varieties\n(arXiv:2208.07195v3, §3).\n\nBoundaries. Analytic and integral pre-adic diamondification, `Spd O_C/G_K = Spd O_K`, the point map\n`|X^♢| → |X|` and seminormal rigid full faithfulness are DiamondsAndVStacks D6; the scheme v-topology\nand perfect v-descent are ArcTopologyAndDescent AT.1 and AT.7; formal schemes, Huber's functor `t`,\nBerthelot generic fibres and the classical specialization map are AdicSpacesPartII F0 and R2; partially\nproper and proper maps of v-stacks are DiamondEtaleCohomology C4; Grothendieck existence is\nAdicSpacesPartII F0. Local models, `B_dR^+`-Grassmannians, integral shtuka moduli and their kimberlite\nstructure are applications in GeometricSatakeAndFusion and HeckeStacksAndLocalShtukas and their Part\nIIs, which import this roadmap. The comparison with Ayoub's rigid analytic motives is not a target.\nReader document: research/blueprint/readmes/DiamondsAndVStacksPartII.md.\n",
+ "prerequisites": [
+  "DiamondsAndVStacks",
+  "PerfectoidSpaces",
+  "AdicSpacesPartII",
+  "AdicEtaleGeometry",
+  "ArcTopologyAndDescent",
+  "DiamondEtaleCohomology",
+  "SchemeAndStackFoundations"
+ ],
+ "stages": [
+  {
+   "key": "D7",
+   "title": "What diamondification forgets: universal homeomorphisms and perfect schemes",
+   "description": "## D7. What diamondification forgets: universal homeomorphisms and perfect schemes\n\nProve that diamondification sees only topology on the analytic side and only the perfection on\nthe characteristic-`p` side.\n\n*Analytic invariance.* For a map `f : X → X'` of analytic pre-adic spaces over `Spa ℚ_p` that is a\nuniversal homeomorphism and induces isomorphisms of completed residue fields, `O⁺_{X'}/p^n →\nO⁺_X/p^n` is an isomorphism of sheaves on `|X| = |X'|` and `f^♦` is an isomorphism (Scholze–Weinstein,\nProposition 10.2.1 and Lemma 10.2.2). Prove the residue-field hypothesis for universal\nhomeomorphisms locally of finite type over a nonarchimedean field of characteristic `0`; the general\nassertion is recorded as a gap.\n\n*Perfect schemes.* For a scheme `X` over `𝔽_p` define `X^⋄` by gluing `Spd(A, A)` for discrete\naffine charts, so `Spec(A)^⋄(Spa(R, R⁺)) = Hom(A, R⁺)`, and prove `X^⋄ = (X^perf)^⋄`, compatibility\nwith finite limits and open immersions, and the distinction from the analytic convention of\nAdicCoefficientsAndComparisons. Prove the minimal-point lemma for quasicompact spaces over the\nspectrum of a valuation ring and full faithfulness of `X ↦ X^⋄` on perfect schemes (Proposition\n18.3.1, Lemma 18.3.2). Define Gleason's olivine spectrum `Spo(B, B⁺)` with the continuous bijection\n`|Spd(B, B⁺)| → Spo(B, B⁺)`, a homeomorphism for formal pairs and pairs topologically of finite type\nover a formal pair; describe schematic closed subsets; prove that a map of perfect affine schemes is\na v-cover exactly when its `⋄` is a surjection of v-sheaves; and prove Gleason's Theorem 2.32:\n`Hom(Y, X) = Hom(Y^♢, X^♢)` for `Y` a perfect discrete adic space over `𝔽_p` and `X` any pre-adic\nspace over `ℤ_p`.\n",
+   "requires": [
+    "DiamondsAndVStacks:D2",
+    "DiamondsAndVStacks:D4",
+    "DiamondsAndVStacks:D6",
+    "PerfectoidSpaces:P1",
+    "ArcTopologyAndDescent:AT.1",
+    "AdicSpacesPartII:R0",
+    "SchemeAndStackFoundations:SF.0"
+   ]
+  },
+  {
+   "key": "D8",
+   "title": "Scheme-theoretic v-sheaves and the reduction functor",
+   "description": "## D8. Scheme-theoretic v-sheaves and the reduction functor\n\nConstruct the category of small scheme-theoretic v-sheaves (sheaves on perfect affine\n`𝔽_p`-schemes for the v-topology, through cutoff cardinals), their underlying topological spaces,\nand the extension of `⋄` to them. Define the reduction functor `F ↦ F^red`,\n`F^red(Spec R) = F(Spec(R)^⋄)`, as the right adjoint of `⋄` (Gleason, §3). Prove: perfect schemes are\nreduced and `⋄` is fully faithful on reduced objects; `Spd(A, A⁺)^red = Spec(A_red)` with\n`A_red = (A/A·A°°)^perf`, and reduction only sees the non-analytic locus; quasiseparated diamonds\nhave empty reduction.\n\nDefine formally adic maps (the reduction square is Cartesian), formally `p`-adic v-sheaves,\nformally closed immersions and formally separated v-sheaves. Prove stability under composition and\nbase change; that a map of formal Huber pairs is adic exactly when its `Spd` is formally adic; that\na formally `p`-adic `Spd(A, A⁺)` comes from an adic map; that `Spd ℤ_p` is formally separated and the\ndiagonal of a formally `p`-adic v-sheaf is formally adic; the injectivity criterion for the\nadjunction map; and that a formally closed subsheaf of `Spd(A)` has reduction `Spec(A/J)` for an open\nideal `J`. The examples `Spd(𝔽_p((t)), 𝔽_p[[t]]) → Spd 𝔽_p` (adic, not formally adic) and the\nidentity from the norm topology to the discrete topology (formally adic, not adic) are Checks.\n",
+   "requires": [
+    "DiamondsAndVStacksPartII:D7",
+    "DiamondsAndVStacks:D0",
+    "DiamondsAndVStacks:D3",
+    "DiamondsAndVStacks:D4",
+    "DiamondsAndVStacks:D5",
+    "DiamondsAndVStacks:D6",
+    "ArcTopologyAndDescent:AT.1"
+   ]
+  },
+  {
+   "key": "D9",
+   "title": "Specializing v-sheaves, prekimberlites and formal neighbourhoods",
+   "description": "## D9. Specializing v-sheaves, prekimberlites and formal neighbourhoods\n\nDefine the specialization map `sp_A : |Spa(A, A⁺)| → |Spec(A⁺_red)|` of a Tate Huber pair, with\ncontinuity, surjectivity, spectrality and closedness, and its bijectivity for strictly totally\ndisconnected spaces (Gleason, §4.1). Define formalizations, v-formalizing and v-locally formal\nv-sheaves, and prove that a formally separated v-sheaf formalizes a map from an affinoid perfectoid\nspace in at most one way. Define specializing v-sheaves (formally separated and v-locally formal)\nand construct the continuous, functorial specialization map `sp_F : |F| → |F^red|`.\n\nDefine prekimberlites (specializing, with `F^red` a scheme and `(F^red)^⋄ → F` a closed immersion)\nand their analytic locus, and prove that separated locally noetherian formal schemes over `Spf ℤ_p`\ngive prekimberlites with reduction the perfection of `𝔛_red`. Define formal neighbourhoods\n`F̂_{/S}` of locally closed subschemes `S ⊂ F^red`, with their base-change formula, their identification\nwith `Spd` of the completion for formal pairs, and openness for constructible `S`. Construct Heuer's\nthickening `X^{⋄/◦}`, the specialization morphism `SP_F : F → (F^red)^{⋄/◦}` and the étale-formal\nneighbourhoods `F ×_{(F^red)^{⋄/◦}} V^{⋄/◦}`; prove that reduction is an equivalence from\nquasicompact formally adic étale prekimberlites over `F` to quasicompact separated étale perfect\nschemes over `F^red` (Gleason, Theorem 4.27), and that formal schemes have formal-scheme étale\nneighbourhoods.\n",
+   "requires": [
+    "DiamondsAndVStacksPartII:D8",
+    "DiamondsAndVStacks:D1",
+    "DiamondsAndVStacks:D3",
+    "DiamondsAndVStacks:D5",
+    "DiamondsAndVStacks:D6",
+    "AdicSpacesPartII:F0",
+    "AdicSpacesPartII:R2",
+    "DiamondEtaleCohomology:C4"
+   ]
+  },
+  {
+   "key": "D10",
+   "title": "Integral models from their v-sheaves",
+   "description": "## D10. Integral models from their v-sheaves\n\nRecover flat normal formal schemes and proper flat normal schemes over `O_E` from their v-sheaves.\nHere `E/ℚ_p` is complete and discretely valued with perfect residue field `k`.\n\n*Inputs.* The two functors `X ↦ X^♢` and `X ↦ X^⋄` on `O_E`-schemes, with `X^⋄ → X^♢` a monomorphism\nfor separated `X`, an open immersion for separated `X` locally of finite type and an isomorphism for\nproper `X` (Anschütz–Gleason–Lourenço–Richarz, Definition 2.10, Lemma 2.11). For `𝔛` locally\nformally of finite type over `Spf O_E`: the Huber generic fibre `𝔛^ad ×_{Spa O_E} Spa(E, O_E)` is the\nadic space of Berthelot's generic fibre, and `𝔛^♢ ×_{Spd O_E} Spd E` is its diamond; the generic\nfibre of a flat normal `𝔛` is normal; de Jong's theorem `Γ(𝔛, O) = O°(𝔛_η)` for flat normal `𝔛`\n(de Jong, Theorem 7.4.1; Lourenço, Corollary 6.3); the specialization map of `𝔛^♢` restricted to\nclassical points is Berthelot's; the analytic locus of `𝔛^♢` is the maximal open sub-v-sheaf that is\na diamond, with complement `(𝔛_red^perf)^⋄`; and the generic fibre is dense in `|𝔛^♢|` for flat `𝔛`.\n\n*Closures.* A map of small v-sheaves is a closed immersion exactly when it is a quasicompact\nmonomorphism inducing a closed embedding on underlying spaces; a proper monomorphism is a closed\nimmersion. Define the v-closure of a sub-v-sheaf, prove that closed sub-v-sheaves correspond to\nclosed weakly generalizing subsets and that `|Y^cl|` is the weakly generalizing closure, and that\nv-closures commute with open partially proper base change (AGLR §2.1).\n\n*Targets.* The specialization-triple theorem: for `k` algebraically closed,\n`𝔛 ↦ (𝔛_η, (𝔛_red)^perf, sp)` is fully faithful on flat normal formal schemes locally formally of\nfinite type (Scholze–Weinstein, Theorem 18.4.2, after Lourenço). Scholze–Weinstein Proposition\n18.4.1: `𝔛 ↦ 𝔛^♢` is fully faithful from flat normal formal schemes locally formally of finite type\nover `Spf O_E` to small v-sheaves over `Spd O_E`. Its scheme form: on proper flat normal `O_E`-schemes\n`X ↦ X^♢` is fully faithful. The absolutely weakly normal variant (AGLR Theorem 2.16, Proposition\n2.18). For a flat projective `O_E`-scheme that is the Zariski closure of its generic fibre in a proper\n`P`, `X^♢` is the v-closure of `(X_E)^♢` in `P^♢`. Application: an integral model with a prescribed\nv-sheaf, and a morphism with a prescribed map of v-sheaves, is unique (Kisin–Pappas–Zhou §3.1.9 and\nLemma 3.4.1).\n",
+   "requires": [
+    "DiamondsAndVStacksPartII:D7",
+    "DiamondsAndVStacksPartII:D8",
+    "DiamondsAndVStacksPartII:D9",
+    "DiamondsAndVStacks:D6",
+    "AdicSpacesPartII:F0",
+    "AdicSpacesPartII:R1",
+    "AdicSpacesPartII:R2",
+    "DiamondEtaleCohomology:C4",
+    "SchemeAndStackFoundations:SF.0"
+   ]
+  },
+  {
+   "key": "D11",
+   "title": "Kimberlites, tubular neighbourhoods and connected components",
+   "description": "## D11. Kimberlites, tubular neighbourhoods and connected components\n\nDefine valuative prekimberlites (`SP_F` partially proper), with formal schemes and partially proper\nmaps as sources of examples and the specializing property of `sp_F`. Define smelted kimberlites\n`(F, D)` (`D ⊂ F^an` open, a quasiseparated locally spatial diamond, `D → F` partially proper) and\nkimberlites (`(F, F^an)` smelted with `sp_{F^an}` quasicompact); prove that separated locally\nnoetherian formal schemes give kimberlites. Define the tubular neighbourhood\n`D^⊚_{/S} = F̂_{/S} ×_F D` of a constructible locally closed `S ⊂ |F^red|`, prove that it is a\nsmelted kimberlite and is the interior of `sp_D^{-1}(S)` (not the full fibre: a rank `> 1` point has\nempty tube interior), and prove that `sp_D` is specializing and spectral, and closed for kimberlites.\nProve permanence under formally closed immersions and étale-formal neighbourhoods.\n\nDefine constructibly Jacobson diamonds (rank-one points dense in the constructible topology), with\npermanence, Huber's density of classical points and diamonds with enough facets, and the density of\n`D^⊚_{/S}` in `sp_D^{-1}(S)`. Define rich smelted kimberlites (valuative, `D` constructibly Jacobson,\n`|F^red|` locally noetherian, `sp_D` surjective) and, separately, topologically normal rich pairs\n(connected tubes at closed points). Prove Gleason's Lemma 4.53 (`sp_D` is a quotient map for a rich\npair), permanence of richness, and Lemma 4.55 (`π₀(sp_D) : π₀(|D|) → π₀(|F^red|)` is bijective for a\ntopologically normal rich pair). Define `π`-adic and flat `π`-adic kimberlites over `Spd O`, prove\nflatness criteria through surjectivity of `sp`, the specialization-triple theorem for the category\n`𝒦` of AGLR Definition 2.36, the properness criterion, and the normality criterion through connected\ntubes (AGLR §2.3). Checks: a formal disc, a rank `> 1` valuation point with empty tube interior, a\npair that is not rich, and finite étale formal neighbourhoods.\n",
+   "requires": [
+    "DiamondsAndVStacksPartII:D9",
+    "DiamondsAndVStacksPartII:D10",
+    "DiamondsAndVStacks:D5",
+    "DiamondsAndVStacks:D6",
+    "DiamondEtaleCohomology:C4",
+    "AdicSpacesPartII:R0"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "SW20",
+   "title": "Berkeley lectures on p-adic geometry",
+   "authors": "Peter Scholze and Jared Weinstein",
+   "edition": "Annals of Mathematics Studies 207, Princeton University Press, 2020; authors' copy dated 27 March 2020 (printed page = PDF page − 10)",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
+   "readSections": [
+    "Lecture 10, §10.2, pp. 77–78",
+    "Lecture 18, §§18.1–18.4, pp. 161–168",
+    "Lecture 21, §21.4, p. 195"
+   ]
+  },
+  {
+   "id": "GLE",
+   "title": "Specialization maps for Scholze's category of diamonds",
+   "authors": "Ian Gleason",
+   "edition": "arXiv:2012.05483v4, 10 August 2025 (printed page = PDF page)",
+   "url": "https://arxiv.org/abs/2012.05483v4",
+   "readSections": [
+    "Introduction, pp. 2–6",
+    "§1, pp. 6–10",
+    "§2 (statements and the proofs of 2.13, 2.14, 2.24, 2.26, 2.30–2.36), pp. 10–22",
+    "§3, pp. 22–28",
+    "§4, pp. 28–38"
+   ]
+  },
+  {
+   "id": "AGLR",
+   "title": "On the p-adic theory of local models",
+   "authors": "Johannes Anschütz, Ian Gleason, João Lourenço and Timo Richarz",
+   "edition": "arXiv:2201.01234v2 (printed page = PDF page)",
+   "url": "https://arxiv.org/abs/2201.01234v2",
+   "readSections": [
+    "§2.1, pp. 8–10",
+    "§2.2, pp. 10–14",
+    "§2.3, pp. 14–19"
+   ]
+  },
+  {
+   "id": "LOU17",
+   "title": "The Riemannian Hebbarkeitssätze for pseudorigid spaces",
+   "authors": "João N. P. Lourenço",
+   "edition": "arXiv:1711.06903v1, 18 November 2017",
+   "url": "https://arxiv.org/abs/1711.06903v1",
+   "readSections": [
+    "§1, pp. 1–3",
+    "§§3–4 statements, pp. 5–12",
+    "§6, pp. 16–18"
+   ]
+  },
+  {
+   "id": "DJ95",
+   "title": "Crystalline Dieudonné module theory via formal and rigid geometry",
+   "authors": "A. J. de Jong",
+   "edition": "Publications Mathématiques de l'IHÉS 82 (1995), 5–96; Numdam copy (journal page = PDF page + 3)",
+   "url": "http://www.numdam.org/item/PMIHES_1995__82__5_0/",
+   "readSections": [
+    "§7.1, pp. 76–80",
+    "§7.2, pp. 81–84",
+    "§7.3, pp. 85–90",
+    "§7.4, pp. 90–91"
+   ]
+  },
+  {
+   "id": "SW13",
+   "title": "Moduli of p-divisible groups",
+   "authors": "Peter Scholze and Jared Weinstein",
+   "edition": "arXiv:1211.6357v2, 13 April 2013; Cambridge Journal of Mathematics 1 (2013)",
+   "url": "https://arxiv.org/abs/1211.6357v2",
+   "readSections": [
+    "§2.2, pp. 15–17"
+   ]
+  },
+  {
+   "id": "KPZ",
+   "title": "Integral models of Shimura varieties with parahoric level structure, II",
+   "authors": "Mark Kisin, Georgios Pappas and Rong Zhou",
+   "edition": "arXiv:2409.03689v3; Forum of Mathematics, Pi (2026)",
+   "url": "https://arxiv.org/abs/2409.03689v3",
+   "readSections": [
+    "§3.1.7–3.1.10, pp. 18–19",
+    "§3.4, Lemma 3.4.1 and §3.4.2, pp. 29–30"
+   ]
+  },
+  {
+   "id": "GLX",
+   "title": "The connected components of affine Deligne–Lusztig varieties",
+   "authors": "Ian Gleason, Dong Gyu Lim and Yujie Xu",
+   "edition": "arXiv:2208.07195v3, 10 November 2025; Inventiones Mathematicae (2026)",
+   "url": "https://arxiv.org/abs/2208.07195v3",
+   "readSections": [
+    "§3.1–3.4, pp. 16–23"
+   ]
+  }
+ ],
+ "status": "draft"
+}
