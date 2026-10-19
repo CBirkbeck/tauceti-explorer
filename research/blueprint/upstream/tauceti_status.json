@@ -1521,13 +1521,14 @@
     "VectorBundlesAndIsocrystals": {
       "stage": "pr",
       "pr": 1205,
-      "head": "d57fa07",
+      "head": "ae791dc",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at ae791dc; confirmation pass pending"
       }
     },
     "WeilConjectures": {
