@@ -29,98 +29,98 @@
         "kind": "structure",
         "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
         "provides": "Native locally affine locally ringed spaces; retain Scheme and its actual stalks.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.pullback",
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback.lean",
         "provides": "The categorical pullback as the limit of a cospan; Scheme has pullbacks in Mathlib/AlgebraicGeometry/Pullbacks.lean, lines 481–485.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
         "kind": "abbrev",
         "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
         "provides": "Locally finitely supported coefficient functions on scheme points, using generic points to encode irreducible closed subsets. This is not a Chow group.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:Module.length",
         "kind": "def",
         "module": "Mathlib/RingTheory/Length.lean",
         "provides": "Module length with values in extended natural numbers; prove finiteness before converting a coefficient to an integer.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:Module.length_eq_add_of_exact",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Length.lean",
         "provides": "Length additivity for an injective map f, a surjective map g and Function.Exact f g; no finite-length assumption is needed for the extended-natural equality.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:AdicCompletion",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
         "provides": "The compatible system of quotients M/IⁿM, with its native of and evaluation maps.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:LinearMap.ker",
         "kind": "def",
         "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
         "provides": "Kernel submodule of a semilinear map; fixed subspaces here use ker(w−id), not a new linear-algebra carrier.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:Module.finrank",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
         "provides": "Natural-valued rank, equal to dimension for finite-dimensional vector spaces. Finite-dimensionality must be explicit.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:Finsupp",
         "kind": "structure",
         "module": "Mathlib/Data/Finsupp/Defs.lean",
         "provides": "Finitely supported functions; for a finite component set, integer coefficients give the free abelian cycle group.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:DerivedCategory",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/DerivedCategory/Basic.lean",
         "provides": "The native derived category of an abelian category under HasDerivedCategory; this does not supply D-module transfer or duality.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:SheafOfModules",
         "kind": "structure",
         "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf.lean",
         "provides": "Sheaves of modules over a sheaf of rings, with the underlying presheaf and sheaf condition.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:SymmetricAlgebra",
         "kind": "abbrev",
         "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
         "provides": "Symmetric algebra as the commutative quotient of the tensor algebra; sheaf versions and geometric total spaces belong to AlgebraicVectorBundles.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.FinitelyPresentedSheaf",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/FinitelyPresentedSheaf/Basic.lean",
         "provides": "Full subcategory of finitely presented sheaves of modules on a Scheme; on locally noetherian schemes this supplies the coherent O-module carrier.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       },
       {
         "ref": "mathlib:Finsupp.linearCombination",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
         "provides": "The native linear map sending a finitely supported coefficient family to its finite linear combination. The suggested file specializes this to integer component cycles; its single-generator formula preserves integer multiplicity.",
-        "checked": "Actual declaration and surrounding hypotheses read at the pinned commit, 18 October 2026."
+        "checked": "Independent actual-statement and hypothesis check at the recorded pinned commit by REV-DESIGN-SpringerResolutionAndCharacteristicCycles, 19 October 2026; confirmed for the bounded use described in provides. No geometric, derived-functor or completion property is inferred from a carrier alone."
       }
     ]
   },
@@ -466,7 +466,10 @@
       "library": {
         "module": "TauCeti/RepresentationTheory/Geometric/F",
         "namespace": "TauCeti.GeometricRepresentationTheory"
-      }
+      },
+      "gapIds": [
+        "Lie-invariants"
+      ]
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles:F/constant-rank-intersection",
@@ -1467,7 +1470,8 @@
       },
       "gapIds": [
         "BR-input",
-        "CM-spreading"
+        "CM-spreading",
+        "Lie-invariants"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Geometric/C",
@@ -1982,16 +1986,16 @@
       ],
       "title": "Scheme comparison for the Steinberg fibre product",
       "kind": "comparison",
-      "statement": "In characteristic zero the canonical map (𝒩̃×_𝒩𝒩̃)_red→𝒩̃×_𝒩𝒩̃ is an isomorphism, and hence Z≅𝒩̃×_𝒩𝒩̃ without reduction. This requires reducedness of the raw fibre product; it does not follow just from equality of geometric points.",
+      "statement": "Let Q=𝒩̃×_𝒩𝒩̃ be the scheme fibre product in characteristic zero. The canonical closed immersion Z≅Q_red→Q is an isomorphism if and only if Q is reduced. Thus Z≅Q without reduction is conditional on radicality of the local incidence ideals; equality of geometric points alone does not establish that condition.",
       "hypotheses": [
         "char(k)=0; 𝒩 and Z have the reduced scheme structures specified above."
       ],
       "proofSteps": [
         "Construct the closed immersion from the reduced fibre product.",
-        "The target statement reduces to radicality of its local incidence ideal. BHS asserts the comparison but supplies no local ideal calculation at this point. The exact reducedness proof is the Steinberg-reduced gap; no subsequent cycle theorem assumes it."
+        "The immersion is an isomorphism exactly when the nilradical sheaf of Q vanishes. Reducedness of Q is the separate Steinberg-reduced gap. The BHS display may be read in the reduced-variety convention; it is not used as a scheme-level reducedness theorem, and no subsequent cycle theorem assumes it."
       ],
       "acceptance": [
-        "In characteristic zero the canonical map (𝒩̃×_𝒩𝒩̃)_red→𝒩̃×_𝒩𝒩̃ is an isomorphism, and hence Z≅𝒩̃×_𝒩𝒩̃ without reduction. This requires reducedness of the raw fibre product; it does not follow just from equality of geometric points.",
+        "Let Q=𝒩̃×_𝒩𝒩̃ be the scheme fibre product in characteristic zero. The canonical closed immersion Z≅Q_red→Q is an isomorphism if and only if Q is reduced. Thus Z≅Q without reduction is conditional on radicality of the local incidence ideals; equality of geometric points alone does not establish that condition.",
         "For a torus both raw and reduced Springer fibre products are a point. In higher rank this elementary case does not prove radicality; the comparison remains bounded by Steinberg-reduced and is not used by the cycle identities."
       ],
       "prerequisites": [
@@ -2002,8 +2006,8 @@
       "sources": [
         {
           "sourceId": "BHS19",
-          "locator": "Beginning of §2.4, p. 319, displayed Steinberg comparison",
-          "match": "The unreduced fibre-product comparison needs a scheme-level justification beyond the reduced support."
+          "locator": "Beginning of §2.4, pp. 319–320, displayed Steinberg comparison",
+          "match": "The variety-level display supplies the reduced comparison; it does not independently establish reducedness of the raw scheme fibre product."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2474,7 +2478,7 @@
         "All D-modules are left modules with quasi-coherent underlying O_Y-module; coherent means finite over D_Y, not necessarily finite over O_Y."
       ],
       "proofSteps": [
-        "Coordinate derivations commute. Repeated commutators show that an operator of order ≤p has a unique expansion in these monomials.",
+        "Coordinate derivations commute. Monomials of total degree at most p have order at most p, giving F′_pD⊂F_pD. Repeated commutators and induction give F_pD⊂F′_pD and uniqueness of the monomial expansion; these are the directions needed despite the two reversed announcements in E7.",
         "Its leading coefficients give the symbol map and identify the graded pieces with symmetric powers. Descent through étale charts gives the sheaf statement.",
         "Use the noetherian graded ring and a leading-order argument to prove noetherianity of the filtered algebra."
       ],
@@ -2494,7 +2498,7 @@
         },
         {
           "sourceId": "M23",
-          "locator": "Theorems 2.11 and 2.21; Corollary 2.22, pp. 3–6",
+          "locator": "Theorems 2.11 and 2.21; Corollary 2.22, pp. 3–6; both PBW inclusion directions on pp. 3–4 corrected as E7",
           "match": "Coordinate PBW gives the symmetric graded algebra and the noetherian consequence."
         }
       ],
@@ -3527,7 +3531,7 @@
         "char(k)=0; G is split connected reductive, F=G/B, χ₀ is the central character at highest weight 0."
       ],
       "proofSteps": [
-        "The infinitesimal G-action gives U(g)→Γ(D_F); the Harish–Chandra character computes its central kernel. The filtered global-section calculation identifies the quotient with all global operators.",
+        "The infinitesimal G-action gives U(g)→Γ(D_F); the Harish–Chandra character computes its central kernel. The filtered global-section calculation identifies the quotient with all global operators. The finite-dimensional modules chosen in the projection argument must integrate for the selected group characters; the Lie highest-weight classification alone does not supply this group-action comparison (BB-sections).",
         "For D-affinity use ample weights, Serre vanishing, tensoring with finite-dimensional highest-weight modules and projection to the regular dominant central summand, as in the BB proof.",
         "Keep the two rho normalizations explicit, including for groups where rho is not an integral character. The native coherent-sheaf Serre vanishing and filtered section calculation are recorded as missing supplier inputs."
       ],
@@ -3562,7 +3566,8 @@
       },
       "gapIds": [
         "BB-sections",
-        "AG-geometry"
+        "AG-geometry",
+        "CategoryO-elementary"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/Geometric/L",
@@ -3582,7 +3587,7 @@
         "The hypotheses and central-character conventions of L/flag-d-affinity hold."
       ],
       "proofSteps": [
-        "Use the global U_χ₀-action on D_F to construct the tensor functor. The natural unit and evaluation counit form an adjunction.",
+        "Use the global U_χ₀-action on D_F to construct the tensor functor. The natural unit and evaluation counit form an adjunction. For split reductive g, use the derived semisimple algebra and the prescribed scalar action of the centre; this extension of the semisimple upstream Verma/central-character interfaces is retained in CategoryO-elementary.",
         "D-affinity makes Γ exact and conservative, while global generation makes the counit surjective. Apply the same argument to its kernel and to presentations by free modules to prove both unit and counit are isomorphisms."
       ],
       "acceptance": [
@@ -3660,7 +3665,10 @@
       "library": {
         "module": "TauCeti/RepresentationTheory/Geometric/L",
         "namespace": "TauCeti.GeometricRepresentationTheory"
-      }
+      },
+      "gapIds": [
+        "CategoryO-elementary"
+      ]
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles:L/equivariant-induction",
@@ -4703,7 +4711,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Borel and maximal torus data, the Weyl group, root spaces and root subgroups, standard parabolic/Levi construction, Bruhat orbits and their closure order, and root/length criteria used for intersection dimensions.",
+      "need": "Borel and maximal torus data, the Weyl group, root spaces and root subgroups, standard parabolic/Levi construction, Bruhat orbits and their closure order, and root/length criteria used for intersection dimensions. Upstream Layer 7 states Bruhat decomposition and BN-pairs; the precise Schubert closure-order statement and its root/length comparison remain a Lie-invariants extension, not a theorem confirmed there.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:F/flag-scheme",
         "SpringerResolutionAndCharacteristicCycles:F/flag-geometry",
@@ -4733,7 +4741,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
-      "need": "Split Chevalley–Demazure group models over Z, compatible B,T and root subgroups, and base-change comparisons for their Borel/nilradical associated bundles over Z_(p).",
+      "need": "Split Chevalley–Demazure group models over Z, compatible B,T and root subgroups, and base-change comparisons for their Borel/nilradical associated bundles over Z_(p). Layer 9 supplies the pinned group/root-subgroup model, while base change of the associated Lie bundles also needs the descent and total-space comparisons retained in VB-upstream.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:C/bezrukavnikov-riche-input",
         "SpringerResolutionAndCharacteristicCycles:C/cm-reductive-and-zero"
@@ -4741,7 +4749,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
-      "need": "U(g), PBW, nonzero Verma M(λ), its unique simple quotient L(λ) and the highest-weight conventions for split reductive g, with the central summand acting by its chosen character.",
+      "need": "U(g), PBW, nonzero Verma M(λ), its unique simple quotient L(λ) and the highest-weight conventions for split reductive g, with the central summand acting by its chosen character. The existing Layer 3 Verma signatures assume a Killing-semisimple Lie algebra; extension to the split reductive algebra with fixed central action is required through CategoryO-elementary.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity",
         "SpringerResolutionAndCharacteristicCycles:L/localisation-equivalence",
@@ -4751,7 +4759,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
-      "need": "Finite-dimensional highest-weight modules at dominant integral weights, tensor constructions and integration/integrability at the group level needed in the BB projection argument.",
+      "need": "Finite-dimensional highest-weight modules at dominant integral weights, tensor constructions and integration/integrability at the group level needed in the BB projection argument. Layer 4 supplies the Lie-module classification, not an integration theorem for arbitrary Lie weights; BB-sections retains the comparison for weights that are characters of G.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity",
         "SpringerResolutionAndCharacteristicCycles:P/dominant-parabolic"
@@ -4759,7 +4767,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
-      "need": "Harish–Chandra projection and central characters χ_λ, χ_λ=χ_μ on the dot-action orbit, with the trivial infinitesimal character χ₀ and the rho-shift convention made explicit.",
+      "need": "Harish–Chandra projection and central characters χ_λ, χ_λ=χ_μ on the dot-action orbit, with the trivial infinitesimal character χ₀ and the rho-shift convention made explicit. Its stated signatures are semisimple; the central polynomial factor for split reductive g is part of the CategoryO-elementary extension.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity",
         "SpringerResolutionAndCharacteristicCycles:L/localisation-equivalence",
@@ -4795,11 +4803,13 @@
       "status": "planned",
       "remaining": [
         "Resolve AG-geometry: Native finite-type scheme geometry and completion comparisons.",
+        "Resolve Lie-invariants: the precise Bruhat closure-order supplier statement.",
         "Resolve VB-upstream: Register and import the current vector-bundle roadmap.",
         "Discharge the transitive gaps and precise supplier statements enumerated for this stage before claiming closure."
       ],
       "transitiveGapIds": [
         "AG-geometry",
+        "Lie-invariants",
         "VB-upstream"
       ],
       "supplierStages": [
@@ -4853,6 +4863,7 @@
       "status": "planned",
       "remaining": [
         "Resolve AG-geometry: Native finite-type scheme geometry and completion comparisons.",
+        "Resolve Lie-invariants: the central-isogeny differential and flag comparison in the stated characteristic range.",
         "Resolve BR-input: Convolution inputs behind the BR theorems.",
         "Resolve CM-spreading: Cohen–Macaulay spreading through the special fibre.",
         "Discharge the transitive gaps and precise supplier statements enumerated for this stage before claiming closure."
@@ -4861,6 +4872,7 @@
         "AG-geometry",
         "BR-input",
         "CM-spreading",
+        "Lie-invariants",
         "VB-upstream"
       ],
       "supplierStages": [
@@ -5153,7 +5165,7 @@
     {
       "id": "VB-upstream",
       "title": "Register and import the current vector-bundle roadmap",
-      "detail": "AlgebraicVectorBundles on current TauCetiRoadmap main already owns sheaf symmetric algebras, relative Spec, duality and total spaces: L0B–L0C, L1A–L1B, L2A–L2B. Import totalSpace(E)=Spec Sym(E∨), pullback and associated-bundle descent; do not rebuild those carriers here. It is absent from this atlas snapshot, so supply the registration and check the precise descent theorem. Current Tau Ceti already has finite locally free sheaves and relative differentials, but not every geometric total-space construction.",
+      "detail": "AlgebraicVectorBundles on current TauCetiRoadmap main already owns sheaf symmetric algebras, relative Spec, duality and total spaces: L0B–L0C, L1A–L1B, L2A–L2B. Import totalSpace(E)=Spec Sym(E∨) and pullback; do not rebuild those carriers here. The current upstream statements do not give the required associated-bundle descent theorem: supply that precise extension and its integral-model base-change comparison. It is absent from this atlas snapshot, so supply the registration and check the precise descent theorem. Current Tau Ceti already has finite locally free sheaves and relative differentials, but not every geometric total-space construction.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:F/constant-rank-intersection",
         "SpringerResolutionAndCharacteristicCycles:G/simultaneous-resolution",
@@ -5167,13 +5179,15 @@
     {
       "id": "Lie-invariants",
       "title": "Reductive Lie-algebra structure inputs",
-      "detail": "Check and supply the char(k)=0 or p>h Jordan and centralizer theory: regular-element Borels are finite, regular semisimple Borels form an étale W-torsor, the rank-one root-wall calculation, and invariant forms in this range. In characteristic zero also supply Chevalley restriction, polynomial Weyl invariants, reduced nilpotent quotient fibre, unique flags over regular nilpotents and the adjoint/cotangent comparison. ReductiveGroups Layers 2, 7 and 8 supply the underlying Lie, roots and isogenies, but not an audited theorem with all these conclusions; additions in that direction require a ReductiveGroups Part II extension.",
+      "detail": "Check and supply the char(k)=0 or p>h Jordan and centralizer theory: regular-element Borels are finite, regular semisimple Borels form an étale W-torsor, the rank-one root-wall calculation, and invariant forms in this range. In characteristic zero also supply Chevalley restriction, polynomial Weyl invariants, reduced nilpotent quotient fibre, unique flags over regular nilpotents and the adjoint/cotangent comparison. ReductiveGroups Layers 2, 7 and 8 supply the underlying Lie, roots and isogenies, but not an audited theorem with all these conclusions; additions in that direction require a ReductiveGroups Part II extension. Also supply the precise Bruhat closure-order theorem beyond the current Layer 7 decomposition statement, and the invertibility bound for the central-isogeny differential and induced flag comparison used in C/cm-reductive-and-zero; an isogeny by itself supplies neither conclusion.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:G/regular-loci",
         "SpringerResolutionAndCharacteristicCycles:G/resolution-properties",
         "SpringerResolutionAndCharacteristicCycles:N/regular-root-wall",
         "SpringerResolutionAndCharacteristicCycles:S/chevalley-restriction",
-        "SpringerResolutionAndCharacteristicCycles:S/springer-resolution"
+        "SpringerResolutionAndCharacteristicCycles:S/springer-resolution",
+        "SpringerResolutionAndCharacteristicCycles:F/orbit-geometry",
+        "SpringerResolutionAndCharacteristicCycles:C/cm-reductive-and-zero"
       ]
     },
     {
@@ -5227,7 +5241,7 @@
     {
       "id": "BB-sections",
       "title": "Global differential operators at the trivial central character",
-      "detail": "Finish the filtered-section computation Γ(D_F)=U(g)/ker χ₀, including the Harish–Chandra kernel and rho shift, in native sheaf terms. The BB pp. 16–17 theorem and proof were read, but the geometric section calculation used there is not currently a confirmed library theorem or requested node.",
+      "detail": "Finish the filtered-section computation Γ(D_F)=U(g)/ker χ₀, including the Harish–Chandra kernel and rho shift, in native sheaf terms. The BB pp. 16–17 theorem and proof were read, but the geometric section calculation used there is not currently a confirmed library theorem or requested node. Also supply integration of the finite-dimensional highest-weight modules selected by G-characters in the projection argument; do not infer integration for all integral Lie weights from LieHighestWeight Layer 4.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity"
       ]
@@ -5235,10 +5249,12 @@
     {
       "id": "CategoryO-elementary",
       "title": "Register the elementary principal category O supplier",
-      "detail": "The existing paper route assigns algebraic category O, its strict central-reduced block, finite-length highest-weight classification, algebraic B-action and Levi integrability to LieHighestWeightPartIICompletedCategoryO. That proposed roadmap is not registered in this checkout, so there is no valid stage id to cite. Register its elementary layer before L/principal-o-and-induction and P/dominant-parabolic; it must not depend on this roadmap’s KL layer.",
+      "detail": "The existing paper route assigns algebraic category O, its strict central-reduced block, finite-length highest-weight classification, algebraic B-action and Levi integrability to LieHighestWeightPartIICompletedCategoryO. That proposed roadmap is not registered in this checkout, so there is no valid stage id to cite. Register its elementary layer before L/principal-o-and-induction and P/dominant-parabolic; it must not depend on this roadmap’s KL layer. Include the split reductive extension of the semisimple Verma and Harish–Chandra interfaces by a fixed central scalar character; the current upstream Layers 3 and 7 do not state this extension.",
       "neededBy": [
         "SpringerResolutionAndCharacteristicCycles:L/principal-o-and-induction",
-        "SpringerResolutionAndCharacteristicCycles:P/dominant-parabolic"
+        "SpringerResolutionAndCharacteristicCycles:P/dominant-parabolic",
+        "SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity",
+        "SpringerResolutionAndCharacteristicCycles:L/localisation-equivalence"
       ]
     },
     {
@@ -5266,7 +5282,12 @@
         "arXiv:1702.02192 submission history, checked 18 October 2026; only v1 is listed, not a subsequent corrected version.",
         "Benjamin Schraen’s publications page, https://math.univ-lyon1.fr/~schraen/, checked 18 October 2026; no erratum is attached to this article.",
         "Title searches for erratum and corrigendum on 18 October 2026; the eigenvariety paper’s erratum concerns a predecessor, not these §2 statements."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The disjoint-union counterexample has global dimension one and zero-dimensional fibres but contains a nonflat isolated point. The local dimension equation is the necessary correction; the application is retained with its scheme-geometry gap.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E2",
@@ -5283,7 +5304,12 @@
         "arXiv:1702.02192 submission history, checked 18 October 2026; only v1 is listed, not a subsequent corrected version.",
         "Benjamin Schraen’s publications page, https://math.univ-lyon1.fr/~schraen/, checked 18 October 2026; no erratum is attached to this article.",
         "Title searches for erratum and corrigendum on 18 October 2026; the eigenvariety paper’s erratum concerns a predecessor, not these §2 statements."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof maps the incidence generic point to the Cartan graph generic point. The latter belongs to the completed Cartan fibre product; the printed ambient ring is inconsistent with that arrow.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E3",
@@ -5300,7 +5326,12 @@
         "arXiv:1702.02192 submission history, checked 18 October 2026; only v1 is listed, not a subsequent corrected version.",
         "Benjamin Schraen’s publications page, https://math.univ-lyon1.fr/~schraen/, checked 18 October 2026; no erratum is attached to this article.",
         "Title searches for erratum and corrigendum on 18 October 2026; the eigenvariety paper’s erratum concerns a predecessor, not these §2 statements."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The theorem display has both longest-element prefixes. Its proof drops them in the vanishing claim; type A1 gives the stated counterexample to the unprefixed assertion.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E4",
@@ -5317,7 +5348,12 @@
         "arXiv:1702.02192 submission history, checked 18 October 2026; only v1 is listed, not a subsequent corrected version.",
         "Benjamin Schraen’s publications page, https://math.univ-lyon1.fr/~schraen/, checked 18 October 2026; no erratum is attached to this article.",
         "Title searches for erratum and corrigendum on 18 October 2026; the eigenvariety paper’s erratum concerns a predecessor, not these §2 statements."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The rendered p. 324 display uses the Grothendieck-resolution glyph twice. Cotangent dimensions and the torus example rule out that carrier; the Springer product with the signed incidence embedding is correct.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E5",
@@ -5333,7 +5369,12 @@
         "Author-hosted Ginzburg notes at https://math.berkeley.edu/~nadler/ginzburg.dmodules.pdf and Nadler’s page, checked 18 October 2026; no correction linked.",
         "Searches for Ginzburg D-modules Definition 1.1.12 and multiplicity length correction, 18 October 2026; no explicit erratum found.",
         "Compared the generic-length definition and additivity proof in Mustață, Definition 6.40 and Propositions 6.41–6.42, pp. 55–56."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At the generic point of x=0, k[x,ξ]/(x²) has length two. Tensoring first with the reduced component gives rank one, so the displayed reduced-rank rule cannot define the additive characteristic-cycle multiplicity.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E6",
@@ -5350,22 +5391,32 @@
         "arXiv:1702.02192 submission history, checked 18 October 2026; only v1 is listed, not a subsequent corrected version.",
         "Benjamin Schraen’s publications page, https://math.univ-lyon1.fr/~schraen/, checked 18 October 2026; no erratum is attached to this article.",
         "Title searches for erratum and corrigendum on 18 October 2026; the eigenvariety paper’s erratum concerns a predecessor, not these §2 statements."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The result numbered 2.2.1 is headed Proposition and proves the vector-bundle rank used in the p. 313 proof; its citation as a lemma is a label error.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E7",
       "source": "M23",
       "kind": "misprint",
-      "locator": "Proof of Theorem 2.11, author notes p. 4",
-      "printed": "The proof announces the inclusion F′_pD⊂F_pD, although that easy inclusion was already established.",
-      "correction": "The induction proves F_pD⊂F′_pD, which is the reverse inclusion needed for equality.",
-      "reason": "The proof starts with P∈F_pD and ends with P∈F′_pD. Only the announced direction is reversed; its actual argument is unchanged.",
+      "locator": "Theorem 2.11, preparatory paragraph on p. 3 and proof on p. 4, author notes",
+      "printed": "The preparatory paragraph assigns the easy monomial inclusion the direction F_pD⊂F′_pD; the proof introduction assigns the inductive inclusion the direction F′_pD⊂F_pD. Both directions are reversed.",
+      "correction": "Products of coordinate derivations give F′_pD⊂F_pD on p. 3. The induction on p. 4 starts with an order-p operator and proves F_pD⊂F′_pD, completing equality.",
+      "reason": "The multiplicative order bound puts each monomial in F_pD, while the inductive argument expands each P∈F_pD in monomials. The two printed announcements reverse these respective directions; the actual PBW argument is sound. Both rendered pages were checked independently.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "Author’s current lecture-note PDF at https://websites.umich.edu/~mmustata/DmodulesNotes.pdf, accessed 18 October 2026.",
         "Title and Theorem 2.11 searches for a correction, 18 October 2026; no separate erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the rendered pp. 3 and 4: order multiplicativity gives F′⊂F, while the actual induction gives F⊂F′. Expanded the correction to both reversed announcements.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E8",
@@ -5380,7 +5431,12 @@
       "searched": [
         "Author’s current PDF at https://websites.umich.edu/~mmustata/DmodulesNotes.pdf and course homepage, accessed 18 October 2026; no correction linked.",
         "Targeted searches for the lecture-note title, Proposition 6.24 Tor and Theorem 5.5 correction, 18 October 2026; no separate erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two-term resolution by multiplication by z computes Tor0 as the cokernel and Tor1 as the kernel. The first quotient identification must have index zero; the following kernel computation has the correct index.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E9",
@@ -5395,7 +5451,12 @@
       "searched": [
         "Author’s current PDF at https://websites.umich.edu/~mmustata/DmodulesNotes.pdf and course homepage, accessed 18 October 2026; no correction linked.",
         "Targeted searches for the lecture-note title, Proposition 6.24 Tor and Theorem 5.5 correction, 18 October 2026; no separate erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The bidual computation uses a bounded finite projective resolution. Finite generation alone would fail for k[x]/(x); retaining projectivity repairs the omitted qualification without changing the derived proof.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E10",
@@ -5410,7 +5471,12 @@
       "searched": [
         "Author’s current PDF at https://websites.umich.edu/~mmustata/DmodulesNotes.pdf and course homepage, accessed 18 October 2026; no correction linked.",
         "Targeted searches for the lecture-note title, Proposition 6.24 Tor and Theorem 5.5 correction, 18 October 2026; no separate erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The normal-coordinate identity compares module elements only after the Euler-operator product on its right is applied to u; its use in the subsequent polynomial argument confirms the repair.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E11",
@@ -5425,7 +5491,12 @@
       "searched": [
         "Author’s current PDF at https://websites.umich.edu/~mmustata/DmodulesNotes.pdf and course homepage, accessed 18 October 2026; no correction linked.",
         "Targeted searches for the lecture-note title, Proposition 6.24 Tor and Theorem 5.5 correction, 18 October 2026; no separate erratum found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The morphism is f:X→Y, so R^q f_*E is an O_Y-module and the following tensor is over O_Y. The printed source-sheaf label cannot be correct.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     },
     {
       "id": "SpringerResolutionAndCharacteristicCycles/E12",
@@ -5442,7 +5513,12 @@
         "arXiv:1702.02192 submission history, checked 18 October 2026; only v1 is listed, not a subsequent corrected version.",
         "Benjamin Schraen’s publications page, https://math.univ-lyon1.fr/~schraen/, checked 18 October 2026; no erratum is attached to this article.",
         "Title searches for erratum and corrigendum on 18 October 2026; the eigenvariety paper’s erratum concerns a predecessor, not these §2 statements."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The source passes from the special fibre to the whole flat integral model without spelling out why generic points are controlled. The flat disjoint-union counterexample disproves that general inference; scaling and projective flags are the additional geometric input, still recorded as CM-spreading. This is a proof-boundary finding, not a refutation of the CM theorem.",
+        "by": "REV-DESIGN-SpringerResolutionAndCharacteristicCycles"
+      }
     }
   ],
   "sourceVersions": [
@@ -5807,6 +5883,359 @@
       "N/normal-components to TriangulineVarietyAndItsLocalModel",
       "T/tangent-space-bound and T/formal-component-detection to local-model applications",
       "E/completed-kl-identity to crystalline local cycle comparisons"
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-SpringerResolutionAndCharacteristicCycles",
+    "date": "2026-10-19",
+    "notes": "Independent target-level planning review: 63 verified nodes and 6 corrected nodes; no nodes added or unverifiable. All 14 baseline declarations were read at the pinned commits; all 12 source issues independently confirmed, with E7 expanded to both reversed PBW inclusion announcements. Corrected the raw scheme comparison to a conditional statement and made upstream closure-order, isogeny, descent, integration and reductive-interface limits explicit. All 14 stages are planned, none closed; the 11 precisely recorded prerequisite gaps and 9 supplier requests remain open, with recomputed transitive coverage. Acceptance is of this complete planning pass under protocol section 0, not proof closure or implementation. Suggested Lean compiled with exit 0 and only 14 expected proof-placeholder warnings.",
+    "checked": [
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:F/flag-scheme",
+        "verdict": "verified",
+        "note": "BHS §2.1 p. 309 uses the flag quotient. The fppf sheafification and B-torsor API correctly avoid identifying arbitrary test-scheme points with naive cosets; ReductiveGroups quotient representability is the supplier boundary."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:F/flag-geometry",
+        "verdict": "verified",
+        "note": "BHS §2.1 pp. 309–310 has smooth projective flags and dimensions N, r+N, r+2N. The torus and SL2 checks give the right endpoints; native scheme geometry remains AG-geometry."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:F/relative-position",
+        "verdict": "verified",
+        "note": "BHS §2.1 p. 309 and Lemma 2.2.4 pp. 312–313 use diagonal relative position. Representative independence and reduced closures are stated correctly; neither orbit nor closure is a pointwise arbitrary-scheme coset construction."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:F/orbit-geometry",
+        "verdict": "corrected",
+        "note": "BHS Proposition 2.2.1 pp. 311–312 gives the stabilizer/root-space dimension calculation. Upstream ReductiveGroups Layer 7 names decomposition but not this exact closure-order theorem; added the direct Lie-invariants gap and propagated it through coverage."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:F/constant-rank-intersection",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.2.2 p. 312 needs a reduced finite-type/Jacobson base and constant closed-fibre rank. Those hypotheses rule out nilpotent minors invisible at closed points; the nonreduced-base countertest detects their omission."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:G/simultaneous-resolution",
+        "verdict": "verified",
+        "note": "BHS formulas (2.1)–(2.2) p. 310 give the associated-bundle action and incidence equations. The right B-action has the correct inverse adjoint, and geometric total spaces/descent are imported through VB-upstream."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:G/regular-loci",
+        "verdict": "verified",
+        "note": "BHS §2.1 p. 310 distinguishes regular centralizer dimension r from regular semisimplicity. The nilpotent SL2 and torus tests distinguish them; the required Jordan/centralizer theory is explicitly Lie-invariants."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:G/resolution-properties",
+        "verdict": "verified",
+        "note": "BHS Proposition 2.1.1 pp. 310–311 gives proper surjectivity, finiteness over the regular locus and the étale W-cover over the regular semisimple locus. It does not claim the full Grothendieck map birational."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/incidence-scheme",
+        "verdict": "verified",
+        "note": "BHS formulas (2.3)–(2.4) p. 311 use the common Lie-algebra coordinate in the fibre product. The native categorical pullback has a confirmed Scheme instance at the pin; incidence geometry is not inferred from the categorical carrier."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/cartan-maps",
+        "verdict": "verified",
+        "note": "BHS formula (2.5) p. 311 uses the quotient b/u with trivial B-action. The two Cartan maps are distinct from the two resolution projections, and the representative formulas respect the associated-bundle quotient."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/incidence-strata",
+        "verdict": "verified",
+        "note": "BHS §2.2 p. 311 defines the full inverse image V_w of U_w. The tests distinguish it from the nilpotent stratum V′_w, so no zero-Cartan condition is silently imposed."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/stratum-bundle",
+        "verdict": "verified",
+        "note": "BHS Proposition 2.2.1 pp. 311–312 gives rank r+N−ell(w) over the N+ell(w) orbit. Their sum is D; the torus and both SL2 strata give the stated ranks."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/component-closures",
+        "verdict": "verified",
+        "note": "BHS Definition 2.2.3 and Lemma 2.2.4 pp. 312–313 use reduced closures of V_w. The scheme-image equivalence uses reducedness of V_w, and the plan correctly rejects the larger inverse image of the orbit closure."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/bruhat-support",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.2.4 and Proposition 2.2.5 proof pp. 312–313 give the Bruhat support and distinct equal-dimensional closures. Properness gives the closed flag image; no scheme equality of a closure with its full inverse image is asserted."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/local-complete-intersection",
+        "verdict": "verified",
+        "note": "BHS Proposition 2.2.5 p. 313 proves the expected-codimension lci statement for X. Native regular-sequence/CM suppliers and AG-geometry are explicit; it does not deduce CM of each separate reduced component."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/reduced-incidence",
+        "verdict": "verified",
+        "note": "BHS Theorem 2.2.6(i) pp. 313–314 combines CM with generic reducedness over the regular semisimple locus. This establishes reduced X and does not remove possible multiplicities from later Cartan special fibres."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:I/birational-projections",
+        "verdict": "verified",
+        "note": "BHS Theorem 2.2.6(ii) pp. 313–314 gives proper birational component projections and isomorphisms over the regular resolution locus. The finite-birational-to-normal argument concerns that open, not all of a singular target."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:C/cartan-fibre-dimensions",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.3.1 pp. 314–315 gives the 2N Cartan-fibre dimension via scaling and the stratum calculation. The plan records the geometric dimension input and does not substitute global dimension alone for local flatness."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:C/bezrukavnikov-riche-input",
+        "verdict": "verified",
+        "note": "BR Theorem 2.2.1 pp. 557–558, its §2.10 proof pp. 570–571 and Remark 2.11.1 p. 572 support the CM/base-change boundary. Semisimple simply connected, p>h and coadjoint inverse-index conventions are retained; convolution prerequisites remain BR-input."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:C/cm-reductive-and-zero",
+        "verdict": "corrected",
+        "note": "BHS Proposition 2.3.3 pp. 315–316 uses central isogeny and integral spreading. Added the direct Lie-invariants gap for the isogeny differential/flag comparison; CM-spreading already prevents inferring all generic CM points merely from the special fibre."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:C/cartan-flatness",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.3.2 p. 315 needs correction E1. The node uses the local dimension equation with regular base and CM source, exactly matching the read local miracle-flatness supplier rather than the false unrestricted global criterion."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:N/cartan-relation",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.3.4 pp. 316–317 gives κ2=w⁻¹κ1. For a non-involutive A2 Weyl element this distinguishes the inverse convention; the suggested native linear-equivalence signature has the same direction."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:N/smooth-stratum-fibres",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.3.5 p. 317 gives the smooth affine-fibre map to U_w×t with fibre dimension N−ell(w). Restricting to a toral fixed subspace preserves this calculation; the fixed space is a native linear kernel."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:N/regular-root-wall",
+        "verdict": "verified",
+        "note": "BHS Theorem 2.3.6 proof pp. 318–319 uses a positive root with the specified Bruhat increase and a regular root-wall element. The rank-one centralizer calculation is a substantive Lie-invariants input, not routine root notation."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:N/normal-components",
+        "verdict": "verified",
+        "note": "BHS Theorem 2.3.6 pp. 318–319 combines CM/S2 with the codimension-one regular-boundary argument. The listed Serre supplier gives precisely R1+S2; no normality of nilpotent Steinberg components is inferred."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:S/chevalley-restriction",
+        "verdict": "verified",
+        "note": "BHS §2.4 pp. 319–320 uses Chevalley restriction in characteristic zero. The central summand and a chosen nondegenerate invariant form are retained, avoiding a false nondegenerate-Killing-form assumption for a reductive group."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:S/springer-resolution",
+        "verdict": "verified",
+        "note": "BHS §2.4 p. 320 identifies the nilpotent associated bundle and proper birational Springer projection. The unique-flag regular-nilpotent input is separated in Lie-invariants; a torus resolves a point."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:S/cotangent-identification",
+        "verdict": "verified",
+        "note": "BHS §2.4 pp. 320–321 and Lemma 2.4.8 proof p. 324 require the Springer cotangent product, correcting E4. The signed pair (−ψ,ψ) has zero diagonal moment map and the dimensions are 4N."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:S/steinberg-variety",
+        "verdict": "verified",
+        "note": "BHS §2.4 and Proposition 2.4.1 pp. 320–321 supply the reduced nilpotent incidence and conormal components. The definition uses reduction explicitly and does not rely on reducedness of the raw Springer fibre product."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:S/raw-fibre-product-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the unsupported unconditional raw-scheme isomorphism into Z≅Q_red→Q, an isomorphism iff Q is reduced. BHS §2.4 pp. 319–320 supplies the variety comparison; radicality remains Steinberg-reduced and is absent from every downstream cycle dependency."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:S/steinberg-components",
+        "verdict": "verified",
+        "note": "BHS Proposition 2.4.1 p. 320 gives conormal rank N−ell(w) over orbit dimension N+ell(w), hence pure dimension 2N. Distinct closures give all components; historical nonnormality comments are not promoted to a CM/normality theorem."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:Y/top-cycle-group",
+        "verdict": "verified",
+        "note": "BHS §2.4 p. 320 and §2.5 p. 327 use the free top-cycle group. The native AlgebraicCycle carrier is locally finitely supported on points; finite component support is specified separately, without quotienting by rational equivalence."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:Y/module-cycle",
+        "verdict": "verified",
+        "note": "BHS pp. 320, 327–328 uses finite generic lengths for coherent modules with support dimension at most d. The ENat length-to-integer conversion has a finiteness premise, and exactness invokes the actual length-additivity hypotheses."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:Y/cartan-zero-fibres",
+        "verdict": "verified",
+        "note": "BHS §2.4 p. 320 distinguishes scheme Cartan zero fibres from their reduced Steinberg support. The SL2 longest-component cycle has both Steinberg components; reducedness of X_w does not imply reducedness of its fibre."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:Y/zero-fibre-dimension",
+        "verdict": "verified",
+        "note": "BHS Proposition 2.4.1 p. 320 with Proposition 2.3.3 gives pure dimension 2N for zero fibres and CM of each Xbar_w via flatness and a regular-parameter sequence. It does not assert reducedness of those fibres."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:D/differential-operators",
+        "verdict": "verified",
+        "note": "Mustață Definitions 2.5 and 3.1 pp. 2,9 and Ginzburg §2.1 pp. 23–24 support recursive order and quasi-coherent D-modules. Coherent means finite over D, so the free D module is allowed despite not being O-coherent."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:D/filtered-pbw",
+        "verdict": "corrected",
+        "note": "Mustață Theorems 2.11/2.21 and Corollary 2.22 pp. 3–6 support PBW and noetherianity; Remark 2.27 p. 7 permits characteristic-zero fields. Corrected the proof outline/locator to cover both reversed inclusion announcements on pp. 3–4 (expanded E7)."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:D/good-filtration",
+        "verdict": "verified",
+        "note": "Mustață Definitions 3.19/3.21 and Proposition 3.22 pp. 13–14 and Ginzburg §1.1 pp. 4–6 use exhaustive bounded-below good filtrations with coherent pieces and finite graded module. The order shift and doubled-delta tests rule out unbounded or rank-only substitutes."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:D/filtration-existence-comparison",
+        "verdict": "verified",
+        "note": "Mustață Propositions 3.22/3.24/3.25/3.33 pp. 14–16 give local existence and comparison by bounded shifts; global flag existence needs the recorded coherent-generator extension. Strict short-exact filtrations, not arbitrary filtrations, give graded exactness."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:D/characteristic-variety",
+        "verdict": "verified",
+        "note": "Mustață Definition 3.28 and Proposition 3.30 pp. 15–16 establish reduced characteristic support independent of a good filtration. The proof compares radicals/supports rather than claiming isomorphic graded modules for all filtrations."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle",
+        "verdict": "verified",
+        "note": "Mustață Definition 6.40 and Propositions 6.41–6.42 pp. 55–56 define generic-length characteristic cycles and independence/additivity. The D/Dx² example has multiplicity two and independently rejects Ginzburg E5’s reduced-rank formulation."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality",
+        "verdict": "verified",
+        "note": "Mustață §6.1 pp. 43–47 and pp. 62–63 fix transfer handedness, canonical-bundle conversion and dual shift [n]. Smooth abelian pullback is Lf*, closed inverse is Lf*[−c]; native DerivedCategory supplies none of those functors, as D-homological records."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/kashiwara-equivalence",
+        "verdict": "verified",
+        "note": "Mustață Theorem 6.20 and Proposition 6.24 pp. 47–51 give the closed-support equivalence and normal-derivative calculation. Tor0 is the quotient and Tor1 the kernel (E8); H0 i† has the stated inverse normalization."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/bernstein-inequality",
+        "verdict": "verified",
+        "note": "Mustață §6.3 pp. 51–52 and general inequality at Theorem 3.38 p. 17 give the component dimension lower bound. The required filtered homological/Sato–Kashiwara input remains D-homological; no symplectic involutivity is claimed as a library theorem."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/holonomic-modules",
+        "verdict": "verified",
+        "note": "Mustață §6.4 pp. 53–54 and Ginzburg Definition 4.1.1 p. 60 support the holonomic dimension condition. The plan includes the zero module and does not identify all holonomic modules with regular ones."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/finite-length-and-cycle-additivity",
+        "verdict": "verified",
+        "note": "Mustață Proposition 6.37 p. 54 and Propositions 6.41–6.42 pp. 55–56 give finite length and cycle additivity. Positive generic multiplicities decrease in proper holonomic quotients; the coherent-category/noetherian argument supplies both chain conditions."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/intermediate-extension",
+        "verdict": "verified",
+        "note": "Mustață Definition 6.77 and Theorem 6.79 pp. 73–75 define the image extension and its absence of boundary subquotients. The locally closed immersion is normalized with the codimension shift; arbitrary j_* is not substituted for the intermediate extension."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/regular-holonomic",
+        "verdict": "verified",
+        "note": "Mustață Definitions 7.25/7.30/7.32 and Theorem 7.33 pp. 93–94 give the curve-lattice/regular-holonomic convention. Stability over C is stated but its cited HTT proof and characteristic-zero descent remain D-regular."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/strong-equivariance",
+        "verdict": "verified",
+        "note": "BHS §2.4 p. 321 uses strong algebraic equivariance. The cocycle and differentiated action condition exclude a nontrivial infinitesimal weight on a point; smooth pullbacks are abelian Lf* without an unintended dimension shift."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:H/moment-support-and-induction",
+        "verdict": "verified",
+        "note": "BHS pp. 321,323 and Mustață Theorem 6.83 pp. 76–77 support moment-zero conormal support and simple orbit extensions. Algebraic closure and geometrically connected stabilizers are explicit for trivial rank-one orbit connections; descent/classification remains D-regular."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity",
+        "verdict": "corrected",
+        "note": "BB §§1–2 pp. 15–17 gives D-affinity at dominant regular parameter, with ordinary D at ρ. Made explicit the selected G-character integration requirement and the semisimple-to-reductive supplier extension; they remain BB-sections and CategoryO-elementary rather than claimed upstream theorems."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:L/localisation-equivalence",
+        "verdict": "corrected",
+        "note": "BB §§1–2 pp. 15–17 and BHS p. 321 give the sheafified tensor/global-sections equivalence at strict χ0. Added CategoryO-elementary for the reductive extension of the semisimple source interfaces; generalized central character modules are not conflated with this strict reduction."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:L/equivariant-induction",
+        "verdict": "verified",
+        "note": "BHS Remark 2.4.3 and Proposition 2.4.4 pp. 321–322 give descent from G×F to G×ᴮF≅F×F. The right action uses b⁻¹ on the second flag, and inverse fibre restriction is Li*=i†[N] on these noncharacteristic equivariant objects."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:L/principal-o-and-induction",
+        "verdict": "verified",
+        "note": "BHS §2.4 p. 321 and Theorem 2.4.7 pp. 322–323 use the principal strict central block with weights ww0·0=−wρ−ρ. The torus and SL2 labels agree; elementary category O and the regularity restriction are explicit imported gaps."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:K/verma-cycle",
+        "verdict": "verified",
+        "note": "BHS Proposition 2.4.6 p. 322 and BR Proposition 2.14.2 pp. 574–575 compare Verma cycles to scheme zero-fibre cycles. The BR coadjoint/inverse label and top-homology comparison are recorded in BR-input; the statement does not replace Xbar_w by reduced Z_w."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:K/simple-cycle-triangularity",
+        "verdict": "verified",
+        "note": "BHS Theorem 2.4.7(iii) proof p. 323 gives nonnegative Bruhat-triangular simple cycles with diagonal one. The vanishing for smaller strata in a smooth orbit closure and SL2 examples agree; no general irreducible-characteristic-cycle assertion is made."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:K/kl-transition",
+        "verdict": "verified",
+        "note": "BHS Theorem 2.4.7(ii) p. 323 has P_(w0w,w0v)(1), with support v≤w. The corrected E3 proof indices and the separate post-localisation KL supplier avoid reversing the Bruhat order or introducing a dependency cycle."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:K/three-bases",
+        "verdict": "verified",
+        "note": "BHS Theorem 2.4.7 p. 323 follows by finite integral unitriangular changes of basis. Diagonal coefficients one give determinant one over Z, so this is an integral basis statement, not merely a rational independence claim."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:P/dominant-parabolic",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.4.8 p. 324 fixes the parabolic via dominance of −wρ−ρ. Algebraic P_w integration is substantive and retained in CategoryO-elementary; the group-level parabolic carrier comes from ReductiveGroups."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:P/parabolic-cycle-invariance",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.4.8 and Remark 2.4.9 p. 324 give first-flag invariance of the cycle in the ambient incidence space. The corrected signed cotangent product and diagonal action give this action; the whole Z is not asserted invariant under first-flag action alone."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:T/cartan-fibre-product",
+        "verdict": "verified",
+        "note": "BHS §2.5 pp. 325–326 uses the scheme fibre product t×_(t/W)t and graphs (z,w⁻¹z). The Chevalley factorization has the same inverse convention as N/cartan-relation and does not replace the fibre product by a disjoint graph union."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:T/cartan-graph-components",
+        "verdict": "verified",
+        "note": "BHS §2.5 p. 325 gives the Cartan graph components. Expected codimension makes the fibre product CM and regular semisimple generic étaleness gives reducedness; the graphs may intersect along reflection hyperplanes."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:T/formal-component-detection",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.5.2 pp. 325–326 detects a unique graph label after completion. Excellent normal incidence completion and flat/dominant Cartan projection are explicit inputs; E2 fixes the generic point’s ambient completed Cartan space."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:T/tangent-space-bound",
+        "verdict": "verified",
+        "note": "BHS Proposition 2.5.3 pp. 326–327 is restricted to ψ=0. The toral graph relations give ker(wv⁻¹−id); the remaining nilpotent fibre dimension is ell(vw0). The statement correctly avoids applying this bound at arbitrary operators."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:T/smoothness-criterion",
+        "verdict": "verified",
+        "note": "BHS Corollary 2.5.4 p. 327 combines a smooth Bruhat closure with the fixed-space codimension equality. The tangent bound then equals component dimension D; this is sufficient for smoothness and is not stated as a converse."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:E/completion-cycle-map",
+        "verdict": "verified",
+        "note": "BHS §2.5 pp. 327–328 defines completion on component cycles. Excellence/reducedness supplies reduced completed prime quotients and the finite-module comparison supplies multiplicities; the nodal example correctly retains both formal branches of one global component."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:E/module-completion-formula",
+        "verdict": "verified",
+        "note": "BHS Lemma 2.5.5 pp. 327–328 uses a finite prime filtration, flat completion and generic lengths. It applies to coherent modules on the possibly nonreduced zero fibre through its reduced support without losing structure-sheaf multiplicity."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:E/completed-simple-cycles",
+        "verdict": "verified",
+        "note": "BHS definition after Lemma 2.5.5 p. 328 defines completed simple cycles by completing their integral component expansion. This is a cycle map, not an adic-completion functor on D-modules; missing components map to zero and branching is retained."
+      },
+      {
+        "nodeId": "SpringerResolutionAndCharacteristicCycles:E/completed-kl-identity",
+        "verdict": "verified",
+        "note": "BHS Corollary 2.5.6 p. 328 transports the KL transition through the additive completion map and the coherent-module formula. The same prefixed KL indices, zero convention off Xbar_w and all formal-branch multiplicities survive."
+      }
     ]
   }
 }

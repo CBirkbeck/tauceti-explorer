@@ -10,6 +10,8 @@ Fix a split connected reductive group G over k, a Borel B, a maximal torus T⊂B
 
 ReductiveGroups supplies group and root data, LieHighestWeight supplies enveloping, Verma/simple and central-character theory, and current AlgebraicVectorBundles supplies sheaf duals and geometric total spaces. General local algebra and completion criteria come from DeformationAndDerivedPatchingAlgebra. Elementary category O and KL multiplicities have the separate supplier described below. The present roadmap owns the resolution geometry, D-module and localisation bridge, cycle bases and formal geometric identities. It does not construct trianguline varieties, Galois representations, analytic category O, the KL polynomial theory itself, or a general Springer representation. A conormal-intersection conjecture and historical comments on nilpotent component normality and reducible simple cycles are recorded only as landscape.
 
+The independent review accepts this complete target-level planning pass: all 14 layers are planned, and none is closed. The 11 input gaps below remain prerequisites for closure; in particular, the raw Steinberg fibre-product comparison is conditional on reducedness. The [review report](../reviews/REV-DESIGN-SpringerResolutionAndCharacteristicCycles.md) records the supplier boundaries and source corrections.
+
 The companion suggested Lean file is not this roadmap and is not exhaustive. This document is definitive. Its statements suggest names and mathematical signatures so contributors and reviewers can converge; targets whose carriers are absent at the pins remain mathematical prose. No implementation is asserted.
 
 The construction order is F→G→I→C→N→S→Y→D→H→L→K. Differential operators and filtered PBW can start independently of the incidence branch, but characteristic cycles import the top-cycle construction from Y. P supplies parabolic invariance. The Cartan/tangent branch T uses N independently of KL, and E combines T and K. Elementary category O precedes L, whereas the supplier’s KL theorem follows L.
@@ -142,6 +144,8 @@ Construct the flag scheme F=G/B and diagonal orbits U_w in F×F; prove smooth pr
 **Check.** For SL₂, U_e is the one-dimensional diagonal and U_s the two-dimensional distinct-pair open; only the latter closure is all P¹×P¹.
 
 **Source.** BHS19, §2.1, p. 309; Proposition 2.2.1, pp. 311–312: The dimensions and closure order used in the bundle and boundary calculations.
+
+**Required input still to establish.** Lie-invariants (exact boundaries below).
 
 ### constant-rank-intersection: Intersection of subvector bundles
 
@@ -533,7 +537,7 @@ Prove equidimensionality and surjectivity of all κ_i and κ_i,w fibres. Import 
 
 **Source.** BHS19, Proposition 2.3.3, pp. 315–316: The integral argument transports CM from large positive characteristic to characteristic zero.
 
-**Required input still to establish.** BR-input, CM-spreading (exact boundaries below).
+**Required input still to establish.** BR-input, CM-spreading, Lie-invariants (exact boundaries below).
 
 ### cartan-flatness: Flatness of the Cartan projections
 
@@ -740,7 +744,7 @@ In characteristic zero prove Chevalley restriction, define the nilpotent cone an
 
 ### raw-fibre-product-comparison: Scheme comparison for the Steinberg fibre product
 
-**Target.** In characteristic zero the canonical map (𝒩̃×_𝒩𝒩̃)_red→𝒩̃×_𝒩𝒩̃ is an isomorphism, and hence Z≅𝒩̃×_𝒩𝒩̃ without reduction. This requires reducedness of the raw fibre product; it does not follow just from equality of geometric points.
+**Target.** Let Q=𝒩̃×_𝒩𝒩̃ be the scheme fibre product in characteristic zero. The canonical closed immersion Z≅Q_red→Q is an isomorphism if and only if Q is reduced. Thus Z≅Q without reduction is conditional on radicality of the local incidence ideals; equality of geometric points alone does not establish that condition.
 
 **Hypotheses.** char(k)=0; 𝒩 and Z have the reduced scheme structures specified above.
 
@@ -749,11 +753,11 @@ In characteristic zero prove Chevalley restriction, define the nilpotent cone an
 **Construction or proof.**
 
 1. Construct the closed immersion from the reduced fibre product.
-2. The target statement reduces to radicality of its local incidence ideal. BHS asserts the comparison but supplies no local ideal calculation at this point. The exact reducedness proof is the Steinberg-reduced gap; no subsequent cycle theorem assumes it.
+2. The immersion is an isomorphism exactly when the nilradical sheaf of Q vanishes. Reducedness of Q is the separate Steinberg-reduced gap. The BHS display may be read in the reduced-variety convention; it is not used as a scheme-level reducedness theorem, and no subsequent cycle theorem assumes it.
 
 **Check.** For a torus both raw and reduced Springer fibre products are a point. In higher rank this elementary case does not prove radicality; the comparison remains bounded by Steinberg-reduced and is not used by the cycle identities.
 
-**Source.** BHS19, Beginning of §2.4, p. 319, displayed Steinberg comparison: The unreduced fibre-product comparison needs a scheme-level justification beyond the reduced support.
+**Source.** BHS19, Beginning of §2.4, pp. 319–320, displayed Steinberg comparison: The variety-level display supplies the reduced comparison; it does not independently establish reducedness of the raw scheme fibre product.
 
 **Required input still to establish.** Steinberg-reduced (exact boundaries below).
 
@@ -931,13 +935,13 @@ Construct the sheaf D_Y of k-linear differential operators on a smooth character
 
 **Construction or proof.**
 
-1. Coordinate derivations commute. Repeated commutators show that an operator of order ≤p has a unique expansion in these monomials.
+1. Coordinate derivations commute. Monomials of total degree at most p have order at most p, giving F′_pD⊂F_pD. Repeated commutators and induction give F_pD⊂F′_pD and uniqueness of the monomial expansion; these are the directions needed despite the two reversed announcements in E7.
 2. Its leading coefficients give the symbol map and identify the graded pieces with symmetric powers. Descent through étale charts gives the sheaf statement.
 3. Use the noetherian graded ring and a leading-order argument to prove noetherianity of the filtered algebra.
 
 **Check.** On A¹ the relation ∂x−x∂=1 becomes the commutative symbol ring k[x,ξ]. The order-p piece has O-basis 1,∂,…,∂^p.
 
-**Source.** BHS19, §2.4, p. 321: The cotangent bundle is the spectrum of the associated graded operator algebra. M23, Theorems 2.11 and 2.21; Corollary 2.22, pp. 3–6: Coordinate PBW gives the symmetric graded algebra and the noetherian consequence.
+**Source.** BHS19, §2.4, p. 321: The cotangent bundle is the spectrum of the associated graded operator algebra. M23, Theorems 2.11 and 2.21; Corollary 2.22, pp. 3–6; both PBW inclusion directions on pp. 3–4 corrected as E7: Coordinate PBW gives the symmetric graded algebra and the noetherian consequence.
 
 **Required input still to establish.** VB-upstream (exact boundaries below).
 
@@ -1301,7 +1305,7 @@ Prove D-affinity of F for the ordinary sheaf D_F, identify its sections with the
 
 **Construction or proof.**
 
-1. The infinitesimal G-action gives U(g)→Γ(D_F); the Harish–Chandra character computes its central kernel. The filtered global-section calculation identifies the quotient with all global operators.
+1. The infinitesimal G-action gives U(g)→Γ(D_F); the Harish–Chandra character computes its central kernel. The filtered global-section calculation identifies the quotient with all global operators. The finite-dimensional modules chosen in the projection argument must integrate for the selected group characters; the Lie highest-weight classification alone does not supply this group-action comparison (BB-sections).
 2. For D-affinity use ample weights, Serre vanishing, tensoring with finite-dimensional highest-weight modules and projection to the regular dominant central summand, as in the BB proof.
 3. Keep the two rho normalizations explicit, including for groups where rho is not an integral character. The native coherent-sheaf Serre vanishing and filtered section calculation are recorded as missing supplier inputs.
 
@@ -1309,7 +1313,7 @@ Prove D-affinity of F for the ordinary sheaf D_F, identify its sections with the
 
 **Source.** BHS19, §2.4, p. 321: Localisation at the trivial infinitesimal character uses the untwisted flag D-sheaf. BB81, §1, p. 15; §2, main theorem and proof, pp. 16–17: D-affinity for a dominant regular parameter and the rho shift identify the ordinary D-sheaf case.
 
-**Required input still to establish.** BB-sections, AG-geometry (exact boundaries below).
+**Required input still to establish.** BB-sections, AG-geometry, CategoryO-elementary (exact boundaries below).
 
 ### localisation-equivalence: Beilinson–Bernstein localisation
 
@@ -1323,7 +1327,7 @@ Prove D-affinity of F for the ordinary sheaf D_F, identify its sections with the
 
 **Construction or proof.**
 
-1. Use the global U_χ₀-action on D_F to construct the tensor functor. The natural unit and evaluation counit form an adjunction.
+1. Use the global U_χ₀-action on D_F to construct the tensor functor. The natural unit and evaluation counit form an adjunction. For split reductive g, use the derived semisimple algebra and the prescribed scalar action of the centre; this extension of the semisimple upstream Verma/central-character interfaces is retained in CategoryO-elementary.
 2. D-affinity makes Γ exact and conservative, while global generation makes the counit surjective. Apply the same argument to its kernel and to presentations by free modules to prove both unit and counit are isomorphisms.
 
 **API.**
@@ -1340,6 +1344,8 @@ Prove D-affinity of F for the ordinary sheaf D_F, identify its sections with the
 - **Localisation.generalizedCharacter**: For a torus with generator z, k[z]/z² has generalized character zero but is not a U_χ₀-module; extending the stated equivalence to it would fail.
 
 **Source.** BHS19, §2.4, p. 321, displayed localisation equivalence: The exact localisation functor turns highest-weight modules into flag D-modules. BB81, §1, p. 15; §2, pp. 16–17: D-affinity gives tensor localisation with global-sections inverse.
+
+**Required input still to establish.** CategoryO-elementary (exact boundaries below).
 
 ### equivariant-induction: Induction from one flag to two flags
 
@@ -1746,12 +1752,12 @@ Construct the map on top cycles induced by completion at a closed point using ex
 
 - **tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation**: The Lie algebra and adjoint differential of a smooth affine group, root-space and Borel/nilradical inclusions, and compatibility of the adjoint action with subgroup maps and base change.
 - **tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components**: Representable parabolic fppf quotients G/B, their right B-torsor G→G/B, and descent along that torsor. The quotient is not the pointwise coset functor on arbitrary schemes.
-- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**: Borel and maximal torus data, the Weyl group, root spaces and root subgroups, standard parabolic/Levi construction, Bruhat orbits and their closure order, and root/length criteria used for intersection dimensions.
+- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**: Borel and maximal torus data, the Weyl group, root spaces and root subgroups, standard parabolic/Levi construction, Bruhat orbits and their closure order, and root/length criteria used for intersection dimensions. Upstream Layer 7 states Bruhat decomposition and BN-pairs; the precise Schubert closure-order statement and its root/length comparison remain a Lie-invariants extension, not a theorem confirmed there.
 - **tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon**: The central isogeny G_der^sc×Z(G)°→G and its root-datum kernel, with differential an isomorphism and flag schemes identified in char zero or p>h. The isogeny exists in Layer 8; the stated Lie comparison and characteristic bound must be checked.
-- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ**: Split Chevalley–Demazure group models over Z, compatible B,T and root subgroups, and base-change comparisons for their Borel/nilradical associated bundles over Z_(p).
-- **tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ**: U(g), PBW, nonzero Verma M(λ), its unique simple quotient L(λ) and the highest-weight conventions for split reductive g, with the central summand acting by its chosen character.
-- **tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles**: Finite-dimensional highest-weight modules at dominant integral weights, tensor constructions and integration/integrability at the group level needed in the BB projection argument.
-- **tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations**: Harish–Chandra projection and central characters χ_λ, χ_λ=χ_μ on the dot-action orbit, with the trivial infinitesimal character χ₀ and the rho-shift convention made explicit.
+- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ**: Split Chevalley–Demazure group models over Z, compatible B,T and root subgroups, and base-change comparisons for their Borel/nilradical associated bundles over Z_(p). Layer 9 supplies the pinned group/root-subgroup model, while base change of the associated Lie bundles also needs the descent and total-space comparisons retained in VB-upstream.
+- **tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ**: U(g), PBW, nonzero Verma M(λ), its unique simple quotient L(λ) and the highest-weight conventions for split reductive g, with the central summand acting by its chosen character. The existing Layer 3 Verma signatures assume a Killing-semisimple Lie algebra; extension to the split reductive algebra with fixed central action is required through CategoryO-elementary.
+- **tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles**: Finite-dimensional highest-weight modules at dominant integral weights, tensor constructions and integration/integrability at the group level needed in the BB projection argument. Layer 4 supplies the Lie-module classification, not an integration theorem for arbitrary Lie weights; BB-sections retains the comparison for weights that are characters of G.
+- **tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations**: Harish–Chandra projection and central characters χ_λ, χ_λ=χ_μ on the dot-action orbit, with the trivial infinitesimal character χ₀ and the rho-shift convention made explicit. Its stated signatures are semisimple; the central polynomial factor for split reductive g is part of the CategoryO-elementary extension.
 - **SchemeAndStackFoundations:SF.0**: Native scheme morphisms and locally noetherian coherent sheaves, smooth/étale/proper base-change facts, expected-codimension regular-sequence and dimension formula applications, excellent finite-type schemes and completion comparisons, plus Serre vanishing on the projective flag schemes. The precise statements not yet supplied are retained in AG-geometry and BB-sections.
 
 ## Missing input boundaries
@@ -1764,15 +1770,15 @@ Direct consumers: SpringerResolutionAndCharacteristicCycles:F/flag-geometry, Spr
 
 ### VB-upstream: Register and import the current vector-bundle roadmap
 
-AlgebraicVectorBundles on current TauCetiRoadmap main already owns sheaf symmetric algebras, relative Spec, duality and total spaces: L0B–L0C, L1A–L1B, L2A–L2B. Import totalSpace(E)=Spec Sym(E∨), pullback and associated-bundle descent; do not rebuild those carriers here. It is absent from this atlas snapshot, so supply the registration and check the precise descent theorem. Current Tau Ceti already has finite locally free sheaves and relative differentials, but not every geometric total-space construction.
+AlgebraicVectorBundles on current TauCetiRoadmap main already owns sheaf symmetric algebras, relative Spec, duality and total spaces: L0B–L0C, L1A–L1B, L2A–L2B. Import totalSpace(E)=Spec Sym(E∨) and pullback; do not rebuild those carriers here. The current upstream statements do not give the required associated-bundle descent theorem: supply that precise extension and its integral-model base-change comparison. It is absent from this atlas snapshot, so supply the registration and check the precise descent theorem. Current Tau Ceti already has finite locally free sheaves and relative differentials, but not every geometric total-space construction.
 
 Direct consumers: SpringerResolutionAndCharacteristicCycles:F/constant-rank-intersection, SpringerResolutionAndCharacteristicCycles:G/simultaneous-resolution, SpringerResolutionAndCharacteristicCycles:S/springer-resolution, SpringerResolutionAndCharacteristicCycles:S/cotangent-identification, SpringerResolutionAndCharacteristicCycles:D/differential-operators, SpringerResolutionAndCharacteristicCycles:D/filtered-pbw, SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality.
 
 ### Lie-invariants: Reductive Lie-algebra structure inputs
 
-Check and supply the char(k)=0 or p>h Jordan and centralizer theory: regular-element Borels are finite, regular semisimple Borels form an étale W-torsor, the rank-one root-wall calculation, and invariant forms in this range. In characteristic zero also supply Chevalley restriction, polynomial Weyl invariants, reduced nilpotent quotient fibre, unique flags over regular nilpotents and the adjoint/cotangent comparison. ReductiveGroups Layers 2, 7 and 8 supply the underlying Lie, roots and isogenies, but not an audited theorem with all these conclusions; additions in that direction require a ReductiveGroups Part II extension.
+Check and supply the char(k)=0 or p>h Jordan and centralizer theory: regular-element Borels are finite, regular semisimple Borels form an étale W-torsor, the rank-one root-wall calculation, and invariant forms in this range. In characteristic zero also supply Chevalley restriction, polynomial Weyl invariants, reduced nilpotent quotient fibre, unique flags over regular nilpotents and the adjoint/cotangent comparison. ReductiveGroups Layers 2, 7 and 8 supply the underlying Lie, roots and isogenies, but not an audited theorem with all these conclusions; additions in that direction require a ReductiveGroups Part II extension. Also supply the precise Bruhat closure-order theorem beyond the current Layer 7 decomposition statement, and the invertibility bound for the central-isogeny differential and induced flag comparison used in C/cm-reductive-and-zero; an isogeny by itself supplies neither conclusion.
 
-Direct consumers: SpringerResolutionAndCharacteristicCycles:G/regular-loci, SpringerResolutionAndCharacteristicCycles:G/resolution-properties, SpringerResolutionAndCharacteristicCycles:N/regular-root-wall, SpringerResolutionAndCharacteristicCycles:S/chevalley-restriction, SpringerResolutionAndCharacteristicCycles:S/springer-resolution.
+Direct consumers: SpringerResolutionAndCharacteristicCycles:G/regular-loci, SpringerResolutionAndCharacteristicCycles:G/resolution-properties, SpringerResolutionAndCharacteristicCycles:N/regular-root-wall, SpringerResolutionAndCharacteristicCycles:S/chevalley-restriction, SpringerResolutionAndCharacteristicCycles:S/springer-resolution, SpringerResolutionAndCharacteristicCycles:F/orbit-geometry, SpringerResolutionAndCharacteristicCycles:C/cm-reductive-and-zero.
 
 ### BR-input: Convolution inputs behind the BR theorems
 
@@ -1806,15 +1812,15 @@ Direct consumers: SpringerResolutionAndCharacteristicCycles:H/regular-holonomic,
 
 ### BB-sections: Global differential operators at the trivial central character
 
-Finish the filtered-section computation Γ(D_F)=U(g)/ker χ₀, including the Harish–Chandra kernel and rho shift, in native sheaf terms. The BB pp. 16–17 theorem and proof were read, but the geometric section calculation used there is not currently a confirmed library theorem or requested node.
+Finish the filtered-section computation Γ(D_F)=U(g)/ker χ₀, including the Harish–Chandra kernel and rho shift, in native sheaf terms. The BB pp. 16–17 theorem and proof were read, but the geometric section calculation used there is not currently a confirmed library theorem or requested node. Also supply integration of the finite-dimensional highest-weight modules selected by G-characters in the projection argument; do not infer integration for all integral Lie weights from LieHighestWeight Layer 4.
 
 Direct consumers: SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity.
 
 ### CategoryO-elementary: Register the elementary principal category O supplier
 
-The existing paper route assigns algebraic category O, its strict central-reduced block, finite-length highest-weight classification, algebraic B-action and Levi integrability to LieHighestWeightPartIICompletedCategoryO. That proposed roadmap is not registered in this checkout, so there is no valid stage id to cite. Register its elementary layer before L/principal-o-and-induction and P/dominant-parabolic; it must not depend on this roadmap’s KL layer.
+The existing paper route assigns algebraic category O, its strict central-reduced block, finite-length highest-weight classification, algebraic B-action and Levi integrability to LieHighestWeightPartIICompletedCategoryO. That proposed roadmap is not registered in this checkout, so there is no valid stage id to cite. Register its elementary layer before L/principal-o-and-induction and P/dominant-parabolic; it must not depend on this roadmap’s KL layer. Include the split reductive extension of the semisimple Verma and Harish–Chandra interfaces by a fixed central scalar character; the current upstream Layers 3 and 7 do not state this extension.
 
-Direct consumers: SpringerResolutionAndCharacteristicCycles:L/principal-o-and-induction, SpringerResolutionAndCharacteristicCycles:P/dominant-parabolic.
+Direct consumers: SpringerResolutionAndCharacteristicCycles:L/principal-o-and-induction, SpringerResolutionAndCharacteristicCycles:P/dominant-parabolic, SpringerResolutionAndCharacteristicCycles:L/flag-d-affinity, SpringerResolutionAndCharacteristicCycles:L/localisation-equivalence.
 
 ### CategoryO-KL: Register the KL multiplicity supplier after localisation
 
@@ -1868,9 +1874,9 @@ The vector-bundle dimension statement is cited under the label Lemma 2.2.1. The 
 
 Provenance: Already recorded within PAPER-BREUIL-HELLMANN-SCHRAEN-19/E5; not an author correction. Correction search: Numdam version-of-record article and bibliography, https://numdam.org/articles/10.1007/s10240-019-00111-y/, checked 18 October 2026; no linked correction found. arXiv:1702.02192 submission history, checked 18 October 2026; only v1 is listed, not a subsequent corrected version. Benjamin Schraen’s publications page, https://math.univ-lyon1.fr/~schraen/, checked 18 October 2026; no erratum is attached to this article. Title searches for erratum and corrigendum on 18 October 2026; the eigenvariety paper’s erratum concerns a predecessor, not these §2 statements.
 
-### E7 — M23, Proof of Theorem 2.11, author notes p. 4
+### E7 — M23, Theorem 2.11, preparatory paragraph on p. 3 and proof on p. 4, author notes
 
-The proof announces the inclusion F′_pD⊂F_pD, although that easy inclusion was already established. The induction proves F_pD⊂F′_pD, which is the reverse inclusion needed for equality. The proof starts with P∈F_pD and ends with P∈F′_pD. Only the announced direction is reversed; its actual argument is unchanged.
+The preparatory paragraph assigns the easy monomial inclusion the direction F_pD⊂F′_pD; the proof introduction assigns the inductive inclusion the direction F′_pD⊂F_pD. Both directions are reversed. Products of coordinate derivations give F′_pD⊂F_pD on p. 3. The induction on p. 4 starts with an order-p operator and proves F_pD⊂F′_pD, completing equality. The multiplicative order bound puts each monomial in F_pD, while the inductive argument expands each P∈F_pD in monomials. The two printed announcements reverse these respective directions; the actual PBW argument is sound. Both rendered pages were checked independently.
 
 Provenance: new Correction search: Author’s current lecture-note PDF at https://websites.umich.edu/~mmustata/DmodulesNotes.pdf, accessed 18 October 2026. Title and Theorem 2.11 searches for a correction, 18 October 2026; no separate erratum found.
 
