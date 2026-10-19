@@ -5175,5 +5175,15 @@
  "REV-PKG-GrossZagierAndArithmeticHeights~3": 11037,
  "REV-PKG-ModularIwasawaMainConjectures~2": 11038,
  "DESIGN-EisensteinIdealAndRationalTorsion": 11045,
- "DESIGN-RelativeJacobiansAndIntegralCurveModels": 11046
+ "DESIGN-RelativeJacobiansAndIntegralCurveModels": 11046,
+ "FIX-PKG-BorelRegulators~adv": 11062,
+ "FIX-PKG-K3BlochGroups~adv": 11063,
+ "PKG-ArithmeticKTheory~codex": 11064,
+ "PKG-K2SymbolsBrauer~codex": 11065,
+ "PKG-MotivicEtaleKTheory~codex": 11066,
+ "PKG-NoncommutativeAndEquivariantIwasawa~codex": 11067,
+ "REV-PKG-EllipticKTheory~adv": 11068,
+ "REV-PKG-EllipticRegulators~adv": 11069,
+ "REV-PKG-HabiroNumberFields~adv": 11070,
+ "REV-PKG-Polylogarithms~adv": 11071
 }
