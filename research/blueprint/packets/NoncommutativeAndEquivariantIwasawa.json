@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "complete",
- "summary": "Target-level roadmap for completed group rings, canonical localization, characteristic classes, equivariant zeta objects and leading terms. Revision 2 reconstructs the corrected multiplicative-logarithm kernel/cokernel proof, replaces a false cyclic-overgroup congruence by full Möbius congruences and canonical descent of a completed zeta element, and types global leading terms on shifted complexes with corrected orders and cyclotomic normalization. All stages remain planned, not formally proved or source-leaf closed. Existing independent-review verdicts are unchanged historical records; this revision awaits independent review. Revision 3 imports CompletedCohomologyPartII's moved-down Iwasawa-ring foundations and ClassicalArithmeticCompletion's determinant-image logarithm theory, answers the incoming requests, and closes the prime-radical and augmentation leaves.",
+ "summary": "Target-level roadmap for completed group rings, canonical localization, characteristic classes, equivariant zeta objects and leading terms. Revision 3 imports the existing uniform Iwasawa-ring and finite determinant-logarithm foundations, answers seven incoming requests, and supplies explicit prime-radical and augmentation arguments. Independent review corrects the unramified hypothesis of the weighted graded API, the finite-index Frobenius Ext argument, analytic ownership and leading-term conventions, and reduces the Lean sketch to the prescribed shape. All eight stages remain planned, none formally proved or source-leaf closed; nineteen gaps and twenty-eight supplier requests remain explicit.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -736,7 +736,7 @@
    "kind": "definition",
    "statement": "The group-side model of a compact p-adic analytic group is a profinite G containing an open normal uniform pro-p subgroup U. Its dimension is dim U, independent of U. The equivalence of this model with a compatible p-adic Lie-group structure is imported from the analytic-distributions owner (Schneider Theorems 27.1 and 29.8), rather than rebuilding an analytic atlas here.",
    "hypotheses": [
-    "The group-theoretic characterisation is taken as the definition. The implication from an analytic structure to an open normal uniform subgroup is CompletedCohomologyPartII §0.1's `analytic_exists_open_uniform`, with that roadmap's proof obligation. The converse, a compatible analytic structure on the group model, stays with NoncommutativeAnalyticDistributions; registering that supplier and checking the primary uniform-basis criterion remain explicit gaps."
+    "The group-theoretic characterisation is taken as the definition. The implication from an analytic structure to an open normal uniform subgroup is CompletedCohomologyPartII §0.1's `analytic_exists_open_uniform`, with that roadmap's proof obligation. The converse, a compatible analytic structure on the group model, belongs to the registered LocallyAnalyticDistributionsPartII ND.0 supplier. Its contract is imported; checking the primary uniform-basis criterion remains an explicit source obligation."
    ],
    "proofSteps": [
     "Package: profinite (compact, Hausdorff, totally disconnected) topological group with ∃ U open normal, pro-p and uniform.",
@@ -1249,7 +1249,7 @@
      "how": "defines coefficient weights"
     },
     {
-     "where": "NoncommutativeAnalyticDistributions, requested owner",
+     "where": "LocallyAnalyticDistributionsPartII ND.0",
      "how": "input for the Lazard Lie lattice, not its replacement"
     }
    ],
@@ -1329,7 +1329,7 @@
     {
      "name": "TauCeti.NoncommIwasawa.IwasawaSeries.weightedGraded",
      "role": "compatibility",
-     "statement": "For every p-valued group (G,ω) of finite rank with an ordered basis, not only a uniform U: gr_ω O[[G]]≅gr O⊗_(F_p[P])U(gr G) (Schneider Theorem 28.3, p. 199). Hence gr_ω O[[G]] and O[[G]] are domains (Corollary 28.5, pp. 200–201), and when gr G is abelian the graded ring is polynomial in 1+rank G variables over O/pO (Corollary 28.6, p. 201). The injectivity uses the PBW basis of U(gr G) over F_p[P]."
+     "statement": "For O the integers of a finite unramified extension of Q_p (so p is a uniformizer), and every p-valued group (G,ω) of finite rank with an ordered basis, not only a uniform U: gr_ω O[[G]]≅gr O⊗_(F_p[P])U(gr G) (Schneider Theorem 28.3, p. 199; coefficient convention p. 195). Hence gr_ω O[[G]] and O[[G]] are domains (Corollary 28.5, pp. 200–201), and when gr G is abelian the graded ring is polynomial in 1+rank G variables over O/pO (Corollary 28.6, p. 201). The injectivity uses the PBW basis of U(gr G) over F_p[P]. The ordered-module comparison for ramified O does not extend this particular graded formula or its O/pO domain argument."
     },
     {
      "name": "TauCeti.NoncommIwasawa.IwasawaSeries.rational_iff_bounded",
@@ -1360,7 +1360,8 @@
     },
     {
      "name": "ordered_iwasawa_series_5",
-     "statement": "For additive Z_p^d with ω(x)=1+min v_p(x_i) at odd p, gr G is abelian and gr_ω O[[G]] is O/pO[X₀,X₁,…,X_d], with X₀ the class of p; the weighted grading has one more variable than the mod-p augmentation grading."
+     "statement": "For O unramified over Z_p and additive Z_p^d with ω(x)=1+min v_p(x_i) at odd p, gr G is abelian and gr_ω O[[G]] is (O/pO)[X₀,X₁,…,X_d], with X₀ the class of p; the weighted grading has one more variable than the mod-p augmentation grading. For ramification index e>1, O/pO contains the nonzero nilpotent class of a uniformizer, so the asserted domain and polynomial-over-O/pO formula cannot be extended to ramified O by the ordered-module base change.",
+     "kind": "compatibility"
     }
    ],
    "uses": [
@@ -1538,7 +1539,7 @@
    ],
    "proofSteps": [
     "For a torsion-free uniform open normal U, import CompletedCohomologyPartII §5.5, `iwasawa_auslanderRegular`: O[[U]] and k[[U]] are Auslander regular of global dimensions d+1 and d. The proof there is a complete filtered-ring argument, with an extra-powerful shrink at p=2, and a central-uniformizer coefficient extension.",
-    "Pass from U to G by the finite crossed-product Ext comparison in Venjakob Theorem 3.26. Λ(G) is free of rank [G:U] over Λ(U) on both sides (NE.0/iwasawa-free-over-open-subgroup), so Ext over Λ(G) into Λ(G) agrees with Ext over Λ(U) into Λ(U) as Λ(U)-modules, and the two-sided Ext condition descends from U. CC §5.5 uses the same comparison for its finite-index grade statements.",
+    "Pass from U to G by the finite crossed-product Ext comparison in Venjakob Theorem 3.26. Write A=Λ(U) and B=Λ(G). The coefficient-of-the-identity-coset map B→A gives a perfect associative pairing and the Frobenius bimodule identification Hom_A(B,A)≅B; B is finite free over A on both sides by NE.0/iwasawa-free-over-open-subgroup. Derived adjunction therefore identifies Ext_B^i(M,B) with Ext_A^i(M,A) after restriction, with the opposite-ring comparison as well. Apply these comparisons also to the finitely generated right submodules of Ext to transfer the two-sided Auslander condition. Freeness alone would not imply this Ext comparison. CC §5.5 owns the same Frobenius comparison for its finite-index grade statements.",
     "Finite global dimension of Λ(G) needs absence of p-torsion: NE.0/iwasawa-finite-global-dimension."
    ],
    "acceptance": [
@@ -7921,7 +7922,7 @@
    ],
    "title": "Bockstein homomorphisms",
    "kind": "construction",
-   "statement": "Let θ ∈ H^1(G, ℤ_p) = Hom_cont(G, ℤ_p) be G ↠ Γ → ℤ_p with γ ↦ 1; it corresponds to the extension 0 → ℤ_p → E_θ → ℤ_p → 0 with E_θ = ℤ_p² and G acting by (1 θ; 0 1), which gives θ : A· → A·[1] in D^b(Λ(G)). The Bockstein morphism in degree i is B_i = H^{−i}(θ_*) : Tor_i^{Λ(G)}(T_ρ, A·) → Tor_{i−1}^{Λ(G)}(T_ρ, A·), with T_ρ = 𝒪^n a right module through ρ^t. For G = Γ, the triangle A· --T--> A· → ℤ_p ⊗^L A· gives 0 → H^i(A·)_Γ … exact sequences (3), and B_i is the composite H_i(Γ, A·) → H^{−i+1}(A·)^Γ --κ--> H^{−i+1}(A·)_Γ → H_{i−1}(Γ, A·), with κ induced by the identity (Lemma 3.1); so (H_·(Γ, A·), B_·) is a complex (4).",
+   "statement": "Let θ ∈ H^1(G, ℤ_p) = Hom_cont(G, ℤ_p) be G ↠ Γ → ℤ_p with γ ↦ 1; it corresponds to the extension 0 → ℤ_p → E_θ → ℤ_p → 0 with E_θ = ℤ_p² and G acting by (1 θ; 0 1), which gives θ : A· → A·[1] in D^b(Λ(G)). The Bockstein morphism in degree i is B_i = H^{−i}(θ_*) : Tor_i^{Λ(G)}(T_ρ, A·) → Tor_{i−1}^{Λ(G)}(T_ρ, A·), with T_ρ = 𝒪^n written as columns and right action v·g=ρ(g)^t v. Thus (v·g)·h=ρ(h)^tρ(g)^t v=v·(gh); in row coordinates the same action is v·g=vρ(g). For G = Γ, the triangle A· --T--> A· → ℤ_p ⊗^L A· gives 0 → H^i(A·)_Γ … exact sequences (3), and B_i is the composite H_i(Γ, A·) → H^{−i+1}(A·)^Γ --κ--> H^{−i+1}(A·)_Γ → H_{i−1}(Γ, A·), with κ induced by the identity (Lemma 3.1); so (H_·(Γ, A·), B_·) is a complex (4).",
    "hypotheses": [
     "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
    ],
@@ -8011,7 +8012,7 @@
    ],
    "title": "Semisimple complexes and the order r(ρ)",
    "kind": "definition",
-   "statement": "A· ∈ C^p(Λ(Γ)) is semisimple if the Bockstein complex (H_·(Γ, A·), B_·) has ℤ_p-torsion (hence finite) cohomology; Σ^{ss} is the full subcategory of such complexes, and r_Γ(A·) = Σ_i (−1)^{i+1} dim_{ℚ_p}(H^i(A·)^Γ ⊗ ℚ_p) (Definition 3.2). Semisimple complexes have Λ(Γ)-torsion cohomology, and A· ∈ Σ^{ss} iff κ_i ⊗ ℚ_p is bijective in every degree, in which case r_Γ(A·) = Σ(−1)^{i+1} dim H^i(A·)_Γ ⊗ ℚ_p (Remark 3.3). For general G: A· is semisimple at ρ if (H_·(G, A·(ρ^*)), B_·) has ℤ_p-torsion cohomology (Definition 3.11), finite at ρ if H_·(G, A·(ρ^*)) is ℤ_p-torsion (Definition 3.12, so Σ^{fin−ρ} ⊆ Σ^{ss−ρ}), and r_G(A·)(ρ) = Σ(−1)^{i+1} dim_L(H^i(H, A·(ρ^*))^Γ ⊗ L). A· is semisimple at ρ iff A·_ρ = (Λ_𝒪(Γ) ⊗ 𝒪^n) ⊗^L A· is semisimple, with the same Bockstein maps and r_G(A·)(ρ) = r_Γ(A·_ρ) (Lemma 3.13). Over a discrete valuation ring with uniformizer T, a semisimple complex is a finite direct sum of [R --1--> R] and [R --T--> R] (Lemma 3.9).",
+   "statement": "A· ∈ C^p(Λ(Γ)) is semisimple if the Bockstein complex (H_·(Γ, A·), B_·) has ℤ_p-torsion (hence finite) cohomology; Σ^{ss} is the full subcategory of such complexes, and r_Γ(A·) = Σ_i (−1)^{i+1} dim_{ℚ_p}(H^i(A·)^Γ ⊗ ℚ_p) (Definition 3.2). Semisimple complexes have Λ(Γ)-torsion cohomology, and A· ∈ Σ^{ss} iff κ_i ⊗ ℚ_p is bijective in every degree, in which case r_Γ(A·) = Σ(−1)^{i+1} dim H^i(A·)_Γ ⊗ ℚ_p (Remark 3.3). For general G: A· is semisimple at ρ if (H_·(G, A·(ρ^*)), B_·) has ℤ_p-torsion cohomology (Definition 3.11), finite at ρ if H_·(G, A·(ρ^*)) is ℤ_p-torsion (Definition 3.12, so Σ^{fin−ρ} ⊆ Σ^{ss−ρ}), and r_G(A·)(ρ) = Σ(−1)^{i+1} dim_L(H^i(H, A·(ρ^*))^Γ ⊗ L). A· is semisimple at ρ iff A·_ρ = (Λ_𝒪(Γ) ⊗ 𝒪^n) ⊗^L A· is semisimple, with the same Bockstein maps and r_G(A·)(ρ) = r_Γ(A·_ρ) (Lemma 3.13). Over a discrete valuation ring R with uniformizer T, a bounded perfect semisimple complex is chain-isomorphic to a finite direct sum of cohomological shifts of the two-term blocks [R --1--> R] and [R --T--> R] (Lemma 3.9). The blocks may occupy different adjacent degrees; this decomposition is applied after augmentation localization, where T is a uniformizer, not directly over O[[T]].",
    "hypotheses": [
     "G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite."
    ],
@@ -8078,7 +8079,7 @@
     {
      "name": "TauCeti.NoncommIwasawa.semisimple_dvr_decomposition",
      "role": "characterisation",
-     "statement": "Lemma 3.9 over a discrete valuation ring."
+     "statement": "Lemma 3.9 over a discrete valuation ring: a chain isomorphism to shifted two-term blocks, with their degrees retained."
     }
    ],
    "tests": [
@@ -9817,7 +9818,7 @@
    "neededBy": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/rw-logarithmic-pseudomeasure"
    ],
-   "status": "supplied-current-main",
+   "status": "partly-supplied-current-main",
    "note": "ClassicalArithmeticCompletion §§7.46, 7.62 and 7.73 (CA.7/continuation/integral-group-log, group-log-integrality, group-log-commutator-isomorphism) for finite p-groups over complete Frobenius-lifted coefficient domains. NE.6 passes to completed one-dimensional Iwasawa rings; the abelian image remains obligation 5."
   },
   {
@@ -9884,7 +9885,7 @@
    "status": "planned",
    "remaining": [
     "Check the primary constant-index criterion for uniform groups; Brumer's global-dimension theorem and the Björk filtered transfer remain source leaves.",
-    "Register the analytic-distributions supplier for L_G and the analytic-structure equivalence; import CompletedCohomologyPartII §§0.1, 3.11, 5.1, 5.5 and 5.8 and the current upstream foundations to the pinned environment."
+    "Import the registered LocallyAnalyticDistributionsPartII ND.0 contracts for L_G and the analytic-structure equivalence; import CompletedCohomologyPartII §§0.1, 3.11, 5.1, 5.5 and 5.8 and the current upstream foundations to the pinned environment."
    ],
    "notes": "Every stated target is represented at target level; remaining source and supplier leaves are explicit gaps or requests. No formalisation or gap-free closure is claimed."
   },
@@ -9958,7 +9959,7 @@
     "NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group",
     "NoncommutativeAndEquivariantIwasawa:NE.0/p-valuation"
    ],
-   "detail": "NE.0 owns the constant-index characterization of uniform groups, ordered coordinates, p-valuations and Iwasawa homology. CompletedCohomologyPartII §0.1 (TauCetiRoadmap #1035) now owns the uniform convention (finitely generated, torsion-free, powerful) and the existence of open normal uniform subgroups in compact analytic groups, with its own proof obligation. Schneider §26 supplies ordered valued bases, and §§27–29 supply analytic comparison. A primary proof that a finitely generated powerful torsion-free pro-p group has constant lower-p indices, which the coordinates and the p-valuation of a uniform group need, remains to be checked; DDMS is not cleared and was not accessed. The analytic side now has a registered owner. LocallyAnalyticDistributionsPartII ND.0 plans p-valuations (ND.0/p-valuation, imported by NE.0/p-valuation), ordered-basis charts, the p-odd passage from uniform to p-valued groups (ND.0/uniform-groups-p-valued, citing AW13 §10.2 and ST03 p. 20), the analytic-structure theorem (ND.0/p-valued-analytic-structure) and the Lazard Lie lattice (ND.0/lazard-lie-lattice). These consume NE.0/uniform-pro-p-group and NE.0/compact-padic-analytic-group, so NE.0 cites them in text. Their uniform-to-p-valued step recalls DDMS Lemma 4.10 through AW13 and does not discharge the primary check either."
+   "detail": "NE.0 retains the constant-index comparison and Iwasawa-specific coordinate and homology targets; generic p-valuations and ordered valued bases are imported from LocallyAnalyticDistributionsPartII ND.0. CompletedCohomologyPartII §0.1 (TauCetiRoadmap #1035) now owns the uniform convention (finitely generated, torsion-free, powerful) and the existence of open normal uniform subgroups in compact analytic groups, with its own proof obligation. Schneider §26 supplies ordered valued bases, and §§27–29 supply analytic comparison. A primary proof that a finitely generated powerful torsion-free pro-p group has constant lower-p indices, which the coordinates and the p-valuation of a uniform group need, remains to be checked; DDMS is not cleared and was not accessed. The analytic side now has a registered owner. LocallyAnalyticDistributionsPartII ND.0 plans p-valuations (ND.0/p-valuation, imported by NE.0/p-valuation), ordered-basis charts, the p-odd passage from uniform to p-valued groups (ND.0/uniform-groups-p-valued, citing AW13 §10.2 and ST03 p. 20), the analytic-structure theorem (ND.0/p-valued-analytic-structure) and the Lazard Lie lattice (ND.0/lazard-lie-lattice). These consume NE.0/uniform-pro-p-group and NE.0/compact-padic-analytic-group, so NE.0 cites them in text. Their uniform-to-p-valued step recalls DDMS Lemma 4.10 through AW13 and does not discharge the primary check either."
   },
   {
    "title": "Arithmetic inputs of CFKSV Proposition 3.11",
@@ -11524,7 +11525,7 @@
   }
  ],
  "leanPrototype": {
-  "shape": "Light real-bodied definitions over carriers at the pins, two ring/determinant milestones and concrete examples, including finite subgroup multiplicities, full Möbius moduli, and shifted determinant scalars; heavy targets remain in the reader. No complete declaration-by-declaration Lean inventory is claimed. Revision 3 adds the proved characteristic-p identity (z−1)^p=0 behind augmentation nilpotence.",
+  "shape": "Five light real-bodied definitions over pinned carriers, seven proved discriminating examples, the named canonical-set multiplicativity target, and the proved characteristic-p group-algebra milestone. One named theorem is admitted; no example or data definition is admitted. Heavy targets and the mathematical numerical checks remain in the reader.",
   "definitions": [
    "TauCeti.NoncommIwasawa.closedPowerSubgroup",
    "TauCeti.NoncommIwasawa.IsPowerful",
@@ -11534,25 +11535,24 @@
   ],
   "milestones": [
    "TauCeti.NoncommIwasawa.canonicalSet_one_mul",
-   "TauCeti.NoncommIwasawa.det_scalar_twist",
    "TauCeti.NoncommIwasawa.of_sub_one_pow_char"
   ]
  },
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-NoncommutativeAndEquivariantIwasawa~2",
+  "reviewer": "independent-review-REV-NoncommutativeAndEquivariantIwasawa~3",
   "date": "2026-10-19",
-  "notes": "Independent revision-2 review of all 136 nodes, 35 baseline statements, 240 API entries and 186 tests. The earlier six mathematical objections are resolved at target level by the reconstructed logarithm kernel/cokernel, full Möbius/special-cusp route, explicit completed-to-canonical descent and typed shifted global determinant formulas. Ten nodes receive local clarifications or locator corrections. All 36 inherited source findings are independently confirmed; E37–E40 record additional checked slips, including a dropped central factor in the replacement logarithm source. All eight stages remain planned, none closed; 20 explicit gaps and 28 supplier requests remain and are not certified discharged. See the finished independent report for scope and validation.",
+  "notes": "Independent review by Codex codex-KDq3Cr of revision 3 at f4b358c9ca389e1ff1a96966bf5fa612c3890d1b: all 136 target specifications, 35 pinned baseline statements, 240 API entries, 187 mathematical tests and 33 planets checked. Corrected the weighted graded coefficient hypothesis, Frobenius Ext argument, registered analytic ownership, right-action and shifted-DVR conventions, partial logarithm supplier status and Lean sketch. The explicit augmentation/radical arguments justify removing that former leaf. All eight stages remain planned, none closed, with 19 gaps and 28 requests; acceptance is at target level under PROTOCOL §0. The 40 source-finding records retain their prior reviewer provenance; no fresh exhaustive errata audit or unavailable-source proof is claimed. Suggested Lean elaborates with its one named admitted milestone warning only. The report records sources, upstream heads, scope and checks.",
   "checked": [
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/uniform-pro-p-group",
     "verdict": "verified",
-    "note": "Closed power subgroups, the fourth-power condition at 2, finite topological generation and torsion-freeness are separate; finite and trivial examples discriminate them. Primary powerful-to-basis proof remains a gap."
+    "note": "The fourth-power convention at 2 and torsion-free powerful definition agree with CC §0.1. The constant-index/basis comparison remains a primary-source obligation; this is an import interface, not a second generic owner."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group",
-    "verdict": "verified",
-    "note": "Compactness and an open normal uniform subgroup are retained. The analytic Lie lattice and log/exp stay with the distributions owner."
+    "verdict": "corrected",
+    "note": "The analytic-to-open-uniform direction imports CC §0.1. Corrected the converse to the registered ND.0 owner; the group-side definition does not construct an analytic atlas."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-free-over-open-subgroup",
@@ -11561,33 +11561,33 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p",
-    "verdict": "corrected",
-    "note": "The pro-p equivalence is retained; the source note now distinguishes the corrected zero-constant-coefficient geometric-series argument (E39)."
+    "verdict": "verified",
+    "note": "The integral criterion imports CC §3.11. Checked the residual augmentation induction with bound |Δ|, central order-p element and inverse-limit unit test; the former augmentation leaf is discharged at planning level."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/zariskian-noetherian",
-    "verdict": "corrected",
-    "note": "Complete separated filtration, Jacobson condition and both noetherian sides are explicit. Corrected the labels of Venjakob Definition 3.19, Lemma 3.20 and Theorem 3.21."
+    "verdict": "verified",
+    "note": "Completeness, separation, the Jacobson condition and both noetherian sides are explicit. Venjakob Definition 3.19, Lemma 3.20 and Theorem 3.21 have the stated limited roles; general filtered transfer remains a leaf."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama",
     "verdict": "verified",
-    "note": "Compact topology is substantive; the Q_p example blocks the false unrestricted Nakayama statement. Existing compact actions are imported."
+    "note": "The compact coefficient action imports current Tau Ceti; finite generation uses the compact Nakayama argument, and Q_p excludes a false unrestricted module statement."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/ordered-uniform-coordinates",
     "verdict": "verified",
-    "note": "Ordered p-adic powers give a homeomorphism, not a group homomorphism. The primary uniform-basis criterion is not silently supplied by the coordinate statement."
+    "note": "The coordinate map uses current p-adic powers, is a homeomorphism and need not be a group homomorphism. The constant-index criterion remains explicit; generic valued bases belong to ND.0."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/p-valuation",
     "verdict": "verified",
-    "note": "Separation, commutator and p-power axioms, finite-rank and saturation hypotheses are distinguished; Schneider §26 is the cleared source."
+    "note": "Imports ND.0/p-valuation without a reverse prerequisite cycle. Separation, commutator/p-power axioms, finite rank and the special uniform weights remain distinct."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/ordered-iwasawa-series",
-    "verdict": "verified",
-    "note": "Ordered monomials and coefficient convergence use the completed ring already owned upstream. Integral coefficients and finite-free ramified base change remain separate."
+    "verdict": "corrected",
+    "note": "Corrected weightedGraded and its fifth test to unramified O, as required by Schneider p.195. The nonreduced ramified O/pO detects the overstatement. Ordered-module ramified base change and bounded-denominator rationalization remain separate."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/uniform-graded-polynomial",
@@ -11597,17 +11597,17 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian",
     "verdict": "verified",
-    "note": "Open uniform subgroup reduction and finite crossed-product transfer support both noetherian sides, without asserting a commutative algebra."
+    "note": "Imports CC §5.1 for uniform coefficient rings; finite-index left/right coset freeness gives the remaining compact-analytic transfer. Existing generic completed rings and canonical topologies are not replanned."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-auslander-regularity",
-    "verdict": "verified",
-    "note": "No p-torsion is essential. Björk filtered transfer and the ramified coefficient argument remain named proof leaves."
+    "verdict": "corrected",
+    "note": "Corrected the finite-index proof to use the identity-coset Frobenius pairing and derived Ext adjunction on both sides. CC §5.5 owns the uniform and ramified-coefficient inputs; absence of p-torsion is retained for finite global dimension."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-finite-global-dimension",
     "verdict": "verified",
-    "note": "Dimension d+1 over the integer coefficient ring is kept distinct from d after inverting p; finite p-torsion is excluded."
+    "note": "CC supplies the uniform ring dimensions. Ribes–Zalesskii 7.3.7(a) supports the no-p-torsion cohomological-dimension comparison, while the Brumer ring-dimension leaf remains. The finite free resolution of Z_p is a target conditional on these inputs."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/rational-iwasawa-global-dimension",
@@ -11667,12 +11667,12 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/nilpotent-transition-kernel",
     "verdict": "verified",
-    "note": "Finite p-group augmentation nilpotence is the missing input to the finite quotient transition argument and remains named."
+    "note": "Normality identifies the two-sided ideal generated by Δ−1; the checked finite augmentation bound gives K^|Δ|=0. This no longer cites a missing augmentation leaf."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/regular-modulo-prime-radical",
     "verdict": "verified",
-    "note": "The two-sided noncommutative prime radical is used, with its nilpotence/central quotient compatibility retained as proof leaves."
+    "note": "Checked the finite-sum nilpotent-ideal bound, semiprime m-system separation, contraction through an injective central localization, and regular-implies-unit in the finite-dimensional Artinian algebra. Elementwise nilpotence is not substituted for the prime radical."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/saturated-ore-set",
@@ -11727,7 +11727,7 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/canonical-localization-semilocal",
     "verdict": "verified",
-    "note": "The claim is about the canonical S-localization, not arbitrary S* localizations; the semilocal unit theorem is separately requested."
+    "note": "Semilocality concerns the canonical S-localization. Units-surject-K1 is now imported from CA §7.27, not inferred for arbitrary S*-localizations."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1",
@@ -11736,8 +11736,8 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/relative-perfect-class",
-    "verdict": "corrected",
-    "note": "Triple and complex models retain ∂[s]=[Λ/Λs] and ∂ch(C,a)=−[C]. Corrected the Kakde locator to §2.2, pp.6–8."
+    "verdict": "verified",
+    "note": "Triple and complex models keep ∂[s]=[Λ/Λs] and ∂ch(C,a)=−[C]. The Ore relative-perfect comparison is still a requested supplier theorem."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
@@ -11762,7 +11762,7 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/units-surject-k1",
     "verdict": "verified",
-    "note": "Associative semilocal units surject onto K1. No isomorphism with all units, or general commutative determinant theorem, is asserted."
+    "note": "CA §7.27 plus Whitehead, and AKT A4, supply the associative semilocal units-surject-K1 contract. This is surjectivity, not an isomorphism with all units."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison",
@@ -11827,7 +11827,7 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
     "verdict": "verified",
-    "note": "Integral finite-level SK1 and its image after localization are the definitions used for K1-prime; they are not total-quotient SK1."
+    "note": "The quotient uses finite-level integral SK1 and its image after localization. CA determinant theory supplies parts of the finite input but does not prove semisimple SK1 vanishing or K1 continuity."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/semisimple-total-quotient",
@@ -11871,13 +11871,13 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-compact-support",
-    "verdict": "corrected",
-    "note": "The shifted global-to-local cone retains real invariants at odd p and all local comparisons. Corrected its Kakde comparison locator to §2.3, p.11."
+    "verdict": "verified",
+    "note": "The shifted global-to-local cone retains real invariants at odd p and the local comparison maps. Its relation with the dual arithmetic complex is a supplier contract, not a declaration of equality."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-perfect-base-change",
-    "verdict": "corrected",
-    "note": "Bounded finitely generated cohomology plus finite global dimension gives the restricted perfection route. Corrected the arithmetic base-change locator."
+    "verdict": "verified",
+    "note": "Bounded finitely generated cohomology and finite global dimension give the restricted perfection route. Commutative-coefficient arithmetic perfectness does not establish the p-torsion noncommutative case."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/real-two-primary-correction",
@@ -11916,8 +11916,8 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/zeta-functoriality",
-    "verdict": "corrected",
-    "note": "Quotient base change, open-subgroup norm and induced L-values are compatible with the fixed sign. Corrected equation (1) to §2.3, p.11."
+    "verdict": "verified",
+    "note": "Quotient base change, open-subgroup norm and induced truncated L-values use the same boundary and coefficient conventions; the missing Ore boundary compatibility is retained."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/abelian-normalization-comparison",
@@ -11931,8 +11931,8 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
-    "verdict": "corrected",
-    "note": "Made the component localization injections hypotheses of the whole criterion, so its intersection is a subgroup intersection and the integral preimages and uniqueness are justified."
+    "verdict": "verified",
+    "note": "The component localization injections make the intersection and integral preimages well-defined and give uniqueness in the stated quotient. The criterion does not assert injectivity of unrestricted total K1."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one",
@@ -11942,17 +11942,17 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
     "verdict": "verified",
-    "note": "Dress–Wall finite-order K1 input and Artin induction are distinct requested suppliers; the one-dimensional and odd-p restrictions remain."
+    "note": "CA §7.63 supplies determinant induction; Dress–Wall finite-order K1 input and the determinant/K1-prime comparison remain distinct obligations."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
     "verdict": "verified",
-    "note": "The l≠p split reduction, coefficient cases and pro-p root extraction are stated within the source hypotheses; finite Whitehead imports remain gaps."
+    "note": "CA §7.109 applies to the finite unramified coefficient descent here, including trace surjectivity. The l≠p decomposition and pro-p root extraction retain their own hypotheses and Whitehead proof leaves."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary",
     "verdict": "verified",
-    "note": "Character-factor decomposition uses the unramified coefficient fields and stabilizers, retaining the finite-order K-theory inputs."
+    "note": "CA fixed-point descent supplies the unramified determinant step. Oliver character-component decomposition is still an independent obligation, not supplied by descent."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation",
@@ -11966,8 +11966,8 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta",
-    "verdict": "corrected",
-    "note": "η_1=id and strict cyclic trace vanishing are retained. Corrected the proof sentence to reindex the full conjugate sums before applying the relative trace."
+    "verdict": "verified",
+    "note": "The proof reindexes the full conjugate sum before applying relative trace; η_1=id and strict cyclic trace vanishing retain the required scalar factors."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem",
@@ -11977,12 +11977,12 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm",
     "verdict": "verified",
-    "note": "Convergence and integrality are restricted by the stated ideal hypotheses. Finite Oliver inputs are not claimed to have been read."
+    "note": "CA §§7.46 and 7.62 supply the finite determinant-image logarithm and its integral images. Semilinear Frobenius on conjugacy classes is not treated as a noncommutative ring map; Oliver abelian image remains open."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
     "verdict": "verified",
-    "note": "Finite-level exactness passes through compact compatible groups; completion has Laurent residue. Frobenius applies to v^k in the divisibility calculation."
+    "note": "Checked the unramified scalar calculation F−p invertible on O, together with CA §7.73 for the group-element determinant kernel. The abelian image, SK1 identification and inverse-limit suppliers remain explicit; completed residue is Laurent, not a power-series ring."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
@@ -11991,8 +11991,8 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence",
-    "verdict": "corrected",
-    "note": "The corrected kernel/cokernel proof works relative to the finite-log supplier. Retains the central factor, uses the torsion-free quotient and trace rigidity, and defines ω as ω_Aδ; E37 records the replacement source’s intermediate error."
+    "verdict": "verified",
+    "note": "The reconstructed exactness proof retains the central factor, torsion-free quotient, trace rigidity and ω_Aδ cokernel map. CA finite logarithm imports narrow the supplier obligation but do not establish Oliver abelian image or semisimple SK1."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
@@ -12047,7 +12047,7 @@
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences",
     "verdict": "verified",
-    "note": "The exact RW uniform-g theorem is used with its separate proof-audit gap; common smoothing factors are cancelled only where cyclotomic norm proves invertibility."
+    "note": "Checked the cocycle identity and trace-ideal stability showing admissible smoothing elements form a subgroup. The special-cusp g can tend to 1 with its conductor; compactness does not supply one nontrivial g for all levels. Obligation 19 correctly remains."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/enlarged-extension",
@@ -12071,8 +12071,8 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/kakde-main-theorem",
-    "verdict": "corrected",
-    "note": "The main target is unchanged after replacing its analytic branch. Corrected its locator to §2.5, Theorem 11, p.13."
+    "verdict": "verified",
+    "note": "The odd-prime μ=0 target uses full Möbius congruences, the RW completed lift and explicit canonical descent. It remains relative to the named finite-logarithm, arithmetic and uniform-smoothing inputs."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/rw-logarithmic-pseudomeasure",
@@ -12106,13 +12106,13 @@
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism",
-    "verdict": "verified",
-    "note": "The connecting morphism uses T=γ−1 and cohomological degrees; changing γ scales the Bockstein inversely by its linear coefficient."
+    "verdict": "corrected",
+    "note": "Made the right transpose action explicit on columns and compared it with the row evaluation convention. The cone signs and cohomological degree −i agree with BV Lemma 3.1."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
-    "verdict": "verified",
-    "note": "Rational Bockstein acyclicity, rather than an extension-closed category, defines the admitted class. A T² block is a discriminating non-example."
+    "verdict": "corrected",
+    "note": "Made the cohomological shifts in the DVR block decomposition explicit and restricted its application to the augmentation-localized DVR. Rational Bockstein acyclicity and the non-semisimple T² extension remain discriminating."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization",
@@ -12238,7 +12238,7 @@
    "issue": 10835,
    "agent": "Codex codex-tsn0Xi"
   },
-  "note": "Maintainer-directed round 3. Every node of revision 2 and its accepted review is kept. This round consumes upstream: CompletedCohomologyPartII §§0.1–5.8 (#1035) now owns the uniform, local, noetherian and Auslander foundations that NE.0 imports. ClassicalArithmeticCompletion Layer 7 (Tau Ceti main) supplies the finite integral logarithm, determinant images and semilocal K₁. It answers the seven requests other roadmaps address to these stages (incomingRequests). It closes the radical/augmentation obligation by proof and narrows obligations 1, 5, 9, 15, 16, 17 and 19 (numbered after the removal). The review object is REV~2's and is left for REV-NoncommutativeAndEquivariantIwasawa~3."
+  "note": "Maintainer-directed round 3. Every node of revision 2 and its accepted review is kept. This round consumes upstream: CompletedCohomologyPartII §§0.1–5.8 (#1035) now owns the uniform, local, noetherian and Auslander foundations that NE.0 imports. ClassicalArithmeticCompletion Layer 7 (Tau Ceti main) supplies the finite integral logarithm, determinant images and semilocal K₁. It answers the seven requests other roadmaps address to these stages (incomingRequests). It closes the radical/augmentation obligation by proof and narrows obligations 1, 5, 9, 15, 16, 17 and 19 (numbered after the removal). Independently reviewed and locally corrected by REV-NoncommutativeAndEquivariantIwasawa~3; its report records the scope and remaining proof obligations."
  },
  "incomingRequests": [
   {
@@ -12309,7 +12309,7 @@
     "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-group-homology",
     "NoncommutativeAndEquivariantIwasawa:NE.0/lazard-exterior-cohomology"
    ],
-   "note": "Met: for uniform U, Z_p has a resolution of length at most d+1 by finitely generated free Z_p[[U]]-modules (NE.0/iwasawa-finite-global-dimension, last proof step). Then H^i(U,V) for finite free V is computed by one bounded complex of finite sums of V once continuous cohomology is identified with Ext. That identification is request 20 to SelmerIwasawaCohomology L0, still open. Not here: Lazard V (2.4.10), comparing H^i(U,V)⊗Q_p with Lie-algebra cohomology, needs the analytic Lie lattice. It belongs to the analytic owner, NoncommutativeAnalyticDistributions / LocallyAnalyticDistributionsPartII ND.0."
+   "note": "Met: for uniform U, Z_p has a resolution of length at most d+1 by finitely generated free Z_p[[U]]-modules (NE.0/iwasawa-finite-global-dimension, last proof step). Then H^i(U,V) for finite free V is computed by one bounded complex of finite sums of V once continuous cohomology is identified with Ext. That identification is request 20 to SelmerIwasawaCohomology L0, still open. Not here: Lazard V (2.4.10), comparing H^i(U,V)⊗Q_p with Lie-algebra cohomology, needs the analytic Lie lattice. It belongs to the analytic owner, LocallyAnalyticDistributionsPartII ND.0."
   },
   {
    "from": "ModpRepresentationsOfGL2OverLocalFields.json",
@@ -12327,7 +12327,7 @@
     "NoncommutativeAndEquivariantIwasawa:NE.0/zariskian-noetherian",
     "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-auslander-regularity"
    ],
-   "note": "Met: NE.0/ordered-iwasawa-series' API `weightedGraded` is now stated for every p-valued group of finite rank, not only uniform ones: gr_ω O[[G]]≅gr O⊗U(gr G), domain and polynomial cases (Schneider Theorem 28.3, Corollaries 28.5–28.6). Integral Auslander regularity for torsion-free compact analytic G, Iwahori subgroups included, is NE.0/iwasawa-auslander-regularity. Not here: Auslander regularity of the graded enveloping algebra itself, the grade shift by a central regular sequence and coherence of amalgams (Shotton Proposition 4.3, Corollary 4.4). These are the consumer's own Part II targets, built on NE.0/zariskian-noetherian and CompletedCohomologyPartII §5.5."
+   "note": "Met: NE.0/ordered-iwasawa-series' API `weightedGraded` is now stated for every p-valued group of finite rank with an ordered basis and unramified O, not only uniform ones: gr_ω O[[G]]≅gr O⊗U(gr G), domain and polynomial cases (Schneider Theorem 28.3, Corollaries 28.5–28.6). Integral Auslander regularity for torsion-free compact analytic G, Iwahori subgroups included, is NE.0/iwasawa-auslander-regularity. Not here: Auslander regularity of the graded enveloping algebra itself, the grade shift by a central regular sequence and coherence of amalgams (Shotton Proposition 4.3, Corollary 4.4). These are the consumer's own Part II targets, built on NE.0/zariskian-noetherian and CompletedCohomologyPartII §5.5."
   },
   {
    "from": "PeriodsAndSpecialValues.json",
@@ -12360,6 +12360,14 @@
      "from": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p",
      "to": [],
      "upstream": "§3.11 of the package owns `iwasawa_isLocal_iff_pro_p`"
+    },
+    {
+     "node": "CompletedCohomologyPartII:CC.3/duality-between-completed-homology-and-completed-cohomology",
+     "from": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian",
+     "to": [
+      "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology"
+     ],
+     "upstream": "§5.1 of the package owns the noetherian coefficient-ring and canonical-topology input; the CC.3 duality statement consumes this foundation rather than NE.0"
     },
     {
      "node": "CompletedCohomologyPartII:CC.5/finite-generation-over-the-iwasawa-algebra-and-the-canonical-topology",
