@@ -115,6 +115,9 @@
       "sha256": "1b0229731e38bfaaa55b38a219c055019d1c7db1f0ecec3c083125da87b6e8e4",
       "readSections": [
         "Page images printed pp.42–43,103,122; draft/publication comparison only at these locations"
+      ],
+      "reviewReadSections": [
+        "2026-10-19, REV-EulerSystemsAndKolyvaginSystems~2: page images printed pp.179–180, Theorem9.3.3 and its continuation; draft/publication comparison."
       ]
     },
     {
@@ -368,6 +371,9 @@
       "accessed": "2026-10-06",
       "readSections": [
         "Page images of printed pp. 36, 41, 42 and 43: Remark 2.1.5, Hypotheses Hyp(K∞/K), Hyp(K∞, T), Hyp(K∞, V), Definition 2.3.1, Theorems 2.3.2–2.3.4, Remarks 2.3.5–2.3.6, Proposition 2.3.7 with proof and Theorem 2.3.8 with proof"
+      ],
+      "reviewReadSections": [
+        "2026-10-19, REV-EulerSystemsAndKolyvaginSystems~2: page images printed pp.179–180, Theorem9.3.3 and its continuation; draft/publication comparison."
       ]
     },
     {
@@ -3627,6 +3633,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "The norm relation divides by the relative ray-class degree [K(q):K(1)]. The additional class-number factor in [K(q):K] changes the congruence. The published p.103 comparison corrects this denominator.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Corollary IV.8.1 divides P_q(Fr_q^{-1}) − P_q(N(q)Fr_q^{-1}) by [K(q) : K(1)], and for T = ℤ_p(1) this difference is (N(q) − 1)Fr_q^{-1}; [K(q) : K] = [K(q) : K(1)][K(1) : K] differs whenever the p-part of the class number of K is nontrivial. The two agree for K = ℚ.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3651,6 +3662,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "Read BSS Hypothesis4.7(ii) with its coefficient-trivializing field: membership in that field’s absolute Galois group makes tau act trivially, contradicting the rank-one quotient when rank(T)>1. The finite-level hypothesis identifies the intended smaller field.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. K(T) is by definition the minimal Galois extension of K such that G_{K(T)} acts trivially on T, so every τ ∈ G_{K(T)_{p^∞}} ⊆ G_{K(T)} acts trivially on T and T/(τ − 1)T = T, which is isomorphic to R only when T has rank one. The finite-level Hypothesis 3.2(ii) takes τ ∈ G_{K_M}, and Remark 4.9 asserts that Hypothesis 4.7 gives Hypotheses 3.2(i) and (ii) for T/p^mT, which is true for τ ∈ G_{K_{p^∞}} ⊆ G_{K_{p^m}} and false in rank at least two for the printed group.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3671,6 +3687,11 @@
         "Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum."
       ],
       "review": {
+        "verdict": "confirmed",
+        "reason": "With ramification only at N the Euler-factor product away from N is empty, so the proposed zero-at-higher-level family cannot have an arbitrary nonzero bottom class. The ramification-away-from-N correction repairs this particular example; the published p.175 wording was also checked.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
         "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The printed extension contains the cyclotomic Z_p-extension because p divides N, contrary to the following parenthesis. For a nontrivial extension ramified only at N, the Euler-factor product is empty, hence is 1, and the family c_F=0 for F≠K requires c_K=0. With no ramification at N and class number one, every nontrivial finite abelian extension ramifies at a prime outside N, where the stipulated factor vanishes; the claimed arbitrary c_K family then works.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
@@ -3694,6 +3715,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "A one-vertex graph with stalk Z_p/p has cyclic sections but those sections cannot be an ideal of the domain Z_p. The free-hub or principal-artinian restrictions in the assembled target are essential.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Let R=Z_p and take the graph with one vertex and no edges, with S(v)=R/pR. The sheaf is locally cyclic, its vertex is a hub and monodromy is trivial. Γ(S)=R/pR is nonzero torsion, whereas every ideal of the domain R is torsion-free. The proof’s injection into a cyclic module does not imply injection into R.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3714,6 +3740,11 @@
         "AMS Memoirs version-of-record download unavailable; finding scoped to the archived author copy"
       ],
       "review": {
+        "verdict": "confirmed",
+        "reason": "For the F_3 representation generated by a nontrivial upper unipotent and diag(-1,1), the common invariant space is zero but the quotient by the first coordinate is trivial. This refutes arbitrary-subquotient propagation; coefficient-ideal propagation survives.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
         "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Over 𝔽₃ take the continuous G_ℚ-representation through S₃ from the splitting field of x³−2, generated on T=𝔽₃² by b=[[1,1],[0,1]] and a=diag(−1,1). These satisfy b³=a²=1 and aba=b⁻¹. Their common fixed space is zero, but 𝔽₃e₁ is stable and T/𝔽₃e₁ is a nonzero trivial representation. This quotient is not a coefficient-ideal quotient.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
@@ -3738,6 +3769,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "For R=F_3[[x,y]], the hub R mapping onto R/(y) has a section (x,x mod y) whose generated ideal at the hub is (x), while its value at the other vertex generates the maximal-ideal multiple. Thus the non-hub edge assertion needs its stated restriction.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Let R=𝔽₃[[x,y]], with hub stalk R, one other vertex and edge stalk R/(y), and maps quotient and identity. Every vertex-to-edge map is surjective; the hub reaches the other vertex through the edge isomorphism at the endpoint, and monodromy is trivial. The section (x,x mod y) is nonzero and generates mS(u) at the other vertex, but (x)≠m=(x,y) at the hub.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3759,6 +3795,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "At the zero class, the coordinate gcd is zero while the characteristic ideal of the torsion part of a torsion-free module is the unit ideal. Definition5.3.8 and the subsequent zero branch cannot both use the latter convention. The explicit zero index is retained.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. For c = 0, (H¹(Q, T)/Λ·0)_tors = H¹(Q, T)_tors = 0 because H¹(Q, T) is torsion-free (Lemma 5.3.5), so the printed formula gives Ind(0) = char(0) = Λ, while the gcd description gives gcd(0, …, 0) = 0 and the proof of Theorem 5.3.10 states 'If κ1 = 0 then Ind(κ) = 0 and there is nothing to prove.' With the printed formula, Theorem 5.3.10(i) for κ_1 = 0 would assert char(X∞) = Λ, which is false in general (X∞ need not be torsion).",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3778,6 +3819,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "The draft proof needs the chosen local functional psi composed with localization; phi has not been introduced there. The published Theorem2.3.8 p.43 has the consistent symbol.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The proof needs a functional on H¹_∞(K, T) whose value at c_{K,∞} lies in ind_Λ(c); ψ ∘ loc^s is one. The published version (Theorem 2.3.8, p. 43) prints ψ.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3796,6 +3842,11 @@
         "The published text of Rubin's book (wstein.org copy), Chapter 6 §2, page image read"
       ],
       "review": {
+        "verdict": "confirmed",
+        "reason": "An infinite-order unramified character is trivial on inertia, not on the whole decomposition group away from p. Read the draft local proof and compared the published Proposition6.2.1 p.122 argument; the finding is scoped to the draft.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
         "verdict": "confirmed",
         "reason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The next sentence uses only that ρ is trivial on I and calls I 'also an inertia group' of w in G_{L_n}; the article 'an' also points to the intended word. A decomposition group of w ∤ p in G_L surjects onto the infinite decomposition group of w in Gal(LK∞/L), on which a character ρ of infinite order is nontrivial.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
@@ -3817,6 +3868,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "The valuation of a uniformizer gives the missing full Kummer-cohomology summand. Residue units identify the finite/unramified subgroup, which is sufficient for the Euler-class calculation. This limitation remains necessary in both Rubin copies.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "A uniformizer has valuation1 and a nonzero Kummer class outside the finite subgroup; residue-field units have valuation0. The Euler classes are unramified here, so the congruence computation remains valid on the finite subgroup.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3836,6 +3892,11 @@
         "Public errata/correction search by author, title and the disputed formula (2026-10-14); this is not a claim that no later correction exists."
       ],
       "review": {
+        "verdict": "confirmed",
+        "reason": "The coefficient rings in the p-branch have different characteristic and Z_p-rank: F_p[[T]] is not a finite Z_p-order, whereas Z_p[[T]]/(p+T^m) is free of rank m. The revised proof uses primitive specialization and actual finite quotients.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
         "verdict": "confirmed",
         "reason": "Λ/(p)=𝔽_p[[T]] has characteristic p and is not a finite ℤ_p-order. Λ/(p+T^m) has characteristic0 and ℤ_p-rank m, so those quotients cannot be isomorphic to Λ/(p); the claimed common approximation does not justify the branch. The clean-bound branch can be repaired as in the corrected proof outline.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
@@ -3857,6 +3918,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "The map Z/p^2 to Z/p has a p-annihilated kernel but several lifts of zero. Bounded kernel and cokernel permit the selected scaled construction, not uniqueness of the unrestricted fibre.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "For ℤ/p²→ℤ/p the kernel and cokernel are annihilated by p but zero has p distinct preimages. An annihilated kernel gives independence after the prescribed scaling, not uniqueness among all solutions of the restriction identity.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3876,6 +3942,11 @@
         "Public errata/correction search by author, title and the disputed formula (2026-10-14); this is not a claim that no later correction exists."
       ],
       "review": {
+        "verdict": "confirmed",
+        "reason": "Conjugation interchanges the chi-inverse and chi coefficient modules. For nonquadratic chi it does not give an involution on either single module. The revised local Frobenius operator retains both twists and avoids this scalar assertion.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
         "verdict": "confirmed",
         "reason": "Conjugation sends T⊗χ⁻¹ to T⊗χ; for nonquadratic χ it is not an involution on that single coefficient module. χ(σ_𝔑) need not lie in {±1}. Nekovář’s untwisted Proposition10.2 uses actual ± eigenspaces and does not supply the displayed general-character scalar replacement.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
@@ -3897,6 +3968,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "The separated coordinate pairing of two countable direct sums of F_p has evaluation map direct-sum to direct-product. Even for maximal orders it is not surjective. Finiteness in the revised target removes this counterexample.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "For B=ℚ_p,V=ℚ_p,T=ℤ_p,N=1,X=W=⊕_ℕ𝔽_p, the coordinate pairing is separated on both sides. Both orders are already maximal and c=d=1, but j embeds the direct sum into Hom(W,𝔽_p)=∏_ℕ𝔽_p and is not surjective. Thus Coker(j) is not killed by1.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3916,6 +3992,11 @@
         "Public Rubin Euler Systems errata search for Theorem2.3.8 and pseudo-null ψ on2026-10-14"
       ],
       "review": {
+        "verdict": "confirmed",
+        "reason": "Multiplication by p has zero, hence pseudo-null, kernel, while its cokernel has height-one support and changes the value ideal. The draft’s cokernel condition is the condition needed in the published proof.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
         "verdict": "confirmed",
         "reason": "The displayed ideal calculation needs the cokernel condition; multiplication by p is a direct counterexample to the weaker map requirement. The draft gives the required condition.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
@@ -3938,6 +4019,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "Rows (1,0) and (1,lambda) have lambda-abundant image but cannot be diagonalized by a basis with unit determinant in the claimed way. The scaled matrix inverse used by the packet has the required bounded loss without this basis claim.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Over A=O/λ^n with n>1, rows (1,0) and (1,λ) have image containing λA². A first basis vector killed by the second row has first coordinate in λA, while a second killed by the first has first coordinate zero. Their determinant cannot be a unit. Abundance therefore does not give the claimed basis. Smith normal form gives AC=CA=λ^cI and the retained conclusion. This revalidates PAPER-LIU-ETAL-22/E2.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3958,6 +4044,11 @@
         "Public search for Proposition2.6.7/Lemma2.3.5 corrections on2026-10-14; no correction was identified in the results inspected"
       ],
       "review": {
+        "verdict": "confirmed",
+        "reason": "For k=F_49 and weights 7 and 6, coefficient-linear End has weights 0 and plus/minus1, but restriction of scalars introduces the Frobenius twist carrying weight1 to weight7. Thus the missing prime-field Hom is real. The revised hypotheses quantify over these twists.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
         "verdict": "confirmed",
         "reason": "Restriction of scalars splits into Frobenius twists. For ℓ=7, k=F₄₉, V=χ⁷⊕χ⁶ for k×, End_k(V) has weights 0,±1, so its k-linear Hom to V vanishes; its prime-field Hom does not, because Frobenius carries weight1 to weight7. More concretely, in GL₂(W₂(k)) take the group generated by diag([u]⁷,[u]⁶) and 1+7tE₁₂. Its congruence kernel is additive k of weight1. Inflation–restriction gives a nonzero H¹(G,V), and H⁰(G,V)=0 makes H¹(G,V) inject into H¹(G,W₂(k)²). Thus the printed finite-group vanishing argument fails under its hypotheses. This revalidates PAPER-LIU-ETAL-22/E21.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
@@ -3980,6 +4071,11 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "Checked the cyclotomic Kummer example over Q(sqrt(5),i) at 3: conjugation inverts the cubic kernel and every lift of that conjugation coset squares to one. The associated evaluations vanish despite a nonzero fixed line. Realised-span data, rather than a fixed-line assertion alone, are required.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "Let F⁺=Q(√5), F=F⁺(i), ℓ=3, R=Z₃(1), j=2, m=1, and S the Kummer class of the fundamental unit u=(1+√5)/2. The coefficient field is F(ζ₃), and the S-extension adds a real cube root of u. Complex conjugation inverts the cyclic cubic kernel, so every lift in its coset squares to1. All associated evaluations are zero although the h_γ-fixed coefficient line and S are nonzero of rank one. The scalar criterion gives restriction injectivity and the lattice depth is zero. This directly revalidates PAPER-LIU-ETAL-22/E1 and its consequence E23; it makes no claim that an arithmetic main theorem is false.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
       }
@@ -3989,11 +4085,11 @@
       "source": "ltxzz-published",
       "kind": "misprint",
       "locator": "Lemma2.3.4, published p.127",
-      "printed": "The displayed free coefficient exponent reuses m, although the application uses a shorter quotient, and the proof appends a stray p to that quotient.",
-      "correction": "State S free over O_λ/λ^{m−m′}, 0≤m′<m, and remove the stray p.",
-      "reason": "The pairing takes values in the λ^{m−m′}-torsion of R. Apply the rank induction to that shorter coefficient quotient, retaining the reducibility-depth bound. This is the form needed by Proposition2.6.6 and revalidates PAPER-LIU-ETAL-22/E22. The error is notation, rather than a new obstruction to the saturation argument.",
+      "printed": "The proof of Lemma2.3.4 appends a stray p to the coefficient quotient O_λ/λ^m.",
+      "correction": "Remove the trailing p in that proof. The statement with S free over O_λ/λ^m is valid as written; using S free over O_λ/λ^{m−m′} is a separate extension, not a correction to this statement.",
+      "reason": "Read the published statement and proof on p.127. The induction is on the free rank; it does not require the exponent to be renamed. A shorter coefficient quotient may legitimately be used in the later saturation argument, but that application does not make the original full-exponent lemma false. The trailing p has no role in the coefficient ring.",
       "affects": "nothing",
-      "known": "Previously recorded in PAPER-LIU-ETAL-22; independently revalidated here.",
+      "known": "The typographical p was recorded in PAPER-LIU-ETAL-22; this review narrows E911 to that slip.",
       "searched": [
         "Read the maintainer-cleared published NSF copy at the recorded pages on2026-10-14",
         "Compared the existing PAPER-LIU-ETAL-22 finding; its historical preprint comparisons are not claimed as reading by this reviewer",
@@ -4001,8 +4097,70 @@
       ],
       "review": {
         "verdict": "confirmed",
+        "reason": "Read the published statement and proof on p.127. The induction is on the free rank; it does not require the exponent to be renamed. A shorter coefficient quotient may legitimately be used in the later saturation argument, but that application does not make the original full-exponent lemma false. The trailing p has no role in the coefficient ring.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      },
+      "previousReview": {
+        "verdict": "confirmed",
         "reason": "The pairing takes values in the λ^{m−m′}-torsion of R. Apply the rank induction to that shorter coefficient quotient, retaining the reducibility-depth bound. This is the form needed by Proposition2.6.6 and revalidates PAPER-LIU-ETAL-22/E22. The error is notation, rather than a new obstruction to the saturation argument.",
         "by": "REV-EulerSystemsAndKolyvaginSystems"
+      }
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems/E912",
+      "source": "rubin-es",
+      "kind": "error",
+      "locator": "1999 draft ChapterIX, Theorem3.3, p.137; compare published Chapter9, Theorem9.3.3, pp.179–180",
+      "printed": "The draft uses the order n of m·c_K itself as the annihilating factor n·S_{Σ_p}(K,W_M^*).",
+      "correction": "Use the published ideals a₁=⋂_{q∤p}Ann_O(W^{I_q}/(W^{I_q})_div), a₂=Ann_O(a₁c_K), with annihilator ((M):a₂)a₁. Over a DVR, if M=π^m and a_i=(π^{a or b}), its exponent is m−b+a.",
+      "reason": "The printed 1999 factor reverses the expected dependence on class order: zero c_K has order1 and would force vanishing, whereas a primitive class gives only the automatic coefficient annihilator. The published formula gives the opposite, correct zero/primitive controls. Published p.179 explicitly displays (M/a₂)a₁. The roadmap additionally spells out the compatibility and bounded-divisibility condition used on passing to infinite depth.",
+      "affects": "a stated result",
+      "known": "Corrected in Rubin, Euler Systems (2000), Theorem9.3.3, pp.179–180.",
+      "searched": [
+        "Compared the 1999 draft p.137 with page images of the public published file, pp.179–180, on2026-10-19."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed 1999 factor reverses the expected dependence on class order: zero c_K has order1 and would force vanishing, whereas a primitive class gives only the automatic coefficient annihilator. The published formula gives the opposite, correct zero/primitive controls. Published p.179 explicitly displays (M/a₂)a₁. The roadmap additionally spells out the compatibility and bounded-divisibility condition used on passing to infinite depth.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      }
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems/E913",
+      "source": "nekovar-kuga-preprint",
+      "kind": "misprint",
+      "locator": "MPIM1990-78 preprint, §9, printed p.18 (PDFp.21), divided identity immediately before the key formula",
+      "printed": "The second coefficient on the left of the divided identity is M₁/N.",
+      "correction": "That coefficient is M₁/M. The following key formula already has this value.",
+      "reason": "The preceding identity has N·a_y−M₁·a_x on the left. Dividing the entire identity by M gives (N/M)·a_y−(M₁/M)·a_x. The next displayed key formula uses M₁/M consistently. This is a local intermediate display slip and does not alter the operator relation used here.",
+      "affects": "nothing",
+      "known": "The key formula immediately below the display in the same preprint already uses M₁/M. The Inventiones1992 version was not collated.",
+      "searched": [
+        "Read the preceding identity, divided identity and following key formula in the page image of MPIM1990-78, printed p.18, on2026-10-19; no claim about the uncollated 1992 version."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding identity has N·a_y−M₁·a_x on the left. Dividing the entire identity by M gives (N/M)·a_y−(M₁/M)·a_x. The next displayed key formula uses M₁/M consistently. This is a local intermediate display slip and does not alter the operator relation used here.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
+      }
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems/E914",
+      "source": "howard",
+      "kind": "misprint",
+      "locator": "Published Theorem2.2.10 proof, p.1464, paragraph immediately before the functional equation; compare p.1463",
+      "printed": "For the P=(p) branch of the multiplicity argument the last paragraph uses Q=T+p^m.",
+      "correction": "Use Q=T^m+p, as the coefficient-prime divisibility branch on p.1463 already does.",
+      "reason": "The Q=T+p^m family approaches (T), not (p): Λ/(p^a,T+p^m) has Z_p-length a, with no slope m. The Eisenstein family Λ/(p^a,T^m+p) instead has length ma, which detects ord_(p). The packet already uses the latter family, so only the source register needs correction.",
+      "affects": "nothing",
+      "known": "The earlier coefficient-prime paragraph in the same published proof, p.1463, gives Q=T^m+p.",
+      "searched": [
+        "Read the published PDF proof on pp.1463–1464 and inspected the p.1464 page image on2026-10-19; compared the two choices within that proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Q=T+p^m family approaches (T), not (p): Λ/(p^a,T+p^m) has Z_p-length a, with no slope m. The Eisenstein family Λ/(p^a,T^m+p) instead has length ma, which detects ord_(p). The packet already uses the latter family, so only the source register needs correction.",
+        "by": "REV-EulerSystemsAndKolyvaginSystems~2"
       }
     }
   ],
@@ -4011,133 +4169,155 @@
       "kind": "author copy",
       "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
       "read": "2026-10-14",
-      "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50"
+      "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "published",
       "url": "https://www.wstein.org/people/rubin/book/hEulerSystems.pdf",
       "read": "2026-10-14",
-      "sha256": "1b0229731e38bfaaa55b38a219c055019d1c7db1f0ecec3c083125da87b6e8e4"
+      "sha256": "1b0229731e38bfaaa55b38a219c055019d1c7db1f0ecec3c083125da87b6e8e4",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/2008.02571v2",
       "read": "2026-10-14",
-      "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59"
+      "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/2303.04373v2",
       "read": "2026-10-14",
-      "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90"
+      "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/2312.09301v2",
       "read": "2026-10-14",
-      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3"
+      "sha256": "e575367ab8dd9ffdb1850959dde93f205c4007b0e56af4ed30e120079660aee3",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/2402.12781v2",
       "read": "2026-10-14",
-      "sha256": "bb64820b49aa1eb2574c912c0d03067f904e52b9bf71f441fda78bb6dba9c90a"
+      "sha256": "bb64820b49aa1eb2574c912c0d03067f904e52b9bf71f441fda78bb6dba9c90a",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf",
       "read": "2026-10-14",
-      "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba"
+      "sha256": "5c85ea3c0d53ce4825ade4213b930c6542bf628cba6d506bb8c3e46960f02bba",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/1908.09197v1",
       "read": "2026-10-14",
-      "sha256": "00d91f8d73880174f410ac4be2a43f89867421c0ab7bfafdba1b837111df312f"
+      "sha256": "00d91f8d73880174f410ac4be2a43f89867421c0ab7bfafdba1b837111df312f",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "published",
       "citation": "W. Zhang, Cambridge Journal of Mathematics 2 (2014), 191–253 (copy cleared by the maintainer)",
       "read": "2026-10-14",
-      "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec"
+      "sha256": "698eb8a6d2297684c683c4c3f43a195cac1d8752ef0c8362ab90c74f5b3792ec",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "published",
       "url": "https://par.nsf.gov/servlets/purl/10323568",
       "read": "2026-10-14",
-      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97"
+      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "author copy",
       "url": "https://web.archive.org/web/2020id_/https://www.math.uci.edu/~krubin/preprints/kolysys.pdf",
       "read": "2026-10-14",
-      "sha256": "4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f"
+      "sha256": "4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/1312.4052v1",
       "read": "2026-10-14",
-      "sha256": "15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8"
+      "sha256": "15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/1805.08448v1",
       "read": "2026-10-14",
-      "sha256": "2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429"
+      "sha256": "2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "published",
       "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1BF8414258216C1575963BBDA814CB2F/S0010437X04000569a.pdf/the-heegner-point-kolyvagin-system.pdf",
       "read": "2026-10-14",
-      "sha256": "89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7"
+      "sha256": "89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/2010.00657v3",
       "read": "2026-10-14",
-      "sha256": "c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099"
+      "sha256": "c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "author copy",
       "url": "https://web.archive.org/web/20240000000000id_/https://webusers.imj-prg.fr/~jan.nekovar/pu/euler.pdf",
       "read": "2026-10-14",
-      "sha256": "05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a"
+      "sha256": "05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "published",
       "url": "https://msp.org/ant/2018/12-10/ant-v12-n10-p.pdf",
       "read": "2026-10-14",
-      "sha256": "ea04b2b3cafe1b990ab32c461f8aea0563baf75fa11b0e93eaea06b1cb325ee0"
+      "sha256": "ea04b2b3cafe1b990ab32c461f8aea0563baf75fa11b0e93eaea06b1cb325ee0",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/abs/1406.4623v1",
       "read": "2026-10-14",
-      "sha256": "83ca6e59cefdb60833f418aa57617a451101977de1b767ddf6138661758ccea4"
+      "sha256": "83ca6e59cefdb60833f418aa57617a451101977de1b767ddf6138661758ccea4",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "published",
       "url": "https://www.numdam.org/article/JTNB_2016__28_1_145_0.pdf",
       "read": "2026-10-14",
-      "sha256": "00725ad7afc9d7f3d69dac9eb8f872319974bf846be850dc3c0b56ba3b49d926"
+      "sha256": "00725ad7afc9d7f3d69dac9eb8f872319974bf846be850dc3c0b56ba3b49d926",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1202.6340v1",
       "read": "2026-10-14",
-      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a"
+      "sha256": "d2d06e851d6aa1fdc33a932b69b5c06a8c56dc2d9e05fb10d97c0358d6d6ea9a",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/0706.0377v2",
       "read": "2026-10-14",
-      "sha256": "645d299256ae61e1bfd63564c68510785a39e52684cbaa720d7d6017fe1f5bf2"
+      "sha256": "645d299256ae61e1bfd63564c68510785a39e52684cbaa720d7d6017fe1f5bf2",
+      "reviewRead": "2026-10-19"
     },
     {
       "kind": "author copy",
       "url": "https://archive.mpim-bonn.mpg.de/994/1/preprint_1990_78.pdf",
       "read": "2026-10-14",
-      "sha256": "8f3aaf7c9085d2deb117fd860d2d7f2bd226fa6d63b37c3b2f4d379a77b8a529"
+      "sha256": "8f3aaf7c9085d2deb117fd860d2d7f2bd226fa6d63b37c3b2f4d379a77b8a529",
+      "reviewRead": "2026-10-19"
     }
   ],
   "restructure": [
@@ -4493,6 +4673,10 @@
           "replace": "The statement verbatim.",
           "by": "The statement with the same hypotheses and conclusion, expressed in roadmap notation.",
           "reason": "State source matches as mathematical correspondences; no claim of reproducing source prose."
+        },
+        {
+          "replace": "Rubin's convention: char(X∞) = 0 when X∞ is not torsion; if c_{K,∞} is torsion both sides are 0",
+          "by": "Rubin's convention: char(X∞) = 0 when X∞ is not torsion; if c_{K,∞} is torsion then ind_Λ(c)=0 and the inclusion is automatic. This case does not force char(X∞)=0; for a zero Euler system and X∞=0 it is the unit ideal"
         }
       ],
       "EulerSystemsAndKolyvaginSystems:ES.8/rubin-rational-iwasawa-divisibility": [
@@ -4623,6 +4807,24 @@
           "by": "Locator for the later error-tolerant comparison, not a premise of this residual non-example.",
           "reason": "Distinguish an application preview from an input to the proof."
         }
+      ],
+      "EulerSystemsAndKolyvaginSystems:ES.4/variant-bounds": [
+        {
+          "replace": "(a) (Finite depth.) Let 0 ≠ M ∈ O and c an Euler system for W_M. Suppose Hyp(K, T) holds, n_W = n_W^* = 0 and W_M^{G_K} = 0. Let m = sup_{q ∤ p} [W^{I_q} : (W^{I_q})_div] and n the order of m·c_K in H¹(K, W_M). Then n·S_{Σ_p}(K, W_M^*) = 0; in particular if m·c_K ≠ 0 then S_{Σ_p}(K, W^*) is finite for a compatible family.",
+          "by": "(a) (Finite depth.) Let 0 ≠ M ∈ O and c an Euler system for W_M. Suppose Hyp(K, T) holds, n_W = n_W^* = 0 and W_M^{G_K} = 0. Put a₁ = ⋂_{q ∤ p} Ann_O(W^{I_q}/(W^{I_q})_div) and a₂ = Ann_O(a₁c_K) in H¹(K,W_M). Then ((M):a₂)·a₁·S_{Σ_p}(K,W_M^*) = 0, where ((M):a₂) = {x ∈ O : xa₂ ⊆ (M)}. Since a₂ contains (M), this is the integral ideal denoted M/a₂ in published Theorem9.3.3. For M=π^m, a₁=(π^a) and a₂=(π^b), 0≤b≤m, the annihilator is π^{m−b+a}. For compatible reductions of a nonzero lattice Euler class with uniformly bounded divisibility, these exponents are bounded independently of m; the resulting cofinitely generated infinite-depth strict Selmer module is finite."
+        },
+        {
+          "replace": "(a): derivative classes exist for systems of depth M and satisfy the finite–singular relation; the finiteness away from pr holds after multiplying by m (Corollary IV.6.5); run the argument of rubin-bound for the exponent.",
+          "by": "(a): use published Theorem9.3.3, pp.179–180, correcting draft IX.3.3 (source issue E912). The derivative finite–singular relation persists at depth M. Multiplication by a₁ gives the required local finite conditions away from the derivative conductor, by Corollary IV.6.5; duality bounds the strict Selmer exponent by the complementary ideal ((M):a₂), with the additional a₁ loss. For a fixed lattice class of divisibility s, b=m−a−s at sufficiently large m and the bound is π^{2a+s}; pass through compatible local conditions and finite generation to obtain finiteness. The annihilator of a finite-depth class alone must not be substituted for its complementary index."
+        },
+        {
+          "replace": "Chapter IX, Theorem 3.3, p. 137",
+          "by": "Chapter IX, Theorem 3.3, p.137 (1999 draft); corrected by published Theorem9.3.3, pp.179–180, source issue E912"
+        },
+        {
+          "replace": "The finite-depth bound.",
+          "by": "The finite-depth bound, with the complementary ideal from the published edition; the draft formula is not used."
+        }
       ]
     },
     "importedFieldAdditions": {
@@ -4666,6 +4868,20 @@
       "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses": {
         "acceptance": [
           "For T=Z_p(1), MR04(H.3) fails by the Layer1 residual computation, whereas Rubin Hyp(K,T) holds with τ=1. Applying the error-tolerant bound still requires its stated strict-dual Selmer finiteness hypothesis; for the corresponding trivial representation this condition is Leopoldt’s conjecture (RemarkII.2.7)."
+        ]
+      },
+      "EulerSystemsAndKolyvaginSystems:ES.4/variant-bounds": {
+        "sources": [
+          {
+            "sourceId": "rubin-es-2000",
+            "locator": "Chapter9, Theorem9.3.3, pp.179–180",
+            "match": "The finite-depth annihilator ((M):a₂)a₁ and its compatible infinite-depth consequence; checked in page images."
+          }
+        ],
+        "acceptance": [
+          "Finite-depth zero control: if a₁=O and c_K=0, then a₂=O and ((π^m):a₂)=(π^m), giving only the automatic coefficient annihilator. It does not force the strict Selmer group to vanish.",
+          "Finite-depth primitive control: if a₁=O and c_K has exact order π^m, then a₂=(π^m) and ((π^m):a₂)=O; the strict Selmer group vanishes. Greater class order must strengthen the bound.",
+          "Finite-depth bounded-divisibility control: for a₁=(π^a) and a compatible lattice class of divisibility s, the eventual annihilator exponent is 2a+s, independent of m; a single nonzero class at one depth is not by itself this compatible-family argument."
         ]
       }
     },
@@ -6112,9 +6328,998 @@
     ]
   },
   "review": {
-    "status": "pending",
-    "reviewer": null,
-    "date": null,
-    "notes": "Revision BP-EulerSystemsAndKolyvaginSystems~2 by Codex codex-F2G2WN. The prior independent review is preserved in previousReview. All new arguments and the arithmetic supplier/bundle contract require a fresh independent review."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-EulerSystemsAndKolyvaginSystems~2",
+    "date": "2026-10-19",
+    "notes": "Complete independent target-level review of revision2: all151 targets, 61 definition/construction APIs, 427 API entries, 223 tests, 45 planets and all46 distinct pinned baseline declarations. The three previously returned targets now have sound explicit proof routes and supplier contracts. Corrected the Rubin finite-depth annihilator and zero-index branch; narrowed E911 and recorded E912–E914. All nine stages remain planned, implementations unchecked, 26 supplier requests and two recorded source/arithmetic limitations retained. This accepts the partial target-level plan, not a formalization or an unconditional classical square-index theorem. Packaging must resolve the late CM/ES bundle or PartII split before introducing roadmap edges.",
+    "checked": [
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 3.2.1, p. 23; mr-higher Definition 5.1, pp. 9–10; bss2 §6.2, p. 38; mr-higher Lemma 5.2 and Corollary 5.3, p. 10"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 1.1.4, p. 8; mr-higher Definition 3.1 and Remark 3.2, p. 7"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-length-linearity",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. Sources: mr-ks Lemma 1.1.5, p. 8"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. API domains, constructors, relations and all discriminating tests checked. Sources: mr-higher Proposition 3.3(iii) and Definition 3.4, p. 8; mr-ks Theorem 4.1.5 and Definition 4.1.11, pp. 36–38"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. Sources: mr-ks Theorem 5.2.15, p. 59; mr-higher Theorem 5.4, p. 10"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. Sources: mr-ks Theorem 4.1.13 and Definition 5.2.4, pp. 38, 56; mr-ks Corollary 5.2.6, p. 56"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/example-cyclotomic-twist",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Lemma 6.1.5 and Proposition 6.1.6, pp. 71–72"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Proposition 6.2.2 and Lemma 6.2.3, p. 74"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-implications",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Remark 3.5.1, p. 28; mr-higher Remark 4.3, p. 9"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks §3.5, pp. 27–28; mr-ks §3.5, p. 27"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2016",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: mr-higher §4, hypotheses (H.1)–(H.7), p. 9; mr-higher Lemma 4.5, p. 9"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/non-example-inadmissible",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Lemma 6.1.5, proof, p. 71; rubin-es Chapter II, Remark 2.7, p. 25"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/quotient-category",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Example 1.1.3, p. 8"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/quotient-dual-propagation",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. Sources: mr-ks Example 1.3.3, p. 12"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/selmer-length-difference",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. Sources: mr-ks Proposition 2.3.5, p. 17"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/selmer-torsion-identification",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. Sources: mr-ks Lemma 3.5.3, p. 28; mr-ks Lemma 3.5.4, p. 29; mr-higher Proposition 3.3(i)–(ii), pp. 7–8; Gomez erratum to MR04 Lemma 2.1.4, p. 32 (arXiv v1); bss2 Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8, arXiv v1 pp. 15–17"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
+        "verdict": "verified",
+        "note": "Checked compact/discrete coefficients, ideal-quotient propagation, cartesian lengths and the duality/core-rank interfaces; no arbitrary-subquotient inference. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Chapter 3, first paragraph, p. 19; mr-higher Definition 4.1, p. 8; mr-ks Chapter 1 opening and §1.1, p. 7; Chapter 2 opening, p. 13; mr-ks Definition 2.1.1, p. 13; Definition 2.3.1, pp. 16–17; mr-higher Definition 2.1, p. 6"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/abundant-tuple-existence",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: ltxzz-published §2.6, Proposition 2.6.6 and its proof, pp. 134–135; ltxzz-published §2.6, Lemma 2.6.4 and Definition 2.6.5, p. 134"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/abundant-tuples",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: ltxzz-published Definition 2.6.5, published p.134; ltxzz-published Lemma 2.6.4, published p.134; ltxzz-published Lemma 2.6.4 and Definition 2.6.5, published pp.133–135"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-nonvanishing",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Proposition 3.6.1, p. 30; bss2 Lemma 3.9, p. 17"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-prescribed-kernels",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Proposition 3.6.2, p. 30"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 2.2.1, p. 16; mr-higher Definition 2.2, p. 6; howard Definition 1.2.1, p. 1444"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/error-tolerant-chebotarev",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: cgls §3.3.1, Proposition 3.3.6 and its proof, pp. 19–21 (arXiv v2); cgls §3.3.1, Corollary 3.3.7, p. 21 (arXiv v2); cgs §6.3, Proposition 6.3.1, its proof and Remark 6.3.2, pp. 22–23 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 1.2.2, p. 10; rubin-es Chapter IV, Definition 5.3, pp. 67–68"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-decomposition",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Lemma 1.2.1, p. 10"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 3.1.6, p. 21; mr-higher Definition 4.2, p. 9; rubin-es Chapter IV, Definition 1.1, p. 57"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/modified-selmer-structures",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Example 2.1.8, p. 15; mr-ks Example 2.3.2, p. 17"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter IV §1, p. 55"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: ltxzz-published Definition 2.3.2, published p.126; ltxzz-published Lemma 2.3.3, published p.126; ltxzz-published Definition 2.3.2, Lemmas 2.3.3–2.3.4, published pp.126–128"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/residual-two-class-detection",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: zhang §8.1, discussion before Lemma 8.1, pp. 234–235; zhang §8.1, Lemma 8.1, p. 235; zhang §8.1, Lemma 8.2, p. 235"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: rubin-es Chapter V, Lemma 2.3, p. 81; rubin-es Chapter V, Lemma 3.1, p. 87"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/selmer-field-saturation",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: ltxzz-published Lemma 2.3.4, published pp.127–128; ltxzz-published Lemma 2.3.5, published pp.127–128; ltxzz-published Lemma 2.3.5, published pp.127–128"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/transverse-condition",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 1.1.6(iv) and Lemma 1.2.4, pp. 9, 11"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. Sources: mr-ks Proposition 1.3.2, p. 12"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.1/twist-error-constants",
+        "verdict": "verified",
+        "note": "Checked residual hypotheses, auxiliary-prime quotients and local decompositions; error-tolerant evaluation keeps prime-field twists, realised spans and its explicit abundance hypothesis. API domains, constructors, relations and all discriminating tests checked. Sources: cgls §3.2, (3.2)–(3.3) and Theorem 3.2.1, p. 17 (arXiv v2); cgls §3.3.1, Lemmas 3.3.3–3.3.4 and Remark 3.3.5, pp. 18–19 (arXiv v2); cgs §6.1 and §6.3, before Proposition 6.3.1, pp. 21–22 (arXiv v2); ky §3, Lemma 3.0.3 and the definition of C₁ after it, p. 36 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/classes-unramified-outside-p",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. Sources: rubin-es Chapter II, before Theorem 2.10, p. 25; bss2 Lemma 6.6, p. 38"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/conductor-presentation",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. Sources: rubin-es Chapter II, Remarks 1.3 and 1.4, pp. 22–23"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/euler-factor-change",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. Sources: rubin-es Chapter IX, Lemma 6.1, p. 141; mr-ks Remark 3.2.3, p. 23"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter IV, Lemma 1.2 and its proof, p. 57; mr-ks Remark 3.2.3, p. 23; bss2 §6.1, pp. 36–37"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/euler-system-module",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter II, Definition 1.1, pp. 21–22; rubin-es Chapter II, Remark 2.8, p. 25"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/rigidity-variants",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter IX §1, p. 133; rubin-es Chapter IX, Definition 3.1, p. 136; rubin-es Chapter IX, Definition 4.1, p. 138; rubin-es Chapter IX, Definition 5.1, p. 140"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/ring-class-anticyclotomic-euler-system",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. API domains, constructors, relations and all discriminating tests checked. Sources: ch §7.1 and §7.2, Definition 7.1, pp. 28–29 (author's version); ch §7.3, Proposition 7.4, p. 31 (author's version); ch §4.4, Lemma4.7 and proof, pp.18–19"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/twisting",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter II, Proposition 4.2, p. 30; rubin-es Chapter II, Lemma 4.3, p. 31"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.2/universal-euler-system",
+        "verdict": "verified",
+        "note": "Checked the Euler-factor convention, norm relations, twisting and rigidity exceptions; the zero family is allowed and arithmetic classes remain with their owners. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter IV, Definitions 2.1–2.2, p. 58; rubin-es Chapter IV, Proposition 3.1, p. 59; rubin-es Chapter IV, Proposition 3.4, p. 61"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/anticyclotomic-derivative",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IX, Remark 4.4, p. 139; rubin-es Chapter IX §4, p. 138"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/congruence",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV, Corollary 8.1, p. 77"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/congruence-units-example",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV §8, Example 8.2, p. 78 (1999 draft); rubin-es-2000 Chapter 4 §8, Example 4.8.2 and (4.13), p. 103 (published version); rubin-es Chapter II §1, Remark 1.5, p. 23"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-class",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter IV, Definition 4.10, p. 66; rubin-es Chapter IV, Lemma 4.13, p. 67"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-classes-unramified",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV §6, Proposition 6.1, Corollary 6.2 and Lemma 6.3, p. 69; rubin-es Chapter IV §6, Remark 6.4 and Corollary 6.5 with proof, pp. 69–70"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-invariance",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV, Lemma 4.2, p. 62"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV, Theorem 5.1, p. 67; rubin-es Chapter IV, Theorem 5.4, p. 68; rubin-es Chapter IX, Theorem 5.2, p. 140"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/derivative-operators",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter IV, Definition 4.1 and (4), p. 62"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/euler-to-kolyvagin",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Theorem 3.2.4, pp. 23–24; mr-ks Appendix A, proof of Theorem 3.2.4, (33), p. 80; mr-ks Theorem 3.2.7, p. 24"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/finite-part-formula",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: mr-ks Appendix A, Proposition A.2, p. 79; mr-ks Appendix A, Theorem A.4, p. 80"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/key-relation",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV §7, identity (9), Lemma 7.1 and Remark 7.2, p. 74; rubin-es Chapter IV §7, Lemma 7.3 and its proof, pp. 75–76; rubin-es Chapter IV §5, Lemma 5.2 and Definition 5.3, pp. 67–68; §7, proof of Theorem 5.4, p. 76"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/kolyvagin-system-module",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 3.1.3, p. 20; mr-ks Definition 3.1.6, p. 21; mr-ks Definition 3.1.8, p. 21"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/lifting-to-induced-module",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV, Proposition 4.5, pp. 63–64; rubin-es Chapter IV, Proposition 4.8, p. 65"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/local-lifts",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IV §6, Definition 6.6 and Lemma 6.7, pp. 70–71; rubin-es Chapter IV §6, Proposition 6.8 with proof and Remark 6.9, pp. 71–73; rubin-es Chapter IV §6, proof of Theorem 5.1, pp. 73–74"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/rigidity-variant-derivative-classes",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: rubin-es Chapter IX §1, condition (ii)′ and the adaptation of Chapters IV–V, pp. 133–135; rubin-es Chapter IX §1, Example 1.1 and Theorem 1.2, pp. 135–136"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-derivative-classes",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. API domains, constructors, relations and all discriminating tests checked. Sources: ch §7.2, from the choice of ν through (K3), pp. 29–30 (author's version); ch §7.2, Definition 7.2, p. 30 (author's version); ch §7.3, Lemma 7.5 and Proposition 7.6, p. 31; §7.4, Proposition 7.8 with footnote 5, pp. 32–33 (author's version); nekovar-kuga-preprint §6, Proposition6.3 and Corollary6.4, printed pp.11–12; §§7,9, printed pp.12–19; Proposition10.2 proof, printed p.20 (MPIM1990-78)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-local-operator",
+        "verdict": "verified",
+        "note": "Re-derived A v=B u from the integral cyclic cocycle identity and rational Frobenius polynomial. Kept chi and chi-inverse globally separate; local chi is trivial at the inert prime. Integral division precedes reduction. Sources: nekovar-kuga-preprint §7, printed pp.12–14; §9, printed pp.16–19; Proposition10.2 proof, printed p.20 (MPIM1990-78); ch §4.4, Lemma4.7 and its proof, pp.18–19; §7.2, pp.29–30"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-uniform-restriction",
+        "verdict": "verified",
+        "note": "Read CH Lemma4.7 and the ring-class intersection argument. Invariants over the auxiliary tower are bounded by W(K_c); inflation–restriction gives one annihilator independent of the number of primes. Sources: nekovar-kuga-preprint §6, Proposition6.3 and Corollary6.4, printed pp.11–12 (MPIM1990-78); ch §7.1–7.2, p.29; §6, p.28, purity discussion"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/selected-bounded-descent",
+        "verdict": "verified",
+        "note": "Re-derived d(x)=a^2 b from f(b)=a x; changing b, addition and scalar multiplication are killed after scaling. Both composites equal a^3. The factorized comparison needs only the bounded kernel of s. API domains, constructors, relations and all discriminating tests checked. Sources: ch §7.2, p.29, bounded restriction and the printed uniqueness claim"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.3/two-prime-test",
+        "verdict": "verified",
+        "note": "Checked the derivative and integral norm identities before reduction, local finite/transverse conditions, selected scaling and twist-compatible auxiliary-prime comparison. Sources: mr-ks Appendix A, Theorem A.4 and (33), p. 80"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: ltxzz-published Proposition 2.4.6(2), published pp.130–131; ltxzz-published Proposition 2.6.7, published pp.134–135; ltxzz-published Proposition 2.4.6(2), published pp.130–131; Proposition 2.6.7, published pp.134–135"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/core-vertices",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 4.1.8 and Corollary 4.1.9, p. 38; mr-ks Theorem 4.1.10 and Definition 4.1.11, p. 38; mr-higher §11, p. 22"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/howard-descent-with-errors",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: cgls Theorem 3.2.1, arXiv v2 p. 17; cgls Proposition 3.3.6, arXiv v2 p. 19; cgls Lemma 3.3.9, arXiv v2 p. 22"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/kolyvagin-bound",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: mr-ks Theorem 5.2.2, p. 56; mr-ks Corollary 4.4.5, p. 47"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/leading-vertices",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: mr-ks Theorem 4.1.16, p. 39"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/maximal-order-evaluation-bound",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: nekovar §6.4, data6.4.1–6.4.2 and Proposition6.4.3 with proof, pp.38–40 (archived author manuscript)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: nekovar Theorem 3.2, pp. 18–19; §3.5, p. 19; §5.19, pp. 33–34; Proposition 6.4.3, pp. 38–40; Theorem 7.3 and §§7.4–7.6, pp. 45–51 (author copy)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/rank-one-from-nonzero-class",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: cgls §3.3.1, Theorem 3.3.8 and its proof, (3.8)–(3.10), pp. 21–22 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/rational-anticyclotomic-descent",
+        "verdict": "verified",
+        "note": "The revised comparison loses at most B1 in order and 2B1 in a two-vector span. These and bottom scaling are uniform in depth and absorbed into fixed constants in the two-prime rational descent. Sources: ch §7.2, Theorem 7.3, p. 30 (author's version); ch §7.5, Lemmas 7.10–7.16 and the descent argument, pp. 33–37 (author's version); ch §7.4, Theorem 7.9 and its proof, p. 33 (author's version); §6, Hypothesis (H), p.26; §4.1, pp.14–15"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/rubin-bound",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: rubin-es Chapter II, Theorem 2.2, p. 24; rubin-es Chapter II, Theorem 2.3, p. 24; rubin-es Chapter V, Lemma 2.5, p. 82; rubin-es Appendix A, Corollary 2.6, p. 148"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/rubin-hypotheses",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-es Chapter II §2, p. 24; rubin-es Chapter II, Definition 2.1, p. 24; rubin-es Chapter V, Lemma 3.2, p. 87"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/self-dual-module-induction",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: cgls §3.3.2, Lemma 3.3.9 and its proof, p. 22 (arXiv v2); cgls §3.3.2, (3.11)–(3.13), Lemma 3.3.10 and Proposition 3.3.11, pp. 22–23 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/selmer-sheaf",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 3.1.2, pp. 19–20; mr-ks Definition 3.1.1, p. 19"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/sheaf-monodromy",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 3.4.2 and Proposition 3.4.4, pp. 26–27"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/stub-sheaf",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 4.3.1, p. 41; mr-ks Theorem 4.3.4, p. 41; mr-ks Theorem 4.4.1, p. 45; mr-ks Theorem 4.2.2, p. 40"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/uniform-near-trivial-bound",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: cgs §6.1, Theorem 6.1.1, p. 22, and §6.4, its proof, pp. 24–28 (arXiv v2); bcgs §1.3, Theorem 1.3.1 with proof and Remark 1.3.2, pp. 15–16 (arXiv v2); ky §3, Theorem 3.0.2 and Lemma 3.0.3, pp. 35–36 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/variant-bounds",
+        "verdict": "corrected",
+        "note": "Corrected the draft finite-depth bound to published Rubin9.3.3, pp.179–180: ((M):a2)a1 annihilates the strict dual group. Added zero, primitive and bounded-divisibility depth checks; compatible classes are required for the infinite consequence. Sources: rubin-es Chapter IX, Theorem 3.3, p.137 (1999 draft); corrected by published Theorem9.3.3, pp.179–180, source issue E912; rubin-es Chapter IX, Theorem 4.3, p. 139; rubin-es-2000 Chapter9, Theorem9.3.3, pp.179–180"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/vertex-step",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: mr-ks Lemma 4.1.7, p. 37; mr-ks Corollary 2.3.6, p. 17"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.4/weak-cassels-structure",
+        "verdict": "verified",
+        "note": "Checked sheaf restrictions, prime-selection hypotheses, exact annihilator/error bounds and the finite maximal-order pairing; conditional arithmetic inputs stay explicit. Sources: cgls Proposition 3.3.2 and Lemma 3.3.1, arXiv v2 pp. 18–19; howard Theorem 1.4.2, pp. 1448–1450; Lemma 1.5.3 and Proposition 1.5.5, pp. 1450–1451"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/cassels-structure",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: howard Proposition 1.4.1, p. 1448; howard Theorem 1.4.2 and its proof, pp. 1448–1450; howard Lemma 1.5.3, p. 1450"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/divisibility-invariants",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 5.2.11, pp. 57–58; mr-ks Definition 4.5.5, p. 49; mr-ks Definition 4.5.7, p. 49"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/howard-dvr-theorem",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: howard Theorem 1.6.1, p. 1453"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/howard-hypotheses",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. API domains, constructors, relations and all discriminating tests checked. Sources: howard §1.3, hypotheses H.0–H.5, p. 1446; howard §1.3, hypothesis H.4, p. 1446; howard Definition 1.2.3, p. 1445"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/howard-stub",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: howard Definition 1.5.4, p. 1451; howard Proposition 1.5.9, proof, p. 1452"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/kolyvagin-dual-selmer",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. API domains, constructors, relations and all discriminating tests checked. Sources: mr-ks Definition 3.3.1, p. 25; mr-ks Theorem 4.5.12, p. 51"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/rank-one-module-theorem",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: mr-ks Corollary 4.5.2, p. 48; mr-ks Theorem 5.2.10, p. 57"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/self-dual-core-vertex-rigidity",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: zanarella §2.2, Proposition 2.2.8 and Corollary 2.2.9, pp. 14–15 (arXiv v1); zanarella §2.2, Theorem 2.2.12, Corollary 2.2.13 and Proposition 2.2.14, pp. 17–18 (arXiv v1)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/self-dual-divisibility-profile",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. API domains, constructors, relations and all discriminating tests checked. Sources: zanarella §2.3, Lemma 2.3.1, Definition 2.3.2 and Propositions 2.3.3–2.3.4, pp. 18–20 (arXiv v1); bcgs §2.2.1, definitions of M(n), M_{r,N′} and M_∞, pp. 16–17; Lemma 2.2.4, p. 18 (arXiv v2); bcgs §2.2.2, Proposition 2.2.1, p. 17, and its proof, pp. 17–18 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/self-dual-eigenspace-localisation",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: zanarella §2.2, Lemma 2.2.10 and its proof, pp. 15–16 (arXiv v1); zanarella §2.2, Corollary 2.2.11, pp. 16–17 (arXiv v1)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/self-dual-structure-theorem",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: zanarella §2.3, Theorem 2.3.6 and its proof, p. 20 (arXiv v1); bcgs §2.2.2, Theorem 2.2.2, p. 17, with Lemma 2.2.4 and the proof, pp. 18–20 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/sharpness-examples",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: mr-ks Proposition 6.2.6, p. 75"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.5/structure-theorem",
+        "verdict": "verified",
+        "note": "Checked rank-one and self-dual hypotheses, stub propagation, divisibility profile and primitive equality; length is distinguished from annihilator exponent. Sources: mr-ks Theorem 5.2.12, p. 58; mr-ks Corollary 5.2.13, p. 58; mr-ks Theorem 4.5.9, p. 50; mr-ks Theorem 4.5.6, p.49 (authors’ 2003 copy)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. Sources: bss2 Proposition 2.3, p. 8; bss2 Proposition 2.4, p. 8; bss2 Corollary 2.7, pp. 10–11"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/bss-hypotheses",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. API domains, constructors, relations and all discriminating tests checked. Sources: bss2 Hypothesis 3.2, p. 13; bss2 Hypothesis 4.2, p. 20; bss2 Hypothesis 4.7, p. 22"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/exterior-bidual",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. API domains, constructors, relations and all discriminating tests checked. Sources: bss2 Definition 2.1, p. 7; dk §1.2, p. 8"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/kolyvagin-systems-rank-r",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. API domains, constructors, relations and all discriminating tests checked. Sources: mr-higher Definition 10.4, p. 21; bss2 §5.2, p. 25; mr-higher Proposition 12.3, p. 24"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/regulator-isomorphism",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. Sources: mr-higher Theorem 12.4, p. 25; bss2 Theorem 5.2, pp. 25–26; bss2 Theorem 5.25, p. 36"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/rubin-lattice",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. API domains, constructors, relations and all discriminating tests checked. Sources: dk §1.2, (8)–(10), p. 8; dk §1.2, p. 8"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/stark-comparison",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. Sources: sakamoto Lemma 4.13 and Proposition 4.14, pp. 2313–2314"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/stark-structure",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. Sources: mr-higher Theorem 6.10, p. 15; mr-higher Theorem 8.9, p. 19; bss2 Theorem 4.6, p. 21"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.6/stark-systems",
+        "verdict": "verified",
+        "note": "Checked bidual rather than ordinary wedge conventions over nonfree modules, determinant signs, Gorenstein hypotheses and the regulator/transfer supplier boundary. API domains, constructors, relations and all discriminating tests checked. Sources: mr-higher Definition 6.8, p. 14; bss2 §4.1, p. 19; bss2 Definition 4.1, p. 20"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/fitting-bounds",
+        "verdict": "verified",
+        "note": "Checked derivative/regulator and Fitting-ideal directions, rank-one recovery and the conditional Rubin–Stark applications; no arithmetic existence assertion is supplied here. Sources: bss2 Corollary 6.15, p. 42"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative",
+        "verdict": "verified",
+        "note": "Checked derivative/regulator and Fitting-ideal directions, rank-one recovery and the conditional Rubin–Stark applications; no arithmetic existence assertion is supplied here. API domains, constructors, relations and all discriminating tests checked. Sources: bss2 Theorem 6.12, p. 41; bss2 Corollary 6.13, p. 42; bss2 Proposition 6.10, p. 40"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/higher-rank-euler-systems",
+        "verdict": "verified",
+        "note": "Checked derivative/regulator and Fitting-ideal directions, rank-one recovery and the conditional Rubin–Stark applications; no arithmetic existence assertion is supplied here. API domains, constructors, relations and all discriminating tests checked. Sources: bss2 Definition 6.4, p. 37; bss2 Hypothesis 6.1, p. 37"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/rank-one-comparison",
+        "verdict": "verified",
+        "note": "Checked derivative/regulator and Fitting-ideal directions, rank-one recovery and the conditional Rubin–Stark applications; no arithmetic existence assertion is supplied here. Sources: bss2 Remark 6.5, p. 37"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/rubin-brumer-stark",
+        "verdict": "verified",
+        "note": "Checked derivative/regulator and Fitting-ideal directions, rank-one recovery and the conditional Rubin–Stark applications; no arithmetic existence assertion is supplied here. API domains, constructors, relations and all discriminating tests checked. Sources: dk §1.2, p. 8; dk Conjecture 1.5, p. 8"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/rubin-stark-class-group",
+        "verdict": "verified",
+        "note": "Checked derivative/regulator and Fitting-ideal directions, rank-one recovery and the conditional Rubin–Stark applications; no arithmetic existence assertion is supplied here. Sources: bss2 §7, equation (14) and Theorem 7.1(i)–(iii), pp. 47–50; Remarks 7.2–7.3, p. 50"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.7/rubin-stark-minus-comparison",
+        "verdict": "verified",
+        "note": "Checked derivative/regulator and Fitting-ideal directions, rank-one recovery and the conditional Rubin–Stark applications; no arithmetic existence assertion is supplied here. Sources: bss2 §7, pp. 48–50; dk §1.2, equations (8)–(10), Conjecture 1.5 and Theorem 1.6, pp. 7–9"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. II §1, Definition 1.1(ii), p. 21 (published: Definition 2.1.1(ii)); rubin-euler-systems-1999 Ch. II §1, Remark 1.2, p. 22; rubin-euler-systems-1999 Ch. II §3, opening paragraph and Notation, pp. 26–27"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/augmentation-prime-divisibility",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: cgs §6.5, Theorem 6.5.1 and its proof, p. 28 (arXiv v2); ky §3, Theorem 3.0.5 and its proof, pp. 36–37 (arXiv v2); ky §1.2, Theorem1.2.2, pp.13–14; §1.4, Theorem1.4.1, pp.24–25"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/blind-spot-and-lambda-primitivity",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: mazur-rubin-kolyvagin-systems §5.3, Definition 5.3.9, p. 61; mazur-rubin-kolyvagin-systems §3.1, Definition 3.1.6, p. 21"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/characteristic-ideal-bound-with-error",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. VII §1, Theorem 1.9, p. 101; rubin-euler-systems-1999 Ch. VII §1, Lemma 1.8, p. 101"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/error-tolerant-self-dual-lambda-adic-bound",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: castella-grossi-lee-skinner-eisenstein §3.4, Theorem 3.4.1, p. 26; castella-grossi-lee-skinner-eisenstein §3.4, Corollary 3.4.2, p. 27; castella-grossi-lee-skinner-eisenstein §3.4, proof of Theorem 3.4.1, p. 27"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/euler-to-lambda-adic-kolyvagin",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: mazur-rubin-kolyvagin-systems §5.3, Theorem 5.3.3, p. 61; mazur-rubin-kolyvagin-systems §5.3, Theorem 5.3.3, p. 61; mazur-rubin-kolyvagin-systems Appendix A, proof of Theorem 5.3.3, pp. 81–82"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/exceptional-height-one-primes",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: mazur-rubin-kolyvagin-systems §5.3, Definition 5.3.12, p. 62"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/generic-core-rank",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: mazur-rubin-kolyvagin-systems §5.3, Lemma 5.3.16, p. 65; mazur-rubin-kolyvagin-systems §5.3, Definition 5.3.17, p. 65"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/height-one-specialization",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: mazur-rubin-kolyvagin-systems §5.3, p. 62; mazur-rubin-kolyvagin-systems §5.3, Corollary 5.3.15, p. 64; mazur-rubin-kolyvagin-systems §5.3, proof of Theorem 5.3.10, p. 66"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-class-of-an-euler-system",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. II §1, discussion after Remark 1.2, p. 22; rubin-euler-systems-1999 Ch. II §3, Definition 3.1, p. 28; rubin-euler-systems-1999 Ch. VI §2, p. 91"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-evaluation-maps",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. VII §1, Definition 1.2, p. 98; rubin-euler-systems-1999 Ch. VII §1, Lemma 1.3, p. 98; rubin-euler-systems-1999 Ch. VII §1, Definition 1.1, p. 97"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. II §3, Hypotheses Hyp(K∞, T), p. 27 (published p. 41); rubin-euler-systems-1999 Ch. II §3, p. 27; rubin-euler-systems-1999 Ch. II §2, Remark 2.4, p. 24"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-poitou-tate-sequence",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-2000 Ch. 2 §3, Proposition 2.3.7 and proof, pp. 42–43; rubin-euler-systems-1999 Ch. II §3, Proposition 3.7, p. 29"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/kolyvagin-sequence-induction",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. VII §1, Proposition 1.6, p. 100; rubin-euler-systems-1999 Ch. VII §1, Proposition 1.4, pp. 98–99; rubin-euler-systems-1999 Ch. VII §1, after Proposition 1.6, p. 100"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-ind",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: mazur-rubin-kolyvagin-systems §5.3, Definition 5.3.8, p. 61; mazur-rubin-kolyvagin-systems §5.3, Definition 5.3.8, p. 61; mazur-rubin-kolyvagin-systems §5.3, proof of Theorem 5.3.10, p. 66"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: mazur-rubin-kolyvagin-systems §3.1, Definition 3.1.3, p. 20; mazur-rubin-kolyvagin-systems §3.1, Definition 3.1.6, p. 21; buyukboduk-lambda-adic-kolyvagin-systems §3.2, Remark 3.24, p. 27"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-selmer-structure",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: mazur-rubin-kolyvagin-systems §5.3, Definition 5.3.2, p. 60; mazur-rubin-kolyvagin-systems §5.3, after Definition 5.3.2, p. 60; howard-heegner-point-kolyvagin-system §2.2, Definition 2.2.6, p. 25"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/lambda-index",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. II §3, Definition 3.1, p. 28; rubin-euler-systems-2000 Ch. 2 §3, proof of Theorem 2.3.8, p. 43"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/leopoldt-tower-hypothesis",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. II §3, Hypothesis Hyp(K∞/K), p. 27 (published p. 41); rubin-euler-systems-1999 Ch. II §3, p. 27"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/mazur-rubin-lambda-adic-main-theorem",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: mazur-rubin-kolyvagin-systems §5.3, Theorem 5.3.10, p. 62; mazur-rubin-kolyvagin-systems §5.3, Theorem 5.3.10(iii), p. 62; mazur-rubin-kolyvagin-systems §5.3, proof of Theorem 5.3.10, p. 67"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/ordinary-coefficient-prime-comparison",
+        "verdict": "verified",
+        "note": "Re-derived both localized Poitou–Tate sequences. X_(o,f) is free; the torsion local cokernel maps trivially into it, making X_ord free over Lambda_(pi). Actual higher-weight filtration and both character orientations are retained. Sources: ky §1.3, Proposition1.3.4, Lemmas1.3.5–1.3.6, pp.19–23; §1.4, pp.23–25; §3, pp.34–37; cgls §3.4, pp.24–25; §4.2, Proposition4.2.1, pp.28–29"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/rank-one-leopoldt-case",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. VII §3, Lemma 3.7, p. 109; rubin-euler-systems-1999 Ch. VII §3, proof of Lemma 3.7, p. 109"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/residual-primitivity-implies-lambda-primitivity",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: buyukboduk-lambda-adic-kolyvagin-systems §4.1.1, proof of Proposition 4.1, pp. 28–29"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/residual-unramified-mu-zero",
+        "verdict": "verified",
+        "note": "Read KY Theorem1.2.2, Lemma1.3.6 and Theorem1.4.1 with the exceptional 1/omega terms. The conclusion is full/unramified mu=0 in both orientations from the exact CM character contract, not ordinary mu=0 by relabeling. Sources: ky §1.2, Theorem1.2.2 and Proposition1.2.5, pp.13–17; §1.3, Lemma1.3.6, pp.21–23; §1.4, Theorem1.4.1, pp.23–25; cgls §1.4, Proposition1.4.2, p.11; §1.5, Theorem1.5.1, p.12 (arXiv v2)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/restricted-iwasawa-selmer-module",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. II §3, Definition 3.1, p. 28 (published Definition 2.3.1); rubin-euler-systems-1999 Ch. VII §4, proof of Lemma 4.1, p. 110; rubin-euler-systems-1999 Ch. VII §2, proof of Lemma 2.4, p. 103"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/restriction-control-over-the-tower",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. VII §3, Proposition 3.4(iii), p. 107; rubin-euler-systems-1999 Ch. VII §3, Lemma 3.2, p. 106; rubin-euler-systems-1999 Ch. VII §3, opening, pp. 105–106"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/rubin-iwasawa-divisibility",
+        "verdict": "corrected",
+        "note": "Corrected the torsion/zero-class branch: ind=0 makes the ideal inclusion automatic and does not force char(X)=0. The zero family with X=0 distinguishes these assertions. Sources: rubin-euler-systems-1999 Ch. II §3, Theorem 3.3, p. 28 (published Theorem 2.3.3, p. 42); rubin-euler-systems-1999 Ch. VII §1, end, pp. 101–102"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/rubin-rational-iwasawa-divisibility",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. II §3, Theorem 3.4, p. 28 (published Theorem 2.3.4, p. 42); rubin-euler-systems-1999 Ch. VII §1, end, p. 102"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-adic-kolyvagin-bound",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: howard-heegner-point-kolyvagin-system §2.2, Theorem 2.2.10, p. 26; howard-heegner-point-kolyvagin-system §2.2, Theorem 2.2.10(b)–(c), p. 26; howard-heegner-point-kolyvagin-system §2.2, proof of Theorem 2.2.10, p. 27"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-primitivity-equality",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: zanarella §2.4, Proposition 2.4.1, Definitions 2.4.2–2.4.3 and Proposition 2.4.4, pp. 21–22 (arXiv v1); zanarella §2.4, Theorem 2.4.5 and its proof, pp. 22–24 (arXiv v1)"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: mazur-rubin-kolyvagin-systems §5.3, Proposition 5.3.14, p. 64; mazur-rubin-kolyvagin-systems §5.3, Lemma 5.3.13, p. 62; howard-heegner-point-kolyvagin-system §2.2, Proposition 2.2.8, p. 26"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/true-iwasawa-selmer-and-singular-quotient",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. II §3, Remark 3.6, pp. 28–29 (published Remark 2.3.6, p. 42); rubin-euler-systems-1999 Ch. II §3, Remark 3.6, p. 29"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/true-selmer-iwasawa-divisibility",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-2000 Ch. 2 §3, Theorem 2.3.8, p. 43; rubin-euler-systems-2000 Ch. 2 §3, proof of Theorem 2.3.8, p. 43"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/twisting-by-characters-of-gamma",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. VI, introduction, p. 89; rubin-euler-systems-1999 Ch. VI §3, Theorem 3.5, p. 93; rubin-euler-systems-1999 Ch. VI §2, Proposition 2.1, p. 91"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/twisting-invariance-of-iwasawa-theorems",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. VI §4, Theorem 4.1, p. 94; rubin-euler-systems-1999 Ch. VI §4, proof of Theorem 4.1, p. 94; rubin-euler-systems-1999 Ch. VI §1, Lemma 1.2, p. 89"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/unramified-at-split-primes-condition",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. API domains, constructors, relations and all discriminating tests checked. Sources: rubin-euler-systems-1999 Ch. IX §2, p. 136; rubin-euler-systems-1999 Ch. IX §2, p. 136"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/weak-leopoldt-from-an-euler-system",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. II §3, Theorem 3.2, p. 28 (published Theorem 2.3.2, p. 41); rubin-euler-systems-1999 Ch. VII §4, opening, p. 110; rubin-euler-systems-1999 Ch. II §3, Remark 3.5, p. 28"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/weak-leopoldt-from-lambda-adic-kolyvagin",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: mazur-rubin-kolyvagin-systems §5.3, Theorem 5.3.6, p. 61; mazur-rubin-kolyvagin-systems §5.3, Corollary 5.3.19, p. 65; mazur-rubin-kolyvagin-systems §5.3, proof of Theorem 5.3.6, pp. 65–66"
+      },
+      {
+        "nodeId": "EulerSystemsAndKolyvaginSystems:ES.8/x-infinity-finitely-generated",
+        "verdict": "verified",
+        "note": "Checked height-one specialization including the coefficient and augmentation primes, zero-index convention, rational versus integral descent and precise local-condition comparisons. Sources: rubin-euler-systems-1999 Ch. VII §4, Lemma 4.1 and proof, p. 110"
+      }
+    ],
+    "baselineChecked": [
+      {
+        "ref": "mathlib:Ideal.height",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Ideal.span",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:IsAdic",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:IsDiscreteValuationRing",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:IsIntegralClosure",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:IsModuleTopology",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:IsRegularLocalRing",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:LinearMap.aeval_self_charpoly",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:LinearMap.charpoly",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:LinearMap.ker",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:LinearMap.range",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.Dual",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.Finite",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.Injective",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.IsReflexive",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.IsTorsion",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.equiv_directSum_of_isTorsion",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.length",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_add_of_exact",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Polynomial.IsDistinguishedAt",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Polynomial.X_sub_C_dvd_sub_C_eval",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Polynomial.divByMonic",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:PontryaginDual",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:PowerSeries",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Representation.norm",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:SimpleGraph",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Squarefree",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:Submodule.torsion",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:UniqueFactorizationMonoid",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:cyclotomicCharacter",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:exteriorPower.bijective_pairingDual",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:exteriorPower.map",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "mathlib:exteriorPower.pairingDual",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:NumberField.Chebotarev.frobeniusPrimeSet",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:NumberField.artinSymbol",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitCor_delta0",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.H1",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitCor1",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitCor1_comp_res1",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.explicitShapiro1",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.GlobalNumberFields.RayClassGroup",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsSmoothDiscrete",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      },
+      {
+        "ref": "tauceti:TauCeti.coind",
+        "verdict": "verified",
+        "note": "Lean declaration and variable hypotheses read at the packet’s pinned commit; supplied generality checked against its uses."
+      }
+    ]
   }
 }

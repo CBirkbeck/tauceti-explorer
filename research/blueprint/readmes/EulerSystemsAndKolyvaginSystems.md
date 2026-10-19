@@ -2834,17 +2834,25 @@ Over a DVR, scaling a nonzero initial class by π raises the bound by one; the z
 
 ### 4.20 Bounds for the variants: finite depth and anticyclotomic systems
 
-(a) (Finite depth.) Let 0 ≠ M ∈ O and c an Euler system for W_M. Suppose Hyp(K, T) holds, n_W = n_W^* = 0 and W_M^{G_K} = 0. Let m = sup_{q ∤ p} [W^{I_q} : (W^{I_q})_div] and n the order of m·c_K in H¹(K, W_M). Then n·S_{Σ_p}(K, W_M^*) = 0; in particular if m·c_K ≠ 0 then S_{Σ_p}(K, W^*) is finite for a compatible family. (b) (Anticyclotomic.) Let c be a χ-anticyclotomic Euler system for T with H¹(Ω′/K′, W) = H¹(Ω′/K′, W^*) = 0, T ⊗ k irreducible over G_{K′}, and τ ∈ G_K with ε_cyc(τ) = χ(τ), τ^d the identity on K′(1)_χ(μ_{p^∞}, (O_{K′}^×)^{1/p^∞}) and T/(τ − 1)T free of rank one. Then for every i, 𝔭^{ind_O(c, χ^i)} S_{Σ_p}(K′, W^*)^{χ^{1−i}} = 0, where ind_O(c, χ^i) is the index of divisibility of the χ^i-component of c_{K′}. This bounds exponents of eigenspaces, not lengths.
+(a) (Finite depth.) Let 0 ≠ M ∈ O and c an Euler system for W_M. Suppose Hyp(K, T) holds, n_W = n_W^* = 0 and W_M^{G_K} = 0. Put a₁ = ⋂_{q ∤ p} Ann_O(W^{I_q}/(W^{I_q})_div) and a₂ = Ann_O(a₁c_K) in H¹(K,W_M). Then ((M):a₂)·a₁·S_{Σ_p}(K,W_M^*) = 0, where ((M):a₂) = {x ∈ O : xa₂ ⊆ (M)}. Since a₂ contains (M), this is the integral ideal denoted M/a₂ in published Theorem9.3.3. For M=π^m, a₁=(π^a) and a₂=(π^b), 0≤b≤m, the annihilator is π^{m−b+a}. For compatible reductions of a nonzero lattice Euler class with uniformly bounded divisibility, these exponents are bounded independently of m; the resulting cofinitely generated infinite-depth strict Selmer module is finite. (b) (Anticyclotomic.) Let c be a χ-anticyclotomic Euler system for T with H¹(Ω′/K′, W) = H¹(Ω′/K′, W^*) = 0, T ⊗ k irreducible over G_{K′}, and τ ∈ G_K with ε_cyc(τ) = χ(τ), τ^d the identity on K′(1)_χ(μ_{p^∞}, (O_{K′}^×)^{1/p^∞}) and T/(τ − 1)T free of rank one. Then for every i, 𝔭^{ind_O(c, χ^i)} S_{Σ_p}(K′, W^*)^{χ^{1−i}} = 0, where ind_O(c, χ^i) is the index of divisibility of the χ^i-component of c_{K′}. This bounds exponents of eigenspaces, not lengths.
 
 The precise hypotheses are as stated.
 
-([Karl Rubin, Euler Systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Chapter IX, Theorem 3.3, p. 137). The finite-depth bound.
+([Karl Rubin, Euler Systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Chapter IX, Theorem 3.3, p.137 (1999 draft); corrected by published Theorem9.3.3, pp.179–180, source issue E912). The finite-depth bound, with the complementary ideal from the published edition; the draft formula is not used.
 
 ([Karl Rubin, Euler Systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Chapter IX, Theorem 4.3, p. 139). The anticyclotomic exponent bound.
 
-(a): derivative classes exist for systems of depth M and satisfy the finite–singular relation; the finiteness away from pr holds after multiplying by m (Corollary IV.6.5); run the argument of rubin-bound for the exponent.
+(a): use published Theorem9.3.3, pp.179–180, correcting draft IX.3.3 (source issue E912). The derivative finite–singular relation persists at depth M. Multiplication by a₁ gives the required local finite conditions away from the derivative conductor, by Corollary IV.6.5; duality bounds the strict Selmer exponent by the complementary ideal ((M):a₂), with the additional a₁ loss. For a fixed lattice class of divisibility s, b=m−a−s at sufficiently large m and the bound is π^{2a+s}; pass through compatible local conditions and finite generation to obtain finiteness. The annihilator of a finite-depth class alone must not be substituted for its complementary index.
 
 (b): Layer 3.16 Derivative classes of χ-anticyclotomic Euler systems with r = 1 gives classes in the χ^{i−1}-part ramified at one prime, with ramification governed by the χ^i-part of c_{K′}; they annihilate S_{Σ_p}(K′, W^*)^{χ^{1−i}} by global duality.
+
+([Karl Rubin, Euler Systems](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf), published Theorem9.3.3, pp.179–180). The complementary ideal is essential; the earlier draft has the reversed factor.
+
+Finite-depth zero control: if a₁=O and c_K=0, then a₂=O and ((π^m):a₂)=(π^m), giving only the automatic coefficient annihilator. It does not force the strict Selmer group to vanish.
+
+Finite-depth primitive control: if a₁=O and c_K has exact order π^m, then a₂=(π^m) and ((π^m):a₂)=O; the strict Selmer group vanishes. Greater class order must strengthen the bound.
+
+Finite-depth bounded-divisibility control: for a₁=(π^a) and a compatible lattice class of divisibility s, the eventual annihilator exponent is 2a+s, independent of m; a single nonzero class at one depth is not by itself this compatible-family argument.
 
 For d = 1, (b) is the exponent form of rubin-bound with zero error terms.
 
@@ -4922,7 +4930,7 @@ For the Heegner Kolyvagin system this gives one divisibility of the Heegner poin
 
 Let K∞/K be admissible and c an Euler system for (T, K∞). If T satisfies Hyp(K∞, T) and Hyp(K∞/K), then char(X∞) divides ind_Λ(c), i.e. ind_Λ(c) ⊂ char(X∞).
 
-The precise hypotheses are Rubin's convention: char(X∞) = 0 when X∞ is not torsion; if c_{K,∞} is torsion both sides are 0; Integral divisibility needs Hyp(K∞, T); under only Hyp(K∞, V) one gets rubin-rational-iwasawa-divisibility; Valid for every d ≥ 1 and also for p = 2 (Rubin, after Corollary III.2.4, as used in EulerSystemsCyclotomicMainConjecture); for d ≥ 2 divisibility of characteristic ideals ignores pseudo-null modules, which need not be finite; This is a divisibility only; equality needs the separately sourced primitivity or main-conjecture arguments of the consumers.
+The precise hypotheses are Rubin's convention: char(X∞) = 0 when X∞ is not torsion; if c_{K,∞} is torsion then ind_Λ(c)=0 and the inclusion is automatic. This case does not force char(X∞)=0; for a zero Euler system and X∞=0 it is the unit ideal; Integral divisibility needs Hyp(K∞, T); under only Hyp(K∞, V) one gets rubin-rational-iwasawa-divisibility; Valid for every d ≥ 1 and also for p = 2 (Rubin, after Corollary III.2.4, as used in EulerSystemsCyclotomicMainConjecture); for d ≥ 2 divisibility of characteristic ideals ignores pseudo-null modules, which need not be finite; This is a divisibility only; equality needs the separately sourced primitivity or main-conjecture arguments of the consumers.
 
 ([Karl Rubin, Euler systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Ch. II §3, Theorem 3.3, p. 28 (published Theorem 2.3.3, p. 42)). The statement with the same hypotheses and conclusion, expressed in roadmap notation.
 
@@ -5031,4 +5039,35 @@ HeegnerPointEulerSystems and GeneralizedHeegnerCycles use the derivative constru
 
 ## Source access for revision 2
 
-This revision rereads Castella–Hsieh’s 2 July 2022 author version, §4.4 Lemma 4.7 (pp.18–19) and §7 (pp.28–38); Nekovář’s MPIM1990-78 preprint, §§6–10 (printed pp.11–20); Keller–Yin arXiv v2, §§1.2–1.5 (pp.13–31) and §3 (pp.34–40); and CGLS arXiv v2, Proposition 1.4.2 (p.11), Theorem 1.5.1 (p.12), §3.4 (pp.24–25) and Proposition 4.2.1 (pp.28–29). The exact versions and hashes are in the packet. The 1990 preprint is the source of the cyclic cochain calculation; no comparison with Nekovář’s 1992 version of record is claimed. Earlier source coverage and confirmed source issues are inherited audit history, not new independent verdicts on this revision. The packet records a pending independent review.
+This revision rereads Castella–Hsieh’s 2 July 2022 author version, §4.4 Lemma 4.7 (pp.18–19) and §7 (pp.28–38); Nekovář’s MPIM1990-78 preprint, §§6–10 (printed pp.11–20); Keller–Yin arXiv v2, §§1.2–1.5 (pp.13–31) and §3 (pp.34–40); and CGLS arXiv v2, Proposition 1.4.2 (p.11), Theorem 1.5.1 (p.12), §3.4 (pp.24–25) and Proposition 4.2.1 (pp.28–29). The exact versions and hashes are in the packet. The 1990 preprint is the source of the cyclic cochain calculation; no comparison with Nekovář’s 1992 version of record is claimed. This paragraph records the revision author’s source pass. The independent revision-2 review has now accepted the target-level plan after checking all 151 assembled targets and the relevant source passages; its full register is in the review report. All nine stages remain planned and all implementations unchecked. The two recorded limitations and the exact supplier contracts remain open implementation obligations.
+
+
+## Source corrections checked in the independent revision-2 review
+
+The packet contains the full versioned finding register. E911 is restricted to the stray p in the published proof of LTXZZ Lemma2.3.4, p.127: its full-exponent lemma is valid, and the shorter coefficient ring used in saturation is a legitimate application/generalization. The earlier suggestion that this statement itself needs its exponent changed is withdrawn. The additional findings below are stated in our own words.
+
+### E912 — 1999 draft ChapterIX, Theorem3.3, p.137; compare published Chapter9, Theorem9.3.3, pp.179–180
+
+The draft uses the order n of m·c_K itself as the annihilating factor n·S_{Σ_p}(K,W_M^*). Use the published ideals a₁=⋂_{q∤p}Ann_O(W^{I_q}/(W^{I_q})_div), a₂=Ann_O(a₁c_K), with annihilator ((M):a₂)a₁. Over a DVR, if M=π^m and a_i=(π^{a or b}), its exponent is m−b+a.
+
+The printed 1999 factor reverses the expected dependence on class order: zero c_K has order1 and would force vanishing, whereas a primitive class gives only the automatic coefficient annihilator. The published formula gives the opposite, correct zero/primitive controls. Published p.179 explicitly displays (M/a₂)a₁. The roadmap additionally spells out the compatibility and bounded-divisibility condition used on passing to infinite depth.
+
+Already corrected in context: Corrected in Rubin, Euler Systems (2000), Theorem9.3.3, pp.179–180.
+
+
+### E913 — MPIM1990-78 preprint, §9, printed p.18 (PDFp.21), divided identity immediately before the key formula
+
+The second coefficient on the left of the divided identity is M₁/N. That coefficient is M₁/M. The following key formula already has this value.
+
+The preceding identity has N·a_y−M₁·a_x on the left. Dividing the entire identity by M gives (N/M)·a_y−(M₁/M)·a_x. The next displayed key formula uses M₁/M consistently. This is a local intermediate display slip and does not alter the operator relation used here.
+
+Already corrected in context: The key formula immediately below the display in the same preprint already uses M₁/M. The Inventiones1992 version was not collated.
+
+
+### E914 — Published Theorem2.2.10 proof, p.1464, paragraph immediately before the functional equation; compare p.1463
+
+For the P=(p) branch of the multiplicity argument the last paragraph uses Q=T+p^m. Use Q=T^m+p, as the coefficient-prime divisibility branch on p.1463 already does.
+
+The Q=T+p^m family approaches (T), not (p): Λ/(p^a,T+p^m) has Z_p-length a, with no slope m. The Eisenstein family Λ/(p^a,T^m+p) instead has length ma, which detects ord_(p). The packet already uses the latter family, so only the source register needs correction.
+
+Already corrected in context: The earlier coefficient-prime paragraph in the same published proof, p.1463, gives Q=T^m+p.
