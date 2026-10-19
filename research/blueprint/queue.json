@@ -151544,6 +151544,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv2.md"
+  },
+  {
+   "id": "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/review.json",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/README.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/Suggested.lean",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex.md"
   }
  ]
 }
