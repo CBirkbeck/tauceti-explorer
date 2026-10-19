@@ -21,70 +21,70 @@
     "kind": "structure",
     "module": "Mathlib/Combinatorics/Enumerative/Composition.lean",
     "provides": "Compositions of a natural number n as lists of positive integers summing to n, with a Fintype instance; the carrier for indices of a fixed weight.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:Polynomial",
     "kind": "structure",
     "module": "Mathlib/Algebra/Polynomial/Basic.lean",
     "provides": "The polynomial ring F_q[θ] = A and the polynomials in t over K̄.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:Polynomial.Monic",
     "kind": "def",
     "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
     "provides": "Monic polynomials; A_{+,d} is the set of monic polynomials of degree d.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:RatFunc",
     "kind": "structure",
     "module": "Mathlib/FieldTheory/RatFunc/Defs.lean",
     "provides": "The rational function field K = F_q(θ), where the power sums live.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:RatFunc.inftyValuation",
     "kind": "def",
     "module": "Mathlib/FieldTheory/RatFunc/Valuation.lean",
     "provides": "The valuation at infinity on F(θ), with value exp(deg) on polynomials (multiplicative ℤᵐ⁰ form); it gives |·|_∞ up to normalisation.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:RatFunc.CompletionAtInfty",
     "kind": "def",
     "module": "Mathlib/FieldTheory/RatFunc/Valuation.lean",
     "provides": "The completion K_∞ = F((1/θ)) of F(θ) at infinity, a valued field containing F(θ); the values ζ_A(s) and Li(s) lie in it.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:Submodule.span",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
     "provides": "K-linear spans, used for the weight spaces Z_w, AZ_w, L_w, AL_w.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:Nat.choose",
     "kind": "def",
     "module": "Mathlib/Data/Nat/Choose/Basic.lean",
     "provides": "Binomial coefficients in Chen’s correction coefficients.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:FiniteField.sum_pow_units",
     "kind": "theorem",
     "module": "Mathlib/FieldTheory/Finite/Basic.lean",
-    "provides": "For a finite field of q elements, Σ_{x ∈ Kˣ} x^i is −1 if (q − 1) | i and 0 otherwise; used for Σ_{0 ≠ h, deg h < d} h^{−i} and for Σ_{a ≠ 0} a^{−n}.",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "provides": "For a finite field of q elements, Σ_{x ∈ Kˣ} x^i is −1 if (q − 1) | i and 0 otherwise; used for Σ_{0 ≠ h, deg h < d} h^{−i} and for Σ_{a ≠ 0} a^{−n}. The theorem uses a natural exponent; negative powers are handled by the inversion bijection of Kˣ before applying it.",
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    },
    {
     "ref": "mathlib:Finsupp",
     "kind": "structure",
     "module": "Mathlib/Data/Finsupp/Defs.lean",
     "provides": "Finitely supported functions, the carrier of the index space H = ⊕ K[s].",
-    "checked": "statement read at the pinned commit (2026-10-19)"
+    "checked": "independently read at the exact pinned commit by REV-DESIGN-DrinfeldModulesAndTModulesPartII (2026-10-19)"
    }
   ]
  },
@@ -151,7 +151,8 @@
    "accessed": "2026-10-19",
    "readSections": [
     "§1, pp. 1–4",
-    "§2.1–2.2, pp. 5–6"
+    "§2.1–2.2, pp. 5–6",
+    "§3.2, p. 12; §4.1, pp. 12–14; §§5.1–5.8, pp. 15–29 (independent review: direct small-weight proof and its support reductions)"
    ]
   },
   {
@@ -266,7 +267,20 @@
    "sha256": "a22c328ea63a1d2d43309bc125b5f377c88d853ff0f1b21039fba14b924ff8c2",
    "accessed": "2026-10-19",
    "readSections": [
-    "Theorem 3.1.1 statement and §3.1.2 (Ω and π̃), consulted for the DM.8 interface"
+    "Theorem 3.1.1 statement and §3.1.2 (Ω and π̃), consulted for the DM.8 interface",
+    "Proposition 3.1.3, pp. 9–10 (entire-ness from a Tate solution)"
+   ]
+  },
+  {
+   "id": "THAKUR-UPDATES",
+   "title": "Corrections and updates to publications",
+   "authors": "Dinesh S. Thakur",
+   "edition": "Author’s continuously maintained corrections list; downloaded 19 October 2026, 12 pages.",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/updates.pdf",
+   "accessed": "2026-10-19",
+   "sha256": "99e77414203a4fa724484acaaea3189173898be3af8d55ef2f8d64945f2095a1",
+   "readSections": [
+    "Entry 36, pp. 7–8: correction to the higher-depth shuffle induction, credited to Shuhui Shi"
    ]
   }
  ],
@@ -425,13 +439,13 @@
    ],
    "title": "Power sums of both realisations",
    "kind": "definition",
-   "statement": "Let A = F_q[θ], K = F_q(θ), A_{+,d} the finite set of monic polynomials of degree d, ℓ_0 = 1 and ℓ_d = ∏_{i=1}^{d}(θ − θ^{q^i}). For d ∈ Z and an array (ε; s) of depth r ≥ 1 put\nS_d(ε; s) = Σ ε_1^{deg a_1}⋯ε_r^{deg a_r} a_1^{−s_1}⋯a_r^{−s_r} ∈ K, over a_i ∈ A_+ with d = deg a_1 > ⋯ > deg a_r ≥ 0,\nSi_d(ε; s) = Σ ε_1^{d_1}⋯ε_r^{d_r} ℓ_{d_1}^{−s_1}⋯ℓ_{d_r}^{−s_r} ∈ K, over integers d = d_1 > ⋯ > d_r ≥ 0,\nboth zero when d < r − 1, and S_{<d} = Σ_{0 ≤ j < d} S_j, Si_{<d} = Σ_{0 ≤ j < d} Si_j for nonempty arrays. For the empty array, S_{<d}(∅) = Si_{<d}(∅) = 1 for every d ≥ 0, and S_d(∅) = Si_d(∅) is 1 for d = 0 and 0 otherwise. Trivial characters give S_d(s), Si_d(s). One has S_d(ε; s) = S_d(ε_1; s_1) S_{<d}(ε_−; s_−), Si_d(ε; s) = Si_d(ε_1; s_1) Si_{<d}(ε_−; s_−), S_d(ε; s) = ε^d S_d(s) and Si_d(ε; s) = ε^d ℓ_d^{−s} in depth one.",
+   "statement": "Let A = F_q[θ], K = F_q(θ), A_{+,d} the finite set of monic polynomials of degree d, ℓ_0 = 1 and ℓ_d = ∏_{i=1}^{d}(θ − θ^{q^i}). For d ∈ Z and an array (ε; s) of depth r ≥ 1 put\nS_d(ε; s) = Σ ε_1^{deg a_1}⋯ε_r^{deg a_r} a_1^{−s_1}⋯a_r^{−s_r} ∈ K, over a_i ∈ A_+ with d = deg a_1 > ⋯ > deg a_r ≥ 0,\nSi_d(ε; s) = Σ ε_1^{d_1}⋯ε_r^{d_r} ℓ_{d_1}^{−s_1}⋯ℓ_{d_r}^{−s_r} ∈ K, over integers d = d_1 > ⋯ > d_r ≥ 0,\nboth zero when d < r − 1, and S_{<d} = Σ_{0 ≤ j < d} S_j, Si_{<d} = Σ_{0 ≤ j < d} Si_j for nonempty arrays. For the empty array, S_{<d}(∅) = Si_{<d}(∅) = 1 for every d ∈ Z, and S_d(∅) = Si_d(∅) is 1 for d = 0 and 0 otherwise. Trivial characters give S_d(s), Si_d(s). One has S_d(ε; s) = S_d(ε_1; s_1) S_{<d}(ε_−; s_−), Si_d(ε; s) = Si_d(ε_1; s_1) Si_{<d}(ε_−; s_−), S_d(ε; s) = ε^d S_d(s) and Si_d(ε; s) = ε^d ℓ_d^{−s} in depth one for d ≥ 0.",
    "hypotheses": [
     "θ transcendental over F_q, so the sums lie in K = F_q(θ); ε_i ∈ F_q^×."
    ],
    "proofSteps": [
-    "A_{+,d} has q^d elements, so every S_d is a finite sum in K; Si_d is a finite sum over decreasing integer sequences below d.",
-    "The factorisations follow by separating the first summation variable; the convention S_{<d}(∅) = 1 for every d ≥ 0 is what makes the depth-one case d = 0 of the factorisation correct (source issue E1 records the slip of the opposite convention).",
+    "For d ≥ 0, A_{+,d} has q^d elements; for d < 0 it is empty. Thus every S_d is a finite sum in K; Si_d is a finite sum over decreasing nonnegative integer sequences below d.",
+    "The factorisations follow by separating the first summation variable; the convention S_{<d}(∅) = 1 for every d ∈ Z is what makes the depth-one case d = 0 of the factorisation correct (source issue E1 records the slip of the opposite convention).",
     "In depth one, ε^{deg a} = ε^d for every a ∈ A_{+,d}, and ε^{d_1} = ε^d, giving the character factor."
    ],
    "acceptance": [
@@ -513,7 +527,7 @@
     {
      "name": "FunctionFieldMZV.powerSumLT_nil",
      "role": "simp",
-     "statement": "S_{<d}(∅) = 1 for every d ≥ 0."
+     "statement": "S_{<d}(∅) = 1 for every d ∈ Z."
     },
     {
      "name": "FunctionFieldMZV.powerSum_eq_zero_of_lt",
@@ -523,14 +537,14 @@
     {
      "name": "FunctionFieldMZV.powerSum_character",
      "role": "simp",
-     "statement": "In depth one S_d(ε; s) = ε^d S_d(s) and Si_d(ε; s) = ε^d ℓ_d^{−s}."
+     "statement": "For d ≥ 0 in depth one S_d(ε; s) = ε^d S_d(s) and Si_d(ε; s) = ε^d ℓ_d^{−s}."
     }
    ],
    "tests": [
     {
      "name": "FunctionFieldMZV.powerSum_test_zero",
      "kind": "degenerate",
-     "statement": "S_0(s) = Si_0(s) = 1 for every s ≥ 1 in depth one, and S_d(s) = 0 for d < 0."
+     "statement": "S_0(s) = Si_0(s) = 1 for every s ≥ 1 in depth one, and S_d(s) = 0 for d < 0. Also S_{<−1}(∅) = Si_{<−1}(∅) = 1, while S_{<−1}(s) = Si_{<−1}(s) = 0 for nonempty s."
     },
     {
      "name": "FunctionFieldMZV.powerSum_test_q2",
@@ -540,7 +554,7 @@
     {
      "name": "FunctionFieldMZV.powerSum_test_tail",
      "kind": "non-example",
-     "statement": "S_0((s)) = S_0(s) S_{<0}(∅) = 1: with the sum convention S_{<0}(∅) = 0 the factorisation would give 0, so the empty truncation must be 1 for every d ≥ 0."
+     "statement": "S_0((s)) = S_0(s) S_{<0}(∅) = 1: with S_{<0}(∅) = 0 the factorisation would give 0. This forces the value 1 at d = 0; our uniform convention gives 1 for every integer d."
     },
     {
      "name": "FunctionFieldMZV.powerSum_test_character",
@@ -567,7 +581,8 @@
    ],
    "proofSteps": [
     "Each term a_1^{−s_1}⋯a_r^{−s_r} with deg a_1 = d has absolute value at most q^{−d s_1}, and an ultrametric finite sum is bounded by its largest term, so |S_d(s)|_∞ ≤ q^{−d s_1} → 0.",
-    "Hence the series converges (unconditionally) in K_∞ and equals the sum over strictly degree-decreasing tuples of monic polynomials."
+    "Hence the series converges (unconditionally) in K_∞ and equals the sum over strictly degree-decreasing tuples of monic polynomials.",
+    "The acceptance identity at 1 uses DM.6/small-power-sum with exponent 1 and the logarithm series of DM.2/carlitz-exponential; 1 is inside its convergence disc."
    ],
    "acceptance": [
     "ζ_A(1) = Σ_{d ≥ 0} ℓ_d^{−1} = log_C(1) (DM.6/small-power-sum).",
@@ -576,7 +591,9 @@
    "prerequisites": [
     "DrinfeldModulesAndTModulesPartII:MZ.0/power-sum",
     "mathlib:RatFunc.CompletionAtInfty",
-    "mathlib:RatFunc.inftyValuation"
+    "mathlib:RatFunc.inftyValuation",
+    "DrinfeldModulesAndTModules:DM.6/small-power-sum",
+    "DrinfeldModulesAndTModules:DM.2/carlitz-exponential"
    ],
    "sources": [
     {
@@ -1024,7 +1041,9 @@
     "DrinfeldModulesAndTModulesPartII:MZ.0/alternating-mzv",
     "DrinfeldModulesAndTModulesPartII:MZ.0/carlitz-multiple-polylogarithm",
     "mathlib:Submodule.span",
-    "mathlib:Composition"
+    "mathlib:Composition",
+    "DrinfeldModulesAndTModulesPartII:MZ.0/cmpl-nonvanishing",
+    "DrinfeldModulesAndTModules:DM.2/carlitz-period"
    ],
    "sources": [
     {
@@ -1109,7 +1128,7 @@
     {
      "name": "FunctionFieldMZV.weightSpan_test_field",
      "kind": "non-example",
-     "statement": "Z_w is a K-span: for q > 2, π̃ ∉ K_∞, so the K̄-span 𝒵_1 is not contained in K_∞."
+     "statement": "Z_w is a K-span. For q > 2 and ρ ∈ K̄ with ρ^{q−1} = −θ, the element ρζ_A(1) belongs to 𝒵_1 but not to K_∞: v_∞(ζ_A(1)) = 0 and v_∞(ρ) = −1/(q − 1)."
     }
    ],
    "library": {
@@ -1452,14 +1471,15 @@
    ],
    "title": "Eulerian values",
    "kind": "definition",
-   "statement": "An element z ∈ C_∞ is Eulerian of weight w ≥ 1 if z ∈ K·π̃^w; this is independent of the choice of the period, which changes by a factor in F_q^× (DM.2/carlitz-period). Since v_∞(π̃) = −q/(q − 1), the valuation of π̃^w is an integer iff (q − 1) | w. Hence, if (q − 1) ∤ w, no nonzero element of F̄_q((1/θ)) (the union of the F_{q^n}((1/θ)), which contains K_∞) has the form cπ̃^w with c ∈ F̄_q(θ); in particular a nonzero element of K_∞ is never Eulerian of weight w. (With coefficients c ∈ K̄ the analogue fails: (−θ)^{−w/(q−1)}π̃^w lies in K_∞.)",
+   "statement": "An element z ∈ C_∞ is Eulerian of weight w ≥ 1 if z ∈ K·π̃^w; this is independent of the choice of the period, which changes by a factor in F_q^× (DM.2/carlitz-period). Since v_∞(π̃) = −q/(q − 1), the valuation of π̃^w is an integer iff (q − 1) | w. Hence, if (q − 1) ∤ w, no nonzero element of C_const := ⋃_{n ≥ 1} F_{q^n}((1/θ)) ⊂ C_∞ (which contains K_∞) has the form cπ̃^w with c ∈ F̄_q(θ); in particular a nonzero element of K_∞ is never Eulerian of weight w. (With coefficients c ∈ K̄ the analogue fails: (−θ)^{−w/(q−1)}π̃^w lies in K_∞.)",
    "hypotheses": [
     "π̃ from DM.2; v_∞ extended to C_∞."
    ],
    "proofSteps": [
     "|π̃|_∞ = q^{q/(q−1)} (DM.2/carlitz-period), so v_∞(π̃^w) = −wq/(q − 1), an integer iff (q − 1) | wq iff (q − 1) | w, as gcd(q, q − 1) = 1.",
-    "Elements of F̄_q(θ)^× and of F̄_q((1/θ))^× have integer valuations, so cπ̃^w ∈ F̄_q((1/θ)) with c ≠ 0 forces v_∞(π̃^w) ∈ Z.",
-    "π̃ ∈ ρ·K_∞^× with ρ^{q−1} = −θ (from the product formula of DM.2/carlitz-period), which shows that the restriction on the coefficient field cannot be dropped."
+    "Elements of F̄_q(θ)^× and of C_const^× have integer valuations, so cπ̃^w ∈ C_const with c ≠ 0 forces v_∞(π̃^w) ∈ Z.",
+    "π̃ ∈ ρ·K_∞^× with ρ^{q−1} = −θ (from the product formula of DM.2/carlitz-period), which shows that the restriction on the coefficient field cannot be dropped.",
+    "C_const denotes the union of the finite constant-field Laurent series fields; no identification with the full Laurent series field over F̄_q is needed."
    ],
    "acceptance": [
     "ζ_A(q − 1) is Eulerian of weight q − 1; for q = 2 every weight is divisible by q − 1."
@@ -1478,7 +1498,7 @@
     {
      "sourceId": "IKLNDP24",
      "locator": "§3.3, opening, p. 36",
-     "match": "Notes π̃^w ∉ F̄_q((1/θ)) when q − 1 ∤ w, which kills the constant term of a relation."
+     "match": "Notes π̃^w ∉ C_const when q − 1 ∤ w, which kills the constant term of a relation."
     },
     {
      "sourceId": "CHANG14",
@@ -1510,7 +1530,7 @@
     {
      "name": "FunctionFieldMZV.IsEulerian.dvd",
      "role": "characterisation",
-     "statement": "If c ∈ F̄_q(θ)^× and cπ̃^w ∈ F̄_q((1/θ)), then (q − 1) | w; in particular a nonzero Eulerian element of K_∞ of weight w has (q − 1) | w."
+     "statement": "If c ∈ F̄_q(θ)^× and cπ̃^w ∈ C_const, then (q − 1) | w; in particular a nonzero Eulerian element of K_∞ of weight w has (q − 1) | w."
     },
     {
      "name": "FunctionFieldMZV.IsEulerian.smul",
@@ -1830,7 +1850,7 @@
    ],
    "title": "The realisation maps",
    "kind": "construction",
-   "statement": "For • ∈ {Li, ζ}, put S^{Li}_d(s) = ℓ_d^{−s} and S^ζ_d(s) = S_d(s) (d ≥ 0). The K-linear maps 𝔏^•_d, 𝔏^•_{<d} : H → K and 𝔏^• : H → K_∞ are given on indices of positive depth by the sums of S^•_{d_1}(s_1)⋯S^•_{d_r}(s_r) over d = d_1 > ⋯ > d_r ≥ 0 (requiring d ≥ dep(s) − 1), over d > d_1 > ⋯ > d_r ≥ 0, and over all d_1 > ⋯ > d_r ≥ 0; on ∅, 𝔏^•_d(∅) = 1 iff d = 0, 𝔏^•(∅) = 1, and 𝔏^•_{<d}(∅) = 1 for every d ≥ 0 when used as a tail factor (source issue E1). Then 𝔏^•_d = 𝔏^•_{<d+1} − 𝔏^•_{<d} on positive-depth indices, 𝔏^• = lim_d 𝔏^•_{<d}, 𝔏^•_d(s)𝔏^•_{<d}(P) = 𝔏^•_d([s, P]) for s ≥ 1, 𝔏^{Li}(s) = Li(s) and 𝔏^ζ(s) = ζ_A(s).",
+   "statement": "For • ∈ {Li, ζ}, put S^{Li}_d(s) = ℓ_d^{−s} and S^ζ_d(s) = S_d(s) (d ≥ 0). The K-linear maps 𝔏^•_d, 𝔏^•_{<d} : H → K and 𝔏^• : H → K_∞ are given on indices of positive depth by the sums of S^•_{d_1}(s_1)⋯S^•_{d_r}(s_r) over d = d_1 > ⋯ > d_r ≥ 0 (requiring d ≥ dep(s) − 1), over d > d_1 > ⋯ > d_r ≥ 0, and over all d_1 > ⋯ > d_r ≥ 0; on ∅, 𝔏^•_d(∅) = 1 iff d = 0, 𝔏^•(∅) = 1, and 𝔏^•_{<d}(∅) = 1 for every d ∈ Z (source issue E1). Then 𝔏^•_d = 𝔏^•_{<d+1} − 𝔏^•_{<d} on positive-depth indices, 𝔏^• = lim_d 𝔏^•_{<d}, 𝔏^•_d(s)𝔏^•_{<d}(P) = 𝔏^•_d([s, P]) for s ≥ 1, 𝔏^{Li}(s) = Li(s) and 𝔏^ζ(s) = ζ_A(s).",
    "hypotheses": [
     "H from MZ.1/index-algebra."
    ],
@@ -1984,7 +2004,7 @@
     "Arrays of positive depth; characters in F_q^×."
    ],
    "proofSteps": [
-    "Induct on dep(s) + dep(t) as in Thakur 2010 Theorem 3 (with the corrected induction) and Ngo Dac Proposition 2.1: the base case is MZ.1/chen-product (for S) or the identity Si_d(ε; s)Si_d(ε′; t) = Si_d(εε′; s + t) (for Si).",
+    "Induct on dep(s) + dep(t) as in Thakur 2010 Theorem 3 (with the corrected induction) and Ngo Dac Proposition 2.1: the base case is MZ.1/chen-product (for S) or the identity Si_d(ε; s)Si_d(ε′; t) = Si_d(εε′; s + t) (for Si). The author’s correction, credited to Shuhui Shi (source issue E23), proves the mixed identity first at each depth, then the equal-degree identity; use that order.",
     "For (1) factor off the leading entries and expand the tails by (2); for (2) split by the larger leading degree; (3) follows from (2).",
     "Each step preserves character and weight and keeps the prefix sums dominated, using the calculus of MZ.0/index."
    ],
@@ -2010,7 +2030,12 @@
     {
      "sourceId": "THAKUR10",
      "locator": "Theorem 3, p. 1978",
-     "match": "Proves the d-independent F_p-expansion of products of power sums."
+     "match": "States the d-independent F_p-expansion of products of power sums; use the corrected induction in THAKUR-UPDATES for its proof."
+    },
+    {
+     "sourceId": "THAKUR-UPDATES",
+     "locator": "Entry 36, pp. 7–8",
+     "match": "Replaces the faulty vector induction in Theorem 3 by simultaneous induction for mixed and equal-degree products."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3169,14 +3194,15 @@
    ],
    "title": "Entireness of Chang’s series",
    "kind": "theorem",
-   "statement": "Under the termwise bound, 𝔏(s; Q) lies in the ring E of DM.8: its coefficients are algebraic over K, generate a finite extension of K_∞, and the series converges on all of C_∞. The same holds for every consecutive sub-tuple.",
+   "statement": "Under the termwise bound, 𝔏(s; Q) lies in the ring E of DM.8: its coefficients are algebraic over K, generate a finite extension of K_∞, and the series converges on all of C_∞. The same holds for every consecutive sub-tuple. More generally, if every Q_j is nonzero and the whole-tuple decay condition of Chang Lemma 5.3.1 holds, the series for the tuple and every initial sub-tuple are entire; no claim about arbitrary tails is made under that weaker condition.",
    "hypotheses": [
-    "Q ∈ K̄[t]^r with the termwise bound."
+    "Either the termwise bound; or, for the initial-sub-tuple assertion only, Q_j ≠ 0 and ∏_j (‖Q_j‖/|θ|^{q s_j/(q−1)})^{q^{d_j}} → 0 as d_1 > ⋯ > d_r ≥ 0 and d_1 → ∞."
    ],
    "proofSteps": [
     "By MZ.3/deformation-series, 𝔏(s; Q) and the series of all its consecutive sub-tuples lie in T, and Ω ∈ T (DM.2/omega).",
     "The vector ψ = (Ω^{s_1+⋯+s_r}, 𝔏(s_1; Q_1)Ω^{s_2+⋯+s_r}, …, 𝔏(s_1, …, s_{r−1}; …)Ω^{s_r}, 𝔏(s; Q))^T has entries in T and, by the twist recursion of MZ.3/deformation-series, satisfies ψ^{(−1)} = Φψ for the lower bidiagonal Φ ∈ Mat_{r+1}(K̄[t]) with diagonal (t − θ)^{s_{k+1}+⋯+s_r} and subdiagonal Q_k^{(−1)}(t − θ)^{s_k+⋯+s_r}; det Φ is a power of t − θ, so det Φ(0) ≠ 0.",
-    "DM.8/entire-from-equation (Anderson–Brownawell–Papanikolas Proposition 3.1.3) gives ψ ∈ E^{r+1}: every entry is entire with algebraic coefficients generating a finite extension of K_∞; in particular Ω ∈ E and 𝔏(s; Q) ∈ E. Sub-tuples are treated the same way (Chang’s proof of Lemma 5.3.1 follows this route)."
+    "DM.8/entire-from-equation (Anderson–Brownawell–Papanikolas Proposition 3.1.3) gives ψ ∈ E^{r+1}: every entry is entire with algebraic coefficients generating a finite extension of K_∞; in particular Ω ∈ E and 𝔏(s; Q) ∈ E. Sub-tuples are treated the same way (Chang’s proof of Lemma 5.3.1 follows this route).",
+    "For the weaker whole-tuple condition put c_j = ‖Q_j‖/|θ|^{q s_j/(q−1)} > 0. To test a prefix of length k, shift all its summation indices by r−k and append the fixed indices r−k−1, …, 0. The whole-tuple norm is a fixed positive constant times the q^{r−k}-th power of the prefix norm. Thus decay for the whole tuple implies decay for every prefix. This puts the displayed first-column vector in T, and the same equation and DM.8/entire-from-equation put it in E; convergence of the other columns is unnecessary (Chang Lemma 5.3.1, proof, p. 15)."
    ],
    "acceptance": [
     "𝓛(s) ∈ E for every index s (Chang–Chen–Mishiba §5, p. 22)."
@@ -3288,7 +3314,7 @@
     "Ψ is lower triangular with unit-multiple diagonal entries Ω^{…} ∈ T^×, hence invertible over T; its entries lie in E by MZ.3/deformation-entire."
    ],
    "acceptance": [
-    "For s = (1), Φ = [[t − θ, 0], [Q_1^{(−1)}, 1]] and Ψ = [[Ω, 0], [𝔏(1; Q_1), 1]]."
+    "For s = (1), Φ = [[t − θ, 0], [Q_1^{(−1)}(t − θ), 1]] and Ψ = [[Ω, 0], [𝔏(1; Q_1), 1]]."
    ],
    "prerequisites": [
     "DrinfeldModulesAndTModulesPartII:MZ.3/deformation-series",
@@ -3396,7 +3422,7 @@
     "Products: if Z_i have the MZ property of weight w_i, Kronecker products of the witnesses give the MZ property of weight Σ m_iw_i for Z_1^{m_1}⋯Z_n^{m_n} (Chang Proposition 3.4.4)."
    ],
    "acceptance": [
-    "Li(1) has the MZ property of weight 1 with Φ = [[t − θ, 0], [1, 1]] and ψ = (Ω, 𝓛(1))^T."
+    "Li(1) has the MZ property of weight 1 with Φ = [[t − θ, 0], [t − θ, 1]] and ψ = (Ω, 𝓛(1))^T."
    ],
    "prerequisites": [
     "DrinfeldModulesAndTModules:DM.8/entire-series",
@@ -3479,23 +3505,25 @@
    "kind": "theorem",
    "statement": "For (s; Q) as in MZ.3/deformation-series with 𝔏(s; Q)(θ) ≠ 0, the value π̃^{wt(s)}𝔏(s; Q)(θ) has the MZ property of weight wt(s). In particular every nonzero Li_s(u) with u ∈ D_s ∩ (K̄^×)^r, every ζ_A(s), and every ζ_A(ε; s) and Li(ε; s) whose total character χ(ε) is trivial has the MZ property of weight wt(s); for a general array the normalised values γ_1⋯γ_rΓ_sζ_A(ε; s) and γ_1⋯γ_rLi(ε; s) (γ_i^{q−1} = ε_i) have it, and so has every nontrivial monomial in such values, with the total weight.",
    "hypotheses": [
-    "Termwise bound on Q; nonvanishing of the value."
+    "The termwise bound for polynomial Q. The additional general-point assertion uses nonzero algebraic u satisfying Chang’s whole-tuple convergence condition D_s; nonvanishing is required in both cases."
    ],
    "proofSteps": [
     "Take Φ = Φ_{s,Q} and ψ the first column of Ψ_{s,Q} (MZ.3/index-dual-motive): ψ^{(−1)} = Φψ, det Φ is a power of t − θ, and the last column of Φ is (0, …, 0, 1)^T.",
     "ψ(θ) has first entry Ω(θ)^{wt(s)} = π̃^{−wt(s)} and last entry 𝔏(s; Q)(θ); at θ^{q^N}, N ≥ 1, every entry carrying a positive power of Ω vanishes and the last entry is 𝔏(s; Q)(θ)^{q^N} (MZ.3/deformation-specialisation).",
+    "For the larger domain D_s take Q = u and use only Chang’s first column: MZ.3/deformation-entire gives convergence and entire-ness of every prefix under the whole-tuple condition, and Chang Lemma 5.3.5 (p. 16) gives their specialisations at θ^{q^N}. This proves the same witness conditions without assuming that the full tail matrix Ψ exists on D_s (source issue E8).",
     "The named values are the cases Q = u (Chang Proposition 5.4.1), Q = H, γH and γ, using MZ.0/mzv-nonvanishing and MZ.0/cmpl-nonvanishing for nonvanishing. The constant c of the definition must lie in K^×: c = Γ_s ∈ K^× for ζ_A(s), and γ_1⋯γ_r is a (q − 1)-th root of χ(ε), so it lies in F_q^× ⊂ K^× exactly when χ(ε) = 1; otherwise one keeps the normalised value with c = 1.",
     "Monomials: MZ.3/mz-property."
    ],
    "acceptance": [
-    "ζ_A(q − 1) has the MZ property of weight q − 1, witnessed by Φ = [[(t − θ)^{q−1}, 0], [1, 1]] (H_{q−1} = 1) and ψ = (Ω^{q−1}, 𝔏((q − 1); (1)))^T."
+    "ζ_A(q − 1) has the MZ property of weight q − 1, witnessed by Φ = [[(t − θ)^{q−1}, 0], [(t − θ)^{q−1}, 1]] (H_{q−1} = 1) and ψ = (Ω^{q−1}, 𝔏((q − 1); (1)))^T."
    ],
    "prerequisites": [
     "DrinfeldModulesAndTModulesPartII:MZ.3/mz-property",
     "DrinfeldModulesAndTModulesPartII:MZ.3/index-dual-motive",
     "DrinfeldModulesAndTModulesPartII:MZ.3/deformation-specialisation",
     "DrinfeldModulesAndTModulesPartII:MZ.0/mzv-nonvanishing",
-    "DrinfeldModulesAndTModulesPartII:MZ.0/cmpl-nonvanishing"
+    "DrinfeldModulesAndTModulesPartII:MZ.0/cmpl-nonvanishing",
+    "DrinfeldModulesAndTModulesPartII:MZ.3/deformation-entire"
    ],
    "sources": [
     {
@@ -3747,15 +3775,16 @@
    ],
    "title": "The Eulerian suffix constraint",
    "kind": "theorem",
-   "statement": "Under the conclusion of MZ.3/independence-criterion: (1) if (q − 1) ∤ w and the 𝔏-values come from ACMPL or CMPL periods, then a = 0. (2) For CMPL values (Q = 1) and a nonempty proper prefix s ∈ 𝔦(M): Σ_{s′} a_{(s,s′)}Li(s′) ∈ K·π̃^{w−wt(s)}, so either Σ_{s′} a_{(s,s′)}Li(s′) = 0 or (q − 1) | (w − wt(s)); if for every nonempty prefix the suffix values Li(s′), (s, s′) ∈ Supp, are K-independent, then every index in the support has (q − 1) | s_2, …, s_r. (3) For MZVs (Q = H): if a proper prefix t belongs to exactly one s_i, then ζ_A(s_i after t)/π̃^{w−wt(t)} ∈ K, and (q − 1) divides the suffix weight; for indices in I^0_w this forces every entry of s_i after the first position not shared with another index to equal q − 1.",
+   "statement": "Under the conclusion of MZ.3/independence-criterion: (1) if (q − 1) ∤ w and the 𝔏-values come from ACMPL or CMPL periods, then a = 0. (2) For CMPL values (Q = 1) and a nonempty proper prefix s ∈ 𝔦(M): Σ_{s′} a_{(s,s′)}Li(s′) ∈ K·π̃^{w−wt(s)}, so either Σ_{s′} a_{(s,s′)}Li(s′) = 0 or (q − 1) | (w − wt(s)); if for every nonempty prefix the suffix values Li(s′), (s, s′) ∈ Supp, are K-independent, then every index in the support has (q − 1) | s_2, …, s_r. (3) For MZVs (Q = H), every nonempty proper prefix t gives Σ_i a_iΓ_{suffix_i}ζ_A(suffix_i) ∈ K·π̃^{w−wt(t)}, with i ranging over its support and Γ_{suffix_i} the product of the suffix factorials. If these suffix values are K-independent then the sum is nonzero and (q − 1) | (w − wt(t)). In particular, after discarding zero coefficients, if t belongs to exactly one s_i, then ζ_A(s_i after t)/π̃^{w−wt(t)} ∈ K, and (q − 1) divides the suffix weight; for indices in I^0_w this forces every entry of s_i after the first position not shared with another index to equal q − 1.",
    "hypotheses": [
-    "The setting and conclusion of MZ.3/independence-criterion."
+    "The setting and conclusion of MZ.3/independence-criterion.",
+    "Every index called part of the support has nonzero coefficient; repeated indices are collected first."
    ],
    "proofSteps": [
     "f_{(s;1)}(θ) = Σ_{s′} α_{(s,s′)}(θ)𝓛(s′)(θ) = Σ_{s′}a_{(s,s′)}Li(s′)/π̃^{w−wt(s)} lies in K by the criterion and MZ.3/deformation-specialisation.",
     "A nonzero element of K_∞ that is Eulerian of weight w − wt(s) forces (q − 1) | (w − wt(s)) (MZ.0/eulerian); the support statement follows when the suffix values are independent.",
-    "For (1): the constant a corresponds to aπ̃^w, and a nonzero a would make π̃^w a combination of elements of F̄_q((1/θ)), impossible for (q − 1) ∤ w by MZ.0/eulerian.",
-    "For (3): an isolated tail has f_t(θ) = a_i(θ)Γ_{suffix}ζ_A(suffix)/π̃^{w−wt(t)} ∈ K with a_iΓ ≠ 0; for entries < q, successive tails force each later entry to be q − 1."
+    "For (1): the constant a corresponds to aπ̃^w, and a nonzero a would make π̃^w a combination of elements of C_const = ⋃_n F_{q^n}((1/θ)), impossible for (q − 1) ∤ w by MZ.0/eulerian.",
+    "For (3), the period specialisation gives f_t(θ) = (Σ_i a_iΓ_{suffix_i}ζ_A(suffix_i))/π̃^{w−wt(t)} ∈ K. Each factorial is nonzero, so independence of the suffixes makes its numerator nonzero. For an isolated tail this is automatic from nonvanishing. Successive isolated tails, when all entries are < q, force each later entry to equal q − 1."
    ],
    "acceptance": [
     "For q = 2 every weight is divisible by q − 1 and the constraint is empty."
@@ -3763,7 +3792,8 @@
    "prerequisites": [
     "DrinfeldModulesAndTModulesPartII:MZ.3/independence-criterion",
     "DrinfeldModulesAndTModulesPartII:MZ.3/deformation-specialisation",
-    "DrinfeldModulesAndTModulesPartII:MZ.0/eulerian"
+    "DrinfeldModulesAndTModulesPartII:MZ.0/eulerian",
+    "DrinfeldModulesAndTModulesPartII:MZ.0/mzv-nonvanishing"
    ],
    "sources": [
     {
@@ -4033,7 +4063,7 @@
    "proofSteps": [
     "By MZ.4/theta-degree-bound, X_w ⊂ F_q(t)[θ]^{𝔦(IND°_w)} with deg_θ ε_∅ ≤ ℓ when w = ℓ(q − 1) + s′, 0 ≤ s′ < q − 1.",
     "The equations at nonempty prefixes (ℓ − j)(q − 1) [+ s′] are copies of (E_{j(q−1)}), so by induction on ℓ the children of ∅ are f_j·(normalised generators of lower weight), f_j ∈ F_q(t).",
-    "Write ε_∅ = Σ a_i(t − θ)^i and substitute into the root equation; using t − θ^q = T + (t − θ)^q with T = t − t^q and comparing coefficients of (t − θ)^ν for ν = iq (i < ℓ − m) and ν ≥ w gives a square (or one-larger) linear system U(a, f)^T = a_ℓ b over F_p[T]_{(T)}.",
+    "Write ε_∅ = Σ a_i(t − θ)^i and substitute into the root equation; using t − θ^q = T + (t − θ)^q with T = t − t^q and comparing coefficients of (t − θ)^ν for ν = iq (i < ℓ − m) and ν ≥ w gives a square (or one-larger) linear system U(a, f)^T = a_ℓ b over F_p[T]_{(T)}. In the divisible case there are 2ℓ − m unknowns and equations (source issue E22 corrects the matrix size printed in point (iii)).",
     "det(U mod T) = ±1 by the explicit block structure (identity, then −Id_n and m blocks −Id_{q−1} with inserted unit rows), so U is invertible over the local ring: the solution is unique up to the free parameter a_ℓ when (q − 1) | w, and zero when (q − 1) ∤ w."
    ],
    "acceptance": [
@@ -4063,29 +4093,28 @@
    ],
    "title": "Solutions of the character-twisted system",
    "kind": "theorem",
-   "statement": "In the twisted system of MZ.4/frobenius-system attached to a putative relation a + Σ a_i𝔏𝔦(s_i; ε_i)(θ) = 0 with s_i ∈ J′_w and all ε_i of character ε (after the reductions of MZ.3/eulerian-tails, the s_i have (q − 1) | s_{i2}, … and ε_i = (ε, 1, …, 1)): every solution has, at each nonempty prefix t with m_t = (w − wt(t))/(q − 1), the form δ_t = f_t(X^{m_t} + Σ_{i<m_t}P_{t,i}(T)X^i) with X = t^q − θ^q, T = t − t^q, f_t ∈ F_q[t], P_{t,i} ∈ F_q(y) of y-adic valuation ≥ 1, and the f of children are F_q(T)-multiples of f_t. If (q − 1) ∤ w, or (q − 1) | w and ε ≠ 1, the only solution is zero; if (q − 1) | w and ε = 1, the solutions form a line over F_q(t).",
+   "statement": "In the twisted system of MZ.4/frobenius-system attached to a putative relation a + Σ a_i𝔏𝔦(s_i; ε_i)(θ) = 0 with s_i ∈ J′_w and all ε_i of character ε under the explicit reduced-support hypotheses (q − 1) | s_{i2}, … and ε_i = (ε, 1, …, 1): every solution has, at each nonempty prefix t with m_t = (w − wt(t))/(q − 1), the form δ_t = f_t(X^{m_t} + Σ_{i<m_t}P_{t,i}(T)X^i) with X = t^q − θ^q, T = t − t^q, f_t ∈ F_q[t], P_{t,i} ∈ F_q(y) of y-adic valuation ≥ 1, and the f of children are F_q(T)-multiples of f_t. If (q − 1) ∤ w, or (q − 1) | w and ε ≠ 1, the only solution is zero; if (q − 1) | w and ε = 1, any two polynomial solutions are proportional over F_q(t). Thus their span in the localised ambient space has dimension at most one; existence of a nonzero solution for an arbitrary chosen support is not asserted.",
    "hypotheses": [
-    "The reductions of MZ.3/eulerian-tails; b = 1 after scaling."
+    "Finite support of distinct weight-w arrays with q dividing none of their entries, later entries divisible by q − 1, and characters (ε, 1, …, 1); b = 1 after clearing a common denominator."
    ],
    "proofSteps": [
     "Induct on m_t: at leaves δ = a_i(t) ∈ F_q[t]; at an inner prefix, MZ.4/monic-frobenius-descent and MZ.4/theta-degree-bound give δ_t ∈ K[t] of θ-degree ≤ m_tq and divisible by (t − θ)^{(q−1)m_t}; write δ_t = F(t − θ)^{(q−1)m_t} with deg_θ F ≤ m_t. Since F(t − θ)^{(q−1)m_t} lies in F_q[t, θ^q], F = Σ_{0 ≤ i ≤ m_t/q}f_{m_t−iq}(t − θ)^{m_t−iq} with f ∈ F_q[t], so F(t − θ)^{(q−1)m_t} = Σ f_{m_t−iq}X^{m_t−i} and F^{(1)} = Σ f_{m_t−iq}(T + X)^{m_t−iq}; comparing powers of X gives a linear system with matrix B over F_q(y), y = T, whose diagonal entries are ±1 and whose subdiagonal entries have positive y-adic valuation, whence the stated form.",
     "At the root, with the extra factor γ^{(−1)} = γ/ε: if (q − 1) ∤ w a θ-degree comparison forces deg_θ δ ≤ mq and the same triangular system has only the zero solution.",
-    "If (q − 1) | w, comparing the top coefficient gives εf_m = f_m; so ε ≠ 1 forces f_m = 0 and then everything vanishes, while ε = 1 leaves one free parameter."
+    "If (q − 1) | w, comparing the top coefficient gives εf_m = f_m; so ε ≠ 1 forces f_m = 0 and then everything vanishes, while ε = 1 leaves one free parameter. The comparison proves uniqueness up to a rational factor when solutions exist. Multiplying a polynomial solution by an arbitrary element of F_q(t) need not preserve polynomiality, and a smaller support can force the free parameter to vanish."
    ],
    "acceptance": [
-    "For q = 2 every character is trivial and the twisted system is (E_w)."
+    "For q = 2 the character is trivial; after ε_t = δ_t^{(−1)} and localising at F_q[t] ∖ {0}, the system on the full reduced support is (E_w). A smaller support is extended by zero."
    ],
    "prerequisites": [
     "DrinfeldModulesAndTModulesPartII:MZ.4/frobenius-system",
     "DrinfeldModulesAndTModulesPartII:MZ.4/monic-frobenius-descent",
-    "DrinfeldModulesAndTModulesPartII:MZ.4/theta-degree-bound",
-    "DrinfeldModulesAndTModulesPartII:MZ.3/eulerian-tails"
+    "DrinfeldModulesAndTModulesPartII:MZ.4/theta-degree-bound"
    ],
    "sources": [
     {
      "sourceId": "IKLNDP24",
      "locator": "proof of Theorem 3.4, §3.3 claims 1)–2), Case 1 and Case 2 with its subcases, pp. 37–42",
-     "match": "Proves the shape of the solutions by induction on m_t and shows there is no nonzero solution unless (q − 1) | w and the character is trivial, in which case the solution is unique up to F_q(t)."
+     "match": "Determines the coefficient shape and rational proportionality of solutions on the reduced support, ruling out nonzero solutions at nondivisible weights or nontrivial total character; it does not assert existence on every chosen support."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4111,7 +4140,7 @@
     "Ngo Dac’s argument only needs the absence of solutions with a_2 ≠ 0, since the putative relation involves both indices with nonzero coefficients (MZ.5/q-indivisible-independence)."
    ],
    "acceptance": [
-    "For q = 3, w = 4 (k = 2 = q − 1) is the endpoint case."
+    "For q = 3, w = 4 (k = 2), take a = 1: a_1 = t³ − t, a_2 = δ_2 = 0 and δ_1 = (t − θ)^6 satisfy both rows. This catches the false assertion that every solution is zero; a_2 ≠ 0 is what the independence proof excludes."
    ],
    "prerequisites": [
     "DrinfeldModulesAndTModulesPartII:MZ.4/monic-frobenius-descent",
@@ -4217,7 +4246,7 @@
    ],
    "proofSteps": [
     "Induct on w. For w ≤ q, IND_w = I^0_w and MZ.5/small-entry-independence applies (source issue E7: the source writes w < q).",
-    "For q < w ≤ 2q − 2, IND is prefix-closed, so MZ.3/independence-criterion applies with Q = H; by MZ.3/eulerian-tails, q − 1 divides w − wt(t) for every nonempty proper prefix t, so every entry after the first is divisible by q − 1.",
+    "For q < w ≤ 2q − 2, apply strong induction also to the prefixes and suffixes of each supported index, all of which remain q-indivisible and have smaller weight. Prefix independence supplies (LW). For each nonempty proper prefix t, MZ.3/eulerian-tails (3) gives a factorial-weighted suffix combination in K·π̃^{w−wt(t)}; suffix independence and nonzero collected coefficients make this combination nonzero. Thus (q − 1) | (w − wt(t)). Comparing successive prefixes forces every entry after the first to be divisible by q − 1.",
     "With w ≤ 2q − 2 this leaves only (w) and (k, q − 1), k = w − q + 1 ∈ [2, q − 1], so the relation is a_1Γ_wζ_A(w) + a_2ζ_A(k, q − 1) = 0 with a_1, a_2 ≠ 0 (single-index relations being excluded as in MZ.5/small-entry-independence).",
     "Its gauge equation is the two-row system, which has no solution with nonzero a_1, a_2 (MZ.4/two-row-system)."
    ],
@@ -4445,8 +4474,8 @@
    ],
    "proofSteps": [
     "Induct on w. For w = 1 and q > 2 use MZ.5/character-splitting and MZ.3/eulerian-tails (1); for q = 2, Li(1) = ζ_A(1) = −π̃/D_1.",
-    "By MZ.5/character-splitting assume a single character ε; (LW) holds by induction, so MZ.3/independence-criterion and MZ.3/eulerian-tails reduce the indices to those with later entries divisible by q − 1 and later characters 1, and give a = 0 when (q − 1) ∤ w.",
-    "The gauge equation is the twisted system; MZ.4/twisted-system-solutions shows it has no nonzero solution unless (q − 1) | w and ε = 1, in which case the solutions form a line, so the relations form a space of dimension ≤ 1 with trivial characters.",
+    "Work by strong induction on this relations theorem for the normalised periods, with distinct arrays and nonzero collected coefficients. Character splitting leaves one total character. The absence of homogeneous relations in smaller weight gives (LW) for the prefix periods. For each nonempty prefix, the independence criterion makes its suffix combination a scalar in K; the induction hypothesis applied to that lower-weight relation, including its constant term, forces every supported suffix character to be trivial and its weight divisible by q − 1. Varying the prefix therefore gives later characters 1 and later entries divisible by q − 1. This uses the full induction hypothesis, beyond the valuation conclusion of MZ.3/eulerian-tails; that lemma also gives a = 0 when (q − 1) ∤ w.",
+    "The gauge equation is the twisted system; MZ.4/twisted-system-solutions shows it has no nonzero solution unless (q − 1) | w and ε = 1, in which case any solutions are proportional over F_q(t), so the relations form a space of dimension ≤ 1 with trivial characters. The leaf coordinates determine the coefficients. Embed every support in the full finite family AS_w, assigning zero to omitted coefficients. Rational proportionality in this one ambient system specialises to K-proportionality of its relation coefficients, so the full relation space has dimension at most one. The relation with nonzero constant term constructed in the next step then excludes every nonzero homogeneous relation.",
     "Existence when w = m(q − 1): expand Li(q − 1)^m in AS_w by MZ.2/strong-brown; since Li(q − 1) = −D_1^{−1}π̃^{q−1} (MZ.0/zeta-q-minus-one), this gives (−D_1)^{−m}π̃^w − Σ a_i Li(ε_i; s_i) = 0 with a ≠ 0. The operators of §1 preserve characters, so this expansion involves only trivial characters and is a relation of the required form (source issue E12).",
     "Independence of AS_w: a K-relation among the Li(ε; s) of mixed characters becomes, by the period formula, a K̄-relation among the 𝔏𝔦-values; since these have one weight and are K-independent with a = 0 by the first part, MZ.3/chang-descent (a) makes them K̄-independent (source issue E12)."
    ],
@@ -4589,7 +4618,8 @@
    ],
    "proofSteps": [
     "(1): show by induction on depth and first entry that ζ_A(ε, λ; U, q + w_1, W_−) and ζ_A(ε; U, q, W) lie in the span of AT^1_w, using the explicit expansion of B*_{ε,U}C_{λ,W}(R_ε), with U = ∅ treated by summing C_{λ,W}(R_ε) directly (source issue E20); the condition w ≤ 2q − 2 keeps the expansion short.",
-    "(2): for q > 2 the set AT′_w is closed under removing the last entry (the Note, Proposition 1.4(2)), so MZ.3/independence-criterion applies by induction, with Q = γH; solving the resulting σ-linear system by direct computation shows it has no nonzero solution (the Note, Theorem 1.6).",
+    "For (2), use strong induction on w and closure under deleting the last entry (the Note, Proposition 1.4(2)) to supply (LW). Character splitting and the rational suffix combinations reduce support: below 2q − 1 this is the two-row argument of MZ.4/two-row-system with a common root of the total character; in the range 2q − 1 ≤ w ≤ 3q − 3, Lemmas 5.2–5.5 of the Note restrict suffix weights to multiples of q − 1 and remove later nontrivial characters, apart from the explicit exceptional (q − 1,q) block.",
+    "For w = 2q − 1 the remaining prefixes are ∅, (1), (q − 1) and (q − 1,1), with the last two carrying the possible split characters. For w = 2q the shortlist is (2,q − 1,q − 1), (2,2q − 2), (q + 1,q − 1); for 2q + 1 ≤ w ≤ 3q − 3 replace these first entries by w − 2q + 2 and w − q + 1 and allow (w). The two-row endpoint shows ζ_A(q − 1,q − 1) and ζ_A(2q − 2) are not proportional, removing the double-tail candidate. Monic descent bounds the remaining root quotient by degree 3 in θ. Comparing θ^q and constant coefficients, separately at q = 3 and w = 3q − 3, forces a coefficient assumed in the support to vanish (the Note §§5.6–5.8, pp. 22–29).",
     "|AT^1_w| = s(w) (MZ.0/counting) and |AT′_w| = s(w) (the Note, Proposition 1.4)."
    ],
    "acceptance": [
@@ -4600,7 +4630,11 @@
     "DrinfeldModulesAndTModulesPartII:MZ.2/todd-operators",
     "DrinfeldModulesAndTModulesPartII:MZ.2/fundamental-relation",
     "DrinfeldModulesAndTModulesPartII:MZ.3/independence-criterion",
-    "DrinfeldModulesAndTModulesPartII:MZ.0/counting"
+    "DrinfeldModulesAndTModulesPartII:MZ.0/counting",
+    "DrinfeldModulesAndTModulesPartII:MZ.5/character-splitting",
+    "DrinfeldModulesAndTModulesPartII:MZ.4/monic-frobenius-descent",
+    "DrinfeldModulesAndTModulesPartII:MZ.4/theta-degree-bound",
+    "DrinfeldModulesAndTModulesPartII:MZ.4/two-row-system"
    ],
    "sources": [
     {
@@ -4610,8 +4644,8 @@
     },
     {
      "sourceId": "IKLNDP-NOTE",
-     "locator": "Propositions 1.3–1.4 and Theorems 1.5–1.6, pp. 3–4",
-     "match": "Defines AT^0_w, AT^1_w, I′_w and AT′_w, counts them, and states the independence of AT^0_w for all w and of AT′_w for 1 ≤ w ≤ 3q − 2."
+     "locator": "Propositions 1.3–1.4 and Theorems 1.5–1.6, pp. 3–4; §3.2, p. 12 (bijection); §4.1, pp. 12–14; §§5.1–5.8, pp. 15–29 (the ranges used here)",
+     "match": "Defines AT^0_w, AT^1_w, I′_w and AT′_w, counts them, and states the independence of AT^0_w for all w and of AT′_w for 1 ≤ w ≤ 3q − 2. The proof reduces to a short support list using rational suffix periods, then solves the bounded-degree root equation; the roadmap uses only w ≤ 3q − 3."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4711,7 +4745,7 @@
    "neededBy": [
     "DrinfeldModulesAndTModulesPartII:MZ.3/anderson-thakur-interpolation"
    ],
-   "detail": "The statement (H_sΩ^s)^{(d)}(θ) = Γ_s S_d(s)/π̃^s is taken from Chang 2014 Theorem 5.5.1 and Ngo Dac §4.2; its proof (Anderson–Thakur, Ann. of Math. 132 (1990), (3.7.3)–(3.7.4), and IMRN 2009, 2.4.1) is in sources that are not freely readable and was not reread. A follow-up should obtain the proof and plan its steps (the generating series of power sums in terms of the Carlitz exponential and the polynomials γ_j). The CMPL route to the end theorems (Chang–Chen–Mishiba, Im–Kim–Le–Ngo Dac–Pham) does not use it; Ngo Dac’s direct route (Theorems B, 6.2, D) and the MZ property of general MZVs do."
+   "detail": "The statement (H_sΩ^s)^{(d)}(θ) = Γ_s S_d(s)/π̃^s is taken from Chang 2014 Theorem 5.5.1 and Ngo Dac §4.2; its proof (Anderson–Thakur, Ann. of Math. 132 (1990), (3.7.3)–(3.7.4), and IMRN 2009, 2.4.1) was not reread in the design or this review; no assertion about present public availability is made. A follow-up should obtain the proof and plan its steps (the generating series of power sums in terms of the Carlitz exponential and the polynomials γ_j). The CMPL route to the end theorems (Chang–Chen–Mishiba, Im–Kim–Le–Ngo Dac–Pham) does not use it; Ngo Dac’s direct route (Theorems B, 6.2, D) and the MZ property of general MZVs do."
   },
   {
    "title": "v-adic multiple zeta values and the Chang–Mishiba homomorphism",
@@ -4728,14 +4762,20 @@
    "kind": "misprint",
    "locator": "arXiv:2205.09929v2, Definition 2.2.2 and the identities listed after it, pp. 7–8; used in the proof of Proposition 2.3.5(3), p. 9",
    "printed": "The truncated realisation of the empty index is set to 1 only for d ≥ 1, while the identity 𝔏^•_d(s)𝔏^•_{<d}(P) = 𝔏^•_d([s, P]) is asserted for every P ∈ H and every d ∈ Z.",
-   "correction": "Use 𝔏^•_{<d}(∅) = 1 for every d ≥ 0 when ∅ occurs as a tail factor (Ngo Dac’s convention S_{<d}(∅) = 1), or restrict the identity to d ≥ 1 or to P without ∅-component.",
+   "correction": "Use 𝔏^•_{<d}(∅) = 1 for every d ∈ Z when ∅ occurs as a tail factor (Ngo Dac’s convention S_{<d}(∅) = 1), or restrict the identity to d ≥ 1 or to P without ∅-component.",
    "reason": "For a depth-one index (s) and d = 0, 𝔏^•_0(s)𝔏^•_{<0}(∅) = 1·0 = 0 while 𝔏^•_0([s, ∅]) = 𝔏^•_0(s) = 1. The proof of Proposition 2.3.5(3) uses the factorisation 𝔏^•_d(s) = 𝔏^•_d(s_1)𝔏^•_{<d}(s_−) at d = 0 for depth-one s. The proposition itself is true: at d = 0 both sides of (3) equal 1 (depth-two terms vanish), and for d < 0 everything vanishes.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.09929 shows v1 and v2 only, with no later correction.",
-    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Depth one at d = 0 gives a concrete failure of the printed empty-tail factorisation; the node uses the corrected convention.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E2",
@@ -4749,8 +4789,14 @@
    "known": "recorded in the reviewed extraction PAPER-NGODAC-21 (E3); no published correction",
    "searched": [
     "2026-10-19: HAL record hal-03298790 lists version v1 only.",
-    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice.",
+    "2026-10-19 independent review: HAL locator and Annals landing page checked; no separate correction notice on that page; published text was not obtained, so the finding is restricted to HAL."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The j = 0 branch calls an operator whose domain excludes 0; summing the binary relation supplies exactly that branch.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E3",
@@ -4761,11 +4807,17 @@
    "correction": "The condition is (q − 1) | j.",
    "reason": "k denotes F_q(θ) in the paper; Chen’s formula and Ngo Dac’s restatement put the divisibility on the summation index; with the correction, Remark 2.3.4 holds. Recorded earlier as PAPER-CHANG-CHEN-MISHIBA-23/E2.",
    "affects": "nothing",
-   "known": "recorded in PAPER-CHANG-CHEN-MISHIBA-23 (E2); the extraction reports it fixed in the published version",
+   "known": "Fixed in the published Forum of Mathematics, Pi 11 (2023), formula (2.5); independently checked on 2026-10-19.",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.09929 shows v1 and v2 only, with no later correction.",
-    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The v2 divisibility symbol uses k, whereas the sum and Chen formula require j. Independently confirmed fixed in the published formula (2.5).",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E4",
@@ -4779,8 +4831,14 @@
    "known": "recorded in PAPER-NGODAC-21 (E4)",
    "searched": [
     "2026-10-19: HAL record hal-03298790 lists version v1 only.",
-    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice.",
+    "2026-10-19 independent review: HAL locator and Annals landing page checked; no separate correction notice on that page; published text was not obtained, so the finding is restricted to HAL."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The determinant must be nonzero in ABP Theorem 3.1.1; the recorded rank-deficient example disproves the HAL statement with c = 0. Scope: HAL manuscript only.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E5",
@@ -4794,8 +4852,14 @@
    "known": "recorded in PAPER-NGODAC-21 (E5)",
    "searched": [
     "2026-10-19: HAL record hal-03298790 lists version v1 only.",
-    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice.",
+    "2026-10-19 independent review: HAL locator and Annals landing page checked; no separate correction notice on that page; published text was not obtained, so the finding is restricted to HAL."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The cited proposition treats period descent; Theorem 3.4.5 supplies the weightwise descent actually used.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E6",
@@ -4809,8 +4873,14 @@
    "known": "recorded in PAPER-NGODAC-21 (E11)",
    "searched": [
     "2026-10-19: HAL record hal-03298790 lists version v1 only.",
-    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice.",
+    "2026-10-19 independent review: HAL locator and Annals landing page checked; no separate correction notice on that page; published text was not obtained, so the finding is restricted to HAL."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The next coefficient comparison requires A[t], not merely K[t]. Descending monic comparison supplies A[t] with the stated degree bound.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E7",
@@ -4824,8 +4894,14 @@
    "known": "recorded in PAPER-NGODAC-21 (E12)",
    "searched": [
     "2026-10-19: HAL record hal-03298790 lists version v1 only.",
-    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice.",
+    "2026-10-19 independent review: HAL locator and Annals landing page checked; no separate correction notice on that page; published text was not obtained, so the finding is restricted to HAL."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The base families agree also at w = q; the subsequent k > 1 step starts only above q.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E8",
@@ -4839,8 +4915,14 @@
    "known": "recorded in PAPER-IM-KIM-LE-ETAL-24 (E14)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The whole-tuple norm can decay while its last factor grows. The displayed example has normalised exponents −q and +1. Published condition (3.1) and the full-tail matrix retain this issue; first-column Chang arguments remain valid.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E9",
@@ -4854,8 +4936,14 @@
    "known": "recorded in PAPER-IM-KIM-LE-ETAL-24 (E12)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The determinant congruence needs the unique type-1 path with coefficient −1 and divisibility on all other paths; the reduction construction supplies this bookkeeping.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E10",
@@ -4869,8 +4957,14 @@
    "known": "recorded in PAPER-IM-KIM-LE-ETAL-24 (E31)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The alternating bridge yields membership only in AZ_w. Trivial-character Brown spanning and Carlitz’s identity give the required Z_w membership.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E11",
@@ -4884,8 +4978,14 @@
    "known": "recorded in PAPER-IM-KIM-LE-ETAL-24 (E16)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The matrix entries use polynomials Q_i, not constants in F_q^×; the surrounding formulas identify the intended carrier.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E12",
@@ -4899,8 +4999,14 @@
    "known": "recorded in PAPER-IM-KIM-LE-ETAL-24 (E23, E30)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Ordinary ACMPL relations acquire algebraic constant factors on normalising. Chang descent and character-preserving Brown expansion justify the two missing passages.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E13",
@@ -4914,8 +5020,14 @@
    "known": "recorded in PAPER-CHANG-CHEN-MISHIBA-23 (E3)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.09929 shows v1 and v2 only, with no later correction.",
-    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The subscript w is undefined as a coefficient field; the intended k-dimension is clear. The published Remark 1.6 retains the slip.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E14",
@@ -4929,8 +5041,14 @@
    "known": "recorded in PAPER-CHANG-CHEN-MISHIBA-23 (E5)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.09929 shows v1 and v2 only, with no later correction.",
-    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "A nonzero algebraic-closure vector space has infinite dimension over k, so the printed finite bound uses the wrong field. The published Corollary 1.8 also retains the bar over the spanning field; checked visually.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E15",
@@ -4944,8 +5062,14 @@
    "known": "recorded in PAPER-IM-KIM-LE-ETAL-24 (E1)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The displayed tuples have r entries and the n in the carrier is unbound.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E16",
@@ -4959,23 +5083,35 @@
    "known": "recorded in PAPER-NGODAC-21 (E16)",
    "searched": [
     "2026-10-19: HAL record hal-03298790 lists version v1 only.",
-    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice.",
+    "2026-10-19 independent review: HAL locator and Annals landing page checked; no separate correction notice on that page; published text was not obtained, so the finding is restricted to HAL."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The maximal common-prefix argument needs two supported indices. Nonvanishing disposes of a singleton relation first.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E17",
    "source": "CCM23",
    "kind": "misprint",
    "locator": "arXiv:2205.09929v2, proof of Proposition A.3.1, p. 28",
-   "printed": "The weight of BC^•_s(R) is written w + wt(s).",
-   "correction": "BC^{•,m}_q(R) lies in H_{w+mq}^{⊕2}.",
+   "printed": "The weight of BC^•_s(R) is written w + wt(s). In the same line the weight of C_s(R) uses the unbound symbol wt(n).",
+   "correction": "BC^{•,m}_q(R) lies in H_{w+mq}^{⊕2}. The C_s shift is w + wt(s).",
    "reason": "The operator is defined with subscript q and iterate m; the proposition states the correct shift. Recorded earlier as PAPER-CHANG-CHEN-MISHIBA-23/E8.",
    "affects": "nothing",
    "known": "recorded in PAPER-CHANG-CHEN-MISHIBA-23 (E8)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.09929 shows v1 and v2 only, with no later correction.",
-    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The operator definitions give the BC shift mq and the C_s shift wt(s), agreeing with the proposition but not this proof line.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E18",
@@ -4989,8 +5125,14 @@
    "known": "recorded in PAPER-CHANG-CHEN-MISHIBA-23 (E1)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.09929 shows v1 and v2 only, with no later correction.",
-    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-CHANG-CHEN-MISHIBA-23 compared v2 with the published Forum Math. Pi version and recorded no published correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The definition would lose all dependence on s with the printed exponent d; the next small-exponent identity uses exponent s.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E19",
@@ -5004,8 +5146,14 @@
    "known": "recorded in PAPER-NGODAC-21 (E15)",
    "searched": [
     "2026-10-19: HAL record hal-03298790 lists version v1 only.",
-    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-NGODAC-21 searched the Annals page and the author’s page and found no correction notice.",
+    "2026-10-19 independent review: HAL locator and Annals landing page checked; no separate correction notice on that page; published text was not obtained, so the finding is restricted to HAL."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The step uses specialisation at θ^{q^j} followed by q^j-th roots, which is (5.4), rather than the value formula (4.2).",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E20",
@@ -5019,8 +5167,14 @@
    "known": "recorded in PAPER-IM-KIM-LE-ETAL-24 (E33)",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "B* is defined for nonempty prefixes. Summing C directly supplies the U = ∅ boundary case needed by the induction.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   },
   {
    "id": "DrinfeldModulesAndTModulesPartII/E21",
@@ -5034,8 +5188,53 @@
    "known": "new",
    "searched": [
     "2026-10-19: the arXiv listing of 2205.07165 shows v1 and v2 only.",
-    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice."
-   ]
+    "2026-10-19: the reviewed extraction PAPER-IM-KIM-LE-ETAL-24 checked the published Forum Math. Pi version and its Cambridge Core page; no correction notice.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The proof needs the AT index set, including entries q; the earlier AJ definition excludes those entries. Its square matrix must run over AT rows and columns.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
+  },
+  {
+   "id": "DrinfeldModulesAndTModulesPartII/E22",
+   "source": "CCM23",
+   "kind": "misprint",
+   "locator": "arXiv:2205.09929v2, proof of Theorem 4.3.5, point (iii), p. 18; example on p. 19",
+   "printed": "Point (iii) gives the square matrix size as 2(ℓ − m), rather than 2ℓ − m.",
+   "correction": "Both dimensions are 2ℓ − m, the number of a-unknowns plus f-unknowns.",
+   "reason": "The a-block has ℓ − m entries and the f-block has ℓ entries. The displayed example q = 3, ℓ = 7, m = 2 has size 12, which is 2ℓ − m, rather than 10. This changes no determinant argument.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-19: arXiv version listing and Cambridge Core article page checked; no separate correction located.",
+    "2026-10-19 independent review: primary arXiv and Cambridge versions consulted; published PDF read at the corresponding finding where identified in the review reason. No separate correction found in the searches; the finding otherwise remains scoped to the stated preprint locator."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The unknown counts and the displayed 12 × 12 example verify the corrected 2ℓ − m size.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
+  },
+  {
+   "id": "DrinfeldModulesAndTModulesPartII/E23",
+   "source": "THAKUR10",
+   "kind": "error",
+   "locator": "Theorem 3 proof, p. 1979, fourth equality in the main display; author’s corrections list, entry 36, pp. 7–8",
+   "printed": "The higher-depth vector induction uses an equality that does not follow from the shuffle relation.",
+   "correction": "Use simultaneous induction on mixed and equal-degree power-sum products: prove the mixed case first at the new depth, then factor the leading term and apply the depth-one identity to obtain the equal-degree case.",
+   "reason": "The author explicitly corrects this induction and credits Shuhui Shi. The supplied induction controls the depth and weight and retains coefficients independent of d. MZ.1/power-sum-products uses this corrected argument.",
+   "affects": "the proof",
+   "known": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/updates.pdf (entry 36, pp. 7–8; correction credited to Shuhui Shi)",
+   "searched": [
+    "2026-10-19: author’s home page and corrections list opened; the replacement proof was read."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The author’s own correction identifies the faulty equality and supplies the simultaneous induction used here.",
+    "by": "REV-DESIGN-DrinfeldModulesAndTModulesPartII"
+   }
   }
  ],
  "restructure": [],
@@ -6866,5 +7065,473 @@
    "disposition": "planned"
   }
  ],
- "upstreamNotes": []
+ "upstreamNotes": [],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://hal.science/hal-03298790v1/document",
+   "read": "2026-10-19",
+   "sha256": "3141c9337b19447ee970498d30fd10cdcdb6333bb54f8a264440adf3ec513096",
+   "scope": "ND21: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2205.09929v2",
+   "read": "2026-10-19",
+   "sha256": "05e1f6d6b1ef37068f73709928a9dcc7a0e50874aced170f0c92e07f0cd7413b",
+   "scope": "CCM23: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2205.07165v2",
+   "read": "2026-10-19",
+   "sha256": "74a40b2e45b54760765247a010811d278e48f0b30f361bf3d9ca8cb92fd4b43e",
+   "scope": "IKLNDP24: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://hal.science/hal-04240841v3/document",
+   "read": "2026-10-19",
+   "sha256": "d84f1b57e59a5806b2255ca7c368efd6d091eec88e4f0ba3cdf0cb59e03656cf",
+   "scope": "IKLNDP-NOTE: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1207.2326",
+   "read": "2026-10-19",
+   "sha256": "d2a8138a6d45dc8f826a60f1c24528342cdb7a8fb3f2bc90d0f2a7db9955ddcc",
+   "scope": "CHANG14: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1411.0124",
+   "read": "2026-10-19",
+   "sha256": "029b57501d8b37f292557044ab2789b30435ab0c8e4b6d739284ee94ec7c5549",
+   "scope": "CPY19: node locators and source-issue locators"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/imrnrelation.pdf",
+   "read": "2026-10-19",
+   "sha256": "f330b56bd817c1057fb0f7558a8d265dd328618063209d5aa7a2e4789021ce51",
+   "scope": "THAKUR09R: node locators and source-issue locators"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/shufflepub.pdf",
+   "read": "2026-10-19",
+   "sha256": "68507ceb78c64fb3ebd94ab2d3b6842a08555745c0d540aaf94f97372d1690a4",
+   "scope": "THAKUR10: node locators and source-issue locators"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/ffafinal.pdf",
+   "read": "2026-10-19",
+   "sha256": "d31f4a4be1e6cb1aaf9bdc574070066b1057f043df3ec437cd71784c0933168f",
+   "scope": "THAKUR09P: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2012.00340",
+   "read": "2026-10-19",
+   "sha256": "d46a2414f9e6865a8c75a333423ee913feb03a8d38c93ec43c4864ac75c36047",
+   "scope": "CH21: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1312.4928",
+   "read": "2026-10-19",
+   "sha256": "a888fa8024f85fb75b8e58305033ddc733b6e99758d0649e745ea1c7085e8937",
+   "scope": "LRT14: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0506078v2",
+   "read": "2026-10-19",
+   "sha256": "6b5d3436da4d309fa77de77d23a0ed1781ee7fe90c544e55a229ef5cae026cf3",
+   "scope": "PAP08: node locators and source-issue locators"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0207168",
+   "read": "2026-10-19",
+   "sha256": "a22c328ea63a1d2d43309bc125b5f377c88d853ff0f1b21039fba14b924ff8c2",
+   "scope": "ABP04: node locators and source-issue locators"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/updates.pdf",
+   "read": "2026-10-19",
+   "sha256": "99e77414203a4fa724484acaaea3189173898be3af8d55ef2f8d64945f2095a1",
+   "scope": "THAKUR-UPDATES: node locators and source-issue locators"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BDCF99B5C8C0D72D48B1F33CFB54DDF9/S2050508623000264a.pdf/on_thakurs_basis_conjecture_for_multiple_zeta_values_in_positive_characteristic.pdf",
+   "read": "2026-10-19",
+   "sha256": "9ff3542f1882b4ab2c21216fc20845e6ca4a37d30f9507fc3714f46084bd7fe1",
+   "scope": "Source-issue comparison; not a second reading of every proof."
+  },
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/B9AC9CF28F90ABB495FDC43093D51E05/S2050508624000180a.pdf/zagierhoffmans_conjectures_in_positive_characteristic.pdf",
+   "read": "2026-10-19",
+   "sha256": "60e851f2d358b8e28374de0d7772567c9feb3a05c54961309fb573a7e80cdcf6",
+   "scope": "Source-issue comparison; not a second reading of every proof."
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/2021/194-1/p06",
+   "read": "2026-10-19",
+   "scope": "Landing page and publication history only. The attempted publisher PDF URL did not serve text; ND21 findings are scoped to the HAL manuscript, not independently attributed to the published typesetting."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-DrinfeldModulesAndTModulesPartII",
+  "date": "2026-10-19",
+  "notes": "Independent target-level review of all 68 nodes, 10 exact-pin baseline entries, all parent suppliers, APIs, tests and 24 planets. Corrected hypotheses, matrices and induction closure; independently reviewed all 23 source issues (21 existing, two added). The three explicit gaps remain; complete means a completed target-level pass, not formalisation or gap-free completion. Packet, roadmap, reader and suggested-file conventions are synchronised.",
+  "checked": [
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/index",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 §2.1, p. 5 (order ≤, T_i); Definition 2.11, p. 11 (Init); Definition 3.1, p. 14 (k-admissibility); IKLNDP24 §1.1.1–1.1.2 and Remark 1.1, pp. 7–8; §1.1.5, p. 10 (sum of arrays); Definition 1.8, p. 21; CCM23 §2.1, (2.1.2)–(2.1.3), p. 6 (indices, I_w, concatenation, s_+, s_−); Definition 2.1.4, p. 7 (the bracket on H). Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/power-sum",
+    "verdict": "corrected",
+    "note": "Completed the empty-truncation convention for every integer d, making the stated domain total; depth-one formulas involving ℓ_d explicitly require d ≥ 0. Negative-degree nonempty sums remain zero."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/multiple-zeta-value",
+    "verdict": "corrected",
+    "note": "Added the small-power-sum and Carlitz-logarithm suppliers used by the depth-one unit test."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/alternating-mzv",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 §0.2.2, p. 4; §4.1.1, p. 43. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/mzv-nonvanishing",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at THAKUR09P Theorem 4 and its proof, §5.2, p. 542; Theorems 1–2, §4, pp. 540–541; ND21 §1.2, p. 3; IKLNDP24 §2.2.2, after (2.5), p. 29. Prerequisites, acceptance checks agree. Its unplanned input remains explicitly recorded in gaps; the review verifies the cited statement and the conditional route, not that missing theory."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/carlitz-multiple-polylogarithm",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CHANG14 §5.1, Definitions 5.1.1 and 5.1.3, Remark 5.1.4, p. 13; CCM23 §2.2, equation (2.2.1), p. 7, and the identities after Definition 2.2.2, p. 8; IKLNDP24 §0.3.2, p. 5; §1.1.3–1.1.4, pp. 8–9; §2.2.3, (2.6)–(2.7), p. 29. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/cmpl-nonvanishing",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CHANG14 Remark 5.1.5, p. 13. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/carlitz-identity",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Lemma 1.2 and its proof, pp. 9–10; CCM23 Remark 2.2.6, p. 8. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/weight-spaces",
+    "verdict": "corrected",
+    "note": "Replaced the unsupported period-based non-example by ρζ_A(1) with fractional valuation, and supplied its nonvanishing and period inputs."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/index-families",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 §1.2, Conjecture 1.6 and Theorem B, p. 3; §6, Lemma 6.1, p. 22; CCM23 §2.1 and Proposition 2.1.1, p. 6; IKLNDP24 §1.3.2, p. 23; §1.4.1–1.4.2, pp. 24–25. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/counting-sequences",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Conjecture 1.5 and the remark after it, p. 3; Theorem B, p. 3 (d^0(w) = |T^0_w|); CCM23 Conjecture 1.2.2, p. 3; IKLNDP24 Theorem A, p. 4; §1.3.2, pp. 23–24 (t(w)); §1.4.2, pp. 24–25 (s(w)). Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/counting",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Lemma 6.1(1) and its proof, p. 22; CCM23 Proposition 2.1.1, p. 6; Remark after Conjecture 1.2.3, p. 3; IKLNDP24 §1.3.2, pp. 23–24; §1.4.2, pp. 24–25. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/zeta-q-minus-one",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 proof of Theorem 3.4, last step, p. 42; CCM23 proof of Theorem 5.2.1, p. 25. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.0/eulerian",
+    "verdict": "corrected",
+    "note": "Distinguished the union of finite constant extensions from the full Laurent series field over the algebraic closure."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/chen-coefficient",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 §2.1, display after (2.1), p. 6; CCM23 §2.3, (2.3.2), p. 9; Remark 2.3.4, p. 9; IKLNDP24 §4.1.1, (4.2), p. 44. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/chen-product",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 §2.1, (2.1) and the display after it, p. 6; Remark 2.2(2), p. 8; CCM23 §2.3, (2.3.2), p. 9; IKLNDP24 §4.1.1, (4.1)–(4.2) and Remark 4.1, pp. 43–44. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/index-algebra",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 §2.1, Definition 2.1.4 and Remark 2.1.5, pp. 6–7; §2.3, pp. 8–9; Definition 3.1.1 and Remark 3.1.2, pp. 10–11; Proposition A.1.1 and Corollary A.1.2, pp. 26–27. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/realisation-maps",
+    "verdict": "corrected",
+    "note": "Completed the empty-truncation convention for every integer d, making the stated domain total; depth-one formulas involving ℓ_d explicitly require d ≥ 0. Negative-degree nonempty sums remain zero."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/realisations-multiplicative",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Proposition 2.3.5 and its proof, pp. 9–10; THAKUR10 Theorem 3, p. 1978. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/power-sum-products",
+    "verdict": "corrected",
+    "note": "Read and cited the author’s corrected simultaneous induction; added source issue E23."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/value-algebras",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at THAKUR10 Theorem 3(ii)–(iii), p. 1978; IKLNDP24 §1.1, after Proposition 1.3, p. 14; §4.1.1, after Proposition 4.2, p. 44; CCM23 §1.2, p. 2. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.1/period-power-in-weight-space",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 proof of Theorem 5.2.1, p. 25; IKLNDP24 proof of Theorem 3.4, last step, p. 42. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/binary-relation",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Definition 2.3 and Remark 2.4, pp. 8–9; IKLNDP24 Definition 1.4, p. 14; Definition 4.3, p. 44; CCM23 Appendix A.2, (A.2.1)–(A.2.2), p. 27. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/fundamental-relation",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at THAKUR09R Theorem 5, §2.7.7, p. 2326, and its proof, §3.4.6, p. 2332; ND21 (2.8), p. 8; IKLNDP24 §1.2, relation R_ε, p. 14; §4.1.2, p. 44; CCM23 Example A.2.3, p. 27; LRT14 Theorem 3.1(2), p. 3. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/todd-operators",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 §2.2: B*_v and Proposition 2.5, p. 9; Corollaries 2.6–2.7, p. 9; C_W and Proposition 2.8, p. 10; BC_q and Proposition 2.10, p. 11; IKLNDP24 §1.2.1–1.2.3, pp. 14–17; Lemma 1.5, p. 15; §4.1.2, pp. 45–47; CCM23 Appendix A.3, definitions before Proposition A.3.1 and the proposition, pp. 27–29. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/c-of-fundamental",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Lemma 2.9 and its proof, p. 10; IKLNDP24 Proposition 1.6 and its proof, p. 16; Proposition 4.5, p. 46. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/reduction-step",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Propositions 2.12–2.13 and their proofs, pp. 11–14; IKLNDP24 Proposition 1.7 and its proof, pp. 17–21; Proposition 4.6, pp. 47–52. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/admissible-reduction",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Definition 3.1 and Proposition 3.2 with its proof, pp. 14–16; IKLNDP24 Proposition 1.9 and its proof, pp. 21–23; Proposition 4.7, pp. 52–54. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/brown-spanning",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Theorem A, p. 3, and its proof, p. 16; IKLNDP24 Proposition 1.10, p. 24; Proposition 4.8, p. 54; CCM23 Remark 1.2.5, p. 3. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/value-bridge",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Theorem 4.9, p. 54; CCM23 Corollary 3.2.5, p. 12. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/rewriting-operator",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 §3.1, (3.1.3)–(3.1.4) and Example 3.1.5, p. 11; §3.2, (3.2.1), Definition 3.2.2 and Remark 3.2.3, p. 11; Appendix A.3, definitions of Init, U_1, U_2, U_3, pp. 29–30. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/rewriting-theorem",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Theorem 3.2.4 and Corollary 3.2.5, pp. 11–12; Theorem A.3.2, p. 29; Lemma A.3.7 and Theorem A.3.8, pp. 30–31. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/ind-spanning",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Theorem 3.2.6 and its proof, p. 12. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/strong-brown",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Theorem 1.11 and its proof, p. 25. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.2/next-weight-relation",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Remark 6.3, p. 24; LRT14 Theorem 3.1(2), p. 3; IKLNDP24 Remark 4.14, p. 58. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/anderson-thakur-polynomials",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 §4.2, p. 17; ND21 §6, p. 24; IKLNDP24 §2.2.2, (2.4), p. 28; CHANG14 Theorem 5.5.1, p. 18. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/anderson-thakur-interpolation",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CHANG14 Theorem 5.5.1, p. 18; ND21 §4.2, (4.2), p. 17; CH21 §2.4, Proposition 2.12, p. 13. Prerequisites, acceptance checks agree. Its unplanned input remains explicitly recorded in gaps; the review verifies the cited statement and the conditional route, not that missing theory."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/deformation-series",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CHANG14 Lemma 5.3.1, (5.3.2), p. 14; ND21 §4.2, (4.1), pp. 17–18; IKLNDP24 §2.2.1, (2.1)–(2.2), p. 27; §2.2.2–2.2.3, pp. 28–29; CCM23 §5, opening, pp. 21–22. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/deformation-entire",
+    "verdict": "corrected",
+    "note": "Justified initial-sub-tuple convergence under whole-tuple decay by shifting indices, retaining the stronger termwise hypothesis for all tails."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/deformation-specialisation",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CHANG14 Lemma 5.3.5, p. 16; Theorem 5.5.2, (5.5.3), p. 18; CPY19 Proposition 2.3.3, p. 7; ND21 (4.2), p. 17; (5.4), p. 20; IKLNDP24 (2.3), p. 27; (2.5) and (2.7), p. 29; CCM23 §5, p. 22; CH21 §2.4, Proposition 2.12, p. 13. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/index-dual-motive",
+    "verdict": "corrected",
+    "note": "Corrected the missing (t − θ) factor in the depth-one acceptance matrix."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/mz-property",
+    "verdict": "corrected",
+    "note": "Corrected the depth-one witness matrix; the defining MZ conditions and nonzero determinant agree with Chang Definition 3.4.1."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/mz-property-values",
+    "verdict": "corrected",
+    "note": "Retained the full D_s theorem through Chang’s first-column proof instead of an unjustified full-tail matrix; corrected the witness subdiagonal."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/chang-descent",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CHANG14 Theorem 3.4.5, p. 9, with proof in §§4.1–4.2, pp. 9–12; Proposition 4.3.1, p. 12; Theorem 2.2.1, p. 5; Theorem 5.4.3, p. 17; Corollary 5.5.5, p. 19; IKLNDP24 Proposition 2.3, p. 28; CCM23 Remark 1.2.6, p. 3; proof of Lemma 5.1.1, p. 23. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/prefix-system",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 §5.1 (Step 1), pp. 18–19; CCM23 proof of Lemma 5.1.1, pp. 22–23; IKLNDP24 proof of Theorem 2.4, Step 1, pp. 30–31. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/independence-criterion",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Theorem 2.4, p. 29, Remark 2.5, p. 30, and the proof, pp. 30–33; ND21 §5.2 (Step 2), pp. 20–21; CCM23 Theorem 4.1.1, p. 13; proof of Lemma 5.1.1, pp. 22–24. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.3/eulerian-tails",
+    "verdict": "corrected",
+    "note": "Restricted isolated tails to nonzero collected support and added the general factorial-weighted MZV suffix combination used by induction."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.4/frobenius-system",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 §4.2, the ring R and (E_M) with Remark 4.2.1, p. 14; §4.3, (4.3.1), Example 4.3.2, Definition 4.3.3 and Remark 4.3.4, pp. 15–16; IKLNDP24 proof of Theorem 3.4, (3.4)–(3.5), pp. 37–38. Prerequisites, acceptance checks, API and unit tests agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.4/monic-frobenius-descent",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Lemma 4.2.2 and its proof, pp. 14–15; IKLNDP24 Lemma 3.3 and its proof, pp. 34–35; ND21 §6, Step 3, p. 23. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.4/theta-degree-bound",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Lemma 4.2.3 and its proof, pp. 14–15; IKLNDP24 Lemma 3.3, second assertion, pp. 34–35. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.4/key-lemma",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Lemma 5.1.1 and its proof, pp. 22–24. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.4/solution-space-dimension",
+    "verdict": "corrected",
+    "note": "Checked the local-ring matrix argument and made the 2ℓ − m unknown count explicit; added source issue E22."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.4/twisted-system-solutions",
+    "verdict": "corrected",
+    "note": "Made reduced support a hypothesis, stated rational proportionality and dimension at most one after localisation, and removed arbitrary-support existence."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.4/two-row-system",
+    "verdict": "corrected",
+    "note": "Verified the endpoint family already in the packet and added the explicit q = 3, w = 4 nonzero acceptance case; corrected the contradictory layer description."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/small-entry-independence",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Theorem B, p. 3, and its proof, §5, pp. 18–22; Remark 5.1, p. 22. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/thakur-basis-small-weight",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Corollary C, p. 4. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/q-indivisible-independence",
+    "verdict": "corrected",
+    "note": "Supplied strong induction on suffix independence before invoking Eulerian suffix divisibility."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/theorem-d",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at ND21 Theorem D, p. 4, and its proof, p. 24. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/cmpl-ind-basis",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Theorem 5.2.1 and its proof, p. 25. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/thakur-basis-theorem",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Theorem 1.2.4, p. 3; §5.3, p. 25; Remark 1.2.6, p. 3; IKLNDP24 Theorem B, p. 5; §4.3.2, p. 54. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/all-relations",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Theorem 5.4.2 and its proof, pp. 25–26. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/character-splitting",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Lemmas 3.1 and 3.2 with proofs, pp. 33–34. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/acmpl-period-relations",
+    "verdict": "corrected",
+    "note": "Supplied the lower-weight normalised-period relations induction that forces tail characters and divisibilities; used proportionality rather than existence on arbitrary supports."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/hoffman-basis",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Theorem 3.6 and its proof, p. 36. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/amzv-dimension",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Theorem A, p. 4; §4.2, p. 54. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/mzv-lower-bound-cmpl",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at IKLNDP24 Proposition 4.10 and its proof, pp. 54–55. Prerequisites, acceptance checks agree."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/amzv-small-weight-bounds",
+    "verdict": "corrected",
+    "note": "Read the companion Note’s proof, replaced the direct-computation shortcut by support lists and bounded-degree coefficient comparisons, and added the suppliers used."
+   },
+   {
+    "nodeId": "DrinfeldModulesAndTModulesPartII:MZ.5/v-adic-bound",
+    "verdict": "verified",
+    "note": "Statement, hypotheses and target-level proof checked at CCM23 Corollary 1.2.7 and the paragraph before it, p. 4. Prerequisites, acceptance checks agree. Its unplanned input remains explicitly recorded in gaps; the review verifies the cited statement and the conditional route, not that missing theory."
+   }
+  ]
+ }
 }
