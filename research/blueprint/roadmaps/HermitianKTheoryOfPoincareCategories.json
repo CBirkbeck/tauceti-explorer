@@ -1,0 +1,202 @@
+{
+  "id": "HermitianKTheoryOfPoincareCategories",
+  "title": "Hermitian K-theory of Poincaré ∞-categories and the flavours of L-theory",
+  "area": "ktheory",
+  "parent": null,
+  "summary": "The algebraic surgery that compares the flavours of L-theory and Grothendieck–Witt theory of a ring, after Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle (Hermitian K-theory for stable ∞-categories III, §1). On top of the Poincaré ∞-categories and genuine Poincaré structures Q^{≥m}_M of GeometryOfNumbersAndQuadraticArithmetic it plans shift and Karoubi periodicity without inverting 2, r-symmetric and m-quadratic structures, bounded-width L-groups, quadratic and symmetric surgery, Ranicki's short symmetric L-groups and their identification with genuine symmetric L-theory (Theorem 5), the comparison ranges over coherent rings of finite global dimension (Theorem 6, the Dedekind case, form parameters), surgery over connective ring spectra, the L-groups of fields in every flavour, and the fibre sequence K_{hC₂} → GW^s_cl → L^short for every ring (Theorem 1) with the quadratic-to-symmetric comparison (Theorem 3).",
+  "readme": "# Hermitian K-theory of Poincaré ∞-categories and the flavours of L-theory\n\nThis roadmap plans the algebraic surgery that compares the flavours of L-theory and Grothendieck–Witt theory of a ring, following §1 and the Recollection of Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle, *Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings* (arXiv:2009.07225v4, to appear in Annals of Mathematics). It starts from the Poincaré ∞-categories, the invertible modules with involution, the family of Poincaré structures Q^{≥m}\\_M on perfect complexes and the Grothendieck–Witt and L-spectra that GeometryOfNumbersAndQuadraticArithmetic plans in its Layer 6 (§6.8a of TauCetiRoadmap pull request #851), and it ends with four theorems of the paper:\n\n1. **Theorem 1** (HK.8). For every ring R and every duality Hom\\_R(−,M) on finitely generated projectives there is a fibre sequence K(R;M)\\_{hC₂} → GW^s\\_cl(R;M) → L^short(R;M), whose third term is a connective spectrum with Ranicki's original symmetric L-groups as homotopy groups. No hypothesis on 2.\n\n2. **Theorem 5** (HK.4). Ranicki's symmetric L-groups of short Poincaré complexes are the genuine symmetric L-groups L^gs\\_n(R;M), in every degree.\n\n3. **Theorem 6 and its general form** (HK.7). For a coherent ring of global dimension d and an r-symmetric Poincaré structure Q, L\\_n(R;Q) → L^s\\_n(R;M) is injective for n ≥ d − 2r + 2 and bijective for n ≥ d − 2r + 3; in particular L^gs → L^s and GW^gs → GW^s are bijective from degree d − 1, and L^gq → L^s from degree d + 3.\n\n4. **Theorem 3** (HK.8). For such R, GW^q\\_{cl,n}(R;M) → GW^s\\_{cl,n}(R;M) is injective for n ≥ d + 2 and bijective for n ≥ d + 3, two degrees better for 2-torsion-free R with M = R.\n\nOn the way it plans the general form of Karoubi periodicity without inverting 2 (HK.1), the r-symmetric and m-quadratic structures with their bounds (HK.2), bounded-width L-groups and Lagrangian surgery (HK.3), quadratic and symmetric surgery (HK.4, HK.6), surgery over connective ring spectra with the comparison of a ring spectrum with its π₀ (HK.5), and the L-groups of a field in every flavour (HK.7).\n\n## Scope and boundaries\n\nThe paper's Recollection quotes the foundations from Papers I and II of the series. In the atlas these foundations now belong to GeometryOfNumbersAndQuadraticArithmetic, whose Layer 6 grew, during its package and fix rounds, from Schlichting's hermitian K-theory of exact categories into the Poincaré-categorical theory (the handoff of FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv records the move). This roadmap cites that layer and never re-plans it:\n\n- **Imported from GN §6.8a:** `PoincareInfinityCategory`, `PoincareObject` with Lagrangians and isotropic surgery (CDH III Proposition 1.1.13), `PoincareSurgeryDatum`, `DerivedCoefficientLine` (Definition R.1), `PerfectDerivedInfinity`, `perfectDerivedHom`, `symmetricPoincareStructure`, `quadraticPoincareStructure`, `genuinePoincareStructure` (Definition R.3, Remark R.5), `stableGrothendieckWittSpectrum`, `stableLTheorySpectrum`, `PoincareVerdierSequence`, `additiveHermitianBordification`, `stableGWFundamentalSquare` (the fibre sequence K\\_{hC₂} → GW → L), `poincareLinearPart`, `weightHeartGWComparison` (Hebestreit–Steimle; Corollary 1.3.15), `symmetricHeartLTheory` (Corollary 1.3.8); §6.1a C₂-spectra and Tate constructions; §6.4 Witt groups of exact categories; §6.10a the ℤ-instances of the comparison ranges and of Theorem 5; §6.10b the two-inverted genuine comparison.\n- **Not planned here (other roadmaps):** the localisation–dévissage sequence of §2 (GN §6.9 and GeometryOfNumbersAndQuadraticArithmeticPartII), the homotopy limit problem and the Grothendieck–Witt groups of ℤ of §3 (GN §§6.10–6.11 and its roadmap-for-a-roadmap), the dyadic L-group tables of Dedekind rings (GeometryOfNumbersAndQuadraticArithmeticPartII), K-theory of stable ∞-categories and bounded t-structures (GeneralAlgebraicKTheoryPartII KII.0 and KII.3), stable ∞-categories, spectra and module categories (EnhancedDerivedSheaves E0, E5), homotopy orbits, fixed points and Tate constructions (RefinedTraceMethods RT.2), group completion (StableHomotopyKTheory H.4), the Witt ring of a field (QuadraticFormInvariants Layer 4), real K-theory (ChromaticHomotopyTheory CH.11).\n- **Planned here:** everything in CDH III §1 stated for a general ring, a general M and a general Poincaré structure, with the endpoint Theorems 1 and 3, the quadratic fibre sequence and Karoubi's splitting after inverting 2.\n- **Consumers:** GeometryOfNumbersAndQuadraticArithmeticPartII (gap G1 asks for field surgery and Witt identifications, sign shifts, genuine-versus-periodic comparisons and K₀-controlled subcategories) and KTheoryFiniteLocalFields (finite-field foundation gap). The restructure proposals of the packet name the nodes they should import.\n\n## Reading the plan\n\nEach layer states its targets and then its nodes, numbered §k.i. Definitions and constructions carry an API outline and unit tests that a plausible wrong definition fails; theorems carry hypotheses, a proof route, acceptance checks and prerequisites. Every node cites where its sources state or prove it, in our own words, with theorem and page numbers. The plan is at target level (PROTOCOL.md §2): smaller steps stay in the proof routes. Node identifiers are relative to this roadmap; prerequisites in other roadmaps keep their full identifiers. Every node is a plan, not a formalization.\n\n## Conventions\n\n- R is an associative unital ring, not necessarily commutative; modules are left modules. D^p(R) is the perfect derived ∞-category (GN `PerfectDerivedInfinity`). Connectivity is homological: a spectrum or module E is m-connective if π\\_kE = 0 for k < m and m-truncated if π\\_kE = 0 for k > m.\n- M is an invertible ℤ-module with involution over R (GN `DerivedCoefficientLine`), finitely generated projective for either action; D = Hom\\_R(−,M). R(ε) is the module of an ε-involution, −M negates the involution (−R = R(−1)), M^∨ = Hom\\_R(M,R) lives over R^op.\n- Q^{≥m}\\_M (m ∈ ℤ ∪ {±∞}) is the genuine family of GN §6.8a, with Q^q\\_M = Q^{≥+∞}\\_M and Q^s\\_M = Q^{≥−∞}\\_M. Increasing m moves towards the quadratic end: Q^gq\\_M = Q^{≥2}\\_M, Q^ge\\_M = Q^{≥1}\\_M, Q^gs\\_M = Q^{≥0}\\_M, and Q^q\\_M → ⋯ → Q^{≥m+1}\\_M → Q^{≥m}\\_M → ⋯ → Q^s\\_M. (The extraction's conventions list states the limits the other way round; item 105 and Definition R.3 fix the direction used here.)\n- F^α(R;M) := F(D^p(R),Q^α\\_M) for F = GW, L, K^{tC₂}; F^α(R) := F^α(R;R) and F^{−α}(R) := F^α(R;R(−1)); F^α\\_n := π\\_nF^α. Q[k] := Σ^kQ, so Pn(C,Q[−n]) are the n-dimensional Poincaré objects and L\\_n(C,Q) = L₀(C,Q[−n]) = π\\_nL(C,Q).\n- Ĥ^k(C₂;M) := π\\_{−k}HM^{tC₂}, the Tate cohomology of the underlying abelian group with C₂-action; for an involution σ, Ĥ^0 = ker(1−σ)/im(1+σ) and Ĥ^{−1} = ker(1+σ)/im(1−σ).\n- Coherent means left-coherent and global dimension means left global dimension; right-handed versions follow by passing to R^op (HK.7, §7.4).\n- GW^s\\_cl, GW^q\\_cl, GW^ev\\_cl are the classical group completions of unimodular symmetric, quadratic and even forms; by Hebestreit–Steimle (GN §6.8a) they are the connective covers of GW^gs, GW^gq, GW^ge. L^short := τ\\_{≥0}L^gs.\n\n## Layer overview\n\n| Layer | Title | Main sources |\n| --- | --- | --- |\n| HK.0 | Coefficients, the flavour family and shift periodicity | CDH III R.2, R.4, R.6, R.7, R.9, R.11, R.12; CDH I 3.5.3, 4.2.24 |\n| HK.1 | Metabolic categories, the Bott–Genauer sequence and Karoubi periodicity | CDH III pp. 9–11 (R.8–R.10); CDH I 2.3.5, 2.3.7; CDH II 1.2.5, 3.5.8, 4.3.1–4.3.4 |\n| HK.2 | r-symmetric and m-quadratic Poincaré structures | CDH III 1.1.1–1.1.8, 1.2.10 |\n| HK.3 | Cobordism groups, Lagrangian surgery and bounded L-groups | CDH III 1.1.9–1.1.15, 1.2.1–1.2.5, 1.2.14; CDH I 2.3.10–2.3.11, 2.4.6 |\n| HK.4 | Surgery for m-quadratic structures and Ranicki's symmetric L-groups | CDH III 1.2.6–1.2.25; Ranicki 1980 §§1, 3 |\n| HK.5 | Surgery over connective ring spectra | CDH III 1.2.26–1.2.35; CDH I 1.2.15, 3.1.1, 3.2.12; Lurie HA 7.2.2.19 |\n| HK.6 | Coherent rings, t-structures and surgery for r-symmetric structures | CDH III §1.3 pp. 27–30 (1.3.1–1.3.7) |\n| HK.7 | Comparison ranges for the flavours of L-theory and Grothendieck–Witt theory | CDH III 1.3.9–1.3.18; CDH I 4.2.26; Ranicki 1980 Prop. 4.5 |\n| HK.8 | Fibre sequences and comparisons for classical Grothendieck–Witt theory | CDH III Theorems 1 and 3 and p. 4; CDH II 4.4.13–4.4.14 |\n",
+  "prerequisites": [
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "EnhancedDerivedSheaves",
+    "RefinedTraceMethods",
+    "GeneralAlgebraicKTheoryPartII",
+    "GeneralAlgebraicKTheory",
+    "StableHomotopyKTheory",
+    "ChromaticHomotopyTheory",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
+  ],
+  "stages": [
+    {
+      "key": "HK.0",
+      "title": "Coefficients, the flavour family and shift periodicity",
+      "description": "**Targets.** The operations on invertible ℤ-modules with involution that every later layer uses (line bundles, ε-involutions R(ε), the sign twist −M and the dual M^∨ over the opposite ring), the flavour notation F^α(R;M) for the values of GW, L and K^{tC₂} on the family Q^{≥m}_M, the Tate-cohomology criterion for two consecutive members of the family to coincide, the shift periodicity Ω : (D^p(R),(Q^{≥m}_M)[2]) ≃ (D^p(R),Q^{≥m+1}_{−M}), the passage to the opposite ring, and the identification of the shifted genuine Grothendieck–Witt spectra with classical symmetric, symplectic and quadratic forms. The Poincaré ∞-categories, the perfect derived ∞-category D^p(R), invertible modules with involution and the structures Q^{≥m}_M themselves are GeometryOfNumbersAndQuadraticArithmetic GN.6 (§6.8a of TauCetiRoadmap PR #851) and are imported, not planned.\n\n**Sources.** Calmès et al. III, Recollection R.2, R.4, R.6, R.7, R.9, R.11, R.12 (pp. 7–11); Calmès et al. I, Proposition 3.5.3 and Corollary 4.2.24; Calmès et al. II, §4.3.",
+      "requires": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "RefinedTraceMethods:RT.2",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal"
+      ]
+    },
+    {
+      "key": "HK.1",
+      "title": "Metabolic categories, the Bott–Genauer sequence and Karoubi periodicity",
+      "description": "**Targets.** The metabolic Poincaré ∞-category Met(C,Q) of arrows with the relative form, whose Poincaré objects are Poincaré objects with a Lagrangian; the Bott–Genauer Poincaré–Verdier sequence (C,Q[−1]) → Met(C,Q) → (C,Q); the identification GW(Met(C,Q)) ≃ K(C) and the resulting forgetful/hyperbolic fibre sequence GW(C,Q[−1]) → K(C) → GW(C,Q); Karoubi periodicity V(R;Q^{≥m}_M) ≃ ΩU(R;Q^{≥m+1}_{−M}) without inverting 2, with its two classical special cases; and the periodicity L(R;Q^{≥m}_M) ≃ Ω²L(R;Q^{≥m+1}_{−M}) of every bordism-invariant functor on the genuine family, in particular the 4-periodicity of L^s, L^q and K^{tC₂}. Stable GW and L spectra, Poincaré–Verdier sequences, Verdier localisation of GW and L, the bordification and its integer-shift delooping are GN §6.8a and are imported.\n\n**Sources.** Calmès et al. III, Recollection pp. 9–11 (Theorem R.8, Remark R.9, Corollary R.10); Calmès et al. I, Definition 2.3.5, Lemma 2.3.7; Calmès et al. II, Example 1.2.5, Lemma 3.5.6, Proposition 3.5.8, Corollaries 4.3.1, 4.3.3, 4.3.4.",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "GeneralAlgebraicKTheory:K.4",
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "key": "HK.2",
+      "title": "r-symmetric and m-quadratic Poincaré structures",
+      "description": "**Targets.** The two numerical measures of where an M-compatible Poincaré structure Q on D^p(R) sits between Q^q_M and Q^s_M: Q is r-symmetric when the fibre of Q(P[0]) → Q^s_M(P[0]) is (−r)-truncated and m-quadratic when the cofibre of Q^q_M(P[0]) → Q(P[0]) is m-connective, for every finitely generated projective P; their reduction to P = R and propagation to connective objects; the bounds for the genuine family (Q^{≥m}_M is m-quadratic and (2−m)-symmetric); their invariance under passage to the opposite ring; the translation of connectivity bounds on X and DX into representability by complexes of projectives concentrated in an interval (with stably free and K₀-controlled refinements); and the connectivity estimate for an m-quadratic structure on a shifted projective. Every comparison range of HK.4–HK.7 is computed from these.\n\n**Sources.** Calmès et al. III, §1.1, pp. 12–13 (Remark 1.1.1 to Remark 1.1.8) and Lemma 1.2.10, p. 17.",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "EnhancedDerivedSheaves:E5:presentability"
+      ]
+    },
+    {
+      "key": "HK.3",
+      "title": "Cobordism groups, Lagrangian surgery and bounded L-groups",
+      "description": "**Targets.** The generators-and-relations description of L-groups as cobordism groups of Poincaré objects of the shifted structures Q[−n], compared with the homotopy groups of the L-spectrum of GN §6.8a; Lagrangian surgery, the relative form of algebraic surgery inside Met(C,Q), with the fibre sequences that control the new Lagrangian; the bounded-width monoids L^{a,b}_n(R;Q) of n-dimensional Poincaré objects of width a modulo those with an allowed Lagrangian of width b, with their interpretation through the width criterion; the identification of the Witt group of strictly metabolic quotients with L^{0,0}_0; hyperbolicity of strictly metabolic 1-quadratic forms; and the formal comparison L^{a,a}_n ≅ L^{a,a+1}_n. Algebraic surgery itself (a surgery datum on a Poincaré object produces a cobordant Poincaré object, with the surgery diagram) is GN §6.8a (`PoincareSurgeryDatum`, isotropic surgery) and is imported.\n\n**Sources.** Calmès et al. III, §1.1 pp. 13–15 (Definition 1.1.9 to Construction 1.1.15) and §1.2 pp. 15–19 (Definition 1.2.1, Remarks 1.2.2–1.2.5, Proposition 1.2.14); Calmès et al. I, Definition 2.3.11, Lemma 2.3.10, Corollary 2.4.6; Calmès et al. II, §2.4 and Definition 4.2.6.",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.1",
+        "HermitianKTheoryOfPoincareCategories:HK.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
+      ]
+    },
+    {
+      "key": "HK.4",
+      "title": "Surgery for m-quadratic structures and Ranicki's symmetric L-groups",
+      "description": "**Targets.** Quadratic surgery: for an m-quadratic Q, bounded-width representatives and bounded-width Lagrangians compute L_n(R;Q) when a ≥ n − 2m and b ≥ n − 2m + 1; representatives for L^q_n (surgery below the middle dimension) and for L^gs_n in degrees [−n,0]; the comparison L^q_n(R;M) → L_n(R;Q), an isomorphism for n ≤ 2m − 3 and onto for n = 2m − 2, which is essentially optimal; the identification of L₀ of a 0-quadratic structure, and of L^gs_0, L^ge_0, L_0(Q^{≥m}) for m ≥ 2, with classical Witt groups of symmetric, even and quadratic forms, and of the even non-positive genuine symmetric L-groups; the stably free and K₀-controlled variants; Ranicki's n-dimensional symmetric Poincaré complexes and pairs, his short symmetric and short even L-groups and their negative extension; and Theorem 5: L^short_n(R;M) ≅ L^gs_n(R;M) for all n, with Ranicki's quadratic L-groups equal to L^q_n and different from L^gq_n.\n\n**Sources.** Calmès et al. III, §1.2, pp. 15–23 (Proposition 1.2.6 to Remark 1.2.25); Ranicki, *The algebraic theory of surgery I*, §§1 and 3.",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.3",
+        "HermitianKTheoryOfPoincareCategories:HK.2",
+        "HermitianKTheoryOfPoincareCategories:HK.1",
+        "HermitianKTheoryOfPoincareCategories:HK.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal"
+      ]
+    },
+    {
+      "key": "HK.5",
+      "title": "Surgery over connective ring spectra",
+      "description": "**Targets.** The setting of compact modules Mod^ω_A over a connective E₁-ring A with an invertible module with involution M projective in either structure, the Poincaré structures Q^q_M, Q^s_M, Q^gs_M, the Tate structure Q^t_B of a connective E∞-ring B and the universal structure Q^u on Mod^ω_𝕊, with the Poincaré functors to π₀; the finite presentation of π₀ of a compact connective module and the recognition of (shifted) projectives and of two-term objects by connectivity of X and DX; quadratic surgery over A; lifting of projectives along π₀-isomorphisms; the comparison of L-groups along a 1-connective map, an isomorphism for n ≤ min(2p−1, 2m) and onto for n = min(2p, 2m+1) when the maps on bilinear and linear parts are 1- and p-connective; its consequences: L^q(A;M) ≃ L^q(π₀A;π₀M), the Tate and genuine symmetric comparisons with π₀ and their optimality, and the low-degree comparisons of the sphere with the integers.\n\n**Sources.** Calmès et al. III, §1.2, pp. 23–27 (Proposition 1.2.26 to Example 1.2.35); Calmès et al. I, Definition 3.1.1, Example 1.2.15, Example 3.2.12; Lurie, *Higher Algebra*, Corollary 7.2.2.19.",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.4",
+        "HermitianKTheoryOfPoincareCategories:HK.3",
+        "HermitianKTheoryOfPoincareCategories:HK.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "RefinedTraceMethods:RT.2"
+      ]
+    },
+    {
+      "key": "HK.6",
+      "title": "Coherent rings, t-structures and surgery for r-symmetric structures",
+      "description": "**Targets.** Left-coherent rings of finite left global dimension d; the Postnikov t-structure on D^p(R) for such R and the bounds D(D^p(R)_{≥0}) ⊆ D^p(R)_{≤0}, D(D^p(R)_{≤0}) ⊆ D^p(R)_{≥−d}; r-symmetry and the bounded L-monoids for a stable ∞-category with a t-structure and a duality; symmetric surgery: for D(C_{≤0}) ⊆ C_{≥−d} and an r-symmetric Q, L^{a,b}_n(C,Q) ≅ L_n(C,Q) when a ≥ d−1, b ≥ d, b ≥ a and a ≥ −n+2d−2r; its specialisations to coherent rings (L^{d,d}_n or L^{d−1,d}_n computes L_n for n ≥ d − 2r), the vanishing of odd L-groups in global dimension 0 and the Witt-group description of even L-groups in global dimension ≤ 1; and the L-groups of a field in every flavour. The symmetric L-theory of a t-structured category with duality exchanging the halves, as Witt groups of the heart, is GN §6.8a (`symmetricHeartLTheory`) and is imported.\n\n**Sources.** Calmès et al. III, §1.3, pp. 27–30 (the setting on p. 27, Proposition 1.3.1 to Example 1.3.7); Remark 1.3.5; Example 1.3.11 (for 𝔽₂).",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.4",
+        "HermitianKTheoryOfPoincareCategories:HK.3",
+        "HermitianKTheoryOfPoincareCategories:HK.2",
+        "HermitianKTheoryOfPoincareCategories:HK.1",
+        "HermitianKTheoryOfPoincareCategories:HK.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal"
+      ]
+    },
+    {
+      "key": "HK.7",
+      "title": "Comparison ranges for the flavours of L-theory and Grothendieck–Witt theory",
+      "description": "**Targets.** For R coherent of global dimension d and an r-symmetric M-compatible Q: L_n(R;Q) → L^s_n(R;M) is injective for n ≥ d − 2r + 2 and bijective for n ≥ d − 2r + 3. Theorem 6: L^gs_n → L^s_n and GW^gs_n → GW^s_n are injective for n ≥ d − 2 and bijective for n ≥ d − 1; L^gq_n → L^s_n, L^gq_n → L^gs_n and GW^gq_n → GW^s_n are injective for n ≥ d + 2 and bijective for n ≥ d + 3. Sharpness of the bounds (𝔽₂[ℤ^d], ℤ[ℤ] with ε = −1) and their non-optimality for regular rings; the right-coherent versions; the Dedekind case (injective at −1, bijective from 0 for L^gs; injective at 3, bijective from 4 for L^gq), with 4-periodicity of the non-negative L^gs-groups; the two-degree improvement for 2-torsion-free rings with M = R; the genuine Poincaré structures of form parameters with their ranges and degree-two Witt description; the Burnside form parameter over ℤ; and the L-groups of a field in every flavour. The equivalence GW^s_cl(R;M) ≃ τ_{≥0}GW^s(R;M) for Dedekind R is GN §6.8a (Corollary 1.3.15) and is imported.\n\n**Sources.** Calmès et al. III, §1.3, pp. 30–33 (Corollary 1.3.9 to Example 1.3.18); Calmès et al. I, Definition 4.2.26.",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.6",
+        "HermitianKTheoryOfPoincareCategories:HK.5",
+        "HermitianKTheoryOfPoincareCategories:HK.4",
+        "HermitianKTheoryOfPoincareCategories:HK.2",
+        "HermitianKTheoryOfPoincareCategories:HK.1",
+        "HermitianKTheoryOfPoincareCategories:HK.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-4-the-witt-ring-and-the-fundamental-ideal"
+      ]
+    },
+    {
+      "key": "HK.8",
+      "title": "Fibre sequences and comparisons for classical Grothendieck–Witt theory",
+      "description": "**Targets.** Theorem 1: for every ring R and invertible M, a fibre sequence K(R;M)_{hC₂} →^{hyp} GW^s_cl(R;M) → L^short(R;M) with L^short = τ_{≥0}L^gs, whose homotopy groups are Ranicki's original symmetric L-groups; its quadratic companion K(R;M)_{hC₂} → GW^q_cl(R;M) → τ_{≥0}Σ⁴L^gs(R;M); the recovery of Karoubi's splitting GW^s_{cl,*}(R;M)[1/2] ≅ (K_*(R;M)[1/2])^{C₂} ⊕ W_*(R;M)[1/2] after inverting 2; and Theorem 3: for R coherent of global dimension d, GW^q_{cl,n}(R;M) → GW^s_{cl,n}(R;M) is injective for n ≥ d + 2 and bijective for n ≥ d + 3, and for 2-torsion-free R with M = R injective for n ≥ d and bijective for n ≥ d + 1, also for form parameters and for right-coherent rings. The fundamental fibre sequence K_{hC₂} → GW → L of a Poincaré ∞-category, the Hebestreit–Steimle identification of classical with connective genuine Grothendieck–Witt spectra and the two-inverted genuine L-comparison are GN §6.8a and §6.10b and are imported.\n\n**Sources.** Calmès et al. III, Introduction, Theorems 1 and 3 and the quadratic fibre sequence, pp. 2–4; Recollection R.5, R.10; Corollary 1.3.10 and Remarks 1.3.12, 1.3.16, 1.3.17; Calmès et al. II, Corollaries 4.4.13–4.4.14.",
+      "requires": [
+        "HermitianKTheoryOfPoincareCategories:HK.7",
+        "HermitianKTheoryOfPoincareCategories:HK.4",
+        "HermitianKTheoryOfPoincareCategories:HK.1",
+        "HermitianKTheoryOfPoincareCategories:HK.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6",
+        "StableHomotopyKTheory:H.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "cdh-iii",
+      "title": "Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings",
+      "authors": "Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus, Wolfgang Steimle",
+      "edition": "arXiv:2009.07225v4 (28 April 2026, 63 pp.; to appear in Annals of Mathematics); statement numbers and printed page numbers (printed = PDF page)",
+      "url": "https://arxiv.org/abs/2009.07225v4",
+      "readSections": [
+        "Introduction, pp. 1–5 (Theorems 1–7, Corollary 8, the quadratic fibre sequence)",
+        "Recollection, pp. 6–11 (Definition R.1 to Notation R.12)",
+        "§1.1, pp. 12–15 (Remark 1.1.1 to Construction 1.1.15)",
+        "§1.2, pp. 15–27 (Definition 1.2.1 to Example 1.2.35)",
+        "§1.3, pp. 27–33 (the setting on p. 27, Proposition 1.3.1 to Example 1.3.18)",
+        "§2 opening and §2.1, pp. 33–34 (for the boundary with GN §6.9)"
+      ]
+    },
+    {
+      "id": "cdh-i",
+      "title": "Hermitian K-theory for stable ∞-categories I: Foundations",
+      "authors": "The same nine authors",
+      "edition": "arXiv:2009.07223v3 (27 December 2021); printed page = PDF page",
+      "url": "https://arxiv.org/abs/2009.07223v3",
+      "readSections": [
+        "Example 1.2.15 (p. 21)",
+        "Corollary 1.3.6 (p. 23)",
+        "§2.3, pp. 36–38 (Definition 2.3.5, Lemma 2.3.7, Construction 2.3.8, Lemma 2.3.10, Definition 2.3.11)",
+        "Corollary 2.4.6 (p. 43)",
+        "Definition 3.1.1 (p. 47)",
+        "Lemma 3.2.5, Construction 3.2.6, Examples 3.2.8 and 3.2.12 (pp. 52–53)",
+        "§3.5 opening, Lemma 3.5.1, Proposition 3.5.3 (p. 59)",
+        "Definitions 4.2.2, 4.2.4 (p. 68)",
+        "Proposition 4.2.22 to Definition 4.2.26 and p. 74 (pp. 73–74)"
+      ]
+    },
+    {
+      "id": "cdh-ii",
+      "title": "Hermitian K-theory for stable ∞-categories II: Cobordism categories and additivity",
+      "authors": "The same nine authors",
+      "edition": "arXiv:2009.07224v5 (11 April 2025); printed page = PDF page",
+      "url": "https://arxiv.org/abs/2009.07224v5",
+      "readSections": [
+        "Example 1.2.5 (p. 20)",
+        "Remark 3.5.5 to Proposition 3.5.8 (p. 87)",
+        "Definition 4.2.6 to Corollary 4.3.4 (pp. 100–101)",
+        "Theorem 4.4.11, Corollaries 4.4.13 and 4.4.14 (pp. 106–107)"
+      ]
+    },
+    {
+      "id": "ranicki-ats1",
+      "title": "The algebraic theory of surgery I. Foundations",
+      "authors": "Andrew Ranicki",
+      "edition": "Proceedings of the London Mathematical Society (3) 40 (1980), 87–192; author's archive copy",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/ats1.pdf",
+      "readSections": [
+        "§1 (symmetric Poincaré complexes and their cobordism)",
+        "§3 (Wu classes and even complexes)",
+        "§4 statement of Proposition 4.5 (finite global dimension comparison)"
+      ]
+    },
+    {
+      "id": "lurie-ha",
+      "title": "Higher Algebra",
+      "authors": "Jacob Lurie",
+      "edition": "Author version dated 18 September 2017; page numbers of that PDF",
+      "url": "https://www.math.ias.edu/~lurie/papers/HA.pdf",
+      "readSections": [
+        "§7.2.2, Proposition 7.2.2.18 and Corollary 7.2.2.19 with proof (pp. 1245–1246)"
+      ]
+    }
+  ],
+  "status": "draft"
+}
