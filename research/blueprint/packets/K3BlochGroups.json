@@ -8379,10 +8379,10 @@
   }
  ],
  "review": {
-  "status": "accepted",
+  "status": "needs_changes",
   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
-  "date": "2026-10-10",
-  "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped accepted verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
+  "date": "2026-10-19",
+  "notes": "Codex session codex-kUKQAc, independent of the fixes; follows the immediately preceding review preserved verbatim in reviewHistory. The area /29 ownership repair remains correct: import T.1 perfectness/UCE, retain the plus-fibre adapter, and derive V.5 number-field examples from N.5 and the V.5 theorem, with no reverse N.8 dependency. K-book VI.2.1.2 and VI.5.3 agree with K3(Q(i)) = Z plus Z/24. The current WORKERS shape rule fails: the Lean file has 5105 lines and the comment-stripped data-body diagnostic finds 101 admitted data definitions (for example bStPlus, its basepoint and comparison maps). Reorganize at statement level; whitespace compression would not repair the missing carriers. All seven authorized packets pass check_blueprint with zero errors/warnings, and their actual Lean declarations elaborate serially at Mathlib 082e2d3 / Tau Ceti f790474 with only admitted-declaration warnings (K.1 none). Source readings, retained evidence and per-finding boundaries are distinguished in the review report. The current nineteen-packet queue remains blocked by the seven-packet issue authorization; no additional supplier is certified by this verdict."
  },
  "sourceVersions": [
   {
@@ -8950,6 +8950,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
    "date": "2026-10-10",
    "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Reread K-book VI.5.2–5.4, including the number-field specializations and distinction between the skew tensor quotient and the exterior square. Rechecked V.1 imports from T.1 and the V.5 absence of reverse N.8 prerequisites. Acceptance remains scoped to finding /29 and the area-fix obligations; unrelated Suslin/Hilton–Milnor source gaps are retained. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+   "date": "2026-10-10",
+   "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped accepted verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
   }
  ]
 }

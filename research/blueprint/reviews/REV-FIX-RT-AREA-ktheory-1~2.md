@@ -1,3 +1,292 @@
+# Current independent review — 19 October 2026
+
+Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex (GPT-6), session
+`codex-kUKQAc`. [Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6257063599)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6257064920).
+This reviewer wrote none of the fixes being reviewed.
+
+**Blocked checkpoint with updated verdicts on the seven authorized packets.**
+The issue still names seven packet/Lean pairs; the current queue requires
+nineteen pairs and this report. [WORKERS.md](../WORKERS.md), “Doing the work”,
+says “Edit only the files the issue names.” Expansion authorization was
+requested; none arrived before submission. The twelve additional packets
+were inspected read-only, without replacing their independent reviews.
+The precise resumption list is in the [handoff](../handoff/REV-FIX-RT-AREA-ktheory-1~2.md).
+The completion predicate therefore remains false. Negative review verdicts
+are completed review outcomes; the additional unstamped suppliers cause the
+whole-job blocker. No queue, atlas, issue scope or upstream roadmap was changed.
+
+This opening supersedes the older N.7/T.3 objections below and records new
+Suggested.lean compliance objections. Older findings, source certifications
+and corrections remain attributed to their original reviewers and dates.
+The historical report is preserved, not presented as fresh source reading.
+
+## Current packet outcomes and corrections
+
+All seven immediately preceding `review` objects are preserved verbatim in
+`reviewHistory`, including the accepted dedicated N.7/T.3 reviews of
+18 October. Each new review identifies this area-review job and its scope.
+Packet status, unchecked implementation flags and unrelated gaps are retained.
+
+| Packet | Verdict | Current reason |
+| --- | --- | --- |
+| Arithmetic N.1 | Needs changes | Mathematical area-fix contracts retained; actual admitted data definitions violate the current suggested-file rule. |
+| General K.1 | Needs changes | Early construction/product and late cofinality stages remain proposed; actual parent stages still induce cycles. |
+| Symbols T.3 | Accepted, scoped | Arbitrary-residue DVR support is explicitly routed to a Part II with four contracts; the former unsupported finite-residue import is removed. Supplier registration and other gaps remain open. |
+| Arithmetic N.7 | Accepted, scoped | Direct golden-field generation replaces the unsupported cyclotomic route; exact finite certificates check independently. Three separate gaps and ten requests remain. |
+| General K.6 | Needs changes | Stage ordering remains unresolved; three actual admitted data definitions also violate the current rule. |
+| Symbols T.1 | Needs changes | Mathematical Hopf/transgression repairs retained; actual admitted data definitions violate the current rule. |
+| K3BlochGroups | Needs changes | Mathematical ownership repair retained; actual admitted data and 5,105 lines violate the current rule. |
+
+Two clear N.7 corrections were made:
+
+1. The Gaussian application title now states `K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24`.
+   Its old title described a group of order 24, contradicting the correct
+   free summand already present in the statement and V.5 import.
+2. The existing Gaussian `w₂=24` test now has an explicit primewise proof
+   step, a prerequisite on N.4's two-primary computation and a source for
+   the field comparison. N.4 case (a) gives the factor 8; its odd-prime
+   formula gives only the factor 3. This does not extend the rational
+   odd-weight value 2 to ℚ(i), whose odd-weight value is 4.
+   [K-book VI](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf),
+   Example 2.1.2, chapter p.7, and Corollary 5.3, chapter p.24, support
+   the respective invariant and K₃ specializations.
+
+No Lean file was rewritten. Replacing entire unsupported constructions by
+statement-level plans is substantive follow-up work; a negative review is
+preferable to disguising those constructions by successful elaboration.
+
+## Fresh mathematical evidence
+
+### N.7: the previous /11 objection is resolved
+
+The current proof no longer needs the cyclotomic representatives criticized
+in the older review. I checked the direct ℚ(√5) route: congruence-lattice
+covolumes, compact Minkowski bounds, comparisons of bounded representatives,
+ordinary-unit stretch and the descent across an earlier prime of equal norm.
+The denominator-clearing ideal argument gives strictly earlier support;
+it does not use the old numerical bound alone to infer this support.
+The compact lattice form at Mathlib's pin permits equality at the volume
+threshold. For the large-prime cutoff, `16(2√5/π)²=320/π²<33` supplies the
+stated strict margin. The resulting unramified symbols reduce to ordinary
+unit symbols; their two generators have order at most two, independently
+of Birch–Tate. The two real signs give the independent lower bound four.
+
+An independently written exact-arithmetic verifier checked **11 finite-prime
+certificates, 173 relation witnesses and 23 selected determinants**. It uses
+pairs `(a,b)` with `ε²=ε+1`, rational multiplication/inversion and Bareiss
+elimination, rather than the packet's reader verifier. It checks prime norms,
+the preceding-prime generator lists, residue images and generation, every
+listed unit relation, each selected minor and their gcd. The indices are
+`3,4,8,10,10,18,18,28,28,30,30`. Adding one to a stored witness coordinate
+causes rejection. This run recomputed the selected minors, not a separate
+Smith form of the entire relation lattice; the latter belongs to the
+18 October dedicated review's evidence.
+
+For reproduction without retaining scratch: read `certificateData.certificates`
+of `N.8/golden-finite-prime-certificates`. Multiply
+`(a,b)(c,d)=(ac+bd,ad+bc+bd)` and invert a nonzero pair using
+`((a+b),−b)/(a²+ab−b²)`. For each unit-kernel witness compute the stored
+powers of the old-unit generators, verify `a−b=π·w` and the exponent-vector
+difference. For each stored selected minor recompute the integer determinant;
+the gcd must be `q−1`. Compute residue-unit generation independently and
+use its order `q−1` for the opposite index bound. Mutate one witness and
+require the verifier to reject it.
+
+I also reread the retained Gaussian proof: the radius bound gives earlier
+unit representatives, Tate's criterion handles the large primes, and the
+norm-two step forces the remaining unit symbol to vanish. Neither tame-kernel
+certificate follows from the number-field K₃ structure theorem.
+The source method is [Groenewegen, Bounds for computing the tame kernel](https://scispace.com/pdf/bounds-for-computing-the-tame-kernel-4jcvx5pki0.pdf),
+Math. Comp. 73 (2004), Lemma 7 pp.1448–1449, Lemma 9/Proposition 10 p.1450,
+Lemma 12/Proposition 13 p.1453 and Theorems 14–15 pp.1454–1455.
+The exact relation computations and the replacement golden-field argument
+above were assessed on their own merits, not inferred from a source title
+or the previous review's acceptance.
+
+### T.3: routing repair accepted; supply still outstanding
+
+`restructure[].supportPlan` now explicitly extends upstream
+LocalFieldsRamification to arbitrary residue fields. Its proposed contracts
+cover normalized complete-DVR extensions, the finite free normalization
+lattice and `ef`, determinant norms/valuation/residue identities, and
+componentwise Artin-length base change. The plan retains inseparable residue
+extensions and uses a separable generic extension for its product-of-fields
+base-change assertion. Its bounded-lattice and determinant-filtration
+arguments use existing carriers; no K-theory is required of the supplier.
+
+The controls distinguish ramification from residue degree:
+`ℚ((s))/ℚ((t))`, `s²=t`, has `N(s)=−t`, `e=2,f=1`, whereas the constant
+quadratic extension has `e=1,f=2`. The characteristic-two control allows
+separable generic extension with inseparable residue and nonreduced residue
+tensor. The plan's component lengths retain these multiplicities.
+[Stacks Lemma 10.121.8 (02MJ)](https://stacks.math.columbia.edu/tag/02MJ)
+proves the relevant norm/order identity under finite normalization, without
+finite residue. [Remark 15.116.1 (09EM)](https://stacks.math.columbia.edu/tag/09EM)
+separates generic tensor reduction and integral closure; the stronger
+componentwise identity is derived in the plan, not attributed to that remark.
+[Lemma 10.119.7 (00PD)](https://stacks.math.columbia.edu/tag/00PD)
+provides the DVR recognition criterion. These statement/proof readings are
+fresh; the Gille–Szamuely and Milnor certifications in the dedicated fix
+review remain inherited. I did not reopen or certify those books.
+
+The future supplier must reuse current Tau Ceti's norm-reduction export,
+which postdates the atlas pin, and the pinned graded-piece equivalence.
+The Part II identifiers remain proposals in a routing brief rather than
+executable prerequisites. Its registration/supply gap and all five other
+packet gaps are retained. In particular the finite-rank commutative-ring
+monomial-kernel lemma is a separate T.2:symbols contract; field Matsumoto
+does not supply it. Acceptance here resolves the routing objection to /12
+and /28, without certifying the missing supplier or this other source gap.
+
+### K.1/K.6: actual stage order remains unresolved
+
+The graph on the **470 concrete nodes** in the seven packets is acyclic.
+That check includes only concrete edges within those packets and cannot
+certify external supplier closure. Projecting actual node parents to the
+current atlas stages still gives backwards product dependencies:
+
+- `K.7/products-from-biexact-functors` is a prerequisite of
+  `K.6/nonconnective-spectrum`, against the atlas's `K.6 → K.7`.
+- `K.7/biexact-stabilized-pairing` is a prerequisite of
+  `K.3/localization-product-boundary`, against
+  `K.3 → K.5 → K.6 → K.7`.
+
+The embedded early-product and late-cofinality proposals do not alter those
+actual parents. In particular `K.7:products` and `K.3:cofinality` are not
+registered stages. The maintainer must apply the restructuring; this review
+does not edit atlas data. This preserves the needs-changes verdicts for /4,
+/19's ordering component and /20.
+
+## Fresh validation and its limits
+
+All **19 current queue packets** pass `scripts/check_blueprint.py` with
+**zero errors and zero warnings**. All **seven authorized suggested files**
+elaborate serially with `lean-check`, available memory above 20 GB, at
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and
+Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+
+| Suggested basename | Lines | Errors | Sorry warnings | Actual admitted-data diagnostic |
+| --- | ---: | ---: | ---: | ---: |
+| ArithmeticKTheory--N.1 | 1,911 | 0 | 124 | 7 |
+| GeneralAlgebraicKTheory--K.1 | 817 | 0 | 0 | 0 |
+| K2SymbolsBrauer--T.3 | 605 | 0 | 30 | 0 |
+| ArithmeticKTheory--N.7 | 551 | 0 | 27 | 0 |
+| GeneralAlgebraicKTheory--K.6 | 1,239 | 0 | 6 | 3 |
+| K2SymbolsBrauer--T.1 | 876 | 0 | 72 | 18 |
+| K3BlochGroups | 5,105 | 0 | 807 | 101 |
+
+There were no other Lean warnings in these seven logs. Counts of warnings
+are not counts of theorems proved; some admitted declarations construct data.
+K.1's future signatures occur in comments, so its zero-warning result does
+not type check those signatures.
+
+The admitted-data column is a **diagnostic**, not a claim that blueprint CI
+already enforces this check. The workflow invokes `check_sorry_data.py` only
+for package `Suggested.lean` files. I stripped nested block and line comments
+in scratch, preserving line numbers, then applied that heuristic and manually
+checked actual examples. Raw application to K.1 would count commented
+signatures incorrectly. Concrete offenders in unchanged authorized files:
+
+- N.1 lines 186,191,196,223,229,235,1038: rank/class-group equivalence,
+  base-change, transfer, determinant and roots-of-unity equivalence data.
+- K.6 lines 66,1125,1129: `Ring (coneRing R)` and finite-domination
+  `transport`/`fg` constructions.
+- T.1 lines 93,103,197: relations, elementary Steinberg generator and
+  `centralStar`, among the eighteen diagnostic hits.
+- K3 lines 219,222,225: `bStPlus`, its basepoint and map, among the 101 hits.
+  Its line count also exceeds the binding 5,000-line limit.
+
+The current WORKERS rule states that these files are to state targets using
+light real-bodied definitions over pinned carriers, without admitted data
+or development of missing theory. These examples suffice for the new
+needs-changes outcomes; the heuristic is not a complete audit of every heavy
+construction. The accepted mathematical findings below remain distinct.
+
+As a read-only check of an additional queue output,
+`KTheoryLowDegrees--U.1.lean` **fails elaboration with nine errors** and 946
+sorry warnings: line 4850 (`omega` on the `Fin` zero proof), lines
+7977,7988,7993,7997,8004 (six universe constraints in the native Morita
+interfaces, including two at 8004), and lines 8723,8776 (maps to `ℚˣ`
+passed where maps to `ℚ` are inferred). It has 9,098 lines. This confirms a
+current blocker, not just a historical report. No repair or area-review
+stamp was applied outside authorization. The other eleven additional
+suggested files were not compiled in this run.
+
+Fresh pinned statement checks included Mathlib
+`exists_ne_zero_mem_lattice_of_measure_mul_two_pow_le_measure`
+(`MeasureTheory/Group/GeometryOfNumbers.lean`, line 91),
+`Submodule.natAbs_det_basis_change`
+(`LinearAlgebra/FreeModule/Finite/CardQuotient.lean`, line 85), and Tau Ceti's
+`GroupExtension.InducesAction`, `conjAct_eq_one_of_le_center`,
+`inducesAction_iff_smul_eq_self`
+(`GroupTheory/GroupExtension/FactorSetOfSection.lean`, lines 119–147).
+Current post-pin `TauCeti.Algebra.norm_quotient_mk`
+(`RingTheory/Norm/Quotient.lean`, lines 29–48, commit
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`) was read separately and is not
+claimed available in the pinned build. Current upstream roadmaps and Tau
+Ceti were read-only throughout. No build, update, cache download or language
+server was run. No restricted source was copied or opened in this run.
+
+## Current dispositions of all confirmed findings
+
+Numbers denote `RT-AREA-ktheory-1/<number>`. All /1–/37 and /39 were checked
+against the verifier and round-two fixes. /38 was rejected; /40–/49 are
+outside this job. “Accepted contract” means the authorized packets have a
+correct owner/consumer boundary. It does not accept another supplier packet.
+Unchanged source certifications and previous explicit in-place corrections
+retain the authorship recorded in the historical report below.
+
+| Finding | Current disposition | Reason and boundary |
+| --- | --- | --- |
+| 1 | Accepted contract | Rank-zero Q-stratum is separate; positive-rank assembly imports integral twisted Steinberg duality `St ⊗ ℤχ^(n−1)` for finite-index groups of nonfree projectives. Current Borel R.1 retains this contract. |
+| 2 | Accepted contract; supplier incomplete | Field, smooth-scheme and Dedekind comparisons have separate owners/hypotheses. Current M.7 étale comparison does not by itself supply the whole requested Zariski truncation/naturality contract. |
+| 3 | Accepted contract | Positive-degree Suslin comparison distinguishes KO/KU and the dyadic degree-zero exception; RT.4 supplies real topology. |
+| 4 | Needs changes | Construction and additivity are decomposed, but actual K.7 product parents still point back into K.3/K.6. The proposed early stages need application. |
+| 5 | Accepted corrected contract; destination outstanding | Plus/simple-space Whitehead belongs in H.3; rational Hurewicz belongs in H.6. The destination still places the latter in H.3. This is an ownership objection, not a claim that its H-space theorem is false. |
+| 6 | Accepted contract | Inner-form arithmetic quotient, split archimedean places, specified measures and rational nonzero volume remain explicit. No unrestricted Tamagawa theorem is substituted. |
+| 7 | Accepted repair | Higher S-integer ranks start in degree two; degree one has the S-unit finite-place contribution. |
+| 8 | Accepted ownership repair | General-field symbol and local/global/S-integer Tate statements belong to M.3. T.7 compares conventions and N.6 imports. |
+| 9 | Accepted ownership repair | N.6 owns independent upper/lower certificate bounds, T.5 the elementary K₂ tame sequence, and N.8 the instances. The separate commutative-ring monomial-kernel supplier/source gap remains explicit. |
+| 10 | Accepted repair | N.4 supplies finite twisted invariants and N.3 independent positive-degree finiteness before Birch–Tate is used. |
+| 11 | Accepted replacement repair | Direct golden-field bounds and tied-prime descent plus all eleven exact finite certificates replace the defective cyclotomic representative step; the retained Gaussian argument also checks. |
+| 12 | Accepted routing repair | Arbitrary-residue DVR norms/lattices/lengths now have a detailed proposed Part II owner. Its actual supply remains an open gap; finite-residue Layer 3 is not falsely imported. |
+| 13 | Accepted contract | BGK permits imperfect fields; early differential/Cartier support and prime-power logarithmic Witt inputs remain distinct. |
+| 14 | Accepted repair | Kummer cup product lands in `μₘ ⊗ μₘ`; a root choice supplies the later coordinate contraction. |
+| 15 | Accepted repair/contract | Relative S-construction retains the zero augmentation, canonical path and iterated argument. H.2 owes good realization and the homotopy-fibre comparison. |
+| 16 | Accepted contract | H.5 supplies the graded/truncated chain-to-HR comparison and representability, beyond existence of a spectrum. |
+| 17 | Accepted mathematical repair | Right-module/opposite-ring gluing, resolution, Nil and Laurent inputs remain explicit. Scheme clauses stay in S.2/S.5; K.6's independent ordering/data objections remain. |
+| 18 | Accepted repair/contract | Relative triples and four interior exact positions are separate from negative Bass exactness; general excision does not assert the stronger henselian π₁-surjectivity. U.1's actual Lean errors remain supplier work. |
+| 19 | Mathematical repair accepted; ordering pending | Unital extension and connective continuity precede nonunital matrix-corner/unitization fibres; the corner is not relabelled unital. Stage ordering remains /4's blocker. |
+| 20 | Needs changes | Early free/projective comparison avoids general cofinality, but late exact-category cofinality is still not in the required actual late stage. |
+| 21 | Accepted retained correction | One-step resolution uses ambient admissible-subobject closure; successive bounded-length categories establish the stronger condition needed for induction. Existing exact structures and ExactK₀ are reused. |
+| 22 | Accepted contract | Covering/local-system and realization inputs remain in H.1/H.2/H.3; twisted Serre comparison imports AT8, rather than constant coefficients alone. |
+| 23 | Accepted contract | Scheme coniveau imports H.6 exact-couple, filtered-spectrum and convergence machinery, keeping its own geometric filtration. This is not a whole-packet verdict for SchemeKTheoryOperations. |
+| 24 | Accepted contract | Number-field SK₁ retains finite-index S-unit arguments and the exceptional rank-one cases. |
+| 25 | Accepted contract | Bass–Milnor–Serre stays in the verifier's number-field scope, with reciprocity inputs. No function-field theorem is inferred. |
+| 26 | Accepted repair | K.3 owns the degree-one index/sign and DVR normalization; T.3 cites the exact nodes. T.5 separates outside-S residues from in-S relative exactness. |
+| 27 | Accepted convention contract | Arithmetic Frobenius acts on the second symbol entry, the cubic ℚ₇ control detects inversion, and `c₂,₂=−h` remains. CFT6 separately owes the character-evaluation proof. |
+| 28 | Accepted repair/routing contract | Milnor transfer comparison is separated from residues; the formerly missing complete-DVR substrate is now the proposed Part II of /12. Restricted-source attribution remains inherited, not freshly certified. |
+| 29 | Accepted ownership repair | V.1 imports T.1 perfectness/UCE and owns its plus-fibre adapter; V.5 imports N.5 and has no reverse N.8 dependency. Number-field specializations agree with K-book VI.5.3. Suggested-file compliance remains a separate negative verdict. |
+| 30 | Accepted mathematical repair | Integral bar kernel, H₁=`N/[E,N]`, actual naturality maps and positive boundary remain explicit. Odd-order Heisenberg control detects the opposite sign; the actual comparison is still admitted. |
+| 31 | Accepted corrected contract | The doubled affine plane has vector-bundle K₀=ℤ and perfect K₀=G₀=ℤ². Existing upstream work is recorded as a note, not replanned. |
+| 32 | Accepted contract | AC12 owns point/place and AC2 normalization; EC2 keeps disjoint-support evaluation and uniformizer-last reciprocity conventions. |
+| 33 | Accepted corrected contract; destination outstanding | H.6 owns rational Hurewicz/Cartan–Serre/Milnor–Moore with connectedness and finite-type qualifications. Current R.3→H.3 placement still needs rerouting; see /5. |
+| 34 | Accepted contract | Borel eigenspaces need both S.6 algebraic Adams operations and RT.4 topological comparison. |
+| 35 | Accepted contract | Early ALS.5 Betti/de Rham/Lie-quotient comparison supplies R.2; downstream AS.5 is not used as its prerequisite. |
+| 36 | Accepted contract | Burgos' all-weight normalization and `2^d` determinant factor are retained; weight two remains a control, not an all-weight proof. This run does not renew the historical full Burgos source certification. |
+| 37 | Accepted contract; supply outstanding | Green embedding/root choices, induction/restriction and topological comparison are separated. The actual simple-space argument remains a supplier obligation. |
+| 39 | Accepted contract | General logarithmic Witt theory precedes DVR/TR specialization, with odd-prime/ℤ₍p₎ hypotheses and model comparisons. CR4/5 precede Hyodo–Kato. |
+
+The new negative packet verdicts for N.1/T.1/K3 concern binding suggested-file
+shape. They do not reverse the accepted mathematical contract dispositions.
+The scoped acceptances for N.7/T.3 supersede the old /11,/12,/28 negative
+assessments because their inputs have changed since those assessments.
+
+---
+
+## Historical checkpoint by codex-ZlHsdM — 17 October 2026
+
 # Current scope checkpoint — 17 October 2026
 
 Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex (GPT-6), session
