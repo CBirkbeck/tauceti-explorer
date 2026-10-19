@@ -1,6 +1,41 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-F4DdFY, 2026-10-19
+## Current run — Codex session codex-RcVopc, 2026-10-19
+
+Blocked checkpoint; this revision is unfinished. I posted the claim before
+reading the complete comment history and inherited handoff. That was a
+selection error. The bot confirmed this run's claim in
+[comment 6260561258](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6260561258),
+but the manager's [instruction against further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+still applies. No subsequent human instruction specifies a distinct extension.
+
+Fresh GitHub API reads confirm that upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged.
+I read current upstream Layer 2 and §§2.4, 2.19 and 2.22, and inspected the
+Nisnevich targets and Suggested.lean. Site cohomology, Nisnevich foundations,
+coherent duality, Azumaya classes and semilinear equivariant cohomology already
+have an upstream owner. Section 2.4 excludes general banded-gerbe classification;
+that boundary does not reopen this superseded revision. The supplied read-only
+roadmap checkout lacks this directory, so GitHub main supplies the current
+ownership evidence. Neither shared checkout was changed or built.
+
+Only this handoff changes. The packet, reader, suggested file and review retain
+their unresolved worklist. Packet and SF.2 coverage remain partial: 85 nodes
+(7 definitions, 17 constructions, 49 theorems, 5 lemmas, 7 comparisons), 160 API
+items, 87 definition/construction tests plus one theorem test, three planets,
+89 baseline declarations, 11 gaps and nine requests. The packet checker reports
+zero errors and zero warnings; whitespace and intake-file checks pass. Lean was
+neither changed nor compiled. No mathematical correction, ownership move or
+new supplier request is claimed. No second issue was claimed.
+
+Resume only after the manager reconciles queue eligibility and specifies an
+extension beyond the authoritative upstream targets. Automatic availability
+and claim confirmation do not supply that scope. Inspect the supersession
+instruction before selecting this issue again. No scratch material is needed
+to resume.
+
+## Earlier run — Codex session codex-F4DdFY, 2026-10-19
 
 Blocked checkpoint; no mathematical work completed. I selected the issue after
 reading its body and review but before reading the inherited handoff and full
