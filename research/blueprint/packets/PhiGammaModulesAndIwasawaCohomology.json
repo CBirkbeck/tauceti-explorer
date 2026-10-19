@@ -13,14 +13,14 @@
     "PhiGammaModulesAndIwasawaCohomology:PG.7"
   ],
   "status": "complete",
-  "summary": "Target-level plan for all eight stages: cyclotomic coefficients, corrected Frobenius descent, Fontaine equivalence, overconvergence, arithmetic Herr and ψ operators, derived Iwasawa comparison, unramified Wach lattices and qualified relative cohomology/triangulation. Preserves the 32-node algebraic core and adds 66 target nodes. Every stage is planned; no stage is closed. Explicit source-proof gaps and supplier contracts remain for independent review and refinement. All implementation statuses are unchecked.",
+  "summary": "Target-level plan for all eight stages. PG imports from PadicHodgeTheory (P7 interfaces and P8 relative period sheaves) and FiniteFlatGroupsAndIntegralPadicHodgeTheory the cyclotomic coefficients, Fontaine's equivalence, overconvergence, field-coefficient Herr cohomology and the Wach–D_cris comparison, which those lower-tier roadmaps now own. It plans the extended-ring, integral and relative extensions, the φ–ψ comparison and ψ operator, the derived Iwasawa comparison, Wach good bases and Iwasawa classes, and the Kedlaya–Pottharst–Xiao relative cohomology, rank-one classification and global triangulation.",
   "conventions": {
     "scalar": "Use two copies R and S and the specified Frobenius algebra map. Do not let an inferred identity self-algebra change the tensor product or trace. Normalized trace is constructed integrally at its scalar owner before p-torsion reduction; trace=0 modulo p does not define psi.",
     "fixedCoefficients": "Herr operators and kernels are linear over a fixed coefficient ring C. Phi/psi need not be linear over the period ring. An algebraic basis does not automatically give continuous coordinates in every weak/annular topology.",
     "torsion": "KPX Delta_K is the p-torsion subgroup, trivial for odd p. The roadmap odd-prime full prime-to-p torsion convention requires a comparison; it is not silently identified with KPX. Rational order-two averaging and integral p=2 derived descent are different.",
     "signs": "d0=((F-1),(G-1)), d1=((G-1),-(F-1)); signed comparison=(id,diag(-psi,id),-psi). The psi complex is in cohomological degrees 1 and 2.",
     "comparison": "F:C_phi→C_psi, S:C_psi→C_phi. In functional notation FS=id and id-SF=dH+Hd. In categorical notation S followed by F is identity, and the homotopy is between id and F followed by S.",
-    "status": "Target-level planning pass complete under PROTOCOL §0; every stage planned and none closed. No formalisation claim. The compact suggested Lean file elaborated at the pins with only admitted-proof warnings.",
+    "status": "Target-level planning pass complete under PROTOCOL §0; every stage planned and none closed. Nine nodes are comparison receipts for lower-tier owners and twelve are narrowed to what PG adds (restructure entry 1). No formalisation claim. The compact suggested Lean file elaborates at the pins with only admitted-proof warnings.",
     "radius": "KPX φ maps [s,r] to [s/p,r/p]; Berger’s r parameter grows when the inner geometric radius approaches 1. Never identify these numerical parameters without an adapter.",
     "weights": "HT(Q_p(1))=+1. Berger-positive means all weights ≤0. For [a,b], use T(−b), then N(T)=π^{-b}N(T(−b)) with its Tate basis.",
     "components": "Main notation uses a connected coefficient ring and Γ_K. KL’s all-component Γ=Z_p^× category is compared by induction/restriction, not identified by notation.",
@@ -105,7 +105,7 @@
         "§2.3, pp.21–25: signed comparison and proof, cup and duality statements, residue constants.",
         "§3.1, pp.25–28: entire analytic inverse proof. §3.2, pp.28–31: t-divisibility and normal-basis devissage.",
         "Proposition 3.3.2 and proof, pp.31–34: finite ψ cokernel and contracting tail correction.",
-        "§4.2–§4.3, pp.37–42: specialization, pairings, field finiteness and Proposition 4.3.8 proof.",
+        "§4.2–§4.3, pp.36–42: specialization, pairings, field finiteness and Proposition 4.3.8 proof.",
         "§4.4, pp.42–46: main statements and corollary proofs; the uniform §5 proof is not read.",
         "§6.2, Construction 6.2.4 through Example 6.2.21, pp.56–65: character construction, exceptional cohomology and rank-one classification proofs.",
         "§6.3, pp.65–66, 68–73: definitions, Theorem 6.3.9 and start of proof, Corollary 6.3.10 and specialization proof. Full flattening proof remains a gap."
@@ -148,7 +148,7 @@
       "readSections": [
         "§I.1–I.4, pp.3–6: coefficient rings and Fontaine functor statements.",
         "§II.1–II.4, pp.6–12: rings, ψ, Γ and finite-field-change statements.",
-        "Theorem III.1.1, p.15: cocycle descent. §III.2, pp.16–19: trace estimates located; full estimate proof remains unread.",
+        "Theorem III.1.1, p.16: cocycle descent. §III.2, pp.16–19: trace estimates located; full estimate proof remains unread.",
         "§III.4, pp.21–23: matrix correction proof. §III.5, pp.23–24: final overconvergence proof."
       ],
       "url": "https://webusers.imj-prg.fr/~pierre.colmez/CCinv.pdf",
@@ -261,6 +261,30 @@
       ],
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n2-p01-p.pdf",
       "sha256": "00fb89502da84ea38738734652733ea6487e13686a8e54d32eecf4575d6b0094"
+    },
+    {
+      "id": "CC-1999",
+      "title": "Théorie d'Iwasawa des représentations p-adiques d'un corps local",
+      "authors": "Frédéric Cherbonnier, Pierre Colmez",
+      "edition": "Author 28-page PDF of J. Amer. Math. Soc. 12 (1999), 241–268; locators use the author PDF pagination.",
+      "readDate": "2026-10-19",
+      "readSections": [
+        "§II.1, p.12: Proposition II.1.2 and the statement of Théorème II.1.3; the proof was not read."
+      ],
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/CCjams.pdf",
+      "sha256": "d8f422d1f02a116ad3387826ec1947f8fa1afcac4ed8b89b6564e0e9f245f395"
+    },
+    {
+      "id": "Berger-errata",
+      "title": "Errata for my articles",
+      "authors": "Laurent Berger",
+      "edition": "Author PDF, 12 pages, created 13 October 2026",
+      "readDate": "2026-10-19",
+      "readSections": [
+        "§2, p.3: entries for Definition III.4.1 and Theorem III.4.4 of Limites de représentations cristallines."
+      ],
+      "url": "https://perso.ens-lyon.fr/laurent.berger/articles/errata.pdf",
+      "sha256": "bb42b4f8d684882625adb4b0994cbaeb214141522d4f7ac27237e69317e92f5d"
     }
   ],
   "sourceVersions": [
@@ -346,124 +370,182 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n2-p01-p.pdf",
       "sha256": "00fb89502da84ea38738734652733ea6487e13686a8e54d32eecf4575d6b0094",
       "readDate": "2026-10-19"
+    },
+    {
+      "id": "CC-1999",
+      "edition": "Author 28-page PDF of J. Amer. Math. Soc. 12 (1999), 241–268; locators use the author PDF pagination.",
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/CCjams.pdf",
+      "sha256": "d8f422d1f02a116ad3387826ec1947f8fa1afcac4ed8b89b6564e0e9f245f395",
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "Berger-errata",
+      "edition": "Author PDF, 12 pages, created 13 October 2026",
+      "url": "https://perso.ens-lyon.fr/laurent.berger/articles/errata.pdf",
+      "sha256": "bb42b4f8d684882625adb4b0994cbaeb214141522d4f7ac27237e69317e92f5d",
+      "readDate": "2026-10-19"
     }
   ],
   "imports": [
     {
-      "node": "ColemanPowerSeries:L1/frobenius-zeroth-coordinate-psi",
-      "need": "On Z_p[[T]], the canonical zeroth Frobenius coordinate is the independently constructed bounded psi. The current supplier statement and proof outline were read."
-    },
-    {
-      "node": "ColemanPowerSeries:L1/coleman-trace-psi",
-      "need": "The existing base-valued integral trace is p times bounded psi. Do not replan this comparison."
-    },
-    {
-      "node": "ColemanPowerSeries:L1/coleman-trace-divisibility",
-      "need": "Unique integral trace quotient in the torsion-free scalar ring. This uniqueness is not asserted after arbitrary torsion reduction."
-    },
-    {
-      "node": "ArithmeticGaloisDuality:D7/continuous-derived-cochains",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "ArithmeticGaloisDuality:D7/derived-tensor-and-tor",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "ArithmeticGaloisDuality:D7/local-coefficient-field-duality",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "ArithmeticGaloisDuality:R02.1/carrier-comparison",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "ArithmeticGaloisDuality:R02.2/compact-hochschild-serre",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "LocallyAnalyticDistributions:L3/mellin-generator-change",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "PadicHodgeTheory:P7/b-pair-cohomology-handoff",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "PadicHodgeTheory:P7/b-pair-robba-equivalence",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "PadicHodgeTheory:P7/coefficient-b-pairs",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-frobenius",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-gamma-action",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "node": "PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface",
+      "need": "Owner of the cyclotomic field of norms, A_K, B_K, A, B and the overconvergent rings (moved down from PG.0); PG.0/field-of-norms and PG.0/cyclotomic-coefficients are receipts for it."
     },
     {
       "node": "PadicHodgeTheory:P7:annulus-foundations/plan/overconvergent-cyclotomic-rings",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "need": "The rings A_F, B_F, B^{†,r}_F and B^{†,r}_{rig,F} in the variable π, used by PG.0/cyclotomic-coefficients and PG.0/coefficient-actions."
+    },
+    {
+      "node": "PadicHodgeTheory:P7/plan/robba-ring-of-p-adic-field",
+      "need": "Owner of B^†_{rig,K}=R_K with its topology and the continuous φ and Γ_K, used by PG.0."
+    },
+    {
+      "node": "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-frobenius",
+      "need": "φ(π)=(1+π)^p−1 on the unramified annulus rings, with the basis (1+π)^i over φ, used by PG.0/coefficient-actions."
+    },
+    {
+      "node": "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-gamma-action",
+      "need": "γ_a(π)=(1+π)^a−1 and its isometric action, used by PG.0/coefficient-actions."
+    },
+    {
+      "node": "PadicHodgeTheory:P7/phi-gamma-module-interface",
+      "need": "Owner of (φ,Γ_K)-modules over B_K, B_K^† and R_K and of their étale condition; PG.0/etale-phi-module adds only the integral and extended-ring variants."
+    },
+    {
+      "node": "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
+      "need": "Owner of Fontaine's equivalence (rational, with coefficients, and for lattices) and of Cherbonnier–Colmez overconvergence with D_rig(V) (moved down from PG.1–PG.2); the PG.1 Fontaine nodes are receipts for it."
+    },
+    {
+      "node": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring",
+      "need": "Fontaine's equivalence over the Cohen ring of a characteristic-p field, including torsion modules, which underlies the imported Fontaine functor and the torsion clause of PG.1."
+    },
+    {
+      "node": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-with-coefficients",
+      "need": "Finite coefficient change for étale φ-modules, used by PG.1/torsion-rational-compatibility."
+    },
+    {
+      "node": "PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules",
+      "need": "Owner of Kedlaya–Liu's relative local-system equivalences over Ã_X, Ã_X^†, B̃_X, B̃_X^† and C̃_X; the PG.1 local-system nodes are receipts or extensions of it."
     },
     {
       "node": "PadicHodgeTheory:P8/relative-witt-and-robba-period-sheaves",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "need": "The relative Witt and Robba period sheaves on which the imported local-system equivalences of PG.1 are stated."
     },
     {
-      "node": "PadicHodgeTheory:R06.2/plan/period-functors",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "node": "PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison",
+      "need": "Owner of the comparison of pro-étale cohomology with Frobenius cohomology of period sheaves, used by PG.1/etale-phi-cohomology and PG.3/period-sheaf-cohomology."
     },
     {
-      "node": "PadicHodgeTheory:R06.2/rank-one-de-rham-crystalline-classification",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "node": "PadicHodgeTheory:P7/plan/robba-realisation-comparison",
+      "need": "Owner of the Robba realization D_rig(V) and its finite-radius models for representations, used by PG.2."
     },
     {
-      "node": "PadicHodgeTheory:R06.3/plan/de-rham-differential-equation",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "node": "PadicHodgeTheory:P7/coefficient-b-pairs",
+      "need": "Coefficient B-pairs and strict morphisms, used by PG.2 and PG.7."
+    },
+    {
+      "node": "PadicHodgeTheory:P7/b-pair-robba-equivalence",
+      "need": "Berger's B-pair–Robba equivalence, imported by PG.2/period-sheaf-equivalences. Cite the version in PadicHodgeTheory.json; the same id in PadicHodgeTheory--P7.json cites PG.2 and would close a cycle."
+    },
+    {
+      "node": "PadicHodgeTheory:P8/relative-all-module-bundle-b-pair-equivalence",
+      "need": "Owner of the relative equivalence of φ-modules over C̃_X with vector bundles and B-pairs (PadicHodgeTheory--P7.json; this node does not cite PG); PG.2/period-sheaf-equivalences adds its Γ-equivariant descent over K."
+    },
+    {
+      "node": "PadicHodgeTheory:P7/herr-complex-interface",
+      "need": "Owner of the Herr complex over a finite coefficient field, its generator independence, finite-extension compatibility, Galois comparison, Euler characteristic and duality (moved down from PG.3); PG.3 adds the affinoid, integral and residue-normalization clauses."
+    },
+    {
+      "node": "ArithmeticGaloisDuality:R02.1/carrier-comparison",
+      "need": "Identifies the inhomogeneous continuous cochains with Mathlib's homogeneous carrier, so the Herr comparisons land on the library object."
+    },
+    {
+      "node": "ArithmeticGaloisDuality:D7/continuous-derived-cochains",
+      "need": "Continuous cochains as objects of the derived category, the target of the Galois comparisons in PG.3 and PG.5."
+    },
+    {
+      "node": "ArithmeticGaloisDuality:D7/local-coefficient-field-duality",
+      "need": "Local Tate duality and the Euler characteristic for field coefficients, compared with the Herr-side duality in PG.3/herr-tate-duality."
+    },
+    {
+      "node": "ArithmeticGaloisDuality:R02.2/compact-hochschild-serre",
+      "need": "Relative Hochschild–Serre for a closed normal subgroup, used in the dyadic descent of PG.3/integral-two-descent."
+    },
+    {
+      "node": "PadicHodgeTheory:P7/b-pair-cohomology-handoff",
+      "need": "B-pair cohomology transported from Herr cohomology, compared with the period-sheaf cohomology of PG.3/period-sheaf-cohomology. Cite the version in PadicHodgeTheory.json; the same id in PadicHodgeTheory--P7.json is a different node that cites PG."
+    },
+    {
+      "node": "ColemanPowerSeries:L1/frobenius-zeroth-coordinate-psi",
+      "need": "On Z_p[[T]] the zeroth coordinate in the Frobenius basis is the bounded integral ψ; PG.4/period-psi extends this operator, it does not define a second one."
+    },
+    {
+      "node": "ColemanPowerSeries:L1/coleman-trace-psi",
+      "need": "The integral trace equals p times bounded ψ on Z_p[[T]]; PG.4/period-psi uses it to identify ψ with p^{-1}φ^{-1}Tr on the plus ring."
+    },
+    {
+      "node": "ColemanPowerSeries:L1/coleman-trace-divisibility",
+      "need": "The trace quotient by p is unique in the torsion-free ring; PG.4/period-psi uses this before any reduction modulo p."
     },
     {
       "node": "PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "need": "ψ on measures matches ψ on their Amice series (upstream PadicMeasuresIwasawaAlgebras §2.2, on TauCetiRoadmap main); used for the Mellin reading of ψ-zero modules."
     },
     {
       "node": "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "need": "Measures supported on the units are exactly the ψ-zero ones (upstream §2.2); used in PG.4/period-module-psi."
     },
     {
-      "node": "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "node": "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+      "need": "The Mellin isomorphism D(Γ,K)≅O(W_Γ), used to read ψ-zero modules and Iwasawa pairings as analytic group-ring modules (PG.4, PG.5, PG.6)."
     },
     {
-      "node": "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "node": "LocallyAnalyticDistributions:L3/mellin-generator-change",
+      "need": "Coordinate change for a new topological generator, used where PG changes γ."
     },
     {
       "node": "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
-    },
-    {
-      "node": "SelmerIwasawaCohomology:L3/iwasawa-descent",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "need": "The independently defined inverse-corestriction complex Rlim RΓ(K_n,T) compared with the ψ complex in PG.5."
     },
     {
       "node": "SelmerIwasawaCohomology:L3/iwasawa-shapiro",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "need": "Shapiro's lemma for Iwasawa cohomology, used to identify the Galois side of PG.5."
     },
     {
       "node": "SelmerIwasawaCohomology:L3/rational-specialization",
-      "need": "Use the stated coefficient and topology hypotheses of this existing node; the consuming PG targets prove their specialized comparison maps."
+      "need": "Lattice independence and rational specialization of Iwasawa complexes, used in PG.5."
+    },
+    {
+      "node": "SelmerIwasawaCohomology:L3/iwasawa-descent",
+      "need": "Descent from Iwasawa cohomology to finite level, used in PG.5/finite-character-specialization."
+    },
+    {
+      "node": "ArithmeticGaloisDuality:D7/derived-tensor-and-tor",
+      "need": "Derived tensor, perfect amplitude and the Tor spectral sequence used for derived base change (PG.7) and character specialization (PG.5)."
+    },
+    {
+      "node": "PadicHodgeRegulators:L1/bloch-kato-subgroups",
+      "need": "The Bloch–Kato local conditions H¹_e⊂H¹_f⊂H¹_g, used in PG.5/analytic-bloch-kato-image (replaces the former request to the bare stage)."
+    },
+    {
+      "node": "PadicHodgeRegulators:L1/bloch-kato-exponential",
+      "need": "The Bloch–Kato exponential with im(exp)=H¹_e, used in PG.5/analytic-bloch-kato-image (replaces the former request to the bare stage)."
+    },
+    {
+      "node": "PadicHodgeTheory:R06.3/plan/de-rham-differential-equation",
+      "need": "Berger's N_dR(V)=N_rig(V), used for the t-lattice in PG.5/analytic-bloch-kato-image."
+    },
+    {
+      "node": "PadicHodgeTheory:P7/plan/wach-dcris-comparison",
+      "need": "Owner of the filtered comparison D_cris(V)≅N(V)/πN(V) for Wach modules; PG.6/wach-dcris is a receipt for it."
+    },
+    {
+      "node": "PadicHodgeTheory:R06.2/plan/period-functors",
+      "need": "Fontaine's period functors, used for the de Rham criterion in PG.7/rank-one-classification."
+    },
+    {
+      "node": "PadicHodgeTheory:R06.2/rank-one-de-rham-crystalline-classification",
+      "need": "The field-valued rank-one de Rham and crystalline criterion transported to Robba characters in PG.7/rank-one-classification."
     }
   ],
   "nodes": [
@@ -494,7 +576,7 @@
       "sources": [
         {
           "sourceId": "KL-I",
-          "locator": "§1.5, Definition 1.5.1, p.24.",
+          "locator": "§1.5, Convention 1.5.1, p.24.",
           "match": "Defines semilinear Frobenius through an invertible twisted tensor linearization, with distinct finite/projective/free variants."
         }
       ],
@@ -610,7 +692,7 @@
       "sources": [
         {
           "sourceId": "KL-I",
-          "locator": "Definition 1.5.4 and Remarks 1.5.5–1.5.6, p.25.",
+          "locator": "Definition 1.5.4, p.24; Remarks 1.5.5–1.5.6, p.25.",
           "match": "Identifies Frobenius kernel/cokernel cohomology with skew-polynomial Ext via a two-term free resolution."
         }
       ],
@@ -623,82 +705,35 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.0"
       ],
       "declaration": "fieldOfNorms",
-      "kind": "construction",
-      "title": "Field of norms for APF towers",
-      "statement": "For an arithmetically profinite totally ramified tower L/K of local fields, construct the characteristic-p norm field X_K(L), its valuation and the equivalence of finite separable extensions with finite extensions of L. It identifies Gal(L^sep/L) with Gal(X_K(L)^sep/X_K(L)), functorially in compatible towers and chosen closures. For the Kummer tower E(π^{1/p^n}), the tilt of the completed algebraic closure is the completion of the perfect closure of an algebraic closure of k_E((π^♭)).",
+      "kind": "comparison",
+      "title": "Field of norms of the cyclotomic tower (imported)",
+      "statement": "PG uses the field of norms only for the cyclotomic tower, and imports it. PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface constructs, for K/Q_p finite and K_∞=K(μ_{p^∞}), the field of norms X_K (norm-compatible sequences, addition by limits of norms of sums), identifies it with E_K inside C^♭, matches finite extensions L_∞/K_∞ with finite separable extensions of X_K, and so identifies H_K with G_{X_K}. This node records that PG.0–PG.2 use exactly that statement, for the algebraic closure and roots of unity fixed in the conventions. No general APF construction and no Kummer-tower statement is planned here.",
       "hypotheses": [
-        "K finite over Q_p; tower APF, with the strict APF estimates used for the norm-field construction recorded as an open proof input; E finite over Q_p for the Kummer specialization.",
-        "Choices of compatible roots and separable closures are part of the comparison datum."
+        "K finite over Q_p; the closure and the compatible system of p-power roots of unity are those of the PG conventions."
       ],
       "prerequisites": [
-        "PerfectoidSpaces:P3/finite-extensions-of-perfectoid-fields"
+        "PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface"
       ],
       "proofSteps": [
-        "Build multiplicative norm-compatible sequences; addition is a limit over finite levels and must be proved convergent using APF ramification bounds.",
-        "Lift finite separable extensions through the tower, prove full faithfulness and essential surjectivity, then identify absolute Galois groups.",
-        "Compare two cofinal tower presentations by norm maps and prove the closure-change conjugacy cocycle.",
-        "Apply to the Kummer tower and compare completions and tilts; the foundational APF estimates remain a named gap."
+        "Cite the owner construction, its finite-extension dictionary and the identification H_K≅G_{X_K}; closure changes are the owner's natural equivalences."
       ],
       "acceptance": [
-        "Do not infer the norm-field Galois equivalence merely from writing down a tilt; the APF proof and chosen-closure compatibility are required."
+        "Do not plan a second norm-field construction. The Kummer tower is FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-field-of-norms and is not used by any PG target; the general APF theory of Fontaine–Wintenberger is not needed here."
       ],
       "sources": [
         {
-          "sourceId": "FF-2018",
-          "locator": "Proposition 2.2.15, first proof, pp.109–110; its field-of-norms reference [61].",
-          "match": "Uses the Kummer norm field to identify the completed algebraic-closure tilt; the original APF equivalence proof is an explicit gap."
-        },
-        {
           "sourceId": "Berger-intro",
-          "locator": "§III.2.1, pp.22–23, norm-field equivalence and its cyclotomic use.",
-          "match": "Recalls the norm-field Galois equivalence used for the cyclotomic tower."
+          "locator": "§III.2.1, pp.22–23.",
+          "match": "Recalls the field of norms of the cyclotomic tower and the identification of H_K with the absolute Galois group of E_K, which the owner node states."
         }
       ],
       "implementationStatus": "unchecked",
-      "api": [
-        {
-          "name": "fieldOfNorms.valuation",
-          "role": "characterisation",
-          "statement": "The valuation agrees with normalized finite-level valuations on norm-compatible units and uniformizers."
-        },
-        {
-          "name": "fieldOfNorms.finiteExtension",
-          "role": "equivalence",
-          "statement": "Finite separable extension categories correspond, with their embeddings."
-        },
-        {
-          "name": "fieldOfNorms.cofinal",
-          "role": "compatibility",
-          "statement": "Cofinal changes and changes of closures induce coherent natural equivalences, not chosen equalities of fields."
-        }
-      ],
-      "tests": [
-        {
-          "name": "norm_field_cyclotomic",
-          "statement": "For Q_p(μ_{p^∞}), the residue field is F_p and a cyclotomic uniformizer produces F_p((π̄))."
-        },
-        {
-          "name": "norm_field_kummer_completion",
-          "statement": "For the Kummer tower, the resulting algebraically closed completed tilt agrees with the completion of the corresponding characteristic-p algebraic closure."
-        },
-        {
-          "name": "norm_field_non_apf",
-          "statement": "The constructor does not accept an arbitrary infinite algebraic extension without the APF proof."
-        }
-      ],
       "uses": [
         {
-          "where": "PG.0 period coefficients",
-          "how": "Lift the cyclotomic norm field to the unramified period extension."
-        },
-        {
-          "where": "Fargues–Fontaine Proposition 2.2.15",
-          "how": "Supply precisely the Kummer-tower comparison used there."
+          "where": "PG.0/cyclotomic-coefficients",
+          "how": "Read A_K, B_K and H_K≅G_{X_K} from the owner."
         }
-      ],
-      "planet": {
-        "name": "Field of norms"
-      }
+      ]
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.0/cyclotomic-coefficients",
@@ -707,72 +742,45 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.0"
       ],
       "declaration": "cyclotomicCoefficients",
-      "kind": "construction",
+      "kind": "comparison",
       "title": "Cyclotomic integral and bounded coefficients",
-      "statement": "Fix K⊂K̄ finite over Q_p, K∞=K(μ_{p^∞}), H_K=Gal(K̄/K∞), Γ_K=Gal(K∞/K). Lift the separable closure of the norm field to the p-adically completed maximal unramified extension A of A_{Q_p}, and set A_K=A^{H_K}, B_K=A_K[1/p]. For Q_p, A_{Q_p} is the p-adic completion of Z_p[[π]][1/π]. Construct the overconvergent subrings A_K^†, B_K^† by convergence on some annulus, their injective maps to the analytic Robba carrier, and the weak, p-adic and LF topologies used by the functors.",
+      "statement": "The cyclotomic coefficient rings are imported. PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface supplies the Cohen ring A_K⊂W(C^♭) lifting E_K, B_K=A_K[1/p], the p-adically completed maximal unramified extensions A⊂B with B^{H_K}=B_K, and the overconvergent rings B^{†,r}=B∩B̃^{†,r} and B_K^{†,r}=(B^{†,r})^{H_K}. PadicHodgeTheory:P7:annulus-foundations/plan/overconvergent-cyclotomic-rings gives the presentation for K=Q_p in the variable π, and PadicHodgeTheory:P7/plan/robba-ring-of-p-adic-field gives B^†_{rig,K}=R_K with its Fréchet and LF topologies, its identification with Laurent series in π_K over F′, and the continuous extension of φ and Γ_K. This node adds only the comparison with the Kedlaya–Liu cyclotomic coefficient system, on which Γ=Z_p^× acts on all components: for K≠Q_p its rings are induced from the Γ_K-rings above, and induction and restriction are inverse equivalences of the corresponding (φ,Γ)-module categories.",
       "hypotheses": [
-        "K finite over Q_p; fixed compatible p-power roots of unity; coefficient Frobenius retained on W(k_K).",
-        "Analytic annuli, completed tensor products and restriction maps are imported from P7:annulus-foundations."
+        "K finite over Q_p; fixed compatible p-power roots of unity; the unramified coefficient field is F′=K_∞∩K_0^nr, with Witt Frobenius, as the owner node records.",
+        "The all-component convention is that of Kedlaya–Liu Remark 9.5.3; it is compared with the Γ_K convention by induction, not identified with it by notation."
       ],
       "prerequisites": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.0/field-of-norms",
-        "PadicHodgeTheory:P7:annulus-foundations",
-        "mathlib:cyclotomicCharacter",
+        "PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface",
         "PadicHodgeTheory:P7:annulus-foundations/plan/overconvergent-cyclotomic-rings",
-        "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-frobenius",
-        "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-gamma-action"
+        "PadicHodgeTheory:P7/plan/robba-ring-of-p-adic-field",
+        "mathlib:cyclotomicCharacter"
       ],
       "proofSteps": [
-        "Import the unramified plus/Amice/dagger scalar rings from the precise P7 annulus nodes. Use henselian lifting of finite étale norm-field extensions to construct the universal and general-K rings, then take the filtered union and p-adic completion.",
-        "Define H_K invariants and establish the finite-extension/connected-component convention; Γ_K is the residual action.",
-        "Identify the overconvergent subrings inside the ambient ring and prove injectivity, completion and topology comparisons; the norm estimates are recorded separately."
+        "Read the rings, their inclusions and topologies from the three owner nodes; the cyclotomic character is the Mathlib map.",
+        "Write the Kedlaya–Liu rings of Definitions 9.5.1–9.5.2 as the induction of the owner rings from Γ_K to Z_p^×, and check that induction and restriction are mutually inverse on (φ,Γ)-modules, as Remark 9.5.3 asserts."
       ],
       "acceptance": [
-        "A weak topology is not silently replaced by the p-adic topology; integral A_K and A_K^† are not the rational Robba ring.",
-        "Reuse the underlying Mathlib cyclotomicCharacter and the local normalization/continuity targets in the current LocalGaloisGroups roadmap. Its referenced Tau Ceti local-character file is absent from the current library checkout; local continuity is not claimed built."
+        "The owner distinctions stand: the weak topology is not the p-adic topology, and A_K, A_K^† are not the rational Robba ring.",
+        "Do not identify the all-component category with the Γ_K category by notation."
       ],
       "sources": [
         {
           "sourceId": "CC-1998",
           "locator": "§I.1–I.4, pp.3–6; §II.1–II.2, pp.6–10, author PDF pagination.",
-          "match": "Defines the universal, H_K-fixed and overconvergent coefficient rings and their topology."
+          "match": "Defines the universal, H_K-fixed and overconvergent coefficient rings that the owner nodes import."
         },
         {
           "sourceId": "KL-I",
-          "locator": "Definitions 9.5.1–9.5.2 and Remark 9.5.3, pp.200–201.",
-          "match": "Defines the all-component cyclotomic coefficient system and its relation to the classical Γ_K presentation."
+          "locator": "Definitions 9.5.1–9.5.2, p.200; Remark 9.5.3, p.201.",
+          "match": "Defines the cyclotomic coefficient rings with Γ=Z_p^× acting on all components and says how induction and restriction convert this convention to the Γ_K one."
         }
       ],
       "implementationStatus": "unchecked",
       "api": [
         {
-          "name": "cyclotomicCoefficients.integral_injective",
-          "role": "coercion",
-          "statement": "A_K→B_K→the ambient rational coefficient ring are the canonical injective maps."
-        },
-        {
-          "name": "cyclotomicCoefficients.dagger_completion",
-          "role": "compatibility",
-          "statement": "The dagger inclusion has p-adic completion A_K, with the weak topology specified independently."
-        },
-        {
-          "name": "cyclotomicCoefficients.extension",
-          "role": "functoriality",
-          "statement": "Finite L/K gives compatible maps of coefficient rings and residual Galois actions; connected-component and induced Γ conventions are identified."
-        }
-      ],
-      "tests": [
-        {
-          "name": "coefficients_mod_p",
-          "statement": "For K=Q_p, reduction of A_K is F_p((π̄))."
-        },
-        {
-          "name": "coefficients_integral_not_rational",
-          "statement": "p is not invertible in A_K but is invertible in B_K."
-        },
-        {
-          "name": "coefficients_radius_not_all",
-          "statement": "A Laurent series whose negative coefficients violate every annular growth bound is not admitted to A_K^† even when it defines an element of A_K."
+          "name": "cyclotomicCoefficients.allComponents",
+          "role": "equivalence",
+          "statement": "Induction from Γ_K to Z_p^× identifies (φ,Γ_K)-modules over the owner rings with Kedlaya–Liu all-component (φ,Γ)-modules; restriction is the inverse."
         }
       ],
       "uses": [
@@ -784,10 +792,7 @@
           "where": "PG.2–PG.4",
           "how": "Compare bounded, dagger and annular realizations without conflating carriers."
         }
-      ],
-      "planet": {
-        "name": "Cyclotomic coefficients"
-      }
+      ]
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions",
@@ -798,35 +803,31 @@
       "declaration": "cyclotomicActions",
       "kind": "theorem",
       "title": "Commuting actions and radius changes",
-      "statement": "The coefficient rings carry continuous commuting Frobenius and Γ_K actions. For K=Q_p, φ(π)=(1+π)^p−1 and γ(π)=(1+π)^{χ(γ)}−1, with integral binomial coefficients. On rational annuli, φ:R_A^[s,r](π_K)→R_A^[s/p,r/p](π_K) makes the target finite free of rank p over the source. Finite extensions change radii by the norm-field ramification factor and preserve equivariance.",
+      "statement": "The field-level actions are imported: for K=Q_p, PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-frobenius and /cyclotomic-gamma-action give φ(π)=(1+π)^p−1 and γ(π)=(1+π)^{χ(γ)}−1 with integral binomial coefficients, their commutation and radius behaviour, and the basis (1+π)^i, 0≤i<p, of A_{Q_p} over φ(A_{Q_p}); PadicHodgeTheory:P7/plan/robba-ring-of-p-adic-field extends them to R_K for finite K. This node states the relative form used in PG.4 and PG.7. For a Q_p-affinoid algebra A and 0<s≤r≤C(π_K) put R_A^{[s,r]}(π_K)=R^{[s,r]}(π_K)⊗̂_{Q_p}A. Then φ:R_A^{[s,r]}(π_K)→R_A^{[s/p,r/p]}(π_K) and the Γ_K-action are A-linear, continuous and commuting, and φ makes the target R_A^{[s/p,r/p]}(π_K) a free module of rank p over the source; for K=Q_p a basis is (1+π)^i, 0≤i<p. For finite L/K and small r, R_A^{rẽ_K/ẽ_L}(π_L) is finite étale over R_A^r(π_K), free of rank [L(μ_{p^∞}):K(μ_{p^∞})], equivariantly for Γ_L⊂Γ_K and φ.",
       "hypotheses": [
-        "0<s≤r≤C(π_K); A a Q_p-affinoid algebra for the relative assertion; general-K Frobenius acts on the unramified coefficient field F′ by Witt Frobenius."
+        "0<s≤r≤C(π_K) and A a Q_p-affinoid algebra; on F′ Frobenius acts by Witt functoriality and Γ_K through Gal(F′/F)."
       ],
       "prerequisites": [
         "PhiGammaModulesAndIwasawaCohomology:PG.0/cyclotomic-coefficients",
-        "PadicHodgeTheory:P7:annulus-foundations",
-        "PadicHodgeTheory:P7:annulus-foundations/plan/overconvergent-cyclotomic-rings",
         "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-frobenius",
-        "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-gamma-action"
+        "PadicHodgeTheory:P7:annulus-foundations/plan/cyclotomic-gamma-action",
+        "PadicHodgeTheory:P7/plan/robba-ring-of-p-adic-field",
+        "PadicHodgeTheory:P7:annulus-foundations"
       ],
       "proofSteps": [
-        "Reuse the P7 scalar binomial Γ action and Frobenius norm identities; compare them with the integral norm-field construction rather than prove a second scalar action.",
-        "For general K lift the norm-field action through the finite étale coefficient extension.",
-        "On Q_p annuli use the basis (1+π)^i for 0≤i<p over the Frobenius source; descend the general-K finite-free statement and track the radius constants."
+        "Take the field-level operators, their commutation and radius bounds from the owner nodes.",
+        "Complete the tensor product with A; A-linearity and commutation are inherited, and continuity follows from the owners' Gauss-norm bounds and the completed-tensor contract of the annulus stage.",
+        "For K=Q_p pass the owner decomposition f=Σ_{i<p}(1+π)^iφ(f_i) to the completed tensor product. For general K descend through the finite étale extension of KPX Remark 2.2.4 and track the radius constants."
       ],
       "acceptance": [
-        "Retain both the radius shift and coefficient Frobenius. SourceIssue E1 records the reversed finite-free orientation in the retrieved KPX preprint."
+        "The free module is the target annulus over the source annulus via φ, as corrected in source issue E1; the retrieved KPX v3 prints the opposite orientation.",
+        "Retain both the radius shift [s,r]→[s/p,r/p] and the coefficient Frobenius on F′."
       ],
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Definition 2.2.2, Notation 2.2.3 and Remark 2.2.4, pp.16–17.",
-          "match": "Gives the annular φ map, radius change, finite-free structure and scalar ψ; the retained orientation correction is applied."
-        },
-        {
-          "sourceId": "CC-1998",
-          "locator": "§I.3–I.4 and §II.1, pp.4–7.",
-          "match": "Provides the integral substitution actions, unramified coefficient Frobenius and overconvergent ring maps."
+          "locator": "Definition 2.2.2, Notation 2.2.3 and Remark 2.2.4, p.16.",
+          "match": "Defines the relative annuli R_A^{[s,r]}(π_K), the A-linear φ to R_A^{[s/p,r/p]}(π_K) with its rank-p structure and ψ, the Q_p decomposition by (1+π)^i, and the finite étale extension for L/K; the orientation of the rank-p sentence is corrected (E1)."
         }
       ],
       "implementationStatus": "unchecked"
@@ -840,20 +841,21 @@
       "declaration": "EtalePhiModule",
       "kind": "definition",
       "title": "Étale Frobenius lattices",
-      "statement": "Over an integral coefficient ring an étale object is a finite projective Frobenius module with invertible linearization. Over B_K, B_K^† or the Robba ring it is a finite projective Frobenius module admitting a finite projective integral lattice on which Frobenius linearization is an isomorphism, over A_K, A_K^† or A_K^† respectively. A (φ,Γ_K)-object adds a continuous semilinear Γ_K action commuting with φ. The property is independent of a particular chosen étale lattice. The tilde rational versions use the corresponding tilde integral lattices, with an integral dagger lattice for the extended Robba ring. Γ stabilizes some such lattice; it need not stabilize every chosen Frobenius lattice.",
+      "statement": "The étale condition over B_K, B_K^† and the Robba ring R_K, with finite coefficients, is the owner's (PadicHodgeTheory:P7/phi-gamma-module-interface): a lattice over A_K or A_K^† with invertible Frobenius linearization, and over R_K descent to such an overconvergent module, equivalently all Newton slopes zero. This node adds the two variants PG.1–PG.2 use. (i) Over the integral rings A_K and A_K^†, an étale (φ,Γ_K)-module is a finite projective module with invertible Frobenius linearization and a continuous semilinear Γ_K-action commuting with φ. (ii) Over the extended rings B̃_K, B̃_K^† and R̃_K, a (φ,Γ_K)-module is étale when its underlying φ-module descends to a φ-module over Ã_K, Ã_K^† and Ã_K^† respectively. In each case the property does not depend on the chosen descent, and Γ_K acts on some descent but not necessarily on every one.",
       "hypotheses": [
         "Integral lattice spans the rational module; Γ-stable lattices are chosen when transporting integral representations.",
         "For a relative affinoid, global lattice existence is additional data and is not deduced from pointwise conditions."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/phi-gamma-module-interface",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/phi-module",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/cyclotomic-coefficients",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions"
       ],
       "proofSteps": [
-        "Use the Frobenius category already defined and the existing submodule lattice carrier.",
-        "Express spanning by the scalar-extension isomorphism and impose invertible integral linearization.",
-        "Prove compatible scalar extensions preserve the property and formulate morphisms without fixing an auxiliary lattice."
+        "Use the owner definition over B_K, B_K^† and R_K.",
+        "For the integral and extended rings impose descent of the underlying φ-module with invertible linearization, using the Frobenius category of PG.0/phi-module.",
+        "Prove that compatible scalar extensions preserve the property and formulate morphisms without fixing a descent."
       ],
       "acceptance": [
         "A stable submodule with merely F(N)⊂N is insufficient; require the integral linearization isomorphism."
@@ -862,12 +864,12 @@
         {
           "sourceId": "KL-I",
           "locator": "Definition 9.5.5, p.201.",
-          "match": "Defines étaleness by an integral Frobenius lattice across the classical and tilde rings."
+          "match": "Defines étaleness over B, B†, C and their extended versions by descent of the underlying φ-module to A_K, A_K^†, Ã_K or Ã_K^†, and notes that Γ acts on some descent but not on all."
         },
         {
           "sourceId": "KPX-v3",
-          "locator": "Definitions 2.2.6 and 2.2.12, pp.17–19.",
-          "match": "Distinguishes finite projective relative modules and representation realizations from arbitrary Robba modules."
+          "locator": "Definitions 2.2.6 and 2.2.12, pp.17–18.",
+          "match": "Distinguishes finite projective relative (φ,Γ)-modules from Galois realizations."
         }
       ],
       "implementationStatus": "unchecked",
@@ -911,10 +913,7 @@
           "where": "PG.7",
           "how": "Keep global and fiberwise conditions distinct."
         }
-      ],
-      "planet": {
-        "name": "Étale Frobenius lattices"
-      }
+      ]
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-D",
@@ -923,21 +922,21 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.1"
       ],
       "declaration": "fontaineD",
-      "kind": "construction",
+      "kind": "comparison",
       "title": "Fontaine invariants functor",
-      "statement": "For a continuous G_K-action on a finite free Z_p-module T, define D(T)=(A⊗_{Z_p}T)^{H_K}, with the diagonal H_K action, residual Γ_K action and coefficient Frobenius. Construct its map A⊗_{A_K}D(T)→A⊗T and prove it is an equivariant isomorphism. D(T) is finite free of rank rank(T), with continuous actions and invertible Frobenius linearization.",
+      "statement": "Fontaine's functor is imported. PadicHodgeTheory:P7/etale-realization-and-overconvergence states that V↦D(V)=(B⊗V)^{H_K} is an exact tensor equivalence onto étale (φ,Γ_K)-modules over B_K, extending to finite coefficients and to stable Z_p-lattices T↦D(T)=(A⊗_{Z_p}T)^{H_K} over A_K; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring gives the underlying equivalence for the Cohen ring of the norm field E_K, which with H_K≅G_{E_K} identifies D(T) as a finite free A_K-module of rank rank(T) with A⊗_{A_K}D(T)≅A⊗T. PG uses D(T) with the diagonal H_K-invariants, the residual Γ_K-action and the coefficient Frobenius, and adds nothing to its construction.",
       "hypotheses": [
-        "The universal unramified ring A and fixed-field comparison are the PG.0 objects; topology on T is p-adic."
+        "K finite over Q_p; T finite free over Z_p with continuous G_K-action; the rings are those of PG.0/cyclotomic-coefficients."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/etale-phi-module",
-        "PhiGammaModulesAndIwasawaCohomology:PG.0/field-of-norms",
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/asw-equivalence"
+        "PhiGammaModulesAndIwasawaCohomology:PG.0/field-of-norms"
       ],
       "proofSteps": [
-        "At each p^n level apply the corrected Frobenius descent theorem over the norm field with its Galois action.",
-        "Prove compatible descent and lift bases p-adically; control invariants against the inverse limit.",
-        "The tensor evaluation map gives the comparison; prove its linearization and Γ continuity from the scalar maps."
+        "Cite the owner equivalence for lattices and the Cohen-ring equivalence for the comparison isomorphism A⊗_{A_K}D(T)≅A⊗T and the rank.",
+        "Read the Γ_K-action as the residual action G_K/H_K on invariants, as the owner does."
       ],
       "acceptance": [
         "Take invariants of the diagonal tensor product, never invariants of A alone followed by an unproved tensor identity."
@@ -945,47 +944,16 @@
       "sources": [
         {
           "sourceId": "CC-1998",
-          "locator": "§I.4, Fontaine functors, pp.5–6.",
-          "match": "Recalls the H_K-invariant Fontaine functor and its scalar-extension evaluation; the original proof remains a gap."
+          "locator": "§I.4, pp.5–6.",
+          "match": "Recalls Fontaine's functor D(V)=(A⊗V)^{H_K} and its scalar-extension comparison, which the owner node states."
         },
         {
           "sourceId": "KL-I",
-          "locator": "Theorem 9.5.4(a)–(c), p.201.",
-          "match": "Gives the cyclotomic integral realization equivalences built from Frobenius descent."
+          "locator": "Theorem 9.5.4(a)–(b), p.201.",
+          "match": "States the equivalence of Z_p-representations with (φ,Γ)-modules over A_K, attributing (a)–(e) to Fontaine and Cherbonnier–Colmez."
         }
       ],
       "implementationStatus": "unchecked",
-      "api": [
-        {
-          "name": "fontaineD.map",
-          "role": "functoriality",
-          "statement": "An equivariant Z_p-linear f induces 1⊗f on H_K-invariants."
-        },
-        {
-          "name": "fontaineD.comparison",
-          "role": "characterisation",
-          "statement": "a⊗x maps to a x in A⊗T and is an equivariant isomorphism."
-        },
-        {
-          "name": "fontaineD.rank",
-          "role": "structure",
-          "statement": "rank_{A_K}D(T)=rank_{Z_p}T, with actual finite freeness."
-        }
-      ],
-      "tests": [
-        {
-          "name": "fontaine_D_trivial",
-          "statement": "For T=Z_p with trivial action, D(T)=A_K with its coefficient actions."
-        },
-        {
-          "name": "fontaine_D_cyclotomic",
-          "statement": "For T=Z_p(1), the basis inherited from the twist has φ(e)=e and γ(e)=χ(γ)e."
-        },
-        {
-          "name": "fontaine_D_direct_sum",
-          "statement": "For Z_p⊕Z_p(1), the action matrices are diag(1,1) for φ and diag(1,χ(γ)) for Γ; the rank is two."
-        }
-      ],
       "uses": [
         {
           "where": "PG.1 equivalence",
@@ -995,10 +963,7 @@
           "where": "PG.4–PG.5",
           "how": "Use actual étale module coordinates in ψ-cohomology."
         }
-      ],
-      "planet": {
-        "name": "Fontaine invariants functor"
-      }
+      ]
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-V",
@@ -1007,68 +972,36 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.1"
       ],
       "declaration": "fontaineV",
-      "kind": "construction",
+      "kind": "comparison",
       "title": "Frobenius-fixed inverse functor",
-      "statement": "For an étale (φ,Γ_K)-module D over A_K, define V(D)=(A⊗_{A_K}D)^{φ=1}. G_K acts through its action on A and its quotient action on D. Prove V(D) is finite free over Z_p of rank rank(D), with continuous G_K-action, and that A⊗V(D)→A⊗D is an equivariant isomorphism.",
+      "statement": "The inverse functor is imported with the owner's equivalence (PadicHodgeTheory:P7/etale-realization-and-overconvergence): for an étale (φ,Γ_K)-module D over A_K, V(D)=(A⊗_{A_K}D)^{φ=1} is a finite free Z_p-module of rank rank(D) with continuous G_K-action, and A⊗V(D)→A⊗D is an equivariant isomorphism; over the Cohen ring this is FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring. PG uses V(D) to reconstruct lattices in PG.2 and PG.6.",
       "hypotheses": [
-        "D finite free integral étale; use the source-supported finite projective version over components when necessary."
+        "D finite free étale over A_K; G_K acts through A and its quotient action on D."
       ],
       "prerequisites": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.0/etale-phi-module",
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/asw-equivalence"
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring",
+        "PhiGammaModulesAndIwasawaCohomology:PG.0/etale-phi-module"
       ],
       "proofSteps": [
-        "Trivialize Frobenius at finite p^n level using the basis torsor.",
-        "Take the compatible fixed bases and descend the resulting Z_p-module, proving continuity rather than supplying an abstract action.",
-        "Use the fixed-vector evaluation map to identify the scalar extension."
+        "Cite the owner inverse functor and its comparison isomorphism."
       ],
       "acceptance": [
-        "An arbitrary Robba Frobenius module does not satisfy this finite-dimensional fixed-vector theorem."
+        "An arbitrary Robba Frobenius module does not satisfy this finite-rank fixed-vector theorem."
       ],
       "sources": [
         {
           "sourceId": "CC-1998",
           "locator": "§I.4, pp.5–6.",
-          "match": "Recalls the Frobenius-fixed inverse construction; the finite-level and limit proof inputs are retained explicitly."
+          "match": "Recalls the inverse functor by Frobenius-fixed vectors."
         },
         {
           "sourceId": "KL-I",
-          "locator": "Theorem 9.5.4(a)–(c), p.201.",
-          "match": "Gives the integral equivalence and its inverse fixed-vector realization."
+          "locator": "Theorem 9.5.4(a)–(b), p.201.",
+          "match": "States the integral equivalence whose inverse is the fixed-vector realization."
         }
       ],
       "implementationStatus": "unchecked",
-      "api": [
-        {
-          "name": "fontaineV.map",
-          "role": "functoriality",
-          "statement": "A module morphism induces 1⊗f on φ-fixed vectors."
-        },
-        {
-          "name": "fontaineV.comparison",
-          "role": "characterisation",
-          "statement": "a⊗v maps to av, with its diagonal G_K action."
-        },
-        {
-          "name": "fontaineV.continuous",
-          "role": "structure",
-          "statement": "The resulting G_K action is continuous for the p-adic topology."
-        }
-      ],
-      "tests": [
-        {
-          "name": "fontaine_V_trivial",
-          "statement": "The φ-fixed vectors of the universal coefficient ring are Z_p, recovering the trivial lattice."
-        },
-        {
-          "name": "fontaine_V_twist",
-          "statement": "The standard Γ twist reconstructs Z_p(1), including its nontrivial Galois character."
-        },
-        {
-          "name": "fontaine_V_rank_zero",
-          "statement": "The zero module reconstructs the zero lattice, with the unique continuous action."
-        }
-      ],
       "uses": [
         {
           "where": "PG.1 equivalence",
@@ -1087,40 +1020,37 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.1"
       ],
       "declaration": "fontaineEquivalence",
-      "kind": "theorem",
+      "kind": "comparison",
       "title": "Fontaine equivalence and comparison identities",
-      "statement": "The functors D and V are inverse exact tensor equivalences between continuous finite free Z_p-representations of G_K and integral étale (φ,Γ_K)-modules over A_K. Their natural maps T→V(D(T)), t↦1⊗t, and D→D(V(D)), induced by the two evaluation comparisons, are isomorphisms satisfying both triangle identities.",
+      "statement": "Fontaine's equivalence is imported: PadicHodgeTheory:P7/etale-realization-and-overconvergence states that D and V are mutually inverse exact tensor equivalences between continuous Q_p-representations of G_K and étale (φ,Γ_K)-modules over B_K, and between stable Z_p-lattices and integral étale modules over A_K, compatibly with finite coefficient fields. PG uses the unit T→V(D(T)), t↦1⊗t, and counit D→D(V(D)) of that equivalence, and their compatibility with the comparison isomorphisms over A.",
       "hypotheses": [
-        "K finite over Q_p; integral categories and topologies as above."
+        "K finite over Q_p; integral categories and topologies as in the owner node."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-D",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-V"
       ],
       "proofSteps": [
-        "Use the evaluation maps after faithfully flat extension to A, then descend their inverses.",
-        "Check both triangles on pure tensors and prove naturality; this yields full faithfulness and essential surjectivity.",
-        "Prove exactness at finite level and through p-adic passage, and tensor/dual compatibility by the same comparison maps."
+        "Cite the owner equivalence; the unit and counit are its natural transformations, checked on pure tensors after extension to A."
       ],
       "acceptance": [
-        "The equivalence is a target to prove, not a structure field assumed in either functor."
+        "The equivalence is the owner's theorem, not a structure field assumed in either functor."
       ],
       "sources": [
         {
           "sourceId": "KL-I",
-          "locator": "Theorem 9.5.4(a)–(c), p.201.",
-          "match": "States the equivalences between continuous representations and integral/rational étale cyclotomic modules."
+          "locator": "Theorem 9.5.4(a)–(b), p.201; Theorem 9.5.6(a)–(b), p.201.",
+          "match": "States the integral and rational equivalences with étale (φ,Γ)-modules over A_K and B_K."
         },
         {
           "sourceId": "CC-1998",
           "locator": "§I.4, pp.5–6.",
-          "match": "Recalls the classical equivalence used as the starting point for overconvergence."
+          "match": "Recalls the classical equivalence."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Fontaine equivalence"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
@@ -1131,20 +1061,23 @@
       "declaration": "fontaineCoefficientCompatibility",
       "kind": "theorem",
       "title": "Torsion, rational coefficients and change of field",
-      "statement": "The same descent compares finite p-primary Z_p-modules with the corresponding finite étale torsion A_K-modules, and finite-dimensional Q_p-representations with étale B_K-modules. It commutes with reduction of a lattice modulo p^n, inversion of p after choosing a lattice, finite flat coefficient extension, tensor products, duals and restriction/induction for finite L/K through the explicit ring maps.",
+      "statement": "Over the owner's rational and lattice equivalences (PadicHodgeTheory:P7/etale-realization-and-overconvergence), PG adds the torsion and change-of-field clauses it uses. The functor T↦(A⊗T)^{H_K} identifies finite p-primary Z_p-modules with continuous G_K-action with finite étale torsion (φ,Γ_K)-modules over A_K; it commutes with reduction of a lattice modulo p^n, with inverting p after choosing a lattice, with finite flat coefficient extension (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-with-coefficients), with tensor products and duals, and with restriction and induction for finite L/K through the ring maps of PG.0/coefficient-actions.",
       "hypotheses": [
         "Finite torsion objects may have mixed elementary divisors; finite free Z/p^n coefficients are the basic ASW case, extended by exact devissage.",
         "For Q_p coefficients choose a G_K-stable Z_p-lattice and prove independence; scalar extensions are finite flat, not arbitrary nonflat functors."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-with-coefficients",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/asw-projectivity"
       ],
       "proofSteps": [
-        "Prove the finite free Z/p^n case first; construct presentations and use exactness for finite mixed torsion.",
-        "A rational representation has a stable lattice by compactness; use commensurability to compare lattice choices after p is inverted.",
-        "Identify restriction on rings and residual Γ groups; construct induction and trace maps, with their transitivity."
+        "Torsion modules: the Cohen-ring equivalence of the FiniteFlat owner covers finitely generated étale φ-modules over the Cohen ring, torsion included; add the Γ_K-action by the residual action as the owner of the rational case does, and use exact dévissage for mixed elementary divisors.",
+        "A rational representation has a stable lattice by compactness; compare lattice choices after inverting p.",
+        "Coefficient change is the FiniteFlat owner's; identify restriction on rings and residual Γ-groups and construct induction and trace maps with their transitivity."
       ],
       "acceptance": [
         "Do not call a mixed-torsion object finite free over Z/p^n; do not assert arbitrary integral exactness for nonflat coefficient change."
@@ -1152,13 +1085,13 @@
       "sources": [
         {
           "sourceId": "KL-I",
-          "locator": "Proposition 3.2.7, pp.73–74; Theorem 9.5.6(a)–(b), pp.201–202.",
-          "match": "Supplies finite-level Frobenius descent and integral/rational realization categories."
+          "locator": "Proposition 3.2.7, p.74; Theorem 9.5.6(a)–(b), p.201.",
+          "match": "Supplies finite-level Frobenius descent and the integral and rational realization categories."
         },
         {
           "sourceId": "KPX-v3",
-          "locator": "Lemma 2.2.18, pp.20–21.",
-          "match": "States finite-coefficient representation realization and its tensor compatibilities; mixed torsion passage is a target proof obligation."
+          "locator": "Lemma 2.2.18, p.20.",
+          "match": "States finite-coefficient representation realization and its tensor compatibilities; the mixed-torsion passage is a target here."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1178,6 +1111,7 @@
         "At general K use the character construction with all embeddings, not a single coordinate δ(p)."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
         "PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-characters"
       ],
@@ -1431,34 +1365,27 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.1"
       ],
       "declaration": "perfectoidIntegralPhiEquivalence",
-      "kind": "theorem",
+      "kind": "comparison",
       "title": "Integral local systems over perfectoid bases",
-      "statement": "For a perfect uniform Banach F_{p^d}-algebra R with d>0, finite locally free Z_{p^d}-local systems on Spec R and on Spa(R,R⁺) are equivalent to φ^d-modules over W(R) and over the integral extended Robba ring. For a perfectoid untilt A, the same local systems are obtained on Spa(A,A⁺). The equivalences glue to perfectoid spaces and commute with coefficient extension d|e. A subring R₀ with completed perfection R may be used only when R₀ is complete.",
+      "statement": "The integral local-system equivalence is imported from PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules: for X preadic over Q_{p^d}, finite locally free étale Z_{p^d}-local systems are equivalent to φ^d-modules over Ã_X and over Ã_X^†, compatibly with rank, tensor products, duals and pullback, with inverse given by φ^d-fixed sections. The ring statement for a perfect uniform Banach algebra and its untilts (Kedlaya–Liu Theorems 8.5.3 and 8.5.5) is the affinoid perfectoid case used inside the owner proof. PG uses it only for X=Spa(K,O_K), through the cyclotomic perfectoid cover, in PG.2 and PG.3.",
       "hypotheses": [
-        "R perfect uniform; R⁺ open integrally closed; A a specified perfectoid untilt.",
-        "Witt/extended period sheaf carriers and tilting of étale sites are imported, not recreated."
+        "d>0; X preadic over Q_{p^d} with the Kedlaya–Liu pro-étale site; the period sheaves are those of PadicHodgeTheory:P8/relative-witt-and-robba-period-sheaves."
       ],
       "prerequisites": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/asw-equivalence",
-        "PerfectoidSpaces:P3",
-        "PadicHodgeTheory:P8",
-        "PerfectoidSpaces:P3/etale-site-tilting-and-etale-almost-acyclicity",
-        "PerfectoidSpaces:P3/henselian-finite-etale-approximation",
+        "PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules",
         "PadicHodgeTheory:P8/relative-witt-and-robba-period-sheaves"
       ],
       "proofSteps": [
-        "Take compatible torsion local systems and their Witt modules; show φ-fixed bases descend from W to the integral extended Robba ring using successive Artin–Schreier matrix corrections.",
-        "Apply finite étale tilting and glue on perfectoid affinoids.",
-        "Use completeness for the R₀ comparison; do not replace the inverse limit by invariants without a compatibility argument."
+        "Cite the owner equivalence and specialize to X=Spa(K,O_K)."
       ],
       "acceptance": [
-        "Global affinoid equivalence and sheafwise gluing are separate steps; the integral Robba comparison is not a consequence of the ring inclusion alone."
+        "The ring-level and sheaf-level statements are the owner's; PG does not restate Kedlaya–Liu's perfectoid descent."
       ],
       "sources": [
         {
           "sourceId": "KL-I",
-          "locator": "Lemma 8.5.2 and Theorem 8.5.3, pp.169–170; Theorem 8.5.5, p.171.",
-          "match": "Equates integral local systems with Witt and integral extended Robba Frobenius modules, including untilts and gluing."
+          "locator": "Lemma 8.5.2 and Theorem 8.5.3, p.169; Theorem 8.5.5, p.171.",
+          "match": "Equates integral local systems with Witt and integral extended Robba Frobenius modules over perfect uniform bases and their untilts, the case used in the owner proof."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1545,19 +1472,21 @@
       "declaration": "globallyPurePhiEquivalence",
       "kind": "theorem",
       "title": "Global étale and pure comparison",
-      "statement": "On the perfect uniform base R, isogeny Z_{p^d}-local systems correspond to globally étale φ^d-modules over W(R)[1/p], the bounded extended Robba ring and the extended Robba ring. More generally (c,d)-local systems correspond to globally (c,d)-pure Frobenius modules over the same rings, with the compatible untilt versions. The completed-perfection comparison requires a complete R₀.",
+      "statement": "The étale case is imported: PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules identifies rational Q_{p^d}-local systems with étale φ^d-modules over B̃_X, B̃_X^† and C̃_X. This node keeps the ring-level (c,d) statement of Kedlaya–Liu used for the slope bookkeeping in PG.1: on a perfect uniform base R, isogeny (c,d)-local systems correspond to globally (c,d)-pure φ^d-modules over W(R)[1/p], the bounded extended Robba ring and the extended Robba ring, with the untilt versions; the completed-perfection comparison needs a complete R₀.",
       "hypotheses": [
-        "Definitions and hypotheses of the preceding two nodes; globally pure means a single integral lattice for the twisted iterate, not merely pointwise slope."
+        "The definitions of PG.1/pure-local-systems; globally pure means a single integral lattice for the twisted iterate, not merely pointwise slope.",
+        "VectorBundlesAndIsocrystals:VB4/pure-modules-local-systems states the sheaf version; ownership between the two higher roadmaps is recorded for the maintainer."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-local-systems",
         "PadicHodgeTheory:P7:annulus-foundations"
       ],
       "proofSteps": [
-        "Rationalize the integral equivalence for globally étale modules.",
+        "For c=0 cite the owner equivalence on X=Spa(R,R^+).",
         "Reduce the twisted-iterate condition to the étale case by the unramified cyclic descent encoded by τ.",
-        "Prove bounded-to-Robba descent for the globally pure lattice; separate it from local pure slope criteria."
+        "Prove bounded-to-Robba descent for the globally pure lattice; keep it separate from local pure-slope criteria."
       ],
       "acceptance": [
         "Restore completeness in the R₀ clause of Theorem 8.5.8, as required by the accepted routed correction; no novelty claim."
@@ -1580,19 +1509,17 @@
       "declaration": "etalePhiCohomologyComparison",
       "kind": "comparison",
       "title": "Étale cohomology from Frobenius",
-      "statement": "For a Z_{p^d}-local system T on Spec R and its W(R) or integral extended Robba φ^d-module M, H^i_ét(Spec R,T)≅H^i_{φ^d}(M) for all i. The isogeny version holds for globally étale modules over the three rational rings, with H(T) rationalized in the source-defined order.",
+      "statement": "The comparison of cohomology with Frobenius cohomology is imported from PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison: for a local system T or V and its integral or étale rational φ^d-module realization, pro-étale cohomology is the hypercohomology of [M→M] with differential φ^d−1. The Spec R statement of Kedlaya–Liu Theorem 8.6.2 is the affinoid case inside the owner proof. PG uses the comparison for X=Spa(K,O_K) in PG.3/period-sheaf-cohomology.",
       "hypotheses": [
-        "R perfect uniform Banach over F_{p^d}; d>0; isogeny objects admit a global integral lattice.",
-        "The X left unbound in the printed Theorem 8.6.2 is Spec R."
+        "d>0; the module is the realization of a local system, not an arbitrary positive sheaf."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/phi-cohomology",
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence"
+        "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems"
       ],
       "proofSteps": [
-        "Use the Artin–Schreier–Witt exact sequence of étale sheaves and affine acyclicity at each finite Witt length.",
-        "Pass through the compatible p-adic inverse system with its derived-limit comparison, keeping the latter as an explicit proof obligation.",
-        "For rational rings use the Ext interpretation in degrees 0 and 1 and the source pure-extension devissage."
+        "Cite the owner comparison and specialize to X=Spa(K,O_K); the Ext reading of degrees 0 and 1 is PG.0/phi-cohomology."
       ],
       "acceptance": [
         "Do not infer acyclicity of a p-adic sheaf from acyclicity of each truncation without controlling the inverse limit."
@@ -1615,40 +1542,37 @@
       "declaration": "cherbonnierColmez",
       "kind": "theorem",
       "title": "Cherbonnier–Colmez overconvergence",
-      "statement": "For K finite over Q_p and V a finite-dimensional continuous Q_p-representation of G_K, D^†(V)=(B^†⊗V)^{H_K} has full rank, and B_K⊗_{B_K^†}D^†(V)→D(V) is an equivariant isomorphism. A basis and its action matrices descend to a single sufficiently large convergence parameter (equivalently a sufficiently small radius). The integral version gives the corresponding A_K^† realization of a lattice.",
+      "statement": "Overconvergence of representations is imported: PadicHodgeTheory:P7/etale-realization-and-overconvergence states that for every finite-dimensional continuous Q_p-representation V of G_K, D^{†,r}(V)=(B^{†,r}⊗V)^{H_K} has rank dim V for r large, D(V)=B_K⊗D^†(V), and D_rig(V)=R_K⊗D^†(V), with finite coefficients. PG adds only the integral clause it uses: for a stable lattice T, D^†(T)=(A^†⊗T)^{H_K} is an étale (φ,Γ_K)-module over A_K^† with A_K⊗D^†(T)=D(T).",
       "hypotheses": [
-        "The GK action is essential; an arbitrary continuous HK representation need not be overconvergent.",
-        "Weak, annular and LF topologies and parameter-direction conventions are explicit."
+        "The G_K-action is essential: an arbitrary continuous H_K-representation need not be overconvergent.",
+        "The integral clause uses the integral étale categories of PG.0/etale-phi-module."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
-        "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions"
+        "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions",
+        "PhiGammaModulesAndIwasawaCohomology:PG.0/etale-phi-module"
       ],
       "proofSteps": [
-        "Prove bounded normalized-trace projectors and the γ−1 inverse on their trace-zero complements.",
-        "Use the cocycle descent to tilde B_K^† and successive small matrix corrections to decomplete to φ^{-∞}(B_K^†).",
-        "Use Frobenius and Fontaine descent to recover an actual B_K^† basis, then descend finitely many coefficients to one radius.",
-        "The Tate–Sen estimates and original integral descent proof remain specified gaps, rather than black-box library claims."
+        "Cite the owner theorem for the rational statement and its radius models.",
+        "For the integral clause intersect D^†(V) with D(T) inside D(V), and show it is an A_K^†-lattice spanning D(T) by the descent of Cherbonnier–Colmez §III; the trace estimates of §III.2 remain the recorded gap."
       ],
       "acceptance": [
-        "Finite-rank rational representations are covered; this is not the relative affinoid theorem and not a theorem for all Robba modules."
+        "Finite-rank representations only; this is neither the relative affinoid theorem nor a theorem for all Robba modules."
       ],
       "sources": [
         {
           "sourceId": "CC-1998",
-          "locator": "Theorem III.1.1, p.15; Proposition III.5.1 and Corollary III.5.2, pp.23–24; §III.2–III.4, pp.16–23.",
-          "match": "Proves full-rank overconvergence by trace estimates, cocycle descent and matrix corrections; the unread trace-estimate details remain a gap."
+          "locator": "Theorem III.1.1, p.16; §III.2–III.4, pp.16–23; Proposition III.5.1 and Corollary III.5.2, p.23.",
+          "match": "Proves full-rank overconvergence by trace estimates, cocycle descent and matrix corrections; the owner node states the rational theorem."
         },
         {
           "sourceId": "KL-I",
-          "locator": "Theorem 9.5.4(a),(d),(e), p.201.",
-          "match": "States the resulting classical and tilde étale equivalences in the cyclotomic system."
+          "locator": "Theorem 9.5.4(a),(d), p.201.",
+          "match": "States the integral equivalence with (φ,Γ)-modules over A_K^†."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Cherbonnier–Colmez theorem"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.2/radius-models",
@@ -1659,11 +1583,13 @@
       "declaration": "robbaRadiusModels",
       "kind": "theorem",
       "title": "Radius descent and realization comparisons",
-      "statement": "The bounded overconvergent realization extends to D_rig(V) over R_K. Finite projective Frobenius modules over R_K descend to some R_K^{r₀} with φ^*M^{r₀}≅M^{r₀/p}; module maps descend to any common admissible model radius once the source and target Frobenius models are fixed. Further shrinking gives canonical compatible restrictions. Scalar extensions from integral and bounded models agree with these Robba realizations.",
+      "statement": "For representations the radius models are the owner's (PadicHodgeTheory:P7/etale-realization-and-overconvergence and PadicHodgeTheory:P7/plan/robba-realisation-comparison). PG adds the statement for arbitrary finite projective Frobenius modules, needed in PG.3 and PG.7: a finite projective φ-module over R_K descends to some R_K^{r₀} with φ^*M^{r₀}≅M^{r₀/p}; module maps descend to any common admissible radius once source and target models are fixed; further shrinking gives canonical compatible restrictions, and scalar extensions from integral and bounded models agree with these Robba models.",
       "hypotheses": [
         "Use the KPX decreasing-radius convention. General affinoid models are finite projective, not assumed free."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
+        "PadicHodgeTheory:P7/plan/robba-realisation-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/cherbonnier-colmez",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/phi-module",
         "PadicHodgeTheory:P7:annulus-foundations"
@@ -1699,23 +1625,26 @@
       "declaration": "etaleRobbaTildeEquivalence",
       "kind": "theorem",
       "title": "Étale realization over classical and extended rings",
-      "statement": "Finite-dimensional Q_p-representations of G_K are tensor-equivalent to étale (φ,Γ_K)-modules over B_K, B_K^†, R_K and their tilde analogues. The inverse on either Robba realization is the φ=1 subspace after extending to the universal extended Robba ring. All maps use the canonical scalar-extension inclusions. The corresponding integral categories over A_K,A_K^† and tilde versions are equivalent.",
+      "statement": "The classical clauses are imported: Q_p-representations of G_K are equivalent to étale (φ,Γ_K)-modules over B_K, B_K^† and R_K (PadicHodgeTheory:P7/etale-realization-and-overconvergence with PadicHodgeTheory:P7/plan/robba-realisation-comparison). PG adds the extended-ring clauses of Kedlaya–Liu: the same representations are equivalent to étale (φ,Γ_K)-modules over B̃_K, B̃_K^† and R̃_K, with inverse the φ=1 vectors after extension to the universal extended Robba ring, and stable Z_p-lattices correspond to étale modules over Ã_K and Ã_K^†. All maps are the canonical scalar extensions.",
       "hypotheses": [
         "K finite over Q_p; étaleness is the lattice condition of PG.0.",
         "Retain the Γ_K connected-component convention, or explicitly induce to the all-component Γ convention of KL §9.5."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
+        "PadicHodgeTheory:P7/plan/robba-realisation-comparison",
+        "PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/radius-models",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-V",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence"
       ],
       "proofSteps": [
-        "Combine Fontaine and overconvergence with the étale bounded-to-Robba equivalence.",
-        "For the tilde branches use Frobenius-fixed descent with the integral extended lattice; construct the natural evaluation maps.",
-        "Check ranks, both comparison triangles, tensor/dual and finite-field-change compatibility on their common universal ring."
+        "For the classical rings cite the owners.",
+        "For the extended rings apply the owner local-system equivalence on Spa(K,O_K) and descend along the cyclotomic perfectoid cover, as in Kedlaya–Liu's proofs of Theorems 9.5.4 and 9.5.6; use the integral extended lattices of PG.0/etale-phi-module.",
+        "Check ranks, both comparison triangles, tensor/dual and finite-field-change compatibility on the common universal ring."
       ],
       "acceptance": [
-        "This includes the tilde clauses of Colmez’s preface; a theorem only over the classical Robba ring leaves those clauses uncovered."
+        "The extended-ring clauses are the target here; the classical Robba equivalence is the owner's."
       ],
       "sources": [
         {
@@ -1729,10 +1658,7 @@
           "match": "The preface states the classical/tilde equivalence; the main text supplies the all-module decompletion context."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Étale Robba equivalence"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.2/all-module-decompletion",
@@ -1785,7 +1711,7 @@
       "declaration": "phiGammaPeriodSheafEquivalences",
       "kind": "theorem",
       "title": "Period sheaves, B-pairs and equivariant bundles",
-      "statement": "Import the classical B-pair–Robba equivalence from P7. Extend the integral and rational étale realization comparisons to φ-modules over the pro-étale period sheaves on Spa(K,O_K). Compare the full classical and extended Robba (φ,Γ)-categories with continuous Γ-equivariant vector bundles on the associated Fargues–Fontaine curve, continuous G_K-equivariant bundles on the C_p curve, and the corresponding period-sheaf φ-module and B-pair categories. These comparison functors agree with the imported classical B-pair bridge on their common domain.",
+      "statement": "Import the classical B-pair–Robba equivalence (PadicHodgeTheory:P7/b-pair-robba-equivalence) and the relative equivalence of φ-modules over C̃_X with vector bundles and B-pairs (PadicHodgeTheory:P8/relative-all-module-bundle-b-pair-equivalence). PG adds their Γ-equivariant form over K: the categories of (φ,Γ_K)-modules over R_K and over R̃_K are equivalent to continuous Γ-equivariant vector bundles on the Fargues–Fontaine curve of the completed cyclotomic field, to continuous G_K-equivariant vector bundles on the curve of C_p, and to φ-modules over C̃ on Spa(K,O_K) and B-pairs over Spa(K,O_K); these comparison functors agree with the imported classical B-pair bridge on their common domain.",
       "hypotheses": [
         "K finite over Q_p; B-pair definitions are imported from P7 and generic curve/GAGA carriers from AdicSpaces Layer 6.",
         "Use KL’s all-component convention or its explicit Γ-induction comparison."
@@ -1797,12 +1723,13 @@
         "tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve",
         "PadicHodgeTheory:P7/coefficient-b-pairs",
         "PadicHodgeTheory:P7/b-pair-robba-equivalence",
+        "PadicHodgeTheory:P8/relative-all-module-bundle-b-pair-equivalence",
         "PadicHodgeTheory:P8/relative-witt-and-robba-period-sheaves"
       ],
       "proofSteps": [
-        "Descend the local period sheaf Frobenius module along the cyclotomic perfectoid cover.",
-        "Apply the imported P7 B-pair bridge and identify its two period components with the pro-étale period construction; do not construct a competing classical bridge.",
-        "Use the imported curve GAGA and equivariant descent for the bundle comparisons; verify naturality of each comparison and its inverse."
+        "Descend the owner relative equivalence (for X=Spa(K,O_K)) along the cyclotomic perfectoid cover, keeping the Γ- and G_K-actions.",
+        "Apply the imported B-pair bridge and identify its two period components with the pro-étale period construction; do not construct a competing classical bridge.",
+        "Use the curve and GAGA supplier for the bundle comparisons; verify naturality of each comparison and its inverse."
       ],
       "acceptance": [
         "The classical B-pair equivalence is imported. The new targets are extended-ring, period-sheaf and equivariant-bundle compatibility maps, with their natural comparison triangles."
@@ -1835,6 +1762,7 @@
         "Finite extensions of Q_p for both fields and coefficient fields; finite projective realization modules."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/etale-realization-and-overconvergence",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/etale-tilde-equivalence",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions"
       ],
@@ -2236,8 +2164,8 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Proposition 2.3.6, p.22; Theorem 3.1.1 and Lemmas 3.1.2–3.1.3, pp.25–28.",
-          "match": "Worker operator definition conditional on the actual kernel inverse. The analytic theorem is a separate gap."
+          "locator": "Proposition 2.3.6, p.22; Theorem 3.1.1, p.25, with Lemma 3.1.2 and Corollary 3.1.3, pp.26–28.",
+          "match": "Proposition 2.3.6 reduces the φ–ψ comparison to bijectivity of γ−1 on M^{Δ_K,ψ=0}, which Theorem 3.1.1 proves; the operator q is the worker definition conditional on that inverse."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2270,7 +2198,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Proposition 2.3.6 and Theorem 3.1.1, pp.22,25–28.",
+          "locator": "Proposition 2.3.6, p.22; Theorem 3.1.1, p.25.",
           "match": "Worker identities used in the explicit chain lift."
         }
       ],
@@ -2341,7 +2269,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Proposition 2.3.6, p.22; kernel inverse from Theorem 3.1.1.",
+          "locator": "Proposition 2.3.6, p.22; Theorem 3.1.1, p.25, for the kernel inverse.",
           "match": "This corrected section is a worker derivation from the source diagram, not a printed source formula."
         }
       ],
@@ -2450,7 +2378,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Proposition 2.3.6, p.22; Theorem 3.1.1 for the analytic hypothesis.",
+          "locator": "Proposition 2.3.6, p.22; Theorem 3.1.1, p.25, for the analytic hypothesis.",
           "match": "The homotopy is the worker's explicit expansion of the kernel argument."
         }
       ],
@@ -2640,12 +2568,13 @@
       "declaration": "arithmeticHerrComplex",
       "kind": "construction",
       "title": "Arithmetic Herr cochains and torsion conventions",
-      "statement": "For a continuous (φ,Γ_K)-module D and a generator γ of Γ_K/Δ_K, take the retained Herr complex on D^{Δ_K}. In the KPX rational convention Δ_K is the p-primary torsion subgroup. For odd p compare this to the presentation using invariants under all finite torsion and a generator of the resulting Z_p quotient. The two models carry canonical derived comparison maps. Rational averaging is available for every finite torsion order; integral averaging requires that order be invertible.",
+      "statement": "For a continuous (φ,Γ_K)-module D and a generator γ of Γ_K/Δ_K, take the retained Herr complex on D^{Δ_K}. In the KPX rational convention Δ_K is the p-primary torsion subgroup. For odd p compare this to the presentation using invariants under all finite torsion and a generator of the resulting Z_p quotient. The two models carry canonical derived comparison maps. Rational averaging is available for every finite torsion order; integral averaging requires that order be invertible. For a finite coefficient field the complex, its generator independence and its finite-extension compatibility are those of PadicHodgeTheory:P7/herr-complex-interface; this node adds the comparison of the KPX p-primary convention with the full-torsion presentation and the integral branch.",
       "hypotheses": [
         "K finite over Q_p; D a finite projective Robba module or an integral étale module in the separate integral branch.",
         "Use continuous completed group-algebra actions; γ is a topological generator, not an arbitrary nonidentity element."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/herr-complex-interface",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-complex",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-generator-isomorphism",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/etale-phi-module",
@@ -2663,8 +2592,8 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Definition 2.3.3 and Proposition 2.3.5, pp.21–22.",
-          "match": "Defines the Δ_K-invariant Herr complex with p-primary torsion and its rational presentation."
+          "locator": "Notation 2.3.1 and Definition 2.3.3, p.21.",
+          "match": "Fixes Δ_K as the p-torsion subgroup of Γ_K, trivial for odd p, and defines the Herr complex on M^{Δ_K} with its generator-change isomorphism."
         },
         {
           "sourceId": "Berger-intro",
@@ -2750,7 +2679,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Theorem 3.1.1 and Lemmas 3.1.2–3.1.3, pp.25–28; Proposition 2.3.6, p.22.",
+          "locator": "Theorem 3.1.1, p.25, with Lemma 3.1.2 and Corollary 3.1.3 in its proof, pp.25–28; Proposition 2.3.6, p.22.",
           "match": "Proves invertibility of γ−1 on ψ-zero relative modules using analytic group rings, norm estimates and gluing."
         }
       ],
@@ -2765,12 +2694,13 @@
       "declaration": "galoisHerrComparison",
       "kind": "theorem",
       "title": "Herr–Galois comparison",
-      "statement": "For a finite projective continuous A-representation V of G_K, there is a functorial quasi-isomorphism RΓ_cont(G_K,V)≅C_{φ,γ}(D_rig(V)) in the derived category of A-modules. It agrees with the Fontaine bounded realization, with cup products and with the Yoneda description in degrees 0 and 1. Integral étale and finite-torsion variants require their own exact-sequence and descent comparison, with the dyadic case routed through derived finite-group descent.",
+      "statement": "For a finite projective continuous A-representation V of G_K, there is a functorial quasi-isomorphism RΓ_cont(G_K,V)≅C_{φ,γ}(D_rig(V)) in the derived category of A-modules. It agrees with the Fontaine bounded realization, with cup products and with the Yoneda description in degrees 0 and 1. Integral étale and finite-torsion variants require their own exact-sequence and descent comparison, with the dyadic case routed through derived finite-group descent. For a finite coefficient field the identification of Herr cohomology of D_rig(V) with continuous cohomology is PadicHodgeTheory:P7/herr-complex-interface; this node adds the functorial quasi-isomorphism for Q_p-affinoid A, its cup and Yoneda compatibilities, and the integral variants.",
       "hypotheses": [
         "A a Q_p-affinoid algebra for the relative rational statement; continuous cochains supplied by D7.",
         "Do not claim that a rational affinoid theorem supplies integral cochains by reduction."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/herr-complex-interface",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/etale-tilde-equivalence",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/arithmetic-herr",
@@ -2816,11 +2746,12 @@
       "declaration": "herrCup",
       "kind": "construction",
       "title": "Cup product with the Herr sign convention",
-      "statement": "Construct the cochain cup C_φ(D)⊗C_φ(E)→C_φ(D⊗E) in the chosen sign convention, inducing the usual graded cohomological product. For degree-one pairs x=(x₁,x₂), y=(y₁,y₂), its degree-two representative is x₂⊗γ(y₁)−x₁⊗φ(y₂). Degree-zero factors use the corresponding operator-twisted multiplication. Under the Galois comparison this is the existing continuous cup product.",
+      "statement": "Construct the cochain cup C_φ(D)⊗C_φ(E)→C_φ(D⊗E) in the chosen sign convention, inducing the usual graded cohomological product. For degree-one pairs x=(x₁,x₂), y=(y₁,y₂), its degree-two representative is x₂⊗γ(y₁)−x₁⊗φ(y₂). Degree-zero factors use the corresponding operator-twisted multiplication. Under the Galois comparison this is the existing continuous cup product. Over a finite coefficient field the compatibility of cup products with the Galois comparison is the owner's (PadicHodgeTheory:P7/herr-complex-interface); this node supplies the cochain-level product over affinoid A.",
       "hypotheses": [
         "Finite projective (φ,Γ_K)-modules with the diagonal tensor action; tensor over their common period ring and cochains over fixed coefficients."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/herr-complex-interface",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/arithmetic-herr",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/galois-herr-comparison",
         "tauceti:TauCeti.ContCohomology.explicitCup11"
@@ -2895,31 +2826,31 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.3"
       ],
       "declaration": "herrTateDuality",
-      "kind": "theorem",
+      "kind": "comparison",
       "title": "Euler characteristic and Tate duality",
-      "statement": "For a rank-d (φ,Γ_K)-module D over a finite extension E/Q_p, its Herr cohomology is finite-dimensional, vanishes outside 0,1,2 and satisfies Σ(−1)^i dim_E H^i=−[K:Q_p]d. The cup with D∨(1), followed by the normalized degree-two invariant, is perfect H^i(D)×H^{2−i}(D∨(1))→E. For K=Q_p the residue model uses Res(f dπ/(1+π))/log χ(γ); comparison with the canonical Galois invariant retains the nonzero source normalization constant until proved.",
+      "statement": "Finiteness, the Euler characteristic and duality over a finite coefficient field are imported from PadicHodgeTheory:P7/herr-complex-interface: for a finite free (φ,Γ_K)-module D over the Robba ring with coefficients in E, Herr cohomology is finite-dimensional, vanishes outside 0,1,2, satisfies Σ(−1)^i dim_E H^i=−[K:Q_p]rank D, and cup product with D∨(1) followed by the trace is a perfect pairing H^i(D)×H^{2−i}(D∨(1))→E. PG adds the explicit residue model of the degree-two invariant for K=Q_p: Res^γ(f⊗ε)=(log χ(γ))^{-1}Res(f dπ/(1+π)), which equals C_p times the Tate invariant for a constant C_p∈Q_p^× independent of A and γ. The value of C_p is not assumed.",
       "hypotheses": [
         "E finite over Q_p; D finite projective, not necessarily étale.",
-        "Fix the Tate twist, generator, local reciprocity orientation and residue-to-invariant comparison; the general-K trace is normalized compatibly."
+        "Fix the Tate twist, generator and local reciprocity orientation. The owner uses Liu's coordinate order; the cochain isomorphism with maps 1, (a,b)↦(b,a) and −1 converts it to PG's signs, as the PadicHodgeTheory package records in §4.5."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/herr-complex-interface",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-cup",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/galois-herr-comparison",
         "ArithmeticGaloisDuality:D7/local-coefficient-field-duality"
       ],
       "proofSteps": [
-        "Use the field-coefficient finiteness and Euler characteristic argument for general Robba modules.",
-        "Identify the residue pairing and prove φ/ψ adjointness and Γ inversion in the second argument.",
-        "Reduce perfectness to the field theorem of Liu and compare with the imported local Tate invariant in the étale case."
+        "Cite the owner theorem for finiteness, Euler characteristic and perfectness, and transport it to PG's signs through the cochain isomorphism 1, (a,b)↦(b,a), −1.",
+        "For K=Q_p define the residue map, check its invariance under φ, ψ and Γ, and compare it with the Tate isomorphism by base change from A=Q_p, which produces the constant C_p."
       ],
       "acceptance": [
-        "KPX Remark 2.3.12 records the normalization issue; do not silently identify the displayed residue with the Galois invariant with constant 1."
+        "KPX Remark 2.3.12 records that the value of C_p is only claimed in the literature; do not set C_p=1."
       ],
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Theorem 2.3.11, Remark 2.3.12 and residue pairing, pp.23–25.",
-          "match": "States non-étale field finiteness, Euler characteristic and duality, and describes the residue invariant with its normalization constant."
+          "locator": "Theorem 2.3.11, Remark 2.3.12 and Notation 2.3.13, p.24; residue pairing diagram, p.25.",
+          "match": "States Liu's finiteness, Euler characteristic and duality for field coefficients and defines the normalized residue maps, showing Res^γ=C_p·Ta with C_p independent of A and γ."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2933,11 +2864,12 @@
       "declaration": "herrFiniteFieldMaps",
       "kind": "construction",
       "title": "Restriction and corestriction of Herr cochains",
-      "statement": "For finite L/K, construct derived restriction and corestriction on the Herr models, matching the existing continuous Galois maps for étale realizations. They satisfy transitivity, projection formula and cor∘res=[L:K] on cohomology with restricted coefficients; under local duality restriction and corestriction are adjoint. Ring traces and Γ cosets are both retained in the cochain maps.",
+      "statement": "For finite L/K, construct derived restriction and corestriction on the Herr models, matching the existing continuous Galois maps for étale realizations. They satisfy transitivity, projection formula and cor∘res=[L:K] on cohomology with restricted coefficients; under local duality restriction and corestriction are adjoint. Ring traces and Γ cosets are both retained in the cochain maps. Over a finite coefficient field generator independence and finite-extension compatibility on cohomology are the owner's (PadicHodgeTheory:P7/herr-complex-interface); this node supplies the cochain-level maps.",
       "hypotheses": [
         "Finite extensions of p-adic fields, compatible closures, and the finite étale coefficient comparison; topological coefficient hypotheses of D7."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/herr-complex-interface",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/realization-operations",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/galois-herr-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-cup",
@@ -2956,8 +2888,8 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Remark 2.2.4 and Proposition 2.3.7, pp.16–17 and 22.",
-          "match": "Gives the restriction/corestriction setting and cohomological duality compatibilities."
+          "locator": "Remark 2.2.4, p.16; Lemma 2.3.5 and Proposition 2.3.7, p.22.",
+          "match": "Gives the finite étale ring extension for L/K, Shapiro's lemma for induction from Γ_L to Γ_K (Lemma 2.3.5) and the comparison with continuous cohomology."
         },
         {
           "sourceId": "CC-1998",
@@ -3121,8 +3053,8 @@
       "sources": [
         {
           "sourceId": "BHS-2019",
-          "locator": "§3.3, formulas (3.11)–(3.13), pp.343–344.",
-          "match": "Identifies Herr cohomology with extension classes, including localized objects."
+          "locator": "§3.3, complex (3.10), p.342, and formulas (3.11)–(3.13), p.343.",
+          "match": "Defines Herr cohomology on the full torsion invariants and identifies H¹ with extension classes, also after inverting t."
         },
         {
           "sourceId": "Ding-2025",
@@ -3161,8 +3093,8 @@
       "sources": [
         {
           "sourceId": "BHS-2019",
-          "locator": "Definition 3.3.2, Remark 3.3.1, equations (3.11)–(3.13) and Lemma 3.3.5, pp.342–347.",
-          "match": "Defines the t-localized Herr complex and lattice independence, with the underlying stable lattice qualification of Remark 3.3.1."
+          "locator": "Remark 3.3.1, Definition 3.3.2 and complex (3.10), p.342; formulas (3.11)–(3.13), p.343; Lemma 3.3.5, p.344.",
+          "match": "Defines the Herr complex of a t-localized module with the full torsion subgroup and d¹=(1−γ,φ−1), its colimit over stable lattices and its Ext¹ description, with the stable-lattice qualification of Remark 3.3.1."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3222,6 +3154,7 @@
         "K finite over Q_p; use KL’s period-sheaf and all-component conventions with the explicit Γ comparison."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/period-sheaf-equivalences",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/galois-herr-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/etale-phi-cohomology",
@@ -3892,7 +3825,7 @@
       "sources": [
         {
           "sourceId": "LLZ-2011",
-          "locator": "Definition 3.1, map 1-phi from psi=1 to psi=0, p.1116.",
+          "locator": "§3A, p.1116: the map 1−φ from N(T)^{ψ=1} to (φ^*N(T))^{ψ=0} defined before Remark 3.1.",
           "match": "The input map is separated from the good-basis and cohomology comparisons."
         }
       ],
@@ -4099,7 +4032,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Definition 4.2.2 and Proposition 4.2.3.",
+          "locator": "Definition 4.2.2 and Proposition 4.2.3, p.36.",
           "match": "Native packaging retaining the source cohomological degree convention."
         }
       ],
@@ -4169,7 +4102,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Definition 4.2.2 and Proposition 4.2.3.",
+          "locator": "Definition 4.2.2 and Proposition 4.2.3, p.36.",
           "match": "Worker cochain functoriality; derived arithmetic base change remains distinct."
         }
       ],
@@ -4203,7 +4136,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Definition 4.2.2, psi complex.",
+          "locator": "Definition 4.2.2, p.36.",
           "match": "Internal homology computation only, not the Galois comparison."
         }
       ],
@@ -4236,7 +4169,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Definition 4.2.2 and Proposition 4.2.3.",
+          "locator": "Definition 4.2.2 and Proposition 4.2.3, p.36.",
           "match": "Internal quotient computation, with derived specialization separate."
         }
       ],
@@ -4267,7 +4200,7 @@
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "proofSteps": [
-        "Compare each finite-layer continuous complex with its integral period resolution and identify corestriction with the normalized trace transition.",
+        "Compare each finite-layer continuous complex with its integral period resolution and identify corestriction with the normalized trace transition. The degree-one isomorphism D(T)^{ψ=1}≅H¹_Iw is Cherbonnier–Colmez 1999, Théorème II.1.3 (after Fontaine); the cochain-level comparison and the degree-two term are the targets here.",
         "Construct the compatible inverse-system comparison at cochain level; the Γ action is the actual tower action.",
         "Compute its derived inverse limit, retaining H⁰ and lim¹ terms until their vanishing or cancellation is proved.",
         "Identify the resulting fibre with ψ−1 in the specified shift and prove naturality; only then apply the retained native homology isomorphisms."
@@ -4278,8 +4211,13 @@
       ],
       "sources": [
         {
+          "sourceId": "CC-1999",
+          "locator": "Proposition II.1.2 and Théorème II.1.3, p.12.",
+          "match": "Proves, after Fontaine, that ψ-fixed vectors of D(V) map isomorphically to H¹_Iw(K,V) for Z_p- and p-adic representations, with the Shapiro isomorphism H^m(K,Λ⊗V)≅H^m_Iw(K,V(k))."
+        },
+        {
           "sourceId": "KPX-v3",
-          "locator": "Definition 4.2.2, p.37; Theorem 4.4.11 and proof, p.46, classical comparison and its Pottharst reference.",
+          "locator": "Definition 4.2.2, p.36; Corollary 4.4.11 and proof, p.46, classical comparison and its Pottharst reference.",
           "match": "Gives the rational/analytic ψ comparison and recalls the classical integral input; the original integral cochain/limit proof is a gap."
         },
         {
@@ -4325,7 +4263,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Theorem 4.4.11, p.46, and Proposition 4.2.3, pp.37–38.",
+          "locator": "Corollary 4.4.11, p.46, and Proposition 4.2.3, p.36.",
           "match": "Compares classical rational Iwasawa cohomology with analytic ψ cohomology after rationalization of the integral tower."
         },
         {
@@ -4369,7 +4307,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Proposition 4.2.3, pp.37–38; Definition 4.4.7 and Theorems 4.4.8 and 4.4.11, pp.45–46.",
+          "locator": "Proposition 4.2.3, p.36; Definition 4.4.7 and Theorem 4.4.8, p.45; Corollary 4.4.11, p.46.",
           "match": "Uses the inverse universal Γ character and derived base change to specialize to twisted Herr cochains; nonflat cohomology retains Tor terms."
         }
       ],
@@ -4412,7 +4350,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Lemmas 4.2.5–4.2.7, Definition 4.2.8 and Proposition 4.2.9, pp.38–39.",
+          "locator": "Lemma 4.2.5, p.36; Corollary 4.2.6 and Lemma 4.2.7, p.37; Definition 4.2.8 and Proposition 4.2.9, p.38.",
           "match": "Constructs the involution-sesquilinear Iwasawa residue pairing and its normalized comparison with the Herr Tate pairing."
         }
       ],
@@ -4492,7 +4430,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Theorem 4.4.11, p.46; Proposition 4.3.8(1)–(3) and proof, pp.41–42.",
+          "locator": "Corollary 4.4.11, p.46; Proposition 4.3.8(1)–(3) and proof, pp.41–42.",
           "match": "Proves analytic Iwasawa comparison and generation only after Robba-type Γ scalar extension under both ψ-cokernel vanishings."
         },
         {
@@ -4519,7 +4457,8 @@
       ],
       "prerequisites": [
         "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-iwasawa",
-        "PadicHodgeRegulators:L1",
+        "PadicHodgeRegulators:L1/bloch-kato-subgroups",
+        "PadicHodgeRegulators:L1/bloch-kato-exponential",
         "LocallyAnalyticDistributions:L3",
         "PadicHodgeTheory:R06.3/plan/de-rham-differential-equation"
       ],
@@ -4549,7 +4488,7 @@
       "declaration": "WachModule",
       "kind": "definition",
       "title": "Wach modules with a weight interval",
-      "statement": "Let F/Q_p be finite unramified and q=φ(π)/π. For weights in [a,b], a Wach lattice N is finite free over A_F^+ (or the E-coefficient analogue), with continuous semilinear Γ_F action trivial on N/πN, and a semilinear map φ:N[1/π]→N[1/φ(π)] commuting with Γ_F such that φ(π^bN)⊂π^bN and the linearized quotient of π^bN by φ^*(π^bN) is killed by q^{b−a}. Require the prescribed embedding into the étale period module when N is attached to a representation. Use HT(Q_p(1))=+1 throughout.",
+      "statement": "Let F/Q_p be finite unramified and q=φ(π)/π. For weights in [a,b], a Wach lattice N is finite free over A_F^+ (or the E-coefficient analogue), with continuous semilinear Γ_F action trivial on N/πN, and a semilinear map φ:N[1/π]→N[1/φ(π)] commuting with Γ_F such that φ(π^bN)⊂π^bN and the linearized quotient of π^bN by φ^*(π^bN) is killed by q^{b−a}. For the rational version over B_F^+, where p is a unit, also require that B_F⊗_{B_F^+}N is an étale (φ,Γ_F)-module (Berger's 2026 erratum to Definition III.4.1; source issue E2); for an integral lattice over A_F^+ this holds because q is a unit in A_F. Require the prescribed embedding into the étale period module when N is attached to a representation. Use HT(Q_p(1))=+1 throughout.",
       "hypotheses": [
         "F is unramified; a≤b integers; rational N(V) uses B_F^+, integral N(T) uses A_F^+.",
         "Frobenius changes the localization from π to φ(π)=qπ; it is not generally an endomorphism of N[1/π], since q need not be a unit there."
@@ -4566,13 +4505,19 @@
       ],
       "acceptance": [
         "Do not strengthen the height condition to invertibility of φ^*N→N; nonzero weights can have nonzero height.",
-        "Record both localization rings in the Frobenius map; do not invert q without an explicit scalar extension."
+        "Record both localization rings in the Frobenius map; do not invert q without an explicit scalar extension.",
+        "Without the étaleness of B_F⊗N the rational definition does not force N to come from a representation (source issue E2)."
       ],
       "sources": [
         {
           "sourceId": "Berger-Wach-2004",
           "locator": "Definition III.4.1, p.21; positive case Proposition II.1.1, p.11.",
           "match": "Defines the weight-interval Wach condition, residual Γ triviality, q-height and the changed Frobenius localization."
+        },
+        {
+          "sourceId": "Berger-errata",
+          "locator": "§2, entry for Definition III.4.1, p.3.",
+          "match": "Adds to the rational Wach definition the condition that the extension to B_F is an étale (φ,Γ)-module, since p is a unit in B_F^+."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4701,23 +4646,22 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.6"
       ],
       "declaration": "wachModule_dcris",
-      "kind": "theorem",
+      "kind": "comparison",
       "title": "Crystalline periods from Wach reduction",
-      "statement": "For positive crystalline V, the inclusion of D_cris(V) in B^+_{rig,F}⊗N(V), followed by reduction modulo π, identifies D_cris(V) with N(V)/πN(V) as a filtered Frobenius module. The filtration on the Wach reduction is induced by Fil^i N(V)={x:φ(x)∈q^iN(V)}. The general-weight comparison follows by the fixed twist and the resulting filtration shift.",
+      "statement": "The filtered comparison is imported: PadicHodgeTheory:P7/plan/wach-dcris-comparison states that for crystalline V over unramified F, with N(V) carrying Fil^iN(V)={x:φ(x)∈q^iN(V)} in the nonpositive-weight range, the map D_cris(V)→N(V)/πN(V) induced by D_cris(V)⊂B^+_{rig,F}⊗N(V) is an isomorphism of filtered φ-modules, with the general interval obtained by the fixed twist. PG uses it for the good bases of PG.6 and the regulator interface.",
       "hypotheses": [
-        "V crystalline over unramified F; use rational Wach reduction. An arbitrary integral quotient is not asserted to be a strongly divisible lattice."
+        "V crystalline over finite unramified F; weights and twist as in the PG conventions; rational Wach reduction only."
       ],
       "prerequisites": [
+        "PadicHodgeTheory:P7/plan/wach-dcris-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
         "PadicHodgeTheory:R06.2"
       ],
       "proofSteps": [
-        "Regularize the crystalline period vectors into B^+_{rig,F}⊗N(V) using the q_n factors.",
-        "Show their reduction gives the full F-vector space and is Frobenius equivariant.",
-        "Compare localization at cyclotomic points to prove the equality of filtrations; twist to remove positivity."
+        "Cite the owner theorem; the Wach module it uses is the one of PG.6/wach-existence, which the PadicHodgeTheory package states in its §4.4 (see the restructure entry)."
       ],
       "acceptance": [
-        "The comparison identifies the actual filtration, not merely equal dimension and Frobenius eigenvalues."
+        "An arbitrary integral quotient is not asserted to be a strongly divisible lattice."
       ],
       "sources": [
         {
@@ -4726,10 +4670,7 @@
           "match": "Identifies rational Wach reduction with the filtered crystalline module; it does not assert arbitrary integral strong divisibility."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Wach crystalline comparison"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
@@ -4918,7 +4859,7 @@
       "sources": [
         {
           "sourceId": "LLZ-2011",
-          "locator": "§3A, p.1116; Lemma 1.7, p.1106; reference to Berger (2003), Théorème A.3.",
+          "locator": "§3A, p.1116; Lemma 1.7, p.1103; reference to Berger (2003), Théorème A.3.",
           "match": "Recalls Berger A.3 and defines the ψ-fixed to ψ-zero input under nonnegative weights and no trivial quotient."
         }
       ],
@@ -5161,7 +5102,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Theorems 4.4.1–4.4.6, pp.42–45; uniform proof in §5.2–§5.3, pp.48–55.",
+          "locator": "Theorems 4.4.1–4.4.3, 4.4.5 and 4.4.6, pp.42–45; uniform proof in §5.2–§5.3, pp.48–55.",
           "match": "States Herr perfectness and analytic-Iwasawa perfectness with amplitude [0,2], finite presentation and the H² torsion assertion; the uniform proof is an explicit gap."
         }
       ],
@@ -5199,7 +5140,7 @@
       "sources": [
         {
           "sourceId": "KPX-v3",
-          "locator": "Theorem 4.4.3, pp.43–44, and proofs of Theorems 4.4.5–4.4.6, pp.44–45.",
+          "locator": "Theorem 4.4.3, pp.42–43, and proofs of Theorems 4.4.5–4.4.6, pp.43–45.",
           "match": "Gives derived affinoid base change and the associated Tor spectral sequences for Herr and ψ cohomology."
         }
       ],
@@ -5326,7 +5267,7 @@
         },
         {
           "sourceId": "BHS-2019",
-          "locator": "Definition 3.3.2 and Lemma 3.3.4, pp.343–345.",
+          "locator": "Definition 3.3.2, p.342; Lemma 3.3.4, p.343.",
           "match": "Specifies the Artinian character conventions used by localized modules."
         }
       ],
@@ -5715,7 +5656,7 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.0/etale-phi-module"
       ],
       "remaining": [
-        "APF ramification estimates and the finite-extension norm-field proof; compatible henselian lifts, completions and weak/annular coordinate bounds."
+        "Field-level coefficient rings, actions and the étale condition are owned by PadicHodgeTheory P7 (cyclotomic-field-of-norms-interface, phi-gamma-module-interface, robba-ring-of-p-adic-field). Remaining here: the Kedlaya–Liu all-component comparison, the relative-annulus bounds and the extended-ring étale variants."
       ]
     },
     {
@@ -5738,7 +5679,7 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.1/etale-phi-cohomology"
       ],
       "remaining": [
-        "Original Fontaine integral/torsion inverse-limit descent; BCH/Greenberg construction for the small-unipotent variant; Witt-to-integral-Robba approximation and cohomological inverse limits."
+        "Fontaine's equivalence is owned by PadicHodgeTheory:P7/etale-realization-and-overconvergence and the relative local systems by PadicHodgeTheory P8. Remaining here: the torsion and change-of-field clauses, the BCH/Greenberg construction for the small-unipotent variant, and the (c,d)-pure descent."
       ]
     },
     {
@@ -5753,7 +5694,7 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.2/realization-operations"
       ],
       "remaining": [
-        "Full Cherbonnier–Colmez trace/Tate–Sen estimates and integral descent; all-module Tate–Sen decompletion; period-sheaf/equivariant bundle comparison descent."
+        "Overconvergence and D_rig(V) are owned by PadicHodgeTheory:P7/etale-realization-and-overconvergence. Remaining here: the integral overconvergent lattices (trace estimates of Cherbonnier–Colmez §III.2), all-module Tate–Sen decompletion, and the Γ-equivariant period-sheaf and bundle descent."
       ]
     },
     {
@@ -5786,7 +5727,7 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.3/period-sheaf-cohomology"
       ],
       "remaining": [
-        "Universal-period H_K-acyclicity and integral Herr comparison; integral dyadic derived descent; exact residue-to-Galois normalization constant; period-sheaf cohomology compatibility."
+        "Field-coefficient Herr cohomology, generator independence, Galois comparison and duality are owned by PadicHodgeTheory:P7/herr-complex-interface. Remaining here: universal-period H_K-acyclicity for affinoid coefficients and the integral Herr comparison; integral dyadic derived descent; the residue constant C_p; period-sheaf cohomology compatibility."
       ]
     },
     {
@@ -5847,7 +5788,7 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa"
       ],
       "remaining": [
-        "Complete source proofs for Wach freeness, height and filtered reduction; exact N_rig/Wach lattice normalization; original Berger A.3 integral ψ-fixed theorem and integral good-basis hypotheses."
+        "The filtered D_cris comparison is owned by PadicHodgeTheory:P7/plan/wach-dcris-comparison, and the PadicHodgeTheory package states Wach existence, height and reconstruction in its §4.4. Remaining here: exact N_rig/t-lattice normalization, Berger Théorème A.3 and the original LLZ 2010 good-basis proofs."
       ]
     },
     {
@@ -5875,19 +5816,9 @@
   ],
   "gaps": [
     {
-      "title": "APF norm-field proof",
-      "detail": "The source use and cyclotomic/Kummer consequences are read, but the original Fontaine–Wintenberger APF estimates and proof of finite-extension equivalence are not. Establish addition convergence, ramification bounds and closure-choice naturality.",
+      "title": "Integral overconvergent lattices",
+      "detail": "Fontaine's equivalence and rational overconvergence are now owned by PadicHodgeTheory:P7/etale-realization-and-overconvergence. What PG adds is the integral clause D^†(T)=(A^†⊗T)^{H_K} with A_K⊗D^†(T)=D(T): its proof needs the trace estimates of Cherbonnier–Colmez §III.2, which were located but not read, and the integral descent of their §III.4–III.5; the matrix-correction and final rational arguments were read.",
       "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.0/field-of-norms"
-      ]
-    },
-    {
-      "title": "Integral Fontaine and overconvergence descent",
-      "detail": "The original Fontaine proof and the full Cherbonnier–Colmez §III.2 trace-estimate proof are not read here. Carry out finite-level fixed-basis descent, exact inverse-limit passage and the integral dagger descent; the matrix-correction and final rational proof have been read.",
-      "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-D",
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-V",
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/cherbonnier-colmez"
       ]
     },
@@ -5896,15 +5827,6 @@
       "detail": "Construct the BCH small-lattice group, its Greenberg realization and convergent exp/log comparison with the exact n bound. ASW descent alone does not construct this group.",
       "neededBy": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/unipotent-lang"
-      ]
-    },
-    {
-      "title": "Perfectoid integral approximation and inverse limits",
-      "detail": "Supply the Witt-to-integral-extended-Robba approximation, completed-perfection descent and derived-limit compatibility of ASW cohomology. Finite étale tilting is an imported supplier, not the whole argument.",
-      "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems",
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence",
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/etale-phi-cohomology"
       ]
     },
     {
@@ -5920,7 +5842,6 @@
       "title": "Arithmetic coordinate topology",
       "detail": "Prove the actual coordinate projections continuous on each weak, integral and annular model and compatible with finite étale base extension. Conditional tensor-linearization algebra does not give these estimates.",
       "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.0/cyclotomic-coefficients",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions",
         "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
         "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
@@ -5942,8 +5863,8 @@
       ]
     },
     {
-      "title": "Tate residue constant and general-module duality",
-      "detail": "KPX states Liu’s field theorem but does not prove it there. Decompose the original non-étale finiteness/duality proof and verify the exact residue-to-Galois constant; do not adopt Cp=1.",
+      "title": "Tate residue constant",
+      "detail": "Finiteness, Euler characteristic and duality for field coefficients are owned by PadicHodgeTheory:P7/herr-complex-interface (after Liu). What remains for PG is the constant C_p with Res^γ=C_p·Ta for K=Q_p: KPX Remark 2.3.12 reports only a claimed value. Establish it, or carry C_p through PG.3/herr-tate-duality and the Iwasawa pairing of PG.5.",
       "neededBy": [
         "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-tate-duality",
         "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-pairing"
@@ -5951,7 +5872,7 @@
     },
     {
       "title": "Integral derived Iwasawa comparison",
-      "detail": "Construct the cochain map from the independent derived corestriction system, justify the cofinal tower/ML hypotheses and identify its shifted ψ fibre. The LLZ Berger A.3 citation is not an original-proof reading.",
+      "detail": "Cherbonnier–Colmez 1999, Théorème II.1.3 (after Fontaine) gives the degree-one isomorphism D(T)^{ψ=1}≅H¹_Iw(K,T); its proof was not read here. Construct the cochain map from the independent derived corestriction system, justify the cofinal tower and Mittag-Leffler hypotheses, and identify the degree-two term and the shifted ψ fibre. The LLZ citation of Berger, Théorème A.3, is a recall, not an original-proof reading.",
       "neededBy": [
         "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality"
@@ -6003,7 +5924,7 @@
     },
     {
       "supplier": "LocallyAnalyticDistributions:L3",
-      "need": "Relative analytic Γ rings R_A^∞(Γ_K), larger Robba-type R_A^{r₀}(Γ_K), restriction and completed scalar-change maps, coadmissible/Fréchet–Stein and tensor exactness needed in KPX. Existing classical Mellin and generator-change nodes are imported separately; they do not alone provide these relative rings.",
+      "need": "Relative analytic Γ rings R_A^∞(Γ_K), larger Robba-type R_A^{r₀}(Γ_K), restriction and completed scalar-change maps, coadmissible/Fréchet–Stein and tensor exactness needed in KPX. Existing classical Mellin and generator-change nodes are imported separately; they do not alone provide these relative rings. Also the rigid character space of O_K^× and of Γ_K with its universal character, used for the parameter graph of PG.7/rank-one-classification.",
       "neededBy": [
         "PhiGammaModulesAndIwasawaCohomology:PG.3/analytic-kernel-inverse",
         "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
@@ -6017,17 +5938,9 @@
       ]
     },
     {
-      "supplier": "PadicHodgeRegulators:L1",
-      "need": "Bloch–Kato exponential and the exact H¹_e=image(exp_BK) local condition under the source coefficient/period conventions. No big logarithm or signed Coleman construction is required for this import.",
-      "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-bloch-kato-image"
-      ]
-    },
-    {
       "supplier": "PadicHodgeTheory:P7:annulus-foundations",
       "need": "Early analytic annuli, Gauss/Fréchet/LF topologies, finite-projective gluing and completed coefficient tensors, independent of PG representation/cohomology outputs. Fine scalar Robba nodes cover only the classical part; the affinoid and norm estimates remain this stage contract.",
       "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.0/cyclotomic-coefficients",
         "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions",
         "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/radius-models",
@@ -6043,7 +5956,6 @@
       "supplier": "PadicHodgeTheory:P8",
       "need": "The exact Witt, integral/bounded/extended Robba and pro-étale period sheaf carriers, their pullback and descent maps used in KL §8.5 and §9.5. Use existing carrier nodes where applicable; the required all-component and integral gluing API must be supplied by this stage.",
       "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems",
         "PhiGammaModulesAndIwasawaCohomology:PG.2/period-sheaf-equivalences",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/period-sheaf-cohomology"
       ]
@@ -6060,7 +5972,7 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L0a",
-      "need": "Rigid character spaces for K^× and Γ_K, universal character and weight/embedding coordinates, including Artinian coefficients and completed coefficient pullback. PG constructs modules from these characters, not a second character space.",
+      "need": "Rigid character and weight spaces with their universal character, coordinates and Artinian pullback. For Z_p^× this is upstream PadicMeasuresIwasawaAlgebras §3a.1 (on TauCetiRoadmap main), built on PadicFunctionalAnalysis §§5.1–5.3. PG.7 also needs the character space of K^×, the product of the character space of O_K^× and the multiplicative group; the space of a compact abelian p-adic Lie group such as O_K^× or Γ_K is constructed in LocallyAnalyticDistributions Layer 3. PG constructs modules from these characters, not a second character space.",
       "neededBy": [
         "PhiGammaModulesAndIwasawaCohomology:PG.7/cyclotomic-deformation",
         "PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-characters",
@@ -6076,13 +5988,6 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
         "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
         "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis"
-      ]
-    },
-    {
-      "supplier": "PerfectoidSpaces:P3",
-      "need": "Finite étale tilting, completed-perfection invariance and untilt étale-site comparisons on the stated perfectoid affinoids, with d>0 and completeness hypotheses. The PG equivalence is additional Frobenius descent.",
-      "neededBy": [
-        "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems"
       ]
     },
     {
@@ -6123,7 +6028,32 @@
         "arXiv abstract/version history and retrieved v3 text.",
         "Targeted paper-title and author searches for erratum/correction.",
         "AMS publication-PDF attempt failed; UC eScholarship returned metadata, not the text."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In KPX v3, Definition 2.2.2 (p.16) gives φ from R_A^{[s,r]}(π_K) to R_A^{[s/p,r/p]}(π_K) and then calls the source free over the target; the ψ formula there and the decomposition R_A^{[s,r]}=⊕(1+π)^iφ(R_A^{[ps,pr]}) in Notation 2.2.3 use the reverse orientation, so the sentence has its two rings exchanged.",
+        "by": "REV-PhiGammaModulesAndIwasawaCohomology"
+      }
+    },
+    {
+      "id": "PhiGammaModulesAndIwasawaCohomology/E2",
+      "source": "Berger-Wach-2004",
+      "kind": "gap",
+      "locator": "Définition III.4.1, p.21.",
+      "printed": "Paraphrase: a Wach module with weights in [a;b] over B_F^+ is defined by freeness, Γ-triviality modulo π and the q^{b−a} condition on the Frobenius linearization, with no condition on its extension to B_F.",
+      "correction": "Over B_F^+, where p is a unit, add that B_F⊗_{B_F^+}N is an étale (φ,Γ_F)-module over B_F; the integral definition over A_F^+ needs no change.",
+      "reason": "Without it the rational definition does not force N to come from a representation, so Proposition III.4.2 needs the extra condition.",
+      "affects": "a stated result",
+      "known": "Known: Berger, Errata for my articles (2026), §2, p.3; recorded as PadicHodgeTheory/E10 (confirmed by REV-PadicHodgeTheory).",
+      "searched": [
+        "Berger, Errata for my articles, author PDF created 13 October 2026.",
+        "PadicHodgeTheory packet sourceIssues."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at Definition III.4.1, p.21, of the recorded author PDF and against Berger's erratum.",
+        "by": "REV-PhiGammaModulesAndIwasawaCohomology"
+      }
     }
   ],
   "provenance": {
@@ -6138,15 +6068,17 @@
     "sourcePolicy": "Statements and proof routes are in the worker’s own words with precise locators; no source excerpt or section-by-section source digest. Cleared PDFs read in place, never copied.",
     "checks": [
       "Pinned Lean elaboration passed. Packet/world-index and document inventory validation run after writing the final reader."
-    ]
+    ],
+    "review": "REV-PhiGammaModulesAndIwasawaCohomology by Claude, session claude-3oe87N, 2026-10-19."
   },
   "upstreamNotes": [
     "ClassFieldTheory Layers 7–9 already own the continuous absolute Artin map, geometric normalization by inversion and topological Weil reciprocity. Their current README and Suggested statements were read. PG imports them for character modules and proves only its period normalization comparison.",
-    "Accepted RS-26 assigns canonical cyclotomic coefficients, Fontaine/overconvergence and Herr cohomology to PG.0–PG.3. Earlier P7 interface nodes are compatibility consumers of those targets. P7 keeps analytic annuli, period functors and B-pairs; its existing classical B-pair equivalence and cohomology handoff are imported here. Do not reimplement those bridges.",
+    "RS-26 (2026-09) assigned the cyclotomic coefficients, Fontaine/overconvergence and Herr objects to PG. Since the tiering of 2026-10-09, PadicHodgeTheory (tier 13; TauCetiRoadmap #1062) is below PG, which is outside the 94, and the PadicHodgeTheory package moved this material down into its §§1.4–1.5 and 4.1–4.5 (PKG-PadicHodgeTheory~codex handoff, \"Moves down and outgoing rewires\"). The accepted PadicHodgeTheory.json packet states it as P7/cyclotomic-field-of-norms-interface, P7/phi-gamma-module-interface, P7/etale-realization-and-overconvergence and P7/herr-complex-interface. PG imports these; it no longer plans them. PG keeps its id-cited nodes as comparison receipts.",
     "Read the current read-only TauCetiRoadmap documents beyond the atlas snapshot. LocalGaloisGroups already plans the local cyclotomic character and continuity. The pinned cyclotomicCharacter is the underlying map; the referenced local-character Tau Ceti file is absent in the supplied current library, so no false built-continuity claim is made.",
     "Current AdicSpaces Layer 6 owns the adic Fargues–Fontaine curve and vector-bundle/GAGA machinery. Current LocalFieldsRamification Layer 2 supplies the unramified comparison for Wach base change. These are existing roadmap imports, not new plans.",
-    "N_rig(V) is imported from R06.3/plan/de-rham-differential-equation; the DLB weight-normalized t-lattice comparison is an explicit gap. The current PadicMeasuresIwasawaAlgebras directory is absent in the supplied read-only upstream checkout, so only its atlas supplier contracts are used.",
-    "Trianguline varieties, almost de Rham deformation groupoids and BHS localized-character rigidity belong to TriangulineVarietyAndItsLocalModel and P7 period theory. PG supplies only the routed modules, character/weight vocabulary, Herr/Ext and qualified global triangulation. Ding’s eigenvariety geometry and paraboline application remain with those consumers."
+    "N_rig(V) is imported from R06.3/plan/de-rham-differential-equation; the DLB weight-normalized t-lattice comparison is an explicit gap. PadicMeasuresIwasawaAlgebras is on TauCetiRoadmap main (merged); its §2.2 (φ and ψ on power series) and §3a.1 (character space of Z_p^×) are the upstream forms of the atlas L2 and L0a contracts used here. The local read-only checkout used by the planning pass sat on a pull-request branch.",
+    "Trianguline varieties, almost de Rham deformation groupoids and BHS localized-character rigidity belong to TriangulineVarietyAndItsLocalModel and P7 period theory. PG supplies only the routed modules, character/weight vocabulary, Herr/Ext and qualified global triangulation. Ding’s eigenvariety geometry and paraboline application remain with those consumers.",
+    "LocalGaloisDeformationRings (tier 15; TauCetiRoadmap #923) §0.4 now owns the coefficient Robba category over finite local E-algebras, D_rig and its étale inverse, the Herr complex in PG's sign convention, Ext comparison, perfect amplitude [0,2], derived base change, Euler characteristic and Tate duality. Its atlas packet has no node for this section yet. When it has one, PG.3/herr-ext, the Artinian clauses of PG.7/relative-category and PG.3/localized-herr should cite it."
   ],
   "adoptedCorrections": [
     {
@@ -6229,25 +6161,29 @@
       "item": "PAPER-KEDLAYA-LIU-15/283",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/284",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/285",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/286",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/287",
@@ -6259,25 +6195,29 @@
       "item": "PAPER-KEDLAYA-LIU-15/288",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/289",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/302",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/etale-phi-cohomology"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/304",
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.1/etale-phi-cohomology"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-KEDLAYA-LIU-15/399",
@@ -6380,7 +6320,8 @@
       "targets": [
         "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-ext",
         "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-tate-duality"
-      ]
+      ],
+      "note": "The PG target imports the owner statement from PadicHodgeTheory:P7/herr-complex-interface (moved down under the tier order); it states only what PG adds."
     },
     {
       "item": "PAPER-DING-25/4.2-global-triangulation",
@@ -6389,5 +6330,544 @@
         "PhiGammaModulesAndIwasawaCohomology:PG.7/triangulation-specialization"
       ]
     }
-  ]
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "PhiGammaModulesAndIwasawaCohomology",
+        "PadicHodgeTheory",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory"
+      ],
+      "detail": "Under the tier order, PadicHodgeTheory (tier 13) and FiniteFlatGroupsAndIntegralPadicHodgeTheory (tier 10) are below PG. Their accepted atlas nodes now state material PG.0–PG.3 and PG.6 planned again: the cyclotomic field of norms and coefficient rings, (φ,Γ)-modules and étaleness, Fontaine's equivalence, Cherbonnier–Colmez overconvergence and D_rig, field-coefficient Herr cohomology with its Galois comparison and duality, Kedlaya–Liu relative local systems and their cohomology, and the filtered Wach–D_cris comparison.",
+      "proposal": "PG imports them (this review). Receipts: PG.0/field-of-norms, PG.0/cyclotomic-coefficients, PG.1/fontaine-D, PG.1/fontaine-V, PG.1/fontaine-equivalence, PG.1/perfectoid-integral-local-systems, PG.1/etale-phi-cohomology, PG.3/herr-tate-duality and PG.6/wach-dcris now state the owner result and only what PG adds. Narrowed to their additions: PG.0/coefficient-actions (relative annuli), PG.0/etale-phi-module (integral and extended-ring variants), PG.1/torsion-rational-compatibility, PG.1/pure-equivalence, PG.2/cherbonnier-colmez (integral lattices), PG.2/radius-models, PG.2/etale-tilde-equivalence, PG.2/period-sheaf-equivalences, PG.3/arithmetic-herr, PG.3/galois-herr-comparison, PG.3/herr-cup and PG.3/herr-field-maps. Owners: PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface, /phi-gamma-module-interface, /etale-realization-and-overconvergence, /herr-complex-interface, /plan/robba-ring-of-p-adic-field, /plan/robba-realisation-comparison, /plan/wach-dcris-comparison, PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules, /relative-frobenius-cohomology-comparison, /relative-all-module-bundle-b-pair-equivalence, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring and /etale-phi-modules-with-coefficients. At packaging PG cites the PadicHodgeTheory package sections §§1.4–1.5 and 4.1–4.5 for these."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "PadicHodgeTheory",
+        "PhiGammaModulesAndIwasawaCohomology"
+      ],
+      "detail": "The legacy atlas stage PadicHodgeTheory:P7 requires PG.3 and PG.6, and the PadicHodgeTheory--P7.json packet cites the bare stages PG.0, PG.1, PG.2, PG.3, PG.5 and PG.6 (about forty prerequisites, e.g. P7/robba-ring-of-p-adic-field, P7/robba-realisation-comparison, P7/b-pair-herr-comparison, P7/wach-dcris-comparison). These are upward citations; together with PG's imports of P7 nodes they close stage cycles. The ids P7/b-pair-robba-equivalence (and its dependants such as P7/b-pair-cohomology-handoff) exist in both PadicHodgeTheory.json and PadicHodgeTheory--P7.json with different statements; the --P7 version cites PG.2.",
+      "proposal": "When the maintainer chooses between the two PadicHodgeTheory decompositions, drop the P7 stage's requires on PG.3 and PG.6 and repoint the --P7 packet's PG citations to its own interface nodes or package sections (§§4.1–4.5), as the PadicHodgeTheory package already does. Keep one node per id. PG cites the PadicHodgeTheory.json versions."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "PadicHodgeTheory",
+        "LocalGaloisDeformationRings",
+        "PhiGammaModulesAndIwasawaCohomology"
+      ],
+      "detail": "Two lower roadmaps state PG material only upstream, with no atlas node yet: the PadicHodgeTheory package §4.4 (TauCetiRoadmap #1062) states Wach existence and uniqueness, the q-height bound, the twist and lattice reconstruction (PG.6/wach-module, /wach-existence, /wach-height, /wach-reconstruction; its unsuffixed atlas node P7/plan/wach-dcris-comparison imports Wach modules from a bare FiniteFlat R07.4 stage, which does not state Berger's existence theorem). LocalGaloisDeformationRings §0.4 (TauCetiRoadmap #923) states Herr cohomology over finite local E-algebras with Ext, base change and duality (PG.3/herr-ext, the Artinian parts of PG.7/relative-category and PG.3/localized-herr).",
+      "proposal": "Keep the PG nodes until those roadmaps' atlas packets carry these targets; then turn the listed PG nodes into receipts for them, as for the P7 interfaces. At packaging PG cites PadicHodgeTheory §4.4 and LocalGaloisDeformationRings §0.4."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "PhiGammaModulesAndIwasawaCohomology",
+        "PadicHodgeTheory",
+        "VectorBundlesAndIsocrystals"
+      ],
+      "detail": "PG.1 keeps Kedlaya–Liu's Witt-vector descent over perfect F_p-algebras (frobenius-idempotents, asw-fixed-basis, asw-equivalence, asw-projectivity, unipotent-lang; KL I §§3.1–3.2) and the (c,d)-pure local systems (pure-local-systems, pure-equivalence; KL I §8.5). After this review no PG target outside PG.1 uses the descent nodes except PG.1/torsion-rational-compatibility. PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules and /relative-integral-etale-equivalence use the same descent inside their proofs without a prerequisite node, and VectorBundlesAndIsocrystals VB4 (outside the 94, like PG) states the (c,d)-pure equivalences.",
+      "proposal": "Move the Witt-vector descent nodes down to PadicHodgeTheory P8, whose proofs need them, and leave PG a receipt; decide between PG and VectorBundlesAndIsocrystals VB4 for the (c,d)-pure local systems. This is recorded for the maintainer, not applied here."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PhiGammaModulesAndIwasawaCohomology",
+    "date": "2026-10-19",
+    "notes": "Independent review by Claude (session claude-3oe87N) of the Codex target-level pass (codex-leYaii). All 98 nodes were read; 49 verified and 49 corrected, none added or retired. Main finding: under the tier order PadicHodgeTheory (tier 13) and FiniteFlatGroupsAndIntegralPadicHodgeTheory (tier 10) are below PG, and their accepted atlas nodes now state the cyclotomic field of norms and coefficient rings, étale (φ,Γ)-modules, Fontaine's equivalence, Cherbonnier–Colmez overconvergence and D_rig, field-coefficient Herr cohomology, the Kedlaya–Liu relative local systems and the Wach–D_cris comparison (the PadicHodgeTheory package moved them down from PG.0–PG.3 and PG.6 on 2026-10-16). The plan had re-planned them under RS-26. Nine nodes are now comparison receipts and twelve are narrowed to PG's additions, with the owner nodes as prerequisites; every owner's prerequisite closure was checked to contain no PG node. Eight planets that named owner results were removed. Restructure entries record what remains for the maintainer: the PadicHodgeTheory--P7 packet and legacy P7 stage still cite PG upward and share ids with PadicHodgeTheory.json; Wach existence (PadicHodgeTheory package §4.4) and Herr cohomology over Artinian coefficients (LocalGaloisDeformationRings §0.4) are owned upstream without atlas nodes; the Kedlaya–Liu Witt-vector descent kept in PG.1 is used inside PadicHodgeTheory P8 proofs. Sources: all twelve PDFs were matched by hash; a scripted header sweep plus page reads corrected 28 locators (KPX Lemma 2.3.5 is not a Proposition, Corollary 3.1.3 and Corollary 4.4.11 are not a Lemma or Theorem, §4.2 is on pp.36–38, CC Théorème III.1.1 is on p.16, KL-I 1.5.1 is a Convention, LLZ has no Definition 3.1 and Lemma 1.7 is on p.1103, BHS complex (3.10) is on p.342). Added Cherbonnier–Colmez 1999 (Théorème II.1.3) for the degree-one Iwasawa comparison and Berger's errata; confirmed E1 and added E2 (Wach definition needs B_F⊗N étale). Replaced the PadicHodgeRegulators:L1 stage request by its exact nodes and dropped the PerfectoidSpaces:P3 request and imports no longer used; dropped the APF and perfectoid-approximation gaps whose content the owners hold, narrowed two others. Rewrote the 26 identical import need sentences. Baseline: all twelve declarations exist at the pins with the cited lines. The suggested file elaborates with lean-check (exit 0, admitted-proof warnings only). checker 0 errors; in-memory merge raises nothing. The reader was regenerated from the packet (byte-identical renderer on HEAD) and escaped for the site renderer, removing 79 spurious emphasis spans and 4 accidental links.",
+    "checked": [
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.0/phi-module",
+        "verdict": "corrected",
+        "note": "Locator corrected: KL-I Definition 1.5.1, p.24 → Convention 1.5.1, p.24."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.0/free-cover",
+        "verdict": "verified",
+        "note": "KL-I Lemma 1.5.2 and Corollary 1.5.3 (p.24) checked; the KL-II Appendix A correction (top-left block, p.189) is applied in the proof route."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.0/phi-cohomology",
+        "verdict": "corrected",
+        "note": "Locator corrected: KL-I Definition 1.5.4 and Remarks 1.5.5–1.5.6, p.25 → Definition 1.5.4, p.24; Remarks 1.5.5–1.5.6, p.25."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.0/field-of-norms",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface states this result; PG states only how it uses it."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.0/cyclotomic-coefficients",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P7/cyclotomic-field-of-norms-interface, PadicHodgeTheory:P7:annulus-foundations/plan/overconvergent-cyclotomic-rings, PadicHodgeTheory:P7/plan/robba-ring-of-p-adic-field states this result; PG states only how it uses it and what it adds."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.0/coefficient-actions",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.0/etale-phi-module",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-D",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P7/etale-realization-and-overconvergence, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring states this result; PG states only how it uses it."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-V",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P7/etale-realization-and-overconvergence, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring states this result; PG states only how it uses it."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P7/etale-realization-and-overconvergence, FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-cohen-ring states this result; PG states only how it uses it."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary",
+        "verdict": "corrected",
+        "note": "Owner prerequisite added (PadicHodgeTheory:P7/etale-realization-and-overconvergence)."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/frobenius-idempotents",
+        "verdict": "verified",
+        "note": "KL-I Lemma 3.1.3 and Corollary 3.1.4 (p.66) checked."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/asw-fixed-basis",
+        "verdict": "verified",
+        "note": "KL-I Lemma 3.2.6 (p.73) with the KL-II Appendix A correction (closed-open subfunctor of invariant bases, p.189) checked. Placement recorded in restructure entry 4."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/asw-equivalence",
+        "verdict": "verified",
+        "note": "KL-I Proposition 3.2.7 (p.74) with the KL-II diagonal-tensor correction checked. Placement recorded in restructure entry 4."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/asw-projectivity",
+        "verdict": "verified",
+        "note": "KL-I Lemma 3.2.12 (p.75) and Proposition 3.2.13 (p.76) checked; the route J=φ(J)⊂J² gives an idempotent generator. Placement recorded in restructure entry 4."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/unipotent-lang",
+        "verdict": "verified",
+        "note": "KL-I Proposition 3.2.9 (p.74) allows n≥2, or n=1 for p>2, as stated. No PG consumer; restructure entry 4."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/perfectoid-integral-local-systems",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P8/relative-local-systems-and-frobenius-modules, PadicHodgeTheory:P8/relative-witt-and-robba-period-sheaves states this result; PG states only how it uses it."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-local-systems",
+        "verdict": "verified",
+        "note": "KL-I Definition 8.5.7 (p.172): p^cτ^d acts as the identity; the sign tests were recomputed. VectorBundlesAndIsocrystals VB4 states the same notion (restructure entry 4)."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/pure-equivalence",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.1/etale-phi-cohomology",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison states this result; PG states only how it uses it."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.2/cherbonnier-colmez",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.2/radius-models",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.2/etale-tilde-equivalence",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.2/all-module-decompletion",
+        "verdict": "verified",
+        "note": "FF-2018 §11.5 (printed p.384) gives decompletion of all (φ,Γ)-modules by Tate traces before Berger's Theorem 11.5.1; KL-I Theorem 9.5.8 (p.202) checked. Not owned below."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.2/period-sheaf-equivalences",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.2/realization-operations",
+        "verdict": "corrected",
+        "note": "Owner prerequisite added (PadicHodgeTheory:P7/etale-realization-and-overconvergence)."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-differentials",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-complex",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-functoriality",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/signed-phi-psi-map",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/signed-map-surjectivity",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/signed-map-kernel",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/kernel-resolvent",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Theorem 3.1.1 and Lemmas 3.1.2–3.1.3, pp.25–28 → Theorem 3.1.1, p.25, with Lemma 3.1.2 and Corollary 3.1.3, pp.26–28."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/kernel-resolvent-identities",
+        "verdict": "corrected",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed. Locator corrected: KPX-v3 Proposition 2.3.6 and Theorem 3.1.1, pp.22,25–28 → Proposition 2.3.6, p.22; Theorem 3.1.1, p.25."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-comparison-section",
+        "verdict": "corrected",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed. Locator corrected: KPX-v3 kernel inverse from Theorem 3.1.1 → Theorem 3.1.1, p.25, for the kernel inverse."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-section-right-inverse",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-comparison-homotopy",
+        "verdict": "corrected",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed. Locator corrected: KPX-v3 Theorem 3.1.1 for the analytic hypothesis → Theorem 3.1.1, p.25, for the analytic hypothesis."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-comparison-equivalence",
+        "verdict": "verified",
+        "note": "Conditional algebra checked by hand against KPX Definition 2.3.3 (p.21) and Proposition 2.3.6 (p.22): d⁰=(φ−1,γ−1), d¹=(γ−1)⊕(1−φ), Ψ_M=(id,−ψ⊕id,−ψ); numeric tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-generator-map",
+        "verdict": "verified",
+        "note": "KPX Definition 2.3.3 generator change [1, 1⊕(γ′−1)/(γ−1), (γ′−1)/(γ−1)] matches Q_n=Σ_{i<n}γ^i; tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-generator-isomorphism",
+        "verdict": "verified",
+        "note": "Conditional invertibility as in KPX Definition 2.3.3; the p-adic unit argument is in PG.3/arithmetic-herr."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/arithmetic-herr",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement. Locator corrected: KPX-v3 Definition 2.3.3 and Proposition 2.3.5, pp.21–22 → Notation 2.3.1 and Definition 2.3.3, p.21."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/analytic-kernel-inverse",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Theorem 3.1.1 and Lemmas 3.1.2–3.1.3, pp.25–28 → Theorem 3.1.1, p.25, with Lemma 3.1.2 and Corollary 3.1.3 in its proof, pp.25–28."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/galois-herr-comparison",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-cup",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-tate-duality",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P7/herr-complex-interface, ArithmeticGaloisDuality:D7/local-coefficient-field-duality states this result; PG states only how it uses it and what it adds."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-field-maps",
+        "verdict": "corrected",
+        "note": "Narrowed to what PG adds beyond the lower-tier owner, which is now a prerequisite and is named in the statement. Locator corrected: KPX-v3 Remark 2.2.4 and Proposition 2.3.7, pp.16–17 and 22 → Remark 2.2.4, p.16; Lemma 2.3.5 and Proposition 2.3.7, p.22."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/integral-two-descent",
+        "verdict": "verified",
+        "note": "Worker construction; the C₂ cohomology and rational averaging tests recomputed. The lower owner explicitly leaves the integral p=2 case open."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-ext",
+        "verdict": "corrected",
+        "note": "BHS (3.10) on p.342 and (3.11)–(3.13) on p.343 checked. LocalGaloisDeformationRings §0.4 (upstream #923) now states the Ext comparison over Artinian coefficients; restructure entry 3. Locator corrected: BHS-2019 §3.3, formulas (3.11)–(3.13), pp.343–344 → §3.3, complex (3.10), p.342, and formulas (3.11)–(3.13), p.343."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/localized-herr",
+        "verdict": "corrected",
+        "note": "BHS (3.10), p.342, has d¹=(1−γ,φ−1) with the full torsion subgroup, so the comparison sign −1 in degree two is right; locator corrected. Locator corrected: BHS-2019 Definition 3.3.2, Remark 3.3.1, equations (3.11)–(3.13) and Lemma 3.3.5, pp.342–347 → Remark 3.3.1, Definition 3.3.2 and complex (3.10), p.342; formulas (3.11)–(3.13), p.343; Lemma 3.3.5, p.344."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.3/period-sheaf-cohomology",
+        "verdict": "corrected",
+        "note": "Owner prerequisite added (PadicHodgeTheory:P8/relative-frobenius-cohomology-comparison)."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/balanced-psi",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/linearized-psi",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/linearized-psi-pure",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/linearized-psi-left-inverse",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/linearized-psi-uniqueness",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/linearized-psi-naturality",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/linearized-psi-semilinear",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/linearized-psi-continuity",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/rank-one-psi",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/rank-one-left-inverse",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/rank-one-basis-covariance",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-zero-projection",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-zero-splitting",
+        "verdict": "verified",
+        "note": "Algebra checked; the suggested Lean declaration elaborates and its examples were recomputed (e.g. rank_one_no_pullout gives (1/3,1/2), the basis-change formula follows from ψ(φ(c)f)=cψ(f))."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-one-to-zero",
+        "verdict": "corrected",
+        "note": "Locator corrected: LLZ-2011 Definition 3.1, map 1-phi from psi=1 to psi=0, p.1116 → §3A, p.1116: the map 1−φ from N(T)^{ψ=1} to (φ^*N(T))^{ψ=0} defined before Remark 3.1."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
+        "verdict": "verified",
+        "note": "KPX Definition 2.2.2 and Notation 2.2.3 (p.16): ψ=p^{-1}φ^{-1}Tr and ψ(Σ(1+π)^iφ(f_i))=f_0; tests recomputed."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
+        "verdict": "verified",
+        "note": "KPX Definition 2.2.6 (p.17) and LLZ §1C checked; the positive-height Wach exclusion is right."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Definition 4.2.2 and Proposition 4.2.3 → Definition 4.2.2 and Proposition 4.2.3, p.36."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex-functoriality",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Definition 4.2.2 and Proposition 4.2.3 → Definition 4.2.2 and Proposition 4.2.3, p.36."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex-h1",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Definition 4.2.2, psi complex → Definition 4.2.2, p.36."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex-h2",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Definition 4.2.2 and Proposition 4.2.3 → Definition 4.2.2 and Proposition 4.2.3, p.36."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Definition 4.2.2, p.37; Theorem 4.4.11 and proof, p.46 → Definition 4.2.2, p.36; Corollary 4.4.11 and proof, p.46. Added Cherbonnier–Colmez 1999, Théorème II.1.3 (p.12), the primary source of D(T)^{ψ=1}≅H¹_Iw."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Theorem 4.4.11, p.46, and Proposition 4.2.3, pp.37–38 → Corollary 4.4.11, p.46, and Proposition 4.2.3, p.36."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Proposition 4.2.3, pp.37–38; Definition 4.4.7 and Theorems 4.4.8 and 4.4.11, pp.45–46 → Proposition 4.2.3, p.36; Definition 4.4.7 and Theorem 4.4.8, p.45; Corollary 4.4.11, p.46."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-pairing",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Lemmas 4.2.5–4.2.7, Definition 4.2.8 and Proposition 4.2.9, pp.38–39 → Lemma 4.2.5, p.36; Corollary 4.2.6 and Lemma 4.2.7, p.37; Definition 4.2.8 and Proposition 4.2.9, p.38."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-iwasawa",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Theorem 4.4.11, p.46 → Corollary 4.4.11, p.46."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-bloch-kato-image",
+        "verdict": "corrected",
+        "note": " The bare-stage request to PadicHodgeRegulators:L1 is replaced by its exact nodes L1/bloch-kato-subgroups and L1/bloch-kato-exponential (im exp=H¹_e)."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+        "verdict": "corrected",
+        "note": "Added the étaleness of B_F⊗N to the rational definition (Berger's 2026 erratum to Definition III.4.1; source issue E2, also PadicHodgeTheory/E10). Owned upstream by PadicHodgeTheory §4.4; restructure entry 3."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+        "verdict": "verified",
+        "note": "Berger 2004 Proposition II.1.1 and Lemmas II.1.2–II.1.3 (pp.11–12), Proposition II.1.4 (p.13) checked. The PadicHodgeTheory package §4.4 states it upstream; restructure entry 3."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+        "verdict": "verified",
+        "note": "Berger 2004 Théorème III.3.1 (p.19) checked. Owned upstream by PadicHodgeTheory §4.4; restructure entry 3."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+        "verdict": "corrected",
+        "note": "Rewritten as a comparison receipt: the lower-tier owner PadicHodgeTheory:P7/plan/wach-dcris-comparison states this result; PG states only how it uses it."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
+        "verdict": "verified",
+        "note": "Berger 2004 Proposition III.4.2 and Remarque III.4.3 (p.21), Corollaire III.4.5 (p.22) checked. Owned upstream by PadicHodgeTheory §4.4; restructure entry 3."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-unramified-base-change",
+        "verdict": "verified",
+        "note": "Worker consequence of uniqueness; hypotheses (unramified bases, finite flat coefficients) are the right ones."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
+        "verdict": "verified",
+        "note": "LLZ Theorem 2.12 (p.1115, recalled from LLZ 2010 Lemma 3.15), Remark 2.14 and §3A (p.1116, integral basis from LLZ 2010 Theorem 3.5) checked."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
+        "verdict": "corrected",
+        "note": "Locator corrected: LLZ-2011 Lemma 1.7, p.1106 → Lemma 1.7, p.1103."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category",
+        "verdict": "verified",
+        "note": "KPX Definitions 2.2.6 and 2.2.12, Proposition 2.2.14 (pp.17–18) and Conjecture 2.2.15 (p.20) checked."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/relative-representation-realization",
+        "verdict": "verified",
+        "note": "KPX Theorem 2.2.17 (p.20) checked; its cited construction is the recorded gap."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/psi-cokernel-finiteness",
+        "verdict": "verified",
+        "note": "KPX Propositions 3.2.4–3.2.5 (p.29) and Proposition 3.3.2 (p.31) checked."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/relative-perfectness",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Theorems 4.4.1–4.4.6, pp.42–45 → Theorems 4.4.1–4.4.3, 4.4.5 and 4.4.6, pp.42–45."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/derived-base-change",
+        "verdict": "corrected",
+        "note": "Locator corrected: KPX-v3 Theorem 4.4.3, pp.43–44, and proofs of Theorems 4.4.5–4.4.6, pp.44–45 → Theorem 4.4.3, pp.42–43, and proofs of Theorems 4.4.5–4.4.6, pp.43–45."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/cyclotomic-deformation",
+        "verdict": "verified",
+        "note": "KPX Definition 4.4.7 and Theorem 4.4.8 (p.45) checked: inverse universal character and Iwasawa duality."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-characters",
+        "verdict": "corrected",
+        "note": "Locator corrected: BHS-2019 Definition 3.3.2 and Lemma 3.3.4, pp.343–345 → Definition 3.3.2, p.342; Lemma 3.3.4, p.343."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/character-cohomology",
+        "verdict": "verified",
+        "note": "KPX Proposition 6.2.8 (pp.58–59) and Corollary 6.2.9 (p.59) checked; the H¹ formula agrees with KPX because H⁰ and H² are never both nonzero in rank one."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/triangulation",
+        "verdict": "verified",
+        "note": "KPX Definitions 6.3.1–6.3.2 (pp.65–66) checked."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/global-triangulation",
+        "verdict": "verified",
+        "note": "KPX Corollary 6.3.10 (p.71) checked: connected components irreducible, bad locus disjoint from f^{-1}(X_alg), t-power cokernels, gr¹ an isomorphism, X′=X for smooth curves."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/triangulation-specialization",
+        "verdict": "verified",
+        "note": "KPX Theorem 6.3.13 (p.72) checked."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/character-weights",
+        "verdict": "verified",
+        "note": "KPX Definition 6.2.11 and Lemma 6.2.12 (p.60) and BHS Definition 3.3.2 (p.342) checked; the dual-number test is right."
+      },
+      {
+        "nodeId": "PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-classification",
+        "verdict": "verified",
+        "note": "KPX Theorem 6.2.14 (p.61), Lemmas 6.2.16–6.2.20 (pp.62–64) and Example 6.2.21 (p.65) checked."
+      }
+    ]
+  }
 }
