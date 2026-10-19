@@ -1,6 +1,57 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
-## Current checkpoint — codex-UK58cX, 19 October 2026
+## Current checkpoint — codex-VHoeEk, 19 October 2026
+
+Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470);
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6264474339).
+**Blocked: the incorporated brief requires the real-function-field supplier
+design before consumer execution, and that tranche remains absent.**
+Only this handoff changes; no second job was claimed.
+
+Fresh checks at atlas main
+[`838ff2c8f3f82374927c1589cfce670cc8fcbdaf`](https://github.com/CBirkbeck/tauceti-explorer/commit/838ff2c8f3f82374927c1589cfce670cc8fcbdaf)
+(local HEAD and GitHub main agreed) confirm:
+
+- The incorporated consumer route has 100 distinct items and still requires
+  every needed tranche of all four supplier designs before execution.
+- The accepted quadratic parent assigns thirteen items to
+  `QuadraticFormsRealFunctionFields`, all `proposed-split`; its review handoff
+  leaves the split decision to the maintainer. Benoist19 `/25` and `/26`
+  remain shared Q2.5 imports. The RF.0–RF.4 contracts below still apply.
+- No supplier roadmap, packet or part exists locally; GitHub contents checks
+  for its roadmap and packet both return HTTP 404. No split decision or
+  supplier job exists. The consumer remains `pending` with `after: []`;
+  the generator still derives these dependencies only from its explicit
+  special case and registered split decisions.
+- The other required designs remain complete and accepted: semisimple
+  (55 nodes), equivariant topology (75), and Hodge H.8 (31).
+
+**Resume condition:** the maintainer must materialize the missing tranche
+under one authorized owner and encode its design-presence dependency before
+releasing this consumer. Supplier, split-registry and queue edits are outside
+this issue's permitted files. Follow the resume procedure below, retaining
+the application proof gates and shared-import direction.
+
+Read the current upstream quadratic/real-algebraic scope statements and
+selected suggested signatures, plus the current library's central-simple
+index and real Brauer-group source. The upstream commits remain those
+recorded below. No build, new primary-source reading or pinned-baseline claim
+is made. The reviewed audit has no consumer entry.
+
+Validation: parsed the route, assignments, supplier metadata, split registry,
+queue and audit; checked local/remote absence, generator logic, main-ref
+equality, permitted paths, intake file checks and whitespace. All four
+consumer deliverables remain absent: zero nodes, API items, tests, planets,
+baseline citations or formal requests; no stages designed. Blueprint checking
+and Lean elaboration are inapplicable; Lean was not compiled. No scratch
+artifact is needed to resume.
+
+Selection: focus assembly #7943 rejected both claim attempts because GitHub
+disables comments beyond 2,500 comments. The two next available plan-review
+candidates were already claimed when rechecked; this design was selected
+from the next eligible class.
+
+## Earlier checkpoint — codex-UK58cX, 19 October 2026
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470);
 [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6262967916).
