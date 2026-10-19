@@ -149856,6 +149856,200 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-RelativeJacobiansAndIntegralCurveModels.md"
+  },
+  {
+   "id": "PKG-NoncommutativeAndEquivariantIwasawa~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "NoncommutativeAndEquivariantIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/README.md",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/Suggested.lean",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/metadata.toml",
+    "research/blueprint/handoff/PKG-NoncommutativeAndEquivariantIwasawa~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-NoncommutativeAndEquivariantIwasawa~codex.md"
+  },
+  {
+   "id": "PKG-K2SymbolsBrauer~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/packages/K2SymbolsBrauer/README.md",
+    "research/blueprint/packages/K2SymbolsBrauer/Suggested.lean",
+    "research/blueprint/packages/K2SymbolsBrauer/metadata.toml",
+    "research/blueprint/handoff/PKG-K2SymbolsBrauer~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-K2SymbolsBrauer~codex.md"
+  },
+  {
+   "id": "FIX-PKG-K3BlochGroups~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-K3BlochGroups~adv.md",
+    "research/blueprint/packages/K3BlochGroups/review.json",
+    "research/blueprint/packages/K3BlochGroups/README.md",
+    "research/blueprint/packages/K3BlochGroups/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv.md"
+  },
+  {
+   "id": "PKG-ArithmeticKTheory~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/ArithmeticKTheory/README.md",
+    "research/blueprint/packages/ArithmeticKTheory/Suggested.lean",
+    "research/blueprint/packages/ArithmeticKTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-ArithmeticKTheory~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-ArithmeticKTheory~codex.md"
+  },
+  {
+   "id": "PKG-MotivicEtaleKTheory~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivicEtaleKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/MotivicEtaleKTheory/README.md",
+    "research/blueprint/packages/MotivicEtaleKTheory/Suggested.lean",
+    "research/blueprint/packages/MotivicEtaleKTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-MotivicEtaleKTheory~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-MotivicEtaleKTheory~codex.md"
+  },
+  {
+   "id": "FIX-PKG-BorelRegulators~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "BorelRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-BorelRegulators~adv.md",
+    "research/blueprint/packages/BorelRegulators/review.json",
+    "research/blueprint/packages/BorelRegulators/README.md",
+    "research/blueprint/packages/BorelRegulators/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv.md"
+  },
+  {
+   "id": "REV-PKG-EllipticKTheory~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EllipticKTheory~adv.md",
+    "research/blueprint/packages/EllipticKTheory/review.json",
+    "research/blueprint/packages/EllipticKTheory/README.md",
+    "research/blueprint/packages/EllipticKTheory/Suggested.lean",
+    "research/blueprint/packages/EllipticKTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EllipticKTheory~adv.md"
+  },
+  {
+   "id": "REV-PKG-EllipticRegulators~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EllipticRegulators~adv.md",
+    "research/blueprint/packages/EllipticRegulators/review.json",
+    "research/blueprint/packages/EllipticRegulators/README.md",
+    "research/blueprint/packages/EllipticRegulators/Suggested.lean",
+    "research/blueprint/packages/EllipticRegulators/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EllipticRegulators~adv.md"
+  },
+  {
+   "id": "REV-PKG-Polylogarithms~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-Polylogarithms~adv.md",
+    "research/blueprint/packages/Polylogarithms/review.json",
+    "research/blueprint/packages/Polylogarithms/README.md",
+    "research/blueprint/packages/Polylogarithms/Suggested.lean",
+    "research/blueprint/packages/Polylogarithms/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-Polylogarithms~adv.md"
+  },
+  {
+   "id": "REV-PKG-HabiroNumberFields~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HabiroNumberFields~adv.md",
+    "research/blueprint/packages/HabiroNumberFields/review.json",
+    "research/blueprint/packages/HabiroNumberFields/README.md",
+    "research/blueprint/packages/HabiroNumberFields/Suggested.lean",
+    "research/blueprint/packages/HabiroNumberFields/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~adv.md"
   }
  ]
 }
