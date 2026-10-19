@@ -1,105 +1,167 @@
-# REV-FIX-RT-AREA-topology~4: scope reconciliation required
+# REV-FIX-RT-AREA-topology~4: authorize four packet paths before resuming
 
-Refs #6521. Codex, session `codex-ilSIEy`, 19 October 2026;
-branch `codex-ilSIEy-topology-review`, input
-`19ac37603d79b1e4bf0e36fe577bcd3563d0b119`.
-Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6259350556).
-Only this job was claimed. This is a blocked checkpoint, not a completed review.
+Refs #6521. Codex, session `codex-eRZ2jm`, 19 October 2026;
+branch `codex-eRZ2jm-review-topology-fixes`, input
+`e64000122f079671a31ac872c29c8d8c71139a69`.
+Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6260107342).
+Only this job was claimed. **Blocked checkpoint; the job is not complete.**
 
-## Resolve this before dispatching another worker
+## Required scope repair
 
-The live issue's Deliverables, Files under review and RULES name this report
-and only the Polylogarithms, HabiroNahmSeries and QSeries parent packet/suggested
-pairs (seven outputs). The queue requires four additional pairs (fifteen
-outputs). WORKERS.md, Doing the work, says: “Edit only the files the issue names,
-plus your own scratch space.” Requested explicit authorization for the extra
-four pairs; none received. No excluded file, queue entry, completion code or
-label was changed.
+The live issue names only this job's report and the Polylogarithms,
+HabiroNahmSeries and QSeries parent packet/suggested pairs: seven outputs.
+The queue requires those plus four other pairs: fifteen outputs.
+[WORKERS.md](../WORKERS.md), Doing the work, says “Edit only the files the issue
+names, plus your own scratch space.” Requested authorization for the four
+additional packet paths below; none arrived before submission. No excluded
+canonical path, queue entry, predicate or label was changed.
 
-Executed the actual unchanged `issues.deliverables_complete` function; it returns
-false. All three permitted parent packets already name this review job, but the
-four omitted packets still name their separate whole-plan reviewers:
+The actual unchanged `issues.deliverables_complete` function returns false.
+All three permitted parents already identify this review job. Only these four
+packet review objects fail its reviewer-identity test; their current statuses
+are accepted under their separate whole-plan review jobs. The queue already
+allows their packet paths at intake. **Synchronize the issue with the queue,
+or expressly authorize these four JSON paths, before another dispatch.**
+No additional suggested-file edits are presently needed. A needs_changes
+verdict can complete a review; excluded reader corrections do not prevent
+finishing a negative review.
 
-| Omitted packet | Current reviewer suffix |
-|---|---|
-| ArithmeticQuantumTopology | REV-ArithmeticQuantumTopology~2 |
-| Polylogarithms--P.2 | REV-Polylogarithms--P.2 |
-| HabiroNahmSeries--HB.4 | REV-HabiroNahmSeries--HB.4 |
-| HabiroNahmSeries--HB.10 | REV-HabiroNahmSeries--HB.10 |
+## Work done and revised bounded judgment
 
-**Synchronize the issue scope with these queue outputs, or expressly authorize
-the four packet paths, before redispatch.** Their packet paths already pass the
-intake's allowed-output rule. A needs_changes verdict is permitted by completion;
-the outstanding reader corrections do not themselves prevent finishing a
-negative review. Do not dispatch another unchanged-scope metadata refresh.
+Re-read the assigned 27 findings, verification, fix and earlier reviews;
+inspected the affected parent and omitted-packet contracts, their earlier
+whole-plan audits, seven public source PDFs, actual pinned eta/denominator
+statements and current read-only AT/DG/GT owners and Tau Ceti geometry APIs.
+The consolidated [report](../reviews/REV-FIX-RT-AREA-topology~4.md) gives every
+finding's disposition and the exact public-source locators. No new correction
+to a permitted packet was established.
 
-## Work performed in this run
+The preceding handoff proposed needs_changes for ArithmeticQuantumTopology
+because G4/G5 remain open. That rationale was too broad: PROTOCOL section 0
+allows planned target coverage ending in explicit gaps, and the later
+REV-ArithmeticQuantumTopology~2 review accepted that boundary. This session
+found a separate concrete omission in the volume import: Neumann's shape and
+P.2's cross-ratio are reciprocal for identical ordered vertices, and their
+signed orientation conventions require an explicit comparison. The prepared
+QT verdict is therefore needs_changes for this conversion, rather than for
+having declared gaps. The helper adds the missing direct prerequisite; it does
+not silently resolve the orientation comparison. Preserve all eight gaps and
+nineteen requests, and the entire original whole-plan review and checked array
+once in reviewHistory before recording this bounded review.
 
-Re-read the live issue after confirmation, all 27 assigned finding claims,
-evidence and verifier reasons, the fix report, preceding review and affected
-parent contracts. Fresh checks against six public PDFs support the existing
-qualified supplier boundaries. Inspected the actual pinned eta-nonvanishing and
-denominator-cocycle declarations. Read the current AT, DG and GT contracts in
-the supplied read-only trees; AT's README still unnecessarily restricts its
-relative-group definition, while its Lean signature permits arbitrary based
-pairs. DG already owns forms, orientation, Stokes, abstract boundary and
-finite-dimensional boundaryless homogeneity. Consume those plans; do not
-recreate them. No upstream tree was edited or used for a build.
+The four complete proposed review objects follow. They have not been applied.
+A read-only in-memory substitution of these four proposed packets, including
+the direct edge below, makes the actual completion function return true.
+The canonical function still returns false. Rechecking the current explicit
+graph gave 40,331 node IDs, 30 references reachable from the P.2 supplier and
+no reverse path from that supplier to QT.5's volume comparison.
 
-No further mathematical correction was established. Existing whole-plan audits,
-parent review objects, nodes, gaps, requests and Lean statements are unchanged.
-The report preserves all 27 dispositions, source URLs and exact locators with
-their original authorship. Earlier finite cocycle experiments and successful
-Lean checks are inherited, not new experiments by this run. The latest preceding
-session supplied the full corrected factor-cocycle argument; its analytic gaps
-remain.
+<!-- proposed-review-objects -->
+```json
+[
+  {
+    "path": "research/blueprint/packets/ArithmeticQuantumTopology.json",
+    "sha256": "161dc9ce320280e75c2c5ebf1923d8bd0529dabbccc013ad3b9d547cc1ead951",
+    "previousReviewer": "independent-review-REV-ArithmeticQuantumTopology~2",
+    "review": {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-19",
+      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-ArithmeticQuantumTopology~2. Preserve that complete whole-plan review and its checked entries in reviewHistory. RT-AREA-topology/7 still needs an explicit orientation comparison at QT.5/volume-and-chern-simons: for identical ordered vertices, Neumann §3 pp.420-421 uses n with n(0,infinity,1,z)=z, whereas P.2 uses r=1/n and Vol_P(T)=D(r)=-D(n). State the carrier relabelling or orientation reversal before importing the signed volume formula; the missing direct Polylogarithms:P.2/hyperbolic-volume prerequisite is added separately. The existing figure-eight numerical test alone does not check this carrier conversion. G4/G5 being explicit planned gaps is not the rejection rationale; preserve all eight gaps, nineteen requests, conditional NZ/Habiro hypotheses, analytic-contour obligations and conjectural knot/matrix modularity. This is a bounded fix review, not a repeated 106-node source audit, closed coverage or implementation."
+    }
+  },
+  {
+    "path": "research/blueprint/packets/Polylogarithms--P.2.json",
+    "sha256": "c7ec1779b6e7a5f682d5f55128681f8e9b45ec45b4578452625c4b60fc3d62d2",
+    "previousReviewer": "independent-review-REV-Polylogarithms--P.2",
+    "review": {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-19",
+      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-Polylogarithms--P.2. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/7. The Milnor-angle node supplies the single P.2 tetrahedron formula under the stated curvature, orientation and angle conventions. It retains the ideal-boundary, measurable-region, signed-integration and exact regulator-calibration gaps. Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14 support this ownership boundary. This does not repeat the 14-node whole-plan audit or claim its gaps are closed."
+    }
+  },
+  {
+    "path": "research/blueprint/packets/HabiroNahmSeries--HB.4.json",
+    "sha256": "187c929cbda6a18725271fb03e6d85e01c95d016829dbd8ddb329d6ae8cd6fa1",
+    "previousReviewer": "independent-review-REV-HabiroNahmSeries--HB.4",
+    "review": {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-19",
+      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-HabiroNahmSeries--HB.4. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The analytic branch uses symmetric positive-definite data, odd root orders coprime to the compatible denominator, chosen branches and cancellation-safe all-orders remainders. The formal Gaussian export has a different domain and supplies no analytic convergence for a singular knot matrix. GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6 support the analytic restrictions; retain the coefficientwise Kummer and rational-data arithmetic gaps and the existing 13-node audit."
+    }
+  },
+  {
+    "path": "research/blueprint/packets/HabiroNahmSeries--HB.10.json",
+    "sha256": "207703d3de03ee9340436a98e1b0039b40305881bc9d6b35b8b426bebbbf6bad",
+    "previousReviewer": "independent-review-REV-HabiroNahmSeries--HB.10",
+    "review": {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-19",
+      "notes": "Independent bounded review by Codex, session codex-eRZ2jm, following independent-review-REV-HabiroNahmSeries--HB.10. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The quartic module export remains conditional on HB.9 gluing and finite-etale scalar change, with a specified noncanonical K3 lift, tame-kernel prime restrictions and orders prime to Delta. A restricted module element gives neither knot invariance nor an arbitrary geometric cohomology class. GSWZ v2 Theorem 5 p.14 supports the restricted formal membership boundary. Preserve the global-line, order-one freeness and geometric-comparison obligations and the separate 14-node audit."
+    }
+  }
+]
+```
 
-Fresh validation: all three permitted parent packets pass check_blueprint.py
-against the pinned declaration index, zero errors/warnings. Counts remain
-P 75 nodes/19 gaps/21 requests; HB 109/22/9; QSeries 537/24/27. No Lean file
-changed, so Lean was not rerun. Prior serial lean-check results had only sorry
-warnings (462, 442 and 1491 respectively). No compiler or language server was
-started. This checkpoint changes only the report and this handoff, avoiding
-another redundant reviewHistory entry.
+## Apply only after authorization
 
-## Resume after scope authorization
+1. Confirm the four paths are authorized and their input hashes still match.
+   If any input changed, recheck its affected contracts and revise the bounded
+   verdict/date rather than applying an old review automatically.
+2. For each packet, archive the complete old review once in reviewHistory;
+   keep all its checked entries there. Install the bounded review above.
+3. In `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`, insert
+   `Polylogarithms:P.2/hyperbolic-volume` immediately after
+   `Polylogarithms:P.2/bloch-wigner-descent` in prerequisites. Its prose already
+   imports this formula. Preserve the other geometry/comparison gaps.
+4. Run the packet checker on every changed packet and verify completion with
+   the actual unchanged function. Leave the excluded readers to separately
+   authorized follow-ups. No metadata-only refresh resolves the scope blocker.
 
-1. Read the four omitted packet contracts and their whole-plan audits. Check the
-   current library and upstream owners again if they have changed.
-2. Archive each complete preceding review once in reviewHistory, then record
-   reviewer `independent-review-REV-FIX-RT-AREA-topology~4`, actual date/session
-   and the bounded disposition below. Do not erase checked arrays or imply a
-   new whole-plan audit.
-3. Add QT.5's direct `Polylogarithms:P.2/hyperbolic-volume` prerequisite (patch
-   below), rechecking the reverse dependency path if the graph has changed.
-   The preceding reviewer found no reverse path in the 37,754-node graph.
-4. Validate the changed packets and execute the unchanged completion predicate.
-   Keep the two excluded reader corrections as separately assigned follow-ups
-   unless their paths are explicitly added to intake's deliverables too.
+The following application helper has **not been applied**. A dry run intercepted
+all writes, preserved the old checked arrays (106/14/13/14 entries), and passed
+the real packet checker on all four proposed packets with zero errors/warnings.
+It checks every input before any write and preserves each preceding whole-plan
+review. Its only write targets are the four packet paths awaiting authorization. Run it from the
+repository root only after permission and current-date review:
 
-| Packet | Prepared bounded disposition |
-|---|---|
-| Polylogarithms--P.2 | Accept /7 with ideal-region, signed-integration, Milnor and calibration qualifications; preserve the 14-node whole-plan audit, 2 gaps and 3 requests. |
-| ArithmeticQuantumTopology | Needs_changes /1–/16's geometric/comparison obligations, especially G4/G5; add the direct P.2 formula input; preserve the 106-node audit, 8 gaps and 19 requests. |
-| HabiroNahmSeries--HB.4 | Accept qualified /11: positive definiteness, odd coprime orders, branches and strong remainder; retain Kummer/rational-data gaps and the 13-node audit, 3 gaps and 1 request. |
-| HabiroNahmSeries--HB.10 | Accept qualified /11: finite-etale scalar change, specified K3 lift, tame primes, restricted roots and HB.9 gluing; retain global-line/cohomology gaps and the 14-node audit, 5 gaps and 3 requests. |
+```python
+from copy import deepcopy
+from hashlib import sha256
+import json
+from pathlib import Path
 
-No evidence so far calls for editing the four corresponding suggested files.
-The seven suggested files previously elaborated with only sorry warnings:
-P 462, HB 442, QSeries 1491, P.2 52, QT 65, HB.4 31, HB.10 28. Use lean-check
-only if new changes warrant compilation. No build is needed for review metadata.
+note = Path("research/blueprint/handoff/REV-FIX-RT-AREA-topology~4.md").read_text()
+block = note.split("<!-- proposed-review-objects -->", 1)[1]
+records = json.loads(block.split("```json\n", 1)[1].split("\n```", 1)[0])
+updates = {}
+for record in records:
+    path = Path(record["path"])
+    raw = path.read_bytes()
+    assert sha256(raw).hexdigest() == record["sha256"], path
+    packet = json.loads(raw)
+    old = deepcopy(packet["review"])
+    assert old["reviewer"] == record["previousReviewer"], path
+    history = packet.setdefault("reviewHistory", [])
+    if old not in history:
+        history.append(old)
+    packet["review"] = record["review"]
+    if packet["roadmapId"] == "ArithmeticQuantumTopology":
+        node = next(n for n in packet["nodes"] if n["id"] ==
+                    "ArithmeticQuantumTopology:QT.5/volume-and-chern-simons")
+        edge = "Polylogarithms:P.2/hyperbolic-volume"
+        if edge not in node["prerequisites"]:
+            i = node["prerequisites"].index("Polylogarithms:P.2/bloch-wigner-descent")
+            node["prerequisites"].insert(i + 1, edge)
+    updates[path] = json.dumps(packet, ensure_ascii=False, indent=2) + "\n"
+for path, text in updates.items():
+    path.write_text(text)
+```
 
-The public-source locators and supplier qualifications are in the report.
-The source PDFs and temporary logs are scratch only and are deleted after
-submission. No next worker needs them: retrieve the cited public versions.
-
-The unapplied patch below is inherited from PR #10442. Its reader paths are
-outside both issue and queue scope; do not apply those sections without both
-worker authorization and valid submission paths. The HB reader needs its
-formal-versus-analytic Gaussian distinction and the equation (38) locator
-corrected to GSWZ v2 printed p.14. The QSeries reader needs the piecewise eta
-multiplier; the -I check distinguishes it from the naive inverse. Neither
-reader correction is necessary to record a completed negative review.
+Completion verification after applying authorized reviews:
 
 ```python
 import importlib.util
@@ -114,66 +176,74 @@ assert len(job["outputs"]) == 15
 assert issues.deliverables_complete(job)
 ```
 
-## Unapplied excluded-path patch — scope authorization required
+## QT orientation comparison to resolve after authorization
 
-```diff
---- a/research/blueprint/packets/ArithmeticQuantumTopology.json
-+++ b/research/blueprint/packets/ArithmeticQuantumTopology.json
-@@ -2928,4 +2928,5 @@
-         "ArithmeticQuantumTopology:QT.5/extended-rogers-regulator",
-         "Polylogarithms:P.2/bloch-wigner-descent",
-+        "Polylogarithms:P.2/hyperbolic-volume",
-         "K3BlochGroups:V.4/suslin-exact-sequence",
-         "K3BlochGroups:V.6/suslin-lift-fibre"
---- a/research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md
-+++ b/research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md
-@@ -9067,7 +9067,7 @@
- ### Kontsevich's function is a quantum modular form of weight 3/2
+The additional packet is `research/blueprint/packets/ArithmeticQuantumTopology.json`;
+its affected nodes are `QT.5/ideal-tetrahedron-and-shape` and
+`QT.5/volume-and-chern-simons`. The former follows Neumann v2 §3,
+pp.420–421 (PDF pp.8–9), with n(0,infinity,1,z)=z. The P.2 parent
+`hyperbolic-volume` and part `milnor-angle-volume` follow r(infinity,0,1,z)=z
+and Vol_P(T)=D(r(T)). For identical ordered vertices r=1/n, hence
+Vol_P(T)=-D(n(T)). This session's homogeneous-coordinate evaluation at
+T=(0,infinity,1,i) gives n=i and r=-i; their Bloch–Wigner signs differ.
 
--**Theorem** (`QM.5/kontsevich-quantum-modular`). The function φ(x) = e^{πix/12}F(e^{2πix}) on ℚ satisfies φ(x + 1) = e^{2πi/24}φ(x) and φ(x) + (ix)^{−3/2}φ(−1/x) = g(x) (x ∈ ℚ, x ≠ 0), where (ix)^{−3/2} is the principal branch and g : ℝ → ℂ is C^∞, real-analytic on ℝ ∖ {0}, with g^{(n)}(0) = (−πi/12)ⁿc_n (c_n the Glaisher numbers). Equivalently, φ is a quantum modular form of weight 3/2 on SL₂(ℤ) (quantum-modular-form, lower boundary branch) with multiplier ε determined by ε(T) = e^{−2πi/24} and ε(S) = e^{2πi/8}, the inverse of the η-multiplier; for general γ the period function is real-analytic except at γ⁻¹∞.
--
--Ambient hypotheses: The multiplier ε on the generators T = (1 1; 0 1), S = (0 −1; 1 0); the general γ follows by quantum-modular-cocycle, ε being the multiplier system of weight 3/2 inverse to that of η for the stated lower-boundary slash convention (QM.1/dedekind-eta-multiplier)..
-+**Theorem** (`QM.5/kontsevich-quantum-modular`). The function φ(x) = e^{πix/12}F(e^{2πix}) on ℚ satisfies φ(x + 1) = e^{2πi/24}φ(x) and φ(x) + (ix)^{−3/2}φ(−1/x) = g(x) (x ∈ ℚ, x ≠ 0), where (ix)^{−3/2} is the principal branch and g : ℝ → ℂ is C^∞, real-analytic on ℝ ∖ {0}, with g^{(n)}(0) = (−πi/12)ⁿc_n (c_n the Glaisher numbers). Equivalently, φ is a quantum modular form of weight 3/2 on SL₂(ℤ) (quantum-modular-form, lower boundary branch) with multiplier ε determined by ε(T) = e^{−2πi/24} and ε(S) = e^{2πi/8}, ε(γ)=v_η(γ)⁻¹ for c≠0 or d>0, and ε(γ)=−v_η(γ)⁻¹ for c=0,d<0; hence ε(−I)=−i and ε(−I)j_{3/2}(−I,x)=1. For general γ the period function is real-analytic except at γ⁻¹∞.
-+
-+Ambient hypotheses: Use the lower-boundary multiplier ε(γ)=v_η(γ)⁻¹ for c≠0 or d>0, and ε(γ)=−v_η(γ)⁻¹ for c=0,d<0. Its values at T and S are the stated inverse eta values, but its value at −I differs from the naive inverse. The corrected factor satisfies QuantumCocycleCondition and acts trivially at −I.
+A valid repair must specify the orientation/carrier comparison: for example,
+with s swapping the first two vertices, r(sT)=n(T), and a comparison identifying
+QT's volume of T with P.2's volume of sT must explicitly account for that odd
+relabel and the two orientation conventions. Alternatively state the opposite
+signed-orientation convention directly. Keep Neumann's flattening, manifold
+orientation and Chern–Simons conventions consistent throughout. Add a test
+using the same ordered vertices and that comparison, alongside the existing
+regular-shape/figure-eight numerical value. Do not change the P.2 supplier's
+normalization globally. This is a missing consumer comparison, not an error
+in the cited sources. A negative review may be submitted before its repair;
+the proposed review object and helper deliberately retain needs_changes.
 
- Sources: [zagier-strange](#reference-zagier-strange), §6, Theorem, printed pp. 958–959; [zagier-qmf](#reference-zagier-qmf), Example 3, printed p. 10.
-@@ -9080,4 +9080,6 @@
- - Consistency check with Kontsevich's asymptotics: φ(1/k) = e^{2πi(3−k)/24}k^{3/2} + Σ c_n(−πi/(12k))ⁿ/n! + o(1) as k → ∞.
- - Zagier's 2010 account (Quantum modular forms, eq. (26)) prints this law with |x|^{3/2} and ∓i^{1/2}; the correct form is the one here (see the source issues).
-+
-+- At gamma = -I the lower-boundary factor of weight 3/2 is i. The corrected multiplier epsilon(-I) = -i gives total slash factor 1. Using the unmodified inverse eta multiplier i would instead give -1, so it fails this central-element check.
+## Reader corrections outside both issue and queue scope
 
- Proof or comparison obligations: Character and multiplier-system versions of the Bringmann–Rolen theorem; Zagier and Lawrence–Zagier asymptotic source comparisons.
---- a/research/blueprint/readmes/HabiroNahmSeries.md
-+++ b/research/blueprint/readmes/HabiroNahmSeries.md
-@@ -1034,5 +1034,5 @@
- **Construction** · `HabiroNahmSeries:HB.4/formal-gaussian-integration` · [packet](../packets/HabiroNahmSeries.json)
+These remain unapplied. Do not edit them unless their paths are authorized and
+included among valid submission outputs. Their outstanding corrections can be
+reported through needs_changes without editing them in this job.
 
--For a symmetric invertible N x N matrix Lambda over a Q-algebra R, the formal Gaussian bracket <f>_Lambda of f(w,h) in R[[w, w^3 h^{-1}, h]] is exp((h/2) sum_{i,j} (Lambda^{-1})_{ij} d/dw_i d/dw_j) f evaluated at w = 0 (GSWZ (eq:bracket)). In one variable <sum_j c_j w^j>_Lambda = sum_l (2l - 1)!! c_{2l} (h/Lambda)^l. GZ's operator I_Lambda (GZ (13), (14)) is the same operator at h = 1 on functions whose x^n-coefficients have valuation tending to infinity: I_Lambda[sum_j c_j x^j] = sum_l (2l - 1)!! c_{2l} Lambda^{-l}. On polynomials both agree with the normalised Gaussian expectation (HB.4/gaussian-moments); the construction itself uses no measure theory.
-+For a symmetric invertible N x N matrix Lambda over a Q-algebra R, the formal Gaussian bracket <f>_Lambda of f(w,h) in R[[w, w^3 h^{-1}, h]] is exp((h/2) sum_{i,j} (Lambda^{-1})_{ij} d/dw_i d/dw_j) f evaluated at w = 0 (GSWZ (eq:bracket)). In one variable <sum_j c_j w^j>_Lambda = sum_l (2l - 1)!! c_{2l} (h/Lambda)^l. GZ's operator I_Lambda (GZ (13), (14)) is the same operator at h = 1 on functions whose x^n-coefficients have valuation tending to infinity: I_Lambda[sum_j c_j x^j] = sum_l (2l - 1)!! c_{2l} Lambda^{-l}. On polynomials the two formal operators agree at h = 1. After specialization to real symmetric positive-definite Lambda, their value agrees with the normalised Gaussian expectation (HB.4/gaussian-moments); the formal construction itself uses no measure theory and requires no positivity.
+- `research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md`,
+  `QM.5/kontsevich-quantum-modular` around line 9067: replace the claimed global
+  inverse eta multiplier by epsilon(gamma)=v_eta(gamma)^(-1) when c!=0 or d>0,
+  and epsilon(gamma)=-v_eta(gamma)^(-1) when c=0,d<0, using the existing lower
+  boundary convention. At -I, epsilon=-i and the boundary power is i, so the
+  product is 1. The unmodified inverse gives -1. Keep the scalar analytic
+  transformation and its remaining proof obligations distinct from this
+  factor-consistency check.
+- `research/blueprint/readmes/HabiroNahmSeries.md`,
+  `HB.4/formal-gaussian-integration` around line 1034: formal Gaussian operators
+  agree on polynomials at h=1; comparison to a real normalized Gaussian integral
+  additionally requires real symmetric positive-definite precision Lambda.
+  The raw integral has prefactor (2*pi)^(N/2) det(Lambda)^(-1/2), and its
+  normalized density uses (2*pi)^(-N/2) det(Lambda)^(1/2). No prefactor is inserted
+  twice. Add the negative-precision test: Lambda=-1 sends x^2 to -1 formally,
+  while exp(x^2/2) is not integrable over the reals. For the HB.8 identification
+  citation around line 3223, GSWZ v2 Theorem 3 equation (38) is on printed p.14,
+  not p.13. Keep Theorem 8 pp.35–36 and its auxiliary-order/completion conditions.
 
- **Hypotheses and conventions.** Lambda is symmetric and invertible over a Q-algebra; the rationals must be present because of the factorials. The argument f lies in the completed ring R[[w, w^3 h^{-1}, h]], the exact domain in which the odd-order terms are controlled; the cube in w^3 h^{-1} is what makes the expansion converge formally. This is the formal, all-orders object; no analytic Gaussian integral is claimed, and the comparison with the analytic integral is an asymptotic statement proved separately in the Poisson-summation node.
-@@ -1044,5 +1044,5 @@
- 3. Prove the one-variable closed formula with the double factorials, by computing the action on a monomial.
- 4. Prove linearity, the behaviour under a linear change of variables, and the translation rule used in the source's periodicity argument, namely that translating w by h changes the integrand in the way that the shift of the congruence class does.
--5. Record the normalisation against the analytic integral, so that the prefactor (2 pi)^{-N/2} det^{-1/2} of the Gaussian density never appears twice.
-+5. For real positive-definite Lambda, distinguish precision Lambda from covariance Lambda^{-1}: the unnormalised Gaussian integral is (2 pi)^{N/2} det(Lambda)^{-1/2}, and the probability density has prefactor (2 pi)^{-N/2} det(Lambda)^{1/2}. The formal bracket is already normalised, so neither prefactor is inserted a second time.
+## Validation and inherited evidence
 
- **Direct inputs.** `mathlib:PowerSeries`, `mathlib:MvPowerSeries`, `mathlib:MvPolynomial`, `mathlib:Matrix.det`.
-@@ -1066,5 +1066,6 @@
- - **`odd_vanishes`** (degenerate): The bracket of w^3 is zero.
- - **`diagonal_factorises`** (characterisation): For diagonal Lambda the bracket of f(w_1) g(w_2) is <f>_{Lambda_11} <g>_{Lambda_22}.
--- **`gz_normalisation`** (compatibility): I_Lambda[f] equals <f>_Lambda at h = 1 for polynomial f, and equals the normalised Gaussian integral of f (HB.4/gaussian-moments).
-+- **`gz_normalisation`** (compatibility): For polynomial f, I_Lambda[f] equals <f>_Lambda at h = 1. Comparison with a normalised real Gaussian integral additionally assumes Lambda real symmetric positive definite (HB.4/gaussian-moments).
-+- **`negative_precision_is_formal_only`** (degenerate): For the one-variable precision Lambda = -1, the formal bracket at h = 1 sends x^2 to -1. The function exp(x^2/2) is not integrable on R, so this example cannot instantiate the positive-definite analytic comparison.
- - **`off_diagonal_second_moment`** (computation): For Lambda = (2 1; 1 2), <w_1 w_2>_Lambda = h (Lambda^{-1})_{12} = -h/3.
+Fresh checks of the three permitted parent packets with the pinned declaration
+index report zero errors and zero warnings. Their node/gap/request counts are
+P 75/19/21, HB 109/22/9, QSeries 537/24/27. Intake file checks and whitespace
+checks pass for this report and handoff. No packet or Lean file changed, no
+reviewHistory entry was added, and no Lean compile or language server was
+started. The helper and proposed review objects are instructions in this
+handoff, not mutations of the excluded packets.
 
-@@ -3223,5 +3224,5 @@
- - Theorem 8 uses neither Theorem 6 nor Theorem 7 nor Lemma 2.6: it is upstream of all three.
+Earlier serial lean-check successes retain their original authorship: parent
+P/HB/QSeries had 462/442/1491 admitted-declaration warnings; P.2/QT/HB.4/HB.10
+had 52/65/31/28. Those files import only Mathlib, so those results do not
+establish the build's Tau Ceti revision. Recompile only when a Lean change or
+new unresolved concern warrants it. No process was left running.
 
--**Sources.** [gswz](https://arxiv.org/pdf/2412.04241v2): Theorem 8, eq. (163), p. 35. The refined form (restricted to m' prime to m). [gswz](https://arxiv.org/pdf/2412.04241v2): Theorem 3, eq. (38), p. 13. The form in the introduction. [gswz](https://arxiv.org/pdf/2412.04241v2): Proof of Theorem 8, eqs. (164)-(166), pp. 35-36. Only N = 1 is written out.
-+**Sources.** [gswz](https://arxiv.org/pdf/2412.04241v2): Theorem 8, eq. (163), p. 35. The refined form (restricted to m' prime to m). [gswz](https://arxiv.org/pdf/2412.04241v2): Theorem 3, eq. (38), printed p. 14. The form in the introduction. [gswz](https://arxiv.org/pdf/2412.04241v2): Proof of Theorem 8, eqs. (164)-(166), pp. 35-36. Only N = 1 is written out.
-
-
-```
+Public PDFs, rendered pages and scratch logs are removed after submission.
+The report's URLs and locators, proposed objects and guarded procedure above
+contain everything needed to resume. The original reports, finite experiment
+and preceding factor-cocycle proof remain in git history at the input commit;
+the current report distinguishes those inherited results from this session's
+checks. Await scope authorization rather than dispatching another identical
+blocked review.
