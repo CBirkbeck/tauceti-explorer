@@ -940,7 +940,7 @@
         "Apply R09.5/rigidification and its base-change theorem. On the base étale site, the Kummer map kills relative unit ambiguities and identifies the rigidified μr-torsor group with Pic[r]."
       ],
       "acceptance": [
-        "Any two neutralizations differ by a uniquely determined line-bundle class, with its full groupoid before rigidification."
+        "For Gm-neutralizations the difference is a line bundle; for μr-neutralizations it is a μr-torsor, equivalently a line bundle together with its rth-power trivialization. Retain the full difference groupoid before rigidification."
       ],
       "prerequisites": [
         "TopologicalMirrorSymmetryForHitchinSystems:TMS.1/arithmetic-gerbe",
@@ -983,12 +983,12 @@
         {
           "name": "TauCeti.HitchinMirror.relativeSplit_tensor",
           "role": "structure",
-          "statement": "Tensor product of neutralizations defines the Picard-stack action with unit and associativity isomorphisms."
+          "statement": "Tensoring a Gm-neutralization by a line bundle defines the Picard-stack action with unit and associativity isomorphisms. For μr-neutralizations use the relative μr-torsor stack and retain the rth-power trivialization."
         },
         {
           "name": "TauCeti.HitchinMirror.relativeSplit_difference",
           "role": "universal-property",
-          "statement": "The action map Pic̃×Split̃→Split̃×Split̃ is an equivalence over V."
+          "statement": "For Gm-neutralizations, the action map Pic̃×Split̃→Split̃×Split̃ is an equivalence over V. For μr-neutralizations replace Pic̃ by the relative μr-torsor stack; after μr-rigidification its acting sheaf is Pic(U/V)[r]."
         },
         {
           "name": "TauCeti.HitchinMirror.relativeSplit_baseChange",
@@ -1008,7 +1008,7 @@
         {
           "name": "TauCeti.HitchinMirror.relativeSplit_neutralOrigin",
           "role": "constructor",
-          "statement": "A neutralization identifies Split̃ with Pic̃ and Split_μr with Pic[r]."
+          "statement": "A chosen Gm-neutralization identifies its splitting stack with Pic̃. A chosen μr-neutralization identifies its splitting stack with the relative μr-torsor stack and its rigidification Split_μr with Pic[r]."
         }
       ],
       "tests": [
@@ -1031,6 +1031,11 @@
           "name": "TauCeti.HitchinMirror.relativeSplit_lineComparison",
           "kind": "compatibility",
           "statement": "For a neutral Gm-gerbe the difference between the trivialization and its tensor by an existing InvertibleSheaf L is exactly the class of L in the imported Picard group."
+        },
+        {
+          "name": "TauCeti.HitchinMirror.relativeSplit_kummerTrivialization",
+          "kind": "non-example",
+          "statement": "Over Spec ℝ, the μ2-torsors t²=1 and t²=−1 are not isomorphic, although their associated line bundles are both trivial. They give different objects in the neutral μ2-gerbe splitting groupoid before rigidification; the relative rigidified sheaf for U=V is nevertheless terminal. Forgetting the square trivialization before forming the groupoid loses this distinction."
         }
       ],
       "routedItems": [
@@ -3957,14 +3962,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E1",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At Definition 2.16(c), p.525, the equality relation is asserted for arbitrary q. Choosing square roots +2 and −2 at q=4 changes whether the half-Lefschetz class equals two points; fixing the root system repairs that claim. The prime-field transport is a separate restricted argument.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -3980,14 +3991,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E2",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof of Lemma 2.17, pp.525–526, divides a fixed cyclotomic logarithm by unbounded powers of ℓ. This does not stay in the exponential domain of a fixed finite coefficient field. Finite denominators prime to ℓ suffice here; the finding does not disprove existence of individual roots over varying algebraic coefficients.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4003,14 +4020,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E3",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 3.12/Corollary 3.13, p.534, identify a Brauer quotient with a group that retains Kummer line-bundle data. For good-reduction E/Q5 with full rational 2-torsion, E(Q5)/2 has order 4 and H1(Q5,E[2]) has order 16, whereas H1(Q5,E)[2] has order 4. Passing to the Brauer quotient loses exactly that contribution.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4026,14 +4049,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E4",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In equation (24), p.565, Picard descent may kill a nonzero constant Brauer class; the real Severi–Brauer conic does so. The Hochschild–Serre edge sequence includes the preceding Picard boundary and following H3 term. Middle exactness, which the target uses, survives without the extra endpoint claims.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4049,14 +4078,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E5",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Hodge–Tate sentence in the proof of Theorem 2.15, p.524, uses the differential index twice. In total degree p+q the weight-p differential factor is Hq(Ωp), as the corrected node states.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4072,14 +4107,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E6",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the proof of Theorem 2.18, pp.526–527, the positive fractional Tate sign conflicts with the Lefschetz normalization. Compact H2 of A1 is Qℓ(−1) and geometric Frobenius acts by q. The Y-side symbols must likewise use its own varieties and exponents.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4095,14 +4136,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E7",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The final expression in the proof of Theorem 2.19, pp.527–528, uses the gerbe as an exponent where the preceding sector formula has its rational age. An age supplies a Lefschetz exponent; a gerbe class does not.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4118,14 +4165,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E8",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Claim 4.2, p.538, calls a tensor-r form a 1-gauge form. The local coordinate top wedge has tensor degree one; its rth tensor power is the object whose norm can be compared to the given r-gauge form.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4141,14 +4194,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E9",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 1.2, p.508, repeats the second gerbe in the first splitting comparison. The first gerbe is defined on the first system, and Theorem 7.18 gives that correctly typed comparison.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4164,14 +4223,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E10",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 6.9(c), p.569, names the same-side group on an opposite splitting-torsor comparison. Pic0 of a Pi-torsor is Pi-dual, identified with the opposite group, so equivariance must be transported to that group.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4187,14 +4252,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E11",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 7.1(a), p.575, puts the vector bundle on S, while the displayed map is O_X-linear and uses a line bundle on X. The bundle must be on X, or X×_S T in a family.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4210,14 +4281,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E12",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 7.8 and the subsequent torsor calculations, pp.579 and 582–585, conflict with Nm(B)=det(π_*B)M^-1. Fixing determinant L gives norm LM^-1; multiplying and taking powers therefore gives LL′M^-1 and L^e M^(1−e). The correcting line N=M^-1 Q^n is then forced as well.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4233,14 +4310,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E13",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 5.1, pp.548–549, assumes a complement to inertia that need not exist. A tame cyclic C4 extension with inertia C2 has no such complement. Its later decomposition also needs an appropriate uniformizer; unramified enlargement and comparison of models must be proved before using that reduction.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4256,14 +4339,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E14",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Construction 4.15, p.543, uses reciprocity of the chosen root rather than the inverse of the tame inertia character. In Q5(√5), −1 is a norm, so its reciprocity action is trivial and cannot select the nontrivial inertia element. The residue ratio σ(π)/π gives the required orientation.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4279,14 +4368,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E15",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 5.20/Claim 5.21, pp.560–561, move from a generic-field splitting to special-fibre inertia without the necessary integral comparison. A generic free-action cocycle cannot by itself identify the special fixed-sector transgression. The packet appropriately leaves this as a proof obligation, not a counterexample to the theorem.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4302,14 +4397,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E16",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Proposition 5.25, p.562, invokes a comparison proved with μ_(e²), while admissibility for a μr-gerbe supplies only μ_(r|Γ|). The e=4,r=2,F9 example satisfies μ8 and fails μ16. A comparison with the actual smaller bound remains to be proved.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4325,14 +4426,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E17",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Proposition 5.18, p.558, uses surjectivity and only the source order to conclude isomorphism. In the split cyclic setting, Kummer computes the missing target order: H2(BI,μe) has order e² and Pic(BI)/e order e. This repairs that step; it is a proof gap rather than a refutation of the result.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4348,14 +4455,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E18",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 5.14, p.555, needs a projective fibre of dimension r−1 for degree-r Azumaya data. Its converse section criterion also needs the field/local setting used in the application. Over P2, End(T_P2) has zero Brauer class but a line subbundle or quotient of T_P2 would force k²−3k+3=0, impossible for integer k.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4371,14 +4484,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E19",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 5.20, pp.560–561: for 0→Z→Z→Z/e→0 the boundary runs from H1(Z/e) to H2(Z). If dψ=eφ, its value on ψ modulo e is φ. This also fixes which degree-one and degree-two cochains enter transgression and the invariant.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4394,14 +4513,20 @@
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: Crossref record of doi:10.1007/s00222-020-00957-8: no correction or update relation; a Crossref search for a correction found only the parabolic sequel (doi:10.1016/j.aim.2024.109616)",
         "Inherited search provenance, not a claim of a fresh exhaustive search: arXiv 1707.06417: v3 (28 October 2019, revision metadata checked) is the last version; the published text corrects several of its slips (Proposition 3.16, Remark 3.11, Lemma 7.19, Theorems 7.15–7.16) but not this one",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full"
+        "Inherited search provenance, not a claim of a fresh exhaustive search: The published version (open access, CC BY 4.0) was read in full",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E20",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "by": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
         "verdict": "confirmed",
         "scope": "Verdict on the extraction finding; does not review this packet."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof of Lemma 5.12, p.554, suppresses the H1(k,Hom(I,μe)) term and switches the cyclic group label. Evaluation at Frobenius explains the simplified Z/e expression only after the split constant-coefficient assumptions are used.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4416,12 +4541,18 @@
       "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/1; newly serialized here, awaiting source-issue review.",
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E21",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "scope": "E21–E25 were added by the confirmed red-team fixes; the source-issue review itself remains pending."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 2.7(a), pp.516–517, and its use in Lemma 2.9, pp.520–521, omit the pullback by the base action in torsor multiplication. For a free C2 action on two points the permutation module has vanishing equivariant H2; independent ordinary extensions over each point instead give four classes. Descent needs the action groupoid.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4436,12 +4567,18 @@
       "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/2; newly serialized here, awaiting source-issue review.",
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E22",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "scope": "E21–E25 were added by the confirmed red-team fixes; the source-issue review itself remains pending."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 2.7(c), equation (4), pp.516–517, does not impose arithmetic descent on geometric extension classes. Over R with constant C3 and band μ3, conjugation negates the nonzero geometric classes, so they do not descend; a surjection to all geometric classes is impossible in that example.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4456,12 +4593,18 @@
       "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/3; newly serialized here, awaiting source-issue review.",
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E23",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "scope": "E21–E25 were added by the confirmed red-team fixes; the source-issue review itself remains pending."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 2.14(b), p.523, omits the stack automorphism weight. For BC2/F3, two torsors each contribute 1/2. For the sign action on A1/F3, two stacky zero objects and two free nonzero objects contribute 1/2+1/2+1+1=3. The corrected counts agree with the trivial-character cohomological traces.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4476,12 +4619,18 @@
       "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/4; newly serialized here, awaiting source-issue review.",
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E24",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "scope": "E21–E25 were added by the confirmed red-team fixes; the source-issue review itself remains pending."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 3.7, p.531, claims isotropy for the complementary factor without controlling its diagonal. Over Q3 the class −3 has nontrivial self-Hilbert symbol and invariant 1/2. The unramified annihilator and mixed evaluation required by sector variation remain valid.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4496,12 +4645,18 @@
       "known": "Confirmed consequence of RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20/5; newly serialized here, awaiting source-issue review.",
       "searched": [
         "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: freshly downloaded published Springer PDF, hash f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07, and read the affected journal locators; no preprint substituted.",
-        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search."
+        "Inherited search provenance, not a claim of a fresh exhaustive search: 2October2026: publisher article, arXiv history through v3 (28Oct2019), Crossref metadata relation={} and no update-to/updated-by, and bounded title/author/DOI correction searches found no relevant correction. This is not an exhaustive author-page/unpublished-correction search.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
       "originIssueId": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/E25",
-      "independentReviewStatus": "Awaiting the independent review of this new packet.",
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
       "inheritedReview": {
         "scope": "E21–E25 were added by the confirmed red-team fixes; the source-issue review itself remains pending."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 7.23, p.589, reaches all-powers alternating traces, but its proof supplies neither Frobenius semisimplicity nor ordinary-degree separation for singular fibres. The identity and a nontrivial unipotent Jordan block have equal power traces and different fixed spaces. This confirms a missing inference, not falsity of the particular geometric conclusion.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
       }
     },
     {
@@ -4517,9 +4672,15 @@
       "searched": [
         "2026-10-19: opened the publisher article record and read the published PDF at the recorded checksum; the record supplied no linked correction for these locators.",
         "2026-10-19: opened arXiv:1707.06417; the version history still ended at v3, 28 October 2019, before publication.",
-        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists."
+        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
-      "independentReviewStatus": "Pending; mathematical scope is the inference or convention stated here."
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 6.9(d), p.569, asks for μn splitting, whereas Lemma 7.19, p.587, applies a constant-Brauer argument. Kummer has kernel Pic/n, so zero Brauer image is insufficient: Root_n(O(1)) on P1 is a counterexample to that general inference. The sufficient Gm condition used by integration remains available; these special Higgs gerbes need a further argument for literal μn splitting.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
+      }
     },
     {
       "id": "TopologicalMirrorSymmetryForHitchinSystems/E27",
@@ -4534,9 +4695,15 @@
       "searched": [
         "2026-10-19: opened the publisher article record and read the published PDF at the recorded checksum; the record supplied no linked correction for these locators.",
         "2026-10-19: opened arXiv:1707.06417; the version history still ended at v3, 28 October 2019, before publication.",
-        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists."
+        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
-      "independentReviewStatus": "Pending; mathematical scope is the inference or convention stated here."
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Remark 7.2, p.576, names Gm as the subgroup to rigidify after a determinant isomorphism has been fixed. A stable scalar preserves that isomorphism precisely when its nth power is one. Thus the subgroup is μn; Gm pertains to the unfixed GL stack.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
+      }
     },
     {
       "id": "TopologicalMirrorSymmetryForHitchinSystems/E28",
@@ -4551,9 +4718,15 @@
       "searched": [
         "2026-10-19: opened the publisher article record and read the published PDF at the recorded checksum; the record supplied no linked correction for these locators.",
         "2026-10-19: opened arXiv:1707.06417; the version history still ended at v3, 28 October 2019, before publication.",
-        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists."
+        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
-      "independentReviewStatus": "Pending; mathematical scope is the inference or convention stated here."
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 7.3, p.576, combines degrees −1,0 with automorphism/tangent/obstruction labels H0,H1,H2. Placing the complex in degrees 0,1 gives those labels; choosing the other placement shifts every label by one. The corrected target uses the former convention consistently.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
+      }
     },
     {
       "id": "TopologicalMirrorSymmetryForHitchinSystems/E29",
@@ -4568,9 +4741,15 @@
       "searched": [
         "2026-10-19: opened the publisher article record and read the published PDF at the recorded checksum; the record supplied no linked correction for these locators.",
         "2026-10-19: opened arXiv:1707.06417; the version history still ended at v3, 28 October 2019, before publication.",
-        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists."
+        "2026-10-19: searched the paper title with correction/erratum and the authors with mirror/erratum; no matching correction for these points was returned. This is a bounded search, not proof that no correction exists.",
+        "Independent review, 2026-10-19: opened https://link.springer.com/article/10.1007/s00222-020-00957-8 and https://arxiv.org/abs/1707.06417, and searched the exact title with erratum/correction and the authors with mirror/erratum/corrigendum. No correction to this point was returned. This bounded search does not establish absence of a correction."
       ],
-      "independentReviewStatus": "Pending; mathematical scope is the inference or convention stated here."
+      "independentReviewStatus": "Confirmed at the published locator in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; see review for its exact scope.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Propositions 7.11–7.12 and 7.20, pp.580–582 and 588, do not isolate g=1,D=ω. Distinct constant eigenvalues there split the bundle into invariant summands by polynomial projectors; a weighted average of their slopes prevents all summands having slope strictly below the total. The generic smooth disconnected spectral cover thus does not supply a nonempty stable torsor or generic freeness. This is a gap in that certificate, not a disproof of the final invariant identity.",
+        "by": "REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems"
+      }
     }
   ],
   "restructure": [
@@ -4947,7 +5126,7 @@
       "commit": "0d144d044dacebca17b654695b6f1ad58f159b27",
       "libraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
       "read": [
-        "HodgeStructures/README.md, full document",
+        "Completed/HodgeStructures/README.md, full document (the completed abstract Hodge-structure roadmap)",
         "AlgebraicVectorBundles/README.md, full document; Suggested.lean relevant declaration inventory and determinant/tensor constructions",
         "The current library and nine roadmaps newer than the atlas snapshot were searched for the proposed targets."
       ],
@@ -4967,7 +5146,7 @@
       "sha256": "f2231145778b0a3fb57ce241ce0014fc4299f0de536d3e19daf4206d146c3e07"
     }
   ],
-  "sourceIssuePolicy": "Inherited findings below retain their origin and previous independent verdict as provenance, not as a review of this packet. E21–E25 remain pending independent source-issue review. Additional findings are scoped to the published text read here and await the new roadmap’s independent review. No authors were contacted.",
+  "sourceIssuePolicy": "All 29 findings below were checked at their recorded locators in the published GWZ20 PDF by REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems; their review objects record the independent verdicts. Earlier search and extraction-review provenance is retained separately. The bounded independent correction search on 2026-10-19 found no correction for these points; this is not a claim that none exists. No authors were contacted.",
   "suggestedCoverage": {
     "policy": "The reader gives every target, full API and checks. Suggested forms use only actual pinned carriers and real-bodied light numerical/algebraic definitions; no geometric theory, abstract stand-in or data placeholder is developed there.",
     "forms": [
@@ -5042,6 +5221,234 @@
           "TopologicalMirrorSymmetryForHitchinSystems:TMS.5"
         ],
         "reason": "The full mirror and sector identities require those geometric carriers. Their actual hypotheses and open gates are written in the reader; only the existing Fourier input and explicit arithmetic/regression forms are suggested."
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 44 nodes, all nine pinned baseline declarations, all 29 published-source findings, the 27 requests, supplier contracts, roadmap, reader and Suggested file. Corrected the relative-splitting API/acceptance to retain μr-torsor power trivializations and added a discriminating test; corrected the current completed-Hodge reading path. All six stages are planned and the complete pass is accepted; none is closed and all twelve named gaps remain. Suggested elaborated at the pins with only 15 warnings for admitted proofs. No geometric theorem is claimed implemented.",
+    "checked": [
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/character-realizations",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 2.14, p.523: checked the compact-support χ-projector and corrected rational-stack trace formula. The BC2/sign-action tests detect the missing automorphism denominator; χ projection is additive and its product law uses convolution."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/fractional-lefschetz",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 2.16, p.525: verified the compatibility relation, denominator refinement and negative Tate convention. The q=4 test rules out root independence at prime powers; the prime-field transport keeps the character-value field fixed."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/equivariant-katz",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 2.15, pp.523–524, and Bittner Lemma 7.1, preprint p.18: checked the good-action blow-up reduction, virtual character recognition and Hodge–Tate indexing. G-Groth, G-MHS and G-HT retain the unsupplied geometric interfaces."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/finite-tate-roots",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 2.17, pp.525–526, and Ito §5.1, preprint pp.13–14: the fixed-denominator version with ℓ prime to N and a sufficiently deep cyclotomic image supports log/exp. The all-denominator algebraic-coefficient statement is separated from that finite-coefficient construction."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/fractional-katz",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 2.18, pp.526–527, with Ito Lemma 4.3 and §5, preprint pp.12–16: checked negative fractional twists and additive period multiplicities on virtual classes. Overlapping shifted weights do not justify dropping alternating signs; the adapter remains G-HT."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/stringy-invariants",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 2.4/Remark 2.5, pp.513–514: checked centralizer invariants, age and rational-torsor masses. The non-effective BC2 fixture is valid for the inertia-sum definition; generic freeness is separately imposed where integration needs it."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/twisted-stringy-invariants",
+        "verdict": "verified",
+        "note": "GWZ20 Definitions 2.12–2.13, pp.521–522: checked the faithful-character torsor realization, inverse-sector dual and identity-sector normalization. G-ETII carries the action-groupoid and actual admissibility-root hypotheses needed for the Brauer adapter."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.0/stringy-comparison",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 2.19, pp.527–528: checked the finite inertia-sector realization and common age denominators. The exponent is age, and all finite-field extensions and root/character transports remain explicit."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.1/arithmetic-gerbe",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 6.1, p.565: neutrality must be obtained after a cover of the parameter base. The constant real gerbe and root gerbe of O(1) distinguish arithmeticity, μr-neutrality and Brauer neutrality."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.1/relative-splitting",
+        "verdict": "corrected",
+        "note": "GWZ20 Lemma 6.2/Definition 6.3, pp.565–566: corrected the acceptance statement and three API statements to distinguish line-bundle differences for Gm from μr-torsor differences with an rth-power trivialization. Added the real μ2-torsor test. The relative Kummer sheaf, rather than pointwise orbit sets, still supplies Pic[r]."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.1/principal-splitting",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 6.4, p.566: checked the contracted product and its Picτ action. A point can forget a constant gerbe obstruction; Picτ=Pic0 is only invoked for the specified abelian-torsor case."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.1/constant-brauer",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 6.5/equation (24), pp.565–566: middle exactness suffices. Read the actual SF.2 profinite Hochschild–Serre export and SF.3 Picard–Brauer sequence; neither an unconditional initial injection nor H3 vanishing is used."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.1/unitary-splitting-comparison",
+        "verdict": "verified",
+        "note": "GWZ20 Remark 6.6, p.567, and HT03 Propositions 3.2/3.6, preprint pp.8–13: the common finite splitting torsor gives the proposed comparison. The necessary rank-one/family extension is not in the narrower H.1 scope and remains G-unitary."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/abstract-hitchin-system",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 6.8, p.568, and Remark 6.14, p.571: checked properness of the coarse fibration, the torsor over its image, and the codimension-two complement. The base-change API explicitly rechecks density and codimension instead of asserting arbitrary preservation."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/dual-hitchin-pair",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 6.9/Remark 6.10, pp.568–569, and Theorem 6.17, pp.573–574: checked the self-dual isogeny square and opposite-group torsors. The sufficient forward Brauer condition is exactly what integration uses; G-Kummer preserves the stronger published condition."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/compatible-gauge-forms",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 6.13/Remark 6.14, pp.570–571: the O_F-smooth setting supports unique extension of the determinant-line generator across codimension two. Checked the common base form, pullback under the étale isogeny, and integral-unit measure normalization."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/twisted-integral",
+        "verdict": "verified",
+        "note": "GWZ20 Corollary 5.29, p.564: checked q to the total dimension, positive age, inertia inversion and complex conjugation of the Hasse character. Visually checked the published formula because text extraction omitted the conjugation bar; generic proof repairs remain G-ETII."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/equal-fibre-volumes",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 6.16, p.572: checked kernel/cokernel orientation and self-duality in the isogeny-index argument. The exact R02.4 supplier is characteristic zero; G-local requests the prime-to-p equal-characteristic extension."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/local-mirror-integral",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 6.17, pp.573–574: checked all four point/nonpoint cases. An empty opposite torsor gives a nontrivial Tate character whose integral vanishes; when both have points, Brauer neutrality supplies phase one before applying equal fibre volumes."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/arithmetic-mirror",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 6.12, pp.569–570, and proof pp.574–575: checked the residue-tube restriction, Fubini and special-fibre stack trace formula. Spreading to k[[t]] genuinely needs G-local; all extension-field traces are retained."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.2/abstract-mirror",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 6.11, p.569, and reduction p.570: the arithmetic comparison followed by stringy Katz gives the stated complex target. Its supplier gates remain visible; the weaker Brauer formulation does not assert the stronger Kummer condition."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/stable-fixed-determinant",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 7.1/Remark 7.2, pp.575–576: checked that bundles live on the curve, trace zero and a chosen determinant isomorphism are imposed, and the scalar band is μn. Relative general-D moduli/GIT is requested rather than attributed to the finite-field ET carrier."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/smooth-stable-moduli",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 7.3, pp.576–577: checked the degree-0/1 trace-free deformation complex, Serre duality and dimension (n²−1)deg D. The n-unit condition makes the trace-free pairing valid and removes scalar infinitesimal automorphisms."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/pgl-quotient",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 7.4/Remark 7.5, p.577: checked J_X[n] action, geometric rank n^(2g), quotient descent and residual inertia. The action is not declared generically free at this construction; the elliptic one-point fixture detects a coarse-quotient substitution."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/proper-hitchin",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 7.6, p.577: properness requires the actual semistable Higgs-moduli theorem plus coprimality, not properness of an arbitrary stable open. CB.7 gives only the canonical finite-field case; G-moduli explicitly retains the relative general-D extension."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/determinant-twisting",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 7.7, pp.578–579, and §7.5, pp.590–591: tensoring changes det by N^n. Checked the positive root-torsor class against the inverse arithmetic label ν=δ(L1 L2^-1), so the Frobenius convention is ν^-1 Fr."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/spectral-norm-fibre",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 7.8, pp.579–580: Nm(B)=det π_*B M^-1 forces the target LM^-1. Checked M=D^(-n(n−1)/2), the rank-one/rank-two cases and the explicit connected-kernel/regular-locus hypotheses."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/pgl-prym",
+        "verdict": "verified",
+        "note": "GWZ20 Definition 7.9/Proposition 7.10, pp.580–582: checked quotient by the actual pullback J_X[n] inclusion and J_Y/π*J_X on the connected regular locus. Injectivity and the global singular-family extension are hypotheses/gates, not consequences of smoothness alone."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/prym-duality",
+        "verdict": "verified",
+        "note": "GWZ20 Proposition 7.10, pp.580–582: normalized norm/pullback duality gives the quotient dual and the self-dual isogeny. Read A2/A3 exports: both the polarization sign and the transported Jacobian Weil pairing are retained, rather than an abstract dimension comparison."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/regular-hitchin-certificate",
+        "verdict": "verified",
+        "note": "GWZ20 Propositions 7.11–7.12, p.582: the certificate lists admissibility, smooth connected spectral fibres, the torsor locus and codimension two. G-moduli/G-lowgenus explicitly withhold the certificate where the cited generic argument has not been justified."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.3/spectral-torsor-calculus",
+        "verdict": "verified",
+        "note": "GWZ20 Lemmas 7.13–7.14, pp.582–583: independently recomputed the product LL′M^-1 and power L^e M^(1−e). Checked the period-divides-n proof uses an actual degree-one spectral line, finite-field Lang and the Picard–Brauer obstruction."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.4/gl-degree-independence",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 7.15, pp.583–584: the comparison uses equal compatible volumes of nonempty torsors and e coprime to n. The characteristic/root conditions and the actual degree-one-line lifting are not dropped; low-genus geometry remains gated."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.4/sl-degree-independence",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 7.16, pp.584–585: checked N=M^-1 Q^n and deg Q=deg M/n. Even deg D makes that integer; the n=2, g=2 canonical example verifies the corrected sign and degree zero."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.4/hodge-degree-independence",
+        "verdict": "verified",
+        "note": "GWZ20 Corollary 7.17, p.586, and HT03 §6, preprint pp.17–18: count comparison gives E equality, while degree-by-degree Betti/Hodge conclusions need purity. CB.9 is narrower than the stated general-D fixed-determinant families, and G-Higgs-purity requests that extension."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.4/hausel-thaddeus-gerbes",
+        "verdict": "verified",
+        "note": "GWZ20 §7.4, pp.586–587: checked the μn universal-family obstruction, Γ-equivariant descent, root order n|Γ| and the degree powers. Coherent arithmetic descent and dependence L′=L^a remain explicit G-HT-descent obligations."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.4/ht-splitting-duality",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 7.18, p.587, and HT03 Propositions 3.2/3.6, preprint pp.8–13: checked the complex splitting-torsor construction and both opposite-group actions. The complex proof is not treated as an automatic arithmetic μn-neutrality/descent theorem."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.4/local-brauer-splitting",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 7.19, p.587: checked constancy, proper integral points and Br(O_F)=0. The PGL case uses the correct-degree SL spectral torsor construction; the result kills the Gm image and does not kill every Pic/n obstruction."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.4/sl-pgl-dual-pair",
+        "verdict": "verified",
+        "note": "GWZ20 Proposition 7.20, p.588: each abstract-system and dual-pair condition has a named supplier. The resulting assembly uses the sufficient local Brauer notion and retains both the arithmetic descent and low-genus certificate gates."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.5/main-mirror",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 7.21, p.588: checked d,e coprime to n, the D condition, μ_(n^(2g+1)), and p>n for the finite-field formulation. The SL scheme has only its identity sector; the full genus target explicitly depends on separate low-genus work."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.5/canonical-hodge-numbers",
+        "verdict": "verified",
+        "note": "GWZ20 Corollary 7.22, p.589, and HT03 §6, preprint pp.17–18: purity is required for twisted-sector character cohomology. Symplecticity gives age=codim/2 an integer, so the 2 age degree shift preserves the alternating sign."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.5/fibre-virtual-characters",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 6.12, p.569, and Theorem 7.23 proof, p.589: all extension-field trace identities determine a Grothendieck-group class with the negative age twist. They neither separate ordinary degrees nor detect nonsemisimple extensions."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.5/strong-fibre-isomorphism",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 7.23, p.589: verified the exact stronger target and its honest G-Galois obstruction. The identity/Jordan example demonstrates the missing inference; this node is an unclosed target, not a claimed theorem or a counterexample to the geometric conclusion."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.5/sector-variation",
+        "verdict": "verified",
+        "note": "GWZ20 Lemma 7.25, equations (32)–(35), pp.591–593: checked inverse Weil multiplier against ν^-1 Fr, with coherent powered-gerbe transport retained. The calculation only needs the mixed/unramified block of local duality and avoids the false complementary-isotropy assertion."
+      },
+      {
+        "nodeId": "TopologicalMirrorSymmetryForHitchinSystems:TMS.5/isotypic-mirror",
+        "verdict": "verified",
+        "note": "GWZ20 Theorem 7.24, equations (30)–(32), pp.590–593: Fourier averaging with χγ(ν) and ν^-1 Fr isolates χγ. Confirmed that the pinned generic orthogonality theorem already supplies this algebraic step, including the order-three inverse convention."
       }
     ]
   }
