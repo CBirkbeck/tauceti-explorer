@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-StableHomotopyKTheory~adv",
+    "date": "2026-10-19",
+    "notes": "Mandatory shape-gate rejection under PACKAGE_REVIEW.md, Shape of a roadmap (2026-10-12): Suggested.lean has sorry-bodied data definitions, including classifyingSpace_vertex (line 84), categoryChainComplex (375), SSet.Pointed.smashMonoidal (2352), SymmSpectrum.naivePi (2496), and SymmSpectrum.pi (2631), and develops heavy spectral constructions on those placeholders. The 4,014-line file meets the line limit but fails the independent content requirement. scripts/check_sorry_data.py exits 1 with 228 reported declarations; its list includes Prop-instance false positives, so 228 is a diagnostic count, not a count of confirmed data violations. lean-check exits 0 with no errors and 673 declaration-uses-sorry warnings, which does not cure the data violations. As the binding rule requires needs_changes without further reading on this defect, the full source, duplication, generality, prerequisite and adversarial mathematics passes were not completed and no mathematical acceptance is claimed. The report records concrete evidence, the limited pass table and the repair sequence. Package mathematics and existing tests were preserved."
+  }
+}
