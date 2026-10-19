@@ -66,13 +66,26 @@ example : binaryPlane (1 : ZMod 2) 1 ![1, 1] = 1 := by
 /-- The exact native quotient expression in DA.3/correction-term. -/
 def comparisonDefect {B C D : Type*} [AddCommGroup B] [AddCommGroup C]
     [AddCommGroup D] (s : B →+ D) (q : C →+ D) : Type _ :=
-  D ⧸ (s.range ⊔ q.range)
+  D ⧸ (AddMonoidHom.range s ⊔ AddMonoidHom.range q)
 
 /-- The two-image quotient vanishes precisely when the images span. -/
 theorem comparisonDefect_subsingleton_iff {B C D : Type*}
     [AddCommGroup B] [AddCommGroup C] [AddCommGroup D]
     (s : B →+ D) (q : C →+ D) :
     Subsingleton (comparisonDefect s q) ↔ s.range ⊔ q.range = ⊤ := by
+  sorry
+
+/-- A surjective global image kills the correction, irrespective of the other image. -/
+example {B C D : Type*} [AddCommGroup B] [AddCommGroup C] [AddCommGroup D]
+    (s : B →+ D) (q : C →+ D) (hs : Function.Surjective s) :
+    Subsingleton (comparisonDefect s q) := by
+  sorry
+
+/-- The arithmetic quotient uses the generated additive projection, which is surjective. -/
+example {B C D : Type*} [AddCommGroup B] [AddCommGroup C] [AddCommGroup D]
+    (s : B →+ D) (q : C →+ D) :
+    Function.Surjective
+      (QuotientAddGroup.mk' (AddMonoidHom.range s ⊔ AddMonoidHom.range q)) := by
   sorry
 
 /-- The global rank parity is constant at the dyadic primes. -/

@@ -12,17 +12,17 @@ Ls and Lq mean the **periodic** Poincaré symmetric and quadratic L spectra, wit
 
 For char K≠2 let I={p: p divides 2}, d=#I, and C=R̂_2. Completion is ordinary ideal-adic completion when it represents derived completion. In the general fracture theorem this is a hypothesis; for a Dedekind domain in characteristic not 2 it holds. Pic(R)/2 means the cokernel of multiplication by 2. A(R) is the quotient of Ws(C) by the **sum** of the global symmetric image and the completed quadratic image. A short exact sequence involving A is retained as an extension, without choosing a splitting. For a finite characteristic-two field, the Arf coordinate is the absolute F2 trace, not merely its raw symplectic-basis sum.
 
-The planning pass is complete and each layer is planned. It is not closed: G1–G4 and supplier contracts R1–R10 below are explicit remaining work. Every implementation status is unchecked. No theorem is certified by the accompanying Lean signatures. A new error in the Eisenstein calculation changes its quadratic degree-zero and degree-three entries; the corrected statement, argument and independent-review obligation are recorded, rather than reproducing the false table.
+The planning pass is complete and each layer is planned. It is not closed: G1–G5 and supplier contracts R1–R10 below are explicit remaining work. Every implementation status is unchecked. No theorem is certified by the accompanying Lean signatures. A new error in the Eisenstein calculation changes its quadratic degree-zero and degree-three entries; the corrected statement and argument have been independently checked against arXiv v4, with separate confirmed verdicts for all three findings.
 
 ## Ownership and library audit
 
-The reviewed GN.2/GN.6 library audit was read at the required pins, then checked against current upstream. The pinned Mathlib commit is 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti is f790474821cf4256814db967cb154e7af3d0c369. The current read-only roadmap checkout was inspected at 0d144d044dacebca17b654695b6f1ad58f159b27 and its Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Completed IntegralLattices and GlobalQuadraticForms were read in full as adjacent roadmap models; the newer IntegralLattices and relevant QFI layers were checked for ownership.
+The reviewed GN.2/GN.6 library audit was read at the required pins, then checked against current upstream. The four completion/CRT baseline entries added in independent review are native general-Dedekind inputs, rather than outputs of the S-integer stage. The pinned Mathlib commit is 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti is f790474821cf4256814db967cb154e7af3d0c369. The current read-only roadmap checkout was inspected at 0d144d044dacebca17b654695b6f1ad58f159b27 and its Tau Ceti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. Completed IntegralLattices and GlobalQuadraticForms were read in full as adjacent roadmap models; the newer IntegralLattices and relevant QFI layers were checked for ownership.
 
 QFI layer 4 and current Tau Ceti own the field Witt ring and its tensor/base-change API; layer 6 owns classification over nonarchimedean local fields, including Q2. This roadmap derives only the specific arithmetic coordinate and ideal calculation it needs. QFI layer 9 owns Scharlau transfer, but the needed quadratic-extension exact sequence is an additional contract, not something its existing statement promises. GlobalQuadraticForms layer 8 owns number-field classification and Witt localization injectivity; it explicitly does not claim the residue exact sequence and excludes function fields. GN.6 owns exact symmetric Witt groups, classical degree-zero integral GW, and the residue duality line; its displayed localization node is for GW, so its L version is requested explicitly. The newer integral-lattice theory is already owned upstream, including E8 and the half-norm convention. Finite/perfect characteristic-two **symmetric** L-theory belongs to KTheoryFiniteLocalFields L.1. Its prime-to-p K-rigidity is not the quadratic rigidity used here.
 
 ## Source policy
 
-All statements, proof sketches and findings are in this roadmap's own words. Locators for the principal source refer to arXiv:2009.07225v4, the 63-page preprint, not Annals journal pagination. The paper is credited to Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle. Its published citation is Annals of Mathematics 204 (2026), no. 1, 119–220, DOI 10.4007/annals.2026.204.1.2. The public preprint is the version actually read. Wall's 1970 lifting proof and CMM's completion-to-henselian argument were read at the precise locations below. The referenced books by Milnor–Husemoller, Lam and Scharlau are not cleared in the library index; no other copy was used. Local arithmetic calculations are instead derived from imported classification. Where that does not replace a full cited proof, a gap remains.
+All statements, proof sketches and findings are in this roadmap's own words. Locators for the principal source refer to arXiv:2009.07225v4, the 63-page preprint, not Annals journal pagination. The paper is credited to Calmès, Dotto, Harpaz, Hebestreit, Land, Moi, Nardin, Nikolaus and Steimle. Its published citation is Annals of Mathematics 204 (2026), no. 1, 119–220, DOI 10.4007/annals.2026.204.1.2. The public preprint is the version actually read (SHA256 recorded below and in sourceVersions); the published text remained unavailable during independent review. Wall's 1970 lifting proof and CMM's completion-to-henselian argument were read at the precise locations below. The referenced books by Milnor–Husemoller, Lam and Scharlau are not cleared in the library index; no other copy was used. Local arithmetic calculations are instead derived from imported classification. Where that does not replace a full cited proof, a gap remains.
 
 
 ## DA.0. Integral forms and residues
@@ -87,7 +87,7 @@ Hypotheses: R Dedekind; residue characteristic and fraction characteristic may b
 Proof plan:
 
 1. Import the residue coefficient line from GN.6 and request its L-theory localization form (R1).
-2. Compute the boundary using the torsion linking pairing on the quotient of a lattice by its dual, identifying the coefficient by multiplication by π.
+2. Compute the boundary using the torsion linking pairing on the dual lattice modulo the integral lattice, identifying the coefficient by multiplication by π.
 3. Diagonalize nonalternating summands over K; alternating summands are metabolic. Only finitely many primes divide denominators and the Gram determinant. Track the line when the uniformizer changes.
 
 
@@ -108,11 +108,11 @@ API:
 
 Discriminating checks:
 
-- **unitAtTwo**: For Z_(2), ∂⟨3⟩=0.
-- **uniformizerAtTwo**: For Z_(2), ∂⟨2⟩=⟨1⟩≠0 in Ws(F2).
-- **squareValuation**: ∂⟨4⟩=0, so merely testing divisibility by 2 gives the wrong map.
-- **oddPrimeSign**: At 3 with π=3, ∂⟨6⟩=⟨2⟩ in Ws(F3), retaining the unit square class.
-- **ramificationGuard**: The residue arrow for Z→Z[i] at 2 is not the identity on the identified residue fields: the ramification factor must be included, as in Remark 2.2.6.
+- **unitAtTwo** (computation): For Z_(2), ∂⟨3⟩=0.
+- **uniformizerAtTwo** (computation): For Z_(2), ∂⟨2⟩=⟨1⟩≠0 in Ws(F2).
+- **squareValuation** (non-example): ∂⟨4⟩=0, so merely testing divisibility by 2 gives the wrong map.
+- **oddPrimeSign** (computation): At 3 with π=3, ∂⟨6⟩=⟨2⟩ in Ws(F3), retaining the unit square class.
+- **ramificationGuard** (non-example): For Z→Z[i], the residue map Ws(F2)→Ws(F2) at 2 and 1+i is zero, although the residue-field map is the identity: the ramified linking pairing has zero Witt class (Remark 2.2.6).
 
 
 Direct dependencies: GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-residue-duality-line, GeometryOfNumbersAndQuadraticArithmetic:GN.6/dedekind-symmetric-localization, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-comparison.
@@ -156,11 +156,11 @@ API:
 
 Discriminating checks:
 
-- **hyperbolicPlane**: Over F2, q(x,y)=xy has perfect polar and Arf 0.
-- **anisotropicPlane**: Over F2, x²+xy+y² has perfect polar and Arf 1; all three nonzero vectors have value 1.
-- **evenExtension**: Over F4, x²+xy+y² has Arf 0 and is hyperbolic: if ζ²+ζ+1=0, (ζ,1) is isotropic.
-- **nonregularSquare**: Over F2, x² has zero polar and is excluded despite being a nonzero quadratic map.
-- **zeroSpace**: The zero-dimensional nonsingular form has invariant 0.
+- **hyperbolicPlane** (computation): Over F2, q(x,y)=xy has perfect polar and Arf 0.
+- **anisotropicPlane** (computation): Over F2, x²+xy+y² has perfect polar and Arf 1; all three nonzero vectors have value 1.
+- **evenExtension** (compatibility): Over F4, x²+xy+y² has Arf 0 and is hyperbolic: if ζ²+ζ+1=0, (ζ,1) is isotropic.
+- **nonregularSquare** (non-example): Over F2, x² has zero polar and is excluded despite being a nonzero quadratic map.
+- **zeroSpace** (degenerate): The zero-dimensional nonsingular form has invariant 0.
 
 
 Direct dependencies: mathlib:QuadraticMap.polarBilin, mathlib:QuadraticMap.proj, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-comparison.
@@ -239,7 +239,7 @@ Proof plan:
 3. For number fields request the extension of GlobalQuadraticForms layer 8 (R3); for global function fields record G2 because that supplier explicitly excludes them. Calmes cites Milnor–Husemoller IV §4 and Scharlau 6.6, Theorem 6.11; these proofs were not available in the cleared library.
 
 
-Direct dependencies: GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue, tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences, ArithmeticKTheory:N.2.
+Direct dependencies: GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue, tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences, ArithmeticKTheory:N.2/the-three-classical-rows.
 
 Source: CDHHLMNNS-III-v4, Corollary 2.3.2 and proof, pp. 41–42. For R Dedekind with global fraction field K of characteristic not 2, the cokernel of ∂0:W(K)→⊕p Ws(kp;lp) is naturally Pic(R)/2. Fix the residue coordinates and relate rank parity of residues to the valuation divisor modulo 2; the remaining determinant/Hasse data must be eliminated by the global Witt residue theorem.
 
@@ -284,7 +284,7 @@ Proof plan:
 4. Apply integral Witt injection and the characteristic-two polar observation from DA.0.
 
 
-Direct dependencies: GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-injectivity, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/field-l-adapter, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue, ArithmeticKTheory:N.2.
+Direct dependencies: GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-injectivity, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/field-l-adapter, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/second-residue, ArithmeticKTheory:N.2/the-three-classical-rows.
 
 Source: CDHHLMNNS-III-v4, Corollary 2.3.4 and Remark 2.3.17, pp. 42, 48. If R is Dedekind with global fraction field K of characteristic 2, Ls_(2a)(R)=Ws(R) and Ls_(2a+1)(R)=Pic(R)/2 for every integer a. The spectrum is 2-periodic. The map Ws(R)→Ws(K) is injective, whereas Wq(R)→Ws(R) is zero.
 
@@ -335,14 +335,14 @@ Source: CDHHLMNNS-III-v4, Remarks 2.3.3 and 2.3.11, pp. 42, 45. For the sign −
 Acceptance: Establish the stated maps and identifications, not only an abstract cardinality. Check every characteristic, finiteness and coefficient convention in this statement. Over Z the negative-quadratic degree-zero group is Z/2, from positive degree 2, rather than Z.
 
 
-Layer status: planned. Remaining: G1: shared Poincaré foundations and field/shift identification. G2/R3/R7: global residue exactness and function-field/divisor scope.
+Layer status: planned. Remaining: G1: shared Poincaré foundations and field/shift identification. G2/R3: global Witt residue kernel exactness for number fields and function fields; R7 is an existing general divisor import.
 
 
 ## DA.2. Completion and rigidity
 
-Identify the dyadic completion as a product of complete DVRs. State the general localization-completion Poincaré–Verdier square with its K0 image controls and ordinary-versus-derived hypothesis. Prove quadratic isometry lifting, complete quadratic rigidity in all degrees and its henselian extension, retaining the relation and approximation proof gaps.
+Identify the dyadic completion as a product of complete DVRs. State the general localization-completion Poincaré–Verdier square with its K0 image controls and ordinary-versus-derived hypothesis. Prove quadratic isometry lifting, complete quadratic rigidity in all degrees and its henselian extension, retaining the relation and approximation proof gaps. The product completion comparison builds on pinned CRT, adic completion, complete-DVR and residue-field declarations.
 
-Requires: ArithmeticKTheory:N.1, GeneralAlgebraicKTheory:K.6, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1, StableHomotopyKTheory:H.5.
+Requires: GeneralAlgebraicKTheory:K.6, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1, StableHomotopyKTheory:H.5:spectra.
 
 
 ### Dyadic completion
@@ -355,9 +355,10 @@ Hypotheses: R Dedekind, char fraction field≠2; completion is ordinary ring com
 
 Proof plan:
 
-1. Factor the ideal (2)=∏p p^e_p. Chinese remainders identifies each finite quotient with the product of the p-power quotients.
+1. Factor the ideal (2)=∏p p^e_p and iterate the pinned coprime-ideal Chinese remainder equivalence at each power. Use the existing AdicCompletion compatible-limit carrier, not a new completion definition.
 2. Use cofinality of e_p m among positive powers and commute a finite product with inverse limits.
 3. Localize at p before completion and compare limits. The e_p affect the topology’s presentation, not the number of residue coordinates.
+4. The existing completed integer ring is a complete DVR with residue R/p for arbitrary Dedekind R. Identify its maximal-ideal powers with the localized p-adic filtration; density of R_(p) identifies its compatible quotient limit with that ring. The new target is the product comparison, not a second local completion theory.
 
 
 Uses:
@@ -373,16 +374,17 @@ API:
 - `dyadicCompletion_invertTwo`: After inverting 2 the p-component is Frac(R̂_p).
 - `dyadicCompletion_away`: Inverting only nondyadic primes induces an equivalence on C.
 - `dyadicCompletion_empty`: When (2)=R, C is the zero ring, not R.
+- `dyadicCompletionEquiv_ext`: Two ring maps into C agree if their composites with every completed-DVR projection agree; for an empty dyadic set the condition is vacuous.
 
 Discriminating checks:
 
-- **integers**: For R=Z there is one factor Z_2 with residue F2.
-- **invertTwo**: For Z[1/2] the dyadic set is empty and C=0.
-- **eisenstein**: For Z[ζ3] there is one unramified quadratic factor with residue F4, not two factors and not F2.
-- **ramifiedPrime**: For Z[i] the single dyadic factor remains one factor although (2) has exponent 2.
+- **integers** (computation): For R=Z there is one factor Z_2 with residue F2.
+- **invertTwo** (degenerate): For Z[1/2] the dyadic set is empty and C=0.
+- **eisenstein** (computation): For Z[ζ3] there is one unramified quadratic factor with residue F4, not two factors and not F2.
+- **ramifiedPrime** (non-example): For Z[i] the single dyadic factor remains one factor although (2) has exponent 2.
 
 
-Direct dependencies: ArithmeticKTheory:N.1.
+Direct dependencies: mathlib:AdicCompletion, mathlib:Ideal.quotientMulEquivQuotientProd, tauceti:IsDedekindDomain.HeightOneSpectrum.isAdicComplete_adicCompletionIntegers, tauceti:IsDedekindDomain.HeightOneSpectrum.residueFieldEquivAdicCompletionIntegers.
 
 Source: CDHHLMNNS-III-v4, Proof of Proposition 2.3.9, pp. 44–45. For a Dedekind domain R with char Frac(R)≠2, identify the ordinary 2-adic completion C=lim_m R/(2^m) with ∏_(p|2) R̂_p by Chinese remainders and cofinality of the powers. It is a finite product of complete DVRs. The empty product when 2 is a unit is the zero ring, and both L spectra vanish there. Preserve the maps R→C→C[1/2].
 
@@ -404,7 +406,7 @@ Proof plan:
 3. Apply the Poincaré–Verdier criterion [II] Proposition 4.5.5; the Tate obstruction vanishes on the rational overlap. Then use localizing invariance of GW and L.
 
 
-Direct dependencies: GeneralAlgebraicKTheory:K.6, StableHomotopyKTheory:H.5.
+Direct dependencies: GeneralAlgebraicKTheory:K.6, StableHomotopyKTheory:H.5:spectra.
 
 Source: CDHHLMNNS-III-v4, Proposition 2.3.6, p. 43. Let R be a ring, M an invertible module with involution over R, in the coefficient-duality sense of the source, and ℓ a positive integer. Assume ordinary ℓ-adic completion R̂_ℓ represents derived completion (bounded ℓ-power torsion suffices). For each m∈Z∪{±∞}, the square Dp(R)→Dp(R̂_ℓ), over Dc(R[1/ℓ])→Dc′(R̂_ℓ[1/ℓ]), with structures Q_M^(≥m), is Poincaré–Verdier. Here c and c′ are precisely the involution-stable images of the respective K0 maps. Applying GW or L gives a homotopy pullback square.
 
@@ -484,7 +486,7 @@ Layer status: planned. Remaining: G1: shared Poincaré foundations and field/shi
 
 Deduce the quadratic/symmetric pullback for Dedekind rings, define the actual total-cokernel correction A, give the four-periodic quadratic table and number-field Arf coordinates, prove the parity quotient for multiple dyadic primes, and establish quadratic dévissage precisely away from those primes.
 
-Requires: ArithmeticKTheory:N.1, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2, tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field.
+Requires: ArithmeticKTheory:N.1, ArithmeticKTheory:N.2, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2, tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field.
 
 
 ### Quadratic comparison square
@@ -502,7 +504,7 @@ Proof plan:
 3. Paste the two pullbacks. No assertion of generic K0-surjectivity for arbitrary rings is used.
 
 
-Direct dependencies: GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/arithmetic-fracture, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/dyadic-completion, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-comparison, ArithmeticKTheory:N.1.
+Direct dependencies: GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/arithmetic-fracture, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2/dyadic-completion, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-comparison, ArithmeticKTheory:N.1, ArithmeticKTheory:N.2/the-three-classical-rows.
 
 Source: CDHHLMNNS-III-v4, Proposition 2.3.9, diagram (9), pp. 44–45. For a Dedekind domain R with char K≠2 and C=R̂_2, the comparison square Lq(R)→Lq(C), over Ls(R)→Ls(C), is a homotopy pullback. The coefficient is R with positive involution; the negative-sign version follows by shift.
 
@@ -541,11 +543,11 @@ API:
 
 Discriminating checks:
 
-- **surjectiveGlobal**: If Ws(R)→Ws(C) is onto, then A(R)=0, even if σ_C is not onto.
-- **surjectiveQuadratic**: If σ_C is onto, A(R)=0, even if the global image vanishes.
-- **diagonalParityModel**: For D=(Z/2)^d, s the constant diagonal and q zero, the quotient has order 2^(d−1) for d≥1.
-- **singlePrimeGuard**: The parity quotient is zero at d=1, but it does not force A(R)=0; the Eisenstein computation supplies a nonzero example.
-- **emptyDyadicSet**: When 2 is a unit, C=0 and A(R)=0.
+- **surjectiveGlobal** (characterisation): If Ws(R)→Ws(C) is onto, then A(R)=0, even if σ_C is not onto.
+- **surjectiveQuadratic** (characterisation): If σ_C is onto, A(R)=0, even if the global image vanishes.
+- **diagonalParityModel** (computation): For D=(Z/2)^d, s the constant diagonal and q zero, the quotient has order 2^(d−1) for d≥1.
+- **singlePrimeGuard** (non-example): The parity quotient is zero at d=1, but it does not force A(R)=0; the Eisenstein computation supplies a nonzero example.
+- **emptyDyadicSet** (degenerate): When 2 is a unit, C=0 and A(R)=0.
 
 
 Direct dependencies: GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3/quadratic-fracture, mathlib:QuotientGroup.mk', mathlib:MonoidHom.range.
@@ -687,7 +689,7 @@ Proof plan:
 
 1. Use GN.6’s classical symmetric and quadratic degree-zero GW calculations, quotienting hyperbolic classes to obtain the two Witt groups. This avoids repeating the classification of integral forms.
 2. Alternatively use even-unimodular signature divisibility from the current IntegralLattices roadmap and E8 of signature 8. The bilinear form B, not B(x,x), is the polar of q.
-3. Reduce the actual E8 quadratic refinement modulo 2 and compute a symplectic basis or count its zeros to get Arf 0. This is a required computation, not a consequence of the bilinear reduction alone.
+3. Reduce the actual E8 quadratic refinement modulo 2. In a simple-root basis q(x)=Σx_i²−Σ_edges x_i x_j, with the E8 graph having arms of lengths 2,4,1, enumerate 136 zeros among its 256 vectors. Since 136=2^7+2^3, its Arf invariant is 0. This checks the refinement, not merely the alternating bilinear reduction.
 
 
 Direct dependencies: GeometryOfNumbersAndQuadraticArithmetic:GN.6/integer-classical-degree-zero, GeometryOfNumbersAndQuadraticArithmetic:GN.6/integer-quadratic-table, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/finite-arf, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0/integral-injectivity, tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms, tauceti:TauCeti.IntegralLattice.
@@ -746,7 +748,7 @@ Layer status: planned. Remaining: G1: shared Poincaré foundations and field/shi
 
 ## DA.5. The Eisenstein integers
 
-Prove the single dyadic place is inert with residue F4. Compute the global symmetric Witt group and the unramified quadratic restriction ideal/cokernel. Use the zero quadratic Arf map F2→F4 and the new local quadratic generator to correct the Eisenstein quadratic table to [0,0,Z/2,Z/4].
+Prove the single dyadic place is inert with residue F4. Compute the global symmetric Witt group and the unramified quadratic restriction ideal/cokernel. Use the zero quadratic Arf map F2→F4 and the new local quadratic generator to correct the Eisenstein quadratic table to [0,0,Z/2,Z/4]. The additional transfer exactness contract is G5/R4; all three preprint findings are independently confirmed.
 
 Requires: ArithmeticKTheory:N.1, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.0, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.1, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.2, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.3, GeometryOfNumbersAndQuadraticArithmeticPartII:DA.4, tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-8-global-classification-and-witt-consequences, tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field, tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-9-transfer-and-the-relative-stiefel-whitney-formula.
 
@@ -805,7 +807,7 @@ Hypotheses: E/Q2 unramified quadratic; symmetric residue groups, not quadratic A
 
 Proof plan:
 
-1. Request the quadratic-extension Witt kernel/transfer exact sequence as an extension of QFI layer 9 (R4); the currently stated transfer and Frobenius reciprocity alone do not imply it.
+1. Request the quadratic-extension Witt kernel/transfer exact sequence as an extension of QFI layer 9 (R4); the currently stated transfer and Frobenius reciprocity alone do not imply it. The unregistered exactness extension is G5; it is not inferred from Frobenius reciprocity.
 2. Apply the explicit ideal and annihilator computation of DA.4.
 3. Compare symmetric residue exact sequences. The right vertical map is rank parity and is an isomorphism; the kernel/cokernel lemma gives the integral comparison.
 
@@ -862,7 +864,7 @@ Source: CDHHLMNNS-III-v4, Example 2.3.14, pp. 46–47; corrected calculation fro
 Acceptance: Establish the stated maps and identifications, not only an abstract cardinality. Check every characteristic, finiteness and coefficient convention in this statement. The corrected diagram must give Wq(R)=0 and A(R)=Z/4; coker θ=Z/4⊕Z/2 is an intermediate group only.
 
 
-Layer status: planned. Remaining: G1: shared Poincaré foundations and field/shift identification. Inherited dependencies G2–G4 through the arithmetic tables. R4: quadratic-extension transfer exactness; independent verification of new source finding E3.
+Layer status: planned. Remaining: G1: shared Poincaré foundations and field/shift identification. Inherited dependencies G2–G4 through the arithmetic tables. G5/R4: register the quadratic-extension transfer exactness extension; E1–E3 are independently confirmed against arXiv v4.
 
 
 ## Table checks and the Eisenstein correction
@@ -906,13 +908,13 @@ Its determinant is 21, hence its signed determinant square class is −3 in Q2. 
 
 - **R5**, `tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field`: Import complete finite-extension-of-Q2 classification, the normalized Q2 Hilbert formula and square-class tests. Use it to derive the specific 32-class presentation here; do not duplicate field classification.
 
-- **R6**, `ArithmeticKTheory:N.1`: Import K0 of Dedekind arithmetic rings, projective extension under localization, finiteness of localized Picard groups, and standard number-field ring/prime/completion carriers. Generic Dedekind Picard/divisor statements in positive characteristic require the extension named in R7.
+- **R6**, `ArithmeticKTheory:N.1`: Import N.1’s S-integer localization and finite-extension projective-module comparisons and the finiteness of localized number-field Picard groups via its existing class-group sources. Generic Dedekind K0≃Z⊕Pic and K0(R)→K0(K) surjectivity are supplied by N.2/the-three-classical-rows (importing KTheoryLowDegrees Z.4), not proved by N.1. Prime and completion carriers are library inputs to the CRT/cofinality construction in DA.2.
 
-- **R7**, `ArithmeticKTheory:N.2`: State the divisor/principal-divisor/Picard exact sequence and its mod-2 cokernel for an arbitrary Dedekind domain with global fraction field, including characteristic 2; do not assume the number-field formulation alone covers function fields.
+- **R7**, `ArithmeticKTheory:N.2/the-three-classical-rows`: Import the existing divisor/principal-divisor/Picard exact sequence for any Dedekind domain, including characteristic 2. Reduce its divisor group and class map modulo 2 to obtain the parity cokernel Pic(R)/2. This is an existing general-Dedekind contract, not a new number-field or function-field extension; it supplies no global Witt residue kernel exactness (G2).
 
-- **R8**, `GeneralAlgebraicKTheory:K.6`: Import nonconnective K-theory localization and the K0 image controls for perfect-complex localization. The stronger derived localization-completion and Poincaré criterion are G1, not consequences asserted by this stage alone.
+- **R8**, `GeneralAlgebraicKTheory:K.6`: Import GeneralAlgebraicKTheory:K.6/frobenius-spectrum-localization and K.6/dense-triangulated-class-criterion: exact Frobenius models give nonconnective localization, and dense full triangulated subcategories are detected by the image on K0. The comparison to the perfect-complex completion square and the Poincaré criterion remain G1.
 
-- **R9**, `StableHomotopyKTheory:H.5`: Import integer-indexed spectra, homotopy pullbacks, shifts and long exact homotopy sequences. Do not infer the Poincaré L construction merely from the existence of spectra.
+- **R9**, `StableHomotopyKTheory:H.5:spectra`: Import integer-indexed true homotopy groups, the stable homotopy category with suspension an autoequivalence, and its distinguished-triangle long exact sequences. Compute spectral pullbacks by stable fibres of the difference map. Use the true groups (or a justified semistable model), not naive homotopy groups of an arbitrary symmetric spectrum. The Poincaré L construction remains G1.
 
 - **R10**, `tauceti:Completed/IntegralLattices#layer-5-rank-one-and-ade-discriminant-forms`: Import the existing E8 lattice and its unimodular/even Gram model; current IntegralLattices additionally owns signature divisibility. The new arithmetic check here is the quadratic refinement’s Arf invariant modulo 2.
 
@@ -940,9 +942,13 @@ The public Wall (1970) Lemma 1 and Theorem 2 and their proofs were read, and jus
 CMM arXiv:1803.10897v2 Remark 5.6 p. 39 was read and the reduction to finitely presented henselizations, Popescu ind-smoothness and Elkik splitting was checked at the argument level. The full Popescu theorem and Elkik Theorem 3.15 were not read or found in a matching supplier node. Record this general approximation contract once under the henselian/commutative algebra owner before closing DA.2. It is separate from the prime-to-p K-theory rigidity in KTheoryFiniteLocalFields L.2.
 
 
+### G5. Unregistered quadratic-extension Witt exactness
+
+R4 requires the quadratic-extension Witt exact sequence (Lam, Introduction to Quadratic Forms over Fields, VII Theorem 3.5, cited in Calmes Example 2.3.14 p. 47). QFI layer 9 supplies Scharlau transfer and Frobenius reciprocity but does not state exactness of restriction, transfer and multiplication by ⟨1,−a⟩. Lam is not cleared and its proof was not read. Register this precise Part II extension under the existing field-form owner before closing DA.5; it is not an already exported result of layer 9. The independent finite Q2 calculations verify the local arithmetic conditional on this standard exactness contract, rather than verifying the unread general theorem.
+
 ## Source findings
 
-The field named `printed` in the machine-readable packet contains a paraphrase, never a source excerpt. No finding has been independently reviewed in this run.
+The field named `printed` in the machine-readable packet contains a paraphrase, never a source excerpt. Independent review REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII confirmed E1–E3 on 2026-10-19 against arXiv v4. The restricted Annals text was not compared; these findings do not assert what the journal version prints.
 
 
 ### E1 (misprint)
@@ -953,7 +959,11 @@ Correction: Use ⟨1,−3⟩ instead, together with 2⟨1⟩; equivalently use c
 
 Check: Tensoring the printed binary form with c gives the anisotropic norm-difference form ⟨1,3,−2,−6⟩ over Q2. Tensoring the corrected form gives hyperbolic pairs ⟨1,−1⟩ and ⟨3,−3⟩ after square scaling. The abstract annihilator is still Z/4⊕Z/2.
 
-Reach: the proof. Inherited extraction finding independently checked here. No dedicated correction located in the searched public versions; no claim about the unexamined journal PDF.
+Reach: the proof. Independently confirmed by REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII on 2026-10-19 against arXiv:2009.07225v4. No dedicated correction was found in the recorded searches; the restricted Annals journal PDF was not compared.
+
+Independent verdict: **confirmed**. Discriminant −3 proves unramifiedness but does not exclude splitting. Reduction of t²+t+1 modulo 2 is irreducible and proves the intended inertness; t²+t+2 for Q(√−7) gives the stated unramified split counterexample.
+
+Independent verdict: **confirmed**. The printed generator ⟨1,−2⟩ tensors with c to ⟨1,3,−2,−6⟩, the anisotropic norm-difference form for the unramified quadratic extension. Independent Q2 Hilbert-symbol enumeration gives cv=4u≠0 and ann(c)=⟨2u,c⟩. The corrected ⟨1,−3⟩ tensors to two hyperbolic planes.
 
 
 ### E2 (gap)
@@ -964,7 +974,11 @@ Correction: Prove inertness separately by irreducibility of t²+t+1 over F2. The
 
 Check: An unramified prime can split. For example, 2 is unramified but split in Q(√−7), where the integral-basis polynomial t²+t+2 reduces to t(t+1).
 
-Reach: the proof. Inherited extraction finding independently checked here. The intended inertness conclusion is true, with the added polynomial calculation.
+Reach: the proof. Independently confirmed by REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII on 2026-10-19 against arXiv:2009.07225v4. No dedicated correction was found in the recorded searches; the restricted Annals journal PDF was not compared.
+
+Independent verdict: **confirmed**. Discriminant −3 proves unramifiedness but does not exclude splitting. Reduction of t²+t+1 modulo 2 is irreducible and proves the intended inertness; t²+t+2 for Q(√−7) gives the stated unramified split counterexample.
+
+Independent verdict: **confirmed**. The printed generator ⟨1,−2⟩ tensors with c to ⟨1,3,−2,−6⟩, the anisotropic norm-difference form for the unramified quadratic extension. Independent Q2 Hilbert-symbol enumeration gives cv=4u≠0 and ann(c)=⟨2u,c⟩. The corrected ⟨1,−3⟩ tensors to two hyperbolic planes.
 
 
 ### E3 (error)
@@ -975,7 +989,9 @@ Correction: The quadratic factor map is zero, since the residue extension F2→F
 
 Check: The Arf-one plane x²+xy+y² becomes isotropic over F4, so the claimed identity cannot commute with reduction and rigidity. Over the Eisenstein completion the new Arf-one polar class t has signed determinant d=1−4ζ with Norm(d)=21 nonsquare in Q2, while the nonzero order-two class 2u in the global Z/4 has determinant −1 with square norm. Hence the global symmetric and local quadratic images intersect trivially, proving Wq(R)=0. Under the transfer description coker θ≃ann(c), the polar transfer diagonalizes as ⟨1,−1,4,−21/4⟩, whose Witt class is c. Thus A(R)=ann(c)/⟨c⟩=Z/4. See the final two target proof sketches for the maps and determinant normalization.
 
-Reach: a stated result. New finding in this planning pass; no independent verdict is claimed. Both the Arf map and its effect on the final table need the job’s independent mathematical review.
+Reach: a stated result. Independently confirmed by REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII on 2026-10-19 against arXiv:2009.07225v4. No dedicated correction was found in the recorded searches; the restricted Annals journal PDF was not compared.
+
+Independent verdict: **confirmed**. Over F4, the vector (ζ,1) is a nonzero zero of x²+xy+y²; absolute trace sends 1 to 0, so quadratic base change is zero. The new Arf-one plane with last coefficient ζ has polar signed determinant of norm 21, separating it from global 2u. Independent exact transfer elimination yields ⟨1,−1,4,−21/4⟩ with class c; quotienting ann(c) by this local image gives Z/4 and the pullback kernel gives Wq(R)=0. This confirms the corrected [0,0,Z/2,Z/4] table against arXiv v4 only; it makes no claim about the unexamined journal text.
 
 
 ## Routing completeness
@@ -1089,14 +1105,14 @@ Supplier boundary:
 
 ## Suggested Lean inventory
 
-The suggested file states selected milestones and native examples over existing carriers. It defines only a light binary quadratic polynomial, a light quotient expression and a diagonal additive homomorphism. It states the F2 anisotropy/F4 isotropy distinction, the Q2 anisotropic counterexample and corrected hyperbolic tensor, the quotient/parity milestone, and elementary norm/discriminant arithmetic needed in the last example. The file follows the 2026-10-12 state-without-development rule; it has no placeholder data definitions.
+The suggested file states selected milestones and native examples over existing carriers. It defines only a light binary quadratic polynomial, a light quotient expression and a diagonal additive homomorphism. Native quotient examples additionally check a surjective global image and surjectivity of the additive quotient projection. It states the F2 anisotropy/F4 isotropy distinction, the Q2 anisotropic counterexample and corrected hyperbolic tensor, the quotient/parity milestone, and elementary norm/discriminant arithmetic needed in the last example. The file follows the 2026-10-12 state-without-development rule; it has no placeholder data definitions.
 
 The following remain README targets because their carriers are absent at the pins: ring-valued symmetric and quadratic Witt quotients with these Poincaré comparisons; stable Poincaré categories, their flavor functors, periodic L spectra and K0-controlled Verdier subcategories; the global L residue maps, arithmetic fracture square and its derived completions; complete/henselian L equivalences; the actual arithmetic correction A and its group identifications. The current-only field Witt/local-classification declarations are existing upstream imports, not dependencies compiled into a file against the older pin. The native quotient model in the file is the exact algebraic expression for the two-image quotient; it does not claim to instantiate missing Witt carriers. No local class, L-group, matrix or residue table is replaced by a predicate that merely asserts its desired answer.
 
 ## Sources read
 
 
-- **CDHHLMNNS-III-v4**: Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle. *Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings*. arXiv:2009.07225v4, 27 April 2026; locators use the 63-page preprint, not Annals pagination. [Public version](https://arxiv.org/pdf/2009.07225v4). Read 2026-10-19: §2.2, Lemma 2.2.2, Theorem 2.2.4, Corollary 2.2.5 and Lemma 2.2.9, pp. 36–41; §2.3, pp. 41–48, including proofs and Examples 2.3.13–14. SHA256: 1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c.
+- **CDHHLMNNS-III-v4**: Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle. *Hermitian K-theory for stable ∞-categories III: Grothendieck–Witt groups of rings*. arXiv:2009.07225v4, 27 April 2026; locators use the 63-page preprint, not Annals pagination. [Public version](https://arxiv.org/pdf/2009.07225v4). Read 2026-10-19: §2.2, Lemma 2.2.2, Theorem 2.2.4, Corollary 2.2.5 and Lemma 2.2.9, pp. 36–41; §2.3, pp. 41–48, including proofs and Examples 2.3.13–14; §3.2 introduction, pp. 54–55. SHA256: 1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c.
 
 - **Wall-1970**: C. T. C. Wall. *On the classification of hermitian forms. I. Rings of algebraic integers*. Compositio Mathematica 22 (1970), 425–451. [Public version](https://www.numdam.org/article/CM_1970__22_4_425_0.pdf). Read 2026-10-19: Lemma 1, p. 427; Theorem 2 and its proof, pp. 428–429. SHA256: fbca6504af22e92262722d21d68729616353df4da3a5cecf83044f271ab3f5c5.
 
@@ -1104,4 +1120,6 @@ The following remain README targets because their carriers are absent at the pin
 
 ## Reproducing the finite arithmetic audit
 
-For Q2 write a=2^αu and b=2^βv with odd units u,v. Use the imported formula (a,b)_2=(−1)^e, with e=((u−1)/2)((v−1)/2)+α(v²−1)/8+β(u²−1)/8 modulo 2. Thus unit residues modulo 8 and valuation parity suffice. Enumerate a*u+b*v+e*c for 0≤a<8 and b,e∈{0,1}, where u,v,c now denote the three Witt generators in DA.4. Stabilize each pair of forms to the same dimension by ⟨1,−1⟩ planes; compare plain determinant square class and the product of pairwise Hilbert symbols. This checks distinctness, orders, all three products with c and the annihilator. Exact rational symmetric elimination diagonalizes the displayed transfer matrix as ⟨1,−1,4,−21/4⟩. For the finite-field check use F2[z]/(z²+z+1) and substitute (z,1) into the binary plane. These finite calculations were executed during the pass and matched every displayed value; they do not replace the imported classification theorem or formal proofs.
+For Q2 write a=2^αu and b=2^βv with odd units u,v. Use the imported formula (a,b)_2=(−1)^e, with e=((u−1)/2)((v−1)/2)+α(v²−1)/8+β(u²−1)/8 modulo 2. Thus unit residues modulo 8 and valuation parity suffice. Enumerate a*u+b*v+e*c for 0≤a<8 and b,e∈{0,1}, where u,v,c now denote the three Witt generators in DA.4. Stabilize each pair of forms to the same dimension by ⟨1,−1⟩ planes; compare plain determinant square class and the product of pairwise Hilbert symbols. This checks distinctness, orders, all three products with c and the annihilator. Exact rational symmetric elimination diagonalizes the displayed transfer matrix as ⟨1,−1,4,−21/4⟩. For the finite-field check use F2[z]/(z²+z+1) and substitute (z,1) into the binary plane. These finite calculations were independently re-executed in review and matched every displayed value; they do not replace the imported classification theorem or formal proofs.
+
+Independent review also counted 136 zeros in the E8 quadratic refinement modulo 2 (256 vectors), confirming Arf 0. The pinned quotient declarations are AddMonoidHom.range and QuotientAddGroup.mk'; the baseline records their indexed multiplicative source generators and the to_additive names separately. The suggested file explicitly elaborates both additive declarations.
