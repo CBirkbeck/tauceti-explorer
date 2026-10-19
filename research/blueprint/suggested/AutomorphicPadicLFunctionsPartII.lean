@@ -119,6 +119,15 @@ example : partialFourierCoordinate 2 (-1) (fun x => if x = 0 then 1 else 0) 1 =
 example : partialFourierCoordinate 2 (-1) (fun _ => 1) 1 = 0 := by
   sorry
 
+/-- Inflation along ℤ/4 → ℤ/2 has Fourier support on the kernel annihilator. -/
+example : partialFourierCoordinate 4 Complex.I
+    (fun x => if (x : ℕ) % 2 = 0 then 1 else 0) 1 = 0 := by
+  sorry
+
+example : partialFourierCoordinate 4 Complex.I
+    (fun x => if (x : ℕ) % 2 = 0 then 1 else 0) 2 = (2 : ℂ)⁻¹ := by
+  sorry
+
 section Smoothing
 
 variable {G R : Type*} [Group G] [TopologicalSpace G]

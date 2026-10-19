@@ -6,16 +6,16 @@
   "summary": "Construct equivariant coherent Eisenstein–Kronecker classes and their critical evaluations over totally imaginary fields admitting a lifted CM type. Compare them with explicitly normalized analytic currents and orbit Eisenstein series, prove critical-value integrality and period algebraicity, and construct ordinary p-adic ray-class interpolation. Generic Poincaré, CM, cohomology and measure theories are imported. The independent nonordinary CM direction has its own split proposal.",
   "readme": "The reader specifies nine construction-ordered layers, all targets, definition APIs and tests, source locators, exact supplier contracts and three mathematical proof obligations.",
   "prerequisites": [
+    "AutomorphicPadicLFunctions",
     "AbelianSchemesAndArithmeticModuliPartII",
     "AutomorphicLFunctionsAndLocalFactors",
-    "AutomorphicPadicLFunctions",
     "ComplexComparisonPartII",
     "ComplexMultiplicationAndExplicitReciprocity",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
     "PadicMeasuresIwasawaAlgebras",
     "PeriodsAndSpecialValues",
     "SchemeAndStackFoundations",
-    "tauceti:TauCetiRoadmap/ReductiveGroups"
+    "tauceti:TauCetiRoadmap/AlgebraicTopology"
   ],
   "stages": [
     {
@@ -26,8 +26,7 @@
         "AbelianSchemesAndArithmeticModuliPartII:P0",
         "AutomorphicPadicLFunctions:L0",
         "ComplexMultiplicationAndExplicitReciprocity:CM.0",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1",
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1"
       ]
     },
     {
@@ -45,14 +44,16 @@
     {
       "key": "KV.2",
       "title": "Critical evaluation and integral refinement",
-      "description": "Evaluate at torsion by the imported splitting principle and group moment maps, then cap the critical group-cohomology component with the oriented free-unit fundamental cycle. Establish finite-index scaling, the refined evaluation that does not invert Nf, and its comparison with the unrefined value. Compare the residue class with the imported logarithm/polylogarithm construction. For unit groups with torsion, normalized evaluation is integral only where the torsion order is invertible or a separate divisibility theorem applies. Targets: Torsion specialization and group-cohomology moments; Orientation-normalized critical Eisenstein classes; Change of unit subgroup with its normalization; Refined evaluation without inverting the torsion order; Comparison of refined and unrefined evaluations; Comparison with the de Rham polylogarithm.",
+      "description": "Evaluate at torsion by the imported splitting principle and group moment maps, then cap the critical group-cohomology component with the oriented free-unit fundamental cycle. Establish finite-index scaling, the refined evaluation that does not invert Nf, and its comparison with the unrefined value. Compare the residue class with the imported logarithm/polylogarithm construction. For unit groups with torsion, normalized evaluation is integral only where the torsion order is invertible or a separate divisibility theorem applies. Targets: Torsion specialization and group-cohomology moments; Orientation-normalized critical Eisenstein classes; Change of unit subgroup with its normalization; Refined evaluation without inverting the conductor norm; Comparison of refined and unrefined evaluations; Comparison with the de Rham polylogarithm.",
       "requires": [
         "AbelianSchemesAndArithmeticModuliPartII:P2",
         "AbelianSchemesAndArithmeticModuliPartII:P3",
         "AutomorphicPadicLFunctionsPartII:KV.0",
         "AutomorphicPadicLFunctionsPartII:KV.1",
         "ComplexMultiplicationAndExplicitReciprocity:CM.1",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
       ]
     },
     {
@@ -90,7 +91,6 @@
         "AbelianSchemesAndArithmeticModuliPartII:P2",
         "AutomorphicLFunctionsAndLocalFactors:AL.1",
         "AutomorphicPadicLFunctions:L0",
-        "AutomorphicPadicLFunctions:L3",
         "AutomorphicPadicLFunctionsPartII:KV.0",
         "AutomorphicPadicLFunctionsPartII:KV.1",
         "AutomorphicPadicLFunctionsPartII:KV.2",
