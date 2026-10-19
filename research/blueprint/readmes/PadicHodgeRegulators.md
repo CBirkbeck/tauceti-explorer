@@ -14,7 +14,23 @@ For curves the roadmap distinguishes the raw syntomic class, the canonical synto
 
 **Independent review, 19 October 2026: needs changes.** The 132 intended targets have been checked, together with their sources, library baseline, supplier contracts, APIs and tests. This reader renders the intended corrected mathematical view. The current atlas merger reads only `nodes`: it ignores this root packet’s imports, source aliases and 27 correction records. With the two parts present it therefore retains uncorrected declarations for 26 targets, including a dual-exponential formula with reversed pairing arguments. The root packet alone contributes one declaration. A supported assembly or coordinated canonical migration is required before promotion; the parts’ earlier acceptance does not approve this mismatch. See [the independent report](../reviews/REV-PadicHodgeRegulators.md).
 
-The review retains the 21 explicit mathematical/supplier gaps and adds the assembly blocker as a separate gap. All ten stages remain planned, with none closed. The source register now has 25 independently checked entries: 24 confirmed and the higher-weight Gros factorial allegation rejected. Three GSWZ entries were already known from the paper review and are now also recorded in this packet.
+The review retains the 21 explicit mathematical/supplier gaps and adds the assembly blocker as a separate gap. At that review all ten intended stage specifications were marked planned, with none closed. The source register now has 25 independently checked entries: 24 confirmed and the higher-weight Gros factorial allegation rejected. Three GSWZ entries were already known from the paper review and are now also recorded in this packet.
+
+**Revision checkpoint, 19 October 2026.** The assembly repair remains blocked by
+the permitted edit scope. The unmodified merger loses 33 corrected fields across
+26 targets. Source-reference lists differ on eight targets: seven need source
+aliases and the dual-exponential target needs its additional LZ citation. A
+temporary materialized root is rejected by the unmodified checker with 131
+duplicate canonical IDs. Fixing the integration path or migrating the two
+canonical part packets requires an expanded job scope; none of those files is
+an allowed deliverable of this revision. The packet is therefore `partial`, its
+independent `needs_changes` verdict is retained. All ten intended stage
+specifications are present, but canonical coverage is `partial` for D.3, D.4,
+L1, L2, L3 and L4 until their corrections actually reach their declarations;
+D.1, D.2, D.5 and L0 retain `planned` coverage. No stage is closed.
+The 192-line suggested file was checked again:
+exit 0 with only its nine theorem-admission warnings. The [revision handoff](../handoff/BP-PadicHodgeRegulators~2.md)
+contains a standalone reproducer and the exact repair acceptance criteria.
 
 ## Conventions and the imported library
 

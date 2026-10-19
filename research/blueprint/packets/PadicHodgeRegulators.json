@@ -436,7 +436,7 @@
     "PadicHodgeRegulators:L3",
     "PadicHodgeRegulators:L4"
   ],
-  "status": "complete",
+  "status": "partial",
   "summary": "Construct the Chern-class-normalized p-adic regulators and their Bloch–Kato, syntomic and Coleman comparisons. For p>3 and finite unramified étale L/Q_p the completed local K₃ regulator is an isomorphism onto p²O_L and tame root classes generate its source. Construct the crystalline Iwasawa regulator, its conductor-sensitive interpolation and Wach-coordinate images, and the specified good-reduction, relative and semistable curve comparisons. The general-weight meromorphic target, source-restricted integral ranges and open global injectivity assertions are distinguished. All ten layers have complete target-level specifications; supplier, normalization and conjectural obligations remain explicit.",
   "sources": [
     {
@@ -2461,9 +2461,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:D.3",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Native implementation of the completed regulator, its integrality and rank input; the worked 5-adic acceptance calculation is independently checked to 12 digits."
+        "Native implementation of the completed regulator, its integrality and rank input; the worked 5-adic acceptance calculation is independently checked to 12 digits.",
+        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
       ],
       "targets": [
         "PadicHodgeRegulators:D.3/unramified-etale-algebra",
@@ -2482,9 +2483,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:D.4",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "The p-adic K_3 regulator injectivity proposition is stated, not proved; no layer proves it."
+        "The p-adic K_3 regulator injectivity proposition is stated, not proved; no layer proves it.",
+        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
       ],
       "targets": [
         "PadicHodgeRegulators:D.4/global-p-adic-regulator",
@@ -2533,9 +2535,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L1",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Rational local Euler characteristic for every finite K/Q_p and continuous period cohomology remain precise external requests. Finite-level adjunction order is pinned; the Iwasawa pairing comparison remains separate."
+        "Rational local Euler characteristic for every finite K/Q_p and continuous period cohomology remain precise external requests. Finite-level adjunction order is pinned; the Iwasawa pairing comparison remains separate.",
+        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
       ],
       "targets": [
         "PadicHodgeRegulators:L1/bloch-kato-subgroups",
@@ -2553,9 +2556,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L2",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
-        "Import the now explicit PG.1/PG.4/PG.5/PG.6 contracts; exact cocycle normalization, the pole estimate and Kummer sign remain explicit requests/gaps."
+        "Import the now explicit PG.1/PG.4/PG.5/PG.6 contracts; exact cocycle normalization, the pole estimate and Kummer sign remain explicit requests/gaps.",
+        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
       ],
       "targets": [
         "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
@@ -2571,10 +2575,11 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L3",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
         "Discharge derivative-obstruction exactness, determinant normalization and cyclotomic growth gaps; elaborate the genuine supplier arithmetic signatures.",
-        "Resolve the general-weight fractional/H_E codomain qualification and prove the Rubin construction input with its actual singular source."
+        "Resolve the general-weight fractional/H_E codomain qualification and prove the Rubin construction input with its actual singular source.",
+        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
       ],
       "targets": [
         "PadicHodgeRegulators:L3/quadratic-frobenius-inverse",
@@ -2603,10 +2608,11 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L4",
-      "status": "planned",
+      "status": "partial",
       "remaining": [
         "Discharge bounded image descent, the integral lower inclusion and analytic elementary-divisor supplier contracts.",
-        "Supply N_rig/Nakamura comparisons and prove the exact crystalline/de Rham normalization square; elaborate arithmetic signatures."
+        "Supply N_rig/Nakamura comparisons and prove the exact crystalline/de Rham normalization square; elaborate arithmetic signatures.",
+        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
       ],
       "targets": [
         "PadicHodgeRegulators:L4/evaluation-constraints",
@@ -2919,7 +2925,8 @@
         "PadicHodgeRegulators:L4/regulator-elementary-divisors"
       ],
       "detail": "The live merger reads nodes only and ignores imports, importedNodes, assembly.sourceAliases and targetCorrections. The complete 132-node reader therefore disagrees with the canonical merged declarations. In particular L1/dual-exponential retains reversed pairing arguments and L4/good-wach-basis retains its superseded generic-theorem ownership/kind. A supported assembler or coordinated canonical migration is required; this review cannot edit the imported parts or scripts.",
-      "addedBy": "REV-PadicHodgeRegulators"
+      "addedBy": "REV-PadicHodgeRegulators",
+      "revisionCheckpoint": "BP-PadicHodgeRegulators~2 reproduced 33 differing corrected fields and eight differing source-reference lists. Direct materialization is rejected with 131 duplicate-ID errors by the unmodified checker. Both canonical-owner migration and integration-code repair are outside this issue’s allowed paths; see assembly.revisionCheckpoint and the revision handoff."
     }
   ],
   "sourceIssues": [
@@ -3714,6 +3721,43 @@
       "promotion": "scripts/promote.py:stage",
       "result": "The merger reads only packet.nodes; the promotion path copies the raw packet. With both parts present there are 132 declarations, but all 27 correction records (26 distinct nodes) and the source aliases are ignored. Root alone contributes one declaration.",
       "requiredRepair": "A separately scoped job must provide a supported validated assembly path or coordinated canonical-node migration; then compare every resolved field, source identity, coverage target and planet against the reader. Editing either imported part or the merger is outside this review issue."
+    },
+    "revisionCheckpoint": {
+      "job": "BP-PadicHodgeRegulators~2",
+      "issue": 11092,
+      "agent": "Codex / GPT-6",
+      "session": "codex-HNxLJr",
+      "date": "2026-10-19",
+      "testedCommit": "c7f92e76f8bf67502db46fe35e646d40f45cf551",
+      "status": "blocked",
+      "rootOnlyDeclarations": 1,
+      "rawMergeDeclarations": 132,
+      "intendedDeclarations": 132,
+      "correctionRecords": 27,
+      "distinctCorrectionTargets": 26,
+      "differingCorrectedFields": 33,
+      "sourceAliasTargets": 7,
+      "differingSourceReferenceLists": 8,
+      "materializedRootDuplicateErrors": 131,
+      "materializedRootOtherErrors": 0,
+      "result": "Reproduced with the unmodified merger and checker. Root-only has one declaration; the two parts plus root have 132 but ignore the corrections and aliases. A temporary materialized root with its normal filename fails the unmodified checker with 131 errors, each an ID also defined in an unchanged part. No checker context was altered. The one planet whose displayed mathematical fields differ is L1/dual-exponential.",
+      "scopeBoundary": "The issue permits only the root packet, reader, suggested file and this revision handoff. It excludes both imported part packets and integration/checker code. There is no supported root-only repair: a supported assembly path or coordinated canonical migration requires expanded deliverables.",
+      "repairScopeAlternatives": [
+        "Implement and test import/correction/source-identity resolution in scripts/blueprints.py and the promotion/checker path (scripts/promote.py, scripts/check_blueprint.py), including root source/baseline/coverage/request metadata. Imported canonical nodes must have one owner.",
+        "Authorize coordinated migration of research/blueprint/packets/PadicHodgeRegulators--D.1.json and research/blueprint/packets/PadicHodgeRegulators--L3.json together with the root. Apply corrections and source identity changes to canonical owners, reconcile their metadata, update hashes and obtain independent review of every changed canonical file."
+      ],
+      "missingNamedReview": "research/blueprint/reviews/REV-PadicHodgeRegulators~1.md is absent at the tested commit. The queue makes REV-PadicHodgeRegulators the actual predecessor; its report and verdict were read and retained.",
+      "handoff": "research/blueprint/handoff/BP-PadicHodgeRegulators~2.md",
+      "canonicalPartialStages": [
+        "PadicHodgeRegulators:D.3",
+        "PadicHodgeRegulators:D.4",
+        "PadicHodgeRegulators:L1",
+        "PadicHodgeRegulators:L2",
+        "PadicHodgeRegulators:L3",
+        "PadicHodgeRegulators:L4"
+      ],
+      "intendedStagesSpecified": 10,
+      "coveragePolicy": "Six stages with unapplied canonical corrections are partial until the assembly repair; four unaffected intended scopes remain planned. This is an unfinished revision checkpoint, not completion of the prior mathematical planning pass."
     }
   },
   "inventory": {
@@ -5550,6 +5594,12 @@
       "by": "REV-PadicHodgeRegulators",
       "date": "2026-10-19",
       "result": "lean-check exit 0 at the recorded pins, nine theorem-admission warnings only. Four real-bodied light definitions, six proved examples and nine admitted theorem milestones; no arithmetic-carrier formalisation claimed."
+    },
+    "revisionCheckpoint": {
+      "by": "BP-PadicHodgeRegulators~2",
+      "session": "codex-HNxLJr",
+      "date": "2026-10-19",
+      "result": "Unchanged 192-line file: lean-check exit 0; nine theorem-admission warnings only. Four real-bodied definitions, six proved examples and nine theorem milestones. Available memory was 77 GiB before compilation; one Lean check was run."
     }
   },
   "review": {
