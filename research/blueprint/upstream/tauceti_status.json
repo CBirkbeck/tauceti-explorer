@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T23:20Z",
+  "updated": "2026-10-19T23:40Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -1342,7 +1342,7 @@
     "IgusaVarietiesAndTorsionConcentration": {
       "stage": "pr",
       "pr": 1090,
-      "head": "3528317",
+      "head": "55adf55",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 51); red team running",
       "review": {
         "recommendation": "changes",
@@ -1603,14 +1603,22 @@
     "SchemeKTheoryOperations": {
       "stage": "pr",
       "pr": 1229,
-      "head": "900144a",
-      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running"
+      "head": "31db101",
+      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
+      "review": {
+        "current": false,
+        "note": "final-review repairs applied at 31db101; confirmation pass pending"
+      }
     },
     "VStackSheavesAndLisseCategories": {
       "stage": "pr",
       "pr": 1230,
-      "head": "781cbd4",
-      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running"
+      "head": "6c3945b",
+      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
+      "review": {
+        "current": false,
+        "note": "final-review repairs applied at 6c3945b; confirmation pass pending"
+      }
     },
     "MordellLawrenceVenkatesh": {
       "stage": "pr",
@@ -1637,13 +1645,13 @@
     "BunGAndNewtonStrata": {
       "stage": "pr",
       "pr": 1241,
-      "head": "2f130f9",
+      "head": "86c0f74",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running"
     },
     "KTheoryLowDegrees": {
       "stage": "pr",
       "pr": 1248,
-      "head": "c8da0e9",
+      "head": "4720322",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running"
     }
   },

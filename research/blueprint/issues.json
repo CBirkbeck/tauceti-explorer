@@ -5294,5 +5294,7 @@
  "PKG-RefinedTraceMethods~codex": 11241,
  "REV-PKG-ArithmeticKTheory~adv": 11242,
  "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex2": 11243,
- "PKG-CyclotomicClassGroupsAndStickelberger~codex": 11246
+ "PKG-CyclotomicClassGroupsAndStickelberger~codex": 11246,
+ "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4": 11250,
+ "PKG-HermitianKTheoryOfPoincareCategories": 11253
 }

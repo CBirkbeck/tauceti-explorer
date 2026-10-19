@@ -13,6 +13,36 @@ namespace TauCetiRoadmap.EulerSystemsAndKolyvaginSystems
 
 open Polynomial
 
+namespace KolyvaginSystems
+
+/-! ## Layer 0: a finite coefficient ring's additive trace generator -/
+
+/-- An additive character whose kernel contains no nonzero ideal.
+For a finite local ring the character lands in the torsion of its residue characteristic. -/
+def IsMatlisGenerator {R : Type*} [CommRing R] (lam : R →+ UnitAddCircle) : Prop :=
+  ∀ I : Ideal R, (∀ x ∈ I, lam x = 0) → I = ⊥
+
+/-- The zero character fails even when the coefficient ring is a field. -/
+example {R : Type*} [CommRing R] [Nontrivial R] :
+    ¬ IsMatlisGenerator (0 : R →+ UnitAddCircle) :=
+  fun h => top_ne_bot (h ⊤ fun _ _ => rfl)
+
+/-- The standard character of ℤ/Nℤ for N≠0 is a generator, including the zero ring at N=1. -/
+example (N : ℕ) [NeZero N] :
+    IsMatlisGenerator (ZMod.toAddCircle : ZMod N →+ UnitAddCircle) := by
+  intro I hI
+  rw [eq_bot_iff]
+  intro x hx
+  exact (Ideal.mem_bot).2 (ZMod.toAddCircle_injective N (by rw [hI x hx, map_zero]))
+
+/-- Finite local self-injectivity is equivalent to existence of a trace generator (README 0.2). -/
+theorem injective_iff_exists_isMatlisGenerator {R : Type*} [CommRing R] [Finite R]
+    [IsLocalRing R] :
+    Module.Injective R R ↔ ∃ lam : R →+ UnitAddCircle, IsMatlisGenerator lam := by
+  sorry
+
+end KolyvaginSystems
+
 namespace FiniteSelmerDuality
 
 /-! ## Layer 0: the finite self-injective trace pairing -/
@@ -130,17 +160,27 @@ theorem eulerPoly_id_rank_one [Nontrivial R] : eulerPoly (LinearMap.id : Module.
 end EulerPolynomial
 
 /-- In the χ-ray example with `Q=2`, `eχ=3` and `P=1+X`, the ordinary numerator's
-linear coefficient is not divisible by the ray degree. -/
-example : ¬ (3 : ℤ) ∣ ((1 + X : ℤ[X]) - (1 + C 2 * X)).coeff 1 := by
+linear coefficient is not divisible by the ray degree. The same failure holds for
+`P=1-X`, which also satisfies the derivative-prime condition `P(1)=0`. -/
+example : (¬ (3 : ℤ) ∣ ((1 + X : ℤ[X]) - (1 + C 2 * X)).coeff 1) ∧
+    (¬ (3 : ℤ) ∣ ((1 - X : ℤ[X]) - (1 - C 2 * X)).coeff 1) := by
   norm_num
 
 /-- The rank-two local model at `Q=17` has dual polynomial `(17-3X+X²)/17`.
 Clearing the unit denominator 17, its ordinary divided numerator still has linear
-coefficient 48, which is not divisible by the chi-ray degree 9. The README retains
-the separate `Q²` Cayley--Hamilton check for the rank-one model. -/
+coefficient 48, which is not divisible by the chi-ray degree 9. This remains a local model, as specified in the README. -/
 example : ¬ (9 : ℤ) ∣
     ((C 17 - C 3 * X + X ^ 2 : ℤ[X]) -
       (C 17 - C 51 * X + C 289 * X ^ 2)).coeff 1 := by
+  norm_num
+
+/-- Replacing `Q` by `Q²` repairs that denominator but changes the annihilating argument:
+for `P=1+X`, `F=-2` and for `P=1-X`, `F=2`, the argument `Q/F` annihilates
+whereas `Q²/F` does not. -/
+example : (1 + X : ℚ[X]).eval (2 / (-2)) = 0 ∧
+    (1 + X : ℚ[X]).eval (4 / (-2)) = -1 ∧
+    (1 - X : ℚ[X]).eval (2 / 2) = 0 ∧
+    (1 - X : ℚ[X]).eval (4 / 2) = -1 := by
   norm_num
 
 /-- The polynomial identity behind Rubin's Example IV.8.2 (`T = ℤ_p(1)`, `P(x) = 1 − x`):
@@ -375,6 +415,12 @@ KolyvaginSystems.MR16Hypotheses.frobeniusRefinement,
 KolyvaginSystems.MR16Hypotheses.detect, SharpConductorEvaluation,
 OrdinaryCoefficientPrime.local, OrdinaryCoefficientPrime.corrections and
 OrdinaryCoefficientPrime.change also have arithmetic carriers specified in the README.
+KolyvaginSystems.IsSelfInjectiveCoefficient records the finite local coefficient data.
+The local-order carriers divisionValuation, divisionIntegers, the rectangular
+bimodule normal form, centralizerLatticeOrder and pairingCorner, and the
+ordinaryFiltration, ordinaryLocalCondition and anticyclotomicSelmerStructure
+carriers are likewise README targets. Their statements specify the module sides,
+fullness, finite arithmetic support and coefficient-prime hypotheses there.
 The arithmetic Iwasawa comparison of Layer 8, the coinduced Euler-system lift,
 and the higher-rank regulator also remain README targets. Their coefficient,
 local-duality and geometric carriers are supplied by the named
