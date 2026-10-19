@@ -92,4 +92,15 @@ example (x : ℚ) : (1 / 2 : ℚ) * (2 * x) = x := by
 example : IsUnit (((1 + 2 : ZMod 5) - ((-1) + 2 : ZMod 5))) := by
   sorry
 
+/-- AK2.5: a C₃ action by 2 has inverse action by 4 over F₇. Its two
+degree-one boundaries differ, so a sign C₂ example alone misses this issue. -/
+example : ((2 : ZMod 7) * 4 = 1) ∧
+    ((2 : ZMod 7) - 1 ≠ (4 : ZMod 7) - 1) := by
+  decide
+
+/-- AK2.7: the nonzero relative sign cocycle gives an involution on the
+universal middle module; the same formula survives coefficient reduction. -/
+example (m t : ZMod 5) : (-(-m), (t + m) + (-m)) = (m, t) := by
+  simp
+
 end ArithmeticKTheoryPartIISuggested
