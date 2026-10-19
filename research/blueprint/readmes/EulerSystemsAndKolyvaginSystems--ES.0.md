@@ -39,6 +39,25 @@ The suggested file uses the namespace `TauCetiRoadmap.EulerSystemsAndKolyvaginSy
 
 For the polynomial signatures `f` is data, not an admitted choice of Frobenius. Their arithmetic specialization requires an unramified lattice and the unit `N(q)` at `q∤p`. The rank-one computation is `P_Rubin=1-X`, `P_MR=1-N(q)X` when Frobenius multiplies by `N(q)`; rank two gives `1-aN(q)⁻¹X+N(q)⁻¹X²`. The group-ring identity uses a generator explicitly: `(σ-1)D_σ=|Γ|-N_Γ`. A group of order two has `D_σ=σ`, whereas `N_Γ=1+σ`. For the higher correction, `Δ_1=1`, `Δ_q=0` and `Δ_{q₁q₂}=-P_{q₂}^{q₁}P_{q₁}^{q₂}`. These are algebraic convention checks, not a construction of the arithmetic derivative.
 
+The suggested file has four proved examples: derivative order two, derivative of the identity, the empty determinant and the two-prime negative cross term. All other boundary checks in that file are named unproved theorem targets. The sixteen names below are relative to `TauCetiRoadmap.EulerSystemsAndKolyvaginSystems`; they carry exactly the coefficient and finite-free hypotheses shown in Lean. They are not implemented tests.
+
+- `KolyvaginSystems.IsCoefficientRing.padicInt`
+- `KolyvaginSystems.IsCoefficientRing.finiteField`
+- `KolyvaginSystems.IsCoefficientRing.not_rat_discrete`
+- `KolyvaginSystems.IsArithmeticCoefficient.finite_both`
+- `KolyvaginSystems.IsArithmeticCoefficient.not_fraction_field`
+- `EulerSystems.eulerPoly_rank_one`
+- `EulerSystems.eulerPoly_rank_two`
+- `EulerSystems.eulerPoly_rank_zero`
+- `KolyvaginSystems.normElement_trivial`
+- `KolyvaginSystems.normElement_order_two`
+- `KolyvaginSystems.kolyvaginDerivative_order_three`
+- `KolyvaginSystems.kolyvaginDerivative_not_norm_multiple`
+- `KolyvaginSystems.divisibilityIndex_zero`
+- `KolyvaginSystems.divisibilityIndex_residue_nonzero`
+- `KolyvaginSystems.divisibilityIndex_padic_power`
+- `EulerSystems.deltaCorrection_one`
+
 The coefficient dictionary is complete noetherian local R, finite residue field of characteristic p, m-adic topology, finite-type compact coefficients with jointly continuous action, and discrete m-power torsion coefficients of cofinite type with open stabilisers. Cartier duality uses continuous additive (equivalently ℤ_p-linear) maps to μ_{p^∞}, with the R-action through the source. The O-linear dual into Φ/O requires its stated coefficient comparison; it is not identified with the Cartier dual by an unspecified trace. Every Selmer support contains S_p ∪ S_∞ and the ramified primes. Duality, propagation, modification and restriction of the prime set preserve that support.
 
 The three arithmetic negative controls remain mandatory reader Checks. For the trivial 𝔽_p-module over ℚ, empty support is inadmissible and the dual μ_p is ramified at p for p odd. Discrete ℚ is not an arithmetic coefficient; its unramified H¹ is zero while its trivial-Frobenius coinvariants are ℚ, so unrestricted evaluation would be false. Finally, MR16's F_ur at primes above p is the **saturation of universal norms from all finite unramified extensions** (Definition 5.1, pp. 9–10), relaxed at infinity and the rational inertia kernel away from p. For ℤ_p(1) over ℚ_p with p odd, the inertia kernel is zero while the universal-norm condition has rank one. Lemma 5.2, Corollary 5.3 and Theorem 5.4 retain that condition and their original hypotheses. The general-R quotient/dual Selmer identification uses MR04 (H.0), (H.1), (H.3); the finite self-injective version uses BSS II Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8. None is replaced by an O-only supplier theorem.
@@ -46,6 +65,8 @@ The three arithmetic negative controls remain mandatory reader Checks. For the t
 The full higher derivative uses the group ring of E(n)/K, with no splitting of its Galois group. Frobenius injectivity 6.11 is a hypothesis of the local-relation theorem, not of the elementary determinant expression. The Nekovář, elliptic, purity/polarization and archimedean-regulator targets retain all their geometric hypotheses in the statements below. Their carriers are absent at the pins, so the corresponding theorems are absent from Lean. No omitted hypothesis is replaced by an arbitrary proposition.
 
 ## Upstream suppliers already in progress
+
+The independent review rechecked the same open supplier heads on 2026-10-19: AGD `567ff2b2099d724d7e75a37994ea44ba375f4a17` and Selmer `691599e9863c501bbce9c0e3e3af6a61f7487613`. Local roadmap main was `0d144d044dacebca17b654695b6f1ad58f159b27`; the ClassicalArithmeticCompletion and Padic contracts were checked on remote main `79ff03ab775937a744719a0ebe494621f1f16d95`. These are planned supplier interfaces; general-R compact H¹, local maximal-order heredity and the L6 transfer extension remain requested.
 
 Heads re-read on 2026-10-19 for revision 5.
 
@@ -108,10 +129,28 @@ Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174. Tau Ceti: f790474821cf4256814
 | mathlib:IsModuleTopology | IsModuleTopology R A: A carries the module topology induced from R; for a finitely generated module over a coefficient ring this is the m-adic topology. |
 | tauceti:TauCeti.IsSmoothDiscrete | An object of TopRep R G whose module is discrete with open point stabilisers; the discrete G-modules with continuous action. |
 | mathlib:Submodule.torsion | The submodule of elements killed by a non-zero-divisor; the saturation of N in M is the preimage of the torsion of M/N. |
-| mathlib:cyclotomicCharacter | The p-adic cyclotomic character (L ≃+* L) →* ℤ_pˣ; fixes the Tate twist ℤ_p(1) in the reader’s universal-norm Check. |
+| mathlib:cyclotomicCharacter | The homomorphism (L ≃+* L) →* ℤ_pˣ. Its interpretation through the action on all p-power roots of unity requires those roots in L, as for a separable closure in characteristic zero; it is not a faithful description of roots missing from an arbitrary L. |
 | tauceti:TauCeti.MonoidAlgebra.augmentation | The coefficient-sum augmentation R[Γ] →+* R, sending each standard basis element to 1; consumed directly in the derivative checks. |
 
 ## Sources and versions
+
+Independent revision-five review (2026-10-19) checks the target statements against the bounded readings below. These are this session’s readings; the earlier records retain their original attribution. The historical Rubin book-format mirror was not accessed or authenticated as a publisher edition. The independent collation limit is an explicit gap.
+
+| Source | Passages checked in this independent review | SHA-256 |
+| --- | --- | --- |
+| mr-ks | MR04 author copy: §§1.1–1.2, pp.7–11; §2.1 and Lemma 2.1.4, pp.13–15; Proposition 3.4.4 and §3.5, pp.27–29; Theorems 4.5.6–4.5.8, pp.49–50; §§5.2.11–5.2.15, pp.57–60; Appendix A Proposition A.2, Theorem A.4 and equation (33), pp.79–81. No claim to Appendix B or Lambda-adic proofs. | `4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f` |
+| rubin-es | Public 1999 draft: IV §§3–4, pp.59–64; IX §§1,3–4, pp.133–139, including the finite-depth statement and chi-ray alternatives. Original Kolyvagin article and book-format Rubin source were not read. | `de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50` |
+| mr-higher | Preprint: Definitions 3.1 and Proposition 3.3, pp.7–8; §4 hypotheses, p.9; Definition 5.1, Lemma 5.2, Corollary 5.3 and Theorem 5.4 with its proof, pp.9–11. | `15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8` |
+| mr-higher-published | Published: Theorems 8.7(ix) and 13.4(ix), pp.167,175–176; Gomez erratum, p.182. Extended-length equality and arbitrary-quotient boundaries checked separately. | `00725ad7afc9d7f3d69dac9eb8f872319974bf846be850dc3c0b56ba3b49d926` |
+| bss2 | Preprint: Proposition 2.4 and proof, pp.8–9; Hypothesis 4.7 and Remarks 4.8–4.9, p.22; Theorem 5.2 and Remark 5.3, pp.25–26; Theorem 6.12/Corollary 6.13, pp.41–42; Corollaries 6.17–6.18 with proof and Remark 6.19, pp.42–46; Theorem 7.1 and proof, pp.47–50. | `2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429` |
+| bs1 | Preprint: Definition 2.8 and Proposition 2.10 with proof, pp.12–13; Definitions 2.18–2.19 and Proposition 2.20, pp.15–16; Definition 3.2 and Theorem 3.3, pp.23–24; Theorem 3.11 and comparison proof, pp.26–28. The Bockstein-square use was also checked in BSS II Corollary 6.17. | `661deb8cdb0de31b8195b55eac68fe1f59ae96947d40debef03e0711b0f297e3` |
+| howard | Published: H.0–H.5 in §1.3, p.1446; Theorem 1.6.1 and its proof, pp.1453–1455. No fresh reading claim for the Lambda-adic §2. | `89082beb9117b111558f1c62356a0610602781ec2a2b3487ce561920cf4d78d7` |
+| cgls | Preprint v2: §3.2 and Theorem 3.2.1, p.17; Lemma 3.3.1 and Proposition 3.3.2, pp.17–18; Proposition 3.3.6 with its proof, pp.19–21; Theorem 3.3.8 and initial rank-one argument, p.21. | `7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59` |
+| nekovar | Author copy: §§3.1–3.5, pp.18–19; §5.19, pp.33–34; §§6.4.1–6.4.3, pp.38–40; Theorem 7.3 and §§7.4–7.6, pp.45–51, including the pairing losses and final annihilator constants. Curtis–Reiner was not read. | `05c8debf4783f4604afe71a0b4367554ac62d52a6a462daa5e2e8c2ed6bfd26a` |
+| sakamoto | Published: §4.5, Lemma 4.13 and Proposition 4.14 with proof, pp.2313–2314. | `ea04b2b3cafe1b990ab32c461f8aea0563baf75fa11b0e93eaea06b1cb325ee0` |
+| sano14 | Preprint: Lemmas 2.10–2.11 and Remark 2.12 with proofs, pp.6–7, for normalized transfer and its inclusion formula. | `83ca6e59cefdb60833f418aa57617a451101977de1b767ddf6138661758ccea4` |
+| dk | Preprint v3: §1.2, equations (8)–(10), Conjecture 1.5 and Theorem 1.6, pp.7–9. | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
+| ltxzz-published | Maintainer-cleared published PDF read in place: Definition 2.3.2 and Lemmas 2.3.3–2.3.5, pp.126–128; Proposition 2.4.6, pp.129–131; §§2.6.1–2.6.5, pp.132–135. Checked residue-field linearity, reducibility depth and shifted-order localization. No source file or extracted text was copied. | `dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97` |
 
 Independent revision-four reading (2026-10-19) checked all 93 targets, the coefficient/support and universal-norm corrections, the compact Lean declarations, higher-rank determinantal construction, derivative surjectivity and finite-length equality criterion. Historical reading records below remain attributed to their earlier rounds.
 
@@ -312,7 +351,7 @@ Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu. Inventiones mathemat
 
 ### Euler Systems (rubin-es-2000)
 
-Karl Rubin. Published version, Annals of Mathematics Studies 147 (Princeton University Press, 2000), xi + 227 pp.; the author's file hosted by W. Stein; read 2026-10-14 from page images. [Source](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf).
+Karl Rubin. Historical book-format author copy associated with Annals of Mathematics Studies 147 (2000), hosted by W. Stein; earlier workers report page-image reading. Not authenticated here as the publisher's version of record; not accessed in this independent review. [Source](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf).
 
 - Page images printed pp.42–43,103,122; draft/publication comparison only at these locations
 - Not re-read in this round: the published Theorem 9.3.3 locator is the reading of REV-EulerSystemsAndKolyvaginSystems~2. BP-EulerSystemsAndKolyvaginSystems--ES.0~5 re-read the 1999 draft IX.3.3 (p.137) and checked by the zero-class control that the draft factor cannot be right.
@@ -2942,7 +2981,7 @@ Karl Rubin. Published version, Annals of Mathematics Studies 147 (Princeton Univ
 
 **Construction or proof.**
 
-1. (a): derivative classes exist for systems of depth M and satisfy the finite–singular relation. Multiplication by a₁ gives the local finite conditions away from the derivative conductor (Corollary IV.6.5); global duality bounds the strict Selmer exponent by the complementary ideal ((M):a₂), with the additional a₁ loss. For a fixed lattice class of divisibility s, b = m − a − s for large m and the bound is π^{2a+s}; pass through compatible local conditions and finite generation to obtain finiteness. This is published Theorem 9.3.3, correcting draft IX.3.3 (source issue E912).
+1. (a): derivative classes exist for systems of depth M and satisfy the finite–singular relation. Multiplication by a₁ gives the local finite conditions away from the derivative conductor (Corollary IV.6.5); global duality bounds the strict Selmer exponent by the complementary ideal ((M):a₂), with the additional a₁ loss. For a fixed lattice class of divisibility s, b = m − a − s for large m and the bound is π^{2a+s}; pass through compatible local conditions and finite generation to obtain finiteness. The whole-roadmap review attributes this correction to book-format Theorem 9.3.3, pp.179–180 (source issue E912). This review checks the ideal arithmetic and the zero/primitive/bounded-divisibility controls, but has not read that book-format passage; its independent collation is a recorded gap.
 2. (b): ES.3/anticyclotomic-derivative with r = 1 gives classes in the χ^{i−1}-part ramified at one prime, with ramification governed by the χ^i-part of c_{K′}; they annihilate S_{Σ_p}(K′, W^*)^{χ^{1−i}} by global duality.
 
 **Acceptance checks.**
@@ -2957,9 +2996,9 @@ Karl Rubin. Published version, Annals of Mathematics Studies 147 (Princeton Univ
 
 **Sources.**
 
-- rubin-es, Chapter IX, Theorem 3.3, p. 137 (1999 draft); corrected by published Theorem 9.3.3, pp. 179–180, source issue E912: The finite-depth bound, with the complementary ideal of the published edition; the draft formula is not used.
+- rubin-es, Chapter IX, Theorem 3.3, p.137 (1999 draft); compare the inherited book-format Theorem 9.3.3 locator, pp.179–180, source issue E912: The draft finite-depth bound has the wrong factor. The complementary-ideal correction is attributed to the whole-roadmap review; independent book-format collation remains open.
 - rubin-es, Chapter IX, Theorem 4.3, p. 139: The anticyclotomic exponent bound.
-- rubin-es-2000, Chapter 9, Theorem 9.3.3, pp. 179–180: The finite-depth annihilator ((M):a₂)a₁ and its compatible infinite-depth consequence, as read in page images by the whole-roadmap review.
+- rubin-es-2000, Chapter 9, Theorem 9.3.3, pp. 179–180: Inherited whole-roadmap page-image reading for the finite-depth annihilator ((M):a₂)a₁ and its infinite-depth consequence; not independently re-read or certified as the version of record in this review.
 
 ### Localisation at abundant tuples with bounded loss
 
@@ -3520,7 +3559,7 @@ Karl Rubin. Published version, Annals of Mathematics Studies 147 (Princeton Univ
 **Acceptance checks.**
 
 - For R = k a field these are standard facts about exterior powers.
-- The transition maps of Stark systems are instances of (c).
+- Stark-system transition maps are the ordered local contractions in the first assertion, with coefficient changes satisfying the separate ambient-square hypotheses.
 
 **Prerequisites.** `EulerSystemsAndKolyvaginSystems:ES.6/exterior-bidual`, `SelmerIwasawaCohomology:L2`, `PadicMeasuresIwasawaAlgebras:L6`.
 
@@ -4598,7 +4637,7 @@ Consumers: `EulerSystemsAndKolyvaginSystems:ES.7/vertical-determinantal-systems`
 
 ### Kolyvagin's article was not read
 
-V. A. Kolyvagin, 'Euler systems', The Grothendieck Festschrift II (1990), is not publicly available. As in the reviewed extraction PAPER-KOLYVAGIN-90, Rubin's book is used as the public statement of the method; no claim is made about the wording of Kolyvagin's article.
+V. A. Kolyvagin, 'Euler systems', The Grothendieck Festschrift II (1990), is not publicly available. As in the reviewed extraction PAPER-KOLYVAGIN-90, Rubin's public 1999 course draft is used for the accessible statement of the method; no claim is made about the wording of Kolyvagin's article.
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.3/congruence`, `EulerSystemsAndKolyvaginSystems:ES.2/rigidity-variants`.
 
@@ -4626,9 +4665,13 @@ The current roadmap-shape rule keeps a theorem in Lean only when all its carrier
 
 Consumers: `EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent`, `EulerSystemsAndKolyvaginSystems:ES.7/rubin-stark-class-group`, `EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic`, `EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization`.
 
-## Source findings independently checked in revision four
+### Independent collation of the finite-depth correction
 
-These version-scoped findings were independently rechecked on 2026-10-19. E4 is the known Gomez erratum; E6 is the additional finite-length boundary found in this review. Earlier reading records remain attributed to their original workers. The descriptions below paraphrase the claims and corrections.
+The complementary-ideal formula ((M):a₂)a₁ is retained as the corrected target attributed to REV-EulerSystemsAndKolyvaginSystems~2, book-format Theorem 9.3.3, pp.179–180. The independent revision-five reviewer read only the public 1999 draft IX.3.3, p.137, whose factor fails the zero-class control, and checked the corrected formula at c_K=0, a primitive c_K, and compatible reductions of bounded divisibility. Rubin’s published book is not cleared in the supplied library; no other book copy was accessed. The historical mirror is an author copy, not an authenticated publisher edition. Independent page-level verification and version-of-record collation remain to be supplied; the correction is not claimed freshly sourced from the book.
+
+## Version-scoped source findings
+
+These six findings were independently rechecked in revision five on 2026-10-19. E4 is the known Gomez erratum; E6 is the finite-length boundary recorded by revision four and reconfirmed here. The Rubin book-format passage was not read; E2 is confirmed against the public 1999 draft. Earlier reading records and bounded correction searches retain their original attribution. The descriptions below paraphrase the claims and corrections.
 
 ### EulerSystemsAndKolyvaginSystems/E1
 
@@ -4642,7 +4685,7 @@ bss2, Hypothesis 4.7(ii), p. 22 of arXiv:1805.08448v1.
 
 **Publication status.** new
 
-**Independent verdict.** confirmed — Independently checked v1 Hypothesis 4.7(ii), p.22, against the trivializing field in §3: every element of the printed subgroup acts trivially, so its coinvariants equal T. Omitting K(T) gives the required nontrivial rank-one coinvariant hypothesis. Verdict remains scoped to arXiv v1.
+**Independent verdict.** confirmed — Fresh revision-five check of arXiv v1 Hypothesis 4.7(ii), p.22: the printed subgroup fixes K(T), hence acts trivially on T and gives coinvariants T. Removing the trivializing field is necessary for the intended rank-one quotient. This verdict is restricted to v1.
 
 **Bounded correction search.** arXiv listing of 1805.08448 (only v1 exists, checked 2026-10-06); the accepted journal version was not available to the worker and was not compared; https://arxiv.org/abs/1805.08448 submission history (v1 only); https://davidburnsmaths.github.io/newdbpublist.html and KCL accepted-manuscript record; no accessible correction located; Web search for BSS II Hypothesis 4.7 errata, 2026-10-06; no explicit correction located; Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum.; Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence.
 
@@ -4658,7 +4701,7 @@ rubin-es, 1999 course draft Chapter IX §1, p.133; also book-format author copy 
 
 **Publication status.** new
 
-**Independent verdict.** confirmed — Independently read the 1999 draft IX.1 and checked the isolated-base family: the tower must be unramified at primes dividing N for all non-base Euler factors to vanish in that example. The printed outside-N condition does not give that example. No fresh inspection of the historical book-format mirror is claimed.
+**Independent verdict.** confirmed — Fresh check of public 1999 draft IX.1, p.133: a nontrivial extension ramified only at N has empty Euler-factor product, so an isolated arbitrary base class fails. Unramifiedness at N permits the vanishing outside-N factor used by the example. The historical book-format passage was not read in this review.
 
 **Bounded correction search.** Web search for Rubin Euler systems errata Chapter IX rigidity, 2026-10-06; no explicit correction located; 1999 SWC draft and https://www.wstein.org/people/rubin/book/hEulerSystems.pdf §9.1: wording persists in both author copies; publisher version not certified; Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum.; Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence.
 
@@ -4674,7 +4717,7 @@ mr-ks, Archived author copy, Proposition 3.4.4(ii), p.27 (PDF p.33).
 
 **Publication status.** new
 
-**Independent verdict.** confirmed — Independently read the archived author-copy Proposition 3.4.4(ii). The one-vertex sheaf with stalk ℤ_p/p has a hub and trivial monodromy but torsion sections, and cannot be an ideal in ℤ_p. Arithmetic applications use free hub stalks or the stated principal-artinian scope.
+**Independent verdict.** confirmed — Fresh check of archived MR04 Proposition 3.4.4(ii), p.27: a single-vertex stalk Z_p/p has a hub and trivial monodromy but torsion sections, and cannot be an ideal of the domain Z_p. A free rank-one hub or principal-artinian coefficients gives the stated repair.
 
 **Bounded correction search.** Web search for Mazur Rubin Kolyvagin systems errata Proposition 3.4.4, 2026-10-06; no explicit correction located; https://sites.harvard.edu/barry-mazur/projects/ search result; direct fetch failed (502); https://www.ams.org/memo/0799/memo0799.pdf version-of-record download attempted; HTTP 403, not collated; Independent search on 2026-10-10: exact source/theorem errata queries, author publication records and available later source versions; no additional correction located beyond the separately recorded Gomez erratum.; Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence.
 
@@ -4690,7 +4733,7 @@ mr-ks, Lemma 2.1.4, p.15; repeated use in Lemma 3.5.2, p.28, archived author cop
 
 **Publication status.** Mazur–Rubin, Controlling Selmer groups in the higher core rank case, arXiv:1312.4052v1 p.32; published JTNB28 (2016) p.182, Gomez erratum. BSS II arXiv:1805.08448v1 pp.15–17 gives the replacement annihilator proof.
 
-**Independent verdict.** confirmed — Independently read MR04 Lemma 2.1.4 and published MR16 p.182, where the Gomez correction is credited. The S₃ matrices over 𝔽₃ have zero common fixed space and a trivial nonzero quotient, so arbitrary subquotients fail. BSS II Proposition 3.5 and Corollary 3.8 supply the coefficient-ideal/annihilator repair.
+**Independent verdict.** confirmed — Fresh check of archived MR04 Lemma 2.1.4, p.15, and the published MR16 Gomez erratum, p.182: over F_3, b=[[1,1],[0,1]] fixes e1 and a=diag(-1,1) fixes e2, so common invariants vanish, while the quotient by e1 is trivial. Residual vanishing is used only for coefficient-ideal quotients and the justified dual annihilators.
 
 **Bounded correction search.** MR16 arXiv v1 p.32 and published Numdam version p.182, independently read 2026-10-10; BSS II §3.2 pp.15–17, independently read 2026-10-10; AMS Memoirs version-of-record download unavailable; finding scoped to the archived author copy; Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence.
 
@@ -4706,7 +4749,7 @@ mr-ks, Proposition 3.4.4(iii), p.27, archived author copy.
 
 **Publication status.** new
 
-**Independent verdict.** confirmed — Independently read MR04 Proposition 3.4.4(iii). In the recorded 𝔽₃[[x,y]] example, x generates m times R/(y), but does not generate (x,y) at the free hub. Propagation from a hub remains valid; arbitrary-vertex valuation propagation needs the narrower arithmetic scope.
+**Independent verdict.** confirmed — Fresh check of archived MR04 Proposition 3.4.4(iii), p.27: for R=F_3[[x,y]], the section (x,x mod y) generates m times the stalk R/(y) but only (x), not m, at the free hub R. Starting at a hub and propagating along its surjective paths avoids this counterexample.
 
 **Bounded correction search.** Exact web searches for Mazur–Rubin Kolyvagin systems Proposition3.4.4 errata on 2026-10-10; no correction located; Barry Mazur projects page https://sites.harvard.edu/barry-mazur/projects/ indexed record; direct fetch failed; MR16 arXiv v1 Proposition9.3 and published Proposition9.3: the analogous assertion is in principal-artinian coefficient scope, not a correction at general scope; MR16 published Gomez erratum p.182 corrects Lemma2.1.4, not this proposition; AMS https://www.ams.org/memo/0799/memo0799.pdf unavailable; no claim about an uncollated publisher edition; Independent bounded refresh 2026-10-19: arXiv version histories, Rubin author-publication search and exact source/theorem errata searches; the published MR16 Gomez erratum was read. No additional correction located in those checks; this is not a claim of exhaustive absence.
 
@@ -4722,7 +4765,7 @@ mr-higher-published, Published JTNB 28 (2016), Theorem 8.7(ix), p.167, and Theor
 
 **Publication status.** new
 
-**Independent verdict.** confirmed — Independent scaling check at positive dual corank; the unrestricted equality criterion fails at infinity. Published Theorem 8.7, rather than preprint 8.9, is the primary locator. The added finite-length guard repairs exactly this boundary.
+**Independent verdict.** confirmed — Fresh check of published MR16 Theorems 8.7(ix), 13.4(ix), pp.167,175–176, and MR04 Theorem 5.2.13(ii), pp.58–59: at positive dual corank, multiply a primitive rank-one system by a uniformizer. Both initial classes remain zero, so infinite length equals infinite index for a nonprimitive system. Equality detects primitivity only with finite initial index/length. Historical correction searches are retained with their original attribution.
 
 **Bounded correction search.** 2026-10-19: https://arxiv.org/abs/1312.4052 submission history, v1 only.; 2026-10-19: Numdam version-of-record item https://www.numdam.org/item/JTNB_2016__28_1_145_0/ and its PDF; both published theorem passages and the unrelated Gomez erratum on p.182 were read.; 2026-10-19: Rubin author-publication/errata search and exact searches for Mazur Rubin 8.9 primitive errata, Kolyvagin systems 5.2.13 infinite, and Stark Kolyvagin equality primitive correction; no correction of this finite-length boundary located.
 
