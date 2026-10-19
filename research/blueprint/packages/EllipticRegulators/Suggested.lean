@@ -19,7 +19,8 @@ Design choices made explicit here:
 * the regulator of a symbol on the torus `ℂ/(ℤ + ℤτ)` is Brunault's integral with `∂̄`, evaluated at
   `dz`, so `dz ∧ ∂̄ log|g| = −i·conj(g′/g) dx dy`;
 * the diamond convolution takes the second point minus the first;
-* the finite Fourier transform of `(ℤ/C)²` is Bloch's, normalised by `C⁻²`;
+* the finite Fourier transform `torsionFourier` of `(ℤ/C)²` is normalised by `C⁻²`, the
+  normalisation in which Bloch's finite Fourier identity carries the factor `C³`;
 * determinant witnesses are formed in a fixed rational Betti basis, never in a real one.
 -/
 
@@ -115,7 +116,7 @@ theorem torusRegulator_eq_half_conj_diamond (τ : ℂ) (hτ : 0 < τ.im) {f g : 
       ellipticR τ (torusCoord τ (Q j - P i)).1 (torusCoord τ (Q j - P i)).2) := by
   sorry
 
-/-- **Bloch's CM theorem** for `y² = x³ − x` (§5.15, Gaussian case, with the corrected scalar):
+/-- **Bloch's CM theorem** for `y² = x³ − x` (§5.15, Gaussian case, with the scalar of §5.14):
 `L(E, 2) = (π/2)·(D_q(e^{πi/2}) + D_q(e^{2πi(3+2i)/4}))` with `q = e^{−2π}`. -/
 theorem curve32a2_LSeries_two :
     curve32a2.LSeries 2 = ((π / 2 : ℝ) : ℂ) *
@@ -240,6 +241,17 @@ theorem ellipticR_S (τ : ℂ) (hτ : 0 < τ.im) (a b : ℝ) :
     ellipticR (-τ⁻¹) b (-a) = ellipticR τ a b / starRingEnd ℂ τ := by
   sorry
 
+/-- **The Steinberg relation for `R_q`** (§3.16): for an elliptic function `f` and a constant `K`
+with `K − f` not identically zero, `R_q` vanishes on the diamond convolution of the divisors of `f`
+and `K − f`. -/
+theorem ellipticR_diamond_steinberg (τ : ℂ) (hτ : 0 < τ.im) {f : ℂ → ℂ} (K : ℂ)
+    (hf : IsEllipticFunction τ f) (hfK : IsEllipticFunction τ (fun z => K - f z))
+    {n n' : ℕ} (P : Fin n → ℂ) (m : Fin n → ℤ) (Q : Fin n' → ℂ) (k : Fin n' → ℤ)
+    (hfP : HasTorusDivisor τ f P m) (hgQ : HasTorusDivisor τ (fun z => K - f z) Q k) :
+    ∑ i, ∑ j, ((m i * k j : ℤ) : ℂ) *
+      ellipticR τ (torusCoord τ (Q j - P i)).1 (torusCoord τ (Q j - P i)).2 = 0 := by
+  sorry
+
 /-! ## Layer 4: The divisor formula and Bloch's classes -/
 
 /-- The diamond convolution `D ⋄ D′ = Σ mᵢ nⱼ [Qⱼ − Pᵢ]` of two divisors (§4.1). -/
@@ -257,36 +269,36 @@ theorem diamond_comm {A : Type*} [AddCommGroup A] (D D' : AddMonoidAlgebra ℤ A
     diamond D' D = AddMonoidAlgebra.mapDomain (fun a => -a) (diamond D D') := by
   sorry
 
-/-- Bloch's finite Fourier transform of `(ℤ/C)²`, normalised by `C⁻²` (§4.4). -/
-noncomputable def finiteFourier10 (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ)
+/-- The finite Fourier transform of `(ℤ/C)²`, normalised by `C⁻²` (§4.4). -/
+noncomputable def torsionFourier (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ)
     (kl : ZMod C × ZMod C) : ℂ :=
   ((C : ℂ) ^ 2)⁻¹ * ∑ ab : ZMod C × ZMod C,
     f ab * ZMod.stdAddChar (-(ab.1 * kl.1) + ab.2 * kl.2)
 
-example (f : ZMod 1 × ZMod 1 → ℂ) : finiteFourier10 1 f 0 = f 0 := by
+example (f : ZMod 1 × ZMod 1 → ℂ) : torsionFourier 1 f 0 = f 0 := by
   have h : ∀ b : ZMod 1 × ZMod 1, b = 0 := by decide
-  simp [finiteFourier10]
+  simp [torsionFourier]
   rw [Finset.sum_eq_single 0 (fun b _ hb => absurd (h b) hb) (by simp)]
 
-example : finiteFourier10 3 (fun ab => if ab = (1, 0) then 1 else 0) (1, 0) =
+example : torsionFourier 3 (fun ab => if ab = (1, 0) then 1 else 0) (1, 0) =
     (1 / 9 : ℂ) * ZMod.stdAddChar (-1 : ZMod 3) := by
   classical
-  simp [finiteFourier10]
+  simp [torsionFourier]
   norm_num
 
-/-- Inversion for the Lecture 10 transform (§4.4). -/
-theorem finiteFourier10_inversion (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ)
+/-- Inversion for `torsionFourier` (§4.4). -/
+theorem torsionFourier_inversion (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ)
     (ab : ZMod C × ZMod C) :
     f ab = ∑ kl : ZMod C × ZMod C,
-      finiteFourier10 C f kl * ZMod.stdAddChar (ab.1 * kl.1 - ab.2 * kl.2) := by
+      torsionFourier C f kl * ZMod.stdAddChar (ab.1 * kl.1 - ab.2 * kl.2) := by
   sorry
 
 /-- **The regularised torsion Fourier identity** (§4.16): for odd `f`,
 `Σᵤ f̂(u) R_q(x_u) = (i y²/π) Σ' f(m, n)/((mτ + n)² (mτ̄ + n))`, with `x_u` the torsion point
 `(k + ℓτ)/C` on canonical representatives. -/
-theorem sum_finiteFourier10_mul_ellipticR (C : ℕ) [NeZero C] (τ : ℂ) (hτ : 0 < τ.im)
+theorem sum_torsionFourier_mul_ellipticR (C : ℕ) [NeZero C] (τ : ℂ) (hτ : 0 < τ.im)
     (f : ZMod C × ZMod C → ℂ) (hf : ∀ u, f (-u) = -f u) :
-    ∑ u : ZMod C × ZMod C, finiteFourier10 C f u *
+    ∑ u : ZMod C × ZMod C, torsionFourier C f u *
         ellipticR τ ((u.1.val : ℝ) / C) ((u.2.val : ℝ) / C) =
       I * ((τ.im ^ 2 / π : ℝ) : ℂ) * ∑' mn : ℤ × ℤ,
         if mn = 0 then 0 else f ((mn.1 : ZMod C), (mn.2 : ZMod C)) /
@@ -463,8 +475,8 @@ example : WeightTwoBeilinsonRelation (Algebra.linearMap ℚ ℝ)
 Targets of the README that are not stated above because their carriers are absent at the pins:
 the normalised uniformisation and the de Rham–Betti period comparison (§§1.2–1.3, 1.6, 1.10);
 the Deligne target, its orbit coordinates and the factor `r_Beil = 2 r_E` (§§2.1–2.3, 2.6–2.9);
-the Bloch–Wigner orbit sum, Bloch's companion, the Green function, Goncharov's function and Bloch's
-truncation proof (§§3.1–3.3, 3.5, 3.8–3.16); Bloch's classes `S_a` and their regulators, the lift
+the Bloch–Wigner orbit sum, Bloch's companion, the Green function, Goncharov's function and the
+truncation proof of the Steinberg relations (§§3.1–3.3, 3.5, 3.8–3.15); Bloch's classes `S_a` and their regulators, the lift
 formula, the weighted terms `L`, `M`, `B` and the trace formula (§§4.3, 4.5–4.15, 4.17–4.18);
 the Hecke character, the transforms on `O/CO`, the class `U`, the Gauss coefficient and the general
 CM L-value theorem (§§5.1–5.18); the integral part, the regulator on it, Beilinson's conjecture and
