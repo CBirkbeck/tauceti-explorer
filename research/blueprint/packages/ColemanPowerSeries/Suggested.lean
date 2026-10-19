@@ -293,6 +293,12 @@ example : logDeriv (1 : (PowerSeries R)ˣ) = 0 := sorry
 example (u : Rˣ) : logDeriv (Units.map PowerSeries.C.toMonoidHom u) = 0 := sorry
 example (f : (PowerSeries R)ˣ) (hf : (f : PowerSeries R)=1+PowerSeries.X) :
     logDeriv f=1 := sorry
+/-- The first nonzero boundary coefficient fixes the sign used in the arithmetic second moment. -/
+example (f : (PowerSeries ℤ_[3])ˣ)
+    (hf : (f : PowerSeries ℤ_[3]) = 2 + PowerSeries.X) :
+    2 * PowerSeries.coeff 1 (logDeriv f -
+      @algebraMap (PowerSeries ℤ_[3]) (PowerSeries ℤ_[3]) _ _
+        (UnramifiedSeries.scalarAlgebra ℤ_[3] 3) (logDeriv f)) = -1 := sorry
 end LogarithmicDerivative
 
 /-! ## Layer 3: the fixed-space boundary
