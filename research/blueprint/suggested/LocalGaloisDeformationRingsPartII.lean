@@ -30,6 +30,24 @@ BHHMS means arXiv:2009.03127v7; all page numbers use its preprint pagination.
 
 namespace TauCeti.TameGL2
 
+section ConventionChecks
+
+-- Check matrix_conjugation_order (T.1/eigenbasis-matrices).
+-- P swaps the coordinates, D = diag(1,2), C = E₁₂.
+-- These products are Ad(P⁻¹D)(C) and Ad(DP⁻¹)(C), respectively.
+-- A diagonal C cannot distinguish these orders.
+example :
+    !![(0 : ℚ), 2; 1, 0] * !![0, 1; 0, 0] * !![0, 1; 1 / 2, 0] =
+      !![0, 0; 1 / 2, 0] := by
+  sorry
+
+example :
+    !![(0 : ℚ), 1; 2, 0] * !![0, 1; 0, 0] * !![0, 1 / 2; 1, 0] =
+      !![0, 0; 2, 0] := by
+  sorry
+
+end ConventionChecks
+
 section GaugeCharts
 variable {R : Type*} [CommRing R]
 

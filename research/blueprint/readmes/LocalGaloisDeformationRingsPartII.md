@@ -68,9 +68,9 @@ For s∈(S₂)^f and μ∈(Z²)^f, let sτ=s₀s_{f−1}⋯s₁, r=ord(sτ), f�
 
 **Checks.**
 
-- `TauCeti.TameGL2.tameType_split`: For f=1 and s=1, the characters are ω̃₁^{μ₁+1} and ω̃₁^{μ₂}.
-- `TauCeti.TameGL2.tameType_nonsplit`: For f=1 and s=w, the exponents at niveau two are μ₁+1+pμ₂ and μ₂+p(μ₁+1), interchanged by p-Frobenius.
-- `TauCeti.TameGL2.tameType_modp`: Reducing either computed type modulo ϖ gives exactly MP.3/tame-weight-set’s character multiset; using arithmetic reciprocity without inversion instead gives the inverses.
+- `TauCeti.TameGL2.tameType_split` (computation): For f=1 and s=1, the characters are ω̃₁^{μ₁+1} and ω̃₁^{μ₂}.
+- `TauCeti.TameGL2.tameType_nonsplit` (computation): For f=1 and s=w, the exponents at niveau two are μ₁+1+pμ₂ and μ₂+p(μ₁+1), interchanged by p-Frobenius.
+- `TauCeti.TameGL2.tameType_modp` (compatibility): For f=1, p=7, s=1 and μ=(0,0), reduction gives ω₁⊕1, exactly as in MP.3/tame-weight-set. Using arithmetic reciprocity without inversion gives ω₁⁻¹⊕1, a different character multiset.
 
 **Uses.** T.0/orientation and T.4/admissible-types: The ordered lowest-alcove presentation chooses both the gauge conjugation and the types of the deformation problems. BHHMS Proposition 4.2.1, pp. 28–33: σ(τ) and its reduction label the nonempty potentially crystalline components.
 
@@ -102,9 +102,9 @@ A tame type is N-generic if it has a presentation τ(s,μ+η) with μ N-deep in 
 
 **Checks.**
 
-- `TauCeti.TameGL2.generic_strict_boundary`: A presentation with μ₁−μ₂+1=N is not N-deep; the endpoint N+1 passes the lower inequality if below p−N.
-- `TauCeti.TameGL2.generic_prime_bound`: Existence of an integer depth coordinate at N=12 forces p≥29; p=23 cannot satisfy 12<d<11.
-- `TauCeti.TameGL2.generic_extension`: A nonsplit extension and the split sum with the same semisimplified inertia have the same residual genericity, while only the latter meets the semisimplicity hypothesis of T.4.
+- `TauCeti.TameGL2.generic_strict_boundary` (non-example): A presentation with μ₁−μ₂+1=N is not N-deep; the endpoint N+1 passes the lower inequality if below p−N.
+- `TauCeti.TameGL2.generic_prime_bound` (non-example): Existence of an integer depth coordinate at N=12 forces p≥29; p=23 cannot satisfy 12<d<11.
+- `TauCeti.TameGL2.generic_extension` (compatibility): A nonsplit extension and the split sum with the same semisimplified inertia have the same residual genericity, while only the latter meets the semisimplicity hypothesis of T.4.
 
 **Uses.** T.1/gauge-existence: The explicit bound (h+1)-generic gives a contracting basis correction. T.4 and T.5: N≥12 controls every denominator and the accuracy N−8 of the ambient comparison.
 
@@ -136,9 +136,9 @@ For a fixed lowest-alcove presentation define s′_{or,j′}=s₁⁻¹⋯s_{f′
 
 **Checks.**
 
-- `TauCeti.TameGL2.orientation_empty`: At j′=f′−1 the product is empty and the orientation is 1.
-- `TauCeti.TameGL2.orientation_quadratic`: For f=1 and s=w, f′=2 and the two orientations are w and 1 in that order; the formula with upper endpoint j′ fails.
-- `TauCeti.TameGL2.orientation_weighted`: Dominance is tested on a′^(j′), not on α′_{j′}; compute the two niveau-two exponents before ordering them.
+- `TauCeti.TameGL2.orientation_empty` (degenerate): At j′=f′−1 the product is empty and the orientation is 1.
+- `TauCeti.TameGL2.orientation_quadratic` (computation): For f=1 and s=w, f′=2 and the two orientations are w and 1 in that order; the formula with upper endpoint j′ fails.
+- `TauCeti.TameGL2.orientation_weighted` (computation): For f=1, p=5, s=w and μ=(1,0), α′₀=(2,0), α′₁=(0,2), a′^(0)=(2,10) and a′^(1)=(10,2). The orientations are w and 1; ordering α′₀ instead of a′^(0) would incorrectly give 1 at index 0.
 
 **Uses.** Definition 3.1.1, p. 18: Conjugates Frobenius matrices into R[[v]] with an Iwahori reduction. Equation (16) and the proof of Proposition 4.2.1, pp. 21, 29: Determines the diagonal commutator and the residue of each a_i.
 
@@ -218,9 +218,9 @@ Let M be rank two in the imported Y^[0,h],τ(R), with eigenbasis β for a fixed 
 
 **Checks.**
 
-- `TauCeti.TameGL2.matrix_embedding_sign`: At degree f>1 the summand indexed j′ uses σ_{−j′}; replacing it by σ_{j′} reverses the required φ transition.
-- `TauCeti.TameGL2.matrix_conjugation_order`: For s=w and unequal exponents, conjugation by w followed by u′-powers is distinguished from the reversed product on a diagonal matrix.
-- `TauCeti.TameGL2.matrix_height_profiles`: For λ=(2,1), all entries are divisible by v+p and det A by (v+p)³; for λ=(3,0), no common entry factor is required.
+- `TauCeti.TameGL2.matrix_embedding_sign` (computation): For f=f′=3, the summand j′=1 uses σ₂=σ_{−1}, and φ carries it to summand 2. Replacing σ_{−j′} by σ_{j′} would use σ₁ at summand 1 and reverse the cyclic transition. Degree 2 alone cannot detect the sign.
+- `TauCeti.TameGL2.matrix_conjugation_order` (computation): Over Q, put P=[[0,1],[1,0]], D=diag(1,2) and C=[[0,1],[0,0]]. Then Ad(P⁻¹D)(C)=[[0,0],[1/2,0]], whereas Ad(DP⁻¹)(C)=[[0,0],[2,0]]. The off-diagonal entry detects the order; diagonal C would not.
+- `TauCeti.TameGL2.matrix_height_profiles` (computation): For λ=(2,1), all entries are divisible by v+p and det A by (v+p)³; for λ=(3,0), no common entry factor is required.
 
 **Uses.** T.1/gauge-basis and T.2/jet-equations: The normalized matrices have polynomial gauge forms and a well-defined derivative in v. T.5/chart-models: The three eight-variable charts are coefficient parametrizations of these matrices.
 
@@ -252,9 +252,9 @@ Over F, let I⊂GL₂(F[[v]]) be the inverse image of the upper triangular subgr
 
 **Checks.**
 
-- `TauCeti.TameGL2.shape_diagonal`: diag(v²,v) has shape t^(2,1).
-- `TauCeti.TameGL2.shape_middle`: The matrix [[0,v],[v²,0]] has shape w t^(2,1), and not either diagonal translation.
-- `TauCeti.TameGL2.shape_I_invariance`: Multiplication on either side by an upper-triangular-mod-v invertible matrix preserves shape; swapping the two diagonal powers without such factors changes the extreme shape.
+- `TauCeti.TameGL2.shape_diagonal` (computation): diag(v²,v) has shape t^(2,1).
+- `TauCeti.TameGL2.shape_middle` (computation): The matrix [[0,v],[v²,0]] has shape w t^(2,1), and not either diagonal translation.
+- `TauCeti.TameGL2.shape_I_invariance` (compatibility): Multiplication on either side by an upper-triangular-mod-v invertible matrix preserves shape; swapping the two diagonal powers without such factors changes the extreme shape.
 
 **Uses.** T.1/gauge-basis: The shape exponents determine the degree bounds. T.4/residual-kisin-module: The three admissible shapes distinguish the residual chart at each type.
 
@@ -286,9 +286,9 @@ Fix a residual module M̄ with a residual gauge eigenbasis β̄ and shape w̃_j=
 
 **Checks.**
 
-- `TauCeti.TameGL2.gauge_lower_left`: For every gauge matrix the lower-left entry is divisible by v, even when a polynomial of the same degree without that factor has the correct determinant.
-- `TauCeti.TameGL2.gauge_extreme_degrees`: For t^(2,1), the pivot degrees are 2 and 1 and the upper-right entry has degree at most 0.
-- `TauCeti.TameGL2.gauge_torus_not_unique`: A nontrivial diagonal element in ker(T(R)→T(F)), repeated modulo f, gives another gauge basis; literal uniqueness would fail.
+- `TauCeti.TameGL2.gauge_lower_left` (characterisation): For every gauge matrix the lower-left entry is divisible by v, even when a polynomial of the same degree without that factor has the correct determinant.
+- `TauCeti.TameGL2.gauge_extreme_degrees` (computation): For t^(2,1), the pivot degrees are 2 and 1 and the upper-right entry has degree at most 0.
+- `TauCeti.TameGL2.gauge_torus_not_unique` (non-example): A nontrivial diagonal element in ker(T(R)→T(F)), repeated modulo f, gives another gauge basis; literal uniqueness would fail.
 
 **Uses.** T.5/chart-models: Only eight scalar coefficients per embedding survive the rank-two gauge bounds. Proposition 4.2.1 proof, pp. 28–30: Adding a gauge basis contributes 2f smooth variables to the deformation comparison.
 
@@ -350,9 +350,9 @@ For a p-complete O-flat coefficient algebra R topologically of finite type, use 
 
 **Checks.**
 
-- `TauCeti.TameGL2.monodromy_constant_basis`: For a Frobenius-constant rank-one summand, the basis vector has N_M=0 and N_M(ae)=N_∇(a)e.
-- `TauCeti.TameGL2.monodromy_E_factor`: Multiplying φ_M by E changes its differential equation; dropping E from Nφ=EφN is detected by a nonconstant coefficient.
-- `TauCeti.TameGL2.monodromy_basis_derivative`: A basis multiplied by a nonconstant analytic unit contributes B⁻¹N_∇(B), unlike ordinary conjugation.
+- `TauCeti.TameGL2.monodromy_constant_basis` (degenerate): For a Frobenius-constant rank-one summand, the basis vector has N_M=0 and N_M(ae)=N_∇(a)e.
+- `TauCeti.TameGL2.monodromy_E_factor` (computation): For the trivial rank-one module with φ_M(e)=e, apply the compatibility to u′e. Its two sides agree by N_∇((u′)^p)=−p(u′)^pλ_an and λ_an=(E/p)φ(λ_an). Omitting E would instead give −p(u′)^pφ(λ_an), which is different.
+- `TauCeti.TameGL2.monodromy_basis_derivative` (computation): For N_M(e)=0 and the analytic unit B=1+u′, the new basis eB has monodromy coefficient B⁻¹N_∇(B)=−u′λ_an/(1+u′). Conjugating the zero matrix alone would still give zero.
 
 **Uses.** T.2/monodromy-condition: Regularity of this derivation is the potentially crystalline comparison condition. T.2/jet-equations: Its Frobenius series determines the error terms; they are not freely chosen perturbations.
 
@@ -384,9 +384,9 @@ For h≥1, M satisfies monodromy when λ^{h−1}N_M,β^(j′) has a zero of orde
 
 **Checks.**
 
-- `TauCeti.TameGL2.monodromy_height_one`: At h=1 the jet list is empty, matching automatic regularity in this formulation.
-- `TauCeti.TameGL2.monodromy_height_three`: At h=3 both value and first derivative must vanish; testing only the value admits a simple zero and is insufficient.
-- `TauCeti.TameGL2.monodromy_basis_invariant`: An analytic integral change of eigenbasis preserves the regularity formulation despite the additional derivative term in its matrix formula.
+- `TauCeti.TameGL2.monodromy_height_one` (degenerate): At h=1 the jet list is empty, matching automatic regularity in this formulation.
+- `TauCeti.TameGL2.monodromy_height_three` (computation): At h=3 both value and first derivative must vanish; testing only the value admits a simple zero and is insufficient.
+- `TauCeti.TameGL2.monodromy_basis_invariant` (compatibility): An analytic integral change of eigenbasis preserves the regularity formulation despite the additional derivative term in its matrix formula.
 
 **Uses.** T.5/chart-models and T.6/single-presentation: This condition, after reduced O-flat closure, cuts out the actual deformation chart. T.2/jet-equations: Finite jets replace an analytic infinite series with explicit polynomial leading terms and controlled remainders.
 
@@ -444,9 +444,9 @@ For (s,μ)∈(S₂)^f×(Z²)^f with cyclic indices, let d(i) be the orbit length
 
 **Checks.**
 
-- `TauCeti.TameGL2.goodPair_singletons`: For f=1,s=1, every pair of integer exponents passes the good-pair test.
-- `TauCeti.TameGL2.goodPair_bad_scalar`: For f=1,s=w, μ=(a,a) yields exponent (p+1)a and fails the test.
-- `TauCeti.TameGL2.goodPair_nonsplit_example`: For f=1,s=w, μ=(1,0) yields exponents 1 and p, neither divisible by p+1, and gives a primitive niveau-two orbit.
+- `TauCeti.TameGL2.goodPair_singletons` (degenerate): For f=1,s=1, every pair of integer exponents passes the good-pair test.
+- `TauCeti.TameGL2.goodPair_bad_scalar` (non-example): For f=1,s=w, μ=(a,a) yields exponent (p+1)a and fails the test.
+- `TauCeti.TameGL2.goodPair_nonsplit_example` (computation): For f=1,s=w, μ=(1,0) yields exponents 1 and p, neither divisible by p+1, and gives a primitive niveau-two orbit.
 
 **Uses.** T.3/tame-classification: Primitiveness ensures the monomial representation is semisimple with the prescribed irreducible inertia orbits. T.4/residual-kisin-module: Deepness supplies a good normalized residual type.
 
@@ -495,9 +495,9 @@ For a tuple w̃_j=w_jt^{ν_j} of rank-two monomial matrices and D=(D_j)∈(T(F))
 
 **Checks.**
 
-- `TauCeti.TameGL2.etale_identity`: For every w̃_j=1 and D_j=1, the module is a sum of two trivial rank-one étale modules.
-- `TauCeti.TameGL2.etale_negative_power`: diag(v^{−1},1) is allowed over k((v)); demanding polynomial entries would incorrectly reject it.
-- `TauCeti.TameGL2.star_reversal`: For f=2, the index 0 star factor uses the original index 1; a product becomes the product in reversed order.
+- `TauCeti.TameGL2.etale_identity` (degenerate): For every w̃_j=1 and D_j=1, the module is a sum of two trivial rank-one étale modules.
+- `TauCeti.TameGL2.etale_negative_power` (non-example): diag(v^{−1},1) is allowed over k((v)); demanding polynomial entries would incorrectly reject it.
+- `TauCeti.TameGL2.star_reversal` (computation): For f=2, the index 0 star factor uses the original index 1; a product becomes the product in reversed order.
 
 **Uses.** T.3/tame-representation: The contravariant étale realization attaches the residual Galois representation. T.4/residual-kisin-module: The formula D w̃(s w⁻¹)^*t^{(μ−sw⁻¹ν)^*}=D s^*t^{μ^*} makes the residual Galois type independent of the admissible shape.
 
@@ -505,7 +505,7 @@ For a tuple w̃_j=w_jt^{ν_j} of rank-two monomial matrices and D=(D_j)∈(T(F))
 
 **Dependencies.** `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-with-coefficients`, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules`, `mathlib:Matrix.det_fin_two`.
 
-**Sources.** BHHMS23, Definition 3.2.4, p. 22; end of §2.1, p. 12.
+**Sources.** BHHMS23, Definition 3.2.4, p. 22; end of §2.1, p. 13.
 
 
 ### Tame monomial representations
@@ -528,9 +528,9 @@ Let K∞=⋃_n K(p_n), with p₀=−p and p_n^p=p_{n−1}. Define V(w̃,D) to be
 
 **Checks.**
 
-- `TauCeti.TameGL2.tameRep_trivial`: w̃=1,D=1 gives the two-dimensional trivial representation.
-- `TauCeti.TameGL2.tameRep_two_cycle`: A primitive two-cycle gives an irreducible tame representation of niveau 2f, rather than a split sum over G_K.
-- `TauCeti.TameGL2.tameRep_no_inverse_twist`: For a rank-one cycle with product α of the D entries, the arithmetic Frobenius eigenvalue is α, not α⁻¹, under this contravariant convention.
+- `TauCeti.TameGL2.tameRep_trivial` (degenerate): w̃=1,D=1 gives the two-dimensional trivial representation.
+- `TauCeti.TameGL2.tameRep_two_cycle` (computation): A primitive two-cycle gives an irreducible tame representation of niveau 2f, rather than a split sum over G_K.
+- `TauCeti.TameGL2.tameRep_no_inverse_twist` (computation): For a rank-one cycle with product α of the D entries, the arithmetic Frobenius eigenvalue is α, not α⁻¹, under this contravariant convention.
 
 **Uses.** T.3/tame-classification: Classifies semisimple residual representations with fixed inertia. T.4/residual-kisin-module: Chooses D producing the prescribed semisimple residual representation.
 
@@ -597,9 +597,9 @@ A finite-dimensional continuous F-representation ρ of G_K is cyclotomic free wh
 
 **Checks.**
 
-- `TauCeti.TameGL2.cyclofree_trivial`: For p>2 and K unramified, the trivial character is cyclotomic free because ω is nontrivial.
-- `TauCeti.TameGL2.cyclofree_cyclotomic`: The character ω fails: tensoring with ω⁻¹ gives a nonzero invariant.
-- `TauCeti.TameGL2.cyclofree_tensor_needed`: The property must be tested on ρ₁∨⊗ρ₂ for Hom descent; testing only on ρ₁ omits the relative cyclotomic-character obstruction.
+- `TauCeti.TameGL2.cyclofree_trivial` (degenerate): For p>2 and K unramified, the trivial character is cyclotomic free because ω is nontrivial.
+- `TauCeti.TameGL2.cyclofree_cyclotomic` (non-example): The character ω fails: tensoring with ω⁻¹ gives a nonzero invariant.
+- `TauCeti.TameGL2.cyclofree_tensor_needed` (non-example): For p>2 and unramified K, take ρ₁=1 and ρ₂=ω. Then ρ₁ is cyclotomic free, but ρ₁∨⊗ρ₂=ω is not: tensoring it with ω⁻¹ has a nonzero invariant. The Hom-descent hypothesis must test the tensor representation.
 
 **Uses.** T.3/restriction-hom: The tensor condition ensures every K∞-equivariant map descends. T.6/single-presentation: The 2-generic residual adjoint is cyclotomic free, which identifies the Galois and Kisin deformation groupoids.
 
@@ -678,9 +678,9 @@ Write U₁=t^(2,1), U₂=w t^(2,1), U₃=t^(1,2), and Adm∨={U₁,U₂,U₃}^f.
 
 **Checks.**
 
-- `TauCeti.TameGL2.admissible_three`: At f=1, the admissible set consists of exactly U₁,U₂,U₃, not a fourth shape.
-- `TauCeti.TameGL2.admissible_middle_star`: At f=1, U₂*=t^(2,1)w, whereas U₁*=t^(2,1); multiplication order distinguishes their presentations.
-- `TauCeti.TameGL2.admissible_depth`: At N=12 the chosen type coordinates are at least 11-deep, satisfying the h=3 gauge bound and L=11 monodromy bound.
+- `TauCeti.TameGL2.admissible_three` (computation): At f=1, the admissible set consists of exactly U₁,U₂,U₃, not a fourth shape.
+- `TauCeti.TameGL2.admissible_middle_star` (computation): At f=1, U₂*=t^(2,1)w, whereas U₁*=t^(2,1); multiplication order distinguishes their presentations.
+- `TauCeti.TameGL2.admissible_depth` (computation): At N=12 the chosen type coordinates are at least 11-deep, satisfying the h=3 gauge bound and L=11 monodromy bound.
 
 **Uses.** T.4/residual-kisin-module: Each type has one semisimple residual Kisin module in the indicated shape. T.6 and T.7: These are all the types occurring in the one-weight union.
 
@@ -762,9 +762,9 @@ In the existing universal framed deformation ring R□_{ρ̄}, intersect the ker
 
 **Checks.**
 
-- `TauCeti.TameGL2.smallHodge_one_embedding`: At f=1, the allowed profiles are exactly (3,0) and (2,1), excluding (2,0) and (3,1).
-- `TauCeti.TameGL2.smallHodge_union_kernel`: For two distinct nonzero profile kernels I,J the union uses I∩J, while I+J parametrizes their scheme-theoretic intersection.
-- `TauCeti.TameGL2.smallHodge_no_determinant`: An allowed unramified determinant twist remains in the framed functor when its inertia and weights are unchanged; a fixed determinant functor would remove that parameter.
+- `TauCeti.TameGL2.smallHodge_one_embedding` (non-example): At f=1, the allowed profiles are exactly (3,0) and (2,1), excluding (2,0) and (3,1).
+- `TauCeti.TameGL2.smallHodge_union_kernel` (characterisation): For two distinct nonzero profile kernels I,J the union uses I∩J, while I+J parametrizes their scheme-theoretic intersection.
+- `TauCeti.TameGL2.smallHodge_no_determinant` (non-example): An allowed unramified determinant twist remains in the framed functor when its inertia and weights are unchanged; a fixed determinant functor would remove that parameter.
 
 **Uses.** T.6/single-presentation: Names the Galois side of the one-type stable presentation. T.7/weight-union: Forms the further finite union over the tame types containing σ.
 
@@ -825,13 +825,13 @@ Let I^poly_j be the ideal of these five equations. Its two polynomial component 
 
 **Checks.**
 
-- `TauCeti.TameGL2.chart_residual`: Putting p and all nonstarred variables equal to zero gives D U_i in each of the three shapes.
-- `TauCeti.TameGL2.chart_middle_factors`: After eliminating four variables in chart 2, set x=d₁₁/d₁₂*,y=d₂₂/d₂₁*, b=(a−2)(a+1)/(a(a−1)); G₅=b⁻¹(xy+p)(xy+bp), with b−1=−2/(a(a−1)) a unit.
-- `TauCeti.TameGL2.chart_outer_factors`: In chart 1 the (2,1) factor is c₁₂ and in chart 3 it is c₂₁; swapping these labels changes the Hodge component.
-- `TauCeti.TameGL2.chart_table_index`: Local table j parametrizes A^(f−1−j) and the Hodge label λ_{f−1−j}; using λ_j fails when f>1.
-- `TauCeti.TameGL2.hypersurface_origin`: At x=y=0 the middle hypersurface is p² for every unit b.
-- `TauCeti.TameGL2.hypersurface_integer`: Over Z with p=3,b=−1,x=2,y=3, the hypersurface value is −27.
-- `TauCeti.TameGL2.hypersurface_repeated_factor`: At b=1 the hypersurface is (xy+p)². This degenerate test does not satisfy the unit b−1 hypothesis of the Jacobian bound.
+- `TauCeti.TameGL2.chart_residual` (computation): Reduce modulo ϖ and set all eight formal parameters to zero, including the increments of both starred coefficients. The starred values remain their fixed nonzero residues, and the three matrices become D U_i with their prescribed residual diagonal D.
+- `TauCeti.TameGL2.chart_middle_factors` (computation): After eliminating four variables in chart 2, set x=d₁₁/d₁₂*,y=d₂₂/d₂₁*, b=(a−2)(a+1)/(a(a−1)); G₅=b⁻¹(xy+p)(xy+bp), with b−1=−2/(a(a−1)) a unit.
+- `TauCeti.TameGL2.chart_outer_factors` (computation): In chart 1 the (2,1) factor is c₁₂ and in chart 3 it is c₂₁; swapping these labels changes the Hodge component.
+- `TauCeti.TameGL2.chart_table_index` (computation): For f=2 and λ₀≠λ₁, table index j=0 describes A^(1) and its factor carries λ₁; table index j=1 describes A^(0) and carries λ₀. Labelling table j by λ_j swaps these two Hodge conditions.
+- `TauCeti.TameGL2.hypersurface_origin` (degenerate): At x=y=0 the middle hypersurface is p² for every unit b.
+- `TauCeti.TameGL2.hypersurface_integer` (computation): Over Z with p=3,b=−1,x=2,y=3, the hypersurface value is −27.
+- `TauCeti.TameGL2.hypersurface_repeated_factor` (degenerate): At b=1 the hypersurface is (xy+p)². This degenerate test does not satisfy the unit b−1 hypothesis of the Jacobian bound.
 
 **Uses.** T.5/jacobian-bound and T.5/chart-approximation: The five finite polynomial equations allow an effective p-adic Newton correction. T.6 and T.7: Transported component factors give explicit kernels and the integral p-membership witnesses.
 
@@ -1077,10 +1077,10 @@ Apply the substitutions to the full coupled series of each type, with its consta
 
 **Checks.**
 
-- `TauCeti.TameGL2.commonChart_nine`: Each table has one b variable and eight other parameters, not both b₁₂ and b₂₁ as independent variables.
-- `TauCeti.TameGL2.commonChart_linear_relation`: The U₁/table-4 quotient has c₁₁=−pd₁₁, and U₃/table-5 has c₂₂=−pd₂₂. Omitting this equation leaves an extra dimension.
-- `TauCeti.TameGL2.commonChart_middle`: For U₂, setting b=0 recovers the middle one-type étale matrix without either outer coordinate change.
-- `TauCeti.TameGL2.commonChart_tails_global`: Changing a shape at a different embedding may change this embedding’s transported tail and a_i; equality of local shape codes alone is insufficient.
+- `TauCeti.TameGL2.commonChart_nine` (characterisation): Each table has one b variable and eight other parameters, not both b₁₂ and b₂₁ as independent variables.
+- `TauCeti.TameGL2.commonChart_linear_relation` (characterisation): The U₁/table-4 quotient has c₁₁=−pd₁₁, and U₃/table-5 has c₂₂=−pd₂₂. Omitting this equation leaves an extra dimension.
+- `TauCeti.TameGL2.commonChart_middle` (computation): For U₂, setting b=0 recovers the middle one-type étale matrix without either outer coordinate change.
+- `TauCeti.TameGL2.commonChart_tails_global` (non-example): Changing a shape at a different embedding may change this embedding’s transported tail and a_i; equality of local shape codes alone is insufficient.
 
 **Uses.** T.7/multiple-presentation: The intersection of the type ideals represents the union in one ambient ring. T.7/exact-q-ideals and T.7/p-membership: All component-intersection identities must be interpreted in this common ring.
 
@@ -1113,9 +1113,9 @@ For σ∈W(ρ̄), define R_{ρ̄}^{≤30,σ} as the quotient of R□_{ρ̄} by t
 
 **Checks.**
 
-- `TauCeti.TameGL2.weightUnion_f_one`: At f=1 and θ=U₃ the union uses exactly the U₁ and U₂ type rings; U₃ is excluded.
-- `TauCeti.TameGL2.weightUnion_intersection`: A point of either allowed type factors through the intersection kernel; a sum of those kernels would demand both types at once.
-- `TauCeti.TameGL2.weightUnion_f_two`: At f=2 there are four single-type quotient maps, while there are sixteen pairs (λ,w̃) indexing components.
+- `TauCeti.TameGL2.weightUnion_f_one` (computation): At f=1 and θ=U₃ the union uses exactly the U₁ and U₂ type rings; U₃ is excluded.
+- `TauCeti.TameGL2.weightUnion_intersection` (characterisation): A point of either allowed type factors through the intersection kernel; a sum of those kernels would demand both types at once.
+- `TauCeti.TameGL2.weightUnion_f_two` (computation): At f=2 there are four single-type quotient maps, while there are sixteen pairs (λ,w̃) indexing components.
 
 **Uses.** T.7/multiple-presentation: Names the Galois quotient presented by the common charts. BHHMS Theorem 8.3.9 proof, pp. 101–102: Its Hodge/type components are the local supports used in patched-module freeness.
 
@@ -1180,13 +1180,13 @@ These are exact ideals of S_j, then extended to S. For λ_{f−1−j}=(2,1), Q_{
 
 **Checks.**
 
-- `TauCeti.TameGL2.q_middle_contains_c21`: In table 4, both Q₁ and Q₂ contain c₂₁ exactly; the corresponding table-5 common generator is c₁₂.
-- `TauCeti.TameGL2.q_middle_relation`: The middle Q₂ kills all four c entries and imposes t=−p; omitting the +p changes its characteristic-zero points.
-- `TauCeti.TameGL2.q_outer_shift`: Q₁ includes c₁₂−pd₁₂* and b₁₂−pc₁₂; Q₃ includes c₂₁−pd₂₁* and b₂₁−pc₂₁. Setting those shifted entries simply to zero gives a different ideal.
-- `TauCeti.TameGL2.q_global_equality`: Only the all-(2,1) profile gives the equality of summed ideals; a mixed profile supplies the stated containment instead.
-- `TauCeti.TameGL2.q_outer_point`: Over Z with p=5 and both units 1, table-4 Q₁ is zero at (c₁₁,d₁₁,c₁₂,c₂₁,c₂₂,d₂₂,b)=(0,0,5,0,0,0,25).
-- `TauCeti.TameGL2.q_middle_point`: With the same ring and units, Q₂ is zero at (0,1,0,0,0,−5,0).
-- `TauCeti.TameGL2.q_other_outer_point`: Table-5 Q₃ is zero at (0,0,0,5,0,0,25).
+- `TauCeti.TameGL2.q_middle_contains_c21` (computation): In table 4, both Q₁ and Q₂ contain c₂₁ exactly; the corresponding table-5 common generator is c₁₂.
+- `TauCeti.TameGL2.q_middle_relation` (computation): The middle Q₂ kills all four c entries and imposes t=−p; omitting the +p changes its characteristic-zero points.
+- `TauCeti.TameGL2.q_outer_shift` (computation): Q₁ includes c₁₂−pd₁₂* and b₁₂−pc₁₂; Q₃ includes c₂₁−pd₂₁* and b₂₁−pc₂₁. Setting those shifted entries simply to zero gives a different ideal.
+- `TauCeti.TameGL2.q_global_equality` (characterisation): Only the all-(2,1) profile gives the equality of summed ideals; a mixed profile supplies the stated containment instead.
+- `TauCeti.TameGL2.q_outer_point` (computation): Over Z with p=5 and both units 1, table-4 Q₁ is zero at (c₁₁,d₁₁,c₁₂,c₂₁,c₂₂,d₂₂,b)=(0,0,5,0,0,0,25).
+- `TauCeti.TameGL2.q_middle_point` (computation): With the same ring and units, Q₂ is zero at (0,1,0,0,0,−5,0).
+- `TauCeti.TameGL2.q_other_outer_point` (computation): Table-5 Q₃ is zero at (0,0,0,5,0,0,25).
 
 **Uses.** T.7/p-membership: An exact common c entry in Q₁∩Q₂ or Q₂∩Q₃ combines with the actual middle (3,0) generator. BHHMS Theorem 8.3.9 proof, equations (78)–(79), pp. 101–102: These ideal containments identify the local support relation needed in the patched-module gluing argument.
 
@@ -1299,6 +1299,19 @@ The incoming BHHMS route has 34 items. The table gives the owner of each; in par
 | def-ring-multi | `LocalGaloisDeformationRingsPartII:T.7/multiple-presentation` |
 | q-ideals | `LocalGaloisDeformationRingsPartII:T.7/exact-q-ideals` |
 | p-membership-multi | `LocalGaloisDeformationRingsPartII:T.7/p-membership` |
+
+## Independent review, 19 October 2026
+
+The target-level plan is accepted after independent review of all 40 nodes, the 14 pinned baseline declarations, the direct supplier statements, the six outstanding interface requests and the incoming routes. All eight layers remain **planned**. Acceptance of this design does not discharge a supplier request or claim an implementation. The per-node verdicts and complete change log are in [REV-DESIGN-LocalGaloisDeformationRingsPartII](../reviews/REV-DESIGN-LocalGaloisDeformationRingsPartII.md).
+
+The review corrected the star-convention locator to the end of §2.1, p. 13; classified all 63 Checks by the protocol's test kinds; and made nine Checks concrete. In particular, the conjugation-order check now uses an off-diagonal matrix, since diagonal matrices cannot distinguish the orders. The suggested file includes its two rational matrix products.
+
+Two source slips are recorded and confirmed in the packet's `sourceIssues`:
+
+- **E1:** BHHMS v7, Table 5 final note, p. 45, should refer to Tables 2–3 for its U₂,U₃ coefficients and transported tails. Figure 2 and the displayed formulas already use those branches.
+- **E2:** In the displayed type-label bijection in the proof of Theorem 8.3.9, p. 102, the twist on σ_v should be Norm∘det⁻¹. This agrees with the type-indexing condition immediately above the bijection and with §4.3. The roadmap already uses this convention.
+
+Both slips remain in the [Herzig author copy](https://www.math.toronto.edu/~herzig/GK.pdf), at Table 5, p. 47 and Theorem 8.3.9 proof, p. 105. That copy was checked on 19 October 2026; its SHA-256 is `b72458bd849101318871fe68f37f6ff2c0c9beac5e7f0e38bcfc6db34aff51dc`. The arXiv history, publisher/Crossref metadata and the Herzig, Breuil and Schraen publication pages supplied no linked correction for these slips. The [publisher page](https://link.springer.com/article/10.1007/s00222-023-01202-8) offered subscription access and its PDF endpoint served HTML. The journal full text was not read: these findings concern the specified preprint and author copy only, and change no conclusion of this roadmap.
 
 ## Sources
 

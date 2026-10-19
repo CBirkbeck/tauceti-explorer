@@ -233,18 +233,18 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.tameType_split",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For f=1 and s=1, the characters are ω̃₁^{μ₁+1} and ω̃₁^{μ₂}."
         },
         {
           "name": "TauCeti.TameGL2.tameType_nonsplit",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For f=1 and s=w, the exponents at niveau two are μ₁+1+pμ₂ and μ₂+p(μ₁+1), interchanged by p-Frobenius."
         },
         {
           "name": "TauCeti.TameGL2.tameType_modp",
-          "kind": "example",
-          "statement": "Reducing either computed type modulo ϖ gives exactly MP.3/tame-weight-set’s character multiset; using arithmetic reciprocity without inversion instead gives the inverses."
+          "kind": "compatibility",
+          "statement": "For f=1, p=7, s=1 and μ=(0,0), reduction gives ω₁⊕1, exactly as in MP.3/tame-weight-set. Using arithmetic reciprocity without inversion gives ω₁⁻¹⊕1, a different character multiset."
         }
       ],
       "uses": [
@@ -319,17 +319,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.generic_strict_boundary",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "A presentation with μ₁−μ₂+1=N is not N-deep; the endpoint N+1 passes the lower inequality if below p−N."
         },
         {
           "name": "TauCeti.TameGL2.generic_prime_bound",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "Existence of an integer depth coordinate at N=12 forces p≥29; p=23 cannot satisfy 12<d<11."
         },
         {
           "name": "TauCeti.TameGL2.generic_extension",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "A nonsplit extension and the split sum with the same semisimplified inertia have the same residual genericity, while only the latter meets the semisimplicity hypothesis of T.4."
         }
       ],
@@ -404,18 +404,18 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.orientation_empty",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "At j′=f′−1 the product is empty and the orientation is 1."
         },
         {
           "name": "TauCeti.TameGL2.orientation_quadratic",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For f=1 and s=w, f′=2 and the two orientations are w and 1 in that order; the formula with upper endpoint j′ fails."
         },
         {
           "name": "TauCeti.TameGL2.orientation_weighted",
-          "kind": "example",
-          "statement": "Dominance is tested on a′^(j′), not on α′_{j′}; compute the two niveau-two exponents before ordering them."
+          "kind": "computation",
+          "statement": "For f=1, p=5, s=w and μ=(1,0), α′₀=(2,0), α′₁=(0,2), a′^(0)=(2,10) and a′^(1)=(10,2). The orientations are w and 1; ordering α′₀ instead of a′^(0) would incorrectly give 1 at index 0."
         }
       ],
       "uses": [
@@ -584,17 +584,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.matrix_embedding_sign",
-          "kind": "example",
-          "statement": "At degree f>1 the summand indexed j′ uses σ_{−j′}; replacing it by σ_{j′} reverses the required φ transition."
+          "kind": "computation",
+          "statement": "For f=f′=3, the summand j′=1 uses σ₂=σ_{−1}, and φ carries it to summand 2. Replacing σ_{−j′} by σ_{j′} would use σ₁ at summand 1 and reverse the cyclic transition. Degree 2 alone cannot detect the sign."
         },
         {
           "name": "TauCeti.TameGL2.matrix_conjugation_order",
-          "kind": "example",
-          "statement": "For s=w and unequal exponents, conjugation by w followed by u′-powers is distinguished from the reversed product on a diagonal matrix."
+          "kind": "computation",
+          "statement": "Over Q, put P=[[0,1],[1,0]], D=diag(1,2) and C=[[0,1],[0,0]]. Then Ad(P⁻¹D)(C)=[[0,0],[1/2,0]], whereas Ad(DP⁻¹)(C)=[[0,0],[2,0]]. The off-diagonal entry detects the order; diagonal C would not."
         },
         {
           "name": "TauCeti.TameGL2.matrix_height_profiles",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For λ=(2,1), all entries are divisible by v+p and det A by (v+p)³; for λ=(3,0), no common entry factor is required."
         }
       ],
@@ -669,17 +669,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.shape_diagonal",
-          "kind": "example",
+          "kind": "computation",
           "statement": "diag(v²,v) has shape t^(2,1)."
         },
         {
           "name": "TauCeti.TameGL2.shape_middle",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The matrix [[0,v],[v²,0]] has shape w t^(2,1), and not either diagonal translation."
         },
         {
           "name": "TauCeti.TameGL2.shape_I_invariance",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "Multiplication on either side by an upper-triangular-mod-v invertible matrix preserves shape; swapping the two diagonal powers without such factors changes the extreme shape."
         }
       ],
@@ -754,17 +754,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.gauge_lower_left",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For every gauge matrix the lower-left entry is divisible by v, even when a polynomial of the same degree without that factor has the correct determinant."
         },
         {
           "name": "TauCeti.TameGL2.gauge_extreme_degrees",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For t^(2,1), the pivot degrees are 2 and 1 and the upper-right entry has degree at most 0."
         },
         {
           "name": "TauCeti.TameGL2.gauge_torus_not_unique",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "A nontrivial diagonal element in ker(T(R)→T(F)), repeated modulo f, gives another gauge basis; literal uniqueness would fail."
         }
       ],
@@ -892,18 +892,18 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.monodromy_constant_basis",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For a Frobenius-constant rank-one summand, the basis vector has N_M=0 and N_M(ae)=N_∇(a)e."
         },
         {
           "name": "TauCeti.TameGL2.monodromy_E_factor",
-          "kind": "example",
-          "statement": "Multiplying φ_M by E changes its differential equation; dropping E from Nφ=EφN is detected by a nonconstant coefficient."
+          "kind": "computation",
+          "statement": "For the trivial rank-one module with φ_M(e)=e, apply the compatibility to u′e. Its two sides agree by N_∇((u′)^p)=−p(u′)^pλ_an and λ_an=(E/p)φ(λ_an). Omitting E would instead give −p(u′)^pφ(λ_an), which is different."
         },
         {
           "name": "TauCeti.TameGL2.monodromy_basis_derivative",
-          "kind": "example",
-          "statement": "A basis multiplied by a nonconstant analytic unit contributes B⁻¹N_∇(B), unlike ordinary conjugation."
+          "kind": "computation",
+          "statement": "For N_M(e)=0 and the analytic unit B=1+u′, the new basis eB has monodromy coefficient B⁻¹N_∇(B)=−u′λ_an/(1+u′). Conjugating the zero matrix alone would still give zero."
         }
       ],
       "uses": [
@@ -978,17 +978,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.monodromy_height_one",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "At h=1 the jet list is empty, matching automatic regularity in this formulation."
         },
         {
           "name": "TauCeti.TameGL2.monodromy_height_three",
-          "kind": "example",
+          "kind": "computation",
           "statement": "At h=3 both value and first derivative must vanish; testing only the value admits a simple zero and is insufficient."
         },
         {
           "name": "TauCeti.TameGL2.monodromy_basis_invariant",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "An analytic integral change of eigenbasis preserves the regularity formulation despite the additional derivative term in its matrix formula."
         }
       ],
@@ -1109,17 +1109,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.goodPair_singletons",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For f=1,s=1, every pair of integer exponents passes the good-pair test."
         },
         {
           "name": "TauCeti.TameGL2.goodPair_bad_scalar",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For f=1,s=w, μ=(a,a) yields exponent (p+1)a and fails the test."
         },
         {
           "name": "TauCeti.TameGL2.goodPair_nonsplit_example",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For f=1,s=w, μ=(1,0) yields exponents 1 and p, neither divisible by p+1, and gives a primitive niveau-two orbit."
         }
       ],
@@ -1206,7 +1206,7 @@
       "sources": [
         {
           "sourceId": "BHHMS23",
-          "locator": "Definition 3.2.4, p. 22; end of §2.1, p. 12",
+          "locator": "Definition 3.2.4, p. 22; end of §2.1, p. 13",
           "match": "Specifies monomial Frobenius matrices and the reversed star convention."
         }
       ],
@@ -1236,17 +1236,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.etale_identity",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For every w̃_j=1 and D_j=1, the module is a sum of two trivial rank-one étale modules."
         },
         {
           "name": "TauCeti.TameGL2.etale_negative_power",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "diag(v^{−1},1) is allowed over k((v)); demanding polynomial entries would incorrectly reject it."
         },
         {
           "name": "TauCeti.TameGL2.star_reversal",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For f=2, the index 0 star factor uses the original index 1; a product becomes the product in reversed order."
         }
       ],
@@ -1322,17 +1322,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.tameRep_trivial",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "w̃=1,D=1 gives the two-dimensional trivial representation."
         },
         {
           "name": "TauCeti.TameGL2.tameRep_two_cycle",
-          "kind": "example",
+          "kind": "computation",
           "statement": "A primitive two-cycle gives an irreducible tame representation of niveau 2f, rather than a split sum over G_K."
         },
         {
           "name": "TauCeti.TameGL2.tameRep_no_inverse_twist",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For a rank-one cycle with product α of the D entries, the arithmetic Frobenius eigenvalue is α, not α⁻¹, under this contravariant convention."
         }
       ],
@@ -1488,18 +1488,18 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.cyclofree_trivial",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For p>2 and K unramified, the trivial character is cyclotomic free because ω is nontrivial."
         },
         {
           "name": "TauCeti.TameGL2.cyclofree_cyclotomic",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The character ω fails: tensoring with ω⁻¹ gives a nonzero invariant."
         },
         {
           "name": "TauCeti.TameGL2.cyclofree_tensor_needed",
-          "kind": "example",
-          "statement": "The property must be tested on ρ₁∨⊗ρ₂ for Hom descent; testing only on ρ₁ omits the relative cyclotomic-character obstruction."
+          "kind": "non-example",
+          "statement": "For p>2 and unramified K, take ρ₁=1 and ρ₂=ω. Then ρ₁ is cyclotomic free, but ρ₁∨⊗ρ₂=ω is not: tensoring it with ω⁻¹ has a nonzero invariant. The Hom-descent hypothesis must test the tensor representation."
         }
       ],
       "uses": [
@@ -1659,17 +1659,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.admissible_three",
-          "kind": "example",
+          "kind": "computation",
           "statement": "At f=1, the admissible set consists of exactly U₁,U₂,U₃, not a fourth shape."
         },
         {
           "name": "TauCeti.TameGL2.admissible_middle_star",
-          "kind": "example",
+          "kind": "computation",
           "statement": "At f=1, U₂*=t^(2,1)w, whereas U₁*=t^(2,1); multiplication order distinguishes their presentations."
         },
         {
           "name": "TauCeti.TameGL2.admissible_depth",
-          "kind": "example",
+          "kind": "computation",
           "statement": "At N=12 the chosen type coordinates are at least 11-deep, satisfying the h=3 gauge bound and L=11 monodromy bound."
         }
       ],
@@ -1851,17 +1851,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.smallHodge_one_embedding",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "At f=1, the allowed profiles are exactly (3,0) and (2,1), excluding (2,0) and (3,1)."
         },
         {
           "name": "TauCeti.TameGL2.smallHodge_union_kernel",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For two distinct nonzero profile kernels I,J the union uses I∩J, while I+J parametrizes their scheme-theoretic intersection."
         },
         {
           "name": "TauCeti.TameGL2.smallHodge_no_determinant",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "An allowed unramified determinant twist remains in the framed functor when its inertia and weights are unchanged; a fixed determinant functor would remove that parameter."
         }
       ],
@@ -1967,37 +1967,37 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.chart_residual",
-          "kind": "example",
-          "statement": "Putting p and all nonstarred variables equal to zero gives D U_i in each of the three shapes."
+          "kind": "computation",
+          "statement": "Reduce modulo ϖ and set all eight formal parameters to zero, including the increments of both starred coefficients. The starred values remain their fixed nonzero residues, and the three matrices become D U_i with their prescribed residual diagonal D."
         },
         {
           "name": "TauCeti.TameGL2.chart_middle_factors",
-          "kind": "example",
+          "kind": "computation",
           "statement": "After eliminating four variables in chart 2, set x=d₁₁/d₁₂*,y=d₂₂/d₂₁*, b=(a−2)(a+1)/(a(a−1)); G₅=b⁻¹(xy+p)(xy+bp), with b−1=−2/(a(a−1)) a unit."
         },
         {
           "name": "TauCeti.TameGL2.chart_outer_factors",
-          "kind": "example",
+          "kind": "computation",
           "statement": "In chart 1 the (2,1) factor is c₁₂ and in chart 3 it is c₂₁; swapping these labels changes the Hodge component."
         },
         {
           "name": "TauCeti.TameGL2.chart_table_index",
-          "kind": "example",
-          "statement": "Local table j parametrizes A^(f−1−j) and the Hodge label λ_{f−1−j}; using λ_j fails when f>1."
+          "kind": "computation",
+          "statement": "For f=2 and λ₀≠λ₁, table index j=0 describes A^(1) and its factor carries λ₁; table index j=1 describes A^(0) and carries λ₀. Labelling table j by λ_j swaps these two Hodge conditions."
         },
         {
           "name": "TauCeti.TameGL2.hypersurface_origin",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "At x=y=0 the middle hypersurface is p² for every unit b."
         },
         {
           "name": "TauCeti.TameGL2.hypersurface_integer",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Over Z with p=3,b=−1,x=2,y=3, the hypersurface value is −27."
         },
         {
           "name": "TauCeti.TameGL2.hypersurface_repeated_factor",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "At b=1 the hypersurface is (xy+p)². This degenerate test does not satisfy the unit b−1 hypothesis of the Jacobian bound."
         }
       ],
@@ -2525,22 +2525,22 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.commonChart_nine",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "Each table has one b variable and eight other parameters, not both b₁₂ and b₂₁ as independent variables."
         },
         {
           "name": "TauCeti.TameGL2.commonChart_linear_relation",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "The U₁/table-4 quotient has c₁₁=−pd₁₁, and U₃/table-5 has c₂₂=−pd₂₂. Omitting this equation leaves an extra dimension."
         },
         {
           "name": "TauCeti.TameGL2.commonChart_middle",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For U₂, setting b=0 recovers the middle one-type étale matrix without either outer coordinate change."
         },
         {
           "name": "TauCeti.TameGL2.commonChart_tails_global",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "Changing a shape at a different embedding may change this embedding’s transported tail and a_i; equality of local shape codes alone is insufficient."
         }
       ],
@@ -2623,17 +2623,17 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.weightUnion_f_one",
-          "kind": "example",
+          "kind": "computation",
           "statement": "At f=1 and θ=U₃ the union uses exactly the U₁ and U₂ type rings; U₃ is excluded."
         },
         {
           "name": "TauCeti.TameGL2.weightUnion_intersection",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "A point of either allowed type factors through the intersection kernel; a sum of those kernels would demand both types at once."
         },
         {
           "name": "TauCeti.TameGL2.weightUnion_f_two",
-          "kind": "example",
+          "kind": "computation",
           "statement": "At f=2 there are four single-type quotient maps, while there are sixteen pairs (λ,w̃) indexing components."
         }
       ],
@@ -2786,37 +2786,37 @@
       "tests": [
         {
           "name": "TauCeti.TameGL2.q_middle_contains_c21",
-          "kind": "example",
+          "kind": "computation",
           "statement": "In table 4, both Q₁ and Q₂ contain c₂₁ exactly; the corresponding table-5 common generator is c₁₂."
         },
         {
           "name": "TauCeti.TameGL2.q_middle_relation",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The middle Q₂ kills all four c entries and imposes t=−p; omitting the +p changes its characteristic-zero points."
         },
         {
           "name": "TauCeti.TameGL2.q_outer_shift",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Q₁ includes c₁₂−pd₁₂* and b₁₂−pc₁₂; Q₃ includes c₂₁−pd₂₁* and b₂₁−pc₂₁. Setting those shifted entries simply to zero gives a different ideal."
         },
         {
           "name": "TauCeti.TameGL2.q_global_equality",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "Only the all-(2,1) profile gives the equality of summed ideals; a mixed profile supplies the stated containment instead."
         },
         {
           "name": "TauCeti.TameGL2.q_outer_point",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Over Z with p=5 and both units 1, table-4 Q₁ is zero at (c₁₁,d₁₁,c₁₂,c₂₁,c₂₂,d₂₂,b)=(0,0,5,0,0,0,25)."
         },
         {
           "name": "TauCeti.TameGL2.q_middle_point",
-          "kind": "example",
+          "kind": "computation",
           "statement": "With the same ring and units, Q₂ is zero at (0,1,0,0,0,−5,0)."
         },
         {
           "name": "TauCeti.TameGL2.q_other_outer_point",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Table-5 Q₃ is zero at (0,0,0,5,0,0,25)."
         }
       ],
@@ -3031,7 +3031,52 @@
     }
   ],
   "gaps": [],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "LocalGaloisDeformationRingsPartII/E1",
+      "source": "BHHMS23",
+      "kind": "misprint",
+      "locator": "arXiv:2009.03127v7, Table 5 final note, p. 45; also Herzig author copy, Table 5, p. 47",
+      "printed": "The final note attributes the a₂,a₃ constants and transported tails of the U₂,U₃ common charts to Tables 1–2.",
+      "correction": "That reference should be to Tables 2–3, the single-type U₂ and U₃ charts.",
+      "reason": "Figure 2 and the two branches of Table 5 use U₂ and U₃. Their coefficients and monodromy equations are in Tables 2 and 3; Table 1 is the U₁ chart. The displayed formulas already use the correct branches.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2009.03127 version history, latest v7 of 9 June 2023, checked 19 October 2026: https://arxiv.org/abs/2009.03127",
+        "Publisher article page and Crossref relations/update metadata, checked 19 October 2026; no linked correction found: https://doi.org/10.1007/s00222-023-01202-8 and https://api.crossref.org/works/10.1007/s00222-023-01202-8",
+        "Florian Herzig publications page and its author PDF, checked 19 October 2026; both slips remain at Table 5, p. 47 and Theorem 8.3.9 proof, p. 105: https://www.math.toronto.edu/~herzig/ and https://www.math.toronto.edu/~herzig/GK.pdf",
+        "Christophe Breuil and Benjamin Schraen publications pages, checked 19 October 2026; no correction linked for this paper: https://www.imo.universite-paris-saclay.fr/~christophe.breuil/publications.html and https://math.univ-lyon1.fr/~schraen/"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the v7 table footer and compared its branch labels, Figure 2 and Tables 1–3; the same reference remains in the author copy. Only the cross-reference needs correction. No claim is made about unread journal text.",
+        "by": "REV-DESIGN-LocalGaloisDeformationRingsPartII"
+      }
+    },
+    {
+      "id": "LocalGaloisDeformationRingsPartII/E2",
+      "source": "BHHMS23",
+      "kind": "misprint",
+      "locator": "arXiv:2009.03127v7, Theorem 8.3.9 proof, displayed bijection ι, p. 102; also Herzig author copy, p. 105",
+      "printed": "The displayed domain of the type-label bijection twists σ_v by Norm_{k/F_p}∘det with positive determinant exponent.",
+      "correction": "Use σ_v⊗(Norm_{k/F_p}∘det⁻¹) in that domain, as in the type-indexing condition immediately above it. Equivalently put σ_v in the constituents of the type reduction twisted by Norm∘det.",
+      "reason": "The preceding definition of R_∞^{≤(3,0),σ_v} indexes exactly the types satisfying the inverse-determinant condition. The subsequent identification of p_{λ,τ} with p^λ_{ι(τ)} requires the same type set. This also agrees with §4.3 and the cyclotomic twist at the start of the proof; the two determinant twists differ in the generic range.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2009.03127 version history, latest v7 of 9 June 2023, checked 19 October 2026: https://arxiv.org/abs/2009.03127",
+        "Publisher article page and Crossref relations/update metadata, checked 19 October 2026; no linked correction found: https://doi.org/10.1007/s00222-023-01202-8 and https://api.crossref.org/works/10.1007/s00222-023-01202-8",
+        "Florian Herzig publications page and its author PDF, checked 19 October 2026; both slips remain at Table 5, p. 47 and Theorem 8.3.9 proof, p. 105: https://www.math.toronto.edu/~herzig/ and https://www.math.toronto.edu/~herzig/GK.pdf",
+        "Christophe Breuil and Benjamin Schraen publications pages, checked 19 October 2026; no correction linked for this paper: https://www.imo.universite-paris-saclay.fr/~christophe.breuil/publications.html and https://math.univ-lyon1.fr/~schraen/"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared the two adjacent type-indexing conditions in the v7 PDF and checked §4.3; the inverse twist is fixed before the bijection is introduced. The same isolated sign remains in the author copy. The correction changes no theorem conclusion here and is scoped to those two read texts.",
+        "by": "REV-DESIGN-LocalGaloisDeformationRingsPartII"
+      }
+    }
+  ],
   "restructure": [
     {
       "action": "split",
@@ -3486,5 +3531,236 @@
         "LocalGaloisDeformationRingsPartII:T.7/p-membership"
       ]
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.03127v7",
+      "read": "2026-10-19",
+      "sha256": "8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a",
+      "notes": "All BHHMS node locators use this text. E1 and E2 were checked in the rendered PDF, pp. 45 and 102."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.toronto.edu/~herzig/GK.pdf",
+      "read": "2026-10-19",
+      "sha256": "b72458bd849101318871fe68f37f6ff2c0c9beac5e7f0e38bcfc6db34aff51dc",
+      "notes": "Compared Table 5, p. 47 and Theorem 8.3.9 proof, p. 105 for E1 and E2. This copy has different pagination; its date and identity with the version of record are not assumed."
+    },
+    {
+      "kind": "published",
+      "url": "https://link.springer.com/article/10.1007/s00222-023-01202-8",
+      "read": "2026-10-19",
+      "fullTextRead": false,
+      "notes": "Read the publisher landing page, which offers subscription access. The PDF endpoint served HTML rather than the article. The journal full text was not read; E1 and E2 make no assertion about that version."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-LocalGaloisDeformationRingsPartII",
+    "date": "2026-10-19",
+    "notes": "Independently checked all 40 source statements and proof plans, all 14 baseline declarations at the Mathlib pin, direct supplier statements and six outstanding contracts, current library/roadmap overlap, all incoming routes, API/Checks and compact Lean. Corrected one page locator, classified 63 tests, replaced or sharpened nine test statements, added two rational Lean examples and recorded two confirmed version-scoped source misprints. No target or baseline replacement was needed. All eight stages remain planned, with six explicit supplier requests and implementationStatus unchecked.",
+    "checked": [
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.0/tame-type",
+        "verdict": "corrected",
+        "note": "The geometric fundamental-character convention, Teichmüller lift and reduction agree with the source; the new p=7 check distinguishes inversion. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.0/genericity",
+        "verdict": "corrected",
+        "note": "The strict inequalities and existential presentation are retained; semisimplified-inertia genericity does not imply semisimplicity. The p≥29 boundary is correct. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.0/orientation",
+        "verdict": "corrected",
+        "note": "The endpoint f′−1−j′ orders the weighted exponents, not their individual digits. The new p=5 example detects both errors. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.0/presentation-depth",
+        "verdict": "verified",
+        "note": "The one-unit loss is exactly the source remark; 13-generic normalization supplies the chosen 12-deep input without strengthening the claim."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.0/type-jordan-holder",
+        "verdict": "verified",
+        "note": "The Jordan–Hölder formula keeps its 1-deep and ν∈η+Λ_R hypotheses and norm-determinant twist. Missing compact-type and finite-group comparisons are explicitly requested."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.1/eigenbasis-matrices",
+        "verdict": "corrected",
+        "note": "The negative embedding index and ordered conjugation match the definition. Replaced the false diagonal test by two distinct off-diagonal rational products and fixed the degree-two sign-test degeneracy. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.1/shape",
+        "verdict": "corrected",
+        "note": "The Iwahori is upper triangular modulo v; the double coset and permutation-times-translation convention give the three stated sample shapes. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.1/gauge-basis",
+        "verdict": "corrected",
+        "note": "The degree bounds, pivot units and lower-left v factor match the gauge predicate; the diagonal action preserves the fixed residual basis only in its reduction kernel. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.1/gauge-existence",
+        "verdict": "verified",
+        "note": "The (h+1)-generic existence theorem and diagonal torsor, including the fixed residual basis, agree with the source. Completeness is imported for the limiting construction."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.2/monodromy-derivation",
+        "verdict": "corrected",
+        "note": "The relative coefficient hypotheses, Leibniz rule, E-twisted Frobenius equation and normalization are retained. The new rank-one calculations detect a missing E or derivative term. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.2/monodromy-condition",
+        "verdict": "corrected",
+        "note": "Analytic regularity is the stated condition; at height h it has h−1 jets. Height one is empty and height three requires both value and derivative. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.2/jet-equations",
+        "verdict": "verified",
+        "note": "The source bounds L≥2h−3 and (L−1)(p−1)≥h are retained. At h=3,L=N−1 the two errors have exponents N−3 and N−4; they are the actual coupled tails."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/good-pair",
+        "verdict": "corrected",
+        "note": "Orbit primitiveness is the nondivisibility condition in the definition. Singleton orbits impose no condition, while the nonsplit scalar example fails it. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/deep-pair-good",
+        "verdict": "verified",
+        "note": "For a two-cycle the strict digit differences give 0<|c₀−c₁|<q; the highest nonzero digit dominates all smaller ones. Reduction modulo q+1 proves the required nondivisibility."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/monomial-etale-module",
+        "verdict": "corrected",
+        "note": "The monomial matrices and contravariant realization agree. Corrected the star anti-automorphism reference from p.12 to p.13; reversal, coefficient change and Laurent entries remain explicit. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/tame-representation",
+        "verdict": "corrected",
+        "note": "The constructed representation is the unique tame extension of the restricted module, using the requested tame-quotient equivalence. This does not assert uniqueness for arbitrary Galois extensions. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/unramified-twist",
+        "verdict": "verified",
+        "note": "The product of diagonal coefficients gives the unramified character at arithmetic Frobenius, with the source contravariance and no extra inverse."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/tame-classification",
+        "verdict": "verified",
+        "note": "Classification retains the finite coefficient extension and scalar unramified twist. It does not assert uniqueness of the diagonal data D."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/cyclotomic-free",
+        "verdict": "corrected",
+        "note": "The prime-to-p unramified triangularizing extension and exclusion of ω are retained. The new pair (1,ω) distinguishes cyclotomic freeness of ρ₁ from that of ρ₁∨⊗ρ₂. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/restriction-hom",
+        "verdict": "verified",
+        "note": "Full faithfulness assumes the tensor representation is cyclotomic free; its nontrivial invariant theorem is an explicit R07.4 request, not a routine consequence of irreducibility."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.3/restriction-isom",
+        "verdict": "verified",
+        "note": "The source imposes 2-genericity on ρ₁ and obtains isomorphism descent via the adjoint obstruction; no stronger full-faithfulness assertion is substituted."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.4/admissible-types",
+        "verdict": "corrected",
+        "note": "The three admissible shapes, reversed star convention and N−1 depth agree with §4.1; the normalized semisimple N≥12 data remain separate hypotheses. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.4/residual-kisin-module",
+        "verdict": "verified",
+        "note": "Existence and uniqueness concern the semisimple residual Kisin module of the specified shape. The coefficient/descent extension needed by its category is explicitly requested."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.4/weight-shape-bijection",
+        "verdict": "verified",
+        "note": "The excluded label is an extreme shape, and the allowed tuples give exactly 2^f types. The MP.5 lifting-length input is present for exhaustiveness, not just injectivity."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/small-hodge-quotient",
+        "verdict": "corrected",
+        "note": "The finite union is defined by the intersection of the existing fixed-profile kernels, with both (3,0) and (2,1), framing and unrestricted determinant. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/chart-models",
+        "verdict": "corrected",
+        "note": "Checked all three matrices, five-equation lists, units and Hodge factors directly against Tables1–3. Corrected the residual specialization to kill starred increments and made the reversed Hodge index a degree-two example. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/irreducible-crossing",
+        "verdict": "verified",
+        "note": "The crossing lemma applies over any complete DVR with a unit perturbation; irreducibility plus the imported regular-local UFD result gives a prime. Different residues are a sufficient distinction test, not an iff."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/jacobian-bound",
+        "verdict": "verified",
+        "note": "The eliminated middle equation has the two distinct factors and the exact identity gives p³ in its Jacobian ideal; the outer charts give the stronger p² bound. Unit b−1 is essential."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/chart-approximation",
+        "verdict": "verified",
+        "note": "Elkik specializes to k=0,h=3 and n>6. Newton correction is p^(n−3); n=N−5 yields N−8 precision, and the cotangent argument gives surjectivity rather than injectivity."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/nonempty-profiles",
+        "verdict": "verified",
+        "note": "Nonemptiness uses an actual extended-Fontaine–Laffaille crystalline seed and the GHLS criterion with n≠p and width≤p−n. The seed and Hodge-sign dictionary are explicitly requested; dimension alone is not used."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/gauge-galois-comparison",
+        "verdict": "verified",
+        "note": "The comparison retains 2f gauge variables versus four framing variables, the unfixed determinant and the complete-family monodromy interface; no missing Kisin carrier is silently assumed implemented."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.5/ambient-automorphism",
+        "verdict": "verified",
+        "note": "One ambient automorphism transports all polynomial factors and the actual coupled tails modulo p^(N−8). Nonemptiness, geometrically integral components and the point criterion supply injectivity."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.6/single-presentation",
+        "verdict": "verified",
+        "note": "The stable single-type presentation, reversed embedding labels and globally summed component kernels agree with Proposition4.2.1; no independent local perturbations are introduced."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.6/single-components",
+        "verdict": "verified",
+        "note": "The two factors per embedding remain distinct after finite coefficient extension, giving 2^f components. The smooth-variable balance gives relative dimension 3f+4−2f=f+4."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.6/special-fibres",
+        "verdict": "verified",
+        "note": "The disjoint square-free crossing factors give reduced special fibres with smooth components. Hamann cancellation and finite-residue coefficient correction are explicitly requested; smoothness of the entire crossing is not claimed."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.7/common-charts",
+        "verdict": "corrected",
+        "note": "Checked Figure2 and Tables4–5, including the ninth parameter and outer linear equations. Actual tails and a_i can depend on the whole type. E1 corrects only a source cross-reference. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.7/weight-union",
+        "verdict": "corrected",
+        "note": "For a fixed weight, precisely the allowed 2^f types form a finite union by intersection of their kernels, with the existing norm-determinant convention. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.7/multiple-presentation",
+        "verdict": "verified",
+        "note": "The tangent pole inequality retains r_j+3<p−1. The complete-local point criterion and restriction descent give the presentation; distinct type branches separate after inverting p, yielding 4^f components."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.7/exact-q-ideals",
+        "verdict": "corrected",
+        "note": "All six generators of each exact Q ideal match Lemma4.3.2. Local containment is into the global sum of profile ideals; equality is asserted only after summing in the all-(2,1) case. Test kinds now follow PROTOCOL §12."
+      },
+      {
+        "nodeId": "LocalGaloisDeformationRingsPartII:T.7/p-membership",
+        "verdict": "verified",
+        "note": "The witness uses (Q₁∩Q₂)+P_(3,0), or its table5 counterpart, with the actual transported middle ideal. After dividing the displayed relation by p, the remaining coefficient is a unit; the conclusion concerns p, not ϖ."
+      }
+    ]
+  }
 }
