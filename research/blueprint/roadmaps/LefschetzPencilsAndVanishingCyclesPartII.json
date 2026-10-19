@@ -52,7 +52,8 @@
       "accessDate": "2026-10-19",
       "readSections": [
         "§3.3, Theorem 3.3, remarks and Corollary 3.4, author-PDF p. 10; comparison of hypotheses only"
-      ]
+      ],
+      "sha256": "52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d"
     },
     {
       "id": "STACKS",
@@ -63,7 +64,8 @@
       "accessDate": "2026-10-19",
       "readSections": [
         "Morphisms of Schemes §29.37, Lemma 29.37.21, tag 054L, statement and proof (unpaginated)",
-        "Varieties §33.25, Lemma 33.25.10, tag 0CDW, statement and proof (unpaginated)"
+        "Varieties §33.25, Lemma 33.25.10, tag 0CDW, statement and proof (unpaginated)",
+        "Varieties §33.7, Lemma 33.7.14, tag 04KV, statement and proof (unpaginated; rational point and geometric connectedness)"
       ]
     },
     {
@@ -100,7 +102,7 @@
         "Morphisms/Etale.lean, lines 35–145",
         "Morphisms/Smooth.lean, lines 54–219",
         "Morphisms/ClosedImmersion.lean, lines 91–116",
-        "Morphisms/UniversallyOpen.lean, lines 35–89 and 140–146",
+        "Morphisms/UniversallyOpen.lean, lines 35–89 and 104–146",
         "Geometrically/Integral.lean, lines 33–109",
         "RingTheory/Smooth/StandardSmooth.lean, lines 51–130 (standard presentations and relative dimension)",
         "Topology/Irreducible.lean, lines 194–208 (nonempty opens and open maps)"

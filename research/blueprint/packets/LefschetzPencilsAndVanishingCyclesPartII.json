@@ -173,7 +173,8 @@
       "accessDate": "2026-10-19",
       "readSections": [
         "§3.3, Theorem 3.3, remarks and Corollary 3.4, author-PDF p. 10; comparison of hypotheses only"
-      ]
+      ],
+      "sha256": "52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d"
     },
     {
       "id": "STACKS",
@@ -184,7 +185,8 @@
       "accessDate": "2026-10-19",
       "readSections": [
         "Morphisms of Schemes §29.37, Lemma 29.37.21, tag 054L, statement and proof (unpaginated)",
-        "Varieties §33.25, Lemma 33.25.10, tag 0CDW, statement and proof (unpaginated)"
+        "Varieties §33.25, Lemma 33.25.10, tag 0CDW, statement and proof (unpaginated)",
+        "Varieties §33.7, Lemma 33.7.14, tag 04KV, statement and proof (unpaginated; rational point and geometric connectedness)"
       ]
     },
     {
@@ -221,7 +223,7 @@
         "Morphisms/Etale.lean, lines 35–145",
         "Morphisms/Smooth.lean, lines 54–219",
         "Morphisms/ClosedImmersion.lean, lines 91–116",
-        "Morphisms/UniversallyOpen.lean, lines 35–89 and 140–146",
+        "Morphisms/UniversallyOpen.lean, lines 35–89 and 104–146",
         "Geometrically/Integral.lean, lines 33–109",
         "RingTheory/Smooth/StandardSmooth.lean, lines 51–130 (standard presentations and relative dimension)",
         "Topology/Irreducible.lean, lines 194–208 (nonempty opens and open maps)"
@@ -264,7 +266,7 @@
       "sources": [
         {
           "sourceId": "MATHLIB-EVAL",
-          "locator": "eval₂Hom and generator/monomial/composition lemmas, lines 158–203",
+          "locator": "eval₂Hom and generator/monomial/composition lemmas, lines 158–205",
           "match": "The definition is a concrete specialization of the existing universal evaluation map."
         },
         {
@@ -383,7 +385,7 @@
         },
         {
           "sourceId": "MATHLIB-EVAL",
-          "locator": "eval₂Hom_monomial, lines 201–203",
+          "locator": "eval₂Hom_monomial, lines 203–205",
           "match": "Computes the substituted monomial; the bounded-support conclusion is derived here."
         }
       ],
@@ -425,7 +427,7 @@
       "sources": [
         {
           "sourceId": "MATHLIB-EVAL",
-          "locator": "eval₂Hom_C and eval₂Hom_X′, lines 178–184",
+          "locator": "eval₂Hom_C and eval₂Hom_X', lines 181–186",
           "match": "The two generator formulas construct a preimage of every univariate polynomial."
         }
       ],
@@ -469,7 +471,7 @@
       "sources": [
         {
           "sourceId": "MATHLIB-SCHEMES",
-          "locator": "ClosedImmersion.lean, IsClosedImmersion.spec_of_surjective, lines 98–102",
+          "locator": "ClosedImmersion.lean, IsClosedImmersion.spec_of_surjective, lines 98–105",
           "match": "Turns the already surjective coordinate map into the native closed-immersion statement."
         },
         {
@@ -538,12 +540,12 @@
         },
         {
           "sourceId": "STACKS",
-          "locator": "Lemma 29.37.21 (054L), and Lemma 33.25.10 (0CDW), unpaginated",
+          "locator": "Lemma 29.37.21 (054L), Lemma 33.25.10 (0CDW), and Lemma 33.7.14 (04KV), unpaginated",
           "match": "The imported coordinate and rational-point component contracts support the chart and integrality steps; the graph pullback and density argument are derived here."
         },
         {
           "sourceId": "MATHLIB-SCHEMES",
-          "locator": "Etale.lean, lines 71–112; UniversallyOpen.lean, lines 45–46 and 142–146; Smooth.lean, lines 192–214",
+          "locator": "Etale.lean, lines 71–112; UniversallyOpen.lean, lines 45–46 and 104–145; Smooth.lean, lines 192–214",
           "match": "The baseline already supplies étale base change, étale relative dimension zero, openness and addition of smooth relative dimensions."
         }
       ],
@@ -709,16 +711,24 @@
       "correction": "Use the one-point local étale polynomial-graph argument of FC.0–FC.1 for the needed morphism from a curve. This establishes the dense-open conclusion over the same field and makes no multipoint or projectivity assertion.",
       "reason": "Poonen Corollary 3.4 explicitly assumes a smooth projective geometrically integral ambient variety; a smooth atlas has only local smooth finite-type geometry. The local proof above works on its affine neighbourhood and avoids that missing hypothesis.",
       "affects": "the proof",
-      "known": "Previously recorded as PAPER-KISIN-ZHOU-25/E11 and independently confirmed there. No correction was found by that extraction’s bounded search dated 2026-09-23; this job does not compare the final Annals article or claim priority.",
+      "known": "Previously recorded as PAPER-KISIN-ZHOU-25/E11. No correction was identified in the bounded searches recorded there or in this review. This finding is confined to arXiv v2; the final Annals article text was unavailable and was not compared.",
       "searched": [
         "Read PAPER-KISIN-ZHOU-25/E11 and its independent-review result, including its recorded arXiv/Annals/author-page correction search.",
-        "Re-read the cited arXiv v2 passages and Poonen author-PDF Corollary 3.4 on 2026-10-19; no inference about an uninspected final publication is made."
+        "Re-read the cited arXiv v2 passages and Poonen author-PDF Corollary 3.4 on 2026-10-19; no inference about an uninspected final publication is made.",
+        "Checked arXiv submission history on 2026-10-19: v2 dated 7 October 2024 is the latest listed version.",
+        "Read the Annals article metadata at https://annals.math.princeton.edu/2025/202-3/p03 on 2026-10-19; its full-article DOI redirected to a Project Euclid access challenge, so the version of record was not inspected."
       ],
       "resolvedBy": [
         "LefschetzPencilsAndVanishingCyclesPartII:FC.0/avoiding-graph",
         "LefschetzPencilsAndVanishingCyclesPartII:FC.1/marked-etale-pullback",
         "LefschetzPencilsAndVanishingCyclesPartII:FC.1/same-field-curve"
-      ]
+      ],
+      "source": "KZ-v2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Directly compared the smooth-atlas curve uses in arXiv v2, Corollary 5.2.7 proof p. 53 and Proposition 5.3.5 proof p. 54, with Poonen author-PDF Corollary 3.4, §3.3 p. 10. The corollary requires a smooth projective geometrically integral ambient variety, while these uses supply only a smooth finite-type chart. This confirms a missing justification at that citation in the inspected preprint, not a false endpoint or a defect in Poonen. The local one-point graph proof supplies the needed morphism. No verdict is made on the unavailable published article.",
+        "by": "REV-DESIGN-LefschetzPencilsAndVanishingCyclesPartII"
+      }
     }
   ],
   "restructure": [
@@ -736,7 +746,71 @@
   "auditNotes": [
     "Read LPV.3 and its reviewed library-coverage entry (AUDIT19): the parent supplies ample projective pencils and finite-extension points, not a prescribed same-field rational mark. It remains the parent, without a false mathematical dependency edge from its pencil theorem to the elementary graph proof.",
     "Read SchemeAndStackFoundations--SF.0/etale-coordinates (parts b,c) and /rational-point-component (parts b,c). They already own the general coordinate, boundary-dimension and marked-component facts. Their enclosing packet has a needs_changes review on other ownership/proof/interface items; import the exact source-checked node statements, not a claim that the entire supplier is accepted or implemented.",
-    "Read current TauCetiRoadmap main at 0d144d044dacebca17b654695b6f1ad58f159b27, including the AlgebraicCurves and StableReduction documents and the new-roadmap duplication screen. Searched its README/Suggested files and current TauCeti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, as well as pinned polynomial/digit/scheme APIs. No existing same-field graph/marked-curve supplier was located. Current smooth relative-dimension modules supply general theory, not this existence theorem; no such general theory is planned again here.",
+    "Read current TauCetiRoadmap main at 0d144d044dacebca17b654695b6f1ad58f159b27, including the AlgebraicCurves and StableReduction documents and the new-roadmap duplication screen. Searched its README/Suggested files and current TauCeti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, as well as pinned polynomial/digit/scheme APIs. No existing same-field graph/marked-curve supplier was located. Current smooth relative-dimension modules supply general theory, not this existence theorem; no such general theory is planned again here. Independent review read TauCeti.AlgebraicGeometry.Smooth.geometricallyIntegral at the recorded current TauCeti commit: smooth and geometrically connected imply geometrically integral. This existing result belongs to the shared component input, not a new node here.",
     "Read the parent atlas stage edges and all blueprint link entries mentioning LefschetzPencilsAndVanishingCycles. The LocalFields/LPV.1 inertia overlap does not enter FC.0–FC.1. No independent monodromy or potential-map dependency is added."
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2103.09945v2",
+      "citation": "Kisin–Zhou, arXiv:2103.09945v2, 7 October 2024, 63 pages",
+      "read": "2026-10-19",
+      "sha256": "62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8",
+      "readScope": "Proposition 5.2.3 and Remark 5.2.4 pp. 49–52; Corollary 5.2.7 pp. 52–53; Proposition 5.3.5 p. 54.",
+      "publicationAccess": {
+        "url": "https://annals.math.princeton.edu/2025/202-3/p03",
+        "citation": "Kisin–Zhou, Annals of Mathematics 202 (2025), no. 3, 1077–1156, DOI 10.4007/annals.2025.202.3.3",
+        "read": "2026-10-19",
+        "readScope": "Bibliographic metadata only; article text not read.",
+        "textCompared": false,
+        "accessNote": "The full-article DOI redirected to Project Euclid, which returned an access challenge rather than the article. The source finding therefore remains confined to arXiv v2."
+      }
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/bertini.pdf",
+      "citation": "Poonen, Bertini theorems over finite fields, author PDF dated 31 August 2004, 23 pages",
+      "read": "2026-10-19",
+      "sha256": "52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d",
+      "readScope": "§3.3, Theorem 3.3, surrounding remarks and Corollary 3.4, p. 10."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-LefschetzPencilsAndVanishingCyclesPartII",
+    "date": "2026-10-19",
+    "notes": "Independently checked all six nodes and every source locator, all nineteen baseline declarations at the Mathlib pin, both exact SF.0 supplier contracts, target closure, fifteen API items, eight tests, five planets, the reviewed LPV.3 audit, current-library/roadmap ownership and the issue-authorized split. Corrected source ranges, added the geometric-connectedness anchor and explicit source-version evidence, independently confirmed the preprint-scoped source issue, restored reader math delimiters and strengthened the compact Lean examples. Both local stages remain closed relative to the stated supplier contracts; the wider SF.0 review and split approval are not implied. No nodes or gaps were added. lean-check succeeded with twenty-one unimplemented-proof warnings and no other warnings or errors.",
+    "checked": [
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/polynomial-graph",
+        "verdict": "corrected",
+        "note": "Confirmed the real evaluation definition and six API items. Fixed its source range; strengthened the suggested finite-field line-failure and zero-variable examples to match the reader tests."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/bounded-support-coefficients",
+        "verdict": "corrected",
+        "note": "Confirmed bounded digit injectivity and finite coefficient extraction, including zero variables and arbitrary commutative rings. Corrected the monomial source range."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/graph-surjective",
+        "verdict": "corrected",
+        "note": "Confirmed the coordinate-zero preimage argument for every base when m>0. Corrected the locator to include the variable-evaluation declaration."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.0/avoiding-graph",
+        "verdict": "corrected",
+        "note": "Confirmed the strict finite-support bound, nonzero substitution, scheme closed immersion and field-only dense-open conclusion. Extended the immersion locator through its complete declaration."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.1/marked-etale-pullback",
+        "verdict": "corrected",
+        "note": "Confirmed both exact supplier contracts, the marked component, openness/density and fixed-choice field-extension API. Added Stacks 04KV and corrected the openness locator. Suggested examples now state boundary/origin checks and the actual F3 factorization and mark; full component tests and nine API items remain reader targets under the current roadmap shape."
+      },
+      {
+        "nodeId": "LefschetzPencilsAndVanishingCyclesPartII:FC.1/same-field-curve",
+        "verdict": "verified",
+        "note": "Confirmed the local density hypothesis, positive-dimensional construction, dimension-zero constant curve and original rational residue field. No projectivity, immersion or rational good-open point is assumed."
+      }
+    ]
+  }
 }
