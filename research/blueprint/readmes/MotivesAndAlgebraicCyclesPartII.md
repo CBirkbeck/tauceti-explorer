@@ -10,6 +10,8 @@ All rings are commutative and unital. Banach-ring maps are contractive. Complete
 
 Choose a universe and an uncountable regular cardinal cutoff κ before constructing the sites. Category-valued descent, slices, tensor products and changes of cutoff are enhanced constructions. D(Z) denotes the stable infinity-category of complexes of abelian groups; statements involving it retain the enhancement. Dfin is formed from hypercomplete derived arc-sheaves. Left completion and derived inverse limits are part of the conventions. The ordinary triangulated derived category appears only through the homotopy-category compatibility check.
 
+For the discrete-field mapping formula the normalization is Map(M(X)(−j),Z)_Q≃K(X)_Q^(j)[−2j], so π_i=K_{i+2j}(X)_Q^(j). This follows from the Tate convention and is checked on P¹ in BM.10.
+
 Use cohomological shifts: an abelian group placed in degree zero and shifted by [−1] lies in degree one. The effective Tate object is the reduced free G_m motive shifted by [−1]. It is Z at the usual complex point, the sign object at the real point, and Gbar_m[−1] on the nonarchimedean locus. Negative Tate powers are introduced by stabilization. Kmot is spectrum-valued integrally; its rational Tate decomposition lives in the rational linear category. For a residue field of characteristic zero the residue-characteristic exponent is p=1; otherwise it is its characteristic prime. Prime inversion and derived prime-to-p completion always name this exponent.
 
 The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Three existing declarations are used directly:
@@ -54,7 +56,7 @@ Construct the finite-surjectivity arc-site, small arc-stacks, its strictly total
 
 ### Compact assembly of seminormed rings
 
-**Theorem — `BM.0/seminormed-assembly`.** The category of commutative unital seminormed rings and contractive maps has filtered colimits commuting with finite limits and every object is a sequential colimit along weakly compact maps; hence it is compactly assembled. A map f:X→Y is weakly compact when every Y→colim_i Z_i factors after composition with f through some Z_i. This assertion is not made for complete Banach rings.
+**Theorem — `BM.0/seminormed-assembly`.** The category of commutative unital seminormed rings and contractive maps has filtered colimits commuting with finite limits and is generated under colimits by objects admitting a sequential presentation along weakly compact maps; hence it is compactly assembled. A map f:X→Y is weakly compact when every Y→colim_i Z_i factors after composition with f through some Z_i. This assertion is not made for complete Banach rings.
 
 **Hypotheses and conventions.** Seminorms may vanish identically; the zero ring is allowed. Use the nonstable definition of compact assembly and a fixed universe.
 
@@ -63,7 +65,7 @@ Construct the finite-surjectivity arc-site, small arc-stacks, its strictly total
 1. Import the nonstable compact-assembly criterion requested from E5. Express a free generator of radius r as the colimit of radii r′>r; contraction of radii gives weakly compact transition maps.
 2. Present arbitrary seminormed rings by free rings and impose relations by finite limits/colimits; verify filtered colimits commute with the finite limits in this category. Completion is a separate functor, so the argument does not assert compact assembly after completion.
 
-**Acceptance.** Verify the lifting condition is imposed on the composite from X, not on Y. The Banach completion functor must not be used to transfer the conclusion without proof.
+**Acceptance.** Verify the lifting condition is imposed on the composite from X, not on Y. The Banach completion functor must not be used to transfer the conclusion without proof. Check generation under colimits by sequential weakly compact presentations; do not require every object itself to have such a presentation.
 
 **Direct prerequisites.** `TropicalAndBerkovichArithmetic:TB.0/banach-ring-category`, `EnhancedDerivedSheaves:E5:presentability`.
 
@@ -185,7 +187,7 @@ Construct the finite-surjectivity arc-site, small arc-stacks, its strictly total
 
 ### Quasi-pro-étale Banach maps
 
-**Definition — `BM.0/quasi-pro-etale`.** A map A→B is quasi-pro-étale if for each geometric point A→C with C nondiscrete algebraically closed, the uniform completion of B⊗̂_A C is Cont(S,C) for a profinite set S. Over a strictly totally disconnected base X these maps identify with profinite sets over M(X).
+**Definition — `BM.0/quasi-pro-etale`.** A map A→B is quasi-pro-étale if for each geometric point A→C with C nondiscrete algebraically closed, the uniform completion of B⊗̂_A C is Cont(S,C) for a profinite set S. If both A and B are strictly totally disconnected, such maps A→B identify with profinite sets over M(A).
 
 **Hypotheses and conventions.** Base change includes uniform completion; use continuous C-valued functions with the supremum norm.
 
@@ -194,18 +196,18 @@ Construct the finite-surjectivity arc-site, small arc-stacks, its strictly total
 **API.**
 
 - `qproet_base_change` (functoriality): Quasi-pro-étale maps are stable under base change and composition.
-- `qproet_strict_equivalence` (equivalence): Over a strict base the fibre description yields profinite sets over its spectrum.
+- `qproet_strict_equivalence` (equivalence): For A strictly totally disconnected, the category of quasi-pro-étale A-algebras B that are also strictly totally disconnected is equivalent to profinite sets over M(A).
 - `qproet_clopen` (compatibility): Clopen restrictions are quasi-pro-étale.
 
 **Checks.**
 
 - **Check `identity`** (degenerate): The identity corresponds to a one-point fibre.
-- **Check `profinite_fibre`** (computation): An infinite profinite S gives Cont(S,C), which need not be a finite étale C-algebra.
+- **Check `profinite_fibre`** (computation): For C nondiscrete algebraically closed and an infinite profinite S, Cont(S,C) is strictly totally disconnected and quasi-pro-étale over C, but need not be finite étale over C.
 - **Check `ball_nonexample`** (non-example): A positive-dimensional closed ball over C is not quasi-pro-étale: its spectrum is not a profinite geometric fibre.
 
 **Construction or proof.**
 
-1. Use the strict-basis description and clopen gluing to construct the profinite-set equivalence.
+1. For both source and target strictly totally disconnected, use the strict-basis description and clopen gluing to construct the profinite-set equivalence.
 2. Check the condition pointwise and prove stability under completed base change and composition.
 
 **Acceptance.** Show analytic covers of strict bases are quasi-pro-étale.
@@ -459,11 +461,11 @@ Construct integral effective motivic sheaves, the explicit ball localization, fr
 **Construction or proof.**
 
 1. Define the local objects for the displayed maps; use uniformization to remove any ambiguity in the free ball algebra.
-2. Use finite-dimensional proper base change and the strict basis to test ball invariance on nondiscrete algebraically closed Banach fields; this also proves closure under colimits.
+2. Use finite-dimensional proper base change and the strict basis to test ball invariance on nondiscrete algebraically closed Banach fields; this also proves closure under colimits. Import the Berkovich closed-disc tree geometry and the requested residue Galois bounds for the dimension estimate.
 
 **Acceptance.** Prove d(C⟨T⟩₁)≤3; the complex case has bound 2, the nonarchimedean tree contributes 1 and residue Galois dimension at most 2.
 
-**Direct prerequisites.** [BM.1/finitary-category](#finitary-category), [BM.1/proper-base-change](#proper-base-change), `TropicalAndBerkovichArithmetic:TB.0/affinoid-algebras`, `DiamondEtaleCohomology:C8`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`.
+**Direct prerequisites.** [BM.1/finitary-category](#finitary-category), [BM.1/proper-base-change](#proper-base-change), `TropicalAndBerkovichArithmetic:TB.0/affinoid-algebras`, `DiamondEtaleCohomology:C8`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`, `TropicalAndBerkovichArithmetic:TB.1/gauss-line-and-discs`, `TropicalAndBerkovichArithmetic:TB.1/tree-hyperbolic-metric`.
 
 **Source.** [Peter Scholze, *Berkovich motives*](https://arxiv.org/abs/2412.03382v3), §5, Definitions 5.1–5.2, Lemma 5.3, Corollaries 5.4–5.5, pp. 26–27. Effective motives impose closed-unit-ball invariance inside finitary sheaves.
 
@@ -508,9 +510,9 @@ Construct integral effective motivic sheaves, the explicit ball localization, fr
 
 ### Rational homotopy t-structure
 
-**Theorem — `BM.2/homotopy-rational`.** Deff_mot(X,Q) is closed under truncations in Dfin(X,Q). Its induced t-structure is the rational homotopy t-structure. In the nonarchimedean setting Q(1)=Gbar_m⊗Q[−1] has the shift determined by this formula; the complex-point Tate object is instead Q in degree zero.
+**Theorem — `BM.2/homotopy-rational`.** Deff_mot(X,Q) is closed under truncations in Dfin(X,Q). Its induced t-structure is the rational homotopy t-structure.
 
-**Hypotheses and conventions.** X is a small arc-stack; the nonarchimedean reduced-unit description is not imposed on the archimedean locus.
+**Hypotheses and conventions.** X is a small arc-stack; the archimedean and nonarchimedean geometric-point arguments are treated separately.
 
 **Construction or proof.**
 
@@ -1021,15 +1023,15 @@ Prove Tate cancellation over arbitrary small arc-stacks, including the explicit 
 
 **Lemma — `BM.5/rational-cancellation-inverse`.** Over a nondiscrete algebraically closed nonarchimedean field C, for each finitary sheaf of sets U and i≥0, construct a natural operation from π_i Hom(Qmot[(G_m,*)],Qmot[U×(G_m,*)]) to eventually defined sequences in π_i Qmot[U]. Its composite with the Tate unit is the constant sequence, it kills the basepoint summand, and its other composite becomes the identity using Tate interchange.
 
-**Hypotheses and conventions.** A sequence is identified after restricting to all sufficiently large integers N. Use finite étale multivalued spaces with multiplicities; their points need not remain distinct.
+**Hypotheses and conventions.** A sequence is identified after restricting to all sufficiently large integers N. Use étale multivalued spaces with finite geometric fibres and multiplicities; these étale spaces may be nonseparated as points collide.
 
 **Construction or proof.**
 
-1. Represent a class on a closed annulus times a subdivided simplicial sphere using the explicit-free formula. Form Y₁ from the Nth-root-of-unity discs and Y₂ from p₁^N=p₂ in the multivalued graph. For sufficiently large N both fibre over finite étale spaces with open-ball fibres.
+1. Represent a class on a closed annulus times a subdivided simplicial sphere using the explicit-free formula. Form Y₁ from the Nth-root-of-unity discs and Y₂ from p₁^N=p₂ in the multivalued graph. For sufficiently large N both fibre over étale spaces with finite geometric fibres and open-ball fibres; the étale spaces need not be separated.
 2. Sum the induced maps to N[U] with multiplicities and take their difference. On the unit image the counts are N and N−1, hence the difference is one; on the basepoint summand they coincide.
 3. Check invariance under all representing homotopies and refinements. Use the noncoherent swap lemma twice to prove the other composite is the identity.
 
-**Acceptance.** Check N−(N−1)=1 including residue-characteristic multiplicities. No claim that a fixed N works for every homotopy class.
+**Acceptance.** Check N−(N−1)=1 including residue-characteristic multiplicities. No claim that a fixed N works for every homotopy class. Allow the nonseparated étale spaces needed at collisions; finiteness of geometric fibres does not make these finite étale morphisms.
 
 **Direct prerequisites.** [BM.4/explicit-free](#explicit-free), [BM.4/transfers](#transfers), [BM.3/annulus-compactness](#annulus-compactness), [BM.5/tate-permutation](#tate-permutation), `TropicalAndBerkovichArithmetic:TB.1/gauss-line-and-discs`.
 
@@ -1638,7 +1640,7 @@ Prove compact generation at nondiscrete geometric points, relative rigidity, qua
 
 ## BM.10 — Integral algebraic étale motives
 
-Construct the presentable stable infinity-category of integral algebraic étale motives over a field and its comparison maps. For algebraically closed discrete fields prove compact dualizable generation, rational K-theory and prime-to-characteristic completed mapping formulas, and equivalence with Berkovich motives.
+Construct the presentable stable infinity-category of integral algebraic étale motives over a field and its comparison maps. For algebraically closed discrete fields prove compact dualizable generation, rational K-theory and prime-to-characteristic completed mapping formulas, and equivalence with Berkovich motives. Normalize the rational mapping spectrum by K(X)_Q^(j)[−2j], with π_i=K_{i+2j}(X)_Q^(j).
 
 **Worked example.** Put k=F_pbar with the trivial norm and take X=Spec(k). Filtered continuity from finite fields gives K(k)_Q=Q in degree zero. The rational mapping formula therefore gives Map(Z(−j),Z)_Q=Q[0] for j=0 and zero for j≠0. After completion away from p, the same maps are Zhat_{p′}(j), with the Tate-module twist retained. Rational and finite-coefficient sectors thus behave differently; identifying them would destroy the integral comparison. The projective-line formula Zmot[P¹_k]=Z⊕Z(1)[2] fixes the common Tate normalization on its two sides.
 
@@ -1669,11 +1671,11 @@ Construct the presentable stable infinity-category of integral algebraic étale 
 1. Start with enhanced derived presheaves on Sm/k, impose étale local descent and the A¹ projection equivalences by presentable monoidal localization.
 2. Apply coherent Tate inversion. Use the parent geometric-motive and M.5a transfer constructions only for their actual Nisnevich/geometric range; the étale enhancement and comparison to that partial input are the present target and the explicit M.5a request.
 
-**Acceptance.** Show the stated universal property in presentable symmetric monoidal Z-linear categories. Document the topology and enhancements in the comparison to the parent construction.
+**Acceptance.** Show the stated universal property in presentable symmetric monoidal Z-linear categories. Document the topology and enhancements in the comparison to the parent construction. For positive characteristic, retain the coefficient restrictions in the cited transfer-free comparison; Corollary 5.5.5 alone does not compare a transfer-free presentation.
 
 **Direct prerequisites.** `MotivesAndAlgebraicCycles:MC.4/effective-geometric-motives`, `MotivicEtaleKTheory:M.5a`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:abstract/verdier-quotient`, `EnhancedDerivedSheaves:E5:abstract/formal-tensor-inversion`.
 
-**Source.** [Peter Scholze, *Berkovich motives*](https://arxiv.org/abs/2412.03382v3), §11, Remark 11.2, p. 57; Cisinski–Déglise, §§2.2, 5.1, 5.5, pp. 25–27, 42–44, 53–56. The integral presentable étale category must be distinguished from the parent’s geometric triangulated Nisnevich category. [Denis-Charles Cisinski and Frédéric Déglise, *Étale motives*](https://arxiv.org/abs/1305.5361v4), §2.2, pp. 25–27; §5.1, pp. 42–44; Corollary 5.5.5, pp. 55–56 (arXiv v4 pagination). The derived étale-with-transfer and h-motive models have a comparison over fields, supplying algebraic models for the enhanced universal construction.
+**Source.** [Peter Scholze, *Berkovich motives*](https://arxiv.org/abs/2412.03382v3), §11, Remark 11.2, p. 57; Cisinski–Déglise, §§2.2, 5.1, 5.5, pp. 25–27, 42–44, 53–56. The integral presentable étale category must be distinguished from the parent’s geometric triangulated Nisnevich category. [Denis-Charles Cisinski and Frédéric Déglise, *Étale motives*](https://arxiv.org/abs/1305.5361v4), §2.2, pp. 25–27; §5.1, pp. 42–44; Corollaries 5.5.5 and 5.5.7, pp. 55–56 (arXiv v4 pagination). Corollary 5.5.5 compares the with-transfer and h models over fields. Corollary 5.5.7 gives the transfer-free comparison only in characteristic zero or with 2 invertible; the full enhanced integral bridge is an explicit supplier request.
 
 **Atlas planet:** Algebraic étale motives.
 
@@ -1688,9 +1690,9 @@ Construct the presentable stable infinity-category of integral algebraic étale 
 **Construction or proof.**
 
 1. Let K=k((T)) with |T|=1/2. Annulus continuity identifies f_*Z for f:Marc(K)→Marc(k) with Z⊕Z(−1)[−1], a dualizable object.
-2. Use good-reduction generators over K to construct f♯. Its value on the unit is dual to f_*Z and compact, with the unit as a retract. Conservativity of f* and the good-reduction generators descend generation to k.
+2. Apply the geometric-point good-reduction argument over the completed algebraic closure of K, and descend the finite-presentation data together with Artin motives through finite extensions of K. Each finite extension is again a Laurent-series field over k, so the same split-pushforward calculation applies. This gives f♯ on generators, and hence in general, with f♯Z dual to f_*Z and compact. Its unit retract is compact; conservativity of f* and the descended good-reduction generators give the stated generation over k.
 
-**Acceptance.** The generator twists here range over every integer. Together with BM.9 this covers both discrete and nondiscrete algebraically closed Banach fields.
+**Acceptance.** The generator twists here range over every integer. Together with BM.9 this covers both discrete and nondiscrete algebraically closed Banach fields. Do not apply the algebraically closed field theorem directly to nonclosed K=k((T)); include the finite-extension Artin generators in the descent argument.
 
 **Direct prerequisites.** [BM.9/geometric-rigidity](#geometric-rigidity), [BM.3/annulus-compactness](#annulus-compactness), [BM.9/general-proper-push](#general-proper-push), [BM.8/stable](#stable), [BM.2/effective-adjoints](#effective-adjoints).
 
@@ -1702,35 +1704,35 @@ Construct the presentable stable infinity-category of integral algebraic étale 
 
 ### Mapping formulas for algebraic étale motives
 
-**Theorem — `BM.10/algebraic-mapping-input`.** For algebraically closed k, smooth projective X/k and integer j, maps DM_et(k,Z)(M(X)(−j),Z) rationally are the weight-j summand of K(X)_Q, and after prime-to-char(k) completion are RΓ_proet(X,Zhat_{p′}(j)). These formulas and compact dualizable smooth-projective generators detect the algebraic comparison.
+**Theorem — `BM.10/algebraic-mapping-input`.** For algebraically closed k, smooth projective X/k and integer j, Map_DM_et(k,Z)(M(X)(−j),Z)_Q≃K(X)_Q^(j)[−2j], and after prime-to-char(k) completion the mapping spectrum is RΓ_proet(X,Zhat_{p′}(j)). These formulas and compact dualizable smooth-projective generators detect the algebraic comparison.
 
-**Hypotheses and conventions.** For the rational grading, π_i of the mapping spectrum is K_i(X)_Q in Adams weight j. Completion and mapping spectra are derived; use p=1 in characteristic zero.
+**Hypotheses and conventions.** With cohomological shifts and homotopy groups π_i, the rational formula is π_i Map(M(X)(−j),Z)_Q=K_{i+2j}(X)_Q^(j); the shift cannot be suppressed. Completion and mapping spectra are derived; use p=1 in characteristic zero.
 
 **Construction or proof.**
 
 1. Use the requested M.5a transfer/étale enhancement bridge to the algebraic derived model. Apply Cisinski–Déglise rigidity for torsion and their rational Beilinson comparison on regular schemes; S.6 identifies the gamma-graded terms with Adams weights.
 2. Use étale descent, the prime-to-characteristic torsion rigidity theorem and rational alteration traces together with localization and Tate inversion to obtain smooth-projective compact dualizable generation. The rational use of alteration degrees is legitimate after rationalization; no integral prime-to-coefficient alteration degree is assumed. EDS enhancement gives mapping-spectrum comparisons.
 
-**Acceptance.** The source’s triangulated comparisons must be realized by the actual enhanced functors; a list of isomorphic Hom groups alone is insufficient. Record the request for the prime-to-characteristic completed/pro-étale realization, rather than dropping the completion.
+**Acceptance.** The source’s triangulated comparisons must be realized by the actual enhanced functors; a list of isomorphic Hom groups alone is insufficient. Record the request for the prime-to-characteristic completed/pro-étale realization, rather than dropping the completion. For X=P¹_k and j=1, π_{−2} is K_0(P¹_k)_Q^(1)=Q, while π_0=H⁰(P¹_k,Q(1))=0. An unshifted K spectrum fails this check.
 
 **Direct prerequisites.** [BM.10/algebraic-etale](#algebraic-etale), `MotivicEtaleKTheory:M.5a`, `SchemeKTheoryOperations:S.6`, `AdicCoefficientsAndComparisons:L5`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E2`.
 
-**Source.** [Denis-Charles Cisinski and Frédéric Déglise, *Étale motives*](https://arxiv.org/abs/1305.5361v4), Cisinski–Déglise, Theorem 4.5.2, p. 41; Theorem 5.2.2, pp. 44–45; Corollary 5.5.5, pp. 55–56; Scholze, Remark 11.2, p. 57. Torsion rigidity and rational regular-scheme K-comparison supply the algebraic side of the comparison.
+**Source.** [Denis-Charles Cisinski and Frédéric Déglise, *Étale motives*](https://arxiv.org/abs/1305.5361v4), Cisinski–Déglise, Theorem 4.5.2, p. 41; Theorem 5.2.2, p. 44 (proof p. 47); Corollaries 5.5.5 and 5.5.7, pp. 55–56; Scholze, Remark 11.2, p. 57. The formula Hom(Q_X,Q_X(j)[q])=Gr^j_γ K_{2j−q}(X)_Q fixes the shift, and torsion rigidity supplies the completed side; the enhanced transfer-free bridge remains requested.
 
 <a id="discrete-mapping"></a>
 
 ### Motivic mapping formulas over a discrete field
 
-**Theorem — `BM.10/discrete-mapping`.** For k algebraically closed with trivial norm, smooth projective X/k and j∈Z, Map_Dmot(k)(Zmot[X](−j),Z) rationally is the weight-j piece of K(X)_Q and after prime-to-characteristic profinite completion is RΓ_proet(X,Zhat_{p′}(j)).
+**Theorem — `BM.10/discrete-mapping`.** For k algebraically closed with trivial norm, smooth projective X/k and j∈Z, Map_Dmot(k)(Zmot[X](−j),Z)_Q≃K(X)_Q^(j)[−2j], so π_i is K_{i+2j}(X)_Q^(j). After prime-to-characteristic profinite completion the mapping spectrum is RΓ_proet(X,Zhat_{p′}(j)).
 
-**Hypotheses and conventions.** Use derived completion and the homological grading specified for the algebraic mapping input.
+**Hypotheses and conventions.** Use derived completion and cohomological shifts, with the same π_i grading as in the algebraic mapping input.
 
 **Construction or proof.**
 
 1. Pass to a completed algebraic closure C of k((T)) and apply the smooth-completion K formula. The support localization sequence compares K(X_OC), K(X_C) and K(X).
 2. TT supported excision reduces the special-fibre support term to K(X); its Adams weight shifts by one. Induct on weight to match this extra summand with the Laurent-series f♯Z summand. Torsion maps follow from the effective torsion theorem and inverse limits of finite coefficients.
 
-**Acceptance.** Check the weight shift in the support term and the Laurent-series [−1] shift together. Negative rational weights vanish in the specified smooth regular range.
+**Acceptance.** Check the weight shift in the support term and the Laurent-series [−1] shift together. Negative rational weights vanish in the specified smooth regular range. Check the j=1 projective-line summand occurs at π_{−2}, not π_0; see E6 for the omitted source shift.
 
 **Direct prerequisites.** [BM.10/discrete-generators](#discrete-generators), [BM.7/smooth-completion-k](#smooth-completion-k), [BM.6/k-adams](#k-adams), `SchemeKTheoryOperations:S.3/derived-closed-base-change-excision`, `SchemeKTheoryOperations:S.6`, [BM.4/torsion-comparison](#torsion-comparison), `EnhancedDerivedSheaves:E2`.
 
@@ -2267,7 +2269,7 @@ The enhanced proper-support homology of quasicompact smooth diamond domains and 
 
 ### Interface 28: `MotivicEtaleKTheory:M.5a`
 
-The finite-correspondence, Nisnevich-transfer and cancellation inputs in their existing range, plus the precise integral étale change-of-topology and transfer-free/with-transfer comparison over algebraically closed fields. The presentable infinity enhancement, positive-characteristic coefficient inversion and map-level comparison must be specified; the existing bounded Nisnevich theory is only partial.
+The finite-correspondence, Nisnevich-transfer and cancellation inputs in their existing range, plus the precise integral étale change-of-topology and transfer-free/with-transfer comparison over algebraically closed fields. The presentable infinity enhancement, positive-characteristic coefficient inversion and map-level comparison must be specified; the existing bounded Nisnevich theory is only partial. Cisinski–Déglise Corollary 5.5.7 directly covers characteristic-zero bases or coefficients with 2 invertible. In positive odd characteristic, inversion of the characteristic alone leaves a 2-primary comparison to justify separately; Corollary 5.5.5 is a with-transfer comparison and does not supply that missing bridge.
 
 **Consumers:** [BM.10/algebraic-etale](#algebraic-etale), [BM.10/algebraic-mapping-input](#algebraic-mapping-input).
 
@@ -2333,7 +2335,7 @@ Every source description and mathematical statement in this document is original
 
 - [Siegfried Bosch, Werner Lütkebohmert and Michel Raynaud, *Néron Models*](https://doi.org/10.1007/978-3-642-51438-8). Ergebnisse der Mathematik und ihrer Grenzgebiete (3) 21, Springer, 1990. Read 19 October 2026. Maintainer-cleared copy read in place: §9.2, pp. 243–249, especially Proposition 3, Example 8 and Proposition 10. Used for proper Picard and nodal normalization background; not claimed as a direct reduced-modulus marked-Picard theorem. No source file or passage is included.
 
-- [Denis-Charles Cisinski and Frédéric Déglise, *Étale motives*](https://arxiv.org/abs/1305.5361v4). arXiv:1305.5361v4, 5 December 2014; published Compositio Math. 152 (2016), 556–666. Read 19 October 2026. Read §2.2, pp. 25–27; §4.5, p. 41; §5.2, pp. 44–45; the comparison construction and Theorem 5.5.3/Corollary 5.5.5 with proofs, pp. 53–56. Locators use arXiv v4 internal pagination. The infinity-enhancement and transfer-free comparison are explicit supplier contracts, not attributed to an unstated theorem here.
+- [Denis-Charles Cisinski and Frédéric Déglise, *Étale motives*](https://arxiv.org/abs/1305.5361v4). arXiv:1305.5361v4, 5 December 2014; published Compositio Math. 152 (2016), 556–666. Read 19 October 2026. Read §2.2, pp. 25–28; §4.5, p. 41; §5.2, theorem p. 44 and proof p. 47; the comparison construction, Theorem 5.5.3 and Corollaries 5.5.5/5.5.7 with proofs, pp. 53–56. Locators use arXiv v4 internal pagination. The infinity-enhancement and full transfer-free comparison are explicit supplier contracts, with the characteristic-zero or 2-invertible range of Corollary 5.5.7 retained.
 
 The marked Jacobian construction uses the Picard and normalization background of Bosch–Lütkebohmert–Raynaud, §9.2, Proposition 3, Example 8 and Proposition 10, pp. 244–249. Its reduced-modulus torus quotient is constructed here with explicit trivializations and the diagonal scalar action; the whole marked theorem is not attributed to that book. Van der Put, Corollary 1.3, p. 159, gives missing smooth points in a reduction. The stronger disjoint-disc boundary refinement and rational-section control are a separate analytic supplier contract.
 
@@ -2343,7 +2345,7 @@ Two corrections already recorded by the paper extraction are respected: the fini
 
 ## Local source calculations requiring correction
 
-These findings concern the inspected preprint and author copy, not the inaccessible version of record. They are unreviewed source findings, with the correction search recorded in the packet.
+These findings concern the inspected preprint and author copy, not the inaccessible version of record. The independent review confirms E1–E5 and adds E6; the correction search and individual verdicts are recorded in the packet.
 
 ### E1 — §6, proof of Lemma 6.5, p. 38, polynomial root-containment calculation (arXiv v3; same expressions in the author copy).
 
@@ -2385,4 +2387,12 @@ The coefficient bound for a monic polynomial with constant coefficient a₀ and 
 
 **Verification.** Over C₂, take T²+T/2+4 with |2|=1/2 and r₁=1/4, r₂=4. Its constant coefficient has norm 1/4 in (r₁²,r₂²), and |a₁|=2 is less than the displayed maximum 4. Newton slopes give root norms 2 and 1/8, so one root is outside the annulus. The corrected minimum is 1 and excludes this polynomial. With the corrected minimum the fixed-a₀ fibre is still an open polydisc and the motive argument is preserved.
 
-The author’s linked copy was checked at pp. 35 and 38 on 19 October 2026; the same expressions remain. The arXiv submission history still ends at v3. The author’s paper list has no separate Berkovich-motives correction link, and the Crossref record has no correction relation or update entry. The version-of-record PDF returned HTTP 403. These bounded searches do not establish that no correction exists elsewhere.
+The author’s linked copy was checked at pp. 35, 38 and 57 on 19 October 2026; the same expressions remain. The arXiv submission history still ends at v3. The author’s paper list has no separate Berkovich-motives correction link, and the Crossref record has no correction relation or update entry. The version-of-record PDF returned HTTP 403. These bounded searches do not establish that no correction exists elsewhere.
+
+### E6 — §11, Theorem 11.1, p. 57, rational mapping-spectrum formula (arXiv v3 and author copy).
+
+The rational mapping object from Zmot[X](−j) to Z is identified with the weight-j K-theory piece without a grading shift.
+
+**Corrected calculation.** With Z(1) the reduced G_m motive shifted by [−1], Map(Zmot[X](−j),Z)_Q is K(X)_Q^(j)[−2j]; equivalently its π_i is K_{i+2j}(X)_Q^(j).
+
+**Verification.** The rational splitting Kmot_Q=⊕_n Q(n)[2n] in Proposition 8.5 fixes the [−2j] shift. Independently, Cisinski–Déglise Theorem 5.2.2, p. 44, gives Hom(Q_X,Q_X(j)[q])=Gr^j_γ K_{2j−q}(X)_Q. For X=P¹ and j=1, the Picard K_0 weight occurs at π_{−2}, whereas π_0=H⁰(P¹,Q(1))=0. The version of record was not inspected.

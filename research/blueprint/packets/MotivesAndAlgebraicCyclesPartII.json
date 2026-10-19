@@ -49,7 +49,8 @@
     "audit": [
       "Reviewed library-coverage entries E2, E5 and M.5a: existing ordinary derived/condensed tools do not supply this enhanced motivic construction. TB.0 and MC.4 have no dedicated accepted audit entry; their packet contracts were read directly.",
       "Searched the pinned Mathlib and Tau Ceti sources, the current Tau Ceti library and current TauCetiRoadmap main for Berkovich/arc/motivic/stable-infinity carriers; the exact new carriers were not found. Existing normed-field and site structures are cited, not replanned.",
-      "Read current upstream AdicSpaces and JacobianChallenge roadmaps and their suggested forms; checked the nine roadmaps newer than the atlas snapshot for relevant overlap. The current library and roadmap checkout were read only."
+      "Read current upstream AdicSpaces and JacobianChallenge roadmaps and their suggested forms; checked the nine roadmaps newer than the atlas snapshot for relevant overlap. The current library and roadmap checkout were read only.",
+      "Independent review rechecked all three declaration bodies at the pins. Current single-section rigidified line bundles/Picard functors remain ordinary Jacobian supplier infrastructure; they do not provide the multi-marked degree-zero semiabelian extension. The nine newer upstream roadmaps have no overlapping Berkovich-motive target."
     ]
   },
   "sources": [
@@ -97,7 +98,7 @@
       "sha256": "46f6f656956cb1236b295e0339ac189adf64e3e8dd15169b3d993e64b786f8f4",
       "accessed": "2026-10-19",
       "readSections": [
-        "Read §2.2, pp. 25–27; §4.5, p. 41; §5.2, pp. 44–45; the comparison construction and Theorem 5.5.3/Corollary 5.5.5 with proofs, pp. 53–56. Locators use arXiv v4 internal pagination. The infinity-enhancement and transfer-free comparison are explicit supplier contracts, not attributed to an unstated theorem here."
+        "Read §2.2, pp. 25–28; §4.5, p. 41; §5.2, theorem p. 44 and proof p. 47; the comparison construction, Theorem 5.5.3 and Corollaries 5.5.5/5.5.7 with proofs, pp. 53–56. Locators use arXiv v4 internal pagination. The infinity-enhancement and full transfer-free comparison are explicit supplier contracts, with the characteristic-zero or 2-invertible range of Corollary 5.5.7 retained."
       ]
     }
   ],
@@ -110,7 +111,7 @@
       ],
       "title": "Compact assembly of seminormed rings",
       "kind": "theorem",
-      "statement": "The category of commutative unital seminormed rings and contractive maps has filtered colimits commuting with finite limits and every object is a sequential colimit along weakly compact maps; hence it is compactly assembled. A map f:X→Y is weakly compact when every Y→colim_i Z_i factors after composition with f through some Z_i. This assertion is not made for complete Banach rings.",
+      "statement": "The category of commutative unital seminormed rings and contractive maps has filtered colimits commuting with finite limits and is generated under colimits by objects admitting a sequential presentation along weakly compact maps; hence it is compactly assembled. A map f:X→Y is weakly compact when every Y→colim_i Z_i factors after composition with f through some Z_i. This assertion is not made for complete Banach rings.",
       "hypotheses": [
         "Seminorms may vanish identically; the zero ring is allowed.",
         "Use the nonstable definition of compact assembly and a fixed universe."
@@ -132,7 +133,8 @@
       ],
       "acceptance": [
         "Verify the lifting condition is imposed on the composite from X, not on Y.",
-        "The Banach completion functor must not be used to transfer the conclusion without proof."
+        "The Banach completion functor must not be used to transfer the conclusion without proof.",
+        "Check generation under colimits by sequential weakly compact presentations; do not require every object itself to have such a presentation."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -406,12 +408,12 @@
       ],
       "title": "Quasi-pro-étale Banach maps",
       "kind": "definition",
-      "statement": "A map A→B is quasi-pro-étale if for each geometric point A→C with C nondiscrete algebraically closed, the uniform completion of B⊗̂_A C is Cont(S,C) for a profinite set S. Over a strictly totally disconnected base X these maps identify with profinite sets over M(X).",
+      "statement": "A map A→B is quasi-pro-étale if for each geometric point A→C with C nondiscrete algebraically closed, the uniform completion of B⊗̂_A C is Cont(S,C) for a profinite set S. If both A and B are strictly totally disconnected, such maps A→B identify with profinite sets over M(A).",
       "hypotheses": [
         "Base change includes uniform completion; use continuous C-valued functions with the supremum norm."
       ],
       "proofSteps": [
-        "Use the strict-basis description and clopen gluing to construct the profinite-set equivalence.",
+        "For both source and target strictly totally disconnected, use the strict-basis description and clopen gluing to construct the profinite-set equivalence.",
         "Check the condition pointwise and prove stability under completed base change and composition."
       ],
       "prerequisites": [
@@ -445,7 +447,7 @@
         },
         {
           "name": "qproet_strict_equivalence",
-          "statement": "Over a strict base the fibre description yields profinite sets over its spectrum.",
+          "statement": "For A strictly totally disconnected, the category of quasi-pro-étale A-algebras B that are also strictly totally disconnected is equivalent to profinite sets over M(A).",
           "role": "equivalence"
         },
         {
@@ -462,7 +464,7 @@
         },
         {
           "name": "profinite_fibre",
-          "statement": "An infinite profinite S gives Cont(S,C), which need not be a finite étale C-algebra.",
+          "statement": "For C nondiscrete algebraically closed and an infinite profinite S, Cont(S,C) is strictly totally disconnected and quasi-pro-étale over C, but need not be finite étale over C.",
           "kind": "computation"
         },
         {
@@ -954,14 +956,16 @@
       ],
       "proofSteps": [
         "Define the local objects for the displayed maps; use uniformization to remove any ambiguity in the free ball algebra.",
-        "Use finite-dimensional proper base change and the strict basis to test ball invariance on nondiscrete algebraically closed Banach fields; this also proves closure under colimits."
+        "Use finite-dimensional proper base change and the strict basis to test ball invariance on nondiscrete algebraically closed Banach fields; this also proves closure under colimits. Import the Berkovich closed-disc tree geometry and the requested residue Galois bounds for the dimension estimate."
       ],
       "prerequisites": [
         "MotivesAndAlgebraicCyclesPartII:BM.1/finitary-category",
         "MotivesAndAlgebraicCyclesPartII:BM.1/proper-base-change",
         "TropicalAndBerkovichArithmetic:TB.0/affinoid-algebras",
         "DiamondEtaleCohomology:C8",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension"
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension",
+        "TropicalAndBerkovichArithmetic:TB.1/gauss-line-and-discs",
+        "TropicalAndBerkovichArithmetic:TB.1/tree-hyperbolic-metric"
       ],
       "sources": [
         {
@@ -1121,9 +1125,9 @@
       ],
       "title": "Rational homotopy t-structure",
       "kind": "theorem",
-      "statement": "Deff_mot(X,Q) is closed under truncations in Dfin(X,Q). Its induced t-structure is the rational homotopy t-structure. In the nonarchimedean setting Q(1)=Gbar_m⊗Q[−1] has the shift determined by this formula; the complex-point Tate object is instead Q in degree zero.",
+      "statement": "Deff_mot(X,Q) is closed under truncations in Dfin(X,Q). Its induced t-structure is the rational homotopy t-structure.",
       "hypotheses": [
-        "X is a small arc-stack; the nonarchimedean reduced-unit description is not imposed on the archimedean locus."
+        "X is a small arc-stack; the archimedean and nonarchimedean geometric-point arguments are treated separately."
       ],
       "proofSteps": [
         "At a nonarchimedean algebraically closed point rational ball cohomology has amplitude [0,1]. The resulting two-column spectral sequence forces each cohomology sheaf of a ball-invariant object to be ball-invariant.",
@@ -2221,10 +2225,10 @@
       "statement": "Over a nondiscrete algebraically closed nonarchimedean field C, for each finitary sheaf of sets U and i≥0, construct a natural operation from π_i Hom(Qmot[(G_m,*)],Qmot[U×(G_m,*)]) to eventually defined sequences in π_i Qmot[U]. Its composite with the Tate unit is the constant sequence, it kills the basepoint summand, and its other composite becomes the identity using Tate interchange.",
       "hypotheses": [
         "A sequence is identified after restricting to all sufficiently large integers N.",
-        "Use finite étale multivalued spaces with multiplicities; their points need not remain distinct."
+        "Use étale multivalued spaces with finite geometric fibres and multiplicities; these étale spaces may be nonseparated as points collide."
       ],
       "proofSteps": [
-        "Represent a class on a closed annulus times a subdivided simplicial sphere using the explicit-free formula. Form Y₁ from the Nth-root-of-unity discs and Y₂ from p₁^N=p₂ in the multivalued graph. For sufficiently large N both fibre over finite étale spaces with open-ball fibres.",
+        "Represent a class on a closed annulus times a subdivided simplicial sphere using the explicit-free formula. Form Y₁ from the Nth-root-of-unity discs and Y₂ from p₁^N=p₂ in the multivalued graph. For sufficiently large N both fibre over étale spaces with finite geometric fibres and open-ball fibres; the étale spaces need not be separated.",
         "Sum the induced maps to N[U] with multiplicities and take their difference. On the unit image the counts are N and N−1, hence the difference is one; on the basepoint summand they coincide.",
         "Check invariance under all representing homotopies and refinements. Use the noncoherent swap lemma twice to prove the other composite is the identity."
       ],
@@ -2244,7 +2248,8 @@
       ],
       "acceptance": [
         "Check N−(N−1)=1 including residue-characteristic multiplicities.",
-        "No claim that a fixed N works for every homotopy class."
+        "No claim that a fixed N works for every homotopy class.",
+        "Allow the nonseparated étale spaces needed at collisions; finiteness of geometric fibres does not make these finite étale morphisms."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3525,13 +3530,14 @@
         },
         {
           "sourceId": "CD",
-          "locator": "§2.2, pp. 25–27; §5.1, pp. 42–44; Corollary 5.5.5, pp. 55–56 (arXiv v4 pagination)",
-          "match": "The derived étale-with-transfer and h-motive models have a comparison over fields, supplying algebraic models for the enhanced universal construction."
+          "locator": "§2.2, pp. 25–27; §5.1, pp. 42–44; Corollaries 5.5.5 and 5.5.7, pp. 55–56 (arXiv v4 pagination)",
+          "match": "Corollary 5.5.5 compares the with-transfer and h models over fields. Corollary 5.5.7 gives the transfer-free comparison only in characteristic zero or with 2 invertible; the full enhanced integral bridge is an explicit supplier request."
         }
       ],
       "acceptance": [
         "Show the stated universal property in presentable symmetric monoidal Z-linear categories.",
-        "Document the topology and enhancements in the comparison to the parent construction."
+        "Document the topology and enhancements in the comparison to the parent construction.",
+        "For positive characteristic, retain the coefficient restrictions in the cited transfer-free comparison; Corollary 5.5.5 alone does not compare a transfer-free presentation."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3594,9 +3600,9 @@
       ],
       "title": "Mapping formulas for algebraic étale motives",
       "kind": "theorem",
-      "statement": "For algebraically closed k, smooth projective X/k and integer j, maps DM_et(k,Z)(M(X)(−j),Z) rationally are the weight-j summand of K(X)_Q, and after prime-to-char(k) completion are RΓ_proet(X,Zhat_{p′}(j)). These formulas and compact dualizable smooth-projective generators detect the algebraic comparison.",
+      "statement": "For algebraically closed k, smooth projective X/k and integer j, Map_DM_et(k,Z)(M(X)(−j),Z)_Q≃K(X)_Q^(j)[−2j], and after prime-to-char(k) completion the mapping spectrum is RΓ_proet(X,Zhat_{p′}(j)). These formulas and compact dualizable smooth-projective generators detect the algebraic comparison.",
       "hypotheses": [
-        "For the rational grading, π_i of the mapping spectrum is K_i(X)_Q in Adams weight j.",
+        "With cohomological shifts and homotopy groups π_i, the rational formula is π_i Map(M(X)(−j),Z)_Q=K_{i+2j}(X)_Q^(j); the shift cannot be suppressed.",
         "Completion and mapping spectra are derived; use p=1 in characteristic zero."
       ],
       "proofSteps": [
@@ -3614,13 +3620,14 @@
       "sources": [
         {
           "sourceId": "CD",
-          "locator": "Cisinski–Déglise, Theorem 4.5.2, p. 41; Theorem 5.2.2, pp. 44–45; Corollary 5.5.5, pp. 55–56; Scholze, Remark 11.2, p. 57",
-          "match": "Torsion rigidity and rational regular-scheme K-comparison supply the algebraic side of the comparison."
+          "locator": "Cisinski–Déglise, Theorem 4.5.2, p. 41; Theorem 5.2.2, p. 44 (proof p. 47); Corollaries 5.5.5 and 5.5.7, pp. 55–56; Scholze, Remark 11.2, p. 57",
+          "match": "The formula Hom(Q_X,Q_X(j)[q])=Gr^j_γ K_{2j−q}(X)_Q fixes the shift, and torsion rigidity supplies the completed side; the enhanced transfer-free bridge remains requested."
         }
       ],
       "acceptance": [
         "The source’s triangulated comparisons must be realized by the actual enhanced functors; a list of isomorphic Hom groups alone is insufficient.",
-        "Record the request for the prime-to-characteristic completed/pro-étale realization, rather than dropping the completion."
+        "Record the request for the prime-to-characteristic completed/pro-étale realization, rather than dropping the completion.",
+        "For X=P¹_k and j=1, π_{−2} is K_0(P¹_k)_Q^(1)=Q, while π_0=H⁰(P¹_k,Q(1))=0. An unshifted K spectrum fails this check."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3642,7 +3649,7 @@
       ],
       "proofSteps": [
         "Let K=k((T)) with |T|=1/2. Annulus continuity identifies f_*Z for f:Marc(K)→Marc(k) with Z⊕Z(−1)[−1], a dualizable object.",
-        "Use good-reduction generators over K to construct f♯. Its value on the unit is dual to f_*Z and compact, with the unit as a retract. Conservativity of f* and the good-reduction generators descend generation to k."
+        "Apply the geometric-point good-reduction argument over the completed algebraic closure of K, and descend the finite-presentation data together with Artin motives through finite extensions of K. Each finite extension is again a Laurent-series field over k, so the same split-pushforward calculation applies. This gives f♯ on generators, and hence in general, with f♯Z dual to f_*Z and compact. Its unit retract is compact; conservativity of f* and the descended good-reduction generators give the stated generation over k."
       ],
       "prerequisites": [
         "MotivesAndAlgebraicCyclesPartII:BM.9/geometric-rigidity",
@@ -3660,7 +3667,8 @@
       ],
       "acceptance": [
         "The generator twists here range over every integer.",
-        "Together with BM.9 this covers both discrete and nondiscrete algebraically closed Banach fields."
+        "Together with BM.9 this covers both discrete and nondiscrete algebraically closed Banach fields.",
+        "Do not apply the algebraically closed field theorem directly to nonclosed K=k((T)); include the finite-extension Artin generators in the descent argument."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3679,9 +3687,9 @@
       ],
       "title": "Motivic mapping formulas over a discrete field",
       "kind": "theorem",
-      "statement": "For k algebraically closed with trivial norm, smooth projective X/k and j∈Z, Map_Dmot(k)(Zmot[X](−j),Z) rationally is the weight-j piece of K(X)_Q and after prime-to-characteristic profinite completion is RΓ_proet(X,Zhat_{p′}(j)).",
+      "statement": "For k algebraically closed with trivial norm, smooth projective X/k and j∈Z, Map_Dmot(k)(Zmot[X](−j),Z)_Q≃K(X)_Q^(j)[−2j], so π_i is K_{i+2j}(X)_Q^(j). After prime-to-characteristic profinite completion the mapping spectrum is RΓ_proet(X,Zhat_{p′}(j)).",
       "hypotheses": [
-        "Use derived completion and the homological grading specified for the algebraic mapping input."
+        "Use derived completion and cohomological shifts, with the same π_i grading as in the algebraic mapping input."
       ],
       "proofSteps": [
         "Pass to a completed algebraic closure C of k((T)) and apply the smooth-completion K formula. The support localization sequence compares K(X_OC), K(X_C) and K(X).",
@@ -3705,7 +3713,8 @@
       ],
       "acceptance": [
         "Check the weight shift in the support term and the Laurent-series [−1] shift together.",
-        "Negative rational weights vanish in the specified smooth regular range."
+        "Negative rational weights vanish in the specified smooth regular range.",
+        "Check the j=1 projective-line summand occurs at π_{−2}, not π_0; see E6 for the omitted source shift."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -4760,7 +4769,7 @@
     },
     {
       "supplier": "MotivicEtaleKTheory:M.5a",
-      "need": "The finite-correspondence, Nisnevich-transfer and cancellation inputs in their existing range, plus the precise integral étale change-of-topology and transfer-free/with-transfer comparison over algebraically closed fields. The presentable infinity enhancement, positive-characteristic coefficient inversion and map-level comparison must be specified; the existing bounded Nisnevich theory is only partial.",
+      "need": "The finite-correspondence, Nisnevich-transfer and cancellation inputs in their existing range, plus the precise integral étale change-of-topology and transfer-free/with-transfer comparison over algebraically closed fields. The presentable infinity enhancement, positive-characteristic coefficient inversion and map-level comparison must be specified; the existing bounded Nisnevich theory is only partial. Cisinski–Déglise Corollary 5.5.7 directly covers characteristic-zero bases or coefficients with 2 invertible. In positive odd characteristic, inversion of the characteristic alone leaves a 2-primary comparison to justify separately; Corollary 5.5.5 is a with-transfer comparison and does not supply that missing bridge.",
       "neededBy": [
         "MotivesAndAlgebraicCyclesPartII:BM.10/algebraic-etale",
         "MotivesAndAlgebraicCyclesPartII:BM.10/algebraic-mapping-input"
@@ -4838,7 +4847,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.0",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: DiamondsAndVStacks:D1, DiamondsAndVStacks:D2, EnhancedDerivedSheaves:E0, EnhancedDerivedSheaves:E2, EnhancedDerivedSheaves:E5:presentability."
       ]
     },
@@ -4846,7 +4854,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.1",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: EnhancedDerivedSheaves:E0, EnhancedDerivedSheaves:E2, EnhancedDerivedSheaves:E5:presentability, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension."
       ]
     },
@@ -4854,7 +4861,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.2",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: DiamondEtaleCohomology:C6, DiamondEtaleCohomology:C8, EnhancedDerivedSheaves:E0, EnhancedDerivedSheaves:E5:presentability, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension."
       ]
     },
@@ -4862,7 +4868,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.3",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: EnhancedDerivedSheaves:E0, TropicalAndBerkovichArithmetic:TB.0."
       ]
     },
@@ -4870,7 +4875,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.4",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: AnalyticStacks:AS.1, DiamondEtaleCohomology:C2, DiamondsAndVStacks:D2, EnhancedDerivedSheaves:E0, EnhancedDerivedSheaves:E5:animation, TropicalAndBerkovichArithmetic:TB.0, tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality, tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme, tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties."
       ]
     },
@@ -4878,7 +4882,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.5",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: EnhancedDerivedSheaves:E5:animation."
       ]
     },
@@ -4886,7 +4889,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.6",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: EnhancedDerivedSheaves:E5:animation, GeneralAlgebraicKTheory:K.2:plus, MotivesAndAlgebraicCycles:MC.2, SchemeKTheoryOperations:S.6."
       ]
     },
@@ -4894,7 +4896,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.7",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: DiamondsAndVStacks:D1, EnhancedDerivedSheaves:E2, EnhancedDerivedSheaves:E5:presentability, GeneralAlgebraicKTheory:K.5, KTheoryFiniteLocalFields:L.2, KTheoryFiniteLocalFields:L.5.",
         "Resolve the recorded ownership gaps in this layer’s prerequisite closure: BM-G1, BM-G2, BM-G3."
       ]
@@ -4903,7 +4904,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.8",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: AnalyticStacks:AS.0."
       ]
     },
@@ -4911,7 +4911,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.9",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: AdicCoefficientsAndComparisons:L5, AnalyticStacks:AS.0, DiamondEtaleCohomology:C8."
       ]
     },
@@ -4919,7 +4918,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.10",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: AdicCoefficientsAndComparisons:L5, EnhancedDerivedSheaves:E0, EnhancedDerivedSheaves:E2, MotivicEtaleKTheory:M.5a, SchemeKTheoryOperations:S.6.",
         "Resolve the recorded ownership gaps in this layer’s prerequisite closure: BM-G1, BM-G2."
       ]
@@ -4928,7 +4926,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.11",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: AnalyticStacks:AS.1, EnhancedDerivedSheaves:E2, KTheoryFiniteLocalFields:L.1.",
         "Resolve the recorded ownership gaps in this layer’s prerequisite closure: BM-G1, BM-G2."
       ]
@@ -4937,7 +4934,6 @@
       "stageId": "MotivesAndAlgebraicCyclesPartII:BM.12",
       "status": "planned",
       "remaining": [
-        "Independent mathematical review of the stated targets, source locators and enhanced coherences.",
         "Supply the exact contracts requested directly in this layer: DiamondEtaleCohomology:C0, DiamondEtaleCohomology:C2, DiamondEtaleCohomology:C4, DiamondEtaleCohomology:C9, DiamondSixOperations:S2, DiamondsAndVStacks:D2, DiamondsAndVStacks:D4, DiamondsAndVStacks:D6, EnhancedDerivedSheaves:E0."
       ]
     }
@@ -4997,7 +4993,7 @@
       "url": "https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf",
       "read": "2026-10-19",
       "sha256": "23a34fdedb928bf43b6d8fad58cc4a4652d2dfdeeeb429a0aabdbc44b17b53c9",
-      "scope": "Pages 35 and 38, for the annulus fibre and line-domain calculations; dated 21 January 2026 on its title page."
+      "scope": "Pages 35, 38 and 57, checking the annulus fibre, line-domain calculations and rational mapping-spectrum grading; dated 21 January 2026 on its title page."
     }
   ],
   "sourceIssues": [
@@ -5015,7 +5011,12 @@
         "arXiv:2412.03382 submission history checked 19 October 2026: v3 remains the latest version.",
         "The author’s papers page and linked BerkovichMotives.pdf, pp. 35 and 38, checked 19 October 2026; the same expressions remain and no separate Berkovich-motives erratum is linked.",
         "Crossref DOI 10.1090/jams/1068 metadata checked 19 October 2026: no relation or update-to correction listed. The version-of-record PDF URL from that record returned HTTP 403; it was not read or compared."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The outer displayed threshold contradicts r₁<1. In the inner disc only the ith factor is small; making other k_j large cannot strengthen its exponent to n. The corrected inequalities exclude both types of forbidden roots and preserve the factorization into Symⁿ(U). Independently recomputed and checked in both inspected PDF copies at the stated locator.",
+        "by": "REV-DESIGN-MotivesAndAlgebraicCyclesPartII"
+      }
     },
     {
       "id": "MotivesAndAlgebraicCyclesPartII/E2",
@@ -5031,7 +5032,12 @@
         "arXiv:2412.03382 submission history checked 19 October 2026: v3 remains the latest version.",
         "The author’s papers page and linked BerkovichMotives.pdf, pp. 35 and 38, checked 19 October 2026; the same expressions remain and no separate Berkovich-motives erratum is linked.",
         "Crossref DOI 10.1090/jams/1068 metadata checked 19 October 2026: no relation or update-to correction listed. The version-of-record PDF URL from that record returned HTTP 403; it was not read or compared."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Subtract 1 using the common denominator. The sign has no effect on the strict one-unit estimate, since the absolute value is unchanged. Independently recomputed and checked in both inspected PDF copies at the stated locator.",
+        "by": "REV-DESIGN-MotivesAndAlgebraicCyclesPartII"
+      }
     },
     {
       "id": "MotivesAndAlgebraicCyclesPartII/E3",
@@ -5047,7 +5053,12 @@
         "arXiv:2412.03382 submission history checked 19 October 2026: v3 remains the latest version.",
         "The author’s papers page and linked BerkovichMotives.pdf, pp. 35 and 38, checked 19 October 2026; the same expressions remain and no separate Berkovich-motives erratum is linked.",
         "Crossref DOI 10.1090/jams/1068 metadata checked 19 October 2026: no relation or update-to correction listed. The version-of-record PDF URL from that record returned HTTP 403; it was not read or compared."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Differences of the two point classes have zero rank coordinate and the computed residue-unit coordinate. The intended containment concerns that image, not a subgroup of Q. Independently recomputed and checked in both inspected PDF copies at the stated locator.",
+        "by": "REV-DESIGN-MotivesAndAlgebraicCyclesPartII"
+      }
     },
     {
       "id": "MotivesAndAlgebraicCyclesPartII/E4",
@@ -5063,7 +5074,12 @@
         "arXiv:2412.03382 submission history checked 19 October 2026: v3 remains the latest version.",
         "The author’s papers page and linked BerkovichMotives.pdf, pp. 35 and 38, checked 19 October 2026; the same expressions remain and no separate Berkovich-motives erratum is linked.",
         "Crossref DOI 10.1090/jams/1068 metadata checked 19 October 2026: no relation or update-to correction listed. The version-of-record PDF URL from that record returned HTTP 403; it was not read or compared."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding mapping calculation gives d times the number of boundary coordinates of the source. For one annular source this is d; the displayed Q^e would incorrectly give e² instead of de in the combined degree-coordinate part. Independently recomputed and checked in both inspected PDF copies at the stated locator.",
+        "by": "REV-DESIGN-MotivesAndAlgebraicCyclesPartII"
+      }
     },
     {
       "id": "MotivesAndAlgebraicCyclesPartII/E5",
@@ -5079,7 +5095,33 @@
         "arXiv:2412.03382 submission history checked 19 October 2026: v3 remains the latest version.",
         "The author’s papers page and linked BerkovichMotives.pdf, pp. 35 and 38, checked 19 October 2026; the same expressions remain and no separate Berkovich-motives erratum is linked.",
         "Crossref DOI 10.1090/jams/1068 metadata checked 19 October 2026: no relation or update-to correction listed. The version-of-record PDF URL from that record returned HTTP 403; it was not read or compared."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Over C₂, take T²+T/2+4 with |2|=1/2 and r₁=1/4, r₂=4. Its constant coefficient has norm 1/4 in (r₁²,r₂²), and |a₁|=2 is less than the displayed maximum 4. Newton slopes give root norms 2 and 1/8, so one root is outside the annulus. The corrected minimum is 1 and excludes this polynomial. With the corrected minimum the fixed-a₀ fibre is still an open polydisc and the motive argument is preserved. Independently recomputed and checked in both inspected PDF copies at the stated locator.",
+        "by": "REV-DESIGN-MotivesAndAlgebraicCyclesPartII"
+      }
+    },
+    {
+      "id": "MotivesAndAlgebraicCyclesPartII/E6",
+      "source": "Scholze",
+      "kind": "misprint",
+      "locator": "§11, Theorem 11.1, p. 57, rational mapping-spectrum formula (arXiv v3 and author copy).",
+      "printed": "The rational mapping object from Zmot[X](−j) to Z is identified with the weight-j K-theory piece without a grading shift.",
+      "correction": "With Z(1) the reduced G_m motive shifted by [−1], Map(Zmot[X](−j),Z)_Q is K(X)_Q^(j)[−2j]; equivalently its π_i is K_{i+2j}(X)_Q^(j).",
+      "reason": "The rational splitting Kmot_Q=⊕_n Q(n)[2n] in Proposition 8.5 fixes the [−2j] shift. Independently, Cisinski–Déglise Theorem 5.2.2, p. 44, gives Hom(Q_X,Q_X(j)[q])=Gr^j_γ K_{2j−q}(X)_Q. For X=P¹ and j=1, the Picard K_0 weight occurs at π_{−2}, whereas π_0=H⁰(P¹,Q(1))=0.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv:2412.03382 submission history checked 19 October 2026: v3 remains the latest version.",
+        "The author’s papers page and linked BerkovichMotives.pdf, p. 57, checked 19 October 2026; the shift is likewise absent, and no separate Berkovich-motives erratum is linked.",
+        "Crossref DOI 10.1090/jams/1068 metadata checked 19 October 2026: no relation or update-to correction listed. The version-of-record PDF URL from that record returned HTTP 403; it was not read or compared."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The rational splitting Kmot_Q=⊕_n Q(n)[2n] in Proposition 8.5 fixes the [−2j] shift. Independently, Cisinski–Déglise Theorem 5.2.2, p. 44, gives Hom(Q_X,Q_X(j)[q])=Gr^j_γ K_{2j−q}(X)_Q. For X=P¹ and j=1, the Picard K_0 weight occurs at π_{−2}, whereas π_0=H⁰(P¹,Q(1))=0. The claim concerns only the two inspected copies, not the inaccessible version of record.",
+        "by": "REV-DESIGN-MotivesAndAlgebraicCyclesPartII"
+      }
     }
   ],
   "extractionCoverage": [
@@ -5471,5 +5513,408 @@
       "supplier": "EnhancedDerivedSheaves:E2",
       "scope": "Arc-site repleteness is proved here; general space-valued Postnikov theorem requested."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-MotivesAndAlgebraicCyclesPartII",
+    "date": "2026-10-19",
+    "notes": "Independently checked all 79 nodes against their source locators, all three baseline declarations at the pins, supplier interfaces, reviewed library coverage, current upstream/library scope, APIs, tests and planets. Corrected nine nodes, clarified the M.5a coefficient bridge, confirmed E1–E5 and added confirmed E6 for the missing rational mapping shift. The 13 planned layers form a complete target-level pass; no layer is closed. All 32 supplier requests and four explicit gaps remain open. Suggested Lean elaborated with six proof-placeholder warnings only; blueprint checker has no errors or warnings. See the independent review report for scope and evidence.",
+    "checked": [
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.0/seminormed-assembly",
+        "verdict": "corrected",
+        "note": "Corrected sequential presentation to generation under colimits by such objects (Definition 2.7/Proposition 2.9); retained the nonstable supplier contract and exclusion of Banach completion."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.0/arc-site",
+        "verdict": "verified",
+        "note": "Definition 3.1 and Propositions 3.2–3.3 give finite spectral surjectivity, sheafified representables and cutoff changes; zero-ring and finite-subcover checks discriminate the topology."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.0/arc-examples",
+        "verdict": "verified",
+        "note": "Examples 3.4–3.8/Proposition 3.9 support the completions, perfection and complex condensed interpretation. The norm correction and real conjugation are retained."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.0/strict-basis",
+        "verdict": "verified",
+        "note": "Definition 3.10 includes analyticity, uniformity, profinite spectrum and algebraically closed residues; the tests exclude mere topological disconnectedness."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.0/strict-descent",
+        "verdict": "verified",
+        "note": "Proposition 3.11 and Theorems 3.13–3.14 support strict covers and restricted subcanonicity; this does not assert that every Banach representable is a sheaf."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.0/quasi-pro-etale",
+        "verdict": "corrected",
+        "note": "Corrected Lemma 4.5 equivalence to require both algebras strictly totally disconnected; updated its API and profinite-fibre test. Definition 4.3 retains uniform completed geometric base change."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.0/arc-replete",
+        "verdict": "verified",
+        "note": "Theorem 4.20 proof supplies countable cover towers. The stronger space-valued Postnikov consequence is explicitly requested from E2 rather than inferred from abelian left completeness."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.1/finitary-descent",
+        "verdict": "verified",
+        "note": "Theorem 4.1 and Lemmas 4.7–4.9 supply product/filtered-colimit descent on strict bases and acyclicity; enhanced extension is distinguished from an ordinary derived claim."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.1/finitary-category",
+        "verdict": "verified",
+        "note": "Definition 4.10 and Propositions 4.12–4.13 match the hypercomplete enhanced finitary category; unit tests distinguish a filtered-colimit condition from all sheaves."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.1/geometric-comparisons",
+        "verdict": "verified",
+        "note": "Theorem 4.14 and Propositions 4.15–4.16 require left completion, continuous Galois invariants and bounded-below stalk comparison, all retained."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.1/proper-dimension",
+        "verdict": "verified",
+        "note": "Definitions 4.17/4.19 use integral degree-zero dimension and qcqs 0-truncated properness; neither torsion cd nor arbitrary stack properness is substituted."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.1/proper-base-change",
+        "verdict": "verified",
+        "note": "Theorem 4.20 gives finite-dimensional proper base change; its projection formula has the quasi-pro-étale restriction. Example 4.26 prevents dropping the dimension condition."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.1/finitary-maps",
+        "verdict": "verified",
+        "note": "Definitions 4.21–4.22 and Lemma 4.23 give the cartesian filtered-colimit test and characterize finitary injections as open immersions."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.1/finitary-excision",
+        "verdict": "verified",
+        "note": "Propositions 4.24–4.25 supply the left adjoint, projection formula and open/closed triangle; the archimedean cut uses the specified |2| loci."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.2/effective",
+        "verdict": "corrected",
+        "note": "Added direct Berkovich disc/tree prerequisites used in Lemma 5.3. Definitions 5.1–5.2 and Corollaries 5.4–5.5 justify ball-local objects and their colimits with the requested Galois bound."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.2/ball-localization",
+        "verdict": "verified",
+        "note": "Propositions 5.6/5.8 and Remark 5.7 justify the ordered-coordinate ball realization and analytic finite-dimension extension; the presentable Verdier quotient remains an explicit general supplier contract."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.2/homotopy-rational",
+        "verdict": "corrected",
+        "note": "Removed the premature BM.3 Tate-object formula, leaving exactly Proposition 5.10 truncation stability. Its separate archimedean argument and rational-only range are retained."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.2/free-motives",
+        "verdict": "verified",
+        "note": "Lemma 5.11 and Propositions 5.12–5.13 supply representability, product/base-change compatibility and generation with the stated analytic finite-dimensional base."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.2/effective-adjoints",
+        "verdict": "verified",
+        "note": "Theorem 5.14 supports the finitary-map/finite-dimensional affine-space class and its base-change and projection formulas; it is not a claim for all morphisms."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.3/one-units",
+        "verdict": "verified",
+        "note": "The discussion before Definition 5.15 and §2.3 support strict one-units. The pinned normed-field prototype, ultrametric hypotheses and three discriminating checks were read and elaborated."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.3/reduced-units",
+        "verdict": "verified",
+        "note": "Definition 5.15 uses an arc-sheaf quotient. Its epimorphism/universal quotient API and tests exclude a naive pointwise quotient."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.3/reduced-free",
+        "verdict": "verified",
+        "note": "Theorem 5.16/Proposition 5.17 prove invariance and the reduced free-unit identity; Picard/analytic line-bundle inputs remain assigned to TB rather than silently assumed."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.3/tate",
+        "verdict": "verified",
+        "note": "Definition 5.18 fixes the [−1] shift; complex, real-sign and nonarchimedean tests prevent conflating realizations. This normalization determines the corrected BM.10 shift."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.3/annulus-compactness",
+        "verdict": "verified",
+        "note": "Proposition 5.19 proof was recomputed: both Newton bounds are needed, giving their minimum. E5 and its C₂ polynomial check are confirmed; strict-base compactness is retained."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.2/torsion-forward",
+        "verdict": "verified",
+        "note": "Proposition 5.9 is the forward field-extension-invariance implication only, with |n|≥1; converse and characteristic-prime inversion occur later."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/transfers",
+        "verdict": "verified",
+        "note": "Definition 6.2 uses free commutative-monoid arc-sheaves and additive functors, not finite étale correspondences. Finitarity is tested on all Banach algebras over the strict base."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/curve-shrinking",
+        "verdict": "verified",
+        "note": "Scholze Lemma 6.4 proof and van der Put Theorem 1.1/Corollary 1.3 were read. Smooth missing reduction points alone do not prove disc boundaries; that analytic refinement remains an explicit TB request."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/marked-jacobian",
+        "verdict": "verified",
+        "note": "Lemma 6.4 proof and BLR §9.2, Proposition 3/Example 8/Proposition 10 support the Picard-normalization route. Ordinary Picard/Jacobian infrastructure is imported; the r-point torus extension and characteristic-prime divisibility are correctly new."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/curve-homotopy",
+        "verdict": "verified",
+        "note": "Lemma 6.4 uses divisible marked Picard classes, effective divisors and rational sections controlled on entire boundary discs. The latter approximation remains an explicit analytic supplier contract."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/line-domain-motives",
+        "verdict": "verified",
+        "note": "Lemma 6.5 has the P¹ boundary convention and d reduced-unit factors. Independently recomputed E1–E4, including the inner exponent k_i and total degree-factor rank de."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/transfer-sheafification",
+        "verdict": "verified",
+        "note": "Theorem 6.3 has the indicated bad-prime inversions and rational line-domain exception; derived sheafification is not declared harmless integrally everywhere."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/explicit-free",
+        "verdict": "verified",
+        "note": "Theorem 6.1 gives the ball-localized commutative-monoid group completion in the stated coefficient range; the general resolution is still an E5 animation request."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/torsion-comparison",
+        "verdict": "verified",
+        "note": "Corollary 6.6/Theorem 6.7 and Proposition 1.5 retain |n|≥1, invertibility at |p|<1 and the left-completed p-power étale category in the other range."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/effective-tilting",
+        "verdict": "verified",
+        "note": "Proposition 6.8 uses |p|<1 and Z[1/p]-linearity on the actual tilted arc-stack; it does not identify unrelated integral sites."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.4/homotopy-integral",
+        "verdict": "verified",
+        "note": "Corollary 6.9 combines rational truncation stability with the now available torsion comparison, so the integral claim follows after BM.4 rather than before it."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.5/tate-permutation",
+        "verdict": "verified",
+        "note": "Lemma 7.3 is the homotopy-category swap used for cancellation. The later coherent statement is separated, avoiding a circular use of cancellation."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.5/rational-cancellation-inverse",
+        "verdict": "corrected",
+        "note": "Corrected the Y₂ factor spaces in the proof of Theorem 7.1 to possibly nonseparated étale spaces with finite fibres. Eventual N, multiplicities and both inverse identities are retained."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.5/cancellation",
+        "verdict": "verified",
+        "note": "Theorem 7.1/Remark 7.2 support all small arc-stacks via the pointwise torsion/rational argument, not merely algebraically closed fields."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.5/projective-cells",
+        "verdict": "verified",
+        "note": "Corollaries 8.1–8.2 match rational symmetric powers, integral projective-cell cofibres and the rational direct-sum BG_m formula; the [2n] shift is essential."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.6/motivic-k",
+        "verdict": "verified",
+        "note": "Definition 8.3/Proposition 8.4 require connective spectral K and E-infinity group completion. The ordinary plus-space model is explicitly only a partial supplier input."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.6/flag-invariants",
+        "verdict": "verified",
+        "note": "Proposition 8.5 proof uses the normalizer permutation action on the rational flag motive. The MC.2 request specifies the realization compatibility rather than assuming general conservativity."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.6/k-adams",
+        "verdict": "verified",
+        "note": "Proposition 8.5/Corollary 8.6 give the direct-sum Tate splitting and ψ² eigenvalues 2^n. The requested all-ring operations are distinguished from regular-noetherian scheme operations."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.7/unit-k-cofiber",
+        "verdict": "verified",
+        "note": "Proposition 8.8 and its setup require compatible unbounded roots; RT.5 supplies the Tor-unital almost ideal. Valuation-ring negative K and invariance remain BM-G2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.7/unit-k-vanishing",
+        "verdict": "verified",
+        "note": "Proposition 8.7 kills the root-ideal K presheaf after ball localization on the root-admitting class; it does not assert raw K(I)=0."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.7/perfectoid-k-descent",
+        "verdict": "verified",
+        "note": "Theorem 8.11/Corollary 8.12 separate analytic descent from rational arc hypersheaf identification and retain the Postnikov-completeness condition; the recorded K leaves remain open."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.7/strict-k-formula",
+        "verdict": "verified",
+        "note": "Theorem 8.9 retains the bad-prime set and p=1 convention; the full geometric K-rigidity input is BM-G3 rather than an overstatement of henselian L.2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.7/field-cofiber-ring",
+        "verdict": "verified",
+        "note": "Corollary 8.10 constructs a field-case E-infinity algebra before residue-prime inversion. Its p-completed trace/K input remains a precise L.5 request, including p=2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.7/analytic-kh",
+        "verdict": "verified",
+        "note": "Theorem 8.13 uses the root-free KH cofiber and its Postnikov hypothesis. General integral KH cdh descent is honestly BM-G1, not the live height-one-localized Part II theorem."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.7/smooth-completion-k",
+        "verdict": "verified",
+        "note": "Theorem 1.7(iv) and Theorem 8.13 require completion of a smooth O_C-model, not arbitrary smooth generic fibres; the relative K/KH comparison remains BM-G2."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.8/stable",
+        "verdict": "verified",
+        "note": "Definition 9.1 and the imported formal inversion theorem support the telescope/sequence descriptions after cancellation and Tate permutation; no fake stable carrier appears in Lean."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.8/projective-duality",
+        "verdict": "verified",
+        "note": "Proposition 9.3 proof fixes f♯≃f_*⊗Z(1)[2], including the diagonal O(Δ) class and both adjunction identities."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.8/stable-affine-push",
+        "verdict": "verified",
+        "note": "Theorem 9.2 retains finite cohomological dimension and local finite-ball embeddings. The P¹ duality prerequisite is ordered before its use."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.8/six-operations",
+        "verdict": "verified",
+        "note": "Propositions 9.4–9.5/Corollary 9.6 specify the constructed !-able class, finitary finite-fibre étaleness and boundaryless analytic smoothness; abstract extension is imported from AS.0."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.8/stable-tilt",
+        "verdict": "verified",
+        "note": "Proposition 9.7 follows by preservation of the same Tate object under effective tilting, with |p|<1 unchanged."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/geometric-rigidity",
+        "verdict": "verified",
+        "note": "Proposition 10.1 requires nondiscrete algebraically closed fields; the good-reduction generator description retains equal characteristic and a residue splitting. Alteration degrees are not inverted integrally without descent."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/general-proper-push",
+        "verdict": "verified",
+        "note": "Corollary 10.2 uses geometric dualizable generation to extend the proper projection formula; the proof is correctly later than geometric rigidity."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/compact-factorizations",
+        "verdict": "verified",
+        "note": "Proposition 10.3 proof uses quasi-compact intermediate subsets for compact morphisms and tensor products; it does not turn relative generators into compact objects."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/relative-rigidity",
+        "verdict": "verified",
+        "note": "Proposition 10.3 distinguishes rigid presentable categories from compact generation and keeps the qcqs, dimension and quasi-pro-étale geometric-fibre hypotheses."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/qproet-monadic",
+        "verdict": "verified",
+        "note": "Lemma 10.4 applies to proper quasi-pro-étale maps with conservative pushforward/projection formula, and handles cofiltered limits via presentable-category colimits."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/weak-kunneth",
+        "verdict": "verified",
+        "note": "Corollary 10.6 asserts full faithfulness, not equivalence, under relative-rigidity hypotheses on all three spaces."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/mixed-tate",
+        "verdict": "verified",
+        "note": "Definition 10.7 is pointwise and includes Artin phenomena; its tests prevent replacing it by global Tate generation at an arbitrary base."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.9/mixed-tate-descent",
+        "verdict": "verified",
+        "note": "Propositions 10.8–10.10 give arc-descent, global Tate generation only on strict bases and relative rigidity in its proper scope."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.10/algebraic-etale",
+        "verdict": "corrected",
+        "note": "Clarified CD Corollary 5.5.7 coefficient restrictions and separated its transfer-free comparison from Corollary 5.5.5. The full enhanced bridge remains explicitly requested from M.5a."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.10/algebraic-mapping-input",
+        "verdict": "corrected",
+        "note": "Corrected the rational shift to [−2j] and π_i=K_{i+2j}^(j), using CD Theorem 5.2.2; added the P¹ weight-one check and exact theorem/proof locators."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.10/discrete-generators",
+        "verdict": "corrected",
+        "note": "Expanded the Theorem 11.1 Laurent-series proof to include descent and finite-extension Artin generators. The algebraically closed geometric theorem is no longer applied directly to nonclosed k((T))."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.10/discrete-mapping",
+        "verdict": "corrected",
+        "note": "Corrected the same missing rational shift, recorded E6, and added the P¹ check. The supported K weight-one shift and derived completed torsion formula are retained."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.10/algebraic-comparison",
+        "verdict": "verified",
+        "note": "Remark 11.2 comparison is the canonical monoidal smooth-scheme/Tate-compatible equivalence over algebraically closed discrete fields; nonclosed descent versus hyperdescent is explicitly outside the assertion."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/nearby",
+        "verdict": "verified",
+        "note": "Definition 11.3 uses a chosen pseudouniformizer with compatible prime-to-p roots and the unit augmentation; the module-category equivalence precedes extension of scalars."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/nearby-descendable",
+        "verdict": "verified",
+        "note": "Proposition 11.4 proves finite tensor-nilpotence/descendability and hence conservativity, rather than merely a completed Amitsur identity."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/mg-residue",
+        "verdict": "verified",
+        "note": "The construction on pp.59–60 retains k=F_pbar, prime-to-p Kummer data and the rationalized multiplicative group over Z[1/p]; its tests distinguish it from ordinary B G_m."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/tate-residue-model",
+        "verdict": "verified",
+        "note": "Propositions 11.5–11.8 use the finite-field rational K consequence and the Tate-generated connective t-structure; the general K input is requested with continuity."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/mg-valued",
+        "verdict": "verified",
+        "note": "The pp.60–61 construction retains the reduced integral-unit restriction and Hom(Q,L) band, with h_*O in degrees zero and one. Derived QCoh/comodule machinery is an explicit AS.1 contract."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/galois-equivalence",
+        "verdict": "verified",
+        "note": "Theorem 11.9 identifies the prescribed Tate/QCoh model and base-changed full motivic category, with its residue-field and Laurent-series hypotheses unchanged."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/monodromy-category",
+        "verdict": "verified",
+        "note": "The pp.61–62 monodromy target uses coherent comodule representations and exhaustive locally nilpotent subrepresentations; cohomology-wise nilpotence is not substituted for the derived equivalence."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.11/monodromy-equivalence",
+        "verdict": "verified",
+        "note": "Corollary 11.10 requires compatible prime-to-p roots integrally and only π rationally. The target operator is rationally twisted N:A→A⊗Q(−1)."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.12/normed-v-comparison",
+        "verdict": "verified",
+        "note": "Proposition 12.1/Corollary 12.2 retain the norm torsor, partially proper essential image and separatedness for canonical compactification."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.12/normfree-arc",
+        "verdict": "verified",
+        "note": "The discussion on p.63 distinguishes the norm-free topology from the chosen-norm site and explains why rank-one covers erase the plus subring."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.12/overconvergent-torsion",
+        "verdict": "verified",
+        "note": "Proposition 12.3 gives the full embedding and higher-rank/rank-one overconvergence criterion for prime-to-p finite coefficients, not an integral equivalence with all étale objects."
+      },
+      {
+        "nodeId": "MotivesAndAlgebraicCyclesPartII:BM.12/diamond-retract",
+        "verdict": "verified",
+        "note": "Proposition 12.4 gives a colimit-preserving right adjoint and a retract of a compactly generated ambient category; compact generation is not inherited by assertion."
+      }
+    ]
+  }
 }
