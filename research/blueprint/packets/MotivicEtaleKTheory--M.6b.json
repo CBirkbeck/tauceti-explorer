@@ -1,0 +1,1705 @@
+{
+  "roadmapId": "MotivicEtaleKTheory",
+  "protocol": "blueprint-v1",
+  "part": "M.6b",
+  "scope": [
+    "MotivicEtaleKTheory:M.6b",
+    "MotivicEtaleKTheory:M.7",
+    "MotivicEtaleKTheory:M.8"
+  ],
+  "status": "complete",
+  "summary": "Follow-up refinement of the accepted M.5d packet for exact-couple operations, original corrected étale descent, arithmetic coefficient and real-place extensions, and normalized regulator/realization/determinant interfaces. Existing target nodes are imported unchanged by identifier; these nodes supply missing proof and application contracts. All stages are planned, none closed; every implementation remains unchecked.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:CategoryTheory.E₂CohomologicalSpectralSequence",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean",
+        "provides": "Spectral sequences in an abelian category with page r differential of bidegree (r,1−r), starting at page 2.",
+        "checked": "Definition and page/isoNext fields read at the recorded Mathlib pin."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Abelian.SpectralObject",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Homology/SpectralObject/Basic.lean",
+        "provides": "Interval-valued cohomological data and connecting maps satisfying the long exactness axiom; an algebraic target interface, not a stable support tower.",
+        "checked": "Structure H, δ and exactness fields read at the recorded Mathlib pin."
+      },
+      {
+        "ref": "mathlib:Module.End.mem_eigenspace_iff",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
+        "provides": "Membership in the eigenspace of f at μ is equivalent to f x = μ • x.",
+        "checked": "Statement read at the recorded Mathlib pin; requires the actual linear endomorphism, not a formal label for an Adams weight."
+      },
+      {
+        "ref": "mathlib:ZLattice.covolume_div_covolume_eq_relIndex",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
+        "provides": "For discrete full Z-lattices L₁≤L₂ in a finite real coordinate space, covolume(L₁)/covolume(L₂) is their relative index. This is the existing numerical input to the arithmetic Chern-image comparison.",
+        "checked": "Statement and proof read at the recorded Mathlib pin; the hypotheses require both actual full discrete lattices and their inclusion."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Levine2001",
+      "title": "K-theory and motivic cohomology of schemes, I",
+      "authors": "Marc Levine",
+      "edition": "Author preprint, December 2001, 98 pages",
+      "url": "https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf",
+      "sha256": "67affc5d6f837a78281c824d21723be9af1180bb77d44e8cff9cca5b0b2ef820",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§11, pp.43–52; §12, pp.52–59",
+        "Theorem 14.5 and Lemma 14.6, pp.71–72; Theorem 14.7, pp.73–74",
+        "Appendix C, pp.88–91; Appendix D, pp.93–96"
+      ]
+    },
+    {
+      "id": "LevineConiveau",
+      "title": "The homotopy coniveau tower",
+      "authors": "Marc Levine",
+      "edition": "arXiv:math/0510334v1, October 16, 2005",
+      "url": "https://arxiv.org/pdf/math/0510334v1",
+      "sha256": "5f268002b5ec36a74932a48ac051712c9c19c41a8b76e5bcb5dcdf0800538190",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 2.1.3 and Corollary 2.1.4, pp.11–12",
+        "Theorem 6.4.2, p.36; Theorem 7.1.1, p.38",
+        "Theorems 11.2.1 and 11.3.2, pp.62–65"
+      ]
+    },
+    {
+      "id": "Thomason1985",
+      "title": "Algebraic K-theory and étale cohomology",
+      "authors": "R. W. Thomason",
+      "edition": "Ann. Sci. ENS (4) 18 (1985), 437–552, Numdam scan",
+      "url": "https://numdam.org/item/10.24033/asens.1495.pdf",
+      "sha256": "3497d34982b0f7f43682cb978a3a031cc7567c899a43a6558bb424318111bb16",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2.42–2.46, pp.496–501",
+        "§3.34 and Theorems 4.1, 4.11, pp.516–520"
+      ]
+    },
+    {
+      "id": "Thomason1989",
+      "title": "Erratum: Algebraic K-theory and étale cohomology",
+      "authors": "R. W. Thomason",
+      "edition": "Ann. Sci. ENS (4) 22 (1989), 675–677, Numdam scan",
+      "url": "https://numdam.org/item/10.24033/asens.1596.pdf",
+      "sha256": "c38909eb3f20bd1b5a157cf78ff1486d4ae01f2c92e7d0788557f64f042f4e73",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire erratum, pp.675–677"
+      ]
+    },
+    {
+      "id": "Weibel2013",
+      "title": "The K-book: An introduction to algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author complete-book PDF dated August 29, 2013; use printed book pagination",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "V §11.10–11.14, pp.455–462",
+        "VI §4.1–4.9, pp.480–486",
+        "VI §8.1–8.2, pp.513–514; §9.1–9.12, pp.517–525"
+      ]
+    },
+    {
+      "id": "BM2018",
+      "title": "The fiber of the cyclotomic trace for the sphere spectrum",
+      "authors": "Andrew J. Blumberg and Michael A. Mandell",
+      "edition": "arXiv:1508.00014v3, January 12, 2018; §10 is present in this version",
+      "url": "https://arxiv.org/pdf/1508.00014v3",
+      "sha256": "35efeb3e0da2ff2093d646af957e35a0e5c0241bb5a65c083c26e8cd17fac16f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§10, Theorem 10.1, Lemma 10.2, Proposition 10.4 and their proofs, pp.43–46"
+      ]
+    },
+    {
+      "id": "BurgosFeliu",
+      "title": "Higher arithmetic Chow groups",
+      "authors": "José Ignacio Burgos Gil and Elisenda Feliu",
+      "edition": "arXiv:0907.5169v1, July 29, 2009",
+      "url": "https://arxiv.org/pdf/0907.5169v1",
+      "sha256": "247b162be9661763dbf94bc82f33ccdd8fed463e91c22bb57402992e2d26196b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1.8, pp.10–11; support cone Definition 1.28",
+        "§2, pp.12–18: cubical normalization, support and homotopy-invariance comparisons",
+        "§3.1–3.2, pp.19–23, including Theorem 3.5 proof",
+        "Proposition 5.41, p.48"
+      ]
+    },
+    {
+      "id": "NekovarNiziol",
+      "title": "Syntomic cohomology and p-adic regulators for varieties over p-adic fields",
+      "authors": "Jan Nekovář and Wiesława Nizioł",
+      "edition": "arXiv:1309.7620v5, September 22, 2016",
+      "url": "https://arxiv.org/pdf/1309.7620v5",
+      "sha256": "97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 5.7 and Remark 5.8, p.58",
+        "§5.2, Theorem 5.9 and proof, p.59"
+      ]
+    },
+    {
+      "id": "BlochKato1990",
+      "title": "L-functions and Tamagawa numbers of motives",
+      "authors": "Spencer Bloch and Kazuya Kato",
+      "edition": "The Grothendieck Festschrift I (1990), 333–400; seminar-hosted scan",
+      "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf",
+      "sha256": "ec89c6436c7e16580791eddd562c8c04a12442d8a8484f8ac75c5ea8dc04f5e5",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3.5–3.10, pp.353–354, 359–360",
+        "§5.1, p.369; §5.5.1–5.7, p.372"
+      ]
+    },
+    {
+      "id": "Kato2003",
+      "title": "Tamagawa number conjecture for zeta values",
+      "authors": "Kazuya Kato",
+      "edition": "ICM 2002, Vol. III, pp.163–170; arXiv:math/0304233v1, April 16, 2003",
+      "url": "https://arxiv.org/pdf/math/0304233v1",
+      "sha256": "6d7f3a5924fd5291bc23870547b05552ba7fb1e39413d551f11daf052fbcf12b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1.2, p.165",
+        "§2.1, pp.166–168"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MotivicEtaleKTheory:M.6b/motivic-native-index-transport",
+      "parentStageId": "MotivicEtaleKTheory:M.6b",
+      "realises": [
+        "MotivicEtaleKTheory:M.6b"
+      ],
+      "title": "Motivic spectral-sequence coordinates",
+      "kind": "definition",
+      "statement": "For native support-tower coordinates (p,m), define (a,b)=(p−m,−p), inverse (p,m)=(−b,−a−b). The native page s≥1 is public page r=s+1≥2. Thus π_m L^p(X)=H^(2p−m)(X,Z(p)) is E₂^(a,b), with m=−a−b, weight j=−b and differential (a,b)↦(a+r,b−r+1). Transport only after supplying M.6a’s layer equivalence; this integer bijection by itself constructs no spectral sequence.",
+      "hypotheses": [
+        "X is in the admitted smooth perfect-field class of the imported tower; integer coordinates, s≥1."
+      ],
+      "proofSteps": [
+        "Use motivic-exact-couple: d_s changes (p,m) to (p+s,m−1). Substitute both coordinates to get a′=a+s+1 and b′=b−s.",
+        "Use the inverse formulas to identify the abutment degree and layer cohomological degree a−b. Feed these indices into the existing Mathlib E₂ shape; H.6 supplies page/homology transport."
+      ],
+      "acceptance": [
+        "The first native boundary d₁ has public bidegree (2,−1), not (1,0).",
+        "The public differential lowers K degree by one and raises weight by r−1."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.6b/motivic-exact-couple",
+        "StableHomotopyKTheory:H.6/filtered-spectrum-spectral-sequence",
+        "mathlib:CategoryTheory.E₂CohomologicalSpectralSequence",
+        "mathlib:CategoryTheory.Abelian.SpectralObject"
+      ],
+      "sources": [
+        {
+          "sourceId": "Levine2001",
+          "locator": "Appendix D.1, pp.93–94; Theorem 14.7, pp.73–74",
+          "match": "The tower page starts one page before the motivic convention; the stated substitution translates its boundary and layer formulas."
+        },
+        {
+          "sourceId": "Weibel2013",
+          "locator": "VI (4.2), pp.480–481",
+          "match": "The public convention has E₂=H^(a−b)(X,Z(−b)) abutting to K_(−a−b)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M6b/MotivicNativeIndexTransport",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "MotivicIndex.toPage",
+          "role": "constructor",
+          "statement": "Send (p,m) to (p−m,−p)."
+        },
+        {
+          "name": "MotivicIndex.ofPage",
+          "role": "constructor",
+          "statement": "Send (a,b) to (−b,−a−b)."
+        },
+        {
+          "name": "MotivicIndex.inverse",
+          "role": "equivalence",
+          "statement": "Both composites are the identity on Z×Z."
+        },
+        {
+          "name": "MotivicIndex.differential",
+          "role": "compatibility",
+          "statement": "Native (p+s,m−1) transports to (a+s+1,b−s)."
+        },
+        {
+          "name": "MotivicIndex.degree_weight",
+          "role": "projection",
+          "statement": "K degree is −a−b and motivic weight is −b."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MotivicIndex.field_unit",
+          "kind": "example",
+          "statement": "(p,m)=(0,0) gives (a,b)=(0,0), the weight-zero K₀ unit."
+        },
+        {
+          "name": "MotivicIndex.first_boundary",
+          "kind": "example",
+          "statement": "(p,m)=(2,3), s=1 gives (−1,−2)→(1,−3), changing total K degree 3→2."
+        },
+        {
+          "name": "MotivicIndex.inverse_negative",
+          "kind": "example",
+          "statement": "(a,b)=(−3,−2) returns (p,m)=(2,5), not (2,1); negative public indices remain integers."
+        }
+      ],
+      "uses": [
+        {
+          "where": "M.7/bott-etale-descent and M.6 assembly",
+          "how": "Translate motivic and étale filtrations before comparing degree ranges."
+        },
+        {
+          "where": "Mathlib E₂CohomologicalSpectralSequence",
+          "how": "Match the actual differential shape already present at the pin."
+        }
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.6b/simultaneously-moved-product-roof",
+      "parentStageId": "MotivicEtaleKTheory:M.6b",
+      "realises": [
+        "MotivicEtaleKTheory:M.6b"
+      ],
+      "title": "Simultaneous moving product",
+      "kind": "construction",
+      "statement": "For X smooth quasi-projective over a perfect field in Levine’s admitted support model, construct a finite functorial zigzag defining F^pK(X)∧F^qK(X)→F^(p+q)K(X). Replace pairs of supports by the subdiagram meeting every relevant face and shuffle inverse image properly; do not choose a moving representative separately on each homotopy group. For each common width u≥1 the induced quotient product is (F^p/F^(p+u))∧(F^q/F^(q+u))→F^(p+q)/F^(p+q+u). The diagram respects both support-inclusion maps and both localization triangles, including connecting maps. It supplies a product of exact couples and hence of all pages and the abutment. Finite-coefficient products use H.6’s actual Moore pairing or module structure, with its coherence restrictions.",
+      "hypotheses": [
+        "p,q≥0; u≥1.",
+        "Use a filtered global model with its augmentation and cycle-layer comparison; M.6a/global-model-comparison is a named outstanding prerequisite.",
+        "Tensor products use Tor-independent/flat resolutions in the precise hypotheses of Levine Appendix C; smoothness alone is not permission to ignore support intersections."
+      ],
+      "proofSteps": [
+        "Start with S.6 support-product-pairings and external-product on the exact categories of support perfect complexes; Appendix C.3 realizes them as finite functorial diagrams of bisimplicial spectra.",
+        "Use Levine Lemmas 11.3–11.4 and Proposition 11.5: generic translation and the simultaneous good-position diagram give weak-equivalence legs compatible with faces and shuffle maps. Take diagonals/realizations on the entire diagram through H.6/EDS.",
+        "Use Proposition 11.8 and Lemma C.4 to commute the resulting products with the two localization boundaries. The proof expresses the boundary through a fibre then a cofiber, which must be preserved by the supplied exact smash functor.",
+        "For quotients, kill the pushout-product subobject F^(p+u)∧F^q ∪ F^p∧F^(q+u); both images lie in F^(p+q+u). Use that common width, rather than an unjustified sum of two independent quotient cutoffs.",
+        "Apply the imported multiplicative exact-couple machinery. The sign is the Koszul sign in total K degree m; the source’s Appendix D.6 sentence about the sphere interchange has a recorded exponent misprint."
+      ],
+      "acceptance": [
+        "Both boundary squares commute with the prescribed suspension sign.",
+        "Quotient products agree under u→u+1 and support/filtration transition maps.",
+        "At the augmentation F⁰≃K the product is the ordinary K-theory tensor product."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.6a/global-model-comparison",
+        "SchemeKTheoryOperations:S.6/support-product-pairings",
+        "SchemeKTheoryOperations:S.6/external-product",
+        "StableHomotopyKTheory:H.6/filtered-spectrum",
+        "StableHomotopyKTheory:H.6/moore-spectrum-multiplication",
+        "EnhancedDerivedSheaves:E3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Levine2001",
+          "locator": "§11.2–11.8, pp.43–48; Appendix C.3–C.4, pp.90–91; D.4–D.7, pp.94–96",
+          "match": "Simultaneous moving gives a diagram-level product and its localization compatibility; the common-width quotient is the form used in §11.5."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M6b/SimultaneouslyMovedProductRoof",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Simultaneous moving product"
+      },
+      "api": [
+        {
+          "name": "MotivicProduct.supportRoof",
+          "role": "constructor",
+          "statement": "A product roof of support diagrams, with objectwise weak-equivalence legs and all face/shuffle maps."
+        },
+        {
+          "name": "MotivicProduct.quotient",
+          "role": "constructor",
+          "statement": "For common width u, the two quotient inputs map to the quotient with cutoff p+q+u."
+        },
+        {
+          "name": "MotivicProduct.boundary_left",
+          "role": "compatibility",
+          "statement": "The left localization connecting map commutes with the product."
+        },
+        {
+          "name": "MotivicProduct.boundary_right",
+          "role": "compatibility",
+          "statement": "The right boundary commutes after the canonical suspension interchange."
+        },
+        {
+          "name": "MotivicProduct.transitions",
+          "role": "functoriality",
+          "statement": "Products commute with inclusions of supports and interval transitions."
+        },
+        {
+          "name": "MotivicProduct.augmentation",
+          "role": "compatibility",
+          "statement": "The map to K carries the product to the actual K product."
+        }
+      ],
+      "tests": [
+        {
+          "name": "MotivicProduct.unit",
+          "kind": "example",
+          "statement": "The weight-zero class of O_X acts as the identity on each filtered quotient."
+        },
+        {
+          "name": "MotivicProduct.cutoff",
+          "kind": "non-example",
+          "statement": "Taking u=1, a class from F^(p+1) times a class from F^q dies modulo F^(p+q+1); no claim that it dies modulo F^(p+q+2)."
+        },
+        {
+          "name": "MotivicProduct.odd_sign",
+          "kind": "relation",
+          "statement": "For homogeneous K-degrees m=n=1, interchanging the two factors multiplies by −1. A sign (−1)^(m+n) fails this test."
+        },
+        {
+          "name": "MotivicProduct.empty_support",
+          "kind": "example",
+          "statement": "A product with the zero spectrum for empty support is zero before realization and on every page."
+        }
+      ],
+      "uses": [
+        {
+          "where": "M.6b/filtered-motivic-products and rational-motivic-degeneration",
+          "how": "Supply the coherent product, rather than just multiplication on the associated groups."
+        },
+        {
+          "where": "M.8/chern-functoriality",
+          "how": "Compare the filtered K product with the cycle and regulator products."
+        }
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.6b/product-cycle-layer-identification",
+      "parentStageId": "MotivicEtaleKTheory:M.6b",
+      "realises": [
+        "MotivicEtaleKTheory:M.6b"
+      ],
+      "title": "Multiplicative cycle-layer comparison",
+      "kind": "comparison",
+      "statement": "In the same admitted smooth perfect-field model, the cycle-layer equivalences identify the product on gr^p_F K∧gr^q_F K with Bloch’s properly intersecting external product followed by diagonal pullback and the signed shuffle. Consequently the product on E₂ is the motivic cup product H^h(X,Z(p))×H^h′(X,Z(q))→H^(h+h′)(X,Z(p+q)); the product on K is the ordinary one. The page differential satisfies d_r(xy)=d_r(x)y+(−1)^m x d_r(y), where m is x’s total K degree.",
+      "hypotheses": [
+        "Use the product roof above, not independently chosen representatives.",
+        "All cycle complexes and diagonal moves are those of M.4/products and M.4/moving-lemma."
+      ],
+      "proofSteps": [
+        "For properly intersecting supports use Serre intersection multiplicities: the alternating Tor lengths of tensor resolutions give the intersection cycle. This identifies the support-layer class map with cycle multiplication.",
+        "Use all shuffle maps in the simultaneous diagram to extend the identification to the normalized chain differential; use §11.15 to identify the shuffle construction with the imported Bloch product.",
+        "Apply H.6’s multiplicative exact-couple theorem and the index transport. The Leibniz sign comes from moving one suspension past a sphere of degree m."
+      ],
+      "acceptance": [
+        "On CH¹ of projective space the layer product of the hyperplane class is its intersection square.",
+        "The boundary formula uses total degree, not motivic weight alone."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.6b/simultaneously-moved-product-roof",
+        "MotivicEtaleKTheory:M.6a/coniveau-cycle-layer",
+        "MotivicEtaleKTheory:M.4/products",
+        "MotivicEtaleKTheory:M.4/moving-lemma",
+        "StableHomotopyKTheory:H.6/filtered-spectrum-spectral-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Levine2001",
+          "locator": "§11.14–11.15, pp.51–52; Lemma D.6, pp.95–96",
+          "match": "The support cycle map respects products via intersection multiplicity; its shuffle product agrees with Bloch’s, and the boundary gives the Leibniz rule."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M6b/ProductCycleLayerIdentification",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.6b/adams-support-boundary-comparison",
+      "parentStageId": "MotivicEtaleKTheory:M.6b",
+      "realises": [
+        "MotivicEtaleKTheory:M.6b"
+      ],
+      "title": "Adams operations on support exact couples",
+      "kind": "theorem",
+      "statement": "For every integer k≥2, the established higher Adams operation ψ^k induces compatible additive operations on the support exact couple and all its derived couples. It agrees at K_n(X) with S.6’s scheme operation and acts on weight j of E₂ as k^j. For r≥2 and weight j≥0, (k^(j+r−1)−k^j)d_r=0 on that weight. After rationalization all differentials vanish and the finite filtration splits canonically into the actual simultaneous Adams eigenspaces, as in rational-motivic-degeneration. The integral construction is on compatible K-spaces, finite cover diagrams and their homotopy groups: it does not assert that every integral λ-operation is a map of stable spectra.",
+      "hypotheses": [
+        "X belongs to the imported support-tower class.",
+        "Use S.6 higher λ/Adams operations, not only a K₀ Chern character.",
+        "The operations must commute with refinement, cover truncation and localization connecting maps."
+      ],
+      "proofSteps": [
+        "Use the finite cover approximations of §12.5–12.9 and their functorial support fibres. On finite diagrams the special λ-ring operations commute with restriction and support-triple boundaries by §12.10 and Remark 12.11.",
+        "Use the additive Adams polynomials to descend to maps of exact couples on homotopy groups. Identify their augmentation with S.6’s existing operation through the same exact-category construction; the finite-diagram comparison is an explicit S.6 supplier obligation.",
+        "Apply Theorem 12.12 to the cycle layer: weight is j=−b, so the eigenvalue is k^j. Reuse the previously reviewed correction MotivicEtaleKTheory/E8 to the printed exponent.",
+        "Compare ψ^k d_r and d_r ψ^k, using that the target has weight j+r−1. Over Q their scalar difference is nonzero; use convergence and S.6’s actual finite-weight decomposition to split the abutment, not an arbitrary choice of a vector-space complement."
+      ],
+      "acceptance": [
+        "On a unit in K₁(F), ψ^k(u)=u^k in multiplicative notation and has motivic weight one.",
+        "On E₂ of weight zero the operation is the identity.",
+        "Weight j=1 and r=2 gives the annihilator k²−k; k=2 yields 2 d₂=0, not integral degeneration."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.6b/motivic-native-index-transport",
+        "MotivicEtaleKTheory:M.6b/rational-motivic-degeneration",
+        "SchemeKTheoryOperations:S.6/soule-scheme-operations",
+        "SchemeKTheoryOperations:S.6/scheme-weight-decomposition",
+        "mathlib:Module.End.mem_eigenspace_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "Levine2001",
+          "locator": "§12.5–12.12, pp.54–59; Theorem 14.7, pp.73–74",
+          "match": "Finite functorial K-space operations commute with boundaries and act with the motivic weight. §12.7 explicitly distinguishes unstable λ operations from stable maps."
+        },
+        {
+          "sourceId": "Weibel2013",
+          "locator": "VI §4.9, pp.485–486",
+          "match": "Commuting Adams operations with differentials gives the weight-difference annihilator and rational degeneration."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M6b/AdamsSupportBoundaryComparison",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adams weight comparison"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.6b/motivic-quotient-completion",
+      "parentStageId": "MotivicEtaleKTheory:M.6b",
+      "realises": [
+        "MotivicEtaleKTheory:M.6b"
+      ],
+      "title": "Completion of the motivic quotient tower",
+      "kind": "theorem",
+      "statement": "Let F^pK(X) be the imported tower for smooth X of dimension d over an admitted perfect field, with F⁰≃K(X) and π_m F^p=0 for p>d+m for every fixed integer m (in nonnegative degrees by the coniveau bound; in negative degrees by the connective layer model). Put T_p=cofib(F^p→K). Then holim_p F^p≃0 and K≃holim_p T_p. For n≥0 the filtration of K_n is zero at F^(d+n+1) and is finite and exhaustive, and the motivic sequence converges strongly. The argument checks both π_m and π_(m+1) before using the Milnor exact sequence; it does not commute an infinite limit with homotopy groups without its lim¹ term.",
+      "hypotheses": [
+        "The dimension/connectivity theorem M.6b/motivic-strong-convergence is a prerequisite, not an axiom replacing its support/dévissage proof.",
+        "H.6 supplies homotopy limits and exactness of limits of fibre sequences."
+      ],
+      "proofSteps": [
+        "For each integer m choose p larger than both d+m and d+m+1, also p≥0. The two inverse systems of homotopy groups are eventually zero, so their limits and the relevant lim¹ vanish.",
+        "Apply H.6/milnor-sequence to conclude π_m holim F=0 for all m, and use the supplied stable Whitehead criterion.",
+        "Take the homotopy limit of F^p→K→T_p; its fibre is holim F. Use the fixed-degree finite filtration and exact-couple convergence theorem to identify associated graded pieces without a residual completion quotient.",
+        "Keep H.6’s multiplication-by-ℓ tower counterexample in the acceptance suite, so the proof cannot be replaced by the assertion lim π_m F=0 alone."
+      ],
+      "acceptance": [
+        "At d=0,n=0, F¹K₀=0 and the unit survives.",
+        "The tower of spheres with maps multiplication by ℓ has a nonzero lim¹≅Z_ℓ/Z and is excluded from the eventual-zero argument.",
+        "The finite bound is d+n+1, with no implicit uniform bound in n."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.6b/motivic-strong-convergence",
+        "StableHomotopyKTheory:H.6/milnor-sequence",
+        "StableHomotopyKTheory:H.6/spectral-sequence-convergence-complete",
+        "StableHomotopyKTheory:H.6/nonzero-lim-one-example"
+      ],
+      "sources": [
+        {
+          "sourceId": "LevineConiveau",
+          "locator": "Proposition 2.1.3 and Corollary 2.1.4, pp.11–12",
+          "match": "Connectivity of the support tower supplies fixed-degree eventual vanishing and convergence for a bounded-below theory."
+        },
+        {
+          "sourceId": "Levine2001",
+          "locator": "Theorem 14.5 and Lemma 14.6, pp.71–72; Appendix D.2, p.94",
+          "match": "The explicit dimension/degree filtration bound yields the finite-filtration specialization. The previously reviewed proof issues E6/E7 remain inherited obligations."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M6b/MotivicQuotientCompletion",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Motivic tower completion"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.7/corrected-thomason-descent",
+      "parentStageId": "MotivicEtaleKTheory:M.7",
+      "realises": [
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "title": "Corrected Thomason descent proof",
+      "kind": "theorem",
+      "statement": "For a separated regular noetherian scheme X of finite Krull dimension, an invertible prime ℓ, uniformly bounded ℓ-torsion cohomological dimensions of every residue field including nonclosed points, and a finite Tate–Tsen filtration for every residue field as in Thomason (2.112), the Bott-periodic finite-coefficient comparison is an equivalence K(X;Z/ℓ^ν)[β⁻¹]≃K^et(X;Z/ℓ^ν). Its strongly convergent descent sequence is E₂^(s,t)=H^s_et(X,μ_(ℓ^ν)^(⊗t/2)) for even t, zero for odd t, abutting to K^et_(t−s), with differential (r,r−1). At ℓ=2 impose X over Z[1/2,i] and use the source’s Appendix A reduction for small exponents. Here β means an admissible Bott element/power in that coefficient construction, not a universally chosen degree-two class over X. The proof uses the 1989 correction: arbitrary cd-one extensions give a Bott-annihilated kernel and cokernel of descent on homotopy groups; the stronger pre-inversion homotopy inverse is available only in the countably generated case.",
+      "hypotheses": [
+        "Use the periodic hypercomplete étale K sheaf of finite-etale-k-theory, not a connective replacement.",
+        "The Tate–Tsen filtration starts with the cyclotomic extension and has successive induced cd≤1 Galois steps.",
+        "No assertion that finite cd alone removes the other original Thomason hypotheses."
+      ],
+      "proofSteps": [
+        "Use Gabber rigidity at henselian stalks and the separably closed field K computation imported in M.7/finite-etale-k-theory to identify the periodic homotopy sheaves with even Tate twists.",
+        "For a countably generated cd-one Galois extension choose a cofinal sequence of finite subextensions. A sequential telescope needs adjacent specified homotopies, which the corrected proof supplies. For arbitrary cd-one extensions, reduce to pro-ℓ Sylow subgroups and finite-rank free pro-ℓ quotients, then use bounded-cd continuity to show Bott annihilation on the kernel/cokernel.",
+        "Invert β using bounded cohomological dimension, apply the corrected descent statement at each Tate–Tsen step, and descend along the cyclotomic step using the prime-to-ℓ transfer where the source does so. Bockstein induction handles prime powers.",
+        "Pass from fields to the regular scheme using localization and Brown–Gersten descent as in Theorem 2.45. Apply the existing spectral hypercohomology/Postnikov machinery with the uniform bound to obtain strong convergence and the nonconnective étale comparison of Theorem 4.11."
+      ],
+      "acceptance": [
+        "The comparison need not hold in low degrees before Bott inversion.",
+        "At ℓ=2 a real residue field does not satisfy the finite-cd hypothesis and is handled by the real-place nodes.",
+        "Theorem 2.42 is never invoked in its uncorrected arbitrary-index homotopy-inverse form."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.7/finite-etale-k-theory",
+        "MotivicEtaleKTheory:M.7/bott-etale-descent",
+        "KTheoryFiniteLocalFields:L.2/gabber-rigidity",
+        "StableHomotopyKTheory:H.6/filtered-spectrum-spectral-sequence",
+        "EnhancedDerivedSheaves:E2",
+        "SchemeKTheoryOperations:S.4/sheaf-hypercohomology-spectrum"
+      ],
+      "sources": [
+        {
+          "sourceId": "Thomason1985",
+          "locator": "Theorems 2.43–2.46, pp.498–501; §3.34, p.516; Theorems 4.1 and 4.11, pp.516–520",
+          "match": "These give the original scheme hypotheses, periodic homotopy sheaves and strong descent theorem; the proof of their cd-one input is replaced by the erratum."
+        },
+        {
+          "sourceId": "Thomason1989",
+          "locator": "Corrected Theorem 2.42(a),(b) and proof, pp.675–677",
+          "match": "Countably generated extensions admit the comparison map; the general case only needs the Bott-annihilation statement to recover the original periodic descent conclusions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M7/CorrectedThomasonDescent",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Thomason étale descent"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.7/finite-etale-descent-transfer",
+      "parentStageId": "MotivicEtaleKTheory:M.7",
+      "realises": [
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "title": "Finite étale transfer on the descent filtration",
+      "kind": "theorem",
+      "statement": "For a finite étale map f:Y→X satisfying corrected-thomason-descent at an odd prime ℓ, the actual K-theory restriction-of-scalars transfer induces a map of periodic finite-coefficient descent spectral sequences. On E₂ it is the cohomological trace H^s_et(Y,f*μ_m^(⊗j))→H^s_et(X,μ_m^(⊗j)); at a geometric stalk it sums the fibres above that point. It converges to the K(1)-local/periodic K transfer. Coefficient maps and Bocksteins commute with transfer when the transfer is made on the underlying K presheaf before taking those coefficient triangles. This is an additive map; the projection formula is the multiplicative compatibility, not multiplicativity of transfer itself.",
+      "hypotheses": [
+        "m=ℓ^ν, ℓ odd; both schemes satisfy the explicit original descent hypotheses.",
+        "Finite étale is essential for this proof; no ramified proper-pushforward theorem is inferred."
+      ],
+      "proofSteps": [
+        "Use Blumberg–Mandell Lemma 10.2: replace the Y presheaf by the Waldhausen category of a Y-bundle, an X-bundle and an identification with its pushdown. Forgetting the identification is a weak-equivalence leg; remembering the X-bundle is an actual transfer map.",
+        "Choose compatible geometric points. Proposition 10.4 compares the two Godement resolutions by the fibrewise product functor and its adjunction-compatible transformations. This identifies the resulting spectral sequences from E₂ onward.",
+        "Read the homotopy sheaf trace on stalks; the codiagonal gives the étale cohomology transfer. Use the underlying presheaf map for coefficient/Bockstein compatibility and the existing K product projection formula for the module identity."
+      ],
+      "acceptance": [
+        "For Y the disjoint union of d copies of X, cor∘res is multiplication by d on every page and at the abutment.",
+        "For the identity map the filtered transfer is the identity.",
+        "A degree-d transfer sends 1 to d; it is generally not a unital ring homomorphism."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.7/corrected-thomason-descent",
+        "MotivicEtaleKTheory:M.7/etale-k-transfer",
+        "SchemeKTheoryOperations:S.4/hypercohomology-spectral-sequence",
+        "ArithmeticGaloisDuality:R02.2",
+        "StableHomotopyKTheory:H.6/bockstein-long-exact-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM2018",
+          "locator": "Theorem 10.1, Lemma 10.2 and Proposition 10.4 with proofs, pp.43–46",
+          "match": "A strictified transfer presheaf and compatible Godement resolutions give the filtered trace comparison. This material is in v3; v4 omits the proof appendix."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M7/FiniteEtaleDescentTransfer",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Étale descent transfer"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.7/arithmetic-bockstein-comparison",
+      "parentStageId": "MotivicEtaleKTheory:M.7",
+      "realises": [
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "title": "Arithmetic coefficient and completion comparison",
+      "kind": "theorem",
+      "statement": "Let F be a number field, S finite containing the archimedean and all ℓ-adic places, and R=O_(F,S). Assume ℓ odd or F totally imaginary. For j≥2 and m=ℓ^ν there is a canonical odd-degree comparison K_(2j−1)(R;Z/m)≅H¹_et(R,μ_m^(⊗j)) and a natural even-degree exact sequence 0→H²_et(R,μ_m^(⊗j))→K_(2j−2)(R;Z/m)→H⁰_et(R,μ_m^(⊗(j−1)))→0, with its spectral filtration and coefficient maps. No splitting of this sequence is chosen. With K_n(R)^∧_ℓ=π_n holim_ν K(R;Z/ℓ^ν), K_(2j−1)^∧_ℓ≅H¹_cont(R,Z_ℓ(j)) and K_(2j−2)^∧_ℓ≅H²_cont(R,Z_ℓ(j)). For these finitely generated K groups this agrees with K_n(R)⊗Z_ℓ. If one starts before inverting ℓ, localization preserves these completed groups for n≥2; it changes K₁ by the inverted-prime units.",
+      "hypotheses": [
+        "The arithmetic motivic/étale comparison and cd≤2 inputs are imported with their own proof gaps; this node refines the coefficient passage.",
+        "Continuous cohomology uses the derived inverse limit of the finite coefficient complexes."
+      ],
+      "proofSteps": [
+        "Use the S-integer comparison range and the descent filtration. In odd total degree only cohomological degree one remains; in even total degree cohomological degrees two and zero give the displayed filtration.",
+        "Keep the coefficient maps inherited from the spectra. In particular the H⁰ term’s transition includes the appropriate coefficient multiplication in the shifted twist; an abstract isomorphism to a constant finite group does not determine that map.",
+        "Apply the Bockstein/Milnor sequences to both sides, retaining lim¹ until finiteness and the coefficient transition calculation remove it. This gives the continuous H¹/H² comparison, rather than taking limits of arbitrarily split extensions.",
+        "Import finite generation of K_n(O_(F,S)), n≥2, from ArithmeticKTheory N.3; only then identify the derived completion homotopy group with its tensor product. Use finite residue-field K groups in localization to justify the inversion-of-ℓ assertion."
+      ],
+      "acceptance": [
+        "The H⁰ term at finite coefficients cannot be discarded merely because the completed even group is H².",
+        "The j=1 units/Picard/Brauer calculation is kept separate.",
+        "For a real number field at ℓ=2 the stated cd bound fails and the dyadic nodes apply."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.7/s-integer-comparison-range",
+        "MotivicEtaleKTheory:M.7/arithmetic-adic-degrees",
+        "MotivicEtaleKTheory:M.1/continuous-limit-comparison",
+        "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+        "ArithmeticGaloisDuality:R02.3",
+        "StableHomotopyKTheory:H.6/l-adic-completion-milnor-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel2013",
+          "locator": "VI §4.6, pp.483–484; Theorem 8.2 and its proof, pp.513–514",
+          "match": "The finite filtration and coefficient sequences distinguish finite-level K groups from continuous/completed groups; the arithmetic finite generation concerns O_S, correcting VI 8.1’s field notation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M7/ArithmeticBocksteinComparison",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Arithmetic ℓ-adic comparison"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.7/real-restriction-boundary-square",
+      "parentStageId": "MotivicEtaleKTheory:M.7",
+      "realises": [
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "title": "Real restriction and coefficient boundaries",
+      "kind": "comparison",
+      "statement": "Let R=O_(F,S) with S finite containing the dyadic and archimedean places and F having r₁>0 real embeddings. For A=Z/2^ν or Q₂/Z₂ let C_A=fib(K(R;A)→⊕_(v real)K(R_v;A)). The real-place-correction node’s sequence is the actual fibre sequence C_A→K(R;A)→⊕K(R_v;A)→ΣC_A. Its long exact sequence, all restriction maps and connecting homomorphisms commute with coefficient inclusions, reductions and Bocksteins through maps of these fibre sequences. On motivic pages the restriction is α_h(j):H^h(R,A(j))→⊕H^h(R_v,A(j)), with h=2j−n; write H̃^h=ker α_h, retaining cokernel α_(h−1) in the fibre cohomology. These kernels are not identified with positive or Tate-modified cohomology. The real topological comparison determines the nontrivial extension in K_(8k+2)(R_v;Z/2)≅Z/4.",
+      "hypotheses": [
+        "Use the admitted arithmetic extension of the motivic tower and coefficient comparison, with the inherited gap explicit.",
+        "Use the requested real BO/KO comparison from RefinedTraceMethods, Part II; complex KU is insufficient."
+      ],
+      "proofSteps": [
+        "Apply functoriality of the fibre to the restriction square before deriving any long exact sequence. The coefficient triangle Z/2^ν→Z/2^(ν+1)→Z/2 and its boundary give maps of triangles.",
+        "Use the naturality of the cycle layers under embeddings into R_v to identify the page map with α_h(j). Apply M.2’s high-degree real isomorphism (h≥3) and h=2 surjectivity with their stated finite-coefficient hypotheses.",
+        "Compare with the real periodic sequence. Its d₂ and the nonsplit Z/4 extension determine both the arithmetic differential and the possible low-filtration extensions; they cannot be recovered from a list of dimensions alone.",
+        "For Q₂/Z₂ pass by filtered colimits with the actual coefficient maps. For integral 2-primary groups combine with the Bockstein sequence and the finite-generation/rank input."
+      ],
+      "acceptance": [
+        "With no real places the restriction target is zero, so C_A≃K(R;A).",
+        "A real summand in degree 2 mod 8 gives Z/4, whereas two unrelated Z/2 graded pieces would give the wrong extension.",
+        "The cohomology of the fibre fits 0→coker α_(h−1)→H^h(fibre)→ker α_h→0; replacing it by just ker α_h loses low-degree terms."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.7/real-place-correction",
+        "MotivicEtaleKTheory:M.7/real-mod-two-sequence",
+        "MotivicEtaleKTheory:M.2/positive-and-modified-cohomology",
+        "MotivicEtaleKTheory:M.2/high-degree-real-isomorphism",
+        "RefinedTraceMethods:RT.4",
+        "ArithmeticGaloisDuality:R02.4",
+        "StableHomotopyKTheory:H.6/coefficient-spectrum",
+        "StableHomotopyKTheory:H.6/moore-spectrum-change-of-coefficients",
+        "StableHomotopyKTheory:H.6/qp-zp-coefficients"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel2013",
+          "locator": "VI Theorem 9.1 and proof, pp.517–518; §9.2–9.4, pp.518–520",
+          "match": "The real restriction maps and real mod-two differential control the arithmetic sequence; Theorem 9.4 retains the resulting extensions."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M7/RealRestrictionBoundarySquare",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.7/dyadic-mod-two-filtration",
+      "parentStageId": "MotivicEtaleKTheory:M.7",
+      "realises": [
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "title": "Dyadic mod-two filtration",
+      "kind": "theorem",
+      "statement": "Under real-restriction-boundary-square, abbreviate H^i=H^i_et(R,Z/2), H̃^i=ker α_i and ε=dim_F₂ coker[H¹→(Z/2)^r₁], the signature defect. For n>0, the motivic filtration on K_n(R;Z/2), indexed by n mod 8, has the following description. Residue 0: H̃²⊕Z/2; 1: H¹; 2: an exact sequence 0→H²→K_n→Z/2→0; 3: 0→(Z/2)^(r₁−1)→K_n→H¹→0; 4: 0→(Z/2)^ε→K_n→H²→0; 5: 0→(Z/2)^(r₁−1)→K_n→H̃¹→0; 6: (Z/2)^ε⊕H̃²; 7: H̃¹. The direct-sum assertions express splitting of groups, without a preferred splitting. The d₂ is obtained by real restriction and E₃=E∞. For n=0 keep the additional Pic(R)/2 term; the positive-degree table is not a K₀ formula.",
+      "hypotheses": [
+        "Finite S contains all places above 2; r₁>0.",
+        "All mod-two twists are canonically the constant Z/2 sheaf; the untwisted notation is used only at this coefficient level."
+      ],
+      "proofSteps": [
+        "Compute α_i with M.2, including the signature defect and the dimensions of the two kernels. Compare the d₂ with the real mod-two spectral sequence.",
+        "In the public motivic coordinates, each nonzero graded piece is on the table of Weibel VI Figure 9.7.1. Degree considerations give E₃=E∞ but do not split a filtered group.",
+        "Read the filtration in descending cohomological degree, giving the subgroup on the left of each displayed exact sequence. Use the coefficient/Bockstein argument for the two residues 0 and 6 in which the source proves splitting.",
+        "Separate the one positive-column term Pic(R)/2 affecting K₀. Preserve natural restriction and coefficient maps from the sequence instead of selecting abstract group isomorphisms."
+      ],
+      "acceptance": [
+        "When r₁=1 the residue-3 and residue-5 correction subgroup is zero.",
+        "The residue-2 extension can contain order-four elements; dimensions of its graded pieces do not force exponent two.",
+        "Signature defect zero removes the residue-4 and residue-6 correction subgroup, but does not eliminate the real restriction map."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.7/real-restriction-boundary-square",
+        "MotivicEtaleKTheory:M.2/mod-two-dimension-formulas",
+        "MotivicEtaleKTheory:M.7/dyadic-s-integer-extensions"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel2013",
+          "locator": "VI §9.6–9.7, pp.520–522, especially Theorem 9.7 and Figure 9.7.1",
+          "match": "The positive-degree mod-two groups are filtered extensions; only the two stated residues have the additional splitting assertion."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M7/DyadicModTwoFiltration",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Dyadic mod-two filtration"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.7/dyadic-integral-torsion-filtration",
+      "parentStageId": "MotivicEtaleKTheory:M.7",
+      "realises": [
+        "MotivicEtaleKTheory:M.7"
+      ],
+      "title": "Dyadic integral torsion",
+      "kind": "theorem",
+      "statement": "For R=O_(F,S) as above put w_i=#H⁰(F,Q₂/Z₂(i)) for i≥2, and ρ=dim_F₂ im[K⁽ᴹ⁾₄(F)→K₄(F)]. Write H²(i)=H²_cont(R,Z₂(i)) and H̃²(i)=ker[H²(i)→⊕_(v real)H²(R_v,Z₂(i))] for even i. Then ε(R)≤ρ<r₁ and, for n≥2, K_n(R){2} is as follows for n mod 8: 0, H²(4k+1); 1, Z/2; 2, H²(4k+2); 3, (Z/2)^(r₁−1)⊕Z/(2w_(4k+2)); 4, an exact sequence 0→(Z/2)^ρ→K_(8k+4)(R){2}→H²(4k+3)→0; 5, zero; 6, H̃²(4k+4); 7, Z/w_(4k+4). The order of the residue-4 extension is specified, not a canonical splitting or a claim that ρ=ε(R). The integer ρ is defined over F and is independent of S, whereas ε(R) can change with S.",
+      "hypotheses": [
+        "n≥2; r₁>0; finite S contains all dyadic and archimedean places.",
+        "The arithmetic finite-generation and Borel rank inputs are used to distinguish torsion in an integral group from finite-coefficient K groups."
+      ],
+      "proofSteps": [
+        "Start with the imported Q₂/Z₂ extension table. For the finite even integral group use the Bockstein exact sequence 0→(Q₂/Z₂)^rank K_(n+1)→K_(n+1)(R;Q₂/Z₂)→K_n(R){2}→0.",
+        "Use the Borel rank, continuous coefficient sequence, and α restrictions to identify the nondivisible parts with H² or its real-restriction kernel. Read odd integral torsion from VI Theorem 9.5.",
+        "In degree 4 mod 8 retain the image of Milnor K₄. The mod-two edge map gives ε(R), while its integral image has rank ρ; divisibility in K₄ explains why those can differ. Apply the source’s periodicity argument to obtain the same ρ at all n=8k+4.",
+        "Carry the actual extension and coefficient/restriction maps forward to arithmetic applications; no list of abstract group orders substitutes for the extension."
+      ],
+      "acceptance": [
+        "For r₁=1 one has ρ=ε=0, removing the extra residue-4 kernel.",
+        "For F=Q, R=Z[1/2], n=3, w₂=8 gives K₃(R){2}≅Z/16, agreeing with the 2-primary part of K₃(Z).",
+        "A mod-two K group at residue 5 can be nonzero although K_(8k+5)(R){2}=0; Bockstein sees the neighbouring degree."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.7/dyadic-mod-two-filtration",
+        "MotivicEtaleKTheory:M.7/dyadic-s-integer-extensions",
+        "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+        "BorelRegulators:R.4",
+        "StableHomotopyKTheory:H.6/coefficient-spectrum",
+        "MotivicEtaleKTheory:M.1/continuous-limit-comparison",
+        "StableHomotopyKTheory:H.6/moore-spectrum-change-of-coefficients",
+        "StableHomotopyKTheory:H.6/qp-zp-coefficients"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel2013",
+          "locator": "VI Corollary 9.10, p.523; Theorem 9.11 and proof, pp.524–525; Theorem 9.5, p.520",
+          "match": "The integral two-primary table contains a field-defined Milnor-image rank and a potentially nonsplit residue-4 extension, recovered from the divisible-coefficient calculation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M7/DyadicIntegralTorsionFiltration",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Dyadic integral torsion"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.8/cubical-deligne-regulator-roof",
+      "parentStageId": "MotivicEtaleKTheory:M.8",
+      "realises": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "title": "Cubical Deligne regulator",
+      "kind": "construction",
+      "statement": "For a smooth equidimensional quasi-projective complex variety X and p≥0, construct the real regulator CH^p(X,n)→H_D^(2p−n)(X,R(p)), n≥0, by the following derived roof. Use the cubical complex z^p(X,*)₀ with cube P¹\\{1} and faces 0,∞, imported from M.4. For each cube take the filtered colimit over admissible codimension-p supports Z of D_log,Z=cone[D_log(X×□^n,p)→D_log((X×□^n)\\Z,p)][−1], truncate this support complex at 2p, normalize the cubical direction and totalize. Reindex by 2p−* to obtain B_supp. Its top support-class projection g to normalized support cohomology is a quasi-isomorphism, and that cohomology complex is z^p(X,*)₀⊗R by the cycle class. Forgetting the support component (ω,g_Z)↦ω gives B_supp→A, the analogous normalized total complex without supports; the inclusion τ≤2p D_log(X,p)[2p−*]→A is a quasi-isomorphism. Invert these two quasi-isomorphisms in the derived category to obtain the regulator. For varieties over R take the conjugation-fixed real complex with its Tate normalization. This construction uses the Hodge Part II logarithmic complex, not a second definition of Deligne cohomology.",
+      "hypotheses": [
+        "The generic logarithmic Deligne complex, support cone, semipurity, homotopy invariance and compactification-independence comparison are supplied in the Hodge direction.",
+        "Truncate after forming the support cone; truncation does not commute with that cone.",
+        "The sign of the total differential is d_D+(−1)^(form degree)∂_cube."
+      ],
+      "proofSteps": [
+        "Use semipurity to identify each supported truncated complex’s cohomology solely in degree 2p, and identify that group with codimension-p cycles by the cycle class. The bounded vertical degree ensures convergence of the normalized total-complex comparison.",
+        "Use cubical homotopy invariance to prove that the unsupported total complex A is quasi-isomorphic to the degree-zero cube complex. Normalization removes degenerate cubes.",
+        "The projection of support pairs to the first entry is a chain map with the chosen total differential. Form the roof through g and the unsupported quasi-isomorphism; choices of representatives are eliminated by its derived-category construction.",
+        "For flat maps use pullback of supports and forms directly. For a general morphism between smooth varieties use the good-position subcomplex for its graph and the imported moving lemma, which gives naturality on homology. Apply real conjugation only after including its action on R(p)."
+      ],
+      "acceptance": [
+        "The map is independent of the support representative and of the admitted compactification through the supplier comparison.",
+        "It sends an ordinary algebraic cycle to its real Deligne cycle class.",
+        "It is an actual map from the imported cycle complex in the derived category, not a choice of a map on a basis of CH⊗R."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.4/cubical-cycle-complex",
+        "MotivicEtaleKTheory:M.4/moving-lemma",
+        "MotivicEtaleKTheory:M.8/deligne-regulator",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne"
+      ],
+      "sources": [
+        {
+          "sourceId": "BurgosFeliu",
+          "locator": "Definition 1.28 and §1.11, pp.11–12; Lemma 2.11 and Propositions 2.8, 2.13, 2.19, pp.15–18; §3.1 and Proposition 3.3, p.19",
+          "match": "Support semipurity and cubical normalization give the regulator roof; projection of support pairs defines the map, with the stated distinction between flat chain functoriality and general homological pullback."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M8/CubicalDeligneRegulatorRoof",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cubical Deligne regulator"
+      },
+      "api": [
+        {
+          "name": "CubicalRegulator.supportRoof",
+          "role": "constructor",
+          "statement": "The cycle/support/unsupported roof with specified quasi-isomorphism legs."
+        },
+        {
+          "name": "CubicalRegulator.cycleClass",
+          "role": "compatibility",
+          "statement": "At n=0 the map equals the usual normalized real Deligne cycle class."
+        },
+        {
+          "name": "CubicalRegulator.flatPullback",
+          "role": "functoriality",
+          "statement": "Flat maps act on the roof by pullback of forms and supports."
+        },
+        {
+          "name": "CubicalRegulator.pullback",
+          "role": "functoriality",
+          "statement": "Every morphism between the admitted smooth varieties acts on homology, through a good-position graph subcomplex."
+        },
+        {
+          "name": "CubicalRegulator.conjugation",
+          "role": "compatibility",
+          "statement": "The roof commutes with the real involution including its Tate action."
+        },
+        {
+          "name": "CubicalRegulator.compactification",
+          "role": "equivalence",
+          "statement": "The comparison for two normal-crossing compactifications identifies the induced regulator; supplied by the Hodge Part II contract."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CubicalRegulator.point_unit",
+          "kind": "example",
+          "statement": "For X=Spec C, CH⁰(X,0)=Z, the unit maps to 1 in H_D⁰(X,R(0))=R."
+        },
+        {
+          "name": "CubicalRegulator.hyperplane",
+          "kind": "example",
+          "statement": "The class of a hyperplane on P¹ maps to c₁^D(O(1)) with the R(1)=2πiR normalization, not an unnormalized de Rham generator."
+        },
+        {
+          "name": "CubicalRegulator.degenerate_cube",
+          "kind": "relation",
+          "statement": "A cycle pulled back along a cubical degeneracy is zero in the normalized source and maps to zero."
+        },
+        {
+          "name": "CubicalRegulator.support_boundary",
+          "kind": "relation",
+          "statement": "A boundary in the support total complex projects to an exact class in A; forgetting the second component with the wrong cone sign fails this check."
+        }
+      ],
+      "uses": [
+        {
+          "where": "M.8/motivic-chern-character and number-field-deligne-normalization",
+          "how": "Compare the actual higher character to Deligne classes, with a fixed normalization."
+        },
+        {
+          "where": "BorelRegulators:R.7 and PeriodsAndSpecialValues:PS.3",
+          "how": "Supply the early Deligne map before the analytic comparison and determinant applications."
+        }
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.8/beilinson-character-comparison",
+      "parentStageId": "MotivicEtaleKTheory:M.8",
+      "realises": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "title": "Beilinson regulator comparison",
+      "kind": "comparison",
+      "statement": "For X smooth quasi-projective over C and n≥0, the composite K_n(X)⊗Q→⊕_(p≥0)CH^p(X,n)⊗Q→⊕_(p≥0)H_D^(2p−n)(X,R(p)), using the imported motivic higher Chern character and cubical-deligne-regulator-roof, is the Beilinson regulator defined by the universal Deligne characteristic classes. For n>0, its weight-p component uses ch_(p,n)= (−1)^(p−1)c_(p,n)/(p−1)! for p≥1. At n=0 use the Newton polynomial divided by p!, not the higher additive formula. At an embedding of a number field, the degree-one target is C/(2πi)^p R; replacing R by Z gives a different integral target. For p=1 the real map on a unit is log|u|.",
+      "hypotheses": [
+        "Use the actual higher motivic character of M.8, not S.7’s K₀-only character.",
+        "For arithmetic X apply the construction to its complex embeddings and the imported real-conjugation descent."
+      ],
+      "proofSteps": [
+        "Evaluate the universal Chow and Deligne Chern classes on stable Grassmannians. The ordinary cycle class identifies them on K₀.",
+        "Use flat Čech nerves of trivializing covers and the universal simplicial classifying sheaf. The good-position/specialization construction for higher cycles supplies a well-defined universal higher characteristic map; it cannot be replaced by arbitrary pullback of all cycles.",
+        "Apply Burgos–Feliu Theorem 3.5 to identify the two regulators. Transport the imported higher-Chern normalization and the separate K₀ Newton formula.",
+        "For the point target use the imported Deligne cone; in weight one its quotient removes the imaginary period line, so the regulator on C× is the real logarithm. Export this normalization to R.7 before consuming R.7’s factor-two comparison."
+      ],
+      "acceptance": [
+        "On line bundles at K₀ the weight-two character is c₁²/2, while the higher positive-degree additive formula has coefficient −1 in front of c₂.",
+        "K₁(C) in weight one recovers log|u|, including zero on roots of unity.",
+        "The comparison does not assert an integral rational-character isomorphism."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.8/cubical-deligne-regulator-roof",
+        "MotivicEtaleKTheory:M.8/motivic-chern-character",
+        "MotivicEtaleKTheory:M.8/number-field-deligne-normalization",
+        "GeneralAlgebraicKTheory:K.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "BurgosFeliu",
+          "locator": "Theorem 3.5 and proof, pp.20–23; Remark 3.4, p.19",
+          "match": "Universal characteristic classes and Grassmannian descent identify the cycle regulator with Beilinson’s higher K regulator."
+        },
+        {
+          "sourceId": "Weibel2013",
+          "locator": "V §11.10–11.14, pp.455–462",
+          "match": "Higher Chern characters and the additive factorial normalization are distinct from the K₀ total Chern/Whitney formula."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M8/BeilinsonCharacterComparison",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.8/native-tate-euler-normalizations",
+      "parentStageId": "MotivicEtaleKTheory:M.8",
+      "realises": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "title": "Tate and elliptic Euler-factor dictionary",
+      "kind": "theorem",
+      "statement": "Import the actual Galois realizations Q_ℓ(j) and H¹_et(E_bar,Q_ℓ)(j), the existing native elliptic Tate module T_ℓE and its dual identification. At a good place v∤ℓ put q=#k_v, a=q+1−#E(k_v), and let Fr be arithmetic Frobenius. Geometric Frobenius is Fr⁻¹. The geometric cohomological polynomials are 1−q^(−j)X for Q_ℓ(j) and 1−a q^(−j)X+q^(1−2j)X² for H¹(E)(j). For a homological lattice T put T*=Hom(T,Z_ℓ(1)); the Rubin polynomial used by ES.2 is P_Rubin(T,X)=det(1−Fr⁻¹X|T*)=det(1−q⁻¹Fr X|T). It is 1−q^(j−1)X for T=Z_ℓ(j), and 1−a q^(j−1)X+q^(2j−1)X² for T=T_ℓE(j). Since H¹(E)(j)≅V_ℓE(j−1) by the Weil pairing, its integral realization is matched to T_ℓE(j−1), with the corresponding substitution in this last formula. These are transported polynomials of existing representations, not definitions of a new elliptic motive or Tate module.",
+      "hypotheses": [
+        "E has good reduction at v and v∤ℓ; bad-place inertia factors require separate local input.",
+        "Negative powers are evaluated in Q_ℓ; q is a unit at ℓ.",
+        "Keep coefficient Frobenius Fr separate from the element of Gal(F′/F) substituted into the Euler polynomial in a norm relation."
+      ],
+      "proofSteps": [
+        "Use the imported native-elliptic-tate-comparison and good-reduction-frobenius-polynomial from R01.6, whose elliptic inputs come from the current Tau Ceti EllipticCurves roadmap/library.",
+        "Dualize and twist the two-dimensional representation: H¹(E)=V_ℓE^∨ and V_ℓE^∨≅V_ℓE(−1). Compute the geometric cohomological characteristic polynomial with this variance.",
+        "Use ES.2/euler-polynomial to convert to Rubin’s Tate-dual convention; eigenvalues on Fr⁻¹ acting on T* equal q⁻¹ times those on Fr acting on T.",
+        "Apply the existing euler-factor-regulator-compatibility to a family with these exact polynomials. The finite étale transfer comparison identifies the actual corestriction on the descent filtration; existence of a family remains a separate arithmetic theorem."
+      ],
+      "acceptance": [
+        "For T=Z_ℓ(1), P_Rubin=1−X; the geometric cohomological Tate polynomial is 1−q⁻¹X. They serve different conventions.",
+        "For T=T_ℓE, P_Rubin=1−(a/q)X+q⁻¹X², whereas H¹(E) has geometric factor 1−aX+qX².",
+        "The geometric constant and top coefficients for H¹(E)(j) remain 1 and q^(1−2j), testing both duality and twist."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.8/tate-elliptic-realization-dictionary",
+        "MotivicEtaleKTheory:M.8/euler-factor-regulator-compatibility",
+        "MotivicEtaleKTheory:M.7/finite-etale-descent-transfer",
+        "ArithmeticGaloisRepresentations:R01.6/field-tate-realization",
+        "ArithmeticGaloisRepresentations:R01.6/native-elliptic-tate-comparison",
+        "ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial",
+        "EulerSystemsAndKolyvaginSystems:ES.2/euler-polynomial"
+      ],
+      "sources": [
+        {
+          "sourceId": "BlochKato1990",
+          "locator": "§5.1, p.369, and §5.5.1–5.7, p.372",
+          "match": "The regulator realization and local/global representation must use the same twist and variance. The explicit polynomial calculation uses the imported native Frobenius and ES.2 contracts."
+        },
+        {
+          "sourceId": "Weibel2013",
+          "locator": "V §11.12, pp.457–459",
+          "match": "The higher étale characteristic map is compatible with transfer, supplying the map to which the existing Euler-family interface applies."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M8/NativeTateEulerNormalizations",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tate and elliptic Euler factors"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.8/local-tate-regulator-finite-condition",
+      "parentStageId": "MotivicEtaleKTheory:M.8",
+      "realises": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "title": "Local Tate regulator and finite condition",
+      "kind": "theorem",
+      "statement": "Let K/Q_p be finite. For j≥2 the rational étale Chern regulator K_(2j−1)(K)→H¹(K,Q_p(j)) agrees with the syntomic Chern class followed by the syntomic period map, and its target equals H¹_f(K,Q_p(j))=H¹_e(K,Q_p(j))=H¹(K,Q_p(j)), of Q_p-dimension [K:Q_p]. The Bloch–Kato exponential D_dR(Q_p(j))/Fil⁰→H¹_e is an isomorphism in these weights. For j=1 use K₁(O_K)=O_K×: its rational completed Kummer image is H¹_f(K,Q_p(1)), of dimension [K:Q_p], whereas H¹(K,Q_p(1)) has dimension [K:Q_p]+1 and the uniformizer class lies outside H¹_f. For a lattice T=Z_p(j), H¹_f(K,T) is the inverse image of the rational condition and contains the torsion in H¹(K,T).",
+      "hypotheses": [
+        "The comparison uses the same integral Chern normalization as finite-etale-chern; replacing it by ch divides by (j−1)! and is a rational change.",
+        "The full local syntomic theory and exponential comparison are imported from D.2/L1, not constructed here.",
+        "No general implication H¹_st=H¹_f for elliptic higher weights is used."
+      ],
+      "proofSteps": [
+        "Apply Nekovář–Nizioł Proposition 5.7 to X=Spec K, Chern weight j and K degree 2j−1: 2j−(2j−1)=1≥0, so its regulator square applies.",
+        "Use the actual Tate-representation calculation of Bloch–Kato Example 3.9. For j≥2 the three finite/geometric/exponential spaces have the full H¹ dimension, and the crystalline fixed-vector term in the exponential kernel is zero.",
+        "At j=1 identify the Kummer/exponential map for the formal multiplicative group using Example 3.10.1. The valuation exact sequence distinguishes units from the uniformizer.",
+        "Propagate the condition to T and V/T with L4’s inverse-image/image construction. Record the actual local maps needed by the Selmer complex separately: a factorization on H¹ alone supplies no homotopy between maps of complexes."
+      ],
+      "acceptance": [
+        "For K=Q_p and j=2 the target has dimension one.",
+        "For K=Q_p and j=1 a uniformizer gives the additional valuation direction and fails the finite-unit condition.",
+        "A torsion lattice class mapping to zero rationally remains in the integral finite condition."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.8/finite-etale-chern",
+        "PadicHodgeRegulators:D.2/etale-regulator",
+        "PadicHodgeRegulators:D.2/syntomic-etale-regulator-comparison",
+        "SelmerIwasawaCohomology:L4/bloch-kato-condition",
+        "PadicHodgeRegulators:L1"
+      ],
+      "sources": [
+        {
+          "sourceId": "NekovarNiziol",
+          "locator": "Proposition 5.7 and proof, p.58",
+          "match": "The actual syntomic and étale Chern classes commute with the period map in the required degree."
+        },
+        {
+          "sourceId": "BlochKato1990",
+          "locator": "(3.7.3), p.354; Example 3.9 and Definition 3.10, p.359; Example 3.10.1, pp.359–360",
+          "match": "The Tate calculation distinguishes positive weights, units and the valuation direction; lattice conditions are inverse images."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M8/LocalTateRegulatorFiniteCondition",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite local Tate regulator"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.8/elliptic-kummer-selmer-adapter",
+      "parentStageId": "MotivicEtaleKTheory:M.8",
+      "realises": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "title": "Elliptic Kummer and Selmer comparison",
+      "kind": "application",
+      "statement": "For an elliptic curve E over a number field F and V=V_pE, use the actual lattice T=T_pE and the local Kummer maps. At v|p, H¹_f(F_v,V) is the image of lim_m E(F_v)/p^m tensored with Q_p; away p, this rational finite Kummer image is zero, while finite lattice/discrete local contributions are retained. The Weil pairing identifies V*(1) with V. These local conditions, together with the unramified complex away p, specialize L2’s Selmer mapping fibre. A regulator on a motivic complex lifts to this Selmer complex only after supplying maps to the actual U_v^+ and homotopies identifying their composites with its local restrictions. Local H¹ membership by itself yields only membership in the kernel-defined Selmer group. The higher-weight realization H¹(E)(j)=V_pE(j−1) is admitted with its own D.5 comparison/regime hypotheses, never by applying the untwisted elliptic Kummer theorem to every twist.",
+      "hypotheses": [
+        "Use the generic Selmer complex of L2 and elliptic finite-Kummer theorem of L4.",
+        "When identifying H¹ of the complex with the kernel-defined Selmer group, impose the H⁰-surjectivity and local H¹-injectivity conditions in L2/selmer-complex-h1.",
+        "Crystalline, semistable and bad-reduction regimes of a higher-weight regulator are supplied by D.2/D.5; Nekovář–Nizioł’s general H¹_st statement alone does not give H¹_f."
+      ],
+      "proofSteps": [
+        "Transport the native Tate module and Weil pairing through R01.6 and the existing L4 finite-Kummer comparison. Use cohomological duality to identify the twist required for h¹(E)(j).",
+        "Insert the explicit local maps into the generic Selmer diagram, whose differential is restriction minus the inclusion of local conditions. Use the supplied local homotopies to construct the motivic-to-mapping-fibre map.",
+        "Use the generic exact sequence with its H⁰ correction to identify the H¹ image. If those map/homotopy inputs are not yet supplied, retain that precise request rather than declaring a constructed derived factorization.",
+        "Preserve integral local finite quotients in determinant applications, even where the corresponding rational Kummer space is zero."
+      ],
+      "acceptance": [
+        "For V_pE the local duality pairing uses the Weil self-duality V*(1)≅V, with no extra Tate twist.",
+        "A rational zero local space away p does not imply that the integral local contribution has order one.",
+        "A map whose local restrictions lie in H¹_f need not specify a chain-level Selmer lift; the local homotopies are testable extra data."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.8/native-tate-euler-normalizations",
+        "MotivicEtaleKTheory:M.8/selmer-regulator-factorization",
+        "SelmerIwasawaCohomology:L2/selmer-complex",
+        "SelmerIwasawaCohomology:L2/selmer-complex-h1",
+        "SelmerIwasawaCohomology:L4/elliptic-finite-kummer",
+        "PadicHodgeRegulators:D.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "BlochKato1990",
+          "locator": "§3.7–3.8, pp.353–354; Example 3.10.1, pp.359–360; §5.1, p.369",
+          "match": "Local finite conditions and duality explain the elliptic Kummer specialization and the distinction between a motivic regulator condition and a proved global isomorphism."
+        },
+        {
+          "sourceId": "NekovarNiziol",
+          "locator": "§5.2, Theorem 5.9 and proof, p.59",
+          "match": "The general regulator factorization is into semistable extension classes; it is not, without additional input, the finite local condition of every elliptic twist."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M8/EllipticKummerSelmerAdapter",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison",
+      "parentStageId": "MotivicEtaleKTheory:M.8",
+      "realises": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "title": "Selmer local determinant formula",
+      "kind": "theorem",
+      "statement": "Let Λ be the admitted coefficient DVR (in particular Z_p), T the Tate or elliptic lattice above, and choose the supplied perfect global, local and compact-support complexes with real-place convention fixed. Write C_f for the L2 Selmer fibre with local maps U_v^+→C_v, and C_c=fib(C_global→⊕_v C_v). The canonical triangle C_c→C_f→⊕_v U_v^+→C_c[1] yields Δ_f(T)=det_Λ^−1 C_f ≅ det_Λ^−1 C_c ⊗ (⊗_v det_Λ^−1 U_v^+), in that fixed order and in the graded determinant category. This formula is compatible with derived coefficient base change wherever the supplied complexes remain perfect and local conditions commute with that base change. In particular the local factors occur with inverse determinant; using det U_v^+ would reverse their contribution. After a selected rational fundamental line and actual period/regulator comparisons have been supplied, this is the local correction in the Tate/elliptic Tamagawa-number statement. It does not assert existence of its distinguished zeta basis.",
+      "hypotheses": [
+        "All named complexes are perfect; no determinant of an arbitrary infinite cochain complex is formed.",
+        "For p=2 the compact-support convention includes the specified modified real terms and their perfection/boundedness theorem; absent that input restrict the specialization to odd p.",
+        "The rational line factors and archimedean/p-adic comparison maps are independent MC.2/PS.0 inputs; the exact case-dependent formula remains a recorded source gap."
+      ],
+      "proofSteps": [
+        "Use L2’s two mapping-fibre triangles (or its octahedral comparison) to obtain C_c→C_f→⊕U_v^+. This fixes the sign before taking a determinant.",
+        "Apply the L5 determinant functor and distinguished-triangle isomorphism det C_f≅det C_c⊗det(⊕U_v^+); invert it, retain graded commutativity signs, and order the local places once.",
+        "Use derived base change from the perfect-complex determinant contract. Do not infer a change-of-lattice invariance that discards torsion indices.",
+        "For a two-term example [Λ --p^a→ Λ] in cohomological degrees 0,1, the acyclic fraction-field trivialization sends its standard determinant basis to p^a and its inverse determinant basis to p^(−a). Retain this test when comparing finite local corrections and selected regulator lattices.",
+        "Invoke no M.8-dependent PS.3/PS.4 result: those stages consume this formula together with the early period spaces. The norm-residue theorem of M.5 supplies no Tamagawa zeta basis."
+      ],
+      "acceptance": [
+        "If every U_v^+=0, Δ_f=Δ_c.",
+        "For U^+=Λ concentrated in degree zero, Δ_f=Δ_c⊗Λ^∨; putting U^+ in degree one reverses that factor.",
+        "The two-term p^a test detects a lost inverse and a lost finite index."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.8/elliptic-kummer-selmer-adapter",
+        "MotivicEtaleKTheory:M.8/local-tate-regulator-finite-condition",
+        "MotivicEtaleKTheory:M.8/arithmetic-fundamental-line",
+        "SelmerIwasawaCohomology:L2/selmer-complex",
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "ArithmeticGaloisDuality:D7",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "PeriodsAndSpecialValues:PS.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kato2003",
+          "locator": "§1.2, p.165; §2.1, pp.166–168",
+          "match": "Determinants of perfect complexes, inverse compact-support lines, coefficient change and exact-triangle compatibility supply the sign convention. The zeta-basis condition is conjectural."
+        },
+        {
+          "sourceId": "BlochKato1990",
+          "locator": "§5.1, p.369",
+          "match": "The selected motivic integral-part/regulator condition requires its own comparison hypotheses; it is not deduced from norm residue."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M8/SelmerLocalDeterminantComparison",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Selmer determinant comparison"
+      }
+    },
+    {
+      "id": "MotivicEtaleKTheory:M.8/number-field-chern-lattice-index",
+      "parentStageId": "MotivicEtaleKTheory:M.8",
+      "realises": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "title": "Number-field Chern lattice index",
+      "kind": "theorem",
+      "statement": "Let F be a number field, R=O_(F,S) with S finite and j≥2. Put L_K=K_(2j−1)(R)/torsion, a free Z-module of Borel rank r. In the rational weight-j motivic group H¹_M(F,Q(j)), let L_ch=ch_j(L_K) and L_c=c_(j,2j−1)(L_K). Then L_c=(−1)^(j−1)(j−1)! L_ch. Let I be the torsion-free image of H¹_M(R,Z(j)) in this rational group. Under the explicit finite-generation, full-rank and Chern-integrality hypotheses, L_c⊂I has finite index e. For an injective real regulator r_D on this rational space whose real extension is an isomorphism, covol(r_D L_ch)=e/((j−1)!)^r · covol(r_D I). A comparison to a differently normalized Borel regulator includes the absolute determinant of its actual R.7 coordinate-change map, including its factor of two. The rational integral part im[H¹_M(R,Q(j))→H¹_M(F,Q(j))] is a Q-subspace and is not the lattice I.",
+      "hypotheses": [
+        "Use the existing motivic-chern-character, integral-motivic-structures and actual Borel lattice/normalization imports.",
+        "The integral motivic image’s finite generation and full-rank comparison are explicit hypotheses/requests; rational equality alone does not establish them.",
+        "Chosen real determinant-line comparison fixes covolume units and orientation; use absolute value for the numerical covolume."
+      ],
+      "proofSteps": [
+        "The higher additive Chern normalization gives the equality of the two image lattices. Use arithmetic finite generation and the rational weight theorem to show L_ch has rank r, without claiming that every integral motivic class lies in that image.",
+        "Under the stated integral hypotheses compare L_c with I. Use the actual inclusion and its finite quotient, not merely equal Q-spans.",
+        "Apply Mathlib ZLattice.covolume_div_covolume_eq_relIndex after the supplied real-coordinate identification to L_c⊂I. Scaling a rank-r lattice by (j−1)! multiplies its covolume by ((j−1)!)^r; combine these two changes. The generic index/covolume theorem is already present and is not a new target.",
+        "Transport the determinant through the Borel/Deligne comparison with its recorded coordinate matrix. Keep a rational integral part, a torsion-free model image and a regulator lattice as separate exported objects."
+      ],
+      "acceptance": [
+        "At j=2 the factorial is one, so the only lattice correction in the formula is the actual index e.",
+        "At j=3 and rank one, L_c=2 L_ch up to sign, hence covol(r_D L_ch)=e/2·covol(r_D I).",
+        "Replacing I by its Q-span destroys discreteness in positive rank and cannot define the same covolume."
+      ],
+      "prerequisites": [
+        "MotivicEtaleKTheory:M.8/beilinson-character-comparison",
+        "MotivicEtaleKTheory:M.8/integral-motivic-structures",
+        "MotivicEtaleKTheory:M.8/regulator-determinant-comparison",
+        "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+        "BorelRegulators:R.4/regulator-lattice",
+        "BorelRegulators:R.7/regulator-factor-two",
+        "MotivicEtaleKTheory:M.4",
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex"
+      ],
+      "sources": [
+        {
+          "sourceId": "Weibel2013",
+          "locator": "V §11.10–11.14, pp.455–462; VI §8.1–8.2, pp.513–514",
+          "match": "The higher Chern factorial and arithmetic finite-generation/rank data determine the image-lattice scaling, correcting the field/ring slip in VI 8.1."
+        },
+        {
+          "sourceId": "BlochKato1990",
+          "locator": "§5.1, p.369",
+          "match": "The motivic rational integral part is defined by a model image; its integral lattice and regulator isomorphism are extra arithmetic data."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicKTheory/MotivicEtale/M8/NumberFieldChernLatticeIndex",
+        "namespace": "TauCeti.MotivicEtaleKTheory"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "EnhancedDerivedSheaves:E3",
+      "need": "Export realization/diagonal and homotopy-limit operations on the actual H.6 support-spectrum diagrams, preserving finite product zigzags and the localization fibre/cofiber squares. This is the coherent carrier contract, not a new spectrum theory.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6b/simultaneously-moved-product-roof"
+      ]
+    },
+    {
+      "supplier": "StableHomotopyKTheory:H.6",
+      "need": "Export multiplicative exact-couple transport, exact homotopy limits and stable Whitehead on the chosen concrete spectrum model, sufficient for the common-width quotient product and the eventual-zero completion proof. Existing filtered-spectrum/Milnor nodes are imported; refine their diagram-level proof gap.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6b/simultaneously-moved-product-roof",
+        "MotivicEtaleKTheory:M.6b/motivic-quotient-completion"
+      ]
+    },
+    {
+      "supplier": "SchemeKTheoryOperations:S.6",
+      "need": "Compare the existing higher scheme Adams operations with the finite-cover/support K-space operations of Levine §12, preserving support triples, refinement and connecting maps. Keep λ unstable. For any additional rational stable filtered action, supply its actual stable comparison and uniqueness theorem rather than the unstable Z×Gr result.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6b/adams-support-boundary-comparison"
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E2",
+      "need": "Apply hypercover/hypercomplete Postnikov descent to the periodic finite-coefficient K spectral sheaf on the small étale site, retaining the uniform cohomological bound and coefficient compatibility. Complex-valued descent alone is not the concrete spectrum statement.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/corrected-thomason-descent"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisDuality:R02.2",
+      "need": "Export the continuous/discrete Tate-twist trace and projection formula for finite étale maps and compatible coefficient triangles, matching the actual K transfer presheaf.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/finite-etale-descent-transfer"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisDuality:R02.3",
+      "need": "Supply the finite-cd≤2 and finiteness/continuous-limit conclusions for finite S, ℓ odd or F totally imaginary, including the shifted H⁰ coefficient transitions. No real dyadic finite-cd theorem is requested.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/arithmetic-bockstein-comparison"
+      ]
+    },
+    {
+      "supplier": "RefinedTraceMethods:RT.4",
+      "need": "Use the existing requested Part II, Real topological K-theory: BO/KO comparison, period eight, coefficient boundary maps and the nonsplit order-four class in degree 2 mod 8. Current complex KU/ku is not the requested real object.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/real-restriction-boundary-square"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisDuality:R02.4",
+      "need": "Export the exact α_h(j) real restrictions, finite and divisible coefficient maps, signature defect and low-degree surjectivity conditions used in the dyadic comparison; retain the distinction between a kernel and the cohomology of its fibre.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/real-restriction-boundary-square"
+      ]
+    },
+    {
+      "supplier": "BorelRegulators:R.4",
+      "need": "Use the existing actual Borel rank/lattice nodes for K_(2j−1)(O_(F,S)), j≥2, and their torsion-free integral lattice, supplying the rank needed to separate the divisible part in the dyadic coefficient calculation. No new analytic Borel regulator is planned here.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/dyadic-integral-torsion-filtration"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+      "need": "Extend the already requested Hodge structures, Part II logarithmic Deligne realization: actual complex with supports, semipurity, homotopy invariance, real conjugation and compactification comparisons preserving the cycle class and product. M.8 imports that carrier and builds only its K/cycle regulator application.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/cubical-deligne-regulator-roof"
+      ]
+    },
+    {
+      "supplier": "GeneralAlgebraicKTheory:K.2",
+      "need": "Supply the actual plus/classifying simplicial sheaf carrier and universal characteristic-class evaluation compatible with cover nerves and finite-rank stabilization, needed in the Beilinson comparison. No formal symbol for K_n suffices.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/beilinson-character-comparison"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:L1",
+      "need": "Use the actual Bloch–Kato exponential/period local maps for Q_p(j), with the local Hodge conventions and inverse-image integral condition. The finite Tate calculation must commute with the syntomic/étale Chern square already exported by D.2.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/local-tate-regulator-finite-condition"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.5",
+      "need": "For the actual elliptic twist V_pE(j−1), specify each reduction/weight regime, construct local regulator-to-U_v^+ maps and homotopies, and prove the required H¹_f assertion. An H¹_st statement or the untwisted Kummer theorem alone is insufficient.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/elliptic-kummer-selmer-adapter"
+      ]
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L5",
+      "need": "Supply the missing determinant functor on perfect coefficient complexes with graded symmetry, inverse lines, triangle multiplicativity, derived base change and the acyclic two-term p^a normalization. This extends its existing direction; no determinant carrier is constructed in M.8.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisDuality:D7",
+      "need": "Supply the actual compact-support complex, real-place convention and perfection theorem for the selected Tate/elliptic lattice regime. For p=2 state the required modified real terms and coefficient-base-change hypotheses.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison"
+      ]
+    },
+    {
+      "supplier": "MotivesAndAlgebraicCycles:MC.2",
+      "need": "Supply the independent actual Tate/h¹(E) Betti, de Rham and p-adic realization objects, with dual/twist and integral comparison maps, and motivic source complexes for derived regulator lifts. No M.8-dependent period/regulator theorem may enter this prefix.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison"
+      ]
+    },
+    {
+      "supplier": "PeriodsAndSpecialValues:PS.0",
+      "need": "Export only the independent realization/period spaces and their basis-independent determinant lines and signs, to specify the selected rational Tate/elliptic fundamental-line factors. PS.3/PS.4 consume the M.8 regulator/determinant comparison and cannot supply it.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.4",
+      "need": "Refine the integral Dedekind motivic model-image comparison: finite generation and full rank of im H¹_M(O_(F,S),Z(j)) in H¹_M(F,Q(j)), and inclusion/index of the actual higher-Chern image for j≥2. The rational integral part does not supply these integral facts.",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/number-field-chern-lattice-index"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "MotivicEtaleKTheory:M.6b",
+      "status": "planned",
+      "remaining": [
+        "Resolve M.6a filtered global-model and H.6/EDS coherent stable-diagram contracts, preserving the explicit dimension/connectivity and lim¹ arguments.",
+        "Supply the S.6 finite-diagram Adams comparison, and any genuinely stable rational filtered action separately from unstable integral λ operations."
+      ],
+      "importedNodes": [
+        "MotivicEtaleKTheory:M.6b/motivic-exact-couple",
+        "MotivicEtaleKTheory:M.6b/motivic-strong-convergence",
+        "MotivicEtaleKTheory:M.6b/filtered-motivic-products",
+        "MotivicEtaleKTheory:M.6b/filtered-adams-operations",
+        "MotivicEtaleKTheory:M.6b/rational-motivic-degeneration"
+      ],
+      "refinedBy": [
+        "MotivicEtaleKTheory:M.6b/motivic-native-index-transport",
+        "MotivicEtaleKTheory:M.6b/simultaneously-moved-product-roof",
+        "MotivicEtaleKTheory:M.6b/product-cycle-layer-identification",
+        "MotivicEtaleKTheory:M.6b/adams-support-boundary-comparison",
+        "MotivicEtaleKTheory:M.6b/motivic-quotient-completion"
+      ]
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.7",
+      "status": "planned",
+      "remaining": [
+        "Resolve inherited resolution-free motivic comparison, full rigidity/Suslin proof, and Dedekind filtered-model extension; refine the original Suslin source proof.",
+        "Supply real KO/BO Part II and the actual selected-field dyadic extension/connecting maps. The corrected Thomason and odd-prime finite étale transfer proof routes are extracted."
+      ],
+      "importedNodes": [
+        "MotivicEtaleKTheory:M.7/beilinson-lichtenbaum",
+        "MotivicEtaleKTheory:M.7/dedekind-motivic-comparison",
+        "MotivicEtaleKTheory:M.7/finite-etale-k-theory",
+        "MotivicEtaleKTheory:M.7/bott-etale-descent",
+        "MotivicEtaleKTheory:M.7/quillen-lichtenbaum-field-range",
+        "MotivicEtaleKTheory:M.7/s-integer-comparison-range",
+        "MotivicEtaleKTheory:M.7/arithmetic-adic-degrees",
+        "MotivicEtaleKTheory:M.7/etale-adams-weights",
+        "MotivicEtaleKTheory:M.7/etale-k-transfer",
+        "MotivicEtaleKTheory:M.7/number-ring-duality-sign",
+        "MotivicEtaleKTheory:M.7/suslin-real-comparison",
+        "MotivicEtaleKTheory:M.7/real-mod-two-sequence",
+        "MotivicEtaleKTheory:M.7/real-place-correction",
+        "MotivicEtaleKTheory:M.7/dyadic-s-integer-extensions"
+      ],
+      "refinedBy": [
+        "MotivicEtaleKTheory:M.7/corrected-thomason-descent",
+        "MotivicEtaleKTheory:M.7/finite-etale-descent-transfer",
+        "MotivicEtaleKTheory:M.7/arithmetic-bockstein-comparison",
+        "MotivicEtaleKTheory:M.7/real-restriction-boundary-square",
+        "MotivicEtaleKTheory:M.7/dyadic-mod-two-filtration",
+        "MotivicEtaleKTheory:M.7/dyadic-integral-torsion-filtration"
+      ]
+    },
+    {
+      "stageId": "MotivicEtaleKTheory:M.8",
+      "status": "planned",
+      "remaining": [
+        "Supply generic logarithmic compactification-independent Hodge realization and the inherited supported/general-character proof inputs.",
+        "Supply actual integral/higher-weight elliptic local regulator maps and Selmer comparison homotopies, L5 determinants and D7 perfection.",
+        "Extract the selected rational Tate/elliptic fundamental-line factors/period maps from independent MC.2/PS.0 inputs, and establish the integral motivic model-image lattice hypotheses/index. No Tamagawa zeta-basis existence is claimed."
+      ],
+      "importedNodes": [
+        "MotivicEtaleKTheory:M.8/finite-etale-chern",
+        "MotivicEtaleKTheory:M.8/motivic-chern-character",
+        "MotivicEtaleKTheory:M.8/supported-cycle-character",
+        "MotivicEtaleKTheory:M.8/deligne-regulator",
+        "MotivicEtaleKTheory:M.8/number-field-deligne-normalization",
+        "MotivicEtaleKTheory:M.8/chern-functoriality",
+        "MotivicEtaleKTheory:M.8/integral-motivic-structures",
+        "MotivicEtaleKTheory:M.8/tate-elliptic-realization-dictionary",
+        "MotivicEtaleKTheory:M.8/norm-compatible-regulator-families",
+        "MotivicEtaleKTheory:M.8/euler-factor-regulator-compatibility",
+        "MotivicEtaleKTheory:M.8/selmer-regulator-factorization",
+        "MotivicEtaleKTheory:M.8/arithmetic-fundamental-line",
+        "MotivicEtaleKTheory:M.8/regulator-determinant-comparison"
+      ],
+      "refinedBy": [
+        "MotivicEtaleKTheory:M.8/cubical-deligne-regulator-roof",
+        "MotivicEtaleKTheory:M.8/beilinson-character-comparison",
+        "MotivicEtaleKTheory:M.8/native-tate-euler-normalizations",
+        "MotivicEtaleKTheory:M.8/local-tate-regulator-finite-condition",
+        "MotivicEtaleKTheory:M.8/elliptic-kummer-selmer-adapter",
+        "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison",
+        "MotivicEtaleKTheory:M.8/number-field-chern-lattice-index"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Stable support diagrams and filtered global-model comparison",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6b/simultaneously-moved-product-roof",
+        "MotivicEtaleKTheory:M.6b/product-cycle-layer-identification",
+        "MotivicEtaleKTheory:M.6b/motivic-quotient-completion"
+      ],
+      "detail": "The §11/Appendix C product proof has been read and its functorial moving/triangle steps extracted. It still needs the actual H.6/EDS coherent diagram carrier and M.6a/global-model-comparison as a filtered zigzag preserving augmentations and cycle layers. Two descriptions of E₂ are not that filtered equivalence. The support connectivity/dévissage and inherited reviewed Levine E6/E7 proof obligations are not discharged by this refinement. No stable Whitehead/limit implementation is claimed."
+    },
+    {
+      "title": "Adams finite-diagram comparison versus integral stable operations",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.6b/adams-support-boundary-comparison"
+      ],
+      "detail": "Read Levine 2001 §12 in full. Its construction uses unstable K-spaces, cover truncations and homotopy groups. S.6 must export agreement of its higher Adams operation with those finite support diagrams and their localization boundaries. If a genuinely stable rational filtered Adams morphism is required, supply its rational motivic K-spectrum comparison separately; the existing unstable Grassmannian uniqueness node is not a stable integral construction. The current comparison proves the exact-couple weight statement at planning level, with this supplier obligation, not integral stable λ maps."
+    },
+    {
+      "title": "Inherited norm-residue, rigidity and arithmetic filtered-model proof obligations",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/corrected-thomason-descent",
+        "MotivicEtaleKTheory:M.7/arithmetic-bockstein-comparison",
+        "MotivicEtaleKTheory:M.7/real-restriction-boundary-square"
+      ],
+      "detail": "The published Thomason correction and the finite étale transfer proof are now read. The accepted M.5d packet’s resolution-free Beilinson–Lichtenbaum gap, the supplier’s full Gabber/Suslin proof, and the arithmetic Dedekind extension of the selected perfect-field motivic tower remain prerequisites. An étale Bott sequence does not prove the ordinary integral motivic filtration over a number ring. Suslin’s original Lie-neighbourhood argument is not read in this run and is still an explicit source refinement of suslin-real-comparison."
+    },
+    {
+      "title": "Real KO and arithmetic dyadic extension maps",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.7/real-restriction-boundary-square",
+        "MotivicEtaleKTheory:M.7/dyadic-mod-two-filtration",
+        "MotivicEtaleKTheory:M.7/dyadic-integral-torsion-filtration"
+      ],
+      "detail": "K-book VI §9 is read through the integral table and its proof. The tables specify actual exact-sequence targets, not all their extension classes or canonical splittings. RefinedTraceMethods Part II must supply the real KO comparison, boundary maps and order-four mod-two class; M.2/R02.4 supply the page restrictions and signature maps. Refinement to natural explicit dyadic connecting maps, including the residue-4 extension for a selected field, remains. No odd-prime comparison is asserted at real dyadic places."
+    },
+    {
+      "title": "Logarithmic realization and supported character proof imports",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/cubical-deligne-regulator-roof",
+        "MotivicEtaleKTheory:M.8/beilinson-character-comparison"
+      ],
+      "detail": "The smooth complex Burgos–Feliu roof and its Beilinson comparison proof are read. Generic logarithmic Deligne complexes, semipurity and compactification independence remain the upstream Hodge Part II contract; the original Gillet/Gillet–Soulé supported higher-character proof and Huber general motivic realization have not been read here. The specialized complex construction does not claim the full mixed-characteristic or arbitrary-motive realization theorem. Products/residues/norms beyond these admitted comparison models continue to use the existing chern-functoriality and supported-cycle-character nodes with their supplier requests."
+    },
+    {
+      "title": "Integral/higher-weight local Selmer regulator lifts",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/elliptic-kummer-selmer-adapter",
+        "MotivicEtaleKTheory:M.8/local-tate-regulator-finite-condition"
+      ],
+      "detail": "The rational local Tate calculation and syntomic/étale Chern square are specified. An actual map to the Selmer complex requires a chosen motivic source complex, maps to U_v^+, and coherent local comparison homotopies. D.2/D.5 must supply those maps in each elliptic higher-weight crystalline/semistable regime. A general H¹_st factorization is weaker than H¹_f; no ramified, dyadic or arbitrary elliptic twist extension is inferred. Finite étale transfer was refined for odd primes only."
+    },
+    {
+      "title": "Perfect determinants and selected rational fundamental-line factors",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison"
+      ],
+      "detail": "L5 has no determinant node in the inspected packet. Its exact-triangle, graded sign and derived-base-change contract, together with D7 compact-support perfection including any modified real terms, is still requested. The Selmer-to-compact determinant sign is now explicit. Exact rational Tate/elliptic fundamental-line factors and their archimedean and p-adic period comparisons require a source-level case extraction from the independent MC.2/PS.0 prefix; Kato’s exposition refers onward for this. This packet does not substitute PS.3/PS.4 or assert a zeta basis or Tamagawa-number conjecture."
+    },
+    {
+      "title": "Full integral motivic model-image lattice",
+      "neededBy": [
+        "MotivicEtaleKTheory:M.8/number-field-chern-lattice-index"
+      ],
+      "detail": "The image of the integral K lattice under ch and c is controlled exactly, including its factorial. Finite generation, full rank and the index of the entire integral motivic model image are additional hypotheses, not consequences of its rational span. Supply that integral comparison before turning the conditional covolume formula into an unconditional lattice assertion. R.4/R.7 supply the existing analytic regulator and its actual factor-two normalization."
+    }
+  ],
+  "imports": [
+    {
+      "packet": "MotivicEtaleKTheory--M.5d",
+      "review": "independent-review-REV-MotivicEtaleKTheory--M.5d~2",
+      "policy": "Reuse the accepted target nodes and identifiers, with their explicit requests and proof gaps; no import is a claim of implementation.",
+      "nodes": [
+        "MotivicEtaleKTheory:M.6b/motivic-exact-couple",
+        "MotivicEtaleKTheory:M.6b/motivic-strong-convergence",
+        "MotivicEtaleKTheory:M.6b/filtered-motivic-products",
+        "MotivicEtaleKTheory:M.6b/filtered-adams-operations",
+        "MotivicEtaleKTheory:M.6b/rational-motivic-degeneration",
+        "MotivicEtaleKTheory:M.7/beilinson-lichtenbaum",
+        "MotivicEtaleKTheory:M.7/dedekind-motivic-comparison",
+        "MotivicEtaleKTheory:M.7/finite-etale-k-theory",
+        "MotivicEtaleKTheory:M.7/bott-etale-descent",
+        "MotivicEtaleKTheory:M.7/quillen-lichtenbaum-field-range",
+        "MotivicEtaleKTheory:M.7/s-integer-comparison-range",
+        "MotivicEtaleKTheory:M.7/arithmetic-adic-degrees",
+        "MotivicEtaleKTheory:M.7/etale-adams-weights",
+        "MotivicEtaleKTheory:M.7/etale-k-transfer",
+        "MotivicEtaleKTheory:M.7/number-ring-duality-sign",
+        "MotivicEtaleKTheory:M.7/suslin-real-comparison",
+        "MotivicEtaleKTheory:M.7/real-mod-two-sequence",
+        "MotivicEtaleKTheory:M.7/real-place-correction",
+        "MotivicEtaleKTheory:M.7/dyadic-s-integer-extensions",
+        "MotivicEtaleKTheory:M.8/finite-etale-chern",
+        "MotivicEtaleKTheory:M.8/motivic-chern-character",
+        "MotivicEtaleKTheory:M.8/supported-cycle-character",
+        "MotivicEtaleKTheory:M.8/deligne-regulator",
+        "MotivicEtaleKTheory:M.8/number-field-deligne-normalization",
+        "MotivicEtaleKTheory:M.8/chern-functoriality",
+        "MotivicEtaleKTheory:M.8/integral-motivic-structures",
+        "MotivicEtaleKTheory:M.8/tate-elliptic-realization-dictionary",
+        "MotivicEtaleKTheory:M.8/norm-compatible-regulator-families",
+        "MotivicEtaleKTheory:M.8/euler-factor-regulator-compatibility",
+        "MotivicEtaleKTheory:M.8/selmer-regulator-factorization",
+        "MotivicEtaleKTheory:M.8/arithmetic-fundamental-line",
+        "MotivicEtaleKTheory:M.8/regulator-determinant-comparison"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "MotivicEtaleKTheory",
+        "RefinedTraceMethods"
+      ],
+      "detail": "The accepted sibling already requests a real topological K-theory extension; the present dyadic tables need its coefficient boundary and extension maps.",
+      "proposal": "Retain the existing Refined trace methods, Part II: Real topological K-theory owner and its first prerequisite RT.4. Do not define a second KO carrier in M.7."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "MotivicEtaleKTheory",
+        "tauceti:TauCetiRoadmap/HodgeStructures"
+      ],
+      "detail": "The regulator roof needs the already requested logarithmic Deligne realization extension, beyond the current upstream mixed-Hodge layer.",
+      "proposal": "Retain Hodge structures, Part II: Deligne–Beilinson realization, first prerequisite the existing mixed-Hodge milestone. It supplies the logarithmic/support/compactification carrier; M.8 specializes its cycle and K regulators."
+    }
+  ],
+  "upstreamNotes": [
+    "Current main of TauCetiRoadmap and the current Tau Ceti library were inspected read-only. AlgebraicVectorBundles already owns finite-projective/sheaf and determinant-line geometry; EllipticCurves already owns the native Tate module, Weil pairing, Frobenius polynomial and good-reduction direction. The new nodes import these through their R01.6 application contracts. No upstream target is replanned and no lake operation was run in those checkouts.",
+    "Baseline commits are the programme pins, distinct from the newer read-only environment commits recorded in the handoff. The existing algebraic spectral-sequence carrier is reused; no spectral or motivic carrier is claimed at the pins.",
+    "The live issue and queue include M.6b, M.7 and M.8; its embedded older prompt lists only M.6b. This pass follows the live three-stage scope. The named M.1 predecessor has no M.6b coverage; the accepted M.5d sibling actually supplies all three stages and is the imported target inventory.",
+    "Assembly must combine this refinement with M.5d, not replace its targets by the refinement nodes alone. Existing target IDs remain in M.5d; no target is duplicated or deleted here.",
+    "RS-18/RS-33 boundaries are preserved: H.6 owns generic exact couples/convergence/limits; S.6 owns generic K products/Adams operations; M.6a owns support towers/layers and this pass specializes their boundary/product/completion comparison.",
+    "No full-stage ArithmeticKTheory N.6, Borel R.7 or p-adic D.2 reverse edge is added to early comparison/Chern nodes. N.6 consumes M.7; R.7 consumes early M.8 Deligne normalization; D.2 consumes early finite-etale-chern. Only the late lattice/local nodes consume those outputs.",
+    "The Selmer/determinant/period boundary follows RS-08 and the accepted sibling: L2/L4 supply Selmer objects, L5 supplies determinants, MC.2/PS.0 the independent period-space prefix. PS.3/PS.4 are consumers. No mathematical notion moves to a new owner in this pass.",
+    "Current IntegralLattices README, What Mathlib supplies, and its Suggested.lean identify generic lattice/covolume/index theory as existing. The pinned covolume_div_covolume_eq_relIndex statement was read and imported directly. Only the number-field Chern-image and integral-model comparison is a new application target."
+  ],
+  "sourceIssues": [
+    {
+      "id": "MotivicEtaleKTheory/E-M6b-1",
+      "kind": "gap",
+      "sourceId": "Thomason1985",
+      "locator": "Original Theorem 2.42 proof, pp.496–498; corrected in the 1989 erratum pp.675–677",
+      "printed": "In own words: the original arbitrary-index homotopy-colimit comparison uses maps with homotopies that need not form the required coherent diagram.",
+      "correction": "Use corrected 2.42(a) for countably generated Galois extensions and 2.42(b), Bott annihilation of descent kernel/cokernel on homotopy groups, for general cd-one extensions.",
+      "reason": "Sequential telescopes can be assembled from adjacent homotopies; an arbitrary filtered diagram requires additional higher compatibility. The published erratum reduces the general argument to the countably generated case and proves precisely the Bott-annihilation statement needed after inversion.",
+      "affects": "the proof",
+      "known": "Published correction: R. W. Thomason, Ann. Sci. ENS 22 (1989), 675–677; descent conclusions 2.43/4.1 remain available with the corrected proof.",
+      "searched": [
+        "Numdam original article and its linked erratum; entire erratum read."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E-M6b-2",
+      "kind": "misprint",
+      "sourceId": "Levine2001",
+      "locator": "Appendix D, proof of Lemma D.6, p.96, December 2001 author PDF",
+      "printed": "In own words: the sphere-interchange sentence assigns exponent n+m to the sign for S^n∧S^m.",
+      "correction": "The interchange degree is (−1)^(nm); the resulting Leibniz boundary uses (−1)^n when a degree-n sphere passes one suspension.",
+      "reason": "For n=m=1, interchanging the two circle factors on S² has degree −1, whereas the printed exponent gives +1. For n=0,m=1 the unit interchange has degree +1. The page was checked in the rendered PDF as well as text.",
+      "affects": "the proof",
+      "known": "No correction located in the author catalogue or targeted search; pending independent review, with no novelty claim.",
+      "searched": [
+        "Author publication catalogue https://esaga.net/marc.levine/pub/ and the linked KthyMotI12.01.pdf.",
+        "Targeted search for Levine Appendix D.6 and errata on 2026-10-19."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E-M6b-3",
+      "kind": "misprint",
+      "sourceId": "Weibel2013",
+      "locator": "VI Classical Data 8.1, printed p.513, August 29, 2013 PDF",
+      "printed": "In own words: the finite-even and finitely-generated odd K-group assertions are written for the number field F after introducing O_S.",
+      "correction": "Those finite-generation/rank assertions here concern K_n(O_S), with S finite, not K_n(F).",
+      "reason": "Localization for Q gives K₂(Q) a quotient ⊕_p F_p×, since K₁(Z)→K₁(Q) is injective. That direct sum is infinite. Arithmetic finite generation imported in this packet has ring-of-S-integers domain.",
+      "affects": "nothing",
+      "known": "Author errata page was located, but the linked Kbook.errata.pdf returned 404; no matching correction was obtained. Pending independent review; no novelty claim.",
+      "searched": [
+        "https://sites.math.rutgers.edu/~weibel/Kbook.html and its published-version errata link.",
+        "Targeted author-domain search for VI 8.1 on 2026-10-19."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E-M6b-4",
+      "kind": "misprint",
+      "sourceId": "NekovarNiziol",
+      "locator": "Theorem 5.9 display, p.59, arXiv:1309.7620v5",
+      "printed": "In own words: the theorem display uses geometric cohomological degree i+1 in both H¹_st and H¹, although the regulator just defined above and the final proof diagram use degree i.",
+      "correction": "Use H¹_st(G_K,H^i_et(X_bar,Q_p(r)))⊂H¹(G_K,H^i_et(X_bar,Q_p(r))) for the regulator r^et_(r,i).",
+      "reason": "The Hochschild–Serre edge lowers geometric degree from total i+1 to i. The definition directly preceding the theorem, its proof diagram and Remark 5.10 agree on H^i. The rendered page confirms the i+1 display.",
+      "affects": "a stated result",
+      "known": "No erratum found in the arXiv record/targeted author-title search. This is recorded as a display-index correction, pending independent review; the regulator proof uses the consistent i degree.",
+      "searched": [
+        "arXiv:1309.7620v5, p.59, including definition, proof and following remark.",
+        "Targeted search for an erratum to arXiv:1309.7620 on 2026-10-19."
+      ]
+    },
+    {
+      "id": "MotivicEtaleKTheory/E-M6b-5",
+      "kind": "misprint",
+      "sourceId": "Weibel2013",
+      "locator": "VI proof of Theorem 9.12, printed p.525, August 29, 2013 PDF",
+      "printed": "In own words: in the residue-6 even K-group case the final proof paragraph expresses its order using h^(1,i)(2) divided by 2^r₁.",
+      "correction": "The numerator in that even-group sentence is h^(2,i)(2), the order of H²(R,Z₂(i)); the theorem’s order ratio is unchanged.",
+      "reason": "Theorem 9.11 identifies this even K group with ker[H²(R,Z₂(i))→(Z/2)^r₁]. Its order is therefore the H² order divided by the real quotient order, rather than the H¹ order. This packet does not use Theorem 9.12 as a prerequisite.",
+      "affects": "the proof",
+      "known": "Author errata link was unavailable (404); no matching correction located. Pending independent review; no novelty claim.",
+      "searched": [
+        "https://sites.math.rutgers.edu/~weibel/Kbook.html and linked errata.",
+        "Comparison with VI Theorem 9.11, pp.524–525, and targeted author-domain search on 2026-10-19."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "BM2018",
+      "note": "Read arXiv v3 §10 pp.43–46. The shortened v4 does not contain that proof section; no §10 citation is made to v4."
+    },
+    {
+      "sourceId": "Levine2001",
+      "note": "Reuse the independently confirmed inherited Adams exponent correction MotivicEtaleKTheory/E8. Inherited E6/E7 convergence proof issues remain in the source/gap ledger; they are not newly adjudicated here."
+    },
+    {
+      "sourceId": "NekovarNiziol",
+      "note": "Theorem 5.9 is used only with the H^i coefficient appearing in its definition and proof. Its general output is H¹_st, not an unconditional H¹_f assertion for all elliptic twists."
+    }
+  ]
+}
