@@ -151171,6 +151171,63 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroNahmSeries~adv.md",
    "note": "claimed on GitHub issue #11094"
+  },
+  {
+   "id": "PKG-EisensteinIdealAndRationalTorsion~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EisensteinIdealAndRationalTorsion"
+   ],
+   "outputs": [
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/README.md",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/Suggested.lean",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/metadata.toml",
+    "research/blueprint/handoff/PKG-EisensteinIdealAndRationalTorsion~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-EisensteinIdealAndRationalTorsion~codex.md"
+  },
+  {
+   "id": "PKG-RelativeJacobiansAndIntegralCurveModels~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RelativeJacobiansAndIntegralCurveModels"
+   ],
+   "outputs": [
+    "research/blueprint/packages/RelativeJacobiansAndIntegralCurveModels/README.md",
+    "research/blueprint/packages/RelativeJacobiansAndIntegralCurveModels/Suggested.lean",
+    "research/blueprint/packages/RelativeJacobiansAndIntegralCurveModels/metadata.toml",
+    "research/blueprint/handoff/PKG-RelativeJacobiansAndIntegralCurveModels~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-RelativeJacobiansAndIntegralCurveModels~codex.md"
+  },
+  {
+   "id": "PKG-LawrenceVenkateshMethod~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "LawrenceVenkateshMethod"
+   ],
+   "outputs": [
+    "research/blueprint/packages/LawrenceVenkateshMethod/README.md",
+    "research/blueprint/packages/LawrenceVenkateshMethod/Suggested.lean",
+    "research/blueprint/packages/LawrenceVenkateshMethod/metadata.toml",
+    "research/blueprint/handoff/PKG-LawrenceVenkateshMethod~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-LawrenceVenkateshMethod~codex.md"
   }
  ]
 }
