@@ -2,7 +2,7 @@
 
 This roadmap plans an explicit automorphic module for a cuspidal representation with a generic global Arthur parameter. Start with a relevant inclusion of classical spaces, build a larger Eisenstein family, take its leading Laurent coefficient, and take the critical rational Bessel coefficient of that residue. Reciprocal periods and local GGP then identify the resulting module with the prescribed representation, up to the permitted even-orthogonal outer orbit. The construction follows Jiang–Zhang, but each statement below is a target with its own hypotheses and proof obligations.
 
-The plan is complete at target level: all eight layers are planned. It is not proof-closed or implemented. In particular G1 is an unresolved unitary convention comparison, G4 concerns unpublished local theory, and G7 separates the constructed residue from all residual packet members. Their dependent conclusions are conditional until these contracts are discharged. Generic Summand and weak Fourier support are definitions of propositions; local GGP is an imported proposition with only its exact proved ranges available. There is no axiom asserting a conjecture.
+The independent review accepts this complete target-level planning pass: all eight layers are planned. It is not proof-closed or implemented. In particular G1 is an unresolved unitary convention comparison, G4 concerns unpublished local theory, and G7 separates the constructed residue from all residual packet members. Their dependent conclusions are conditional until these contracts are discharged. Generic Summand and weak Fourier support are definitions of propositions; local GGP is an imported proposition with only its exact proved ranges available. There is no axiom asserting a conjecture.
 
 ## Data and conventions
 
@@ -16,7 +16,9 @@ Induction is normalized: I_s=Ind_{P_a}^{H_X,norm}(|det|^s τ⊗σ), whose sectio
 
 For r distinct cuspidal blocks of τ, the residual form is the coefficient lim_{s→1/2}(s−1/2)^r E(f_s,s). It is not an iterated residue in one variable. Nonzero residual module means that some section has a nonzero coefficient. Nonzero residue and nonzero critical descent are separate assertions. The latter may be zero in the definition.
 
-The paper-convention local quotient is ℒ_v(s)=L_v(s+1/2,τ×φ_π)/[L_v(s+1,τ×φ_σ)L_v(2s+1,τ,ρ)]. Here ρ is exterior square for ambient even SO, symmetric square for ambient odd SO, and Asai with sign (−1)^m for the unitary ambient form, where m is the actual smaller form dimension. This records the formula to be compared, rather than assuming its unitary argument conventions are correct. G1 computes the actual radical representation and tracks every dual through the integral and residue. In the printed tensor numerator the self-pair pole requires τ=BC(π)∨. To recover π via a bilinear pairing one may pair the critical module against π∨, but all induction and character transports still have to be proved. Merely changing the central L-value to a dualized one does not verify the entire diagram.
+The local quotient ℒ_v follows rendered (4.47), p.780: L_v(s+1/2,τ×φ_π∨)/[L_v(s+1,τ×φ_σ)L_v(2s+1,τ,ρ)]. Here conjugate π is the ordinary dual because π is unitary. Rendered (5.13), p.787, instead has φ_π in its numerator; denote this separate candidate by ℒ_v^{13}. The two agree for self-dual orthogonal standard parameters. In general they are different for unitary parameters. The full self-pair choice is τ=BC(π) for ℒ and τ=BC(π)∨ for ℒ^{13}. The plan uses ℒ in the spherical and normalized-product targets and does not silently identify it with ℒ^{13}.
+
+Here ρ is exterior square for ambient even SO, symmetric square for ambient odd SO, and Asai with sign (−1)^m for unitary ambient groups, using the actual smaller form dimension. Equations (5.6) and Theorem 5.3 already conjugate the second argument inside Hermitian brackets; those periods are bilinear in the original forms. G1 must reconcile the displayed ratios, the actual radical representation, §5.5 dual transport, and the parameter of the critical module. A bilinear pairing against π still detects π∨, so correcting the numerator alone does not establish unitary recovery.
 
 The AS.2 Shahidi normalization is N_v(s)=β_v(s)M_v(s), with β_v(s)=L_v(1+s,τ×σ)L_v(1+2s,τ,ρ)ε_v(s,τ×σ)ε_v(2s,τ,ρ)/[L_v(s,τ×σ)L_v(2s,τ,ρ)] in that source convention. Both epsilon factors multiply in the numerator. The actual cross factor in the unitary case is subject to G1. Completed products include archimedean factors; a partial product always displays its removed set S. Z_S^*=∏_{v∈S}(Z_v/ℒ_v) is a meromorphic quotient, and Z=c Z_S^*ℒ retains the nonzero global normalization scalar c. Holomorphy of this product does not imply holomorphy of every factor.
 
@@ -52,7 +54,7 @@ A cuspidal Hilbert carrier uses an explicit fixed unitary central character or s
 
 Compare actual classical spaces, rational Bessel characters and stabilizers; construct an ambient datum returning a prescribed relevant inclusion.
 
-Coverage: **planned**, with 6 targets; not closed. Its transitive proof/source contracts are . Supplier requests also propagate along the displayed dependencies.
+Coverage: **planned**, with 6 targets; not closed. It has no internal proof/source gap of its own; the listed supplier requests remain open. Supplier requests also propagate along the displayed dependencies.
 
 #### `group-coordinate-comparison` — Classical-group coordinate comparison (comparison)
 
@@ -94,9 +96,10 @@ API derived from use:
 
 | Name | Role | Required behavior |
 | --- | --- | --- |
-| `bessel_partition.parts` | data | The parts multiset is {2ell+1} plus d−2ell−1 ones. |
-| `bessel_partition.size` | simp | The sum of the parts is d and the length is d−2ell. |
-| `bessel_partition.zero` | compatibility | At ell=0 the partition is the existing partition of d into ones, while its Bessel coefficient is restriction to the chosen subgroup. |
+| `besselPartition_parts` | data | The parts multiset is {2ell+1} plus d−2ell−1 ones. |
+| `besselPartition_sum` | simp | The sum of the parts is d. |
+| `besselPartition_card` | simp | The number of parts is d−2ell. |
+| `besselPartition_zero` | compatibility | At ell=0 the partition is the existing partition of d into ones; the geometric Bessel coefficient is separately restriction to the chosen subgroup. |
 
 Uses:
 
@@ -106,7 +109,7 @@ Uses:
 Unit checks:
 
 - **bessel_partition.five_one** (computation): d=5, ell=1 gives [3,1,1], of size 5 and length 3.
-- **bessel_partition.zero_index** (degenerate): d=3, ell=0 gives [1,1,1]; its Bessel subgroup has dimension 2, although the nilpotent is zero.
+- **bessel_partition.zero_index** (degenerate): d=3, ell=0 gives [1,1,1]; its stabilizer defining space has dimension 2, although the nilpotent is zero. The algebraic group SO₂ has dimension 1 and U₂ has dimension 4.
 - **bessel_partition.even_boundary** (non-example): d=4, ell=2 is not admissible: the proposed leading part 5 exceeds 4.
 
 #### `rational-orbit-comparison` — Rational Bessel orbit comparison (comparison)
@@ -149,7 +152,7 @@ For V=H^ell ⊥ V_(ell) and anisotropic w∈V_(ell), the chosen Bessel subgroup 
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, §2.4, (2.13)–(2.16), Proposition 2.5, pp.758–759.
+Source: Jiang–Zhang, §2.4, (2.13)–(2.14), Proposition 2.5, pp.758–759.
 
 Dependencies: `TwistedAutomorphicDescents:TAD.0/vector-normal-form`, `GanGrossPrasadConjecturesForClassicalGroups:GGP.0/relevant-pair`, `tauceti:TauCeti.equivalent_of_equivalent_prod`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2`.
 
@@ -214,7 +217,7 @@ For a specified automorphic embedding C_π of an irreducible representation and 
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, §2.3, (2.8)–(2.10), pp.754–756; §6.2, (6.7)–(6.8), pp.800–801.
+Source: Jiang–Zhang, §2.3, (2.8)–(2.10), pp.754–756; §6.2, (6.9), p.802.
 
 Dependencies: `GanGrossPrasadConjecturesForClassicalGroups:GGP.3/bessel-fourier-coefficient`, `TwistedAutomorphicDescents:TAD.0/rational-orbit-comparison`, `AutomorphicFormsOnReductiveGroups:AF.3`.
 
@@ -239,7 +242,7 @@ API derived from use:
 Uses:
 
 - JZ2020 Proposition 2.2, p.756: Its maximal nonzero Bessel module is cuspidal.
-- JZ2020 (6.8), p.801: The critical module of a residual realization is the twisted descent.
+- JZ2020 (6.9), p.802: The critical module of a residual realization is the twisted descent.
 
 Unit checks:
 
@@ -279,7 +282,7 @@ API derived from use:
 Uses:
 
 - JZ2020 Conjecture 2.3, pp.756–757: Specifies which branching module must have a generic summand.
-- JZ2020 (6.7), pp.800–801: Determines the smaller group and the critical descent index.
+- JZ2020 (6.7), p.801: Determines the smaller group and the critical descent index.
 
 Unit checks:
 
@@ -537,7 +540,7 @@ Remaining proof contracts: G3: Full relative Bruhat and open-cell comparison.
 
 Define both local integrals and their parameter quotient, establish the Euler identity, spherical calculation and prescribed-vector local nonvanishing.
 
-Coverage: **planned**, with 6 targets; not closed. Its transitive proof/source contracts are G3, G4, G5. Supplier requests also propagate along the displayed dependencies.
+Coverage: **planned**, with 6 targets; not closed. Its transitive proof/source contracts are G1, G3, G4, G5. Supplier requests also propagate along the displayed dependencies.
 
 #### `local-integral` — Local Bessel zeta integral (definition)
 
@@ -603,11 +606,11 @@ Remaining proof contracts: G4: Unpublished local continuation and spherical calc
 
 #### `standard-ratio` — Standard local L-ratio (definition)
 
-For π,σ with relevant generic global parameters, define the paper-convention local ratio ℒ_v(s;τ,π,σ)=L_v(s+1/2,τ×φ_π)/(L_v(s+1,τ×φ_σ)L_v(2s+1,τ,ρ)). Here ρ=∧² if H_X is even orthogonal, ρ=Sym² if it is odd orthogonal, and ρ=Asai^{(−1)^m} for U(X), where m=dim_E W, not floor(m/2). Use the standard local parameters for ramified and archimedean factors; this is not a definition by the gcd of these Bessel integrals. In the unitary branch the comparison of this paper-convention ratio with the actual bilinear integral and Shahidi root representation is an explicit, unresolved convention obligation G1.
+For π,σ with relevant generic global parameters, define the (4.47) local ratio ℒ_v(s;τ,π,σ)=L_v(s+1/2,τ×φ_π∨)/(L_v(s+1,τ×φ_σ)L_v(2s+1,τ,ρ)). The published numerator uses the complex conjugate of the unitary representation π, whose parameter is φ_π∨. Also record the distinct (5.13) candidate ℒ_v^{13}, with φ_π in place of φ_π∨. These agree for self-dual orthogonal standard parameters; no such equality is assumed for unitary parameters. Here ρ=∧² if H_X is even orthogonal, ρ=Sym² if it is odd orthogonal, and ρ=Asai^{(−1)^m} for U(X), where m=dim_E W. Use standard local parameters for ramified and archimedean factors, not a gcd definition. G1 must reconcile the two printed candidates with the actual bilinear integral, its argument order, the normalizer and the descent output.
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, §4.6, (4.47), pp.780–781; §5.1, (5.3)–(5.4), p.783.
+Source: Jiang–Zhang, §4.6, (4.47), p.780; (4.48), p.781; §5.1, (5.3)–(5.4), p.783; §5.3, (5.13), p.787.
 
 Dependencies: `AutomorphicLFunctionsAndLocalFactors:AL.4/l-group-local-factor`, `AutomorphicLFunctionsAndLocalFactors:AL.4/local-parameter-comparison`, `GanGrossPrasadConjecturesForClassicalGroups:GGP.1/weak-strong-base-change`, `ModularityAndLanglandsExtensions:ML.4/local-arthur-packets`, `ModularityAndLanglandsExtensions:ML.4/mok-unitary-classification`, `ModularityAndLanglandsExtensions:ML.4/kmsw-inner-forms`, `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
@@ -627,25 +630,26 @@ API derived from use:
 | `standard_ratio.unramified` | compatibility | At a spherical place these parameter factors agree with the Satake determinant factors. |
 | `standard_ratio.isobaric_product` | relation | Tensor factors multiply over τ=⊞τ_i; the ρ factor also includes the cross terms prescribed by ρ. |
 | `standard_ratio.outer_invariance` | functoriality | O-conjugate even-SO standard parameters yield equal meromorphic ratios. |
+| `standard_ratio.dual_argument` | relation | By the parameter duality identifications, ℒ_v^{13}(s;τ,π,σ)=ℒ_v(s;τ,π∨,σ). This changes the representation argument; it does not assert equality for fixed π. |
 
 Uses:
 
-- JZ2020 Theorem 4.8, p.781: Specifies the intended spherical answer.
+- JZ2020 Theorem 4.8, p.781: Specifies the spherical answer using the (4.47) ratio, not the distinct unitary candidate printed in (5.13).
 - JZ2020 Proposition 5.4, p.787: Normalizes the finite product at s=1/2.
 
 Unit checks:
 
 - **standard_ratio.orthogonal_parity** (computation): A two-eigenvalue parameter (x,y) contributes xy to ∧² and x²,xy,y² to Sym²; these cannot be interchanged.
 - **standard_ratio.unitary_sign** (characterisation): For m=1 use the negative Asai sign and for m=2 the positive sign; using floor(m/2) gives the wrong sign already at m=1.
-- **standard_ratio.no_automatic_self_duality** (non-example): A conjugate-self-dual U_1 base-change character χ need not satisfy χ=χ∨; the tensor factor χ×χ cannot be replaced by χ×χ∨ without a comparison theorem.
+- **standard_ratio.no_automatic_self_duality** (non-example): For a nonquadratic conjugate-self-dual U₁ base-change character χ and τ=χ, the (4.47) numerator is χ×χ∨ while the (5.13) numerator is χ×χ. They must not be identified merely from conjugate self-duality.
 
 #### `spherical-calculation` — Unramified Bessel integral calculation (theorem)
 
-At an unramified finite place, with hyperspecial volume 1, the specified standard unramified additive character, normalized spherical Whittaker value 1, normalized section, and b_v(v_π,v_σ)=1, prove Z_v(s)=ℒ_v(s). Include all orthogonal forms and all unitary inert and split cases for both a>ell and a≤ell. The unitary statement is conditional on G1’s corrected convention comparison. This is a target proof: the published paper states it but sends its general calculation to an unpublished reference.
+At an unramified finite place, with hyperspecial volume 1, the specified standard unramified additive character, normalized spherical Whittaker value 1, normalized section, and b_v(v_π,v_σ)=1, prove Z_v(s)=ℒ_v(s) with ℒ_v defined by the conjugated numerator of (4.47). Include all orthogonal forms and all unitary inert and split cases for both a>ell and a≤ell. The unitary statement is conditional on G1’s corrected convention comparison. This is a target proof: the published paper states it but defers its general calculation to [43], listed there as in preparation. The different numerator in (5.13) is not silently substituted.
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, Theorem 4.8 and (4.48), p.781; [43], bibliography p.823.
+Source: Jiang–Zhang, Theorem 4.8 and (4.48), p.781; [43], bibliography p.823. Supplementary source: [Lei Zhang, RIMS 2022 note](https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/2230-10.pdf), Theorem 1.1 PDF pp.2–3 and §§3–5 PDF pp.4–7; a strategy with deferred details, not a full replacement for G4.
 
 Dependencies: `TwistedAutomorphicDescents:TAD.3/standard-ratio`, `TwistedAutomorphicDescents:TAD.3/local-integral`, `SmoothRepresentationsOfLocalGroups:SR.4`.
 
@@ -663,11 +667,11 @@ Remaining proof contracts: G4: Unpublished local continuation and spherical calc
 
 #### `tempered-factors` — Tempered local factors and ramified normalizers (theorem)
 
-For bounded tempered local Weil–Deligne parameters in characteristic zero, their tensor, symmetric/exterior and correctly signed Asai L-factors are holomorphic and nonzero for Re(z)>0. For a local component of a generic unitary global GL or classical parameter, express its standard module as tempered blocks with paired exponents ±α, 0<α<1/2, and zero exponents. Deduce that the shifted numerator L_v(1,τ×π) and denominator factors L_v(3/2,τ×σ)L_v(2,τ,ρ) and the analogous normalizing factors used in Proposition 5.6 are finite and nonzero at s=1/2. Include archimedean Gamma factors and split unitary parameters, not just unramified determinants.
+For bounded tempered local Weil–Deligne parameters in characteristic zero, their tensor, symmetric/exterior and correctly signed Asai L-factors are holomorphic and nonzero for Re(z)>0. For a local component of a generic unitary global GL or classical parameter, express its standard module as tempered blocks with paired exponents ±α, 0<α<1/2, and zero exponents. Deduce that the shifted numerator L_v(1,τ×π∨) for ℒ (and L_v(1,τ×π) for ℒ^{13}) and denominator factors L_v(3/2,τ×σ)L_v(2,τ,ρ) and the analogous normalizing factors used in Proposition 5.6 are finite and nonzero at s=1/2. Include archimedean Gamma factors and split unitary parameters, not just unramified determinants.
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, §5.3, proof of Proposition 5.6, pp.789–790; Appendix B (B.5)–(B.7), pp.818–820.
+Source: Jiang–Zhang, §5.3, proof of Proposition 5.6, pp.789–790; Appendix B (B.5)–(B.7), p.819.
 
 Dependencies: `TwistedAutomorphicDescents:TAD.3/standard-ratio`, `ModularityAndLanglandsExtensions:ML.4/generic-packets-standard-modules`, `AutomorphicFormsOnReductiveGroups:AF.1/vogan-generic-unitary-dual`, `AutomorphicLFunctionsAndLocalFactors:AL.4`, `SmoothRepresentationsOfLocalGroups:SR.3`.
 
@@ -685,7 +689,7 @@ Let a>ell and b_v be a nonzero admissible local inner Bessel functional with b_v
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, Proposition A.1, pp.811–816; (A.6), p.812; Proposition 5.5, pp.788–789.
+Source: Jiang–Zhang, Proposition A.1, pp.811–817; (A.6), p.812; Proposition 5.5, pp.788–789.
 
 Dependencies: `TwistedAutomorphicDescents:TAD.3/local-integral`, `TwistedAutomorphicDescents:TAD.2/whittaker-transform`, `AutomorphicFormsOnReductiveGroups:AF.1/dixmier-malliavin`, `AutomorphicFormsOnReductiveGroups:AF.1/casselman-wallach-globalization`, `AutomorphicLFunctionsAndLocalFactors:AL.3/whittaker-model`.
 
@@ -710,11 +714,11 @@ Coverage: **planned**, with 7 targets; not closed. Its transitive proof/source c
 
 #### `pairing-dictionary` — Pairing and contragredient dictionary (comparison)
 
-For every relevant pair prove Q_ψ(f,g)=P_ψ(f,conj g), conj(P_ψ(f,g))=P_{ψ^(−1)}(conj f,conj g), and the corresponding local Hom identifications with smooth contragredients. For the actual Eisenstein induction compute, from its L-group action on the unipotent radical, which standard parameter or dual occurs in the cross factor of the normalizer. Match that computation to the argument order in Z, its spherical formula, the residue pairing and the parameter of the critical module. Orthogonal standard parameters are self-dual, with representation duality retained up to the appropriate even-SO outer action. In the unitary case construct a fully commuting dictionary: a bilinear pairing with π detects π∨ in the Fourier module, and L(s,τ×BC(π)) has the required self-pair pole only when τ≅BC(π)∨. A Hermitian statement must dualize its second argument explicitly. Establish whether the printed unitary chain is obtained by these transports or needs a corrected induction and dual output; this comparison is unresolved G1, not an assumed identity χ=χ∨.
+For every relevant pair prove Q_ψ(f,g)=P_ψ(f,conj g), conj(P_ψ(f,g))=P_{ψ^(−1)}(conj f,conj g), and the corresponding local Hom identifications with smooth contragredients. For the actual Eisenstein induction compute, from its L-group action on the unipotent radical, which standard parameter or dual occurs in the cross factor of the normalizer. Match that computation to the argument order in Z, its spherical formula, the residue pairing and the parameter of the critical module. Orthogonal standard parameters are self-dual, with representation duality retained up to the appropriate even-SO outer action. In the unitary case construct a fully commuting dictionary: a bilinear pairing with π detects π∨ in the Fourier module, and the (4.47) numerator L(s,τ×BC(π)∨) has the full self-pair pole when τ≅BC(π), whereas the (5.13) candidate L(s,τ×BC(π)) requires τ≅BC(π)∨ for the same full pole. A Hermitian statement must track conjugation of its second argument explicitly; (5.6) and Theorem 5.3 already display conjugates inside Hermitian brackets, producing bilinear periods, and are not examples of wholly omitted conjugation. Establish whether the printed unitary chain is obtained by these transports or needs a corrected induction and dual output; this comparison is unresolved G1, not an assumed identity χ=χ∨.
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, §4.1, (4.7)–(4.12), pp.766–767; (4.47), pp.780–781; (5.6), p.785; Theorems 5.3 and 5.7, pp.786,791; §6.2 and §7.1, pp.800–801,807–808.
+Source: Jiang–Zhang, §4.1, (4.7)–(4.12), pp.766–767; (4.47), p.780; (5.6), p.785; Theorem 5.3, p.786; (5.13), p.787; §5.5 and Theorem 5.7, p.791; §6.2, pp.801–803; §7.1, pp.807–808.
 
 Dependencies: `TwistedAutomorphicDescents:TAD.3/standard-ratio`, `GanGrossPrasadConjecturesForClassicalGroups:GGP.3/global-bessel-period`, `AutomorphicSpectralTheory:AS.2/shahidi-normalization`, `ModularityAndLanglandsExtensions:ML.4/local-arthur-packets`, `ModularityAndLanglandsExtensions:ML.4/mok-unitary-classification`, `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
@@ -736,12 +740,12 @@ Hypotheses: Standing conventions in the reader: characteristic-zero number field
 
 Source: Jiang–Zhang, §5.1, Proposition 5.2, pp.782–784; §6.1, p.792.
 
-Dependencies: `TwistedAutomorphicDescents:TAD.2/zeta-integral`, `AutomorphicSpectralTheory:AS.2/residue-calculus`, `AutomorphicSpectralTheory:AS.2/jiang-zhang-holomorphy`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles`, `AutomorphicLFunctionsAndLocalFactors:AL.4`.
+Dependencies: `TwistedAutomorphicDescents:TAD.2/zeta-integral`, `AutomorphicSpectralTheory:AS.0/operator-meromorphic`, `AutomorphicSpectralTheory:AS.2/residue-calculus`, `AutomorphicSpectralTheory:AS.2/jiang-zhang-holomorphy`, `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-poles`, `AutomorphicLFunctionsAndLocalFactors:AL.4`.
 
 Proof route:
 
 1. Use the imported constant-term and normalized-intertwiner theory with the actual L/epsilon convention to bound pole order by r. The type-L-function pole theorem is an AL.3 request.
-2. Take the leading coefficient in the meromorphic automorphic family and its right-translation span. The same actual realization is used for all sections.
+2. Take the one-variable leading Laurent coefficient using AS.0/operator-meromorphic, which supplies continuous coefficient operators after a common-denominator regularization, and then its right-translation span. The same actual realization is used for all sections. AS.2/residue-calculus supplies the automorphic setting, not an identification of an order-r pole with r successive residues.
 
 Check: One variable with an order-r pole is not r successive residues in that variable. Nonzero module means existence of one section with nonzero leading coefficient.
 
@@ -759,7 +763,7 @@ API derived from use:
 Uses:
 
 - JZ2020 Theorem 5.3, p.786: Its Bessel coefficient is paired with the original cuspidal representation.
-- JZ2020 (6.8), p.801: Its critical Bessel module defines twisted descent.
+- JZ2020 (6.9), p.802: Its critical Bessel module defines twisted descent.
 
 Unit checks:
 
@@ -831,7 +835,7 @@ Unit checks:
 
 #### `normalized-holomorphy` — Holomorphy at the critical point (theorem)
 
-Assume a=N, k=a−j−1 for the prescribed relevant pair, τ=⊞τ_i distinct, a nonzero inner bilinear period P(π,σ), and the self-pair pole condition that L(s+1/2,τ×BC(π)) has order r at s=1/2. In particular this condition is met by τ≅BC(π)∨; for orthogonal standard parameters it is the usual τ=BC(π). Then for factorizable holomorphic smooth sections, Z_S^*(s) is holomorphic at s=1/2. There exist such data, retaining prescribed nonzero inner-period vectors after the allowed local choices, for which Z_S^*(1/2)≠0 and the inner global period is nonzero. The full statements require the actual spherical/root-factor convention bridge in the unitary case.
+Assume a=N, k=a−j−1 for the prescribed relevant pair, τ=⊞τ_i distinct, a nonzero inner bilinear period P(π,σ), and the self-pair pole condition that L(s+1/2,τ×BC(π)∨) has order r at s=1/2. In particular this condition is met by τ≅BC(π), using the (4.47) ratio ℒ. Using the different (5.13) candidate would instead require the dual transfer in this pole calculation. Then for factorizable holomorphic smooth sections, Z_S^*(s) is holomorphic at s=1/2. There exist such data, retaining prescribed nonzero inner-period vectors after the allowed local choices, for which Z_S^*(1/2)≠0 and the inner global period is nonzero. The full statements require the actual spherical/root-factor convention bridge in the unitary case.
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
@@ -845,13 +849,13 @@ Proof route:
 2. Factor the given nonzero inner period, choose local sections with nonzero Z_v at 1/2, and use finite nonzero normalizing factors to retain nonzero normalized factors.
 3. At archimedean places keep the holomorphic smooth section class and the continuous functional throughout.
 
-Check: The self-pair numerator uses the dual of BC(π) when it is not self-dual. The local choices produce a single global restricted tensor section and a nonzero inner period.
+Check: For the (4.47) numerator the second tensor argument is BC(π)∨ and the full self-pair choice is τ=BC(π); for (5.13) the choice is τ=BC(π)∨. Neither convention can be substituted without G1. The local choices produce a single global restricted tensor section and a nonzero inner period.
 
 Remaining proof contracts: G5: Appendix-A coordinate and archimedean verification.
 
 #### `reciprocity` — Reciprocal nonvanishing of Bessel periods (theorem)
 
-For a prescribed relevant pair (G,H), cuspidal realizations C_π,C_σ with generic parameters, j=(d−m−1)/2, a=N, and k=a−j−1≥0, induce from τ⊗σ^t with t=Ad(w_q^k). Suppose τ has the required distinct blocks and type, R_{τ,σ^t}≠0, and the numerator self-pair pole condition in normalized-holomorphy. Assume the actual local/global integral and normalizer comparisons of TAD.3–4. Then there are vectors with P_k(R_{τ,σ^t},π)≠0 if and only if there are vectors with P_j(π,σ)≠0, with the explicitly transported characters. In the orthogonal case τ is the standard transfer of π; the unitary bilinear version needs τ=BC(π)∨ and its corresponding parameter/type compatibility, whose transport to the printed same-parameter statement is G1. The forward implication does not need the self-pair pole condition; the reverse uses it and proves a nonzero residual coefficient as well.
+For a prescribed relevant pair (G,H), cuspidal realizations C_π,C_σ with generic parameters, j=(d−m−1)/2, a=N, and k=a−j−1≥0, induce from τ⊗σ^t with t=Ad(w_q^k). Suppose τ has the required distinct blocks and type, R_{τ,σ^t}≠0, and the numerator self-pair pole condition in normalized-holomorphy. Assume the actual local/global integral and normalizer comparisons of TAD.3–4. Then there are vectors with P_k(R_{τ,σ^t},π)≠0 if and only if there are vectors with P_j(π,σ)≠0, with the explicitly transported characters. In the orthogonal case τ is the standard transfer of π; with ℒ from (4.47), the self-pair choice is also τ=BC(π) in the unitary case. Compatibility of this choice with the bilinear period, actual normalizer and output parameter is still G1; the distinct (5.13) candidate would give the dual choice and is not identified with ℒ. The forward implication does not need the self-pair pole condition; the reverse uses it and proves a nonzero residual coefficient as well.
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
@@ -963,7 +967,7 @@ For a relevant pair of dimensions d,m with d=m+2j+1, a=N and j<a, define k₀=a�
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, §5.2, (5.8)–(5.9), p.785; §6.2, (6.7)–(6.8), pp.800–801; §6.3, p.804.
+Source: Jiang–Zhang, §5.2, (5.8)–(5.9), p.785; §6.2, (6.9), p.802; §6.3, p.804.
 
 Dependencies: `TwistedAutomorphicDescents:TAD.0/prescribed-ambient-datum`, `TwistedAutomorphicDescents:TAD.0/bessel-partition`.
 
@@ -980,9 +984,9 @@ API derived from use:
 
 | Name | Role | Required behavior |
 | --- | --- | --- |
-| `critical_index.dimension` | simp | The critical stabilizer dimension is 2a+m−2k₀−1=d. |
-| `critical_index.partition` | compatibility | The critical Nat.Partition is [2k₀+1,1^d], with total 2a+m. |
-| `critical_index.boundary` | characterisation | If a=j+1 then k₀=0; the original d-dimensional form is a line complement in dimension d+1. |
+| `critical_stabilizer_dimension` | simp | The critical stabilizer dimension is 2a+m−2k₀−1=d. |
+| `critical_partition_parts` | compatibility | The critical Nat.Partition is [2k₀+1,1^d], with total 2a+m. |
+| `criticalIndex_minimal` | characterisation | If a=j+1 then k₀=0; the original d-dimensional form is a line complement in dimension d+1. |
 
 Uses:
 
@@ -1103,7 +1107,7 @@ For the specified residual datum, rational critical orbit O, stabilizer isometry
 
 Hypotheses: Standing conventions in the reader: characteristic-zero number field F; E=F for orthogonal groups or a quadratic extension for unitary groups; all forms nondegenerate; the input larger dimension d is positive; actual automorphic realizations, rational orbit and measures are specified.
 
-Source: Jiang–Zhang, §6.2, (6.7)–(6.8), pp.800–801; Conjecture 6.7, pp.801–802.
+Source: Jiang–Zhang, §6.2, diagrams (6.7)–(6.8), p.801, definition (6.9), p.802, and Conjecture 6.7, pp.802–803.
 
 Dependencies: `TwistedAutomorphicDescents:TAD.4/leading-residue`, `TwistedAutomorphicDescents:TAD.5/critical-index`, `TwistedAutomorphicDescents:TAD.1/bessel-module`.
 
@@ -1127,7 +1131,7 @@ API derived from use:
 
 Uses:
 
-- JZ2020 Conjecture 6.7 and Theorem 7.1, pp.801–802,807–808: Proposes and identifies concrete cuspidal modules.
+- JZ2020 Conjecture 6.7, pp.802–803, and Theorem 7.1, pp.807–808: Proposes and identifies concrete cuspidal modules.
 - JZ2020 Theorem 6.10, pp.805–806: Produces a pair with nonzero period from nonzero Fourier support.
 
 Unit checks:
@@ -1497,7 +1501,7 @@ Consumers: `TwistedAutomorphicDescents:TAD.2/zeta-integral`, `TwistedAutomorphic
 
 ### G1: Unitary pairing and normalizer dictionary
 
-Prove a commuting comparison between the bilinear zeta integral, Hermitian branching period, inverse additive character, contragredients, actual unipotent-radical L-factor and residue output. Test a nonquadratic U₁ character: Q(χ,χ) can be nonzero while P(χ,χ)=0. At split U₃ compute the two cross weights χ₁μ⁻¹ and μχ₂. The displayed self-pair tensor numerator has a pole for a dual pair, not for an arbitrary conjugate-self-dual nonselfdual pair. A mere replacement of one printed bar does not close the full chain. Conditional statements require this dictionary; no unqualified unitary reciprocity or recovery theorem is claimed.
+Prove a commuting comparison between the bilinear zeta integral, Hermitian branching period, inverse additive character, contragredients, actual unipotent-radical L-factor and residue output. Rendered (4.47), p.780, has L(s+1/2,τ×conj π); rendered (5.13), p.787, instead has τ×π. With ℒ defined by (4.47), the full self-pair choice is τ=BC(π); for the (5.13) candidate it is τ=BC(π)∨. Do not identify these for nonselfdual unitary parameters. Equations (5.6) and Theorem 5.3 already put a conjugate in the second Hermitian argument, so absence of all conjugation is not the defect. Audit also §5.5 p.791, where the induction from conjugate σ and the central cross factor must be transported explicitly. Test a nonquadratic U₁ character: Q(χ,χ) can be nonzero while P(χ,χ)=0. At split U₃ compute the two cross weights χ₁μ⁻¹ and μχ₂. A replacement of one bar does not close this chain; unitary reciprocity and recovery remain conditional.
 
 Owner: This roadmap, proof and source comparison. Consumers: `TwistedAutomorphicDescents:TAD.4/pairing-dictionary`, `TwistedAutomorphicDescents:TAD.4/pole-order`, `TwistedAutomorphicDescents:TAD.4/reciprocity`, `TwistedAutomorphicDescents:TAD.4/period-central-value`, `TwistedAutomorphicDescents:TAD.5/critical-structure`, `TwistedAutomorphicDescents:TAD.6/central-value-period`, `TwistedAutomorphicDescents:TAD.7/recovery`.
 
@@ -1515,7 +1519,7 @@ Owner: This roadmap, proof and source comparison. Consumers: `TwistedAutomorphic
 
 ### G4: Unpublished local continuation and spherical calculation
 
-The source assigns unrestricted local continuation and the full unramified formula to Jiang–Soudry–Zhang [43], still in preparation in its published bibliography. Supply the actual cell-integral estimates and all-place continuation of J_s and Z_v, then compute the spherical integral for split and inert unitary and nonsplit orthogonal cases with the convention test G1. No accessible full proof was found or read.
+JZ2020 assigns unrestricted local continuation and the full unramified formula to Jiang–Soudry–Zhang [43], listed as in preparation in its published bibliography. The later public Zhang2022 note, Theorem 1.1 PDF pp.2–3 and §§3–5 pp.4–7, supplies a comparison strategy via descent integrals and Whittaker–Shintani functions; Proposition 2.1 p.4 states nonarchimedean analytic properties. It still defers notation and calculations and does not supply all-place continuation or resolve G1. Supply the actual cell-integral estimates and all-place continuation of J_s and Z_v, then the spherical calculation for split and inert unitary and nonsplit orthogonal cases with every normalization. No complete replacement proof was established in this review.
 
 Owner: This roadmap, proof and source comparison. Consumers: `TwistedAutomorphicDescents:TAD.2/whittaker-transform`, `TwistedAutomorphicDescents:TAD.3/local-integral`, `TwistedAutomorphicDescents:TAD.3/spherical-calculation`, `TwistedAutomorphicDescents:TAD.3/euler-product`.
 
@@ -1577,6 +1581,8 @@ Required correction or input: Use the actual Witt index r; for quasi-split nonsp
 
 Reason: The anisotropic kernel has dimension 2 in this case. Dimension and rank are distinct. Reach: the proof.
 
+Independent review: **confirmed**. Confirmed at §2.3 p.754, with the actual Witt-index convention of §2.1 pp.748–749: the nonsplit quasi-split even quadratic form has a two-dimensional anisotropic kernel. Use actual r rather than the dimension label n.
+
 ### E2 — error
 
 Published JZ2020, Proposition 2.5 p.759. Paraphrase: The stabilizer Witt-index criterion uses representation of y_{−κ} by the anisotropic kernel.
@@ -1584,6 +1590,8 @@ Published JZ2020, Proposition 2.5 p.759. Paraphrase: The stabilizer Witt-index c
 Required correction or input: Use representation of y_κ.
 
 Reason: The new anisotropic summand is V_an⊕Ey_{−κ}; isotropy is q(v)=−q(y_{−κ})=q(y_κ). Reach: a stated result.
+
+Independent review: **confirmed**. Confirmed by the orthogonal-sum equation in Proposition 2.5 p.759: isotropy of V_an plus Ey_{−κ} requires representation of the opposite value, hence y_κ.
 
 ### E3 — error
 
@@ -1593,21 +1601,27 @@ Required correction or input: Identify H with the pointwise flag-and-vector subg
 
 Reason: Scalar norm-one elements act trivially by conjugation but do not fix the flag vectors. Reach: a stated result.
 
+Independent review: **confirmed**. Confirmed at (2.13) p.758: central norm-one scalars stabilize the character by trivial conjugation but do not fix flag vectors. The specified pointwise subgroup H cannot be the whole unitary Levi stabilizer.
+
 ### E4 — gap
 
-Published JZ2020, (4.7), (4.47), (5.6), Theorems 5.3,5.7, (6.10), §7.1; pp.766,780–781,785–786,791,801,807–808. Paraphrase: The bilinear integral and Hermitian branching pairings are linked while tensor parameters and duals are not transported consistently in the unitary chain.
+Published JZ2020, (4.7) p.766, (4.47) p.780, (5.6) p.785, Theorem 5.3 p.786, (5.13) p.787, §5.5 and Theorem 5.7 p.791. Paraphrase: The numerator in (4.47) involves conjugate π, while (5.13) has π without conjugation; §5.5 also changes the inducing dual while using central cross factors.
 
 Required correction or input: Supply G1: explicit conjugation, inverse-character and contragredient transports plus the actual normalizer factor. State each unitary consequence conditionally until they commute.
 
-Reason: For a nonquadratic U₁ character χ, its Hermitian self-period is nonzero whereas its bilinear self-period integrates χ² and is zero. Conjugate self-duality does not imply self-duality. Reach: a stated result.
+Reason: The printed bars in (5.6) and Theorem 5.3 already convert their Hermitian brackets into bilinear periods. They do not reconcile the two distinct L-numerators. For a nonquadratic U₁ character the factors χ×χ∨ and χ×χ differ; conjugate self-duality is insufficient. The remaining normalizer and output transport must be verified. Reach: a stated result.
+
+Independent review: **confirmed**. Confirmed with narrowed attribution after inspecting rendered pp.766,780,785–787,791. Both (5.6) and Theorem 5.3 explicitly contain conjugation. The actual unresolved discrepancy is (4.47) versus (5.13), and the dual/central-factor transport in §5.5. Corrected ℒ and its pole hypothesis to follow (4.47); no counterexample to the final theorem is asserted.
 
 ### E5 — gap
 
-Published JZ2020, Theorem 4.8 pp.780–781 and reference [43] p.825. Paraphrase: The full spherical proof and local theory are delegated to joint work still described as in preparation.
+Published JZ2020, Theorem 4.8 pp.780–781 and reference [43] p.823. Paraphrase: The full spherical proof and local theory are delegated to joint work still described as in preparation.
 
 Required correction or input: Provide G4 or a permitted published replacement with all group and place cases.
 
 Reason: The accessible paper gives the target formula but not a complete general proof. Reach: the proof.
+
+Independent review: **confirmed**. Confirmed as a proof-availability obligation in this published source, Theorem 4.8 p.781 and [43] p.823. This does not assert that no subsequent proof exists. A replacement must be read and checked in all required cases before closing G4. The later public Zhang2022 note was read: it provides an unramified strategy, but not the full estimates and all-place proof required by G4.
 
 ### E6 — misprint
 
@@ -1617,6 +1631,8 @@ Required correction or input: For split odd W and split orthogonal output, k₀=
 
 Reason: With d=a and dim W=2r_W+1, k₀=a−(d−dim W−1)/2−1=a/2+r_W. The printed value changes the stabilizer dimension by 2. Reach: the proof.
 
+Independent review: **confirmed**. Confirmed at Lemma 6.5 p.798 by substituting dim W=2r_W+1 and output dimension a into 2a+dim W−2k₀−1=a. This forces k₀=a/2+r_W.
+
 ### E7 — misprint
 
 Published JZ2020, Lemma 6.5 pp.798–799, unitary branches and (6.6). Paraphrase: One output unitary dimension is too large and the displayed final list omits its last inducing character.
@@ -1624,6 +1640,8 @@ Published JZ2020, Lemma 6.5 pp.798–799, unitary branches and (6.6). Paraphrase
 Required correction or input: Use output U_a in the indicated odd-unitary ambient calculation and retain all characters through μ_[a/2].
 
 Reason: The stabilizer dimension is 2a+dim W−2k₀−1=d; deleting the last weight changes the standard parameter rank. Reach: the proof.
+
+Independent review: **confirmed**. Confirmed at pp.798–799 by the stabilizer dimension formula and the number of weights in (6.6); the output dimension is a and the final character must be retained.
 
 ### E8 — misprint
 
@@ -1633,6 +1651,8 @@ Required correction or input: It sends that vector to its negative; the compensa
 
 Reason: The sign is visible in the displayed block matrix. Line preservation alone is insufficient. Reach: the proof.
 
+Independent review: **confirmed**. Confirmed at p.796 by the displayed matrix acting as −1 on both coordinates of the selected vector; the flag action compensates in the character, rather than fixing the vector.
+
 ### E9 — gap
 
 Published JZ2020, Appendix A (A.12)–(A.14), pp.813–814. Paraphrase: The coordinate substitution uses incompatible rectangular notation and suppresses a cross term before specifying the slice.
@@ -1641,13 +1661,17 @@ Required correction or input: Supply the typed matrix multiplication and show ex
 
 Reason: The product of the two unipotent blocks produces the extra term; the claimed identity cannot be used unrestrictedly. Reach: the proof.
 
+Independent review: **confirmed**. Confirmed on rendered pp.813–814. Writing C for the upper-right coefficient before g*, multiplication of (A.12) and (A.13) on (E₁,0,E₂) gives C E₂=(I−g)E₁+YY′E₂. The rectangular Y notation must also be typed consistently. A restricted vanishing slice still needs proof; this is not a disproof of Proposition A.1.
+
 ### E10 — gap
 
-Published JZ2020, Appendix B pp.816–823; use of generic normalized operators. Paraphrase: The reduction invokes generic normalized-intertwiner results in a scope broader than their stated split nonarchimedean case.
+Published JZ2020, Appendix B pp.817–820; use of generic normalized operators. Paraphrase: The reduction invokes generic normalized-intertwiner results in a scope broader than their stated split nonarchimedean case.
 
 Required correction or input: The AS.2 supplier must establish G6 for all places and inner forms, and prove nonvanishing of the composition rather than only its individual factors.
 
 Reason: Additional archimedean, unitary and inner-form cases and a kernel/image argument are needed. Reach: the proof.
+
+Independent review: **confirmed**. Confirmed as a missing scope/reduction proof, not a disproof of Proposition B.2. The cited CKPSS Theorem 11.1 p.225 treats nonarchimedean components of globally generic representations of split classical groups. Appendix B pp.817–820 needs extra all-place, inner-form and unitary arguments, as well as nonzero composition.
 
 ### E11 — gap
 
@@ -1657,6 +1681,8 @@ Required correction or input: Separate the particular-residue proof from the all
 
 Reason: The minimal-support statement about one object does not classify supports of all objects in its packet. Reach: the proof.
 
+Independent review: **confirmed**. Confirmed as an all-member support obligation in Proposition 6.3 pp.794–795: minimality for the displayed residue cannot alone classify every residual packet member. The packet correctly separates the particular-residue argument and G7.
+
 ### E12 — error
 
 Published JZ2020, §7.2 p.809, regular even-unitary case. Paraphrase: The regular descent discussion treats the smaller datum as absent uniformly.
@@ -1664,6 +1690,8 @@ Published JZ2020, §7.2 p.809, regular even-unitary case. Paraphrase: The regula
 Required correction or input: For U_{2n}, retain a smaller U₁ and its actual character; ambient dimension is 2N+1.
 
 Reason: The regular unitary partition has stabilizer dimension 1 in even dimension. It is a nontrivial U₁ rather than the trivial SO₁. Reach: the proof.
+
+Independent review: **confirmed**. Confirmed at §7.2 p.809 using the index-zero stabilizer formula: in the even unitary regular case the smaller dimension is 1 and U₁ is not trivial. The chosen character and ambient dimension 2N+1 must remain.
 
 ## Baseline declarations
 

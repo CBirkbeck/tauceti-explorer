@@ -4,7 +4,7 @@
   "area": "automorphic",
   "parent": null,
   "summary": "A target-level plan for Jiang–Zhang twisted automorphic descent: rational Bessel Fourier images, unfolded zeta integrals, leading Eisenstein residues, reciprocal periods and concrete cuspidal modules. Generic Summand, local GGP and weak Fourier support are explicit propositions or hypotheses. Pairing conventions, inner-form classification scope and unavailable proof inputs remain visible contracts.",
-  "readme": "The roadmap constructs explicit Fourier modules from leading Eisenstein residues and compares their Bessel periods with periods on a prescribed relevant pair. It separates a generic Arthur parameter from Whittaker genericity and keeps the actual automorphic realization, rational orbit and inner form. The final module is one copy of each distinct permitted outer conjugate.\n\nThe eight layers give a target-level route from shared group, representation and automorphic interfaces to conditional module recovery. The full reader states the convention dictionary, all hypotheses, API tests and proof obligations. Unit-independent dual transports are essential for unitary groups. Unpublished or unavailable inputs and the all-member residual assertion are precise gaps; complete planning does not mean proof closure or implementation.",
+  "readme": "The roadmap constructs explicit Fourier modules from leading Eisenstein residues and compares their Bessel periods with periods on a prescribed relevant pair. It separates a generic Arthur parameter from Whittaker genericity and keeps the actual automorphic realization, rational orbit and inner form. The final module is one copy of each distinct permitted outer conjugate.\n\nThe eight layers give a target-level route from shared group, representation and automorphic interfaces to conditional module recovery. The full reader states the convention dictionary, all hypotheses, API tests and proof obligations. Explicit dual transports are essential for unitary groups. Unpublished or unavailable inputs and the all-member residual assertion are precise gaps; complete planning does not mean proof closure or implementation.",
   "prerequisites": [
     "AutomorphicFormsOnReductiveGroups",
     "AutomorphicLFunctionsAndLocalFactors",
@@ -62,7 +62,7 @@
     {
       "key": "TAD.3",
       "title": "Local factors and nonvanishing",
-      "description": "Define both local integrals and their parameter quotient, establish the Euler identity, spherical calculation and prescribed-vector local nonvanishing.",
+      "description": "Define both local integrals and the (4.47) parameter quotient, distinguish the different (5.13) numerator, and establish the Euler identity, spherical calculation and prescribed-vector local nonvanishing.",
       "requires": [
         "AutomorphicFormsOnReductiveGroups:AF.1",
         "AutomorphicLFunctionsAndLocalFactors:AL.3",
@@ -83,6 +83,7 @@
       "requires": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3",
         "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "AutomorphicSpectralTheory:AS.0",
         "AutomorphicSpectralTheory:AS.1",
         "AutomorphicSpectralTheory:AS.2",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.3",
