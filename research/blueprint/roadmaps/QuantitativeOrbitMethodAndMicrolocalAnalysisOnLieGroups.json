@@ -1,0 +1,167 @@
+{
+  "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups",
+  "title": "The orbit method in quantitative form: microlocal analysis on representations of reductive groups",
+  "area": "representations",
+  "parent": null,
+  "summary": "A uniform pseudodifferential calculus on unitary representations connects coadjoint geometry to trace estimates and stable restriction laws. Positive inverse branching tests and equivariant limit states then yield weighted period asymptotics on compact arithmetic quotients. This roadmap owns the proof-specific analytic machinery while importing Lie theory, representation classification, general operator ideals, GGP pair data and automorphic spectral decomposition from their existing owners.",
+  "readme": "Plan the quantitative orbit method and its weighted period application from a checked library baseline.\n\nThe 76 targets routed from Nelson–Venkatesh to this roadmap, with all proof-specific key definitions and analytic inputs.\n\nImaginary dual, exp(+xi(x)) forward Fourier transform, Fourier-dual measures, arbitrary representation families, explicit uniform seminorm control; see reader document.\n\nTen dependency layers run from quantization to arithmetic period asymptotics.\n\nNo new general Lie-group, Schatten-ideal, GGP local multiplicity, Ratner, automorphic spectral-decomposition or refined central L-value roadmap.",
+  "prerequisites": [
+    "AdelicAlgebraicGroups",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicSpectralTheory",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "LieHighestWeightPartII",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "QO.0",
+      "title": "Quantization and uniform Sobolev scales",
+      "description": "Fix the imaginary dual, dual Haar measures and exponential cutoff. Construct the representation quantization, Nelson Laplacian Sobolev scales, commutator operator classes and uniform symbol families, with explicit seminorm control independent of the representation.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+        "AutomorphicFormsOnReductiveGroups:AF.1/g-continuous-norms"
+      ]
+    },
+    {
+      "key": "QO.1",
+      "title": "Uniform symbol and operator calculus",
+      "description": "Prove the BCH symbol expansion, including mixed subalgebras, localized remainder estimates, order-zero bounds, polynomial quantization, cutoff independence and the rescaled calculus. Control both the symbol order and every prescribed power of the semiclassical parameter.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad"
+      ]
+    },
+    {
+      "key": "QO.2",
+      "title": "Infinitesimal localization",
+      "description": "Normalize the real invariant quotient and infinitesimal characters. Prove approximate noncommutative division and uniform localization of eigenfunctionals and restriction functionals near the joint central-character locus, with decay in both spectral parameters.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1",
+        "AutomorphicFormsOnReductiveGroups:AF.1/infinitesimal-character",
+        "AutomorphicFormsOnReductiveGroups:AF.1/langlands-classification",
+        "AutomorphicFormsOnReductiveGroups:AF.1/admissible-gk-module",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0"
+      ]
+    },
+    {
+      "key": "QO.3",
+      "title": "Coadjoint measures and trace asymptotics",
+      "description": "Construct normalized regular multiorbit measures and their weak topology; plan Rossmann character formulas, orbit limits and uniform orbital decay. Deduce full Schwartz trace expansions and trace-ideal estimates with the correct h and infinitesimal-character weights.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2",
+        "AutomorphicSpectralTheory:AS.0/trace-class",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+        "AutomorphicFormsOnReductiveGroups:AF.1/harish-chandra-admissibility",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1"
+      ]
+    },
+    {
+      "key": "QO.4",
+      "title": "Uniform Plancherel and relative characters",
+      "description": "Obtain uniform K-type, matrix-coefficient and smoothing trace bounds; the p-adic Plancherel formula; its extension to smooth Xi-integrable functions; and basis-independent local relative characters with Plancherel disintegration and joint spectral localization.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3",
+        "SmoothRepresentationsOfLocalGroups:SR.3a",
+        "AutomorphicSpectralTheory:AS.0/vector-schwartz",
+        "AutomorphicFormsOnReductiveGroups:AF.1/harish-chandra-admissibility",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "AutomorphicSpectralTheory:AS.0/trace-class",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2"
+      ]
+    },
+    {
+      "key": "QO.5",
+      "title": "Stable Hamiltonian reduction and measures",
+      "description": "For orthogonal and unitary GGP Lie-algebra pairs, prove the disjoint-spectrum stability criterion and torsor theorem. Compare the three fibral volume forms, normalize real orbital disintegration, and establish the properness estimate needed for uniform stable-fibre integrals.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions"
+      ]
+    },
+    {
+      "key": "QO.6",
+      "title": "Stable relative trace asymptotics",
+      "description": "Expand the relative character uniformly on compact stable symbol support. Prove small, intermediate and large group-element estimates for the diagonal subgroup model and the product-symbol version, retaining all powers h^j and uniform seminorm bounds.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3"
+      ]
+    },
+    {
+      "key": "QO.7",
+      "title": "Positive inverse branching",
+      "description": "Construct positive archimedean inverse branching tests, including the small-mass nontempered error and positive Weyl-law tests. Define p-adic l-components and allowable weights; prove cuspidal-type allowability using uniform distinction and central approximation.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.6",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.3a",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4"
+      ]
+    },
+    {
+      "key": "QO.8",
+      "title": "Limit states and arithmetic equidistribution",
+      "description": "Construct smooth positive limit states on compact adelic quotients and their equivariant disintegration over a regular nilpotent orbit. Prove centralizer rigidity, measure classification reductions and component comparisons, then equidistribution with the SO3/SO2 self-twist exclusion.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7",
+        "AdelicAlgebraicGroups:AA.2",
+        "AdelicAlgebraicGroups:AA.3",
+        "AdelicAlgebraicGroups:AA.4",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4/ratner-measure-classification",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3",
+        "AutomorphicSpectralTheory:AS.0/trace-class",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1",
+        "AutomorphicSpectralTheory:AS.0/vector-schwartz",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+        "LieHighestWeightPartII:N0/jacobson-morozov",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms"
+      ]
+    },
+    {
+      "key": "QO.9",
+      "title": "Truncated periods and weighted asymptotics",
+      "description": "Combine positive period Parseval, a polynomial weak Weyl bound and microlocal spectral truncation with inverse branching and equidistribution. Obtain the smoothly weighted GGP period-constant asymptotic under the corrected global hypotheses; the final refined L-value theorem belongs to its separate roadmap.",
+      "requires": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8",
+        "AutomorphicSpectralTheory:AS.4",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "NV21",
+      "title": "The orbit method and analysis of automorphic forms",
+      "authors": "Paul D. Nelson and Akshay Venkatesh",
+      "edition": "Acta Mathematica 226 (2021), 1–209; published PDF, accessed 2026-10-19",
+      "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2021/0226/0001/ACTA-2021-0226-0001-a001.pdf",
+      "sha256": "85e14654d2b367f4b0d4a21c9555576f6def6649c8b6707afc78e1dfbdaea76e",
+      "readSections": [
+        "Printed pp. 18–106 and 108–200; assigned statements and proofs; Appendix A on pp. 135–143. The extraction and its reviewed corrections were treated as leads and checked against the published text."
+      ]
+    }
+  ],
+  "status": "draft"
+}
