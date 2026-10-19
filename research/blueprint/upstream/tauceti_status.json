@@ -772,10 +772,10 @@
       "head": "815883d",
       "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 4a7b4d8; draft awaiting re-review",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
+        "head": "815883d",
         "current": true,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "date": "2026-10-12"
       }
     },
     "PELModuli": {
