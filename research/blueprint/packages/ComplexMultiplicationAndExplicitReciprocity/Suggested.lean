@@ -207,7 +207,9 @@ The ideal-lattice curves, their action, Serre tensor and period comparisons are 
 
 /-! ## Layer 2: Polarized lattices and explicit reciprocity -/
 
-/-- The real scalar extension of the alternating Gaussian trace form with parameter `I / 2`. -/
+/-- The real scalar extension of the alternating Gaussian trace form with parameter `I / 2`.
+Its positivity is `squareForm x (I * x) > 0`; a Riemann form with positivity `E (J v) v > 0`
+is its negative. -/
 def squareForm (x y : ℂ) : ℝ := (2 * ((Complex.I / 2) * x * star y)).re
 
 example : squareForm 1 Complex.I = 1 ∧ squareForm Complex.I 1 = -1 := by
@@ -293,7 +295,7 @@ theorem polynomial_bounded_congruence (P Q : ℤ[X]) (B M : ℤ)
     (hcong : ∀ k, Int.ModEq M (P.coeff k) (Q.coeff k)) : P = Q := by sorry
 
 -- README definitions using future carriers: CMType.reflexType, CMType.reflexOrder,
--- idealLatticeCurve, idealAction, relativeSerreTensor, cmSerreTensor, PolarizedCMLattice, reflexIdealMap,
+-- idealLatticeCurve, idealAction, cmSerreTensor, PolarizedCMLattice, reflexIdealMap,
 -- polarizedLevelStabilizer, classPolynomial, cmValueField, cmHeckeCharacter,
 -- IsCanonicalGrossCharacter. The supplied modularPolynomial and its primeDiagonal comparison
 -- also use their future modular-curve interface. All these Checks remain README targets.
