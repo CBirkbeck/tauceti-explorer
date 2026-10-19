@@ -48,10 +48,11 @@ open scoped NNReal ENNReal
 
 section BoundaryNorm
 
-variable {G : Type*} [AddCommGroup G] [PartialOrder G] [IsOrderedAddMonoid G] [Module ℚ G]
+variable {G : Type*} [AddCommGroup G] [PartialOrder G] [IsOrderedAddMonoid G]
+  [Module ℚ G] [PosSMulMono ℚ G]
 
 /-- The boundary norm `‖D‖_E = inf {q > 0 : -q•E ≤ D ≤ q•E}`, valued in `[0, ∞]`
-(Yuan–Zhang §2.4.2). It is `∞` when no such `q` exists. -/
+(Yuan–Zhang §2.4.1). It is `∞` when no such `q` exists. -/
 noncomputable def boundaryNorm (E D : G) : ℝ≥0∞ :=
   ⨅ (q : ℚ≥0) (_ : 0 < q) (_ : -((q : ℚ) • E) ≤ D ∧ D ≤ (q : ℚ) • E), ((q : ℝ≥0) : ℝ≥0∞)
 
@@ -66,13 +67,13 @@ theorem boundaryNorm_add_le (E D₁ D₂ : G) :
 
 /-- Definiteness (Yuan–Zhang Lemma 2.4.1(1)), under the archimedean hypothesis that the models
 supply (Yuan–Zhang Lemma 2.3.6). -/
-theorem boundaryNorm_eq_zero_iff {E D : G}
+theorem boundaryNorm_eq_zero_iff {E D : G} (hE : 0 ≤ E)
     (hArch : ∀ D' : G, (∀ ε : ℚ, 0 < ε → -(ε • E) ≤ D' ∧ D' ≤ ε • E) → D' = 0) :
     boundaryNorm E D = 0 ↔ D = 0 := by
   sorry
 
 /-- Comparable boundaries give equivalent norms (Yuan–Zhang Lemma 2.4.1, last part). -/
-theorem boundaryNorm_equiv [PosSMulMono ℚ G] {E E' : G} {r : ℚ≥0} (hr : 1 ≤ r)
+theorem boundaryNorm_equiv {E E' : G} {r : ℚ≥0} (hr : 1 ≤ r)
     (h₁ : E ≤ (r : ℚ) • E') (h₂ : E' ≤ (r : ℚ) • E) (D : G) :
     boundaryNorm E' D ≤ ((r : ℝ≥0) : ℝ≥0∞) * boundaryNorm E D := by
   sorry
@@ -82,8 +83,9 @@ theorem boundaryNorm_self [PosSMulStrictMono ℚ G] {E : G} (hE : 0 < E) :
     boundaryNorm E E = 1 := by
   sorry
 
-/-- Test `boundaryNorm_projective`: with no boundary (`E = 0`, a projective model), every
-nonzero divisor has infinite norm. -/
+/-- Test `boundaryNorm_projective`: for the geometric projective case `E = 0`, every
+nonzero divisor has infinite norm. Arithmetic projective models use a positive constant Green
+function as boundary and need not have the discrete topology. -/
 theorem boundaryNorm_projective {D : G} (hD : D ≠ 0) : boundaryNorm (0 : G) D = ⊤ := by
   sorry
 
@@ -223,6 +225,14 @@ example (g ℓ : ℝ) (hg : 2 ≤ g) (hℓ : 0 ≤ ℓ) : ℓ / 39 ≤ oneLoopPh
 example (ℓ t : ℝ) (hℓ : 0 < ℓ) (ht : 0 ≤ t) : t * (ℓ - t) / ℓ ≤ t := by
   rw [div_le_iff₀ hℓ]
   nlinarith
+
+/-- AH.13/boundary-coercive-divisor: the unit tetrahedron disproves the coefficient one. -/
+example : (3 / (2 * (17 / 288 : ℚ)) + 3) * (17 / 48) - 6 - 11 / 6 - 6 = -181 / 48 := by
+  norm_num
+
+/-- The corrected boundary coefficient remains strictly positive on the same graph. -/
+example : (3 / (2 * (17 / 288 : ℚ)) + 3) * (17 / 48) - 6 - 11 / 6 - (17 / 288) * 6 = 15 / 8 := by
+  norm_num
 
 end Graph
 

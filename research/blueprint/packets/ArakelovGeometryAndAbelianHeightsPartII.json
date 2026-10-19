@@ -43,7 +43,7 @@
    "id": "yuan-2026",
    "title": "Arithmetic bigness and a uniform Bogomolov-type result",
    "authors": "Xinyi Yuan",
-   "edition": "Annals of Mathematics 203 (2026), no. 1, 15–119; read in the author manuscript dated 21 August 2024 (126 pp., the journal revision date), whose numbering and page numbers (printed = PDF) are used; identical in the cited passages to arXiv:2108.05625v4",
+   "edition": "Annals of Mathematics 203 (2026), no. 1, 15–119; read in the author manuscript dated 21 August 2024 (126 pp., the journal revision date), whose numbering and page numbers (printed = PDF) are used",
    "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
    "sha256": "b36f4860cc0f098ef062523e8a5147e8172d1e4e357fc76a63cd7c0d782a813e",
    "readSections": [
@@ -211,6 +211,59 @@
     "Proposition 6.1 (p. 14)"
    ],
    "accessed": "2026-10-19"
+  },
+  {
+   "id": "stacks-pullback",
+   "title": "The Stacks Project: universally trivial structure-sheaf pushforward and Frobenius",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online version read 19 October 2026; stable tags 0E0L, 0FW2 and 0CCB; unpaginated",
+   "url": "https://stacks.math.columbia.edu/tag/0E0L",
+   "readSections": [
+    "Tag 0E0L, Lemma 36.32.6",
+    "Tag 0FW2, Lemma 50.19.5 (finite flat relative Frobenius)",
+    "Tag 0CCB, Lemma 33.36.6 (relative Frobenius is a universal homeomorphism)"
+   ],
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "wazir-2006",
+   "title": "On the specialization theorem for abelian varieties",
+   "authors": "Rania Wazir",
+   "edition": "arXiv:math/0306438v2 (9 February 2004), 5 pp.; preprint of Bull. London Math. Soc. 38 (2006), 555–560; preprint numbering 0.2–0.3 differs from the published numbering cited by Gao–Habegger",
+   "url": "https://arxiv.org/pdf/math/0306438v2",
+   "sha256": "648d2b745e45f470a40be3234ce2269f9331ea923611a79ad45caefe8390ad3a",
+   "readSections": [
+    "Polarization and height machine, pp. 2–4",
+    "Theorems 0.2–0.3 and degree-one base height, pp. 4–5"
+   ],
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "cinkir-2015",
+   "title": "Admissible invariants of genus 3 curves",
+   "authors": "Zubeyir Cinkir",
+   "edition": "arXiv:1405.7413v1 (28 May 2014), 19 pp.; preprint of Manuscripta Math. 148 (2015), 317–339; preprint page numbers used",
+   "url": "https://arxiv.org/pdf/1405.7413v1",
+   "sha256": "0bd5c36bab5c714500386abdcc5ce5f6bf1bef8ad99eb47ba2bc593f0d0d7816",
+   "readSections": [
+    "Introduction item (iii), p. 1",
+    "§6, type XIV and its formulas, pp. 13–14",
+    "Concluding summary of the sharp genus-three bounds, p. 18"
+   ],
+   "accessed": "2026-10-19"
+  },
+  {
+   "id": "gaudron-remond-2014",
+   "title": "Théorème des périodes et degrés minimaux d’isogénies",
+   "authors": "Éric Gaudron and Gaël Rémond",
+   "edition": "arXiv:1105.1230v1 (6 May 2011), 38 pp.; preprint of Comment. Math. Helv. 89 (2014), 343–403; preprint page numbers used",
+   "url": "https://arxiv.org/pdf/1105.1230v1",
+   "sha256": "d0eefd98c2be51e655bea147341c642b7a568b0709ae801fa9ed845ddbb91ef2",
+   "readSections": [
+    "§2.3, Definition 2.1, pp. 6–7",
+    "Appendix Corollary 8.4, p. 37"
+   ],
+   "accessed": "2026-10-19"
   }
  ],
  "sourceVersions": [
@@ -340,6 +393,11 @@
      "name": "ArithmeticDivisor.compat_R35",
      "role": "compatibility",
      "statement": "On regular X with smooth generic fibre and smooth Green functions, (D, g) ↦ (D, 2g) is the inclusion into R35.1 §1.8 arithmetic divisors."
+    },
+    {
+     "name": "HermitianLineBundle.isometry_iff",
+     "role": "extensionality",
+     "statement": "An algebraic isomorphism is an isometry exactly when it preserves the norm of local frames at every complex point; two isometries with the same underlying map agree."
     }
    ],
    "tests": [
@@ -438,6 +496,11 @@
      "name": "mongeAmpere_tendsto",
      "role": "other",
      "statement": "Weak convergence under uniform convergence of semipositive metrics."
+    },
+    {
+     "name": "mongeAmpere_model_limit",
+     "role": "characterisation",
+     "statement": "On smooth metrics recover the wedge of Chern forms; for semipositive metrics recover the weak limit under uniform semipositive approximation, and extend by multilinearity to integrable metrics."
     }
    ],
    "tests": [
@@ -478,7 +541,7 @@
    "proofSteps": [
     "Independence of s_d and symmetry: Stokes/Poincaré–Lelong for the archimedean integral and the algebraic moving lemma for the finite part (the smooth case is Gillet–Soulé; continuous integrable metrics by Zhang's limit argument).",
     "Projection formula and vertical case by induction on d.",
-    "Nonnegativity for nef bundles: choose s_d with div(s_d) effective and ‖s_d‖ ≤ 1 after scaling, by induction (Zhang 1995, cited in Yuan–Zhang)."
+    "Nonnegativity for nef bundles: perturb each bundle by a positive rational multiple of an arithmetically ample bundle. Arithmetic Nakai–Moishezon gives strictly small sections of sufficiently high powers of the perturbed bundles; induction gives nonnegative mixed intersections. Pass to zero perturbation by multilinearity and continuity of integrable metrics. No effective section of the original nef bundle is assumed (Yuan–Zhang §4.4.2 and Theorem A.4.1)."
    ],
    "acceptance": [
     "For X = Spec O_K the number is deĝ(L̄₁) = log #(L₁/s O_K) − Σ_σ log‖s‖_σ (R35.1 §1.3).",
@@ -494,8 +557,8 @@
    "sources": [
     {
      "sourceId": "yuan-zhang-2025",
-     "locator": "§2.1.5, pp. 27–28",
-     "match": "Gives the inductive definition, independence of choices, the projection formula, the vertical and arithmetic-curve cases, and the multilinear symmetric pairing on P̂ic(X)."
+     "locator": "§2.1.5, pp. 27–28; §4.4.2, pp. 123–124; Theorem A.4.1, p. 233; Corollary A.4.3, p. 234",
+     "match": "Gives the inductive definition, independence of choices, the projection formula, the vertical and arithmetic-curve cases, and the multilinear symmetric pairing on P̂ic(X). The positivity argument uses the arithmetic Nakai–Moishezon theorem recalled in §4.4.2, after ample perturbation."
     }
    ],
    "implementationStatus": "unchecked",
@@ -539,6 +602,11 @@
      "name": "arithIntersection_nef_nonneg",
      "role": "other",
      "statement": "Nonnegative when all L̄ᵢ are nef."
+    },
+    {
+     "name": "arithIntersection_unique",
+     "role": "extensionality",
+     "statement": "The symmetric multilinear model pairing is determined by its vertical intersection normalization and its inductive section/integral formula, with continuity under uniform semipositive approximation."
     }
    ],
    "tests": [
@@ -577,7 +645,7 @@
    "kind": "construction",
    "statement": "Let f : X → Y be a projective flat morphism of relative dimension n between integral schemes (projective arithmetic varieties, or projective varieties over a field), and L₁, …, L_{n+1} line bundles on X. The Deligne pairing ⟨L₁, …, L_{n+1}⟩_{X/Y} is a line bundle on Y, symmetric and multilinear, compatible with base change, with ⟨…, f^*M⟩ ≅ M^{deg} (degree of L₁···Lₙ on fibres) and with deg⟨L₁, …, L_{n+1}⟩ = L₁···L_{n+1} when dim Y = 1. If the Lᵢ carry integrable continuous metrics then ⟨L₁, …, L_{n+1}⟩ carries a continuous integrable metric, equal to the fibrewise integral metric over the flat locus, with Chern current f_*(c₁(L̄₁)···c₁(L̄_{n+1})), semipositive when all metrics are; the pairing of nef (resp. ample) bundles is nef (resp. ample) in the geometric case, and of nef hermitian line bundles is nef. Over a non-archimedean place the analogous model metric is defined.",
    "hypotheses": [
-    "f projective and flat of pure relative dimension n (or of finite Tor-dimension with Y normal, for the metric).",
+    "f projective and flat of pure relative dimension n. For the additional complex metric extension: f has finite Tor-dimension and pure relative dimension, and Y is normal; this extension agrees with the fibrewise metric only over the flat locus V.",
     "Metrics continuous integrable."
    ],
    "proofSteps": [
@@ -621,7 +689,7 @@
     {
      "name": "delignePairing_baseChange",
      "role": "functoriality",
-     "statement": "Compatible with base change Y′ → Y."
+     "statement": "In the flat case, the algebraic pairing and its metric commute with base change. For the additional normal-base finite-Tor metric extension, require the image of Y′ to meet the flat locus V and X ×_Y Y′ → Y′ to have finite Tor-dimension (Theorem 4.2.3(2))."
     },
     {
      "name": "delignePairing_pullback",
@@ -642,6 +710,11 @@
      "name": "delignePairing_nef",
      "role": "other",
      "statement": "Pairing of nef bundles is nef; of ample bundles is ample (geometric case)."
+    },
+    {
+     "name": "delignePairing_symbol",
+     "role": "characterisation",
+     "statement": "Local rational frames with properly intersecting divisors give Deligne symbols; changing one frame by a rational function multiplies the symbol by its norm on the intersection of the remaining divisors. The inductive integral formula determines its metric."
     }
    ],
    "tests": [
@@ -663,7 +736,7 @@
     {
      "name": "delignePairing_nonflat_nonexample",
      "kind": "non-example",
-     "statement": "Without flatness or normality of Y the fibrewise integral can jump: Theorem 4.3.1 needs one of the two hypotheses."
+     "statement": "For a nonflat finite-Tor morphism with normal base, the continuous metric is the extension from the flat locus, and need not equal the fibrewise integral at exceptional fibres. The flat case has no such qualification."
     }
    ],
    "planet": {
@@ -729,7 +802,7 @@
    ],
    "title": "Model adelic divisors of mixed coefficients",
    "kind": "construction",
-   "statement": "Let k be ℤ or a field and U a flat quasi-projective integral k-scheme. A projective model of U is a projective integral k-scheme X (flat over k when k = ℤ) with an open immersion U → X. Put D̂iv(X, U) = D̂iv(X)_ℚ ×_{Div(U)_ℚ} Div(U): pairs of an arithmetic ℚ-divisor on X (arithmetic divisors with continuous Green functions when k = ℤ; Cartier ℚ-divisors when k is a field) and an integral Cartier divisor on U with the same restriction. The group of model adelic divisors is D̂iv(U/k)_mod = colim_X D̂iv(X, U) over projective models, along pullback. It is partially ordered by effectivity (D ≥ 0 if some representative is effective). The principal model divisors d̂iv(f), f ∈ k(U)^×, form a subgroup P̂r(U/k)_mod.",
+   "statement": "Let k be ℤ or a field and U a flat quasi-projective integral k-scheme. A projective model of U is a projective integral k-scheme X (flat over k when k = ℤ) with an open immersion U → X. Put D̂iv(X, U) = D̂iv(X)_ℚ ×_{Div(U)_ℚ} Div(U): pairs of an arithmetic ℚ-divisor on X (arithmetic divisors with continuous Green functions when k = ℤ; Cartier ℚ-divisors when k is a field) and an integral Cartier divisor on U with the same restriction. The group of model adelic divisors is D̂iv(U/k)_mod = colim_X D̂iv(X, U) over projective models, along pullback. It is partially ordered by effectivity (D ≥ 0 if on some model both the rational arithmetic divisor and the integral Cartier divisor on U are effective). The principal model divisors d̂iv(f), f ∈ k(U)^×, form a subgroup P̂r(U/k)_mod.",
    "hypotheses": [
     "U flat, quasi-projective and integral over k.",
     "Mixed coefficients: rational on the model, integral on U."
@@ -782,7 +855,7 @@
     {
      "name": "ModelAdelicDivisor.le",
      "role": "instance",
-     "statement": "Partial order: D ≤ D′ iff D′ − D has an effective representative."
+     "statement": "D ≤ D′ iff on a common model the rational arithmetic part of D′ − D and its integral restriction to U are both effective."
     },
     {
      "name": "ModelAdelicDivisor.toDiv",
@@ -821,17 +894,17 @@
    ],
    "title": "The boundary norm and adelic divisors",
    "kind": "definition",
-   "statement": "A boundary divisor of U is a pair (X₀, E₀) of a projective model X₀ and a strictly effective arithmetic divisor E₀ on X₀ with support X₀ ∖ U. For D ∈ D̂iv(U/k)_mod put ‖D‖_{E₀} = inf{ε ∈ ℚ_{>0} : −εE₀ ≤ D ≤ εE₀} (∞ if no such ε). This is a norm in the sense ‖D‖ = 0 iff D = 0, ‖D₁ + D₂‖ ≤ ‖D₁‖ + ‖D₂‖, ‖aD‖ ≤ |a|‖D‖, and two boundary divisors give equivalent norms. The group D̂iv(U/k) of adelic divisors is the completion of D̂iv(U/k)_mod for the boundary topology; a representative Cauchy sequence (Dᵢ) satisfies −εᵢE₀ ≤ D_j − Dᵢ ≤ εᵢE₀ for j ≥ i with εᵢ → 0, and its underlying divisor on U is constant.",
+   "statement": "A boundary divisor of U is a pair (X₀, E₀) of a projective model X₀ and an effective Cartier divisor E₀ supported exactly on X₀ ∖ U when k is a field, or a strictly effective arithmetic divisor E₀ whose finite part has that support when k = ℤ. For D ∈ D̂iv(U/k)_mod put ‖D‖_{E₀} = inf{ε ∈ ℚ_{>0} : −εE₀ ≤ D ≤ εE₀} (∞ if no such ε). This is a norm in the sense ‖D‖ = 0 iff D = 0, ‖D₁ + D₂‖ ≤ ‖D₁‖ + ‖D₂‖, ‖aD‖ ≤ |a|‖D‖ for nonzero integers a, and two boundary divisors give equivalent norms. The group D̂iv(U/k) of adelic divisors is the completion of D̂iv(U/k)_mod for the boundary topology; a representative Cauchy sequence (Dᵢ) satisfies −εᵢE₀ ≤ D_j − Dᵢ ≤ εᵢE₀ for j ≥ i with εᵢ → 0, and its underlying divisor on U is eventually constant (and constant after discarding an initial segment).",
    "hypotheses": [
-    "A boundary divisor exists after blowing up (any model dominates one with a strictly effective boundary)."
+    "A boundary divisor exists after blowing up; strict effectivity includes a strictly positive Green function in the arithmetic case."
    ],
    "proofSteps": [
     "Norm axioms and equivalence of norms: Yuan–Zhang Lemma 2.4.1, comparing E₀ and E′₀ on a common model.",
     "Underlying divisors of a Cauchy sequence are eventually constant since ‖D‖ < 1 forces the integral part on U to vanish."
    ],
    "acceptance": [
-    "The norm of E₀ itself is 1; of −E₀ is 1; of a divisor with nonzero restriction to U is ∞.",
-    "For U projective there is no boundary and the topology is discrete: D̂iv(U/k) = D̂iv(U/k)_mod."
+    "For a nonzero boundary E₀, ‖E₀‖ = ‖−E₀‖ = 1; a divisor with nonzero integral restriction to U has norm ∞. For E₀ = 0 the norm at 0 is 0.",
+    "If U is projective over a field, take E₀ = 0: the topology is discrete. For projective arithmetic U, take E₀ = (0, 1): the norm of (0, g) is sup|g|, while nonzero underlying divisors have infinite norm. The model divisor group is complete in both cases, for different reasons."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.1/model-adelic-divisors"
@@ -839,7 +912,7 @@
    "sources": [
     {
      "sourceId": "yuan-zhang-2025",
-     "locator": "§2.4.2 and Lemma 2.4.1, pp. 36–38",
+     "locator": "§2.4.1 and Lemma 2.4.1, pp. 36–38; Remark 2.4.2, p. 38",
      "match": "Defines boundary divisors, the boundary norm, proves the norm properties and equivalence for different boundaries, and defines adelic divisors as the completion."
     },
     {
@@ -889,18 +962,23 @@
      "name": "AdelicDivisor.underlying",
      "role": "projection",
      "statement": "The underlying integral Cartier divisor on U."
+    },
+    {
+     "name": "AdelicDivisor.completion_lift",
+     "role": "universal-property",
+     "statement": "The model map has dense image; every uniformly continuous homomorphism from the model group to a complete Hausdorff uniform abelian group extends uniquely to its completion. Equality in the completion means that the difference of representative Cauchy sequences tends to zero."
     }
    ],
    "tests": [
     {
      "name": "boundaryNorm_self",
      "kind": "computation",
-     "statement": "‖E₀‖_{E₀} = 1."
+     "statement": "For a nonzero boundary E₀, ‖E₀‖_{E₀} = 1; the zero boundary has ‖0‖₀ = 0."
     },
     {
      "name": "boundaryNorm_projective",
      "kind": "degenerate",
-     "statement": "If U is projective the boundary norm is ∞ off 0, and D̂iv(U/k) = D̂iv(U/k)_mod."
+     "statement": "If U is projective over a field, E₀ = 0 and the boundary norm is ∞ off 0. For arithmetic U this discreteness assertion fails."
     },
     {
      "name": "boundaryNorm_scalar",
@@ -911,6 +989,11 @@
      "name": "boundaryNorm_strict_nonexample",
      "kind": "non-example",
      "statement": "The scaling inequality ‖aD‖ ≤ |a|‖D‖ is strict only when the underlying divisor D̄ is nonzero (so ‖D‖ = ∞) but aD̄ = 0 in Div(U); for normal U, Div(U) is torsion free and ‖aD‖ = |a|‖D‖ for every nonzero integer a."
+    },
+    {
+     "name": "boundaryNorm_arithmetic_constant",
+     "kind": "computation",
+     "statement": "On Spec ℤ with E₀ = (0, 1), ‖(0, c)‖_{E₀} = |c| for every real c; constants tending to zero give a nonconstant convergent sequence."
     }
    ],
    "planet": {
@@ -1015,7 +1098,7 @@
     {
      "name": "AdelicLineBundle.not_model",
      "kind": "non-example",
-     "statement": "An adelic line bundle need not come from one projective model: a Tate limit (AH.5/invariant-extension) on a non-isotrivial family is not a model bundle."
+     "statement": "On U = Spec ℤ[1/p], choose an irrational real a. Rational multiples aᵢ[p] on Spec ℤ with aᵢ → a define a boundary-Cauchy adelic divisor with zero restriction to U. Its adelic line bundle cannot be represented by a rational model divisor: its p-coordinate is irrational modulo integral principal divisors. This follows from the arithmetic-curve calculation in AH.1/arithmetic-curve-comparison."
     }
    ],
    "planet": {
@@ -1229,6 +1312,11 @@
      "name": "AdelicLineBundle.colim_positivity",
      "role": "other",
      "statement": "Nef, integrable and effective classes form the colimits of the corresponding model classes."
+    },
+    {
+     "name": "AdelicLineBundle.colim_iso_iff",
+     "role": "extensionality",
+     "statement": "Two presentations give the same adelic isomorphism class precisely when their restrictions are isometrically isomorphic on a common quasi-projective model; transition maps commute with tensor product and pullback."
     }
    ],
    "tests": [
@@ -1257,16 +1345,16 @@
    ],
    "title": "Adelic divisors over the archimedean base (ℂ, |·|)",
    "kind": "construction",
-   "statement": "For the base (ℂ, |·|) and a quasi-projective complex variety M with projective models X, form colim_X D̂iv(X/B)_ℚ of pairs (Cartier ℚ-divisor on X, continuous Green function on X(ℂ) off its support) and complete it in the topology of a strictly positive metrized boundary (E₀, g₀). Arithmetic adelic divisors on a flat quasi-projective ℤ-scheme specialize to this group by restricting to the complex fibre, retaining both the geometric divisor and the archimedean Green function.",
+   "statement": "For the base (ℂ, |·|) and a quasi-projective complex variety M with projective models X, take B = (Spec ℂ, {id}) and form colim_X D̂iv(X, M), where D̂iv(X, M) = D̂iv(X)_ℚ ×_{Div(M)_ℚ} Div(M); a representative consists of a rational model divisor with continuous Green function and a compatible integral Cartier divisor on M and complete it in the topology of a strictly positive metrized boundary (E₀, g₀). Arithmetic adelic divisors on a flat quasi-projective ℤ-scheme specialize to this group by restricting to the complex fibre, retaining both the geometric divisor and the archimedean Green function.",
    "hypotheses": [
     "M quasi-projective over ℂ."
    ],
    "proofSteps": [
-    "Same construction as AH.1/boundary-topology with the base Banach ring (ℂ, |·|) in place of ℤ (Yuan–Zhang §2.7).",
+    "Use the valued base scheme B = (Spec ℂ, {id}) of Yuan–Zhang §2.7.2, with mixed coefficients and boundary completion as in §§2.7.3–2.7.4.",
     "Specialization: pull back models along Spec ℂ → Spec ℤ; boundary divisors restrict to boundary divisors."
    ],
    "acceptance": [
-    "An adelic divisor over (ℂ, |·|) with zero underlying divisor is a continuous function on M(ℂ) that extends with logarithmic growth bounded by the boundary."
+    "A zero-underlying adelic divisor has a continuous Green function on M(ℂ), obtained by boundary-norm limits; its growth is bounded by a multiple of the boundary Green function. The growth bound alone is not asserted to characterize the image. Rationalizing the entire group is a separate operation."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.1/boundary-topology"
@@ -1275,7 +1363,7 @@
     {
      "sourceId": "yuan-zhang-2025",
      "locator": "§2.7, pp. 54–62",
-     "match": "Defines adelic divisors and line bundles over more general base Banach rings, including (ℂ, |·|)."
+     "match": "§2.7 defines valued base schemes (including (Spec ℂ, {id})), mixed coefficients on models and integral coefficients on the open variety, and the boundary completion. It does not require a general Banach-ring construction for this specialization."
     },
     {
      "sourceId": "yuan-2026",
@@ -1305,13 +1393,18 @@
      "name": "AdelicDivisor.complex_green",
      "role": "projection",
      "statement": "The Green function on M(ℂ)."
+    },
+    {
+     "name": "AdelicDivisor.complex_eq_iff",
+     "role": "extensionality",
+     "statement": "Representatives define the same complex-base adelic divisor exactly when their difference tends to zero in a common boundary topology; specialization preserves principal divisors and tensor products."
     }
    ],
    "tests": [
     {
      "name": "AdelicDivisor.complex_projective",
      "kind": "compatibility",
-     "statement": "For M projective the group is the arithmetic ℚ-divisors on M over ℂ (divisor plus continuous Green function)."
+     "statement": "For M projective, this is the group of arithmetic divisors on M with integral Cartier divisor and continuous Green function. Its tensor product with ℚ is the rational version."
     },
     {
      "name": "AdelicDivisor.complex_zero",
@@ -1431,6 +1524,11 @@
      "name": "globalAnalytification.locallyCompact",
      "role": "instance",
      "statement": "Hausdorff, locally compact, path-connected."
+    },
+    {
+     "name": "globalAnalytification.point_ext",
+     "role": "extensionality",
+     "statement": "On an affine chart, points are equal precisely when their multiplicative seminorms agree on every regular function; pullback of an analytic point composes its seminorm with the map of coordinate rings."
     }
    ],
    "tests": [
@@ -1533,6 +1631,11 @@
      "name": "AnalyticArithmeticDivisor.IsNormEquivariant",
      "role": "data",
      "statement": "g(x) = t·g(x₁) whenever |·|_x = |·|_{x₁}^t."
+    },
+    {
+     "name": "MetrizedLineBundle.isometry_iff",
+     "role": "extensionality",
+     "statement": "A line-bundle isomorphism is an isometry precisely when the norm of every local frame agrees at every analytic point; tensor and pullback preserve these comparisons."
     }
    ],
    "tests": [
@@ -1571,7 +1674,7 @@
     "Full faithfulness: an isomorphism of underlying bundles preserving all norms is a morphism of adelic bundles."
    ],
    "acceptance": [
-    "On Spec ℤ the analytification sends O(c) to the constant function c on M(ℤ) scaled along the rays (|·|_∞^t gives tc)."
+    "On Spec ℤ the Green function of O(c) equals tc at |·|_∞^t and zero on the non-archimedean rays; it is not the constant function c on all of M(ℤ)."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.2/analytic-divisors-metrics",
@@ -1647,7 +1750,7 @@
     "Pass to limits using the boundary norm; for zero underlying divisor apply continuity of g̃_D and density (Yuan–Zhang Lemma 5.1.2)."
    ],
    "acceptance": [
-    "For S = Spec ℤ, O(c) has Green function c on the archimedean ray and is effective iff c ≥ 0."
+    "For S = Spec ℤ, O(c) has total Green function tc at |·|_∞^t and zero on the non-archimedean rays; it is effective iff c ≥ 0."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.2/analytification-injective",
@@ -1676,7 +1779,7 @@
    ],
    "title": "Canonical measures of integrable adelic line bundles",
    "kind": "construction",
-   "statement": "Let K be a number field or a one-variable function field over k, X a quasi-projective K-variety of dimension n, v a place of K and L̄₁, …, L̄ₙ integrable adelic line bundles on X/k. There is a signed Radon measure dμ_{L̄₁,…,L̄ₙ, v} = c₁(L̄₁)···c₁(L̄ₙ) on X_v^an, the limit of the Monge–Ampère (archimedean) or Chambert-Loir (non-archimedean) measures of the model metrics, positive for nef bundles and of total mass L₁···Lₙ on the generic fibre; for L̄ nef with deg L̃ > 0 put dμ_{L̄,v} = c₁(L̄)ⁿ/deg.",
+   "statement": "Let K be a number field or a one-variable function field over k, X a quasi-projective K-variety of dimension n, v a place of K and L̄₁, …, L̄ₙ integrable adelic line bundles on X/k. There is a signed Radon measure dμ_{L̄₁,…,L̄ₙ, v} = c₁(L̄₁)···c₁(L̄ₙ) on X_v^an, the limit of the Monge–Ampère (archimedean) or Chambert-Loir (non-archimedean) measures of the model metrics, positive for nef bundles. If X is projective, its total mass is the ordinary intersection number L₁···Lₙ; for projective X and nef L̄ of positive degree put dμ_{L̄,v} = c₁(L̄)ⁿ/(Lⁿ). On nonproper X, the degree and total-mass identity use geometric adelic intersections, as specified in AH.5/non-degenerate, rather than an ordinary degree of the uncompactified algebraic bundle.",
    "hypotheses": [
     "X quasi-projective over a global field; bundles integrable."
    ],
@@ -1725,7 +1828,7 @@
     {
      "name": "canonicalMeasure_mass",
      "role": "characterisation",
-     "statement": "Total mass L₁···Lₙ."
+     "statement": "For projective X, total mass equals the ordinary degree L₁···Lₙ. For quasi-projective X, use the geometric adelic intersection of AH.5/non-degenerate."
     },
     {
      "name": "canonicalMeasure_nonneg",
@@ -1736,6 +1839,11 @@
      "name": "canonicalMeasure_model",
      "role": "compatibility",
      "statement": "For model bundles it is the Monge–Ampère or Chambert-Loir measure."
+    },
+    {
+     "name": "canonicalMeasure_model_limit",
+     "role": "characterisation",
+     "statement": "For nef bundles the measure is the weak limit of the model measures in the boundary approximation construction; mixed integrable measures are determined by multilinearity. Retain the tightness/no-mass-loss argument for nonproper varieties of Yuan–Zhang §3.6."
     }
    ],
    "tests": [
@@ -1747,7 +1855,7 @@
     {
      "name": "canonicalMeasure_dimZero",
      "kind": "degenerate",
-     "statement": "For n = 0 it is the counting measure on the Galois orbit."
+     "statement": "For X = Spec K (n = 0), the measure at each place is the Dirac measure of mass one on its unique analytic point."
     },
     {
      "name": "canonicalMeasure_constant_shift",
@@ -1769,12 +1877,12 @@
    ],
    "title": "Canonical metrics over a trivially valued field",
    "kind": "construction",
-   "statement": "For a projective variety X over a field K with the trivial absolute value, every line bundle L has a canonical metric on X^an, the model metric of L on X itself regarded as its own model over K. It is the unique admissible metric in the sense of AH.7 (no constant factor is free, since the base has only the trivial norm), and it is used for ω_C and O(Δ) of a curve C over a trivially valued field.",
+   "statement": "For a projective variety X over a field K with the trivial absolute value, every line bundle L has a canonical metric on X^an, the model metric of L on X itself regarded as its own model over K. This prescribed model metric is called admissible in Yuan §A.6; for the curve bundles in AH.7 it is the specified trivial-valuation case (uniqueness refers to this model normalization, not to all continuous metrics with equal curvature), and it is used for ω_C and O(Δ) of a curve C over a trivially valued field.",
    "hypotheses": [
     "K trivially valued; X projective over K."
    ],
    "proofSteps": [
-    "The trivial model gives a metric invariant under every endomorphism compatible with L; uniqueness: two metrics with the same curvature on a trivially valued curve differ by a constant, and the constant is fixed by the model normalization (Yuan–Zhang §3.4.1)."
+    "For a point x ∈ X^an, properness gives Spec O_{H_x} → X. A generator of L near its reduction has norm one; this is independent of the generator, since transition units have absolute value one there (Yuan–Zhang §3.4.1). Tensor product and pullback preserve this prescription. A constant rescaling violates the normalization; no general curvature uniqueness assertion is needed."
    ],
    "acceptance": [
     "For L = O_X the canonical metric is the trivial metric ‖1‖ = 1."
@@ -1816,6 +1924,11 @@
      "name": "trivialCanonicalMetric_pullback",
      "role": "functoriality",
      "statement": "Compatible with pullback."
+    },
+    {
+     "name": "trivialCanonicalMetric_frame",
+     "role": "characterisation",
+     "statement": "A frame extending as a unit over a model open has norm one at analytic points whose centre lies in that open; this determines the prescribed proper-model metric and gives its tensor and pullback comparisons."
     }
    ],
    "tests": [
@@ -1844,7 +1957,7 @@
    ],
    "title": "The absolute intersection pairing of adelic line bundles",
    "kind": "construction",
-   "statement": "Let X be flat essentially quasi-projective integral over k and d the absolute dimension of a quasi-projective model of X over k. The intersection numbers of AH.0/arithmetic-intersection-numbers (resp. geometric ones over a field) on projective models extend by boundary limits to a canonical multilinear map P̂ic(X/k) × P̂ic(X/k)_int^{d−1} → ℝ, symmetric in the last d − 1 variables and in all d variables when the first is integrable. If L̄₁, …, L̄_d are nef then L̄₁···L̄_d ≥ 0. For a morphism f : X′ → X with the same absolute dimension, f^*L̄₁···f^*L̄_d = deg(f)·L̄₁···L̄_d (deg f = 0 if f is not dominant).",
+   "statement": "Let X be flat essentially quasi-projective integral over k and d the absolute dimension of a quasi-projective model of X over k. The intersection numbers of AH.0/arithmetic-intersection-numbers (resp. geometric ones over a field) on projective models extend by boundary limits to a canonical multilinear map P̂ic(X/k) × P̂ic(X/k)_int^{d−1} → ℝ, symmetric in the last d − 1 variables and in all d variables when the first is integrable. If L̄₁, …, L̄_d are nef then L̄₁···L̄_d ≥ 0. For integrable L̄₁, …, L̄_d and a morphism f : X′ → X with the same absolute dimension, f^*L̄₁···f^*L̄_d = deg(f)·L̄₁···L̄_d (deg f = 0 if f is not dominant).",
    "hypotheses": [
     "X flat essentially quasi-projective integral over k; d its absolute dimension."
    ],
@@ -1904,12 +2017,17 @@
     {
      "name": "adelicIntersection_projection",
      "role": "functoriality",
-     "statement": "f^*L̄₁···f^*L̄_d = deg(f)·L̄₁···L̄_d."
+     "statement": "For integrable entries and a morphism of the same absolute dimension, f^*L̄₁···f^*L̄_d = deg(f)·L̄₁···L̄_d."
     },
     {
      "name": "adelicIntersection_model",
      "role": "compatibility",
      "statement": "Equals the model intersection number for model bundles."
+    },
+    {
+     "name": "adelicIntersection_continuous",
+     "role": "characterisation",
+     "statement": "Recover the projective model intersection on model bundles; along boundary-convergent nef approximations the intersection numbers converge, and extend by multilinearity in integrable entries."
     }
    ],
    "tests": [
@@ -1926,7 +2044,7 @@
     {
      "name": "adelicIntersection_constant_shift",
      "kind": "characterisation",
-     "statement": "Adding O(c) from Spec ℤ to L̄_d adds c·(L₁···L_{d−1})_generic to the number."
+     "statement": "Adding O(c) from Spec ℤ to an entry adds c times the geometric adelic intersection of the other entries over ℚ. When the generic fibre is projective this is its ordinary degree."
     },
     {
      "name": "adelicIntersection_not_continuous_unbounded",
@@ -2020,6 +2138,11 @@
      "name": "delignePairingAdelic_section",
      "role": "compatibility",
      "statement": "For n = 0 along a section x : Y → X (graph), ⟨L̄|_{Γ}⟩ = x^*L̄."
+    },
+    {
+     "name": "delignePairingAdelic_model_limit",
+     "role": "compatibility",
+     "statement": "On model bundles recover the model Deligne pairing and its symbol norm; boundary limits of nef models determine the adelic pairing independently of approximations, and multilinearity gives the integrable case."
     }
    ],
    "tests": [
@@ -2037,11 +2160,6 @@
      "name": "delignePairingAdelic_constant",
      "kind": "characterisation",
      "statement": "f_*⟨L̄₁ + f^*O(c), L̄₂, …⟩ = f_*⟨L̄₁, …⟩ + (L₂···L_{n+1})_fibre·O(c)."
-    },
-    {
-     "name": "delignePairingAdelic_nonnormal_nonexample",
-     "kind": "non-example",
-     "statement": "Without normality of Y the metric of the pairing need not extend continuously over the non-flat locus (Yuan–Zhang Theorem 4.3.1(2) uses normality)."
     }
    ],
    "planet": {
@@ -2056,7 +2174,7 @@
    ],
    "title": "Composition and projection formulas for the Deligne pairing",
    "kind": "theorem",
-   "statement": "Let ψ : X → Y and π : Y → S be projective of relative dimensions r and m between flat quasi-projective integral k-schemes, with π and π∘ψ flat and S normal; let L̄₁, …, L̄_{r+1} on X, M̄₁, …, M̄_{m+1} on Y and N̄ on S be integrable. (1) If ψ is flat and Y normal, (π∘ψ)_*⟨L̄₁, …, L̄_{r+1}, ψ^*M̄₁, …, ψ^*M̄_m⟩ ≅ π_*⟨ψ_*⟨L̄₁, …, L̄_{r+1}⟩, M̄₁, …, M̄_m⟩. (2) π_*⟨M̄₁, …, M̄_m, π^*N̄⟩ ≅ e·N̄ with e the degree of M₁···M_m on the generic fibre. (3) For d = deg_{X_η}(L₁···L_r): ψ_*⟨L̄₁, …, L̄_r, ψ^*M̄₁⟩ ≅ d·M̄₁ and (π∘ψ)_*⟨L̄₁, …, L̄_r, ψ^*M̄₁, …, ψ^*M̄_{m+1}⟩ ≅ d·π_*⟨M̄₁, …, M̄_{m+1}⟩.",
+   "statement": "Let ψ : X → Y and π : Y → S be projective of relative dimensions r and m between flat quasi-projective integral k-schemes, with π and π∘ψ flat and S normal; let L̄₁, …, L̄_{r+1} on X, M̄₁, …, M̄_{m+1} on Y and N̄ on S be integrable. (1) If ψ is flat and Y normal, (π∘ψ)_*⟨L̄₁, …, L̄_{r+1}, ψ^*M̄₁, …, ψ^*M̄_m⟩ ≅ π_*⟨ψ_*⟨L̄₁, …, L̄_{r+1}⟩, M̄₁, …, M̄_m⟩. (2) π_*⟨M̄₁, …, M̄_m, π^*N̄⟩ ≅ e·N̄ with e the degree of M₁···M_m on the generic fibre. (3) For d = deg_{X_η}(L₁···L_r) when ψ is dominant (and d = 0 otherwise): if ψ is flat and Y normal then ψ_*⟨L̄₁, …, L̄_r, ψ^*M̄₁⟩ ≅ d·M̄₁; without those extra conditions the always-defined composite pairing satisfies (π∘ψ)_*⟨L̄₁, …, L̄_r, ψ^*M̄₁, …, ψ^*M̄_{m+1}⟩ ≅ d·π_*⟨M̄₁, …, M̄_{m+1}⟩.",
    "hypotheses": [
     "As stated; flatness of π∘ψ and normality of S throughout."
    ],
@@ -2092,16 +2210,17 @@
    ],
    "title": "Injective pullback and descent of fibrewise constant metrics",
    "kind": "theorem",
-   "statement": "Let π : X → S be projective flat with geometrically connected fibres between flat quasi-projective integral k-schemes. (1) π^* : P̂ic(S/k) → P̂ic(X/k) is injective. (2) Assume S normal or π has a section. If L̄ is integrable on X with L ≅ π^*M and on each fibre X_{H_v}, v ∈ S^an, the metric of L̄ is a constant multiple of the trivial metric induced by M, then M has an integrable adelic extension M̄ with π^*M̄ ≅ L̄.",
+   "statement": "Let π : X → S be projective flat with geometrically reduced and geometrically connected fibres between flat quasi-projective integral k-schemes. (1) π^* : P̂ic(S/k) → P̂ic(X/k) is injective. (2) Assume S normal or π has a section. If L̄ is integrable on X with L ≅ π^*M and on each fibre X_{H_v}, v ∈ S^an, the metric of L̄ is a constant multiple of the trivial metric induced by M, then M has an integrable adelic extension M̄ with π^*M̄ ≅ L̄.",
    "hypotheses": [
-    "π projective flat with geometrically connected fibres; for (2) S normal or π with a section."
+    "π projective flat with geometrically reduced and geometrically connected fibres; for (2) S normal or π with a section."
    ],
    "proofSteps": [
-    "(1) Use a section of a multisection and the fibre-degree formula AH.3/projection-formulas(2) with an ample model bundle, or analytification: a metric on S pulled back to X determines the metric on S since π^an is surjective.",
+    "(1) Proper flat finite presentation with geometrically reduced connected fibres gives π_*O_X = O_S universally (Stacks Tag 0E0L). The algebraic projection formula then makes Pic(S) → Pic(X) injective. Surjectivity of π^an detects equality of metrics, and full faithfulness of analytification gives the adelic assertion. Geometric connectedness alone is insufficient (source issue E3).",
     "(2) Define the metric of M at v by the constant; continuity and adelic convergence from the Deligne pairing ψ_*⟨A, …, A, L̄⟩ with A relatively ample, using (3) of AH.3/projection-formulas (Yuan Lemma 2.1)."
    ],
    "acceptance": [
-    "If L̄ = π^*M̄ then the hypothesis of (2) holds with constant 1."
+    "If L̄ = π^*M̄ then the hypothesis of (2) holds with constant 1.",
+    "Connectedness alone fails: on E : y² = x³ + 3x + 2 over 𝔽₅, Frobenius is finite flat with geometrically connected nonreduced fibres, and kills the nontrivial order-five line bundle O((1,1) − O)."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.3/projection-formulas",
@@ -2111,7 +2230,12 @@
     {
      "sourceId": "yuan-2026",
      "locator": "Lemma 2.1, pp. 25–26",
-     "match": "Proves injectivity of pullback along projective flat morphisms with geometrically connected fibres and descent of integrable metrics that are fibrewise constant multiples of the trivial metric; items PAPER-YUAN-26/29–30."
+     "match": "States the injectivity and metric descent in Lemma 2.1. The injectivity assertion needs geometric reducedness in addition to its printed geometric connectedness; the corrected hypothesis holds for every smooth curve family used here (source issue E3)."
+    },
+    {
+     "sourceId": "stacks-pullback",
+     "locator": "Tag 0E0L, Lemma 36.32.6 (unpaginated)",
+     "match": "Proper flat finite presentation with geometrically reduced connected fibres has universally trivial structure-sheaf pushforward; projection formula yields injective Picard pullback."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2129,7 +2253,7 @@
     "U flat quasi-projective integral over k."
    ],
    "proofSteps": [
-    "Finiteness: by AH.4/nef-domination, L̄ ≤ D̄′ for a model divisor induced by an effective nef arithmetic divisor on a projective model X, and Ĥ⁰(U, L̄) ⊂ Ĥ⁰(X, O(D̄′)), finite (AH.0/projective-volume-siu).",
+    "Finiteness: normalize a projective model first. By AH.4/nef-domination choose an upper model divisor D̄′ on that normal model; bounded sections on U extend across the omitted prime divisors by their valuation inequalities. Hence Ĥ⁰(U,L̄) injects into the finite set (or finite-dimensional space) Ĥ⁰(X,O(D̄′)) (Yuan–Zhang Lemma 5.1.5). Normality is needed for this extension argument.",
     "Identification with effective divisors by AH.2/effectivity-from-green."
    ],
    "acceptance": [
@@ -2189,6 +2313,11 @@
      "name": "effectiveSections_mono",
      "role": "other",
      "statement": "If M̄ − L̄ is effective then ĥ⁰(L̄) ≤ ĥ⁰(M̄)."
+    },
+    {
+     "name": "effectiveSections_mem",
+     "role": "characterisation",
+     "statement": "A section belongs exactly when its norm is at most one at every analytic point; zero belongs, and for a nonzero section membership is equivalent to effectivity of its adelic divisor."
     }
    ],
    "tests": [
@@ -2312,7 +2441,7 @@
     {
      "name": "IsBig_generic_not_enough",
      "kind": "non-example",
-     "statement": "L̄ = π^*M̄ pulled back from a lower-dimensional base is never big, even if its generic fibre is big."
+     "statement": "On Spec ℤ, O(c) with c < 0 has an algebraically big generic fibre (a point), but arithmetic volume zero. Algebraic generic bigness does not imply adelic bigness."
     }
    ],
    "planet": {
@@ -2337,7 +2466,7 @@
    ],
    "acceptance": [
     "On Spec ℤ, vol^(O(c)) = c = O(c)^1 for c ≥ 0.",
-    "ε-bound: if A^d > 0 then vol^(A − εB) > 0 for 0 < ε < A^d/(d A^{d−1}B)."
+    "If A^d > 0 and A^{d−1}B > 0, then A − εB is big for 0 < ε < A^d/(d A^{d−1}B). If A^{d−1}B = 0, the Siu lower bound remains A^d for every ε > 0."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.4/adelic-volume",
@@ -2374,7 +2503,7 @@
     "f projective flat, Y normal, dim Y = d ≥ 1."
    ],
    "proofSteps": [
-    "(1) Nefness from AH.3/deligne-pairing. Bigness: by the Siu inequality (AH.4/hilbert-samuel-siu) write each L̄ᵢ = εA + (L̄ᵢ − εA) with A = π^*(ample on Y) plus relatively ample and L̄ᵢ − εA big; expand the pairing and use AH.3/projection-formulas(2) to see a positive multiple of an ample-type term plus pseudo-effective terms (Yuan Lemma 2.2).",
+    "(1) Put P = f_*⟨L̄₁, …, L̄_{n+1}⟩, which is nef. Choose a nef big model bundle M̄ on Y. Siu gives L̄₁ − εf^*M̄ big for small ε > 0, hence a positive multiple is effective. Pair it with the remaining nef entries to obtain a pseudo-effective Q. The projection formula gives P = Q + cM̄ with c > 0, since the remaining big bundles have positive mixed degree on the generic fibre. Compare successively P^d ≥ cM̄·P^{d−1} ≥ ⋯ ≥ c^dM̄^d > 0; each difference pairs Q with nef entries. This avoids multiplying several merely pseudo-effective bundles (Yuan Lemma 2.2).",
     "(2) Composition formula AH.3/projection-formulas(1) reduces to an intersection number on X of an effective bundle with nef ones, ≥ 0."
    ],
    "acceptance": [
@@ -2474,7 +2603,7 @@
    ],
    "title": "Heights of algebraic points for adelic line bundles",
    "kind": "construction",
-   "statement": "Let k = ℤ and K a number field, or k a field and K a one-variable function field over k, and X a quasi-projective K-variety. For L̄ ∈ P̂ic(X/k) and x ∈ X(K̄) with closure x̃ (Spec of the residue field K(x)) put h_L̄(x) = deĝ(L̄|_x̃)/[K(x) : ℚ] (k = ℤ) or deĝ(L̄|_x̃)/[K(x) : K] (k a field), where deĝ is the adelic intersection number on Spec K(x) over k (residue degrees over the fixed k in the geometric case). This is Yuan's normalization: in the arithmetic case Yuan–Zhang §5.3 divide by the degree over K instead, so h_YZ = [K : ℚ]·h_L̄ (Yuan p. 64 records the difference); in the geometric case the two agree. More generally, for a finitely generated field F over k and X a quasi-projective F-variety, the vector-valued height h(x) = π_*⟨L̄|_x̃⟩/deg(x) ∈ P̂ic(F/k)_ℚ, and for H̄ ∈ P̂ic(F/k) satisfying the Moriwaki condition the real height h^H̄_L̄(x) = h(x)·H̄^{d−1}. h_L̄ is additive in L̄, functorial under pullback, invariant under Galois conjugation and under finite extension of K, and for a model hermitian line bundle it is the metrized height of ArakelovGeometryAndAbelianHeights R35.1 §1.12; for L̄ with trivial underlying bundle pulled back from P̂ic(K/k), h is the constant deĝ/[K : ℚ].",
+   "statement": "Let k = ℤ and K a number field, or k a field and K a one-variable function field over k, and X a quasi-projective K-variety. For L̄ ∈ P̂ic(X/k) and x ∈ X(K̄) with closure x̃ (Spec of the residue field K(x)) put h_L̄(x) = deĝ(L̄|_x̃)/[K(x) : ℚ] (k = ℤ) or deĝ(L̄|_x̃)/[K(x) : K] (k a field), where deĝ is the adelic intersection number on Spec K(x) over k (residue degrees over the fixed k in the geometric case). This is Yuan's normalization: in the arithmetic case Yuan–Zhang §5.3 divide by the degree over K instead, so h_YZ = [K : ℚ]·h_L̄ (Yuan p. 64 records the difference); in the geometric case the two agree. More generally, for a finitely generated field F over k and X a quasi-projective F-variety, for integrable L̄ the vector-valued height h(x) = π_*⟨L̄|_x̃⟩/deg(x) ∈ P̂ic(F/k)_ℚ, and for H̄ ∈ P̂ic(F/k) satisfying the Moriwaki condition the real height h^H̄_L̄(x) = h(x)·H̄^{d−1}. h_L̄ is additive in L̄, functorial under pullback, invariant under Galois conjugation and independent of the field used to represent a point with K fixed. Under a finite extension K′/K, absolute arithmetic heights are invariant; geometric heights with degrees over the fixed k scale by [K′ : K], and for a model hermitian line bundle it is the metrized height of ArakelovGeometryAndAbelianHeights R35.1 §1.12; for L̄ with trivial underlying bundle pulled back from P̂ic(K/k), h is the constant deĝ/[K : ℚ].",
    "hypotheses": [
     "X quasi-projective over a global field K (or over a finitely generated field F)."
    ],
@@ -2542,7 +2671,7 @@
     {
      "name": "adelicHeight_galois",
      "role": "other",
-     "statement": "Galois invariant and independent of the field of definition."
+     "statement": "Galois invariant; independent of the field representing a point with K fixed. Finite base extension preserves absolute arithmetic heights and multiplies geometric heights over fixed k by its degree."
     },
     {
      "name": "adelicHeight_model",
@@ -2579,7 +2708,7 @@
     {
      "name": "adelicHeight_extension",
      "kind": "characterisation",
-     "statement": "h_L̄(x) does not change when K is replaced by a finite extension."
+     "statement": "Over number fields, h_L̄(x) does not change after finite extension of K. Over function fields with the same constant base k, h_{L̄_{K′}}(x) = [K′ : K]·h_L̄(x); independence of the field representing x keeps K fixed."
     },
     {
      "name": "adelicHeight_relative_nonexample",
@@ -2646,7 +2775,7 @@
    ],
    "title": "The fundamental inequality over global fields",
    "kind": "theorem",
-   "statement": "Let k = ℤ and K a number field, or k a field and K a one-variable function field over k; X a quasi-projective K-variety of dimension n; L̄ a nef element of P̂ic(X/k)_ℚ whose image L̃ in P̂ic(X/K)_ℚ is big. With h_L̄(X) = L̄^{n+1}/((n+1)·deg L̃) and the essential minimum e₁(X, L̄) = sup_U inf_{x∈U(K̄)} h_L̄(x), one has e₁(X, L̄) ≥ h_L̄(X) ≥ e₁(X, L̄)/(n + 1).",
+   "statement": "Let k = ℤ and K a number field, or k a field and K a one-variable function field over k; X a quasi-projective K-variety of dimension n; L̄ a nef element of P̂ic(X/k)_ℚ whose image L̃ in P̂ic(X/K)_ℚ is big. Put a_K = [K : ℚ] in the arithmetic case and a_K = 1 in the geometric case. With the absolute arithmetic normalization of AH.4/adelic-heights, h_L̄(X) = L̄^{n+1}/(a_K·(n+1)·deg L̃) and the essential minimum e₁(X, L̄) = sup_U inf_{x∈U(K̄)} h_L̄(x), one has e₁(X, L̄) ≥ h_L̄(X) ≥ e₁(X, L̄)/(n + 1).",
    "hypotheses": [
     "L̄ nef on X/k; L̃ big on X/K."
    ],
@@ -2655,7 +2784,8 @@
     "Second inequality: successive minima argument of Zhang on a projective model, passed to the limit (Yuan–Zhang Theorem 5.3.3)."
    ],
    "acceptance": [
-    "For a point (n = 0), h_L̄(X) = e₁ = h_L̄(x)."
+    "For a point (n = 0), h_L̄(X) = e₁ = h_L̄(x).",
+    "Over a number field K and X = Spec K with O(c) pulled back from Spec ℤ, L̄¹ = [K : ℚ]c, deg L̃ = 1 and both h_L̄(X) and e₁ equal c. Omitting a_K would contradict the point case whenever [K : ℚ] > 1 and c ≠ 0."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.4/adelic-heights",
@@ -2683,7 +2813,7 @@
    ],
    "title": "Equidistribution of generic small points on quasi-projective varieties",
    "kind": "theorem",
-   "statement": "Let K be a number field (k = ℤ) or a one-variable function field over k, X a quasi-projective K-variety and L̄ a nef adelic line bundle on X/k with deg L̃(X) > 0. If {x_m} is a generic sequence in X(K̄) (no subsequence in a proper closed subvariety) with h_L̄(x_m) → h_L̄(X), then for every place v of K the Galois orbits of x_m equidistribute in X_v^an for the canonical measure dμ_{L̄,v} of AH.2/canonical-measures. For X projective and L̄ a model bundle this is Yuan's equidistribution theorem of ArithmeticDynamics DY.4.",
+   "statement": "Let K be a number field (k = ℤ) or a one-variable function field over k, X a quasi-projective K-variety and L̄ a nef adelic line bundle on X/k with deg L̃(X) > 0. If {x_m} is a generic sequence in X(K̄) (no subsequence in a proper closed subvariety) with h_L̄(x_m) → h_L̄(X) (the consistently normalized variety height of AH.4/fundamental-inequality), then for every place v of K the Galois orbits of x_m equidistribute in X_v^an for the canonical measure dμ_{L̄,v} of AH.2/canonical-measures. For X projective and L̄ a model bundle this is Yuan's equidistribution theorem of ArithmeticDynamics DY.4.",
    "hypotheses": [
     "L̄ nef; deg L̃(X) > 0; generic sequence with heights tending to h_L̄(X)."
    ],
@@ -2725,7 +2855,7 @@
    ],
    "title": "Invariant adelic extensions of polarized dynamical systems",
    "kind": "construction",
-   "statement": "Let S be flat essentially quasi-projective integral over k, π : X → S projective flat with geometrically connected fibres, f : X → X an S-morphism and L ∈ Pic(X)_ℚ with f^*L = qL for a rational q > 1. (1) There is a unique L̄_f ∈ P̂ic(X/k)_ℚ with underlying L and f^*L̄_f = qL̄_f, and f′^*L̄_f = q′L̄_f for every f′ commuting with f with f′^*L = q′L (Yuan–Zhang Theorem 6.1.2). (2) If L is relatively ample over S, so that (X, f, L) is a polarized dynamical system, L̄_f is the boundary limit of the Tate sequence q^{−n}(f^n)^*L̄₀ for any model L̄₀; it is nef, strongly nef when S has an affine model, and lies in P̂ic(X/k) when L ∈ Pic(X), q ∈ ℤ_{>1} and f^*L ≅ qL integrally (Theorem 6.1.1). (3) For an abelian scheme A → S and a line bundle L rigidified along the zero section with [−1]^*L ≅ εL, ε = ±1, there is a unique adelic extension with [2]^*L̄ = 4L̄ (ε = 1) or 2L̄ (ε = −1); it is integrable and [m]^*L̄ = m²L̄ (resp. mL̄) for all m (Theorem 6.1.3); for symmetric relatively ample L it is the nef extension of (2) with f = [2].",
+   "statement": "Let S be flat essentially quasi-projective integral over k, π : X → S projective flat with geometrically connected fibres, f : X → X an S-morphism and L ∈ Pic(X)_ℚ with f^*L = qL for a rational q > 1. (1) There is a unique L̄_f ∈ P̂ic(X/k)_ℚ with underlying L and f^*L̄_f = qL̄_f, and f′^*L̄_f = q′L̄_f for every f′ commuting with f with f′^*L = q′L and q′ ≠ 0 (Yuan–Zhang Theorem 6.1.2). (2) If L is relatively ample over S, so that (X, f, L) is a polarized dynamical system, L̄_f is the boundary limit of the Tate sequence q^{−n}(f^n)^*L̄₀ for any model L̄₀; it is nef, strongly nef when S has an affine model, and lies in P̂ic(X/k) when L ∈ Pic(X), q ∈ ℤ_{>1} and f^*L ≅ qL integrally (Theorem 6.1.1). (3) For an abelian scheme A → S and a line bundle L rigidified along the zero section with [−1]^*L ≅ εL, ε = ±1, there is a unique adelic extension with [2]^*L̄ = 4L̄ (ε = 1) or 2L̄ (ε = −1); it is integrable and [m]^*L̄ = m²L̄ (resp. mL̄) for all m (Theorem 6.1.3); for symmetric relatively ample L it is the nef extension of (2) with f = [2].",
    "hypotheses": [
     "f^*L = qL in Pic(X)_ℚ, q > 1; π projective flat with geometrically connected fibres.",
     "Nefness only for L relatively ample over S (polarized dynamical system)."
@@ -2797,7 +2927,7 @@
     {
      "name": "invariantExtension_commute",
      "role": "functoriality",
-     "statement": "If f′f = ff′ and f′^*L = q′L, then f′^*L̄_f = q′L̄_f."
+     "statement": "If f′f = ff′ and f′^*L = q′L with q′ ≠ 0, then f′^*L̄_f = q′L̄_f."
     },
     {
      "name": "invariantExtension_baseChange",
@@ -3042,6 +3172,11 @@
      "name": "adelicHodgeBundle_baseChange",
      "role": "functoriality",
      "statement": "Compatible with base change of S."
+    },
+    {
+     "name": "adelicHodgeBundle_identification",
+     "role": "compatibility",
+     "statement": "Its algebraic line is det e^*Ω¹ of the abelian scheme, identified with the relative curve Hodge determinant through JC6; its analytic metric and model extensions are those of Yuan–Zhang Theorem 5.5.1, adjusted to the stated Faltings normalization."
     }
    ],
    "tests": [
@@ -3053,7 +3188,7 @@
     {
      "name": "adelicHodgeBundle_point",
      "kind": "degenerate",
-     "statement": "For S = Spec O_K[1/N] and a single curve, λ̄_S restricted to the generic point computes [K:ℚ]·h_Fal."
+     "statement": "For S = Spec O_K[1/N] and a single curve, the adelic degree of λ̄_S at Spec K is [K : ℚ]h_Fal; its absolute point height is h_Fal."
     },
     {
      "name": "adelicHodgeBundle_not_model",
@@ -3073,7 +3208,7 @@
    ],
    "title": "Moriwaki polarizations and Moriwaki heights",
    "kind": "construction",
-   "statement": "Let k₀ be a finitely generated field over ℚ of transcendence degree d. A polarization B = (B; H̄₁, …, H̄_d; τ) consists of a flat quasi-projective (projective in Moriwaki) integral ℤ-scheme B, nef smooth hermitian line bundles H̄ᵢ on B and an isomorphism τ : ℚ(B) ≅ k₀. For a projective k₀-variety X and a line bundle L on X, the Moriwaki height h^B_{k₀,X,L} : X(k̄₀) → ℝ is defined modulo bounded functions by h(P) = deĝ(ĉ₁(L̄)·ĉ₁(f^*H̄₁)···ĉ₁(f^*H̄_d)·[Δ_P])/[k₀(P) : k₀] for a model (X → B, L̄) and the closure Δ_P of P; it equals the Yuan–Zhang vector-valued height of AH.4/adelic-heights paired with H̄₁···H̄_d. B is big if every H̄ᵢ is nef and big. For a field isomorphism ι : k₀ → k′₀ and B′ = (B; H̄; ι∘τ), h^{B′}_{k′₀} ∘ ι = h^B_{k₀}. For d = 0 (k₀ a number field, B = Spec O_{k₀}) it is the absolute Weil height.",
+   "statement": "Let k₀ be a finitely generated field over ℚ of transcendence degree d. A polarization B = (B; H̄₁, …, H̄_d; τ) consists of a normal projective flat integral ℤ-scheme B, nef smooth hermitian line bundles H̄ᵢ on B and an isomorphism τ : ℚ(B) ≅ k₀. For a projective k₀-variety X and a line bundle L on X, the Moriwaki height h^B_{k₀,X,L} : X(k̄₀) → ℝ is defined modulo bounded functions by h(P) = deĝ(ĉ₁(L̄)·ĉ₁(f^*H̄₁)···ĉ₁(f^*H̄_d)·[Δ_P])/[k₀(P) : k₀] for a model (X → B, L̄) and the closure Δ_P of P; it equals the Yuan–Zhang vector-valued height of AH.4/adelic-heights paired with H̄₁···H̄_d. B is big if every H̄ᵢ is nef and big. For a field isomorphism ι : k₀ → k′₀ and B′ = (B; H̄; ι∘τ), h^{B′}_{k′₀} ∘ ι = h^B_{k₀}. For d = 0 (k₀ a number field, B = Spec O_{k₀}) it is [k₀ : ℚ] times the absolute Weil height class. The displayed denominator is relative to k₀, as in Moriwaki and Yuan–Zhang; division by [k₀ : ℚ] is needed to compare with AH.4/adelic-heights.",
    "hypotheses": [
     "k₀ finitely generated over ℚ; H̄ᵢ nef smooth hermitian."
    ],
@@ -3082,7 +3217,8 @@
     "Identification with the Yuan–Zhang height h^{H̄}_L̄ over F = k₀ (Yuan–Zhang §5.3.5, Moriwaki condition)."
    ],
    "acceptance": [
-    "For k₀ = ℚ (d = 0) and X = ℙⁿ, L = O(1): h^B_L = h + O(1), the Weil height (Moriwaki Proposition 3.3.7(1) with Proposition 3.3.2)."
+    "For k₀ = ℚ (d = 0) and X = ℙⁿ, L = O(1): h^B_L = h + O(1), the Weil height (Moriwaki Proposition 3.3.7(1) with Proposition 3.3.2).",
+    "The arithmetic model is projective and normal, as in Moriwaki §3.1; a quasi-projective presentation as in Gao–Habegger §A.1 needs projective extension data before the displayed arithmetic intersection is defined."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.4/adelic-heights",
@@ -3146,7 +3282,7 @@
     {
      "name": "moriwakiHeight_numberField",
      "role": "compatibility",
-     "statement": "For d = 0 it is the absolute logarithmic Weil height class."
+     "statement": "For d = 0 it is [k₀ : ℚ] times the absolute logarithmic Weil height class, with the denominator in this node."
     }
    ],
    "tests": [
@@ -3221,7 +3357,7 @@
    ],
    "title": "The Moriwaki Néron–Tate height",
    "kind": "theorem",
-   "statement": "Let A be an abelian variety over k₀ and L a symmetric ample line bundle. The limit ĥ^B_L(P) = lim 4^{−n} h^B_L([2ⁿ]P) exists for P ∈ A(k̄₀), is independent of the representative of h^B_L, is quadratic (ĥ^B_L([N]P) = N²ĥ^B_L(P)), ≥ 0, and vanishes on torsion; if B is big then ĥ^B_L(P) = 0 iff P is torsion. For k₀ a number field it is the usual Néron–Tate height. It equals the height of the invariant extension L̄_{[2]} of AH.5/invariant-extension paired with H̄₁···H̄_d.",
+   "statement": "Let A be an abelian variety over k₀ and L a symmetric ample line bundle. The limit ĥ^B_L(P) = lim 4^{−n} h^B_L([2ⁿ]P) exists for P ∈ A(k̄₀), is independent of the representative of h^B_L, is quadratic (ĥ^B_L([N]P) = N²ĥ^B_L(P)), ≥ 0, and vanishes on torsion; if B is big then ĥ^B_L(P) = 0 iff P is torsion. For k₀ a number field it is [k₀ : ℚ] times the usual absolute Néron–Tate height, with the relative Moriwaki normalization of AH.6/moriwaki-heights. It equals the height of the invariant extension L̄_{[2]} of AH.5/invariant-extension paired with H̄₁···H̄_d.",
    "hypotheses": [
     "L symmetric ample; B big for the kernel statement."
    ],
@@ -3262,12 +3398,12 @@
    ],
    "title": "Silverman–Tate and specialization with Moriwaki heights",
    "kind": "theorem",
-   "statement": "Let k₀ be finitely generated over ℚ with polarization B. (1) For an abelian scheme 𝒜 → S over a regular quasi-projective k₀-variety with a projective compactification and an embedding into ℙⁿ × S̄ as in HeightsRationalPointsAndObstructions RP.0/silverman-tate, there is c > 0 with |ĥ^B_{𝒜_{π(P)}}(P) − h^B(P)| ≤ c·max{1, h^B_{S̄}(π(P))}. (2) For S a smooth projective k₀-curve and a section σ_x over a generically finite S′ → S, ĥ^B(σ_x(t))/h^B_S(ρ(t)) → ĥ_{K,A}(x) as h^B_S(ρ(t)) → ∞ (Silverman's limit with Moriwaki heights).",
+   "statement": "Let k₀ be finitely generated over ℚ with a big polarization B (the Hᵢ are nef and big). (1) For an abelian scheme 𝒜 → S over a regular quasi-projective k₀-variety with a projective compactification a symmetric relatively ample L = O(1,1)|_𝒜, and an embedding into ℙⁿ × S̄ as in HeightsRationalPointsAndObstructions RP.0/silverman-tate, there is c > 0 with |ĥ^B_{𝒜_{π(P)}}(P) − h^B(P)| ≤ c·max{1, h^B_{S̄}(π(P))}. (2) For S a smooth projective k₀-curve and a section σ_x over a generically finite S′ → S, ĥ^B(σ_x(t))/h^B_S(ρ(t)) → ĥ_{K,A}(x) as h^B_S(ρ(t)) → ∞ (Silverman's limit with Moriwaki heights). Here h^B_S has degree-one normalization, and ĥ_{K,A}(x), K = k₀(S), is the geometric generic-fibre height normalized over K: if x is represented over K′ = k₀(S′), divide its K′-height by [K′ : K]. The comparison height on S̄ is attached to an ample bundle.",
    "hypotheses": [
     "As in RP.0/silverman-tate and RP.0/silverman-specialization-limit, with Moriwaki heights over k₀."
    ],
    "proofSteps": [
-    "Both proofs use only the height machine (AH.6/moriwaki-height-machine) and the duplication estimate, so they transfer verbatim from the number-field proofs; this transfer is Wazir 2006 Theorems 2–3 as cited by Gao–Habegger §§A.2–A.3."
+    "Apply the Moriwaki height machine and the duplication estimate exactly as in the imported RP.0 proofs. Wazir’s preprint Theorems 0.2–0.3 (pp. 4–5) explicitly give comparison and the specialization limit over a finitely generated characteristic-zero field; Gao–Habegger §§A.2–A.3 supply the ample comparison and big-polarization scope. For a section only after a finite cover, apply the section theorem upstairs and divide the geometric height by the cover degree, using h_S∘ρ/h_{S′} → deg ρ."
    ],
    "acceptance": [
     "For k₀ a number field (d = 0) these are RP.0/silverman-tate and RP.0/silverman-specialization-limit."
@@ -3283,6 +3419,11 @@
      "sourceId": "gao-habegger-2019",
      "locator": "§A.2, p. 56; §A.3, p. 57",
      "match": "States that the Silverman–Tate comparison and Silverman's specialization limit hold with Moriwaki heights, citing Wazir 2006 Theorems 2–3; item PAPER-GAO-HABEGGER-19/70."
+    },
+    {
+     "sourceId": "wazir-2006",
+     "locator": "Theorems 0.2–0.3, pp. 4–5 (arXiv v2)",
+     "match": "The preprint gives the Moriwaki comparison and specialization theorem; its numbering differs from the published Theorems 2–3 cited by Gao–Habegger. Use the ample base height and big polarization specified in this node."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3356,6 +3497,11 @@
      "name": "AbelianVariety.admissibleMetric_semipositive",
      "role": "other",
      "statement": "Semipositive for ample M."
+    },
+    {
+     "name": "AbelianVariety.admissibleMetric_rigidified_unique",
+     "role": "extensionality",
+     "statement": "Two admissible metrics differ by one positive scalar; fixing the norm of a rigidifying frame at the origin makes the metric unique. Tensor products and homomorphism pullbacks respect these rigidifications."
     }
    ],
    "tests": [
@@ -3392,9 +3538,9 @@
    ],
    "title": "Admissible metrics on a curve and on its square",
    "kind": "definition",
-   "statement": "Let C/K be smooth projective geometrically integral of genus g > 0 over a complete nontrivially valued non-archimedean field. Choose α ∈ Pic¹(C) (after a finite extension if Pic¹(C)(K) is empty), the Abel–Jacobi map i_α : C → J and the theta divisor θ_α. A continuous metric on a line bundle L on C is admissible if for some m ≥ 1 there is a line bundle M on J algebraically equivalent to an integer multiple of θ_α with an admissible metric and an isometry L^m ≅ i_α^*M. A metric on a line bundle on C² is admissible if its pullbacks along (x, id) and (id, x) are admissible for every x ∈ C(K′), K′/K finite. Every line bundle on C (resp. C²) has an admissible metric, unique up to a positive constant; the notion is independent of α and of the finite extension, and compatible with base change. For a symmetric metric on O(Δ) (Green function invariant under transposition) the pullback along (x, id) is a metric on O(x).",
+   "statement": "Let C/K be smooth projective geometrically integral of genus g > 1 over a complete nontrivially valued non-archimedean field. Choose α ∈ Pic¹(C) (after a finite extension if Pic¹(C)(K) is empty), the Abel–Jacobi map i_α : C → J and the theta divisor θ_α. A continuous metric on a line bundle L on C is admissible if for some m ≥ 1 there is a line bundle M on J algebraically equivalent to an integer multiple of θ_α with an admissible metric and an isometry L^m ≅ i_α^*M. A metric on a line bundle on C² is admissible if its pullbacks along (x, id) and (id, x) are admissible for every x ∈ C(K′), K′/K finite. Every line bundle on C (resp. C²) has an admissible metric, unique up to a positive constant; the notion is independent of α and of the finite extension, and compatible with base change. For a symmetric metric on O(Δ) (Green function invariant under transposition) the pullback along (x, id) is a metric on O(x).",
    "hypotheses": [
-    "C smooth projective geometrically integral of genus g > 0; K complete non-archimedean."
+    "C smooth projective geometrically integral of genus g > 1; K complete non-archimedean."
    ],
    "proofSteps": [
     "Existence and uniqueness on C from AH.7/abelian-admissible-metrics via i_α, using that every degree-d bundle is algebraically equivalent to (d/g)·i_α^*θ_α in Pic ⊗ ℚ (JacobianChallengePartII JC3 theta pullbacks).",
@@ -3479,7 +3625,7 @@
     {
      "name": "Curve.admissible_modelBad_nonexample",
      "kind": "non-example",
-     "statement": "For split semistable bad reduction, the model metric of ω on the minimal regular model is not admissible (it differs by the graph correction of AH.7/graph-formulas)."
+     "statement": "For a totally degenerate genus-two curve with two rational components joined at three nodes (unit-edge banana skeleton), the model metric of ω has atomic curvature δ_v₁ + δ_v₂, whereas an admissible metric has curvature 2μ_a = (2/3)Σ_e δ_e. Thus this model metric is not admissible."
     }
    ]
   },
@@ -3546,6 +3692,11 @@
      "name": "Curve.admissibleMeasure_skeleton",
      "role": "compatibility",
      "statement": "Equals the GZ.2 skeleton measure at split semistable reduction."
+    },
+    {
+     "name": "Curve.admissibleMeasure_unique",
+     "role": "extensionality",
+     "statement": "The degree-one curvature condition determines the probability measure: for any admissible positive-degree L̄ it equals c₁(L̄)/deg L."
     }
    ],
    "tests": [
@@ -3582,7 +3733,7 @@
    ],
    "title": "Zhang's canonical admissible metrics on ω_C and O(Δ)",
    "kind": "construction",
-   "statement": "Let C/K be smooth projective geometrically integral of genus g > 0 over a complete nontrivially valued non-archimedean field. There is a unique pair of metrics, on ω_C and on O(Δ) over (C²)^an, both integrable and the diagonal metric symmetric, such that for every finite extension K′/K and x, y ∈ C(K′): (a) c₁(O(x)) = c₁(O(y)); (b) c₁(ω) = (2g − 2)c₁(O(x)); (c) ∫ g_Δ(x, ·)c₁(O(x)) = 0; (d) the residue map (ω ⊗ O(x))|_x → K′ is an isometry. Here O(x) carries the pullback of the diagonal metric along (x, id). These are Zhang's admissible metrics; both are admissible; their pairing on divisors with disjoint support is Zhang's admissible pairing (D, E)_a; the canonical isomorphism ω_C ≅ Δ^*O(−Δ) and p₁_*⟨O(Δ), p₂^*L̄⟩ ≅ L̄ (L̄ admissible) are isometries up to constants that the normalization (c)–(d) fixes; and Q = (id_J, i_α)^*P with admissible L gives q₁_*⟨Q, q₂^*L⟩ odd with an admissible metric. The pair descends from a finite Galois extension, which reduces existence to the pointed case.",
+   "statement": "Let C/K be smooth projective geometrically integral of genus g > 1 over a complete nontrivially valued non-archimedean field. There is a unique pair of metrics, on ω_C and on O(Δ) over (C²)^an, both integrable and the diagonal metric symmetric, such that for every finite extension K′/K and x, y ∈ C(K′): (a) c₁(O(x)) = c₁(O(y)); (b) c₁(ω) = (2g − 2)c₁(O(x)); (c) ∫ g_Δ(x, ·)c₁(O(x)) = 0; (d) the residue map (ω ⊗ O(x))|_x → K′ is an isometry. Here O(x) carries the pullback of the diagonal metric along (x, id). These are Zhang's admissible metrics; both are admissible; their pairing on divisors with disjoint support is Zhang's admissible pairing (D, E)_a; the canonical isomorphism ω_C ≅ Δ^*O(−Δ) and p₁_*⟨O(Δ), p₂^*L̄⟩ ≅ L̄ (L̄ admissible) are isometries up to constants that the normalization (c)–(d) fixes; and Q = (id_J, i_α)^*P with admissible L gives q₁_*⟨Q, q₂^*L⟩ odd with an admissible metric. The pair descends from a finite Galois extension, which reduces existence to the pointed case.",
    "hypotheses": [
     "g > 0 as stated by Yuan; the proofs of (b) and of the measure identification need g > 1 (source issues PAPER-YUAN-26/E8, E28), so this roadmap uses the pair for g > 1 and records g = 1 as a gap."
    ],
@@ -3655,6 +3806,11 @@
      "name": "Curve.canonical_descent",
      "role": "functoriality",
      "statement": "Compatible with finite extensions; Galois invariant."
+    },
+    {
+     "name": "Curve.canonicalMetricPair_unique",
+     "role": "extensionality",
+     "statement": "Any symmetric integrable diagonal metric and dualizing metric satisfying the curvature, zero-mean and residue-isometry conditions agree with the canonical pair; no scalar ambiguity remains."
     }
    ],
    "tests": [
@@ -3676,7 +3832,7 @@
     {
      "name": "Curve.canonical_model_nonexample",
      "kind": "non-example",
-     "statement": "The model metric of the relative dualizing sheaf of a minimal regular model with bad reduction does not satisfy (b)."
+     "statement": "On the genus-two, three-unit-edge banana reduction of AH.7/curve-admissible-metrics, the model metric of ω has atomic curvature δ_v₁ + δ_v₂ and fails (b), whose right side is (2/3)Σ_e δ_e. Bad reduction alone is insufficient for this test: for two elliptic components meeting in one node the model curvature already equals 2μ_a."
     }
    ],
    "planet": {
@@ -3691,7 +3847,7 @@
    ],
    "title": "Explicit graph formulas for the canonical metrics",
    "kind": "theorem",
-   "statement": "Let K be complete discretely valued with e_K = |ϖ|⁻¹, C/K of genus g > 0 with a K-point and split semistable reduction, Γ the dual graph of the minimal regular model with unit edge lengths, i : Γ → C^an and r : C^an → Γ the skeleton inclusion and retraction, K_C the canonical divisor of Γ, μ the admissible graph measure and g_μ its normalized Green function (GZ.2, TB.6). (1) ‖·‖_a(x) = ‖·‖_model(x)·e_K^{g_μ(r(x), r(x))} on ω_C, where ‖·‖_model comes from the relative dualizing sheaf of the minimal regular model. (2) For distinct geometric points x, y defined over K′/K, g_{Δ,a}(x, y) = (i(x, y) + g_μ(r(x), r(y)))·log e_K, where i(x, y) is the intersection of the two sections on the minimal regular model over O_{K′} measured as length and divided by the ramification index e(K′/K) — equivalently, measured with residue degrees and divided by [K′ : K], which is how Yuan p. 116 prints the normalization. Plain length divided by [K′ : K] is wrong when K′/K has residue degree > 1 (the extraction note on PAPER-YUAN-26/225).",
+   "statement": "Let K be complete discretely valued with e_K = |ϖ|⁻¹, C/K of genus g > 1 with a K-point and split semistable reduction, Γ the dual graph of the minimal regular model with unit edge lengths, i : Γ → C^an and r : C^an → Γ the skeleton inclusion and retraction, K_C the canonical divisor of Γ, μ the admissible graph measure and g_μ its normalized Green function (GZ.2, TB.6). (1) ‖·‖_a(x) = ‖·‖_model(x)·e_K^{g_μ(r(x), r(x))} on ω_C, where ‖·‖_model comes from the relative dualizing sheaf of the minimal regular model. (2) For distinct geometric points x, y defined over K′/K, g_{Δ,a}(x, y) = (i(x, y) + g_μ(r(x), r(y)))·log e_K, where i(x, y) is the intersection of the two sections on the minimal regular model over O_{K′} measured as length and divided by the ramification index e(K′/K) — equivalently, measured with residue degrees and divided by [K′ : K], which is how Yuan p. 116 prints the normalization. Plain length divided by [K′ : K] is wrong when K′/K has residue degree > 1 (the extraction note on PAPER-YUAN-26/225).",
    "hypotheses": [
     "Split semistable reduction with a K-point; unit edge lengths for the minimal regular model."
    ],
@@ -3808,12 +3964,17 @@
     {
      "name": "Curve.omegaAdmissible_baseChange",
      "role": "functoriality",
-     "statement": "Compatible with finite extensions of K; [ω²] is invariant."
+     "statement": "The bundles commute with finite base extension. The normalized self-intersection [ω²] is invariant over number fields; with geometric residue degrees over a fixed k it scales by [K′ : K]."
     },
     {
      "name": "Curve.omegaAdmissible_sq",
      "role": "data",
      "statement": "[ω²_{C/K,a}] with the stated normalization."
+    },
+    {
+     "name": "Curve.admissibleBundle_local",
+     "role": "extensionality",
+     "statement": "The underlying bundle and its prescribed metric at every place determine its adelic isometry class, by injectivity of adelic analytification; at a place of good reduction recover the model metric."
     }
    ],
    "tests": [
@@ -3825,7 +3986,7 @@
     {
      "name": "Curve.omegaAdmissible_extension",
      "kind": "characterisation",
-     "statement": "[ω²_{C_{K′}/K′,a}] = [ω²_{C/K,a}] for finite K′/K."
+     "statement": "For number fields, [ω²_{C_{K′}/K′,a}] = [ω²_{C/K,a}]. Over one-variable function fields with fixed k, ω²_{C_{K′}/K′,a} = [K′ : K]·ω²_{C/K,a}."
     },
     {
      "name": "Curve.omegaAdmissible_degree",
@@ -3921,7 +4082,7 @@
     {
      "name": "AdelicLineBundle.IsAdmissible.model_nonexample",
      "kind": "non-example",
-     "statement": "A model extension of ω_{X/S} from a stable compactification is not admissible at points of S^an over the boundary."
+     "statement": "For a family whose stable compactification has a totally degenerate genus-two fibre with three-unit-edge banana graph, the model ω extension is not admissible at the corresponding valuation: its atomic curvature differs from 2μ_a, which has an edge density."
     }
    ],
    "planet": {
@@ -4040,6 +4201,11 @@
      "name": "CurveFamily.omegaA_fibre",
      "role": "compatibility",
      "statement": "Restricts to ω_{X_s,a} at points with global residue field."
+    },
+    {
+     "name": "CurveFamily.canonicalAdelic_unique",
+     "role": "extensionality",
+     "statement": "Two extensions with the prescribed normalized metrics at every analytic fibre are isometrically isomorphic; the canonical pair is preserved by normal integral base change."
     }
    ],
    "tests": [
@@ -4148,6 +4314,11 @@
      "name": "RelJacobian.thetaBar_height",
      "role": "compatibility",
      "statement": "h_Θ̄ = 2ĥ, ĥ the Néron–Tate height of the symmetric theta class (half of ĥ_Θ)."
+    },
+    {
+     "name": "RelJacobian.thetaBar_unique",
+     "role": "extensionality",
+     "statement": "The invariant extension of the rigidified Θ is unique; pullback along any normal integral base change agrees with the extension of the pulled-back rigidified bundle."
     }
    ],
    "tests": [
@@ -4169,7 +4340,7 @@
     {
      "name": "RelJacobian.thetaBar_model_nonexample",
      "kind": "non-example",
-     "statement": "A model extension of Θ from a compactification of J is not [2]-invariant."
+     "statement": "Over S = Spec ℚ, start with Θ̄ and tensor by the constant metric bundle O(c), c ≠ 0. Then [2]^*(Θ̄+O(c)) = 4Θ̄+O(c), whereas 4(Θ̄+O(c)) = 4Θ̄+O(4c); the twisted extension is not invariant. Good-reduction model extensions can be invariant."
     }
    ],
    "planet": {
@@ -4189,7 +4360,7 @@
     "A section x; L̄ admissible."
    ],
    "proofSteps": [
-    "(1) Pull back the isometry (2) of AH.8/canonical-admissible-bundles along x, using AH.3/projection-formulas for base change.",
+    "(1) The algebraic evaluation isomorphism exists. At v ∈ S^an its log norm is the integral of log ‖1‖_{O(x)_a} against c₁(L̄_v) (Yuan Proposition 2.7, pp. 33–34). Admissibility gives c₁(L̄_v) = deg(L_v)μ_a and the canonical Green normalization makes this integral zero. Full faithfulness then gives the isometry; pulling back only the ω pairing does not prove this for arbitrary L̄.",
     "(2) Apply (1) to L̄ = O(x)_a: π_*⟨O(x)_a, O(x)_a⟩ ≅ x^*(x, id)^*D = x^*Δ^*D, and Δ^*D ≅ −w by the adjunction isometry (1) of AH.8/canonical-admissible-bundles; while π_*⟨O(x)_a, w⟩ ≅ x^*w by (1)."
    ],
    "acceptance": [
@@ -4263,6 +4434,11 @@
      "name": "verticalPicard_ofDivisor",
      "role": "equivalence",
      "statement": "Equals {O(E) : E adelic with underlying divisor 0}."
+    },
+    {
+     "name": "verticalPicard.mem_iff",
+     "role": "characterisation",
+     "statement": "An integrable class belongs precisely when its underlying class in Pic(X) is zero; the kernel is closed under tensor, dual and pullback. A choice of algebraic trivialization identifies it with O(E) for E of underlying divisor zero, modulo principal trivializations."
     }
    ],
    "tests": [
@@ -4297,7 +4473,7 @@
    ],
    "proofSteps": [
     "(1) The Yuan–Zhang arithmetic Hodge index theorem for curves over finitely generated fields gives a unique-up-to-base extension M̄₀ orthogonal to all vertical bundles; fibrewise it is the admissible (flat) metric, so M̄₀ = M̄ up to base twist, which does not affect orthogonality to vertical bundles of fibre degree 0 (Yuan–Zhang Theorem 6.5.1, 6.5.4).",
-    "(2) Compute π_*⟨M̄, M̄⟩ through the Poincaré bundle Q̄ (AH.8/canonical-theta-bundle) and Θ = Δ_J^*P^∨: both sides are invariant extensions of the same bundle on S with matching [2]-behaviour (Yuan Theorem 2.8 proof)."
+    "(2) On the universal Jacobian, the self-pairing of the normalized Poincaré bundle is the negative canonical twice-theta bundle (Yuan–Zhang Corollary 6.5.5, p. 207). Pull this identity back by ι and use the compatibility of Deligne pairings with base change. A possible base twist of M̄ does not change its self-pairing because its relative degree is zero. No multiplication-by-two map on S is assumed."
    ],
    "acceptance": [
     "For S = Spec K: ⟨M̄, M̄⟩_a = −2ĥ_θ(M) (Faltings–Hriljac form of the Hodge index theorem, GZ.2)."
@@ -4316,7 +4492,7 @@
     },
     {
      "sourceId": "yuan-zhang-2025",
-     "locator": "Theorem 6.5.1, p. 203; Theorem 6.5.4, p. 207",
+     "locator": "Theorem 6.5.1, p. 203; Theorem 6.5.4 and Corollary 6.5.5, p. 207",
      "match": "Proves the arithmetic Hodge index theorem for curves over finitely generated fields and the Néron–Tate height as a Deligne pairing."
     }
    ],
@@ -4338,7 +4514,7 @@
     "g > 1 (the paper states g > 0); d any integer for (1)–(2)."
    ],
    "proofSteps": [
-    "(1) Both sides are admissible extensions of the same algebraic bundle (Mumford's theta pullback i_α^*Θ ≅ d²ω + 2dα − π^*⟨α, α⟩, from JacobianChallengePartII JC3 Poincaré identities); they differ by a base bundle, fixed by restricting to a section and the evaluation isometry (AH.8/section-evaluation) (Yuan Theorem 2.9 proof).",
+    "(1) Put N̄ = i_α^*Θ̄ − d²w − 2dᾱ + π^*⟨ᾱ,ᾱ⟩. For any section x, AH.8/relative-hodge-index gives x^*i_α^*Θ̄ = −⟨dO(x)_a − ᾱ,dO(x)_a − ᾱ⟩. AH.8/section-evaluation and bilinearity give x^*N̄ = 0. This argument is compatible with every normal flat base change. Apply it to S′ = X, where the base-changed family has the diagonal section: its evaluation is N̄ itself, so N̄ = 0. This proves the relative arbitrary-degree formula here, rather than assuming the narrower degree-one, field-valued JC3 theta identity supplies it.",
     "(2) Expand with ⟨A, π^*N⟩ = deg(A)N and ⟨π^*N, π^*N⟩ = 0 (AH.3/projection-formulas); the fibre degree of d²w + 2dᾱ is 2gd². For the second identity insert ⟨M̄, M̄⟩ = −ι_α^*Θ̄ for M̄ = (2g−2)ᾱ − dw (AH.8/relative-hodge-index).",
     "(3) Specialize (1)–(2) with AH.8/section-evaluation: ⟨O(x)_a, O(x)_a⟩ = −x^*w and ⟨w, O(x)_a⟩ = x^*w."
    ],
@@ -4358,7 +4534,7 @@
    "sources": [
     {
      "sourceId": "yuan-2026",
-     "locator": "Theorem 2.9, p. 35",
+     "locator": "Theorem 2.9 and proof, pp. 35–36",
      "match": "States the three families of identities for the pullback of Θ̄ along the Abel map and its Deligne self-pairing; items PAPER-YUAN-26/53–57."
     }
    ],
@@ -4541,6 +4717,11 @@
      "name": "PMGraph.scale",
      "role": "simp",
      "statement": "Scaling all lengths by t scales ℓ, δᵢ, ε, φ, τ by t."
+    },
+    {
+     "name": "PMGraph.invariants_iso_subdivision",
+     "role": "functoriality",
+     "statement": "Isometries preserving vertex genera and subdivision by valence-two weight-zero vertices preserve ε, φ, τ and δᵢ; edge-length scaling multiplies each invariant by the same positive factor."
     }
    ],
    "tests": [
@@ -4703,6 +4884,11 @@
      "name": "Curve.localPhi_rescale",
      "role": "simp",
      "statement": "Replacing |·| by |·|^a multiplies φ by a."
+    },
+    {
+     "name": "Curve.localPhi_isometry",
+     "role": "functoriality",
+     "statement": "An isomorphism of curves transports the normalized admissible metric and leaves φ unchanged; extending the absolute value preserves φ, while renormalizing a uniformizer introduces precisely the ramification factor."
     }
    ],
    "tests": [
@@ -4790,6 +4976,11 @@
      "name": "epsilonDivisor_baseChange",
      "role": "functoriality",
      "statement": "Compatible with finite base change."
+    },
+    {
+     "name": "epsilonDivisor_trivialization",
+     "role": "characterisation",
+     "statement": "Use the canonical algebraic identification of the two pairing lines to fix the rational section, so E_S is a divisor rather than merely a Picard class. Its Green values and zero underlying divisor determine it by adelic analytification."
     }
    ],
    "tests": [
@@ -4806,7 +4997,7 @@
     {
      "name": "epsilonDivisor_arch_nonexample",
      "kind": "non-example",
-     "statement": "E_S has no archimedean component when k is a field; an arithmetic analogue of E_S does not exist (AH.10/globalization-scope)."
+     "statement": "This construction is over a trivially valued constant field and has no archimedean component. There is no universal arithmetic construction with the same non-archimedean ε values and identically zero archimedean values for degenerating curve families (AH.10/globalization-scope); a good-reduction family can have E_S = 0."
     }
    ]
   },
@@ -4908,6 +5099,11 @@
      "name": "phiDivisor_baseChange",
      "role": "functoriality",
      "statement": "Compatible with base change."
+    },
+    {
+     "name": "phiDivisor_trivialization",
+     "role": "characterisation",
+     "statement": "The canonical algebraic triple-pairing identification fixes its trivializing section. With zero underlying divisor its Green function determines Φ_S by injectivity of analytification; it is compatible with normal integral base change."
     }
    ],
    "tests": [
@@ -5055,7 +5251,7 @@
    ],
    "title": "The Gross–Schoen height and its adelic variation",
    "kind": "construction",
-   "statement": "Let K be a number field or one-variable function field and C/K smooth projective geometrically connected of genus g > 1; choose a rational degree-one divisor ξ = Σ aᵢpᵢ with (2g − 2)ξ = ω_C. The modified diagonal Δ_ξ = Δ₁₂₃ − Δ₁₂ − Δ₂₃ − Δ₃₁ + Δ₁ + Δ₂ + Δ₃ ∈ CH²(C³)_ℚ (Δ₁₂ = Σ aᵢ{(x, x, pᵢ)}, Δ₁ = Σ aᵢa_j{(x, pᵢ, p_j)}, and permutations) is homologically trivial, and its Gross–Schoen (Beilinson–Bloch) self-height satisfies ⟨Δ_ξ, Δ_ξ⟩ = ((2g + 1)/(2g − 2))ω_a² − Σ_v φ(C_v)deg(v) (Zhang). For a smooth family π : X → S over a quasi-projective normal K-variety, L = ((2g + 1)/(2g − 2))π_*⟨w, w⟩ − O(Φ_S) ∈ P̂ic(S/k)_ℚ satisfies h_L(y) = ⟨Δ_ξ(X_y), Δ_ξ(X_y)⟩ for y ∈ S(K̄). No nefness or bigness of L is asserted.",
+   "statement": "Let K be a number field or one-variable function field and C/K smooth projective geometrically connected of genus g > 1; choose a rational degree-one divisor ξ = Σ aᵢpᵢ with (2g − 2)ξ = ω_C. The modified diagonal Δ_ξ = Δ₁₂₃ − Δ₁₂ − Δ₂₃ − Δ₃₁ + Δ₁ + Δ₂ + Δ₃ ∈ CH²(C³)_ℚ (Δ₁₂ = Σ aᵢ{(x, x, pᵢ)}, Δ₁ = Σ aᵢa_j{(x, pᵢ, p_j)}, and permutations) is homologically trivial, and its Gross–Schoen (Beilinson–Bloch) self-height satisfies ⟨Δ_ξ, Δ_ξ⟩ = ((2g + 1)/(2g − 2))ω_a² − Σ_v φ(C_v)deg(v) (Zhang). For a smooth family π : X → S over a quasi-projective normal K-variety, L = ((2g + 1)/(2g − 2))π_*⟨w, w⟩ − O(Φ_S) ∈ P̂ic(S/k)_ℚ satisfies h_L(y) = ⟨Δ_ξ(X_y), Δ_ξ(X_y)⟩/a_y for y ∈ S(K̄), where the pairing in the numerator uses the raw local sums over K(y), and a_y = [K(y) : ℚ] for number fields or [K(y) : K] for function fields. This is the normalized fibrewise Gross–Schoen height; the displayed single-curve identity uses raw intersections and raw local sums on both sides. No nefness or bigness of L is asserted.",
    "hypotheses": [
     "g > 1; ξ exists after a finite extension of K."
    ],
@@ -5072,7 +5268,7 @@
     "ArakelovGeometryAndAbelianHeightsPartII:AH.7/global-admissible-bundles",
     "ArakelovGeometryAndAbelianHeightsPartII:AH.4/adelic-heights",
     "SchemeAndStackFoundations:SF.5/chow-group",
-    "MotivesAndAlgebraicCycles:MC.0"
+    "MotivesAndAlgebraicCycles:MC.2/homological-equivalence"
    ],
    "sources": [
     {
@@ -5117,7 +5313,12 @@
     {
      "name": "grossSchoenVariation",
      "role": "constructor",
-     "statement": "L = ((2g+1)/(2g−2))π_*⟨w,w⟩ − O(Φ_S) with h_L = fibrewise Gross–Schoen height."
+     "statement": "L = ((2g+1)/(2g−2))π_*⟨w,w⟩ − O(Φ_S); its point height is the raw fibrewise Gross–Schoen self-height divided by a_y as in the statement."
+    },
+    {
+     "name": "grossSchoenCycle_baseChange",
+     "role": "functoriality",
+     "statement": "Formation of the rational modified diagonal commutes with field extension; its raw self-height scales by the extension degree, and dividing by a_y gives the stated fibrewise normalized height."
     }
    ],
    "tests": [
@@ -5134,7 +5335,7 @@
     {
      "name": "grossSchoenHeight_extension",
      "kind": "characterisation",
-     "statement": "The height is invariant under finite extension of K with the normalized degrees."
+     "statement": "The raw self-height multiplies by [K′ : K] under finite extension. Division by [K : ℚ] makes it invariant for number fields; for function fields with fixed k it scales by [K′ : K]. The field used to represent y in the family formula does not affect its normalized point height."
     },
     {
      "name": "grossSchoenVariation_not_nef",
@@ -5151,7 +5352,7 @@
    ],
    "title": "Faltings' δ-invariant",
    "kind": "definition",
-   "statement": "For a compact connected Riemann surface X of genus g ≥ 1, Faltings' δ(X) ∈ ℝ is the constant in Faltings' comparison of the Arakelov metric on det H⁰(X, ω) with ‖θ‖ and Arakelov Green functions (Faltings 1984, p. 401–402). Equivalently (Wilms Theorem 1.1) δ(X) = −24∫_{Pic^{g−1}(X)} log‖θ‖ ν^g/g! + 2φ(X) − 8g log 2π. For a semistable curve over a number field, the global δ(C) = Σ_{v finite} δ_v log Nv + Σ_σ δ(C_σ), with δ_v the number of singular points of the geometric special fibre of the minimal regular model at v.",
+   "statement": "For a compact connected Riemann surface X of genus g ≥ 1, Faltings' δ(X) ∈ ℝ is the constant in Faltings' comparison of the Arakelov metric on det H⁰(X, ω) with ‖θ‖ and Arakelov Green functions (Faltings 1984, p. 401–402). Fix a period matrix Ω with Y = Im Ω, θ(z,Ω) = Σ_{n∈ℤ^g} exp(πi nᵗΩn + 2πi nᵗz), ‖θ‖(z) = (det Y)^{1/4} exp(−π(Im z)ᵗY⁻¹(Im z))|θ(z,Ω)|, and ν = (i/2)Σ_{j,k}(Y⁻¹)_{jk}dz_j ∧ d z̄_k, transported to Pic^{g−1}(X) through its theta divisor; ∫ν^g/g! = 1. Equivalently (Wilms Theorem 1.1) δ(X) = −24∫_{Pic^{g−1}(X)} log‖θ‖ ν^g/g! + 2φ(X) − 8g log 2π. For a semistable curve over a number field, the global δ(C) = Σ_{v finite} δ_v log Nv + Σ_σ δ(C_σ), with δ_v the number of singular points of the geometric special fibre of the minimal regular model at v.",
    "hypotheses": [
     "g ≥ 1 (g > 1 in the applications)."
    ],
@@ -5175,6 +5376,11 @@
      "sourceId": "yuan-2026",
      "locator": "§4.5.2, p. 89",
      "match": "Recalls the global δ-invariant with finite nodal and archimedean Faltings contributions; part of item PAPER-YUAN-26/160."
+    },
+    {
+     "sourceId": "wilms-2017",
+     "locator": "§2.1, pp. 5–7",
+     "match": "Fixes the theta norm and invariant volume form used in the integral characterisation; no arbitrary additive constant in δ is allowed."
     }
    ],
    "implementationStatus": "unchecked",
@@ -5208,6 +5414,11 @@
      "name": "faltingsDelta_iso",
      "role": "other",
      "statement": "Depends only on the isomorphism class of X."
+    },
+    {
+     "name": "faltingsDelta_period_independent",
+     "role": "compatibility",
+     "statement": "The normalized theta norm and Haar volume descend under changes of period coordinates, so the Wilms expression determines the same δ on isomorphic Riemann surfaces; global archimedean sums count complex embeddings twice."
     }
    ],
    "tests": [
@@ -5333,6 +5544,11 @@
      "name": "noetherDivisor_geometric",
      "role": "relation",
      "statement": "Image over S_ℚ/ℚ equals E + Δ."
+    },
+    {
+     "name": "noetherDivisor_sign_independent",
+     "role": "extensionality",
+     "statement": "Changing the semi-canonical Noether isomorphism by its allowed sign leaves the Green function unchanged; the zero underlying divisor and stated local Green functions determine Ξ_S."
     }
    ],
    "tests": [
@@ -5361,22 +5577,23 @@
    ],
    "title": "What can and cannot be globalized",
    "kind": "theorem",
-   "statement": "The ε-invariant cannot be globalized by an adelic divisor on S/ℤ in the manner of Φ_S: its non-archimedean component is nontrivial while its archimedean component is identically zero, which is incompatible with the continuity of total Green functions on the hybrid space S^an over M(ℤ); hence neither can δ (since Ξ_S globalizes δ + ε). Yuan asserts, without proof, that a finer analysis of Theorem 3.10 describes the boundary growth of φ (and, with Ξ in place of Φ, of the archimedean δ) on complex moduli in terms of the graph data of Φ̃ (resp. δ + ε).",
+   "statement": "There is no universal arithmetic adelic divisor on curve moduli whose non-archimedean values are ε(Γ_v)log e_v and whose archimedean values are identically zero. For a degenerating family, continuity on the hybrid analytification fails. Thus δ also has no universal globalization with its usual archimedean values, since Ξ_S already globalizes δ + ε. Special families with zero correction are allowed. Yuan asserts, without proof, that a finer analysis of Theorem 3.10 gives boundary growth of φ (and, using Ξ, of archimedean δ) on complex moduli from the corresponding graph data; these finer asymptotics are recorded as assertions, not targets proved here.",
    "hypotheses": [
     "Arithmetic base k = ℤ."
    ],
    "proofSteps": [
-    "A total Green function is continuous on S^an, whose archimedean and non-archimedean parts meet along the trivial-norm locus; a function vanishing on the archimedean part but equal to ε(Γ_v)log e_v on divisorial non-archimedean points cannot be continuous at the trivial norm in general (Yuan Remark 4.13(1)).",
+    "Use a one-parameter complex smoothing with a nonseparating node and parameter t. For t_i → 0, rescale the complex absolute value by a_i = 1/log(1/|t_i|); then |t_i|^{a_i} = e⁻¹, while a_i → 0 makes the norm on constants trivial. In the hybrid space these points approach a nontrivial divisorial valuation with ε(Γ) > 0. The proposed archimedean-zero Green function stays zero along the sequence but would be positive at the limit. The obstruction is at this valuation, not at the trivial valuation on the function field. This explains the general obstruction of Yuan Remark 4.13(1).",
     "The growth statements (Remarks 3.11 and 4.13(2)) are recorded as asserted consequences, not targets proved here (gap)."
    ],
    "acceptance": [
-    "Φ_S and Ξ_S exist over ℤ; E_S exists only over a field."
+    "Φ_S and Ξ_S exist arithmetically; the E_S construction here is geometric. The obstruction concerns a universal rule for degenerating families, and does not exclude E_S = 0 on a special good-reduction family."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.10/epsilon-divisor",
     "ArakelovGeometryAndAbelianHeightsPartII:AH.10/noether-divisor",
     "ArakelovGeometryAndAbelianHeightsPartII:AH.10/phi-divisor",
-    "ArakelovGeometryAndAbelianHeightsPartII:AH.2/global-analytification"
+    "ArakelovGeometryAndAbelianHeightsPartII:AH.2/global-analytification",
+    "TropicalAndBerkovichArithmetic:TB.0/hybrid-analytic-space"
    ],
    "sources": [
     {
@@ -5397,12 +5614,13 @@
    "kind": "theorem",
    "statement": "For each g > 1 there is c₀(g) > 0 with φ(C) ≥ c₀(g) for every compact Riemann surface C of genus g. On the complex points of a fine full-level moduli space M_{g,N} (N ≥ 3), φ is continuous, positive and tends to +∞ at the boundary of the stable compactification.",
    "hypotheses": [
-    "g > 1."
+    "g > 1.",
+    "Choose the finite surjective cover of fine level moduli supplied by StableReductionPartII:MC.6/level-stable-compactification, on which a stable compactification and universal family exist; prove the uniform estimate there and descend it by surjectivity and base-change invariance."
    ],
    "proofSteps": [
     "Positivity at each point: AH.10/local-phi-invariant(2).",
     "Continuity on M_{g,N}(ℂ): φ is the Green function of Φ̃ over (ℂ, |·|) (AH.1/complex-base), continuous on M^an.",
-    "Boundary growth: the geometric bound Φ − Δ/39 ≥ 0 over ℂ (AH.10/phi-bound applied to the universal family over M_{g,N,ℂ} with its van Geemen–Oort stable compactification) means the Green function of Φ̃ dominates (1/39)·(the Green function of Δ), which tends to +∞ at the boundary.",
+    "Boundary growth requires the complex-base completion, rather than a direct comparison of geometric and archimedean Green functions. Over B = (ℂ,|·|), approximate (Φ̃,φ) by model divisors (D_i,g_i), with boundary error a_i(E₀,g₀), a_i → 0. Then φ ≥ g_i − a_i g₀ and D_i − a_iE₀ ≥ Φ̃ − 2a_iE₀ ≥ (1/39 − 2a_i)E₀. Choose a_i < 1/78. The function g_i − a_i g₀ is a Green function of a positive multiple of the full boundary, so it tends to +∞ there. This proves the required growth (Yuan p. 58).",
     "Compactness of the stable compactification then gives a positive minimum (Yuan Theorem 3.10 proof, pp. 57–58, with the corrections of source issue E5)."
    ],
    "acceptance": [
@@ -5483,7 +5701,7 @@
     "Expand P^d = P^{d−1}·((2/(3g−1))O(c₀) + nef + eff) ≥ (2c₀/(3g − 1))(P|_{S_ℚ})^{d−1}, and (P|_{S_ℚ})^{d−1} > 0 by AH.11/geometric-bigness over ℚ; conclude by AH.4/hilbert-samuel-siu."
    ],
    "acceptance": [
-    "For d = 1 (S = open in Spec O_K) the statement is P ≥ (2/(3g − 1))c₀ > 0 in degree."
+    "For d = 1 and S open in Spec O_K, the normalized degree is deĝ(P)/[K : ℚ] ≥ 2c₀/(3g − 1) > 0; the unnormalized degree has the additional factor [K : ℚ]."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.10/triple-pairing",
@@ -5607,6 +5825,11 @@
      "name": "relativePower_dim",
      "role": "simp",
      "statement": "dim Y^m_{/S} = dim S + em."
+    },
+    {
+     "name": "boxPower_pullback",
+     "role": "functoriality",
+     "statement": "The m-fold fibre product represents m-tuples over S; normal integral base change commutes with relativePower and boxPower. Each projection pulls back L̄, so boxPower is invariant under permuting the factors and is additive in L̄."
     }
    ],
    "tests": [
@@ -5643,11 +5866,11 @@
     "L̄ nef integrable; a > 0."
    ],
    "proofSteps": [
-    "Factor π_m through the projections and apply AH.3/projection-formulas: a factor with rᵢ ≤ e − 1 kills the pairing (fibre degree zero), a factor with rᵢ = e contributes a, a factor with rᵢ = e + 1 contributes π_*⟨L̄^{e+1}⟩, and at most one rᵢ can exceed e (Yuan pp. 62–63).",
+    "Factor π_m through its projections and use AH.3/projection-formulas. If any rᵢ < e, that factor has too few entries for its fibre dimension and kills the pairing. For a potentially nonzero term all rᵢ ≥ e, and Σrᵢ = em + 1 then forces precisely one rᵢ = e + 1 and all others e. The latter factors each contribute a, leaving a^{m−1}π_*⟨L̄^{e+1}⟩. The exponent sum alone does not exclude multiple exponents above e before the vanishing terms are removed.",
     "(2) by induction on d using (1) and the composition formula."
    ],
    "acceptance": [
-    "m = 1: (1) is tautological; e = 0 gives the multinomial expansion of (Σ pᵢ^*L̄)^{m+…}."
+    "For m = 1, (1) is tautological. If e = 0 then the smooth projective geometrically connected family is Y = S; m⊠L̄ = mL̄, its relative pairing is mL̄, and its top intersection is m^dL̄^d."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.12/potential-bigness",
@@ -5832,6 +6055,11 @@
      "name": "AdelicLineBundle.restrict_nef",
      "role": "other",
      "statement": "Restriction preserves nefness and integrability."
+    },
+    {
+     "name": "AdelicLineBundle.restrict_comp",
+     "role": "simp",
+     "statement": "Restriction to a characteristic fibre, extension of constants and pullback to a point commute whenever the resulting schemes are integral; tensor product and dual commute with each restriction. The final degree is relative to the chosen constant field k."
     }
    ],
    "tests": [
@@ -5848,7 +6076,7 @@
     {
      "name": "AdelicLineBundle.restrict_arch_nonexample",
      "kind": "non-example",
-     "statement": "The archimedean metric is forgotten: O(c) and O(0) have the same restriction."
+     "statement": "On ℙ¹_ℤ, the model bundle O(1) restricts to O(1) on ℙ¹_𝔽_p with degree one. Restriction forgets arithmetic metric data, but does not collapse every algebraic line bundle to O."
     }
    ]
   },
@@ -5865,7 +6093,7 @@
     "g > 1; K/k of transcendence degree one with k the constant field."
    ],
    "proofSteps": [
-    "Independence of K′: semistable Néron models commute with base change (NeronModelsAndSemistableAbelianVarieties).",
+    "Independence of the auxiliary extension K′ follows from base change of the semistable identity component, hence of its invariant differential determinant, and scaling of degrees. The full Néron model need not commute with base change (R11.3/semistable-identity-basechange).",
     "Hodge comparison: JacobianChallengePartII JC6 with BLR §7.4 Prop. 4 (Yuan pp. 72–73).",
     "Positivity and the explicit lower bound: semistable reduction over the field of N-torsion, N ∈ {3, 4} prime to the characteristic, of degree < N^{4g²}, and integrality of the degree on that field (Yuan Lemma 4.9)."
    ],
@@ -5875,8 +6103,9 @@
    "prerequisites": [
     "JacobianChallengePartII:JC6/hodge-line-isomorphism",
     "StableReductionPartII:MC.5/hodge-determinant",
-    "NeronModelsAndSemistableAbelianVarieties:R11.3",
-    "ArakelovGeometryAndAbelianHeights:R35.3"
+    "ArakelovGeometryAndAbelianHeights:R35.3",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3/finite-separable-semistable-extension",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-identity-basechange"
    ],
    "sources": [
     {
@@ -5912,6 +6141,11 @@
      "name": "Curve.faltingsHeightFF_pos",
      "role": "other",
      "statement": "Positive for non-isotrivial C, with the explicit lower bound."
+    },
+    {
+     "name": "Curve.faltingsHeightFF_fixed_constants",
+     "role": "functoriality",
+     "statement": "For a finite K₁/K over the same fixed constant field k, h_Fal(C_{K₁}) = [K₁:K]h_Fal(C); independence of the auxiliary semistable extension keeps K and k fixed."
     }
    ],
    "tests": [
@@ -5923,7 +6157,7 @@
     {
      "name": "Curve.faltingsHeightFF_extension_test",
      "kind": "characterisation",
-     "statement": "h_Fal(C_{K″}) = h_Fal(C) for every finite K″/K."
+     "statement": "The choice of semistable extension K′ does not change h_Fal(C) for a fixed base field K. Changing the base to K″ over the same k gives h_Fal(C_{K″}) = [K″ : K]h_Fal(C); it is not invariant in this geometric normalization."
     },
     {
      "name": "Curve.faltingsHeightFF_lowerBound",
@@ -5953,7 +6187,7 @@
     "C semistable over K (after a finite extension)."
    ],
    "proofSteps": [
-    "Finite sums since only finitely many places have bad reduction; invariance under finite extension by the ramification scaling of AH.10/local-phi-invariant."
+    "Only finitely many finite places have bad reduction. Under finite base extension, with residue degrees over a fixed k in the function-field case, each raw global sum multiplies by the extension degree, by ramification scaling and the residue-degree formula. Over number fields dividing by [K : ℚ] makes the sums invariant."
    ],
    "acceptance": [
     "Everywhere good reduction over a function field: φ = ε = δ = 0."
@@ -6001,6 +6235,11 @@
      "name": "Curve.global_nonneg",
      "role": "other",
      "statement": "φ, ε, δ ≥ 0 over function fields."
+    },
+    {
+     "name": "Curve.globalInvariants_extension",
+     "role": "functoriality",
+     "statement": "Under a finite extension of the global field, raw global invariants multiply by its degree; number-field quotients by [K:ℚ] remain unchanged. The geometric statement keeps the constant field fixed."
     }
    ],
    "tests": [
@@ -6017,7 +6256,7 @@
     {
      "name": "Curve.global_extension",
      "kind": "characterisation",
-     "statement": "Invariant under finite extension with the normalized degrees."
+     "statement": "All three raw sums multiply by [K′ : K] under finite extension. Their quotients by [K : ℚ] are invariant over number fields; the function-field sums with degrees over a fixed k scale by [K′ : K]."
     },
     {
      "name": "Curve.global_arch_epsilon_nonexample",
@@ -6069,14 +6308,14 @@
    ],
    "title": "Lower bounds of ω_a² by φ",
    "kind": "theorem",
-   "statement": "For C/K smooth projective geometrically integral of genus g > 1 over a global field, after a finite extension making C semistable (both sides are invariant under base change with the normalized degrees): (1) ω_a² ≥ ((g − 1)/(2g + 1))φ(C) (Looper–Silverman–Wilms over function fields, with max(2, g − 1) in place of g − 1 and 2(g − 1) in characteristic 0 or for hyperelliptic C; Wilms over number fields). (2) If C is hyperelliptic (in particular g = 2), ω_a² = (2(g − 1)/(2g + 1))φ(C). (3) With A(g) = 1 + (3/(2c(g)) + 2)(2g + 1)/(g − 1) built from the Cinkir constants, A(g) ≤ 139 < 144 for g > 2; for g = 2 the hyperelliptic identity gives the coefficient 1 + (3/(2c(2)) + 2)·(5/2) = 107.25; and 12/A(g) → 12/47.",
+   "statement": "For C/K smooth projective geometrically integral of genus g > 1 over a global field, after a finite extension making C semistable (both raw sides scale by the extension degree; their number-field quotients by [K : ℚ] are invariant): (1) ω_a² ≥ ((g − 1)/(2g + 1))φ(C) (Looper–Silverman–Wilms over function fields, with max(2, g − 1) in place of g − 1 and 2(g − 1) in characteristic 0 or for hyperelliptic C; Wilms over number fields). (2) If C is hyperelliptic (in particular g = 2), ω_a² = (2(g − 1)/(2g + 1))φ(C). (3) With A(g) = 1 + (3/(2c(g)) + 2)(2g + 1)/(g − 1) built from the Cinkir constants, A(g) ≤ 139 < 144 for g > 2; for g = 2 the hyperelliptic identity gives the coefficient 1 + (3/(2c(2)) + 2)·(5/2) = 107.25; and 12/A(g) → 12/47.",
    "hypotheses": [
     "g > 1; for (2) C hyperelliptic."
    ],
    "proofSteps": [
     "(1) Wilms 2022 Theorem 1.2 (number fields) and Looper–Silverman–Wilms Proposition 6.1 (function fields).",
     "(2) Zhang 2010 Corollary 1.3.3: the Gross–Schoen cycle of a hyperelliptic curve vanishes (AH.10/gross-schoen-variation).",
-    "(3) Arithmetic: c(3) = 17/288 gives A(3) ≈ 96.9, c(4) = 3/88 gives A(4) = 139, c(g) ≥ 1/25 gives A(g) ≤ 1 + 39.5·(2g + 1)/(g − 1) ≤ 109.6 for g ≥ 5; c(g) → 1/14 gives A(g) → 1 + 23·2 = 47."
+    "(3) Arithmetic: c(3) = 17/288 gives A(3) ≈ 96.9, c(4) = 3/88 gives A(4) = 139, c(g) ≥ 1/25 gives A(g) ≤ 1 + 39.5·(2g + 1)/(g − 1) ≤ 109.625 for g ≥ 5; c(g) → 1/14 gives A(g) → 1 + 23·2 = 47."
    ],
    "acceptance": [
     "A(4) = 1 + (44 + 2)·3 = 139 exactly; the g = 2 coefficient 107.25 = 1 + 42.5·2.5 (both checked in the suggested Lean file)."
@@ -6107,6 +6346,11 @@
      "sourceId": "yuan-2026",
      "locator": "§4.5.1, pp. 87–88; Remark 4.12(1), p. 88",
      "match": "Uses these bounds and derives the coefficient A(g) ≤ 139; items PAPER-YUAN-26/156–158, 281."
+    },
+    {
+     "sourceId": "cinkir-2015",
+     "locator": "Introduction, item (iii), p. 1; concluding summary, p. 18 (arXiv v1)",
+     "match": "Proves the sharp polarized-genus-three bound φ ≥ (17/288)ℓ, including weighted vertices; it supplies the constant used in A(3). This is the preprint of the cited Manuscripta paper."
     }
    ],
    "implementationStatus": "unchecked"
@@ -6216,6 +6460,11 @@
      "sourceId": "yuan-2026",
      "locator": "§4.4.1, p. 78; §4.3.1, p. 73; Lemma 3.4, pp. 43–44",
      "match": "Quotes Bost's lower bound to choose the constant c in M = Θ̄ + π_J^*λ̄_S + O(c), with the Faltings metric of §4.3.1; item PAPER-YUAN-26/144."
+    },
+    {
+     "sourceId": "gaudron-remond-2014",
+     "locator": "§2.3, Definition 2.1, pp. 6–7; Corollary 8.4, p. 37 (arXiv v1)",
+     "match": "Defines the Deligne-normalized metric, computes its shift from the original Faltings height, and proves Bost’s lower bound for that normalized height; fixes the constant in Yuan’s application."
     }
    ],
    "implementationStatus": "unchecked"
@@ -6230,14 +6479,16 @@
    "kind": "construction",
    "statement": "Fix a Cinkir constant c(g) > 0. In the arithmetic curve-moduli setting (fine level moduli over ℤ[1/N] with a stable compactification of its generic fibre) put D_S = (3/(2c(g)) + 3)Φ_S − Ξ_S ∈ D̂iv(S/ℤ)_ℚ. Its geometric part D̃ satisfies D̃ − c(g)Δ ≥ 0 over S_ℚ/ℚ, and its archimedean Green function tends to +∞ at the boundary of moduli, hence is bounded below by a constant c₅′(g).",
    "hypotheses": [
-    "g > 1; fine level moduli with stable compactification."
+    "g > 1; fine level moduli with stable compactification.",
+    "Choose the finite surjective cover of fine level moduli supplied by StableReductionPartII:MC.6/level-stable-compactification, on which a stable compactification and universal family exist; prove the uniform estimate there and descend it by surjectivity and base-change invariance."
    ],
    "proofSteps": [
     "Geometric part: Φ̃ has Green function φ(Γ_v), Ξ̃ has δ(Γ_v) + ε(Γ_v) (AH.10/noether-divisor); ε ≤ δ/2 + 2φ and φ ≥ c(g)δ give (3/(2c) + 3)φ − δ − ε ≥ c(g)δ (the coefficient c(g)Δ, not Δ: source issue PAPER-YUAN-26/E25).",
     "Archimedean coercivity: as in AH.11/uniform-phi-bound, effectivity of the geometric part over (ℂ, |·|) forces the Green function to grow at the boundary; with Wilms' δ bound it is bounded below."
    ],
    "acceptance": [
-    "For c(g) = 1/25 the coefficient is 3·25/2 + 3 = 40.5."
+    "For c(g) = 1/25 the coefficient is 3·25/2 + 3 = 40.5.",
+    "The regular-tetrahedron test computes the failure of the stronger printed boundary coefficient, rather than inferring its failure merely from a weaker proved estimate."
    ],
    "prerequisites": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.10/phi-divisor",
@@ -6252,6 +6503,11 @@
      "sourceId": "yuan-2026",
      "locator": "Theorem 4.14 proof, pp. 94–95",
      "match": "Introduces D_S = (3/(2c(g)) + 3)Φ_S − Ξ_S, proves D̃ − c(g)Δ effective and the boundary growth of its Green function; item PAPER-YUAN-26/168."
+    },
+    {
+     "sourceId": "cinkir-2015",
+     "locator": "§6, type XIV (tetrahedral graph), pp. 13–14 (arXiv v1)",
+     "match": "For equal edge lengths the genus-three graph attains φ = (17/288)ℓ; the formulas for ε in terms of τ and θ give the explicit counterexample to D̃ ≥ Δ."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6276,6 +6532,11 @@
      "name": "coerciveDivisor_green_bounded",
      "role": "other",
      "statement": "Archimedean Green function bounded below by c₅′(g)."
+    },
+    {
+     "name": "coerciveDivisor_local",
+     "role": "characterisation",
+     "statement": "Its underlying divisor is zero; at a normalized non-archimedean point its Green value is (3/(2c)+3)φ−δ−ε, and at an archimedean point it is (3/(2c)+3)φ−δ+4g log(2π). These follow from Φ_S and Ξ_S and determine the divisor."
     }
    ],
    "tests": [
@@ -6292,7 +6553,7 @@
     {
      "name": "coerciveDivisor_wrong_coeff",
      "kind": "non-example",
-     "statement": "D̃ − Δ is not effective in general (the printed p. 94 claim); only D̃ − c(g)Δ is."
+     "statement": "For the regular tetrahedral graph K₄ with all six edge lengths 1 and vertex weights 0, g = 3, δ = 6, φ = 17/48 and ε = 11/6. At c(3) = 17/288 the divisor value is (483/17)(17/48) − 6 − 11/6 = 107/48 < 6. Thus D̃ − Δ has value −181/48 and fails effectivity; D̃ − c(3)Δ has value 15/8 > 0."
     }
    ]
   },
@@ -6383,7 +6644,7 @@
  "requests": [
   {
    "supplier": "ArakelovGeometryAndAbelianHeights:R35.1",
-   "need": "Existing upstream roadmap (TauCetiRoadmap PR #1000), cited as it stands: §§1.1–1.3 hermitian bundles over O_K and the Arakelov degree, §1.7 compactified Picard group, §§1.8–1.9 arithmetic divisors with smooth Green functions on regular arithmetic schemes and their metrized line bundles (with the −log|f|² convention, half of which is the Yuan–Zhang Green function), §1.12 heights of algebraic points for continuous metrized line bundles. AH.0 extends §§1.8–1.9 to continuous integrable metrics on arbitrary projective arithmetic varieties and to top intersection numbers, which the PR excludes (\"higher arithmetic Chow products … general adelic intersection theory are outside this roadmap\").",
+   "need": "Existing upstream roadmap (TauCetiRoadmap PR #1000), cited as it stands: §§1.1–1.3 hermitian bundles over O_K and the Arakelov degree, §1.7 compactified Picard group, §§1.8–1.9 arithmetic divisors with smooth Green functions on regular arithmetic schemes and their metrized line bundles (with the −log|f|² convention, half of which is the Yuan–Zhang Green function), §1.12 heights of algebraic points for continuous metrized line bundles. AH.0 extends §§1.8–1.9 to continuous integrable metrics on arbitrary projective arithmetic varieties and to top intersection numbers, which the parent explicitly excludes from its scope.",
    "neededBy": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.0/arithmetic-intersection-numbers",
     "ArakelovGeometryAndAbelianHeightsPartII:AH.0/hermitian-line-bundles",
@@ -6424,21 +6685,21 @@
   },
   {
    "supplier": "ComplexComparisonPartII:C5",
-   "need": "Currents on complex analytic spaces and the Lelong–Poincaré formula (C5.4 CurrentCalculus, lelongPoincareSection as cited by the parent roadmap). AH.0/monge-ampere-measures additionally needs Bedford–Taylor products of currents with locally bounded plurisubharmonic potentials and their monotone continuity; if C5 does not plan these they belong to a ComplexComparison Part II extension (recorded as a gap).",
+   "need": "C5/analytic-cycle-integration, C5/chern-fubini-study-intersection and C5/closed-current-extension supply cycle currents, curvature normalization and finite-mass extension. AH.0/monge-ampere-measures additionally needs the current carrier, Lelong–Poincaré formula, and Bedford–Taylor products for locally bounded plurisubharmonic potentials on possibly singular projective spaces, with monotone continuity. These general pluripotential targets are not supplied by the checked C5 nodes; G2 records the requested extension. The older C5.4 CurrentCalculus label is not a current node.",
    "neededBy": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.0/monge-ampere-measures"
    ]
   },
   {
-   "supplier": "MotivesAndAlgebraicCycles:MC.0",
-   "need": "Homologically trivial cycles (homological equivalence for a Weil cohomology) on C³, to state that the Gross–Schoen modified diagonal is homologically trivial; the brief routes the Gross–Schoen side construction to MC.0 as its consumer.",
+   "supplier": "MotivesAndAlgebraicCycles:MC.2/homological-equivalence",
+   "need": "Homological triviality relative to a chosen Weil cohomology, using the geometric base-change convention of MC.2/weil-cohomology-by-base-change over a nonclosed field. This supplies the predicate used for the Gross–Schoen modified diagonal on C³; this roadmap proves that its cycle class vanishes.",
    "neededBy": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.10/gross-schoen-variation"
    ]
   },
   {
    "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.3",
-   "need": "Semistable reduction of Jacobians after finite extension and its base-change invariance, for the stable Faltings height over function fields (AH.13/function-field-faltings-height), in arbitrary characteristic.",
+   "need": "R11.3/finite-separable-semistable-extension and R11.3/semistable-identity-basechange: finite semistable extension over excellent DVRs and invariance of the identity model under further finite base change. Apply at the finitely many bad places of the global function field; this gives the determinant-of-differentials degree scaling used by AH.13/function-field-faltings-height. No full Néron-model base-change isomorphism is assumed.",
    "neededBy": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.13/function-field-faltings-height"
    ]
@@ -6491,15 +6752,13 @@
   {
    "stageId": "ArakelovGeometryAndAbelianHeightsPartII:AH.6",
    "status": "planned",
-   "remaining": [
-    "Wazir 2006 (Bull. LMS 38) was not available; AH.6/moriwaki-silverman-tate rests on the transfer argument through the height machine (gap G1)."
-   ]
+   "remaining": []
   },
   {
    "stageId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7",
    "status": "planned",
    "remaining": [
-    "The genus-one normalization (source issues PAPER-YUAN-26/E8, E28) is excluded: every target here assumes g > 1."
+    "The genus-one normalization of the canonical curve-pair is excluded (source issues PAPER-YUAN-26/E8, E28); these canonical targets assume g > 1."
    ]
   },
   {
@@ -6539,26 +6798,17 @@
    "stageId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13",
    "status": "planned",
    "remaining": [
-    "Cinkir's genus-three constant c(3) = 17/288 (Cinkir 2015, Manuscripta) was not read; only the arXiv v2 bound t(3) ≈ 0.0545 was checked, which also gives A(3) < 139 (gap G6).",
-    "The positive-characteristic slope inequality (Moriwaki) is an alternative route only; its generality is unverified."
+    "The positive-characteristic slope inequality mentioned as an alternative route is not used by any target; its generality remains unverified."
    ]
   }
  ],
  "gaps": [
   {
-   "title": "G1. Wazir's Silverman–Tate and specialization theorems for Moriwaki heights",
-   "neededBy": [
-    "ArakelovGeometryAndAbelianHeightsPartII:AH.6/moriwaki-silverman-tate",
-    "ArakelovGeometryAndAbelianHeightsPartII:AH.6/moriwaki-height-machine"
-   ],
-   "detail": "Wazir, On the specialization theorem for abelian varieties, Bull. London Math. Soc. 38 (2006), is not on arXiv and was not read. Gao–Habegger §§A.1–A.3 cite its Proposition 2(iv) (functoriality under quasi-finite maps) and Theorems 2–3 (Silverman–Tate and the specialization limit with Moriwaki heights). The plan transfers the number-field proofs of HeightsRationalPointsAndObstructions RP.0 through the Moriwaki height machine; a reviewer with access should confirm the hypotheses (smoothness, generically finite q)."
-  },
-  {
    "title": "G2. Bedford–Taylor products on singular complex projective varieties",
    "neededBy": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.0/monge-ampere-measures"
    ],
-   "detail": "Yuan–Zhang §2.1.1 obtains Monge–Ampère measures of integrable continuous metrics on (possibly singular) complex projective varieties from Bedford–Taylor (and Demailly), and semipositivity comparisons from Coman–Guedj–Zeriahi Corollary C. No atlas roadmap is confirmed to plan pluripotential theory; ComplexComparisonPartII C5 plans currents and Lelong–Poincaré. The request to C5 records the need."
+   "detail": "Yuan–Zhang §2.1.1 uses Bedford–Taylor/Demailly products for locally bounded plurisubharmonic potentials on possibly singular complex projective varieties and Coman–Guedj–Zeriahi regularization. The checked ComplexComparisonPartII C5 nodes supply integration over analytic cycles, curvature normalization and finite-mass current extension, but do not plan this general current/pluripotential construction. The precise request to C5 includes the current carrier, Lelong–Poincaré identity, products, regularization and monotone continuity. This remains an explicit external closure gap."
   },
   {
    "title": "G3. Arithmetic Noether formula",
@@ -6584,19 +6834,12 @@
    "detail": "Yuan Remarks 3.11 and 4.13(2) assert, without proof, that the adelic divisors Φ̃ and Ξ̃ describe the growth of φ and of Faltings' δ at the boundary of complex moduli (compare Song 2023 and de Jong 2019). These are not targets of this roadmap."
   },
   {
-   "title": "G6. Cinkir's genus-three constant",
-   "neededBy": [
-    "ArakelovGeometryAndAbelianHeightsPartII:AH.13/phi-lower-bounds"
-   ],
-   "detail": "c(3) = 17/288 is from Cinkir, Admissible invariants of genus 3 curves (Manuscripta Math. 148, 2015), p. 318 (iv), not read. The arXiv v2 bound t(3) = (892 − 11√79)/14580 ≈ 0.0545 of Cinkir 2011 Theorem 2.9 gives A(3) ≤ 1 + (3/(2·0.0545) + 2)·3.5 ≈ 104.3 < 139, so the conclusion A(g) ≤ 139 does not depend on it."
-  },
-  {
    "title": "G7. Genus one",
    "neededBy": [
     "ArakelovGeometryAndAbelianHeightsPartII:AH.7/canonical-metric-pair",
     "ArakelovGeometryAndAbelianHeightsPartII:AH.8/canonical-admissible-bundles"
    ],
-   "detail": "Yuan states Theorem 2.3 and Theorem A.1 for g > 0, but the normalization and nefness are proved only for g > 1 (PAPER-YUAN-26/E8, E28). Every target of this roadmap assumes g > 1."
+   "detail": "Yuan states Theorem 2.3 and Theorem A.1 for g > 0, but the normalization and nefness are proved only for g > 1 (PAPER-YUAN-26/E8, E28). The canonical curve-pair and relative admissible-bundle targets here assume g > 1; genus-one discriminant examples remain valid on their own terms."
   }
  ],
  "sourceIssues": [
@@ -6614,7 +6857,12 @@
     "the recorded source issues of PAPER-YUAN-26 (E1–E30) and its errata file",
     "arXiv:2108.05625 v4 abstract page and comments",
     "the author's publication page (manuscript of 21 August 2024)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Independently compared Yuan’s metric and bound with Gaudron–Rémond Definition 2.1 (§2.3, pp. 6–7) and Corollary 8.4 (p. 37): their bound is for h_Del and h_Fal = h_Del − (g/2)log π. Thus the repaired constant follows directly; the paper’s argument still works with it.",
+    "by": "REV-DESIGN-ArakelovGeometryAndAbelianHeightsPartII"
+   }
   },
   {
    "id": "ArakelovGeometryAndAbelianHeightsPartII/E2",
@@ -6629,7 +6877,33 @@
    "searched": [
     "arXiv:2105.13587v9 (only this version was read)",
     "the corresponding paragraph of §2.1.2 for the convention"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read both maps on p. 72 and the definition on p. 25. Their composition sends g to g/2 with the printed metric, whereas the −log‖s‖ convention requires g; e^{−g} restores the inverse correspondence.",
+    "by": "REV-DESIGN-ArakelovGeometryAndAbelianHeightsPartII"
+   }
+  },
+  {
+   "id": "ArakelovGeometryAndAbelianHeightsPartII/E3",
+   "source": "yuan-2026",
+   "kind": "error",
+   "locator": "Lemma 2.1(1), pp. 25–26 (author manuscript dated 21 August 2024)",
+   "printed": "The lemma asserts injectivity of the integral adelic Picard pullback for a projective flat morphism with geometrically connected fibres.",
+   "correction": "Require geometrically reduced fibres as well, or universally π_*O_X = O_S. Smooth geometrically connected curve families already satisfy this condition.",
+   "reason": "Let E/𝔽₅ be the smooth projective elliptic curve y² = x³ + 3x + 2. Its discriminant is nonzero modulo 5 and its rational points are O, (1,1), (1,4), (2,1), (2,4). Hence O((1,1) − O) is a nontrivial line bundle of order five. Absolute Frobenius is an 𝔽₅-morphism, finite flat and a universal homeomorphism (Stacks Tags 0FW2 and 0CCB), so its geometric fibres are connected. Frobenius pulls any line bundle back to its fifth tensor power, so it kills this class. Over a projective variety over a trivially valued field, the canonical model metric is functorial, giving the same counterexample for the integral adelic Picard group. In contrast, Tag 0E0L supplies universal structure-sheaf pushforward under reduced connected geometric fibres; projection formula proves the corrected injectivity.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Lemma 2.1 and its proof in the hashed author manuscript",
+    "PAPER-YUAN-26.result.json sourceIssues and errata/PAPER-YUAN-26.json",
+    "Stacks Tags 0E0L, 0FW2 and 0CCB"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this independent review: the explicit five-point elliptic curve and Frobenius disprove integral injectivity under connectedness alone. The repaired hypothesis is sufficient by universal structure-sheaf pushforward and holds in the roadmap applications.",
+    "by": "REV-DESIGN-ArakelovGeometryAndAbelianHeightsPartII"
+   }
   }
  ],
  "restructure": [
@@ -7677,5 +7951,478 @@
     "ArakelovGeometryAndAbelianHeightsPartII:AH.5/equidistribution"
    ]
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-ArakelovGeometryAndAbelianHeightsPartII",
+  "date": "2026-10-19",
+  "notes": "Independent target-level review of all 93 nodes at every cited source locator, every external supplier statement and all four pinned baseline declarations. Corrected hypotheses, arithmetic/geometric normalizations, proof routes, tests and API; synchronized the reader and roadmap; confirmed E1–E2 and added E3. Closed source-access gaps G1 and G6 using public preprints. The complete pass has 14 planned stages, five precisely recorded gaps and eight supplier contracts; none is claimed formally closed. The compact suggested Lean file elaborates with only the expected admitted-proof warnings. See the review report for counts, per-node findings and remaining owner decisions.",
+  "checked": [
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.0/hermitian-line-bundles",
+    "verdict": "corrected",
+    "note": "Checked the divisor/metric convention and smooth-to-continuous inclusion; added isometry extensionality."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.0/monge-ampere-measures",
+    "verdict": "corrected",
+    "note": "Checked Bedford–Taylor mass and multilinearity at the cited passage; added uniqueness under approximation, retaining the explicit G2 input gap."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.0/arithmetic-intersection-numbers",
+    "verdict": "corrected",
+    "note": "Repaired nef nonnegativity using ample perturbations, arithmetic Nakai–Moishezon and limits; added supporting locators and characterization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.0/projective-deligne-pairing",
+    "verdict": "corrected",
+    "note": "Separated the flat Deligne pairing from its normal finite-Tor extension; base change must meet the flat locus. Replaced the overbroad tests and added norm compatibility."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.0/projective-volume-siu",
+    "verdict": "verified",
+    "note": "Checked the projective Hilbert–Samuel and Siu statements, dimensions and integrability assumptions against both cited sources."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/model-adelic-divisors",
+    "verdict": "corrected",
+    "note": "Required effectivity of both the rational model divisor and its integral restriction; added the norm relation for the canonical section."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/boundary-topology",
+    "verdict": "corrected",
+    "note": "Distinguished arithmetic projective sup-norm topology from geometric discrete topology, required a nonzero effective boundary for norm one, and corrected eventual constancy and zero-boundary tests."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/adelic-line-bundles",
+    "verdict": "corrected",
+    "note": "Replaced an unjustified non-model Tate example by an irrational coefficient at a removed prime; checked completion and groupoid construction."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/divisor-presentation",
+    "verdict": "verified",
+    "note": "Checked the completed divisor presentation, principal-divisor quotient and surjectivity at the cited locators."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/positivity-notions",
+    "verdict": "verified",
+    "note": "Checked strongly nef, nef and integrable definitions, and the distinction between strong nefness and nefness."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/essentially-quasi-projective",
+    "verdict": "corrected",
+    "note": "Added the common-model comparison universal property; checked the limit over quasi-projective models."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/complex-base",
+    "verdict": "corrected",
+    "note": "Restricted the complex-base construction to the stated Banach field, corrected arithmetic integrality and the growth criterion, and added isometry extensionality."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.1/arithmetic-curve-comparison",
+    "verdict": "verified",
+    "note": "Checked the arithmetic-curve compactified Picard comparison with the parent’s half-Green-function convention."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.2/global-analytification",
+    "verdict": "corrected",
+    "note": "Checked the global analytification over the Banach ring and added extensionality by seminorm points."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.2/analytic-divisors-metrics",
+    "verdict": "corrected",
+    "note": "Confirmed the inverse metric/divisor maps after correcting source issue E2; added isometry extensionality."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.2/analytification-injective",
+    "verdict": "corrected",
+    "note": "Corrected the constant-Green-function test along archimedean rays; checked full faithfulness and injectivity."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.2/divisorial-density",
+    "verdict": "verified",
+    "note": "Checked density of divisorial points and its normality and field hypotheses at the cited proposition."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.2/effectivity-from-green",
+    "verdict": "corrected",
+    "note": "Corrected the same constant-Green-function test; checked that pointwise Green inequalities detect effectivity."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.2/canonical-measures",
+    "verdict": "corrected",
+    "note": "Separated ordinary projective degree from adelic degree on a nonproper variety, corrected the zero-dimensional mass test and added model-limit characterization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.2/trivially-valued-canonical-metric",
+    "verdict": "corrected",
+    "note": "Used the proper-model prescription for the trivially valued metric, rather than uniqueness from curvature; added frame compatibility."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.3/intersection-pairing",
+    "verdict": "corrected",
+    "note": "Specified integrability for every argument and the geometric adelic degree in the constant-shift test; added uniqueness by model limits."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.3/deligne-pairing",
+    "verdict": "corrected",
+    "note": "Removed a false proposed discontinuity test under nonnormal flat base change; retained three discriminating tests and added model-limit characterization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.3/projection-formulas",
+    "verdict": "corrected",
+    "note": "Restricted the standalone pushforward formula to flat morphisms with normal target, leaving the composite formula under its original hypotheses."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.3/pullback-injective-descent",
+    "verdict": "corrected",
+    "note": "Added geometrically reduced fibres and a primary Stacks input; Frobenius gives a counterexample to the printed integral injectivity. Recorded E3 and retained metric descent for the corrected scope."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/effective-sections",
+    "verdict": "corrected",
+    "note": "Normalized the projective model in the finite-section argument and added an intrinsic membership criterion."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/adelic-volume",
+    "verdict": "corrected",
+    "note": "Replaced generic-fibre bigness as an arithmetic criterion by a negative-constant metric counterexample on Spec ℤ."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/hilbert-samuel-siu",
+    "verdict": "corrected",
+    "note": "Separated the positive mixed-denominator Siu argument from the zero case; checked the nef Hilbert–Samuel limit."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/deligne-positivity",
+    "verdict": "corrected",
+    "note": "Replaced an invalid product-of-pseudoeffective-classes argument by a telescoping comparison of nef top intersections with a small nef-and-big perturbation."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/finite-cover-bigness",
+    "verdict": "verified",
+    "note": "Checked both implications of finite-cover nef bigness, including finite surjective degree scaling."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/nef-domination",
+    "verdict": "verified",
+    "note": "Checked domination by a nef effective model divisor and its geometric/arithmetic dimensions."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/adelic-heights",
+    "verdict": "corrected",
+    "note": "Distinguished absolute number-field heights, fixed-constant-field geometric scaling and choice of a point’s representing field; added normalization compatibility."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/height-inequality",
+    "verdict": "verified",
+    "note": "Checked the generically finite height inequality and the proper closed exceptional subset at the cited theorem."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.4/fundamental-inequality",
+    "verdict": "corrected",
+    "note": "Inserted the number-field degree factor in the variety height and both sides of the essential-minimum inequality; corrected the Spec K constant test."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.5/equidistribution",
+    "verdict": "corrected",
+    "note": "Normalized the small-sequence limiting variety height consistently with absolute point heights."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.5/invariant-extension",
+    "verdict": "corrected",
+    "note": "Restored the nonzero commuting weight in the invariant-extension theorem and API; checked the Tate limit and uniqueness hypotheses."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.5/non-degenerate",
+    "verdict": "verified",
+    "note": "Checked generic-fibre degree, Deligne non-degeneracy and the constant-family test against the two cited expositions."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.5/non-degenerate-height-inequality",
+    "verdict": "verified",
+    "note": "Checked non-degenerate height inequality and equidistribution with the relative dimension and exceptional subset specified."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.5/adelic-hodge-bundle",
+    "verdict": "corrected",
+    "note": "Corrected the generic-point adelic degree versus absolute Faltings height; added the underlying Hodge-line metric compatibility."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.6/moriwaki-heights",
+    "verdict": "corrected",
+    "note": "Required a normal projective arithmetic model for the Moriwaki polarization; corrected the transcendence-degree-zero factor and added equality with the intersection definition."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.6/moriwaki-height-machine",
+    "verdict": "verified",
+    "note": "Checked the Moriwaki height machine, quasi-finite pullback and positivity hypotheses against Moriwaki and Gao–Habegger."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.6/moriwaki-neron-tate",
+    "verdict": "corrected",
+    "note": "Corrected the number-field degree factor in the transcendence-degree-zero Néron–Tate specialization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.6/moriwaki-silverman-tate",
+    "verdict": "corrected",
+    "note": "Read Wazir’s public preprint, fixed the big-polarization, symmetric relatively ample line and degree-one base-height conventions, and closed G1."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7/abelian-admissible-metrics",
+    "verdict": "corrected",
+    "note": "Checked Tate admissibility and the translation/Poincaré characterization; added uniqueness for a rigidified metrized bundle."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7/curve-admissible-metrics",
+    "verdict": "corrected",
+    "note": "Restricted the canonical curve normalization to genus greater than one and replaced the blanket bad-reduction test by an explicit banana graph."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7/admissible-measure",
+    "verdict": "corrected",
+    "note": "Checked the curvature and total-mass normalization and added the measure characterization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7/canonical-metric-pair",
+    "verdict": "corrected",
+    "note": "Excluded the unproved genus-one canonical pair, gave explicit model/admissible and compact-type tests, and added its uniqueness isometry."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7/graph-formulas",
+    "verdict": "corrected",
+    "note": "Aligned the graph formulas with the genus-greater-than-one canonical normalization; checked coefficients and the diagonal Green function."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7/local-normalizations",
+    "verdict": "verified",
+    "note": "Checked rescaling by ramification, the good-reduction formula and the trivially valued case."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.7/global-admissible-bundles",
+    "verdict": "corrected",
+    "note": "Distinguished absolute arithmetic invariance from fixed-constant-field geometric scaling and added local restriction extensionality."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.8/admissible-extension",
+    "verdict": "corrected",
+    "note": "Replaced a blanket model-metric counterexample by the banana graph, retaining the fibrewise definition."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.8/admissible-existence-uniqueness",
+    "verdict": "verified",
+    "note": "Checked existence and uniqueness modulo base metrics, including the torsion-cokernel descent supplied by JC4."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.8/canonical-admissible-bundles",
+    "verdict": "corrected",
+    "note": "Checked the two canonical family isometries and added characterization by canonical fibre metrics."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.8/canonical-theta-bundle",
+    "verdict": "corrected",
+    "note": "Replaced an invalid twist test by a nonzero constant metric twist over ℚ; added uniqueness of the rigidified invariant theta extension."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.8/section-evaluation",
+    "verdict": "corrected",
+    "note": "Extended the mean-Green evaluation argument to arbitrary relative-degree line bundles, with their admissible curvature measure."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.8/vertical-picard",
+    "verdict": "corrected",
+    "note": "Added the fibrewise degree-zero membership characterization for the vertical Picard group."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.8/relative-hodge-index",
+    "verdict": "corrected",
+    "note": "Used the universal Poincaré negative self-pairing and pullback along the classifying section; removed the invalid multiplication-by-two argument on the base."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.9/theta-pullback-formulas",
+    "verdict": "corrected",
+    "note": "Derived the relative arbitrary-degree theta identity using Hodge index, section evaluation and the universal diagonal; did not assume the narrower degree-one field theorem of JC3 supplies it."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.9/canonical-theta-identities",
+    "verdict": "verified",
+    "note": "Checked all canonical, difference and universal-shift identities by specialization and Deligne-pairing expansion."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.9/nefness-omega-a",
+    "verdict": "verified",
+    "note": "Checked the positive theta decomposition of the canonical bundle and the nefness of its Deligne self-pairing."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/polarized-graph-invariants",
+    "verdict": "corrected",
+    "note": "Checked all graph-integral definitions and added invariance under graph isomorphism and subdivision."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/graph-invariant-inequalities",
+    "verdict": "verified",
+    "note": "Checked Cinkir, Baker–Rumely and de Jong inequalities and constants, using the specified preprint numbering."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/local-phi-invariant",
+    "verdict": "corrected",
+    "note": "Checked non-archimedean and archimedean φ definitions and added isometry/base-extension versus valuation-rescaling compatibility."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/epsilon-divisor",
+    "verdict": "corrected",
+    "note": "Restricted universal arithmetic globalization claims appropriately, retained the geometric ε divisor and added its normalized trivializing-section characterization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/epsilon-bound",
+    "verdict": "verified",
+    "note": "Checked the ε boundary inequality by divisorial density and graph bounds."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/phi-divisor",
+    "verdict": "corrected",
+    "note": "Checked the triple-Deligne-pairing globalization of φ and added its canonical-section/Green-function characterization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/triple-pairing",
+    "verdict": "verified",
+    "note": "Checked the expansion of the triple pairing and the coefficient 12g−4."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/phi-bound",
+    "verdict": "verified",
+    "note": "Checked φ≥Δ/39 on divisorial points and its extension by continuity/effectivity detection."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/hodge-lower-decomposition",
+    "verdict": "verified",
+    "note": "Checked cancellation of the boundary in the Hodge lower decomposition and the explicit positive coefficient."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/gross-schoen-variation",
+    "verdict": "corrected",
+    "note": "Corrected the Gross–Schoen fibre-height normalization, extension test and homological-equivalence supplier (MC.2); retained G4 for the regular-model proof input."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/faltings-delta",
+    "verdict": "corrected",
+    "note": "Specified the Fourier theta norm, Haar probability normalization and period-independent δ definition at Wilms’ exact §2.1 locator."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/arithmetic-noether",
+    "verdict": "verified",
+    "note": "Checked the arithmetic Noether normalization through Yuan and Wilms; retained G3 because the original metric proof was not read."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/noether-divisor",
+    "verdict": "corrected",
+    "note": "Checked both local Green values of the Noether divisor and added canonical-section sign independence."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.10/globalization-scope",
+    "verdict": "corrected",
+    "note": "Located the hybrid obstruction at a nontrivial divisorial valuation, added the exact hybrid-space supplier and limited nonexistence to the universal rule; kept the finer asymptotics as recorded assertions."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.11/uniform-phi-bound",
+    "verdict": "corrected",
+    "note": "Expanded the boundary-growth argument using complex-base model approximants and an error less than 1/78; explicitly passed to the finite stable-moduli cover supplied by MC.6."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.11/geometric-bigness",
+    "verdict": "verified",
+    "note": "Checked geometric bigness from the Hodge lower decomposition, finite-cover descent and maximal variation."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.11/arithmetic-bigness",
+    "verdict": "corrected",
+    "note": "Corrected the arithmetic degree-one constant bound by the number-field degree factor; checked the nef-plus-big-plus-effective argument."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.11/bigness-omega-a",
+    "verdict": "verified",
+    "note": "Checked the main bigness theorem from the theta expression, the Deligne-pairing height inequality and maximal variation."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.12/potential-bigness",
+    "verdict": "corrected",
+    "note": "Checked the potential-bigness definition and added compatibility with a finite base change, including descent by norm."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.12/relative-power-intersections",
+    "verdict": "corrected",
+    "note": "Repaired the mixed-dimension proof: nonzero terms force every fibre exponent at least e; only then does the sum determine the unique exceptional exponent. Added the relative-dimension-zero check."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.12/potential-bigness-criterion",
+    "verdict": "verified",
+    "note": "Checked both directions of the potential-bigness criterion, the Siu perturbation and relative-product intersection calculation."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.12/product-grid-bound",
+    "verdict": "verified",
+    "note": "Checked the product-grid degree count and the finiteness correction in the cited lemma."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.12/theta-potential-bigness",
+    "verdict": "verified",
+    "note": "Checked the Abel, difference, universal-shift and subfamily potential-bigness hypotheses and constants."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.12/cross-characteristic-restriction",
+    "verdict": "corrected",
+    "note": "Checked restriction across characteristics and added the composition/identity isometries and a distinct-characteristic restriction test."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/function-field-faltings-height",
+    "verdict": "corrected",
+    "note": "Replaced full-model base change by semistable identity-component base change and exact R11.3 suppliers; corrected the auxiliary-extension versus ground-field scaling tests."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/global-curve-invariants",
+    "verdict": "corrected",
+    "note": "Checked local weights and good places; corrected raw degree scaling versus normalized number-field invariance."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/zhang-correction",
+    "verdict": "verified",
+    "note": "Checked Zhang’s correction and the normalized number-field and geometric Noether formulas."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/phi-lower-bounds",
+    "verdict": "corrected",
+    "note": "Read Cinkir’s sharp genus-three bound, closed G6, checked both global φ lower bounds and corrected the g≥5 numerical upper bound to 109.625."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/function-field-comparison",
+    "verdict": "verified",
+    "note": "Checked the function-field two-sided comparison, the non-isotrivial lower bound and the use of A(g)."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/archimedean-delta-bound",
+    "verdict": "verified",
+    "note": "Checked Wilms’ archimedean δ bound and strict inequality with the stated Faltings normalization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/bost-lower-bound",
+    "verdict": "corrected",
+    "note": "Confirmed E1 using Gaudron–Rémond’s primary metric definition and Corollary 8.4 and recorded the exact public edition and pages."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/boundary-coercive-divisor",
+    "verdict": "corrected",
+    "note": "Made the finite stable-moduli cover explicit, added the unit tetrahedron counterexample to the stronger boundary coefficient and the local Green-value characterization."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/number-field-comparison",
+    "verdict": "verified",
+    "note": "Checked both number-field bounds from Noether, Wilms and the corrected coercive divisor, retaining the right normalization and constants."
+   },
+   {
+    "nodeId": "ArakelovGeometryAndAbelianHeightsPartII:AH.13/uniform-comparison",
+    "verdict": "verified",
+    "note": "Checked the final uniform comparison separately over number fields and non-isotrivial fixed-constant-field function fields, with constants depending only on genus."
+   }
+  ]
+ }
 }
