@@ -1,9 +1,9 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470),
-Codex session `codex-noAEuc`, 19 October 2026. The bot confirmed
-[claim 6258298609](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258298609)
-in [comment 6258299990](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258299990).
+Codex session `codex-d01ywK`, 19 October 2026. The bot confirmed
+[claim 6258958212](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258958212)
+in [comment 6258959911](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258959911).
 The issue was read again after confirmation. This is a **blocked checkpoint**.
 Only this handoff changes; the mathematical design has not begun. No second
 job was claimed.
@@ -13,27 +13,30 @@ job was claimed.
 The incorporated `RealSurfacePeriodIndex` route in
 [PAPER-BENOIST-19.result.json](../papers/PAPER-BENOIST-19.result.json)
 requires four supplier designs **with every needed tranche present before
-consumer execution**. The new topology design removes one blocker recorded
-by [checkpoint #10349](https://github.com/CBirkbeck/tauceti-explorer/pull/10349).
-The quadratic parent design is also complete, but its required real-function-field
-tranche was assigned to a proposed split and is still absent. A completed
-parent job therefore does not satisfy the incorporated condition.
+consumer execution**. The topology design and its independent review are now
+complete. The quadratic parent design is also complete and accepted, but its
+required real-function-field tranche was assigned to a proposed split and is
+still absent. The blocker recorded by
+[checkpoint #10498](https://github.com/CBirkbeck/tauceti-explorer/pull/10498)
+therefore remains. A completed parent job does not satisfy the incorporated
+condition when it has not designed the required tranche.
 
-Verification used checkout `d57ca4ae55f620ae2e622a661236252d534c3a07` and
-independently fetched GitHub main
-[`7ca94a7aedccf497edcaa40ea7a9e4d6fbf5445e`](https://github.com/CBirkbeck/tauceti-explorer/commit/7ca94a7aedccf497edcaa40ea7a9e4d6fbf5445e).
-The extraction, quadratic packet and split registry match between those
-snapshots. The relevant job states and dependencies also agree, although the
-whole queue has unrelated changes. Both snapshots give this consumer
-`after: []`, mark the quadratic design and review done, and have no
-`DESIGN-QuadraticFormsRealFunctionFields` job. Neither has a split-registry
-entry for that proposed owner. Current-main requests for its roadmap and
-packet return HTTP 404; a local filename screen finds no part packet either.
+Verification used checkout
+[`0c7aa4ff23bcd43ca2c1a7932f0fadcfdab18957`](https://github.com/CBirkbeck/tauceti-explorer/commit/0c7aa4ff23bcd43ca2c1a7932f0fadcfdab18957),
+which `git ls-remote` independently confirmed was GitHub main at this check.
+The parsed queue gives this consumer `after: []` and state `pending`, and
+marks both the quadratic and topology designs and reviews `done`. It has no
+`DESIGN-QuadraticFormsRealFunctionFields` job. The split registry has no
+decision for `DESIGN-QuadraticFormInvariantsPartII` or entry naming
+`QuadraticFormsRealFunctionFields` among its split-off roadmaps.
+Independent GitHub contents requests for that owner's roadmap and packet
+return HTTP 404; the local roadmap/packet filename screen finds no part
+packet either. These checks concern design presence, not proof closure.
 
 | Required tranche | Current design evidence | Consumer boundary |
 | --- | --- | --- |
 | `SemisimpleAlgebrasPartII` / `BrauerPeriodIndexArithmetic` | [55-node packet](../packets/SemisimpleAlgebrasPartII.json), complete with accepted review. | SA.0 supplies class index, splitting-degree divisibility and finite-extension index bounds; SA.1 supplies period and corestriction. Preserve its supplier requests and proof gaps. |
-| `AlgebraicTopologyPartII` / `EquivariantTopologyRealVarieties` | [75-node packet](../packets/AlgebraicTopologyPartII.json), complete; independent review is not yet recorded. Its routing index accounts for all 31 assigned Benoist19 items. | AT2.6–AT2.16 now provide the real-locus, sign-twist, duality, double-cover, circle-extension and transport contracts. Design presence satisfies this particular prerequisite; review acceptance and proof closure are separate matters. |
+| `AlgebraicTopologyPartII` / `EquivariantTopologyRealVarieties` | [75-node packet](../packets/AlgebraicTopologyPartII.json), complete with accepted [independent review](../reviews/REV-DESIGN-AlgebraicTopologyPartII.md) dated 19 October. Its routing index accounts for all 31 assigned Benoist19 items. | AT2.6–AT2.16 provide the real-locus, sign-twist, duality, double-cover, circle-extension and transport contracts. Preserve its 15 gaps and 14 requests; accepted planning is not proof closure. |
 | `HodgeStructuresPartII` / `DegeneratingHodgeStructures` | [H.8 follow-up](../packets/HodgeStructuresPartII--H.8.json), 31 nodes with accepted review. | Use `H.8/normal-boundary-factorization`, `/real-green-open-cone` and `/voisin-product-surface`, retaining five gaps and its supplier requests. The main packet's old H.8 coverage does not erase the follow-up. |
 | `QuadraticFormInvariantsPartII` / `QuadraticFormsRealFunctionFields` | [47-node parent packet](../packets/QuadraticFormInvariantsPartII.json), complete with accepted review, but its `restructure` and `routeAssignments` send the real-function-field direction to **proposed** `QuadraticFormsRealFunctionFields`. | The required tranche has no roadmap, packet or queue job. This is the remaining design-presence blocker. Do not substitute the parent's Q2.0–Q2.7 or infer that its accepted review creates the proposed split. |
 
@@ -66,8 +69,8 @@ edit the supplier, split registry, queue or incorporated brief within issue
 
 Read WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the full issue and comments,
 the incorporated route, the previous handoff, the four supplier packets'
-relevant contracts, and the topology and quadratic handoffs. Checked the
-parent's proposed-split assignments individually and counted all 100 distinct
+relevant contracts, the quadratic handoff and the accepted topology review.
+Checked the parent's proposed-split assignments individually and counted all 100 distinct
 consumer items. This is a dependency-presence check, not a new source or
 mathematical review of those packets.
 
@@ -76,15 +79,19 @@ gates. `AT2.16/double-cover-diagram` retains G14 for the signed common-lift
 cochain chase corresponding to extraction G10. `AT2.16/stratified-pair-transport`
 retains G13 for the invariant control data and actual divisor-family application.
 The consumer still has to verify the open-set Kummer normalization and pullback
-square of extraction item `/202`; ordinary transport of the surface alone
-does not supply it. Other application obligations below are preserved.
+square of extraction item `/202`. The accepted topology review rejects its
+inherited E11 allegation that divisor-preserving transport is necessarily
+required, and leaves direct ambient cohomological transport as a possible
+route. Neither route's application checks are discharged by this checkpoint.
+Other application obligations below are preserved, subject to that correction.
 
-The current upstream roadmap and Tau Ceti checkouts were inspected read-only
+The previous checkpoint recorded read-only upstream roadmap and Tau Ceti checks
 at `0d144d044dacebca17b654695b6f1ad58f159b27` and
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, respectively. The quadratic and
-real-algebraic roadmap boundaries were checked as ownership leads. This
+real-algebraic roadmap boundaries were checked there as ownership leads. This
 continuation makes no new declaration-level library claim or exhaustive
-pinned-library audit, and ran no build there.
+pinned-library audit, and ran no build there. The reviewed audit has no
+`RealSurfacePeriodIndex` entry; that absence supplies no library verdict.
 
 All four consumer deliverables remain absent. Counts remain zero for nodes,
 API items, tests, planets, packet baseline declarations and formal packet
@@ -191,11 +198,14 @@ to additional targets.
   homological diagram needed for (4.3)–(4.5), pp. 82–83, citing Jannsen,
   p. 268. A general derived-category carrier does not settle it.
   G13/item 202 concerns the pair (T,p⁻¹R) in the final deformation
-  argument, pp. 94–95. Normalize β modulo 2 on the open first,
-  then verify the invariant stratification, proper stratified
-  submersion and pullback comparison square. Ordinary Ehresmann
-  triviality of T alone does not preserve that open or its Kummer class.
-  The extracted proposed repair is an obligation, not a verified proof.
+  argument, pp. 94–95. Normalize β modulo 2 on the open first and
+  verify the pullback comparison square. If using stratified transport,
+  verify the invariant stratification, control data and proper stratified
+  submersion for the actual family. Alternatively establish the required
+  restriction/reduction compatibility by direct ambient cohomological
+  transport. The accepted topology review rejects the claim that the pair
+  route is necessarily required; G13 remains an implementation check and
+  does not assert a source error. Neither route is verified here.
 
 * **Preserve the geometric hypotheses of the branch construction.**
   Proposition 5.5, pp. 89–90, starts with an ample A₀ satisfying the
