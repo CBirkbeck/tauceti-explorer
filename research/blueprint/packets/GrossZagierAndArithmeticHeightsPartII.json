@@ -30,35 +30,35 @@
         "kind": "definition",
         "module": "Mathlib/Algebra/Polynomial/Basic.lean",
         "provides": "Finite coefficient polynomials, used only for normalization witnesses.",
-        "checked": "Statement read in source at the pinned Mathlib commit; witness declarations only."
+        "checked": "Independent review: at Mathlib 082e2d37e8, Basic.lean:73 defines Polynomial (R) [Semiring R] through finitely supported coefficients; R=Q supplies the witness carrier."
       },
       {
         "ref": "mathlib:Polynomial.C",
         "kind": "definition",
         "module": "Mathlib/Algebra/Polynomial/Basic.lean",
         "provides": "Constant polynomial ring homomorphism.",
-        "checked": "Statement read in source at the pinned Mathlib commit; witness declarations only."
+        "checked": "Independent review: at Mathlib 082e2d37e8, Basic.lean:432 defines Polynomial.C : R →+* R[X]; constants agree with the witness convention."
       },
       {
         "ref": "mathlib:Polynomial.X",
         "kind": "definition",
         "module": "Mathlib/Algebra/Polynomial/Basic.lean",
         "provides": "Degree-one indeterminate.",
-        "checked": "Statement read in source at the pinned Mathlib commit; witness declarations only."
+        "checked": "Independent review: at Mathlib 082e2d37e8, Basic.lean:479 defines X=monomial 1 1, agreeing with the witness indeterminate."
       },
       {
         "ref": "mathlib:Polynomial.eval",
         "kind": "definition",
         "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
         "provides": "Evaluation in the coefficient ring.",
-        "checked": "Statement read in source at the pinned Mathlib commit; witness declarations only."
+        "checked": "Independent review: at Mathlib 082e2d37e8, Eval/Defs.lean:250 defines eval (x:R) (p:R[X]):R using eval₂ (RingHom.id R); evaluation at one over Q has the required order of arguments."
       },
       {
         "ref": "mathlib:Polynomial.derivative",
         "kind": "definition",
         "module": "Mathlib/Algebra/Polynomial/Derivative.lean",
         "provides": "Formal derivative as a linear map; derivative of a_n X^n has coefficient n*a_n.",
-        "checked": "Statement read in source at the pinned Mathlib commit; witness declarations only."
+        "checked": "Independent review: at Mathlib 082e2d37e8, Derivative.lean:46 defines derivative : R[X] →ₗ[R] R[X] under Semiring R, with coefficient a*n. Q meets these hypotheses and −P.derivative.eval 1 is the intended sign."
       }
     ]
   },
@@ -214,7 +214,8 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U0/hom-conventions",
         "PELModuli:M6",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
+        "CrystallineCohomology:CR.7/messing-filtration-interface"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U0",
@@ -257,6 +258,11 @@
           "name": "specialCycles.equivariance",
           "role": "functoriality",
           "statement": "gZ(L)=Z(gL) for the framing unitary action."
+        },
+        {
+          "name": "specialCycles.baseChange",
+          "role": "functoriality",
+          "statement": "For a base change of the test scheme, pullback of Z(L) is the same simultaneous Hom-lifting locus; in particular Z(L+M)=Z(L)∩Z(M) as closed subfunctors."
         }
       ],
       "tests": [
@@ -289,10 +295,10 @@
       ],
       "title": "Cartier and difference divisors",
       "kind": "theorem",
-      "statement": "For 0≠x∈V, Z(x) is an effective relative Cartier divisor or empty. D(x)=Z(x)−Z(x/varpi) is effective and regular; locally finitely Z(x)=Σ_i≥0 D(x/varpi^i). For independent x,y whose codimensions add, their Cartier equations form a regular sequence, giving vanishing of the positive Tor groups.",
+      "statement": "For 0≠x∈V, Z(x) is an effective Cartier divisor or empty; relative flatness is not asserted. D(x)=Z(x)−Z(x/varpi) is effective and regular, and locally finitely Z(x)=Σ_i≥0 D(x/varpi^i). For F-linearly independent x,y, Tor_i(O_Z(x),O_Z(y))=0 for i>0. The special-cycle dimension theorem supplies the codimension condition needed to apply regular-sequence comparison.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the requested Hom obstruction and difference-divisor regularity theorem; apply CM regular-sequence comparison, not a blanket intersection-transversality assertion."
+        "Use the requested Hom obstruction, difference-divisor regularity and special-cycle dimension theorems. For two independent labels the latter gives codimension two; then apply Cohen–Macaulay regular-sequence comparison. A nonzero label can have a vertical cycle, so Cartierness must not be upgraded to relative flatness."
       ],
       "acceptance": [
         "Recover precisely the stated hypotheses and normalization; do not weaken the dependency contracts."
@@ -309,7 +315,7 @@
         {
           "sourceId": "LZ",
           "locator": "§2.4 p.11; Lemma 2.8.1 pp.13–14",
-          "match": "For 0≠x∈V, Z(x) is an effective relative Cartier divisor or empty. D(x)=Z(x)−Z(x/varpi) is effective and regular; locally finitely Z(x)=Σ_i≥0 D(x/varpi^i). For independent x,y whose codimensions add, their Cartier equations form a regular sequence, giving vanishing of the positive Tor groups."
+          "match": "For 0≠x∈V, Z(x) is an effective Cartier divisor or empty; relative flatness is not asserted. D(x)=Z(x)−Z(x/varpi) is effective and regular, and locally finitely Z(x)=Σ_i≥0 D(x/varpi^i). For F-linearly independent x,y, Tor_i(O_Z(x),O_Z(y))=0 for i>0. The special-cycle dimension theorem supplies the codimension condition needed to apply regular-sequence comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -392,6 +398,11 @@
           "name": "derivedCycle.euler",
           "role": "compatibility",
           "statement": "On a finite proper support, Int is the alternating length Euler characteristic."
+        },
+        {
+          "name": "derivedCycle.baseChange",
+          "role": "functoriality",
+          "statement": "Flat pullback of the supported perfect tensor complex is the tensor of the pulled-back special-cycle complexes; disjoint supports give the zero class."
         }
       ],
       "tests": [
@@ -460,7 +471,7 @@
       ],
       "title": "Self-dual cancellation",
       "kind": "theorem",
-      "statement": "If L=M⊥L_2 with M integral self-dual of rank 0≤r<n, then Z(M)≅N_(n−r), and the restricted special Hom cycles identify with those for M^perp. For full-rank L this gives Int_n(L)=Int_(n−r)(L_2); the split summand must have the correct framing signature.",
+      "statement": "If L=M⊥L_2 with M self-dual of rank 0≤r<n and L_2 integral, then Z(M)≅N_(n−r), and the restricted special Hom cycles identify with those for M^perp. For full-rank L this gives Int_n(L)=Int_(n−r)(L_2); the split summand must have the correct framing signature.",
       "hypotheses": [],
       "proofSteps": [
         "Split off the unit polarized p-divisible-group summand and apply the projection formula for its regular immersion."
@@ -480,7 +491,7 @@
         {
           "sourceId": "LZ",
           "locator": "§2.11, Lemma 2.11.1 p.15",
-          "match": "If L=M⊥L_2 with M integral self-dual of rank 0≤r<n, then Z(M)≅N_(n−r), and the restricted special Hom cycles identify with those for M^perp. For full-rank L this gives Int_n(L)=Int_(n−r)(L_2); the split summand must have the correct framing signature."
+          "match": "If L=M⊥L_2 with M self-dual of rank 0≤r<n and L_2 integral, then Z(M)≅N_(n−r), and the restricted special Hom cycles identify with those for M^perp. For full-rank L this gives Int_n(L)=Int_(n−r)(L_2); the split summand must have the correct framing signature."
         }
       ],
       "implementationStatus": "unchecked",
@@ -533,7 +544,7 @@
       ],
       "title": "Unitary Deligne–Lusztig varieties",
       "kind": "definition",
-      "statement": "For a nonsplit hermitian space over F_(q²) of dimension 2d+1, let Y_d classify (d+1)-planes U with U^perp⊂U. Orthogonality uses the Frobenius-twisted hermitian pairing. Y_d is smooth projective of dimension d, with closed strata indexed by rational isotropic data.",
+      "statement": "For a nondegenerate hermitian space over F_(q²) of dimension 2d+1, let Y_d classify (d+1)-planes U with U^perp⊂U. Orthogonality uses the Frobenius-twisted hermitian pairing. Y_d is smooth projective of dimension d, with closed strata indexed by rational isotropic data.",
       "hypotheses": [],
       "proofSteps": [
         "Construct the Grassmannian incidence variety; import its standard scheme and cohomology foundations."
@@ -555,7 +566,7 @@
         {
           "sourceId": "LZ",
           "locator": "§2.5 p.12; §5.3 pp.25–26",
-          "match": "For a nonsplit hermitian space over F_(q²) of dimension 2d+1, let Y_d classify (d+1)-planes U with U^perp⊂U. Orthogonality uses the Frobenius-twisted hermitian pairing. Y_d is smooth projective of dimension d, with closed strata indexed by rational isotropic data."
+          "match": "For a nondegenerate hermitian space over F_(q²) of dimension 2d+1, let Y_d classify (d+1)-planes U with U^perp⊂U. Orthogonality uses the Frobenius-twisted hermitian pairing. Y_d is smooth projective of dimension d, with closed strata indexed by rational isotropic data."
         }
       ],
       "implementationStatus": "unchecked",
@@ -584,6 +595,11 @@
           "name": "unitaryDl.frobenius",
           "role": "functoriality",
           "statement": "Frobenius preserves the rational stratification."
+        },
+        {
+          "name": "unitaryDl.baseChange",
+          "role": "functoriality",
+          "statement": "For every extension of the residue field, points are obtained by base changing the hermitian space and Frobenius incidence equation; morphisms of test schemes pull back the tautological subbundle."
         }
       ],
       "tests": [
@@ -676,6 +692,11 @@
           "name": "vertices.cycleSupport",
           "role": "compatibility",
           "statement": "Z(L)_red is the union of V(Λ) with L⊂Λ."
+        },
+        {
+          "name": "vertices.ext",
+          "role": "extensionality",
+          "statement": "Equality of the underlying OF-sublattices gives equality of vertices, their quotient hermitian data and their closed strata."
         }
       ],
       "tests": [
@@ -716,7 +737,7 @@
       "acceptance": [
         "An entirely horizontal Cartier cycle has zero vertical class.",
         "A component contained in the special fibre cannot enter the generic-fibre closure.",
-        "No canonical sheaf decomposition is asserted from a K-class decomposition."
+        "On a proper curve C wholly contained in a Cartier D, the vertical-class pairing is deg_C O(D)|_C; discarding Tor instead gives χ(O_C) and generally disagrees."
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U0/derived-cycle",
@@ -766,6 +787,11 @@
           "name": "horizontalSplitting.support",
           "role": "compatibility",
           "statement": "Vertical support is formal support, not just set-theoretic support."
+        },
+        {
+          "name": "horizontalSplitting.restriction",
+          "role": "compatibility",
+          "statement": "Restriction to the generic fiber kills the vertical class and identifies the horizontal class with the original derived intersection there."
         }
       ],
       "tests": [
@@ -782,7 +808,7 @@
         {
           "name": "horizontalSplitting.check3",
           "kind": "boundary",
-          "statement": "No canonical sheaf decomposition is asserted from a K-class decomposition."
+          "statement": "On a proper curve C wholly contained in a Cartier D, the vertical-class pairing is deg_C O(D)|_C; discarding Tor instead gives χ(O_C) and generally disagrees."
         }
       ],
       "plannedName": "horizontalSplitting"
@@ -809,7 +835,10 @@
         "GrossZagierAndArithmeticHeightsPartII:U1/horizontal-splitting",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
-        "GrossZagierAndArithmeticHeightsPartII:U1/tate-lifting"
+        "GrossZagierAndArithmeticHeightsPartII:U1/tate-lifting",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3/normalized-siegel-polynomial",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/quasi-canonical-lift",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/quadratic-degree"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U1",
@@ -852,6 +881,11 @@
           "name": "primitiveHorizontal.degree",
           "role": "data",
           "statement": "Use degree one in type zero and q^s(1+q^(-1)) in type one with s=val(M)>0."
+        },
+        {
+          "name": "primitiveHorizontal.marking",
+          "role": "compatibility",
+          "statement": "Transport of a quasi-canonical lift through a marked LT.6 isomorphism preserves its conductor and primitive locus; LT.7 degrees are converted using the stated base-uniformizer convention."
         }
       ],
       "tests": [
@@ -988,7 +1022,7 @@
       ],
       "title": "Tate classes generated by strata",
       "kind": "theorem",
-      "statement": "For every positive Frobenius power and every degree, the Tate classes of smooth projective Y_d are generated by cycle classes of its closed Deligne–Lusztig strata of the relevant dimension. In the open complement no additional Tate classes survive. This is proved for these varieties, not assumed for general varieties.",
+      "statement": "For 0≤i≤d, the Tate classes H^(2i)(Y_d,Q_l(i)) fixed by any positive power of geometric Frobenius are spanned by the dimension-(d−i) closed Deligne–Lusztig strata, including Y_d itself for i=0. The open complement has no Tate classes in positive cohomological degrees; its H^0 is not discarded. This generation statement is specific to Y_d.",
       "hypotheses": [],
       "proofSteps": [
         "Induct on closed strata using excision, the explicit eigenvalues and semisimplicity."
@@ -1009,7 +1043,7 @@
         {
           "sourceId": "LZ",
           "locator": "Lemma 5.3.1 and Theorem 5.3.2 pp.25–26",
-          "match": "For every positive Frobenius power and every degree, the Tate classes of smooth projective Y_d are generated by cycle classes of its closed Deligne–Lusztig strata of the relevant dimension. In the open complement no additional Tate classes survive. This is proved for these varieties, not assumed for general varieties."
+          "match": "For 0≤i≤d, the Tate classes H^(2i)(Y_d,Q_l(i)) fixed by any positive power of geometric Frobenius are spanned by the dimension-(d−i) closed Deligne–Lusztig strata, including Y_d itself for i=0. The open complement has no Tate classes in positive cohomological degrees; its H^0 is not discarded. This generation statement is specific to Y_d."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1075,7 +1109,8 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U1/vertices",
         "SchemeKTheoryOperationsPartII:FK.4/cartier-divisor-pairing",
-        "MetaplecticAutomorphicForms:MP.0"
+        "MetaplecticAutomorphicForms:MP.0",
+        "GrossZagierAndArithmeticHeightsPartII:U1/low-rank-vertical"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U2",
@@ -1114,6 +1149,11 @@
           "name": "curveFunction.contained",
           "role": "relation",
           "statement": "If the curve lies in Z(x), the Euler pairing is still the Cartier line-bundle degree."
+        },
+        {
+          "name": "curveFunction.extensionUnique",
+          "role": "extensionality",
+          "statement": "Two locally constant extensions agreeing outside span_F Lflat agree everywhere, since that proper hyperplane has empty interior."
         }
       ],
       "tests": [
@@ -1229,6 +1269,11 @@
           "name": "chernQuotient.pairing",
           "role": "characterisation",
           "statement": "Equal classes in this quotient have equal admitted cohomological degree pairings."
+        },
+        {
+          "name": "chernQuotient.factor",
+          "role": "universal-property",
+          "statement": "A rational linear functional on supported K-theory descends to the cycle-class quotient exactly when it kills the kernel of the specified cycle-class map."
         }
       ],
       "tests": [
@@ -1328,13 +1373,13 @@
       ],
       "title": "Unramified analytic horizontal and vertical functions",
       "kind": "definition",
-      "statement": "For integral nondegenerate rank n−1 Lflat and x outside H=span_F Lflat, set ∂Den_Lflat(x)=∂Den(Lflat+OF x)=Σ_M m(t(M))1_M(x), over integral full-rank M containing Lflat. Here m(0)=m(1)=1 and m(a)=∏_(i=1)^(a−1)(1−(−q)^i) for a≥2. The sum is finite at each such x. Define ∂Den_H by retaining precisely the M with t(M∩H)≤1, and ∂Den_V=∂Den−∂Den_H. Define Int_H by the Euler pairing of the primitive horizontal cycle with Z(x), and Int_V=Int−Int_H.",
+      "statement": "For integral nondegenerate rank n−1 Lflat and x outside H=span_F Lflat, set ∂Den_Lflat(x)=∂Den(Lflat+OF x)=Σ_M m(t(M))1_M(x), over integral full-rank M containing Lflat. Here m(0)=0, m(1)=1 and m(a)=∏_(i=1)^(a−1)(1−(−q)^i) for a≥2. The sum is finite at each such x. Define ∂Den_H by retaining precisely the M with t(M∩H)≤1, and ∂Den_V=∂Den−∂Den_H. Define Int_H by the Euler pairing of the full horizontal sum of primitive cycles with Z(x), and Int_V=Int−Int_H.",
       "hypotheses": [],
       "proofSteps": [
         "Differentiate the finite overlattice expansion and identify horizontal terms via quasi-canonical degrees."
       ],
       "acceptance": [
-        "Self-dual cancellation removes a unimodular summand before evaluating the total.",
+        "The canonical differentiated weight is m(0)=0 and m(1)=1; in the nonsplit full-rank ambient space all contributing types are positive odd.",
         "No initial value on the excluded hyperplane is assigned by substitution into a singular sum.",
         "The rank-one odd-valuation total has derivative (a+1)/2."
       ],
@@ -1351,8 +1396,8 @@
       "sources": [
         {
           "sourceId": "LZ",
-          "locator": "Definitions 6.1.1–6.1.4 pp.33–34; Definitions 7.3.1–7.3.3 pp.44–45",
-          "match": "For integral nondegenerate rank n−1 Lflat and x outside H=span_F Lflat, set ∂Den_Lflat(x)=∂Den(Lflat+OF x)=Σ_M m(t(M))1_M(x), over integral full-rank M containing Lflat. Here m(0)=m(1)=1 and m(a)=∏_(i=1)^(a−1)(1−(−q)^i) for a≥2. The sum is finite at each such x. Define ∂Den_H by retaining precisely the M with t(M∩H)≤1, and ∂Den_V=∂Den−∂Den_H. Define Int_H by the Euler pairing of the primitive horizontal cycle with Z(x), and Int_V=Int−Int_H."
+          "locator": "Definitions 3.5.1–3.5.2 p.17; Definitions 6.1.1–6.1.4 pp.33–34; Definitions 7.3.1–7.3.3 pp.44–45 (type-zero extension corrected)",
+          "match": "For integral nondegenerate rank n−1 Lflat and x outside H=span_F Lflat, set ∂Den_Lflat(x)=∂Den(Lflat+OF x)=Σ_M m(t(M))1_M(x), over integral full-rank M containing Lflat. Here m(0)=0, m(1)=1 and m(a)=∏_(i=1)^(a−1)(1−(−q)^i) for a≥2. The sum is finite at each such x. Define ∂Den_H by retaining precisely the M with t(M∩H)≤1, and ∂Den_V=∂Den−∂Den_H. Define Int_H by the Euler pairing of the full horizontal sum of primitive cycles with Z(x), and Int_V=Int−Int_H."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1381,13 +1426,18 @@
           "name": "analyticSplit.vertical",
           "role": "relation",
           "statement": "The vertical function is total minus horizontal."
+        },
+        {
+          "name": "analyticSplit.latticeExt",
+          "role": "extensionality",
+          "statement": "Equal embedded lattices Lflat give equal total, horizontal and vertical functions on their common complement; a basis is not part of this datum."
         }
       ],
       "tests": [
         {
           "name": "analyticSplit.check1",
           "kind": "example",
-          "statement": "Self-dual cancellation removes a unimodular summand before evaluating the total."
+          "statement": "The canonical differentiated weight is m(0)=0 and m(1)=1; in the nonsplit full-rank ambient space all contributing types are positive odd."
         },
         {
           "name": "analyticSplit.check2",
@@ -1565,7 +1615,7 @@
       ],
       "acceptance": [
         "An even norm valuation in W_1 is compatible with the split space.",
-        "Valuation a<2 makes the rank-one Y-cycle empty.",
+        "In the split rank-one case, valuation a=0 gives the empty Y-cycle and Int_Y=0, whereas a=2 gives Int_Y=1.",
         "Multiplying Int_aux by q+1 restores its integral Euler numerator."
       ],
       "prerequisites": [
@@ -1610,6 +1660,11 @@
           "name": "almostdualCycles.density",
           "role": "compatibility",
           "statement": "D_Λ(X,L)=D(X,L⊥<varpi>) uses the unramified normalized density."
+        },
+        {
+          "name": "almostdualCycles.basis",
+          "role": "compatibility",
+          "statement": "Changing an OF-basis preserves the derived Y-intersection class and both original and normalized auxiliary Euler numbers."
         }
       ],
       "tests": [
@@ -1621,7 +1676,7 @@
         {
           "name": "almostdualCycles.check2",
           "kind": "boundary",
-          "statement": "Valuation a<2 makes the rank-one Y-cycle empty."
+          "statement": "In the split rank-one case, valuation a=0 gives the empty Y-cycle and Int_Y=0, whereas a=2 gives Int_Y=1."
         },
         {
           "name": "almostdualCycles.check3",
@@ -1654,8 +1709,9 @@
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U4/almostdual-cycles",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
-        "SchemeKTheoryOperationsPartII:FK.4/proper-pushforward-projection"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
+        "SchemeKTheoryOperationsPartII:FK.4/proper-pushforward-projection",
+        "CrystallineCohomology:CR.7/messing-filtration-interface"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U4",
@@ -1664,7 +1720,7 @@
       "sources": [
         {
           "sourceId": "LRZ",
-          "locator": "Theorem 14.6.2 pp.60–61; Corollary 16.1.5 p.66; §16.4 pp.69–70",
+          "locator": "Theorem 14.6.2 pp.60–61; Corollary 16.1.5 p.69; §16.4 pp.70–71",
           "match": "Identify the LZ comparison diagram Ntilde→N_n^1 and Ntilde→Z(x0) with LRZ §14’s lattice-pair model. Ntilde is regular; π1 is finite flat of degree q+1, étale away from the balloon locus and totally ramified there. π2 is proper and an isomorphism off its centers. Reduced exceptional components are disjoint P^(n−1), with normal bundle O(−1); their n-fold Euler self-intersection is (−1)^(n−1). The reduced inverse image of the balloon locus is the exceptional divisor."
         },
         {
@@ -1699,6 +1755,11 @@
           "name": "comparisonModel.exceptional",
           "role": "compatibility",
           "statement": "Use reduced exceptional components and O(−1) normal bundles."
+        },
+        {
+          "name": "comparisonModel.pullback",
+          "role": "functoriality",
+          "statement": "On corresponding special-cycle supports, pullback of the cycle complex along the comparison projection is the complex for its transported Hom label; projection degrees are applied only with the stated support hypotheses."
         }
       ],
       "tests": [
@@ -1887,12 +1948,13 @@
       "acceptance": [
         "Odd n is outside this exotic smooth family.",
         "Dropping u^(−2) shifts every norm valuation.",
-        "A one-component intersection is half of the total only after the component symmetry theorem."
+        "At n=2 and minimal integral invariants (1,1), the total intersection is two, with one on each component."
       ],
       "prerequisites": [
         "PELModuli:M6",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice",
+        "CrystallineCohomology:CR.7/messing-filtration-interface"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U5",
@@ -1939,6 +2001,11 @@
           "name": "exoticCycles.components",
           "role": "data",
           "statement": "Both connected components belong to the model."
+        },
+        {
+          "name": "exoticCycles.baseChange",
+          "role": "functoriality",
+          "statement": "The Hom-lifting subfunctor commutes with base change of test schemes and depends only on the OE-span of its labels."
         }
       ],
       "tests": [
@@ -1955,7 +2022,7 @@
         {
           "name": "exoticCycles.check3",
           "kind": "boundary",
-          "statement": "A one-component intersection is half of the total only after the component symmetry theorem."
+          "statement": "At n=2 and minimal integral invariants (1,1), the total intersection is two, with one on each component."
         }
       ],
       "planet": {
@@ -2021,6 +2088,11 @@
           "name": "exoticLine.zero",
           "role": "data",
           "statement": "C(0) has terms omega and O with zero differential."
+        },
+        {
+          "name": "exoticLine.pullback",
+          "role": "functoriality",
+          "statement": "Pulling back the two-term complex pulls back its ideal/line terms and differential; its class is [O]−[omega] for the zero label."
         }
       ],
       "tests": [
@@ -2061,7 +2133,8 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U5/exotic-line",
         "SchemeKTheoryOperationsPartII:FK.1/supported-cup-product",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
+        "CrystallineCohomology:CR.7/messing-filtration-interface"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U5",
@@ -2137,6 +2210,11 @@
           "name": "exoticVertices.incidence",
           "role": "compatibility",
           "statement": "Intersecting strata are controlled by vertex sums."
+        },
+        {
+          "name": "exoticVertices.ext",
+          "role": "extensionality",
+          "statement": "Equal OE-sublattices give equal vertices and strata, with the same trace dual and type."
         }
       ],
       "tests": [
@@ -2169,7 +2247,7 @@
       ],
       "title": "Exotic Tate reduction and modular line degree",
       "kind": "theorem",
-      "statement": "The relevant even cohomology/Tate homology of each exotic stratum is generated by its closed boundary strata. The open type-²D calculation has squared-Frobenius eigenvalues q^(2j) in degree j+t/2−1, with the required semisimplicity. For each type-four component C≅P¹, deg_C omega=q−1. This gives numerical reduction of vertical classes to these curves.",
+      "statement": "For d≥0, the d-dimensional Tate homology classes on an exotic stratum are spanned by the contained strata of type 2d+2. This includes the whole stratum in its top dimension, not only its boundary. For type t, the open type-²D compactly supported calculation has squared-Frobenius eigenvalues q^(2j) in degree j+t/2−1, for 0≤j≤t/2−1, with semisimple eigenspaces. For each type-four component C≅P¹, deg_C omega=q−1. These statements give numerical reduction of vertical classes to curves.",
       "hypotheses": [],
       "proofSteps": [
         "Use the specific Lusztig calculation and closed/open sequences, then compute the universal line on the P¹ incidence model. The external cohomology calculation remains a proof-leaf gap."
@@ -2190,7 +2268,7 @@
         {
           "sourceId": "LL2",
           "locator": "Lemma 2.32 p.23; Lemma 2.42 p.27",
-          "match": "The relevant even cohomology/Tate homology of each exotic stratum is generated by its closed boundary strata. The open type-²D calculation has squared-Frobenius eigenvalues q^(2j) in degree j+t/2−1, with the required semisimplicity. For each type-four component C≅P¹, deg_C omega=q−1. This gives numerical reduction of vertical classes to these curves."
+          "match": "For d≥0, the d-dimensional Tate homology classes on an exotic stratum are spanned by the contained strata of type 2d+2. This includes the whole stratum in its top dimension, not only its boundary. For type t, the open type-²D compactly supported calculation has squared-Frobenius eigenvalues q^(2j) in degree j+t/2−1, for 0≤j≤t/2−1, with semisimple eigenspaces. For each type-four component C≅P¹, deg_C omega=q−1. These statements give numerical reduction of vertical classes to curves."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2204,17 +2282,19 @@
       ],
       "title": "Exotic rank-two intersection",
       "kind": "comparison",
-      "statement": "For n=2 and integral lattice invariants (2b1+1,2b2+1) with 0≤b1≤b2, Int(L)=2Σ_(j=0)^b1(Σ_(i=0)^j q^i+(b2−j)q^j). The outer factor two counts both components; the inner upper bound is j. The same polynomial is the normalized density derivative.",
+      "statement": "For n=2 and integral lattice invariants (2b1+1,2b2+1) with 0≤b1≤b2, Int(L)=2Σ_(j=0)^b1(Σ_(i=0)^j q^i+(b2−j)q^j). The outer factor two counts both components; the inner upper bound is j. This is the geometric rank-two formula; its density comparison is made in U6 using the ramified density interface.",
       "hypotheses": [],
       "proofSteps": [
-        "Evaluate quasi-canonical intersection lengths on both components and compare the ramified rank-two density."
+        "Evaluate the quasi-canonical intersection lengths on both components. This uses the recorded rank-two lifting-length leaf; identification with the density derivative is deferred to U6, which supplies that analytic interface without a backward layer dependency."
       ],
       "acceptance": [
         "(b1,b2)=(0,0) gives 2; (0,1) gives 4; (1,1) gives 2(q+3)."
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U5/exotic-linear",
-        "GrossZagierAndArithmeticHeightsPartII:U5/exotic-tate"
+        "GrossZagierAndArithmeticHeightsPartII:U5/exotic-tate",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/quasi-canonical-lift",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/quadratic-degree"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U5",
@@ -2224,7 +2304,7 @@
         {
           "sourceId": "LL2",
           "locator": "Proposition 2.44, author pp.28–29",
-          "match": "For n=2 and integral lattice invariants (2b1+1,2b2+1) with 0≤b1≤b2, Int(L)=2Σ_(j=0)^b1(Σ_(i=0)^j q^i+(b2−j)q^j). The outer factor two counts both components; the inner upper bound is j. The same polynomial is the normalized density derivative."
+          "match": "For n=2 and integral lattice invariants (2b1+1,2b2+1) with 0≤b1≤b2, Int(L)=2Σ_(j=0)^b1(Σ_(i=0)^j q^i+(b2−j)q^j). The outer factor two counts both components; the inner upper bound is j. This is the geometric rank-two formula; its density comparison is made in U6 using the ramified density interface."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2316,7 +2396,7 @@
       "acceptance": [
         "The coefficient of each eligible horizontal overlattice is two.",
         "An overlattice whose hyperplane intersection has type three is excluded.",
-        "The zero-vector complex governs evaluations on the excluded hyperplane after extension."
+        "For the zero label the Euler class is obtained with C(0)=[omega→0 O], giving [O]−[omega], rather than [O]."
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U6/exotic-density",
@@ -2366,6 +2446,11 @@
           "name": "exoticSplit.vertical",
           "role": "relation",
           "statement": "Both analytic and geometric vertical objects are defined by subtraction."
+        },
+        {
+          "name": "exoticSplit.latticeExt",
+          "role": "extensionality",
+          "statement": "The split depends on the embedded lattice, not its basis; H+V recovers the full class or function on the admitted domain."
         }
       ],
       "tests": [
@@ -2382,7 +2467,7 @@
         {
           "name": "exoticSplit.check3",
           "kind": "boundary",
-          "statement": "The zero-vector complex governs evaluations on the excluded hyperplane after extension."
+          "statement": "For the zero label the Euler class is obtained with C(0)=[omega→0 O], giving [O]−[omega], rather than [O]."
         }
       ],
       "plannedName": "exoticSplit"
@@ -2610,7 +2695,7 @@
       ],
       "title": "Relative and absolute exotic cycle comparison",
       "kind": "comparison",
-      "statement": "Under the relative/absolute RZ functor equivalence of LL2 Corollary 2.65, the special Hom spaces identify isometrically with their scaled forms, and the special cycles and derived classes correspond. Thus the local identity is available in the global unitary-model convention without a valuation shift.",
+      "statement": "Assume the base field F/Q_p is unramified, as in LL2 §2.8. Under the relative/absolute RZ functor equivalence of LL2 Corollary 2.65, the special Hom spaces identify isometrically with their scaled forms, and the special cycles and derived classes correspond. Thus the local identity is available in the global unitary-model convention without a valuation shift.",
       "hypotheses": [],
       "proofSteps": [
         "Compare the Hom-lifting functors through the relative Dieudonné equivalence; this equivalence is a requested RZ-model input."
@@ -2621,7 +2706,8 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U5/exotic-cycles",
         "GrossZagierAndArithmeticHeightsPartII:U6/exotic-main",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
+        "CrystallineCohomology:CR.7/messing-filtration-interface"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U6",
@@ -2631,7 +2717,7 @@
         {
           "sourceId": "LL2",
           "locator": "Corollaries 2.65–2.66, author p.43",
-          "match": "Under the relative/absolute RZ functor equivalence of LL2 Corollary 2.65, the special Hom spaces identify isometrically with their scaled forms, and the special cycles and derived classes correspond. Thus the local identity is available in the global unitary-model convention without a valuation shift."
+          "match": "Assume the base field F/Q_p is unramified, as in LL2 §2.8. Under the relative/absolute RZ functor equivalence of LL2 Corollary 2.65, the special Hom spaces identify isometrically with their scaled forms, and the special cycles and derived classes correspond. Thus the local identity is available in the global unitary-model convention without a valuation shift."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2653,12 +2739,13 @@
       "acceptance": [
         "The filtration has rank n−1, not rank one unless n=2.",
         "A framing quasi-isogeny that fails polarization compatibility is excluded.",
-        "The zero label is excluded from the Cartier statement."
+        "Z(0) is the entire Krämer model and has codimension zero, whereas a nonzero liftable label gives a Cartier cycle."
       ],
       "prerequisites": [
         "PELModuli:M6",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/integral-hermitian-lattice",
+        "CrystallineCohomology:CR.7/messing-filtration-interface"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U7",
@@ -2697,6 +2784,11 @@
           "name": "kramerCycles.basis",
           "role": "compatibility",
           "statement": "Howard’s compatible ideal maps give basis-independent derived classes."
+        },
+        {
+          "name": "kramerCycles.baseChange",
+          "role": "functoriality",
+          "statement": "Pullback of the Krämer test object and its Lie filtration pulls back each special Hom-lifting locus, retaining the polarization-compatible framing."
         }
       ],
       "tests": [
@@ -2713,7 +2805,7 @@
         {
           "name": "kramerCycles.check3",
           "kind": "boundary",
-          "statement": "The zero label is excluded from the Cartier statement."
+          "statement": "Z(0) is the entire Krämer model and has codimension zero, whereas a nonzero liftable label gives a Cartier cycle."
         }
       ],
       "planet": {
@@ -2775,6 +2867,11 @@
           "name": "symplecticIncidence.smallRank",
           "role": "compatibility",
           "statement": "At m=1, U′=0 and Y_V=S_V=P¹."
+        },
+        {
+          "name": "symplecticIncidence.functor",
+          "role": "functoriality",
+          "statement": "An isometry of symplectic spaces commuting with Frobenius transports the pair U′⊂U, commutes with the projection and induces an isomorphism of incidence schemes."
         }
       ],
       "tests": [
@@ -2820,7 +2917,8 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U7/kramer-cycles",
         "GrossZagierAndArithmeticHeightsPartII:U7/symplectic-incidence",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice",
+        "GrossZagierAndArithmeticHeightsPartII:U7/kramer-deformation"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U7",
@@ -2867,6 +2965,11 @@
           "name": "kramerStrata.support",
           "role": "compatibility",
           "statement": "The support criterion assumes L integral."
+        },
+        {
+          "name": "kramerStrata.incidence",
+          "role": "relation",
+          "statement": "Stratum intersection and containment are computed using the source vertex inclusions with the hermitian sharp dual, without substituting the trace dual."
         }
       ],
       "tests": [
@@ -2896,17 +2999,20 @@
       ],
       "title": "Krämer stratum deformation",
       "kind": "theorem",
-      "statement": "For positive-type Λ the PD deformation flags satisfy F^perp rank one⊂Fil rank n⊂D rank 2n, Fil maximal isotropic, (Π+π)F^perp=0, (Π−π)Fil⊂F^perp, Fil containing (Π+π)Λ and F^perp⊂Λ^perp. There are no O/π²-valued deformations and tangent dimension≤m. These prove N_Λ reduced smooth and the incidence identification. For type zero the no-π² statement and the separate thickening lemma are both required.",
+      "statement": "Define N_Λ by K Definition 3.4 before proving its incidence identification. For positive-type Λ, impose the additional Lie-image condition of Definition 3.7. Its covariant PD deformation flags satisfy F^perp rank one⊂Fil rank n⊂D rank 2n, Fil maximal isotropic, (Π+π)F^perp=0, (Π−π)Fil⊂F^perp, Fil containing (Π+π)Λ and F^perp⊂Λ^perp. There are no O/π²-valued deformations and tangent dimension≤m for type 2m>0. These imply reducedness and smoothness and hence the incidence identification. For type zero a separate no-π² argument and the infinitesimal thickening criterion remain required; the positive-type coordinate argument cannot simply be specialized to m=0.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply Grothendieck–Messing with the chosen covariant convention, then the no-thickening criterion. The auxiliary type-zero thickening lemma is an explicit proof leaf."
+        "Construct the lattice-defined closed subfunctor directly from the Krämer moduli problem, without assuming the strata theorem. Apply Grothendieck–Messing and the positive-type coordinate calculation, then the no-thickening criterion. At type zero the positive-type proof chooses a coefficient required simultaneously to be a unit and zero when m=0; supply a separate argument and the cited thickening lemma as a recorded leaf."
       ],
       "acceptance": [
         "Recover precisely the stated hypotheses and normalization; do not weaken the dependency contracts."
       ],
       "prerequisites": [
-        "GrossZagierAndArithmeticHeightsPartII:U7/kramer-strata",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+        "GrossZagierAndArithmeticHeightsPartII:U7/kramer-cycles",
+        "GrossZagierAndArithmeticHeightsPartII:U7/symplectic-incidence",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-dual-lattice",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/covariant-dieudonne-module",
+        "CrystallineCohomology:CR.7/messing-filtration-interface"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U7",
@@ -2916,7 +3022,7 @@
         {
           "sourceId": "K",
           "locator": "Definition 3.7, Lemmas 3.8–3.15, Theorem 3.16 pp.19–25; Proposition 3.17 pp.25–26",
-          "match": "For positive-type Λ the PD deformation flags satisfy F^perp rank one⊂Fil rank n⊂D rank 2n, Fil maximal isotropic, (Π+π)F^perp=0, (Π−π)Fil⊂F^perp, Fil containing (Π+π)Λ and F^perp⊂Λ^perp. There are no O/π²-valued deformations and tangent dimension≤m. These prove N_Λ reduced smooth and the incidence identification. For type zero the no-π² statement and the separate thickening lemma are both required."
+          "match": "Define N_Λ by K Definition 3.4 before proving its incidence identification. For positive-type Λ, impose the additional Lie-image condition of Definition 3.7. Its covariant PD deformation flags satisfy F^perp rank one⊂Fil rank n⊂D rank 2n, Fil maximal isotropic, (Π+π)F^perp=0, (Π−π)Fil⊂F^perp, Fil containing (Π+π)Λ and F^perp⊂Λ^perp. There are no O/π²-valued deformations and tangent dimension≤m for type 2m>0. These imply reducedness and smoothness and hence the incidence identification. For type zero a separate no-π² argument and the infinitesimal thickening criterion remain required; the positive-type coordinate argument cannot simply be specialized to m=0."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2943,7 +3049,9 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U7/kramer-strata",
         "GrossZagierAndArithmeticHeightsPartII:U1/primitive-horizontal",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2/hermitian-lattice-invariants",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6/quasi-canonical-lift",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7/quadratic-degree"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U7",
@@ -2982,6 +3090,11 @@
           "name": "kramerHorizontal.overlattices",
           "role": "relation",
           "statement": "Sum over horizontal overlattices only."
+        },
+        {
+          "name": "kramerHorizontal.latticeExt",
+          "role": "extensionality",
+          "statement": "Replacing a basis of Mflat does not change its binary complement, primitive cycle or conductor-indexed degree."
         }
       ],
       "tests": [
@@ -3072,6 +3185,11 @@
           "name": "modifiedHorizontal.vertical",
           "role": "relation",
           "statement": "V*=derived−H* in the specified quotient."
+        },
+        {
+          "name": "modifiedHorizontal.projection",
+          "role": "compatibility",
+          "statement": "The quotient map from supported K-theory sends the derived class to H*+V*; changing a representative by F^n leaves every admitted divisor pairing unchanged."
         }
       ],
       "tests": [
@@ -3141,7 +3259,7 @@
       "statement": "For every vertex Λ and K-class supported on its proper Krämer stratum N_Λ, the special-divisor Euler function on nonzero labels extends uniquely to a Λ-invariant Schwartz–Bruhat function whose Fourier support has norm valuation≥−1. The modified geometric vertical function has the same Fourier bound. Integrating it along span Lflat gives a Schwartz function on the normal line W whose Fourier support is W_(≥−1); hence it is invariant under W_(≥0) and constant there. The Λ-translation identity for K-classes is stated only where both labels are nonzero.",
       "hypotheses": [],
       "proofSteps": [
-        "Reduce proper supported classes to curve computations; use trace dual π^(−1)sharp for Fourier support. Distinguish partial integration from the Fourier transform itself."
+        "Howard’s linear invariance gives Λ-translation invariance of the supported K-class Euler function for nonzero labels. Proper support bounds it inside Λ^sharp; translation extends the function at zero and places its Fourier support inside the trace dual π^(−1)Λ^sharp, whose norm valuation is at least −1. Decompose the modified vertical class over its finite union of proper strata. Restrict the Fourier transform to the normal line after partial integration to obtain W_(≥0)-invariance. No Tate-class generation or curve reduction is used in this Krämer argument."
       ],
       "acceptance": [
         "Recover precisely the stated hypotheses and normalization; do not weaken the dependency contracts."
@@ -3149,7 +3267,8 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U7/modified-horizontal",
         "GrossZagierAndArithmeticHeightsPartII:U7/kramer-strata",
-        "GrossZagierAndArithmeticHeightsPartII:U2/higher-local-modularity",
+        "GrossZagierAndArithmeticHeightsPartII:U7/kramer-cycles",
+        "SchemeKTheoryOperationsPartII:FK.3/closed-union-decomposition",
         "MetaplecticAutomorphicForms:MP.0"
       ],
       "library": {
@@ -3225,6 +3344,11 @@
           "name": "modifiedDensity.range",
           "role": "data",
           "statement": "The summation limit is determined by both rank and hermitian sign."
+        },
+        {
+          "name": "modifiedDensity.uniqueness",
+          "role": "universal-property",
+          "statement": "The corrected polynomial is uniquely specified by the raw derivative and the normalized dual-vertex equations, once the requested vertex-density matrix is invertible."
         }
       ],
       "tests": [
@@ -3299,7 +3423,7 @@
       "acceptance": [
         "A horizontal lattice contributes to H, not V.",
         "A constant along-hyperplane factor changes the partial integral by its Haar volume.",
-        "No zero assertion on negative normal norms is part of this definition."
+        "In the split rank-three example of U8/kramer-analytic-bound, normal norm −π0^(−1) gives vertical partial integral 2q·vol(Lflat), not zero."
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U8/primitive-density",
@@ -3343,6 +3467,11 @@
           "name": "kramerAnalyticSplit.sum",
           "role": "relation",
           "statement": "Horizontal plus vertical recovers the total function off the hyperplane."
+        },
+        {
+          "name": "kramerAnalyticSplit.latticeExt",
+          "role": "extensionality",
+          "statement": "Equal embedded hyperplane lattices give equal H/V partitions and equal partial integrals for the fixed Haar measure."
         }
       ],
       "tests": [
@@ -3359,7 +3488,7 @@
         {
           "name": "kramerAnalyticSplit.check3",
           "kind": "boundary",
-          "statement": "No zero assertion on negative normal norms is part of this definition."
+          "statement": "In the split rank-three example of U8/kramer-analytic-bound, normal norm −π0^(−1) gives vertical partial integral 2q·vol(Lflat), not zero."
         }
       ],
       "plannedName": "kramerAnalyticSplit"
@@ -3372,10 +3501,10 @@
       ],
       "title": "Corrected Krämer analytic partial-integral bound",
       "kind": "theorem",
-      "statement": "The analytic vertical partial integral is constant on W_(≥0)∖{0}, with the Fourier filtration bounds of Theorem 8.2. Its printed vanishing assertion on W_(<0) is false: in split rank three take Lflat=⟨e⟩⊥⟨ℓ⟩ with h(e,e)=1, h(ℓ,ℓ)=π0, and x∈W of norm valuation −1, where π0 is a base-field uniformizer. The 2q unimodular integral lattices Lflat+⟨x+αℓ⟩ give partial integral 2q·vol(Lflat)≠0. The final comparison uses the positive-cone constancy, not this false vanishing assertion.",
+      "statement": "The analytic vertical partial integral is constant on W_(≥0)∖{0}, after correcting the discriminant sign in the proof of K Theorem 8.2. That theorem does not independently give analytic Fourier-support bounds. Its negative-cone vanishing assertion is false: in split rank three take Lflat=⟨e⟩⊥⟨ℓ⟩ with h(e,e)=1, h(ℓ,ℓ)=π0 and x∈W with h(x,x)=−π0^(−1). Here π0 is a base-field uniformizer and norm valuations are base-field valuations. The 2q classes α∈π0^(−1)OF/OF with π0α≡±1 modulo π give unimodular integral lattices Lflat+OF(x+αℓ). Each has hyperplane intersection Lflat and primitive weight one, so the partial integral is 2q·vol(Lflat)≠0. Only positive-cone constancy is retained for the final comparison. The analytic Schwartz conclusion of Corollary 9.8 depends on the unresolved full identity in U8/kramer-main.",
       "hypotheses": [],
       "proofSteps": [
-        "Apply the primitive product formula and weighted extension count, using χ(−1)^n1 rather than (−1)^n1 in the orthogonal-sum discriminant calculation (8.6). The norm-shell identities handle either discriminant sign. Combine the scaling equality with OF-unit invariance to obtain constancy on the nonnegative cone. Retain the proved Fourier bounds; the negative-cone vanishing clause is excluded."
+        "Apply the primitive product formula and weighted extension count, using χ(−1)^n1 rather than (−1)^n1 in the orthogonal-sum discriminant calculation (8.6). The norm-shell identities handle either discriminant sign. Combine the scaling equality with OF-unit invariance to obtain positive-cone constancy. Do not import analytic Fourier or Schwartz conclusions through Corollary 9.8 before closing its dependency on Theorem 9.7."
       ],
       "acceptance": [
         "For q=5 and n1=1, the orthogonal-sum sign factor is χ(−1)=1, not −1.",
@@ -3393,7 +3522,7 @@
         {
           "sourceId": "K",
           "locator": "Theorem 8.2 pp.64–67; proof §§8.3–8.9 pp.67–72, retaining only the corrected conclusions",
-          "match": "The analytic vertical partial integral is constant on W_(≥0)∖{0}, with the Fourier filtration bounds of Theorem 8.2. Its printed vanishing assertion on W_(<0) is false: in split rank three take Lflat=⟨e⟩⊥⟨ℓ⟩ with h(e,e)=1, h(ℓ,ℓ)=π0, and x∈W of norm valuation −1, where π0 is a base-field uniformizer. The 2q unimodular integral lattices Lflat+⟨x+αℓ⟩ give partial integral 2q·vol(Lflat)≠0. The final comparison uses the positive-cone constancy, not this false vanishing assertion."
+          "match": "The analytic vertical partial integral is constant on W_(≥0)∖{0}, after correcting the discriminant sign in the proof of K Theorem 8.2. That theorem does not independently give analytic Fourier-support bounds. Its negative-cone vanishing assertion is false: in split rank three take Lflat=⟨e⟩⊥⟨ℓ⟩ with h(e,e)=1, h(ℓ,ℓ)=π0 and x∈W with h(x,x)=−π0^(−1). Here π0 is a base-field uniformizer and norm valuations are base-field valuations. The 2q classes α∈π0^(−1)OF/OF with π0α≡±1 modulo π give unimodular integral lattices Lflat+OF(x+αℓ). Each has hyperplane intersection Lflat and primitive weight one, so the partial integral is 2q·vol(Lflat)≠0. Only positive-cone constancy is retained for the final comparison. The analytic Schwartz conclusion of Corollary 9.8 depends on the unresolved full identity in U8/kramer-main."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3443,7 +3572,7 @@
       ],
       "title": "Krämer Kudla–Rapoport identity and isolated odd-top obligation",
       "kind": "theorem",
-      "statement": "Target: for every full-rank lattice on the Krämer model, Int(L)=∂Den(L). The proposed proof uses rank-two base, parity-corrected cancellation, the horizontal identity and partial-integral constancy. Its remaining induction step must handle the isolated odd top invariant separately: in split rank two with Lflat=<l1+πl2> of valuation two and x=l2, L=H1 has invariants (1,1), and every nondegenerate line in H1 has valuation≥2. Thus the blanket strict-decrease claim in Lemma 9.6 is false; Theorem 9.7 is not treated as proved by that argument.",
+      "statement": "Target: for every full-rank lattice on the Krämer model, Int(L)=∂Den(L). The proposed proof uses rank-two base, parity-corrected cancellation, the horizontal identity and partial-integral constancy. Its remaining induction step must handle the isolated odd top invariant separately: in split rank two let H1 have Gram matrix ((0,π),(−π,0)), put Lflat=<l1+πl2> and x=l2. Then Lflat has fundamental invariant two, L=H1 has invariants (1,1), and every nondegenerate line in H1 has fundamental invariant≥2. Here fundamental invariants use the extension-field π-valuation; h(l1+πl2,l1+πl2)=−2π² has base-field norm valuation one. The projection of x onto span Lflat has coefficient 1/(2π), so it is not integral. Thus the blanket strict-decrease claim in Lemma 9.6 is false; Theorem 9.7 is not treated as proved by that argument.",
       "hypotheses": [],
       "proofSteps": [
         "Supply a separate odd-top identity or another decreasing invariant, prove it covers the displayed counterexample, then finish the partial-integral comparison. This is an explicit gap, not a conjectural assumption silently removed."
@@ -3465,7 +3594,7 @@
         {
           "sourceId": "K",
           "locator": "Lemma 9.6 p.74; Theorem 9.7 p.75; Corollary 9.8 p.76",
-          "match": "Target: for every full-rank lattice on the Krämer model, Int(L)=∂Den(L). The proposed proof uses rank-two base, parity-corrected cancellation, the horizontal identity and partial-integral constancy. Its remaining induction step must handle the isolated odd top invariant separately: in split rank two with Lflat=<l1+πl2> of valuation two and x=l2, L=H1 has invariants (1,1), and every nondegenerate line in H1 has valuation≥2. Thus the blanket strict-decrease claim in Lemma 9.6 is false; Theorem 9.7 is not treated as proved by that argument."
+          "match": "Target: for every full-rank lattice on the Krämer model, Int(L)=∂Den(L). The proposed proof uses rank-two base, parity-corrected cancellation, the horizontal identity and partial-integral constancy. Its remaining induction step must handle the isolated odd top invariant separately: in split rank two let H1 have Gram matrix ((0,π),(−π,0)), put Lflat=<l1+πl2> and x=l2. Then Lflat has fundamental invariant two, L=H1 has invariants (1,1), and every nondegenerate line in H1 has fundamental invariant≥2. Here fundamental invariants use the extension-field π-valuation; h(l1+πl2,l1+πl2)=−2π² has base-field norm valuation one. The projection of x onto span Lflat has coefficient 1/(2π), so it is not integral. Thus the blanket strict-decrease claim in Lemma 9.6 is false; Theorem 9.7 is not treated as proved by that argument."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3490,7 +3619,7 @@
       "acceptance": [
         "An ordinary transverse graph intersection gives its length.",
         "A nontransverse intersection retains Tor terms.",
-        "Relative regularity alone does not imply strong regularity."
+        "For n≥3 a regular unipotent element cyclic on the distinguished vector is relatively regular but is not semisimple, so it is outside strong regularity."
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U0/basis-properness",
@@ -3533,6 +3662,11 @@
           "name": "groupIntersection.strong",
           "role": "characterisation",
           "statement": "Strong regularity is relative regularity plus conjugation semisimplicity."
+        },
+        {
+          "name": "groupIntersection.conjugation",
+          "role": "functoriality",
+          "statement": "For h in the subgroup fixing the distinguished vector, conjugation g↦hgh^−1 identifies the graph-intersection complexes and preserves their finite proper Euler length."
         }
       ],
       "tests": [
@@ -3549,7 +3683,7 @@
         {
           "name": "groupIntersection.check3",
           "kind": "boundary",
-          "statement": "Relative regularity alone does not imply strong regularity."
+          "statement": "For n≥3 a regular unipotent element cyclic on the distinguished vector is relatively regular but is not semisimple, so it is outside strong regularity."
         }
       ],
       "planet": {
@@ -3637,6 +3771,11 @@
           "name": "semilieIntersection.conjugation",
           "role": "functoriality",
           "statement": "Int(hgh^(-1),hu)=Int(g,u)."
+        },
+        {
+          "name": "semilieIntersection.linearity",
+          "role": "structure",
+          "statement": "The Euler functional is additive in supported K-classes on the common proper support; this does not make the special cycle linear in its Hom label."
         }
       ],
       "tests": [
@@ -3927,6 +4066,11 @@
           "name": "globalCycles.finite",
           "role": "compatibility",
           "statement": "Finite unramified does not mean finite étale over the arithmetic base."
+        },
+        {
+          "name": "globalCycles.baseChange",
+          "role": "functoriality",
+          "statement": "Pulling back the abelian objects, Hom tuple and prime-to-level label identifies the special-cycle functor over the new base; the Gram matrix is preserved."
         }
       ],
       "tests": [
@@ -3959,10 +4103,10 @@
       ],
       "title": "Integral cycle K-classes",
       "kind": "construction",
-      "statement": "For a factorizable characteristic Schwartz function phi=⊗_(j=1)^r phi_j and nonsingular T with diagonal t_j, define the T-supported component of ⊗^L O_Z(t_j,phi_j). It belongs to F^r K_0^Z and extends the generic codimension-r cycle; extend linearly in phi after the source-permitted shrinking of level. The construction needs coherent finite Tor and the nonaffine codimension-filtration theorem on the chosen regular model.",
+      "statement": "On the smooth proper hyperspecial model of LL1 §8, for a p-basic factorizable characteristic Schwartz function phi=⊗_(j=1)^r phi_j and nonsingular T with diagonal t_j, define the T-supported component of ⊗^L O_Z(t_j,phi_j). It belongs to F^r K_0^Z and extends the generic codimension-r cycle; extend linearly in phi after the source-permitted shrinking of level. The construction needs coherent finite Tor and the codimension-filtration theorem for this arithmetic scheme. An extension to more general integral models needs a separate comparison.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the Gram-matrix component decomposition and the requested Gillet–Soulé filtration theorem."
+        "Use the Gram-matrix component decomposition on the smooth proper hyperspecial model and the requested scheme-theoretic Gillet–Soulé filtration theorem. Extend through the finite étale changes of level away from the source’s fixed nonsplit places. This does not assert the same result for arbitrary ramified regular models or invoke an affine formal-scheme product there."
       ],
       "acceptance": [
         "For r=1 recover the Cartier structure class.",
@@ -3972,8 +4116,7 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U10/global-cycles",
         "SchemeKTheoryOperationsPartII:FK.1/supported-cup-product",
-        "SchemeAndStackFoundations:SF.5",
-        "SchemeKTheoryOperationsPartII:FK.2"
+        "SchemeAndStackFoundations:SF.5"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U10",
@@ -3983,7 +4126,7 @@
         {
           "sourceId": "LL1",
           "locator": "§8 (8.3) and footnote 17, author pp.37–38",
-          "match": "For a factorizable characteristic Schwartz function phi=⊗_(j=1)^r phi_j and nonsingular T with diagonal t_j, define the T-supported component of ⊗^L O_Z(t_j,phi_j). It belongs to F^r K_0^Z and extends the generic codimension-r cycle; extend linearly in phi after the source-permitted shrinking of level. The construction needs coherent finite Tor and the nonaffine codimension-filtration theorem on the chosen regular model."
+          "match": "On the smooth proper hyperspecial model of LL1 §8, for a p-basic factorizable characteristic Schwartz function phi=⊗_(j=1)^r phi_j and nonsingular T with diagonal t_j, define the T-supported component of ⊗^L O_Z(t_j,phi_j). It belongs to F^r K_0^Z and extends the generic codimension-r cycle; extend linearly in phi after the source-permitted shrinking of level. The construction needs coherent finite Tor and the codimension-filtration theorem for this arithmetic scheme. An extension to more general integral models needs a separate comparison."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4008,6 +4151,11 @@
           "name": "globalKClass.generic",
           "role": "compatibility",
           "statement": "The class restricts to the generic special-cycle class."
+        },
+        {
+          "name": "globalKClass.level",
+          "role": "functoriality",
+          "statement": "For a permitted finite étale level change, flat pullback preserves the T-supported summand and its codimension filtration."
         }
       ],
       "tests": [
@@ -4134,6 +4282,11 @@
           "name": "localDegree.almostdual",
           "role": "relation",
           "statement": "Auxiliary pullbacks carry the finite-flat degree correction."
+        },
+        {
+          "name": "localDegree.additive",
+          "role": "structure",
+          "statement": "The normalized local degree is additive in the supported derived K-class on a fixed proper special-fiber support."
         }
       ],
       "tests": [
@@ -4169,7 +4322,7 @@
         "Construct the endomorphism/level moduli functor and impose the order relations without normalizing the order."
       ],
       "acceptance": [
-        "Replacing R_alpha by OF′ changes bad-order fibres.",
+        "When R_alpha,v is a proper suborder of OF′,v, the action required by CM_alpha is only by R_alpha,v; imposing all OF′,v-endomorphisms defines a smaller moduli condition.",
         "Irreducibility alone does not establish the required CM property; it is a hypothesis.",
         "A vertical fat fibre need not be zero-dimensional."
       ],
@@ -4218,13 +4371,18 @@
           "name": "cmOrder.goodOrder",
           "role": "compatibility",
           "statement": "Étaleness over the base is asserted only off the nonmaximal-order and excluded places."
+        },
+        {
+          "name": "cmOrder.baseChange",
+          "role": "functoriality",
+          "statement": "Base change transports the R_alpha action and twisted level, and preserves the characteristic-polynomial condition; it does not enlarge the order to its normalization."
         }
       ],
       "tests": [
         {
           "name": "cmOrder.check1",
           "kind": "example",
-          "statement": "Replacing R_alpha by OF′ changes bad-order fibres."
+          "statement": "When R_alpha,v is a proper suborder of OF′,v, the action required by CM_alpha is only by R_alpha,v; imposing all OF′,v-endomorphisms defines a smaller moduli condition."
         },
         {
           "name": "cmOrder.check2",
@@ -4337,6 +4495,11 @@
           "name": "heckeCharacteristic.derived",
           "role": "constructor",
           "statement": "Take the derived Hecke/diagonal intersection on that component."
+        },
+        {
+          "name": "heckeCharacteristic.restriction",
+          "role": "functoriality",
+          "statement": "The derived Hecke class restricts to each open-and-closed characteristic-polynomial component, compatibly with the permitted finite étale change of level."
         }
       ],
       "tests": [
@@ -4372,7 +4535,7 @@
       "statement": "The derived CM class lies in filtration F_1 K′_0 of its proper support, hence maps through Gr_1 G_0(Q)≅CH_1(Q) to a proper rational one-cycle. This is virtual dimension one; the naive fat CM support can have larger vertical dimension. Pairing this class with arithmetic divisors uses proper pushforward and the graded projection.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the expected-dimension supported filtration theorem on the finite Hecke correspondence, then rational Riemann–Roch. This filtration input is requested explicitly."
+        "Use the scheme-theoretic dimension filtration on the finite Hecke correspondence over the arithmetic model and its finite-pushforward compatibility, then rational Riemann–Roch. The SF.5 extension request supplies this exact input. The affine formal product theorem and formal-scheme proper pushforward are not citations for it."
       ],
       "acceptance": [
         "Recover precisely the stated hypotheses and normalization; do not weaken the dependency contracts."
@@ -4380,9 +4543,7 @@
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U11/hecke-characteristic",
         "GrossZagierAndArithmeticHeightsPartII:U11/cm-proper",
-        "SchemeAndStackFoundations:SF.5",
-        "SchemeKTheoryOperationsPartII:FK.4/proper-pushforward-projection",
-        "SchemeKTheoryOperationsPartII:FK.2"
+        "SchemeAndStackFoundations:SF.5"
       ],
       "library": {
         "module": "TauCeti/ArithmeticGeometry/UnitaryCycles/U11",
@@ -4441,19 +4602,19 @@
       ],
       "title": "Chow-valued unitary divisor series",
       "kind": "construction",
-      "statement": "On the unitary model, put Z_0(phi)=−phi(0)c1(omega) and Z_xi(phi) equal to the positive-norm KR divisor class for xi>0. Define the parallel weight-n Chow-valued generating series, including the archimedean Whittaker factor in adelic notation. Its geometric coefficients use the same level and Hom convention as U10.",
+      "statement": "On the generic-fiber canonical unitary model over E, let omega be the unitary automorphic line of Z §8.1. Its comparison with PEL Hodge eigenspaces and its Petersson metric are requested; it is not identified with the determinant Hodge line supplied by PELModuli:M6/hodge-line-bundle. Put Z_0(phi)=−phi(0)c1(omega) and Z_xi(phi) equal to the positive-norm KR divisor class for totally positive xi. Define the parallel weight-n Chow-valued series with its adelic archimedean Whittaker factor. Its coefficients use the same level and Hom convention as U10. Modularity of this generic-fiber series does not assert integral Chow modularity.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the general unitary Chow modularity theorem through a source-checked auxiliary input; the Hodge line is imported, not reconstructed."
+        "Use the generic-fiber special divisors, construct and descend the specified automorphic line through the requested PEL comparison, then apply the source-scoped unitary Chow modularity input. The determinant Hodge line is not substituted for this line."
       ],
       "acceptance": [
-        "If phi(0)=0 the Hodge-line constant term vanishes.",
+        "If phi(0)=0 the automorphic-line constant term vanishes.",
         "For nonzero phi(0), omitting the constant term changes the modular series.",
-        "Only positive xi contribute geometric divisors."
+        "On the generic fiber only totally positive nonzero xi contribute KR divisors; at xi=0 the coefficient is the automorphic-line Chern class instead."
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U10/global-cycles",
-        "PELModuli:M6/hodge-line-bundle",
+        "PELModuli:M6",
         "SchemeAndStackFoundations:SF.5",
         "MetaplecticAutomorphicForms:MP.2"
       ],
@@ -4465,7 +4626,7 @@
         {
           "sourceId": "Z",
           "locator": "§8.1 (8.1)–(8.3), Theorem 8.1, pp.918–919",
-          "match": "On the unitary model, put Z_0(phi)=−phi(0)c1(omega) and Z_xi(phi) equal to the positive-norm KR divisor class for xi>0. Define the parallel weight-n Chow-valued generating series, including the archimedean Whittaker factor in adelic notation. Its geometric coefficients use the same level and Hom convention as U10."
+          "match": "On the generic-fiber canonical unitary model over E, let omega be the unitary automorphic line of Z §8.1. Its comparison with PEL Hodge eigenspaces and its Petersson metric are requested; it is not identified with the determinant Hodge line supplied by PELModuli:M6/hodge-line-bundle. Put Z_0(phi)=−phi(0)c1(omega) and Z_xi(phi) equal to the positive-norm KR divisor class for totally positive xi. Define the parallel weight-n Chow-valued series with its adelic archimedean Whittaker factor. Its coefficients use the same level and Hom convention as U10. Modularity of this generic-fiber series does not assert integral Chow modularity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4494,13 +4655,18 @@
           "name": "chowSeries.adelic",
           "role": "compatibility",
           "statement": "The q-series and adelic series differ by the specified weight-n Whittaker factor."
+        },
+        {
+          "name": "chowSeries.linearity",
+          "role": "structure",
+          "statement": "Every Fourier coefficient and the whole Chow-valued series depend Q-linearly on the rational Schwartz input at the fixed level."
         }
       ],
       "tests": [
         {
           "name": "chowSeries.check1",
           "kind": "example",
-          "statement": "If phi(0)=0 the Hodge-line constant term vanishes."
+          "statement": "If phi(0)=0 the automorphic-line constant term vanishes."
         },
         {
           "name": "chowSeries.check2",
@@ -4510,7 +4676,7 @@
         {
           "name": "chowSeries.check3",
           "kind": "boundary",
-          "statement": "Only positive xi contribute geometric divisors."
+          "statement": "On the generic fiber only totally positive nonzero xi contribute KR divisors; at xi=0 the coefficient is the automorphic-line Chern class instead."
         }
       ],
       "planet": {
@@ -4561,14 +4727,14 @@
       ],
       "title": "Kudla Green function and metric convention",
       "kind": "definition",
-      "statement": "For a negative line z and nonzero u, let R(u,z) be the norm of its negative projection, so R≤0. With the repaired additive-character scaling use G_K(u,a,z)=−Ei(4πaR(u,z)); at u=0 set G_K(0,a)=−log|a|. The divisor current equation is stated with dd^c=−(2πi)^(-1)∂bar∂, after the matching rescaling of the Kudla–Millson form. The Petersson Hodge metric and the archimedean Whittaker factor must use the same scaling.",
+      "statement": "For a>0, a negative line z outside D(u) and nonzero u, let R(u,z) be the norm of its negative projection, so R≤0. With the repaired additive-character scaling use G_K(u,a,z)=−Ei(4πaR(u,z)); at u=0 set G_K(0,a)=−log|a|. The divisor current equation is stated with dd^c=−(2πi)^(-1)∂∂bar, after the matching rescaling of the Kudla–Millson form. The function extends as a Green current across D(u). In the orthogonal convention of MZ, the corresponding nonnegative projection function is −2R(u,z), since the real pairing is the trace of the hermitian pairing. The Petersson automorphic-line metric and the archimedean Whittaker factor must use the same scaling.",
       "hypotheses": [],
       "proofSteps": [
         "Rescale Zhang’s 2π convention as in MZ before pairing with the repaired Gaussian orbital integral. Request the exact metric/Schwartz form comparison."
       ],
       "acceptance": [
         "Off the divisor, R<0 and Ei is evaluated at a negative real argument.",
-        "At zero use the assigned logarithm rather than Ei(0).",
+        "At u=0 and a=e, the assigned Green value is −1, rather than a divergent Ei(0).",
         "Replacing 4π by 2π without changing the Gaussian breaks the archimedean comparison."
       ],
       "prerequisites": [
@@ -4583,13 +4749,13 @@
       "sources": [
         {
           "sourceId": "MZ",
-          "locator": "§6.6, footnote 4 p.37; compare Z §8.3 (8.9)–(8.12) pp.921–922",
-          "match": "For a negative line z and nonzero u, let R(u,z) be the norm of its negative projection, so R≤0. With the repaired additive-character scaling use G_K(u,a,z)=−Ei(4πaR(u,z)); at u=0 set G_K(0,a)=−log|a|. The divisor current equation is stated with dd^c=−(2πi)^(-1)∂bar∂, after the matching rescaling of the Kudla–Millson form. The Petersson Hodge metric and the archimedean Whittaker factor must use the same scaling."
+          "locator": "§6.6, (6.6) and footnote 4 p.37; §7.2, Proposition 7.4 and footnote 5 p.48; compare Z §8.3 (8.9)–(8.12) pp.921–922",
+          "match": "For a>0, a negative line z outside D(u) and nonzero u, let R(u,z) be the norm of its negative projection, so R≤0. With the repaired additive-character scaling use G_K(u,a,z)=−Ei(4πaR(u,z)); at u=0 set G_K(0,a)=−log|a|. The divisor current equation is stated with dd^c=−(2πi)^(-1)∂∂bar, after the matching rescaling of the Kudla–Millson form. The function extends as a Green current across D(u). In the orthogonal convention of MZ, the corresponding nonnegative projection function is −2R(u,z), since the real pairing is the trace of the hermitian pairing. The Petersson automorphic-line metric and the archimedean Whittaker factor must use the same scaling."
         },
         {
           "sourceId": "Z",
           "locator": "§8.3 pp.921–922, with MZ correction",
-          "match": "For a negative line z and nonzero u, let R(u,z) be the norm of its negative projection, so R≤0. With the repaired additive-character scaling use G_K(u,a,z)=−Ei(4πaR(u,z)); at u=0 set G_K(0,a)=−log|a|. The divisor current equation is stated with dd^c=−(2πi)^(-1)∂bar∂, after the matching rescaling of the Kudla–Millson form. The Petersson Hodge metric and the archimedean Whittaker factor must use the same scaling."
+          "match": "For a>0, a negative line z outside D(u) and nonzero u, let R(u,z) be the norm of its negative projection, so R≤0. With the repaired additive-character scaling use G_K(u,a,z)=−Ei(4πaR(u,z)); at u=0 set G_K(0,a)=−log|a|. The divisor current equation is stated with dd^c=−(2πi)^(-1)∂∂bar, after the matching rescaling of the Kudla–Millson form. The function extends as a Green current across D(u). In the orthogonal convention of MZ, the corresponding nonnegative projection function is −2R(u,z), since the real pairing is the trace of the hermitian pairing. The Petersson automorphic-line metric and the archimedean Whittaker factor must use the same scaling."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4622,6 +4788,11 @@
           "name": "kudlaGreen.zero",
           "role": "compatibility",
           "statement": "The zero-vector convention is −log|a|."
+        },
+        {
+          "name": "kudlaGreen.currentEquation",
+          "role": "relation",
+          "statement": "With the same rescaled Kudla–Millson form, dd^c[G_K(u,a)]+δ_D(u)=[omega_KM(u,a)]; this is a current identity across the divisor for u≠0."
         }
       ],
       "tests": [
@@ -4633,7 +4804,7 @@
         {
           "name": "kudlaGreen.check2",
           "kind": "boundary",
-          "statement": "At zero use the assigned logarithm rather than Ei(0)."
+          "statement": "At u=0 and a=e, the assigned Green value is −1, rather than a divergent Ei(0)."
         },
         {
           "name": "kudlaGreen.check3",
@@ -4700,12 +4871,17 @@
         {
           "name": "arithmeticSeries.zero",
           "role": "data",
-          "statement": "The zero coefficient is the metrized Hodge Chern class with a minus sign."
+          "statement": "The zero coefficient is the metrized automorphic-line Chern class with a minus sign."
         },
         {
           "name": "arithmeticSeries.correction",
           "role": "relation",
           "statement": "The Kudla version differs by the G_K−G_B series."
+        },
+        {
+          "name": "arithmeticSeries.principal",
+          "role": "compatibility",
+          "statement": "Changing an arithmetic-divisor representative by (div f,−log|f|²) preserves its reduced arithmetic Chow class and every proper-cycle pairing."
         }
       ],
       "tests": [
@@ -4829,6 +5005,11 @@
           "name": "cmPairing.proper",
           "role": "compatibility",
           "statement": "The CM class used for pairing is a proper one-cycle."
+        },
+        {
+          "name": "cmPairing.bilinear",
+          "role": "structure",
+          "statement": "The divisor/one-cycle pairing is Q-bilinear and factors through arithmetic rational equivalence and the stated quotient of R by excluded prime logarithms."
         }
       ],
       "tests": [
@@ -4967,7 +5148,7 @@
       ],
       "title": "Unitary Siegel Eisenstein specialization",
       "kind": "construction",
-      "statement": "For split skew-hermitian W of dimension 2n over F/F0, P its Siegel parabolic and a fixed splitting character, map phi∈S(V^n) to its standard section f_phi(g,s) in normalized induction I(s,chi). Define E(g,s,phi)=Σ_(P(F0)∖U(W)(F0))f_phi(gamma g,s), initially in the convergence chamber and by continuation. E_T is its unipotent Fourier coefficient with self-dual measures; E′ is d/ds at zero.",
+      "statement": "For split skew-hermitian W of dimension 2n over F/F0, P its Siegel parabolic and a Hecke character chi of F with chi restricted to A_F0^× equal to eta_(F/F0)^n, map phi∈S(V^n) to its standard section f_phi(g,s) in normalized induction I(s,chi)=Ind_P^U(chi|det|_F^s), equivalently unnormalized induction with exponent s+n/2. Define E(g,s,phi)=Σ_(P(F0)∖U(W)(F0))f_phi(gamma g,s), initially in the convergence chamber and by continuation. E_T is its unipotent Fourier coefficient with self-dual measures; E′ is d/ds at zero.",
       "hypotheses": [],
       "proofSteps": [
         "Use generic normalized induction and continuation, then specialize the Weil section and Fourier integral without dropping modulus characters."
@@ -4991,7 +5172,7 @@
         {
           "sourceId": "LZ",
           "locator": "§§12.1–12.2 pp.77–79",
-          "match": "For split skew-hermitian W of dimension 2n over F/F0, P its Siegel parabolic and a fixed splitting character, map phi∈S(V^n) to its standard section f_phi(g,s) in normalized induction I(s,chi). Define E(g,s,phi)=Σ_(P(F0)∖U(W)(F0))f_phi(gamma g,s), initially in the convergence chamber and by continuation. E_T is its unipotent Fourier coefficient with self-dual measures; E′ is d/ds at zero."
+          "match": "For split skew-hermitian W of dimension 2n over F/F0, P its Siegel parabolic and a Hecke character chi of F with chi restricted to A_F0^× equal to eta_(F/F0)^n, map phi∈S(V^n) to its standard section f_phi(g,s) in normalized induction I(s,chi)=Ind_P^U(chi|det|_F^s), equivalently unnormalized induction with exponent s+n/2. Define E(g,s,phi)=Σ_(P(F0)∖U(W)(F0))f_phi(gamma g,s), initially in the convergence chamber and by continuation. E_T is its unipotent Fourier coefficient with self-dual measures; E′ is d/ds at zero."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5024,6 +5205,11 @@
           "name": "siegelSeries.factorization",
           "role": "compatibility",
           "statement": "Nonsingular coefficients factor into local Whittaker integrals in the admitted region and continuation."
+        },
+        {
+          "name": "siegelSeries.equivariance",
+          "role": "relation",
+          "statement": "For p in the Siegel parabolic, the section satisfies f_s(pg)=chi(det a(p))|det a(p)|_F^(s+n/2) f_s(g), with normalized induction and the same splitting character."
         }
       ],
       "tests": [
@@ -5111,6 +5297,11 @@
           "name": "incoherence.singular",
           "role": "relation",
           "statement": "Two nonsingular split supports remove singular global coefficients."
+        },
+        {
+          "name": "incoherence.localIsometry",
+          "role": "functoriality",
+          "statement": "Replacing each local hermitian space by a specified isometric one preserves Diff and the ordinary/derivative factor assignment."
         }
       ],
       "tests": [
@@ -5192,6 +5383,11 @@
           "name": "modelAdmissibility.model",
           "role": "compatibility",
           "statement": "The model carries the actual universal abelian objects and Lie filtration."
+        },
+        {
+          "name": "modelAdmissibility.witnesses",
+          "role": "projection",
+          "statement": "An admissibility witness exports its local lattice, stabilizer and CM/reflex compatibility at each place; equality of a generic model alone is not such a witness."
         }
       ],
       "tests": [
@@ -5305,7 +5501,7 @@
       "acceptance": [
         "A conjugate pair of embeddings contributes exactly one full integral after the half factors.",
         "A contained divisor uses the current/product theory, not an undefined ordinary intersection of supports.",
-        "Auxiliary almost-dual degree is not identified with naive Y-cycle arithmetic degree."
+        "In the rank-one almost-dual example a=2, auxiliary Int=(q+2)/(q+1) differs from the naive Y-intersection 1, so their arithmetic degrees cannot be identified without correction."
       ],
       "prerequisites": [
         "GrossZagierAndArithmeticHeightsPartII:U10/local-degree",
@@ -5346,6 +5542,11 @@
           "name": "greenStarDegree.arithmetic",
           "role": "compatibility",
           "statement": "Hyperspecial proper arithmetic products recover the nonsingular deghat_T."
+        },
+        {
+          "name": "greenStarDegree.equivalence",
+          "role": "compatibility",
+          "statement": "The admitted current-equivalence relation makes the proper hyperspecial arithmetic degree independent of Green representatives; arbitrary products of currents outside the admitted wavefront/regularity range are not asserted."
         }
       ],
       "tests": [
@@ -5362,7 +5563,7 @@
         {
           "name": "greenStarDegree.check3",
           "kind": "boundary",
-          "statement": "Auxiliary almost-dual degree is not identified with naive Y-cycle arithmetic degree."
+          "statement": "In the rank-one almost-dual example a=2, auxiliary Int=(q+2)/(q+1) differs from the naive Y-intersection 1, so their arithmetic degrees cannot be identified without correction."
         }
       ],
       "plannedName": "greenStarDegree"
@@ -5498,6 +5699,11 @@
           "name": "modifiedEisenstein.sign",
           "role": "relation",
           "statement": "The total derivative has the outside factor (−1)^n on the sum of coherent corrections."
+        },
+        {
+          "name": "modifiedEisenstein.linearity",
+          "role": "structure",
+          "statement": "The modified series is linear in the factorizable test data and compatible local coherent replacements, with the fixed lattice-volume ratios and correction coefficients."
         }
       ],
       "tests": [
@@ -5656,6 +5862,11 @@
           "name": "holomorphicDerivative.archimedean",
           "role": "compatibility",
           "statement": "Int_K,arch=−2∂J_arch with the repaired Whittaker scaling."
+        },
+        {
+          "name": "holomorphicDerivative.expansion",
+          "role": "compatibility",
+          "statement": "Substituting the definitions gives Eflat=2∂J+Int_K coefficientwise, including the constant and nilpotent terms."
         }
       ],
       "tests": [
@@ -5688,7 +5899,7 @@
       ],
       "title": "Fourier vanishing criterion",
       "kind": "theorem",
-      "statement": "Let B be a finite set of finite places of F0 and let phi be continuous, left SL2(F0)-invariant and right K-invariant, with K_v=m(varpi_v^c_v)^(-1)SL2(OF0,v)m(varpi_v^c_v) for v∈B, where c_v is the additive-character conductor exponent. If all nonzero Fourier coefficients with v(xi)=0 for every v∈B vanish identically at infinity, phi is constant. If its nonzero parallel weight is n, phi=0.",
+      "statement": "Let B be a finite set of finite places of F0 and let phi be continuous, left SL2(F0)-invariant and right K-invariant, with K_v=m(varpi_v^c_v)^(-1)SL2(OF0,v)m(varpi_v^c_v) for v∈B, where m(t)=diag(t,1) belongs to GL2 and conjugates SL2, and c_v is the largest integer for which psi_v is trivial on varpi_v^(−c_v)OF0,v. If all nonzero Fourier coefficients with v(xi)=0 for every v∈B vanish identically at infinity, phi is constant. If its nonzero parallel weight is n, phi=0.",
       "hypotheses": [],
       "proofSteps": [
         "Induct on B by a unipotent finite difference, use the conductor-adjusted level to enlarge invariance, then strong approximation. Request the strong-approximation input with its exact SL2 scope."
@@ -5708,7 +5919,7 @@
         {
           "sourceId": "Z",
           "locator": "Lemma 13.6 pp.956–957",
-          "match": "Let B be a finite set of finite places of F0 and let phi be continuous, left SL2(F0)-invariant and right K-invariant, with K_v=m(varpi_v^c_v)^(-1)SL2(OF0,v)m(varpi_v^c_v) for v∈B, where c_v is the additive-character conductor exponent. If all nonzero Fourier coefficients with v(xi)=0 for every v∈B vanish identically at infinity, phi is constant. If its nonzero parallel weight is n, phi=0."
+          "match": "Let B be a finite set of finite places of F0 and let phi be continuous, left SL2(F0)-invariant and right K-invariant, with K_v=m(varpi_v^c_v)^(-1)SL2(OF0,v)m(varpi_v^c_v) for v∈B, where m(t)=diag(t,1) belongs to GL2 and conjugates SL2, and c_v is the largest integer for which psi_v is trivial on varpi_v^(−c_v)OF0,v. If all nonzero Fourier coefficients with v(xi)=0 for every v∈B vanish identically at infinity, phi is constant. If its nonzero parallel weight is n, phi=0."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5868,7 +6079,7 @@
   "requests": [
     {
       "supplier": "PELModuli:M6",
-      "need": "Extend the actual PEL model layer as PELModuli, Part II: represent polarized unramified, almost-dual, exotic-smooth and Krämer RZ functors with their signatures, heights, quasi-isogeny/polarization conditions; prove the stated regularity/smoothness/semistability, canonical one-dimensional lift and integral Hom-lifting ideals; construct the source-admissible RSZ global models and basic RZ uniformization, including relative/absolute exotic comparison. The current good-prime/abelian-model scope does not supply these assertions.",
+      "need": "Extend the actual PEL model layer as PELModuli, Part II: represent polarized unramified, almost-dual, exotic-smooth and Krämer RZ functors with their signatures, heights, quasi-isogeny/polarization conditions; prove the stated regularity/smoothness/semistability, canonical one-dimensional lift and integral Hom-lifting ideals; construct the source-admissible RSZ global models and basic RZ uniformization, including relative/absolute exotic comparison. The current good-prime/abelian-model scope does not supply these assertions. Also construct the unitary automorphic line omega of Z §8.1, p.919, with its Petersson metric and comparison to the appropriate PEL Hodge eigenspaces. PELModuli:M6/hodge-line-bundle only supplies the determinant Hodge line; no identification is inferred. Include the special-cycle dimension theorem used in LZ Lemma 2.8.1, pp.13–14, giving codimension two for independent labels before applying Tor vanishing.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U0/special-cycles",
         "GrossZagierAndArithmeticHeightsPartII:U4/almostdual-cycles",
@@ -5877,7 +6088,8 @@
         "GrossZagierAndArithmeticHeightsPartII:U10/global-cycles",
         "GrossZagierAndArithmeticHeightsPartII:U10/global-uniformization",
         "GrossZagierAndArithmeticHeightsPartII:U11/cm-order",
-        "GrossZagierAndArithmeticHeightsPartII:U13/model-admissibility"
+        "GrossZagierAndArithmeticHeightsPartII:U13/model-admissibility",
+        "GrossZagierAndArithmeticHeightsPartII:U12/chow-series"
       ]
     },
     {
@@ -5896,8 +6108,8 @@
       ]
     },
     {
-      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
-      "need": "Grothendieck–Messing deformation equivalence over nilpotent PD thickenings, in a fixed covariant convention, respecting OF actions, polarizations and Hodge filtrations. Export the Hom obstruction and the relative/absolute ramified comparison used in the cited special-cycle arguments.",
+      "supplier": "CrystallineCohomology:CR.7",
+      "need": "Supply the actual Dieudonné-crystal evaluations and Grothendieck–Messing deformation equivalence over nilpotent PD thickenings, with p locally nilpotent, and transport the contravariant filtration interface to the covariant convention of these sources, respecting OF actions and polarizations. R07.2 supplies the perfect-field covariant module but delegates this theorem to CR.7; the inspected CR.7 interface delegates its construction back to R07.2. Resolve this ownership loop and prove the source-specific Hom obstruction and relative/absolute ramified comparison through the PEL extension; neither perfect-field classification nor a reciprocal stage citation supplies them.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U0/special-cycles",
         "GrossZagierAndArithmeticHeightsPartII:U4/comparison-model",
@@ -5978,7 +6190,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.5",
-      "need": "Supported Chern character/Riemann–Roch compatible with cycle classes, regular immersions and proper finite correspondences, and Gr_1 G_0(Q)≅CH_1(Q) on proper CM supports. Supply the exact scheme/DM hypotheses and finite-pushforward filtration statement; arbitrary formal filtrations require the separate FK.2 extension.",
+      "need": "Supported Chern character/Riemann–Roch compatible with cycle classes, regular immersions and proper finite correspondences, and Gr_1 G_0(Q)≅CH_1(Q) on proper CM supports. Supply the exact scheme/DM hypotheses and finite-pushforward filtration statement; arbitrary formal filtrations require the separate FK.2 extension. For LL1 §8 use the scheme-theoretic codimension-filtration product on the smooth proper hyperspecial model, with its p-basic test data and permitted finite étale level changes; the formal affine FK.2 theorem is not this input.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U2/chern-quotient",
         "GrossZagierAndArithmeticHeightsPartII:U10/global-k-class",
@@ -6011,15 +6223,25 @@
     },
     {
       "supplier": "SchemeKTheoryOperationsPartII:FK.2",
-      "need": "Nonaffine regular formal-scheme codimension-filtration products and expected-dimension statements used on these RZ spaces, with resolution property and exhaustion/derived-limit hypotheses proved, plus finite-correspondence pushforward preserving the derived-CM dimension filtration. Existing affine-filtration-product is not applicable to arbitrary nonaffine formal schemes.",
+      "need": "Nonaffine regular formal-scheme codimension-filtration products and expected-dimension statements used on these RZ spaces, with resolution property and exhaustion/derived-limit hypotheses proved. Existing affine-filtration-product is not applicable to arbitrary nonaffine formal schemes.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U0/derived-cycle",
         "GrossZagierAndArithmeticHeightsPartII:U0/basis-properness",
         "GrossZagierAndArithmeticHeightsPartII:U1/horizontal-splitting",
         "GrossZagierAndArithmeticHeightsPartII:U6/exotic-split",
-        "GrossZagierAndArithmeticHeightsPartII:U7/modified-horizontal",
-        "GrossZagierAndArithmeticHeightsPartII:U10/global-k-class",
-        "GrossZagierAndArithmeticHeightsPartII:U11/cm-virtual-cycle"
+        "GrossZagierAndArithmeticHeightsPartII:U7/modified-horizontal"
+      ]
+    },
+    {
+      "supplier": "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7",
+      "need": "Import LT.6/quasi-canonical-lift, LT.6/quadratic-level-classification and LT.7/quadratic-degree. Extend this direction by the exact unramified Gross–Keating and ramified Shi/He–Shi–Yang lifting-length formulas used in LZ §§4.4–5.4, LL2 Proposition 2.44 pp.28–29 and K Theorem 4.3 pp.27–28; compare the base-uniformizer conductor level to each source valuation and distinguish the two ramified components. Existing degree formulas alone do not give intersection lengths.",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeightsPartII:U1/primitive-horizontal",
+        "GrossZagierAndArithmeticHeightsPartII:U1/tate-lifting",
+        "GrossZagierAndArithmeticHeightsPartII:U1/low-rank-vertical",
+        "GrossZagierAndArithmeticHeightsPartII:U5/exotic-rank-two",
+        "GrossZagierAndArithmeticHeightsPartII:U7/kramer-horizontal",
+        "GrossZagierAndArithmeticHeightsPartII:U8/kramer-horizontal"
       ]
     }
   ],
@@ -6031,7 +6253,7 @@
         "Resolve proof leaf: RZ/RSZ models and canonical lifts.",
         "Resolve proof leaf: Nonaffine supported filtration and resolution property.",
         "Discharge exact supplier contract PELModuli:M6.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
       ]
     },
@@ -6044,10 +6266,11 @@
         "Resolve proof leaf: Quasi-canonical rank-two lifting leaves.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6056,13 +6279,17 @@
       "remaining": [
         "Resolve proof leaf: RZ/RSZ models and canonical lifts.",
         "Resolve proof leaf: Nonaffine supported filtration and resolution property.",
+        "Resolve proof leaf: Quasi-canonical rank-two lifting leaves.",
         "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Discharge exact supplier contract PELModuli:M6.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
+        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6075,12 +6302,13 @@
         "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.2.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6094,12 +6322,13 @@
         "Resolve proof leaf: Siegel–Weil and archimedean normalization leaves.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.2.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6111,9 +6340,10 @@
         "Resolve proof leaf: Quasi-canonical rank-two lifting leaves.",
         "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Discharge exact supplier contract PELModuli:M6.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6126,12 +6356,13 @@
         "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Resolve proof leaf: Ramified density extension.",
         "Discharge exact supplier contract PELModuli:M6.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.2.",
         "Discharge exact supplier contract GeometryOfNumbersAndQuadraticArithmetic:GN.3.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6141,16 +6372,15 @@
         "Resolve proof leaf: RZ/RSZ models and canonical lifts.",
         "Resolve proof leaf: Nonaffine supported filtration and resolution property.",
         "Resolve proof leaf: Quasi-canonical rank-two lifting leaves.",
-        "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Resolve proof leaf: Krämer type-zero infinitesimal criterion.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
-        "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6160,18 +6390,18 @@
         "Resolve proof leaf: RZ/RSZ models and canonical lifts.",
         "Resolve proof leaf: Nonaffine supported filtration and resolution property.",
         "Resolve proof leaf: Quasi-canonical rank-two lifting leaves.",
-        "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Resolve proof leaf: Ramified density extension.",
+        "Resolve proof leaf: Krämer type-zero infinitesimal criterion.",
         "Resolve proof leaf: Krämer isolated odd-top induction repair.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract GeometryOfNumbersAndQuadraticArithmetic:GN.3.",
-        "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6180,17 +6410,21 @@
       "remaining": [
         "Resolve proof leaf: RZ/RSZ models and canonical lifts.",
         "Resolve proof leaf: Nonaffine supported filtration and resolution property.",
+        "Resolve proof leaf: Quasi-canonical rank-two lifting leaves.",
         "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Resolve proof leaf: Jacquet–Rallis relative comparison supplier.",
         "Resolve proof leaf: AFL maximal-order and base-case source leaves.",
         "Resolve proof leaf: Boundary q=rank in the reverse Cayley argument.",
         "Discharge exact supplier contract PELModuli:M6.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
+        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
         "Discharge exact supplier contract EndoscopicTransferAndUnitaryTraceComparison:ET.0.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6203,13 +6437,14 @@
         "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Resolve proof leaf: Ramified density extension.",
         "Discharge exact supplier contract PELModuli:M6.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.2.",
         "Discharge exact supplier contract GeometryOfNumbersAndQuadraticArithmetic:GN.3.",
         "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6223,13 +6458,14 @@
         "Resolve proof leaf: Ramified density extension.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract PELModuli:M4.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.2.",
         "Discharge exact supplier contract GeometryOfNumbersAndQuadraticArithmetic:GN.3.",
         "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6244,13 +6480,14 @@
         "Resolve proof leaf: Arithmetic Chow/Green foundations and modularity leaves.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract PELModuli:M4.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.2.",
         "Discharge exact supplier contract GeometryOfNumbersAndQuadraticArithmetic:GN.3.",
         "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6262,13 +6499,14 @@
         "Resolve proof leaf: Quasi-canonical rank-two lifting leaves.",
         "Resolve proof leaf: Specific Deligne–Lusztig cohomology leaves.",
         "Resolve proof leaf: Ramified density extension.",
+        "Resolve proof leaf: Krämer type-zero infinitesimal criterion.",
         "Resolve proof leaf: Krämer isolated odd-top induction repair.",
         "Resolve proof leaf: Arithmetic Chow/Green foundations and modularity leaves.",
         "Resolve proof leaf: Siegel–Weil and archimedean normalization leaves.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract PELModuli:M4.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
         "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
@@ -6278,7 +6516,8 @@
         "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
         "Discharge exact supplier contract ArakelovGeometryAndAbelianHeights:R35.1.",
         "Discharge exact supplier contract AutomorphicSpectralTheory:AS.2.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     },
     {
@@ -6297,7 +6536,9 @@
         "Resolve proof leaf: General-field and nonstrong AFL boundary.",
         "Discharge exact supplier contract PELModuli:M6.",
         "Discharge exact supplier contract PELModuli:M4.",
-        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2.",
+        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1.",
+        "Discharge exact supplier contract CrystallineCohomology:CR.7.",
+        "Discharge exact supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4.",
         "Discharge exact supplier contract MotivesAndAlgebraicCycles:MC.2.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.0.",
         "Discharge exact supplier contract MetaplecticAutomorphicForms:MP.2.",
@@ -6305,14 +6546,15 @@
         "Discharge exact supplier contract GeometryOfNumbersAndQuadraticArithmetic:GN.3.",
         "Discharge exact supplier contract SchemeAndStackFoundations:SF.5.",
         "Discharge exact supplier contract EndoscopicTransferAndUnitaryTraceComparison:ET.0.",
-        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2."
+        "Discharge exact supplier contract SchemeKTheoryOperationsPartII:FK.2.",
+        "Discharge exact supplier contract LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7."
       ]
     }
   ],
   "gaps": [
     {
       "title": "RZ/RSZ models and canonical lifts",
-      "detail": "The proposed UnitaryRapoportZinkSpacesAndRSZModels supplier is not a registered roadmap. PELModuli M6 and its good-prime deformation node do not give these ramified formal moduli spaces. The precise M6 extension request above must be accepted and source-checked, including canonical lift, Cartier Hom obstruction, regular difference divisors, Wu/Vollaard–Wedhorn stratifications and uniformization. Do not substitute an arbitrary proposition or structure for the moduli functor.",
+      "detail": "The proposed UnitaryRapoportZinkSpacesAndRSZModels supplier is not a registered roadmap. PELModuli M6 and its good-prime deformation node do not give these ramified formal moduli spaces. The precise M6 extension request above must be accepted and source-checked, including canonical lift, Cartier Hom obstruction, regular difference divisors, Wu/Vollaard–Wedhorn stratifications and uniformization. Do not substitute an arbitrary proposition or structure for the moduli functor. The special-cycle dimension theorem (codimension two for independent labels) is part of this extension. The current R07.2/CR.7 delegation loop does not yet supply Grothendieck–Messing; the CR.7 request records the precise evaluation, nilpotent-PD hypotheses and covariant conversion needed here.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U0/special-cycles",
         "GrossZagierAndArithmeticHeightsPartII:U0/cartier-difference",
@@ -6332,14 +6574,12 @@
         "GrossZagierAndArithmeticHeightsPartII:U0/basis-properness",
         "GrossZagierAndArithmeticHeightsPartII:U1/horizontal-splitting",
         "GrossZagierAndArithmeticHeightsPartII:U6/exotic-split",
-        "GrossZagierAndArithmeticHeightsPartII:U7/modified-horizontal",
-        "GrossZagierAndArithmeticHeightsPartII:U10/global-k-class",
-        "GrossZagierAndArithmeticHeightsPartII:U11/cm-virtual-cycle"
+        "GrossZagierAndArithmeticHeightsPartII:U7/modified-horizontal"
       ]
     },
     {
       "title": "Quasi-canonical rank-two lifting leaves",
-      "detail": "Read and decompose the external unramified/rank-two Gross–Keating and ramified Shi/He–Shi–Yang lifting-length theorems, with order/conductor, sign and component conventions. R07.4 classification alone does not give these lengths. The exact LZ special-Tate-module criteria and rank-three intermediate-lattice multiplicities are stated in U1; their integral comparison and quasi-canonical base calculations remain to be supplied.",
+      "detail": "Import the marked quasi-canonical construction, quadratic level classification and degree formula from LubinTateFormalModulesAndQuasiCanonicalLifts LT.6–LT.7. That packet does not state the Gross–Keating or ramified Shi/He–Shi–Yang intersection-length formulas needed here. Request those formulas as an extension of that owner, with order/conductor, component, sign and valuation dictionaries. R07.4 supplies integral comparison, not these lengths. The LZ special-Tate-module criteria and rank-three multiplicities remain U1 targets with their stated integral-comparison leaf.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U1/primitive-horizontal",
         "GrossZagierAndArithmeticHeightsPartII:U1/tate-lifting",
@@ -6370,7 +6610,7 @@
     },
     {
       "title": "Krämer type-zero infinitesimal criterion",
-      "detail": "The positive-type tangent-space argument does not prove the type-zero reducedness statement by itself. Read the cited no-π² thickening criterion and prove its hypotheses on the type-zero moduli functor.",
+      "detail": "The positive-type tangent-space argument does not prove type-zero reducedness. In the use of Lemma 3.10 with m=0, the coefficient a_(m+1) is required to be both zero and a unit, so that specialization is unavailable. Give a separate no-O/π²-point proof for the type-zero moduli functor and verify the hypotheses of the cited infinitesimal thickening criterion.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U7/kramer-deformation"
       ]
@@ -6385,12 +6625,13 @@
     },
     {
       "title": "Arithmetic Chow/Green foundations and modularity leaves",
-      "detail": "Read the Gillet–Soulé/Gillet arithmetic-current/DM theory used for products and the regularized-theta/Borcherds/Green-comparison modularity theorems. R35.1’s inspected divisor and one-cycle nodes are enough for their pairing but not for higher star products or general DM arithmetic Chow products. Arithmetic modularity in the AFL proof is restricted to F0=Q.",
+      "detail": "Read the Gillet–Soulé/Gillet arithmetic-current/DM theory used for products and the regularized-theta/Borcherds/Green-comparison modularity theorems. R35.1’s inspected divisor and one-cycle nodes are enough for their pairing but not for higher star products or general DM arithmetic Chow products. Arithmetic modularity in the AFL proof is restricted to F0=Q. The generic-fiber Chow constant term uses the unitary automorphic line, not an unproved identification with the determinant Hodge line; the precise PEL eigenspace/descent and Petersson-metric comparison is an additional requested leaf.",
       "neededBy": [
         "GrossZagierAndArithmeticHeightsPartII:U12/arithmetic-series",
         "GrossZagierAndArithmeticHeightsPartII:U12/modularity",
         "GrossZagierAndArithmeticHeightsPartII:U12/kudla-green",
-        "GrossZagierAndArithmeticHeightsPartII:U13/green-star-degree"
+        "GrossZagierAndArithmeticHeightsPartII:U13/green-star-degree",
+        "GrossZagierAndArithmeticHeightsPartII:U12/chow-series"
       ]
     },
     {
@@ -8778,7 +9019,7 @@
         "PELModuli"
       ],
       "proposal": "PELModuliPartII",
-      "detail": "Extend the actual PEL model layer as PELModuli, Part II: represent polarized unramified, almost-dual, exotic-smooth and Krämer RZ functors with their signatures, heights, quasi-isogeny/polarization conditions; prove the stated regularity/smoothness/semistability, canonical one-dimensional lift and integral Hom-lifting ideals; construct the source-admissible RSZ global models and basic RZ uniformization, including relative/absolute exotic comparison. The current good-prime/abelian-model scope does not supply these assertions."
+      "detail": "Extend the actual PEL model layer as PELModuli, Part II: represent polarized unramified, almost-dual, exotic-smooth and Krämer RZ functors with their signatures, heights, quasi-isogeny/polarization conditions; prove the stated regularity/smoothness/semistability, canonical one-dimensional lift and integral Hom-lifting ideals; construct the source-admissible RSZ global models and basic RZ uniformization, including relative/absolute exotic comparison. The current good-prime/abelian-model scope does not supply these assertions. Also construct the unitary automorphic line omega of Z §8.1, p.919, with its Petersson metric and comparison to the appropriate PEL Hodge eigenspaces. PELModuli:M6/hodge-line-bundle only supplies the determinant Hodge line; no identification is inferred. Include the special-cycle dimension theorem used in LZ Lemma 2.8.1, pp.13–14, giving codimension two for independent labels before applying Tor vanishing."
     },
     {
       "action": "rescope",
@@ -8802,7 +9043,7 @@
         "SchemeKTheoryOperationsPartII"
       ],
       "proposal": "SchemeKTheoryOperationsPartII formal filtration extension",
-      "detail": "Nonaffine regular formal-scheme codimension-filtration products and expected-dimension statements used on these RZ spaces, with resolution property and exhaustion/derived-limit hypotheses proved, plus finite-correspondence pushforward preserving the derived-CM dimension filtration. Existing affine-filtration-product is not applicable to arbitrary nonaffine formal schemes."
+      "detail": "Nonaffine regular formal-scheme codimension-filtration products and expected-dimension statements used on these RZ spaces, with resolution property and exhaustion/derived-limit hypotheses proved. Existing affine-filtration-product is not applicable to arbitrary nonaffine formal schemes."
     },
     {
       "action": "rescope",
@@ -8827,13 +9068,18 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the LZ v3 induction: the lattice replacement changes the splitting; subtracting horizontal from total and invoking the lower-valuation identity preserves the difference used by U3/difference-induction.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E2",
       "source": "LZ",
       "kind": "misprint",
-      "locator": "§6.4, Lemmas 6.4.6–6.4.7, arXiv v3 pp.40–42",
+      "locator": "Remark 6.4.2 p.38; propagation in Lemmas 6.4.5–6.4.7 pp.39–41, arXiv v3",
       "printed": "The displayed Chern expansion uses the opposite divisor-line sign.",
       "correction": "Use [O_D]=[O]−[O(−D)] and ch(O_D)=1−exp(−c1(O(D))); propagate the power signs.",
       "reason": "The exact Cartier resolution fixes the degree-one sign.",
@@ -8842,22 +9088,32 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Remark 6.4.2, p.38: the Cartier resolution gives 1−exp(−c) with c=c1(O(D)); the entry’s old pp.40–42 locator was corrected to the definition and its propagation.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E3",
       "source": "LZ",
       "kind": "misprint",
-      "locator": "§10.5, rank-one example, arXiv v3 p.71",
-      "printed": "The stated rank-one emptiness threshold includes an incorrect boundary.",
-      "correction": "For the split rank-one Y-cycle, valuation below two is empty; nonnegative even a gives Int_Y=a/2.",
-      "reason": "At a=0 the formula gives zero, while a=2 gives one; the split-space parity is even.",
+      "locator": "Proof of Theorem 10.4.3, rank-one case, arXiv v3 p.68",
+      "printed": "The rank-one proof reverses the nonemptiness threshold for Z(x0)∩Z(x).",
+      "correction": "This intersection is empty for valuation a<2, and nonempty when a≥2 in the split rank-one case. For even a≥0 the Y-intersection is a/2.",
+      "reason": "The proof’s following index sum has no terms at a=0 and one term at a=2. The source slip is on p.68, not the previously cited p.71 example.",
       "affects": "a stated result",
       "known": "Previously recorded in the reviewed PAPER-LI-ZHANG-22-B extraction.",
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after correcting the locator to the rank-one proof on p.68. Its threshold wording conflicts with its following finite sum; p.71 was not evidence for that wording.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E4",
@@ -8872,7 +9128,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a conditional input explicitly acknowledged in LZ v3. LRZ v2 Theorem 14.6.2 pp.60–61 and Corollary 16.1.5 p.69, with §16.4 pp.70–71, supply the required geometry after the moduli dictionary. This is a resolved proof obligation, not an accusation of a hidden assumption.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E5",
@@ -8887,22 +9148,32 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as an error in the stated Proposition 2.44: its displayed rank-two formula on p.28 already has inner upper limit j and gives the packet’s small cases. There is a different undefined-index slip in the proof, now recorded separately as E24.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E6",
       "source": "LL2",
       "kind": "misprint",
-      "locator": "Lemma 2.56 p.34 and Corollary 2.66 p.43, January 2022 author copy",
-      "printed": "The coordinate reflection and one cycle-dual label use inconsistent symbols.",
-      "correction": "Fix coordinates i<n and negate only the last coordinate; preserve the special Hom duality in the relative/absolute comparison.",
-      "reason": "Negating all coordinates would not exchange the two components by the stated reflection.",
+      "locator": "Lemma 2.56 p.34, January 2022 author copy",
+      "printed": "The displayed reflection sends the first n−1 basis vectors to the scalar 1.",
+      "correction": "For i<n use theta(x_i)=x_i, and use theta(x_n)=−x_n.",
+      "reason": "A linear isometry must fix those basis vectors, not replace them by scalars. The earlier additional complaint about Corollary 2.66 was not substantiated in the read copy and is withdrawn.",
       "affects": "nothing",
       "known": "Previously recorded in PAPER-LI-LIU-22; author-copy scope.",
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only for theta(x_i)=1 in Lemma 2.56: replace 1 by x_i for i<n. The additional cycle-dual complaint at Corollary 2.66 is unsupported in this copy and has been removed.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E7",
@@ -8917,22 +9188,32 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Lemma 5.4 uses r-tuples but one V-power has m; in the §8 m-fold K-class construction the r-fold superscript must instead use m. The packet consistently uses the tuple length.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E8",
       "source": "K",
       "kind": "misprint",
       "locator": "Definition 2.2 and surrounding signature convention, July 2023 author copy pp.10–12",
-      "printed": "The short moduli description does not retain polarization compatibility of the framing map and has a filtration-rank slip.",
-      "correction": "Require the framing polarization relation and a rank n−1 filtration with rank-one quotient.",
-      "reason": "Without the polarization relation the framing group need not be the unitary group; the signature fixes the rank.",
+      "printed": "Definition 2.2 omits polarization compatibility for the framing quasi-isogeny.",
+      "correction": "Impose the framing polarization relation from the PEL problem. Retain the source’s already correct rank n−1 filtration and rank-one quotient.",
+      "reason": "Without compatibility the framing quasi-isogeny is not restricted to the unitary similitude condition. The earlier allegation of a filtration-rank misprint is not present in this author copy and is withdrawn.",
       "affects": "a stated result",
       "known": "Previously recorded in the reviewed PAPER-HE-LI-SHI-ETAL-23 extraction; author-copy scope.",
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the missing framing-polarization relation in Definition 2.2. The filtration rank n−1 is already printed correctly, so that separate allegation was removed.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E9",
@@ -8947,7 +9228,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: at m=1 all lines in the symplectic plane are Lagrangian, the ≥0 condition is automatic, and U′=0, hence S_V=Y_V=P¹ is smooth.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E10",
@@ -8962,7 +9248,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the positive-stratum intersection needs a positive-type vertex sum; the support proof uses integrality of L, which must be stated because nonintegral cycles are empty.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E11",
@@ -8970,14 +9261,19 @@
       "kind": "gap",
       "locator": "Proposition 3.17, July 2023 author copy pp.25–26",
       "printed": "The type-zero reducedness argument is abbreviated.",
-      "correction": "Supply both the no-O/π²-point statement and the cited infinitesimal thickening criterion.",
-      "reason": "A tangent-space or geometric-point computation alone does not remove nilpotent thickenings.",
+      "correction": "Prove the type-zero no-O/π²-point assertion separately, then apply the cited infinitesimal thickening criterion.",
+      "reason": "The positive-type Lemma 3.10 proof uses a unit coefficient a_(m+1) after setting a_1,…,a_(n−m) to zero. At m=0 this coefficient is in the zero range. Proposition 3.17 cannot invoke this specialization without another argument.",
       "affects": "the proof",
       "known": "Previously recorded in the reviewed Krämer extraction; retained as the type-zero proof leaf.",
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof gap, with its location sharpened: the positive-type coefficient argument does not specialize to m=0. The separate no-π² proof and no-thickening criterion remain explicit leaves.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E12",
@@ -8985,14 +9281,19 @@
       "kind": "error",
       "locator": "Theorem 8.2, July 2023 author copy pp.64–67",
       "printed": "The partial integral is said to vanish on all negative normal norms.",
-      "correction": "Keep the constancy on nonnegative normal norms and the proved Fourier bounds; remove that vanishing claim.",
-      "reason": "In split rank three, Lflat=⟨e⟩⊥⟨ℓ⟩ with norms 1 and π0 and a normal vector of norm valuation −1 has 2q unimodular extension lattices, giving partial integral 2q·vol(Lflat). This is the counterexample in the accepted extraction; no new brute-force calculation is claimed here.",
+      "correction": "Retain positive-cone constancy after the discriminant-sign correction; remove negative-cone vanishing. No independent analytic Fourier bound is proved by Theorem 8.2, and Corollary 9.8 depends on the full identity.",
+      "reason": "Take Lflat=<e>⊥<ell> with norms 1 and π0 in the split rank-three space, and x perpendicular with norm −π0^(−1). Among α∈π0^(−1)OF/OF, the congruences π0α≡±1 mod π give 2q classes. Their integral unimodular extensions Lflat+OF(x+αell) have intersection Lflat with its span, so they are vertical and have primitive weight one. The resulting partial integral is 2q·vol(Lflat). The negative sign of the chosen norm is essential; valuation −1 alone does not ensure the two residue roots.",
       "affects": "a stated result",
       "known": "Previously recorded in the reviewed Krämer extraction; author-copy scope.",
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the negative-cone clause using the specified norm −π0^(−1) and 2q residue classes. The correction no longer attributes independent analytic Fourier bounds to Theorem 8.2.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E13",
@@ -9001,13 +9302,18 @@
       "locator": "Lemma 9.6 p.74 and proof of Theorem 9.7 p.75, July 2023 author copy",
       "printed": "A change of hyperplane lattice is claimed always to reduce the valuation.",
       "correction": "Handle an isolated odd top invariant separately; the blanket decrease fails.",
-      "reason": "For split H1, Lflat=<l1+πl2> has valuation two, while adding l2 gives invariants (1,1); every nondegenerate line in H1 still has valuation at least two.",
+      "reason": "Use the ramified hyperbolic plane with Gram matrix ((0,π),(−π,0)). The line <l1+πl2> has fundamental invariant two and adding l2 gives H1 with invariants (1,1). All line norms are divisible by π² and the projection coefficient of l2 on this line is 1/(2π). Thus there is no nondegenerate line with smaller fundamental invariant. These are extension-field fundamental invariants, not base-field norm valuations.",
       "affects": "the proof",
       "known": "Previously recorded in the reviewed Krämer extraction; remains an explicit proof gap here.",
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the explicit H1 Gram matrix and line calculation. The repaired roadmap leaves the isolated odd-top induction open and does not promote Theorem 9.7 or its Corollary 9.8 to a proved input.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E14",
@@ -9022,7 +9328,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the later published MZ §3.6 fn3 p.18, §6.6 fn4 p.37 and §7.2 fn5 p.48. These fix both Gaussian and Green normalization; the orthogonal/trace-hermitian conversion explains the 4π factor.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E15",
@@ -9037,7 +9348,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the definition on published p.965 doubles the already corrected derivative, whereas the expansion in the next page’s proof is 2∂J+Int_K. U14 uses coefficient one on ∂J_hol.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E16",
@@ -9052,7 +9368,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Proposition 3.9 states p>n with m=n−1. Adding all inert p≤m+1 to the finite coefficient-exclusion set restores the required hypothesis and lets the norm-unit reduction handle those places.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E17",
@@ -9067,7 +9388,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the elementary reverse implication: besides the determinant roots the denominator 1−ξd must be a unit. Counting proves q≥n+1; the packet retains q=n as a named missing argument rather than weakening the final target.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E18",
@@ -9082,7 +9408,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the displayed rank-raised proof only: scalar avoidance is applied to the original rank-m matrix, so q≥m suffices. This does not refute unrestricted local constancy obtained by a separately sourced theorem.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E19",
@@ -9097,7 +9428,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as a source misprint: stating a correct theorem with a stronger hypothesis is not an error. The proof of part (ii) does supply the stronger bound-free norm-unit implication, which remains valid in U9 and the enlarged-B repair. No erratum is inferred.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E20",
@@ -9112,7 +9448,12 @@
       "searched": [
         "Existing reviewed PAPER extraction sourceIssues and its review; the present record is not a claim of a new discovery.",
         "The exact source version and passages in sourceVersions; relevant later LRZ and MZ passages were read where cited."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an unjustified etaleness step for the compressed algebra. The cyclic-vector map is an F-linear isomorphism; projection to conjugation eigenspaces yields the needed real/base-field differential surjectivity without compressed semisimplicity.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E21",
@@ -9127,7 +9468,12 @@
       "searched": [
         "Accepted paper extraction and its review.",
         "The exact July 2023 author-copy pages 66–67 were read; no claim of a new discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: χ(A⊥B)=χ(A)χ(B)χ(−1)^(rk A·rk B) gives χ(−1)^n1 in this decomposition. For q=5 and odd n1 the printed (−1)^n1 is different; the later shell calculation accepts both signs.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     },
     {
       "id": "GrossZagierAndArithmeticHeightsPartII/E22",
@@ -9142,7 +9488,52 @@
       "searched": [
         "Accepted paper extraction and its review.",
         "The exact July 2023 author-copy pages 66–67 were read; no claim of a new discovery."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as notation slips in the t=1 case on p.66: the summand is unimodular I, the shell uses L2, and its perpendicular vector lies in L2^sharp. These corrections do not assert extra integral membership.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeightsPartII/E23",
+      "source": "LZ",
+      "kind": "misprint",
+      "locator": "Definition 3.5.1 p.17 versus §7.3 p.45, arXiv v3",
+      "printed": "The later overlattice-function discussion extends m to type zero by m(0)=1, inconsistent with the differentiated weight.",
+      "correction": "For the canonical differentiated weight use m(0)=0 and m(1)=1. In the nonsplit full-rank setting the type-zero value is never used.",
+      "reason": "Definition 3.5.1 defines the polynomial weight in a derivative parameter, and Definition 3.5.2 gives zero for the type-zero derivative. Every integral full-rank lattice in the nonsplit ambient space has positive odd type, so the inconsistent extension in §7.3 does not change its sums.",
+      "affects": "nothing",
+      "known": "Observed in this review of the specified copy; no novelty claim or publisher-wide allegation.",
+      "searched": [
+        "The exact source version and neighboring definitions/proof cited here.",
+        "The corresponding accepted paper extraction and the existing packet sourceIssues; no verified later correction for this particular slip was located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 3.5.1 defines the polynomial weight in a derivative parameter, and Definition 3.5.2 gives zero for the type-zero derivative. Every integral full-rank lattice in the nonsplit ambient space has positive odd type, so the inconsistent extension in §7.3 does not change its sums.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeightsPartII/E24",
+      "source": "LL2",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.44, (2.17) p.28 and final summation p.29, January 2022 author copy",
+      "printed": "The auxiliary density summation uses b2−l although no l is bound in that sum.",
+      "correction": "Use b2−j with j the displayed outer summation variable. The statement of Proposition 2.44 already has the correct inner upper bound j.",
+      "reason": "The conductor term is indexed by the current outer j; this is also the variable in the correct proposition formula. This proof-index slip is distinct from the rejected allegation E5 about the stated formula.",
+      "affects": "nothing",
+      "known": "Observed in this review of the specified copy; no novelty claim or publisher-wide allegation.",
+      "searched": [
+        "The exact source version and neighboring definitions/proof cited here.",
+        "The corresponding accepted paper extraction and the existing packet sourceIssues; no verified later correction for this particular slip was located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The conductor term is indexed by the current outer j; this is also the variable in the correct proposition formula. This proof-index slip is distinct from the rejected allegation E5 about the stated formula.",
+        "by": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII"
+      }
     }
   ],
   "representativeSignatures": [
@@ -9221,5 +9612,533 @@
         "At q=3 and (1,1) the value is 12."
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GrossZagierAndArithmeticHeightsPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 104 nodes, seven exact public source versions, all five pinned baseline declarations, current Tau Ceti/upstream ownership, APIs/tests/planets, sourceIssues and graph closure. Corrections are synchronized to the reader and stage graph. Accepted as a completed planning pass: all 15 stages are planned, none closed; 13 explicit gaps and 16 supplier requests remain. Suggested.lean compiled at Mathlib 082e2d37e8 with only warnings for admitted proofs. SourceIssue verdicts: 22 confirmed, E5/E19 rejected; E23/E24 added. No heavyweight theory is claimed formalized.",
+    "checked": [
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U0/hom-conventions",
+        "verdict": "verified",
+        "note": "Rosati scalar calculation and the GN.2 conjugate-first dictionary preserve norms and duals."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U0/special-cycles",
+        "verdict": "corrected",
+        "note": "The liftability functor and relative dimension match; add the actual CR.7 filtration interface and record the unresolved PEL model contract."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U0/cartier-difference",
+        "verdict": "corrected",
+        "note": "Remove relative flatness, retain effective Cartierness, and request the independent-label dimension input before using regular-sequence Tor vanishing."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U0/derived-cycle",
+        "verdict": "corrected",
+        "note": "The supported derived tensor and Euler functional retain higher Tor; add flat base-change and disjoint-support API."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U0/basis-properness",
+        "verdict": "verified",
+        "note": "Basis independence is a derived statement; the full-rank support is proper and killed by a uniformizer power before taking length."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U0/selfdual-cancellation",
+        "verdict": "corrected",
+        "note": "Self-dual cancellation requires the complementary lattice to be integral; add that hypothesis explicitly."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U0/rank-one",
+        "verdict": "verified",
+        "note": "Odd valuation a gives (a+1)/2 and the negative polynomial derivative; negative valuation is the empty-cycle case."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U1/unitary-dl",
+        "verdict": "corrected",
+        "note": "Use a nondegenerate finite-field hermitian space; the isotropic incidence equation and base-change API retain the actual functor."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U1/vertices",
+        "verdict": "corrected",
+        "note": "Vertex quotient, reversed incidence and support criterion agree with the unramified source; add equality-of-lattices API."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U1/horizontal-splitting",
+        "verdict": "corrected",
+        "note": "The splitting is in supported graded K-theory; add generic restriction and a contained-curve test that detects dropped Tor."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U1/primitive-horizontal",
+        "verdict": "corrected",
+        "note": "Add the density-polynomial dependency and import the existing LT.6/LT.7 construction and degrees; intersection lengths remain requested."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U1/tate-lifting",
+        "verdict": "verified",
+        "note": "The two integral Tate criteria are stronger than rational comparison; retain the R07 integral contract and saturated-hyperplane statement."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U1/low-rank-vertical",
+        "verdict": "verified",
+        "note": "The rank-three coefficients count intermediate lattices, and the rank-two base is independent of the general induction; lifting-length leaf remains recorded."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U2/coxeter-cohomology",
+        "verdict": "verified",
+        "note": "The particular Coxeter degrees and eigenvalues are source-stated inputs; the independent Lusztig calculation remains a named gap."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U2/tate-generation",
+        "verdict": "corrected",
+        "note": "Include the whole closed stratum for H0; absence of Tate classes on the open complement is restricted to positive degrees."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U2/numerical-curves",
+        "verdict": "verified",
+        "note": "Tate generation plus proper trace gives numerical reduction to curves in the stated stratum, rather than a general numerical-equivalence theorem."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U2/curve-function",
+        "verdict": "corrected",
+        "note": "Add the direct rank-three vertical multiplicity prerequisite and uniqueness of the locally constant extension."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U2/vertical-fourier",
+        "verdict": "verified",
+        "note": "The curve decomposition and negative Fourier eigenvalue use the trace pairing and proper-support Euler functional."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U2/chern-quotient",
+        "verdict": "corrected",
+        "note": "The Cartier Chern signs are corrected and the quotient is by the actual cycle-class kernel; add its factorization API."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U2/higher-local-modularity",
+        "verdict": "verified",
+        "note": "Every rational functional on the stated cycle-class quotient is covered; this route avoids the global formal filtration product."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U3/density-interface",
+        "verdict": "verified",
+        "note": "The unramified density normalization, derivative sign and log(q squared) Whittaker factor match the specified source parameter."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U3/analytic-split",
+        "verdict": "corrected",
+        "note": "Set the canonical differentiated weight m(0)=0 and use the full primitive horizontal sum; sharpen the test and add lattice extensionality."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U3/horizontal-identity",
+        "verdict": "verified",
+        "note": "The horizontal comparison is on the complement of the hyperplane and uses the primitive degrees with the same density normalization."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U3/analytic-fourier",
+        "verdict": "verified",
+        "note": "Extension-parameter summation, convergence and cancellation produce analytic Fourier support, rather than pointwise cancellation."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U3/uncertainty",
+        "verdict": "verified",
+        "note": "The trace-hermitian uncertainty principle needs one strict and one weak norm cone, conductor-zero character and self-dual measure."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U3/difference-induction",
+        "verdict": "verified",
+        "note": "The lower-valuation difference survives basis replacement; separate vertical functions do not. The induction retains the rank-one base."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U4/almostdual-cycles",
+        "verdict": "corrected",
+        "note": "Original Y and normalized auxiliary intersections are distinguished; correct the split rank-one test and add basis invariance."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U4/comparison-model",
+        "verdict": "corrected",
+        "note": "Correct LRZ page locators, retain the lattice-pair dictionary, add the crystal interface and pullback compatibility; degree q+1 and exceptional O(-1) remain explicit."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U4/auxiliary-formula",
+        "verdict": "verified",
+        "note": "The auxiliary formula uses rank n+1 and has no original-Y subtraction; its normalization is fixed by degree q+1."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U4/divisor-comparison",
+        "verdict": "verified",
+        "note": "The exceptional self-intersection and Y-divisor correction are source-exact once the requested LRZ/PEL dictionary is supplied."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U4/original-formula",
+        "verdict": "verified",
+        "note": "The original almost-dual formula includes the coherent subtraction, unlike the auxiliary formula; its parity and rank-one examples agree."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U4/local-consumer",
+        "verdict": "verified",
+        "note": "Li–Liu and Li–Zhang Whittaker variables give different logarithmic factors; the parameter comparison remains an explicit leaf."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U5/exotic-cycles",
+        "verdict": "corrected",
+        "note": "The exotic form is scaled and trace-dual, with even rank and both components; add crystal/base-change contracts and a two-component test."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U5/exotic-line",
+        "verdict": "corrected",
+        "note": "The zero-label complex has zero differential and class [O]-[omega]; add pullback compatibility without replacing it by O."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U5/exotic-linear",
+        "verdict": "corrected",
+        "note": "Howard linear invariance concerns the tuple-generated module and actual two-term complexes; add the requested nilpotent-PD filtration interface."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U5/exotic-vertices",
+        "verdict": "corrected",
+        "note": "Trace-dual even-type vertices and dimensions differ from Krämer sharp-dual vertices; add extensionality."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U5/exotic-tate",
+        "verdict": "corrected",
+        "note": "Include the whole stratum in top Tate homology and give the exact open compact-support squared-Frobenius degrees and range."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U5/exotic-rank-two",
+        "verdict": "corrected",
+        "note": "Keep the geometric rank-two formula, import the quasi-canonical owner, and postpone its density comparison to U6 to avoid a backward dependency."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U5/exotic-cancellation",
+        "verdict": "verified",
+        "note": "The reflection calculation uses theta(x_i)=x_i; the corrected cancellation preserves the exotic form and dual conventions."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-density",
+        "verdict": "verified",
+        "note": "The ramified exotic density uses q^(-s), not either other model's interpolation; its exact extension is requested from GN.3."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-split",
+        "verdict": "corrected",
+        "note": "Horizontal means type-one hyperplane intersection; retain the zero-label complex in the test and add lattice extensionality."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-extension-count",
+        "verdict": "verified",
+        "note": "The graph-extension classification, type change and weighted cancellations are stated with convergence; the ramified density computation is a supplier leaf."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-analytic-fourier",
+        "verdict": "verified",
+        "note": "The analytic Fourier conclusion follows from convergent extension sums with the trace self-dual measure; no termwise vanishing is claimed."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-curve-fourier",
+        "verdict": "verified",
+        "note": "The exotic curve degree and Fourier calculation use both source components and the scaled trace-dual form."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-horizontal",
+        "verdict": "verified",
+        "note": "The exotic horizontal identity uses exact primitive degrees and low-rank intersections, not the full identity it helps prove."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-special-induction",
+        "verdict": "verified",
+        "note": "The ordinary and special induction cases have different support sets and preserve the strict-positive residual-line condition."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/exotic-main",
+        "verdict": "verified",
+        "note": "The final exotic identity combines the special support reduction with uncertainty; the external Frobenius and lifting leaves remain visible."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U6/relative-cycle",
+        "verdict": "corrected",
+        "note": "Add the unramified-base-field hypothesis of the relative/absolute comparison and the actual crystal-filtration interface."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/kramer-cycles",
+        "verdict": "corrected",
+        "note": "Retain rank n-1 Lie filtration and polarization-compatible framing; add crystal/base-change API and distinguish the codimension-zero zero label."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/symplectic-incidence",
+        "verdict": "corrected",
+        "note": "At m=1 the incidence varieties equal smooth P1; add isometry functoriality with Frobenius compatibility."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/kramer-strata",
+        "verdict": "corrected",
+        "note": "Make deformation a direct prerequisite, retain the positive-type vertex-sum and integral-lattice qualifications, and add incidence API."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/kramer-deformation",
+        "verdict": "corrected",
+        "note": "Remove the circular dependence on the completed strata theorem; construct the lattice subfunctor first, add CR.7 and separate the unresolved type-zero argument."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/kramer-horizontal",
+        "verdict": "corrected",
+        "note": "Import quasi-canonical construction and degree results from their existing owner; split/nonsplit complement and component degrees remain distinct."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/modified-horizontal",
+        "verdict": "corrected",
+        "note": "The horizontal correction is an exceptional line class in the quotient, with parity-dependent coefficient; add quotient compatibility."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/kramer-cancellation",
+        "verdict": "verified",
+        "note": "The self-dual Krämer cancellation retains the parity of the correction and actual source lattice hypotheses."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U7/kramer-geometric-fourier",
+        "verdict": "corrected",
+        "note": "Use Howard translation, proper stratum support and trace-dual Fourier support; remove the unsupported Tate-generation route."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U8/modified-density",
+        "verdict": "corrected",
+        "note": "The raw factor -2, dual-vertex equations and unique correction coefficients are GN.3 extension inputs; add the precise uniqueness interface."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U8/primitive-density",
+        "verdict": "verified",
+        "note": "The primitive formula's elementary divisors and discriminant are model-specific; its combinatorial proof remains in the GN.3 extension."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U8/kramer-analytic-split",
+        "verdict": "corrected",
+        "note": "The analytic H/V partition uses the modified primitive weights; add lattice extensionality and a nonzero negative-cone counterexample test."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U8/kramer-analytic-bound",
+        "verdict": "corrected",
+        "note": "Keep only corrected positive-cone constancy, specify the 2q counterexample and remove unsupported independent Fourier/Schwartz conclusions."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U8/kramer-horizontal",
+        "verdict": "verified",
+        "note": "The horizontal comparison uses the corrected exceptional contribution and the recorded ramified rank-two lifting-length leaf."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U8/kramer-main",
+        "verdict": "corrected",
+        "note": "Specify the H1 Gram-matrix counterexample and both valuation conventions; the isolated odd-top induction remains a gap, not a strengthened theorem."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U9/group-intersection",
+        "verdict": "corrected",
+        "note": "Relative regularity and strong regularity differ by semisimplicity; add conjugation API and a test that separates them."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U9/semilie-intersection",
+        "verdict": "corrected",
+        "note": "The fixed scheme is support for a derived graph intersection; add Euler additivity on fixed proper support."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U9/analytic-afl-interface",
+        "verdict": "verified",
+        "note": "Jacquet–Rallis matching and derivatives require a relative extension; ordinary endoscopic transfer does not supply this interface."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U9/cayley-graph",
+        "verdict": "verified",
+        "note": "The Cayley graph comparison preserves the Hom label and finite derived Euler class under its denominator-unit hypotheses."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U9/afl-rank-reduction",
+        "verdict": "verified",
+        "note": "Preserve the group-to-semi-Lie q>=n direction and the reverse q>=n+1 argument; q=n remains a named missing step."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U9/afl-local-constancy",
+        "verdict": "verified",
+        "note": "The fixed-class local-constancy proof and cyclic differential avoid the unjustified etaleness of the compressed algebra."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U9/maximal-order",
+        "verdict": "verified",
+        "note": "The maximal-order bound and artinian hypotheses remain explicit; Mihatsch's independent calculation has not been read as a proved leaf here."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U10/global-cycles",
+        "verdict": "corrected",
+        "note": "The Hom-tuple equivalence transports both source and target and the Tate label; add base-change API without upgrading finite unramified to etale."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U10/global-k-class",
+        "verdict": "corrected",
+        "note": "Restrict to LL1's smooth proper hyperspecial model and p-basic data; use the arithmetic-scheme filtration request, not affine formal FK.2."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U10/global-uniformization",
+        "verdict": "verified",
+        "note": "Uniformization retains the actual RZ model, level and local Hom dictionary; it is a PEL extension rather than a consequence of good-prime moduli alone."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U10/local-degree",
+        "verdict": "corrected",
+        "note": "Keep each reflex residue logarithm and [E:F0] normalization; add additive degree API and retain the almost-dual auxiliary correction."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U11/cm-order",
+        "verdict": "corrected",
+        "note": "The CM action is by the actual possibly nonmaximal order; sharpen that boundary test and add base-change API."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U11/cm-proper",
+        "verdict": "verified",
+        "note": "Properness and finite unramified forgetfulness do not assert every fat CM support has dimension one or is etale at bad orders."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U11/hecke-characteristic",
+        "verdict": "corrected",
+        "note": "Characteristic-polynomial components are open and closed; add restriction and level compatibility for their derived Hecke classes."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U11/cm-virtual-cycle",
+        "verdict": "corrected",
+        "note": "Replace formal filtration/pushforward citations by the requested scheme-theoretic dimension filtration and finite-pushforward contract; virtual dimension one is retained."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U11/cm-uniformization",
+        "verdict": "verified",
+        "note": "Formal CM uniformization has the source orbit and multiplicity dictionary and does not replace the proper virtual one-cycle construction."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/chow-series",
+        "verdict": "corrected",
+        "note": "Use the generic-fiber automorphic line, request its eigenspace/metric comparison, remove the determinant-Hodge identification and add linearity."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/complex-orbits",
+        "verdict": "verified",
+        "note": "The complex orbit formula uses the fixed negative line and CM eigenvector; the archimedean Hom convention is compatible with the local dictionary."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/kudla-green",
+        "verdict": "corrected",
+        "note": "Fix a>0 and the off-divisor domain, correct dd^c, explain the trace-to-orthogonal 4pi conversion, and add the full current-equation API."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/arithmetic-series",
+        "verdict": "corrected",
+        "note": "Use the metrized automorphic line for the zero coefficient; add invariance under the actual principal Green relation."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/modularity",
+        "verdict": "verified",
+        "note": "Generic Chow modularity and arithmetic Green comparison have different scope; the arithmetic AFL modularity remains over Q with its recorded analytical leaves."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/cm-pairing",
+        "verdict": "corrected",
+        "note": "The quotient by excluded-prime logarithms and denominator tau(Z^Q)[E:F] are retained; add bilinearity on proper cycle classes."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/pairing-modular",
+        "verdict": "verified",
+        "note": "The proper virtual CM pairing transfers the scoped modularity statement and half-complex normalization; no higher Chow product is inferred."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/finite-orbits",
+        "verdict": "verified",
+        "note": "The finite inert orbit formula has factor 2 log q, split vanishing and actual length/orbit weights under the source hypotheses."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U12/archimedean-orbits",
+        "verdict": "verified",
+        "note": "The repaired partial Gaussian, Green function and archimedean Whittaker normalization use the same 4pi argument and trace-pairing conversion."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/siegel-series",
+        "verdict": "corrected",
+        "note": "Specify the splitting-character restriction and normalized induction exponent; add its exact parabolic transformation law."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/incoherence",
+        "verdict": "corrected",
+        "note": "Diff is failure of representation; the central value vanishes and singleton nonsplit obstructions govern nonsingular derivatives. Add isometry compatibility."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/model-admissibility",
+        "verdict": "corrected",
+        "note": "The local G0-G5 and H1-H4 data retain their reflex, CM-type and lattice restrictions; add admissibility-witness projections."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/siegel-weil-input",
+        "verdict": "verified",
+        "note": "Eisenstein continuation is not Siegel–Weil; the theta-integral range, measure and volume comparison remain independently requested."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/semiglobal",
+        "verdict": "verified",
+        "note": "The semi-global identity uses the same c_K, inert admissibility and auxiliary convention; singleton-Diff summation does not remove those hypotheses."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/green-star-degree",
+        "verdict": "corrected",
+        "note": "Keep the half-complex integral and hyperspecial arithmetic-product scope; sharpen the almost-dual test and current-equivalence API."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/archimedean-asw",
+        "verdict": "verified",
+        "note": "The archimedean coefficient equality is source-stated with the same c_K and remains an independently requested analytic leaf."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/unramified-asw",
+        "verdict": "verified",
+        "note": "The unramified CM extension and two nonsingular split supports eliminate the stated singular terms; properness follows only in this setup."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/modified-eisenstein",
+        "verdict": "corrected",
+        "note": "The ramified and almost-dual coherent corrections have different logarithms and coefficients; add linearity with the fixed volume ratios."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U13/ramified-asw",
+        "verdict": "verified",
+        "note": "The ramified ASW target retains nondyadic singleton Diff and inherits the unresolved Krämer odd-top step."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U14/relative-analytic-input",
+        "verdict": "verified",
+        "note": "Relative orbital continuation, transfer and nilpotent terms need the relative owner extension; MZ fixes the Gaussian without proving all its general-field results here."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U14/holomorphic-derivative",
+        "verdict": "corrected",
+        "note": "The coefficient on the corrected holomorphic derivative is one; add the expansion including constant and nilpotent terms."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U14/fourier-vanishing",
+        "verdict": "corrected",
+        "note": "Specify the conductor sign and GL2 conjugating matrix in the vanishing criterion, retaining continuity and compact invariance."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U14/global-comparison",
+        "verdict": "verified",
+        "note": "The enlarged finite exclusion set repairs the maximal-order residue bound and uses the valid bound-free norm-unit reduction."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U14/orbit-isolation",
+        "verdict": "verified",
+        "note": "Orbit isolation cancels only a nonzero common away-place orbital factor and retains strong regularity."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U14/strong-afl",
+        "verdict": "verified",
+        "note": "Keep the published p>=n target over Q_p and expose its q=n reverse-Cayley and base-case proof obligations."
+      },
+      {
+        "nodeId": "GrossZagierAndArithmeticHeightsPartII:U14/general-afl-conjecture",
+        "verdict": "verified",
+        "note": "The general-field and nonstrong assertion is explicitly conjectural and is not promoted to a consequence of the strongly regular Q_p theorem."
+      }
+    ]
+  }
 }

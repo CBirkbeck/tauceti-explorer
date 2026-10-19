@@ -24,6 +24,7 @@
       "title": "Unramified special cycles and derived intersections",
       "description": "Over an odd-residue-characteristic unramified quadratic local extension, define liftability cycles on the signature (1,n−1) Rapoport–Zink functor, their derived classes and Euler intersections. Prove Cartierness, basis independence, proper full-rank support, cancellation and the rank-one normalization. Generic formal K theory and the RZ representability input are imported contracts.",
       "requires": [
+        "CrystallineCohomology:CR.7",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
@@ -43,7 +44,10 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "GrossZagierAndArithmeticHeightsPartII:U0",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7",
         "MotivesAndAlgebraicCycles:MC.2",
         "SchemeKTheoryOperationsPartII:FK.0",
         "SchemeKTheoryOperationsPartII:FK.2",
@@ -81,6 +85,7 @@
       "title": "Almost self-dual comparison",
       "description": "Define original almost self-dual Y-cycles and auxiliary pulled-back cycles separately. Prove the finite-flat exceptional-divisor comparison using Li–Rapoport–Zhang’s model theorem, identify the two model conventions, and derive both local density identities including the correction term and degree q+1.",
       "requires": [
+        "CrystallineCohomology:CR.7",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
         "GrossZagierAndArithmeticHeightsPartII:U0",
         "GrossZagierAndArithmeticHeightsPartII:U3",
@@ -94,9 +99,12 @@
       "title": "Exotic smooth geometry",
       "description": "For even rank and ramified quadratic extensions, use the exotic smooth RZ model with its scaled special Hom form and trace duality. Define the zero-vector Koszul complex and modular line, prove linear invariance and Cartierness, describe even-type strata and their Tate classes, and compute the rank-two and component normalizations.",
       "requires": [
+        "CrystallineCohomology:CR.7",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
         "GrossZagierAndArithmeticHeightsPartII:U0",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7",
         "MotivesAndAlgebraicCycles:MC.2",
         "PELModuli:M6",
         "SchemeKTheoryOperationsPartII:FK.1"
@@ -107,6 +115,7 @@
       "title": "Exotic analytic formula and induction",
       "description": "Consume ramified trace-dual density polynomials and their finite overlattice formula. Define analytic and geometric horizontal/vertical parts, prove the lattice-extension cancellation and Fourier bounds, and close the exotic local identity with the special two-overlattice induction. Export the relative/absolute cycle comparison.",
       "requires": [
+        "CrystallineCohomology:CR.7",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "GrossZagierAndArithmeticHeightsPartII:U3",
@@ -123,22 +132,25 @@
       "title": "Krämer model geometry and horizontal correction",
       "description": "On the ramified Krämer model of either hermitian sign, construct special cycles, type-zero exceptional projective spaces and positive-type symplectic incidence strata. Prove the corrected incidence relations and deformation properties, classify horizontal lattices and define the exceptional-line correction in the graded derived cycle. Establish the parity-corrected cancellation and geometric Fourier bounds.",
       "requires": [
+        "CrystallineCohomology:CR.7",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
         "GrossZagierAndArithmeticHeightsPartII:U0",
         "GrossZagierAndArithmeticHeightsPartII:U1",
-        "GrossZagierAndArithmeticHeightsPartII:U2",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.6",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.7",
         "MetaplecticAutomorphicForms:MP.0",
         "MotivesAndAlgebraicCycles:MC.2",
         "PELModuli:M6",
         "SchemeKTheoryOperationsPartII:FK.2",
+        "SchemeKTheoryOperationsPartII:FK.3",
         "SchemeKTheoryOperationsPartII:FK.4"
       ]
     },
     {
       "key": "U8",
       "title": "Krämer density correction and proof obligation",
-      "description": "Import ramified density polynomials with −2 derivative normalization and the uniquely determined dual-vertex correction coefficients. State primitive density products, analytic partial-integral bounds and the horizontal identity. Isolate the false negative-norm vanishing and the missing isolated odd-top induction case; the full Krämer identity is a target with this explicit proof gap.",
+      "description": "Import ramified density polynomials with −2 derivative normalization and the uniquely determined dual-vertex correction coefficients. State primitive density products, positive-cone constancy of the analytic partial integral and the horizontal identity. Isolate the false negative-norm vanishing and the missing isolated odd-top induction case; the full Krämer identity is a target with this explicit proof gap.",
       "requires": [
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "GrossZagierAndArithmeticHeightsPartII:U7",
@@ -172,7 +184,6 @@
         "PELModuli:M6",
         "SchemeAndStackFoundations:SF.5",
         "SchemeKTheoryOperationsPartII:FK.1",
-        "SchemeKTheoryOperationsPartII:FK.2",
         "SchemeKTheoryOperationsPartII:FK.4"
       ]
     },
@@ -186,9 +197,7 @@
         "PELModuli:M4",
         "PELModuli:M6",
         "SchemeAndStackFoundations:SF.5",
-        "SchemeKTheoryOperationsPartII:FK.1",
-        "SchemeKTheoryOperationsPartII:FK.2",
-        "SchemeKTheoryOperationsPartII:FK.4"
+        "SchemeKTheoryOperationsPartII:FK.1"
       ]
     },
     {
