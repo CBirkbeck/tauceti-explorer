@@ -1,0 +1,245 @@
+{
+  "id": "GaloisSectionsPadicPeriodMaps",
+  "title": "Anabelian geometry and nonabelian Chabauty, Part II: Galois sections and p-adic period mappings",
+  "area": "arithmeticgeometry",
+  "parent": "AnabelianGeometryAndNonabelianChabauty",
+  "summary": "Betts and Stix prove that for a number field without CM subfield and a curve of genus at least two, the Selmer sections of Grothendieck's fundamental exact sequence have finite image in the v-adic points at every finite place, and so does the finite descent locus. The roadmap builds Selmer sections and the Harari–Stix descent theorem, symplectic pairs of sections, filtered discrete (φ, N, G_v)-modules, self-conjugate places, the model-free control of D_pst by p-adic period maps through relative p-adic Hodge theory, the principal trichotomy, and the finiteness of the Lawrence–Venkatesh locus for Kodaira–Parshin families.",
+  "readme": "# Anabelian geometry and nonabelian Chabauty, Part II: Galois sections and p-adic period mappings\n\n**Purpose.** Formalise L. A. Betts and J. Stix, *Galois sections and p-adic period mappings* (Annals of Mathematics 201 (2025), 79–166; arXiv:2204.13674). For a number field K with no CM subfield and a smooth projective curve Y/K of genus at least 2, the image of the Selmer sections of the fundamental exact sequence in Y(K_v) is finite for every finite place v (Theorem A), and so is the projection of the finite descent locus to Y(K_v) (Theorem B). The method is the Lawrence–Venkatesh argument read as an obstruction, extended to every self-conjugate place.\n\n**Scope.** This is a Part II of AnabelianGeometryAndNonabelianChabauty. It starts where that roadmap's Layer 7.1 stops (section classes, the section map, its injectivity over number fields and the section conjecture) and adds: restriction of sections to decomposition groups, Selmer sections and their localisations, the Harari–Stix description of finite descent; symplectic pairs of sections and Theorem 7.1; filtered discrete (φ, N, G_v)-modules with their automorphism groups; self-conjugate places; the model-free control of D_pst by v-adic period maps; the principal trichotomy and the finiteness of the Lawrence–Venkatesh locus for Kodaira–Parshin families.\n\n**Imported, not re-planned.** From MordellLawrenceVenkatesh: abelian-by-finite families, Lagrangian period varieties, full monodromy, Faltings's lemma, the infinity-type factorisation, the Kodaira–Parshin family and its full monodromy. From PadicHodgeTheory: D_pst, filtered (φ, N)-modules with descent data, the p-adic monodromy theorem, de Rham pairs and Scholze's relative comparison, Shimizu's horizontal periods and relative monodromy theorem. From CohomologyComparisons CP.6: compatibilities of Scholze's c_dR with cup products, traces and Chern classes. From InverseGaloisAndArithmeticFundamentalGroups, ArithmeticGaloisRepresentations, HeightsRationalPointsAndObstructions, WeightsInEtaleCohomology and the Tau Ceti roadmaps: fundamental groups and their base change, decomposition groups, adelic points and descent sets, purity, class field theory and local fields.\n\n**Conventions.** Hodge–Tate weights are normalised so that Q_p(1) has weight −1; weights of unramified representations are those of geometric Frobenius; local Artin maps send uniformisers to arithmetic Frobenius. Induction is Ind_{G_w}^{G_v}W = Map_{G_w}(G_v, W). Σ_A is the set of Q_p-points of an algebra A. Scholze's comparison isomorphism c_dR is used throughout.\n\n**Non-goals.** The section conjecture and Stoll's finite descent conjecture are stated as named propositions and never assumed. Fields with a CM subfield are covered only at self-conjugate places.\n",
+  "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty",
+    "MordellLawrenceVenkatesh",
+    "PadicHodgeTheory",
+    "CohomologyComparisons",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "HeightsRationalPointsAndObstructions",
+    "ArithmeticGaloisRepresentations",
+    "WeightsInEtaleCohomology",
+    "ArithmeticGaloisDuality",
+    "AdicSpacesPartII",
+    "AlgebraicModuliForArithmeticGeometry",
+    "AbelianSchemesAndArithmeticModuli",
+    "EtaleDualityAndPerverseSheaves",
+    "ComplexComparisonPartII",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/Chebotarev"
+  ],
+  "stages": [
+    {
+      "key": "SPM.0",
+      "title": "Selmer sections and the finite descent locus",
+      "description": "**Targets.** Restriction res_u of Galois section classes to decomposition groups at every place, through π₁^ét(Y_{K_u}) ≅ π₁^ét(Y) ×_{G_K} G_u (Harari–Stix, Introduction). Injectivity of the section map over p-adic fields (A(L) profinite has no divisible points; Stix, Remark 46). Selmer sections Sec^Sel(Y/K) and the localisation maps loc_u at finite places (Betts–Stix Definition 1.1), with the archimedean conditions kept. Stoll's modified adelic points Y(A_K)_• and finite descent locus Y(A_K)_•^{f-cov}, with Stoll's conjecture as a named proposition. The Harari–Stix theorem: an adelic point survives finite étale descent iff its local sections come from one global section; hence the projection of Y(A_K)_•^{f-cov} to Y(K_v) is loc_v(Sec^Sel). Section classes, the section map and the section conjecture are imported from AnabelianGeometryAndNonabelianChabauty NC.6.",
+      "requires": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.6",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "HeightsRationalPointsAndObstructions:RP.2",
+        "HeightsRationalPointsAndObstructions:RP.3",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ]
+    },
+    {
+      "key": "SPM.1",
+      "title": "Symplectic pairs attached to Galois sections",
+      "description": "**Targets.** Symplectic modules and symplectic pairs (A, V) in a Q_p-linear tensor category, Σ_A = Hom_{Q_p-alg}(A, Q_p) and the fibres V_ψ (Betts–Stix Definitions 4.3–4.4). The pair H^{≤1}_ét(X_{y,F̄}, Q_p) of a fibre of an abelian-by-finite family (Example 4.5). The relative pair R^{≤1}π_*Q_p with the relative étale Chern class of the polarisation (§7.1). The pair (A_s, V_s) of a section, independent of conjugacy and base point (§7.2). Restriction of local systems along a section at a local point (Remark 1.5, Proposition 7.2). The adelic Lawrence–Venkatesh locus (Definition 6.1) and Theorem 7.1: Selmer sections localise into it, for every abelian-by-finite family.",
+      "requires": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.6",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "GaloisSectionsPadicPeriodMaps:SPM.0",
+        "HeightsRationalPointsAndObstructions:RP.2",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "MordellLawrenceVenkatesh:LV.1",
+        "MordellLawrenceVenkatesh:LV.2",
+        "MordellLawrenceVenkatesh:LV.3"
+      ]
+    },
+    {
+      "key": "SPM.2",
+      "title": "Filtered discrete (φ, N, G_v)-modules and their automorphism groups",
+      "description": "**Targets.** The category MF(φ, N, G_v) of triples (D_pst, D_dR, c_BO), its comparison with filtered (φ, N, Gal(L/K_v))-modules, D_pH and p-adic Hodge cohomology H^•_pH with Scholze's c_dR; restriction to G_w and induction to G_v with the adjunction and the base-change isomorphisms (2.1), (2.2) (Betts–Stix §2.2.1–2.2.3). Automorphism groups Aut(D), Aut^GSp(D), their action on the Weil-restricted flag variety and the retwists M(Φ) (Definition 2.13, Remark 2.14). The orbit lemma (Lemma 2.15). The dimension bounds d² and d(2d + 1) + 1, with the proof's injectivity repaired by using φ (Proposition 2.16, extraction E2). The full faithfulness of D_pH (Theorem 2.9) is requested from PadicHodgeTheory.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "CohomologyComparisons:CP.6",
+        "MordellLawrenceVenkatesh:LV.0",
+        "MordellLawrenceVenkatesh:LV.4",
+        "PadicHodgeTheory:P8",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.3",
+        "PadicHodgeTheory:R06.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components"
+      ]
+    },
+    {
+      "key": "SPM.3",
+      "title": "Self-conjugate places and average Hodge–Tate weights",
+      "description": "**Targets.** Conjugate and self-conjugate places, their description through the maximal CM subfield and their relation to friendly places (Betts–Stix Definition 2.17, Remark 2.18). Proposition 2.19 for Q_p^×-valued characters: Hodge–Tate weights at conjugate places of a pure de Rham character add up to its weight (false for Q̄_p^×-values when K has a CM subfield). Remark 2.20: at a self-conjugate place such a character is finite-order times a cyclotomic power. Corollary 2.21: the average Hodge–Tate weight of a pure representation of G_L at a self-conjugate place of K is half its weight. The infinity-type and largest-CM-subfield inputs are imported from MordellLawrenceVenkatesh LV.1.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.1",
+        "MordellLawrenceVenkatesh:LV.1",
+        "WeightsInEtaleCohomology:R34.1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+      ]
+    },
+    {
+      "key": "SPM.4",
+      "title": "Model-free period maps control D_pst",
+      "description": "**Targets.** Theorem 3.22 of Betts–Stix: on a closed polydisc or spherical polyannulus over any finite K_v/Q_p, a de Rham pair whose bundle has a full horizontal basis has canonically identified D_pst of all fibres, compatibly with parallel transport; first for spherical polyannuli through Shimizu's potentially horizontal semistable representations and the invariants of B_dR(R_v), then for polydiscs (Lemma 3.23). Theorem 3.3: for a smooth proper family the D_pst of H^i_ét of fibres are constant on a polydisc where H^i_dR has a full horizontal basis. Proposition 3.5: the v-adic period map determines the filtered (φ, N, G_v)-module H^i_pH(X_y) as M^i(Φ_{y₀}(y)), hence the local representation. No model or reduction hypothesis; the relative comparison is imported from PadicHodgeTheory P8, the model-free period map is requested from MordellLawrenceVenkatesh LV.3.",
+      "requires": [
+        "AdicSpacesPartII:R1",
+        "ComplexComparisonPartII:C5",
+        "GaloisSectionsPadicPeriodMaps:SPM.2",
+        "MordellLawrenceVenkatesh:LV.3",
+        "PadicHodgeTheory:P8",
+        "PadicHodgeTheory:R06.3",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius"
+      ]
+    },
+    {
+      "key": "SPM.5",
+      "title": "Period maps of abelian-by-finite families",
+      "description": "**Targets.** The symplectic pair H^{≤1}_pH(X_y/K_v) in MF(φ, N, G_v), using the Chern-class compatibility of c_dR (Betts–Stix §4.1.3; CohomologyComparisons CP.6). The Lagrangian period domain H_{y₀} and the pairs M^{≤1}(Φ) (Definition 4.10). Proposition 4.11: on a polydisc the period map of an abelian-by-finite family lands in H_{y₀} and D_pH of the fibre pair at y is M^{≤1}(Φ_{y₀}(y)). Lemma 4.12 and (4.3): the decomposition of H_{y₀} and of M¹(Φ) over the closed points of Y′_{y₀}.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "CohomologyComparisons:CP.6",
+        "GaloisSectionsPadicPeriodMaps:SPM.1",
+        "GaloisSectionsPadicPeriodMaps:SPM.2",
+        "GaloisSectionsPadicPeriodMaps:SPM.4",
+        "MordellLawrenceVenkatesh:LV.2",
+        "MordellLawrenceVenkatesh:LV.3",
+        "PadicHodgeTheory:R06.3"
+      ]
+    },
+    {
+      "key": "SPM.6",
+      "title": "The Lawrence–Venkatesh loci and the principal trichotomy",
+      "description": "**Targets.** S-good pairs (Betts–Stix Definitions 1.2, 6.2) and the Lawrence–Venkatesh locus Y(K_v)^LV_{X,S} with Remark 6.3; the period-domain locus H_{y₀}(K_v)^LV_{X,S} and the reduction of finiteness to Zariski density of period maps and non-density of this locus (Definition 1.7, §1.1.2). Lemma 6.4 (interpolating pairs are S-good) and Y(K) ⊆ Y(K_v)^LV_{X,S}. The non-symplectic locus of Remark 1.4 with the genus-3 numerics. Remark 6.6 on the points of the fibre algebra. The principal trichotomy (Proposition 6.7, with #Σ_A in (c), corrected after the extraction's E1) and the three loci of Definition 6.8, which cover the Lawrence–Venkatesh locus at a self-conjugate place.",
+      "requires": [
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.6",
+        "GaloisSectionsPadicPeriodMaps:SPM.1",
+        "GaloisSectionsPadicPeriodMaps:SPM.2",
+        "GaloisSectionsPadicPeriodMaps:SPM.3",
+        "GaloisSectionsPadicPeriodMaps:SPM.5",
+        "MordellLawrenceVenkatesh:LV.1",
+        "MordellLawrenceVenkatesh:LV.2",
+        "MordellLawrenceVenkatesh:LV.3",
+        "MordellLawrenceVenkatesh:LV.8",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.5",
+        "WeightsInEtaleCohomology:R34.1"
+      ]
+    },
+    {
+      "key": "SPM.7",
+      "title": "Finiteness for points of types (a) and (b)",
+      "description": "**Targets.** The finite sets T_i of local classes of GSp-irreducible weight-one representations over bounded extensions (Betts–Stix Definition 6.11, Lemma 6.12, by Hermite–Minkowski and the symplectic Faltings lemma). Non-density after Weil restriction for residue degree ≥ 4: Lemma 6.13 (type (a), dimension count d(2d + 1) < [L : K_v]d(d + 1)/2) and Lemma 6.17 (type (b), through (6.1) and the isotropic four-Lagrangian Sublemma 6.18). Non-density of the type (a) and (b) period loci (Propositions 6.9, 6.15) and finiteness of the type (a) and (b) loci under full monodromy (Corollaries 6.10, 6.16).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArithmeticGaloisDuality:R02.3",
+        "GaloisSectionsPadicPeriodMaps:SPM.2",
+        "GaloisSectionsPadicPeriodMaps:SPM.5",
+        "GaloisSectionsPadicPeriodMaps:SPM.6",
+        "MordellLawrenceVenkatesh:LV.1",
+        "MordellLawrenceVenkatesh:LV.3",
+        "MordellLawrenceVenkatesh:LV.7",
+        "PadicHodgeTheory:R06.3"
+      ]
+    },
+    {
+      "key": "SPM.8",
+      "title": "Kodaira–Parshin families and points of type (c)",
+      "description": "**Targets.** The proportion size_v of points in G_v-orbits of size < 4 and its monotonicity. The count n_v of quadratic and cubic extensions of K_v, finite, and equal to 7 for v ∤ 6 (Betts–Stix Remark 6.21). Isotropy of the fixed classes of index-2 and index-3 subgroups on H¹_ét(Y_{K̄_v}, Z/k) and the bound n_v k^g. Proposition 6.20: for q − 1 coprime to 4 and to the odd primes of q_v(q_v + 1)(q_v³ − 1) and q − 1 ≥ 9n_v, the Kodaira–Parshin family X_q has no points of type (c). Corollary 6.22 (choice of q by Dirichlet). Remark 6.23 comparing the pairs (v, q) covered here and by Lawrence–Venkatesh, with (I) corrected (extraction E6).",
+      "requires": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "GaloisSectionsPadicPeriodMaps:SPM.3",
+        "GaloisSectionsPadicPeriodMaps:SPM.6",
+        "MordellLawrenceVenkatesh:LV.0",
+        "MordellLawrenceVenkatesh:LV.1",
+        "MordellLawrenceVenkatesh:LV.10",
+        "MordellLawrenceVenkatesh:LV.11",
+        "MordellLawrenceVenkatesh:LV.7",
+        "MordellLawrenceVenkatesh:LV.8",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group"
+      ]
+    },
+    {
+      "key": "SPM.9",
+      "title": "Finiteness of the Lawrence–Venkatesh locus and Theorems A and B",
+      "description": "**Targets.** Theorem 6.5: at a self-conjugate place the Lawrence–Venkatesh locus of a suitable Kodaira–Parshin family is finite. The Mordell conjecture as a corollary. Finiteness of loc_v(Sec^Sel(Y/K)) at every self-conjugate place of any number field. Theorem A (no CM subfield: every finite place) and Theorem B (finiteness of the projections of the finite descent locus). Remark 1.3: the Lawrence–Venkatesh argument in obstruction form and the places it misses. The section conjecture is not assumed; Theorem A is its unconditional prediction.",
+      "requires": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.6",
+        "GaloisSectionsPadicPeriodMaps:SPM.0",
+        "GaloisSectionsPadicPeriodMaps:SPM.1",
+        "GaloisSectionsPadicPeriodMaps:SPM.3",
+        "GaloisSectionsPadicPeriodMaps:SPM.6",
+        "GaloisSectionsPadicPeriodMaps:SPM.7",
+        "GaloisSectionsPadicPeriodMaps:SPM.8",
+        "MordellLawrenceVenkatesh:LV.10",
+        "MordellLawrenceVenkatesh:LV.11"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "bs",
+      "title": "Galois sections and p-adic period mappings",
+      "authors": "L. Alexander Betts and Jakob Stix",
+      "edition": "arXiv:2204.13674v1 (28 April 2022, the only arXiv version, 59 pages); published in Annals of Mathematics 201 (2025), no. 1, 79–166, doi:10.4007/annals.2025.201.1.2, revised after v1 and not openly available, so all locators are arXiv v1's",
+      "url": "https://arxiv.org/pdf/2204.13674v1",
+      "readSections": [
+        "§1 in full, pp. 1–6",
+        "§2 in full, pp. 7–15",
+        "§3.1, pp. 15–18",
+        "§3.2 statements and proofs of Proposition 3.7, Theorem 3.12 and Lemma 3.14, pp. 18–23",
+        "§3.4 statements of Propositions 3.19–3.20 and Remark 3.21, pp. 27–28",
+        "§3.5 in full, pp. 28–32",
+        "§4 in full, pp. 32–38",
+        "§5 statements and the proof of Proposition 5.3, pp. 39–43",
+        "§6 in full, pp. 43–54",
+        "§7 in full, pp. 54–56"
+      ]
+    },
+    {
+      "id": "hs",
+      "title": "Descent obstruction and fundamental exact sequence",
+      "authors": "David Harari and Jakob Stix",
+      "edition": "arXiv:1005.1302v2 (26 May 2010); published in The Arithmetic of Fundamental Groups (PIA 2010), Contributions in Mathematical and Computational Sciences 2, Springer 2012, 147–166, where Betts–Stix cite it as [HS12, Theorem 11]; locators are the arXiv numbering (Theorem 2.1)",
+      "url": "https://arxiv.org/pdf/1005.1302v2",
+      "readSections": [
+        "Introduction, pp. 1–3",
+        "§1 definitions (a), (a′) and Propositions 1.1–1.2, Corollary 1.7, pp. 3–10",
+        "§2 Theorem 2.1 and Remarks (1)–(4), pp. 11–12"
+      ]
+    },
+    {
+      "id": "stoll",
+      "title": "Finite descent obstructions and rational points on curves",
+      "authors": "Michael Stoll",
+      "edition": "arXiv:math/0606465v3; published in Algebra & Number Theory 1 (2007), 349–391; locators are the arXiv pagination (printed page = PDF page)",
+      "url": "https://arxiv.org/pdf/math/0606465v3",
+      "readSections": [
+        "§1, pp. 1–3",
+        "§2, p. 4",
+        "§5 Theorem 5.1, Definitions 5.2 and 5.4, Lemma 5.8, Proposition 5.9, pp. 14–20",
+        "§9 Conjecture 9.1, p. 38"
+      ]
+    },
+    {
+      "id": "stix08",
+      "title": "On cuspidal sections of algebraic fundamental groups",
+      "authors": "Jakob Stix",
+      "edition": "arXiv:0809.0017v1 (2008); published in Galois–Teichmüller Theory and Arithmetic Geometry, Adv. Stud. Pure Math. 63 (2012), 519–563; locators use the arXiv v1 pagination",
+      "url": "https://arxiv.org/pdf/0809.0017v1",
+      "readSections": [
+        "Appendix B, Theorem 45 and Remark 46, p. 22"
+      ]
+    }
+  ],
+  "status": "draft"
+}
