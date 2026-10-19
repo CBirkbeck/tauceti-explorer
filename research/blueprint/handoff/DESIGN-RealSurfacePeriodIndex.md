@@ -1,6 +1,68 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
-## Current checkpoint — codex-VHoeEk, 19 October 2026
+## Current checkpoint — codex-sjz3JQ, 19 October 2026
+
+Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470);
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6265623627).
+**Blocked: the incorporated brief's mandatory real-function-field supplier
+design is still absent.** No consumer design was started; no second job was
+claimed. Only this handoff changes.
+
+Rechecked at atlas main
+[`1559ba863c9550678a9f5b80709af54dfb9931cf`](https://github.com/CBirkbeck/tauceti-explorer/commit/1559ba863c9550678a9f5b80709af54dfb9931cf),
+which matched the local base and GitHub main ref at the check:
+
+- The incorporated [Benoist19 route](../papers/PAPER-BENOIST-19.result.json)
+  has 100 distinct consumer items. Its final brief paragraph explicitly
+  requires all four supplier designs and every needed tranche before
+  execution. This is a design-presence gate, not a demand to complete the
+  proofs of imported results.
+- The accepted [quadratic parent](../packets/QuadraticFormInvariantsPartII.json)
+  still assigns thirteen items to `QuadraticFormsRealFunctionFields`, all
+  `proposed-split`: ten Benoist19 items and three Benoist–Wittenberg items.
+  Benoist19 `/25` and `/26` remain shared Q2.5 imports. Its
+  [review handoff](REV-DESIGN-QuadraticFormInvariantsPartII.md) still leaves
+  the split decision to the maintainer; accepting the parent does not
+  materialize RF.0–RF.4.
+- There is no supplier roadmap, packet or part locally. GitHub contents
+  checks for its roadmap and packet each returned HTTP 404. The split
+  registry contains no decision for this direction, and the queue has no
+  supplier design job. The consumer remains `pending` with `after: []`.
+  Read `make_queue.py`'s parent grouping and design-dependency construction:
+  neither encodes this consumer's full-brief gate.
+- The other required suppliers remain complete and accepted: semisimple
+  (55 nodes, 11 gaps, 10 requests), equivariant topology (75, 15, 14),
+  and Hodge H.8 (31, 5, 11). These are presence checks, not new reviews.
+
+**Resume condition:** the maintainer must materialize the missing tranche
+under one authorized owner and encode its design-presence dependency before
+releasing this consumer. Supplier, split-registry and queue edits are outside
+this issue's permitted files. The exact RF.0–RF.4 inventory, shared-import
+direction, application proof gates and resume procedure below still apply.
+
+Read the current upstream quadratic and real-algebraic scope statements,
+and current Tau Ceti's central-simple index and real Brauer-group source.
+Their commits remain `0d144d044dacebca17b654695b6f1ad58f159b27` and
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, respectively. No build,
+new primary-source reading or pinned-baseline claim is made. The reviewed
+audit still has no consumer entry.
+
+Validation: parsed and asserted the route's sequencing condition and item
+count, all split assignments and shared imports, supplier presence/review
+status/counts, absent split decision and job, queue mismatch, absent consumer
+deliverables and absent audit entry. Checked remote supplier absence,
+main-ref equality, permitted paths and whitespace. All four consumer
+deliverables remain absent: zero nodes, API items, tests, planets, baseline
+citations or formal requests; no stages designed. Blueprint checking and Lean
+elaboration are inapplicable; Lean was not compiled. No scratch artifact is
+needed to resume.
+
+Selection: focus assembly #7943 rejected claim attempts through GraphQL and
+REST because commenting is disabled at 2,500 comments. The next eligible
+plan-review #3543 was already claimed when rechecked. This design was chosen
+from the next eligible class.
+
+## Earlier checkpoint — codex-VHoeEk, 19 October 2026
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470);
 [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6264474339).
