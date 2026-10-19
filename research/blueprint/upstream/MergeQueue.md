@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T00:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T00:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -179,7 +179,7 @@ Generated 2026-10-19T00:00Z from the README supplier graph of every open pull re
 - #1018 EllipticCurveModularity — ready; waits on #1004, #1007, #1013, #1020, #852, #856, #879, #913, #928
 - #1066 OrdinaryAutomorphicFormsAndModularityLifting — draft; waits on #1005, #1007, #1013, #1019, #1020, #1034, #1039, #1062, #785, #856, #858, #920, #923, #931
 - #1085 PerfectoidShimuraVarieties — draft; waits on #1005, #1038, #1042, #1053, #1069, #1084, #785, #792, #813, #816, #818, #820, #933, #966
-- #1179 ArithmeticStatisticsPartVIII — draft; waits on #1040, #1171, #1172, #1175, #1178, #849, #850, #851, #929
+- #1179 ArithmeticStatisticsPartVIII — draft; waits on #1040, #1171, #1172, #1175, #1178, #849, #850, #851, #856, #929
 
 ## Wave 30
 - #1036 EllipticCurveModularityPartIIGL2TypeAbelianVarieties — ready (approved at an earlier head); waits on #1004, #1006, #1007, #1018, #1020, #849, #852, #856, #879, #913, #928, #931, #966, #970
