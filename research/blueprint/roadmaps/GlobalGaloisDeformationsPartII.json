@@ -1,0 +1,344 @@
+{
+  "id": "GlobalGaloisDeformationsPartII",
+  "title": "Global Galois deformation rings, Part II: G-valued lifting",
+  "area": "modular",
+  "parent": "GlobalGaloisDeformations",
+  "summary": "A target-level plan for Ramakrishna-style G-valued lifting, separating controlled finite-level towers from finitely ramified characteristic-zero lifts. Cyclic prime-field modules replace semisimplicity in the doubling argument; relative Selmer images supply the finite-ramification step. Corrected reducible, function-field and symplectic applications consume existing local and automorphic owners. The target pass covers every catalogue item, while five explicit gaps and the precise supplier contracts delimit its open mathematical inputs. All eleven layers are planned; none is claimed closed or implemented.",
+  "readme": "This Part II starts after the base roadmap’s deformation functors and obstruction presentations. It owns cyclic ramification classes, doubling, controlled towers, relative Selmer-image annihilation and their G-valued lifting applications. Generic duality, local rings, reductive structure and automorphy remain imports. The companion reader gives every target, exact hypotheses, proof outline, API and regression checks. Its main intended endpoint is a finitely ramified characteristic-zero lift with fixed multiplier, prescribed local components and full derived congruence image. The source’s auxiliary-field independence argument needs a repair, recorded with a counterexample and a narrower valid conditional statement; the planned endpoints therefore do not constitute a closed proof.",
+  "prerequisites": [
+    "GlobalGaloisDeformations",
+    "AlgebraicModularFormsAndSerreWeights",
+    "ArithmeticGaloisDuality",
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "ClassicalSerreModularity",
+    "FunctionFieldArithmetic",
+    "GL2ModularityLifting",
+    "GlobalShtukasAndFunctionFieldLanglands",
+    "LocalGaloisDeformationRings",
+    "ModularityAndLanglandsExtensions",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PotentialModularityAndCompatibleSystems",
+    "ReductiveGroupsPartII",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+  ],
+  "stages": [
+    {
+      "key": "GG2.0",
+      "title": "Global lifting data and arithmetic interfaces",
+      "description": "Fix the G-valued, fixed-multiplier global problem, the derived adjoint module and its Tate dual; define G-oddness, the four residual-image conditions, trivial primes, cocycle fields and strong linear disjointness. Establish the cyclotomic and abelian-compositum facts used by every auxiliary-prime argument. Import arithmetic duality and local deformation rings from their owners, with the function-field extensions explicit.",
+      "requires": [
+        "LocalGaloisDeformationRings:R08.1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "GlobalGaloisDeformations:R04.1",
+        "ArithmeticGaloisDuality:R02.5",
+        "ArithmeticGaloisRepresentations:R01.2"
+      ]
+    },
+    {
+      "key": "GG2.1",
+      "title": "Residual-image criteria",
+      "description": "Prove the cyclic-quotient bound for absolutely G-irreducible images and the reducible parabolic criteria. Construct central p-group factors and the abelian root subgroup used to remove invariants. Define D(s,t,N), including zero exponents. Give corrected GL_n, classical maximal-parabolic, Borel, GSp_4 and equal-block examples; send the polarized GL_n module criterion to its existing owner. Every sufficiently-large-prime constant depends only on the indicated root datum or dimension.",
+      "requires": [
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "ArithmeticGaloisRepresentations:G7",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+        "ArithmeticGaloisDuality:R02.2",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ]
+    },
+    {
+      "key": "GG2.2",
+      "title": "Cyclic ramification classes",
+      "description": "Kill the full dual Sha group, stabilize Sha for every cyclic prime-field submodule and dual quotient, obtain the one-prime ramification sequence and construct marked auxiliary classes. Prove the inductively quantified spanning and prescribed-vector forms of Proposition 3.6 and the conditional joint-inertia criterion for strong disjointness of the dual cocycle fields; expose the missing replacement for the unconditional claim as gap G1. Keep prime-field dimensions separate from residue-field dimensions.",
+      "requires": [
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "ArithmeticGaloisDuality:R02.2",
+        "ArithmeticGaloisDuality:R02.4",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "FunctionFieldArithmetic:FA.5",
+        "ArithmeticGaloisDuality:R02.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ]
+    },
+    {
+      "key": "GG2.3",
+      "title": "Doubling and controlled finite-level lifts",
+      "description": "Start from locally liftable residual data, construct the initial mod-uniformizer-squared lift, and use the doubling method with the corrected two inertia coefficients. Prove the density selection, congruence-field disjointness and general-position torus input, then construct compatible finite-level lifts with the local control of Theorem 4.4. The tower need not have a fixed finite ramification set.",
+      "requires": [
+        "GlobalGaloisDeformationsPartII:GG2.2",
+        "GlobalGaloisDeformations:R04.3",
+        "LocalGaloisDeformationRings:R08.1",
+        "GlobalGaloisDeformations:R04.1",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "FunctionFieldArithmetic:FA.5",
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "ArithmeticGaloisDuality:R02.1",
+        "ArithmeticGaloisDuality:D7",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ReductiveGroupsPartII:RG2.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "LocalGaloisDeformationRings:R08.2"
+      ]
+    },
+    {
+      "key": "GG2.4",
+      "title": "Relative local conditions and Selmer images",
+      "description": "Import the root lifting functors and smooth-point analytic neighborhoods from LocalGaloisDeformationRings. Plan their lifting-specific cocycle lattices, coefficient exactness, relative Selmer images, balance, and local conditions at Q_N. Establish the compact p-adic Lie cohomology bound and its reduction-vanishing consequence, exposing the analytic comparison input instead of assuming it.",
+      "requires": [
+        "ArithmeticGaloisDuality:R02.5",
+        "ArithmeticGaloisDuality:R02.4",
+        "ArithmeticGaloisDuality:R02.1",
+        "ArithmeticGaloisDuality:D7",
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "ReductiveGroupsPartII:RG2.0",
+        "GlobalGaloisDeformationsPartII:GG2.3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "LocalGaloisDeformationRings:R08.2",
+        "LocalGaloisDeformationRings:R08.3"
+      ]
+    },
+    {
+      "key": "GG2.5",
+      "title": "Auxiliary primes and relative Selmer annihilation",
+      "description": "Prove finite-image cohomology vanishing, the simultaneous root-position lemma and the corrected primal/dual detection prime theorem. Reduce disconnected groups to one orbit of adjoint simple factors, and annihilate relative Selmer images by finitely many Q_N primes. Distinguish the decreasing finite-level cardinality from the mod-p relative dimension.",
+      "requires": [
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "GlobalGaloisDeformationsPartII:GG2.4",
+        "GlobalGaloisDeformationsPartII:GG2.3",
+        "ArithmeticGaloisDuality:R02.2",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "ReductiveGroupsPartII:RG2.0",
+        "GlobalGaloisDeformationsPartII:GG2.1",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "FunctionFieldArithmetic:FA.5",
+        "ArithmeticGaloisDuality:R02.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+        "LocalGaloisDeformationRings:R08.1"
+      ]
+    },
+    {
+      "key": "GG2.6",
+      "title": "Finitely ramified characteristic-zero lifts",
+      "description": "Complete the compatible lifting argument after relative dual Selmer vanishing and prove the finite-detection criterion for full congruence image. Assemble Theorem 5.2 with prescribed local approximation and components, its sl_2 small-prime case, the non-geometric Theorem 5.6 without oddness, and the FKP19 irreducible specialization. Preserve the coefficient-extension quantifier: one extension works for every approximation depth.",
+      "requires": [
+        "GlobalGaloisDeformationsPartII:GG2.5",
+        "GlobalGaloisDeformationsPartII:GG2.4",
+        "ArithmeticGaloisDuality:R02.4",
+        "GlobalGaloisDeformations:R04.3",
+        "GlobalGaloisDeformations:R04.1",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+        "ReductiveGroupsPartII:RG2.0",
+        "GlobalGaloisDeformationsPartII:GG2.3",
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "LocalGaloisDeformationRings:R08.3",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "ArithmeticGaloisDuality:R02.5",
+        "LocalGaloisDeformationRings:R08.2",
+        "GlobalGaloisDeformationsPartII:GG2.1",
+        "ArithmeticGaloisDuality:R02.2"
+      ]
+    },
+    {
+      "key": "GG2.7",
+      "title": "Levi-valued residual representations",
+      "description": "Use ramified coefficient extension and a lifted cocharacter to change the residual lattice to the Levi projection. Produce arbitrarily many controlled extension classes, an indecomposable parabolic representation with full abelian-root image, explicit local lifts with the required multiplier, and invariant removal. Assemble the corrected Levi-valued corollary with oddness and the maximal-parabolic irreducibility hypothesis; test torus and GSp_4 cases.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisDuality:R02.5",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "FunctionFieldArithmetic:FA.5",
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "GlobalGaloisDeformationsPartII:GG2.1",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "LocalGaloisDeformationRings:R08.2",
+        "GlobalGaloisDeformationsPartII:GG2.6",
+        "LocalGaloisDeformationRings:R08.3",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "AutomorphicGaloisRepresentations:R19.5"
+      ]
+    },
+    {
+      "key": "GG2.8",
+      "title": "Actual reductions of modular forms",
+      "description": "Define lattice-sensitive modularity and prove the GL_2 residual criteria. Match determinants in the ordinary and crystalline local cases, then deduce Theorem 7.4 using existing modularity theorems. Prove finiteness of reductions over the algebraic closure at fixed weight and level through the stable-lattice tree, and contrast it with the infinitude of residual extension classes. State the totally real consequence with its modularity input explicit.",
+      "requires": [
+        "AutomorphicGaloisRepresentations:R19.1",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "ArithmeticGaloisDuality:R02.2",
+        "LocalGaloisDeformationRings:R08.2",
+        "LocalGaloisDeformationRings:R08.3",
+        "LocalGaloisDeformationRings:L7",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "AlgebraicModularFormsAndSerreWeights:R15.4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "ClassicalSerreModularity:R27.6",
+        "AlgebraicModularFormsAndSerreWeights:R15.5",
+        "GlobalGaloisDeformationsPartII:GG2.6",
+        "GlobalGaloisDeformationsPartII:GG2.7",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+        "GL2ModularityLifting:R32.4",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "ReductiveGroupsPartII:RG2.2"
+      ]
+    },
+    {
+      "key": "GG2.9",
+      "title": "Automorphy over function fields",
+      "description": "Define automorphy of an actual residual representation via an integral irreducible finite-determinant lift. Assemble Theorem 8.1 using equal-characteristic local lifts and Lafforgue. Derive the two-block and direct-sum cases with the corrected joint determinant-field hypothesis, and delimit the irreducible case by its necessary cyclotomic condition.",
+      "requires": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "GlobalGaloisDeformationsPartII:GG2.6",
+        "LocalGaloisDeformationRings:R08.2",
+        "ArithmeticGaloisDuality:R02.4",
+        "FunctionFieldArithmetic:FA.5",
+        "GlobalGaloisDeformationsPartII:GG2.1",
+        "GlobalGaloisDeformationsPartII:GG2.0",
+        "GlobalGaloisDeformationsPartII:GG2.7",
+        "ArithmeticGaloisRepresentations:G7"
+      ]
+    },
+    {
+      "key": "GG2.10",
+      "title": "Symplectic compatible systems and conditional scope",
+      "description": "Assemble the corrected Proposition 9.1 with constituentwise absolute irreducibility after cyclotomic restriction, ordinary local data, a Steinberg place, potential automorphy, automorphy lifting and descent. Track the connected monodromy argument through the regular-unipotent classification input. Record the precise relation of the proved lifting results to Conjecture D as a conditional implication, preserving the missing automorphy and central-image assumptions.",
+      "requires": [
+        "GlobalGaloisDeformationsPartII:GG2.6",
+        "LocalGaloisDeformationRings:R08.2",
+        "LocalGaloisDeformationRings:L7",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "ModularityAndLanglandsExtensions:ML.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.6",
+        "GlobalGaloisDeformationsPartII:GG2.1",
+        "GlobalGaloisDeformations:G7",
+        "ModularityAndLanglandsExtensions:ML.5",
+        "PotentialModularityAndCompatibleSystems:R24.5:operations",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+        "GlobalGaloisDeformationsPartII:GG2.8",
+        "GlobalGaloisDeformationsPartII:GG2.9"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "FKP22",
+      "title": "Lifting and automorphy of reducible mod p Galois representations over global fields",
+      "authors": "Najmuddin Fakhruddin, Chandrashekhar Khare and Stefan Patrikis",
+      "edition": "Inventiones Mathematicae 228 (2022), 415–492; author arXiv:2008.12593v5 (15 October 2021). All page locators use the printed 1–58 pagination of v5.",
+      "url": "https://arxiv.org/pdf/2008.12593v5",
+      "sha256": "6c260021acef4649492892fc266f703aa69401879bf87e1c2492bf2ef24ff1e2",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and §§2–9; Appendices A–B, read for the proof dependency graph and corrected applications."
+      ]
+    },
+    {
+      "id": "FKP19",
+      "title": "Relative deformation theory, relative Selmer groups, and lifting irreducible Galois representations",
+      "authors": "Najmuddin Fakhruddin, Chandrashekhar Khare and Stefan Patrikis",
+      "edition": "Duke Mathematical Journal 170 (2021); arXiv:1904.02374v5 (15 October 2021). Page locators use printed 1–66 pagination of v5.",
+      "url": "https://arxiv.org/pdf/1904.02374v5",
+      "sha256": "9ec2865cd2aad92fad7d1f14c018222a52c0d1d6f32b6c2b3c426423e2708efa",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Definitions 1.2, 1.4–1.5 and Assumption 2.1; §3; Proposition 4.7 and Lemma 4.9; Notation 5.1 and Lemma 5.13; §6; Appendices A–B."
+      ]
+    },
+    {
+      "id": "LP11",
+      "title": "Finite subgroups of algebraic groups",
+      "authors": "Michael Larsen and Richard Pink",
+      "edition": "Journal of the American Mathematical Society 24 (2011), 1105–1158, author offprint.",
+      "url": "https://people.math.ethz.ch/~pinkri/ftp/LP5.pdf",
+      "sha256": "47562746d32316b878e70a76409008b3a9061ef692c3953d921fec33ce62b967",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 0.2, p.1106; proof and construction of the normal series, §12, p.1156."
+      ]
+    },
+    {
+      "id": "Lazard65",
+      "title": "Groupes analytiques p-adiques",
+      "authors": "Michel Lazard",
+      "edition": "Publications Mathématiques de l’IHÉS 26 (1965), 5–219; published scan.",
+      "url": "https://www.numdam.org/item/PMIHES_1965__26__5_0.pdf",
+      "sha256": "b0b50cf55528fd4abb94f9e1de10b23f0711c0dd804682a9853b70b3b378f380",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "III Proposition 3.1.3 pp.91–92 and Theorem 3.1.7.4 p.94; V §§2.2.2–2.2.3 pp.165–166; V Theorem 2.4.10 and proof setup pp.178–179."
+      ]
+    },
+    {
+      "id": "BC14",
+      "title": "Sous-groupes de GL₂ et arbres",
+      "authors": "Joël Bellaïche and Gaëtan Chenevier",
+      "edition": "Journal of Algebra 410 (2014), 501–525; author preprint, printed pp.1–28.",
+      "url": "https://people.brandeis.edu/~jbellaic/preprint/clos2.pdf",
+      "sha256": "c34b98c0bfaafe2a51be4cc301c3a47b96e8dcc7456179b075da70159a0f1e14",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemma 10 and Proposition 11 pp.9–10; Definitions 29–30 p.16 and Proposition 32 with proof p.17."
+      ]
+    },
+    {
+      "id": "Ribet10",
+      "title": "Mod p representations of Galois groups arising from modular forms",
+      "authors": "Kenneth Ribet",
+      "edition": "Clay Mathematics Institute summer school, Hawaii 2010; author notes.",
+      "url": "https://people.brandeis.edu/~jbellaic/RibetHawaii3.pdf",
+      "sha256": "5e23444d4d3f4ee9fd06e9254bdee496e648ddf6b359120781d26cebf52beafe",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1.2: Lemmas 1.3–1.5 and Proposition 1.4 pp.6–7; Exercises 1.5–1.9 p.8."
+      ]
+    },
+    {
+      "id": "ANT20",
+      "title": "Automorphy lifting for residually reducible l-adic Galois representations, II",
+      "authors": "Patrick B. Allen, James Newton and Jack A. Thorne",
+      "edition": "arXiv:1912.11269v2, 13 August 2020; printed pp.1–21.",
+      "url": "https://arxiv.org/pdf/1912.11269v2",
+      "sha256": "077a344352c80389ce75d5c61a69fba90413303aca911a616fe46dbeb8514bfa",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 1.1 pp.1–2, all eight hypotheses; notation and ordinarity pp.3–4."
+      ]
+    },
+    {
+      "id": "BLGGT14",
+      "title": "Potential automorphy and change of weight",
+      "authors": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor",
+      "edition": "Annals of Mathematics 179 (2014), 501–609; published PDF.",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf",
+      "sha256": "c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 3.1.1 pp.545–546; Theorem 3.1.2 and proof pp.546–549; Lemma 5.3.1 with proof pp.580–581; Theorem 5.5.1 and proof pp.590–593."
+      ]
+    },
+    {
+      "id": "BLGHT11",
+      "title": "A family of Calabi–Yau varieties and potential automorphy II",
+      "authors": "Thomas Barnet-Lamb, David Geraghty, Michael Harris and Richard Taylor",
+      "edition": "Publications of the Research Institute for Mathematical Sciences 47 (2011), 29–98; author preprint pagination.",
+      "url": "https://virtualmath1.stanford.edu/~rltaylor/cy2fin.pdf",
+      "sha256": "225cab84210837ca6130c1c76a5eababeffeaa8d1594b6267e853ce0ae8eabb3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemma 5.1(2), pp.34–35 of the author preprint; its regular-unipotent and Frobenius conclusions."
+      ]
+    }
+  ],
+  "status": "draft"
+}
