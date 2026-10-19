@@ -1,0 +1,229 @@
+{
+ "id": "AbelianSurfacesModularity",
+ "title": "Modularity of abelian surfaces",
+ "area": "langlands",
+ "parent": null,
+ "summary": "Boxer, Calegari, Gee and Pilloni prove that an abelian surface A over Q with a polarization of degree prime to 3, surjective mod-3 representation, mod-3 representation unramified at 2 with Frobenius polynomial different from (x² ± x + 2)², and good ordinary reduction at 3 with distinct Frobenius roots is modular: L(s, H¹(A)) is the L-function of a cuspidal representation of GL₄ transferred from a weight-2 form on GSp₄, so it is entire with the expected functional equation. This roadmap plans the endpoint: the group theory of GSp₄(F₃), S₆ ≅ Sp₄(F₂) and A₅ in characteristic 2, a 2-adic modularity theorem for residual image A₅, the local geometry of genus-two curves and abelian surfaces at 2 and 3, a 2–3 switch through rational odd-theta moduli and thin-set approximation, Theorems A and B, and the complements: positive proportion, 32 of 34 Galois types, and residual modularity mod 2.",
+ "readme": "**Purpose.** The endpoint of Boxer–Calegari–Gee–Pilloni, *Modularity theorems for abelian surfaces* (arXiv:2502.20645): Theorem A (modularity of abelian surfaces over Q under conditions at 2 and 3 satisfied by a positive proportion of them), its strengthening Theorem 9.5.2 to fifteen allowed mod-3 images, Theorem B for quintic genus-two curves, Theorem 9.5.5 for bad reduction at 2, and the complements of §10.\n\n**Scope.** This roadmap owns the mathematics specific to the endpoint: §6.4 (subgroups of GSp₄(F₃)), §8 (the 2-torsion of abelian surfaces, the S₆ dictionary, mod-2 representations of A₅, and the 2-adic ordinary modularity theorem), §9 (local geometry at 2 and 3, the 2–3 switch, proofs of Theorems A and B) and §10 (examples and density, small Sato–Tate groups, residual modularity mod 2). Generic foundations are imported: GSp₄ Galois representations of weight-2 forms, the rational odd-theta moduli P(ρ̄) and the local seeds at 3 from AbelianSurfacesPotentialModularity (BCGP18); deformation rings, patching and big-image conditions from LocalGaloisDeformationRings, GlobalGaloisDeformations, DeformationAndDerivedPatchingAlgebra and ArithmeticGaloisRepresentations; transfer and L-functions from EndoscopicTransferAndUnitaryTraceComparison and AutomorphicLFunctionsAndLocalFactors; abelian schemes, Néron models and Faltings's theorems from their roadmaps. The singular-weight lifting theorem (BCGP25 Theorem 7.5.11), higher Coleman classicality (Theorem 4.12.4) and the dyadic and symplectic regular-weight R = T theorems (Theorems 5.7.14, 6.3.4) belong to GSp4NonregularModularityLifting, HigherHidaAndColemanTheory and OrdinaryAutomorphicFormsAndModularityLiftingPartII.\n\n**Conventions.** H¹ with geometric Frobenius; the cyclotomic character ε has Hodge–Tate weight −1; ρ_{A,p} = H¹_ét(A_{Q̄}, Q̄_p) has multiplier ε^{−1} and A[p], T_pA are its duals up to twist (BCGP25 §1.8.23); GSp₄ is defined by the anti-diagonal form J of §1.8.7; Frobenius classes in PGSp₄(F₃) use ATLAS names; S₆ ≅ Sp₄(F₂) is the identification ι of Lemma 8.1.3.\n\n**Status of the endpoint.** Every main theorem is conditional on Arthur's classification for GSp₄ through the twisted weighted fundamental lemma (BCGP25 §1.6), and rests on the inputs recorded as gaps in the packet. Modularity of every abelian surface over Q is not claimed; the regular-weight Serre implication of §10.4 is a conditional endpoint of ModularityAndLanglandsExtensions.\n\n**Layers.** AM.0 conventions and modularity; AM.1 mod-3 images; AM.2 the S₆ dictionary and A₅; AM.3 the 2-adic theorem; AM.4 local geometry at 2; AM.5 local geometry at 3; AM.6 the 2–3 switch; AM.7 the main theorems; AM.8 complements.\n",
+ "prerequisites": [
+  "AbelianSchemesAndArithmeticModuli",
+  "AbelianSchemesAndArithmeticModuliPartII",
+  "AbelianSurfacesPotentialModularity",
+  "AbelianVarietiesIsogenousToNoJacobian",
+  "ArithmeticGaloisRepresentations",
+  "AutomorphicFormsOnReductiveGroups",
+  "AutomorphicGaloisRepresentationsPartII",
+  "AutomorphicLFunctionsAndLocalFactors",
+  "EllipticCurveModularity",
+  "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
+  "EndoscopicTransferAndUnitaryTraceComparison",
+  "FaltingsFinitenessAndIsogenyTheorems",
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "GL2AutomorphicRepresentationsAndTransfer",
+  "GlobalGaloisDeformations",
+  "InverseGaloisAndArithmeticFundamentalGroups",
+  "LocalGaloisDeformationRings",
+  "ModularityAndLanglandsExtensions",
+  "NeronModelsAndSemistableAbelianVarieties",
+  "OrdinaryAutomorphicFormsAndModularityLifting",
+  "PotentialAutomorphyInfrastructurePartII",
+  "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "tauceti:TauCetiRoadmap/EllipticCurves",
+  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
+ ],
+ "stages": [
+  {
+   "key": "AM.0",
+   "title": "Conventions, modularity and the analytic consequences",
+   "description": "Fix the normalizations of BCGP25 §1.8 that the endpoint uses and define what is proved. **Targets:** the definition of a modular (automorphic) abelian surface or genus-two curve over a number field by an isobaric factorization of L(s, H¹(A)) into cuspidal GL_{n_i} L-functions (Definition 1.8.25), compared with the stronger GSp₄ notion of BCGP21; p-distinguished ordinary abelian surfaces over Q_p and over F_p (Definition 9.1.2, with Definition 1.8.10); and the theorem that a weight-2 cuspidal GSp₄ witness of general type for an absolutely irreducible ρ_{A,p} gives modularity with r = 1, ρ_{A,ℓ} ≅ ρ_{π,ℓ} for all ℓ, full local–global compatibility, entire continuation and the functional equation Λ(s) = ±Λ(2 − s) of L(s, H¹(A)) (Remarks 1.8.20, 1.8.26, §1.8.22). Inputs: the GSp₄–GL₄ transfer (EndoscopicTransferAndUnitaryTraceComparison ET.4), Godement–Jacquet (AutomorphicLFunctionsAndLocalFactors AL.2), Galois representations of weight-2 forms (AbelianSurfacesPotentialModularity AP.0), Tate modules and local factors (NeronModelsAndSemistableAbelianVarieties R11.5).",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "AbelianSchemesAndArithmeticModuliPartII:F3",
+    "AbelianSurfacesPotentialModularity:AP.0",
+    "AutomorphicFormsOnReductiveGroups:AF.1",
+    "AutomorphicLFunctionsAndLocalFactors:AL.2",
+    "EllipticCurveModularity:R29.6",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "LocalGaloisDeformationRings:L7",
+    "ModularityAndLanglandsExtensions:ML.0",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6"
+   ]
+  },
+  {
+   "key": "AM.1",
+   "title": "Mod-3 images and Frobenius classes at 2",
+   "description": "The finite group theory of GSp₄(F₃) that the hypotheses of the main theorem are written in. **Targets:** the projective Frobenius class at 2 of an unramified ρ̄ : G_{Q₂} → GSp₄(F₃) of similitude ε̄^{−1}, one of ten outer classes 2C, 2D, 4C, 4D, 6G, 6H, 6I, 8A, 10A, 12C of PGSp₄(F₃) ∖ PSp₄(F₃), with sizes, characteristic polynomials and the 40- and 27-point permutation actions separating them (Lemma 9.1.3); the regular semisimple classes of GSp₄(F₃) (Lemma 6.4.1); the fifteen allowed images: for A/Q with prime-to-3 polarization and good reduction at 3, reasonableness, tidiness and the two regular-semisimple conditions hold exactly for the fifteen ticked subgroups of Table 6.4.4, including GSp₄(F₃) (Lemma 6.4.3); and the failure of GL₄-adequacy of Sp₄(F₃) (Remark 6.4.5).",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "ArithmeticGaloisRepresentations:G7",
+    "ArithmeticGaloisRepresentations:R01.6",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+    "GlobalGaloisDeformations:G7",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-4-resolvents"
+   ]
+  },
+  {
+   "key": "AM.2",
+   "title": "The S₆ dictionary and the modular representations of A₅",
+   "description": "The characteristic-2 group theory behind the 2-adic step. **Targets:** the isomorphism ι : S₆ ≅ Sp₄(F₂) through the sum-zero quotient of F₂⁶, its explicit matrices and the subgroups S₅(a), S₅(b), A₅(b) (§8.1, Lemma 8.1.3); rational Weierstrass points correspond to mod-2 image in a conjugate of S₅(b) (§8.1); the Siegel parabolic of Sp₄(F₂) as the centralizer of a triple transposition, with 2-group intersection with S₅(b) (proof of Lemma 9.1.8); strong residual oddness of characteristic-2 symplectic involutions: transpositions and double transpositions odd, triple transpositions not (Remark 5.2.8, Lemma 8.2.4); the simple modules, Brauer characters and blocks of A₅ in characteristic 2, with V = U ⊗ U^σ = Sym³U projective (Lemmas 8.1.2, 8.2.1); near adequacy and the failure of adequacy of A₅(b) (Lemmas 8.2.2, 8.2.8, 8.2.9, Remark 8.2.3); the residual hypotheses after CM base change (Proposition 8.2.5).",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuli:A3",
+    "ArithmeticGaloisRepresentations:G7",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+    "GlobalGaloisDeformations:G7",
+    "PotentialAutomorphyInfrastructurePartII:PL.4",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial"
+   ]
+  },
+  {
+   "key": "AM.3",
+   "title": "The 2-adic ordinary modularity theorem",
+   "description": "**Targets:** residual automorphy of mod-2 representations of totally real fields with image A₅(b) or S₅(b) and complex conjugations in A₅(b), through the odd Artin conjecture, a 2-adic Hida family, CM base change and the symmetric cube (Lemma 8.3.1); and modularity of abelian surfaces A/Q with A₅(b) ⊆ ρ̄_{A,2}(G_Q) ⊆ S₅(b), complex conjugation in A₅(b) and good or semistable ordinary 2-distinguished reduction at 2 (Theorem 8.3.2), by the p = 2 branch of BCGP25 Theorem 7.5.11 (owned by GSp4NonregularModularityLifting), Zarhin's theorem, Serre's open image theorem and integral enormity (Corollary 7.1.4).",
+   "requires": [
+    "AbelianSurfacesModularity:AM.0",
+    "AbelianSurfacesModularity:AM.2",
+    "AbelianSurfacesPotentialModularity:AP.5",
+    "AbelianVarietiesIsogenousToNoJacobian:G0",
+    "ArithmeticGaloisRepresentations:G7",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "GlobalGaloisDeformations:R04.5",
+    "ModularityAndLanglandsExtensions:ML.0",
+    "ModularityAndLanglandsExtensions:ML.1",
+    "ModularityAndLanglandsExtensions:ML.3",
+    "ModularityAndLanglandsExtensions:ML.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ]
+  },
+  {
+   "key": "AM.4",
+   "title": "Local geometry at 2",
+   "description": "Which unramified ρ̄ : G_{Q₂} → GSp₄(F₃) are the 3-torsion of a good or semistable ordinary 2-distinguished point of the odd-theta moduli P(ρ̄). **Targets:** ordinary Weil quartics of weight one (Definition 9.2.4) and the sixteen at 2 with their classes mod 3 (Table 9.2.5); three good ordinary local Jacobians with a rational Weierstrass point (Lemma 9.1.4); the enumeration of genus-two curves over F₂ by Frobenius class and the realization of 6H, 6I, 10A (Lemma 9.1.6); the exclusions for good reduction (Lemmas 9.2.6, 9.2.7, 9.2.11, 9.2.12, 9.2.19); purely toric reduction for 2C and 6G (Lemma 9.2.13, with its missing bad-reduction hypothesis supplied); products and twists of elliptic curves realizing 8A, 4D, 2D, 2C (Lemmas 9.2.8, 9.2.14); an explicit 6G point (§9.2.16, Lemma 9.2.17); and the local realization theorem with its table (Theorem 9.2.3).",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSchemesAndArithmeticModuliPartII:F3",
+    "AbelianSurfacesModularity:AM.0",
+    "AbelianSurfacesModularity:AM.1",
+    "AbelianSurfacesModularity:AM.2",
+    "AbelianSurfacesPotentialModularity:AP.7",
+    "ArithmeticGaloisRepresentations:R01.6",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+    "LocalGaloisDeformationRings:R08.2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+   ]
+  },
+  {
+   "key": "AM.5",
+   "title": "Local geometry at 3",
+   "description": "**Targets:** the enumeration of ordinary genus-two curves over F₃, the forty ordinary isogeny classes and their Jacobian content (Table 9.3.3), and the fact that an ordinary genus-two curve over F₃ with a rational Weierstrass point is 3-distinguished (Lemma 9.3.1, Remark 9.3.2); the product special fibre forcing bad curve reduction (Remark 9.3.8). The ordinary local realization at 3 itself (Corollary 9.3.6 and Lemma 9.3.7 with their seed curves) is AbelianSurfacesPotentialModularity AP.7/local-three-seeds, and is imported.",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuliPartII:F3",
+    "AbelianSurfacesModularity:AM.0",
+    "AbelianSurfacesModularity:AM.4",
+    "AbelianSurfacesPotentialModularity:AP.7",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.5",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves"
+   ]
+  },
+  {
+   "key": "AM.6",
+   "title": "The 2–3 switch",
+   "description": "**Targets:** weak approximation outside a thin set on a smooth rational variety over Q (Lemma 9.4.1, with smoothness added); the local equivalence at 2 (Lemma 9.4.2(1)); the 2–3 switch: for ρ̄ : G_Q → GSp₄(F₃) of similitude ε̄^{−1}, ordinary finite flat at 3 and unramified at 2 with class not 4C or 12C, a genus-two curve X/Q with a rational Weierstrass point whose Jacobian B has ρ̄_{B,3} ≅ ρ̄, good or semistable ordinary 2-distinguished reduction at 2, good ordinary reduction at 3, mod-2 image S₅(b) with complex conjugation a double transposition, and End(B_{Q̄}) = Z (Lemma 9.4.2(2)); and infinitely many such curves when the conditions at 2 are dropped (Remark 9.4.4). Inputs: the rational odd-theta moduli P(ρ̄) ⊃ M^w_2(ρ̄) (AbelianSurfacesPotentialModularity AP.7/odd-theta-cover) and Lemma 9.3.7 (AP.7/local-three-seeds).",
+   "requires": [
+    "AbelianSurfacesModularity:AM.0",
+    "AbelianSurfacesModularity:AM.2",
+    "AbelianSurfacesModularity:AM.4",
+    "AbelianSurfacesPotentialModularity:AP.7",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6"
+   ]
+  },
+  {
+   "key": "AM.7",
+   "title": "The main theorems",
+   "description": "**Targets:** modularity transfer between ordinary surfaces at p > 2 (Theorem 9.5.1, the p > 2 branch of Theorem 7.5.11); modularity of abelian surfaces over Q with one of the fifteen allowed mod-3 images, End = Z, unramified mod-3 representation at 2 of class not 4C or 12C, and good ordinary 3-distinguished reduction at 3 (Theorem 9.5.2); Theorem A, with its analytic consequences; genus-two curves with good ordinary reduction at 2 and 3 (Theorem 9.5.3); Theorem B for quintic curves (Theorem 9.5.4); and the case of bad reduction at 2 (Theorem 9.5.5). All are conditional on Arthur's classification for GSp₄ as registered at ModularityAndLanglandsExtensions ML.0.",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "AbelianSurfacesModularity:AM.0",
+    "AbelianSurfacesModularity:AM.1",
+    "AbelianSurfacesModularity:AM.3",
+    "AbelianSurfacesModularity:AM.4",
+    "AbelianSurfacesModularity:AM.5",
+    "AbelianSurfacesModularity:AM.6",
+    "AbelianSurfacesPotentialModularity:AP.5",
+    "AbelianVarietiesIsogenousToNoJacobian:G0",
+    "ArithmeticGaloisRepresentations:G7",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "GlobalGaloisDeformations:G7",
+    "GlobalGaloisDeformations:R04.5",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.2",
+    "ModularityAndLanglandsExtensions:ML.0",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6"
+   ]
+  },
+  {
+   "key": "AM.8",
+   "title": "Complements",
+   "description": "**Targets:** the density 5551/46656 of the local conditions in coefficient boxes and positive-proportion applicability (§10.1); applicability to 11743 of the 66158 curves of the 2024 LMFDB snapshot (Table 10.1.1); automorphy of odd potentially abelian GSp₄ representations (Lemma 10.2.5) and of every abelian surface over Q of Galois type other than A and B[C₂] (Theorem 10.2.1); the rational parameter space Z(ρ̄) of genus-two curves with fixed 2-torsion (§10.3.5); the obstruction for trivial Frobenius at 3 (Remark 10.3.8); the realization of an ordinary Cartier self-dual mod-2 representation by a good surface (Lemma 10.3.6, with the corrected local seed at 3); and ordinary residual modularity mod 2 (Theorem 10.3.9). The conditional implication 'regular-weight Serre for GSp₄ implies modularity of all abelian surfaces over Q' (Lemma 10.4.1) is ModularityAndLanglandsExtensions ML.0/regular-weight-serre-implies-abelian-surface-modularity and is not planned here.",
+   "requires": [
+    "AbelianSchemesAndArithmeticModuli:A3",
+    "AbelianSchemesAndArithmeticModuli:A4",
+    "AbelianSchemesAndArithmeticModuli:A6",
+    "AbelianSurfacesModularity:AM.0",
+    "AbelianSurfacesModularity:AM.1",
+    "AbelianSurfacesModularity:AM.2",
+    "AbelianSurfacesModularity:AM.4",
+    "AbelianSurfacesModularity:AM.5",
+    "AbelianSurfacesModularity:AM.6",
+    "AbelianSurfacesModularity:AM.7",
+    "AbelianSurfacesPotentialModularity:AP.6",
+    "ArithmeticGaloisRepresentations:G7",
+    "ArithmeticGaloisRepresentations:R01.5",
+    "EllipticCurveModularity:R29.6",
+    "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+    "ModularityAndLanglandsExtensions:ML.1",
+    "ModularityAndLanglandsExtensions:ML.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BCGP25",
+   "title": "Modularity theorems for abelian surfaces",
+   "authors": "George Boxer, Frank Calegari, Toby Gee, Vincent Pilloni",
+   "edition": "arXiv:2502.20645v1, 28 February 2025, 230 pp. (identical to the author copy at math.uchicago.edu/~fcale/papers/Modular.pdf)",
+   "url": "https://arxiv.org/abs/2502.20645v1",
+   "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
+   "readSections": [
+    "§1.1, §1.6, §1.8 (pp. 2–17)",
+    "§5.2.4–§5.3 (pp. 118–120)",
+    "§6.4 (pp. 149–151)",
+    "statements of Propositions 7.5.1, 7.5.3, 7.5.10 and Theorem 7.5.11 (pp. 174–179)",
+    "§8 (pp. 179–186)",
+    "§9 (pp. 186–209)",
+    "§10 (pp. 209–222); read 2026-10-18"
+   ]
+  }
+ ],
+ "status": "draft"
+}
