@@ -1,4 +1,88 @@
-# Latest checkpoint: codex-owg90B, 19 October 2026
+# Latest checkpoint: codex-u0H8la, 19 October 2026
+
+**Blocked checkpoint for #9299; the revision is unfinished.** This run's
+instructions permit a checkpoint when blocked. The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6259288415)
+for [comment 6259287076](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6259287076).
+I missed the maintainer's supersession comment before claiming. Only this
+handoff changes; this run takes no second job.
+
+## Scope decision still required
+
+The [maintainer's instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217691180)
+says that the revision is superseded by the upstream roadmap and prohibits
+further claims unless its owner requests an extension. The available label
+and automatic claim confirmation have not supplied such a request.
+WORKERS.md and PROTOCOL.md section 15 prohibit replanning an existing Tau Ceti
+roadmap. This issue permits the historical packet, reader, suggested file and
+handoff, without assigning an upstream amendment or a particular Part II.
+
+I independently queried the live GitHub API. Upstream
+[pull request 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+is merged at `d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, on
+14 October 2026 at 04:47:45 UTC. Upstream main has advanced to
+`4f812bf46be524b7a3653ac13982ba892c4b3a67`, dated 19 October 2026 at
+03:40:51 UTC. I fetched the authoritative
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4f812bf46be524b7a3653ac13982ba892c4b3a67/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+and [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/4f812bf46be524b7a3653ac13982ba892c4b3a67/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+at this exact commit and inspected the relevant ownership boundaries:
+
+- Section 4.5 owns natural tensor-valued elementary obstruction theories;
+  arbitrary finite-dimensional kernels and hull-relation bounds are excluded.
+- Sections 4.7–4.8 own adic thickening systems with chosen ideals and
+  level-preserving morphisms. The introduction excludes comparison with
+  topologically locally ringed formal schemes and independence from ideals.
+- Section 4.10 owns coherent existence and compatible-morphism algebraization
+  on given proper schemes. Polarized-system algebraization, the associated
+  category equivalence and effective formal curve deformations are excluded.
+- Section 4.13 and its suggested theorem normalize the generic-point map,
+  with finiteness as a hypothesis, rather than normalizing the identity.
+- Sections 4.15 and 4.18–4.20 own pointed stable moduli, fibration inputs and
+  schematic alterations. The perfect-field restriction on the generically
+  étale choice remains explicit in section 4.19.
+
+These are scope checks, not a mathematical review of upstream or proof that
+historical gaps have been discharged. The read-only supplied roadmap checkout
+is at `0d144d044dacebca17b654695b6f1ad58f159b27` and lacks the newer
+SchemeAndStackFoundations roadmap. I also read its StableReduction and
+AlgebraicVectorBundles introductions, and the current library's model
+structure and model-base-change construction at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither shared checkout was
+modified or built. No private mathematical source was needed or copied.
+
+## Preserved state and validation
+
+The packet and SF.4 coverage remain `partial`, with the independent
+`needs_changes` review intact. The inventory is unchanged: 57 nodes
+(17 definitions, 4 constructions, 32 theorems, 3 lemmas, 1 application),
+139 API items, 91 unit tests, 6 planets, 79 baseline declarations, 9 gaps
+and 10 requests. No target or gap is certified closed by this checkpoint.
+
+I read the worker rules, blueprint and expansion protocols, upstream guide,
+issue instructions and comment history, existing handoff, independent review,
+packet coverage/gaps/review, reviewed SF.4 library audit and upstream tier
+status. Validation performed in this session:
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeAndStackFoundations--SF.4.json`: zero errors and zero warnings.
+- `python3 research/blueprint/intake.py check-files research/blueprint/handoff/BP-SchemeAndStackFoundations--SF.4~2.md`: passed.
+- `git diff --check`: passed.
+- Lean was not rerun because the suggested file is unchanged. Prior reported
+  elaboration is not a compilation performed by this session.
+
+## Resume only after routing
+
+The required decision remains: retire the superseded revision, assign atlas
+synchronization with explicit treatment of the excluded targets, or assign a
+precisely scoped Part II and its permitted deliverables. Changes to the
+upstream roadmap need an upstream assignment. Another automatic release does
+not resolve this conflict. The earlier detailed handoffs below preserve the
+historical mathematical worklist; no disposable scratch file is needed to
+resume. The user was asked about a replacement scope during this run; no
+replacement scope was supplied before this checkpoint was prepared.
+
+---
+
+# Previous checkpoint: codex-owg90B, 19 October 2026
 
 **Blocked checkpoint; #9299 remains unfinished.** The user explicitly asked
 this session to continue #9299 after its withdrawal, submit a pull request,
