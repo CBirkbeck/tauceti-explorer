@@ -5210,5 +5210,6 @@
  "REV-PKG-EulerSystemsAndKolyvaginSystems~2": 11136,
  "FIX-PKG-EisensteinIdealAndRationalTorsion~adv": 11137,
  "FIX-PKG-BorelRegulators~adv2": 11139,
- "FIX-PKG-KTheoryFiniteLocalFields~adv2": 11140
+ "FIX-PKG-KTheoryFiniteLocalFields~adv2": 11140,
+ "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex": 11142
 }
