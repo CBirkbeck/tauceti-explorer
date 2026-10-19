@@ -10,6 +10,8 @@ The source set comprises Gan–Gross–Prasad, Jiang–Zhang, Beuzart-Plessis, G
 
 The roadmap does not rebuild classical groups, compact branching, local/global Arthur classification, general automorphic or tensor-L-function theory, the global Jacquet–Rallis comparison, the quantitative orbit calculus, integral unitary moduli or cycle theories. It does not assert the general global or arithmetic conjectures, a real nontempered local theorem, an archimedean positivity theorem absent from the stated inputs, or Abel–Jacobi nonvanishing from Chow nonvanishing alone. Fourier–Jacobi models have no routed consumer in this pass and require their own oscillator-data extension when that scope is requested.
 
+The arithmetic Chow graph contract includes smooth quasi-projective Shimura varieties; the projective-only MC.0 correspondence is used only in its valid subcase. U1 records the missing general cycle and Hecke interface.
+
 ## Layers and proof order
 
 | Layer | Targets |
@@ -80,7 +82,7 @@ Proof route:
 
 Acceptance checks: For a norm-one line, U(W)→U(W⊕E) sends h to h⊕1. In the quadratic case use SO, including determinant one; do not replace it by O.
 
-Sources: [ggp12](#ggp12), §2, pp. 5–7; §12, pp. 43–45: Odd split complements determine the restriction problem and its Bessel subgroup. [jz20](#jz20), §3.1, pp. 760–761: The classical-group relevance condition is phrased using a nondegenerate subspace and its split odd complement. [nv21](#nv21), §13.2, p. 92: The codimension-one specialization includes orthogonal, unitary and split general linear pairs.
+Sources: [ggp12](#ggp12), §2, pp. 5–7; §12, pp. 43–45: Odd split complements determine the restriction problem and its Bessel subgroup. [jz20](#jz20), §2.1, p. 750; §3.2, p. 762: The classical-group relevance condition is phrased using a nondegenerate subspace and its split odd complement. [nv21](#nv21), §13.2, p. 92: The codimension-one specialization includes orthogonal, unitary and split general linear pairs.
 
 ### Relevant pure inner forms
 
@@ -290,7 +292,7 @@ Proof route:
 
 Acceptance checks: A global central sign condition is necessary but cannot replace the full multiplicity formula. Generic discrete automorphic members are used as cuspidal only with the precise supplied cuspidality theorem (gap P2).
 
-Sources: [ggp12](#ggp12), §25, pp. 91–96; §26, pp. 97–100: Distinguishes an unrestricted local tensor product, coherence of forms and the automorphic multiplicity condition. [jz20](#jz20), §6.2, pp. 802–804: Uses cuspidal members with generic global Arthur parameters.
+Sources: [ggp12](#ggp12), §25, pp. 91–96; §26, pp. 97–100: Distinguishes an unrestricted local tensor product, coherence of forms and the automorphic multiplicity condition. [jz20](#jz20), §§6.2–6.3, pp. 802–804: Uses cuspidal members with generic global Arthur parameters.
 
 Exact incoming or proof-refinement contracts: P1.
 
@@ -407,7 +409,7 @@ Proof route:
 
 Acceptance checks: For rank one the argument compares characters on degree-one primes; it is not the unsupported claim that agreement on any positive-density set implies equality.
 
-Sources: [bplzz21](#bplzz21), Remark 1.7, p. 4: Cites degree-one strong multiplicity one for the uniqueness assertion. [bcz22](#bcz22), Remark 1.1.4.1, p. 185: Explains uniqueness and comparison of weak with classified base change.
+Sources: [bplzz21](#bplzz21), Definition 1.6 and following uniqueness paragraph, pp. 3–4: Cites degree-one strong multiplicity one for the uniqueness assertion. [bcz22](#bcz22), Remark 1.1.4.1, p. 185: Explains uniqueness and comparison of weak with classified base change.
 
 ### The quasi-split unitary pair
 
@@ -638,7 +640,7 @@ Proof route:
 
 Acceptance checks: Moderate growth and rapid decay on H require estimates beyond compactness alone; these are included in the next convergence target.
 
-Sources: [jz20](#jz20), §2.2, (2.9), pp. 752–753; §4.1, (4.7), p. 766: The Bessel period uses the character Fourier coefficient along the specified unipotent radical. [ggp12](#ggp12), §23, pp. 83–85: Introduces the global model using a character trivial on rational points.
+Sources: [jz20](#jz20), §2.3, (2.7)–(2.9), pp. 754–755; §4.1, (4.7), p. 766: The Bessel period uses the character Fourier coefficient along the specified unipotent radical. [ggp12](#ggp12), §23, pp. 83–85: Introduces the global model using a character trivial on rational points.
 
 ### Global Bessel periods
 
@@ -845,7 +847,7 @@ Proof route:
 
 Acceptance checks: Absolute convergence is the next theorem, not a default property of all smooth representations.
 
-Sources: [nv21](#nv21), §18, (18.1)–(18.2), p. 121; §25.4, p. 168: Uses the product of two oppositely ordered coefficients as the local branching form. [bcz22](#bcz22), §1.1.6, p. 187: Uses the equivalent bilinear-product convention for unitary normalized periods.
+Sources: [nv21](#nv21), §18, (18.1)–(18.2), p. 121; §25.4, pp. 168–169: Uses the product of two oppositely ordered coefficients as the local branching form. [bcz22](#bcz22), §1.1.6, p. 187: Uses the equivalent bilinear-product convention for unitary normalized periods.
 
 ### Tempered local absolute convergence
 
@@ -1013,7 +1015,7 @@ Proof route:
 
 Acceptance checks: For so₁ at x=0 there is no isotropic nonzero vector and ev is empty. For so₃ at x=0 the adjusted spectrum contains zero and an isotropic line exists over the algebraic closure.
 
-Sources: [nv21](#nv21), Lemma 13.1, p. 93: Relates the adjusted spectrum to isotropic eigenvectors on the two standard factors.
+Sources: [nv21](#nv21), Lemma 13.1 and proof, pp. 93–94: Relates the adjusted spectrum to isotropic eigenvectors on the two standard factors.
 
 ### A regularity criterion for GGP Lie algebras
 
@@ -1069,7 +1071,7 @@ Proof route:
 
 Acceptance checks: The trivial finite-dimensional representation has infinitesimal character ρ under AF.1’s convention; it is not normalized to zero.
 
-Sources: [nv21](#nv21), Lemma 15.2, pp. 104–105: Checks the parameter-to-infinitesimal-character comparison by normalized induction, discrete series and tori.
+Sources: [nv21](#nv21), §15.1, p. 103; Lemma 15.2, pp. 104–105: Checks the parameter-to-infinitesimal-character comparison by normalized induction, discrete series and tori.
 
 Exact incoming or proof-refinement contracts: P1.
 
@@ -1089,7 +1091,7 @@ Proof route:
 
 Acceptance checks: For SO₃⊃SO₂ both adjusted multisets have size two, giving four tensor weights. For U₂⊃U₁ the two pairwise sums and their negatives give four real gamma weights.
 
-Sources: [nv21](#nv21), Lemma 15.3, pp. 105–106: Computes dual standard-representation weights and the archimedean gamma factors, including the unitary ± duplication.
+Sources: [nv21](#nv21), Lemma 15.3 and §15.4, (15.3), pp. 105–107: Computes dual standard-representation weights and the archimedean gamma factors, including the unitary ± duplication.
 
 Exact incoming or proof-refinement contracts: F1.
 
@@ -1167,7 +1169,7 @@ Proof route:
 
 Acceptance checks: For compact H, integration projects onto the matching representation and detects exactly the existing branching constituent. No nontempered integral is asserted convergent.
 
-Sources: [bp20](#bp20), Introduction, Theorem 5, p. 8; Theorem 7.2.1, pp. 162–163: Proves that the unitary tempered model functional is nonzero exactly when its multiplicity is nonzero, over both nonarchimedean and real fields. [nv21](#nv21), §20, p. 142; §21.1, p. 146: Records the nonarchimedean support theorem and the real unitary extension; the printed Waldspurger reference is corrected in sourceIssues.
+Sources: [bp20](#bp20), Introduction, Theorem 5, p. 8; Theorem 7.2.1, pp. 162–163: Proves that the unitary tempered model functional is nonzero exactly when its multiplicity is nonzero, over both nonarchimedean and real fields. [nv21](#nv21), §20, p. 142; Remark 22.1, p. 145: Records the nonarchimedean support theorem and the real unitary extension; the printed Waldspurger reference is corrected in sourceIssues.
 
 Exact incoming or proof-refinement contracts: L4, O2.
 
@@ -1434,7 +1436,7 @@ Target `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/weighted-period-limit`
 
 For the anisotropic data and admissible family of GGP.7, with the supplied nonzero positive local forms and quantitative orbit-method inputs O1–O3, h^d∑_{Σ∈ℱ_h}L_R(Π,Σ) tends to [τ(H)/τ(G)]vol(U)vol(U′) as h→0⁺. In the exceptional pair (SO₃,SO₂), write K=F(√(−disc V_H)) and χ=η_{K/F}∘θ using the spinor norm θ; impose Π≄Π⊗χ. This is the correction to the source’s stated weighted theorem recorded as E1. The theorem does not use the refined L-value proposition.
 
-Prerequisites: `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/admissible-family`; `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/global-branching-coefficient`; `AutomorphicSpectralTheory:AS.6/compact-trace-specialization`; `AdelicAlgebraicGroups:AA.2`.
+Prerequisites: `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/admissible-family`; `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/global-branching-coefficient`; `AutomorphicSpectralTheory:AS.6/compact-trace-specialization`; `AdelicAlgebraicGroups:AA.2`; `tauceti:CliffordAlgebra.spinorNorm`.
 
 Proof route:
 
@@ -1444,7 +1446,7 @@ Proof route:
 
 Acceptance checks: In the stated setup τ(H)/τ(G)=1, so the limit is the product of the two window volumes. The dihedral self-twist case is excluded from this equality, rather than silently counted with the same constant.
 
-Sources: [nv21](#nv21), Theorem 30.1, Corollaries 31.4 and 31.8, pp. 199, 201–202; §27, p. 182: Transfers limit-state equidistribution through positive approximation to unweighted windows; the SO₃/SO₂ condition repairs the identified obstruction.
+Sources: [nv21](#nv21), Theorem 30.1, p. 194 and proof pp. 196–199; Corollaries 31.4 and 31.8, pp. 201–202; §27, p. 182: Transfers limit-state equidistribution through positive approximation to unweighted windows; the SO₃/SO₂ condition repairs the identified obstruction.
 
 Exact incoming or proof-refinement contracts: O3, A1.
 
@@ -1524,7 +1526,7 @@ Proof route:
 
 Acceptance checks: The claimed ratio L_R/C^{1/4} tends to zero along every such sequence. This gives no explicit δ>0 in a bound C^{1/4−δ}.
 
-Sources: [nv21](#nv21), Introduction, (1.4), p. 4; §§27.1 and 31.2–31.6, pp. 177–182, 201–204: Uses positive local windows and equidistribution to obtain a little-o improvement over the convexity-size period bound; E1 records the correction required in the self-twist exception.
+Sources: [nv21](#nv21), Introduction, (1.4), p. 4; §§26.4–27.2, pp. 177–182; §§31.2–31.6, pp. 201–204: Uses positive local windows and equidistribution to obtain a little-o improvement over the convexity-size period bound; E1 records the correction required in the self-twist exception.
 
 Exact incoming or proof-refinement contracts: O3.
 
@@ -1647,9 +1649,9 @@ Exact incoming or proof-refinement contracts: J1, U1.
 
 Target `GanGrossPrasadConjecturesForClassicalGroups:GGP.8/weak-arithmetic-proposition` (definition).
 
-For the same arithmetic Π₀,Π₁ define WeakArithmeticGGP(Π₀,Π₁) to be the following implication: if L(1/2,Π₀×Π₁)=0 and L′(1/2,Π₀×Π₁)≠0, there exist a standard indefinite V_n, its fixed positive-line extension V_{n+1}, self-dual lattices away from S_min and infinity, and a neat compatible level pair hyperspecial there, such that the graph of sh↑ is nonzero in CH^n(Sh(V_{n₀},K_{n₀})×_E Sh(V_{n₁},K_{n₁}))_L/(ker φ_{Π₀},ker φ_{Π₁}). The notation is the quotient by the sum of the two Hecke-kernel actions, not a choice of an idempotent when none is supplied. The Shimura product has dimension 2n−1 and the graph dimension n−1, hence graph codimension n. Its graph class is imported from MotivesAndAlgebraicCycles and U1. The proposition asserts Chow nonvanishing, and does not assert nonvanishing of an Abel–Jacobi realization. No λ appears in this coefficient-field Chow assertion.
+For the same arithmetic Π₀,Π₁ define WeakArithmeticGGP(Π₀,Π₁) to be the following implication: if L(1/2,Π₀×Π₁)=0 and L′(1/2,Π₀×Π₁)≠0, there exist a standard indefinite V_n, its fixed positive-line extension V_{n+1}, self-dual lattices away from S_min and infinity, and a neat compatible level pair hyperspecial there, such that the graph of sh↑ is nonzero in CH^n(Sh(V_{n₀},K_{n₀})×_E Sh(V_{n₁},K_{n₁}))_L/(ker φ_{Π₀},ker φ_{Π₁}). The notation is the quotient by the sum of the two Hecke-kernel actions, not a choice of an idempotent when none is supplied. The Shimura product has dimension 2n−1 and the graph dimension n−1, hence graph codimension n. Its Chow graph class is the incoming U1 cycle contract, including smooth quasi-projective varieties; the projective-only MC.0/graph-correspondence does not supply that generality. No properness hypothesis absent from LTX is imposed. The proposition asserts Chow nonvanishing, and does not assert nonvanishing of an Abel–Jacobi realization. No λ appears in this coefficient-field Chow assertion.
 
-Prerequisites: `GanGrossPrasadConjecturesForClassicalGroups:GGP.8/arithmetic-period-data`; `ShimuraVarieties:V8/plan/datum-functoriality`; `MotivesAndAlgebraicCycles:MC.0/graph-correspondence`; `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation`.
+Prerequisites: `GanGrossPrasadConjecturesForClassicalGroups:GGP.8/arithmetic-period-data`; `ShimuraVarieties:V8/plan/datum-functoriality`; `AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation`.
 
 Uses: Liu–Tian–Xiao–Zhang–Zhu, §8.3: Names the shared conjectural arithmetic endpoint while the Euler-system roadmap treats Selmer conclusions under the stronger Abel–Jacobi hypothesis.
 
@@ -1668,7 +1670,7 @@ Checks that distinguish the definition:
 Proof route:
 
 1. Use the supplied standard indefinite Shimura varieties, their dimension theorem and level map.
-2. Import the graph correspondence, regard it in codimension n, and form the stated Hecke quotient with coefficient field L.
+2. Use U1’s smooth quasi-projective Chow graph construction: separatedness makes the graph closed, and the dimension comparison puts its fundamental cycle in codimension n. Form the two-action Hecke quotient over L. MC.0/graph-correspondence can be used only in the smooth projective subcase.
 3. Package the implication as a proposition. Its proof remains conjectural; no arithmetic GGP theorem or Abel–Jacobi injectivity is assumed.
 
 Acceptance checks: For n=2 the graph has dimension one in a three-dimensional product and belongs to CH². A nonzero Chow class need not have nonzero Abel–Jacobi image without an additional theorem.
@@ -1758,7 +1760,7 @@ Needed by: `GanGrossPrasadConjecturesForClassicalGroups:GGP.3/global-period-conv
 
 ### O1: Stable orbit and adjoint-quotient interface
 
-The proposed QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups owns stable coadjoint loci, stable fibres, affine quotient measures and limit orbits. Supply the spectral stability criterion ev(λ)∩ev(μ)=∅, stable-fibre torsor geometry and the specified affine measure on [h∧]∩image(𝒪_stab). General Chevalley/adjoint-quotient, Jordan centralizer and affine GIT results remain with the LieHighestWeight/Reductive Groups extensions; the present roadmap only owns their GGP spectral specialization and the explicit free flag orbit. These proposed owners are not registered dependencies, so this is an exact incoming contract rather than a fabricated node ID.
+The proposed QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups owns stable coadjoint loci, stable fibres, affine quotient measures and limit orbits. Supply the spectral stability criterion ev(λ)∩ev(μ)=∅, stable-fibre torsor geometry and the specified affine measure on [h∧]∩image(𝒪_stab). General Chevalley/adjoint-quotient, Jordan centralizer and affine GIT results remain with the LieHighestWeight/Reductive Groups extensions; the present roadmap only owns their GGP spectral specialization and the explicit free flag orbit. These proposed owners are not registered dependencies, so this is an exact incoming contract rather than a fabricated node ID. Include the general-field orthogonal/unitary Lie-algebra and flag-variety comparison, and its scalar-extension compatibility with the complex ClassicalGroups standard representations. GN.2 already owns the hermitian isometry group; Tau Ceti and OrthogonalSpinGroups own the orthogonal carriers, so this interface introduces no new group carrier.
 
 Owner: QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups, importing general Lie and GIT owners.
 
@@ -1766,7 +1768,7 @@ Needed by: `GanGrossPrasadConjecturesForClassicalGroups:GGP.5/eigenvalue-invaria
 
 ### O2: Relative characters and allowable approximation
 
-Supply H_σ as the convergent orthonormal-basis sum of the local four-vector period, with its trace/tensor evaluation, smooth factorization, continuity on unitary induction tori and compact spectral specialization. Supply NV Definition 24.3’s two positive approximation conditions for allowable components, Theorem 24.4’s supercuspidal-type case and Theorem 24.5’s approximation; do not replace allowability by mere compact support. This roadmap imports that definition and never introduces a competing H_σ.
+Supply H_σ as the convergent orthonormal-basis sum of the local four-vector period, with its trace/tensor evaluation, smooth factorization, continuity on unitary induction tori and compact spectral specialization. Supply NV Definition 24.3’s two positive approximation conditions for allowable components, Remark 24.4’s positive majorants and Theorem 24.5’s cuspidal-type allowability (pp. 159–160); do not replace allowability by mere compact support. This roadmap imports that definition and never introduces a competing H_σ.
 
 Owner: QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups.
 
@@ -1790,9 +1792,9 @@ Needed by: `GanGrossPrasadConjecturesForClassicalGroups:GGP.6/induction-paramete
 
 ### A1: Tamagawa number two for the anisotropic pairs
 
-Supply τ(U(V))=2 and τ(SO(V))=2 for the nontrivial anisotropic unitary and special orthogonal groups in NV §25.7, including the anisotropic SO₂ torus. Use the actual Tamagawa measures and quotient conventions. The general construction of a Tamagawa measure and compactness of the quotient do not compute its volume. NV points to Weil and Ono; their numerical-volume proof has not been read in this pass.
+Supply τ(U(V))=2 and τ(SO(V))=2 for the nontrivial anisotropic unitary and special orthogonal groups in NV §25.7, including the anisotropic SO₂ torus. Use the actual Tamagawa measures and quotient conventions. The general construction of a Tamagawa measure and compactness of the quotient do not compute its volume. NV points to Weil and Ono; their numerical-volume proof has not been read in this pass. OrthogonalSpinGroups names OrthogonalTamagawaAndLatticeMass as the orthogonal numerical-volume owner; consume that successor’s orthogonal theorem rather than proposing a second proof under AA.2. Only the unitary computation is requested from an AA.2 Part II extension.
 
-Owner: AdelicAlgebraicGroups arithmetic-volume extension.
+Owner: OrthogonalTamagawaAndLatticeMass for SO; AdelicAlgebraicGroups Part II for U.
 
 Needed by: `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/automorphic-branching-data`, `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/weighted-period-limit`, `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/family-weyl-law`, `GanGrossPrasadConjecturesForClassicalGroups:GGP.7/mean-period-theorem`.
 
@@ -1806,7 +1808,7 @@ Needed by: `GanGrossPrasadConjecturesForClassicalGroups:GGP.1/weak-strong-base-c
 
 ### U1: Arithmetic unitary models and level maps
 
-The proposed UnitaryRapoportZinkSpacesAndRSZModels owns standard definite unitary Shimura sets, standard indefinite Shimura varieties of dimension N−1, compatible neat level pairs and sh↑, hyperspecial lattices, the strong coefficient-field/Hecke-eigencharacter interface, and the projective graph map over its reflex field. Supply finite double-coset sets and the stabilizer-weight formula, plus the indefinite graph’s dimension. General neat sublevels and canonical datum functoriality come from ShimuraVarieties; cycle/graph carriers come from MotivesAndAlgebraicCycles. A nonabelian definite double-coset set is not supplied by the zero-dimensional torus Shimura theorem alone.
+The proposed UnitaryRapoportZinkSpacesAndRSZModels owns standard definite unitary Shimura sets, standard indefinite Shimura varieties of dimension N−1, compatible neat level pairs and sh↑, hyperspecial lattices, the strong coefficient-field/Hecke-eigencharacter interface, and the level map over its reflex field. Supply finite double-coset sets and the stabilizer-weight formula, plus the indefinite graph’s dimension. General neat sublevels and canonical datum functoriality come from ShimuraVarieties. Require from MotivesAndAlgebraicCycles an extension constructing the Chow class of a closed graph for smooth quasi-projective varieties, with Hecke actions and the displayed coefficient quotient; MC.0/graph-correspondence is only a smooth projective correspondence and is insufficient in this generality. The CM setup permits F=ℚ, so projectivity must not be inferred from its signatures. In the projective subcase reuse MC.0, without reversing the graph’s factors. A nonabelian definite double-coset set is not supplied by the zero-dimensional torus Shimura theorem alone.
 
 Owner: UnitaryRapoportZinkSpacesAndRSZModels with ShimuraVarieties and MotivesAndAlgebraicCycles.
 
@@ -1817,14 +1819,14 @@ Needed by: `GanGrossPrasadConjecturesForClassicalGroups:GGP.8/arithmetic-period-
 - `AutomorphicLFunctionsAndLocalFactors:AL.3`: Part II extension requested by F1: the conjugate-self-dual cuspidal Asai pole/regularity dichotomy with total-rank parity, and completed global Asai/adjoint factors. AL.3/rs-global-poles supplies the tensor-factor base; it does not already assert this dichotomy.
 - `AutomorphicLFunctionsAndLocalFactors:AL.4`: Part II extension requested by F1: all-place Asai and adjoint parameter compatibility, finite nonzero tempered central quotients, and the complex-place gamma/conductor comparison. Import AL.4/local-parameter-comparison as the existing GL tensor-factor base.
 - `AutomorphicFormsOnReductiveGroups:AF.3`: Part II extension requested by C1: uniform restriction estimates for Bessel Fourier coefficients on stabilizer Siegel sets, proving absolute period convergence when either form is cuspidal. The ambient cusp-form-rapid-decay node supplies a base estimate but not this restriction theorem.
-- `AdelicAlgebraicGroups:AA.2`: Part II extension requested by A1: the numerical Tamagawa value two for the stated nontrivial anisotropic unitary and special orthogonal groups, including the anisotropic SO₂ torus. AA.2/tamagawa-number defines the volume but does not compute it.
+- `AdelicAlgebraicGroups:AA.2`: Part II extension requested by A1: the numerical Tamagawa value two for the stated nontrivial anisotropic unitary groups. AA.2/tamagawa-number defines the volume but does not compute it. For special orthogonal groups, including the anisotropic SO₂ torus, consume the theorem from OrthogonalSpinGroups’s named successor OrthogonalTamagawaAndLatticeMass instead of duplicating its project.
 - `SmoothRepresentationsOfLocalGroups:SR.2`: Smooth admissible representations of the local classical groups, restriction to Bessel subgroups, parabolic/unipotent structure, and unnormalized ψ-twisted coinvariants with their quotient universal property; retain the full odd-codimension Bessel setting.
 - `SmoothRepresentationsOfLocalGroups:SR.2a`: Normalized parabolic induction, geometric lemma and second adjointness for the precise model-preserving standard-module reduction; tempered full-induction fibers and unramified-twist continuity require the extra S1 contract.
 - `SmoothRepresentationsOfLocalGroups:SR.3`: Tempered matrix-coefficient estimates and the Bernstein-center map for the distinguished locus; extend by the exact compact-torus/R-group and full-induction statement S1, beyond basic admissibility or a single irreducible Hom bound.
 - `SmoothRepresentationsOfLocalGroups:SR.3a`: Uniform admissibility/good compact-open finiteness sufficient to make Ω_π^J a finite union of unitary induction components; name the hypotheses on J explicitly.
 - `EndoscopicTransferAndUnitaryTraceComparison:ET.0`: Nonabelian cohomology and descent for pure H¹(F,H) twists of an inclusion, separate from ordinary adjoint inner twists; P1 records the extra orientation and coherence data.
 - `EndoscopicTransferAndUnitaryTraceComparison:ET.1`: Normalized local transfer and matching nilpotent germs used in tempered packet cancellation, with Whittaker normalizations compatible with ML.4. The relative multiplicity formula itself is L2, not a consequence of ordinary transfer.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation`: Use existing U, SO and split GL standard representations and form-preserving embeddings; import their carriers rather than restating the classical-group development.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation`: Use the complex finite-dimensional GL, SL, O and Sp standard representations actually planned in Layer 0, after the required scalar-extension and Lie-algebra comparisons. General hermitian U(V) is supplied by GN.2/signed-hermitian-space, and determinant-one orthogonal carriers by Tau Ceti and OrthogonalSpinGroups. The remaining general-field Lie/flag comparison is the explicit O1 contract.
 - `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem`: Use the existing compact isotypic decomposition to select finitely many smooth H-types and their projections; only the relative-character weight realization is new here.
 
 ### Proposed extensions of existing directions
@@ -1835,11 +1837,11 @@ The existing tensor-factor and local-parameter nodes do not include the Asai/adj
 
 Ambient cusp decay does not itself provide the restriction estimates C1. Add Automorphic forms on reductive groups, Part II: Relative restriction estimates, with AutomorphicFormsOnReductiveGroups as its first prerequisite. It extends AF.3 by the stabilizer-Siegel-set bounds of C1; the Bessel model and period definitions remain GGP.0 and GGP.3.
 
-The existing Tamagawa number definition and finiteness theorem do not compute the arithmetic volume A1. Add Adelic algebraic groups, Part II: Classical Tamagawa numbers, with AdelicAlgebraicGroups as its first prerequisite. It starts after the existing measure, quotient and finiteness API and supplies the numerical theorem A1, without redefining the measure.
+The existing Tamagawa number definition and finiteness theorem do not compute the arithmetic volume A1. Add Adelic algebraic groups, Part II: Unitary Tamagawa numbers, with AdelicAlgebraicGroups as its first prerequisite. It starts after the existing measure, quotient and finiteness API and supplies the unitary part of A1, without redefining the measure. The orthogonal part is consumed from the OrthogonalTamagawaAndLatticeMass successor already named by OrthogonalSpinGroups.
 
 ## Source corrections used
 
-These are existing atlas findings carried into the statements. Each is paraphrased, with no copied source passage; none is a new independent erratum verdict.
+These are existing atlas findings carried into the statements. This independent review checked each cited location and confirms all six corrections; its reasons are recorded in the packet and review report. Every account below is in our own words.
 
 - **E1**, NV21, published Lemma 27.3 proof p. 182; consequences in Corollary 31.8 and Theorem 31.11 pp. 202–204. Impose Π≄Π⊗(η_{K/F}∘θ) for the weighted equality in SO₃/SO₂, K=F(√(−disc V_H)); use the factor-two upper bound for unrestricted weak subconvexity. The higher-rank global repair is distinct from the false local real-definite surjectivity claim. Existing record: PAPER-NELSON-VENKATESH-21/E1; confirmed by REV-RT-PAPER-NELSON-VENKATESH-21 and its fixes ledger.
 
@@ -1857,9 +1859,9 @@ These are existing atlas findings carried into the statements. Each is paraphras
 
 Current TauCetiRoadmap main 0d144d044dacebca17b654695b6f1ad58f159b27 and current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 audited read-only; ClassicalGroups and CompactGroups read in full, relevant OrthogonalSpinGroups, SmoothRepresentations and ReductiveGroups Part II interfaces inspected. Nine newer roadmaps checked for overlap. Pinned declaration statements were checked separately.
 
-The pinned baseline contains algebraic representations, their native intertwiners and dual, finite sums, and Tau Ceti’s determinant-one orthogonal subgroup. It does not thereby contain Bessel models, automorphic packets or the analytic period theorems. The suggested Lean file uses only the existing algebraic carriers for a light equivariance predicate and a finite graph sum. Topological representations, packets, local fields with their classifications and Shimura objects remain full targets in this reader. No proxy carrier or empty proposition stands for them.
+The pinned baseline contains algebraic representations, their native intertwiners and dual, finite sums, Tau Ceti’s determinant-one orthogonal subgroup, and its spinor norm. For the latter we use only SO: the pinned star-norm sign on each orthogonal reflection cancels across an even reflection factorization. It does not thereby contain Bessel models, automorphic packets or the analytic period theorems. The suggested Lean file uses only the existing algebraic carriers for a light equivariance predicate and a finite graph sum. Topological representations, packets, local fields with their classifications and Shimura objects remain full targets in this reader. No proxy carrier or empty proposition stands for them.
 
-Current upstream classical-group and compact-group roadmaps supply the standard representations, compact branching and Peter–Weyl decomposition. OrthogonalSpinGroups supplies its existing quadratic-group material. No such theory is planned a second time. Tau Ceti’s nine post-snapshot roadmap additions were checked against these targets.
+ClassicalGroups supplies complex finite-dimensional GL/SL/O/Sp standard representations; it is not a supplier of arbitrary-field U/SO groups. GN.2 supplies hermitian isometry groups, Tau Ceti supplies the determinant-one orthogonal carrier, and OrthogonalSpinGroups supplies the spinor-norm direction. The general-field Lie/flag comparison remains O1. CompactGroups supplies Peter–Weyl and compact isotypic projections; their smooth relative-character specialization remains O2. No such theory is planned a second time. Tau Ceti’s nine post-snapshot roadmap additions were checked against these targets.
 
 ## Sources and versions read
 
@@ -1906,7 +1908,7 @@ SHA-256: `a07a6143d3e71f1eca31b6ba9b774bec325a7de07c7417b7796486a77df13794`.
 
 Paul D. Nelson, Akshay Venkatesh, [The orbit method and analysis of automorphic forms](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2021/0226/0001/ACTA-2021-0226-0001-a001.pdf). Acta Mathematica 226 (2021), 1–209; published copy.
 
-Read on 2026-10-19: §13 pp. 91–95; Theorem 14.2 and Definition 14.3 p. 97; §15 pp. 103–107; §18 pp. 121–122; §§20–21 selected pp. 142–146; §24.1–24.3 pp. 157–160; §25 pp. 167–172; Lemma 27.3 original proof p. 182; selected §30 and §31 pp. 199–204; existing atlas verification of E1 also consulted.
+Read on 2026-10-19: §13 pp. 91–95; Theorem 14.2 and Definition 14.3 p. 97; §15 pp. 103–107; §18 pp. 121–122; §§20–21 selected pp. 142–146; §24.1–24.3 pp. 157–160; §25 pp. 167–172; Lemma 27.3 original proof p. 182; Theorem 30.1 p. 194 and proof pp. 196–199; selected §31 pp. 200–204; existing atlas verification of E1 also consulted.
 
 SHA-256: `85e14654d2b367f4b0d4a21c9555576f6def6649c8b6707afc78e1dfbdaea76e`.
 
