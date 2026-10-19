@@ -15,8 +15,8 @@ The foundational carriers and algorithms have existing owners:
 - TauCetiRoadmap **EllipticCurves** Layers 1–2 own isogenies, duals, invariant differentials, the point group, rational torsion and Tate modules. Layer 3 owns finite-field Frobenius and Hasse bounds; Layer 4 owns reduction, minimal models, Tate's algorithm, component groups and Tate-curve logarithms; Layer 5 owns quadratic twists and their Galois point equivalence. Layer 6 owns Mordell–Weil finite generation, canonical heights, regulator lattices, descent rank bounds and saturation. Layer 7 owns continuous Kummer/Selmer/Sha carriers, finite m-Selmer groups and Cassels' arithmetic isogeny comparison. Their conditional BSD statement does not prove the rank or leading-term assertions developed here.
 - The real period is EllipticCurves Layer 7's absolute full-component period of a global minimal long model. Writing (D_W(x)=(a_1x+a_3)^2+4(x^3+a_2x^2+a_4x+a_6)), its convention is (2∫_{D_W>0}dx/√D_W). This already includes every real component. Positivity and convergence are supplied with the period; the totalized value of an unproved integral is insufficient. The separate period over an imaginary quadratic field below uses the complex integration lattice and the Néron differential ideal.
 - **EllipticCurveModularity** R29.3 supplies the normalized rational-coefficient weight-two newform attached to the actual curve. R29.4 supplies all bad factors, the exact conductor and the Tate-module comparison; R29.5 supplies the modular parametrization; R29.6 supplies equality with the curve's coefficient series, its entire continuation and functional equation. This roadmap uses the entire function `ellipticL E` provided by that interface. Mathlib's existing `E.LSeries` is a totalized series and is used only where summability is proved. Tau Ceti's pinned `LSeries.HasEntireExtension` supplies existence and uniqueness interfaces, not the modularity proof for E.
-- **GrossZagierAndArithmeticHeights** GZ.0 owns the source convention dictionary, real components and integrated complex period lattice. At the pins Tau Ceti's canonical height is the limit of the x-height divided by (2·4^n), and its polarized pairing has self-pairing that canonical height. With the same field-height normalization, the BSD x-height pairing is twice this pairing, so `Reg_BSD = 2^r Reg_Tau`. Current Tau Ceti at a91d3aaf instead uses the full x-height limit in `CanonicalHeight.Basic`; its regulator already has that BSD scaling, so the pinned factor two must not be applied again when using that revision. GZ.3 owns parametrization/differential and integral period comparisons; GZ.8 owns the actual Gross–Zagier formula; GZ.9 owns the actual BDP reciprocity formulas, with the multiplicative and supersingular extensions specified below. The regulator itself and its rank-zero value one are already provided by Tau Ceti's `Affine.PointModTorsion`/`Regulator` development.
-- The basic **11a3** curve (y^2+y=x^3-x^2), coefficient tuple ((0,-1,1,0,0)), discriminant (-11), and point ((0,0)) of order five are EllipticCurves' named torsion example. The **37a1** curve (y^2+y=x^3-x), tuple ((0,0,1,-1,0)), discriminant (37), and infinite-order point ((0,0)), with rank one by explicit descent, are its named rank example. Those constructions and elementary point-order calculations are imported. The new examples below add analytic enclosures, torsion-sensitive prime-part dispatch and complete BSD certificate obligations. The 32a2 model and its dyadic arithmetic comparison remain explicit targets here.
+- **GrossZagierAndArithmeticHeights** supplies **The dictionary of height conventions** and **Full real period, identity-component period and c∞**. Its **complexPeriodLatticeComparison** extension below supplies the integration lattice. At the pins Tau Ceti's canonical height is the limit of the x-height divided by (2·4^n), and its polarized pairing has self-pairing that canonical height. With the same field-height normalization, the BSD x-height pairing is twice this pairing, so `Reg_BSD = 2^r Reg_Tau`. Current Tau Ceti at a91d3aaf instead uses the full x-height limit in `CanonicalHeight.Basic`; its regulator already has that BSD scaling, so the pinned factor two must not be applied again when using that revision. **Integral Manin constant and p-unit range** owns parametrization/differential and integral period comparisons; **Heights of Heegner points on an elliptic curve** owns the actual Gross–Zagier formula; **The BDP p-adic Gross–Zagier formula in weight two** owns the actual BDP reciprocity formulas, with the multiplicative and supersingular extensions specified below. The regulator itself and its rank-zero value one are already provided by Tau Ceti's `Affine.PointModTorsion`/`Regulator` development.
+- The basic **11a3** curve (y^2+y=x^3-x^2), coefficient tuple ((0,-1,1,0,0)), discriminant (-11), and point ((0,0)) of order five are EllipticCurves' named torsion example. The **37a1** curve (y^2+y=x^3-x), tuple ((0,0,1,-1,0)), discriminant (37), and infinite-order point ((0,0)), with rank one by explicit descent, are its named rank example. Those constructions and elementary point-order calculations are imported. The applications below assume exact analytic and arithmetic data for these models and for 32a2. They derive rank equality, whole-Sha finiteness, a source-qualified prime part or a full formula from separately listed inputs; construction of the example data is not a target.
 - Mathlib already supplies `analyticOrderAt`, `analyticOrderNatAt`, iterated derivatives, fundamental discriminants, rational numerator/denominator normal forms, finite prime-factor sets and `padicValRat`. Tau Ceti supplies the quadratic twist point equivalence and `Affine.Point.exists_baseChange_eq_of_map_eq`. Their specializations below add the actual BSD comparisons, rather than a second analytic-order, factorization or Galois-descent theory.
 
 The pinned statements used by Suggested.lean are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Current upstream ownership takes precedence over an older library snapshot.
@@ -44,9 +44,30 @@ When K is imaginary quadratic and p splits, fix both the embedding and the disti
 - The discriminants −7 and −3 give χ(2)=+1 and −1 respectively. The dyadic character rule cannot be inferred from the odd-prime Legendre formula.
 - The quotients 2 and 1/4 have zero valuation at every odd prime but dyadic valuations one and −2. The values zero and −1 have all totalized valuations zero and fail strict positivity. A real identity reconstructed from A/B still requires B≠0.
 
+The corresponding computations in `Suggested.lean` use existing rational, matrix, power-series and finite-field carriers. The heavy arithmetic constructions themselves remain README targets. These numerical checks fix each convention before it is applied to actual invariants.
+
+| Convention | Computed witness (also a Lean example) |
+|---|---|
+| Functional-equation sign | (1+t)+(1−t)=2, (1+t)−(1−t)=2t; constant and linear terms have opposite parity |
+| Leading coefficient | The second derivative of 3(s−1)² is 6; dividing by 2!=2 gives 3, while (s−1)′=1 |
+| Height and relative degree | For pinned height 3/2, the BSD height is 3 and its quadratic-relative value is 6 |
+| Determinant and index | The one-entry Gram matrix [3] scales to determinant 6 under pairing scaling by 2, and to 12 under a lattice index 2 |
+| Quadratic gluing | 2¹/4⁰=2, whereas 2¹/4¹=1/2 |
+| Complex period | Covolume 3 gives period 12; rectangular index 2 gives area 6; with component counts 2,2, unit differential multiplier and δ=2, the real/twist ratio is 2 |
+| Residue degree | A length-one residue module of degree 2 at p=5 has 25 elements, versus 5 for degree 1 |
+| Ideal containment | (25)⊊(5) in ℤ, so divisibility reverses the written generators; (1)=⊤ and (0)=⊥ |
+| Squared BDP series | T² has coefficients 0,1 in degrees 1,2; T has coefficients 1,0 there |
+| Euler substitution | 1−γ/2 has constant/linear coefficients 1,−1/2 |
+| Trivial character | T(1+T) has constant/linear coefficients 0,1 and an additional augmentation zero |
+| Geometric component group | ℤ/5 has 5 elements; its inversion-fixed subgroup has only 0, so has 1 element |
+| Dyadic eigenspaces | In ℤ/2 the nonzero element is its own negative; a direct integral eigenspace splitting fails |
+| Full index versus free index | Free index 2 and torsion order 5 give full index 10; the height multiplier is 4, not 100 |
+| Twist transfer | Valuations 3 and −3 add to zero, while 3 and 3 do not |
+| Torsion square | (1/25)·5²=1 and v₅(1/25)=−2; (1/8)·4²/2=1 while (1/2)·4²/2=4 |
+
 ## Exact supplier contracts
 
-Each contract identifies the existing owner and the extension needed by the stated consumer. An early class, a generic local interpolation formula, or a rational divisibility does not by itself supply an integral arithmetic endpoint. New ordinary BSTW work is routed to the present Kato L4 owner until its early L5 extension exists. The imaginary-quadratic elliptic-unit proof chain has no existing complete owner: it requires integral unit distributions and norm relations, Rubin's 1991/1994 CM main conjectures, Hida–Tilouine Theorem 0.3 (Invent. 117, 1994), and Hida's anticyclotomic Katz μ=0 theorem, with the exact characters, primes and coefficient rings used below. For the last input, [Hida's Theorem I](https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf), Annals 172 (2010), p.45, assumes p>2, p unramified in the totally real field and split conductor support; its exceptional condition (V) must be excluded. In the imaginary-quadratic specialization over ℚ, the finite ramification of K excludes condition (M1), hence (V). Its proof uses the replacement for Lemma 3.17 in the author's [2022 addendum](https://www.math.ucla.edu/~hida/Addendam.pdf), p.1. The remaining Rubin/Hida–Tilouine source and integral comparison obligations are still open. Katz interpolation alone does not satisfy that contract.
+Each contract identifies the existing owner and the extension needed by the stated consumer. An early class, a generic local interpolation formula, or a rational divisibility does not by itself supply an integral arithmetic endpoint. The **ordinaryBSTWComparison** contract extends the current KatoEulerSystems target **The cohomological upper bound**; the ordinary two-variable construction is not yet an existing supplier target. The imaginary-quadratic elliptic-unit proof chain has no existing complete owner: it requires integral unit distributions and norm relations, Rubin's 1991/1994 CM main conjectures, Hida–Tilouine Theorem 0.3 (Invent. 117, 1994), and Hida's anticyclotomic Katz μ=0 theorem, with the exact characters, primes and coefficient rings used below. For the last input, [Hida's Theorem I](https://annals.math.princeton.edu/wp-content/uploads/annals-v172-n1-p02-p.pdf), Annals 172 (2010), p.45, assumes p>2, p unramified in the totally real field and split conductor support; its exceptional condition (V) must be excluded. In the imaginary-quadratic specialization over ℚ, the finite ramification of K excludes condition (M1), hence (V). Its proof uses the replacement for Lemma 3.17 in the author's [2022 addendum](https://www.math.ucla.edu/~hida/Addendam.pdf), p.1. The remaining Rubin/Hida–Tilouine source and integral comparison obligations are still open. Katz interpolation alone does not satisfy that contract.
 
 ### From Mathlib at the pin
 
@@ -90,7 +111,7 @@ Castella–Liu–Wan's semi-ordinary GU(3,1) congruence divisibility (the replac
 
 ### AutomorphicCongruences L5a
 
-AC L5a imports the ordinary BSTW element/Proposition9.18 from KatoEulerSystems early L5 extension and, when its signed branch needs it, the early signed comparison from Layer 8. It must not depend on completed Layer 9. FW factorisation is specified from AC L2 and FO local type from R21.3 separately.
+AC L5a imports the ordinary BSTW element/Proposition9.18 from KatoEulerSystems **ordinaryBSTWComparison** (extension contract) and, when its signed branch needs it, the early signed comparison from Layer 8. It must not depend on completed Layer 9. FW factorisation is specified from AC L2 and FO local type from R21.3 separately.
 
 ### AutomorphicPadicLFunctions L0
 
@@ -102,7 +123,7 @@ The two-variable Hida Rankin–Selberg Greenberg function against the CM family 
 
 Export BSTW’s two-variable signed Rankin functions L_p^±∈Λ_L alongside L_p^Gr∈Λ_L^ur, with the common differential/Betti/Gauss-sum normalization of Proposition6.25 and Theorem6.26. The one-variable Pollack functions are obtained by the specified cyclotomic specialization, not identified with these functions by type.
 
-Actual Katz p-adic L-functions and integral CM periods/congruence ideals; precise interface to the elliptic-unit IMC proof extension for character characteristic ideals and μ=0. Katz construction/interpolation alone does not provide Rubin/Hida–Tilouine/Hida proofs. The absent owner is a separately explicit gap.
+Actual Katz p-adic L-functions and integral CM periods/congruence ideals; precise interface to the elliptic-unit IMC proof extension for character characteristic ideals and μ=0. Katz construction/interpolation alone does not provide Rubin/Hida–Tilouine/Hida proofs. The proposed **ellipticUnitCharacterComparison** contract requires the integral character characteristic-ideal comparison, its trivial-character augmentation correction and μ=0 in the exact character range of §11.6. It has no complete owning package; the maintainer must assign it. Until then it is an explicitly unproved prerequisite, not an export of Katz interpolation.
 
 ### AutomorphicPadicLFunctions L3h
 
@@ -117,14 +138,6 @@ Eischen–Wan finite-slope Klingen families on definite GU(2,0)/GU(3,1) with the
 ### ClassicalArithmeticCompletion CA.1
 
 Extend the primitive discriminant character export to its splitting/Frobenius identification for quadratic number fields, including the explicit dyadic Kronecker rule; identify NumberField.discr with the fundamental discriminant. The pinned multiquadratic theorem alone omits 2.
-
-### ComplexMultiplicationAndExplicitReciprocity CM.1
-
-Characteristic-zero endomorphism classification for the actual elliptic curve y²=x³−x: an origin-preserving automorphism squaring to [−1] gives the full order ℤ[i], not only an abstract action. Import the existing CM curves/ideal-action carriers.
-
-### ComputationalNumberTheory CN.4
-
-Validated rational interval replay for π, positive square roots, exp and E₁(x)=∫_x^∞e^(−t)/t dt, including quadrature and tail errors, on the actual Mellin finite sums. Import existing rational interval product/reciprocal/rounding nodes and extend elementary-function evaluators as a Part II if needed.
 
 ### DiophantineApproximationAndTranscendence DT.5
 
@@ -152,17 +165,17 @@ Local ε-factors of GL₂(ℚ_ℓ) representations attached to elliptic curves: 
 
 The Jacquet–Langlands transfer with integral multiplicity one at a non-Eisenstein maximal ideal: a primitive integral eigenfunction on the definite (or indefinite) quaternion algebra of discriminant N⁻ attached to g, with the freeness of the localised character groups needed for Pollack–Weston Theorem 6.2.
 
-### GeneralizedHeegnerCycles GH.7
+### GeneralizedHeegnerCycles: corrected higher-weight input
 
-Castella–Hsieh (4.7), §5.2 and Theorems 5.7/6.1, Longo–Vigni Theorem 4.7 and Castella Theorems 2.11/5.3: big Heegner/generalized Heegner classes in Hida families, their two-variable explicit reciprocity and the congruence of BDP p-adic L-functions along the family, with the Chida–Hsieh erratum and the Kobayashi–Ota local-condition replacement.
+Use the current named export **Higher-weight input comparison for the corrected multiplicative BSD proof**, including its explicit nonsplit-tame-prime and weight-admissibility adapter. Its **correctedHigherWeightInput** contract retains the actual lattice, leading-class unit and reduction-compatible analytic identities. Castella–Hsieh (4.7), §5.2 and Theorems 5.7/6.1, Longo–Vigni Theorem 4.7 and Castella Theorems 2.11/5.3: big Heegner/generalized Heegner classes in Hida families, their two-variable explicit reciprocity and the congruence of BDP p-adic L-functions along the family, with the Chida–Hsieh erratum and the Kobayashi–Ota local-condition replacement.
 
-### GrossZagierAndArithmeticHeights GZ.0
+### GrossZagierAndArithmeticHeights: heights, real periods and complex lattices
 
-Construct the actual integration image of H₁(E(ℂ),ℤ) for a global minimal Néron differential as a discrete full Submodule ℤ ℂ. Export its real/imaginary rank-one sublattices, index δ∈{1,2}, covolume/complex-integral factor two, and full real-component period comparison; use native IsZLattice/ZLattice.covolume rather than new real-valued data. This specializes the complex uniformization/real-period development; uses the existing generic lattice theory.
+**complexPeriodLatticeComparison** is an extension of **Full real period, identity-component period and c∞** and **Quadratic-twist real-period comparison**. Construct the actual integration image of H₁(E(ℂ),ℤ) for a global minimal Néron differential as a discrete full Submodule ℤ ℂ. Export its real/imaginary rank-one sublattices, index δ∈{1,2}, covolume/complex-integral factor two, and full real-component period comparison; use native IsZLattice/ZLattice.covolume rather than new real-valued data. This specializes the complex uniformization/real-period development; uses the existing generic lattice theory.
 
-### GrossZagierAndArithmeticHeights GZ.3
+### GrossZagierAndArithmeticHeights: integral parametrization comparisons
 
-Prove that the Manin constant c of the X₀(N)-optimal curve is a positive integer prime to p for p ∤ 2N·D in the range JSW Remark 7.3.3 uses (Mazur, via Jetchev 2008 §1), checked against later sharpenings, with its transfer across the isogeny class and to the twist E^D; consumed by the Néron-period versus canonical-period comparisons of Layer 6–Layer 9.
+**integralParametrizationComparison** extends **Integral Manin constant and p-unit range**, **Manin isogeny and twist transfer** and **Modular period-degree comparison**. Prove that the Manin constant c of the X₀(N)-optimal curve is a positive integer prime to p for p ∤ 2N·D in the range JSW Remark 7.3.3 uses (Mazur, via Jetchev 2008 §1), checked against later sharpenings, with its transfer across the isogeny class and to the twist E^D; consumed by the Néron-period versus canonical-period comparisons of Layer 6–Layer 9.
 
 Rational automorphic realisations and modular degrees: the Manin constant of the optimal parametrisation as a positive integer (with its stated p-integrality), the degrees δ(N⁺, N⁻) of optimal Shimura-curve parametrisations, and the comparison of Néron periods with the modular-symbol periods Ω_f^±.
 
@@ -170,19 +183,23 @@ Export JSW7.3.2’s exact integral modular-degree/Néron-period comparison with 
 
 For the multiplicative branch p∥N, export the exact p-integral canonical-period/Néron-period comparison used by Skinner C and Castella, with optimal/nonoptimal transfer and full local hypotheses. The existing p∤2ND Manin-constant request does not cover this branch.
 
-### GrossZagierAndArithmeticHeights GZ.5
+### GrossZagierAndArithmeticHeights: Waldspurger positivity
 
-Prove L(1/2, π ⊗ χ) ≥ 0 for every cuspidal automorphic representation π of PGL₂ over ℚ and every quadratic Hecke character χ (Waldspurger's period formula, or Guo's relative trace formula, or Lapid–Rallis), with the sign conventions for the unitary normalisation; linked to Layer 7 for the positivity of L(E,1) and L′(E,1).
+**waldspurgerNonnegativity** specializes **Waldspurger period formula** to a unitary cuspidal representation π of PGL₂ over ℚ and a quadratic Hecke character χ: prove L(1/2, π ⊗ χ) ≥ 0 (Waldspurger's period formula, or Guo's relative trace formula, or Lapid–Rallis), with the sign conventions for the unitary normalisation; linked to Layer 7 for the positivity of L(E,1) and L′(E,1).
 
-### GrossZagierAndArithmeticHeights GZ.9
+### GrossZagierAndArithmeticHeights: p-adic height formulas
 
-Extend multiplicative-prime BDP/control and period comparisons from the existing semistable optimal export to Castella erratum A′/Theorem1.1: multiplicative p>3, additive primes away from p allowed, nonsplit residually ramified q, E(Q_p)[p]=0 and ramified Heegner ideal. Keep Euler factors and local hypotheses; prove the extension instead of calling the semistable theorem identical.
+**multiplicativeBDPComparison** extends **The weight-two formula at a multiplicative prime** and **Compatibility with isogenies, differentials and characters**. Extend multiplicative-prime BDP/control and period comparisons from the existing semistable optimal export to Castella erratum A′/Theorem1.1: multiplicative p>3, additive primes away from p allowed, nonsplit residually ramified q, E(Q_p)[p]=0 and ramified Heegner ideal. Keep Euler factors and local hypotheses; prove the extension instead of calling the semistable theorem identical.
 
-Kobayashi’s supersingular p-adic Gross–Zagier formula [BSTW88], with signed local normalization and exact Euler factors used in BSTW1.5 rank-one deduction. Current ordinary/multiplicative BDP exports do not supply that supersingular formula.
+**supersingularGrossZagierComparison** is the separate extension giving Kobayashi’s supersingular p-adic Gross–Zagier formula [BSTW88], with signed local normalization and exact Euler factors used in BSTW1.5 rank-one deduction. Current ordinary/multiplicative BDP exports do not supply that supersingular formula.
+
+### Ramified comparison for the multiplicative application
+
+**castellaRamifiedAuxiliaryComparison** is an additional proof obligation for §10.8, not the coprime-discriminant theorem §2.10. For the actual E,p,K of corrected Theorem A′, prove the quadratic BSD quotient comparison at p with the actual differential ideals, local norm indices, torsion and Sha maps; retain every local contribution at primes dividing D_KN. Prove the auxiliary rank-zero valuation or the one-sided comparison actually sufficient for the final inequality in that ramified setting. No Skinner theorem is applied at the prime q after its ramified twist becomes additive. This contract must be derived independently from Cassels' isogeny comparison and the corrected multiplicative proof's local formulas. Its general local terms specialize to §2.10 when (D_K,2N)=1. The corrected source's endpoint remains a theorem target, but the proposed coprime-only derivation does not establish this stronger contract.
 
 ### HeegnerPointEulerSystems HE.7
 
-Export JSW Theorem4.4.1’s odd-prime Shimura-curve Kolyvagin bound in its (gen-H), residual and local conditions, keeping Tamagawa/parametrisation defects. Prove the clean square-index specialization in the exact upper-bound application; dyadic conjugation descent is not this export.
+**jswShimuraCurveIntegralBound** exports JSW Theorem4.4.1’s odd-prime Shimura-curve Kolyvagin bound in its (gen-H), residual and local conditions, keeping Tamagawa/parametrisation defects. Prove the clean square-index specialization in the exact upper-bound application; dyadic conjugation descent is not this export.
 
 Arithmetic Kolyvagin bounds with explicit whole-Sha annihilator/exponent and finite exceptional-prime data for a supplied actual Heegner curve/point. Finiteness alone supplies no computable exponent; import integral/dyadic arithmetic descent before extracting a numerical bound.
 
@@ -194,15 +211,15 @@ Arithmetic Kolyvagin bounds with explicit whole-Sha annihilator/exponent and fin
 
 Ferrero–Washington Dirichlet μ=0 in the isogeny/period comparison in Wüthrich Lemma 17. Cyclotomic elliptic μ=0 is not assumed. The Weierstrass/characteristic/Fitting algebra is specified separately from PadicMeasuresIwasawaAlgebras L4.
 
-### KatoEulerSystems L4
+### KatoEulerSystems: integral and two-variable extensions
 
-Export Kato Theorem14.2(2), printed p.235, finite Bloch–Kato Selmer for every coefficient prime and zero for almost all when L(E,1)≠0, including the separate CM proof of §15. Provide comparison with EC Layer7 p∞ Selmer at good, finite-flat and Tate-curve primes; existing non-CM/Hyp(v) and good-ordinary divisibilities do not supply all these cases.
+**allPrimeRankZeroSelmer** extends **Elliptic points in the cyclotomic tower** and **All-prime rational and lattice module structure**: export Kato Theorem14.2(2), printed p.235, finite Bloch–Kato Selmer for every coefficient prime and zero for almost all when L(E,1)≠0, including the separate CM proof of §15. Provide comparison with EC Layer7 p∞ Selmer at good, finite-flat and Tate-curve primes; existing non-CM/Hyp(v) and good-ordinary divisibilities do not supply all these cases.
 
-Finite-level integral upper bound of JSW7.2.1(i) for weight-two E, odd good (ordinary or supersingular) or multiplicative p, irreducible E[p], L(E,1)≠0, with Néron-period/Tamagawa normalization. Specify the source proof including local finite-flat/Tate conditions and integral lattice errors; ordinary L4 divisibility is only good ordinary and a specialization theorem assuming main-conjecture equality cannot prove this one-sided bound.
+**finiteLevelIntegralUpperBound** strengthens **Rank-zero upper bound for the elliptic p-part**, whose current statement has surjectivity and additional unit hypotheses. It is the finite-level integral upper bound of JSW7.2.1(i) for weight-two E, odd good (ordinary or supersingular) or multiplicative p, irreducible E[p], L(E,1)≠0, with Néron-period/Tamagawa normalization. Specify the source proof including local finite-flat/Tate conditions and integral lattice errors; the current ordinary divisibility is only good ordinary and a specialization theorem assuming main-conjecture equality cannot prove this one-sided bound.
 
-Provide the early L5 extension for the ordinary BSTW two-variable zeta element, ordinary reciprocity laws and ordinary Proposition9.18/BCS4.1.3 comparison; BSD imports these. Its present owner is L4. It must not depend on AC L5a or completed Layer 9.
+**ordinaryBSTWComparison** extends **The cohomological upper bound**: provide the ordinary BSTW two-variable zeta element, ordinary reciprocity laws and ordinary Proposition9.18/BCS4.1.3 comparison; BSD imports these. This is a requested extension, not the current cohomological bound. It must not depend on AC L5a or completed Layer 9.
 
-Wüthrich (Doc.Math.19(2014)) Theorem 4, Proposition 8, Theorem 13, Theorem 16, Lemma 17 and Corollary 18: distinguished isogenous E_• and its étale lattice; integral Kato zeta element even when H¹(T)_0 is nonfree; integral char(X_ord) divisibility by the primitive Mazur–Swinnerton-Dyer p-adic L-function at odd good ordinary reducible p, and exact period/isogeny transfer. This extends the present ordinary-selmer-divisibility, which yields only a rationalized bound in its stated range.
+**wuthrichIntegralComparison** extends **Elliptic ordinary and multiplicative divisibility**, which currently permits a coefficient-prime denominator. Wüthrich (Doc.Math.19(2014)) Theorem 4, Proposition 8, Theorem 13, Theorem 16, Lemma 17 and Corollary 18: distinguished isogenous E_• and its étale lattice; integral Kato zeta element even when H¹(T)_0 is nonfree; integral char(X_ord) divisibility by the primitive Mazur–Swinnerton-Dyer p-adic L-function at odd good ordinary reducible p, and exact period/isogeny transfer. This extends the present **Elliptic ordinary and multiplicative divisibility**, which yields only a rationalized bound in its stated range.
 
 ### MetaplecticAutomorphicForms MP.7
 
@@ -234,7 +251,7 @@ Ordinary (slope-zero) weight-two modular-symbol measure, primitive n=0 interpola
 
 ### NeronModelsAndSemistableAbelianVarieties R11.2
 
-Rational component-group order and its isogeny functoriality on actual Néron models; compare with the existing elliptic reduction filtration and Tate-algorithm trace, including wild residue characteristics. Minimality and the specific dyadic/ternary traces are imported from EllipticCurves Layer 4; real components are imported from GZ.0, separately from a finite-place Néron fibre.
+Rational component-group order and its isogeny functoriality on actual Néron models; compare with the existing elliptic reduction filtration and Tate-algorithm trace, including wild residue characteristics. Minimality and the specific dyadic/ternary traces are imported from EllipticCurves Layer 4; real components are imported from **complexPeriodLatticeComparison**, separately from a finite-place Néron fibre.
 
 ### NeronModelsAndSemistableAbelianVarieties R11.6
 
@@ -335,7 +352,7 @@ Hecke's functional equation Λ_N(2 − s, f) = i² Λ_N(s, 𝒲_N f) for weight 
 Actual newform L-function analytic continuation and functional equation, Mellin splitting at 1/√N and derivative formula; compare to Layer 0 the entire elliptic L-function, retaining the root-number sign.
 
 
-## How to read and build
+## How to read the build
 
 Layers follow proof order. In particular the early modular-symbol comparison, definite period identity and signed reciprocity comparison precede their consumers.
 
@@ -359,7 +376,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* Mathlib `Complex.Gammaℂ`; EllipticCurveModularity R29.6, using the pinned entire-extension interface; EllipticCurveModularity R29.6 / l-function-continuation; EllipticCurveModularity R29.4 / exact-conductor; TauCetiRoadmap ModularForms Layer 6; TauCetiRoadmap ModularForms Layer 7; GL2AutomorphicRepresentationsAndTransfer R16.3; Tau Ceti `TauCeti.Isogeny`.
 
-The intended declarations are:
+The required API is:
 
 - `WeierstrassCurve.completedEllipticL` — completedEllipticL E : ℂ → ℂ, the unique entire continuation of the Gamma product from Re s > 0.
 - `WeierstrassCurve.differentiable_completedEllipticL` — completedEllipticL E is entire.
@@ -395,7 +412,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* Mathlib `analyticOrderAt`; Mathlib `analyticOrderNatAt`; Mathlib `AnalyticAt.analyticOrderAt_ne_top`; Mathlib `analyticOrderAt_eq_zero`; Mathlib `iteratedDeriv`; Mathlib `Nat.factorial`; EllipticCurveModularity R29.6, using the pinned entire-extension interface; TauCetiRoadmap ModularForms Layer 7.
 
-The intended declarations are:
+The required API is:
 
 - `WeierstrassCurve.analyticRank` — analyticRank E = analyticOrderNatAt (ellipticL E) 1.
 - `WeierstrassCurve.analyticOrderAt_ellipticL_ne_top` — analyticOrderAt (ellipticL E) 1 ≠ ⊤, and analyticOrderAt (ellipticL E) 1 = analyticRank E.
@@ -413,9 +430,9 @@ The intended declarations are:
 - analyticRank E = 0 ↔ ellipticL E 1 ≠ 0, and then leadingTerm E = ellipticL E 1.
 - analyticRank (37a1) = 1.
 - analyticRank E equals Tau Ceti ModularForms Layer 7's analytic rank of F_E (order of its entire continuation at the centre k/2 = 1).
-- analyticRank E = analyticOrderNatAt (fun s ↦ ellipticL E (s + 1/2)) (1/2): the unitary centre s = 1/2 of L(s, π_E) is the motivic centre 1 (GZ.0/unitary-and-motivic-centres).
+- analyticRank E = analyticOrderNatAt (fun s ↦ ellipticL E (s + 1/2)) (1/2): the unitary centre s = 1/2 of L(s, π_E) is the motivic centre 1 (**The motivic centre s = 1 and the unitary centre s = 1/2**).
 - For analytic rank one, leadingTerm E = deriv (ellipticL E) 1, not deriv (ellipticL E) 1 / 2: the factor is 1/r! = 1.
-- analyticRank (11a1) = 0 and analyticRank (37a1) = 1, with the nonvanishing certified by Layer 14's rigorous enclosures.
+- analyticRank (11a1) = 0 and analyticRank (37a1) = 1, conditional on the exact nonvanishing hypotheses in §14.4.
 
 ### 0.3 The quadratic character of a quadratic field
 
@@ -429,9 +446,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* ClassicalArithmeticCompletion CA.1 / kronecker-character; ClassicalArithmeticCompletion CA.1 / kronecker-character-is-primitive; Tau Ceti `Algebra.IsQuadraticExtension.quadraticCharacter`; Tau Ceti `NumberField.isArithFrobAt_multiquadratic_eq_one_iff`; Mathlib `IsArithFrobAt`; Mathlib `NumberField.discr`; Mathlib `Int.IsFundamentalDiscr`; Mathlib `Algebra.IsQuadraticExtension`; ClassicalArithmeticCompletion CA.1.
 
-The intended declarations are:
-
-- `TauCeti.BSD.quadratic_field_character` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.quadratic_field_character` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -450,14 +465,14 @@ The source comparison is [Tau Ceti contributors](https://github.com/CBirkbeck/Ta
 
 *Needs:* Tau Ceti `WeierstrassCurve.quadraticTwistOf`; Mathlib `quadraticChar`; TauCetiRoadmap EllipticCurves Layer 3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.finite_field_twist_trace` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.finite_field_twist_trace` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
 - Over 𝔽₅, E : y² = x³ + x + 1 has 9 points (a = −3); with d = 2 (a nonsquare) the twist 2y² = x³ + x + 1 has 3 points (a = 3).
 - d = 4 (a square in 𝔽₅) gives the same count 9.
+- Over 𝔽₂, y²+xy=x³+1 has 4 points including infinity; its Artin–Schreier twist y²+xy=x³+x²+1 has 2, so the traces −1 and +1 are exchanged. A one-element field is excluded.
+- Twisting twice returns the original trace; the trivial twist preserves it.
 
 ### 0.5 Root-number parity of the analytic rank
 
@@ -471,9 +486,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* §0.1 (the completed l-function and the root number); §0.2 (analytic rank and the leading coefficient at s = 1); Mathlib `analyticOrderAt`; Mathlib `iteratedDeriv`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.root_number_parity` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.root_number_parity` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -492,9 +505,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), Footnot
 
 *Needs:* §0.4 (trace of frobenius of a twist over a finite field); §0.3 (the quadratic character of a quadratic field); Tau Ceti `WeierstrassCurve.quadraticTwist`; Tau Ceti `WeierstrassCurve.isElliptic_quadraticTwist`; Mathlib `WeierstrassCurve.localPolynomial`; Mathlib `WeierstrassCurve.HasGoodReduction`; Mathlib `WeierstrassCurve.HasSplitMultiplicativeReduction`; Mathlib `WeierstrassCurve.HasMultiplicativeReduction`; Mathlib `WeierstrassCurve.HasAdditiveReduction`; EllipticCurveModularity R29.4 / bad-euler-factors; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 5.
 
-The intended declarations are:
-
-- `TauCeti.BSD.twist_local_factors` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.twist_local_factors` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -513,9 +524,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* §0.6 (local euler factors of a quadratic twist); §0.3 (the quadratic character of a quadratic field); EllipticCurveModularity R29.3 / newform-of-E; EllipticCurveModularity R29.4 / exact-conductor; Mathlib `WeierstrassCurve.LFunction`; EllipticCurveModularity R29.6, using the pinned entire-extension interface.
 
-The intended declarations are:
-
-- `TauCeti.BSD.twist_l_series` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.twist_l_series` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -533,9 +542,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1
 
 *Needs:* §0.6 (local euler factors of a quadratic twist); EllipticCurveModularity R29.6, using the pinned entire-extension interface; Mathlib `WeierstrassCurve.LFunction`; Mathlib `WeierstrassCurve.LSeries`; Mathlib `WeierstrassCurve.baseChange`; Mathlib `ArithmeticFunction.eulerProduct`; Mathlib `LSeries_convolution`; TauCetiRoadmap EllipticCurves Layer 3; TauCetiRoadmap EllipticCurves Layer 4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.base_change_factorization` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.base_change_factorization` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -554,9 +561,7 @@ The source comparison is [Ashay A. Burungale and Ye Tian](https://arxiv.org/abs/
 
 *Needs:* §0.1 (the completed l-function and the root number); §0.6 (local euler factors of a quadratic twist); §0.5 (root-number parity of the analytic rank); GL2AutomorphicRepresentationsAndTransfer R16.3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.congruent_number_root_numbers` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.congruent_number_root_numbers` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -575,9 +580,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* §0.1 (the completed l-function and the root number); §0.7 (the l-series and conductor of a quadratic twist coprime to the conductor); §0.3 (the quadratic character of a quadratic field); GL2AutomorphicRepresentationsAndTransfer R16.3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.twist_root_number` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.twist_root_number` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -596,9 +599,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1
 
 *Needs:* §0.8 (factorisation of the l-function over a quadratic field); §0.2 (analytic rank and the leading coefficient at s = 1); §0.5 (root-number parity of the analytic rank); §0.10 (root number of a quadratic twist); Mathlib `analyticOrderAt`; Mathlib `analyticOrderAt_mul`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.base_change_central_identities` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.base_change_central_identities` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -624,15 +625,13 @@ For every elliptic curve E/ℚ, ellipticL E 1 / Ω_E is rational, where Ω_E is 
 
 E/ℚ elliptic; the Manin constant enters through the comparison of Ω_E with the modular-symbol period Ω_f^+.
 
-Modular symbols: L(f, 1) = −2πi ∫_0^{i∞} f(z)dz = Ω_f^+ · ½T(φ^+) with T(φ^+) ∈ ℚ (MSPL L1/critical-value-algebraicity with k = 0, j = 0, χ = 1, f = F_E, coefficient field ℚ). Period comparison: φ_E^* ω_E = c·2πi F_E dz (EllipticCurveModularity R29.5/modular-parametrisation); the image of H₁(X₀(N), ℤ)^+ under ∫ φ_E^*ω_E is a sublattice of the real period lattice of E of finite index, so −2πiΩ_f^+(φ^+) ∈ ℚ^× · Ω_E⁰ for an integral generator φ^+ (MSPL L1/integral-period-lattices). Ω_E = c∞ Ω_E⁰ (GZ.0/real-period-components), with c∞ ∈ {1, 2}. Combine with EllipticCurveModularity R29.3–R29.6 (L(E, s) = L(F_E, s)).
+Modular symbols: L(f, 1) = −2πi ∫_0^{i∞} f(z)dz = Ω_f^+ · ½T(φ^+) with T(φ^+) ∈ ℚ (MSPL L1/critical-value-algebraicity with k = 0, j = 0, χ = 1, f = F_E, coefficient field ℚ). Period comparison: φ_E^* ω_E = c·2πi F_E dz (EllipticCurveModularity R29.5/modular-parametrisation); the image of H₁(X₀(N), ℤ)^+ under ∫ φ_E^*ω_E is a sublattice of the real period lattice of E of finite index, so −2πiΩ_f^+(φ^+) ∈ ℚ^× · Ω_E⁰ for an integral generator φ^+ (MSPL L1/integral-period-lattices). Ω_E = c∞ Ω_E⁰ (**Full real period, identity-component period and c∞**), with c∞ ∈ {1, 2}. Combine with EllipticCurveModularity R29.3–R29.6 (L(E, s) = L(F_E, s)).
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), Theorem 7.2.1(i), p. 42; [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.3.2, (7.3.b), p. 44.
 
-*Needs:* ModularSymbolsPadicLFunctions L1 / critical-value-algebraicity; ModularSymbolsPadicLFunctions L1 / period-lines; ModularSymbolsPadicLFunctions L1 / integral-period-lattices; EllipticCurveModularity R29.5 / modular-parametrisation; GrossZagierAndArithmeticHeights GZ.0 / real-period-components; EllipticCurveModularity R29.3–R29.6; §0.2 (analytic rank and the leading coefficient at s = 1); TauCetiRoadmap EllipticCurves Layer 7; GrossZagierAndArithmeticHeights GZ.3.
+*Needs:* ModularSymbolsPadicLFunctions L1 / critical-value-algebraicity; ModularSymbolsPadicLFunctions L1 / period-lines; ModularSymbolsPadicLFunctions L1 / integral-period-lattices; EllipticCurveModularity R29.5 / modular-parametrisation; GrossZagierAndArithmeticHeights **Full real period, identity-component period and c∞**; EllipticCurveModularity R29.3–R29.6; §0.2 (analytic rank and the leading coefficient at s = 1); TauCetiRoadmap EllipticCurves Layer 7; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.rank_zero_rationality` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.rank_zero_rationality` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -645,7 +644,7 @@ The exact N=11 modular-symbol comparison gives (L(11a1,1)/Ω_{11a1}=1/5). Under 
 
 ### Dependencies
 
-Earlier comparisons: §0.2. Supplier interfaces: EllipticCurveModularity R29.3–R29.6; EllipticCurveModularity R29.5 / modular-parametrisation; GrossZagierAndArithmeticHeights GZ.0 / real-period-components; GrossZagierAndArithmeticHeights GZ.3; ModularSymbolsPadicLFunctions L1 / critical-value-algebraicity; ModularSymbolsPadicLFunctions L1 / integral-period-lattices; ModularSymbolsPadicLFunctions L1 / period-lines; TauCetiRoadmap EllipticCurves Layer 7.
+Earlier comparisons: §0.2. Supplier interfaces: EllipticCurveModularity R29.3–R29.6; EllipticCurveModularity R29.5 / modular-parametrisation; GrossZagierAndArithmeticHeights **Full real period, identity-component period and c∞**; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; ModularSymbolsPadicLFunctions L1 / critical-value-algebraicity; ModularSymbolsPadicLFunctions L1 / integral-period-lattices; ModularSymbolsPadicLFunctions L1 / period-lines; TauCetiRoadmap EllipticCurves Layer 7.
 
 ## Layer 2: Quadratic descent and BSD comparisons
 
@@ -653,7 +652,7 @@ Separate rational eigenspaces, the integral lattice index, odd-primary splitting
 
 ### 2.1 Restriction, conjugation, trace and twist maps on points over a quadratic field
 
-Let E/ℚ be elliptic, K a quadratic field with nontrivial automorphism σ, E_K = E.baseChange K and E^K = E.quadraticTwist K. Define the additive maps res : E(ℚ) → E(K) (Point.map along ℚ → K), conj : E(K) → E(K) (Point.map along σ), tr : E(K) → E(ℚ) with res (tr P) = P + σP, and ι : E^K(ℚ) → E(K), the composite of res for E^K with quadraticTwistPointEquiv E^K(K) ≃+ E(K). Then res and ι are injective, range res = {P : σP = P}, range ι = {P : σP = −P}, tr ∘ res = 2·id, res ∘ tr = 1 + conj, and 2·E(K) ⊆ range res + range ι.
+Let E/ℚ be elliptic, K a quadratic field with nontrivial automorphism σ, E_K = E.baseChange K and E^K = E.quadraticTwist K. Use the existing additive maps res : E(ℚ) → E(K) (Point.map along ℚ → K), conj : E(K) → E(K) (Point.map along σ). Construct tr : E(K) → E(ℚ) with res (tr P) = P + σP, and ι : E^K(ℚ) → E(K), the composite of res for E^K with quadraticTwistPointEquiv E^K(K) ≃+ E(K). Then res and ι are injective, range res = {P : σP = P}, range ι = {P : σP = −P}, tr ∘ res = 2·id, res ∘ tr = 1 + conj, and 2·E(K) ⊆ range res + range ι.
 
 K/ℚ quadratic; the twist is Tau Ceti's quadraticTwist and the point isomorphism is chosen once (well defined up to the automorphism −1).
 
@@ -663,15 +662,15 @@ The source comparison is [Tau Ceti contributors](https://github.com/CBirkbeck/Ta
 
 *Needs:* Mathlib `WeierstrassCurve.Affine.Point`; Mathlib `WeierstrassCurve.Affine.Point.map`; Mathlib `WeierstrassCurve.baseChange`; Tau Ceti `WeierstrassCurve.quadraticTwist`; Tau Ceti `WeierstrassCurve.quadraticTwistPointEquiv`; Tau Ceti `WeierstrassCurve.quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map`; Tau Ceti `WeierstrassCurve.Affine.Point.exists_baseChange_eq_of_map_eq`; TauCetiRoadmap EllipticCurves Layer 5.
 
-The intended declarations are:
+The required API is:
 
-- `WeierstrassCurve.Affine.Point.quadraticRes` — res : E(ℚ) →+ E(K), injective.
-- `WeierstrassCurve.Affine.Point.quadraticConj` — conj : E(K) →+ E(K), the action of σ; conj ∘ conj = id.
+- Restriction uses the existing `WeierstrassCurve.Affine.Point.map` along ℚ → K; its injectivity is the existing base-change injectivity theorem.
+- Conjugation uses the existing `WeierstrassCurve.Affine.Point.map` at σ, rather than a new `quadraticConj` definition. Its square is the identity by the existing map-composition law and σ²=1.
 - `WeierstrassCurve.Affine.Point.quadraticTrace` — tr : E(K) →+ E(ℚ) with res (tr P) = P + conj P.
 - `WeierstrassCurve.Affine.Point.twistEmbed` — ι : E^K(ℚ) →+ E(K), injective.
 - `WeierstrassCurve.Affine.Point.quadraticTrace_res` — tr (res P) = 2 • P.
 - `WeierstrassCurve.Affine.Point.res_quadraticTrace` — res (tr P) = P + conj P.
-- `WeierstrassCurve.Affine.Point.range_quadraticRes` — range res = {P | conj P = P}.
+- Fixed-point descent uses the existing `WeierstrassCurve.Affine.Point.exists_baseChange_eq_of_map_eq`; together with restriction injectivity it identifies range res with the conjugation-fixed subgroup.
 - `WeierstrassCurve.Affine.Point.range_twistEmbed` — range ι = {P | conj P = −P}.
 - `WeierstrassCurve.Affine.Point.two_smul_mem_sup` — 2 • P ∈ range res ⊔ range ι for every P ∈ E(K).
 - `WeierstrassCurve.Affine.Point.quadraticTrace_twistEmbed` — tr (ι Q) = 0.
@@ -697,9 +696,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §1.2, 
 
 *Needs:* Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; TauCetiRoadmap EllipticCurves Layer 7; Tau Ceti `TauCeti.ContCohomology.H1`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.sha_finiteness_descent` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.sha_finiteness_descent` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -717,9 +714,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1
 
 *Needs:* §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; Tau Ceti `WeierstrassCurve.Affine.PointModTorsion`; Mathlib `Module.finrank`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.rank_splitting` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.rank_splitting` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -737,9 +732,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1
 
 *Needs:* §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); Mathlib `Submodule.torsionBy`; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.torsion_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.torsion_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -751,13 +744,13 @@ For E/ℚ elliptic, choose a global minimal Néron differential ω, and an imagi
 
 K imaginary quadratic; fix the minimal differential and the twist isomorphism. The norm is the absolute fractional-ideal norm, including denominators. The ratio formula retains differential changes and both real component counts; an exact dyadic exponent and the dyadic Tamagawa formula belong to the dyadic refinement.
 
-Import the integrated homology period lattice from GZ.0 and the invertible Néron differential module from R11.6. Represent them by Submodule ℤ ℂ with DiscreteTopology/IsZLattice ℝ and a unit in FractionalIdeal (𝓞_K)⁰ K. Use native ZLattice.covolume and FractionalIdeal.absNorm; do not choose arbitrary real-valued period data. Complex uniformization identifies the integral of |ω∧ω̄| with twice the Euclidean covolume; the extra complex-place factor two in JSW (7.1.b) gives four times that covolume. Positivity follows from the lattice and invertible ideal. Conjugation gives real and imaginary rank-one sublattices; their rectangular lattice has index δ=1 or 2. Its area is the product of the least real and imaginary periods, hence δ times covol(Λ_ω). Include c∞ for the full real periods of both curves and the absolute twist differential multiplier u. R11.6’s local minimal differential/base-change comparison identifies 𝔞_ω and u. Away from 2ND their valuations vanish. When (D,2N)=1, 𝔞_ω=1 and u has only dyadic valuation. Substitute into the displayed rational ratio; the all-prime dyadic exponent is a refinement, not an input to an odd-primary identity.
+Import **complexPeriodLatticeComparison**, the requested extension of the GrossZagierAndArithmeticHeights real-period comparison and the invertible Néron differential module from R11.6. Represent them by Submodule ℤ ℂ with DiscreteTopology/IsZLattice ℝ and a unit in FractionalIdeal (𝓞_K)⁰ K. Use native ZLattice.covolume and FractionalIdeal.absNorm; do not choose arbitrary real-valued period data. Complex uniformization identifies the integral of |ω∧ω̄| with twice the Euclidean covolume; the extra complex-place factor two in JSW (7.1.b) gives four times that covolume. Positivity follows from the lattice and invertible ideal. Conjugation gives real and imaginary rank-one sublattices; their rectangular lattice has index δ=1 or 2. Its area is the product of the least real and imaginary periods, hence δ times covol(Λ_ω). Include c∞ for the full real periods of both curves and the absolute twist differential multiplier u. R11.6’s local minimal differential/base-change comparison identifies 𝔞_ω and u. Away from 2ND their valuations vanish. When (D,2N)=1, 𝔞_ω=1 and u has only dyadic valuation. Substitute into the displayed rational ratio; the all-prime dyadic exponent is a refinement, not an input to an odd-primary identity.
 
 The source comparison is [JSW (published)](https://archive.ymsc.tsinghua.edu.cn/pacm_download/253/8639-CJM_05_03_A02.pdf), §7.1, (7.1.b), printed p.421; [Benedict H. Gross and Don B. Zagier](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), Chapter V §2, printed pp.310–312, particularly p.312 period identity.
 
-*Needs:* GrossZagierAndArithmeticHeights GZ.0 / real-period-components; NeronModelsAndSemistableAbelianVarieties R11.6 / semistable-differential-basechange; NeronModelsAndSemistableAbelianVarieties R11.6 / equation-minimal-differential; §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); TauCetiRoadmap EllipticCurves Layer 7; TauCetiRoadmap EllipticCurves Layer 4; Tau Ceti `TauCeti.Isogeny`; Tau Ceti `TauCeti.Isogeny.degree`; Mathlib `IsZLattice`; Mathlib `ZLattice.covolume`; Mathlib `ZLattice.covolume_pos`; Mathlib `FractionalIdeal.absNorm`; Mathlib `FractionalIdeal.absNorm_eq_zero_iff`.
+*Needs:* GrossZagierAndArithmeticHeights **Full real period, identity-component period and c∞**; NeronModelsAndSemistableAbelianVarieties R11.6 / semistable-differential-basechange; NeronModelsAndSemistableAbelianVarieties R11.6 / equation-minimal-differential; §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); TauCetiRoadmap EllipticCurves Layer 7; TauCetiRoadmap EllipticCurves Layer 4; Tau Ceti `TauCeti.Isogeny`; Tau Ceti `TauCeti.Isogeny.degree`; Mathlib `IsZLattice`; Mathlib `ZLattice.covolume`; Mathlib `ZLattice.covolume_pos`; Mathlib `FractionalIdeal.absNorm`; Mathlib `FractionalIdeal.absNorm_eq_zero_iff`.
 
-The intended declarations are:
+The required API is:
 
 - `WeierstrassCurve.quadraticPeriod` — Ω_{E/K}=N(𝔞_ω)·4 covol(Λ_ω), with actual full period lattice and invertible fractional differential ideal.
 - `WeierstrassCurve.quadraticPeriod_pos` — 0 < Ω_{E/K}.
@@ -778,17 +771,15 @@ The intended declarations are:
 
 Let E/ℚ be elliptic, K quadratic, Λ = E(K)/tors, Λ₊ = image of res and Λ₋ = image of ι, r₊ = rank E(ℚ), r₋ = rank E^K(ℚ), r = r₊ + r₋. Then Λ₊ ⊥ Λ₋ for the Néron–Tate pairing over K, [Λ : Λ₊ ⊕ Λ₋] = 2^a with 0 ≤ a ≤ r, and with K-relative heights (⟨P, P⟩_K = [K:ℚ]·⟨P, P⟩_ℚ for P defined over ℚ) Reg_BSD(E/K) = 2^r · Reg_BSD(E/ℚ) · Reg_BSD(E^K/ℚ) / 4^a. In particular, if r₋ = 0 then Reg_BSD(E/K) = 2^{r₊} Reg_BSD(E/ℚ)/4^a and E(K)/tors contains res(E(ℚ)/tors) with index 2^a.
 
-Reg_BSD is the regulator of GrossZagierAndArithmeticHeights GZ.0 (relative x-height normalisation, Reg_BSD = 2^r · pinned Tau Ceti regulator). Use Mathlib’s native NumberField.instAdmissibleAbsValues and Northcott instances at the pin. GZ.0 supplies the relative x-height normalization and compatible-place comparison under extension, rather than a missing number-field height instance.
+Reg_BSD is the regulator of GrossZagierAndArithmeticHeights **The dictionary of height conventions** (relative x-height normalisation, Reg_BSD = 2^r · pinned Tau Ceti regulator). Use Mathlib’s native NumberField.instAdmissibleAbsValues and Northcott instances at the pin. **The dictionary of height conventions** supplies the relative x-height normalization and compatible-place comparison under extension, rather than a missing number-field height instance.
 
-Orthogonality: the height pairing over K is invariant under σ; for P ∈ Λ₊, Q ∈ Λ₋, ⟨P, Q⟩ = ⟨σP, σQ⟩ = −⟨P, Q⟩. Index: 2Λ ⊆ Λ₊ ⊕ Λ₋ (quadratic-point-maps), so the index divides 2^r. Heights of rational points relative to K are [K:ℚ] = 2 times their heights relative to ℚ; points of E^K(ℚ) carry the same K-height through the isomorphism over K. Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (native determinant and finite-index identities in the next step). Write the sublattice Gram matrix as AᵀGA. Matrix.det_mul and Matrix.det_transpose give det(A)² det(G); AddSubgroup.index_eq_natAbs_det identifies |det(A)| with the finite lattice index. These are native pinned declarations, so the Gram determinant comparison uses those pinned APIs. NumberField.instAdmissibleAbsValues and Northcott supply the height instances; GZ.0 supplies the x-height/relative-height normalization transport.
+Orthogonality: the height pairing over K is invariant under σ; for P ∈ Λ₊, Q ∈ Λ₋, ⟨P, Q⟩ = ⟨σP, σQ⟩ = −⟨P, Q⟩. Index: 2Λ ⊆ Λ₊ ⊕ Λ₋ (quadratic-point-maps), so the index divides 2^r. Heights of rational points relative to K are [K:ℚ] = 2 times their heights relative to ℚ; points of E^K(ℚ) carry the same K-height through the isomorphism over K. Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (native determinant and finite-index identities in the next step). Write the sublattice Gram matrix as AᵀGA. Matrix.det_mul and Matrix.det_transpose give det(A)² det(G); AddSubgroup.index_eq_natAbs_det identifies |det(A)| with the finite lattice index. These are native pinned declarations, so the Gram determinant comparison uses those pinned APIs. NumberField.instAdmissibleAbsValues and Northcott supply the height instances; **The dictionary of height conventions** supplies the x-height/relative-height normalization transport.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1, p. 46.
 
-*Needs:* §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); §2.3 (rank splitting over a quadratic field); GrossZagierAndArithmeticHeights GZ.0 / bsd-regulator; GrossZagierAndArithmeticHeights GZ.0 / x-height-canonical-height; Tau Ceti `WeierstrassCurve.Affine.neronTatePairing`; Tau Ceti `WeierstrassCurve.Affine.regulator`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; Mathlib `Matrix.det_mul`; Mathlib `Matrix.det_transpose`; Mathlib `AddSubgroup.index_eq_natAbs_det`; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`.
+*Needs:* §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); §2.3 (rank splitting over a quadratic field); GrossZagierAndArithmeticHeights **The dictionary of height conventions**; Tau Ceti `WeierstrassCurve.Affine.neronTatePairing`; Tau Ceti `WeierstrassCurve.Affine.regulator`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; Mathlib `Matrix.det_mul`; Mathlib `Matrix.det_transpose`; Mathlib `AddSubgroup.index_eq_natAbs_det`; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.quadratic_regulator_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.quadratic_regulator_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -807,9 +798,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1
 
 *Needs:* §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); §2.4 (torsion over a quadratic field); TauCetiRoadmap EllipticCurves Layer 7; ArithmeticGaloisDuality R02.4 / restricted-product-cohomology; Tau Ceti `TauCeti.ContCohomology.H1`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.odd_selmer_sha_decomposition` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.odd_selmer_sha_decomposition` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -827,9 +816,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.2, 
 
 *Needs:* §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); §2.7 (odd-primary selmer and sha over a quadratic field); TauCetiRoadmap EllipticCurves Layer 7; Tau Ceti `TauCeti.ContCohomology.H1`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.two_primary_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.two_primary_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -847,9 +834,7 @@ The source comparison is [Christopher Skinner and Wei Zhang](https://arxiv.org/a
 
 *Needs:* §2.7 (odd-primary selmer and sha over a quadratic field); NeronModelsAndSemistableAbelianVarieties R11.6 / equation-component-comparison; TauCetiRoadmap EllipticCurves Layer 4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.tamagawa_base_change` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.tamagawa_base_change` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -857,9 +842,9 @@ The intended declarations are:
 
 ### 2.10 The BSD quotient over K versus over ℚ at odd primes
 
-Under the hypotheses listed here, the valuation of the rational nonzero BSD defect for E/K equals the sum of those for E and E^K. Thus if one of the two rational-curve p-parts is already known, the p-part over K is equivalent to the other. No conclusion about the separate vanishing of two arbitrary summands follows from their sum alone.
+For an imaginary quadratic K/ℚ, under the hypotheses listed here, the valuation of the rational nonzero BSD defect for E/K equals the sum of those for E and E^K. Thus if one of the two rational-curve p-parts is already known, the p-part over K is equivalent to the other. No conclusion about the separate vanishing of two arbitrary summands follows from their sum alone.
 
-p odd and split in K; (D_K,2N)=1. Assume matching analytic/algebraic ranks and rational nonzero normalized BSD quotients for E, E^K and E/K, with finite p-primary Sha; rank≤1 applications obtain these from Layers 5–7. The comparison itself does not assert general-rank rationality or finiteness.
+p odd and split in K; (D_K,2N)=1. Assume matching analytic/algebraic ranks and rational nonzero normalized BSD quotients for E, E^K and E/K, with finite whole Sha for all three curves whenever the quotient uses its order; a formulation using only the p-primary order must instead name that p-primary quotient. Rank≤1 applications obtain these from Layers 5–7. The comparison itself does not assert general-rank rationality or finiteness.
 
 L-values: L*(E/K,1) = L*(E,1)·L*(E^K,1) (§0.11). Regulators: quadratic-regulator-comparison; the powers of 2 are p-adic units. Periods: quadratic-period; |D_K|^{−1/2} in (7.1.a) cancels the |D|^{1/2} of the comparison. Tamagawa factors: tamagawa-base-change. Torsion: torsion-comparison. Sha: odd-selmer-sha-decomposition.
 
@@ -867,9 +852,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.1, 
 
 *Needs:* §2.6 (lattice index and regulators over a quadratic field); §2.5 (the period of e over an imaginary quadratic field and its comparison); §2.9 (tamagawa factors under quadratic base change and twist); §2.4 (torsion over a quadratic field); §2.7 (odd-primary selmer and sha over a quadratic field); §0.11 (order, leading term and sign of l(e/k, s) at the centre).
 
-The intended declarations are:
-
-- `TauCeti.BSD.odd_part_bsd_over_K` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.odd_part_bsd_over_K` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -883,7 +866,7 @@ For a unit Néron differential ideal and a complex period lattice of Euclidean c
 
 ### Dependencies
 
-Earlier comparisons: §0.11. Supplier interfaces: ArithmeticGaloisDuality R02.4 / restricted-product-cohomology; GrossZagierAndArithmeticHeights GZ.0 / bsd-regulator; GrossZagierAndArithmeticHeights GZ.0 / real-period-components; GrossZagierAndArithmeticHeights GZ.0 / x-height-canonical-height; Mathlib `AddSubgroup.index_eq_natAbs_det`; Mathlib `FractionalIdeal.absNorm_eq_zero_iff`; Mathlib `FractionalIdeal.absNorm`; Mathlib `IsZLattice`; Mathlib `Matrix.det_mul`; Mathlib `Matrix.det_transpose`; Mathlib `Module.finrank`; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `Submodule.torsionBy`; Mathlib `WeierstrassCurve.Affine.Point.map`; Mathlib `WeierstrassCurve.Affine.Point`; Mathlib `WeierstrassCurve.baseChange`; Mathlib `ZLattice.covolume_pos`; Mathlib `ZLattice.covolume`; NeronModelsAndSemistableAbelianVarieties R11.6 / equation-component-comparison; NeronModelsAndSemistableAbelianVarieties R11.6 / equation-minimal-differential; NeronModelsAndSemistableAbelianVarieties R11.6 / semistable-differential-basechange; Tau Ceti `TauCeti.ContCohomology.H1`; Tau Ceti `TauCeti.Isogeny.degree`; Tau Ceti `TauCeti.Isogeny`; Tau Ceti `WeierstrassCurve.Affine.Point.exists_baseChange_eq_of_map_eq`; Tau Ceti `WeierstrassCurve.Affine.PointModTorsion`; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; Tau Ceti `WeierstrassCurve.Affine.neronTatePairing`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; Tau Ceti `WeierstrassCurve.Affine.regulator`; Tau Ceti `WeierstrassCurve.quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map`; Tau Ceti `WeierstrassCurve.quadraticTwistPointEquiv`; Tau Ceti `WeierstrassCurve.quadraticTwist`; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 5; TauCetiRoadmap EllipticCurves Layer 7.
+Earlier comparisons: §0.11. Supplier interfaces: ArithmeticGaloisDuality R02.4 / restricted-product-cohomology; GrossZagierAndArithmeticHeights **The dictionary of height conventions**; GrossZagierAndArithmeticHeights **Full real period, identity-component period and c∞**; GrossZagierAndArithmeticHeights **The dictionary of height conventions**; Mathlib `AddSubgroup.index_eq_natAbs_det`; Mathlib `FractionalIdeal.absNorm_eq_zero_iff`; Mathlib `FractionalIdeal.absNorm`; Mathlib `IsZLattice`; Mathlib `Matrix.det_mul`; Mathlib `Matrix.det_transpose`; Mathlib `Module.finrank`; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `Submodule.torsionBy`; Mathlib `WeierstrassCurve.Affine.Point.map`; Mathlib `WeierstrassCurve.Affine.Point`; Mathlib `WeierstrassCurve.baseChange`; Mathlib `ZLattice.covolume_pos`; Mathlib `ZLattice.covolume`; NeronModelsAndSemistableAbelianVarieties R11.6 / equation-component-comparison; NeronModelsAndSemistableAbelianVarieties R11.6 / equation-minimal-differential; NeronModelsAndSemistableAbelianVarieties R11.6 / semistable-differential-basechange; Tau Ceti `TauCeti.ContCohomology.H1`; Tau Ceti `TauCeti.Isogeny.degree`; Tau Ceti `TauCeti.Isogeny`; Tau Ceti `WeierstrassCurve.Affine.Point.exists_baseChange_eq_of_map_eq`; Tau Ceti `WeierstrassCurve.Affine.PointModTorsion`; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; Tau Ceti `WeierstrassCurve.Affine.neronTatePairing`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; Tau Ceti `WeierstrassCurve.Affine.regulator`; Tau Ceti `WeierstrassCurve.quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map`; Tau Ceti `WeierstrassCurve.quadraticTwistPointEquiv`; Tau Ceti `WeierstrassCurve.quadraticTwist`; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 5; TauCetiRoadmap EllipticCurves Layer 7.
 
 ## Layer 3: Auxiliary quadratic fields and nonvanishing
 
@@ -901,7 +884,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1
 
 *Needs:* §0.3 (the quadratic character of a quadratic field); §0.10 (root number of a quadratic twist); Mathlib `Int.IsFundamentalDiscr`; ClassicalArithmeticCompletion CA.1 / kronecker-character.
 
-The intended declarations are:
+The required API is:
 
 - `TauCeti.BSD.LocalPrescription` — A finite set S of primes, a map S → {split, inert, ramified} and a sign.
 - `TauCeti.BSD.LocalPrescription.Admissible` — The predicate on fundamental discriminants D: sign and Kronecker symbols at S as prescribed. Require D≠1; the set S consists of actual primes.
@@ -933,9 +916,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* MetaplecticAutomorphicForms MP.8 / two-variable-polar-combination; MetaplecticAutomorphicForms MP.8 / fourier-residue-interchanges; MetaplecticAutomorphicForms MP.8 / two-variable-twist-series; MetaplecticAutomorphicForms MP.8 / bsd2-export; MetaplecticAutomorphicForms MP.8 / local-test-nonzero-f; MetaplecticAutomorphicForms MP.8 / local-test-nonzero-tau; MetaplecticAutomorphicForms MP.8 / local-test-nonzero-m; MetaplecticAutomorphicForms MP.7; §3.1 (admissible discriminants with prescribed local conditions).
 
-The intended declarations are:
-
-- `TauCeti.BSD.twist_series_residue` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.twist_series_residue` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -953,9 +934,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* §3.2 (the polar term of the bfh twist series and its nonvanishing); §3.1 (admissible discriminants with prescribed local conditions); §0.10 (root number of a quadratic twist); §0.5 (root-number parity of the analytic rank).
 
-The intended declarations are:
-
-- `TauCeti.BSD.bfh_nonvanishing` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bfh_nonvanishing` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -974,9 +953,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1
 
 *Needs:* MetaplecticAutomorphicForms MP.7; §3.1 (admissible discriminants with prescribed local conditions); §3.2 (the polar term of the bfh twist series and its nonvanishing); §0.10 (root number of a quadratic twist).
 
-The intended declarations are:
-
-- `TauCeti.BSD.prescribed_local_conditions_value_branch` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.prescribed_local_conditions_value_branch` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -994,9 +971,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* §3.3 (nonvanishing of quadratic twists and their derivatives (bump–friedberg–hoffstein)); §3.1 (admissible discriminants with prescribed local conditions); §0.5 (root-number parity of the analytic rank); §0.7 (the l-series and conductor of a quadratic twist coprime to the conductor); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §0.2 (analytic rank and the leading coefficient at s = 1).
 
-The intended declarations are:
-
-- `TauCeti.BSD.heegner_field_selection` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.heegner_field_selection` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1015,9 +990,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.2
 
 *Needs:* §3.4 (nonvanishing central twists with arbitrary prescribed local behaviour (friedberg–hoffstein)); §3.1 (admissible discriminants with prescribed local conditions); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §0.10 (root number of a quadratic twist).
 
-The intended declarations are:
-
-- `TauCeti.BSD.auxiliary_fields_for_prime_parts` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.auxiliary_fields_for_prime_parts` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1039,24 +1012,22 @@ Establish this integral comparison before Heegner descent. It depends on charact
 
 ### 4.1 The definite congruence-period identity (Ribet–Takahashi, Pollack–Weston)
 
-Let g ∈ S₂(Γ₀(N)) be a newform with trivial character and Hecke field with ring O, 𝔭 | p ≥ 5 a prime of O with p ∤ N, ρ̄_{g,𝔭} : G_ℚ → GL₂(k₀) surjective, and N = N⁺N⁻ with N⁻ squarefree with an odd number of prime factors (the definite quaternion algebra of discriminant N⁻), satisfying Pollack–Weston's hypothesis CR (in particular ρ̄ ramified at every ℓ | N⁻ with ℓ ≡ ±1 mod p, and the nonsquarefree alternatives of Hypothesis ♥ when N is not squarefree). Let η_g(N) be the congruence number of g at full level and ξ_g(N⁺, N⁻) the self-pairing of a primitive integral eigenfunction on the definite quaternion algebra. Then ord_𝔭 (η_g(N)/ξ_g(N⁺, N⁻)) = Σ_{ℓ|N⁻} t_g(ℓ), where t_g(ℓ) = length_{O_𝔭} Φ(A_g/ℚ_ℓ)_𝔭 is the 𝔭-part of the Tamagawa (component-group) factor at ℓ.
+Let g ∈ S₂(Γ₀(N)) be a newform with trivial character and Hecke field with ring O, 𝔭 | p ≥ 5 a prime of O with p ∤ N, ρ̄_{g,𝔭} : G_ℚ → GL₂(k₀) surjective, and N = N⁺N⁻ with N⁻ squarefree with an odd number of prime factors (the definite quaternion algebra of discriminant N⁻), satisfying Pollack–Weston's hypothesis CR (in particular ρ̄ ramified at every ℓ | N⁻ with ℓ ≡ ±1 mod p, with N squarefree for this Pollack–Weston statement). Let η_g(N) be the congruence number of g at full level and ξ_g(N⁺, N⁻) the self-pairing of a primitive integral eigenfunction on the definite quaternion algebra. Then ord_𝔭 (η_g(N)/ξ_g(N⁺, N⁻)) = Σ_{ℓ|N⁻} t_g(ℓ), where t_g(ℓ) is the geometric monodromy/Tamagawa exponent on the g-eigenlattice: the length of the 𝔭-primary geometric component quotient with its specified integral eigenlattice. For an elliptic curve it is ord_p(ord_ℓ Δ_min), equivalently the p-valuation of the component order over the unramified splitting field. It is not in general ord_p #Φ(𝔽_ℓ).
 
-The hypotheses are those of HeegnerPointEulerSystems HE.6/ribet-takahashi-tamagawa-comparison, which consumes this result; its contract forbids HE.6, rank-zero BSD, Jochnowitz congruences and the final Heegner-index result as inputs. This Layer 4 export depends only on Néron-model character groups and the GL₂ transfer.
+For nonsquarefree variants, **nonsquarefreeMonodromyComparison** is a separate extension requiring the actual localized character-group freeness and monodromy exact sequences; the squarefree Pollack–Weston source does not prove it. HeegnerPointEulerSystems HE.6/ribet-takahashi-tamagawa-comparison consumes this result; its contract forbids HE.6, rank-zero BSD, Jochnowitz congruences and the final Heegner-index result as inputs. This Layer 4 export depends only on Néron-model character groups and the GL₂ transfer.
 
 Character groups: for N₁N₂ with N₂ having an even number of primes, the character group X̂_r(J) of the Shimura curve Jacobian's toric part at r | N⁻ is free of rank one over the localised Hecke algebra under CR (Pollack–Weston Theorem 6.2, from NeronModelsAndSemistableAbelianVarieties R11.4/characters-graph-homology, R11.4/integral-monodromy-pairing). The monodromy pairing on X̂_r computes congruence numbers: ⟨g_r, g_r⟩ = η_g(N₁/r, rN₂) (Pollack–Weston Proposition 6.4) and the cokernel of the monodromy map is the component group (R11.4/component-cokernel). Ribet–Takahashi: comparing the pairings at successive levels gives ord_𝔭 η_g(aℓ, b) = t_g(ℓ) + ord_𝔭 η_g(a, ℓb) (Pollack–Weston (2)); degeneracy maps and their adjoints are R11.6/degeneracy-functoriality. Iterate over the primes of N⁻ and identify ξ_g(N⁺, N⁻) with η_g(N⁺, N⁻) by freeness (the GL₂ transfer of GL2AutomorphicRepresentationsAndTransfer R17.3 gives the Jacquet–Langlands eigenfunction).
 
-The source comparison is [Robert Pollack and Tom Weston](https://arxiv.org/abs/math/0610694v1), §1, formula (1), p. 3; [Robert Pollack and Tom Weston](https://arxiv.org/abs/math/0610694v1), §6.1, end of the section.
+The source comparison is [Pollack–Weston v1](https://arxiv.org/abs/math/0610694v1), Definition 3.3, p.9, Theorem 6.2, p.19, and Theorem 6.8, §6.5, p.21. Their Tamagawa exponent is defined by the integral representation and ramification, not by rational component invariants.
 
-*Needs:* NeronModelsAndSemistableAbelianVarieties R11.4 / characters-graph-homology; NeronModelsAndSemistableAbelianVarieties R11.4 / integral-monodromy-pairing; NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality; NeronModelsAndSemistableAbelianVarieties R11.6 / character-exact-sequences; GL2AutomorphicRepresentationsAndTransfer R17.3; GrossZagierAndArithmeticHeights GZ.3.
+*Needs:* NeronModelsAndSemistableAbelianVarieties R11.4 / characters-graph-homology; NeronModelsAndSemistableAbelianVarieties R11.4 / integral-monodromy-pairing; NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality; NeronModelsAndSemistableAbelianVarieties R11.6 / character-exact-sequences; GL2AutomorphicRepresentationsAndTransfer R17.3; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.definite_congruence_period` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.definite_congruence_period` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
-- When N⁻ = ℓ is prime and p ∤ c_ℓ(g), ord_𝔭 η_g(N) = ord_𝔭 ξ_g(N⁺, ℓ).
-- JSW use the elliptic case: δ(N,1)/δ(N⁺,N⁻) = ∏_{ℓ|N⁻} c_ℓ up to p-units (ribet-takahashi-degree-comparison).
+- When N⁻ = ℓ is prime and p does not divide the geometric component order, ord_𝔭 η_g(N) = ord_𝔭 ξ_g(N⁺, ℓ).
+- JSW use the elliptic case: δ(N,1)/δ(N⁺,N⁻) has p-valuation Σ_{ℓ|N⁻} ord_p(ord_ℓ Δ_min), not the sum of nonsplit rational component valuations (ribet-takahashi-degree-comparison).
 
 ### Examples
 
@@ -1064,7 +1035,7 @@ Take a nonsplit multiplicative fiber of type I₅. Its rational component order 
 
 ### Dependencies
 
-Supplier interfaces: GL2AutomorphicRepresentationsAndTransfer R17.3; GrossZagierAndArithmeticHeights GZ.3; NeronModelsAndSemistableAbelianVarieties R11.4 / characters-graph-homology; NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.4 / integral-monodromy-pairing; NeronModelsAndSemistableAbelianVarieties R11.6 / character-exact-sequences; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality.
+Supplier interfaces: GL2AutomorphicRepresentationsAndTransfer R17.3; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; NeronModelsAndSemistableAbelianVarieties R11.4 / characters-graph-homology; NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.4 / integral-monodromy-pairing; NeronModelsAndSemistableAbelianVarieties R11.6 / character-exact-sequences; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality.
 
 ## Layer 5: Analytic rank one
 
@@ -1076,15 +1047,13 @@ Let E/ℚ be elliptic of conductor N with a modular parametrisation φ : X₀(N)
 
 Heegner hypothesis and D_K odd (Gross–Zagier's standing hypotheses; CST's version allows the general case). L(E/K, s) is the continuation of §0.8, so the derivative is that of the product.
 
-Gross–Zagier: L′(E/K, 1) = ‖ω₀‖² ĥ_K(y_K)/(C² u_K² |D_K|^{1/2}) with ‖ω₀‖² > 0, C the Manin constant of φ (GZ.8/elliptic-curve-heegner-height-formula); the L-function there is the Rankin L-series of F_E with the trivial class character, which is L(E/K, s) by §0.8 and EllipticCurveModularity R29.3–R29.6. If L′(E/K, 1) ≠ 0 then ĥ_K(y_K) ≠ 0; a torsion point has canonical height 0, so y_K has infinite order. Conversely a point of infinite order has positive canonical height (isOfFinAddOrder_of_canonicalHeight_eq_zero and nonnegativity), so L′(E/K, 1) > 0.
+Gross–Zagier: L′(E/K, 1) = ‖ω₀‖² ĥ_K(y_K)/(C² u_K² |D_K|^{1/2}) with ‖ω₀‖² > 0, C the Manin constant of φ (**Heights of Heegner points on an elliptic curve**); the L-function there is the Rankin L-series of F_E with the trivial class character, which is L(E/K, s) by §0.8 and EllipticCurveModularity R29.3–R29.6. If L′(E/K, 1) ≠ 0 then ĥ_K(y_K) ≠ 0; a torsion point has canonical height 0, so y_K has infinite order. Conversely a point of infinite order has positive canonical height (isOfFinAddOrder_of_canonicalHeight_eq_zero and nonnegativity), so L′(E/K, 1) > 0.
 
 The source comparison is [Benedict H. Gross and Don B. Zagier](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), Chapter V §2, Theorem (2.1), p. 311; [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1, p. 46.
 
-*Needs:* GrossZagierAndArithmeticHeights GZ.8 / elliptic-curve-heegner-height-formula; GrossZagierAndArithmeticHeights GZ.8 / derivative-corollaries; HeegnerPointEulerSystems HE.1 / heegner-points-of-conductor-m-and-the-modular-parametrisation; EllipticCurveModularity R29.5 / modular-parametrisation; §0.8 (factorisation of the l-function over a quadratic field); EllipticCurveModularity R29.3–R29.6; Tau Ceti `WeierstrassCurve.Affine.Point.isOfFinAddOrder_of_canonicalHeight_eq_zero`.
+*Needs:* GrossZagierAndArithmeticHeights **Heights of Heegner points on an elliptic curve**; GrossZagierAndArithmeticHeights **Corollaries on derivatives: positivity and Galois invariance**; HeegnerPointEulerSystems HE.1 / heegner-points-of-conductor-m-and-the-modular-parametrisation; EllipticCurveModularity R29.5 / modular-parametrisation; §0.8 (factorisation of the l-function over a quadratic field); EllipticCurveModularity R29.3–R29.6; Tau Ceti `WeierstrassCurve.Affine.Point.isOfFinAddOrder_of_canonicalHeight_eq_zero`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.heegner_point_nontorsion` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.heegner_point_nontorsion` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1102,9 +1071,7 @@ The source comparison is [Benedict H. Gross](https://wstein.org/papers/bib/gross
 
 *Needs:* HeegnerPointEulerSystems HE.4 / complex-conjugation-parity; HeegnerPointEulerSystems HE.1 / parameter-choice-and-degree; HeegnerPointEulerSystems HE.0 / dihedral-conjugation; §0.1 (the completed l-function and the root number); §2.1 (restriction, conjugation, trace and twist maps on points over a quadratic field); §5.1 (a nonzero derivative over k gives a non-torsion heegner point).
 
-The intended declarations are:
-
-- `TauCeti.BSD.heegner_point_eigenspace` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.heegner_point_eigenspace` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1122,13 +1089,11 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §1.2, 
 
 *Needs:* §3.5 (choice of a heegner field for analytic rank zero or one); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §0.5 (root-number parity of the analytic rank); §5.1 (a nonzero derivative over k gives a non-torsion heegner point); §5.2 (complex conjugation on the heegner point selects the rational or the twisted part); HeegnerPointEulerSystems HE.7 / classical-full-sha-finiteness; §2.3 (rank splitting over a quadratic field); §2.2 (finiteness of sha descends along a finite extension); §0.2 (analytic rank and the leading coefficient at s = 1).
 
-The intended declarations are:
-
-- `TauCeti.BSD.analytic_rank_one_theorem` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.analytic_rank_one_theorem` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
-- E = 37a1: rank 1 and Ш(E/ℚ) finite (indeed trivial, a statement for Layer 13/Layer 14).
+- E = 37a1: rank 1 and Ш(E/ℚ) finite (triviality requires additional exact cardinality data in §14.6).
 - The same argument gives rank E^K(ℚ) = 0 and finite Ш(E^K/ℚ) for the auxiliary K.
 
 ### Examples
@@ -1137,7 +1102,7 @@ For root number −1, the Heegner class is conjugation-fixed modulo torsion and 
 
 ### Dependencies
 
-Earlier comparisons: §0.1, §0.2, §0.5, §0.8, §0.11, §2.1, §2.2, §2.3, §3.5. Supplier interfaces: EllipticCurveModularity R29.3–R29.6; EllipticCurveModularity R29.5 / modular-parametrisation; GrossZagierAndArithmeticHeights GZ.8 / derivative-corollaries; GrossZagierAndArithmeticHeights GZ.8 / elliptic-curve-heegner-height-formula; HeegnerPointEulerSystems HE.0 / dihedral-conjugation; HeegnerPointEulerSystems HE.1 / heegner-points-of-conductor-m-and-the-modular-parametrisation; HeegnerPointEulerSystems HE.1 / parameter-choice-and-degree; HeegnerPointEulerSystems HE.4 / complex-conjugation-parity; HeegnerPointEulerSystems HE.7 / classical-full-sha-finiteness; Tau Ceti `WeierstrassCurve.Affine.Point.isOfFinAddOrder_of_canonicalHeight_eq_zero`.
+Earlier comparisons: §0.1, §0.2, §0.5, §0.8, §0.11, §2.1, §2.2, §2.3, §3.5. Supplier interfaces: EllipticCurveModularity R29.3–R29.6; EllipticCurveModularity R29.5 / modular-parametrisation; GrossZagierAndArithmeticHeights **Corollaries on derivatives: positivity and Galois invariance**; GrossZagierAndArithmeticHeights **Heights of Heegner points on an elliptic curve**; HeegnerPointEulerSystems HE.0 / dihedral-conjugation; HeegnerPointEulerSystems HE.1 / heegner-points-of-conductor-m-and-the-modular-parametrisation; HeegnerPointEulerSystems HE.1 / parameter-choice-and-degree; HeegnerPointEulerSystems HE.4 / complex-conjugation-parity; HeegnerPointEulerSystems HE.7 / classical-full-sha-finiteness; Tau Ceti `WeierstrassCurve.Affine.Point.isOfFinAddOrder_of_canonicalHeight_eq_zero`.
 
 ## Layer 6: Analytic rank zero and whole-Sha finiteness
 
@@ -1155,9 +1120,7 @@ The source comparison is [Daniel Bump, Solomon Friedberg and Jeffrey Hoffstein](
 
 *Needs:* §3.5 (choice of a heegner field for analytic rank zero or one); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §0.5 (root-number parity of the analytic rank); §5.1 (a nonzero derivative over k gives a non-torsion heegner point); §5.2 (complex conjugation on the heegner point selects the rational or the twisted part); HeegnerPointEulerSystems HE.7 / classical-full-sha-finiteness; §2.3 (rank splitting over a quadratic field); §2.2 (finiteness of sha descends along a finite extension); §0.2 (analytic rank and the leading coefficient at s = 1).
 
-The intended declarations are:
-
-- `TauCeti.BSD.analytic_rank_zero_theorem` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.analytic_rank_zero_theorem` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1170,15 +1133,13 @@ Let E/ℚ be elliptic with ellipticL E 1 ≠ 0, and f = F_E. For every prime p a
 
 Kato, Theorem 14.2(2) with K = ℚ, χ trivial, k = 2, r = k/2 = 1, so V_{F_λ}(f)(1) ≅ V_p(E) by EllipticCurveModularity R29.4/tate-module-comparison. The identification of Kato's Sel(ℚ, T_p E) with Sel_{p^∞}(E/ℚ) of EllipticCurves Layer 7: Bloch–Kato's H¹_f at p is the Kummer image (finite flat or Tate-curve local condition).
 
-KatoEulerSystems L3: the zeta class z_γ interpolates L(f, 1) through the dual exponential, so its localisation at p is nonzero when L(f, 1) ≠ 0. KatoEulerSystems L4 and EulerSystemsAndKolyvaginSystems ES.4: the Euler-system bound kills the Selmer group up to the index of the bottom class, which is finite. For almost all p the image of G_ℚ contains SL₂(ℤ_p) (or the CM Cartan analogue) and the bottom class is a unit multiple, giving vanishing. Sel(E/ℚ) = ⊕_p Sel(ℚ, T_p E) (Kato §14.1) is then finite, so E(ℚ) ⊗ ℚ_p/ℤ_p and Ш(E/ℚ) are finite.
+KatoEulerSystems **Generalized explicit reciprocity**: the zeta class z_γ interpolates L(f, 1) through the dual exponential, so its localisation at p is nonzero when L(f, 1) ≠ 0. KatoEulerSystems **allPrimeRankZeroSelmer** (extension contract) and EulerSystemsAndKolyvaginSystems ES.4: the Euler-system bound kills the Selmer group up to the index of the bottom class, which is finite. For almost all p the image of G_ℚ contains SL₂(ℤ_p) (or the CM Cartan analogue) and the bottom class is a unit multiple, giving vanishing. Sel(E/ℚ) = ⊕_p Sel(ℚ, T_p E) (Kato §14.1) is then finite, so E(ℚ) ⊗ ℚ_p/ℤ_p and Ш(E/ℚ) are finite.
 
 The source comparison is [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), Theorem 14.2(2), p. 235; [Kazuya Kato](https://www.numdam.org/item/AST_2004__295__117_0.pdf), §14.1, p. 235.
 
-*Needs:* KatoEulerSystems L3 / zeta-class-interpolation-of-complex-L-values; KatoEulerSystems L3 / generalised-explicit-reciprocity-law-for-zeta-elements; KatoEulerSystems L4 / nonvanishing-of-the-zeta-submodule-at-height-zero; KatoEulerSystems L4 / imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra; EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; EllipticCurveModularity R29.4 / tate-module-comparison; §0.2 (analytic rank and the leading coefficient at s = 1); TauCetiRoadmap EllipticCurves Layer 7; KatoEulerSystems L4.
+*Needs:* KatoEulerSystems **Critical interpolation of the canonical map**; KatoEulerSystems **Generalized explicit reciprocity**; KatoEulerSystems **The zeta submodule is non-torsion**; KatoEulerSystems **allPrimeRankZeroSelmer** (extension contract); EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; EllipticCurveModularity R29.4 / tate-module-comparison; §0.2 (analytic rank and the leading coefficient at s = 1); TauCetiRoadmap EllipticCurves Layer 7.
 
-The intended declarations are:
-
-- `TauCeti.BSD.kato_rank_zero_finiteness` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.kato_rank_zero_finiteness` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1190,15 +1151,13 @@ Let E/ℚ be elliptic with good or multiplicative reduction at an odd prime p, E
 
 p odd, good or multiplicative reduction at p, E[p] irreducible (so E(ℚ)[p] = 0 and the torsion term is a p-adic unit). Ω_E is the full real period of EllipticCurves Layer 7.
 
-Import the specified finite-level one-sided Kato bound with good ordinary, supersingular and multiplicative local cases stated separately. The current cohomological height-one divisibility alone does not give this conclusion. Use the specified augmentation/Fitting and compact/discrete local-control comparison, retaining every Euler and Tamagawa factor. Do not use §10.1 here: it assumes an equality/main conjecture, whereas this is a one-sided input. Transport canonical periods to the full Néron real period using the exact Manin-constant integrality hypotheses from GZ.3; the multiplicative p∥N branch needs its separately specified export. Rationality is supplied by the early modular-symbol comparison of Layer 1.
+Import the specified finite-level one-sided Kato bound with good ordinary, supersingular and multiplicative local cases stated separately. The current cohomological height-one divisibility alone does not give this conclusion. Use the specified augmentation/Fitting and compact/discrete local-control comparison, retaining every Euler and Tamagawa factor. Do not use §10.1 here: it assumes an equality/main conjecture, whereas this is a one-sided input. Transport canonical periods to the full Néron real period using the exact Manin-constant integrality hypotheses from **Integral Manin constant and p-unit range**; the multiplicative p∥N branch needs its separately specified export. Rationality is supplied by the early modular-symbol comparison of Layer 1.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), Theorem 7.2.1(i), p. 42.
 
-*Needs:* KatoEulerSystems L4 / cohomological-divisibility-one-direction; §1.1 (rationality of l(e,1)/ω_e); GrossZagierAndArithmeticHeights GZ.3; TauCetiRoadmap EllipticCurves Layer 7; KatoEulerSystems L4.
+*Needs:* KatoEulerSystems **finiteLevelIntegralUpperBound** (extension contract); §1.1 (rationality of l(e,1)/ω_e); GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; TauCetiRoadmap EllipticCurves Layer 7.
 
-The intended declarations are:
-
-- `TauCeti.BSD.kato_p_part_upper_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.kato_p_part_upper_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1216,9 +1175,7 @@ The source comparison is [Ashay A. Burungale and Ye Tian](https://arxiv.org/abs/
 
 *Needs:* §6.1 (analytic rank zero implies rank zero and finite sha (kolyvagin)); §5.3 (analytic rank one implies rank one and finite sha (gross–zagier–kolyvagin)).
 
-The intended declarations are:
-
-- `TauCeti.BSD.analytic_rank_at_most_one_theorem` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.analytic_rank_at_most_one_theorem` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1236,9 +1193,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.2, 
 
 *Needs:* §6.1 (analytic rank zero implies rank zero and finite sha (kolyvagin)); §6.2 (the beilinson–kato route to finiteness in analytic rank zero); §6.3 (kato's upper bound for the p-part of sha in analytic rank zero); HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.7 / almost-all-primary-sha-vanishing; §2.7 (odd-primary selmer and sha over a quadratic field).
 
-The intended declarations are:
-
-- `TauCeti.BSD.kato_heegner_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.kato_heegner_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1252,7 +1207,7 @@ The separate upper bound has a direction: bounding the arithmetic Sha–Tamagawa
 
 ### Dependencies
 
-Earlier comparisons: §0.2, §0.5, §0.11, §1.1, §2.2, §2.3, §2.7, §3.5, §5.1, §5.2, §5.3. Supplier interfaces: EllipticCurveModularity R29.4 / tate-module-comparison; EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; GrossZagierAndArithmeticHeights GZ.3; HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.7 / almost-all-primary-sha-vanishing; HeegnerPointEulerSystems HE.7 / classical-full-sha-finiteness; KatoEulerSystems L3 / generalised-explicit-reciprocity-law-for-zeta-elements; KatoEulerSystems L3 / zeta-class-interpolation-of-complex-L-values; KatoEulerSystems L4; KatoEulerSystems L4 / cohomological-divisibility-one-direction; KatoEulerSystems L4 / imported-euler-system-bound-over-the-cyclotomic-iwasawa-algebra; KatoEulerSystems L4 / nonvanishing-of-the-zeta-submodule-at-height-zero; TauCetiRoadmap EllipticCurves Layer 7.
+Earlier comparisons: §0.2, §0.5, §0.11, §1.1, §2.2, §2.3, §2.7, §3.5, §5.1, §5.2, §5.3. Supplier interfaces: EllipticCurveModularity R29.4 / tate-module-comparison; EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.7 / almost-all-primary-sha-vanishing; HeegnerPointEulerSystems HE.7 / classical-full-sha-finiteness; KatoEulerSystems **Generalized explicit reciprocity**; KatoEulerSystems **Critical interpolation of the canonical map**; KatoEulerSystems **The cohomological upper bound**; KatoEulerSystems **The cohomological upper bound**; KatoEulerSystems **The cohomological upper bound**; KatoEulerSystems **The zeta submodule is non-torsion**; TauCetiRoadmap EllipticCurves Layer 7.
 
 ## Layer 7: Positive rational defects and integral index comparisons
 
@@ -1260,23 +1215,21 @@ Convert the actual analytic leading coefficient into a positive rational defect.
 
 ### 7.1 Positivity of the leading term in analytic rank at most one
 
-For every elliptic curve E/ℚ with analyticRank E ≤ 1, leadingTerm E > 0: L(E, 1) > 0 if the analytic rank is 0, and L′(E, 1) > 0 if it is 1. Positivity rests on the nonnegativity of central values L(1/2, π ⊗ χ) ≥ 0 for cuspidal π on PGL₂/ℚ and quadratic χ (Waldspurger), specified from GrossZagierAndArithmeticHeights GZ.5, together with the sign of the Gross–Zagier formula.
+For every elliptic curve E/ℚ with analyticRank E ≤ 1, leadingTerm E > 0: L(E, 1) > 0 if the analytic rank is 0, and L′(E, 1) > 0 if it is 1. Positivity rests on the nonnegativity of central values L(1/2, π ⊗ χ) ≥ 0 for cuspidal π on PGL₂/ℚ and quadratic χ (Waldspurger), specified from GrossZagierAndArithmeticHeights **Waldspurger period formula**, together with the sign of the Gross–Zagier formula.
 
 analyticRank E ≤ 1. The nonnegativity input is the specified quadratic central-value nonnegativity theorem; modular symbols give only rationality, not sign.
 
 Rank zero: L(E, 1) = L(1/2, π_E) ≥ 0 by the specified Waldspurger nonnegativity (χ trivial), and L(E,1) ≠ 0. Rank one: choose K by §3.5 with L(E^K, 1) ≠ 0; then L′(E/K, 1) = L′(E, 1)L(E^K, 1) (§0.11) and L′(E/K, 1) > 0 because y_K has infinite order (§5.1, converse direction). L(E^K, 1) > 0 by the rank-zero case applied to E^K, so L′(E, 1) > 0.
 
-The source comparison is [Benedict H. Gross and Don B. Zagier](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), Chapter V §1, Corollary (1.1), pp. 308–309 (the GZ.8 normalization).
+The source comparison is [Benedict H. Gross and Don B. Zagier](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), Chapter V §1, Corollary (1.1), pp. 308–309 (the **Heights of Heegner points on an elliptic curve** normalization).
 
-*Needs:* GrossZagierAndArithmeticHeights GZ.5; GrossZagierAndArithmeticHeights GZ.8 / derivative-corollaries; §3.5 (choice of a heegner field for analytic rank zero or one); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §5.1 (a nonzero derivative over k gives a non-torsion heegner point); §0.2 (analytic rank and the leading coefficient at s = 1).
+*Needs:* GrossZagierAndArithmeticHeights **Waldspurger period formula**; GrossZagierAndArithmeticHeights **Corollaries on derivatives: positivity and Galois invariance**; §3.5 (choice of a heegner field for analytic rank zero or one); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §5.1 (a nonzero derivative over k gives a non-torsion heegner point); §0.2 (analytic rank and the leading coefficient at s = 1).
 
-The intended declarations are:
-
-- `TauCeti.BSD.leading_term_positivity` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.leading_term_positivity` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
-- L(11a1, 1) = 0.2538… > 0 and L′(37a1, 1) = 0.3059… > 0 (numerical values for orientation; certification is Layer 14's).
+- L(11a1, 1) = 0.2538… > 0 and L′(37a1, 1) = 0.3059… > 0 (numerical values for orientation; exact nonvanishing is an input to §14.4).
 
 ### 7.2 The Heegner index
 
@@ -1290,7 +1243,7 @@ The source comparison is [Benedict H. Gross and Don B. Zagier](https://wstein.or
 
 *Needs:* §5.1 (a nonzero derivative over k gives a non-torsion heegner point); HeegnerPointEulerSystems HE.1 / heegner-points-of-conductor-m-and-the-modular-parametrisation; HeegnerPointEulerSystems HE.1 / parameter-choice-and-degree; HeegnerPointEulerSystems HE.7 / non-torsion-point-prime-divisibility; Tau Ceti `WeierstrassCurve.Affine.PointModTorsion`; Tau Ceti `WeierstrassCurve.Affine.finite_torsion`.
 
-The intended declarations are:
+The required API is:
 
 - `TauCeti.BSD.heegnerIndex` — I_K = [E(K) : ℤ y_K] as a positive natural number, given rank E(K) = 1 and y_K of infinite order.
 - `TauCeti.BSD.heegnerIndexFree` — I_K^free = [E(K)/tors : ℤ ȳ_K].
@@ -1306,7 +1259,7 @@ The intended declarations are:
 - Replacing φ by 2φ doubles y_K and the index I_K while c_φ doubles too; so I_K alone is not an invariant of E and K, only I_K/c_φ.
 - For E₀ = J₀(11) = 11a1 (E(ℚ)_tors ≅ ℤ/5), 5 divides I_K for every point y_K of infinite order generating a finite-index subgroup: the torsion meets ℤy_K trivially (GZ86 Chapter V §2, before (2.3)).
 - If ȳ_K generates E(K)/tors then I_K^free = 1 and I_K = #E(K)_tors. Assume y_K has infinite order, not merely that its image generates a possibly rank-zero quotient.
-- E = 37a1: y_K = m_K·(0,0) up to torsion and I_K = |m_K| (the integers m_K are coefficients of a weight-3/2 form, Gross §1).
+- E = 37a1, assuming res(0,0) generates E(K)/tors, E(K)_tors=0 and y_K=m_K res(0,0): I_K = |m_K| (the integers m_K are coefficients of a weight-3/2 form, Gross §1).
 - GZ86 (2.3): t = #E(ℚ)_tors divides I_K.
 
 ### 7.3 Modular degrees on X₀(N) and on Shimura curves (Ribet–Takahashi)
@@ -1319,11 +1272,9 @@ Degrees are congruence numbers up to p-adic units: δ(N, 1) ~ η_E(N) and δ(N�
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1, p. 46.
 
-*Needs:* §4.1 (the definite congruence-period identity (ribet–takahashi, pollack–weston)); §2.9 (tamagawa factors under quadratic base change and twist); NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality; GrossZagierAndArithmeticHeights GZ.3.
+*Needs:* §4.1 (the definite congruence-period identity (ribet–takahashi, pollack–weston)); §2.9 (tamagawa factors under quadratic base change and twist); NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ribet_takahashi_degree_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ribet_takahashi_degree_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1339,11 +1290,9 @@ In a rank-one lattice the regulator is the height of a generator, and ĥ is quad
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1, p. 46.
 
-*Needs:* §7.2 (the heegner index); §2.6 (lattice index and regulators over a quadratic field); GrossZagierAndArithmeticHeights GZ.0 / bsd-regulator; GrossZagierAndArithmeticHeights GZ.0 / x-height-canonical-height; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`.
+*Needs:* §7.2 (the heegner index); §2.6 (lattice index and regulators over a quadratic field); GrossZagierAndArithmeticHeights **The dictionary of height conventions**; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.heegner_index_height_formula` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.heegner_index_height_formula` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1351,23 +1300,21 @@ The intended declarations are:
 
 ### 7.5 Rationality of L′(E,1)/(Ω_E Reg_E) in analytic rank one
 
-For every elliptic curve E/ℚ with analyticRank E = 1, L′(E, 1)/(Ω_E · Reg_BSD(E/ℚ)) ∈ ℚ_{>0}, where Reg_BSD is GZ.0's regulator in the x-height normalisation (twice the pinned Tau Ceti regulator in rank one).
+For every elliptic curve E/ℚ with analyticRank E = 1, L′(E, 1)/(Ω_E · Reg_BSD(E/ℚ)) ∈ ℚ_{>0}, where Reg_BSD is **The dictionary of height conventions**'s regulator in the x-height normalisation (twice the pinned Tau Ceti regulator in rank one).
 
-analyticRank E = 1 (so rank E(ℚ) = 1 by §5.3). Normalisation: GZ.0/height-convention-dictionary; with the pinned Tau Ceti regulator the quotient changes by the factor 2.
+analyticRank E = 1 (so rank E(ℚ) = 1 by §5.3). Normalisation: **The dictionary of height conventions**; with the pinned Tau Ceti regulator the quotient changes by the factor 2.
 
-Choose K by §3.5 with L(E^K, 1) ≠ 0 and D_K odd. Gross–Zagier (GZ.8/elliptic-curve-heegner-height-formula): L′(E,1)·L(E^K,1) = ‖ω₀‖² ĥ_K(y_K)/(C² u_K² |D_K|^{1/2}) with C, u_K ∈ ℤ_{>0}. heegner-index-height-formula: ĥ_K(y_K) = (I_K^free)² · 2 · Reg_BSD(E/ℚ)/4^a. §2.5: ‖ω₀‖²/|D_K|^{1/2} = r·Ω_E·Ω_{E^K} with r ∈ ℚ^× (a power of 2 when (D_K, 2N) = 1). rank-zero-rationality for E^K: L(E^K, 1)/Ω_{E^K} ∈ ℚ^×. Dividing gives L′(E,1)/(Ω_E Reg_BSD) ∈ ℚ^×, positive by leading-term-positivity.
+Choose K by §3.5 with L(E^K, 1) ≠ 0 and D_K odd. Gross–Zagier (**Heights of Heegner points on an elliptic curve**): L′(E,1)·L(E^K,1) = ‖ω₀‖² ĥ_K(y_K)/(C² u_K² |D_K|^{1/2}) with C, u_K ∈ ℤ_{>0}. heegner-index-height-formula: ĥ_K(y_K) = (I_K^free)² · 2 · Reg_BSD(E/ℚ)/4^a. §2.5: ‖ω₀‖²/|D_K|^{1/2} = r·Ω_E·Ω_{E^K} with r ∈ ℚ^× (a power of 2 when (D_K, 2N) = 1). rank-zero-rationality for E^K: L(E^K, 1)/Ω_{E^K} ∈ ℚ^×. Dividing gives L′(E,1)/(Ω_E Reg_BSD) ∈ ℚ^×, positive by leading-term-positivity.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §1.2, p. 2.
 
-*Needs:* GrossZagierAndArithmeticHeights GZ.8 / elliptic-curve-heegner-height-formula; §7.4 (height of the heegner point and the squared index); §2.5 (the period of e over an imaginary quadratic field and its comparison); §1.1 (rationality of l(e,1)/ω_e); §7.1 (positivity of the leading term in analytic rank at most one); §3.5 (choice of a heegner field for analytic rank zero or one); GrossZagierAndArithmeticHeights GZ.0 / bsd-regulator; GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary.
+*Needs:* GrossZagierAndArithmeticHeights **Heights of Heegner points on an elliptic curve**; §7.4 (height of the heegner point and the squared index); §2.5 (the period of e over an imaginary quadratic field and its comparison); §1.1 (rationality of l(e,1)/ω_e); §7.1 (positivity of the leading term in analytic rank at most one); §3.5 (choice of a heegner field for analytic rank zero or one); GrossZagierAndArithmeticHeights **The dictionary of height conventions**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.rank_one_rationality` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.rank_one_rationality` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
-- E = 37a1: L′(E,1)/(Ω_E Reg_BSD) = 1 (Ш trivial, c₃₇ = 1, E(ℚ)_tors = 0), as Layer 14 certifies.
+- E = 37a1: L′(E,1)/(Ω_E Reg_BSD) = 1 (Ш trivial, c₃₇ = 1, E(ℚ)_tors = 0), conditional on the exact arithmetic and analytic hypotheses of §14.6.
 
 ### 7.6 Gross–Zagier's index conjecture as a form of BSD over K
 
@@ -1375,19 +1322,17 @@ Let E/ℚ be elliptic of conductor N with optimal parametrisation of Manin const
 
 Gross–Zagier's standing hypotheses (D_K odd, Heegner hypothesis); p odd and p ∤ D_K so that powers of 2 and the discriminant term are units. m_ℓ is the same at both primes above a split ℓ (m_𝔭 = m_𝔭̄), so ∏_{w|N} c_w(E/K) = m². The modular Heegner point y_K has infinite order (equivalently the base-change analytic rank is one in this setting). Algebraic rank one by itself is not an analytic simple-zero hypothesis.
 
-Write BSD for E/K: L′(E/K,1)/(Ω_{E/K} Reg_BSD(E/K) |D_K|^{−1/2}) = #Ш(E/K)·∏_w c_w(E/K)/#E(K)_tors². Substitute Gross–Zagier (GZ.8/elliptic-curve-heegner-height-formula) for L′(E/K,1), heegner-index-height-formula for ĥ_K(y_K) = (I_K^free)² Reg_BSD(E/K), and §2.5 for ‖ω₀‖² versus Ω_{E/K}. I_K = I_K^free·#E(K)_tors cancels the torsion term; the Tamagawa product over K is m² (split primes, §2.9). What remains is (I_K)² = (c·m·u_K)²·#Ш(E/K) up to powers of 2, which are p-adic units.
+Write BSD for E/K: L′(E/K,1)/(Ω_{E/K} Reg_BSD(E/K) |D_K|^{−1/2}) = #Ш(E/K)·∏_w c_w(E/K)/#E(K)_tors². Substitute Gross–Zagier (**Heights of Heegner points on an elliptic curve**) for L′(E/K,1), heegner-index-height-formula for ĥ_K(y_K) = (I_K^free)² Reg_BSD(E/K), and §2.5 for ‖ω₀‖² versus Ω_{E/K}. I_K = I_K^free·#E(K)_tors cancels the torsion term; the Tamagawa product over K is m² (split primes, §2.9). What remains is (I_K)² = (c·m·u_K)²·#Ш(E/K) up to powers of 2, which are p-adic units.
 
 The source comparison is [Benedict H. Gross and Don B. Zagier](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), Chapter V §2, (2.2) Conjecture, p. 311; [Benedict H. Gross and Don B. Zagier](https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf), Chapter V §2, (2.3) Conjecture, p. 311; [Benedict H. Gross](https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf), §1, Conjecture 1.2(2), p. 236 (read from the page image); [Benedict H. Gross](https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf), §1, Theorem 1.3(2), p. 236.
 
-*Needs:* GrossZagierAndArithmeticHeights GZ.8 / elliptic-curve-heegner-height-formula; §7.4 (height of the heegner point and the squared index); §7.2 (the heegner index); §2.5 (the period of e over an imaginary quadratic field and its comparison); §2.9 (tamagawa factors under quadratic base change and twist); §2.10 (the bsd quotient over k versus over ℚ at odd primes); HeegnerPointEulerSystems HE.6 / sha-square-index-bound; GrossZagierAndArithmeticHeights GZ.0 / heegner-unit-index.
+*Needs:* GrossZagierAndArithmeticHeights **Heights of Heegner points on an elliptic curve**; §7.4 (height of the heegner point and the squared index); §7.2 (the heegner index); §2.5 (the period of e over an imaginary quadratic field and its comparison); §2.9 (tamagawa factors under quadratic base change and twist); §2.10 (the bsd quotient over k versus over ℚ at odd primes); HeegnerPointEulerSystems HE.6 / sha-square-index-bound; GrossZagierAndArithmeticHeights **The unit index u**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.gross_index_formula` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.gross_index_formula` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
-- Gross's example E = X₀(37)/w₃₇ (37a1, φ of degree 2, c = 1, m₃₇ = 1): the formula reads #Ш(E/K) = I_K², and y_K = m_K·(0,0) with the m_K Fourier coefficients of a weight-3/2 form; certifying instances is Layer 14's.
+- Gross's example E = X₀(37)/w₃₇ (37a1, φ of degree 2, c = 1, m₃₇ = 1): the formula reads #Ш(E/K) = I_K², and y_K = m_K·(0,0) with the m_K Fourier coefficients of a weight-3/2 form; a concrete instance requires the explicit hypotheses of §14.6.
 - GZ86 examples at N = 11: (E₀ = J₀(11); c, m, t) = (1, 5, 5), (J₁(11); 5, 1, 5), (E₀/(ℤ/5ℤ); 1, 1, 1): t | c·m in each case.
 - N = 65: for E₀ = J₀(65)/⟨w₅, w₁₃⟩, (c, m, t) = (1, 1, 2), so for K ≠ ℚ(i) with 5 and 13 split the conjecture forces 2 | #Ш(E/K)^{1/2} or rank E(K) > 1; Kramer's computation gives 2-Selmer rank ≥ 4 (stated in GZ86, not reproved here).
 
@@ -1401,11 +1346,9 @@ HE.6/sha-square-index-bound gives length Ш[p^∞] ≤ 2·length(E(K) ⊗ ℤ_p/
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.2, p. 47.
 
-*Needs:* HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.6 / primitivity-versus-nonzero; §7.2 (the heegner index); §2.7 (odd-primary selmer and sha over a quadratic field); GrossZagierAndArithmeticHeights GZ.8 / elliptic-curve-heegner-height-formula; §7.4 (height of the heegner point and the squared index); §2.5 (the period of e over an imaginary quadratic field and its comparison).
+*Needs:* HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.6 / primitivity-versus-nonzero; §7.2 (the heegner index); §2.7 (odd-primary selmer and sha over a quadratic field); GrossZagierAndArithmeticHeights **Heights of Heegner points on an elliptic curve**; §7.4 (height of the heegner point and the squared index); §2.5 (the period of e over an imaginary quadratic field and its comparison).
 
-The intended declarations are:
-
-- `TauCeti.BSD.sha_bound_from_heegner_index` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.sha_bound_from_heegner_index` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1415,15 +1358,15 @@ The intended declarations are:
 
 For E/ℚ elliptic with analyticRank E ≤ 1 (so rank E(ℚ) = analyticRank E and Ш(E/ℚ) is finite by §6.4), bsdDefect E := leadingTerm E · #E(ℚ)_tors² / (Ω_E · Reg_BSD(E/ℚ) · #Ш(E/ℚ) · ∏_ℓ c_ℓ(E)). It is a positive rational number: bsdDefect E ∈ ℚ_{>0}, with the real identity leadingTerm E = bsdDefect E · (Ω_E · Reg_BSD · #Ш · ∏c_ℓ / #E(ℚ)_tors²). The Birch–Swinnerton-Dyer formula for E is the statement bsdDefect E = 1, and its p-part is padicValRat p (bsdDefect E) = 0.
 
-The arithmetic quotient Ω_E·Reg·#Ш·∏c_ℓ/#tors² is EllipticCurves Layer 7's BSD quotient, stated with GZ.0's Reg_BSD (x-height normalisation); with Tau Ceti's halved regulator the defect changes by 2^{rank}. Only finitely many c_ℓ differ from 1 (good primes), so the product is finite.
+The arithmetic quotient Ω_E·Reg·#Ш·∏c_ℓ/#tors² is EllipticCurves Layer 7's BSD quotient, stated with **The dictionary of height conventions**'s Reg_BSD (x-height normalisation); with Tau Ceti's halved regulator the defect changes by 2^{rank}. Only finitely many c_ℓ differ from 1 (good primes), so the product is finite.
 
 Rationality: rank-zero-rationality (rank 0, Reg = 1) and rank-one-rationality (rank 1); the arithmetic terms other than Ω_E and Reg are integers. Positivity: leading-term-positivity, Ω_E > 0, Reg_BSD > 0 (positive-definite height on the free quotient), c_ℓ ≥ 1, #Ш ≥ 1. Define the rational number as the quotient of the rational L*(E,1)/(Ω_E Reg_BSD) by #Ш ∏c_ℓ / #tors².
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), Conjecture 1.1.1(b), (1.1.a), p. 1; [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7, p. 41.
 
-*Needs:* §1.1 (rationality of l(e,1)/ω_e); §7.5 (rationality of l′(e,1)/(ω_e reg_e) in analytic rank one); §7.1 (positivity of the leading term in analytic rank at most one); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); §0.2 (analytic rank and the leading coefficient at s = 1); GrossZagierAndArithmeticHeights GZ.0 / bsd-regulator; Mathlib `padicValRat`; TauCetiRoadmap EllipticCurves Layer 7; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; TauCetiRoadmap EllipticCurves Layer 4.
+*Needs:* §1.1 (rationality of l(e,1)/ω_e); §7.5 (rationality of l′(e,1)/(ω_e reg_e) in analytic rank one); §7.1 (positivity of the leading term in analytic rank at most one); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); §0.2 (analytic rank and the leading coefficient at s = 1); GrossZagierAndArithmeticHeights **The dictionary of height conventions**; Mathlib `padicValRat`; TauCetiRoadmap EllipticCurves Layer 7; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; TauCetiRoadmap EllipticCurves Layer 4.
 
-The intended declarations are:
+The required API is:
 
 - `WeierstrassCurve.bsdDefect` — bsdDefect E : ℚ for E/ℚ with analyticRank E ≤ 1.
 - `WeierstrassCurve.bsdDefect_pos` — 0 < bsdDefect E.
@@ -1431,7 +1374,7 @@ The intended declarations are:
 - `WeierstrassCurve.bsdDefect_eq_one_iff` — bsdDefect E = 1 ↔ the full BSD formula (1.1.a) holds for E.
 - `WeierstrassCurve.padicValRat_bsdDefect` — padicValRat p (bsdDefect E) = v_p(L*/(Ω Reg)) + 2 v_p(#tors) − v_p(#Ш) − Σ_ℓ v_p(c_ℓ).
 - `WeierstrassCurve.bsdDefect_eq_of_isogenous` — Isogenous curves have equal defects (defect-isogeny-invariance).
-- `WeierstrassCurve.bsdDefect_regulator_convention` — The defect computed with Tau Ceti's regulator equals 2^{analyticRank E} · bsdDefect E (GZ.0/bsd-regulator).
+- `WeierstrassCurve.bsdDefect_regulator_convention` — The defect computed with Tau Ceti's regulator equals 2^{analyticRank E} · bsdDefect E (**The dictionary of height conventions**).
 - `WeierstrassCurve.bsdDefect_eq_one_of_forall_padicValRat` — If padicValRat p (bsdDefect E) = 0 for every prime p then bsdDefect E = 1 (positive rational, Layer 13's reconstruction).
 
 **Checks.**
@@ -1448,15 +1391,13 @@ If E and E′ are ℚ-isogenous elliptic curves with analyticRank E ≤ 1, then 
 
 The arithmetic invariance is Cassels' theorem and the analytic invariance is equality of all local factors; both are owned by EllipticCurves Layer 7 (the EllipticCurves ownership contract) and only composed here.
 
-Equal local Euler factors give ellipticL E = ellipticL E′ (EllipticCurveModularity R29.6, using the pinned entire-extension interface, ellipticL_eq_of_isogenous), hence equal analytic rank and leading term. Cassels: the arithmetic BSD quotient Ω·Reg·#Ш·∏c/#tors² is isogeny invariant (EllipticCurves Layer 7), stated with Reg_BSD; the normalisation adapter GZ.0/bsd-regulator is the same on both sides. Divide.
+Equal local Euler factors give ellipticL E = ellipticL E′ (EllipticCurveModularity R29.6, using the pinned entire-extension interface, ellipticL_eq_of_isogenous), hence equal analytic rank and leading term. Cassels: the arithmetic BSD quotient Ω·Reg·#Ш·∏c/#tors² is isogeny invariant (EllipticCurves Layer 7), stated with Reg_BSD; the normalisation adapter **The dictionary of height conventions** is the same on both sides. Divide.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7, p. 41.
 
-*Needs:* §7.8 (the rational bsd defect); EllipticCurveModularity R29.6, using the pinned entire-extension interface; GrossZagierAndArithmeticHeights GZ.0 / bsd-regulator; TauCetiRoadmap EllipticCurves Layer 7; Tau Ceti `TauCeti.Isogeny`.
+*Needs:* §7.8 (the rational bsd defect); EllipticCurveModularity R29.6, using the pinned entire-extension interface; GrossZagierAndArithmeticHeights **The dictionary of height conventions**; TauCetiRoadmap EllipticCurves Layer 7; Tau Ceti `TauCeti.Isogeny`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.defect_isogeny_invariance` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.defect_isogeny_invariance` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1474,9 +1415,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §1.3, 
 
 *Needs:* §7.8 (the rational bsd defect); Mathlib `padicValRat`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.p_part_from_two_bounds` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.p_part_from_two_bounds` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1490,7 +1429,7 @@ With all exact N=11 inputs proved, 11a1 has (L/Ω=1/5), torsion order five, Tama
 
 ### Dependencies
 
-Earlier comparisons: §0.2, §0.11, §1.1, §2.5, §2.6, §2.7, §2.9, §2.10, §3.5, §4.1, §5.1, §6.4. Supplier interfaces: EllipticCurveModularity R29.6, using the pinned entire-extension interface; GrossZagierAndArithmeticHeights GZ.0 / bsd-regulator; GrossZagierAndArithmeticHeights GZ.0 / heegner-unit-index; GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary; GrossZagierAndArithmeticHeights GZ.0 / x-height-canonical-height; GrossZagierAndArithmeticHeights GZ.3; GrossZagierAndArithmeticHeights GZ.5; GrossZagierAndArithmeticHeights GZ.8 / derivative-corollaries; GrossZagierAndArithmeticHeights GZ.8 / elliptic-curve-heegner-height-formula; HeegnerPointEulerSystems HE.1 / heegner-points-of-conductor-m-and-the-modular-parametrisation; HeegnerPointEulerSystems HE.1 / parameter-choice-and-degree; HeegnerPointEulerSystems HE.6 / primitivity-versus-nonzero; HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.7 / non-torsion-point-prime-divisibility; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `padicValRat`; NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality; Tau Ceti `TauCeti.Isogeny`; Tau Ceti `WeierstrassCurve.Affine.PointModTorsion`; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; Tau Ceti `WeierstrassCurve.Affine.finite_torsion`; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 7.
+Earlier comparisons: §0.2, §0.11, §1.1, §2.5, §2.6, §2.7, §2.9, §2.10, §3.5, §4.1, §5.1, §6.4. Supplier interfaces: EllipticCurveModularity R29.6, using the pinned entire-extension interface; GrossZagierAndArithmeticHeights **The dictionary of height conventions**; GrossZagierAndArithmeticHeights **The unit index u**; GrossZagierAndArithmeticHeights **The dictionary of height conventions**; GrossZagierAndArithmeticHeights **The dictionary of height conventions**; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; GrossZagierAndArithmeticHeights **Waldspurger period formula**; GrossZagierAndArithmeticHeights **Corollaries on derivatives: positivity and Galois invariance**; GrossZagierAndArithmeticHeights **Heights of Heegner points on an elliptic curve**; HeegnerPointEulerSystems HE.1 / heegner-points-of-conductor-m-and-the-modular-parametrisation; HeegnerPointEulerSystems HE.1 / parameter-choice-and-degree; HeegnerPointEulerSystems HE.6 / primitivity-versus-nonzero; HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.7 / non-torsion-point-prime-divisibility; Mathlib `NumberField.finite_setOfPred_logHeight₁_le`; Mathlib `NumberField.instAdmissibleAbsValues`; Mathlib `NumberField.totalWeight_eq_finrank`; Mathlib `padicValRat`; NeronModelsAndSemistableAbelianVarieties R11.4 / component-cokernel; NeronModelsAndSemistableAbelianVarieties R11.6 / degeneracy-functoriality; Tau Ceti `TauCeti.Isogeny`; Tau Ceti `WeierstrassCurve.Affine.PointModTorsion`; Tau Ceti `WeierstrassCurve.Affine.fg_point_of_numberField`; Tau Ceti `WeierstrassCurve.Affine.finite_torsion`; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 7.
 
 ## Layer 8: Early signed zeta elements and reciprocity comparison
 
@@ -1498,17 +1437,17 @@ Construct the signed BSTW class and compare the signed Perrin–Riou and Greenbe
 
 ### 8.1 The two-variable zeta element of an elliptic curve over an imaginary quadratic field (BSTW)
 
-Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This result owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the specified KatoEulerSystems L5; reuse that owner’s underlying classes/CM-family machinery. Use the cofinal two-variable tower of finite extensions, continuous H¹ of compact T_pE at each level, and corestriction-compatible inverse limits. The relaxed group is the unramified-away-p subgroup with the signed condition at v̄; localization at v is relaxed. With chosen generators Λ_L=ℤ_p[[X,Y]], and Λ_L^ur=R₀[[X,Y]] where R₀=W(𝔽̄_p). The unramified inclusion ℤ_p→R₀ induces a coefficientwise Λ_L→Λ_L^ur map; signed localization and Log_v̄ are Λ_L-linear through this action. Its cyclotomic projection is a rational class over K, identified by BSTW6.26(i) with c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of z_g and z_{g⊗χ_K} of §3.3, not a single Kato class. Integrality uses the basis/lattice hypotheses of 6.26(ii).
+Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This result owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the specified KatoEulerSystems **ordinaryBSTWComparison** (extension contract); reuse that owner’s underlying classes/CM-family machinery. Use the cofinal two-variable tower of finite extensions, continuous H¹ of compact T_pE at each level, and corestriction-compatible inverse limits. The relaxed group is the unramified-away-p subgroup with the signed condition at v̄; localization at v is relaxed. With chosen generators Λ_L=ℤ_p[[X,Y]], and Λ_L^ur=R₀[[X,Y]] where R₀=W(𝔽̄_p). The unramified inclusion ℤ_p→R₀ induces a coefficientwise Λ_L→Λ_L^ur map; signed localization and Log_v̄ are Λ_L-linear through this action. Its cyclotomic projection is a rational class over K, identified by BSTW6.26(i) with c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of z_g and z_{g⊗χ_K} of §3.3, not a single Kato class. Integrality uses the basis/lattice hypotheses of 6.26(ii).
 
-p>2 good supersingular and a_p=0 (explicit also at p=3); (D_L,N)=1, p split and E[p](L)=0. The embedding fixes v; signs •∈{+,−} use the actual Kobayashi/Pollack normalization. Ordinary ownership is KatoEulerSystems proposed L5, specified at its present nearest L4 stage. Layer 9 owns the signed §6 construction and signed §9.3.2 comparison only. Fix the Néron differential, both Betti sign bases and the Gauss-sum normalization of BSTW6.26; for the integral refinement require irr_ℚ and integral primitive differential/Betti bases. Cyclotomic comparison is made over ℚ_p unless these lattice hypotheses have been discharged. BSTW §§2.2.4–2.2.5, printed pp.13–14, defines the cohomological lattice T_g with determinant χ_cyc⁻¹. Its twist T_g(1) is compared with V_pE through modularity and the polarization; an integral comparison with T_pE must track the modular-parametrization lattice index and chosen differential/Betti bases. The geometric coefficient here is T_pE, not T_pE(1).
+p>2 good supersingular and a_p=0 (explicit also at p=3); (D_L,N)=1, p split and E[p](L)=0. The embedding fixes v; signs •∈{+,−} use the actual Kobayashi/Pollack normalization. Ordinary ownership is KatoEulerSystems **ordinaryBSTWComparison** (extension contract). Layer 8 owns the signed construction of BSTW §6 and the signed comparison of BSTW §9.3.2. Fix the Néron differential, both Betti sign bases and the Gauss-sum normalization of BSTW6.26; for the integral refinement require irr_ℚ and integral primitive differential/Betti bases. Cyclotomic comparison is made over ℚ_p unless these lattice hypotheses have been discharged. BSTW §§2.2.4–2.2.5, printed pp.13–14, defines the cohomological lattice T_g with determinant χ_cyc⁻¹. Its twist T_g(1) is compared with V_pE through modularity and the polarization; an integral comparison with T_pE must track the modular-parametrization lattice index and chosen differential/Betti bases. The geometric coefficient here is T_pE, not T_pE(1).
 
 Import Kato’s actual classes/norm relations and the ordinary owner’s CM-family base construction; PadicFamilies L4, not merely its eigencurve L1, must supply the CM family specialization. Apply the R29.4 modular Tate-module comparison and polarization to transport T_g(1) to V_pE; prove the integral lattice/basis comparison required by 6.26(ii) before claiming an equality over ℤ_p. Keep all lattice indices in the normalization. Carry out BSTW §6’s supersingular signed construction with the integral two-variable local maps, using the rank-one cohomology statement and no global congruence equality as a construction assumption. Prove both local reciprocity laws with a common integral normalization; one-variable rational PHR maps require the specified signed/unramified two-variable extension and normalization proof. Nonzero analytic images imply nonzero zeta class. Preserve local conditions and lattice under the specified cyclotomic projections, not arbitrary changes of the quadratic field. Construct the cyclotomic target independently as continuous-H¹ inverse limits. BSTW6.26(i), printed p.68, compares specialization with the normalized two-class combination; apply the same-field ± character projectors of §3.3 under Shapiro. A quotient of two-variable cohomology is related by a control theorem and is not its definition.
 
 The source comparison is [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem 1.14, printed p. 7; [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Remark 1.15(ii), printed p. 7; [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), §6.6.2, Proposition6.25 and Theorem6.26, printed p.68; §3.3; [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), §§2.2.4–2.2.5, printed pp.13–14; Theorem6.26(ii), printed p.68.
 
-*Needs:* KatoEulerSystems L2 / p-adic-zeta-elements-and-their-norm-relations; KatoEulerSystems L3 / generalised-explicit-reciprocity-law-for-zeta-elements; PadicHodgeRegulators L3 / crystalline-regulator; PadicHodgeRegulators L4 / signed-local-condition; PadicHodgeRegulators L4 / actual-coleman-image; PadicHodgeRegulators L4 / integral-image-index; SelmerIwasawaCohomology L3 / iwasawa-cohomology; ArithmeticGaloisDuality R02.4; KatoEulerSystems L4; PadicFamilies L4; PadicHodgeRegulators L4; AutomorphicPadicLFunctions L3; Tau Ceti `TauCeti.ContCohomology.H1`; EllipticCurveModularity R29.4 / tate-module-comparison.
+*Needs:* KatoEulerSystems **Geometric p-adic zeta classes**; KatoEulerSystems **Generalized explicit reciprocity**; PadicHodgeRegulators L3 / crystalline-regulator; PadicHodgeRegulators L4 / signed-local-condition; PadicHodgeRegulators L4 / actual-coleman-image; PadicHodgeRegulators L4 / integral-image-index; SelmerIwasawaCohomology L3 / iwasawa-cohomology; ArithmeticGaloisDuality R02.4; KatoEulerSystems **The cohomological upper bound**; PadicFamilies L4; PadicHodgeRegulators L4; AutomorphicPadicLFunctions L3; Tau Ceti `TauCeti.ContCohomology.H1`; EllipticCurveModularity R29.4 / tate-module-comparison.
 
-The intended declarations are:
+The required API is:
 
 - `TauCeti.BSD.bstwZetaElement` — Z^•(E/L) in the two-variable Iwasawa cohomology with the relaxed/signed local condition.
 - `TauCeti.BSD.bstwZetaElement_ne_zero` — Z^•(E/L) ≠ 0.
@@ -1531,15 +1470,13 @@ In the signed setting of bstw-two-variable-zeta-element, Col^•_v(loc_v Z^•)=
 
 As the signed zeta construction. The ordinary construction is imported, and no one-variable BDP function is simply declared to be the two-variable Greenberg function.
 
-First law: Kato's explicit reciprocity (KatoEulerSystems L3) interpolated over the family, with the signed Coleman maps of PadicHodgeRegulators L4. Second law: the Perrin-Riou logarithm at the other prime above p, compared with the BDP–Brooks interpolation (GZ.9/bdp-p-adic-l-function, GZ.9/bdp-weight-two-heegner-formula) through the explicit reciprocity of PadicHodgeRegulators L3/explicit-reciprocity. Common normalisation: both are computed with the same integral basis of D_cris and the same CM periods (BSTW §§5–6).
+First law: Kato's explicit reciprocity (KatoEulerSystems **Generalized explicit reciprocity**) interpolated over the family, with the signed Coleman maps of PadicHodgeRegulators L4. Second law: the Perrin-Riou logarithm at the other prime above p, compared with the BDP–Brooks interpolation (**The BDP anticyclotomic p-adic L-function in weight two**, **The BDP p-adic Gross–Zagier formula in weight two**) through the explicit reciprocity of PadicHodgeRegulators L3/explicit-reciprocity. Common normalisation: both are computed with the same integral basis of D_cris and the same CM periods (BSTW §§5–6).
 
 The source comparison is [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem 1.14, printed p. 7.
 
-*Needs:* §8.1 (the two-variable zeta element of an elliptic curve over an imaginary quadratic field (bstw)); KatoEulerSystems L3 / generalised-explicit-reciprocity-law-for-zeta-elements; PadicHodgeRegulators L3 / explicit-reciprocity; PadicHodgeRegulators L4 / regulator-coordinate-decomposition; GrossZagierAndArithmeticHeights GZ.9 / bdp-p-adic-l-function; GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; ArithmeticGaloisDuality R02.4; PadicHodgeRegulators L4; AutomorphicPadicLFunctions L3.
+*Needs:* §8.1 (the two-variable zeta element of an elliptic curve over an imaginary quadratic field (bstw)); KatoEulerSystems **Generalized explicit reciprocity**; PadicHodgeRegulators L3 / explicit-reciprocity; PadicHodgeRegulators L4 / regulator-coordinate-decomposition; GrossZagierAndArithmeticHeights **The BDP anticyclotomic p-adic L-function in weight two**; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; ArithmeticGaloisDuality R02.4; PadicHodgeRegulators L4; AutomorphicPadicLFunctions L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.bstw_explicit_reciprocity_laws` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bstw_explicit_reciprocity_laws` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1557,9 +1494,7 @@ The source comparison is [Ashay Burungale, Christopher Skinner, Ye Tian and Xin 
 
 *Needs:* §8.1 (the two-variable zeta element of an elliptic curve over an imaginary quadratic field (bstw)); §8.2 (the two explicit reciprocity laws for the bstw zeta element); ArithmeticGaloisDuality R02.4; SelmerIwasawaCohomology L3; PadicHodgeRegulators L4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.bstw_signed_main_conjecture_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bstw_signed_main_conjecture_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1572,7 +1507,7 @@ The signed Coleman law localizes at v and the signed logarithm law at v̄. They 
 
 ### Dependencies
 
-Supplier interfaces: ArithmeticGaloisDuality R02.4; AutomorphicPadicLFunctions L3; EllipticCurveModularity R29.4 / tate-module-comparison; GrossZagierAndArithmeticHeights GZ.9 / bdp-p-adic-l-function; GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; KatoEulerSystems L2 / p-adic-zeta-elements-and-their-norm-relations; KatoEulerSystems L3 / generalised-explicit-reciprocity-law-for-zeta-elements; KatoEulerSystems L4; PadicFamilies L4; PadicHodgeRegulators L3 / crystalline-regulator; PadicHodgeRegulators L3 / explicit-reciprocity; PadicHodgeRegulators L4; PadicHodgeRegulators L4 / actual-coleman-image; PadicHodgeRegulators L4 / integral-image-index; PadicHodgeRegulators L4 / regulator-coordinate-decomposition; PadicHodgeRegulators L4 / signed-local-condition; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-cohomology; Tau Ceti `TauCeti.ContCohomology.H1`.
+Supplier interfaces: ArithmeticGaloisDuality R02.4; AutomorphicPadicLFunctions L3; EllipticCurveModularity R29.4 / tate-module-comparison; GrossZagierAndArithmeticHeights **The BDP anticyclotomic p-adic L-function in weight two**; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; KatoEulerSystems **Geometric p-adic zeta classes**; KatoEulerSystems **Generalized explicit reciprocity**; KatoEulerSystems **The cohomological upper bound**; PadicFamilies L4; PadicHodgeRegulators L3 / crystalline-regulator; PadicHodgeRegulators L3 / explicit-reciprocity; PadicHodgeRegulators L4; PadicHodgeRegulators L4 / actual-coleman-image; PadicHodgeRegulators L4 / integral-image-index; PadicHodgeRegulators L4 / regulator-coordinate-decomposition; PadicHodgeRegulators L4 / signed-local-condition; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-cohomology; Tau Ceti `TauCeti.ContCohomology.H1`.
 
 ## Layer 9: Integral anticyclotomic and signed main-conjecture arguments
 
@@ -1584,15 +1519,13 @@ Let E/ℚ be semistable, p ≥ 3 a prime of good reduction with E[p] irreducible
 
 JSW's (split), (gen-H), (good), (-free), (irred_K), (corank 1), (sur); the control is a comparison of finite modules with all local terms kept. Use the finite-level/index/regulator convention of JSW3.5 with E(K)[p]=0, nonzero z_K and the (sur) local map; do not replace finite-level H1_ac and Λ-adic duals without the control theorem.
 
-Control via Greenberg's method: compare the Λ-adic Selmer group at the augmentation ideal with H¹_{F_ac}(K, E[p^∞]), the kernel and cokernel being controlled by H⁰ terms that vanish under (irred_K) and local terms at primes w | N⁺ split in K (Tamagawa factors) (SelmerIwasawaCohomology L3/iwasawa-descent, L3/semilocal-cohomology). This requires a Selmer-specific map with its finite kernel/cokernel and augmentation correction; derived cohomology descent alone is insufficient. No proper finite-index Λ-submodules (as in Castella erratum Lemma 2.2), so the characteristic ideal specialises to the Fitting ideal. Express #H¹_{F_ac} through Ш, the index of z_K and the p-adic logarithm at 𝔭 using the Bloch–Kato logarithm of the Kummer class (GZ.9/bloch-kato-logarithm-of-heegner-class) and Poitou–Tate (ArithmeticGaloisDuality R02.4/poitou-tate).
+Control via Greenberg's method: compare the Λ-adic Selmer group at the augmentation ideal with H¹_{F_ac}(K, E[p^∞]), the kernel and cokernel being controlled by H⁰ terms that vanish under (irred_K) and local terms at primes w | N⁺ split in K (Tamagawa factors) (SelmerIwasawaCohomology L3/iwasawa-descent, L3/semilocal-cohomology). This requires a Selmer-specific map with its finite kernel/cokernel and augmentation correction; derived cohomology descent alone is insufficient. No proper finite-index Λ-submodules (as in Castella erratum Lemma 2.2), so the characteristic ideal specialises to the Fitting ideal. Express #H¹_{F_ac} through Ш, the index of z_K and the p-adic logarithm at 𝔭 using the Bloch–Kato logarithm of the Kummer class (**Bloch–Kato logarithm of the Heegner Kummer class**) and Poitou–Tate (ArithmeticGaloisDuality R02.4/poitou-tate).
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §1.3, p. 3.
 
-*Needs:* SelmerIwasawaCohomology L3 / iwasawa-descent; SelmerIwasawaCohomology L3 / semilocal-cohomology; GrossZagierAndArithmeticHeights GZ.9 / bloch-kato-logarithm-of-heegner-class; ArithmeticGaloisDuality R02.4 / poitou-tate; §2.9 (tamagawa factors under quadratic base change and twist); ModularIwasawaMainConjectures L0; SelmerIwasawaCohomology L3; ArithmeticGaloisDuality R02.4; Tau Ceti `TauCeti.ContCohomology.H1`.
+*Needs:* SelmerIwasawaCohomology L3 / iwasawa-descent; SelmerIwasawaCohomology L3 / semilocal-cohomology; GrossZagierAndArithmeticHeights **Bloch–Kato logarithm of the Heegner Kummer class**; ArithmeticGaloisDuality R02.4 / poitou-tate; §2.9 (tamagawa factors under quadratic base change and twist); ModularIwasawaMainConjectures L0; SelmerIwasawaCohomology L3; ArithmeticGaloisDuality R02.4; Tau Ceti `TauCeti.ContCohomology.H1`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.anticyclotomic_selmer_control` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.anticyclotomic_selmer_control` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1604,15 +1537,13 @@ Let E/ℚ be semistable and p > 2 a supersingular prime, with a₃(E) = 0 if p =
 
 Exactly BSTW's hypotheses and twist range; Wan arXiv:1411.6352 is withdrawn and superseded in part by BSTW (Remark 1.4); its CM case is Pollack–Rubin.
 
-Choose auxiliary L with split p and the required local character/congruence hypotheses and cyclotomic (nv). Proposition1.19 uses (irr_L), stronger than (van_L), but BSTW §1.2.1 explicitly says (irr_L) holds for good supersingular p>2. Discharge it from the local supersingular residual representation at the split p-adic place; do not present it as an extra unproved field-existence restriction. One divisibility in the two-variable Greenberg main conjecture over L from the semi-ordinary GU(3,1) congruences of Castella–Liu–Wan (AutomorphicCongruences L2s) and Hsieh's μ theorem (AutomorphicPadicLFunctions L3h). Transfer the rational divisibility using bstw-signed-main-conjecture-comparison. BSTW Proposition1.19 upgrades to an integral comparison under E[p]|G_L irreducible (1.6); the weaker van_L is sufficient for Proposition9.18’s comparison identity but not for every integral MC step. The opposite divisibility from Kato's signed Euler-system bound (KatoEulerSystems L4, EulerSystemsAndKolyvaginSystems ES.4, signed local conditions of PadicHodgeRegulators L4). Cyclotomic descent from L to ℚ (BSTW §10), separating E and E^L; track the height-one primes and residual conditions.
+Choose auxiliary L with split p and the required local character/congruence hypotheses and cyclotomic (nv). Proposition1.19 uses (irr_L), stronger than (van_L), but BSTW §1.2.1 explicitly says (irr_L) holds for good supersingular p>2. Discharge it from the local supersingular residual representation at the split p-adic place; do not present it as an extra unproved field-existence restriction. One divisibility in the two-variable Greenberg main conjecture over L from the semi-ordinary GU(3,1) congruences of Castella–Liu–Wan (AutomorphicCongruences L2s) and Hsieh's μ theorem (AutomorphicPadicLFunctions L3h). Transfer the rational divisibility using bstw-signed-main-conjecture-comparison. BSTW Proposition1.19 upgrades to an integral comparison under E[p]|G_L irreducible (1.6); the weaker van_L is sufficient for Proposition9.18’s comparison identity but not for every integral MC step. The opposite divisibility from Kato's signed Euler-system bound (KatoEulerSystems **The cohomological upper bound**, EulerSystemsAndKolyvaginSystems ES.4, signed local conditions of PadicHodgeRegulators L4). Cyclotomic descent from L to ℚ (BSTW §10), separating E and E^L; track the height-one primes and residual conditions.
 
 The source comparison is [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem 1.3, p. 3; [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem 1.3, p. 3.
 
-*Needs:* §8.2 (the two explicit reciprocity laws for the bstw zeta element); §8.1 (the two-variable zeta element of an elliptic curve over an imaginary quadratic field (bstw)); AutomorphicCongruences L2s; AutomorphicPadicLFunctions L3h; KatoEulerSystems L4 / cohomological-divisibility-one-direction; EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; PadicHodgeRegulators L4 / signed-local-condition; ModularSymbolsPadicLFunctions L4 / plus-minus-decomposition; ModularIwasawaMainConjectures L4; SelmerIwasawaCohomology L3 / iwasawa-descent; §3.1 (admissible discriminants with prescribed local conditions); §8.3 (signed perrin–riou and greenberg main-conjecture comparison).
+*Needs:* §8.2 (the two explicit reciprocity laws for the bstw zeta element); §8.1 (the two-variable zeta element of an elliptic curve over an imaginary quadratic field (bstw)); AutomorphicCongruences L2s; AutomorphicPadicLFunctions L3h; KatoEulerSystems **The cohomological upper bound**; EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; PadicHodgeRegulators L4 / signed-local-condition; ModularSymbolsPadicLFunctions L4 / plus-minus-decomposition; ModularIwasawaMainConjectures L4; SelmerIwasawaCohomology L3 / iwasawa-descent; §3.1 (admissible discriminants with prescribed local conditions); §8.3 (signed perrin–riou and greenberg main-conjecture comparison).
 
-The intended declarations are:
-
-- `TauCeti.BSD.bstw_signed_main_conjecture` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bstw_signed_main_conjecture` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1622,17 +1553,15 @@ The intended declarations are:
 
 Extend the rank-two conjugate-self-dual ordinary Kolyvagin-system argument to the actual lattice T_g of an even-weight p-ordinary newform over K with residual representation irreducible over G_K and the corrected generalized Heegner local conditions. For the nonzero Λ-adic generalized Heegner class κ_g, the ordinary compact Selmer group S and dual X have Λ_O-rank one, and char(X_tors)⊇char(S/Λ_O κ_g)^2 integrally, including the augmentation prime, once C1=C2=0 is proved. CGS6.5.1’s elliptic rational theorem alone is not this extension.
 
-The actual T_g, critical self-dual twist, saturated ordinary filtration and cartesian local conditions satisfying the rank-one Kolyvagin-system hypotheses of ES.8; p split in K. Residual irreducibility over G_K, nonzero generalized Heegner class from GH.7 and the required local conditions corrected by Kobayashi–Ota. Prove C1=C2=0 from the specified irreducible image/cohomology inputs rather than adding it as an unexplained assumption.
+The actual T_g, critical self-dual twist, saturated ordinary filtration and cartesian local conditions satisfying the rank-one Kolyvagin-system hypotheses of ES.8; p split in K. Residual irreducibility over G_K, nonzero generalized Heegner class from GeneralizedHeegnerCycles **Higher-weight input comparison for the corrected multiplicative BSD proof** and the required local conditions corrected by Kobayashi–Ota. Prove C1=C2=0 from the specified irreducible image/cohomology inputs rather than adding it as an unexplained assumption.
 
 Transport the CGS6.1.1/6.5.1 rank-two linear-algebra proof to T_g and prove every image, local and cartesian hypothesis. C2: supply CGLS22 Remark3.3.5 irreducible-image argument. C1: verify Cha05 Theorem2 and the applicable Matar–Nekovář0.9 variant for T_g and its finite-level restriction kernel. Handle the augmentation prime before passing from height-one bounds to the integral characteristic ideal. Connect the corrected generalized Heegner class with this ordinary Kolyvagin system. With the same integral lattice, generalized Heegner reciprocity law and primitive local conditions, prove the higher-weight ordinary Poitou–Tate comparison of the BCK Theorem 5.2 argument: the preceding index-square containment implies that X_ac is torsion and char(X_ac)Λ_O^ur contains (L_p(g)). Retain every local image index and period factor before asserting the integral containment. This is an early ordinary comparison and its higher-weight extension, independent of the later HE.8b Eisenstein equality; it is a required compatibility proof for the next main-conjecture target.
 
 The source comparison is [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Proof of Theorem2.3, printed pp.3–4, equation(2.2); [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), §6 opening and Theorems6.1.1,6.5.1.
 
-*Needs:* EulerSystemsAndKolyvaginSystems ES.8; GeneralizedHeegnerCycles GH.7; OrdinaryAutomorphicFormsAndModularityLifting R21.3; SelmerIwasawaCohomology L3.
+*Needs:* EulerSystemsAndKolyvaginSystems ES.8; GeneralizedHeegnerCycles **Higher-weight input comparison for the corrected multiplicative BSD proof**; OrdinaryAutomorphicFormsAndModularityLifting R21.3; SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.higher_weight_integral_kolyvagin_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.higher_weight_integral_kolyvagin_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1641,19 +1570,17 @@ The intended declarations are:
 
 ### 9.4 The anticyclotomic divisibility for the BDP p-adic L-function (Wan; JSW §6)
 
-In the setting of anticyclotomic-selmer-control (p ≥ 3 good ordinary or supersingular, with a_p = 0 if p = 3 is supersingular), the BDP–Brooks p-adic L-function L_p(f) ∈ Λ^ur (GZ.9) satisfies the divisibility Ch_{Λ^ur}(X_ac) ⊆ (L_p(f)) in Λ^ur ⊗ ℚ_p, and integrally in Λ^ur under JSW's hypotheses (the μ-part requiring JSW6.1.6/Burungale5.1.3 and all selected Hsieh hypotheses); consequently ord_p L_p(f, 1) ≤ ord_p(#H¹_{F_ac}(K, E[p^∞]) · C(E[p^∞])) (JSW Proposition 6.2.1).
+In the setting of anticyclotomic-selmer-control (p ≥ 3 good ordinary or supersingular, with a_p = 0 if p = 3 is supersingular), the BDP–Brooks p-adic L-function L_p(f) ∈ Λ^ur (**The BDP p-adic Gross–Zagier formula in weight two**) satisfies the divisibility Ch_{Λ^ur}(X_ac) ⊆ (L_p(f)) in Λ^ur ⊗ ℚ_p, and integrally in Λ^ur under JSW's hypotheses (the μ-part requiring JSW6.1.6/Burungale5.1.3 and all selected Hsieh hypotheses); consequently ord_p L_p(f, 1) ≤ ord_p(#H¹_{F_ac}(K, E[p^∞]) · C(E[p^∞])) (JSW Proposition 6.2.1).
 
 Inputs are owned elsewhere: the U(3,1) Eisenstein congruences (AutomorphicCongruences L2 for the ordinary FW route, L2s for the semi-ordinary CLW replacement of withdrawn Wan arXiv:1412.1767), Hsieh's μ theorem (AutomorphicPadicLFunctions L3h) and the Eischen–Wan finite-slope families (L4e). The divisibility direction is the one giving lower bounds for Sha; the reverse divisibility is not claimed here.
 
-Construct the Klingen Eisenstein family on GU(3,1) whose constant term is L_p(f)·(Katz factor) and whose non-degenerate Fourier–Jacobi coefficients are p-adic units (AutomorphicCongruences L2/L2s; Eischen–Wan for finite slope, APL L4e). Lattice construction: the congruence between the Eisenstein family and cusp forms produces Selmer classes, giving Ch(X_ac) ⊆ (L_p(f)) (the Ribet–Urban method). Remove the ambiguity of powers of p: μ(L_p(f)) = 0 by Hsieh (APL L3h) and the comparison of BDP and Hida's two-variable functions (GZ.9/imprimitive-function-dictionary). Specialise at the trivial character with anticyclotomic-selmer-control. CLW L2s supplies fractional one-sided containment with auxiliary-character/local/residual hypotheses and inverted coefficient elements, not an unrestricted integral supersingular equality. Prove those conditions and removal of exceptional height-one primes before asserting the integral JSW consequence.
+Construct the Klingen Eisenstein family on GU(3,1) whose constant term is L_p(f)·(Katz factor) and whose non-degenerate Fourier–Jacobi coefficients are p-adic units (AutomorphicCongruences L2/L2s; Eischen–Wan for finite slope, APL L4e). Lattice construction: the congruence between the Eisenstein family and cusp forms produces Selmer classes, giving Ch(X_ac) ⊆ (L_p(f)) (the Ribet–Urban method). Remove the ambiguity of powers of p: μ(L_p(f)) = 0 by Hsieh (APL L3h) and the comparison of BDP and Hida's two-variable functions (**Dictionary between Skinner's L^S_𝔭(f) and the BDP and Brooks functions**). Specialise at the trivial character with anticyclotomic-selmer-control. CLW L2s supplies fractional one-sided containment with auxiliary-character/local/residual hypotheses and inverted coefficient elements, not an unrestricted integral supersingular equality. Prove those conditions and removal of exceptional height-one primes before asserting the integral JSW consequence.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §1.3, p. 3.
 
-*Needs:* AutomorphicCongruences L2; AutomorphicCongruences L2s; AutomorphicPadicLFunctions L3h; AutomorphicPadicLFunctions L4e; GrossZagierAndArithmeticHeights GZ.9 / bdp-p-adic-l-function; GrossZagierAndArithmeticHeights GZ.9 / bdp-measure-integrality; GrossZagierAndArithmeticHeights GZ.9 / imprimitive-function-dictionary; §9.1 (anticyclotomic control at the trivial character (jsw theorem 3.3.1)).
+*Needs:* AutomorphicCongruences L2; AutomorphicCongruences L2s; AutomorphicPadicLFunctions L3h; AutomorphicPadicLFunctions L4e; GrossZagierAndArithmeticHeights **The BDP anticyclotomic p-adic L-function in weight two**; GrossZagierAndArithmeticHeights **The BDP function lies in the Iwasawa algebra**; GrossZagierAndArithmeticHeights **Dictionary between Skinner's L^S_𝔭(f) and the BDP and Brooks functions**; §9.1 (anticyclotomic control at the trivial character (jsw theorem 3.3.1)).
 
-The intended declarations are:
-
-- `TauCeti.BSD.wan_anticyclotomic_divisibility` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.wan_anticyclotomic_divisibility` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1665,15 +1592,13 @@ Under the hypotheses of bstw-signed-main-conjecture (E or a permitted twist E^K)
 
 Supersingular p > 2 with a_p = 0 (automatic for p ≥ 5).
 
-Specialise (L^+_p(E)) = ξ_Λ(X^+(E)) at the trivial character: L^+_p(E)(1) is a p-adic unit times L(E,1)/Ω_E^+ (interpolation with the factor (p − 1) or 2 from the half-logarithms, ModularSymbolsPadicLFunctions L4/half-logarithms), and Kobayashi's control theorem for the + Selmer group gives #Sel_{p^∞}(E/ℚ)·∏_ℓ c_ℓ. E(ℚ) is finite (Layer 6) so Sel = Ш[p^∞]; Ω_E^+ versus Ω_E needs the Manin constant prime to p (GZ.3).
+Specialise (L^+_p(E)) = ξ_Λ(X^+(E)) at the trivial character: L^+_p(E)(1) is a p-adic unit times L(E,1)/Ω_E^+ (interpolation with the factor (p − 1) or 2 from the half-logarithms, ModularSymbolsPadicLFunctions L4/half-logarithms), and Kobayashi's control theorem for the + Selmer group gives #Sel_{p^∞}(E/ℚ)·∏_ℓ c_ℓ. E(ℚ) is finite (Layer 6) so Sel = Ш[p^∞] after the supersingular residual inertia description excludes rational p-torsion; Ω_E^+ versus Ω_E needs the Manin constant prime to p (**Integral Manin constant and p-unit range**).
 
 The source comparison is [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem 1.5, p. 4.
 
-*Needs:* §9.2 (kobayashi's signed main conjecture for semistable curves at supersingular primes (bstw theorem 1.3)); ModularSymbolsPadicLFunctions L4 / half-logarithms; SelmerIwasawaCohomology L3 / iwasawa-descent; §6.1 (analytic rank zero implies rank zero and finite sha (kolyvagin)); GrossZagierAndArithmeticHeights GZ.3; SelmerIwasawaCohomology L3.
+*Needs:* §9.2 (kobayashi's signed main conjecture for semistable curves at supersingular primes (bstw theorem 1.3)); ModularSymbolsPadicLFunctions L4 / half-logarithms; SelmerIwasawaCohomology L3 / iwasawa-descent; §6.1 (analytic rank zero implies rank zero and finite sha (kolyvagin)); GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.bstw_rank_zero_p_part` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bstw_rank_zero_p_part` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1683,17 +1608,15 @@ The intended declarations are:
 
 (a) (Erratum Theorem 2.3.) Let g ∈ S_k(Γ₀(M)) be a p-ordinary newform of even weight k ≥ 2 and level M ≥ 3 with p ∤ M, and K imaginary quadratic with p split and a Heegner ideal of norm M. Assume ρ̄_g|_{G_K} irreducible; 2 ∥ M if 2 is nonsplit in K; some q ∥ M nonsplit in K; and at every ℓ ∥ M nonsplit in K, π(g)_ℓ is the special representation twisted by the unramified character ℓ ↦ −ℓ^{k/2−1}. Then for every finite set Σ of primes not above p, X^Σ_ac(A_g) is Λ_O-torsion and Ch_{Λ_O}(X^Σ_ac(A_g))Λ^ur_O = (L^Σ_p(g)). (b) (Lemma 2.1.) If Σ contains the primes v ∤ p where T_g ramifies, ρ̄_g|_{G_K} is irreducible and H⁰(K_𝔭, A_g[ϖ]) = 0, then Sel^Σ_p(K, M_g[ϖ^m]) ≅ Sel^Σ_p(K, M_g)[ϖ^m]. (c) (Lemma 2.2.) If X_ac(A_g) is Λ_O-torsion, Sel^Σ_p(K, M_g) has no proper finite-index Λ_O-submodules.
 
-Use GH.2–7 generalized Heegner classes and the exact reciprocity laws; the higher-weight integral Kolyvagin bound is proved in §9.3. Import only CGS’s elliptic-curve rational comparison as background, not a ready higher-weight integral theorem. The reverse divisibility uses FW Theorem4.41/Corollary7.21 from AC L2; CGS Proposition2.4.5 from APL L3h; FO12 Lemma2.14 from R21.3; the early ordinary BCK5.2 comparison accompanying the extension in §9.3; Greenberg no-finite-submodule theorem from SIC L3. Prove each local/residual/integral hypothesis and the Σ-imprimitive projection here.
+Use GeneralizedHeegnerCycles **Higher-weight input comparison for the corrected multiplicative BSD proof** generalized Heegner classes and the exact reciprocity laws; the higher-weight integral Kolyvagin bound is proved in §9.3. Import only CGS’s elliptic-curve rational comparison as background, not a ready higher-weight integral theorem. The reverse divisibility uses FW Theorem4.41/Corollary7.21 from AC L2; CGS Proposition2.4.5 from APL L3h; FO12 Lemma2.14 from R21.3; the early ordinary BCK5.2 comparison accompanying the extension in §9.3; Greenberg no-finite-submodule theorem from SIC L3. Prove each local/residual/integral hypothesis and the Σ-imprimitive projection here.
 
 (a) Use the higher-weight integral Kolyvagin bound added in this roadmap, retaining the augmentation-prime case, C1=C2=0 proof and corrected generalized Heegner local conditions. Combine the BCK comparison, exact GH reciprocity, FW reverse divisibility and APL anticyclotomic Rankin/Katz-to-BDP projection. Prove the Σ-imprimitive version via JSW3.4.2/6.1.6 with matching factors. (b) Shapiro's lemma and H⁰(K, M_g) = H⁰(K_∞, A_g) = 0 give H¹(G_{K,S}, M_g[ϖ^m]) ≅ H¹(G_{K,S}, M_g)[ϖ^m]; the local kernel at 𝔭 is H⁰(K_𝔭, M_g)/ϖ^m, zero when H⁰(K_𝔭, A_g[ϖ]) = 0. (c) Greenberg's general results (as in Hsieh–Lei and Skinner Proposition 2.3.3). CGS6.5.1 is for T_pE and gives its displayed bound over Λ[1/p]. Prove the extension to T_g, rather than assuming it. Correct the erratum’s second C2=0 to C1=0 and discharge it via Cha05/large-image input. The nonexistent FO12 Cor7.2.1 is not a supplier. For FW4.41, verify absolute residual irreducibility over K, the crystalline p-local alternative, a nonsplit q∥M, and that every nonsplit conductor prime is ramified special with the prescribed unramified twist; otherwise the source gives only the inclusion away from pullbacks of cyclotomic height-one primes. The cyclic Heegner ideal and residual/local-type comparison must discharge these hypotheses explicitly. Apply FW7.21 with its class-number and Katz factors before the Σ projection; FO2.14 is only the local-type input.
 
 The source comparison is [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Theorem 2.3, p. 3; [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Lemma 2.1, p. 2; [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Remark after Theorem A′, p. 2; [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Lemma2.2, p.3; [Olivier Fouquet and Tadashi Ochiai](https://www.math.titech.ac.jp/top/~ochiai/ControlF-O.pdf), Lemma2.14, pp.12–13; [Olivier Fouquet and Xin Wan](https://arxiv.org/abs/2107.13726v3), Theorem4.41, p.58; Corollary7.21, p.89.
 
-*Needs:* GeneralizedHeegnerCycles GH.7; AutomorphicCongruences L2; AutomorphicPadicLFunctions L3h; AutomorphicPadicLFunctions L4e; §9.3 (higher-weight integral kolyvagin bound); HeegnerPointEulerSystems HE.8; SelmerIwasawaCohomology L3 / iwasawa-shapiro; EulerSystemsAndKolyvaginSystems ES.4 / variant-bounds; SelmerIwasawaCohomology L3; OrdinaryAutomorphicFormsAndModularityLifting R21.3.
+*Needs:* GeneralizedHeegnerCycles **Higher-weight input comparison for the corrected multiplicative BSD proof**; AutomorphicCongruences L2; AutomorphicPadicLFunctions L3h; AutomorphicPadicLFunctions L4e; §9.3 (higher-weight integral kolyvagin bound); HeegnerPointEulerSystems HE.8; SelmerIwasawaCohomology L3 / iwasawa-shapiro; EulerSystemsAndKolyvaginSystems ES.4 / variant-bounds; SelmerIwasawaCohomology L3; OrdinaryAutomorphicFormsAndModularityLifting R21.3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.castella_higher_weight_input` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.castella_higher_weight_input` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1701,19 +1624,17 @@ The intended declarations are:
 
 ### 9.7 Castella's corrected anticyclotomic main conjecture at a multiplicative prime (erratum Theorem 1.1)
 
-Let E/ℚ be elliptic of conductor N with multiplicative reduction at p > 3, K imaginary quadratic with an ideal 𝔑 ⊂ 𝓞_K with 𝓞_K/𝔑 ≅ ℤ/N and p = 𝔭𝔭̄ split. Assume (i) E[p] irreducible; (ii) if 2 is nonsplit in K then 2 ∥ N; (iii) E has nonsplit multiplicative reduction at each prime q ∥ N nonsplit in K, and E[p] is ramified at at least one such q; (iv) E(ℚ_p)[p] = 0. Then X_ac(E[p^∞]) is Λ-torsion and Ch_Λ(X_ac(E[p^∞]))Λ_{R₀} = (L_p(f)), with L_p(f) the BDP-type function of GZ.9/multiplicative-prime-formula.
+Let E/ℚ be elliptic of conductor N with multiplicative reduction at p > 3, K imaginary quadratic with an ideal 𝔑 ⊂ 𝓞_K with 𝓞_K/𝔑 ≅ ℤ/N and p = 𝔭𝔭̄ split. Assume (i) E[p] irreducible; (ii) if 2 is nonsplit in K then 2 ∥ N; (iii) E has nonsplit multiplicative reduction at each prime q ∥ N nonsplit in K, and E[p] is ramified at at least one such q; (iv) E(ℚ_p)[p] = 0. Then X_ac(E[p^∞]) is Λ-torsion and Ch_Λ(X_ac(E[p^∞]))Λ_{R₀} = (L_p(f)), with L_p(f) the BDP-type function of **The weight-two formula at a multiplicative prime**.
 
 Exactly the corrected hypotheses; the invalid Hida specialisation step of Castella (2018) Theorem 4.2 is not used, and additive primes are allowed.
 
-Choose a Hida family f through the p-stabilised newform and, for each m, a p-ordinary newform g of weight k > 2 with k≡2 mod p−1 and level M with p ∤ M congruent to f modulo p^m (Skinner §3.1's Hida-family/Fitting-ideal argument; specified from ModularIwasawaMainConjectures). For g, the higher-weight main conjecture castella-higher-weight-input gives Ch(X_ac^Σ(A_g)) = (L^Σ_p(g)). castella-higher-weight-input's Lemma 2.1 (needs (iv)) identifies Sel^Σ_p(K, M_f[ϖ^m]) with Sel^Σ_p(K, M_f)[ϖ^m]; Lemma 2.2 (no proper finite-index submodules) turns characteristic ideals into Fitting ideals, which are compatible with the congruence. Congruence of p-adic L-functions modulo p^m (GH.7 big Heegner/BDP families) and letting m → ∞ gives the equality for f; remove Σ-imprimitivity with local factors. Preserve the nonsplit special local type along the Hida family by FO12 Lemma2.14 from R21.3; carry hypotheses (iii)–(iv) into each g_m using the Hecke relation. Prove the anticyclotomic Fitting-congruence argument for every m, not merely its analogy with Skinner’s cyclotomic proof.
+Choose a Hida family f through the p-stabilised newform and, for each m, a p-ordinary newform g of weight k > 2 with k≡2 mod p−1 and level M with p ∤ M congruent to f modulo p^m (Skinner §3.1's Hida-family/Fitting-ideal argument; specified from ModularIwasawaMainConjectures). For g, the higher-weight main conjecture castella-higher-weight-input gives Ch(X_ac^Σ(A_g)) = (L^Σ_p(g)). castella-higher-weight-input's Lemma 2.1 (needs (iv)) identifies Sel^Σ_p(K, M_f[ϖ^m]) with Sel^Σ_p(K, M_f)[ϖ^m]; Lemma 2.2 (no proper finite-index submodules) turns characteristic ideals into Fitting ideals, which are compatible with the congruence. Congruence of p-adic L-functions modulo p^m (GeneralizedHeegnerCycles **Higher-weight input comparison for the corrected multiplicative BSD proof**) and letting m → ∞ gives the equality for f; remove Σ-imprimitivity with local factors. Preserve the nonsplit special local type along the Hida family by FO12 Lemma2.14 from R21.3; carry hypotheses (iii)–(iv) into each g_m using the Hecke relation. Prove the anticyclotomic Fitting-congruence argument for every m, not merely its analogy with Skinner’s cyclotomic proof.
 
 The source comparison is [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Theorem 1.1, p. 1; [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), §1, p. 1.
 
-*Needs:* §9.6 (the higher-weight anticyclotomic main conjecture and selmer lemmas used by castella's correction); GeneralizedHeegnerCycles GH.7; GrossZagierAndArithmeticHeights GZ.9 / multiplicative-prime-formula; ModularIwasawaMainConjectures L1; SelmerIwasawaCohomology L3 / iwasawa-descent; GrossZagierAndArithmeticHeights GZ.9; OrdinaryAutomorphicFormsAndModularityLifting R21.3.
+*Needs:* §9.6 (the higher-weight anticyclotomic main conjecture and selmer lemmas used by castella's correction); GeneralizedHeegnerCycles **Higher-weight input comparison for the corrected multiplicative BSD proof**; GrossZagierAndArithmeticHeights **The weight-two formula at a multiplicative prime**; ModularIwasawaMainConjectures L1; SelmerIwasawaCohomology L3 / iwasawa-descent; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; OrdinaryAutomorphicFormsAndModularityLifting R21.3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.castella_anticyclotomic_main_conjecture` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.castella_anticyclotomic_main_conjecture` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1727,7 +1648,7 @@ For the corrected multiplicative theorem, retain p>3, the stated Heegner ideal, 
 
 ### Dependencies
 
-Earlier comparisons: §2.9, §3.1, §6.1, §8.1, §8.2, §8.3. Supplier interfaces: ArithmeticGaloisDuality R02.4; ArithmeticGaloisDuality R02.4 / poitou-tate; AutomorphicCongruences L2; AutomorphicCongruences L2s; AutomorphicPadicLFunctions L3h; AutomorphicPadicLFunctions L4e; EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; EulerSystemsAndKolyvaginSystems ES.4 / variant-bounds; EulerSystemsAndKolyvaginSystems ES.8; GeneralizedHeegnerCycles GH.7; GrossZagierAndArithmeticHeights GZ.3; GrossZagierAndArithmeticHeights GZ.9; GrossZagierAndArithmeticHeights GZ.9 / bdp-measure-integrality; GrossZagierAndArithmeticHeights GZ.9 / bdp-p-adic-l-function; GrossZagierAndArithmeticHeights GZ.9 / bloch-kato-logarithm-of-heegner-class; GrossZagierAndArithmeticHeights GZ.9 / imprimitive-function-dictionary; GrossZagierAndArithmeticHeights GZ.9 / multiplicative-prime-formula; HeegnerPointEulerSystems HE.8; KatoEulerSystems L4 / cohomological-divisibility-one-direction; ModularIwasawaMainConjectures L0; ModularIwasawaMainConjectures L1; ModularIwasawaMainConjectures L4; ModularSymbolsPadicLFunctions L4 / half-logarithms; ModularSymbolsPadicLFunctions L4 / plus-minus-decomposition; OrdinaryAutomorphicFormsAndModularityLifting R21.3; PadicHodgeRegulators L4 / signed-local-condition; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-descent; SelmerIwasawaCohomology L3 / iwasawa-shapiro; SelmerIwasawaCohomology L3 / semilocal-cohomology; Tau Ceti `TauCeti.ContCohomology.H1`.
+Earlier comparisons: §2.9, §3.1, §6.1, §8.1, §8.2, §8.3. Supplier interfaces: ArithmeticGaloisDuality R02.4; ArithmeticGaloisDuality R02.4 / poitou-tate; AutomorphicCongruences L2; AutomorphicCongruences L2s; AutomorphicPadicLFunctions L3h; AutomorphicPadicLFunctions L4e; EulerSystemsAndKolyvaginSystems ES.4 / rubin-bound; EulerSystemsAndKolyvaginSystems ES.4 / variant-bounds; EulerSystemsAndKolyvaginSystems ES.8; GeneralizedHeegnerCycles **Higher-weight input comparison for the corrected multiplicative BSD proof**; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; GrossZagierAndArithmeticHeights **The BDP function lies in the Iwasawa algebra**; GrossZagierAndArithmeticHeights **The BDP anticyclotomic p-adic L-function in weight two**; GrossZagierAndArithmeticHeights **Bloch–Kato logarithm of the Heegner Kummer class**; GrossZagierAndArithmeticHeights **Dictionary between Skinner's L^S_𝔭(f) and the BDP and Brooks functions**; GrossZagierAndArithmeticHeights **The weight-two formula at a multiplicative prime**; HeegnerPointEulerSystems HE.8; KatoEulerSystems **The cohomological upper bound**; ModularIwasawaMainConjectures L0; ModularIwasawaMainConjectures L1; ModularIwasawaMainConjectures L4; ModularSymbolsPadicLFunctions L4 / half-logarithms; ModularSymbolsPadicLFunctions L4 / plus-minus-decomposition; OrdinaryAutomorphicFormsAndModularityLifting R21.3; PadicHodgeRegulators L4 / signed-local-condition; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-descent; SelmerIwasawaCohomology L3 / iwasawa-shapiro; SelmerIwasawaCohomology L3 / semilocal-cohomology; Tau Ceti `TauCeti.ContCohomology.H1`.
 
 ## Layer 10: Prime parts with irreducible residual representation
 
@@ -1745,9 +1666,7 @@ The source comparison is [Christopher Skinner](https://arxiv.org/abs/1407.1093v1
 
 *Needs:* SelmerIwasawaCohomology L3 / iwasawa-descent; SelmerIwasawaCohomology L4 / greenberg-main-conjecture; ModularIwasawaMainConjectures L0; PadicFamilies L3; DiophantineApproximationAndTranscendence DT.5; PadicHodgeRegulators L3 / rubin-coleman-map; PadicHodgeRegulators L4 / split-multiplicative-augmentation; SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.cyclotomic_specialization_formula` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cyclotomic_specialization_formula` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1765,9 +1684,7 @@ The source comparison is [Ashay Burungale, Christopher Skinner, Ye Tian and Xin 
 
 *Needs:* §9.5 (specialisation of the signed main conjecture in rank zero); §9.2 (kobayashi's signed main conjecture for semistable curves at supersingular primes (bstw theorem 1.3)); §6.1 (analytic rank zero implies rank zero and finite sha (kolyvagin)); §7.10 (the p-part of bsd from an upper and a lower bound).
 
-The intended declarations are:
-
-- `TauCeti.BSD.rank_zero_supersingular_p_part` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.rank_zero_supersingular_p_part` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1785,9 +1702,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4, 
 
 *Needs:* SerreWeightAndLevelOptimisation R20.2; TauCetiRoadmap EllipticCurves Layer 4; §0.6 (local euler factors of a quadratic twist).
 
-The intended declarations are:
-
-- `TauCeti.BSD.residually_ramified_prime` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.residually_ramified_prime` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1803,11 +1718,9 @@ Use the signed main conjecture and the source’s supersingular p-adic Gross–Z
 
 The source comparison is [Ashay Burungale, Christopher Skinner, Ye Tian and Xin Wan](https://arxiv.org/abs/2409.01350v2), Theorem1.5, printed p.4 (rank one), and §11.
 
-*Needs:* §9.2 (kobayashi's signed main conjecture for semistable curves at supersingular primes (bstw theorem 1.3)); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); §7.8 (the rational bsd defect); GrossZagierAndArithmeticHeights GZ.9; SelmerIwasawaCohomology L3.
+*Needs:* §9.2 (kobayashi's signed main conjecture for semistable curves at supersingular primes (bstw theorem 1.3)); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); §7.8 (the rational bsd defect); GrossZagierAndArithmeticHeights **supersingularGrossZagierComparison** (extension contract); SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.bstw_rank_one_p_part` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bstw_rank_one_p_part` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1819,15 +1732,13 @@ Let E/ℚ be elliptic with good ordinary or multiplicative reduction at a prime 
 
 The hypotheses are JSW Theorem 7.2.1(ii) and Skinner Theorem C, kept exactly; the residual hypothesis is the Skinner–Urban form (q ∥ N with ρ̄ ramified at q), not the stronger FW 1.6 form. Multiplicative p (p ∥ N): the main conjecture is Skinner's Theorem A for p | N, and in the split case the exceptional-zero inputs (Greenberg–Stevens, L(V_f) ≠ 0) are used; good ordinary p: Skinner–Urban plus Kato.
 
-Main conjecture Ch_Λ(X) = (L_f) in Λ: for p ∤ N, Skinner–Urban's Theorem in the SU/Skinner Theorem A (p ∤ N) form (specified from ModularIwasawaMainConjectures L1); for p ∥ N, Skinner's Theorem A deduced from the p ∤ N case through Hida families and Fitting ideals (specified as a new ModularIwasawaMainConjectures layer beside L1). cyclotomic-specialization-formula turns the equality into #ℤ_p/(L_alg(E,1)) = #Sel_{p^∞}(E/ℚ)·∏_ℓ c_ℓ, with the split multiplicative case through L(V_f) ≠ 0. Sel_{p^∞}(E/ℚ) = Ш(E/ℚ)[p^∞] as E(ℚ) is finite (§6.1) and E(ℚ)[p] = 0. Periods: Ω_E = −2πiΩ_f^+ up to ℤ_(p)^× (Manin constant prime to p, specified from GZ.3); then §7.10.
+Main conjecture Ch_Λ(X) = (L_f) in Λ: for p ∤ N, Skinner–Urban's Theorem in the SU/Skinner Theorem A (p ∤ N) form (specified from ModularIwasawaMainConjectures L1); for p ∥ N, Skinner's Theorem A deduced from the p ∤ N case through Hida families and Fitting ideals (specified as a new ModularIwasawaMainConjectures layer beside L1). cyclotomic-specialization-formula turns the equality into #ℤ_p/(L_alg(E,1)) = #Sel_{p^∞}(E/ℚ)·∏_ℓ c_ℓ, with the split multiplicative case through L(V_f) ≠ 0. Sel_{p^∞}(E/ℚ) = Ш(E/ℚ)[p^∞] as E(ℚ) is finite (§6.1) and E(ℚ)[p] = 0. Periods: Ω_E = −2πiΩ_f^+ up to ℤ_(p)^× (Manin constant prime to p, specified from **Integral Manin constant and p-unit range**); then §7.10.
 
 The source comparison is [Christopher Skinner](https://arxiv.org/abs/1407.1093v1), §1, Theorem C, p. 3; [JSW (v1)](https://arxiv.org/abs/1512.06894v1), Theorem 7.2.1(ii), pp. 42–43.
 
-*Needs:* §10.1 (specialising a cyclotomic main conjecture at the trivial character); ModularIwasawaMainConjectures L1; §6.1 (analytic rank zero implies rank zero and finite sha (kolyvagin)); §7.10 (the p-part of bsd from an upper and a lower bound); §1.1 (rationality of l(e,1)/ω_e); §6.3 (kato's upper bound for the p-part of sha in analytic rank zero); GrossZagierAndArithmeticHeights GZ.3; PadicFamilies L3; DiophantineApproximationAndTranscendence DT.5.
+*Needs:* §10.1 (specialising a cyclotomic main conjecture at the trivial character); ModularIwasawaMainConjectures L1; §6.1 (analytic rank zero implies rank zero and finite sha (kolyvagin)); §7.10 (the p-part of bsd from an upper and a lower bound); §1.1 (rationality of l(e,1)/ω_e); §6.3 (kato's upper bound for the p-part of sha in analytic rank zero); GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; PadicFamilies L3; DiophantineApproximationAndTranscendence DT.5.
 
-The intended declarations are:
-
-- `TauCeti.BSD.rank_zero_ordinary_multiplicative_p_part` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.rank_zero_ordinary_multiplicative_p_part` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1835,19 +1746,17 @@ The intended declarations are:
 
 ### 10.6 The lower bound for Sha[p^∞] in analytic rank one (JSW §7.4.1)
 
-Let E/ℚ be semistable, optimal, analyticRank E = 1, p ≥ 3 a prime of good reduction with E[p] irreducible (and a_p = 0 if p = 3 is supersingular). Then ord_p #Ш(E/ℚ)[p^∞] ≥ ord_p (L′(E,1)/(Ω_E Reg_BSD(E/ℚ) ∏_ℓ c_ℓ(E))).
+Let E/ℚ be semistable, optimal, analyticRank E = 1, p ≥ 3 a prime of good ordinary reduction with E[p] irreducible. Then ord_p #Ш(E/ℚ)[p^∞] ≥ ord_p (L′(E,1)/(Ω_E Reg_BSD(E/ℚ) ∏_ℓ c_ℓ(E))).
 
-Hypotheses of JSW Theorem 1.2.1; isogeny invariance (§7.9) reduces to optimal E.
+The good ordinary specialization of JSW Theorem 1.2.1; isogeny invariance (§7.9) reduces to optimal E.
 
-Choose q | N with E[p] ramified (residually-ramified-prime) and K′ by §3.6 (a): (gen-H), q inert or ramified, p split, L(E^{K′},1) ≠ 0; so rank E(K′) = 1, Ш(E/K′) finite. Anticyclotomic main-conjecture divisibility plus control (§9.4, §9.1): ord_p L_p(f,1) ≤ ord_p(#H¹_{F_ac}(K′,E[p^∞])·C(E[p^∞])). Remove the excluded height-one and p factors using JSW6.1.6’s exact μ input: Burungale Proposition5.1.3 for BDP/Brooks, with Hsieh’s auxiliary conditions where needed. Check squarefree conductor, a nonsplit bad prime, (irred_K), corank1 and local surjectivity. A generic Hsieh μ=0 citation alone does not discharge these. The BDP–Brooks formula (GZ.9/quaternionic-weight-two-formula, GZ.9/p-optimal-quotient-formula): ord_p L_p(f,1) = 2 ord_p(((1 + p − a_p)/p)·log_ω z_{K′}); hence (JSW (7.4.b)) ord_p #Ш(E/K′)[p^∞] ≥ 2 ord_p m_{K′} − ord_p ∏_{w|N⁺} c_w(E/K′). Gross–Zagier in Zhang's form for z_{K′} and the Ribet–Takahashi comparison (§7.3) give 2 ord_p m_{K′} = ord_p((L′(E,1)/(Ω_E Reg))·(L(E^{K′},1)/Ω_{E^{K′}})) − ord_p ∏_{ℓ|N⁻} c_ℓ(E/K′), using §2.5 and the Manin constant prime to p. §2.9, §2.7 and the Kato bound for E^{K′} (§6.3) give the bound for E.
+Choose q | N with E[p] ramified (residually-ramified-prime) and K′ by §3.6 (a): (gen-H), q inert or ramified, p split, L(E^{K′},1) ≠ 0; so rank E(K′) = 1, Ш(E/K′) finite. Anticyclotomic main-conjecture divisibility plus control (§9.4, §9.1): ord_p L_p(f,1) ≤ ord_p(#H¹_{F_ac}(K′,E[p^∞])·C(E[p^∞])). Remove the excluded height-one and p factors using JSW6.1.6’s exact μ input: Burungale Proposition5.1.3 for BDP/Brooks, with Hsieh’s auxiliary conditions where needed. Check squarefree conductor, a nonsplit bad prime, (irred_K), corank1 and local surjectivity. A generic Hsieh μ=0 citation alone does not discharge these. The BDP–Brooks formula (**The quaternionic weight-two formula of Brooks and JSW**, **The formula for a p-optimal quotient**): ord_p L_p(f,1) = 2 ord_p(((1 + p − a_p)/p)·log_ω z_{K′}); hence (JSW (7.4.b)) ord_p #Ш(E/K′)[p^∞] ≥ 2 ord_p m_{K′} − ord_p ∏_{w|N⁺} c_w(E/K′). Gross–Zagier in Zhang's form for z_{K′} and the Ribet–Takahashi comparison (§7.3) give 2 ord_p m_{K′} = ord_p((L′(E,1)/(Ω_E Reg))·(L(E^{K′},1)/Ω_{E^{K′}})) − ord_p ∏_{ℓ|N⁻} c_ℓ(E/K′), using §2.5 and the Manin constant prime to p. §2.9, §2.7 and the Kato bound for E^{K′} (§6.3) give the bound for E.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.1, (7.4.d), p. 47.
 
-*Needs:* §10.3 (a semistable curve with irreducible e[p] is residually ramified somewhere); §3.6 (simultaneous choice of the auxiliary fields of the prime-part arguments); §9.4 (the anticyclotomic divisibility for the bdp p-adic l-function (wan; jsw §6)); §9.1 (anticyclotomic control at the trivial character (jsw theorem 3.3.1)); GrossZagierAndArithmeticHeights GZ.9 / quaternionic-weight-two-formula; GrossZagierAndArithmeticHeights GZ.9 / p-optimal-quotient-formula; §7.3 (modular degrees on x₀(n) and on shimura curves (ribet–takahashi)); §2.5 (the period of e over an imaginary quadratic field and its comparison); §2.9 (tamagawa factors under quadratic base change and twist); §2.7 (odd-primary selmer and sha over a quadratic field); §6.3 (kato's upper bound for the p-part of sha in analytic rank zero); §5.3 (analytic rank one implies rank one and finite sha (gross–zagier–kolyvagin)); §7.9 (isogeny invariance of the rational bsd defect); GrossZagierAndArithmeticHeights GZ.3; GrossZagierAndArithmeticHeights GZ.8 / explicit-gross-zagier-formula.
+*Needs:* §10.3 (a semistable curve with irreducible e[p] is residually ramified somewhere); §3.6 (simultaneous choice of the auxiliary fields of the prime-part arguments); §9.4 (the anticyclotomic divisibility for the bdp p-adic l-function (wan; jsw §6)); §9.1 (anticyclotomic control at the trivial character (jsw theorem 3.3.1)); GrossZagierAndArithmeticHeights **The quaternionic weight-two formula of Brooks and JSW**; GrossZagierAndArithmeticHeights **The formula for a p-optimal quotient**; §7.3 (modular degrees on x₀(n) and on shimura curves (ribet–takahashi)); §2.5 (the period of e over an imaginary quadratic field and its comparison); §2.9 (tamagawa factors under quadratic base change and twist); §2.7 (odd-primary selmer and sha over a quadratic field); §6.3 (kato's upper bound for the p-part of sha in analytic rank zero); §5.3 (analytic rank one implies rank one and finite sha (gross–zagier–kolyvagin)); §7.9 (isogeny invariance of the rational bsd defect); GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; GrossZagierAndArithmeticHeights **The explicit Gross–Zagier formula of Cai–Shu–Tian**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.jsw_lower_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.jsw_lower_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1857,17 +1766,15 @@ The intended declarations are:
 
 Under the hypotheses of jsw-lower-bound, ord_p #Ш(E/ℚ)[p^∞] ≤ ord_p (L′(E,1)/(Ω_E Reg_BSD(E/ℚ) ∏_ℓ c_ℓ(E))).
 
-As jsw-lower-bound.
+E is semistable, p≥3 is a good ordinary prime, E[p] is irreducible and analyticRank E=1, as in §10.6. The supersingular inequality is instead a consequence of the independent endpoint §10.4.
 
-Factor N = N⁺N⁻ (N⁺ = q, N⁻ = N/q if the number of primes of N is odd; N⁺ = 1 otherwise) and choose K″ by §3.6 (b): N⁺ split, N⁻ inert, p split, L(E^{K″},1) ≠ 0. Use the actual odd-prime Shimura-curve Kolyvagin bound of JSW Theorem4.4.1 with its full residual/local hypotheses and defect terms, specified from HE.7/ES.4. The HE.7 dyadic conjugation result and Howard’s more restrictive clean classical bound cannot be substituted without a hypothesis proof. Gross–Zagier for z_{K″} and Ribet–Takahashi as in jsw-lower-bound; no prime w | N⁺ has p | c_w(E/K″). The rank-zero equality for E^{K″} (rank-zero-ordinary-multiplicative-p-part or rank-zero-supersingular-p-part) and the odd decomposition give the bound for E.
+Factor N = N⁺N⁻ (N⁺ = q, N⁻ = N/q if the number of primes of N is odd; N⁺ = 1 otherwise) and choose K″ by §3.6 (b): N⁺ split, N⁻ inert, p split, L(E^{K″},1) ≠ 0. Use the actual odd-prime Shimura-curve Kolyvagin bound of JSW Theorem4.4.1 with its full residual/local hypotheses and defect terms, specified from HE.7/ES.4. The HE.7 dyadic conjugation result and Howard’s more restrictive clean classical bound cannot be substituted without a hypothesis proof. Gross–Zagier for z_{K″} and Ribet–Takahashi as in jsw-lower-bound; no prime w | N⁺ has p | c_w(E/K″). The rank-zero equality for E^{K″} (rank-zero-ordinary-multiplicative-p-part) and the odd decomposition give the bound for E.
 
 The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), §7.4.2, (7.4.e), p. 48.
 
-*Needs:* §3.6 (simultaneous choice of the auxiliary fields of the prime-part arguments); HeegnerPointEulerSystems HE.7 / dyadic-integral-conjugation-descent; HeegnerPointEulerSystems HE.6 / sha-square-index-bound; EulerSystemsAndKolyvaginSystems ES.4 / howard-descent-with-errors; GrossZagierAndArithmeticHeights GZ.8 / explicit-gross-zagier-formula; §7.3 (modular degrees on x₀(n) and on shimura curves (ribet–takahashi)); §10.5 (the p-part of bsd in rank zero at ordinary and multiplicative primes (skinner–urban, skinner)); §10.2 (the p-part of bsd in rank zero at supersingular primes); §2.7 (odd-primary selmer and sha over a quadratic field); §2.9 (tamagawa factors under quadratic base change and twist); §2.5 (the period of e over an imaginary quadratic field and its comparison); GrossZagierAndArithmeticHeights GZ.3; HeegnerPointEulerSystems HE.7.
+*Needs:* §3.6 (simultaneous choice of the auxiliary fields of the prime-part arguments); HeegnerPointEulerSystems HE.7 / jswShimuraCurveIntegralBound; EulerSystemsAndKolyvaginSystems ES.4 / howard-descent-with-errors; GrossZagierAndArithmeticHeights **The explicit Gross–Zagier formula of Cai–Shu–Tian**; §7.3 (modular degrees on x₀(n) and on shimura curves (ribet–takahashi)); §10.5 (the p-part of bsd in rank zero at ordinary and multiplicative primes (skinner–urban, skinner)); §2.7 (odd-primary selmer and sha over a quadratic field); §2.9 (tamagawa factors under quadratic base change and twist); §2.5 (the period of e over an imaginary quadratic field and its comparison); GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; HeegnerPointEulerSystems HE.7.
 
-The intended declarations are:
-
-- `TauCeti.BSD.jsw_upper_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.jsw_upper_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1879,15 +1786,13 @@ Let E/ℚ be elliptic of conductor N with multiplicative reduction at p > 3. Ass
 
 Exactly the hypotheses of Theorem A′ of Castella's erratum; the nonsplit condition at q and E(ℚ_p)[p] = 0 are additional to the 2018 statement.
 
-Choose K by §3.6 (c) satisfying the hypotheses of the corrected Theorem 1.1, with L(E^K, 1) ≠ 0. Anticyclotomic main conjecture Ch_Λ(X_ac(E[p^∞]))Λ_{R₀} = (L_p(f)) (§9.7). Specialise at the trivial character with the multiplicative-prime BDP formula L_p(f,1) = (1 − a_p p^{−1})²(log_{ω_E} P_K)² up to units (GZ.9/multiplicative-prime-formula; no exceptional zero) and the anticyclotomic control theorem at a multiplicative prime (Castella §5). Convert the Heegner logarithm/index with the proved Gross–Zagier formula and quadratic comparisons. The chosen q is ramified in K, so E^K is additive there; Skinner C cannot be invoked using q as a multiplicative ramification prime. Supply a separate proved rank-zero input or an alternative inequality, and extend the semistable GZ.9 multiplicative formula/control to the additive-away-from-p range of A′.
+Choose K by §3.6 (c) satisfying the hypotheses of the corrected Theorem 1.1, with L(E^K, 1) ≠ 0. Anticyclotomic main conjecture Ch_Λ(X_ac(E[p^∞]))Λ_{R₀} = (L_p(f)) (§9.7). Specialise at the trivial character with the multiplicative-prime BDP formula L_p(f,1) = (1 − a_p p^{−1})²(log_{ω_E} P_K)² up to units (**The weight-two formula at a multiplicative prime**; no exceptional zero) and the anticyclotomic control theorem at a multiplicative prime (Castella §5). Convert the Heegner logarithm/index with the proved Gross–Zagier formula and quadratic comparisons. The chosen q is ramified in K, so E^K is additive there; Skinner C cannot be invoked using q as a multiplicative ramification prime. The **castellaRamifiedAuxiliaryComparison** supplier contract supplies the missing ramified comparison and source-qualified auxiliary input. Extend the semistable **The BDP p-adic Gross–Zagier formula in weight two** multiplicative formula/control to the additive-away-from-p range of A′.
 
 The source comparison is [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Theorem A′, p. 1; [Francesc Castella](https://web.math.ucsb.edu/~castella/Birch-erratum.pdf), Remark after Theorem A′, pp. 1–2.
 
-*Needs:* §9.7 (castella's corrected anticyclotomic main conjecture at a multiplicative prime (erratum theorem 1.1)); §3.6 (simultaneous choice of the auxiliary fields of the prime-part arguments); GrossZagierAndArithmeticHeights GZ.9 / multiplicative-prime-formula; §10.5 (the p-part of bsd in rank zero at ordinary and multiplicative primes (skinner–urban, skinner)); GrossZagierAndArithmeticHeights GZ.8 / explicit-gross-zagier-formula; §2.10 (the bsd quotient over k versus over ℚ at odd primes); §7.10 (the p-part of bsd from an upper and a lower bound); §5.3 (analytic rank one implies rank one and finite sha (gross–zagier–kolyvagin)); §7.9 (isogeny invariance of the rational bsd defect); GrossZagierAndArithmeticHeights GZ.3; GrossZagierAndArithmeticHeights GZ.9.
+*Needs:* §9.7 (castella's corrected anticyclotomic main conjecture at a multiplicative prime (erratum theorem 1.1)); §3.6 (simultaneous choice of the auxiliary fields of the prime-part arguments); GrossZagierAndArithmeticHeights **The weight-two formula at a multiplicative prime**; GrossZagierAndArithmeticHeights **The explicit Gross–Zagier formula of Cai–Shu–Tian**; castellaRamifiedAuxiliaryComparison (extension contract); §7.10 (the p-part of bsd from an upper and a lower bound); §5.3 (analytic rank one implies rank one and finite sha (gross–zagier–kolyvagin)); §7.9 (isogeny invariance of the rational bsd defect); GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.castella_multiplicative_rank_one_p_part` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.castella_multiplicative_rank_one_p_part` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1905,9 +1810,7 @@ The source comparison is [JSW (v1)](https://arxiv.org/abs/1512.06894v1), Theorem
 
 *Needs:* §10.6 (the lower bound for sha[p^∞] in analytic rank one (jsw §7.4.1)); §10.7 (the upper bound for sha[p^∞] in analytic rank one (jsw §7.4.2)); §7.10 (the p-part of bsd from an upper and a lower bound); §7.9 (isogeny invariance of the rational bsd defect); §7.8 (the rational bsd defect); §10.4 (bstw supersingular rank-one p-part).
 
-The intended declarations are:
-
-- `TauCeti.BSD.jsw_rank_one_p_part` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.jsw_rank_one_p_part` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1919,7 +1822,7 @@ For a semistable rank-one curve at a good p≥5 with E[p] irreducible, the JSW b
 
 ### Dependencies
 
-Earlier comparisons: §0.6, §1.1, §2.5, §2.7, §2.9, §2.10, §3.6, §5.3, §6.1, §6.3, §6.4, §7.3, §7.8, §7.9, §7.10, §9.1, §9.2, §9.4, §9.5, §9.7. Supplier interfaces: DiophantineApproximationAndTranscendence DT.5; EulerSystemsAndKolyvaginSystems ES.4 / howard-descent-with-errors; GrossZagierAndArithmeticHeights GZ.3; GrossZagierAndArithmeticHeights GZ.8 / explicit-gross-zagier-formula; GrossZagierAndArithmeticHeights GZ.9; GrossZagierAndArithmeticHeights GZ.9 / multiplicative-prime-formula; GrossZagierAndArithmeticHeights GZ.9 / p-optimal-quotient-formula; GrossZagierAndArithmeticHeights GZ.9 / quaternionic-weight-two-formula; HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.7; HeegnerPointEulerSystems HE.7 / dyadic-integral-conjugation-descent; ModularIwasawaMainConjectures L0; ModularIwasawaMainConjectures L1; PadicFamilies L3; PadicHodgeRegulators L3 / rubin-coleman-map; PadicHodgeRegulators L4 / split-multiplicative-augmentation; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-descent; SelmerIwasawaCohomology L4 / greenberg-main-conjecture; SerreWeightAndLevelOptimisation R20.2; TauCetiRoadmap EllipticCurves Layer 4.
+Earlier comparisons: §0.6, §1.1, §2.5, §2.7, §2.9, §2.10, §3.6, §5.3, §6.1, §6.3, §6.4, §7.3, §7.8, §7.9, §7.10, §9.1, §9.2, §9.4, §9.5, §9.7. Supplier interfaces: DiophantineApproximationAndTranscendence DT.5; EulerSystemsAndKolyvaginSystems ES.4 / howard-descent-with-errors; GrossZagierAndArithmeticHeights **Integral Manin constant and p-unit range**; GrossZagierAndArithmeticHeights **The explicit Gross–Zagier formula of Cai–Shu–Tian**; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; GrossZagierAndArithmeticHeights **The weight-two formula at a multiplicative prime**; GrossZagierAndArithmeticHeights **The formula for a p-optimal quotient**; GrossZagierAndArithmeticHeights **The quaternionic weight-two formula of Brooks and JSW**; HeegnerPointEulerSystems HE.6 / sha-square-index-bound; HeegnerPointEulerSystems HE.7; ModularIwasawaMainConjectures L0; ModularIwasawaMainConjectures L1; PadicFamilies L3; PadicHodgeRegulators L3 / rubin-coleman-map; PadicHodgeRegulators L4 / split-multiplicative-augmentation; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-descent; SelmerIwasawaCohomology L4 / greenberg-main-conjecture; SerreWeightAndLevelOptimisation R20.2; TauCetiRoadmap EllipticCurves Layer 4.
 
 ## Layer 11: Independent main conjectures at Eisenstein primes
 
@@ -1937,9 +1840,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), §1 Int
 
 *Needs:* TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 2; SelmerIwasawaCohomology L2.
 
-The intended declarations are:
-
-- `TauCeti.BSD.eisenstein_ordinary_local_exclusion` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.eisenstein_ordinary_local_exclusion` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1957,9 +1858,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* SelmerIwasawaCohomology L2; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-shapiro; PadicMeasuresIwasawaAlgebras L4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.eisenstein_selmer_normalization` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.eisenstein_selmer_normalization` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1972,15 +1871,13 @@ For the ordinary weight-two newform f_E with reducible residual representation, 
 
 E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed. When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd. Label the analytic characters with p∤cond(φ), as required by KY Theorem 2.2.2. This analytic ordering need not equal the chosen residual-lattice ordering.
 
-Apply CGLS Theorem 2.2.1/Kriz’s congruence to the p-depleted forms, including integral CM evaluation and the unit periods; KY Theorem 2.2.1 proves that p-depletion kills the otherwise unmatched constant term. Factor the Eisenstein CM values into the two Katz character functions and the finite S Euler products of KY §2.2/CGLS §2.2, with P_w evaluated at ℓ⁻¹γ_w. This analytic calculation uses the interpolation/Euler-factor dictionary, not the narrower algebraic CGS surjectivity theorem. Use the proposed elliptic-unit/Katz μ theorem under its exact hypotheses, then apply CGLS Theorem 2.2.2 or KY Theorem 2.2.2.
+Apply CGLS Theorem 2.2.1/Kriz’s congruence to the p-depleted forms, including integral CM evaluation and the unit periods; KY Theorem 2.2.1 proves that p-depletion kills the otherwise unmatched constant term. Factor the Eisenstein CM values into the two Katz character functions and the finite S Euler products of KY §2.2/CGLS §2.2, with P_w evaluated at ℓ⁻¹γ_w. This analytic calculation uses the interpolation/Euler-factor dictionary, not the narrower algebraic CGS surjectivity theorem. Use the named **ellipticUnitCharacterComparison** extension and its Katz μ theorem under its exact hypotheses, then apply CGLS Theorem 2.2.2 or KY Theorem 2.2.2.
 
 The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2), §2.2 Theorems 2.2.1–2.2.2; compare CGLS §2.2.
 
 *Needs:* AutomorphicCongruences L0; PadicFamilies L0; AutomorphicPadicLFunctions L3; AutomorphicPadicLFunctions L0.
 
-The intended declarations are:
-
-- `TauCeti.BSD.kriz_eisenstein_congruence` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.kriz_eisenstein_congruence` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -1992,15 +1889,13 @@ Under ordinary Heegner conditions, nonzero actual Heegner class and the source H
 
 E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed. When K occurs it has the Heegner, split-p and odd-discriminant-not-−3 conditions of CGS. Work in weight two; the higher-weight theorem is used only with r=1, which is odd. Use either CGS no-invariants data or the chosen KY residual-invariant-free lattice, and the actual rank-one compact Selmer group.
 
-Use SIC’s strict/relaxed Poitou–Tate sequence and GZ.9’s actual Heegner logarithm formula with its Euler factor and isogeny/differential compatibility. Within a fixed coefficient lattice identify κ∞ and κ₁ as generators of the same Λ-submodule as in CGLS Remark 4.1.3. Separately compare the geometric and chosen KY lattices through their actual maps: the fixed p^{t+N} contribution is not a unit change of generator of an integral Λ-line. Take characteristic ideals in the correct unramified coefficient extension, track involution and the square, and record both implication directions separately.
+Use SIC’s strict/relaxed Poitou–Tate sequence and **The BDP p-adic Gross–Zagier formula in weight two**’s actual Heegner logarithm formula with its Euler factor and isogeny/differential compatibility. Within a fixed coefficient lattice identify κ∞ and κ₁ as generators of the same Λ-submodule as in CGLS Remark 4.1.3. Separately compare the geometric and chosen KY lattices through their actual maps: the fixed p^{t+N} contribution is not a unit change of generator of an integral Λ-line. Take characteristic ideals in the correct unramified coefficient extension, track involution and the square, and record both implication directions separately.
 
 The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2), Theorem 3.0.8 proof, pp.39–40; CGLS Proposition 4.2.1.
 
-*Needs:* HeegnerPointEulerSystems HE.8 / anticyclotomic-heegner-class; GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; GrossZagierAndArithmeticHeights GZ.9 / isogeny-and-differential-compatibility; SelmerIwasawaCohomology L2; ModularIwasawaMainConjectures L0.
+*Needs:* HeegnerPointEulerSystems HE.8 / anticyclotomic-heegner-class; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; GrossZagierAndArithmeticHeights **Compatibility with isogenies, differentials and characters**; SelmerIwasawaCohomology L2; ModularIwasawaMainConjectures L0.
 
-The intended declarations are:
-
-- `TauCeti.BSD.heegner_reciprocity_ideal_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.heegner_reciprocity_ideal_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2018,9 +1913,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* SelmerIwasawaCohomology L2; SelmerIwasawaCohomology L3; ArithmeticGaloisDuality R02.4; PadicMeasuresIwasawaAlgebras L4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_local_character_corrections` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_local_character_corrections` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2036,11 +1929,9 @@ Import Rubin’s elliptic-unit comparison and Hida’s μ theorem from the propo
 
 The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2), Theorem 1.2.2; proof of Theorem 2.2.3 and Remark 2.2.4.
 
-*Needs:* AutomorphicPadicLFunctions L3; ModularIwasawaMainConjectures L0; SelmerIwasawaCohomology L3.
+*Needs:* **ellipticUnitCharacterComparison** (unowned extension contract); AutomorphicPadicLFunctions L3; ModularIwasawaMainConjectures L0; SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_trivial_character_main_conjecture` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_trivial_character_main_conjecture` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2048,7 +1939,7 @@ The intended declarations are:
 
 ### 11.7 Distinguished Wüthrich lattice and integral Kato input adapter
 
-For an elliptic curve E/ℚ and an odd good ordinary Eisenstein p, use Wüthrich’s distinguished E_• in its isogeny class: T_f=T_pE_• and the lattice of all modular symbols agrees with its Néron lattice after tensoring with ℤ_p. The cyclic X₁(N)-optimal quotient isogeny is étale. Kato’s z₀ is integral in H¹_Iw(T_pE_•) even in the nonfree maximal-ideal case, L_p^MSD(E) is integral, and char X_ord(E/ℚ∞) divides (L_p^MSD(E)) as integral ideals. The supplier is the specified Wüthrich addition to Kato L4, with Ferrero–Washington; Kato’s existing rational result is insufficient.
+For an elliptic curve E/ℚ and an odd good ordinary Eisenstein p, use Wüthrich’s distinguished E_• in its isogeny class: T_f=T_pE_• and the lattice of all modular symbols agrees with its Néron lattice after tensoring with ℤ_p. The cyclic X₁(N)-optimal quotient isogeny is étale. Kato’s z₀ is integral in H¹_Iw(T_pE_•) even in the nonfree maximal-ideal case, L_p^MSD(E) is integral, and char X_ord(E/ℚ∞) divides (L_p^MSD(E)) as integral ideals. The supplier is the specified Wüthrich addition to the Kato **The cohomological upper bound** target, with Ferrero–Washington; Kato’s existing rational result is insufficient.
 
 E/ℚ, p>2 prime, p∤N, E[p] reducible (equivalently an actual cyclic p-isogeny exists). No exclusion of 1 or ω at G_p is imposed.
 
@@ -2056,11 +1947,9 @@ Import Wüthrich Theorem 4 and Proposition 8 for E_• and the actual lattice, v
 
 The source comparison is [Christian Wüthrich](https://ems.press/content/serial-article-files/26230?nt=1), Theorems 4,13,16; Proposition 8; Lemma 17; Corollary 18.
 
-*Needs:* KatoEulerSystems L4; IntegralIwasawaTheory L4; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 6.
+*Needs:* KatoEulerSystems **wuthrichIntegralComparison** (extension contract); IntegralIwasawaTheory L4; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 6.
 
-The intended declarations are:
-
-- `TauCeti.BSD.distinguished_lattice_integral_input` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.distinguished_lattice_integral_input` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2079,9 +1968,7 @@ The source comparison is [CGLS (published)](https://web.math.ucsb.edu/~castella/
 
 *Needs:* §11.2 (ordinary, greenberg and unramified eisenstein selmer comparisons); ModularIwasawaMainConjectures L0; AutomorphicPadicLFunctions L0; SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.finite_euler_factor_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.finite_euler_factor_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2099,9 +1986,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Theorem
 
 *Needs:* EulerSystemsAndKolyvaginSystems ES.4; EulerSystemsAndKolyvaginSystems ES.8; §11.1 (ordinarity and local invariants at a good eisenstein prime); SelmerIwasawaCohomology L2.
 
-The intended declarations are:
-
-- `TauCeti.BSD.uniform_near_trivial_kolyvagin_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.uniform_near_trivial_kolyvagin_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2119,9 +2004,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 2; ArithmeticGaloisRepresentations R01.1; §11.5 (keller–yin local character cohomology).
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_ribet_lattice` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_ribet_lattice` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2137,11 +2020,9 @@ Import the actual Rankin interpolation from ModularSymbols/AutomorphicPadicLFunc
 
 The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), §§2.2–2.4, Definitions 2.2.2/2.4.3, Lemma 2.4.4, Propositions 2.2.4/2.4.5.
 
-*Needs:* AutomorphicPadicLFunctions L3; PadicFamilies L0; PadicFamilies L1; AutomorphicCongruences L0; ModularSymbolsPadicLFunctions L2; §11.7 (distinguished wüthrich lattice and integral kato input adapter); GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; ModularSymbolsPadicLFunctions L1.
+*Needs:* AutomorphicPadicLFunctions L3; PadicFamilies L0; PadicFamilies L1; AutomorphicCongruences L0; ModularSymbolsPadicLFunctions L2; §11.7 (distinguished wüthrich lattice and integral kato input adapter); GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; ModularSymbolsPadicLFunctions L1.
 
-The intended declarations are:
-
-- `TauCeti.BSD.integral_two_variable_functions` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.integral_two_variable_functions` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2159,9 +2040,7 @@ The source comparison is [CGLS (published)](https://web.math.ucsb.edu/~castella/
 
 *Needs:* §11.1 (ordinarity and local invariants at a good eisenstein prime); §11.8 (primitive and imprimitive euler factors); SelmerIwasawaCohomology L2; AutomorphicPadicLFunctions L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgls_residual_character_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgls_residual_character_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2179,9 +2058,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Theorem
 
 *Needs:* §11.9 (uniform near-trivial kolyvagin bound); HeegnerPointEulerSystems HE.8 / lambda-heegner-derivative-class; HeegnerPointEulerSystems HE.8 / lambda-heegner-local-conditions; HeegnerPointEulerSystems HE.8 / lambda-bottom-class-nontorsion; HeegnerPointEulerSystems HE.8 / weak-torsion-localized-divisibility.
 
-The intended declarations are:
-
-- `TauCeti.BSD.augmentation_inclusive_heegner_divisibility` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.augmentation_inclusive_heegner_divisibility` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2199,9 +2076,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.10 (keller–yin nonsplit residual lattice); §11.5 (keller–yin local character cohomology); §11.6 (keller–yin trivial-character augmentation correction); §11.2 (ordinary, greenberg and unramified eisenstein selmer comparisons); SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_imprimitive_residual_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_imprimitive_residual_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2219,7 +2094,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Theorem
 
 *Needs:* §11.7 (distinguished wüthrich lattice and integral kato input adapter); §11.11 (integral rankin functions and specialization normalization); EulerSystemsAndKolyvaginSystems ES.2; PadicHodgeRegulators L3; PadicFamilies L1; ArithmeticGaloisDuality R02.1; SelmerIwasawaCohomology L3.
 
-The intended declarations are:
+The required API is:
 
 - `EisensteinBF.class` — The actual specialized motivic Beilinson–Flach cohomology class, not a chosen inverse image of an L-function.
 - `EisensteinBF.ordinary_local` — The class lies in the ordinary-relaxed Selmer group with the source strict/relaxed places.
@@ -2247,9 +2122,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Lemma 2
 
 *Needs:* §11.8 (primitive and imprimitive euler factors); §11.2 (ordinary, greenberg and unramified eisenstein selmer comparisons); SelmerIwasawaCohomology L3; ModularIwasawaMainConjectures L0; PadicMeasuresIwasawaAlgebras L4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.congruent_characteristic_series` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.congruent_characteristic_series` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2267,9 +2140,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.10 (keller–yin nonsplit residual lattice); ArithmeticGaloisRepresentations R01.1; EulerSystemsAndKolyvaginSystems ES.4; EulerSystemsAndKolyvaginSystems ES.8; SelmerIwasawaCohomology L2.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_uniform_near_trivial_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_uniform_near_trivial_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2287,9 +2158,7 @@ The source comparison is [CGLS (published)](https://web.math.ucsb.edu/~castella/
 
 *Needs:* §11.12 (cgls residual extension and algebraic iwasawa invariants); §11.3 (kriz congruence and analytic iwasawa invariants).
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgls_equal_iwasawa_invariants` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgls_equal_iwasawa_invariants` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2307,9 +2176,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.14 (keller–yin imprimitive residual selmer comparison); §11.6 (keller–yin trivial-character augmentation correction); §11.2 (ordinary, greenberg and unramified eisenstein selmer comparisons); ArithmeticGaloisRepresentations R01.1; SelmerIwasawaCohomology L3; AutomorphicPadicLFunctions L0.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_finite_euler_factor_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_finite_euler_factor_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2328,9 +2195,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.10 (keller–yin nonsplit residual lattice); §11.17 (keller–yin uniform near-trivial bound); EulerSystemsAndKolyvaginSystems ES.4; EulerSystemsAndKolyvaginSystems ES.8; HeegnerPointEulerSystems HE.8 / lambda-heegner-derivative-class; TauCetiRoadmap EllipticCurves Layer 1.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_integral_kolyvagin_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_integral_kolyvagin_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2348,9 +2213,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Theorem
 
 *Needs:* §11.15 (beilinson–flach class and two integral reciprocity laws); EulerSystemsAndKolyvaginSystems ES.4; EulerSystemsAndKolyvaginSystems ES.8; ArithmeticGaloisRepresentations R01.1.
 
-The intended declarations are:
-
-- `TauCeti.BSD.nontrivial_twist_rational_bf_bound` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.nontrivial_twist_rational_bf_bound` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2368,9 +2231,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Corolla
 
 *Needs:* §11.15 (beilinson–flach class and two integral reciprocity laws); §11.11 (integral rankin functions and specialization normalization).
 
-The intended declarations are:
-
-- `TauCeti.BSD.bf_pr_reciprocity` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bf_pr_reciprocity` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2388,9 +2249,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Corolla
 
 *Needs:* §11.15 (beilinson–flach class and two integral reciprocity laws); §11.11 (integral rankin functions and specialization normalization).
 
-The intended declarations are:
-
-- `TauCeti.BSD.bf_greenberg_reciprocity` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bf_greenberg_reciprocity` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2408,9 +2267,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Theorem
 
 *Needs:* §11.13 (heegner divisibility including augmentation); §11.4 (heegner index and bdp ideal comparison); §11.18 (cgls equality of anticyclotomic iwasawa invariants).
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgs_anticyclotomic_main_conjecture` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgs_anticyclotomic_main_conjecture` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2428,9 +2285,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.14 (keller–yin imprimitive residual selmer comparison); §11.19 (keller–yin finite euler comparison).
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_residual_extension_lambda` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_residual_extension_lambda` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2448,9 +2303,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Proposi
 
 *Needs:* §11.22 (eisensteinbf.coleman_pr); §11.23 (eisensteinbf.coleman_gr); SelmerIwasawaCohomology L2; ModularIwasawaMainConjectures L0.
 
-The intended declarations are:
-
-- `TauCeti.BSD.bf_poitou_tate_divisibility_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.bf_poitou_tate_divisibility_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2468,9 +2321,7 @@ The source comparison is [CGLS (published)](https://web.math.ucsb.edu/~castella/
 
 *Needs:* HeegnerPointEulerSystems HE.8 / weak-torsion-localized-divisibility; §11.4 (heegner index and bdp ideal comparison); §11.18 (cgls equality of anticyclotomic iwasawa invariants).
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgls_prototype_main_conjecture` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgls_prototype_main_conjecture` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2488,9 +2339,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Corolla
 
 *Needs:* §11.24 (cgs anticyclotomic greenberg main conjecture); §11.4 (heegner index and bdp ideal comparison).
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgs_heegner_index_square_equality` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgs_heegner_index_square_equality` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2508,9 +2357,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.25 (keller–yin residual extension and corrected lambda formula); §11.6 (keller–yin trivial-character augmentation correction); §11.3 (kriz congruence and analytic iwasawa invariants); §11.18 (cgls equality of anticyclotomic iwasawa invariants).
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_equal_iwasawa_invariants` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_equal_iwasawa_invariants` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2526,11 +2373,9 @@ Choose α away from the finitely many zeros of the nonzero BDP function. Use act
 
 The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Lemma 3.4.1; Proposition 3.4.2; §7.2 Step 2.
 
-*Needs:* §11.9 (uniform near-trivial kolyvagin bound); HeegnerPointEulerSystems HE.8 / anticyclotomic-heegner-class; GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; SelmerIwasawaCohomology L3; §11.24 (cgs anticyclotomic greenberg main conjecture); SelmerIwasawaCohomology L4.
+*Needs:* §11.9 (uniform near-trivial kolyvagin bound); HeegnerPointEulerSystems HE.8 / anticyclotomic-heegner-class; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; SelmerIwasawaCohomology L3; §11.24 (cgs anticyclotomic greenberg main conjecture); SelmerIwasawaCohomology L4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.twisted_control_augmentation_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.twisted_control_augmentation_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2548,9 +2393,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.20 (keller–yin integral kolyvagin divisibility and lattice transfer); §11.4 (heegner index and bdp ideal comparison); §11.29 (keller–yin equality of analytic and algebraic invariants); §11.2 (ordinary, greenberg and unramified eisenstein selmer comparisons).
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_anticyclotomic_greenberg_equality` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_anticyclotomic_greenberg_equality` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2568,9 +2411,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), §7.2 L
 
 *Needs:* §11.21 (nontrivial-twist rational beilinson–flach bound); §11.26 (beilinson–flach divisibility comparison); §11.7 (distinguished wüthrich lattice and integral kato input adapter); §11.16 (congruent twists and integral characteristic series); §11.30 (twisted control and augmentation comparison); ModularIwasawaMainConjectures L0; PadicMeasuresIwasawaAlgebras L4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.integral_twisted_cyclotomic_equality` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.integral_twisted_cyclotomic_equality` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2588,9 +2429,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.31 (keller–yin anticyclotomic greenberg main conjecture); §11.4 (heegner index and bdp ideal comparison).
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_heegner_index_square_equality` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_heegner_index_square_equality` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2608,9 +2447,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Theorem
 
 *Needs:* §11.32 (integral twisted cyclotomic equality); §11.16 (congruent twists and integral characteristic series); §11.11 (integral rankin functions and specialization normalization); §11.7 (distinguished wüthrich lattice and integral kato input adapter); §2.7 (odd-primary selmer and sha over a quadratic field); SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgs_cyclotomic_main_conjecture` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgs_cyclotomic_main_conjecture` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2628,9 +2465,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.10 (keller–yin nonsplit residual lattice); §11.5 (keller–yin local character cohomology); §11.31 (keller–yin anticyclotomic greenberg main conjecture); §11.7 (distinguished wüthrich lattice and integral kato input adapter); §11.15 (beilinson–flach class and two integral reciprocity laws); SelmerIwasawaCohomology L2; SelmerIwasawaCohomology L3; PadicHodgeRegulators L3; ModularIwasawaMainConjectures L0.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_cyclotomic_proof_inputs` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_cyclotomic_proof_inputs` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2648,9 +2483,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.31 (keller–yin anticyclotomic greenberg main conjecture); §11.35 (keller–yin cyclotomic input transfer); §11.10 (keller–yin nonsplit residual lattice); §11.7 (distinguished wüthrich lattice and integral kato input adapter); §11.11 (integral rankin functions and specialization normalization); SelmerIwasawaCohomology L3.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_cyclotomic_main_conjecture` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_cyclotomic_main_conjecture` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2664,7 +2497,7 @@ An error bound ℓ_R M_α≤ℓ_R(S/Rκ₁)+C is usable as α approaches one onl
 
 ### Dependencies
 
-Earlier comparisons: §2.7. Supplier interfaces: ArithmeticGaloisDuality R02.1; ArithmeticGaloisDuality R02.4; ArithmeticGaloisRepresentations R01.1; AutomorphicCongruences L0; AutomorphicPadicLFunctions L0; AutomorphicPadicLFunctions L3; EulerSystemsAndKolyvaginSystems ES.2; EulerSystemsAndKolyvaginSystems ES.4; EulerSystemsAndKolyvaginSystems ES.8; GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; GrossZagierAndArithmeticHeights GZ.9 / isogeny-and-differential-compatibility; HeegnerPointEulerSystems HE.8 / anticyclotomic-heegner-class; HeegnerPointEulerSystems HE.8 / lambda-bottom-class-nontorsion; HeegnerPointEulerSystems HE.8 / lambda-heegner-derivative-class; HeegnerPointEulerSystems HE.8 / lambda-heegner-local-conditions; HeegnerPointEulerSystems HE.8 / weak-torsion-localized-divisibility; IntegralIwasawaTheory L4; KatoEulerSystems L4; ModularIwasawaMainConjectures L0; ModularSymbolsPadicLFunctions L1; ModularSymbolsPadicLFunctions L2; PadicFamilies L0; PadicFamilies L1; PadicHodgeRegulators L3; PadicMeasuresIwasawaAlgebras L4; SelmerIwasawaCohomology L2; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-shapiro; SelmerIwasawaCohomology L4; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 2; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 6.
+Earlier comparisons: §2.7. Supplier interfaces: ArithmeticGaloisDuality R02.1; ArithmeticGaloisDuality R02.4; ArithmeticGaloisRepresentations R01.1; AutomorphicCongruences L0; AutomorphicPadicLFunctions L0; AutomorphicPadicLFunctions L3; EulerSystemsAndKolyvaginSystems ES.2; EulerSystemsAndKolyvaginSystems ES.4; EulerSystemsAndKolyvaginSystems ES.8; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; GrossZagierAndArithmeticHeights **Compatibility with isogenies, differentials and characters**; HeegnerPointEulerSystems HE.8 / anticyclotomic-heegner-class; HeegnerPointEulerSystems HE.8 / lambda-bottom-class-nontorsion; HeegnerPointEulerSystems HE.8 / lambda-heegner-derivative-class; HeegnerPointEulerSystems HE.8 / lambda-heegner-local-conditions; HeegnerPointEulerSystems HE.8 / weak-torsion-localized-divisibility; IntegralIwasawaTheory L4; KatoEulerSystems **The cohomological upper bound**; ModularIwasawaMainConjectures L0; ModularSymbolsPadicLFunctions L1; ModularSymbolsPadicLFunctions L2; PadicFamilies L0; PadicFamilies L1; PadicHodgeRegulators L3; PadicMeasuresIwasawaAlgebras L4; SelmerIwasawaCohomology L2; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L3 / iwasawa-shapiro; SelmerIwasawaCohomology L4; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 2; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 6.
 
 ## Layer 12: Prime parts at good Eisenstein primes
 
@@ -2682,9 +2515,7 @@ The source comparison is [CGLS (published)](https://web.math.ucsb.edu/~castella/
 
 *Needs:* SelmerIwasawaCohomology L3; TauCetiRoadmap EllipticCurves Layer 4; §7.2 (the heegner index); §11.1 (ordinarity and local invariants at a good eisenstein prime).
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgls_torsion_free_control` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgls_torsion_free_control` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2702,9 +2533,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L2; TauCetiRoadmap EllipticCurves Layer 4; §7.2 (the heegner index); §11.2 (ordinary, greenberg and unramified eisenstein selmer comparisons); SelmerIwasawaCohomology L4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_torsion_control` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_torsion_control` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2722,9 +2551,7 @@ The source comparison is [CGLS (published)](https://web.math.ucsb.edu/~castella/
 
 *Needs:* ModularIwasawaMainConjectures L0; SelmerIwasawaCohomology L3; ModularSymbolsPadicLFunctions L2; §7.8 (the rational bsd defect); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); ModularSymbolsPadicLFunctions L1.
 
-The intended declarations are:
-
-- `TauCeti.BSD.greenberg_vatsal_rank_zero_prototype` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.greenberg_vatsal_rank_zero_prototype` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2736,15 +2563,13 @@ For an actual E/ℚ with analyticRank E=0 and an odd good ordinary p, an integra
 
 analyticRank E=0; p odd good ordinary; the stated integral main-conjecture equality and exact control are proved for this E.
 
-Apply MSD interpolation at the trivial character, using actual L(E,1)≠0 and Néron positive period. Apply the torsion-sensitive rank-zero control theorem with its H⁰ and local factor terms. Match the ordinary Euler factor and torsion-square denominator. Use GZ.0’s full-period component formula and Layer 7’s actual defect identity.
+Apply MSD interpolation at the trivial character, using actual L(E,1)≠0 and Néron positive period. Apply the torsion-sensitive rank-zero control theorem with its H⁰ and local factor terms. Match the ordinary Euler factor and torsion-square denominator. Use **The dictionary of height conventions**’s full-period component formula and Layer 7’s actual defect identity.
 
 The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), §1.2 proof of Theorem D; §2.1 Proposition 2.1.1.
 
-*Needs:* SelmerIwasawaCohomology L3; ModularIwasawaMainConjectures L0; ModularSymbolsPadicLFunctions L2; GrossZagierAndArithmeticHeights GZ.0 / real-period-components; §7.8 (the rational bsd defect); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); ModularSymbolsPadicLFunctions L1.
+*Needs:* SelmerIwasawaCohomology L3; ModularIwasawaMainConjectures L0; ModularSymbolsPadicLFunctions L2; GrossZagierAndArithmeticHeights **Full real period, identity-component period and c∞**; §7.8 (the rational bsd defect); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); ModularSymbolsPadicLFunctions L1.
 
-The intended declarations are:
-
-- `TauCeti.BSD.cyclotomic_rank_zero_defect` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cyclotomic_rank_zero_defect` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2760,11 +2585,9 @@ Choose K by Layer 3 with split p and twist nonvanishing. Import actual base-chan
 
 The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2), §4.2 pp.42–43; corrected CGLS §5.3 (5.5)–(5.7).
 
-*Needs:* §3.5 (choice of a heegner field for analytic rank zero or one); §7.8 (the rational bsd defect); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §7.4 (height of the heegner point and the squared index); §2.6 (lattice index and regulators over a quadratic field); §2.10 (the bsd quotient over k versus over ℚ at odd primes); GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; §12.1 (cgls rank-one anticyclotomic control); §12.2 (keller–yin control with rational torsion).
+*Needs:* §3.5 (choice of a heegner field for analytic rank zero or one); §7.8 (the rational bsd defect); §0.11 (order, leading term and sign of l(e/k, s) at the centre); §7.4 (height of the heegner point and the squared index); §2.6 (lattice index and regulators over a quadratic field); §2.10 (the bsd quotient over k versus over ℚ at odd primes); GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; §12.1 (cgls rank-one anticyclotomic control); §12.2 (keller–yin control with rational torsion).
 
-The intended declarations are:
-
-- `TauCeti.BSD.rank_one_twist_defect_comparison` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.rank_one_twist_defect_comparison` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2783,9 +2606,7 @@ The source comparison is [CGLS (published)](https://web.math.ucsb.edu/~castella/
 
 *Needs:* §11.27 (cgls anticyclotomic prototype); §12.5 (rank-one twist comparison with torsion); §12.3 (greenberg–vatsal rank-zero prototype); §3.5 (choice of a heegner field for analytic rank zero or one); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite).
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgls_rank_one_prototype` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgls_rank_one_prototype` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2803,9 +2624,7 @@ The source comparison is [CGS (v2)](https://arxiv.org/pdf/2303.04373v2), Introdu
 
 *Needs:* §11.1 (ordinarity and local invariants at a good eisenstein prime); §11.34 (cgs integral cyclotomic main conjecture); §11.24 (cgs anticyclotomic greenberg main conjecture); §12.4 (rank-zero defect from integral cyclotomic equality); §12.5 (rank-one twist comparison with torsion); §7.8 (the rational bsd defect).
 
-The intended declarations are:
-
-- `TauCeti.BSD.cgs_eisenstein_prime_bsd` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.cgs_eisenstein_prime_bsd` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2823,9 +2642,7 @@ The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2)
 
 *Needs:* §11.36 (keller–yin integral cyclotomic main conjecture); §11.31 (keller–yin anticyclotomic greenberg main conjecture); §12.2 (keller–yin control with rational torsion); §12.4 (rank-zero defect from integral cyclotomic equality); §12.5 (rank-one twist comparison with torsion); §7.8 (the rational bsd defect).
 
-The intended declarations are:
-
-- `TauCeti.BSD.ky_eisenstein_prime_bsd` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.ky_eisenstein_prime_bsd` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2839,7 +2656,7 @@ In the rank-one twist comparison the two defect valuations add to zero. If the t
 
 ### Dependencies
 
-Earlier comparisons: §0.11, §2.6, §2.10, §3.5, §6.4, §7.2, §7.4, §7.8, §11.1, §11.2, §11.24, §11.27, §11.31, §11.34, §11.36. Supplier interfaces: GrossZagierAndArithmeticHeights GZ.0 / real-period-components; GrossZagierAndArithmeticHeights GZ.9 / bdp-weight-two-heegner-formula; ModularIwasawaMainConjectures L0; ModularSymbolsPadicLFunctions L1; ModularSymbolsPadicLFunctions L2; SelmerIwasawaCohomology L2; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L4; TauCetiRoadmap EllipticCurves Layer 4.
+Earlier comparisons: §0.11, §2.6, §2.10, §3.5, §6.4, §7.2, §7.4, §7.8, §11.1, §11.2, §11.24, §11.27, §11.31, §11.34, §11.36. Supplier interfaces: GrossZagierAndArithmeticHeights **Full real period, identity-component period and c∞**; GrossZagierAndArithmeticHeights **The BDP p-adic Gross–Zagier formula in weight two**; ModularIwasawaMainConjectures L0; ModularSymbolsPadicLFunctions L1; ModularSymbolsPadicLFunctions L2; SelmerIwasawaCohomology L2; SelmerIwasawaCohomology L3; SelmerIwasawaCohomology L4; TauCetiRoadmap EllipticCurves Layer 4.
 
 ## Layer 13: Finite-support certificates and the full formula
 
@@ -2855,7 +2672,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* Mathlib `Nat.primeFactors`.
 
-The intended declarations are:
+The required API is:
 
 - `Rat.mem_primeSupport` — For q nonzero, p belongs to its support exactly when p is prime and divides its absolute numerator or denominator.
 - `Rat.primeSupport_zero` — The prime support of zero is empty.
@@ -2884,9 +2701,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* Mathlib `Rat.num_or_den_zero_padicVal`; Mathlib `padicValRat`; Mathlib `padicValInt`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.zero_numerator_denominator` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.zero_numerator_denominator` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2904,9 +2719,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* Mathlib `padicValRat.mul`; Mathlib `padicValRat.pow`; Mathlib `padicValRat.div`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.torsion_square_valuation` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.torsion_square_valuation` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2924,9 +2737,7 @@ The source comparison is [John E. Cremona](https://johncremona.github.io/book/fu
 
 *Needs:* TauCetiRoadmap EllipticCurves Layer 7; TauCetiRoadmap EllipticCurves Layer 6; ArithmeticGaloisDuality R02.4.
 
-The intended declarations are:
-
-- `TauCeti.BSD.selmer_cardinality_adapter` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.selmer_cardinality_adapter` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2938,15 +2749,13 @@ For actual points P₁,…,P_r on E/ℚ, a certified rank bound and linear indep
 
 Actual points and torsion subgroup; exact rank r; a proved height/index bound and a complete finite enumeration or all required saturation proofs.
 
-Import EllipticCurves Layer 6’s saturation and height-comparison algorithms, with their termination bounds. Use Cremona Proposition 3.5.1’s explicit height comparison to bound possible divisors/generators; exclude them by exact rational arithmetic and a complete search. Apply Layer 7’s free-index height identity with GZ.0’s BSD regulator normalization.
+Import EllipticCurves Layer 6’s saturation and height-comparison algorithms, with their termination bounds. Use Cremona Proposition 3.5.1’s explicit height comparison to bound possible divisors/generators; exclude them by exact rational arithmetic and a complete search. Apply Layer 7’s free-index height identity with **The dictionary of height conventions**’s BSD regulator normalization.
 
 The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/chapter3.pdf), §3.5, Proposition 3.5.1 and rank-one generator criterion.
 
-*Needs:* TauCetiRoadmap EllipticCurves Layer 6; §7.4 (height of the heegner point and the squared index); GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary.
+*Needs:* TauCetiRoadmap EllipticCurves Layer 6; §7.4 (height of the heegner point and the squared index); GrossZagierAndArithmeticHeights **The dictionary of height conventions**.
 
-The intended declarations are:
-
-- `TauCeti.BSD.mordell_weil_saturation_adapter` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.mordell_weil_saturation_adapter` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2964,9 +2773,7 @@ The source comparison is [John E. Cremona](https://johncremona.github.io/book/fu
 
 *Needs:* TauCetiRoadmap EllipticCurves Layer 4; NeronModelsAndSemistableAbelianVarieties R11.2; Mathlib `Nat.primeFactors`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.local_tamagawa_certificate_adapter` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.local_tamagawa_certificate_adapter` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -2984,9 +2791,7 @@ The source comparison is [Christian Wüthrich](https://ems.press/content/serial-
 
 *Needs:* TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 7; §7.9 (isogeny invariance of the rational bsd defect).
 
-The intended declarations are:
-
-- `TauCeti.BSD.local_isogeny_certificate_adapter` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.local_isogeny_certificate_adapter` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3004,9 +2809,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* §13.1 (prime support of a rational number); Mathlib `Nat.mem_primeFactors`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.support_membership` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.support_membership` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3024,9 +2827,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* §13.1 (prime support of a rational number); Mathlib `Nat.primeFactors_eq_empty`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.empty_support_units` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.empty_support_units` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3042,7 +2843,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §13.1 (prime support of a rational number); Mathlib `padicValRat`.
 
-The intended declarations are:
+The required API is:
 
 - `Rat.PrimeValuationCertificate.primes` — The finite set used by this certificate.
 - `Rat.PrimeValuationCertificate.prime_mem` — Every member of primes is prime.
@@ -3073,9 +2874,7 @@ The source comparison is [Benedict H. Gross](https://wstein.org/papers/bib/gross
 
 *Needs:* §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); HeegnerPointEulerSystems HE.7; TauCetiRoadmap EllipticCurves Layer 7; §13.4 (finite selmer cardinality and sha torsion); Mathlib `Nat.primeFactors`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.sha_annihilator_adapter` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.sha_annihilator_adapter` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3093,9 +2892,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* §13.8 (membership in rational prime support); §13.2 (zero valuation in the reduced numerator and denominator); Mathlib `dvd_iff_padicValNat_ne_zero`; Mathlib `padicValRat`; Mathlib `padicValInt`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.zero_iff_outside_support` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.zero_iff_outside_support` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3113,7 +2910,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* §13.10 (finite certificate of rational prime-valuation vanishing); Mathlib `Nat.mem_primeFactors`.
 
-The intended declarations are:
+The required API is:
 
 - `Rat.PrimeValuationCertificate.ofAllPrimes` — Construct the certificate from the all-prime vanishing hypothesis.
 - `Rat.PrimeValuationCertificate.ofAllPrimes_primes` — Its finite set is exactly Rat.primeSupport(q).
@@ -3138,9 +2935,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §7.8 (the rational bsd defect); §1.1 (rationality of l(e,1)/ω_e); §7.5 (rationality of l′(e,1)/(ω_e reg_e) in analytic rank one); §13.11 (certified sha annihilator and finite descent); §13.5 (certified free lattice and saturation index); §13.6 (local tamagawa certificate adapter); §13.7 (exact local isogeny comparison); §13.3 (rational valuation with torsion square).
 
-The intended declarations are:
-
-- `TauCeti.BSD.exceptional_prime_part_adapter` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.exceptional_prime_part_adapter` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3158,9 +2953,7 @@ The source comparison is [Mathlib contributors](https://github.com/leanprover-co
 
 *Needs:* §13.8 (membership in rational prime support); §13.12 (prime valuation and exact support); §13.9 (empty prime support and rational units of absolute value one); Mathlib `padicValRat.one`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.positive_rational_reconstruction` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.positive_rational_reconstruction` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3178,9 +2971,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §13.10 (finite certificate of rational prime-valuation vanishing); §13.12 (prime valuation and exact support); Mathlib `padicValRat.zero`.
 
-The intended declarations are:
-
-- `TauCeti.BSD.certificate_all_primes` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.certificate_all_primes` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3198,7 +2989,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §13.10 (finite certificate of rational prime-valuation vanishing); §13.8 (membership in rational prime support); §13.12 (prime valuation and exact support).
 
-The intended declarations are:
+The required API is:
 
 - `Rat.PrimeValuationCertificate.ofExceptionSet` — Construct the certificate from inside and outside prime-valuation proofs.
 - `Rat.PrimeValuationCertificate.ofExceptionSet_primes` — Its finite set equals the supplied S.
@@ -3223,9 +3014,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §10.5 (the p-part of bsd in rank zero at ordinary and multiplicative primes (skinner–urban, skinner)); §10.2 (the p-part of bsd in rank zero at supersingular primes); §10.9 (the p-part of bsd in analytic rank one (jetchev–skinner–wan)); §10.8 (the p-part of bsd at multiplicative primes in analytic rank one (castella's corrected theorem a′)); §10.4 (bstw supersingular rank-one p-part); §12.7 (cgs good eisenstein prime-part bsd); §12.8 (keller–yin good eisenstein prime-part bsd); §13.14 (exceptional-prime leading-term certificate adapter); §7.8 (the rational bsd defect).
 
-The intended declarations are:
-
-- `TauCeti.BSD.source_qualified_prime_part_dispatch` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.source_qualified_prime_part_dispatch` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3243,9 +3032,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §13.16 (a finite certificate controls every prime); §13.15 (reconstruction of a positive rational from all prime valuations).
 
-The intended declarations are:
-
-- `TauCeti.BSD.certificate_reconstruction` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.certificate_reconstruction` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3263,9 +3050,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §13.19 (positive reconstruction from a finite certificate).
 
-The intended declarations are:
-
-- `TauCeti.BSD.real_identity` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.real_identity` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3283,9 +3068,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §7.8 (the rational bsd defect); §13.20 (transfer of a certified rational quotient to a real identity).
 
-The intended declarations are:
-
-- `TauCeti.BSD.elliptic_endpoint` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.elliptic_endpoint` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3303,9 +3086,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §13.17 (certificate from an exceptional-prime set and an outside theorem); §13.21 (full leading term under the actual defect certificate); §13.18 (source-qualified fixed-prime dispatch).
 
-The intended declarations are:
-
-- `TauCeti.BSD.individual_full_bsd_from_exceptions` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.individual_full_bsd_from_exceptions` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3323,9 +3104,7 @@ This is a consequence of the preceding definitions and comparisons, with the pro
 
 *Needs:* §13.22 (individual full bsd from a finite exceptional set); §13.21 (full leading term under the actual defect certificate).
 
-The intended declarations are:
-
-- `TauCeti.BSD.family_full_bsd_from_certificates` — The stated conclusion with exactly the hypotheses above.
+Prove `TauCeti.BSD.family_full_bsd_from_certificates` with the hypotheses and conclusion just stated.
 
 **Checks.**
 
@@ -3339,419 +3118,138 @@ For the actual elliptic endpoint, identify the defect with the actual real analy
 
 ### Dependencies
 
-Earlier comparisons: §1.1, §6.4, §7.4, §7.5, §7.8, §7.9, §10.2, §10.4, §10.5, §10.8, §10.9, §12.7, §12.8. Supplier interfaces: ArithmeticGaloisDuality R02.4; GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary; HeegnerPointEulerSystems HE.7; Mathlib `Nat.mem_primeFactors`; Mathlib `Nat.primeFactors_eq_empty`; Mathlib `Nat.primeFactors`; Mathlib `Rat.num_or_den_zero_padicVal`; Mathlib `dvd_iff_padicValNat_ne_zero`; Mathlib `padicValInt`; Mathlib `padicValRat.div`; Mathlib `padicValRat.mul`; Mathlib `padicValRat.one`; Mathlib `padicValRat.pow`; Mathlib `padicValRat.zero`; Mathlib `padicValRat`; NeronModelsAndSemistableAbelianVarieties R11.2; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 6; TauCetiRoadmap EllipticCurves Layer 7.
+Earlier comparisons: §1.1, §6.4, §7.4, §7.5, §7.8, §7.9, §10.2, §10.4, §10.5, §10.8, §10.9, §12.7, §12.8. Supplier interfaces: ArithmeticGaloisDuality R02.4; GrossZagierAndArithmeticHeights **The dictionary of height conventions**; HeegnerPointEulerSystems HE.7; Mathlib `Nat.mem_primeFactors`; Mathlib `Nat.primeFactors_eq_empty`; Mathlib `Nat.primeFactors`; Mathlib `Rat.num_or_den_zero_padicVal`; Mathlib `dvd_iff_padicValNat_ne_zero`; Mathlib `padicValInt`; Mathlib `padicValRat.div`; Mathlib `padicValRat.mul`; Mathlib `padicValRat.one`; Mathlib `padicValRat.pow`; Mathlib `padicValRat.zero`; Mathlib `padicValRat`; NeronModelsAndSemistableAbelianVarieties R11.2; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 4; TauCetiRoadmap EllipticCurves Layer 6; TauCetiRoadmap EllipticCurves Layer 7.
 
-## Layer 14: Arithmetic and analytic comparison examples
+## Layer 14: Conditional applications to specified curves
 
-The examples distinguish four conclusions: rank equality, whole-Sha finiteness, one prime part, and a full leading-term formula with every exceptional prime certified.
+The applications consume proved data about actual elliptic curves. Numerical enclosures, modular-symbol calculations, model invariants, torsion computations, saturation and finite descent are hypotheses here. This layer does not construct those data or claim that a database entry proves them.
 
 ### 14.1 A prime defect is invisible at every other prime
 
-For distinct primes p and ell, the rational number p has valuation zero at ell.
+For distinct natural primes p and ℓ, v_ℓ((p:ℚ))=0. The quantified statement requires both primality hypotheses and p≠ℓ. Apply `Nat.Prime.dvd_iff_eq` and `padicValRat.of_nat`; at ℓ=p the valuation is one instead.
 
-p and ell are primes. p is different from ell.
+Prove `TauCeti.BSD.away_from_prime` in this generality.
 
-Nat.Prime.dvd_iff_eq implies ell does not divide p, since ell is not one and the primes differ. Apply padicValNat.eq_zero_of_not_dvd, then padicValRat.of_nat.
+([Mathlib, Prime numbers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Prime/Basic.lean), `Nat.Prime.dvd_iff_eq`; [Mathlib, p-adic valuation](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicVal/Basic.lean), `padicValRat.of_nat`, `padicValRat.self`.)
 
-The source comparison is [Mathlib contributors](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Prime/Basic.lean), Nat.Prime.dvd_iff_eq; [Mathlib contributors](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicVal/Basic.lean), padicValRat.of_nat.
-
-*Needs:* Mathlib `Nat.Prime.dvd_iff_eq`; Mathlib `padicValNat.eq_zero_of_not_dvd`; Mathlib `padicValRat.of_nat`.
-
-The intended declarations are:
-
-- `TauCeti.BSD.away_from_prime` — The stated conclusion with exactly the hypotheses above.
+*Needs:* the cited Mathlib declarations.
 
 **Checks.**
 
-- With p=2 this verifies all odd-prime checks even though the rational defect is not one. With p=3 the same issue affects an omitted triadic check.
+- v₃(2)=0 and v₂(2)=1; interchanging the primes reverses which check detects the defect.
+- v₂(3)=0 and v₃(3)=1.
+- The natural numbers zero and one are excluded by primality.
 
 ### 14.2 No complete certificate for a prime defect
 
-For every prime p, Rat.PrimeValuationCertificate(p), where p is cast to Q, is uninhabited.
+For a natural prime p, `Rat.PrimeValuationCertificate (p:ℚ)` is uninhabited. A certificate and positivity would give p=1 by §13.19, contradicting p>1. Prove `TauCeti.BSD.prime_obstruction`.
 
-p is prime.
-
-Suppose a certificate were supplied. The rational p is positive, so certificate-reconstruction would give p=1. Primality gives p>1, a contradiction.
-
-This is a consequence of the preceding definitions and comparisons, with the proof obligations stated here.
-
-*Needs:* §13.19 (positive reconstruction from a finite certificate).
-
-The intended declarations are:
-
-- `TauCeti.BSD.prime_obstruction` — The stated conclusion with exactly the hypotheses above.
+*Needs:* §13.19 and Mathlib `Nat.Prime.one_lt`. This is a direct consequence, with no additional arithmetic source.
 
 **Checks.**
 
-- Combine with away-from-prime for p=2: all odd-prime checks pass, but no complete certificate exists. The primitive baseline padicValRat.self gives the missing valuation as one.
+- p=2 defeats any inference from all odd-prime checks.
+- p=3 defeats an otherwise complete list that omits 3.
+- p=1 is excluded: it has an empty certificate.
 
 ### 14.3 The remaining dyadic equality under all odd-prime equalities
 
-For strictly positive q in Q, assume v_p(q)=0 for every odd prime p. Then q=1 if and only if v_2(q)=0.
+For a strictly positive rational q, assume v_p(q)=0 for every odd natural prime p. Then q=1 if and only if v₂(q)=0. Prove `TauCeti.BSD.dyadic_gate` by splitting a prime into 2 or an odd prime and applying §13.15.
 
-q is strictly positive. All odd-prime valuations of q vanish.
+([Mathlib, Prime numbers](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Prime/Basic.lean), `Nat.forall_prime_iff_two_and_odd`.)
 
-Use Nat.forall_prime_iff_two_and_odd to combine the supplied odd-prime results with a dyadic equality, or extract that equality from all-prime vanishing. Apply positive-rational-reconstruction in both directions.
-
-The source comparison is [Mathlib contributors](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Prime/Basic.lean), forall_prime_iff_two_and_odd.
-
-*Needs:* §13.15 (reconstruction of a positive rational from all prime valuations); Mathlib `Nat.forall_prime_iff_two_and_odd`.
-
-The intended declarations are:
-
-- `TauCeti.BSD.dyadic_gate` — The stated conclusion with exactly the hypotheses above.
+*Needs:* §13.15 and the cited prime decomposition.
 
 **Checks.**
 
-- For q=2 and q=1/4 the dyadic hypothesis fails although every odd-prime test succeeds. For q=1 both sides hold.
+- q=2 has dyadic valuation 1 and q=1/4 has valuation −2; all their odd-prime valuations vanish.
+- q=1 passes both sides.
+- q=0 and q=−1 fail the positivity hypothesis even though all totalized valuations vanish.
 
-### 14.4 Concrete 32a2 Weierstrass model
+### 14.4 Rank equality and whole-Sha finiteness from supplied analytic data
 
-Define fixture32 as the actual Mathlib WeierstrassCurve over ℚ with coefficient tuple (0,0,0,−1,0). Its invariants are Δ=64, c₄=48 and j=1728. This rational model adds dyadic BSD data to the same equation's finite-field supersingularity test. It is nonsingular and supplies the CM and additive dyadic reduction test. Labels are descriptive; changing the model changes the period and differential data.
+Let E₁₁,E₃₇,E₃₂ be actual elliptic curves over ℚ. Assume their specified long Weierstrass equations are respectively y²+y=x³−x², y²+y=x³−x, and y²=x³−x. Assume exact identifications with the modular forms of conductors 11,37,32, the actual root numbers +1,−1,+1, and proved real inequalities
 
-Use the existing five-field Mathlib structure, its invariant polynomials and toAffine. Evaluate b₂,b₄,b₆,b₈,c₄,Δ by exact rational arithmetic; nonzero Δ gives IsElliptic. Evaluate the affine equation and partial derivatives at (0,0), proving Nonsingular rather than merely Equation.
+```text
+1/4 < L(E₁₁,1) < 3/10,
+1/4 < L′(E₃₇,1) < 1/3,
+3/5 < L(E₃₂,1) < 7/10.
+```
 
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/table1.pdf), Table 1, printed pp.109–112, row 32a2.
+Then their analytic and algebraic ranks are 0,1,0 and each whole Sha group is finite. Export separate `TauCeti.BSD.rank_equality_example` and `TauCeti.BSD.whole_sha_finiteness_example` conclusions. Root number −1 supplies L(E₃₇,1)=0; its nonzero derivative proves the order is exactly one. The nonzero central values prove order zero for the other two. Apply §6.4 separately to each curve. The upper interval endpoints are convenient supplied data; only the strict lower bounds enter this deduction.
 
-*Needs:* Mathlib `WeierstrassCurve`; Mathlib `WeierstrassCurve.Δ`; Mathlib `WeierstrassCurve.IsElliptic`; Mathlib `WeierstrassCurve.Affine.Nonsingular`.
+The analytic hypotheses concern `ellipticL`, not a totalized Dirichlet series at the boundary. A possible provenance is the Mellin value/derivative identities with rigorous tail bounds; neither their numerical evaluation nor interval replay is a target of this roadmap. The equation hypotheses identify the actual models, but do not replace the analytic hypotheses.
 
-The intended declarations are:
+([Cremona, Algorithms for Modular Elliptic Curves](https://johncremona.github.io/book/fulltext/examples.pdf), worked N=11 and N=37 examples; [Chapter 2](https://johncremona.github.io/book/fulltext/chapter2.pdf), Proposition 2.13.1, pp.44–45, for the derivative expression. The rank and finiteness implication is §6.4.)
 
-- `WeierstrassCurve.BSD.fixture32_coefficients` — (a₁,a₂,a₃,a₄,a₆)=(0,0,0,−1,0)
-- `WeierstrassCurve.BSD.fixture32_discriminant` — Δ=64
-- `WeierstrassCurve.BSD.fixture32_elliptic` — fixture32.IsElliptic
-- `WeierstrassCurve.BSD.fixture32_origin_nonsingular` — fixture32.toAffine.Nonsingular 0 0
-- `WeierstrassCurve.BSD.fixture32_j` — j=1728
-
-**Checks.**
-
-- x³−x has the three distinct rational roots −1,0,1
-- v₂(Δ)=6, while c₄=48
-- Δ>0, so c∞=2
-- Exact rational arithmetic distinguishes the models and proves Δ≠0.
-
-### 14.5 Central Mellin formulas with explicit tails
-
-For the actual modular form of E of conductor N, write β=2π/√N, ρ=exp(−β) and a_n for its exact Fourier coefficients. If the root number is +1 then L(E,1)=2Σ_{n≥1}(a_n/n)exp(−βn). If it is −1 then L′(E,1)=2Σ_{n≥1}(a_n/n)E₁(βn), with E₁(x)=∫_x^∞exp(−t)/t dt. For |a_n|≤n² and a cutoff M, the absolute tails are bounded respectively by 2ρ^(M+1)((M+1)−Mρ)/(1−ρ)² and 2ρ^(M+1)/(β(1−ρ)). These concern the actual analytic continuation, never the raw Dirichlet series evaluated at 1.
-
-E modular, N>0, actual functional equation/root number; M≥0; exact coefficient bounds from Hasse and multiplicativity.
-
-Import the modularity/functional-equation and actual-L interfaces. Split the Mellin transform at 1/√N and substitute the functional equation, keeping its sign convention. Differentiate the completed Mellin formula in the sign −1 case; use Cremona Proposition 2.13.1, whose E₁ is the indicated integral. Bound E₁(x)≤exp(−x)/x for x>0; sum Σ_{n>M}nρ^n and Σ_{n>M}ρ^n explicitly. Hasse plus multiplicativity gives |a_n|≤d(n)√n≤n².
-
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/chapter2.pdf), §§2.8,2.12 and Proposition 2.13.1, pp.41–45.
-
-*Needs:* EllipticCurveModularity R29.6, using the pinned entire-extension interface; §0.1 (the completed l-function and the root number); TauCetiRoadmap EllipticCurves Layer 3; TauCetiRoadmap ModularForms Layer 7.
-
-The intended declarations are:
-
-- `TauCeti.BSD.mellin_central_tail_bounds` — The stated conclusion with exactly the hypotheses above.
+*Needs:* §0.1, §0.2, §0.5, §6.4; existing EllipticCurves named 11a3 and 37a1 examples only for model identification.
 
 **Checks.**
 
-- Swapping the root-number sign swaps the value and derivative formulas and fails the fixture test.
+- The supplied interval for E₃₇ is for the derivative, with factorial 1, and the sign supplies the central zero.
+- An interval containing zero, or root number −1 without a nonzero derivative, does not establish rank one.
+- None of these hypotheses computes a Sha cardinality or an effective annihilator.
 
-### 14.6 Five-isogeny and torsion-square comparison
+### 14.5 A supplied rational five-isogeny tests the Eisenstein theorem range
 
-For fixture11=11a3 and the actual optimal curve 11a1, construct the cyclic five-isogeny and dual. With minimal Néron differentials and full real periods, verify Ω(11a3)=5Ω(11a1), c₁₁(11a3)=1, c₁₁(11a1)=5 and both rational torsion orders 5. The exact modular-symbol ratio L(11a1,1)/Ω(11a1)=1/5 then gives L(fixture11,1)/Ω(fixture11)=1/25. The arithmetic quotient has the same change; the p=5 torsion-square denominator cannot be dropped.
+For E₁₁ in §14.4 assume additionally good reduction at 5, a₅=1, and an actual rational point P of additive order five with its cyclic isogeny. Then 5 is an ordinary Eisenstein prime, and §12.8 proves v₅(bsdDefect E₁₁)=0. Prove `TauCeti.BSD.fixed_prime_example`. The isogeny-kernel character is trivial, so the narrower CGS local exclusion fails; the Keller–Yin result allows it. No point count, point-order calculation or construction of the isogeny is a target here.
 
-Actual isogeny/differential and local/global index certificates on both models; exact modular-symbol period comparison.
+([Keller–Yin v2](https://arxiv.org/pdf/2402.12781v2), Theorem C, p.4, Theorem 4.2.1, pp.41–43, and the 11a3 example in §0.3, p.5.)
 
-Use point11’s kernel with EllipticCurves Layer 1; replay the isogeny formulas, minimal differential scaling and map on real components. Import the exact N=11 modular-symbol computation and verify its optimal-model period; transport it through the actual isogeny. Use local-isogeny-certificate-adapter and torsion-square-valuation. The two ratios are exact; decimal period ratios are insufficient.
-
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/examples.pdf), N=11 worked example, period and L-value.
-
-*Needs:* EllipticCurves worked examples; Layers 1–2 and 6; §13.7 (exact local isogeny comparison); §13.3 (rational valuation with torsion square); TauCetiRoadmap EllipticCurves Layer 1; §1.1 (rationality of l(e,1)/ω_e).
-
-The intended declarations are:
-
-- `TauCeti.BSD.fixture_11_isogeny_period` — The stated conclusion with exactly the hypotheses above.
+*Needs:* §14.4, §11.1, §12.8, §13.18; EllipticCurves isogeny and point-group APIs.
 
 **Checks.**
 
-- Replacing torsion² by torsion changes the predicted 5-adic valuation by one; deleting torsion changes it by two.
+- The trivial character is 1 at G₅; it cannot meet φ|G₅≠1,ω.
+- Local p-torsion-free control cannot be applied to a point of rational order p.
+- With additional supplied L(E₁₁,1)/Ω=1/25, torsion order 5 and Sha–Tamagawa product 1, the defect is (1/25)·5²=1. Its analytic valuation −2 equals the torsion-square contribution −2 on the arithmetic side.
 
-### 14.7 32a2 discriminant calculation
+### 14.6 Full formulas under explicit analytic and arithmetic hypotheses
 
-The actual coefficient polynomial gives fixture32.Δ=64.
+For the three actual curves of §14.4, assume exact period, free-lattice and finite-group data as follows. All periods are full real-component Néron periods. In rank zero the regulator is the existing empty determinant 1. In rank one the supplied regulator is that of the saturated Mordell–Weil free lattice in the BSD x-height normalization.
 
-Unfold the five coefficients and Mathlib Δ; reduce the rational polynomial.
+| Input | E₁₁ (11a3) | E₃₇ (37a1) | E₃₂ (32a2) |
+|---|---|---|---|
+| Rational leading quotient L*/(Ω Reg_BSD) | 1/25 | 1 | 1/8 |
+| Rational torsion order | 5 | 1 | 4 |
+| Tamagawa product | 1 | 1 | 2 |
+| Whole Sha order | 1 | 1 | 1 |
+| Real component count | 1 | 2 | 2 |
 
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/table1.pdf), Table 1, printed pp.109–112, row 32a2.
+Each entry is an explicit hypothesis about the actual invariant, rather than its definition. The whole-Sha entry means a proved cardinality of the actual finite Sha group. It may instead be supplied by a proved whole-Sha annihilator B and complete Selmer presentations at p^{v_p(B)}, using §13.11; a p-Selmer count alone is insufficient. The E₃₇ regulator input includes saturation or an exact free index. If the 32a2 data are expressed via a model calculation, assume the coefficient tuple (0,0,0,−1,0), discriminant 64, minimal differential, conductor 32, dyadic type III with c₂=2, all other c_ℓ=1 and torsion (ℤ/2)². CM by ℤ[i] may be an additional range-test hypothesis; it is not needed for this conditional deduction. None of these data is a computation target.
 
-*Needs:* §14.4 (concrete 32a2 weierstrass model); Mathlib `WeierstrassCurve.Δ`.
+Prove `TauCeti.BSD.full_bsd_example` with the quotient hypotheses 1/25,1,1/8 and the arithmetic data above. The resulting defects are (1/25)·25=1, 1·1=1 and (1/8)·16/2=1. Identify each actual rational defect using §7.8, deduce it equals one, and construct the canonical empty certificate by §13.13. Apply §13.21. An alternative form takes the three complete defect certificates as inputs without any numerical quotient hypotheses. These are separate sufficient-input forms; neither follows from rank and finiteness alone.
 
-The intended declarations are:
+([Gross, Kolyvagin's work on modular elliptic curves](https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf), Theorem 1.3, printed p.236, distinguishes a bound from Conjecture 1.2's exact formula; [Cremona, Table 1](https://johncremona.github.io/book/fulltext/table1.pdf), rows 11A3,37A1,32A2, supplies model labels and comparison data, not proofs of these hypotheses. Reconstruction itself is §13.21.)
 
-- `TauCeti.BSD.fixture_32_discriminant` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- The result is nonzero and has the stated sign.
-
-### 14.8 Certified central values for the three fixtures
-
-Replay exact rational interval certificates for the actual L-functions of fixture11, fixture37 and fixture32: 1/4<L(fixture11,1)<3/10, 1/4<L′(fixture37,1)<1/3 and 3/5<L(fixture32,1)<7/10. Their root numbers are respectively +1,−1,+1; the second sign forces L(fixture37,1)=0. The bounds then prove analytic ranks 0,1,0. The listed intervals are proof targets, not claims of completed interval proofs.
-
-Exact modular-form identification, conductor/root-number certificates and rigorous interval replay for π, square roots, exponentials and E₁ at each finite argument.
-
-Use the exact coefficient recurrence and finite-field point counts through a cutoff such as M=40, including the bad-prime coefficient cases. Evaluate each finite sum using outward rational enclosures for elementary functions and a proved E₁ quadrature/tail bound; add mellin-central-tail-bounds. Record the rational bounds and all rounding errors in the certificate. Use the Layer 0 analytic-rank definition and the functional equation to conclude the orders of vanishing. A floating-point sum is only a diagnostic.
-
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/examples.pdf), N=11 and N=37 worked computations; compare Chapter 2 §2.13.
-
-*Needs:* EllipticCurves worked examples; Layers 1–2 and 6; §14.4 (concrete 32a2 weierstrass model); §14.5 (central mellin formulas with explicit tails); §0.2 (analytic rank and the leading coefficient at s = 1); ComputationalNumberTheory CN.4.
-
-The intended declarations are:
-
-- `TauCeti.BSD.analytic_fixture_enclosures` — The stated conclusion with exactly the hypotheses above.
+*Needs:* §7.8, §13.3, §13.11, §13.13, §13.21, §14.4; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; GrossZagierAndArithmeticHeights **The dictionary of height conventions** and **Full real period, identity-component period and c∞**.
 
 **Checks.**
 
-- Certificates must enclose every finite-sum error and the infinite tail; no raw LSeries at 1 or decimal nonzero test is allowed.
+- Torsion 5 contributes 25, while torsion (ℤ/2)² contributes 16, rather than 4.
+- With quotient 1/2 on E₃₂ the defect is 4, with dyadic valuation 2; with quotient 1/8 it is 1. The two hypotheses are distinguishable by the formula itself.
+- For E₃₇ a point 2P has four times the height of a saturated generator P; its height cannot be substituted for the full-lattice regulator.
+- Counting c∞=2 twice would divide the normalized quotient by another two and fail the displayed equality.
 
-### 14.9 32a2 ellipticity and affine point domain
+### 14.7 Omitting a prime does not assemble a full certificate
 
-fixture32 is elliptic and fixture32.toAffine.Nonsingular 0 0 holds.
+For any actual E with positive rational defect, the inside and outside proofs of §13.17 must together cover every prime. Removing a dyadic proof leaves the full formula conditional on that proof unless an independent argument supplies it. Prove `TauCeti.BSD.missing_exception_fixture` as the rational obstruction of §14.3, without claiming the actual defect of a BSD example equals the countermodels 2 or 1/4. If an exact quotient computation already proves d_E=1 as in §14.6, it independently recovers the missing valuation and there is no obstruction.
 
-Apply the nonzero-discriminant criterion. For (0,0), evaluate the equation and at least one nonzero partial derivative.
-
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/table1.pdf), Table 1, printed pp.109–112, row 32a2.
-
-*Needs:* §14.7 (32a2 discriminant calculation); Mathlib `WeierstrassCurve.IsElliptic`; Mathlib `WeierstrassCurve.Affine.Nonsingular`.
-
-The intended declarations are:
-
-- `TauCeti.BSD.fixture_32_elliptic` — The stated conclusion with exactly the hypotheses above.
+*Needs:* §13.17, §13.21, §14.1–§14.3. This is a logical consequence of the certificate hypotheses.
 
 **Checks.**
 
-- A proof of Equation alone does not construct a Mathlib affine point.
-
-### 14.10 Rational five-torsion theorem-range test
-
-fixture11 has good ordinary reduction at p=5, with #E(𝔽₅)=5 and a₅=1, and the actual point11 gives a rational cyclic 5-isogeny kernel. Its character is 1 at G₅. Therefore Keller–Yin’s good Eisenstein hypotheses apply and CGS’s local exclusion fails. Once the certified rank-zero analytic bound is supplied, the 5-part of the actual BSD defect vanishes by ky-eisenstein-prime-bsd.
-
-Reduce the nonsingular model modulo 5; enumerate its four affine points and O exactly. Use point-11-order to construct the rational kernel/isogeny via EllipticCurves Layer 1, and read the trivial Galois action. Apply ky-eisenstein-prime-bsd with analytic-fixture-enclosures. Check Δ=−11 gives good reduction and a₅ is a 5-adic unit.
-
-The source comparison is [Keller–Yin (v2)](https://arxiv.org/pdf/2402.12781v2), §0.3, p.5, example 11a3; Theorem C.
-
-*Needs:* EllipticCurves worked examples; Layers 1–2 and 6; §14.8 (certified central values for the three fixtures); §12.8 (keller–yin good eisenstein prime-part bsd); TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 3.
-
-The intended declarations are:
-
-- `TauCeti.BSD.fixture_11_good_five` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- No local torsion-free control formula may be substituted in this example.
-
-### 14.11 Fixture periods, heights and regulator conventions
-
-On fixture11, c∞=1, and on fixture37 and fixture32, c∞=2. Their actual BSD real periods are Ωfull=c∞Ωpositive. Rank zero gives Reg_BSD=1 using the existing Tau Ceti rank-zero regulator theorem; the convention adapter Reg_BSD=2^r Reg_Tau has no effect at r=0 and doubles the rank-one regulator. On fixture37, if point37 is a saturated generator, Reg_BSD=h_BSD(point37); replacing it by 2point37 multiplies the point height by four and must not replace the regulator of the full lattice.
-
-Actual rank certificates, invariant differentials, and a saturated free generator in rank one.
-
-Use the discriminant signs with GZ.0 real-period-components. Apply Tau Ceti’s regulator_eq_one_of_finrank_eq_zero under its actual finitely-generated PointModTorsion hypotheses; import GZ.0’s convention dictionary rather than replanning the regulator. Use Layer 7’s free-index formula and rank-one saturation to compute the actual regulator; count c∞ only once.
-
-The source comparison is [Benedict H. Gross](https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf), Printed p.236, infinite cyclic rational group and free generator of the 37 curve.
-
-*Needs:* EllipticCurves worked examples; Layers 1–2 and 6; §14.7 (32a2 discriminant calculation); §13.5 (certified free lattice and saturation index); GrossZagierAndArithmeticHeights GZ.0 / real-period-components; GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`.
-
-The intended declarations are:
-
-- `TauCeti.BSD.fixture_period_height_comparisons` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- A missing real-component factor is detected on both Δ>0 fixtures; a missing factor two in rank-one pairing is detected on fixture37.
-
-### 14.12 Rank equality comparison example
-
-The actual fixtures have algebraic/analytic ranks 0,1,0 by applying Layer 6 to the certified analytic bounds.
-
-The exact certificates and source hypotheses listed by the preceding comparisons.
-
-Apply the imported rank theorem to each actual curve.
-
-This is a consequence of the preceding definitions and comparisons, with the proof obligations stated here.
-
-*Needs:* §14.8 (certified central values for the three fixtures); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite).
-
-The intended declarations are:
-
-- `TauCeti.BSD.rank_equality_example` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- The full-formula application consumes a complete certificate; the preceding three applications do not supply it.
-
-### 14.13 Whole Sha finiteness comparison example
-
-The whole Sha groups of the three actual fixtures are finite, independently of any exact cardinality certificate.
-
-The exact certificates and source hypotheses listed by the preceding comparisons.
-
-Apply Layer 6’s whole-Sha conclusion; no finite index or p-primary datum replaces it.
-
-This is a consequence of the preceding definitions and comparisons, with the proof obligations stated here.
-
-*Needs:* §14.8 (certified central values for the three fixtures); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite).
-
-The intended declarations are:
-
-- `TauCeti.BSD.whole_sha_finiteness_example` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- The full-formula application consumes a complete certificate; the preceding three applications do not supply it.
-
-### 14.14 Actual 32 fixture point
-
-Define point32 by the actual Mathlib Affine.Point.some constructor at (0,0), using fixture-32-elliptic. Its additive order is 2 (zero denotes infinite order). Addition gives 2P=O; the other nonzero rational 2-torsion points are (1,0),(−1,0).
-
-Construct Point.some from the Nonsingular proof; import the existing AddCommGroup law. At (0,0), the derivative of x³−x is −1 while the y derivative vanishes, so this is a nonsingular affine point. The negation formula fixes it; the vertical-tangent case of the group law gives twice the point equal to the identity. The affine constructor distinguishes it from the point at infinity.
-
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/chapter3.pdf), §3.3 torsion tests and §3.5 generators.
-
-*Needs:* §14.9 (32a2 ellipticity and affine point domain); Mathlib `WeierstrassCurve.Affine.Point`; TauCetiRoadmap EllipticCurves Layer 2; Mathlib `addOrderOf`.
-
-The intended declarations are:
-
-- `WeierstrassCurve.BSD.point32_nonzero` — P≠O
-- `WeierstrassCurve.BSD.point32_order` — addOrderOf P=2
-- `WeierstrassCurve.BSD.point32_coordinates` — P is the actual point (0,0) on fixture32
-
-**Checks.**
-
-- 2P=O
-- (−1,0),(0,0),(1,0) are distinct nonzero 2-torsion points
-- (1,0)+(−1,0)=P
-- All points and multiples refer to the specified model.
-
-### 14.15 Fixed prime BSD comparison example
-
-For fixture11 at p=5, the KY theorem proves the actual prime part despite rational 5-torsion. A generic fixed-prime endpoint retains the named branch and its hypotheses, including every reduction/ramification exception.
-
-The exact certificates and source hypotheses listed by the preceding comparisons.
-
-Use the range-tested KY instance; do not infer all primes from this one instance.
-
-This is a consequence of the preceding definitions and comparisons, with the proof obligations stated here.
-
-*Needs:* §14.10 (rational five-torsion theorem-range test); §13.18 (source-qualified fixed-prime dispatch).
-
-The intended declarations are:
-
-- `TauCeti.BSD.fixed_prime_example` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- The full-formula application consumes a complete certificate; the preceding three applications do not supply it.
-
-### 14.16 Order of the 32 fixture point
-
-For the actual point32, addOrderOf point32=2.
-
-Use point32≠0 and point32+point32=0 from §14.14. The additive order divides two and cannot be one, hence is exactly two. The other roots (−1,0) and (1,0) give the remaining nonzero rational two-torsion points; point32 does not generate a cyclic group of order four.
-
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/chapter3.pdf), §3.3 torsion tests and §3.5 generators.
-
-*Needs:* §14.14 (actual 32 fixture point); TauCetiRoadmap EllipticCurves Layer 2; Mathlib `addOrderOf`.
-
-The intended declarations are:
-
-- `TauCeti.BSD.point_32_order` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- Infinite order is distinguished from a missing order calculation.
-
-### 14.17 CM and additive dyadic fixture
-
-For fixture32, exact local minimality and the dyadic Tate algorithm give conductor 32, Kodaira type III at 2 and c₂=2; all other c_ℓ=1. The automorphism (x,y)↦(−x,iy) over ℚ(i) squares to [−1], and the imported characteristic-zero endomorphism classification identifies End(E_ℚ̄)=ℤ[i]. Thus this actual CM curve is not semistable. Its full rational torsion group is (ℤ/2)², established from the three displayed points and reduction bounds.
-
-Replay the residue-characteristic-two minimality and Tate-algorithm trace, not the ℓ≥5 classification. Verify the automorphism on the actual equation, its group-law compatibility and square; use the CM endomorphism-ring theorem. Combine point32 and the other two roots with prime-to-good-reduction torsion bounds at two odd good primes to exclude further rational torsion.
-
-The source comparison is [John E. Cremona](https://johncremona.github.io/book/fulltext/table1.pdf), Table 1, p.111, row 32A2.
-
-*Needs:* §14.4 (concrete 32a2 weierstrass model); §14.16 (order of the 32 fixture point); §13.6 (local tamagawa certificate adapter); TauCetiRoadmap EllipticCurves Layer 2; TauCetiRoadmap EllipticCurves Layer 3; ComplexMultiplicationAndExplicitReciprocity CM.1.
-
-The intended declarations are:
-
-- `TauCeti.BSD.fixture_32_cm_additive` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- The good-Eisenstein BSD theorem is not used at the bad prime 2.
-
-### 14.18 Finite descent and saturation for the three fixtures
-
-Construct replayable arithmetic certificates for fixture11, fixture37 and fixture32 proving respectively rank/torsion/Tamagawa data (0,5,1), (1,1,1), (0,4,2), with point37 a saturated free generator. A full-Sha certificate additionally supplies a proved annihilator B of the whole Sha group and complete Selmer presentations for every p^n needed by B; the target Sha order is 1 in each fixture. This target must be derived, not read from analytic-Sha tables. If an annihilator or a primary presentation is absent, only the certified primary components are output.
-
-Actual models and points; exact local traces, descent presentations, rank and saturation bounds; a proved whole-Sha exponent bound for any whole-Sha assertion.
-
-Use analytic-fixture-enclosures and Layer 6 for rank equality and whole-Sha finiteness, but not an effective exponent bound. Apply the Selmer-cardinality and Sha-annihilator adapters to each required p^n; finite Selmer computations with an unproved exponent do not finish this step. Replay local-tamagawa-certificate-adapter and the torsion/reduction computations; use mordell-weil-saturation-adapter on point37. Gross Theorem 1.3 bounds Sha by tI² with exceptional power of 2; retain that factor, and use actual 2-primary descent if necessary. Gross Conjecture 1.2 is not used as a theorem.
-
-For consistency with the imported infinite-order point on 37a1, the change X=4x,Y=8y+4 sends it to (0,4) on Y²=X³−16X+16. Exact addition gives 8P=(84/25,−52/125); the nonintegral coordinate excludes torsion by Lutz–Nagell. This check proves neither saturation nor any Sha order, which still require the certificates above.
-
-The source comparison is [Benedict H. Gross](https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf), Printed pp.235–239, Conjecture 1.2 versus Theorem 1.3.
-
-*Needs:* §14.8 (certified central values for the three fixtures); EllipticCurves worked examples; Layers 1–2 and 6; §14.17 (cm and additive dyadic fixture); §6.4 (analytic rank at most one: rank equals analytic rank and sha is finite); §13.4 (finite selmer cardinality and sha torsion); §13.11 (certified sha annihilator and finite descent); §13.5 (certified free lattice and saturation index); §13.6 (local tamagawa certificate adapter).
-
-The intended declarations are:
-
-- `TauCeti.BSD.fixture_finite_arithmetic` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- A 2-Selmer rank bound alone does not certify the odd primary components or the whole Sha order.
-
-### 14.19 Full BSD certificate comparison examples
-
-For each actual fixture, its proved complete prime certificate yields the full leading-term formula. Construct this certificate only after exact modular-symbol or Gross–Zagier/period/free-index comparison, finite arithmetic certificates and every exceptional valuation are available. This application is conditional on those concrete replayed inputs; it is not proved by rank equality or Sha finiteness alone.
-
-The exact certificates and source hypotheses listed by the preceding comparisons.
-
-Compute the actual rational defect with exact analytic/arithmetic comparisons. Use exceptional-prime-part-adapter at every prime in its canonical support and construct PrimeValuationCertificate. Apply elliptic-endpoint.
-
-This is a consequence of the preceding definitions and comparisons, with the proof obligations stated here.
-
-*Needs:* §14.18 (finite descent and saturation for the three fixtures); §14.11 (fixture periods, heights and regulator conventions); §14.6 (five-isogeny and torsion-square comparison); §13.14 (exceptional-prime leading-term certificate adapter); §13.21 (full leading term under the actual defect certificate).
-
-The intended declarations are:
-
-- `TauCeti.BSD.full_bsd_example` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- The full-formula application consumes a complete certificate; the preceding three applications do not supply it.
-
-### 14.20 Missing exceptional prime regression
-
-In an actual fixture proof, deleting the dyadic or any other exceptional localZero entry invalidates the full-formula application unless a separate proof recovers it. The positive rational countermodels q=2 and q=1/4 have zero valuation at every odd prime and nonzero dyadic valuation; their certificate type is empty. Thus odd-prime results and whole-Sha finiteness alone cannot satisfy the final gate.
-
-Use dyadic-gate and the exact positive rational countermodels. Check the full-bsd-example dependency still requires all support-covered entries, including the bad additive prime 2 for fixture32.
-
-This is a consequence of the preceding definitions and comparisons, with the proof obligations stated here.
-
-*Needs:* §14.3 (the remaining dyadic equality under all odd-prime equalities); §14.19 (full bsd certificate comparison examples); §14.17 (cm and additive dyadic fixture).
-
-The intended declarations are:
-
-- `TauCeti.BSD.missing_exception_fixture` — The stated conclusion with exactly the hypotheses above.
-
-**Checks.**
-
-- Removing one undecided exceptional prime must fail the certificate construction.
+- The positive rational 2 passes every odd-prime check and has no complete certificate.
+- The positive rational 1/4 also passes them, with a negative dyadic valuation.
+- A supplied complete certificate or an independently proved defect equality supplies the missing entry; deleting redundant input does not invalidate a proof that reconstructs it.
 
 ### Examples
 
-The comparison curves have target analytic ranks 0,1,0. The rigorous intervals are (1/4<L(11a3,1)<3/10), (1/4<L'(37a1,1)<1/3) and (3/5<L(32a2,1)<7/10), with the root-number certificate forcing L(37a1,1)=0. Each interval must include all finite-sum rounding errors and the explicit infinite tail. The arithmetic targets are respectively (rank,torsion,Tamagawa)=(0,5,1),(1,1,1),(0,4,2). The target whole-Sha order one requires its own annihilator and complete primary descent proofs.
-
-For a proposed full proof on 32a2, deleting the dyadic valuation entry prevents certificate assembly unless another proved branch supplies it. All odd-prime equalities can hold for the positive rational countermodels 2 and 1/4, so no conclusion about the complete formula can be inferred from those odd equalities alone. The rank-equality, whole-Sha and fixed-prime applications remain distinct even while the full arithmetic replay is unfinished.
+On the supplied 11a3 data, Keller–Yin applies at 5 despite rational 5-torsion. On supplied 37a1 data, rank equality and whole-Sha finiteness use the derivative enclosure; the full formula additionally consumes its saturated regulator and exact cardinality data. On supplied 32a2 data, additive reduction at 2 excludes the good-Eisenstein and semistable dyadic routes. A full formula there uses either its complete certificate or exact quotient 1/8 together with torsion order 4, Tamagawa product 2 and Sha order 1. Changing a numerical input can preserve the analytic rank while invalidating the full formula.
 
 ### Dependencies
 
-Earlier comparisons: §0.1, §0.2, §1.1, §6.4, §12.8, §13.3, §13.4, §13.5, §13.6, §13.7, §13.11, §13.14, §13.15, §13.18, §13.19, §13.21. Supplier interfaces: ComplexMultiplicationAndExplicitReciprocity CM.1; ComputationalNumberTheory CN.4; EllipticCurveModularity R29.6, using the pinned entire-extension interface; EllipticCurves worked examples; Layers 1–2 and 6; GrossZagierAndArithmeticHeights GZ.0 / height-convention-dictionary; GrossZagierAndArithmeticHeights GZ.0 / real-period-components; Mathlib `Nat.Prime.dvd_iff_eq`; Mathlib `Nat.forall_prime_iff_two_and_odd`; Mathlib `WeierstrassCurve.Affine.Nonsingular`; Mathlib `WeierstrassCurve.Affine.Point`; Mathlib `WeierstrassCurve.IsElliptic`; Mathlib `WeierstrassCurve.Δ`; Mathlib `WeierstrassCurve`; Mathlib `addOrderOf`; Mathlib `padicValNat.eq_zero_of_not_dvd`; Mathlib `padicValRat.of_nat`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`; TauCetiRoadmap EllipticCurves Layer 1; TauCetiRoadmap EllipticCurves Layer 2; TauCetiRoadmap EllipticCurves Layer 3; TauCetiRoadmap ModularForms Layer 7.
+Earlier comparisons: §0.1, §0.2, §0.5, §6.4, §7.8, §11.1, §12.8, §13.3, §13.11, §13.13, §13.15, §13.17–§13.19, §13.21. Existing carriers: Mathlib `padicValRat`, `Nat.Prime.dvd_iff_eq`, `Nat.forall_prime_iff_two_and_odd`; Tau Ceti `WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero`. Convention comparisons: GrossZagierAndArithmeticHeights **The dictionary of height conventions** and **Full real period, identity-component period and c∞**. Concrete analytic, modular-curve and dyadic arithmetic data are hypotheses of the applications.
 
 ## Mathematical boundaries and refinements
 
@@ -3763,9 +3261,9 @@ The higher-weight Castella argument requires a uniformizer-integral Kolyvagin bo
 
 The Eisenstein path requires the source-specific integral Wüthrich, early Heegner and actual KLZ reciprocity exports. For Keller–Yin, the Introduction's integral index-square equality and §3.0.8's printed Λᵃᶜ have an unresolved coefficient-ring comparison. The index-square interface below retains the rationalized conclusion until an integral two-way comparison retains and removes the actual p-power transfer factors. The integral Greenberg equality and the printed BSD theorem remain separate targets. Keller–Yin's short cyclotomic substitution proof also requires checking control, finite-submodule and reciprocal-image statements on its actual chosen lattice; the narrower CGS local-character hypotheses cannot simply be erased.
 
-The numerical intervals, saturated generators, effective whole-Sha annihilators and exact fixture Sha orders below are proof targets for replayable proofs. A floating-point central value, an analytic-Sha table or abstract finiteness supplies none of those certificates. Where only some primary descent presentations have been proved, only those primary components are output. The full fixture formula is applied after complete support coverage has been proved.
+The numerical intervals, saturated generators, effective whole-Sha annihilators and exact example Sha orders in Layer 14 are explicit hypotheses, not computation targets. A floating-point central value, an analytic-Sha table or abstract finiteness supplies none of those certificates. Where only some primary descent presentations have been proved, only those primary components are output. The full fixture formula is applied after complete support coverage has been proved.
 
-## Downstream applications
+## Downstream consumers
 
 Export the analytic-rank-at-most-one rank and whole-Sha theorem to arithmetic applications independently of any exact-order result. Export integral signed and Eisenstein main conjectures to ModularIwasawaMainConjectures L6 and the later Heegner reexports, preserving their normalization and coefficient rings. Export source-qualified prime-part instances and complete certificates to individual elliptic-curve calculations and explicit families. The certificate interface exposes the exceptional set, outside-prime theorem, local proofs and actual positive defect identity; it enables a consumer to audit every missing prime.
 
