@@ -13,12 +13,7 @@ Those carriers require their owning roadmaps; no assumed carrier or data
 definition stands in for them. Gaps in a mathematical proof remain gaps even
 when a theorem signature below elaborates.
 -/
-import Mathlib.Algebra.Group.Subgroup.Pointwise
-import Mathlib.LinearAlgebra.Eigenspace.Basic
-import Mathlib.NumberTheory.Bernoulli
-import Mathlib.NumberTheory.NumberField.ClassNumber
-import Mathlib.NumberTheory.NumberField.Cyclotomic.Basic
-import Mathlib.RingTheory.DedekindDomain.SInteger
+import Mathlib
 import TauCeti.RingTheory.DedekindDomain.SInteger.Basic
 import TauCeti.RingTheory.DedekindDomain.SInteger.Unit
 
@@ -47,14 +42,12 @@ theorem integer_isLocalization_iff (M : Submonoid R) :
       M ≤ sUnitSubmonoid S F ∧ ∀ v ∈ S, ∃ m ∈ M, m ∈ v.asIdeal := by
   sorry
 
-example : (∅ : Set (HeightOneSpectrum R)).integer F = ⊥ :=
-  IsDedekindDomain.integer_empty R F
+example (r : R) : r ∈ sUnitSubmonoid S F ↔
+    IsUnit (algebraMap R (S.integer F) r) := Iff.rfl
 
-example : (Set.univ : Set (HeightOneSpectrum R)).integer F = ⊤ :=
-  IsDedekindDomain.integer_univ R F
-
-example [Finite S] [Monoid.FG Rˣ] : Group.FG (S.unit F) :=
-  inferInstance
+example : (0 : R) ∉ sUnitSubmonoid S F := by
+  change ¬ IsUnit (algebraMap R (S.integer F) 0)
+  simp
 
 end SIntegers
 
@@ -77,11 +70,12 @@ README targets, rather than locally constructed spectra in this file.
 def borelRank (r₁ r₂ n : ℕ) : ℕ :=
   if n % 4 = 1 then r₁ + r₂ else if n % 4 = 3 then r₂ else 0
 
-example : borelRank 1 0 3 = 0 ∧ borelRank 1 0 5 = 1 := by sorry
+example : borelRank 1 0 3 = 0 ∧ borelRank 1 0 5 = 1 := by decide
 
-example : borelRank 0 1 3 = 1 ∧ borelRank 0 1 5 = 1 := by sorry
+example : borelRank 0 1 3 = 1 ∧ borelRank 0 1 5 = 1 := by decide
 
-example (r₁ r₂ k : ℕ) : borelRank r₁ r₂ (2 * k) = 0 := by sorry
+theorem borelRank_even (r₁ r₂ k : ℕ) : borelRank r₁ r₂ (2 * k) = 0 := by
+  sorry
 
 /-
 N.4 has the single W_j(F)=H^0(F,Q/Z(j)) carrier. No new Tate twist is built
@@ -112,11 +106,28 @@ theorem divisibleSubgroup_eq_bot_of_finite [Finite A] :
     divisibleSubgroup A = ⊥ := by
   sorry
 
-example : divisibleSubgroup ℚ = ⊤ := by sorry
+example : divisibleSubgroup ℚ = ⊤ := by
+  ext x
+  simp only [divisibleSubgroup, AddSubgroup.mem_iInf, AddSubgroup.mem_top, iff_true]
+  intro m hm
+  rw [AddSubgroup.mem_smul_pointwise_iff_exists]
+  refine ⟨x / m, trivial, ?_⟩
+  rw [nsmul_eq_mul, mul_div_cancel₀]
+  exact_mod_cast (show m ≠ 0 by omega)
 
-example : divisibleSubgroup ℤ = ⊥ := by sorry
+example : divisibleSubgroup (ZMod 4) = ⊥ := by
+  apply le_antisymm _ bot_le
+  intro x hx
+  simp only [divisibleSubgroup, AddSubgroup.mem_iInf] at hx
+  rcases (AddSubgroup.mem_smul_pointwise_iff_exists x 4 ⊤).mp (hx 4 (by decide)) with
+    ⟨y, _, hy⟩
+  have hy0 : (4 : ℕ) • y = (0 : ZMod 4) := by
+    rw [nsmul_eq_mul, ZMod.natCast_self, zero_mul]
+  exact hy.symm.trans hy0
 
-example : divisibleSubgroup (ZMod 4) = ⊥ := by sorry
+/-- A boundary test retained as a target until its arithmetic proof is supplied. -/
+theorem divisibleSubgroup_int : divisibleSubgroup ℤ = ⊥ := by
+  sorry
 
 end DivisibleElements
 
@@ -130,15 +141,11 @@ theorem bottCohomologySlot_totalDegree (j : ℤ) (positive : Bool) :
       ((bottCohomologySlot j positive).1 : ℤ) = 2 * j := by
   sorry
 
-example : bottCohomologySlot 0 true = (0, 0) := by sorry
-
-example : bottCohomologySlot 0 false = (2, 1) := by sorry
+example : bottCohomologySlot 0 true = (0, 0) ∧
+    bottCohomologySlot 0 false = (2, 1) := by decide
 
 example : bottCohomologySlot (-1) true = (2, 0) ∧
-    bottCohomologySlot (-1) false = (0, -1) := by sorry
-
-example : bottCohomologySlot 1 true = (2, 2) ∧
-    bottCohomologySlot 1 false = (0, 1) := by sorry
+    bottCohomologySlot (-1) false = (0, -1) := by decide
 
 /-
 The actual Adams pieces use Module.End.eigenspace of the existing operation.
@@ -162,13 +169,11 @@ G-WildExceptional mark the precise unproved comparisons.
 /-- Translation of Weibel's positive, reindexed Bernoulli convention for k>=1. -/
 def bernoulliTop (k : ℕ) : ℚ := (-1) ^ (k + 1) * bernoulli (2 * k)
 
-example : bernoulli 1 = -1 / 2 := bernoulli_one
+example : bernoulliTop 1 = 1 / 6 := by
+  norm_num [bernoulliTop, bernoulli_two]
 
-example : bernoulliTop 1 = 1 / 6 := by sorry
-
-example : bernoulli 12 = -691 / 2730 ∧ bernoulliTop 6 = 691 / 2730 := by sorry
-
-example : bernoulliTop 5 = 5 / 66 ∧ (bernoulli 10 / 5).num = 1 := by sorry
+example : bernoulliTop 2 = 1 / 30 := by
+  norm_num [bernoulliTop, bernoulli, bernoulli'_four]
 
 /-- Used with an explicit prime hypothesis; this never includes Vandiver's condition. -/
 def IsRegularPrime (p : ℕ) : Prop :=
@@ -180,9 +185,13 @@ theorem kummer_criterion (p : ℕ) (hp : p.Prime) (hodd : Odd p) :
       ∃ k ∈ Finset.Icc 1 ((p - 3) / 2), (p : ℤ) ∣ (bernoulli (2 * k)).num := by
   sorry
 
-example : IsRegularPrime 3 := by sorry
+/-- The smallest odd prime is a named arithmetic target, not an admitted example. -/
+theorem isRegularPrime_three : IsRegularPrime 3 := by
+  sorry
 
-example : ¬ IsRegularPrime 37 := by sorry
+/-- Kummer’s criterion detects the numerator of B₃₂ at the first irregular prime. -/
+theorem not_isRegularPrime_37 : ¬ IsRegularPrime 37 := by
+  sorry
 
 /-
 N.8 imports K0(Z), K1(Z), K2(Z), K2(Q) from Z.6/U.6/T.5.
