@@ -55,15 +55,6 @@ example (ψ : AddChar (ZMod 3) ℂ) (z : Fin 1 → ZMod 3) :
       if z 0 = 0 then 1 else 0 := by
   sorry
 
-/-- Target FW.0/adapted-polarization: its numerical endpoint is statable at the
-pins without creating the witness data or a new symplectic-form structure. -/
-theorem finiteSymplectic_evenDimension {k V : Type*} [Field k] [Finite k]
-    [AddCommGroup V] [Module k V] [FiniteDimensional k V]
-    (B : LinearMap.BilinForm k V) (hB : B.IsAlt) (hnd : B.Nondegenerate)
-    (hodd : (2 : k) ≠ 0) :
-    ∃ n : ℕ, Module.finrank k V = 2 * n := by
-  sorry
-
 /-- FW.1/cyclic-center. The theta-scalar condition is written over native
 FDRep rather than inventing an isotypic-representation carrier. The conclusion
 uses only finite-group representation infrastructure already present at the pin.

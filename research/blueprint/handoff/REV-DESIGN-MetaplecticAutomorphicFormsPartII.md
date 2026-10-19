@@ -1,0 +1,13 @@
+# REV-DESIGN-MetaplecticAutomorphicFormsPartII
+
+Completed independent review for #3569 by Codex session `codex-xPGIqX`, 2026-10-19. Accepted after corrections: 17 nodes, ten corrected and seven verified, no new nodes. The review report and packet's per-node review object contain the durable findings.
+
+The main correction is ownership: current Tau Ceti already has general symplectic bases and even dimension. FW.0 imports the existing chosen-Lagrangian basis-extension node `MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis` and only assembles finite partial coordinates. Its supplier has a pending ownership transfer; retain this canonical ID until the orchestrator applies it. The duplicate even-dimension Lean endpoint was removed. Added pinned `TauCeti.indFDRepForgetEquiv` as the explicit bridge to native induction. Corrected FS25 pagination, the standard-model x/y fixed-line labels and test categories; strengthened the scalar-rescaling test. Roadmap, packet, reader and suggested-file boundary agree.
+
+All 22 pinned baseline declarations and all node source locators were independently read. Current upstream checks used TauCetiRoadmap `0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The four directly read public source versions and hashes are recorded in the packet. All three embedded source issues have confirmed independent verdicts. E3 is a newly recorded minor prose parity slip on Neuhauser's published p. 23; the determinant and planned formulas are correct.
+
+Validation: blueprint checker zero errors/warnings; `lean-check` exit 0 at Mathlib `082e2d3` and Tau Ceti `f790474`, six `sorry` warnings only; embedded errata schema and inventories checked; `git diff --check` clean. Numerical matrix checks confirm the small-field signs, corrected fixed lines and nonfaithful-character behavior; these are consistency checks, not formalizations.
+
+One honest source-comparison gap remains. Obtain the original Gérardin 1977 Théorème 2.4(a,b), compare the preferred normalization in Sp₂(F₃), and collate the corrected induction formula with its printed hypotheses. The original was inaccessible; neither it nor Yu is claimed as directly read. The finite construction has independent sources, so this does not block acceptance of the finished pass. FW.2 and FW.3 retain precise planned/remaining entries.
+
+The five finite routed items are covered here. The other 78 items occur exactly once in the existing nine-layer companion proposal; their inventory was checked against the original routes. That proposal still needs an orchestrator decision and a separate design/source review, not automatic promotion. No further work is required for this review job.

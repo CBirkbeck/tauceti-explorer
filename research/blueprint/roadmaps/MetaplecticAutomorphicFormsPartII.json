@@ -6,15 +6,17 @@
   "summary": "This Part II develops the finite, odd-characteristic representation theory needed by tame and classical p-adic types. Starting from the parent roadmap’s algebraic Heisenberg extension, it constructs Schrödinger models, proves central-character uniqueness including cyclic centers of higher p-power order, and normalizes a genuine finite symplectic action. Partial-polarization restriction retains the quadratic determinant twist, and isotropic induction and tensor fixed vectors supply the finite inputs to Fintzen and Stevens. The independent automorphic theta-correspondence routes have an explicit companion-roadmap proposal.",
   "readme": "This Part II develops the finite, odd-characteristic representation theory needed by tame and classical p-adic types. Starting from the parent roadmap’s algebraic Heisenberg extension, it constructs Schrödinger models, proves central-character uniqueness including cyclic centers of higher p-power order, and normalizes a genuine finite symplectic action. Partial-polarization restriction retains the quadratic determinant twist, and isotropic induction and tensor fixed vectors supply the finite inputs to Fintzen and Stevens. The independent automorphic theta-correspondence routes have an explicit companion-roadmap proposal.\n\nH(V) is the native factor-set extension supplied by MetaplecticAutomorphicForms:MP.0: coordinates (t,v), product (t,v)(s,w)=(t+s+B(v,w)/2,v+w), commutator ghg⁻¹h⁻¹=(B(v,w),0). Sp(V) is TauCeti.BilinForm.isometryGroup B. For V=X⊕X*, B((x,y),(x′,y′))=y′(x)−y(x′). In coordinates y(z) is a dot product. ψ is unit-valued, and scalar equations use its image in C. Native semidirect products put the normal subgroup first: H(V)⋊Sp(V). The notation Sp(V)⋉H(V) in papers denotes this same group after exchanging the coordinate order.\n\nThe full target, API and test specification is research/blueprint/readmes/MetaplecticAutomorphicFormsPartII.md. The parent is the first prerequisite through its generic MP.0 algebraic nodes; its characteristic-zero smooth and analytic MP.1–MP.8 results are not finite-field inputs. Local metaplectic covers, global theta lifts and automorphic multiplicity formulas belong to the companion proposal in the packet. Source locators refer to the exact editions below.",
   "prerequisites": [
-    "MetaplecticAutomorphicForms"
+    "MetaplecticAutomorphicForms",
+    "MordellLawrenceVenkatesh"
   ],
   "stages": [
     {
       "key": "FW.0",
       "title": "Finite symplectic coordinates",
-      "description": "Over a finite field k of odd characteristic, construct for every isotropic I in a nondegenerate alternating space V an adapted decomposition V=I⊕V₀⊕J, with I⊥=I⊕V₀, perfect I–J pairing and nondegenerate V₀. Prove dim V=2 dim I+dim V₀ and even dimension by plane induction. Use native bilinear forms, submodules and isometries. Import the parent MP.0 algebraic Heisenberg extension, half-form commutator and center, polarization equivalence and isometry action; the current library’s rank-one Heisenberg group is an existing carrier.",
+      "description": "Over a finite field k of odd characteristic, assemble coordinates adapted to a specified isotropic I: V=I⊕V₀⊕J, I⊥=I⊕V₀, perfect I–J pairing and nondegenerate V₀, with dim V=2 dim I+dim V₀. Import the general Lagrangian basis-extension theorem from MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis. General symplectic-basis existence and even dimension already exist in current Tau Ceti and are not new targets. Use native bilinear forms, submodules and isometries. Import the parent MP.0 algebraic Heisenberg extension, half-form commutator and center, polarization equivalence and isometry action; the current library’s rank-one Heisenberg group is an existing carrier.",
       "requires": [
-        "MetaplecticAutomorphicForms:MP.0"
+        "MetaplecticAutomorphicForms:MP.0",
+        "MordellLawrenceVenkatesh:LV.3"
       ]
     },
     {
