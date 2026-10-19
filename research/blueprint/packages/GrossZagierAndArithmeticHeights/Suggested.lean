@@ -271,5 +271,6 @@ stated only in the README:
   algebraicPointLog_subgroup, cmSerreTateExpansion, cmLocalMomentMeasure, pNewColemanPrimitive,
   pNewAbelJacobi, pNewCMRootMeasure, primitiveQuaternionicDifferentialLine,
   cmMaassDerivative_toricNorm, bdpRootNormalization, bdpRootCharacterTransport,
+  bdpRootPeriodTransport,
   castellaHsiehRoot_ramifiedLevel, chiProjector, heegnerIntegral, quaternionicRoot.
 -/
