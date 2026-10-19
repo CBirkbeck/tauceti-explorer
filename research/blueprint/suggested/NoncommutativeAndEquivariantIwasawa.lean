@@ -18,6 +18,7 @@ import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.Algebra.Polynomial.Basic
+import Mathlib.Algebra.Polynomial.Coeff
 import Mathlib.Data.Rat.Defs
 import Mathlib.Tactic.NormNum
 
@@ -92,7 +93,25 @@ theorem det_scalar_twist (a : R) (M : Matrix n n R) :
 example : (Matrix.det !![(2 : ℚ), 0; 0, 3]) = 6 := by
   norm_num [Matrix.det_fin_two]
 
+/- The additional transpose in a right row action reverses multiplication. -/
+example :
+    (!![(1 : ℚ), 1; 0, 1] * !![(1 : ℚ), 0; 1, 1]).transpose ≠
+      !![(1 : ℚ), 1; 0, 1].transpose * !![(1 : ℚ), 0; 1, 1].transpose := by
+  intro h
+  have h00 := congrArg (fun A : Matrix (Fin 2) (Fin 2) ℚ => A 0 0) h
+  norm_num [Matrix.mul_apply, Fin.sum_univ_two] at h00
+
+/- For ξ=[γ] and a=2, Φ sends γ to 2(1+T), not (1+T)/2. -/
+example :
+    ((Polynomial.C (2 : ℚ) * (1 + Polynomial.X) : Polynomial ℚ).coeff 0) = 2 := by
+  norm_num [Polynomial.mul_coeff_zero]
+
 end Evaluation
+
+/-! NE.6: concrete checks on the corrected coefficient and congruence conventions. -/
+example : ((1, 0) : ℤ × ℤ) * (0, 1) = 0 := by rfl
+example : ((1, 0) : ℤ × ℤ) ≠ 0 ∧ ((0, 1) : ℤ × ℤ) ≠ 0 := by decide
+example : (2 ^ 10 : ℕ) % 15 = 4 := by norm_num
 
 /-! NE.7/local-epsilon-isomorphism: the integer Gamma factor, including residues
 at nonpositive integers. This is a rational formula, not a fake p-adic epsilon carrier. -/
