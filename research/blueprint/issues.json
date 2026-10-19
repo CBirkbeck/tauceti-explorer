@@ -5195,5 +5195,8 @@
  "REV-PKG-HabiroNahmSeries~adv": 11094,
  "REV-PKG-IntegralIwasawaTheory~adv": 11095,
  "REV-PKG-KTheoryLowDegrees~adv": 11096,
- "REV-PadicHodgeRegulators~2": 11097
+ "REV-PadicHodgeRegulators~2": 11097,
+ "PKG-EisensteinIdealAndRationalTorsion~codex": 11108,
+ "PKG-LawrenceVenkateshMethod~codex": 11109,
+ "PKG-RelativeJacobiansAndIntegralCurveModels~codex": 11110
 }
