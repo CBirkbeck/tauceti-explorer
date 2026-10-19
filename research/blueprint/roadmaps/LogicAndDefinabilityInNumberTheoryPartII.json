@@ -1,0 +1,145 @@
+{
+  "id": "LogicAndDefinabilityInNumberTheoryPartII",
+  "title": "Logic and definability, Part II: finitely generated fields and single axioms",
+  "area": "modeltheory",
+  "parent": "LogicAndDefinabilityInNumberTheory",
+  "summary": "This continuation develops uniform definitions of geometric prime divisors of finitely generated fields and uses them to define finite normalizations, obtain parametric bi-interpretability with the integers and characterize each finitely generated field by one ring sentence within that class. The characteristic-two resolution hypothesis is imposed exactly above Kronecker dimension three. Functional transcendence is assigned to a separate continuation by the accompanying restructuring proposal.",
+  "readme": "The reader document in research/blueprint/readmes/LogicAndDefinabilityInNumberTheoryPartII.md specifies every target, convention, definition API, discriminating test and proof contract. The packet is a target-level plan, not a formalization; its explicit proof-audit gaps and supplier requests determine the remaining work.",
+  "prerequisites": [
+    "LogicAndDefinabilityInNumberTheory",
+    "QuadraticFormInvariantsPartII",
+    "HigherLocalFieldsAndHigherClassFieldTheory",
+    "AlgebraicModuliForArithmeticGeometry",
+    "DeformationAndDerivedPatchingAlgebra",
+    "FunctionFieldArithmetic",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms"
+  ],
+  "stages": [
+    {
+      "key": "FG.0",
+      "title": "Uniform arithmetic predicates",
+      "description": "Fix the field hypotheses H_d and fixed-arity definable families. Obtain uniform formulas for Kronecker dimension, constants, relatively algebraically closed global subfields and independence over them. Define the relative constant field of a one-variable presentation. Import general interpretation syntax and valuation carriers from LD.0–LD.1.",
+      "requires": [
+        "FunctionFieldArithmetic:FA.5",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "QuadraticFormInvariantsPartII:Q2.1",
+        "QuadraticFormInvariantsPartII:Q2.5",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"
+      ]
+    },
+    {
+      "key": "FG.1",
+      "title": "Nice presentations and anisotropic test forms",
+      "description": "Define k₁-nice Pfister presentations and test forms. Construct nice global tails surviving a given finite separable extension, choose parameters adapted to a geometric prime divisor, and prove the dense-open test-form abundance theorem using étale specialization. The new first-order niceness adapter is included in FG.4.",
+      "requires": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.0",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "FunctionFieldArithmetic:FA.5",
+        "LogicAndDefinabilityInNumberTheory:LD.1",
+        "QuadraticFormInvariantsPartII:Q2.1",
+        "QuadraticFormInvariantsPartII:Q2.4",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles"
+      ]
+    },
+    {
+      "key": "FG.2",
+      "title": "Prime divisors from compact detecting valuations",
+      "description": "Prove nice-form detection and its parity conclusion using the imported higher local–global principles. Establish coefficient nonnegativity and domination in auxiliary root extensions, take a patch-compact limit after restricting valuations to the finite extension, and coarsen it to a geometric prime divisor trivial on the chosen relative constants. Prove Proposition 3.10 with a positive odd value of the last slot.",
+      "requires": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.1",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "LogicAndDefinabilityInNumberTheory:LD.1",
+        "QuadraticFormInvariantsPartII:Q2.1",
+        "QuadraticFormInvariantsPartII:Q2.3",
+        "QuadraticFormInvariantsPartII:Q2.4",
+        "QuadraticFormInvariantsPartII:Q2.6",
+        "QuadraticFormInvariantsPartII:Q2.7",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places"
+      ]
+    },
+    {
+      "key": "FG.3",
+      "title": "Anisotropy sets and singleton divisors",
+      "description": "Define the auxiliary root fields, anisotropy set, multiplicative stabilizer, finite detecting-divisor set and strict valuation balls. Prove the union-of-balls identity and intersection-of-valuation-rings identity, including the empty family. Use a prescribed odd sole pole to isolate every geometric prime divisor.",
+      "requires": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.2",
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "LogicAndDefinabilityInNumberTheory:LD.1",
+        "QuadraticFormInvariantsPartII:Q2.4",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ]
+    },
+    {
+      "key": "FG.4",
+      "title": "Uniform formulas for geometric prime divisors",
+      "description": "Express niceness and the test-unit condition in the ring language. Filter arbitrary parameter tuples by admissibility and the proper valuation-ring axioms, sending failures to the empty set. Prove the all-fibers and surjectivity clauses of Theorem 1.3 for each fixed d≥3. Supply the global-field and Kronecker-dimension-two families needed by the same normalization argument.",
+      "requires": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.3",
+        "FunctionFieldArithmetic:FA.5",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "LogicAndDefinabilityInNumberTheory:LD.1",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"
+      ]
+    },
+    {
+      "key": "FG.5",
+      "title": "Definable finite normalizations",
+      "description": "Define R_T and S_T as integral closures, prove finiteness and the geometric height-one intersection, and construct full-rank geometric flags with arithmetic terminal places. Prove the coefficient-detection and all-prolongations arguments giving the arithmetic intersection. Obtain the normalization formula uniformly at fixed Kronecker dimension, including empty transcendence bases.",
+      "requires": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.4",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "LogicAndDefinabilityInNumberTheory:LD.0",
+        "LogicAndDefinabilityInNumberTheory:LD.1",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences"
+      ]
+    },
+    {
+      "key": "FG.6",
+      "title": "Bi-interpretability with arithmetic",
+      "description": "Prove the normal-domain instance of the AKNS arithmetic coding theorem needed by R_T, with its dimension-one arithmetic codes and bounded finite-extension evaluation graphs. Compare K with the interpreted fraction field of its definable normalization, and prove parametric bi-interpretability with ℤ for every infinite finitely generated field under the precise characteristic-two hypothesis. Include dimensions one and two in this proof.",
+      "requires": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.5",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension",
+        "LogicAndDefinabilityInNumberTheory:LD.0"
+      ]
+    },
+    {
+      "key": "FG.7",
+      "title": "Single sentences for finitely generated fields",
+      "description": "Pass through the finite-language total-inverse expansion so that a field finitely generated as a field becomes a finitely generated structure. Apply the AKNS quasi-finite-axiomatizability theorem, eliminate inverse terms and existentially bind interpretation parameters. Treat finite fields by their exact cardinality sentence. Obtain Theorem 1.1 among all finitely generated fields, without asserting absolute finite axiomatizability.",
+      "requires": [
+        "LogicAndDefinabilityInNumberTheoryPartII:FG.6",
+        "LogicAndDefinabilityInNumberTheory:LD.0"
+      ]
+    }
+  ],
+  "sources": [
+    "Dittmann–Pop, final author version 27 April 2023, Theorems 1.1–1.3 and proofs, pp.2–18.",
+    "Poonen, Jan.2007 author version, Theorems 1.3–1.4, §§2–5 and Appendix A.",
+    "Aschenbrenner–Khélif–Naziazeno–Scanlon, October 2016 author version, §§2.9,3.1–3.2.",
+    "Rumely, Transactions AMS 262 (1980), Introduction I–III and arithmetic coding.",
+    "Pop, Algebra & Number Theory 11 (2017), Theorem 1.2 and Conclusion 5.2."
+  ],
+  "status": "draft"
+}
