@@ -29,56 +29,56 @@
         "kind": "structure",
         "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
         "provides": "A one-dimensional associative formal group law over a commutative ring, with unit tangent coefficients.",
-        "checked": "Declaration and statement read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       },
       {
         "ref": "mathlib:FormalGroup.IsComm",
         "kind": "class",
         "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
         "provides": "Commutativity of an existing formal group law.",
-        "checked": "Declaration and statement read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       },
       {
         "ref": "mathlib:FormalGroup.map",
         "kind": "def",
         "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
         "provides": "Coefficient base change of the law along a ring homomorphism.",
-        "checked": "Declaration and statement read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       },
       {
         "ref": "mathlib:FormalGroup.Point",
         "kind": "def",
         "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
         "provides": "Power-series-valued points satisfying the substitution condition; its addition comes from the law.",
-        "checked": "Declaration and statement read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       },
       {
         "ref": "mathlib:FormalGroup.𝔾ₐ",
         "kind": "def",
         "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
         "provides": "The additive formal group law.",
-        "checked": "Declaration and statement read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       },
       {
         "ref": "mathlib:FormalGroup.𝔾ₘ",
         "kind": "def",
         "module": "Mathlib/RingTheory/FormalGroup/Basic.lean",
         "provides": "The multiplicative formal group law X+Y+XY.",
-        "checked": "Declaration and statement read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       },
       {
         "ref": "mathlib:CategoryTheory.ObjectProperty.isLocal",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Localization/Bousfield.lean",
         "provides": "The class of morphisms orthogonal by precomposition bijections to a property of objects; this is a one-category predicate, not a spectral reflector.",
-        "checked": "Actual declaration read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       },
       {
         "ref": "tauceti:WeierstrassCurve.formalGroup",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
         "provides": "The existing Mathlib FormalGroup obtained by reindexing WeierstrassCurve.formalAdd from Unit⊕Unit to Fin 2.",
-        "checked": "Actual declaration and its underlying series equation read at the pinned source on 2026-10-18."
+        "checked": "Independently reread the declaration and its type at the recorded pin on 2026-10-19; the stated interface is present."
       }
     ]
   },
@@ -90,8 +90,9 @@
       "edition": "arXiv:2001.10425v5, 18 December 2023; JAMS 37 (2024)",
       "url": "https://arxiv.org/pdf/2001.10425v5",
       "sha256": "9eabee34fd018d509b3cd831addefcf5fc6ea9f3a1a21e13e6f8cd58040baa2f",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
+        "Introduction, pp.3–4, for the commutative-ring height convention.",
         "§2.1–2.2, pp.6–10; Remark 3.9, pp.15–16; §4.2, pp.19–21; §4.3 and Corollary 4.21 with proof, pp.21–22."
       ]
     },
@@ -102,9 +103,9 @@
       "edition": "Annals of Mathematics 148 (1998), 1–49",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/HS.pdf",
       "sha256": "529a2060ea7c0e10b696db45fed3804c0893929a4f191d8f5811e220a2b2d863",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
-        "Theorems 3,7,9,11, pp.2–6; §3 thick/nilpotence argument, pp.16–20; Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21. The §4 periodicity construction is not audited (G2)."
+        "Theorems 3,7,9,11, pp.2–6; preliminaries, p.9; §1.1–1.4, pp.10–14; Lemma 2.1 and §2.1–2.2, pp.15–19; Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21. The §4 periodicity construction is not audited (G2)."
       ]
     },
     {
@@ -114,7 +115,7 @@
       "edition": "American Journal of Mathematics 106 (1984), 351–414",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/mypapers/loc.pdf",
       "sha256": "58983f599503dc9cc007452ea8f2b7ef9fb1ced4c476c771b4266537df629d21",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "§2, definitions and Theorem 2.1 with proof, pp.360–363."
       ]
@@ -126,7 +127,7 @@
       "edition": "arXiv:0802.0510v1; Homology, Homotopy and Applications 10 (2008), 291–319",
       "url": "https://arxiv.org/pdf/0802.0510",
       "sha256": "087fc64463369a6083518aa74be39eeddef127a5def47310c26c08badc1cbacd",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "Theorem 1.1, pp.3–4; §2.3, pp.7–9; §3.1 and Lemma 3.1, pp.9–11; §5, Theorem 5.2 and Lemmas 5.4–5.5, pp.15–18."
       ]
@@ -138,7 +139,7 @@
       "edition": "arXiv:math/0307173; Inventiones Mathematicae 157 (2004), 345–370",
       "url": "https://arxiv.org/pdf/math/0307173",
       "sha256": "601098cd12ca3e6399cc0dceecc819a60f202532d09a8440ed01dd8769a399ac",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "Introduction, Theorem 1.5 and Corollaries 1.6–1.7, manuscript pp.4–6; §4 and Lemma 4.1, pp.15–17."
       ]
@@ -150,7 +151,7 @@
       "edition": "arXiv:1608.02063v2, 4 January 2017",
       "url": "https://arxiv.org/pdf/1608.02063v2",
       "sha256": "423ac8d38862fc05dce47569a6abdc84a9d61fb59ce28f0653056ac6e54745cc",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "Entire paper, pp.1–4; Proposition 2.3, Lemma 2.4, Theorems 2.5–2.6 and Corollary 2.7."
       ]
@@ -162,7 +163,7 @@
       "edition": "arXiv:1612.04386v2, 20 July 2022",
       "url": "https://arxiv.org/pdf/1612.04386",
       "sha256": "f2810b11b0011e3579e2c065d9f435eed647498fc36cac89d3b31844d19ad453",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "§1–2, pp.1–4; §3, Theorem 3.3, p.5, Bockstein section Lemma 3.7, pp.6–7, and proof pp.7–8; §4 valuation argument and Proposition 4.7, pp.8–10."
       ]
@@ -174,9 +175,9 @@
       "edition": "arXiv:2011.08233v2, 8 November 2022",
       "url": "https://arxiv.org/pdf/2011.08233",
       "sha256": "84c76407088130815255e20c0cce563348a54c05ea1b51cd9571453c7e16e11a",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
-        "§4.2, Theorem 4.6 and Lemma 4.7, manuscript pp.19–20. The numbering differs from the Lemma 4.5 cited in LMMT."
+        "§4.2, Theorem 4.6 and Lemma 4.7, manuscript pp.19–20. The numbering differs from the Lemma 4.5 cited in LMMT. Introduction, p.3, and Theorem 4.10 proof, p.21, for the finite-local blueshift input."
       ]
     },
     {
@@ -186,7 +187,7 @@
       "edition": "arXiv:1811.02057v3, 16 September 2020",
       "url": "https://arxiv.org/pdf/1811.02057",
       "sha256": "7d9568d7a61e4b8575ce40f6ba76e346a975c02f58ba7c286f371509afb04a13",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "Introduction, Theorem E; §5.4, Theorem 5.4.4 and Remark 5.4.5, pp.83–84."
       ]
@@ -198,7 +199,7 @@
       "edition": "arXiv:1811.04030v2, 17 July 2019",
       "url": "https://arxiv.org/pdf/1811.04030",
       "sha256": "410917b7970597855075834b7f405ab72ffb20bbf9913da9f44b50fa174bb3e5",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "§3, Theorem 3.1, p.5, and Lemmas 3.2–3.3, p.6."
       ]
@@ -210,9 +211,9 @@
       "edition": "arXiv:1311.0514v5, 24 June 2016",
       "url": "https://arxiv.org/pdf/1311.0514",
       "sha256": "adee4cf96181d47add33906f0f46f0485db95f60bf116b1888a5673b71f57819",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
-        "§4, Theorems 4.6–4.7 and Corollary 4.8, pp.26–27; §7, Theorems 7.1–7.2, pp.35–37, and Theorem 7.6, p.38."
+        "§4, Theorems 4.5–4.7 and Corollary 4.8, pp.26–27; §7, Theorems 7.1–7.2, pp.35–37, and Theorem 7.6, p.38."
       ]
     },
     {
@@ -222,9 +223,9 @@
       "edition": "arXiv:1901.07990, author chapter with section prefix 1",
       "url": "https://arxiv.org/pdf/1901.07990",
       "sha256": "cfb2a95050fe17b799a3f7cab84b94ae688485754f72f20c617439013c68c044",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
-        "§1.2, pp.4–8; Theorem 1.3.2, pp.9–10; §1.6 chromatic localizations, pp.27–32; Theorem 1.7.6, pp.33–34."
+        "§1.2, pp.4–8; Theorem 1.3.2, pp.9–10; §1.3 discriminant localization, p.13; §1.4 permanent cycles, pp.16,21; §1.5, pp.21,23; §1.6 chromatic localizations, pp.27–32; Theorem 1.7.6, pp.33–34."
       ]
     },
     {
@@ -234,7 +235,7 @@
       "edition": "Astérisque 332 (2010), 221–255, Séminaire Bourbaki 1005",
       "url": "https://numdam.org/item/AST_2010__332__221_0.pdf",
       "sha256": "563bd14f1cdfe594a63bd820f592aacada6b435e23d4dd504e1e41f1f07b32a3",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "Theorem 1.2 and Definition 1.3, pp.224–225; §3.3 and Theorem 3.6, pp.238–239. Its tmf naming is translated to Tmf in this plan."
       ]
@@ -246,7 +247,7 @@
       "edition": "Topology 3, Supplement 1 (1964), 3–38",
       "url": "https://www.math.ens.psl.eu/~benoist/refs/ABS.pdf",
       "sha256": "7a3f556b6e9d7dc5e5208d4aff5deabff32ed15da0381edee694534228bb3b40",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "§6, Propositions 6.8 and Theorem 6.9, pp.15–16; §11, Theorem 11.5, pp.28–29."
       ]
@@ -255,22 +256,22 @@
       "id": "thom",
       "title": "A simple universal property of Thom ring spectra",
       "authors": "Omar Antolín-Camarena and Tobias Barthel",
-      "edition": "Public arXiv:1411.7988 PDF accessed 18 October 2026",
+      "edition": "Public arXiv:1411.7988 PDF accessed 19 October 2026",
       "url": "https://arxiv.org/pdf/1411.7988",
       "sha256": "b33fe7da8b668cd0fda8154a33f49012ee8a7a15a2d780c17ecab17c86d1175b",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
-        "§3, Definition 3.1/Corollary 3.2, p.10; Theorem 3.5/Corollary 3.9, p.11; Theorem 3.15, pp.13–14; §5, Theorem 5.1, pp.19–20, and Theorem 5.7, pp.21–22."
+        "§3, Definition 3.1/Corollary 3.2, p.10; Theorem 3.5/Corollary 3.9, p.11; Lemma 3.15 and Proposition 3.16, pp.13–14; §5, Theorem 5.1, pp.19–20, and Theorem 5.7, pp.21–22."
       ]
     },
     {
       "id": "akq",
       "title": "A homological approach to chromatic complexity of algebraic K-theory",
       "authors": "Gabriel Angelini-Knoll and J. D. Quigley",
-      "edition": "Public arXiv:1908.09164 PDF accessed 18 October 2026",
+      "edition": "Public arXiv:1908.09164 PDF accessed 19 October 2026",
       "url": "https://arxiv.org/pdf/1908.09164",
       "sha256": "64f23cfd0c0bcca50af7140aad247cae64d74cd6527e3f49aa7b3f6b71783511",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "§2.1, Construction 2.1 and Lemma 2.2, pp.5–6; Proposition 2.22 and its proof, p.15."
       ]
@@ -282,7 +283,7 @@
       "edition": "arXiv:2310.17459v1, 26 October 2023",
       "url": "https://arxiv.org/pdf/2310.17459v1",
       "sha256": "9cf5e0bc33ea0912a99844a67ad305e75b88581404c2aee97d0a3b224089da1c",
-      "accessed": "2026-10-18",
+      "accessed": "2026-10-19",
       "readSections": [
         "Introduction, Theorem A and the three localization categories, pp.2–5. Proof not audited; recorded as a gap."
       ]
@@ -320,7 +321,7 @@
       "sources": [
         {
           "sourceId": "hs",
-          "locator": "§1.1 and Theorem 7, pp.2–4",
+          "locator": "Preliminaries, p.9; Theorem 7, p.3",
           "match": "The thick-subcategory theorem concerns finite p-local spectra; the model here makes that domain explicit."
         }
       ],
@@ -385,7 +386,7 @@
       ],
       "title": "Spanier–Whitehead duality",
       "kind": "comparison",
-      "statement": "For finite p-local V, D V=F(V,S_(p)) is finite, V→D D V is an equivalence, and F(V,X)≃D V⊗X naturally. Every spectrum in Sp_(p) is a filtered colimit of finite p-local spectra.",
+      "statement": "For finite p-local V and p-local X, D V=F(V,S_(p)) is finite, V→D D V is an equivalence, and F(V,X)≃D V⊗X naturally in Sp_(p). Every spectrum in Sp_(p) is a filtered colimit of finite p-local spectra. The tensor-Hom formula with this p-local dual is not asserted for an arbitrary integral X.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
@@ -395,7 +396,8 @@
       ],
       "acceptance": [
         "D(S/p)≃Σ^(-1)S/p.",
-        "D(S_(p))≃S_(p)."
+        "D(S_(p))≃S_(p).",
+        "The p-locality of X matters: for V=S_(p) and X=HZ, π₀F(V,HZ)=Hom(Z_(p),Z)=0, whereas π₀(D V⊗HZ)=Z_(p)."
       ],
       "prerequisites": [
         "ChromaticHomotopyTheory:CH.0/finite-p-local-spectra",
@@ -405,7 +407,7 @@
       "sources": [
         {
           "sourceId": "hs",
-          "locator": "Proof of Theorem 7, §3, pp.19–20",
+          "locator": "§1.4, p.14; proof of Theorem 7 in §2.2, p.19",
           "match": "The argument uses the dual of a finite spectrum and its evaluation/coevaluation maps."
         }
       ],
@@ -446,7 +448,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Definition 2.5 and Lemma 2.8, pp.7–8",
+          "locator": "Definition 2.5 and Lemma 2.8, p.8",
           "match": "The three localizations and the fracture lemma require the actual homological reflector and its smashing condition."
         }
       ],
@@ -637,12 +639,13 @@
         "mathlib:FormalGroup.map",
         "mathlib:FormalGroup.Point",
         "mathlib:FormalGroup.𝔾ₐ",
-        "mathlib:FormalGroup.𝔾ₘ"
+        "mathlib:FormalGroup.𝔾ₘ",
+        "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups"
       ],
       "sources": [
         {
           "sourceId": "behrens",
-          "locator": "§1.6, pp.27–28",
+          "locator": "§1.5, p.21; §1.6, pp.27–28",
           "match": "The height strata of the moduli of formal groups determine the finite chromatic range."
         },
         {
@@ -875,7 +878,7 @@
         {
           "name": "Chromatic.morava_coefficient_spectra.invert_vn",
           "role": "universal-property",
-          "statement": "Maps of modules out of E(n) or K(n) correspond to maps out of their connective versions on which v_n acts invertibly."
+          "statement": "For a BP-module M on which v_n acts invertibly, restriction along BP⟨n⟩→E(n), respectively k(n)→K(n), is an equivalence of the corresponding module mapping spaces into M."
         },
         {
           "name": "Chromatic.morava_coefficient_spectra.unitProduct",
@@ -950,7 +953,7 @@
       "sources": [
         {
           "sourceId": "ravenel",
-          "locator": "Theorem 2.1(e),(f),(h),(i) and proof, pp.361–362",
+          "locator": "Theorem 2.1(e),(f),(h),(i) and proof, pp.361–363",
           "match": "The cofiber sequences, graded-field behavior and distinct-height orthogonality are the inputs used below."
         }
       ],
@@ -973,8 +976,9 @@
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
-        "Define the vanishing subcategories and use exactness, retracts and Künneth to prove their thick tensor-ideal properties.",
-        "Use the finite-spectrum eventual nonvanishing input in the thick theorem to justify the exhaustive type convention."
+        "K(n)-homology is exact, so the vanishing conditions are closed under shifts, finite cofibers and retracts. The graded-field Künneth theorem gives the tensor-ideal property.",
+        "For a nonzero finite p-local spectrum, mod-p homology is nonzero. Lemma 2.1 compares it, degree by degree in the finite cell range, with K(n)-homology for sufficiently large n; thus a first nonvanishing finite height exists. This argument does not assume the thick-subcategory classification.",
+        "The nested-support statement identifies the customary single-detector definition with vanishing at all smaller heights. Künneth then gives type(V⊗W)=max(type V,type W), with the zero-object convention."
       ],
       "acceptance": [
         "S_(p) has type zero.",
@@ -989,7 +993,7 @@
       "sources": [
         {
           "sourceId": "hs",
-          "locator": "Theorem 7 and §1.1, pp.3–4",
+          "locator": "Theorem 7 and nested supports, p.3; Lemma 2.1, p.15",
           "match": "The chromatic filtration classifies thick subcategories of finite p-local spectra."
         }
       ],
@@ -1076,12 +1080,12 @@
       "sources": [
         {
           "sourceId": "hs",
-          "locator": "Theorem 3, pp.2–3; §3, pp.16–19",
+          "locator": "Theorem 3, pp.2–3; its reduction in §2.1, pp.15–17",
           "match": "The source supplies the map, self-map and ring-element forms of nilpotence."
         },
         {
           "sourceId": "lmmt",
-          "locator": "Remark 2.4, p.7",
+          "locator": "Remark 2.4, p.8",
           "match": "The zero-ring criterion only requires the two-sided unit, rather than an associative multiplication."
         }
       ],
@@ -1124,7 +1128,7 @@
       "sources": [
         {
           "sourceId": "hs",
-          "locator": "Theorem 7, p.4; proof in §3, pp.19–20",
+          "locator": "Theorem 7, p.3; proof in §2.2, pp.17–19",
           "match": "The classification and the support-to-thick-membership argument are used to compare telescopes and finite-localization kernels."
         }
       ],
@@ -1537,7 +1541,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Lemma 2.3 and Remark 2.4, p.7",
+          "locator": "Lemma 2.3, p.7; Remark 2.4, p.8",
           "match": "The proof uses a ring model for the telescope and nilpotence of the unit, with n≥1."
         }
       ],
@@ -1580,7 +1584,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Definition 2.5, p.7",
+          "locator": "Definition 2.5, p.8",
           "match": "The source distinguishes the two finite localization conventions at height zero."
         }
       ],
@@ -1713,7 +1717,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Definition 2.5 and following paragraph, pp.7–8",
+          "locator": "Definition 2.5, p.8; consequence (i) of Lemma 2.8, p.9",
           "match": "The two finite localizations coincide on the p-local subcategory."
         }
       ],
@@ -1953,7 +1957,7 @@
         {
           "name": "Chromatic.bousfield_kuhn.unique",
           "role": "extensionality",
-          "statement": "Functors equipped with the finite-source characterization are equivalent compatibly with that characterization."
+          "statement": "T(n)-local-valued functors equipped with the compatible finite-source characterization are equivalent compatibly with that characterization; locality is part of the uniqueness hypothesis."
         }
       ],
       "tests": [
@@ -2016,7 +2020,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Proposition 2.9 and Remark 2.10, pp.8–9",
+          "locator": "Proposition 2.9 and Remark 2.10, p.9",
           "match": "Detection is proved by the triangle identity, with an explicit failure of preservation."
         }
       ],
@@ -2037,7 +2041,7 @@
       ],
       "title": "Postnikov and connected-cover conventions",
       "kind": "comparison",
-      "statement": "Import the space Postnikov towers from H.3, including nontrivial fundamental-group action; only the comparison and indexing convention are owned here. For a pointed space X, construct τ_≤rX and the connected cover X⟨r⟩=fib(X→τ_≤(r−1)X). Then π_iτ_≤rX agrees with π_iX for i≤r and vanishes for i>r, and X⟨r⟩ has zero π_i for i<r. The tower converges for spaces. For a map, say m-connective when every homotopy fiber is (m−1)-connected, so π_i is an isomorphism for i<m and a surjection for i=m, at compatible components and basepoints.",
+      "statement": "Import the space Postnikov towers from H.3, including nontrivial fundamental-group action; only the comparison and indexing convention are owned here. For a pointed space X, construct τ_≤rX for r≥0 and the connected cover X⟨r⟩=fib(X→τ_≤(r−1)X) for r≥1. Then π_iτ_≤rX agrees with π_iX for i≤r and vanishes for i>r, and X⟨r⟩ has zero π_i for i<r. The tower converges for spaces. For a map, say m-connective when every homotopy fiber is (m−1)-connected, so π_i is an isomorphism for i<m and a surjection for i=m, at compatible components and basepoints.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
@@ -2059,7 +2063,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Lemma 2.2(ii), p.6; proof of Proposition 2.11, p.9",
+          "locator": "Lemma 2.2(ii), p.6; proof of Proposition 2.11, pp.9–10",
           "match": "Connected covers and Postnikov stages are used to compare space and spectrum periodic information."
         },
         {
@@ -2093,7 +2097,7 @@
       ],
       "acceptance": [
         "For Y=* the target is E_*(F_+).",
-        "A mapping torus has the local system given by its monodromy; replacing it unconditionally by constant coefficients gives the wrong answer.",
+        "For E=HZ and the mapping torus of a degree −1 map S¹→S¹, monodromy acts by −1 on H₁ of the fiber. The spectral sequence gives H₁=Z⊕Z/2 and H₂=0; constant coefficients would incorrectly give the torus groups Z² and Z.",
         "For an infinite base and a periodic E, no first-quadrant strong-convergence claim follows just from the displayed E² page."
       ],
       "prerequisites": [
@@ -2106,7 +2110,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Proof of Proposition 2.11, p.9",
+          "locator": "Proof of Proposition 2.11(ii), p.10",
           "match": "A generalized Serre argument is used for fiberwise localized homology."
         },
         {
@@ -2151,7 +2155,7 @@
         {
           "name": "Chromatic.generalized_serre_filtration.check_2",
           "kind": "computation",
-          "statement": "A mapping torus has the local system given by its monodromy; replacing it unconditionally by constant coefficients gives the wrong answer."
+          "statement": "For E=HZ and the mapping torus of a degree −1 map S¹→S¹, monodromy acts by −1 on H₁ of the fiber. The spectral sequence gives H₁=Z⊕Z/2 and H₂=0; constant coefficients would incorrectly give the torus groups Z² and Z."
         },
         {
           "name": "Chromatic.generalized_serre_filtration.check_3",
@@ -2188,14 +2192,13 @@
       "proofSteps": [
         "Unstraighten f as a space-indexed local system of spaces; after applying E⊗Σ∞_+ its colimit over Y is E⊗Σ∞_+X.",
         "The fiber augmentations give a natural equivalence to the constant local system E.",
-        "Take colimits; the colimit of that constant system is E⊗Σ∞_+Y. The space-indexed colimit/Fubini contract is requested from EDS."
+        "Take colimits. Compose the left Kan extension along f with that along Y→*; its pointwise fiber formula identifies the first colimit with E⊗Σ∞_+X and the constant-system colimit with E⊗Σ∞_+Y. The unstraightening and space-indexed Fubini comparison are explicit parts of the E3 request."
       ],
       "acceptance": [
         "It applies to Y infinite and E periodic.",
         "The augmentation condition uses unreduced fibers; asserting E_*(F_+)=0 would incorrectly fail even for a point."
       ],
       "prerequisites": [
-        "ChromaticHomotopyTheory:CH.6/generalized-serre-filtration",
         "EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation",
         "EnhancedDerivedSheaves:E5:presentability/presentable-categories",
         "EnhancedDerivedSheaves:E3/kan-extensions-along-functors"
@@ -2203,7 +2206,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Proposition 2.11 proof, p.9",
+          "locator": "Proposition 2.11(ii) proof, p.10",
           "match": "This justifies the fiberwise-to-total E-homology step without adding a convergence assumption to the theorem."
         }
       ],
@@ -2248,7 +2251,7 @@
       "sources": [
         {
           "sourceId": "lmmt",
-          "locator": "Proposition 2.11 and Remark 2.12, p.9",
+          "locator": "Proposition 2.11 and Remark 2.12, pp.9–10",
           "match": "The original connective bound and the sharper m=n+1 bound are separate inputs."
         },
         {
@@ -2431,7 +2434,7 @@
       "acceptance": [
         "At h=1 the stabilizer contains Z_p^× and acts through p-adic Adams operations.",
         "The h=2 residue-field involution is retained in the extended group.",
-        "Finite subgroup homotopy fixed points use a coherent action, not merely automorphisms of π₀."
+        "At odd p and height one, the subgroup {±1} fixes π₀E₁=Z_p, while its nonidentity Adams operation sends the periodicity generator u to −u. The action on π₀ alone therefore does not determine the finite action on the spectrum."
       ],
       "prerequisites": [
         "ChromaticHomotopyTheory:CH.7/morava-e-theory",
@@ -2491,7 +2494,7 @@
         {
           "name": "Chromatic.stabilizer_action.check_3",
           "kind": "non-example",
-          "statement": "Finite subgroup homotopy fixed points use a coherent action, not merely automorphisms of π₀."
+          "statement": "At odd p and height one, the subgroup {±1} fixes π₀E₁=Z_p, while its nonidentity Adams operation sends the periodicity generator u to −u. The action on π₀ alone therefore does not determine the finite action on the spectrum."
         }
       ],
       "uses": [
@@ -2664,7 +2667,7 @@
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
-        "Use smashing to compute T(n)⊗L_(n−1)X from the lower-local sphere, whose K(i) support has no height n.",
+        "By Hopkins–Ravenel smashing, every L_(n−1)-local X is L_(n−1)S⊗X. Ravenel orthogonality makes the ring L_(n−1)S K(n)-acyclic; ring acyclicity then makes it T(n)-acyclic, and smashing with X proves the first assertion. This uses the ring comparison on the localized sphere, not on an arbitrary module.",
         "Apply the chromatic fracture square to L_n-local X; its lower piece is T(n)-acyclic and its height-n piece is detected by K(n).",
         "At height one compare the p-local KU Bousfield class with E(1) and HQ∨K(1), importing complex Bott theory. The telescope comparison on L_n-local objects is included in G7 for proof expansion."
       ],
@@ -2677,7 +2680,8 @@
         "ChromaticHomotopyTheory:CH.3/telescope-properties",
         "ChromaticHomotopyTheory:CH.8/ravenel-bousfield-class",
         "RefinedTraceMethods:RT.4:topological",
-        "ChromaticHomotopyTheory:CH.4/fracture-square"
+        "ChromaticHomotopyTheory:CH.4/fracture-square",
+        "ChromaticHomotopyTheory:CH.3/ring-acyclicity"
       ],
       "sources": [
         {
@@ -2752,7 +2756,7 @@
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
-        "Use Ravenel’s truncated Bousfield class and the ring-acyclicity comparison to prove the higher-height vanishing.",
+        "Smash Ravenel’s class formula ⟨BP⟨n⟩⟩=⟨E(n)∨HF_p⟩ with T(i), i>n. The class of E(n) is the join of K(0),…,K(n), and each of those, as well as HF_p, annihilates T(i) by telescope orthogonality. This proves the T(i)-vanishing without choosing a ring structure on BP⟨n⟩; the K(i)-vanishing follows from the same class formula.",
         "The successive v_n-cofibers are shifts of BP⟨n−1⟩. They are T(n)-acyclic, so the sequential inversion map is a T(n)-equivalence.",
         "At n=1, rationalization preserves the distinction between the connective polynomial coefficient ring and its Laurent localization, disproving the stronger routed assertion."
       ],
@@ -2762,7 +2766,7 @@
       ],
       "prerequisites": [
         "ChromaticHomotopyTheory:CH.8/ravenel-bousfield-class",
-        "ChromaticHomotopyTheory:CH.3/ring-acyclicity",
+        "ChromaticHomotopyTheory:CH.3/telescope-properties",
         "ChromaticHomotopyTheory:CH.1/vn-cofiber-sequences"
       ],
       "sources": [
@@ -2920,7 +2924,7 @@
       ],
       "title": "Finite-local Tate blueshift",
       "kind": "theorem",
-      "statement": "For n≥1, if X is L_n^(p,f)-local with a coherent C_p-action, then its raw Tate spectrum X^tC_p is L_(n−1)^(p,f)-local. The p-local HQ finite convention satisfies the corresponding statement. This loses at most one chromatic level; it asserts neither zero Tate nor exact height n−1 for every X.",
+      "statement": "For n≥1, if X is L_n^(p,f)-local with a coherent C_p-action, then its raw Tate spectrum X^tC_p is L_(n−1)^(p,f)-local. The p-local HQ finite convention satisfies the corresponding statement. This lowers the upper finite-height bound by one and permits a further drop; it asserts neither zero Tate nor exact height n−1 for every X.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
@@ -2968,14 +2972,14 @@
       ],
       "title": "Nonzero raw Tate spectra",
       "kind": "application",
-      "statement": "For the trivial C_p-action on p-complete complex K-theory, π₀((KU_p^∧)^tC_p)≅Q_p(ζ_p), including Q₂ at p=2. This is nonzero, whereas its T(1)-localization vanishes. For contrast import RT.2/tate-p-local-properties: the trivial-action sphere Tate spectrum is the p-complete sphere, so a raw-sphere example cannot be substituted for a T(n)-local input in Kuhn’s theorem.",
+      "statement": "For the trivial C_p-action on p-complete complex K-theory, π₀((KU_p^∧)^tC_p)≅Q_p(ζ_p), including Q₂ at p=2. This is nonzero, whereas its T(1)-localization vanishes. For contrast request from RT.2 the Segal comparison mentioned in its tate-p-local-properties acceptance example: the trivial-action sphere Tate spectrum is the p-complete sphere, so a raw-sphere example cannot be substituted for a T(n)-local input in Kuhn’s theorem.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
         "Use the completed complex orientation to calculate KU⁰(BC_p)=Z_p[[z]]/((1+z)^p−1). The Tate comparison inverts the Euler class z.",
         "After inverting z, the remaining cyclotomic quotient is Z_p[ζ_p][1/(ζ_p−1)]=Q_p(ζ_p). The precise Euler-inversion comparison, not proved by the cited remark alone, is G13.",
-        "Apply localized Tate vanishing to KU_p^∧ and import the separate sphere example from RT.2."
+        "Use the requested K(1)-locality of KU_p^∧, and hence its T(1)-locality at height one, before applying Kuhn’s theorem. The separate sphere Segal comparison is requested explicitly from RT.2; its existing acceptance example is not a supplied proof."
       ],
       "acceptance": [
         "At p=2 the displayed field is nonzero.",
@@ -2985,7 +2989,9 @@
         "ChromaticHomotopyTheory:CH.9/norm-tate",
         "RefinedTraceMethods:RT.4:topological",
         "StableHomotopyKTheory:H.6/p-completion",
-        "RefinedTraceMethods:RT.2/tate-p-local-properties"
+        "RefinedTraceMethods:RT.2/tate-p-local-properties",
+        "ChromaticHomotopyTheory:CH.9/kuhn-tate-vanishing",
+        "RefinedTraceMethods:RT.2"
       ],
       "sources": [
         {
@@ -3460,7 +3466,7 @@
         {
           "sourceId": "behrens",
           "locator": "Definition 1.2.11, Remark 1.2.12 and Corollary 1.2.15, p.7",
-          "match": "The formal-group comparison is part of elliptic cohomology, with the cotangent grading fixing periodicity."
+          "match": "The formal-group comparison is part of elliptic cohomology, with the cotangent grading fixing periodicity. The present definition asks for the coherent E∞ refinement; the source’s basic elliptic theory is homotopy commutative and does not itself supply that refinement."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3529,12 +3535,12 @@
       ],
       "title": "Topological structure sheaf",
       "kind": "construction",
-      "statement": "On the étale site of the compactified moduli stack M̄_ell of generalized elliptic curves, construct the Goerss–Hopkins–Miller–Lurie sheaf Otop of E∞ rings. Its homotopy sheaves are π_(2r)Otop≅ω^⊗r and π_(2r+1)Otop=0. On an étale affine with a trivialization of ω the section ring is even-periodic and its formal group is the curve’s completed formal group; at the nodal boundary use the generalized elliptic formal group, of height one. The sheaf satisfies coherent étale descent; global sections may have odd and negative homotopy groups. Its algebraic generalized-elliptic boundary and the spectral sheaf/module carriers are explicit missing supplier inputs G16a–G16b; they are not supplied by the coarse compactification in the current ModularCurves roadmap.",
+      "statement": "Let M̄_ell be the Deligne–Mumford stack of stable one-pointed genus-one curves with irreducible geometric fibers: smooth elliptic curves or nodal one-gons. On its étale site, construct the Goerss–Hopkins–Miller–Lurie sheaf Otop of E∞ rings. Its homotopy sheaves are π_(2r)Otop≅ω^⊗r and π_(2r+1)Otop=0. On an étale affine with a trivialization of ω the section ring is even-periodic and its formal group is the curve’s completed formal group; at the nodal boundary use the generalized elliptic formal group, of height one. The sheaf satisfies coherent étale descent; global sections may have odd and negative homotopy groups. Its algebraic generalized-elliptic boundary and the spectral sheaf/module carriers are explicit missing supplier inputs G16a–G16b; they are not supplied by the coarse compactification in the current ModularCurves roadmap.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
-        "Import the smooth Weierstrass groupoid from ModularCurves 4B. Supply the generalized-elliptic compactification from the proposed ModularCurves Part II, recorded as G16a; the current coarse compactification does not suffice.",
+        "Import the smooth Weierstrass groupoid from ModularCurves 4B. Supply the stable one-pointed compactification with irreducible fibers from the proposed ModularCurves Part II, recorded as G16a. It includes nodal one-gons, not every Néron polygon; the current coarse compactification does not suffice.",
         "Realize its p-divisible deformation neighborhoods by local Hopkins–Miller theory, and glue the ordinary and rational pieces with the required power-operation compatibility.",
         "The coherent realization and integral gluing theorem is G16; even homotopy sheaves alone are not a construction of an E∞ sheaf."
       ],
@@ -3654,7 +3660,7 @@
         },
         {
           "sourceId": "behrens",
-          "locator": "§1.3, pp.9–11; §1.6, pp.31–32",
+          "locator": "§1.3, pp.9–13; §1.6, pp.31–32",
           "match": "The sheaf and chromatic descriptions distinguish connective, compactified and periodic theories."
         }
       ],
@@ -3792,7 +3798,8 @@
         "ChromaticHomotopyTheory:CH.8/height-locality",
         "ChromaticHomotopyTheory:CH.8/local-telescope-comparison",
         "ChromaticHomotopyTheory:CH.3/telescope-properties",
-        "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups"
+        "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
+        "ChromaticHomotopyTheory:CH.12/discriminant-localization"
       ],
       "sources": [
         {
@@ -3958,17 +3965,18 @@
       ],
       "title": "Discriminant localization",
       "kind": "comparison",
-      "statement": "At each fixed prime choose a positive power Δ^r of the algebraic discriminant which survives as a homotopy class of Tmf_(p). Then TMF_(p)≃Tmf_(p)[(Δ^r)⁻¹]. The class and exponent must be specified when using this presentation; there is no assertion that Δ itself is an integral class of π₂₄Tmf at primes two and three.",
+      "statement": "Choose the surviving discriminant class δ=Δ²⁴∈π₅₇₆Tmf, whose descent edge image is the algebraic modular form Δ²⁴. Then TMF≃Tmf[δ⁻¹], and at every fixed prime TMF_(p)≃Tmf_(p)[δ⁻¹]. This uniform exponent suffices; no assertion that Δ itself is an integral degree-24 class at primes two and three is used.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
         "Use spectral affineness to commute the colimit inverting a surviving discriminant power with global sections.",
         "On the étale affine charts, this is restriction to the locus of invertible discriminant.",
-        "Identify that locus with smooth elliptic curves. The existence and normalization of a surviving power, and the descent comparison, are proof obligations within G17."
+        "Use the surviving Δ²⁴ class and the discriminant-open identification in Behrens §1.3, p.13. Its permanent-cycle proof and the coherent descent comparison remain G17; a bare algebraic modular form is not substituted for a homotopy class."
       ],
       "acceptance": [
-        "At two the unpowered algebraic Δ is not assumed to be a degree-24 homotopy class."
+        "At two the unpowered algebraic Δ is not assumed to be a degree-24 homotopy class.",
+        "The chosen uniform class has degree 24·24=576 and its inversion agrees with the global periodic TMF presentation, before prime localization."
       ],
       "prerequisites": [
         "ChromaticHomotopyTheory:CH.12/modular-form-spectra",
@@ -3977,7 +3985,7 @@
       "sources": [
         {
           "sourceId": "behrens",
-          "locator": "§1.3, pp.9–11; §1.6, pp.31–32",
+          "locator": "§1.3, p.13; §1.5, Theorem 1.5.6, p.23",
           "match": "The compactified and periodic spectra are related through the discriminant open."
         },
         {
@@ -4121,7 +4129,7 @@
       "sources": [
         {
           "sourceId": "thom",
-          "locator": "Definition 3.1 and Corollary 3.2, p.10; Theorem 3.5 and Corollary 3.9, p.11; Theorem 3.15, pp.13–14",
+          "locator": "Definition 3.1 and Corollary 3.2, p.10; Theorem 3.5 and Corollary 3.9, p.11; Lemma 3.15 and Proposition 3.16, pp.13–14",
           "match": "The module-colimit Thom construction and multiplicative refinement underlie the characteristic-p Thom theorem."
         },
         {
@@ -4196,24 +4204,27 @@
       ],
       "title": "Hopkins–Mahowald Thom theorem",
       "kind": "theorem",
-      "statement": "Let f_p:Ω²S³→BGL₁(S_p^∧) be the E₂ map freely extending the loop class 1−p∈π₁BGL₁(S_p^∧)=Z_p^×. Its Thom spectrum is HF_p as an E₂ ring. Restricting along Ω²(S³⟨3⟩)→Ω²S³, where S³⟨3⟩=fib(S³→K(Z_p,3)) in the p-complete convention, gives the E₂ Thom ring HZ_p. Use p-completion consistently for this source; the uncompleted integral analogue at two is compared only after completion.",
+      "statement": "Let (S³)_p^∧ be the p-completion of the nilpotent space S³ and let f_p:Ω²(S³)_p^∧→BGL₁(S_p^∧) be the E₂ map extending the class 1−p∈π₁BGL₁(S_p^∧)=Z_p^× in the p-complete convention. Its p-complete Thom E₂ ring is HF_p. Set C_p=fib((S³)_p^∧→K(Z_p,3)), with the map inducing the identity on π₃. Restriction along Ω²C_p gives the p-complete Thom E₂ ring HZ_p. Here C_p is the 3-connected cover; using an uncompleted S³ with target K(Z_p,3) would give π₂=Z_p/Z instead. Thom tensor products and colimits in these assertions are taken in the p-complete symmetric monoidal category.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
+        "Use H.6’s spectral p-completion and CH.0’s homological localization to identify p-complete spectra with Sp_(S/p), whose tensor and colimits are completed. Model the nilpotent source-space completion and compare its connected cover with the completion of fib(S³→K(Z,3)); this comparison is included in G19.",
         "Identify the Thom E₂ ring with the versal E₂ ring killing p via the universal property.",
         "Compute its mod-p homology and the Dyer–Lashof operations to identify the map to HF_p.",
         "For the integral connected-cover variant use the intermediate Thom construction over S¹ and its characteristic-p quotient. The free E₂ homology and operation computation is G19."
       ],
       "acceptance": [
         "At p=2 the selected unit is −1.",
-        "The HF_p Thom ring has π₀=F_p, while the connected-cover integral variant has π₀=Z_p."
+        "The HF_p Thom ring has π₀=F_p, while the connected-cover integral variant has π₀=Z_p.",
+        "The completed-source cover C_p has π_i=0 for i≤3. The fiber of the uncompleted-domain map S³→K(Z_p,3) fails this check in degree two."
       ],
       "prerequisites": [
         "ChromaticHomotopyTheory:CH.13/units-thom",
         "ChromaticHomotopyTheory:CH.6/space-postnikov",
         "ChromaticHomotopyTheory:CH.13/james-filtration",
-        "StableHomotopyKTheory:H.6/p-completion"
+        "StableHomotopyKTheory:H.6/p-completion",
+        "ChromaticHomotopyTheory:CH.0/homological-localization"
       ],
       "sources": [
         {
@@ -4239,14 +4250,14 @@
       ],
       "title": "James-filtered Thom spectra",
       "kind": "construction",
-      "statement": "For m≥0 restrict f_p along ΩJ_(p^m−1)S²→Ω²S³ and denote the resulting E₁ Thom ring by y(m), over S_p^∧. Then y(0)=S_p^∧, there are E₁ maps y(m)→y(m+1), and colim_m y(m)≃HF_p. For m≥1, π₀y(m)=F_p. At p=2 and m≥1 define z(m) by restricting along Ω(J_(2^m−1)S²⟨2⟩), where the inner connected cover is the fiber of J_(2^m−1)S²→K(Z,2), followed by completion in the p-complete convention. These E₁ rings map to y(m), and colim z(m)≃HZ₂.",
+      "statement": "For m≥0 restrict f_p along ΩJ_(p^m−1)S²→Ω²S³→Ω²(S³)_p^∧ and denote the resulting p-complete E₁ Thom ring by y(m). All colimits in this family are colimits in p-complete spectra, formed by completing ordinary spectral colimits. Then y(0)=S_p^∧, there are E₁ maps y(m)→y(m+1), and colim_m y(m)≃HF_p. For m≥1, π₀y(m)=F_p. At p=2 and m≥1 define z(m) by restricting along Ω(J_(2^m−1)S²⟨2⟩), where the inner connected cover is the fiber of J_(2^m−1)S²→K(Z,2), followed by completion in the p-complete convention. These E₁ rings map to y(m), and colim z(m)≃HZ₂.",
       "hypotheses": [
         "Fix a prime p; spectra and tensor products are derived."
       ],
       "proofSteps": [
         "Use the word filtration and loop the inclusion of each finite James stage.",
         "Restrict the actual unit-classifying map before applying the Thom colimit; this keeps the E₁ multiplication.",
-        "Use connectivity of the James tower and commutation of filtered colimits with the needed loop and Thom constructions, together with the connected-cover square.",
+        "Use connectivity of the James tower and commutation of the needed loop and Thom constructions with filtered colimits. Form the final colimit in p-complete spectra, and compare the integral connected-cover square before and after completion; do not infer an ordinary spectral colimit identity from the completed one.",
         "The π₀ comparison and compatibility of integral versus completed conventions are retained in G20."
       ],
       "acceptance": [
@@ -4422,21 +4433,23 @@
   "requests": [
     {
       "supplier": "EnhancedDerivedSheaves:E3",
-      "need": "Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
+      "need": "Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
       "neededBy": [
-        "ChromaticHomotopyTheory:CH.0/homological-localization"
+        "ChromaticHomotopyTheory:CH.0/homological-localization",
+        "ChromaticHomotopyTheory:CH.6/fiberwise-equivalence"
       ]
     },
     {
       "supplier": "StableHomotopyKTheory:H.5:spectra",
       "need": "Coherent recognition of the group completion of a permutative topological category as a connective spectrum, compatibly with direct sum and tensor product, and multiplicative connective covers of E∞ ring spectra. Apply this to the real-vector-bundle category; H.4 supplies group completion.",
       "neededBy": [
-        "ChromaticHomotopyTheory:CH.11/real-k-theory"
+        "ChromaticHomotopyTheory:CH.11/real-k-theory",
+        "ChromaticHomotopyTheory:CH.12/modular-form-spectra"
       ]
     },
     {
       "supplier": "RefinedTraceMethods:RT.4:topological",
-      "need": "Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+      "need": "Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
       "neededBy": [
         "ChromaticHomotopyTheory:CH.1/complex-orientation",
         "ChromaticHomotopyTheory:CH.8/local-telescope-comparison",
@@ -4464,7 +4477,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
-      "need": "Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes.",
+      "need": "Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied.",
       "neededBy": [
         "ChromaticHomotopyTheory:CH.3/periodic-homotopy",
         "ChromaticHomotopyTheory:CH.5/finite-telescopic-functor",
@@ -4476,6 +4489,7 @@
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
       "need": "Height one for ordinary and height two for supersingular elliptic formal groups, the connected p-divisible comparison and Serre–Tate deformation interface in its existing domain; no generalized-elliptic boundary moduli are assumed.",
       "neededBy": [
+        "ChromaticHomotopyTheory:CH.1/geometric-height",
         "ChromaticHomotopyTheory:CH.12/elliptic-cohomology",
         "ChromaticHomotopyTheory:CH.12/modular-chromatic-comparison",
         "ChromaticHomotopyTheory:CH.12/supersingular-galois"
@@ -4496,6 +4510,13 @@
         "ChromaticHomotopyTheory:CH.12/modular-level-galois",
         "ChromaticHomotopyTheory:CH.12/supersingular-galois"
       ]
+    },
+    {
+      "supplier": "RefinedTraceMethods:RT.2",
+      "need": "Prove the trivial-action Segal comparison S→S^tC_p exhibits S^tC_p≃S_p^∧, with its chosen comparison map. The current tate-p-local-properties node lists this only as an acceptance example; its theorem and proof steps establish p-completeness, not the Segal conjecture.",
+      "neededBy": [
+        "ChromaticHomotopyTheory:CH.9/nonzero-tate-examples"
+      ]
     }
   ],
   "gaps": [
@@ -4504,7 +4525,7 @@
       "neededBy": [
         "ChromaticHomotopyTheory:CH.2/nilpotence"
       ],
-      "detail": "Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed."
+      "detail": "Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed."
     },
     {
       "title": "G2 — Periodicity induction and finite-type existence",
@@ -4585,14 +4606,14 @@
       "neededBy": [
         "ChromaticHomotopyTheory:CH.9/finite-blueshift"
       ],
-      "detail": "LMMT Remark 3.9, p.16, and CMNN introduction, p.3, state the blueshift form. Extract the proof that the raw C_p Tate spectrum of every L_n^(p,f)-local object is actually L_(n−1)^(p,f)-local. Localized T(n)-Tate vanishing by itself does not justify this stronger conclusion. The proof must handle arbitrary coherent action and the all-spectra height-zero convention."
+      "detail": "LMMT Remark 3.9, p.16, and CMNN introduction, p.3, state the blueshift form. Extract the proof that the raw C_p Tate spectrum of every L_n^(p,f)-local object is actually L_(n−1)^(p,f)-local. Localized T(n)-Tate vanishing by itself does not justify this stronger conclusion. The proof must handle arbitrary coherent action and the all-spectra height-zero convention. Kuhn Corollary 1.6 and Lemma 4.1, manuscript pp.5,16–17, provide the stronger raw Tate vanishing for trivial-action v_n telescopes used in a finite type-n test; expand its module and arbitrary-action comparison rather than deducing the claim from localized vanishing alone."
     },
     {
       "title": "G13 — Euler-class computation for KU Tate",
       "neededBy": [
         "ChromaticHomotopyTheory:CH.9/nonzero-tate-examples"
       ],
-      "detail": "Establish the complex-oriented Tate/Euler-inversion comparison and convergence needed to calculate π₀ of trivial-action (KU_p^∧)^tC_p as Q_p(ζ_p). The algebraic cyclotomic quotient is worked out, but Clausen–Mathew Remark 2.8 only gives the general nonzero E-theory phenomenon and is not cited as a proof of this exact formula. The sphere Segal comparison is already imported from RT.2/tate-p-local-properties."
+      "detail": "Establish the complex-oriented Tate/Euler-inversion comparison and convergence needed to calculate π₀ of trivial-action (KU_p^∧)^tC_p as Q_p(ζ_p). The algebraic cyclotomic quotient is worked out, but Clausen–Mathew Remark 2.8 only gives the general nonzero E-theory phenomenon and is not cited as a proof of this exact formula. The sphere Segal comparison is an explicit RT.2 request: the supplier currently mentions it only as an acceptance example."
     },
     {
       "title": "G14 — Power operations and Tate height descent",
@@ -4620,7 +4641,7 @@
         "ChromaticHomotopyTheory:CH.12/discriminant-localization",
         "ChromaticHomotopyTheory:CH.12/modular-chromatic-comparison"
       ],
-      "detail": "Current TauCetiRoadmap ModularCurves Scope explicitly excludes generalized elliptic curves, stacks and boundary moduli; Layer 10 constructs coarse compactifications only. Need the generalized-elliptic moduli stack with nodal boundary, its étale site and universal curve, ω, Δ and formal-height strata. Propose Modular curves, Part II: generalized elliptic moduli and boundary geometry. No claim that current 7E or coarse X_H supplies this carrier."
+      "detail": "Current TauCetiRoadmap ModularCurves Scope explicitly excludes generalized elliptic curves, stacks and boundary moduli; Layer 10 constructs coarse compactifications only. Need the stable one-pointed genus-one moduli stack with irreducible geometric fibers (smooth curves or nodal one-gons), its étale site and universal curve, ω, Δ and formal-height strata. Propose Modular curves, Part II: generalized elliptic moduli and boundary geometry. No claim that current 7E or coarse X_H supplies this carrier."
     },
     {
       "title": "G16b — Spectral sheaf and quasicoherent module carriers",
@@ -4646,7 +4667,7 @@
         "ChromaticHomotopyTheory:CH.12/modular-level-galois",
         "ChromaticHomotopyTheory:CH.12/supersingular-galois"
       ],
-      "detail": "Mathew–Meier Theorems 7.2 and 7.6, pp.35–38, and Behrens §1.6, pp.27–32, were read. Expand 0-affineness, the surviving discriminant power, the height-two support argument, finite étale Galois descent and the equivariant supersingular formal chart. At p=2 retain GL₂(F₃) of order 48; at p=3 retain the extended order-24 group over F₃. The underlying algebraic boundary and spectral-module carriers remain G16a/G16b."
+      "detail": "Mathew–Meier Theorems 7.2 and 7.6, pp.35–38, and Behrens §1.3, p.13, §1.5, p.23, and §1.6, pp.27–32, were read. Expand 0-affineness, the Δ²⁴ permanent-cycle comparison (degree 576), the height-two support argument, finite étale Galois descent and the equivariant supersingular formal chart. At p=2 retain GL₂(F₃) of order 48; at p=3 retain the extended order-24 group over F₃. The underlying algebraic boundary and spectral-module carriers remain G16a/G16b."
     },
     {
       "title": "G18 — Stable James splitting",
@@ -4662,7 +4683,7 @@
         "ChromaticHomotopyTheory:CH.13/units-thom",
         "ChromaticHomotopyTheory:CH.13/hopkins-mahowald"
       ],
-      "detail": "Antolín-Camarena–Barthel Definition 3.1, Corollary 3.2, Theorem 3.5/Corollary 3.9, pp.10–11, Theorem 3.15, pp.13–14, and Theorems 5.1/5.7, pp.19–22, were read. Extract the monoidal-colimit proof and the free E₂ mod-p homology/Dyer–Lashof calculation identifying the Thom rings. The construction and universal property are stated; coherent multiplicativity and the operation computation are not derived from ordinary colimits alone."
+      "detail": "Antolín-Camarena–Barthel Definition 3.1, Corollary 3.2, Theorem 3.5/Corollary 3.9, pp.10–11, Lemma 3.15 and Proposition 3.16, pp.13–14, and Theorems 5.1/5.7, pp.19–22, were read. Extract the monoidal-colimit proof and the free E₂ mod-p homology/Dyer–Lashof calculation identifying the Thom rings. The construction and universal property are stated; coherent multiplicativity and the operation computation are not derived from ordinary colimits alone. Supply the nilpotent source-space p-completion model and the connected-cover comparison; H.6’s spectral completion alone does not construct a completed space. Keep the Thom colimits in p-complete spectra and distinguish fib((S³)_p^∧→K(Z_p,3)) from the fiber with uncompleted domain."
     },
     {
       "title": "G20 — James-filtered Thom vanishing lines",
@@ -4670,7 +4691,7 @@
         "ChromaticHomotopyTheory:CH.13/james-thom-family",
         "ChromaticHomotopyTheory:CH.13/thom-acyclicity"
       ],
-      "detail": "LMMT construction and Lemma 4.15/Corollary 4.18, pp.20–21, and AKQ Construction 2.1/Lemma 2.2, pp.5–6, Proposition 2.22, p.15, were read. Expand the Margolis-homology computation at two and the MRS01 localized Adams vanishing line at odd primes, including convergence and the comparison of its slope with |v_i|. Check filtered Thom colimits and π₀ for z(m) in the completed convention. The positive-height range for z(m) excludes height zero."
+      "detail": "LMMT construction and Lemma 4.15/Corollary 4.18, pp.20–21, and AKQ Construction 2.1/Lemma 2.2, pp.5–6, Proposition 2.22, p.15, were read. Expand the Margolis-homology computation at two and the MRS01 localized Adams vanishing line at odd primes, including convergence and the comparison of its slope with |v_i|. Check filtered Thom colimits and π₀ for z(m) in the completed category, and prove every comparison to the uncompleted AKQ construction before transporting its acyclicity result. The positive-height range for z(m) excludes height zero."
     }
   ],
   "coverage": [
@@ -4678,7 +4699,7 @@
       "stageId": "ChromaticHomotopyTheory:CH.0",
       "status": "planned",
       "remaining": [
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization."
       ]
     },
@@ -4687,18 +4708,19 @@
       "status": "planned",
       "remaining": [
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization."
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
+        "Supplier contract tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups: Height one for ordinary and height two for supersingular elliptic formal groups, the connected p-divisible comparison and Serre–Tate deformation interface in its existing domain; no generalized-elliptic boundary moduli are assumed."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.2",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization."
       ]
     },
@@ -4706,60 +4728,60 @@
       "stageId": "ChromaticHomotopyTheory:CH.3",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.4",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.5",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G4 — Coherent telescopic rigidification: Kuhn Theorem 5.2 and Lemmas 5.4–5.5, pp.15–18, give the comparison and outline rigidification. Expand the cofinal finite-spectrum system of Proposition 2.6, p.8, the stable-range choices, the cofibration replacements and their compatibility. Equality of periodic homotopy groups alone does not construct the functor or its coherent finite-source comparisons.",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.6",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G4 — Coherent telescopic rigidification: Kuhn Theorem 5.2 and Lemmas 5.4–5.5, pp.15–18, give the comparison and outline rigidification. Expand the cofinal finite-spectrum system of Proposition 2.6, p.8, the stable-range choices, the cofibration replacements and their compatibility. Equality of periodic homotopy groups alone does not construct the functor or its coherent finite-source comparisons.",
         "G5 — Nullification and categorical-height comparison: BHM Theorem 3.1, p.5 and Lemmas 3.2–3.3, p.6, and CSY Theorem 5.4.4/Remark 5.4.5, pp.83–84, were read. Extract Bousfield (2001) Corollary 4.8 from its original proof, and the CSY/Ravenel–Wilson Eilenberg–Mac Lane vanishing computation needed for the sharp n+1 bound. Retain the p-inversion comparison for simply connected p-primary-torsion spaces at height zero.",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent: Real and complex vector bundles, stable bundle operations and classifying spaces, finite-cover transfer, and the ordinary Serre homology filtration with full monodromy local system. CH.6 owns the spectrum-coefficient extension and its convergence conditions.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied."
       ]
     },
     {
@@ -4768,97 +4790,102 @@
       "remaining": [
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
         "G9 — Goerss–Hopkins–Miller realization: Goerss Theorem 3.6 and its functoriality discussion, pp.238–239, were read. Extract the obstruction-theoretic realization, contractibility and automorphism equivariance for the imported marked deformation rings. Algebraic Lubin–Tate representability and continuity on π₀ do not supply these E∞ coherence assertions.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization."
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
+        "Supplier contract tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups: Height one for ordinary and height two for supersingular elliptic formal groups, the connected p-divisible comparison and Serre–Tate deformation interface in its existing domain; no generalized-elliptic boundary moduli are assumed."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.8",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
         "G7 — Horizontal vanishing and chromatic smashing: Mathew–Meier Theorems 4.6–4.7 and Corollary 4.8, pp.26–27, were read. Expand the uniform horizontal vanishing line, Bousfield’s pro-constancy criterion and the Hopkins–Ravenel smashing proof, using the referenced Lurie lectures 30–31 or a cleared primary proof. The restricted T(n)/K(n) comparison in LMMT Corollary 4.21, p.22, is read; it uses this smashing input.",
         "G8 — Telescope-conjecture status proofs: LMMT §2.1, p.6, supplies the height-one Mahowald/Miller theorem; BHLS Theorem A, manuscript pp.2–5, supplies failure at every n≥2 and every prime. Original height-one proofs and the BHLS construction are not extracted here. The latter is a theorem target for the status comparison, not a claim that its K-theoretic machinery is proved in this packet; algebraic K-theory itself remains with its owner.",
         "G9 — Goerss–Hopkins–Miller realization: Goerss Theorem 3.6 and its functoriality discussion, pp.238–239, were read. Extract the obstruction-theoretic realization, contractibility and automorphism equivariance for the imported marked deformation rings. Algebraic Lubin–Tate representability and continuity on π₀ do not supply these E∞ coherence assertions.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied.",
+        "Supplier contract tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups: Height one for ordinary and height two for supersingular elliptic formal groups, the connected p-divisible comparison and Serre–Tate deformation interface in its existing domain; no generalized-elliptic boundary moduli are assumed."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.9",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G4 — Coherent telescopic rigidification: Kuhn Theorem 5.2 and Lemmas 5.4–5.5, pp.15–18, give the comparison and outline rigidification. Expand the cofinal finite-spectrum system of Proposition 2.6, p.8, the stable-range choices, the cofibration replacements and their compatibility. Equality of periodic homotopy groups alone does not construct the functor or its coherent finite-source comparisons.",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
         "G11 — Kahn–Priddy and finite-group reduction: Clausen–Mathew Proposition 2.3, Lemma 2.4 and Theorems 2.5–2.6, pp.2–4, give the short proof. Expand the unstable cyclic-group Kahn–Priddy section and Kuhn (2004) Lemmas 2.7–2.8 for the reduction from prime-order groups to all finite groups; these are not obtained merely by averaging at p.",
-        "G12 — Lower finite-locality of raw Tate: LMMT Remark 3.9, p.16, and CMNN introduction, p.3, state the blueshift form. Extract the proof that the raw C_p Tate spectrum of every L_n^(p,f)-local object is actually L_(n−1)^(p,f)-local. Localized T(n)-Tate vanishing by itself does not justify this stronger conclusion. The proof must handle arbitrary coherent action and the all-spectra height-zero convention.",
-        "G13 — Euler-class computation for KU Tate: Establish the complex-oriented Tate/Euler-inversion comparison and convergence needed to calculate π₀ of trivial-action (KU_p^∧)^tC_p as Q_p(ζ_p). The algebraic cyclotomic quotient is worked out, but Clausen–Mathew Remark 2.8 only gives the general nonzero E-theory phenomenon and is not cited as a proof of this exact formula. The sphere Segal comparison is already imported from RT.2/tate-p-local-properties.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "G12 — Lower finite-locality of raw Tate: LMMT Remark 3.9, p.16, and CMNN introduction, p.3, state the blueshift form. Extract the proof that the raw C_p Tate spectrum of every L_n^(p,f)-local object is actually L_(n−1)^(p,f)-local. Localized T(n)-Tate vanishing by itself does not justify this stronger conclusion. The proof must handle arbitrary coherent action and the all-spectra height-zero convention. Kuhn Corollary 1.6 and Lemma 4.1, manuscript pp.5,16–17, provide the stronger raw Tate vanishing for trivial-action v_n telescopes used in a finite type-n test; expand its module and arbitrary-action comparison rather than deducing the claim from localized vanishing alone.",
+        "G13 — Euler-class computation for KU Tate: Establish the complex-oriented Tate/Euler-inversion comparison and convergence needed to calculate π₀ of trivial-action (KU_p^∧)^tC_p as Q_p(ζ_p). The algebraic cyclotomic quotient is worked out, but Clausen–Mathew Remark 2.8 only gives the general nonzero E-theory phenomenon and is not cited as a proof of this exact formula. The sphere Segal comparison is an explicit RT.2 request: the supplier currently mentions it only as an acceptance example.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied.",
+        "Supplier contract RefinedTraceMethods:RT.2: Prove the trivial-action Segal comparison S→S^tC_p exhibits S^tC_p≃S_p^∧, with its chosen comparison map. The current tate-p-local-properties node lists this only as an acceptance example; its theorem and proof steps establish p-completeness, not the Segal conjecture."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.10",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
         "G9 — Goerss–Hopkins–Miller realization: Goerss Theorem 3.6 and its functoriality discussion, pp.238–239, were read. Extract the obstruction-theoretic realization, contractibility and automorphism equivariance for the imported marked deformation rings. Algebraic Lubin–Tate representability and continuity on π₀ do not supply these E∞ coherence assertions.",
         "G14 — Power operations and Tate height descent: Hahn Theorems 1.1/1.3, §2, Theorem 3.3, §4 and Proposition 4.7, pp.1–4,7–10, and CMNN Theorem 4.6/Lemma 4.7, pp.19–20, were read. Extract extended-power coherence, the quotient operation, the Eisenstein valuation-lowering argument and the faithfully flat Tate-base-change calculation. Treat i=0 by the characteristic-p/May-nilpotence argument and the empty invariant-ideal convention, rather than using nonexistent negative-index coefficients. Hahn Theorem 3.3 is printed with k≥1. Verify its separate k=0 Bockstein case when needed, and retain module-cofiber quotients until regular even coefficients justify ordinary quotient rings.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied.",
+        "Supplier contract tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups: Height one for ordinary and height two for supersingular elliptic formal groups, the connected p-divisible comparison and Serre–Tate deformation interface in its existing domain; no generalized-elliptic boundary moduli are assumed."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.11",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
         "G15 — Real Bott periodicity and recognition: ABS §§6 and 11, pp.15–16,28–29, compute the real coefficients using Bott periodicity; they are not an independent proof of it. Locate and extract a public proof of real Bott periodicity, including compatibility of the Clifford-module generator and complexification. The coherent recognition machine is requested from H.5 and is not redeveloped here.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
         "Supplier contract StableHomotopyKTheory:H.5:spectra: Coherent recognition of the group completion of a permutative topological category as a connective spectrum, compatibly with direct sum and tensor product, and multiplicative connective covers of E∞ ring spectra. Apply this to the real-vector-bundle category; H.4 supplies group completion.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent: Real and complex vector bundles, stable bundle operations and classifying spaces, finite-cover transfer, and the ordinary Serre homology filtration with full monodromy local system. CH.6 owns the spectrum-coefficient extension and its convergence conditions.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied."
       ]
     },
     {
       "stageId": "ChromaticHomotopyTheory:CH.12",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
         "G7 — Horizontal vanishing and chromatic smashing: Mathew–Meier Theorems 4.6–4.7 and Corollary 4.8, pp.26–27, were read. Expand the uniform horizontal vanishing line, Bousfield’s pro-constancy criterion and the Hopkins–Ravenel smashing proof, using the referenced Lurie lectures 30–31 or a cleared primary proof. The restricted T(n)/K(n) comparison in LMMT Corollary 4.21, p.22, is read; it uses this smashing input.",
         "G9 — Goerss–Hopkins–Miller realization: Goerss Theorem 3.6 and its functoriality discussion, pp.238–239, were read. Extract the obstruction-theoretic realization, contractibility and automorphism equivariance for the imported marked deformation rings. Algebraic Lubin–Tate representability and continuity on π₀ do not supply these E∞ coherence assertions.",
-        "G16a — Generalized-elliptic compactification: Current TauCetiRoadmap ModularCurves Scope explicitly excludes generalized elliptic curves, stacks and boundary moduli; Layer 10 constructs coarse compactifications only. Need the generalized-elliptic moduli stack with nodal boundary, its étale site and universal curve, ω, Δ and formal-height strata. Propose Modular curves, Part II: generalized elliptic moduli and boundary geometry. No claim that current 7E or coarse X_H supplies this carrier.",
+        "G16a — Generalized-elliptic compactification: Current TauCetiRoadmap ModularCurves Scope explicitly excludes generalized elliptic curves, stacks and boundary moduli; Layer 10 constructs coarse compactifications only. Need the stable one-pointed genus-one moduli stack with irreducible geometric fibers (smooth curves or nodal one-gons), its étale site and universal curve, ω, Δ and formal-height strata. Propose Modular curves, Part II: generalized elliptic moduli and boundary geometry. No claim that current 7E or coarse X_H supplies this carrier.",
         "G16b — Spectral sheaf and quasicoherent module carriers: EDS E1 covers ordinary ringed-topos derived sheaves, and E5 covers stable monoidal categories and modules. Neither states the required sheaves of E∞ ring spectra and quasicoherent spectral modules on an algebraic groupoid. Need their étale descent, affine-chart base change, tensor with spectra and global sections. Propose Enhanced derived sheaves, Part II: spectral ringed sites. Do not substitute ordinary quasi-coherent sheaves for these module spectra.",
         "G16 — Integral topological-structure-sheaf realization: Goerss Theorem 1.2, pp.224–225, and Mathew–Meier Theorem 7.1, p.35, were read. Extract coherent integral gluing of the local GHM realizations, including ordinary, supersingular, nodal and rational charts and the formal-group comparison. Even homotopy sheaves do not determine an E∞ sheaf.",
-        "G17 — Elliptic affineness, discriminant support and equivariance: Mathew–Meier Theorems 7.2 and 7.6, pp.35–38, and Behrens §1.6, pp.27–32, were read. Expand 0-affineness, the surviving discriminant power, the height-two support argument, finite étale Galois descent and the equivariant supersingular formal chart. At p=2 retain GL₂(F₃) of order 48; at p=3 retain the extended order-24 group over F₃. The underlying algebraic boundary and spectral-module carriers remain G16a/G16b.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "G17 — Elliptic affineness, discriminant support and equivariance: Mathew–Meier Theorems 7.2 and 7.6, pp.35–38, and Behrens §1.3, p.13, §1.5, p.23, and §1.6, pp.27–32, were read. Expand 0-affineness, the Δ²⁴ permanent-cycle comparison (degree 576), the height-two support argument, finite étale Galois descent and the equivariant supersingular formal chart. At p=2 retain GL₂(F₃) of order 48; at p=3 retain the extended order-24 group over F₃. The underlying algebraic boundary and spectral-module carriers remain G16a/G16b.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract StableHomotopyKTheory:H.5:spectra: Coherent recognition of the group completion of a permutative topological category as a connective spectrum, compatibly with direct sum and tensor product, and multiplicative connective covers of E∞ ring spectra. Apply this to the real-vector-bundle category; H.4 supplies group completion.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes.",
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied.",
         "Supplier contract tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups: Height one for ordinary and height two for supersingular elliptic formal groups, the connected p-divisible comparison and Serre–Tate deformation interface in its existing domain; no generalized-elliptic boundary moduli are assumed.",
         "Supplier contract tauceti:TauCetiRoadmap/ModularCurves#4b-the-weierstrass-presentation: The smooth elliptic groupoid presented by Weierstrass equations and variable changes, with effective descent, invariant differential and compatibility of the formal law with WeierstrassCurve.formalGroup.",
         "Supplier contract tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470: The affine full-level-three family over Z[1/3] with its finite étale GL₂(F₃)-torsor over Ell, preserving the determinant/residue-field action needed at p=2."
@@ -4868,17 +4895,17 @@
       "stageId": "ChromaticHomotopyTheory:CH.13",
       "status": "planned",
       "remaining": [
-        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §3, pp.16–19. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
+        "G1 — Complex-cobordism smash nilpotence: Extract the Devinatz–Hopkins–Smith MU smash-nilpotence input and its reduction in Hopkins–Smith Theorem 3, pp.2–3 and §2.1, pp.15–17. The MU-based vanishing-curve argument is not contained in the present proof sketch. No direct proof from polynomial coefficients is claimed.",
         "G2 — Periodicity induction and finite-type existence: Expand the proof of Hopkins–Smith Theorem 9, pp.4–5 and §4, pp.22–46, with the endomorphism-ring F-isomorphism and the induction constructing one finite spectrum at each type. Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21, were read for the power comparison, but the Adams-theoretic construction in §4 has not been audited. This is one proof obligation, not a circular reliance of periodicity on the finished thick theorem.",
         "G3 — Finite-generation and telescope comparison: LMMT Lemmas 2.2(vii) and 2.6, pp.7–8, were read, including their use of Mahowald–Sadofsky (1995) Lemma 2.1 and Proposition 3.3. The original MS95 proofs of finite p-power annihilation and the complemented-class compact-generation criterion still need a public source and a proof extraction. Distinguish the kernel on all spectra from its restriction to Sp_(p).",
         "G6 — Oriented realization and invariant-ideal support: Prove Quillen’s MU coefficient/universal-law comparison, the p-typical BP retract, regular quotient ring/module realizations, and the precise invariant-ideal descent used in finite-height locality. Ravenel Theorem 2.1, pp.361–363, supplies the Bousfield calculations, but this plan has not extracted the Landweber realization and invariant-ideal proof from primary sources. No E∞ structure on BP or its general truncations is inferred.",
         "G18 — Stable James splitting: LMMT Corollary 4.14 proof, p.20, uses the reduced splitting, and AKQ §2.1, p.5, identifies the finite sphere skeleta. Locate and read a public proof of the James equivalence and natural stable word-length splitting, or the cleared Adams reference if listed in the private index. Do not assert the connected-space comparison for S⁰ or insert an extra sphere in the reduced wedge.",
-        "G19 — Multiplicative Thom and free E₂ computation: Antolín-Camarena–Barthel Definition 3.1, Corollary 3.2, Theorem 3.5/Corollary 3.9, pp.10–11, Theorem 3.15, pp.13–14, and Theorems 5.1/5.7, pp.19–22, were read. Extract the monoidal-colimit proof and the free E₂ mod-p homology/Dyer–Lashof calculation identifying the Thom rings. The construction and universal property are stated; coherent multiplicativity and the operation computation are not derived from ordinary colimits alone.",
-        "G20 — James-filtered Thom vanishing lines: LMMT construction and Lemma 4.15/Corollary 4.18, pp.20–21, and AKQ Construction 2.1/Lemma 2.2, pp.5–6, Proposition 2.22, p.15, were read. Expand the Margolis-homology computation at two and the MRS01 localized Adams vanishing line at odd primes, including convergence and the comparison of its slope with |v_i|. Check filtered Thom colimits and π₀ for z(m) in the completed convention. The positive-height range for z(m) excludes height zero.",
-        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0.",
-        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart.",
+        "G19 — Multiplicative Thom and free E₂ computation: Antolín-Camarena–Barthel Definition 3.1, Corollary 3.2, Theorem 3.5/Corollary 3.9, pp.10–11, Lemma 3.15 and Proposition 3.16, pp.13–14, and Theorems 5.1/5.7, pp.19–22, were read. Extract the monoidal-colimit proof and the free E₂ mod-p homology/Dyer–Lashof calculation identifying the Thom rings. The construction and universal property are stated; coherent multiplicativity and the operation computation are not derived from ordinary colimits alone. Supply the nilpotent source-space p-completion model and the connected-cover comparison; H.6’s spectral completion alone does not construct a completed space. Keep the Thom colimits in p-complete spectra and distinguish fib((S³)_p^∧→K(Z_p,3)) from the fiber with uncompleted domain.",
+        "G20 — James-filtered Thom vanishing lines: LMMT construction and Lemma 4.15/Corollary 4.18, pp.20–21, and AKQ Construction 2.1/Lemma 2.2, pp.5–6, Proposition 2.22, p.15, were read. Expand the Margolis-homology computation at two and the MRS01 localized Adams vanishing line at odd primes, including convergence and the comparison of its slope with |v_i|. Check filtered Thom colimits and π₀ for z(m) in the completed category, and prove every comparison to the uncompleted AKQ construction before transporting its acyclicity result. The positive-height range for z(m) excludes height zero.",
+        "Supplier contract EnhancedDerivedSheaves:E3: Accessible exact localization of Sp at the E-homology equivalences: establish accessibility of the acyclic class and produce its reflective localization with mapping-space universal property. The E3 accessible-localization scope is the general supplier; the chromatic identification of acyclics is local to CH.0. For a map f:X→Y of spaces, supply its unstraightening as the fiber local system and the pointwise left-Kan-extension/composition equivalence colim_(y∈Y) colim_(x∈fib_y f) D(x)≃colim_(x∈X)D(x). Existing E3 Kan-extension composition supplies the categorical part; its space-indexed specialization must be proved with these carriers.",
+        "Supplier contract RefinedTraceMethods:RT.4:topological: Complex ku and KU from stable complex bundles, E∞ multiplication, π_*ku=Z[b] and π_*KU=Z[b^±1] with |b|=2, Bott inversion, the standard multiplicative orientation and the p-local Adams-summand comparison with E(1). This imports the complex theory; CH.11 owns its real counterpart. Also supply that KU_p^∧ is K(1)-local, for the localized Tate-vanishing example; the coefficient computation alone does not imply this locality.",
         "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations: Based finite CW complexes, homotopy cofibers, cellular filtrations, suspension and finite cell induction, including passage to retracts after p-localization.",
-        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes."
+        "Supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead: Based and relative homotopy groups, homotopy fiber exact sequence, Hurewicz and Whitehead with their connectivity hypotheses, and the stable range needed to represent finite-spectrum maps by sufficiently suspended finite complexes. The current Stage 8 explicitly supplies Hurewicz/Whitehead but does not state Freudenthal stabilization; the stable-range assertion is a requested extension, with its suspension/connectivity inequalities still to be supplied."
       ]
     }
   ],
@@ -4888,7 +4915,7 @@
       "kind": "part-ii",
       "parent": "tauceti:TauCetiRoadmap/ModularCurves",
       "title": "Modular curves, Part II: generalized elliptic moduli and boundary geometry",
-      "need": "Current TauCetiRoadmap ModularCurves Scope explicitly excludes generalized elliptic curves, stacks and boundary moduli; Layer 10 constructs coarse compactifications only. Need the generalized-elliptic moduli stack with nodal boundary, its étale site and universal curve, ω, Δ and formal-height strata. Propose Modular curves, Part II: generalized elliptic moduli and boundary geometry. No claim that current 7E or coarse X_H supplies this carrier.",
+      "need": "Current TauCetiRoadmap ModularCurves Scope explicitly excludes generalized elliptic curves, stacks and boundary moduli; Layer 10 constructs coarse compactifications only. Need the stable one-pointed genus-one moduli stack with irreducible geometric fibers (smooth curves or nodal one-gons), its étale site and universal curve, ω, Δ and formal-height strata. Propose Modular curves, Part II: generalized elliptic moduli and boundary geometry. No claim that current 7E or coarse X_H supplies this carrier.",
       "consumers": [
         "ChromaticHomotopyTheory:CH.12/topological-structure-sheaf",
         "ChromaticHomotopyTheory:CH.12/modular-chromatic-comparison"
@@ -5150,5 +5177,328 @@
       "roadmap": "tauceti:TauCetiRoadmap/ModularCurves",
       "note": "The live ModularCurves Scope, Layers 4B/4C and 7E were read. Import smooth groupoid, level-three torsor and formal-height inputs, but its coarse Layer 10 cannot supply generalized-elliptic boundary moduli. No upstream files changed."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ChromaticHomotopyTheory",
+    "date": "2026-10-19",
+    "notes": "Accepted as a complete target-level design with all fourteen stages planned, not closed. Independently checked all 63 nodes, 17 source versions, eight pinned declarations and exact supplier contracts. Corrected locality and completion hypotheses, direct dependencies, compactification carrier, discriminant exponent, source locators and concrete tests. Twenty-one proof/carrier gaps and ten explicit supplier contracts remain; no implementation or proof-closure claim is made.",
+    "checked": [
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.0/finite-p-local-spectra",
+        "verdict": "corrected",
+        "note": "HS compactness convention is preliminaries p9, not §1.1 pp2–4. Checked target, hypotheses, proof outline and direct inputs against hs: Preliminaries, p.9; Theorem 7, p.3."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.0/finite-duality",
+        "verdict": "corrected",
+        "note": "Restrict F(V,X)=DV⊗X to p-local X; use HZ and V=S_(p) as negative control. HS proof Thm7 is §2.2 p19, not §3; duality §1.4 p14. Checked target, hypotheses, proof outline and direct inputs against hs: §1.4, p.14; proof of Theorem 7 in §2.2, p.19."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.0/homological-localization",
+        "verdict": "corrected",
+        "note": "LMMT Def2.5 and Lem2.8 are p8, not pp7-8. Checked target, hypotheses, proof outline and direct inputs against lmmt: Definition 2.5 and Lemma 2.8, p.8."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.1/complex-orientation",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against behrens: Definitions 1.2.1, 1.2.6, Proposition 1.2.10, pp.4–6."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.1/geometric-height",
+        "verdict": "corrected",
+        "note": "Add direct ModularCurves 7E edge for elliptic examples, without replanning its height classification; cite Behrens p21 for p-series height. Checked target, hypotheses, proof outline and direct inputs against behrens: §1.5, p.21; §1.6, pp.27–28; goerss: §3.3, pp.238–239."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.1/cobordism-p-typical",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against ravenel: §2, p.360; behrens: §1.2, pp.4–8. Proof/carrier extraction remains explicit in G6; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.1/morava-coefficient-spectra",
+        "verdict": "corrected",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against ravenel: §2, p.360 and Theorem 2.1, pp.361–363. Proof/carrier extraction remains explicit in G6; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.1/vn-cofiber-sequences",
+        "verdict": "corrected",
+        "note": "Ravenel orthogonality proof ends p363. Checked target, hypotheses, proof outline and direct inputs against ravenel: Theorem 2.1(e),(f),(h),(i) and proof, pp.361–363. Proof/carrier extraction remains explicit in G6; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.2/chromatic-type",
+        "verdict": "corrected",
+        "note": "HS Thm7 p3; finite-spectrum eventual nonvanishing Lemma2.1 p15 and support saturation p3; remove misleading proof reliance on later thick classification. Checked target, hypotheses, proof outline and direct inputs against hs: Theorem 7 and nested supports, p.3; Lemma 2.1, p.15."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.2/nilpotence",
+        "verdict": "corrected",
+        "note": "LMMT Remark2.4 p8, not p7; HS reduction §2.1 pp15–17, not §3 pp16–19. Checked target, hypotheses, proof outline and direct inputs against hs: Theorem 3, pp.2–3; its reduction in §2.1, pp.15–17; lmmt: Remark 2.4, p.8. Proof/carrier extraction remains explicit in G1; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.2/thick-subcategory",
+        "verdict": "corrected",
+        "note": "HS Thm7 p3, proof §2.2 p19 (not §3 pp19–20). Checked target, hypotheses, proof outline and direct inputs against hs: Theorem 7, p.3; proof in §2.2, pp.17–19. Proof/carrier extraction remains explicit in G2; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.2/vn-self-map",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: §2.1, p.6."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.2/periodicity-centrality",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against hs: Theorems 9 and 11, pp.4–6; Lemmas 3.5–3.6 and Corollaries 3.7–3.8, p.21; lmmt: Lemma 2.2(vii), p.7. Proof/carrier extraction remains explicit in G2; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.3/telescope",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: §2.1 and Lemma 2.2(vii), pp.6–7."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.3/periodic-homotopy",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Definition 2.1 and Lemma 2.2(i),(ii),(viii), pp.6–7."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.3/telescope-properties",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Lemma 2.2(i)–(viii) and proof, pp.6–7. Proof/carrier extraction remains explicit in G3; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.3/ring-acyclicity",
+        "verdict": "corrected",
+        "note": "LMMT Lemma2.3 p7, Remark2.4 p8. Checked target, hypotheses, proof outline and direct inputs against lmmt: Lemma 2.3, p.7; Remark 2.4, p.8."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.4/finite-localizations",
+        "verdict": "corrected",
+        "note": "LMMT Def2.5 p8, not p7. Checked target, hypotheses, proof outline and direct inputs against lmmt: Definition 2.5, p.8."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.4/finite-kernel-smashing",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Lemma 2.6 and proof, p.8. Proof/carrier extraction remains explicit in G3; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.4/p-local-comparison",
+        "verdict": "corrected",
+        "note": "LMMT Def2.5 p8 and consequences afterLemma2.8 p9. Checked target, hypotheses, proof outline and direct inputs against lmmt: Definition 2.5, p.8; consequence (i) of Lemma 2.8, p.9."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.4/fracture-square",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Lemmas 2.7–2.8 and proof, p.8."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.4/bottom-finite-comparison",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Consequences (i)–(ii) of Lemma 2.8, p.9."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.5/finite-telescopic-functor",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against kuhn-guide: §3.1, Lemma 3.1, pp.9–11; Theorem 5.2 and Lemma 5.4, pp.15–17. Proof/carrier extraction remains explicit in G4; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.5/bousfield-kuhn",
+        "verdict": "corrected",
+        "note": "Uniqueness requires T(n)-local-valued functors plus compatible finite-source comparisons. Checked target, hypotheses, proof outline and direct inputs against kuhn-guide: Theorem 1.1, pp.3–4; Theorem 5.2, Lemmas 5.4–5.5 and Definition 5.6, pp.15–18. Proof/carrier extraction remains explicit in G4; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.5/suspension-loop-detection",
+        "verdict": "corrected",
+        "note": "Prop2.9/Rem2.10 are p9. Checked target, hypotheses, proof outline and direct inputs against lmmt: Proposition 2.9 and Remark 2.10, p.9."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.6/space-postnikov",
+        "verdict": "corrected",
+        "note": "Specify truncation r>=0 and connected cover r>=1. Checked target, hypotheses, proof outline and direct inputs against lmmt: Lemma 2.2(ii), p.6; proof of Proposition 2.11, pp.9–10; bhm: §3, Theorem 3.1, p.5; Lemmas 3.2–3.3, p.6."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.6/generalized-serre-filtration",
+        "verdict": "corrected",
+        "note": "Serre argument in LMMT proof is p10; add reflection mapping-torus calculation with H1=Z plus Z/2, H2=0. Checked target, hypotheses, proof outline and direct inputs against lmmt: Proof of Proposition 2.11(ii), p.10; bhm: §3, Theorem 3.1, p.5; Lemmas 3.2–3.3, p.6."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.6/fiberwise-equivalence",
+        "verdict": "corrected",
+        "note": "Remove unused Serre direct prerequisite; explicitly request unstraightening/indexed Fubini from E3; cite p10. Checked target, hypotheses, proof outline and direct inputs against lmmt: Proposition 2.11(ii) proof, p.10."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.6/connective-periodic-vanishing",
+        "verdict": "corrected",
+        "note": "Prop2.11/Rem2.12 span pp9-10. Checked target, hypotheses, proof outline and direct inputs against lmmt: Proposition 2.11 and Remark 2.12, pp.9–10; bhm: §3, Theorem 3.1, p.5; Lemmas 3.2–3.3, p.6; csy: Theorem 5.4.4 and Remark 5.4.5, pp.83–84. Proof/carrier extraction remains explicit in G5; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.6/connective-loop-preservation",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Proposition 2.11(iii) and Remark 2.12, pp.9–10."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.7/morava-e-theory",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against goerss: §3.3, Theorem 3.6, pp.238–239; behrens: Theorem 1.7.6 and discussion, pp.33–34. Proof/carrier extraction remains explicit in G9; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.7/stabilizer-action",
+        "verdict": "corrected",
+        "note": "Replace vague third test by odd-p height1 sign action, fixes pi0 but sends u to -u. Checked target, hypotheses, proof outline and direct inputs against goerss: Theorem 3.6 and following paragraph, p.239; behrens: §1.6, pp.27–28. Proof/carrier extraction remains explicit in G9; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.8/ravenel-bousfield-class",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against ravenel: Theorem 2.1(b),(d),(e),(f), pp.361–363; lmmt: Proof of Corollary 4.21, p.22. Proof/carrier extraction remains explicit in G6; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.8/height-locality",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Proof of Corollary 4.21, p.22; behrens: §1.6, pp.27–29. Proof/carrier extraction remains explicit in G6; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.8/hopkins-ravenel",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against mm: Theorems 4.6–4.7 and Corollary 4.8, pp.26–27; lmmt: Proof of Corollary 4.21, p.22. Proof/carrier extraction remains explicit in G7; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.8/local-telescope-comparison",
+        "verdict": "corrected",
+        "note": "Add direct ring-acyclicity input to pass K(n)-acyclic lower-local sphere to T(n)-acyclic sphere. Checked target, hypotheses, proof outline and direct inputs against lmmt: Proof of Corollary 4.21, p.22; behrens: Proposition 1.6.8 and the chromatic fracture square, pp.28–29. Proof/carrier extraction remains explicit in G7; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.8/telescope-separation",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against bhls: Introduction, Theorem A, pp.2–4. Proof/carrier extraction remains explicit in G8; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.8/truncation-support",
+        "verdict": "corrected",
+        "note": "Do not assume E1 structure on all BP truncations; use Ravenel class and telescope orthogonality directly. Checked target, hypotheses, proof outline and direct inputs against ravenel: Theorem 2.1(d)–(f), pp.361–363; lmmt: Corollary 4.12 and Remark 4.13, p.20. Proof/carrier extraction remains explicit in G6; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.9/norm-tate",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against cm-tate: Definition 2.2 and Proposition 2.3, pp.2–3."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.9/transfer-splitting",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against cm-tate: Lemma 2.1, Proposition 2.3, Lemma 2.4 and Theorem 2.5, pp.2–3. Proof/carrier extraction remains explicit in G11; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.9/kuhn-tate-vanishing",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against cm-tate: Theorem 2.6 and Corollary 2.7, pp.3–4; kuhn-tate: Theorem 1.5 and Corollary 1.7, manuscript pp.4–5. Proof/carrier extraction remains explicit in G11; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.9/finite-blueshift",
+        "verdict": "corrected",
+        "note": "Correct at most one level to upper bound drops one, may drop further; retain G12. Checked target, hypotheses, proof outline and direct inputs against cmnn: Introduction preceding Theorem C, p.3; proof of Theorem 4.10, p.21; lmmt: Remark 3.9, p.16. Proof/carrier extraction remains explicit in G12; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.9/nonzero-tate-examples",
+        "verdict": "corrected",
+        "note": "Add direct Kuhn theorem edge, explicit KU completed K(1)-locality request, and RT2 request for Segal comparison currently only an acceptance example. Checked target, hypotheses, proof outline and direct inputs against cm-tate: Remark 2.8, p.4. Proof/carrier extraction remains explicit in G13; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.10/morava-power-operations",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against hahn: §2, pp.3–4; Theorem 1.6, p.2; Theorem 3.3, p.5 and proof pp.7–8; Definition 4.1, p.8. Proof/carrier extraction remains explicit in G14; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.10/hahn-acyclicity",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against hahn: Theorems 1.1 and 1.3, p.1; §4, Propositions 4.2–4.5 and Theorem 4.6, pp.8–10. Proof/carrier extraction remains explicit in G14; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.10/ring-chromatic-height",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Introduction, chromatic height discussion, pp.3–4; hahn: Theorem 1.1, p.1."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.10/tate-height-converse",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against cmnn: Theorem 4.6 and Lemma 4.7, pp.19–20; hahn: Corollary 4.6.1 and Proposition 4.7, pp.9–10. Proof/carrier extraction remains explicit in G14; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.11/real-k-theory",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against abs: Proposition 6.8, Theorems 6.9 and 11.5, pp.15–16,28–29; lmmt: Corollary 4.19 and proof, p.21. Proof/carrier extraction remains explicit in G15; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.11/real-coefficients",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against abs: Theorems 6.9 and 11.5, pp.15–16,28–29; lmmt: Corollary 4.19 proof, p.21. Proof/carrier extraction remains explicit in G15; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/elliptic-cohomology",
+        "verdict": "corrected",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against behrens: Definition 1.2.11, Remark 1.2.12 and Corollary 1.2.15, p.7."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/topological-structure-sheaf",
+        "verdict": "corrected",
+        "note": "Specify stable 1-pointed genus1 compactification, irreducible geometric fibers smooth or nodal 1-gons, not all generalized elliptic curves. Checked target, hypotheses, proof outline and direct inputs against goerss: Theorem 1.2, pp.224–225; mm: Theorem 7.1, p.35. Proof/carrier extraction remains explicit in G16a, G16b, G16; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/modular-form-spectra",
+        "verdict": "corrected",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: §4.3 preceding Corollary 4.21, p.22; behrens: §1.3, pp.9–13; §1.6, pp.31–32. Proof/carrier extraction remains explicit in G16a; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/spectral-affineness",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against mm: Theorem 7.2, pp.35–37; lmmt: Corollary 4.21 proof, p.22. Proof/carrier extraction remains explicit in G16a, G16b, G17; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/modular-chromatic-comparison",
+        "verdict": "corrected",
+        "note": "Add the discriminant-localization direct edge used in the smooth-open support proof. Checked target, hypotheses, proof outline and direct inputs against lmmt: Corollary 4.21 proof, p.22; behrens: Propositions 1.6.8 and 1.6.12; chromatic fracture, pp.29–32. Proof/carrier extraction remains explicit in G16a, G17; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/modular-level-galois",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against mm: Theorem 7.6, p.38. Proof/carrier extraction remains explicit in G17; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/supersingular-galois",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against behrens: §1.6, Proposition 1.6.12, pp.30–31; lmmt: Corollary 4.21 proof, pp.22–23. Proof/carrier extraction remains explicit in G17; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.12/discriminant-localization",
+        "verdict": "corrected",
+        "note": "Source actual discriminant localization Behrens p13; specify uniform surviving exponent 24 degree576. Checked target, hypotheses, proof outline and direct inputs against behrens: §1.3, p.13; §1.5, Theorem 1.5.6, p.23; lmmt: §4.3 preceding Corollary 4.21 and its proof, p.22. Proof/carrier extraction remains explicit in G16a, G17; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.13/james-filtration",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Corollary 4.14 proof and following Thom-spectrum construction, p.20; akq: §2.1, p.5. Proof/carrier extraction remains explicit in G18; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.13/units-thom",
+        "verdict": "corrected",
+        "note": "3.15 is Lemma not Theorem; 3.16 is Thom isomorphism. Checked target, hypotheses, proof outline and direct inputs against thom: Definition 3.1 and Corollary 3.2, p.10; Theorem 3.5 and Corollary 3.9, p.11; Lemma 3.15 and Proposition 3.16, pp.13–14; akq: §2.1, p.5. Proof/carrier extraction remains explicit in G19; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.13/hopkins-mahowald",
+        "verdict": "corrected",
+        "note": "Completed cover fiber has domain S3_p, not uncompleted S3 to K(Zp,3); make completed Thom/colimit category explicit. Checked target, hypotheses, proof outline and direct inputs against thom: Theorems 5.1 and 5.7, pp.19–22. Proof/carrier extraction remains explicit in G19; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.13/james-thom-family",
+        "verdict": "corrected",
+        "note": "Specify completed Thom spectra and completed-category colimits; ambient comparison remains G20. Checked target, hypotheses, proof outline and direct inputs against lmmt: Thom construction preceding Lemma 4.15, p.20; akq: Construction 2.1 and Lemma 2.2, pp.5–6. Proof/carrier extraction remains explicit in G20; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.13/thom-acyclicity",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Lemma 4.15 and Corollary 4.18 proof, p.21; akq: Proposition 2.22, p.15. Proof/carrier extraction remains explicit in G20; verification of the target is not proof closure."
+      },
+      {
+        "nodeId": "ChromaticHomotopyTheory:CH.13/james-acyclicity",
+        "verdict": "verified",
+        "note": "Checked target, hypotheses, proof outline and direct inputs against lmmt: Corollary 4.14 proof, p.20. Proof/carrier extraction remains explicit in G18; verification of the target is not proof closure."
+      }
+    ]
+  }
 }
