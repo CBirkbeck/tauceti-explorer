@@ -1,0 +1,373 @@
+{
+  "id": "GeneralAlgebraicKTheoryPartII",
+  "title": "General algebraic K-theory, Part II: telescopic purity and redshift",
+  "area": "ktheory",
+  "parent": "GeneralAlgebraicKTheory",
+  "summary": "Extend the parent’s classical exact and Waldhausen K-theory to enhanced perfect stable categories and ring spectra, then plan the two-height telescopic purity theorem without circularity. Include additive and t-structure comparisons, Weibel NK operations, redshift, concrete chromatic examples, rational-transfer Galois descent, height-one excision and homotopy invariance, sifted colimits and cyclic assembly. Every layer is planned at target level; supplier extensions and one explicit proof-audit gap remain.",
+  "readme": "The reader document is the definitive target-level roadmap. Layers KII.0–KII.3 own enhanced K-theory foundations and have no trace or chromatic dependencies. KII.4 proves Theorem A; KII.5 proves the CMNN vanishing input using Theorem A and then proves purity. Subsequent layers establish redshift, examples, Galois descent, height-one descent, and higher-height assembly. Keep T(0)=S[1/p] on all spectra and distinguish it from HQ. Generic spectra and stable category theory, chromatic spectra, THH/TC, scheme K-theory and the parent’s classical constructions are imported from their owners. The suggested file checks only real pin-level comparison interfaces because higher carriers do not yet exist at the pins. All eleven layers are planned, with one proof-audit gap and explicit supplier extensions awaiting independent review.",
+  "prerequisites": [
+    "GeneralAlgebraicKTheory",
+    "EnhancedDerivedSheaves",
+    "StableHomotopyKTheory",
+    "ChromaticHomotopyTheory",
+    "RefinedTraceMethods",
+    "KTheoryLowDegrees",
+    "KTheoryFiniteLocalFields",
+    "SchemeKTheoryOperations",
+    "MotivicEtaleKTheory",
+    "HabiroRings"
+  ],
+  "stages": [
+    {
+      "key": "KII.0",
+      "title": "Stable categories and nonconnective K-theory",
+      "description": "Construct Cat∞perf, exact sequences, K(Perf(A)), the enhanced S-construction and nonconnective K. Establish localization and comparison with classical exact/Waldhausen models. This foundational layer has no chromatic or trace prerequisites.\n\nPerfect stable categories and localizing invariants. Cat∞perf has small idempotent-complete stable ∞-categories as objects and exact functors as morphisms. A sequence C→D→E is exact when its composite is zero, C→D is fully faithful, and Idem(D/C)→E is an equivalence. A weakly localizing invariant with values in a stable ∞-category V is a functor F:Cat∞perf→V with F(0)=0 carrying these sequences to fiber/cofiber sequences. No continuity is included in this definition; accessible/finitary refinements remain RT.5’s responsibility.\n\nPerfect modules and K-theory of ring spectra. For an associative unital ring spectrum A, Perf(A) is the full stable idempotent-complete subcategory of right A-modules consisting of retracts of finite cell modules, equivalently the compact objects of Mod_A. Define K(A)=Knc(Perf(A)). A→B induces extension of scalars Perf(A)→Perf(B), without assuming that B is perfect over A. If B is perfect as an A-module there is also restriction/transfer. For a discrete ring R, compare τ≥0K(HR) with classical projective-module K(R), and all degrees with the parent’s nonconnective spectrum.\n\nThe stable S-construction. For a small stable ∞-category C, let S_r(C) be its ∞-category of gap diagrams on Ar([r]): diagonal entries are zero and every subinterval square is a pushout. For r≥1 restriction identifies S_r(C)≃Fun([r−1],C), but its simplicial faces are the gap-diagram faces, including quotient faces. Iterated core realization and looping define Kconn(C); additivity gives Kconn(C)≃Ω|Kconn(S•C)|. Construct the comparison with the parent’s Waldhausen S-construction on a presenting Waldhausen category.\n\nNonconnective K-theory of stable categories. Construct Knc:Cat∞perf→Sp by flasque enlargement and suspension: for a sufficiently large regular κ use the compact part of the κ-continuous enlargement, its quotient suspension ΣκC, and the colimit of Ω^rKconn(Σκ^rC). Prove independence of the permitted κ, τ≥0Knc(C)≃Kconn(C), equivalence invariance and filtered-colimit preservation. For ordinary exact/Frobenius models compare with Bass–Schlichting K-theory. Knc is weakly localizing; connective K need not send every exact sequence to a fiber sequence.\n\nThomason–Neeman localization. Let q:D→E be an exact colimit-preserving localization of compactly generated presentable stable ∞-categories. Suppose its kernel is generated as a localizing subcategory by a set of compact objects of D. Then q preserves compacts and ker(q)^ω→D^ω→E^ω is exact after idempotent completion of the quotient. Consequently K(ker(q)^ω)→K(D^ω)→K(E^ω) is a fiber sequence.",
+      "requires": [
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheory:K.4",
+        "GeneralAlgebraicKTheory:K.4:construction",
+        "GeneralAlgebraicKTheory:K.6",
+        "StableHomotopyKTheory:H.5:S-delooping",
+        "StableHomotopyKTheory:H.5:spectra"
+      ]
+    },
+    {
+      "key": "KII.1",
+      "title": "Connective and additive comparisons",
+      "description": "Extend the classical plus and group-completion comparisons to connective ring spectra and additive ∞-categories. Establish additive Morita theory and A-theory without trace imports.\n\nGeneral linear groups of connective ring spectra. For connective E1-ring A, GL_r(A) is the union of the invertible components of Ω∞Mat_r(A), and GL(A)=colim_r GL_r(A) under block sum with 1. The connected positive K-space is BGL(A)+: Ω∞τ≥1K(A)≃BGL(A)+, with plus taken for the elementary subgroup in π0GL(A). The comparison BGL(A)→BGL(π0A) induces the positive K-theory truncation comparison after plus; no fiber-sequence or splitting assertion about these three spaces is included.\n\nAdditive ∞-categories and group-completion K-theory. An additive ∞-category C has finite biproducts and grouplike E∞ mapping spaces compatible with composition. Its connective mapping spectrum hom_C(X,Y) has Ω∞ equal to its mapping space. Define Kadd(C) as the connective spectrum corresponding to the group completion of the E∞ space C≃ under ⊕. If C is stable, hom_C(X,Y)=τ≥0Hom_C(X,Y); the full mapping spectrum Hom may have negative homotopy. For connective A, Kadd(Projω(A))≃τ≥0K(A), where Projω(A) consists of retracts of finite sums of A.\n\nAdditive and stable Schwede–Shipley comparison. If C is small additive idempotent-complete and generated under finite sums and retracts by X, then C≃Projω(hom_C(X,X)). If C is stable idempotent-complete and thickly generated by X, then C≃Perf(Hom_C(X,X)). The ring acts on Hom(X,−) by precomposition as a right action. Every small additive category is a filtered colimit of its full finite-generator additive/retract closures, after the required idempotent completion.\n\nWaldhausen A-theory. For a pointed connected space X define A(X)=K(S[ΩX]) with S[ΩX]=Σ∞_+ΩX, multiplication induced by loop concatenation. Compare τ≥0A(X) with the classical connective K-theory of homotopy-finite retractive spaces over X through the stabilization model. A based map X→Y yields A(X)→A(Y); the unit and augmentation give A(*)→A(X)→A(*) with composite identity.",
+      "requires": [
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheory:K.2:plus",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "StableHomotopyKTheory:H.3",
+        "StableHomotopyKTheory:H.5:spectra"
+      ]
+    },
+    {
+      "key": "KII.2",
+      "title": "Pullbacks, truncation and excision",
+      "description": "Construct the Land–Tamme replacement ring and prove its invariant pullback formula, truncating excision, Waldhausen truncation and nonpositive K comparisons. These remain independent of THH and TC.\n\nThe Land–Tamme replacement algebra. For a homotopy pullback square of E1-rings A→B, A→A′, B→B′, A′→B′, construct C=A′⊙_A^{B′}B together with the canonical square A′→C, B→C. Its underlying spectrum is A′⊗_A B with the multiplication determined by the square, and C→B′ is the canonical multiplication map on that spectrum. Every weakly localizing invariant sends the square A→B, A′→C to a pullback square. No ordinary tensor-product E1-algebra structure on A′⊗_A B is assumed.\n\nTruncating invariants on acyclic rings. For a spectrum M and weakly localizing F:Cat∞perf→V, say F is truncating on M-acyclic connective rings if F(R)→F(Hπ0R) is an equivalence for every connective E1-ring R with M⊗R=0. Globally truncating means this for all connective R. Use the induced module action of R to check that its ring Postnikov truncations remain M-acyclic. The definition includes no hypothesis that F commutes with limits or filtered colimits.\n\nExcision and nilinvariance for truncating invariants. A globally truncating weakly localizing invariant is invariant under quotienting a discrete ring by a nilpotent ideal, and sends every Milnor square of discrete rings with a surjective side to a cartesian square. More generally apply the replacement-algebra theorem to connective ring pullbacks for which π0(A′)⊗_{π0A}π0(B)→π0(B′) is an isomorphism. The same proof applies to restricted truncation when every auxiliary connective replacement ring lies in the acyclic domain.\n\nRational and p-adic truncation. Let Λ be a localization of Z or Z/m for an integer m≥2. If f:A→B is a map of connective E1-rings inducing an isomorphism on π0, and Λ⊗f is n-connective for n≥1, then Λ⊗K(f) is (n+1)-connective. Here tensor with Z/m means Moore coefficients, and Λ-connectivity is measured on the coefficient fiber. In particular a Q- or Z/p-homology equivalence f with π0f an isomorphism induces the same equivalence on K. Thus K(R)→K(Hπ0R) is a rational equivalence for rationally discrete R, and a p-adic equivalence whenever R→Hπ0R is one; this includes every connective Z[1/p]-algebra ring spectrum.\n\nNonpositive K-theory of connective rings. For every connective E1-ring R, the map K_j(R)→K_j(π0R) is an isomorphism for all j≤0, naturally in ring maps. The parent’s Bass–Schlichting comparison identifies the target with its ordinary nonconnective ring K-theory. No nilpotent K0 theorem is assumed in this foundational comparison.",
+      "requires": [
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheory:K.6",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "GeneralAlgebraicKTheoryPartII:KII.1"
+      ]
+    },
+    {
+      "key": "KII.3",
+      "title": "Stable envelopes and bounded hearts",
+      "description": "Construct the idempotent-complete stable envelope of an additive ∞-category, enhance the existing triangulated t-structure interface, prove the connective theorem of the heart and the noetherian nonconnective version, and establish the bounded-heart fiber used by Levy’s proof.\n\nBounded t-structures on stable ∞-categories. A t-structure on a small stable ∞-category C is a t-structure on hC with full subcategories C≥0,C≤0 lifted to C; orthogonality and truncation triangles enhance to the truncation adjunctions. It is bounded if every object lies in C≥a∩C≤b for some integers a≤b depending on the object. The heart C♥=C≥0∩C≤0 is an ordinary abelian category. Reuse CategoryTheory.Triangulated.TStructure and its bounded object predicate on hC, with an explicit conversion from Mathlib’s cohomological shift to the homological spectral convention.\n\nStable envelopes and additive nonconnective K-theory. For a small idempotent-complete additive ∞-category C, put Stab(C)=Funadd(Cop,Sp)^ω, the thick closure of the additive spectral Yoneda objects. This is the idempotent-complete stable envelope. An additive functor from C into a stable idempotent-complete category extends uniquely to an exact functor from Stab(C). Define Kadd,nc(C)=Knc(Stab(C)); prove τ≥0Kadd,nc(C)≃Kadd(C). For stable C, Yoneda uses the connective hom spectrum before stable extension; Stab(C) is not identified with C merely because C is already stable.\n\nThe theorem of the heart and noetherian extension. If C is small stable with a bounded t-structure, inclusion of the heart gives Kconn(C♥)≃Kconn(C), naturally for t-exact functors. If the heart is additionally noetherian, the same inclusion gives Knc(C♥)≃Knc(C). The latter extra hypothesis is retained; a general bounded heart is not used to assert a full nonconnective equivalence.\n\nRegular ring-spectrum devissage. Let R be connective right regular noetherian in the sense that π0R is right noetherian and every coherent R-module is perfect. Let R→S be a localization whose compact kernel consists exactly of perfect R-modules M with π*M finitely presented over π0R in total. Then K(π0R)→K(R)→K(S) is a fiber sequence. The first map views a finitely generated π0R-module as an R-module and uses resolution/devissage, so it is not generally extension of scalars along a ring map π0R→R.\n\nFinite-limit control of the stable envelope. For a small additive ∞-category C with finite limits, its perfect prestable additive-presheaf envelope A∞ω(C) is closed under finite limits inside additive presheaves of spaces. In the bounded-heart kernel of Stab(C)→C for C stable, the standard presheaf t-structure restricts to the kernel and every object has finite amplitude. This is the finite-limit input; closure under finite colimits alone would not establish restriction of truncations.\n\nLevy’s bounded-heart fiber. For every small idempotent-complete stable C, the exact extension Stab(C)→C is a localization with kernel D, and K(D)→Kadd,nc(C)→K(C) is a fiber sequence. The kernel D has a bounded t-structure, with no noetherian-heart assumption. This is the categorical construction underlying Levy’s alternative proof; its chromatic corollaries are separate targets in KII.10.",
+      "requires": [
+        "EnhancedDerivedSheaves:E0",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheory:K.3",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "GeneralAlgebraicKTheoryPartII:KII.1"
+      ]
+    },
+    {
+      "key": "KII.4",
+      "title": "Theorem A without trace methods",
+      "description": "Prove highly connective invariance, the replacement-ring connectivity estimate, finite-stage truncation and acyclic-category vanishing. Combine compact chromatic kernels with localization to prove both halves of Theorem A. Import all chromatic objects from their existing owner.\n\nHighly connective chromatic invariance. For each n≥1 there is a bound N(n) such that an N(n)-connective map A→B of connective E1-rings that is an L_n^{p,f}-equivalence induces an L_n^{p,f}-equivalence K(A)→K(B). One may choose N=m−1 from the chromatic fiberwise-detection bound used in LMMT Proposition 3.1. Connectivity is a property of the underlying fiber spectrum.\n\nConnectivity of the replacement algebra. In a homotopy pullback square of E1-rings A→B, A→A′, B→B′, A′→B′ with A connective, suppose both vertical maps are n-connective and both horizontal maps are m-connective, with m,n≥0. Then A′⊙_A^{B′}B→B′ is (m+n+2)-connective. The estimate concerns this comparison map, not a purported ordinary algebra tensor product.\n\nOne finite Postnikov stage suffices. Let F be weakly localizing and M a spectrum. If there is a fixed k≥0 such that F(R)→F(τ≤kR) is an equivalence for every connective M-acyclic E1-ring R, then F is truncating on all such rings: F(R)→F(Hπ0R) is an equivalence. This uses a uniform finite k; it is not an interchange of F with an infinite Postnikov limit.\n\nTelescopic K is truncating on finite-acyclic rings. For n≥1 the invariant L_T(n)K is truncating on connective L_n^{p,f}-acyclic E1-rings. In particular, if R is such a ring, L_T(n)K(R)≃L_T(n)K(π0R).\n\nFinite p-power coefficient vanishing. For every r≥1 and i≥1, L_T(i)K(Z/p^r)=0. More generally L_T(i)K(A)=0 for a discrete Z/p^r-algebra A whenever i≤n and the acyclic-truncation/nilinvariance argument is applied in the L_n^{p,f}-acyclic setting used by Proposition 3.6. In the application to endomorphism rings, first reduce π0R to an Fp-algebra using the nilpotent ideal generated by p.\n\nProducts and coefficient actions on enhanced K-theory. A biexact pairing C×D→E of small stable categories induces K(C)⊗K(D)→K(E), coherently with composition and units. In particular K of an E∞-ring is an E∞-ring, and K of an associative R-algebra is a module over K(R) when R is E∞. Compare with the parent’s classical products; the enhanced extension uses the stable S-construction and its nonconnective suspension compatibility. This target asserts no construction of localizing motives.\n\nAcyclic additive and stable categories. Let n≥1 and C be small idempotent-complete additive. If every hom_C(X,X) is L_n^{p,f}-acyclic, then Kadd(C) is T(i)-acyclic for 1≤i≤n. If C is stable and every full End_C(X) is L_n^{p,f}-acyclic, then K(C) is T(i)-acyclic in the same range. The stable conclusion follows by the S-construction and does not import Levy’s later chromatic corollary.\n\nCompact chromatic kernel for ring modules. For any E1-ring A and n≥0, the localization Perf(A)→Perf(L_n^{p,f}A) has compact kernel thickly generated by A⊗F, where F ranges over finite p-primary spectra of type greater than n. Thus K(C>n⊗Perf(A))→K(A)→K(L_n^{p,f}A) is a fiber sequence. The finite p-primary condition retains the correct global T0=S[1/p] convention.\n\nMitchell vanishing and the p-inverted sphere. For every i≥2, L_T(i)K(Z)=0 and L_T(i)K(S[1/p])=0. The first follows from Mitchell’s stronger periodic vanishing, not from identifying T(i) with K(i) on all spectra. For the second use the localization K(Fp)→K(Z)→K(Z[1/p]), then Waldhausen’s p-adic comparison K(S[1/p])→K(Z[1/p]).\n\nTheorem A in both forms. For any E1-ring A and n≥1, A→L_n^{p,f}A induces an equivalence on L_T(i)K for every 1≤i≤n. For n≥2, A→L_(T(1)∨⋯∨T(n))A also induces a T(n)-equivalence on K. The latter removes the T0 part only after Mitchell vanishing; neither assertion is yet the two-adjacent-height Purity Theorem.\n\nContinuous Witt operations on NK. Let R be commutative and A a unital R-algebra. The groups NK_j(A)=ker(K_j(A[x])→K_j(A)), j∈Z, carry a natural continuous module action of the existing big Witt ring W_N>0(R), imported from HabiroRings HR.4. Each individual element is killed by the kernel of a sufficiently long initial-segment Witt truncation. Construct the action through the reduced endomorphism ring End0(R) and nilpotent endomorphism categories; negative degrees use the parent’s Bass contraction, not an invented connective-only NK.\n\nWeibel localization and p-power nilpotent invariance. For a unital Z[1/p]-algebra A, multiplication by p is an isomorphism on NK_j(A) for every j∈Z; hence the spectrum NK(A)=fib(K(A[x])→K(A)) is uniquely p-divisible and NK(A)^∧p=0. If p^r=0 in A, each NK_j(A) is p-primary torsion. If I⊂A is nilpotent and p^r=0 in A, every relative K_j(A,I) is p-primary torsion, so K(A)→K(A/I) is a rational equivalence.\n\nNonpositive nilpotent invariance. For a discrete unital ring A and nilpotent two-sided ideal I, K_j(A)→K_j(A/I) is an isomorphism for every j≤0. This is the Bass induction extending K0 nilinvariance, whose owner remains KTheoryLowDegrees Z.1; no positive-degree integral nilinvariance is asserted.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.0",
+        "ChromaticHomotopyTheory:CH.3",
+        "ChromaticHomotopyTheory:CH.4",
+        "ChromaticHomotopyTheory:CH.5",
+        "ChromaticHomotopyTheory:CH.6",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheory:K.6",
+        "GeneralAlgebraicKTheory:K.7",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "GeneralAlgebraicKTheoryPartII:KII.1",
+        "GeneralAlgebraicKTheoryPartII:KII.2",
+        "HabiroRings:HR.4",
+        "KTheoryFiniteLocalFields:L.1",
+        "KTheoryLowDegrees:Z.1",
+        "SchemeKTheoryOperations:S.5"
+      ]
+    },
+    {
+      "key": "KII.5",
+      "title": "Trace comparison, CMNN vanishing and purity",
+      "description": "Deduce high-height connective-cover invariance and the cyclotomic-trace equivalence using Theorem A and Mitchell. Use these to prove CMNN’s finite-sphere vanishing without purity, then derive purity. Trace inputs appear for the first time here.\n\nHigh-height connective-cover invariance. For every E1-ring A and n≥2, K(τ≥0A)→K(A) is a T(n)-equivalence. This follows from the T0-removed half of Theorem A and positive-height invariance of connective covers of spectra; it does not use CMNN vanishing or purity.\n\nThe high-height cyclotomic trace. For any E1-ring A and n≥2 the natural zigzag K(A)←K(τ≥0A)→TC(τ≥0A) consists of T(n)-equivalences. TC here is the integral theory with its natural trace; the conclusion is telescopic. Its proof uses Theorem A, DGM and Mitchell, and is independent of CMNN vanishing and purity.\n\nThe finite-group K-theory transfer comparison. For a stable category C with coherent Cp-action, form the genuine Cp-spectrum of algebraic K-theory of its finite-group action categories using restriction and induction. For C=Perf(R) with trivial action, its underlying spectrum is K(R), its genuine fixed points are K(Fun(BCp,Perf(R))), and the transfer factors as K(R)hCp→K(R[Cp])→K(Fun(BCp,Perf(R))). Its geometric fixed-point cofiber maps to K(R)^tCp through the genuine-to-Borel comparison.\n\nCMNN finite-sphere vanishing. For n≥2, L_T(n)K(L_(n−2)^{p,f}S)=0. The inductive proof is carried out using only Theorem A and the high-height trace comparison, not purity. Write m=n−2. The Tate-height converse reduces the step to T(m+1)-acyclicity of K(L_m^{p,f}S)^tCp.\n\nThe chromatic purity theorem. For every E1-ring A, prime p and n≥1, the localization A→L_(T(n−1)∨T(n))A induces an equivalence L_T(n)K(A)≃L_T(n)K(L_(T(n−1)∨T(n))A). Equivalently, any map of E1-rings which is a T(n−1)∨T(n)-equivalence induces a T(n)-equivalence on K. At n=1 use T0=S[1/p], not HQ on arbitrary unlocalized spectra.\n\nConnective nilpotent comparisons for K and TC. If f:A→B is a map of connective E1-rings, π0f is surjective with nilpotent kernel, and f is a T1∨⋯∨Tn-equivalence for n≥1, then K(f) and TC(f) are T1∨⋯∨Tn-equivalences. If instead f is a T0-equivalence with the same π0 condition, both K(f) and TC(f) are T0-equivalences. Keep these variants separate from the arbitrary-ring purity statement.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.10",
+        "ChromaticHomotopyTheory:CH.4",
+        "ChromaticHomotopyTheory:CH.6",
+        "ChromaticHomotopyTheory:CH.9",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "GeneralAlgebraicKTheoryPartII:KII.2",
+        "GeneralAlgebraicKTheoryPartII:KII.4",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.3"
+      ]
+    },
+    {
+      "key": "KII.6",
+      "title": "Height bounds, redshift and optimality",
+      "description": "Prove the upper height bound and its algebra-valued version. Import Yuan’s nonvanishing and the chromatic Nullstellensatz with precise supplier requests, then deduce redshift at nonnegative height. Prove that neither adjacent height can be discarded.\n\nTheorem B and vanishing for algebras. For an E∞-ring R, ht(K(R))≤ht(R)+1 in the chromatic height convention ht(R)=inf{h≥−1:T(h+1)⊗R=0}, with infinity allowed. More precisely, if R is T(n)-acyclic for n≥0 and B is any E1 R-algebra, then K(B) is T(n+i)-acyclic for every i≥1. At n=0 the acyclicity hypothesis is R[1/p]=0.\n\nYuan’s Lubin–Tate nonvanishing input. For Lubin–Tate E_n associated to a height-n formal group over a perfect characteristic-p field, n≥1, L_T(n+1)K(E_n)≠0. This is an imported converse input with its proof dependencies recorded: purity is already proved before it is used. The intermediary result says that T(j)⊗E≠0 for E∞ E implies T(j)⊗K(E^tCp)≠0, j≥1.\n\nThe height-zero lower bound. For an algebraically closed characteristic-zero field L, let E0(L)=HL[u±1] with |u|=2. Then K(E0(L))^∧p≃ku^∧p⊕Σku^∧p, and in particular L_T1K(E0(L))≠0. This is the height-zero periodic field input needed to include n=0 in redshift; it is not Yuan’s positive-height theorem.\n\nRedshift at nonnegative height. For every p-local E∞-ring R with ht(R)≥0, ht(K(R))=ht(R)+1, allowing infinity+1=infinity. More generally this holds for any E∞ R of positive height, and for a global height-zero R provided R⊗HQ≠0. At finite positive height n, the Nullstellensatz gives a map from the nonzero T(n)-localization to E_n(L), L algebraically closed of characteristic p; at height zero it is applied to the nonzero rationalization and L has characteristic zero. The global bottom convention T0=S[1/p] alone does not imply that rationalization is nonzero; source issue E1 records this restriction. No equality is asserted at ht(R)=−1.\n\nBoth heights in purity are necessary. For each n≥1 the functor A↦L_T(n)K(A) on E1-rings does not factor through A↦L_T(n)A and does not factor through A↦L_T(n−1)A. These are assertions that each putative universal factorization fails, rather than that every individual map to a single-height localization fails.\n\nRedshift in chromatic graded pieces. For an E∞-ring R of nonnegative chromatic height and every n≥1, vanishing of the nth graded piece of its p-primary finite chromatic tower is equivalent to vanishing of the (n+1)st graded piece for K(R). The same vanishing equivalence holds for the corresponding ordinary chromatic tower. On p-local R one may also include n=0, with L0=HQ and M0=L0. Globally T0=S[1/p] is not replaced by HQ in this translation.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.10",
+        "ChromaticHomotopyTheory:CH.4",
+        "ChromaticHomotopyTheory:CH.7",
+        "ChromaticHomotopyTheory:CH.8",
+        "GeneralAlgebraicKTheoryPartII:KII.2",
+        "GeneralAlgebraicKTheoryPartII:KII.3",
+        "GeneralAlgebraicKTheoryPartII:KII.4",
+        "GeneralAlgebraicKTheoryPartII:KII.5",
+        "MotivicEtaleKTheory:M.7",
+        "RefinedTraceMethods:RT.2",
+        "RefinedTraceMethods:RT.3"
+      ]
+    },
+    {
+      "key": "KII.7",
+      "title": "Examples and iterated K-theory",
+      "description": "Apply purity to finite p-power rings, Morava K-theory, truncated spheres, truncated Brown–Peterson spectra, A-theory and James-filtered Thom spectra. Keep rational splittings distinct from telescopic equivalences.\n\nNice maps of connective E∞-rings. A map f:R→S of connective E∞-rings is n-nice, n≥0, if π0R→π0S is an isomorphism identified with the identity of Z and f is an HQ∨T1∨⋯∨Tn-equivalence. It is nice if it is n-nice for every n≥0. The rational summand is HQ here by definition; it is not a global replacement of T0. Record both the chosen identifications with Z and the compatibility of π0f.\n\nK preserves nice maps. If f:R→S is n-nice, then K(f):K(R)→K(S) is n-nice; therefore K preserves nice maps. Here K(R) and K(S) are connective E∞-rings with π0=Z: nonpositive comparison and K_i(Z)=0 for i<0, K0(Z)=Z establish those claims before iterating.\n\nIterated finite p-power K-theory. For r≥1 the rank map K(Z/p^r)→HZ is nice. Consequently for j≥1 the natural iterated map K^j(Z/p^r)→K^(j−1)(Z) is an HQ∨T1∨⋯∨Tn-equivalence for every n≥0. The initial map is induced by rank on the connective E∞ K-spectrum; it is not a ring map Z/p^r→Z.\n\nK-theory of Morava K-theory. Let m≥1 and K(m) be the standard E1 Morava K-theory at p, with connective cover k(m) and π*k(m)=Fp[v_m], |v_m|=2p^m−2. Then L_T(i)K(K(m))=0 for i∉{0,m,m+1}. Separately, after inverting p, K(K(m))[1/p]≃K(Fp)[1/p]⊕ΣK(Fp)[1/p]. The vanishing statement does not assert that each of the three exceptional heights is nonzero.\n\nK-theory of truncated spheres. For every r≥0 and i≥2, L_T(i)K(τ≤rS)=0. The input is a connective finite Postnikov truncation of the sphere; this gives no such vanishing claim for K(S) itself.\n\nTruncated Brown–Peterson localization. For n≥0, K(BP⟨n⟩)→K(E(n)) is a T(i)-equivalence for i≥n+1 and these spectra are T(i)-acyclic for i≥n+2. For n≥1 the usual sequence K(BP⟨n−1⟩)→K(BP⟨n⟩)→K(E(n)) is a fiber sequence after L_(⊕i≥n+1 T(i)); the first arrow is the restriction/devissage map through the quotient. It is not asserted to be an unlocalized fiber sequence.\n\nPurity for suspension A-theory. Let W be pointed connected and n≥1. If the reduced suspension spectrum Σ∞W is T(n−1)∨T(n)-acyclic, then A(*)→A(ΣW)→A(*) are T(n)-equivalences. The suspension is reduced and the coefficient ring is Σ∞_+ΩΣW.\n\nK-theory of James-filtered Thom spectra. For m≥1, the map y(m)→Fp induces an L_(m−1)^{p,f}-equivalence on K, so K(y(m)) is T(i)-acyclic for 0<i<m. At p=2 the integral analogue z(m)→HZ_(2) induces a T(i)-equivalence on K for 0<i<m. The z(m) statement does not include the bottom T0 summand.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.1",
+        "ChromaticHomotopyTheory:CH.13",
+        "ChromaticHomotopyTheory:CH.3",
+        "ChromaticHomotopyTheory:CH.6",
+        "ChromaticHomotopyTheory:CH.8",
+        "GeneralAlgebraicKTheoryPartII:KII.1",
+        "GeneralAlgebraicKTheoryPartII:KII.2",
+        "GeneralAlgebraicKTheoryPartII:KII.3",
+        "GeneralAlgebraicKTheoryPartII:KII.4",
+        "GeneralAlgebraicKTheoryPartII:KII.5",
+        "GeneralAlgebraicKTheoryPartII:KII.6",
+        "KTheoryLowDegrees:Z.1"
+      ]
+    },
+    {
+      "key": "KII.8",
+      "title": "Galois descent and modular examples",
+      "description": "Prove the CMNN rational-transfer descent criterion, the Lubin–Tate finite-subgroup transfer condition, and ko/tmf applications. Import the spectra, modular localizations, group actions and supersingular comparisons from chromatic homotopy theory.\n\nTelescopic K-theory Galois descent. Let A→B be a finite-group G-Galois extension of E∞-rings. Suppose B is perfect over A and the transfer K0(B)⊗Q→K0(A)⊗Q has 1 in its image. For every prime and finite chromatic localization L_n^f, n≥0, both canonical maps L_n^fK(A)→L_n^f(K(B)^hG)→(L_n^fK(B))^hG are equivalences. Consequently the analogous maps after any positive T(i)-localization are equivalences. The commutation with homotopy fixed points is a conclusion under these hypotheses, not a formal property of localization.\n\nRational transfer for higher real K-theories. Let E be Lubin–Tate theory of a finite-height formal group over a perfect characteristic-p field k, and H a finite subgroup of the automorphism group of the pair (formal group,k), allowing semilinear field automorphisms. Then K0(E)⊗Q→K0(E^hH)⊗Q is surjective. In particular the transfer condition for telescopic K-descent holds for E^hH→E.\n\nPurity for ko-algebras. For any E1 ko-algebra A at the chosen prime, inverting the central Bott class β induces a T(i)-equivalence K(A)→K(A[β−1]) for every i≥2. For i≥3, L_T(i)K(A)=0. No regularity or connectivity assumption on the ko-algebra A is required.\n\nPurity for tmf-algebras. For any E1 tmf-algebra A, K(A) is T(i)-acyclic for i≥4. The map K(A)→K(A⊗tmf Tmf) is a T(i)-equivalence for i≥2, and K(A)→K(A⊗tmf TMF) is a T(3)-equivalence. Here Tmf is the nonconnective compactified global-sections spectrum and TMF the periodic open-moduli spectrum; the two are not identified.\n\nSupersingular fixed-point description. At p=2, L_T3K(tmf)≃L_T3(K(E2)^hGL2(F3))≃(L_T3K(E2))^hGL2(F3). At p=3 replace GL2(F3) by the full order-24 supersingular stabilizer G24, including the residue-field Galois action. The intermediate T(3)-localized K(TMF) is equivalent to the same spectra. The raw K(tmf)≃K(E2)^hG equivalence is not claimed.\n\nClassical regular localization checks. Recover the known connective localization sequences Kconn(Z)→Kconn(ko)→Kconn(KO) and Kconn(Z)→Kconn(tmf)→Kconn(Tmf) with the coefficient localization and any necessary prime localization matched to the chosen model. Their fiber identifications require the regular/coherent module devissage hypotheses, unlike the general algebra-valued purity comparisons. Record the K(Z)-fiber as the source of high-height equivalence, not as a proof of those sequences for all coefficient algebras.\n\nε-enlargement and descent towers. Let T be a thick subcategory of small stable idempotent-complete C. For finite spectrum F let T_F be the thick closure of T and every F⊗X. For a finite set Σ of primes put T_(ε,Σ)=intersection_F T_F, where F_(q)≠0 for every q∈Σ; put T_ε=union_Σ T_(ε,Σ). An ε-object belongs to 0_ε. A tower is nilpotent if a fixed-length composite of its transition maps is null; it is rapidly convergent if it is in the thick closure of nilpotent and constant towers. An augmented cosimplicial diagram is an ε-nilpotent limit if its cofiber totalization tower lies in the ε-enlargement of the nilpotent towers.\n\nRational transfer forces periodic descent. In a symmetric monoidal stable idempotent-complete ∞-category C, let R be commutative, A associative, and M an A-module with a map M→R for which π0 Map_C(1,M)⊗Q→π0 Map_C(1,R)⊗Q has the unit of R in its image. Then R lies in the ε-enlargement of the thick tensor ideal generated by A, and CB•aug(A)⊗R is an ε-nilpotent limit. In a presentable stable target, any such diagram satisfies L_n^fX_(−1)≃L_n^fTot(X•)≃Tot(L_n^fX•), and its localized totalization tower is rapidly convergent. The tower conclusion also holds with L_T(i), i≥1, by the same ε argument.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.0",
+        "ChromaticHomotopyTheory:CH.10",
+        "ChromaticHomotopyTheory:CH.11",
+        "ChromaticHomotopyTheory:CH.12",
+        "ChromaticHomotopyTheory:CH.4",
+        "ChromaticHomotopyTheory:CH.7",
+        "ChromaticHomotopyTheory:CH.9",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "GeneralAlgebraicKTheoryPartII:KII.3",
+        "GeneralAlgebraicKTheoryPartII:KII.4",
+        "GeneralAlgebraicKTheoryPartII:KII.5",
+        "GeneralAlgebraicKTheoryPartII:KII.6",
+        "RefinedTraceMethods:RT.5"
+      ]
+    },
+    {
+      "key": "KII.9",
+      "title": "Height-one structure and its limits",
+      "description": "Prove truncation, nilinvariance, excision, cdh-descent and both affine-line homotopy invariances for K(1)-local K. Compare with KH and record why the high-height TC and category-colimit statements fail at height one.\n\nHeight-one truncation and p-inversion. If A is a K(1)-acyclic E1-ring, then K(A)→K(A[1/p]) is a K(1)-equivalence, without a connectivity restriction. If A is additionally connective, K(A)→K(π0A) is a K(1)-equivalence. The equality of T(1)- and K(1)-localization is the known height-one comparison, not the telescope conjecture at arbitrary height.\n\nNilinvariance, Milnor excision and cdh-descent. On discrete rings, L_K1K is nilinvariant and carries Milnor squares with a surjective side to pullback squares. For a qcqs scheme X, the invariant X↦L_K1K(Perf(X)) satisfies cdh-descent, using Nisnevich descent and abstract blowup squares with proper finitely presented modification and finitely presented closed immersion, as in LT Appendix A. Arbitrary closed immersions require the filtered-continuity extension in Remark A.3. The scheme statement is the extension through perfect complexes, not a topology on arbitrary noncommutative rings.\n\nFlat and smooth spectral affine lines. For an E1-ring A define the flat polynomial algebra A[x]=A⊗Σ∞_+N. For connective A and a central E∞ sphere algebra, define A{x}=A⊗Sym_S(S), with Sym_S(S) the free E∞ sphere algebra on one degree-zero generator. The canonical A{x}→A[x] is a π0-isomorphism for connective A, but the two algebras need not be equivalent. Both retain an augmentation at x=0.\n\nHeight-one homotopy invariance. For connective K(1)-acyclic E1-ring A, the maps K(A)→K(A[x]), K(A)→K(A{x}), and K(A{x})→K(A[x]) are K(1)-equivalences. The result includes all discrete rings, with no regularity assumption. Flatness or the π0-isomorphism alone does not assert integral K-equivalence.\n\nComparison with homotopy K-theory. For every discrete ring A, K(A)→KH(A) induces L_K1K(A)≃L_K1KH(A). Import KH(A)=|K(A[Δ•])| and its simplicial structure from SchemeKTheoryOperations:S.5, with A[Δr]=A[x0,…,xr]/(Σxi−1).\n\nThe height-one TC obstruction. The p-completion of TC(Z[1/p]) is zero, whereas L_K1TC(Z) is nonzero. Thus the map TC(Z)→TC(Z[1/p]) is not a K(1)-equivalence, and the arbitrary-ring high-height comparison K(A)←K(τ≥0A)→TC(τ≥0A) cannot be extended to height one. The nonzero height-one TC(Z) calculation is imported from RT.3 with its prime-two variant kept separate.\n\nTC does not preserve filtered category colimits. Although L_K1TC commutes with filtered colimits of discrete rings, it does not commute with filtered colimits of small stable categories. The filtered colimit of Mod_(Z/p^r)(Perf(Z)) identifies with the p-power-torsion perfect Z-modules and sits in an exact sequence with Perf(Z) and Perf(Z[1/p]). Each stage has zero L_K1TC, while the colimit has nonzero L_K1TC.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.8",
+        "EnhancedDerivedSheaves:E5:abstract",
+        "EnhancedDerivedSheaves:E5:presentability",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "GeneralAlgebraicKTheoryPartII:KII.2",
+        "GeneralAlgebraicKTheoryPartII:KII.4",
+        "GeneralAlgebraicKTheoryPartII:KII.5",
+        "RefinedTraceMethods:RT.3",
+        "SchemeKTheoryOperations:S.1",
+        "SchemeKTheoryOperations:S.4",
+        "SchemeKTheoryOperations:S.5"
+      ]
+    },
+    {
+      "key": "KII.10",
+      "title": "Additive comparison, sifted colimits and cyclic assembly",
+      "description": "Conclude the additive-to-stable comparison and Levy’s chromatic corollary. Prove sifted-colimit preservation for high-height K and its localized ring subcategory, then TC and K assembly for all cyclic subgroups of an arbitrary group.\n\nChromatic consequences of the bounded-heart fiber. For small stable idempotent-complete C, Kadd(C)→K(C) is a T(i)-equivalence for i≥2. If End_C(X)[1/p]=0 for every X, it is also a T1-equivalence. More generally, for a full additive subcategory A⊂C which thickly generates C, Kadd(A)→K(C) is a T(i)-equivalence for every i≥2. A need not itself be closed under every retract; the positive comparison is enough.\n\nSifted colimits of high-height K-theory. For n≥2, A↦L_T(n)K(A) from all E1-rings to T(n)-local spectra preserves sifted colimits. The same is true on the full subcategory of T(n−1)-local E1-rings, whose colimits are formed by localizing ambient ring colimits. No analogous statement for arbitrary filtered colimits of stable categories under L_K1TC is inferred.\n\nCyclic orbit diagrams and assembly. For a discrete group G, let Or_Cyc(G) be the full subcategory of the G-orbit category on G/H for all cyclic H≤G, including infinite cyclic H. For an E1-ring R put R[H]=R⊗Σ∞_+H. Use the action-groupoid construction and induction of perfect modules to give a coherent functor G/H↦K(R[H]) and the analogous TC diagram. The collapse G/H→G/G gives assembly colim_OrCyc K(R[H])→K(R[G]).\n\np-adic TC assembly for cyclic subgroups. For a connective E1-ring R and any discrete group G, colim_(G/H∈Or_Cyc(G))TC(R[H])→TC(R[G]) is a p-adic equivalence. The colimit is formed before p-completion. This does not assert that uncompleted p-typical TC assembly is always an equivalence.\n\nTelescopic Farrell–Jones assembly. For every E1-ring R, every discrete group G and every n≥2, the assembly map colim_(G/H∈Or_Cyc(G))K(R[H])→K(R[G]) is a T(n)-equivalence. There is no connectivity requirement on R and the family includes infinite cyclic subgroups.",
+      "requires": [
+        "ChromaticHomotopyTheory:CH.6",
+        "GeneralAlgebraicKTheoryPartII:KII.0",
+        "GeneralAlgebraicKTheoryPartII:KII.1",
+        "GeneralAlgebraicKTheoryPartII:KII.3",
+        "GeneralAlgebraicKTheoryPartII:KII.4",
+        "GeneralAlgebraicKTheoryPartII:KII.5",
+        "RefinedTraceMethods:RT.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "lmmt",
+      "title": "Purity in chromatically localized algebraic K-theory",
+      "authors": "Markus Land, Akhil Mathew, Lennart Meier and Georg Tamme",
+      "edition": "Journal of the American Mathematical Society 37 (2024), 1011–1040; DOI 10.1090/jams/1043; published author-hosted PDF",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/LMMT2a.pdf",
+      "sha256": "acb9f2cea4c2698696fd7a4170dbc0e3438725c891208e3cadb702e0b42fb03b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire article, §§1–4.5, pp.1011–1040, including all proofs and references. Locators below use printed journal pages."
+      ]
+    },
+    {
+      "id": "bgt",
+      "title": "A universal characterization of higher algebraic K-theory",
+      "authors": "Andrew J. Blumberg, David Gepner and Gonçalo Tabuada",
+      "edition": "Geometry & Topology 17 (2013), 733–838; author-hosted published PDF",
+      "url": "https://www.math.columbia.edu/~thaddeus/blumberg/3.pdf",
+      "sha256": "b1e38651486641bb5c20f00cfaa313646b30e9fcfcc2e3aaf3694fe532c28f3a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4.3, Theorems 4.22–4.23, pp.770–771; §5.1–5.2, pp.775–779.",
+        "§7.1–7.2, pp.788–795; §9.1, pp.806–811; Theorem 9.53 and proof, p.826."
+      ]
+    },
+    {
+      "id": "lt",
+      "title": "On the K-theory of pullbacks",
+      "authors": "Markus Land and Georg Tamme",
+      "edition": "Author manuscript arXiv:1808.05559, downloaded 2026-10-19; manuscript page numbering; published Annals of Mathematics 190 (2019), 877–930",
+      "url": "https://arxiv.org/pdf/1808.05559",
+      "sha256": "59adf6a7d0a8b20d89dcb501e03ab2bd8ffdb929822c3250fbf65d1db693b4d4",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Notation 1.1, Definition 1.2 and Theorem 1.3 with its construction, pp.5–12.",
+        "Lemma 2.4 and proof, pp.16–17; Definition 3.1, Theorem 3.3 and Corollary 3.5, pp.28–30.",
+        "Appendix A, especially Theorem A.2 and its four-step proof, pp.35–37."
+      ]
+    },
+    {
+      "id": "cmnn20",
+      "title": "Descent in algebraic K-theory and a conjecture of Ausoni–Rognes",
+      "authors": "Dustin Clausen, Akhil Mathew, Niko Naumann and Justin Noel",
+      "edition": "Author manuscript, manuscript pages 1–43; published Journal of the European Mathematical Society 22 (2020), 1149–1200",
+      "url": "https://www.nullplug.org/publications/GeneralLemma.pdf",
+      "sha256": "3880928d3005d381ae8921c05386928f2fa62b6f25e2458add81528619628966",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2, Definitions 2.1–2.3, ε-enlargements, towers, Propositions 2.13, 2.19 and 2.23, pp.7–14.",
+        "Theorems 4.2–4.4 and proofs, p.19; Theorems 5.1 and 5.6 with proofs, pp.20–22.",
+        "Appendix B, Theorem B.2, transfer construction and Corollary B.4, pp.37–39. The underlying equivariant Morava-E realization remains a CH.7 request."
+      ]
+    },
+    {
+      "id": "cmnn24",
+      "title": "Descent and vanishing in chromatic algebraic K-theory via group actions",
+      "authors": "Dustin Clausen, Akhil Mathew, Niko Naumann and Justin Noel",
+      "edition": "arXiv:2011.08233 as downloaded 2026-10-19; manuscript numbering; published Annales scientifiques de l’École normale supérieure 57 (2024), 1135–1190",
+      "url": "https://arxiv.org/pdf/2011.08233",
+      "sha256": "84c76407088130815255e20c0cce563348a54c05ea1b51cd9571453c7e16e11a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 4.10 and its proof, pp.21–22, for the Tate-height converse used in the vanishing induction. The source version is recorded because the extraction cites older numbering."
+      ]
+    },
+    {
+      "id": "barwick",
+      "title": "On exact infinity-categories and the theorem of the heart",
+      "authors": "Clark Barwick",
+      "edition": "arXiv:1212.5232, downloaded 2026-10-19; manuscript numbering",
+      "url": "https://arxiv.org/pdf/1212.5232",
+      "sha256": "650bdae5871cc962c4bc8ef34d4c25cab88a3b6f2e8b99557b6d3c29421d9b7c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 6.1 and its proof, pp.19–21; its conclusion is connective K-theory."
+      ]
+    },
+    {
+      "id": "agh",
+      "title": "K-theoretic obstructions to bounded t-structures",
+      "authors": "Benjamin Antieau, David Gepner and Jeremiah Heller",
+      "edition": "arXiv:1610.07207, downloaded 2026-10-19; manuscript numbering",
+      "url": "https://arxiv.org/pdf/1610.07207",
+      "sha256": "ddec1b3cf72618976e89fd854ff9d4bceabdd34228e3c2bcedf834b1d6025f73",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 3.18 and proof, pp.27–28, including the noetherian-heart hypothesis.",
+        "Proposition 4.4 and Example 4.6, pp.34–35, for regular localization and coherent support."
+      ]
+    },
+    {
+      "id": "hs",
+      "title": "Stable moduli spaces of hermitian forms",
+      "authors": "Fabian Hebestreit and Wolfgang Steimle",
+      "edition": "arXiv:2103.13911, downloaded 2026-10-19; manuscript numbering",
+      "url": "https://arxiv.org/pdf/2103.13911",
+      "sha256": "ebd4fd969311a1e55d94ebf8c7507fd1289488c7346aef6452e74e328a6f490d",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3.1, pp.17–19, for the additive stable envelope; Corollary 8.1.3, pp.70–71, for group completion."
+      ]
+    },
+    {
+      "id": "pp",
+      "title": "Adams spectral sequences and Franke’s algebraicity conjecture",
+      "authors": "Irakli Patchkoria and Piotr Pstrągowski",
+      "edition": "arXiv:2110.03669v1; manuscript numbering",
+      "url": "https://arxiv.org/pdf/2110.03669v1",
+      "sha256": "b71b5e320ecfb2056537993e4413aa5284b5a70770338c6c7f2c2acf900897b1",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemmas 4.24–4.25 and Theorem 4.26 with their proofs, pp.35–36."
+      ]
+    },
+    {
+      "id": "mitchell",
+      "title": "The Morava K-theory of algebraic K-theory spectra",
+      "authors": "Stephen A. Mitchell",
+      "edition": "K-Theory 3 (1990), 607–626; author-hosted journal scan",
+      "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Mitchell-KK.pdf",
+      "sha256": "a3772c3b06391991daa041d157724fd9a9f0d6066cf1c0103ca6d3c59c453f9c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, Theorems A–B, pp.607–609; §3, pp.619–622, including the finite v_n unit-factorization argument."
+      ]
+    },
+    {
+      "id": "yuan",
+      "title": "Examples of chromatic redshift in algebraic K-theory",
+      "authors": "Allen Yuan",
+      "edition": "arXiv:2111.10837 as downloaded 2026-10-19; manuscript numbering",
+      "url": "https://arxiv.org/pdf/2111.10837",
+      "sha256": "d917014b2da52c6354b6059607a3c12312e7892e813806fccae7fb2aea8fe947",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorems A and C, pp.2–3; §3, pp.6–7, and §4, pp.7–9, including the residual circle action and étale detection."
+      ]
+    },
+    {
+      "id": "bsy",
+      "title": "The Chromatic Nullstellensatz",
+      "authors": "Robert Burklund, Tomer M. Schlank and Allen Yuan",
+      "edition": "arXiv:2207.09929v1; manuscript numbering",
+      "url": "https://arxiv.org/pdf/2207.09929v1",
+      "sha256": "3cb90fa0a6096ae43a6b0f7b6a96b33f4cc6216c32fb0df4533bea33134f82e9",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem D/Corollary 5.2, pp.3 and 55, for the chromatic field map.",
+        "Theorem 9.11, Proposition 9.12 and Remark 9.13, pp.88–90, including height zero and the negative-height counterexample."
+      ]
+    },
+    {
+      "id": "weibel",
+      "title": "Mayer–Vietoris sequences and module structures on NK_*",
+      "authors": "Charles A. Weibel",
+      "edition": "Lecture Notes in Mathematics 854 (1981), 466–493; author-hosted journal scan; printed pages",
+      "url": "https://sites.math.rutgers.edu/~weibel/archive/papers-dir/MV-NK-854.pdf",
+      "sha256": "1409b590d09ac7e34424d24ec67515bcd814d2d637ee851625d1727a24c218d8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 2.3, p.473; Theorem 3.1, Exercise 3.2 and Corollary 3.3, pp.474–477.",
+        "§5, Theorems 5.1–5.2 and Corollary 5.4, pp.483–486. The finite-annihilator construction cited there to Stienstra is the explicit proof-audit gap G1."
+      ]
+    }
+  ],
+  "status": "draft"
+}
