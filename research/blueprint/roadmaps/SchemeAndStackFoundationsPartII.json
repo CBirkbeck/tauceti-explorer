@@ -1,0 +1,252 @@
+{
+  "id": "SchemeAndStackFoundationsPartII",
+  "title": "Scheme, stack, cohomology and intersection foundations, Part II: flat cohomology",
+  "area": "algebraicgeometry",
+  "parent": "SchemeAndStackFoundations",
+  "summary": "General flat cohomology with finite locally free commutative coefficients over animated rings, from the existing scheme, stack, derived-algebra and crystalline Dieudonné foundations. The targets are deformation, prime-adic and derived-complete continuity, excision, fpqc hyperdescent, henselian invariance, algebraization and descent with supports. Brauer comparison supplies a logically independent input to henselian H² lifting. Independent birational, surface, presentation and Macaulayfication routes are assigned by the restructuring proposal.",
+  "readme": "Build the deformation, continuity, excision and descent interfaces of flat cohomology for finite locally free commutative groups over animated algebras. Separate ordinary Azumaya Brauer groups, their torsion cohomological comparison and ambient H². Import animation, derived completion, crystalline Dieudonné classification and complete étale hyperdescent; the reader states exact hypotheses, APIs, discriminating examples and the support-descent proof. Reader: research/blueprint/readmes/SchemeAndStackFoundationsPartII.md.",
+  "prerequisites": [
+    "ArcTopologyAndDescent",
+    "DerivedDeRhamCohomology",
+    "EnhancedDerivedSheaves",
+    "PerfectoidQuotients",
+    "PotentialModularityAndCompatibleSystems",
+    "PrismaticCohomologyPartII",
+    "ReductiveGroupsPartII",
+    "SchemeAndStackFoundations",
+    "SchemeKTheoryOperations"
+  ],
+  "stages": [
+    {
+      "key": "FC.0",
+      "title": "Ind-flat maps and smooth resolutions",
+      "description": "Ind-fppf and ind-syntomic maps, their factorization criteria and stability; the pro-fppf site; the Bégueri resolution built from the existing Cartier dual.",
+      "requires": [
+        "ReductiveGroupsPartII:RG2.0a",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§2.3.3 p.24; §§1.4,4.1.5 pp.8,37"
+        }
+      ]
+    },
+    {
+      "key": "FC.1",
+      "title": "Twisted sheaves and Brauer comparison",
+      "description": "Inertia-weighted modules on banded gerbes, the Azumaya criterion, affine twisted-sheaf patching and the Gabber comparison for schemes carrying an ample invertible sheaf.",
+      "requires": [
+        "PotentialModularityAndCompatibleSystems:R23.1",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeKTheoryOperations:S.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§7.2, pp.90–91; de Jong §§2–3, pp.1–9; Lieblich §3.1.4, pp.11–14"
+        }
+      ]
+    },
+    {
+      "key": "FC.2",
+      "title": "Group-valued animated deformation theory",
+      "description": "Evaluate classical flat commutative affine groups on animated algebras; identify the linearized cotangent and the point-valued square-zero deformation fibre.",
+      "requires": [
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E3",
+        "EnhancedDerivedSheaves:E5:animation",
+        "EnhancedDerivedSheaves:E5:cotangent-export",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.3",
+      "title": "Animated sites, cohomology and supports",
+      "description": "Derived flatness and sites; étale lifting and henselization; D(Z)-valued flat cohomology and support fibres; hyperdescent, Postnikov convergence and deformation.",
+      "requires": [
+        "EnhancedDerivedSheaves:E1",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E3",
+        "EnhancedDerivedSheaves:E5:animation",
+        "EnhancedDerivedSheaves:E5:cotangent-export",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundationsPartII:FC.0",
+        "SchemeAndStackFoundationsPartII:FC.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.4",
+      "title": "The Dieudonné formula over perfect bases",
+      "description": "Import crystalline covariant Dieudonné theory, compare perfect pro-fppf and fppf sites, and compute flat cohomology as a derived V−1 fibre.",
+      "requires": [
+        "EnhancedDerivedSheaves:E5:animation",
+        "PrismaticCohomologyPartII:PD.6",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundationsPartII:FC.0",
+        "SchemeAndStackFoundationsPartII:FC.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.5",
+      "title": "Continuity along a prime",
+      "description": "Split-cover ind-fppf refinements, derived Beauville–Laszlo glueing, the prime-adic continuity formula and its cohomological-dimension consequences.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.11",
+        "ArcTopologyAndDescent:AT.6",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E2",
+        "EnhancedDerivedSheaves:E5:animation",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundationsPartII:FC.0",
+        "SchemeAndStackFoundationsPartII:FC.2",
+        "SchemeAndStackFoundationsPartII:FC.3",
+        "SchemeAndStackFoundationsPartII:FC.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.6",
+      "title": "Derived excision",
+      "description": "The exact derived residue condition, principal excision, finite-ideal excision and invariance of local cohomology under Noetherian completion.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.6",
+        "ArcTopologyAndDescent:AT.8",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E5:animation",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundationsPartII:FC.3",
+        "SchemeAndStackFoundationsPartII:FC.4",
+        "SchemeAndStackFoundationsPartII:FC.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.7",
+      "title": "Faithfully flat hyperdescent",
+      "description": "Fpqc hyperdescent for animated flat cohomology and its p-complete supported form.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.6",
+        "ArcTopologyAndDescent:AT.8",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundationsPartII:FC.3",
+        "SchemeAndStackFoundationsPartII:FC.4",
+        "SchemeAndStackFoundationsPartII:FC.5",
+        "SchemeAndStackFoundationsPartII:FC.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.8",
+      "title": "Continuity over complete animated rings",
+      "description": "Derived completeness implies henselianity; an independent H² lifting lemma starts restricted continuity, complete descent and general finite-ideal continuity.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.11",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E2",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundationsPartII:FC.0",
+        "SchemeAndStackFoundationsPartII:FC.1",
+        "SchemeAndStackFoundationsPartII:FC.2",
+        "SchemeAndStackFoundationsPartII:FC.3",
+        "SchemeAndStackFoundationsPartII:FC.5",
+        "SchemeAndStackFoundationsPartII:FC.6",
+        "SchemeAndStackFoundationsPartII:FC.7"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.9",
+      "title": "Henselian invariance and algebraization",
+      "description": "Surjectivity in degree one and invariance in degrees at least two over henselian pairs; completion of topological rings, Laurent rings and punctured opens.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundationsPartII:FC.3",
+        "SchemeAndStackFoundationsPartII:FC.6",
+        "SchemeAndStackFoundationsPartII:FC.8"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    },
+    {
+      "key": "FC.10",
+      "title": "Adic descent with supports",
+      "description": "Discreteness of completely flat animated modules over perfectoid rings and descent with supports for faithfully flat hypercovers modulo a finite ideal.",
+      "requires": [
+        "ArcTopologyAndDescent:AT.11",
+        "ArcTopologyAndDescent:AT.12",
+        "DerivedDeRhamCohomology:DD.1",
+        "EnhancedDerivedSheaves:E5:animation",
+        "PerfectoidQuotients:Q0:integral-algebra",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundationsPartII:FC.3",
+        "SchemeAndStackFoundationsPartII:FC.4",
+        "SchemeAndStackFoundationsPartII:FC.5",
+        "SchemeAndStackFoundationsPartII:FC.6",
+        "SchemeAndStackFoundationsPartII:FC.7",
+        "SchemeAndStackFoundationsPartII:FC.8"
+      ],
+      "sources": [
+        {
+          "sourceId": "CS24",
+          "locator": "§4.1, pp.36–39; §5, pp.46–81"
+        }
+      ]
+    }
+  ]
+}
