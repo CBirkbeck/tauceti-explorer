@@ -1626,8 +1626,12 @@
     "GeometricSatakeAndFusion": {
       "stage": "pr",
       "pr": 1235,
-      "head": "a16b9d2",
-      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running"
+      "head": "30e4dc1",
+      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
+      "review": {
+        "current": false,
+        "note": "final-review repairs applied at 30e4dc1; confirmation pass pending"
+      }
     },
     "BunGAndNewtonStrata": {
       "stage": "pr",
