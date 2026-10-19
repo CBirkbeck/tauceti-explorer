@@ -28,7 +28,7 @@ Tau Ceti and its roadmaps already own the following; they are imported, never re
 - **Tau Ceti and TauCetiRoadmap ProfiniteProPGroups, Layer 9**: the completed group algebra `TauCeti.completedGroupAlgebra R G` of a profinite group with compact coefficients, its finite quotient projections, augmentation, the ℤ_p power-series coordinate of a procyclic group, and the extension of commuting continuous coefficient and group actions on a compact module to a module over the completed group algebra (`TauCeti.IsCompactModule.completedGroupAlgebraModule`, with `completedSMul_of`, `isScalarTower` and `continuousSMul_completedGroupAlgebraModule`). These are on Tau Ceti main; Layer NE.0 writes Λ_O(G) = O[[G]] for this carrier.
 - **TauCetiRoadmap ProfiniteArithmetic**: the closed lower p-series `TauCeti.pLowerCentralSeries` (indexed from zero, so our P_i is its term λ_(i−1)) and continuous p-adic powers `TauCeti.IsProP.padicPow`.
 - <a id="supplier-completed-cohomology"></a> **TauCetiRoadmap CompletedCohomologyPartII**: the uniform convention (finitely generated, torsion-free, powerful, with [U,U] ⊆ U⁴ at p = 2) and `analytic_exists_open_uniform` (§0.1); the local-ring criterion `iwasawa_isLocal_iff_pro_p` (§3.11); left and right noetherianity of O[[K₀]] and k[[K₀]] for compact analytic K₀ (§5.1); Auslander regularity and global dimensions d + 1 and d for torsion-free uniform U, the coefficient grade comparison, Ore rank and finite-index invariance (§5.5); Hilbert growth along uniform power subgroups (§5.8). The additional targets here are constant lower-p-series indices, the finite-quotient Jacobson-radical formula, an integral grading under a stronger commutator hypothesis, and homological dimension for compact analytic groups that need not be uniform. The polynomial residual grading is consumed from §5.1.
-- **TauCetiRoadmap PadicMeasuresIwasawaAlgebras**: the comparison of O ⊗ ℤ_p[[Γ]] with O-valued measures (§1.7), the structure theorem for finitely generated Λ-modules (§4.2), characteristic ideals and their norms under O[[T]] → ℤ_p[[T]] (§4.6), and determinant lines of perfect complexes over commutative rings (Layer 5).
+- **TauCetiRoadmap PadicMeasuresIwasawaAlgebras**: the comparison of O ⊗ ℤ_p[[G]] with O-valued measures for profinite G with a countable quotient tower and finite free continuous coefficients O (§1.7, including ramified valuation rings), the structure theorem for finitely generated Λ-modules (§4.2), characteristic ideals and their norms under O[[T]] → ℤ_p[[T]] (§4.6), determinant lines of perfect complexes over commutative rings (§5.1), and exact inverse limits of compact module systems (§5.2).
 - **TauCetiRoadmap ClassicalArithmeticCompletion, Layer 7**: for finite groups and complete coefficient domains with a Frobenius lift, semilocal elimination (§7.27), the integral group logarithm with its character formula (§7.46), its integral images L(1 + I) ⊆ pφ(I) and L(1 + A) = pφ(A) (§7.62), the induction reduction to p-elementary subgroups (§7.63), the kernel Det(G) of L/p on Det(1 + I) (§7.73), fixed-point descent (§§7.80, 7.109), equality of matrix and unit determinant images (§7.101), and reduced norms of semisimple number-field algebras (§§7.10, 7.60).
 - **TauCetiRoadmap AlgebraicKTheory**: K₁(M_n R) ≅ K₁(R), K₁(F) = F^× and the Dieudonné determinant (A2), relative K₀ for a ring quotient (A3), and stable range one for semilocal rings, so that GL_s(R) → K₁(R) is onto (A4).
 - **TauCetiRoadmap RepresentationTheory/InductionRestriction**: Clifford theory over a normal subgroup (Layer 5), the virtual character ring with Artin and Brauer induction (Layer 6), and twisted group algebras of factor sets (Layer 7).
@@ -68,15 +68,17 @@ At the pin: `TauCeti.IsProP` (a profinite group all of whose open normal quotien
 
 ### TauCetiRoadmap ProfiniteProPGroups, Layer 9; ProfiniteArithmetic
 
-The carriers listed under Prerequisites and boundaries, consumed with their stated projections, continuity and coordinate change. In addition this roadmap needs, for every finite extension O/ℤ_p, the finite-free coefficient base change O ⊗_{ℤ_p} ℤ_p[[G]] ≅ O[[G]], its mod-p analogue 𝔽 ⊗ 𝔽_p[[G]] ≅ 𝔽[[G]], and the commuting squares for restriction to a closed subgroup and for change of coefficients; §1.7 of PadicMeasuresIwasawaAlgebras supplies the first for procyclic groups (consumed in §§NE.0.3, NE.0.4, NE.0.6, NE.0.9, NE.0.15, NE.1.1, NE.1.2, NE.1.8, NE.3.1, NE.3.8).
+The carriers listed under Prerequisites and boundaries, consumed with their stated projections, continuity and coordinate change. For finite free coefficient extension use PadicMeasuresIwasawaAlgebras §1.7 as specified below. The additional subgroup and coefficient compatibility squares needed here are proved at finite quotients in §NE.0.3; no second completed group algebra or measure comparison is constructed (consumed in §§NE.0.3, NE.0.4, NE.0.6, NE.0.9, NE.0.15, NE.1.1, NE.1.2, NE.1.8, NE.3.1, NE.3.8).
 
 ### TauCetiRoadmap CompletedCohomologyPartII, §§0.1, 3.11, 5.1, 5.5, 5.8
 
 The declarations named under Prerequisites and boundaries, with the coefficient ring O allowed to be ramified. §§NE.0.2, NE.0.4, NE.0.11 and NE.0.12 consume them.
 
-### TauCetiRoadmap PadicMeasuresIwasawaAlgebras, §§4.2, 4.6 and Layers 3, 5
+### TauCetiRoadmap PadicMeasuresIwasawaAlgebras, §§1.7, 3.1, 4.2, 4.6, 5.1–5.2
 
-Characteristic power series of finitely generated torsion Λ(Γ)-modules with the structure theorem up to pseudo-isomorphism, and the norm of characteristic series under O[[Γ]] → ℤ_p[[Γ]] (§§4.2, 4.6; consumed in §§NE.2.14, NE.3.4). Normalized cyclotomic and abelian measures and pseudo-measures with their distribution relations and specializations in the chosen cyclotomic coordinate (Layer 3; §NE.5.8). Pseudocompact inverse limits, derived completed coefficient base change and norm-compatible abelian pseudo-measures, including the smoothed minus S, T complexes at the cyclotomic level (Layer 5; §§NE.4.6, NE.5.8, NE.6.36).
+For a profinite G with a countable basis of open normal subgroups, §1.7 supplies the measure/completed-algebra comparison and `completedGroupAlgebraBaseChange`: O ⊗_{ℤ_p} ℤ_p[[G]] ≅ O[[G]] for a normed commutative ring O finite free over ℤ_p with `ContinuousSMul ℤ_p O`. Its API `completedGroupAlgebraBaseChange_tmul_dirac` sends a ⊗ δ_g to aδ_g, and `_mul` gives multiplicativity. The topology on the tensor product is the finite free module topology. Rings of integers of finite extensions of ℚ_p satisfy these assumptions with their valuation topology, whether ramified or unramified. Compact p-adic analytic groups and their closed subgroups have the required countable quotient towers. §NE.0.3 adds compatibility with subgroup maps and coset bases, as well as the finite-residue-field comparison. Inverting p gives bounded-denominator measures, rather than the inverse limit of the rational finite group rings.
+
+§§4.2 and 4.6 supply characteristic power series up to pseudo-isomorphism and their coefficient norms (§§NE.2.14, NE.3.4). §3.1 supplies abstract commutative pseudomeasures and admissible-character evaluation; §5.1 supplies graded determinant lines for perfect complexes over commutative rings; §5.2 supplies exact inverse limits of compact systems and topological Nakayama. These are the respective inputs to §§NE.4.6, NE.5.8 and NE.6.36. The arithmetic pseudomeasures, their normalized zeta determinants and the smoothed minus S,T Selmer presentations are the distinct required contracts of IntegralIwasawaTheory I.6/I.9. Derived arithmetic base change is §NE.4.7 and the Selmer/Galois cochain contract. None of these arithmetic constructions is supplied by PadicMeasuresIwasawaAlgebras §§3.1 or 5.2.
 
 ### TauCetiRoadmap ClassicalArithmeticCompletion, Layer 7
 
@@ -94,6 +96,8 @@ The reduced norm of a central simple algebra over its centre and the Azumaya det
 
 **Supplier gap.** The current upstream roadmap uses numerical layers. The Picard-valued determinant functor, the identification of the Ore-localization fibre with torsion perfect complexes, and the complete-ideal K₀ invariance below have no identified targets there. These are required contracts, not established imports; the affected targets remain conditional on filling them.
 
+The available numerical targets are §4.6, `exactCategory_resolution`, for higher resolution under finite admissible resolutions; §§4.15–4.17 for additive relative triples, their stable automorphism boundary and five-term exact sequence under summand density; §6.19, `gilletWaldhausen_general`, for bounded complexes in an essentially small exact category with the intrinsic acyclic weak equivalences; and §10.6, `KTheory.moritaEquiv`, for Morita comparisons. The split relative-triple sequence does not by itself identify the Ore-localization fibre or construct the Picard-valued determinant. In applying §6.19 to finite projectives, use its degreewise split cofibrations and retain its specified weak-equivalence class. Morita invariance of the absolute groups does not by itself prove compatibility with the missing Ore comparison and its boundary.
+
 - K.4: the Waldhausen category C^p(R) of bounded complexes of finitely generated projective modules over a possibly noncommutative ring R, with quasi-isomorphisms and degreewise split cofibrations, and its Gillet–Waldhausen comparison (consumed in §§NE.1.14, NE.2.7, NE.2.8). Also Deligne's Picard category of virtual objects of P(R) and the determinant functor d_R on (C^p(R), quasi-isomorphisms) with the Burns–Venjakob properties: additivity on short exact sequences, acyclicity trivializations, shifts, extension to D^p(R), the identification d_R(C) ≅ ∏ d_R(H^i(C))^{(−1)^i} when the cohomology is perfect, base change, and Aut(1_R) = K₁(R) (consumed in §§NE.2.7, NE.2.8, NE.7.1, NE.7.3, NE.7.4, NE.7.8, NE.7.9).
 - K.5: for an Ore set S of regular elements in a noetherian ring A, the localization sequence K₁(A) → K₁(A_S) → K₀(A, A_S) → K₀(A) → K₀(A_S) built from the category of S-acyclic bounded perfect complexes, natural for denominator-preserving ring maps, with ∂[s] = [A/As] (consumed in §§NE.2.8, NE.2.9, NE.5.7). The description of K₀(A, A_S) by torsion modules needs their finite projective dimension and is not used when p-torsion is present.
 - K.3: the resolution theorem (`K.3/resolution-theorem`), and invariance K₀(A) ≅ K₀(A/I) for a ring complete and separated in the I-adic topology with I in the Jacobson radical, by lifting idempotents and their conjugacies (consumed in §§NE.2.1, NE.2.9).
@@ -109,9 +113,7 @@ The reduced norm of a central simple algebra over its centre and the Azumaya det
 
 ### ArithmeticGaloisDuality R02.2, R02.4
 
-**Supplier gap.** R02.4.4 supplies cohomological bounds and finiteness. No target for the weak-Leopoldt H²-vanishing below was identified in the current upstream package; a dimension bound alone does not imply that vanishing.
-
-The five-term transgression sequence (`R02.2/five-term-transgression`); global and local duality with twists, shifts and finite- and real-place conventions; the cohomological dimension bound (`R02.4/cohomological-dimension-bound`); and the vanishing H²(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = 0 for the cyclotomic ℤ_p-extension of a totally real field (weak Leopoldt), consumed in §§NE.4.1, NE.4.4, NE.4.5, NE.4.7, NE.4.8, NE.7.9.
+The five-term transgression sequence (`R02.2/five-term-transgression`); global and local duality with twists, shifts and finite- and real-place conventions; and the cohomological dimension bound and finiteness of §R02.4.4, consumed in §§NE.4.1, NE.4.4–NE.4.8 and NE.7.9. A dimension bound alone does not give weak Leopoldt. The separate cyclotomic vanishing theorem and its passage to an overfield are stated with a proof route in §NE.4.4, using Wingberg, Proposition 5.1, pp. 348–349, and Venjakob, *On the Iwasawa theory of p-adic Lie extensions*, Remark 4.3, p. 26.
 
 ### AutomorphicPadicLFunctions L3
 
@@ -201,6 +203,8 @@ API: `IsCompactPAdicAnalytic` (Profinite with an open normal uniform pro-p subgr
 
 **Lemma.** Let G be profinite and H′ ≤ H closed subgroups with H′ open in H. Then Λ(H) is a free left (and right) Λ(H′)-module of rank [H : H′], with basis any set of right (resp. left) coset representatives; likewise Ω(H) over Ω(H′). If H′ is open normal in H, Λ(H) ≅ Λ(H′) ∗ (H/H′) is a crossed product. Consequently a Λ(H)-module is finitely generated over Λ(H) iff it is finitely generated over Λ(H′).
 
+When H has a countable quotient tower, the supplied finite free coefficient comparison O ⊗_{ℤ_p} Λ(H) ≅ O[[H]] commutes with the algebra map induced by H′ ↪ H and sends the coset basis to the same group elements. Thus the same freeness and finite-generation assertions hold over O. For every finite field 𝔽/𝔽_p the analogous map 𝔽 ⊗_{𝔽_p} Ω(H) ≅ 𝔽[[H]] has these compatibilities, without a countability restriction. The subgroup square concerns the covariant algebra map and restriction of scalars along it; it does not assert pullback of an arbitrary measure to a closed subset.
+
 See Lazard, Chap. II, (2.2.7), p. 62: Lazard: coset representatives form a basis of Λ(G) over Λ(U). CFKSV, §2, p. 166: CFKSV's use for H′ open in H. Ardakov–Brown, §2.2, p. 3 (arXiv v1): The crossed-product form for open normal subgroups.
 
 The hypotheses are as follows. Λ(−) = ℤ_p⟦−⟧ and Ω(−) = 𝔽_p⟦−⟧ are Tau Ceti's completed group algebras (ProfiniteProPGroups, Layer 9).
@@ -209,13 +213,16 @@ The hypotheses are as follows. Λ(−) = ℤ_p⟦−⟧ and Ω(−) = 𝔽_p⟦�
 
 1. Compute Λ(H) as lim ℤ_p[H/V] over open normal V ≤ H′ of H; at each level ℤ_p[H/V] is free over ℤ_p[H′/V] on coset representatives; the bases are compatible, so the limit is free on the same set.
 2. Finite generation transfers because Λ(H) is finite free over Λ(H′).
+3. At a finite quotient, coefficient extension sends a ⊗ [h] to a[h] and commutes with every subgroup and quotient map. For finite free O use the supplied comparison, whose Dirac formula identifies this map at every quotient; the finite coset decompositions then give the asserted squares. For 𝔽 choose a finite 𝔽_p-basis: tensoring is a finite direct sum, so it commutes with the products and kernels defining the inverse limit. The quotient maps determine multiplication and show that the result is independent of the coefficient basis. The same finite-basis argument proves compatibility with a further finite free coefficient extension.
 
 **Checks.**
 
 - The basis is a set of coset representatives, independent of the level V.
 - For p=5, G=S₃×Z₅ and U=Z₅, Λ(G) is free of rank 6 over Λ(U). Its Γ-augmentation quotient is Z₅[S₃], where the basis products (12)(123) and (123)(12) differ. Commutative power series cannot replace this group ring.
+- For H′=H the coset decomposition has rank one and the coefficient square is the identity; for H=1 the comparison is O ⊗ ℤ_p ≅ O.
+- For H=ℤ_p, H′=pℤ_p and O=ℤ_p[π] with π²=p, the basis is 1,γ,…,γ^(p−1) over O[[H′]], just as for unramified O. Ramification changes neither the index nor the group elements in this basis. For 𝔽=𝔽_(p²) the same basis survives residual coefficient extension, including p=2.
 
-*Needs:* TauCetiRoadmap PadicMeasuresIwasawaAlgebras Layer 1.
+*Needs:* Tau Ceti's completed group algebra and finite quotient projections; TauCetiRoadmap PadicMeasuresIwasawaAlgebras §1.7 (`completedGroupAlgebraBaseChange`, `_tmul_dirac`, `_mul`).
 
 <a id="ne0-iwasawa-local-iff-pro-p"></a>
 ### NE.0.4 Finite-quotient Jacobson radicals and semilocality
@@ -243,23 +250,24 @@ The hypotheses are as follows. G compact p-adic analytic; U open normal and pro-
 <a id="ne0-zariskian-noetherian"></a>
 ### NE.0.5 Complete filtrations with noetherian graded ring
 
-**Lemma.** For a complete separated nonnegative adic filtration with F¹R⊆Jac(R) and left/right noetherian associated graded ring, the Rees filtration is Zariskian and R is left/right noetherian. If gr R is a domain, R is a domain. If gr R has finite left/right global dimension, the filtered lifting theorem gives gldim R≤gldim gr R. For Auslander regularity use the additional filtered Ext comparison and the Auslander condition, rather than claiming it follows from noetherianity alone.
+**Lemma.** For a complete separated nonnegative adic filtration with F¹R⊆Jac(R) and left/right noetherian associated graded ring, the Rees filtration is Zariskian and R is left/right noetherian. If gr R is a domain, R is a domain. If gr R has finite left/right global dimension, the separate filtered-resolution lifting theorem gives gldim R≤gldim gr R. For Auslander regularity require gr R to be Auslander regular and the following closure condition: for every finite family u₁,…,u_s∈R and integers m₁,…,m_s, both Σ_i F^(m_i)R·u_i and Σ_i u_i·F^(m_i)R are closed. No Auslander conclusion follows from graded noetherianity or finite graded global dimension alone.
 
-See Venjakob 2002, Definition 3.19, Lemma 3.20 and Theorem 3.21, pp. 16–17: the filtered transfer hypotheses needed in the Iwasawa application; the general filtered theorem is Björk's (J.-E. Björk, *Filtered noetherian rings*, 1989), which Venjakob cites.
+See Schneider–Teitelbaum, *Algebras of p-adic distributions and admissible representations*, Proposition 1.1, pp. 4–5, and Lemma 1.4, p. 6 (arXiv v1), for complete quasi-integral filtrations, noetherian lifting and strict ideal generators. The integer-indexed filtration here is quasi-integral. Venjakob 2002, Definition 3.19, Lemma 3.20 and Theorem 3.21, pp. 16–17, give the closure condition and the Auslander-regular transfer with equality of grades; Theorem 3.21 is not a statement of the numerical bound under finite graded global dimension alone. Venjakob cites Björk, *Filtered Noetherian Rings* (1987), Theorems 4.1 and 4.3, and *The Auslander condition on Noetherian rings* (1989), Theorem 3.9 and its remark. Those original proofs and the exact general filtered-resolution theorem for the numerical bound remain source obligations.
 
 The hypotheses are as follows. Complete separated descending adic filtration, with its usual exhaustive extension to integer degrees; F¹R⊆Jac(R). Associated graded ring noetherian on both sides; homological conclusions require the respective graded hypotheses.
 
 *Proof.*
 
-1. Lift a finite homogeneous generating set of each graded ideal by successive approximation, using completeness.
-2. Use the Zariskian filtered resolution and filtered Ext comparison of Venjakob Definition 3.19, Lemma 3.20 and Theorem 3.21 for the global-dimension and Auslander clauses.
-3. Do not infer primality in the absence of a suitable filtered primeness theorem; only the domain implication is used here.
+1. For a left ideal J, lift homogeneous generators of gr J. Cancel the lowest symbol of any x∈J using these lifts and repeat on the error in strictly higher filtration. For each of the finitely many generators the accumulated coefficients converge by completeness; their limits express x as a finite R-linear combination of the chosen lifts. Apply the same argument to R^op for right ideals. Strict ideal generators are the statement of Schneider–Teitelbaum Lemma 1.4. The Rees and Artin–Rees comparisons are a separate filtered-algebra consequence, not an inference that an arbitrary dense ideal is closed.
+2. If x,y≠0, separatedness gives finite initial degrees. Their nonzero initial symbols have nonzero product when gr R is a domain; hence xy≠0. No filtered primeness assertion is needed.
+3. The global-dimension bound needs strict filtered projective resolutions and the comparison between their projective dimensions and those of their associated graded modules. For the Auslander clause use the stronger graded hypothesis and closure condition of Venjakob Theorem 3.21, together with its filtered Ext comparison. In the compact Iwasawa application the closure condition is Lemma 3.20: each finite weighted sum is a continuous image of a product of compact filtration pieces, hence closed. Naming this condition does not supply the still required original filtered-resolution proof.
 
 **Checks.**
 
 - Both sides are stated; Iwasawa algebras are noncommutative.
-- ℤ_p[[T]] with the (p, T)-adic filtration has gr = 𝔽_p[P, T], a noetherian domain, so ℤ_p[[T]] is a noetherian domain of global dimension at most 2.
-- Layer NE.1 uses only noetherianity; the homological clauses are used in Layer NE.2.
+- ℤ_p[[T]] with the (p, T)-adic filtration has gr = 𝔽_p[P, T], a noetherian domain, so the first two clauses give a noetherian domain. Its global dimension 2 is also supplied independently by CompletedCohomologyPartII §5.5 for the uniform group ℤ_p; it is not a consequence of noetherianity alone.
+- For the trivial group, the coefficient filtration has gr ℤ_p=𝔽_p[P]; for a field with the discrete filtration it has gr k=k. The dimension counts are respectively 1 and 0, so the coefficient direction cannot be omitted in the integral case.
+- A compactness argument for closure requires compact filtration pieces and continuous multiplication. Completeness alone is not compactness. Layer NE.1 uses only noetherianity; the homological clauses require their additional hypotheses and proofs.
 
 *Needs:* Mathlib `IsNoetherianRing`.
 
@@ -1657,13 +1665,13 @@ The hypotheses are as follows. The proofs use results of Coates–Howson (CFKSV 
 *Needs:* [NE.4.2](#ne4-mh-conjecture-and-mazur) (The 𝔐_H(G) conjecture and Mazur's torsion conjecture (Conjectures 5.1–5.2)); [NE.0.6](#ne0-compact-nakayama) (Nakayama's lemma for compact modules over Λ(J)); [NE.1.6](#ne1-s-torsion-iff-finitely-generated) (S-torsion equals finite generation over Λ(H)).
 
 <a id="ne4-admissible-extension"></a>
-### NE.4.4 Admissible p-adic Lie extensions and the hypothesis μ = 0
+### NE.4.4 Admissible extensions, μ = 0 and weak Leopoldt
 
-**Definition.** Let F be a totally real number field and p odd. An admissible p-adic Lie extension F_∞/F is a Galois extension, unramified outside a finite set of primes, with F_∞ totally real, G = Gal(F_∞/F) a p-adic Lie group and F_cyc ⊆ F_∞; put H = Gal(F_∞/F_cyc), Γ = G/H, and fix a finite set Σ of finite primes containing those ramified in F_∞. F_∞/F satisfies μ = 0 if some open pro-p subgroup H′ ≤ H has Gal(M/F_∞^{H′}) finitely generated over ℤ_p, M the maximal abelian pro-p extension of F_∞^{H′} unramified outside Σ; equivalently, the Iwasawa μ-invariant of L(μ_p) vanishes for L with L_cyc = F_∞^{H′}. Equivalently (Lemma 9), X = Gal(M_∞/F_∞) is finitely generated over Λ(H), M_∞ the maximal abelian pro-p extension of F_∞ unramified outside Σ.
+**Definition.** Let F be a totally real number field and p odd. An admissible p-adic Lie extension F_∞/F is a Galois extension, unramified outside a finite set of primes, with F_∞ totally real, G = Gal(F_∞/F) a p-adic Lie group and F_cyc ⊆ F_∞; put H = Gal(F_∞/F_cyc), Γ = G/H, and fix a finite set Σ of finite primes containing those above p and those ramified in F_∞. F_∞/F satisfies μ = 0 if some open pro-p subgroup H′ ≤ H has Gal(M/F_∞^{H′}) finitely generated over ℤ_p, M the maximal abelian pro-p extension of F_∞^{H′} unramified outside Σ; equivalently, the Iwasawa μ-invariant of L(μ_p) vanishes for L with L_cyc = F_∞^{H′}. Equivalently (Lemma 9), X = Gal(M_∞/F_∞) is finitely generated over Λ(H), M_∞ the maximal abelian pro-p extension of F_∞ unramified outside Σ.
 
 See Kakde, §2.1, Definition 1, p. 4 (arXiv v3): Definition 1; Definition 8 and Lemma 9 (pp. 9–10).
 
-The hypotheses are as follows. F totally real, p odd, Σ finite containing the ramified primes.
+The hypotheses are as follows. F totally real, p odd, Σ finite containing the primes above p and the ramified finite primes. Include the archimedean places when writing Galois cohomology with restricted ramification.
 
 *Construction.*
 
@@ -1679,7 +1687,27 @@ API: `AdmissibleExtension` (F_∞/F with G, H, Γ and Σ); `MuZero` (The hypothe
 - `no_cyclotomic`: A finite totally real extension is not admissible: it does not contain F_cyc.
 - μ = 0 is a hypothesis, recorded separately; Ferrero–Washington proves it for abelian L/ℚ, and nothing more general is claimed.
 
-*Needs:* [NE.0.2](#ne0-compact-padic-analytic-group) (Compact p-adic analytic groups); [NE.0.6](#ne0-compact-nakayama) (Nakayama's lemma for compact modules over Λ(J)); [NE.1.6](#ne1-s-torsion-iff-finitely-generated) (S-torsion equals finite generation over Λ(H)); ArithmeticGaloisDuality R02.2 (`five-term-transgression`).
+**Theorem (weak Leopoldt in a cyclotomic overfield).** Let p be odd, F any number field, Σ a finite set containing the archimedean places and all primes above p, and F_Σ the maximal extension unramified outside Σ. For every algebraic intermediate field F_cyc ⊆ E ⊆ F_Σ,
+
+H²(Gal(F_Σ/E), ℚ_p/ℤ_p) = 0,
+
+with the trivial discrete coefficient action. Neither total reality, a p-adic analytic Galois group nor μ=0 is needed for this assertion. For admissible E=F_∞ it supplies the missing cohomology vanishing in §NE.4.5. Its API is `weakLeopoldt_cyclotomic` at E=F_cyc and `weakLeopoldt_overfield` for general E, compatible with restriction to finite base fields inside E.
+
+See Wingberg, *Duality theorems for Γ-extensions of algebraic number fields*, Proposition 5.1 and proof, pp. 348–349; the notation for the full and maximal pro-p restricted-ramification groups is on p. 346, and the duality sequences are (4.2)–(4.5), pp. 346–347. Venjakob, *On the Iwasawa theory of p-adic Lie extensions*, Remark 4.3, p. 26 (author PDF), gives the extension from cyclotomic fields to E by a direct limit. These are vanishing inputs separate from the cohomological dimension bound.
+
+*Proof.*
+
+1. First take E=F_cyc and replace F by F′=F(μ_p). Over F′_cyc the p-power roots of unity give a trivial discrete module isomorphic to ℚ_p/ℤ_p. The finite-level Poitou–Tate localization sequence expresses the kernel of global-to-local H² with μ_(p^m) coefficients as the dual of the everywhere locally trivial H¹ with ℤ/p^m coefficients. At each finite cyclotomic layer, class field theory identifies the inverse limit of these H¹ groups with Hom(Cl_Σ,ℤ_p), which is zero since Cl_Σ is finite. Thus the direct limit of the H² localization kernels is zero. At each finite place, restriction of Brauer invariants multiplies by the local degree; those degrees are unbounded p-powers in the cyclotomic tower, so the direct limit of the p-primary local H² groups is zero. At an archimedean place the odd-primary higher cohomology is zero. Exactness of filtered colimits gives H² over F′_cyc equal to zero, as in Wingberg's proof.
+2. The degree [F′_cyc:F_cyc] divides p−1. Restriction to F′_cyc is injective on p-primary cohomology: corestriction composed with restriction is multiplication by this degree, or equivalently the Hochschild–Serre sequence degenerates by averaging. Hence vanishing descends to F_cyc. This argument does not assume Leopoldt's conjecture at each finite layer.
+3. Every finite extension L/F inside E has L_cyc ⊆ E, and E is their union. For trivial discrete coefficients, continuity gives H²(Gal(F_Σ/E),ℚ_p/ℤ_p) as the restriction direct limit of the H² groups over L_cyc. Each is zero by steps 1–2 applied to L. Concretely, a continuous cocycle on Gal(F_Σ/E) has finite image and factors through a finite quotient. Choose an open normal subgroup of Gal(F_Σ/F) realizing that quotient; the cocycle then extends to the open subgroup generated by it and Gal(F_Σ/E), corresponding to a finite L⊆E. Restricting further to L_cyc kills its class. This proves the continuity assertion needed here on the existing continuous-cohomology model.
+
+**Checks.**
+
+- For E=F_cyc, recover the cyclotomic theorem without a μ=0 hypothesis. Taking F imaginary quadratic still gives H²=0; total reality is needed elsewhere, not for this vanishing.
+- For E/F an infinite noncommutative extension containing F_cyc, each finite L⊆E still has L_cyc⊆E. The argument uses restriction and a direct limit, rather than asserting that H² vanishes for every closed subgroup of a group with H²=0.
+- A finite E/F cannot contain F_cyc, so this theorem does not assert finite-level Leopoldt. For p=2 the odd-primary real-place and prime-to-p descent arguments above do not apply; the separate two-primary comparison is §NE.4.8.
+
+*Needs:* [NE.0.2](#ne0-compact-padic-analytic-group) (Compact p-adic analytic groups); [NE.0.6](#ne0-compact-nakayama) (Nakayama's lemma for compact modules over Λ(J)); [NE.1.6](#ne1-s-torsion-iff-finitely-generated) (S-torsion equals finite generation over Λ(H)); ArithmeticGaloisDuality R02.2 (transgression and prime-to-p Hochschild–Serre descent), R02.4 (Poitou–Tate and class field theory); TauCetiRoadmap ProfiniteCohomology Layers 1–3 and 10 (continuous cohomology and restriction); Wingberg Proposition 5.1.
 
 <a id="ne4-totally-real-iwasawa-complex"></a>
 ### NE.4.5 The complex C(F_∞/F)
@@ -1693,7 +1721,7 @@ The hypotheses are as follows. F_∞/F admissible; μ = 0 for the class in relat
 *Construction.*
 
 1. The étale–Galois comparison, since ℚ_p/ℤ_p is a colimit of finite p-groups.
-2. Cohomology: H⁰ = ℤ_p is the dual of H⁰(Gal(F_Σ/F_∞), ℚ_p/ℤ_p); H^{−1} is the dual of Hom(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = Gal(M_∞/F_∞)^∨; H²(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = 0 for totally real F_∞ and odd p (weak Leopoldt along F_cyc and ArithmeticGaloisDuality R02.4's cohomological dimension).
+2. Cohomology: H⁰ = ℤ_p is the dual of H⁰(Gal(F_Σ/F_∞), ℚ_p/ℤ_p); H^{−1} is the dual of Hom(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = Gal(M_∞/F_∞)^∨. The weak-Leopoldt overfield theorem of §NE.4.4 gives H²=0; the separate odd-primary cohomological dimension bound of ArithmeticGaloisDuality §R02.4.4 gives H^i=0 for i>2. Together these yield the asserted two-cohomology description.
 3. Perfectness and base change (1) are the Fukaya–Kato results (i)–(ii) quoted in Kakde §2.3. Without p-torsion in G they follow from §NE.4.7; with p-torsion their proof follows Fukaya–Kato's argument and is part of this target.
 4. S-torsion: its cohomology is finitely generated over Λ(H) by §NE.4.4's Lemma 9, so Λ(G)_S ⊗^L C is acyclic (§NE.1.6); the class is in §NE.1.14.
 
@@ -1706,7 +1734,7 @@ API: `iwasawaComplex` (C(F_∞/F) as a perfect complex of Λ(G)-modules); `iwasa
 - `module_not_enough`: For G with p-torsion, X = Gal(M_∞/F_∞) can fail to have a finite projective resolution, so [X] need not be defined in K₀(Λ(G), Λ(G)_S), while [C(F_∞/F)] is.
 - When G has elements of order p, X itself need not have finite projective dimension; the complex, not the module, is what has a class.
 
-*Needs:* [NE.4.4](#ne4-admissible-extension) (Admissible p-adic Lie extensions and the hypothesis μ = 0); [NE.1.14](#ne1-torsion-perfect-complexes) (Perfect complexes acyclic after localisation); [NE.1.6](#ne1-s-torsion-iff-finitely-generated) (S-torsion equals finite generation over Λ(H)); ArithmeticGaloisDuality R02.4 (`cohomological-dimension-bound`); ArithmeticGaloisDuality R02.4.
+*Needs:* [NE.4.4](#ne4-admissible-extension) (Admissibility, μ=0 and weak-Leopoldt overfield vanishing); [NE.1.14](#ne1-torsion-perfect-complexes) (Perfect complexes acyclic after localisation); [NE.1.6](#ne1-s-torsion-iff-finitely-generated) (S-torsion equals finite generation over Λ(H)); ArithmeticGaloisDuality §R02.4.4 (cohomological dimension).
 
 <a id="ne4-equivariant-compact-support"></a>
 ### NE.4.6 Equivariant compactly supported Iwasawa complexes
@@ -1722,6 +1750,8 @@ The hypotheses are as follows. p odd; G=Gal(F∞/F) compact p-adic analytic; F�
 1. Use SelmerIwasawaCohomology L2’s mapping-fibre construction and L3’s Iwasawa cochains at the finite layers.
 2. Use compatible corestriction and conjugation maps to give the derived inverse limit its Λ(G)-action.
 3. Compare the global and every local cochain by the same Shapiro bimodule, so base change respects the defining triangle; do not infer the local comparison from the global one alone.
+
+PadicMeasuresIwasawaAlgebras §5.2 supplies exact inverse limits of compact systems in this construction. It supplies neither the derived Shapiro comparisons nor the arithmetic local conditions. Those remain the separate cochain contracts and the comparison target of §NE.4.7.
 
 API: `EquivariantCompactSupport.triangle` (The cone shifted by −1 fits in the stated global-to-local distinguished triangle); `EquivariantCompactSupport.action` (The conjugation/corestriction actions extend to the left completed group ring); `EquivariantCompactSupport.quotient` (For N closed normal with derived base-change hypotheses, Λ(G/N)⊗^L_Λ RΓ_Iw,c(F∞,T)≅RΓ_Iw,c(F∞^N,T), including the local terms); `EquivariantCompactSupport.openRestriction` (Restriction of scalars to Λ(U), U open in G, agrees with the complex over F∞^U); `EquivariantCompactSupport.duality` (The duality comparison with the totally real dual cochain complex includes its twist, shift and local correction triangle; no silent equality of these two complexes is allowed).
 
@@ -2603,8 +2633,11 @@ The hypotheses are as follows. p odd; totally real extension finite over the cyc
 - Kakde v3 (12) is not a target: take Ḡ=C_{p²}×C_p, P=pC_{p²}×0. There are p cyclic P′ with P′^p=P, and W_Ḡ(P) has order p² acting trivially. M3 implies ζ_P≡φ(ζ_{P′}) modulo p for each P′, whereas (12) would imply ζ_P≡pζ_P=0 modulo p, contradicting that ζ_P is a unit. The corrected full Möbius sum preserves the missing multiplicity.
 - The uniform existence assertion is ∃g ∀ε, not ∀ε ∃g; the conductor-dependent calculation of §NE.6.24 proves only the latter.
 - Quantifier test. The g that work form a closed subgroup: s_(gh)=s_g+ver_K^L(g)s_h, because ver_F^L is a ring map and ver_K^L(g) is Σ-invariant. Proposition 5's element for the conductor 𝔣 has trivial image at that level, and its norm tends to 1 as 𝔣 grows. So no fixed g follows from the per-conductor construction by compactness.
+- Compactness negative control. In the additive procyclic group ℤ_p, the compact open subgroups C_n=p^nℤ_p are nested. Every finite intersection C_0∩⋯∩C_N contains the nonzero element p^N, whereas ⋂_n C_n={0}: if x≠0 then x∉p^(v_p(x)+1)ℤ_p. Thus even closed subgroup conditions with a nontrivial solution at every finite stage need not have a nontrivial solution in their full intersection. The two examples in Suggested.lean prove precisely these finite- and infinite-intersection assertions, for every prime including 2. Under a cyclotomic coordinate the zero element corresponds to the identity, which cannot be used as a smoothing denominator.
 
-**Uniform smoothing lemma (proof gap).** For L/K, S and Σ as in §NE.6.24, there is one g ∈ Gal(L_S/K) whose image in Gal(K_cyc/K) is nontrivial and for which the smoothed Möbius sum s_g of §NE.6.21 lies in tr_Σ(Z_p[[H_S^+]]) for every even locally constant ε at once (Ritter–Weiss, Congruences II, Theorem, p. 2; used in their Proposition 4, pp. 5–6). Ritter–Weiss note on p. 3 that their earlier theorem now holds only for special g. The proof has to produce a special-cusp construction uniform in the conductor, or a uniform estimate, since the g of Proposition 5 accumulate only at 1; this lemma is the analytic input that §§NE.6.25, NE.6.32 and NE.6.34 take from Ritter–Weiss.
+**Uniform smoothing lemma (proof gap).** For L/K, S and Σ as in §NE.6.24, put G_S=Gal(K_S/K), where K_S is the maximal abelian S-ramified extension of K, and H_S=Gal(L_S/L). There is one g∈G_S such that each transfer g_F=ver_K^F(g) has nontrivial image in Gal(F_cyc/F) and the smoothed Möbius pseudomeasure sum s_g of §NE.6.21 lies in tr_Σ(Z_p[[H_S^+]]). The quantifier is a single g for the entire measure identity; the equivalent coefficient test of Proposition 4 requires the value congruences for every even locally constant ε and every positive even k with this same g. The domain of g is the abelian group G_S, not the generally nonabelian Gal(L_S/K).
+
+See Ritter–Weiss, Congruences II, Theorem, p. 2, Proposition 4, pp. 5–6, and Proposition 5, pp. 6–7. The explicit cusp of Proposition 5 is chosen after a common conductor for ε. The conductor-dependent calculation in §NE.6.24 therefore does not establish this uniform lemma. The subgroup argument and compactness negative control above do not disprove the published theorem; they identify why that proposed completion of the proof is insufficient. A special-cusp construction uniform in the conductor, a uniform estimate or a located alternative proof remains required for §§NE.6.25, NE.6.32 and NE.6.34.
 
 *Needs:* [NE.6.21](#ne6-basic-congruence-reduction) (Smoothed Möbius values and trace ideals); [NE.6.24](#ne6-basic-congruence-values) (Möbius-weighted Hilbert Eisenstein value congruences); [NE.6.8](#ne6-congruence-group-phi) (The maps θ^G and the congruence subgroups Φ^G, Φ^G_S).
 
@@ -3564,14 +3597,17 @@ Each entry names the version read; confirming an entry does not assert that the 
 - [Ritter–Weiss, Congruences II] J. Ritter and A. Weiss, *Congruences between abelian pseudomeasures, II*, arXiv:1001.2091v3 (2010).
 - [Ritter–Weiss 2026] J. Ritter and A. Weiss, *On uniqueness in equivariant Iwasawa theory*, arXiv:2608.22601v1 (2026).
 - [Schneider] P. Schneider, *p-Adic Lie Groups*, Grundlehren 344, Springer (2011).
+- [Schneider–Teitelbaum] P. Schneider and J. Teitelbaum, *Algebras of p-adic distributions and admissible representations*, Invent. Math. 153 (2003), 145–196; [arXiv:math/0206056v1](https://arxiv.org/pdf/math/0206056v1), cited by the preprint pagination.
 - [Schneider–Venjakob (splitting)] P. Schneider and O. Venjakob, *A splitting for K₁ of completed group rings*, arXiv:1006.1493v1 (2010).
 - [Schneider–Venjakob (after Kakde)] P. Schneider and O. Venjakob, *K₁ of certain Iwasawa algebras, after Kakde*, author version of 15 June 2011, in Iwasawa theory 2012, Contrib. Math. Comput. Sci. 7, Springer (2014).
 - [Venjakob 2002] O. Venjakob, *On the structure theory of the Iwasawa algebra of a p-adic Lie group*, J. Eur. Math. Soc. 4 (2002), 271–311; arXiv:math/0106269, cited by the arXiv pagination.
+- [Venjakob (Iwasawa theory)] O. Venjakob, *On the Iwasawa theory of p-adic Lie extensions*, Compositio Math. 138 (2003), 1–54; [author PDF](https://www.mathi.uni-heidelberg.de/~venjakob/papervenjakob/iwasawa.pdf), cited by its preprint pagination (Remark 4.3, p. 26).
 - [Venjakob (comparison)] O. Venjakob, *On the work of Ritter and Weiss in comparison with Kakde's approach*, workshop notes, author PDF.
+- [Wingberg] K. Wingberg, *Duality theorems for Γ-extensions of algebraic number fields*, Compositio Math. 55 (1985), 333–381; [Numdam](https://www.numdam.org/item/CM_1985__55_3_333_0.pdf), cited by the printed pagination.
 
 **Source gap (Fukaya–Kato).** The original numbering of Proposition 1.3.7, Propositions 1.5.1 and 1.5.3, and Proposition 3.3.5 has not been verified in the original publication. For these statements this roadmap uses Burns–Venjakob §2.2, pp. 6–7 and §6.1, p. 28, and Kakde §2.3, p. 11, §4.1, p. 18 and §4.3, p. 25; those verify the localized-K₁/perfect-complex framework and quote arithmetic perfection and base change, but do not provide a proof of every quoted arithmetic input. The original locators and these proofs remain obligations. The DDMS Chapter 4 criterion is cited through Ardakov–Brown §2.3, pp. 3–4, rather than as an independently checked book locator.
 
 Works cited only through the sources above: A. Brumer, *Pseudocompact algebras, profinite groups and class formations*, J. Algebra 4 (1966); P. Deligne and K. Ribet, *Values of abelian L-functions at negative integers over totally real fields*, Invent. Math. 59 (1980); J. D. Dixon, M. P. F. du Sautoy, A. Mann and D. Segal, *Analytic pro-p groups*, 2nd edition (1999); T. Fukaya and K. Kato, *A formulation of conjectures on p-adic zeta functions in noncommutative Iwasawa theory*, Proc. St. Petersburg Math. Soc. XII (2006); J. Nekovář, *Selmer complexes*, Astérisque 310 (2006); R. Oliver, *Whitehead groups of finite groups*, LMS Lecture Note Series 132 (1988); J.-P. Serre, *Linear representations of finite groups*, GTM 42; J. Tate, *Les conjectures de Stark sur les fonctions L d'Artin en s = 0*, Progress in Math. 47 (1984); A. Wiles, *The Iwasawa conjecture for totally real fields*, Ann. of Math. 131 (1990).
 
 
-Roadmaps cited: TauCetiRoadmap ProfiniteProPGroups, ProfiniteArithmetic, PadicMeasuresIwasawaAlgebras, ClassicalArithmeticCompletion, CompletedCohomologyPartII, AlgebraicKTheory, RepresentationTheory/InductionRestriction; IntegralHeckeAndGaloisDeterminants, GeneralAlgebraicKTheory, SelmerIwasawaCohomology, ArithmeticGaloisDuality, ArithmeticGaloisRepresentations, AutomorphicPadicLFunctions, IntegralIwasawaTheory, AnalyticNumberTheory, KTheoryLowDegrees, LocallyAnalyticDistributionsPartII, Polylogarithms, PadicHodgeTheory.
+Roadmaps cited: TauCetiRoadmap ProfiniteProPGroups, ProfiniteArithmetic, ProfiniteCohomology, PadicMeasuresIwasawaAlgebras, ClassicalArithmeticCompletion, CompletedCohomologyPartII, AlgebraicKTheory, RepresentationTheory/InductionRestriction; IntegralHeckeAndGaloisDeterminants, GeneralAlgebraicKTheory, SelmerIwasawaCohomology, ArithmeticGaloisDuality, ArithmeticGaloisRepresentations, AutomorphicPadicLFunctions, IntegralIwasawaTheory, AnalyticNumberTheory, KTheoryLowDegrees, LocallyAnalyticDistributionsPartII, Polylogarithms, PadicHodgeTheory.
