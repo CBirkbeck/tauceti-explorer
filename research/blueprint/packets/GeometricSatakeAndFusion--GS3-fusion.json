@@ -1,0 +1,839 @@
+{
+  "roadmapId": "GeometricSatakeAndFusion",
+  "protocol": "blueprint-v1",
+  "part": "GS3-fusion",
+  "scope": [
+    "GeometricSatakeAndFusion:GS3:fusion"
+  ],
+  "status": "complete",
+  "summary": "Stage-only refinement of the eight accepted GS3 fusion targets, retaining their identifiers and importing GS0–GS2. The contracts specify proper-convolution extension, parity-corrected symmetry, arbitrary finite-set collision coherence, continuous product-Weil realization, symmetric constant terms and Verdier duality. All targets are planned; missing formal carriers and the exact Drinfeld coefficient transport are explicit gaps, so the stage is not closed. No geometric theorem is claimed implemented.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:RootPairing",
+        "kind": "declaration",
+        "module": "Mathlib/LinearAlgebra/RootSystem/Defs.lean",
+        "provides": "A perfect root/coroot pairing on dual modules with reflections. Integral pinned group schemes are a separate imported construction.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.BraidedCategory",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+        "provides": "Natural braiding isomorphisms satisfying both hexagon identities.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.SymmetricCategory",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+        "provides": "A braided category with double braiding equal to the identity.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.Braided",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
+        "provides": "A monoidal functor compatible with the specified braidings; applies to the modified fusion symmetry.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.MonoidalCategory",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
+        "provides": "Tensor, unit, associators and unitors with naturality, pentagon and triangle laws.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Functor.Monoidal",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monoidal/Functor.lean",
+        "provides": "Compatible lax and oplax monoidal structures with inverse tensor and unit constraints.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.LeftRigidCategory",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
+        "provides": "Chosen left duals for every object; Verdier duality combined with inversion supplies these in Satake.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:Representation",
+        "kind": "declaration",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "A monoid homomorphism to linear endomorphisms. Continuity of the Weil action and finite projectivity are extra conditions, not supplied by this abbreviation.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      },
+      {
+        "ref": "mathlib:Module.Projective",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Module/Projective.lean",
+        "provides": "The free-module surjection splits; equivalent to lifting linear maps along surjections.",
+        "checked": "Actual declaration and surrounding hypotheses read in the shared source tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19. No geometric Satake implementation is inferred from these abstract APIs."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "FS",
+      "title": "Geometrization of the local Langlands correspondence",
+      "authors": "Laurent Fargues and Peter Scholze",
+      "edition": "Author-hosted 356-page PDF; metadata/contents match arXiv:2102.13459v4; physical and printed page numbers agree.",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "readSections": [
+        "IV.7 pp164–166: locally constant perfect Drinfeld equivalence",
+        "VI introduction pp187–190: local field, reductive group and coefficient hypotheses",
+        "VI.7 pp221–224: fibre functor, Verdier duality and shifted constant terms",
+        "VI.8 pp224–226: convolution closure and rigidity before fusion",
+        "VI.9 pp226–230: finite-set maps, disjoint factorization, parity, fusion, duality and constant terms",
+        "VI.11 pp235–236,238–239: Tate root-line normalization",
+        "IX.7.1 pp334–335: distinction between stalk action and parameter normalization"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-locus",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "Disjoint-leg locus",
+      "kind": "definition",
+      "statement": "For a finite set I partitioned by b:I→K, define U_b ⊂ (Div¹_X)^I by x_i ≠ x_j whenever b(i) ≠ b(j). It allows coincidences inside one block. Pull the existing local Hecke stack and Satake category back to U_b; denote restriction by j_b*. On U_b, completion along the union of block divisors is the product of the block completions, giving the factorization of Grassmannians and local Hecke stacks.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness",
+        "RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/local-hecke-stack"
+      ],
+      "proofSteps": [
+        "Use the divisor product equation and invertibility of distinct divisor ideals to split the completed rings, then the loop quotient and torsor descriptions.",
+        "An ordered partition gives the same open independently of its ordering; this construction commutes with base change."
+      ],
+      "acceptance": [
+        "One block gives the whole leg base.",
+        "Singleton blocks exclude every collision, while a two-element block allows its internal diagonal."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.9 pp226–227; VI.0 p189",
+          "match": "Exact defining condition of the blockwise disjoint locus and factorization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      },
+      "planet": {
+        "name": "Disjoint-leg factorization"
+      },
+      "api": [
+        {
+          "name": "TauCeti.GeometricSatake.disjointLegLocus",
+          "role": "constructor",
+          "statement": "For b:I→K and X=Div¹_X, U_b is the subfunctor of X^I satisfying the cross-block inequality."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.disjointLegLocus_mem",
+          "role": "characterisation",
+          "statement": "A geometric tuple x lies in U_b iff b(i)≠b(j) implies x_i≠x_j for all i,j."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.disjointLegLocus_reindex",
+          "role": "functoriality",
+          "statement": "A bijection of leg sets carries U_b to U_{b∘e}, compatibly with identity and composition."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.disjointLegLocus_baseChange",
+          "role": "compatibility",
+          "statement": "Pullback of U_b under S→(Div¹_X)^I is precisely the same cross-block condition on S."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometricSatake.test_disjoint_oneBlock",
+          "kind": "degenerate",
+          "statement": "A constant block map gives U_b=X^I."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_disjoint_twoSingletons",
+          "kind": "computation",
+          "statement": "For two singleton blocks, U_b={(x,y):x≠y}."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_disjoint_internalCollision",
+          "kind": "non-example",
+          "statement": "For blocks {1,2} and {3}, (x,x,y) with x≠y lies in U_b; the full pairwise-disjoint locus would reject it."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FS VI.9.3–9.4",
+          "how": "The exterior product is first defined on this precise open, and convolution supplies its extension."
+        },
+        {
+          "where": "HeckeStacksAndLocalShtukas:HS4",
+          "how": "Blockwise factorization must remain valid during repeated collisions within blocks."
+        }
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "Restriction across collision diagonals",
+      "kind": "theorem",
+      "statement": "For the blockwise disjoint inclusion j_b, restriction j_b*:Sat^I_G(Λ)→Sat_G(U_b,Λ) is fully faithful, and so is restriction of finite projective local systems on the leg base. Every Satake object satisfies A ≅ pH⁰(Rj_b*j_b*A). This is uniqueness and reconstruction for objects already extending; full faithfulness alone asserts no essential surjectivity.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-locus",
+        "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
+        "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+        "VStackSheavesAndLisseCategories:VS1",
+        "GeometricSatakeAndFusion:GS1/perverse-descent-and-shifted-ct"
+      ],
+      "proofSteps": [
+        "Filter the complement by smooth partial diagonals of positive ℓ-codimension. Purity makes their i*i! on locally constant perfect complexes lie in degrees ≥2.",
+        "The conservatively detecting, t-exact constant-term functors reduce the required perverse bound to that local-system bound.",
+        "Apply the open–closed triangle and perverse truncation to obtain the reconstruction and Hom isomorphisms."
+      ],
+      "acceptance": [
+        "For two legs the diagonal has codimension one and contributes starting in degree two.",
+        "A codimension-zero closed component would invalidate the argument; arbitrary restrictions of arbitrary categories are not fully faithful."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "Proposition VI.9.3 pp227–228",
+          "match": "Proves the two full-faithfulness assertions by partial diagonal bounds; reconstruction follows in the proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      },
+      "planet": {
+        "name": "Collision extension uniqueness"
+      }
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/support-parity",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "Satake support parity",
+      "kind": "definition",
+      "statement": "The parity of a Schubert tuple μ• is ε(μ•)=Σ_i⟨2ρ,μ_i⟩ mod 2 in Z/2. Differences along dominance are sums of coroots, whose pairing with 2ρ is even, so parity is constant on a connected-component stratum and defines an open-and-closed even/odd decomposition of the local Hecke stack. For mixed-parity objects use their canonical summands. The correction scalar for homogeneous A,B is (-1)^{ε(A)ε(B)}.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "ReductiveGroupsPartII:RG2.5",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/schubert-bounds-and-properness",
+        "mathlib:RootPairing"
+      ],
+      "proofSteps": [
+        "Use ⟨2ρ,α∨⟩=2 for each simple coroot and dominance differences to prove constancy on closure relations.",
+        "Disjoint unions add dimensions and hence add parity. Apply the sign separately to the four pairs of canonical summands."
+      ],
+      "acceptance": [
+        "An odd-dimensional minuscule Schubert object is odd even when its ungraded fibre has even rank.",
+        "Parity is additive; an odd/odd swap has scalar -1."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.9 pp228–229",
+          "match": "The parity decomposition and exact commutativity correction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      },
+      "planet": {
+        "name": "Satake parity"
+      },
+      "api": [
+        {
+          "name": "TauCeti.GeometricSatake.supportParity",
+          "role": "data",
+          "statement": "The degree sum reduced modulo two, equivalently the dimension parity on each component."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.supportParity_dominance",
+          "role": "characterisation",
+          "statement": "Comparable dominant Schubert tuples have equal parity."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.supportParity_union",
+          "role": "compatibility",
+          "statement": "Parity on a disjoint union is the sum of the two parities in Z/2."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.fusionSign",
+          "role": "data",
+          "statement": "For e,f∈Z/2, the correction is (-1)^{ef}; it is a bicharacter."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometricSatake.test_parity_unit",
+          "kind": "degenerate",
+          "statement": "The zero-cocharacter unit has parity zero."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_sign_oddOdd",
+          "kind": "computation",
+          "statement": "The correction on two odd summands is -1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_sign_evenOdd",
+          "kind": "computation",
+          "statement": "The correction on an even and an odd summand is +1; reducing coefficient rings modulo two makes both signs equal."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_parity_empty",
+          "kind": "degenerate",
+          "statement": "An empty tuple has parity zero."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_parity_minusculeRank",
+          "kind": "non-example",
+          "statement": "The dimension-one PGL₂ minuscule object has parity one, unlike the parity of its rank-two fibre."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_parity_coroot",
+          "kind": "compatibility",
+          "statement": "Dimension values 1 and 3 have the same parity, testing a simple-coroot change by two."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_sign_characteristicTwo",
+          "kind": "computation",
+          "statement": "The odd/odd integer sign reduces to +1 in Z/2 but not in Z/3; no inversion of two is required."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FS VI.9.4",
+          "how": "Cancels the Koszul sign seen by total cohomology so that the fibre functor has the ordinary symmetric target."
+        },
+        {
+          "where": "Classical comparison",
+          "how": "The same component parity corrects the alternating Frobenius trace of a perverse shift."
+        }
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "Fusion product and ordinary symmetry",
+      "kind": "construction",
+      "statement": "For blocks I=⊔_a I_a and A_a∈Sat^{I_a}_G(Λ), use the chain of modifications E_0→⋯→E_k, projections p_a to the a-th modification and composition m. Define the fusion object *_{a}A_a=Rm_*(⊗_a p_a*A_a). The construction is ULA, bounded and flat perverse and restricts to ⊠_a A_a on U_b. It is independent of the order by full faithfulness. Apply the fold map I ⊔ I → I (diagonal pullback and the Grassmannian pushforward) to obtain the internal tensor on Sat^I. Modify its geometric commutativity by (-1)^{ε(A)ε(B)}. This gives a symmetric monoidal structure refining the existing convolution, with total cohomology F^I strong symmetric monoidal into ordinary, ungraded finite-projective local systems (with Weil realization in the next target).",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+        "GeometricSatakeAndFusion:GS3:fusion/support-parity",
+        "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
+        "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
+        "VStackSheavesAndLisseCategories:VS1/ula-dualizability-criterion",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+        "mathlib:CategoryTheory.SymmetricCategory",
+        "mathlib:CategoryTheory.Functor.Braided",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
+        "GeometricSatakeAndFusion:GS2:correspondences/convolution-associativity-and-unit",
+        "mathlib:CategoryTheory.MonoidalCategory",
+        "mathlib:CategoryTheory.Functor.Monoidal",
+        "mathlib:CategoryTheory.BraidedCategory",
+        "VStackSheavesAndLisseCategories:VS3"
+      ],
+      "proofSteps": [
+        "Construct the proper chain-composition correspondence, whose restriction to disjoint blocks is an isomorphism. ULA stability comes from the IV.2 correspondence criterion.",
+        "Apply constant terms: their total pushforward is locally constant perfect and agrees on the disjoint locus with the degree-zero finite-projective exterior product. Density and VI.7.7 imply flat perversity.",
+        "Use VI.9.3 for uniqueness of associativity, commutativity and unit comparisons; all relations hold after disjoint restriction.",
+        "Total cohomology carries the geometric flip to the graded Koszul flip. The component correction cancels that sign and preserves hexagon, involution and unit laws."
+      ],
+      "acceptance": [
+        "For one block recover A itself, and tensor with the zero-modification unit is the original object.",
+        "Odd/odd braiding is the negative of the geometric flip; after F it is the ordinary flip.",
+        "The construction uses neither rational decomposition nor rational reductivity.",
+        "Both hexagons, the pentagon, triangle, double-braiding identity and monoidal interchange commute as diagrams of natural transformations; equality of object isomorphism classes is insufficient."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "Proposition VI.9.4 pp228–229; parity convention p228; VI.8.1–VI.8.2 pp224–226",
+          "match": "Proper chain convolution gives existence of the exterior-product extension; disjoint restriction gives its unique coherent comparisons. Corrected symmetry refines already monoidal convolution."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      },
+      "planet": {
+        "name": "Fusion product"
+      },
+      "api": [
+        {
+          "name": "TauCeti.GeometricSatake.fusionProduct",
+          "role": "constructor",
+          "statement": "The proper chain-composition pushforward for a finite ordered partition."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.fusionProduct_restrict",
+          "role": "compatibility",
+          "statement": "Its restriction to U_b is canonically the exterior tensor product."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.fusionTensor",
+          "role": "structure",
+          "statement": "Duplicate legs and diagonal pullback give the internal tensor, canonically isomorphic to convolution."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.fusionBraiding",
+          "role": "structure",
+          "statement": "Geometric block permutation multiplied on homogeneous summands by (-1)^{ε(A)ε(B)}."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.fibreFusionIso",
+          "role": "compatibility",
+          "statement": "F(A*B) ≅ F(A)⊗F(B), respecting the ordinary symmetry, unit and associativity constraints."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.fusionProduct_interchange",
+          "role": "compatibility",
+          "statement": "Exterior fusion is compatible with componentwise convolution through the interchange isomorphism; units and associators commute with it. This is the monoidal-functor structure of VI.9.4, in addition to internal symmetric fusion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometricSatake.test_fusion_unit",
+          "kind": "degenerate",
+          "statement": "Fusion with the unit is isomorphic to the original object."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_fusion_disjoint",
+          "kind": "compatibility",
+          "statement": "On two distinct divisors fusion is the exterior product, with no additional extension summand supported on the diagonal."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_fusion_oddSymmetry",
+          "kind": "non-example",
+          "statement": "For two odd objects F sends corrected braiding to the ordinary flip; the uncorrected braiding gives its negative when 2 is invertible."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_fusion_mixedParity",
+          "kind": "characterisation",
+          "statement": "For A=A_even ⊕ A_odd the braiding acts blockwise, negatively only on the odd/odd block. No homogeneous parity is assigned to A as a whole."
+        }
+      ],
+      "uses": [
+        {
+          "where": "FS VI.10.1–10.3",
+          "how": "Tensor compatibility and the product of bounded left-adjoint generators construct the multi-leg Hopf algebra."
+        },
+        {
+          "where": "ExcursionOperatorsAndSpectralAction",
+          "how": "Coherent multi-leg tensor symmetry supplies representations with colliding labels, without semisimplicity."
+        }
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "CoCartesian finite-set functoriality",
+      "kind": "construction",
+      "statement": "For a map α:I→J, let Δ_α:(Div¹)^J→(Div¹)^I repeat the j-th divisor on its inverse-image block. Pull back along Gr^I_G ×_(Div¹)^I (Div¹)^J → Gr^I_G and push forward along the natural closed immersion Gr^I_G ×_(Div¹)^I (Div¹)^J ↪ Gr^J_G. Descending the required loop equivariance defines α_!:Sat^I→Sat^J; the closed immersion is on Grassmannians, not on quotient Hecke stacks. This merges each fibre of α and inserts unit modifications at empty fibres. For permutations it relabels legs, and for disjoint unions it respects exterior fusion. Canonical identity and composition comparisons satisfy the finite-set coherence relations. Together with exterior fusion they give the coCartesian family of symmetric monoidal Satake categories over finite sets. For the fold I ⊔ I → I its comparison with exterior fusion identifies the resulting product with convolution; the unique map ∅→I carries the coefficient unit to the unit object.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+        "RelativeFarguesFontaine:RF2:integral-divisors/product-equation-and-affineness",
+        "EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/loop-groups-and-local-hecke",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/grassmannian",
+        "mathlib:CategoryTheory.MonoidalCategory",
+        "mathlib:CategoryTheory.Functor.Monoidal",
+        "VStackSheavesAndLisseCategories:VS3"
+      ],
+      "proofSteps": [
+        "Use the diagonal base-change square and its closed Grassmannian immersion to define pull-push, check loop equivariance and descend to the Satake categories. Directly check compositional base change; do not replace this diagram by a closed immersion of quotient Hecke stacks.",
+        "Compare exterior fusion followed by collision with fusion of the collided blocks, first where the distinct surviving target blocks are disjoint. Within each collapsed block use the chain-composition/base-change and associativity diagrams from GS2; do not restrict the source to the pairwise-distinct locus, whose pullback along a genuine collision is empty.",
+        "Every coherence diagram reduces to the same disjoint-locus permutation/composition identity; include empty fibres with the unit. Use the imported operadic language to package these comparisons."
+      ],
+      "acceptance": [
+        "Three legs colliding successively agree with their single simultaneous collision.",
+        "Permutation inverse/identity comparisons are inverse, and inserting then forgetting a unit leg is identity.",
+        "The two paths for I→J→K→L agree after the functor associator; the block-sum comparison uses α ⊔ β, rather than an unrelated map with the same cardinalities."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.9 pp226–227, including the footnote p227; Proposition VI.9.4 pp228–229",
+          "match": "The diagonal pull-push defines arbitrary finite-set maps; the exterior fusion comparison and its symmetry/coherence follow from VI.9.3–VI.9.4."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      },
+      "planet": {
+        "name": "Finite-set fusion"
+      },
+      "api": [
+        {
+          "name": "TauCeti.GeometricSatake.collisionFunctor",
+          "role": "functoriality",
+          "statement": "The functor α_! associated to any map α:I→J, including empty fibres."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.collisionFunctor_id",
+          "role": "simp",
+          "statement": "The identity-map functor is canonically isomorphic to identity."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.collisionFunctor_comp",
+          "role": "functoriality",
+          "statement": "(β∘α)_! ≅ α_! followed by β_!, with coherent associativity."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.collisionFunctor_comp_assoc",
+          "role": "compatibility",
+          "statement": "For I→J→K→L, the two composition comparisons from the composite functor to the iterated functors agree after the functor associator; retain the full enhanced finite-set coherence."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.collisionFunctor_union",
+          "role": "compatibility",
+          "statement": "Disjoint union of maps commutes with exterior fusion, including its corrected permutations."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.collisionFunctor_unitInsertion",
+          "role": "constructor",
+          "statement": "An unused target leg is assigned the zero-modification tensor unit."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometricSatake.test_collision_threeLegs",
+          "kind": "characterisation",
+          "statement": "The two orders merging three legs to one give the canonical associativity comparison, whose pentagon commutes."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_collision_permutation",
+          "kind": "computation",
+          "statement": "A transposition followed by itself gives the identity relabeling functor and comparison."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.test_collision_emptyFibre",
+          "kind": "degenerate",
+          "statement": "The map ∅→{1} sends the coefficient unit to the zero-modification object, rather than zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ExcursionOperatorsAndSpectralAction:ES6–ES7",
+          "how": "Excursions use arbitrary label maps, their compositions and unit insertions."
+        },
+        {
+          "where": "HeckeStacksAndLocalShtukas:HS4",
+          "how": "Repeated collisions and disjoint unions require coherent families of comparison maps."
+        }
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "Weil realization of total cohomology",
+      "kind": "theorem",
+      "statement": "For every finite I, finite-projective Λ-local systems on (Div¹)^I are equivalent to continuous finite-projective Λ-representations of W_E^I. Under this equivalence F^I=⊕_r H^r Rπ_* (after pullback to Gr) is exact, faithful and conservative. A map f in Satake has a kernel if ker F^I(f) is a direct summand of F^I(A), and similarly for cokernels; no general abelian or semisimple assertion is made. F^I is strong symmetric monoidal for corrected fusion. For α:I→J, F^J α_! ≅ Res_{dα} F^I, where dα:W_E^J→W_E^I sends (w_j) to (w_{α(i)}); these comparisons respect identities, composition, permutations, exterior products and units. The Drinfeld equivalence applies to locally constant perfect complexes, not all étale complexes.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules.",
+        "The torsion coefficient ring is discrete, killed by an integer prime to p; continuity is for the Weil topology and the discrete module topology. An ℓ-adic version requires compatible reductions and complete coefficient modules, not an arbitrary topologized Representation abbreviation."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "VStackSheavesAndLisseCategories:VS1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+        "RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness",
+        "mathlib:Representation",
+        "mathlib:Module.Projective",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
+        "VStackSheavesAndLisseCategories:VS3"
+      ],
+      "proofSteps": [
+        "Import IV.7.3 in its DLc form. Restrict to finite-projective local systems in degree zero to obtain VI.9.2.",
+        "Apply VI.7.10 to the total cohomology functor and VI.9.4 to tensor comparison; cohomological grading is forgotten only after its parity sign is accounted for.",
+        "For α:I→J compare the divisor diagonal with B(dα); pullback of representations is restriction in the displayed direction. Use the naturality in IV.7.3 and the cohomological collision square in VI.9 pp226–227.",
+        "Fix the Tate stalk convention separately from the parameter cocycle: arithmetic Frobenius acts on Λ(1) by q and geometric Frobenius by q⁻¹. VI.11 pp235–236,239 identifies the P¹ root line Hom(H²,H⁰)=Λ(1). No square root of q enters unnormalized fusion; choosing s²=q gives geometric half-Tate stalk scalar s⁻¹, while the positive-power formula in IX.7.1 pp334–335 concerns parameter untwisting. A formal transport adapter remains a named supplier obligation."
+      ],
+      "acceptance": [
+        "For I=∅ the target is finite projective Λ-modules.",
+        "For singleton I the action is the local Weil action, and for multiple legs the source is W_E^I, not its diagonal copy.",
+        "For α:{1,2}→{*}, dα is the diagonal W_E→W_E²; for an inclusion {1}→{1,2}, dα is projection W_E²→W_E. These directions agree with collision and insertion.",
+        "H⁰(P¹)=Λ, H²(P¹)=Λ(−1), hence the root line Hom(H²,H⁰) has geometric scalar q⁻¹; the positive-power parameter normalization is not this stalk action."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "Proposition VI.9.2 p226; Proposition IV.7.3 pp165–166 (full faithfulness begins p164)",
+          "match": "Combines the exact DLc Drinfeld equivalence with the finite-projective degree-zero specialization."
+        },
+        {
+          "sourceId": "FS",
+          "locator": "VI.7.10 p222; VI.9 pp226–227; VI.11.1 pp235–236 and its proof p239; IX.7.1 pp334–335",
+          "match": "Exactness and split kernel/cokernel criterion; collision square and Weil restriction direction; root-line Tate convention and distinct parameter normalization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      }
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "Symmetric constant terms",
+      "kind": "theorem",
+      "statement": "For a parabolic P with Levi M, CT_P[deg_P]:Sat^I_G(Λ)→Sat^I_M(Λ) is symmetric monoidal for corrected fusion, commutes with F^I, and is transitive for nested parabolics with the sum of the degree shifts. It respects arbitrary finite-set collision functors, disjoint unions and permutations, with identity, composition and transitivity coherences. The degree is componentwise ⟨2ρ_G−2ρ_M,μ⟩; omission of it changes the weight degrees.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+        "ReductiveGroupsPartII:RG2.5",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
+        "VStackSheavesAndLisseCategories:VS3"
+      ],
+      "proofSteps": [
+        "Use VI.7.13 for landing, degrees and transitivity. Off the collision diagonals the assertion is Künneth and blockwise hyperbolic localization.",
+        "Use full faithfulness to extend the comparisons and all their equations. Cohomology-degree parity ensures the modified symmetry matches on G and M."
+      ],
+      "acceptance": [
+        "For P=G the functor is identity.",
+        "For T⊂M⊂G the two-step weight functor agrees with the direct one with its summed degree shift.",
+        "On each component the shifts for G→M→M′ sum to ⟨2ρ_G−2ρ_M′,μ⟩. The shift is integral; neither a half-Tate choice nor an unshifted functor replaces it.",
+        "The collision/constant-term square commutes for a fold and an injection, with compatibility between this square and nested-parabolic composition."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "Proposition VI.9.6 p230; Proposition VI.7.13 pp223–224; VI.11 p236",
+          "match": "Shifted constant terms are symmetric monoidal, commute with the fibre functor and exterior fusion, and retain nested-parabolic transitivity. This is the Fargues–Fontaine statement, independent of the rational Witt comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      },
+      "planet": {
+        "name": "Symmetric constant terms"
+      }
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS3:fusion/fusion-verdier-duality",
+      "parentStageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "realises": [
+        "GeometricSatakeAndFusion:GS3:fusion"
+      ],
+      "title": "Fusion and Verdier duality",
+      "kind": "theorem",
+      "statement": "The inversion/reversal sw* is symmetric monoidal for fusion and F^I sw* ≅ F^I. Verdier duality D is a contravariant symmetric monoidal involution, D sw* ≅ sw* D and F^I D ≅ (F^I)^∨. The internal tensor dual of A is sw*D(A). These identifications retain their evaluation, coevaluation and finite-set coherence data; sw* itself need not be identity.",
+      "hypotheses": [
+        "E is a nonarchimedean local field with residue field F_q of characteristic p; G/E is connected reductive.",
+        "Λ is a commutative torsion coefficient ring killed by an integer prime to p. The ℓ-adic extension uses a fixed prime ℓ ≠ p and compatible reductions through the imported coefficient adapter.",
+        "Satake objects have bounded support, are universally locally acyclic over the leg base, and are flat perverse; representation objects have finite projective coefficient modules."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS2:Satake-closure/convolution-preserves-satake-and-dualizability",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-category-and-fibre-functor",
+        "mathlib:CategoryTheory.LeftRigidCategory",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-verdier-duality",
+        "GeometricSatakeAndFusion:GS2:Satake-closure/satake-rigidity",
+        "VStackSheavesAndLisseCategories:VS3"
+      ],
+      "proofSteps": [
+        "VI.8.2 supplies convolution duals before fusion; VI.7.12 supplies F(D A)=F(A)^∨.",
+        "VI.9.4 promotes them through the canonical convolution/fusion comparison. F(sw*A)=F(A) and full faithfulness yield the symmetric involution and its duality coherences."
+      ],
+      "acceptance": [
+        "A torus weight μ is inverted by sw* and internal dual, with the corresponding dual local system.",
+        "The PGL2 minuscule case distinguishes a symmetric Verdier pairing from the alternating SL2 pairing used in VI.12.",
+        "Both evaluation/coevaluation triangle identities commute with the convolution-to-fusion comparison and finite-set transport. A fibre-duality isomorphism alone does not specify the internal dual.",
+        "For a torus, sw* sends weight μ to −μ while D preserves the support weight and dualizes its local system; sw*D therefore sends (μ,L) to (−μ,L∨)."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "Corollary VI.9.5 pp229–230; VI.8.2 pp225–226",
+          "match": "States the fibre-dual comparison and derives the symmetric involutions from existing rigidity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Fusion",
+        "namespace": "TauCeti.GeometricSatake"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS1",
+      "need": "IV.7.3 equivalence D_Lc(X×BW_E^I,Λ) ≅ D_Lc(X×(Div¹)^I,Λ) for locally constant perfect complexes, with degree-zero finite-projective specialization; positive-codimension partial-diagonal purity; ULA/hyperbolic-localization base change. Preserve the distinction from all D_et and explicitly identify the transported Tate character and its stalk/parameter action convention.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+        "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "need": "Import the existing local Weil group, its topology with open profinite inertia and arithmetic degree. Expose continuous finite-projective product representations, geometric degree = minus arithmetic degree, and the cyclotomic/Tate stalk convention. Do not reconstruct the Weil group here; the current roadmap fixes arithmetic Frobenius as positive degree.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization"
+      ]
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.5",
+      "need": "Expose the integral root/coroot pairing, simple coroot basis, 2ρ and component/coroot quotient for a connected reductive group, étale-locally and compatibly with Levi restriction. Pairing 2ρ with every simple coroot is 2; pairing 2ρ_G−2ρ_M is the constant-term component shift. This uses the existing ReductiveGroups root-system development; no dual-group reconstruction or rank-one recognition is requested in this stage.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS3:fusion/support-parity",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term"
+      ]
+    },
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS3",
+      "need": "Use the existing adic/ordinary/solid coefficient comparisons to transport bounded ULA flat-perverse Satake objects and finite-projective fibre local systems through compatible ℓ-power reductions, preserving convolution, proper/base-change comparisons, duality and finite-set transport. State the allowed complete coefficient rings and boundedness hypotheses explicitly; do not identify lisse-site categories with locally constant perfect complexes or define rational completion by an unrestricted tensor with Q_ℓ. VS1 retains the IV.7.3 geometric equivalence.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-verdier-duality"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GeometricSatakeAndFusion:GS3:fusion",
+      "status": "planned",
+      "remaining": [
+        "Formal geometric carriers absent at the pins",
+        "Drinfeld transport and coefficient convention adapter"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Formal geometric carriers absent at the pins",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-locus",
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness",
+        "GeometricSatakeAndFusion:GS3:fusion/support-parity",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-verdier-duality"
+      ],
+      "detail": "Div¹ v-stacks, local Hecke/Grassmannian diamonds, bounded ULA flat-perverse Satake categories and continuous finite-projective Weil representation categories are supplied by the named earlier owners, not present as Lean carriers at the pins. The suggested file only states genuine light locus/parity/leg-map interfaces on existing types. Heavy targets and all their hypotheses stay in the reader; there are no arbitrary-category stand-ins or admitted data definitions."
+    },
+    {
+      "title": "Drinfeld transport and coefficient convention adapter",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-verdier-duality"
+      ],
+      "detail": "VS1 does not yet isolate the exact IV.7.3 locally constant perfect equivalence with its finite-projective heart, finite-product and diagonal naturality, transported Tate stalk action and compatible ℓ-adic reductions. The source-level contract and Frobenius signs are fixed here, but its formal carrier-level construction remains with VS1 and the existing ClassFieldTheory Weil owner; VS3 supplies the compatible adic coefficient comparisons with their actual boundedness and coefficient-ring hypotheses. Fusion itself needs no half-Tate choice."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "GeometricSatakeAndFusion"
+      ],
+      "detail": "RT-AREA-geomlanglands/1: the atlas edge GS3:fusion→GS2:Satake-closure conflicts with FS VI8 preceding VI9 and would make imported rigidity cyclic.",
+      "proposal": "Remove GS3:fusion as a prerequisite of GS2:Satake-closure; rename its title from Closure after fusion to Convolution closure and rigidity. Add GS2:Satake-closure→GS3:fusion. Preserve the independent VI8 two-leg degeneration proof, which does not use the constructed VI9 fusion tensor."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "target": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "detail": "Read current Layer 9: its Weil degree is arithmetic. Import this construction, use its negative for geometric degree, and expose the product continuous-representation/Tate convention adapter rather than rebuilding local Weil theory."
+    }
+  ],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+      "read": "2026-10-19; scoped sections recorded in sources",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
+    }
+  ]
+}
