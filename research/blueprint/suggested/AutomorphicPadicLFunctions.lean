@@ -387,5 +387,5 @@ names already declared above are marked `(above)`.
 
 * `L5/normalisation-comparisons` (comparison): stated in the README.
 * `L5/evaluation-principle-instances` (comparison): stated in the README.
-* `L5/cpr-panchishkin-proposition` (definition): `CPRP.periods` (above), `CPRP.hodgePolygon`, `CPRP.newtonPolygon`, `CPRP.admissibility`, `CPRP.modifiedEulerFactor`, `CPRP.statement`, `CPRP.admissibility_twist`, `CPRP.of_measure`, `cprp_tate_motive`, `cprp_ordinary_h_one`, `cprp_supersingular_h_two`, `cprp_no_constructor`.
+* `L5/cpr-panchishkin-proposition` (definition): `CPRP.periods` (above), `CPRP.hodgePolygon`, `CPRP.newtonPolygon`, `CPRP.admissibility`, `CPRP.modifiedEulerFactor`, `CPRP.statement`, `CPRP.admissibility_twist`, `CPRP.of_measure`, `cprp_tate_motive`, `cprp_ordinary_h_one`, `cprp_supersingular_not_admissible`, `cprp_no_constructor`.
 -/
