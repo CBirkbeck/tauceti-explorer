@@ -104,7 +104,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 - [`Matrix.det_mul`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean): For finite square matrices over a commutative ring, det(MN)=det(M)det(N).
 - [`Matrix.det_nonsing_inv`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean): The determinant of Mathlib’s nonsingular inverse matrix is Ring.inverse of its determinant; over a field and a nonzero determinant this is its multiplicative inverse.
 - [`NumberField.RingOfIntegers.instFintypeClassGroup`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/ClassNumber.lean): The ideal class group of the ring of integers of a number field is finite.
-- [`NumberField.Units.finrank_eq`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean): The rational rank of the ring-of-integers unit group equals the number-field unit rank; this is the existing Dirichlet unit theorem, not the new odd p-unit valuation isomorphism.
+- [`NumberField.Units.finrank_eq`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean): The statement is finrank ℤ (Additive (𝓞 K)ˣ)=NumberField.Units.rank K for a number field K. This existing Dirichlet unit-rank theorem supplies the rank calculation after rationalization; it is not the new odd p-unit valuation isomorphism.
 - [`PowerSeries.X`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PowerSeries/Basic.lean): The formal variable power series, with coefficient 1 in degree one and 0 elsewhere.
 - [`PowerSeries.coeff`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PowerSeries/Basic.lean): The R-linear extraction of the n-th coefficient of a formal power series; Taylor coefficients supply the finite-dimensional arithmetic normalization after the analytic comparison.
 - [`PowerSeries.order`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/PowerSeries/Order.lean): The least nonzero coefficient degree in ℕ∞, with order ⊤ for the zero series. It is not an independently defined analytic order.
@@ -229,7 +229,7 @@ The map o_p:U^-⊗Q→X^-⊗Q is an isomorphism of Q[G]-modules. Consequently o_
 
 **Dependencies.** `GS.0/unit-divisor-modules`, `mathlib:NumberField.RingOfIntegers.instFintypeClassGroup`, `mathlib:NumberField.Units.finrank_eq`.
 
-**Sources.** [DKV18](#references), §1, pp. 835–836; §1.2, p. 838. The rational valuation isomorphism and the component dimension imply the nonzero valuation determinant.
+**Sources.** [DKV18](#references), §1, (5)–(6), pp. 835–836; §1.1, pp. 837–838. The rational valuation isomorphism and the component dimension imply the nonzero valuation determinant.
 
 ### Gross’s p-adic regulator
 
@@ -270,7 +270,7 @@ Define R_p(χ)=det_E(ℓ_p^χ∘(o_p^χ)^{-1}) as an endomorphism of X_χ. For a
 
 **Dependencies.** `GS.0/valuation-isomorphism`, `mathlib:LinearMap.det`, `mathlib:LinearMap.det_toMatrix`, `mathlib:Matrix.det_mul`, `mathlib:Matrix.det_nonsing_inv`.
 
-**Sources.** [DKV18](#references), §1, (5), p. 836; §1.2, (8)–(10), p. 838. The invariant determinant and its coordinate ratio determine the sign and the choice-independent regulator.
+**Sources.** [DKV18](#references), §1, regulator definition following (6), p. 836; §1.1, (8), p. 838. The invariant determinant and its coordinate ratio determine the sign and the choice-independent regulator.
 
 ### Analytic leading terms
 
@@ -324,7 +324,7 @@ For every prime p, including 2, ord_{z=0} L_p(χω,z)≥r. Prove it by the Charo
 **Construction or proof.**
 
 1. Choose c by the ray-class/prime correspondence so the smoothing factor is nonzero at zero. Use the supplier’s Eisenstein-cocycle realization of that smoothed Deligne–Ribet measure and its Mellin identity.
-2. For r exceptional primes, choose totally positive π_i generating positive powers of their ray ideal classes. Set T=⟨π_i⟩ and U=E_+×T. In the space C_c^♭ of compactly supported functions constant near zero in exceptional coordinates, use the free C_p[T]-module resolution and Hochschild–Serre edge isomorphism of CD14 Theorem 5.1. These are homological consequences of induced-function decompositions, with no odd-prime assumption.
+2. For r exceptional primes, choose totally positive π_i generating positive powers of their ray ideal classes. Set T=⟨π_i⟩ and U=E_+×T. In the space C_c^♭ of compactly supported functions constant near zero in exceptional coordinates, the induced-function decomposition of CD14 Lemma 5.3 makes this a free C_p[T]-module. Thus H_q(T,C_c^♭)=0 for q>0, and the Hochschild–Serre spectral sequence gives the edge isomorphism of Theorem 5.1. These homological steps have no odd-prime assumption.
 3. CD14 Theorem 5.2: for k<r, expand (∑ℓ_q(x_q))^k. In each monomial an exceptional coordinate is absent; the difference (1−π_i) on the corresponding box writes it in the T-augmentation ideal, with lower-degree errors handled inductively. Its homology class therefore vanishes.
 4. Pair with the supplied measure cocycle to obtain vanishing of derivatives of orders k<r (CD14 (79)–(84)). Divide by the smoothing unit. The main-conjecture alternative from the parent I.5 applies only at odd p and is not used for p=2.
 
@@ -406,7 +406,7 @@ For a finite-dimensional topological E-vector space V with scalar G_F-action χ^
 
 **Target:** `GS.1/kummer-identification` · **Declaration:** `GrossStark.kummer_identification`.
 
-The rationalized Kummer map identifies U_χ with the subgroup of H^1(G_F,E(χ)(1)) with local unit-Kummer condition at every finite q∉R. Locally it identifies the completed multiplicative group with H^1(G_{H_P},E(1)); at q∉R the class is in the local condition orthogonal to the unramified condition on E(χ^{-1}). With the pairing ordered as H^1(E(χ^{-1})) first and H^1(E(χ)(1)) second, the cup-product/invariant pairing with the Kummer image of u is a fixed universal sign times evaluation at u under the chosen reciprocity convention.
+The rationalized Kummer map identifies U_χ with the subgroup of H^1(G_F,E(χ)(1)) with local unit-Kummer condition at every finite q∉R. Locally it identifies (lim_n H_P^×/(H_P^×)^{p^n})⊗_{Z_p}E with H^1(G_{H_P},E(1)), using the additive form of the multiplicative completion; at q∉R the class is in the local condition orthogonal to the unramified condition on E(χ^{-1}). With the pairing ordered as H^1(E(χ^{-1})) first and H^1(E(χ)(1)) second, the cup-product/invariant pairing with the Kummer image of u is a fixed universal sign times evaluation at u under the chosen reciprocity convention.
 
 **Hypotheses and conventions.** Inverse limits are formed before inverting p; do not replace the p-adic completion of units by the uncompleted group.
 
@@ -574,7 +574,7 @@ For an ordered basis κ_i of H_cyc^1(χ), set L_alg(χ)=det X/det Y, using the l
 
 **Dependencies.** `GS.1/cyclotomic-dimension`, `mathlib:Matrix.det_mul`.
 
-**Sources.** [DKV18](#references), §1.2, (11)–(12), p. 839. The ratio of local coefficient determinants is the algebraic invariant.
+**Sources.** [DKV18](#references), §1.2, unnumbered definition of the algebraic invariant, p. 839. The ratio of local coefficient determinants is the algebraic invariant.
 
 ### Cohomological formula for the regulator
 
@@ -592,7 +592,7 @@ L_alg(χ)=R_p(χ). For any unit basis and cyclotomic class basis, orthogonality 
 
 **Dependencies.** `GS.1/algebraic-invariant`, `GS.1/orthogonality-duality`, `GS.1/orthogonality-reciprocity`, `GS.0/gross-regulator`, `mathlib:Matrix.det_mul`.
 
-**Sources.** [DKV18](#references), §1.2, (13), pp. 839–840. Orthogonality identifies the cohomological invariant with Gross’s signed regulator.
+**Sources.** [DKV18](#references), §1.2, unnumbered comparison following Proposition 1, p. 839. Orthogonality identifies the cohomological invariant with Gross’s signed regulator.
 
 **Layer acceptance.** Every target and Check above holds with the common sign and topology conventions, and every direct supplier contract is discharged at the stated generality. The global end theorem is reached only after GS.5.
 
@@ -645,9 +645,9 @@ Put Λ=O_E[[T]], ν_k(T)=u^{k−1}−1, with u=1+p for odd p and u=5 for p=2. It
 
 **Target:** `GS.2/eisenstein-dictionary` · **Declaration:** `GrossStark.eisenstein_dictionary`.
 
-Transport the supplied ordinary Hilbert modules M^o(n,χ), S^o(n,χ), full/cuspidal Hecke algebras T̃,T and q-expansions to this weight convention. Write E(1,χ), E(χ,1) for the two supplied ordinary Eisenstein families. The first has away-from-np eigenvalue 1+χε(l), the second χ(l)+ε(l). The first has every standard-cusp constant 2^{−[F:Q]}ℒ_χ. At weight one both stabilize to E_1(1,χ_S), where S is all primes above p. For R′⊆J⊆S, the imprimitive classical series satisfy (U_q−1)E_1(1,χ_J)=E_1(1,χ_{J∪{q}}) when q∉J and 0 when q∈J.
+Transport the supplied ordinary Hilbert modules M^o(n,χ), S^o(n,χ), full/cuspidal Hecke algebras T̃,T and q-expansions to this weight convention. The supplied ordinary family E(1,χ) has away-from-np eigenvalue 1+χε(l), every standard-cusp constant 2^{−[F:Q]}ℒ_χ, and weight-one specialization E_1(1,χ_S), where S is all primes above p. When R′=∅, also use the ordinary family E(χ,1), with eigenvalue χ(l)+ε(l) and the same weight-one specialization. For R′⊆J⊆S, the imprimitive classical series satisfy (U_q−1)E_1(1,χ_J)=E_1(1,χ_{J∪{q}}) when q∉J and 0 when q∈J.
 
-**Hypotheses and conventions.** The conductor/tame-level convention is that of DKV18; the supplier must include imprimitive Euler deletions and all standard cusps. For the primitive level-one weight-one series, include both constant-term contributions L(χ,0) and χ^{-1}(λ)L(χ^{-1},0); the single-term formula does not cover this exception.
+**Hypotheses and conventions.** The conductor/tame-level convention is that of DKV18; the supplier must include imprimitive Euler deletions and all standard cusps. For the primitive level-one weight-one series, include both constant-term contributions L(χ,0) and χ^{-1}(λ)L(χ^{-1},0); the single-term formula does not cover this exception. The paired ordinary family E(χ,1) and its common weight-one specialization are required only when R′=∅; no such ordinary common specialization is asserted for general R′.
 
 **Construction or proof.**
 
@@ -660,7 +660,7 @@ Transport the supplied ordinary Hilbert modules M^o(n,χ), S^o(n,χ), full/cuspi
 
 **Dependencies.** `GS.2/weight-coordinate`, `AutomorphicPadicLFunctions:L3/hilbert-eisenstein-series`, `AutomorphicPadicLFunctions:L3/eisenstein-constant-terms`, `AutomorphicPadicLFunctions:L3/padic-q-expansion-principle`, `AutomorphicPadicLFunctions:L3/padic-hilbert-modular-forms`, `PadicFamilies:L0a/profinite-ordinary-projector`, `PadicFamilies:L5`.
 
-**Sources.** [DKV18](#references), §3.1–§3.3, pp. 847–851, especially footnote 6 and (35). The required specialization, Fourier coefficients, constants and stabilization identities are fixed by these formulas.
+**Sources.** [DKV18](#references), §3.1–§3.3, pp. 847–851, especially footnote 6 and (35); §3.4, p. 854. The required specialization, Fourier coefficients, constants and stabilization identities are fixed by these formulas.
 
 ### Ventullo’s constant-term-one family
 
@@ -768,16 +768,16 @@ There exists t∈T̃_(1) such that F=t e F̃ is in S^o(n,χ)_(1) and ν_1(t)E_1(
 
 **Construction or proof.**
 
-1. Use the supplied Eisenstein decomposition of the boundary of ordinary Hilbert forms and the standard-cusp-zero condition on F̃.
-2. Separate the remaining boundary eigensystems from the weight-one E_S eigensystem by away-from-np Hecke operators, using the prime-selection input. Form their product and normalize its nonzero eigenvalue on E_S to 1.
+1. Use the supplied Eisenstein decomposition of the ordinary boundary and the vanishing of the standard-cusp constants of F̃. For the two boundary systems indexed by η=1 and η=χ, the standard-cusp equations remove the first; when R′=∅, the paired-family cancellation in F̃ removes the second as well. Use Ventullo’s family from the preceding construction, so this step imports no Leopoldt assumption from DDP11.
+2. For the other boundary systems, η≠1,χ, choose away-from-np Hecke operators separating their weight-one eigensystems from E_S by Chebotarev. In Case 1 the η=χ system can have the same away-from-np eigenvalues as E_S: if it survives the ordinary projector, choose q∈R′ and use U_q−χ(q), which kills that boundary system and acts on E_S by 1−χ(q)≠0. If it is nonordinary it was already killed by e. Multiply the separating operators and normalize their nonzero E_S eigenvalue to 1.
 3. The resulting t kills the boundary of eF̃. Commutativity lets every Hecke congruence and leading correction pass through t e; ν_1(t)E_S=E_S preserves the top stabilization term.
 
 
-**Acceptance.** The equation ν_1(t)E_S=E_S is essential; t=0 is not a valid choice. Use the stronger normalized version retained in arXiv v1, not merely the published existence statement. On the finite weight-one generalized Eisenstein stabilization space the normalized t has eigenvalue 1 plus nilpotent terms, so is invertible; this preserves the independence used in all three Hecke-image proofs. On the finite weight-one generalized Eisenstein stabilization space the normalized t has eigenvalue 1 plus nilpotent terms, so is invertible; this preserves the independence used in all three Hecke-image proofs.
+**Acceptance.** The equation ν_1(t)E_S=E_S is essential; t=0 is not a valid choice. Use the stronger normalized version retained in arXiv v1, not merely the published existence statement. On the finite weight-one generalized Eisenstein stabilization space the normalized t has eigenvalue 1 plus nilpotent terms, so is invertible; this preserves the independence used in all three Hecke-image proofs. In Case 1, a surviving η=χ boundary family is removed using a U_q operator for q∈R′; away-from-np operators alone do not distinguish its weight-one eigenvalues from E_S.
 
-**Dependencies.** `GS.2/semicusp-family`, `GS.2/eisenstein-dictionary`, `PadicFamilies:L5`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
+**Dependencies.** `GS.2/semicusp-family`, `GS.2/eisenstein-dictionary`, `PadicFamilies:L5`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `AutomorphicPadicLFunctions:L3`.
 
-**Sources.** [DKV18](#references), Theorem 3.2, p. 849. Cuspidality is asserted here; the normalization must be restored. [DKV16](#references), Theorem 3.2, p. 16. The preprint includes the normalization on the weight-one Eisenstein series. [DDP11](#references), Corollary 2.10, pp. 469–470; Propositions 3.3–3.4 and Lemma 3.5, pp. 472–474. Boundary decomposition and Hecke separation give the normalized projection.
+**Sources.** [DKV18](#references), Theorem 3.2, p. 849. Cuspidality is asserted here; the normalization must be restored. [DKV16](#references), Theorem 3.2, p. 16. The preprint includes the normalization on the weight-one Eisenstein series. [DDP11](#references), Lemma 2.9 and Corollary 2.10, pp. 469–470; Propositions 3.3–3.4 and Lemma 3.5, pp. 472–474. The boundary decomposition and separation argument supplies the linear algebra, including U_q separation in Case 1; the auxiliary family is supplied by V15 rather than the Leopoldt-dependent input in DDP11.
 
 **Layer acceptance.** Every target and Check above holds with the common sign and topology conventions, and every direct supplier contract is discharged at the stated generality. The global end theorem is reached only after GS.5.
 
@@ -952,7 +952,7 @@ An E-basis of W₃ is 1,π,…,π^s, y,…,y^{t−1}, and ε_J for ∅≠J⊊R; 
 
 **Dependencies.** `GS.3/case-three-ring`.
 
-**Sources.** [DKV18](#references), Theorem 3.8, p. 856; §5.2, pp. 869–870. The quotient basis and y-adic line are the algebra needed in the unequal-order argument.
+**Sources.** [DKV18](#references), Theorem 3.8, p. 856; §5.2, pp. 867–868. The quotient basis and y-adic line are the algebra needed in the unequal-order argument.
 
 ### Fourier Hecke orbit and auxiliary operator
 
@@ -1132,7 +1132,7 @@ Use τ to put the product representation in a global eigenbasis ρ(σ)=[[a(σ),b
 
 - `GrossStark.arithmeticExtensionData.twist`: A raw relation b̄(στ)=b̄(τ)+b̄(σ)χ(τ) becomes the displayed left-action cocycle only after multiplication by χ^{-1}(στ).
 - `GrossStark.arithmeticExtensionData.coboundary_normalization`: If κ=(χ^{-1}−1)v, its value at τ forces v=0 since χ(τ)≠1; then κ is the zero function.
-- `GrossStark.arithmeticExtensionData.nonfree`: A finite off-diagonal module with more than one generator is allowed; replacing it by a chosen free rank-one module changes the construction.
+- `GrossStark.arithmeticExtensionData.nonfree`: For the module-interface check over A=E[[x,y]], B=(x,y)⊂Frac(A) is finite and has dim_E B/(x,y)B=2. The shared finite-module adapter must admit this input; a requirement that every such B be free of rank one would fail it. This check asserts no particular Hida family realizing B.
 
 
 **Uses.** GS.4 local analysis: Connects the actual ordinary representation to restricted cohomology. GS.5 orthogonality: Its B̄-valued local evaluations give the determinant relation.
@@ -1514,6 +1514,11 @@ Locators for DKV18 use the published Annals pagination. DKV16 is consulted only 
 - **E34**, Published DKV18, §5.2, error ideal and (88)–(89), p. 868: After φ_m use yW and m_WyW=y²W; the final line is y^rW/y^{r+1}W. The two ideals live in different rings. The relation πy=y² supplies the intended error and filtration in W₃.
 - **E35**, Published DKV18, §5.2, after (89), p. 868: Identify L*_an(χ^{-1}) with L_an(χ^{-1}) instead. Here t is the inverse-character order; the χ order is s>t, so its rank-r coefficient is zero.
 
+- **E36**, Author copy dated 4 November 2014, proof of Theorem 5.1, p. 31: Use projective dimension zero, hence H_q(T,C_c^♭)=0 for q>0. The spectral sequence then has only its q=0 row. A free group-ring module is projective, and group homology is Tor over that group ring. Vanishing in every positive degree is the fact needed for the edge isomorphism.
+- **E37**, Published §4.2, final proof sentence, p. 961; also arXiv §4.2, p. 20: The internal reference is to Theorem 2, whose auxiliary ordinary family is constructed in §4. Theorem 2 is stated at the start of §4, and the concluding construction discharges its reduction in §4.1. Theorem 1 is the rank-one Gross–Stark result proved earlier.
+
+All 31 findings above were independently checked at their locators and confirmed in REV-DESIGN-IntegralIwasawaTheoryPartII on 2026-10-19. E36 concerns only the specified author copy; E37 was compared with the publisher text. No external correction search is claimed beyond the places recorded in the packet.
+
 
 The source’s Case 3 independence argument is written out in `GS.3/case-three-hecke-map`; it is not treated as an unresolved gap. The unsupported quotient in Remark 4.5 is excluded from the proof route. The independently reviewed extraction rejected its proposed E1 and E8 findings, and neither is asserted here. Preprint-only slips outside the directly compared theorem are not attributed to the published article.
 
@@ -1524,3 +1529,4 @@ The source’s Case 3 independence argument is written out in `GS.3/case-three-h
 - **DDP11.** Samit Dasgupta, Henri Darmon and Robert Pollack, [Hilbert modular forms and the Gross–Stark conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v174-n1-p12-p.pdf), Annals of Mathematics (2) 174 (2011), 439–484. Read 2026-10-19. Locators used: Proposition 1.4 and Lemma 1.5, pp. 455–456; Lemma 2.9 and Corollary 2.10, pp. 469–470; Propositions 3.3–3.4 and Lemma 3.5, pp. 472–474.
 - **CD14.** Pierre Charollois and Samit Dasgupta, [Integral Eisenstein cocycles on GL_n, I: Sczech’s cocycle and p-adic L-functions of totally real fields](https://sites.math.duke.edu/~dasgupta/papers/Charollois-Dasgupta.pdf), Author version dated 4 November 2014; Cambridge Journal of Mathematics 2 (2014), 49–90; locators use author pagination. Read 2026-10-19. Locators used: Introduction, Theorems 2–3, pp. 3–5; §5.1–§5.2, pp. 27–32, including the proofs of Theorems 5.1–5.2.
 - **V15.** Kevin Ventullo, [On the rank one abelian Gross–Stark conjecture](https://arxiv.org/pdf/1308.2261), arXiv:1308.2261; published in Commentarii Mathematici Helvetici 90 (2015), 939–963; locators use arXiv pagination. Read 2026-10-19. Locators used: §2.1, pp. 4–5; §4.1–§4.2, pp. 14–20, including Theorem 2 and its construction.
+- **V15-published.** Kevin Ventullo, [On the rank one abelian Gross–Stark conjecture](https://ems.press/content/serial-article-files/43407), Commentarii Mathematici Helvetici 90 (2015), 939–963. Read 2026-10-19 only for §4, pp. 955–956 and 961, to compare E37 with the version of record.
