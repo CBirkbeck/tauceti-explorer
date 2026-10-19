@@ -1,18 +1,18 @@
 # Independent review of the round-four p-adic fixes
 
 **Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
-codex-ESvajv.** The live issue's three-packet review is already recorded. The
+codex-jF7cls.** The live issue's three-packet review is already recorded. The
 generated job still requires ten other packets outside that issue's permitted
 scope. This continuation verifies that administrative blocker and preserves
 the mathematical review, source-reading attribution and prior Lean evidence.
 
-The bot confirmed [claim 6263926956](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6263926956)
-in [comment 6263930173](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6263930173).
+The bot confirmed [claim 6265184802](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6265184802)
+in [comment 6265188099](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6265188099).
 The complete issue was fetched and re-read after confirmation. This session
 did none of the fixes or earlier reviews and claimed no second job.
 
-Checkout: `3e0797a48ffa72f490c00bf83579f92011c2034b`. An independent fetch of
-GitHub main at [`8ef33b78858968d3ba365ab147d3adb965f4d20c`](https://github.com/CBirkbeck/tauceti-explorer/commit/8ef33b78858968d3ba365ab147d3adb965f4d20c)
+Checkout: `bcb332fc47701d4ee0a51e0070f271b65b99baa2`. An independent fetch of
+GitHub main at [`bcb332fc47701d4ee0a51e0070f271b65b99baa2`](https://github.com/CBirkbeck/tauceti-explorer/commit/bcb332fc47701d4ee0a51e0070f271b65b99baa2)
 has the same ordered review outputs and dependencies. Fresh execution of the
 unmodified `issues.deliverables_complete` against the checkout gives:
 
@@ -21,6 +21,7 @@ unmodified `issues.deliverables_complete` against the checkout gives:
 | Live issue's permitted scope | 7 | 3 | True |
 | Checkout's generated queue | 27 | 13 | False |
 | Independently fetched GitHub-main queue | 27 | 13 | False |
+| Historical issued review at `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6` | 7 | 3 | True |
 
 Every generated output exists. The three permitted packets name this review
 with accepted / needs_changes / accepted verdicts. All ten extra packets have
