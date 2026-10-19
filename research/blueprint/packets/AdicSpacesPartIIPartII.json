@@ -12,7 +12,7 @@
   "AdicSpacesPartIIPartII:RZ.6"
  ],
  "status": "complete",
- "summary": "Target-level plan of rigid-analytic Zariski geometry, extending AdicSpacesPartII. RZ.0 defines Zariski closed subsets and local dimension, proves Conrad's criteria for nowhere density and that images of proper morphisms are Zariski closed. RZ.1 constructs the normalization of a rigid space, its connected and irreducible components (Conrad §§1.2, 2.1–2.2), the irreducibility criterion (Lemma 2.2.3), the full-dimension criterion (Corollary 2.2.7) and the connectedness of dense Zariski opens of irreducible spaces. RZ.2 defines the singular locus, identifies smooth and regular loci in characteristic 0, and proves the finite stratification of a reduced finite-dimensional space by smooth strata and the Zariski openness of maximal-rank loci of differentials. RZ.3 treats classical points, their density, rigid analytic points of diamonds (Howe–Klevdal Definition 2.2.1(1), Remark 2.2.2), the L-points of polydiscs and the Gauss point in the closure of the rational points when the residue field is infinite. RZ.4 is Bhatt–Hansen §2.1: specialisation, Shilov and weakly Shilov points, Abhyankar's bound and the transcendence criterion, and Corollary 2.10. RZ.5 is Temkin's functorial resolution: blow-up sequences, the scheme-level theorems (proposed for transfer to an AlgebraicModuliForArithmeticGeometry Part II), regularity of affinoid localizations, Theorems 5.2.2/5.3.2 for rigid spaces and the consequences Howe–Klevdal use. RZ.6 gives analytic manifolds of rational points of smooth rigid spaces, the analytic inverse function theorem, polydisc neighbourhoods, the constant rank theorem in characteristic 0, submersions from smooth morphisms, and the identity theorem across a closed subfield.",
+ "summary": "Target-level plan of rigid-analytic Zariski geometry, extending AdicSpacesPartII. RZ.0 defines Zariski closed subsets and local dimension, supplies regularity of affinoid restriction, proves Conrad's criteria for nowhere density and that images of proper morphisms are Zariski closed. RZ.1 constructs the normalization of a rigid space, its connected and irreducible components (Conrad §§1.2, 2.1–2.2), the irreducibility criterion (Lemma 2.2.3), the full-dimension criterion (Corollary 2.2.7) and the connectedness of dense Zariski opens of irreducible spaces. RZ.2 defines the singular locus, identifies smooth and regular loci in characteristic 0, and proves the finite stratification of a reduced finite-dimensional space by smooth strata and the Zariski openness of maximal-rank loci of differentials. RZ.3 treats classical points, their density, rigid analytic points of diamonds (Howe–Klevdal Definition 2.2.1(1), Remark 2.2.2), the L-points of polydiscs and the Gauss point in the closure of the rational points when the residue field is infinite. RZ.4 is Bhatt–Hansen §2.1: specialisation, Shilov and weakly Shilov points, Abhyankar's bound and the transcendence criterion, and Corollary 2.10. RZ.5 is Temkin's functorial resolution: blow-up sequences, the scheme-level theorems (proposed for transfer to an AlgebraicModuliForArithmeticGeometry Part II), Theorems 5.2.2/5.3.2 for rigid spaces and the consequences Howe–Klevdal use. RZ.6 gives analytic manifolds of rational points of smooth rigid spaces, the analytic inverse function theorem, polydisc neighbourhoods, the constant rank theorem in characteristic 0, submersions from smooth morphisms, and the identity theorem across a closed subfield.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -21,323 +21,316 @@
     "ref": "mathlib:Algebra.trdeg",
     "kind": "def",
     "module": "Mathlib/RingTheory/AlgebraicIndependent/Basic.lean",
-    "provides": "Transcendence degree of an algebra over a field",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Cardinal-valued transcendence degree; compare finite local dimension using the natural-number-to-cardinal coercion.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/AlgebraicIndependent/Basic.lean:45."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsReduced",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Properties.lean",
     "provides": "Reduced schemes",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/AlgebraicGeometry/Properties.lean:69."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme",
     "kind": "structure",
     "module": "Mathlib/AlgebraicGeometry/Scheme.lean",
     "provides": "Schemes",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/AlgebraicGeometry/Scheme.lean:42."
    },
    {
     "ref": "mathlib:AnalyticAt",
     "kind": "def",
     "module": "Mathlib/Analysis/Analytic/Basic.lean",
     "provides": "Analyticity of a map at a point (local power series expansion) over a nontrivially normed field",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Analysis/Analytic/Basic.lean:110."
    },
    {
     "ref": "mathlib:AnalyticAt.hasStrictFDerivAt",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Calculus/FDeriv/Analytic.lean",
     "provides": "An analytic map has a strict Fréchet derivative",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Analysis/Calculus/FDeriv/Analytic.lean:141."
    },
    {
     "ref": "mathlib:AnalyticOnNhd",
     "kind": "def",
     "module": "Mathlib/Analysis/Analytic/Basic.lean",
     "provides": "Analyticity on a neighbourhood of every point of a set",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
-   },
-   {
-    "ref": "mathlib:AnalyticOnNhd.eqOn_zero_of_preconnected_of_eventuallyEq_zero",
-    "kind": "theorem",
-    "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
-    "provides": "Identity theorem: an analytic function on a preconnected open set vanishing near one point vanishes on the set",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Analysis/Analytic/Basic.lean:120."
    },
    {
     "ref": "mathlib:BaireSpace",
     "kind": "class",
     "module": "Mathlib/Topology/Defs/Basic.lean",
-    "provides": "Baire spaces; complete (pseudo-e)metric spaces are Baire",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "The Baire-space class itself; completeness implies this through BaireSpace.of_completelyPseudoMetrizable, a separate theorem.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Topology/Defs/Basic.lean:232. Completeness instance also read in Mathlib/Topology/Baire/CompleteMetrizable.lean:26; inferred in the proof rather than restated."
    },
    {
     "ref": "mathlib:ChartedSpace",
     "kind": "class",
     "module": "Mathlib/Geometry/Manifold/ChartedSpace.lean",
     "provides": "Charted spaces modelled on a topological space",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Geometry/Manifold/ChartedSpace.lean:141."
    },
    {
     "ref": "mathlib:ConnectedComponents",
     "kind": "def",
     "module": "Mathlib/Topology/Connected/Clopen.lean",
     "provides": "The space of connected components of a topological space",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Topology/Connected/Clopen.lean:510."
    },
    {
     "ref": "mathlib:HasFPowerSeriesOnBall",
     "kind": "structure",
     "module": "Mathlib/Analysis/Analytic/Basic.lean",
     "provides": "A function given by a formal multilinear series on a ball",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Analysis/Analytic/Basic.lean:74."
    },
    {
     "ref": "mathlib:HasStrictFDerivAt.toOpenPartialHomeomorph",
     "kind": "def",
     "module": "Mathlib/Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean",
-    "provides": "Inverse function theorem over a nontrivially normed field: a strictly differentiable map with invertible derivative is a local homeomorphism",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "A strict derivative given by a continuous linear equivalence gives an open partial homeomorphism; the source model is a complete normed space.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean:117."
    },
    {
     "ref": "mathlib:Ideal.height",
     "kind": "def",
     "module": "Mathlib/RingTheory/Ideal/Height.lean",
-    "provides": "Height of an ideal",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Ideal height in ℕ∞, defined through heights of prime ideals minimal over the ideal.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Ideal/Height.lean:36."
    },
    {
     "ref": "mathlib:Ideal.radical",
     "kind": "def",
     "module": "Mathlib/RingTheory/Ideal/Operations.lean",
     "provides": "Radical of an ideal",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Ideal/Operations.lean:798."
    },
    {
     "ref": "mathlib:IsIntegrallyClosed",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean",
-    "provides": "Integrally closed domains",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Integrally closed in the fraction ring; use together with IsDomain when saying normal domain.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/IntegralClosure/IntegrallyClosed.lean:74."
    },
    {
     "ref": "mathlib:IsLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
     "provides": "Local rings",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/LocalRing/Defs.lean:30."
    },
    {
     "ref": "mathlib:IsManifold",
     "kind": "class",
     "module": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
     "provides": "Manifolds of a given smoothness (ω = analytic) for a model with corners",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Geometry/Manifold/IsManifold/Basic.lean:779."
    },
    {
     "ref": "mathlib:IsPreconnected",
     "kind": "def",
     "module": "Mathlib/Topology/Connected/Basic.lean",
     "provides": "Preconnected subsets of a topological space",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Topology/Connected/Basic.lean:50."
    },
    {
     "ref": "mathlib:IsReduced",
     "kind": "class",
     "module": "Mathlib/Algebra/GroupWithZero/Basic.lean",
     "provides": "Reduced rings (no nonzero nilpotents)",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Algebra/GroupWithZero/Basic.lean:192."
    },
    {
     "ref": "mathlib:IsRegularLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
     "provides": "Regular local rings",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/RegularLocalRing/Defs.lean:51."
    },
    {
     "ref": "mathlib:IsUltrametricDist",
     "kind": "class",
     "module": "Mathlib/Topology/MetricSpace/Ultra/Basic.lean",
     "provides": "Ultrametric distance",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Topology/MetricSpace/Ultra/Basic.lean:46."
    },
    {
     "ref": "mathlib:LinearMap.range",
     "kind": "def",
     "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
     "provides": "Range of a linear map",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Algebra/Module/Submodule/Range.lean:57."
    },
    {
     "ref": "mathlib:Matrix.det",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
     "provides": "Determinant of a square matrix",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:60."
    },
    {
     "ref": "mathlib:Matrix.rank",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Matrix/Rank.lean",
-    "provides": "Rank of a matrix over a commutative ring",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Natural-valued finrank of the range; the rank-locus argument uses matrices over fields.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/LinearAlgebra/Matrix/Rank.lean:134."
    },
    {
     "ref": "mathlib:MaximalSpectrum",
     "kind": "structure",
     "module": "Mathlib/RingTheory/Spectrum/Maximal/Defs.lean",
     "provides": "The maximal spectrum of a commutative ring",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Spectrum/Maximal/Defs.lean:27."
    },
    {
     "ref": "mathlib:Module.Flat",
     "kind": "class",
     "module": "Mathlib/RingTheory/Flat/Basic.lean",
     "provides": "Flat modules",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Flat/Basic.lean:113."
    },
    {
     "ref": "mathlib:Module.finrank",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
-    "provides": "Finite rank of a module",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Natural-valued finite rank (Cardinal.toNat); dimension statements require finite-dimensionality.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/LinearAlgebra/Dimension/Finrank.lean:62."
    },
    {
     "ref": "mathlib:MvPolynomial",
     "kind": "abbrev",
     "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
     "provides": "Multivariate polynomials",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Algebra/MvPolynomial/Basic.lean:82."
    },
    {
     "ref": "mathlib:MvPolynomial.funext",
     "kind": "theorem",
     "module": "Mathlib/Algebra/MvPolynomial/Funext.lean",
     "provides": "Over an infinite field a polynomial is determined by its values",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Algebra/MvPolynomial/Funext.lean:82."
    },
    {
     "ref": "mathlib:MvPowerSeries.gaussNorm",
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPowerSeries/GaussNorm.lean",
-    "provides": "Gauss norm of a multivariate power series",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Supremum defining the Gauss norm; multiplicativity and boundedness require further hypotheses and Tau Ceti results.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/MvPowerSeries/GaussNorm.lean:57."
    },
    {
     "ref": "mathlib:NormedAlgebra",
     "kind": "class",
     "module": "Mathlib/Analysis/Normed/Module/Basic.lean",
     "provides": "Normed algebras over a normed field",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Analysis/Normed/Module/Basic.lean:274."
    },
    {
     "ref": "mathlib:OpenPartialHomeomorph",
     "kind": "structure",
     "module": "Mathlib/Topology/OpenPartialHomeomorph/Defs.lean",
     "provides": "Partial homeomorphisms with open source and target",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Topology/OpenPartialHomeomorph/Defs.lean:52."
    },
    {
     "ref": "mathlib:OpenPartialHomeomorph.hasFPowerSeriesAt_symm",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Analytic/Inverse.lean",
     "provides": "Analytic inverse function theorem: the inverse of a local homeomorphism with a power series and invertible linear term has a power series",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Analysis/Analytic/Inverse.lean:656."
    },
    {
     "ref": "mathlib:PrimeSpectrum",
     "kind": "structure",
     "module": "Mathlib/RingTheory/Spectrum/Prime/Defs.lean",
     "provides": "The prime spectrum of a commutative ring",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Spectrum/Prime/Defs.lean:34."
    },
    {
     "ref": "mathlib:TangentSpace",
     "kind": "def",
     "module": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
-    "provides": "Tangent spaces of manifolds",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "The model-fibre tangent-space carrier of a charted manifold; comparison with the algebraic tangent space is a target here.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Geometry/Manifold/IsManifold/Basic.lean:1035."
    },
    {
     "ref": "mathlib:Valuation",
     "kind": "structure",
     "module": "Mathlib/RingTheory/Valuation/Basic.lean",
     "provides": "Valuations on rings",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Valuation/Basic.lean:80."
    },
    {
     "ref": "mathlib:ValuationSubring",
     "kind": "structure",
     "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
     "provides": "Valuation subrings of a field",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Valuation/ValuationSubring.lean:41."
    },
    {
     "ref": "mathlib:mfderiv",
     "kind": "def",
     "module": "Mathlib/Geometry/Manifold/MFDeriv/Defs.lean",
     "provides": "Derivative of a map between manifolds",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Geometry/Manifold/MFDeriv/Defs.lean:336."
    },
    {
     "ref": "mathlib:minimalPrimes",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean",
     "provides": "Minimal prime ideals of a ring",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean:63."
    },
    {
     "ref": "mathlib:modelWithCornersSelf",
     "kind": "def",
     "module": "Mathlib/Geometry/Manifold/IsManifold/Basic.lean",
     "provides": "The trivial model with corners of a normed space",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/Geometry/Manifold/IsManifold/Basic.lean:209."
    },
    {
     "ref": "mathlib:ringKrullDim",
     "kind": "def",
     "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
-    "provides": "Krull dimension of a commutative ring",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Krull dimension in WithBot ℕ∞; the zero ring has bottom dimension. Affinoid finiteness is an additional mathematical input.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; Mathlib/RingTheory/KrullDimension/Basic.lean:29."
    },
    {
     "ref": "tauceti:TauCeti.Huber.powerBoundedSubring",
     "kind": "def",
     "module": "TauCeti/RingTheory/Huber/PowerBounded.lean",
     "provides": "The subring of power-bounded elements of a Huber ring",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; TauCeti/RingTheory/Huber/PowerBounded.lean:436."
    },
    {
     "ref": "tauceti:TauCeti.Huber.topologicallyNilpotentIdeal",
     "kind": "def",
     "module": "TauCeti/RingTheory/Huber/PowerBounded.lean",
     "provides": "The ideal of topologically nilpotent power-bounded elements",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; TauCeti/RingTheory/Huber/PowerBounded.lean:451."
    },
    {
     "ref": "tauceti:TauCeti.ValuationSpectrum.classicalPoint",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
-    "provides": "The point of Spa attached to an evaluation at power-bounded elements",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Evaluation point at a tuple of power-bounded base elements over a specified base Spa point; not a predicate classifying all classical points.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean:148."
    },
    {
     "ref": "tauceti:TauCeti.ValuationSpectrum.closedPolydisc",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean",
     "provides": "The closed polydisc in a valuation spectrum",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; TauCeti/AlgebraicGeometry/AdicSpace/Spa/Polydisc.lean:72."
    },
    {
     "ref": "tauceti:TauCeti.ValuationSpectrum.spa",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean",
-    "provides": "The adic spectrum Spa(A, A⁺) inside the valuation spectrum",
-    "checked": "statement read at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474) in the shared build's source tree"
+    "provides": "Continuous valuations bounded on the specified plus ring, as a subset of a valuation spectrum; not a full adic-space carrier.",
+    "checked": "Declaration statement and surrounding hypotheses read at the pinned commit; TauCeti/AlgebraicGeometry/AdicSpace/Spa/Basic.lean:97."
    }
   ]
  },
@@ -369,6 +362,7 @@
    "accessDate": "2026-10-19",
    "readSections": [
     "Notation, p. 2",
+    "§1.1, excellence and Theorem 1.1.3 with proof, pp. 3–6",
     "§1.2 Normality, pp. 7–9",
     "§2.1 Basic constructions, pp. 9–13",
     "§2.2 Irreducible components, pp. 13–16",
@@ -417,7 +411,33 @@
    "readSections": [
     "§5, Corollary 5.8 and Proposition 5.9, p. 33",
     "§6, Proposition 6.4, p. 42",
-    "§9, definitions of tangent spaces and tangent maps, Lemma 9.2, Proposition 9.3, Remark 9.4, pp. 56–59"
+    "§9, definitions of tangent spaces and tangent maps, Lemma 9.2, Proposition 9.3, Remark 9.4, pp. 56–59",
+    "§§7–8, charts, atlases and manifold definitions, pp. 45–50; Hausdorff convention on p. 47"
+   ]
+  },
+  {
+   "id": "CONRAD10",
+   "title": "Moishezon spaces in rigid geometry",
+   "authors": "Brian Conrad",
+   "url": "https://virtualmath1.stanford.edu/~conrad/papers/moish.pdf",
+   "edition": "Author version dated 1 August 2010; author-copy page numbers",
+   "sha256": "df2aeab82752316a4b5843c60dc7c727873bdc4bfca6d55759299e43daefec47",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "§2.1, Theorem 2.1.1 and Lemma 2.1.3 with proof, pp. 3–5"
+   ]
+  },
+  {
+   "id": "POINEAU13",
+   "title": "Les espaces de Berkovich sont angéliques",
+   "authors": "Jérôme Poineau",
+   "url": "https://www.numdam.org/article/BSMF_2013__141_2_267_0.pdf",
+   "edition": "Bulletin de la Société Mathématique de France 141 (2013), no. 2, 267–297; printed page numbers",
+   "sha256": "c1d3aea9ca8b8c492c6e7f8291300c54d9187d3365a55de593f60814b2d48db8",
+   "accessDate": "2026-10-19",
+   "readSections": [
+    "§4, Definition 4.1 and Lemma 4.4, pp. 283–284",
+    "§4, Remark 4.14 and Corollaries 4.15–4.18 with proofs, pp. 287–288"
    ]
   }
  ],
@@ -450,6 +470,18 @@
    "kind": "published",
    "citation": "P. Schneider, p-Adic Lie Groups, Springer 2011 (maintainer's cleared copy)",
    "read": "2026-10-19"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://virtualmath1.stanford.edu/~conrad/papers/moish.pdf",
+   "read": "2026-10-19",
+   "sha256": "df2aeab82752316a4b5843c60dc7c727873bdc4bfca6d55759299e43daefec47"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/article/BSMF_2013__141_2_267_0.pdf",
+   "read": "2026-10-19",
+   "sha256": "c1d3aea9ca8b8c492c6e7f8291300c54d9187d3365a55de593f60814b2d48db8"
   }
  ],
  "nodes": [
@@ -468,7 +500,7 @@
    ],
    "proofSteps": [
     "The support of the coherent sheaf O_X/𝓘 is closed, and on U it is V(I) because (O_X/𝓘)_x = 0 iff some f ∈ I is a unit at x iff |f(x)| ≠ 0 for some f ∈ I.",
-    "Radicals: √I is again an ideal of the noetherian ring A; the sheaves (√I)~ glue because formation of the radical commutes with the flat maps A → O(U′) of affinoid subdomains of reduced rings (a rational localization of a reduced affinoid is reduced; RigidAnalyticGeometry Layers 3–4 as cited in AdicSpacesPartII R1). This gives the largest coherent ideal with support Z.",
+    "For I ⊆ A, radical formation commutes with affinoid restriction because the quotient by √I is reduced and remains reduced on rational domains (AdicSpacesPartII:R5/reduced-affinoid-rational-localisation), and arbitrary affinoid restrictions are covered by rational domains. Flatness preserves the exact quotient sequence; reducedness, rather than flatness alone, identifies its nilradical. The resulting radical ideals glue coherently.",
     "Unions and intersections: V(𝓘) ∪ V(𝓙) = V(𝓘𝓙) and ∩_α V(𝓘_α) = V(Σ_α 𝓘_α), the sum being coherent locally because A is noetherian; hence a topology.",
     "Preimages: for f : Y → X, f^{-1}(V(𝓘)) = V(𝓘·O_Y)."
    ],
@@ -482,7 +514,8 @@
     "AdicSpacesPartII:R1/rigid-adic-comparison-functor",
     "AdicSpacesPartII:R1/rigid-analytic-space",
     "mathlib:Ideal.radical",
-    "tauceti:TauCeti.ValuationSpectrum.spa"
+    "tauceti:TauCeti.ValuationSpectrum.spa",
+    "AdicSpacesPartII:R5/reduced-affinoid-rational-localisation"
    ],
    "uses": [
     {
@@ -573,7 +606,7 @@
     {
      "name": "not_zariskiClosed_subdisc",
      "kind": "non-example",
-     "statement": "The closure in |D| of the subdisc {|T| ≤ |ϖ|} of the closed unit disc (the subdisc together with one rank-two point on its boundary) is a closed subset of |D| that is not Zariski closed: every Zariski closed set containing the subdisc is all of D (AdicSpacesPartII:R1/rigid-identity-principle). A definition by closedness in |X| fails this test."
+     "statement": "For 0 < |ϖ| < 1, the topological closure of {|T| ≤ |ϖ|} in the unit disc is proper and has nonempty interior. It is not Zariski closed: the identity principle forces a Zariski closed subset containing that subdisc to be the whole disc. No classification or count of boundary specializations is needed."
     }
    ],
    "planet": {
@@ -609,12 +642,12 @@
    "statement": "For X a rigid space over K and x ∈ |X|, the local dimension is dim_x X = min{dim O_X(U) : U ∋ x an affinoid open}, where dim O_X(U) is the Krull dimension of the K-affinoid algebra O_X(U) (−∞ for the empty space). The dimension of X is dim X = sup_{x} dim_x X. For a Zariski closed Z ⊆ X and z ∈ Z, dim_z Z means the local dimension of Z_red at z.",
    "hypotheses": [
     "The minimum exists because the Krull dimension of a nonzero K-affinoid algebra is a natural number (Noether normalization, AdicSpacesPartII:R0/affinoid-noether-normalisation).",
-    "At a classical point x, dim_x X equals the Krull dimension of the noetherian local ring O_{X,x} (proved in RZ.1 from irreducible components; for affinoid domains this is AdicSpacesPartII:R1/affinoid-domain-equidimensional)."
+    "At a classical point, dim_x X equals dim O_{X,x}; prove this using the minimal primes of one affinoid ring and the equidimensionality of affinoid domains, without using global irreducible components."
    ],
    "proofSteps": [
     "If U′ ⊆ U are affinoid neighbourhoods of x then dim O(U′) ≤ dim O(U): an affinoid subdomain inclusion is flat with the same completed local rings at classical points (AdicSpacesPartII:R1/rigid-local-ring-completion), and the Krull dimension of an affinoid algebra is the maximum of the dimensions of its local rings at maximal ideals (Jacobson, AdicSpacesPartII:R0/affinoid-jacobson).",
     "Hence dim_x X is computed on arbitrarily small affinoid neighbourhoods, x ↦ dim_x X is upper semicontinuous, and dim_x Y ≤ dim_x X for a locally closed immersion Y ↪ X (a closed subspace of an affinoid has smaller Krull dimension; open immersions do not change local dimension).",
-    "At a classical point, choose U small enough to meet only the irreducible components of X through x (finitely many meet an affinoid, AdicSpacesPartII R1 and RZ.1); each has dimension equal to that of its local ring at x, so dim_x X = dim O_{X,x}."
+    "On U = Spa(A), write its finitely many minimal primes as p_i. Remove the closed union V(p_i) for those not contained in the maximal ideal m_x. Each remaining A/p_i is an affinoid domain, whose maximal localizations have dimension dim(A/p_i). Restrict to a small affinoid neighbourhood inside this complement. The maximum of these dimensions is both dim_x X and dim A_m; completion identifies the latter with dim O_{X,x}."
    ],
    "acceptance": [
     "The closed unit polydisc of dimension n has local dimension n at every point, the Gauss point included.",
@@ -757,7 +790,7 @@
     "(b) ⇒ (c): if I ⊆ p for a minimal prime p of A, choose g lying in every other minimal prime but not in p (prime avoidance). g is not nilpotent, so its supremum norm is positive (AdicSpacesPartII:R0/affinoid-maximum-modulus) and for c ∈ K× with |c| ≤ |g|_sup the Laurent domain {|g| ≥ |c|} is a nonempty affinoid open. At each of its points x, supp(x) does not contain g, so it contains the minimal prime p; hence the domain lies in V(p) ⊆ V(I) = Z.",
     "(c) ⇒ (b): if Z ⊇ U = Spa(B, B°) ≠ ∅ inside Spa(A, A°), then I·B is nilpotent; B has a minimal prime q and A → B is flat (AdicSpacesPartII:R1/affinoid-subdomain-flat), so by going down q ∩ A is a minimal prime of A containing I.",
     "(c) ⇔ (d): at a classical point z with maximal ideal m, the completions of A_m and O_{X,z} agree (AdicSpacesPartII:R1/rigid-local-ring-completion), so dimensions may be computed in A_m; dim (A/I)_m < dim A_m for all m ⊇ I iff no minimal prime of A contained in m contains I, by catenarity of the excellent ring A (SchemeAndStackFoundations:SF.0/excellent-ring) and the equidimensionality of affinoid domains (AdicSpacesPartII:R1/affinoid-domain-equidimensional).",
-    "(d) ⇔ (e): local dimensions at classical points are those of local rings (AdicSpacesPartIIPartII:RZ.0/local-dimension), every open set contains classical points (Jacobson), and both sides are upper semicontinuous."
+    "For the dimension criterion, work with the finite minimal primes p_i of an affinoid A. A closed subset containing V(p_i) has the same local dimension at a classical point of that component away from the other components. Conversely, if I is contained in none of the p_i, each closed subset V(I+p_i) has dimension strictly smaller than the equidimensional affinoid domain A/p_i; localizing and taking the maximum over the components through a point gives strict local dimension drop. This is the affinoid argument in Conrad §2.1, p. 10."
    ],
    "acceptance": [
     "On the disc, V(T) is nowhere dense; on Spa(K⟨X,Y⟩/(XY)), the axis V(Y) is not nowhere dense although it is a proper Zariski closed subset.",
@@ -840,6 +873,63 @@
    "suggestedDeclaration": "TauCeti.Rigid.IsProper.isZariskiClosed_range"
   },
   {
+   "id": "AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular",
+   "parentStageId": "AdicSpacesPartIIPartII:RZ.0",
+   "realises": [
+    "AdicSpacesPartIIPartII:RZ.0"
+   ],
+   "title": "Affinoid localizations are regular ring maps",
+   "kind": "lemma",
+   "statement": "Let K be complete, nontrivially nonarchimedean of rank one. An inclusion Spa(B, B°) ⊆ Spa(A, A°) of affinoid domains induces a regular ring map A → B: it is flat and has geometrically regular fibres. Smooth morphisms of K-affinoid spaces also induce regular ring maps. The proof uses excellence of K-affinoid algebras in every characteristic; the cited parent node supplies this only in characteristic zero, and request Q1 records the remaining extension.",
+   "hypotheses": [
+    "No perfectness or characteristic assumption on K in the target. Q1 is required outside characteristic zero.",
+    "At a classical point of an affinoid subdomain the completed local coordinate rings agree with the completed rigid stalk."
+   ],
+   "proofSteps": [
+    "Flatness: AdicSpacesPartII:R1/affinoid-subdomain-flat.",
+    "At a maximal ideal m′ of A′ over m ⊆ A, A_m → A′_{m′} induces an isomorphism of completions (AdicSpacesPartII:R1/rigid-local-ring-completion and Conrad, proof of Corollary 1.2.3).",
+    "A_m → Â_m is regular (A excellent), and Â_m ≅ Â′_{m′} is faithfully flat over A′_{m′}; by descent of regularity along faithfully flat maps (the composite A_m → A′_{m′} → Â′_{m′} is regular), A_m → A′_{m′} is regular.",
+    "Every prime of A′ lies in a maximal ideal (A′ is Jacobson), so the fibres of A → A′ are localizations of those just treated.",
+    "Smooth case: étale-locally over a relative polydisc A⟨T_1, …, T_n⟩, and A → A⟨T⟩ is regular by the same completion argument with power series rings."
+   ],
+   "acceptance": [
+    "K⟨T⟩ → K⟨T, T^{-1}⟩ (inclusion of the unit circle) is regular; K⟨T⟩ → K (evaluation at 0) is not flat, hence not regular."
+   ],
+   "prerequisites": [
+    "AdicSpacesPartII:R1/affinoid-subdomain-flat",
+    "AdicSpacesPartII:R1/rigid-local-ring-completion",
+    "AdicSpacesPartII:F1/dagger-algebra-excellent",
+    "AdicSpacesPartII:R0/affinoid-jacobson",
+    "AdicSpacesPartII:R0/smooth-local-structure",
+    "SchemeAndStackFoundations:SF.0/regular-algebra-map",
+    "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-flat",
+    "AdicSpacesPartII:F1"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Rigid/Zariski",
+    "namespace": "TauCeti.Rigid"
+   },
+   "sources": [
+    {
+     "sourceId": "TEMKIN12",
+     "locator": "§5.2.4, proof of Theorem 5.2.2, p. 33",
+     "match": "Records that the maps from the coordinate rings of affinoid charts to those of their intersections' affinoid pieces are regular homomorphisms of excellent rings."
+    },
+    {
+     "sourceId": "CONRAD99",
+     "locator": "§1.2, proof of Corollary 1.2.3, p. 9",
+     "match": "For an open immersion of affinoids, the local maps at maximal ideals induce isomorphisms of completions, hence are faithfully flat."
+    },
+    {
+     "sourceId": "CONRAD99",
+     "locator": "§1.1, pp. 3–6, especially Theorem 1.1.3; §1.2, Corollary 1.2.3, pp. 8–9",
+     "match": "Affinoid excellence holds in every characteristic; classical stalks are excellent and have the same completions as maximal localizations. These supply the completion and descent argument for regular domain inclusions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "suggestedDeclaration": "TauCeti.Rigid.affinoidSubdomain_isRegular"
+  },
+  {
    "id": "AdicSpacesPartIIPartII:RZ.1/rigid-normalization",
    "parentStageId": "AdicSpacesPartIIPartII:RZ.1",
    "realises": [
@@ -847,9 +937,9 @@
    ],
    "title": "The normalization of a rigid space",
    "kind": "construction",
-   "statement": "Let X be a rigid space over K. For an affinoid open U = Spa(A, A°), let Ã^ν be the integral closure of A_red in its total ring of fractions; it is a finite A-algebra and a K-affinoid algebra. For affinoid opens V ⊆ U the natural map O(V) ⊗_{O(U)} O(U)^ν → O(V)^ν is an isomorphism (Conrad, Corollary 1.2.3), so the finite morphisms Spa(O(U)^ν) → U glue to a finite surjective morphism p : X^ν → X, the normalization of X. X^ν is normal (every local ring is a normal domain), p factors through X_red, p is an isomorphism over the normal locus of X_red, and a morphism Y → X is called a normalization if it is isomorphic over X to p (the isomorphism is then unique).",
+   "statement": "Let X be a rigid space over K. For an affinoid open U = Spa(A, A°), let Ã^ν be the integral closure of A_red in its total ring of fractions; it is a finite A-algebra and a K-affinoid algebra. For affinoid opens V ⊆ U the natural map O(V) ⊗_{O(U)} O(U)^ν → O(V)^ν is an isomorphism (Conrad, Corollary 1.2.3), so the finite morphisms Spa(O(U)^ν) → U glue to a finite surjective morphism p : X^ν → X, the normalization of X. X^ν is normal (every local ring is a normal domain), p factors through X_red, the factor X^ν → X_red is an isomorphism over the normal locus of X_red, and a morphism Y → X is called a normalization if it is isomorphic over X to p (the isomorphism is then unique).",
    "hypotheses": [
-    "Affinoid algebras are excellent, hence Japanese, so the integral closure is finite (RigidAnalyticGeometry §1.2 in every characteristic; AdicSpacesPartII:F1/dagger-algebra-excellent in characteristic 0).",
+    "Finiteness uses excellence (hence the Nagata property) of affinoid algebras. AdicSpacesPartII:F1/dagger-algebra-excellent supplies characteristic zero; Q1 requests the all-characteristic statement recalled by Conrad §1.1, p. 3.",
     "Conrad works on Tate's rigid spaces; the construction is local, so it applies verbatim on the adic side and is compatible with Huber's functor."
    ],
    "proofSteps": [
@@ -871,7 +961,9 @@
     "AdicSpacesPartII:F1/dagger-algebra-excellent",
     "SchemeAndStackFoundations:SF.0/excellent-ring",
     "mathlib:IsIntegrallyClosed",
-    "mathlib:IsReduced"
+    "mathlib:IsReduced",
+    "AdicSpacesPartII:F1",
+    "AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular"
    ],
    "uses": [
     {
@@ -917,7 +1009,7 @@
     {
      "name": "TauCeti.Rigid.normalization.isIso_of_isNormal",
      "role": "relation",
-     "statement": "If X is normal then p is an isomorphism; p is an isomorphism over the normal locus of X_red."
+     "statement": "The factorization X^ν → X_red is an isomorphism over the normal locus of X_red. The map X^ν → X itself has this property over the normal locus of X, which excludes nonreduced stalks."
     },
     {
      "name": "TauCeti.Rigid.normalization.lift",
@@ -1029,12 +1121,12 @@
    ],
    "title": "Connected components of a rigid space",
    "kind": "construction",
-   "statement": "A rigid space X over K is connected if it admits no covering by two disjoint nonempty open subspaces; equivalently O_X(X) has no idempotents other than 0 and 1. The connected component of x ∈ |X| is the union of all connected open subspaces containing x; it is an open and Zariski closed subspace (clopen), the connected components partition X, a quasi-compact open meets only finitely many of them, and every union of connected components is clopen. They are the connected components of the topological space |X|; on a quasi-separated X they correspond under Huber's functor to Conrad's connected components defined by chains of connected affinoids.",
+   "statement": "A rigid space X over K is connected if it is nonempty and admits no covering by two disjoint nonempty open subspaces; equivalently it is nonempty and O_X(X) has no idempotents other than 0 and 1. The connected component of x ∈ |X| is the union of all connected open subspaces containing x; it is an open and Zariski closed subspace (clopen), the connected components partition X, a quasi-compact open meets only finitely many of them, and every union of connected components is clopen. They are the connected components of the topological space |X|; on a quasi-separated X they correspond under Huber's functor to Conrad's connected components defined by chains of connected affinoids.",
    "hypotheses": [
     "X locally noetherian, so every affinoid open is a finite disjoint union of connected affinoid opens (idempotents of a noetherian ring)."
    ],
    "proofSteps": [
-    "An affinoid Spa(A, A°) is connected iff A has no nontrivial idempotent (sheafiness, AdicSpacesPartII:R0/noetherian-type-stably-sheafy), and A = ∏ A e_i splits it into finitely many connected affinoids; so connected affinoid opens form a basis and |X| is locally connected.",
+    "An affinoid Spa(A, A°) is connected iff A ≠ 0 and A has no nontrivial idempotent (sheafiness, AdicSpacesPartII:R0/noetherian-type-stably-sheafy), and A = ∏ A e_i splits it into finitely many connected affinoids; so connected affinoid opens form a basis and |X| is locally connected.",
     "Hence topological connected components of |X| are open; being closed, each is the support of the idempotent ideal it defines, hence Zariski closed.",
     "Local finiteness: a quasi-compact open is a finite union of affinoids, each meeting finitely many components.",
     "Comparison with Conrad (§2.1, p. 11): chains of connected affinoids linking two points give the same equivalence relation as topological connectedness, by local connectedness."
@@ -1063,7 +1155,7 @@
     {
      "name": "TauCeti.Rigid.IsConnected",
      "role": "characterisation",
-     "statement": "X is connected iff O_X(X) has only the idempotents 0, 1 iff |X| is connected."
+     "statement": "X is connected iff |X| is nonempty and preconnected (Mathlib IsConnected); equivalently X is nonempty and O_X(X) has no nontrivial idempotents."
     },
     {
      "name": "TauCeti.Rigid.connectedComponent",
@@ -1088,7 +1180,7 @@
     {
      "name": "TauCeti.Rigid.isConnected_affinoid_iff",
      "role": "characterisation",
-     "statement": "Spa(A, A°) is connected iff Spec A is connected."
+     "statement": "Spa(A, A°) is nonempty and connected iff Spec A is nonempty and connected; the zero ring yields the empty space on both sides."
     },
     {
      "name": "TauCeti.Rigid.IsConnected.image",
@@ -1110,12 +1202,12 @@
     {
      "name": "isConnected_empty",
      "kind": "degenerate",
-     "statement": "The empty rigid space has no points; Spa(K) is connected."
+     "statement": "The empty rigid space is preconnected but not connected and has no connected components; Spa(K) is connected with one component."
     },
     {
      "name": "connected_iff_spec_connected",
      "kind": "compatibility",
-     "statement": "For a K-affinoid A, Spa(A, A°) is connected iff PrimeSpectrum A is connected."
+     "statement": "For A ≠ 0 K-affinoid, connectedness of Spa(A,A°) and Spec A agree. Both empty spaces are excluded from connectedness."
     },
     {
      "name": "not_disconnected_by_classical_topology",
@@ -1147,7 +1239,8 @@
    "kind": "definition",
    "statement": "Let p : X^ν → X be the normalization of a rigid space X over K. The irreducible components of X are the Zariski closed subsets X_i = p(X^ν_i), with their reduced structure, for X^ν_i running through the connected components of X^ν. X is irreducible if it is nonempty and has exactly one irreducible component; a Zariski closed subset Z is irreducible if Z_red is. The components cover X, are locally finite, and X_i ≠ X_j for i ≠ j.",
    "hypotheses": [
-    "Defined through the normalization, not through the Zariski topology: the Zariski topology of a rigid space is not noetherian, and irreducibility in its sense is the criterion RZ.1/irreducibility-criterion."
+    "Defined through the normalization, not through the Zariski topology: the Zariski topology of a rigid space is not noetherian, and irreducibility in its sense is the criterion RZ.1/irreducibility-criterion.",
+    "Local analytic branches are not the global components through a point. A globally irreducible space can have a reducible analytic stalk. The component comparison under analytification is imported as a separate comparison from the parent, not used to construct components."
    ],
    "proofSteps": [
     "Images: p is finite, so p(X^ν_i) is Zariski closed (AdicSpacesPartIIPartII:RZ.0/proper-image-zariski-closed).",
@@ -1157,7 +1250,7 @@
    ],
    "acceptance": [
     "Spa(K⟨X,Y⟩/(XY)) has two irreducible components, the axes, but is connected.",
-    "The analytification of the nodal cubic y² = x²(x + 1) is irreducible although its local ring at the node is not a domain."
+    "Over a complete field of characteristic zero, the analytification of the integral cubic y² = x²(x+1) is globally irreducible. At (0,0), the convergent square root of 1+x factors the equation into two analytic branches, so its analytic local ring has two minimal primes. The normalization has two points over that node (t = ±1 under x=t²−1, y=t(t²−1))."
    ],
    "prerequisites": [
     "AdicSpacesPartIIPartII:RZ.1/rigid-normalization",
@@ -1165,8 +1258,7 @@
     "AdicSpacesPartIIPartII:RZ.1/connected-components",
     "AdicSpacesPartIIPartII:RZ.0/proper-image-zariski-closed",
     "AdicSpacesPartIIPartII:RZ.0/zariski-closed-subset",
-    "AdicSpacesPartII:R1/rigid-identity-principle",
-    "AdicSpacesPartII:R1/rigid-analytification-connected"
+    "AdicSpacesPartII:R1/rigid-identity-principle"
    ],
    "uses": [
     {
@@ -1236,7 +1328,7 @@
     {
      "name": "TauCeti.Rigid.irreducibleComponents_analytification",
      "role": "compatibility",
-     "statement": "For a scheme X locally of finite type over K, the irreducible components of X^an are the analytifications of those of X (Conrad Theorem 2.3.1, AdicSpacesPartII:R1/rigid-analytification-connected)."
+     "statement": "For a scheme X locally of finite type over K, the irreducible components of X^an are the analytifications of those of X (Conrad Theorem 2.3.1, AdicSpacesPartII:R1/rigid-analytification-connected). This is the parent’s comparison theorem, used after constructing components; it is not an input to their definition."
     }
    ],
    "tests": [
@@ -1248,7 +1340,7 @@
     {
      "name": "isIrreducible_nodal_cubic",
      "kind": "computation",
-     "statement": "The analytification of y² = x²(x + 1) (char K ≠ 2) is irreducible while Spec of its local ring at the node has two minimal primes."
+     "statement": "Over a complete field of characteristic zero, the analytification of the integral cubic y² = x²(x+1) is globally irreducible. At (0,0), the convergent square root of 1+x factors the equation into two analytic branches, so its analytic local ring has two minimal primes. The normalization has two points over that node (t = ±1 under x=t²−1, y=t(t²−1))."
     },
     {
      "name": "isIrreducible_annulus",
@@ -1282,12 +1374,17 @@
     {
      "sourceId": "CONRAD99",
      "locator": "§2.2, Lemma 2.2.1, Definition 2.2.2 and the paragraphs after it, pp. 13–14",
-     "match": "Defines irreducible components as images of the connected components of the normalization, shows they are distinct, locally finite and generically normal, that Spec O_{X,x} is irreducible iff one component passes through x, and that an irreducible space has constant local dimension."
+     "match": "Defines global components through connected components of the normalization and proves their distinctness, local finiteness and generic normality. The following claim identifying uniqueness of a global component through x with irreducibility of Spec O_{X,x} is false; it is excluded here (E5)."
     },
     {
      "sourceId": "CONRAD99",
      "locator": "§2.2, Theorem 2.2.4, Corollaries 2.2.6, 2.2.8 and 2.2.9, pp. 14–16",
      "match": "Bijection with connected components of the normalization, containment of irreducible analytic sets in components, normalization of unions, uniqueness of a minimal locally finite irreducible decomposition, and components of admissible opens."
+    },
+    {
+     "sourceId": "CONRAD10",
+     "locator": "§2.1, Lemma 2.1.3 and proof, pp. 4–5",
+     "match": "Minimal primes of an analytic stalk describe components on sufficiently small admissible neighbourhoods, not components of the original whole space. The neighbourhood need not be asserted affinoid."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1361,8 +1458,8 @@
     "dim_z Z is the local dimension of Z_red at z (AdicSpacesPartIIPartII:RZ.0/local-dimension)."
    ],
    "proofSteps": [
-    "(i) (Conrad Corollary 2.2.7): p : X^ν → X is finite surjective and dim X^ν = d; if z ∈ Z has dim O_{Z,z} = d, some z′ ∈ p^{-1}(z) has dim O_{p^{-1}Z, z′} = d, and since X^ν is normal of pure dimension d, p^{-1}Z contains an open neighbourhood of z′; by the identity principle on the connected component of X^ν (connected since X is irreducible), p^{-1}Z = X^ν, so Z = X.",
-    "(ii): dim_z Z = d means some irreducible component Z′ of Z through z has dimension d (local dimension is the maximum over components through z); apply (i) to Z′ ⊆ X.",
+    "An irreducible X has constant finite local dimension d. A proper Zariski closed Z is nowhere dense by the irreducibility criterion; the local dimension criterion then gives dim_z Z < d at every z ∈ Z. Thus dim_z Z = d at even one point forces Z = X.",
+    "If dim Z = d, its bounded integer-valued local dimensions attain their supremum d. Apply the preceding argument; this includes the formulation where Z is irreducible.",
     "Smooth case: a smooth connected space is normal and connected, hence irreducible (AdicSpacesPartIIPartII:RZ.1/irreducible-components), of constant local dimension. For Y ⊆ M connected, apply (ii) in the connected component M_0 ∋ y: Y ⊇ M_0, and Y ⊆ M_0 since Y is connected."
    ],
    "acceptance": [
@@ -1397,6 +1494,41 @@
    "suggestedDeclaration": "TauCeti.Rigid.IsIrreducible.eq_of_localDim_eq"
   },
   {
+   "id": "AdicSpacesPartIIPartII:RZ.1/riemann-extension",
+   "parentStageId": "AdicSpacesPartIIPartII:RZ.1",
+   "realises": [
+    "AdicSpacesPartIIPartII:RZ.1"
+   ],
+   "title": "Riemann extension theorem for normal rigid spaces",
+   "kind": "theorem",
+   "statement": "For a normal rigid space X over K and a nowhere dense analytic subset Z, every bounded analytic function on X − Z extends uniquely to X. K is any complete nontrivially nonarchimedean field; geometric normality is not required.",
+   "hypotheses": [
+    "Bounded means that some real C bounds the absolute value at all rank-one points of X − Z. For disconnected or non-quasi-compact spaces, the local bounded version glues by uniqueness."
+   ],
+   "proofSteps": [
+    "Use Bartenwerfer’s general extension theorem, stated in Conrad Theorem 2.1.1. On an affinoid normal neighbourhood the bounded function extends across Z; uniqueness follows from the identity principle, and these local extensions glue.",
+    "The extension theorem itself is a substantial input, not a consequence of the identity principle. G1 records that its original proof has not been read."
+   ],
+   "prerequisites": [
+    "AdicSpacesPartII:R1/rigid-identity-principle",
+    "AdicSpacesPartIIPartII:RZ.0/nowhere-dense-criteria"
+   ],
+   "acceptance": [
+    "For a connected normal X, an idempotent on X − Z is bounded by 1; its extension is still idempotent by density and the identity principle.",
+    "No claim that X becomes connected or normal after extending K is used."
+   ],
+   "sources": [
+    {
+     "sourceId": "CONRAD10",
+     "locator": "§2.1, Theorem 2.1.1 and preceding paragraph, p. 4",
+     "match": "States Bartenwerfer’s extension theorem over the original ground field, distinguishing it from Lütkebohmert’s earlier geometric-normality version."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "suggestedDeclaration": "TauCeti.Rigid.extend_bounded_of_normal",
+   "addedBy": "REV-DESIGN-AdicSpacesPartIIPartII"
+  },
+  {
    "id": "AdicSpacesPartIIPartII:RZ.1/dense-open-connected",
    "parentStageId": "AdicSpacesPartIIPartII:RZ.1",
    "realises": [
@@ -1406,13 +1538,11 @@
    "kind": "theorem",
    "statement": "Let X be a rigid space over K and Z ⊆ X a nowhere dense Zariski closed subset. If X is connected and normal, then X − Z is connected. If X is irreducible, then X − Z is irreducible; in particular every nonempty Zariski open subset of an irreducible rigid space is irreducible and connected.",
    "hypotheses": [
-    "For the normal case over an algebraically closed complete K this is Lütkebohmert's theorem that bounded functions on X − Z extend to X, applied to idempotents; for general K one passes to a completed algebraic closure, using that connectedness of a quasi-separated space can be checked after base change and that normality is preserved by separable base change (characteristic 0) — Conrad §§3.1–3.3.",
-    "Quasi-separatedness is not needed: connectedness of X − Z is tested on chains of connected affinoids, each quasi-separated."
+    "No geometric connectedness, geometric normality or characteristic-zero hypothesis. Use the original-field Riemann extension theorem."
    ],
    "proofSteps": [
-    "Normal case over algebraically closed K: an idempotent e on X − Z is bounded, so it extends to a function on X (Lütkebohmert's Riemann extension theorem, as quoted by Conrad, p. 17); the extension satisfies e² = e on the dense X − Z, hence on X (functions vanishing on a nonempty open of a reduced connected normal space vanish, AdicSpacesPartII:R1/rigid-identity-principle), so e ∈ {0, 1}.",
-    "General K: base change to the completion of an algebraic closure (AdicSpacesPartII:R3/affinoid-completed-field-extension); Z stays nowhere dense; if X_{K′} − Z_{K′} is connected so is X − Z (Conrad, argument at the end of the proof of Theorem 2.3.1, p. 17).",
-    "Irreducible case: X^ν is connected and normal, p^{-1}(Z) is nowhere dense (RZ.1/irreducibility-criterion), so X^ν − p^{-1}(Z) is connected and normal; its image X − Z has the normalization X^ν − p^{-1}Z (normalization commutes with open restriction), which is connected, so X − Z is irreducible."
+    "If X is connected and normal, a disconnection of X − Z supplies a bounded nontrivial idempotent. The Riemann extension theorem extends it to X. Its square minus itself vanishes on the dense complement, hence on X; connectedness forces the extension to be 0 or 1, a contradiction.",
+    "For irreducible X, its normalization is connected and normal; the inverse image of Z is nowhere dense. Apply the normal case and use compatibility of normalization with open restriction: the normalization of X − Z is connected, so X − Z is irreducible. Its continuous surjective normalization also proves connectedness."
    ],
    "acceptance": [
     "The punctured disc {0 < |T| ≤ 1} is connected.",
@@ -1424,7 +1554,8 @@
     "AdicSpacesPartIIPartII:RZ.1/connected-components",
     "AdicSpacesPartIIPartII:RZ.0/nowhere-dense-criteria",
     "AdicSpacesPartII:R1/rigid-identity-principle",
-    "AdicSpacesPartII:R3/affinoid-completed-field-extension"
+    "AdicSpacesPartII:R3/affinoid-completed-field-extension",
+    "AdicSpacesPartIIPartII:RZ.1/riemann-extension"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Rigid/Zariski",
@@ -1434,12 +1565,17 @@
     {
      "sourceId": "CONRAD99",
      "locator": "§2.3, proof of Theorem 2.3.1, p. 17",
-     "match": "Quotes Lütkebohmert's theorem that on a normal rigid space over an algebraically closed field bounded functions off a nowhere dense analytic set extend, deduces that such a space is connected iff the complement is, and shows connectedness descends from a base field extension of a quasi-separated space."
+     "match": "Gives the connectedness argument under the algebraically closed hypothesis used there. The arbitrary-field version here instead uses CONRAD10 Theorem 2.1.1, without assuming connectedness survives field extension."
     },
     {
      "sourceId": "HK2",
      "locator": "§9.3, sentence before Lemma 9.3.5, p. 60",
      "match": "Asserts that a desingularization of the irreducible Z is connected."
+    },
+    {
+     "sourceId": "CONRAD10",
+     "locator": "§2.1, Theorem 2.1.1 and preceding paragraph, p. 4",
+     "match": "States Bartenwerfer’s extension theorem over the original ground field, distinguishing it from Lütkebohmert’s earlier geometric-normality version."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1453,15 +1589,14 @@
    ],
    "title": "The singular locus of a rigid space",
    "kind": "construction",
-   "statement": "For a rigid space X over K, the singular (non-regular) locus Sing(X) ⊆ |X| is the Zariski closed subset whose trace on each affinoid open Spa(A, A°) is V(J_A), where V(J_A) ⊆ Spec A is the non-regular locus of the excellent ring A (Zariski closed, J_A radical). Its classical points are the classical x with O_{X,x} not regular. Reg(X) = |X| − Sing(X) is the regular locus. If X is reduced, Sing(X) is nowhere dense; more generally for any of the properties reduced, normal, Cohen–Macaulay, Gorenstein, (R_i), (S_i), the non-P locus is Zariski closed and its classical points are those where O_{X,x} fails P.",
+   "statement": "For a rigid space X over K, the singular (non-regular) locus Sing(X) ⊆ |X| is the Zariski closed subset whose trace on each affinoid open Spa(A, A°) is V(J_A), where V(J_A) ⊆ Spec A is the non-regular locus of the excellent ring A (Zariski closed, J_A radical). Its classical points are the classical x with O_{X,x} not regular. Reg(X) = |X| − Sing(X) is the regular locus. If X is reduced, Sing(X) is nowhere dense.",
    "hypotheses": [
-    "Affinoid algebras are excellent (RigidAnalyticGeometry §1.2; in characteristic 0 AdicSpacesPartII:F1/dagger-algebra-excellent), so the non-regular locus of Spec A is closed (J-2, SchemeAndStackFoundations:SF.0/excellence-isj2-regularlocus-open) and A_m is regular iff its completion is."
+    "Affinoid excellence in characteristic zero is supplied by AdicSpacesPartII:F1/dagger-algebra-excellent; request Q1 supplies the all-characteristic extension. Excellence makes the non-regular locus closed (J-2) and detects regularity on completions."
    ],
    "proofSteps": [
     "For an affinoid A and a classical point x ↔ m, A_m and O_{X,x} have the same completion (AdicSpacesPartII:R1/rigid-local-ring-completion), so O_{X,x} is regular iff A_m is regular iff m ∉ V(J_A).",
-    "Gluing: for an affinoid subdomain A → A′, J_A A′ and J_{A′} have the same radical, because both cut out the non-regular classical points of Spa(A′) and A′ is Jacobson (AdicSpacesPartII:R0/affinoid-jacobson). So the V(J_A) glue to a Zariski closed subset.",
-    "Nowhere density for reduced X: a reduced excellent ring is regular at its minimal primes (localizations are fields), so J_A is contained in no minimal prime; apply AdicSpacesPartIIPartII:RZ.0/nowhere-dense-criteria(c).",
-    "The same argument applies to the other properties P listed (Conrad §1.2, using EGA IV₂ 7.8.3 for excellent local rings)."
+    "The earlier regular affinoid-restriction theorem implies that A_m is regular iff the local ring at the corresponding classical point of the affinoid subdomain is regular: regularity ascends along regular maps and descends along faithfully flat local maps. Thus J_A A′ and J_{A′} have the same vanishing locus on classical points; the Jacobson property identifies their radicals, so these closed subsets glue.",
+    "Nowhere density for reduced X: a reduced excellent ring is regular at its minimal primes (localizations are fields), so J_A is contained in no minimal prime; apply AdicSpacesPartIIPartII:RZ.0/nowhere-dense-criteria(c)."
    ],
    "acceptance": [
     "Sing of the cuspidal disc is its cusp; Sing of a polydisc is empty.",
@@ -1475,7 +1610,9 @@
     "AdicSpacesPartII:F1/dagger-algebra-excellent",
     "SchemeAndStackFoundations:SF.0/regular-locus",
     "SchemeAndStackFoundations:SF.0/excellence-isj2-regularlocus-open",
-    "mathlib:IsRegularLocalRing"
+    "mathlib:IsRegularLocalRing",
+    "AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular",
+    "AdicSpacesPartII:F1"
    ],
    "uses": [
     {
@@ -1521,11 +1658,6 @@
      "name": "TauCeti.Rigid.singularLocus_analytification",
      "role": "compatibility",
      "statement": "For a scheme X locally of finite type over K, Sing(X^an) = (Sing X)^an on classical points."
-    },
-    {
-     "name": "TauCeti.Rigid.nonPLocus",
-     "role": "other",
-     "statement": "The non-P locus for P ∈ {reduced, normal, Cohen–Macaulay, Gorenstein, R_i, S_i} is Zariski closed, with the same classical-point description."
     }
    ],
    "tests": [
@@ -1590,7 +1722,7 @@
     "Characteristic 0 is used only through the separability of every finite extension k(x)/K; over any perfect complete field the same holds (Conrad §3.3)."
    ],
    "proofSteps": [
-    "Smooth ⇒ regular: smooth morphisms are locally étale over relative polydiscs (AdicSpacesPartII:R0/smooth-local-structure); étale maps induce isomorphisms of completed local rings at classical points over separable residue extensions, and polydiscs are regular.",
+    "Smooth morphisms are locally étale over relative polydiscs. At a classical point an étale map gives the corresponding completed local algebra after the finite separable residue-field extension, not necessarily an isomorphism with the unextended target completion. These completions are regular, so the source local ring is regular.",
     "Regular ⇒ smooth at classical points: if O_{X,x} is regular of dimension d with k(x)/K separable, Ô_{X,x} ≅ k(x)⟦t_1, …, t_d⟧, so Ω_{X/K,x} ⊗ Ô_{X,x} is free of rank d; hence Ω_{X/K} is free of rank d near x, and the Jacobian criterion (AdicSpacesPartII:R0/jacobian-criterion-closed-subspace, in a local closed embedding into a polydisc) gives smoothness near x (Conrad, proof of Lemma 3.3.1, citing Bosch–Lütkebohmert III, Lemma 2.8(b)).",
     "Both loci are open and Zariski open; a Zariski open set is determined by its classical points (Jacobson), so they coincide.",
     "Rank: on a smooth neighbourhood, rank Ω = dim of the étale-local polydisc = dim_x X (AdicSpacesPartII:R0/smooth-differentials-locally-free)."
@@ -1811,7 +1943,7 @@
    "statement": "Let f : V → W be a morphism of smooth rigid spaces over K. For r ≥ 0 let V_{≥r} be the set of x ∈ |V| at which the map f^*Ω_{W/K} ⊗ k(x) → Ω_{V/K} ⊗ k(x) has rank ≥ r. Then V_{≥r} is Zariski open: locally, in coordinates where Ω_V and Ω_W are free, it is the complement of the common zero locus of the r × r minors of the Jacobian matrix. If V is connected and r_max = max_x rank, then V_{≥r_max} is a nonempty Zariski open subset whose complement is nowhere dense, and on it rank df_x = r_max at every classical point x (rank of df_x on T_x V_{k(x)}).",
    "hypotheses": [
     "V, W smooth over K, so Ω_V and Ω_W are locally free of finite rank (AdicSpacesPartII:R0/smooth-differentials-locally-free).",
-    "The rank at a classical point x equals the rank of df_x on tangent spaces (AdicSpacesPartIIPartII:RZ.2/tangent-space)."
+    "Define rank at every point using the fibre of f^*Ω_{W/K} → Ω_{V/K}. Its dual agrees with the map on m/m² tangent spaces at rational points and at classical points with separable residue extension; do not assert this comparison at arbitrary inseparable classical points."
    ],
    "proofSteps": [
     "Locally Ω_V and f^*Ω_W are free with bases dT_j, f^*dS_i; the map is given by the Jacobian matrix (∂f_i/∂T_j), and rank ≥ r at x iff some r × r minor does not vanish at x; the ideal of minors is coherent, so V_{≥r} is Zariski open.",
@@ -1861,7 +1993,8 @@
    "kind": "definition",
    "statement": "Let X be a rigid space over K. A point x ∈ |X| is classical if its residue field k(x) = O_{X,x}/m_x is a finite extension of K (equivalently its completed residue field is finite over K). For a finite extension L/K, X(L) = Hom_{Spa K}(Spa(L, L°), X); a morphism Spa L → X has classical image x together with a K-embedding k(x) ↪ L, and this gives a bijection between X(L) and such pairs. On an affinoid open Spa(A, A°) the classical points are the image of the injective map Max A → Spa(A, A°), m ↦ the absolute value |·| of A/m extended uniquely from K. The classical points of X are the points of the classical rigid space attached to X by Huber's functor when X is quasi-separated.",
    "hypotheses": [
-    "Only finite extensions L/K are used for L-points here; for a complete algebraically closed C ⊇ K, X(C) is defined in AdicSpacesPartIIPartII:RZ.6 through X_C."
+    "Only finite extensions L/K are used for L-points here; for a complete algebraically closed C ⊇ K, X(C) is defined in AdicSpacesPartIIPartII:RZ.6 through X_C.",
+    "k(x) denotes the residue field of the analytic local ring; H(x) denotes its completion. At classical points they coincide since finite extensions of K are complete. For a Gauss point η, H(η) is the Gauss-norm completion of the rational function field; do not identify that completion with an uncompleted residue field."
    ],
    "proofSteps": [
     "Max A → Spa(A, A°): for a maximal ideal m, A/m is a finite field extension of K (AdicSpacesPartII:R0/affinoid-residue-fields-finite) with a unique absolute value extending that of K; the induced valuation is continuous and ≤ 1 on A°.",
@@ -1980,14 +2113,13 @@
    ],
    "title": "Density of classical points",
    "kind": "theorem",
-   "statement": "For a rigid space X over K, every nonempty open subset of |X| contains a classical point; that is, the classical points are dense in |X|. More precisely, on each affinoid open Spa(A, A°) the classical points are dense for the constructible topology, and a constructible subset of Spa(A, A°) is determined by its classical points.",
+   "statement": "For a rigid space X over K every nonempty open subset of |X| contains a classical point. Thus the classical points are dense in the ordinary topology of |X|.",
    "hypotheses": [
     "No hypothesis beyond X being a rigid space; nonempty opens contain nonempty rational subsets."
    ],
    "proofSteps": [
     "A nonempty open U ⊆ |X| contains a nonempty rational subset W = Spa(B, B°) of an affinoid open; B ≠ 0 since W ≠ ∅.",
-    "B has a maximal ideal, which gives a classical point of W (AdicSpacesPartIIPartII:RZ.3/classical-point).",
-    "The constructible density is Huber's theorem (Continuous valuations, Theorem 4.1 and Corollary 4.2), owned by the Tau Ceti roadmap RigidAnalyticGeometry §8.2 and recorded in AdicSpacesPartII R1.9; constructible density implies density because the constructible topology is finer."
+    "B has a maximal ideal, which gives a classical point of W (AdicSpacesPartIIPartII:RZ.3/classical-point)."
    ],
    "acceptance": [
     "The classical points of the disc are dense although the Gauss point is not classical; every open neighbourhood of the Gauss point contains classical points."
@@ -2180,15 +2312,15 @@
    ],
    "title": "The L-points of a polydisc with the subspace topology",
    "kind": "theorem",
-   "statement": "Let L be a complete nonarchimedean field with nontrivial absolute value and D = Spa(L⟨T_1, …, T_n⟩, L°⟨T_1, …, T_n⟩) the closed unit polydisc. The map O_L^n → |D|, a ↦ the classical point T = a, is injective, and with the subspace topology on its image D(L) ⊆ |D| it is a homeomorphism onto D(L) from O_L^n with its valuation topology. Hence D(L) is a complete metric space and a Baire space. For a rigid space S over L and an L-point x ∈ S(L) at which S is smooth of dimension n, x has a basis of open neighbourhoods in |S| that are isomorphic to closed polydiscs of radii in |L^×| centred at x (AdicSpacesPartIIPartII:RZ.6/rigid-inverse-function-theorem), so S(L) is locally homeomorphic to O_L^n.",
+   "statement": "Let L be a complete nonarchimedean field with nontrivial absolute value and D = Spa(L⟨T_1, …, T_n⟩, L°⟨T_1, …, T_n⟩) the closed unit polydisc. The map O_L^n → |D|, a ↦ the classical point T = a, is injective, and with the subspace topology on its image D(L) ⊆ |D| it is a homeomorphism onto D(L) from O_L^n with its valuation topology. Hence D(L) is a complete metric space and a Baire space.",
    "hypotheses": [
     "L is not required to be discretely valued; the polydisc is the unit one."
    ],
    "proofSteps": [
     "Injectivity: distinct a, b ∈ O_L^n give distinct maximal ideals (T − a) and (T − b).",
-    "Continuity of a ↦ x_a: a rational subset {|f_i| ≤ |g| ≠ 0} pulls back to {a : |f_i(a)| ≤ |g(a)| ≠ 0}, open in O_L^n because evaluation of restricted power series is continuous (Tau Ceti TauCeti.ValuationSpectrum.evalAtHom).",
+    "A rational domain pulls back to inequalities |f_i(a)| ≤ |g(a)| ≠ 0. Around an a satisfying them, choose a small ball on which |g| is constant and each f_i changes by less than |g(a)|. The ultrametric inequality preserves the weak inequalities on that ball. Thus the inverse image is open; ordinary continuity alone would not justify weak inequalities.",
     "Openness onto the image: the ball {|T_i − a_i| ≤ |c|} (c ∈ L^×) is a rational subset whose L-points are exactly the corresponding ball of O_L^n; balls form a basis of O_L^n.",
-    "Completeness and Baire: O_L^n is a closed subset of the complete L^n (Mathlib BaireSpace for complete metric spaces)."
+    "O_L^n is closed in the complete finite product L^n, so it is complete. Obtain its BaireSpace instance by Mathlib typeclass inference (the source-checked instance BaireSpace.of_completelyPseudoMetrizable, Mathlib/Topology/Baire/CompleteMetrizable.lean, line 26). No separate analytic Baire theorem is planned."
    ],
    "acceptance": [
     "D(L) ⊆ |D| is not closed when n ≥ 1: its closure contains the Gauss point if the residue field is infinite (AdicSpacesPartIIPartII:RZ.3/gauss-point-in-closure).",
@@ -2225,7 +2357,8 @@
    "kind": "theorem",
    "statement": "Let L be a complete nonarchimedean field whose residue field L̃ is infinite, D the closed unit polydisc of dimension n over L and η ∈ |D| its Gauss point, the rank-one point |Σ a_α T^α|_η = max_α |a_α|. Then every open neighbourhood of η in |D| contains L-points; more precisely a rational neighbourhood {|f_i| ≤ |g|} of η normalised so that |g|_η = 1 (so g ∈ L°⟨T⟩ with nonzero reduction ḡ ∈ L̃[T]) contains every a ∈ O_L^n whose reduction ā satisfies ḡ(ā) ≠ 0, and such a exist. Consequently a closed subset of |D| containing D(L) contains η, and a closed subset of a rigid space S containing a polydisc's worth of L-points (the L-points of an open polydisc neighbourhood of an L-point) contains the corresponding Gauss point. If L̃ is finite the conclusion fails.",
    "hypotheses": [
-    "L̃ infinite is exactly what is used. Howe–Klevdal apply it with L′ finite over a p-adic field containing Q̆_p, whose residue field contains F̄_p (they write that the residue field is algebraically closed; only infinitude is needed — source issue recorded by the paper extraction)."
+    "L̃ infinite is exactly what is used. Howe–Klevdal apply it with L′ finite over a p-adic field containing Q̆_p, whose residue field contains F̄_p (they write that the residue field is algebraically closed; only infinitude is needed — source issue recorded by the paper extraction).",
+    "Reuse the current Tau Ceti one-variable Gauss-point construction; its existence is not new work. The multivariable closure theorem remains a target. Current-library evidence is separate from the pinned baseline."
    ],
    "proofSteps": [
     "Normalise: at η, |g|_η = 1 > 0, so scaling makes g ∈ L°⟨T⟩ with Gauss norm 1; then |f_i|_η ≤ 1 forces f_i ∈ L°⟨T⟩.",
@@ -2284,7 +2417,7 @@
     "sp(x) is prime: {a ∈ A° : |a(x)| < 1} is the preimage of the maximal ideal of the valuation ring of x, and contains A°° because topologically nilpotent elements have |a(x)| < 1.",
     "Continuity: for a ∈ A°, sp^{-1}(D(ā)) = {x : |a(x)| ≥ 1} = {x : |a(x)| = 1}, a rational subset, hence open.",
     "Surjectivity: every prime of Ã is the centre of a valuation of Frac(Ã/q) ⊇ … ; lifting through a formal model whose special fibre maps homeomorphically to Spec Ã (Bhatt–Hansen, first observation in the proof of Proposition 2.2; Raynaud, AdicSpacesPartII:R2/raynaud-theorem) and using that the specialisation of the formal model is surjective.",
-    "Functoriality: φ(A°) ⊆ B°, φ(A°°) ⊆ B°° (AdicSpacesPartII:R0/affinoid-reduction-finite) and sp_B ∘ Spa(φ) = Spec(φ̃) ∘ sp_A.",
+    "Functoriality: φ(A°) ⊆ B°, φ(A°°) ⊆ B°° (AdicSpacesPartII:R0/affinoid-reduction-finite) and sp_A ∘ Spa(φ) = Spec(φ̃) ∘ sp_B.",
     "A classical point maps to a maximal ideal: its residue field is finite over K, so the image is a point whose residue field is finite over K̃."
    ],
    "acceptance": [
@@ -2335,7 +2468,7 @@
     {
      "name": "TauCeti.Rigid.specialisation_naturality",
      "role": "functoriality",
-     "statement": "For φ : A → B, sp_B ∘ Spa(φ) = Spec(φ̃) ∘ sp_A."
+     "statement": "For φ : A → B, sp_A ∘ Spa(φ) = Spec(φ̃) ∘ sp_B."
     },
     {
      "name": "TauCeti.Rigid.specialisation_classical",
@@ -2504,7 +2637,7 @@
    ],
    "proofSteps": [
     "Choose an open bounded topologically finitely presented K°-subalgebra A_0 ⊆ A° with A° integral over A_0 and Spec Ã → Spec(A_0/t) a universal homeomorphism (Noether normalization and BGR 6.3.4); describe Spa(A, A°) as the limit of the special fibres of proper t-isomorphisms X_i → Spec A_0, with O^+ the t-completed colimit of structure sheaves.",
-    "(1) ⇒ (2): at a generic point, Ã localized is a rank-one valuation ring (via Noether normalization); every point over sp(x) factors through it, hence equals x.",
+    "(1) ⇒ (2): localize A° at the inverse image p of the generic point in Ã. It is this localization (or its separated t-adic completion), not the local ring of Ã, that supplies the rank-one valuation ring via affinoid Noether normalization. The latter ring has t=0 and cannot have t as a uniformizer. The valuation-theoretic argument then forces the fibre of sp to be a singleton; see E6.",
     "(2) ⇒ (3): the local rings of the X_i at the unique preimages are integral over A_{0,sp(x)} and isomorphisms after inverting t; the t-completed colimit is integrally closed, hence equals the completed local ring of A°.",
     "(3) ⇒ (2): points of Spa are classes of maps A_0 → V to t-complete valuation rings.",
     "(2) ⇒ (1): if sp(x) were not generic, a valuation of the function field of a component through it, centred at sp(x), composed with K_y^+ for a lift y of the generic point, gives a rank ≥ 2 point over sp(x) different from x.",
@@ -2610,7 +2743,7 @@
     {
      "name": "isWeaklyShilov_disc_type2",
      "kind": "computation",
-     "statement": "On the closed unit disc, the Gauss point and the points η_{a,r} (sup norm on the disc of radius r ∈ |K^×| about a ∈ K°) are weakly Shilov."
+     "statement": "On the unit disc, the Gauss points η_{a,r} with a ∈ K°, r ∈ |K×| and 0 < r ≤ 1 are weakly Shilov; each is the Shilov point of its rational closed subdisc."
     },
     {
      "name": "isWeaklyShilov_dim_zero",
@@ -2625,7 +2758,7 @@
     {
      "name": "not_isWeaklyShilov_classical",
      "kind": "non-example",
-     "statement": "A classical point of a positive-dimensional X is not weakly Shilov; neither is a type 3 point η_{0,r} with r ∉ √|K^×| (trdeg 0 < 1)."
+     "statement": "A classical point x with dim_x X > 0 is not weakly Shilov: its secondary residue field is finite over K̃, so trdeg = 0. A zero-dimensional connected component is a necessary exception, even when dim X > 0."
     }
    ],
    "planet": {
@@ -2665,7 +2798,7 @@
    "proofSteps": [
     "Choose an affinoid neighbourhood Spa(A, A°) with dim A = dim_x X =: d and a finite injective K⟨T_1, …, T_e⟩ → A/supp(x) with e = dim A/supp(x) ≤ d (AdicSpacesPartII:R0/affinoid-noether-normalisation).",
     "The image y of x in the e-dimensional polydisc has H(x) finite over H(y), so K̃_x is algebraic over K̃_y.",
-    "K[T_1, …, T_e] is dense in K⟨T⟩, so K̃_y is the residue field of the restriction of the valuation of y to the subfield K(T_1, …, T_e) (or to Frac of K[T]/supp(y)), and Abhyankar's inequality for this valuation over K gives trdeg K̃_y ≤ e."
+    "The dense polynomial algebra shows that the secondary residue field of H(y) is the residue field of the restricted valuation on Frac(K[T]/supp(y)). Lift any finite algebraically independent family of residue classes to units of this valued function field. A polynomial relation among these lifts over K, after dividing its coefficients by one of maximal norm, would reduce to a nonzero relation among their residues over K̃. Thus the lifts are algebraically independent over K, so their number is at most the transcendence degree of this function field, at most e."
    ],
    "acceptance": [
     "At the Gauss point of the polydisc, K̃_x = K̃(T_1, …, T_n) has transcendence degree n = dim; at a classical point it is a finite extension of K̃."
@@ -2686,6 +2819,11 @@
      "sourceId": "BH22",
      "locator": "§2.1, Proposition 2.9(2) and its proof, p. 8",
      "match": "Characterizes weakly Shilov points by the transcendence degree of the secondary residue field equalling the local dimension, citing Poineau's Lemme 4.4 and Corollaire 4.15, of which the inequality is the first half."
+    },
+    {
+     "sourceId": "POINEAU13",
+     "locator": "§4, Definition 4.1 and Remark 4.3, p. 283",
+     "match": "Uses the full Abhyankar inequality. The residue-transcendence inequality needed here is proved directly in the sketch by lifting algebraically independent residues."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2704,10 +2842,10 @@
     "(3) needs Raynaud's theory of formal models (AdicSpacesPartII:R2/raynaud-theorem), hence quasi-separated and quasi-paracompact X."
    ],
    "proofSteps": [
-    "(1) ⇒ (2): if x is Shilov in W = Spa(A, A°), K_x^+ is the t-completed local ring of A° at the generic point sp(x) of a component C of Spec Ã (AdicSpacesPartIIPartII:RZ.4/shilov-point-characterisation(3)), so K̃_x = κ(sp(x)) has transcendence degree dim C; on a neighbourhood of x where W is equidimensional of dimension dim_x X, every component of Spec Ã has that dimension (Poineau, Lemme 4.4 and Corollaire 4.15, as cited by Bhatt–Hansen).",
-    "(2) ⇒ (1): choose an affinoid W ∋ x with dim W = dim_x X = d and functions f_1, …, f_d on W with |f_i(x)| ∈ |K^×| (after a finite extension of K if needed) whose normalised residues form a transcendence basis of K̃_x; on the Weierstrass domain W′ = {|f_i| ≤ |f_i(x)|} the specialisation of x has residue field of transcendence degree d over K̃, which is at least the dimension of every component of Spec W̃′, so it is a generic point and x is Shilov in W′ (Poineau, Lemme 4.4 and Corollaire 4.15, as cited by Bhatt–Hansen; not read here, recorded as gap G2).",
-    "(3) ⇒ (1): the preimage of an affine formal open containing the specialisation of x is an affinoid W in which x is Shilov.",
-    "(1) ⇒ (3): by Raynaud there is a formal model in which W is the generic fibre of an affine formal open Spf(R_0); refine so that Spec(R_0/t) → Spec W̃ is a homeomorphism; the generic point sp(x) then is a generic point of 𝔛_s."
+    "For a Shilov point of a strict affinoid neighbourhood, Poineau Lemma 4.4 identifies the residue transcendence degree with the local dimension. Dimension is invariant under open restriction.",
+    "Conversely, choose an affinoid neighbourhood U of x whose dimension is d = dim_x X. If trdeg K̃_x = d, Abhyankar’s inequality excludes every lower-dimensional component and every intersection of distinct d-dimensional components through x. Thus x lies on exactly one component of U, of dimension d.",
+    "Apply Poineau Corollary 4.18 (and Corollary 4.15 in the irreducible case): there is a strict Laurent domain in U having x as its unique Shilov-boundary point. A strict Laurent domain is a rational affinoid open on the adic side. Proposition 2.2 of Bhatt–Hansen identifies the Berkovich Shilov boundary with the rank-one adic Shilov points. No field extension or descent of a chosen domain is needed.",
+    "For the formal-model characterization, use Raynaud’s equivalence and admissible blow-ups to make the chosen affinoid domain a formal open; the generic point of its special fibre gives the desired specialization. This invokes the precise formal-model localization input recorded in G5."
    ],
    "acceptance": [
     "At a type 3 point of the disc trdeg = 0 < 1: not weakly Shilov; at type 2 points trdeg = 1 = dim."
@@ -2718,7 +2856,10 @@
     "AdicSpacesPartIIPartII:RZ.4/shilov-point-characterisation",
     "AdicSpacesPartIIPartII:RZ.0/local-dimension",
     "AdicSpacesPartII:R2/raynaud-theorem",
-    "AdicSpacesPartII:R2/raynaud-generic-fibre"
+    "AdicSpacesPartII:R2/raynaud-generic-fibre",
+    "AdicSpacesPartIIPartII:RZ.1/irreducible-components",
+    "AdicSpacesPartIIPartII:RZ.0/nowhere-dense-criteria",
+    "AdicSpacesPartII:R2"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Rigid/Shilov",
@@ -2729,6 +2870,11 @@
      "sourceId": "BH22",
      "locator": "§2.1, Proposition 2.9 and its proof, p. 8",
      "match": "Proves the equivalence of being weakly Shilov, the transcendence degree of the secondary residue field equalling the local dimension (via Poineau, Lemme 4.4 and Corollaire 4.15), and specialising to a generic point of the special fibre of a formal model (via Raynaud, Bosch's Lectures Theorem 8.4.3)."
+    },
+    {
+     "sourceId": "POINEAU13",
+     "locator": "§4, Lemma 4.4, p. 284; Corollaries 4.15 and 4.18, pp. 287–288; Remark 4.14(ii), p. 287",
+     "match": "Shilov points of strict affinoids have full residue transcendence degree. Conversely full degree gives a strict Laurent domain with singleton Shilov boundary; Corollary 4.18 handles the case of a unique component through the point."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2796,7 +2942,8 @@
    "kind": "definition",
    "statement": "Let X be a locally noetherian scheme. A blow-up of X is the blow-up Bl_V(X) → X along a fixed closed subscheme V (the centre is part of the data); it is empty if V = ∅. A blow-up sequence of length n is a chain X_n → ⋯ → X_1 → X_0 = X with X_{i+1} = Bl_{V_i}(X_i); it is contracted if no blow-up is empty, and a trivial extension of a sequence is obtained by inserting empty blow-ups. For a flat g : Y → X the pullback g^*(X_n ⇢ X) is the sequence Y ×_X X_i with centres Y ×_X V_i, again a blow-up sequence. A sequence is T-supported if its centres lie over T, and strong if its centres are regular. The same definitions apply to rigid spaces with the rigid blow-ups of AdicSpacesPartIIPartII:RZ.5/rigid-blow-up and flat morphisms of rigid spaces.",
    "hypotheses": [
-    "Blow-ups of schemes along closed subschemes (Rees algebra, universal property that the preimage of V is an effective Cartier divisor) are those of AlgebraicModuliForArithmeticGeometry R09.7a, there for varieties, here for locally noetherian schemes; the construction is the same."
+    "Blow-ups of schemes along closed subschemes (Rees algebra, universal property that the preimage of V is an effective Cartier divisor) are those of AlgebraicModuliForArithmeticGeometry R09.7a, there for varieties, here for locally noetherian schemes; the construction is the same.",
+    "An empty blow-up in Temkin’s sequence convention means the identity stage with empty centre (unit ideal); it does not mean the blow-up of the zero ideal, whose total space is empty."
    ],
    "proofSteps": [
     "Blow-ups commute with flat base change: Bl_{V ×_X Y}(Y) = Y ×_X Bl_V(X) for Y → X flat (Temkin §2.2.5), so pullbacks of sequences are sequences.",
@@ -2905,7 +3052,8 @@
    "kind": "construction",
    "statement": "Let X be a rigid space over K and 𝓘 ⊆ O_X a coherent ideal. The blow-up π : Bl_𝓘(X) → X is the relative analytification of Proj_X(⊕_{n≥0} 𝓘^n): over an affinoid open U = Spa(A, A°) with 𝓘|_U = Ĩ it is (Proj ⊕ I^n)^an relative to Spa(A, A°), and these glue. π is proper, 𝓘·O_{Bl} is an invertible ideal, π is an isomorphism over X − V(𝓘), and π is universal among morphisms Y → X with 𝓘·O_Y invertible. Formation commutes with flat base change Y → X (in particular with restriction to opens and with smooth morphisms). If X is reduced and V(𝓘) is nowhere dense, π^{-1}(V(𝓘)) is a nowhere dense Cartier divisor and Bl_𝓘(X) is reduced.",
    "hypotheses": [
-    "Relative analytification of schemes locally of finite type over Spec A for an affinoid A is owned by the Tau Ceti roadmap RigidAnalyticGeometry §8.1 and recorded in AdicSpacesPartII R1; properness of analytified projective morphisms is AdicSpacesPartII:R1/analytic-projective-space-proper."
+    "Relative analytification over Spec A is AdicSpacesPartII:R1/scheme-fibre-product-analytification. Projective-space properness is AdicSpacesPartII:R1/analytic-projective-space-proper; apply it relatively over the affinoid base.",
+    "Use relative analytification over Spec A for the blow-up of an affinoid ideal. For the birational and nowhere-dense-exceptional assertions assume the centre is nowhere dense; a zero ideal gives empty Proj and is not a surjective modification."
    ],
    "proofSteps": [
     "Affinoid chart: P = Proj ⊕ I^n is projective over Spec A; its relative analytification over Spa(A, A°) is proper (AdicSpacesPartII:R1/analytic-projective-space-proper and closed immersions).",
@@ -2925,7 +3073,8 @@
     "AdicSpacesPartII:R0/universally-closed-and-proper-morphism",
     "AdicSpacesPartIIPartII:RZ.0/zariski-closed-subset",
     "AdicSpacesPartIIPartII:RZ.0/nowhere-dense-criteria",
-    "AdicSpacesPartIIPartII:RZ.5/blow-up-sequence"
+    "AdicSpacesPartIIPartII:RZ.5/blow-up-sequence",
+    "AdicSpacesPartII:R1/scheme-fibre-product-analytification"
    ],
    "uses": [
     {
@@ -2993,7 +3142,7 @@
     {
      "name": "blowUp_analytification_compat",
      "kind": "compatibility",
-     "statement": "For X = A²_K and 𝓘 the ideal of the origin, Bl_{𝓘^an}((A²)^an) is the analytification of Bl_0(A²)."
+     "statement": "For X = A²_K and I=(x,y), Bl_{I^an}(X^an) is the analytification of the blow-up of the origin defined by I. This ideal is not the zero ideal."
     },
     {
      "name": "blowUp_cartier_iso",
@@ -3069,7 +3218,7 @@
    ],
    "title": "Temkin's functorial desingularization of quasi-excellent schemes over Q",
    "kind": "theorem",
-   "statement": "For every noetherian quasi-excellent generically reduced scheme X over Spec Q there is a blow-up sequence F(X) : X_n ⇢ X_0 = X such that (i) its centres are disjoint from the preimages of the regular locus X_reg, (ii) its centres are regular, (iii) X_n is regular, and (iv) F is functorial for all regular morphisms X′ → X: F(X′) is obtained from F(X) ×_X X′ by omitting the empty blow-ups. For an arbitrary noetherian quasi-excellent X over Q, blowing up the generically non-reduced components after resolving X_red gives a regular X′ → X (Remark 1.2.2), not functorial in the same sense.",
+   "statement": "For every noetherian quasi-excellent generically reduced scheme X over Spec Q there is a blow-up sequence F(X) : X_n ⇢ X_0 = X such that (i) its centres are disjoint from the preimages of the regular locus X_reg, (ii) its centres are regular, (iii) X_n is regular, and (iv) F is functorial for all regular morphisms X′ → X: F(X′) is obtained from F(X) ×_X X′ by omitting the empty blow-ups. For arbitrary nonreduced noetherian quasi-excellent X over Q, Remark 1.2.2 also gives a functorial construction for regular maps, but it may delete generically nonreduced components and need not be surjective. This extension is not the resolution used for diamond covers.",
    "hypotheses": [
     "Quasi-excellent schemes and regular morphisms as in SchemeAndStackFoundations SF.0; generically reduced means the non-reduced locus is nowhere dense."
    ],
@@ -3077,7 +3226,7 @@
     "Black-box strategy (Temkin §1.3): extend F_Var (AdicSpacesPartIIPartII:RZ.5/functorial-desingularization-varieties) first to formal varieties and to schemes whose singular locus is small (§3), using Elkik–Gabber–Ramero type algebraization of the formal neighbourhood of the singular locus (Theorem 3.2.3) and the intrinsic dependence of the desingularization on the formal completion along the singular locus (§3.3, Theorem 3.4.1).",
     "Induction on the codimension of the singular locus (§4.1): resolve generically along the singular locus, then extend over the closure by pushforward along pro-open immersions (Temkin Lemma 2.2.1), synchronised by disjoint unions (Lemma 2.3.3).",
     "The main construction §4.3 assembles a compatible sequence of these partial resolutions and proves functoriality for regular morphisms; quasi-excellence enters through Nishimura–Nishimura's theorem on completions (Theorem 2.1.6) or Gabber's (Theorem 2.1.8).",
-    "Non-reduced case: resolve X_red, push forward along X_red ↪ X, then blow up the generically non-reduced components along their reductions (Remark 1.2.2(i))."
+    "For general X, first resolve X_red and push the blow-ups forward to X. The resulting space X′ has regular reduction. Blow up the reduction of its generically nonreduced components, obtaining a generically reduced X′′, then apply F(X′′). This final application is required. The full construction is functorial for regular maps (Temkin Remark 1.2.2(i))."
    ],
    "acceptance": [
     "A regular X has F(X) = the empty sequence; for X the spectrum of the cusp k⟦x, y⟧/(y² − x³) the sequence blows up the closed point once."
@@ -3113,56 +3262,6 @@
    "suggestedDeclaration": "TauCeti.FunctorialDesingularization.quasiExcellent"
   },
   {
-   "id": "AdicSpacesPartIIPartII:RZ.5/affinoid-localization-regular",
-   "parentStageId": "AdicSpacesPartIIPartII:RZ.5",
-   "realises": [
-    "AdicSpacesPartIIPartII:RZ.5"
-   ],
-   "title": "Affinoid localizations are regular ring maps",
-   "kind": "lemma",
-   "statement": "Let A be a K-affinoid algebra with K of characteristic 0, and Spa(A′, A′°) ⊆ Spa(A, A°) an affinoid subdomain (for instance a rational subset). Then A → A′ is a regular ring map: flat, with geometrically regular fibres. More generally, for a smooth morphism Spa(B) → Spa(A) of affinoids, A → B is regular.",
-   "hypotheses": [
-    "Characteristic 0 is used only to make regularity of fibres geometric regularity; affinoid algebras are excellent (AdicSpacesPartII:F1/dagger-algebra-excellent)."
-   ],
-   "proofSteps": [
-    "Flatness: AdicSpacesPartII:R1/affinoid-subdomain-flat.",
-    "At a maximal ideal m′ of A′ over m ⊆ A, A_m → A′_{m′} induces an isomorphism of completions (AdicSpacesPartII:R1/rigid-local-ring-completion and Conrad, proof of Corollary 1.2.3).",
-    "A_m → Â_m is regular (A excellent), and Â_m ≅ Â′_{m′} is faithfully flat over A′_{m′}; by descent of regularity along faithfully flat maps (the composite A_m → A′_{m′} → Â′_{m′} is regular), A_m → A′_{m′} is regular.",
-    "Every prime of A′ lies in a maximal ideal (A′ is Jacobson), so the fibres of A → A′ are localizations of those just treated.",
-    "Smooth case: étale-locally over a relative polydisc A⟨T_1, …, T_n⟩, and A → A⟨T⟩ is regular by the same completion argument with power series rings."
-   ],
-   "acceptance": [
-    "K⟨T⟩ → K⟨T, T^{-1}⟩ (inclusion of the unit circle) is regular; K⟨T⟩ → K (evaluation at 0) is not flat, hence not regular."
-   ],
-   "prerequisites": [
-    "AdicSpacesPartII:R1/affinoid-subdomain-flat",
-    "AdicSpacesPartII:R1/rigid-local-ring-completion",
-    "AdicSpacesPartII:F1/dagger-algebra-excellent",
-    "AdicSpacesPartII:R0/affinoid-jacobson",
-    "AdicSpacesPartII:R0/smooth-local-structure",
-    "SchemeAndStackFoundations:SF.0/regular-algebra-map",
-    "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-flat"
-   ],
-   "library": {
-    "module": "TauCeti/AlgebraicGeometry/Rigid/Zariski",
-    "namespace": "TauCeti.Rigid"
-   },
-   "sources": [
-    {
-     "sourceId": "TEMKIN12",
-     "locator": "§5.2.4, proof of Theorem 5.2.2, p. 33",
-     "match": "Records that the maps from the coordinate rings of affinoid charts to those of their intersections' affinoid pieces are regular homomorphisms of excellent rings."
-    },
-    {
-     "sourceId": "CONRAD99",
-     "locator": "§1.2, proof of Corollary 1.2.3, p. 9",
-     "match": "For an open immersion of affinoids, the local maps at maximal ideals induce isomorphisms of completions, hence are faithfully flat."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "suggestedDeclaration": "TauCeti.Rigid.affinoidSubdomain_isRegular"
-  },
-  {
    "id": "AdicSpacesPartIIPartII:RZ.5/rigid-resolution",
    "parentStageId": "AdicSpacesPartIIPartII:RZ.5",
    "realises": [
@@ -3176,11 +3275,12 @@
     "Nowhere dense non-reduced locus: Temkin's category C. For arbitrary X apply the theorem to X_red (see AdicSpacesPartIIPartII:RZ.5/resolution-consequences)."
    ],
    "proofSteps": [
-    "Quasi-compact case (Temkin Theorem 5.2.2): cover X by finitely many affinoids X_i = Spa(A_i) and the pairwise intersections by affinoids X_ijk; A_i, A_ijk are excellent and A_i → A_ijk are regular (AdicSpacesPartIIPartII:RZ.5/affinoid-localization-regular).",
+    "Quasi-compact case (Temkin Theorem 5.2.2): cover X by finitely many affinoids X_i = Spa(A_i) and the pairwise intersections by affinoids X_ijk; A_i, A_ijk are excellent and A_i → A_ijk are regular (AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular).",
     "Apply F (AdicSpacesPartIIPartII:RZ.5/functorial-desingularization-qe) to Spec A_i (generically reduced, quasi-excellent) and analytify the centres to get rigid blow-up sequences of the X_i (AdicSpacesPartIIPartII:RZ.5/rigid-blow-up); by functoriality for the regular maps A_i → A_ijk they agree on overlaps and glue, disjoint unions synchronising the order of blow-ups (Temkin Lemmas 2.3.1, 2.3.3).",
     "Regularity transfers: X_n is regular at classical points iff the algebraic X_n is regular at closed points (same completions), and regular = smooth in characteristic 0 (AdicSpacesPartIIPartII:RZ.2/smooth-iff-regular).",
     "Non-compact case (Temkin Theorem 5.3.2): saturate with empty blow-ups indexed by the countable set of invariants; the hypersequences of the affinoid charts agree on overlaps and glue to a countable blow-up hypersequence whose limit X_∞ → X is a single proper morphism.",
-    "Functoriality for smooth X′ → X: affinoid charts of X′ map by smooth, hence regular, ring maps to those of X (AdicSpacesPartIIPartII:RZ.5/affinoid-localization-regular)."
+    "Functoriality for smooth X′ → X: affinoid charts of X′ map by smooth, hence regular, ring maps to those of X (AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular).",
+    "Ground-field-extension compatibility is a separate assertion of Temkin Theorem 5.2.2, p. 33. A derivation from the scheme functor requires regularity of the completed affinoid scalar-extension map in characteristic zero; flatness alone does not suffice. G3 records this proof input."
    ],
    "acceptance": [
     "The resolution of the cuspidal disc is its normalization by one blow-up of the cusp; the resolution of a smooth space is the identity."
@@ -3188,7 +3288,7 @@
    "prerequisites": [
     "AdicSpacesPartIIPartII:RZ.5/functorial-desingularization-qe",
     "AdicSpacesPartIIPartII:RZ.5/rigid-blow-up",
-    "AdicSpacesPartIIPartII:RZ.5/affinoid-localization-regular",
+    "AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular",
     "AdicSpacesPartIIPartII:RZ.5/blow-up-sequence",
     "AdicSpacesPartIIPartII:RZ.2/singular-locus",
     "AdicSpacesPartIIPartII:RZ.2/smooth-iff-regular",
@@ -3334,7 +3434,8 @@
    "statement": "Let F be a complete nontrivially normed field of characteristic 0, M and N analytic manifolds over F of dimensions m and n (Mathlib ChartedSpace with IsManifold over the model space F^m, smoothness ω), and f : M → N an analytic map such that the rank of the tangent map T_x f is equal to k for all x in a neighbourhood of a. Then there are analytic charts φ around a and ψ around f(a) such that ψ ∘ f ∘ φ^{-1}(x_1, …, x_m) = (x_1, …, x_k, 0, …, 0) near φ(a). In particular f is locally a submersion onto a k-dimensional submanifold; if k = n, f is open near a.",
    "hypotheses": [
     "Constant rank on a neighbourhood is essential; maximal rank at a point gives it on a neighbourhood only when the rank is m or n.",
-    "Characteristic 0 is essential: in characteristic p the map x ↦ x^p has constant rank 0 without being locally constant."
+    "Characteristic 0 is essential: in characteristic p the map x ↦ x^p has constant rank 0 without being locally constant.",
+    "For rigid-space applications F is nonarchimedean. The suggested model-space statement uses Mathlib’s general complete nontrivially normed field; its coordinate proof uses the existing analytic inverse theorem and uniqueness of convergent power series. Serre is a secondary locator in HK2, not an independently inspected source."
    ],
    "proofSteps": [
     "Reduce to model spaces: f : U ⊆ F^m → F^n analytic, a = 0, f(0) = 0, df_0 of rank k; after linear changes of coordinates df_0 = [I_k 0; 0 0].",
@@ -3386,13 +3487,14 @@
    ],
    "title": "Polydisc neighbourhoods of rational points of smooth rigid spaces",
    "kind": "theorem",
-   "statement": "Let F be a complete nontrivially normed field and V a rigid space over F, smooth of dimension m at an F-rational point x. Then x has a basis of open neighbourhoods in |V| each isomorphic, as a rigid space, to a closed polydisc of dimension m and radius in |F^×|, centred at x. More generally, a morphism f : V → W of smooth rigid spaces with df_x bijective at an F-rational x restricts to an isomorphism of polydisc neighbourhoods of x and f(x).",
+   "statement": "Let F be a complete nontrivially nonarchimedean normed field and V a rigid space over F, smooth of dimension m at an F-rational point x. Then x has a basis of open neighbourhoods in |V| each isomorphic, as a rigid space, to a closed polydisc of dimension m and radius in |F^×|, centred at x. More generally, a morphism f : V → W of smooth rigid spaces with df_x bijective at an F-rational x restricts to an isomorphism of polydisc neighbourhoods of x and f(x).",
    "hypotheses": [
-    "x is F-rational: k(x) = F. For non-rational classical points pass to V_{k(x)}."
+    "x is F-rational: k(x) = F. For non-rational classical points pass to V_{k(x)}.",
+    "F is nonarchimedean. Polydisc neighbourhood means an admissible open isomorphic to a closed polydisc; its embedding in the original ambient coordinates need not be a standard round disc."
    ],
    "proofSteps": [
     "Near x, V is étale over a polydisc (AdicSpacesPartII:R0/smooth-local-structure); locally V is a closed subspace of a polydisc D^{m+r} cut out by r functions h_1, …, h_r whose differentials together with dT_1, …, dT_m form a basis (AdicSpacesPartII:R0/jacobian-criterion-closed-subspace).",
-    "Translate x to 0. The map (T, h) : D^{m+r} → F^{m+r} is given by restricted power series with invertible derivative at 0; by the power series inverse function theorem (Schneider Proposition 5.9) it has an inverse given by power series converging on a polydisc of radius δ ∈ |F^×|, i.e. it is an isomorphism of rigid polydiscs of radius δ (restricted power series on a disc of radius δ are the affinoid functions of that disc).",
+    "Apply the convergent power-series inverse theorem to (T,h) at the rational point. Choose a target closed polydisc strictly inside the convergence neighbourhood of the inverse series. The inverse series and the original map then define inverse rigid morphisms between this target and its image neighbourhood. This image is an affinoid open isomorphic to a polydisc, but need not be a standard-radius ambient polydisc.",
     "In these coordinates V is {h = 0} = the polydisc of radius δ in the first m coordinates; shrinking δ gives the basis (polydiscs of radii |c|^k form a neighbourhood basis of the rational point 0, AdicSpacesPartIIPartII:RZ.3/polydisc-points-topology).",
     "The relative statement follows by applying this to the graph of f."
    ],
@@ -3433,9 +3535,10 @@
    ],
    "title": "The analytic manifold of rational points of a smooth rigid space",
    "kind": "construction",
-   "statement": "Let F be a complete nontrivially normed field and V a rigid space over F, smooth of pure dimension m. The set V(F) of F-rational points, with the subspace topology from |V|, carries a unique structure of F-analytic manifold of dimension m (Mathlib ChartedSpace (Fin m → F) with IsManifold 𝓘(F, Fin m → F) ω) whose charts are the coordinate maps of the polydisc neighbourhoods of AdicSpacesPartIIPartII:RZ.6/rigid-inverse-function-theorem. A morphism f : V → W of smooth rigid spaces induces an analytic map f_F : V(F) → W(F) with tangent map T_x f_F = df_x on Zariski tangent spaces (T_x(V(F)) = T_x V). For E a complete field, V smooth over E and E′/E a finite extension or a complete algebraically closed extension (such as the completion C of an algebraic closure), V(E′) := V_{E′}(E′) is an E′-analytic manifold of dimension m; for E′ = E finite over Q_p this is Serre's p-adic manifold.",
+   "statement": "Let F be a complete nontrivially nonarchimedean normed field and V a rigid space over F, smooth of pure dimension m. The set V(F) of F-rational points, with the subspace topology from |V|, carries a unique structure of F-analytic manifold of dimension m (Mathlib ChartedSpace (Fin m → F) with IsManifold 𝓘(F, Fin m → F) ω) whose charts are the coordinate maps of the polydisc neighbourhoods of AdicSpacesPartIIPartII:RZ.6/rigid-inverse-function-theorem. A morphism f : V → W of smooth rigid spaces induces an analytic map f_F : V(F) → W(F) with tangent map T_x f_F = df_x on Zariski tangent spaces (T_x(V(F)) = T_x V). For E a complete field, V smooth over E and E′/E a finite extension or a complete algebraically closed extension (such as the completion C of an algebraic closure), V(E′) := V_{E′}(E′) is an E′-analytic manifold of dimension m; for E′ = E finite over Q_p this is Serre's p-adic manifold.",
    "hypotheses": [
-    "Pure dimension m; for V of varying dimension the construction is done on each connected component."
+    "Pure dimension m; for V of varying dimension the construction is done on each connected component.",
+    "Mathlib IsManifold does not imply Hausdorffness or second countability. If V is separated then V(F) is Hausdorff and fits Schneider’s convention; no global Hausdorff claim is made for a general smooth nonseparated V."
    ],
    "proofSteps": [
     "Charts: polydisc neighbourhoods U ≅ D^m(δ) of rational points give bijections U(F) ≅ (radius-δ ball in F^m), homeomorphisms by AdicSpacesPartIIPartII:RZ.3/polydisc-points-topology.",
@@ -3502,7 +3605,7 @@
     {
      "name": "TauCeti.Rigid.rationalPoints.baseChange",
      "role": "functoriality",
-     "statement": "For F′/F complete, V(F) ⊆ V(F′) := V_{F′}(F′) is an F-analytic submanifold of the F′-manifold viewed over F, with compatible charts from polydiscs defined over F."
+     "statement": "For any complete F′/F, rational-point inclusion V(F) → V_{F′}(F′) is continuous and compatible with charts defined over F. Only when [F′:F] is finite do we assert that restriction of scalars gives an F-manifold of dimension m[F′:F], with V(F) an F-analytic submanifold of dimension m. No finite-dimensional F-manifold is asserted for an infinite extension."
     },
     {
      "name": "TauCeti.Rigid.rationalPoints.analytification",
@@ -3530,6 +3633,11 @@
      "name": "rationalPoints_dim_over_subfield",
      "kind": "non-example",
      "statement": "For V the disc over Q_p and E′ = Q_p(√p), V(E′) = O_{E′} is a 1-dimensional E′-manifold, of dimension 2 as a Q_p-manifold: a construction recording dimension over the base field E rather than over E′ fails."
+    },
+    {
+     "name": "rationalPoints_infinite_scalar_extension",
+     "kind": "non-example",
+     "statement": "For the disc over Q_p and F′ = C_p, the C_p-manifold of C_p-points has dimension one over C_p. Its model C_p is infinite-dimensional over Q_p, so restriction of scalars must not be assigned any finite Q_p-manifold dimension."
     }
    ],
    "planet": {
@@ -3562,14 +3670,14 @@
    ],
    "title": "Smooth morphisms give submersions; orbit maps are submersions",
    "kind": "theorem",
-   "statement": "Let F be a complete nontrivially normed field of characteristic 0 and f : V → W a smooth morphism of smooth rigid spaces over F. Then f_F : V(F) → W(F) is a submersion: T_x f_F is surjective for all x ∈ V(F), so f_F is open and locally a projection in charts. In particular, if G is a smooth linear algebraic group over a subfield E ⊆ F, H ⊆ G a closed subgroup and y ∈ (G/H)(F), the orbit map G(F) → (G/H)(F), g ↦ g·y, is a submersion at every point.",
+   "statement": "Let F be a complete nontrivially nonarchimedean normed field of characteristic 0 and f : V → W a smooth morphism of smooth rigid spaces over F. Then f_F : V(F) → W(F) is a submersion: T_x f_F is surjective for all x ∈ V(F), so f_F is open and locally a projection in charts. In particular, if G is a smooth linear algebraic group over a subfield E ⊆ F, H ⊆ G a closed subgroup and y ∈ (G/H)(F), the orbit map G(F) → (G/H)(F), g ↦ g·y, is a submersion at every point.",
    "hypotheses": [
     "Smoothness of the quotient map G → G/H for a smooth closed subgroup H in characteristic 0 (H is smooth by Cartier's theorem) comes from the Tau Ceti roadmap ReductiveGroups, Layer 3 (quotients G/H as fppf sheaves, representable, with G → G/H an H-torsor)."
    ],
    "proofSteps": [
     "Smooth f: df_x is surjective at rational x by the differential criterion (AdicSpacesPartII:R0/differential-criterion-morphism: f^*Ω_W → Ω_V split injective near x), so T_x f_F = df_x is surjective (AdicSpacesPartIIPartII:RZ.6/manifold-of-classical-points).",
     "Constant rank n = dim W on V(F), so the constant rank theorem gives a projection in charts (AdicSpacesPartIIPartII:RZ.6/constant-rank-theorem).",
-    "Orbit map: g ↦ g·y is the composite G_F → G_F (right translation by a lift of y over a finite extension, or directly g ↦ g g_0 when y = g_0 H) with the quotient G → G/H; both are smooth, their analytifications are smooth (AdicSpacesPartII:R1/analytification-etale-smooth), and the first part applies."
+    "For y ∈ (G/H)(F), choose a faithfully flat field extension F′/F over which y lifts to g_0 ∈ G(F′). After this extension the algebraic orbit morphism is the quotient G_{F′} → (G/H)_{F′} composed with right translation by g_0. In characteristic zero H is smooth, so this is a smooth H-torsor. Smoothness descends to F; analytify and apply the first part. Surjectivity on F-points of G → G/H is not assumed."
    ],
    "acceptance": [
     "For G = GL_2 acting on P¹ = GL_2/B, the orbit map of ∞ is a submersion GL_2(F) → P¹(F)."
@@ -3620,7 +3728,6 @@
     "AdicSpacesPartIIPartII:RZ.6/manifold-of-classical-points",
     "AdicSpacesPartIIPartII:RZ.6/rigid-inverse-function-theorem",
     "mathlib:HasFPowerSeriesOnBall",
-    "mathlib:AnalyticOnNhd.eqOn_zero_of_preconnected_of_eventuallyEq_zero",
     "mathlib:NormedAlgebra"
    ],
    "library": {
@@ -3650,25 +3757,47 @@
    "neededBy": [
     "AdicSpacesPartIIPartII:RZ.6/smooth-morphism-submersion"
    ]
+  },
+  {
+   "id": "Q1",
+   "supplier": "AdicSpacesPartII:F1",
+   "need": "Excellence (and hence finiteness of normalization and geometrically regular formal fibres) of every K-affinoid algebra over any complete nontrivially nonarchimedean rank-one K, including imperfect characteristic p. The existing F1/dagger-algebra-excellent node assumes char K = 0. Conrad 1999 §1.1, pp. 3–6 recalls Kiehl’s all-characteristic result. This requests the missing ordinary-affinoid generality, not a characteristic-p dagger theorem.",
+   "neededBy": [
+    "AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular",
+    "AdicSpacesPartIIPartII:RZ.1/rigid-normalization",
+    "AdicSpacesPartIIPartII:RZ.2/singular-locus"
+   ]
+  },
+  {
+   "id": "Q2",
+   "supplier": "AdicSpacesPartII:R2",
+   "need": "For a quasi-separated quasi-paracompact rigid X and a specified affinoid open W, after admissible blow-up of a formal model of X, realize a suitable affinoid neighbourhood of a point of W as the generic fibre of a formal open, compatibly with reduction. This is the formal-model localization input of BH22 Proposition 2.9, citing Bosch Lectures Theorem 8.4.3.",
+   "neededBy": [
+    "AdicSpacesPartIIPartII:RZ.4/weakly-shilov-transcendence-criterion"
+   ]
   }
  ],
  "coverage": [
   {
    "stageId": "AdicSpacesPartIIPartII:RZ.0",
    "status": "planned",
-   "remaining": []
+   "remaining": [
+    "G4 / Q1: all-characteristic excellence for regular affinoid restriction."
+   ]
   },
   {
    "stageId": "AdicSpacesPartIIPartII:RZ.1",
    "status": "planned",
    "remaining": [
-    "G1: read Lütkebohmert, Der Satz von Remmert–Stein in der nichtarchimedischen Funktionentheorie (Math. Z. 139, 1974), Theorem 1.6, for the extension theorem behind RZ.1/dense-open-connected."
+    "G1: original Riemann extension proof; G4 / Q1 outside characteristic zero."
    ]
   },
   {
    "stageId": "AdicSpacesPartIIPartII:RZ.2",
    "status": "planned",
-   "remaining": []
+   "remaining": [
+    "G4 / Q1: all-characteristic excellence and regular restriction."
+   ]
   },
   {
    "stageId": "AdicSpacesPartIIPartII:RZ.3",
@@ -3679,36 +3808,32 @@
    "stageId": "AdicSpacesPartIIPartII:RZ.4",
    "status": "planned",
    "remaining": [
-    "G2: read Poineau, Les espaces de Berkovich sont angéliques (Bull. SMF 141, 2013), Lemme 4.4 and Corollaire 4.15, and replace the sketched proof of the transcendence criterion by it."
+    "G5 / Q2: formal-model localization for the third characterization and the original Banach Shilov-boundary comparison proof; G4 for the regular-locus consequence."
    ]
   },
   {
    "stageId": "AdicSpacesPartIIPartII:RZ.5",
    "status": "planned",
    "remaining": [
-    "G3: Temkin's §§3–4 (algebraization and induction on codimension) and the Bierstone–Milman functoriality papers are summarised at target level only; the scheme-level nodes are proposed for transfer to an AlgebraicModuliForArithmeticGeometry Part II (restructure)."
+    "G3: scheme-level functorial resolution proof dependencies; G1 for connectedness."
    ]
   },
   {
    "stageId": "AdicSpacesPartIIPartII:RZ.6",
    "status": "planned",
-   "remaining": []
+   "remaining": [
+    "The precise smooth quotient/torsor request to ReductiveGroups remains open for the orbit-map application."
+   ]
   }
  ],
  "gaps": [
   {
-   "title": "G1: Lütkebohmert's extension theorem not read",
+   "title": "G1: original proof of the arbitrary-field Riemann extension theorem",
    "neededBy": [
+    "AdicSpacesPartIIPartII:RZ.1/riemann-extension",
     "AdicSpacesPartIIPartII:RZ.1/dense-open-connected"
    ],
-   "detail": "The node rests on Conrad's quotation (Irreducible components, p. 17) of Lütkebohmert 1974, Theorem 1.6: on a normal rigid space over an algebraically closed field, bounded functions off a nowhere dense analytic set extend. The theorem itself, and its descent to arbitrary K, should be read and, if no roadmap owns it, planned (it is a Riemann extension theorem in AdicSpacesPartII's direction)."
-  },
-  {
-   "title": "G2: Poineau's transcendence criterion not read",
-   "neededBy": [
-    "AdicSpacesPartIIPartII:RZ.4/weakly-shilov-transcendence-criterion"
-   ],
-   "detail": "Bhatt–Hansen prove (1) ⇔ (2) of their Proposition 2.9 by citing Poineau 2013, Lemme 4.4 and Corollaire 4.15 (Berkovich spaces). The node sketches both directions through the specialisation map and Weierstrass domains; the precise argument and its transport from Berkovich to adic points must be checked against Poineau."
+   "detail": "Conrad 2010 Theorem 2.1.1, p. 4 has now been read and supplies the exact statement over arbitrary K. Its original Bartenwerfer proof (§3 of the reference cited there) has not been read or decomposed. Read that proof and close this theorem node. Do not restore the invalid argument that connectedness survives completed algebraic closure."
   },
   {
    "title": "G3: scheme-level functorial desingularization at target level only",
@@ -3716,7 +3841,24 @@
     "AdicSpacesPartIIPartII:RZ.5/functorial-desingularization-varieties",
     "AdicSpacesPartIIPartII:RZ.5/functorial-desingularization-qe"
    ],
-   "detail": "AlgebraicModuliForArithmeticGeometry R09.7 plans Bierstone–Milman for varieties, compatible with local isomorphisms only. Compatibility with smooth and regular morphisms (Bierstone–Milman 2008, Bierstone–Milman–Temkin 2011) and Temkin's extension to quasi-excellent schemes (§§3–4, using Gabber–Ramero algebraization and Nishimura–Nishimura) are stated here as two theorem nodes with proof sketches; their decomposition belongs to a Part II of AlgebraicModuliForArithmeticGeometry (see restructure)."
+   "detail": "AlgebraicModuliForArithmeticGeometry R09.7 plans Bierstone–Milman for varieties, compatible with local isomorphisms only. Compatibility with smooth and regular morphisms (Bierstone–Milman 2008, Bierstone–Milman–Temkin 2011) and Temkin's extension to quasi-excellent schemes (§§3–4, using Gabber–Ramero algebraization and Nishimura–Nishimura) are stated here as two theorem nodes with proof sketches; their decomposition belongs to a Part II of AlgebraicModuliForArithmeticGeometry (see restructure). Also check regularity of completed affinoid scalar extension for ground-field compatibility in Theorem 5.2.2; flatness alone does not suffice."
+  },
+  {
+   "title": "G4: all-characteristic affinoid excellence supplier",
+   "neededBy": [
+    "AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular",
+    "AdicSpacesPartIIPartII:RZ.1/rigid-normalization",
+    "AdicSpacesPartIIPartII:RZ.2/singular-locus"
+   ],
+   "detail": "Request Q1: the existing parent F1/dagger-algebra-excellent is characteristic zero only. Conrad 1999 §1.1 recalls the all-characteristic affinoid result, including Kiehl’s imperfect-characteristic-p theorem; the original Kiehl proof has not been read. Characteristic-zero uses already have a matching supplier."
+  },
+  {
+   "title": "G5: formal-model localization for the third weakly-Shilov characterization",
+   "neededBy": [
+    "AdicSpacesPartIIPartII:RZ.4/weakly-shilov-transcendence-criterion",
+    "AdicSpacesPartIIPartII:RZ.4/shilov-point-characterisation"
+   ],
+   "detail": "The rank-one residue-transcendence equivalence is checked against Poineau and G2 is closed. For the formal-model condition, BH22 Proposition 2.9 invokes Bosch Lectures Theorem 8.4.3 to realize a specified affinoid domain as a formal open after admissible blow-up. Raynaud equivalence by itself does not state that localization lemma; request it precisely from AdicSpacesPartII:R2 and check its proof. For the Banach Shilov-boundary comparison in BH22 Proposition 2.2, the exact statement is checked there but its invoked Berkovich Spectral theory Proposition 2.4.4 proof has not been independently read."
   }
  ],
  "sourceIssues": [
@@ -3731,9 +3873,13 @@
    "affects": "nothing",
    "known": "PAPER-HOWE-KLEVDAL-26/E44 (paper extraction)",
    "searched": [
-    "arXiv versions v1 and v2",
-    "the paper extraction PAPER-HOWE-KLEVDAL-26 and its review"
-   ]
+    "The exact arXiv v2 sources listed in sourceVersions; no claim to have checked other arXiv revisions"
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "The rational-neighbourhood argument is valid in the paper’s setting. Infinite residue field suffices; weakening an assumption and making this standard argument explicit does not establish a source gap.",
+    "by": "REV-DESIGN-AdicSpacesPartIIPartII"
+   }
   },
   {
    "id": "AdicSpacesPartIIPartII/E2",
@@ -3746,8 +3892,13 @@
    "affects": "nothing",
    "known": "PAPER-HOWE-KLEVDAL-26/E45 (paper extraction)",
    "searched": [
-    "arXiv:2101.09759 v1 and v2"
-   ]
+    "The exact arXiv v2 sources listed in sourceVersions; no claim to have checked other arXiv revisions"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "HK2 p. 60 cites Definition 2.4 for weakly Shilov points; BH22 Definition 2.5, p. 7 is the matching definition.",
+    "by": "REV-DESIGN-AdicSpacesPartIIPartII"
+   }
   },
   {
    "id": "AdicSpacesPartIIPartII/E3",
@@ -3755,14 +3906,18 @@
    "kind": "gap",
    "locator": "§9.3, sentence before Lemma 9.3.5, p. 60 (arXiv v2)",
    "printed": "A desingularization of the irreducible Z is asserted to be connected because Z is irreducible, without argument.",
-   "correction": "Connectedness follows from: the resolution is an isomorphism over the dense smooth locus Z^sm; a dense Zariski open subset of an irreducible rigid space is irreducible, hence connected (Lütkebohmert's extension theorem applied on the connected normalization); and the preimage of Z^sm is dense in the resolution. See AdicSpacesPartIIPartII:RZ.1/dense-open-connected and RZ.5/resolution-consequences(iv).",
+   "correction": "Connectedness follows from: the resolution is an isomorphism over the dense smooth locus Z^sm; a dense Zariski open subset of an irreducible rigid space is irreducible, hence connected (the arbitrary-field Riemann extension theorem applied on the connected normalization); and the preimage of Z^sm is dense in the resolution. See AdicSpacesPartIIPartII:RZ.1/dense-open-connected and RZ.5/resolution-consequences(iv).",
    "reason": "Irreducibility of Z alone does not give connectedness of a space mapping onto it; the density of the preimage of the smooth locus and the connectedness of dense Zariski opens of irreducible spaces are needed.",
    "affects": "the proof",
    "known": "new; PAPER-HOWE-KLEVDAL-26/E42 records the related replacement of 'geometrically irreducible' by 'irreducible' and refers to this assertion",
    "searched": [
-    "arXiv versions v1 and v2",
-    "the paper extraction PAPER-HOWE-KLEVDAL-26 and its review"
-   ]
+    "The exact arXiv v2 sources listed in sourceVersions; no claim to have checked other arXiv revisions"
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "Connectedness is a valid standard consequence of a resolution being an isomorphism over a dense irreducible smooth open with dense inverse image. The packet’s former base-change proof was wrong, but no counterexample to the paper’s assertion or inadequate source proof is established.",
+    "by": "REV-DESIGN-AdicSpacesPartIIPartII"
+   }
   },
   {
    "id": "AdicSpacesPartIIPartII/E4",
@@ -3775,9 +3930,52 @@
    "affects": "nothing",
    "known": "the review note on item PAPER-HOWE-KLEVDAL-26/174 of the paper extraction",
    "searched": [
-    "arXiv versions v1 and v2",
-    "the paper extraction PAPER-HOWE-KLEVDAL-26"
-   ]
+    "The exact arXiv v2 sources listed in sourceVersions; no claim to have checked other arXiv revisions"
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "Taking a resolution of the reduction is the conventional interpretation needed here. The author supplies no example proving that the cited fibre product has a generically nonreduced component. Record reduction explicitly for the v-cover argument, without promoting a possible hypothesis issue into a verified paper error.",
+    "by": "REV-DESIGN-AdicSpacesPartIIPartII"
+   }
+  },
+  {
+   "id": "AdicSpacesPartIIPartII/E5",
+   "source": "CONRAD99",
+   "kind": "error",
+   "locator": "§2.2, paragraph after Definition 2.2.2, author p. 14; published p. 496",
+   "printed": "The paragraph identifies irreducibility of Spec of the analytic stalk with uniqueness of the global irreducible component through the point.",
+   "correction": "Replace global components by components of sufficiently small admissible neighbourhoods, as in Conrad 2010 Lemma 2.1.3, pp. 4–5.",
+   "reason": "The integral cubic y²=x²(x+1) in characteristic zero has irreducible analytification (Theorem 2.3.1). Its node has two analytic branches, by the convergent square root of 1+x, while only one global component passes through it.",
+   "affects": "nothing",
+   "known": "No erratum located; the later paper states the correct local formulation.",
+   "searched": [
+    "Conrad author copy and published version of the 1999 article",
+    "Conrad 2010 Lemma 2.1.3 and proof"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked the assertion in both copies and the nodal counterexample. Excluded the false assertion from the node’s source match.",
+    "by": "REV-DESIGN-AdicSpacesPartIIPartII"
+   }
+  },
+  {
+   "id": "AdicSpacesPartIIPartII/E6",
+   "source": "BH22",
+   "kind": "misprint",
+   "locator": "§2.1, proof of Proposition 2.2, (1) ⇒ (2), arXiv v2 p. 6",
+   "printed": "The local ring of the reduction Ã at a generic point is described as a rank-one valuation ring with t as pseudo-uniformizer.",
+   "correction": "Use the localization of A° at the inverse-image prime, before reduction, and its separated t-adic completion as appropriate.",
+   "reason": "t vanishes in Ã=A°/A°°, so no localization of Ã can have t as pseudo-uniformizer. The proof and condition (3) require A° instead.",
+   "affects": "nothing",
+   "known": "No erratum checked beyond the specified preprint.",
+   "searched": [
+    "arXiv:2101.09759v2 p. 6, including the typeset PDF"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The PDF shows the reduction symbol. Its inconsistency with t and with condition (3) identifies the misprint.",
+    "by": "REV-DESIGN-AdicSpacesPartIIPartII"
+   }
   }
  ],
  "restructure": [
@@ -3803,15 +4001,250 @@
  "upstreamNotes": [
   {
    "roadmaps": [
-    "tauceti:TauCetiRoadmap/RigidAnalyticGeometry"
-   ],
-   "note": "§8.1 asks for irreducible-component comparisons under analytification (Conrad Theorem 2.3.1), which presuppose irreducible components of a general rigid space (Conrad Definition 2.2.2, via the global normalization). Neither RigidAnalyticGeometry nor AdicSpacesPartII defines them; this atlas roadmap (RZ.1) plans the normalization of rigid spaces and their irreducible components, and RigidAnalyticGeometry §8.1 could cite it."
-  },
-  {
-   "roadmaps": [
     "tauceti:TauCetiRoadmap/ReductiveGroups"
    ],
    "note": "Layer 3 treats G/H as an fppf sheaf quotient with representability as a theorem with hypotheses, but does not state that the quotient morphism G → G/H is smooth (an H-torsor) for smooth H. Rigid-analytic consumers (orbit maps on flag varieties as submersions) need that statement."
   }
- ]
+ ],
+ "libraryAudit": {
+  "reviewed": [
+   "AdicCoefficientsAndComparisons:L5 (AUDIT-18)",
+   "ClassicalAdicEtaleCohomology:H0 (AUDIT-18)",
+   "LocallyAnalyticDistributions:L0 and L3 (AUDIT-25)"
+  ],
+  "finding": "No audit entry for this new roadmap. The reviewed entries distinguish existing scheme normalization/Rees algebras and polydisc points from absent rigid normalization, blow-ups, rigid spaces and analytic function spaces.",
+  "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+  "currentTauCetiRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+  "alreadyPresent": "TauCeti.ValuationSpectrum.gaussPoint (one-variable centred discs, radii 0<r≤1), gaussPoint_vle_iff, supp_gaussPoint and gaussPoint_ne_classicalPoint in Spa/Polydisc/GaussPoint.lean. Import this construction; this roadmap adds closure/density results, not a replacement construction.",
+  "upstreamScope": "Current DifferentialGeometry supplies real smooth manifold results, not the nonarchimedean analytic constant-rank theorem. No current TauCetiRoadmap/RigidAnalyticGeometry directory exists; removed that claimed supplier. ReductiveGroups Layer 3 supplies quotients but the smooth torsor statement is requested explicitly."
+ },
+ "supplierNotes": [
+  {
+   "supplier": "AdicSpacesPartII:R1/rigid-analytification-connected",
+   "note": "The parent statement includes a component comparison. Import that comparison only after RZ.1 constructs global rigid components; it is not a prerequisite of normalization or of the component construction. The parent’s component formulation needs this ownership clarification."
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-AdicSpacesPartIIPartII",
+  "date": "2026-10-19",
+  "notes": "Independent target-level review of every original node and baseline declaration, sources, suppliers, API/tests, current libraries and upstream roadmaps. Corrected statements and proof sketches; added Riemann extension, moved affinoid regularity earlier, and closed the Poineau reading gap. Accepted as a completed target-level pass with four explicit proof/source gaps and three supplier requests; no stage is closed. Planned coverage follows PROTOCOL section 0, permitting chains ending in recorded gaps. Suggested Lean elaborates at the pins with only admitted-proof warnings.",
+  "checked": [
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.0/zariski-closed-subset",
+    "verdict": "corrected",
+    "note": "Replaced flatness alone by reduced affinoid localization; removed the unsupported boundary-point count in the negative control."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.0/local-dimension",
+    "verdict": "corrected",
+    "note": "Replaced a forward reference to global irreducible components by the finite minimal-prime decomposition of an affinoid ring."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.0/nowhere-dense-criteria",
+    "verdict": "corrected",
+    "note": "Used finite affinoid minimal primes and dimension drop, rather than semicontinuity and density alone."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.0/proper-image-zariski-closed",
+    "verdict": "verified",
+    "note": "Kiehl coherent direct image supplies the coherent annihilator ideal. Properness identifies its support with the image, including non-surjective maps."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.0/affinoid-localization-regular",
+    "verdict": "corrected",
+    "note": "Moved the regularity input before normalization and singular loci; retained the characteristic-zero result and explicitly requested its all-characteristic extension."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/rigid-normalization",
+    "verdict": "corrected",
+    "note": "Made all-characteristic excellence explicit and distinguished normalization over X_red from a map to a nonreduced X."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/normalization-characterisation",
+    "verdict": "verified",
+    "note": "Conrad Theorem 2.1.2 has the stated finiteness, normality and nowhere-dense exceptional-set hypotheses; the reduced-target qualification is retained."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/connected-components",
+    "verdict": "corrected",
+    "note": "Matched Mathlib connectedness, including the nonempty condition and the empty-space tests."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/irreducible-components",
+    "verdict": "corrected",
+    "note": "Removed a false local/global branch claim in the cited source; retained a nodal counterexample and supplied Conrad’s corrected local formulation."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/irreducibility-criterion",
+    "verdict": "verified",
+    "note": "Conrad Lemma 2.2.3 supplies the equivalences; normalization and identity-principle inputs are explicit and nonemptiness is retained."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/full-dimensional-closed-subset",
+    "verdict": "corrected",
+    "note": "Replaced the incomplete full-dimensional-neighbourhood argument by the established nowhere-density/local-dimension criterion."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/riemann-extension",
+    "verdict": "added",
+    "note": "Exact arbitrary-field statement read in Conrad 2010 Theorem 2.1.1; G1 retains the unread original Bartenwerfer proof."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.1/dense-open-connected",
+    "verdict": "corrected",
+    "note": "Replaced the invalid connected-base-change proof by extension of idempotents over the original field."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.2/singular-locus",
+    "verdict": "corrected",
+    "note": "Supplied the earlier regularity input and exposed the all-characteristic excellence request."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.2/smooth-iff-regular",
+    "verdict": "corrected",
+    "note": "Qualified the assertion about completed local rings under étale maps."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.2/tangent-space",
+    "verdict": "verified",
+    "note": "The m/m² tangent space and maps agree with the completion and continuous-differential inputs. The cotangent comparison is restricted to rational/separable points, and tests include nonreduced and singular controls."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.2/singular-stratification",
+    "verdict": "verified",
+    "note": "The singular loci carry reduced structures; integer dimension drops at every step. Finite dimension, rather than quasicompactness, bounds the number of strata."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.2/rank-loci",
+    "verdict": "corrected",
+    "note": "Distinguished cotangent-fibre rank from absolute local-ring tangent spaces at inseparable classical points."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.3/classical-point",
+    "verdict": "corrected",
+    "note": "Distinguished the analytic residue field from its completion and recorded that they agree at classical points."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.3/classical-points-dense",
+    "verdict": "corrected",
+    "note": "Removed the unsupported stronger constructible-density claim and its nonexistent supplier; kept the density used by the consumers."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.3/rigid-analytic-point",
+    "verdict": "verified",
+    "note": "HK2 Definition 2.2.1 gives finite field extensions and the equivalence through common extensions. Spd arrows follow field embeddings contravariantly; geometric points over completed algebraic closures are excluded."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.3/classical-points-rigid-analytic-points",
+    "verdict": "verified",
+    "note": "HK2 Remark 2.2.2 and the parent diamond functor give the quotient by common finite extensions, without claiming all geometric points are classical."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.3/polydisc-points-topology",
+    "verdict": "corrected",
+    "note": "Removed a forward reference to RZ.6 from this topological lemma and made the ultrametric continuity argument explicit."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.3/gauss-point-in-closure",
+    "verdict": "corrected",
+    "note": "Recorded reuse of the existing current-library Gauss point while retaining the new multivariable closure theorem."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.4/specialisation-map",
+    "verdict": "corrected",
+    "note": "Corrected the ill-typed naturality square."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.4/shilov-point",
+    "verdict": "verified",
+    "note": "BH22 Definition 2.4 gives the rank-one/generic-specialization definition. Affinoid dependence is distinguished from the local weakly Shilov condition."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.4/shilov-point-characterisation",
+    "verdict": "corrected",
+    "note": "Corrected the source’s reduction/localization typo; the valuation ring is formed before reduction."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.4/weakly-shilov-point",
+    "verdict": "corrected",
+    "note": "Restricted the nonclassical-point negative control to positive local dimension and bounded the subdisc radii."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.4/abhyankar-bound",
+    "verdict": "corrected",
+    "note": "Proved the residue-transcendence bound by lifting independent residues instead of invoking an unlisted valuative Abhyankar inequality."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.4/weakly-shilov-transcendence-criterion",
+    "verdict": "corrected",
+    "note": "Read Poineau and replaced the unsupported shrinking and finite-extension argument by his strict Laurent-domain result."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.4/weakly-shilov-avoid-nowhere-dense",
+    "verdict": "verified",
+    "note": "BH22 Corollary 2.10 and Lemma 2.16 supply avoidance. Reducedness is retained for the regular-locus consequence."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.5/blow-up-sequence",
+    "verdict": "corrected",
+    "note": "Distinguished an empty-centre identity stage from a blow-up with empty total space."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.5/rigid-blow-up",
+    "verdict": "corrected",
+    "note": "Added the relative analytification supplier and qualified nowhere density of exceptional sets."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.5/functorial-desingularization-varieties",
+    "verdict": "verified",
+    "note": "Temkin Theorem 2.3.5 gives regular-morphism functoriality, stronger than the existing supplier. It is planned with G3 and an ownership proposal, not falsely imported."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.5/functorial-desingularization-qe",
+    "verdict": "corrected",
+    "note": "Restored functoriality and the final desingularization step in Temkin’s nonreduced construction."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.5/rigid-resolution",
+    "verdict": "corrected",
+    "note": "Updated the earlier regularity prerequisite and distinguished the ground-field-extension proof input from mere flatness."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.5/resolution-consequences",
+    "verdict": "verified",
+    "note": "The dense isomorphism locus and properness give surjectivity. The v-surjection criterion retains quasicompactness. Resolution of the reduction gives the same diamond and avoids deleting nonreduced components."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.6/analytic-inverse-function-theorem",
+    "verdict": "verified",
+    "note": "Pinned strict-derivative and analytic inverse-series APIs give the theorem with complete model spaces and a continuous linear equivalence; the existing construction is consumed."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.6/constant-rank-theorem",
+    "verdict": "corrected",
+    "note": "Retained characteristic zero and constant rank on a neighbourhood; strengthened the suggested conclusion to centred charts and MapsTo."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.6/rigid-inverse-function-theorem",
+    "verdict": "corrected",
+    "note": "Corrected the inverse-series argument: the image of a polydisc under the inverse is a polydisc neighbourhood, not necessarily a round disc in the original coordinates."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.6/manifold-of-classical-points",
+    "verdict": "corrected",
+    "note": "Restricted scalar-restriction submanifold claims to finite field extensions and distinguished the general Mathlib atlas from Hausdorff manifolds."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.6/smooth-morphism-submersion",
+    "verdict": "corrected",
+    "note": "Replaced translation by a nonexistent F-rational lift of a quotient point by smoothness after faithfully flat extension and descent."
+   },
+   {
+    "nodeId": "AdicSpacesPartIIPartII:RZ.6/subfield-identity-theorem",
+    "verdict": "corrected",
+    "note": "Removed the same-field preconnected-set identity theorem, which does not imply identity across a subfield."
+   }
+  ]
+ }
 }

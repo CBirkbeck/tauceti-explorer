@@ -39,9 +39,9 @@ of `A`. The predicate below is that ring-theoretic condition; the rigid-space pr
 
 namespace Ideal
 
-variable {A : Type*} [CommRing A]
+variable {A : Type*} [CommRing A] [IsNoetherianRing A]
 
-/-- `V(I) ⊆ Spec A` is nowhere dense: `I` is contained in no minimal prime of `A`. -/
+/-- For noetherian `A`, `V(I) ⊆ Spec A` is nowhere dense iff `I` is contained in no minimal prime of `A`. -/
 def IsNowhereDense (I : Ideal A) : Prop :=
   ∀ p ∈ minimalPrimes A, ¬ I ≤ p
 
@@ -111,7 +111,7 @@ example (p : ℕ) [Fact p.Prime] (a : ℤ_[p]) : ¬ IsUnit (a ^ p - a) := by
 /- The closed polydisc of the pinned Tau Ceti library, on which the Gauss point theorem is stated
 (the Gauss point itself, `TauCeti.ValuationSpectrum.gaussPoint`, is in the current library and
 not at the pinned commit). -/
-#check @TauCeti.ValuationSpectrum.closedPolydisc
+
 
 /-! ## Layer RZ.6: analytic manifolds of rational points
 
@@ -151,10 +151,11 @@ theorem AnalyticAt.exists_charts_constantRank [CharZero F] {m n k : ℕ}
         (Fin m → F) →ₗ[F] (Fin n → F))) = k) :
     ∃ (φ : OpenPartialHomeomorph (Fin m → F) (Fin m → F))
       (ψ : OpenPartialHomeomorph (Fin n → F) (Fin n → F)),
-      a ∈ φ.source ∧ f a ∈ ψ.source ∧
+      a ∈ φ.source ∧ f a ∈ ψ.source ∧ φ a = 0 ∧ ψ (f a) = 0 ∧
       AnalyticOnNhd F φ φ.source ∧ AnalyticOnNhd F φ.symm φ.target ∧
       AnalyticOnNhd F ψ ψ.source ∧ AnalyticOnNhd F ψ.symm ψ.target ∧
-      ∀ y ∈ φ.target, f (φ.symm y) ∈ ψ.source →
+      Set.MapsTo f φ.source ψ.source ∧
+      ∀ y ∈ φ.target,
         ψ (f (φ.symm y)) = constantRankNormalForm m n k y := by
   sorry
 
@@ -183,12 +184,14 @@ These are specified in the roadmap document and are not stated here, because rig
 are not yet in Mathlib or Tau Ceti at the pinned commits:
 
 * RZ.0: `TauCeti.Rigid.IsZariskiClosed`, `TauCeti.Rigid.localDim`,
+  `TauCeti.Rigid.affinoidSubdomain_isRegular`,
   `TauCeti.Rigid.IsNowhereDense.iff_ideal_not_le_minimalPrime`,
   `TauCeti.Rigid.IsProper.isZariskiClosed_range`.
 * RZ.1: `TauCeti.Rigid.normalization`, `TauCeti.Rigid.isNormalization_iff`,
   `TauCeti.Rigid.connectedComponent`, `TauCeti.Rigid.irreducibleComponents`,
   `TauCeti.Rigid.IsIrreducible.isNowhereDense_of_ne`, `TauCeti.Rigid.IsIrreducible.eq_of_localDim_eq`,
-  `TauCeti.Rigid.IsIrreducible.isConnected_compl`.
+  `TauCeti.Rigid.IsIrreducible.isConnected_compl`,
+  `TauCeti.Rigid.extend_bounded_of_normal`.
 * RZ.2: `TauCeti.Rigid.singularLocus`, `TauCeti.Rigid.smoothLocus_eq_regularLocus`,
   `TauCeti.Rigid.tangentSpace`, `TauCeti.Rigid.smoothStratification`,
   `TauCeti.Rigid.rankLocus_isZariskiOpen`.
@@ -201,7 +204,7 @@ are not yet in Mathlib or Tau Ceti at the pinned commits:
   `TauCeti.Rigid.IsWeaklyShilov.not_mem_of_isNowhereDense`.
 * RZ.5: `TauCeti.BlowUpSequence`, `TauCeti.Rigid.blowUp`,
   `TauCeti.FunctorialDesingularization.varieties`,
-  `TauCeti.FunctorialDesingularization.quasiExcellent`, `TauCeti.Rigid.affinoidSubdomain_isRegular`,
+  `TauCeti.FunctorialDesingularization.quasiExcellent`,
   `TauCeti.Rigid.resolution`, `TauCeti.Rigid.resolution_properties`.
 * RZ.6: `TauCeti.Rigid.exists_polydisc_nhds_basis`, `TauCeti.Rigid.rationalPoints`
   (with `chartedSpace` and `isManifold` instances), `TauCeti.Rigid.Smooth.isSubmersion_rationalPoints`.
