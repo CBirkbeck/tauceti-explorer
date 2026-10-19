@@ -148569,6 +148569,44 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-AutomorphicPadicLFunctions~codex.md"
+  },
+  {
+   "id": "FIX-PKG-StableHomotopyKTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-StableHomotopyKTheory~adv.md",
+    "research/blueprint/packages/StableHomotopyKTheory/review.json",
+    "research/blueprint/packages/StableHomotopyKTheory/README.md",
+    "research/blueprint/packages/StableHomotopyKTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-StableHomotopyKTheory~adv.md"
+  },
+  {
+   "id": "FIX-PKG-GeneralAlgebraicKTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GeneralAlgebraicKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-GeneralAlgebraicKTheory~adv.md",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/review.json",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/README.md",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-GeneralAlgebraicKTheory~adv.md"
   }
  ]
 }
