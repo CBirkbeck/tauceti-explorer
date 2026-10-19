@@ -143,7 +143,8 @@ category, the generalized Rost motive, cobordismDegree, heightCharacteristic,
 fixedPoint_heightCharacteristic and normResidue.
 Layer 7: tensorDifferentialSymbol, milnorDifferentialSymbol,
 artinSchreierDifferential, logarithmicForms, modPLogarithmicSymbol,
-wittLogarithmicSymbol and the relative leading-term filtration.
+logarithmicLeadingTerm_eliminate, logarithmicGeneration_primeToDescent,
+logarithmicGeneration, wittLogarithmicSymbol and the relative leading-term filtration.
 Layer 8: admissibleSupports, constrainedSupports, mapAdaptedSupports,
 functorialConiveauTower, semilocalSimplex, wellConnectedTheory, pointwiseCycleMap,
 coniveauCycleLayer, faceExactCoherent, the motivic exact couple and quotient tower.
