@@ -11,9 +11,10 @@
     "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
     "ExcursionOperatorsAndSpectralAction:ES2",
     "ExcursionOperatorsAndSpectralAction:ES3",
-    "ExcursionOperatorsAndSpectralAction:ES4"
+    "ExcursionOperatorsAndSpectralAction:ES4",
+    "ExcursionOperatorsAndSpectralAction:ES5"
   ],
-  "summary": "The enhanced Bernstein center receives Bun_G excursion operators from the imported LP2 construction. Objectwise uniform wild cutoffs yield compact component decompositions and a coefficient-qualified spectral-center map. Chapter X gives rational actual-Perf actions and integral approximation actions, followed by the good-prime integral actual-Perf action. Reduced central support, localization, compact lisse duality, local-shtuka compatibility and elliptic basic decomposition are specified separately from categorical LLC. The independent target-level review accepts all 42 targets across eight planned stages, with three explicit refinement gaps and eleven open supplier contracts. None of the stages is proof-closed.",
+  "summary": "The enhanced Bernstein center receives Bun_G excursion operators from the imported LP2 construction. Objectwise uniform wild cutoffs yield compact component decompositions and a coefficient-qualified spectral-center map. Chapter X gives rational actual-Perf actions and integral approximation actions, followed by the good-prime integral actual-Perf action. Reduced central support, localization, compact lisse duality, local-shtuka compatibility and elliptic basic decomposition are specified separately from categorical LLC. The 42 locally owned targets cover ES0–ES4; ES5 is covered by its eight accepted owner nodes in the ES5 part, importing the action and continuity from here. All nine scoped stages are planned, none proof-closed. The three local refinement gaps, eleven open supplier contracts and the imported ES5 refinements remain explicit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2925,6 +2926,27 @@
       "remaining": [
         "Elliptic deformation/global-component refinement; geometric End tensor comparison and enhanced localization. Named VS5 and HS3 inputs are imported."
       ]
+    },
+    {
+      "stageId": "ExcursionOperatorsAndSpectralAction:ES5",
+      "status": "planned",
+      "nodes": [
+        "ExcursionOperatorsAndSpectralAction:ES5/schur-irreducible-object",
+        "ExcursionOperatorsAndSpectralAction:ES5/condensed-schur-from-admissibility",
+        "ExcursionOperatorsAndSpectralAction:ES5/excursion-character-of-a-schur-object",
+        "ExcursionOperatorsAndSpectralAction:ES5/abstract-semisimple-parameter",
+        "ExcursionOperatorsAndSpectralAction:ES5/parameter-of-a-schur-irreducible-sheaf",
+        "ExcursionOperatorsAndSpectralAction:ES5/parameter-of-an-irreducible-smooth-representation",
+        "ExcursionOperatorsAndSpectralAction:ES5/stratum-centre-embedding-independence",
+        "ExcursionOperatorsAndSpectralAction:ES5/invariance-and-coefficient-transport"
+      ],
+      "suppliedBy": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+      "note": "Imported coverage: the accepted ES5 part owns all eight listed nodes, their APIs, tests and prerequisite chains. This ES0 part supplies the enhanced excursion action and continuity used there; no ES5 node is copied here. The supplier review is independent-review-REV-ExcursionOperatorsAndSpectralAction--ES5~2 (2026-10-09). Planned coverage does not close the supplier refinements below.",
+      "remaining": [
+        "Close SR.3b admissibility and the enriched fixed-vector/stratum-adjunction supplier requests.",
+        "Refine the exact LP2 continuity interface and replace omitted geometric prototype conditions.",
+        "State the exact arbitrary-discrete-W LP2 classifier variant requested by VIII.4.3; its abstract action is already supplied."
+      ]
     }
   ],
   "gaps": [
@@ -3415,7 +3437,7 @@
         "support_coefficient_change_requires_flatness"
       ],
       "executableExamples": 3,
-      "lines": 215,
+      "lines": 217,
       "qualification": "The three examples have proofs without admissions or dependencies on admitted roadmap theorems. Thirteen named theorem targets still require proofs. ModuleCat computations concern degree zero, not an identification with Perf; the principal criterion does not construct categorical localization. The enhanced geometric inputs remain README targets.",
       "provedExamples": 3
     },
@@ -3426,9 +3448,9 @@
       "taucetiImports": false,
       "note": "Shared build at the exact pins; free memory exceeded 20 GB before elaboration. Only Mathlib is imported. Elaboration checks the types of the thirteen unproved theorem targets, not their truth; the three examples are proved.",
       "agent": "Codex",
-      "session": "codex-2c6UEE",
+      "session": "codex-ytkZRS",
       "date": "2026-10-19",
-      "reviewJob": "REV-ExcursionOperatorsAndSpectralAction--ES0~4"
+      "job": "BP-ExcursionOperatorsAndSpectralAction--ES0~5"
     },
     "validationHistory": [
       {
@@ -3462,6 +3484,17 @@
         "agent": "Codex",
         "session": "codex-LYOX8A",
         "date": "2026-10-19"
+      },
+      {
+        "command": "lean-check research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES0.lean",
+        "result": "exit 0; 13 proof-placeholder warnings and no other warnings or errors",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "taucetiImports": false,
+        "note": "Shared build at the exact pins; free memory exceeded 20 GB before elaboration. Only Mathlib is imported. Elaboration checks the types of the thirteen unproved theorem targets, not their truth; the three examples are proved.",
+        "agent": "Codex",
+        "session": "codex-2c6UEE",
+        "date": "2026-10-19",
+        "reviewJob": "REV-ExcursionOperatorsAndSpectralAction--ES0~4"
       }
     ],
     "previousShape": {
@@ -3958,42 +3991,47 @@
   "revisionReading": {
     "date": "2026-10-19",
     "agent": "Codex",
-    "session": "codex-LYOX8A",
+    "session": "codex-ytkZRS",
     "sourceId": "FS-geometrization",
     "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
     "sections": [
-      "VI.12 pp. 239–241: switching, Chevalley and the inner correction.",
-      "VII.7 pp. 271–275: stratum adjunction, compactness and compact lisse BZ duality.",
-      "VIII.3.7–VIII.4.2 pp. 288–293: continuous comparison and abstract excursions; VIII.5.1 generation statement imported from LP4.",
-      "IX.0–IX.5 pp. 318–330: normalized coherent Hecke action, general local-shtuka comparison, wild quotient full faithfulness and centers.",
-      "X.0–X.3 pp. 339–350: all action, approximation, Whittaker and elliptic target statements/proofs, with conjectures separate."
-    ],
-    "upstreamDocuments": [
-      "RepresentationTheory/SemisimpleAlgebras/README.md (full)",
-      "RepresentationTheory/InductionRestriction/README.md (full)",
-      "SmoothRepresentationsOfLocalGroups/README.md SR.0 coefficients/center, SR.1.3 corners/separatedness, SR.2 closed induction/Whittaker and SR.3 blocks; Suggested.lean smooth-category and open-induction forms"
+      "VII.7.2, pp. 272–273: enhanced stratum left adjoint, fully faithful unit and generator proof.",
+      "VIII.3.8–VIII.4.3, pp. 289–293: tuple-invariant classification, finite-anchor continuity, abstract excursion construction and scalar reconstruction.",
+      "IX.1.1–IX.2.4, pp. 320–324: condensed enhancement and coherent Hecke family.",
+      "IX.4.1–IX.5.3, pp. 327–330, and IX.7.1–IX.7.2 opening, pp. 334–335: Schur reconstruction, wild cutoffs, coefficient-qualified centers and stratum restriction."
     ],
     "upstreamCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
     "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-    "libraryEvidence": "All 34 baseline declaration statements read at Mathlib 082e2d3. Current TauCeti and the nine newer upstream directions, plus Completed roadmaps, screened by enhanced functor/mapping, stable category, quotient Perf, coherent Hecke and spectral-action mathematical interfaces. The DG Hom-complex data, ordinary projective stable quotient and graded linear quiver do not supply those interfaces. No TauCeti imports are used. Current E5, LP, GS, HS and VS mathematical contracts were read; supplied contracts are not required to export Lean carriers.",
-    "scopeResolution": "The issue header additionally lists ES5, but the exact part scope has eight ES0–ES4 IDs. The accepted --ES5 packet owns ES5–ES6; it is an import, not duplicated."
+    "upstreamDocuments": [
+      "RepresentationTheory/SemisimpleAlgebras/README.md and RepresentationTheory/InductionRestriction/README.md as density examples.",
+      "SmoothRepresentationsOfLocalGroups/README.md: SR.0.4 smooth-centre; SR.1.3 corners and separatedness; SR.0d derived-smooth-category and dg-enhancement; SR.6.1 finite-wild-discretization.",
+      "ClassFieldTheory/README.md Layer 9: Weil carrier, fixed inertia topology and arithmetic degree."
+    ],
+    "libraryEvidence": "Reread CatCenter, app, naturality, Linear.toCatCenter and Module.Flat.lTensor_exact in the exact Mathlib pin; retain the preceding independent receipts for the other unchanged baseline claims. Read current TauCeti.wildInertiaSubgroup and TauCeti.tameQuotientEquiv statements. The nine post-snapshot directions and four named Completed roadmaps were screened for excursion, enhanced-center and categorical-action interfaces. The changed scope introduces no baseline declaration or duplicate construction.",
+    "scopeResolution": "The current outer issue includes ES5. Its eight owner nodes remain in the independently accepted ES5 part; this packet records their imported planned coverage and exact node references. It does not extend its local ownership beyond ES4.",
+    "reviewCorrectionChecks": [
+      "The three light definitions have real bodies; the thirteen theorem targets retain the two coefficient negative controls; all three examples are proved.",
+      "The README and node acceptance clauses reference support_exact_operations and support_compatible_functor; the obsolete support_triangle_zero_ends, centralAnnihilator_map_le and centralSupport_map names remain absent from the active specification.",
+      "SR.0d imports the ordinary derived category, standard heart and dg model; the enhanced stratum/heart comparison remains the open additional contract.",
+      "ClassFieldTheory Layer 9, SR.6.1 and current wild/tame declarations remain imported foundations; tensor-coherent quotient descent remains the additional geometric input."
+    ],
+    "limitation": "This revision checks the scope import and preserves accepted mathematics. It does not replace the preceding exhaustive independent review, re-review the ES5 packet or close its supplier gaps."
   },
   "revision": {
-    "job": "BP-ExcursionOperatorsAndSpectralAction--ES0~4",
-    "issue": 10952,
+    "job": "BP-ExcursionOperatorsAndSpectralAction--ES0~5",
+    "issue": 11015,
     "agent": "Codex",
-    "session": "codex-LYOX8A",
+    "session": "codex-ytkZRS",
     "date": "2026-10-19",
     "status": "complete target-level revision; independent review required",
     "completed": [
-      "Applied the binding October 12 fixed shape to the October 10 signature objection: full mathematical README, compact native suggested statements, no toy enhanced substitutes.",
-      "Preserved all 42 node IDs, all definition APIs and Checks, coefficient qualifications and the preceding mathematical corrections.",
-      "Replaced supplied E5 animation and SR smooth-category/center/induction/block requests by explicit import receipts; narrowed the remaining E5/LP requests.",
-      "Expanded the elliptic proof outline to identify the exact twisted-invariant and global-component refinements; retained the geometric coefficient and DVR filtration gaps.",
-      "Read current upstream/library before planning; ES5 remains owned by its accepted packet.",
-      "Preserved the independent review object without changing its verdict."
+      "Read the complete revision 4 report and preserved its accepted review object unchanged. It contains no outstanding rejection finding; all its in-place corrections and fixed-shape interpretation are retained.",
+      "Reconciled the current issue’s nine-stage scope with the historical eight-stage ES0 part: added explicit imported ES5 coverage referencing its eight existing owner nodes, without moving or copying them.",
+      "Added an ES5 import contract and audit-target map to the reader, with the exact condensed Schur, continuity, coefficient and supplier boundaries.",
+      "Preserved all 42 local node IDs, statements, prerequisites, APIs, definition Checks, planets, source issues and mathematical gaps. No new owner, node or supplier request was introduced.",
+      "Rechecked the corrected SR.0d/SR.1 and Weil/discretization ownership against current upstream, the native CatCenter and flat tensor statements at the Mathlib pin, and the ES5 excursion/stratum source interfaces."
     ],
-    "remaining": "All eight stages are planned, none proof-closed. Refine the three explicit mathematical gaps and the 11 open supplier contracts; then implement in dependency order. No missing-carrier Lean scaffolding is required by this target-level pass."
+    "remaining": "All nine scoped stages are planned. The three local mathematical refinements and eleven open local supplier contracts remain, together with the imported ES5 coverage refinements in its owner packet. None is a proof-closure or implementation claim."
   },
   "resolvedGaps": [
     {
@@ -4712,6 +4750,23 @@
         "Preserved node IDs, review object, source-issue verdict/version scope, planets and unchecked statuses."
       ],
       "remaining": "Obtain enhanced stable-category/coherence and derived stacky Perf Lean interfaces from E5/HS/LP; replace the 34 omitted node, 16 API and 18 test signatures and the weaker ordinary forms. Do not mark this checkpoint complete or accepted."
+    },
+    {
+      "job": "BP-ExcursionOperatorsAndSpectralAction--ES0~4",
+      "issue": 10952,
+      "agent": "Codex",
+      "session": "codex-LYOX8A",
+      "date": "2026-10-19",
+      "status": "complete target-level revision; independent review required",
+      "completed": [
+        "Applied the binding October 12 fixed shape to the October 10 signature objection: full mathematical README, compact native suggested statements, no toy enhanced substitutes.",
+        "Preserved all 42 node IDs, all definition APIs and Checks, coefficient qualifications and the preceding mathematical corrections.",
+        "Replaced supplied E5 animation and SR smooth-category/center/induction/block requests by explicit import receipts; narrowed the remaining E5/LP requests.",
+        "Expanded the elliptic proof outline to identify the exact twisted-invariant and global-component refinements; retained the geometric coefficient and DVR filtration gaps.",
+        "Read current upstream/library before planning; ES5 remains owned by its accepted packet.",
+        "Preserved the independent review object without changing its verdict."
+      ],
+      "remaining": "All eight stages are planned, none proof-closed. Refine the three explicit mathematical gaps and the 11 open supplier contracts; then implement in dependency order. No missing-carrier Lean scaffolding is required by this target-level pass."
     }
   ],
   "revisionReadingHistory": [
@@ -4753,6 +4808,29 @@
       "upstreamCommit": "dea8191cc6047d6142a65872ebce6eeeb841a29b",
       "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
       "libraryEvidence": "Read all seven added Mathlib declarations at the pin. Screened all nine newer upstream directions and the current TauCeti CategoryTheory tree. Read the near misses DGCategory, ProjectiveStableCategory and GradedLinearQuiver: none supplies the E5/HS condensed stable infinity-category or LP derived stacky Perf/coherent action-anima interfaces. E5 presentability nodes have no Lean declarationName exports. Accepted HS/VS/LP mathematical nodes have no such typed exports either. No supplier foundations are replanned in ES."
+    },
+    {
+      "date": "2026-10-19",
+      "agent": "Codex",
+      "session": "codex-LYOX8A",
+      "sourceId": "FS-geometrization",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "sections": [
+        "VI.12 pp. 239–241: switching, Chevalley and the inner correction.",
+        "VII.7 pp. 271–275: stratum adjunction, compactness and compact lisse BZ duality.",
+        "VIII.3.7–VIII.4.2 pp. 288–293: continuous comparison and abstract excursions; VIII.5.1 generation statement imported from LP4.",
+        "IX.0–IX.5 pp. 318–330: normalized coherent Hecke action, general local-shtuka comparison, wild quotient full faithfulness and centers.",
+        "X.0–X.3 pp. 339–350: all action, approximation, Whittaker and elliptic target statements/proofs, with conjectures separate."
+      ],
+      "upstreamDocuments": [
+        "RepresentationTheory/SemisimpleAlgebras/README.md (full)",
+        "RepresentationTheory/InductionRestriction/README.md (full)",
+        "SmoothRepresentationsOfLocalGroups/README.md SR.0 coefficients/center, SR.1.3 corners/separatedness, SR.2 closed induction/Whittaker and SR.3 blocks; Suggested.lean smooth-category and open-induction forms"
+      ],
+      "upstreamCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "libraryEvidence": "All 34 baseline declaration statements read at Mathlib 082e2d3. Current TauCeti and the nine newer upstream directions, plus Completed roadmaps, screened by enhanced functor/mapping, stable category, quotient Perf, coherent Hecke and spectral-action mathematical interfaces. The DG Hom-complex data, ordinary projective stable quotient and graded linear quiver do not supply those interfaces. No TauCeti imports are used. Current E5, LP, GS, HS and VS mathematical contracts were read; supplied contracts are not required to export Lean carriers.",
+      "scopeResolution": "The issue header additionally lists ES5, but the exact part scope has eight ES0–ES4 IDs. The accepted --ES5 packet owns ES5–ES6; it is an import, not duplicated."
     }
   ],
   "reviewReading": {

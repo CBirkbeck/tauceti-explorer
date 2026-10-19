@@ -11,6 +11,8 @@ implementation.
 Enhanced centers, condensed Hecke families, stacky Perf and coherent action
 anima remain targets in the roadmap. Here reduced central support is expressed
 on an actual preadditive homotopy category using Mathlib's ordinary CatCenter.
+The semisimple parameter assignment is imported from the ES5 part; its condensed
+sheaf and parameter carriers are also specified in the roadmap documents.
 The scalar-extension theorem distinguishes flatness from the identity-preserving
 endomorphism comparison, and the localization criterion concerns ideals only.
 -/

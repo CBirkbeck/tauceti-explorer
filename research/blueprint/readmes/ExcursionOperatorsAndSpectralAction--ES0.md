@@ -1,4 +1,4 @@
-# Roadmap: excursion operators and the spectral action (ES0–ES4)
+# Roadmap: excursion operators and the spectral action (ES0–ES4, with ES5 imported)
 
 **Summary.** Construct the enhanced Bernstein center of the lisse category on Bun_G, its excursion algebra action and its finite-wild component decomposition. Build the rational and integral categorical spectral actions through Chapter X’s universal properties, then obtain reduced central support, localization, duality, local-shtuka compatibility and the basic-stratum consequences of elliptic parameters. The categorical local Langlands equivalence remains a conjecture, separate from action existence.
 
@@ -10,7 +10,7 @@ Mathlib supplies the ordinary categorical center and the commutative algebra of 
 
 Its SR.0d also owns the ordinary derived smooth category, its standard heart and its dg K-injective model. E5 and VS must supply the stable infinity-category comparison needed here. ClassFieldTheory Layer 9 owns the local Weil group and its topology; SR.6.1 owns the finite-wild discrete cocycle input. Current TauCeti supplies `TauCeti.wildInertiaSubgroup` and `TauCeti.tameQuotientEquiv` in the local-field library. These are imported foundations, distinct from the coherent quotient descent of the entire geometric Hecke family proved here.
 
-The [ES5–ES6 part](ExcursionOperatorsAndSpectralAction--ES5.md) supplies the semisimple parameter assignment and its functorial consequences. [ES7](ExcursionOperatorsAndSpectralAction--ES7.md) owns the general spectral stratum/constant-term composites and parabolic compatibility; the early ordinary b=1 center restriction here is a different comparison. GS4 supplies normalized Satake and the Chevalley involution; HS supplies the coherent Hecke family and local-shtuka comparison; VS supplies strata and compact lisse Bernstein–Zelevinsky duality. These suppliers’ constructions are not repeated.
+The [ES5–ES6 part](ExcursionOperatorsAndSpectralAction--ES5.md) supplies the semisimple parameter assignment and its functorial consequences. ES5 is included here through the eight owner-node references in the import contract below; its definitions, APIs and Checks remain in that part. [ES7](ExcursionOperatorsAndSpectralAction--ES7.md) owns the general spectral stratum/constant-term composites and parabolic compatibility; the early ordinary b=1 center restriction here is a different comparison. GS4 supplies normalized Satake and the Chevalley involution; HS supplies the coherent Hecke family and local-shtuka comparison; VS supplies strata and compact lisse Bernstein–Zelevinsky duality. These suppliers’ constructions are not repeated.
 
 ## Conventions
 
@@ -1190,6 +1190,26 @@ Do not identify the indexing representations with Irr(S_phi) without Conjecture 
 ### Dependencies
 
 Elliptic deformation/global-component refinement; geometric End tensor comparison and enhanced localization. Named VS5 and HS3 inputs are imported.
+
+## ES5 import: the semisimple parameter assignment
+
+Use the [ES5 owner packet](../packets/ExcursionOperatorsAndSpectralAction--ES5.json) and its [full mathematical specification](ExcursionOperatorsAndSpectralAction--ES5.md). The following references account for ES5's targets; each suffix is relative to `ExcursionOperatorsAndSpectralAction:ES5/`.
+
+| Imported target | Owner nodes |
+| --- | --- |
+| The condensed Schur condition and its smooth-representation input | `schur-irreducible-object`, `condensed-schur-from-admissibility` |
+| Scalar excursion character, its relations and continuity | `excursion-character-of-a-schur-object` |
+| Unique semisimple conjugacy class and its defining identity for every excursion datum | `abstract-semisimple-parameter`, `parameter-of-a-schur-irreducible-sheaf` |
+| The representation assignment through the enhanced stratum embedding | `parameter-of-an-irreducible-smooth-representation`, `stratum-centre-embedding-independence` |
+| Isomorphism invariance and qualified coefficient comparison | `invariance-and-coefficient-transport` |
+
+The interface from this part is the enhanced algebra action of `ES0/excursion-algebra-to-bernstein-center` and the continuous compact-source evaluation of `ES0/continuity-of-excursion-evaluations`. ES5 owns the passage to scalar characters for Schur objects, including its noncompact condensed mapping comparison. LP2 remains the owner of abstract excursion relations and tuple-invariant reconstruction. The dependency runs from ES0 to ES5; the construction of the ES0 action does not assume its parameter assignment.
+
+Use ES5 over an algebraically closed Z_ell[sqrt(q)]-field L, with ell different from p, and retain the fixed projection to Q for nonsplit groups. The relevant Schur hypothesis is invertibility of the canonical scalar unit in condensed degree-zero endomorphism algebras, not merely an abstract endomorphism-ring calculation. Continuity uses the relatively discrete coefficient structure and the full tuple-invariant classifier. Neither the center-order condition nor the integral actual-Perf good-prime hypothesis is an input to this assignment. The stratum functor is the fully faithful relative-homology left adjoint of VII.7.2, not a general shriek extension. Coefficient transport requires the owner's explicit operator comparison and the Schur condition after transport.
+
+*Source interfaces:* Fargues–Scholze VIII.3.8, p. 290; VIII.4.3, pp. 292–293; IX.4.1, p. 327; VII.7.2, pp. 272–273; IX.7.1, p. 334. Their constructions, API outlines and discriminating Checks are specified by the linked owner nodes. The resulting parameter supplies neither a monodromy operator nor a full local Langlands packet.
+
+ES5 has planned coverage. Its owner retains the arbitrary-coefficient admissibility and enriched fixed-vector/stratum comparisons, the exact LP2 continuity contract and the arbitrary-discrete-group classifier refinement as explicit supplier work. Importing its plan does not discharge those inputs or establish an implementation.
 
 ## Worked examples
 
