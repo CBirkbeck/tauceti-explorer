@@ -391,10 +391,10 @@
       ],
       "note": "ported 2026-10-13 (Opus, claude3); Lean 687 lines, README 5,562 lines; bundle partner SelmerIwasawaCohomology ported in parallel",
       "review": {
-        "recommendation": "approve",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "recommendation": "changes",
+        "head": "422d77d",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "DerivedDeRhamCohomology": {
