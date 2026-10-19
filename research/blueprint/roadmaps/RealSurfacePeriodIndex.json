@@ -1,0 +1,334 @@
+{
+ "id": "RealSurfacePeriodIndex",
+ "title": "Period and index on real surfaces",
+ "area": "arithmeticgeometry",
+ "parent": null,
+ "summary": "A roadmap for Benoist's period-index theorems for function fields of real surfaces: period equals index when the surface has no real points or the class vanishes at real points, the exact topological obstruction for unramified classes (index n or 2n), real Enriques surfaces, a Puiseux counterexample, and the u-invariant 4 of real surface function fields with its consequences for quadratic forms and degree-four del Pezzo surfaces over real curves. It builds the needed real-function-field theory and imports equivariant topology, real Noether–Lefschetz theory, cycle classes and period-index arithmetic from their owners.",
+ "readme": "**Purpose.** This roadmap plans Olivier Benoist's solution of the period-index problem for function fields of real algebraic surfaces (Publ. Math. IHÉS 130, 2019). Its end results are: period equals index for every Brauer class of ℝ(S) when S(ℝ) = ∅ (Theorem 0.3), and for every class unramified on a smooth surface U and vanishing at all real points of U (Theorem 0.4); a complete criterion for unramified classes on smooth projective real surfaces, with index n or 2n according to a mod-2 topological condition on the half-period class (Theorem 0.5); the classification of real Enriques surfaces carrying classes with period ≠ index (Theorem 0.6); a K3 surface over the real Puiseux field where the criterion fails (Proposition 0.7); and the consequences for quadratic forms: the Elman–Lam u-invariant of any field of transcendence degree 2 over ℝ is ≤ 4, and equal to 4 for function fields of real surfaces (Theorem 0.12), quadratic forms of rank ≥ 5 are isotropic over ℝ(S) when S(ℝ) = ∅ (Theorem 0.10), and degree-four del Pezzo surfaces over ℝ(C) have points when C(ℝ) = ∅ (Theorem 0.13).\n\n**Scope.** Ten layers PI.0–PI.9. PI.0 is the real-function-field theory the proof needs and no roadmap yet owns (orderings, real closures, signatures, the Elman–Lam invariant, Witt, Springer, Amer–Brumer, Albert, Pfister's criterion); it was proposed for a separate roadmap QuadraticFormsRealFunctionFields and moves there if that roadmap is created. PI.1 sets up unramified loci, real evaluation, de Jong's theorem and the norm bound. PI.2 is Benoist's Hodge-theoretic proof of de Jong's theorem for unramified classes on complex surfaces. PI.3–PI.6 carry out the real argument: ramified double covers, the pulled-back class, Noether–Lefschetz loci, real-locus control and the degree-two splitting. PI.7 assembles the main theorems and the u-invariant applications, PI.8 proves the obstruction, PI.9 the examples.\n\n**Conventions.** ℝ is the field of real numbers except in PI.0 and in the Puiseux example, where an arbitrary real closed field is allowed and named. G = Gal(ℂ/ℝ) acts on X(ℂ) with fixed locus X(ℝ); H^i(Y) means H^i(Y, 𝔽₂); ℤ(j) is ℤ with conjugation acting by (−1)^j (Benoist's i^jℤ); equivariant cohomology is Borel/Grothendieck equivariant sheaf cohomology (AlgebraicTopologyPartII). Br(X) = H²_ét(X, 𝔾_m) ⊂ Br(k(X)) for smooth integral X. Period is the order in Br, index the SemisimpleAlgebrasPartII class index. [ξ]_i denotes the degree-i real component of an equivariant class (restriction to X(ℝ), canonical decomposition, projection). The Elman–Lam invariant u(K) counts anisotropic forms of zero signature at every ordering.\n\n**Sources.** Benoist 2019 (published version, read in full); Bochnak–Coste–Roy, *Real Algebraic Geometry* (maintainer-cleared copy); Elman–Karpenko–Merkurjev (free); Becher 2005 (free); cited inputs from de Jong 2004, Voisin 2006 (through HodgeStructuresPartII), Benoist–Wittenberg 2020, Bröcker 1980, Mangolte–van Hamel 1998, Colliot-Thélène–Parimala 1990 and Degtyarev–Kharlamov 1996.\n\n**Layer overview.** PI.0 field theory → PI.1 setting → PI.2 complex unramified case → PI.3 double covers → PI.4 pullback → PI.5 Noether–Lefschetz → PI.6 splitting → PI.7 main theorems → PI.8 obstruction → PI.9 examples.\n\n**Non-goals.** De Jong's theorem in positive characteristic and Lieblich's finite-field bound (background only); the general Propositions 4.4–4.5 and 6.6 beyond uniform real evaluation (recorded gaps); Lang's and Pfister's conjectures in higher dimension (stated, never used); the topological, Hodge-theoretic, cycle-class and purity foundations, which belong to AlgebraicTopologyPartII, HodgeStructuresPartII, MotivesAndAlgebraicCycles and PurityForFlatCohomology.",
+ "prerequisites": [
+  "AlgebraicModuliForArithmeticGeometry",
+  "AlgebraicTopologyPartII",
+  "DeformationAndDerivedPatchingAlgebra",
+  "EnriquesSurfacesAndIntegralNonexistence",
+  "HodgeStructuresPartII",
+  "InverseGaloisAndArithmeticFundamentalGroups",
+  "LogicAndDefinabilityInNumberTheory",
+  "MotivesAndAlgebraicCycles",
+  "PurityForFlatCohomology",
+  "QuadraticFormInvariantsPartII",
+  "SchemeAndStackFoundations",
+  "SemisimpleAlgebrasPartII",
+  "ShimuraData",
+  "tauceti:TauCetiRoadmap/AlgebraicTopology",
+  "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
+  "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+  "tauceti:TauCetiRoadmap/StableReduction"
+ ],
+ "stages": [
+  {
+   "key": "PI.0",
+   "title": "Real function fields: orderings, real closures and the Elman–Lam invariant",
+   "description": "**Targets.** The space of orderings X_F of a field with the Harrison topology, its compactness and inverse limits; real closures at a specified ordering (built on upstream RealAlgebraicGeometry Layer 1, `exists_realClosure`); signatures of quadratic forms at orderings; the clopen locus of orderings where a Brauer class survives; the Elman–Lam u-invariant (zero total signature); a C₁ field has trivial Brauer group; the u-invariant of a real curve function field is ≤ 2; Witt's theorem on Brauer classes of real curves (classes vanishing at all real closures, or at a dense set of real points, are zero, ramified or not); Springer's theorem over complete discretely valued fields; the Amer–Brumer theorem; Albert's isotropy criterion for Albert forms; the Elman–Lam bound for fields with u(F(√−1)) ≤ 4; Pfister's criterion (index two for real-closure-trivial classes implies u ≤ 4) in transcendence degree 2. This layer is the real-function-field tranche that QuadraticFormInvariantsPartII proposed as QuadraticFormsRealFunctionFields; it never imports the applications of PI.7.",
+   "requires": [
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-1-hyperbolic-planes-and-witt-theory",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
+    "QuadraticFormInvariantsPartII:Q2.5",
+    "SemisimpleAlgebrasPartII:SA.0",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  },
+  {
+   "key": "PI.1",
+   "title": "Period, index and real evaluation on real surfaces",
+   "description": "**Targets.** The unramified locus U_α of a class of Br(ℝ(S)) (via purity, PurityForFlatCohomology PF.6); real evaluation and the clopen nonzero-evaluation locus Θ(α), with the degree-zero component of Kummer lifts; de Jong's period-index theorem in characteristic 0 (imported reduction, unramified case from PI.2); the norm bound ind | 2 per over any real closed base; extension of line bundles from dense opens and injectivity of H¹ under removal of finitely many points.",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.0",
+    "PurityForFlatCohomology:PF.6",
+    "SemisimpleAlgebrasPartII:SA.1",
+    "SchemeAndStackFoundations:SF.6",
+    "AlgebraicTopologyPartII:AT2.9"
+   ]
+  },
+  {
+   "key": "PI.2",
+   "title": "Unramified classes on complex surfaces",
+   "description": "**Targets.** Benoist's Hodge-theoretic proof of de Jong's theorem for unramified classes: the hypersurface family in |dnH| on ℙ¹ × S, vanishing of the topological obstruction by weak Lefschetz, the compatible integral lift (reduction equal to p*α̃) and pushforward adjustment, density of splitting hypersurfaces via Voisin's kernel cone, and ind = per for α ∈ Br(S).",
+   "requires": [
+    "HodgeStructuresPartII:H.8",
+    "MotivesAndAlgebraicCycles:MC.7",
+    "MotivesAndAlgebraicCycles:MC.2",
+    "SemisimpleAlgebrasPartII:SA.0"
+   ]
+  },
+  {
+   "key": "PI.3",
+   "title": "Ramified double covers",
+   "description": "**Targets.** The finite rank-two cover Spec_S(O ⊕ L⁻¹(−R)) branched along R ∪ D (normal, ordinary double points over Sing Δ); the incidence model rv² = sw² in ℙ_S(O ⊕ L), its map to the finite model, its fixed singular centres (w = 0 over Sing R) and resolution, the family in a fixed threefold; local structure and Stein factorisation p_*O_T = O_S ⊕ L⁻¹(−R); étale and finite-flat strata; p_* is an isomorphism on H^{≥3} and onto on H² for L(R) ample; the image of the equivariant pushforward is cut out by the first real component.",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.1",
+    "AlgebraicTopologyPartII:AT2.14",
+    "HodgeStructuresPartII:H.8",
+    "AlgebraicModuliForArithmeticGeometry:R09.1",
+    "SchemeAndStackFoundations:SF.4"
+   ]
+  },
+  {
+   "key": "PI.4",
+   "title": "Pulling back a period-two class to a double cover",
+   "description": "**Targets.** Assumption 4.1 on the cover (avoidance of Ψ ⊃ Θ, kernel generation, H² injectivity); the pulled-back class is unramified; its topological obstruction is killed by ω; uniform-evaluation forms of Propositions 4.4–4.5 (obstruction vanishing, trace-quotient Picard correction, curve adjustment, integral pushforward adjustment); the general Propositions 4.4–4.5 as stated, with their recorded gap.",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.3",
+    "RealSurfacePeriodIndex:PI.0",
+    "AlgebraicTopologyPartII:AT2.15",
+    "AlgebraicTopologyPartII:AT2.16",
+    "MotivesAndAlgebraicCycles:MC.2"
+   ]
+  },
+  {
+   "key": "PI.5",
+   "title": "Noether–Lefschetz loci for double covers",
+   "description": "**Targets.** Assumption 5.1 and the real-pointless curve C; the point s = a₁s₀ + a₂c of B and the lift of C to T; restriction of the anti-invariant summand to C; Assumption 5.2; h¹(C, N_{C/X}) ≤ h²(O_S) and H²(T, O_T(C)) = 0; dim coker φ_λ ≤ h²(O_S); blowing up points to realise Assumption 5.2.",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.3",
+    "HodgeStructuresPartII:H.8",
+    "SchemeAndStackFoundations:SF.2",
+    "SchemeAndStackFoundations:SF.5"
+   ]
+  },
+  {
+   "key": "PI.6",
+   "title": "Real-locus control and the degree-two splitting",
+   "description": "**Targets.** Positivity in squared lines; Assumption 6.1 on the real branch locus, its stability and its realisation after blow-ups; Nash approximation (BCR 12.4.11) and Bröcker's real divisors as cited inputs; the signed branch section t with real divisor H − R corrected; Assumption 6.1 implies Assumption 4.1; the vanishing variation and surjectivity of the Gauss–Manin derivative; normalisation and transport of the Kummer lift; Proposition 6.6 in the uniform-evaluation form, and as stated.",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.4",
+    "RealSurfacePeriodIndex:PI.5",
+    "HodgeStructuresPartII:H.8",
+    "AlgebraicTopologyPartII:AT2.16",
+    "MotivesAndAlgebraicCycles:MC.7"
+   ]
+  },
+  {
+   "key": "PI.7",
+   "title": "Period equals index: the main theorems and the u-invariant",
+   "description": "**Targets.** Uniform evaluation of the half-period class; the induction step and Proposition 6.7; Theorem 0.3 (S(ℝ) = ∅), Theorem 0.4 (zero real evaluation), the sufficient half of Theorem 0.5; real-closure triviality implies pointwise triviality; Theorem 0.12 (u(K) ≤ 4 in transcendence degree 2, u(ℝ(S)) = 4 with the corrected anisotropic witness); Theorem 0.10 (rank ≥ 5 forms isotropic when S(ℝ) = ∅); Theorem 0.13 (degree-four del Pezzo surfaces over ℝ(C) with C(ℝ) = ∅ have points).",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.6",
+    "RealSurfacePeriodIndex:PI.0",
+    "RealSurfacePeriodIndex:PI.1"
+   ]
+  },
+  {
+   "key": "PI.8",
+   "title": "The obstruction to period equals index",
+   "description": "**Targets.** The finite-flat open U₀ and Θ₀; the alternating double cover and branch multiplicities; the trace-quotient lift and the sign-corrected pullback lift; the circle double cover and its local monodromy correction; the correcting line bundle and algebraicity of the quotient component; Proposition 7.1 (even-degree splitting obstruction) and the obstruction half of Theorem 0.5 (ind = 2 per).",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.7",
+    "AlgebraicTopologyPartII:AT2.15",
+    "AlgebraicTopologyPartII:AT2.14",
+    "MotivesAndAlgebraicCycles:MC.2"
+   ]
+  },
+  {
+   "key": "PI.9",
+   "title": "Real Enriques surfaces and the Puiseux counterexample",
+   "description": "**Targets.** The image of the first two real components (Proposition 8.1); real Enriques surfaces and their halves, the Brauer group killed by 4, period-four classes, the real Picard image (cited), the half detector, and Theorem 0.6; the field of real Puiseux series, the sextic double plane and its K3 resolution with four sphere components, a class evaluating to zero on exactly one component, the quaternion sign contradiction, and Proposition 0.7.",
+   "requires": [
+    "RealSurfacePeriodIndex:PI.8",
+    "RealSurfacePeriodIndex:PI.7",
+    "EnriquesSurfacesAndIntegralNonexistence:E0",
+    "AlgebraicTopologyPartII:AT2.10",
+    "AlgebraicTopologyPartII:AT2.6"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "B19",
+   "title": "The period-index problem for real surfaces",
+   "authors": "Olivier Benoist",
+   "edition": "Publications Mathématiques de l'IHÉS 130 (2019), 63–110; published version (Numdam), printed page numbers; arXiv:1804.03642v2 not collated",
+   "url": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
+   "readSections": [
+    "All of pp. 63–110 read in full on 2026-10-19: Introduction §§0.1–0.7, §1 (Theorem 1.1, Proposition 1.2, Lemmas 1.3–1.4, Theorem 1.5), §2 (2.1–2.17, Lemma 2.1), §3 (Assumption 3.1, Propositions 3.2–3.3), §4 (Assumption 4.1, Propositions 4.2–4.5), §5 (Assumptions 5.1–5.2, Lemma 5.3, Propositions 5.4–5.5), §6 (Assumption 6.1, Lemmas 6.2–6.5, Propositions 6.6–6.7, §6.4), §7 (Proposition 7.1, Lemmas 7.2–7.6, Proposition 7.4, proof of Theorem 0.5), §8 (Proposition 8.1, Theorem 0.6, Proposition 0.7), references"
+   ]
+  },
+  {
+   "id": "BCR",
+   "title": "Real Algebraic Geometry",
+   "authors": "J. Bochnak, M. Coste and M.-F. Roy",
+   "edition": "Ergebnisse der Mathematik und ihrer Grenzgebiete (3) 36, Springer, 1998; maintainer-cleared copy (atlas library), printed page numbers",
+   "url": "https://doi.org/10.1007/978-3-662-03718-8",
+   "readSections": [
+    "Example 7.1.4 a), p. 135",
+    "Proposition 7.1.7, p. 136",
+    "§10.3, p. 254",
+    "Theorem 12.4.11, p. 318",
+    "Example 15.2.2, pp. 392–393"
+   ]
+  },
+  {
+   "id": "EKM",
+   "title": "The Algebraic and Geometric Theory of Quadratic Forms",
+   "authors": "Richard Elman, Nikita Karpenko and Alexander Merkurjev",
+   "edition": "Free author PDF (final manuscript of AMS Colloquium Publications 56, 2008); printed page numbers",
+   "url": "https://www.math.ucla.edu/~merkurev/Book/Kniga-final/Kniga.pdf",
+   "readSections": [
+    "Theorem 17.14, p. 74",
+    "Lemmas 19.4, 19.10 and Exercise 19.15, pp. 80–82",
+    "§33 (total signature), pp. 133–137",
+    "§37 (u-invariant of formally real fields), Theorem 37.4, Corollaries 37.5 and 37.8, pp. 165–169"
+   ]
+  },
+  {
+   "id": "BEC05",
+   "title": "On fields of u-invariant 4",
+   "authors": "Karim Johannes Becher",
+   "edition": "Preprint, 28 February 2005, Linear Algebraic Groups and Related Structures preprint server no. 154",
+   "url": "https://www.math.uni-bielefeld.de/lag/man/154.pdf",
+   "readSections": [
+    "Whole note, §§1–3, pp. 1–6"
+   ]
+  },
+  {
+   "id": "BW20",
+   "title": "On the integral Hodge conjecture for real varieties, I",
+   "authors": "Olivier Benoist and Olivier Wittenberg",
+   "edition": "Inventiones Mathematicae 222 (2020), 1–77; author PDF; not read in this job, cited at the locators Benoist gives",
+   "url": "https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf",
+   "readSections": [
+    "Not read in this job; statements as cited by Benoist 2019 (Propositions 1.3, 2.8, 2.9, Theorem 1.12)"
+   ]
+  },
+  {
+   "id": "DJ04",
+   "title": "The period-index problem for the Brauer group of an algebraic surface",
+   "authors": "A. J. de Jong",
+   "edition": "Duke Mathematical Journal 123 (2004), 71–94",
+   "url": "https://doi.org/10.1215/S0012-7094-04-12313-9",
+   "readSections": [
+    "Not read; §7 cited at Benoist's locator"
+   ]
+  },
+  {
+   "id": "CT95",
+   "title": "Birational invariants, purity and the Gersten conjecture",
+   "authors": "J.-L. Colliot-Thélène",
+   "edition": "Proc. Sympos. Pure Math. 58 (1995), 1–64",
+   "url": "https://doi.org/10.1090/pspum/058.1",
+   "readSections": [
+    "Not read; (3.9) and Proposition 3.3.1 cited at Benoist's locators"
+   ]
+  },
+  {
+   "id": "ARA75",
+   "title": "Primideale im graduierten Wittring und im mod 2 Cohomologiering",
+   "authors": "J. K. Arason",
+   "edition": "Mathematische Zeitschrift 145 (1975), 139–143",
+   "url": "https://doi.org/10.1007/BF01214778",
+   "readSections": [
+    "Not read; Hilfssatz 2 cited at Benoist's locator; the packet proves the needed closedness by trace forms"
+   ]
+  },
+  {
+   "id": "WITT37",
+   "title": "Theorie der quadratischen Formen in beliebigen Körpern",
+   "authors": "E. Witt",
+   "edition": "Journal für die reine und angewandte Mathematik 176 (1937), 31–44",
+   "url": "https://doi.org/10.1515/crll.1937.176.31",
+   "readSections": [
+    "Not read; Satz 22 cited at Benoist's locator; the packet proves the needed statement from EKM Corollary 37.8"
+   ]
+  },
+  {
+   "id": "SPR55",
+   "title": "Quadratic forms over fields with a discrete valuation. I",
+   "authors": "T. A. Springer",
+   "edition": "Indagationes Mathematicae 17 (1955), 352–362",
+   "url": "https://doi.org/10.1016/S1385-7258(55)50049-3",
+   "readSections": [
+    "Not read; the statement is taken from EKM §19"
+   ]
+  },
+  {
+   "id": "LAM05",
+   "title": "Introduction to Quadratic Forms over Fields",
+   "authors": "T. Y. Lam",
+   "edition": "Graduate Studies in Mathematics 67, AMS, 2005",
+   "url": "https://doi.org/10.1090/gsm/067",
+   "readSections": [
+    "Not read; Albert's theorem on biquaternion algebras (Chapter III) cited"
+   ]
+  },
+  {
+   "id": "EL73",
+   "title": "Quadratic forms and the u-invariant. I",
+   "authors": "R. Elman and T. Y. Lam",
+   "edition": "Mathematische Zeitschrift 131 (1973), 283–304",
+   "url": "https://doi.org/10.1007/BF01174904",
+   "readSections": [
+    "Not read; statements as reported by Becher 2005 §3 and EKM §37"
+   ]
+  },
+  {
+   "id": "PFI82",
+   "title": "On quadratic forms and abelian varieties over function fields",
+   "authors": "A. Pfister",
+   "edition": "Contemporary Mathematics 8 (1982), 249–264",
+   "url": "https://doi.org/10.1090/conm/008",
+   "readSections": [
+    "Not read; Proposition 9 cited at Benoist's locator; the packet proves the needed direction from EKM, Becher and Albert"
+   ]
+  },
+  {
+   "id": "BRO80",
+   "title": "Reelle Divisoren",
+   "authors": "L. Bröcker",
+   "edition": "Archiv der Mathematik 35 (1980), 140–143",
+   "url": "https://doi.org/10.1007/BF01235330",
+   "readSections": [
+    "Not read; Satz a), b) cited at Benoist's locator"
+   ]
+  },
+  {
+   "id": "MVH98",
+   "title": "Algebraic cycles and topology of real Enriques surfaces",
+   "authors": "F. Mangolte and J. van Hamel",
+   "edition": "Compositio Mathematica 110 (1998), 215–237",
+   "url": "https://doi.org/10.1023/A:1000243214522",
+   "readSections": [
+    "Not read; Theorems 1.1, 1.3 and 4.4 cited at Benoist's locators"
+   ]
+  },
+  {
+   "id": "DK96",
+   "title": "Halves of a real Enriques surface",
+   "authors": "A. Degtyarev and V. Kharlamov",
+   "edition": "Commentarii Mathematici Helvetici 71 (1996), 628–663",
+   "url": "https://doi.org/10.1007/BF02566441",
+   "readSections": [
+    "Not read; §1.3 cited at Benoist's locator"
+   ]
+  },
+  {
+   "id": "CTP90",
+   "title": "Real components of algebraic varieties and étale cohomology",
+   "authors": "J.-L. Colliot-Thélène and R. Parimala",
+   "edition": "Inventiones Mathematicae 101 (1990), 81–99",
+   "url": "https://doi.org/10.1007/BF01231497",
+   "readSections": [
+    "Not read; Proposition 3.1.2 cited at Benoist's locator"
+   ]
+  },
+  {
+   "id": "VA13",
+   "title": "Arithmetic of del Pezzo surfaces",
+   "authors": "A. Várilly-Alvarado",
+   "edition": "Birational Geometry, Rational Curves, and Arithmetic, Springer, 2013, 293–319",
+   "url": "https://doi.org/10.1007/978-1-4614-6482-2_12",
+   "readSections": [
+    "Not read; the anticanonical model of a degree-four del Pezzo surface as an intersection of two quadrics is cited"
+   ]
+  }
+ ],
+ "status": "draft"
+}
