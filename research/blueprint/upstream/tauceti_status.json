@@ -1026,14 +1026,14 @@
     "AutomorphicFormsOnReductiveGroups": {
       "stage": "pr",
       "pr": 1037,
-      "head": "940d070",
+      "head": "04038f3",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 22); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
         "maintainer": "REVIEW_REQUIRED",
-        "note": "final-review repairs applied at b028708; confirmation pass pending"
+        "note": "final-review repairs applied at 04038f3; confirmation pass pending"
       }
     },
     "ShimuraData": {
