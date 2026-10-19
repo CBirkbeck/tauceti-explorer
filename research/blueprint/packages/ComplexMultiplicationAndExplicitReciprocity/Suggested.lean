@@ -3,14 +3,15 @@ import Mathlib
 /-!
 # Complex multiplication and explicit reciprocity: representative target signatures
 
-The accompanying README is the definitive roadmap. These are selected definitions, end
-statements and Checks over existing carriers; proofs marked `sorry` are proposed targets.
+The accompanying README is the definitive roadmap. This file is not exhaustive: it records selected
+definitions, end statements and Checks over existing carriers; proofs marked `sorry` are proposed targets.
 The embedding partition and trace apply to finite étale CM algebras. Primitive types and
 inverse-coset reflex pairs are field-scoped. The finite-product bounds are stated in their
 full algebraic generality, before application to a complete CM class census.
 
 Geometric CM objects are not replaced by arbitrary functions or representations here.
-The complex, polynomial and matrix examples pin the conventions used in the README.
+The proved examples pin the embedding choices, order membership, polarization sign and
+relation multiplicities used in the README. Further boundary checks remain named README targets.
 -/
 
 noncomputable section
@@ -50,6 +51,11 @@ def typeTrace (Φ : CMType E) (x : E) : ℂ := ∑ φ ∈ Φ.embeddings, φ x
 def reflexField (Φ : CMType E) : IntermediateField ℚ ℂ :=
   IntermediateField.adjoin ℚ (Set.range Φ.typeTrace)
 
+/-- Induction is the inverse image of the selected embeddings along a rational algebra map. -/
+def IsInducedFrom (Φ : CMType E) {F : Type*} [CommRing F] [Algebra ℚ F]
+    (ι : F →ₐ[ℚ] E) (Ψ : CMType F) : Prop :=
+  ∀ φ : E →ₐ[ℚ] ℂ, φ ∈ Φ.embeddings ↔ φ.comp ι ∈ Ψ.embeddings
+
 /-- A partition of embeddings of a finite reduced rational algebra has half its rank. -/
 theorem card [FiniteDimensional ℚ E] [IsReduced E] (Φ : CMType E) :
     2 * Φ.embeddings.card = Module.finrank ℚ E := by sorry
@@ -65,20 +71,31 @@ example (φ : E →ₐ[ℚ] ℂ) (x : E) :
     conjugateEmbedding φ x = star (φ x) := by rfl
 
 example (φ : E →ₐ[ℚ] ℂ) :
-    conjugateEmbedding (conjugateEmbedding φ) = φ := by sorry
+    conjugateEmbedding (conjugateEmbedding φ) = φ := by
+  ext x
+  simp [conjugateEmbedding]
 
 example (Φ : CMType E) (φ : E →ₐ[ℚ] ℂ) :
-    ¬ (φ ∈ Φ.embeddings ∧ conjugateEmbedding φ ∈ Φ.embeddings) := by sorry
+    ¬ (φ ∈ Φ.embeddings ∧ conjugateEmbedding φ ∈ Φ.embeddings) := by
+  rintro ⟨h, hc⟩
+  exact (Φ.conjugate_partition φ).mp h hc
 
 example (Φ : CMType E) (φ : E →ₐ[ℚ] ℂ) :
-    φ ∈ Φ.embeddings ∨ conjugateEmbedding φ ∈ Φ.embeddings := by sorry
-
-example (Φ : CMType E) : Φ.conjugate.conjugate = Φ := by sorry
-
-example (Φ : CMType E) (φ : E →ₐ[ℚ] ℂ) :
-    φ ∈ Φ.conjugate.embeddings ↔ φ ∉ Φ.embeddings := by sorry
+    φ ∈ Φ.embeddings ∨ conjugateEmbedding φ ∈ Φ.embeddings := by
+  classical
+  by_cases h : φ ∈ Φ.embeddings
+  · exact Or.inl h
+  · exact Or.inr (by simpa only [not_not] using
+      (not_congr (Φ.conjugate_partition φ)).mp h)
 
 example (Φ : CMType E) : Φ.typeTrace 0 = 0 := by simp [CMType.typeTrace]
+
+example (Φ : CMType E) {F : Type*} [CommRing F] [Algebra ℚ F]
+    (ι : F →ₐ[ℚ] E) (Ψ : CMType F) (φ : E →ₐ[ℚ] ℂ)
+    (hφ : φ ∈ Φ.embeddings) (hres : φ.comp ι ∉ Ψ.embeddings) :
+    ¬ Φ.IsInducedFrom ι Ψ := by
+  intro h
+  exact hres ((h φ).mp hφ)
 
 end Types
 
@@ -88,14 +105,10 @@ variable {K : Type*} [Field K] [NumberField K]
 
 namespace CMType
 
-/-- Induction is the inverse image of the selected embeddings under restriction. -/
-def IsInducedFrom (Φ : CMType K) (F : IntermediateField ℚ K) (Ψ : CMType F) : Prop :=
-  ∀ φ : K →ₐ[ℚ] ℂ, φ ∈ Φ.embeddings ↔ φ.comp F.val ∈ Ψ.embeddings
-
 /-- No proper CM subfield induces the selected type. The primitive-core theorem is CM-scoped. -/
 def IsPrimitive (Φ : CMType K) : Prop :=
   ∀ (F : IntermediateField ℚ K), NumberField.IsCMField F →
-    ∀ Ψ : CMType F, Φ.IsInducedFrom F Ψ → F = ⊤
+    ∀ Ψ : CMType F, Φ.IsInducedFrom F.val Ψ → F = ⊤
 
 /-- An imaginary quadratic field has no proper CM subfield. -/
 theorem quadratic_primitive [NumberField.IsCMField K]
@@ -104,27 +117,10 @@ theorem quadratic_primitive [NumberField.IsCMField K]
 end CMType
 
 example (Φ : CMType K) (F : IntermediateField ℚ K) (Ψ : CMType F)
-    (h : Φ.IsInducedFrom F Ψ) (φ : K →ₐ[ℚ] ℂ) :
-    φ ∈ Φ.embeddings ↔ φ.comp F.val ∈ Ψ.embeddings := h φ
-
-example (Φ : CMType K) (F : IntermediateField ℚ K) (Ψ : CMType F)
-    (h : Φ.IsInducedFrom F Ψ) (φ : K →ₐ[ℚ] ℂ) :
-    φ ∈ Φ.conjugate.embeddings ↔ φ.comp F.val ∈ Ψ.conjugate.embeddings := by sorry
-
-example (Φ : CMType K) (F : IntermediateField ℚ K) (Ψ : CMType F)
-    (φ : K →ₐ[ℚ] ℂ) (hφ : φ ∈ Φ.embeddings) (hres : φ.comp F.val ∉ Ψ.embeddings) :
-    ¬ Φ.IsInducedFrom F Ψ := by sorry
-
-example (Φ : CMType K) (F : IntermediateField ℚ K) (Ψ : CMType F)
     (hCM : NumberField.IsCMField F) (hproper : F ≠ ⊤)
-    (hinduced : Φ.IsInducedFrom F Ψ) : ¬ Φ.IsPrimitive := by sorry
-
-example (Φ : CMType K) (h : Φ.IsPrimitive) (F : IntermediateField ℚ K)
-    (hCM : NumberField.IsCMField F) (Ψ : CMType F) (hinduced : Φ.IsInducedFrom F Ψ) :
-    F = ⊤ := h F hCM Ψ hinduced
-
-example [NumberField.IsCMField K] (hdegree : Module.finrank ℚ K = 2)
-    (Φ : CMType K) : Φ.IsPrimitive := by sorry
+    (hinduced : Φ.IsInducedFrom F.val Ψ) : ¬ Φ.IsPrimitive := by
+  intro h
+  exact hproper (h F hCM Ψ hinduced)
 
 end Primitive
 
@@ -136,35 +132,19 @@ def gaussianType : CMType gaussianField where
   embeddings := {gaussianField.val}
   conjugate_partition := by sorry
 
-example : gaussianType.embeddings.card = 1 := by simp [gaussianType]
+example : Complex.I ∈ gaussianField :=
+  IntermediateField.subset_adjoin ℚ {Complex.I} (by simp)
 
-example : ¬ ∃ Φ : CMType gaussianField, Φ.embeddings = ∅ := by sorry
-
-example : ¬ ∃ Φ : CMType gaussianField,
-    ∀ φ : gaussianField →ₐ[ℚ] ℂ, φ ∈ Φ.embeddings := by sorry
-
-example : gaussianType.typeTrace 1 = 1 := by simp [CMType.typeTrace, gaussianType]
-
-example : gaussianType.typeTrace ⟨Complex.I, by sorry⟩ = Complex.I := by
+example : gaussianType.typeTrace ⟨Complex.I,
+    IntermediateField.subset_adjoin ℚ {Complex.I} (by simp)⟩ = Complex.I := by
   simp [CMType.typeTrace, gaussianType]
 
-example : gaussianType.typeTrace ⟨2 + Complex.I, by sorry⟩ = 2 + Complex.I := by
-  simp [CMType.typeTrace, gaussianType]
+example : gaussianType.conjugate.typeTrace ⟨Complex.I,
+    IntermediateField.subset_adjoin ℚ {Complex.I} (by simp)⟩ = -Complex.I := by
+  simp [CMType.typeTrace, CMType.conjugate, gaussianType, conjugateEmbedding]
 
-example : gaussianType.conjugate.typeTrace ⟨2 + Complex.I, by sorry⟩ =
-    2 - Complex.I := by sorry
-
-example : gaussianType.reflexField = gaussianField := by sorry
-
-example : Complex.I ∈ gaussianType.reflexField := by sorry
-
-example : gaussianType.reflexField ≠ ⊥ := by sorry
-
-example : Complex.I ∈ gaussianField := by sorry
-
-example : (2 + Complex.I : ℂ) ∈ gaussianField := by sorry
-
-example : Complex.I ∉ (⊥ : IntermediateField ℚ ℂ) := by sorry
+/-- The selected Gaussian type has the original embedded Gaussian field as its reflex field. -/
+theorem gaussian_reflexField : gaussianType.reflexField = gaussianField := by sorry
 
 /-- The upper-half-plane root of the original quartic example. -/
 def quarticA : ℂ := Complex.I * (Real.sqrt (3 + Real.sqrt 2) : ℂ)
@@ -172,24 +152,29 @@ def quarticA : ℂ := Complex.I * (Real.sqrt (3 + Real.sqrt 2) : ℂ)
 /-- The second selected embedding value; its sum with `quarticA` generates the reflex field. -/
 def quarticB : ℂ := Complex.I * (Real.sqrt (3 - Real.sqrt 2) : ℂ)
 
-example : quarticA ^ 2 = -3 - (Real.sqrt 2 : ℂ) := by sorry
+example : 0 < quarticA.im := by
+  simpa [quarticA] using
+    (Real.sqrt_pos.2 (show (0 : ℝ) < 3 + Real.sqrt 2 by positivity))
 
-example : quarticA ^ 4 + 6 * quarticA ^ 2 + 7 = 0 := by sorry
+example : 0 < quarticB.im ∧ (-quarticB).im < 0 := by
+  have hs : Real.sqrt 2 < 3 := by
+    nlinarith [Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 2), Real.sqrt_nonneg 2]
+  have hb : 0 < quarticB.im := by
+    simpa [quarticB] using
+      (Real.sqrt_pos.2 (show (0 : ℝ) < 3 - Real.sqrt 2 by linarith))
+  exact ⟨hb, by simpa using neg_neg_of_pos hb⟩
 
-example : 0 < quarticA.im := by sorry
+/-- Squares and minimal-polynomial identities for the chosen quartic embedding values. -/
+theorem quartic_embedding_identities :
+    quarticA ^ 2 = -3 - (Real.sqrt 2 : ℂ) ∧
+    quarticB ^ 2 = -3 + (Real.sqrt 2 : ℂ) ∧
+    quarticA ^ 4 + 6 * quarticA ^ 2 + 7 = 0 ∧
+    quarticB ^ 4 + 6 * quarticB ^ 2 + 7 = 0 := by sorry
 
-example : quarticB ^ 2 = -3 + (Real.sqrt 2 : ℂ) := by sorry
-
-example : quarticB ^ 4 + 6 * quarticB ^ 2 + 7 = 0 := by sorry
-
-example : 0 < quarticB.im := by sorry
-
-example : (-quarticB) ^ 2 = -3 + (Real.sqrt 2 : ℂ) ∧ (-quarticB).im < 0 := by sorry
-
-example : quarticA * quarticB = -(Real.sqrt 7 : ℂ) := by sorry
-
-example : (quarticA + quarticB) ^ 4 + 12 * (quarticA + quarticB) ^ 2 + 8 = 0 := by
-  sorry
+/-- The product sign and the quartic equation for the trace generator of the reflex field. -/
+theorem quartic_reflex_identities :
+    quarticA * quarticB = -(Real.sqrt 7 : ℂ) ∧
+    (quarticA + quarticB) ^ 4 + 12 * (quarticA + quarticB) ^ 2 + 8 = 0 := by sorry
 
 /-- The conductor-three Gaussian order, with its actual subring carrier. -/
 def gaussianOrderThree : Subring ℂ where
@@ -204,119 +189,45 @@ def gaussianOrderThree : Subring ℂ where
 theorem nonmaximalGaussian_classNumber : Nat.card (ClassGroup gaussianOrderThree) = 2 := by
   sorry
 
-example : Complex.I ∉ gaussianOrderThree := by sorry
+example : Complex.I ∉ gaussianOrderThree := by
+  rintro ⟨m, n, h⟩
+  have hi : (1 : ℝ) = 3 * (n : ℝ) := by
+    simpa using congrArg Complex.im h
+  have hz : (1 : ℤ) = 3 * n := by exact_mod_cast hi
+  omega
 
-example : (3 * Complex.I : ℂ) ∈ gaussianOrderThree := by sorry
+example : (3 * Complex.I : ℂ) ∈ gaussianOrderThree := by
+  refine ⟨0, 1, ?_⟩
+  norm_num
 
-example : (2 + 3 * Complex.I : ℂ) ∈ gaussianOrderThree := by sorry
+/-! ## Layer 1: Ideal lattices and CM realizations
 
-example : Nat.card gaussianOrderThreeˣ = 2 := by sorry
-
-/-! ## Layer 1: Ideal lattices and CM realizations -/
-
-example : (2 + Complex.I) * star (2 + Complex.I) = (5 : ℂ) := by
-  norm_num [Complex.ext_iff]
-
-example : (2 + Complex.I) ≠ star (2 + Complex.I) := by
-  norm_num [Complex.ext_iff]
-
-example : (Complex.I : ℂ)⁻¹ = -Complex.I := by simp
-
-example : (2 : ℕ) ^ 2 = 4 ∧ (2 : ℕ) ^ 4 = 16 := by norm_num
-
-example : (0 : ℕ) ^ 2 = 0 ∧ (1 : ℕ) ^ 4 = 1 := by norm_num
-
-example : (-Complex.I : ℂ) ≠ Complex.I := by norm_num [Complex.ext_iff]
+The ideal-lattice curves, their action, Serre tensor and period comparisons are README targets.
+-/
 
 /-! ## Layer 2: Polarized lattices and explicit reciprocity -/
 
 /-- The real scalar extension of the alternating Gaussian trace form with parameter `I / 2`. -/
 def squareForm (x y : ℂ) : ℝ := (2 * ((Complex.I / 2) * x * star y)).re
 
-example : squareForm 1 Complex.I = 1 := by norm_num [squareForm, Complex.ext_iff]
-
-example : squareForm Complex.I 1 = -1 := by norm_num [squareForm, Complex.ext_iff]
-
-example : squareForm 1 1 = 0 := by norm_num [squareForm, Complex.ext_iff]
-
-example : (2 * ((Complex.I / 8) * 2 * star (2 * Complex.I))).re = 1 := by
-  norm_num [Complex.ext_iff]
+example : squareForm 1 Complex.I = 1 ∧ squareForm Complex.I 1 = -1 := by
+  norm_num [squareForm, Complex.ext_iff]
 
 example : squareForm 2 (2 * Complex.I) = 4 := by
   norm_num [squareForm, Complex.ext_iff]
 
-example : (-Complex.I / 2 : ℂ).im < 0 := by norm_num
+/-! ## Layer 3: Class polynomials and generated class fields
 
-example : (Matrix.det (!![2, 1; 2, 2] : Matrix (Fin 2) (Fin 2) (ZMod 3))) = 2 := by
-  norm_num [Matrix.det_fin_two]
+The complete class-polynomial and modular-value field targets use the geometric carriers
+specified in the README.
+-/
 
-example : (Matrix.charpoly (!![2, 1; 2, 2] : Matrix (Fin 2) (Fin 2) (ZMod 3))) =
-    X ^ 2 + 2 * X + 2 := by sorry
+/-! ## Layer 4: CM Hecke characters and their realizations
 
-example : (!![2, 0; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 5)) *
-    !![3, 0; 0, 1] = 1 := by sorry
-
-example : (!![2, 0; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 5)) ≠
-    !![3, 0; 0, 1] := by sorry
-
-example : (2 : ZMod 5)⁻¹ = 3 ∧ (2 : ZMod 5) ≠ 3 := by
-  constructor
-  · exact ZMod.inv_eq_of_mul_eq_one 5 2 3 (by decide)
-  · decide
-
-example : ((X ^ 2 + 2 * X + 5 : ℤ[X]) ^ 2).natDegree = 4 := by sorry
-
-/-! ## Layer 3: Class polynomials and generated class fields -/
-
-example : (∏ _ : Fin 1, (X - C (1728 : ℤ))) = X - C 1728 := by simp
-
-example : (∏ _ : Fin 1, (X - C (0 : ℤ))) = X := by simp
-
-example : (∏ _ : Fin 2, (X - C (1728 : ℤ))).natDegree = 2 := by sorry
-
-example : (8 : ℕ) / 4 = 2 ∧ (8 : ℕ) / 4 ≠ 1 := by norm_num
-
-example : (X - C (1728 : ℤ)).coeff 0 = -1728 := by simp
-
-/-! ## Layer 4: CM Hecke characters and their realizations -/
-
-example : (-1 + 2 * Complex.I) * star (-1 + 2 * Complex.I) = (5 : ℂ) := by
-  norm_num [Complex.ext_iff]
-
-example : Complex.normSq (-7 : ℂ) = 49 ∧ Complex.normSq (-7 : ℂ) ≠ 7 := by
-  norm_num [Complex.normSq]
-
-example : (-1 + 2 * Complex.I) + star (-1 + 2 * Complex.I) = (-2 : ℂ) := by
-  norm_num [Complex.ext_iff]
-
-example : (X - C (-1 + 2 * Complex.I)) * (X - C (-1 - 2 * Complex.I)) =
-    (X ^ 2 + 2 * X + 5 : ℂ[X]) := by sorry
-
-example : (X - C (-7 : ℤ)) ^ 2 = X ^ 2 + 14 * X + 49 := by
-  norm_num only [map_neg, map_ofNat]
-  ring
-
-example : Complex.I ≠ (1 : ℂ) ∧ Complex.I ≠ (-1 : ℂ) := by
-  norm_num [Complex.ext_iff]
-
-example : ((-1 + Complex.I * (Real.sqrt 3 : ℂ)) / 2) ^ 3 = (1 : ℂ) ∧
-    (-1 + Complex.I * (Real.sqrt 3 : ℂ)) / 2 ≠ (1 : ℂ) ∧
-    (-1 + Complex.I * (Real.sqrt 3 : ℂ)) / 2 ≠ (-1 : ℂ) := by sorry
-
-example (G : Type*) [Group G] (ψ : G →* ℂˣ) : (ψ 1 : ℂ) = 1 := by simp
-
-example : (-1 : ℂ) ≠ 1 := by norm_num
-
-example : ((Matrix.diagonal ![(2 : ℚ), 3])⁻¹).charpoly =
-    (X - C (1 / 2 : ℚ)) * (X - C (1 / 3 : ℚ)) := by sorry
+The Hecke character and local realization targets use their supplier carriers from the README.
+-/
 
 /-! ## Layer 5: Reduction, endomorphism orders and coefficient comparisons -/
-
-example : (Finset.univ.filter (fun xy : ZMod 2 × ZMod 2 =>
-    xy.2 ^ 2 + xy.2 = xy.1 ^ 3)).card + 1 = 3 := by decide
-
-example : (Finset.univ.filter (fun xy : ZMod 3 × ZMod 3 =>
-    xy.2 ^ 2 = xy.1 ^ 3 - xy.1)).card + 1 = 4 := by decide
 
 section RootBounds
 
@@ -340,20 +251,6 @@ theorem rootProduct_precision (h : ℕ) (hh : 0 < h) (M δ : ℝ)
     (hsmall : δ < 1 / (4 * (h : ℝ) * (2 + M) ^ (h - 1))) :
     (h : ℝ) * δ * (1 + M + δ) ^ (h - 1) < 1 / 4 := by sorry
 
-example (z : Fin 0 → ℂ) : (∏ i, (X - C (z i))) = (1 : ℂ[X]) := by simp
-
-example (z : Fin 1 → ℂ) : (∏ i, (X - C (z i))) = X - C (z 0) := by simp
-
-example (M δ : ℝ) : (1 : ℝ) * δ * (1 + M + δ) ^ (1 - 1 : ℕ) = δ := by ring
-
-example (δ : ℂ) :
-    ((X - C (1 + δ)) * (X - C (2 + δ)) - (X - C 1) * (X - C 2)).coeff 0 =
-      3 * δ + δ ^ 2 := by sorry
-
-example (δ : ℂ) :
-    ((X - C (1 + δ)) * (X - C (2 + δ)) - (X - C 1) * (X - C 2)).coeff 1 =
-      -2 * δ := by sorry
-
 end RootBounds
 
 /-- Count sign vectors satisfying the relation, retaining coincident products and zero exponents. -/
@@ -376,30 +273,12 @@ theorem signedRelationCount.invert_choice {G : Type*} [CommGroup G] {n : ℕ}
     signedRelationCount (Function.update a i (a i)⁻¹) e = signedRelationCount a e := by
   sorry
 
-example : signedRelationCount (fun _ : Fin 0 => (1 : ℂˣ)) (fun _ => 1) = 1 := by sorry
-
-example : signedRelationCount (fun _ : Fin 1 => (1 : ℂˣ)) (fun _ => 1) = 2 := by sorry
-
-example : signedRelationCount
-    (fun _ : Fin 1 => Multiplicative.ofAdd (1 : ZMod 3)) (fun _ => 0) = 2 := by sorry
+example : signedRelationCount (fun _ : Fin 0 => (1 : ℂˣ)) (fun _ => 1) = 1 := by
+  simp [signedRelationCount, Nat.card_eq_fintype_card]
 
 example : signedRelationCount
-    (fun _ : Fin 1 => Multiplicative.ofAdd (1 : ZMod 3)) (fun _ => 1) = 0 := by sorry
-
-example : signedRelationCount
-    (fun _ : Fin 2 => Multiplicative.ofAdd (1 : ZMod 3)) (fun _ => 1) = 2 := by sorry
-
-example : signedRelationCount
-    (fun _ : Fin 2 => Multiplicative.ofAdd (1 : ZMod 2)) (fun _ => 1) = 4 := by sorry
-
-example : (8 : ℤ) ^ 2 - 4 * 641 = 25 ^ 2 * (-4) := by norm_num
-
-example : (5 : ℕ) ∣ 5 ∧ ¬ (25 : ℕ) ∣ 5 := by norm_num
-
-example : (25 / 5 ^ 2 : ℕ) ^ 2 * (-4 : ℤ) = -4 ∧
-    (25 / 5 : ℕ) ^ 2 * (-4 : ℤ) = -100 := by norm_num
-
-example : (5 : ℤ) ^ 2 * (-4) = -100 ∧ (5 : ℤ) ^ 4 * (-4) = -2500 := by norm_num
+    (fun _ : Fin 1 => Multiplicative.ofAdd (1 : ZMod 3)) (fun _ => 0) = 2 := by
+  simp [signedRelationCount, Nat.card_eq_fintype_card]
 
 /-- Exact coefficient membership and uniqueness of the integer in each interval determine a polynomial. -/
 theorem coefficient_interval_recovery (P Q : ℤ[X]) (l u : ℕ → ℝ)
@@ -413,26 +292,10 @@ theorem polynomial_bounded_congruence (P Q : ℤ[X]) (B M : ℤ)
     (hP : ∀ k, |P.coeff k| ≤ B) (hQ : ∀ k, |Q.coeff k| ≤ B)
     (hcong : ∀ k, Int.ModEq M (P.coeff k) (Q.coeff k)) : P = Q := by sorry
 
-example (z : ℤ) :
-    (z : ℝ) ∈ Set.Icc (-17281 / 10 : ℝ) (-17279 / 10) ↔ z = -1728 := by sorry
-
-example : (-1728 : ℝ) ∈ Set.Icc (-1728 : ℝ) (-1727) ∧
-    (-1727 : ℝ) ∈ Set.Icc (-1728 : ℝ) (-1727) := by norm_num [Set.mem_Icc]
-
-example : Int.ModEq 20 (-10) 10 ∧ (-10 : ℤ) ≠ 10 := by decide
-
-example : ¬ Int.ModEq 21 (-10) 10 := by decide
-
-example : Int.ModEq 5 0 5 ∧ ¬ Int.ModEq 25 0 5 := by decide
-
-example : ((X ^ 3 + C 3491750 * X ^ 2 - C 5151296875 * X + C 12771880859375 : ℤ[X]).map
-    (Int.castRingHom (ZMod 5))) = X ^ 3 := by sorry
-
-example : (0 : ℚ) < 1 / 2 ∧ (1 / 2 : ℚ) < 1 := by norm_num
-
 -- README definitions using future carriers: CMType.reflexType, CMType.reflexOrder,
--- idealLatticeCurve, idealAction, cmSerreTensor, PolarizedCMLattice, reflexIdealMap,
+-- idealLatticeCurve, idealAction, relativeSerreTensor, cmSerreTensor, PolarizedCMLattice, reflexIdealMap,
 -- polarizedLevelStabilizer, classPolynomial, cmValueField, cmHeckeCharacter,
--- IsCanonicalGrossCharacter. Their geometric comparisons and Checks remain README targets.
+-- IsCanonicalGrossCharacter. The supplied modularPolynomial and its primeDiagonal comparison
+-- also use their future modular-curve interface. All these Checks remain README targets.
 
 end TauCetiRoadmap.ComplexMultiplicationAndExplicitReciprocity

@@ -15,17 +15,17 @@ CM.0 constructs embedding-partition types and compares their trace reflex field 
 | Arithmetic Artin map, class-field correspondence, quadratic ring and ray class fields | ClassFieldTheory, Layers 11–13 |
 | CM-action vocabulary, equation/scheme comparison, endomorphisms, twists, torsion, Weil pairing, local reduction | EllipticCurves, Layers 1–5 |
 | Elliptic complex uniformization, analytic/algebraic Hom comparison, regular level-function evaluation | ModularCurvesPartII, R12.1 and R12.6 |
-| Relative Lie theory, Serre tensor, Hodge/period realization, polarized uniformization, Rosati and degree | AbelianSchemesAndArithmeticModuli, A0–A6 |
+| Relative Lie theory, Hodge/period realization, polarized uniformization, Rosati and degree | AbelianSchemesAndArithmeticModuli, A0–A6; the required Serre-tensor extension is specified below |
 | Cocharacter reflex field, idelic reflex norm, main CM theorem, Siegel level-function action | ShimuraData D3; ShimuraVarieties V4, V5, V8 |
 | Covariant Tate realizations, local characters, inertia, induction, Artin/Swan conductors and Frobenius recognition | ArithmeticGaloisRepresentations R01.2, R01.3, R01.5, R01.6 |
 | H¹ étale local Euler polynomials and Néron–Ogg–Shafarevich | NeronModelsAndSemistableAbelianVarieties, R11.5 |
 | CM theta-series compatible systems | AutomorphicGaloisRepresentations, R19.3 |
 | Binary form/ideal dictionary and complete reduced-class census | IntegralLattices, B2, B3 and B5 |
-| Quaternion integral orders | GeometryOfNumbersAndQuadraticArithmetic, GN.2 |
+| Embedded quaternion-order lattices and localization | GeometryOfNumbersAndQuadraticArithmetic, GN.2, §2.8 |
 | Rational quaternion algebras, reduced norm and split/division comparison | QuadraticFormInvariants, Layer 2 |
 | Existence of primes with specified class-field Artin class | Chebotarev, Layer 9 |
 
-ModularForms Layer 0 supplies an independent LevelOne.JInputs interface: normalized j, its q-expansion and special values, orbit separation, integral modular polynomials Φ_l, and the monic prime diagonal −Φ_l(X,X). Its proofs precede singular-modulus integrality and do not use CM. The exact contracts consumed from these owners follow below. General constructions remain with their owners; this roadmap supplies CM specializations and comparisons.
+ModularForms Layer 0 supplies the independent LevelOne.JInputs interface: normalized j, its q-expansion and special values. ModularCurvesPartII R13.4a, §5.6 supplies the integral cyclic modular polynomials. The prime diagonal comparison in CM.3 uses these two inputs before singular-modulus integrality. Separation of elliptic isomorphism classes uses EllipticCurves Layer 1 and the R12.1 uniformization comparison. The exact contracts consumed from these owners follow below. General constructions remain with their owners; this roadmap supplies CM specializations and comparisons.
 
 ### Existing interfaces
 
@@ -69,8 +69,8 @@ For the unit-obstruction bound, use current Tau Ceti's `NumberField.units_sq_ind
 
 ## Exact supplier contracts
 
-- `AbelianSchemesAndArithmeticModuli:A0`: Relative Lie algebra, invariant differentials and base change for group schemes; generic projective-module Serre tensor construction as the fppf sheaf associated to M⊗_R A(T).
-- `AbelianSchemesAndArithmeticModuli:A1`: Serre tensor preserves abelian schemes for finite projective modules, functoriality and ideal-inclusion isogenies, with finite flat kernels and degrees.
+- `AbelianSchemesAndArithmeticModuli:A0`: The abelian-scheme carrier and its field/elliptic comparisons.
+- `AbelianSchemesAndArithmeticModuli:A1`, §§A1.1–A1.3: Products, relative dimension, invariant differentials, Lie duality and arbitrary base change.
 - `AbelianSchemesAndArithmeticModuli:A4`: Degree-one de Rham/Betti realizations and Hodge exact sequence, integration pairing and duality, compatible with CM actions and base change.
 - `AbelianSchemesAndArithmeticModuli:A5`: Polarized complex uniformization and algebraization of C^Φ/Φ(I), integral Riemann forms, analytic/algebraic Hom comparison, symplectic periods and principal polarization criterion.
 - `ArithmeticGaloisRepresentations:R01.2`: Rank-one local inertia and Weil–Deligne character, duality between covariant Tate and cohomological H¹, inertia-invariant Euler factors with geometric Frobenius on H¹, and induction/restriction at all primes.
@@ -78,10 +78,11 @@ For the unit-obstruction bound, use current Tau Ceti's `NumberField.units_sq_ind
 - `ArithmeticGaloisRepresentations:R01.5`: Semisimple representation recognition by good Frobenius polynomials and Chebotarev.
 - `ArithmeticGaloisRepresentations:R01.6`: Canonical covariant Tate module for abelian varieties, E⊗Q_l action, extension of coefficients and direct-summand realizations.
 - `AutomorphicGaloisRepresentations:R19.3`: Compatible-system/purity comparison for CM Hecke components and weight-two theta-series/newform realizations, via Frobenius recognition; no new generic induction construction in CM.
-- `GeometryOfNumbersAndQuadraticArithmetic:GN.2`: Generic quaternionic integral lattice/order carrier, localization, maximality and reduced discriminant compatible with the existing rational quaternion algebra; the full integral-order contract is supplied within GN.2’s quaternionic integral-lattice direction.
+- `GeometryOfNumbersAndQuadraticArithmetic:GN.2`, §2.8: Embedded full lattices stable under a chosen quaternion order, their localization and standard involution, on the existing rational quaternion algebra. This does not supply Deuring maximality or the discriminant of a supersingular endomorphism order; those are conclusions in CM.5.
 - `IntegralLattices:B2,B3,B5`: The existing primitive positive binary-form/proper-ideal-class equivalence, composition, complete reduced representatives, boundary identifications and stabilizer weights. CM supplies only the comparison with oriented analytic CM points.
 - `ModularCurvesPartII:R12.1`: Elliptic lattice↔Weierstrass curve comparison, analytic functions and normalized j, full faithfulness for origin-preserving maps.
 - `ModularCurvesPartII:R12.6`: Level-function descent and evaluation at elliptic CM points, functions regular at the point and enough functions to separate its finite moduli orbit; compatibility with algebraic coarse/fine moduli.
+- [ModularCurvesPartII R13.4a, §5.6][modularcurvespartii-polynomial]: Integral cyclic modular polynomial Φ_N(U,V), with Φ₁=V−U; for N≥2 it is symmetric and monic of degree ψ(N) in each variable. Its roots parametrize cyclic degree-N isogenies in characteristic zero. This construction is independent of CM and counts cyclic subgroups, including coincident target j-values with multiplicity.
 - `ShimuraData:D3`: Generic cocharacter reflex-field carrier and stabilizer, with comparison to the trace-generated field of a CM type.
 - `ShimuraVarieties:V4`: Special-torus reflex norm on finite ideles, rational elements and ideals, conjugation norm identity and exact Artin/level convention, independent of CM.2.
 - `ShimuraVarieties:V5`: Main CM theorem and general Shimura–Taniyama theorem: actual CM abelian varieties, polarization similitude, torsion/finite-adelic H1 and Galois conjugation; input CM.0, never CM.2.
@@ -100,10 +101,12 @@ For the unit-obstruction bound, use current Tau Ceti's `NumberField.units_sq_ind
 - [GlobalNumberFields Layer 7][globalnumberfields-7]: Ideal/idele ray-class comparison, mod× congruences for fractional elements, arithmetic normalization and ideals prime to a modulus.
 - [GlobalNumberFields Layer 8][globalnumberfields-8]: Norms and base change for ideals/ideles of finite extensions, compatible with arithmetic Artin maps.
 - [GlobalNumberFields Layer 9][globalnumberfields-9]: Algebraic Hecke-character carrier on ideles/ideals, conductor as the least finite modulus, local components and Euler factors, coefficient fields and passage to l-adic characters.
-- [ModularForms Layer 0][modularforms-0]: Independent LevelOne.JInputs: normalized modular j with q-expansion q⁻¹+744+196884q+…, j(i)=1728 and j(exp(2πi/3))=0, orbit separation, holomorphic evaluations, integral modular polynomial Φ_l and the prime diagonal −Φ_l(X,X) monic of degree 2l. This package has no dependency on CM.
+- [ModularForms Layer 0][modularforms-0]: Independent LevelOne.JInputs: normalized modular j with q-expansion q⁻¹+744+196884q+…, modular invariance, holomorphy on the upper half-plane, and exact elliptic orders giving j(i)=1728 and j(exp(2πi/3))=0. This module has no dependency on CM.
 - [QuadraticFormInvariants Layer 2][quadraticforminvariants-2]: Existing quaternion algebra/reduced norm and split-or-division API; reuse actual QuaternionAlgebra and its naturality, not a new CM-specific division algebra carrier.
 
-The A2/rosati-involution and A6 degree, polarized-automorphism and characteristic-polynomial interfaces are used on the same abelian-variety action as the A4/A5 comparisons. R11.5/local-euler-polynomial and /elliptic-local-polynomial use cohomological geometric Frobenius, while /neron-ogg-shafarevich relates unramified Tate realization to good reduction. These comparisons must transport the equation, scheme, endomorphism and realization data together.
+The A3.9 `Polarization.rosati` and A6 degree, polarized-automorphism and characteristic-polynomial interfaces are used on the same abelian-variety action as the A4/A5 comparisons. R11.5/local-euler-polynomial and /elliptic-local-polynomial use cohomological geometric Frobenius, while /neron-ogg-shafarevich relates unramified Tate realization to good reduction. These comparisons must transport the equation, scheme, endomorphism and realization data together.
+
+**Required supplier extension: relative Serre tensor.** CM.1 needs a general construction `relativeSerreTensor`: for a ring R acting on an abelian scheme A/S and a finite projective right R-module M, the fppf sheaf associated to T↦M⊗_R A(T) is represented by an abelian scheme. Its API must give module-map functoriality, finite direct sums, independence of a projective splitting, arbitrary base change, and comparison of Lie and Tate realizations with tensor products. A0/A1 currently does not state this construction; its representability and comparison theorems are an unfilled prerequisite, not an available supplier. Source for the CM specialization: [KS](#source-ks), §1.2, Definition 1.8 and (1.2.3), p.9. Required Checks: M=R returns A, M=0 returns the zero abelian scheme, and Rⁿ returns Aⁿ; a projective summand must be independent of its chosen complement. The integral ideal-kernel/degree formulas in CM.1 remain separate conclusions, including inseparable degree.
 
 Primality, actual traces, residue sizes, endomorphism orders, root bounds, coefficient intervals and completeness of finite orbits are mathematical hypotheses wherever used. Their production by a search or numerical procedure is outside these contracts.
 
@@ -129,7 +132,7 @@ Sources: [MilneCM](#source-milnecm), Definition 1.8, p.11; [AGHMP](#source-aghmp
 
 Sources: [MilneCM](#source-milnecm), Proposition 1.9, pp.11–12; [Tsimerman](#source-tsimerman), §4 pp.384–385. Prerequisites: [CMType](#cm-0-1).
 
-The light `conjugateEmbedding` composes an existing Q-algebra embedding with complex conjugation; `CMType.conjugate` takes the image of the selected finite set. The predicate `CMType.IsInducedFrom` records the restriction equivalence in the preceding definition. These predicates can be stated on general number fields; the primitive-core and double-reflex assertions retain the CM-field hypothesis. The embedding-partition cardinality theorem also holds for every finite reduced Q-algebra admitting such a partition, including rank zero.
+The light `conjugateEmbedding` composes an existing Q-algebra embedding with complex conjugation; `CMType.conjugate` takes the image of the selected finite set. For a rational algebra map ι:E₀→E, `CMType.IsInducedFrom` records φ∈Φ iff φ∘ι∈Φ₀; it applies to CM algebra inclusions as well as CM subfields. The primitive-core and double-reflex assertions retain the CM-field hypothesis. The embedding-partition cardinality theorem also holds for every finite reduced Q-algebra admitting such a partition, including rank zero.
 
 **Checks.**
 
@@ -247,7 +250,7 @@ Sources: [MIT16](#source-mit16), §16.4, Definition 16.9 and Theorem 16.12, pp.6
 
 **Required calculations and boundary cases.** For any imaginary quadratic O⊂OE, the selected factor is E, the image is OE and the relative discriminant is the unit ideal. In higher degree, do not simplify the image to its integral closure without a proof. Extending YZ’s maximal-order input to O requires the image/full-rank argument. Check both quartic polynomials, different real subfields and the complete embedding partition. Degree four alone is not the criterion for primitivity. Reject a maximal-order class-group replacement: it gives cardinal one and extra units. Reject a rule declaring every nonzero ideal of O invertible.
 
-**Concrete input API.** `gaussianField` is the native intermediate field Q(i)⊂C and `gaussianType` its selected singleton. `quarticA` and `quarticB` are the displayed complex numbers; expose their squares and positive imaginary parts. `gaussianOrderThree` is the actual subring {m+3ni:m,n∈Z}⊂C, not a new abstract quadratic-order carrier. Its identification with the GN11 order transports the class-number statement `nonmaximalGaussian_classNumber` and unit group.
+**Concrete input API.** `gaussianField` is the native intermediate field Q(i)⊂C and `gaussianType` its selected singleton. `quarticA` and `quarticB` are the displayed complex numbers; expose their squares and positive imaginary parts. The named targets `quartic_embedding_identities` and `quartic_reflex_identities` record their square, quartic-polynomial and product-sign identities. `gaussian_reflexField` identifies the Gaussian trace-generated field with `gaussianField`. `gaussianOrderThree` is the actual subring {m+3ni:m,n∈Z}⊂C, not a new abstract quadratic-order carrier. Its identification with the GN11 order transports the class-number statement `nonmaximalGaussian_classNumber` and unit group.
 
 **Checks.**
 
@@ -344,11 +347,11 @@ Sources: [BT](#source-bt), §3.1, proof of Theorem 1.1, preprint p.6. Prerequisi
 
 ### 1.3 Serre tensor, Lie and period comparisons
 
-Use the relative Serre tensor from A0/A1 and specialize it to invertible CM ideals. Lie base change, finite-flat kernels, eigenspace ranks and both period pairings must refer to the same action and the same underlying abelian scheme.
+Specialize the required relative Serre-tensor extension to invertible CM ideals. Its representability and realization comparisons are the unfilled supplier prerequisite specified above. Lie base change, finite-flat kernels, eigenspace ranks and both period pairings must refer to the same action and the same underlying abelian scheme.
 
-**Serre tensoring by a CM ideal** — `cmSerreTensor`. Let L be a totally complex number field containing a CM field K, Σ the lifts to L of a fixed CM type on K, and A/S an abelian scheme of relative dimension [L:Q]/2 with O_L-action of lifted type Σ and Lie(A/S) projective over O_L⊗O_S. For a finite projective right O_L-module M of rank r, specialize A0/A1’s Serre tensor M⊗_{O_L}A, of relative dimension r[L:Q]/2; for a fractional invertible ideal a it has the same lifted CM type. Rank zero gives the zero abelian scheme, not a positive-dimensional CM action. The inclusion of nonzero fractional ideals a⊂b gives an isogeny a⊗A→b⊗A. Do not re-own generic tensoring or relative Lie/cohomology carriers.
+**Serre tensoring by a CM ideal** — `cmSerreTensor`. Let L be a totally complex number field containing a CM field K, Σ the lifts to L of a fixed CM type on K, and A/S an abelian scheme of relative dimension [L:Q]/2 with O_L-action of lifted type Σ and Lie(A/S) projective over O_L⊗O_S. For a finite projective right O_L-module M of rank r, specialize the required `relativeSerreTensor` to M⊗_{O_L}A, of relative dimension r[L:Q]/2; for a fractional invertible ideal a it has the same lifted CM type. Rank zero gives the zero abelian scheme, not a positive-dimensional CM action. The inclusion of nonzero fractional ideals a⊂b gives an isogeny a⊗A→b⊗A. Do not re-own generic tensoring or relative Lie/cohomology carriers.
 
-Sources: [KS](#source-ks), §1.2, Definition 1.8 and equation (1.2.3), p.9. Prerequisites: [CMType](#cm-0-1); `AbelianSchemesAndArithmeticModuli:A0`; `AbelianSchemesAndArithmeticModuli:A1`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`; [CommRing.Pic.mapAlgebra][mathlib-commring.pic.mapalgebra].
+Sources: [KS](#source-ks), §1.2, Definition 1.8 and equation (1.2.3), p.9. Prerequisites: [CMType](#cm-0-1); the unfilled `relativeSerreTensor` supplier extension; `AbelianSchemesAndArithmeticModuli:A0`; `AbelianSchemesAndArithmeticModuli:A1`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`; [CommRing.Pic.mapAlgebra][mathlib-commring.pic.mapalgebra].
 
 **CM tensor ideal inclusions and their kernels** — `cmSerreTensor.ideal_kernel_degree`. Under the CM Serre-tensor hypotheses, a⊂b induces a finite flat isogeny of degree [b:a]. For a nonzero integral ideal c⊂O_L, A→c⁻¹⊗A is the c-multiplication map, its kernel is A[c]=⋂_{x∈c}ker[x], and its degree is N_L/Q(c). For c=(n) with n≠0, the degree is |n|^{[L:Q]}=|n|^{2d}; these are finite flat degrees, including inseparable contributions in residue characteristic.
 
@@ -400,7 +403,7 @@ Separate an integral Riemann form from its positivity and from the principal-pol
 
 **Polarized CM lattice data** — `PolarizedCMLattice`. For a CM algebra E of dimension 2g over Q and type Φ, polarized lattice data are a full Z-lattice I⊂E and ξ∈E× with ξ̄=−ξ, Im φ(ξ)>0 for φ∈Φ, and Tr_{E/Q}(ξĪI)⊂Z. Put Eξ(x,y)=Tr(ξxȳ). Require I stable under the specified order O, whose action on E is faithful; proper/invertible is an additional condition, automatic for fractional ideals of the maximal order but not imposed on all higher-dimensional nonmaximal lattices. Principal means I=I^# where I^#={x:Tr(ξx̄I)⊂Z}. Equivalence is (I,ξ)∼(uI,ξ/(uū)) for u∈E×.
 
-Sources: [MilneCM](#source-milnecm), §2.9 pp.25–26; Proposition 3.17 p.31. Prerequisites: [CMType](#cm-0-1); [GlobalNumberFields Layer 11][globalnumberfields-11]; `AbelianSchemesAndArithmeticModuli:A5`; `AbelianSchemesAndArithmeticModuli:A2/rosati-involution`; [NumberField.IsCMField.complexConj][mathlib-numberfield.iscmfield.complexconj]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic]; [NumberField.RingOfIntegers][mathlib-numberfield.ringofintegers].
+Sources: [MilneCM](#source-milnecm), §2.9 pp.25–26; Proposition 3.17 p.31. Prerequisites: [CMType](#cm-0-1); [GlobalNumberFields Layer 11][globalnumberfields-11]; `AbelianSchemesAndArithmeticModuli:A5`; `AbelianSchemesAndArithmeticModuli:A3.9/Polarization.rosati`; [NumberField.IsCMField.complexConj][mathlib-numberfield.iscmfield.complexconj]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic]; [NumberField.RingOfIntegers][mathlib-numberfield.ringofintegers].
 
 **CM lattices and ideal isogenies in arbitrary dimension** — `arbitraryCMClassification`. The A5-algebraized polarized CM-action triples of type (E,Φ) correspond to polarized lattice data modulo the displayed E× equivalence. For a CM field with maximal order O_E, unpolarized O_E-equivariant isomorphism classes form a Pic(O_E)-torsor under a⁻¹I and have cardinal h_E. Integral ideals give O_E-linear isogenies of degree N_E/Q(a). If E is a field and Φ is primitive, the resulting complex abelian variety is simple and End⁰(A)=E; with full O_E action its full End(A)=O_E. A fixed polarization changes the torsor and its stabilizer.
 
@@ -532,7 +535,7 @@ The square lattice has E(1,i)=1 and E(i,1)=−1; scaling the lattice by 2 divide
 
 ### Dependencies
 
-Layers 0–1; GlobalNumberFields 7/8/11; ClassFieldTheory 11/12; AbelianSchemesAndArithmeticModuli A2/A4/A5/A6; ArithmeticGaloisRepresentations R01.6; ShimuraVarieties V4/V5/V8. The dependency CM.0→V5→CM.2 prevents a reciprocity cycle.
+Layers 0–1; GlobalNumberFields 7/8/11; ClassFieldTheory 11/12; AbelianSchemesAndArithmeticModuli A2/A3/A4/A5/A6; ArithmeticGaloisRepresentations R01.6; ShimuraVarieties V4/V5/V8. The dependency CM.0→V5→CM.2 prevents a reciprocity cycle.
 
 ## Layer 3: Class polynomials and generated class fields
 
@@ -542,13 +545,21 @@ Layers 0–1; GlobalNumberFields 7/8/11; ClassFieldTheory 11/12; AbelianSchemesA
 
 Form the polynomial from the complete proper-ideal-class census and the normalized analytic/algebraic j comparison. First prove integrality using independent modular-polynomial inputs, then identify the arithmetic Artin action and the ring class field over the quadratic base.
 
+**Prime diagonal comparison** — `modularPolynomial.primeDiagonal`. For every rational prime l, let Φ_l be the normalized cyclic modular polynomial supplied by ModularCurvesPartII R13.4a. Then −Φ_l(X,X) is monic in Z[X] of degree 2l. Use the cyclic quotient factorization at j(τ): the factor j(τ)−j(lτ) has leading term −q⁻ˡ, and each of the l remaining factors j(τ)−j((τ+k)/l) has leading term q⁻¹. Their product starts with −q⁻²ˡ, whereas j(τ) starts with q⁻¹. This comparison precedes and uses no CM integrality theorem. Sources: [MIT20](#source-mit20), Lemma 20.9 p.5 and Remark 20.10 p.6. Prerequisites: [ModularCurvesPartII R13.4a, §5.6][modularcurvespartii-polynomial]; [ModularForms Layer 0][modularforms-0]; `ModularCurvesPartII:R12.6` for the analytic cyclic quotient comparison.
+
+**Checks.**
+
+- At l=2 the diagonal has leading term −X⁴, so its negative is monic of degree four.
+- At N=1 the diagonal is zero because Φ₁(U,V)=V−U; the prime hypothesis cannot be omitted.
+- At N=4 the cyclic representatives give j(4τ), the four j((τ+k)/4), and j(τ+1/2). The diagonal product has leading term −2q⁻⁹, hence Φ₄(X,X) has degree nine and leading coefficient −2. Its negative is not monic. The full-subgroup degree-four correspondence instead includes E[2] and has an identically zero diagonal; it is a different polynomial.
+
 **The order class polynomial** — `classPolynomial`. For an imaginary quadratic order O_D of discriminant D<0, define H_D(X)=∏_{[I]∈Pic(O_D)}(X−j(E_I)) in C[X] using the normalized j and each CM class exactly once. Its indexing is independent of ideal representatives and embedding-oriented bases. The integral coefficient theorem below identifies it with a unique monic polynomial in Z[X]; the initial product definition does not assume rounded numerical values are its coefficients.
 
 Sources: [MIT20](#source-mit20), Introduction p.1 and §20.3 p.5, defining product for H_D. Prerequisites: [idealAction.picardEquiv](#cm-1-1); [quadraticFormsCMComparison](#cm-1-2); [idealLatticeCurve](#cm-1-1); [WeierstrassCurve.j][mathlib-weierstrasscurve.j]; [ModularForms Layer 0][modularforms-0]; [GlobalNumberFields Layer 11][globalnumberfields-11]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
 
-**Integrality of singular moduli and class polynomials** — `classPolynomial.integral`. For every imaginary quadratic order O_D, all j(E_I) are algebraic integers and H_D belongs to Z[X]. The polynomial is separable and has degree h(O_D). Use the independent normalized-j/modular-polynomial supplier: choose a principal prime ideal of rational prime norm l avoiding the conductor, so j is a root of the monic polynomial −Φ_l(X,X). Galois permutes the CM j-values with the same full order. No integrality argument uses a class polynomial computation or reduction theorem from CM.5.
+**Integrality of singular moduli and class polynomials** — `classPolynomial.integral`. For every imaginary quadratic order O_D, all j(E_I) are algebraic integers and H_D belongs to Z[X]. The polynomial is separable and has degree h(O_D). Choose a principal prime ideal of rational prime norm l avoiding the conductor; `modularPolynomial.primeDiagonal` makes −Φ_l(X,X) a monic polynomial vanishing at j. Galois permutes the CM j-values with the same full order. No integrality argument uses a class polynomial computation or reduction theorem from CM.5.
 
-Sources: [MIT20](#source-mit20), Lemma 20.9 p.5; Theorem 20.12 and Corollary 20.13 p.6. Prerequisites: [classPolynomial](#cm-3-1); [idealAction](#cm-1-1); [idealAction.degree_eq_norm](#cm-1-2); [ideleTorsionDictionary](#cm-2-2); [ModularForms Layer 0][modularforms-0]; [ClassFieldTheory Layer 13][classfieldtheory-13]; `ModularCurvesPartII:R12.6`; [Chebotarev Layer 9][chebotarev-9].
+Sources: [MIT20](#source-mit20), Lemma 20.9 p.5; Theorem 20.12 and Corollary 20.13 p.6. Prerequisites: [classPolynomial](#cm-3-1); [idealAction](#cm-1-1); [idealAction.degree_eq_norm](#cm-1-2); [ideleTorsionDictionary](#cm-2-2); `modularPolynomial.primeDiagonal` above; [ClassFieldTheory Layer 13][classfieldtheory-13]; `ModularCurvesPartII:R12.6`; [Chebotarev Layer 9][chebotarev-9].
 
 **Galois equivariance of class-polynomial roots** — `classPolynomial.galois`. For an ideal a of K prime to the quadratic order conductor f, arithmetic Art_K(a) sends j(E_I) to j(E_{a⁻¹I}) in the ring class field. Complex conjugation sends the selected type/lattice to its conjugate and acts by inversion on the proper ideal class torsor after fixing the base class. Thus Gal over Q has generalized dihedral action on the root set. Stabilizers of individual j-values over K are trivial in the ring-class Artin/Picard quotient; over Q the unmarked moduli field can be smaller than the full splitting field.
 
@@ -571,7 +582,7 @@ Sources: [MIT21](#source-mit21), Theorem 21.1 and opening discussion, pp.1–3. 
 - `classPolynomial.test_minus3`: H_{−3}=X.
 - `classPolynomial.test_nonmaximal_degree`: H_{−36} has degree two; substituting Cl(Z[i]) incorrectly gives degree one.
 
-**Required calculations and boundary cases.** H_{−4}=X−1728 and H_{−3}=X. For D=−36 its degree is two, not the maximal Gaussian class number one. The leading term is from −Φ_l(X,X); its sign and prime-degree hypothesis are essential. A composite-square N may give a zero diagonal polynomial and cannot replace the chosen prime l. An order-two class swaps its two j-roots; a principal ideal fixes each j but may act nontrivially on level/torsion values. For K=Q(i), j=1728 gives L_1=K while Q(j)=Q.
+**Required calculations and boundary cases.** H_{−4}=X−1728 and H_{−3}=X. For D=−36 its degree is two, not the maximal Gaussian class number one. The leading term is from −Φ_l(X,X); its sign and prime-degree hypothesis are essential. The cyclic level-four diagonal is nonzero but its negative is not monic, as computed above; a full-subgroup correspondence cannot replace the cyclic one. An order-two class swaps its two j-roots; a principal ideal fixes each j but may act nontrivially on level/torsion values. For K=Q(i), j=1728 gives L_1=K while Q(j)=Q.
 
 The following API comparisons are used independently of the construction:
 
@@ -624,7 +635,7 @@ The class products at D=−4 and D=−3 are X−1728 and X. At D=−36 there are
 
 ### Dependencies
 
-Layers 1–2; GlobalNumberFields 7/11; ClassFieldTheory 11–13; Chebotarev 9; ModularForms 0 and ModularCurvesPartII R12.6; ShimuraVarieties V8 for higher-dimensional level values.
+Layers 1–2; GlobalNumberFields 7/11; ClassFieldTheory 11–13; Chebotarev 9; ModularForms 0 and ModularCurvesPartII R12.6/R13.4a; ShimuraVarieties V8 for higher-dimensional level values.
 
 ## Layer 4: CM Hecke characters and their realizations
 
@@ -743,7 +754,9 @@ Distinguish model-field endomorphisms from geometric ones before applying the fi
 
 **Deuring’s characteristic-p endomorphism classification** — `deuringClassification`. For every elliptic curve A/k in characteristic p>0, let End_geom(A)=End_{kbar}(A_kbar). It is either Z, an order in an imaginary quadratic field where p splits and whose conductor is prime to p, or a maximal order in the definite rational quaternion algebra B_{p,∞} ramified exactly at p and ∞. The quaternion case is precisely supersingular. Over kbar=F_pbar the Z case does not occur; every ordinary curve has the quadratic-order case and every supersingular curve the maximal quaternion-order case. Every maximal-order conjugacy type occurs for a supersingular curve. This is a theorem about all characteristic-p elliptic curves, including p=2,3, not just CM reductions; End_k can be smaller than End_geom.
 
-Sources: [Deuring](#source-deuring), Introduction §§2–3 pp.198–199; §8 conclusion p.258; [GZ](#source-gz), Chapter III §7 p.261. Prerequisites: [EllipticCurves Layer 3][ellipticcurves-3]; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`; [QuadraticFormInvariants Layer 2][quadraticforminvariants-2]; `GeometryOfNumbersAndQuadraticArithmetic:GN.2`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`.
+Sources: [Deuring](#source-deuring), Introduction §§2–3 pp.198–199; §2.4 pp.212–213, §2.5–10 pp.213–218, and §8 conclusion p.258; [GZ](#source-gz), Chapter III §7 p.261. Prerequisites: [EllipticCurves Layer 3][ellipticcurves-3]; [EllipticCurves Layer 2][ellipticcurves-2]; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`; [QuadraticFormInvariants Layer 2][quadraticforminvariants-2]; `GeometryOfNumbersAndQuadraticArithmetic:GN.2`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`.
+
+For quaternionic maximality, compare finite quotient isogenies with local left ideals, retaining the inseparable p-power part. At l≠p the kernels have two torsion coordinates and the local ideal count at norm lⁿ is 1+l+⋯+lⁿ; the quaternion division order at p has a unique ideal at each norm pⁿ. Their product exhausts the quotient isogenies, so the corresponding endomorphism orders are maximal. In the ordinary case the one-dimensional p-adic action forces p to split in the quadratic field, and its integral local order is maximal at p; this is the conductor-prime-to-p conclusion. Finally realize every quaternion maximal-order type using the associated ideal quotient. These comparisons are on the actual torsion kernels and embedded endomorphism lattices, not on assumed numerical counts.
 
 **Potential good reduction and the split/non-split dichotomy** — `cmReductionDictionary`. Let A be an elliptic curve with full CM order O_f in imaginary quadratic K over a number field. It has potentially good reduction at every finite place because j is an algebraic integer. After a finite extension giving good reduction at residue characteristic p, the geometric reduction is ordinary iff p splits in K, and supersingular iff p is inert or ramified in K. The reduction map embeds O_f in End_geom of the reduction. In the ordinary case its order conductor is f/p^{v_p(f)}; in the supersingular case End_geom is a maximal quaternion order containing the reduced CM order, with optimality tracked separately. No extension of the residue coefficient field turns supersingular reduction into an ordinary one.
 
@@ -779,15 +792,17 @@ Sources: [Deuring](#source-deuring), §9.1 pp.258–262; [MIT21](#source-mit21),
 
 Horizontal ideal actions belong to the ordinary exact-order level. Vertical steps change the conductor. A supersingular curve has a maximal quaternion order, whereas the endomorphisms preserving a prime-to-p cyclic level subgroup form an Eichler order.
 
-**CM order levels and horizontal isogeny graphs** — `cmIsogenyGraphDictionary`. For ordinary A/F_q with geometric order O_f and l≠p, an l-isogeny changes the endomorphism order only horizontally (same order), by index l upward or by index l downward. At l prime to f, the horizontal O_f-linear isogenies correspond to invertible ideals of norm l, with count 1+(D_K/l); ramified gives one, split two, inert zero. At l dividing f retain the conductor-level rules and the exceptional j=0,1728 kernel multiplicities. A graph vertex is a j-invariant up to geometric isomorphism; a finite-field twist is not fixed by a j-root. Supersingular components use quaternionic ideals and cannot use the ordinary order volcano as an order criterion.
+**CM order levels and horizontal isogeny graphs** — `cmIsogenyGraphDictionary`. For ordinary A/F_q with geometric order O_f and l≠p, an l-isogeny changes the endomorphism order only horizontally (same order), by index l upward or by index l downward. Count the l+1 cyclic geometric kernels, including multiplicities when targets coincide. If l∤f, the horizontal kernels correspond to invertible ideals of norm l, giving 1+(D_K/l) horizontal, zero ascending and l−(D_K/l) descending kernels. If l|f, there are zero horizontal, one ascending and l descending kernels. In particular ramified, split and inert l∤f give respectively one, two and zero horizontal kernels. These are counts over the algebraic closure: an F_q-rational edge additionally requires a Frobenius-stable kernel, so the full geometric count is not asserted over F_q. Retain the exceptional j=0,1728 kernel multiplicities. A graph vertex is a j-invariant up to geometric isomorphism; a finite-field twist is not fixed by a j-root. Supersingular components use quaternionic ideals and cannot use the ordinary order volcano as an order criterion.
 
 Sources: [MIT22](#source-mit22), §22.1, Theorems 22.3 and 22.5 and Definition 22.4, pp.2–3. Prerequisites: [cmReductionDictionary](#cm-5-1); [idealAction](#cm-1-1); [idealLatticeCurve.automorphism_factors](#cm-1-1); [idealAction.degree_eq_norm](#cm-1-2); [GlobalNumberFields Layer 11][globalnumberfields-11]; [EllipticCurves Layer 3][ellipticcurves-3]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
 
 **Quaternion orders of a curve and of a level pair** — `supersingularLevelOrderComparison`. For a supersingular curve A/F_pbar, End_geom(A) is maximal in B_{p,∞} and has reduced discriminant p. For the prime-to-p cyclic level-N pair (A,C), its endomorphism ring consists of endomorphisms preserving C and is an Eichler order of level N and reduced discriminant Np, maximal at p but not necessarily away from p. In the Gross–Zagier situation p is non-split in the CM field, p∤N and N satisfies the Heegner splitting conditions; the reduced CM embedding and its optimality must be tracked in the pair’s order. End of the pair must never be called the full maximal End of the curve.
 
+Here an order is an embedded full finite Z-subalgebra of the supplied quaternion algebra; maximal means maximal among such subalgebras. Reduced discriminant is the positive square root of the absolute determinant of its reduced-trace pairing. The Eichler assertion identifies the level-pair order locally with the intersection of the source and quotient maximal orders, at distance ν_l(N) at each split l≠p. These are conclusions about the actual endomorphism lattices, using GN.2’s lattice/localization API, rather than extra assumptions on that supplier.
+
 Sources: [GZ](#source-gz), Chapter III §7 p.261. Prerequisites: [deuringClassification](#cm-5-1); [cmReductionDictionary](#cm-5-1); [QuadraticFormInvariants Layer 2][quadraticforminvariants-2]; `GeometryOfNumbersAndQuadraticArithmetic:GN.2`; [EllipticCurves Layer 1][ellipticcurves-1].
 
-**Required calculations and boundary cases.** An inert l gives no horizontal edges, not two after coefficient extension. Exceptional j graph multiplicities count kernels, not merely distinct target j-values. At N=1 recover the maximal order; at a nontrivial squarefree N the reduced discriminant is Np.
+**Required calculations and boundary cases.** An inert l gives no horizontal edges, not two after coefficient extension. Exceptional j graph multiplicities count kernels, not merely distinct target j-values. For l=2 and l∤f, the split, ramified and inert rows have (horizontal,ascending,descending) counts (2,0,1), (1,0,2), and (0,0,3); at 2|f they are (0,1,2). Each row totals l+1=3. Frobenius-stable kernels form a subset of this geometric list; a target j in F_q alone does not specify a rational kernel or a twist. At N=1 recover the maximal order; at a nontrivial squarefree N the reduced discriminant is Np.
 
 <a id="cm-5-3"></a>
 
@@ -930,7 +945,7 @@ Page numbers in the build are the source's printed pages, including author-copy 
 
 <a id="source-deuring"></a>
 
-**Deuring** — Max Deuring, [Die Typen der Multiplikatorenringe elliptischer Funktionenkörper](https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Lehre/WS23.Padische.1941.Deuring.pdf). Published Abhandlungen Hamburg 14 (1941), 197–272; Mainz scan. Relevant locators: Introduction pp.197–200; §9.1 pp.258–262 (lifting proof, partial); §8 conclusion p.258.
+**Deuring** — Max Deuring, [Die Typen der Multiplikatorenringe elliptischer Funktionenkörper](https://download.uni-mainz.de/mathematik/Algebraische%20Geometrie/Lehre/WS23.Padische.1941.Deuring.pdf). Published Abhandlungen Hamburg 14 (1941), 197–272; Mainz scan. Relevant locators: Introduction pp.197–200; §2.4 pp.212–213 and §2.5–10 pp.213–218 (endomorphism ideals and local counts); §8 conclusion p.258; §9.1 pp.258–262 (lifting proof, partial).
 
 <a id="source-crt"></a>
 
@@ -993,4 +1008,5 @@ Page numbers in the build are the source's printed pages, including author-copy 
 [mathlib-numberfield.ringofintegers]: https://leanprover-community.github.io/mathlib4_docs/find/?pattern=NumberField.RingOfIntegers
 [mathlib-weierstrasscurve.j]: https://leanprover-community.github.io/mathlib4_docs/find/?pattern=WeierstrassCurve.j
 [modularforms-0]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ModularForms/README.md#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus
+[modularcurvespartii-polynomial]: ../ModularCurvesPartII/README.md#s5-6
 [quadraticforminvariants-2]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/QuadraticFormInvariants/README.md#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion
