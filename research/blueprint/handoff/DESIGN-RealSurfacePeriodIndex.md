@@ -1,12 +1,85 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470),
-Codex session `codex-d01ywK`, 19 October 2026. The bot confirmed
-[claim 6258958212](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258958212)
-in [comment 6258959911](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258959911).
-The issue was read again after confirmation. This is a **blocked checkpoint**.
+Codex session `codex-MzQpdQ`, 19 October 2026. The bot confirmed
+[claim 6259770378](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6259770378).
+The full issue was read again after confirmation. This is a **blocked checkpoint**.
 Only this handoff changes; the mathematical design has not begun. No second
-job was claimed.
+job was claimed. Earlier reading below retains its original attribution.
+
+## Revalidation in session codex-MzQpdQ
+
+The blocker remains at atlas main
+[`faee7ca1b7ac2c97de5e564c8127df9ab22283ee`](https://github.com/CBirkbeck/tauceti-explorer/commit/faee7ca1b7ac2c97de5e564c8127df9ab22283ee),
+verified against the local HEAD and GitHub's main ref on 19 October 2026.
+The incorporated route explicitly requires every needed supplier tranche to
+exist before consumer execution. The parent quadratic design and review are
+complete, but their accepted packet assigns ten Benoist19 items and three
+Benoist–Wittenberg items to the proposed `QuadraticFormsRealFunctionFields`
+owner. The parent's actual Q2.0–Q2.7 nodes do not supply those contracts.
+The parent review handoff still reserves the split decision to the maintainer.
+The two Benoist19 C_i inputs `/25` and `/26` remain shared Q2.5 imports.
+
+Fresh checks find no matching roadmap, packet or part filename anywhere under
+`research/blueprint/`; GitHub contents requests for the proposed owner's roadmap
+and packet both return HTTP 404. The split registry still has only the elliptic
+curve and potential-automorphy decisions. The parsed queue contains no job for
+`DESIGN-QuadraticFormsRealFunctionFields`; this consumer is pending with an
+empty `after` list. The other three required supplier designs remain present:
+SemisimpleAlgebrasPartII has 55 nodes and an accepted review;
+AlgebraicTopologyPartII has 75 and an accepted review; HodgeStructuresPartII's
+H.8 follow-up has 31 and an accepted review. Their proof gaps and requests
+remain intact. These are presence/contract checks, not a new independent
+mathematical review.
+
+### Why the consumer keeps becoming available
+
+The queue generator explains the mismatch. In
+[make_queue.py](../make_queue.py), `split_offs` and `paper_designs`
+(lines 770–838 in this checkout) create a separate Part II design only after
+its split appears in `splits.json`; otherwise paper routes with the same
+parent stay grouped. The design loop (lines 1774–1789) adds prerequisite jobs
+only for its explicit BCGP special case and registered split `after` entries.
+It does not derive prerequisites from a new roadmap's prose brief.
+Consequently the incorporated instruction to wait for the real-function-field
+tranche is absent from the generated `after: []` record. Merely rerunning the
+queue generator cannot resolve either missing piece.
+
+The maintainer's concrete next actions are to decide and register the proposed
+quadratic split (or assign the same complete tranche to another authorized
+owner), create its design job, and encode the consumer's actual design-presence
+dependencies in the generator's authoritative inputs or logic. Preserve the
+existing shared Q2.5 owner and the downward import direction. Verify that a
+regenerated queue keeps this consumer blocked while the required design is
+absent, then release it once all required contracts are designed. Adding a
+transient GitHub label or editing only generated queue JSON would not repair
+the regeneration cause. This checkpoint changes none of those restricted files.
+
+The current read-only upstream checkouts are still TauCetiRoadmap
+`0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read the current quadratic roadmap's scope and real-algebraic roadmap's
+ordered-real-closure target and suggested signature: these existing owners
+remain imports, and do not materialize the proposed consumer adapters,
+Harrison/Brauer contracts or real-function-field criterion. No library
+implementation or pinned declaration audit is newly claimed. The reviewed
+library-coverage data still has no RealSurfacePeriodIndex entry.
+
+Validation in this session: parsed all four supplier packets, the extraction,
+split registry and queue; checked exact proposed-split item assignments,
+accepted-review metadata, absent files/jobs and the 100-item consumer route;
+checked the generator's dependency construction and GitHub main/contents;
+ran whitespace and allowed-path checks. No primary-source reading, mathematical
+target, API, unit test, planet, baseline citation or formal request was added.
+All four consumer deliverables remain absent. Blueprint and Lean checks are
+inapplicable to this handoff-only checkpoint, and Lean was not compiled.
+The exact missing contracts and retained application proof gates below remain
+the resume inventory. No scratch artifact is needed by the next worker.
+
+## Previous checkpoint evidence (session codex-d01ywK)
+
+The following records the earlier verification at `0c7aa4ff`; it is retained
+for provenance, not presented as new source reading by this session.
 
 ## Current blocker and exact resume condition
 
