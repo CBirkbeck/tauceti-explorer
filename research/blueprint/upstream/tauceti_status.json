@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T16:50Z",
+  "updated": "2026-10-19T17:00Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -44,7 +44,7 @@
       "stage": "pr",
       "pr": 785,
       "note": "ChatGPT Pro N3 CHANGES answered 10-16 (full-compact Cartan parameters; MassFormula = open external PR); draft",
-      "head": "d90f897",
+      "head": "0d37c3f",
       "review": {
         "recommendation": "approve",
         "current": false,
@@ -59,7 +59,7 @@
         785
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); AA.5.3 now cites the student roadmap OverconvergentForms (W. Coram) as supplier, 2026-10-13; 2026-10-13: AA.5.3 cites the student roadmap OverconvergentForms (W. Coram) as supplier",
-      "head": "26a06ea",
+      "head": "a6a6e6e",
       "review": {
         "recommendation": "changes",
         "current": false,
@@ -106,7 +106,7 @@
         813
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #818 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-      "head": "9d9fc34",
+      "head": "face853",
       "review": {
         "recommendation": "approve",
         "current": false,
@@ -164,7 +164,7 @@
         817
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: 13 targets cite RigidAnalyticGeometry/CompactOperators/PadicFunctionalAnalysis (W. Coram); rebased onto the updated #817; restacked onto main 2026-10-16 after #817 merged (own commits unchanged); ChatGPT Pro N3 answered CHANGES 10-16 ~10:00Z; draft",
-      "head": "5fc83b8",
+      "head": "0b8005b",
       "review": {
         "recommendation": "changes",
         "current": false,
@@ -401,7 +401,7 @@
     "DerivedDeRhamCohomology": {
       "stage": "pr",
       "pr": 868,
-      "head": "6868b13",
+      "head": "fcd006d",
       "depends_on": [
         857,
         818,
@@ -572,7 +572,7 @@
     "ModularCurvesPartII": {
       "stage": "pr",
       "pr": 913,
-      "head": "3a466fa",
+      "head": "4183737",
       "note": "N3 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "approve",
@@ -587,10 +587,10 @@
       "head": "93c052b",
       "note": "maintainer-ordered: no dependency on #271 (§§2.2–2.2a, 6.0a–6.1a) 10-16; N3 fix running; draft",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
+        "head": "93c052b",
         "current": true,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "date": "2026-10-12"
       },
       "maintainer": "second review 2026-10-16 03:10Z (P1: fixed-depth twist families not generic); fix running; draft"
     },
@@ -778,7 +778,7 @@
     "PELModuli": {
       "stage": "pr",
       "pr": 966,
-      "head": "ba1147f",
+      "head": "f4bbb33",
       "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
@@ -790,7 +790,7 @@
     "ModularSymbolsPadicLFunctions": {
       "stage": "pr",
       "pr": 968,
-      "head": "33a264b",
+      "head": "e27e4f0",
       "note": "ported 2026-10-15 (tier 23); both author-side red-team passes applied (27 + 8 findings); draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at bf4b921; draft awaiting re-review",
       "review": {
         "recommendation": "approve",
@@ -886,7 +886,7 @@
     "AutomorphicGaloisRepresentationsPartII": {
       "stage": "pr",
       "pr": 1006,
-      "head": "eb5fec8",
+      "head": "6ee69c4",
       "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered; draft",
       "review": {
         "recommendation": "changes",
@@ -922,7 +922,7 @@
     "HeightsRationalPointsAndObstructions": {
       "stage": "pr",
       "pr": 1017,
-      "head": "dfae0ff",
+      "head": "05408e2",
       "note": "ported 2026-10-16 (tier 9); both red-team passes applied 19:00Z; awaiting its first ChatGPT Pro round; draft",
       "review": {
         "recommendation": "changes",
@@ -934,7 +934,7 @@
     "ClassicalSerreModularity": {
       "stage": "pr",
       "pr": 1020,
-      "head": "b129b2f",
+      "head": "017501a",
       "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
       "review": {
         "recommendation": "changes",
@@ -970,7 +970,7 @@
     "AnabelianGeometryAndNonabelianChabauty": {
       "stage": "pr",
       "pr": 1021,
-      "head": "b4dc349",
+      "head": "dcadccb",
       "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
       "review": {
         "recommendation": "changes",
@@ -1006,7 +1006,7 @@
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
       "stage": "pr",
       "pr": 1036,
-      "head": "320b7b2",
+      "head": "aeefa1e",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
       "review": {
         "recommendation": "approve",
@@ -1043,7 +1043,7 @@
     "DirichletPadicLFunctions": {
       "stage": "pr",
       "pr": 1039,
-      "head": "b535adc",
+      "head": "b0bec06",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
       "review": {
         "recommendation": "changes",
@@ -1079,7 +1079,7 @@
     "ColemanIntegration": {
       "stage": "pr",
       "pr": 1043,
-      "head": "4068add",
+      "head": "2318cc6",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
       "review": {
         "recommendation": "changes",
@@ -1103,7 +1103,7 @@
     "EffectiveDiophantineMethods": {
       "stage": "pr",
       "pr": 1046,
-      "head": "154a041",
+      "head": "076ace7",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 52); red team running",
       "review": {
         "recommendation": null,
@@ -1331,7 +1331,7 @@
     "AnalyticNumberTheoryPartI": {
       "stage": "pr",
       "pr": 1126,
-      "head": "764d8bb",
+      "head": "069b1e4",
       "note": "ported 2026-10-18 from the accepted explorer package (tier 38); red team running",
       "review": {
         "recommendation": "changes",
@@ -1343,7 +1343,7 @@
     "InductionRestrictionPartII": {
       "stage": "pr",
       "pr": 1154,
-      "head": "1636ce9",
+      "head": "dfd34a4",
       "note": "ported 2026-10-18 from the accepted explorer package (outside the Caraiani–Newton closure; supplier of ArithmeticStatisticsPartV); red team running",
       "review": {
         "recommendation": null,
@@ -1367,7 +1367,7 @@
     "ArithmeticStatisticsPartI": {
       "stage": "pr",
       "pr": 1171,
-      "head": "a333428",
+      "head": "408c9fa",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part I of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
@@ -1379,7 +1379,7 @@
     "ArithmeticStatisticsPartIV": {
       "stage": "pr",
       "pr": 1172,
-      "head": "6b52f94",
+      "head": "e39ae24",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part IV of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
@@ -1415,7 +1415,7 @@
     "ArithmeticStatisticsPartV": {
       "stage": "pr",
       "pr": 1175,
-      "head": "3af18dc",
+      "head": "543fd2a",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part V of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
