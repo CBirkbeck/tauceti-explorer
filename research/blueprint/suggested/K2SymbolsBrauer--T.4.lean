@@ -1,12 +1,15 @@
+import Mathlib
 import TauCeti.FieldTheory.FunctionField.Divisor.Eval
-import TauCeti.FieldTheory.FunctionField.Place.RatFunc.Basic
 import TauCeti.AlgebraicGeometry.EllipticCurve.Affine.FunctionField.Finrank
-import Mathlib.Tactic
 
 /-!
 # Rational function fields and reciprocity: suggested end statements
 
-Blueprint only. The two reciprocity theorems below are unproved targets.
+**This file is not the roadmap and is not exhaustive.** The definitive document is
+the companion reader `K2SymbolsBrauer--T.4.md`. These statements suggest Lean forms
+for particular milestones; discharging them finishes neither a layer nor the roadmap.
+
+The two general reciprocity theorems below are unproved targets.
 The README specifies integral Milnor groups, Bass–Tate exactness, simple norms,
 Kato independence, all-extension base change and the residue squares. Their
 carriers are not implemented at the atlas pins, so no stand-in carrier or
@@ -59,37 +62,26 @@ theorem eval_principal_reciprocity (hK : IsFunctionField k K) (f g : Kˣ)
     (Divisor.principal hK g).eval f = (Divisor.principal hK f).eval g := by
   sorry
 
--- The rational argument of normResidueOrOne in the product theorem is a unit
--- at P. This check prevents a silent use of its default value at a zero/pole.
-example (P : Place k K) (f g : Kˣ) :
+/-- The residue argument in the tame factor has order zero, so
+`normResidueOrOne` agrees with the genuine residue norm there. This is the
+local adapter specified by the reciprocity-evaluation comparison target. -/
+theorem tame_argument_ord (P : Place k K) (f g : Kˣ) :
     P.ord ((f ^ P.ord (g : K) * g ^ (-P.ord (f : K)) : Kˣ) : K) = 0 := by
   simp only [Units.val_mul, Units.val_zpow_eq_zpow_val]
   rw [P.ord_mul (zpow_ne_zero _ f.ne_zero) (zpow_ne_zero _ g.ne_zero)]
   simp only [P.ord_zpow]
   ring
 
--- Existing evaluation on the zero divisor is the empty product.
-example (f : Kˣ) : (0 : Divisor k K).eval f = 1 := by simp
-
--- Compatibility uses the same native principal divisors and evaluation, with
--- no conversion through a second divisor theory.
-example {F : Type*} [Field F] (W : WeierstrassCurve.Affine F)
+/-- Specialize general reciprocity on the native Weierstrass function field.
+For an elliptic curve this is the EllipticCurves Layer 2 evaluation milestone;
+the pinned function-field instance does not require ellipticity. -/
+theorem weierstrass_eval_principal_reciprocity {F : Type*} [Field F]
+    (W : WeierstrassCurve.Affine F)
     (f g : W.FunctionFieldˣ)
     (hdisj : Disjoint (Divisor.principal W.isFunctionField f).support
       (Divisor.principal W.isFunctionField g).support) :
     (Divisor.principal W.isFunctionField g).eval f =
       (Divisor.principal W.isFunctionField f).eval g :=
   eval_principal_reciprocity W.isFunctionField f g hdisj
-
--- At 0, 2 and infinity for f=t, g=t-2 over ℚ the normed factors are
--- -1/2, 2 and -1. The infinity factor is necessary.
-example : (-1 / 2 : ℚ) * 2 * (-1) = 1 := by norm_num
-
--- For disjoint divisors of t/(t-1) and (t-2)/(t-3), both evaluations are 4/3.
-example : ((2 : ℚ) / (3 / 2)) = (2 / 3) / (1 / 2) := by norm_num
-
--- Degree-zero self-base-change for two independent square roots in
--- characteristic two needs Artinian length 4, not nilpotence index 3.
-example : (2 : ℕ) ^ 2 ≠ 2 * 2 - 1 := by norm_num
 
 end TauCetiBlueprint.K2RationalReciprocity

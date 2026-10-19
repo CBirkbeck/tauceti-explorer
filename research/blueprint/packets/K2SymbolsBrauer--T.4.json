@@ -15,175 +15,175 @@
         "ref": "tauceti:TauCeti.Place.finite_setOf_ord_ne_zero",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Zeros.lean",
         "provides": "{P | P.ord x ≠ 0} is finite, under the hypothesis IsFunctionField k F (F finite over k(x) for a transcendental x): the function-field case only.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Zeros.lean:461. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.ratFuncEquiv",
         "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
         "provides": "Option (HeightOneSpectrum k[X]) ≃ Place k (RatFunc k), none ↦ the place at infinity.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:330. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.heightOneSpectrumEquiv",
         "module": "TauCeti/FieldTheory/FunctionField/AffineModel/Prime.lean",
         "provides": "The bijection between places finite on an affine model R and HeightOneSpectrum R. The matching of valuations and residue degrees is not part of it: it is TauCeti.Place.valuation_ofPrime (Prime.lean:100) and TauCeti.Place.degree_ofPrime (Prime.lean:286) in the same file.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/AffineModel/Prime.lean:140. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:Ideal.sum_ramification_inertia_eq_finrank",
         "module": "Mathlib/RingTheory/RamificationInertia/Basic.lean",
         "provides": "For a domain R, S finite and flat over R and p a prime of R, ∑_{q over p} e(q) f(q) = Module.finrank R S — the rank of S over R, not the field degree; for a DVR and its integral closure in a finite separable extension the two agree by IsIntegralClosure.rank (Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean:192). The module is RingTheory, not NumberTheory; the NumberTheory file has only the deprecated Ideal.sum_ramification_inertia.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/RamificationInertia/Basic.lean:72. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:Algebra.norm",
         "module": "Mathlib/RingTheory/Norm/Defs.lean",
         "provides": "The norm S →* R of an R-algebra (1 when S is not finite free).",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Norm/Defs.lean:61. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:Algebra.norm_norm",
         "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
         "provides": "norm R (norm S a) = norm R a for a tower R → S → A with S free over R and A free over S.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Norm/Transitivity.lean:207. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.eval_eq_prod_normResidue",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
         "provides": "For f a unit at every place of D, f(D) = ∏_{P ∈ supp D} N(f(P))^{n_P}.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean:192. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.ord",
         "module": "Mathlib/AlgebraicGeometry/OrderOfVanishing.lean",
         "provides": "The order of vanishing of f in the function field of a locally Noetherian integral scheme at a point z, with junk value 0 unless coheight z = 1.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/AlgebraicGeometry/OrderOfVanishing.lean:52. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.adicOfIrreducibleResidueFieldEquiv",
         "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
         "provides": "The residue field of the finite place of an irreducible q ∈ k[X] is k[X]/(q), as a k-algebra equivalence.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:259. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.isUniformizer_adicOfIrreducible",
         "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
         "provides": "An irreducible polynomial is a uniformiser of its own finite place of k(x).",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:246. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.ord_infty",
         "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
         "provides": "The order at infinity is minus the degree: ord_∞ f = −intDegree f.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:125. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.isUniformizer_infty",
         "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
         "provides": "x⁻¹ is a uniformiser at the place at infinity.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:131. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.inftyResidueFieldEquiv",
         "module": "TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean",
         "provides": "The residue field at infinity is k.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/RatFunc/Basic.lean:199. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.restrict",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean",
-        "provides": "The place of F/k that a place of a finite extension F′/k′ lies over.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "provides": "For fields k,k′,F,F′ with compatible scalar towers k→F→F′ and k→k′→F′, and algebraic F′/F (Algebra.IsIntegral), normalize the restriction of a place of F′/k′ to obtain a place of F/k. Finiteness and the one-variable function-field hypothesis are not required by this definition.",
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Extension/Basic.lean:283. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.finite_setOf_restrict_eq",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Extension/Fibre.lean",
-        "provides": "A place has only finitely many extensions to a finite extension of function fields.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "provides": "For compatible constant-field and function-field scalar towers and finite-dimensional F′/F, the fibre of Place.restrict over any place of F/k is finite. The theorem does not require an IsFunctionField hypothesis.",
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Extension/Fibre.lean:316. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.normResidue",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
         "provides": "The norm to k of the residue of a function that is a unit at a place (Algebra.normUnits of residueUnit).",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Residue.lean:140. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.principal",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean",
         "provides": "The principal divisor div z = Σ_P ord_P(z)·P of a nonzero function.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Principal.lean:134. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:Algebra.norm_eq_prod_roots",
         "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
         "provides": "The norm of x is the product of the roots of its minimal polynomial in a splitting field, to the power [L : K⟮x⟯].",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Norm/Transitivity.lean:258. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:Polynomial.resultant_eq_prod_eval",
         "module": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean",
-        "provides": "If f splits, Res(f, g) = lead(f)^n · ∏ g(α) over the roots α of f.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "provides": "Over a domain R, for f,g ∈ R[X], f splitting over R and natDegree(g) ≤ n, the indexed resultant resultant(f,g,natDegree(f),n) is lead(f)^n times the product of g over the multiset of roots of f. Take n=natDegree(g) for the ordinary degree-indexed resultant; in a splitting field first map the coefficients there.",
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/RingTheory/Polynomial/Resultant/Basic.lean:478. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:IntermediateField.adjoinRootEquivAdjoin",
         "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
         "provides": "AdjoinRoot (minpoly F α) ≃ₐ[F] F⟮α⟯ for α integral.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean:417. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:Polynomial.modByMonic",
         "module": "Mathlib/Algebra/Polynomial/Div.lean",
         "provides": "Remainder on division by a monic polynomial.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/Algebra/Polynomial/Div.lean:137. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "mathlib:Polynomial.degree_modByMonic_lt",
         "module": "Mathlib/Algebra/Polynomial/Div.lean",
-        "provides": "The remainder modulo a monic q has degree less than that of q.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "provides": "Over a nontrivial ring R, the remainder of p ∈ R[X] modulo a monic q has degree strictly less than degree(q).",
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: Mathlib/Algebra/Polynomial/Div.lean:147. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:WeierstrassCurve.Affine.isFunctionField",
         "kind": "theorem",
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Finrank.lean",
         "provides": "For a Weierstrass curve W over a field F, TauCeti.IsFunctionField F W.FunctionField: the function field of W is an algebraic function field of one variable over F (no ellipticity hypothesis).",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Finrank.lean:183. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.eval",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
         "provides": "f(D) ∈ kˣ for a divisor D and f ∈ Fˣ, the product over the support of N_{k(P)/k}(f(P))^{coeff D P}, with local factor 1 where f is not a unit; classical exactly on admissible divisors.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean:118. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Divisor.isUnitAtSupport_iff_disjoint",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
         "provides": "For hF : IsFunctionField k F, a divisor D and f ∈ Fˣ: IsUnitAtSupport D f ↔ Disjoint D.support (principal hF f).support.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean:310. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.IsIntegralClosure.finite_mvPolynomial_of_isPurelyInseparable",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean",
         "provides": "For a field k, P = k[X_1, …, X_r] with fraction field K and a finite purely inseparable extension M/K, every integral closure of P in M is a finite P-module (Stacks 032O); no separability is assumed. The declaration is in namespace TauCeti.",
-        "checked": "Actual declaration statement and hypotheses read in the shared source at the stated pinned commits on 2026-10-19; no current-main statement is treated as pinned."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean:167. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.normResidueOrOne",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Residue.lean",
         "provides": "The unit-valued total extension of normResidue, equal to 1 off the order-zero locus; the suggested reciprocity argument is proved to have order zero.",
-        "checked": "Actual definition read at the pinned Tau Ceti commit on 2026-10-19."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Residue.lean:153. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       },
       {
         "ref": "tauceti:TauCeti.Place.degree",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
         "provides": "Module.finrank k P.ResidueField; intended residue degree under the explicit IsFunctionField hypothesis, with the native default otherwise.",
-        "checked": "Actual definition read at the pinned Tau Ceti commit on 2026-10-19."
+        "checked": "Independently read for REV-K2SymbolsBrauer--T.4 at the stated pinned commit on 2026-10-19: TauCeti/FieldTheory/FunctionField/Place/Basic.lean:469. Name, hypotheses, conventions and claimed use confirmed; current-main additions are kept separate."
       }
     ]
   },
@@ -749,7 +749,7 @@
         "Take n=1 in integral-curve-reciprocity and use the existing degree-one identification of the transfer with the determinant field norm. The local argument f^b g^(−a) has order ab−ba=0, so its residue is a unit.",
         "Transport the place formula to closed points with AlgebraicCurves Layer12. Its order, residue equivalence and divisor comparisons are inputs; the K₂ layer adds only naturality of the symbol and field norm across them.",
         "At a place of div g, disjointness makes a=0; the factor is N(res f)^b. At a place of div f it is N(res g)^(−a). Elsewhere it is 1. Thus the product is f(div g)/g(div f). Tau Ceti’s eval_eq_prod_normResidue and isUnitAtSupport_iff_disjoint identify these exact products with its Divisor.eval.",
-        "Specialize to W.FunctionField with W elliptic using the existing function-field instance. Import the Layer2 elliptic milestone and prove compatibility of the two statements; do not derive general reciprocity from that special case. The same identity holds with the opposite tame convention because every local factor is inverted."
+        "The pinned function-field instance applies to every affine Weierstrass curve W, so specialize the general evaluation theorem to W.FunctionField without an ellipticity hypothesis. In the elliptic case identify this specialization with the existing EllipticCurves Layer2 milestone. The suggested statements name the local order-zero adapter tame_argument_ord and the specialization weierstrass_eval_principal_reciprocity. Opposite tame conventions invert all local factors and give the same identity."
       ],
       "acceptance": [
         "For f=t,g=t−2 over ℚ, the factors at 0,2,∞ are −1/2,2,−1, with product 1.",
@@ -1632,5 +1632,73 @@
     },
     "sourceIssueProvenance": "K2SymbolsBrauer/E5–E8, E10 and E11 are inherited source findings, rechecked in the public combined K-book draft; the reader records the relevant corrections in paraphrase. E13’s original restricted-edition certification is not renewed; the Artinian-length counterexample is computed independently here. No inherited review object is copied.",
     "packageConsolidation": "At assembly merge the new proof-completion statements into the existing target records named by proofMap, retaining the imported construction IDs and API. The checked standalone continuation avoids duplicate node records; it does not propose two libraries implementing the same norm."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.4",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of T.4 only: all 12 new nodes, 26 imported target contracts, 28 pinned baseline declarations, source locators, ownership audit, construction APIs/tests, four planets and the suggested Lean file checked. Refined four baseline descriptions and recorded independent source locations; synchronized the reader with the compact Lean statements and named comparison adapters. The packet is one complete planning pass with planned coverage, one explicit arbitrary-residue complete-DVR routing gap and three owner requests; acceptance does not close these dependencies or claim implementation. No nodes added or source findings newly asserted. lean-check passes with exactly two expected admitted-proof warnings. See the review report for per-node, source and red-team verdicts.",
+    "checked": [
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/degree-filtration-generation",
+        "verdict": "verified",
+        "note": "The Steinberg expansion has the displayed signs; mixed constants and repeated entries are retained. Skew commutativity, rather than exterior alternation, is supplied by T.2."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/bass-tate-filtration-assembly",
+        "verdict": "verified",
+        "note": "Degree-quotient sections plus finite descending induction give the finite-place exact sequence; the leading-coefficient retraction proves injectivity of constants. Infinity is excluded from the direct sum."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/prime-to-p-detection",
+        "verdict": "verified",
+        "note": "Read the existing GF.0 maximal-P-extension supplier. Finite-presentation descent and any simple norm tower kill the restriction kernel by a prime-to-p integer without assuming Kato transitivity."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/tower-splitting-formula",
+        "verdict": "verified",
+        "note": "Iterated simple base change is used over a finite normal hull, not over a possibly nonnormal E. The normal-hull degree supplies a sufficient annihilator."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/prime-degree-residue-descent",
+        "verdict": "verified",
+        "note": "Checked both ef=p cases, the four generated-symbol cases and prime-to-p finite descent. Only finite descended fields are treated as complete DVRs; no index is canceled in a Milnor group. Conditional on the recorded DVR supplier gap."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/constant-extension-completion",
+        "verdict": "verified",
+        "note": "Finite normalization and its requested completion export give field factors of multiplicity one, including the inseparable constant-extension case and infinity. Only normal-prime-degree residue compatibility is used before Kato."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/kato-tower-comparison",
+        "verdict": "verified",
+        "note": "Checked the corrected simple-norm base, normal-hull torsion detection, and compositum induction on longer maximal prime-degree towers. General finite base change is not used as a premise."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/finite-transfer-base-change",
+        "verdict": "verified",
+        "note": "Composition-series multiplicities are local Artinian module lengths, not nilpotence indices. This theorem follows Kato; the two independent p-radicals test distinguishes the coefficients."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/complete-residue-descent",
+        "verdict": "verified",
+        "note": "Checked the componentwise lattice identities and finite prime-to-p descent, with potentially larger residue fields l_i/L_j. Integer-length cancellation is kept separate from Milnor groups. Conditional on DVR.0–DVR.3."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/finite-normalization-residue",
+        "verdict": "verified",
+        "note": "The finite integral-closure hypothesis justifies completion into field factors of multiplicity one. The export keeps its inherited T.3 identifier but its mathematical owner is T.4."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/integral-curve-reciprocity",
+        "verdict": "verified",
+        "note": "Pushdown from an arbitrary one-variable function field uses integral Kato norms and the finite-normalization square. Suslin §2 is correctly marked as a torsion-quotient argument; imperfect constants do not require a smooth model."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.4/reciprocity-evaluation-compatibility",
+        "verdict": "corrected",
+        "note": "Checked the residue-degree sign, order-zero argument and native evaluation quotient. The suggested file now names the proved order-zero adapter and Weierstrass specialization; its two general reciprocity statements remain admitted."
+      }
+    ]
   }
 }
