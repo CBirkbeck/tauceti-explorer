@@ -1,5 +1,82 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
+## Current checkpoint — codex-aWKFmO, 19 October 2026
+
+Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470).
+The bot confirmed this session's
+[claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6260376941),
+and the whole issue was reread after confirmation. **Blocked: the mandatory
+real-function-field supplier design is still absent.** This submission changes
+only this handoff; the consumer design has not started.
+
+Revalidated at atlas main
+[`0d655b610f62a469a8e79971bb63cd91c74ebb70`](https://github.com/CBirkbeck/tauceti-explorer/commit/0d655b610f62a469a8e79971bb63cd91c74ebb70),
+with local HEAD and GitHub's main ref agreeing. The incorporated
+[Benoist19 consumer route](../papers/PAPER-BENOIST-19.result.json) still
+requires every needed tranche of all four supplier designs before consumer
+execution. This is an explicit sequencing condition, rather than a requirement
+to finish recursive proofs of cited inputs. Its consumer inventory still has
+100 distinct items.
+
+The accepted [quadratic parent packet](../packets/QuadraticFormInvariantsPartII.json)
+still assigns thirteen items to proposed `QuadraticFormsRealFunctionFields`:
+ten Benoist19 items and three Benoist–Wittenberg items. Every assignment has
+disposition `proposed-split`. The two shared Benoist19 C_i items remain with
+Q2.5. Read the actual assignments, split proposal and
+[independent review handoff](REV-DESIGN-QuadraticFormInvariantsPartII.md):
+the split still needs a maintainer decision, and the parent's Q2.0–Q2.7
+do not supply the proposed RF.0–RF.4 tranche. The exact missing contracts
+are listed below under “Exact missing quadratic contracts.”
+
+Fresh presence checks found no matching supplier roadmap, packet or part
+anywhere under `research/blueprint/`. GitHub contents requests for its
+roadmap and packet both returned HTTP 404. `splits.json` still registers
+only the elliptic-curve and potential-automorphy split decisions. The queue
+still contains no `DESIGN-QuadraticFormsRealFunctionFields`; the consumer
+remains `pending` with `after: []`. Reading `make_queue.py` again confirms
+that paper routes are grouped under their parent unless a split is registered,
+and the design dependency loop adds only its BCGP special case and explicit
+split `after` entries. A queue regeneration alone cannot supply the missing
+decision, design or dependency.
+
+The other required designs remain complete with accepted reviews:
+SemisimpleAlgebrasPartII (55 nodes, 11 gaps, 10 requests),
+AlgebraicTopologyPartII (75 nodes, 15 gaps, 14 requests), and the
+HodgeStructuresPartII H.8 follow-up (31 nodes, 5 gaps, 11 requests).
+These metadata and route checks do not re-review their mathematics or close
+their proof obligations. Current read-only upstream commits remain
+TauCetiRoadmap `0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the quadratic roadmap's
+scope and the real-algebraic roadmap's ordered-real-closure boundary and
+suggested existence statement. No upstream file was changed or built, and
+no new pinned-library declaration claim is made.
+
+**Required next action:** the maintainer must authorize and materialize the
+real-function-field split, or supply all its required contracts under another
+single owner, and encode the consumer's actual design-presence dependencies
+in the queue generator's authoritative inputs or logic. Keep this consumer
+unavailable until that condition holds. This issue permits changes only to
+its own deliverables, so it cannot implement those supplier or queue changes.
+Then resume with the procedure and application proof gates below.
+
+Validation: parsed the extraction, four supplier packets, split registry and
+queue; checked the thirteen assignments and the two Q2.5 shared imports;
+checked local and remote supplier absence, current-main equality and permitted
+paths; ran `git diff --check`. The reviewed library audit has no consumer
+entry. No primary-source reading is newly claimed. All four consumer
+deliverables remain absent: zero nodes, API items, tests, planets, baseline
+citations or formal packet requests; all stages remain undesigned. Blueprint
+and Lean checks are inapplicable; Lean was not compiled. Nothing needed to
+resume is left in scratch. No second job was claimed.
+
+Selection note: the only available focus issue was assembly #7943. Both
+GraphQL and REST rejected its claim comment because it has reached GitHub's
+2,500-comment limit; no claim there was created. This session then selected
+this design from the next eligible job class. The maintainer will also need
+to restore a usable claim channel for #7943.
+
+## Earlier checkpoint — codex-MzQpdQ
+
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470),
 Codex session `codex-MzQpdQ`, 19 October 2026. The bot confirmed
 [claim 6259770378](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6259770378).
