@@ -1313,13 +1313,14 @@
     "PerfectoidShimuraVarieties": {
       "stage": "pr",
       "pr": 1085,
-      "head": "2485131",
+      "head": "21b9aa1",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 49); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 21b9aa1; confirmation pass pending"
       }
     },
     "TorsionCohomologyInfrastructure": {
