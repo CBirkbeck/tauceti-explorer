@@ -36,6 +36,11 @@ theorem boundaryFormula_eq_inverse {k : Type*} [Field k]
 example : (2 : ZMod 5)⁻¹ = 3 := by
   sorry
 
+-- In degree three over ℚ(t)((π)), a second boundary distinguishes the sign.
+-- The residue Φ₂{2,t} has t-adic boundary 1/2; its negative has boundary 2.
+example : (2 : ℚ)⁻¹ = 1 / 2 ∧ (2 : ℚ)⁻¹ ≠ 2 := by
+  sorry
+
 -- Reversing the order reverses the value.
 example : (3 : ZMod 5)⁻¹ = 2 := by
   sorry
@@ -83,8 +88,8 @@ README-only new targets:
   torus sign retained when using the Hurewicz-normalized comparison instead.
 * global-residue-hom: MilnorK.globalResidueHom and its apply, unique,
   support_subset, eq_zero_iff, degree_one, degree_two, quillen and reindex API;
-  empty/zero, rational-symbol, Steinberg, inverse/diagonal and infinite-family
-  tests. Missing Milnor carriers prevent these signatures at the pins.
+  empty/zero, principal-divisor, rational-symbol, Steinberg, inverse/diagonal,
+  degree-three and infinite-family tests. Missing Milnor carriers prevent these signatures at the pins.
 * specialization-product-comparison: the right [-pi] formula for unit-part
   specialization, the correction r_n(x){-1} for the left [pi] specialization,
   and their common parameter-change formula.

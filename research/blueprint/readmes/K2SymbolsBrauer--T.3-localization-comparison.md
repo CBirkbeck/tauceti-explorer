@@ -151,8 +151,12 @@ It must still be displayed when identifying the boundary itself.
 **Checks.** At R=ℤ_(5), D₂Φ₂{2,5}=3, D₂Φ₂{5,2}=2, and
 D₂Φ₂{5,5}=4 in 𝔽₅ˣ. The first two detect inversion; the last detects a
 missing diagonal sign. D₁[5]=1 fixes the degree-one orientation, while
-D₃Φ₃{u,v,5}=Φ₂{ū,v̄} tests the positive odd-degree sign. Finite-field
-K₂ vanishing cannot distinguish the two classical-to-Quillen normalizations.
+the degree-three sign needs an infinite residue field to be detected. Take
+k=ℚ(t), R=k[[π]] and x={2,t,π}. Then D₃Φ₃(x)=Φ₂{2,t}; applying
+the t-adic boundary to this value gives 1/2∈ℚˣ. Negating the value would
+give 2 instead. Over 𝔽₅ the degree-three target K₂(𝔽₅) is zero and
+cannot perform this sign check. Finite-field K₂ vanishing also cannot
+distinguish the two classical-to-Quillen normalizations.
 
 **Source.** Weibel, III.7.3, printed p.246 / PDF p.254; V.6.6.1, printed
 p.409 / PDF p.417; Exercise V.5.3, printed p.405 / PDF p.413. The
@@ -207,8 +211,12 @@ T.4 reciprocity, and the affine/DVR comparisons used by S.3 and E.3:
 | `MilnorK.globalResidueHom_reindex` | Relabeling the valuation family by an equivalence reindexes the output, including its native residue fields. |
 
 **Tests.** The empty family gives the zero map into the trivial direct sum,
-and zero has zero output for every family. For F=ℚ and V the rational
-primes, Res⁽ᴹ⁾₂{2,5} has just one nontrivial coordinate: 2 at 5. At 2 the
+and zero has zero output for every family. In degree one, for F=ℚ and
+V the rational primes, Res⁽ᴹ⁾₁{25/2} has coefficient −1 at 2, coefficient
+2 at 5, and zero elsewhere, agreeing with the existing principal divisor.
+Its target has integer coefficients, rather than residue-field units.
+For the same family in degree two, Res⁽ᴹ⁾₂{2,5} has just one nontrivial
+coordinate: 2 at 5. At 2 the
 residue is 1 in the trivial 𝔽₂ˣ. This also shows why support is bounded by
 the union of entry supports rather than their intersection. The actual
 Quillen boundary has coordinate 3 at 5.
@@ -216,8 +224,11 @@ Quillen boundary has coordinate 3 at 5.
 For the same family {2,−1}={2,1−2} has every residue trivial, although 2
 has positive order at the prime 2; support containment can be strict.
 The symbols {5,2} and {5,5} give coordinates 3 and 4 at 5, respectively.
-Adding a symbol and its inverse gives zero in the direct sum. Finally, the
-family indexed by ℕ with every valuation equal to the 5-adic valuation
+Adding a symbol and its inverse gives zero in the direct sum. For the
+singleton π-adic family on ℚ(t)((π)), the degree-three coordinate of
+{2,t,π} is {2,t}. Its Quillen image has t-adic boundary 1/2, detecting the
+positive global degree-three comparison sign as in the local check.
+Finally, the family indexed by ℕ with every valuation equal to the 5-adic valuation
 fails finite character: {2,5} would have coordinate 2 at every index. Its
 coordinate function is not an element of the direct sum. This is a failure
 of the hypothesis, not a new unrestricted residue map.
@@ -353,7 +364,10 @@ Under Φ₂ the two field transfers agree for **every finite extension**:
 \]
 
 The inherited proof uses arbitrary field base change and prime-to-p
-detection, not the desired norm/residue square. For each prime p pass to a
+detection, not the desired norm/residue square. First express E/F as a
+tower of simple extensions. Transitivity of both transfers reduces their
+comparison to a single step E=F(a); thus the simple-extension statement
+of T.4/transfer-base-change suffices. For each prime p pass to a
 p-closed extension F⁽ᵖ⁾ assembled from finite extensions of degree prime to p.
 Both transfers have the same base-change decomposition on
 E⊗_F F⁽ᵖ⁾=∏Bᵢ, with each factor weighted by its **local module length**
@@ -361,8 +375,9 @@ E⊗_F F⁽ᵖ⁾=∏Bᵢ, with each factor weighted by its **local module lengt
 tower of normal degree-p steps. The imported degree-p generation theorem
 expresses K⁽ᴹ⁾₂ in symbols {y,res(x)} with x in the base. Both transfers
 send them to {N₁(y),x} by the projection formula. Transitivity proves
-equality after this base change. For their difference on one input, finite
-descent and restriction–transfer give an annihilator prime to p. Taking
+equality after this base change. Transport the difference on one input
+through Φ₂ to K⁽ᴹ⁾₂(F). Finite descent in the Milnor presentation and
+restriction–transfer then give an annihilator prime to p. Taking
 all p kills the difference. These ingredients are the existing T.4
 prime-to-p-closure, p-closed-generation, transfer-base-change,
 milnor-projection-formula, milnor-transfer-transitivity and
@@ -421,7 +436,9 @@ no Milnor groups, Quillen localization sequence or K₂ residue comparison.
 The reusable infrastructure already exists: dependent direct sums and their
 coordinate maps; determinant norms and `Algebra.norm_algebraMap`; finite
 order-support inputs for Dedekind primes and function-field places; and
-`TauCeti.SplitK0.finrankEquiv`, taking a vector-space class to its dimension.
+`TauCeti.SplitK0.finrankEquiv`, taking a vector-space class to its dimension
+under its `Small.{v} k` universe hypothesis. This hypothesis is automatic
+when the scalar and vector-space carrier universes coincide.
 The connective K₀ model comparison remains with its owning K-theory roadmap.
 
 The current AlgebraicCurves roadmap and library also supply normalized
@@ -458,7 +475,7 @@ function-field normalization and completion comparisons.
 
 The suggested Lean file states only calibration results over existing
 direct sums, residue-field units and determinant norms. The new K-theoretic
-targets, the nine total-residue API entries and its five tests remain
+targets, the nine total-residue API entries and its seven tests remain
 mathematical targets here until their Milnor and Quillen carriers exist.
 No axiomatized replacement for those missing carriers is introduced.
 
