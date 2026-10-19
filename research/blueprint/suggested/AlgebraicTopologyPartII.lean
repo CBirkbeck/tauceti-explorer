@@ -19,7 +19,8 @@ obligations are in the reader and packet. No assertion below encodes a missing
 construction as an assumption that already states its conclusion.
 
 Sources: Browning–Sawin, Definition 7.3 and Lemmas 7.4–7.6, pp.941–945;
-Benoist, (2.6), p.73 and (7.7)–(7.9), pp.99–100. The pinned cyclic
+Benoist, (2.6), p.73, corrected Lemma 7.3, pp.98–99, and
+(7.7)–(7.9), pp.99–100. Independent design review: REV-DESIGN-AlgebraicTopologyPartII. The pinned cyclic
 resolution and Tau Ceti's loop-space shifts are reused.
 -/
 
@@ -159,6 +160,14 @@ example : degreeTwoReductionScalar 6 = 1 := by decide
 example : traceZeroVector (![1, 0, 0, 0] : Fin 4 → ℤ) = ![-3, 1, 1, 1] := by
   ext i
   fin_cases i <;> norm_num [traceZeroVector, Fin.sum_univ_succ]
+
+/-- Degree-four regression for B19 Lemma 7.3: with η=0 and φζ=1,
+`a=−1` reduces to 3. The negative trace-zero lift has this reduction;
+the printed positive lift has reduction 1. -/
+example :
+    ((-(traceZeroVector (![1, 0, 0, 0] : Fin 4 → ℤ) 0) : ℤ) : ZMod 4) = 3 ∧
+    ((traceZeroVector (![1, 0, 0, 0] : Fin 4 → ℤ) 0 : ℤ) : ZMod 4) ≠ 3 := by
+  norm_num [traceZeroVector, Fin.sum_univ_succ]; decide
 
 /-! ## AT2.4–AT2.5: reuse of the existing homotopy shift
 

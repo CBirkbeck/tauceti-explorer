@@ -21,7 +21,7 @@
     "AlgebraicTopologyPartII:AT2.16"
   ],
   "status": "complete",
-  "summary": "This continuation adds configuration-space cohomology and rational double-loop calculations, together with a single semialgebraic C₂-equivariant topology interface for real varieties and ramified covers. It merges all three accepted extraction tranches without replanning ordinary AlgebraicTopology. Every target is assigned a dependency, supplier request or explicit proof obligation; the planning pass is complete, with 14 recorded gaps and no claim that the resulting theory is implemented or closed.",
+  "summary": "This continuation adds configuration-space cohomology and rational double-loop calculations, together with a single semialgebraic C₂-equivariant topology interface for real varieties and ramified covers. It merges all three accepted extraction tranches without replanning ordinary AlgebraicTopology. Every target is assigned a dependency, supplier request or explicit proof obligation; the planning pass is complete, with 15 recorded gaps and no claim that the resulting theory is implemented or closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -31,77 +31,77 @@
         "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
         "provides": "Sheaf cohomology on a Grothendieck site as Ext from the constant integral sheaf. No equivariant-support or semialgebraic six-operation theorem is supplied.",
         "kind": "abbrev",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. Sheaf cohomology on a Grothendieck site as Ext from the constant integral sheaf. No equivariant-support or semialgebraic six-operation theorem is supplied."
       },
       {
         "ref": "mathlib:Equiv.Perm.cycleType",
         "module": "Mathlib/GroupTheory/Perm/Cycle/Type.lean",
         "provides": "Multiset of lengths of nontrivial disjoint cycles; fixed points are omitted. The root-permutation adapter must add them.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. Multiset of lengths of nontrivial disjoint cycles; fixed points are omitted. The root-permutation adapter must add them."
       },
       {
         "ref": "mathlib:ArithmeticFunction.sum_eq_iff_sum_smul_moebius_eq",
         "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
         "provides": "For additive-group-valued f,g, divisor-sum equality is equivalent to Möbius inversion using divisorsAntidiagonal, for positive indices.",
         "kind": "theorem",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. For additive-group-valued f,g, divisor-sum equality is equivalent to Möbius inversion using divisorsAntidiagonal, for positive indices."
       },
       {
         "ref": "mathlib:ArithmeticFunction.moebius",
         "module": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean",
         "provides": "The integer arithmetic function is (−1)^(card prime factors) on squarefree integers and zero otherwise.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. The integer arithmetic function is (−1)^(card prime factors) on squarefree integers and zero otherwise."
       },
       {
         "ref": "mathlib:GenLoop",
         "module": "Mathlib/Topology/Homotopy/HomotopyGroup.lean",
         "provides": "The existing subtype of continuous cube maps sending the boundary to the base point. It is not a new loop-space carrier for this roadmap.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. The existing subtype of continuous cube maps sending the boundary to the base point. It is not a new loop-space carrier for this roadmap."
       },
       {
         "ref": "tauceti:HomotopyGroup.zerothHomotopyEquiv",
         "module": "TauCeti/Topology/Homotopy/HomotopyGroup/LoopSpace.lean",
         "provides": "Path components of N-indexed generalized loops identify with the native N-indexed homotopy group.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. Path components of N-indexed generalized loops identify with the native N-indexed homotopy group."
       },
       {
         "ref": "tauceti:HomotopyGroup.loopSpaceEquiv",
         "module": "TauCeti/Topology/Homotopy/HomotopyGroup/LoopSpace.lean",
         "provides": "Currying gives the equivalence from M-indexed homotopy of N-loops to (M⊕N)-indexed homotopy.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. Currying gives the equivalence from M-indexed homotopy of N-loops to (M⊕N)-indexed homotopy."
       },
       {
         "ref": "tauceti:HomotopyGroup.piLoopSpaceMulEquiv",
         "module": "TauCeti/Topology/Homotopy/HomotopyGroup/LoopSpace.lean",
         "provides": "Native group equivalence π_(m+1)(Ω^Fin n X)≃*π_(m+1+n)X, at the constant-loop basepoint.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. Native group equivalence π_(m+1)(Ω^Fin n X)≃*π_(m+1+n)X, at the constant-loop basepoint."
       },
       {
         "ref": "mathlib:Rep.FiniteCyclicGroup.homResolutionIso",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean",
         "provides": "Identifies the cyclic projective-resolution Hom complex with alternating ρ(g)−id and norm. Reuse it rather than plan a new periodic resolution.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. Identifies the cyclic projective-resolution Hom complex with alternating ρ(g)−id and norm. Reuse it rather than plan a new periodic resolution."
       },
       {
         "ref": "mathlib:Rep.FiniteCyclicGroup.groupCohomologyIsoEven",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean",
         "provides": "For nonzero even degree identifies cyclic group cohomology with homology of norm followed by ρ(g)−id.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. For nonzero even degree identifies cyclic group cohomology with homology of norm followed by ρ(g)−id."
       },
       {
         "ref": "mathlib:Rep.FiniteCyclicGroup.groupCohomologyIsoOdd",
         "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean",
         "provides": "For odd degree identifies cyclic group cohomology with homology of ρ(g)−id followed by norm.",
         "kind": "def",
-        "checked": "Declaration, hypotheses and surrounding API read at the pinned commit, 2026-10-19."
+        "checked": "Independently confirmed declaration, hypotheses and convention at the exact recorded pin, 2026-10-19, by REV-DESIGN-AlgebraicTopologyPartII. For odd degree identifies cyclic group cohomology with homology of ρ(g)−id followed by norm."
       }
     ]
   },
@@ -113,7 +113,7 @@
       "edition": "Annals of Mathematics 191 (2020), 893–948; published PDF",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
       "readSections": [
-        "§2 proof of Lemma 2.8, p.907; §3 Lemma 3.9, p.919",
+        "§1 p.894; §2 proof of Lemma 2.8, p.907; §3 Lemma 3.9, p.919",
         "§7 Definition 7.3, Lemmas 7.4–7.6 and Corollary 7.5, pp.941–945"
       ],
       "readDate": "2026-10-19",
@@ -141,7 +141,7 @@
       "readSections": [
         "§2.1–2.3, pp.71–75; §3.2, pp.77–78",
         "§4.2, diagrams (4.3)–(4.5), pp.82–83; Proposition 6.6 proof, pp.93–95",
-        "§7.1–7.4, pp.97–100; §8.1, pp.104–107"
+        "§7.1–7.4, pp.97–103; §8.1, pp.104–107; loop applications p.91"
       ],
       "readDate": "2026-10-19",
       "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b"
@@ -214,7 +214,7 @@
       "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0092/LOG_0016.pdf",
       "readSections": [
         "Theorem 1.2, p.219; Definition 3.1 and examples, pp.225–226",
-        "§4 Proposition 4.1, Corollary 4.2 and Lemma 4.3, pp.228–229 (proof continuation remains an explicit obligation)"
+        "§4 Proposition 4.1, Corollary 4.2, Lemma 4.3 and Theorem 1.2 proof, pp.228–232; local Milnor/Morse prerequisites remain G1"
       ],
       "readDate": "2026-10-19",
       "sha256": "afd5141b22e0b2890aa2daaaabf603aaa66945dc4992d06ff596080b9ae6f968"
@@ -226,7 +226,7 @@
       "edition": "arXiv:1401.0846v3; internal pagination, not the published numbering",
       "url": "https://arxiv.org/pdf/1401.0846v3",
       "readSections": [
-        "§2.2 definable normality, pp.10–12; §4.1 Theorems 4.1,4.7, pp.46–50",
+        "§2.3 definable normality, pp.10–12; §4.1 Theorems 4.1,4.7, pp.46–50",
         "§4.2 Theorems 4.8–4.9 and Remark 4.10, pp.50–51"
       ],
       "readDate": "2026-10-19",
@@ -239,7 +239,7 @@
       "edition": "1970 notes; Princeton author scan",
       "url": "https://www.math.princeton.edu/facultypapers/mather/notes_on_topological_stability.pdf",
       "readSections": [
-        "§11 Proposition 11.1 and proof, scanned p.142; control-data and isotopy prerequisites in §§7,10 remain a supplier obligation"
+        "§11 Proposition 11.1 and proof, original notes p.62 (PDF p.34, left page); §§7,10 controlled-data proof leaves remain a supplier obligation"
       ],
       "readDate": "2026-10-19",
       "sha256": "c47addfee292b21bdedd4f29eeef9a0e9d7a66b1b68f516962152ba65b6d2a5b"
@@ -296,6 +296,21 @@
           "role": "projection",
           "name": "configurations.orbit",
           "statement": "The map PConf_m(X)→Conf_m(X) identifies exactly the permutation orbits."
+        },
+        {
+          "role": "extensionality",
+          "name": "configurations.ext",
+          "statement": "Ordered configurations agree iff their coordinate evaluations agree; unordered classes agree iff their tuples differ by a permutation."
+        },
+        {
+          "role": "simp",
+          "name": "configurations.reindex_apply",
+          "statement": "(σ·x)(i)=x(σ⁻¹i); identity and multiplication satisfy the left-action laws."
+        },
+        {
+          "role": "compatibility",
+          "name": "configurations.map_comp",
+          "statement": "Embedding maps commute with composition and with the orbit projection."
         }
       ],
       "tests": [
@@ -515,13 +530,13 @@
         "AlgebraicTopologyPartII:AT2.2/frobenius-cycles",
         "AlgebraicTopologyPartII:AT2.2/tensor-character",
         "EtaleDualityAndPerverseSheaves:EDC.6",
-        "FiniteFieldsAndCharacterSums:FF.2"
+        "EtaleDualityAndPerverseSheaves:EDC.8"
       ],
       "sources": [
         {
           "sourceId": "CEF",
           "locator": "Theorem 3.7, pp.21–22; BS Lemma 7.4 proof, p.942",
-          "match": "For a finite-dimensional characteristic-zero S_m representation T with character χ, ∑_{f monic squarefree,deg f=m}χ(Frob_f)=∑_a(−1)^a q^{m−a}⟨χ,H^a(PConf_m(ℂ),Q)⟩=∑_i(−1)^{m−i}q^i⟨χ,H_c^{m+i}(PConf_m(ℂ),Q)⟩. Interpret rational characters after scalar extension to Q_ℓ; all sums are finite."
+          "match": "Restated in our own words from the cited passage. CEF supplies the twisted count identity; ordinary and compact degrees are related by duality. The shared trace-formula adapter is requested through EDC.8."
         }
       ],
       "implementationStatus": "unchecked",
@@ -575,6 +590,16 @@
           "role": "compatibility",
           "name": "euler_exponents.truncate",
           "statement": "e_1,…,e_s depend only on coefficients through degree s; parity n+2 gives the same sequence."
+        },
+        {
+          "role": "constructor",
+          "name": "euler_exponents.recursive",
+          "statement": "Solve the degree-r coefficient after fixing e_1,…,e_{r−1}; the new exponent is an integer and removes that coefficient uniquely."
+        },
+        {
+          "role": "simp",
+          "name": "euler_exponents.first",
+          "statement": "e_1=(−1)^(n−1)N; only positive indices enter the product."
         }
       ],
       "tests": [
@@ -786,6 +811,16 @@
           "role": "other",
           "name": "tame_polynomial.leading_smooth",
           "statement": "The projective leading-part condition supplies an explicit positive bound outside a ball."
+        },
+        {
+          "role": "extensionality",
+          "name": "tame_polynomial.congr",
+          "statement": "Pointwise equal polynomial functions have equivalent tameness predicates; the compact witness is not part of the polynomial object."
+        },
+        {
+          "role": "constructor",
+          "name": "tame_polynomial.of_bound",
+          "statement": "A compact critical neighbourhood and an exterior positive gradient bound prove tameness."
         }
       ],
       "tests": [
@@ -984,7 +1019,7 @@
         {
           "sourceId": "SULLIVAN",
           "locator": "Introduction pp.269–270; §11, pp.311–312; BS p.945",
-          "match": "If X is simply connected of finite rational type and Ω²X is connected, then the rational cohomology of Ω²X is the free graded-commutative algebra on ⊕_{i≥1}(π_{i+2}(X)⊗Q)^∨ placed in degree i, provided the loop spaces have nilpotent finite-type CW models."
+          "match": "Restated in our own words from the cited passage. Sullivan explains nilpotent finite-type models and their based-loop algebra; apply the model twice only in the connected range, with dual generators. The model existence theorem remains G3."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1054,7 +1089,7 @@
         {
           "sourceId": "PHAM",
           "locator": "Part I §2, pp.337–338; finite CW join deduction from its simplex model",
-          "match": "For n≥2 and nonempty finite discrete sets A_1,…,A_n with cardinalities k_i, their topological join has the homotopy type of ∨_{∏(k_i−1)}S^{n−1}; consequently it is (n−2)-connected. A singleton factor makes it contractible. Empty factors are outside this statement."
+          "match": "Restated in our own words from the cited passage. The finite join and its sphere-bouquet count are a CW deduction from the displayed simplex model, not a separately numbered theorem in Pham."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1123,7 +1158,7 @@
         {
           "sourceId": "BS",
           "locator": "§7 Lemma 7.2 comparison interface, pp.940–941; deduction from PHAM pp.337–338",
-          "match": "For k≥2,n≥5 and X={∑z_i^k=1}, π₂X=π₃X=0. Therefore Ω²X is connected and simply connected, using the existing path-component and homotopy-shift equivalences."
+          "match": "Restated in our own words from the cited passage. This is a connectivity deduction from Pham’s retraction and existing homotopy shifts, rather than a stronger assertion attributed to BS Lemma 7.2."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1146,7 +1181,7 @@
       "proofSteps": [
         "Glue affine semialgebraic loci compatibly with the scheme’s overlaps; separation supplies Hausdorff charts.",
         "Use the finite-cover site, not the set of ordinary open subsets of a possibly non-Archimedean field.",
-        "Import triangulation, dimension and local-completeness facts through R-LD; global non-quasiprojective gluing remains G4."
+        "Import triangulation, dimension and local-completeness facts through R5; global non-quasiprojective gluing remains G4."
       ],
       "acceptance": [
         "No identification with ordinary singular cohomology is asserted unless R=ℝ."
@@ -1181,6 +1216,16 @@
           "role": "compatibility",
           "name": "semialgebraic_loci.open_glue",
           "statement": "Open covers and their intersections produce the same locus after gluing and site restriction."
+        },
+        {
+          "role": "constructor",
+          "name": "semialgebraic_loci.affine_chart",
+          "statement": "For Spec R[x]/I, complex points are the real-coordinate equations for real/imaginary parts in R^{2n}; chart changes glue."
+        },
+        {
+          "role": "simp",
+          "name": "semialgebraic_loci.map_id_comp",
+          "statement": "Locus maps preserve identities and composition and commute with real-to-complex inclusions."
         }
       ],
       "tests": [
@@ -1226,7 +1271,7 @@
         "Identify the latter higher direct-image sheaves on invariant opens, rather than assuming global group cohomology commutes with arbitrary stalks."
       ],
       "acceptance": [
-        "For a point this is group cohomology; for G trivial this is supported sheaf cohomology."
+        "At a point this is C₂ group cohomology; on a free two-point orbit it is ordinary cohomology of a point. The generic trivial-group law is imported from SF.2."
       ],
       "prerequisites": [
         "AlgebraicTopologyPartII:AT2.6/semialgebraic-loci",
@@ -1259,6 +1304,16 @@
           "role": "relation",
           "name": "equivariant_site_adapter.spectral_sequences",
           "statement": "The two displayed spectral sequences are natural in the equivariant sheaf and supports, with named edge maps."
+        },
+        {
+          "role": "compatibility",
+          "name": "equivariant_site_adapter.h0",
+          "statement": "Degree zero is the group of invariant sections supported in Z; identify it through the imported derived-functor comparison."
+        },
+        {
+          "role": "simp",
+          "name": "equivariant_site_adapter.map_id_comp",
+          "statement": "The induced maps preserve identities and composition; coefficient zero maps induce zero in cohomology."
         }
       ],
       "tests": [
@@ -1274,8 +1329,8 @@
         },
         {
           "kind": "compatibility",
-          "name": "equivariant_site_adapter.trivial_group",
-          "statement": "For G=1 the object and maps are ordinary semialgebraic sheaf cohomology with supports."
+          "name": "equivariant_site_adapter.free_orbit",
+          "statement": "On the two-point free C₂ orbit with constant integral coefficients, H_G⁰=ℤ and H_G^q=0 for q>0; ordinary invariant cohomology of a fixed point does not pass the point-sign test."
         }
       ],
       "uses": [
@@ -1331,6 +1386,16 @@
           "role": "compatibility",
           "name": "relative_real_pair.supported_les",
           "statement": "The support triangle has free complement as its third term and is related naturally to the pair sequence."
+        },
+        {
+          "role": "universal-property",
+          "name": "relative_real_pair.triangle",
+          "statement": "The extension-by-zero object fits the canonical j!j*→id→i*i* distinguished triangle, natural under maps of coefficient objects."
+        },
+        {
+          "role": "simp",
+          "name": "relative_real_pair.maps_comp_zero",
+          "statement": "Successive maps in both long exact sequences compose to zero; name their connecting maps and degree shifts."
         }
       ],
       "tests": [
@@ -1369,7 +1434,7 @@
       "hypotheses": [],
       "proofSteps": [
         "The stabilizer cohomology sheaves vanish in positive degree for a free orbit, so quotient descent collapses.",
-        "Use the 2d-dimensional quotient and its supported/extension-by-zero cohomological dimension bound from R-LD.",
+        "Use the 2d-dimensional quotient and its supported/extension-by-zero cohomological dimension bound from R5.",
         "Read the restriction conclusion from the pair sequence."
       ],
       "acceptance": [
@@ -1405,7 +1470,7 @@
       "proofSteps": [
         "Use finite triangulations and the Čech/singular comparison for locally constant sheaves.",
         "Apply the finite-group derived spectral sequence or finite Borel approximations to compare equivariant objects, not just their invariant sections.",
-        "The complete semialgebraic comparison proof and arbitrary-field triangulation inputs are R-LD/G4."
+        "The complete semialgebraic comparison proof and arbitrary-field triangulation inputs are R5/G4."
       ],
       "acceptance": [
         "No extension of ordinary singular paths to non-Archimedean R is claimed."
@@ -1471,6 +1536,16 @@
           "role": "compatibility",
           "name": "sign_twist.shapiro",
           "statement": "The regular-coefficient equivariant cohomology identifies with the underlying nonequivariant cohomology."
+        },
+        {
+          "role": "constructor",
+          "name": "sign_twist.tensor",
+          "statement": "Build F(j) by tensoring with the explicit sign lattice; the involution on a local tensor is σ_F⊗(−1)^j."
+        },
+        {
+          "role": "simp",
+          "name": "sign_twist.zero_twist",
+          "statement": "F(0)≅F and the double sign twist is naturally F; all identifications commute with coefficient maps."
         }
       ],
       "tests": [
@@ -1680,6 +1755,16 @@
           "role": "relation",
           "name": "twisted_bockstein.coordinates",
           "statement": "The displayed component formula and 1+β_L formula fix the boundary and reduction conventions."
+        },
+        {
+          "role": "relation",
+          "name": "twisted_bockstein.cocycle",
+          "statement": "For a mod-two cocycle, lift locally to L/4, take the coboundary and divide by the kernel inclusion; changing lifts changes the result by a coboundary."
+        },
+        {
+          "role": "simp",
+          "name": "twisted_bockstein.add_zero",
+          "statement": "β_L is additive and sends zero to zero; with trivial L it is the ordinary mod-four Bockstein."
         }
       ],
       "tests": [
@@ -1726,7 +1811,8 @@
       ],
       "prerequisites": [
         "AlgebraicTopologyPartII:AT2.6/semialgebraic-loci",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group"
       ],
       "sources": [
         {
@@ -1754,6 +1840,16 @@
           "role": "equivalence",
           "name": "orientation_sheaves.complex",
           "statement": "or_{X(C)}≅ℤ(d) equivariantly for smooth pure-dimensional X/R."
+        },
+        {
+          "role": "constructor",
+          "name": "orientation_sheaves.chart_transition",
+          "statement": "Glue local top-compact-cohomology dual generators with the transition orientation signs; compare over ℝ to DifferentialGeometry’s orientation cover."
+        },
+        {
+          "role": "simp",
+          "name": "orientation_sheaves.identity",
+          "statement": "or_{V/V} is constant ℤ, and tensoring either orientation sheaf with F₂ is canonically constant F₂."
         }
       ],
       "tests": [
@@ -1778,6 +1874,13 @@
           "where": "BW Gysin and duality; RealSurfacePeriodIndex",
           "how": "Determines the coefficient twists and real/complex dimension shifts."
         }
+      ],
+      "upstreamInterfaces": [
+        {
+          "owner": "tauceti:TauCetiRoadmap/DifferentialGeometry",
+          "locator": "README Layer 2, §§2.1–2.4; Suggested.lean orientation section",
+          "need": "Reuse Manifold.Orientation and OrientationCover, including deck involution and its sign; compare the new semialgebraic local system with that orientation cover over ℝ."
+        }
       ]
     },
     {
@@ -1793,7 +1896,7 @@
       "proofSteps": [
         "Construct f-soft resolutions and prove that proper direct image preserves small sums and has finite cohomological dimension.",
         "Apply Brown representability in the unbounded category and restrict to bounded below using the dimension bound.",
-        "Transport the adjunction to semialgebraic sites; the f-soft and representability obligations remain G5/R-SF2."
+        "Transport the adjunction to semialgebraic sites; the f-soft and representability obligations remain G5/R7."
       ],
       "acceptance": [
         "For an open embedding f!=f*; for a closed embedding f! is supported sections followed by restriction."
@@ -1829,6 +1932,16 @@
           "role": "relation",
           "name": "exceptional_image.trace",
           "statement": "The counit Rf!f!B→B supplies the trace and its composition rule."
+        },
+        {
+          "role": "universal-property",
+          "name": "exceptional_image.unique",
+          "statement": "Any other right adjoint is uniquely naturally isomorphic through the adjunction, compatibly with its unit and counit."
+        },
+        {
+          "role": "simp",
+          "name": "exceptional_image.triangle_identities",
+          "statement": "The adjunction unit and counit satisfy the two triangle identities; the identity-map adjunction is the identity."
         }
       ],
       "tests": [
@@ -2021,7 +2134,7 @@
       "sources": [
         {
           "sourceId": "BW",
-          "locator": "§1.2.4–1.2.6, equations (1.34)–(1.35), pp.19–20",
+          "locator": "§1.2.4–1.2.6, equations (1.34)–(1.35), p.19",
           "match": "For trivial G-action, forgetting equivariance projects mod-two degree-i coordinates to H^i(Y,F₂), the norm from ordinary cohomology is zero, and the connecting cup-ω map includes the existing coordinates. For a proper real map Y(R)→X(R) of dimension difference c, the equivariant mod-two pushforward acts by the ordinary real Gysin H^p(Y(R),F₂)→H^{p+c}(X(R),F₂) on each coordinate."
         }
       ],
@@ -2078,6 +2191,16 @@
           "role": "other",
           "name": "gamma_class.inverse",
           "statement": "γ_X·γ_X⁻¹=1 in total H*(X(R),F₂), with finite sums in each coordinate."
+        },
+        {
+          "role": "extensionality",
+          "name": "gamma_class.coordinates_ext",
+          "statement": "Two total classes agree iff all ordinary-degree coordinates agree; this makes the defining self-intersection characterization unique."
+        },
+        {
+          "role": "simp",
+          "name": "gamma_class.inverse_degree_zero",
+          "statement": "γ_0=(γ⁻¹)_0=1; higher inverse coordinates are recursively the sums forced by γγ⁻¹=1."
         }
       ],
       "tests": [
@@ -2332,6 +2455,16 @@
           "role": "compatibility",
           "name": "corrected_localization.duality_windows",
           "statement": "The degree-i left window pairs with the degree-(2d−i) right window by deg(xyγ)."
+        },
+        {
+          "role": "compatibility",
+          "name": "corrected_localization.canonical_maps",
+          "statement": "u_i is the pair boundary after γ, v_i is pair→ambient→free complement, and w_i uses the canonical complement section; equivalent purity identifications give the same maps."
+        },
+        {
+          "role": "simp",
+          "name": "corrected_localization.successive_zero",
+          "statement": "v_i∘u_i=0, w_i∘v_i=0 and u_{i+1}∘w_i=0 with the displayed distinct windows."
         }
       ],
       "tests": [
@@ -2650,6 +2783,16 @@
           "role": "characterisation",
           "name": "semialgebraic_steenrod.unstable",
           "statement": "Sq^a x=0 for a>deg x, Sq^{deg x}x=x², and Sq¹ is the mod-two integral Bockstein."
+        },
+        {
+          "role": "structure",
+          "name": "semialgebraic_steenrod.additive",
+          "statement": "Each Sq^a is an additive operation on cohomology with its named support target."
+        },
+        {
+          "role": "simp",
+          "name": "semialgebraic_steenrod.zero_degree",
+          "statement": "Sq^0=id and Sq^a(0)=0; the degree-zero unit has no positive squares."
         }
       ],
       "tests": [
@@ -2734,7 +2877,8 @@
         "AlgebraicTopologyPartII:AT2.9/gamma-class",
         "AlgebraicTopologyPartII:AT2.12/semialgebraic-steenrod",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
-        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-7-euler-characteristic-and-finite-decompositions"
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-7-euler-characteristic-and-finite-decompositions",
+        "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group"
       ],
       "sources": [
         {
@@ -2746,7 +2890,14 @@
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Real self-intersection and Stiefel–Whitney"
-      }
+      },
+      "upstreamInterfaces": [
+        {
+          "owner": "tauceti:TauCetiRoadmap/DifferentialGeometry",
+          "locator": "README Layer 2, §§2.1–2.4; Suggested.lean orientation section",
+          "need": "Reuse Manifold.Orientation and OrientationCover, including deck involution and its sign; compare the new semialgebraic local system with that orientation cover over ℝ."
+        }
+      ]
     },
     {
       "id": "AlgebraicTopologyPartII:AT2.12/surface-loop-representatives",
@@ -2756,15 +2907,19 @@
       ],
       "title": "Transverse mod-two surface loops",
       "kind": "theorem",
-      "statement": "On a compact smooth surface S, every class in H₁(S,F₂) is represented by a finite disjoint union of smooth embedded circles. Given finitely many immersed curves and a finite subset to avoid, representatives can be chosen transverse to those curves away from their singular points and avoiding the finite subset, provided the forbidden set is finite.",
-      "hypotheses": [],
+      "statement": "On a compact smooth surface S without boundary, every class in H₁(S,F₂) is represented by a finite disjoint union of smooth embedded circles. Given finitely many smooth immersed closed curves with a finite singular set and a finite subset of S to avoid, representatives can be chosen to avoid both finite sets and be transverse to all their smooth branches.",
+      "hypotheses": [
+        "S is a compact smooth boundaryless surface, possibly disconnected.",
+        "The prescribed immersed closed curves have only finitely many singular points; these points and the additional forbidden set are finite."
+      ],
       "proofSteps": [
         "Choose a finite simplicial mod-two cycle; every vertex has even valence.",
         "Smooth the edges and resolve crossings locally in pairs, preserving the mod-two class.",
-        "Perturb the resulting finite embedded circles to be transverse to the given immersed branches and disjoint from finitely many points; the transversality supplier is R-GT."
+        "Use relative smooth perturbation of the finite embedded circles, keeping them embedded and disjoint, to avoid the finite forbidden set and be transverse to all prescribed branches. This is the explicit open perturbation obligation G15; GT.1 alone does not state transversality."
       ],
       "acceptance": [
-        "Do not assert that a representative must be one connected circle; disconnected surfaces already prevent that."
+        "Do not assert that a representative must be one connected circle; disconnected surfaces already prevent that.",
+        "The zero class can use the empty union. On disconnected S, classes supported on two components need two components of the representative."
       ],
       "prerequisites": [
         "AlgebraicTopologyPartII:AT2.12/gamma-stiefel-whitney",
@@ -2776,7 +2931,7 @@
         {
           "sourceId": "B19",
           "locator": "Applications pp.91,99,103; extraction 200, transversality input",
-          "match": "On a compact smooth surface S, every class in H₁(S,F₂) is represented by a finite disjoint union of smooth embedded circles. Given finitely many immersed curves and a finite subset to avoid, representatives can be chosen transverse to those curves away from their singular points and avoiding the finite subset, provided the forbidden set is finite."
+          "match": "Restated in our own words from the cited passage. The cited applications use transverse representatives. Finite mod-two smoothing and the relative perturbation reduction are spelled out here; G15 records the unprovided proof input."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2939,6 +3094,16 @@
           "role": "characterisation",
           "name": "double_cover_local_system.torsor_class",
           "statement": "Its mod-two sign cocycle classifies the equivariant double cover up to isomorphism."
+        },
+        {
+          "role": "universal-property",
+          "name": "double_cover_local_system.desc",
+          "statement": "An equivariant map p*ℤ→F annihilating the diagonal factors uniquely through L."
+        },
+        {
+          "role": "simp",
+          "name": "double_cover_local_system.swap",
+          "statement": "Swapping the ordered sheets sends the local generator [(1,0)] to its negative; twice the sign twist restores it."
         }
       ],
       "tests": [
@@ -3050,6 +3215,16 @@
           "role": "compatibility",
           "name": "ramified_triangle.mod_two",
           "statement": "There exists a compatible morphism to the reduction-mod-two triangle whose restriction over S* is the natural coefficient map."
+        },
+        {
+          "role": "compatibility",
+          "name": "ramified_triangle.pullback_isomorphism",
+          "statement": "An isomorphism of branched-cover diagrams identifies the trace and distinguished triangle; transport the chosen κ together with its compatibility proof."
+        },
+        {
+          "role": "relation",
+          "name": "ramified_triangle.long_exact",
+          "statement": "The triangle induces a long exact hypercohomology sequence with named boundary, whose restriction agrees with the unramified sign sequence."
         }
       ],
       "tests": [
@@ -3082,17 +3257,17 @@
       "realises": [
         "AlgebraicTopologyPartII:AT2.14"
       ],
-      "title": "Finite-group equivariant Ext stalks",
-      "kind": "theorem",
-      "statement": "For a finite group G, an equivariant sheaf F on a space with trivial G-action, and a point x, the sheaf Ext_G^q(ℤ,F) has stalk H^q(G,F_x). For G=C₂ and F_x≅ℤ[G]^k this vanishes in q>0. The statement uses a degreewise finite free group resolution so its Hom terms commute with stalks.",
+      "title": "Cyclic Ext-stalk comparison for the circle construction",
+      "kind": "comparison",
+      "statement": "For the equivariant abelian sheaves restricted to a real circle C with trivial C₂-action, specialize SF.2’s finite-group sheaf-Ext stalk comparison to obtain (Ext̲_G^q(ℤ,F))_x≅H^q(G,F_x). If F_x≅ℤ[G]^k, these stalks vanish for q>0. Generic equivariant Ext and its finite-group stalk theorem remain at the reserved SF.2 owner; this target identifies the periodic cochain comparison used by the circle construction.",
       "hypotheses": [],
       "proofSteps": [
-        "Choose the finite-rank bar resolution degree by degree; sheaf Hom from its finite free terms is finite product of F.",
-        "Filtered stalk colimits commute with those finite products and with cohomology of abelian groups.",
-        "Use the cyclic resolution or induced-module Shapiro to prove the free-stalk vanishing."
+        "Import the finite-group Ext-stalk comparison requested in R7 from the reserved SF.2 owner; do not construct a second generic equivariant Ext theory here.",
+        "Identify its C₂ group-cohomology model with the pinned cyclic resolution, using the degreewise sign conjugation.",
+        "Apply regular-module Shapiro to the free stalks and retain naturality under restriction to subarcs. The supplier proves stalk compatibility using a degreewise finite-rank resolution; no infinite-group generalization is assumed."
       ],
       "acceptance": [
-        "This is a sheaf-Ext stalk result, not an equality between global Ext and a single stalk; it does not extend to arbitrary infinite groups without finiteness hypotheses."
+        "A trivial ℤ stalk has nonzero degree-two C₂ cohomology, whereas a regular ℤ[C₂] stalk has none in positive degrees. This concerns sheaf Ext stalks, not global Ext."
       ],
       "prerequisites": [
         "AlgebraicTopologyPartII:AT2.6/equivariant-site-adapter",
@@ -3103,13 +3278,10 @@
         {
           "sourceId": "B19",
           "locator": "Lemma 7.5 proof, p.99, citing Tôhoku §4.4",
-          "match": "For a finite group G, an equivariant sheaf F on a space with trivial G-action, and a point x, the sheaf Ext_G^q(ℤ,F) has stalk H^q(G,F_x). For G=C₂ and F_x≅ℤ[G]^k this vanishes in q>0. The statement uses a degreewise finite free group resolution so its Hom terms commute with stalks."
+          "match": "Restated in our own words from the cited passage. The paper uses finite-group equivariant Ext stalks; the generic theorem is imported via R7, and this node is only its C₂ circle comparison."
         }
       ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Finite-group equivariant Ext stalks"
-      }
+      "implementationStatus": "unchecked"
     },
     {
       "id": "AlgebraicTopologyPartII:AT2.15/permutation-quotient",
@@ -3160,6 +3332,16 @@
           "role": "relation",
           "name": "permutation_quotient.exact_lift_sequence",
           "statement": "The displayed mixed trace/quotient sequence is exact and natural under restriction."
+        },
+        {
+          "role": "universal-property",
+          "name": "permutation_quotient.desc",
+          "statement": "Any equivariant P→F killing the diagonal factors uniquely through Q."
+        },
+        {
+          "role": "simp",
+          "name": "permutation_quotient.coordinate_relations",
+          "statement": "π of a diagonal vector is zero, Tr of that vector is n times its entry, and φπ=Tr mod n."
         }
       ],
       "tests": [
@@ -3373,6 +3555,16 @@
           "role": "characterisation",
           "name": "circle_extension.obstruction",
           "statement": "For a ζ with normalized degree-two component, δ_E(1) equals its degree-one φ component."
+        },
+        {
+          "role": "universal-property",
+          "name": "circle_extension.desc",
+          "statement": "Maps out of E correspond to maps out of F₂⊕Q(1)^G killing the image of (φ₂,1+σ)."
+        },
+        {
+          "role": "simp",
+          "name": "circle_extension.exact_maps",
+          "statement": "The composite F₂→E→F₂ is zero; local normalized stalk generators give the prescribed kernel and quotient, without choosing a global splitting."
         }
       ],
       "tests": [
@@ -3407,11 +3599,14 @@
       ],
       "title": "Equivariant Ehresmann transport",
       "kind": "theorem",
-      "statement": "For a proper smooth submersion of smooth manifolds f:M→B with involutions commuting with f, near a fixed base point b there is a C₂-equivariant local trivialization over a small invariant neighbourhood, relative to the induced base involution. If the base involution is trivial on the chosen real parameter neighbourhood, the fibre diffeomorphisms commute with the involution. This assertion alone does not transport an arbitrary divisor as a pair.",
-      "hypotheses": [],
+      "statement": "For a proper smooth submersion of finite-dimensional Hausdorff second-countable smooth manifolds without boundary f:M→B with involutions commuting with f, near a fixed base point b there is a C₂-equivariant local trivialization over a small invariant neighbourhood, relative to the induced base involution. If the base involution is trivial on the chosen real parameter neighbourhood, the fibre diffeomorphisms commute with the involution. This assertion alone does not transport an arbitrary divisor as a pair.",
+      "hypotheses": [
+        "Source and base are finite-dimensional Hausdorff second-countable smooth manifolds without boundary; involutions and f are smooth.",
+        "The map f is a proper surjective submersion over the chosen neighbourhood, and b is fixed by the base involution."
+      ],
       "proofSteps": [
-        "Import ordinary Ehresmann and the smooth horizontal-lift/flow machinery from its existing proposed owner MappingClassGroupsAndCanonicalRepresentations; no existing atlas supplier ID is asserted.",
-        "Average a metric over the involution, take the orthogonal horizontal distribution, and lift radial paths in an invariant coordinate ball.",
+        "Retain the promised ordinary Ehresmann owner MappingClassGroupsAndCanonicalRepresentations (G12). For the horizontal-flow ingredients reuse current DifferentialGeometry Layer 3 and the native Tau Ceti maximalIntegralCurve/maximalIntegralCurveFlowDomain interfaces; GT.1 supplies the manifold carrier, not a second flow theory.",
+        "Average a Riemannian metric over the involution on source and base. Linearize the base involution in a small invariant metric exponential ball at b, then lift radial paths using the invariant orthogonal horizontal distribution.",
         "Properness supplies complete lifts on that small neighbourhood. Ordinary theorem ownership and the equivariant extension proof are G12."
       ],
       "acceptance": [
@@ -3425,13 +3620,20 @@
         {
           "sourceId": "B19",
           "locator": "Proposition 6.6 proof, pp.94–95",
-          "match": "For a proper smooth submersion of smooth manifolds f:M→B with involutions commuting with f, near a fixed base point b there is a C₂-equivariant local trivialization over a small invariant neighbourhood, relative to the induced base involution. If the base involution is trivial on the chosen real parameter neighbourhood, the fibre diffeomorphisms commute with the involution. This assertion alone does not transport an arbitrary divisor as a pair."
+          "match": "Benoist uses equivariant ambient Ehresmann transport. This target specifies the standard proper smooth submersion hypotheses and the finite-involution extension; the metric/radial-lift proof is given as a reduction, with the ordinary supplier and remaining justification recorded in G12."
         }
       ],
       "implementationStatus": "unchecked",
       "planet": {
         "name": "Equivariant Ehresmann transport"
-      }
+      },
+      "upstreamInterfaces": [
+        {
+          "owner": "tauceti:TauCetiRoadmap/DifferentialGeometry",
+          "locator": "README Layer 3 §§3.2–3.5 and existing-input inventory; Suggested.lean flow sections",
+          "need": "Consume the finite-dimensional maximal-flow and smooth-dependence inputs already in Tau Ceti. Banach extensions are not prerequisites of this finite-dimensional target."
+        }
+      ]
     },
     {
       "id": "AlgebraicTopologyPartII:AT2.16/stratified-pair-transport",
@@ -3443,6 +3645,7 @@
       "kind": "theorem",
       "statement": "Let f:M→B be proper on a closed Whitney-stratified subset A⊂M, with every stratum mapping submersively to B, an involution preserving all strata and commuting with f, and chosen invariant f-compatible control data. Locally at a fixed b, controlled horizontal lifts give an equivariant homeomorphic trivialization of A preserving every distinguished union of strata. Apply this to a divisor pair only after verifying these hypotheses for that family.",
       "hypotheses": [
+        "M and B are finite-dimensional smooth manifolds without boundary, the stratification of the closed subset A is locally finite and Whitney, and the involutions on M and B are smooth with f equivariant; each stratum restriction of f is smooth.",
         "The Whitney strata and distinguished unions are invariant.",
         "The stratified map is proper and stratumwise submersive.",
         "Invariant f-compatible control data are given, not assumed automatically."
@@ -3461,8 +3664,8 @@
       "sources": [
         {
           "sourceId": "MATHER",
-          "locator": "§11 Proposition 11.1, scanned p.142; B19 Proposition 6.6 proof, pp.94–95",
-          "match": "Let f:M→B be proper on a closed Whitney-stratified subset A⊂M, with every stratum mapping submersively to B, an involution preserving all strata and commuting with f, and chosen invariant f-compatible control data. Locally at a fixed b, controlled horizontal lifts give an equivariant homeomorphic trivialization of A preserving every distinguished union of strata. Apply this to a divisor pair only after verifying these hypotheses for that family."
+          "locator": "§11 Proposition 11.1, original notes p.62 (PDF p.34, left page); B19 Proposition 6.6 proof, pp.94–95",
+          "match": "Restated in our own words from the cited passage. Mather gives the nonequivariant isotopy lemma. The finite-group extension uses chosen invariant compatible control data; existence and the application hypotheses remain G13."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3555,12 +3758,12 @@
     },
     {
       "id": "AlgebraicTopologyPartII:R2",
-      "supplier": "FiniteFieldsAndCharacterSums:FF.2",
-      "need": "The Grothendieck–Lefschetz compact-support trace formula for finite étale representation local systems on configurations, not only character-sum bounds.",
+      "supplier": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "need": "Expose the ordinary compact-support Frobenius trace formula for the finite étale S_m-representation local system on Conf_m, through EDC.8’s retained PR196 CohomologicalPointCounting/TraceFormula supplier. This requests an adapter to that shared theorem, not a second trace theorem in FF.2 (which owns character-sum bounds). Include geometric Frobenius, rational character scalar extension, compact supports and finite-cover descent. The PR196 source is not in the current public checkout; confirm that endpoint before implementation.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.2/configuration-trace"
       ],
-      "status": "requested interface; existing ownership retained"
+      "status": "requested adapter to retained shared trace owner; not an implemented export"
     },
     {
       "id": "AlgebraicTopologyPartII:R3",
@@ -3610,7 +3813,7 @@
     {
       "id": "AlgebraicTopologyPartII:R7",
       "supplier": "SchemeAndStackFoundations:key/equivariant-sheaf-cohomology",
-      "need": "Keep the reserved equivariant-sheaf-cohomology owner. Extend its ringed-space contract to the semialgebraic Grothendieck site, derived supported sections and j!, finite-C₂ quotient and Hochschild–Serre spectral sequences with acyclicity, regular induced-coefficient comparison, finite-G Borel approximation, and sheaf-Ext stalk compatibility. Provide generic derived proper-image/adjoint and triangle replacement interfaces once here; this roadmap constructs the semialgebraic orientation and purity specialization. A free-abelian EΓ model does not cover C₂.",
+      "need": "Keep the reserved equivariant-sheaf-cohomology owner. Extend its ringed-space contract to the semialgebraic Grothendieck site, derived supported sections and j!, finite-C₂ quotient and Hochschild–Serre spectral sequences with acyclicity, regular induced-coefficient comparison, finite-G Borel approximation, and sheaf-Ext stalk compatibility. Provide generic derived proper-image/adjoint and triangle replacement interfaces once here; this roadmap constructs the semialgebraic orientation and purity specialization. A free-abelian EΓ model does not cover C₂. In particular, for a finite group acting trivially on the base, supply (Ext̲_G^q(ℤ,F))_x≅H^q(G,F_x), justified by degreewise finite-rank resolution terms and exact filtered stalk colimits; AT2.14 only specializes it to C₂ on a circle.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.6/equivariant-site-adapter",
         "AlgebraicTopologyPartII:AT2.8/exceptional-image",
@@ -3697,13 +3900,13 @@
     {
       "id": "AlgebraicTopologyPartII:R14",
       "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-1-manifold-library-buildout-general-dimension-general-structure-group",
-      "need": "Reuse smooth tangent, transversality, flows and ordinary manifold interfaces already owned there; provide relative perturbations of a finite union of surface curves while avoiding finitely many points. Do not duplicate its manifold carrier. Ordinary Ehresmann has the separate pending owner in G12.",
+      "need": "Reuse GT.1’s smooth manifold and tangent carriers. For orientation covers, finite-dimensional flows and Sard, retain the current DifferentialGeometry layers 2,3,10 and their native Tau Ceti inputs; those are not exports of GT.1 itself. Layer 10 only states equidimensional Sard; coordinate the additional relative finite-curve perturbation theorem G15 with these owners. The ordinary Ehresmann ownership question is separately G12.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.4/tame-polynomial",
         "AlgebraicTopologyPartII:AT2.12/surface-loop-representatives",
         "AlgebraicTopologyPartII:AT2.16/equivariant-ehresmann"
       ],
-      "status": "requested interface; existing ownership retained"
+      "status": "manifold bridge request; transversality extension G15 remains open"
     }
   ],
   "coverage": [
@@ -3778,7 +3981,8 @@
       "status": "planned",
       "remaining": [
         "AlgebraicTopologyPartII:G8: Steenrod and Wu construction over real closed fields",
-        "AlgebraicTopologyPartII:G9: Topological tangent characteristic-class API"
+        "AlgebraicTopologyPartII:G9: Topological tangent characteristic-class API",
+        "AlgebraicTopologyPartII:G15: Relative surface-curve perturbation"
       ]
     },
     {
@@ -3813,7 +4017,7 @@
     {
       "id": "AlgebraicTopologyPartII:G1",
       "title": "Milnor thimbles and controlled noncompact fibre proof",
-      "detail": "Broughton Theorem 1.2 (published p.219) is read; the proof uses §4 gradient flows, local Milnor fibres, conic neighbourhoods and thimble attachment. A verified primary-source reduction of those analytic/Milnor inputs to existing smooth/CW interfaces is still required. The displayed tame-bouquet theorem is a target, not a theorem discharged by homology alone.",
+      "detail": "Broughton Theorem 1.2 (p.219) and §4 proof (pp.228–232) were independently read, including the controlled gradient and Morse attachment reduction. The primary reductions for local Milnor fibres/numbers, conic neighbourhoods, local Morse perturbation and noncompact cell attachment are still needed at the smooth/CW interface. The target is not discharged by homology alone.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.4/tame-bouquet"
       ]
@@ -3838,7 +4042,7 @@
     {
       "id": "AlgebraicTopologyPartII:G4",
       "title": "Semialgebraic site and field comparison proof",
-      "detail": "The current RealAlgebraicGeometry roadmap has semialgebraic geometry and real-number CAD topology; it does not supply the arbitrary-real-closed finite-cover site, non-quasiprojective locus gluing, support cohomological dimension, or full comparison used here. R-LD requests the geometry extension; cite Delfs/Edmundo–Prelli only after those precise proof inputs are read.",
+      "detail": "The current RealAlgebraicGeometry roadmap has semialgebraic geometry and real-number CAD topology; it does not supply the arbitrary-real-closed finite-cover site, non-quasiprojective locus gluing, support cohomological dimension, or full comparison used here. R5 requests the geometry extension; cite Delfs/Edmundo–Prelli only after those precise proof inputs are read.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.6/semialgebraic-loci",
         "AlgebraicTopologyPartII:AT2.6/free-descent",
@@ -3848,7 +4052,7 @@
     {
       "id": "AlgebraicTopologyPartII:G5",
       "title": "Semialgebraic exceptional-operation foundations",
-      "detail": "Edmundo–Prelli v3 Theorems 4.1,4.7–4.9 are read. Their f-soft acyclicity, small-sum preservation, finite cohomological dimension and representability proof prerequisites are not yet decomposed to the SF.2 carrier. R-SF2 requests them once at the existing generic owner; this roadmap owns the semialgebraic specialization and orientation comparison.",
+      "detail": "Edmundo–Prelli v3 Theorems 4.1,4.7–4.9 are read. Their f-soft acyclicity, small-sum preservation, finite cohomological dimension and representability proof prerequisites are not yet decomposed to the SF.2 carrier. R7 requests them once at the existing generic owner; this roadmap owns the semialgebraic specialization and orientation comparison.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.8/exceptional-image",
         "AlgebraicTopologyPartII:AT2.8/orientation-duality",
@@ -3907,7 +4111,7 @@
     {
       "id": "AlgebraicTopologyPartII:G12",
       "title": "Ordinary Ehresmann ownership and proof",
-      "detail": "The accepted Landesman–Litt route promises ordinary/smooth-pair Ehresmann to MappingClassGroupsAndCanonicalRepresentations, whose atlas stage does not yet exist. Do not invent its ID or replan its ordinary theorem. Resolve that owner and the horizontal-flow input before the equivariant adapter is closed.",
+      "detail": "The accepted Landesman–Litt route promises ordinary/smooth-pair Ehresmann to MappingClassGroupsAndCanonicalRepresentations, whose atlas stage does not yet exist. Do not invent its ID or replan its ordinary theorem. Resolve that owner and the horizontal-flow input before the equivariant adapter is closed. Current DifferentialGeometry Layer 3 already reuses native finite-dimensional maximal flows; do not replan them under GT.1. The remaining debt is ordinary Ehresmann ownership, invariant metric/base-linearization and the proper horizontal-lift argument.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.16/equivariant-ehresmann"
       ]
@@ -3915,7 +4119,7 @@
     {
       "id": "AlgebraicTopologyPartII:G13",
       "title": "Invariant controlled data and divisor-pair application",
-      "detail": "Mather Proposition 11.1 is read; existence of invariant compatible control data and the controlled-flow lemmas remain to verify. Benoist Proposition 6.6 additionally needs its actual family to satisfy these stratified-pair hypotheses and its integral lift normalized on the relevant open cover. A generic isotopy theorem alone does not settle either application condition.",
+      "detail": "Mather Proposition 11.1 is read; existence of invariant compatible control data and the controlled-flow lemmas remain to verify. If the stratified-pair route is used for Benoist Proposition 6.6, verify its hypotheses for the actual family and normalize the integral lift on the relevant open cover. Alternatively justify directly that the ambient cohomological transport commutes with the required restriction and reduction maps. The source does not establish that a divisor-preserving trivialization is necessary; the rejected E11 allegation is not used as evidence of an error.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.16/stratified-pair-transport"
       ]
@@ -3926,6 +4130,14 @@
       "detail": "Benoist (4.3)–(4.5) is read. The node spells out δ and ζ as the two lifts of the common ordinary class γ, and records all coefficient groups and the indeterminacy image. Jannsen’s lemma p.268 has not been obtained; verify the cochain chase, its plus sign, and the sufficiency of these common-lift hypotheses in the injective-complex model before closing the target. No generic comparison lemma has been proved here.",
       "neededBy": [
         "AlgebraicTopologyPartII:AT2.16/double-cover-diagram"
+      ]
+    },
+    {
+      "id": "AlgebraicTopologyPartII:G15",
+      "title": "Relative surface-curve perturbation",
+      "detail": "The cited Benoist applications use smooth representatives transverse to algebraic curves with finite singular sets. Finite triangulation and local smoothing give embedded mod-two representatives, but the finite-family relative perturbation argument is not an export of GT.1. Supply it from smooth approximation and parametric transversality, retaining the native manifold carriers; DifferentialGeometry Layer 10 states equidimensional Sard, which alone is not a parametric transversality theorem; preserve disjointness and avoid the finite forbidden set. No such theorem is claimed implemented.",
+      "neededBy": [
+        "AlgebraicTopologyPartII:AT2.12/surface-loop-representatives"
       ]
     }
   ],
@@ -3944,7 +4156,12 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E4"
+      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For n=3 and N>0, π₀Ω²(∨_N S²)=ℤ^N. The full space cannot have the claimed finite H⁰.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E2",
@@ -3960,7 +4177,12 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E5"
+      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equation (7.3) keeps only monomials on one weighted diagonal while presenting equality with the entire bivariate product; for j>0 even the constant term contradicts that equality. The weighted coefficient extraction suffices.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E3",
@@ -3976,7 +4198,12 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E6"
+      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The first sum on p.942 uses compact notation with ordinary q^{m−a} weights. A¹ with m=1 detects the mismatch.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E4",
@@ -3992,7 +4219,12 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E7"
+      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The final product on p.943 has no exponent; N=0 detects it. The immediately preceding product retains −e_r.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E5",
@@ -4008,7 +4240,12 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E44"
+      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E44",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The bouquet notation on p.944 uses the smash symbol; Hilton Corollary 4.10 is a wedge theorem.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E6",
@@ -4024,23 +4261,33 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E45"
+      "inheritedFrom": "PAPER-BROWNING-SAWIN-20/E45",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Sullivan pp.269–270 identifies indecomposables with dual homotopy and p.311 treats minimal nilpotent models. These hypotheses/duals must be made explicit; this is a specification gap rather than a counterexample in the corrected connected range.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E7",
       "kind": "misprint",
       "sourceId": "BW",
-      "locator": "Published §1.2.6, equation (1.35), p.20",
-      "printed": "One real pushforward target is named by the source variety.",
-      "correction": "The pushforward target is H^{p+c}(X(R),F₂).",
-      "reason": "The proper map goes from Y to X and its Gysin shifts real degree by c.",
+      "locator": "Published §1.2.6, equation (1.35), p.19",
+      "printed": "The ordinary real Gysin map is printed with H^p(X(R),F₂) as its domain, although f:Y→X.",
+      "correction": "Its domain is H^p(Y(R),F₂); its target H^{p+c}(X(R),F₂) is already correct.",
+      "reason": "The error is in the domain, not the target. This is forced by f:Y→X and the real degree shift c.",
       "affects": "nothing",
       "known": "Inherited and rechecked: PAPER-BENOIST-WITTENBERG-20/E5",
       "searched": [
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BENOIST-WITTENBERG-20/E5"
+      "inheritedFrom": "PAPER-BENOIST-WITTENBERG-20/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The underlying misprint is confirmed after correcting the inherited diagnosis and locator: the domain must be Y(R), and the published target already is X(R).",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E8",
@@ -4056,7 +4303,12 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BENOIST-WITTENBERG-20/E11"
+      "inheritedFrom": "PAPER-BENOIST-WITTENBERG-20/E11",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Finite exponent does not imply biduality: an infinite direct sum of F₂ at a point fails the algebraic double-dual map. Finite stalks give the valid statement.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E9",
@@ -4072,7 +4324,12 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BENOIST-19/E6"
+      "inheritedFrom": "PAPER-BENOIST-19/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "With a=η mod n−φζ and ψ mod n=p*φ, p*η−ψζ reduces to p*a. At n=4 the printed plus sign can differ; trace nη is unchanged.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E10",
@@ -4088,23 +4345,54 @@
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BENOIST-19/E7"
+      "inheritedFrom": "PAPER-BENOIST-19/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equality after restriction requires a monic target restriction. The local non-disconnection argument supplies it for p_*(ℤ/n), independently of the source Q embedding.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     },
     {
       "id": "AlgebraicTopologyPartII/E11",
       "kind": "gap",
       "sourceId": "B19",
       "locator": "Published Proposition 6.6 proof, pp.94–95",
-      "printed": "Ordinary equivariant smooth transport is used where transport of a divisor pair and a normalized integral lift are needed.",
-      "correction": "Supply stratified-pair transport with verified invariant control data, and separately check integral-lift normalization on the application open set.",
-      "reason": "A diffeomorphism of ambient fibres need not preserve the divisor or the prescribed reduction of a chosen lift. The general adapter leaves these application checks open in G13.",
+      "printed": "The extraction treats transport of the divisor pair and normalization of the integral lift as missing from the ambient Ehresmann argument.",
+      "correction": "Retain these as formalization/application proof obligations G13, without claiming that Proposition 6.6 is false or that its proof necessarily requires a divisor-preserving trivialization.",
+      "reason": "The cited proof asserts ambient equivariant transport and identifies cohomology. The extraction supplies no counterexample and does not establish that a stronger pair trivialization is necessary. The implementation must still justify transport of the relevant restriction and reduction maps.",
       "affects": "the proof",
       "known": "Inherited and rechecked: PAPER-BENOIST-19/E21",
       "searched": [
         "The accepted extraction sourceIssues and proof-gate notes",
         "The identified published PDF at the recorded hash"
       ],
-      "inheritedFrom": "PAPER-BENOIST-19/E21"
+      "inheritedFrom": "PAPER-BENOIST-19/E21",
+      "review": {
+        "verdict": "rejected",
+        "reason": "The stronger allegation is not established by the cited passage. Ambient cohomological transport is asserted there; no necessity of pair-preserving transport or failure of Proposition 6.6 is proved. Keep the precise implementation checks in G13.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
+    },
+    {
+      "id": "AlgebraicTopologyPartII/E12",
+      "kind": "misprint",
+      "sourceId": "B19",
+      "locator": "Equations (7.8)–(7.9), p.100, lower coefficient-reduction arrow",
+      "printed": "The lower reduction arrow treats both positive sign-cohomology coordinates as identities.",
+      "correction": "H¹(C₂,ℤ/n(1))→H¹(C₂,F₂) is the identity for even n, but H² sends the generator n/2 to n/2 mod 2. Normalize the degree-two coordinate before reduction.",
+      "reason": "The sign periodic complex has alternating multiplication by ±2 and zero. Thus H¹=A/2A and H²=A[2] for A=ℤ/n. For n=4 the H² reduction is zero, while H¹ reduction is an isomorphism. The degree-one identity used in Lemma 7.5 survives.",
+      "affects": "the proof",
+      "known": "Added by the independent design review; the cyclic-reduction-degrees target already used the correct convention.",
+      "searched": [
+        "Benoist published pp.99–100 at the recorded hash",
+        "Pinned cyclic resolution, with direct n=2,4,6 checks"
+      ],
+      "addedBy": "REV-DESIGN-AlgebraicTopologyPartII",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The generator n/2 of A[2] reduces to its parity, whereas A/2A reduces identically. The n=4 computation contradicts a degree-two identity.",
+        "by": "REV-DESIGN-AlgebraicTopologyPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -4114,7 +4402,7 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
       "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
       "readSections": [
-        "§2 proof of Lemma 2.8, p.907; §3 Lemma 3.9, p.919",
+        "§1 p.894; §2 proof of Lemma 2.8, p.907; §3 Lemma 3.9, p.919",
         "§7 Definition 7.3, Lemmas 7.4–7.6 and Corollary 7.5, pp.941–945"
       ]
     },
@@ -4136,7 +4424,7 @@
       "readSections": [
         "§2.1–2.3, pp.71–75; §3.2, pp.77–78",
         "§4.2, diagrams (4.3)–(4.5), pp.82–83; Proposition 6.6 proof, pp.93–95",
-        "§7.1–7.4, pp.97–100; §8.1, pp.104–107"
+        "§7.1–7.4, pp.97–103; §8.1, pp.104–107; loop applications p.91"
       ]
     },
     {
@@ -4191,7 +4479,7 @@
       "sha256": "afd5141b22e0b2890aa2daaaabf603aaa66945dc4992d06ff596080b9ae6f968",
       "readSections": [
         "Theorem 1.2, p.219; Definition 3.1 and examples, pp.225–226",
-        "§4 Proposition 4.1, Corollary 4.2 and Lemma 4.3, pp.228–229 (proof continuation remains an explicit obligation)"
+        "§4 Proposition 4.1, Corollary 4.2, Lemma 4.3 and Theorem 1.2 proof, pp.228–232; local Milnor/Morse prerequisites remain G1"
       ]
     },
     {
@@ -4200,7 +4488,7 @@
       "url": "https://arxiv.org/pdf/1401.0846v3",
       "sha256": "9579d1fbdc3749e1ae960351e115362141db305ab472e687c81476294cda7435",
       "readSections": [
-        "§2.2 definable normality, pp.10–12; §4.1 Theorems 4.1,4.7, pp.46–50",
+        "§2.3 definable normality, pp.10–12; §4.1 Theorems 4.1,4.7, pp.46–50",
         "§4.2 Theorems 4.8–4.9 and Remark 4.10, pp.50–51"
       ]
     },
@@ -4210,7 +4498,7 @@
       "url": "https://www.math.princeton.edu/facultypapers/mather/notes_on_topological_stability.pdf",
       "sha256": "c47addfee292b21bdedd4f29eeef9a0e9d7a66b1b68f516962152ba65b6d2a5b",
       "readSections": [
-        "§11 Proposition 11.1 and proof, scanned p.142; control-data and isotopy prerequisites in §§7,10 remain a supplier obligation"
+        "§11 Proposition 11.1 and proof, original notes p.62 (PDF p.34, left page); §§7,10 controlled-data proof leaves remain a supplier obligation"
       ]
     }
   ],
@@ -4645,11 +4933,402 @@
     },
     {
       "roadmap": "tauceti:TauCetiRoadmap/RealAlgebraicGeometry",
-      "note": "Current arbitrary-real-closed semialgebraic geometry and real-number CAD topology do not yet supply the finite-cover semialgebraic sheaf site or arbitrary-field duality; R-LD requests that extension."
+      "note": "Current arbitrary-real-closed semialgebraic geometry and real-number CAD topology do not yet supply the finite-cover semialgebraic sheaf site or arbitrary-field duality; R5 requests that extension."
     },
     {
       "roadmap": "DifferentialGeometry; AlgebraicVectorBundles; GeometricTopology",
       "note": "Current orientation, tangent and manifold interfaces are retained. The topological Stiefel–Whitney, equivariant and stratified-pair extensions are not claimed to exist there."
+    },
+    {
+      "roadmap": "EtaleDualityAndPerverseSheaves:EDC.8",
+      "note": "Independent review moved the trace adapter request away from FF.2 bounds. EDC.8 explicitly retains PR196 CohomologicalPointCounting/TraceFormula ownership. That source is absent from the public checkout: confirm the finite étale representation endpoint before implementation; no external stage ID is invented."
+    },
+    {
+      "roadmap": "tauceti:TauCetiRoadmap/DifferentialGeometry",
+      "note": "Current main 0d144d044dacebca17b654695b6f1ad58f159b27: README Layers 2,3,10 and their Suggested sections read. Reuse its orientation cover, native finite-dimensional flow inputs and equidimensional Sard, without treating it as general parametric transversality. These newer layers have no atlas stage ID; GT.1 references here name the manifold bridge only, never claim GT.1 exports these theorems. Surface relative perturbation remains G15."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AlgebraicTopologyPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 75 nodes, 102 routes, 11 source versions and 11 exact-pin baseline declarations. Corrected source locators/errata, trace supplier, ordinary smooth-geometry ownership, Ext specialization, fixed-group test, surface hypotheses and all 17 APIs. Fifteen explicit proof obligations remain; all stages are planned, none closed. No source passages are copied. See the independent report for the scope of source reads and the rejected E11 allegation.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.1/configurations",
+        "verdict": "corrected",
+        "note": "Added coordinate extensionality, action simp and embedding composition laws; unit-difference scheme points are retained."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.1/configuration-torsor",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.1/configuration-comparison",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.2/arrangement-cohomology",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.2/frobenius-cycles",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.2/tensor-character",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.2/configuration-trace",
+        "verdict": "corrected",
+        "note": "Corrected the supplier to EDC.8’s adapter to retained shared point-counting ownership; geometric Frobenius and compact-degree reindexing checked."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.3/euler-exponents",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.3/mobius-euler",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.3/weighted-squarefree",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.3/configuration-multiplicities",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.3/stable-diagonal",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.4/tame-polynomial",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.4/tame-bouquet",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.4/hilton-wedge",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.4/rational-spheres",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.4/wedge-rational-ranks",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.4/rational-loop-model",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.5/double-loop-betti",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.5/finite-join",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.5/fermat-retraction",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.5/fermat-loop-connectivity",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.6/semialgebraic-loci",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.6/equivariant-site-adapter",
+        "verdict": "corrected",
+        "note": "Generic carrier remains imported from SF.2; replaced the out-of-scope G=1 test by a free C₂ orbit."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.6/relative-real-pair",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.6/free-descent",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.6/real-singular-comparison",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.7/sign-twist",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.7/sign-class",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.7/periodic-convention",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.7/fixed-mod-two",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.7/fixed-integral",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.7/twisted-bockstein",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.8/orientation-sheaves",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.8/exceptional-image",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.8/orientation-duality",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.8/semialgebraic-gysin",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.8/finite-borel",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.8/equivariant-gysin",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.9/real-coordinate-maps",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.9/gamma-class",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.9/mod-two-splitting",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.9/integral-splitting",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.9/low-real-surjection",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.10/complement-duality",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.10/profinite-duality",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.10/corrected-localization",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.10/boundary-trace",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.10/localization-self-dual",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.11/affine-restriction",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.11/lefschetz-real-empty",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.11/lefschetz-real-criterion",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.11/lefschetz-injective",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.11/affine-relative-torsion",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.12/semialgebraic-steenrod",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.12/wu-pushforward",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.12/gamma-stiefel-whitney",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.12/surface-loop-representatives",
+        "verdict": "corrected",
+        "note": "Made the boundaryless/finite-singular-set conditions explicit and recorded the missing relative perturbation as G15."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.13/admissible-complement",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.13/near-top-omega",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.13/quartic-rank",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.14/double-cover-local-system",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.14/double-cover-extension",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.14/ramified-triangle",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.14/equivariant-ext-stalk",
+        "verdict": "corrected",
+        "note": "Generic finite-group Ext belongs to SF.2. This comparison now only specializes it to C₂ on the application circle."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.15/permutation-quotient",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.15/trace-zero-operator",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.15/trace-quotient-lift",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.15/corrected-integral-lift",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.15/cyclic-reduction-degrees",
+        "verdict": "verified",
+        "note": "Direct periodic-cochain computation confirms H¹ identity and H² parity n/2; added the omitted source issue E12."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.15/circle-extension",
+        "verdict": "corrected",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level. Expanded API and retained its three discriminating tests."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.16/equivariant-ehresmann",
+        "verdict": "corrected",
+        "note": "Reused the actual DifferentialGeometry/native flow owner; made invariant base linearization explicit, with ordinary theorem ownership still G12."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.16/stratified-pair-transport",
+        "verdict": "corrected",
+        "note": "Corrected Mather locator to original p.62/PDF p.34; equivariance requires the stated invariant control data (G13)."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.16/finite-index-lattice",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      },
+      {
+        "nodeId": "AlgebraicTopologyPartII:AT2.16/double-cover-diagram",
+        "verdict": "verified",
+        "note": "Source statement/deduction, hypotheses, direct dependencies, proof gates and checks independently verified at target level."
+      }
+    ]
+  }
 }
