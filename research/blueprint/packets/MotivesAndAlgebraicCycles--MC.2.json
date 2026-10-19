@@ -1,0 +1,1407 @@
+{
+  "roadmapId": "MotivesAndAlgebraicCycles",
+  "protocol": "blueprint-v1",
+  "part": "MC.2",
+  "scope": [
+    "MotivesAndAlgebraicCycles:MC.2"
+  ],
+  "status": "complete",
+  "summary": "A target-level completion of MC.2’s realization and comparison plan. The inherited Weil/correspondence construction is reused by id, while this part supplies a common rational cycle-class construction, normalized comparison data, explicit extension across projectors and Tate twists, Betti/de Rham/geometric ℓ-adic realizations in their stated domains, both map-level motivic comparisons, exact quotient criteria and the curve divisor/trace acceptance calculation. It records the precise C5/SF.2 supplier frontiers; complete means planned, not closed or implemented.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:CategoryTheory.Idempotents.karoubiUniversal",
+        "module": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
+        "kind": "def",
+        "provides": "Equivalence (C→D)≌(Karoubi C→D), under IsIdempotentComplete D; used only for the already existing abstract completion step.",
+        "checked": "Declaration and hypotheses read in the pinned source tree on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Idempotents.natTrans_eq",
+        "module": "Mathlib/CategoryTheory/Idempotents/FunctorExtension.lean",
+        "kind": "theorem",
+        "provides": "A natural-transformation component on a Karoubi object is determined by its ambient component and the two retract maps.",
+        "checked": "Declaration and hypotheses read in the pinned source tree on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.ofSubmodules",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "kind": "def",
+        "provides": "Restricts a (semi)linear equivalence to submodules when their images agree.",
+        "checked": "Declaration and hypotheses read in the pinned source tree on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearMap.range_comp",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "kind": "theorem",
+        "provides": "The range of a composite is the image of the first range under the second linear map.",
+        "checked": "Declaration and hypotheses read in the pinned source tree on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearEquiv.range_comp",
+        "module": "Mathlib/Algebra/Module/Submodule/Equiv.lean",
+        "kind": "theorem",
+        "provides": "Precomposing with a linear equivalence leaves a linear map’s range unchanged.",
+        "checked": "Declaration and hypotheses read in the pinned source tree on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf",
+        "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+        "kind": "def",
+        "provides": "Native pro-étale sheaf of continuous Z_ℓ-valued functions; neither a finite-tower identification nor a cycle/trace API.",
+        "checked": "Declaration and hypotheses read in the pinned source tree on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology",
+        "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
+        "kind": "def",
+        "provides": "Cohomology of the universe-lifted native sheaf, with additive-group structure; Q_ℓ linearity and realization compatibility require suppliers.",
+        "checked": "Declaration and hypotheses read in the pinned source tree on 2026-10-19."
+      }
+    ],
+    "audit": {
+      "input": "research/blueprint/audit/AUDIT-35.result.json, MC.2, and its accepted REV-AUDIT-35 review; data/library-coverage.json screened.",
+      "pinnedScreen": "Read the native ℓ-adic carrier and Karoubi/linear-range declarations listed above. Exact TauCeti f790474 git-object searches for motives, Weil cohomology and cycle classes found no geometric realization or comparison export; group-cohomology Kummer classes are a different interface.",
+      "currentScreen": "Read-only TauCetiRoadmap environment at 0d144d044dacebca17b654695b6f1ad58f159b27 and current TauCeti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 screened, including all nine newer roadmap directories. DifferentialGeometry layers 6/8, AlgebraicTopology stage 6 and AlgebraicVectorBundles further-direction §3 were read. Their existing theories are imported, not planned again."
+    }
+  },
+  "sources": [
+    {
+      "id": "STACKS.WEIL.MC2",
+      "title": "Weil Cohomology Theories",
+      "authors": "The Stacks Project Authors",
+      "edition": "Chapter PDF, version ed88ff78, compiled 14 July 2026",
+      "url": "https://stacks.math.columbia.edu/download/weil.pdf",
+      "sha256": "01f8d89f2c09649af2e0355b4798a71ee8c31ff97f8f2fa13a5b907e0db7caa2",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4, Lemma 4.8, pp.10–11; §7, Lemmas 7.1 and 7.4–7.11, pp.15–21",
+        "§12, Propositions 12.1 and 12.4, pp.41–45; §14, Lemmas 14.1–14.2, pp.48–49; inspection of 14.16–14.18, pp.55–57"
+      ]
+    },
+    {
+      "id": "GROTH1966",
+      "title": "On the de Rham cohomology of algebraic varieties",
+      "authors": "Alexander Grothendieck",
+      "edition": "Publ. Math. IHÉS 29 (1966), pp.95–103; Numdam scan",
+      "url": "https://www.numdam.org/article/PMIHES_1966__29__95_0.pdf",
+      "sha256": "f76706281f40b3c43c878bbd7c00c7520751d7b356a9da02004613ba5097e33a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorems 1 and 1′, and the proper-case proof, printed pp.95–96"
+      ]
+    },
+    {
+      "id": "HODGEII",
+      "title": "Théorie de Hodge, II",
+      "authors": "Pierre Deligne",
+      "edition": "Publ. Math. IHÉS 40 (1971), pp.5–57; Numdam scan",
+      "url": "https://www.numdam.org/article/PMIHES_1971__40__5_0.pdf",
+      "sha256": "748edefb44fded8af67869abfed87062d66977d25b5d12f7d014f1810a063c3f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2.2.4–§2.2.6, printed pp.28–29, dlog sign and exponential class comparison"
+      ]
+    },
+    {
+      "id": "DELIGNE82",
+      "title": "Hodge cycles on abelian varieties (notes by J. S. Milne)",
+      "authors": "Pierre Deligne and James S. Milne",
+      "edition": "Author’s revised TeX copy, 1 October 2018; checked against the author-hosted original 1982 article where indicated",
+      "url": "https://www.jmilne.org/math/Documents/Deligne82.pdf",
+      "sha256": "827e3571c8049fc5d3aed8dfad912fee39a2f5dbf7341726c38235f035d32139",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1, Theorem 1.4 and scalar base change, revised pp.7–8",
+        "§1, Tate lines, cycle classes and trace, revised pp.9–11; original printed pp.19–22; original pp.20–21 inspected visually"
+      ]
+    },
+    {
+      "id": "MILNE.LEC",
+      "title": "Lectures on Étale Cohomology",
+      "authors": "James S. Milne",
+      "edition": "Version 2.21, 22 March 2013, author’s public notes",
+      "url": "https://www.jmilne.org/math/CourseNotes/LEC.pdf",
+      "sha256": "ac4f122f371d38a44c58c296b7dbf88081d89d2de2334070bff3606771c01077",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§19, pp.121–125, finite coefficient towers and rationalization",
+        "§21, Theorem 21.1 and Remark 21.2, p.130",
+        "§22, Theorems 22.1 and 22.4, pp.135–136",
+        "§23, Lemma 23.1 and Theorems 23.2–23.3, pp.138–141; §24, Theorem 24.1 and Remark 24.2, pp.144–145"
+      ]
+    },
+    {
+      "id": "SGA4.XVI",
+      "title": "SGA 4, Exposé XVI: Théorème de changement de base par un morphisme lisse, et applications",
+      "authors": "Michael Artin",
+      "edition": "Public retypeset Exposé XVI, version 71766d9, 30 July 2024; original marginal pagination",
+      "url": "https://www.normalesup.org/~forgogozo/SGA4/16/16.pdf",
+      "sha256": "d93c3cee9212b35a031559fdf2b9556f96678522791fa7ca836710fc921af96a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4, Theorem 4.1 and start of proper-case proof, marginal pp.232–234, PDF pp.13–14"
+      ]
+    },
+    {
+      "id": "SCHOLL",
+      "title": "Classical motives",
+      "authors": "Anthony J. Scholl",
+      "edition": "Author-hosted preprint of Motives, Proc. Symp. Pure Math. 55, Part 1 (1994), pp.163–187; local preprint pagination",
+      "url": "https://www.dpmms.cam.ac.uk/~ajs1005/preprints/classical_motives.pdf",
+      "sha256": "b14a6ef464a7f054e5bad45e01027a9783c4dca0781b662dace31ec3123accb4",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1.4 and §1.6, preprint p.3; §1.8–1.9, p.4; Proposition 1.12, pp.5–6; §1.13, p.6, contravariant motives, projectors and Tate inversion"
+      ]
+    },
+    {
+      "id": "DEMAILLY",
+      "title": "Complex Analytic and Differential Geometry",
+      "authors": "Jean-Pierre Demailly",
+      "edition": "Author’s public book, fetched 19 October 2026",
+      "url": "https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/agbook.pdf",
+      "sha256": "d7c7654a7417e8322e5dcf8fe8ec818b4c1a18cf280b41f2df5a871b776d89a1",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "V §13, Theorem 13.4 and formula 13.6, pp.271–272, divisor-current and Chern-class normalization"
+      ]
+    },
+    {
+      "id": "MILNE.MOT",
+      "title": "Motives — Grothendieck’s Dream",
+      "authors": "James S. Milne",
+      "edition": "Version 2.04, 24 April 2012",
+      "url": "https://www.jmilne.org/math/xnotes/MOT.pdf",
+      "sha256": "a701ee93d7cefbcc9570afce76b0bd235b6a1bffbf1567a1d73c307d700cd768",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§6, pp.7–8, obstruction to realization through numerical equivalence"
+      ]
+    },
+    {
+      "id": "GROTH1958",
+      "title": "La théorie des classes de Chern",
+      "authors": "Alexander Grothendieck",
+      "edition": "Bulletin de la SMF 86 (1958), pp.137–154; Numdam scan",
+      "url": "https://www.numdam.org/article/BSMF_1958__86__137_0.pdf",
+      "sha256": "41eebe0b2c6718b762036b79fc3f494b630f7a91cf2b0594c68ebc5fc571b798",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4.3, formulas (15)–(16), printed pp.150–151; sign in the cycle/structure-sheaf Chern formula"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Cycle classes from first Chern classes",
+      "kind": "construction",
+      "statement": "Let k be a field, F a characteristic-zero field, T a one-dimensional F-space, and H a contravariant unital graded-commutative F-algebra functor on smooth projective k-schemes. Write H^q(X)(m)=H^q(X)⊗T^m, using the dual line for negative m. Assume finite-disjoint-union compatibility; a natural group homomorphism c1_H:Pic(X)→H^2(X)(1); the projective bundle formula in every degree; and the divisor-support condition below. There is a unique natural graded Q-algebra map cl_H:CH^*(X)_Q→⊕_r H^{2r}(X)(r) such that ch_H=cl_H∘ch_CH. In particular cl_H(c1_CH(L))=c1_H(L). Any unital multiplicative cohomology comparison respecting T and c1 respects cl_H in every codimension.",
+      "hypotheses": [
+        "The projectivization is the convention of the SF.5 projective bundle formula, with ξ=c1_H(O_P(E)(1)). For rank s≥1 the map ⊕_{j=0}^{s−1}H^{q−2j}(X)(−j)→H^q(P(E)), (a_j)↦Σ ξ^j∪π^*a_j, is an isomorphism.",
+        "For a smooth effective Cartier divisor i:D→X with X,D smooth projective, i^*a=0 implies a∪c1_H(O_X(D))=0.",
+        "SF.5 supplies ch_CH:K0(Vect(X))⊗Q≅CH^*(X)_Q, as a ring isomorphism, and its pullback, Adams-weight and Chern-class compatibility. This construction alone does not assert proper-pushforward compatibility or Poincaré duality."
+      ],
+      "proofSteps": [
+        "Construct higher cohomological Chern classes by the projective bundle relation; pull back to the flag bundle to verify naturality and the splitting principle. Use the Newton polynomials with factorial denominators to obtain the ring map ch_H with ch_H(L)=exp(c1_H(L)).",
+        "Define cl_H=ch_H∘ch_CH^{-1}. The Adams operation ψ² acts by 2^r on the codimension-r Chow part and on the rth cohomological Chern-character part, so the map lands in degree (2r,r). This is the grading argument in 0FIF, rather than an assumption that ch_CH is degree-preserving before its Adams decomposition.",
+        "For a multiplicative comparison preserving c1, pull back to the same flag bundle. The projective bundle injection implies that it preserves every cohomological Chern class and ch_H. Compose with the fixed inverse of ch_CH to get compatibility with all rational cycles."
+      ],
+      "acceptance": [
+        "The maps are defined on rational equivalence classes, and are Q-linear, unital, graded, multiplicative and natural for the refined pullback on smooth schemes.",
+        "Proper pushforward is established separately when constructing each admitted realization; it is not deduced just from this ring map."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§12, Propositions 12.1 and 12.4 (0FI5, 0FI9), pp.41–45; §14, Lemmas 14.1–14.2 (0FIE, 0FIF), pp.48–49",
+          "match": "A natural first Chern class with the projective bundle and divisor-support conditions gives a cohomological Chern character and then a graded cycle map through the rational Chow Chern-character isomorphism."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "RealizationCycleClass.ofFirstChern",
+          "role": "constructor",
+          "statement": "The map cl_H=ch_H∘ch_CH^{-1} under the four stated hypotheses."
+        },
+        {
+          "name": "RealizationCycleClass.ch_spec",
+          "role": "characterisation",
+          "statement": "cl_H(ch_CH(v))=ch_H(v) for v∈K0(Vect(X))⊗Q; this determines cl_H."
+        },
+        {
+          "name": "RealizationCycleClass.firstChern",
+          "role": "compatibility",
+          "statement": "cl_H(c1_CH(L))=c1_H(L)."
+        },
+        {
+          "name": "RealizationCycleClass.pullback",
+          "role": "functoriality",
+          "statement": "cl_H(f^!α)=f^*cl_H(α) for a morphism of smooth projective schemes."
+        },
+        {
+          "name": "RealizationCycleClass.mul",
+          "role": "structure",
+          "statement": "cl_H(αβ)=cl_H(α)∪cl_H(β), with cl_H(1)=1."
+        },
+        {
+          "name": "RealizationCycleClass.compare",
+          "role": "compatibility",
+          "statement": "A comparison preserving multiplication and first Chern classes transports every cl_H(α) to cl_K(α), with twists included."
+        },
+        {
+          "name": "RealizationCycleClass.structureSheaf",
+          "role": "characterisation",
+          "statement": "For a codimension-r integral closed subscheme Z, r≥1, cl_H[Z]=(−1)^{r−1}c_r^H([O_Z])/(r−1)!, where [O_Z] is represented by a finite locally free resolution. The Chern-character definition is primary."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/normalized-cohomology-comparison",
+          "how": "Reduces all-cycle comparison to first-Chern compatibility."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+          "how": "Defines the rational Betti cycle map on the existing Chow group."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+          "how": "Defines the algebraic de Rham cycle map without an embedding choice."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RealizationCycleClass.projectiveLine",
+          "kind": "computation",
+          "statement": "For h=c1_CH(O_P¹(1)), cl_H(h)=c1_H(O_P¹(1))∈H²(P¹)(1); it cannot land in degree one."
+        },
+        {
+          "name": "RealizationCycleClass.projectivePlanePoint",
+          "kind": "computation",
+          "statement": "For the intersection z of two hyperplanes in P², cl_H[z]=c1_H(O(1))². Equivalently c2_H([O_z])=−cl_H[z], detecting the missing sign in the structure-sheaf formula."
+        },
+        {
+          "name": "RealizationCycleClass.empty",
+          "kind": "degenerate",
+          "statement": "The Chow and cohomology rings of the empty scheme are both the zero ring, and cl_H is their unique map."
+        },
+        {
+          "name": "RealizationCycleClass.negativeDivisor",
+          "kind": "characterisation",
+          "statement": "cl_H(−c1_CH(L))=−c1_H(L); the construction is additive on cycle classes, not the nonlinear map α↦exp(cl_H(α))."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/normalized-cohomology-comparison",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Normalized comparison of twisted cohomology theories",
+      "kind": "definition",
+      "statement": "Fix two admitted smooth-projective cohomology systems H and K over the same k, with coefficient fields F_H,F_K of characteristic zero, Tate lines T_H,T_K and traces. Let E be a field with specified embeddings of both coefficient fields. A normalized comparison consists of a line equivalence τ:T_H⊗E≅T_K⊗E and degreewise E-linear equivalences c_X^q:H^q(X)⊗E≅K^q(X)⊗E, natural for pullback, unital and multiplicative for cup products. Define c_X^{q,m}=c_X^q⊗τ^m. Require c_X^{2,1}(c1_H(L))=c1_K(L) for every line bundle and Tr_K∘c_X^{2d,d}=Tr_H for every pure-dimensional X. Trace on a disconnected pure-dimensional X is the sum of component traces. All comparisons with mixed dimensions are taken componentwise. These are actual maps, not dimension equalities.",
+      "hypotheses": [
+        "H and K include the first-Chern/cycle maps of chern-character-cycle-map, Künneth maps, finite-dimensional Poincaré pairings, and proper pushforwards adjoint to pullback.",
+        "All tensor products use the specified coefficient embeddings into E. The two coefficient fields are not identified.",
+        "The line comparison on negative twists is the inverse dual of τ, so tensor and evaluation maps commute. The graded symmetry is (a,b)↦(−1)^{ij}(b,a) in degrees i,j."
+      ],
+      "proofSteps": [
+        "Bundle only the displayed maps and equations. Künneth compatibility follows from the pullback and cup-product equations because the Künneth map is the exterior product of pullbacks.",
+        "Use chern-character-cycle-map to derive all-cycle compatibility. Derive proper-pushforward compatibility by Poincaré adjunction in comparison-intertwines-correspondences."
+      ],
+      "acceptance": [
+        "A comparison exports the chosen coefficient maps and Tate-line map; erasing either can change its normalization.",
+        "Identity, inverse and composition comparisons satisfy the same equations; inverse and composition on τ are forced by the tensor laws."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+        "MotivesAndAlgebraicCycles:MC.2/graded-vector-spaces-koszul",
+        "MotivesAndAlgebraicCycles:MC.2/weil-pushforward"
+      ],
+      "sources": [
+        {
+          "sourceId": "DELIGNE82",
+          "locator": "§1, Theorem 1.4 and the Tate-line, cycle-class and trace discussion, revised pp.8–11; original pp.17–22",
+          "match": "This supports the normalized cohomology interfaces. The packet isolates their common map-level structure; it does not claim that the source introduces this particular bundle."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "NormalizedCohomologyComparison.mk",
+          "role": "constructor",
+          "statement": "Construct from τ, c_X^q, naturality, unit, cup, first-Chern and trace equations."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.twisted",
+          "role": "data",
+          "statement": "c_X^{q,m}=c_X^q⊗τ^m for every q,m∈Z."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.ext",
+          "role": "extensionality",
+          "statement": "Two comparisons are equal when their τ and all c_X^q are equal."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.refl",
+          "role": "constructor",
+          "statement": "Identity on each degree and on the Tate line."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.symm",
+          "role": "equivalence",
+          "statement": "Inverse degreewise and on the Tate line."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.trans",
+          "role": "functoriality",
+          "statement": "Compose comparisons after extending to the same explicitly specified coefficient field; twisted components compose."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.cycleClass",
+          "role": "compatibility",
+          "statement": "c_X^{2r,r}(cl_H α)=cl_K α for every α∈CH^r(X)_Q."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.trace",
+          "role": "compatibility",
+          "statement": "Tr_K(c_X^{2d,d} a)=Tr_H(a); the target scalar map is the identity of E."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/comparison-intertwines-correspondences",
+          "how": "Provides the exact pull, cup, cycle and trace equations used in the correspondence square."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/comparison-on-chow-motives",
+          "how": "Determines the comparison on projectors, the unit and all Tate twists."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NormalizedCohomologyComparison.unitNotScaled",
+          "kind": "non-example",
+          "statement": "Multiplication by 2 on every H^q(X), with τ the identity and H=K, fails c_Spec(k)^0(1)=1; equal ranks do not make it a comparison."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.tateNotForgotten",
+          "kind": "non-example",
+          "statement": "For dR→Betti on P¹, raw c(c1_dR O(1))=(2πi)u. Setting τ(1)=t_B instead of (2πi)^{-1}t_B fails the first-Chern equation."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.identity",
+          "kind": "degenerate",
+          "statement": "For H=K and identity coefficient embeddings, τ=id and c_X^q=id form the identity comparison, including zero cohomological degrees and empty schemes."
+        },
+        {
+          "name": "NormalizedCohomologyComparison.traceCurve",
+          "kind": "characterisation",
+          "statement": "On a curve, a degree-one divisor class has trace one before and after the twisted comparison; a convention giving 2πi after taking the normalized trace is rejected."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/comparison-intertwines-correspondences",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "A normalized comparison intertwines every correspondence",
+      "kind": "theorem",
+      "statement": "For a normalized comparison c from H to K over E and a proper morphism f:X→Y between pure-dimensional smooth projective schemes of dimensions d,e, c_Y^{q+2(e−d),m+e−d}∘f_*^H=f_*^K∘c_X^{q,m}. For a∈CH^{d+r}(X×Y)_Q, set A_H(a)(x)=pr_Y,*^H(cl_H(a)∪pr_X^*x):H^q(X)(m)→H^{q+2r}(Y)(m+r). Then c_Y^{q+2r,m+r}∘A_H(a)=A_K(a)∘c_X^{q,m}, including r<0. Consequently comparison commutes with correspondence composition, identities, external products and graph pullbacks.",
+      "hypotheses": [
+        "All coefficient changes and τ powers are those of normalized-cohomology-comparison.",
+        "The pushforwards are the Poincaré adjoints with the same normalized trace; both X and Y are proper. For arbitrary smooth projective schemes split into pure-dimensional components first."
+      ],
+      "proofSteps": [
+        "Pair the proposed pushforward equality against any complementary-degree class on Y. Move f_* across the pairing in both theories, use pullback/cup/trace compatibility, and conclude by nondegeneracy after scalar extension to E.",
+        "Apply the resulting equality to pr_Y and use the all-cycle equation from chern-character-cycle-map plus pullback and cup compatibility. The twist count is (d+r)+m−d=m+r, and the degree count is (2d+2r)+q−2d=q+2r.",
+        "Composition and the identity follow from the existing Chow composition/diagonal identities, the projection formula and Künneth; the pull–cup–push proof of the inherited correspondence-functor construction applies componentwise. Apply MC.1’s universal property over the original field, rather than invoking the inherited algebraically-closed-base theorem outside its hypotheses. No new intersection theory is constructed."
+      ],
+      "acceptance": [
+        "For a graph of f:Y→X in X×Y the square is the original pullback-naturality square; for its transpose, with the required degree shift, it is the proper-pushforward square.",
+        "The equality identifies maps on all degrees, including odd degrees; monoidality uses the Koszul symmetry."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/normalized-cohomology-comparison",
+        "MotivesAndAlgebraicCycles:MC.1/motives-universal-property",
+        "MotivesAndAlgebraicCycles:MC.2/weil-pushforward"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§7, Lemma 7.1 (0FGT), pp.15–16; Lemma 7.10 (0FH2), pp.20–21",
+          "match": "Poincaré adjunction characterizes pushforward and the pull–cup–push formula describes the correspondence action. The comparison square is obtained by substituting the normalization equations into those formulas."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "suggestedLean": [
+        {
+          "name": "TauCeti.Motives.MC2.comparison_kernel_iff",
+          "scope": "Linear-algebra fragment of intertwining: an injective comparison detects whether the intertwined action is zero; it is not a motive declaration."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/comparison-on-chow-motives",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Comparison on Chow motives and all Tate twists",
+      "kind": "theorem",
+      "statement": "For a normalized cohomology comparison c over E, the associated E-valued realizations of rational Chow motives admit a unique symmetric monoidal natural isomorphism C:R_H⊗E≅R_K⊗E extending c on h(X) and τ on 1(1). With M=(X,p,m), R_H^j(M)=im(A_H(p):H^{j+2m}(X)(m)→H^{j+2m}(X)(m)); C_M^j is the restriction of c_X^{j+2m,m} to this image. For a morphism a∈q Corr^{n−m}(X,Y) p its action is the restriction of A_H(a), and these components form the naturality square. The extension preserves units, tensor products, dual evaluation, traces and cycle morphisms 1(−r)→h(X).",
+      "hypotheses": [
+        "The source is the MC.1 contravariant category with rational Chow coefficients: Corr^r(X,Y)=CH^{dim X+r}(X×Y)_Q componentwise, and Hom((X,p,m),(Y,q,n))=q Corr^{n−m}(X,Y) p.",
+        "Finite-dimensional graded vector spaces have the Koszul symmetry and are idempotent complete; for ℓ-adic targets, use the corresponding finite-dimensional continuous representations and then the specified scalar/forgetful functor.",
+        "Both realization functors already exist by their construction nodes or the inherited universal-property theorem; an invertible Tate image is essential."
+      ],
+      "proofSteps": [
+        "comparison-intertwines-correspondences gives c_X A_H(p)=A_K(p)c_X, so c_X maps im A_H(p) bijectively to im A_K(p). Its inverse restricts as well. At the pinned linear-algebra level use LinearEquiv.ofSubmodules, not a new image or splitting construction.",
+        "Extend through the Karoubi envelope with the existing karoubiUniversal machinery. natTrans_eq says a component on a retract is forced by the component on its ambient object.",
+        "Use τ^m on all tensor powers and dual powers of the Tate line. Every motive is a retract of h(X)(m), so this also proves uniqueness through Tate localization.",
+        "Naturality for qap follows by restricting the correspondence square. Tensor compatibility is checked on h(X), h(Y) using Künneth, then restricted to p⊗q; τ^{m+n}=τ^m⊗τ^n handles twists. The Koszul symmetry gives the symmetric constraint. Dual evaluation and trace are preserved by a symmetric monoidal natural isomorphism."
+      ],
+      "acceptance": [
+        "C_{1(m)} is τ^m in degree −2m and zero in all other degrees; C_{h(P¹)} respects 1⊕1(−1).",
+        "For p=0 the component is the unique map of zero spaces; for p=id it is exactly the original c_X with its twist. Composition and inverse of comparisons agree with composition and inverse of the induced natural isomorphisms.",
+        "Uniqueness includes the fixed restrictions on h(X) and the Tate line; no choice-free assertion is made after forgetting these identifications."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/comparison-intertwines-correspondences",
+        "MotivesAndAlgebraicCycles:MC.1/motives-universal-property",
+        "MotivesAndAlgebraicCycles:MC.1/tate-twist",
+        "mathlib:CategoryTheory.Idempotents.karoubiUniversal",
+        "mathlib:CategoryTheory.Idempotents.natTrans_eq",
+        "mathlib:LinearEquiv.ofSubmodules",
+        "mathlib:LinearMap.range_comp",
+        "mathlib:LinearEquiv.range_comp"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§4, Lemma 4.8 (0FGH), pp.10–11; §7, Lemma 7.10 (0FH2), pp.20–21",
+          "match": "The first result extends correspondence functors by taking projector images and inverting the Lefschetz image; the second gives the pull–cup–push action of a Weil theory. This packet uses that machinery and specifies comparison maps on its outputs."
+        },
+        {
+          "sourceId": "SCHOLL",
+          "locator": "§1.4 and §1.6, author preprint p.3; §1.8–1.9, p.4; Proposition 1.12, pp.5–6; §1.13, p.6",
+          "match": "These give the contravariant projector/twist convention and the fact that every object is a direct factor of a twisted geometric motive. Only these definitions and retract statements are used."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Normalized realization comparisons"
+      },
+      "suggestedLean": [
+        {
+          "name": "TauCeti.Motives.MC2.comparison_on_images",
+          "scope": "Exact range-restriction fragment on existing LinearMap/LinearEquiv carriers; the geometric functors remain README targets."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Betti realization for a specified complex embedding",
+      "kind": "construction",
+      "statement": "For a field embedding σ:k→C, construct the Q-linear symmetric monoidal functor R_B,σ from rational Chow motives over k to finite-dimensional Z-graded Q-vector spaces with Koszul symmetry. On h(X), it is H_B^q(X)=H_sing^q(X_σ(C),Q). The Tate line is T_B=Q(1)=(2πi)Q, with the standard i, and R_B^j(X,p,m)=im p on H_B^{j+2m}(X)(m). The cycle map is cl_B:CH^r(X)_Q→H_B^{2r}(X)(r); for an integral cycle it agrees with its complex-oriented topological fundamental class tensored with (2πi)^r. The trace divides out the Tate generator and evaluates on the oriented fundamental class of each connected component, then sums.",
+      "hypotheses": [
+        "X is smooth projective over k; analytification is taken only after σ-base change. Rational Chow correspondences, not all singular cohomology linear maps, are the source morphisms.",
+        "Use singular cohomology, cup products, Künneth and manifold Poincaré duality from the existing AlgebraicTopology roadmap. Analytification and analytic cycle integration come from C5. No second singular or smooth de Rham theory is introduced."
+      ],
+      "proofSteps": [
+        "Define c1_B(L) as the connecting class for 0→2πi Z→O_an→O_an^×→1, after algebraic line-bundle analytification, then rationalize. Verify the four first-Chern hypotheses using the topological projective bundle formula and the divisor Thom/support relation; request their precise shared-carrier exports from C5 and AlgebraicTopology.",
+        "Apply chern-character-cycle-map. Identify this cycle map with the topological fundamental class using the divisor normalization, the splitting/Chern-character construction, and the supplied cycle integration/Gysin agreement. For proper maps, adjunction and the pushforward of oriented fundamental classes give cycle pushforward compatibility.",
+        "Künneth, finite-dimensional Poincaré duality and the normalization of a geometric point verify the Weil inputs of the inherited correspondence construction. On non-geometrically connected schemes retain all geometric components; never impose one-dimensional H^0 there.",
+        "Apply the MC.1 universal property over k directly to the pull–cup–push functor and its invertible P¹ top summand. This reuses the inherited construction without incorrectly invoking its algebraically-closed-base hypothesis for k."
+      ],
+      "acceptance": [
+        "The construction exports actual maps for graph pullback, proper pushforward, products, twists and trace; all are computed in the common formula in comparison-on-chow-motives.",
+        "The embedding σ is an argument of the functor. A different embedding is a different Betti realization unless an explicit comparison is supplied."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+        "MotivesAndAlgebraicCycles:MC.1/motives-universal-property",
+        "MotivesAndAlgebraicCycles:MC.1/tate-twist",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "ComplexComparisonPartII:C5/analytic-cycle-integration",
+        "ComplexComparisonPartII:C5",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§4, Lemma 4.8 (0FGH), pp.10–11; §7, Lemma 7.10 (0FH2), pp.20–21",
+          "match": "The first result extends correspondence functors by taking projector images and inverting the Lefschetz image; the second gives the pull–cup–push action of a Weil theory. This packet uses that machinery and specifies comparison maps on its outputs."
+        },
+        {
+          "sourceId": "DELIGNE82",
+          "locator": "§1, revised pp.7–11; original pp.16–22, especially topological cycle and trace formulas on pp.21–22",
+          "match": "The rational Betti carrier, its Tate line, cycle normalization and trace are specified here; the construction uses their classical cohomological suppliers."
+        },
+        {
+          "sourceId": "DEMAILLY",
+          "locator": "V §13, Theorem 13.4 and formula 13.6, pp.271–272",
+          "match": "The divisor current agrees with the first Chern class of its line bundle, providing a check of the complex orientation and multiplicity conventions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "BettiRealization.functor",
+          "role": "data",
+          "statement": "R_B,σ with rational linearity and Koszul symmetric monoidality."
+        },
+        {
+          "name": "BettiRealization.obj",
+          "role": "characterisation",
+          "statement": "R_B,σ^j(X,p,m)=im p on H_sing^{j+2m}(X_σ(C),Q)⊗Q(m)."
+        },
+        {
+          "name": "BettiRealization.map",
+          "role": "functoriality",
+          "statement": "A degree n−m Chow correspondence acts by the restricted pull–cup–push formula."
+        },
+        {
+          "name": "BettiRealization.cycleClass",
+          "role": "data",
+          "statement": "cl_B^r is the rational cycle map to H_B^{2r}(X)(r)."
+        },
+        {
+          "name": "BettiRealization.divisor",
+          "role": "compatibility",
+          "statement": "cl_B(D)=c1_B(O_X(D)), where c1_B comes from the exponential sequence."
+        },
+        {
+          "name": "BettiRealization.trace",
+          "role": "data",
+          "statement": "Tr_B:H_B^{2d}(X)(d)→Q is the sum of complex-oriented component traces, with a geometric point of trace one."
+        },
+        {
+          "name": "BettiRealization.tensor",
+          "role": "structure",
+          "statement": "Exterior products give the tensor constraint; swapping degrees i,j contributes (−1)^{ij}."
+        },
+        {
+          "name": "BettiRealization.cycleMorphism",
+          "role": "compatibility",
+          "statement": "Applying R_B to the Chow morphism α:1(−r)→h(X) gives cl_B(α)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison",
+          "how": "The right-hand functor and its normalized rational cycle classes."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison",
+          "how": "The rational model whose Q_l extension is compared to geometric étale cohomology."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/curve-divisor-acceptance",
+          "how": "Checks degree and trace on curves."
+        }
+      ],
+      "tests": [
+        {
+          "name": "BettiRealization.projectiveLine",
+          "kind": "computation",
+          "statement": "R_B(h(P¹)) has Q in degree 0 and Q(−1) in degree 2, and zero elsewhere; R_B(1(1)) has Q(1) in degree −2."
+        },
+        {
+          "name": "BettiRealization.finiteEtalePoint",
+          "kind": "non-example",
+          "statement": "For a finite separable extension L/k of degree s, R_B^0(h(Spec L))=Q^{Hom_k(L,C)}, of dimension s, and the pushforward to the unit sums its s coordinates."
+        },
+        {
+          "name": "BettiRealization.curveDivisor",
+          "kind": "computation",
+          "statement": "For a divisor D on a smooth geometrically connected projective curve, Tr_B(cl_B D)=deg_k D; after σ-base change a degree-s closed point contributes s geometric points."
+        },
+        {
+          "name": "BettiRealization.oddSwap",
+          "kind": "characterisation",
+          "statement": "On H¹(E)⊗H¹(E) for an elliptic curve E, the graded tensor switch is minus the ordinary switch; forgetting the Koszul sign fails this test."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Algebraic de Rham realization in characteristic zero",
+      "kind": "construction",
+      "statement": "For any characteristic-zero field k, construct the Q-linear symmetric monoidal functor R_dR from rational Chow motives over k to finite-dimensional graded k-vector spaces. On h(X), H_dR^q(X/k)=hypercohomology of the algebraic de Rham complex Ω^•_{X/k}; T_dR=k(1) is a formal one-dimensional line with distinguished basis t_dR, and R_dR^j(X,p,m)=im p on H_dR^{j+2m}(X/k)(m). With the Čech/shift convention of Hodge II §2.2.4.1, c1_dR is the negative of the hypercohomology map induced by dlog:O_X^×[−1]→Ω^•_{X/k}. The cycle map is chern-character-cycle-map. The trace is normalized by a geometric point after base change; over C it is (2πi)^{−d} times integration of the raw de Rham class, after trivializing t_dR^d.",
+      "hypotheses": [
+        "The characteristic-zero assumption is essential. No de Rham Weil realization in characteristic p is asserted.",
+        "For arbitrary k use the C5 algebraic de Rham/base-change export requested below; a chosen embedding k→C is not part of R_dR. The formal Tate line is retained even though its underlying k-space is k.",
+        "Use the same total-complex/shift signs as Hodge II §2.2.4.1 and §2.2.5.1. With another totalization convention transport the definition through its specified chain isomorphism, keeping c1(O_P¹(1)) of trace +1."
+      ],
+      "proofSteps": [
+        "Use C5 for the algebraic de Rham complex, its products and scalar extension. Construct c1_dR by the displayed negative dlog hypercohomology map. Hodge II §2.2.5.1 compares this sign with the exponential-sequence class.",
+        "For a finitely generated subfield k0 of characteristic zero, choose an embedding k0→C. C5 comparison and faithful scalar extension transfer the projective bundle, divisor-support, finite-dimensionality, Künneth and perfect-pairing statements from Betti cohomology. Apply chern-character-cycle-map; its comparison clause gives compatibility in every codimension from c1.",
+        "Normalize the de Rham trace via the algebraic duality trace with point degree one; over C its integration formula is as stated. Compare proper pushforward by Poincaré adjunction and transfer cycle pushforward compatibility from Betti.",
+        "Every finite scheme/morphism/bundle/cohomology diagram used over an arbitrary k descends to a finitely generated characteristic-zero subfield. The requested de Rham base-change isomorphisms and faithful scalar extension descend these equalities. The maps over k are the algebraic maps already defined; embeddings are used to prove identities, not to define them.",
+        "Apply the MC.1 universal property with the P¹ top summand."
+      ],
+      "acceptance": [
+        "R_dR is defined even when k itself has no embedding into C, subject to the explicit algebraic base-change supplier contract.",
+        "The trace on H_dR^0(Spec L)=L for finite separable L/k is the field trace, so it need not be an isomorphism."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+        "MotivesAndAlgebraicCycles:MC.1/motives-universal-property",
+        "MotivesAndAlgebraicCycles:MC.1/tate-twist",
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "ComplexComparisonPartII:C5/algebraic-de-rham-complex",
+        "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+        "ComplexComparisonPartII:C5"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§4, Lemma 4.8 (0FGH), pp.10–11; §7, Lemma 7.10 (0FH2), pp.20–21",
+          "match": "The first result extends correspondence functors by taking projector images and inverting the Lefschetz image; the second gives the pull–cup–push action of a Weil theory. This packet uses that machinery and specifies comparison maps on its outputs."
+        },
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§12, Propositions 12.1 and 12.4 (0FI5, 0FI9), pp.41–45; §14, Lemmas 14.1–14.2 (0FIE, 0FIF), pp.48–49",
+          "match": "A natural first Chern class with the projective bundle and divisor-support conditions gives a cohomological Chern character and then a graded cycle map through the rational Chow Chern-character isomorphism."
+        },
+        {
+          "sourceId": "GROTH1966",
+          "locator": "Theorem 1′ and the proper-case proof, printed pp.95–96",
+          "match": "The canonical algebraic/analytic comparison is an isomorphism for smooth complex varieties; the proper proof uses the hypercohomology spectral sequence."
+        },
+        {
+          "sourceId": "HODGEII",
+          "locator": "§2.2.4.1–§2.2.5.1, printed pp.28–29",
+          "match": "The dlog class has the opposite sign to the exponential-sequence class under the comparison. This fixes c1_dR as its negative."
+        },
+        {
+          "sourceId": "DELIGNE82",
+          "locator": "§1, Theorem 1.4 and scalar-extension formula, revised p.8; trace formula, p.11; original pp.17–18 and p.22",
+          "match": "These support algebraic base change and the point-normalized de Rham trace."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DeRhamRealization.functor",
+          "role": "data",
+          "statement": "R_dR over k, with rational linearity and Koszul symmetric monoidality."
+        },
+        {
+          "name": "DeRhamRealization.obj",
+          "role": "characterisation",
+          "statement": "R_dR^j(X,p,m)=im p on H_dR^{j+2m}(X/k)⊗k kt_dR^m."
+        },
+        {
+          "name": "DeRhamRealization.firstChern",
+          "role": "data",
+          "statement": "The negative dlog hypercohomology map with the fixed shift convention."
+        },
+        {
+          "name": "DeRhamRealization.cycleClass",
+          "role": "data",
+          "statement": "The graded rational Chow cycle map constructed from c1_dR."
+        },
+        {
+          "name": "DeRhamRealization.trace",
+          "role": "data",
+          "statement": "The algebraic trace H_dR^{2d}(X/k)(d)→k with point normalization and the stated complex integration formula."
+        },
+        {
+          "name": "DeRhamRealization.map",
+          "role": "functoriality",
+          "statement": "Correspondence maps are the restricted pull–cup–push action, with degree and twist n−m."
+        },
+        {
+          "name": "DeRhamRealization.baseChange",
+          "role": "compatibility",
+          "statement": "For a specified extension k→k′ of characteristic-zero fields, R_dR,k(M)⊗k k′≅R_dR,k′(M_k′), natural and monoidal, commuting with cycles, trace and iterated base change."
+        },
+        {
+          "name": "DeRhamRealization.cycleMorphism",
+          "role": "compatibility",
+          "statement": "The image of α:1(−r)→h(X) is cl_dR(α)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison",
+          "how": "Its left-hand functor must be defined independently of the complex embedding."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/realization-quotients",
+          "how": "Provides the de Rham cycle-class kernel rather than a numerical quotient."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/curve-divisor-acceptance",
+          "how": "Fixes the period and degree normalization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DeRhamRealization.tateDegree",
+          "kind": "computation",
+          "statement": "R_dR(1(1)) is kt_dR in degree −2; R_dR(h(P¹)) has k in degree 0 and k(−1) in degree 2."
+        },
+        {
+          "name": "DeRhamRealization.projectiveLineTrace",
+          "kind": "computation",
+          "statement": "For h=c1_dR(O_P¹(1)), Tr_dR(h)=1. Over C the integral of the raw comparison of h is 2πi, so raw integration alone is the wrong algebraic trace."
+        },
+        {
+          "name": "DeRhamRealization.finiteEtalePoint",
+          "kind": "characterisation",
+          "statement": "For finite separable L/k, R_dR^0(h(Spec L))=L and its proper pushforward is Tr_{L/k}; for a quadratic extension the class 1 has trace 2."
+        },
+        {
+          "name": "DeRhamRealization.positiveCharacteristic",
+          "kind": "non-example",
+          "statement": "A field of characteristic p is outside this constructor. It cannot be accepted by omitting the characteristic-zero assumption from the scalar-descent proof."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Geometric ℓ-adic realization with Galois action",
+      "kind": "construction",
+      "statement": "Let k be a field, ℓ a prime invertible in k, and k̄ an algebraic closure with G_k=Aut(k̄/k). Construct R_ℓ from rational Chow motives over k to finite-dimensional Z-graded continuous Q_ℓ-representations of G_k, with Koszul symmetry. On h(X), its qth group is geometric étale cohomology H_et^q(X_k̄,Q_ℓ), on the SF.2 coefficient carrier identified with the classical derived finite-coefficient tower. T_ℓ=Q_ℓ(1)=(lim μ_{ℓ^n}(k̄))⊗Z_ℓ Q_ℓ with its cyclotomic action. The value on (X,p,m) is im p on H_et^{j+2m}(X_k̄,Q_ℓ(m)); its cycle map is the EDC.3 Gysin cycle class and agrees with chern-character-cycle-map.",
+      "hypotheses": [
+        "All geometric schemes are smooth projective over the perfect algebraically closed field k̄, so the perfect-base hypothesis of the EDC.3 cycle map holds even if k is imperfect.",
+        "For the native pinned pro-étale ellAdicSheaf/EllAdicCohomology carrier, use the explicit SF.2 native-sheaf/derived-limit comparison before identifying it with the classical tower. The existing carrier is not itself this theorem or the Q_ℓ module structure.",
+        "Retain the continuous G_k action on maps, twists, cycle classes and projector images. Any later Betti comparison applies the explicitly named forgetful functor."
+      ],
+      "proofSteps": [
+        "Import finite-coefficient Kummer classes, geometric base change and finite-generation/continuous-action structure from SF.2; EDC.3 supplies rational-equivalence descent and Gysin/product compatibility. Compare its first Chern class and hence all rational cycle classes with chern-character-cycle-map.",
+        "Use EDC.2:pairings for rational Poincaré duality and normalized traces, SF.2 for Künneth and vanishing. Under the finite-to-adic conversion retain 0→lim¹ H^{q−1}(K_n)→H^q(Rlim K_n)→lim H^q(K_n)→0 until Mittag–Leffler is verified. Finite finite-level groups provide that condition in this smooth-proper setting; then invert ℓ.",
+        "Pullback to X_k̄ takes k-correspondences to G_k-equivariant cohomology maps. Continuous invariant images of projectors are again finite-dimensional continuous representations. Apply the MC.1 universal property in that idempotent-complete target.",
+        "For imperfect k the geometric action is obtained through the separable closure and the purely inseparable-invariance identification requested from SF.2, rather than assuming that k̄/k is Galois."
+      ],
+      "acceptance": [
+        "The target is geometric cohomology, not the arithmetic groups H^q(X,Q_ℓ), which generally fail the stated finite-dimensional Weil axioms.",
+        "The construction makes no comparison of coefficient fields C and Q_ℓ and no ℓ=char(k) assertion."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+        "MotivesAndAlgebraicCycles:MC.1/motives-universal-property",
+        "MotivesAndAlgebraicCycles:MC.1/tate-twist",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality",
+        "mathlib:AlgebraicGeometry.Scheme.ellAdicSheaf",
+        "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology"
+      ],
+      "sources": [
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§4, Lemma 4.8 (0FGH), pp.10–11; §7, Lemma 7.10 (0FH2), pp.20–21",
+          "match": "The first result extends correspondence functors by taking projector images and inverting the Lefschetz image; the second gives the pull–cup–push action of a Weil theory. This packet uses that machinery and specifies comparison maps on its outputs."
+        },
+        {
+          "sourceId": "MILNE.LEC",
+          "locator": "§19, pp.121–125 (definition and finite generation of ℓ-adic cohomology); §22, Theorems 22.1 and 22.4, pp.135–136; §23, Lemma 23.1 and Theorems 23.2–23.3, pp.138–141; §24, Theorem 24.1 and Remark 24.2, pp.144–145",
+          "match": "These provide the classical finite/tower cohomology, cycle, product and point-normalized trace interfaces; SF.2 must identify them with the native carrier."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "EtaleRealization.functor",
+          "role": "data",
+          "statement": "R_ℓ with continuous G_k action and rational linear Koszul symmetric monoidal structure."
+        },
+        {
+          "name": "EtaleRealization.obj",
+          "role": "characterisation",
+          "statement": "R_ℓ^j(X,p,m)=im p on H_et^{j+2m}(X_k̄,Q_ℓ(m))."
+        },
+        {
+          "name": "EtaleRealization.firstChern",
+          "role": "compatibility",
+          "statement": "The class of a line bundle is the compatible Kummer boundary, then rationalized."
+        },
+        {
+          "name": "EtaleRealization.cycleClass",
+          "role": "compatibility",
+          "statement": "Use the EDC.3 class on X_k̄ after Chow base change; it is G_k-invariant and agrees with the first-Chern construction."
+        },
+        {
+          "name": "EtaleRealization.trace",
+          "role": "data",
+          "statement": "Tr_ℓ:H_et^{2d}(X_k̄,Q_ℓ(d))→Q_ℓ is G_k-equivariant, a geometric point has trace one, and component traces are summed."
+        },
+        {
+          "name": "EtaleRealization.map",
+          "role": "functoriality",
+          "statement": "Correspondence maps are G_k-equivariant pull–cup–push maps restricted to projector images."
+        },
+        {
+          "name": "EtaleRealization.geometricBaseChange",
+          "role": "compatibility",
+          "statement": "An extension of algebraically closed fields carrying the fixed closures induces a natural monoidal realization isomorphism, with cycle/trace compatibility; the named base-change maps obey the tower cocycle."
+        },
+        {
+          "name": "EtaleRealization.nativeComparison",
+          "role": "compatibility",
+          "statement": "The specified SF.2 native/derived-tower identification commutes with coefficients, pullback, cup, Kummer classes and normalized trace; it is a required supplier theorem, not a definition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison",
+          "how": "Provides the geometric Q_ℓ target and its Tate action."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/realization-quotients",
+          "how": "Uses the kernel of geometric cycle class over k̄."
+        },
+        {
+          "where": "MotivesAndAlgebraicCycles:MC.2/curve-divisor-acceptance",
+          "how": "Checks degree and trace after geometric base change."
+        }
+      ],
+      "tests": [
+        {
+          "name": "EtaleRealization.finiteFieldTate",
+          "kind": "computation",
+          "statement": "For k=F_q and ℓ∤q, geometric Frobenius acts by q on H²(P¹_k̄,Q_ℓ)=Q_ℓ(−1), by q^{−1} on Q_ℓ(1), and by 1 on H²(P¹)(1); the normalized trace is equivariant."
+        },
+        {
+          "name": "EtaleRealization.geometricPoint",
+          "kind": "degenerate",
+          "statement": "R_ℓ(h(Spec k)) is the trivial Q_ℓ representation in degree 0 and zero elsewhere; R_ℓ(1(1)) is cyclotomic in degree −2."
+        },
+        {
+          "name": "EtaleRealization.closedPointDegree",
+          "kind": "computation",
+          "statement": "For a closed point x of a smooth projective curve over k, Tr_ℓ(cl_ℓ[x])=[κ(x):k], including inseparable multiplicity in the Chow base-change class."
+        },
+        {
+          "name": "EtaleRealization.excludedPrime",
+          "kind": "non-example",
+          "statement": "The constructor rejects ℓ=char(k); prime-to-characteristic Kummer and the rational duality supplier cannot justify that case."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "The de Rham–Betti comparison on motives",
+      "kind": "comparison",
+      "statement": "For σ:k→C, there is a named symmetric monoidal natural isomorphism C_dRB,σ:R_dR(−)⊗_{k,σ}C≅R_B,σ(−)⊗Q C. On h(X) its untwisted component I_X^q is the C5 algebraic de Rham/base-change, analytification, holomorphic de Rham and singular comparison composite. Put p=2πi and t_B=p∈Q(1). The line map is t_dR↦p^{−1}t_B. Thus on H^{q}(X)(m), expressed in the formal Tate bases, the component is p^{−m}I_X^q. On (X,e,m) restrict I_X^{j+2m}⊗τ^m to the image of e. This is natural for every Chow correspondence and preserves cup, pushforward, cycle classes, duality and normalized trace.",
+      "hypotheses": [
+        "Use the fixed C5 proper comparison node and multiplicative-period-interface together with the strengthened first-Chern, scalar-extension and trace contract requested from C5.",
+        "The source/target directions are dR→Betti. The inverse has the inverse period on the Tate line. No isomorphism of the original k- and Q-vector spaces is asserted."
+      ],
+      "proofSteps": [
+        "Obtain I_X^q from C5 after σ-base change; its coefficient map is σ:k→C. Hodge II §2.2.5.1 identifies the negative dlog first Chern class with the exponential class after including the Tate-line factor.",
+        "Trace compatibility is the point-normalized C5 trace square: raw top-degree integration scales by p^d, while τ^d contributes p^{−d}. The first-Chern construction then gives all-cycle compatibility, rather than assuming only equality of divisor degrees.",
+        "These maps form a normalized-cohomology-comparison. Apply comparison-intertwines-correspondences and comparison-on-chow-motives.",
+        "Verify identity and tower coherence of algebraic base change using the specified C5 maps. This gives coherence after base extension and on all projectors and twists; it does not identify different σ without data."
+      ],
+      "acceptance": [
+        "For u∈H_B²(P¹,Q) of oriented integral one, I_P¹²(c1_dR O(1))=p u, but C_dRB^{2,1}(c1_dR O(1))=u⊗t_B and both normalized traces are one.",
+        "On the motive 1(1), in degree −2, C_dRB(t_dR)=p^{−1}t_B. Using p instead fails the divisor test.",
+        "The comparison of a product is its graded tensor product, with the same Koszul convention."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/comparison-on-chow-motives",
+        "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+        "ComplexComparisonPartII:C5/multiplicative-period-interface",
+        "ComplexComparisonPartII:C5"
+      ],
+      "sources": [
+        {
+          "sourceId": "GROTH1966",
+          "locator": "Theorem 1′, printed pp.95–96",
+          "match": "This gives the canonical untwisted algebraic-to-analytic de Rham comparison, which C5 owns."
+        },
+        {
+          "sourceId": "HODGEII",
+          "locator": "§2.2.4–§2.2.6, printed pp.28–29",
+          "match": "This identifies the first Chern sign and the twist-normalized class/trace."
+        },
+        {
+          "sourceId": "DELIGNE82",
+          "locator": "§1, revised pp.8–11; original pp.17–22",
+          "match": "The line inclusion and trace formula fix the direction of the period factor; the extension to arbitrary projector motives is the packet’s application of the common comparison theorem."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "The étale–Betti comparison on motives",
+      "kind": "comparison",
+      "statement": "Let σ:k→C and choose an extension σ̄:k̄→C. For every prime ℓ there is a named symmetric monoidal natural isomorphism C_Bℓ,σ̄:R_B,σ(−)⊗Q Q_ℓ≅Forget(R_ℓ(−)). The finite cohomology comparison is a_n:H_et^q(X_C,μ_{ℓ^n}^{⊗m})≅H_sing^q(X_σ(C),Z/ℓ^n(m)), where the exponential coefficient identification sends t_B mod ℓ^n Z(1) to exp(2πi/ℓ^n); a_n uses its inverse. After the compatible derived-limit/native-coefficient passage and inversion of ℓ, the untwisted h(X) component is b^{-1}∘a^{-1}, where b is geometric base change from X_k̄ to X_C. Its Tate-line map sends t_B to the compatible root system ε_n=exp(2πi/ℓ^n). Restrict these components to projector images and apply the required Tate powers. They commute with cycle class, proper pushforward, cup products, trace and every correspondence.",
+      "hypotheses": [
+        "σ implies char(k)=0. No corresponding Betti comparison is asserted in positive characteristic.",
+        "SGA 4 XVI 4.1 is used with the structural proper map X_C→Spec C and torsion abelian coefficients; all degrees are required. Cover-level Riemann existence alone is insufficient.",
+        "C5 has no existing all-degree Artin-comparison node. Its exact requested contract is recorded as a gap under the existing C5 owner; the proposed C7 in SF.6 is not treated as an existing stage.",
+        "The comparison forgets the G_k action on the right. A G_k action on the Betti Q_ℓ-space can be transported through it and depends on σ̄."
+      ],
+      "proofSteps": [
+        "Import the finite comparison from the C5 request: SGA 4 XVI 4.1 gives the cohomology map of sites, natural in X and finite coefficients. Its pullback/cup/unit and Kummer connecting squares are included in that supplier contract.",
+        "Apply Rlim to the compatible ℓ^n comparisons, compare with the native SF.2 coefficient carrier, and retain the lim¹ exact sequence. Finite torsion cohomology groups give Mittag–Leffler. Finite generation of singular integral cohomology of the compact smooth manifold identifies its completed rationalization with H_B(Q)⊗Q_ℓ; tensoring Q_ℓ kills any integral torsion, which is not discarded before this step.",
+        "The root-of-unity coefficient maps yield first-Chern compatibility. Degree-one geometric-point normalization plus the component trace square gives trace compatibility. Apply chern-character-cycle-map for all rational cycles.",
+        "Invert the finite/completed comparison and geometric base-change maps in the displayed order. Apply comparison-on-chow-motives to get a natural isomorphism on all motives.",
+        "Coefficient reduction, chosen-root identifications and geometric base-change maps supply the tower cocycle; inherit it after retracts and twists."
+      ],
+      "acceptance": [
+        "For P¹ the map carries the twisted hyperplane class to the Kummer hyperplane class and their traces to one.",
+        "The scalar ring is Q_ℓ on both sides. There is no chosen or claimed field homomorphism C→Q_ℓ.",
+        "The comparison is stronger than equality of Betti numbers and retains the embedding, root system and each coefficient/site map."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/comparison-on-chow-motives",
+        "ComplexComparisonPartII:C5",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA4.XVI",
+          "locator": "§4, Theorem 4.1 and proper-case argument, original marginal pp.232–234; retypeset PDF pp.13–14",
+          "match": "This is all-degree torsion-coefficient étale-to-classical comparison, specialized to a smooth projective complex scheme. The compatibility and limit identifications are precise supplier obligations."
+        },
+        {
+          "sourceId": "MILNE.LEC",
+          "locator": "§21, Theorem 21.1, p.130; §19, pp.121–125; §22, pp.135–136",
+          "match": "These give the finite comparison and the classical ℓ-adic coefficient/tower framework; they do not identify the pinned native pro-étale carrier by definition."
+        },
+        {
+          "sourceId": "DELIGNE82",
+          "locator": "§1, revised pp.8–9; original pp.18–20",
+          "match": "The exponential identification of the Betti and étale Tate lines fixes the root system and comparison direction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/realization-quotients",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Exact realization kernels and permitted quotients",
+      "kind": "theorem",
+      "statement": "For each admitted realization H, let I_H^r(X)=ker(cl_H:CH^r(X)_Q→H^{2r}(X)(r)), using geometric base change for the étale theory. For degree-r correspondences a:X→Y, A_H(a)=0 in all degrees if and only if cl_H(a)=0. Thus R_H factors faithfully on morphisms through the idempotent-completed H-homological motive category. For an adequate rational cycle relation J containing rational equivalence, R_H factors through its motive quotient if and only if every J-trivial cycle has zero H-class. A normalized comparison after faithful coefficient extension identifies I_H and I_K and gives the induced comparison on their common homological quotient. In particular the Betti, de Rham and each ℓ-adic kernel agree for the specified characteristic-zero complex embedding. Homological triviality implies numerical triviality, while descent of R_H to numerical motives requires the reverse inclusion I_num⊆I_H, hence equality; it is not asserted unconditionally.",
+      "hypotheses": [
+        "Use the rational Chow groups and the same realization on all degrees; no algebraic Künneth-projector decomposition is assumed.",
+        "For a general quotient first define the functor on the quotient correspondence category, then extend to its Karoubi/Tate completion. Do not assume that every quotient idempotent lifts to a Chow idempotent.",
+        "Faithfulness refers to the homological correspondence Hom groups and their corners, not to essential surjectivity onto graded vector spaces or fullness onto all linear maps."
+      ],
+      "proofSteps": [
+        "Künneth and Poincaré duality identify the degree (2dim X+2r,dim X+r) cohomology of X×Y with the sum of the linear-map spaces H^i(X)→H^{i+2r}(Y)(r). Under this identification cl_H(a) is exactly A_H(a). This is the inherited homological-correspondences-embed argument with explicit twists.",
+        "If J is killed, the action passes to correspondence classes and then extends via the MC.1 universal property. Conversely use cycles as morphisms 1(−r)→h(X) to show that factorization kills every J-trivial cycle.",
+        "Use injectivity of V→V⊗E for field extensions and comparison-cycle compatibility to identify the cycle kernels. Apply the motive comparison before or after the common quotient; their natural isomorphisms agree on geometric generators and Tate, hence everywhere.",
+        "A homologically trivial α pairs trivially with every complementary algebraic β since degree(αβ)=Tr(cl α∪cl β)=0. Therefore I_H⊆I_num. Factoring through the coarser numerical quotient needs the other containment; no standard conjecture is silently supplied."
+      ],
+      "acceptance": [
+        "A nonzero degree-zero divisor on an elliptic curve can be zero in all these rational cohomologies while remaining nonzero in CH¹_Q; the Chow realization need not be faithful.",
+        "A cohomology comparison does not prove numerical=homological equivalence, algebraicity of all Künneth projectors, or independence of arbitrary Weil theories in positive characteristic.",
+        "On a curve the homological and numerical kernels on divisors are both the degree-zero classes, giving a concrete quotient check."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/comparison-on-chow-motives",
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+        "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison",
+        "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison",
+        "MotivesAndAlgebraicCycles:MC.2/homological-correspondences-embed",
+        "MotivesAndAlgebraicCycles:MC.2/homological-equivalence",
+        "MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation",
+        "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence",
+        "MotivesAndAlgebraicCycles:MC.1/motives-universal-property"
+      ],
+      "sources": [
+        {
+          "sourceId": "MILNE.MOT",
+          "locator": "§6, pp.7–8, discussion of realization through homological versus numerical equivalence",
+          "match": "The obstruction to numerical descent is the missing reverse implication from numerical to homological equivalence."
+        },
+        {
+          "sourceId": "STACKS.WEIL.MC2",
+          "locator": "§7, Lemmas 7.4–7.7 (0FGW–0FGZ), pp.16–17; §4, Lemma 4.8 (0FGH), pp.10–11",
+          "match": "Degree and Poincaré/Künneth pairing identify correspondence kernels; the universal property extends the quotient functor without requiring idempotent lifting."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/curve-divisor-acceptance",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.2",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.2"
+      ],
+      "title": "Degree, first Chern class and trace on a curve",
+      "kind": "application",
+      "statement": "Let C/k be a smooth geometrically connected projective curve and D a rational divisor class. For each admitted H, cl_H(D)=c1_H,Q(D)∈H²(C)(1), where c1_H,Q is the Q-linear extension of D↦c1_H(O_C(D)) on integral divisors, and Tr_C(cl_H(D))=deg_k(D). Thus this class is zero exactly when deg_k(D)=0. For f:C→C′ a finite morphism of smooth geometrically connected projective curves, Tr_{C′}(f_*cl_H D)=deg D and f_*f^* on cohomology is deg(f) times the identity. Every defined motivic comparison carries these divisor, pushforward and trace maps to the matching maps. Over a complex embedding, raw de Rham integration of the class of D is (2πi)deg D, while the twisted comparison and normalized trace give deg D.",
+      "hypotheses": [
+        "Betti requires σ:k→C, de Rham requires char(k)=0, and étale requires ℓ invertible in k. The assertions are made only for the admitted theories in those domains.",
+        "For a rational divisor define c1_H,Q by Q-linear extension from integral divisors; O_C(D) itself is used only when D is integral. Include residue degree and any inseparable multiplicities for a closed point after geometric base change."
+      ],
+      "proofSteps": [
+        "Use the first-Chern construction for divisor compatibility. After a geometric field extension, the normalized trace is one on each geometric point with its cycle multiplicity; Chow degree/base-change compatibility gives deg_k(D).",
+        "Geometric connectedness makes H²(C)(1) one-dimensional and trace an isomorphism. For de Rham this follows by faithful scalar extension; for Betti and étale it is the proper Poincaré trace theorem. Hence the class vanishes precisely for degree zero.",
+        "Use proper cycle pushforward and the projection formula for f, retaining its degree in the Chow push–pull identity. Apply the named correspondence comparisons to the graph and transpose graph to get the commuting squares.",
+        "For the complex period calculation apply de-rham-betti-motivic-comparison to D and evaluate the raw top-degree Betti class on the positively oriented curve."
+      ],
+      "acceptance": [
+        "For C=P¹ and D a k-rational point, all normalized traces are +1; for D=a−b they are zero.",
+        "For a finite map P¹→P¹ of degree n, f^* of a point has degree n and f_*f^* acts by n. A degree-one or transpose-graph convention error fails this test.",
+        "This checks the exact cycle quotient and named maps demanded by MC.2, not only dimensions of its realizations."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.2/realization-quotients",
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison",
+        "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison",
+        "MotivesAndAlgebraicCycles:MC.2/cycle-class-degree",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "MILNE.LEC",
+          "locator": "§23, pp.138–141; §24, Theorem 24.1 and Remark 24.2(b)–(f), pp.144–145",
+          "match": "The cycle class of a divisor is first Chern, a point has normalized trace one, and proper pushforward/projection formulas give the finite-map calculation."
+        },
+        {
+          "sourceId": "DELIGNE82",
+          "locator": "§1, revised p.11; original p.22",
+          "match": "The normalized de Rham trace differs from raw integration by the explicit power of 2πi."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "inheritedNodes": [
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/homological-equivalence",
+      "role": "Homological equivalence relative to a chosen Weil cohomology"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-data",
+      "role": "The data of a Weil cohomology theory"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology",
+      "role": "Classical Weil cohomology theories"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/weil-pushforward",
+      "role": "Cohomological pushforward and the projection formula"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/cycle-class-degree",
+      "role": "The trace of a cycle class is the degree"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/trace-of-a-product",
+      "role": "The trace on a product"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/class-of-the-diagonal",
+      "role": "The Kuenneth decomposition of the class of the diagonal"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/euler-characteristic-self-intersection",
+      "role": "The Euler characteristic as a self-intersection of the diagonal"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/weil-from-monoidal-functor",
+      "role": "A monoidal functor on motives gives Weil data"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/weil-to-monoidal-functor",
+      "role": "A Weil cohomology theory is a monoidal functor on motives"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/realization-equivalence",
+      "role": "Realisations are exactly monoidal functors on motives"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/chow-groups-under-field-extension",
+      "role": "Chow groups over an algebraic extension are a colimit"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/pushforward-along-projection",
+      "role": "Pushforward along a projection integrates over the first factor"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/cycle-class-of-fundamental-class",
+      "role": "The cycle class of the fundamental class is the unit"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/graded-vector-spaces-koszul",
+      "role": "Graded vector spaces with the Koszul sign"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-of-schemes",
+      "role": "A classical Weil cohomology theory on smooth projective schemes"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-by-base-change",
+      "role": "A Weil cohomology theory for varieties over an arbitrary field"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/etale-cohomology-is-weil",
+      "role": "l-adic cohomology is a classical Weil cohomology theory"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/lefschetz-trace-formula",
+      "role": "The Lefschetz trace formula for correspondences"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/kunneth-components",
+      "role": "The Künneth components of the diagonal"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/homological-correspondences-embed",
+      "role": "Realisation of correspondences is faithful modulo homological equivalence"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/realization-round-trip",
+      "role": "The two constructions of Proposition 0FH3 are mutually inverse"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/graph-duality-compatibility",
+      "role": "Graphs and the duality pairings"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/chow-kernel-torsion",
+      "role": "The kernel of base change on Chow groups is torsion"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.2/zero-cycles-separable-points",
+      "role": "Zero cycles are generated by separable points"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Reuse the existing rational Chow groups, rational equivalence, refined pullback on smooth schemes, products, field-extension maps, proper pushforward and degree; supply the rational ring isomorphism ch_CH:K0(Vect(X))⊗Q≅CH^*(X)_Q for smooth projective X, with Adams eigenspaces, Chern classes and base-change compatibility (Stacks Chow Homology §58, 0FIF’s input). No new cycle group is requested from MC.2.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/curve-divisor-acceptance"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "need": "Reuse the existing singular cohomology carrier, finite-dimensional rational Künneth and cup products, complex-oriented manifold Poincaré duality, projective bundle formula and proper/Gysin adjunction. C5 must identify its analytic comparison and divisor/cycle operations with these same carriers. This is a shared-carrier export request, not a second topology development.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C5",
+      "need": "On smooth projective X over characteristic-zero k, provide algebraic de Rham scalar-base-change isomorphisms for arbitrary field extensions, their cocycle and compatibility with products, the negative-dlog first Chern class and algebraic trace. For σ:k→C strengthen repair-proper-de-rham-betti and multiplicative-period-interface to the exact map I_X, preserving pullback/unit/cup and c1 after τ(t_dR)=(2πi)^{-1}t_B. Its top trace square is Tr_B∘(I_X⊗τ^d)=σ∘Tr_dR. Include the projective-bundle/divisor-support exports and the Betti Chern/Gysin/fundamental-class agreement needed to build cycle maps. MC.2 builds the functors on motives and derives all-cycle/correspondence comparison; C5 owns the cohomology-level analytic/algebraic theorem.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison"
+      ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C5",
+      "need": "Supply SGA 4 XVI 4.1 for the structural proper map of a smooth projective complex scheme, in every degree with coefficients μ_{ℓ^n}^{⊗m}; name the site comparison a_n:étale→singular and the exponential coefficient maps. Prove compatibility with reduction, pullback, unit/cup, Kummer boundary/first Chern and the point-normalized trace. Coordinate its derived finite-to-rational passage with SF.2. This is the existing C5 owner request pending the SF.6 proposal for a distinct C7; no nonexistent C7 is cited as a prerequisite.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Supply the prime-to-characteristic geometric finite-coefficient cohomology/Kummer, finite generation, Künneth, geometric base-change and continuous G_k module structures. Identify native pro-étale Z_ℓ coefficient cohomology with Rlim of its derived finite reductions, including the Milnor lim¹ term, then prove its vanishing from finite-level finiteness in the smooth-proper case and rationalize. Include cup/pullback/Kummer and EDC trace compatibility, and the analogous compatible finite-to-rational singular comparison. For imperfect k identify the separable/algebraic-closure realizations through purely inseparable invariance. No ordinary-limit identification is assumed from the native definition alone.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+        "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "MotivesAndAlgebraicCycles:MC.2",
+      "status": "planned",
+      "targets": [
+        {
+          "target": "Realization functors for the admitted fields and coefficients",
+          "nodes": [
+            "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+            "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+            "MotivesAndAlgebraicCycles:MC.2/etale-realization"
+          ]
+        },
+        {
+          "target": "Cycle classes, composition, cup, pushforward, trace and twists",
+          "nodes": [
+            "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+            "MotivesAndAlgebraicCycles:MC.2/comparison-intertwines-correspondences",
+            "MotivesAndAlgebraicCycles:MC.2/comparison-on-chow-motives"
+          ]
+        },
+        {
+          "target": "Betti/de Rham and étale comparisons with their suppliers",
+          "nodes": [
+            "MotivesAndAlgebraicCycles:MC.2/normalized-cohomology-comparison",
+            "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison",
+            "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison"
+          ]
+        },
+        {
+          "target": "Curve divisor acceptance and exact quotient descent",
+          "nodes": [
+            "MotivesAndAlgebraicCycles:MC.2/realization-quotients",
+            "MotivesAndAlgebraicCycles:MC.2/curve-divisor-acceptance"
+          ]
+        }
+      ],
+      "remaining": [
+        "Resolve the exact C5 and SF.2 supplier requests recorded as gaps before claiming stage closure; SF.6 supplies process contracts only.",
+        "At assembly retain the inherited MC.2 nodes by reference, the five existing planets and the one new comparison planet; do not duplicate the inherited IDs or drop the full comparison target."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "C5 normalized algebraic/analytic realization interface",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+        "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison"
+      ],
+      "detail": "C5 has a canonical proper de Rham–Betti comparison node and a multiplicative-period interface. Its precise arbitrary-characteristic-zero scalar descent, first-Chern sign and normalized trace exports are not all present as exact supplier nodes. The request states the missing interface. These inputs are required, not silently assumed to be supplied by process-only SF.6."
+    },
+    {
+      "title": "All-degree finite étale–Betti supplier ownership and maps",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison"
+      ],
+      "detail": "SF.6 S3/S6 and request R4 explicitly report no all-degree Artin-comparison node and propose a separate C7. C5 is the recorded existing owner for this request until the maintainer resolves that proposal. SGA 4 XVI 4.1 supports the mathematical theorem; neither SF.6 nor a cover equivalence is accepted as its implementation plan."
+    },
+    {
+      "title": "Native ℓ-adic carrier versus the finite derived tower",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+        "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison"
+      ],
+      "detail": "The pinned EllAdicCohomology declaration supplies an additive carrier only. The native/derived-tower, Q_ℓ-module and operation identifications in the SF.2 request remain explicit supplier obligations. The classical EDC rational duality/cycle nodes do not by themselves establish that carrier conversion."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "MotivesAndAlgebraicCycles/E48",
+      "source": "DELIGNE82",
+      "kind": "misprint",
+      "locator": "Revised 2018 author copy, §1, p.10, first-Chern paragraph; compare original 1982 printed p.20 (PDF p.12).",
+      "printed": "The revised copy describes c1:Pic(X)→H²(X)(1) as an isomorphism.",
+      "correction": "It is a group homomorphism. The original printed p.20 already uses that weaker and correct word.",
+      "reason": "For a complex elliptic curve, nontrivial degree-zero line bundles have zero rational cohomological c1; even for P¹ the integral Picard group cannot be isomorphic to a rational cohomology vector space.",
+      "affects": "nothing",
+      "known": "The original 1982 author-hosted scan, printed p.20, has the correct formulation; the error is specific to the revised transcription.",
+      "searched": [
+        "Author article page https://www.jmilne.org/math/articles/1982a.html and its original/revised versions.",
+        "Author addendum https://www.jmilne.org/math/Books/add/DMOS.pdf; the published-scan paragraph was inspected visually."
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E49",
+      "source": "DELIGNE82",
+      "kind": "misprint",
+      "locator": "Original 1982 §1, printed p.20 (PDF p.12); revised 2018 §1, p.10, displayed formula for cl(Z).",
+      "printed": "The formula for a codimension-r cycle uses c_r([O_Z])/(r−1)! without an alternating sign.",
+      "correction": "With the usual Chern-class convention it is (−1)^{r−1}c_r([O_Z])/(r−1)!, r≥1. The packet defines classes by the Chern character, so it does not rely on the misprinted formula.",
+      "reason": "For a point z that is a complete intersection of two hyperplanes in P², [O_z]=[O]−2[O(−1)]+[O(−2)]. Thus c([O_z])=(1−2h)/(1−h)²=1−h² in Q[h]/(h³), so c2([O_z])=−h² whereas cl[z]=h². Grothendieck 1958 §4.3, (15)–(16), pp.150–151, supplies the factor (−1)^{r−1}(r−1)!.",
+      "affects": "nothing",
+      "known": "new; no correction to this formula located in the author’s listed errata or revised text.",
+      "searched": [
+        "Author 1982a article page, original scan and 2018 revised §1.",
+        "Author DMOS addendum, pp.1–2 (including the separate c1 sign caution).",
+        "Grothendieck 1958 §4.3, formulas (15)–(16), pp.150–151."
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E50",
+      "source": "STACKS.WEIL.MC2",
+      "kind": "gap",
+      "locator": "PDF ed88ff78, §14, Lemma 14.16 (0FIT), p.55, and Proposition 14.17 (0FIU), p.56; live tags checked 19 October 2026.",
+      "printed": "Both statements assume (A1)–(A8), but the proof of 0FIT invokes (A9) to identify the exceptional-divisor pushforward of 1 with its cycle class; 0FIU uses 0FIT.",
+      "correction": "The displayed argument is sufficient if (A9) is also assumed, or a derivation of (A9) from the earlier hypotheses must be supplied. The packet uses only 0FIF for its ring cycle map and obtains pushforward from the admitted theories’ independently supplied trace/Gysin interfaces.",
+      "reason": "The exact step j_*(1)=cl[E] is the Cartier-divisor trace compatibility singled out as (A9) at the start of §14. It is not among the hypotheses displayed for 0FIT. This records the proof-dependency gap and does not assert that the conclusion under (A1)–(A8) is false.",
+      "affects": "the proof",
+      "known": "new; the live tags retain this hypothesis/proof mismatch and have no comments recording a repair.",
+      "searched": [
+        "https://stacks.math.columbia.edu/tag/0FIT including its comment area.",
+        "https://stacks.math.columbia.edu/tag/0FIU including its comment area.",
+        "Downloaded Weil chapter ed88ff78, §14 axioms and proofs, pp.47–48 and 55–56."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://www.jmilne.org/math/Documents/Deligne82.pdf",
+      "read": "2026-10-19",
+      "sha256": "827e3571c8049fc5d3aed8dfad912fee39a2f5dbf7341726c38235f035d32139"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.jmilne.org/math/Documents/Deligne82_1982.pdf",
+      "read": "2026-10-19",
+      "sha256": "d401e580ad7846c92475f7a3741fa4ffff2ff088f1fb91ec08de80316283bbc4"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.jmilne.org/math/Books/add/DMOS.pdf",
+      "read": "2026-10-19",
+      "sha256": "4f00e593de42ade46becc5cc6199cd342a94c76ba3a2388da3a1428b3f891da0"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/download/weil.pdf",
+      "read": "2026-10-19",
+      "sha256": "01f8d89f2c09649af2e0355b4798a71ee8c31ff97f8f2fa13a5b907e0db7caa2"
+    }
+  ],
+  "scopeNotes": [
+    "This is a follow-up part, not an accepted rescope of MC.2 and not a replacement for MC.0/MC.1 or the other stages.",
+    "Source locators and mathematical synthesis are in the worker’s own words. No source passage is reproduced.",
+    "The compact suggested file contains only two important linear-algebra fragments statable on the pinned carriers. Heavy geometric definitions, all APIs, tests and comparisons are specified in the reader; no opaque cohomology/motive stand-ins are introduced."
+  ]
+}
