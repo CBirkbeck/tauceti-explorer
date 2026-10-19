@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T16:40Z",
+  "updated": "2026-10-19T16:50Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -149,7 +149,7 @@
       "stage": "pr",
       "pr": 818,
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); 2026-10-13: rebased onto the updated #813 (own folder unchanged); restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-      "head": "675da96",
+      "head": "1066d7c",
       "review": {
         "recommendation": "changes",
         "current": false,
@@ -256,7 +256,7 @@
     "GeometryOfNumbersAndQuadraticArithmetic": {
       "stage": "pr",
       "pr": 851,
-      "head": "b31507a",
+      "head": "01c64f0",
       "depends_on": [
         792,
         785
@@ -273,7 +273,7 @@
     "NeronModelsAndSemistableAbelianVarieties": {
       "stage": "pr",
       "pr": 852,
-      "head": "23ef476",
+      "head": "9c5035a",
       "depends_on": [
         779,
         785
@@ -487,7 +487,7 @@
     "LefschetzPencilsAndVanishingCycles": {
       "stage": "pr",
       "pr": 873,
-      "head": "1e3ff24",
+      "head": "649dc36",
       "depends_on": [
         779,
         792,
@@ -613,7 +613,7 @@
     "DiamondEtaleCohomology": {
       "stage": "pr",
       "pr": 922,
-      "head": "f96ef01",
+      "head": "71d0dcb",
       "note": "companion: C4.1 consumes DiamondsAndVStacks D4.11 10-16",
       "review": {
         "recommendation": "approve",
@@ -677,7 +677,7 @@
     "AlgebraicModularFormsAndSerreWeights": {
       "stage": "pr",
       "pr": 928,
-      "head": "f2886d7",
+      "head": "b3b9604",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro CHANGES 10-16 09:1x–09:2xZ, fix running; draft",
       "review": {
         "recommendation": "changes",
@@ -982,7 +982,7 @@
     "DeformationAndDerivedPatchingAlgebra": {
       "stage": "pr",
       "pr": 1034,
-      "head": "5cf2789",
+      "head": "f36306e",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 20); red team running",
       "review": {
         "recommendation": "approve",
@@ -1018,13 +1018,14 @@
     "AutomorphicFormsOnReductiveGroups": {
       "stage": "pr",
       "pr": 1037,
-      "head": "dc45964",
+      "head": "b028708",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 22); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at b028708; confirmation pass pending"
       }
     },
     "ShimuraData": {
@@ -1042,7 +1043,7 @@
     "DirichletPadicLFunctions": {
       "stage": "pr",
       "pr": 1039,
-      "head": "21559c6",
+      "head": "b535adc",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
       "review": {
         "recommendation": "changes",
