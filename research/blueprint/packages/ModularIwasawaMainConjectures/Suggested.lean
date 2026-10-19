@@ -237,6 +237,10 @@ example : Matrix.mulVec (!![(1 : ℚ), 0; -1, 1]) ![1, 0] = ![1, -1] := by
 
 /-! ## Layer 5: specialization, leading terms and arithmetic examples -/
 
+/-- Under a Tate-parameter power relation, logarithm and valuation scale together.
+The reverse isogeny preserves the same ratio; scaling only the denominator does not. -/
+example : (21 / 14 : ℚ) = 3 / 2 ∧ (3 / 14 : ℚ) ≠ 3 / 2 := by norm_num
+
 section MuLambda
 
 /-- The algebraic core of the μ comparison: two nonzero power
@@ -312,6 +316,7 @@ IMC and IMC_rational; KMC and KMC_rational; SignedSelmer and its local condition
 SMC and SMC_rational; residual irreducibility, ScalarExclusion and the twisted-Steinberg
 extension predicate; mazurSwinnertonDyerL; MazurMC and MazurMC_rational;
 tateLInvariant; MTT and MTT_p with their arithmetic height input.
+The family also requires the supplier construction universalDeformationZeta.
 The ordinary, pointwise, elliptic, family and signed arithmetic theorems and all branch
 comparison maps are README targets. They are not expressed using unspecified carriers.
 -/
