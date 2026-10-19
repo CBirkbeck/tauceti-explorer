@@ -38423,7 +38423,8 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.4",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10801"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.5",
@@ -38469,8 +38470,9 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.5",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10802"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10802",
+   "finishedAt": "2026-10-19T22:16:33Z"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.6",
@@ -38516,8 +38518,9 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.6",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10803"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10803",
+   "finishedAt": "2026-10-19T22:16:37Z"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.7",
@@ -38563,7 +38566,8 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.7",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10804"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
@@ -60170,7 +60174,8 @@
     "PKG-PeriodsAndSpecialValues~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PeriodsAndSpecialValues~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11114"
   },
   {
    "id": "PKG-PhiGammaModulesAndIwasawaCohomology",
@@ -151080,9 +151085,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-K2SymbolsBrauer~codex.md",
-   "note": "claimed on GitHub issue #11065"
+   "note": "deliverables arrived from an external worker on issue #11065",
+   "finishedAt": "2026-10-19T22:16:41Z"
   },
   {
    "id": "FIX-PKG-K3BlochGroups~adv",
@@ -151420,9 +151426,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv.md",
-   "note": "claimed on GitHub issue #11117"
+   "note": "deliverables arrived from an external worker on issue #11117",
+   "finishedAt": "2026-10-19T22:16:45Z"
   },
   {
    "id": "FIX-PKG-EllipticKTheory~adv",
@@ -151505,9 +151512,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex.md",
-   "note": "claimed on GitHub issue #11130"
+   "note": "deliverables arrived from an external worker on issue #11130",
+   "finishedAt": "2026-10-19T22:16:49Z"
   },
   {
    "id": "FIX-PKG-EisensteinIdealAndRationalTorsion~adv",
@@ -151525,9 +151533,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv.md",
-   "note": "claimed on GitHub issue #11137"
+   "note": "deliverables arrived from an external worker on issue #11137",
+   "finishedAt": "2026-10-19T22:16:52Z"
   },
   {
    "id": "FIX-PKG-BorelRegulators~adv2",
@@ -151545,8 +151554,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv2.md",
+   "note": "claimed on GitHub issue #11139"
   },
   {
    "id": "FIX-PKG-KTheoryFiniteLocalFields~adv2",
@@ -151564,8 +151574,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv2.md",
+   "note": "claimed on GitHub issue #11140"
   },
   {
    "id": "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex",
@@ -151584,8 +151595,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex.md",
+   "note": "claimed on GitHub issue #11142"
   },
   {
    "id": "DESIGN-CyclotomicClassGroupsAndStickelberger",
@@ -151622,8 +151634,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ExcursionOperatorsAndSpectralAction~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ExcursionOperatorsAndSpectralAction~adv.md",
+   "note": "claimed on GitHub issue #11148"
   },
   {
    "id": "REV-PKG-MotivicEtaleKTheory~adv",
