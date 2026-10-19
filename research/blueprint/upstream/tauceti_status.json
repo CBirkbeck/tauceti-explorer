@@ -832,13 +832,14 @@
     "ArakelovGeometryAndAbelianHeights": {
       "stage": "pr",
       "pr": 1000,
-      "head": "0ae3962",
+      "head": "bc30593",
       "note": "ported 2026-10-16 (tier 16); both red-team passes applied; draft awaiting ChatGPT Pro",
       "review": {
         "recommendation": "changes",
         "head": "0ae3962",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at bc30593; confirmation pass pending"
       }
     },
     "WeightsInEtaleCohomology": {
