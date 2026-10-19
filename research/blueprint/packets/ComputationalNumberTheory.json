@@ -2304,9 +2304,14 @@
       "title": "Transport of certified finite-field factors",
       "kind": "theorem",
       "statement": "Let e:F≃+*K be a certified change from a computable finite-field presentation to the intrinsic finite field. For nonzero f=c∏g_i with c≠0 and all g_i monic irreducible, mapping coefficients by e yields map(e,f)=e(c)∏map(e,g_i), again with monic irreducible factors. The FF.3 checker and its search algorithm supply the data; CN.1 only checks the presentation boundary and reconstructs the intrinsic factorization. The retained legacy ID no longer owns DDF, EDF or Berlekamp algorithms.",
-      "hypotheses": [],
+      "hypotheses": [
+        "F and K are finite fields; e : F ≃+* K has the checked forward/inverse presentation maps.",
+        "f ≠ 0 and c ≠ 0; factors form a finite list, with multiplicity retained, each monic irreducible, and f = C c · ∏ gᵢ. Constants use an empty factor list; zero is a separate output case."
+      ],
       "proofSteps": [
-        "Import the accepted nonzero finite-field certificate contract. A field isomorphism preserves leading coefficients, products and irreducibility. Check the presentation’s explicit inverse before transport."
+        "Import FF.3/factorization-certificate-sound for the checked reconstruction and monic irreducibility of every factor. Import the explicit forward/inverse presentation equivalence from FF.0; the CN boundary does not search for it.",
+        "Polynomial.map preserves products and constants; a ring equivalence preserves monicity and irreducibility. Map the whole factor list, preserving repetitions, to obtain the intrinsic factorization.",
+        "Algorithm discovery, randomness, expected running time and finite-field irreducibility checks remain FF.3 targets. CN.0 supplies the program/cost interface; this transport theorem asserts no search or complexity bound."
       ],
       "prerequisites": [
         "FiniteFieldsAndCharacterSums:FF.3/factorization-certificate-sound",
@@ -2315,12 +2320,14 @@
       "sources": [
         {
           "sourceId": "Shoup",
-          "locator": "Theorem 19.14, pp.515–516; Chapter 20",
+          "locator": "§19.3, Theorem 19.14, printed pp. 515–516; Chapter 20, §20.1–§20.5",
           "match": "The finite-field algorithms remain FF.3 imports; this declaration transports their checked output through a fixed presentation."
         }
       ],
       "acceptance": [
-        "The explicit f≠0 and c≠0 hypotheses avoid the supplier definition’s zero-polynomial ambiguity. Zero is handled by a separate zero result, never an irreducible factor list."
+        "The explicit f≠0 and c≠0 hypotheses agree with the existing FF.3 checker, which rejects zero. Zero has a separate output case, never an irreducible factor list.",
+        "Repeated factors are transported as a list with multiplicity, so mapping (X−a)² does not discard one copy.",
+        "For a nonzero constant, the factor list is empty and the scalar maps by e. Zero is rejected by this interface."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -7309,6 +7316,13 @@
       "neededBy": [
         "ComputationalNumberTheory:CN.3"
       ]
+    },
+    {
+      "title": "Finite-field supplier ownership and registered stage binding",
+      "neededBy": [
+        "ComputationalNumberTheory:CN.1/polynomial-factorization-over-finite-fields"
+      ],
+      "detail": "The retained CN.1 legacy target is only factorization transport, with exact FF.3 and FF.0 suppliers. Historical data/decompositions and the coarse atlas depth are outside this fix’s scope. The maintainer must bind CN.1 to the proposed elementary FF.3 refinement, preserving the FF.0 census input, and FA.7 must import FF.3 rather than duplicate its algorithms. See RT-AREA-finitefields.fixes-2.md for exact handoffs."
     }
   ],
   "coverage": [
@@ -8333,6 +8347,17 @@
       "detail": "Use the native field, generator and quotient/evaluation maps; no parallel field carrier. Transport checked factorizations only for nonzero input."
     },
     {
+      "stageId": "ComputationalNumberTheory:CN.1",
+      "target": "Certified finite-field factorization, with no repeated algorithm theory",
+      "providers": [
+        "FiniteFieldsAndCharacterSums:FF.3/factorization-certificate-sound",
+        "FiniteFieldsAndCharacterSums:FF.3/factorization-certificate-complete",
+        "FiniteFieldsAndCharacterSums:FF.3/certified-factorization-algorithm",
+        "FiniteFieldsAndCharacterSums:FF.0/presentation-change-isomorphism"
+      ],
+      "detail": "CN.1 transports a checked nonzero scalar times a list of monic irreducibles through the certified coefficient equivalence; the factor list retains multiplicity. FF.3 owns squarefree/DDF/EDF/Cantor–Zassenhaus/Berlekamp algorithms and their correctness and randomness/cost statements. Its elementary target closure uses FF.0 and CN.0, without importing FF.2 character-sum bounds. The coarse atlas FF.2 → FF.3 → CN.1 depth must still be corrected by the maintainer’s registered stage split; importing all of WC.5 is not a substitute."
+    },
+    {
       "stageId": "ComputationalNumberTheory:CN.0",
       "target": "Ideal and lattice coordinate presentations",
       "providers": [
@@ -9035,5 +9060,13 @@
         "note": "Finite modular data are compared by exact algebraic coefficient equality, then bound to actual forms by the native Sturm parameters."
       }
     ]
+  },
+  "fixAudit": {
+    "job": "FIX-RT-AREA-finitefields~2",
+    "issue": 6208,
+    "by": "Codex — codex-pwZxBT",
+    "date": "2026-10-19",
+    "status": "awaiting-independent-review",
+    "detail": "Strengthened the exact finite-field factor transport contract, multiplicity/zero boundaries and named supplier imports. Historical review verdicts remain provenance and do not cover this revision."
   }
 }

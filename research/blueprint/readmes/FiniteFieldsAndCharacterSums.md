@@ -6,7 +6,7 @@ The roadmap document is definitive. The [suggested Lean file](../suggested/Finit
 
 ## Scope and ownership
 
-FF.0 owns explicit finite-field presentations, their certificates and comparisons. FF.1 owns field-character normalizations, Gauss–Jacobi transport, Hasse–Davenport and Stickelberger interfaces, and the residue-character harmonic analysis used for random polynomials. FF.2 owns the finite-field Weil–Deligne estimates and the global character-sheaf and Fourier–Deligne constructions used to prove them. FF.3 owns the specialized polynomial-factorization and point-counting algorithms, their correctness and their mathematical certificate content. FF.4 owns Galois rings, linearized polynomials, finite-field sequence families, specialized evaluation/cyclic/AG codes and the finite upper half-plane. FF.5 supplies the arithmetic normalization and application interfaces.
+FF.0 owns explicit finite-field presentations and comparisons, the intermediate-field/divisor correspondence, the elementary polynomial census and the shared linearized-polynomial/subspace core. FF.1 owns field-character normalizations, Gauss–Jacobi transport, Hasse–Davenport and Stickelberger interfaces. FF.2 owns the finite-field Weil–Deligne estimates and the global character-sheaf and Fourier–Deligne constructions used to prove them. FF.3 owns the specialized polynomial-factorization and point-counting algorithms, their correctness and their mathematical certificate content. FF.4 owns Galois rings, specialized linearized/permutation applications, finite-field sequence families, specialized evaluation/cyclic/AG codes and the finite upper half-plane. FF.5 supplies the arithmetic normalization and application interfaces.
 
 The boundaries with other roadmaps are as follows.
 
@@ -22,10 +22,18 @@ The boundaries with other roadmaps are as follows.
 | FunctionFieldArithmetic FA.5 and FA.7 | Constant-field conventions, place enumeration, Riemann–Roch algorithms, ray characters, conductors, completions and Artin/ramified L-polynomials. Import the elementary factorization and relevant point certificates from here. |
 | AlgebraicCodingTheory, layers 1–2 | Generic linear codes, matrices, Euclidean/Hermitian duality, weight and minimum distance. Codes here use `Submodule F (ι → F)` / `TauCeti.LinearCode F ι`; specialized RS, BCH, cyclic and AG families belong here. |
 | AlgebraicCurves and EllipticCurves | Native function fields, places, Riemann–Roch and differential/residue theory; elliptic torsion, Frobenius and Hasse bounds. The Hermitian model and its precise native coordinate/place comparison are requested as AlgebraicCurves, Part II. |
-| DrinfeldModulesAndTModules DM.0 | Imports the general FF.4 linearized/Ore comparison and retains Drinfeld-module theory. FF.4 works over commutative finite-field algebras; Frobenius need not be invertible. |
+| DrinfeldModulesAndTModules DM.0 | Imports the FF.0 polynomial-law core and the single Ore/composition comparison, whose early parent binding remains a handoff to the FF.4 follow-up. DM.0 retains Drinfeld-module theory. Coefficient algebras may be commutative finite-field algebras; Frobenius need not be invertible. |
 | DirichletPadicLFunctions L3 and PadicDifferentialEquationsAndRigidCohomology RD.6 | The chosen-root Gross–Koblitz comparison and its exact analytic inputs. FF.1 uses exact Gamma multiplication for Hasse–Davenport; coefficient bounds and trace-character splitting remain explicit supplier obligations. |
 
 The global Artin–Schreier sheaf and global Fourier–Deligne transform have their single owner in FF.2. A local Fourier transform and stationary-phase theory have different domains and comparison obligations; an unregistered local-transform proposal is not an available import. Likewise, the nonsplit norm-one Lang sheaf cannot be replaced by an ordinary split multiplicative-group Kummer sheaf.
+
+### Elementary dependencies and pending atlas bindings
+
+The exact target graph separates squarefree decomposition, DDF/EDF, Berlekamp, Rabin certificates, factorization checkers and Hensel lifting from Weil–Deligne estimates. CN.1 imports the checked-factorization and presentation contracts only. Exact point enumeration and certificate soundness also precede any error bound. Hasse/Weil estimates and Schoof trace reconstruction retain their stated suppliers.
+
+The registered atlas still has FF.2 → FF.3 → FF.4. The `restructure` proposal asks for elementary algorithm/finite-algebra refinements and separate point-count/bound/application refinements before replacing those coarse edges. Importing all of WC.5 instead would still delay CN.1. These are requested maintainer bindings, not registered stages or completed graph changes. The full transaction and the early Ore-comparison parent move are listed in the [fix report](../redteam/RT-AREA-finitefields.fixes-2.md).
+
+BKK's integer-law Fourier transform belongs to PM.0, its composite-modulus Fourier gap to AC.0, and its Laurent-series residue character, torus, Haar measure and rational-fraction/orthogonality targets to FA.2. They are removed here and are not duplicated as external placeholder nodes. BKK Proposition 8.1 uses FF.0's census. Its Lemma 3.2 prescribed-constant-coefficient estimate is retained only as the elementary modulus-T case; general prime-polynomial distribution in residue classes belongs to FA.5.
 
 ## Conventions
 
@@ -45,7 +53,7 @@ The cohomological Frobenius convention is the one in each trace-formula target. 
 
 ## Reading the layers
 
-The six layers below retain stable target identifiers. A target entry gives its hypotheses, proof route, exact prerequisites, API, discriminating tests and source locators. API and test names are proposed interfaces. A prerequisite ending at a supplier stage means the precise supplier contract must be read with it; it does not certify that the supplier has exported that theorem. The consolidated contracts and source edition register follow the targets.
+The six layers below retain stable target identifiers. A legacy FF.2, FF.3 or FF.4 prefix does not override the FF.0 parent of the moved elementary targets; their old anchors remain valid. A target entry gives its hypotheses, proof route, exact prerequisites, API, discriminating tests and source locators. API and test names are proposed interfaces. A prerequisite ending at a supplier stage means the precise supplier contract must be read with it; it does not certify that the supplier has exported that theorem. The consolidated contracts and source edition register follow the targets.
 
 The general library baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Existing roadmaps and newer library declarations also constrain ownership. In particular, Tau Ceti's native Artin–Schreier uniformizer-displacement theorem is an input to the geometric conductor comparison; the missing work is normalized-order/completion compatibility and its sheaf-level consequence.
 
@@ -53,18 +61,18 @@ The internal target graph is acyclic. It has explicit proof frontiers rather tha
 
 | Layer | Targets | Key constructions and milestones |
 |---|---:|---|
-| [FF.0: Finite-field constructions](#FF0) | 11 | Rabin's irreducibility test; Certified presentation of a finite field; Tensor product of finite fields; Frobenius normal basis |
-| [FF.1: Characters, Fourier analysis and Gauss sums](#FF1) | 50 | Canonical additive character; Hasse–Davenport lifting relation; Stickelberger's congruence; Hasse–Davenport product formula; Residue character of F_q((1/T)); Finite-field Fourier inversion |
-| [FF.2: Weil–Deligne estimates and character sheaves](#FF2) | 120 | Artin–Schreier sheaf; Deligne's several-variable estimate; Uniform Lang–Weil estimate; Hyper-Kloosterman sums; Constant-field Chebotarev theorem; Trace-function quasi-orthogonality |
-| [FF.3: Certified algorithms and polynomial counts](#FF3) | 112 | Gauss's product formula; Prime polynomial theorem; Cantor–Zassenhaus algorithm; Berlekamp's algorithm; Hensel lifting of factorizations; Schoof's algorithm |
-| [FF.4: Finite rings, linearized polynomials, sequences and codes](#FF4) | 142 | Galois rings GR(p^n, r); m-sequences; Reed–Solomon codes; Algebraic geometry codes; Finite upper half-plane; Linearized composition algebra |
+| [FF.0: Finite-field constructions](#FF0) | 35 | Rabin's irreducibility test; Certified presentation of a finite field; Tensor product of finite fields; Frobenius normal basis; Gauss's product formula; Prime polynomial theorem |
+| [FF.1: Characters, Fourier analysis and Gauss sums](#FF1) | 41 | Canonical additive character; Hasse–Davenport lifting relation; Stickelberger's congruence; Hasse–Davenport product formula; Finite-field Fourier inversion |
+| [FF.2: Weil–Deligne estimates and character sheaves](#FF2) | 119 | Artin–Schreier sheaf; Deligne's several-variable estimate; Uniform Lang–Weil estimate; Hyper-Kloosterman sums; Constant-field Chebotarev theorem; Trace-function quasi-orthogonality |
+| [FF.3: Certified algorithms and point counts](#FF3) | 97 | Cantor–Zassenhaus algorithm; Berlekamp's algorithm; Hensel lifting of factorizations; Schoof's algorithm |
+| [FF.4: Finite rings, linearized polynomials, sequences and codes](#FF4) | 135 | Galois rings GR(p^n, r); m-sequences; Reed–Solomon codes; Algebraic geometry codes; Finite upper half-plane; Linearized composition algebra |
 | [FF.5: Arithmetic applications](#FF5) | 17 | Weil bound for integer polynomials mod p; Local densities at good primes; Correlation bound for decimated m-sequences; Shamir secret sharing |
 
 <a id="FF0"></a>
 
 ## FF.0. Finite-field constructions
 
-Construct explicit presentations on top of the existing finite-field classification. Rabin checks feed presentation certificates and FF.3 factorization certificates. Tensor-product comparisons and normal-element criteria provide explicit coordinates without replanning the existing normal-basis existence theorem.
+Construct explicit presentations, the intermediate-field/divisor correspondence, the elementary polynomial census and the shared linearized core on top of the existing finite-field classification. Rabin checks feed presentation certificates and FF.3 factorization certificates. Tensor-product comparisons and normal-element criteria provide explicit coordinates without replanning the existing normal-basis existence theorem.
 
 ### Target groups
 
@@ -72,6 +80,9 @@ Construct explicit presentations on top of the existing finite-field classificat
 - Certified presentations and comparison maps (3 targets).
 - Tensor products of finite fields (2 targets).
 - Normal elements and the Frobenius normal basis (3 targets).
+- Intermediate fields and their degrees (1 target).
+- Elementary monic and irreducible polynomial census (16 targets).
+- Shared linearized-polynomial/subspace core (7 targets).
 
 ### FF.0.1. Frobenius residues and Rabin's irreducibility test
 
@@ -632,11 +643,821 @@ Let K be a finite field with q elements, L a finite extension of degree n with F
 
 **Sources:** [S1](#source-1) — Exercise 19.14(c), printed p. 521; [S2](#source-2) — Theorem 5.7, p. 11.
 
+### FF.0.5. Intermediate fields and their degrees
+
+<a id="FF0-intermediate-field-divisor-correspondence"></a>
+
+#### Intermediate fields and divisors of the extension degree
+
+`FiniteFieldsAndCharacterSums:FF.0/intermediate-field-divisor-correspondence` · theorem.
+
+Let F be a finite field of cardinality q, E/F a finite field extension of degree n, and σ its relative q-power Frobenius. The map K ↦ [K:F] is a bijection from IntermediateField F E to the positive divisors of n. Its inverse sends d ∣ n to the fixed field of the subgroup generated by σ^d, equivalently {x ∈ E : x^(q^d) = x}. This field has q^d elements. Under the bijection, K ≤ L if and only if [K:F] divides [L:F]; the divisor set is ordered by divisibility, not by the usual order on natural numbers.
+
+**Hypotheses**
+
+- F and E are fields; F is finite; E is a finite-dimensional F-algebra. Set q = #F and n = Module.finrank F E > 0.
+- Divisors are positive (equivalently d ∣ n, since n > 0). All subfields contain the specified image of F.
+
+**Proof route**
+
+- Use the existing relative Frobenius automorphism and its order n. For d ∣ n take IntermediateField.fixedField of the subgroup generated by σ^d; its elements are precisely the roots of X^(q^d) − X.
+- Shoup Theorem 19.4 and the splitting of X^(q^n) − X show that X^(q^d) − X splits in E with q^d distinct roots. Thus the fixed field has degree d. This is a finite-field specialization of the existing Galois fixed-field API, not a new Galois correspondence.
+- For an intermediate K, the tower degree formula gives [K:F] ∣ n. Apply the existing Frobenius fixed-point criterion to E/K: K consists exactly of the roots of X^(#K) − X. This proves both inverse laws and uniqueness.
+- If d ∣ e then every root of X^(q^d) − X is a root of X^(q^e) − X. Conversely K ≤ L implies degree divisibility by the tower formula.
+
+**API**
+
+- `intermediateFieldDegreeEquiv` (equivalence): An equivalence IntermediateField F E ≃ {d : ℕ // d ∣ n}, sending K to [K:F].
+- `intermediateFieldDegreeEquiv_symm_mem` (characterisation): For d ∣ n, x belongs to the inverse image field if and only if x^(q^d) = x.
+- `intermediateFieldDegreeEquiv_le_iff_dvd` (relation): K ≤ L if and only if [K:F] ∣ [L:F].
+- `existsUnique_intermediateField_finrank` (universal-property): For every d ∣ n there exists a unique K : IntermediateField F E with [K:F] = d.
+
+**Unit tests**
+
+- `intermediateFields_degree_six` (computation): If [E:F] = 6, the degree map has image {1,2,3,6}, with exactly one field for each value.
+- `intermediateFields_degree_one` (degenerate): If E = F as an F-algebra, IntermediateField F E has one element and its degree is 1.
+- `intermediateFields_not_natural_order` (non-example): In degree 6, the degree-2 field is not contained in the degree-3 field, and no degree-4 field exists.
+- `intermediateField_fixed_q` (compatibility): The inverse at d = 1 is bottom and its membership condition agrees with TauCeti.FiniteField.pow_card_eq_self_iff_mem_range_algebraMap.
+
+**Uses**
+
+- FiniteFieldsAndCharacterSums:FF.0/factorization-over-extension: Select the unique common subfield of degree gcd(m,n) in a common finite extension.
+- FiniteFieldsAndCharacterSums:FF.4/galois-subrings-of-galois-ring: Classify the residue subfields by divisors before lifting Teichmüller representatives.
+- DrinfeldModulesAndTModules:DM.0: Identify coefficient subfields fixed by iterates of the relative Frobenius; no second subfield classification is planned there.
+
+**Checks and examples**
+
+- For an extension of degree 6, the intermediate degrees are exactly 1, 2, 3, 6; the degree-2 and degree-3 fields are incomparable.
+- For degree 1 the only intermediate field is both bottom and top.
+- Degree 4 in a degree-6 extension is rejected, even though 4 ≤ 6.
+
+**Prerequisites:** `mathlib:FiniteField.frobeniusAlgEquivOfAlgebraic`, `mathlib:FiniteField.orderOf_frobeniusAlgHom`, `mathlib:IntermediateField.fixedField`, `mathlib:IntermediateField.mem_fixedField_iff`, `mathlib:IntermediateField.finrank_fixedField_eq_card`, `mathlib:IntermediateField.finrank_dvd_of_le_right`, `mathlib:Module.card_eq_pow_finrank`, `tauceti:TauCeti.FiniteField.pow_card_eq_self_iff_mem_range_algebraMap`.
+
+**Sources:** [S1](#source-1) — §19.3, Theorem 19.13 and proof, printed p. 515; Theorem 19.4, p. 510.
+
+### FF.0.6. Elementary polynomial census
+
+<a id="FF2-monic-polynomials-of-degree"></a>
+
+#### The finite set of monic polynomials of a given degree
+
+`FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree` · construction.
+
+For a finite field F with q elements and n ∈ ℕ, monicOfDegree F n ⊆ F[X] is the finite set of monic polynomials of degree exactly n, constructed as the image of the coefficient vectors v : Fin n → F under v ↦ X^n + Σ_{i<n} v_i X^i (Mathlib's degreeLTEquiv identifies vectors with polynomials of degree < n). It has q^n elements; for n = 0 it is {1}.
+
+**Hypotheses**
+
+- F a finite field (Field F, Fintype F, DecidableEq F)
+- n : ℕ
+
+**Proof route**
+
+- Define the map v ↦ X^n + (degreeLTEquiv F n).symm v; it is injective since degreeLTEquiv is a linear equivalence.
+- Membership: X^n + g with deg g < n is monic of degree n; conversely a monic f of degree n equals X^n + (f − X^n) with deg(f − X^n) < n.
+- Cardinality: injectivity gives card = card (Fin n → F) = q^n.
+
+**API**
+
+- `mem_monicOfDegree` (characterisation): f ∈ monicOfDegree F n ↔ f.Monic ∧ f.natDegree = n.
+- `card_monicOfDegree` (other): (monicOfDegree F n).card = q ^ n.
+- `monicOfDegree_zero` (simp): monicOfDegree F 0 = {1}.
+
+**Unit tests**
+
+- `monicOfDegree_one_zmod_two` (computation): monicOfDegree (ZMod 2) 1 = {X, X + 1}.
+- `card_monicOfDegree_zmod_three_two` (computation): (monicOfDegree (ZMod 3) 2).card = 9.
+- `C_two_mul_X_not_mem_monicOfDegree` (non-example): 2X ∉ monicOfDegree (ZMod 3) 1: it has degree 1 but is not monic.
+
+**Uses**
+
+- Shoup §20.1, Algorithm RIP: a uniform element of monicOfDegree F ℓ is the random candidate tested for irreducibility
+- FF.3/monic-irreducible-polynomials-of-degree: the monic irreducibles of degree n are filtered from it
+- Bary-Soroker–Koukoulopoulos–Kozma, Proposition 8.1 and §§8-9: Mp(k), the monic polynomials of degree k, indexes the sieve over irreducible factors (ArithmeticStatisticsPartIIRandomPolynomials, from route 1 of the paper)
+
+**Checks and examples**
+
+- mem_monicOfDegree and card_monicOfDegree hold; the three unit tests pass.
+
+**Prerequisites:** `mathlib:Polynomial.degreeLTEquiv`, `mathlib:Polynomial.degreeLT`, `mathlib:Polynomial.Monic`.
+
+**Sources:** [S1](#source-1) — §20.1, Algorithm RIP, printed p. 524; [S9](#source-9) — §1 notation, and Proposition 8.1, p. 39.
+
+<a id="FF3-monic-irreducible-polynomials-of-degree"></a>
+
+#### The monic irreducible polynomials of a given degree
+
+`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree` · construction.
+
+monicIrreducibles F n is the finite set of monic irreducible polynomials of degree n over the finite field F: the elements of monicOfDegree F n that are irreducible. It is empty for n = 0, and its elements are exactly the irreducible f with normalize f = f and natDegree f = n (Mathlib's normalized irreducibles).
+
+**Hypotheses**
+
+- F a finite field
+- n : ℕ
+
+**Proof route**
+
+- Filter monicOfDegree F n by Irreducible (classical decidability).
+- Characterisation from mem_monicOfDegree.
+- For polynomials over a field, normalize f = f iff f is monic or f = 0 (Mathlib Polynomial.Monic.normalize_eq_self, leadingCoeff_normalize); irreducible f are nonzero.
+
+**API**
+
+- `mem_monicIrreducibles` (characterisation): f ∈ monicIrreducibles F n ↔ f.Monic ∧ Irreducible f ∧ f.natDegree = n.
+- `mem_monicIrreducibles_iff_normalize` (compatibility): f ∈ monicIrreducibles F n ↔ Irreducible f ∧ normalize f = f ∧ f.natDegree = n: agreement with Mathlib's normalized factors.
+- `monicIrreducibles_zero` (simp): monicIrreducibles F 0 = ∅.
+
+**Unit tests**
+
+- `monicIrreducibles_zmod_two_two` (computation): monicIrreducibles (ZMod 2) 2 = {X² + X + 1}.
+- `monicIrreducibles_zmod_two_one` (computation): monicIrreducibles (ZMod 2) 1 = {X, X + 1}: every monic linear polynomial is irreducible.
+- `X_sq_add_one_not_mem_monicIrreducibles` (non-example): X² + 1 ∉ monicIrreducibles (ZMod 2) 2, since X² + 1 = (X + 1)² over 𝔽₂.
+
+**Uses**
+
+- Shoup Theorem 19.10: the product over monicIrreducibles F k is the polynomial Pk
+- FF.3/count-of-irreducible-polynomials: the count is its cardinality
+- FF.3/random-irreducible-polynomial-output-law: the output of Algorithm RIP is uniform on it
+- FiniteFieldsAndCharacterSums FF.4 (BCH and cyclic codes): generator polynomials are products of monic irreducible factors of X^n − 1
+
+**Checks and examples**
+
+- mem_monicIrreducibles; monicIrreducibles_zero; the unit tests.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree`](#FF2-monic-polynomials-of-degree), `mathlib:Polynomial.Monic.normalize_eq_self`, `mathlib:Polynomial.leadingCoeff_normalize`.
+
+**Sources:** [S1](#source-1) — Theorem 19.10, printed p. 513; [S1](#source-1) — §19.2, Theorem 19.11, printed p. 514.
+
+<a id="FF3-count-of-irreducible-polynomials"></a>
+
+#### The number Π_F(n) of monic irreducible polynomials of degree n
+
+`FiniteFieldsAndCharacterSums:FF.3/count-of-irreducible-polynomials` · definition.
+
+For a finite field F with q elements and n ∈ ℕ, irreducibleCount F n = Π_F(n) is the number of monic irreducible polynomials of degree n in F[X] (Shoup's Π_F(ℓ); for F = 𝔽_p it is Bary-Soroker–Koukoulopoulos–Kozma's π_p(k)). Its package is Gauss's formula Σ_{d|n} d Π_F(d) = q^n, the Möbius formula n Π_F(n) = Σ_{d|n} μ(d) q^{n/d}, and the bounds (q^n − 2q^{n/2})/n ≤ Π_F(n) ≤ q^n/n and q^n ≤ 2n Π_F(n) (n ≥ 1).
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n : ℕ
+
+**Proof route**
+
+- Define irreducibleCount F n := (monicIrreducibles F n).card.
+- Agreement with Nat.card of the subtype of monic irreducible polynomials of degree n is Finset-card versus Nat.card through mem_monicIrreducibles.
+- irreducibleCount F 0 = 0 (a unit is not irreducible) and irreducibleCount F 1 = q (every monic linear polynomial is irreducible; monicOfDegree F 1 has q elements).
+
+**API**
+
+- `irreducibleCount_eq_natCard` (compatibility): irreducibleCount F n = Nat.card {f : F[X] // f.Monic ∧ Irreducible f ∧ f.natDegree = n}.
+- `irreducibleCount_zero` (simp): irreducibleCount F 0 = 0.
+- `irreducibleCount_one` (simp): irreducibleCount F 1 = q.
+- `sum_divisors_mul_irreducibleCount` (relation): Gauss's formula: for n ≠ 0, Σ_{d ∈ n.divisors} d · irreducibleCount F d = q ^ n (node gauss-count-formula).
+- `mul_irreducibleCount_eq_sum_moebius` (relation): The Möbius formula (node moebius-formula-for-irreducible-count).
+- `mul_irreducibleCount_le` (other): n · Π_F(n) ≤ q^n (node irreducible-count-upper-bound).
+- `card_pow_le_mul_irreducibleCount_add` (other): q^n ≤ n Π_F(n) + 2 q^{⌊n/2⌋} for n ≠ 0 (node irreducible-count-lower-bound).
+- `prime_polynomial_theorem` (other): The BKK form (q^n − 2q^{n/2})/n ≤ Π_F(n) ≤ q^n/n (node prime-polynomial-theorem).
+
+**Unit tests**
+
+- `irreducibleCount_zmod_two_four` (computation): irreducibleCount (ZMod 2) 4 = 3 (X⁴+X+1, X⁴+X³+1, X⁴+X³+X²+X+1).
+- `irreducibleCount_zmod_three_two` (computation): irreducibleCount (ZMod 3) 2 = 3.
+- `irreducibleCount_zmod_three_three` (computation): irreducibleCount (ZMod 3) 3 = 8.
+- `irreducibleCount_eq_card_normalizedFactors` (compatibility): For n ≠ 0, irreducibleCount F n equals the number of elements of degree n in Mathlib's normalizedFactors (X^(q^n) − X).
+
+**Uses**
+
+- Shoup Theorems 19.11-19.12 and Exercise 19.1: Gauss's formula, the bounds and the Möbius formula are statements about it
+- Shoup Theorem 20.2 (Algorithm RIP): the success probability of one attempt is Π_F(ℓ)/q^ℓ ≥ 1/(2ℓ)
+- Bary-Soroker–Koukoulopoulos–Kozma, Proposition 8.1 and Lemmas 8.2, 9.x: the bound Σ_{deg I = k} 1/‖I‖ ≤ 1/k controls the sieve over small irreducible factors (consumer: ArithmeticStatisticsPartIIRandomPolynomials)
+- FF.4 (Galois rings, BCH codes) and FF.0 (certified presentations): existence of an irreducible polynomial of every degree (Π_F(n) > 0) and the density of irreducibles
+
+**Checks and examples**
+
+- The API identities and the unit tests; the Gauss formula, the Möbius formula and the bounds are proved in the theorem nodes named in the api.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree), `mathlib:Polynomial.Monic.irreducible_iff_natDegree`.
+
+**Sources:** [S1](#source-1) — §19.2, Theorem 19.11, printed p. 514; [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39.
+
+<a id="FF3-partition-by-minimal-polynomials"></a>
+
+#### Counting the elements of an extension by their minimal polynomials
+
+`FiniteFieldsAndCharacterSums:FF.3/partition-by-minimal-polynomials` · lemma.
+
+Let E ⊇ F be finite fields with [E : F] = n and let C be any decidable condition on F[X]. Then #{α ∈ E : C(minpoly_F α)} = Σ_{d | n} d · #{f ∈ monicIrreducibles F d : C(f)}.
+
+**Hypotheses**
+
+- E a finite field extension of F with Module.finrank F E = n (so n ≥ 1)
+- C : F[X] → Prop decidable
+
+**Proof route**
+
+- Every α ∈ E has minimal polynomial minpoly_F α monic irreducible of degree d = [F(α) : F], which divides n (Mathlib minpoly.irreducible, IntermediateField.adjoin.finrank, tower law).
+- Conversely, a monic irreducible f of degree d | n divides X^(q^n) − X (Mathlib Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X), which splits in E with the q^n distinct roots given by the elements of E (Mathlib FiniteField.roots_X_pow_card_sub_X); hence f has exactly d distinct roots in E, each with minimal polynomial f.
+- Group the elements of E by their minimal polynomial: the fibre over f has d elements, and C depends only on the fibre; sum over d | n.
+
+**Checks and examples**
+
+- With C = true: q^n = Σ_{d|n} d Π_F(d) (Gauss's formula).
+- With C(f)=(((-1)^deg f·f(0))^(n/deg f)=b): the norm-fibre identity. Equivalently use (-1)^n·f(0)^(n/deg f)=b; omitting the sign fails for odd n.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree), `mathlib:minpoly.irreducible`, `mathlib:IntermediateField.adjoin.finrank`, `mathlib:Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X`, `mathlib:FiniteField.roots_X_pow_card_sub_X`, `mathlib:galois_poly_separable`.
+
+**Sources:** [S1](#source-1) — proof of Theorem 19.10, printed p. 513.
+
+<a id="FF3-gauss-product-formula"></a>
+
+#### Gauss's product formula for X^(q^n) − X
+
+`FiniteFieldsAndCharacterSums:FF.3/gauss-product-formula` · theorem. Milestone: Gauss's product formula.
+
+For a finite field F with q elements and n ≥ 1, X^(q^n) − X = ∏_{d | n} ∏_{f ∈ monicIrreducibles F d} f in F[X].
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+
+**Proof route**
+
+- X^(q^n) − X is monic and square-free: its derivative is −1 (Shoup Theorem 19.1; Mathlib galois_poly_separable gives separability, hence square-free by Polynomial.Separable.squarefree).
+- A monic square-free polynomial is the product of its distinct normalized irreducible factors (Mathlib prod_normalizedFactors and squarefree_iff_nodup_normalizedFactors).
+- A monic irreducible f divides X^(q^n) − X iff deg f | n (Mathlib Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X), so the normalized factors are exactly the elements of monicIrreducibles F d for d | n, each once.
+
+**Checks and examples**
+
+- q = 2, n = 2: X⁴ − X = X (X + 1)(X² + X + 1).
+- Degree comparison gives Gauss's formula.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree), `mathlib:galois_poly_separable`, `mathlib:Polynomial.Separable.squarefree`, `mathlib:UniqueFactorizationMonoid.prod_normalizedFactors`, `mathlib:UniqueFactorizationMonoid.squarefree_iff_nodup_normalizedFactors`, `mathlib:Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X`, `mathlib:FiniteField.X_pow_card_pow_sub_X_ne_zero`.
+
+**Sources:** [S1](#source-1) — Theorem 19.10, printed p. 513.
+
+<a id="FF3-gauss-count-formula"></a>
+
+#### Gauss's count q^n = Σ_{d|n} d Π_F(d)
+
+`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula` · theorem.
+
+For n ≥ 1, Σ_{d ∈ n.divisors} d · irreducibleCount F d = q^n.
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+
+**Proof route**
+
+- Compare degrees on both sides of Gauss's product formula: deg(X^(q^n) − X) = q^n (Mathlib FiniteField.X_pow_card_pow_sub_X_natDegree_eq) and the right side has degree Σ_{d|n} d · #monicIrreducibles F d.
+
+**Checks and examples**
+
+- q = 2: Π(1) + 2Π(2) = 2 + 2 = 4 = 2²; Π(1) + 2Π(2) + 4Π(4) = 2 + 2 + 12 = 16 = 2⁴.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-product-formula`](#FF3-gauss-product-formula), `mathlib:FiniteField.X_pow_card_pow_sub_X_natDegree_eq`.
+
+**Sources:** [S1](#source-1) — §19.2, Theorem 19.11, printed p. 514.
+
+<a id="FF3-moebius-formula-for-irreducible-count"></a>
+
+#### The Möbius formula for Π_F(n)
+
+`FiniteFieldsAndCharacterSums:FF.3/moebius-formula-for-irreducible-count` · theorem.
+
+For n ≥ 1, n · Π_F(n) = Σ_{d | n} μ(d) q^{n/d} (as integers), with μ Mathlib's ArithmeticFunction.moebius.
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+
+**Proof route**
+
+- Apply Möbius inversion (Mathlib ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq) to f(d) = d Π_F(d) and g(n) = q^n, using Gauss's count for every n > 0; rewrite the divisorsAntidiagonal sum as a sum over divisors.
+
+**Checks and examples**
+
+- q = 2, n = 4: 4 Π(4) = 2⁴ − 2² = 12, so Π(4) = 3.
+- Shoup Exercise 19.2: Π_{𝔽₂}(30) = (2³⁰ − 2¹⁵ − 2¹⁰ − 2⁶ + 2⁵ + 2³ + 2² − 2)/30 = 35790267.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula), `mathlib:ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq`, `mathlib:ArithmeticFunction.moebius`.
+
+**Sources:** [S1](#source-1) — Exercise 19.1, printed p. 515.
+
+<a id="FF3-irreducible-count-upper-bound"></a>
+
+#### The upper bound n Π_F(n) ≤ q^n
+
+`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound` · theorem.
+
+For every n ∈ ℕ, n · Π_F(n) ≤ q^n. Equivalently Π_F(n)/q^n ≤ 1/n, which is Bary-Soroker–Koukoulopoulos–Kozma's Σ_{deg I = n} 1/‖I‖ ≤ 1/n.
+
+**Hypotheses**
+
+- F a finite field with q elements
+
+**Proof route**
+
+- For n = 0 both sides are trivial. For n ≥ 1 the term d = n of Gauss's count is n Π_F(n) and all terms are nonnegative.
+
+**Checks and examples**
+
+- q = 2, n = 4: 12 ≤ 16.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula).
+
+**Sources:** [S1](#source-1) — Theorem 19.12 and its proof, printed p. 514; [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39.
+
+<a id="FF3-irreducible-count-lower-bound"></a>
+
+#### The lower bound q^n ≤ n Π_F(n) + 2 q^{⌊n/2⌋}
+
+`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-lower-bound` · theorem.
+
+For n ≥ 1, q^n ≤ n · Π_F(n) + 2 q^{⌊n/2⌋}. This is the integer form of the lower bound of Bary-Soroker–Koukoulopoulos–Kozma, Proposition 8.1.
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+
+**Proof route**
+
+- By Gauss's count, n Π_F(n) = q^n − Σ_{d|n, d<n} d Π_F(d).
+- Each proper divisor d of n satisfies d ≤ ⌊n/2⌋ and d Π_F(d) ≤ q^d (upper bound), so the subtracted sum is at most Σ_{d=1}^{⌊n/2⌋} q^d = q(q^{⌊n/2⌋} − 1)/(q − 1) < 2 q^{⌊n/2⌋} (q ≥ 2); this is Shoup's S(q, ℓ).
+
+**Checks and examples**
+
+- q = 2, n = 4: 16 ≤ 12 + 8.
+- n = 1: q ≤ q + 2.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound).
+
+**Sources:** [S1](#source-1) — Theorem 19.12 and its proof, printed p. 514; [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39.
+
+<a id="FF3-prime-polynomial-theorem"></a>
+
+#### The prime polynomial theorem with explicit error
+
+`FiniteFieldsAndCharacterSums:FF.3/prime-polynomial-theorem` · theorem. Milestone: Prime polynomial theorem.
+
+For n ≥ 1, (q^n − 2 q^{n/2})/n ≤ Π_F(n) ≤ q^n/n, the exponent n/2 being real. For F = 𝔽_p this is Proposition 8.1 of Bary-Soroker–Koukoulopoulos–Kozma (item 73 of its extraction).
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+
+**Proof route**
+
+- Upper bound: divide the upper-bound node by n.
+- Lower bound: from the integer lower bound and q^{⌊n/2⌋} ≤ q^{n/2} (q ≥ 1), divide by n.
+
+**Checks and examples**
+
+- For q = 2, n = 2: (4 − 4)/2 = 0 ≤ Π = 1 ≤ 2.
+- For every n the bound gives Π_F(n) > 0 once q^{n/2} > 2.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-lower-bound`](#FF3-irreducible-count-lower-bound).
+
+**Sources:** [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39; [S1](#source-1) — Theorem 19.12 and its proof, printed p. 514.
+
+<a id="FF3-irreducible-density-lower-bound"></a>
+
+#### Shoup's density bound q^n ≤ 2n Π_F(n)
+
+`FiniteFieldsAndCharacterSums:FF.3/irreducible-density-lower-bound` · theorem.
+
+For n ≥ 1, q^n ≤ 2 n Π_F(n): a uniformly random monic polynomial of degree n is irreducible with probability at least 1/(2n).
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+
+**Proof route**
+
+- It suffices that S(q, n) = Σ_{k=1}^{⌊n/2⌋} q^k ≤ q^n/2, because n Π_F(n) ≥ q^n − S(q, n) (the argument of the lower bound).
+- For n ∈ {1, 2, 3} check directly (S = 0, q, q); for n ≥ 4, S(q, n) ≤ q^{n/2+1} ≤ q^{n−1} ≤ q^n/2.
+
+**Checks and examples**
+
+- Tight at q = 2, n = 2: 4 = 2·2·1.
+- At n = 1 it reads q ≤ 2q.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound).
+
+**Sources:** [S1](#source-1) — proof of Theorem 19.12, printed p. 514.
+
+<a id="FF3-irreducible-count-with-constant-coefficient"></a>
+
+#### The number of monic irreducibles with prescribed constant coefficient
+
+`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-with-constant-coefficient` · definition.
+
+For a finite field F, n ∈ ℕ and b ∈ F, irreducibleCountWithConstantCoeff F n b is the number of f ∈ monicIrreducibles F n with f(0) = b (for F = 𝔽_p and b ≠ 0, the count of I_p in Bary-Soroker–Koukoulopoulos–Kozma's proof of Lemma 3.2).
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n : ℕ
+- b : F
+
+**Proof route**
+
+- Filter monicIrreducibles F n by f.coeff 0 = b and take the cardinality.
+- Summing over b recovers Π_F(n).
+- b = 0: an irreducible with zero constant coefficient is divisible by X, hence equals X; so the count is 1 for n = 1 and 0 otherwise.
+- n = 1: X − (−b) = X + b is the unique monic linear polynomial with constant coefficient b.
+
+**API**
+
+- `sum_irreducibleCountWithConstantCoeff` (relation): Σ_{b ∈ F} irreducibleCountWithConstantCoeff F n b = irreducibleCount F n.
+- `irreducibleCountWithConstantCoeff_zero_right` (simp): irreducibleCountWithConstantCoeff F n 0 = if n = 1 then 1 else 0.
+- `irreducibleCountWithConstantCoeff_one` (simp): irreducibleCountWithConstantCoeff F 1 b = 1 for every b.
+
+**Unit tests**
+
+- `irreducibleCountWithConstantCoeff_zmod_three_two` (computation): irreducibleCountWithConstantCoeff (ZMod 3) 2 2 = 2 (X² + X + 2 and X² + 2X + 2).
+- `irreducibleCountWithConstantCoeff_zmod_three_two_one` (computation): irreducibleCountWithConstantCoeff (ZMod 3) 2 1 = 1 (X² + 1).
+- `irreducibleCountWithConstantCoeff_zmod_two_three` (computation): irreducibleCountWithConstantCoeff (ZMod 2) 3 1 = 2 (X³ + X + 1 and X³ + X² + 1).
+- `irreducibleCountWithConstantCoeff_zero_two` (degenerate): irreducibleCountWithConstantCoeff (ZMod 5) 2 0 = 0.
+
+**Uses**
+
+- Bary-Soroker–Koukoulopoulos–Kozma, proof of Lemma 3.2 (p. 20): the number of irreducible I_p of degree n − m with I_p(0) = i₀ enters the probability that A_p = D_p I_p
+- FF.3/irreducible-polynomials-with-prescribed-constant-coefficient: its asymptotic with explicit error
+
+**Checks and examples**
+
+- The API identities and the unit tests.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree).
+
+**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
+
+<a id="FF3-norm-from-minimal-polynomial"></a>
+
+#### The norm of an element from its minimal polynomial
+
+`FiniteFieldsAndCharacterSums:FF.3/norm-from-minimal-polynomial` · lemma.
+
+Let E ⊇ F be finite fields with [E : F] = n and α ∈ E with minimal polynomial P of degree d. Then N_{E/F}(α) = (−1)^n · P(0)^{n/d}.
+
+**Hypotheses**
+
+- E a finite field extension of F of degree n
+- α ∈ E
+
+**Proof route**
+
+- N_{E/F}(α) = N_{F(α)/F}(α)^{[E : F(α)]} (Mathlib Algebra.norm_eq_norm_adjoin), with [E : F(α)] = n/d (IntermediateField.adjoin.finrank and the tower law).
+- N_{F(α)/F}(α) = (−1)^d P(0) (Mathlib Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly for the power basis of F(α)).
+- Combine: ((−1)^d P(0))^{n/d} = (−1)^n P(0)^{n/d} since d · (n/d) = n.
+
+**Checks and examples**
+
+- α ∈ F: P = X − α, d = 1, N(α) = α^n = (−1)^n (−α)^n.
+
+**Prerequisites:** `mathlib:Algebra.norm_eq_norm_adjoin`, `mathlib:Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly`, `mathlib:IntermediateField.adjoin.finrank`.
+
+**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
+
+<a id="FF3-constant-coefficient-norm-fibre-identity"></a>
+
+#### The norm-fibre identity for constant coefficients
+
+`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-norm-fibre-identity` · theorem.
+
+For n ≥ 1 and b ∈ F^×: Σ_{d | n} d · #{f ∈ monicIrreducibles F d : f(0)^{n/d} = b} = (q^n − 1)/(q − 1).
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+- b ≠ 0
+
+**Proof route**
+
+- Let E be an extension of degree n (e.g. GaloisField). By the norm lemma, N(α) = (−1)^n b iff P(0)^{n/d} = b for P = minpoly α of degree d.
+- By the partition lemma with C(f) = (f(0)^{n/deg f} = b), the left side is #{α ∈ E : N(α) = (−1)^n b}.
+- The norm restricted to units is a surjective group homomorphism E^× → F^× (Mathlib FiniteField.unitsMap_norm_surjective); every fibre over a unit has |E^×|/|F^×| = (q^n − 1)/(q − 1) elements, and α = 0 has norm 0 ≠ (−1)^n b.
+
+**Checks and examples**
+
+- q = 3, n = 2, b = 2: d = 1 contributes 0 (2 is not a square mod 3) and d = 2 contributes 2·2 = 4 = (9 − 1)/2.
+- q = 5, n = 2, b = 1: 2 + 2·2 = 6 = 24/4.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/partition-by-minimal-polynomials`](#FF3-partition-by-minimal-polynomials), [`FiniteFieldsAndCharacterSums:FF.3/norm-from-minimal-polynomial`](#FF3-norm-from-minimal-polynomial), `mathlib:FiniteField.unitsMap_norm_surjective`, `mathlib:FiniteField.algebraMap_norm_eq_pow`, `mathlib:GaloisField`.
+
+**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
+
+<a id="FF3-constant-coefficient-count-bounds"></a>
+
+#### Two-sided bound for irreducibles with prescribed constant coefficient
+
+`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-count-bounds` · theorem.
+
+For n ≥ 1 and b ≠ 0: (q^n − 1)/(q − 1) − 2 q^{⌊n/2⌋} ≤ n · irreducibleCountWithConstantCoeff F n b ≤ (q^n − 1)/(q − 1).
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+- b ≠ 0
+
+**Proof route**
+
+- The term d = n of the norm-fibre identity is n · irreducibleCountWithConstantCoeff F n b; the other terms are nonnegative (upper bound).
+- The terms with d < n are at most d Π_F(d) ≤ q^d, and d ≤ ⌊n/2⌋; so they sum to less than 2 q^{⌊n/2⌋}, as in the lower bound for Π_F.
+
+**Checks and examples**
+
+- q = 3, n = 2, b = 2: 4 − 6 ≤ 2·2 ≤ 4.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-norm-fibre-identity`](#FF3-constant-coefficient-norm-fibre-identity), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound).
+
+**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
+
+<a id="FF3-irreducible-polynomials-with-prescribed-constant-coefficient"></a>
+
+#### Irreducible polynomials with prescribed constant coefficient
+
+`FiniteFieldsAndCharacterSums:FF.3/irreducible-polynomials-with-prescribed-constant-coefficient` · theorem.
+
+For n ≥ 1 and b ≠ 0, the number Π_F(n; b) of monic irreducible polynomials of degree n with constant coefficient b satisfies |n (q − 1) Π_F(n; b)/q^n − 1| ≤ 3 q^{1 − n/2}. Hence Π_F(n; b) = q^n/((q − 1) n) (1 + O(q^{1 − n/2})) with absolute implied constant 3, the statement Bary-Soroker–Koukoulopoulos–Kozma use in the proof of Lemma 3.2 (item 130 of the extraction), citing Rosen, Theorem 4.8.
+
+**Hypotheses**
+
+- F a finite field with q elements
+- n ≠ 0
+- b ≠ 0
+
+**Proof route**
+
+- From the two-sided bound: n(q − 1)Π_F(n; b) lies in [q^n − 1 − 2(q − 1) q^{⌊n/2⌋}, q^n − 1].
+- Divide by q^n: the relative error is at most (1 + 2(q − 1) q^{n/2})/q^n ≤ q^{−n} + 2 q^{1 − n/2} ≤ 3 q^{1 − n/2}.
+
+**Checks and examples**
+
+- q = 3, n = 2, b = 2: |2·2·2/9 − 1| = 1/9 ≤ 3.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-count-bounds`](#FF3-constant-coefficient-count-bounds).
+
+**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
+
+### FF.0.7. Shared linearized polynomials and subspaces
+
+The polynomial-law core here is independent of character-sum bounds. The existing [Ore/composition comparison](#FF4-frobenius-ore-polynomial-comparison) is the single planned comparison with Mathlib `SkewPolynomial`; its follow-up packet still needs its parent changed to FF.0. The finite-field function quotient, where X^(q^n)−X is killed, is a separate FF.4 application. DM.0 must import this common theory.
+
+<a id="FF4-linearized-polynomial"></a>
+
+#### q-linearized (additive) polynomials
+
+`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial` · definition.
+
+Let K be a commutative semiring and q a natural number. A polynomial L ∈ K[X] is q-linearized (a q-polynomial), written Polynomial.IsLinearized q L, if every exponent in its support is a power of q, i.e. L = ∑_i a_i X^{q^i}. The constructor linearizedOf q a := ∑_i C (a i) · X^{q^i} turns a finitely supported coefficient sequence a : ℕ →₀ K into a q-polynomial; its q-degree is the largest i with a_i ≠ 0. Convention (pinned): exponents are q^i with i ≥ 0, so X = X^{q^0} is linearized and, for q≥2, nonzero constants are not; q ≥ 2 in every theorem.
+
+**Hypotheses**
+
+- K is a commutative semiring for the support definition. Evaluation linearity uses a finite field F with #F = q and compatible commutative coefficient and target F-algebras, as in linearized-polynomial-eval-linear; fields are not required there.
+
+**Proof route**
+
+- Define IsLinearized q L :↔ ∀ n ∈ L.support, ∃ i, n = q^i.
+- Closure under +, under multiplication by constants and under finite sums is immediate from Polynomial.support_add ⊆ and support_C_mul ⊆.
+- linearizedOf q a is linearized because each monomial C c · X^{q^i} has support ⊆ {q^i}; conversely every linearized L equals linearizedOf q (fun i ↦ L.coeff (q^i)) since i ↦ q^i is injective for q ≥ 2.
+- Composition closure and linearity of evaluation are separate nodes (linearized-polynomial-comp, linearized-polynomial-eval-linear).
+
+**API**
+
+- `Polynomial.IsLinearized` (constructor): IsLinearized q L :↔ ∀ n ∈ L.support, ∃ i, n = q^i.
+- `Polynomial.linearizedOf` (constructor): linearizedOf q a = ∑_i C (a i) * X^(q^i) for a : ℕ →₀ K.
+- `Polynomial.IsLinearized.X` (simp): X is q-linearized.
+- `Polynomial.IsLinearized.X_pow_pow` (simp): X^(q^i) is q-linearized.
+- `Polynomial.IsLinearized.add` (structure): The sum of q-linearized polynomials is q-linearized.
+- `Polynomial.IsLinearized.C_mul` (structure): C c * L is q-linearized when L is.
+- `Polynomial.IsLinearized.eq_linearizedOf` (characterisation): For q ≥ 2, a q-linearized L equals linearizedOf q (fun i ↦ L.coeff (q^i)).
+- `Polynomial.isLinearized_linearizedOf` (simp): linearizedOf q a is q-linearized.
+
+**Unit tests**
+
+- `IsLinearized.X_pow_sub_X` (computation): Over ZMod p, X^p − X is p-linearized.
+- `IsLinearized.not_X_sq_add_one` (non-example): X² + 1 ∈ (ZMod 2)[X] is not 2-linearized (exponent 0 is not a power of 2).
+- `IsLinearized.not_X_cube` (non-example): X³ ∈ (ZMod 2)[X] is not 2-linearized.
+- `IsLinearized.zero` (degenerate): 0 is q-linearized.
+- `IsLinearized.linearizedOf_single` (compatibility): linearizedOf q (Finsupp.single i c) = C c * X^(q^i).
+
+**Uses**
+
+- Shallue Theorems 1.15–1.17: linearized polynomials as a class of permutation polynomials
+- Ben-Sasson–Etzion–Gabizon–Raviv §II: subspace polynomials are the monic linearized polynomials with simple roots
+- Wu–Liu §2: the composition algebra of linearized polynomials over F_{q^n} and its Dickson matrices
+- DrinfeldModulesAndTModules:DM.0: the Ore ring L{τ} of F_q-linear endomorphisms of G_a is identified with q-linearized polynomials under composition (see the restructure proposal on ownership)
+
+**Checks and examples**
+
+- X^q − X, X and 0 are q-linearized; X² + X is 2-linearized over ZMod 2; X² + 1 and X³ are not 2-linearized.
+- Over F_q, X^q − X is a nonzero q-linearized polynomial whose evaluation function is zero. Polynomial laws are not identified merely because their values on the finite base field agree.
+
+**Prerequisites:** `mathlib:Polynomial.support`, `mathlib:Polynomial.monomial`, `mathlib:Finsupp`.
+
+**Sources:** [S29](#source-29) — Chapter 1, Section 1.4, printed p. 14; [S22](#source-22) — Section II, Definition 1, printed p. 3.
+
+<a id="FF4-linearized-polynomial-eval-linear"></a>
+
+#### Evaluation of a q-polynomial is F_q-linear
+
+`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear` · lemma.
+
+Let F be a finite field with q elements, K a commutative F-algebra, E a commutative K-algebra equipped with the compatible F-algebra structure (IsScalarTower F K E), and L in K[X] q-linearized. Then x maps to aeval x L is additive on E and satisfies L(c*x)=c*L(x) for c in F, hence defines the F-linear map IsLinearized.toLinearMap : E ->_F E. K and E need not be fields; the compatible scalar tower is required.
+
+**Hypotheses**
+
+- F is a finite field, q=#F; K and E are commutative rings with Algebra F K, Algebra K E, Algebra F E and IsScalarTower F K E.
+
+**Proof route**
+
+- (x + y)^{q^i} = x^{q^i} + y^{q^i} in a commutative ring of characteristic p (iterated frobenius, add_pow_char_pow); sum over the monomials of L.
+- For c ∈ F, c^{q} = c (FiniteField.pow_card), so (c x)^{q^i} = c^{q^i} x^{q^i} = c x^{q^i}; multiply by the coefficient and sum.
+
+**Checks and examples**
+
+- For L = X^q − X and E = F itself, toLinearMap is the zero map.
+- For L = X² + X over ZMod 2 and E = GaloisField 2 2, toLinearMap has kernel {0, 1}.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial`](#FF4-linearized-polynomial), `mathlib:add_pow_char_pow`, `mathlib:FiniteField.pow_card`, `mathlib:Polynomial.aeval`.
+
+**Sources:** [S29](#source-29) — Chapter 1, Section 1.4, printed p. 14.
+
+<a id="FF4-linearized-polynomial-comp"></a>
+
+#### q-polynomials are closed under composition
+
+`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-comp` · lemma.
+
+Let K be a commutative ring of characteristic p and q = p^e with e ≥ 1. If L₁ = ∑ a_i X^{q^i} and L₂ = ∑ b_j X^{q^j} are q-linearized, then L₁.comp L₂ is q-linearized with L₁ ∘ L₂ = ∑_k (∑_{i+j=k} a_i b_j^{q^i}) X^{q^k}; composition is associative and distributes over addition on both sides, so the q-polynomials form a (noncommutative) ring under + and ∘ with unit X.
+
+**Hypotheses**
+
+- CharP K p, q = p^e, e ≥ 1.
+
+**Proof route**
+
+- (∑_j b_j X^{q^j})^{q^i} = ∑_j b_j^{q^i} X^{q^{i+j}} by additivity of the q^i-th power map in characteristic p (Polynomial.expand and frobenius on K[X]).
+- Multiply by a_i and sum over i; collect by k = i + j.
+- Left distributivity follows directly from the same characteristic-p Frobenius identities in K[X] used in the coefficient formula, including for a commutative coefficient ring that is not a field. Right distributivity and associativity are Polynomial.add_comp and Polynomial.comp_assoc. The field-based evaluation node is not applied to a non-field K.
+
+**Checks and examples**
+
+- (X^q) ∘ (a X) = a^q X^q and (a X) ∘ X^q = a X^q: composition is not commutative unless a^q = a.
+- (X^q − X) ∘ (X^q − X) = X^{q²} − 2X^q + X.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial`](#FF4-linearized-polynomial), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear`](#FF4-linearized-polynomial-eval-linear), `mathlib:Polynomial.comp`, `mathlib:Polynomial.comp_assoc`, `mathlib:Polynomial.add_comp`, `mathlib:Polynomial.expand`.
+
+**Sources:** [S31](#source-31) — Section 2.1, printed p. 5; [S31](#source-31) — Section 1, printed p. 2.
+
+<a id="FF4-roots-of-linearized-polynomial"></a>
+
+#### The roots of a q-polynomial form an F_q-subspace
+
+`FiniteFieldsAndCharacterSums:FF.4/roots-of-linearized-polynomial` · theorem.
+
+The evaluation zero locus of a q-linearized L in E is the F-linear kernel of IsLinearized.toLinearMap L. For L≠0 this also equals Polynomial.rootSet L E and is finite. For L=0 the evaluation zero locus is all of E, whereas Mathlib defines Polynomial.rootSet 0 E to be empty.
+
+**Hypotheses**
+
+- F finite, Fintype.card F = q = p^e; E a field with [Algebra K E]; L q-linearized.
+- Require L≠0 for the Polynomial.rootSet identification, exactly as in the suggested signature.
+
+**Proof route**
+
+- The roots in E are the zeros of the F-linear map x ↦ L(x) (linearized-polynomial-eval-linear), i.e. its kernel.
+- Finiteness for L ≠ 0: a nonzero polynomial has finitely many roots in a field (Polynomial.rootSet is finite).
+
+**Checks and examples**
+
+- The roots of X^q − X in any extension E of F are exactly the image of F.
+- X² + X over ZMod 2 has root set {0, 1} in GaloisField 2 2, a 1-dimensional F₂-subspace.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear`](#FF4-linearized-polynomial-eval-linear), `mathlib:Polynomial.rootSet`, `mathlib:LinearMap.ker`.
+
+**Sources:** [S22](#source-22) — Section II, printed p. 3; [S22](#source-22) — Section II, Theorem 1, printed p. 3.
+
+<a id="FF4-linearized-polynomial-separable-iff"></a>
+
+#### A q-polynomial is separable iff its coefficient of X is nonzero
+
+`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-separable-iff` · theorem.
+
+Let K be a field of characteristic p, q = p^e (e ≥ 1) and L = ∑_{i≤m} a_i X^{q^i} ∈ K[X] q-linearized and nonzero. (a) L is separable iff a_0 ≠ 0. (b) If a_0 ≠ 0 and L splits over a field E ⊇ K, then L has exactly q^m distinct roots in E, where m is the q-degree. (c) If K is perfect and t is the least index with a_t ≠ 0, every root of L in a splitting field has multiplicity exactly q^t.
+
+**Hypotheses**
+
+- CharP K p; q = p^e, e ≥ 1; L ≠ 0; (c) assumes PerfectField K.
+
+**Proof route**
+
+- The derivative of X^{q^i} is q^i X^{q^i − 1} = 0 for i ≥ 1 in characteristic p, so L′ = a_0 (Polynomial.derivative).
+- (a) If a_0 ≠ 0, L′ is a nonzero constant, so IsCoprime L L′ (mathlib:Polynomial.separable_def); if a_0 = 0 then L′ = 0 and L (nonconstant) is not separable.
+- (b) A separable split polynomial has natDegree many distinct roots (mathlib:Polynomial.card_rootSet_eq_natDegree), and natDegree L = q^m.
+- (c) Over a perfect field L = M^{q^t} with M = ∑_i a_i^{1/q^t} X^{q^{i−t}} (take q^t-th roots of the coefficients; frobenius is bijective), and M has nonzero X-coefficient, so M is separable by (a); each root of L is a simple root of M, hence of multiplicity q^t in L.
+
+**Checks and examples**
+
+- X^q − X is separable (a_0 = −1) with exactly q roots in F_q.
+- X^{q²} + X^q = (X^q + X)^q over F_q is not separable and each root has multiplicity q.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial`](#FF4-linearized-polynomial), `mathlib:Polynomial.derivative`, `mathlib:Polynomial.separable_def`, `mathlib:Polynomial.card_rootSet_eq_natDegree`, `mathlib:PerfectField`, `mathlib:frobenius`.
+
+**Sources:** [S22](#source-22) — Section II, Lemma 1 and proof, printed p. 3; [S22](#source-22) — Section II, Theorem 1, printed p. 3.
+
+<a id="FF4-subspace-polynomial"></a>
+
+#### The subspace polynomial of a finite F_q-subspace
+
+`FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial` · construction.
+
+Let F be a finite field with q elements, E a field with [Algebra F E], and U a finite F-subspace of E (a Submodule F E with Finite U). Its subspace polynomial is P_U := ∏_{u ∈ U} (X − C u) ∈ E[X]. It is monic of degree #U = q^{dim U}, separable, its roots in E are exactly U, and it is q-linearized (node subspace-polynomial-is-linearized).
+
+**Hypotheses**
+
+- F finite, Fintype.card F = q; U a finite-dimensional F-subspace of the field E (finite since F is finite).
+
+**Proof route**
+
+- Define P_U := ∏_{u ∈ U.toFinset} (X − C u) (Finset.prod over the finite carrier).
+- Monic of degree #U: product of monic linear factors (Polynomial.monic_prod_of_monic, natDegree_prod).
+- Roots = U with multiplicity one: roots of a product of distinct linear factors (Polynomial.roots_prod_X_sub_C); hence separable (Polynomial.nodup_roots converse for split polynomials).
+- #U = q^{finrank F U} (Module.card_eq_pow_finrank).
+
+**API**
+
+- `subspacePolynomial` (constructor): subspacePolynomial U = ∏_{u ∈ U} (X − C u).
+- `subspacePolynomial_monic` (simp): subspacePolynomial U is monic.
+- `subspacePolynomial_natDegree` (simp): Its natDegree is Nat.card U = q^(finrank F U).
+- `mem_rootSet_subspacePolynomial` (characterisation): x is a root of subspacePolynomial U iff x ∈ U.
+- `subspacePolynomial_separable` (other): subspacePolynomial U is separable.
+- `subspacePolynomial_injective` (extensionality): U ↦ subspacePolynomial U is injective (BEGR Lemma 2).
+
+**Unit tests**
+
+- `subspacePolynomial_bot` (degenerate): subspacePolynomial ⊥ = X.
+- `subspacePolynomial_range_algebraMap` (computation): For U = the image of F in E, subspacePolynomial U = X^q − X.
+- `subspacePolynomial_not_of_nonsubspace` (non-example): For q = 2 and a ∈ GaloisField 2 2 \ {0,1}, ∏_{u ∈ {0,1,a}} (X − u) has degree 3 and is not 2-linearized, while the subspace {0,1,a,a+1} gives X⁴ + X.
+- `subspacePolynomial_natDegree` (characterisation): natDegree (subspacePolynomial U) = q^(finrank F U).
+
+**Uses**
+
+- Ben-Sasson–Etzion–Gabizon–Raviv Lemma 2: subspaces are determined by their subspace polynomials
+- FF.4/linearized-permutation-root-criterion: the kernel of a linearized polynomial is recovered as the root space of a subspace-polynomial factor
+- DrinfeldModulesAndTModules:DM.0: kernels of isogenies of additive group schemes are finite F_q-subspaces with subspace polynomials as defining equations
+
+**Checks and examples**
+
+- P_⊥ = X.
+- For U = the image of F in E, P_U = X^q − X (FiniteField.roots_X_pow_card_sub_X).
+
+**Prerequisites:** `mathlib:Polynomial.roots_prod_X_sub_C`, `mathlib:Module.card_eq_pow_finrank`, `mathlib:FiniteField.roots_X_pow_card_sub_X`, `mathlib:Polynomial.nodup_roots`, `mathlib:Submodule`.
+
+**Sources:** [S22](#source-22) — Section II, Definition 2, printed p. 3; [S22](#source-22) — Section II, Example 1, printed p. 3.
+
+<a id="FF4-subspace-polynomial-is-linearized"></a>
+
+#### Subspace polynomials are q-linearized
+
+`FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial-is-linearized` · theorem.
+
+In the setting of subspace-polynomial, P_U is q-linearized for every finite F-subspace U ⊆ E; its coefficient of X is nonzero and its q-degree is dim_F U. Conversely every monic q-linearized L ∈ E[X] with nonzero X-coefficient that splits over E is the subspace polynomial of its root space.
+
+**Hypotheses**
+
+- F finite with q elements; U a finite-dimensional F-subspace of the field E.
+
+**Proof route**
+
+- Induction on dim U. For U = ⊥, P_U = X.
+- If U = U′ ⊕ F·w with w ∉ U′, then P_U(X) = ∏_{c ∈ F} P_{U′}(X − c w) = ∏_{c ∈ F} (P_{U′}(X) − c P_{U′}(w)), using that P_{U′} is linearized (induction) and hence additive and F-linear as a polynomial map in the K-algebra E[X] (linearized-polynomial-eval-linear).
+- ∏_{c ∈ F}(Y − c b) = Y^q − b^{q−1} Y for b ∈ E (the roots of Y^q − b^{q−1}Y are the c b; FiniteField.roots_X_pow_card_sub_X scaled), so P_U = P_{U′}^q − P_{U′}(w)^{q−1} P_{U′}, a q-linearized polynomial by linearized-polynomial-comp.
+- The X-coefficient is nonzero since P_U is separable (subspace-polynomial) and linearized-polynomial-separable-iff; the converse follows from roots-of-linearized-polynomial and linearized-polynomial-separable-iff (b), comparing monic polynomials with the same simple roots.
+
+**Checks and examples**
+
+- For U = F₂·1 + F₂·a ⊆ GaloisField 2 2 (a² = a + 1), P_U = X⁴ + X.
+- For U = F·w of dimension one, P_U = X^q − w^{q−1} X.
+
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial`](#FF4-subspace-polynomial), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-comp`](#FF4-linearized-polynomial-comp), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear`](#FF4-linearized-polynomial-eval-linear), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-separable-iff`](#FF4-linearized-polynomial-separable-iff), [`FiniteFieldsAndCharacterSums:FF.4/roots-of-linearized-polynomial`](#FF4-roots-of-linearized-polynomial), `mathlib:FiniteField.roots_X_pow_card_sub_X`.
+
+**Sources:** [S22](#source-22) — Section II, printed p. 3; [S22](#source-22) — Section II, Lemma 1, printed p. 3.
+
 <a id="FF1"></a>
 
 ## FF.1. Characters, Fourier analysis and Gauss sums
 
-Begin with canonical trace characters, norm/trace lifts and zero conventions. Transport the general Fourier theory to field coordinates before using multiplicative Fourier coefficients. Hasse–Davenport lifting has an elementary L-function route; its product identity uses the exact-Gamma completion with the two specified Dwork inputs. Stickelberger and Laurent-torus harmonic analysis remain separate groups. Projective interpolation fixes the prescribed-degree value at infinity and proves uniform two-point fibres for d≥1.
+Begin with canonical trace characters, norm/trace lifts and zero conventions. Transport the general Fourier theory to field coordinates before using multiplicative Fourier coefficients. Hasse–Davenport lifting has an elementary L-function route; its product identity uses the exact-Gamma completion with the two specified Dwork inputs. Stickelberger has its own group; the Laurent-completion targets are handed to FA.2. Projective interpolation fixes the prescribed-degree value at infinity and proves uniform two-point fibres for d≥1.
 
 ### Required input contracts
 
@@ -654,7 +1475,6 @@ Consumes: [`FiniteFieldsAndCharacterSums:FF.1/hasse-davenport-product-relation`]
 - The Hasse–Davenport product formula (2 targets).
 - Gauss sums over products and étale algebras (1 targets).
 - Teichmüller characters, Stickelberger's congruence and the factorisation of Gauss sums (13 targets).
-- Harmonic analysis on F_q((1/T)) and measures on ℤ (9 targets).
 
 ### FF.1.1. Additive characters, lifts and conventions
 
@@ -2077,386 +2897,6 @@ Let F be a finite field with q elements, n ∣ q − 1, λ a multiplicative char
 
 **Sources:** [S5](#source-5) — (A.6), p. 19.
 
-### FF.1.9. Harmonic analysis on F_q((1/T)) and measures on ℤ
-
-<a id="FF1-fourier-transform-of-integer-measure"></a>
-
-#### The Fourier transform of a probability measure on ℤ
-
-`FiniteFieldsAndCharacterSums:FF.1/fourier-transform-of-integer-measure` · definition.
-
-For a probability mass function μ on ℤ (μ(a) ≥ 0, Σ_a μ(a) = 1) its Fourier transform is μ̂ : ℝ/ℤ → ℂ, μ̂(θ) = Σ_{a ∈ ℤ} μ(a)·e(aθ), e(x) = exp(2πix) (intMeasureFourier μ). The series converges absolutely; μ̂(0) = 1, |μ̂(θ)| ≤ 1, μ̂(−θ) = conj μ̂(θ); translating μ by b multiplies μ̂ by e(bθ); at rational frequencies μ̂(k/Q) = Σ_{r ∈ ℤ/Q} μ_Q(r)·e(kr/Q), where μ_Q is the image of μ in ℤ/Q, i.e. μ̂(k/Q) = (ZMod.dft μ_Q)(−k) in Mathlib's sign convention (dft Φ k = Σ_j e(−jk/Q)Φ(j)); and μ̂(θ) is Mathlib's characteristic function of μ pushed to ℝ, evaluated at 2πt for any real lift t of θ; the integer-supported measure makes this independent of the lift.
-
-**Hypotheses**
-
-- μ a probability mass function on ℤ (PMF ℤ); θ ∈ AddCircle (1 : ℝ).
-- Pinned convention: e(+aθ) (BKK), which is the complex conjugate of Mathlib's dft kernel; the transform is unnormalised on ℤ/Q (no 1/Q).
-- For the charFun comparison choose a real representative t with (t : AddCircle 1) = θ. The characteristic-function argument is real, not a quotient-circle element; the suggested signature already states this correctly.
-
-**Proof route**
-
-- Absolute convergence: |μ(a)e(aθ)| = μ(a) and Σ μ(a) = 1; well-defined on ℝ/ℤ since e(a(θ + 1)) = e(aθ) (AddCircle.toCircle).
-- Bounds: |μ̂(θ)| ≤ Σ μ(a) = 1; μ̂(0) = 1.
-- Rational frequencies: e(ak/Q) depends only on a mod Q; group the sum by residues.
-- charFun: MeasureTheory.charFun ν t = ∫ exp(i t x) dν for ν = μ mapped to ℝ; at t = 2πθ this is Σ μ(a) e(aθ).
-
-**API**
-
-- `intMeasureFourier` (constructor): intMeasureFourier μ θ = Σ' a, μ(a) · e(aθ) ∈ ℂ.
-- `intMeasureFourier_zero` (simp): intMeasureFourier μ 0 = 1.
-- `norm_intMeasureFourier_le_one` (other): ‖intMeasureFourier μ θ‖ ≤ 1.
-- `intMeasureFourier_neg` (relation): intMeasureFourier μ (−θ) = conj (intMeasureFourier μ θ).
-- `intMeasureFourier_translate` (relation): The transform of μ(· − b) is e(bθ) · μ̂(θ).
-- `intMeasureFourier_ratCast` (compatibility): μ̂(k/Q) = Σ_{r : ZMod Q} μ_Q(r) · e(kr/Q) = ZMod.dft μ_Q (−k).
-- `intMeasureFourier_eq_charFun` (compatibility): For t ∈ ℝ: μ̂((t : AddCircle 1)) = charFun (μ mapped to ℝ) (2πt).
-- `intMeasureFourier_dirac` (example): The transform of δ_b is e(bθ).
-
-**Unit tests**
-
-- `test_intMeasureFourier_dirac` (computation): intMeasureFourier (PMF.pure b) θ = e(bθ).
-- `test_intMeasureFourier_uniform_half` (computation): For μ uniform on {0, 1}: intMeasureFourier μ (1/2) = 0.
-- `test_intMeasureFourier_zero` (degenerate): intMeasureFourier μ 0 = 1.
-- `test_intMeasureFourier_conj` (characterisation): intMeasureFourier μ (−θ) = conj (intMeasureFourier μ θ).
-- `test_intMeasureFourier_not_normalised` (non-example): For μ = δ_0 and Q ≥ 2: μ̂(k/Q) = 1 ≠ 1/Q; the normalised finite transform (1/Q)Σ differs by the factor Q.
-
-**Uses**
-
-- Bary-Soroker–Koukoulopoulos–Kozma, Proposition 2.3 and Theorem 7 (p. 13): the hypotheses Σ_{k mod Q}|µ̂_j(k/Q + ℓ/R)|^s ≤ (1 − n^(−1/10))Q^(1−γ) are on this transform at rational frequencies
-- Bary-Soroker–Koukoulopoulos–Kozma, Lemma 4.1 (4.3): the characteristic function of a random polynomial factors into µ̂_j(ψ_P(T^jX))
-- FiniteFieldsAndCharacterSums:FF.1/fourier-gap-from-residue-anticoncentration: the Fourier gap bound
-- ArithmeticStatisticsPartIIRandomPolynomials (paper route 1): the random-polynomial Part II consumes µ̂ with this convention
-
-**Checks and examples**
-
-- δ_b ↦ e(bθ).
-- μ uniform on {0, 1}: μ̂(1/2) = (1 + e(1/2))/2 = 0.
-
-**Prerequisites:** `mathlib:AddCircle.toCircle`, `mathlib:AddCircle.toCircle_add`, `mathlib:ZMod.dft`, `mathlib:MeasureTheory.charFun`, `mathlib:PMF.toMeasure`.
-
-**Sources:** [S9](#source-9) — §2.4, p. 13.
-
-<a id="FF1-fourier-gap-from-residue-anticoncentration"></a>
-
-#### A Fourier gap from anticoncentration in residue classes
-
-`FiniteFieldsAndCharacterSums:FF.1/fourier-gap-from-residue-anticoncentration` · theorem.
-
-Let η > 0, P ≥ 2 an integer and μ a probability measure on ℤ with Σ_{a ≡ b (mod p)} μ(a) ≤ 1 − η for every prime p ∣ P and every b ∈ ℤ. Then |μ̂(k/P)| ≤ 1 − 4η/P² for every integer k not divisible by P.
-
-**Hypotheses**
-
-- η > 0, P ≥ 2; the anticoncentration hypothesis is imposed only at the primes dividing P.
-
-**Proof route**
-
-- |μ̂(θ)|² = Σ_{a,b} μ(a)μ(b) cos(2π(a − b)θ), so 1 − |μ̂(θ)|² = Σ_{a,b} μ(a)μ(b)(1 − cos(2π(a − b)θ)) ≥ 8 Σ_{a,b} μ(a)μ(b)‖(a − b)θ‖², using 1 − cos(2πy) = 2 sin²(πy) ≥ 8y² for |y| ≤ 1/2 (Jordan's inequality Real.mul_le_sin).
-- Write k/P = m/Q in lowest terms, Q > 1, Q ∣ P; for a ≢ b (mod Q), ‖(a − b)θ‖ ≥ 1/Q. So 1 − |μ̂|² ≥ (8/Q²)Σ_{a ≢ b (mod Q)} μ(a)μ(b) = (8/Q²)Σ_j t_j(1 − t_j), with t_j the mass of the residue class j mod Q.
-- For a prime p ∣ Q, t_j ≤ mass of the class of j mod p ≤ 1 − η; hence Σ_j t_j(1 − t_j) ≥ η Σ_j t_j = η.
-- 1 − |μ̂| ≥ (1 − |μ̂|²)/2 ≥ 4η/Q² ≥ 4η/P².
-
-**Checks and examples**
-
-- μ uniform on {0, 1}, P = 2: η = 1/2 is admissible and the bound gives |μ̂(1/2)| ≤ 1/2 (actual value 0).
-- μ = δ_0 violates the hypothesis for every η > 0 and has |μ̂| ≡ 1: the hypothesis cannot be dropped.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.1/fourier-transform-of-integer-measure`](#FF1-fourier-transform-of-integer-measure), `mathlib:Real.mul_le_sin`.
-
-**Sources:** [S9](#source-9) — Lemma 3.6 and its proof, pp. 24–25.
-
-<a id="FF1-residue-character-at-infinity"></a>
-
-#### The residue character of F_q((1/T))
-
-`FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity` · definition. Milestone: Residue character of F_q((1/T)).
-
-Let F be a finite field of characteristic p. Model F((1/T)) as Mathlib's LaurentSeries F in the variable u = 1/T: X = Σ_j c_j T^j corresponds to Σ_j c_j u^(−j). The embedding F[T] → F((1/T)) is the F-algebra map T ↦ u^(−1) (laurentOfPoly). The residue res X := c_(−1), the coefficient of T^(−1), is the coefficient of u^(+1) (not of u^(−1)); it is F-linear. The residue character is ψ_∞ : F((1/T)) → ℝ/ℤ, ψ_∞(X) := val(Tr_{F/F_p}(res X))/p mod 1 (residueChar), whose exponential e(ψ_∞(X)) is the canonical character ψ_F of res X; for F = F_p it is BKK's ψ_p(X) = res(X)/p mod 1. For a finite set ℙ of primes, F_ℙ((1/T)) := ∏_{p ∈ ℙ} F_p((1/T)) and ψ_ℙ(X) := Σ_p ψ_p(X_p) (residueCharMulti). ψ_∞ is additive and vanishes on F[T]; for distinct primes, ψ_ℙ(X) = 0 iff res X_p = 0 for all p ∈ ℙ.
-
-**Hypotheses**
-
-- F finite with its ZMod p-algebra structure.
-- Pinned convention: variable u = 1/T; res = coefficient of u^1; the sign of the character is +.
-
-**Proof route**
-
-- laurentOfPoly := Polynomial.aeval (HahnSeries.single (−1) 1): T ↦ u^(−1).
-- res is the coefficient functional X ↦ X.coeff 1, F-linear.
-- Vanishing on polynomials: a polynomial Σ a_i T^i maps to Σ a_i u^(−i), whose coefficient at u^1 is 0 (HahnSeries.coeff_single).
-- Additivity of ψ_∞: res and Tr are additive, and x ↦ val(x)/p mod 1 is an additive map ZMod p → ℝ/ℤ (ZMod.toAddCircle).
-- Distinct primes: Σ_p r_p/p ∈ ℤ with 0 ≤ r_p < p forces every r_p = 0 (multiply by ∏_{p' ≠ p} p' and reduce modulo p).
-- Compatibility: AddCircle.toCircle (residueChar X) = canonicalAddChar F p (res X) (FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character).
-
-**API**
-
-- `laurentOfPoly` (data): The F-algebra map F[T] →ₐ[F] LaurentSeries F, T ↦ u^(−1).
-- `residueInfty` (constructor): The F-linear map LaurentSeries F →ₗ[F] F, X ↦ X.coeff 1 (the coefficient of T^(−1)).
-- `residueInfty_laurentOfPoly` (simp): residueInfty (laurentOfPoly A) = 0.
-- `residueInfty_T_inv` (simp): residueInfty (HahnSeries.single 1 1) = 1: the residue of T^(−1) is 1.
-- `residueChar` (constructor): residueChar : LaurentSeries F →+ AddCircle (1 : ℝ), X ↦ val(Tr(res X))/p.
-- `residueChar_laurentOfPoly` (simp): residueChar (laurentOfPoly A) = 0.
-- `residueChar_toCircle` (compatibility): AddCircle.toCircle (residueChar X) = canonicalAddChar F p (residueInfty X).
-- `residueCharMulti` (data): For ℙ a finite set of primes: Σ_{p∈ℙ} residueChar_p (X_p).
-- `residueCharMulti_eq_zero_iff` (characterisation): residueCharMulti X = 0 ↔ ∀ p ∈ ℙ, residueInfty (X p) = 0.
-
-**Unit tests**
-
-- `test_residueChar_T_inv` (computation): For F = ZMod p: residueChar (HahnSeries.single 1 1) = (1/p : AddCircle 1).
-- `test_residueChar_one` (degenerate): residueChar 1 = 0.
-- `test_residueChar_poly` (characterisation): residueChar (laurentOfPoly A) = 0 for every A ∈ F[T].
-- `test_residueInfty_wrong_variable` (non-example): For X = laurentOfPoly T (= u^(−1)): residueInfty X = 0 although X.coeff (−1) = 1; reading the coefficient of u^(−1) would reverse BKK's convention.
-- `test_residueChar_compat` (compatibility): AddCircle.toCircle (residueChar X) = canonicalAddChar F p (residueInfty X).
-
-**Uses**
-
-- Bary-Soroker–Koukoulopoulos–Kozma, (4.1)–(4.2) and Lemma 4.1: Fourier inversion over F_p[T]/(D) and the characteristic function of random polynomials use e(ψ_P(AB/D))
-- Bary-Soroker–Koukoulopoulos–Kozma, Lemmas 5.1, 6.1–6.3: pointwise and L¹ bounds on σ_P(n; X) = ∏|µ̂_j(ψ_P(T^jX))|
-- FunctionFieldArithmetic:FA.2: the general local residue characters of a function field; for F_q(T) at ∞ with the differential −dT this is ψ_∞, and FA.2 cites this special case
-- FiniteFieldsAndCharacterSums:FF.1/residue-pairing-duality: the characters of F[T]/(D) are A ↦ e(ψ_∞(AB/D))
-
-**Checks and examples**
-
-- ψ_p(T^(−1)) = 1/p for F = F_p; ψ_p(1) = 0; ψ_p(A) = 0 for A ∈ F_p[T].
-
-**Prerequisites:** `mathlib:LaurentSeries`, `mathlib:HahnSeries.single`, `mathlib:HahnSeries.coeff_single`, `mathlib:Polynomial.aeval`, `mathlib:ZMod.toAddCircle`, `mathlib:AddCircle.toCircle`, [`FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character`](#FF1-canonical-additive-character).
-
-**Sources:** [S9](#source-9) — §4, p. 28; [S9](#source-9) — §4, pp. 28–29.
-
-<a id="FF1-residue-pairing-duality"></a>
-
-#### Residue-pairing duality for F[T]/(D)
-
-`FiniteFieldsAndCharacterSums:FF.1/residue-pairing-duality` · lemma.
-
-Let F be a finite field with q elements and D ∈ F[T] monic of degree ℓ ≥ 0. The pairing F[T]/(D) × F[T]/(D) → ℂˣ, (A, B) ↦ e(ψ_∞(AB/D)) (AB/D computed in F((1/T))) is well defined and nondegenerate; hence B ↦ (A ↦ e(ψ_∞(AB/D))) is an isomorphism from F[T]/(D) onto the character group of its additive group, and (1/q^ℓ)·Σ_{B mod D} e(ψ_∞(AB/D)) = 1 if D ∣ A and 0 otherwise. For a finite set of primes ℙ and D = (D_p) monic, (1/‖D‖_ℙ)Σ_{B mod D} e(ψ_ℙ(AB/D)) = 1_{A ≡ 0 (mod D)}, with ‖D‖_ℙ = ∏_p p^(deg D_p).
-
-**Hypotheses**
-
-- D monic (so that 1/D exists in F((1/T)) and F[T]/(D) has q^ℓ elements).
-
-**Proof route**
-
-- Well defined: if D ∣ A or D ∣ B then AB/D ∈ F[T] and ψ_∞ vanishes on F[T] (FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity).
-- Nondegenerate: if D ∤ A write A = QD + R with 0 ≤ deg R < deg D; then R/D = c·T^(deg R − deg D) + lower terms with c ≠ 0 (BKK Remark 6.1); for j = deg D − deg R − 1 ≥ 0, res(T^j·R/D) = c ≠ 0, and choosing b ∈ F with Tr(bc) ≠ 0 (FiniteField.trace_to_zmod_nondegenerate) makes B = bT^j pair nontrivially with A.
-- The map B ↦ character is an injective homomorphism into AddChar (F[T]/(D)) ℂ, which has q^ℓ elements (AddChar.card_eq), so it is bijective.
-- Inversion formula: Σ_B e(ψ_∞(AB/D)) is the sum of the character B ↦ e(ψ_∞(AB/D)), which is trivial iff D ∣ A (nondegeneracy); AddChar.sum_eq_ite.
-- Several primes: product over p ∈ ℙ of the one-prime statements.
-
-**Checks and examples**
-
-- ℓ = 0 (D = 1): the sum is 1 and every A is ≡ 0.
-- D = T, F = F_p: B ↦ e(bA(0)/p), the standard characters of F_p.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity`](#FF1-residue-character-at-infinity), `mathlib:FiniteField.trace_to_zmod_nondegenerate`, `mathlib:AddChar.card_eq`, `mathlib:AddChar.sum_eq_ite`.
-
-**Sources:** [S9](#source-9) — §4, p. 29; [S9](#source-9) — (4.1), p. 29.
-
-<a id="FF1-negative-power-torus"></a>
-
-#### The torus of negative-power Laurent series
-
-`FiniteFieldsAndCharacterSums:FF.1/negative-power-torus` · definition.
-
-Let F be a finite field with q elements. T_F := {X ∈ F((1/T)) : c_j(X) = 0 for all j ≥ 0}, the Laurent series Σ_{j ≤ −1} c_j T^j (in u = 1/T: coefficients vanish at u^j, j ≤ 0) — an additive subgroup, closed under multiplication, not containing 1 (the maximal ideal uF[[u]], not a unital subring). Every Y ∈ F((1/T)) decomposes uniquely as Y = A + {Y} with A ∈ F[T] (polynomialPart) and {Y} ∈ T_F (fractionalPart). The norm ‖Y‖_T := q^(−m), m ≥ 1 least with c_(−m)({Y}) ≠ 0, and ‖Y‖_T = 0 if {Y} = 0. The coordinates T_F ≃+ (ℕ → F), X ↦ (i ↦ c_(−(i+1))(X)), identify T_F with a product of copies of F. For A, B ∈ F[T], B ∤ A: ‖A/B‖_T = q^(deg R − deg B) with R = A mod B.
-
-**Hypotheses**
-
-- F finite with q elements.
-- BKK's ‖·‖ uses p = q; the node uses q for general F.
-
-**Proof route**
-
-- The subgroup property and closure under products are coefficientwise; 1 has c_0 = 1.
-- Decomposition: truncate the Laurent series at the u-exponent 0 (finitely many nonpositive exponents: Laurent series have bounded-below support).
-- Coordinates: a sequence (c_(−1), c_(−2), …) defines the HahnSeries Σ_i c_(−(i+1)) u^(i+1), whose support ⊆ ℕ+ is well-founded; the map is an additive bijection.
-- Remark 6.1: A/B = Q + R/B, and R/B = T^(deg R − deg B)·(r_0 + …)(b_0 + …)^(−1) with r_0, b_0 ≠ 0, so the leading fractional coefficient sits at T^(deg R − deg B).
-
-**API**
-
-- `negPowerTorus` (constructor): The AddSubgroup of LaurentSeries F of series with coeff j = 0 for all j ≤ 0 (in u).
-- `fractionalPart` (projection): LaurentSeries F →+ negPowerTorus F.
-- `polynomialPart` (projection): LaurentSeries F →+ F[T] (the part with u-exponents ≤ 0).
-- `laurentOfPoly_polynomialPart_add_fractionalPart` (characterisation): Y = laurentOfPoly (polynomialPart Y) + fractionalPart Y, uniquely.
-- `fractionalPart_laurentOfPoly` (simp): fractionalPart (laurentOfPoly A) = 0.
-- `torusCoords` (equivalence): negPowerTorus F ≃+ (ℕ → F), X ↦ (i ↦ X.coeff (i + 1)).
-- `torusNorm` (data): ‖Y‖_T = q^(−m) for the first nonzero fractional coefficient, 0 if none.
-- `torusNorm_T_inv_pow` (example): torusNorm (T^(−r)) = q^(−r) for r ≥ 1.
-- `torusNorm_div` (relation): For B ∤ A: torusNorm (A/B) = q^(deg (A mod B) − deg B).
-- `torusNorm_lt_iff` (characterisation): torusNorm X < q^(−m) ↔ the first m fractional coefficients vanish.
-
-**Unit tests**
-
-- `test_torusNorm_poly` (degenerate): torusNorm (laurentOfPoly A) = 0.
-- `test_torusNorm_T_inv_pow` (computation): torusNorm (HahnSeries.single r 1) = q^(−r) for r ≥ 1.
-- `test_torusNorm_ball` (characterisation): torusNorm X < q^(−m) iff X.coeff 1 = ⋯ = X.coeff m = 0 (the first m coefficients, not m − 1).
-- `test_negPowerTorus_not_unital` (non-example): (1 : LaurentSeries F) ∉ negPowerTorus F: the torus is not a unital subring.
-- `test_torusCoords_T_inv` (compatibility): torusCoords (T^(−1)) = Pi.single 0 1.
-
-**Uses**
-
-- Bary-Soroker–Koukoulopoulos–Kozma, §6: T_p with its Haar measure is the 'continuous' side of the L¹ bounds
-- Bary-Soroker–Koukoulopoulos–Kozma, Lemma 6.2: balls of radius p^(−2ℓ) around Farey fractions are disjoint in T_p
-- FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus: the measure is transported along the coordinates
-
-**Checks and examples**
-
-- Polynomials have norm 0; ‖T^(−r)‖_T = q^(−r); ‖X‖_T < q^(−m) iff c_(−1) = ⋯ = c_(−m) = 0.
-
-**Prerequisites:** `mathlib:LaurentSeries`, `mathlib:HahnSeries.single`, [`FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity`](#FF1-residue-character-at-infinity).
-
-**Sources:** [S9](#source-9) — §6, p. 31; [S9](#source-9) — §6, p. 31, and Remark 6.1, p. 32.
-
-<a id="FF1-haar-measure-on-negative-power-torus"></a>
-
-#### The Haar probability measure on the negative-power torus
-
-`FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus` · definition.
-
-The Haar probability measure dX on T_F is the image, under the coordinate isomorphism (ℕ → F) ≃ T_F, of the infinite product of uniform probability measures on F (MeasureTheory.Measure.infinitePi of PMF.uniformOfFintype F) (torusHaar). It is a translation-invariant probability measure (the normalised Haar measure of the compact group T_F with the product topology), each coordinate c_(−i) is uniformly distributed on F, the cylinder {c_(−1) = a_1, …, c_(−m) = a_m} has measure q^(−m), and the ball {X : ‖X‖_T < q^(−m)} has measure q^(−m). For a finite set of primes, T_ℙ = ∏_p T_(F_p) carries the product measure.
-
-**Hypotheses**
-
-- F finite with q elements, with the discrete measurable space.
-
-**Proof route**
-
-- infinitePi of probability measures is a probability measure; its value on a cylinder is the finite product (MeasureTheory.Measure.infinitePi_pi), q^(−m).
-- Translation invariance: translation by Y acts coordinatewise by translations of F, which preserve the uniform measure; the product of invariant measures is invariant (determined by cylinders).
-- Balls are cylinders with a_1 = ⋯ = a_m = 0 (FiniteFieldsAndCharacterSums:FF.1/negative-power-torus, torusNorm_lt_iff).
-
-**API**
-
-- `torusHaar` (constructor): The measure on ℕ → F (coordinates of T_F): infinitePi of uniform measures.
-- `isProbabilityMeasure_torusHaar` (instance): torusHaar is a probability measure.
-- `torusHaar_cylinder` (characterisation): torusHaar {c | ∀ i < m, c i = a i} = q^(−m).
-- `torusHaar_map_add` (other): Translation invariance: (torusHaar).map (· + y) = torusHaar.
-- `torusHaar_coord` (compatibility): Each coordinate is uniformly distributed on F: (torusHaar).map (· i) = uniform.
-- `torusHaar_ball` (example): torusHaar {X : torusNorm X < q^(−m)} = q^(−m).
-
-**Unit tests**
-
-- `test_torusHaar_univ` (degenerate): torusHaar univ = 1.
-- `test_torusHaar_first_coord_zero` (computation): torusHaar {c | c 0 = 0} = 1/q.
-- `test_torusHaar_ball` (computation): torusHaar {c | ∀ i < m, c i = 0} = q^(−m) (BKK's ball of strict radius p^(−m)).
-- `test_torusHaar_not_counting` (non-example): torusHaar {c | c 0 = 0} ≠ 1 : a Dirac or counting measure on the coordinates would fail the uniform-coordinate test.
-- `test_torusHaar_translate` (compatibility): torusHaar is invariant under translation by Pi.single 0 1 (translation by T^(−1)).
-
-**Uses**
-
-- Bary-Soroker–Koukoulopoulos–Kozma, Lemmas 6.1–6.2: integration of functions of finitely many coordinates over T_p
-- FiniteFieldsAndCharacterSums:FF.1/torus-character-orthogonality: the continuous orthogonality relation
-- FunctionFieldArithmetic:FA.2: self-dual Haar measures on completions of function fields; FA.2 cites this normalisation at ∞ for F_q(T)
-
-**Checks and examples**
-
-- Total mass 1; μ{c_(−1) = 0} = 1/q; μ{‖X‖ < q^(−m)} = q^(−m).
-
-**Prerequisites:** `mathlib:MeasureTheory.Measure.infinitePi`, `mathlib:MeasureTheory.Measure.infinitePi_pi`, `mathlib:PMF.uniformOfFintype`, `mathlib:PMF.toMeasure`, `mathlib:MeasureTheory.IsProbabilityMeasure`, [`FiniteFieldsAndCharacterSums:FF.1/negative-power-torus`](#FF1-negative-power-torus).
-
-**Sources:** [S9](#source-9) — §6, p. 32; [S9](#source-9) — Proof of Lemma 6.1, p. 32.
-
-<a id="FF1-reduced-polynomial-fractions"></a>
-
-#### Reduced polynomial fractions and their separation
-
-`FiniteFieldsAndCharacterSums:FF.1/reduced-polynomial-fractions` · definition.
-
-Let F be a finite field with q elements and ℓ ≥ 0. A reduced fraction of denominator degree ℓ is a pair (G, H) of polynomials with H monic of degree ℓ, deg G < ℓ and gcd(G, H) = 1 (for ℓ = 0 the only one is (0, 1)); it is viewed as G/H ∈ T_F (zero polynomial part). Distinct reduced fractions of denominator degree ℓ satisfy ‖G/H − G'/H'‖_T ≥ q^(−2ℓ), so the balls {Y : ‖Y − G/H‖_T < q^(−2ℓ)} are pairwise disjoint. If T ∤ H, multiplication by T^j permutes the reduced residues G mod H; for T ∣ H (e.g. 1/T) it does not.
-
-**Hypotheses**
-
-- H monic; gcd(G, H) = 1; the T-shift statement needs T ∤ H.
-
-**Proof route**
-
-- G/H ∈ T_F since deg G < deg H (Remark 6.1).
-- Separation: G/H − G'/H' = (GH' − G'H)/(HH'), with HH' of degree 2ℓ and GH' − G'H ≠ 0 (distinct reduced fractions), so by Remark 6.1 its norm is q^(deg R − 2ℓ) ≥ q^(−2ℓ), R the remainder (FiniteFieldsAndCharacterSums:FF.1/negative-power-torus, torusNorm_div).
-- Shift: T is a unit modulo H iff T ∤ H; then G ↦ T^jG is a bijection of (F[T]/H)ˣ.
-
-**API**
-
-- `ReducedFraction` (structure): A pair (G, H) with H monic of degree ℓ, deg G < ℓ, IsCoprime G H.
-- `ReducedFraction.toTorus` (data): The element G/H of negPowerTorus F.
-- `ReducedFraction.zero` (example): The unique reduced fraction of denominator degree 0 is 0/1.
-- `ReducedFraction.torusNorm_sub_ge` (relation): Distinct reduced fractions of degree ℓ are at torus distance ≥ q^(−2ℓ).
-- `ReducedFraction.torusNorm_toTorus` (compatibility): torusNorm (G/H) = q^(deg G − ℓ) for G ≠ 0.
-- `ReducedFraction.mulTPow_bijective` (other): If ¬ T ∣ H: G ↦ T^j G mod H is a bijection of the reduced residues mod H.
-
-**Unit tests**
-
-- `test_reducedFraction_zero` (degenerate): Every reduced fraction of denominator degree 0 is (0, 1).
-- `test_reducedFraction_T` (non-example): (1, T) is a reduced fraction but T ∣ T, and multiplication by T is not injective on residues mod T (it sends 1 to 0).
-- `test_reducedFraction_linear_sep` (computation): For a ≠ b in F: torusNorm (1/(T − a) − 1/(T − b)) = q^(−2).
-- `test_reducedFraction_norm` (compatibility): torusNorm (1/(T − a)) = q^(−1).
-
-**Uses**
-
-- Bary-Soroker–Koukoulopoulos–Kozma, (4.6)–(4.7): δ_P(n; ℓ) sums σ_P over reduced fractions G/H
-- Bary-Soroker–Koukoulopoulos–Kozma, Lemma 6.2 (routed to SieveMethodsAndPrimePatterns:SV.2): the polynomial Farey large sieve uses the disjoint balls
-- Bary-Soroker–Koukoulopoulos–Kozma, Lemma 5.1: for a reduced G/H with T ∤ H, every window of ℓ consecutive shifts T^jG/H has nonzero residue
-
-**Checks and examples**
-
-- ℓ = 0: only 0/1.
-- ℓ = 1: c/(T − a) for c ≠ 0, pairwise at distance ≥ q^(−2).
-
-**Prerequisites:** `mathlib:IsCoprime`, `mathlib:Polynomial.Monic`, [`FiniteFieldsAndCharacterSums:FF.1/negative-power-torus`](#FF1-negative-power-torus).
-
-**Sources:** [S9](#source-9) — §4, p. 30; [S9](#source-9) — Proof of Lemma 6.2, p. 33; [S9](#source-9) — Proof of Lemma 6.3, p. 33.
-
-<a id="FF1-torus-character-orthogonality"></a>
-
-#### Orthogonality of the residue characters on the torus
-
-`FiniteFieldsAndCharacterSums:FF.1/torus-character-orthogonality` · theorem.
-
-Let F be a finite field. For A ∈ F[T]: ∫_{T_F} e(ψ_∞(A·X)) dX = 1 if A = 0 and 0 otherwise, with dX the Haar probability measure. For a finite set of primes ℙ and A = (A_p) ∈ ∏_p F_p[T]: ∫_{T_ℙ} e(ψ_ℙ(AX)) dX = 1_{A = 0}.
-
-**Hypotheses**
-
-- The integrand is a function of finitely many coordinates, bounded by 1.
-
-**Proof route**
-
-- res(AX) = Σ_i a_i c_(−1−i)(X) for A = Σ a_i T^i, so e(ψ_∞(AX)) = ∏_i ψ_F(a_i c_(−1−i)) depends on the coordinates c_(−1), …, c_(−1−deg A).
-- By FiniteFieldsAndCharacterSums:FF.1/torus-finite-coordinate-integral (or directly from the product structure of torusHaar), the integral equals ∏_i (1/q)Σ_{c ∈ F} ψ_F(a_i c).
-- For A ≠ 0 some a_i ≠ 0 and Σ_c ψ_F(a_i c) = 0 (ψ_F primitive: AddChar.sum_mulShift); for A = 0 the integrand is 1.
-- Several primes: the measure is a product and the integrand factors over p.
-
-**Checks and examples**
-
-- A = 0: integral 1.
-- A = 1: the integrand is ψ_F(c_(−1)), integral 0.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity`](#FF1-residue-character-at-infinity), [`FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus`](#FF1-haar-measure-on-negative-power-torus), [`FiniteFieldsAndCharacterSums:FF.1/torus-finite-coordinate-integral`](#FF1-torus-finite-coordinate-integral), `mathlib:AddChar.sum_mulShift`, [`FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character`](#FF1-canonical-additive-character).
-
-**Sources:** [S9](#source-9) — §6, p. 32.
-
-<a id="FF1-torus-finite-coordinate-integral"></a>
-
-#### Integrals over the torus of functions of finitely many residues
-
-`FiniteFieldsAndCharacterSums:FF.1/torus-finite-coordinate-integral` · theorem.
-
-Let F be a finite field of characteristic p with q elements, m ≥ 0 and f_0, …, f_(m−1) : ℝ/ℤ → ℂ. Then ∫_{T_F} ∏_{j<m} f_j(ψ_∞(T^j X)) dX = p^(−m)·∏_{j<m} Σ_{ξ ∈ ℤ/p} f_j(ξ/p). For F = F_p this is BKK's Lemma 6.1; for general F the trace is equidistributed (each value of Tr_{F/F_p} is taken q/p times), which gives the same right side.
-
-**Hypotheses**
-
-- No regularity is needed on the f_j: the integrand takes finitely many values on cylinders.
-
-**Proof route**
-
-- ψ_∞(T^j X) = val(Tr(c_(−1−j)(X)))/p, so the integrand depends only on c_(−1), …, c_(−m) (FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity).
-- By the cylinder formula (FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus), the integral is q^(−m)Σ_{c ∈ F^m} ∏_j f_j(Tr(c_j)/p) = ∏_j (1/q)Σ_{c ∈ F} f_j(Tr(c)/p).
-- Tr : F → ZMod p is surjective and ZMod p-linear, so each ξ ∈ ZMod p has q/p preimages (Algebra.trace_surjective); (1/q)Σ_c f(Tr(c)/p) = (1/p)Σ_ξ f(ξ/p).
-
-**Checks and examples**
-
-- m = 0: both sides 1.
-- f_0 = e(·): ∫ e(ψ(X)) dX = (1/p)Σ_ξ e(ξ/p) = 0.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus`](#FF1-haar-measure-on-negative-power-torus), [`FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity`](#FF1-residue-character-at-infinity), `mathlib:Algebra.trace_surjective`, `mathlib:MeasureTheory.Measure.infinitePi_pi`.
-
-**Sources:** [S9](#source-9) — Lemma 6.1, p. 32.
-
 <a id="FF2"></a>
 
 ## FF.2. Weil–Deligne estimates and character sheaves
@@ -2515,7 +2955,6 @@ Consumes: [`FiniteFieldsAndCharacterSums:FF.2/universal-smooth-leading-polynomia
 
 ### Target groups
 
-- Elementary polynomial census (1 targets).
 - Companion sums and their L-functions (9 targets).
 - Polynomiality, degree and the functional equation (8 targets).
 - Primitive quotient-ring Gauss sums and functional equations (4 targets).
@@ -2535,54 +2974,7 @@ Consumes: [`FiniteFieldsAndCharacterSums:FF.2/universal-smooth-leading-polynomia
 - Constant-field cosets and Chebotarev (2 targets).
 - Correlations, isotypic main terms and Möbius stabilizers (4 targets).
 
-### FF.2.1. Elementary polynomial census
-
-<a id="FF2-monic-polynomials-of-degree"></a>
-
-#### The finite set of monic polynomials of a given degree
-
-`FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree` · construction.
-
-For a finite field F with q elements and n ∈ ℕ, monicOfDegree F n ⊆ F[X] is the finite set of monic polynomials of degree exactly n, constructed as the image of the coefficient vectors v : Fin n → F under v ↦ X^n + Σ_{i<n} v_i X^i (Mathlib's degreeLTEquiv identifies vectors with polynomials of degree < n). It has q^n elements; for n = 0 it is {1}.
-
-**Hypotheses**
-
-- F a finite field (Field F, Fintype F, DecidableEq F)
-- n : ℕ
-
-**Proof route**
-
-- Define the map v ↦ X^n + (degreeLTEquiv F n).symm v; it is injective since degreeLTEquiv is a linear equivalence.
-- Membership: X^n + g with deg g < n is monic of degree n; conversely a monic f of degree n equals X^n + (f − X^n) with deg(f − X^n) < n.
-- Cardinality: injectivity gives card = card (Fin n → F) = q^n.
-
-**API**
-
-- `mem_monicOfDegree` (characterisation): f ∈ monicOfDegree F n ↔ f.Monic ∧ f.natDegree = n.
-- `card_monicOfDegree` (other): (monicOfDegree F n).card = q ^ n.
-- `monicOfDegree_zero` (simp): monicOfDegree F 0 = {1}.
-
-**Unit tests**
-
-- `monicOfDegree_one_zmod_two` (computation): monicOfDegree (ZMod 2) 1 = {X, X + 1}.
-- `card_monicOfDegree_zmod_three_two` (computation): (monicOfDegree (ZMod 3) 2).card = 9.
-- `C_two_mul_X_not_mem_monicOfDegree` (non-example): 2X ∉ monicOfDegree (ZMod 3) 1: it has degree 1 but is not monic.
-
-**Uses**
-
-- Shoup §20.1, Algorithm RIP: a uniform element of monicOfDegree F ℓ is the random candidate tested for irreducibility
-- FF.3/monic-irreducible-polynomials-of-degree: the monic irreducibles of degree n are filtered from it
-- Bary-Soroker–Koukoulopoulos–Kozma, Proposition 8.1 and §§8-9: Mp(k), the monic polynomials of degree k, indexes the sieve over irreducible factors (ArithmeticStatisticsPartIIRandomPolynomials, from route 1 of the paper)
-
-**Checks and examples**
-
-- mem_monicOfDegree and card_monicOfDegree hold; the three unit tests pass.
-
-**Prerequisites:** `mathlib:Polynomial.degreeLTEquiv`, `mathlib:Polynomial.degreeLT`, `mathlib:Polynomial.Monic`.
-
-**Sources:** [S1](#source-1) — §20.1, Algorithm RIP, printed p. 524; [S9](#source-9) — §1 notation, and Proposition 8.1, p. 39.
-
-### FF.2.2. Companion sums and their L-functions
+### FF.2.1. Companion sums and their L-functions
 
 <a id="FF2-additive-companion-sum"></a>
 
@@ -2991,7 +3383,7 @@ Let Λ be completely multiplicative on monic polynomials with L(Λ; T) = exp(Σ_
 
 **Sources:** [S4](#source-4) — Chapter 4, Corollary 4.9(2), printed p. 45; [S4](#source-4) — Chapter 4, Remark 4.10(3), printed p. 46.
 
-### FF.2.3. Polynomiality, degree and the functional equation
+### FF.2.2. Polynomiality, degree and the functional equation
 
 <a id="FF2-root-sum-additive-top-coefficients"></a>
 
@@ -3224,7 +3616,7 @@ Let ψ ≠ 1, f ∈ F[X] of degree n ≥ 1 with p ∤ n, χ any multiplicative c
 
 **Sources:** [S4](#source-4) — Chapter 5, Remark 5.14(2), printed p. 77; [S13](#source-13) — section 4.2.2-4.2.3, pp. 11-12.
 
-### FF.2.4. Primitive quotient-ring Gauss sums and functional equations
+### FF.2.3. Primitive quotient-ring Gauss sums and functional equations
 
 <a id="FF2-primitive-multiplicative-ring-character"></a>
 
@@ -3362,7 +3754,7 @@ Let F have q elements, g monic of degree d≥1, χ a primitive multiplicative ch
 
 **Sources:** [S4](#source-4) — Proposition 4.11 and its proof, pp. 46–49.
 
-### FF.2.5. Point counts on Artin–Schreier and Kummer curves
+### FF.2.4. Point counts on Artin–Schreier and Kummer curves
 
 <a id="FF2-trace-kernel-artin-schreier"></a>
 
@@ -3499,7 +3891,7 @@ Let F_q ⊆ F with |F| = Q and a(h) := #{(x, y) ∈ F² : y^q − y = h(x)} − 
 
 **Sources:** [S4](#source-4) — Chapter 5, Lemma 5.3, printed pp. 67-68.
 
-### FF.2.6. Stepanov's method in Bombieri's form
+### FF.2.5. Stepanov's method in Bombieri's form
 
 <a id="FF2-stepanov-curve-ring"></a>
 
@@ -3921,7 +4313,7 @@ Let g ∈ F_q[X] be non-constant of degree d with p ∤ d and d < q. There is C 
 
 **Sources:** [S4](#source-4) — Chapter 5, Theorem 5.2, printed p. 67.
 
-### FF.2.7. The one-variable Weil bounds, elementary route
+### FF.2.6. The one-variable Weil bounds, elementary route
 
 <a id="FF2-additive-l-function-root-bound"></a>
 
@@ -4032,7 +4424,7 @@ Let χ have order e ≥ 2 and g ∈ F[X] non-constant with gcd(deg g, e) = 1, wi
 
 **Sources:** [S4](#source-4) — Chapter 3, Theorem 3.1, printed p. 31.
 
-### FF.2.8. Degenerate cases
+### FF.2.7. Degenerate cases
 
 <a id="FF2-artin-schreier-reduced-form"></a>
 
@@ -4171,11 +4563,12 @@ Let ψ = ψ_can(b ·) be nontrivial and f ∈ F[X] arbitrary; let f* := (b f)*. 
 
 `FiniteFieldsAndCharacterSums:FF.2/multiplicative-perfect-power-sum` · theorem.
 
-Let χ have order e ≥ 2, c ∈ F^× and h ∈ F[X] nonzero, g = c·h^e. Then for every finite extension L: S̃_L(g, χ) = χ(c)^{[L:F]}·(|L| − #{x ∈ L : h(x) = 0}); in particular |Σ_{x∈F} χ(g(x))| ≥ q − deg h. Z(g, χ; T) = Π_{π | h}(1 − (χ(c)T)^{deg π}) / (1 − χ(c)qT), not a polynomial. Conversely a polynomial g ∈ F[X] of the form c′·k^e with c′ ∈ F̄ and k ∈ F̄[X] can be written c·h^e with c ∈ F^×, h ∈ F[X] monic.
+Let χ have order e ≥ 2, c ∈ F^× and h ∈ F[X] nonzero, g = c·h^e. Then for every finite extension L: S̃_L(g, χ) = χ(c)^{[L:F]}·(|L| − #{x ∈ L : h(x) = 0}); in particular |Σ_{x∈F} χ(g(x))| ≥ q − deg h. Z(g, χ; T) = Π_{π | h}(1 − (χ(c)T)^{deg π}) / (1 − χ(c)qT), not a polynomial. Conversely a nonzero polynomial g ∈ F[X] of the form c′·k^e with c′ ∈ F̄ and k ∈ F̄[X] can be written c·h^e with c ∈ F^×, h ∈ F[X] monic.
 
 **Hypotheses**
 
 - χ of exact order e; the degeneracy condition is 'constant times an e-th power', not 'perfect power': g = X² is not degenerate for a cubic χ, and g = c·h^e with c not an e-th power is degenerate.
+- The converse excludes g = 0; nonzero constants are included by h = 1.
 
 **Proof route**
 
@@ -4193,7 +4586,7 @@ Let χ have order e ≥ 2, c ∈ F^× and h ∈ F[X] nonzero, g = c·h^e. Then f
 
 **Sources:** [S4](#source-4) — Chapter 4, Remark 4.6(1)-(2), printed p. 41; [S4](#source-4) — Chapter 3, Theorem 3.1, printed p. 31.
 
-### FF.2.9. The curve route: purity from the Riemann hypothesis for curves
+### FF.2.8. The curve route: purity from the Riemann hypothesis for curves
 
 <a id="FF2-artin-schreier-function-field"></a>
 
@@ -4456,7 +4849,7 @@ Let χ have order e ≥ 2 and g ∈ F[X] squarefree of degree m with gcd(m, e) =
 
 **Sources:** [S4](#source-4) — Chapter 4, Proposition 4.14(1) and the argument after it, printed p. 50.
 
-### FF.2.10. Character sheaves, trace functions and Deligne's bound
+### FF.2.9. Character sheaves, trace functions and Deligne's bound
 
 <a id="FF2-artin-schreier-sheaf"></a>
 
@@ -4964,7 +5357,7 @@ Let k be perfect of characteristic p and K=k((t)). If u∈K has valuation −m<0
 
 **Sources:** [S37](#source-37) — §4.4, Lemma 4′, pp. 144–145; [S10](#source-10) — Exemple 3.5, (3.5.4), volume p. 191.
 
-### FF.2.11. The ℓ-adic route to the multiplicative and mixed bounds
+### FF.2.10. The ℓ-adic route to the multiplicative and mixed bounds
 
 <a id="FF2-rank-one-sheaf-l-function"></a>
 
@@ -5024,12 +5417,13 @@ In the setting of FF.2/rank-one-sheaf-l-function, if L(Λ; T) = Π_j(1 − ω_jT
 
 `FiniteFieldsAndCharacterSums:FF.2/weil-bound-multiplicative` · theorem.
 
-Let χ be a multiplicative character of F of order e ≥ 2 and g ∈ F[X] not of the form c·h^e with c ∈ F̄, h ∈ F̄[X]; let m be the number of distinct roots of g in F̄. Then |Σ_{x∈F} χ(g(x))| ≤ (m − 1)√q, and |S̃_L(g, χ)| ≤ (m − 1)|L|^{1/2} for every finite extension L.
+Let χ be a multiplicative character of F of order e ≥ 2 and nonzero g ∈ F[X] not of the form c·h^e with c ∈ F̄, h ∈ F̄[X]; let m be the number of distinct roots of g in F̄. Then |Σ_{x∈F} χ(g(x))| ≤ (m − 1)√q, and |S̃_L(g, χ)| ≤ (m − 1)|L|^{1/2} for every finite extension L.
 
 **Hypotheses**
 
 - χ of exact order e ≥ 2 (the trivial character is excluded: Mathlib's trivial MulChar would count the non-roots of g).
-- The degenerate polynomials are the c·h^e, including c not an e-th power (FF.2/multiplicative-perfect-power-sum); a perfect power h^k with e ∤ k is not degenerate.
+- The degenerate polynomials are the c·h^e, including c not an e-th power (FF.2/multiplicative-perfect-power-sum); being a power h^k with e ∤ k does not by itself decide degeneracy; X² is nondegenerate for a cubic character, whereas (X³)² is degenerate.
+- g ≠ 0; geometric degeneracy is tested after mapping to F̄[X]. χ(0) = 0, including the trivial MulChar convention.
 
 **Proof route**
 
@@ -5042,6 +5436,8 @@ Let χ be a multiplicative character of F of order e ≥ 2 and g ∈ F[X] not of
 - χ quadratic, g = X³ + aX + b squarefree: |Σ χ(g(x))| ≤ 2√q (Hasse).
 - χ cubic, g = X²: m = 1, the bound gives 0, and indeed Σ χ(x²) = 0.
 - χ quadratic, g = c(X² + 1)² with c a non-square: degenerate, |Σ| = q − #{x² + 1 = 0} (not bounded by (m − 1)√q).
+- Over F_7 choose χ(3)=exp(2πi/3), an exact cubic character. The six nonzero values of χ(x²) have each cubic root of unity twice, so the sum is zero: X² is not geometrically a cube.
+- For the same χ, Σ_x χ(3x³) = 6χ(3), of modulus 6. The scalar 3 is not a cube in F_7, but 3X³ is geometrically a scalar times a cube and must be excluded.
 
 **Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.2/multiplicative-l-function-is-polynomial`](#FF2-multiplicative-l-function-is-polynomial), [`FiniteFieldsAndCharacterSums:FF.2/rank-one-sheaf-root-bound`](#FF2-rank-one-sheaf-root-bound), [`FiniteFieldsAndCharacterSums:FF.2/l-function-reciprocal-roots`](#FF2-l-function-reciprocal-roots), [`FiniteFieldsAndCharacterSums:FF.2/multiplicative-companion-sum`](#FF2-multiplicative-companion-sum).
 
@@ -5129,7 +5525,7 @@ In the setting of FF.2/artin-schreier-sum-on-curve-bound, suppose σ is an autom
 
 **Sources:** [S10](#source-10) — [Sommes trig.] 3.6, volume p. 192.
 
-### FF.2.12. Kloosterman sums and Gauss sums
+### FF.2.11. Kloosterman sums and Gauss sums
 
 <a id="FF2-kloosterman-sum"></a>
 
@@ -5260,7 +5656,7 @@ For χ ≠ 1 and ψ ≠ 1: H^i_c(G_{m,F̄}, L_ψ ⊗ L_{χ^{−1}}) = 0 for i �
 
 **Sources:** [S10](#source-10) — [Sommes trig.] 1.14-1.15, volume p. 177.
 
-### FF.2.13. Étale Gauss cohomology and hyper-Kloosterman sheaves
+### FF.2.12. Étale Gauss cohomology and hyper-Kloosterman sheaves
 
 <a id="FF2-hyper-kloosterman-sum"></a>
 
@@ -5470,7 +5866,7 @@ For k≥1, a∈F_{q^r}× and a nontrivial ψ of F_q, |HKl_k(a;q^r)|≤k(q^r)^((k
 
 **Sources:** [S10](#source-10) — §7.1(7.1.3) and §7.5, pp. 219–221; [S13](#source-13) — §4.2.4, Theorem 4.4, p. 12.
 
-### FF.2.14. Several variables
+### FF.2.13. Several variables
 
 <a id="FF2-hypersurface-through-all-rational-points"></a>
 
@@ -5609,7 +6005,7 @@ Let Q ∈ F[x₁, …, x_n] of degree d with p ∤ d and leading form Q_d defini
 
 **Sources:** [S11](#source-11) — Théorème 8.4, pp. 302-303.
 
-### FF.2.15. Universal polynomial families and their cohomology
+### FF.2.14. Universal polynomial families and their cohomology
 
 <a id="FF2-universal-smooth-leading-polynomial-family"></a>
 
@@ -5827,7 +6223,7 @@ For an individual Q in the universal family, the forget-supports map H^n_c(A^n,L
 
 **Sources:** [S11](#source-11) — Lemma 8.5(ii) and reduction at §8.5, pp. 303–304.
 
-### FF.2.16. Fourier–Deligne transform, Lang–Weil and Chebotarev
+### FF.2.15. Fourier–Deligne transform, Lang–Weil and Chebotarev
 
 <a id="FF2-fourier-deligne-transform"></a>
 
@@ -6043,7 +6439,7 @@ Let π : Y₀ → X₀ be a finite étale Galois cover of quasi-projective F-var
 
 **Sources:** [S18](#source-18) — Introduction, pp. 1-2.
 
-### FF.2.17. Betti bounds, Albanese spectra and uniform Lang–Weil
+### FF.2.16. Betti bounds, Albanese spectra and uniform Lang–Weil
 
 <a id="FF2-smooth-affine-betti-bound"></a>
 
@@ -6245,7 +6641,7 @@ Fix N,r,δ≥1. There is a constant C(N,r,δ) such that for every finite field F
 
 **Sources:** [S16](#source-16) — Theorem 11.1 and Remark 11.3, pp. 35–36.
 
-### FF.2.18. Constant-field cosets and Chebotarev
+### FF.2.17. Constant-field cosets and Chebotarev
 
 <a id="FF2-constant-coset-twist-count"></a>
 
@@ -6305,7 +6701,7 @@ In the preceding setting, for a conjugacy-stable subset C⊂G and r≥1, let N_r
 
 **Sources:** [S39](#source-39) — Theorem 1.1 and Appendix A, pp. 196–202.
 
-### FF.2.19. Correlations, isotypic main terms and Möbius stabilizers
+### FF.2.18. Correlations, isotypic main terms and Möbius stabilizers
 
 <a id="FF2-trace-correlation-main-term"></a>
 
@@ -6444,7 +6840,7 @@ For a geometrically irreducible, punctually weight-zero middle-extension sheaf F
 
 <a id="FF3"></a>
 
-## FF.3. Certified algorithms and polynomial counts
+## FF.3. Certified algorithms and point counts
 
 Separate counting, elementary factorization/Hensel algorithms and point-counting components. Randomized algorithms specify output support, failure probability and expected cost separately. CN.0 supplies actual program and representation semantics, while CN.5 supplies the generic certificate schema. Exact squarefree and hyperelliptic presentation counts reuse the census and factorization theory; smooth projective curve zeta reconstruction additionally imports WC.5 and its concrete-model comparison.
 
@@ -6460,7 +6856,6 @@ Consumes: `FiniteFieldsAndCharacterSums:FF.3`.
 
 ### Target groups
 
-- The number of irreducible polynomials (15 targets).
 - Square-free decomposition (5 targets).
 - Squarefree and hyperelliptic polynomial counts (8 targets).
 - Distinct-degree factorization and irreducibility testing (8 targets).
@@ -6473,476 +6868,7 @@ Consumes: `FiniteFieldsAndCharacterSums:FF.3`.
 - Schoof's algorithm (17 targets).
 - Costs (11 targets).
 
-### FF.3.1. The number of irreducible polynomials
-
-<a id="FF3-monic-irreducible-polynomials-of-degree"></a>
-
-#### The monic irreducible polynomials of a given degree
-
-`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree` · construction.
-
-monicIrreducibles F n is the finite set of monic irreducible polynomials of degree n over the finite field F: the elements of monicOfDegree F n that are irreducible. It is empty for n = 0, and its elements are exactly the irreducible f with normalize f = f and natDegree f = n (Mathlib's normalized irreducibles).
-
-**Hypotheses**
-
-- F a finite field
-- n : ℕ
-
-**Proof route**
-
-- Filter monicOfDegree F n by Irreducible (classical decidability).
-- Characterisation from mem_monicOfDegree.
-- For polynomials over a field, normalize f = f iff f is monic or f = 0 (Mathlib Polynomial.Monic.normalize_eq_self, leadingCoeff_normalize); irreducible f are nonzero.
-
-**API**
-
-- `mem_monicIrreducibles` (characterisation): f ∈ monicIrreducibles F n ↔ f.Monic ∧ Irreducible f ∧ f.natDegree = n.
-- `mem_monicIrreducibles_iff_normalize` (compatibility): f ∈ monicIrreducibles F n ↔ Irreducible f ∧ normalize f = f ∧ f.natDegree = n: agreement with Mathlib's normalized factors.
-- `monicIrreducibles_zero` (simp): monicIrreducibles F 0 = ∅.
-
-**Unit tests**
-
-- `monicIrreducibles_zmod_two_two` (computation): monicIrreducibles (ZMod 2) 2 = {X² + X + 1}.
-- `monicIrreducibles_zmod_two_one` (computation): monicIrreducibles (ZMod 2) 1 = {X, X + 1}: every monic linear polynomial is irreducible.
-- `X_sq_add_one_not_mem_monicIrreducibles` (non-example): X² + 1 ∉ monicIrreducibles (ZMod 2) 2, since X² + 1 = (X + 1)² over 𝔽₂.
-
-**Uses**
-
-- Shoup Theorem 19.10: the product over monicIrreducibles F k is the polynomial Pk
-- FF.3/count-of-irreducible-polynomials: the count is its cardinality
-- FF.3/random-irreducible-polynomial-output-law: the output of Algorithm RIP is uniform on it
-- FiniteFieldsAndCharacterSums FF.4 (BCH and cyclic codes): generator polynomials are products of monic irreducible factors of X^n − 1
-
-**Checks and examples**
-
-- mem_monicIrreducibles; monicIrreducibles_zero; the unit tests.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree`](#FF2-monic-polynomials-of-degree), `mathlib:Polynomial.Monic.normalize_eq_self`, `mathlib:Polynomial.leadingCoeff_normalize`.
-
-**Sources:** [S1](#source-1) — Theorem 19.10, printed p. 513; [S1](#source-1) — §19.2, Theorem 19.11, printed p. 514.
-
-<a id="FF3-count-of-irreducible-polynomials"></a>
-
-#### The number Π_F(n) of monic irreducible polynomials of degree n
-
-`FiniteFieldsAndCharacterSums:FF.3/count-of-irreducible-polynomials` · definition.
-
-For a finite field F with q elements and n ∈ ℕ, irreducibleCount F n = Π_F(n) is the number of monic irreducible polynomials of degree n in F[X] (Shoup's Π_F(ℓ); for F = 𝔽_p it is Bary-Soroker–Koukoulopoulos–Kozma's π_p(k)). Its package is Gauss's formula Σ_{d|n} d Π_F(d) = q^n, the Möbius formula n Π_F(n) = Σ_{d|n} μ(d) q^{n/d}, and the bounds (q^n − 2q^{n/2})/n ≤ Π_F(n) ≤ q^n/n and q^n ≤ 2n Π_F(n) (n ≥ 1).
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n : ℕ
-
-**Proof route**
-
-- Define irreducibleCount F n := (monicIrreducibles F n).card.
-- Agreement with Nat.card of the subtype of monic irreducible polynomials of degree n is Finset-card versus Nat.card through mem_monicIrreducibles.
-- irreducibleCount F 0 = 0 (a unit is not irreducible) and irreducibleCount F 1 = q (every monic linear polynomial is irreducible; monicOfDegree F 1 has q elements).
-
-**API**
-
-- `irreducibleCount_eq_natCard` (compatibility): irreducibleCount F n = Nat.card {f : F[X] // f.Monic ∧ Irreducible f ∧ f.natDegree = n}.
-- `irreducibleCount_zero` (simp): irreducibleCount F 0 = 0.
-- `irreducibleCount_one` (simp): irreducibleCount F 1 = q.
-- `sum_divisors_mul_irreducibleCount` (relation): Gauss's formula: for n ≠ 0, Σ_{d ∈ n.divisors} d · irreducibleCount F d = q ^ n (node gauss-count-formula).
-- `mul_irreducibleCount_eq_sum_moebius` (relation): The Möbius formula (node moebius-formula-for-irreducible-count).
-- `mul_irreducibleCount_le` (other): n · Π_F(n) ≤ q^n (node irreducible-count-upper-bound).
-- `card_pow_le_mul_irreducibleCount_add` (other): q^n ≤ n Π_F(n) + 2 q^{⌊n/2⌋} for n ≠ 0 (node irreducible-count-lower-bound).
-- `prime_polynomial_theorem` (other): The BKK form (q^n − 2q^{n/2})/n ≤ Π_F(n) ≤ q^n/n (node prime-polynomial-theorem).
-
-**Unit tests**
-
-- `irreducibleCount_zmod_two_four` (computation): irreducibleCount (ZMod 2) 4 = 3 (X⁴+X+1, X⁴+X³+1, X⁴+X³+X²+X+1).
-- `irreducibleCount_zmod_three_two` (computation): irreducibleCount (ZMod 3) 2 = 3.
-- `irreducibleCount_zmod_three_three` (computation): irreducibleCount (ZMod 3) 3 = 8.
-- `irreducibleCount_eq_card_normalizedFactors` (compatibility): For n ≠ 0, irreducibleCount F n equals the number of elements of degree n in Mathlib's normalizedFactors (X^(q^n) − X).
-
-**Uses**
-
-- Shoup Theorems 19.11-19.12 and Exercise 19.1: Gauss's formula, the bounds and the Möbius formula are statements about it
-- Shoup Theorem 20.2 (Algorithm RIP): the success probability of one attempt is Π_F(ℓ)/q^ℓ ≥ 1/(2ℓ)
-- Bary-Soroker–Koukoulopoulos–Kozma, Proposition 8.1 and Lemmas 8.2, 9.x: the bound Σ_{deg I = k} 1/‖I‖ ≤ 1/k controls the sieve over small irreducible factors (consumer: ArithmeticStatisticsPartIIRandomPolynomials)
-- FF.4 (Galois rings, BCH codes) and FF.0 (certified presentations): existence of an irreducible polynomial of every degree (Π_F(n) > 0) and the density of irreducibles
-
-**Checks and examples**
-
-- The API identities and the unit tests; the Gauss formula, the Möbius formula and the bounds are proved in the theorem nodes named in the api.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree), `mathlib:Polynomial.Monic.irreducible_iff_natDegree`.
-
-**Sources:** [S1](#source-1) — §19.2, Theorem 19.11, printed p. 514; [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39.
-
-<a id="FF3-partition-by-minimal-polynomials"></a>
-
-#### Counting the elements of an extension by their minimal polynomials
-
-`FiniteFieldsAndCharacterSums:FF.3/partition-by-minimal-polynomials` · lemma.
-
-Let E ⊇ F be finite fields with [E : F] = n and let C be any decidable condition on F[X]. Then #{α ∈ E : C(minpoly_F α)} = Σ_{d | n} d · #{f ∈ monicIrreducibles F d : C(f)}.
-
-**Hypotheses**
-
-- E a finite field extension of F with Module.finrank F E = n (so n ≥ 1)
-- C : F[X] → Prop decidable
-
-**Proof route**
-
-- Every α ∈ E has minimal polynomial minpoly_F α monic irreducible of degree d = [F(α) : F], which divides n (Mathlib minpoly.irreducible, IntermediateField.adjoin.finrank, tower law).
-- Conversely, a monic irreducible f of degree d | n divides X^(q^n) − X (Mathlib Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X), which splits in E with the q^n distinct roots given by the elements of E (Mathlib FiniteField.roots_X_pow_card_sub_X); hence f has exactly d distinct roots in E, each with minimal polynomial f.
-- Group the elements of E by their minimal polynomial: the fibre over f has d elements, and C depends only on the fibre; sum over d | n.
-
-**Checks and examples**
-
-- With C = true: q^n = Σ_{d|n} d Π_F(d) (Gauss's formula).
-- With C(f)=(((-1)^deg f·f(0))^(n/deg f)=b): the norm-fibre identity. Equivalently use (-1)^n·f(0)^(n/deg f)=b; omitting the sign fails for odd n.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree), `mathlib:minpoly.irreducible`, `mathlib:IntermediateField.adjoin.finrank`, `mathlib:Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X`, `mathlib:FiniteField.roots_X_pow_card_sub_X`, `mathlib:galois_poly_separable`.
-
-**Sources:** [S1](#source-1) — proof of Theorem 19.10, printed p. 513.
-
-<a id="FF3-gauss-product-formula"></a>
-
-#### Gauss's product formula for X^(q^n) − X
-
-`FiniteFieldsAndCharacterSums:FF.3/gauss-product-formula` · theorem. Milestone: Gauss's product formula.
-
-For a finite field F with q elements and n ≥ 1, X^(q^n) − X = ∏_{d | n} ∏_{f ∈ monicIrreducibles F d} f in F[X].
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-
-**Proof route**
-
-- X^(q^n) − X is monic and square-free: its derivative is −1 (Shoup Theorem 19.1; Mathlib galois_poly_separable gives separability, hence square-free by Polynomial.Separable.squarefree).
-- A monic square-free polynomial is the product of its distinct normalized irreducible factors (Mathlib prod_normalizedFactors and squarefree_iff_nodup_normalizedFactors).
-- A monic irreducible f divides X^(q^n) − X iff deg f | n (Mathlib Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X), so the normalized factors are exactly the elements of monicIrreducibles F d for d | n, each once.
-
-**Checks and examples**
-
-- q = 2, n = 2: X⁴ − X = X (X + 1)(X² + X + 1).
-- Degree comparison gives Gauss's formula.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree), `mathlib:galois_poly_separable`, `mathlib:Polynomial.Separable.squarefree`, `mathlib:UniqueFactorizationMonoid.prod_normalizedFactors`, `mathlib:UniqueFactorizationMonoid.squarefree_iff_nodup_normalizedFactors`, `mathlib:Irreducible.natDegree_dvd_iff_dvd_X_pow_card_pow_sub_X`, `mathlib:FiniteField.X_pow_card_pow_sub_X_ne_zero`.
-
-**Sources:** [S1](#source-1) — Theorem 19.10, printed p. 513.
-
-<a id="FF3-gauss-count-formula"></a>
-
-#### Gauss's count q^n = Σ_{d|n} d Π_F(d)
-
-`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula` · theorem.
-
-For n ≥ 1, Σ_{d ∈ n.divisors} d · irreducibleCount F d = q^n.
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-
-**Proof route**
-
-- Compare degrees on both sides of Gauss's product formula: deg(X^(q^n) − X) = q^n (Mathlib FiniteField.X_pow_card_pow_sub_X_natDegree_eq) and the right side has degree Σ_{d|n} d · #monicIrreducibles F d.
-
-**Checks and examples**
-
-- q = 2: Π(1) + 2Π(2) = 2 + 2 = 4 = 2²; Π(1) + 2Π(2) + 4Π(4) = 2 + 2 + 12 = 16 = 2⁴.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-product-formula`](#FF3-gauss-product-formula), `mathlib:FiniteField.X_pow_card_pow_sub_X_natDegree_eq`.
-
-**Sources:** [S1](#source-1) — §19.2, Theorem 19.11, printed p. 514.
-
-<a id="FF3-moebius-formula-for-irreducible-count"></a>
-
-#### The Möbius formula for Π_F(n)
-
-`FiniteFieldsAndCharacterSums:FF.3/moebius-formula-for-irreducible-count` · theorem.
-
-For n ≥ 1, n · Π_F(n) = Σ_{d | n} μ(d) q^{n/d} (as integers), with μ Mathlib's ArithmeticFunction.moebius.
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-
-**Proof route**
-
-- Apply Möbius inversion (Mathlib ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq) to f(d) = d Π_F(d) and g(n) = q^n, using Gauss's count for every n > 0; rewrite the divisorsAntidiagonal sum as a sum over divisors.
-
-**Checks and examples**
-
-- q = 2, n = 4: 4 Π(4) = 2⁴ − 2² = 12, so Π(4) = 3.
-- Shoup Exercise 19.2: Π_{𝔽₂}(30) = (2³⁰ − 2¹⁵ − 2¹⁰ − 2⁶ + 2⁵ + 2³ + 2² − 2)/30 = 35790267.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula), `mathlib:ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq`, `mathlib:ArithmeticFunction.moebius`.
-
-**Sources:** [S1](#source-1) — Exercise 19.1, printed p. 515.
-
-<a id="FF3-irreducible-count-upper-bound"></a>
-
-#### The upper bound n Π_F(n) ≤ q^n
-
-`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound` · theorem.
-
-For every n ∈ ℕ, n · Π_F(n) ≤ q^n. Equivalently Π_F(n)/q^n ≤ 1/n, which is Bary-Soroker–Koukoulopoulos–Kozma's Σ_{deg I = n} 1/‖I‖ ≤ 1/n.
-
-**Hypotheses**
-
-- F a finite field with q elements
-
-**Proof route**
-
-- For n = 0 both sides are trivial. For n ≥ 1 the term d = n of Gauss's count is n Π_F(n) and all terms are nonnegative.
-
-**Checks and examples**
-
-- q = 2, n = 4: 12 ≤ 16.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula).
-
-**Sources:** [S1](#source-1) — Theorem 19.12 and its proof, printed p. 514; [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39.
-
-<a id="FF3-irreducible-count-lower-bound"></a>
-
-#### The lower bound q^n ≤ n Π_F(n) + 2 q^{⌊n/2⌋}
-
-`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-lower-bound` · theorem.
-
-For n ≥ 1, q^n ≤ n · Π_F(n) + 2 q^{⌊n/2⌋}. This is the integer form of the lower bound of Bary-Soroker–Koukoulopoulos–Kozma, Proposition 8.1.
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-
-**Proof route**
-
-- By Gauss's count, n Π_F(n) = q^n − Σ_{d|n, d<n} d Π_F(d).
-- Each proper divisor d of n satisfies d ≤ ⌊n/2⌋ and d Π_F(d) ≤ q^d (upper bound), so the subtracted sum is at most Σ_{d=1}^{⌊n/2⌋} q^d = q(q^{⌊n/2⌋} − 1)/(q − 1) < 2 q^{⌊n/2⌋} (q ≥ 2); this is Shoup's S(q, ℓ).
-
-**Checks and examples**
-
-- q = 2, n = 4: 16 ≤ 12 + 8.
-- n = 1: q ≤ q + 2.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound).
-
-**Sources:** [S1](#source-1) — Theorem 19.12 and its proof, printed p. 514; [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39.
-
-<a id="FF3-prime-polynomial-theorem"></a>
-
-#### The prime polynomial theorem with explicit error
-
-`FiniteFieldsAndCharacterSums:FF.3/prime-polynomial-theorem` · theorem. Milestone: Prime polynomial theorem.
-
-For n ≥ 1, (q^n − 2 q^{n/2})/n ≤ Π_F(n) ≤ q^n/n, the exponent n/2 being real. For F = 𝔽_p this is Proposition 8.1 of Bary-Soroker–Koukoulopoulos–Kozma (item 73 of its extraction).
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-
-**Proof route**
-
-- Upper bound: divide the upper-bound node by n.
-- Lower bound: from the integer lower bound and q^{⌊n/2⌋} ≤ q^{n/2} (q ≥ 1), divide by n.
-
-**Checks and examples**
-
-- For q = 2, n = 2: (4 − 4)/2 = 0 ≤ Π = 1 ≤ 2.
-- For every n the bound gives Π_F(n) > 0 once q^{n/2} > 2.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-lower-bound`](#FF3-irreducible-count-lower-bound).
-
-**Sources:** [S9](#source-9) — Proposition 8.1 (Prime Polynomial Theorem), p. 39; [S1](#source-1) — Theorem 19.12 and its proof, printed p. 514.
-
-<a id="FF3-irreducible-density-lower-bound"></a>
-
-#### Shoup's density bound q^n ≤ 2n Π_F(n)
-
-`FiniteFieldsAndCharacterSums:FF.3/irreducible-density-lower-bound` · theorem.
-
-For n ≥ 1, q^n ≤ 2 n Π_F(n): a uniformly random monic polynomial of degree n is irreducible with probability at least 1/(2n).
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-
-**Proof route**
-
-- It suffices that S(q, n) = Σ_{k=1}^{⌊n/2⌋} q^k ≤ q^n/2, because n Π_F(n) ≥ q^n − S(q, n) (the argument of the lower bound).
-- For n ∈ {1, 2, 3} check directly (S = 0, q, q); for n ≥ 4, S(q, n) ≤ q^{n/2+1} ≤ q^{n−1} ≤ q^n/2.
-
-**Checks and examples**
-
-- Tight at q = 2, n = 2: 4 = 2·2·1.
-- At n = 1 it reads q ≤ 2q.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula`](#FF3-gauss-count-formula), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound).
-
-**Sources:** [S1](#source-1) — proof of Theorem 19.12, printed p. 514.
-
-<a id="FF3-irreducible-count-with-constant-coefficient"></a>
-
-#### The number of monic irreducibles with prescribed constant coefficient
-
-`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-with-constant-coefficient` · definition.
-
-For a finite field F, n ∈ ℕ and b ∈ F, irreducibleCountWithConstantCoeff F n b is the number of f ∈ monicIrreducibles F n with f(0) = b (for F = 𝔽_p and b ≠ 0, the count of I_p in Bary-Soroker–Koukoulopoulos–Kozma's proof of Lemma 3.2).
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n : ℕ
-- b : F
-
-**Proof route**
-
-- Filter monicIrreducibles F n by f.coeff 0 = b and take the cardinality.
-- Summing over b recovers Π_F(n).
-- b = 0: an irreducible with zero constant coefficient is divisible by X, hence equals X; so the count is 1 for n = 1 and 0 otherwise.
-- n = 1: X − (−b) = X + b is the unique monic linear polynomial with constant coefficient b.
-
-**API**
-
-- `sum_irreducibleCountWithConstantCoeff` (relation): Σ_{b ∈ F} irreducibleCountWithConstantCoeff F n b = irreducibleCount F n.
-- `irreducibleCountWithConstantCoeff_zero_right` (simp): irreducibleCountWithConstantCoeff F n 0 = if n = 1 then 1 else 0.
-- `irreducibleCountWithConstantCoeff_one` (simp): irreducibleCountWithConstantCoeff F 1 b = 1 for every b.
-
-**Unit tests**
-
-- `irreducibleCountWithConstantCoeff_zmod_three_two` (computation): irreducibleCountWithConstantCoeff (ZMod 3) 2 2 = 2 (X² + X + 2 and X² + 2X + 2).
-- `irreducibleCountWithConstantCoeff_zmod_three_two_one` (computation): irreducibleCountWithConstantCoeff (ZMod 3) 2 1 = 1 (X² + 1).
-- `irreducibleCountWithConstantCoeff_zmod_two_three` (computation): irreducibleCountWithConstantCoeff (ZMod 2) 3 1 = 2 (X³ + X + 1 and X³ + X² + 1).
-- `irreducibleCountWithConstantCoeff_zero_two` (degenerate): irreducibleCountWithConstantCoeff (ZMod 5) 2 0 = 0.
-
-**Uses**
-
-- Bary-Soroker–Koukoulopoulos–Kozma, proof of Lemma 3.2 (p. 20): the number of irreducible I_p of degree n − m with I_p(0) = i₀ enters the probability that A_p = D_p I_p
-- FF.3/irreducible-polynomials-with-prescribed-constant-coefficient: its asymptotic with explicit error
-
-**Checks and examples**
-
-- The API identities and the unit tests.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree`](#FF3-monic-irreducible-polynomials-of-degree).
-
-**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
-
-<a id="FF3-norm-from-minimal-polynomial"></a>
-
-#### The norm of an element from its minimal polynomial
-
-`FiniteFieldsAndCharacterSums:FF.3/norm-from-minimal-polynomial` · lemma.
-
-Let E ⊇ F be finite fields with [E : F] = n and α ∈ E with minimal polynomial P of degree d. Then N_{E/F}(α) = (−1)^n · P(0)^{n/d}.
-
-**Hypotheses**
-
-- E a finite field extension of F of degree n
-- α ∈ E
-
-**Proof route**
-
-- N_{E/F}(α) = N_{F(α)/F}(α)^{[E : F(α)]} (Mathlib Algebra.norm_eq_norm_adjoin), with [E : F(α)] = n/d (IntermediateField.adjoin.finrank and the tower law).
-- N_{F(α)/F}(α) = (−1)^d P(0) (Mathlib Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly for the power basis of F(α)).
-- Combine: ((−1)^d P(0))^{n/d} = (−1)^n P(0)^{n/d} since d · (n/d) = n.
-
-**Checks and examples**
-
-- α ∈ F: P = X − α, d = 1, N(α) = α^n = (−1)^n (−α)^n.
-
-**Prerequisites:** `mathlib:Algebra.norm_eq_norm_adjoin`, `mathlib:Algebra.PowerBasis.norm_gen_eq_coeff_zero_minpoly`, `mathlib:IntermediateField.adjoin.finrank`.
-
-**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
-
-<a id="FF3-constant-coefficient-norm-fibre-identity"></a>
-
-#### The norm-fibre identity for constant coefficients
-
-`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-norm-fibre-identity` · theorem.
-
-For n ≥ 1 and b ∈ F^×: Σ_{d | n} d · #{f ∈ monicIrreducibles F d : f(0)^{n/d} = b} = (q^n − 1)/(q − 1).
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-- b ≠ 0
-
-**Proof route**
-
-- Let E be an extension of degree n (e.g. GaloisField). By the norm lemma, N(α) = (−1)^n b iff P(0)^{n/d} = b for P = minpoly α of degree d.
-- By the partition lemma with C(f) = (f(0)^{n/deg f} = b), the left side is #{α ∈ E : N(α) = (−1)^n b}.
-- The norm restricted to units is a surjective group homomorphism E^× → F^× (Mathlib FiniteField.unitsMap_norm_surjective); every fibre over a unit has |E^×|/|F^×| = (q^n − 1)/(q − 1) elements, and α = 0 has norm 0 ≠ (−1)^n b.
-
-**Checks and examples**
-
-- q = 3, n = 2, b = 2: d = 1 contributes 0 (2 is not a square mod 3) and d = 2 contributes 2·2 = 4 = (9 − 1)/2.
-- q = 5, n = 2, b = 1: 2 + 2·2 = 6 = 24/4.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/partition-by-minimal-polynomials`](#FF3-partition-by-minimal-polynomials), [`FiniteFieldsAndCharacterSums:FF.3/norm-from-minimal-polynomial`](#FF3-norm-from-minimal-polynomial), `mathlib:FiniteField.unitsMap_norm_surjective`, `mathlib:FiniteField.algebraMap_norm_eq_pow`, `mathlib:GaloisField`.
-
-**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
-
-<a id="FF3-constant-coefficient-count-bounds"></a>
-
-#### Two-sided bound for irreducibles with prescribed constant coefficient
-
-`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-count-bounds` · theorem.
-
-For n ≥ 1 and b ≠ 0: (q^n − 1)/(q − 1) − 2 q^{⌊n/2⌋} ≤ n · irreducibleCountWithConstantCoeff F n b ≤ (q^n − 1)/(q − 1).
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-- b ≠ 0
-
-**Proof route**
-
-- The term d = n of the norm-fibre identity is n · irreducibleCountWithConstantCoeff F n b; the other terms are nonnegative (upper bound).
-- The terms with d < n are at most d Π_F(d) ≤ q^d, and d ≤ ⌊n/2⌋; so they sum to less than 2 q^{⌊n/2⌋}, as in the lower bound for Π_F.
-
-**Checks and examples**
-
-- q = 3, n = 2, b = 2: 4 − 6 ≤ 2·2 ≤ 4.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-norm-fibre-identity`](#FF3-constant-coefficient-norm-fibre-identity), [`FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound`](#FF3-irreducible-count-upper-bound).
-
-**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
-
-<a id="FF3-irreducible-polynomials-with-prescribed-constant-coefficient"></a>
-
-#### Irreducible polynomials with prescribed constant coefficient
-
-`FiniteFieldsAndCharacterSums:FF.3/irreducible-polynomials-with-prescribed-constant-coefficient` · theorem.
-
-For n ≥ 1 and b ≠ 0, the number Π_F(n; b) of monic irreducible polynomials of degree n with constant coefficient b satisfies |n (q − 1) Π_F(n; b)/q^n − 1| ≤ 3 q^{1 − n/2}. Hence Π_F(n; b) = q^n/((q − 1) n) (1 + O(q^{1 − n/2})) with absolute implied constant 3, the statement Bary-Soroker–Koukoulopoulos–Kozma use in the proof of Lemma 3.2 (item 130 of the extraction), citing Rosen, Theorem 4.8.
-
-**Hypotheses**
-
-- F a finite field with q elements
-- n ≠ 0
-- b ≠ 0
-
-**Proof route**
-
-- From the two-sided bound: n(q − 1)Π_F(n; b) lies in [q^n − 1 − 2(q − 1) q^{⌊n/2⌋}, q^n − 1].
-- Divide by q^n: the relative error is at most (1 + 2(q − 1) q^{n/2})/q^n ≤ q^{−n} + 2 q^{1 − n/2} ≤ 3 q^{1 − n/2}.
-
-**Checks and examples**
-
-- q = 3, n = 2, b = 2: |2·2·2/9 − 1| = 1/9 ≤ 3.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-count-bounds`](#FF3-constant-coefficient-count-bounds).
-
-**Sources:** [S9](#source-9) — proof of Lemma 3.2, p. 20.
-
-### FF.3.2. Square-free decomposition
+### FF.3.1. Square-free decomposition
 
 <a id="FF3-pth-root-of-a-polynomial-with-zero-derivative"></a>
 
@@ -7135,7 +7061,7 @@ For every monic f over a finite field, squarefreeDecomposition f is a square-fre
 
 **Sources:** [S1](#source-1) — Theorem 20.5 and its proof, printed pp. 528-530.
 
-### FF.3.3. Squarefree and hyperelliptic polynomial counts
+### FF.3.2. Squarefree and hyperelliptic polynomial counts
 
 <a id="FF3-monic-squarefree-polynomial-set"></a>
 
@@ -7415,7 +7341,7 @@ For n≥0 and b∈F, #{f∈monicOfDegree F n : f(0)=b} equals 1 if n=0 and b=1, 
 
 **Sources:** [S9](#source-9) — Lemma 3.2 proof, arXiv v3, printed p. 20.
 
-### FF.3.4. Distinct-degree factorization and irreducibility testing
+### FF.3.3. Distinct-degree factorization and irreducibility testing
 
 <a id="FF3-gcd-with-frobenius-power"></a>
 
@@ -7705,7 +7631,7 @@ For monic irreducible f over a finite field, (rabinCertificateOf f).check f = tr
 
 **Sources:** [S1](#source-1) — Exercise 20.2, printed pp. 524-525.
 
-### FF.3.5. Equal-degree factorization and the Cantor–Zassenhaus algorithm
+### FF.3.4. Equal-degree factorization and the Cantor–Zassenhaus algorithm
 
 <a id="FF3-gcd-with-square-free-modulus"></a>
 
@@ -8104,7 +8030,7 @@ For monic f of degree ℓ, P[cantorZassenhaus f n = none] ≤ ℓ² · (5/9)^n.
 
 **Sources:** [S1](#source-1) — §20.4.3, Theorem 20.9, printed pp. 536-537.
 
-### FF.3.6. Berlekamp's algorithm
+### FF.3.5. Berlekamp's algorithm
 
 <a id="FF3-berlekamp-subalgebra"></a>
 
@@ -8441,7 +8367,7 @@ For monic f and every n, a completed outcome some m of berlekampFactor f n satis
 
 **Sources:** [S1](#source-1) — Theorems 20.11 and 20.12, printed p. 542.
 
-### FF.3.7. Constructing irreducible polynomials
+### FF.3.6. Constructing irreducible polynomials
 
 <a id="FF3-random-irreducible-polynomial-algorithm"></a>
 
@@ -8536,7 +8462,7 @@ For ℓ ≥ 1, Σ_{n≥0} P[randomIrreducible F ℓ n = none] = q^ℓ/Π_F(ℓ) 
 
 **Sources:** [S1](#source-1) — §20.1, Algorithm RIP and Theorem 20.2, printed pp. 523-524; [S1](#source-1) — Theorem 9.3 and Example 9.10, printed pp. 288-289.
 
-### FF.3.8. Certified factorizations
+### FF.3.7. Certified factorizations
 
 <a id="FF3-factorization-certificate"></a>
 
@@ -8705,7 +8631,7 @@ For f ≠ 0, every completed outcome of certifiedFactorization f n is a certific
 
 **Sources:** [S1](#source-1) — §20.4.3, Theorem 20.9, printed pp. 536-537.
 
-### FF.3.9. Hensel lifting of coprime factorizations
+### FF.3.8. Hensel lifting of coprime factorizations
 
 <a id="FF3-strict-coprimality-lifts"></a>
 
@@ -8982,7 +8908,7 @@ henselLift f g0 h0 s t m ∈ R[X] × R[X] is the m-th iterate of the Hensel step
 
 **Sources:** [S19](#source-19) — proof of Theorem 7.33 (existence), p. 122; [S19](#source-19) — Remark 7.37, p. 123.
 
-### FF.3.10. Certified point counting
+### FF.3.9. Certified point counting
 
 <a id="FF3-naive-point-count"></a>
 
@@ -9280,7 +9206,7 @@ For q odd and f ∈ F[X] square-free of degree d ≥ 1: |#{(x, y) ∈ F² : y² 
 
 **Sources:** [S20](#source-20) — Lecture 7 §7.2, equation (1), p. 2; [S20](#source-20) — Lecture 7 §7.2, p. 2.
 
-### FF.3.11. Schoof's algorithm
+### FF.3.10. Schoof's algorithm
 
 <a id="FF3-frobenius-on-points"></a>
 
@@ -9853,7 +9779,7 @@ For q odd and W elliptic with a₁ = a₃ = 0: schoofPointCount W = naivePointCo
 
 **Sources:** [S20](#source-20) — Lecture 8, Algorithm 8.1, p. 1; [S20](#source-20) — Lecture 8, after Algorithm 8.1, p. 1; [S21](#source-21) — §5, pp. 233-235.
 
-### FF.3.12. Costs
+### FF.3.11. Costs
 
 <a id="FF3-square-free-decomposition-algorithm-cost"></a>
 
@@ -10189,7 +10115,7 @@ Consumes: [`FiniteFieldsAndCharacterSums:FF.4/normal-trace-coefficient-pattern`]
 ### Target groups
 
 - Galois rings (17 targets).
-- Linearized polynomials (11 targets).
+- Specialized linearized-polynomial criteria (4 targets).
 - Linearized composition, trace coordinates and coefficient algebras (12 targets).
 - Permutation polynomials and Dickson polynomials (11 targets).
 - Linear recurring sequences, m-sequences and correlation (17 targets).
@@ -10705,7 +10631,7 @@ Let p be prime and n, r ≥ 1, S = GaloisRing p n r with Frobenius σ. For each 
 **Proof route**
 
 - S^{σ^e} is a finite local ring with maximal ideal p·S^{σ^e} (fixed points of an automorphism of a local ring whose Teichmüller coordinates are fixed coordinatewise) and residue field F_{p^e}; by galois-ring-uniqueness it is GaloisRing p n e.
-- Conversely a subring R' local with 𝔪 = pR' has residue field a subfield F_{p^e} of F_{p^r}; R' contains the Teichmüller lifts of that subfield (they are the roots of X^{p^e} − X lifting it, unique by finite-local-ring-is-henselian) and is generated by them over ZMod p^n, so R' = S^{σ^e}.
+- Conversely a subring R' local with 𝔪 = pR' has residue field the unique subfield F_{p^e} of F_{p^r} for some e ∣ r, by the FF.0 intermediate-field/divisor correspondence; R' contains the Teichmüller lifts of that subfield (they are the roots of X^{p^e} − X lifting it, unique by finite-local-ring-is-henselian) and is generated by them over ZMod p^n, so R' = S^{σ^e}.
 - The counterexample: ZMod 4 + 2·GaloisRing 2 2 2 is closed under multiplication, contains 1 and has 4·4/2 = 8 elements, while GaloisRing 2 2 e has 4 or 16 elements.
 
 **Checks and examples**
@@ -10713,7 +10639,7 @@ Let p be prime and n, r ≥ 1, S = GaloisRing p n r with Frobenius σ. For each 
 - The Galois subrings of GaloisRing 3 2 6 are GaloisRing 3 2 e for e ∈ {1, 2, 3, 6}.
 - ZMod 4 + 2·GaloisRing 2 2 2 is a subring that is not a Galois ring (see the source issue on this claim).
 
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/frobenius-of-galois-ring`](#FF4-frobenius-of-galois-ring), [`FiniteFieldsAndCharacterSums:FF.4/galois-ring-uniqueness`](#FF4-galois-ring-uniqueness), [`FiniteFieldsAndCharacterSums:FF.4/galois-group-of-galois-ring`](#FF4-galois-group-of-galois-ring), [`FiniteFieldsAndCharacterSums:FF.4/finite-local-ring-is-henselian`](#FF4-finite-local-ring-is-henselian).
+**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/frobenius-of-galois-ring`](#FF4-frobenius-of-galois-ring), [`FiniteFieldsAndCharacterSums:FF.4/galois-ring-uniqueness`](#FF4-galois-ring-uniqueness), [`FiniteFieldsAndCharacterSums:FF.4/galois-group-of-galois-ring`](#FF4-galois-group-of-galois-ring), [`FiniteFieldsAndCharacterSums:FF.4/finite-local-ring-is-henselian`](#FF4-finite-local-ring-is-henselian), [`FiniteFieldsAndCharacterSums:FF.0/intermediate-field-divisor-correspondence`](#FF0-intermediate-field-divisor-correspondence).
 
 **Sources:** [S26](#source-26) — Chapter 4, Section 4.5, printed p. 109; [S26](#source-26) — Chapter 4, Theorem 4.4.1, printed p. 105.
 
@@ -10772,246 +10698,7 @@ For S = GR(2^n,r), n ≥ 3 and r ≥ 1, set U = 1+2S. For 1 ≤ k ≤ n−2 the 
 
 **Sources:** [S26](#source-26) — §4.5, p. 109; authored proof of the torsion-count step supplying the stated decomposition.
 
-### FF.4.2. Linearized polynomials
-
-<a id="FF4-linearized-polynomial"></a>
-
-#### q-linearized (additive) polynomials
-
-`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial` · definition.
-
-Let K be a commutative semiring and q a natural number. A polynomial L ∈ K[X] is q-linearized (a q-polynomial), written Polynomial.IsLinearized q L, if every exponent in its support is a power of q, i.e. L = ∑_i a_i X^{q^i}. The constructor linearizedOf q a := ∑_i C (a i) · X^{q^i} turns a finitely supported coefficient sequence a : ℕ →₀ K into a q-polynomial; its q-degree is the largest i with a_i ≠ 0. Convention (pinned): exponents are q^i with i ≥ 0, so X = X^{q^0} is linearized and, for q≥2, nonzero constants are not; q ≥ 2 in every theorem.
-
-**Hypotheses**
-
-- K is a commutative semiring for the definition; the linearity theorems assume K is a field of characteristic p and q = p^e with e ≥ 1.
-
-**Proof route**
-
-- Define IsLinearized q L :↔ ∀ n ∈ L.support, ∃ i, n = q^i.
-- Closure under +, under multiplication by constants and under finite sums is immediate from Polynomial.support_add ⊆ and support_C_mul ⊆.
-- linearizedOf q a is linearized because each monomial C c · X^{q^i} has support ⊆ {q^i}; conversely every linearized L equals linearizedOf q (fun i ↦ L.coeff (q^i)) since i ↦ q^i is injective for q ≥ 2.
-- Composition closure and linearity of evaluation are separate nodes (linearized-polynomial-comp, linearized-polynomial-eval-linear).
-
-**API**
-
-- `Polynomial.IsLinearized` (constructor): IsLinearized q L :↔ ∀ n ∈ L.support, ∃ i, n = q^i.
-- `Polynomial.linearizedOf` (constructor): linearizedOf q a = ∑_i C (a i) * X^(q^i) for a : ℕ →₀ K.
-- `Polynomial.IsLinearized.X` (simp): X is q-linearized.
-- `Polynomial.IsLinearized.X_pow_pow` (simp): X^(q^i) is q-linearized.
-- `Polynomial.IsLinearized.add` (structure): The sum of q-linearized polynomials is q-linearized.
-- `Polynomial.IsLinearized.C_mul` (structure): C c * L is q-linearized when L is.
-- `Polynomial.IsLinearized.eq_linearizedOf` (characterisation): For q ≥ 2, a q-linearized L equals linearizedOf q (fun i ↦ L.coeff (q^i)).
-- `Polynomial.isLinearized_linearizedOf` (simp): linearizedOf q a is q-linearized.
-
-**Unit tests**
-
-- `IsLinearized.X_pow_sub_X` (computation): Over ZMod p, X^p − X is p-linearized.
-- `IsLinearized.not_X_sq_add_one` (non-example): X² + 1 ∈ (ZMod 2)[X] is not 2-linearized (exponent 0 is not a power of 2).
-- `IsLinearized.not_X_cube` (non-example): X³ ∈ (ZMod 2)[X] is not 2-linearized.
-- `IsLinearized.zero` (degenerate): 0 is q-linearized.
-- `IsLinearized.linearizedOf_single` (compatibility): linearizedOf q (Finsupp.single i c) = C c * X^(q^i).
-
-**Uses**
-
-- Shallue Theorems 1.15–1.17: linearized polynomials as a class of permutation polynomials
-- Ben-Sasson–Etzion–Gabizon–Raviv §II: subspace polynomials are the monic linearized polynomials with simple roots
-- Wu–Liu §2: the composition algebra of linearized polynomials over F_{q^n} and its Dickson matrices
-- DrinfeldModulesAndTModules:DM.0: the Ore ring L{τ} of F_q-linear endomorphisms of G_a is identified with q-linearized polynomials under composition (see the restructure proposal on ownership)
-
-**Checks and examples**
-
-- X^q − X, X and 0 are q-linearized; X² + X is 2-linearized over ZMod 2; X² + 1 and X³ are not 2-linearized.
-
-**Prerequisites:** `mathlib:Polynomial.support`, `mathlib:Polynomial.monomial`, `mathlib:Finsupp`.
-
-**Sources:** [S29](#source-29) — Chapter 1, Section 1.4, printed p. 14; [S22](#source-22) — Section II, Definition 1, printed p. 3.
-
-<a id="FF4-linearized-polynomial-eval-linear"></a>
-
-#### Evaluation of a q-polynomial is F_q-linear
-
-`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear` · lemma.
-
-Let F be a finite field with q elements, K a commutative F-algebra, E a commutative K-algebra equipped with the compatible F-algebra structure (IsScalarTower F K E), and L in K[X] q-linearized. Then x maps to aeval x L is additive on E and satisfies L(c*x)=c*L(x) for c in F, hence defines the F-linear map IsLinearized.toLinearMap : E ->_F E. K and E need not be fields; the compatible scalar tower is required.
-
-**Hypotheses**
-
-- F is a finite field, q=#F; K and E are commutative rings with Algebra F K, Algebra K E, Algebra F E and IsScalarTower F K E.
-
-**Proof route**
-
-- (x + y)^{q^i} = x^{q^i} + y^{q^i} in a commutative ring of characteristic p (iterated frobenius, add_pow_char_pow); sum over the monomials of L.
-- For c ∈ F, c^{q} = c (FiniteField.pow_card), so (c x)^{q^i} = c^{q^i} x^{q^i} = c x^{q^i}; multiply by the coefficient and sum.
-
-**Checks and examples**
-
-- For L = X^q − X and E = F itself, toLinearMap is the zero map.
-- For L = X² + X over ZMod 2 and E = GaloisField 2 2, toLinearMap has kernel {0, 1}.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial`](#FF4-linearized-polynomial), `mathlib:add_pow_char_pow`, `mathlib:FiniteField.pow_card`, `mathlib:Polynomial.aeval`.
-
-**Sources:** [S29](#source-29) — Chapter 1, Section 1.4, printed p. 14.
-
-<a id="FF4-linearized-polynomial-comp"></a>
-
-#### q-polynomials are closed under composition
-
-`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-comp` · lemma.
-
-Let K be a commutative ring of characteristic p and q = p^e with e ≥ 1. If L₁ = ∑ a_i X^{q^i} and L₂ = ∑ b_j X^{q^j} are q-linearized, then L₁.comp L₂ is q-linearized with L₁ ∘ L₂ = ∑_k (∑_{i+j=k} a_i b_j^{q^i}) X^{q^k}; composition is associative and distributes over addition on both sides, so the q-polynomials form a (noncommutative) ring under + and ∘ with unit X.
-
-**Hypotheses**
-
-- CharP K p, q = p^e, e ≥ 1.
-
-**Proof route**
-
-- (∑_j b_j X^{q^j})^{q^i} = ∑_j b_j^{q^i} X^{q^{i+j}} by additivity of the q^i-th power map in characteristic p (Polynomial.expand and frobenius on K[X]).
-- Multiply by a_i and sum over i; collect by k = i + j.
-- Left distributivity follows directly from the same characteristic-p Frobenius identities in K[X] used in the coefficient formula, including for a commutative coefficient ring that is not a field. Right distributivity and associativity are Polynomial.add_comp and Polynomial.comp_assoc. The field-based evaluation node is not applied to a non-field K.
-
-**Checks and examples**
-
-- (X^q) ∘ (a X) = a^q X^q and (a X) ∘ X^q = a X^q: composition is not commutative unless a^q = a.
-- (X^q − X) ∘ (X^q − X) = X^{q²} − 2X^q + X.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial`](#FF4-linearized-polynomial), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear`](#FF4-linearized-polynomial-eval-linear), `mathlib:Polynomial.comp`, `mathlib:Polynomial.comp_assoc`, `mathlib:Polynomial.add_comp`, `mathlib:Polynomial.expand`.
-
-**Sources:** [S31](#source-31) — Section 2.1, printed p. 5; [S31](#source-31) — Section 1, printed p. 2.
-
-<a id="FF4-roots-of-linearized-polynomial"></a>
-
-#### The roots of a q-polynomial form an F_q-subspace
-
-`FiniteFieldsAndCharacterSums:FF.4/roots-of-linearized-polynomial` · theorem.
-
-The evaluation zero locus of a q-linearized L in E is the F-linear kernel of IsLinearized.toLinearMap L. For L≠0 this also equals Polynomial.rootSet L E and is finite. For L=0 the evaluation zero locus is all of E, whereas Mathlib defines Polynomial.rootSet 0 E to be empty.
-
-**Hypotheses**
-
-- F finite, Fintype.card F = q = p^e; E a field with [Algebra K E]; L q-linearized.
-- Require L≠0 for the Polynomial.rootSet identification, exactly as in the suggested signature.
-
-**Proof route**
-
-- The roots in E are the zeros of the F-linear map x ↦ L(x) (linearized-polynomial-eval-linear), i.e. its kernel.
-- Finiteness for L ≠ 0: a nonzero polynomial has finitely many roots in a field (Polynomial.rootSet is finite).
-
-**Checks and examples**
-
-- The roots of X^q − X in any extension E of F are exactly the image of F.
-- X² + X over ZMod 2 has root set {0, 1} in GaloisField 2 2, a 1-dimensional F₂-subspace.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear`](#FF4-linearized-polynomial-eval-linear), `mathlib:Polynomial.rootSet`, `mathlib:LinearMap.ker`.
-
-**Sources:** [S22](#source-22) — Section II, printed p. 3; [S22](#source-22) — Section II, Theorem 1, printed p. 3.
-
-<a id="FF4-linearized-polynomial-separable-iff"></a>
-
-#### A q-polynomial is separable iff its coefficient of X is nonzero
-
-`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-separable-iff` · theorem.
-
-Let K be a field of characteristic p, q = p^e (e ≥ 1) and L = ∑_{i≤m} a_i X^{q^i} ∈ K[X] q-linearized and nonzero. (a) L is separable iff a_0 ≠ 0. (b) If a_0 ≠ 0 and L splits over a field E ⊇ K, then L has exactly q^m distinct roots in E, where m is the q-degree. (c) If K is perfect and t is the least index with a_t ≠ 0, every root of L in a splitting field has multiplicity exactly q^t.
-
-**Hypotheses**
-
-- CharP K p; q = p^e, e ≥ 1; L ≠ 0; (c) assumes PerfectField K.
-
-**Proof route**
-
-- The derivative of X^{q^i} is q^i X^{q^i − 1} = 0 for i ≥ 1 in characteristic p, so L′ = a_0 (Polynomial.derivative).
-- (a) If a_0 ≠ 0, L′ is a nonzero constant, so IsCoprime L L′ (mathlib:Polynomial.separable_def); if a_0 = 0 then L′ = 0 and L (nonconstant) is not separable.
-- (b) A separable split polynomial has natDegree many distinct roots (mathlib:Polynomial.card_rootSet_eq_natDegree), and natDegree L = q^m.
-- (c) Over a perfect field L = M^{q^t} with M = ∑_i a_i^{1/q^t} X^{q^{i−t}} (take q^t-th roots of the coefficients; frobenius is bijective), and M has nonzero X-coefficient, so M is separable by (a); each root of L is a simple root of M, hence of multiplicity q^t in L.
-
-**Checks and examples**
-
-- X^q − X is separable (a_0 = −1) with exactly q roots in F_q.
-- X^{q²} + X^q = (X^q + X)^q over F_q is not separable and each root has multiplicity q.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial`](#FF4-linearized-polynomial), `mathlib:Polynomial.derivative`, `mathlib:Polynomial.separable_def`, `mathlib:Polynomial.card_rootSet_eq_natDegree`, `mathlib:PerfectField`, `mathlib:frobenius`.
-
-**Sources:** [S22](#source-22) — Section II, Lemma 1 and proof, printed p. 3; [S22](#source-22) — Section II, Theorem 1, printed p. 3.
-
-<a id="FF4-subspace-polynomial"></a>
-
-#### The subspace polynomial of a finite F_q-subspace
-
-`FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial` · construction.
-
-Let F be a finite field with q elements, E a field with [Algebra F E], and U a finite F-subspace of E (a Submodule F E with Finite U). Its subspace polynomial is P_U := ∏_{u ∈ U} (X − C u) ∈ E[X]. It is monic of degree #U = q^{dim U}, separable, its roots in E are exactly U, and it is q-linearized (node subspace-polynomial-is-linearized).
-
-**Hypotheses**
-
-- F finite, Fintype.card F = q; U a finite-dimensional F-subspace of the field E (finite since F is finite).
-
-**Proof route**
-
-- Define P_U := ∏_{u ∈ U.toFinset} (X − C u) (Finset.prod over the finite carrier).
-- Monic of degree #U: product of monic linear factors (Polynomial.monic_prod_of_monic, natDegree_prod).
-- Roots = U with multiplicity one: roots of a product of distinct linear factors (Polynomial.roots_prod_X_sub_C); hence separable (Polynomial.nodup_roots converse for split polynomials).
-- #U = q^{finrank F U} (Module.card_eq_pow_finrank).
-
-**API**
-
-- `subspacePolynomial` (constructor): subspacePolynomial U = ∏_{u ∈ U} (X − C u).
-- `subspacePolynomial_monic` (simp): subspacePolynomial U is monic.
-- `subspacePolynomial_natDegree` (simp): Its natDegree is Nat.card U = q^(finrank F U).
-- `mem_rootSet_subspacePolynomial` (characterisation): x is a root of subspacePolynomial U iff x ∈ U.
-- `subspacePolynomial_separable` (other): subspacePolynomial U is separable.
-- `subspacePolynomial_injective` (extensionality): U ↦ subspacePolynomial U is injective (BEGR Lemma 2).
-
-**Unit tests**
-
-- `subspacePolynomial_bot` (degenerate): subspacePolynomial ⊥ = X.
-- `subspacePolynomial_range_algebraMap` (computation): For U = the image of F in E, subspacePolynomial U = X^q − X.
-- `subspacePolynomial_not_of_nonsubspace` (non-example): For q = 2 and a ∈ GaloisField 2 2 \ {0,1}, ∏_{u ∈ {0,1,a}} (X − u) has degree 3 and is not 2-linearized, while the subspace {0,1,a,a+1} gives X⁴ + X.
-- `subspacePolynomial_natDegree` (characterisation): natDegree (subspacePolynomial U) = q^(finrank F U).
-
-**Uses**
-
-- Ben-Sasson–Etzion–Gabizon–Raviv Lemma 2: subspaces are determined by their subspace polynomials
-- FF.4/linearized-permutation-root-criterion: the kernel of a linearized polynomial is recovered as the root space of a subspace-polynomial factor
-- DrinfeldModulesAndTModules:DM.0: kernels of isogenies of additive group schemes are finite F_q-subspaces with subspace polynomials as defining equations
-
-**Checks and examples**
-
-- P_⊥ = X.
-- For U = the image of F in E, P_U = X^q − X (FiniteField.roots_X_pow_card_sub_X).
-
-**Prerequisites:** `mathlib:Polynomial.roots_prod_X_sub_C`, `mathlib:Module.card_eq_pow_finrank`, `mathlib:FiniteField.roots_X_pow_card_sub_X`, `mathlib:Polynomial.nodup_roots`, `mathlib:Submodule`.
-
-**Sources:** [S22](#source-22) — Section II, Definition 2, printed p. 3; [S22](#source-22) — Section II, Example 1, printed p. 3.
-
-<a id="FF4-subspace-polynomial-is-linearized"></a>
-
-#### Subspace polynomials are q-linearized
-
-`FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial-is-linearized` · theorem.
-
-In the setting of subspace-polynomial, P_U is q-linearized for every finite F-subspace U ⊆ E; its coefficient of X is nonzero and its q-degree is dim_F U. Conversely every monic q-linearized L ∈ E[X] with nonzero X-coefficient that splits over E is the subspace polynomial of its root space.
-
-**Hypotheses**
-
-- F finite with q elements; U a finite-dimensional F-subspace of the field E.
-
-**Proof route**
-
-- Induction on dim U. For U = ⊥, P_U = X.
-- If U = U′ ⊕ F·w with w ∉ U′, then P_U(X) = ∏_{c ∈ F} P_{U′}(X − c w) = ∏_{c ∈ F} (P_{U′}(X) − c P_{U′}(w)), using that P_{U′} is linearized (induction) and hence additive and F-linear as a polynomial map in the K-algebra E[X] (linearized-polynomial-eval-linear).
-- ∏_{c ∈ F}(Y − c b) = Y^q − b^{q−1} Y for b ∈ E (the roots of Y^q − b^{q−1}Y are the c b; FiniteField.roots_X_pow_card_sub_X scaled), so P_U = P_{U′}^q − P_{U′}(w)^{q−1} P_{U′}, a q-linearized polynomial by linearized-polynomial-comp.
-- The X-coefficient is nonzero since P_U is separable (subspace-polynomial) and linearized-polynomial-separable-iff; the converse follows from roots-of-linearized-polynomial and linearized-polynomial-separable-iff (b), comparing monic polynomials with the same simple roots.
-
-**Checks and examples**
-
-- For U = F₂·1 + F₂·a ⊆ GaloisField 2 2 (a² = a + 1), P_U = X⁴ + X.
-- For U = F·w of dimension one, P_U = X^q − w^{q−1} X.
-
-**Prerequisites:** [`FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial`](#FF4-subspace-polynomial), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-comp`](#FF4-linearized-polynomial-comp), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear`](#FF4-linearized-polynomial-eval-linear), [`FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-separable-iff`](#FF4-linearized-polynomial-separable-iff), [`FiniteFieldsAndCharacterSums:FF.4/roots-of-linearized-polynomial`](#FF4-roots-of-linearized-polynomial), `mathlib:FiniteField.roots_X_pow_card_sub_X`.
-
-**Sources:** [S22](#source-22) — Section II, printed p. 3; [S22](#source-22) — Section II, Lemma 1, printed p. 3.
+### FF.4.2. Specialized linearized and permutation criteria
 
 <a id="FF4-linearized-q-associate"></a>
 
@@ -15847,9 +15534,9 @@ Consumers: [`FiniteFieldsAndCharacterSums:FF.2/lang-weil-estimate`](#FF2-lang-we
 
 ### P-R01: WeilConjectures:WC.3
 
-The Riemann hypothesis for curves in its all-conjugates form: for a smooth projective geometrically connected curve C over F_q of genus g (in particular the curve attached, through the function-field/curve dictionary, to a one-variable function field over F_q with exact constant field F_q), Z(C, T) = P₁(T)/((1 − T)(1 − qT)) with P₁ ∈ ℤ[T] of degree 2g and P₁(0) = 1, and every reciprocal root α of P₁, counted with multiplicity, is an algebraic integer with |ι(α)| = q^{1/2} for every field embedding ι : ℚ̄ → ℂ. FF.2 uses it only for the Artin–Schreier and Kummer curves y^q − y = f(x), y^d = g(x).
+The Riemann hypothesis for curves in its all-conjugates form: for a smooth projective geometrically connected curve C over F_q of genus g (in particular the curve attached, through the function-field/curve dictionary, to a one-variable function field over F_q with exact constant field F_q), Z(C, T) = P₁(T)/((1 − T)(1 − qT)) with P₁ ∈ ℤ[T] of degree 2g and P₁(0) = 1, and every reciprocal root α of P₁, counted with multiplicity, is an algebraic integer with |ι(α)| = q^{1/2} for every field embedding ι : ℚ̄ → ℂ. FF.2 uses it only for the Artin–Schreier and Kummer curves y^q − y = f(x), y^d = g(x). In particular, for every r ≥ 1 this gives |#C(F_(q^r)) − (q^r + 1)| ≤ 2g q^(r/2), by summing the 2g reciprocal roots. FF.3 imports this curve statement; affine-model counts still need their explicit projective-boundary comparison. For general geometrically irreducible varieties use FF.2/lang-weil-estimate with its geometric compact-support Betti constant, not the genus coefficient 2g.
 
-Consumers: [`FiniteFieldsAndCharacterSums:FF.2/additive-l-function-purity`](#FF2-additive-l-function-purity), [`FiniteFieldsAndCharacterSums:FF.2/multiplicative-l-function-purity`](#FF2-multiplicative-l-function-purity).
+Consumers: [`FiniteFieldsAndCharacterSums:FF.2/additive-l-function-purity`](#FF2-additive-l-function-purity), [`FiniteFieldsAndCharacterSums:FF.2/multiplicative-l-function-purity`](#FF2-multiplicative-l-function-purity), [`FiniteFieldsAndCharacterSums:FF.3/weil-error-bound-for-hyperelliptic-counts`](#FF3-weil-error-bound-for-hyperelliptic-counts).
 
 <a id="contract-F3-R04"></a>
 
@@ -17045,6 +16732,15 @@ These are existing-library inputs from the packets. The register states what is 
 | `tauceti:WeierstrassCurve.pointCount_eq_card_point_add_one_iff` | Audit register: the projective count exceeds the nonsingular count by one exactly on singular models. | `TauCeti/AlgebraicGeometry/EllipticCurve/SingularPointCount.lean` |
 | `tauceti:WeierstrassCurve.zsmul_eq_zero_of_evalEval_ψ_eq_zero` | If ψ_n vanishes at a nonsingular point P then n P = 0. | `TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean` |
 | `tauceti:WeierstrassCurve.zsmul_point_eq_smulEval` | Audit register: the division-polynomial formula for n P (Tau Ceti has division polynomials). | `TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean` |
+| `mathlib:FiniteField.Extension.exists_frob_pow_eq` | For the chosen degree-n extension of a finite field k of characteristic p, with n nonzero, each k-automorphism is a power of its Frobenius, with exponent less than n. | `Mathlib/FieldTheory/Finite/Extension.lean` |
+| `mathlib:IntermediateField.finrank_dvd_of_le_right` | For intermediate fields K1 ≤ K2 in a finite-dimensional extension, [K1:F] divides [K2:F]. | `Mathlib/FieldTheory/IntermediateField/Algebraic.lean` |
+| `mathlib:IntermediateField.mem_fixedField_iff` | Membership in a subgroup fixed field is pointwise fixedness under every member of the subgroup. | `Mathlib/FieldTheory/Galois/Basic.lean` |
+| `mathlib:quadraticChar_card_card` | For finite fields F and F′ of distinct odd characteristics, quadraticChar F (#F′) = quadraticChar F′ (quadraticChar F (−1) · #F); the theorem has decidable equality on both fields. | `Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean` |
+| `tauceti:TauCeti.FiniteField.pow_card_eq_self_iff_mem_range_algebraMap` | For finite field K, domain L with a K-algebra structure, a^#K = a exactly when a is in the image of algebraMap K L. | `TauCeti/FieldTheory/Finite/FrobeniusFixed.lean` |
+
+## Round-two reading scope
+
+The [fix report](../redteam/RT-AREA-finitefields.fixes-2.md) records the fresh 2026-10-19 readings and the inherited proof evidence separately. Fresh readings cover Shoup 19.4 and 19.10–19.14, Deligne Weil I 8.4–8.13, Wu–Liu 2.1–2.2 and the named BKK passages. The packet’s source-version receipts give the exact editions, pages and available hashes; the other source receipts retain their original attribution.
 
 ## Source corrections affecting the targets
 

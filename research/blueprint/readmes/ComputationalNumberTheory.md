@@ -4,6 +4,10 @@ Certified computational number theory extends exact library carriers with indepe
 
 This document is a plan against the recorded library pins. This breadth-first pass is complete under Protocol 0: all six stages are planned and all nine routed items are mapped, with the explicit refinements below. No stage is closed and every declaration is unchecked. The sources and proof obligations below distinguish mathematical assumptions from data a checker must verify.
 
+The finite-field boundary is an import: FF.0 supplies certified coefficient presentations and explicit inverse maps; FF.3 supplies factorization discovery, certificates and their soundness/completeness. CN.1 transports the checked nonzero scalar and factor list, including multiplicities, without repeating DDF, EDF or Berlekamp. This exact target import has an elementary prerequisite chain through FF.0 and CN.0. The atlas’s coarse FF.2 → FF.3 → CN.1 depth still needs the maintainer’s registered stage refinement described in the [finite-fields fix report](../redteam/RT-AREA-finitefields.fixes-2.md); no Weil-II or whole-WC.5 import is added to this interface.
+
+The [suggested Lean file](../suggested/ComputationalNumberTheory.lean) states selected milestones on existing carriers and light real-bodied predicates/functions. RAM/certificate carriers, search algorithms, order and basis constructions, integral Hecke matrices and certified enclosure procedures remain targets in this document with their full API and tests; no data definition is admitted in the suggested file. Proof admissions are planning signatures.
+
 ## CN.0
 
 ### RAM instruction
@@ -651,15 +655,15 @@ Sources: Thery, Theorem 6.1 and corrected Theorem 6.2, p.9.
 
 Let e:F≃+*K be a certified change from a computable finite-field presentation to the intrinsic finite field. For nonzero f=c∏g_i with c≠0 and all g_i monic irreducible, mapping coefficients by e yields map(e,f)=e(c)∏map(e,g_i), again with monic irreducible factors. The FF.3 checker and its search algorithm supply the data; CN.1 only checks the presentation boundary and reconstructs the intrinsic factorization. The retained legacy ID no longer owns DDF, EDF or Berlekamp algorithms.
 
-Construction or proof: Import the accepted nonzero finite-field certificate contract. A field isomorphism preserves leading coefficients, products and irreducibility. Check the presentation’s explicit inverse before transport.
+Hypotheses: F and K are finite fields; e : F ≃+* K has the checked forward/inverse presentation maps. f ≠ 0 and c ≠ 0; factors form a finite list, with multiplicity retained, each monic irreducible, and f = C c · ∏ gᵢ. Constants use an empty factor list; zero is a separate output case.
+
+Construction or proof: Import FF.3/factorization-certificate-sound for the checked reconstruction and monic irreducibility of every factor. Import the explicit forward/inverse presentation equivalence from FF.0; the CN boundary does not search for it. Polynomial.map preserves products and constants; a ring equivalence preserves monicity and irreducibility. Map the whole factor list, preserving repetitions, to obtain the intrinsic factorization. Algorithm discovery, randomness, expected running time and finite-field irreducibility checks remain FF.3 targets. CN.0 supplies the program/cost interface; this transport theorem asserts no search or complexity bound.
 
 Prerequisites: FiniteFieldsAndCharacterSums:FF.3/factorization-certificate-sound, FiniteFieldsAndCharacterSums:FF.0/presentation-change-isomorphism.
 
+Acceptance: The explicit f≠0 and c≠0 hypotheses agree with the existing FF.3 checker, which rejects zero. Zero has a separate output case, never an irreducible factor list. Repeated factors are transported as a list with multiplicity, so mapping (X−a)² does not discard one copy. For a nonzero constant, the factor list is empty and the scalar maps by e. Zero is rejected by this interface.
 
-
-Acceptance: The explicit f≠0 and c≠0 hypotheses avoid the supplier definition’s zero-polynomial ambiguity. Zero is handled by a separate zero result, never an irreducible factor list.
-
-Sources: Shoup, Theorem 19.14, pp.515–516; Chapter 20.
+Sources: Shoup, §19.3, Theorem 19.14, printed pp. 515–516; Chapter 20, §20.1–§20.5.
 
 ### Rational polynomial factor certificate
 
@@ -2321,3 +2325,7 @@ Every original stage target and all nine routed source items have a target decla
 - **LevelOneAutomorphicFormsForClassicalGroups**: The new CT design route owns intrinsic K∞, admissibility, Fourier conventions, J_F and automorphic consequences. Its precise stage identifiers are not available in this base. CN.4 provides numerical RHS functions and Gram checks; the intrinsic comparison remains a named gap rather than an invented supplier id.
 
 Every numerical example remains a theorem target. Exact coefficient replays, compiler results and archive recovery evidence are reported in the handoff; none proves an admitted Lean statement.
+
+## Finite-field ownership revision
+
+The retained CN.1 legacy target is only factorization transport, with exact FF.3 and FF.0 suppliers. Historical data/decompositions and the coarse atlas depth are outside this fix’s scope. The maintainer must bind CN.1 to the proposed elementary FF.3 refinement, preserving the FF.0 census input, and FA.7 must import FF.3 rather than duplicate its algorithms. See RT-AREA-finitefields.fixes-2.md for exact handoffs.
