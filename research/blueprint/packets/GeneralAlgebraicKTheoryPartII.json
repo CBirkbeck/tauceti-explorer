@@ -95,7 +95,7 @@
       "accessed": "2026-10-19",
       "readSections": [
         "§4.3, Theorems 4.22–4.23, pp.770–771; §5.1–5.2, pp.775–779.",
-        "§7.1–7.2, pp.788–795; §9.1, pp.806–811; Theorem 9.53 and proof, p.826."
+        "§7.1–7.2, pp.788–795; §§9.1–9.5, pp.806–820; Theorem 9.53 and proof, pp.825–826."
       ]
     },
     {
@@ -107,7 +107,7 @@
       "sha256": "59adf6a7d0a8b20d89dcb501e03ab2bd8ffdb929822c3250fbf65d1db693b4d4",
       "accessed": "2026-10-19",
       "readSections": [
-        "Notation 1.1, Definition 1.2 and Theorem 1.3 with its construction, pp.5–12.",
+        "Notation 1.1, Definition 1.2 and Theorem 1.3 with its construction, pp.5–14.",
         "Lemma 2.4 and proof, pp.16–17; Definition 3.1, Theorem 3.3 and Corollary 3.5, pp.28–30.",
         "Appendix A, especially Theorem A.2 and its four-step proof, pp.35–37."
       ]
@@ -135,7 +135,7 @@
       "sha256": "84c76407088130815255e20c0cce563348a54c05ea1b51cd9571453c7e16e11a",
       "accessed": "2026-10-19",
       "readSections": [
-        "Theorem 4.10 and its proof, pp.21–22, for the Tate-height converse used in the vanishing induction. The source version is recorded because the extraction cites older numbering."
+        "Theorem 4.6, Lemma 4.7 and proof, pp.19–20, for the Tate-height converse; Lemma 4.9 and Theorem 4.10 with proofs, pp.20–21, for the vanishing induction. Numbering follows this downloaded version."
       ]
     },
     {
@@ -147,7 +147,7 @@
       "sha256": "650bdae5871cc962c4bc8ef34d4c25cab88a3b6f2e8b99557b6d3c29421d9b7c",
       "accessed": "2026-10-19",
       "readSections": [
-        "Theorem 6.1 and its proof, pp.19–21; its conclusion is connective K-theory."
+        "Theorem 6.1 and its proof, pp.19–23; its conclusion is connective K-theory."
       ]
     },
     {
@@ -159,7 +159,8 @@
       "sha256": "ddec1b3cf72618976e89fd854ff9d4bceabdd34228e3c2bcedf834b1d6025f73",
       "accessed": "2026-10-19",
       "readSections": [
-        "Theorem 3.18 and proof, pp.27–28, including the noetherian-heart hypothesis.",
+        "§§2.1–2.2, Definitions 2.1, 2.4 and 2.7, pp.5–7, for enhanced t-structures, hearts and boundedness.",
+        "Theorem 3.18 and proof, pp.27–29, including the noetherian-heart hypothesis.",
         "Proposition 4.4 and Example 4.6, pp.34–35, for regular localization and coherent support."
       ]
     },
@@ -234,7 +235,31 @@
       "accessed": "2026-10-19",
       "readSections": [
         "Theorem 2.3, p.473; Theorem 3.1, Exercise 3.2 and Corollary 3.3, pp.474–477.",
-        "§5, Theorems 5.1–5.2 and Corollary 5.4, pp.483–486. The finite-annihilator construction cited there to Stienstra is the explicit proof-audit gap G1."
+        "§5, Theorems 5.1–5.2 and Corollary 5.4, pp.483–485. The finite-annihilator construction cited there to Stienstra is the explicit proof-audit gap G1."
+      ]
+    },
+    {
+      "id": "bgt-mult",
+      "title": "Uniqueness of the multiplicative cyclotomic trace",
+      "authors": "Andrew J. Blumberg, David Gepner and Gonçalo Tabuada",
+      "edition": "arXiv:1103.3923, downloaded 2026-10-19; manuscript numbering; published Advances in Mathematics 260 (2014), 191–232",
+      "url": "https://arxiv.org/pdf/1103.3923",
+      "sha256": "3bf564f86fda5425038fcea4afb681280ee75e88918585cf87daad8dcb76001a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 5.8, Proposition 5.9 and Corollaries 5.10–5.11 with proof, p.23; multiplicative structure and ring-spectrum consequences."
+      ]
+    },
+    {
+      "id": "cdh",
+      "title": "Hermitian K-theory for stable infinity-categories I: Foundations",
+      "authors": "Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle",
+      "edition": "Author-hosted manuscript, downloaded 2026-10-19; manuscript numbering",
+      "url": "https://bcalmes.perso.math.cnrs.fr/pro/recherche/publis/hermpoinc-one/HermKstableI.pdf",
+      "sha256": "efe2829ce59ac432a2c85fd3ddd73feffb98a8c5fe7f9c8c8682abe273c7b73b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4.4 opening, p.84, and the model comparison preceding Lemma 4.4.11, pp.89–90; compact parametrized spectra and finitely dominated retractive spaces."
       ]
     }
   ],
@@ -364,6 +389,7 @@
         "EnhancedDerivedSheaves:E5:presentability/ind-completion",
         "EnhancedDerivedSheaves:E5:abstract/idempotent-completion",
         "GeneralAlgebraicKTheoryPartII:KII.0/perfect-categories",
+        "GeneralAlgebraicKTheoryPartII:KII.0/nonconnective-k",
         "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
         "tauceti:TauCeti.finiteProjectiveModulesExactStructure",
         "tauceti:TauCeti.ExactStructure",
@@ -379,6 +405,11 @@
           "sourceId": "lmmt",
           "locator": "Notation, p.1015; proof of Proposition 3.6, pp.1023–1024",
           "match": "Fixes right-module conventions and uses the perfect-module comparison."
+        },
+        {
+          "sourceId": "lt",
+          "locator": "Lemma 1.10 and proof, manuscript p.9",
+          "match": "Identifies a perfect stable category with a chosen thick generator as perfect right modules over its endomorphism ring."
         }
       ],
       "implementationStatus": "unchecked",
@@ -539,14 +570,14 @@
       ],
       "title": "Nonconnective K-theory of stable categories",
       "kind": "construction",
-      "statement": "Construct Knc:Cat∞perf→Sp by flasque enlargement and suspension: for a sufficiently large regular κ use the compact part of the κ-continuous enlargement, its quotient suspension ΣκC, and the colimit of Ω^rKconn(Σκ^rC). Prove independence of the permitted κ, τ≥0Knc(C)≃Kconn(C), equivalence invariance and filtered-colimit preservation. For ordinary exact/Frobenius models compare with Bass–Schlichting K-theory. Knc is weakly localizing; connective K need not send every exact sequence to a fiber sequence.",
+      "statement": "Construct Knc:Cat∞perf→Sp by flasque enlargement and suspension: for a sufficiently large uncountable regular κ set FκC=(Ind_ω C)^κ, the κ-compact objects in the ordinary filtered Ind-completion, and set ΣκC=Idem(FκC/C). Define Knc(C) as the colimit of Ω^rKconn(Σκ^rC). Prove independence of the permitted κ, τ≥0Knc(C)≃Kconn(C), equivalence invariance and filtered-colimit preservation. For ordinary exact/Frobenius models compare with Bass–Schlichting K-theory. Knc is weakly localizing; connective K need not send every exact sequence to a fiber sequence.",
       "hypotheses": [
-        "C is small stable idempotent-complete; κ is sufficiently large regular for the chosen universe.",
+        "C is small stable idempotent-complete; κ is sufficiently large uncountable regular for the chosen universe.",
         "Universe bounds are fixed explicitly; changing universe uses the specified enlargement comparisons."
       ],
       "proofSteps": [
-        "Build the enlargement with countable-sum swindle, and show its connective K-theory is zero.",
-        "Form its stable quotient, retain compact objects and iterate the suspension comparison maps.",
+        "The κ-compact subcategory FκC contains countable coproducts because κ is uncountable regular; use their exact countable-sum swindle to make its connective K-theory zero.",
+        "Form the stable quotient FκC/C and its idempotent completion in Cat∞perf, then iterate the suspension comparison maps.",
         "Check change of universe/κ using cofinal enlargement comparisons; prove localization by the quotient diagram and the parent’s fibration theorem.",
         "Compare the enhancement of Frobenius pairs at each suspension stage, not just homotopy groups in nonnegative degrees."
       ],
@@ -564,7 +595,7 @@
       "sources": [
         {
           "sourceId": "bgt",
-          "locator": "§9.1, pp.806–811; Theorems 9.8 and 9.10, pp.808–809",
+          "locator": "Definitions 9.1 and 9.6, pp.806–808; Theorems 9.8 and 9.10 with proofs, §§9.2–9.3, pp.808–816",
           "match": "Builds nonconnective K-theory and establishes its localization properties."
         }
       ],
@@ -704,6 +735,11 @@
           "sourceId": "lt",
           "locator": "Lemma 2.4 and proof, manuscript pp.16–17",
           "match": "Uses the general-linear/plus comparison to control relative K-connectivity."
+        },
+        {
+          "sourceId": "bgt",
+          "locator": "Lemma 9.39 and Proposition 9.40, pp.819–820",
+          "match": "Identifies the positive K-space of a connective ring spectrum with its stable general linear plus construction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -729,7 +765,7 @@
         {
           "name": "TauCeti.KTheory.ConnectivePlus.relative_plus",
           "role": "compatibility",
-          "statement": "A map inducing a π0-isomorphism compares its positive relative K-space with the plus construction on relative GL."
+          "statement": "For a π0-isomorphism A→B, the natural square of BGL spaces and their positive K-space plus comparisons transports relative homology estimates through the acyclic plus maps; no identification of the relative K-space with plus applied to an arbitrary fiber is assumed."
         }
       ],
       "tests": [
@@ -907,14 +943,14 @@
       ],
       "title": "Waldhausen A-theory",
       "kind": "definition",
-      "statement": "For a pointed connected space X define A(X)=K(S[ΩX]) with S[ΩX]=Σ∞_+ΩX, multiplication induced by loop concatenation. Compare τ≥0A(X) with the classical connective K-theory of homotopy-finite retractive spaces over X through the stabilization model. A based map X→Y yields A(X)→A(Y); the unit and augmentation give A(*)→A(X)→A(*) with composite identity.",
+      "statement": "For a pointed connected space X define A(X)=K(S[ΩX]) with S[ΩX]=Σ∞_+ΩX, multiplication induced by loop concatenation. Compare τ≥0A(X) with the classical connective K-theory of homotopy-finitely dominated retractive spaces over X (retracts of finite relative cell objects) through the stabilization model. A based map X→Y yields A(X)→A(Y); the unit and augmentation give A(*)→A(X)→A(*) with composite identity. The homotopy-finite variant agrees in positive K-groups, but its K0 need not agree before retract completion.",
       "hypotheses": [
-        "X is pointed connected; the retractive-space comparison is with the connective cover.",
+        "X is pointed connected; the retractive-space comparison uses finitely dominated objects and the connective cover.",
         "Universe bounds are fixed explicitly; changing universe uses the specified enlargement comparisons."
       ],
       "proofSteps": [
-        "Construct the associative suspension-spectrum loop algebra and its module model of parametrized finite cells.",
-        "Compare finite retractive-cell constructions and their stable module category, using the imported Waldhausen model.",
+        "Construct the associative suspension-spectrum loop algebra and identify its perfect modules with compact parametrized spectra over X.",
+        "Stabilize finitely dominated retractive objects, retaining all retracts of finite relative cells; apply the Waldhausen stabilization and enhanced-model comparisons. Restricting to finite relative cells alone does not justify the K0 comparison.",
         "Identify the two maps from unit/augmentation and check naturality."
       ],
       "acceptance": [
@@ -930,6 +966,11 @@
           "sourceId": "lmmt",
           "locator": "Corollary 4.14 and preceding definition, p.1030",
           "match": "Defines A-theory in the ring-spectrum model and uses the splitting."
+        },
+        {
+          "sourceId": "cdh",
+          "locator": "§4.4 opening, manuscript p.84; discussion preceding Lemma 4.4.11, pp.89–90",
+          "match": "Identifies compact parametrized spectra with perfect S[ΩX]-modules for pointed connected X, and with the stabilization of finitely dominated retractive spaces."
         }
       ],
       "implementationStatus": "unchecked",
@@ -955,7 +996,7 @@
         {
           "name": "TauCeti.KTheory.ATheory.retractive_comparison",
           "role": "equivalence",
-          "statement": "The homotopy-finite retractive-space Waldhausen model has connective K-theory τ≥0A(X)."
+          "statement": "The finitely dominated retractive-space Waldhausen model has connective K-theory τ≥0A(X), including its K0 component."
         }
       ],
       "tests": [
@@ -970,9 +1011,9 @@
           "statement": "A(S1)≃K(S[Z]), where ΩS1 is the discrete group Z up to equivalence."
         },
         {
-          "name": "TauCeti.KTheory.ATheory.test_split",
-          "kind": "characterisation",
-          "statement": "For every connected pointed X the map A(*)→A(X) is a retract inclusion via augmentation."
+          "name": "TauCeti.KTheory.ATheory.test_finiteness_boundary",
+          "kind": "non-example",
+          "statement": "For X with a nontrivial reduced projective class group of Z[π1X], the finite-cell model has K0=Z whereas the finitely dominated model detects K0(Z[π1X]); a comparison omitting retracts must fail this test."
         }
       ],
       "uses": [
@@ -1013,7 +1054,7 @@
       "sources": [
         {
           "sourceId": "lt",
-          "locator": "Theorem 1.3 and proof, manuscript pp.6–12",
+          "locator": "Theorem 1.3 and proof, manuscript pp.6–14",
           "match": "Constructs the replacement E1-algebra through the lax pullback and identifies its underlying spectrum."
         }
       ],
@@ -1212,7 +1253,7 @@
       "statement": "Let Λ be a localization of Z or Z/m for an integer m≥2. If f:A→B is a map of connective E1-rings inducing an isomorphism on π0, and Λ⊗f is n-connective for n≥1, then Λ⊗K(f) is (n+1)-connective. Here tensor with Z/m means Moore coefficients, and Λ-connectivity is measured on the coefficient fiber. In particular a Q- or Z/p-homology equivalence f with π0f an isomorphism induces the same equivalence on K. Thus K(R)→K(Hπ0R) is a rational equivalence for rationally discrete R, and a p-adic equivalence whenever R→Hπ0R is one; this includes every connective Z[1/p]-algebra ring spectrum.",
       "hypotheses": [
         "A→B is connective E1 and induces a π0-isomorphism.",
-        "Λ is Q or Z/p; the quantitative version requires positive connectivity.",
+        "Λ is any localization of Z or Z/m for m≥2; the quantitative version requires n≥1. The rational and mod-p equivalence consequences take Λ=Q and Z/p respectively.",
         "Universe bounds are fixed explicitly; changing universe uses the specified enlargement comparisons."
       ],
       "proofSteps": [
@@ -1316,7 +1357,7 @@
         },
         {
           "sourceId": "agh",
-          "locator": "§2.1, manuscript pp.5–7",
+          "locator": "§§2.1–2.2, Definitions 2.1, 2.4 and 2.7, manuscript pp.5–7",
           "match": "Fixes the enhanced t-structure and boundedness setting."
         }
       ],
@@ -1390,7 +1431,7 @@
       "proofSteps": [
         "Use additive spectrum-valued presheaves and enriched Yoneda; the representables are compact generators.",
         "Take their finite stable retract closure and prove the extension universal property.",
-        "Compare the additive core group completion with connective K of the envelope using Hebestreit–Steimle’s corollary, followed by idempotent completion."
+        "Apply Hebestreit–Steimle’s group-completion theorem to the finite stable envelope. The assumed idempotent completeness of C makes its bounded weight heart idempotent-complete and hence its stable envelope idempotent-complete; justify this before identifying the thick envelope. Do not invoke invariance of connective K0 under arbitrary idempotent completion."
       ],
       "acceptance": [
         "For C=Projω(A) with A connective, Stab(C)≃Perf(A), so Kadd,nc(C)≃K(A)."
@@ -1499,12 +1540,12 @@
       "sources": [
         {
           "sourceId": "barwick",
-          "locator": "Theorem 6.1 and proof, manuscript pp.19–21",
+          "locator": "Theorem 6.1 and proof, manuscript pp.19–23",
           "match": "Proves the connective theorem of the heart."
         },
         {
           "sourceId": "agh",
-          "locator": "Theorem 3.18 and proof, manuscript pp.27–28",
+          "locator": "Theorem 3.18 and proof, manuscript pp.27–29",
           "match": "Supplies the nonconnective theorem with noetherian heart."
         }
       ],
@@ -1521,15 +1562,17 @@
       ],
       "title": "Regular ring-spectrum devissage",
       "kind": "theorem",
-      "statement": "Let R be connective right regular noetherian in the sense that π0R is right noetherian and every coherent R-module is perfect. Let R→S be a localization whose compact kernel consists exactly of perfect R-modules M with π*M finitely presented over π0R in total. Then K(π0R)→K(R)→K(S) is a fiber sequence. The first map views a finitely generated π0R-module as an R-module and uses resolution/devissage, so it is not generally extension of scalars along a ring map π0R→R.",
+      "statement": "Let R be connective, with π0R right regular noetherian and each πnR finitely generated as a right π0R-module. Here right regular for π0R means that every finitely generated right module has finite projective dimension. Assume every R-module M with ⊕nπnM finitely presented over π0R is perfect. Let R→S induce a localization Mod_R→Mod_S whose kernel is generated by a compact object (equivalently a finite set of compact objects). Suppose a perfect M is killed by extension to S exactly when ⊕nπnM is finitely presented over π0R. Then K(π0R)→K(R)→K(S) is a fiber sequence. The first map uses restriction from discrete π0R-modules, resolution and devissage; it is not generally extension along a ring map π0R→R.",
       "hypotheses": [
-        "R is connective right regular noetherian.",
-        "R→S has the stated compact-kernel criterion, not just an element called a periodicity class.",
+        "π0R is right regular noetherian; every πnR is finitely generated over π0R; R is connective.",
+        "Every bounded R-module whose homotopy groups are finitely presented over π0R is perfect.",
+        "Extension Mod_R→Mod_S is a localization with kernel generated by finitely many compact objects.",
+        "A perfect module is in that kernel if and only if its total graded homotopy is finitely presented over π0R.",
         "Universe bounds are fixed explicitly; changing universe uses the specified enlargement comparisons."
       ],
       "proofSteps": [
-        "Identify the compact kernel with the bounded coherent module category and its bounded standard t-structure.",
-        "Use regularity to identify the heart’s K with K(π0R) and apply the noetherian theorem of the heart.",
+        "Use compact generation of the localization kernel to identify its compact objects with the bounded coherent R-modules. The finiteness of πnR and right noetherian π0R ensure that the standard truncations stay coherent.",
+        "Its standard t-structure is bounded with noetherian heart the finitely presented π0R-modules. Right regularity of π0R identifies the heart’s G-theory with projective K(π0R); apply the noetherian theorem of the heart.",
         "Apply the nonconnective localization fiber sequence."
       ],
       "acceptance": [
@@ -1543,7 +1586,7 @@
       "sources": [
         {
           "sourceId": "agh",
-          "locator": "Proposition 4.4 and Example 4.6, manuscript pp.34–35",
+          "locator": "§4.2 definitions and Proposition 4.4, manuscript p.34; Example 4.6, p.35",
           "match": "States the regular-localization criterion and the polynomial periodicity example."
         }
       ],
@@ -1847,9 +1890,9 @@
       ],
       "sources": [
         {
-          "sourceId": "cmnn20",
-          "locator": "§3.2, Construction 3.14, manuscript pp.11–13",
-          "match": "Uses the multiplicative perfect-category invariant and the transfer projection formula."
+          "sourceId": "bgt-mult",
+          "locator": "Theorem 5.8, Proposition 5.9 and Corollaries 5.10–5.11, manuscript p.23",
+          "match": "Establishes coherent lax symmetric monoidal structures on connective and nonconnective K, giving ring and module structures from separately exact tensor pairings."
         },
         {
           "sourceId": "lmmt",
@@ -2221,8 +2264,8 @@
         },
         {
           "sourceId": "cmnn24",
-          "locator": "Theorem 4.10 with proof, manuscript §4.2, pp.21–22",
-          "match": "Provides the independent finite-localization vanishing theorem."
+          "locator": "Theorem 4.6 and proof, manuscript pp.19–20; Theorem 4.10 with proof, §4.2, p.21",
+          "match": "Separately proves the Tate-height converse and the finite-localization vanishing theorem; these are different numbered results in this version."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3668,7 +3711,7 @@
         "Extend the action continuously and descend the same operations through Bass’s contraction to all integer degrees."
       ],
       "acceptance": [
-        "For NK1 symbols [1−νx], the Witt-series action agrees with evaluation of the series at the nilpotent endomorphism ν."
+        "For an NK1 symbol [1−νx] and a Witt characteristic series a(t), substitute νx into the series, so evaluation at x=0 is the identity automorphism."
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
@@ -3702,7 +3745,7 @@
         {
           "name": "TauCeti.KTheory.NilWittAction.nil_symbol",
           "role": "simp",
-          "statement": "For a nilpotent endomorphism ν and Witt series a(t), the action on the NK1 class [1−νx] is represented by a(ν), with the characteristic-series convention fixed."
+          "statement": "Use the characteristic-series convention det(1−tf). For nilpotent ν the Witt action of a(t) on [1−νx] is the class [a(νx)] in NK1(A); the finite evaluation retains x. In particular the series 1−rt sends this class to [1−rνx]."
         }
       ],
       "tests": [
@@ -3714,7 +3757,7 @@
         {
           "name": "TauCeti.KTheory.NilWittAction.test_dual_numbers",
           "kind": "computation",
-          "statement": "For A=R[ε]/ε², the symbol 1−εx is controlled by the first nonconstant Witt coefficient, with all sufficiently high filtration terms acting trivially."
+          "statement": "For A=R[ε]/ε², the series 1−rt sends [1−εx] to [1−rεx], and every series congruent to 1 modulo t² acts as zero on this symbol. Evaluating at ε alone gives a constant unit and must fail the NK1 formula."
         },
         {
           "name": "TauCeti.KTheory.NilWittAction.test_negative_index",
@@ -4107,7 +4150,7 @@
     },
     {
       "supplier": "SchemeKTheoryOperations:S.5",
-      "need": "KH(A)=|K(A[Δ•])| with its natural polynomial homotopy, regular-ring comparison, and the Karoubi–Villamayor comparison spectral sequence and nilpotent invariance from Weibel Theorems 5.1–5.2, pp.483–484. Supply the relative comparison, convergence and the link to nonpositive Bass groups. KH is imported here, not redefined.",
+      "need": "KH(A)=|K(A[Δ•])| with its natural polynomial homotopy, regular-ring comparison, and the Karoubi–Villamayor comparison spectral sequence and nilpotent invariance from Weibel Theorems 5.1–5.2, p.484. Supply the relative comparison, convergence and the link to nonpositive Bass groups. KH is imported here, not redefined.",
       "neededBy": [
         "GeneralAlgebraicKTheoryPartII:KII.4/nk-localization",
         "GeneralAlgebraicKTheoryPartII:KII.9/kh-comparison"
@@ -4137,14 +4180,14 @@
       "stageId": "GeneralAlgebraicKTheoryPartII:KII.2",
       "status": "planned",
       "remaining": [
-        "Independent review of target statements, proof dependencies and imported supplier interfaces; this target pass does not certify mathematical closure or implementation."
+        "Inherited foundation contracts: StableHomotopyKTheory:H.3 coherent relative-plus comparison, GeneralAlgebraicKTheory:K.2:plus enrichment, and StableHomotopyKTheory:H.5:spectra/H.5:S-delooping spectrum and realization comparisons; see requests R1–R4 and KII.0–KII.1."
       ]
     },
     {
       "stageId": "GeneralAlgebraicKTheoryPartII:KII.3",
       "status": "planned",
       "remaining": [
-        "Independent review of target statements, proof dependencies and imported supplier interfaces; this target pass does not certify mathematical closure or implementation."
+        "Inherited foundation contracts: StableHomotopyKTheory:H.5:spectra and H.5:S-delooping must supply coherent spectrum assembly and enhanced Waldhausen realization comparisons used by the stable-envelope/heart comparisons; see requests R3–R4."
       ]
     },
     {
@@ -4153,7 +4196,7 @@
       "remaining": [
         "Supplier extension EnhancedDerivedSheaves:E5:abstract: For connective E1 rings, construct coherent Postnikov truncations and identify τ≤r A→τ≤r−1 A as the pullback of a square-zero extension classified by the derivation into Σ^(r+1)HπrA (Lurie, Higher Algebra, 7.4.1.29, as used and explained in LMMT Lemma 3.3, pp.1022–1023). Supply multiplicative truncations, bimodules and connective tensor bounds. This is a supplier extension, not an assertion that a triangulated t-structure proves it.",
         "Supplier extension KTheoryLowDegrees:Z.1: Nilpotent invariance of projective K0 with the actual quotient-induced comparison: lifting idempotents and isomorphisms modulo any nilpotent two-sided ideal.",
-        "Supplier extension SchemeKTheoryOperations:S.5: KH(A)=|K(A[Δ•])| with its natural polynomial homotopy, regular-ring comparison, and the Karoubi–Villamayor comparison spectral sequence and nilpotent invariance from Weibel Theorems 5.1–5.2, pp.483–484. Supply the relative comparison, convergence and the link to nonpositive Bass groups. KH is imported here, not redefined.",
+        "Supplier extension SchemeKTheoryOperations:S.5: KH(A)=|K(A[Δ•])| with its natural polynomial homotopy, regular-ring comparison, and the Karoubi–Villamayor comparison spectral sequence and nilpotent invariance from Weibel Theorems 5.1–5.2, p.484. Supply the relative comparison, convergence and the link to nonpositive Bass groups. KH is imported here, not redefined.",
         "G1 — Continuous Witt action: finite-annihilator proof audit: Weibel Theorem 3.1, p.474, gives the needed continuous action and finite annihilator but sends its construction proof to Stienstra. This run read the public Weibel scan and the NK consequences, not that cited original proof. Before marking KII.4 closed, read an authorized public construction, verify the nilpotent-endomorphism filtration argument, and check that Bass contraction extends the action and continuity to every negative degree. The target, API and test cases are specified; the proof is not claimed audited."
       ]
     },
@@ -4161,7 +4204,7 @@
       "stageId": "GeneralAlgebraicKTheoryPartII:KII.5",
       "status": "planned",
       "remaining": [
-        "Independent review of target statements, proof dependencies and imported supplier interfaces; this target pass does not certify mathematical closure or implementation."
+        "Inherited proof-audit gap G1 and KII.4 supplier contracts remain prerequisites for Theorem A. The CMNN induction and purity do not discharge those obligations; resolve them before claiming closure."
       ]
     },
     {
@@ -4172,7 +4215,7 @@
         "Supplier extension ChromaticHomotopyTheory:CH.7: Extend the existing Lubin–Tate realization with (i) the universal height-n formal-group map used after strict-Henselian residue reduction in Yuan §4, and (ii) an even finite-rank free H-complex detecting the equivariant Morava-E coinduced module of CMNN20 Theorem B.2, pp.37–38. Keep the full semilinear field action; the rational K0 transfer consequence is proved in KII.8.",
         "Supplier extension MotivicEtaleKTheory:M.7: Supply Suslin comparison for algebraically closed characteristic-zero L, K(L)^∧p≃ku^∧p, and extend telescopically localized étale K descent to the spectral even-periodic rings and strict-Henselian residue detection in Yuan §4. Ordinary-scheme descent alone does not meet this input.",
         "Supplier extension RefinedTraceMethods:RT.2: TC/p preserves all small colimits of connective cyclotomic spectra, and the resulting TC/p functor on connective E1-rings preserves sifted colimits (CMM Theorem 2.7 and Corollary 2.15, used in LMMT pp.1035–1036). Supply coherent THH assembly for all cyclic subgroups, including infinite ones, via transport groupoids (LRRV Theorem 1.19, used in LMMT Proposition 4.33). Also supply the Tate-orbit/circle-Tate comparison and coconnective Tate-vanishing calculation with residual S1/Cp action in Yuan §§3–4; no trivial-action substitution.",
-        "E1 — Independent verification of the published global height-zero redshift statement and the rationalization restriction used here; see sourceIssues and its published source version."
+        "E1 — Confirmed source-scope error; retain the rationalization restriction and route the independent finding for source follow-up. See sourceIssues/E1."
       ]
     },
     {
@@ -4199,7 +4242,7 @@
         "Supplier extension RefinedTraceMethods:RT.3: The explicit K(1)-local TC(Z) nonvanishing calculation at odd primes and at 2, vanishing for TC(Z[1/p]) after p-completion, and Theorem G filtered-colimit preservation of K(1)-local TC on discrete rings. LMMT Remarks 4.28–4.29, pp.1034–1035, supply the reduction; these calculation proofs are supplier obligations. Verify the suspension convention in stable-K=THH before reusing it in the optimality argument; only vanishing/nonvanishing independent of fixed shifts is used here.",
         "Supplier extension SchemeKTheoryOperations:S.1: Coherent Perf(X) enhancement and pullback for qcqs schemes, including descent and compatibility with the parent’s ordinary K spectrum; the scheme carriers and geometry remain S.1.",
         "Supplier extension SchemeKTheoryOperations:S.4: Nisnevich descent for Perf-valued localizing invariants, derived blow-up descent, noetherian approximation of finitely presented abstract blow-up squares, and blow-up domination via platification as used in LT Appendix A.2 Steps 1–4, pp.35–37. Keep the finite presentation requirement unless filtered continuity is proved.",
-        "Supplier extension SchemeKTheoryOperations:S.5: KH(A)=|K(A[Δ•])| with its natural polynomial homotopy, regular-ring comparison, and the Karoubi–Villamayor comparison spectral sequence and nilpotent invariance from Weibel Theorems 5.1–5.2, pp.483–484. Supply the relative comparison, convergence and the link to nonpositive Bass groups. KH is imported here, not redefined."
+        "Supplier extension SchemeKTheoryOperations:S.5: KH(A)=|K(A[Δ•])| with its natural polynomial homotopy, regular-ring comparison, and the Karoubi–Villamayor comparison spectral sequence and nilpotent invariance from Weibel Theorems 5.1–5.2, p.484. Supply the relative comparison, convergence and the link to nonpositive Bass groups. KH is imported here, not redefined."
       ]
     },
     {
@@ -4241,13 +4284,19 @@
       "printed": "In our words: the introduction states redshift for every E∞ ring of nonnegative height and describes a characteristic-zero periodic field map in height zero, while its global convention is T0=S[1/p].",
       "correction": "At height zero require R⊗HQ≠0, or state the theorem for p-local input as in BSY §9. Positive-height redshift and the arbitrary-ring T(n)-purity theorem keep their stated scope. KII.6/redshift uses this corrected domain.",
       "reason": "For an odd coefficient prime p, take R=(HF2)^tC2. It is a nonzero E∞ ring of characteristic 2 with an invertible degree-one class, so R[1/p]=R and every positive telescope at p annihilates R: its global height is 0, but it has no unital map to any characteristic-zero field. On perfect R-modules suspension is equivalent to the identity; additivity makes multiplication by 2 zero on K(R). Since 2 is invertible at odd p, all positive p-telescopes annihilate K(R), so its height is at most 0, contradicting the unrestricted global formula 0+1. This is the BSY Remark 9.13 example evaluated at a different prime. BSY explicitly begins §9 with p-local rings.",
-      "known": "No published correction was located in the searches on 2026-10-19. BSY §9 already has the p-local convention; this is a proposed source-scope correction awaiting independent review.",
+      "known": "No published correction was located in the recorded searches on 2026-10-19. BSY §9 already has the p-local convention. The independent review confirms the source-scope error under LMMT’s stated global T0 convention.",
       "searched": [
         "Read the published LMMT PDF pp.1014 and 1016 and BSY v1 §9 pp.86–90.",
         "https://arxiv.org/abs/2001.10425 — version listing and public search for an erratum.",
         "https://doi.org/10.1090/jams/1043 — attempted publisher record; direct retrieval returned HTTP 403. The version of record was read in the author-hosted published PDF listed in sourceVersions.",
-        "https://www.agtz.mathematik.uni-mainz.de/tamme/ and https://webspace.science.uu.nl/~meier007/ — publication listings; no correction identified."
-      ]
+        "https://www.agtz.mathematik.uni-mainz.de/tamme/ and https://webspace.science.uu.nl/~meier007/ — publication listings; no correction identified.",
+        "Independent review, 2026-10-19: https://www.agtz.mathematik.uni-mainz.de/mland/publications-land/ and https://math.uchicago.edu/~amathew/ list the purity paper without a linked correction; arXiv:2001.10425 lists v5 (2023-12-18) as the accepted version. No correction was identified."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked LMMT pp.1014 and 1016 against BSY §9 pp.86–90 and Corollary 5.2 p.55. BSY assumes p-local rings. At an odd coefficient prime the characteristic-two one-periodic E∞ ring of Remark 9.13 survives p-inversion, has no rational part, and has 2-torsion K-theory by additivity; its positive odd-primary telescopes vanish. This disproves the unrestricted global height-zero conclusion and confirms the rational-part correction used by the nodes.",
+        "by": "REV-DESIGN-GeneralAlgebraicKTheoryPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -4878,7 +4927,7 @@
     },
     {
       "title": "Bottom-height scope guard",
-      "detail": "Keep global T0=S[1/p], ordinary K0=HQ and p-local comparison distinct. The graded-piece translation at n=0 is stated here only on p-local input; the height-zero redshift field-map mismatch is separately recorded as source issue E1."
+      "detail": "Keep global T0=S[1/p], ordinary chromatic K(0)=HQ and p-local comparison distinct. The graded-piece translation at n=0 is stated here only on p-local input; the height-zero redshift field-map mismatch is separately recorded as source issue E1."
     }
   ],
   "audit": {
@@ -4886,6 +4935,380 @@
     "currentRoadmaps": "Read the current TauCetiRoadmap AlgebraicTopology and GrothendieckEulerForms documents and searched the nine newer roadmaps and current TauCeti sources. Existing ordinary exact/K0 APIs are imported; no higher-K/chromatic target was found there.",
     "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "currentMathlibCommit": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
-    "foundationBoundary": "KII.0–KII.3 import only the assigned EDS, stable homotopy, parent K-theory and actual baseline declarations. No RT or CH prerequisite occurs in these layers."
+    "foundationBoundary": "KII.0–KII.3 import only the assigned EDS, stable homotopy, parent K-theory and actual baseline declarations. No RT or CH prerequisite occurs in these layers.",
+    "independentReview": "REV-DESIGN-GeneralAlgebraicKTheoryPartII: all seven baseline statements confirmed, all node/supplier interfaces read, current upstream boundaries checked, and source issue E1 independently confirmed on 2026-10-19."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GeneralAlgebraicKTheoryPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 73 nodes, all seven pinned declaration types, supplier statements, source locators, ownership, APIs and tests. Corrected enhancement, finiteness, regularity, coefficient, Witt-action and citation details; independently confirmed source issue E1. All eleven stages remain planned, none closed: 16 supplier requests and G1 are explicit obligations. The unchanged suggested Lean statements elaborate at the pins with no diagnostics. Acceptance certifies this complete planning pass, not implementation or the unaudited supplier/construction proofs.",
+    "checked": [
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.0/perfect-categories",
+        "verdict": "verified",
+        "note": "Exactness uses retract completion; weak localization deliberately omits continuity, unlike RT.5 refinements."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.0/ring-k-theory",
+        "verdict": "corrected",
+        "note": "Added the direct nonconnective-K dependency and Morita locator; extension preserves perfects without a finiteness hypothesis on B, while transfer needs it."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.0/enhanced-s-construction",
+        "verdict": "verified",
+        "note": "The gap-diagram faces, positive-degree chain equivalence and coherent delooping have the required distinctions."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.0/nonconnective-k",
+        "verdict": "corrected",
+        "note": "Corrected the enlargement to κ-compact objects in ordinary Ind, with κ uncountable regular; checked the swindle, localization and idempotent-complete connective-cover comparison."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.0/thomason-neeman",
+        "verdict": "verified",
+        "note": "Compact generation of the kernel is explicit and the quotient is completed; no general telescope conjecture for presentable categories is assumed."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.1/connective-plus",
+        "verdict": "corrected",
+        "note": "Removed the API's unsupported plus-of-an-arbitrary-fiber claim; the acyclic comparison square supplies relative homology estimates instead. Added the direct BGT plus-model locator."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.1/additive-k",
+        "verdict": "verified",
+        "note": "The mapping spectrum is connective and group completion uses the core under direct sum, not the full stable mapping spectrum."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.1/additive-morita",
+        "verdict": "verified",
+        "note": "Finite-sum/retract generation and thick generation have separate additive and stable conclusions; the precomposition right action is correct."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.1/a-theory",
+        "verdict": "corrected",
+        "note": "Corrected the classical model to finitely dominated retractive spaces, added a primary compact-parametrized-spectrum reference and a K0 finiteness-boundary test."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.2/amalgam",
+        "verdict": "corrected",
+        "note": "Checked the replacement multiplication and localizing pullback, and extended its proof locator through p.14; it is not an ordinary algebra tensor product."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.2/truncating",
+        "verdict": "verified",
+        "note": "Restricted truncation requires only the acyclic domain; no limit or continuity assumption is smuggled into the definition."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.2/truncating-excision",
+        "verdict": "verified",
+        "note": "The auxiliary algebra is connective with the stated π0 tensor comparison; restricted-domain use explicitly checks acyclicity."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.2/waldhausen-truncation",
+        "verdict": "corrected",
+        "note": "Restored all coefficient systems of LT Lemma 2.4 and the n≥1 bound in the hypotheses; rational and mod-p cases are consequences."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.2/nonpositive",
+        "verdict": "verified",
+        "note": "BGT's connective ring comparison covers j≤0 naturally and does not require a nilpotent K0 theorem."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.3/bounded-t-structure",
+        "verdict": "corrected",
+        "note": "Corrected the AGH section locator to include §2.2; boundedness is objectwise and the homological/cohomological shift conversion remains explicit."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.3/stable-envelope",
+        "verdict": "corrected",
+        "note": "Made the idempotent-completeness step explicit before applying group completion; arbitrary retract completion cannot preserve connective K0."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.3/theorem-heart",
+        "verdict": "corrected",
+        "note": "Retained the noetherian-heart restriction for nonconnective K and extended both proof locators to their actual ends."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.3/regular-localization",
+        "verdict": "corrected",
+        "note": "Restored every regular/noetherian homotopy-finiteness and compact-kernel hypothesis of AGH Proposition 4.4; the first map is resolution/devissage."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.3/freyd-truncation",
+        "verdict": "verified",
+        "note": "Finite limits, not merely finite colimits, ensure the prestable envelope supports restricted truncations in the kernel argument."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.3/bounded-heart-fiber",
+        "verdict": "verified",
+        "note": "The stable-envelope counit kernel has a bounded t-structure; its later chromatic consequence is not an input to its construction."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/highly-connective",
+        "verdict": "verified",
+        "note": "The bound is uniform at fixed height and concerns the underlying fiber; the plus comparison transports the required relative homology estimate."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/amalgam-connectivity",
+        "verdict": "verified",
+        "note": "The m+n+2 estimate belongs to the replacement-to-B′ map with both directions' connectivity hypotheses and connective A."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/finite-postnikov",
+        "verdict": "verified",
+        "note": "The proof descends through square-zero/Postnikov extensions from a uniform finite bound; the missing coherent ring interface is explicitly requested from EDS."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/acyclic-truncation",
+        "verdict": "verified",
+        "note": "Combines the preceding connectivity and finite-stage targets without a trace or purity input."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/finite-p-rings",
+        "verdict": "verified",
+        "note": "Quillen finite-field vanishing, multiplicative module structure and restricted nilinvariance are used in the stated range; arbitrary discrete rings are not declared acyclic."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/multiplicative-k",
+        "verdict": "corrected",
+        "note": "Replaced the unrelated CMNN Construction 3.14 citation with BGT's multiplicative K theorem, covering coherent ring/module structure in both K variants."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/acyclic-categories",
+        "verdict": "verified",
+        "note": "Finite-generator Morita reductions and the stable S-construction give the two vanishing assertions; Levy's later corollary is not used."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/finite-kernel",
+        "verdict": "verified",
+        "note": "The compact kernel is generated by finite p-primary type>n spectra tensored with A, compatible with global T0=S[1/p]."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/mitchell",
+        "verdict": "verified",
+        "note": "Read the finite periodic-unit argument giving telescopic vanishing; no inference from arbitrary K(n)-acyclic spectra to T(n)-acyclic spectra is made."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/theorem-a",
+        "verdict": "verified",
+        "note": "The compact-kernel and categorical-vanishing proof precedes purity; Mitchell removes only the T0 term in the second assertion."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.5/connective-cover",
+        "verdict": "verified",
+        "note": "Uses Theorem A with T0 removed and n≥2; it does not depend on CMNN vanishing."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.5/high-trace",
+        "verdict": "verified",
+        "note": "The connective-cover, integral DGM and Mitchell arguments give the stated high-height zigzag before purity."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.5/genuine-k-transfer",
+        "verdict": "verified",
+        "note": "The group-ring factorization uses genuine induction/restriction and the comparison to the Borel Tate cofiber; RT owns the requisite interfaces."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.5/cmnn-vanishing",
+        "verdict": "corrected",
+        "note": "Correctly distinguished CMNN Theorem 4.6 (Tate converse) from 4.10 (vanishing), and checked the induction uses high trace only in positive induction steps."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.5/purity",
+        "verdict": "verified",
+        "note": "The adjacent-height localization result follows after CMNN vanishing, with the global T0 convention retained at n=1."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.5/connective-variants",
+        "verdict": "verified",
+        "note": "The nilpotent π0 condition and connectivity remain attached to both K/TC variants; the rational-bottom variant is separate."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.6/height-upper",
+        "verdict": "verified",
+        "note": "The algebra-valued vanishing range uses the E∞ base's height, and includes the p-inversion meaning of height zero."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.6/yuan-lower",
+        "verdict": "verified",
+        "note": "Read the residual-circle and strict-Henselian proof inputs; purity occurs earlier and the precise étale/Lubin–Tate supplier extensions remain open."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.6/height-zero",
+        "verdict": "verified",
+        "note": "BSY Proposition 9.12 gives the p-completed ku splitting for a characteristic-zero periodic field, distinct from Yuan's positive-height theorem."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.6/redshift",
+        "verdict": "verified",
+        "note": "Independently confirmed E1: height zero needs nonzero rationalization globally; BSY's p-local hypothesis supplies it. Positive-height and infinite-height conclusions retain their scope."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.6/optimality",
+        "verdict": "verified",
+        "note": "The witnesses refute the two universal single-height factorizations, rather than asserting failure for every individual localization map."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/nice-maps",
+        "verdict": "verified",
+        "note": "The chosen π0 identifications and HQ summand are part of the definition; HQ is not substituted for global T0 elsewhere."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/k-nice",
+        "verdict": "verified",
+        "note": "Nonpositive comparison establishes connective E∞ K with π0=Z before iteration; purity and the rational comparison prove preservation."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/iterated-finite-p",
+        "verdict": "verified",
+        "note": "The initial rank map is from connective K(Z/p^r), not from Z/p^r as a ring; relative rational invariance and finite-field calculations support niceness."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/morava-k",
+        "verdict": "verified",
+        "note": "Checked the three possible heights and the separate p-inverted splitting; no exceptional height is asserted nonzero."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/truncated-spheres",
+        "verdict": "verified",
+        "note": "Finite Postnikov truncations satisfy the bounded input; this gives no assertion about the untruncated sphere."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/bp-localization",
+        "verdict": "verified",
+        "note": "The localization sequence is only claimed after the specified high telescopes; its first arrow is quotient restriction/devissage."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/a-suspension",
+        "verdict": "verified",
+        "note": "The James filtration uses reduced suspension and reduced suspension spectrum, with the adjacent-height acyclicity assumption."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.7/james-thom",
+        "verdict": "verified",
+        "note": "The mod-p and integral James–Thom variants retain different height-zero ranges and prime restrictions."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/galois-descent",
+        "verdict": "verified",
+        "note": "Rational transfer of the unit and perfectness are explicit; both fixed-point comparison maps follow from the uniform ε tower, not formal commutation with limits."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/lubin-tate-transfer",
+        "verdict": "verified",
+        "note": "The appendix proof retains semilinear automorphisms and the requested equivariant free-complex input; the consequence is rational K0 transfer."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/ko-algebras",
+        "verdict": "verified",
+        "note": "Purity applies to arbitrary E1 ko-algebras, separately from regular localization of ko itself; the high-height vanishing range is correct."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/tmf-algebras",
+        "verdict": "verified",
+        "note": "The compactified and periodic coefficient spectra are distinguished and their comparison ranges match the three source assertions."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/supersingular-descent",
+        "verdict": "verified",
+        "note": "The p=2 group is GL2(F3); at p=3 the order-24 group includes the field action. Localization appears on both sides of descent."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/regular-examples",
+        "verdict": "verified",
+        "note": "These are coefficient-model regular localization checks; their devissage hypothesis is not extended to arbitrary ko/tmf-algebras."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.9/height-one-truncation",
+        "verdict": "verified",
+        "note": "Arbitrary-ring p-inversion and connective truncation are separate assertions, using only the known height-one telescope comparison."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.9/height-one-excision",
+        "verdict": "verified",
+        "note": "The affine excision theorem and scheme cdh extension retain qcqs and finite-presentation hypotheses; stronger geometry is an explicit supplier extension."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.9/affine-lines",
+        "verdict": "verified",
+        "note": "The flat monoid algebra and free commutative sphere algebra have distinct definitions, with only a π0 comparison for connective input."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.9/homotopy-invariance",
+        "verdict": "verified",
+        "note": "The K(1)-acyclic connective hypothesis supports both line variants; a π0-isomorphism alone is not used as integral invariance."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.9/kh-comparison",
+        "verdict": "verified",
+        "note": "Imported simplicial KH and levelwise polynomial invariance produce the discrete-ring comparison; KH ownership remains S.5."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.9/tc-height-one-counterexample",
+        "verdict": "verified",
+        "note": "The localization failure follows from the separately requested TC(Z) calculation and p-completed vanishing for TC(Z[1/p]); prime two is retained."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.9/tc-category-colimits",
+        "verdict": "verified",
+        "note": "The torsion perfect-category localization explains the filtered-category failure without contradicting filtered continuity on discrete rings."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.10/levy-chromatic",
+        "verdict": "verified",
+        "note": "The bounded-heart construction and already-proved purity give high-height comparison; its special height-one hypothesis concerns endomorphisms after p-inversion."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.10/sifted-colimits",
+        "verdict": "verified",
+        "note": "Connective cover, TC/p continuity and the lower-height-local domain give the two sifted-colimit statements; no arbitrary TC category continuity is asserted."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.10/cyclic-orbit-assembly",
+        "verdict": "verified",
+        "note": "The orbit family includes infinite cyclic groups and the transport-groupoid functor supplies coherence, rather than a diagram of unchosen subgroup maps."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.10/tc-cyclic-assembly",
+        "verdict": "verified",
+        "note": "The assembly colimit is taken before p-completion, with connective ring input and the explicit TC/p continuity supplier request."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.10/k-cyclic-assembly",
+        "verdict": "verified",
+        "note": "The high-height trace comparison removes connectivity of R; telescopic localization preserves the coherent orbit colimit."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/nil-witt-action",
+        "verdict": "corrected",
+        "note": "Corrected the NK1 action to a(νx), retaining the polynomial variable and characteristic-series convention; strengthened the dual-number test. The original finite-annihilator proof audit remains G1."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/nk-localization",
+        "verdict": "verified",
+        "note": "Checked Weibel's consequences and relative comparison; unique p-divisibility concerns every NK degree. Its dependency on the explicitly unaudited Witt construction remains visible."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/epsilon-enlargement",
+        "verdict": "verified",
+        "note": "The finite-prime quantifiers, nilpotent towers and ε-nilpotent augmentation follow CMNN's definitions and are kept distinct."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.8/rational-transfer-cobar",
+        "verdict": "verified",
+        "note": "The rational-unit criterion first forces ε tensor generation; finite localization annihilates the error tower and proves both totalization comparison maps."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.4/nil-nonpositive",
+        "verdict": "verified",
+        "note": "Bass polynomial/Laurent induction from the imported quotient-induced K0 invariance yields all negative degrees without claiming integral positive nilinvariance."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheoryPartII:KII.6/graded-redshift",
+        "verdict": "verified",
+        "note": "Positive graded heights follow the initial-interval height criterion; the n=0 extension explicitly requires p-local input, consistently with E1."
+      }
+    ]
   }
 }
