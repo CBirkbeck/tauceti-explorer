@@ -16,7 +16,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 The compact suggested file retains seven light definitions, nine theorem signatures and thirteen proved examples on existing Mathlib carriers. The full target, proof, API and test contracts are stated below, including objects whose native carriers are not yet available. Implementation status remains unchecked.
 
-Revision 3 retains all 537 target ids and the independent review history. Five proof obligations now have explicit arguments in their existing nodes; these changes await independent review. The 19 remaining gaps and 27 supplier requests are listed after the layers. Inherited reading inventories describe earlier passes; the source register distinguishes the target-specific readings made on 20 October 2026.
+Independent revision-3 review checked all 537 target contracts: 483 verified, 11 corrected and 43 unverifiable. Twelve node contracts were corrected in place; one remains unverifiable after its domain repair. The five replacement proof routes are justified, but exact supplier comparisons and the other existing proof gaps keep the verdict at **needs_changes**. The 19 gaps and 27 supplier requests remain precise; no layer is closed. Historical reading inventories describe earlier passes. The source register now carries fresh receipts for every cited source, and all 89 source findings have fresh verdicts (86 confirmed, 3 rejected). See the [independent review](../reviews/REV-QSeriesPartitionsAndMockModularForms~3.md) for the remaining mathematical obligations.
 
 | Layer | Coverage | Objects | Planets |
 | --- | --- | ---: | ---: |
@@ -2276,11 +2276,12 @@ Acceptance checks:
 
 ### Ligozat's cusp-order formula for eta quotients
 
-**Theorem** (`QM.1/ligozat-cusp-order`). Let r : ℕ →₀ ℤ be supported on positive integers, k = (1/2)Σ r_δ, and σ = (a b; c d) ∈ SL(2, ℤ). Put ρ_σ(r) := (1/24)·Σ_δ r_δ·gcd(c, δ)²/δ ∈ ℚ. Then there is C ≠ 0 with e^{−2πiρ_σ(r)τ}·((cτ + d)^{1/2})^{−2k}·η_r(στ) → C as Im τ → ∞: η_r has order exactly ρ_σ(r) (in q = e^{2πiτ}) at the cusp σ∞ = a/c. For Γ₀(N) with N a multiple of every δ, the cusp a/c (gcd(a, c) = 1) has width h_c = N/gcd(c², N), and the order in the local parameter q^{1/h_c} is h_c·ρ_σ(r) = (N/24)·Σ_δ gcd(c, δ)² r_δ/(gcd(c, N/c)·c·δ) when c ∣ N. Consequently η_r is holomorphic (resp. vanishes) at every cusp iff ρ_σ(r) ≥ 0 (resp. > 0) for every c ∣ N.
+**Theorem** (`QM.1/ligozat-cusp-order`). Let r : ℕ →₀ ℤ be supported on positive integers, k = (1/2)Σ r_δ, and σ = (a b; c d) ∈ SL(2, ℤ). Put ρ_σ(r) := (1/24)·Σ_δ r_δ·gcd(c, δ)²/δ ∈ ℚ. Then there is C ≠ 0 with e^{−2πiρ_σ(r)τ}·((cτ + d)^{1/2})^{−2k}·η_r(στ) → C as Im τ → ∞: η_r has order exactly ρ_σ(r) (in q = e^{2πiτ}) at the cusp σ∞ = a/c. For Γ₀(N) with N ≥ 1 a multiple of every δ, the cusp a/c (gcd(a, c) = 1) has width h_c = N/gcd(c², N), and the order in the local parameter q^{1/h_c} is h_c·ρ_σ(r) = (N/24)·Σ_δ gcd(c, δ)² r_δ/(gcd(c, N/c)·c·δ) when c ∣ N. Consequently η_r is holomorphic (resp. vanishes) at every cusp iff ρ_σ(r) ≥ 0 (resp. > 0) for every c ∣ N.
 
 Hypotheses and conventions:
 
 - δ > 0 for δ ∈ supp r; σ ∈ SL(2, ℤ).
+- For the Γ₀(N) cusp-width and cusp-order assertions, N ≥ 1 and every δ in supp r divides N; representatives with c ∣ N have c > 0.
 
 Source support:
 
@@ -3114,7 +3115,7 @@ Acceptance checks:
 Hypotheses and conventions:
 
 - k, m ∈ ℚ with 2k, 2m ∈ ℤ; v : SL(2, ℤ) → ℂ; χ : ℤ² → ℂ.
-- For index m ≥ 1 and trivial v, χ, the space is Eichler–Zagier's; index 0 gives M_k(SL(2, ℤ)).
+- For integral weight k, positive integral index m and trivial v, χ, the space is Eichler–Zagier's. With the same trivial v, χ and integral weight, index 0 gives M_k(SL(2, ℤ)).
 
 Source support:
 
@@ -3128,7 +3129,7 @@ Construction or proof route:
 1. Import the supplier's space of Jacobi forms at n = 1 and F = m; in the coordinates (τ, z) it is the displayed description (QM.1/jacobi-rank-one-specialisation (c), (c′)).
 2. Closure under addition and scalars: every condition is linear.
 3. Products: J_{k,m}(v, χ)·J_{k′,m′}(v′, χ′) ⊆ J_{k+k′,m+m′}(vv′, χχ′): the slash factors multiply because j(γ,τ) is nonzero and principal powers at the same base add their exponents; the growth bounds multiply. The multiplier consistency cocycle is already accounted for in v and v′ and does not insert an additional two-argument σ into their pointwise product.
-4. Index 0: elliptic invariance makes z ↦ φ(τ, z) an entire function invariant under ℤτ + ℤ, hence bounded and constant (Liouville, Differentiable.apply_eq_apply_of_bounded), so J_{k,0} ≅ M_k(SL(2, ℤ)) (Mathlib's ModularForm; boundedness at every cusp by OnePoint.isBoundedAt_iff_forall_SL2Z).
+4. Index 0 with v = χ = 1 and integral weight: elliptic invariance makes z ↦ φ(τ, z) an entire function invariant under ℤτ + ℤ, hence bounded and constant (Liouville, Differentiable.apply_eq_apply_of_bounded), so J_{k,0} ≅ M_k(SL(2, ℤ)) (Mathlib's ModularForm; boundedness at every cusp by OnePoint.isBoundedAt_iff_forall_SL2Z).
 
 Uses that determine the API:
 
@@ -4512,8 +4513,6 @@ Source support:
 
 - [dmz-quantum-black-holes](#reference-dmz-quantum-black-holes), arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10). The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36).
 
-Direct prerequisites: .
-
 Suggested declaration name: `jacobiIndexRaise`.
 
 Construction or proof route:
@@ -5530,8 +5529,6 @@ Source support:
 
 - [kong-teo-rademacher-2023](#reference-kong-teo-rademacher-2023), Proposition 2.14, printed p. 16. The statement Re(1/w) = 1 (text as extracted; Re(1/z) = 1).
 - [kong-teo-rademacher-2023](#reference-kong-teo-rademacher-2023), proof of Theorem 3.1, printed p. 27. The inversion onto the line with its orientation.
-
-Direct prerequisites: .
 
 Construction or proof route:
 
@@ -7369,12 +7366,13 @@ Acceptance checks:
 
 ### The ξ-operator ξ_k (shadow operator)
 
-**Definition** (`QM.3/xi-operator`). For k ∈ ℝ and f : ℍ → ℂ, ξ_k f(τ) := 2i v^k \overline{∂_τ̄ f(τ)} = v^{k−2} \overline{L_k f(τ)} = R_{−k}(v^k \overline{f})(τ) (Bruinier–Funke Prop. 3.2; Bruinier–Ono–Rhoades (1.1)). It is conjugate-linear, kills exactly the holomorphic functions, and maps weight k to weight 2 − k. For a harmonic Maass form f, ξ_k f is its shadow (up to the convention of complex conjugation of coefficients made explicit in QM.3/xi-fourier-expansion).
+**Definition** (`QM.3/xi-operator`). For k ∈ ℝ and f : ℍ → ℂ, define ξ_k f(τ) := 2i v^k \overline{∂_τ̄ f(τ)}. By the definition of L_k, this equals v^{k−2} \overline{L_k f(τ)}. For C¹ f it also equals R_{−k}(v^k \overline{f})(τ) (Bruinier–Funke Prop. 3.2; Bruinier–Ono–Rhoades (1.1)). The definition is total and conjugate-linear. On C¹ functions its kernel consists exactly of holomorphic functions, and the operator maps differentiable weight-k functions to weight 2 − k. For a harmonic Maass form f, ξ_k f is its shadow (up to the convention of complex conjugation of coefficients made explicit in QM.3/xi-fourier-expansion).
 
 Hypotheses and conventions:
 
 - k ∈ ℝ; v^k is the real power (Im τ)^k.
 - ξ_k is ℝ-linear and conjugate-linear over ℂ: ξ_k(cf) = c̄ ξ_k f.
+- The product-rule identity with R and the equivalence ξ_k f = 0 iff f is holomorphic assume f is C¹ as a function of the two real coordinates on ℍ. Harmonic Maass forms satisfy this regularity. No kernel equivalence for arbitrary totalized derivatives is asserted.
 
 Source support:
 
@@ -7387,7 +7385,7 @@ Construction or proof route:
 
 1. Define ξ_k f(τ) := 2i (Im τ)^k conj(∂̄(f ∘ ofComplex)(τ)).
 2. v^{k−2}\overline{L_k f} = v^{k−2}\overline{−2iv²∂̄f} = 2iv^k\overline{∂̄f}.
-3. R_{−k}(v^k f̄) = 2i∂(v^k f̄) − kv^{k−1}f̄ = 2iv^k\overline{∂̄f} + 2ikv^{k−1}(∂v)f̄ − kv^{k−1}f̄ = 2iv^k\overline{∂̄f} (∂v = −i/2).
+3. For C¹ f, R_{−k}(v^k f̄) = 2i∂(v^k f̄) − kv^{k−1}f̄ = 2iv^k\overline{∂̄f} + 2ikv^{k−1}(∂v)f̄ − kv^{k−1}f̄ = 2iv^k\overline{∂̄f} (∂v = −i/2).
 4. ξ_k(v^{1−k}) = 2iv^k·\overline{(1−k)(i/2)v^{−k}} = 1 − k.
 
 Uses that determine the API:
@@ -11425,7 +11423,7 @@ Acceptance checks:
 
 ### The elliptic and modular laws (E), (M) of index m and weight k
 
-**Definition** (`QM.4/meromorphic-jacobi-transformation-laws`). For ϕ : ℂ × ℍ → ℂ (meromorphic in z, with junk value 0 at its poles), m ∈ ℤ_{>0} and k ∈ ℤ, put ϕ̂(τ, z) := ϕ(z; τ). ϕ satisfies (E) of index m if ϕ̂|_m[λ, μ] = ϕ̂ for all (λ, μ) ∈ ℤ² (QM.1/jacobi-elliptic-slash), i.e. ϕ(z + λτ + μ; τ) = e^{−2πim(λ²τ + 2λz)}ϕ(z; τ); and (M) of weight k and index m if ϕ̂|_{k,m}γ = ϕ̂ for all γ = (a b; c d) ∈ SL₂(ℤ) (QM.1/jacobi-modular-slash), i.e. ϕ(z/(cτ+d); (aτ+b)/(cτ+d)) = (cτ + d)^k e^{2πimcz²/(cτ+d)}ϕ(z; τ) (Zwegers §3.1). Jacobi forms of weight k and index m (QM.1/jacobi-form) are the holomorphic ϕ satisfying (E), (M) and a growth condition; here neither holomorphy nor growth is assumed, which is what Zwegers' Chapter 3 needs (ϕ has poles in z).
+**Definition** (`QM.4/meromorphic-jacobi-transformation-laws`). For ϕ : ℂ × ℍ → ℂ (meromorphic in z, with junk value 0 at its poles), m ∈ ℤ_{>0} and k ∈ ℤ, put ϕ̂(τ, z) := ϕ(z; τ). ϕ satisfies (E) of index m if ϕ̂|_m[λ, μ] = ϕ̂ for all (λ, μ) ∈ ℤ² (QM.1/jacobi-elliptic-slash), i.e. ϕ(z + λτ + μ; τ) = e^{−2πim(λ²τ + 2λz)}ϕ(z; τ); and (M) of weight k and index m if ϕ̂|_{k,m}γ = ϕ̂ for all γ = (a b; c d) ∈ SL₂(ℤ) (QM.1/jacobi-modular-slash), i.e. ϕ(z/(cτ+d); (aτ+b)/(cτ+d)) = (cτ + d)^k e^{2πimcz²/(cτ+d)}ϕ(z; τ) (Zwegers §3.1). The trivial-multiplier, trivial-character Jacobi forms J_{k,m}(1,1) (QM.1/jacobi-form) are the holomorphic ϕ satisfying (E), (M) and a growth condition; here neither holomorphy nor growth is assumed, which is what Zwegers' Chapter 3 needs (ϕ has poles in z).
 
 Hypotheses and conventions:
 
@@ -11460,7 +11458,7 @@ Unit tests:
 - `jacobiLaws_phi_minus_two_one_test` (computation): φ(z; τ) = −ϑ(z; τ)²/η(τ)⁶ satisfies (E) with m = 1 and (M) with k = −2.
 - `jacobiLaws_zero_test` (degenerate): The zero function satisfies (E) and (M) for all m, k.
 - `jacobiLaws_theta_non_example_test` (non-example): ϑ(z; τ) itself does not satisfy (E) for any integer m ≥ 1 (its index is 1/2: ϑ(z + τ) = −e^{−πiτ−2πiz}ϑ(z)).
-- `jacobiLaws_jacobiForm_test` (compatibility): Every Jacobi form of weight k and index m (QM.1/jacobi-form) satisfies (E) and (M).
+- `jacobiLaws_jacobiForm_test` (compatibility): Every φ ∈ J_{k,m}(1,1) of integral weight k and positive integral index m (QM.1/jacobi-form) satisfies (E) and (M); forms with general multiplier or character need their corresponding twisted laws.
 
 Acceptance checks:
 
@@ -11853,7 +11851,7 @@ Unit tests:
 
 - `realAnalyticResidue_holomorphic_test` (compatibility): For s ≥ 1 and a holomorphic extension of (v − u)^s g across u, holomorphic f gives the classical contour residue of f g.
 - `realAnalyticResidue_simple_test` (computation): For g = 1/(v − u): Res_{v=u}[f g] = f(u).
-- `realAnalyticResidue_conj_test` (non-example): For f(v) = \overline{v − u} and g = (v − u)^{−2}: Res = 0 (the term (v̄ − ū)/(v − u)² has k = 1, not counted), although the naive 'coefficient of 1/(v − u)' of the non-holomorphic function f g is not 0.
+- `realAnalyticResidue_conj_test` (non-example): For f(v) = conjugate(v − u) and g(v) = (v − u)⁻², Res = 0: the mixed term has antiholomorphic degree 1. The removable product f(v)(v − u)²g(v) extends as conjugate(v − u); its Wirtinger derivative ∂_v is 0, whereas its derivative in the real direction is 1. Using that real derivative would give the wrong residue.
 
 Acceptance checks:
 
@@ -12848,7 +12846,7 @@ Open targets and comparisons:
 - Zagier, Traces of singular moduli, §§5–9 (Borcherds products, the duality A(D, d) = −B(D, d), Hecke operators, other genus-zero groups, other weights) and the harmonic Maass form interpretation of traces (Bruinier–Funke); their sources were not decomposed.
 - The character and multiplier-system versions of the Bringmann–Rolen theorem used for Kontsevich's φ and the Poincaré sphere (gap). The complex Mellin/beta comparison and quantitative Stirling estimate now have explicit integral-remainder proof routes in the existing nodes.
 - Partition congruences beyond the Ramanujan triple (Watson's and Atkin's congruences for powers of 5, 7, 11; Ono's congruences for all primes ≥ 5; the Bringmann–Ono rank congruences via harmonic Maass forms) are outside the chosen sources and need their own source acquisition.
-- RT-AREA-topology/13: retain QM.5/quantum-modular-form and the Kontsevich/Lawrence–Zagier q-series examples as QM.5 services, with QT.7 retaining knot-specific statements and conjectures. The existing proposal for QM.5→QT.7 needs owner/consumer statement comparison and accepted application; this pass makes no live graph change. Keep QT.4’s actual invariant and HC.3/HC.4 evaluation/rigidity imports distinct from analytic radial-limit proofs.
+- RT-AREA-topology/13: QM.5 owns the scalar quantum-modular discrepancy, its cocycle law when the multiplier condition is imposed, and the Kontsevich/Lawrence–Zagier q-series examples. QT.7 retains knot-specific statements and conjectures. The corrected lower-boundary factor and the direct eta transformation/nonvanishing/cocycle inputs are given in the contracts below; at −I the factor acts trivially. This review makes no live graph change. Keep QT.4’s actual invariant and HC.3/HC.4 evaluation/rigidity imports distinct from analytic radial-limit proofs.
 - ArithmeticQuantumTopology's open request for QT.7/denominator-volume-cocycle, QT.7/knot-matrix-cocycle and QT.7/cocycle-analytic-extension is assigned by its explicit route to QSeriesPartitionsAndMockModularForms, Part II where this general interface is absent. It asks for generic matrix-valued multiplicative cocycles on common pole-free domains, branch-aware weights and smooth or holomorphic extension criteria. This base QM.5 packet supplies only the scalar additive period cocycle; it claims no matrix interface or knot comparison. Retain the open supplier gap and this owner split when planning Part II, without a QT.7 prerequisite in base QM.5.
 
 Atlas planets:
@@ -13602,7 +13600,7 @@ Direct prerequisites: [QM.5/eichler-integral](#QM-5-eichler-integral), [QM.5/twi
 Construction or proof route:
 
 1. Termwise Mellin transform: M(t ↦ f̃(d/c + it/2π))(s) = Σ n^{1−k}a_f(n)ζ^{nd}∫_0^∞ e^{−nt}t^{s−1}dt = Γ(s)L_f(ζ; k − 1 + s) for Re s ≫ 0.
-2. By twisted-cusp-form-l-function the right side is meromorphic on ℂ with poles only at s = −n (from Γ), simple, residue (−1)^n/n!·L_f(ζ; k − 1 − n).
+2. By twisted-cusp-form-l-function the right side is meromorphic on ℂ with possible poles only at s = −n (from Γ), of order at most one, residue (−1)^n/n!·L_f(ζ; k − 1 − n). A zero residue makes the corresponding singularity removable, including every point for f = 0.
 3. By twisted-l-function-vertical-growth and gamma-vertical-decay it decays faster than any power of |s| in every vertical strip.
 4. Apply mellin-asymptotic-transfer for every β.
 
@@ -13615,7 +13613,7 @@ Acceptance checks:
 
 ### Poles and residues of the Mellin transform of e^tΓ(k − 1, 2t) (Bringmann–Rolen Lemma 3.2 core)
 
-**Lemma** (`QM.5/incomplete-gamma-mellin-poles`). Let k ∈ ½ + ℕ₀ and G_k(s) = M(t ↦ e^tΓ(k − 1, 2t))(s). For Re s > 0 and Re(k − 1 + s) > 0, G_k(s) = β(1/2; s, 2 − k − s)Γ(k − 1 + s) with β(z; a, b) = ∫_0^z t^{a−1}(1 − t)^{b−1}dt the incomplete beta function; equivalently G_k(s) = 2^{k−1}Γ(s + k − 1)·₂F₁(1, s + k − 1; 1 + s; −1)/s. G_k continues meromorphically to ℂ; its poles lie in −ℕ₀ ∪ {1 − k − m : m ∈ ℕ₀}, are simple, and at s = −n (n ∈ ℕ₀) the residue is Γ(k − 1)/n!. Moreover β(1/2; s, 2 − k − s) is bounded on vertical lines for |Im s| large. Consequently, for an entire function L with L(k − 1 + s) = 0 at the points s = 1 − k − m, Γ(k − 1)^{−1}L(k − 1 + s)G_k(s) has simple poles only at s = −n, with residue L(k − 1 − n)/n!.
+**Lemma** (`QM.5/incomplete-gamma-mellin-poles`). Let k ∈ ½ + ℕ₀ and G_k(s) = M(t ↦ e^tΓ(k − 1, 2t))(s). For Re s > 0 and Re(k − 1 + s) > 0, G_k(s) = β(1/2; s, 2 − k − s)Γ(k − 1 + s) with β(z; a, b) = ∫_0^z t^{a−1}(1 − t)^{b−1}dt the incomplete beta function; equivalently G_k(s) = 2^{k−1}Γ(s + k − 1)·₂F₁(1, s + k − 1; 1 + s; −1)/s. G_k continues meromorphically to ℂ; its poles lie in −ℕ₀ ∪ {1 − k − m : m ∈ ℕ₀}, are simple, and at s = −n (n ∈ ℕ₀) the residue is Γ(k − 1)/n!. Moreover β(1/2; s, 2 − k − s) is bounded on vertical lines for |Im s| large. Consequently, for an entire function L with L(k − 1 + s) = 0 at the points s = 1 − k − m, Γ(k − 1)^{−1}L(k − 1 + s)G_k(s) has possible poles of order at most one only at s = −n, with residue L(k − 1 − n)/n!. At any such point with zero residue the singularity is removable.
 
 Hypotheses and conventions:
 
@@ -13659,7 +13657,7 @@ Direct prerequisites: [QM.5/nonholomorphic-eichler-integral](#QM-5-nonholomorphi
 Construction or proof route:
 
 1. Termwise Mellin transform of (3.4): M(f*(d/c − it/2π))(s) = Γ(k − 1)^{−1}L_f(ζ; k − 1 + s)·M(e^tΓ(k − 1, 2t))(s).
-2. Poles and residues: incomplete-gamma-mellin-poles together with the vanishing L_f(ζ; −m) = 0 (twisted-cusp-form-l-function) at the half-integers s ≤ 1 − k give simple poles only at s = −n with residue L_f(ζ; k − 1 − n)/n!.
+2. Poles and residues: incomplete-gamma-mellin-poles together with the vanishing L_f(ζ; −m) = 0 (twisted-cusp-form-l-function) at the half-integers s ≤ 1 − k give possible poles of order at most one only at s = −n with residue L_f(ζ; k − 1 − n)/n!. The singularity is removable whenever this residue is zero.
 3. Decay in vertical strips: β(1/2; s, 2 − k − s) is bounded for |Im s| large (from (3.9), (3.17) and gamma-vertical-decay), and twisted-l-function-vertical-growth bounds L; Γ(k − 1 + s) decays exponentially.
 4. Apply mellin-asymptotic-transfer for every β.
 
@@ -14930,11 +14928,12 @@ Acceptance checks:
 
 ### Radial asymptotics of the mixed mock modular form m·µ (Folsom–Ono–Rhoades Theorem 3.2)
 
-**Lemma** (`QM.5/rank-mixed-mock-asymptotic`). Let b | k, gcd(a, b) = gcd(h, k) = 1, bb′ = k, hh′ ≡ −1 (mod k), q = e^{(2πi/k)(h+iz)}, q₁ = e^{(2πi/k)(h′+i/z)}. As z → 0⁺ (z > 0): m(a, b; (h + iz)/k)µ(−a/b, a/b; (h + iz)/k) = (i/z)^{1/2}ψ(γ)^{−1}q^{1/24}q₁^{−1/24}(−1)^{ab′}ζ_{2b}^{ah′−a}ζ_{2b²}^{−3a²kh′}(ζ_b^a − 1)/(1 − ζ_b^{ah′})·(1 + O(q₁^α)) for some α > 1/24, with γ = (h, −(hh′+1)/k; k, −h′) and ψ the η-multiplier.
+**Lemma** (`QM.5/rank-mixed-mock-asymptotic`). Let 1 ≤ a < b and 1 ≤ h < k be integers with b | k, gcd(a, b) = gcd(h, k) = 1, and let b′, h′ be positive integers with bb′ = k, hh′ ≡ −1 (mod k), q = e^{(2πi/k)(h+iz)}, q₁ = e^{(2πi/k)(h′+i/z)}. As z → 0⁺ (z > 0): m(a, b; (h + iz)/k)µ(−a/b, a/b; (h + iz)/k) = (i/z)^{1/2}ψ(γ)^{−1}q^{1/24}q₁^{−1/24}(−1)^{ab′}ζ_{2b}^{ah′−a}ζ_{2b²}^{−3a²kh′}(ζ_b^a − 1)/(1 − ζ_b^{ah′})·(1 + O(q₁^α)) for some α > 1/24, with γ = (h, −(hh′+1)/k; k, −h′) and ψ the η-multiplier.
 
 Hypotheses and conventions:
 
-- As stated; z real and positive.
+- The displayed reduced fractions lie strictly between 0 and 1; in particular b ≥ 2 and k ≥ 2. The parameters b′, h′ are positive integers, and z is real and positive.
+- These bounds match Folsom–Ono–Rhoades Theorem 1.2. The local asymptotic statements omit the nontrivial-fraction restriction; at a=b=1 their displayed ratio is 0/0 and μ has a lattice pole (source finding E628).
 
 Source support:
 
@@ -14962,7 +14961,7 @@ Acceptance checks:
 
 Hypotheses and conventions:
 
-- As in rank-mixed-mock-asymptotic.
+- As in rank-mixed-mock-asymptotic: 1 ≤ a < b, 1 ≤ h < k, b ∣ k, both fractions reduced, b′ and h′ positive with the displayed relations, and z > 0. In particular the factor 1 − ζ_b^(ah′) is nonzero.
 
 Source support:
 
@@ -16578,6 +16577,7 @@ Hypotheses and conventions:
 - V nonnegatively graded, dim V_0 = 1
 - nondegenerate symmetric invariant form on V
 - G acts by automorphisms preserving ω and the form
+- Put b = (1,1)_V. Invariance makes weights orthogonal, so nondegeneracy and dim V₀=1 imply b ≠ 0; the vacuum form need not be normalized to 1.
 
 Source support:
 
@@ -16590,7 +16590,7 @@ Construction or proof route:
 
 1. r ≠ 0: combine step 3 (V_{1−⟨r,r⟩/2} ⊗ e^r ≅ T_1, weights: wt(v ⊗ e^r) = wt(v) + ⟨r,r⟩/2 = 1) with step 5 (P^1_r/N_1 ≅ T_1); all maps are G-equivariant and preserve the forms.
 2. Positivity: for x = u ⊗ e^r, (x, θx) = −(u,u)_V (lattice invariant-form lemma), so (x,x)_0 = (u,u)_V > 0 for u ≠ 0.
-3. r = 0: the weight-one degree-zero space of W is V_1 ⊗ 1 ⊕ V_0 ⊗ span{α(−1)1 : α ∈ ℝ²}; since dim V_0 = 1, L_1V_1 ⊆ V_0 = ℝ1 and (L_1v, 1) = (v, L_{−1}1) = 0 give L_1V_1 = 0, and L_n (n ≥ 2) kills it by weight; the form on this space is nondegenerate, so P^1_0/rad ≅ V_1 ⊕ ℝ².
+3. r = 0: the weight-one degree-zero space of W is V_1 ⊗ 1 ⊕ V_0 ⊗ span{α(−1)1 : α ∈ ℝ²}; since dim V_0 = 1, L_1V_1 ⊆ V_0 = ℝ1 and (L_1v, 1) = (v, L_{−1}1) = 0 give L_1V_1 = 0, and L_n (n ≥ 2) kills it by weight; the form on this space is nondegenerate, so P^1_0/rad ≅ V_1 ⊕ ℝ². More precisely, the product form on the second summand is b times the standard II_{1,1} form, where b=(1,1)_V≠0. In a hyperbolic basis, rescaling one basis vector by b⁻¹ identifies this form with II_{1,1}. Thus the stated isometry does not assume a normalized vacuum form.
 
 Acceptance checks:
 
@@ -17108,7 +17108,7 @@ Acceptance checks:
 
 ### Completely replicable functions and replication families
 
-**Definition** (`QM.6/completely-replicable-function`). Let k be a field of characteristic 0. A normalized q-series is f ∈ k((q)) with f = q^{−1} + Σ_{n≥1} a(n)qⁿ (coefficient 1 at q^{−1}, 0 at q^0, and no other negative powers); write a(−1) = 1, a(0) = 0, a(n) = 0 for n < −1. A replication family is a map F : ℕ_{≥1} → k((q)) with each F(s) normalized, coefficients a_s(n), such that for every s ≥ 1, in k((q))((p)): p^{−1} exp(−Σ_{i≥1} Σ_{m≥1, n∈ℤ} a_{si}(mn) p^{mi} q^{ni}/i) = F(s)(p) − F(s)(q). A normalized f is completely replicable if f = F(1) for some replication family F (its replicates are f^{(s)} := F(s)); Norton's definition via the identities Σ_{ad=n, 0≤b<d} f^{(a)}((aτ+b)/d) = Q_n(f(τ)) is equivalent (Borcherds 1992 §8).
+**Definition** (`QM.6/completely-replicable-function`). Let k be a field of characteristic 0. A normalized q-series is f ∈ k((q)) with f = q^{−1} + Σ_{n≥1} a(n)qⁿ (coefficient 1 at q^{−1}, 0 at q^0, and no other negative powers); write a(−1) = 1, a(0) = 0, a(n) = 0 for n < −1. A replication family is a map F : ℕ_{≥1} → k((q)) with each F(s) normalized, coefficients a_s(n), such that for every s ≥ 1, in k((q))((p)): p^{−1} exp(−Σ_{i≥1} Σ_{m≥1, n∈ℤ} a_{si}(mn) p^{mi} q^{ni}/i) = F(s)(p) − F(s)(q). A normalized f is completely replicable if f = F(1) for some replication family F (its replicates are f^{(s)} := F(s)); Norton's definition via the identities Σ_{ad=n, 0≤b<d} f^{(a)}((aτ+b)/d) = Q_n(f(τ)) is equivalent (Borcherds 1992 §8). Over a general characteristic-zero field, the τ-expression means its finite root-of-unity sum after scalar extension, which descends coefficientwise; no analytic substitution is part of this formal definition. For a replication family the same identity holds with F(s) in place of f and F(sa) in place of f^(a).
 
 Hypotheses and conventions:
 
@@ -17125,6 +17125,7 @@ Construction or proof route:
 
 1. Define IsNormalizedQSeries f, the replication identity for a family at index s (a statement in LaurentSeries (LaurentSeries k) using PowerSeries.subst for exp), IsReplicationFamily F and IsCompletelyReplicable f := ∃ F, IsReplicationFamily F ∧ F 1 = f.
 2. The exponential is well defined because the exponent lies in p·k((q))[[p]] after removing the single term with n = −1, m = 1, which contributes the factor 1 − p/q.
+3. For a normalized series f, define monic Faber polynomials Q_n(X) by −log(p(f(p)−X)) = Σ_{n≥1} Q_n(X)pⁿ/n. Each coefficient is a polynomial in X and the leading q⁻¹ term gives degree n and leading coefficient 1. Taking the formal logarithm of the replication identity and comparing pⁿ coefficients gives Q_n(F(s)(q)) = Σ_{ad=n} d Σ_{r∈ℤ} a_{sa}(dr)q^(ar). The finite root sum in Norton's formula has exactly these coefficients, since Σ_{0≤b<d} ζ_d^(br) is d when d ∣ r and 0 otherwise. Conversely these coefficient identities recover the formal logarithm and hence the exponential identity. This argument uses only characteristic zero and finite sums, not the Monster presentation theorem.
 
 Uses that determine the API:
 
@@ -18276,7 +18277,7 @@ Replace the stage edges ModularCurvesPartII:R12.3 → QM.6 and the RS-06 links R
 
 ## Pinned baseline declarations
 
-The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The 418 reviewed inherited records remain intact. The two additional Gamma/Stirling inputs were read at the Mathlib pin for this revision. Current upstream imports above are separate from this baseline.
+The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. All 420 declarations were freshly read at those pins and compared with their consumers in this independent review. The 418 inherited records and the two Gamma/Stirling inputs remain intact; no baseline reference was removed or replaced. Current upstream imports above are separate from this baseline.
 
 - `mathlib:Fintype.prod_equiv` — `Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean`: Reindexes a product through an equivalence of finite types. The explicitly generated additive declaration Fintype.sum_equiv reindexes the native finite complex sums used here.
 - `mathlib:AddMonoidAlgebra` — `Mathlib/Algebra/MonoidAlgebra/Defs.lean`: Group algebra k[L] underlying the twisted group algebra k_ε[L].
@@ -18701,7 +18702,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 ## Source findings
 
-Each finding is stated in our own words. Confirmed and rejected verdicts below are the inherited independent findings, rather than a new self-review. Formula corrections are used in the target contracts.
+All 89 findings were freshly checked at their stated locators in this independent review: 86 confirmed and 3 rejected. Historical reviews and version records remain in the packet. A confirmed source omission may have a local repair; it does not by itself make a planned theorem false.
 
 ### E101: misprint
 
@@ -18722,7 +18723,7 @@ Checked versions or searches:
 - Stanley's errata list for the second edition, version of 17 August 2025 (errata_2ed.pdf on the author's EC1 page)
 - the author's posted PDF of the second edition (the printed line is present)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The posted second-edition solution gives the same exponent to both paired terms. Pairing indices n and 1−n preserves n(n−1)/2 and gives the stated corrected difference. The author’s errata independently identifies this line.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Pair n with 1−n: the triangular exponent is unchanged and the paired powers differ. This also gives 1−x at q=0; the posted errata agrees.
 
 ### E102: misprint
 
@@ -18743,7 +18744,7 @@ Checked versions or searches:
 - Stanley's errata list for the second edition, version of 17 August 2025
 - the statement of Exercise 1.91(d) on p. 133 of the posted PDF
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The exercise has triangular exponent n(n+1)/2. Differentiating the correctly paired terms at x=1 produces 2n+1 with that exponent; the solution’s n(n−1)/2 does not reproduce its constant coefficient.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Differentiating the paired terms at x=1 gives (2n+1) with exponent n(n+1)/2. The alternative exponent already fails at the constant coefficient.
 
 ### E103: misprint
 
@@ -18764,7 +18765,7 @@ Checked versions or searches:
 - the arXiv listing of math/0203094 (only v1 exists)
 - S. O. Warnaar, arXiv:math/0203229, which quotes the paper's (1.12) and (1.15) but not (1.8)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. In the inspected finite-product display the second argument has the opposite sign from the required factor 1+z⁻¹q^(2i−1). Taking L=1 already determines both signs.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The L=1 finite identity requires both negative product arguments to produce the two positive linear factors.
 
 ### E104: misprint
 
@@ -18785,7 +18786,7 @@ Checked versions or searches:
 - the HTML version of the same paper in the online edition (ram25.html), which has the same line
 - the parallel line of §2 ('8 + 4µ(µ + 1) + 4ν(3ν + 1) ≡ 0 (mod 5)'), which is correct
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The retypeset Collected Papers congruence has no right-hand value. The immediately preceding coefficient-selection argument requires the displayed expression to be zero modulo7. This finding concerns that retypeset copy.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The retypeset congruence omits its right-hand zero; the preceding coefficient selector determines zero modulo 7. This is scoped to that copy.
 
 ### E201: misprint
 
@@ -18806,7 +18807,7 @@ Checked versions or searches:
 - arXiv abstract page and version history of 2302.03280 (only v1, 7 February 2023)
 - the authors' subsequent arXiv listings (no replacement or erratum)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. At S, eta inversion requires the square root multiplying eta. The introduction’s reciprocal conflicts with Theorem5.2 and with the general formula specialized at c=1,d=0.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Specializing to S requires a multiplying principal square root. The reciprocal in the introduction disagrees with the proved inversion formula.
 
 ### E202: misprint
 
@@ -18816,7 +18817,7 @@ Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`.
 
 **Corrected contract.** Theorem 5.2 (the S-transformation η(−1/τ) = (−iτ)^{1/2}η(τ)) in both places.
 
-**Reason.** Theorem 5.3 is Euler's pentagonal number theorem, which is not a case of Theorem 7.1; the proof of the case c = 1 uses η(−1/(τ + d)) = {−i(τ + d)}^{1/2}η(τ + d), which is Theorem 5.2.
+**Reason.** The inversion theorem is 5.2, whereas 5.3 is Euler’s pentagonal identity; the printed cross-references therefore name a different result.
 
 **Published correction or search result.** new
 
@@ -18826,7 +18827,7 @@ Checked versions or searches:
 
 - arXiv abstract page and version history of 2302.03280 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The theorem proving inversion in the inspected source is5.2. Theorem5.3 concerns the subsequent eta quotient, so neither cross-reference supports the cited inversion step.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The inversion result is Theorem 5.2. Theorem 5.3 is Euler’s pentagonal identity, so the cited theorem number is wrong.
 
 ### E203: misprint
 
@@ -18846,7 +18847,7 @@ Checked versions or searches:
 
 - arXiv abstract page and version history of 2302.03280 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The Euclidean reduction selects a representative modulo the matrix entry c. The unbound modulus k in this line cannot be the modulus of that selection.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The Euclidean representative is selected modulo c, the lower-left matrix entry; the displayed k is unbound in this step.
 
 ### E204: misprint
 
@@ -18866,7 +18867,7 @@ Checked versions or searches:
 
 - arXiv abstract page and version history of 2302.03280 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The last inversion display loses the negative sign. The preceding theta substitutions and the statement of5.2 both fix the argument as−1/τ.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The inversion argument is −1/τ, as fixed by both the theta substitution and Theorem 5.2.
 
 ### E205: gap
 
@@ -18886,7 +18887,7 @@ Checked versions or searches:
 
 - arXiv abstract page and version history of 2302.03280 (only v1)
 
-Inherited review: **rejected** by `REV-QSeriesPartitionsAndMockModularForms~2`. Rejected as a missing branch argument: in the inspected reduction, x=rτ′+c, y=τ+q and xy=cτ+d lie in ℍ. Their arguments give the required principal-root identity without wrapping. The packet’s explicit branch lemma is a useful expansion of this valid step.
+Independent review: **rejected** by `REV-QSeriesPartitionsAndMockModularForms~3`. No missing branch step here: the two factors and their product lie in the upper half-plane, so their principal arguments do not wrap in the required product.
 
 ### E206: misprint
 
@@ -18896,7 +18897,7 @@ Inherited review: **rejected** by `REV-QSeriesPartitionsAndMockModularForms~2`. 
 
 **Corrected contract.** −hr/k − ⌊−hr/k⌋ = 1 − r′/k.
 
-**Reason.** The floor must be of the same number −hr/k (the next display writes ⌊−hr/k⌋).
+**Reason.** The reindexed fractional part is r′/k and therefore its floor denominator is k. The source’s displayed floor uses a different denominator.
 
 **Published correction or search result.** new
 
@@ -18906,7 +18907,7 @@ Checked versions or searches:
 
 - arXiv abstract page and version history of 2302.03280 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Reindexing residues gives fractional part r′/k. The floor expression therefore divides by k, consistent with every preceding use of the Dedekind denominator; division by the numerator h does not give the asserted residue.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The reindexed fractional part is r′/k and therefore its floor denominator is k. The source’s displayed floor uses a different denominator.
 
 ### E207: misprint
 
@@ -18927,7 +18928,7 @@ Checked versions or searches:
 - arXiv abstract page and version history of 1208.4074 (v1, v2; v2 read)
 - no erratum or newer version listed on the arXiv page
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Boundedness for fixed z corresponds to nonnegative q powers. Substituting z=ατ+β introduces elliptic growth and is a different condition; the stated equivalence at that moving argument is false.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A fixed elliptic variable and a rational torsion section ατ+β impose different growth conditions. The asserted equivalence confuses them.
 
 ### E301: misprint
 
@@ -18948,7 +18949,7 @@ Checked versions or searches:
 - arXiv listing of 2302.03835 (only v1)
 - the companion preprint arXiv:2302.03280
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Eta is q^(1/24) times the Euler product, while F is its reciprocal. The inspected display reverses this relationship; the definitions immediately yield the corrected quotient.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. F is the reciprocal Euler product, whereas eta includes the factor q^(1/24). Substitution into the definitions fixes the reversed quotient.
 
 ### E302: error
 
@@ -18968,7 +18969,7 @@ Checked versions or searches:
 
 - arXiv listing of 2302.03835 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The vertical-integral norm behaves as |t|^(−Reν−1). Its absolute convergence requires Reν>0, and the principal prefactor needs x>0. The printed universal complex-ν statement includes divergent integrals.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The vertical integrand has norm of order |t|^(−Reν−1). Absolute convergence needs Reν>0, with x>0 fixing the principal power.
 
 ### E303: error
 
@@ -18988,7 +18989,7 @@ Checked versions or searches:
 
 - arXiv listing of 2302.03835 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The partition count is nondecreasing under adding a part1, but p(0)=p(1)=1. The source’s unrestricted strict inequality fails at that boundary; its estimate only requires monotonicity.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Adding a part 1 proves nondecrease. The equality p(0)=p(1)=1 rules out the unrestricted strict version.
 
 ### E304: misprint
 
@@ -19008,7 +19009,7 @@ Checked versions or searches:
 
 - arXiv listing of 2302.03835 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The two coefficients in the inspected bound have different indices. Injection by adding ones supplies an inequality, and there is no equality identity between these counts.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Adding ones is an injection between the two partition sets, giving an inequality rather than equality of their different coefficients.
 
 ### E305: misprint
 
@@ -19028,7 +19029,7 @@ Checked versions or searches:
 
 - arXiv listing of 2302.03835 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The exponent in the preceding transformation formula divides this term by k². Its replacement by k in the later norm estimate is inconsistent with that formula and the displayed cusp substitution.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Substitution into the preceding transformation leaves k² in the exponential denominator. Replacing it by k is inconsistent.
 
 ### E306: gap
 
@@ -19048,7 +19049,7 @@ Checked versions or searches:
 
 - arXiv listing of 2302.03835 (only v1)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. A remainder tending to zero proves convergence but does not prove absolute convergence. The independent k^(−3/2) positive majorant later in the paper supplies the missing justification.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A vanishing remainder establishes convergence only. Absolute convergence needs the separately available positive k^(−3/2) majorant.
 
 ### E307: error
 
@@ -19070,7 +19071,7 @@ Checked versions or searches:
 - Rademacher 1940 and Lehmer 1938, 1939, which quote p(200) but not the terms
 - Kong–Teo, Table 1
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Fresh evaluation of the actual Hardy–Ramanujan exponential-derivative terms, using exact rational Dedekind sums and85-digit Decimal exponentials/cosines, gives third term−87.5839128707297… and eight-term sum3972999029387.975671134175… . These correct the table; calling its terms Rademacher terms was also misleading.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Independent exact-rational Dedekind sums and 85-digit Decimal arithmetic give HR term 3 = −87.5839128707296629… and the first-eight sum 3972999029387.975671134175… . These are diagnostics, not interval enclosures, and concern the exponential-derivative series.
 
 ### E308: misprint
 
@@ -19091,7 +19092,7 @@ Checked versions or searches:
 - the AMS journal page of the article (no erratum listed)
 - Lehmer 1938, which states the bound as O(k)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. At k=1 the normalized sum has its single value1. Thus the printed strict inequality fails, while the triangle inequality gives the stated non-strict bound by φ(k).
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. At k=1 the sum equals 1=φ(1). The triangle inequality gives the non-strict bound, not the printed strict one.
 
 ### E401: misprint
 
@@ -19113,7 +19114,7 @@ Checked versions or searches:
 - Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)
 - the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Directly lowering v^(1−k) gives−(k−1)v^(2−k), with no extra2. The inspected Fourier display and(3.7) contain that extra factor; BOR explicitly records the correction.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Lowering v^(1−k) gives −(k−1)v^(2−k), with no extra 2. The corrected normalization agrees with the later BOR correction.
 
 ### E402: misprint
 
@@ -19135,7 +19136,7 @@ Checked versions or searches:
 - Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)
 - the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Inserting the source’s chosen ∂bar preimage into its own ξ definition gives2g. Dividing that preimage by2 proves the intended surjectivity without changing its kernel or target.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The proposed local preimage has ξ-image twice the target. Multiplying the preimage by 1/2 repairs the proof.
 
 ### E403: gap
 
@@ -19157,7 +19158,7 @@ Checked versions or searches:
 - Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)
 - the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. For positive w the displayed integral crosses negative real t. Fractional powers then require a branch convention, which the definition does not provide. The harmonic Fourier basis must specify that convention.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The integral crosses the negative real axis. A fractional power there needs the explicit branch used in the Fourier basis.
 
 ### E404: misprint
 
@@ -19179,7 +19180,7 @@ Checked versions or searches:
 - arXiv comments ('Theorem 1.4 corrected')
 - the Math. Ann. version was not accessible as text
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. At the source’s even integral weights, the Kummer parameter printed in the v3 seed is a nonpositive integer. The lower-gamma seed with the corrected weight normalization agrees with Proposition6.2; the uncorrected expression is not that seed.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. At the even integral weights, the v3 Kummer parameter is a nonpositive integer. The corrected lower-gamma seed has the normalization required by Proposition 6.2.
 
 ### E405: misprint
 
@@ -19202,7 +19203,7 @@ Checked versions or searches:
 - the Math. Ann. version was not accessible as text
 - Independent review checked v3, not the historical v1 and v2 copies; verdict is scoped to v3.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Proposition6.2 gives constant coefficient−(2π)^12/(11!ζ(12))=−65520/691. This differs from the inspected v3 numerical example. No identity of the earlier PDF versions is asserted.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The exact constant is −(2π)^12/(11!ζ(12)) = −65520/691 = −94.8191027496382055… . This disagrees with the inspected v3 decimal; no claim about other versions is made.
 
 ### E406: gap
 
@@ -19224,7 +19225,7 @@ Checked versions or searches:
 - Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)
 - the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The metric has cusp logarithms, so its coefficients are not smooth sections across the compactification merely after finite twisting. Local cusp preimages and a cutoff/sheaf argument supply the missing regularity step.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Finite twisting does not make cusp logarithms smooth across the compactification. Local preimages plus a cutoff/sheaf argument are needed.
 
 ### E407: gap
 
@@ -19246,7 +19247,7 @@ Checked versions or searches:
 - Bruinier–Ono–Rhoades, arXiv:0802.0963 v1–v3 (which cite the Duke version)
 - the Duke Math. J. article page was not accessible as text; no erratum found in the arXiv listing
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Nondegeneracy of the constant-term pairing needs prescribed constants, rather than mere existence of Eisenstein forms. The separate weight-zero counterexample E409 also shows why the corrected negative pairing excludes k=2.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The pairing needs independently prescribable constants; existence of Eisenstein series alone does not supply them. Weight zero is a separate obstruction.
 
 ### E408: error
 
@@ -19268,7 +19269,7 @@ Checked versions or searches:
 - arXiv comments ('Theorem 1.4 corrected')
 - the Math. Ann. version was not accessible as text
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Applying the iterated raising operator to the nonholomorphic constant mode produces Γ(k−1,0)=(k−2)!. The proof’s expansion contains it, whereas the inspected theorem’s coefficient omits it.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The raised constant Fourier mode contributes Γ(k−1)=(k−2)!, present in the proof but missing from the stated coefficient.
 
 ### E501: misprint
 
@@ -19289,7 +19290,7 @@ Checked versions or searches:
 - arXiv 0807.4834 (single version v1)
 - Sander Zwegers' Cologne home page (no errata listed)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Proposition3.5 has parts1–3, and its modular law is1(c). The proof’s reference to part5 has no matching statement.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Proposition 3.5 has only parts 1–3; the modular law used is 1(c), not a nonexistent part 5.
 
 ### E502: misprint
 
@@ -19310,7 +19311,7 @@ Checked versions or searches:
 - arXiv 0807.4834 (single version v1)
 - Sander Zwegers' Cologne home page (no errata listed)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The modular action in the inspected residue substitution must use upper-right entry b in aτ+b. The occurrences of aτ+d conflict with the same matrix’s denominator and adjacent transformation formula.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The matrix action has numerator aτ+b. The occurrences aτ+d in this residue substitution conflict with that same action.
 
 ### E503: misprint
 
@@ -19331,7 +19332,7 @@ Checked versions or searches:
 - arXiv 0807.4834 (single version v1)
 - Sander Zwegers' Cologne home page (no errata listed)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The Lerch-sum section is1.3, whereas1.2 develops the Mordell integral. In addition, the source’s level-m definition assumes positive integral m, so the m=1/2 comparison needs a separate sign/variable adapter.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The Lerch sum is in §1.3; §1.2 is the Mordell integral. The index-1/2 comparison also needs its sign adapter outside the source’s integral-m definition.
 
 ### E504: misprint
 
@@ -19352,7 +19353,7 @@ Checked versions or searches:
 - arXiv 0807.4834 (single version v1)
 - Sander Zwegers' Cologne home page (no errata listed)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. For c in the negative cone the earlier definition already has R(c)=ℝ^r, so D′(c)=ℂ^r×ℍ. The nonintegrality restriction in the later equality is correct only for the null-cusp branch.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. For a negative-cone vector the earlier domain is unrestricted. The later nonintegrality description applies only to the isotropic-cusp case.
 
 ### E505: gap
 
@@ -19373,7 +19374,7 @@ Checked versions or searches:
 - arXiv 0807.4834 (single version v1)
 - Sander Zwegers' Cologne home page (no errata listed)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected p.71 asserts the seventh-order shadow S-law without carrying out the calculation. Applying ξ to Proposition4.5 and using the explicit shadow in Proposition4.2 gives the stated sign and weight. The predecessor review reason discussed Hickerson instead; that reason was about a different claim.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The asserted seventh-order shadow transformation is not computed at that locator. Applying ξ to Proposition 4.5 and inserting Proposition 4.2 gives its sign and weight.
 
 ### E506: gap
 
@@ -19394,7 +19395,7 @@ Checked versions or searches:
 - arXiv 0807.4834 (single version v1)
 - Sander Zwegers' Cologne home page (no errata listed)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The source explicitly refers the level-m convergence proof back to Lemma1.8. Separating the finite sign difference from the Gaussian beta tail on each residue class provides the needed proof, rather than assuming the analogy establishes convergence.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The convergence argument is deferred by analogy. Separating the finite sign difference from the Gaussian beta tail on each residue class supplies the needed bound.
 
 ### E601: misprint
 
@@ -19415,7 +19416,7 @@ Checked versions or searches:
 - the author's publication list on his MPIM page (no erratum listed)
 - the publisher-typeset copy read (no correction note)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. At ξ=1, the t³ coefficient of sinh(2t)/cosh(3t) is−23/3. The inspected factorial n! gives the wrong coefficient; replacing it by(2n+1)! agrees with the T-number convention.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. At ξ=1 the cubic coefficient is −23/3. The odd factorial (2n+1)! reproduces it; n! does not.
 
 ### E602: misprint
 
@@ -19435,7 +19436,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Equation24 introduces coefficient sequences. The residue computation identifies the L-values in equation25, so the printed cross-reference24 does not name the formula being deduced.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The residue computation identifies the L-values in equation (25); equation (24) only introduces the sequences.
 
 ### E603: misprint
 
@@ -19455,7 +19456,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. An integral against a kernel of degree k−2 yields a polynomial of degree at most k−2. The inspected page prints the opposite inequality, which is also inconsistent with the classical Eichler construction described there.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A kernel polynomial of degree k−2 produces degree at most k−2. The printed inequality has the opposite direction.
 
 ### E604: gap
 
@@ -19476,7 +19477,7 @@ Checked versions or searches:
 - the author's MPIM publication list (no paper on period functions of half-integral weight)
 - arXiv listings of Bringmann–Rolen
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected theorem is followed by an explicit statement that a complete proof is withheld. The indicated integral needs the rational-boundary limit, branch and multiplier arguments; the later trivial-character theorem alone does not fill all of them.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The source explicitly withholds a full proof. The rational-boundary, branch and multiplier steps are required beyond the indicated integral.
 
 ### E605: error
 
@@ -19497,7 +19498,7 @@ Checked versions or searches:
 - the author's MPIM publication list
 - the Clay Mathematics Proceedings volume page (no errata)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Compare the inspected Example3 with the Topology transformation and conjugation for negative x. The weight is−3/2 in the boundary factor, and its two real half-lines have different phases; the positive exponent/common-phase display fails that comparison.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The negative and positive real half-lines have different phases under the stated weight −3/2 boundary action. The common-phase display fails that transformation.
 
 ### E606: misprint
 
@@ -19517,7 +19518,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The Euler expansion of eta has coefficients χ12(n). Inserting n gives its Eichler companion instead, so the inspected eta display has a coefficient belonging to the next construction.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Eta has coefficient χ₁₂(n); adding n produces its Eichler companion instead, so the source has conflated the two expansions.
 
 ### E607: misprint
 
@@ -19537,7 +19538,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The finite values at q=1 distinguish the two functions: sigma is2 and sigma-star is−2. The inspected sentence must therefore refer to sigma-star for the asserted negative relation.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. At q=1, sigma is 2 while sigma-star is −2. The asserted negative relation requires sigma-star.
 
 ### E608: misprint
 
@@ -19558,7 +19559,7 @@ Checked versions or searches:
 - the author's MPIM publication list
 - the PDF read (no correction note)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Expanding e^(−at)/(1−e^(−t)) gives the negative Bernoulli coefficient after the leading1/t. The inspected equation44 has the opposite sign; taking a=1 also recovers the earlier formula.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The Bernoulli expansion after 1/t has a minus sign; setting a=1 checks the sign directly.
 
 ### E609: misprint
 
@@ -19578,7 +19579,7 @@ Checked versions or searches:
 
 - the MPIM copy of the published paper
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Changing from the plus/minus basis to(Θχ,Θbarχ) gives two distinct coordinates under T. The inspected right-hand vector repeats Θχ instead of using Θbarχ in its second entry.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. In the conjugate-character basis the T-law has two different coordinates. The printed second entry incorrectly repeats the first.
 
 ### E610: gap
 
@@ -19599,7 +19600,7 @@ Checked versions or searches:
 - the author's MPIM publication list (no later paper [18] found)
 - arXiv
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected source gives a sketch for asymptotic agreement and lower-half-plane modularity and explicitly defers details. Normalization, uniform tails and transformed rational limits are required; E626/E627 identify additional concrete errors in those displays.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The source defers the complete asymptotic/modularity proof. Uniform tails and rational-boundary passage are additional inputs; E626–627 fix concrete normalizations.
 
 ### E611: gap
 
@@ -19620,7 +19621,7 @@ Checked versions or searches:
 - arXiv versions v1–v4 abstracts
 - the paper's own references
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The theorem’s stated space has trivial character. Eta(24τ) has χ12 and eta itself has a multiplier, so the inspected application requires a separate character/multiplier extension.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The BR theorem assumes trivial character, while eta(24τ) has χ₁₂. A character/multiplier extension is needed for this application.
 
 ### E612: gap
 
@@ -19640,7 +19641,7 @@ Checked versions or searches:
 
 - arXiv versions of the paper
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The proof first compares vertical asymptotics and then applies a modular substitution which changes the ray. A non-tangential comparison with uniform remainder is needed for that substitution.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A modular substitution changes the vertical approach ray. A uniform non-tangential asymptotic comparison is needed to justify its use.
 
 ### E613: gap
 
@@ -19660,7 +19661,7 @@ Checked versions or searches:
 
 - arXiv versions of the paper
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The stated lemma concerns fixed real part and is quoted without proof. Moving Mellin contours requires uniformity on each finite closed strip; quantitative gamma control remains a distinct open prerequisite.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The source states fixed-line growth without its proof. Mellin shifting needs uniform finite-strip bounds; this revision now provides the two-sided Gamma argument locally.
 
 ### E614: gap
 
@@ -19680,7 +19681,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Agreement as formal Taylor series at a root does not by itself give all-orders radial analytic agreement. A uniform bound for the later root blocks is necessary before interchanging the infinite tail and radial limit.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Formal Taylor agreement alone cannot justify radial analytic agreement of infinite tails. A uniform root-block estimate must be supplied.
 
 ### E615: gap
 
@@ -19701,7 +19702,7 @@ Checked versions or searches:
 - the published article page (no erratum)
 - Bringmann–Rolen, Radial limits of mock theta functions, §1 (quotes the result)
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The source’s finite value at a root of unity follows from termination. Termination alone does not control values approaching that root from inside the disk; the separate block-tail estimate provides that control.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Termination at a root gives a finite value, but does not bound an approaching infinite sum. The block-tail argument is a distinct necessary step.
 
 ### E616: gap
 
@@ -19721,7 +19722,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. At elliptic points E4,E6 and j′ vanish, so the generic division in the inspected residue argument cannot be applied. A local ramification expansion is required there, as the source leaves these cases to the reader.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. At the elliptic points the divided quantities E₄,E₆,j′ vanish. Local ramification expansions are needed in place of the generic division.
 
 ### E617: gap
 
@@ -19741,7 +19742,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The final paragraph explicitly leaves the a=d Fourier contribution for square n to the reader. The nonsquare expansion does not establish the square correction without that additional computation.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The source explicitly omits the square-case a=d Fourier term. It is an extra computation beyond the nonsquare expansion.
 
 ### E618: gap
 
@@ -19761,7 +19762,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **rejected** by `REV-QSeriesPartitionsAndMockModularForms~2`. Rejected as a separate nontrivial gap: the source already gives the omitted square-case j and j−1728 factors. Comparing leading exponents with H(3)=1/3,H(4)=1/2 immediately yields2H(3)+H(4)−1=1/6.
+Independent review: **rejected** by `REV-QSeriesPartitionsAndMockModularForms~3`. The supplied square-case j and j−1728 factors already give 2H(3)+H(4)−1=1/6. This routine correction does not constitute the alleged independent gap.
 
 ### E619: misprint
 
@@ -19781,7 +19782,7 @@ Checked versions or searches:
 
 - the author's MPIM publication list
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected author-copy header says volume12. The official Clay proceedings page and publisher volume identify Quanta of Maths as volume11. This is a bibliographic error in that author copy, rather than a mathematical finding.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The official Clay proceedings and volume identify Quanta of Maths as volume 11, whereas the inspected author-copy header says 12.
 
 ### E701: misprint
 
@@ -19803,7 +19804,7 @@ Checked versions or searches:
 - the published version (Bull. London Math. Soc. 38 (2006)) could not be accessed
 - Independent review acquired v2 only; the inherited assertion that v1 is identical has not been independently established.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected v2 expansion has an extra digit in the q³ coefficient. The same paper’s later normalized expansion and the E4³/Δ series both give864299970.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The q³ coefficient is 864299970, from E₄³/Δ and the paper’s later normalized expansion; the inspected earlier display contains an extra digit.
 
 ### E702: misprint
 
@@ -19825,7 +19826,7 @@ Checked versions or searches:
 - Borcherds 1992 (9.1) for comparison
 - Independent review acquired v2 only; the inherited assertion that v1 is identical has not been independently established.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Extracting the n=2 replication equation gives the a3(g) term used by the untwisted recursion. The inspected text instead names a2(g), inconsistent with the adjacent identities.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The n=2 replication coefficient contains a₃(g). The displayed a₂(g) disagrees with the neighboring recurrence.
 
 ### E703: misprint
 
@@ -19846,7 +19847,7 @@ Checked versions or searches:
 - the author's online copy at math.berkeley.edu
 - Gannon 2004 (2.8a) gives the expansion only
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected Hauptmodul product omits the odd factor with exponent1. Including(1−q)^24 cancels the added24 in the constant term and gives the displayed276q−2048q² coefficients. The predecessor reason concerned a different denominator product and was corrected.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The odd product starts with exponent 1. Including (1−q)^24 cancels the added 24 and yields the displayed 276q−2048q² coefficients.
 
 ### E704: misprint
 
@@ -19868,7 +19869,7 @@ Checked versions or searches:
 - Jurisich 1998 Appendix A
 - Jurisich 2009
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The source’s decomposition uses weight-lowering positive Virasoro indices. Recomputing with the central-charge26 relations gives L1 and L2+(3/2)L1², as in Jurisich A.6; negative indices cannot serve that role.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The positive Virasoro indices lower weights; the c=26 commutators give L₁ and L₂+(3/2)L₁². Negative indices do not serve this role.
 
 ### E705: error
 
@@ -19889,7 +19890,7 @@ Checked versions or searches:
 - the author's online copy
 - Jurisich 1998 Theorem 6.2 and Appendix A
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Without dimV0=1, the degree-zero lattice tensor piece contains more than the two stated Lorentzian directions. Jurisich’s precise hypotheses include that condition, which the inspected Borcherds theorem omits.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The degree-zero tensor piece has exactly two lattice directions only when dim V₀=1, a hypothesis present in Jurisich but missing at the inspected locator.
 
 ### E706: gap
 
@@ -19911,7 +19912,7 @@ Checked versions or searches:
 - Borcherds 1992 §4
 - Jurisich 1998 §§1–2
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected author copy explicitly identifies its positivity proof as incomplete and refers to Kac’s third edition. Jurisich’s restricted presentation/radical result does not by itself prove positive definiteness; the correction now distinguishes these inputs.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The source identifies an incomplete positivity proof and refers to Kac. Restricted radical/presentation results do not establish that general positivity assertion.
 
 ### E707: misprint
 
@@ -19932,7 +19933,7 @@ Checked versions or searches:
 - the author's online copy at math.berkeley.edu
 - the PNAS version was not accessed
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected second commutator has a primary weight i but labels u as lying in P1. The general identity uses u∈Pi, and its immediately preceding specialization handles weight1 separately.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The general primary commutator uses u∈Pⁱ. P¹ is only its preceding weight-one specialization.
 
 ### E708: error
 
@@ -19953,7 +19954,7 @@ Checked versions or searches:
 - the author's online copy
 - Jurisich 1998 §4
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Jurisich’s equal-column infinite-matrix example has no grading with the finite-dimensional homogeneous pieces required by the characterization. The inspected converse therefore needs that additional grading hypothesis.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The infinite equal-column example lacks finite-dimensional homogeneous pieces, so the characterization converse needs its additional grading assumption.
 
 ### E309: error
 
@@ -19975,7 +19976,7 @@ Checked versions or searches:
 - Web search for Whiteman's paper title with erratum/correction, 2026-09-27; no matching correction found.
 - Johansson's author errata page https://fredrikj.net/math/hrr.html, read 2026-09-27; its corrections concern Johansson, not this root-count assertion.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The published root count excludes nonsquares but not singular squares. At n=24 the discriminant is divisible by25 and has5 roots modulo25; with the additional coprime factor13 there are10 roots modulo325. These are not the claimed2 and4.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. For n=24, the singular square has five roots modulo 25 and ten modulo 325. The claimed nonsingular counts 2 and 4 do not apply.
 
 ### E310: gap
 
@@ -19996,7 +19997,7 @@ Checked versions or searches:
 - Whiteman publisher scan pp.168–169 and publication page, 2026-09-27.
 - Search for the title with erratum/correction and Johansson's author errata page, 2026-09-27; no correction of this proof omission found.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The fourth-branch proof assumes valuation strictly below λ, missing the zero residue modulo p^λ. For n=24,p=5,λ=2 that branch occurs. Translation cancellation handles it without the omitted valuation assumption.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The fourth branch misses the case with discriminant zero modulo p^λ; n=24,p=5,λ=2 supplies it. Translation cancellation covers that case.
 
 ### E311: misprint
 
@@ -20017,7 +20018,7 @@ Checked versions or searches:
 - Author errata page https://fredrikj.net/math/hrr.html.
 - Publisher version pp.344–345 and arXiv:1205.5991v2 pp.4–5, both inspected 2026-09-27.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected publisher equation has λ=0 in the singular prime branch. The author’s errata corrects it to1, matching the prime-level evaluation. Both publisher page and author correction were read.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The publisher formula has λ=0; the author’s errata explicitly changes it to 1, consistent with the prime-level branch.
 
 ### E312: misprint
 
@@ -20038,7 +20039,7 @@ Checked versions or searches:
 - Author errata page https://fredrikj.net/math/hrr.html.
 - Publisher version pp.344–345, arXiv:1205.5991v2 pp.4–5, and Whiteman (1956) Theorem 6, 2026-09-27.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The published accumulation misses the sign for the factor4. The inspected author errata adds that negation, consistent with Whiteman’s factorization; a magnitude-only check would miss it.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The factor-four branch needs a sign negation, also explicitly recorded by the author. An absolute-value check would miss it.
 
 ### E208: error
 
@@ -20061,7 +20062,7 @@ Checked versions or searches:
 - Searches for 1208.4074 erratum/errata and Quantum Black Holes elliptic forms periodic; no correction of this missing periodicity located.
 - Existing packet source issues screened; E207 treats a different growth-condition misprint.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The stated elliptic law alone permits τ times a theta function, which is not τ-periodic. Thus the integer-q expansion in the next formula needs the omitted τ-period assumption; the packet now states it explicitly.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The elliptic law permits τ times a theta function; τ-periodicity is an extra assumption needed for an integral q-expansion.
 
 ### E209: misprint
 
@@ -20081,7 +20082,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/2602.22471, read2026-10-05: onlyv1 listed; bounded title/correction search found no matching correction.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. In the acquired v1 the factor uses cτ+b. At the identity b=c=0,d=1 this factor cannot support a nonzero modular form. The corrected cτ+d agrees with the source’s later calculations; the current revised file is logged separately.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The acquired v1 uses cτ+b in the multiplier. At the identity this is zero; cτ+d is required and agrees with the subsequent calculation.
 
 ### E313: misprint
 
@@ -20101,7 +20102,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/2302.03835, read2026-10-05: onlyv1 listed; compare the retypeset Hardy–Ramanujan Paper36 rather than treating its leading equivalent as its exact derivative term.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Substitution into the inspected pentagonal display gives0 at n=1 and8 at n=5, while the partition counts are1 and7. Correct signed pentagonal indices restore the intended recurrence.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The printed signed pentagonal sum gives 0 and 8 at n=1 and 5, instead of partition counts 1 and 7.
 
 ### E314: error
 
@@ -20121,7 +20122,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/2302.03835, read2026-10-05: onlyv1 listed; compare the retypeset Hardy–Ramanujan Paper36 rather than treating its leading equivalent as its exact derivative term.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The historical Hardy–Ramanujan expression includes n−1/24 and its derivative correction. Dropping them changes the leading expression by an exponentially growing absolute amount, which the inspected stated polynomial error cannot absorb.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The exponential-derivative approximation retains n−1/24 and the derivative term. Omitting them creates an exponentially large absolute error, outside the stated polynomial remainder.
 
 ### E315: misprint
 
@@ -20141,7 +20142,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/2302.03835, read2026-10-05: onlyv1 listed; compare the retypeset Hardy–Ramanujan Paper36 rather than treating its leading equivalent as its exact derivative term.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. For N=1 the endpoint(1+i)/2 lies on the translated circle with center1/2, whereas it misses the printed center. The coordinate substitution and neighboring Ford-circle drawing determine the correction.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The N=1 endpoint (1+i)/2 fixes the translated circle center at 1/2; it is not on the printed alternative circle.
 
 ### E316: misprint
 
@@ -20161,7 +20162,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/2302.03835, read2026-10-05: onlyv1 listed; compare the retypeset Hardy–Ramanujan Paper36 rather than treating its leading equivalent as its exact derivative term.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The circle contains zero, so the reciprocal map used in the proposition is not defined at every point on it. The contour application avoids that endpoint, but the proposition needs the nonzero-domain condition.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Zero lies on the stated circle but has no reciprocal. The inversion proposition needs its punctured-domain guard.
 
 ### E409: error
 
@@ -20181,7 +20182,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/math/0212286, read2026-10-05: v4 is the acquired edition; bounded author-domain errata search found no matching correction. BOR’s known factor-two correction concerns E401, not these two findings.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Use the trivial Weil representation and weight-zero modular form1. All its positive coefficients vanish, so the negative-principal-part pairing vanishes identically on this nonzero form. This directly contradicts the unrestricted nondegeneracy statement.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The weight-zero form 1 for the trivial Weil representation is nonzero and pairs trivially with every negative principal part, disproving the unrestricted nondegeneracy.
 
 ### E410: misprint
 
@@ -20201,7 +20202,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/math/0212286, read2026-10-05: v4 is the acquired edition; bounded author-domain errata search found no matching correction. BOR’s known factor-two correction concerns E401, not these two findings.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. For the compactification, Ω=L2⊗O(−D). Dualizing the displayed L-twist therefore shifts the cusp divisor by one more D. Large-n vanishing still follows after that correction.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Using Ω=L²⊗O(−D) adds one further negative cusp divisor upon dualizing the displayed twist; large-twist vanishing survives.
 
 ### E507: gap
 
@@ -20221,7 +20222,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/0807.4834 and the author’s Cologne page; no correction of this convergence inference located in the bounded search.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Uniform convergence of real-analytic functions does not guarantee real analyticity of the limit. Gaussian-tail estimates on a complexified local polydisc, rather than real uniform convergence alone, give the required analytic conclusion.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Real uniform convergence does not preserve real analyticity. Locally uniform convergence on a complexified polydisc supplies the missing argument.
 
 ### E620: gap
 
@@ -20241,7 +20242,7 @@ Checked versions or searches:
 
 - arXiv:1409.3781v4 and its cited Mellin-transfer formulation; bounded arXiv/title errata searches found no matching correction.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The displayed gamma-L product grows on the positive real axis, so it does not satisfy decay throughout a right half-plane. Mellin transfer requires decay for large imaginary part in finite strips, with horizontal edges controlled there.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Decay is needed for large imaginary part on finite strips. The gamma-L product grows on the positive real axis and cannot satisfy the printed whole-half-plane condition.
 
 ### E621: misprint
 
@@ -20261,7 +20262,7 @@ Checked versions or searches:
 
 - arXiv:1409.3781v4 and its cited Mellin-transfer formulation; bounded arXiv/title errata searches found no matching correction.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. For the zero cusp form the continued Mellin transform is zero and has no poles. Residues may vanish with coefficients; the statement should allow possible poles rather than assert poles at every negative integer.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The zero cusp form has zero Mellin transform and no poles. Vanishing residues give removable singularities, so only possible poles may be asserted.
 
 ### E622: misprint
 
@@ -20281,7 +20282,7 @@ Checked versions or searches:
 
 - arXiv:1409.3781v4 and its cited Mellin-transfer formulation; bounded arXiv/title errata searches found no matching correction.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The cited Lemma3.1 has no numbered part1 and does not contain this gamma integral. The matching identity is Lemma3.2(1), whose convergence and parameter conditions are the ones needed here.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The matching gamma integral is Lemma 3.2(1). Lemma 3.1 has no matching numbered part and supplies a different statement.
 
 ### E623: misprint
 
@@ -20301,7 +20302,7 @@ Checked versions or searches:
 
 - Author’s MPIM publication list https://people.mpim-bonn.mpg.de/zagier/, read2026-10-05; no matching correction located in the bounded search.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. At an elliptic point j−j(α) vanishes to order w. Its logarithmic derivative has residue w, so multiplying by1/w makes the residue1, rather than the source’s stated1/w.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A zero of j−j(α) of order w gives logarithmic residue w; multiplying by 1/w gives residue 1, not 1/w.
 
 ### E624: misprint
 
@@ -20321,7 +20322,7 @@ Checked versions or searches:
 
 - Author’s MPIM publication list https://people.mpim-bonn.mpg.de/zagier/, read2026-10-05; bounded title/errata searches found no matching correction.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. For eta, k=1/2 and the Eichler coefficient exponent is1−k=1/2. The inspected discussion writes the opposite sign for k−1; the subsequent n factor is consistent with the corrected exponent.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. For k=1/2 the Eichler coefficient exponent is 1−k=1/2. The printed opposite exponent disagrees with the subsequent n factor.
 
 ### E625: misprint
 
@@ -20341,7 +20342,7 @@ Checked versions or searches:
 
 - arXiv:1409.3781v4 and its cited Mellin-transfer formulation; bounded arXiv/title errata searches found no matching correction.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. For F(x)=1/(1+x), the endpoint exponents are0 and−1. The Mellin integral diverges at s=0 and s=1, although these are included in the source’s printed weak inequalities. The convergence strip must be open.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The Mellin integral for 1/(1+x) diverges at s=0 and s=1. Its initial convergence strip is open.
 
 ### E709: gap
 
@@ -20361,7 +20362,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/1311.3258 lists a1996 preprint as v1; acquired that text. ScienceDirect journal page S0022404996001429 and bounded title/errata searches found no matching correction. The1998 version of record was not acquired.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. In a nondegenerate hyperbolic plane a null line equals its orthogonal complement. Thus ambient nondegeneracy cannot justify the inspected splitting for U(𝒜)T. Restriction nondegeneracy or a separate triangular-generation argument is still required.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A null line in a hyperbolic plane equals its orthogonal complement. Ambient nondegeneracy therefore does not prove the claimed restricted splitting; the revised local PBW argument repairs this source omission.
 
 ### E710: misprint
 
@@ -20381,7 +20382,7 @@ Checked versions or searches:
 
 - arXiv https://arxiv.org/abs/1311.3258 lists a1996 preprint as v1; acquired that text. ScienceDirect journal page S0022404996001429 and bounded title/errata searches found no matching correction. The1998 version of record was not acquired.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. A radical has zero restricted form. The intended last step uses nondegeneracy of the whole weight-one physical space to conclude that its radical vanishes, rather than calling the radical itself nondegenerate.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A radical has zero restricted form. Nondegeneracy of the full weight-one physical space makes that radical zero; the radical itself is not nondegenerate.
 
 ### E508: misprint
 
@@ -20402,7 +20403,7 @@ Checked versions or searches:
 - https://arxiv.org/abs/0807.4834
 - 2026-10-05: bounded arXiv/author-domain search for Zwegers thesis errata and Lemma 2.8 determinant corrections; no matching correction located. This is not an exhaustive literature search. Only v1 is independently collated.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected Gaussian computation is for generic c and is subsequently applied to both c1 and c2. The isolated Q(c1) must be Q(c), as both adjacent calculations already show.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The computation is for a general c and is applied to both c₁ and c₂. Its isolated Q(c₁) must therefore be Q(c).
 
 ### E509: misprint
 
@@ -20423,7 +20424,7 @@ Checked versions or searches:
 - https://arxiv.org/abs/0807.4834
 - 2026-10-05: bounded arXiv/author-domain search for Zwegers thesis errata and Lemma 2.8 determinant corrections; no matching correction located. This is not an exhaustive literature search. Only v1 is independently collated.
 
-Inherited review: **rejected** by `REV-QSeriesPartitionsAndMockModularForms~2`. Rejected: rendered printed pp.40–41 already use the absolute value of the determinant in the Gaussian coordinate factors. Reversing an auxiliary basis orientation does not change those absolute Jacobians. The inherited unsigned-Jacobian allegation does not match this source.
+Independent review: **rejected** by `REV-QSeriesPartitionsAndMockModularForms~3`. The inspected rendered pp.40–41 already contain absolute determinants. The allegation of an unsigned Gaussian Jacobian is rejected.
 
 ### E210: misprint
 
@@ -20444,7 +20445,7 @@ Checked versions or searches:
 - https://arxiv.org/abs/0707.0718, 2026-10-06: the submission history lists v1 only.
 - The published version (Modular Forms on Schiermonnikoog, Cambridge University Press, 2008) was not obtained, so the finding is scoped to the arXiv text; no errata list was looked for beyond the arXiv page.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The acquired glossary defines wA using aτ+b, while its metaplectic-pair definition on the same page requires wA²=cτ+d. The identity matrix and the latter definition determine the corrected square root.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The metaplectic square is cτ+d. The glossary’s aτ+b contradicts its defining pair and fails already at the identity.
 
 ### E211: misprint
 
@@ -20465,7 +20466,7 @@ Checked versions or searches:
 - https://arxiv.org/abs/0707.0718, 2026-10-06: the submission history lists v1 only.
 - The published version (Modular Forms on Schiermonnikoog, Cambridge University Press, 2008) was not obtained, so the finding is scoped to the arXiv text; no errata list was looked for beyond the arXiv page.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The strengthened discriminant inequality belongs to Fourier-growth condition(ii), whereas(i) is the action law. The inspected sentence names(i); the missing group variable in that action law is also specified in the correction.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The strict discriminant inequality strengthens Fourier condition (ii), not action condition (i); the group variable is also missing from that action display.
 
 ### E212: misprint
 
@@ -20486,7 +20487,7 @@ Checked versions or searches:
 - https://arxiv.org/abs/0707.0718, 2026-10-06: the submission history lists v1 only.
 - The published version (Modular Forms on Schiermonnikoog, Cambridge University Press, 2008) was not obtained, so the finding is scoped to the arXiv text; no errata list was looked for beyond the arXiv page.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The inspected action applies χ to z∈ℂ instead of to g in the group. The surrounding one-dimensional representation construction requires scalar multiplication χ(g)z.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. A one-dimensional representation acts as χ(g)z. Applying χ to the complex vector z is a type error.
 
 ### E626: error
 
@@ -20507,7 +20508,7 @@ Checked versions or searches:
 - the MPIM author-hosted published PDF, rendered pp.103–104
 - Public search for Lawrence–Zagier errata, the integral coefficient and erfc normalization; author publication page and publisher/author paper results inspected. No correction found in the inspected results.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. The vertical integral of n exp(2πin²w/120)(w−z)^{−1/2} at z=x−iy is √60 e^{iπ/4} exp(2πin²z/120) erfc(n√(πy/30)). Thus the printed coefficient introduces the factor 2√2 i; the corrected coefficient makes every Fourier term have multiplier 1. At x=0 the intended boundary value of Θ̃₊ is 2, so property(i) also detects the discrepancy.
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. Integrating a single theta term vertically gives √60 exp(iπ/4) times its positive-phase erfc term. The coefficient (60i)^(−1/2) normalizes it to 1; the printed coefficient instead introduces 2√2 i.
 
 ### E627: misprint
 
@@ -20528,7 +20529,28 @@ Checked versions or searches:
 - the MPIM author-hosted published PDF, rendered pp.103–104
 - Public search for Lawrence–Zagier errata, the integral coefficient and erfc normalization; author publication page and publisher/author paper results inspected. No correction found in the inspected results.
 
-Inherited review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~2`. Substitution w=z+iu in (17), or the upper incomplete gamma computation, preserves the positive Fourier phase exp(2πin² Re z/120). The gamma argument is πn²|Im z|/30. This also makes exponential growth of q^{n²/120} cancel the erfc decay. The printed argument also has n and π under the wrong scaling and uses y<0 under a real square root; the correct real erfc argument is n√(π|y|/30).
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The same substitution retains exp(2πin²z/120) and produces gamma argument πn²|Im z|/30. Hence the real erfc argument is n√(π|Im z|/30), with no negative Fourier phase.
+
+### E628: error
+
+[folsom-ono-rhoades](#reference-folsom-ono-rhoades), Published PDF, §3.2, Theorem 3.2 and Proposition 3.3, printed pp.19–20; compare Theorem 1.2, p.6.
+
+**Source claim.** The local asymptotic statements assume positive reduced a/b and h/k with b dividing k, but impose no nontrivial-fraction bound on a/b.
+
+**Corrected contract.** Use 1 ≤ a < b and 1 ≤ h < k, with both fractions reduced, as in the main theorem. In particular b ≥ 2, and 1−ζ_b^(ah′) is nonzero.
+
+**Reason.** The printed hypotheses allow a=b=1 and h=1,k=2,h′=1. Then (ζ_b^a−1)/(1−ζ_b^(ah′)) is 0/0, while the displayed μ has a lattice pole. The nontrivial-fraction restriction removes this counterexample; it is already present in the main theorem.
+
+**Published correction or search result.** none found in the inspected publisher/author results
+
+Affected targets: a stated result.
+
+Checked versions or searches:
+
+- Publisher open-access PDF DOI 10.1017/fmp.2013.3, Theorem 1.2 and §3.2–3.3
+- Public searches for the paper title with Theorem 3.2/correction and Folsom Ono Rhoades erratum quantum modular; no correction found in the inspected results.
+
+Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The allowed case a=b=1,h=1,k=2,h′=1 makes the displayed root ratio undefined and puts μ at its lattice pole. The main theorem’s 1≤a<b guard supplies the intended scope.
 
 ## References and reading scope
 
@@ -20540,7 +20562,7 @@ Source identities, public URLs and byte hashes identify the versions used. Readi
 
 Wilhelm Fischer, [On Dedekind’s function η(τ)](https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf). Pacific Journal of Mathematics 1 (1951), 83–95; publisher scan accessed 2026-09-27.
 
-SHA-256: `4d76729e008aed5801867d0f4a2be2d26f976ee1e8b83049a8ad01f43bf0dec9`.
+Historical acquisition SHA-256: `4d76729e008aed5801867d0f4a2be2d26f976ee1e8b83049a8ad01f43bf0dec9`.
 
 Reading scope:
 
@@ -20548,13 +20570,15 @@ Reading scope:
 - Printed p.87 (2.7) and pp.89–92 (§3) visually inspected. This checkpoint decomposes only (3.1)–(3.34), including their finite reindexings and the parity comparison with (2.7).
 - The general Gauss evaluations (3.41)–(3.47), subsequent H-evaluations and the §4 multiplier identification are not declared decomposed.
 
+Independent review receipt (20 October 2026): [version read](https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `4d76729e008aed5801867d0f4a2be2d26f976ee1e8b83049a8ad01f43bf0dec9`.
+
 <a id="reference-stanley-ec1"></a>
 
 ### stanley-ec1
 
 Richard P. Stanley, [Enumerative Combinatorics, Volume 1, second edition](https://math.mit.edu/~rstan/ec/ec1.pdf). The author's freely posted PDF of the second edition (725 pages; its page numbers, which are cited here, differ from the Cambridge printing by about 22 pages in Chapter 1), read 2026-09-24.
 
-SHA-256: `f669d7b0d78730b7c812794a437fb6a78e0c182c10dfd520bc26d627cf45a1d5`.
+Historical acquisition SHA-256: `f669d7b0d78730b7c812794a437fb6a78e0c182c10dfd520bc26d627cf45a1d5`.
 
 Reading scope:
 
@@ -20564,17 +20588,21 @@ Reading scope:
 - Section 1.8, pp. 68-78: (1.76), (1.77), Propositions 1.8.1-1.8.7, (1.81)-(1.91), the q-binomial theorem (1.87), the pentagonal number formula and the recurrence for p(n), p(20) = 627
 - Exercises 1.82, 1.88, 1.91, 1.100 (pp. 130, 132, 133, 135) and their solutions (pp. 186-190); formulas checked on the page images
 
+Independent review receipt (20 October 2026): [version read](https://math.mit.edu/~rstan/ec/ec1.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `f669d7b0d78730b7c812794a437fb6a78e0c182c10dfd520bc26d627cf45a1d5`.
+
 <a id="reference-stanley-ec1-errata"></a>
 
 ### stanley-ec1-errata
 
 Richard P. Stanley, [Errata for Enumerative Combinatorics, vol. 1, 2nd ed., 2012](https://math.mit.edu/~rstan/ec/errata_2ed.pdf). Version of 17 August 2025 (26 pages; page numbers refer to the Cambridge printing), read 2026-09-24.
 
-SHA-256: `24acc2e500fc91c315360f6de7628f0310d82659f22899938d0ed196e156daa7`.
+Historical acquisition SHA-256: `24acc2e500fc91c315360f6de7628f0310d82659f22899938d0ed196e156daa7`.
 
 Reading scope:
 
 - The entries for printed pages 62-77 and 150-170 (Sections 1.7-1.8 and the solutions to Exercises 1.82-1.100), in particular the entry 'page 166, Exercise 91(d), line 4' (checked on the page image)
+
+Independent review receipt (20 October 2026): [version read](https://math.mit.edu/~rstan/ec/errata_2ed.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `24acc2e500fc91c315360f6de7628f0310d82659f22899938d0ed196e156daa7`.
 
 <a id="reference-gasper-minicourse-1995"></a>
 
@@ -20582,7 +20610,7 @@ Reading scope:
 
 George Gasper, [Lecture notes for an introductory minicourse on q-series](https://arxiv.org/abs/math/9509223). arXiv:math/9509223v1 (25 September 1995; notes dated 19 September 1995), 39 pages.
 
-SHA-256: `ea5f3d8fe15dc47902f4bdf8ad630c7044e495d5c0934d247aa1a81f1be819bb`.
+Historical acquisition SHA-256: `ea5f3d8fe15dc47902f4bdf8ad630c7044e495d5c0934d247aa1a81f1be819bb`.
 
 Reading scope:
 
@@ -20590,17 +20618,21 @@ Reading scope:
 - Section 2 (pp. 8-12): Ramanujan's 1psi1 sum (2.1.9) and Jacobi's triple product identity (2.2.1), read for the statements
 - Section 3.1-3.2 (pp. 12-16): basic hypergeometric notation and the q-gamma function (3.2.3), read for the q-factorial
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/9509223); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `ea5f3d8fe15dc47902f4bdf8ad630c7044e495d5c0934d247aa1a81f1be819bb`.
+
 <a id="reference-andrews-jtp-1965"></a>
 
 ### andrews-jtp-1965
 
 George E. Andrews, [A simple proof of Jacobi's triple product identity](https://www.ams.org/journals/proc/1965-016-02/S0002-9939-1965-0171725-X/S0002-9939-1965-0171725-X.pdf). Proceedings of the American Mathematical Society 16 (1965), 333-334 (doi 10.1090/S0002-9939-1965-0171725-X), publisher scan, free on the AMS site, read 2026-09-24.
 
-SHA-256: `b029d0effa2e6aa0c31ca75235f4f654d8c1e6f35afee9bb848801d11e753aad`.
+Historical acquisition SHA-256: `b029d0effa2e6aa0c31ca75235f4f654d8c1e6f35afee9bb848801d11e753aad`.
 
 Reading scope:
 
 - The whole note (pp. 333-334): the identity, Euler's identities (E1) and (E2), the proof and its closing remark on analytic continuation; formulas checked on the page images
+
+Independent review receipt (20 October 2026): [version read](https://www.ams.org/journals/proc/1965-016-02/S0002-9939-1965-0171725-X/S0002-9939-1965-0171725-X.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `b029d0effa2e6aa0c31ca75235f4f654d8c1e6f35afee9bb848801d11e753aad`.
 
 <a id="reference-ramanujan-pn-1919"></a>
 
@@ -20608,7 +20640,7 @@ Reading scope:
 
 S. Ramanujan, [Some properties of p(n), the number of partitions of n](https://ramanujan.sirinudi.org/%56olumes/published/ram25.pdf). Proceedings of the Cambridge Philosophical Society 19 (1919), 207-210, read in the re-typeset online edition of Ramanujan's Collected Papers (Paper 25, printed pp. 265-268): the PDF of Paper 25 (file ram25.pdf, whose SHA-256 is given) and its HTML version, both linked from the index of published papers at the URL given, read 2026-09-24.
 
-SHA-256: `cf08d1693b4f3979d55d767e947ee62e8e8fcd0b6d5d51afacd4dbc881a54182`.
+Historical acquisition SHA-256: `cf08d1693b4f3979d55d767e947ee62e8e8fcd0b6d5d51afacd4dbc881a54182`.
 
 Reading scope:
 
@@ -20616,17 +20648,21 @@ Reading scope:
 - Sections 2 and 3 (the proofs of p(5m + 4) = 0 (mod 5) and p(7m + 5) = 0 (mod 7), identities (11)-(13)); formulas checked on the page images
 - Section 4, read for the scope (only sketched there)
 
+Independent review receipt (20 October 2026): [version read](https://ramanujan.sirinudi.org/%56olumes/published/ram25.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `cf08d1693b4f3979d55d767e947ee62e8e8fcd0b6d5d51afacd4dbc881a54182`.
+
 <a id="reference-alladi-berkovich-2002"></a>
 
 ### alladi-berkovich-2002
 
 Krishnaswami Alladi and Alexander Berkovich, [New polynomial analogues of Jacobi's triple product and Lebesgue's identities](https://arxiv.org/abs/math/0203094). arXiv:math/0203094v1 (11 March 2002), 19 pages.
 
-SHA-256: `9897e0c1ac96d4bf9038cc97b28f86ddacd5e51c4b7cd68dba4de42c04e8a820`.
+Historical acquisition SHA-256: `9897e0c1ac96d4bf9038cc97b28f86ddacd5e51c4b7cd68dba4de42c04e8a820`.
 
 Reading scope:
 
 - Section 1 (pp. 1-3): Jacobi's triple product (1.1), (1.5), (1.7), MacMahon's polynomial analogue (1.8), the q-binomial coefficients (1.9), the limit (1.10) and Euler's identity (1.11); formulas checked on the page images
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0203094); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `9897e0c1ac96d4bf9038cc97b28f86ddacd5e51c4b7cd68dba4de42c04e8a820`.
 
 <a id="reference-cigler-bressoud-2007"></a>
 
@@ -20634,11 +20670,13 @@ Reading scope:
 
 Johann Cigler, [Simple proofs of Bressoud's and Schur's polynomial versions of the Rogers-Ramanujan identities](https://arxiv.org/abs/math/0701802). arXiv:math/0701802v2, 7 pages.
 
-SHA-256: `577b07bb643713cd080d060a5191a0d2654bd6718ea6069644d79353b20467ec`.
+Historical acquisition SHA-256: `577b07bb643713cd080d060a5191a0d2654bd6718ea6069644d79353b20467ec`.
 
 Reading scope:
 
 - Section 1 (pp. 1-4): identity (1), the recurrences (3) and (5), the proof of Theorem 1 (7), (8), the q-Vandermonde formula (9), (10), Bressoud's identities (11), (12) and the Rogers-Ramanujan identities (13), (14); formulas checked on the page images
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0701802); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `577b07bb643713cd080d060a5191a0d2654bd6718ea6069644d79353b20467ec`.
 
 <a id="reference-zhu-semifinite-2021"></a>
 
@@ -20646,11 +20684,13 @@ Reading scope:
 
 Jun-Ming Zhu, [A semi-finite proof of Jacobi's triple product identity](https://arxiv.org/abs/2106.16156). arXiv:2106.16156v1 (29 June 2021; published in the American Mathematical Monthly 2015), 2 pages.
 
-SHA-256: `0185024f457ac5d691b1b7366672205df0a83e90014730084e10c0b1ac8d9f5d`.
+Historical acquisition SHA-256: `0185024f457ac5d691b1b7366672205df0a83e90014730084e10c0b1ac8d9f5d`.
 
 Reading scope:
 
 - The whole note: Theorem 1.1, Euler's identities (1.2) and the semi-finite identity (2.1)
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/2106.16156); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `0185024f457ac5d691b1b7366672205df0a83e90014730084e10c0b1ac8d9f5d`.
 
 <a id="reference-rosengren-rr-2024"></a>
 
@@ -20658,11 +20698,13 @@ Reading scope:
 
 Hjalmar Rosengren, [A New (But Very Nearly Old) Proof of the Rogers-Ramanujan Identities](https://arxiv.org/abs/2212.02355). arXiv:2212.02355v3 (2 July 2024), the arXiv version of SIGMA 20 (2024), 059.
 
-SHA-256: `106b2ee4db8527e0bb2308842c05c2b3c41cce93f4cf66a29d17a29e05f166e7`.
+Historical acquisition SHA-256: `106b2ee4db8527e0bb2308842c05c2b3c41cce93f4cf66a29d17a29e05f166e7`.
 
 Reading scope:
 
 - Sections 1-2 (pp. 1-6): the identities (1.1a), (1.1b), the q-shifted factorial convention, Euler's identity (2.1) and Jacobi's identity (2.2), the formal-or-analytic remark, and the proof (read for comparison with Cigler's route)
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/2212.02355); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `106b2ee4db8527e0bb2308842c05c2b3c41cce93f4cf66a29d17a29e05f166e7`.
 
 <a id="reference-zwegers-thesis"></a>
 
@@ -20670,7 +20712,7 @@ Reading scope:
 
 S. Zwegers, [Mock Theta Functions (PhD thesis, Utrecht 2002)](https://arxiv.org/abs/0807.4834). arXiv:0807.4834v1 (30 July 2008), read 24 September 2026.
 
-SHA-256: `ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d`.
+Historical acquisition SHA-256: `ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d`.
 
 Reading scope:
 
@@ -20687,13 +20729,15 @@ Reading scope:
 
 Revision 3 receipt: Revision-3 target comparisons: Proposition3.11 and proof p.60 (with a direct growth-free proof supplied in the node); Proposition3.12 and displayed data pp.60–62; Lemma4.8 and Remark4.9 pp.72–73; F5,2/H5,2 data and Proposition4.13–4.14 displays pp.79–83. This is not a fresh full-thesis or full-proof collation. SHA-256 `ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/0807.4834v1); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `ca2b841ad716a16eb380893e6686f67f65e5506a9375de7a3c8f96ec58e8280d`.
+
 <a id="reference-dmz-quantum-black-holes"></a>
 
 ### dmz-quantum-black-holes
 
 A. Dabholkar, S. Murthy, D. Zagier, [Quantum Black Holes, Wall Crossing, and Mock Modular Forms](https://arxiv.org/abs/1208.4074). arXiv:1208.4074v2, read 24 September 2026; heat continuation reread 27 September 2026.
 
-SHA-256: `7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213`.
+Historical acquisition SHA-256: `7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213`.
 
 Reading scope:
 
@@ -20704,13 +20748,15 @@ Reading scope:
 - Fresh heat continuation, 27 September 2026: physical PDF pp.20–21 (printed19–20), pp.24–29 (printed23–28), extracted in batches of at most three physical pages. Includes (3.7), all of §4.1, §4.2 through (4.18), and §4.3 through (4.30)/Table1. The source identity (4.12) is decomposed independently; this does not claim to have read Eichler–Zagier or the entire 153-page PDF.
 - Index-raising continuation, 27 September 2026: physical PDF pp.24–26 and30–33 (printed pp.23–25 and29–32), batches of at most three pages; §4.4 read in full for operator and growth context, with physical pp.30 and32 visually checked. Only (4.36) and its direct consequences are decomposed here. E208 is scoped to the unrestricted elliptic-form paragraph on printed p.31 in arXiv v2; no published expanded-book text was acquired.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/1208.4074); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213`.
+
 <a id="reference-kong-teo-eta"></a>
 
 ### kong-teo-eta
 
 Z.-Y. Kong, L.-P. Teo, [An Elementary Proof of the Transformation Formula for the Dedekind Eta Function](https://arxiv.org/abs/2302.03280). arXiv:2302.03280v1 (7 February 2023), read 24 September 2026.
 
-SHA-256: `36407e362a6b734c93a0f006544e1cf6cb2103787a5c72f5e0dcf0d2b9e87f69`.
+Historical acquisition SHA-256: `36407e362a6b734c93a0f006544e1cf6cb2103787a5c72f5e0dcf0d2b9e87f69`.
 
 Reading scope:
 
@@ -20721,13 +20767,15 @@ Reading scope:
 - §6 Dedekind sums, (6.1), Lemmas 6.1–6.4, Theorem 6.5 (pp. 12–16)
 - §7 Theorem 7.1 and its proof (pp. 16–19)
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/2302.03280); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `36407e362a6b734c93a0f006544e1cf6cb2103787a5c72f5e0dcf0d2b9e87f69`.
+
 <a id="reference-savitt-newman"></a>
 
 ### savitt-newman
 
 D. Savitt, [An elementary proof of Newman's eta-quotient theorem](https://arxiv.org/abs/2507.16225). arXiv:2507.16225v1 (22 July 2025), read 24 September 2026.
 
-SHA-256: `9a6143851f3affac369e07632fe557aa74a6696beebbfe58129d32cbb95055e0`.
+Historical acquisition SHA-256: `9a6143851f3affac369e07632fe557aa74a6696beebbfe58129d32cbb95055e0`.
 
 Reading scope:
 
@@ -20740,6 +20788,8 @@ Reading scope:
 
 Revision 3 receipt: AppendixA, DefinitionA.1 and its immediate conventions, printed p.11: negative odd denominator and the exceptional (0/−1) value. SHA-256 `9a6143851f3affac369e07632fe557aa74a6696beebbfe58129d32cbb95055e0`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/2507.16225); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `9a6143851f3affac369e07632fe557aa74a6696beebbfe58129d32cbb95055e0`.
+
 <a id="reference-matsuda-theta-group"></a>
 
 ### matsuda-theta-group
@@ -20750,6 +20800,8 @@ Reading scope:
 
 - §1 Introduction: Γθ, modular forms of weight r with multiplier system (pp. 1–2)
 - §2 The multiplier system of η(τ), (2.1) (p. 2)
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/2602.22471); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `a52cecc7dafc56fd798caee1299285397890d742ecac823685a5577e1b4ccd97`.
 
 <a id="reference-andersen-anderson-woodall"></a>
 
@@ -20762,13 +20814,15 @@ Reading scope:
 - §2 The exponential sum identity: νθ on Γ0(4) and νη on SL2(Z) (pp. 2–3)
 - §3.2 The Weil representation: Mp2(Z), ρL, (3.2)–(3.5) (pp. 7–8)
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/2309.08528); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `dc5498f3a64701b8a059a59e5b0ba971f23a566379090bd67c02717e5829aebe`.
+
 <a id="reference-kong-teo-rademacher-2023"></a>
 
 ### kong-teo-rademacher-2023
 
 Ze-Yong Kong, Lee-Peng Teo, [Rademacher's formula for the partition function](https://arxiv.org/abs/2302.03835). arXiv:2302.03835v1 (8 February 2023), read 2026-09-24.
 
-SHA-256: `609b0d87cda458f2bc32116a0e47e935f02a63f413c3ffef82c38aa5c1751fac`.
+Historical acquisition SHA-256: `609b0d87cda458f2bc32116a0e47e935f02a63f413c3ffef82c38aa5c1751fac`.
 
 Reading scope:
 
@@ -20777,18 +20831,22 @@ Reading scope:
 - §3 (Theorem 3.1, Lemma 3.2, Theorem 3.3, Remark 3.4)
 - §4 (Theorem 4.1, Lemmas 4.2–4.3)
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/2302.03835); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `609b0d87cda458f2bc32116a0e47e935f02a63f413c3ffef82c38aa5c1751fac`.
+
 <a id="reference-hardy-ramanujan-1918"></a>
 
 ### hardy-ramanujan-1918
 
 G. H. Hardy, S. Ramanujan, [Asymptotic formulæ in combinatory analysis](https://ramanujan.sirinudi.org/%56olumes/published/ram36.pdf). Proc. London Math. Soc. (2) 17 (1918) 75–115; read in the retypeset Collected Papers of Srinivasa Ramanujan, Paper 36 (pp. 341–378), the PDF linked as paper 36 from the listing at the url; read 2026-09-24.
 
-SHA-256: `f6cba2b0da5c58ad3c784f717d98dbf68a4a8df9f26eeb7097a334328eca7df3`.
+Historical acquisition SHA-256: `f6cba2b0da5c58ad3c784f717d98dbf68a4a8df9f26eeb7097a334328eca7df3`.
 
 Reading scope:
 
 - §1 (introduction, main theorem (1.71)–(1.75), numerical tables)
 - §§2–3 (elementary bounds and the Tauberian determination of the constant)
+
+Independent review receipt (20 October 2026): [version read](https://ramanujan.sirinudi.org/%56olumes/published/ram36.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `f6cba2b0da5c58ad3c784f717d98dbf68a4a8df9f26eeb7097a334328eca7df3`.
 
 <a id="reference-rademacher-1940-bams"></a>
 
@@ -20796,11 +20854,13 @@ Reading scope:
 
 Hans Rademacher, [Fourier expansions of modular forms and problems of partition](https://www.ams.org/journals/bull/1940-46-02/S0002-9904-1940-07129-0/). Bull. Amer. Math. Soc. 46 (1940) 59–73, read 2026-09-24.
 
-SHA-256: `4cee9a60907e547bdaae4129d74afa21e41be07b9ba21670839b8eea9bf09226`.
+Historical acquisition SHA-256: `4cee9a60907e547bdaae4129d74afa21e41be07b9ba21670839b8eea9bf09226`.
 
 Reading scope:
 
 - pp. 59–67 (generating function, transformation (6), formulas (7)–(10), generalized Kloosterman sums and the trivial bound)
+
+Independent review receipt (20 October 2026): [version read](https://www.ams.org/journals/bull/1940-46-02/S0002-9904-1940-07129-0/S0002-9904-1940-07129-0.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `4cee9a60907e547bdaae4129d74afa21e41be07b9ba21670839b8eea9bf09226`.
 
 <a id="reference-lehmer-1938-tams"></a>
 
@@ -20808,12 +20868,14 @@ Reading scope:
 
 D. H. Lehmer, [On the series for the partition function](https://www.ams.org/journals/tran/1938-043-02/S0002-9947-1938-1501943-5/). Trans. Amer. Math. Soc. 43 (1938) 271–295, read 2026-09-24.
 
-SHA-256: `622434b2d3b75b1e3c2388203ad4fd1a6969902b414efbfef10a5bd2eebb2726`.
+Historical acquisition SHA-256: `622434b2d3b75b1e3c2388203ad4fd1a6969902b414efbfef10a5bd2eebb2726`.
 
 Reading scope:
 
 - §1 (definitions (1.2)–(1.16))
 - §2 (multiplication Theorems 1–3)
+
+Independent review receipt (20 October 2026): [version read](https://www.ams.org/journals/tran/1938-043-02/S0002-9947-1938-1501943-5/S0002-9947-1938-1501943-5.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `622434b2d3b75b1e3c2388203ad4fd1a6969902b414efbfef10a5bd2eebb2726`.
 
 <a id="reference-lehmer-1939-tams"></a>
 
@@ -20821,12 +20883,14 @@ Reading scope:
 
 D. H. Lehmer, [On the remainders and convergence of the series for the partition function](https://www.ams.org/journals/tran/1939-046-00/S0002-9947-1939-0000410-9/). Trans. Amer. Math. Soc. 46 (1939) 362–373, read 2026-09-24.
 
-SHA-256: `273787759f715323ddff15bb501130b348af5e319c295cfd6ba888a3d4b9ba5a`.
+Historical acquisition SHA-256: `273787759f715323ddff15bb501130b348af5e319c295cfd6ba888a3d4b9ba5a`.
 
 Reading scope:
 
 - §1 (formulas (1)–(13), Rademacher's estimate (7))
 - §§2–3 (Lemmas 1–3, Theorems 1–4)
+
+Independent review receipt (20 October 2026): [version read](https://www.ams.org/journals/tran/1939-046-00/S0002-9947-1939-0000410-9/S0002-9947-1939-0000410-9.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `273787759f715323ddff15bb501130b348af5e319c295cfd6ba888a3d4b9ba5a`.
 
 <a id="reference-whiteman-1956-pjm"></a>
 
@@ -20834,7 +20898,7 @@ Reading scope:
 
 Albert Leon Whiteman, [A sum connected with the series for the partition function](https://msp.org/pjm/1956/6-1/p18.xhtml). Pacific J. Math. 6 (1956) 159–176, read 2026-09-24.
 
-SHA-256: `63e5dcb988fbdef2e9fa486395f202fc75923df0d4551f1faff751018ba4b391`.
+Historical acquisition SHA-256: `63e5dcb988fbdef2e9fa486395f202fc75923df0d4551f1faff751018ba4b391`.
 
 Reading scope:
 
@@ -20843,19 +20907,23 @@ Reading scope:
 - §6 (Theorems 5–7, statements)
 - 2026-09-27 continuation: extracted text of pp.159–176 inspected, with pp.167–168 and 172 visually checked for Theorem 1, Corollary 1, and the Theorem 5 root-count assertion. Sections 2–4 are not claimed source-decomposed: their equation collation and Fischer H-sum input remain a named gap.
 
+Independent review receipt (20 October 2026): [version read](https://msp.org/pjm/1956/6-1/pjm-v6-n1-p18-s.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `63e5dcb988fbdef2e9fa486395f202fc75923df0d4551f1faff751018ba4b391`.
+
 <a id="reference-pribitkin-williams-2019"></a>
 
 ### pribitkin-williams-2019
 
 Wladimir de Azevedo Pribitkin, Brandon Williams, [Short proof of Rademacher's formula for partitions](https://arxiv.org/abs/1801.06244). arXiv:1801.06244v3 (17 November 2018); Res. Number Theory 5 (2019) Paper 17; read 2026-09-24.
 
-SHA-256: `5fe84bfad0ecbf218262e820b496c7b3e602cbde7985a447d772d32798a739fb`.
+Historical acquisition SHA-256: `5fe84bfad0ecbf218262e820b496c7b3e602cbde7985a447d772d32798a739fb`.
 
 Reading scope:
 
 - §1 (Theorem 1)
 - §2 (Lemma 2, Lemma 3)
 - §3 (Theorem 4)
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/1801.06244); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `5fe84bfad0ecbf218262e820b496c7b3e602cbde7985a447d772d32798a739fb`.
 
 <a id="reference-dlmf-chapter-10"></a>
 
@@ -20876,17 +20944,21 @@ Reading scope:
 - §10.40
 - §10.9(ii) (10.9.19)
 
+Independent review receipt (20 October 2026): [version read](https://dlmf.nist.gov/10); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation.
+
 <a id="reference-borcherds-gkz-1999"></a>
 
 ### borcherds-gkz-1999
 
 Richard E. Borcherds, [The Gross–Kohnen–Zagier theorem in higher dimensions](https://arxiv.org/abs/alg-geom/9710002v3). arXiv:alg-geom/9710002v3; Duke Math. J. 97 (1999) 219–233, correction Duke Math. J. 105 (2000) 183–184.
 
-SHA-256: `0a7a76a69aa2532534b72d97a1bb9fad89cab8167f1449dad0363510feb2fc5d`.
+Historical acquisition SHA-256: `0a7a76a69aa2532534b72d97a1bb9fad89cab8167f1449dad0363510feb2fc5d`.
 
 Reading scope:
 
 - §3 Serre duality: Sing, PowSer, the residue pairing, Theorem 3.1 and its proof
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/alg-geom/9710002v3); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `0a7a76a69aa2532534b72d97a1bb9fad89cab8167f1449dad0363510feb2fc5d`.
 
 <a id="reference-bruinier-funke-2004"></a>
 
@@ -20894,12 +20966,14 @@ Reading scope:
 
 Jan Hendrik Bruinier, Jens Funke, [On two geometric theta lifts](https://arxiv.org/abs/math/0212286v4). arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90.
 
-SHA-256: `9094db44c13fde548a576dfcb4bd04cd25b4563153ea1457afd45961fd1c67a8`.
+Historical acquisition SHA-256: `9094db44c13fde548a576dfcb4bd04cd25b4563153ea1457afd45961fd1c67a8`.
 
 Reading scope:
 
 - §2 Basic notations (Weil representation setting)
 - §3 Weak Maass forms: definition, Fourier expansion (3.2), R_k, L_k, (3.3), Lemma 3.1, Prop. 3.2, H^+, principal part (3.6), Lemmas 3.3, 3.4, pairing (3.9), Prop. 3.5, Thm 3.6, Thm 3.7 with proof, (3.12)–(3.14), Cor. 3.8, (3.15), M^!!, Cor. 3.9, Remark 3.10, Prop. 3.11
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0212286v4); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `9094db44c13fde548a576dfcb4bd04cd25b4563153ea1457afd45961fd1c67a8`.
 
 <a id="reference-bruinier-ono-rhoades-2008"></a>
 
@@ -20907,7 +20981,7 @@ Reading scope:
 
 Jan H. Bruinier, Ken Ono, Robert C. Rhoades, [Differential operators for harmonic weak Maass forms and the vanishing of Hecke eigenvalues](https://arxiv.org/abs/0802.0963v3). arXiv:0802.0963v3 (26 January 2009); published in Math. Ann. 342 (2008), 673–693; v1, v2 compared for the introduction.
 
-SHA-256: `1fdf717bcf80c8eb24d9fb6fe64c970fef114facadc172c92c73b44d704b79cd`.
+Historical acquisition SHA-256: `1fdf717bcf80c8eb24d9fb6fe64c970fef114facadc172c92c73b44d704b79cd`.
 
 Reading scope:
 
@@ -20921,6 +20995,8 @@ Reading scope:
 - Revision3, 2026-10-20: Lemma2.1 and proof of Theorem1.1 pp.7–8; §6, (6.7), Proposition6.2 and Remark12 pp.15–16: positive index and corrected seed normalization. No new complete-source verification is claimed.
 
 Revision 3 receipt: Lemma2.1 and proof of Theorem1.1 pp.7–8; §6, (6.7), Proposition6.2 and Remark12 pp.15–16: positive index and corrected seed normalization. No new complete-source verification is claimed. SHA-256 `1fdf717bcf80c8eb24d9fb6fe64c970fef114facadc172c92c73b44d704b79cd`.
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/0802.0963v3); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `1fdf717bcf80c8eb24d9fb6fe64c970fef114facadc172c92c73b44d704b79cd`.
 
 <a id="reference-dlmf-incomplete-gamma"></a>
 
@@ -20937,17 +21013,21 @@ Reading scope:
 - §8.11 (8.11.2)
 - §13.14 (13.14.2)
 
+Independent review receipt (20 October 2026): [version read](https://dlmf.nist.gov/8.2); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation.
+
 <a id="reference-lewis-zagier-2001"></a>
 
 ### lewis-zagier-2001
 
 J. Lewis, D. Zagier, [Period functions for Maass wave forms. I](https://arxiv.org/abs/math/0101270v1). arXiv:math/0101270v1; Ann. of Math. 153 (2001) 191–258.
 
-SHA-256: `2e21de5883d6498753d905c074b3897aa0f931d1c51b916d6a37c868ea9a5efa`.
+Historical acquisition SHA-256: `2e21de5883d6498753d905c074b3897aa0f931d1c51b916d6a37c868ea9a5efa`.
 
 Reading scope:
 
 - Chapter IV §4, (4.13)–(4.16): Bol's identity and the formula for ∂^n_h
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0101270v1); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `2e21de5883d6498753d905c074b3897aa0f931d1c51b916d6a37c868ea9a5efa`.
 
 <a id="reference-zagier-qmf"></a>
 
@@ -20955,7 +21035,7 @@ Reading scope:
 
 D. Zagier, [Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf). In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24.
 
-SHA-256: `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf`.
+Historical acquisition SHA-256: `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf`.
 
 Reading scope:
 
@@ -20965,13 +21045,15 @@ Reading scope:
 
 Revision 3 receipt: Definition discussion p.1 and Examples3–4 pp.10–11: scalar quantum discrepancy, strange-series and WRT ownership. The page-10 sequential asymptotic is not treated as a proof of smoothness. SHA-256 `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf`.
 
+Independent review receipt (20 October 2026): [version read](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `2ee0a69a2ffdd0f7611178fb79a15b5c130f324623640ed7557920435284f0bf`.
+
 <a id="reference-zagier-strange"></a>
 
 ### zagier-strange
 
 D. Zagier, [Vassiliev invariants and a strange identity related to the Dedekind eta-function](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383(00)00005-7/fulltext.pdf). Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24.
 
-SHA-256: `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e`.
+Historical acquisition SHA-256: `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e`.
 
 Reading scope:
 
@@ -20984,13 +21066,15 @@ Reading scope:
 
 Revision 3 receipt: §2 pp.950–952 and §6 pp.958–959 target displays and stated proof boundary; OCR is unreliable for this scan. Branch consistency is calculated explicitly in the packet; no new full equation collation is claimed. SHA-256 `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e`.
 
+Independent review receipt (20 October 2026): [version read](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383(00)00005-7/fulltext.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `b95519fb3cb8cd36097988af2ec37549a8b7bdef03f6909dcad6c50a2b06815e`.
+
 <a id="reference-lawrence-zagier"></a>
 
 ### lawrence-zagier
 
 R. Lawrence, D. Zagier, [Modular forms and quantum invariants of 3-manifolds](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf). Asian J. Math. 3 (1999) 93–108; published PDF from the author's MPIM page, read 2026-09-24.
 
-SHA-256: `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543`.
+Historical acquisition SHA-256: `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543`.
 
 Reading scope:
 
@@ -21001,18 +21085,22 @@ Reading scope:
 
 Revision 3 receipt: §4, (15)–(17) and properties(i)–(ii), printed pp.102–104: exact theta data, Eichler normalization, Fourier-phase correction and the limits of the sketched proof. SHA-256 `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543`.
 
+Independent review receipt (20 October 2026): [version read](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `10bbd2821a7f0897230687fde5e16322be58e8a6c3ea5f47d6de4cad180fd543`.
+
 <a id="reference-zagier-traces"></a>
 
 ### zagier-traces
 
 D. Zagier, [Traces of singular moduli](https://people.mpim-bonn.mpg.de/zagier/files/tex/TracesSingModuli/fulltext.pdf). In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24.
 
-SHA-256: `50b78d2c73116fa8c3cd2e01913dc552ccaf2c956c38a5cec1c28141570f29a6`.
+Historical acquisition SHA-256: `50b78d2c73116fa8c3cd2e01913dc552ccaf2c956c38a5cec1c28141570f29a6`.
 
 Reading scope:
 
 - Introduction and §§1–4 (pp. 1–6)
 - §5 statement of Borcherds's theorem (pp. 6–8), not decomposed
+
+Independent review receipt (20 October 2026): [version read](https://people.mpim-bonn.mpg.de/zagier/files/tex/TracesSingModuli/fulltext.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `50b78d2c73116fa8c3cd2e01913dc552ccaf2c956c38a5cec1c28141570f29a6`.
 
 <a id="reference-bringmann-rolen-eichler"></a>
 
@@ -21020,7 +21108,7 @@ Reading scope:
 
 K. Bringmann, L. Rolen, [Half-integral weight Eichler integrals and quantum modular forms](https://arxiv.org/abs/1409.3781v4). arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read.
 
-SHA-256: `c3042500a66dedbe45b80b7117ac4ee230a730eb6d66a9c949a7b89e037fcc5d`.
+Historical acquisition SHA-256: `c3042500a66dedbe45b80b7117ac4ee230a730eb6d66a9c949a7b89e037fcc5d`.
 
 Reading scope:
 
@@ -21029,17 +21117,21 @@ Reading scope:
 
 Revision 3 receipt: §3, Lemma3.2 and (3.6)–(3.18), pp.8–10: the Mellin integral and residue target. The packet now gives direct incomplete-beta continuation and Euler-integral comparison proofs, without an ordinary-hypergeometric boundary evaluation. SHA-256 `c3042500a66dedbe45b80b7117ac4ee230a730eb6d66a9c949a7b89e037fcc5d`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/1409.3781v4); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `c3042500a66dedbe45b80b7117ac4ee230a730eb6d66a9c949a7b89e037fcc5d`.
+
 <a id="reference-bringmann-rolen-radial"></a>
 
 ### bringmann-rolen-radial
 
 K. Bringmann, L. Rolen, [Radial limits of mock theta functions](https://arxiv.org/abs/1409.3782v4). arXiv:1409.3782v4 (25 July 2015), read 2026-09-24.
 
-SHA-256: `983a6eef3207fc48d5d34941547d028b31dc100b3e0ea75e76ebf708f228f914`.
+Historical acquisition SHA-256: `983a6eef3207fc48d5d34941547d028b31dc100b3e0ea75e76ebf708f228f914`.
 
 Reading scope:
 
 - §1 (pp. 1–5)
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/1409.3782v4); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `983a6eef3207fc48d5d34941547d028b31dc100b3e0ea75e76ebf708f228f914`.
 
 <a id="reference-folsom-ono-rhoades"></a>
 
@@ -21047,7 +21139,7 @@ Reading scope:
 
 A. Folsom, K. Ono, R. C. Rhoades, [Mock theta functions and quantum modular forms](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E5B26EC3C0DC7D16CD0D6C2AEB53C063/S2050508613000036a.pdf/mock-theta-functions-and-quantum-modular-forms.pdf). Forum of Mathematics, Pi 1 (2013), e2, 27 pp.; published open-access PDF (CC BY 3.0), read 2026-09-24.
 
-SHA-256: `3576327555b02eaeb499d063557808d2f7173c5f4b89a97b591f9bee1b3853e5`.
+Historical acquisition SHA-256: `3576327555b02eaeb499d063557808d2f7173c5f4b89a97b591f9bee1b3853e5`.
 
 Reading scope:
 
@@ -21055,17 +21147,21 @@ Reading scope:
 - §3.1–3.2 (pp. 16–20)
 - §3.3 structure of the proof of Theorem 3.2 (pp. 20–22)
 
+Independent review receipt (20 October 2026): [version read](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E5B26EC3C0DC7D16CD0D6C2AEB53C063/S2050508613000036a.pdf/mock-theta-functions-and-quantum-modular-forms.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `1562f6cacc72f03fa4be82656ff6e73bbcac6b677db49058a01941e9055b68cf`.
+
 <a id="reference-andrews-garvan-1988"></a>
 
 ### andrews-garvan-1988
 
-G. E. Andrews, F. G. Garvan, [Dyson's crank of a partition](https://qseries.org/fgarvan/papers/dysoncrank). Bull. Amer. Math. Soc. (N.S.) 18 (1988) 167–171; scanned pages hosted by F. Garvan (five one-page PDFs; the hash is of page 1), read 2026-09-24.
+G. E. Andrews, F. G. Garvan, [Dyson's crank of a partition](https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p1.pdf). Bull. Amer. Math. Soc. (N.S.) 18 (1988) 167–171; scanned pages hosted by F. Garvan (five one-page PDFs; the hash is of page 1), read 2026-09-24.
 
-SHA-256: `f3a0e42b723efe949d80a4a564c638a57d0267e023816b6e2eb31e8dd751cceb`.
+Historical acquisition SHA-256: `f3a0e42b723efe949d80a4a564c638a57d0267e023816b6e2eb31e8dd751cceb`.
 
 Reading scope:
 
 - complete (pp. 167–171)
+
+Independent review receipt (20 October 2026): [version read](https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p1.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `f3a0e42b723efe949d80a4a564c638a57d0267e023816b6e2eb31e8dd751cceb`. The author-hosted scan is split into five page files; [p.167](https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p1.pdf), [p.168](https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p2.pdf), [p.169](https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p3.pdf), [p.170](https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p4.pdf), [p.171](https://qseries.org/fgarvan/papers/dysoncrank/dysoncrank_p5.pdf). Cited mathematics on pp.167–170 was checked; all five page hashes are in the packet.
 
 <a id="reference-garvan-urbana"></a>
 
@@ -21073,11 +21169,13 @@ Reading scope:
 
 F. G. Garvan, [Combinatorial interpretations of Ramanujan's partition congruences](https://qseries.org/fgarvan/papers/urbana.pdf). In Ramanujan Revisited (Urbana-Champaign 1987), Academic Press 1988, 29–45; the author's preprint version, read 2026-09-24.
 
-SHA-256: `56b256e38f1615840ef33289ad20ae09bd4dc08098c9be81c588e1f0269056a6`.
+Historical acquisition SHA-256: `56b256e38f1615840ef33289ad20ae09bd4dc08098c9be81c588e1f0269056a6`.
 
 Reading scope:
 
 - complete (pp. 29–45)
+
+Independent review receipt (20 October 2026): [version read](https://qseries.org/fgarvan/papers/urbana.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `56b256e38f1615840ef33289ad20ae09bd4dc08098c9be81c588e1f0269056a6`.
 
 <a id="reference-zagier-mellin"></a>
 
@@ -21085,12 +21183,14 @@ Reading scope:
 
 D. Zagier, [The Mellin transform and other useful analytic techniques](https://people.mpim-bonn.mpg.de/zagier/files/tex/MellinTransform/fulltext.pdf). Appendix to E. Zeidler, Quantum Field Theory I: Basics in Mathematics and Physics, Springer 2006, 305–323; author's PDF (paginated 1–16), read 2026-09-24.
 
-SHA-256: `c6b15cb06bd22d740febd77c1627701b55658edf4e9dfdc74fe7980b8696d622`.
+Historical acquisition SHA-256: `c6b15cb06bd22d740febd77c1627701b55658edf4e9dfdc74fe7980b8696d622`.
 
 Reading scope:
 
 - §1 (pp. 1–2)
 - §4 Asymptotics of sums Σ f(nt), Proposition 3 and extensions (pp. 11–14)
+
+Independent review receipt (20 October 2026): [version read](https://people.mpim-bonn.mpg.de/zagier/files/tex/MellinTransform/fulltext.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `c6b15cb06bd22d740febd77c1627701b55658edf4e9dfdc74fe7980b8696d622`.
 
 <a id="reference-borcherds1992"></a>
 
@@ -21098,7 +21198,7 @@ Reading scope:
 
 R. E. Borcherds, [Monstrous moonshine and monstrous Lie superalgebras](https://math.berkeley.edu/~reb/papers/monster/monster.pdf). Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy.
 
-SHA-256: `dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501`.
+Historical acquisition SHA-256: `dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501`.
 
 Reading scope:
 
@@ -21115,13 +21215,15 @@ Reading scope:
 
 Revision 3 receipt: §1 pp.2–3 and §3 p.13: the conformal-degree shift, normalized Hauptmodul product, and invariant-form/Cartan-involution conventions. No full moonshine proof read in this revision. SHA-256 `dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501`.
 
+Independent review receipt (20 October 2026): [version read](https://math.berkeley.edu/~reb/papers/monster/monster.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501`.
+
 <a id="reference-borcherds1986"></a>
 
 ### borcherds1986
 
 R. E. Borcherds, [Vertex algebras, Kac–Moody algebras, and the Monster](https://math.berkeley.edu/~reb/papers/va/va.pdf). Proc. Natl. Acad. Sci. USA 83 (1986) 3068–3071; author's copy (9 pp.).
 
-SHA-256: `822e39a2ec7bd33ad81193b06b7a66ae89abcec43c4cb7974d4bc513c3fce5b5`.
+Historical acquisition SHA-256: `822e39a2ec7bd33ad81193b06b7a66ae89abcec43c4cb7974d4bc513c3fce5b5`.
 
 Reading scope:
 
@@ -21132,13 +21234,15 @@ Reading scope:
 
 Revision 3 receipt: §4, pp.3–4: zero-mode quotient and the absence of an arbitrary-ring 2-torsion alternation proof. The general target remains a gap. SHA-256 `822e39a2ec7bd33ad81193b06b7a66ae89abcec43c4cb7974d4bc513c3fce5b5`.
 
+Independent review receipt (20 October 2026): [version read](https://math.berkeley.edu/~reb/papers/va/va.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `822e39a2ec7bd33ad81193b06b7a66ae89abcec43c4cb7974d4bc513c3fce5b5`.
+
 <a id="reference-borcherds1988"></a>
 
 ### borcherds1988
 
 R. E. Borcherds, [Generalized Kac–Moody algebras](https://math.berkeley.edu/~reb/papers/gkma/gkma.pdf). J. Algebra 115 (1988) 501–512; author's copy (10 pp.).
 
-SHA-256: `8f971b40fae841bb90b02b751f819561c6661f12177c2e2153ddaae86ae45f82`.
+Historical acquisition SHA-256: `8f971b40fae841bb90b02b751f819561c6661f12177c2e2153ddaae86ae45f82`.
 
 Reading scope:
 
@@ -21151,13 +21255,15 @@ Reading scope:
 
 Revision 3 receipt: §2, pp.1–3, including Corollary2.5 and its proof footnote. The general Serre/root-pairing proof is not supplied by the restricted Jurisich theorem and remains a gap. SHA-256 `8f971b40fae841bb90b02b751f819561c6661f12177c2e2153ddaae86ae45f82`.
 
+Independent review receipt (20 October 2026): [version read](https://math.berkeley.edu/~reb/papers/gkma/gkma.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `8f971b40fae841bb90b02b751f819561c6661f12177c2e2153ddaae86ae45f82`.
+
 <a id="reference-jurisich1998"></a>
 
 ### jurisich1998
 
 E. Jurisich, [Generalized Kac–Moody Lie algebras, free Lie algebras and the structure of the Monster Lie algebra](https://arxiv.org/abs/1311.3258). J. Pure Appl. Algebra 126 (1998) 233–266; arXiv:1311.3258v1 (1996 preprint version).
 
-SHA-256: `a806776d30416d6f8ec6e95746ca82e592472c25a4086165ea3cce8e2aca9aa1`.
+Historical acquisition SHA-256: `a806776d30416d6f8ec6e95746ca82e592472c25a4086165ea3cce8e2aca9aa1`.
 
 Reading scope:
 
@@ -21167,13 +21273,15 @@ Reading scope:
 
 Revision 3 receipt: §6, Lemma6.1 pp.28–29, Definition8 p.31, no-ghost sign calculation p.33 and AppendixA.3 p.36. The generation argument is replaced by the explicit PBW nondegeneracy route in this revision. SHA-256 `a806776d30416d6f8ec6e95746ca82e592472c25a4086165ea3cce8e2aca9aa1`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/1311.3258); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `a806776d30416d6f8ec6e95746ca82e592472c25a4086165ea3cce8e2aca9aa1`.
+
 <a id="reference-jurisich2009"></a>
 
 ### jurisich2009
 
 E. Jurisich, [Borcherds' proof of the Conway–Norton conjecture](https://arxiv.org/abs/0903.4456). arXiv:0903.4456v1 (2009).
 
-SHA-256: `f765c47c0f8949338a41e1dc07888f12c76b0a20daefa729e46b877bfe896ac0`.
+Historical acquisition SHA-256: `f765c47c0f8949338a41e1dc07888f12c76b0a20daefa729e46b877bfe896ac0`.
 
 Reading scope:
 
@@ -21182,18 +21290,22 @@ Reading scope:
 
 Revision 3 receipt: Theorem6, printed p.9: free-subalgebra result assumes strictly negative pairings between distinct imaginary simple roots; it does not prove the general presentation target. SHA-256 `f765c47c0f8949338a41e1dc07888f12c76b0a20daefa729e46b877bfe896ac0`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/0903.4456); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `f765c47c0f8949338a41e1dc07888f12c76b0a20daefa729e46b877bfe896ac0`.
+
 <a id="reference-jurisichlepowskywilson1995"></a>
 
 ### jurisichlepowskywilson1995
 
 E. Jurisich, J. Lepowsky, R. L. Wilson, [Realizations of the Monster Lie algebra](https://arxiv.org/abs/hep-th/9408037). Selecta Math. (N.S.) 1 (1995) 129–161; arXiv:hep-th/9408037v1.
 
-SHA-256: `8d8c5e84ffd40b7ae58f486a7fbceb8e0ac9c14237995a032381a7eba2fd17a8`.
+Historical acquisition SHA-256: `8d8c5e84ffd40b7ae58f486a7fbceb8e0ac9c14237995a032381a7eba2fd17a8`.
 
 Reading scope:
 
 - §1 Introduction
 - §5 Application to Borcherds' proof (5.1–5.4)
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/hep-th/9408037); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `8d8c5e84ffd40b7ae58f486a7fbceb8e0ac9c14237995a032381a7eba2fd17a8`.
 
 <a id="reference-gannon2004"></a>
 
@@ -21201,7 +21313,7 @@ Reading scope:
 
 T. Gannon, [Monstrous moonshine: the first twenty-five years](https://arxiv.org/abs/math/0402345). arXiv:math/0402345v2 (Bull. London Math. Soc. 38 (2006) 1–33).
 
-SHA-256: `c416209187b2c911c8ef23bde01c7ce4388371f83029239aa4495ac09fe989e8`.
+Historical acquisition SHA-256: `c416209187b2c911c8ef23bde01c7ce4388371f83029239aa4495ac09fe989e8`.
 
 Reading scope:
 
@@ -21209,13 +21321,15 @@ Reading scope:
 - §3 The Monstrous Moonshine conjectures (3.1–3.3)
 - §4 Proof of the conjectures (4.3–4.4)
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0402345); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `c416209187b2c911c8ef23bde01c7ce4388371f83029239aa4495ac09fe989e8`.
+
 <a id="reference-matsuonagatomo1997"></a>
 
 ### matsuonagatomo1997
 
 A. Matsuo, K. Nagatomo, [On axioms for a vertex algebra and the locality of quantum fields](https://arxiv.org/abs/hep-th/9706118). arXiv:hep-th/9706118 (MSJ Memoirs 4, 1999).
 
-SHA-256: `2e1dabebeffe511c8bd14c0a4e6449afefcf508a02135d96df2042a0ccca07ea`.
+Historical acquisition SHA-256: `2e1dabebeffe511c8bd14c0a4e6449afefcf508a02135d96df2042a0ccca07ea`.
 
 Reading scope:
 
@@ -21227,18 +21341,22 @@ Reading scope:
 
 Revision 3 receipt: Theorem5.4.1, printed p.35: the exact generating-field existence theorem and its hypotheses. SHA-256 `2e1dabebeffe511c8bd14c0a4e6449afefcf508a02135d96df2042a0ccca07ea`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/hep-th/9706118); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `2e1dabebeffe511c8bd14c0a4e6449afefcf508a02135d96df2042a0ccca07ea`.
+
 <a id="reference-bakalovkac2006"></a>
 
 ### bakalovkac2006
 
 B. Bakalov, V. G. Kac, [Generalized vertex algebras](https://arxiv.org/abs/math/0602072). arXiv:math/0602072v1.
 
-SHA-256: `f1fc0738a7877fb16ad0d3aefb51fcd112f9dce9d54f40453a3b981e72a54ad4`.
+Historical acquisition SHA-256: `f1fc0738a7877fb16ad0d3aefb51fcd112f9dce9d54f40453a3b981e72a54ad4`.
 
 Reading scope:
 
 - §3 (existence theorem, central extensions)
 - §5 (the generalized vertex algebra V_h and lattice vertex algebras)
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0602072); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `f1fc0738a7877fb16ad0d3aefb51fcd112f9dce9d54f40453a3b981e72a54ad4`.
 
 <a id="reference-milne2017"></a>
 
@@ -21246,12 +21364,14 @@ Reading scope:
 
 J. S. Milne, [Modular Functions and Modular Forms (Elliptic Modular Curves)](https://www.jmilne.org/math/CourseNotes/MF.pdf). Course notes, version 1.31 (March 22, 2017).
 
-SHA-256: `977f06a4e838c43c77a7c9398c090789e60d67f64e013e1dcd9bcce0e0c27b8d`.
+Historical acquisition SHA-256: `977f06a4e838c43c77a7c9398c090789e60d67f64e013e1dcd9bcce0e0c27b8d`.
 
 Reading scope:
 
 - §4 Modular functions and modular forms (Proposition 4.3, Remark 4.4, Definition 4.5, Theorem 4.22)
 - §5 Hecke operators (Lemma 5.13, Remarks 5.14–5.15, Proposition 5.16)
+
+Independent review receipt (20 October 2026): [version read](https://www.jmilne.org/math/CourseNotes/MF.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `977f06a4e838c43c77a7c9398c090789e60d67f64e013e1dcd9bcce0e0c27b8d`.
 
 <a id="reference-warnaar-bailey-2009"></a>
 
@@ -21259,7 +21379,7 @@ Reading scope:
 
 S. Ole Warnaar, [50 years of Bailey's lemma](https://arxiv.org/abs/0910.2062v2). arXiv:0910.2062v2 (14 October 2009), 16 pages; in Algebraic Combinatorics and Applications, Springer (2001).
 
-SHA-256: `619da622c1c77f0ac85133ff92aeabe110e7622eb5e79900b2031b9943113242`.
+Historical acquisition SHA-256: `619da622c1c77f0ac85133ff92aeabe110e7622eb5e79900b2031b9943113242`.
 
 Reading scope:
 
@@ -21267,13 +21387,15 @@ Reading scope:
 - §2 (pp. 3–4): Theorem 2.1, its limiting form (2.2), the unit pair (2.3), the inverse transform (2.4), the Bailey chain and the identities (2.5)
 - §3 opening (p. 4): the scope remark that the chain gives only i = 1 and i = k
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/0910.2062v2); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `619da622c1c77f0ac85133ff92aeabe110e7622eb5e79900b2031b9943113242`.
+
 <a id="reference-andrews-bailey-chain-1984"></a>
 
 ### andrews-bailey-chain-1984
 
 George E. Andrews, [Multiple series Rogers–Ramanujan type identities](https://msp.org/pjm/1984/114-2/p02.xhtml). Pacific J. Math. 114 (1984), no. 2, 267–283; publisher scan, free at msp.org, read 2026-09-25.
 
-SHA-256: `8974edd88da5b059f1e04ece77fd850575fce906d131df4f6e98ba74bc7efd2c`.
+Historical acquisition SHA-256: `8974edd88da5b059f1e04ece77fd850575fce906d131df4f6e98ba74bc7efd2c`.
 
 Reading scope:
 
@@ -21281,18 +21403,22 @@ Reading scope:
 - §2 (pp. 269–272): Bailey's lemma (2.3)–(2.6), Theorem 1 with its proof (2.7)–(2.11), the unit pair (2.12)–(2.13) and Agarwal's identity (2.14)
 - §3 opening (p. 273): Theorem 2 (3.1) and its proof; formulas read on the page images
 
+Independent review receipt (20 October 2026): [version read](https://msp.org/pjm/1984/114-2/pjm-v114-n2-p02-s.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `8974edd88da5b059f1e04ece77fd850575fce906d131df4f6e98ba74bc7efd2c`.
+
 <a id="reference-johansson-2012-lms"></a>
 
 ### johansson-2012-lms
 
 Fredrik Johansson, [Efficient implementation of the Hardy–Ramanujan–Rademacher formula](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/80A6F53DCB85A4270641920D989A2E8F/S1461157012001088a.pdf/efficient_implementation_of_the_hardyramanujanrademacher_formula.pdf). LMS J. Comput. Math. 15 (2012), 341–359; DOI 10.1112/S1461157012001088; publisher PDF accessed 2026-09-27.
 
-SHA-256: `7917c3cbde2aae304c730b8d73ea572c4440b18aee2e7497aeb3bbf18ac0c254`.
+Historical acquisition SHA-256: `7917c3cbde2aae304c730b8d73ea572c4440b18aee2e7497aeb3bbf18ac0c254`.
 
 Reading scope:
 
 - Publisher §§2.1–2.2 pp.343–345, including Algorithm 2; formula (2.6) and Algorithm 2 also checked on rendered pp.344–345.
 - arXiv:1205.5991v2 §1 normalization (1.6)–(1.7) and §§2.1–2.2 pp.3–5; later algorithmic complexity and partition variants not extracted in this checkpoint.
+
+Independent review receipt (20 October 2026): [version read](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/80A6F53DCB85A4270641920D989A2E8F/S1461157012001088a.pdf/efficient_implementation_of_the_hardyramanujanrademacher_formula.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `888c6cc2023b6cfbc93a0eade802a40acca2e30bbd5b20fb82c8c50ca98f2d8c`.
 
 <a id="reference-johansson-hrr-errata"></a>
 
@@ -21304,13 +21430,15 @@ Reading scope:
 
 - Errata section in full: λ=1 and k₁=4 sign corrections credited to Hugo M. Spinelli; the separate odd/distinct-partition correction credited to David Broadhurst was read but its original end-of-paper formula was not rechecked here.
 
+Independent review receipt (20 October 2026): [version read](https://fredrikj.net/math/hrr.html); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation.
+
 <a id="reference-skoruppa-critical-weight"></a>
 
 ### skoruppa-critical-weight
 
 N.-P. Skoruppa, [Jacobi forms of critical weight and Weil representations](https://arxiv.org/abs/0707.0718). arXiv:0707.0718v1 (5 July 2007), 28 pages, the only arXiv version; read 2026-10-06. The version published in Modular Forms on Schiermonnikoog (Cambridge University Press, 2008) was not obtained..
 
-SHA-256: `a4cc378e16a7dfb361e3914bbaa5e02b10567ced8802267c09fcfa4b368407a0`.
+Historical acquisition SHA-256: `a4cc378e16a7dfb361e3914bbaa5e02b10567ced8802267c09fcfa4b368407a0`.
 
 Reading scope:
 
@@ -21319,13 +21447,15 @@ Reading scope:
 - §4, pp. 10–13: the Jacobi group J_n(Γ), the action |_{k,F}, Jacobi forms of typus (Γ, V), cusp forms, footnote 2, Lemma 1, Theorem 5 and its proof
 - Not read: §1, the rest of §3 (pp. 7–9), §4 after Theorem 5, §§5–6.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/0707.0718); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `a4cc378e16a7dfb361e3914bbaa5e02b10567ced8802267c09fcfa4b368407a0`.
+
 <a id="reference-brent-complex-stirling"></a>
 
 ### brent-complex-stirling
 
 Richard P. Brent, [On asymptotic approximations to the log-Gamma and Riemann–Siegel theta functions](https://arxiv.org/pdf/1609.03682). arXiv:1609.03682v2, 2016; read 2026-10-20.
 
-SHA-256: `835821fff6b3ef5634e00a1893b71763288149571ead013829f4eccc72b25abe`.
+Historical acquisition SHA-256: `835821fff6b3ef5634e00a1893b71763288149571ead013829f4eccc72b25abe`.
 
 Reading scope:
 
@@ -21333,13 +21463,15 @@ Reading scope:
 
 Revision 3 receipt: On asymptotic approximations to the log-Gamma and Riemann–Siegel theta functions; arXiv:1609.03682v2, 2016; read 2026-10-20. Read only the target-specific passages recorded in sources; no full-paper collation claimed. SHA-256 `835821fff6b3ef5634e00a1893b71763288149571ead013829f4eccc72b25abe`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/1609.03682v2); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `835821fff6b3ef5634e00a1893b71763288149571ead013829f4eccc72b25abe`.
+
 <a id="reference-billig-heisenberg-virasoro"></a>
 
 ### billig-heisenberg-virasoro
 
 Yuly Billig, [Representations of the twisted Heisenberg–Virasoro algebra at level zero](https://arxiv.org/pdf/math/0201314). arXiv:math/0201314v2, 3 November 2012; read 2026-10-20.
 
-SHA-256: `c8454e2fca2fc1d1c81fedadf113828de80d15e1a83461b4be5f7f0aa3f37a38`.
+Historical acquisition SHA-256: `c8454e2fca2fc1d1c81fedadf113828de80d15e1a83461b4be5f7f0aa3f37a38`.
 
 Reading scope:
 
@@ -21347,16 +21479,20 @@ Reading scope:
 
 Revision 3 receipt: Representations of the twisted Heisenberg–Virasoro algebra at level zero; arXiv:math/0201314v2, 3 November 2012; read 2026-10-20. Read only the target-specific passages recorded in sources; no full-paper collation claimed. SHA-256 `c8454e2fca2fc1d1c81fedadf113828de80d15e1a83461b4be5f7f0aa3f37a38`.
 
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0201314); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `c8454e2fca2fc1d1c81fedadf113828de80d15e1a83461b4be5f7f0aa3f37a38`.
+
 <a id="reference-roitman-invariant-forms"></a>
 
 ### roitman-invariant-forms
 
 Michael Roitman, [Invariant bilinear forms on a vertex algebra and the radical](https://arxiv.org/pdf/math/0210432). arXiv:math/0210432v5, 23 June 2003; read 2026-10-20.
 
-SHA-256: `9776d2942de0795e5a67c634ce6e0477342dfbaabec219f323f7b696885e25a9`.
+Historical acquisition SHA-256: `9776d2942de0795e5a67c634ce6e0477342dfbaabec219f323f7b696885e25a9`.
 
 Reading scope:
 
 - §1.2, printed p.2: graded sl2 structure and local nilpotence; §2, Proposition 2 and proof, pp.4–5: coefficient adjoint anti-involution; §3, Definition 3, Lemma 1, Theorem 1 and proof, pp.5–7: invariant symmetric forms from a functional on A_0/L_1 A_1. No nonnegative grading or finite total weight-space hypothesis is imposed. §5.2, p.9, read to distinguish the canonical lattice form from the different radical quotient of §4.
 
 Revision 3 receipt: Invariant bilinear forms on a vertex algebra and the radical; arXiv:math/0210432v5, 23 June 2003; read 2026-10-20. Read only the target-specific passages recorded in sources; no full-paper collation claimed. SHA-256 `9776d2942de0795e5a67c634ce6e0477342dfbaabec219f323f7b696885e25a9`.
+
+Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0210432v5); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `9776d2942de0795e5a67c634ce6e0477342dfbaabec219f323f7b696885e25a9`.
