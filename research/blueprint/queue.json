@@ -153494,6 +153494,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv3.md"
+  },
+  {
+   "id": "REV-PKG-GrossZagierAndArithmeticHeights~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GrossZagierAndArithmeticHeights"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-GrossZagierAndArithmeticHeights~codex2.md",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/review.json",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/README.md",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/Suggested.lean",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~codex2.md"
   }
  ]
 }
