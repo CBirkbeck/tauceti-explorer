@@ -279,10 +279,11 @@ theorem shearMatrix_unit {R : Type*} [CommRing R] (e₁ e₂ : R)
 The period rings, Bloch–Kato conditions, exponential, logarithm, quotient
 logarithm, dual exponential, semilocal maps and character specialization remain
 README targets, as do etaleDilog, combinedDilog, syntomicChernClass,
-rootClassK3, localRegulator, globalPadicRegulator and PadicK3RegulatorInjective.
+rootClassK3, localRegulator, globalPadicRegulator, padicUnitRegulatorRank,
+PadicK3RegulatorInjective and StrongPadicK3RegulatorInjective.
 The curve targets include curveSyntomicTarget, openCurveSplitting,
 curveSyntomicRegulator, relativeCurveSyntomicRegulator and the continuous and
-discrete semistable regulators. The coefficient and Iwasawa targets include
+discrete semistable regulators and curveVologodskyPairing. The coefficient and Iwasawa targets include
 transportedSpecialization, constraintBasis, projectionGenerator,
 projectionWitness, colemanCoordinates, logarithmicMatrix, logarithmic factors,
 crystallineRegulator, the big exponential and its obstruction,

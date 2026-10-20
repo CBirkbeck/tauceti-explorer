@@ -1,16 +1,16 @@
 # Roadmap: p-adic regulators and the local K₃ calculation
 
-**Summary.** Build the normalized maps from algebraic K-theory and local Iwasawa cohomology to de Rham periods, with enough integral and analytic information to use them. The local summit is the isomorphism from completed K₃ of a finite unramified étale ℚₚ-algebra to p² times its integers when p > 3. The other summits identify curve regulators with Bloch–Kato logarithms and describe the image, elementary divisors and character specializations of Coleman and Perrin–Riou maps. These statements use distinct rational, completed and integral domains throughout.
+**Summary.** Build normalized regulators from algebraic K-theory and local Iwasawa cohomology to de Rham periods, with integral and analytic control. The local summit is the isomorphism from completed K₃ of a finite unramified étale ℚₚ-algebra to p² times its integers when p > 3. Other summits compare curve regulators with Bloch–Kato logarithms and give Coleman/Perrin–Riou images, elementary divisors and character specializations.
 
 ## Scope and ownership
 
-This roadmap owns the normalization and comparison of regulators, the finite-residue dilogarithm argument for the local K₃ theorem, the explicit curve regulator interfaces, and the linear algebra of Coleman images. Algebraic K-groups, Bloch groups, motivic complexes and their comparison with continuous étale cohomology come from KTheoryFiniteLocalFields, K3BlochGroups and MotivicEtaleCohomology. Generic cohomological descent and generic syntomic comparison carriers belong to CohomologyComparisons, Part II; their regulator-specific identifications are stated here. ColemanIntegration owns Coleman and Vologodsky integration, including the analytic double and triple indices needed below. This roadmap asks for those operations and proves what they compute on regulator classes.
+This roadmap owns the normalization and comparison of regulators, the finite-residue dilogarithm argument for the local K₃ theorem, the explicit curve regulator interfaces, and the linear algebra of Coleman images. Algebraic K-groups, Bloch groups, motivic complexes and their comparison with continuous étale cohomology come from KTheoryFiniteLocalFields, K3BlochGroups and MotivicEtaleKTheory §12.1. Generic cohomological descent and generic syntomic comparison carriers belong to CohomologyComparisons, Part II; their regulator-specific identifications are stated here. ColemanIntegration owns Coleman integration; its Part II must extend it to Vologodsky integration and double/triple indices. This roadmap identifies their values on regulator classes.
 
 SelmerIwasawaCohomology §4.2–4.9 owns the period rings, fundamental exact sequences, de Rham and crystalline predicates, the finite Bloch–Kato condition on representations, lattices and discrete quotients, and its local duality. Those are consumed here; the normalized exact sequences, condition g, the logarithms and their explicit normalization are the new outputs. Its elliptic Kummer comparison is also consumed. The extension to abelian varieties is stated for the functorial logarithm, without identifying a chosen differential with a minimal differential through an unproved scalar.
 
-PhiGammaModulesAndIwasawaCohomology §5 supplies Fontaine's integral Iwasawa comparison and its coefficient, character and generator compatibilities. Its §§5.7 and 6 supply the local exponential, H¹_e, ψ-fixed Wach containment and good Wach bases with integral congruence. The present roadmap adds regulator normalization, image formulas and particular Coleman coordinates. LocalGaloisGroups Layer 7 owns the completed multiplicative carrier, its Galois action and torsion/free quotient. LocalFieldsRamification owns the unit filtration, the deep-unit logarithm. These constructions are imported, including when their names reappear in comparison formulas. The full unit-logarithm kernel and the semilocal norm–trace comparison below extend that deep-unit interface.
+PhiGammaModulesAndIwasawaCohomology §5 supplies Fontaine's integral Iwasawa comparison and its coefficient, character and generator compatibilities. Its §§5.7 and 6 supply the local exponential, H¹_e, ψ-fixed Wach containment and good Wach bases with integral congruence. The present roadmap adds regulator normalization, image formulas and particular Coleman coordinates. LocalGaloisGroups Layer 7 owns the completed multiplicative carrier, its Galois action and torsion/free quotient. LocalFieldsRamification owns the unit filtration, the deep-unit logarithm.  The full unit-log kernel and semilocal norm–trace extend that interface.
 
-The current Tau Ceti local-field library already supplies Teichmüller lifting and the residue-field equivalence for tame roots of unity. Mathlib supplies finite fields, polynomials, finite-dimensional linear algebra, submodules and matrix determinants. The real regulator and unit-lattice bounds of EffectiveBounds are separate from the p-adic maps here. Global signed Selmer structures and main conjectures belong to SelmerModularIwasawaMain; HabiroModuleGluing consumes the local K₃ output. No regulator injectivity conjecture for a number field of positive K₃ rank is assumed as a theorem.
+The current Tau Ceti local-field library already supplies Teichmüller lifting and the residue-field equivalence for tame roots of unity. Mathlib supplies finite fields, polynomials, finite-dimensional linear algebra, submodules and matrix determinants. EffectiveBounds owns real regulators and unit-lattice bounds. Global signed Selmer structures and main conjectures belong to SelmerModularIwasawaMain; HabiroModuleGluing consumes the local K₃ output. Global injectivity in positive K₃ rank remains conjectural.
 
 ## Conventions
 
@@ -40,20 +40,19 @@ x ↦ ((1−φ)x, x mod Fil⁰).
 
 Its §4.6–4.7 supplies the small-weight integral comparison; §4.9 supplies `blochKatoCondition`, `blochKatoCondition_T`, `blochKatoStructure` and propagation to discrete quotients. Local Tate duality includes the invariant H²(K,ℚₚ(1))→ℚₚ, compatibility with restriction/corestriction and the ordered degree-one pairing. The finite-condition duality is an import, while the e/g duality and exponential adjunction are outputs. The integral Tate rank and torsion calculations also require KTheoryFiniteLocalFields Layer 6. A torsion class maps to zero on rationalization; the map from integral H¹ to rational H¹ is not called an inclusion in general.
 
-From PhiGammaModulesAndIwasawaCohomology §§5–6, consume the integral D(T)^ψ=1 ≃ H¹_Iw(T), its normalization, Herr cocycles, exact twist and coefficient squares, the Wach lattice and a good basis. ColemanPowerSeries Layers 1–2 supplies norm-compatible units, their Coleman series, the norm operator and the logarithmic derivative. PadicMeasuresIwasawaAlgebras supplies Λ and ℋ, Mellin transformation, finite-character idempotents, analytic evaluation, logarithmic factors, growth norms and Weierstrass preparation for bounded power series. The logarithmic factors are used here with explicit derivative and twist conventions.
+From PhiGammaModulesAndIwasawaCohomology §§5–6, consume the integral D(T)^ψ=1 ≃ H¹_Iw(T), its normalization, Herr cocycles, exact twist and coefficient squares, the Wach lattice and a good basis. ColemanPowerSeries Layers 1–2 supplies norm-compatible units, their Coleman series, the norm operator and the logarithmic derivative. PadicMeasuresIwasawaAlgebras supplies Λ, finite-character idempotents, bounded Amice transforms and Weierstrass preparation. LocallyAnalyticDistributions §§1.1,1.4–1.5 supplies unbounded Amice, convolution, ∂ and its ψ-zero inverse; §§2.1,2.3 supplies order-r growth and locally algebraic determination. Its §3.3 supplies the unbounded Mellin Fréchet isomorphism with ℋ, bounded-measure criterion, character evaluation, convolution, generator change, weight differentiation, twists, pushforward and finite coefficient extension. Logarithmic factors below use these exact conventions.
 
-From KTheoryFiniteLocalFields Layer 6 and K3BlochGroups, consume the continuous étale Chern map, its local integral comparison, the completed Bloch description including the Tate-module obstruction, and transfer. MotivicEtaleCohomology supplies finite-coefficient Chern classes and their compatible inverse limit; an uncompleted rational Chern map is not substituted for that limit. From PadicHodgeTheory and FiniteFlatGroupsAndIntegralPadicHodgeTheory consume the integral period comparison; the precise finite small-weight range is always displayed below.
+From KTheoryFiniteLocalFields §§1.8,6.6–6.7 and K3BlochGroups, consume finite Chern operations, completed étale edge maps, the weight-two Chern comparison, the completed Bloch description with Tate-module obstruction, and transfer. MotivicEtaleKTheory §12.1 supplies universal finite étale Chern operations. The compatible inverse limit, not an uncompleted rational map, defines the integral regulator. From PadicHodgeTheory and FiniteFlatGroupsAndIntegralPadicHodgeTheory consume the integral period comparison; the precise finite small-weight range is always displayed below.
 
-From CohomologyComparisons, Part II, consume complexes with log-crystalline divided-power ideals, both divided and undivided syntomic fibres, multiplicative comparison maps and their bounded integral errors. The required periods map from syntomic complexes to nearby cycles; the reverse direction is never assumed. For relative regulators the supplier must give filtered modules with integrable connection, Frobenius, residues and their Ext interpretation under the geometric and coherence hypotheses in Layer 7. For semistable curves it must give Hyodo–Kato comparison, monodromy and the semistable extension complex. These are exact mathematical contracts, not assertions that those carriers exist in the present libraries.
+**Missing classical input.** CohomologyComparisons §§4.1–4.3 supplies proper semistable period adapters, not the classical complexes below. Its Part II must supply log-crystalline divided-power ideals, divided/undivided syntomic fibres, multiplicative period maps and bounded integral errors. The required periods map from syntomic complexes to nearby cycles; the reverse direction is never assumed. Its §6.3 treats proper smooth prismatic coefficients; the relative open-curve filtered Frobenius modules, residues and Ext interpretation under Layer 7’s hypotheses are an additional missing input. For semistable curves it must give Hyodo–Kato comparison, monodromy and the semistable extension complex.
 
-ColemanIntegration and its Part II supply branch-aware Coleman primitives, Vologodsky integration, constant terms, residue and trace maps, harmonic cochains, and the double/triple index with the edge orientation convention in Layer 7. AlgebraicCurves supplies smooth proper geometrically connected curves, their étale boundaries, divisors, tame symbols and pull/push. The regulator uses those objects and does not redefine the integration theory.
+ColemanIntegration supplies branch-aware primitives, constant terms, residues and traces. **Missing integration input.** Its Part II must supply harmonic gluing, Vologodsky integration and double/triple indices with Layer 7’s orientations; these are additional to its present Layers 0–3. AlgebraicCurves supplies smooth proper geometrically connected curves, their étale boundaries, divisors, tame symbols and pull/push.
 
 ### Supplier: The fundamental exact sequences used by the Bloch–Kato maps
 
 Consume the fundamental period sequences from SelmerIwasawaCohomology §4.3, with B_e=B_cris^{φ=1}. They are 0→ℚₚ→B_e→B_dR/B_dR⁺→0 and its equivalent presentation using B_e⊕B_dR⁺→B_dR. The crystalline presentation uses (1−φ, mod Fil⁰), consistently with the supplier contract. Fontaine's twisted sequence is 0→ℚₚ(r)→FilʳB_cris→B_cris→0 with arrow p⁻ʳφ−1, for integral r. Tensoring a rational sequence with V preserves exactness; taking invariants produces D_cris(V)^{φ=1} and D_dR(V)/Fil⁰ when V is de Rham. Integrally, the undivided period arrow is pʳ−φ and uses the modified Tate lattice; its bounded cokernel is part of the divided/undivided integral comparison supplier contracts, with its stated geometric and weight hypotheses. It is not an integral rescaling isomorphism.
 
-
-See FO Theorems 6.25(3), 6.26(3) and Remark 6.27, printed pp. 129–130 (2006 draft); CN2017 §2.4.3, p. 23.
+See FO Theorems 6.25(3), 6.26(3) and Remark 6.27, pp.129–130; CN2017 §2.4.3, p. 23.
 
 **Checks.**
 
@@ -64,7 +63,6 @@ See FO Theorems 6.25(3), 6.26(3) and Remark 6.27, printed pp. 129–130 (2006 dr
 ### Supplier: Integral comparison interface for small weights
 
 For p odd, K/ℚₚ unramified and a crystalline lattice T whose weights lie in [0,p−2], consume the Fontaine–Laffaille correspondence with a strongly divisible W(k)-lattice in D_cris(V∨). On T=ℤₚ(r), 0≤r≤p−2, that lattice is W(k)d₋ᵣ. The integral Tate logarithm in §1.10 and the divided period comparison in the divided-comparison supplier contract use this convention. This is the integral interface of SelmerIwasawaCohomology §§4.6–4.7 and FiniteFlatGroupsAndIntegralPadicHodgeTheory, with no new period-ring construction.
-
 
 See BNQD2002 §1.3, p. 647.
 
@@ -118,7 +116,6 @@ See CC99 Proposition II.1.2, p. 12; LZ2014 Lemma 2.4, p. 7.
 
 (i) D(T(η)) = D(T) ⊗ e_η with φ, ψ acting on the first factor and g(x ⊗ e_η) = η(g)g(x) ⊗ e_η, so ⊗e_η : D(T)^{ψ=1} → D(T(η))^{ψ=1} is Tw_η-semilinear. (ii) h_{Iw,T(η)}(y ⊗ e_η) = Tw_η(h_{Iw,T}(y)). (iii) For η = χ^j the level-n cocycle of h(y ⊗ e_j) is σ ↦ ℓ(γ_n)((σ − 1)/(γ_n − 1)·y(j) − (σ − 1)b) with y(j) the image of y in D(V(j))^{ψ=1} (Cherbonnier–Colmez, proof of Theorem IV.2.1). (iv) For crystalline V, N(T(j)) = π^{−j}N(T) ⊗ e_j.
 
-
 See CC99 Proof of Théorème IV.2.1, p. 21; Berger2003DM Appendix A, p. 124.
 
 **Checks.**
@@ -129,7 +126,6 @@ See CC99 Proof of Théorème IV.2.1, p. 21; Berger2003DM Appendix A, p. 124.
 ### Supplier: Berger: ψ-fixed vectors lie in the Wach module
 
 Let V be E-linear crystalline with Hodge–Tate weights in [a; b], T ⊂ V a G-stable O_E-lattice and N(T) its Wach module (PhiGammaModulesAndIwasawaCohomology Layer 6). (i) D(T)^{ψ=1} ⊂ π^{a−1}N(T). (ii) If V has no quotient isomorphic to E(a), then D(T)^{ψ=1} ⊂ π^a N(T). (iii) In particular, if a ≥ 0 and V has no quotient isomorphic to E (equivalently, as a Q_p-representation, no quotient Q_p), then ψ(N(T)) ⊂ N(T), N(T)^{ψ=1} = D(T)^{ψ=1}, N(V)^{ψ=1} = D(V)^{ψ=1}, and h_Iw restricts to Λ-isomorphisms N(T)^{ψ=1} ≅ H^1_Iw(Q_p, T) and N(V)^{ψ=1} ≅ H^1_Iw(Q_p, V).
-
 
 See Berger2003DM Theorem A.3, p. 124; LLZWach §1, p. 4.
 
@@ -142,7 +138,6 @@ See Berger2003DM Theorem A.3, p. 124; LLZWach §1, p. 4.
 
 (a) For lattices U ⊂ T ⊂ V: D(U) ⊂ D(T) ⊂ D(V) compatibly with φ, ψ, G_∞ and h_Iw; H^1_Iw(Q_p, T) → H^1_Iw(Q_p, V) is injective with image h(D(V)^{ψ=1} ∩ D(T)); N(U) = N(V) ∩ D(U), and U ↦ N(U) is an inclusion-preserving bijection between G-stable lattices and Wach lattices in N(V); under the supplier contract “Berger: ψ-fixed vectors lie in the Wach module” (iii), H^1_Iw(Q_p, T) = h(N(T)^{ψ=1}). (b) For E'/E finite, D, N, ψ, H^1_Iw, h, Λ and the Mellin transform commute with O_{E'} ⊗_{O_E} −; restriction of scalars to Z_p changes none of D, ψ, h.
 
-
 See LLZWach §2.2, p. 8; Limites2004 Proposition III.4.2, p. 21.
 
 **Checks.**
@@ -154,7 +149,6 @@ See LLZWach §2.2, p. 8; Limites2004 Proposition III.4.2, p. 21.
 
 Let L be a nonarchimedean local field with valuation ring O_L, maximal ideal m_L and residue field F_q, q = p^f. Write ω = TauCeti.teichmuller L : F_q^× → O_L^× for the Teichmüller lift and U^1_L = 1 + m_L for the principal units. Then every u ∈ O_L^× factors uniquely as u = ω(ū)·⟨u⟩ with ū the residue of u and ⟨u⟩ := u·ω(ū)^{-1} ∈ U^1_L, so that O_L^× = μ_{q-1}(O_L) × U^1_L is an internal direct product; u ↦ ⟨u⟩ is a continuous group homomorphism onto U^1_L. The decomposition is natural for continuous field embeddings L → L' of local fields and for automorphisms of L, and, if L is a finite extension of Q_p, for every branch log_a of the p-adic logarithm (ColemanIntegration:Layer 0 log-branch) one has log_a(u) = log(⟨u⟩), the series logarithm of the principal-unit part, because log_a vanishes on roots of unity.
 
-
 See TauCetiTeichmuller TauCeti/NumberTheory/LocalField/Teichmuller.lean, module docstring (pinned commit f790474); GSWZ2024 §3.1, (176), p. 38.
 
 **Checks.**
@@ -165,10 +159,9 @@ See TauCetiTeichmuller TauCeti/NumberTheory/LocalField/Teichmuller.lean, module 
 
 ### Supplier: Frobenius on the roots of unity of an unramified field
 
-Let L be a finite unramified extension of Q_p with residue field F_q and let φ_L be its arithmetic Frobenius, the unique field automorphism of L over Q_p whose reduction is x ↦ x^p on F_q (an arithmetic Frobenius in the sense of IsArithFrobAt for the extension O_L/Z_p). Then φ_L(ω(α)) = ω(α^p) for every α ∈ F_q^×, hence φ_L(ζ) = ζ^p for every ζ ∈ μ_{q-1}(L); for p odd μ(L) = μ_{q-1}(L), so φ_L(ζ) = ζ^p for every root of unity of L. For a finite product L = ∏_i L_i of such fields put φ_L := ∏_i φ_{L_i}; then φ_L(ζ) = ζ^p componentwise. This is the rank-one relation φ_p ζ = ζ^p of GSWZ (176).
+Let L be a finite unramified extension of Q_p with residue field F_q and let φ_L be its arithmetic Frobenius, the unique field automorphism of L over Q_p whose reduction is x ↦ x^p on F_q (an arithmetic Frobenius in the sense of IsArithFrobAt for the extension O_L/Z_p). Then φ_L(ω(α)) = ω(α^p) for every α ∈ F_q^×, hence φ_L(ζ) = ζ^p for every ζ ∈ μ_{q-1}(L); for p odd μ(L) = μ_{q-1}(L), so φ_L(ζ) = ζ^p for every root of unity of L. For a finite product L = ∏_i L_i of such fields put φ_L := ∏_i φ_{L_i}; then φ_L(ζ) = ζ^p componentwise for tame ζ (all roots if p odd). This is GSWZ (176).
 
 This is current `TauCeti.frobeniusAlgEquiv_teichmullerLift` and `TauCeti.frobeniusAlgEquiv_rootsOfUnity` in `TauCeti/NumberTheory/LocalField/Frobenius.lean`, with K=ℚₚ; finite products use the componentwise automorphism. The full root group assertion remains restricted to odd p.
-
 
 See GSWZ2024 §3.1, (176), p. 38; TauCetiTeichmuller TauCeti/NumberTheory/LocalField/Teichmuller.lean, eq_teichmuller.
 
@@ -179,23 +172,23 @@ See GSWZ2024 §3.1, (176), p. 38; TauCetiTeichmuller TauCeti/NumberTheory/LocalF
 
 ### Supplier: Soulé's étale regulator to continuous Galois cohomology
 
-Let F be a field of characteristic 0 (a number field, a finite extension of Q_p, or a finite product of such), p a prime and n ≥ 1. The étale regulator r^et_n : K_{2n−1}(F) → H^1(F, Z_p(n)) is the composite of the reductions K_{2n−1}(F) → K_{2n−1}(F; Z/p^ν), Soulé's étale Chern classes c_{n,1} : K_{2n−1}(F; Z/p^ν) → H^1(F, μ_{p^ν}^{⊗n}) (compatible in ν), and the inverse limit H^1(F, Z_p(n)) = lim_ν H^1(F, μ_{p^ν}^{⊗n}) of continuous cohomology; it factors through the completion K_{2n−1}(F; Z_p) and induces r^et_n ⊗ Q : K_{2n−1}(F) ⊗ Q_p → H^1(F, Q_p(n)). For n = 1 it is the Kummer map F^× → H^1(F, Z_p(1)). For F a finite extension of Q_p and n ≥ 2 the map on completed K-theory is the isomorphism of KTheoryFiniteLocalFields L.6 (odd completed k groups are h1).
+Let F be a characteristic-zero field (a number field or a finite extension of ℚ_p), or a finite product of such fields. For n≥1 define r^et_n:K_(2n−1)(F)→H¹(F,ℤ_p(n)) by reduction modulo p^ν, the compatible Soulé classes c_(n,1), and inverse limit. It factors through K_(2n−1)(F;ℤ_p); rationalization gives K_(2n−1)(F)⊗ℚ_p→H¹(F,ℚ_p(n)). Weight one is Kummer. For local F, KTheoryFiniteLocalFields §§6.6–6.7 supplies a completed étale edge isomorphism for n≥2. Ordinary Chern operations require a factorial comparison with that edge; here the Chern isomorphism is needed only in weight two.
 
 - `etaleRegulator`: etaleRegulator F p n : K_{2n−1}(F) →+ H^1(F, ℤ_p(n)).
 - `etaleRegulator_completed`: The factorisation through K_{2n−1}(F; ℤ_p), a ℤ_[p]-linear map.
 - `etaleRegulator_one`: For n = 1, etaleRegulator F p 1 is the Kummer map F^× → H^1(F, ℤ_p(1)).
 - `etaleRegulator_map`: For a field embedding F → F', res ∘ etaleRegulator F = etaleRegulator F' ∘ K_{2n−1}(ι).
 - `etaleRegulator_transfer`: For F'/F finite, cor ∘ etaleRegulator F' = etaleRegulator F ∘ N_{F'/F} (transfer).
-- `etaleRegulator_local_equiv`: For F/ℚ_p finite and n ≥ 2, the completed map is the isomorphism of KTheoryFiniteLocalFields L.6 (odd completed k groups are h1).
+- `etaleRegulator_local_equiv`: For F/ℚ_p finite, the completed weight-two Chern map is an isomorphism. For general n≥2 keep the separate `etaleEdgeOne` isomorphism and its Chern normalization comparison.
 - `etaleRegulator_completion`: For a number field F and v | p, res_v ∘ etaleRegulator F = etaleRegulator F_v ∘ c_v.
 
-See HK2011 §1.3, p. 8; NN2016 §5.2, p. 59.
+See HK2011 §1.3, p. 8; NN2016 §5.2, p. 59; KTheoryFiniteLocalFields §§1.8,6.6–6.7. WeibelChern Proposition 5.1, p.24 distinguishes the ordinary Chern operation from the edge.
 
 **Checks.**
 
 - For F = Q_p, n = 1 and u ∈ Z_p^×, etaleRegulator F p 1 u is the image of u under lim_ν of Tau Ceti's kummerClassMap.
 - For F = Q_5, n = 2, the completed etaleRegulator is a ℤ_5-linear isomorphism between free modules of rank 1.
-- For F = Q and n = 2, K_3(Q) is torsion, so the image of etaleRegulator Q p 2 lies in the torsion of H^1(Q, Z_p(2)) and its rationalisation is 0.
+- Over 𝔽₃ in weight 3 modulo 2, K₅ and H¹ both have order 2, but c_(3,1) is zero: its factorial multiplier is 2. Equal group sizes do not identify the ordinary Chern map with the edge.
 - For F = Q_{p²} and p > 3, a ℤ_p-isomorphism K_3(F; ℤ_p) ≅ ℤ_p² chosen from bases is not etaleRegulator: etaleRegulator commutes with the Frobenius automorphism of F, while a generic basis isomorphism does not.
 
 ### Supplier: Rigid syntomic cohomology of smooth schemes over a p-adic integer ring
@@ -267,7 +260,6 @@ See CN2017 §1, p. 2; EN2016 §2.2–§2.2.1, pp. 7–8; EN2016 §2.1.3, the fir
 
 For fs log-smooth X/𝒪_K^× of Cartier type, and 0≤i≤r≤p−2, the divided period morphism induces Hⁱ(D_m(r))≃i*Rⁱj*(ℤ/pᵐ(r)). Equivalently, τ≤rD_m(r)≃τ≤r i*Rj*(ℤ/pᵐ(r)). This is the small-weight theorem in EN2016 Theorem 2.2, p. 7, attributed there to Tsuji. For a semistable scheme or semistable base change and 0≤i≤r, the undivided morphism has kernel and cokernel killed by p^(Nr+cₚ) with enough roots of unity, and by p^N(K,p,r) in general, uniformly in m and X. Rationalization gives the comparison in degrees ≤r. The exact assertion is restricted to the divided complex and has no r=p−1 endpoint.
 
-
 See CN2017 §1, (1.3), p. 2; CN2017 Theorem 1.1, p. 2; EN2016 Theorem 2.2, p. 7; §2.1, pp. 4–5.
 
 **Checks.**
@@ -321,7 +313,6 @@ See GSWZ2024 Proof of Theorem 9, p. 39.
 
 Let L be a finite unramified extension of Q_p with p ≥ 3. For every ν ≥ 1 the natural maps K_3(L)/p^ν → K_3^ind(L)/p^ν → B(L)/p^ν are isomorphisms (B(L) Suslin's Bloch group), and the completion map identifies K_3(L; Z_p) with lim_ν K_3(L)/p^ν ≅ lim_ν B(L)/p^ν =: B(L)^∧_p. In particular the image of B(L) — more precisely of K_3(L), which surjects onto every B(L)/p^ν — is dense in K_3(L; Z_p), and the kernel of K_3(L) → K_3(L; Z_p) is ⋂_ν p^ν K_3(L). For a finite product L = ∏ L_i the statements hold factorwise.
 
-
 See GSWZ2024 Proof of Theorem 9, p. 39.
 
 **Checks.**
@@ -333,7 +324,6 @@ See GSWZ2024 Proof of Theorem 9, p. 39.
 
 Consume the integral, rational and analytic good-basis comparisons from PhiGammaModulesAndIwasawaCohomology §6.2, including the choice congruent modulo π to a prescribed integral Wach basis (LLZWach2010 Theorem 3.5). For b_i=(1+π)φ(n_i), its ψ-zero coordinates identify the bounded coefficient row with Λ_E(G∞)^d and the analytic extension with ℋ_E(G∞)^d. A constant basis change acts by inverse right multiplication. A nonconstant matrix in GL_d(Λ_E(G∞)) transports coordinates but need not preserve the property of being a good Wach basis.
 
-
 See LLZWach2010 Theorem3.5, Lemmas3.7-3.10, Proposition3.11, Lemma3.15, pp.10-13; LLZ2011 Proposition2.11, Theorem2.12, Corollary2.13, Remark2.14, pp.1115-1116.
 
 **Checks.**
@@ -344,7 +334,7 @@ See LLZWach2010 Theorem3.5, Lemmas3.7-3.10, Proposition3.11, Lemma3.15, pp.10-13
 
 ## How to read the build
 
-Layers 0–2 fix the local cohomological interfaces. Layers 3–6 build the dilogarithmic K₃ regulator and its integral local theorem before exporting it globally. Layer 7 applies the same normalization to curves, retaining the additional monodromy coordinate in semistable reduction. Layers 8–9 form the analytic branch: the cyclotomic regulator, interpolation, Coleman coordinates and the larger de Rham domain. Each subsection states a target, its needed interface, an API when it introduces data, and tests that distinguish nearby incorrect normalizations.
+Layers 0–2 fix the cohomological interfaces; Layers 3–6 build the local K₃ theorem and global regulator. Layer 7 treats curves, retaining continuous and discrete semistable coordinates. Layers 8–9 build cyclotomic regulators, interpolation, Coleman images and de Rham domains.
 
 ## Layer 0: period and integral comparison interfaces
 
@@ -380,8 +370,6 @@ Let K/Q_p be finite and V a p-adic representation of G_K. Use PhiGammaModulesAnd
 
 The new carrier here is `blochKatoG`; `blochKatoE` and `blochKatoF` denote the supplied conditions. The new comparison API places them in a common exact-sequence and regulator convention. Away from p the unramified equality is rational; a finite-coefficient unramified subgroup need not equal the propagated condition.
 
-API.
-
 - `blochKatoE`: blochKatoE K V : Submodule ℚ_p (H^1(K, V)).
 - `blochKatoF`: blochKatoF K V : Submodule ℚ_p (H^1(K, V)).
 - `blochKatoG`: blochKatoG K V : Submodule ℚ_p (H^1(K, V)).
@@ -405,8 +393,6 @@ See BK1990 §3.7, equations (3.7.1)–(3.7.3), Proposition 3.8 and Corollary 3.8
 
 For K/Q_p finite and V a de Rham representation, use the supplied exponential of PhiGammaModulesAndIwasawaCohomology §5.7, exp_{K,V} : D_dR(V)/Fil^0 D_dR(V) → H^1(K, V) is the connecting homomorphism of 0 → V → B_e ⊗ V → (B_dR/B_dR^+) ⊗ V → 0 (the exponential period sequence ⊗ V). The additional targets are the normalized kernel and crystalline exact sequences 0 → H^0(K, V) → D_cris(V)^{φ=1} → D_dR(V)/Fil^0 → H^1_e(K, V) → 0 and 0 → H^0(K, V) → D_cris(V) → D_cris(V) ⊕ D_dR(V)/Fil^0 → H^1_f(K, V) → 0 (the middle arrow x ↦ ((1−φ)x, x̄)); in particular im(exp_{K,V}) = H^1_e(K, V) and ker(exp_{K,V}) is the image of D_cris(V)^{φ=1}. Explicitly, exp(x) is the class of g ↦ (g − 1)b for any b ∈ B_e ⊗ V with b − x ∈ B_dR^+ ⊗ V.
 
-API.
-
 - `blochKatoExp`: blochKatoExp K V : D_dR(V) ⧸ Fil^0 →ₗ[ℚ_p] H^1(K, V).
 - `blochKatoExp_range`: LinearMap.range (blochKatoExp K V) = blochKatoE K V.
 - `blochKatoExp_ker`: ker (blochKatoExp K V) = image of D_cris(V)^{φ=1} in D_dR(V)/Fil^0.
@@ -428,9 +414,7 @@ See BK1990 §3.7, equations (3.7.1)–(3.7.3), Proposition 3.8 and Corollary 3.8
 
 Let K/Q_p be finite and V de Rham with D_cris(V)^{φ=1} = H^0(K, V) (so exp_{K,V} is injective). The Bloch–Kato logarithm is log_BK := exp_{K,V}^{−1} : H^1_e(K, V) → D_dR(V)/Fil^0 D_dR(V). For V = Q_p(r), r ≥ 2, H^1_e = H^1(K, Q_p(r)) and log_BK : H^1(K, Q_p(r)) ≅ K·e_r ≅ K; for V = Q_p(1), log_BK ∘ κ = log_p on O_K^× (Iwasawa branch), with κ the Kummer map.
 
-There is also an unconditional quotient logarithm for every de Rham V: the exponential induces an isomorphism D_dR(V)/(Fil⁰D_dR(V)+image D_cris(V)^{φ=1}) ≃ H¹_e(K,V), whose inverse is `blochKatoLogQuotient`. Its target becomes D_dR(V)/Fil⁰ precisely when the fixed crystalline subspace maps to zero there. Prove `blochKatoLogQuotient_exp`, naturality and compatibility with that specialization. This is the logarithm convention of LZ2014 §2.4, p. 5. Its checks include V=ℚₚ, for which the quotient is zero, and V=ℚₚ(2), for which the fixed crystalline term vanishes and the quotient is Kd₂.
-
-API.
+There is also an unconditional quotient logarithm for every de Rham V: the exponential induces an isomorphism D_dR(V)/(Fil⁰D_dR(V)+image D_cris(V)^{φ=1}) ≃ H¹_e(K,V), whose inverse is `blochKatoLogQuotient`. Its target becomes D_dR(V)/Fil⁰ precisely when the fixed crystalline subspace maps to zero there. Prove `blochKatoLogQuotient_exp`, naturality and compatibility with that specialization. This is the logarithm convention of LZ2014 §2.4, p. 5. Checks: V=ℚₚ gives zero; V=ℚₚ(2) gives Kd₂. In the quotient model D=ℚₚ², Fil⁰=ℚₚe₁ and image of the fixed term=ℚₚe₂, the target is zero, whereas quotienting by Fil⁰ alone gives a line.
 
 - `blochKatoLog`: blochKatoLog K V : blochKatoE K V →ₗ[ℚ_p] D_dR(V) ⧸ Fil^0 (under the injectivity hypothesis).
 - `blochKatoLog_exp`: blochKatoLog (blochKatoExp x) = x.
@@ -451,8 +435,6 @@ See HK2011 Remark 1.3.3, p. 9; HK2011 §1.3, p. 8.
 ### 1.4 Kato's dual exponential
 
 For K/Q_p finite and V de Rham, the dual exponential exp*_{K,V^*(1)} : H^1(K, V) → Fil^0 D_dR(V) is the composite H^1(K, V) → H^1(K, B_dR ⊗ V) ≅ D_dR(V), the isomorphism being x ↦ (g ↦ log χ(g)·x) (Kato); its image lies in Fil^0 D_dR(V) and its kernel is H^1_g(K, V). For W=V*(1), write P_W:H^1(K,W)×H^1(K,W*(1))→Q_p for the ordered cup-product pairing, and Q_W:D_dR(W)×D_dR(W*(1))→Q_p for its de Rham pairing followed by trace. The adjunction is Q_W(x,exp*_{K,W}(y))=P_W(exp_{K,W}(x),y), with x∈D_dR(W)/Fil^0 and y∈H^1(K,V), identifying W*(1)=V. Reversing both pairings requires the corresponding graded-commutativity sign; their order is part of the convention. This is the positive adjunction of LZ2014 §2.4, not a choice of Iwasawa normalization. The proof of LZ2014 Theorem B.6 writes both pairings with the W*(1) argument first; translating between the two orders multiplies by the sign −1 of the degree-one cup product, unless the transposed Tate pairing is defined without that sign.
-
-API.
 
 - `dualExp`: dualExp K V : H^1(K, V) →ₗ[ℚ_p] Fil^0 D_dR(V).
 - `dualExp_ker`: ker (dualExp K V) = blochKatoG K V.
@@ -529,7 +511,7 @@ See Berger2003 Introduction, p. 2; Rubin2000 §I.6.4, (9), p. 16.
 
 ### 1.10 The integral Bloch–Kato logarithm for unramified fields
 
-Let p be odd, L/Q_p finite unramified and 2 ≤ r ≤ p − 2. Then H^1(L, Z_p(r)) is torsion-free of rank [L : Q_p], H^1_f(L, Z_p(r)) = H^1(L, Z_p(r)), and log_BK(H^1(L, Z_p(r))) = (r − 1)!·p^r·O_L·e_r = p^r·O_L·e_r. For r = 1, log_BK(H^1_f(L, Z_p(1))/tors) = p·O_L·e_1 (the logarithm of the principal units). Equivalently, Fontaine's map ∂^r : L → H^1(L, Q_p(r)), the connecting map of the supplier contract “The fundamental exact sequences used by the Bloch–Kato maps” (c), equals ±exp_BK ∘ (1 − p^{−r}σ)^{−1} and maps O_L isomorphically onto H^1(L, Z_p(r)), because (1 − p^{−r}σ)^{−1}O_L = p^r O_L. The statement is not asserted for ramified L, for r ≥ p − 1, or for p = 2.
+Let p be odd, L/Q_p finite unramified and 2 ≤ r ≤ p − 2. Then H^1(L, Z_p(r)) is torsion-free of rank [L : Q_p], H^1_f(L, Z_p(r)) = H^1(L, Z_p(r)), and log_BK(H^1(L, Z_p(r))) = (r − 1)!·p^r·O_L·e_r = p^r·O_L·e_r. For r = 1, log_BK(H^1_f(L, Z_p(1))/tors) = p·O_L·e_1. For 2≤r≤p−2, equivalently, Fontaine's map ∂^r : L → H^1(L, Q_p(r)), the connecting map of the supplier contract “The fundamental exact sequences used by the Bloch–Kato maps” (c), equals ±exp_BK ∘ (1 − p^{−r}σ)^{−1} and maps O_L isomorphically onto H^1(L, Z_p(r)), because (1 − p^{−r}σ)^{−1}O_L = p^r O_L. The statement is not asserted for ramified L, for r ≥ p − 1, or for p = 2.
 
 To prove an equality of lattices, use the trace construction in BNQD2002 §2.2.2–§2.3.2, pp. 649–652, as well as its index formula. At the first cyclotomic level the trace of Ξᵣ,₁(a(1+X)) is
 
@@ -551,15 +533,13 @@ See BNQD2002 Lemme 1.3.2, p. 647; BNQD2002 Théorème 2.1, p. 648; FontaineBPR19
 
 For a finite étale Q_p-algebra A = ∏_v K_v (for instance F ⊗ Q_p = ∏_{v|p} F_v for a number field F) and a p-adic representation V of G_{Q_p} (or a family V_v of de Rham representations of the G_{K_v}), put H^1(A, V) := ⊕_v H^1(K_v, V), H^1_*(A, V) := ⊕_v H^1_*(K_v, V) for * ∈ {e, f, g}, D_dR(A, V) := ⊕_v D_dR,K_v(V), and define exp_{A,V} and exp*_{A,V} componentwise. Define log_{A,V} on ⊕_v H^1_e(K_v,V_v) only when D_cris,K_v(V_v)^{φ=1} = H^0(K_v,V_v) for every v. Under Shapiro's isomorphism H^1(Q_p, Ind_{K_v}^{Q_p} V) ≅ H^1(K_v, V) these are the Bloch–Kato maps of the induced representation (§1.7 (d)). For a number field F the semilocal Kummer map E_F ⊗ Q_p → H^1_f(F ⊗ Q_p, Q_p(1)) composed with log is the unit regulator of §3.5.
 
-API.
-
 - `semilocalBlochKatoF`: semilocalBlochKatoF A V : Submodule ℚ_p (⨁ v, H^1(K_v, V)).
 - `semilocalBlochKatoExp`: semilocalBlochKatoExp A V := ⨁ v, blochKatoExp K_v V.
 - `semilocalBlochKatoLog`: The componentwise logarithm on ⨁ v, blochKatoE K_v V. It requires injective exp at every factor, and is its inverse on the direct sum of the images.
 - `semilocal_shapiro`: Under Shapiro's isomorphism, semilocalBlochKatoExp A V = blochKatoExp ℚ_p (Ind_A V).
 - `semilocal_prod`: For A = A' × A'', the semilocal maps are the direct sums of those of A' and A''.
 
-See Rubin2000 Chapter II §2, p. 25; HK2 §2.3.2, p. 21.
+See Rubin2000 Chapter II §2, p.25; HK2 §2.3, discussion following Proposition 2.3.2, p.21.
 
 **Checks.**
 
@@ -608,8 +588,6 @@ See LZ2014 Remark 4.16, p. 20.
 
 For x ∈ H^1_Iw(Q_p, T) and a continuous character η of G_∞, put x_η := Tw_{η^{−1}}(x) ∈ H^1_Iw(Q_p, T(η^{−1})) and x_{η,n} := pr_n(x_η) ∈ H^1(Q_p(μ_{p^n}), T(η^{−1})). (a) (λx)_{η,0} = η(λ)x_{η,0} for λ ∈ Λ. (b) If x = h_Iw(y) and η = χ^jω with ω of conductor p^m, then for n ≥ max(m, 1): x_{η,n} = pr_n(h_{Iw,T(η^{−1})}(y ⊗ e_{−j} ⊗ e_{ω^{−1}})) and x_{η,0} = cor_{Q_p(μ_{p^n})/Q_p}(x_{η,n}), independent of n. (c) With T' = T(η^{−1}): 0 → (H^1_Iw(T')_{Γ_1})^Δ → H^1(Q_p, T') → (H^2_Iw(T')^{Γ_1})^Δ → 0.
 
-API.
-
 - `charSpecialization`: charSpecialization η : H1Iw T →ₗ[O_E] H^1(ℚ_p, T(η⁻¹)).
 - `charSpecialization_smul`: charSpecialization η (λ • x) = η(λ) • charSpecialization η x.
 - `charSpecialization_fontaine`: charSpecialization η (h y) = cor (pr_n (h (y ⊗ e_{−j} ⊗ e_{ω⁻¹}))) for n ≥ max(m,1).
@@ -654,8 +632,6 @@ Fix the Iwasawa logarithm. The local constructions extend over a finite étale �
 
 Let A be a finite étale Q_p-algebra, with its canonical decomposition A = ∏_{i∈I} A_i into finite field extensions A_i/Q_p (the primitive idempotents). Put A^adm := {z ∈ A : z_i ∉ {0, 1} for every i}. For a finite extension M/Q_p and x ∈ M ∖ {0, 1} define D_M(x) := ι^{-1}(D^0(ι(x))) for any Q_p-embedding ι : M → C_p, where D^0(z) = Li_2(z) + ½·log_p(z)·log_p(1 − z) is Coleman's dilogarithm for the Iwasawa branch log_p(p) = 0 (ColemanIntegration:Layer 2 dilogarithm-identities with a = 0); it lies in M and does not depend on ι. Define D_A : A^adm → A by D_A(z) := (D_{A_i}(z_i))_{i∈I}, and extend it additively to D_A : Z[A^adm] → A on the free abelian group of formal symbols [z]. This is GSWZ's D_p of (174) applied factor by factor.
 
-API.
-
 - `etaleDilog`: etaleDilog A : A → A is a componentwise total extension of the map on A^adm, assigning 0 at 0 and 1 in each field factor. Only its restriction to A^adm has mathematical content; it is not required to be zero as an entire vector whenever one component is inadmissible.
 - `etaleAdmissible`: etaleAdmissible z : every component of z differs from 0 and 1 (the domain A^adm).
 - `etaleDilog_apply_pi`: For A = ∏_i A_i and admissible z, (etaleDilog A z)_i = etaleDilog A_i z_i.
@@ -694,8 +670,6 @@ See GSWZ2024 §3.1, (176), p. 38; BdJ2003 Remark 1.13, p. 6.
 
 Let K be a number field, p a prime and K_p := K ⊗_Q Q_p, a finite étale Q_p-algebra identified with ∏_{v|p} K_v by Tau Ceti's semilocal equivalence (NumberFieldArithmetic layer 5). Define D_{K,p} on the free abelian group Z[K^×] by [z] ↦ D_{K_p}(z ⊗ 1) for z ≠ 1 (§3.1; z ⊗ 1 is admissible) and [1] ↦ 0. Its v-component is D_σ([z]) = D^0(σ_v(z)) for the embedding σ_v : K → K_v ⊂ C_p, as in GSWZ §3.1. D_{K,p} kills the five-term relations, hence factors through the pre-Bloch group P(K) of K3BlochGroups V.3 (pre bloch group), and restricts to D_{K,p} : B(K) → K_p on Suslin's Bloch group. On B(K) the map does not depend on the branch of the logarithm used to define D.
 
-API.
-
 - `combinedDilog`: combinedDilog K p : FreeAbelianGroup Kˣ →+ K ⊗[ℚ] ℚ_[p], with [1] ↦ 0.
 - `combinedDilog_of`: combinedDilog K p [z] = etaleDilog (K ⊗ ℚ_[p]) (z ⊗ 1).
 - `combinedDilog_component`: Under K ⊗ Q_p ≅ ∏_{v|p} K_v, the v-component of combinedDilog K p [z] is D^0(σ_v z).
@@ -716,7 +690,7 @@ See GSWZ2024 §3.1, paragraph after (174), p. 38; GSWZ2024 Example 4.3, (270)–
 
 ### 3.4 Dictionary of dilogarithm and regulator normalisations
 
-Fix the Iwasawa branch. On C_p ∖ {0,1}: (i) GSWZ's D_p(z) = Li_2(z) + ½ log(z) log(1 − z) (GSWZ (174)) equals Coleman's D(z) (ColemanIntegration:Layer 2 dilogarithm-identities with a = 0), Besser–de Jeu's L_mod,2(z) = L_2(z) + ½ log(z) L_1(z) = Li_2(z) − ½ log(z) Li_1(z) (BdJ §1, the unique choice for n = 2), and the n = 2 case L^mod_2 = Li_2 + B_1 Li_1 log of ColemanIntegration:Layer 8 padic-regulator-polylogarithm (B_1 = −1/2, Li_1(z) = −log(1 − z)). (ii) Besser–de Jeu's regulator formula carries the factor ±(n − 1)!, which is ±1 for n = 2; the sign is the indeterminacy of BdJ Remark 1.7 and is fixed once in §5.7. (iii) Gros's syntomic regulator on an unramified field satisfies reg^Gros = (1 − Frob/p²)·reg^Besser in weight two (BdJ Remark 1.13); on a root of unity ζ of order prime to p it takes the value ℓ_2(ζ) = Li_2(ζ) − p^{-2}Li_2(ζ^p) ∈ O, while for p>3 the Besser value Li_2(ζ) lies in p²O (§3.2 (d)). (iv) Forward comparison, established at §4.2 rather than used to prove Layer 3: the Bloch–Kato normalisation: under D_dR(Q_p(2)) = L·e_2, e_2 = t^{-2}⊗ε^{⊗2}, with t = log[ε] the period of Q_p(1), the regulator of GSWZ is ε·log_BK∘c_{2,1} for one sign ε ∈ {±1} (§4.2). (v) On roots of unity ζ ≠ 1 every branch gives the same value D(ζ) = Li_2(ζ), and on special units (|z| = |1 − z| = 1) D is branch independent.
+Fix the Iwasawa branch. On C_p ∖ {0,1}: (i) GSWZ's D_p(z) = Li_2(z) + ½ log(z) log(1 − z) (GSWZ (174)) equals Coleman's D(z) (ColemanIntegration:Layer 2 dilogarithm-identities with a = 0), Besser–de Jeu's L_mod,2(z) = L_2(z) + ½ log(z) L_1(z) = Li_2(z) − ½ log(z) Li_1(z) (BdJ §1, the unique choice for n = 2), and the n = 2 case L^mod_2 = Li_2 + B_1 Li_1 log of ColemanIntegration §L3.14 `padicRegulatorPolylog` (B_1 = −1/2, Li_1(z) = −log(1 − z)). (ii) Besser–de Jeu's regulator formula carries the factor ±(n − 1)!, which is ±1 for n = 2; the sign is the indeterminacy of BdJ Remark 1.7 and is fixed once in §5.7. (iii) Gros's syntomic regulator on an unramified field satisfies reg^Gros = (1 − Frob/p²)·reg^Besser in weight two (BdJ Remark 1.13); on a root of unity ζ of order prime to p it takes the value ℓ_2(ζ) = Li_2(ζ) − p^{-2}Li_2(ζ^p) ∈ O, while for p>3 the Besser value Li_2(ζ) lies in p²O (§3.2 (d)). (iv) Forward comparison, established at §4.2 rather than used to prove Layer 3: the Bloch–Kato normalisation: under D_dR(Q_p(2)) = L·e_2, e_2 = t^{-2}⊗ε^{⊗2}, with t = log[ε] the period of Q_p(1), the regulator of GSWZ is ε·log_BK∘c_{2,1} for one sign ε ∈ {±1} (§4.2). (v) On roots of unity ζ ≠ 1 every branch gives the same value D(ζ) = Li_2(ζ), and on special units (|z| = |1 − z| = 1) D is branch independent.
 
 See BdJ2003 §1, after (1.4) and before Remark 1.5, p. 3; BdJ2003 Remark 1.13, p. 6; GSWZ2024 §1.5, (19), p. 9.
 
@@ -727,9 +701,9 @@ See BdJ2003 §1, after (1.4) and before Remark 1.5, p. 3; BdJ2003 Remark 1.13, p
 
 ### 3.5 Kernel of the logarithm on local units and the p-adic regulator matrix
 
-(a) Let L/Q_p be finite. The Iwasawa logarithm restricts to a continuous homomorphism log_p : O_L^× → L whose kernel is the finite group μ(L) of all roots of unity in L (including those of p-power order, and ±1 when p = 2) and whose image is an open Z_p-submodule of L; hence log_p induces an isomorphism (O_L^×)^∧_p ⊗_{Z_p} Q_p ≅ L, and for L unramified and p odd it maps U^1_L = 1 + pO_L isomorphically onto pO_L. (b) Let F be a number field, E_F its unit group and ε_1, …, ε_r a basis of E_F modulo torsion. The composite E_F ⊗ Z_p → ∏_{v|p}(O_v^×)^∧_p → ∏_{v|p} F_v = F ⊗ Q_p (completion followed by log_p), after the scalar extension F ⊗ Q_p ⊗_{Q_p} C_p ≅ C_p^{Hom(F, C_p)}, has matrix (log_p σ_j(ε_i))_{i ≤ r, j ≤ [F:Q]}. In particular rr_p(F), the rank of this matrix (Polylogarithms P.6 (padic regulator)), is the Z_p-rank of the image of E_F ⊗ Z_p in ∏_{v|p}(O_v^×)^∧_p, and Leopoldt's conjecture for (F,p) is injectivity of the rational unit logarithm (E_F/μ(F))⊗_Z Q_p → F⊗_Q Q_p. This is equivalent to full rank r of the displayed logarithm matrix; torsion is removed before stating the rank criterion.
+(a) Let L/Q_p be finite. The Iwasawa logarithm restricts to a continuous homomorphism log_p : O_L^× → L whose kernel is the finite group μ(L) of all roots of unity in L (including those of p-power order, and ±1 when p = 2) and whose image is an open Z_p-submodule of L; hence log_p induces an isomorphism (O_L^×)^∧_p ⊗_{Z_p} Q_p ≅ L, and for L unramified and p odd it maps U^1_L = 1 + pO_L isomorphically onto pO_L. (b) Let F be a number field, E_F its unit group and ε_1, …, ε_r a basis of E_F modulo torsion. The composite E_F ⊗ Z_p → ∏_{v|p}(O_v^×)^∧_p → ∏_{v|p} F_v = F ⊗ Q_p (completion followed by log_p), after the scalar extension F ⊗ Q_p ⊗_{Q_p} C_p ≅ C_p^{Hom(F, C_p)}, has matrix (log_p σ_j(ε_i))_{i ≤ r, j ≤ [F:Q]}. Define `padicUnitRegulatorRank` rr_p(F) as the Q_p-rank of this matrix; it is the Z_p-rank of the image of E_F ⊗ Z_p in ∏_{v|p}(O_v^×)^∧_p, and Leopoldt's conjecture for (F,p) is injectivity of the rational unit logarithm (E_F/μ(F))⊗_Z Q_p → F⊗_Q Q_p. Full rank r is equivalent. API: invariance under an integral unit-basis change, finite coefficient extension and semilocal permutation. Rank checks: F=ℚ gives 0; F=ℚ(√2), p=7 gives 1; a zero logarithm matrix in positive unit rank fails Leopoldt. Torsion is removed first.
 
-See GSWZ2024 §3.1, p. 37.
+See GSWZ2024 §3.1, p.37; Rubin2000 I, Corollary 6.4 and proof, p.16.
 
 **Checks.**
 
@@ -762,11 +736,9 @@ The étale Chern map, the syntomic Chern map and their de Rham coordinates are s
 
 ### 4.1 Besser's syntomic regulator
 
-For a smooth R-scheme X (R as in the supplier contract “Rigid syntomic cohomology of smooth schemes over a p-adic integer ring”) and i, j ≥ 0, the syntomic Chern classes c^syn_{i,j} : K_j(X) → H^{2i−j}_syn(X, i) are obtained by evaluating the universal syntomic Chern classes c_i ∈ H^{2i}_syn(B_•GL_N, i) — characterised by mapping to the de Rham Chern classes in Fil^i H^{2i}_dR — through Gillet's formalism. For X = Spec R and n ≥ 1 the syntomic regulator is reg_syn := η ∘ c^syn_{n,2n−1} : K_{2n−1}(R) → K; for n ≥ 2 it factors through K_{2n−1}(R) ⊗ Q ≅ K_{2n−1}(K) ⊗ Q. It is compatible with finite extensions R → R' (reg_syn,R' ∘ K(ι) = ι ∘ reg_syn,R) and with automorphisms of R, and for n = 1 it is log_p on R^×.
+For a smooth R-scheme X (R as in the supplier contract “Rigid syntomic cohomology of smooth schemes over a p-adic integer ring”) and i≥1, j≥1, the additive syntomic Chern classes c^syn_{i,j} : K_j(X) → H^{2i−j}_syn(X, i) are obtained by evaluating the universal syntomic Chern classes c_i ∈ H^{2i}_syn(B_•GL_N, i) — characterised by mapping to the de Rham Chern classes in Fil^i H^{2i}_dR — through Gillet's formalism. In degree j=0 retain ordinary Chern functions on K₀ with Whitney sum, rather than an additive c_i; the total Chern series is multiplicative for direct sum. For X = Spec R and n ≥ 1 the syntomic regulator is reg_syn := η ∘ c^syn_{n,2n−1} : K_{2n−1}(R) → K; for n ≥ 2 it factors through K_{2n−1}(R) ⊗ Q ≅ K_{2n−1}(K) ⊗ Q. It is compatible with finite extensions R → R' (reg_syn,R' ∘ K(ι) = ι ∘ reg_syn,R) and with automorphisms of R, and for n = 1 it is log_p on R^×.
 
-API.
-
-- `syntomicChernClass`: syntomicChernClass X i j : K_j(X) →+ H^{2i−j}_syn(X, i).
+- `syntomicChernClass`: syntomicChernClass X i j : K_j(X) →+ H^{2i−j}_syn(X, i), for i,j≥1. Degree zero uses Whitney sum with ordinary c₀=1; rank is separate, and c_(0,j)=0 for j>0.
 - `syntomicRegulator`: syntomicRegulator R n := η ∘ syntomicChernClass (Spec R) n (2n−1) : K_{2n−1}(R) →+ K.
 - `syntomicRegulator_one`: syntomicRegulator R 1 u = log_p u for u ∈ Rˣ (Iwasawa branch).
 - `syntomicRegulator_baseChange`: For a finite extension R → R' with fraction fields K ⊂ K', syntomicRegulator R' n ∘ K(ι) = ι ∘ syntomicRegulator R n.
@@ -778,8 +750,8 @@ See HK2011 Definition 2.3.3, p. 16; BdJ2003 §1, p. 1; NN2016 Proposition 5.6, p
 **Checks.**
 
 - For R = Z_p (p odd) and u = 1 + p, syntomicRegulator Z_p 1 u = log(1 + p) = p − p²/2 + p³/3 − … .
-- For n = 1 and u a Teichmüller unit, syntomicRegulator R 1 u = 0.
-- For R = Z_p[ζ_m] with p ∤ m and ζ ≠ 1, syntomicRegulator R 2 [ζ]_2 = ±Li_2(ζ), the value of ColemanIntegration:Layer 8 syntomic-regulator-of-cyclotomic-elements at n = 2.
+- On ℙ²_R, h=c₁(𝒪(1)) has h²≠0: c₂([𝒪(1)]+[𝒪(1)])=h², although each c₂([𝒪(1)])=0. Degree-zero c₂ is not additive.
+- For R = Z_p[ζ_m] with p ∤ m and ζ ≠ 1, syntomicRegulator R 2 [ζ]_2 = ±Li_2(ζ), the value of ColemanIntegration §L3.15 at n = 2.
 - For R = Z_p, the Gros normalisation (1 − Frob/p²)·syntomicRegulator differs from syntomicRegulator by the factor 1 − p^{−2} ≠ 1, so the two are not interchangeable in integrality statements.
 
 ### 4.2 The syntomic regulator is the Bloch–Kato logarithm of the étale regulator
@@ -808,14 +780,14 @@ See BdJ2003 Theorem 1.6(2), p. 4; BdJ2003 Theorem 1.12, p. 6; BdJ2003 Conjecture
 
 ### 4.4 Besser–de Jeu: the syntomic regulator in higher weight
 
-Let F be a number field, O the localisation of O_F at a prime above p, σ : F → K an embedding into a complete discretely valued subfield K ⊂ C_p with σ(O) ⊂ R, and n ≥ 2. On de Jeu's H^1(M̃^{(n)}(O)) → K^{(n)}_{2n−1}(O) ≅ K^{(n)}_{2n−1}(F), the composite with σ_* and reg_syn maps [x]_n (x a special unit of O) to ±(n − 1)!·L_mod,n(σ(x)), and for every root of unity ζ ≠ 1 of F (of any order) maps the cyclotomic element [ζ]_n to ±(n − 1)!·L_mod,n(σζ) = ±(n − 1)!·Li_n(σζ). For a field F of characteristic 0 and a discrete valuation ring O ⊂ F, the same holds on special units under the Beilinson–Soulé conjecture for F and its residue field (n ≥ 3). L_mod,n is the modified polylogarithm of ColemanIntegration:Layer 8 padic-regulator-polylogarithm. For n = 2 this is §4.3.
+Let F be a number field, O the localisation of O_F at a prime above p, σ : F → K an embedding into a complete discretely valued subfield K ⊂ C_p with σ(O) ⊂ R, and n ≥ 2. On de Jeu's H^1(M̃^{(n)}(O)) → K^{(n)}_{2n−1}(O) ≅ K^{(n)}_{2n−1}(F), the composite with σ_* and reg_syn maps [x]_n (x a special unit of O) to ±(n − 1)!·L_mod,n(σ(x)), and for every root of unity ζ ≠ 1 of F (of any order) maps the cyclotomic element [ζ]_n to ±(n − 1)!·L_mod,n(σζ) = ±(n − 1)!·Li_n(σζ). For a field F of characteristic 0 and a discrete valuation ring O ⊂ F, the same holds on special units under the Beilinson–Soulé conjecture for F and its residue field (n ≥ 3). L_mod,n is the modified polylogarithm of ColemanIntegration §L3.14 `padicRegulatorPolylog`. For n = 2 this is §4.3.
 
 See BdJ2003 Theorem 1.10(2), p. 5; BdJ2003 Theorem 1.12, p. 6.
 
 **Checks.**
 
 - F = Q(ζ_N), n = 3, p ∤ N: reg_syn([ζ_N]_3) = ±2·Li_3(σζ_N).
-- The input of ColemanIntegration:Layer 8 syntomic-regulator-of-cyclotomic-elements is this theorem with F = Q(ζ_N).
+- The input of ColemanIntegration §L3.15 is this theorem with F = Q(ζ_N).
 
 ### 4.5 Gros's normalisation of the syntomic regulator
 
@@ -838,7 +810,8 @@ See CN2017 Corollary 3.16, p. 37; CN2017 §1, p. 3; EN2016 §§2.1–2.2, pp. 4�
 **Checks.**
 
 - For X=Spec O_K, r=2 and i=1, α^norm_{2,1}:K→H^1(U_Q) is an isomorphism and α_U^FMα^norm=exp_BK. At p=5 the unscaled triple-cone boundary instead gives 25·exp_BK; multiplying it by 1/25 restores the square.
-- For dim X_K ≥ 1 and i = r the cokernel of α^FM ∘ α_{r,r} can be very large; no surjectivity is asserted there.
+- At r=0, ω=τ=id. At r=2 modulo p, ω and τ have zero composite p², so neither is an integral inverse.
+- At i=r only injectivity is asserted, even for dim X_K≥1.
 
 ### Examples
 
@@ -846,7 +819,7 @@ For Spec 𝒪_K in positive weight n, the syntomic coordinate is a single K. In 
 
 ### Dependencies
 
-Layers 0–3; MotivicEtaleCohomology finite Chern maps; KTheoryFiniteLocalFields; K3BlochGroups; CohomologyComparisons, Part II; filtered de Rham and rigid cohomology.
+Layers 0–3; MotivicEtaleKTheory §12.1 finite Chern maps; KTheoryFiniteLocalFields; K3BlochGroups; CohomologyComparisons, Part II; filtered de Rham and rigid cohomology.
 
 ## Layer 5: the unramified local K₃ isomorphism
 
@@ -855,8 +828,6 @@ Throughout the local isomorphism argument p>3 and A=∏Lᵥ is finite unramified
 ### 5.1 Kontsevich's finite polylogarithm
 
 For a prime p and n ∈ Z, the finite polylogarithm is the polynomial li_{n,p}(x) := Σ_{k=1}^{p−1} x^k / k^n ∈ F_p[x] (equivalently its lift with coefficients in Z_(p)). It has degree p − 1 (for p > 2), constant term 0, and satisfies x·li'_{n,p}(x) = li_{n−1,p}(x); li_{n,p}(1) = Σ_{k=1}^{p−1} k^{−n} ≡ 0 mod p exactly when (p − 1) ∤ n. In particular for p > 3: li_{2,p}(1) ≡ 0 and li'_{2,p}(1) = li_{1,p}(1) ≡ 0 mod p, so (x − 1)² divides li_{2,p}(x) in F_p[x].
-
-API.
 
 - `finitePolylog`: finitePolylog p n : Polynomial (ZMod p) := Σ_{k=1}^{p−1} C ((k : ZMod p)^n)⁻¹ * X^k.
 - `finitePolylog_eval_zero`: (finitePolylog p n).eval 0 = 0.
@@ -880,8 +851,6 @@ See GSWZ2024 §3.1, (177), p. 38; GSWZ2024 Proof of Proposition 3.3, (180), p. 3
 ### 5.2 Finite residue dilogarithm function
 
 For p prime and an F_p-algebra field F, define f_p(x)=li_{2,p}(x)/(x-1)^p on F^× minus {1}. Its total algebraic extension uses field inverse 0 inverse = 0, hence f_p(1)=0; this convention supplies no dilogarithm value or regulator class at the excluded root 1. For p>3 write li_{2,p}=(X-1)^2 g_p with deg g_p=p-3; then f_p(x)=g_p(x)/(x-1)^(p-2) for x≠1.
-
-API.
 
 - `residueDilogValue`: The total field expression li_{2,p}(x)/(x-1)^p, with the admissible domain specified separately.
 - `residueDilogValue_cancel_double_zero`: For p>3 and x≠1, f_p(x)=g_p(x)/(x-1)^(p-2). No cancellation at x=1 is used.
@@ -936,8 +905,6 @@ See GSWZ2024 Proposition 3.3 and proof, (179)–(182), pp. 38–39; GSWZ2024 Pro
 
 Let p be odd, L a finite unramified étale Q_p-algebra and ζ ∈ μ(L) a root of unity of order m (prime to p) all of whose components are ≠ 1. Define [ζ]_L ∈ K_3(L; Z_p) as the image, under B(L) ⊗ Z_p → lim_ν B(L)/p^ν ≅ K_3(L; Z_p) (the completed-Bloch-group supplier contract, factorwise), of the Z_p-coefficient class ⟦ζ⟧ = m^{−1} ⊗ m[ζ] of K3BlochGroups V.6 (root of unity class) (iii) (componentwise; m[ζ] ∈ B(L) by K3BlochGroups V.6 (integral root multiple)). This is the class GSWZ denote [ζ]: if ζ ∧ (1 − ζ) already vanishes integrally, the integral symbol [ζ] lies in B(L) and has this image; otherwise use the displayed Z_p-coefficient class, whose boundary vanishes because m is a p-unit, and GSWZ's ord(ζ)·D_p(ζ) is the regulator of the integral multiple m[ζ].
 
-API.
-
 - `rootClassK3`: rootClassK3 L ζ : completedK3 p L, for ζ a root of unity of L with all components ≠ 1.
 - `rootClassK3_eq_bloch`: rootClassK3 L ζ is the image of K3BlochGroups' rootClassPadic ζ under B(L) ⊗ ℤ_p → completedK3 p L.
 - `rootClassK3_prod`: For L = ∏ L_i, rootClassK3 L ζ = (rootClassK3 L_i ζ_i)_i.
@@ -958,8 +925,6 @@ See GSWZ2024 Theorem 9 and proof, p. 39.
 ### 5.7 The p-adic regulator on completed K₃
 
 For a finite étale Q_p-algebra L = ∏ L_i (any p; L_i/Q_p finite) define D_L : K_3(L; Z_p) → L as the composite of the étale Chern isomorphism K_3(L; Z_p) ≅ H^1(L, Z_p(2)) (componentwise, the supplier contract “Soulé's étale regulator to continuous Galois cohomology”), the rationalization map into H^1(L, Q_p(2)) and the Bloch–Kato logarithm log_BK : H^1(L, Q_p(2)) ≅ D_dR(Q_p(2)) = L·e_2 ≅ L (§1.3, e_2 = t^{−2} ⊗ ε^{⊗2}), multiplied by the sign ε ∈ {±1} fixed so that D_L([ζ]_L) = +D_L(ζ) = +Li_2(ζ) on root-of-unity classes. By §4.2, D_L = ε·reg_syn (Besser's normalisation) on the image of K_3(O_L), and by §4.3 D_L agrees with the dilogarithm D_L of Layer 3 on Bloch elements presented by special units of O_L. This is GSWZ's D_p of (19) and (183), defined on the completed group.
-
-API.
 
 - `localRegulator`: localRegulator L : completedK3 p L →ₗ[ℤ_[p]] L.
 - `localRegulator_eq_logBK`: localRegulator L = ε • (logBK ∘ chernEquiv) with ε = ±1 the pinned sign.
@@ -1019,8 +984,6 @@ Let F be a number field and Fₚ=F⊗ℚℚₚ=∏_{v|p}Fᵥ. The global regulat
 ### 6.1 The global p-adic K₃ regulator
 
 Let F be a number field and p a prime. The global p-adic regulator is D_{F,p} := D_{F⊗Q_p} ∘ λ_{F,p} : K_3(F) → F ⊗_Q Q_p ≅ ∏_{v|p} F_v, where λ_{F,p} : K_3(F) → ∏_{v|p} K_3(F_v; Z_p) = K_3(F ⊗ Q_p; Z_p) is the semilocal completed map of KTheoryFiniteLocalFields L.7 (semilocal completed map) and D_{F⊗Q_p} is the regulator of §5.7. It kills the torsion subgroup of K_3(F) and induces D_{F,p} ⊗ Q : K_3(F) ⊗ Q → F ⊗ Q_p; for p > 3 unramified in F its image lies in p²(O_F ⊗ Z_p).
-
-API.
 
 - `globalPadicRegulator`: globalPadicRegulator F p : K_3(F) →+ F ⊗[ℚ] ℚ_[p].
 - `globalPadicRegulator_component`: Its v-component is localRegulator F_v ∘ c_v.
@@ -1097,8 +1060,6 @@ See GSWZ2024 Definition 1.3, (20)–(22), p. 9; GSWZ2024 Theorem 1, p. 9.
 
 For a number field F and prime p, Inj(F,p) means injectivity of the Q-linear map D_{F,p}⊗Q:K_3(F)⊗Q→F⊗Q_p. Since the source has Q-dimension r_2(F), this is equivalent to Z-rank r_2(F) of the finitely generated integral image. Separately, StrongInj(F,p) means injectivity of the Q_p-linear extension K_3(F)⊗Q_p→F⊗Q_p, equivalently Q_p-dimension r_2(F) of its span, or Z_p-rank r_2(F) of the Z_p-span. StrongInj implies Inj; the converse is not a formal equivalence. Neither assertion for positive r_2 follows from Borel’s rank formula or the local Layer 5 isomorphism.
 
-API.
-
 - `PadicK3RegulatorInjective`: PadicK3RegulatorInjective F p : Prop := Function.Injective (globalPadicRegulator_rat F p).
 - `padicK3RegulatorInjective_of_totallyReal`: If F is totally real, PadicK3RegulatorInjective F p holds.
 - `padicK3RegulatorInjective_iff_rank`: PadicK3RegulatorInjective F p ↔ the integral image has Z-rank r_2(F), equivalently the rational image has Q-dimension r_2(F). This is not a Q_p-span criterion.
@@ -1107,7 +1068,7 @@ API.
 - `strongPadicK3RegulatorInjective_implies`: StrongPadicK3RegulatorInjective F p implies PadicK3RegulatorInjective F p; no converse from linear algebra.
 - `PadicK3RegulatorInjective_extensionality`: The injectivity predicates depend only on the specified Q-linear or Q_p-linear map respectively: pointwise equal maps give equivalent predicates. Proof witnesses are unique by proof irrelevance; scalar extension is not an extensionality equivalence.
 
-See GSWZ2024 Theorem 9, p. 39.
+See GSWZ2024 §1.5, (19), p.9 for the global map; the rank equivalences use linear algebra and BorelRegulators §3.12. GSWZ Theorem 9, p.39 is a local theorem and supplies no global injectivity.
 
 **Checks.**
 
@@ -1139,8 +1100,6 @@ For good reduction let K/ℚₚ be finite unramified, k=𝔽_q with q=pᶠ, and 
 
 Let K/Q_p be finite unramified of degree f, q=p^f, and 𝒳/O_K a smooth proper geometrically connected curve, X=𝒳_K. Set H=H¹_dR(X/K)=H¹_rig(𝒳_k/K), Φ=φ_p^f (K-linear), P=φ_p/p² (Q_p-linear), A=1−P, Q=Φ/q²=P^f, B=1−Q, and N_f=Σ_{j=0}^{f−1}P^j, so B=N_f A. The rigid syntomic complex is Besser’s full filtered homotopy fibre product, not a single cone on H. Map its Frobenius-cone component to the fixed-q modified model by (id,N_f), with identity on the other fibre-product legs. This induces β:H²_syn,rig(𝒳,2)→H²_ms,q(𝒳,2). Let j_q:H→H²_ms,q be the raw boundary [(0,ε)], and j_p:H→H²_syn,rig the raw boundary in the collapsed unramified model. Curve weights and Fil²H¹=Fil²H²=0 give isomorphisms β,j_p,j_q,A,B, with βj_p=j_qN_f. The normalized identification is Θ=B⁻¹j_q⁻¹β=A⁻¹j_p⁻¹. Transport the K-module structure on the initially Q_p-linear rigid target through Θ. The fixed-q canonical boundary is ι=β⁻¹j_q, a K-linear equivalence with this transported structure, and Θ=B⁻¹ι⁻¹. For f>1, ι need not equal j_p. The alternating trace pairing on H satisfies B_cup(Φa,Φb)=q B_cup(a,b) and its second-kind residue formula.
 
-API.
-
 - `curveSyntomicTarget`: curveSyntomicTarget 𝒳 := H^2_syn(𝒳, 2).
 - `curveSyntomicCanIso`: ι=β⁻¹j_q:H≃ₗ[K]H²_syn,rig, with K-scalars transported by Θ; it is the fixed-q raw boundary, not necessarily j_p.
 - `curveSyntomicNormIso`: Θ=B⁻¹ι⁻¹=B⁻¹j_q⁻¹β=A⁻¹j_p⁻¹; it is the inverse normalized boundary.
@@ -1166,9 +1125,7 @@ See BdJ2003 Definition 4.6, p. 24; Ara2003 Lemma 3.3, p. 8; Besser2000 Propositi
 
 ### 7.2 The Frobenius splitting for an open curve
 
-Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). Let (𝒳, D) be a good-reduction pair (ColemanIntegration:Layer 1 good-reduction-pair) with D finite étale over O_K and Y = 𝒳 ∖ D. Then H̃^2_ms(Y, 2) = Ω^†(Y)/dA^†(Y) = H^1_dR(A^†(Y)), the restriction res : H^1_dR(X) → H^1_dR(Y) is φ-equivariant and injective, and there is a unique φ-equivariant retraction p_D : H^1_dR(Y) → H^1_dR(X) (H^1(X) has Frobenius weight 1 and the cokernel of res, spanned by residues, weight 2). p_D does not depend on the Frobenius lift and is compatible with enlarging D.
-
-API.
+Under §7.1’s good-reduction hypotheses, write φ=Φ for q-power Frobenius. Let (𝒳, D) be a good-reduction pair (ColemanIntegration:Layer 1 good-reduction-pair) with D finite étale over O_K and Y = 𝒳 ∖ D. Then H̃^2_ms(Y, 2) = Ω^†(Y)/dA^†(Y) = H^1_dR(A^†(Y)), the restriction res : H^1_dR(X) → H^1_dR(Y) is φ-equivariant and injective, and there is a unique φ-equivariant retraction p_D : H^1_dR(Y) → H^1_dR(X) (H^1(X) has Frobenius weight 1 and the cokernel of res, spanned by residues, weight 2). p_D does not depend on the Frobenius lift and is compatible with enlarging D.
 
 - `openCurveSplitting`: openCurveSplitting 𝒳 D : H1dR (Y) →ₗ[K] H1dR X.
 - `openCurveSplitting_comp_res`: openCurveSplitting 𝒳 D ∘ res = id.
@@ -1186,9 +1143,7 @@ See BdJ2012 §1, pp. 4–5.
 
 ### 7.3 The degree-two syntomic regulator of a curve
 
-Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). For u ∈ K_2(𝒳)^{(2)} ⊗ Q define reg_syn(u) ∈ H^2_syn(𝒳, 2) by the syntomic Chern class of §4.1, and put regSynCan(u) := ι^{−1}(reg_syn(u)) and regP(u) := Θ(reg_syn(u)) = (1 − φ/q²)^{−1}regSynCan(u) in H^1_dR(X/K). If the restriction of u to Y = 𝒳 ∖ D is a finite sum Σ n_i{f_i, g_i} of symbols with f_i, g_i ∈ O(Y)^×, then regSynCan(u) = p_D[Σ_i n_i ε(f_i, g_i)] with ε(f, g) := q^{−2}·log(f_0)·φ^*dlog g − q^{−1}·log(g_0)·dlog f, f_0 := f^q/φ^*f (a class in H̃^2_ms(Y, 2) = H^1_dR(A^†(Y))), and regP(u) = p_D((1 − φ^*/q²)^{−1}[Σ_i n_i ε(f_i, g_i)]). This gives the full 2g-coordinate regulator vector, not only its pairing with holomorphic forms.
-
-API.
+Under §7.1’s good-reduction hypotheses, write φ=Φ for q-power Frobenius. For u ∈ K_2(𝒳)^{(2)} ⊗ Q define reg_syn(u) ∈ H^2_syn(𝒳, 2) by the syntomic Chern class of §4.1, and put regSynCan(u) := ι^{−1}(reg_syn(u)) and regP(u) := Θ(reg_syn(u)) = (1 − φ/q²)^{−1}regSynCan(u) in H^1_dR(X/K). If the restriction of u to Y = 𝒳 ∖ D is a finite sum Σ n_i{f_i, g_i} of symbols with f_i, g_i ∈ O(Y)^×, then regSynCan(u) = p_D[Σ_i n_i ε(f_i, g_i)] with ε(f, g) := q^{−2}·log(f_0)·φ^*dlog g − q^{−1}·log(g_0)·dlog f, f_0 := f^q/φ^*f (a class in H̃^2_ms(Y, 2) = H^1_dR(A^†(Y))), and regP(u) = p_D((1 − φ^*/q²)^{−1}[Σ_i n_i ε(f_i, g_i)]). This gives the full 2g-coordinate regulator vector, not only its pairing with holomorphic forms.
 
 - `curveSyntomicRegulator`: curveSyntomicRegulator 𝒳 : K_2(𝒳)^{(2)}_ℚ →ₗ[ℚ] curveSyntomicTarget 𝒳.
 - `regSynCan`: regSynCan := canIso⁻¹ ∘ curveSyntomicRegulator.
@@ -1209,29 +1164,30 @@ See AM18 Proposition 6.4, p. 34; BdJ2003 Lemma 4.7, p. 24; Besser2000 Propositio
 
 ### 7.4 Besser's Coleman-integral formula for the regulator of a symbol
 
-Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). Let u ∈ K_2(𝒳)^{(2)} ⊗ Q restrict on Y = 𝒳 ∖ D to Σ_i n_i{f_i, g_i} with f_i, g_i ∈ O(Y)^× and (𝒳, D) a good-reduction pair containing all supports, and let ω ∈ H^0(X, Ω^1). Then B(regP(u), [ω]) = Σ_i n_i Σ_{x ∈ |D_K|} ord_x(f_i)·Tr_{K(x)/K}(CT_x(∫ log(g_i)·ω)), where ∫ log(g_i)ω is the Coleman integral (ColemanIntegration:Layer 1 coleman-integral) and CT_x the log-free constant term at x in a local parameter (after a finite extension, descending by Galois equivariance). The value is independent of the branch of the logarithm and of the constant of integration. Equivalently Tr_X(Θ(reg_syn{f, g}) ∪ [ω]) = ∫_{(f)} log(g)ω (Coleman–de Shalit's p-adic regulator). The formula holds for Θ = regP, not for the canonical regSynCan.
+Under §7.1’s good-reduction hypotheses, write φ=Φ for q-power Frobenius. Let u ∈ K_2(𝒳)^{(2)} ⊗ Q restrict on Y = 𝒳 ∖ D to Σ_i n_i{f_i, g_i} with f_i, g_i ∈ O(Y)^× and (𝒳, D) a good-reduction pair containing all supports, and let ω ∈ H^0(X, Ω^1). Then B(regP(u), [ω]) = Σ_i n_i Σ_{x ∈ |D_K|} ord_x(f_i)·Tr_{K(x)/K}(CT_x(∫ log(g_i)·ω)), where ∫ log(g_i)ω is the Coleman integral (ColemanIntegration:Layer 1 coleman-integral) and CT_x the log-free constant term at x in a local parameter (after a finite extension, descending by Galois equivariance). The value is independent of the branch of the logarithm and of the constant of integration. Equivalently Tr_X(Θ(reg_syn{f, g}) ∪ [ω]) = ∫_{(f)} log(g)ω (Coleman–de Shalit's p-adic regulator). The formula holds for Θ = regP, not for the canonical regSynCan.
 
 See AM18 Theorem 9.1, p. 45; BdJ2012 Remark 1.10, p. 4.
 
 **Checks.**
 
-- The tests of EllipticRegulators ER.8 (good reduction elliptic pairing) hold with regP.
-- With regSynCan the formula fails by (1 − φ/q²) (EllipticRegulators F1 in the handoff).
+- For a genus-zero proper curve the target H¹_dR is zero.
+- Adding a constant C to the primitive adds C·deg(div f)=0.
+- In the scalar pairing model p=5, γ=2, regSynCan gives 9/10 of the regP pairing (§7.3).
 
 ### 7.5 The curve regulator and the Bloch–Kato logarithm
 
-Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). Put V = H^1_et(X_K̄, Q_p(2)), a crystalline representation with D_cris(V) = H^1_dR(X/K) ⊗ e_2 and V^{G_K} = 0. For u ∈ K_2(𝒳)^{(2)} ⊗ Q the étale regulator r^et(u) ∈ H^1(K, V) lies in H^1_f = H^1_e, and regP(u) = log_BK(r^et(u)) under D_dR(V)/Fil^0 = H^1_dR(X/K); equivalently regSynCan(u) = (1 − Φ/q²)·log_BK(r^et(u)) for every such K, where Φ=φ_p^f and regSynCan uses the fixed-q boundary ι=β⁻¹j_q. For K=Q_p this is 1−φ_p/p². For K=Q_p, if φ_p v = γv then B(regSynCan u, v) = (1 − 1/(pγ))·B(regP u, v).
+Under §7.1’s good-reduction hypotheses, write φ=Φ for q-power Frobenius. Put V = H^1_et(X_K̄, Q_p(2)), a crystalline representation with D_cris(V) = H^1_dR(X/K) ⊗ e_2 and V^{G_K} = 0. For u ∈ K_2(𝒳)^{(2)} ⊗ Q the étale regulator r^et(u) ∈ H^1(K, V) lies in H^1_f = H^1_e, and regP(u) = log_BK(r^et(u)) under D_dR(V)/Fil^0 = H^1_dR(X/K); equivalently regSynCan(u) = (1 − Φ/q²)·log_BK(r^et(u)) for every such K, where Φ=φ_p^f and regSynCan uses the fixed-q boundary ι=β⁻¹j_q. For K=Q_p this is 1−φ_p/p². For K=Q_p, if φ_p v = γv then B(regSynCan u, v) = (1 − 1/(pγ))·B(regP u, v).
 
 See AC20 Footnote 4, p. 43; NN2016 Proposition 1.1, p. 3; Besser2000 Proposition 9.11, author preprint p. 32; Besser2000 Proposition 8.6(2),(3), Remark 8.7(3), Proposition 9.11 and Proposition 10.1(3), author pp. 26–28,32,34.
 
 **Checks.**
 
 - For E/Q_p with good reduction and v a φ-eigenvector with eigenvalue γ: Tr(regSynCan(z) ∪ v) = (1 − p^{−1}γ^{−1})Tr(log reg_f(z) ∪ v) (Asakura–Chida footnote 4).
-- This resolves the normalisation required by EllipticRegulators ER.8 (elliptic syntomic etale factor).
+- For X=ℙ¹, both H¹_dR and the regulator vector vanish.
 
 ### 7.6 Pullback, pushforward and base change of the curve regulator
 
-Assume K/Q_p finite unramified with residue field F_q, q = p^f; 𝒳/O_K a smooth proper curve with geometrically connected fibres and generic fibre X; φ the K-linear q-power Frobenius on H^1_dR(X/K) ≅ H^1_rig(𝒳_k/K). Let π : 𝒳' → 𝒳 be a finite flat morphism of good-reduction curves. (a) Pullback: regP(π^*u) = π^*regP(u), and B'(π^*a, π^*b) = deg(π)·B(a, b). (b) Pushforward: regP(π_*u') = π_*regP(u') with π_* the de Rham trace, characterised by B(π_*a', b) = B'(a', π^*b); at the level of symbols ∫_{(π^*f)} log(g)·π^*ω = ∫_{(f)} log(N g)·ω. (c) Base change: for K'/K finite unramified, regP(u|_{𝒳_{O_{K'}}}) = regP(u) ⊗ 1, and the transfer N_{K'/K} corresponds to Tr_{K'/K}. These base-change and transfer assertions use the normalized regP. If d=[K′:K], q′=q^d and Φ′=Φ^d on the base-changed cohomology, the raw fixed-Frobenius coordinate instead satisfies regSynCan,K′(u|K′)=N_d·(regSynCan,K(u)⊗1), with N_d=Σ_{j=0}^{d−1}(Φ/q²)^j. This is the identity 1−(Φ/q²)^d=N_d(1−Φ/q²); raw transfer likewise requires normalization. Prove pushforward through the étale comparison §7.5 and corestriction compatibility of r^et; on the image of pullback use the projection formula.
+Under §7.1’s good-reduction hypotheses, write φ=Φ for q-power Frobenius. Let π : 𝒳' → 𝒳 be a finite flat morphism of good-reduction curves. (a) Pullback: regP(π^*u) = π^*regP(u), and B'(π^*a, π^*b) = deg(π)·B(a, b). (b) Pushforward: regP(π_*u') = π_*regP(u') with π_* the de Rham trace, characterised by B(π_*a', b) = B'(a', π^*b); at the level of symbols ∫_{(π^*f)} log(g)·π^*ω = ∫_{(f)} log(N g)·ω. (c) Base change: for K'/K finite unramified, regP(u|_{𝒳_{O_{K'}}}) = regP(u) ⊗ 1, and the transfer N_{K'/K} corresponds to Tr_{K'/K}. These base-change and transfer assertions use the normalized regP. If d=[K′:K], q′=q^d and Φ′=Φ^d on the base-changed cohomology, the raw fixed-Frobenius coordinate instead satisfies regSynCan,K′(u|K′)=N_d·(regSynCan,K(u)⊗1), with N_d=Σ_{j=0}^{d−1}(Φ/q²)^j. This is the identity 1−(Φ/q²)^d=N_d(1−Φ/q²); raw transfer likewise requires normalization. Prove pushforward through the étale comparison §7.5 and corestriction compatibility of r^et; on the image of pullback use the projection formula.
 
 See Ara2003 Lemmas 3.6–3.7, p. 8; Besser2000 Proposition 8.6(2),(3) and Remark 8.7(3), author pp. 26–28.
 
@@ -1245,6 +1201,8 @@ See Ara2003 Lemmas 3.6–3.7, p. 8; Besser2000 Proposition 8.6(2),(3) and Remark
 
 For a smooth proper semistable curve X/K, NN Theorems A,B provide rational syntomic cohomology and compatible Chern classes; the arithmetic regulator factors through H¹_st(G_K,H¹_et(X_K̄,Q_p(2))). The semistable comparison imports the Hyodo–Kato (φ,N) structure from CohomologyComparisons CP.4. Besser–Zerbes Theorem 1.1 identifies Vologodsky integration with appropriately corrected/glued Coleman primitives on semistable curves. These two results alone do not give the weight-two symbol formula. The regulator-specific continuous/discrete coordinates and full second-kind pairing are specified by §7.10 and §7.11, using Besser2025 and BR2019. Those targets pair the continuous component with ker N and determine its class modulo im N; ker N is a restriction on test forms, not the regulator domain. The integration and syntomic operations are supplied by the contracts above.
 
+Retain also the general theorem `curveVologodskyPairing`: for a smooth proper curve over any finite K/ℚₚ, with arbitrary reduction, fixed uniformizer π, a rational K₂ class represented by Σnᵢ{fᵢ,gᵢ}, and holomorphic ω with [ω]∈ker N, the continuous regulator pairing is Σnᵢ∫^Vol_{(fᵢ)}log(gᵢ)ω, using π’s branch. Besser2025 Theorem 3.10, p.9 supplies this statement. Its period and integration suppliers must include descent from a finite semistable extension. That descent comparison remains missing; the split-model formulas below do not replace the general theorem.
+
 See NN2016 Theorem B, p. 7; BZ2017 Theorem 1.1, p. 2.
 
 **Checks.**
@@ -1257,8 +1215,6 @@ See NN2016 Theorem B, p. 7; BZ2017 Theorem 1.1, p. 2.
 Under the stated compactification, coherence and filtration assumptions, construct [−]_{U/S}:K²_M(A)→Ext¹_{Fil-F-MIC(S,σ)}(O_S,H¹(U/S)(2)). It factors the cup-symbol extension through Milnor bilinearity and Steinberg relations. Its Frobenius coordinate R_σ takes values in B†_K⊗_{B_K}H¹_dR(U/S); its Gauss–Manin coordinate is σ-independent, while R_σ depends on σ. For a smooth proper curve family X/S, classes in K²_M(A)_{∂=0} uniquely lift to extensions by H¹(X/S)(2). With the extra truncated-complex hypotheses, R_σ[ξ] is the NEGATIVE of the relative syntomic-symbol de Rham coordinate (AM Theorems 3.7 at n=1 and 4.5). The generic category of filtered F-isocrystals, connection, Ext, relative de Rham/rigid and relative syntomic carriers are imports, not definitions owned here.
 
 W=W(k) with k perfect of characteristic p≥3, K=Frac W; S=Spec B smooth affine over W, U=Spec A smooth affine over S. Use AM Theorem 3.7’s projective compactification Y→Q, boundary D∪f⁻¹(T) relative simple normal crossings, log-smooth (Y,M)→(Q,L), and a compatible system σ of p-Frobenius lifts on Q. AM Assumption 2.20: relative overconvergent rigid cohomology is coherent and compares to algebraic relative de Rham cohomology. Fil²H²_dR(U/S)=0; for the comparison, H¹ and H² of the truncated relative log de Rham complex ≥2 vanish modulo every p^m. For the proper refinement use exactly AM §4.1: Q is a smooth affine curve over W, T⊂Q is finite étale over W, S=Q\T, Y is a smooth quasi-projective surface over W, and f:Y→Q is projective and surjective with connected fibres. The deleted divisor D_X⊂X=Y\f⁻¹(T) is finite étale over S; U=X\D_X is affine. The vertical and horizontal boundary has relative simple normal crossings, the family is smooth over S, and every irreducible component of a singular fibre has multiplicity prime to p. The domain is ker ∂⊂K²_M(A), not all proper K₂ classes.
-
-API.
 
 - `relativeCurveSyntomicRegulator`: The symbol-extension homomorphism into imported Ext¹, with proper refinement on ker ∂.
 - `relativeRegulator_frobeniusCoordinate`: R_σ on the extension in B†_K⊗H¹_dR; the Gauss–Manin coordinate is separately σ-independent.
@@ -1290,8 +1246,6 @@ See AM2022 Theorem 2.23 and §2.7, pp. 18–20; Theorem 3.7, pp. 27–31; Propos
 The imported semistable cohomology is H¹ of D→D⊕D⊕H→D with d(w)=((φ−1)w,Nw,−I_πw) and d(x,y,z)=Nx+(1−pφ)y. For a cocycle choose w=(φ−1)⁻¹x and set ρ[(x,y,z)]=y−Nw∈ker(1−pφ), β_π[(x,y,z)]=z+I_πw∈H. Both descend to classes and give a Q_p-linear isomorphism H¹_st(K,V)≃H⊕ker(1−pφ). Define reg^c,π=β_π∘reg_syn and reg^d=ρ∘reg_syn. The discrete carrier is the fixed-eigenvalue kernel ker(1−pφ), contained in twisted weight −2, not automatically the whole weight −2 space. Under a uniformizer change, the branch derivative of the continuous component is −I_π reg^d (Besser Theorem 3.8); for curve N²=0 and λ=log(π′/π), the source period-change law yields reg^c,π′−reg^c,π=−λI_π reg^d−(λ²/2)I_πN reg^d. It reduces to the linear law when N reg^d=0; N²=0 alone does not give this additional vanishing. reg^c alone does not determine the full semistable class.
 
 K/Q_p finite; X/K smooth proper with a regular split semistable model, geometric smooth components and ordinary double points. Fix a uniformizer π and its logarithm branch. As in BR2019’s split-model treatment, require distinct components to meet at at most one point; multiedge/self-node generalization is not asserted here. V=H¹_et(X_Kbar,Q_p(2)), D=D_st(V), H=D_dR(V)=H¹_dR(X/K), Fil⁰D_dR(V)=Fil²H=0; import φ,N and I_π. Twisted Frobenius weights are −4,−3,−2, so φ−1 is invertible; N²=0. Domain is the weight-two geometrically trivial motivic/K₂ regulator domain supplied by the syntomic Chern classes; symbol evaluations use a finite presentation on the function field with trivial total tame symbols.
-
-API.
 
 - `semistableContinuousRegulator`: β_π∘reg_syn into H, linear over Q_p on the rationalized motivic domain.
 - `semistableDiscreteRegulator`: ρ∘reg_syn into ker(1−pφ), a Q_p-vector space.
@@ -1335,8 +1289,6 @@ Assume the odd-prime cyclotomic setting. For a crystalline E-representation V pu
 
 Let E be a field and Φ a finite square matrix over E. Define P(a,b,Phi)=-b^(-1)(Phi+aI) as an explicit matrix expression. It is an inverse only under the separately stated quadratic relation and b nonzero.
 
-API.
-
 - `quadraticFrobeniusInverse_formula`: P=-b^(-1)(Phi+aI).
 - `quadraticFrobeniusInverse_spec`: Under Phi^2+aPhi+bI=0 and b nonzero, Phi P=I and P Phi=I.
 - `quadraticFrobeniusInverse_map`: A field embedding applied to all entries and scalars commutes with P.
@@ -1362,8 +1314,6 @@ See LLZ2011 §5A, Lemma 5.6 and proof, pp. 1126–1127.
 ### 8.3 Quadratic Euler inverse
 
 Let E be a field and Φ a finite square matrix over E. Define Q(a,b,Phi)=(1+a+b)^(-1)(Phi+(1+a)I). This is the inverse candidate for I-Phi, not an unqualified inverse at singular Euler factors.
-
-API.
 
 - `quadraticEulerInverse_formula`: Q=(1+a+b)^(-1)(Phi+(1+a)I).
 - `quadraticEulerInverse_spec`: Under the quadratic relation and 1+a+b nonzero, (I-Phi)Q=Q(I-Phi)=I.
@@ -1407,8 +1357,6 @@ See LLZ2011 Section 5A, Lemma 5.6, p. 1126.
 
 For j in Z define Gamma*(1+j)=j! if j>=0 and (-1)^(-j-1)/(-j-1)! if j<=-1, as a nonzero rational number, then map it into E. This is the leading Laurent coefficient of the classical Gamma function; it is not the p-adic Gamma function.
 
-API.
-
 - `gammaLeadingFactor_nonneg`: For n in N its value at j=n is n!.
 - `gammaLeadingFactor_neg`: Its value at j=-n-1 is (-1)^n/n!.
 - `gammaLeadingFactor_ne_zero`: It is nonzero for every integral j.
@@ -1424,8 +1372,6 @@ See LZ2014 Appendix B before Proposition B.1, PDF p.37.
 ### 8.7 Logarithmic factors
 
 In each H_E(Gamma_1) component set ell_i=log(1+X)/log(chi(gamma))-i for i in Z, lambda_k=product_(0<=i<k) ell_i for k>=0, and delta_i=ell_i/(X+1-chi(gamma)^i). The apparent pole of delta_i is removable at x_i=chi(gamma)^i-1; its value there is 1/(chi(gamma)^i log(chi(gamma))). Put n_k=log(chi(gamma))^k lambda_k/product_(0<=i<k)(X-x_i).
-
-API.
 
 - `ellFactor_eval_weight`: ell_i(chi^j eta)=j-i for any finite-order eta on Gamma_1.
 - `lambdaFactor_succ`: lambda_(k+1)=lambda_k ell_k, lambda_0=1.
@@ -1444,8 +1390,6 @@ See LLZ2011 Section 1C2, definitions of ell_i, delta_i and n_k and Proposition 1
 
 Define L_V=(Mellin_inverse tensor 1) composed with (1-phi) composed with h_Iw^(-1), from H^1_Iw(Q_p,V) to H_E(G) tensor_E D_cris(V). Here h_Iw:N(V)^(psi=1)~=H^1_Iw is the actual Layer 2 comparison, and the Wach embedding takes (1-phi)x into (B_rig^+)^(psi=0) tensor D_cris(V). This is a Lambda_E-linear continuous map; its analytic scalar extension is H_E-linear.
 
-API.
-
 - `crystallineRegulator_apply`: Mellin(L_V(z))=(1-phi)h_Iw^(-1)(z) in the specified period module.
 - `crystallineRegulator_linear`: L_V(a z+b w)=a L_V(z)+b L_V(w) for a,b in Lambda_E, acting by convolution.
 - `crystallineRegulator_ext`: The Mellin identity determines the map uniquely.
@@ -1463,8 +1407,6 @@ See LLZ2011 Section 3A, Definition 3.4, pp.1116-1117.
 
 For h>=1 with Fil^(-h)D_cris(V)=D_cris(V), define Delta_h on (B_rig^+)^(psi=0) tensor D_cris(V) by the derivative values partial^k f(0) modulo (1-p^k phi)D_cris(V), 0<=k<=h, with their k twists. The admissible source is ker Delta_h. The kernel of 1-phi on the psi-one period module is direct_sum_(0<=k<=h)t^k D_cris(V)^(phi=p^(-k)).
 
-API.
-
 - `bigExponentialObstruction_mem`: f is admissible iff partial^k f(0) lies in image(1-p^k phi) for every indicated k.
 - `bigExponentialObstruction_nonsingular`: If all these Euler maps are invertible, Delta_h=0 and its kernel is the whole source.
 - `bigExponentialObstruction_lift`: An admissible f has a psi-one lift y with (1-phi)y=f; any two lifts differ in the displayed kernel.
@@ -1480,8 +1422,6 @@ See Berger2003DM Section II.5, exact sequence and Definition II.12, p.120.
 ### 8.10 Perrin–Riou big exponential
 
 For admissible f in ker Delta_h choose a psi-one lift y with (1-phi)y=f and define Omega_(V,h)(f)=nabla_(h-1)...nabla_0(y), with nabla_i=t partial-i. Its value is well-defined in D_rig^+(V)^(psi=1)/V^(H_Qp). The eigencondition D_cris(V)^(phi=p^(-h))=0 suffices for an unquotiented value (Definition II.12). More generally, absence of an E(h) subrepresentation suffices by Remark II.14, after using Theorem II.13 to identify the remaining lift ambiguity with invariants. Map to H_E tensor_Lambda H^1_Iw using the established comparison.
-
-API.
 
 - `bigExponential_lift`: Every valid lift gives the stated differential product in the quotient.
 - `bigExponential_linear`: Omega_(V,h) is H_E-linear in the specified Mellin convention.
@@ -1509,8 +1449,6 @@ See LLZ2011 Theorem4.6, p.1120; Berger2003DM RemarkII.15, p.121.
 ### 8.12 Crystalline twist extension
 
 For arbitrary E-linear crystalline V choose m>>0 so V(m) has nonnegative weights and no trivial quotient. Define L_V(z)=(ell_-1...ell_-m)^(-1) Tw_(chi^m)(L_(V(m))(z tensor e_m)) tensor t^m e_-m. The value lies in the total fraction algebra of H_E(G), component by component; it is independent of m. No general H_E-valued assertion follows without proving cancellation of these factors.
-
-API.
 
 - `meromorphicRegulator_choice`: The value is independent of every admitted twist m.
 - `meromorphicRegulator_cleared`: Multiplication by ell_-1...ell_-m gives the stated twisted positive-range map.
@@ -1598,8 +1536,6 @@ See LLZ2011 Corollary4.7 and proof, p.1120.
 
 Given an explicitly chosen E-linear functional ell:D_cris(V)->E, define scalarRegulator_(V,ell)=(1 tensor ell) L_V. A differential or refinement supplies ell only after its pairing and period normalization are proved. The vector regulator is canonical with its cyclotomic choices; this scalar projection is not chosen from V alone.
 
-API.
-
 - `scalarRegulator_apply`: The output is (1 tensor ell)(L_V(z)).
 - `scalarRegulator_add_functional`: Projection for ell1+ell2 is the sum of the two projections; scaling ell scales the output.
 - `scalarRegulator_base_change`: Finite coefficient extension commutes after transporting ell.
@@ -1621,13 +1557,13 @@ See LZ2014 Section6.4.2 diagram and text, pp.28-29.
 
 **Checks.**
 
-- Test the roots-of-unity kernel and distinguish ell_0 Col_0 from either Col_0 alone or +ell_0 Col.
+- For f_u=1+π (the Tate-root tower), (1−φ/p)log f_u=(1−φ/p)t=0, so Col₀ and the regulator vanish.
+- For the cyclotomic unit series f₆=((1+π)⁶−1)/π at p=5, Δf₆(0)=5/2 and the mass of Col₀ is (4/5)log₅(6)≠0; hence Col=−Col₀ changes a nonzero value.
+- For that f₆, Col₀(χ²)=(1−5)(6²−1)/12=−35/3; ℓ₀(χ²)Col₀(χ²)=−70/3. Thus ℓ₀ is essential.
 
 ### 8.22 Ordinary and multiplicative Coleman map
 
 For an elliptic curve A/Q with good ordinary or multiplicative reduction at odd p, T=T_p A, let alpha in Z_p^times be the ordinary root and beta=p/alpha. In split multiplicative reduction set (alpha,beta)=(1,p), in nonsplit (-1,-p). On the actual inverse-corestriction singular quotients H^1_(infty,s)(Q_p,T) define Col_infty into Lambda(Z_p-extension) with its injection and Rubin III.5.14 normalization. For nontrivial finite chi of conductor p^k its value is alpha^-k tau(chi) sum_(g in G_n)chi(g)^-1 exp*_(omega_A)(g z_n). At chi=1 it is (1-alpha^-1)(1-beta^-1)^-1 exp*_(omega_A)(z_0).
-
-API.
 
 - `rubinColemanMap_specialization`: Finite-character values are exactly the displayed Gauss-sum/differential formulas.
 - `rubinColemanMap_injective`: Its kernel on the singular inverse-limit module is zero.
@@ -1659,8 +1595,6 @@ Work first with elementary evaluation constraints over a coefficient field E, a 
 For a finite set J of evaluation indices, define the R-submodule S_J(V) of R^d by F in S_J(V) iff ev_j(F) is in V_j for every j in J, with componentwise evaluation.
 
 For all basis and division statements in §§9.2–9.11, add the following evaluation hypotheses: R is a domain, J is finite, t∈R, the scalars x_j∈E are distinct, ev_j(t)=x_j, q_j=t−x_j is nonzero in R, and ker(ev_j) is the principal ideal (q_j). The definition of the submodule itself needs none of these extra assumptions. The determinant theorem uses d−dim_E V_j, with all dimensions finite because V_j⊂Eᵈ.
-
-API.
 
 - `evaluationConstraints_mem`: F is in S_J(V) iff for every j in J, ev_j(F) is in V_j.
 - `evaluationConstraints_empty`: S_empty(V)=R^d.
@@ -1708,8 +1642,6 @@ See LLZ2011 Section 4A, Proposition 4.2, induction step, p. 1118.
 
 For an E-subspace V of E^d and a matrix C over E, define W={c:cC is in V}, a submodule preimage. If C is invertible, W=VC^(-1) in row-vector notation.
 
-API.
-
 - `transportedSpecialization_mem`: c is in W iff cC is in V.
 - `transportedSpecialization_one`: Transport by I leaves V unchanged.
 - `transportedSpecialization_comp`: Transport first by C and then by D equals transport by DC.
@@ -1735,8 +1667,6 @@ See LLZ2011 Section 4A, Proposition 4.2, induction step.
 ### 9.7 Basis for simultaneous constraints
 
 Construct an R-basis of S_J(V), indexed by Fin d, by successively imposing each evaluation condition. This extends the one-point construction and does not claim an integral basis for constraints over O_E.
-
-API.
 
 - `constraintBasis_rows_mem`: Every row of the constructed basis belongs to S_J(V).
 - `constraintBasis_expansion`: Each F in S_J(V) has unique R-coordinates in the constructed basis.
@@ -1764,8 +1694,6 @@ See LLZ2011 Section 4A, Proposition 4.2, p. 1118.
 
 For coordinate k define J_k={j in J: every v in V_j has v_k=0}; define g_k as the product over J_k of t-x_j. Empty products are one.
 
-API.
-
 - `projectionGenerator_formula`: g_k is exactly the product over forced-zero indices.
 - `projectionGenerator_empty`: If no V_j forces coordinate k to vanish, g_k=1.
 - `projectionGenerator_eval`: With distinct points and ev_j(t)=x_j, ev_j(g_k)=0 iff j belongs to J_k, for j in J.
@@ -1781,8 +1709,6 @@ See LLZ2011 Section 4A, Lemma 4.3 and proof, pp. 1118-1119.
 ### 9.10 Polynomial witness for the image generator
 
 In the evaluation context construct F in S_J(V) whose k-th coordinate is exactly g_k. Other coordinates can be chosen as polynomials in t with E-coefficients.
-
-API.
 
 - `projectionWitness_coordinate`: The k-th coordinate is g_k.
 - `projectionWitness_mem`: The resulting vector belongs to S_J(V).
@@ -1810,8 +1736,6 @@ See LLZ2011 Section 4A, Lemma 4.3, pp. 1118-1119.
 
 For a genuine R-linear map f:H to W and coordinate equivalence e:W to R^d, define Col_e=e composed with f. In LLZ, f is 1-phi on the actual psi=1 module and e is the good psi=0 Wach-basis coordinate map. This generic definition alone does not construct either input.
 
-API.
-
 - `colemanCoordinates_apply`: Col_e(z)=e(f(z)).
 - `colemanCoordinates_reconstruct`: e inverse applied to Col_e(z) equals f(z).
 - `colemanCoordinates_precomp`: Col_e(f composed with g)=Col_e(f) composed with g.
@@ -1837,8 +1761,6 @@ See LLZ2011 Section 3A, Lemma 3.3 and its proof, p.1117.
 ### 9.14 Logarithmic matrix
 
 Let R to A be a homomorphism of commutative rings, e:W to R^d and b:Y to A^d coordinate equivalences, and j:W to Y an R-linear map. Define M_ik=b(j(e inverse(e_i)))_k. This is an A-matrix encoding j, not an R-matrix asserted integral without proof.
-
-API.
 
 - `logarithmicMatrix_entry`: M_ik=b(j(e inverse(e_i)))_k.
 - `logarithmicMatrix_expansion`: b(j(w))=algebraMap(e(w)) times M, using row multiplication.
@@ -1885,8 +1807,6 @@ See LLZ2011 Section 3, equation (1); section 5C, Remark 5.12, p. 1129.
 ### 9.18 Integral shear matrix
 
 Define A(e1,e2)=[[1,e2],[e1,1]], with row action (F,G)A=(F+e1G,G+e2F). Over a commutative ring it is invertible precisely when 1-e1e2 is a unit, not merely nonzero.
-
-API.
 
 - `shearMatrix_action`: (F,G)A=(F+e1G,G+e2F).
 - `shearMatrix_det`: det A=1-e1e2.
@@ -1935,8 +1855,6 @@ See LLZ2011 Section 5C, Proposition 5.11 and Remark 5.12, pp. 1128-1129; section
 
 A refinement is a full phi-stable flag 0=Y_0 subset Y_1 subset ... subset Y_d=D_cris(V), dim Y_i=i. It is noncritical if each Y_i has the i smallest filtration weights in LLZ’s positive representation convention (weights -s_1>=...>=-s_d with 0<=s_1<=...<=s_d); Equivalently dim Fil^j(Y_i)=max(0,dim Fil^j(D_cris(V))-d+i), for every j, with multiplicities retained. On W=V(m) nonnegative weights are r_1<=...<=r_d with s_i=m-r_(d+1-i). Existence after finite E extension is a separate hypothesis.
 
-API.
-
 - `noncriticalRefinement_flag`: Every step is phi-stable and has dimension i.
 - `noncriticalRefinement_weights`: The induced filtration on Y_i has weights -s_1,...,-s_i.
 - `noncriticalRefinement_extension`: Finite field extension transports a noncritical flag and its filtration dimensions.
@@ -1972,8 +1890,6 @@ See LLZ2011 Corollary1.12, Theorem2.10 and Corollary3.2, pp.1107,1114,1117.
 ### 9.25 Coleman specialization subspaces
 
 Under NC define V_(i,eta) in D_cris(V) as (1-p^i phi)(1-p^(-1-i)phi^-1)^(-1) Fil^(-i) if eta=chi_0^i, and phi Fil^(-i) otherwise, for 0<=i<r_d. Identify D_cris with row coordinates through the chosen ordered nu basis. The constraint on Coleman rows is W_(i,eta)={v in E^d: v M(x_i) belongs to V_(i,eta)}=V_(i,eta) M(x_i)^(-1). It has codimension d-dim Fil^(-i).
-
-API.
 
 - `colemanSpecializationSubspaces_mem`: v is in W_(i,eta) iff v M(x_i) is in V_(i,eta).
 - `colemanSpecializationSubspaces_codim`: codim W_(i,eta)=d-dim Fil^(-i).
@@ -2033,8 +1949,6 @@ See LLZ2011 Theorems 5.10 and 5.13, Proposition 5.11 and the published basis-cha
 
 For a specified actual good integral Wach basis and coordinate j, export the closed Lambda_O-submodule ker Col_j of H^1_Iw(Q_p,T) via the proved h_Iw comparison. Its Tate-orthogonal local condition on the dual torsion representation is owned by SelmerModularIwasawaMain. Under basis n prime=U n its row maps become Col prime=Col U^-1; the new kernel need not equal the old kernel. A basis or named signed normalization is part of the input.
 
-API.
-
 - `signedColemanLocalCondition_mem`: A class lies in the condition iff its specified Col_j value is zero.
 - `signedColemanLocalCondition_closed`: The kernel is a closed Lambda_O submodule.
 - `signedColemanLocalCondition_covariance`: Its transported description is {z:(Col(z) U^-1)_j=0}.
@@ -2050,8 +1964,6 @@ See LLZ2011 Section3A and Section1A applications, pp.1096-1097,1116.
 ### 9.31 Admitted de Rham character domain
 
 Let D be a de Rham (phi,Gamma)-module over R_E, Delta=N_rig(D) its differential module, and m(Delta) an overconvergence/localization threshold. On a torsion weight component write a character kappa by z_kappa=kappa(exp(q)), q=p for odd p and q=4 for p=2. If the torsion components differ set v_p(z_kappa-z_eta)=-infinity. For a primitive finite character eta of conductor p^c set B(eta,N)={kappa:v_p(z_kappa-z_eta)>p^(N-c)}. Choose the source threshold N(D); put U_D=union_(c>m(Delta)) B(eta,N(D)). Choices give admissible domains with compatible restriction, not a maximal canonical domain or all weight space. N(D) can be bounded in terms of the conductor of an extension where D becomes semistable.
-
-API.
 
 - `deRhamCharacterDomain_mem`: Membership is existence of an admitted primitive eta with the stated coordinate valuation inequality.
 - `deRhamCharacterDomain_open`: U_D is an admissible open of character space.
@@ -2069,8 +1981,6 @@ See RJ2018 Section 0E3 and IA, Theorem I.1; Sections IC4-IC5, equation(3), Theor
 
 On Delta^(psi=0), for a sufficiently small weight affinoid and N large define kappa(partial) by the convergent series sum_(i in (Z/p^N)^times) sum_(j>=0) binom(omega_kappa,j) kappa(i) i^-j (1+T)^i p^(Nj) phi^N(partial^j z_i), where z_i=psi^N((1+T)^(-i)z). The value is independent of large N and representatives and is rigid analytic in kappa; for kappa=x^k, k in Z, it equals partial^k on psi-zero (negative powers use its inverse there).
 
-API.
-
 - `analyticDifferentialPower_integer`: At x^k the operator is partial^k for every integer k.
 - `analyticDifferentialPower_linear`: It is E-linear in z and analytic in kappa on the specified affinoid.
 - `analyticDifferentialPower_choices`: Changing N or residue representatives preserves the value on the common annulus.
@@ -2086,8 +1996,6 @@ See RJ2018 SectionIC2, PropositionI.13 and proof, pp.911-913.
 ### 9.33 Rodrigues Jacinto de Rham regulator
 
 For z in Delta^(psi=1) and primitive finite eta of conductor exactly p^m with m>m(Delta), define Lambda_(D,z)(eta kappa)=G(eta)^(-1) sum_(a in (Z/p^m)^times) eta(a) sigma_a [phi^(-m) kappa(partial)(1-phi)z]_0, on its admitted high-conductor ball; the exponent m is the conductor exponent of eta, not a freely enlargeable localization index. The constant term is taken in E_m tensor D_dR(D) after localization at that conductor; the sum descends to D_dR(D). These definitions glue to a rigid analytic D_dR(D)-valued function on U_D. For positive-weight D and z in D^(psi=1), use its actual inclusion in Delta; an Iwasawa version is through the proved PhiGammaModulesAndIwasawaCohomology Layer 5/L2 map.
-
-API.
 
 - `deRhamRegulator_formula`: Its value on an admitted ball is the displayed localized constant-term Gauss sum.
 - `deRhamRegulator_linear`: It is E-linear in z; the Gamma action induces the source character-equivariance convention.
@@ -2147,7 +2055,7 @@ HabiroModuleGluing uses the natural completed regulator isomorphism, tame-root g
 
 ## References
 
-The abbreviated names in the layers refer to the following primary sources. Page numbers are those of the indicated version; a journal-page locator uses the published or author journal PDF, while a preprint-page locator uses the arXiv version named here. Formulas above are mathematical specifications in a common convention, rather than quotations.
+Page numbers refer to the linked versions: journal numbering for journal PDFs, preprint numbering otherwise. Formulas use the conventions above.
 
 - **GSWZ2024**: Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, [The Habiro ring of a number field](https://arxiv.org/abs/2412.04241v2). arXiv:2412.04241v2 (27 August 2025); no journal version.
 - **BdJ2003**: Amnon Besser, Rob de Jeu, [The syntomic regulator for the K-theory of fields](https://arxiv.org/abs/math/0110334v2). arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924.
@@ -2183,4 +2091,5 @@ The abbreviated names in the layers refer to the following primary sources. Page
 - **LLZ2011**: Antonio Lei, David Loeffler, Sarah Livia Zerbes, [Coleman maps and the p-adic regulator](https://msp.org/ant/2011/5-8/ant-v5-n8-p06-s.pdf). Algebra & Number Theory 5(8) (2011), 1095–1131; version of record.
 - **LLZ2010v2**: Antonio Lei, David Loeffler, Sarah Livia Zerbes, [Coleman maps and the p-adic regulator](https://arxiv.org/pdf/1006.5163v2). arXiv:1006.5163v2, 17 October 2010.
 - **LLZWach2010**: Antonio Lei, David Loeffler, Sarah Livia Zerbes, [Wach modules and Iwasawa theory for modular forms](https://antoniolei.com/wp-content/uploads/2014/09/modularforms.pdf). Author accepted manuscript; published Asian Journal of Mathematics 14(4) (2010), 475–528.
+- **WeibelChern**: Charles Weibel, [Étale Chern classes at the prime 2](https://sites.math.rutgers.edu/~weibel/archive/papers-dir/chernclass.pdf), Proposition 5.1, p.24.
 - **RJ2018**: Joaquín Rodrigues Jacinto, [(phi,Gamma)-modules de de Rham et fonctions L p-adiques](https://msp.org/ant/2018/12-4/ant-v12-n4-p04-p.pdf). Algebra & Number Theory 12(4) (2018), 885–934; version of record.
