@@ -2,7 +2,7 @@
 
 **Summary.** This roadmap connects formal partition identities with modular and mock modular functions, then uses their Fourier and radial behavior in quantum topology and moonshine. Its reusable services are denominator-free q-series identities, classical scalar-index Jacobi comparisons, Rademacher expansions, harmonic Maass operators, mock theta completions and scalar quantum period cocycles. The moonshine layer constructs the physical-state Lie algebra and states the exact representation and modular-function comparisons required for the genus-zero conclusion.
 
-The seven layers have 537 targets and supporting objects. Their prerequisite routes use the pinned libraries, the suppliers named below, or an explicitly stated proof gap. QM.4 is planned with those gaps; the other six layers have the precise open targets listed under their coverage records. No layer is mathematically closed. A suggested signature expresses a proposed declaration; it does not establish its proof.
+The seven layers retain 537 targets and supporting objects; this over-budget revision adds none. Their prerequisite routes use the pinned libraries, the exact supplier contracts below, or one of two stated series-identification gaps. QM.4 is planned with those gaps; the other six layers retain precise open targets in their coverage records. No layer is mathematically closed. A suggested signature expresses a proposed declaration; it does not establish its proof.
 
 ## Conventions and ownership
 
@@ -16,7 +16,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 The compact suggested file retains seven light definitions, nine theorem signatures and thirteen proved examples on existing Mathlib carriers. The full target, proof, API and test contracts are stated below, including objects whose native carriers are not yet available. Implementation status remains unchecked.
 
-Independent revision-3 review checked all 537 target contracts: 483 verified, 11 corrected and 43 unverifiable. Twelve node contracts were corrected in place; one remains unverifiable after its domain repair. The five replacement proof routes are justified, but exact supplier comparisons and the other existing proof gaps keep the verdict at **needs_changes**. The 19 gaps and 27 supplier requests remain precise; no layer is closed. Historical reading inventories describe earlier passes. The source register now carries fresh receipts for every cited source, and all 89 source findings have fresh verdicts (86 confirmed, 3 rejected). See the [independent review](../reviews/REV-QSeriesPartitionsAndMockModularForms~3.md) for the remaining mathematical obligations.
+The preceding independent revision-3 review checked all 537 target contracts: 483 verified, 11 corrected and 43 unverifiable. Its verdicts, twelve contract corrections and source reviews are retained unchanged. This revision supplies replacement arguments for all 43 flagged contracts, with mathematical edits in 44 existing nodes, including the arbitrary-ring Lie-quotient correction. Upstream and status bookkeeping brings the total to 47 changed node records. Seventeen inherited proof obligations have replacement routes at target-planning depth, pending independent review; two Eulerian-series identifications remain explicit gaps. There are 30 exact supplier requests. The source register retains the earlier 89 findings (86 confirmed and 3 rejected) and adds four findings awaiting independent review. Reading receipts below describe only the additional passages actually read. See the [preceding independent review](../reviews/REV-QSeriesPartitionsAndMockModularForms~3.md) for the original obligations; this revision does not replace its verdict with a self-review.
 
 | Layer | Coverage | Objects | Planets |
 | --- | --- | ---: | ---: |
@@ -44,13 +44,15 @@ The suggested file uses the following names for its end-theorem signatures. The 
 | `ramanujan_congruence_mod_seven` | [QM.0/ramanujan-congruence-mod-seven](#QM-0-ramanujan-congruence-mod-seven) |
 | `ramanujan_congruence_mod_eleven` | [QM.5/ramanujan-congruence-mod-eleven](#QM-5-ramanujan-congruence-mod-eleven) |
 
+<a id="QM-0"></a>
+
 ## QM.0 Formal q-series and partitions
 
 Partition generating products lead to q-Pochhammer symbols and Gaussian polynomials. Their denominator-free finite identities precede the analytic and coefficientwise limits. Rogers–Ramanujan and congruence targets use the same formal conventions; Bailey transformations retain their denominator-unit conditions.
 
 **Coverage: partial.**
 
-Built in the pinned libraries and cited as baseline: partitions of n as a finite type with the odd, distinct, restricted and count-restricted families; the partition generating function of an arbitrary character as an x-adic product (Nat.Partition.genFun, hasProd_genFun) with the restricted and count-restricted specialisations and Glaisher's and Euler's partition theorems; coefficientwise finiteness of products whose factors have orders tending to infinity; the substitution, rescaling, expansion and evaluation maps of power series with their continuity; Euler's pentagonal number theorem formally (PowerSeries.WithPiTopology.hasProd_one_sub_X_pow, pentagonalSeries) and analytically (eulerFunction_eq_tprod); conjugation of partitions (Tau Ceti). The interface node QM.0/euler-pentagonal-number-theorem is therefore not created: consumers cite mathlib:PowerSeries.WithPiTopology.hasProd_one_sub_X_pow (with mathlib:PowerSeries.pentagonalSeries and its coefficient lemmas). Planned here from public sources read in full (Stanley EC1 §§1.1, 1.3, 1.7, 1.8 and Exercises 1.82, 1.88, 1.91, 1.100 with solutions; Gasper's minicourse §§1-2; Andrews 1965; Ramanujan 1919; Alladi–Berkovich §1; Cigler §1; Zhu; Rosengren §§1-2): the partition function; finite and infinite q-Pochhammer symbols with coefficientwise finiteness, multisection, functoriality and evaluation in the unit disc; q-integers, q-factorials and Gaussian polynomials with both q-Pascal rules; the specialisation lemmas (coefficient maps, substitution, evaluation); the q-binomial theorem, q-Vandermonde, the limits of Gaussian polynomials, Euler's two identities and Cauchy's q-binomial theorem; Euler's generating function and recurrence for p(n), partitions with at most k parts, partitions in a box and the odd–distinct product identity; MacMahon's finite triple product, the universal (two-series) triple product, the requested Jacobi triple product in R⟦x⟧ for a unit a (Laurent-polynomial coefficients for R = ℤ[a, a⁻¹]) and its four requested specialisations plus Gauss's triangular-number identity; the Frobenius congruence, the congruence criterion, the two dissection lemmas and Ramanujan's congruences modulo 5, 7 and 35; Cigler's identities, Bressoud's polynomial identities and the Rogers–Ramanujan identities in series and partition form; and the evaluation of x-adic products inside a disc of absolute convergence, which is where the acceptance distinction lives (no value at |q| = 1 without a separate argument). Not planned in QM.0, deliberately: p(11n + 6) ≡ 0 (mod 11) and the prime-power congruences (mod 25, 49), which Ramanujan 1919 states but only sketches (§4) and for which no public formal proof was retrievable (Winquist 1969, J. Combin. Theory 6, and Berndt 2007, IJNT 3, are behind publisher walls); they belong with QM.5's source-scoped congruences. Heine's 2φ1 transformations and Ramanujan's 1ψ1 sum (Gasper §§2.1, 3) are analytic in the source and consumed by no QM stage; Stanley's Durfee-square and self-conjugate identities (Proposition 1.8.4, 1.8.6(b)) are consumed by no node here. Continuation (Bailey chain): Warnaar's survey §§1–2 and Andrews 1984 §§1–3 were read, and the Andrews–Gordon identities for i = 1 and i = k are decomposed: Bailey pairs, the kernel identity, the limiting Bailey lemma and the chain, the unit pairs relative to 1 and q (Agarwal's identity), Andrews' limiting chain (Theorem 2), the identities (2.5), and their form as the Nahm sums of A_r = (2 min(i, j)), which HabiroNahmSeries requests. Andrews' identities for 1 < i < k need the Bailey lattice (Warnaar §3); no consumer needs them. The historical source-decomposition inventory is retained as predecessor evidence; it does not cover the subsequently routed Yu and Liu targets below. This pass does not re-read all predecessor source proofs or baseline declarations. Round-2 independent review checked this stage’s existing target contracts, sources, baseline consumers, API, tests and native signatures; predecessor read-boundary statements above describe the earlier pass. Current unresolved proof/supplier inputs are listed in gaps and remaining, and no stage is claimed closed. Revision3 preserves the existing stage status and every target id, synchronizes the reader with all round-2 corrections, and replaces the expanded native development by compact milestone signatures. The new source-reading receipts are target-specific, not a blanket re-reading of inherited sources.
+The existing partition, q-product, Gaussian-polynomial, Bailey-chain and selected Rogers–Ramanujan contracts are retained. Their library services remain baseline imports. The finite convolution and q-Gauss route used in QM.5/choi-identity now uses the earlier q-series identities; the Yu and Liu extensions below still have no additional target nodes in this over-budget pass.
 
 Open targets and comparisons:
 
@@ -1681,13 +1683,15 @@ Acceptance checks:
 - Non-example: at z = 1 the hypothesis fails for (q; q)_∞ (∑ₙ 1 diverges) and so does the conclusion: the pentagonal coefficients ±1 do not tend to 0, so the formal identity assigns no value at q = 1, although every finite product vanishes there.
 - Applied to the Jacobi triple product with a ∈ ℂ^× and |x| < 1 it gives the analytic identity ∏(1 + a x^{2n−1})(1 + a⁻¹x^{2n−1})(1 − x^{2n}) = ∑ aⁿx^{n²}, which QM.1's theta functions use.
 
+<a id="QM-1"></a>
+
 ## QM.1 Theta, eta and Jacobi comparisons
 
 Eta multipliers and theta characteristics fix every branch and sign used by the completion layers. Jacobi theta decomposition is the classical scalar-index specialization of MP.6, with natural residue representatives, joint holomorphy and explicit growth conditions. Taylor, heat and index-raising operations serve later coefficient and residue applications.
 
 **Coverage: partial.**
 
-Zwegers Proposition 1.3 (all ten items), Theorem 1.11's multiplier v(γ), Chapter 3 (E), (M) and Theorem 3.1 are decomposed; Kong–Teo §§3–7 (triple product, Dedekind sums, reciprocity, Dedekind's functional equation) completely; Savitt §§2–4 (multiplier conventions, sign cocycle, Theorem 4.1, Remark 1.2); DMZ §4.1, §4.2 through the heat-operator identity (4.12), and the φ_{−2,1} parts of §4.3. The heat continuation gives 22 declaration-sized nodes: two operators, their calculus and Fourier interfaces, and preservation of all four growth spaces. The proof uses the native normalized derivative, Serre derivative and E₂. It keeps integral weight, positive integral index and trivial multipliers for the four space-preservation theorems; it makes no half-integral slash-equivariance claim. Five of the new nodes promote API lemmas consumed by the chain. In particular the holomorphic-to-weak inclusion is proved directly using finite torsion evaluations, avoiding any circular assumption of weak holomorphy. The index-raising continuation decomposes DMZ §4.4 (4.36) into fourteen declarations, including both slash covariances, all four growth-space maps, coefficient integrals, theta rescaling and heat compatibility. Its source-positive operator is totalized at zero; Fourier reconstruction retains the explicit τ-period hypothesis, as explained by E208. For RT-AREA-automorphic-1/20 the classical Jacobi nodes are rescoped: the two slash operators, the group law, J_{k,m} and J⁰_{k,m}, the ϑ_{m,μ} and the theta decomposition are the scalar-index case of the Jacobi theory of MetaplecticAutomorphicForms, imported through one request to MetaplecticAutomorphicForms:MP.6, and QM.1/jacobi-rank-one-specialisation states the dictionary. QM.1 keeps the eta and theta multipliers, ϑ(z; τ), weak and weakly holomorphic forms, the coefficient integrals, φ_{−2,1}, the heat operators and index raising. Round-2 independent review checked this stage’s existing target contracts, sources, baseline consumers, API, tests and native signatures; predecessor read-boundary statements above describe the earlier pass. Current unresolved proof/supplier inputs are listed in gaps and remaining, and no stage is claimed closed. Revision3 preserves the existing stage status and every target id, synchronizes the reader with all round-2 corrections, and replaces the expanded native development by compact milestone signatures. The new source-reading receipts are target-specific, not a blanket re-reading of inherited sources.
+The existing eta, theta, scalar Jacobi, heat and index-raising contracts are retained. MP.6 owns generic Jacobi theory; QM.1 supplies the rank-one coordinate, dual-Weil and growth dictionary. Current MP.4/MP.6 upstream contracts and the explicit central-phase comparison repair the reviewed import mismatch. The full Dedekind/Jacobi phase now has the local inversion-parity route in QM.2. The broader Taylor/structure/operator targets below remain unplanned.
 
 Open targets and comparisons:
 
@@ -1695,8 +1699,7 @@ Open targets and comparisons:
 - DMZ §4.3: J_{k,1} ≅ M_k ⊕ S_{k+2}, J̃_{k,1} ≅ M_k ⊕ M_{k+2}, J_{k,1} ≅ M⁺_{k−1/2}(Γ₀(4)) (4.23); the forms φ_{0,1} (4.30), φ_{10,1} = η^{18}ϑ₁² (4.28), φ_{12,1}, φ_{−1,2} = ϑ₁(τ, 2z)/η³ (4.31); the structure theorems (4.25) and (4.35) with the relation (4.33) — stated in DMZ without proof.
 - DMZ §4.4: V_(k,t), its modified Möbius combination, W_(m₁) for exact divisors, the lowering operators u_t and projections U_t, their composition laws and primitive decomposition (4.37)–(4.46). Distinguish the lower-case index-raising U_s of (4.36), now covered, from the capitalized projection notation. Prove separately which operators preserve each growth condition; the source says W_(m₁) and u_t need not preserve weakness.
 - Eichler–Zagier's Jacobi–Eisenstein series E_{k,m} and the finiteness bound dim J_{k,m} ≤ Σ_{ν=0}^{m} dim M_{k+2ν}: no public source with proofs was located in this pass.
-- The Knopp–Petersson Jacobi-symbol formula for v_η on all of SL(2, ℤ) (Matsuda (2.1), stated there without proof): QM.1 plans only Savitt's Γ₀(4) version (QM.1/eta-multiplier-gamma0-four); the full formula needs Rademacher–Grosswald's congruences for 12c·s(d, c), for which no public proof source was found.
-- RT-AREA-automorphic-1/20, after the migration. The supplier is addressed as the stage MetaplecticAutomorphicForms:MP.6: the Jacobi sub-stage proposed for it is not yet an atlas stage. The current accepted packet MetaplecticAutomorphicForms--MP.0 (checked 10 October 2026) plans the nodes MetaplecticAutomorphicForms:MP.6/jacobi-group, MP.6/jacobi-spaces, MP.6/fourier-jacobi-extraction and MP.6/jacobi-theta-decomposition-interface, in adelic form and for integral central index; they do not yet supply items (a)–(e) of the request to MP.6, which says what is missing. When the supplier's nodes supply them, replace the stage prerequisite of the seven importing nodes and of QM.1/jacobi-rank-one-specialisation by their ids, and check the dictionary against the supplier's conventions: the cocycle of the Heisenberg group and its central character in index m, row or column vectors, the treatment of half-integral scalar index (centre, or z ↦ 2z), and the form of the cusp condition for forms with multiplier.
+- The broader matrix-index and half-index interfaces remain with MP.6. The present positive integral rank-one comparisons are supplied locally; higher-rank Skoruppa and general multiplier growth comparisons require the exact supplier statements before their future consumers are added.
 
 Atlas planets:
 
@@ -3692,12 +3695,15 @@ Source support:
 
 - [andersen-anderson-woodall](#reference-andersen-anderson-woodall), §3.2, (3.2), printed pp. 7–8. The Weil representation on generators, applied to L(−1) = (ℤ, −mx²).
 
-Direct prerequisites: [QM.1/theta-decomposition-transformation](#QM-1-theta-decomposition-transformation), [QM.1/theta-decomposition-converse](#QM-1-theta-decomposition-converse), `MetaplecticAutomorphicForms:MP.7`.
+Direct prerequisites: [QM.1/theta-decomposition-transformation](#QM-1-theta-decomposition-transformation), [QM.1/theta-decomposition-converse](#QM-1-theta-decomposition-converse), `MetaplecticAutomorphicForms:MP.7`, `MetaplecticAutomorphicForms:MP.4`, `MetaplecticAutomorphicForms:MP.6`, [QM.1/theta-decomposition-growth](#QM-1-theta-decomposition-growth).
 
 Construction or proof route:
 
-1. On generators: ρ_{L(−1)}(T̃)e_μ = e(−μ²/4m)e_μ and ρ_{L(−1)}(S̃)e_μ = e^{πi/4}(2m)^{−1/2}Σ_ν e(μν/2m)e_ν (AAW (3.2) with signature (0, 1)); with φ_S(τ) = τ^{1/2}, τ^{k−1/2}e^{πi/4} = τ^k(−iτ)^{−1/2}, which is QM.1/theta-decomposition-transformation.
-2. Mp₂(ℤ) is generated by T̃ and S̃ (MP.7), so the generator laws determine the transformation under all of Mp₂(ℤ); the converse is QM.1/theta-decomposition-converse.
+1. Consume the genuine finite Weil representation from MP.4 §4.7, and generic Jacobi sections and theta decomposition from MP.6 §§6.17–6.20; this node identifies their rank-one coordinates, rather than constructing a second generic representation or Jacobi theory. Take L with bilinear matrix (2m), identify L′/L with ℤ/(2m) by μ↦μ/(2m), and transport its half-norm and pairing to μ²/(4m), μν/(2m). The coefficient vector is in the dual of the positive-lattice theta module, hence in ρ_{L(−1)}.
+2. For the integral Heisenberg lattice use U_m[λ,μ]φ=e(m(λ²τ+2λz+λμ))φ(τ,z+λτ+μ). At integral m the extra factor e(mλμ) is 1. Thus central character e(mt) descends to the elliptic slash used here. The modular coordinate action is (τ,z)↦(γτ,z/(cτ+d)) with factor w(τ)^{−2k}e(−mcz²/(cτ+d)); this is the restriction of the supplier covariance to the lattice section, and −I gives φ(τ,−z)=(−1)^kφ(τ,z). These coordinate identities give mutually inverse restriction and equivariant-extension maps on sections.
+3. The supplier theta basis in these coordinates is exactly ϑ_{m,μ}=Σ_{r≡μ (2m)}e(r²τ/(4m)+rz), with compact elliptic coefficient integral over z∈[0,1]. Orthogonality makes the coefficient map identical to QM.1/theta-decomposition-coefficient, including its normalization, not merely proportional to it.
+4. Compare on T̃ and S̃: the dual operators are e_μ↦e(−μ²/(4m))e_μ and e_μ↦e(1/8)(2m)^{−1/2}Σ_νe(μν/(2m))e_ν. For w_S=√τ, τ^{k−1/2}e(1/8)=τ^k(−iτ)^{−1/2}. They therefore give precisely the existing theta-coefficient T/S laws; generator equality identifies the genuine representations, including the central element. The converse and uniqueness are the existing theta-decomposition-converse.
+5. Growth is checked through the actual expansions: each coefficient is Σ_Δ C(Δ,μ)q^{Δ/(4m)}, so boundedness, vanishing and finite principal part correspond respectively to holomorphic, cuspidal and weakly holomorphic Jacobi growth. The weak case uses the least absolute residue μ̄ and bound O(q^{−μ̄²/(4m)}); it is a QM extension of the generic holomorphic supplier, not an assertion that MP already supplies weak growth. This retains every multiplier and Fourier convention in the rank-one dictionary.
 
 Acceptance checks:
 
@@ -4867,19 +4873,19 @@ Acceptance checks:
 
 - Trivial multipliers stay trivial. The source case s≥1 follows, and the chosen totalization also satisfies this statement at s=0.
 
+<a id="QM-2"></a>
+
 ## QM.2 Partition asymptotics and exact formulas
 
 The partition generating function is transformed near rational cusps, integrated on Ford-circle contours and expressed through Bessel terms. Rademacher sums retain their exact eta phase. Finite Selberg phase conversion, prime-power cancellation and Fischer reductions are separate arithmetic statements; they do not by themselves prove the unresolved Dedekind-to-root-sum bridge.
 
 **Coverage: partial.**
 
-The Hardy–Ramanujan–Rademacher route is decomposed to the baseline through Kong–Teo's complete exposition of Rademacher's proof (Farey dissection with Ford circles, the eta transformation from QM.1, Bessel integrals), with the Bessel and Gamma inputs re-routed through Mathlib's regularized hypergeometric function and Fourier inversion; the effective remainder bound, the nearest-integer statements and Hardy and Ramanujan's truncated theorem are derived from the exact formula; Lehmer's multiplication theorems are decomposed down to his congruences and rest on one gap (the Jacobi-symbol form of the eta multiplier roots of unity). The 2026-09-27 continuation adds seven nodes for the specialized odd root sum and singular/nonsquare branches. Their elementary root arithmetic is separated from an explicitly undecomposed comparison bridge; QM.2 remains partial. The phase-conversion continuation adds nine nodes: the explicit Selberg auxiliary and its half-range reduction, root bijection, uniform arithmetic and character phases, Jacobi-three cosine, promoted root-sum conjugation, finite comparison, and a precisely isolated Selberg equality target. The finite conversion is closed at the planning level; the source-dependent equality with A_k is not. The twelve-node Fischer continuation closes the finite H-to-quadratic-sum reduction through (3.34), not the evaluation of the resulting sums. One specialized definition and its five API items/five discriminating tests are added; the parameter symmetry API is promoted to nodes. Round-2 independent review checked this stage’s existing target contracts, sources, baseline consumers, API, tests and native signatures; predecessor read-boundary statements above describe the earlier pass. Current unresolved proof/supplier inputs are listed in gaps and remaining, and no stage is claimed closed. Revision3 preserves the existing stage status and every target id, synchronizes the reader with all round-2 corrections, and replaces the expanded native development by compact milestone signatures. The new source-reading receipts are target-specific, not a blanket re-reading of inherited sources.
+The exact Rademacher, effective bound and selected finite arithmetic targets are retained. The reviewed Dedekind-phase and multiplication arguments now have explicit inversion-parity and CRT routes, including dyadic residue guards. The gcd(k,6)=1 Selberg–Whiteman Fourier bridge now has an exact finite Gauss-sum proof using the existing IntegralLattices1G/1H service. This does not plan the sharper or exceptional prime-power targets listed below.
 
 Open targets and comparisons:
 
-- Close the gap 'Jacobi-symbol closed form of exp(πi s(h, k))': decompose a public proof of the Dedekind-sum congruences 12hk·s(h, k) ≡ h² + 1 (mod gcd(3, k)·k) and 12k·s(h, k) ≡ k + 1 − 2(h | k) (mod 8) (k odd) with the even-k case, or import the Petersson–Rademacher Jacobi-symbol form of the eta multiplier once QM.1 plans it.
-- Complete the prime-power evaluations: the singular p>3 cases and the mod-p nonsquare obstruction now have separate nodes, but the unit-square two-root/lifting argument, exceptional p=2,3 formulas, shifted CRT factorization and the bound |A_k(n)| < 2^{ω(k)}√k for k>1 remain. Preserve A₁(n)=1 as the equality exception. Lehmer 1938 §§3–4 and Lehmer 1939 §§2–4 still need line-by-line decomposition for the sharper remainder; the public AMS primary sources were acquired and read in round 2, but the sharper remainder refinements have not been planned.
-- Close the remaining Selberg–Whiteman bridge at rademacher-selberg-formula. Do not redo the finite S-to-B phase conversion or Fischer (3.1)–(3.34), which now have nodes. Next isolate the general Gauss evaluations (including phase and composite moduli) needed for Fischer’s later formulas, then decompose Whiteman §§2–4 and the Dedekind-to-Jacobi multiplier identification. Fischer’s complete extracted text was read, but only p.87 and pp.89–92 were visually inspected; his later formulas are not claimed fully collated or decomposed. When treating Whiteman Theorems 5–7 use actual CRT root sets, not the false fixed root count on p.172, and Johansson’s author-corrected λ=1 and k₁=4 minus sign.
+- Complete the sharper unit-square prime-power and exceptional p=2,3 evaluations needed for refinements beyond the existing gcd(k,6)=1 Selberg–Whiteman target. Preserve the singular/nonsquare branches, actual CRT root sets, A₁(n)=1 and the corrected Johansson signs. Lehmer1938 §§3–4 and1939 §§2–4 provide sources for sharper remainders, but those refinements are not additional targets in this pass.
 
 Atlas planets:
 
@@ -4896,6 +4902,8 @@ Atlas planets:
 
 **Definition** (`QM.2/fischer-h-sum`). For k≥1 and h,γ∈ℤ define H_{h,k}(γ)=(1/2)∑_{0≤j<2k} exp(2πih(6j+γ)²/(24k)). This is a complex scalar built from native finite sums and the standard additive character on ZMod (24k). The range 2k and factor 1/2 are part of the definition, including when γ and k have different parity.
 
+Proposed declaration: `fischerHSum`.
+
 Hypotheses and conventions:
 
 - k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
@@ -4905,8 +4913,6 @@ Source support:
 - [fischer-1951-pjm](#reference-fischer-1951-pjm), §3 (3.1), printed p.89; compare §2 (2.7), p.87. The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
 
 Direct prerequisites: `mathlib:ZMod.stdAddChar`, `mathlib:ZMod.stdAddChar_coe`.
-
-Suggested declaration name: `fischerHSum`.
 
 Construction or proof route:
 
@@ -4918,7 +4924,7 @@ Uses that determine the API:
 
 - QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-half-range: Recover the earlier k-term sum only when γ≡k mod 2.
 - QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-one-reduction: Reduce the specialized H(1) to ordinary finite quadratic sums with their exact coefficients.
-- QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula: Prepare a specialized input for the still-open finite Fourier bridge; this definition does not close that bridge.
+- QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula: Provide the specialized finite H input to the explicit Fourier bridge in rademacher-selberg-formula; that bridge is a separate theorem, not a consequence of this definition alone.
 
 Named declarations and API:
 
@@ -5950,7 +5956,7 @@ Acceptance checks:
 
 ### The Jacobi-symbol form of the roots of unity ω_{h,k}
 
-**Lemma** (`QM.2/kloosterman-sum-rademacher-jacobi-form`). Let k ≥ 1 and gcd(h, k) = 1, and let h̄ ∈ ℤ with hh̄ ≡ 1 (mod k). Then exp(πi s(h, k)) equals (−h | k) · exp(−πi[(k − 1)/4 + (1/12)(k − 1/k)(2h + h̄ − h²h̄)]) if k is odd, and (−k | h) · exp(−πi[(2 − hk − h)/4 + (1/12)(k − 1/k)(2h + h̄ − h²h̄)]) if k is even (so h is odd), where (a | b) is the Jacobi symbol (Mathlib's `jacobiSym`). Consequently A_k(n) = Σ_h ω^J_{h,k} e^{−2πinh/k} with these roots of unity, the definition used by Hardy–Ramanujan, Lehmer and Whiteman.
+**Lemma** (`QM.2/kloosterman-sum-rademacher-jacobi-form`). Let k≥1 and h∈ℤ with gcd(h,k)=1. Choose a positive representative h₀ of h modulo k (h₀=1 when k=1), and an inverse h̄₀ modulo k. Then exp(πi s(h,k)) equals (−h₀|k)·exp(−πi[(k−1)/4+(k−1/k)(2h₀+h̄₀−h₀²h̄₀)/12]) for odd k, and (−k|h₀)·exp(−πi[(2−h₀k−h₀)/4+(k−1/k)(2h₀+h̄₀−h₀²h̄₀)/12]) for even k. The latter denominator h₀ is positive and odd. The expressions are independent of these positive representatives and inverse lifts. Consequently the original Dedekind-defined A_k(n) is the sum with these Jacobi-normalized multipliers.
 
 Hypotheses and conventions:
 
@@ -5967,20 +5973,22 @@ Direct prerequisites: [QM.2/kloosterman-sum-rademacher](#QM-2-kloosterman-sum-ra
 
 Construction or proof route:
 
-1. Both sides are 24k-th roots of unity; the identity is equivalent to the congruence 12k·s(h, k) ≡ 12k·(right-hand exponent) modulo 24k, which splits by the Chinese remainder theorem into congruences modulo 8, modulo 3 and modulo k (or 3k).
-2. Modulo k (or θk with θ = gcd(3, k)): 12hk·s(h, k) ≡ h² + 1, from the definition of s(h, k) by summing the sawtooth.
-3. Modulo 8 for k odd: 12k·s(h, k) ≡ k + 1 − 2(h | k), by induction along the Euclidean algorithm using Dedekind reciprocity (QM.1) and Jacobi reciprocity (`jacobiSym.quadratic_reciprocity`); the even-k case follows from the reciprocity law.
-4. These steps have no public source read for this layer; see the gap 'Jacobi-symbol closed form of the eta multiplier'.
+1. For k>1 put π(r)=[hr]_k for1≤r<k, I=Σ_{r<s}[π(r)>π(s)] and q_r=⌊hr/k⌋. The carry identity k[π(r)>π(s)]=π(s−r)−π(s)+π(r) gives kI=Σ_r(2k−1−3r)π(r). Comparing with s(h,k)=k^{−2}Σ_r rπ(r)−(k−1)/4 proves the exact Meyer formula 12ks=(k−1)(k−2)−4I. In particular 12ks is an integer. This is a finite double-counting proof, not a cited congruence without a derivation.
+2. For odd k prove (−1)^I=(h|k). At a prime p, the Vandermonde product of all nonzero residues transforms by h^{p(p−1)/2}, whose residue is the Euler-criterion sign, so the two signs agree because p>2. At p^a, partition the multiplication permutation into fibers over ℤ/p^{a−1}: the block permutation contributes its old sign to the odd power p, and each of the odd number p^{a−1} fiber permutations is multiplication by h followed by a translation on ℤ/p. A translation has positive sign. Induction gives (h|p)^a. CRT product permutations have sign sign(π_u)^v sign(π_v)^u, which is their product when u,v are odd. Multiplication of Jacobi symbols proves the assertion for all odd k. The Meyer formula now gives 12ks≡k+1−2(h|k) modulo8.
+3. The other congruence follows without reciprocity induction. Using Σπ(r)²=Σr², eliminate Σrq_r from the sawtooth sum to obtain 12khs=(h²+1)(k−1)(2k−1)−3hk(k−1)−6kΣq_r². Thus 12khs≡h²+1 modulo θk, θ=gcd(3,k). When3∤k, the same sawtooth formula multiplied by k shows 12ks≡0 modulo3. For odd k choose the inverse h̄ modulo θk; it is a permissible lift of the original inverse. These congruences and the modulo8 formula identify the exponent modulo24k. The modulo8 check uses (−h|k)=(−1)^{(k−1)/2}(h|k); its four k modulo8 cases each give zero difference. CRT is applied to8, θk and, if θ=1,3.
+4. For even k choose h₀>0 odd and put B=(h₀h̄₀−1)/k. In the odd-denominator formula for s(k,h₀), take inverse −B of k modulo h₀. Dedekind reciprocity s(h₀,k)+s(k,h₀)=−1/4+(h₀/k+k/h₀+1/(h₀k))/12 then gives exactly the displayed even formula. Indeed the difference between the two proposed exponents, multiplied by12, factors as (h₀²−1)(k²−1)/(h₀k)·(1+kB−h₀h̄₀)=0. This handles h₀=1 as well.
+5. Changing the inverse by k changes the numerator by k(k²−1)(1−h₀²), divisible by24k: one of the odd squares supplies8 and either k²−1 or h₀²−1 supplies3. Positive representative independence follows from the equality to the periodic Dedekind sum; arbitrary integer h uses its positive representative. This avoids an undefined/incorrect negative-denominator Jacobi convention. At k=1 both sides are1 directly.
 
 Acceptance checks:
 
 - Checked numerically for every k ≤ 40 and every h coprime to k (agreement of both sides to 10⁻²⁰).
+- For h=−1,k=2 use h₀=1; the multiplier is1. Using the absolute-denominator Jacobi symbol directly at h=−1 would wrongly give−1.
 
 <a id="QM-2-lehmer-exponent-form"></a>
 
 ### Lehmer's exponent form of A_k(n)
 
-**Lemma** (`QM.2/lehmer-exponent-form`). For k ≥ 1 and n ∈ ℤ, A_k(n) = Σ_ρ exp(πi f_n(ρ, k)/(12k)) if k is odd and A_k(n) = Σ_ρ exp(πi g_n(ρ, k)/(12k)) if k is even, where ρ runs over a reduced residue system modulo k, ρ̄ ∈ ℤ with ρρ̄ ≡ 1 (mod k), and f_n(ρ, k) = −{24nρ + 6k(−ρ | k) + 3k(k − 3) + (k² − 1)(2ρ + ρ̄ − ρ²ρ̄)}, g_n(ρ, k) = −{24nρ + 6k(−k | ρ) − ρ(k + 1)(k + 2) − (k² − 1)(ρ² − 1)ρ̄}. The summands depend only on ρ mod k (f_n, g_n are well defined modulo 24k).
+**Lemma** (`QM.2/lehmer-exponent-form`). For k ≥ 1 and n ∈ ℤ, A_k(n) = Σ_ρ exp(πi f_n(ρ, k)/(12k)) if k is odd and A_k(n) = Σ_ρ exp(πi g_n(ρ, k)/(12k)) if k is even, where ρ runs over a positive reduced residue system modulo k, ρ̄ ∈ ℤ with ρρ̄ ≡ 1 (mod k), and f_n(ρ, k) = −{24nρ + 6k(−ρ | k) + 3k(k − 3) + (k² − 1)(2ρ + ρ̄ − ρ²ρ̄)}, g_n(ρ, k) = −{24nρ + 6k(−k | ρ) − ρ(k + 1)(k + 2) − (k² − 1)(ρ² − 1)ρ̄}. The summands are independent of the positive representative of ρ mod k (f_n, g_n are well defined modulo 24k).
 
 Hypotheses and conventions:
 
@@ -5994,8 +6002,8 @@ Direct prerequisites: [QM.2/kloosterman-sum-rademacher-jacobi-form](#QM-2-kloost
 
 Construction or proof route:
 
-1. Substitute (a | b) = exp[(1 − (a | b))πi/2] (valid since (a | b) = ±1) in the Jacobi-symbol form of node kloosterman-sum-rademacher-jacobi-form and collect the exponent over the common denominator 12k.
-2. Independence of representatives: replacing ρ̄ by ρ̄ + k changes f_n by (k² − 1)(1 − ρ²)k, a multiple of 24k (k² − 1 ≡ 0 mod 8, and 3 | (k² − 1)(1 − ρ²)).
+1. Substitute (a|b)=exp(πi(1−(a|b))/2) for the nonzero Jacobi signs in kloosterman-sum-rademacher-jacobi-form. For odd k, −3k(k−1)+6k(1−J)=−6kJ−3k(k−3); for even k, 3kρ(k+1)−2ρ(k²−1)=ρ(k+1)(k+2). These equalities give exactly f_n and g_n over the common denominator12k.
+2. An inverse change by k changes either numerator by ±k(k²−1)(ρ²−1), a multiple of24k: the odd one of k,ρ supplies the square modulo8, and if3 divides either the other square is1 modulo3. Independence of any positive residue representative now follows from the original Dedekind multiplier and its additive twist. No negative denominator is passed to the Jacobi symbol.
 
 Acceptance checks:
 
@@ -6019,9 +6027,8 @@ Direct prerequisites: [QM.2/lehmer-exponent-form](#QM-2-lehmer-exponent-form), `
 
 Construction or proof route:
 
-1. Reduce the defining polynomials: modulo k, (k² − 1) ≡ −1 and ρρ̄ ≡ 1 give f_n ≡ −24nρ + ρ + ρ̄; modulo 3k when 3 | k, use k² − 1 ≡ −1 (mod 3k) likewise.
-2. Modulo 3 when 3 ∤ k: 24nρ ≡ 0, k² − 1 ≡ 0, and 6k(·) + 3k(k − 3) ≡ 0.
-3. Modulo 8 for k odd: 24nρ ≡ 0 and k² − 1 ≡ 0, −6k ≡ 2k and −3k(k − 3) ≡ k − 3 (mod 8, using k² ≡ 1); the even case modulo 2^{λ+3} is the same reduction applied to g_n.
+1. Choose inverse lifts modulo each modulus being checked, which is legitimate by lehmer-exponent-form. For odd k the reduction modulo θk uses k²≡0 and ρρ̄≡1, giving νρ+ρ̄; modulo3 when3∤k all terms in f vanish. Modulo8, k²−1 vanishes and −6kJ−3k(k−3)≡2kJ+k−3.
+2. For even k=2^λk₁, reduction modulo θk₁ again gives νρ+ρ̄; k² is divisible by θk₁ and3k by θk₁. Modulo3 when3∤k₁, k²−1 and (k+1)(k+2) vanish. Finally the difference between g and the claimed2-adic expression is ρ(1−ρρ̄)+k²(ρ²−1)ρ̄−8kJ. With ρ̄ inverse modulo2^{λ+3}, the first term vanishes; ρ odd gives8∣ρ²−1, and the other two terms are divisible by2^{λ+3}. This proves the even congruence without an omitted phase calculation.
 
 Acceptance checks:
 
@@ -6045,8 +6052,9 @@ Direct prerequisites: [QM.2/lehmer-exponent-form](#QM-2-lehmer-exponent-form), [
 
 Construction or proof route:
 
-1. Write both factors by the exponent form (lehmer-exponent-form) and pair the summation indices by ρ₃ ≡ ρ₁/k₂ (mod k₁), ρ₃ ≡ ρ₂/k₁ (mod k₂) (Chinese remainder theorem): ρ₃ runs over the reduced residues modulo k₁k₂.
-2. Show D₁ = f_{n₃}(ρ₃, k₁k₂) − {k₂ f_{n₁}(ρ₁, k₁) + k₁ f_{n₂}(ρ₂, k₂)} ≡ 0 (mod 24k₁k₂): modulo 3 and modulo k₁ (or 3k₁) by the first two congruences of lehmer-exponent-congruences, and modulo 8 by the third together with the multiplicativity of the Jacobi symbol, splitting the cases k₁ ≡ k₂ ≡ 3 (mod 4) and the others.
+1. Use positive residues with ρ₁≡k₂ρ₃ modulo k₁ and ρ₂≡k₁ρ₃ modulo k₂. CRT gives a bijection. Put K=k₁k₂ and D=f_{n₃}(ρ₃,K)−k₂f_{n₁}(ρ₁,k₁)−k₁f_{n₂}(ρ₂,k₂). The specified interpretation of the fraction implies ν₃≡k₂²ν₁+k₁²ν₂ modulo θK, θ=gcd(3,K); if3∤K the separate modulo3 congruence of every f applies.
+2. For modulus θ₁k₁, inverse transport gives k₂ρ̄₁=ρ̄₃, while k₁f₂ vanishes there (if θ₁=3, use3∣f₂). Thus D=0 modulo θ₁k₁; the other factor is identical with indices exchanged. This checks the shared factor3 rather than multiplying two noncoprime congruences.
+3. For modulo8 write J_i=(−ρ_i|k_i), ε=(−1)^{((k₁−1)/2)((k₂−1)/2)}. Jacobi reciprocity gives J₃=εJ₁J₂. The congruence in lehmer-exponent-congruences gives D≡2K(εJ₁J₂−J₁−J₂)−K−3+3(k₁+k₂). If ε=1, the expression in parentheses is−1 modulo4, so D≡−3(k₁−1)(k₂−1)=0 modulo8. If ε=−1, both k_i are3 modulo4 and the parentheses are1 modulo4; D≡K−3+3(k₁+k₂)=0 modulo8. CRT now gives24K∣D and equality of the individual roots of unity. Summation proves the product identity.
 
 Acceptance checks:
 
@@ -6071,8 +6079,9 @@ Direct prerequisites: [QM.2/lehmer-exponent-form](#QM-2-lehmer-exponent-form), [
 
 Construction or proof route:
 
-1. Exponent forms (lehmer-exponent-form) with ρ₃ ≡ ρ₁/2^λ (mod k), ρ₃ ≡ ρ₂/k (mod 2^λ); the sign is exp(3·2^{2λ}kπi/(12·2^λ k)).
-2. Show D₂ ≡ 0 (mod 24·2^λ k) from lehmer-exponent-congruences, using Jacobi reciprocity for the symbols (−k | ρ) modulo 4.
+1. Put l=2^λ, K=lk, r a positive unit modulo K, u≡lr modulo k and v≡kr modulo l. CRT is a bijection. Write J₁=(−u|k), J₂=(−l|v), J₃=(−K|r), and D=g_{n₃}(r,K)−l f_{n₁}(u,k)−k g_{n₂}(v,l). The needed sign is equivalent to D≡3l²k modulo24K.
+2. For θk, θ=gcd(3,k), the same inverse transport as in the odd product gives D=0. When3∤k all three exponents are0 modulo3. The meaning of the fraction gives ν₃≡l²ν₁+k²ν₂ modulo8K: divide its integer numerator by8 first and invert3 only when necessary. Thus the2-adic congruence of lehmer-exponent-congruences reduces D−3l²k, modulo8l, to l times R, where R=l(r−3k)+2k(J₃−J₂−J₁)+3k(1−k)r−k+3.
+3. The first term of R is0 modulo8 because l is divisible by4 and r−3k is even. Set A=(−l|k), B=(−l|r), R₀=(r|k), ε=(−1)^{((k−1)/2)((r−1)/2)}. Then J₁=AR₀, J₂=AB, J₃=BεR₀, so J₃−J₂−J₁≡Bε−A−AB modulo4. Use A=(−1|k)(2|k)^λ and B=(−1|r)(2|r)^λ. For each of the four odd residues of k,r modulo8, and each parity of λ, substitution gives 2k(Bε−A−AB)+3k(1−k)r−k+3≡0 modulo8. This is a32-case finite sign table; it uses only the two supplementary Jacobi laws and quadratic reciprocity. Hence8l∣D−3l²k. Combining with the odd and3 factors gives24K divisibility. Exponentiation gives (−1)^{l/4}, including λ=2, before summing.
 
 Acceptance checks:
 
@@ -6096,7 +6105,9 @@ Direct prerequisites: [QM.2/lehmer-exponent-form](#QM-2-lehmer-exponent-form), [
 
 Construction or proof route:
 
-1. Exponent forms with the correspondence ρ₁ ≡ ρ₂/2 (mod k) between the residues for 2k and for k; show D₃ = 2f_n(ρ₂, k) − g_{n₁}(ρ₁, 2k) ≡ 0 (mod 48k) from lehmer-exponent-congruences.
+1. Pair a positive odd unit r modulo2k with u≡2r modulo k. This is a bijection; put N=4n+(k²−1)/8. The exponent difference is D=2f_n(u,k)−g_N(r,2k), and the goal is48k∣D. Since ν_N=4ν_n−3k², the θk congruences give D=0 modulo θk; when3∤k the separate modulo3 congruences give D=0 modulo3.
+2. For modulo16 choose t inverse to r modulo16k and take u=2r with inverse (t+k)/2 modulo k. Changing this lift to one inverse modulo3k, when needed, changes2f by a multiple of48k, so does not change the target. Direct expansion gives D=12k(J₂−J₁)+P, where J₁=(−2r|k), J₂=(−2k|r), and P=−6k²+18k−3r(3k−1)(k+1)+3(k²−r²)t+k(k²−1)(4r²−1).
+3. Jacobi reciprocity gives J₂/J₁=δ=(−2|r)(−2|k)(−1)^{((r−1)/2)((k−1)/2)}. For odd k,r, reduce P modulo16 with t=r^{−1}; substituting k,r modulo16 gives P=0 when δ=1 and P=8 when δ=−1. The two supplementary laws make this a finite64-case integer table. The Jacobi term is likewise0 or8, respectively, so D=0 modulo16. Its modulo k and required3 congruences above then give48k∣D. This proves equality of summands and hence of sums, with k=1 included.
 
 Acceptance checks:
 
@@ -6723,9 +6734,8 @@ Direct prerequisites: [QM.2/rademacher-selberg-formula](#QM-2-rademacher-selberg
 
 Construction or proof route:
 
-1. Apply rademacher-selberg-formula to identify the original Dedekind-defined A_k(n) with the real finite sum S_k(n). This is now the precisely isolated source-dependent input; its Fourier/H-sum proof and the inherited Jacobi multiplier identification remain a recorded gap.
-2. Apply selberg-odd-root-comparison, whose finite proof is decomposed through the half-range identity, the root bijection, the uniform phase congruence and character identity, the Jacobi-three cosine factor and the promoted root-sum conjugation lemma.
-3. No fixed root count or exclusion of the zero root is used. The finite conversion includes k=1. All local A_k endpoints still inherit the source-dependent Selberg equality gap.
+1. Apply rademacher-selberg-formula, now proved by the independent finite-root Fourier calculation and the exact IntegralLattices1H Gauss-sign input, to identify the inherited Dedekind normalization with S_k(n).
+2. Apply selberg-odd-root-comparison. It already handles arbitrary root sets, fixed points of negation and k=1, so no nonsingularity or nonzero-root restriction is added.
 
 Acceptance checks:
 
@@ -6778,7 +6788,7 @@ Direct prerequisites: [QM.2/rademacher-odd-root-comparison](#QM-2-rademacher-odd
 Construction or proof route:
 
 1. Apply odd-rademacher-root-singular-cancellation to obtain B_{p^v}(n)=0.
-2. Since gcd(p^v,6)=1, substitute this value in rademacher-odd-root-comparison. The bridge gap remains a transitive input.
+2. Since gcd(p^v,6)=1, substitute this value in rademacher-odd-root-comparison, using the explicit finite Fourier bridge proved at rademacher-selberg-formula.
 
 Acceptance checks:
 
@@ -7061,7 +7071,9 @@ Acceptance checks:
 
 ### The odd Selberg formula for Rademacher's sum
 
-**Theorem** (`QM.2/rademacher-selberg-formula`). For k≥1 with gcd(k,6)=1 and n∈ℤ, the original Dedekind-defined A_k(n) equals S_k(n), embedded in ℂ. This is a source-dependent target with the explicitly retained Selberg–Whiteman bridge gap, not a completed proof plan.
+**Theorem** (`QM.2/rademacher-selberg-formula`). For k≥1 with gcd(k,6)=1 and n∈ℤ, the original Dedekind-defined A_k(n) equals the explicit Selberg sum S_k(n), embedded in ℂ. The proof uses finite Fourier inversion of the already established independent root-sum formula, and the positive Gauss phases supplied by IntegralLattices Layer1H.
+
+Proposed declaration: `rademacherKloosterman_eq_selberg`.
 
 Hypotheses and conventions:
 
@@ -7071,19 +7083,23 @@ Source support:
 
 - [whiteman-1956-pjm](#reference-whiteman-1956-pjm), §1 (1.4), p.160; proof §§2–4, pp.160–167. Names the precise unresolved source-dependent input of the existing odd Rademacher endpoint. No new source-reading or closure claim for Fischer is made.
 
-Direct prerequisites: [QM.2/selberg-rademacher-sum](#QM-2-selberg-rademacher-sum), [QM.2/kloosterman-sum-rademacher](#QM-2-kloosterman-sum-rademacher), [QM.2/kloosterman-sum-rademacher-jacobi-form](#QM-2-kloosterman-sum-rademacher-jacobi-form).
+Direct prerequisites: [QM.2/selberg-rademacher-sum](#QM-2-selberg-rademacher-sum), [QM.2/kloosterman-sum-rademacher](#QM-2-kloosterman-sum-rademacher), [QM.2/kloosterman-sum-rademacher-jacobi-form](#QM-2-kloosterman-sum-rademacher-jacobi-form), [QM.2/selberg-odd-root-comparison](#QM-2-selberg-odd-root-comparison).
 
-Suggested declaration name: `rademacherKloosterman_eq_selberg`.
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/IntegralLattices#layer-1-duals-and-discriminant-forms`.
 
 Construction or proof route:
 
-1. Whiteman §§2–4 prove the full Selberg formula by calculating finite Fourier coefficients: coefficients at nonunits vanish; at units they become Fischer's H-sums after completing squares.
-2. To turn that route into a closed plan, decompose the H-sum/Gauss evaluations and Whiteman's multiplier congruences, then identify his Jacobi-normalized roots with the existing Dedekind normalization. The inherited Jacobi multiplier gap and the remaining Selberg–Whiteman bridge gap explicitly record these inputs.
-3. The present continuation closes only the subsequent finite conversion (5.1)–(5.3). It does not replace the missing Fourier computation with a numerical test, and does not infer this equality from the root comparison that consumes it.
+1. Use selberg-odd-root-comparison, whose proof is independent of this theorem: S_k(n)=(3|k)√k Σ_{r²=1−24n}e_k(r/12), with 12 and24 invertible modulo k. For k=1 both sides are1. For k>1 take the finite Fourier coefficient p_h=k^{−1}Σ_{n mod k}S_k(n)e_k(nh). The bijection n=(1−r²)/24 gives p_h=(3|k)/√k·e_k(h/24)Σ_{r mod k}e_k(−hr²/24+r/12). This is a direct Fourier calculation in the existing root-sum object, not an invocation of Whiteman H-evaluations that still need proof.
+2. If d=gcd(h,k)>1, translate r by k/d. The quadratic part is unchanged, while the linear part gains the nontrivial d-th-root e_d(12^{−1}); summing the complete d-cycle gives zero. This covers every nonunit, even when k has repeated prime factors. If h is a unit, complete the square with r−h̄: p_h=(3|k)/√k·e_k((h+h̄)/24)G(−h/24,k).
+3. Import IntegralLattices Layer1G/1H, the finite quadratic-module Gauss sum with its generator-sign table. Specialize its nondegenerate carrier to ℤ/kℤ with Q(x)=a x²/k, a a unit, not to a new generic character-sum definition. On an odd p^j primary component its rank-one lattice parameter satisfies (θ|p)=(2a|p); the supplier sign j²(1−p)+4jη gives G(a,p^j)=ε_{p^j}(a|p)^j√(p^j), with ε_m=1 for m≡1 modulo4 and i for m≡3. CRT gives G(a,uv)=G(av,u)G(au,v). Quadratic reciprocity and the supplementary law for2 combine those phases to G(a,k)=ε_k(a|k)√k. All square roots are positive real. Thus p_h=ε_k(−2h|k)e_k(24^{−1}(h+h̄)). The supplier provides the otherwise missing positive Gauss phase; a squared Gauss sum would not suffice.
+4. Compare this with the original exp(πis(h,k)), using the finite congruences proved in kloosterman-sum-rademacher-jacobi-form. Write S=12ks and t=24^{−1} modulo k. Modulo k the proposed phase numerator is24t(h+h̄), equal to S; modulo3 both vanish. Modulo8 it is (3/2)k(k−1)²+12k(1−(−2h|k))/2. For k≡1,3,5,7 modulo8, the first term is0,2,0,2 and (−2|k) is1,1,−1,−1. Substitution gives k+1−2(h|k), exactly S modulo8. CRT therefore proves equality of the24k-th roots, with no sign ambiguity.
+5. Finite Fourier inversion now identifies S_k(n) with Σ_{h unit mod k}exp(πis(h,k))e_k(−nh), exactly the inherited A_k(n). No hypothesis on the discriminant or on the number of roots was introduced; singular and zero-root cases are retained. This replaces the missing Selberg–Whiteman H-sum bridge by a fully specified finite-root Fourier route at the same target and generality.
 
 Acceptance checks:
 
 - A_1(n)=1 is consistent; finite numeric agreement is not evidence that the Fourier proof is decomposed.
+
+<a id="QM-3"></a>
 
 ## QM.3 Harmonic Maass forms
 
@@ -7091,7 +7107,7 @@ Wirtinger derivatives define the weight-k operators, their slash covariance and 
 
 **Coverage: partial.**
 
-Setting pinned: scalar-valued, integral weight k ≠ 1, finite-index Γ ≤ SL₂(ℤ) (Poincaré series on Γ₀(N), even k ≥ 4, weight 2 − k). Bruinier–Funke's own setting is vector-valued for the Weil representation ρ_L of Mp₂(ℤ) in weight k ∈ ½ℤ; it specialises to this one for unimodular even L, and is recorded, not built. The operators Δ_k, ξ_k, R_k, L_k are defined for real k so that QM.4 can state the harmonicity and shadows of the weight-1/2 completions. Bruinier–Funke §3 is decomposed completely (the Hodge-star computations (3.12)–(3.13) are replaced by the direct criterion QM.3/xi-holomorphic-iff-harmonic, and the proof of Thm 3.7 is repaired at the cusps, E406); Bruinier–Ono–Rhoades §§1–4, 6 are decomposed; their §5 (algebraicity of coefficients for CM newforms, p-adic properties: Theorems 1.3–1.5) is arithmetic of coefficients, outside QM.3's targets (a candidate for QM.5). This scalar/integral-weight source boundary is insufficient for the new vector-valued and weight-two routes; their targets are not inferred from the existing scalar node names. Round-2 independent review checked this stage’s existing target contracts, sources, baseline consumers, API, tests and native signatures; predecessor read-boundary statements above describe the earlier pass. Current unresolved proof/supplier inputs are listed in gaps and remaining, and no stage is claimed closed. Revision3 preserves the existing stage status and every target id, synchronizes the reader with all round-2 corrections, and replaces the expanded native development by compact milestone signatures. The new source-reading receipts are target-specific, not a blanket re-reading of inherited sources.
+The scalar integral-weight harmonic-Maass, xi/Bol and positive-index Poincaré contracts are retained. The vector-valued and weight-two Hecke-trick extensions below remain distinct targets; the current scalar carrier is not claimed to supply them.
 
 Open targets and comparisons:
 
@@ -8544,6 +8560,8 @@ Source support:
 
 Direct prerequisites: [QM.3/local-xi-preimage-at-cusps](#QM-3-local-xi-preimage-at-cusps), [QM.3/xi-map](#QM-3-xi-map), [QM.3/xi-holomorphic-iff-harmonic](#QM-3-xi-holomorphic-iff-harmonic), [QM.3/harmonic-maass-form](#QM-3-harmonic-maass-form), [QM.3/weakly-holomorphic-modular-form](#QM-3-weakly-holomorphic-modular-form).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve`, `tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology`, `tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas`.
+
 Construction or proof route:
 
 1. Let g ∈ M^!_{2−k}(Γ″). For each cusp c = σ_c∞ take F_c := F_{σ_c}∘σ_c^{−1} slashed back (QM.3/local-xi-preimage-at-cusps) and a smooth cut-off χ_c on X equal to 1 near c and supported in a small punctured disc; f₀ := Σ_c χ_c F_c is a smooth weight-k function on ℍ with ξ_k f₀ = g near every cusp.
@@ -8817,6 +8835,8 @@ Source support:
 - [borcherds-gkz-1999](#reference-borcherds-gkz-1999), proof of Thm. 3.1, p. 5. The Serre-duality step.
 
 Direct prerequisites: [QM.3/principal-part-residue-pairing](#QM-3-principal-part-residue-pairing), [QM.3/normal-torsion-free-subgroup](#QM-3-normal-torsion-free-subgroup), [QM.3/weakly-holomorphic-modular-form](#QM-3-weakly-holomorphic-modular-form).
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve`, `tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology`, `tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas`.
 
 Construction or proof route:
 
@@ -9433,19 +9453,21 @@ Acceptance checks:
 
 - E₂*(i) = E₂(i) − 3/π = 0 (from the S-invariance of E₂* at the fixed point i: E₂*(i) = i^{−2}E₂*(i)).
 
+<a id="QM-4"></a>
+
 ## QM.4 Mock modular completions
 
 The error-function correction to Appell–Lerch sums gives explicit elliptic and modular laws. Indefinite theta functions separate holomorphic sign terms from nonholomorphic beta terms, with convergence on their admissible domains. Seventh- and fifth-order vectors apply this machinery with exact characteristics and roots of unity. Eulerian identifications retain their exact proof gaps. Rational-torsion modularity follows directly from the two Jacobi laws on an explicit principal congruence subgroup, without a growth assumption.
 
 **Coverage: planned.**
 
-Zwegers' thesis Chapters 1, 2, 3 (except §3.5) and Chapter 4 §§4.1–4.3 are decomposed; the complete worked mock series is the seventh-order vector F₇ with its completion H₇ (a Δ_{1/2}-harmonic real-analytic vector-valued modular form of weight 1/2), correction G₇ and shadow g₇ (Prop. 4.5, Cor. 4.6, plus the ξ-form of the shadow). The third-order f(q) is not treated in the thesis (it refers to Zwegers, Contemp. Math. 291 (2001), not public), so it is not planned from this source. The Zwegers correction uses the real function E(x) = erf(√π x) (Tau Ceti's TauCeti.Real.erf); no complex error function is needed. Second pass: the two outstanding items are decomposed. Zwegers §4.4, the fifth-order mock theta functions, is now six nodes - the eight functions through Andrews' corrected double-sum identities, the sign-difference identities for the first six with the matrix A and the vectors c1 and c2 and the cone computation that admits them, the completion and correction, the decomposition with both transformation matrices and the Casimir eigenvalue, the identities for the remaining four, and their completion, with the cancellation of the two corrections that makes the sum F_5 a genuine holomorphic vector-valued modular form of weight one half. Zwegers §3.5, Proposition 3.12, is two nodes: the index-thirteen weight-one meromorphic Jacobi form with its constant residue, its decomposition and the modularity of its twenty six coefficient functions; and the record that the example is special, since in general the residues are not constant, the coefficient functions are not Casimir eigenfunctions and no real-analytic modular form results. Round-2 independent review checked this stage’s existing target contracts, sources, baseline consumers, API, tests and native signatures; predecessor read-boundary statements above describe the earlier pass. Current unresolved proof/supplier inputs are listed in gaps and remaining, and no stage is claimed closed. Revision3 preserves the existing stage status and every target id, synchronizes the reader with all round-2 corrections, and replaces the expanded native development by compact milestone signatures. The new source-reading receipts are target-specific, not a blanket re-reading of inherited sources.
+The represented indefinite theta, Appell and mock-completion targets have routes to their stated suppliers and the two explicit Eulerian-identification gaps. Shifted real Poisson and finite-Weil rank-one conventions are now compared with current upstream contracts. Planned means target-level coverage, not mathematical closure or proof of the two remaining identities.
 
 Open targets and comparisons:
 
 - The selected seventh-order completion nodes use indefinite double sums; the recorded Hickerson gap is still required to identify them with Ramanujan’s Eulerian series. Do not infer that identity from the bounded coefficient check.
-- Fifth-order: prove the Andrews Eulerian/double-sum identifications with convergence, denominator nonvanishing and interchange. The coordinates of H₁,G₁,H₂,G₂,F₂ and the S/T matrices are now specified in the existing nodes and native signatures. No congruence kernel or classical Eulerian identity follows merely from those signatures. QM.4 is planned with the stated proof gaps, not closed.
-- Generic MP.6 Jacobi carriers and the exact rank-one dictionary remain requested. The growth-free rational-torsion transformation is now calculated directly in residue-function-modularity on Γ(D²); it is not an additional source gap. Shifted real Poisson and finite Weil/Kohnen adapters remain distinct exact supplier obligations.
+- Fifth-order: prove the Andrews Eulerian/double-sum identifications with convergence, denominator nonvanishing and interchange. The coordinates of H₁,G₁,H₂,G₂,F₂ and the S/T matrices are now specified in the existing nodes and the reader. No congruence kernel or classical Eulerian identity follows merely from those formulas. QM.4 is planned with the stated proof gaps, not closed.
+- The current MP.6 generic service and the local rank-one dictionary now support the represented Jacobi uses. Broader matrix-index and multiplier extensions remain with their owner. The shifted real Poisson and finite-Weil/scalar trace comparisons are supplied here and are no longer unresolved adapters.
 
 Atlas planets:
 
@@ -11218,13 +11240,16 @@ Source support:
 
 - [zwegers-thesis](#reference-zwegers-thesis), Prop. 2.7(7), p. 32. The statement (the displayed description of D′(c) is correct for c ∈ S_Q only, E504).
 
-Direct prerequisites: [QM.4/rho-fourier-self-duality](#QM-4-rho-fourier-self-duality), [QM.4/indefinite-theta-cusp-limit](#QM-4-indefinite-theta-cusp-limit), [QM.4/indefinite-theta-cocycle](#QM-4-indefinite-theta-cocycle), [QM.4/indefinite-theta-convergence](#QM-4-indefinite-theta-convergence), `AutomorphicLFunctionsAndLocalFactors:AL.0`.
+Direct prerequisites: [QM.4/rho-fourier-self-duality](#QM-4-rho-fourier-self-duality), [QM.4/indefinite-theta-cusp-limit](#QM-4-indefinite-theta-cusp-limit), [QM.4/indefinite-theta-cocycle](#QM-4-indefinite-theta-cocycle), [QM.4/indefinite-theta-convergence](#QM-4-indefinite-theta-convergence).
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ThetaSeries#layer-1-poisson-summation-for-a-lattice`.
 
 Construction or proof route:
 
-1. Case c₁, c₂ ∈ C_Q: Poisson summation over ℤ^r for the Schwartz function of Lemma 2.8 (dual lattice of ℤ^r for B is A^{−1}ℤ^r) gives (2.24) for ϑ_{a,b}; substitute ϑ_{a,b} = e^{2πiQ(a)τ+2πiB(a,b)}ϑ(aτ + b; τ).
-2. Case c₁ ∈ C_Q, c₂ ∈ S_Q: take lim_{t↓0} along c(t) (Prop. 2.7(5)) on both sides.
-3. Remaining cases by the cocycle relations.
+1. Consume ThetaSeries Layer 1A/1E, with E=EuclideanSpace ℝ (Fin r), L=ℤ^r, standard Lebesgue volume and covolume 1. It supplies the shifted formula Σ_l f(a+l)=Σ_m f̂(m)e(⟨a,m⟩) and absolute summability of both sides, with f̂(m)=∫f(x)e(−⟨x,m⟩)dx. Do not substitute adelic Poisson or the minus-phase formula for a non-even function.
+2. For interior c₁,c₂, rho-fourier-self-duality supplies the actual Schwartz kernel and its B-Fourier transform. Convert its variable w to the Euclidean dual variable m=Aw: B(x,w)=⟨x,Aw⟩. Thus w runs through A^{−1}ℤ^r. This conversion changes the evaluation point, not the integration measure; the factor 1/√(−det A) is the Fourier integral already computed by the rho lemma, not a second Jacobian. Modulation by b and translation by a give the positive character e(B(a,w)) and the corresponding translated Fourier argument.
+3. Apply the shifted theorem to that kernel, partition A^{−1}ℤ^r into its finitely many ℤ^r-cosets (index |det A|), and use absolute summability to regroup. Substitute the defining exponential relating ϑ_{a,b} to ϑ(aτ+b;τ); completing Q(z+pτ) gives exactly i(−iτ)^{r/2}/√(−det A) and the displayed finite coset sum. No positive-definite theta modularity theorem is used for the indefinite quadratic form.
+4. For a boundary c take the specified interior path c(t) and apply indefinite-theta-cusp-limit on both sides. The D′ conditions exclude poles both before and after S, so the limits commute with the finite coset sum. With two boundary parameters insert a fixed interior c and use the theta cocycle relation. These are limits of the already established interior identity, not applications of Schwartz Poisson to a nonsmooth boundary sign kernel.
 
 Acceptance checks:
 
@@ -11295,9 +11320,12 @@ Source support:
 
 Direct prerequisites: [QM.4/indefinite-theta-s-transformation](#QM-4-indefinite-theta-s-transformation), [QM.4/indefinite-theta-function](#QM-4-indefinite-theta-function).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ThetaSeries#layer-1-poisson-summation-for-a-lattice`.
+
 Construction or proof route:
 
-1. This is (2.24), the characteristic form of Prop. 2.7(7).
+1. Apply indefinite-theta-s-transformation at z=a(−1/τ)+b and substitute the definition ϑ_{a,b}(τ)=e(Q(a)τ+B(a,b))ϑ(aτ+b;τ). Equivalently use its shifted-Poisson calculation before the substitution. Bilinearity and Q(x+y)=Q(x)+B(x,y)+Q(y) leave the factor e(B(a,b)) and characteristics (b+p,−a).
+2. Changing p by an integral vector is absorbed by the summation index with the characteristic translation law. Both a and b lie in the stated admissible sets, so the S-side boundary limits exist; apply the same interior approximation as in the preceding theorem. For r=1 positive Gaussian comparison use the supplier Fourier convention as a sign test only, not as an indefinite-theta premise.
 
 Acceptance checks:
 
@@ -12826,13 +12854,15 @@ Acceptance checks:
 - The general statement is named and the gap between the two is explicit.
 - The boundary is checkable against the other nodes of this layer.
 
+<a id="QM-5"></a>
+
 ## QM.5 Arithmetic and quantum connections
 
 Periodic L-values and Euler–Maclaurin expansions control radial asymptotics. Quantum modular forms are functions on the rationals whose period functions extend analytically away from finite exceptional sets. Scalar cocycle composition requires a normalized multiplier; the weak definition alone supplies no such law. Kontsevich, Lawrence–Zagier, rank/crank and trace applications keep analytic limits separate from Habiro evaluation and genuine WRT comparisons.
 
 **Coverage: partial.**
 
-QM.5 is decomposed from Zagier's Quantum modular forms, Zagier's strange-identity paper, Lawrence–Zagier, Bringmann–Rolen, Folsom–Ono–Rhoades, Andrews–Garvan, Garvan's Urbana paper and Zagier's Traces of singular moduli. The general theory (radial limits, asymptotic expansions, quantum modular forms, Eichler integrals of half-integral weight and their quantum modularity) has target contracts ending at baseline declarations, exact supplier requests or the recorded proof gaps; the arithmetic–quantum links (Kontsevich's strange identity, the Poincaré-sphere WRT function and its Habiro comparison, Ramanujan's radial limit claim) are decomposed with their exact radial-limit statements; the crank explanation of the congruences mod 5 and 7 is complete, mod 11 rests on Winquist's identity; Zagier's trace theorem is decomposed through both recursions. Round-2 independent review checked this stage’s existing target contracts, sources, baseline consumers, API, tests and native signatures; predecessor read-boundary statements above describe the earlier pass. Current unresolved proof/supplier inputs are listed in gaps and remaining, and no stage is claimed closed. Revision3 preserves the existing stage status and every target id, synchronizes the reader with all round-2 corrections, and replaces the expanded native development by compact milestone signatures. The new source-reading receipts are target-specific, not a blanket re-reading of inherited sources.
+The scalar quantum period, Mellin/Eichler, Kontsevich and Poincaré-sphere contracts are retained. The reviewed scalar half-weight cusp, multiplier boundary, finite-image, WRT/Ohtsuki, rank/crank, Choi/R and scalar trace comparisons now have explicit local routes. QM.5 owns these scalar examples; QT.7 owns the knot statements, with its absent matrix interface assigned to QSeries Part II. Broader extensions below remain unplanned.
 
 Open targets and comparisons:
 
@@ -12840,13 +12870,11 @@ Open targets and comparisons:
 - Strong quantum modular forms (Zagier, Quantum modular forms, p. 2) as a definition attaching a formal power series to each rational point; the nodes express the same content through radial-asymptotic-expansion.
 - Zagier, Topology 40, §§1, 3–4: the chord-diagram interpretation (Theorem 1), the asymptotics of Stoimenow's numbers (Theorem 4) and Theorem 5.
 - Lawrence–Zagier §§5–6 (the fifth-order mock theta connection and other Seifert fibred manifolds).
-- Winquist's identity and the 11-dissection for crank-mod-eleven; the Atkin–Swinnerton-Dyer dissections for atkin-swinnerton-dyer-theorem (gaps).
-- Folsom–Ono–Rhoades: the detailed proofs of Theorem 3.2 and Proposition 3.3 (Lemmas 3.4–3.7, Klein forms), Choi's identity, and Theorem 1.3 (Rogers–Fine false theta functions).
+- Folsom–Ono–Rhoades Theorem1.3, the Rogers–Fine false theta functions, remains a distinct extension. Theorem3.2/Proposition3.3, Choi’s identity and the R cancellation needed by the existing targets now have the local proof route; the prime-power and broader rank-congruence families are not inferred from it.
 - Bringmann–Rolen, Radial limits of mock theta functions: Theorem 1.1 and Propositions 5.1–5.3 for all weight-1/2 mock theta functions through the universal function g₂.
 - Zagier, Traces of singular moduli, §§5–9 (Borcherds products, the duality A(D, d) = −B(D, d), Hecke operators, other genus-zero groups, other weights) and the harmonic Maass form interpretation of traces (Bruinier–Funke); their sources were not decomposed.
-- The character and multiplier-system versions of the Bringmann–Rolen theorem used for Kontsevich's φ and the Poincaré sphere (gap). The complex Mellin/beta comparison and quantitative Stirling estimate now have explicit integral-remainder proof routes in the existing nodes.
 - Partition congruences beyond the Ramanujan triple (Watson's and Atkin's congruences for powers of 5, 7, 11; Ono's congruences for all primes ≥ 5; the Bringmann–Ono rank congruences via harmonic Maass forms) are outside the chosen sources and need their own source acquisition.
-- RT-AREA-topology/13: QM.5 owns the scalar quantum-modular discrepancy, its cocycle law when the multiplier condition is imposed, and the Kontsevich/Lawrence–Zagier q-series examples. QT.7 retains knot-specific statements and conjectures. The corrected lower-boundary factor and the direct eta transformation/nonvanishing/cocycle inputs are given in the contracts below; at −I the factor acts trivially. This review makes no live graph change. Keep QT.4’s actual invariant and HC.3/HC.4 evaluation/rigidity imports distinct from analytic radial-limit proofs.
+- RT-AREA-topology/13: retain QM.5/quantum-modular-form and the Kontsevich/Lawrence–Zagier q-series examples as QM.5 services, with QT.7 retaining knot-specific statements and conjectures. The existing proposal for QM.5→QT.7 needs owner/consumer statement comparison and accepted application; this pass makes no live graph change. Keep QT.4’s actual invariant and HC.3/HC.4 evaluation/rigidity imports distinct from analytic radial-limit proofs.
 - ArithmeticQuantumTopology's open request for QT.7/denominator-volume-cocycle, QT.7/knot-matrix-cocycle and QT.7/cocycle-analytic-extension is assigned by its explicit route to QSeriesPartitionsAndMockModularForms, Part II where this general interface is absent. It asks for generic matrix-valued multiplicative cocycles on common pole-free domains, branch-aware weights and smooth or holomorphic extension criteria. This base QM.5 packet supplies only the scalar additive period cocycle; it claims no matrix interface or knot comparison. Retain the open supplier gap and this owner split when planning Part II, without a QT.7 prerequisite in base QM.5.
 
 Atlas planets:
@@ -13268,6 +13296,8 @@ Source support:
 
 Direct prerequisites: `mathlib:UpperHalfPlane`, `mathlib:Complex.exp`, `mathlib:ModularForm`, `mathlib:CuspForm`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`.
+
 Construction or proof route:
 
 1. Define eichlerIntegral w N a τ := Σ' n ≥ 1, (n/N : ℝ)^(1−w) • a n • exp(2πi n τ/N).
@@ -13484,11 +13514,10 @@ Direct prerequisites: `MetaplecticAutomorphicForms:MP.7`, `mathlib:mellin`, `mat
 
 Construction or proof route:
 
-1. f_{d/c}(τ) := Σ a_f(n)ζ_c^{dn}qⁿ = f(τ + d/c) is modular of weight k on the conjugate group, and lies in S_k(Γ₁(Nc²)) (conjugation by (1 d/c; 0 1)).
-2. Decompose S_k(Γ₁(Nc²)) = ⊕_χ S_k(Nc², χ) (character decomposition, supplied by MetaplecticAutomorphicForms:MP.7), so it suffices to treat g ∈ S_k(M, χ), 4 | M.
-3. Hecke's integral: Λ_g(s) = ∫_0^∞ g(iv/√M)v^{s−1}dv = (√M/2π)^sΓ(s)L_g(s) (mellin of the q-expansion, Mathlib's mellin and Complex.Gamma).
-4. Split at v = 1, substitute v ↦ 1/v in ∫_0^1 and apply the Fricke involution g|_kW_M ∈ S_k(M, χ(M/·)) (MP.7): Λ_g(s) = ∫_1^∞ (g|W_M)(iv/√M)v^{k−s−1}dv + ∫_1^∞ g(iv/√M)v^{s−1}dv, entire because both integrands decay exponentially.
-5. L_g(s) = (2π/√M)^sΛ_g(s)/Γ(s) is entire since 1/Γ is entire, and vanishes at s = −m because 1/Γ(−m) = 0 while Λ_g(−m) is finite.
+1. Use the all-cusp holomorphy/decay in the classical half-weight cusp-form input, without decomposing additive twists into nebentypus components. At x=d/c reduced, c>0, choose γ=(d b;c a)∈SL₂(ℤ) and its holomorphic root w_γ(z)=√(cz+a). Put h(z)=w_γ(z)^{−2k}f(γz) and h_x(t)=h(−a/c+it). All-cusp cuspidality gives exponentially decaying Fourier expansions for h_x at ∞ with positive rational frequencies; it gives the same for f(x+iy) at ∞.
+2. Since γ^{−1}(x+iy)=−a/c+i/(c²y) and cγ^{−1}(x+iy)+a=i/(cy), the chosen upper-half-plane branch gives the exact identity f(x+iy)=e^{πik/2}(cy)^{−k}h_x(1/(c²y)). This is a scalar identity for the slash by one chosen lift; it needs no assertion that a Fricke involution preserves a particular nebentypus space.
+3. Set F_x(s)=∫₀∞f(x+iy)y^{s−1}dy. At both endpoints the preceding exponential estimates, including any fixed power of y and log y, are integrable uniformly for s in compact sets. Hence F_x is entire. Termwise integration initially for Re s>k/2+1 gives F_x(s)=(2π)^{−s}Γ(s)L_f(e(x);s). Therefore L_f(e(x);s)=(2π)^sF_x(s)/Γ(s) is entire and vanishes at every nonpositive integer.
+4. The same substitution gives F_x(s)=e^{πik/2}c^{k−2s}H_x(k−s), where H_x(u)=∫₀∞h_x(t)t^{u−1}dt. For c=1 this covers integral x as well; the chosen SL₂ matrix and root keep the central phase explicit. Cusp Fourier frequencies may be rational and have a shift; their Dirichlet sums use those positive frequencies, so no unjustified width-one expansion is introduced.
 
 Acceptance checks:
 
@@ -13544,9 +13573,9 @@ Direct prerequisites: [QM.5/twisted-cusp-form-l-function](#QM-5-twisted-cusp-for
 
 Construction or proof route:
 
-1. Right of absolute convergence (x ≥ k/2 + 2) the Dirichlet series is bounded.
-2. Left of the critical strip use the functional equation Λ_g(s) = Λ_{g|W}(k − s) of each nebentypus component and gamma-vertical-decay: L_g(s) = (2π/√M)^{2s−k}Γ(k − s)/Γ(s)·L_{g|W}(k − s), and |Γ(k − s)/Γ(s)| grows polynomially in |t|. Use the two-sided asymptotic, in particular an eventual positive lower bound for |Γ(s)| after normalization. An upper bound alone cannot bound the quotient.
-3. In between, Λ_g is bounded in vertical strips (the integral representation), so L_g(s) = Λ_g(s)(2π/√M)^s/Γ(s) is at most e^{π|t|/2}|t|^B; Phragmén–Lindelöf (PhragmenLindelof.vertical_strip) applied to L_g·(s + B)^{−A}, choosing real B > −x₁ + 1 so that the normalizing denominator has no zero in the closed strip interpolates the polynomial bounds on the two edges.
+1. Use the exact cusp identity and entire Mellin integrals constructed in twisted-cusp-form-l-function. Write F_x(s)=(2π)^{−s}Γ(s)L_x(s) and H_x(u)=(2π)^{−u}Γ(u)L_h(u), where L_h is the Dirichlet sum of the positive rational-frequency expansion of h_x. Substitution y↦1/(c²y) proves L_x(s)=e^{πik/2}c^{k−2s}(2π)^{2s−k}Γ(k−s)Γ(s)^{−1}L_h(k−s). The powers of the positive real c and 2π and the constant unit phase are fully specified.
+2. Far enough right, the coefficient bound O(n^{k/2}) gives uniform absolute bounds for L_x and L_h on vertical lines (a fixed cusp width and frequency shift only change the constant). Far enough left, the displayed identity and the two-sided gamma-vertical-decay estimate give a polynomial bound, uniform in Re s in the chosen compact strip. Its positive lower bound for the normalized Γ(s) is used when taking the quotient; the finite t range follows from entire continuation.
+3. The Mellin integrals are bounded on any finite vertical strip because |y^{it}|=1 and the endpoint exponential estimates are uniform in Re s. Thus division by Γ(s) gives at most e^{π|t|/2}(1+|t|)^B growth in between. Apply PhragmenLindelof.vertical_strip to L_x(s)/(s+B₀)^A, choosing B₀>1−x₁ to avoid a zero denominator on the strip and A large enough for its boundary bounds. This supplies the uniform polynomial estimate throughout. No scalar half-weight Fricke or character decomposition is assumed beyond the all-cusp slash data actually supplied.
 
 Acceptance checks:
 
@@ -14063,14 +14092,14 @@ Construction or proof route:
 1. φ(x) = −½·(radial limit of η̃ at x) by strange-identity, η̃ = √24·(Eichler integral of weight 1/2 of η) (eichler-integral).
 2. Put D_gamma(z)=cz+d and v_gamma=v_eta(gamma). On the upper half-plane the eta transformation law and eta nonvanishing show that A_gamma(z)=v_gamma^(-1) D_gamma(z)^(-1/2) is a multiplicative automorphy factor. Squaring the eta law, using (D_gamma(z)^(1/2))^2=D_gamma(z) and the ordinary denominator cocycle, shows that gamma maps to v_gamma^2 is a character.
 3. For w in the lower half-plane, conjugate A_gamma(conj(w)). Since |v_gamma|=1, this is s_gamma v_gamma D_gamma(w)^(-1/2), where s_gamma=-1 exactly when c=0,d<0, and s_gamma=1 otherwise: only the negative-real principal-power cut prevents conjugation from commuting with the half power. Multiply this conjugated factor by the character v_gamma^(-2) and the integral-weight factor D_gamma(w)^(-1). The product is s_gamma v_gamma^(-1) D_gamma(w)^(-3/2), hence satisfies the full factor cocycle. Take lower boundary limits away from intermediate and product poles to obtain QuantumCocycleCondition for epsilon=s_gamma v_gamma^(-1). In particular epsilon(-I)=-i and epsilon(-I)j_(3/2)(-I,x)=1. This establishes consistency of the factor, not the analytic transformation of the Kontsevich function.
-4. Transformation of the non-holomorphic Eichler integral η* on H⁻ under S and T: the computation of nonholomorphic-eichler-transformation with the η-multiplier ψ (QM.1/dedekind-eta-multiplier) in place of Shimura's, giving η* − ε(γ)·(η*|γ) = r_{η,−d/c} (eichler-period-integral for η).
-5. Agreement of expansions of η̃ and η* at every rational (eichler-asymptotic-agreement, whose L-function inputs are here the periodic L-functions L(2s − 1, Φ_ξ) of ZMod.LFunction, entire with the required vertical growth, in place of twisted-cusp-form-l-function).
-6. Pass to boundary values as in half-integral-eichler-quantum-modular, using nonholomorphic-eichler-nontangential-limit.
+4. For the analytic transformation use the actual lower Eichler integral Eη(z)=C∫_{z̄}^{i∞}η(w)(w−z)^{−3/2}dw with C=(−2πi)^{−1/2}/Γ(−1/2). The negative Gamma argument causes no endpoint singularity because w−z stays in ℍ. For T, translate the integration variable and use η(w+1)=e(1/24)η(w); for S use η(−1/w)=√(−iw)η(w), dw↦w^{−2}dw and S(w)−S(z)=(w−z)/(wz). On w=it,z=−iy (t,y>0), the transformed kernel divided by the original is −y^{3/2}; this fixes its constant branch on the connected domain. Multiplication by ε(S)j_{3/2}(S,z)=−y^{−3/2} gives Eη−ε(S)jEη∘S equal to its period integral from 0 to i∞. For T the period is zero. The already proved factor cocycle extends these identities to words in S,T; the transformed paths concatenate to the period from γ⁻¹∞. The central element acts by 1, as checked above.
+5. The rational-boundary comparison does not require a scalar nebentypus adapter. In η=Σ_{n≥1}χ₁₂(n)e(n²τ/24), at x∈ℚ the coefficients Φ_x(n)=χ₁₂(n)e(xn²/24) are periodic and even. Their mean is zero: the Gaussian Poisson constant term equals that mean, while the eta S/T transformation and its zero constant term give exponential decay at x. Thus its periodic L-function is entire; the even-parity negative-integer zeros cancel the unwanted half-integer Mellin poles. The termwise incomplete-Gamma integral, finite Taylor subtraction and Mellin contour displacement from nodes361–364 apply to this explicit L-function, with frequency n²/24 and the scalar √24 dictated by eichler-integral. They give agreement of every coefficient, not only the constant boundary value.
+6. The lower integral has the required nontangential limit because eta decays exponentially after a cusp scaling matrix at every rational endpoint. On a short cusp segment, any fixed power of its height is dominated by that decay; on the remaining path the kernels converge uniformly and an integrable majorant applies. These estimates also apply to γz as z approaches a rational point. Pass to lower boundary values in the exact analytic law, then use strange-identity and the −1/2 normalization relating φ to the eta Eichler series.
 7. Prove smoothness of the period integral at 0 by differentiating its boundary kernel to every order under the integral: η(w) decays faster than any power as w→0 on the vertical path and exponentially at infinity, furnishing the derivative majorants. Evaluate these integrals by Mellin continuation and kontsevich-value-formula to get g^{(n)}(0)=(−πi/12)ⁿc_n. An asymptotic expansion along the sequence ±1/k alone does not prove smoothness.
 
 Uses that determine the API:
 
-- ArithmeticQuantumTopology:QT.7: Imports the weight-3/2 scalar transformation theorem for Kontsevich's φ, with the multiplier ε(T) = e^{−2πi/24}, ε(S) = e^{2πi/8} (the inverse eta values at S/T with the negative-real-cut sign correction at c=0,d<0, lower boundary branch), retaining the gap on character and multiplier-system versions of the Bringmann–Rolen theorem and source issue E604 (Zagier indicates the proof only). It implies no knot modularity statement.
+- ArithmeticQuantumTopology:QT.7: Imports the weight-3/2 scalar transformation theorem for Kontsevich's φ, with the multiplier ε(T) = e^{−2πi/24}, ε(S) = e^{2πi/8} (the inverse eta values at S/T with the negative-real-cut sign correction at c=0,d<0, lower boundary branch), using the explicit multiplier-boundary proof above; source issue E604 records that Zagier indicates the proof only. It implies no knot modularity statement.
 
 Acceptance checks:
 
@@ -14078,6 +14107,8 @@ Acceptance checks:
 - Consistency check with Kontsevich's asymptotics: φ(1/k) = e^{2πi(3−k)/24}k^{3/2} + Σ c_n(−πi/(12k))ⁿ/n! + o(1) as k → ∞.
 - Zagier's 2010 account (Quantum modular forms, eq. (26)) prints this law with |x|^{3/2} and ∓i^{1/2}; the correct form is the one here (see the source issues).
 - At gamma = -I the lower-boundary factor of weight 3/2 is i. The corrected multiplier epsilon(-I) = -i gives total slash factor 1. Using the unmodified inverse eta multiplier i would instead give -1, so it fails this central-element check.
+
+Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer.
 
 <a id="QM-5-cohen-sigma-values"></a>
 
@@ -14287,31 +14318,36 @@ Acceptance checks:
 Hypotheses and conventions:
 
 - ξ an arbitrary root of unity (all orders); W is extended from ξ = e^{2πi/K} to all primitive K-th roots by Galois equivariance, which agrees with QT.4's invariant at those roots (QT.4/integrality-and-galois).
-- The orientation of Σ(2, 3, 5) and the normalisation of Z are those of the Lawrence–Rozansky formula requested from ArithmeticQuantumTopology:QT.4.
+- Fix the oriented surgery manifold with central framing0 and three rationally framed leaves (P_j,Q_j)=(2,−1),(3,1),(5,1), all three linking numbers+1. Thus P=30,H=PΣQ_j/P_j=1 and Casson invariant−1. This fixes the Lawrence–Zagier orientation by an actual surgery presentation, rather than by a name or an orientation convention left to a supplier.
 
 Source support:
 
 - [lawrence-zagier](#reference-lawrence-zagier), §3, Theorem 1, printed p. 98. Supplies the theorem and the proof route on pp.100–101.
 - [lawrence-zagier](#reference-lawrence-zagier), §2, printed p. 95. The normalisation W = ξ(ξ − 1)Z.
+- [lawrence-rozansky-seifert](#reference-lawrence-rozansky-seifert), Author preprint §§3.1–3.2, equations(3.1)–(3.3), pp.7–8; §4.1, equation(4.2), pp.9–11; §4.4 p.15; §4.9 p.26. The exact surgery normalization, finite Seifert color sum and its Galois extension; the P=30,H=1,φ=181/30 specialization is calculated locally.
 
 Direct prerequisites: [QM.5/lawrence-zagier-series](#QM-5-lawrence-zagier-series), [QM.5/renormalised-sum](#QM-5-renormalised-sum), [QM.5/periodic-l-value-bernoulli](#QM-5-periodic-l-value-bernoulli), [QM.5/radial-limit](#QM-5-radial-limit), `ArithmeticQuantumTopology:QT.4/WRT-invariant-at-a-root`, `ArithmeticQuantumTopology:QT.4/integrality-and-galois`, `ArithmeticQuantumTopology:QT.4`.
 
 Construction or proof route:
 
-1. Radial limit: apply renormalised-sum to Φ(n) = χ₊(n)ξ^{(n²−1)/120}, periodic of period 60K with Φ(60K − n) = −Φ(n), hence of mean zero; A(ξe^{−t}) = e^{t/120}Σ Φ(n)e^{−n²t/120} → L(0, Φ) = −Σ_{n=1}^{60K}(n/(60K) − ½)Φ(n) = Σ_{n=1}^{30K}(1 − n/(30K))Φ(n).
-2. Gauss-sum step (LZ (14)): with ζ a primitive 120K-th root of unity with ζ^{120} = ξ and G = Σ_{β mod 60K}ζ^{−β²}, ξ^{(n²−1)/120} = G^{−1}Σ_β ζ^{−β²−1}ζ^{2nβ}.
-3. Insert into the renormalised exponential sum (renormalised-sum, first form) and sum the geometric series with the rational functions ψ(u) = Σχ₊(n)uⁿ = (u⁵ + u⁻⁵)(u⁹ + u⁻⁹)/(u¹⁵ + u⁻¹⁵) and φ(u) = u + u⁻¹ − ψ(u).
-4. The terms with K ∤ β give the Lawrence–Rozansky formula W(ξ) = (2G)^{−1}Σ_{β mod 60K, K∤β}(1 − ζ^{24β})(1 − ζ^{40β})/(1 + ζ^{60β})·ζ^{−(β+1)²} (requested from QT.4); the terms with K | β cancel in pairs under m ↦ 30 − m (β = Km).
+1. Compare the definitions of the invariant before using a special formula. In LR §3.1 the color α=1,…,K−1 corresponds to QT’s V_{α−1}; its unknot value is [α], and positive framing multiplies by q^{(α²−1)/4}, with q=ξ⁴ for QT’s primitive4K-th root ξ. The coloring sums, ribbon evaluation and the two signature-normalizing unknot Gauss sums therefore agree term by term. The b₁=0 hypothesis removes LR’s extra G₀ factor. The phase in LR’s modular T matrix differs from the ribbon twist by a common framing phase; the signature/Rademacher correction in §3.2 includes it. Use the normalized colored-link formula (3.1), not the uncorrected modular T matrix alone.
+2. Evaluate the stated star surgery using LR §3.2 and (4.2). The finite color sum reduces by the sine orthogonality S_{αβ}=√(2/K)sin(παβ/K) and the quadratic Gauss reciprocity of §2.1. Here s(−1,2)=0,s(1,3)=1/18,s(1,5)=1/5, so φ=3+Σ(12s(Q_j,P_j)−Q_j/P_j)=181/30, B=−e^{3πi/4}/(4√30), and G₀=√(K/2)/sin(π/K). The product ratio in (4.2) is −2sin(πβ/(3K))sin(πβ/(5K))/cos(πβ/(2K)). Multiplication by q(q−1) gives the exact finite formula W=−(1+i)/√(120K) Σ_{β mod60K,K∤β} [sin(πβ/(3K))sin(πβ/(5K))/cos(πβ/(2K))] exp(−πi(β²+1)/(60K)). In particular the residual exponent is −φ/2+3=−1/60; this checks the normalization against LZ(3), not merely against a few low-order values. K=1 is treated separately by Z(1)=1 and W(1)=0.
+3. Radial limit: apply renormalised-sum to Φ(n) = χ₊(n)ξ^{(n²−1)/120}, periodic of period 60K with Φ(60K − n) = −Φ(n), hence of mean zero; A(ξe^{−t}) = e^{t/120}Σ Φ(n)e^{−n²t/120} → L(0, Φ) = −Σ_{n=1}^{60K}(n/(60K) − ½)Φ(n) = Σ_{n=1}^{30K}(1 − n/(30K))Φ(n).
+4. Gauss-sum step (LZ (14)): with ζ a primitive 120K-th root of unity with ζ^{120} = ξ and G = Σ_{β mod 60K}ζ^{−β²}, ξ^{(n²−1)/120} = G^{−1}Σ_β ζ^{−β²−1}ζ^{2nβ}.
+5. Insert into the renormalised exponential sum (renormalised-sum, first form) and sum the geometric series with the rational functions ψ(u) = Σχ₊(n)uⁿ = (u⁵ + u⁻⁵)(u⁹ + u⁻⁹)/(u¹⁵ + u⁻¹⁵) and φ(u) = u + u⁻¹ − ψ(u).
+6. The resulting rational exponential sum is exactly the finite surgery formula just proved: with ζ=e^{2πi/(120K)}, the two sine factors and cosine denominator convert to (1−ζ^{24β})(1−ζ^{40β})/(1+ζ^{60β}), and shifting the exponent gives ζ^{−(β+1)²}. The terms K|β are removable through their paired renormalized limits and cancel under β=Km↦K(30−m), as in the read LZ pp.100–101 argument. Thus the radial value equals the normalized QT invariant at e^{2πi/K}. Both finite expressions lie in ℤ[q] evaluated at that root; applying the QT Galois law gives every primitive K-th root. This does not apply a field automorphism to an analytic limit: the analytic limit is first computed as its own finite sum at that root.
 
 Uses that determine the API:
 
-- ArithmeticQuantumTopology:QT.7: Imports the equality of the analytic radial limit with the rescaled Poincaré-sphere WRT values W(ξ) = ξ(ξ − 1)Z(ξ), conditional on QT.4 supplying its exact normalised invariant formula.
+- ArithmeticQuantumTopology:QT.7: Imports the proved analytic radial/WRT comparison for this explicitly oriented surgery manifold; the finite invariant formula is derived here from the existing QT normalization.
 
 Acceptance checks:
 
 - ξ = −1 (K = 2): W(−1) = 2; ξ = e^{2πi/3}: W = −2ξ − 1; ξ = i: W = ξ + 1 (Lawrence–Zagier's table).
 - ξ = 1: W(1) = 0, consistent with 1 − ½A(q) → 1 − ½·2 = 0 as q ↗ 1 (the renormalised sum of χ₊ is Σ_{n≤30}(1 − n/30)χ₊(n) = 2).
 - The theorem compares an analytic limit of a q-series with a quantum invariant; it is not a statement about formal evaluation.
+
+Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer.
 
 <a id="QM-5-lawrence-zagier-ohtsuki-expansion"></a>
 
@@ -14321,14 +14357,15 @@ Acceptance checks:
 
 Hypotheses and conventions:
 
-- The Ohtsuki series in Lawrence–Zagier's normalisation W_∞ = h(1 + h)Z_∞ (requested from ArithmeticQuantumTopology:QT.4 together with Lawrence's closed form (6)).
+- Use precisely the surgery manifold and ribbon/root convention fixed in lawrence-zagier-radial-limit. QT.4 supplies the normalized Ohtsuki series by prime-root congruences and its equality with the Taylor expansion of J; it is not asked to supply a special Poincaré closed form.
 
 Source support:
 
 - [lawrence-zagier](#reference-lawrence-zagier), §3, Theorem 2, printed p. 98. Supplies the theorem and its p.101 argument.
 - [lawrence-zagier](#reference-lawrence-zagier), §3, proof of Theorem 2, printed p. 101. The identification with the Ohtsuki series.
+- [lawrence-rozansky-seifert](#reference-lawrence-rozansky-seifert), Author preprint equation(4.10) and Gaussian expansion, pp.20–21; §4.6 equations(4.12)–(4.13), Theorems4–5, pp.21–24; §4.7 Theorem6 and proof, pp.24–25. The Gaussian moments, integral formal-series construction and odd-prime-root comparison supply the exact missing Ohtsuki adapter. The Poincaré formula and uniqueness argument are given here.
 
-Direct prerequisites: [QM.5/lawrence-zagier-series](#QM-5-lawrence-zagier-series), [QM.5/periodic-gaussian-sum-asymptotic](#QM-5-periodic-gaussian-sum-asymptotic), [QM.5/periodic-l-value-bernoulli](#QM-5-periodic-l-value-bernoulli), [QM.5/radial-asymptotic-expansion](#QM-5-radial-asymptotic-expansion), `ArithmeticQuantumTopology:QT.4/ohtsuki-series`, `ArithmeticQuantumTopology:QT.4`.
+Direct prerequisites: [QM.5/lawrence-zagier-series](#QM-5-lawrence-zagier-series), [QM.5/periodic-gaussian-sum-asymptotic](#QM-5-periodic-gaussian-sum-asymptotic), [QM.5/periodic-l-value-bernoulli](#QM-5-periodic-l-value-bernoulli), [QM.5/radial-asymptotic-expansion](#QM-5-radial-asymptotic-expansion), `ArithmeticQuantumTopology:QT.4/ohtsuki-series`, `ArithmeticQuantumTopology:QT.4`, [QM.5/lawrence-zagier-radial-limit](#QM-5-lawrence-zagier-radial-limit), `ArithmeticQuantumTopology:QT.4`.
 
 Construction or proof route:
 
@@ -14336,16 +14373,20 @@ Construction or proof route:
 2. periodic-l-value-bernoulli: L(−2r, χ₊) = −(60^{2r}/(2r + 1))Σ_{n=1}^{60}χ₊(n)B_{2r+1}(n/60).
 3. The coefficient c_r includes the contribution of 2e^{−t/120}: c_r=2/60^{2r}+(1/(2r+1))Σχ₊(n)B_{2r+1}(n/60), as printed on p.101. These two terms are added, not multiplied. In particular c₀=0 since L(0,χ₊)=2.
 4. Rewrite with the modified Euler numbers B̄ (e^{zB̄} = sech(z/4), B̄_m = 2[B_{m+1}(3/4) − B_{m+1}(1/4)]/(m + 1)) and the symmetries of Bernoulli polynomials: c_r = (B̄ − 4/15)^{2r} − (B̄ − 1/15)^{2r}.
-5. Compare with Lawrence's formula 2(1 + h)^{1/120}W_∞(h) = (1 + h)^{30(B̄−4/15)²} − (1 + h)^{30(B̄−1/15)²} (requested from QT.4).
+5. Derive the missing formal topological comparison from the same Seifert integral. Put F(y)=∏_j2sinh(y/(2P_j))/(2sinh(y/2))=[cosh(4y/15)−cosh(y/15)]/cosh(y/4). Its even Taylor coefficient F^(2r)(0) is exactly c_r=(B̄−4/15)^{2r}−(B̄−1/15)^{2r}, because ΣB̄_m y^m/m!=sech(y/4). The trivial-connection Gaussian in LR(4.10) has moments (2r)!/r! times (30log q)^r/(2r)!, giving Z₀=q^{−φ/4}/[2(q^{1/2}−q^{−1/2})]Σ_{r≥1}c_r(30log q)^r/r!. The constant is fixed by 2B√(iP)=1/2 with the branches in LR. Hence q(q−1)Z₀=(1/2)q^{−1/120}Σc_r(30log q)^r/r!, which is exactly the displayed formal umbral formula. No convergent meaning is assigned to this generally divergent formal series.
+6. This formal Z₀ is the QT Ohtsuki series, rather than merely a stationary-phase candidate. LR §4.6 proves coefficientwise finiteness by Σ_{s=0}^m(−1)^{m−s}binom(m,s)s^a=0 for a<m and proves q^{−6λ}Z₀ integral for H=1; multiplying by q^{6λ} preserves integrality. Their §4.7 compares the finite quadratic Gauss sum and Gaussian integral in ℤ_p[[h]]/(Φ_p(1+h)) for every odd prime p∤30. With H=1 their SO(3) normalization factor G_{−1,4p}/G_{−H,4p} is1, so these evaluations are exactly the QT normalized WRT values. In each coefficient degree d<p−1 the relation Φ_p(1+h) reduces modulo p to h^{p−1}; thus equality implies the coefficient congruences used in QT’s Ohtsuki definition. Two integral series with these congruences have their degree-d difference divisible by every sufficiently large prime, hence that difference is0. QT.4’s characterization identifies Z₀=Z∞ and its Taylor theorem identifies it with T₁(J).
+7. Substitute log q=−t in the formal formula and use the preceding analytic Mellin asymptotics. The substitution h=e^{−t}−1 has order1 and an inverse formal substitution, so agreement holds in every order and identifies the radial asymptotic expansion with h(1+h)Z∞(h), as stated.
 
 Uses that determine the API:
 
-- ArithmeticQuantumTopology:QT.7: Imports the radial asymptotic expansion at q = 1 of the Poincaré-sphere function, equal to W_∞(e^{−t} − 1), conditional on the separately requested normalised Ohtsuki-series formula from QT.4.
+- ArithmeticQuantumTopology:QT.7: Imports the all-orders radial/Ohtsuki comparison proved by the local Seifert Gaussian and prime-root uniqueness calculation, using QT’s general Ohtsuki and Taylor theorems.
 
 Acceptance checks:
 
 - W_∞(h) = h − 5h² + 39h³ − 419h⁴ + ⋯, so Z_∞(h) = W_∞/(h(1 + h)) = 1 − 6h + 45h² − 464h³ + ⋯ .
 - The coefficients a_r are 1, 119, 129361, … (from cos 5x cos 9x/cos 15x = 1 + (119/2)x² + ⋯).
+
+Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer.
 
 <a id="QM-5-poincare-sphere-unified-invariant-radial-limit"></a>
 
@@ -14356,7 +14397,7 @@ Acceptance checks:
 Hypotheses and conventions:
 
 - Σ(2, 3, 5) is an integral homology sphere, so J exists (QT.3).
-- The normalisations of QT.4 (WRT invariant with Z(S³) = 1, Ohtsuki series) are those of Lawrence–Zagier, as requested from QT.4.
+- Use the explicit orientation and normalization comparisons proved in the preceding two nodes; no unfulfilled request for a specialized QT formula remains.
 
 Source support:
 
@@ -14367,8 +14408,8 @@ Direct prerequisites: `ArithmeticQuantumTopology:QT.3/definition-of-JM`, `Arithm
 
 Construction or proof route:
 
-1. (a) ev_ξ(J) = Z(ξ) for every root of unity ξ (QT.4/evaluation-theorem); ev_ξ is a ring homomorphism, so ev_ξ(U) = ξ(ξ − 1)Z(ξ) = W(ξ); apply lawrence-zagier-radial-limit.
-2. (b) The Taylor map of J at 1 is the Ohtsuki series Z_∞ (QT.4/ohtsuki-series); the Taylor map is a ring homomorphism, so that of U is q(q − 1)Z_∞(q − 1) = W_∞(q − 1); apply lawrence-zagier-ohtsuki-expansion.
+1. (a) ev_ξ(J) = Z(ξ) for every root of unity ξ (QT.4/evaluation-theorem); ev_ξ is a ring homomorphism, so ev_ξ(U) = ξ(ξ − 1)Z(ξ) = W(ξ); apply lawrence-zagier-radial-limit. The first preceding node proves the ribbon convention and finite surgery specialization needed for this use of the general evaluation theorem.
+2. (b) The Taylor map of J at 1 is the Ohtsuki series Z_∞ (QT.4/ohtsuki-series); the Taylor map is a ring homomorphism, so that of U is q(q − 1)Z_∞(q − 1) = W_∞(q − 1); apply lawrence-zagier-ohtsuki-expansion. The second preceding node proves the special formal-series comparison from Gaussian moments and QT prime-root uniqueness.
 3. (c) Two Habiro elements with the same evaluations at all roots of unity are equal (HabiroCyclotomicCompletions:HC.4; QT.4/determination-by-WRT for the unified invariant itself).
 
 Uses that determine the API:
@@ -14379,6 +14420,8 @@ Acceptance checks:
 
 - At ξ = −1: ev_{−1}(U) = W(−1) = 2, and 1 − ½A(q) → 2 as q → −1 radially.
 - Uniqueness from a restricted family of root-of-unity evaluations requires its own injectivity criterion from HC.4; this comparison uses the full family, for which that criterion is supplied.
+
+Revision-4 status: Own replacement argument at target-planning depth; the independent review remains unchanged for a fresh reviewer.
 
 <a id="QM-5-lawrence-zagier-theta-transformation"></a>
 
@@ -14395,19 +14438,21 @@ Source support:
 - [lawrence-zagier](#reference-lawrence-zagier), §4, eq. (15), printed p. 102. Equation (15); the node records the corrected T-matrix display (see the source issues).
 - [lawrence-zagier](#reference-lawrence-zagier), §4, printed p. 102. The S-transformation by Poisson summation.
 
-Direct prerequisites: [QM.5/lawrence-zagier-character](#QM-5-lawrence-zagier-character), `mathlib:jacobiTheta₂'`, `mathlib:jacobiTheta₂'_functional_equation`, `QSeriesPartitionsAndMockModularForms:QM.1`, `MetaplecticAutomorphicForms:MP.7`, `MetaplecticAutomorphicForms:MP.4`.
+Direct prerequisites: [QM.5/lawrence-zagier-character](#QM-5-lawrence-zagier-character), `mathlib:jacobiTheta₂'`, `mathlib:jacobiTheta₂'_functional_equation`, [QM.1](#QM-1), `MetaplecticAutomorphicForms:MP.4`.
 
 Construction or proof route:
 
-1. T: τ ↦ τ + 1 multiplies q^{n²/120} by e^{2πin²/120}; n² ≡ 1 (mod 120) when χ₊(n) ≠ 0 and n² ≡ 49 when χ₋(n) ≠ 0, giving the factors ζ and ζ^{49}.
-2. S: Θ_χ = ½Σ_{n∈ℤ} nχ(n)q^{n²/120} is a finite combination of the derivatives in z of jacobiTheta₂ at rational z (splitting n by residue mod 60); apply jacobiTheta₂'_functional_equation and evaluate the resulting finite Fourier sums as the Gauss sums G_χ = Σ_{n mod 60}χ(n)e^{πin/30} = −√(30 + 6√5) + i√(30 − 6√5), G_χ̄ = −Ḡ_χ.
-3. Change basis Θ₊ = ½(Θ_χ + Θ_χ̄), Θ₋ = (1/2i)(Θ_χ − Θ_χ̄).
-4. The S and T laws propagate to general γ by explicit branch cocycles. Finite projective image requires the finite Weil representation and its congruence-kernel theorem from MetaplecticAutomorphicForms:MP.4, followed by the scalar half-weight comparison from MP.7, with the metaplectic central extension and scalar normalisation accounted for. Do not claim an ordinary half-integral-weight representation factors through SL₂(ℤ/120ℤ) without this comparison; the supplier remains to be established.
+1. Use D=ℤ/60ℤ with Q(r)=r²/120 and pairing rs/60. The genuine positive-lattice finite Weil representation is supplied by MP.4 §4.7; its T is diagonal e(r²/120) and S is a constant eighth root times F, F_{rs}=60^{−1/2}e(−rs/60). Use the conjugate if the supplier calls its negative-lattice representation ω. This explicitly fixes which of the dual conventions is used.
+2. Write t_r(τ)=Σ_{n≡r (60)}n e(n²τ/120). Then Θχ=(1/2)Σ_rχ(r)t_r. Differentiate the rank-one index-30 theta S-law in z at zero: t_r(−1/τ)=τ√(−iτ)Σ_sF_{rs}t_s. Since τ√(−iτ)=i(τ/i)^{3/2}, it remains to compute Fχ₊=−i(aχ₊+bχ₋) and Fχ₋=−i(bχ₊−aχ₋). These are finite identities on all 60 residues, including the zero-support residues. Expand the eight terms in each χ, group r with60−r, and use sin(π/30), sin(11π/30), sin(19π/30), sin(29π/30); the fifth-root relation 1+ζ₅+⋯+ζ₅⁴=0 gives a²=(1−1/√5)/2 and b²=(1+1/√5)/2, with a,b>0 fixed by those sine sums. This proves invariance of the two-dimensional span and exactly the stated S matrix. T follows from n²≡1 or49 modulo120. The finite calculation occurs in ℚ(ζ₁₂₀), with the positive real embeddings specified; it is an exact coefficient calculation, not a sampled numerical identity.
+3. Finite image follows by a local finite-Heisenberg argument, so no unprovided congruence-kernel theorem is cited. On ℂ[D], let Xe_r=e_{r+1}, Ze_r=e(r/60)e_r and let H be generated by X,Z and μ₁₂₀ scalar matrices. H is finite. With the displayed negative Fourier sign, FXF⁻¹=Z⁻¹ and FZF⁻¹=X, and T conjugates X to e(1/120)XZ and fixes Z; these formulas also hold across r=59 because Q(r+60)−Q(r) is integral. Thus S,T normalize H. Any operator commuting with H is scalar: commuting with Z makes it diagonal and commuting with X makes its diagonal constant. Conjugation consequently embeds the projective image in the finite group Aut(H). Moreover det T is a root of unity and det S is one since F⁴=1 and its scalar phase has finite order. The determinant image is finite. In a fixed projective fiber, any two matrices differ by λI with λ⁶⁰ in that finite determinant image, giving finitely many λ. Hence the genuine image, and its restriction to span{χ₊,χ₋}, are finite.
+4. For a chosen lift of γ, compare its genuine automorphy factor with ((cτ+d)/i)^{3/2} when c>0. Their quotient is a constant root of unity, determined by a value at τ=i and the branch cocycle. Therefore the displayed Mγ take only finitely many values. Their projective classes form the projective representation; changing a lift does not change whether Mγ is scalar. The preimage of scalar matrices is a subgroup of finite index. This proves exactly the finite-index conclusion used here, without asserting a specific congruence level.
 
 Acceptance checks:
 
 - M_S² = I (a² + b² = 1), consistent with S² = −1 acting trivially in weight 3/2 up to the branch.
 - Only the pair (Θ₊, Θ₋) is invariant: Θ₊ alone is not a modular form on SL₂(ℤ).
+
+Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer.
 
 <a id="QM-5-poincare-sphere-quantum-modular"></a>
 
@@ -14428,20 +14473,22 @@ Direct prerequisites: [QM.5/lawrence-zagier-radial-limit](#QM-5-lawrence-zagier-
 
 Construction or proof route:
 
-1. Θ̃± and Θ*± (the non-holomorphic Eichler integrals (17), nonholomorphic-eichler-integral for k = 3/2) have agreeing expansions at every rational (Lawrence–Zagier property (i); the proof is eichler-asymptotic-agreement with the periodic L-functions L(2s, χ±ξ^{n²/120}) of ZMod.LFunction in place of twisted-cusp-form-l-function). Normalize the lower Eichler integral as f* of weight 3/2 divided by √120. The printed coefficient √(2i/15) in LZ (16),(17) is 2√2 i times the coefficient required by this comparison (E626); use (60i)^{−1/2} instead.
-2. Θ*± are nearly modular of weight 1/2 in H⁻ with discrepancy M_γ r_{−d/c} (property (ii)): the substitution of nonholomorphic-eichler-transformation, with the transformation matrices of lawrence-zagier-theta-transformation in place of Shimura's multiplier.
-3. Pass to boundary values at x from below, using nonholomorphic-eichler-nontangential-limit for the term at γx.
-4. Real-analyticity of r_α on ℝ ∖ {α}: eichler-period-integral.
-5. For γ ∈ Γ_ρ with c > 0, M_γ = m_γ·I and the law reads f₊(x) − (−m_γ^{−1})j(γ, x)f₊(γx) = r⁺_{−d/c}(x); since j(γ, x) = e^{−iπ/4}·boundaryFactor(1/2, γ, x) for c > 0, this is the scalar law of quantum-modular-form with ε(γ) = −e^{−iπ/4}m_γ^{−1}.
+1. Apply the integral construction coordinatewise with C=(60i)^{−1/2}. For z=x−iy, y>0, direct termwise integration gives Θ*χ(z)=Σ_{n≥1}χ(n)e(n²z/120)erfc(n√(πy/30)). Indeed the substitution u=2πn²(w−z)/(120i) gives the upper incomplete Gamma Γ(1/2,πn²y/30); multiplication by C changes its coefficient to1/√π. This verifies both the erfc scale and the normalization against the radial series, retaining the correction to the printed LZ constant.
+2. At rational x, Φ_x(n)=χ±(n)e(xn²/120) is odd periodic, hence has mean zero. Its periodic L-function is entire and the odd-parity trivial zeros cancel precisely the unwanted half-integer poles in the incomplete-Gamma Mellin calculation. Apply the finite Taylor subtraction and contour argument from361–364 separately to both coordinates; frequency n²/120 gives agreeing asymptotic coefficients to all orders. Uniform bounds are finite-dimensional coordinate bounds. A nebentypus decomposition or scalarization of the Weil representation is unnecessary.
+3. For c>0 change w to γw in Θ*(γz). Use the exact matrix law from lawrence-zagier-theta-transformation, γw−γz=(w−z)/((cw+d)(cz+d)) and d(γw)=(cw+d)^{−2}dw. The principal-branch quotient is constant on the connected domain w∈ℍ,z∈H⁻; at S,w=it,z=−iy it is −√y before multiplication by j=y^{−1/2}. Thus j(γ,z)Θ*(γz)=Mγ(r_{−d/c}(z)−Θ*(z)), with exactly the minus sign in the claimed law. Translation and central factors, then composition, give the same identity for the chosen lifts; this is an integral identity before a boundary limit.
+4. The finite-Weil theta pair is cuspidal at every rational: transform that cusp to ∞ using the already proved matrix law; each component there has only positive n²/120 frequencies. Its exponential cusp estimates give the dominated-convergence majorants for the short endpoint segment and for every Stolz approach, as in nonholomorphic-eichler-nontangential-limit. Pass to boundary values in the integral identity and use the all-orders agreement above. Real-analyticity of the periods follows from holomorphic continuation off a path from the cusp to i∞, coordinate by coordinate.
+5. For γ ∈ Γ_ρ with c > 0, M_γ = m_γ·I and the law reads f₊(x) − (−m_γ^{−1})j(γ, x)f₊(γx) = r⁺_{−d/c}(x); since j(γ, x) = e^{−iπ/4}·boundaryFactor(1/2, γ, x) for c > 0, this is the scalar law of quantum-modular-form with ε(γ) = −e^{−iπ/4}m_γ^{−1}. For c=0 the theta T-law gives the corresponding homogeneous law; matrices with c<0 are handled using −I and the compatible central factor. On the finite-index scalar subgroup the induced reciprocal scalar automorphy factors compose, so this supplies the multiplier cocycle as well as the weak quantum-modular predicate. The two-component law remains a vector law on the full group; it is not used as a knot matrix cocycle.
 
 Uses that determine the API:
 
-- ArithmeticQuantumTopology:QT.7: Imports the Lawrence–Zagier weight-1/2 vector-valued law (matrices M_γ, c > 0) and this node's derived scalar statement for f₊ on Γ_ρ = {γ : M_γ scalar} with ε(γ) = −e^{−iπ/4}m_γ^{−1} (its fifth proof step; Lawrence–Zagier state no subgroup), retaining the finite-Weil-image gap (finite index of Γ_ρ) and the character/multiplier gap.
+- ArithmeticQuantumTopology:QT.7: Imports the Lawrence–Zagier weight-1/2 vector-valued law (matrices M_γ, c > 0) and this node's derived scalar statement for f₊ on Γ_ρ = {γ : M_γ scalar} with ε(γ) = −e^{−iπ/4}m_γ^{−1} (its fifth proof step; Lawrence–Zagier state no subgroup), using the finite-Heisenberg argument for finite index and the explicit multiplier-boundary adaptation above.
 
 Acceptance checks:
 
 - The asymptotic formula W(e^{2πi/K}) ∼ √(K/i)e^{−πi/60K}(ae^{−πiK/60} + be^{−49πiK/60}) + W_∞(e^{2πi/K} − 1) as K → ∞ is the case γ = S at x = 0 (Lawrence–Zagier (18)).
 - The three terms of that formula match the three flat connections of Σ(2, 3, 5).
+
+Revision-4 status: Own replacement argument at target-planning depth; historical independent review verdict retained for a fresh reviewer.
 
 <a id="QM-5-partition-crank"></a>
 
@@ -14670,22 +14717,23 @@ Hypotheses and conventions:
 
 Source support:
 
-- [garvan-urbana](#reference-garvan-urbana), §4, after (4.24), printed p. 39. The route; its details are in Garvan's Trans. Amer. Math. Soc. paper, which was not read (see the coverage).
+- [garvan-urbana](#reference-garvan-urbana), §4, after (4.24), printed p. 39. Historical route only; the unsupported Winquist step is replaced by the read Sarma proof.
 - [andrews-garvan-1988](#reference-andrews-garvan-1988), §1, (1.15) and Theorem 1, printed pp. 168–169. The mod 11 statement for the crank.
+- [sarma-crank-2024](#reference-sarma-crank-2024), Proposition2.2, Corollary2.3, Theorems3.3,4.5,5.2 and §5A, printed pp.5–16. The explicit modularity, cusp bounds and valence proof supply the entire mod11 route, without an imported Winquist identity.
 
-Direct prerequisites: [QM.5/crank-generating-function](#QM-5-crank-generating-function), [QM.5/equal-classes-from-root-of-unity](#QM-5-equal-classes-from-root-of-unity), `QSeriesPartitionsAndMockModularForms:QM.0`.
+Direct prerequisites: [QM.5/crank-generating-function](#QM-5-crank-generating-function), [QM.5/equal-classes-from-root-of-unity](#QM-5-equal-classes-from-root-of-unity), [QM.0](#QM-0), [QM.1/jacobi-triple-product-analytic](#QM-1-jacobi-triple-product-analytic), [QM.1/dedekind-eta-multiplier](#QM-1-dedekind-eta-multiplier), `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
 
 Construction or proof route:
 
-1. With ζ = e^{2πi/11}: C(ζ; q) = (q;q)_∞²∏_{k=2}^{9}(ζ^kq;q)_∞/(q¹¹;q¹¹)_∞.
-2. Winquist's identity for (q;q)_∞²(a;q)_∞(q/a;q)_∞(b;q)_∞(q/b;q)_∞(ab;q)_∞(q/ab;q)_∞(a/b;q)_∞(qb/a;q)_∞ as a double theta series, applied with a = ζ², b = ζ⁵ (so that {±2, ±5, ±7, ±3} = {±2, ±3, ±4, ±5} mod 11 covers the eight factors), expresses the numerator as a double series in q.
-3. The 11-dissection of that double series shows that the q^{11N+6}-part vanishes (Garvan's argument for the vector crank).
-4. Conclude with equal-classes-from-root-of-unity.
+1. Use a modular replacement for the inherited unread Winquist dissection. For p=11 and ζ=e(1/p), put s_p=(p²−1)/24=5, F*(τ)=η(p²τ)q^{−1/24}C(ζ;q). Its constant nonzero factor relative to η(τ)²/E_{0,1}(τ) is 1−ζ. Jacobi triple product and the already planned eta/theta transformation laws give F*|₁A=F* for A∈Γ₀(p²)∩Γ₁(p). Explicitly the remaining phase is exp(πi((d−1)/p+cd/p²−c/p)); its numerator p(d−1)+cd−cp is divisible by p² and even. This proves triviality, rather than assuming a generic eta quotient has trivial character.
+2. Project with U_p: S(τ)=p^{−1}Σ_{r=0}^{p−1}F*((τ+r)/p). For A=(a b;c d)∈Γ₁(p), T_r=(1 r;0 p) gives T_rA=B_rT_{r′}, r′≡b+r mod p and B_r=(a+rc,(b+rd−r′(a+rc))/p;pc,d−r′c)∈Γ₀(p²)∩Γ₁(p). Thus S is a weight1 form on Γ₁(p), holomorphic in ℍ. Root filtering gives S=∏_{j≥1}(1−q^{pj})Σ_{n≥1}(Σ_m M(m,p,pn−5)ζ^m)q^n. The exceptional crank coefficient at n=1 cannot enter the residue6 class.
+3. Compute cusp bounds by applying the same two rank-two matrix factorizations according as a+rc is zero or nonzero mod p. The transformed E factors have orders ℓ/(2p)−ℓ²/(2p²), 1≤ℓ<p, and the eta ratio has order determined by Σ_{d|p²}gcd(c,d)²r_d/(24d). These are explicit nonvanishing product expansions, so no cancellation can lower the minimum order. Sarma Theorem4.5 gives, at p=11: order≥0 at 0 and 1/m (2≤m≤5), and invariant order≥5/11 at m/11 (2≤m≤5). Cusp widths are 11 for 0,1/m, and1 for ∞,m/11. Holomorphic weight1 local expansions have integral orders at width1 cusps, so the last four each contribute at least1.
+4. At ∞, S starts in degree1; enumerating the eleven partitions of6 gives one in every crank class, so that coefficient is0 and ord∞S≥2. All interior orders are nonnegative. Hence a nonzero S would have total divisor degree at least2+4=6. The projective index of Γ₁(11) is60, and the weight1 valence degree is60/12=5. This contradiction proves S=0. Cancel the unit ∏(1−q^{11j}); for every n≥0 the residue6 crank polynomial vanishes at ζ. The minimal polynomial 1+X+⋯+X¹⁰ forces all eleven integer coefficients equal; summing gives p(11n+6)/11.
 
 Acceptance checks:
 
-- n = 0: the eleven partitions of 6 have pairwise incongruent cranks mod 11 (partition-crank).
-- Winquist's identity and the 11-dissection are not supplied by any read source or planned node (see the gaps).
+- All n≥0 and all eleven classes are retained; the proof replaces only the unsupported route.
+- At n=0 the eleven partitions of6 give pairwise distinct cranks modulo11. The cusp certificate uses the projective index60, not the SL₂ index120, and integer width-one orders.
 
 <a id="QM-5-ramanujan-congruence-mod-eleven"></a>
 
@@ -14803,17 +14851,18 @@ Hypotheses and conventions:
 
 Source support:
 
-- [garvan-urbana](#reference-garvan-urbana), §2, printed p. 31. The statement; the proof is Atkin–Swinnerton-Dyer's (not read).
-- [garvan-urbana](#reference-garvan-urbana), §4, Theorem 4, printed p. 40. The reduction to the dissection identity.
+- [garvan-urbana](#reference-garvan-urbana), §2, printed p. 31. Historical statement; the proof now uses the read modular replacement below.
+- [garvan-urbana](#reference-garvan-urbana), §4, Theorem 4, printed p. 40. Historical reduction to dissections; no unread dissection is used by the replacement proof.
+- [garvan-rank-2019](#reference-garvan-rank-2019), Theorem5.1, Proposition6.2(i), Theorems6.3(i),6.9,6.11 and §6.3, preprint pp.25–45. The rank-correction cancellation, filtered modularity, exact cusp orders and two finite valence contradictions supply the required ASD theorem at its full stated generality.
 
-Direct prerequisites: [QM.5/rank-generating-function](#QM-5-rank-generating-function), [QM.5/equal-classes-from-root-of-unity](#QM-5-equal-classes-from-root-of-unity).
+Direct prerequisites: [QM.5/rank-generating-function](#QM-5-rank-generating-function), [QM.5/equal-classes-from-root-of-unity](#QM-5-equal-classes-from-root-of-unity), [QM.4/zwegers-completion](#QM-4-zwegers-completion), [QM.1/dedekind-eta-multiplier](#QM-1-dedekind-eta-multiplier), `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
 
 Construction or proof route:
 
-1. By rank-generating-function at z = ζ₅: Σ_k N(k, 5, N)ζ₅^k is the coefficient of q^N in R(ζ₅; q).
-2. The 5-dissection of R(ζ₅; q) (Ramanujan's lost-notebook identity, Garvan's (4.4), equivalent to Atkin–Swinnerton-Dyer's Theorem 1 by Garvan's Theorem 4) has no q^{5N+4} terms.
-3. Conclude with equal-classes-from-root-of-unity; the mod 7 case uses the corresponding 7-dissection.
-4. The dissection identities themselves (Atkin–Swinnerton-Dyer 1954) are not in a read source; see the coverage.
+1. Use Garvan’s modular proof at exactly the two required primes p=5,7, replacing the unread full ASD dissections. Put s_p=(p²−1)/24 (respectively1,2). The corrected rank function J_p of Garvan (5.1) is a finite linear combination of the existing QM.4 completed Appell functions times η(p²τ). Its nonholomorphic terms cancel by finite unary-theta orthogonality; the resulting weakly holomorphic weight1 function is invariant under Γ₀(p²)∩Γ₁(p), as in Theorem5.1. The only correction terms that could survive U_p have p-translation character e(3(p−1)ℓ²/(2p)), with 0<ℓ<p; this is nontrivial. Their p translates sum to0. Thus Proposition6.2(i), at m=0, gives K_{p,0}=∏_{j≥1}(1−q^{pj})Σ_{n≥1}(Σ_rN(r,p,pn−s_p)ζ_p^r)q^n, with no residual mock correction.
+2. The same explicit T_rA=B_rT_{r′} factorization displayed in crank-mod-eleven proves Γ₁(p) modularity of the filtered function, now using the J_p transformation. This is the actual content of Theorem6.3(i), not an inference from an uncompleted rank generating series being modular. Holomorphy in ℍ and finite cusp principal parts follow from the completed Appell transformation and its holomorphic part.
+3. For cusp bounds, factor T_rA with a+rc≠0 mod p through Γ₀(p), and with a+rc=0 through (p 0;0 1) followed by S. The first case uses the holomorphic rank-series order0; the second uses the explicit piecewise order of F₂(a/p), a/(2p)−3a²/(2p²), 3a/(2p)−3a²/(2p²), or5a/(2p)−3a²/(2p²)−1 on the intervals cut at1/6,5/6. Add the eta order and divide or multiply by p in the two cases. Garvan Theorem6.9 then gives nonnegative orders at 0,1/m and order≥(p²−1)/(24p)>0 at m/p, 2≤m≤(p−1)/2. The last cusps have width1 and trivial character, hence integer order≥1. Also ord∞K≥1 from its displayed series.
+4. For p=5 the cusp set is ∞,0,1/2,2/5; the lower bound on total order is2, exceeding the weight1 projective valence degree12/12=1. For p=7 the cusp set is ∞,0,1/2,1/3,2/7,3/7; the lower bound is3, exceeding24/12=2. Thus K_{5,0}=K_{7,0}=0. Cancel the invertible Euler products and apply equal-classes-from-root-of-unity. Since pn−s_p is5(n−1)+4 or7(n−1)+5, this proves both original assertions for every n≥0.
 
 Acceptance checks:
 
@@ -14906,18 +14955,23 @@ Acceptance checks:
 
 Hypotheses and conventions:
 
-- The branch of (βα⁻¹)^{1/2} as in the source; generic u, v (the specialisation used has αβ = 1).
+- z∈ℍ; u,v∉ℤz+ℤ. The square root is explicitly (βα⁻¹)^{1/2}=exp(πi(v−u)), using the chosen lifts u,v, rather than an independent principal square root. Products and bilateral sums are taken on their common pole-free domain and then meromorphically continued.
 
 Source support:
 
-- [folsom-ono-rhoades](#reference-folsom-ono-rhoades), §3.1.2, Theorem 3.1, printed p. 17. The statement of Theorem 3.1; the proof is Choi's (not read).
+- [folsom-ono-rhoades](#reference-folsom-ono-rhoades), §3.1.2, Theorem 3.1, printed p. 17. The statement and rank specialization; the proof is supplied by the public bilateral replacement below.
+- [mclaughlin-bilateral](#reference-mclaughlin-bilateral), §3, Proposition3.1, proof of(3.5) via(3.8), preprint pp.6–7; bilateral seed(2.4), pp.4–5. An explicit proof of the generic Choi identity in equivalent bilateral notation, with parameter limits and negative-index conversion.
+- [chen-fu-semifinite](#reference-chen-fu-semifinite), §3, equations(3.1)–(3.3), Proposition3.1 and proof, preprint pp.3–4. Semi-finite derivation of the required bilateral seed; its otherwise book-cited unilateral transformation is proved by the explicit local convolution calculation.
+- [gasper-minicourse-1995](#reference-gasper-minicourse-1995), §§3.4–3.5, equations(3.4.2)–(3.4.9) and coefficient derivation of(3.5.1), printed pp.18–20. The q-binomial-to-Heine, q-Gauss and finite convolution derivations; the subsequent double-sum proof of the precise ₃φ₂ transformation is displayed locally.
 
-Direct prerequisites: [QM.4/appell-lerch-sum](#QM-4-appell-lerch-sum), [QM.5/rank-generating-function](#QM-5-rank-generating-function), [QM.5/unimodal-rank-series](#QM-5-unimodal-rank-series).
+Direct prerequisites: [QM.4/appell-lerch-sum](#QM-4-appell-lerch-sum), [QM.5/rank-generating-function](#QM-5-rank-generating-function), [QM.5/unimodal-rank-series](#QM-5-unimodal-rank-series), [QM.0/cauchy-q-binomial-theorem](#QM-0-cauchy-q-binomial-theorem), [QM.1/jacobi-triple-product-analytic](#QM-1-jacobi-triple-product-analytic).
 
 Construction or proof route:
 
-1. The identity is quoted by Folsom–Ono–Rhoades from Choi and from Ramanujan's lost notebook (Entry 3.4.7 in Andrews–Berndt); its proof is not in a read source.
-2. The specialisation: the first sum is R(w; q) with w = β (rank-generating-function), the second is (1 − w)(1 − w⁻¹)U(w; q) (unimodal-rank-series relation).
+1. Combine the two unilateral sums into B=Σ_{n∈ℤ}(αβ)^nq^{n²}/((αq;q)_n(βq;q)_n), using (x;q)_{−r}=(−q/x)^r q^{r(r−1)/2}/(q/x;q)_r. In particular the n=−r terms are exactly q^r(α⁻¹;q)_r(β⁻¹;q)_r, not a divergent continuation of a unilateral series.
+2. The needed bilateral transformation is Mc Laughlin Proposition3.1 equation(3.5): B=(1−α)(q/α;q)_∞/((βq;q)_∞(q;q)_∞) · Σ_{r∈ℤ}(−β)^r q^{r(r+1)/2}/(1−αq^r). Its proof takes the two numerator parameters a,c of Bailey’s ₂ψ₂ transformation (2.4) to infinity after z↦zq/(ac), b=βq,d=αq, and finally z=αβ. This supplies a proof of the generic identity, rather than only its αβ=1 specialization.
+3. The bilateral seed is obtained by Chen–Fu Proposition3.1 (3.3): shift the lower endpoint −m to0, use (x;q)_{n−m}=(x;q)_{−m}(xq^{−m};q)_n, apply their unilateral transformation(3.2), then let m→∞. Supply that unilateral transformation explicitly as follows, writing (a)_n=(a;q)_n, x=e/a,y=d/(bc). The finite convolution (d/b,d/c)_n/(d)_n=Σ_{k=0}^n [(q)_n/((q)_k(q)_{n−k})]·(b,c)_k/(d)_k·(y)_{n−k}y^k is the terminating q-Pfaff–Saalschütz identity. It follows by equating coefficients in Heine’s q-Euler transformation; Heine’s transformation itself follows by expanding one product ratio with Cauchy’s q-binomial theorem, interchanging the double sum, and summing the other variable by the same theorem (Gasper(3.4.2)–(3.5.1)). Insert this convolution into the right-hand ₃φ₂ in Chen–Fu(3.2) and set n=k+j. Its inner sum is ₂φ₁(aq^k,y;axyq^k;q,x)=(xyq^k,axq^k)_∞/(axyq^k,x)_∞, by q-Gauss, obtained from the same Heine transformation at its Gauss argument. Multiplication by the prefactor P=(x,axy)_∞/(ax,xy)_∞ leaves (axy)_k/((ax)_k(xy)_k); cancellation gives exactly the left-hand ₃φ₂(a,b,c;d,ax;q,xy). Initially choose |x|,|xy|<1 and pole-free parameters in a compact subdomain where the double sums converge absolutely. Chen–Fu’s four strict bounds in(3.1) similarly give geometric bounds on both bilateral tails, permitting m→∞. Meromorphic continuation and the same tail bounds justify the numerator-parameter limits in Mc Laughlin. This ends the seed in the existing q-binomial and convergence inputs, rather than a book-only hypergeometric identity.
+4. Substitute the existing definition μ(u,v;z)=α^{1/2}ϑ(v;z)^{−1}Σ_r(−1)^rβ^r q^{r(r+1)/2}/(1−αq^r). The triple product is ϑ(v;z)=−iq^{1/8}β^{−1/2}(β;q)_∞(q/β;q)_∞(q;q)_∞. Cancel (β⁻¹;q)_∞=(1−β⁻¹)(q/β;q)_∞ and (β;q)_∞=(1−β)(βq;q)_∞. The constants give precisely the displayed iq^{1/8}(1−α)exp(πi(v−u)) factor. For α=w⁻¹,β=w the negative part is (1−w)(1−w⁻¹)U(w;q), proving the required rank specialization.
 
 Acceptance checks:
 
@@ -14937,21 +14991,24 @@ Hypotheses and conventions:
 
 Source support:
 
-- [folsom-ono-rhoades](#reference-folsom-ono-rhoades), §3.2, Theorem 3.2, printed p. 19. The statement of Theorem 3.2; its proof occupies §3.3 (pp. 20–25).
+- [folsom-ono-rhoades](#reference-folsom-ono-rhoades), §3.3, Lemmas3.4–3.7 and equations(3.17)–(3.21), printed pp.21–25; Theorem3.2, p.19. The statement of Theorem 3.2; its proof occupies §3.3 (pp. 20–25).
+- [bringmann-folsom-2013](#reference-bringmann-folsom-2013), §2, Proposition2.3, printed p.1571; definitions(2.4)–(2.5), pp.1570–1571. The exact finite R-dissection, with a direct reindexing proof displayed here.
 
-Direct prerequisites: [QM.4/appell-lerch-sum](#QM-4-appell-lerch-sum), [QM.4/zwegers-completion](#QM-4-zwegers-completion), [QM.1/dedekind-eta-multiplier](#QM-1-dedekind-eta-multiplier), `QSeriesPartitionsAndMockModularForms:QM.1`.
+Direct prerequisites: [QM.4/appell-lerch-sum](#QM-4-appell-lerch-sum), [QM.4/zwegers-completion](#QM-4-zwegers-completion), [QM.1/dedekind-eta-multiplier](#QM-1-dedekind-eta-multiplier), [QM.1](#QM-1), [QM.4/zwegers-r-function](#QM-4-zwegers-r-function), [QM.1/jacobi-theta-transformation](#QM-1-jacobi-theta-transformation).
 
 Construction or proof route:
 
 1. Write m·µ = q^{1/24}ζ_{2b}^{−a}(ζ_b^a − 1)A(−a/b, a/b; Z)/η(Z) with A = ϑµ (FOR (3.15)).
 2. Transform the completion Â = A + (i/2)ϑR (QM.4/zwegers-completion) by (3.10) and (3.11) under γ, Z = γZ′.
-3. Dissect R(−2a/b; Z) into k pieces with the Bringmann–Folsom dissection (FOR Lemma 3.4) and the transformations (3.8)–(3.9) of R and the Mordell integral h.
-4. Show that two of the resulting sums cancel (FOR Lemma 3.5) and bound the others (Lemmas 3.6–3.7), using the η and ϑ transformations (QM.1).
+3. Derive the R-dissection directly from its absolutely convergent defining series. For δ_l=l−(k−1)/2, partition ν∈ℤ+1/2 uniquely as ν=kμ+δ_l, μ∈ℤ+1/2, 0≤l<k. Since |δ_l|<k/2, sgnν=sgnμ; the error-function argument becomes that for T=k²τ and V=kv+kδ_lτ+(k−1)/2. Completing squares and tracking the parity gives R(v;τ)=Σ_l(−1)^l i^{k−1}exp(−πiδ_l²τ−2πiδ_lv)R(V;k²τ). This is Bringmann–Folsom Proposition2.3 with τ replaced by kτ. At v=−2a/b, τ=(h+iz)/k, the real part of V is −2ak/b+lh−(k−1)(h−1)/2∈ℤ, by b|k and coprimality. Apply R(v+1)=−R(v), R(v;τ+1)=e^{−πi/4}R(v;τ), and the existing S/Mordell relation to obtain FOR Lemma3.4 with its exact phases. Crucially its final R and Mordell arguments are τ₀=i/(kz), the S-transform of ikz; they are not ikz. Thus Z′=h′/k+τ₀ and both R series below have the same imaginary part.
+4. For Σ₂+Σ₃ use theta transformation and elliptic translation to obtain FOR(3.19), retaining the eighth-root multiplier ρ(γ). Divide by the common nonzero theta factor and write τ=Z′, y=Im τ, τ₀=τ−h′/k. For real c the series is explicitly R(c;τ₀)=Σ_{ν∈ℤ+1/2} sgn(ν)Γ(1/2,2πν²y)/√π ·(−1)^{ν−1/2} exp(−πiν²τ)exp(πiν²h′/k−2πiνc); R(2ah′/b;τ) has the same formula with the last factor replaced by exp(−4πiνah′/b). Therefore the difference of FOR(3.20) and(3.21) is a normally convergent sum of pure nonholomorphic Fourier terms Γ(1/2,4πny)q′^{−n}, n=ν²/2>0, with coefficients obtained by the finite l-sum with weights exp(−πihδ_l²/k)e(2al/b)(−1)^{l(h+1)}. On the other hand (3.18) makes this difference meromorphic in τ: mμ, the Appell term Σ₁ and the Mordell term Σ₄ are meromorphic there, and τ₀=τ−h′/k stays in ℍ. The Mordell integral is holomorphic in τ₀ by Gaussian domination on compact subsets. Applying ∂/∂barτ to the pure Γ expansion and Fourier uniqueness on a common rational period forces each coefficient, after pairing ν and −ν, to vanish. There is neither a ν=0 term nor a holomorphic Fourier part in this displayed expansion. Consequently the difference is0, establishing the exact cancellation without an unsupported zero-shadow inference or an extra transformed-R Fourier theorem.
+5. For Σ₁ use the defining Appell sum at Z′ and u=ah′/b: its n=0 term is e^{πiu}/(1−e(u)); the positive and negative n tails are O(q₁), after replacing denominators in the negative tail by their reciprocal form. The denominator is nonzero by the same coprimality. Combine with η(Z′)⁻¹=q₁^{−1/24}(1+O(q₁)) and the eta multiplier to get exactly the stated leading term.
+6. For Σ₄ the Mordell parameter is c_l=δ_l/k and its second argument is i/(kz), strictly between −1/2 and1/2. Hence exp(−2πc_lx)/cosh(πx) is bounded and every Gaussian moment is integrable; after x=√(kz)t its integral is O(√z). Theta transformation and η inversion give Σ₄=q^{1/24}q₁^{1/12}O(1), while the nonzero leading Σ₁ has size z^{−1/2}|q₁|^{−1/24}. The relative remainder is therefore O(√z|q₁|^{1/8})+O(q₁), in particular O(q₁^{1/12}). This supplies the required α>1/24 with the concrete choice α=1/12; it does not use a false boundedness assertion for arbitrary real Mordell c.
 
 Acceptance checks:
 
 - The leading term depends only on the cusp h/k through h′ and on a/b; the error is exponentially small in 1/z.
-- The dissection of R used in Lemma 3.4 is from Bringmann–Folsom, not read here.
+- The R-dissection is proved from the series and checked against the read Bringmann–Folsom proposition. Cancellation requires the pure nonholomorphic expansion, including absence of a zero mode; zero shadow alone is insufficient.
 
 <a id="QM-5-crank-radial-asymptotic"></a>
 
@@ -15052,6 +15109,8 @@ Source support:
 
 Direct prerequisites: `mathlib:UpperHalfPlane`, `mathlib:Matrix.SpecialLinearGroup`, `mathlib:ModularGroup.S`, `mathlib:ModularGroup.T`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one`.
+
 Construction or proof route:
 
 1. Define heegnerForms d as {Q : Fin 3 → ℤ | Q 0 > 0 ∧ Q 1² − 4·Q 0·Q 2 = −d} with the right action of SL₂(ℤ) through its image in PSL₂(ℤ).
@@ -15105,6 +15164,8 @@ Source support:
 
 Direct prerequisites: [QM.5/heegner-quadratic-forms](#QM-5-heegner-quadratic-forms), `mathlib:ModularForm.E₄`, `mathlib:ModularForm.discriminant`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
+
 Construction or proof route:
 
 1. Define modularTrace d := Σ_{Q ∈ heegnerClasses d} (j(α_Q) − 744)/w_Q.
@@ -15143,24 +15204,27 @@ Acceptance checks:
 
 Hypotheses and conventions:
 
-- The half-integral weight structure (Γ₀(4), theta multiplier, plus space) is MetaplecticAutomorphicForms:MP.7's; the definition itself is an explicit quotient.
+- The half-integral weight predicate and theta multiplier use MP.7 conventions; the particular form is proved modular below from the explicit rank-one finite-Weil laws, without importing an unstated general Kohnen isomorphism.
 
 Source support:
 
 - [zagier-traces](#reference-zagier-traces), §1, eq. (3), printed p. 2. The definition (3) of g and its expansion.
 
-Direct prerequisites: `mathlib:jacobiTheta₂`, `mathlib:ModularForm.E₄`, `mathlib:ModularForm.eta`, `mathlib:ModularForm.eta_ne_zero`, `MetaplecticAutomorphicForms:MP.7`.
+Direct prerequisites: `mathlib:jacobiTheta₂`, `mathlib:ModularForm.E₄`, `mathlib:ModularForm.eta`, `mathlib:ModularForm.eta_ne_zero`, `MetaplecticAutomorphicForms:MP.7`, `MetaplecticAutomorphicForms:MP.4`, [QM.1/jacobi-theta-transformation](#QM-1-jacobi-theta-transformation), [QM.1/dedekind-eta-multiplier](#QM-1-dedekind-eta-multiplier).
 
 Construction or proof route:
 
 1. Define zagierTraceForm τ := jacobiTheta₂ (1/2) (2τ)·E₄(4τ)/η(4τ)⁶ using Mathlib's jacobiTheta₂, ModularForm.E₄ and ModularForm.eta (η(4τ) ≠ 0 by ModularForm.eta_ne_zero).
 2. Its q-expansion: θ₁ = 1 − 2q + 2q⁴ − ⋯, E₄(4τ) = 1 + 240q⁴ + ⋯, η(4τ)^{−6} = q^{−1}(1 + 6q⁴ + ⋯); multiply.
 3. The plus condition B(d) ≠ 0 ⇒ d ≡ 0, 3 (mod 4): θ₁ has exponents n² ≡ 0, 1 and E₄(4τ)/η(4τ)⁶ has exponents ≡ −1 (mod 4).
+4. For the exact finite-Weil comparison set Θ_μ(τ)=Σ_{r≡μ (mod2)}q^{r²/4}, A(τ)=E₄(τ)/η(τ)⁶, and H=(−AΘ₁,AΘ₀). Splitting g(τ/4) by exponent modulo4 gives H_μ=Σ_{d≡−μ² (mod4)}B(d)q^{d/4}; in particular g(τ)=H₀(4τ)+H₁(4τ). The discriminant module is ℤ/2ℤ with Q(μ)=μ²/4, exactly the MP.4/MP.6 rank-one convention already compared in QM.1.
+5. The theta laws are Θ(τ+1)=diag(1,i)Θ(τ) and Θ(−1/τ)=√(−iτ)FΘ(τ), F=2^{−1/2}((1,1),(1,−1)). Eta and E₄ give A(τ+1)=−iA(τ) and A(−1/τ)=−iτ A(τ). Therefore H(τ+1)=diag(1,−i)H(τ) and H(−1/τ)=τ^{3/2}e(1/8)FH(τ): the dual weight3/2 Weil law with its phase specified.
+6. To recover the claimed scalar law on Γ₀(4), use generators T, U=(1,0;4,1), and −I. Acting on 4τ changes these to T⁴, ST⁻¹S⁻¹, and −I. The row (1,1) is fixed by the dual matrices for T⁴ and ST⁻¹S⁻¹ (the latter is F diag(1,i) F); tracking the square roots through these products gives g(τ+1)=g(τ) and g(τ/(4τ+1))=(4τ+1)^{3/2}g(τ), with the coherent −I lift. These are the usual theta-multiplier-cubed laws; the plus support is already proved. The finite vector expansion and these transforms give finite principal parts at each cusp. Thus the scalar predicate is established for this g at its full stated scope.
 
 Uses that determine the API:
 
 - Zagier, Traces of singular moduli, Theorem 1: t(d) = −B(d)
-- Zagier, Traces of singular moduli, §2: (gθ)|U₄ = 0 and [g, θ]|U₄ = 240E₄ give recursions for B
+- Zagier, Traces of singular moduli, §2: (gθ)|U₄=0 and [g,θ]|U₄=−8E₄ give the coefficient recursions; the factor240 belongs to positive Fourier coefficients of E₄.
 
 Named declarations and API:
 
@@ -15196,16 +15260,16 @@ Hypotheses and conventions:
 Source support:
 
 - [zagier-traces](#reference-zagier-traces), §2, printed p. 3. The two identities and the recursion of §2.
+- [zagier-traces](#reference-zagier-traces), §2, printed p.3; §1 equation(3), printed p.2. The target recursions are in the source; the exact two-component Weil contraction above supplies the scalar comparison locally for this form.
 
-Direct prerequisites: [QM.5/zagier-trace-form](#QM-5-zagier-trace-form), `MetaplecticAutomorphicForms:MP.7`, `mathlib:ModularForm.levelOne_weight_two_rank_zero`, `mathlib:ModularForm.levelOne_weight_four_rank_one`, `mathlib:ModularForm.E₄`, `mathlib:ArithmeticFunction.sigma`.
+Direct prerequisites: [QM.5/zagier-trace-form](#QM-5-zagier-trace-form), `mathlib:ModularForm.levelOne_weight_two_rank_zero`, `mathlib:ModularForm.levelOne_weight_four_rank_one`, `mathlib:ModularForm.E₄`, `mathlib:ArithmeticFunction.sigma`.
 
 Construction or proof route:
 
-1. gθ, with θ = Σq^{n²}, is a weakly holomorphic form of weight 2 on Γ₀(4) whose U₄-image lies in M^!₂(SL₂(ℤ)) (Kohnen's plus-space lemma, requested from MP.7); its constant term is B(0) + 2B(−1) = 0 and it has no polar terms, so (gθ)|U₄ ∈ M₂(SL₂(ℤ)) = 0 (ModularForm.levelOne_weight_two_rank_zero).
-2. The Rankin–Cohen bracket [g, θ] = g′θ − 3gθ′ (′ = q d/dq) is modular of weight 4 (the first Rankin–Cohen bracket of weights 3/2 and 1/2: the correction terms of the derivatives cancel), and [g, θ]|U₄ ∈ M₄(SL₂(ℤ)) = ℂE₄ (ModularForm.levelOne_weight_four_rank_one).
-3. Its q^{4n}-coefficient is Σ_r(4n − 4r²)B(4n − r²) = −8Σ_{r>0}r²B(4n − r²) (using the first identity); the constant term is −8B(−1) = −8, so [g, θ]|U₄ = −8E₄, and the coefficients 1, 240σ₃(n) of E₄ give Σ_{r>0}r²B(4n − r²) = 240σ₃(n) (with σ₃(0) = 1/240).
-4. Read off Fourier coefficients: the coefficient of qⁿ in (gθ)|U₄ is Σ_r B(4n − r²); in [g, θ]|U₄ it is a multiple of Σ_{r>0}r²B(4n − r²).
-5. Solving the r = 1 and r = 0 terms gives the recursion.
+1. Use the explicit H and Θ constructed for zagier-trace-form. Root filtering and their opposite congruence supports give (gθ)|U₄=Σ_μ H_μΘ_μ. This is identically zero by H₀=−AΘ₁ and H₁=AΘ₀. This proves the first identity without a general scalar Kohnen/U₄ assertion.
+2. Let D=q d/dq. The same filtering gives [g,θ]|U₄=4Σ_μ((DH_μ)Θ_μ−3H_μDΘ_μ). Under S and T, the displayed dual Weil matrices contract to the identity; the derivative correction terms cancel because the weights are3/2 and1/2. Consequently this contraction is a scalar weight4 form for SL₂(ℤ). It is holomorphic on ℍ since η has no zeros there. Its expansion has no negative integer powers: H₁ begins q^{−1/4}, Θ₁ begins2q^{1/4}, and the other component has no pole. It is therefore holomorphic at the sole cusp.
+3. The constant of the contraction is4((−1/4)·2−3·(1/4)·2)=−8. Since M₄(SL₂(ℤ))=ℂE₄, it equals−8E₄. Its qⁿ coefficient is Σ_r(4n−4r²)B(4n−r²)=−8Σ_{r>0}r²B(4n−r²), using the first identity. Fourier uniqueness gives the second identity, including n=0 with the stated σ₃(0).
+4. Solve the r=1 and r=0 terms to obtain the recursions. Every other index is smaller than the index being determined; the support and B(−1),B(0) therefore determine the entire sequence.
 
 Acceptance checks:
 
@@ -15228,6 +15292,8 @@ Source support:
 - [zagier-traces](#reference-zagier-traces), §3, eq. (11), printed p. 4. The expansion H(d) + t(d)q (via the logarithmic derivative).
 
 Direct prerequisites: [QM.5/heegner-quadratic-forms](#QM-5-heegner-quadratic-forms), [QM.5/modular-trace](#QM-5-modular-trace), `mathlib:ModularForm.levelOne_weight_two_rank_zero`, `mathlib:ModularForm.E₄`, `mathlib:ModularForm.discriminant`.
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one`.
 
 Construction or proof route:
 
@@ -15265,7 +15331,7 @@ Acceptance checks:
 
 ### The logarithmic derivative of Φ_n(j, j) (Zagier (9))
 
-**Lemma** (`QM.5/modular-diagonal-log-derivative`). For n ≥ 1 not a square let D_n(τ) = ∏_{ad=n, a,d>0}∏_{b=0}^{d−1}(j(τ) − j((aτ + b)/d)) (= Φ_n(j(τ), j(τ)) for the n-th modular polynomial). Then D′_n/D_n = Σ_{|r|<2√n}Λ_{4n−r²} as meromorphic functions on ℍ. For n = m² a square the same holds for D_n/D₁-type quotients: the factor with a = d = m, b = 0 is omitted on the left and Σ_{|r|<2}Λ_{4−r²} is subtracted on the right.
+**Lemma** (`QM.5/modular-diagonal-log-derivative`). For n≥1 let M_n be all integral determinant-n matrices, not just primitive ones, and D_n(τ)=∏_{ad=n, a,d>0}∏_{0≤b<d}(j(τ)−j((aτ+b)/d)). For nonsquare n, D′_n/D_n=Σ_{|r|<2√n}Λ_{4n−r²}. For n=m² omit the single identically zero scalar-coset factor (a,d,b)=(m,m,0), obtaining D_n*. Then (D_n*)′/D_n*=Σ_{|r|<2√n}Λ_{4n−r²}−Λ₄−2Λ₃. These are meromorphic weight2 identities on ℍ. The all-matrix product is sometimes denoted Φ_n(j,j); a convention that reserves Φ_n for primitive matrices must instead use the corresponding product of primitive modular polynomials.
 
 Hypotheses and conventions:
 
@@ -15274,20 +15340,25 @@ Hypotheses and conventions:
 Source support:
 
 - [zagier-traces](#reference-zagier-traces), §3, eqs. (8)–(9), printed pp. 3–4. The classical identity (9), in the logarithmic-derivative form that avoids the fractional powers of H_d.
+- [zagier-traces](#reference-zagier-traces), §3, equations(8)–(11), printed pp.3–4. The explicit local coordinate and stabilizer count supply the multiplicity step; the all-matrix convention and square correction are made precise.
 
 Direct prerequisites: [QM.5/weight-two-heegner-function](#QM-5-weight-two-heegner-function), `tauceti:HeckeRing.GL2.heckeSlashSum_slash_invariant`, `mathlib:ModularForm.levelOne_weight_two_rank_zero`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
+
 Construction or proof route:
 
-1. Γ-invariance of D_n: right multiplication by γ ∈ SL₂(ℤ) permutes Γ\M_n, whose representatives are the matrices (a b; 0 d), ad = n, 0 ≤ b < d (the coset argument of HeckeRing.GL2.heckeSlashSum_slash_invariant), so D_n is a weakly holomorphic modular function and D′_n/D_n a meromorphic weight-2 form, holomorphic at ∞.
-2. Zeros: D_n(τ) = 0 iff j(τ) = j(Mτ) for some M ∈ M_n iff τ is fixed by some M ∈ M_n (j is injective on Γ\ℍ); the fixed points of M with trace r are the α_Q with disc(Q) = r² − 4n, |r| < 2√n (n not a square excludes scalar M).
-3. Count zeros in local quotient coordinates. At α of stabiliser order w, j−j(α) has order w in τ−α. The determinant-n branches fixing α therefore contribute zeros with the corresponding ramification multiplicities, rather than one simple zero per pair ±M on ℍ. Match these counts with the sum of Λ_{4n−r²}, each of which has residue1 on ℍ; include elliptic stabilisers and omit the scalar branch in the square case. The detailed count must be checked in the source before asserting this equality.
-4. Equality: the difference is a holomorphic weight-2 form on SL₂(ℤ), hence 0 (ModularForm.levelOne_weight_two_rank_zero).
+1. Integer row reduction gives unique representatives (a,b;0,d), ad=n, a,d>0,0≤b<d for SL₂(ℤ)\M_n. Right multiplication permutes them, proving invariance of the finite product. This uses the full determinant-n coset set, including nonprimitive matrices. Its logarithmic derivative is weight2 and its finite Laurent expansion at ∞ is bounded.
+2. If j(α)=j(Mα), injectivity of j on Γ\ℍ supplies a left translate N fixing α. For N=(a,b;c,d), tr N=r, choose the sign c>0 and associate Q=[c,d−a,−b]; its discriminant is r²−4n. Conversely Q=[A,B,C] and r with B≡r mod2 give N=((r−B)/2,−C;A,(r+B)/2). Discriminant equality implies this parity condition. This is the exact fixed-matrix/quadratic-form dictionary, with imprimitive Q retained.
+3. Write t=(τ−α)/(τ−conjugate α), w=|Γ_α|, λ=cα+d, s=n/λ². Then t(Nτ)=s t and j(τ)=j(α)+c₀t^w+O(t^{2w}), c₀≠0. Unless s^w=1, a fixing branch j(τ)−j(Nτ) has zero of order w. The condition s^w=1 means precisely that N is a scalar times an element of Γ_α, hence is the omitted scalar coset and requires n square. Each remaining left coset fixing α has exactly w fixing representatives modulo sign. The Q,r dictionary thus counts w labels for each zero of order w. Each corresponding Λ has residue1 on ℍ. This proves equality of all residues, also at i and ρ.
+4. For n=m² the identity coset mΓ has w−1 nonscalar stabilizer matrices at an elliptic point; their Q are multiples by m of the basic elliptic forms and have the same j values. Their contribution is exactly Λ₄+2Λ₃, independently of m. Remove these along with the scalar branch. In particular D₁*=1 and the right side is0.
+5. No other poles occur; after cancelling these principal parts the difference is holomorphic in ℍ and at ∞, hence belongs to M₂(SL₂(ℤ))=0. This proves both formulas.
 
 Acceptance checks:
 
 - n = 2: D₂′/D₂ = Λ₈ + 2Λ₇ + 2Λ₄ (r = 0, ±1, ±2 with 8 − r² = 8, 7, 4).
 - The multiplicity bookkeeping at elliptic points (w_Q = 2, 3) is what the weights 1/w_Q in Λ_d account for.
+- The scalar correction is Λ₄+2Λ₃, not all of Λ_{4m²}+2Λ_{3m²}; imprimitive quadratic forms and genuine other CM classes are retained.
 
 <a id="QM-5-trace-first-recursion"></a>
 
@@ -15322,25 +15393,28 @@ Acceptance checks:
 
 ### The weight-two identity behind the second recursion (Zagier Proposition (12))
 
-**Lemma** (`QM.5/weight-two-trace-proposition`). For n ≥ 1 not a square and τ ∈ ℍ: (E₄E₆/Δ)(τ)·Σ_{M∈Γ\M_n}(E₄|₄M)(τ)/(j(τ) − j(Mτ)) = (1/(4πi))Σ_{|r|<2√n}(r² − n)Λ_{4n−r²}(τ), where (E₄|₄M)(τ) = n³(cτ + d)^{−4}E₄(Mτ) for M = (a b; c d).
+**Lemma** (`QM.5/weight-two-trace-proposition`). For n ≥ 1 not a square and τ ∈ ℍ: (E₄E₆/Δ)(τ)·Σ_{M∈Γ\M_n}(E₄|₄M)(τ)/(j(τ) − j(Mτ)) = (1/(4πi))Σ_{|r|<2√n}(r² − n)Λ_{4n−r²}(τ), where (E₄|₄M)(τ) = n³(cτ + d)^{−4}E₄(Mτ) for M = (a b; c d). For n=m² use the same left sum omitting the scalar coset; the right side is (1/(4πi))(Σ_{|r|<2√n}(r²−n)Λ_{4n−r²}+nΛ₄).
 
 Hypotheses and conventions:
 
-- n not a square.
+- n≥1; the scalar coset is omitted precisely in the square case.
 
 Source support:
 
 - [zagier-traces](#reference-zagier-traces), §4, Proposition, eq. (12), printed p. 5. The proposition and its residue proof.
 - [zagier-traces](#reference-zagier-traces), §4, proof of the Proposition, printed p. 5. The elliptic-point case the source leaves to the reader (see the source issues).
+- [zagier-traces](#reference-zagier-traces), §4, Proposition(12) and its proof, printed p.5. The local t-coordinate calculation proves the elliptic case and supplies the square-index extension used next; these are derived here, not claimed printed in the source.
 
-Direct prerequisites: [QM.5/weight-two-heegner-function](#QM-5-weight-two-heegner-function), `mathlib:ModularForm.E₄`, `mathlib:ModularForm.discriminant`, `mathlib:ModularForm.levelOne_weight_two_rank_zero`.
+Direct prerequisites: [QM.5/weight-two-heegner-function](#QM-5-weight-two-heegner-function), `mathlib:ModularForm.E₄`, `mathlib:ModularForm.discriminant`, `mathlib:ModularForm.levelOne_weight_two_rank_zero`, [QM.5/modular-diagonal-log-derivative](#QM-5-modular-diagonal-log-derivative).
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
 
 Construction or proof route:
 
-1. Both sides are meromorphic weight-2 forms on SL₂(ℤ), holomorphic at ∞, with at most simple poles; it suffices to compare residues (ModularForm.levelOne_weight_two_rank_zero).
-2. At a fixed point α of M with c > 0, λ = cα + d is a quadratic integer of trace r = tr M and norm n, and the residue of the left summand is (2πi)^{−1}·(−λ̄³/(λ − λ̄)), computed from Dj = −E₄²E₆/Δ, E₄(Mα) = E₄(α) and (d/dτ)(Mτ) = n(cτ + d)^{−2} (source p. 5).
-3. Average the summand with its involutive partner nM⁻¹: their residues sum to (2πi)⁻¹(λ³−λ̄³)/(λ−λ̄)=(2πi)⁻¹(r²−n). Thus replacing each summand by the average gives the factor1/2 printed in the proposition. The sum of the pair itself does not carry that factor.
-4. At elliptic points (α a root of E₄ or E₆) the same comparison holds with the stabiliser weights; this case is left to the reader in the source.
+1. Use the all-matrix cosets of modular-diagonal-log-derivative. Rewriting E₄E₆/Δ=−j′/(2πiE₄), a summand is −(2πi)^{−1} n³(cτ+d)^{−4}(E₄(Mτ)/E₄(τ))j′(τ)/(j(τ)−j(Mτ)). The original expression has no poles at zeros of E₄; the rewrite is used only with the limiting local expansion. Modular covariance and the permutation of cosets give weight2; the finite cusp expansion is bounded.
+2. At an ordinary fixed point, put λ=cα+d, norm λ=n, trace λ=r. Differentiating the denominator gives residue−conjugate(λ)³/(2πi(λ−conjugate λ)). Pair N with nN⁻¹; the sum of their residues is(r²−n)/(2πi). Averaging the involution yields the coefficient1/(4πi), with fixed involution orbits treated by the same average.
+3. At an elliptic fixed point let w=2 or3 and use the local coordinate t above, s=n/λ². E₄ has order w−2 there, so E₄(Nτ)/E₄(τ) tends to s^{w−2}. The residue is therefore−wn s^w/(2πi(1−s^w)). Pairing s with s⁻¹ gives wn/(2πi). The w stabilizer representatives change λ to ελ with ε² running through the w-th roots of unity. Their squared traces satisfy Σ_ε((ελ+conjugate(ελ))²−n)=wn, since Σ ε²=0. Thus the weighted Λ residues give the same paired result, proving the elliptic case rather than importing the source’s omitted calculation.
+4. In the square case remove the identity coset as in modular-diagonal-log-derivative. Its remaining elliptic representatives have trace0 at i, contributing−nΛ₄, and trace±m at ρ, contributing0. Removing them adds+nΛ₄ to the right side. This also gives0 for n=1. Once the principal parts agree, the difference lies in M₂(SL₂(ℤ)) and vanishes.
 
 Acceptance checks:
 
@@ -15361,6 +15435,7 @@ Source support:
 
 - [zagier-traces](#reference-zagier-traces), §4, end of the proof, printed p. 6. The derivation of (6).
 - [zagier-traces](#reference-zagier-traces), §4, printed p. 6. The square case left to the reader (see the source issues).
+- [zagier-traces](#reference-zagier-traces), §4, Fourier expansion and final paragraph, printed pp.5–6. The displayed equal-diagonal root-of-unity calculation supplies the square-index case the source leaves to the reader.
 
 Direct prerequisites: [QM.5/weight-two-trace-proposition](#QM-5-weight-two-trace-proposition), [QM.5/trace-first-recursion](#QM-5-trace-first-recursion), [QM.5/weight-two-heegner-function](#QM-5-weight-two-heegner-function), `mathlib:ArithmeticFunction.sigma`.
 
@@ -15370,7 +15445,7 @@ Construction or proof route:
 2. Expand: for a < d, S_{a,d} = 1 + (240δ_{a,1}σ₃(n) + δ_{a,d−1})q + O(q²); for a > d, S_{a,d} = −δ_{a,d+1}q + O(q²) (only the pairs (l, m) listed in the source contribute).
 3. So the q-coefficient is C₁ = 240σ₃(n) − (3n + 1 if 4n + 1 is a square), while by the proposition and heegnerLogDeriv_qExpansion C₁ = ½Σ_{|r|<2√n}(n − r²)t(4n − r²).
 4. Combine with trace-first-recursion (2·(6) − n·(5)) to obtain (6) for non-square n.
-5. Square n: the same computation including the terms with a = d, which the source leaves to the reader.
+5. For n=m², m>1, omit b=0 in the equal-diagonal terms. Put ζ=e(b/m). A single b term has constant1/(1−ζ⁻¹) and q coefficient240(ζ−1)/(1−ζ⁻¹)=240ζ. Summing b=1,…,m−1 and dividing by m gives−240/m, then multiplication by a³=m³ gives−240n. The a≠d terms still contribute240σ₃(n); there is no adjacent factorization for a square. Thus C₁=240σ₃(n)−240n. The square extension of weight-two-trace-proposition gives C₁=½Σ_r(n−r²)t(4n−r²)−(n/2)t(4). Using Σ_rt=−4 and t(4)=492 yields C₁=−248n−Σ_{r>0}r²t(4n−r²). Rearrangement proves the required−8n correction. For n=1 the omitted sum is empty, and the same formula is checked directly from t(3)=−248,t(4)=492.
 
 Acceptance checks:
 
@@ -15404,6 +15479,9 @@ Acceptance checks:
 
 - t(3) = −248 = −B(3), t(4) = 492 = −B(4), t(7) = −4119 = −B(7), t(8) = 7256 = −B(8).
 - The theorem is an identity of numbers (traces of algebraic integers) with Fourier coefficients; it involves no Eichler integral or radial limit.
+- The two independent coefficient recursions now terminate in the explicit finite-Weil contraction, local CM multiplicities, elliptic residues and square-index expansion; no general unprovided Kohnen isomorphism is assumed.
+
+<a id="QM-6"></a>
 
 ## QM.6 Moonshine and representation-theoretic arithmetic
 
@@ -15411,17 +15489,11 @@ Vertex algebras, conformal vectors and invariant forms feed the physical-state q
 
 **Coverage: partial.**
 
-Borcherds' proof chain is decomposed through the free-Lie-algebra route of Jurisich (1998) and Jurisich–Lepowsky–Wilson (1995), which replaces the general Weyl–Kac–Borcherds character formula and the Garland–Lepowsky homology computation of Borcherds 1992 §§4, 8 (both rest on Kac's book, not public). Fully planned from public sources: vertex algebras and vertex operator algebras, lattice vertex algebras, the physical Lie algebra, the no-ghost theorem (Jurisich 1998 Appendix A), Borcherds algebras and their characterisation, free subalgebras and Witt's formula, the Monster Lie algebra with its simple roots and free decomposition, the product formula for j (Borcherds Lemma 7.1, via weight-zero Hecke operators and M^!_0 = ℂ[j]), the twisted denominator identity, complete replicability and the recursion (9.1) for every moonshine module, Hauptmoduln and genus zero, and the proven examples g = 1 (SL₂(ℤ)) and the Γ₀(2) Hauptmodul. The Monster-specific final step rests on the recorded gaps. Borcherds 1992 §§10–14 (monstrous Lie superalgebras, fake Monster Lie algebra) and generalized moonshine are not targets of this stage. Round-2 independent review checked this stage’s existing target contracts, sources, baseline consumers, API, tests and native signatures; predecessor read-boundary statements above describe the earlier pass. Current unresolved proof/supplier inputs are listed in gaps and remaining, and no stage is claimed closed. Revision3 preserves the existing stage status and every target id, synchronizes the reader with all round-2 corrections, and replaces the expanded native development by compact milestone signatures. The new source-reading receipts are target-specific, not a blanket re-reading of inherited sources.
+The existing vertex, no-ghost, generalized Lie and moonshine target contracts are retained. The arbitrary-ring quotient is corrected to the universal alternating quotient, with its characteristic-zero comparison. The general Serre/radical proof uses the Casimir/free-resolution route before any restricted free-subalgebra theorem. The concrete framed module, Griess/presented-Monster comparison, finite character certificate and Conway–Norton route now have target-level proof plans. These are proposed mathematics, not completed implementations or executed171-row certificates. The accepted structural-link integration below remains separate.
 
 Open targets and comparisons:
 
-- Construct the FLM moonshine module and Monster action from public proofs of the framed/lattice-VOA construction. Import the explicit rootless rank-24 even unimodular Leech lattice from TauCetiRoadmap/IntegralLattices Layer 6E; do not reconstruct that lattice or a rank-24 classification here. The twisted V_Λ-module, fixed-point algebra and orbifold extension still need their own proof plan.
-- Identify Aut(V♮) with TauCeti.SporadicName.Group M (gap 'Identification of the Monster'): needs Ivanov 1999 and the uniqueness of the Monster.
-- Supply the Monster character-table data (gap 'Character table data'), the Conway–Norton Table 2 groups Γ_g with the verification that each t_g is a normalized Hauptmodul, and Koike's replicability theorem (gap 'Conway–Norton functions').
-- ACT-R06: use IntegralLattices Layer 6E for the rootless rank-24 even unimodular Leech reference lattice. Check the rational-to-real form dictionary required by its lattice-VOA application and any coding-theory comparison. Plain binary Construction A contains norm-two vectors and does not supply this model. The twisted module and Monster automorphism identification remain QM.6 obligations.
 - The accepted RS-06 links into QM.6 remain binding, including their restricted comparison/application contracts. The inherited proposal suggesting different analytic inputs is unaccepted and cannot by itself remove the accepted R12.3/R13.3/R13.4a/ModularCurves links. Establish exact input sufficiency/non-use and obtain reviewed restructuring before changing those edges. Accepted RS-10 retains QT.4 and HC.3/HC.4 exports into QM.5; no completion or theorem-existence claim follows from those structural links.
-- Review refinement: justify the general Serre/radical presentation in borcherds-algebra-triangular-decomposition at its stated matrix generality; the restricted Corollary5.3 cannot discharge it.
-- The arbitrary-ring zero-mode quotient still needs an alternating-bracket argument in the presence of 2-torsion. The characteristic-zero specialization is valid but does not discharge the general target. The lattice invariant form and no-ghost restricted-nondegeneracy routes have been revised using public Roitman and Billig arguments; an independent review must check these new proofs.
 
 Atlas planets:
 
@@ -15573,9 +15645,9 @@ Acceptance checks:
 
 <a id="QM-6-vertex-algebra-lie-algebra"></a>
 
-### The Lie algebra V/DV of a vertex algebra
+### The universal Lie quotient of a vertex algebra
 
-**Construction** (`QM.6/vertex-algebra-lie-algebra`). Let V be a vertex algebra over a commutative ring R and let DV := Σ_{i≥1} D^{(i)}(V) (the R-span of all D^{(i)}w, i ≥ 1; over a ℚ-algebra this is the image of D). Then DV is a two-sided ideal for the product (u, v) ↦ u_0 v, and V/DV is a Lie algebra over R with bracket [u + DV, v + DV] := u_0 v + DV. The map u ↦ u_0 makes V a module over the Lie algebra V/DV (DV acts by 0: (D^{(i)}w)_0 = 0 for i ≥ 1), and each u_0 acts by derivations of all products.
+**Construction** (`QM.6/vertex-algebra-lie-algebra`). Let V be a vertex algebra over an arbitrary commutative ring R and let DV be the R-span of D^{(i)}w for i≥1. The zero product descends to an anticommutative Leibniz bracket on Q=V/DV. Its square submodule A=span_R{[x,x]:x∈Q} is central and annihilated by2. Consequently LieQuotient(V):=Q/A, equivalently V/(DV+span_R{u₀u}), is a Lie algebra over R, universal among R-linear bracket-preserving maps from Q to Lie algebras. Zero modes make V a module over this Lie quotient and act by derivations of every vertex product. If2 is invertible in R, A=0 and the canonical map Q→LieQuotient(V) is an isomorphism, recovering V/DV for every moonshine consumer here. The inherited assertion that Q is always alternating is false in characteristic2; the explicit free-fermion comparison below is part of this corrected arbitrary-ring contract.
 
 Hypotheses and conventions:
 
@@ -15583,44 +15655,55 @@ Hypotheses and conventions:
 
 Source support:
 
-- [borcherds1986](#reference-borcherds1986), §4, p. 4. Statement of the construction.
+- [borcherds1986](#reference-borcherds1986), §4, p. 4. Zero-product quotient assertion; the arbitrary-ring alternating carrier is corrected here by killing squares, with the stated characteristic-zero comparison.
 - [borcherds1992](#reference-borcherds1992), §3, p. 12. Same construction over ℝ.
+- [kac-wang-1993](#reference-kac-wang-1993), §4, printed pp.37–38, free-fermion Fock construction before Theorem4.1. The Clifford Fock module and residue/normal-ordered field construction supply the explicit model. Integral preservation and reduction to characteristic2 are the additional coefficientwise argument displayed here.
 
 Direct prerequisites: [QM.6/vertex-algebra](#QM-6-vertex-algebra), [QM.6/vertex-algebra-vacuum-translation](#QM-6-vertex-algebra-vacuum-translation), [QM.6/vertex-algebra-commutator-formula](#QM-6-vertex-algebra-commutator-formula), [QM.6/vertex-algebra-skew-symmetry](#QM-6-vertex-algebra-skew-symmetry), `mathlib:LieAlgebra`, `mathlib:LieModule`.
 
 Construction or proof route:
 
-1. Derive the divided-translation identity (D^{(i)}w)_n=(−1)^i binomial(n,i)w_{n−i} directly from the Borcherds identity; at n=0 and i≥1 the binomial coefficient vanishes. Iterating D alone only shows i! times the claimed identity over an arbitrary ring, which is insufficient when i! is not invertible.
-2. u_0 (D^{(i)} w) = D^{(i)}(u_0 w): u_0 commutes with D by [D, u_n] = −n u_{n−1} at n = 0, and with divided powers by the same identity applied to w_{−i−1}1 and the commutator formula; so DV is a right ideal.
-3. Skew symmetry proves antisymmetry modulo DV. When2 is invertible it also proves alternation u_0u∈DV by dividing the self-skew relation by2. The arbitrary-ring LieRing construction retains an explicit unresolved alternating-bracket obligation; all moonshine consumers are in characteristic0.
-4. Jacobi identity: the commutator formula at m = n = 0 gives u_0(v_0 w) − v_0(u_0 w) = (u_0 v)_0 w.
-5. Package as a LieRing and LieAlgebra R instance on the quotient module V ⧸ DV, and the action as a LieModule.
+1. Extract the divided translation identity (D^{(i)}u)_n=(−1)^i binomial(n,i)u_{n−i} directly from the vacuum specialization of the Borcherds identity, not by dividing an iterated D formula by i!. At n=0 every i≥1 gives zero. The zero-mode derivation formula applied to u_{−i−1}1 gives v₀D^{(i)}u=D^{(i)}(v₀u), since v₀1=0. Thus DV is a two-sided zero-product ideal and acts trivially by zero modes.
+2. Skew symmetry gives u₀v+v₀u∈DV. The commutator formula at m=n=0 gives [u,[v,w]]−[v,[u,w]]=[[u,v],w]. Hence Q has the stated anticommutative Leibniz bracket. Setting v=u shows [[u,u],w]=0, and anticommutativity gives [w,[u,u]]=0. Thus A is central. Also2[u,u]=0. Quotient by A is alternating and satisfies Jacobi; the universal property is the linear quotient property because every map to an alternating Lie algebra kills A.
+3. The zero-mode action kills each square as well: (u₀u)₀=[u₀,u₀]=0 as endomorphisms. It therefore factors through the actual Lie quotient and gives the Lie-module identity. Each endomorphism u₀ is a derivation of all vertex products by vertex-algebra-commutator-formula. If2 is invertible, the equation2A=0 gives A=0 and proves the comparison, without a change to any real moonshine construction.
+4. The need for A over arbitrary rings has an explicit witness. Start with the integral neutral-fermion super Fock module F_ℤ=Λ_ℤ(x₀,x₁,…). Let a_{−j−1} be exterior multiplication by x_j and a_j contraction by x_j, j≥0. Their anticommutator is δ_{m+n,−1}; a=a_{−1}1 has a₀a=1. The normal-ordered fields and Hasse derivatives in Kac–Wang §4 have integral binomial coefficients and preserve this free ℤ-module. Their super vertex identities hold overℚ and therefore overℤ by torsion-free coefficient comparison. Reduction modulo2 removes all super signs and gives an ordinary vertex algebra over𝔽₂. Give x_j degree j+1/2. All degrees are nonnegative, only1 has degree0, D^{(i)} raises degree by i, and D^{(i)}1=0 for i>0. Consequently1∉DV, while a₀a=1. Thus Q fails alternation. This is a counterexample to the old carrier, not a proof gap that a characteristic-zero calculation can close.
 
 Uses that determine the API:
 
-- QSeriesPartitionsAndMockModularForms:QM.6/physical-lie-algebra: the physical Lie algebra is a Lie subquotient of V/DV
+- QSeriesPartitionsAndMockModularForms:QM.6/physical-lie-algebra: over ℝ, the physical Lie algebra is a Lie subquotient of V/DV, canonically identified with the universal Lie quotient because2 is invertible
 - Borcherds 1986, §4–5: Kac–Moody algebras are realized inside P¹/DP⁰ ⊂ V/DV
 
 Named declarations and API:
 
 - `VertexAlgebra.translationSpan` (data): The submodule DV = Σ_{i≥1} D^{(i)}(V) of V.
-- `VertexAlgebra.LieQuotient` (structure): The quotient module V ⧸ DV with its LieRing and LieAlgebra R instances.
+- `VertexAlgebra.LieQuotient` (structure): The module V/(DV+span_R{u₀u}), with alternating LieRing and LieAlgebra R structures induced by zero products.
 - `VertexAlgebra.LieQuotient.bracket_mk` (simp): ⁅mk u, mk v⁆ = mk (u_0 v).
 - `VertexAlgebra.zeroMode_translation` (simp): (D^{(i)} w)_0 = 0 for i ≥ 1.
-- `VertexAlgebra.lieModuleQuotient` (instance): V is a LieModule over V ⧸ DV via (u + DV) · w = u_0 w.
+- `VertexAlgebra.lieModuleQuotient` (instance): V is a LieModule over LieQuotient(V), via mk(u)·w=u₀w; both divided translations and square products act by zero.
 - `VertexAlgebra.zeroMode_derivation` (relation): u_0(v_n w) = (u_0 v)_n w + v_n(u_0 w).
+- `VertexAlgebra.squareSpan` (data): The central submodule A=span_R{[x,x]} of the anticommutative Leibniz quotient Q=V/DV; multiplication by2 annihilates A.
+- `VertexAlgebra.LieQuotient.lift` (universal-property): Every R-linear bracket-preserving map Q→L to an alternating R-Lie algebra L factors uniquely through Q/A.
+- `VertexAlgebra.LieQuotient.ofTwoIsUnit` (equivalence): If2 is a unit in R, the canonical map V/DV→LieQuotient(V) is an R-linear bracket equivalence, compatible with zero-mode actions.
 
 Unit tests:
 
-- `VertexAlgebra.LieQuotient.ofDerivation_abelian` (degenerate): For VertexAlgebra.ofDerivation the Lie algebra V/DV is abelian.
-- `VertexAlgebra.LieQuotient.bracket_self` (characterisation): ⁅mk u, mk u⁆ = 0 in V/DV although u_0 u need not vanish in V.
-- `VertexAlgebra.zeroMode_vacuum` (computation): 1_0 = 0 and u_0 1 = 0 for every u, so mk 1 is central in V/DV.
-- `VertexAlgebra.zeroMode_not_antisymmetric` (non-example): The 0-product on V itself is not antisymmetric: for the conformal vector ω of the rank-one lattice vertex algebra, ω_0 ω = Dω ≠ 0 (D is injective on vectors of nonzero weight there), whereas ⁅mk ω, mk ω⁆ = 0 in V/DV.
+- `VertexAlgebra.LieQuotient.ofDerivation_abelian` (degenerate): For a commutative differential vertex algebra all zero products vanish, so A=0 and LieQuotient is the abelian module V/DV.
+- `VertexAlgebra.LieQuotient.bracket_self` (characterisation): The bracket of every element with itself vanishes in the universal Lie quotient over every R, even when2=0.
+- `VertexAlgebra.LieQuotient.charZero_comparison` (comparison): Over ℝ the natural quotient map V/DV→LieQuotient is an isomorphism intertwining zero-mode actions; this is the carrier used by physical-state and Monster-Lie constructions.
+- `VertexAlgebra.LieQuotient.fermion_mod_two` (non-example): For the reduced integral neutral fermion over𝔽₂, a₀a=1 and1∉DV. Hence V/DV has a nonzero self-bracket, while the image of1 in LieQuotient is zero.
 
 Acceptance checks:
 
-- For VertexAlgebra.ofDerivation, all 0-products vanish, so V/DV is abelian.
-- Borcherds1986 §4, p.4 states the zero-mode quotient construction. Its arbitrary-ring alternation is retained as an explicit gap; over a characteristic-zero field the self-skew relation can be divided by two.
+- Retain arbitrary coefficient rings and every real moonshine consumer. Do not install a LieRing instance on V/DV without proving A=0.
+- The square submodule is central and the quotient has the stated universal property, so the correction is the full arbitrary-ring construction rather than a restriction to characteristic zero.
+
+Revision-4 contract correction:
+
+- **kind.** False inherited alternating-quotient assertion corrected at the same generality
+- **inheritedCarrier.** V/DV
+- **correctCarrier.** V/(DV+span{u₀u})
+- **comparison.** Canonical isomorphism when2 is invertible; no change to characteristic-zero consumers
+- **counterexample.** Integral neutral fermion reduced modulo2; degree argument proves vacuum is not a divided translation.
 
 <a id="QM-6-vertex-algebra-automorphism"></a>
 
@@ -16499,6 +16582,8 @@ Source support:
 
 Direct prerequisites: [QM.6/no-ghost-transverse-generation](#QM-6-no-ghost-transverse-generation), [QM.6/no-ghost-operator-adjoints](#QM-6-no-ghost-operator-adjoints).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.
+
 Construction or proof route:
 
 1. (a): the preceding generation proof supplies a direct PBW induced-module decomposition and a nondegenerate form on every top space T_n. Reorder negative modes with all L before all K. Thus K=U(𝒴⁻)T=T⊕𝒴⁻U(𝒴⁻)T; the second summand is orthogonal to K by K-adjointness. Since the top form is nondegenerate, it is exactly rad(K), and not merely a null subspace inferred from ambient nondegeneracy.
@@ -16526,6 +16611,8 @@ Source support:
 - [borcherds1992](#reference-borcherds1992), Lemma 5.4, p. 21. Same lemma with the index sign misprinted (E704).
 
 Direct prerequisites: [QM.6/no-ghost-transverse-space](#QM-6-no-ghost-transverse-space), [QM.6/conformal-vector-virasoro-representation](#QM-6-conformal-vector-virasoro-representation), [QM.6/tensor-product-conformal-structure](#QM-6-tensor-product-conformal-structure).
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.
 
 Construction or proof route:
 
@@ -16646,7 +16733,7 @@ Unit tests:
 
 Acceptance checks:
 
-- For the Frenkel–Lepowsky–Meurman module V♮ these properties are FLM's theorems (recorded as the gap 'FLM moonshine module').
+- The concrete code model constructed in monster-head-characters satisfies these properties. The predecessor FLM construction gap is replaced there by a public proof route; this axioms node is not itself an existence proof.
 - The Leech lattice vertex operator algebra has q^{−1} times its graded dimension equal to q^{−1}+24+196884q+⋯ and is not a moonshine module.
 
 <a id="QM-6-monster-lie-algebra"></a>
@@ -16774,19 +16861,28 @@ Source support:
 
 - [jurisich1998](#reference-jurisich1998), Proposition 2.1, p. 5. Triangular decomposition before the Serre-type relations.
 - [jurisich1998](#reference-jurisich1998), §2.1, p. 6. Descent to g(A).
+- [jurisich-exposition-1996](#reference-jurisich-exposition-1996), §1.1, Propositions1.1–1.3, pp.3–6; §1.3, Theorem1.6, pp.9–12; §1.4, Theorem1.11 and Lemmas1.12–1.14, pp.13–14; §§3.2–3.3, Propositions3.5–3.9, pp.29–33. The exact general countable symmetrizable presentation/radical theorem and its root-pairing construction; the normalized-diagonal comparison is made explicitly above. The homotopy/Casimir argument supplies the cited radical-generation lemma; exactness and the Hopf formula are spelled out locally.
 
 Direct prerequisites: [QM.6/borcherds-algebra](#QM-6-borcherds-algebra), `mathlib:FreeLieAlgebra`.
 
 Construction or proof route:
 
-1. For the algebra g_0 (relations without the Serre-type ones) construct the module X (free associative algebra on symbols x_i) of Jurisich 1998 Proposition 3.1 to prove g_0 = n_0⁻ ⊕ h ⊕ n_0⁺ with n_0^± free and {h_i} independent.
-2. The Serre-type relations generate an ideal k_0 = k_0⁺ ⊕ k_0⁻ contained in n_0^+ ⊕ n_0^− (Jurisich 1998 Propositions 3.2–3.3), so the decomposition descends to g(A).
-3. Finite-dimensionality: g_α ⊆ image of the degree-α part of the free Lie algebra, finite-dimensional for α ∈ Q_+.
-4. Construct the invariant form inductively on root height, normalized by (e_i,f_j)=δ_ij and (h_i,h_j)=a_ij. Its nondegeneracy between nonzero root degrees for arbitrary matrices requires the generalized Serre-presentation/radical theorem cited in Jurisich1998 pp.6–7. Corollary5.3 in that paper covers the restricted no-orthogonal-imaginary-roots case, not all matrices in the statement. The general dependency remains open here.
+1. Use Jurisich’s general countable symmetrizable presentation theorem, §1.4, rather than the restricted free-subalgebra corollary. For each real i put d_i=a_ii/2>0 and replace h_i,e_i by d_i⁻¹h_i,d_i⁻¹e_i, leaving f_i unchanged; for imaginary i put d_i=1. This changes A to B with b_ij=d_i⁻¹a_ij and real b_ii=2. The positive diagonal matrix diag(d_i) symmetrizes B. The real Serre exponents, imaginary support and zero off-diagonal entries are unchanged. Transport the resulting theorem and form back to the original symmetric convention.
+2. Before the Serre relations, the tensor algebra on the f_i has h-action λ−Σα_i and e_i-action recursively determined by [e_i,f_j]=δ_ij h_i. Varying λ proves h_i independent and identifies both nilpotent sides with free Lie algebras (Proposition1.1). Jacobi and the elementary sl₂ highest-weight calculation show every real Serre generator is killed by every opposite simple generator. The same check for [e_i,e_j] with a_ij=0 gives0, including two orthogonal imaginary nodes. Their ideals therefore split as k⁺⊕k⁻ (Propositions1.2–1.3), and the triangular decomposition descends to the stated Serre quotient g₁.
+3. Supply the radical-generation lemma, rather than leaving Jurisich Lemma1.12 as an opaque book input. Let F⁺ be the free positive Lie algebra and r⁺ its maximal graded ideal whose two-sided extension avoids the enlarged Cartan. Form the contragredient quotient ḡ first; its opposite-root form is nondegenerate by the definition of this radical, before any assertion that r⁺ equals the Serre ideal. Root spaces are finite-dimensional in each finitely supported degree. The invariant-form construction in §1.3 therefore applies to ḡ independently of the presentation theorem.
+4. Here is the homological proof of the needed generator degrees. Set b̄⁺=h̄⊕n̄⁺. The relative Chevalley–Eilenberg resolution of the trivial ḡ-module has D_j=U(ḡ)⊗_{U(b̄⁺)}∧ʲ(ḡ/b̄⁺). PBW identifies it with U(n̄⁻)⊗∧ʲn̄⁻. Its differential is the alternating sum of left multiplication and bracket terms. The standard filtration by enveloping degree has the exact polynomial Koszul complex as associated graded, proving exactness and freeness over U(n̄⁻). This supplies Proposition3.8’s resolution directly, without importing its external reference.
+5. Use Γ=2Σ_{β>0,s}f_{β,s}e_{β,s}+(ν+ρ,ν+ρ) on a weight ν, with dual opposite-root bases and (ρ,α_i)=a_ii/2. The root-string canonical tensor is invariant, and the remaining simple-root commutator cancels the difference of the two scalar terms. This is the direct calculation in Propositions3.5–3.6, pp.29–31; it uses no positivity of imaginary diagonals. Thus Γ commutes with the differential and acts by (ρ,ρ) on the trivial quotient. Freeness and exactness construct a U(n̄⁻)-linear homotopy Γ−(ρ,ρ)=dh+hd recursively: lift the difference in degree0 through d₁, then lift its residual in each successive degree. After taking n̄⁻ coinvariants, each term f_{β,s}e_{β,s} vanishes and Γ acts on degree−α as (ρ−α,ρ−α). Therefore a nonzero homology class, in particular in H₂(n̄⁻), has (α,α)=2(ρ,α). This is the S=∅, X=trivial part of §3.3 through Proposition3.9, pp.31–33, before the later root-combinatorial computation.
+6. The free-presentation Hopf formula identifies H₂(n̄⁺) with (r⁺∩[F⁺,F⁺])/[F⁺,r⁺]. It can be proved here by lifting a cycle Σx∧y to free generators and sending it to Σ[x̃,ỹ]; boundaries are exactly brackets with r⁺, since H₂ of a free Lie algebra vanishes by its tensor-enveloping resolution. The negative-side calculation transports by e_i↔f_i. The radical has no simple degree, so its intersection with [F⁺,F⁺] is all of r⁺. Choose homogeneous representatives of this relation quotient. Induction on height expresses r⁺ as the ideal generated by those representatives: the residual is in [F⁺,r⁺] and uses strictly smaller radical degrees. Hence all needed generator degrees satisfy the norm equality. This proves precisely Lemma1.12 without presuming the Serre presentation.
+7. Now pass to the Serre quotient g₁ and choose a nonzero radical degree α of minimum height. Real sl₂ reflection automorphisms preserve its radical and lower height if (α,α_i)>0; minimality therefore gives (α,α_i)≤0 for every real i. The radical-generation result gives (α,α)=2(ρ,α) at this minimal degree, because all contributions generated in smaller radical degrees have vanished in g₁.
+8. In that chamber (α,α)−2(ρ,α)=Σ_i k_i(α_i,α−α_i)≤0. Each real i with k_i>0 contributes strictly negatively. Equality forces only imaginary support, pairwise orthogonal distinct support nodes, and a_ii=0 whenever k_i>1. A nonzero root has connected support by Jacobi and [e_i,e_j]=0 at zero entries (Lemma1.13); the equality support is therefore a single node. A multiple >1 of that node vanishes in a free Lie algebra on one generator. The sole remaining simple degree cannot meet the radical. This is the contradiction proving r₁=0, and applies even when there are orthogonal imaginary nodes.
+9. To construct and control the form when A is singular, first adjoin degree derivations D_i and pair them with the simple Cartan vectors so that the simple roots are linearly independent as functionals. Theorem1.6 and Propositions1.7–1.10 construct the invariant form by height induction, with [x_α,y_{−α}]=(x_α,y_{−α})x_α^Cartan. The radical of that form is a graded ideal meeting the enlarged Cartan trivially in nonzero degrees; Theorem1.11 therefore makes each opposite-root pairing nondegenerate. Restrict to the derived presentation: (e_i,f_j)=δ_ij, (h_i,h_j)=a_ij. Its Cartan nullspace may remain central; this does not impair the nonzero-root pairings claimed here. Uniqueness follows by moving brackets across the form.
+10. For a fixed α, only its finite support and finitely many words of length ht α contribute. Thus each root space is finite-dimensional, the positive/negative support assertion follows from the triangular decomposition, and the simple root spaces are the stated one-dimensional lines. This finite-support argument also makes every use of the countable presentation and degree derivations algebraic, without an infinite sum of Lie elements.
 
 Acceptance checks:
 
 - For A = (2) the decomposition is sl₂ = ℝf ⊕ ℝh ⊕ ℝe.
+- The example A=((0,0),(0,0)) has two commuting imaginary positive generators and nondegenerate opposite simple-root pairings. Orthogonal imaginary nodes are allowed; the no-orthogonal-imaginary free-subalgebra theorem is not substituted for this general statement.
+- A singular Cartan matrix can have a central Cartan nullspace while all nonzero opposite-root pairings are nondegenerate.
 
 <a id="QM-6-borcherds-algebra-central-extension"></a>
 
@@ -16852,8 +16948,11 @@ Source support:
 - [jurisich1998](#reference-jurisich1998), Theorem 4.1 (Borcherds), p. 12–13. Conclusion; hypotheses 1–4 as stated.
 - [jurisich1998](#reference-jurisich1998), Corollary 4.1, p. 16. Nondegenerate case.
 - [borcherds1988](#reference-borcherds1988), Theorem 3.1, p. 4. Original version.
+- [jurisich-exposition-1996](#reference-jurisich-exposition-1996), Theorem1.11 and §1.3, printed pp.9–14. Supplies the general pairing/radical input for the kernel-central argument, not merely the restricted free-subalgebra case.
 
-Direct prerequisites: [QM.6/borcherds-algebra-central-extension](#QM-6-borcherds-algebra-central-extension), [QM.6/borcherds-algebra](#QM-6-borcherds-algebra).
+Direct prerequisites: [QM.6/borcherds-algebra-central-extension](#QM-6-borcherds-algebra-central-extension), [QM.6/borcherds-algebra](#QM-6-borcherds-algebra), [QM.6/borcherds-algebra-triangular-decomposition](#QM-6-borcherds-algebra-triangular-decomposition).
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine`.
 
 Construction or proof route:
 
@@ -16861,7 +16960,7 @@ Construction or proof route:
 2. h_ij ∈ g_0 and h_ij = 0 unless deg e_i = deg e_j (contravariance and positivity); by (4) g_0 is spanned by the h_ij.
 3. The radical of (·,·) is central; for i ≠ j, h_ij lies in the radical.
 4. [h, e_i] = (h, h_ii)e_i, and (x,y)_0-positivity gives a_ij := (h_ii,h_jj) ≤ 0 for i ≠ j, with [e_i, e_j] = 0 iff a_ij = 0 (Jurisich 1998 equation (10)); for a_ii > 0 the sl₂-representation theory gives 2a_ij/a_ii ∈ ℤ and the Serre relations (using Jurisich 1998 Proposition 3.2 and positivity).
-5. Hence the generators satisfy the relations of ĝ(A) and π exists; the form pulls back and nondegeneracy on ĝ_n ⊕ ĝ_{−n} shows the kernel lies in ĥ and is central.
+5. The generators satisfy the universal central-extension relations, producing π. The general root-pairing theorem of the triangular and root-space decomposition now applies at every nonzero root degree, including matrices with orthogonal imaginary nodes. Pull back the target form, whose values on all generators agree with the unique invariant form. An element of ker π is orthogonal to all opposite degrees, so its nonzero homogeneous components vanish by that theorem. Its degree-zero component has zero pairing with every simple Cartan vector and hence commutes with every e_i,f_i and with the Cartan; the kernel is central. This proves the presentation step without the narrower free-subalgebra corollary.
 6. If the form is nondegenerate then all h_ij (i ≠ j) vanish and Jurisich 1998 Corollary 4.1 gives g ≅ l/c.
 
 Acceptance checks:
@@ -16941,6 +17040,8 @@ Source support:
 
 Direct prerequisites: [QM.6/graded-trace-exterior-symmetric-power](#QM-6-graded-trace-exterior-symmetric-power), `mathlib:FreeLieAlgebra`, `mathlib:FreeLieAlgebra.universalEnvelopingEquivFreeAlgebra`, `mathlib:UniversalEnvelopingAlgebra`, `mathlib:TensorAlgebra`, `mathlib:ArithmeticFunction.moebius`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.
+
 Construction or proof route:
 
 1. U(L(W)) ≅ T(W) as graded algebras with g-action: Mathlib's FreeLieAlgebra.universalEnvelopingEquivFreeAlgebra and FreeAlgebra ≅ TensorAlgebra on a basis (the equivalences are natural, hence g-equivariant).
@@ -16970,6 +17071,8 @@ Source support:
 - [jurisich2009](#reference-jurisich2009), Theorem 6, p. 9. Module structure of the generating spaces.
 
 Direct prerequisites: [QM.6/lazard-elimination](#QM-6-lazard-elimination), [QM.6/borcherds-algebra-triangular-decomposition](#QM-6-borcherds-algebra-triangular-decomposition), [QM.6/borcherds-algebra](#QM-6-borcherds-algebra).
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine`.
 
 Construction or proof route:
 
@@ -17010,6 +17113,7 @@ Construction or proof route:
 Acceptance checks:
 
 - Borcherds 1992 Theorem 6.2, p.22: the physical-state Monster Lie algebra satisfies the generalized Kac–Moody characterization.
+- The general Serre/radical input terminates in the exact countable theorem supplied in triangular and root-space decomposition. The later restricted free-subalgebra theorem is applied only after the Monster degrees imply strictly negative pairings between distinct imaginary simple roots.
 
 <a id="QM-6-monster-lie-algebra-simple-roots"></a>
 
@@ -17028,6 +17132,8 @@ Source support:
 
 Direct prerequisites: [QM.6/monster-lie-algebra-is-borcherds-algebra](#QM-6-monster-lie-algebra-is-borcherds-algebra), [QM.6/borcherds-algebra-free-subalgebra](#QM-6-borcherds-algebra-free-subalgebra), [QM.6/free-lie-algebra-character-formula](#QM-6-free-lie-algebra-character-formula), [QM.6/j-product-formula](#QM-6-j-product-formula), [QM.6/monster-lie-algebra](#QM-6-monster-lie-algebra).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine`.
+
 Construction or proof route:
 
 1. By the previous theorem m ≅ g(A)/c with simple roots in degrees of positive 2a + b. Real roots have norm −2ab > 0 and m_{(a,b)} ≠ 0 needs ab ≥ −1, so the only positive real root is (1,−1), which is simple; imaginary simple roots have degrees (a,b) with a, b ≥ 1 (m_{(a,0)} ≅ V_1 = 0), and two of them have inner product −(ab' + a'b) < 0.
@@ -17041,6 +17147,7 @@ Acceptance checks:
 
 - The matrix M has first row 2, 0 (c(1) times), −1 (c(2) times), −2, …; the simple root spaces sum to V (Borcherds 1992 §1).
 - The coefficient of p q^1 in the denominator formula gives −c(1) on both sides.
+- The general Serre/radical input terminates in the exact countable theorem supplied in triangular and root-space decomposition. The later restricted free-subalgebra theorem is applied only after the Monster degrees imply strictly negative pairings between distinct imaginary simple roots.
 
 <a id="QM-6-monster-lie-algebra-free-decomposition"></a>
 
@@ -17060,6 +17167,8 @@ Source support:
 
 Direct prerequisites: [QM.6/monster-lie-algebra-simple-roots](#QM-6-monster-lie-algebra-simple-roots), [QM.6/borcherds-algebra-free-subalgebra](#QM-6-borcherds-algebra-free-subalgebra), [QM.6/free-lie-algebra-character-formula](#QM-6-free-lie-algebra-character-formula), [QM.6/j-product-formula](#QM-6-j-product-formula), [QM.6/monster-lie-algebra](#QM-6-monster-lie-algebra).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine`.
+
 Construction or proof route:
 
 1. By the simple-roots theorem and the free-subalgebra theorem (via m ≅ g(M)/c, an isomorphism on n^±) u⁻ is free on ⊕_j U(n_J⁻)f_j, and gl₂ = sl₂ + m_{(0,0)} normalizes u⁻.
@@ -17073,6 +17182,7 @@ Acceptance checks:
 
 - W_{−(1,1)} ≅ V_2 (dimension 196884); W_{−(2,1)} ≅ W_{−(1,2)} ≅ V_3.
 - Jurisich 2009 §4: U = ∐_{i>0} W_i ⊗ V♮_{i+1} as gl₂ × M-modules.
+- The general Serre/radical input terminates in the exact countable theorem supplied in triangular and root-space decomposition. The later restricted free-subalgebra theorem is applied only after the Monster degrees imply strictly negative pairings between distinct imaginary simple roots.
 
 <a id="QM-6-twisted-denominator-identity"></a>
 
@@ -17103,6 +17213,7 @@ Acceptance checks:
 
 - For g = 1 the identity is the j product formula p^{−1}Π(1 − p^mqⁿ)^{c(mn)} = J(p) − J(q).
 - Comparing coefficients of p²q^2 gives c_g(4) = c_g(3) + (c_g(1)² − c_{g²}(1))/2.
+- The general Serre/radical input terminates in the exact countable theorem supplied in triangular and root-space decomposition. The later restricted free-subalgebra theorem is applied only after the Monster degrees imply strictly negative pairings between distinct imaginary simple roots.
 
 <a id="QM-6-completely-replicable-function"></a>
 
@@ -17210,6 +17321,7 @@ Acceptance checks:
 
 - For g = 1 this recovers the complete replicability of J.
 - Borcherds 1992 §3: properties (1)–(2) imply that Σ Tr(g|V_i)q^i is completely replicable for any automorphism g.
+- The general Serre/radical input terminates in the exact countable theorem supplied in triangular and root-space decomposition. The later restricted free-subalgebra theorem is applied only after the Monster degrees imply strictly negative pairings between distinct imaginary simple roots.
 
 <a id="QM-6-j-laurent-series"></a>
 
@@ -17229,11 +17341,14 @@ Source support:
 
 Direct prerequisites: [QM.0/q-pochhammer](#QM-0-q-pochhammer), `mathlib:ArithmeticFunction.sigma`, `mathlib:PowerSeries`, `mathlib:LaurentSeries`, `mathlib:HahnSeries.single`, `mathlib:ModularForm.E₄`, `mathlib:ModularForm.discriminant`.
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
+
 Construction or proof route:
 
-1. Build E₄(q) with ArithmeticFunction.sigma 3; (q;q)_∞ from QM.0; invert the unit (q;q)_∞^{24} in ℤ[[q]]; multiply by X^{−1} in LaurentSeries ℤ via HahnSeries.ofPowerSeries and HahnSeries.single.
-2. The listed coefficients are finite computations (decide/norm_num on truncations).
-3. Compatibility with the analytic j: Mathlib's discriminant_eq_q_prod gives Δ(τ) = q∏(1 − qⁿ)^{24}, the q-expansion of E₄ (Mathlib Eisenstein q-expansions) gives E₄(τ) = E₄(q), and the product/quotient of absolutely convergent expansions gives the Laurent expansion of E₄³/Δ (request to ModularForms Layer 0).
+1. Keep the formal construction over ℤ: E₄(q)=1+240Σσ₃(n)qⁿ and P(q)=Π_{n≥1}(1−qⁿ), with P(0)=1. Its inverse and powers are integral power series; define qj=E₄(q)³P(q)^{−24} and j=q^{−1}(qj). Each displayed coefficient is obtained by truncating through degree 6, which is a finite exact calculation.
+2. Import the current Tau Ceti JInputs module, specifically TauCeti.ModularForm.j_apply, j_mdifferentiable, j_smul, isBoundedAtImInfty_qParam_mul_j, hasSum_qExpansion_qParam_mul_j and qExpansion_qParam_mul_j_mul_qExpansion_discriminant. These are existing current-library inputs through ModularForms Layer 0; they are not declarations claimed at the older packet pin.
+3. The last identity says F·Δ_q=X E₄,q³ for F=qExpansion(qj). From the existing discriminant product and the QM.0 product-evaluation comparison, Δ_q=X P(q)^{24}; the Eisenstein expansion identifies E₄,q with the image of the integral E₄(q). Cancel X in ℂ[[q]] and multiply by the unit P(q)^{−24}. This identifies F coefficientwise with the image of the formal qj, at every index, rather than comparing only 744 and 196884.
+4. The imported convergent expansion for qj and q≠0 now give the asserted Laurent expansion on all of ℍ. The formal coefficients and the analytic function therefore have the same normalization and the same coefficients c(n); subtraction of 744 defines J in both models. Holomorphy, invariance and the simple-pole bound put analytic J in M^!_0.
 
 Uses that determine the API:
 
@@ -17380,12 +17495,14 @@ Source support:
 - [gannon2004](#reference-gannon2004), §3.3, p. 8. Argument via rational functions of j.
 - [milne2017](#reference-milne2017), Remark 4.4, p. 49. Geometric reason; the proof here uses weight-0 modular forms instead.
 
-Direct prerequisites: [QM.6/weakly-holomorphic-modular-function](#QM-6-weakly-holomorphic-modular-function), [QM.6/laurent-q-expansion](#QM-6-laurent-q-expansion), `mathlib:ModularFormClass.levelOne_weight_zero_const`.
+Direct prerequisites: [QM.6/weakly-holomorphic-modular-function](#QM-6-weakly-holomorphic-modular-function), [QM.6/laurent-q-expansion](#QM-6-laurent-q-expansion), `mathlib:ModularFormClass.levelOne_weight_zero_const`, [QM.6/j-laurent-series](#QM-6-j-laurent-series).
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
 
 Construction or proof route:
 
 1. Induction on N. N = 0: f is bounded at i∞, hence a weight-0 level-one modular form, hence constant (ModularFormClass.levelOne_weight_zero_const).
-2. N > 0: j ∈ M^!_0 has Laurent expansion q^{−1} + 744 + O(q) (ModularForms Layer 0), so j^N = q^{−N} + (higher powers); f − a_{−N} j^N ∈ M^!_0 has no powers below q^{−(N−1)}; apply the induction hypothesis.
+2. N > 0: j ∈ M^!_0 has Laurent expansion q^{−1} + 744 + O(q) (j-laurent-series, with its explicit current JInputs comparison), so j^N = q^{−N} + (higher powers); f − a_{−N} j^N ∈ M^!_0 has no powers below q^{−(N−1)}; apply the induction hypothesis.
 3. Uniqueness: j^n has leading term q^{−n}, so the j^n are linearly independent and a nonzero P(j) has leading term (lead P)·q^{−deg P}.
 
 Acceptance checks:
@@ -17462,11 +17579,14 @@ Source support:
 
 Direct prerequisites: [QM.6/weakly-holomorphic-modular-function](#QM-6-weakly-holomorphic-modular-function), [QM.6/formal-hecke-operator](#QM-6-formal-hecke-operator), [QM.6/laurent-q-expansion](#QM-6-laurent-q-expansion).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`.
+
 Construction or proof route:
 
-1. Coset decomposition: the integer matrices of determinant m are the disjoint union of the cosets SL₂(ℤ)·(a b; 0 d), ad = m, a ≥ 1, 0 ≤ b < d (request to ModularForms Layer 2; Milne Lemma 5.13, Remark 5.14); right multiplication by γ ∈ SL₂(ℤ) permutes these cosets, and f(δγτ) depends only on the coset of δγ by SL₂(ℤ)-invariance of f, so T_m f(γτ) = T_m f(τ).
-2. Holomorphy: finite sum of holomorphic functions. Meromorphy at i∞: if q^N f is bounded then q^{mN}·f((aτ+b)/d) is bounded.
-3. q-expansion: substitute f = Σ f_n e^{2πinτ} and use Σ_{b=0}^{d−1} e^{2πinb/d} = d·[d | n]: T_m f = Σ_{ad=m} (1/a) Σ_n f_{dn} q^{an}, whose q^N coefficient is Σ_{a|(m,N)} a^{−1} f_{mN/a²}.
+1. Import the all-positive-determinant integral-matrix coset framework from ModularForms Layer 2(a–b). The representatives are for the entire determinant-m set M_m, not only the single primitive double coset of diag(1,m). For clarity its rank-two normal-form specialization is: Bezout row operations send the first column of M to (a,0) with a>0 its positive gcd; det M=m forces the other diagonal entry d=m/a>0; adding multiples of the second row to the first reduces b modulo d. The result is (a b;0 d), ad=m, 0≤b<d.
+2. Uniqueness follows because an integral determinant-one left multiplier between two such matrices must be upper triangular with diagonal entries a′/a and d′/d and their reciprocals integral; positivity forces both to be 1, then b′−b is a multiple of d. Right multiplication by any γ∈SL₂(ℤ) bijects M_m and hence permutes these left cosets. Therefore the finite normalized sum (1/m)Σ_{ad=m,b<d}f((aτ+b)/d) is invariant. This argument works for every m≥1, including nonsquarefree m and scalar cosets.
+3. Each summand is holomorphic since a,d>0. If f has pole order at most N, then f((aτ+b)/d)=O(exp(2πNa Imτ/d)); since a/d≤m, the sum is O(exp(2πmN Imτ)). Thus it has at most a pole at the unique cusp. Together these facts construct the ℂ-linear endomorphism of M^!_0; preservation of weak holomorphy is established here rather than attributed to a holomorphic-only supplier operator.
+4. Absolute convergence allows substitution of f=Σ_n f_nq^n into the finite sum. Orthogonality Σ_{b<d}e(nb/d)=d[d∣n] yields T_m f=Σ_{ad=m}a^{−1}Σ_n f_{dn}q^{an}; its q^N coefficient is Σ_{a∣m,a∣N}a^{−1}f_{mN/a²}, with every a∣m included at N=0. This is exactly formalHecke, including the negative coefficients and T_m(1)=σ₁(m)/m.
 
 Uses that determine the API:
 
@@ -17510,9 +17630,11 @@ Source support:
 
 Direct prerequisites: [QM.6/weakly-holomorphic-hecke-operator](#QM-6-weakly-holomorphic-hecke-operator), [QM.6/modular-function-polynomial-in-j](#QM-6-modular-function-polynomial-in-j), [QM.6/j-laurent-series](#QM-6-j-laurent-series), [QM.6/formal-hecke-operator](#QM-6-formal-hecke-operator).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
+
 Construction or proof route:
 
-1. The analytic J = j − 744 lies in M^!_0 with Laurent expansion J (j-laurent-series compatibility, ModularForms Layer 0).
+1. Use the all-coefficient analytic/formal J comparison of j-laurent-series and its current JInputs imports: analytic J∈M^!_0 has Laurent expansion exactly the formal J, not merely the same initial coefficients.
 2. T_m J ∈ M^!_0 (weakly holomorphic Hecke operator), so T_m J = P_m(J) as functions by the polynomial theorem.
 3. Take Laurent expansions: laurentQExpansion is a ring homomorphism and laurentQExpansion(T_m J) = formalHecke m J; the leading term (1/m)q^{−m} fixes deg P_m = m and its leading coefficient.
 
@@ -17618,12 +17740,16 @@ Source support:
 - [gannon2004](#reference-gannon2004), §2, Definition 1, p. 4. Supplies the definition used by this node.
 - [borcherds1992](#reference-borcherds1992), §10, p. 29. The groups Γ_g of moonshine contain Γ₀(nh).
 
-Direct prerequisites: `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:Matrix.SpecialLinearGroup.map`.
+Direct prerequisites: `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:Matrix.SpecialLinearGroup.map`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`.
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-8-the-arithmetic-commensurator-criterion-and-pgl-passage`.
 
 Construction or proof route:
 
-1. Define IsMoonshineType Γ with the three conditions (DiscreteTopology on Γ with the subspace topology; Subgroup.map of Γ₀(N) under Matrix.SpecialLinearGroup.map (Int.castRingHom ℝ); the translation condition).
-2. Commensurability: Γ₀(N) has finite index in SL₂(ℤ), and a discrete group containing Γ₀(N) contains it with finite index (both have finite covolume; FuchsianOrbifolds Layer 2); hence Γ is cofinite with cusp set Γ\(ℚ ∪ {∞}).
+1. Keep the stated predicate and examples on SL₂(ℝ). Pass to PSL₂(ℝ) for the Fuchsian quotient; ±I already lies in Γ₀(N), so passing to projective images changes neither the overgroup index nor its cusp or translation assertions.
+2. Consume FuchsianOrbifolds Layer 8.1 (discrete overgroup of a lattice has finite index), together with the Layer-2 finite-area fundamental domain for Γ₀(N). Its elementary measure argument does not first assume Γ cofinite: choose a small positive-area ball B with disjoint translates under the discrete overgroup, away from elliptic stabilizers. Distinct Γ₀(N)\Γ cosets give disjoint copies of B in Γ₀(N)\ℍ. Finite total area bounds the number of cosets. A finite transversal then gives the covolume scaling formula and cofiniteness of Γ.
+3. The cusp comparison follows from finite index, not from discreteness alone. If a parabolic p∈Γ fixes x, the permutation of the finite coset set by powers of p has a period, so p^r∈Γ₀(N) for some r>0. It has the same unique fixed point x. An integral parabolic fixes a rational point or ∞. Conversely every rational point is fixed by a nontrivial parabolic in Γ₀(N), by conjugating a sufficiently large integral translation. Hence the two parabolic fixed-point sets are ℚ∪{∞}.
+4. Because Γ contains Γ₀(N) and has finite index over it, its intersection with SL₂(ℤ) has finite index in both groups. The explicit translation predicate makes the stabilizer width at ∞ exactly 1; it is not derived just from commensurability. The Γ₀(2)+ example uses the Fricke normalizer and its two cosets: the nonintegral coset has nonzero lower-left entry, so adds no translations.
 
 Uses that determine the API:
 
@@ -17715,6 +17841,8 @@ Source support:
 
 Direct prerequisites: [QM.6/normalized-hauptmodul](#QM-6-normalized-hauptmodul), [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.
+
 Construction or proof route:
 
 1. Descent and extension over cusps: f is Γ-invariant, holomorphic, with q-expansion at ∞ in the width-one parameter q (simple pole) and bounded at the other cusps (removable singularities) — FuchsianOrbifolds Layers 3–5.
@@ -17744,6 +17872,8 @@ Source support:
 
 Direct prerequisites: [QM.6/normalized-hauptmodul](#QM-6-normalized-hauptmodul), [QM.6/j-laurent-series](#QM-6-j-laurent-series), [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group).
 
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
+
 Construction or proof route:
 
 1. j is holomorphic on ℍ and SL₂(ℤ)-invariant with Laurent expansion q^{−1} + 744 + O(q) (ModularForms Layer 0); subtract 744.
@@ -17770,6 +17900,8 @@ Source support:
 - [gannon2004](#reference-gannon2004), §2, (2.8a), p. 4. Coefficients.
 
 Direct prerequisites: [QM.6/normalized-hauptmodul](#QM-6-normalized-hauptmodul), [QM.6/hauptmodul-genus-zero](#QM-6-hauptmodul-genus-zero), [QM.6/laurent-q-expansion](#QM-6-laurent-q-expansion), `mathlib:ModularForm.discriminant`, `mathlib:ModularForm.discriminant_ne_zero`, `mathlib:ModularForm.discriminant_S_invariant`, `mathlib:ModularForm.discriminant_T_invariant`, `mathlib:ModularForm.discriminant_eq_q_prod`, `mathlib:CongruenceSubgroup.Gamma0`.
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve`.
 
 Construction or proof route:
 
@@ -17816,28 +17948,45 @@ Acceptance checks:
 
 Hypotheses and conventions:
 
-- V♮ the FLM moonshine module (gap)
-- Monster character table (gap)
+- Use the concrete real model and faithful action constructed in the proof of this target. The seven characters are certified irreducible characters of the same presented Monster, through CFSGBasicProperties P2G/P2R/P2M, rather than an assumed ATLAS table.
 
 Source support:
 
 - [borcherds1992](#reference-borcherds1992), §3, property (3), p. 14. Statement in Borcherds' indexing.
 - [borcherds1992](#reference-borcherds1992), §9, p. 28–29. The proof by seven classes.
 - [gannon2004](#reference-gannon2004), §3, (3.1a)–(3.1b), p. 5. Dimension identities.
+- [miyamoto-moonshine-2004](#reference-miyamoto-moonshine-2004), Theorems3.20,3.25 and6.1; §7(7.1)–(7.10); Lemma9.6; §11.2, printed pp.559–564,575–580,588–590,594. Real code construction, locality reduction, positive form, holomorphic model and explicit lattice-sector comparison. Theorem9.5’s identification by group uniqueness is replaced by the presented-group supplier and restriction inverse.
+- [hohn-seysen-2025](#reference-hohn-seysen-2025), Lemma2.14 and Theorem2.16 with Proposition2.18, preprint pp.13–15. The exact form scale and the restriction isomorphism extend the concrete Griess action; no full-automorphism classification is used.
+- [bmw-monster-2024](#reference-bmw-monster-2024), §§1–2 and the character-table verification strategy, preprint pp.1–4. States precisely the group-theoretic assumptions and the independently verifiable character-data route.
+- [bmw-monster-certificate-2024](#reference-bmw-monster-certificate-2024), §7, preprint pp.32–37. Induction, integer-span witnesses, norm-one certification and all194 irreducibles give both the seven character rows and the necessary degree cutoff.
+- [abe-buhl-dong-2004](#reference-abe-buhl-dong-2004), §3, Theorem3.3 and surrounding mode bounds, preprint pp.5–6; §5, Definition5.1, Proposition5.2 and tensor-product argument in Theorem5.3, pp.10–11.. The precise finiteness or finite-code fusion input used in the local construction/restriction argument.
+- [dong-griess-lam-2007](#reference-dong-griess-lam-2007), §§4–6, pp.5–16: code-module induction, Hamming restriction, code words and the proofs of Lemma6.9 and Theorem6.10. Theorem6.8 is read as the intertwining-operator uniqueness input; the module-field generation proof is the usual Jacobi commutator induction.. The precise finiteness or finite-code fusion input used in the local construction/restriction argument.
+- [dong-griess-lam-2007](#reference-dong-griess-lam-2007), Lemma5.11, p.10, corrected as E632; proof pp.10–11 and Theorem6.10, p.16. The simple-current translation of fusion coefficients uses the two distinct β labels. The associativity proof gives the corrected formula directly.
 
-Direct prerequisites: [QM.6/moonshine-module-axioms](#QM-6-moonshine-module-axioms), [QM.6/mckay-thompson-series](#QM-6-mckay-thompson-series).
+Direct prerequisites: [QM.6/moonshine-module-axioms](#QM-6-moonshine-module-axioms), [QM.6/mckay-thompson-series](#QM-6-mckay-thompson-series), [QM.6/vertex-algebra-existence-theorem](#QM-6-vertex-algebra-existence-theorem), [QM.6/vertex-algebra-tensor-product](#QM-6-vertex-algebra-tensor-product), [QM.6/lattice-vertex-algebra](#QM-6-lattice-vertex-algebra), [QM.6/invariant-bilinear-form](#QM-6-invariant-bilinear-form), `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing`, `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality`.
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/CFSGBasicProperties#p2-lp2-r-conway-monster-and-baby-monster`, `tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one`.
 
 Construction or proof route:
 
-1. The irreducible 𝕄-modules of dimension ≤ dim V♮_6 are exactly those with characters χ_1, …, χ_7 (ATLAS), so the decompositions are determined by the values c_g(n) on seven classes g_1, …, g_7 with det(χ_i(g_j)) ≠ 0.
-2. Take g_1 of class 2B (Thompson series computed by FLM) and six elements of classes 3B, 5B, 7B, 9B, 13B, 15D in the centralizer 2^{1+24}.Co₁ of a 2B element, corresponding to fixed-point-free odd-order automorphisms of the Leech lattice (Co₁ classes 3A, 5A, 7A, 9A, 13A, 15C), for which FLM's formula gives 2Σ_n c_g(n)qⁿ = 1/η_g(q) + η_g(q)/η_g(q²) + η_g(q)/η_g(q^{1/2}) + η_g(q)/η_g(−q^{1/2}).
-3. det(χ_i(g_j)) = 35672555520 = 2^{22}·3^5·5·7 ≠ 0; compare the first coefficients (finite computation) to obtain the decompositions, and read off c_g(n) for all g from the character table.
-4. Dimension checks: 1 + 196883 = 196884, 1 + 196883 + 21296876 = 21493760, 2 + 2·196883 + 21296876 + 842609326 = 864299970, and 4 + 5·196883 + 3·21296876 + 2·842609326 + 18538750076 + 19360062527 + 293553734298 = 333202640600.
+1. Construct the real module internally before using any Monster character. Use Miyamoto’s code construction: S₈=RM(1,4) of length16 and dimension5, D₈=S₈⊥=RM(2,4); S♮ is generated by the three constant length16 blocks and the diagonal (α,α,α), α∈S₈, and D♮=(S♮)⊥. Thus dim S♮=7 and dim D♮=41, with minimum weights16 and4. Form the even free-fermion code algebra M_D=⊕_{β∈D}⊗_{j=1}^{48}L(1/2,β_j/2). Its multiplication is the restriction of the tensor free-fermion field with the usual code cocycle; real conjugation and the oscillator orthonormal form give its positive invariant form. The three Ising sectors have lowest weights0,1/2,1/16; their fusion is 0×h=h, (1/2)²=0, (1/2)×(1/16)=1/16 and (1/16)²=0⊕1/2. For the needed Hamming blocks these rules can be checked by fermion contractions and the two parity sectors of the half-integer oscillator module; they are the concrete rank-two input to Miyamoto Theorem3.20, not a request for an unplanned rational-VOA classification.
+2. For χ=(α,β,γ)∈S♮, β,γ each α or its complement, take the three E₈ lattice-VOA sectors specified by these words, tensoring the two complemented positions with R=M_{D₈+ξ₁} as in Miyamoto(7.10), and induce from D₈³ to D♮. Call the resulting M_D♮-module Wχ. Theorem3.20 gives Wχ×Wψ=Wχ+ψ. For each two-dimensional span of χ,ψ, the corresponding four-sector extension is local: intersecting supports are reduced by the sign involutions to the E₈³ extension; disjoint supports use the Hamming-frame change of Lemma3.17 (the coordinate cycle(243516)). These are the two cases in §7, pp.578–580. Now normalize the intertwining fields on a basis of S♮. Associativity makes their scalar discrepancy a 2-cocycle; locality makes it symmetric. Rescale basis fields and then their products to remove this cocycle, exactly the induction in Theorem3.25, pp.562–564. Applying the existing locality existence theorem gives V=⊕χWχ, vacuum, translation, c=24 and the positive real invariant form. This is the finite-code special construction inside the existing target, with no assumption that all abstract code extensions exist.
+3. The finite Ising character sum for this explicit code has no degree1 term and equals J after the vacuum q^{-1} shift. One may verify it by writing the three Ising characters as square roots of θ₂/η, θ₃/η, θ₄/η, applying the code weight enumerators, and using θ₃⁴=θ₂⁴+θ₄⁴ and the eta product; this is a polynomial identity in those square roots, whose positive leading branches are fixed. It gives dim V₂=196884, dim V₃=21493760, dim V₄=864299970 and dim V₆=333202640600. Holomorphic self-duality for this construction also follows directly from D♮=(S♮)⊥: an irreducible module has an S♮ sector; translate that sector to zero, then it is M_{D♮+a}; integer powers in its fields force a∈(S♮)⊥=D♮. Its degree0 vacuum then generates V. This is Theorem6.1’s argument, not Zhu modularity used to guess the character.
+4. Check the finiteness hypothesis of the restriction theorem explicitly. For the Ising vacuum algebra, the level6 singular vector has nonzero L₋₂³ coefficient; modulo C₂ all L₋ₙ, n≥3, vanish, so its quotient is spanned by1,ω,ω². Tensoring48 copies preserves C₂-finiteness because a C₂ term in any factor is a C₂ term in the tensor product. Our V is a finite direct sum of irreducible modules for this tensor algebra U. In each such module, commute modes into the ordered spanning form of Abe–Buhl–Dong Theorem3.3: negative modes are distinct and nonnegative modes have a uniform finite repetition bound. Modulo C₂^U only finitely many bounded words survive, as in Proposition5.2; the commutator and iterate identities reduce out-of-order words and repeated modes by induction on total weight and disorder. Thus each module quotient is finite-dimensional. Since C₂^U(V)⊂C₂(V), V is C₂-cofinite. This argument proves the hypothesis; self-duality alone is not substituted for it.
+5. Identify (V₂,a*b=a₁b) with the rational Griess algebra imported from CFSGBasicProperties P2G. This comparison has a finite coefficient check: the even Leech sector has Sym²(ℝ²⁴) of dimension300 and98280 pairs e^λ+e^{-λ}, λ²=4, and the twisted sector has ℝ²⁴⊗T of dimension24·4096=98304, where T is the irreducible module of the extraspecial double cover of Λ/2Λ. Obtain the Leech sector from the code by the paired-frame reconstruction in Miyamoto Lemma9.6, pp.588–590: commuting weight-one oscillators, their joint momentum weights and the code’s quarter-coordinate criterion identify the lattice with the explicit Leech supplier: decompose into simultaneous oscillator highest-weight spaces, use the invariant form to pair opposite weights, and compare their multiplicity-one exponential products and the allowed quarter-coordinate words with that supplier’s defining code conditions. This is a comparison with the constructed lattice, requiring no classification of rank24 unimodular lattices. The remaining sector is the half-integer oscillator module, with its T action fixed by the lattice cocycle. For these three basis types compute a₁b as the coefficient of z^{-2} in the oscillator contractions and lattice exponentials. Compare with the supplier’s rational multiplication tensor and bilinear tensor; the invariant form in the VOA is twice the normalized Griess form of Höhn–Seysen Lemma2.14. This fixes the unit ω/2, cocycle signs and scale; equality of dimensions alone is not the algebra comparison.
+6. The restriction Aut(Vℂ)→Aut(V₂ℂ,*,form) is an isomorphism by Höhn–Seysen Theorem2.16 and Proposition2.18, pp.14–15. Its proof is usable here independently of their later full-Monster identification: weight4 words generate the dimension41 code C, and the dimension7 code C⊥ is generated by sectors with lowest vectors in weight2. Hence fixing weight2 fixes every sector. Conversely a Griess isomorphism carries an Ising frame to an Ising frame, extends first to the code algebra and then to the simple-current sectors; the symmetric scalar cocycle argument above makes their products agree. Pull back the concrete Griess automorphisms M_alg and the isomorphism from the Y₄₄₃ presented Monster provided by CFSGBasicProperties P2R. The unique lift makes multiplication automatic. A real weight2 automorphism has real lift, since conjugation produces another lift with the same restriction. It fixes ω=2·unit and the normalized invariant form. Thus this gives the required injective homomorphism without assuming that an arbitrary abstract group called Monster is the presented one. For the simple-current assertion use Dong–Griess–Lam Proposition6.6 and Theorems6.7,6.10, pp.13–16: for each β∈S♮ the supported code contains |β|/8 self-dual Hamming blocks; induction from these blocks labels every irreducible M_C module by (β,γ mod C). Restriction of intertwining operators to a common Hamming subcode bounds their dimension by1; for the three weight24 supports use E+H_{β₂}=E+H_{β₁+β₂} as in Lemma6.9. The Leech lattice-sector products supply a nonzero operator, and translation by the zero-sector modules gives the addition rule for all γ. This is a finite-code fusion calculation for this C, not a general uniqueness hypothesis.
+7. Use the independently reconstructed character table of Breuer–Magaard–Wilson, with its hypotheses supplied by CFSGBasicProperties P2M, including the subgroup character/fusion and local representation inputs used in BMW Fact1 as well as its concrete Monster order, involution centralizers and faithful196883 representation. The finite certificate consists of class/power/fusion data, genuine subgroup induced characters from 2.B, 2^{1+24}.Co₁, 3^{1+12}.2.Suz.2, 3.Fi₂₄ and cyclic groups, and integer linear-combination witnesses. An integer virtual character of norm1 and positive degree is irreducible. Their §7 certificate yields194 mutually orthogonal rows whose degree squares sum to |M|; hence there is no omitted small-degree irreducible. Replaying those integer witnesses and scalar products, rather than assuming an oracle row is a character, supplies χ₁,…,χ₇ of the stated degrees and proves that every other degree exceeds dim V₆. CFSGBasicProperties supplies the group; this local finite calculation supplies the seven rows. The character-theory supplier supplies induction, scalar products and Maschke decomposition.
+8. For the seven classes (2B,3B,5B,7B,9B,13B,15D), the rows χ₁,…,χ₇ restricted to these columns are (1,1,1,1,1,1,1), (275,53,8,1,−1,−2,−1), (−2324,−130,1,6,5,3,−2), (12974,−221,−49,−15,−5,0,2), (123004,1598,76,14,5,2,−2), (−58305,1508,27,−6,−4,0,3), (98970,−3927,−77,−15,−12,−7,1). This matrix has determinant35672555520=2²²·3⁵·5·7. The rational columns are fixed by the class-fusion ambiguities in BMW §7; label them using order, power maps, centralizer and the196883 row, and identify the odd lifts of Co₁ classes3A,5A,7A,9A,13A,15C through the Leech supplier, rather than matching order alone.
+9. Compute the needed seven traces from the model: the2B involution is +1 on VΛ⁺ and−1 on VΛ^{T,+}; the other six are odd fixed-point-free Leech lifts in its centralizer. Their frame shapes are 3¹²/1¹²,5⁶/1⁶,7⁴/1⁴,9³/1³,13²/1²,15²/3². Applying the projector(1+θ)/2 to the integer and half-integer oscillator Fock products, and tracing on the4096-dimensional T, gives the four eta-products in Borcherds §9, pp.28–29. This derivation fixes the factors1/2 and the q^{1/2} sign; it does not import an unread FLM trace formula. Expanding only through weight6 gives, for n=1,2,3,5, respectively (276,54,9,2,0,−1,0), (−2048,−76,10,8,5,2,−2), (11202,−243,−30,−5,0,1,0), and (184024,−1384,−25,−10,−7,−2,−1). Solve against the invertible matrix. Semisimplicity and the degree cutoff then prove exactly the four stated decompositions. Evaluating these integer character combinations on every class gives the head coefficients, to be compared with the finite Hauptmodul formulas at the next target.
 
 Acceptance checks:
 
 - The dimension checks above hold (verified).
 - c_{2B}(1) = 276 = 1 + tr(2B|χ_2) with χ_2(2B) = 275.
+- The model construction precedes the character-table calculation and does not use monstrous moonshine to construct its group action.
+- The seven-by-seven determinant and all four trace vectors above are exact finite checks; the four dimensions and the first2B coefficient276 remain as inherited tests.
+- The table certificate must include virtual-character witnesses and completeness, not only an orthogonal numerical matrix. The code/Griess comparison must check products and the factor2 in the form.
+- Use the corrected opposite signs of e⁺/e⁻ and zero oscillator commutator from E629–E630 in the real code-frame comparison.
 
 <a id="QM-6-monstrous-moonshine-theorem"></a>
 
@@ -17854,346 +18003,452 @@ Source support:
 - [borcherds1992](#reference-borcherds1992), Theorem 1.1, p. 1–2. Statement.
 - [borcherds1992](#reference-borcherds1992), §9, p. 27. Structure of the final step.
 - [gannon2004](#reference-gannon2004), §3.1, p. 5. The conjecture proved.
+- [conway-norton-1979](#reference-conway-norton-1979), §5, printed pp.313–314; §11, pp.322–323; Tables2,3,3a,4a, pp.326–337. The finite group and function data; the multiplier kernel and the exact algebraic/product conventions are part of the comparison, not conclusions inferred from a four-coefficient fit.
+- [cummins-norton-1995](#reference-cummins-norton-1995), Theorem1.3 and §§2–3, pp.1203–1214; LemmaA.4 and PropositionA.5, pp.1216–1217. Ordinary replicability of rational Hauptmoduls and the explicit twelve-coefficient uniqueness theorem replace the unpublished complete-family comparison. The Fricke/Galois input is specified above.
 
-Direct prerequisites: [QM.6/moonshine-module-axioms](#QM-6-moonshine-module-axioms), [QM.6/moonshine-module-complete-replicability](#QM-6-moonshine-module-complete-replicability), [QM.6/replication-recursion](#QM-6-replication-recursion), [QM.6/monster-head-characters](#QM-6-monster-head-characters), [QM.6/normalized-hauptmodul](#QM-6-normalized-hauptmodul), [QM.6/hauptmodul-genus-zero](#QM-6-hauptmodul-genus-zero), [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group), [QM.6/mckay-thompson-series](#QM-6-mckay-thompson-series), [QM.6/laurent-q-expansion](#QM-6-laurent-q-expansion), `tauceti:TauCeti.SporadicName.Group`, `tauceti:TauCeti.Sporadic.Monster.presentation`.
+Direct prerequisites: [QM.6/moonshine-module-axioms](#QM-6-moonshine-module-axioms), [QM.6/moonshine-module-complete-replicability](#QM-6-moonshine-module-complete-replicability), [QM.6/replication-recursion](#QM-6-replication-recursion), [QM.6/monster-head-characters](#QM-6-monster-head-characters), [QM.6/normalized-hauptmodul](#QM-6-normalized-hauptmodul), [QM.6/hauptmodul-genus-zero](#QM-6-hauptmodul-genus-zero), [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group), [QM.6/mckay-thompson-series](#QM-6-mckay-thompson-series), [QM.6/laurent-q-expansion](#QM-6-laurent-q-expansion), `tauceti:TauCeti.SporadicName.Group`, `tauceti:TauCeti.Sporadic.Monster.presentation`, [QM.1/dedekind-eta-multiplier](#QM-1-dedekind-eta-multiplier), [QM.1/ligozat-cusp-order](#QM-1-ligozat-cusp-order), [QM.1/jacobi-triple-product-analytic](#QM-1-jacobi-triple-product-analytic), `tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing`, `tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients`.
+
+Current upstream prerequisites (separate from the historical baseline): `tauceti:TauCetiRoadmap/CFSGBasicProperties#p2-lp2-r-conway-monster-and-baby-monster`.
 
 Construction or proof route:
 
-1. FLM (gap 'FLM moonshine module'): V♮ satisfies the moonshine-module axioms and FLM's Monster acts faithfully by conformal isometries; identify FLM's Monster with the presented group (gap 'Identification of the Monster').
-2. Complete replicability (moonshine-module-complete-replicability): for every g, s ↦ T_{g^s} is a replication family, so T_g is determined by c_{g^s}(n), n ∈ {1, 2, 3, 5}, s ≥ 1 (replication-recursion).
-3. Head characters (monster-head-characters): these numbers equal the corresponding coefficients of the Conway–Norton functions t_{g^s}.
-4. The Conway–Norton functions form replication families with t_{g^s} as replicates (Koike; gap 'Conway–Norton functions'): by the recursion theorem T_g = t_g for all g.
-5. Each t_g is the normalized Hauptmodul of the explicit moonshine-type group Γ_g ⊇ Γ₀(o(g)h) of Conway–Norton's Table 2 (gap 'Conway–Norton functions'); by hauptmodul-genus-zero Γ_g has genus 0.
+1. Use the concrete real code model, Griess comparison and faithful presented-Monster action constructed in monster-head-characters. Its character is J and its form is positive. Thus the existence and presented-group clauses do not remain assumptions labelled FLM or ATLAS.
+2. The denominator identity already gives complete replicability of every T_g with replicates T_{g^s}. The replication recursion determines this family from the coefficients of degrees1,2,3,5 on all power classes. By monster-head-characters these are explicit integer combinations of the first seven certified character rows. Compute recursively through degree23, keeping the actual power map. This is a finite calculation over ℤ: no assumption about the replicates of the Conway–Norton functions is involved. In particular each resulting T_g has rational integer coefficients.
+3. For every distinct rational Monster row in Conway–Norton Table2, construct f_g using Tables3,3a,4a, with the normalization q^{-1}+0+O(q). The notation in Table3a is a product with permuted root-of-unity coefficients as defined on p.333, not an ordinary shifted eta function in the three exceptional non-Monster Z cases. Exclude those Z rows; retain the171 rational Monster functions, allowing distinct Monster classes to have the same function. Interpret n|h+e₁,… as the kernel of the order-h multiplier on its Atkin–Lehner eigengroup, as in §5, pp.313–314. The kernel contains Γ₀(nh), and h|gcd(24,n). This distinction is essential when h>1.
+4. The finite Hauptmodul verification for these formulas uses only the already planned eta/theta laws and Fuchsian quotient/degree geometry. For an eta product calculate each transformed leading exponent and multiplier from its exponent vector, and enumerate rational cusps using Γ₀(nh) cosets. For a theta expression use Poisson on its explicit binary quadratic lattice. Products are nonzero in ℍ; for sums, quotients and algebraic roots in Table4a, clear denominators and bound the divisor of the resulting modular relation on Γ₀(nh). Verify it by a finite q-jet longer than that divisor degree (multiply by a suitable power of Δ to obtain a holomorphic positive-weight form and apply the valence bound). This is an exact finite certificate, not a numerical q fit. The same cusp valuations select the normalized root and show that it has no interior pole and precisely one simple pole on the multiplier-kernel quotient, at∞. A function of divisor degree1 gives an isomorphism of the compact quotient with ℙ¹, so f_g is its normalized Hauptmodul. Check width∞=1 on the kernel, the Γ₀(nh) containment and the rational product expansions in each row. These checks also establish the rationality and precise translation stabilizer required by Cummins–Norton Theorem1.3.
+5. Apply Cummins–Norton Theorem1.3 to each f_g: it is ordinarily replicable. The needed Galois input in their §2 can be implemented from the full-level elliptic curve and the explicit Fricke functions: Γ(N)-functions are generated by j and the normalized x-coordinates of N-torsion. These coordinates distinguish a level basis modulo±1, so their degree over the j-field equals the full-level coset count. Their theta/Weierstrass q-series lie in ℚ(ζ_N)((q^{1/N})); applying ζ_N↦ζ_N^a acts by the determinant-a basis change, and rational matrix substitution changes the level by at most its determinant. This proves their Corollary2.3 and Proposition2.4 by the displayed matrix calculation, rather than importing Shimura’s restricted book. The full ordered-basis and determinant action are consumed from ModularCurves Layer5B, with its finite quotient from9D; the analytic Fricke q-series comparison is local. Cummins–Norton §3 then cancels cusp principal parts of the proposed replicate difference; boundedness on the compact quotient makes it constant, and its zero constant term makes it zero.
+6. Compare the twelve coefficients with indices1,2,3,4,5,7,8,9,11,17,19,23. On the T_g side obtain them from the already established complete-family recursion and the certified head characters; on the f_g side expand the explicit products/theta/algebraic formulas to degree23. This is a finite integer certificate for each rational row and its power-class label. Ordinary replicability suffices: in the logarithmic Faber coefficients H_{m,n}, equal product and gcd give equal values. Cummins–Norton LemmaA.4 supplies m+n=i+1, m′+n′<i+1 for every i outside the twelve indices, so H_{m,n}=H_{m′,n′} expresses the next coefficient in smaller ones. Induction, PropositionA.5 p.1217, proves T_g=f_g as formal Laurent series. Thus Koike’s unpublished assertion that all t_{g^s} are the specific replicates is unnecessary.
+7. Analytic identity follows in a sufficiently high half-plane from convergence of each explicit Hauptmodul series, with formal equality giving that realization of T_g. The quotient map therefore proves genus0 for the stated Γ_g. Return from projective positive rational matrices to determinant-one real representatives and include−I. Test g=1 and2B using the existing analytic J and Γ₀(2) targets. For15D the function is (η(3τ)/η(15τ))², with f³=T_{5B}(3τ)−6 and f(τ+1/3)=e(−1/3)f(τ). Its fixing group is the index3 character kernel containing Γ₀(45), not the entire conjugate of Γ₀(5); this catches the author-copy group misidentification in Borcherds §9 p.29.
 
 Acceptance checks:
 
 - g = 1: T_1 = J, Γ_1 = SL₂(ℤ) (moonshine-identity-thompson-series).
 - g ∈ 2B: T_g = q^{−1}Π(1 − q^{2n−1})^{24} + 24, Γ_g = Γ₀(2) (gamma0-two-hauptmodul).
 - Borcherds 1992 Theorem 1.1.
+- The finite comparison checks all twelve specified indices for every rational Monster row, not only degrees1,2,3,5 of a single function.
+- A certificate row includes the formula, multiplier kernel, cusp valuations, divisor/valence bound, normalized q-jet and power-class label; an unproved genus-zero table entry is insufficient.
+- The genus-zero/replicability step uses Cummins–Norton Theorem1.3 and PropositionA.5, with no claim that ordinary replicability identifies a prescribed complete family.
+- At15D, translation by1/3 is an eigenaction and is excluded from the fixing group; Γ₀(45) is included.
 
 ## Gaps and supplier boundaries
 
-These are exact mathematical or source obligations. A recorded route to a supplier is a planning boundary, not a claim that its service is implemented. No layer is closed.
+These two series-identification obligations remain open. Supplier services are planning dependencies, not implementation claims. No layer is closed.
 
-### Gap 1: Jacobi-symbol closed form of exp(πi s(h, k))
-
-The identity between the Dedekind-sum root of unity exp(πi s(h, k)) of the eta multiplier and the Jacobi-symbol expressions of Hardy–Ramanujan (1.721)–(1.722), Lehmer (1.4)–(1.5) and Whiteman (1.2)–(1.3) is stated in those sources but proved in none read for this layer (its proofs are in Rademacher's 1932 Crelle paper, Rademacher–Grosswald's Dedekind Sums and Knopp's Modular Functions in Analytic Number Theory, Ch. 4, none of them public). It is equivalent to the Dedekind-sum congruences 12hk·s(h, k) ≡ h² + 1 (mod θk), θ = gcd(3, k), and 12k·s(h, k) ≡ k + 1 − 2(h | k) (mod 8) for k odd, with the even-k analogue. The identity was verified numerically for all k ≤ 40. Closing it needs either a public proof of these congruences or the Petersson–Rademacher Jacobi-symbol form of the eta multiplier as a node of QM.1, from which the lemma follows by comparing the two forms at (H, −K; k, −h). The exact formula, the asymptotic and the effective bounds do not depend on it.
-
-Needed by: [QM.2/kloosterman-sum-rademacher-jacobi-form](#QM-2-kloosterman-sum-rademacher-jacobi-form), [QM.2/lehmer-exponent-form](#QM-2-lehmer-exponent-form), [QM.2/lehmer-exponent-congruences](#QM-2-lehmer-exponent-congruences), [QM.2/kloosterman-sum-rademacher-mul-odd](#QM-2-kloosterman-sum-rademacher-mul-odd), [QM.2/kloosterman-sum-rademacher-mul-two-power](#QM-2-kloosterman-sum-rademacher-mul-two-power), [QM.2/kloosterman-sum-rademacher-double-odd](#QM-2-kloosterman-sum-rademacher-double-odd).
-
-### Gap 2: Hickerson's identities for the seventh-order mock theta functions
+### Gap 1: Hickerson's identities for the seventh-order mock theta functions
 
 Zwegers takes the indefinite double sums (Hickerson, Invent. Math. 94 (1988), p. 666) as the definitions of F₀, F₁, F₂. Their equality with Ramanujan's Eulerian series (F₀ = Σq^{n²}/(q^{n+1};q)_n, etc.) is Hickerson's theorem, not public and not planned (it is a formal q-series identity, naturally in QM.0's scope). The definitions and all QM.4 theorems stand without it; only the identification with Ramanujan's functions needs it. Checked numerically to q^{14} for F₀.
 
 Needed by: [QM.4/seventh-order-mock-theta-functions](#QM-4-seventh-order-mock-theta-functions).
 
-### Gap 3: Winquist's identity and the 11-dissection for the crank mod 11
-
-The proof of M(k, 11, 11n + 6) = p(11n + 6)/11 needs Winquist's identity (J. Combin. Theory 6 (1969) 56–59) expressing (q;q)_∞²(a)_∞(q/a)_∞(b)_∞(q/b)_∞(ab)_∞(q/ab)_∞(a/b)_∞(qb/a)_∞ as a double theta series, and the 11-dissection of that series at a = ζ₁₁², b = ζ₁₁⁵ (Garvan, Trans. Amer. Math. Soc. 305 (1988), §6). Neither source was available (publisher pages refuse non-browser access), and no roadmap plans Winquist's identity; its natural owner is QSeriesPartitionsAndMockModularForms:QM.0 (formal q-series identities).
-
-Needed by: [QM.5/crank-mod-eleven](#QM-5-crank-mod-eleven), [QM.5/ramanujan-congruence-mod-eleven](#QM-5-ramanujan-congruence-mod-eleven).
-
-### Gap 4: The rank dissections of Atkin–Swinnerton-Dyer
-
-The 5- and 7-dissections of R(ζ₅; q) and R(ζ₇; q) (Atkin–Swinnerton-Dyer, Proc. London Math. Soc. (3) 4 (1954) 84–106; equivalently Ramanujan's lost-notebook identity (4.4) of Garvan's Urbana paper) are stated but not proved in the read sources.
-
-Needed by: [QM.5/atkin-swinnerton-dyer-theorem](#QM-5-atkin-swinnerton-dyer-theorem).
-
-### Gap 5: Choi's identity and the Bringmann–Folsom dissection of Zwegers' R
-
-Folsom–Ono–Rhoades quote Choi's identity (their Theorem 3.1, from Ramanujan's lost notebook Entry 3.4.7) and the dissection of R(v; z) from Bringmann–Folsom (their Lemma 3.4 cites [12, Proposition 2.3]); neither primary proof was read.
-
-Needed by: [QM.5/choi-identity](#QM-5-choi-identity), [QM.5/rank-mixed-mock-asymptotic](#QM-5-rank-mixed-mock-asymptotic).
-
-### Gap 6: Character and multiplier-system versions of the Bringmann–Rolen theorem
-
-Bringmann–Rolen prove quantum modularity of f̃ for f ∈ S_k(N) with trivial character. Kontsevich's φ needs η (the η multiplier on SL₂(ℤ), or η(24τ) with character χ₁₂) and the Poincaré sphere needs the pair Θ± with a Weil-representation multiplier. The nodes adapt the proof (the multiplier replaces χ₋₄(d)ε_d^{2(2−k)}(c/d) in the transformation law, and periodic L-functions ZMod.LFunction replace Lemma 2.2), but no read source carries out the adaptation; Zagier (Topology 40, §6) and Lawrence–Zagier (§4) give only sketches.
-
-Needed by: [QM.5/kontsevich-quantum-modular](#QM-5-kontsevich-quantum-modular), [QM.5/poincare-sphere-quantum-modular](#QM-5-poincare-sphere-quantum-modular).
-
-### Gap 7: The Frenkel–Lepowsky–Meurman moonshine module V♮ and its Monster action
-
-Needed statement: there is a real vertex operator algebra V♮ satisfying QM.6/moonshine-module-axioms (central charge 24, positive definite invariant form with trivial involution, q^{−1}·graded dimension = J, hence V♮_0 = ℝ1 and V♮_1 = 0) together with a finite group 𝕄_FLM ≤ Aut(V♮, ω, (·,·)) acting faithfully; moreover (FLM trace formula, Borcherds (9.2)) for g in the centralizer 2^{1+24}.Co₁ of a 2B element acting on the Leech lattice Λ by an odd-order fixed-point-free automorphism with eigenvalues ε_1, …, ε_24, 2Σ_n tr(g|V♮_{n+1})qⁿ = 1/η_g(q) + η_g(q)/η_g(q²) + η_g(q)/η_g(q^{1/2}) + η_g(q)/η_g(−q^{1/2}) with η_g(q) = Π_i η(ε_i q), and T_{2B} = q^{−1}Π(1 − q^{2n−1})^{24} + 24. Source: Frenkel–Lepowsky–Meurman, Vertex Operator Algebras and the Monster (Academic Press 1988), Theorem 12.3.1 and Corollary 12.5.4 (not public; the announcement PNAS 81 (1984) 3256–3260, PMC345262, is public but has no proofs). The construction needs the Leech lattice supplied by TauCetiRoadmap/IntegralLattices Layer 6E (the explicit rootless rank-24 even unimodular reference lattice; no classification theorem is needed here), its lattice vertex algebra V_Λ (node lattice-vertex-algebra), the ±1-twisted V_Λ-module, the fixed-point subalgebra V_Λ⁺ and the vertex algebra structure on V_Λ⁺ ⊕ (V_Λ^T)⁺, and the Griess algebra V♮_2. Public alternative constructions: Dong–Griess–Höhn, arXiv:q-alg/9707008 (framed vertex operator algebras); not decomposed here.
-
-Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters), [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
-
-### Gap 8: Identification of the automorphism group of V♮ with the presented Monster
-
-Needed statement: the group 𝕄_FLM (equivalently Aut(V♮, ω, (·,·))) is isomorphic to TauCeti.SporadicName.Group SporadicName.M, the Y₄₄₃ Coxeter group modulo the spider relator and Ivanov's f₃₁₂. Inputs: Ivanov, Y-groups via transitive extension, J. Algebra 218 (1999) 412–435 (Y₄₄₃/⟨f₃₁₂⟩ ≅ 𝕄 for the Monster of Griess/Conway) and the uniqueness of the Monster (Griess–Meierfrankenfeld–Segev, Ann. of Math. 130 (1989)); neither is decomposed in the atlas (CFSGStatement S1 records only the presentation).
-
-Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
-
-### Gap 9: Character table data of the Monster used in Borcherds' final step
-
-Needed data (Conway–Curtis–Norton–Parker–Wilson, ATLAS of Finite Groups, 1985; not public): the irreducible characters χ_1, …, χ_7 of 𝕄 of degrees 1, 196883, 21296876, 842609326, 18538750076, 19360062527, 293553734298 are exactly the irreducibles of degree ≤ 333202640600; their values on the classes 2B, 3B, 5B, 7B, 9B, 13B, 15D (whose determinant is 35672555520 = 2^{22}·3^5·5·7); the power maps of 𝕄; and the correspondence of these classes with the Co₁ classes 3A, 5A, 7A, 9A, 13A, 15C (cycle shapes 3⁹/1³, 5⁶/1⁶, 7⁴/1⁴, 9³/1³, 13²/1², 15·5/3·1 in Borcherds' notation 3^{12}1^{−12} etc.). Formal verification needs a computer-checked character table of 𝕄 (RepresentationTheory/CharacterTheory Layer 6 algorithm is not applicable to 𝕄 directly).
-
-Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
-
-### Gap 10: The Conway–Norton functions and their replicability
-
-Needed statements: for each conjugacy class [g] of 𝕄 the explicit moonshine-type group Γ_g ⊇ Γ₀(o(g)h), h | gcd(24, o(g)), and its normalized Hauptmodul t_g (Conway–Norton, Monstrous moonshine, Bull. London Math. Soc. 11 (1979) 308–339, Table 2; not public), with the Hauptmodul property verified group by group; and Koike's theorem (On replication formula and Hecke operators, Nagoya preprint; not public; also Ferenbaugh, J. Algebra 179 (1996), and Cummins–Norton, Canad. J. Math. 47 (1995)) that s ↦ t_{g^s} is a replication family in the sense of QM.6/completely-replicable-function; plus the first coefficients of t_g (Conway–Norton Table 4). Borcherds' route uses these as imported facts.
-
-Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
-
-### Gap 11: Selberg–Whiteman bridge for the odd Rademacher root comparison
-
-The finite conversion S_k(n)=(3|k)√k B_k(n), for gcd(k,6)=1, remains decomposed by the earlier phase continuation. The present Fischer continuation additionally decomposes the specialized H-sum and the finite reductions (3.1)–(3.34), including arbitrary representatives and comparison with (2.7). The remaining input is still A_k(n)=S_k(n) in the existing Dedekind normalization: Whiteman’s finite Fourier coefficients and nonunit cancellation, completion of squares, the general quadratic Gauss evaluations used in Fischer (3.41)–(3.47), the subsequent H-evaluations, and the multiplier congruences/identification are not fully decomposed. Fischer’s full extracted text was read for context; p.87 and pp.89–92 were visually inspected, but this is not a full equation collation of §§1–4. The Gauss-sum square over a finite field already in Mathlib does not settle the positive-phase evaluation of composite-modulus quadratic exponential sums. Do not duplicate a generic character-sum object here; resolve missing generic evaluations with the existing finite-sum owners before planning them. No numerical or exact finite regression proves the missing eta/Fourier equality. Whiteman §§1–4, pp.159–167, and the later prime-power/CRT proofs pp.168–175 were read independently in round 2; the missing mathematical decomposition is unchanged. This is no longer an unread-source worklist.
-
-Needed by: [QM.2/rademacher-selberg-formula](#QM-2-rademacher-selberg-formula), [QM.2/rademacher-odd-root-comparison](#QM-2-rademacher-odd-root-comparison).
-
-### Gap 12: Finite Weil image and scalar-subgroup comparison for the Lawrence–Zagier pair
-
-Orders of the displayed S/T matrices do not prove finite projective image. Request MP.4 for the complete finite Weil representation on D=ℤ/60ℤ with Q(r)=r²/120, its finite-image/congruence-kernel theorem and the χ± subrepresentation; request MP.7 for the scalar half-weight adapter. The inspected finiteWeil prototype contains operators rather than that full theorem. Account for the metaplectic extension and branch cocycle before defining the finite-index scalar subgroup Γρ.
-
-Needed by: [QM.5/lawrence-zagier-theta-transformation](#QM-5-lawrence-zagier-theta-transformation), [QM.5/poincare-sphere-quantum-modular](#QM-5-poincare-sphere-quantum-modular).
-
-### Gap 13: Alternation of the vertex-algebra quotient over arbitrary base rings
-
-The inherited proof infers u₀u∈DV from2u₀u∈DV without requiring2 invertible. Borcherds1986 states a quotient construction, but its alternating-bracket argument over rings with2-torsion has not been established here. Retain the general target with this gap; characteristic0 consumers admit the division. The zero-mode divided-translation lemma must also be proved directly rather than cancelling i!.
-
-Needed by: [QM.6/vertex-algebra-lie-algebra](#QM-6-vertex-algebra-lie-algebra).
-
-### Gap 14: General Borcherds Serre presentation and root-pairing nondegeneracy
-
-The general root-pairing claim requires equality of the Serre ideal with the maximal graded ideal avoiding the Cartan. Jurisich1998 pp.6–7 cites nontrivial external results for arbitrary matrices; its Corollary5.3 proves a restricted case. The inherited outline does not provide the general theorem. Retain the general target and record this dependency rather than applying that corollary outside its hypotheses.
-
-Needed by: [QM.6/borcherds-algebra-triangular-decomposition](#QM-6-borcherds-algebra-triangular-decomposition), [QM.6/borcherds-characterisation-theorem](#QM-6-borcherds-characterisation-theorem).
-
-### Gap 15: Fifth-order Eulerian-series identification
+### Gap 2: Fifth-order Eulerian-series identification
 
 The eight corrected double sums and both six-component completions, unary corrections and S/T matrices are explicit. Identifying these definitions with Ramanujan’s classical Eulerian fifth-order series requires the Andrews identities cited by Zwegers §4.4 pp.71–73, together with absolute convergence, denominator nonvanishing and the justified double-sum interchanges. The Andrews primary proof has not been collated or decomposed here; source identities with the third/eighth corrections are not certified by small coefficients. No congruence kernel is inferred from the generator matrices alone.
 
 Needed by: [QM.4/fifth-order-mock-theta-functions](#QM-4-fifth-order-mock-theta-functions), [QM.4/fifth-order-indefinite-theta-identities-first-six](#QM-4-fifth-order-indefinite-theta-identities-first-six), [QM.4/fifth-order-completion-first-six](#QM-4-fifth-order-completion-first-six), [QM.4/fifth-order-decomposition-and-transformation-first-six](#QM-4-fifth-order-decomposition-and-transformation-first-six), [QM.4/fifth-order-indefinite-theta-identities-last-four](#QM-4-fifth-order-indefinite-theta-identities-last-four), [QM.4/fifth-order-completion-and-transformation-last-four](#QM-4-fifth-order-completion-and-transformation-last-four).
 
-### Gap 16: Exact finite Weil, scalar Kohnen and multivariate Poisson adapters
+### Replacement routes for inherited proof obligations
 
-Round 2 read the MP.4 finiteWeil prototype, MP.7 theta contracts and AL.0 Poisson scope. MP.4 supplies operators with a Fourier convention requiring conjugation, but no complete congruence-kernel representation theorem; MP.7 theta contracts import QM.1 and cannot independently supply its missing scalar comparison. AL.0 has adelic Schwartz Poisson theory without the precise shifted ℤ^r real adapter required by nodes300/303. The scalar Kohnen plus-space/U4 and elliptic multiplicity comparisons needed by the trace route are not supplied by the inspected contracts. Keep requests0/6/11/24 precise; source acquisition and the now-accepted MP.0 packet do not close these adapters. Revision3 derives the torsion specialization directly in node residue-function-modularity; that local transformation argument needs neither a growth condition nor the finite Weil/Kohnen/Poisson adapters. The generic MP.6 carrier and dictionary remain requested separately.
+The following are author-supplied repairs at target-planning depth. They await an independent assessment; the historical gap descriptions remain in the packet’s revision-4 disposition.
 
-Needed by: [QM.1/theta-decomposition-weil-representation](#QM-1-theta-decomposition-weil-representation), [QM.4/indefinite-theta-s-transformation](#QM-4-indefinite-theta-s-transformation), [QM.4/indefinite-theta-characteristics-s](#QM-4-indefinite-theta-characteristics-s), [QM.5/modular-diagonal-log-derivative](#QM-5-modular-diagonal-log-derivative), [QM.5/trace-first-recursion](#QM-5-trace-first-recursion), [QM.5/weight-two-trace-proposition](#QM-5-weight-two-trace-proposition), [QM.5/trace-second-recursion](#QM-5-trace-second-recursion), [QM.5/zagier-traces-theorem](#QM-5-zagier-traces-theorem).
+- **Jacobi-symbol closed form of exp(πi s(h, k))** — [QM.2/kloosterman-sum-rademacher-jacobi-form](#QM-2-kloosterman-sum-rademacher-jacobi-form), [QM.2/lehmer-exponent-form](#QM-2-lehmer-exponent-form), [QM.2/lehmer-exponent-congruences](#QM-2-lehmer-exponent-congruences), [QM.2/kloosterman-sum-rademacher-mul-odd](#QM-2-kloosterman-sum-rademacher-mul-odd), [QM.2/kloosterman-sum-rademacher-mul-two-power](#QM-2-kloosterman-sum-rademacher-mul-two-power), [QM.2/kloosterman-sum-rademacher-double-odd](#QM-2-kloosterman-sum-rademacher-double-odd). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Winquist's identity and the 11-dissection for the crank mod 11** — [QM.5/crank-mod-eleven](#QM-5-crank-mod-eleven), [QM.5/ramanujan-congruence-mod-eleven](#QM-5-ramanujan-congruence-mod-eleven). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **The rank dissections of Atkin–Swinnerton-Dyer** — [QM.5/atkin-swinnerton-dyer-theorem](#QM-5-atkin-swinnerton-dyer-theorem). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Choi's identity and the Bringmann–Folsom dissection of Zwegers' R** — [QM.5/choi-identity](#QM-5-choi-identity), [QM.5/rank-mixed-mock-asymptotic](#QM-5-rank-mixed-mock-asymptotic). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Character and multiplier-system versions of the Bringmann–Rolen theorem** — [QM.5/twisted-cusp-form-l-function](#QM-5-twisted-cusp-form-l-function), [QM.5/twisted-l-function-vertical-growth](#QM-5-twisted-l-function-vertical-growth), [QM.5/kontsevich-quantum-modular](#QM-5-kontsevich-quantum-modular), [QM.5/lawrence-zagier-theta-transformation](#QM-5-lawrence-zagier-theta-transformation), [QM.5/poincare-sphere-quantum-modular](#QM-5-poincare-sphere-quantum-modular). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **The Frenkel–Lepowsky–Meurman moonshine module V♮ and its Monster action** — [QM.6/monster-head-characters](#QM-6-monster-head-characters). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Identification of the automorphism group of V♮ with the presented Monster** — [QM.6/monster-head-characters](#QM-6-monster-head-characters). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Character table data of the Monster used in Borcherds' final step** — [QM.6/monster-head-characters](#QM-6-monster-head-characters). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **The Conway–Norton functions and their replicability** — [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Selberg–Whiteman bridge for the odd Rademacher root comparison** — [QM.2/rademacher-odd-root-comparison](#QM-2-rademacher-odd-root-comparison), [QM.2/rademacher-selberg-formula](#QM-2-rademacher-selberg-formula). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Finite Weil image and scalar-subgroup comparison for the Lawrence–Zagier pair** — [QM.5/lawrence-zagier-theta-transformation](#QM-5-lawrence-zagier-theta-transformation), [QM.5/poincare-sphere-quantum-modular](#QM-5-poincare-sphere-quantum-modular). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Alternation of the vertex-algebra quotient over arbitrary base rings** — [QM.6/vertex-algebra-lie-algebra](#QM-6-vertex-algebra-lie-algebra). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **General Borcherds Serre presentation and root-pairing nondegeneracy** — [QM.6/borcherds-algebra-triangular-decomposition](#QM-6-borcherds-algebra-triangular-decomposition), [QM.6/borcherds-characterisation-theorem](#QM-6-borcherds-characterisation-theorem), [QM.6/monster-lie-algebra-is-borcherds-algebra](#QM-6-monster-lie-algebra-is-borcherds-algebra), [QM.6/monster-lie-algebra-simple-roots](#QM-6-monster-lie-algebra-simple-roots), [QM.6/monster-lie-algebra-free-decomposition](#QM-6-monster-lie-algebra-free-decomposition), [QM.6/twisted-denominator-identity](#QM-6-twisted-denominator-identity), [QM.6/moonshine-module-complete-replicability](#QM-6-moonshine-module-complete-replicability). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Exact finite Weil, scalar Kohnen and multivariate Poisson adapters** — [QM.1/theta-decomposition-weil-representation](#QM-1-theta-decomposition-weil-representation), [QM.4/indefinite-theta-s-transformation](#QM-4-indefinite-theta-s-transformation), [QM.4/indefinite-theta-characteristics-s](#QM-4-indefinite-theta-characteristics-s), [QM.5/zagier-trace-form](#QM-5-zagier-trace-form), [QM.5/zagier-trace-form-recursions](#QM-5-zagier-trace-form-recursions), [QM.5/weight-two-heegner-function](#QM-5-weight-two-heegner-function), [QM.5/modular-diagonal-log-derivative](#QM-5-modular-diagonal-log-derivative), [QM.5/trace-first-recursion](#QM-5-trace-first-recursion), [QM.5/weight-two-trace-proposition](#QM-5-weight-two-trace-proposition), [QM.5/trace-second-recursion](#QM-5-trace-second-recursion), [QM.5/zagier-traces-theorem](#QM-5-zagier-traces-theorem). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Poincaré-sphere WRT closed-form supplier comparison** — [QM.5/lawrence-zagier-radial-limit](#QM-5-lawrence-zagier-radial-limit), [QM.5/lawrence-zagier-ohtsuki-expansion](#QM-5-lawrence-zagier-ohtsuki-expansion), [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Analytic JInputs and all-index weight-zero Hecke adapters** — [QM.6/j-laurent-series](#QM-6-j-laurent-series), [QM.6/modular-function-polynomial-in-j](#QM-6-modular-function-polynomial-in-j), [QM.6/weakly-holomorphic-hecke-operator](#QM-6-weakly-holomorphic-hecke-operator), [QM.6/hecke-transform-of-j](#QM-6-hecke-transform-of-j). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
+- **Arithmetic containment for moonshine-type Fuchsian groups** — [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group). Author-supplied repair at target-planning depth; not an independent acceptance or an implementation certificate.
 
-### Gap 17: Poincaré-sphere WRT closed-form supplier comparison
-
-The QT.4 invariant/evaluation/Ohtsuki contracts were compared with request10. They do not give the explicit orientation-normalized Poincaré-sphere finite formula or modified-Euler-number Ohtsuki formula used by nodes381–383. Lawrence–Zagier §§1–3, pp.93–102, supplies the displayed statements and reductions, while their exact topological evaluation input remains the specified supplier request.
-
-Needed by: [QM.5/lawrence-zagier-radial-limit](#QM-5-lawrence-zagier-radial-limit), [QM.5/lawrence-zagier-ohtsuki-expansion](#QM-5-lawrence-zagier-ohtsuki-expansion), [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
-
-### Gap 18: Analytic JInputs and all-index weight-zero Hecke adapters
-
-Milne version1.31 pp.49–50,58,72–74 was freshly read; Theorem4.22 is on p.58, corrected here. Requests15/16 still require the exact analytic JInputs and every-n weight-zero coset/invariance adapters. The current ModularForms Layer0 and Layer2 contracts were read; do not treat positive-weight cusp-form Hecke statements as the arbitrary invariant function with a cusp pole needed by node464.
-
-Needed by: [QM.6/j-laurent-series](#QM-6-j-laurent-series), [QM.6/modular-function-polynomial-in-j](#QM-6-modular-function-polynomial-in-j), [QM.6/weakly-holomorphic-hecke-operator](#QM-6-weakly-holomorphic-hecke-operator), [QM.6/hecke-transform-of-j](#QM-6-hecke-transform-of-j).
-
-### Gap 19: Arithmetic containment for moonshine-type Fuchsian groups
-
-Current FuchsianOrbifolds Layers2–5 supply cofinite-group geometry, cusp extension and degree-one compact-surface theory. Request18 additionally needs the arithmetic lemma that a discrete SL2(ℝ) subgroup containing Γ0(N) is cofinite, contains Γ0(N) with finite index and has parabolic fixed points exactly ℙ1(ℚ). That exact containment theorem is absent from the inspected supplier contract. The separate FLM/Monster/character-table/Conway–Norton gaps remain in their own records.
-
-Needed by: [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group).
-
-### Revised proof obligations awaiting independent review
-
-The following inherited gap records were moved to revision3Disposition because the existing nodes now give a proof route. Their original records remain in the packet; the independent review object has not been changed.
-
-**Specialisation of Jacobi-type functions at torsion points (Eichler–Zagier Theorem 1.3) without growth condition.** [QM.4/residue-function-modularity](#QM-4-residue-function-modularity). Replaced by the explicit target-level proof route in the existing nodes; a revision claim pending independent review, not a formalized theorem.
-
-**Special-function identities with complex parameters.** [QM.5/incomplete-gamma-mellin-poles](#QM-5-incomplete-gamma-mellin-poles), [QM.5/gamma-vertical-decay](#QM-5-gamma-vertical-decay). Replaced by the explicit target-level proof route in the existing nodes; a revision claim pending independent review, not a formalized theorem.
-
-**Invariant form on lattice vertex algebras (Dong; Frenkel–Huang–Lepowsky).** [QM.6/lattice-vertex-algebra-invariant-form](#QM-6-lattice-vertex-algebra-invariant-form). Replaced by the explicit target-level proof route in the existing nodes; a revision claim pending independent review, not a formalized theorem.
-
-**Vertical Stirling asymptotic with a quantitative error.** [QM.5/gamma-vertical-decay](#QM-5-gamma-vertical-decay). Replaced by the explicit target-level proof route in the existing nodes; a revision claim pending independent review, not a formalized theorem.
-
-**No-ghost transverse generation: nondegeneracy on the generated subspace.** [QM.6/no-ghost-transverse-generation](#QM-6-no-ghost-transverse-generation), [QM.6/no-ghost-transverse-space](#QM-6-no-ghost-transverse-space), [QM.6/no-ghost-spurious-states](#QM-6-no-ghost-spurious-states), [QM.6/no-ghost-physical-decomposition](#QM-6-no-ghost-physical-decomposition), [QM.6/no-ghost-theorem](#QM-6-no-ghost-theorem). Replaced by the explicit target-level proof route in the existing nodes; a revision claim pending independent review, not a formalized theorem.
+The six partial layers retain the additional open targets stated in their coverage records. The earlier revision dispositions in the packet remain historical evidence, not a current gap register.
 
 ## Supplier requests
 
-### Request 1: MetaplecticAutomorphicForms:MP.7
+Each request states the precise imported service and its consumers. Current/open upstream readings are recorded separately below. No request asserts that an upstream implementation exists. Historical independent request reviews in the packet predate this revision’s added or narrowed comparisons.
+
+### Request 1: `MetaplecticAutomorphicForms:MP.7`
 
 Classical half-integral-weight automorphy factors and multiplier systems on SL(2, ℤ) and its finite-index subgroups: for r ∈ ½ℤ, γ = (a b; c d) ∈ SL(2, ℤ), τ ∈ ℍ, the principal-branch factor j(γ, τ)^r = exp(r·Log(cτ + d)) (arg ∈ (−π, π]); the sign cocycle σ_r(γ₁, γ₂) = j(γ₁, γ₂τ)^r j(γ₂, τ)^r / j(γ₁γ₂, τ)^r, independent of τ, in {±1}, equal to 1 for r ∈ ℤ and, for r ∈ ½ + ℤ, given by Petersson's rule σ(γ₁, γ₂) = −1 iff sgn γ₁ = sgn γ₂ ≠ sgn(γ₁γ₂), where sgn γ = +1 if c > 0 or (c = 0, d < 0) and −1 otherwise (Savitt, Lemma 4.6); the weight-r slash f|_rγ = j(γ, ·)^{−r}·f(γ·) with (f|γ₁)|γ₂ = σ_r(γ₁, γ₂)^{−1}·f|(γ₁γ₂); the definition of a multiplier system of weight r on a finite-index Γ ≤ SL(2, ℤ): v : Γ → ℂ with |v| = 1, v(γ₁γ₂) = σ_r(γ₁, γ₂)v(γ₁)v(γ₂) and v(−1) = e^{−πir} when −1 ∈ Γ; and the spaces of holomorphic, cuspidal and weakly holomorphic modular forms of weight r and multiplier v on Γ (holomorphic f with f|_rγ = v(γ)f, with the growth condition at every cusp measured through the cusp parameter κ ∈ [0, 1) of v). For the Jacobi-form consumers, also expose the underlying cocycle consistency law without the scalar normalization at −I: a Jacobi multiplier’s value there determines z-parity. In particular v_η³ has value i and weight-1/2 cocycle consistency, so it cannot inhabit the normalized scalar weight-1/2 multiplier type (whose central value is −i).
 
 Needed by: [QM.1/eta-multiplier-is-multiplier-system](#QM-1-eta-multiplier-is-multiplier-system), [QM.1/eta-quotient-transformation](#QM-1-eta-quotient-transformation), [QM.1/eta-multiplier-gamma0-four](#QM-1-eta-multiplier-gamma0-four), [QM.1/theta-transformation-theta-group](#QM-1-theta-transformation-theta-group), [QM.1/theta-multiplier-is-multiplier-system](#QM-1-theta-multiplier-is-multiplier-system), [QM.1/jacobi-form](#QM-1-jacobi-form), [QM.1/jacobi-cusp-form](#QM-1-jacobi-cusp-form), [QM.1/weak-jacobi-form](#QM-1-weak-jacobi-form), [QM.1/weakly-holomorphic-jacobi-form](#QM-1-weakly-holomorphic-jacobi-form).
 
-### Request 2: MetaplecticAutomorphicForms:MP.7
+### Request 2: `MetaplecticAutomorphicForms:MP.7`
 
 Shimura's theta multiplier on Γ₀(4) as a theorem about the function θ(τ) = Σ_{n∈ℤ} e^{2πin²τ} (= Mathlib's jacobiTheta(2τ)): for every γ = (a b; c d) ∈ Γ₀(4) and τ ∈ ℍ, θ(γτ) = (c/d)·ε_d^{−1}·(cτ + d)^{1/2}·θ(τ), principal branch, where (c/d) is the extended Jacobi symbol ((c/d) = (c/|d|) for d > 0, (c/d) = sgn(c)·(c/|d|) for d < 0, (0/±1) = 1) and ε_d = 1 if d ≡ 1 (mod 4), ε_d = i if d ≡ 3 (mod 4); i.e. the automorphy factor j_θ(γ, τ) = θ(γτ)/θ(τ) that defines classical half-integral-weight forms M_{k/2}(Γ₀(4N), χ) in MP.7's convention.
 
 Needed by: [QM.1/theta-gamma-two-transformation](#QM-1-theta-gamma-two-transformation), [QM.1/theta-eta-multiplier-matches-shimura](#QM-1-theta-eta-multiplier-matches-shimura).
 
-### Request 3: MetaplecticAutomorphicForms:MP.7
+### Request 3: `MetaplecticAutomorphicForms:MP.4`
 
-The classical metaplectic group Mp₂(ℤ) = {(γ, φ) : γ ∈ SL(2, ℤ), φ holomorphic on ℍ, φ(τ)² = cτ + d} with (γ₁, φ₁)(γ₂, φ₂) = (γ₁γ₂, φ₁(γ₂τ)φ₂(τ)), generated by T̃ = (T, 1) and S̃ = (S, √τ); for an even lattice L of signature (b⁺, b⁻) with discriminant group L′/L and q(x) = (x, x)/2, the Weil representation ρ_L : Mp₂(ℤ) → GL(ℂ[L′/L]) with ρ_L(T̃)e_α = e(q(α))e_α and ρ_L(S̃)e_α = i^{(b⁻−b⁺)/2}|L′/L|^{−1/2}Σ_β e(−(α, β))e_β (a representation: the relations S̃² = (S̃T̃)³, S̃⁸ = 1 hold); and the spaces of holomorphic and weakly holomorphic vector-valued modular forms of weight κ ∈ ½ℤ for ρ_L (f(γτ) = φ(τ)^{2κ}ρ_L(γ̃)f(τ)).
+The genuine unitary finite Weil representation of Mp₂(ℤ) attached to an even lattice/discriminant quadratic module, with the normalized T, Fourier S, Gauss phase and central character from current §4.7. QM.1 fixes the positive rank-one and contragredient conventions locally; MP.7 supplies the modular-form carrier rather than a second finite-Weil construction.
 
 Needed by: [QM.1/theta-decomposition-weil-representation](#QM-1-theta-decomposition-weil-representation).
 
-### Request 4: tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+
+### Request 4: `tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve`
 
 For every finite-index subgroup Γ″ ≤ SL(2, ℤ) acting freely on ℍ (e.g. Γ(3) ∩ core(Γ)): the compactified modular curve X(Γ″) as a compact Riemann surface with charts q_c = e(σ_c^{−1}τ/h_c) at the cusps c (width h_c), and the divisor D = Σ_c c of the cusps.
 
 Needed by: [QM.3/xi-surjective-free-normal](#QM-3-xi-surjective-free-normal), [QM.3/borcherds-obstruction-theorem](#QM-3-borcherds-obstruction-theorem).
 
-### Request 5: tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology
+### Request 5: `tauceti:TauCetiRoadmap/ModularForms#10b--compact-riemann-surface-cohomology`
 
 For a holomorphic line bundle L on a compact Riemann surface X: (a) Dolbeault — every smooth L-valued (0,1)-form ω is ∂̄f for a smooth section f whenever H¹(X, L) = 0 (equivalently H¹(X, L) ≅ E^{0,1}(X, L)/∂̄E^{0,0}(X, L)); (b) Serre duality for invertible sheaves, H¹(X, L)^∨ ≅ H⁰(X, Ω ⊗ L^{−1}) with the residue pairing; (c) Mittag-Leffler: for a non-empty finite set S ⊂ X, the obstruction to meromorphic sections of L holomorphic off S with prescribed principal parts at S is H¹(X, L), dual to H⁰(X, Ω ⊗ L^{−1}) via residues.
 
 Needed by: [QM.3/xi-surjective-free-normal](#QM-3-xi-surjective-free-normal), [QM.3/borcherds-obstruction-theorem](#QM-3-borcherds-obstruction-theorem).
 
-### Request 6: tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas
+### Request 6: `tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas`
 
 For Γ″ as above and every k ∈ ℤ (odd k allowed, −I ∉ Γ″): the weight-k automorphy line bundle L_k on X(Γ″) whose sections over U are the Γ″-invariant weight-k holomorphic functions on π^{−1}(U) holomorphic at the cusps in U; the isomorphism Ω_X ≅ L_2 ⊗ O(−D) (weight-2 cusp forms = holomorphic differentials); and H⁰(X, L_κ ⊗ O(−nD)) = 0 for n > κ·[PSL₂(ℤ) : Γ̄″]/12 (valence bound).
 
 Needed by: [QM.3/xi-surjective-free-normal](#QM-3-xi-surjective-free-normal), [QM.3/borcherds-obstruction-theorem](#QM-3-borcherds-obstruction-theorem).
 
-### Request 7: AutomorphicLFunctionsAndLocalFactors:AL.0
-
-Poisson summation on ℝ^r for the lattice ℤ^r (the archimedean, lattice form of the adelic Poisson summation of AL.0): for f a Schwartz function on ℝ^r with Fourier transform f̂(ξ) = ∫_{ℝ^r} f(x)e^{−2πi⟨x,ξ⟩}dx, Σ_{n∈ℤ^r} f(n + x) = Σ_{m∈ℤ^r} f̂(m)e^{2πi⟨m,x⟩} for all x ∈ ℝ^r, both sides absolutely convergent. Mathlib 082e2d3 has only the case r = 1 (Real.tsum_eq_tsum_fourier_of_rpow_decay, SchwartzMap.tsum_eq_tsum_fourier).
-
-Needed by: [QM.4/indefinite-theta-s-transformation](#QM-4-indefinite-theta-s-transformation).
-
-### Request 8: HabiroCyclotomicCompletions:HC.1
+### Request 7: `HabiroCyclotomicCompletions:HC.1`
 
 The Habiro ring ℤ[q]^ = lim_n ℤ[q]/((q;q)_n) as a complete topological ring, with the convergence criterion that Σ_n a_n(q)(q;q)_n converges for arbitrary a_n ∈ ℤ[q] (more generally Σ b_n with b_n ∈ ((q;q)_{m_n}), m_n → ∞). QM.5 defines Kontsevich's F = Σ (q;q)_n as an element of this ring.
 
 Needed by: [QM.5/kontsevich-strange-series](#QM-5-kontsevich-strange-series).
 
-### Request 9: HabiroCyclotomicCompletions:HC.3
+### Request 8: `HabiroCyclotomicCompletions:HC.3`
 
 For every root of unity ξ: the evaluation ring homomorphism ev_ξ : ℤ[q]^ → ℤ[ξ] with ev_ξ(Σ a_n(q;q)_n) = Σ_{n<ord ξ} a_n(ξ)(ξ;ξ)_n, independent of the truncation; the Taylor map T_ξ : ℤ[q]^ → ℤ[ξ][[q − ξ]] whose constant term is ev_ξ, and its composite with the substitution q = ξe^{−t} into ℂ[[t]]; compatibility with field automorphisms, σ(ev_ξ F) = ev_{σ(ξ)} F.
 
 Needed by: [QM.5/kontsevich-strange-series](#QM-5-kontsevich-strange-series), [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
 
-### Request 10: HabiroCyclotomicCompletions:HC.4
+### Request 9: `HabiroCyclotomicCompletions:HC.4`
 
 Evaluation rigidity for ℤ[q]^ (Habiro, Cyclotomic completions, Theorem 6.1 in its infinite-set form): an element whose evaluations ev_ξ vanish at all roots of unity is zero. QM.5 uses it to say that a Habiro element is determined by the radial limits it is compared with.
 
 Needed by: [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
 
-### Request 11: ArithmeticQuantumTopology:QT.4
+### Request 10: `ArithmeticQuantumTopology:QT.4`
 
-(a) The Lawrence–Rozansky closed formula for the sl₂ WRT invariant Z(ξ) of the Poincaré homology sphere Σ(2, 3, 5) at every root of unity ξ of order K: with ζ a primitive 120K-th root of unity with ζ^{120} = ξ and G = Σ_{β mod 60K}ζ^{−β²}, ξ(ξ − 1)Z(ξ) = (2G)^{−1}Σ_{β mod 60K, K∤β}(1 − ζ^{24β})(1 − ζ^{40β})/(1 + ζ^{60β})·ζ^{−(β+1)²}, in the orientation of Σ(2, 3, 5) and the normalisation Z(S³) = 1 of QT.4/WRT-invariant-at-a-root. (b) Lawrence's closed form of the Ohtsuki series of Σ(2, 3, 5): with W_∞(h) = h(1 + h)Z_∞(h), 2(1 + h)^{1/120}W_∞(h) = (1 + h)^{30(B̄−4/15)²} − (1 + h)^{30(B̄−1/15)²}, where the powers of B̄ are the modified Euler numbers with e^{zB̄} = sech(z/4), in the normalisation of QT.4/ohtsuki-series.
+The sl₂ WRT invariant of a specified oriented framed surgery link, its Kirby/signature normalization with Z(S³)=1, cyclotomic field and Galois covariance, and its Ohtsuki/prime Taylor compatibility. The exact Poincaré-sphere finite sum, modified-Euler coefficients and orientation comparison are proved locally in QM.5/poincare-sphere-wrt, poincare-sphere-bernoulli and poincare-sphere-ohtsuki; no unprovided specialized Lawrence–Rozansky formula is imported.
 
 Needed by: [QM.5/lawrence-zagier-radial-limit](#QM-5-lawrence-zagier-radial-limit), [QM.5/lawrence-zagier-ohtsuki-expansion](#QM-5-lawrence-zagier-ohtsuki-expansion), [QM.5/poincare-sphere-unified-invariant-radial-limit](#QM-5-poincare-sphere-unified-invariant-radial-limit).
 
-### Request 12: MetaplecticAutomorphicForms:MP.7
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
 
-Classical half-integral weight forms: for k ∈ ½ + ℕ₀ and 4 | N, the cusp forms S_k(N, χ) on Γ₀(N) with Shimura's multiplier f|_kγ = ε_d^{2k}(c/d)(cτ + d)^{−k}f(γτ), decaying exponentially at every cusp; the decomposition S_k(Γ₁(N)) = ⊕_χ S_k(N, χ); the Fricke involution g|_kW_M ∈ S_k(M, χ(M/·)); and, for weakly holomorphic forms on Γ₀(4), Kohnen's plus space M^{!,+}_{k+1/2} with the operator U₄ and the facts that for g ∈ M^{!,+}_{3/2} and θ = Σq^{n²}, (gθ)|U₄ ∈ M^!_2(SL₂(ℤ)) and [g, θ]|U₄ ∈ M^!_4(SL₂(ℤ)) for the first Rankin–Cohen bracket [g, θ] = g′θ − 3gθ′.
+### Request 11: `MetaplecticAutomorphicForms:MP.7`
+
+Classical half-weight automorphy factors and cusp forms with unitary multiplier on finite-index subgroups, with exponential decay of every transformed cusp expansion. The rational-cusp scalar Mellin comparison is proved locally at twisted-l-function-entire, and the particular rank-one scalar U₄/Rankin–Cohen comparison at the trace targets. A generic Fricke-nebentypus or Kohnen-plus theorem is not an unstated input.
 
 Needed by: [QM.5/nonholomorphic-eichler-integral](#QM-5-nonholomorphic-eichler-integral), [QM.5/nonholomorphic-eichler-transformation](#QM-5-nonholomorphic-eichler-transformation), [QM.5/nonholomorphic-eichler-nontangential-limit](#QM-5-nonholomorphic-eichler-nontangential-limit), [QM.5/twisted-cusp-form-l-function](#QM-5-twisted-cusp-form-l-function), [QM.5/zagier-trace-form](#QM-5-zagier-trace-form), [QM.5/zagier-trace-form-recursions](#QM-5-zagier-trace-form-recursions).
 
-### Request 13: tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+
+### Request 12: `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`
 
 The normalised modular invariant j = E₄³/Δ on ℍ (module ModularForms.LevelOne.JInputs), its SL₂(ℤ)-invariance and q-expansion j = q⁻¹ + 744 + 196884q + ⋯, the identities (2πi)⁻¹dj/dτ = −E₄²E₆/Δ and j − 1728 = E₆²/Δ, and its injectivity on SL₂(ℤ)\ℍ (from the X(1) ≃ ℙ¹ statement of layer 10).
 
 Needed by: [QM.5/modular-trace](#QM-5-modular-trace), [QM.5/weight-two-heegner-function](#QM-5-weight-two-heegner-function), [QM.5/modular-diagonal-log-derivative](#QM-5-modular-diagonal-log-derivative), [QM.5/weight-two-trace-proposition](#QM-5-weight-two-trace-proposition).
 
-### Request 14: tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one
+### Request 13: `tauceti:TauCetiRoadmap/ModularForms#layer-11-the-eichlerselberg-trace-formula-level-one`
 
 The Hurwitz class numbers H(D) defined by reduced positive definite binary quadratic forms of discriminant −D with the weights 1/2 and 1/3, with H(3) = 1/3, H(4) = 1/2; QM.5 identifies Σ_{Q∈Q_d/Γ}1/w_Q with H(d) and uses H(d) as the constant terms of the functions Λ_d.
 
 Needed by: [QM.5/heegner-quadratic-forms](#QM-5-heegner-quadratic-forms), [QM.5/weight-two-heegner-function](#QM-5-weight-two-heegner-function).
 
-### Request 15: tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields
+### Request 14: `tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields`
 
 The integral-weight Eichler integral of a cusp form f = Σ a_mq^m of weight k ≥ 2, Σ_{m≥1}(a_m/m^{k−1})q^m (eichlerCoeff), with Bol's identity D^{k−1}f̃ = f; QM.5's eichler-integral extends this convention to real weight and must agree with it for integer weight.
 
 Needed by: [QM.5/eichler-integral](#QM-5-eichler-integral).
 
-### Request 16: tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus
+### Request 15: `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`
 
-The normalized modular function j := E₄³/Δ : ℍ → ℂ (the JInputs module of Layer 0): j is holomorphic on ℍ and SL₂(ℤ)-invariant, τ ↦ e^{2πiτ}j(τ) is bounded as Im τ → ∞, and j(τ) = Σ_{n≥−1} c_j(n)e^{2πinτ} for all τ ∈ ℍ (absolutely convergent) with c_j(−1) = 1, c_j(0) = 744, c_j(1) = 196884 and all c_j(n) ∈ ℤ; in Laurent-series form, the Laurent q-expansion of j equals q^{−1}E₄(q)³Π_{n≥1}(1 − qⁿ)^{−24}, E₄(q) = 1 + 240Σσ₃(n)qⁿ.
+Current JInputs supplies analytic j, invariance, holomorphy, bounded qj, its convergent expansion and the all-coefficient identity F·Δ=X·E₄³. The local formal argument uses Δ=XP²⁴, cancels X and the unit P²⁴, and identifies every coefficient with the integral formal J. No finite initial-coefficient comparison is substituted for the full identity.
 
 Needed by: [QM.6/hecke-transform-of-j](#QM-6-hecke-transform-of-j), [QM.6/j-laurent-series](#QM-6-j-laurent-series), [QM.6/j-normalized-hauptmodul](#QM-6-j-normalized-hauptmodul), [QM.6/modular-function-polynomial-in-j](#QM-6-modular-function-polynomial-in-j).
 
-### Request 17: tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
 
-Level-one coset representatives for the Hecke operators at every n ≥ 1: the set M(n) of integer 2×2 matrices of determinant n is the disjoint union of the cosets SL₂(ℤ)·(a b; 0 d) over a, d ≥ 1 with ad = n and 0 ≤ b < d, and for every γ ∈ SL₂(ℤ) right multiplication by γ permutes these cosets (stated for arbitrary functions ℍ → ℂ invariant under SL₂(ℤ), in weight 0, so that it applies to functions with poles at the cusp).
+### Request 16: `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`
+
+The generic integral Hecke/coset framework. The local QM.6 proof treats every integer matrix of positive determinant m, constructs the full Hermite representatives by Bézout, and extends the normalized weight0 sum to weakly holomorphic functions. It proves cusp growth and the all-index coefficient formula, including scalar cosets and m=1; a primitive single double coset is not substituted for all matrices.
 
 Needed by: [QM.6/weakly-holomorphic-hecke-operator](#QM-6-weakly-holomorphic-hecke-operator).
 
-### Request 18: tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+
+### Request 17: `tauceti:TauCetiRoadmap/ModularForms#10a--the-analytic-modular-curve`
 
 For N ≥ 1, the cusps of Γ₀(N) are the Γ₀(N)-orbits on ℙ¹(ℚ) with the explicit representatives of the layer; in particular Γ₀(2) has exactly two cusps, represented by ∞ and 0, with widths 1 and 2.
 
 Needed by: [QM.6/gamma0-two-hauptmodul](#QM-6-gamma0-two-hauptmodul).
 
-### Request 19: tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups
-
-A discrete subgroup Γ ≤ SL₂(ℝ) containing the image of Γ₀(N) for some N ≥ 1 is a cofinite Fuchsian group; Γ₀(N) has finite index in Γ, and the parabolic fixed points of Γ are exactly ℚ ∪ {∞}.
-
-Needed by: [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group).
-
-### Request 20: tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates
+### Request 18: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`
 
 For a cofinite Fuchsian group Γ with (1 t; 0 1) ∈ Γ ⟺ t ∈ ℤ: the cusp datum at ∞ has width 1 and q-coordinate e^{2πiτ}; the Laurent/q-expansion criterion: a Γ-invariant holomorphic function on ℍ that is O(|q|^{−N}) near ∞ descends and extends meromorphically over the cusp with pole order ≤ N, and one bounded near a cusp extends holomorphically.
 
 Needed by: [QM.6/hauptmodul-genus-zero](#QM-6-hauptmodul-genus-zero).
 
-### Request 21: tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces
+### Request 19: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces`
 
 The compactified quotient X(Γ) of a cofinite Fuchsian group Γ is a compact connected Riemann surface, with cusp charts given by the q-coordinates.
 
 Needed by: [QM.6/hauptmodul-genus-zero](#QM-6-hauptmodul-genus-zero).
 
-### Request 22: tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications
+### Request 20: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`
 
 Degree theory on compact Riemann surfaces: a nonconstant meromorphic function on X(Γ) with exactly one pole, of order one, defines a holomorphic map X(Γ) → ℙ¹ of degree one, hence a biholomorphism (RiemannSurface.biholomorphOfDegreeEqOne, with biholomorphOfDegreeEqOne_toFun) and genus X(Γ) = 0; descent of Γ-invariant meromorphic functions to X(Γ).
 
 Needed by: [QM.6/hauptmodul-genus-zero](#QM-6-hauptmodul-genus-zero).
 
-### Request 23: tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine
+### Request 21: `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine`
 
 For the sl₂-triple of a real Lie algebra acting on a module that is a direct sum of finite-dimensional sl₂-modules with integral h-weights (for example a locally finite module): complete reducibility into the V(n), and for a finite-dimensional module M with weight spaces M_μ, the maps e^k : M_{−j} → M_{−j+2k} are injective for 0 ≤ k ≤ j (and f^k symmetrically); an integrable lowest-weight module generated by a vector of weight −n (n ∈ ℕ) is the (n+1)-dimensional irreducible V(n).
 
 Needed by: [QM.6/borcherds-algebra-free-subalgebra](#QM-6-borcherds-algebra-free-subalgebra), [QM.6/borcherds-characterisation-theorem](#QM-6-borcherds-characterisation-theorem), [QM.6/monster-lie-algebra-free-decomposition](#QM-6-monster-lie-algebra-free-decomposition), [QM.6/monster-lie-algebra-simple-roots](#QM-6-monster-lie-algebra-simple-roots).
 
-### Request 24: tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ
+### Request 22: `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`
 
 The Poincaré–Birkhoff–Witt theorem for an arbitrary (possibly infinite-dimensional) Lie algebra L over a field of characteristic 0: the PBW filtration of U(L) has associated graded algebra canonically isomorphic to Sym(L), naturally in Lie algebra homomorphisms (in particular equivariant for Lie algebra automorphisms), with the ordered-monomial basis for any well-ordered basis of L; consequences U(L) = U(L₁)U(L₂) for L = L₁ ⊕ L₂ as vector spaces with L₁, L₂ subalgebras.
 
 Needed by: [QM.6/free-lie-algebra-character-formula](#QM-6-free-lie-algebra-character-formula), [QM.6/no-ghost-spurious-states](#QM-6-no-ghost-spurious-states), [QM.6/no-ghost-transverse-space](#QM-6-no-ghost-transverse-space), [QM.6/no-ghost-transverse-generation](#QM-6-no-ghost-transverse-generation).
 
-### Request 25: MetaplecticAutomorphicForms:MP.6
+### Request 23: `MetaplecticAutomorphicForms:MP.6`
 
-The Jacobi theory that the verified finding RT-AREA-automorphic-1/20 gives to MetaplecticAutomorphicForms, planned once and before MP.7: the Jacobi group H(W) ⋊ Sp(W) with its metaplectic cover and unitary analogue, its Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems and cusp conditions, Fourier–Jacobi coefficients and the theta decomposition. The fix proposes a sub-stage of MP.6 for it (research/blueprint/redteam/RT-AREA-automorphic-1.fixes.md, 'MP.6:jacobi'); the request names MP.6 because that sub-stage is not yet an atlas stage. QM.1 needs the instance in which Sp(W) = SL₂ and the index is a positive definite half-integral n × n matrix F (2F integral with even diagonal), as in Skoruppa, arXiv:0707.0718, §4; QM.1 itself uses n = 1 and F = m. (a) Group. For Γ ≤ SL(2, ℤ), J_n(Γ) = Γ ⋉ (ℤⁿ × ℤⁿ) with (A, (λ, μ))(A′, (λ′, μ′)) = (AA′, (λ, μ)A′ + (λ′, μ′)) and (λ, μ)A = (λa + μc, λb + μd) for A = (a b; c d); the same for Γ ≤ Mp₂(ℤ), acting through its image in SL(2, ℤ); and its relation to the Jacobi group H(W) ⋊ Sp(W), whose lattice points act on functions of index F through J_n(Γ) up to the central scalars of the Heisenberg group. (b) Action. For k ∈ ℤ, the right action of J_n(Γ) on functions φ on ℍ × ℂⁿ: (φ|_{k,F}A)(τ, z) = (cτ + d)^{−k}·e(−cF[z]/(cτ + d))·φ(Aτ, z/(cτ + d)) and (φ|_{k,F}[λ, μ])(τ, z) = e(τF[λ] + 2zᵗFλ)·φ(τ, z + λτ + μ), with F[x] = xᵗFx and e(x) = e^{2πix}; for k ∈ ½ + ℤ the same with (cτ + d)^{−k} replaced by w(τ)^{−2k} for (A, w) ∈ Mp₂(ℤ) (MP.7's group). (c) Forms. For Γ of finite index in Mp₂(ℤ), a finite-dimensional Γ-module V and k ∈ ½ℤ: the space J_{k,F}(Γ, V) of holomorphic φ : ℍ × ℂⁿ → V with φ|_{k,F}g = g·φ for all g ∈ J_n(Γ) (ℤⁿ × ℤⁿ acting trivially on V), such that for every α ∈ Mp₂(ℤ) the function φ|_{k,F}α has a Fourier expansion Σ c(l, r)·q^l·e(zᵗr) over l ∈ ℚ, r ∈ ℤⁿ with 4l − F⁻¹[r] ≥ 0; and its subspace of cusp forms, with 4l − F⁻¹[r] > 0. For V = ℂ(ψ), ψ a character of Mp₂(ℤ), the multiplier in QM.1's sense is v(A) = ψ(A, w_A), w_A the principal branch of (cτ + d)^{1/2}; no value of v(−I) is imposed. (d) Half-integral scalar index, n = 1 and m ∈ ½ + ℤ: a treatment under which Zwegers' ϑ(z; τ) is a Jacobi form of weight 1/2 and index 1/2 with multiplier v_η³. Either of two forms serves: through the centre of the Heisenberg group, where the operators U_m[λ, μ]φ(τ, z) = e(m(λ²τ + 2λz + λμ))·φ(τ, z + λτ + μ) satisfy U_m[X′]∘U_m[X] = e(m(λμ′ − λ′μ))·U_m[X + X′] and (U_m[X]φ)|_{k,m}A = U_m[XA](φ|_{k,m}A) for all real m and X; or through φ(τ, z) ↦ φ(τ, 2z), which multiplies the index by 4, so that ϑ(2z; τ) lies in J_{1/2,2}(Mp₂(ℤ), ℂ(ε³)) with ε(A, w) = η(Aτ)/(w(τ)η(τ)). (e) Theta decomposition, at the level of the Heisenberg group: for each τ, every entire function of z ∈ ℂⁿ invariant under all |_{k,F}[λ, μ] is, uniquely, Σ_{x ∈ ℤⁿ/2Fℤⁿ} h_x·ϑ_{F,x}(τ, z), where ϑ_{F,x}(τ, z) = Σ_{r ∈ ℤⁿ, r ≡ x mod 2Fℤⁿ} e(τF⁻¹[r]/4 + rᵗz); and for Jacobi forms, when Γ acts on V through a finite quotient, the resulting isomorphism J_{k,F}(Γ, V) ≅ M_{k−n/2} ⊗ W(F)* ⊗_{ℂ[Mp₂(ℤ)]} Ind V, where M_κ is the Mp₂(ℤ)-module of modular forms of weight κ on subgroups of finite index and W(F) is the Weil representation of the discriminant module (ℤⁿ/2Fℤⁿ, x ↦ F⁻¹[x]/4) (Skoruppa, Theorem 5). QM.1 does not ask the supplier for, and keeps: the eta and theta multipliers, ϑ(z; τ) and its laws, weak and weakly holomorphic Jacobi forms, the Fourier-coefficient and theta-coefficient integrals, φ_{−2,1}, the heat operators and index raising. Supplier state independently checked on 2026-10-10: the packet MetaplecticAutomorphicForms--MP.0 (status complete, current review accepted) plans MetaplecticAutomorphicForms:MP.6/jacobi-group (J(W) = H(W) ⋊ Mp(W) for a local or adelic symplectic space, with the Schrödinger–Weil representation), MP.6/jacobi-spaces (adelic smooth sections of integral central index m), MP.6/fourier-jacobi-extraction and MP.6/jacobi-theta-decomposition-interface (positive integral index, theta components through the finite Weil module). These nodes do not yet state (a) the discrete group J_n(Γ) and its relation to H(W) ⋊ Sp(W); (b) and (c) the action |_{k,F} on functions on ℍ × ℂⁿ for a matrix index F, the spaces of typus (Γ, V) and the Fourier form 4l − F⁻¹[r] ≥ 0 of the cusp condition; (d) half-integral scalar index; or, in (e), the decomposition of every entire function with the elliptic law and the isomorphism of Skoruppa's Theorem 5. Until they do, this request and the stage prerequisite stand.
+Current §§6.17–6.20 supply H(W)⋊Mp(W), its Schrödinger–Weil action, Jacobi section spaces and theta decomposition. QM.1/theta-decomposition-weil-representation supplies the positive integral rank-one dictionary, central Heisenberg phase, dual finite-Weil matrices, Fourier/growth conditions and inverse theta expansion. Generic Jacobi constructions remain owned by MP.6. The broader matrix-index F, half-integral scalar-index and arbitrary multiplier interfaces in the historical request remain required for future general consumers, without asserting that the old adelic-only prototype already supplies them.
 
 Needed by: [QM.1/jacobi-modular-slash](#QM-1-jacobi-modular-slash), [QM.1/jacobi-elliptic-slash](#QM-1-jacobi-elliptic-slash), [QM.1/jacobi-group-law](#QM-1-jacobi-group-law), [QM.1/jacobi-form](#QM-1-jacobi-form), [QM.1/jacobi-cusp-form](#QM-1-jacobi-cusp-form), [QM.1/jacobi-theta-index](#QM-1-jacobi-theta-index), [QM.1/theta-decomposition](#QM-1-theta-decomposition), [QM.1/jacobi-rank-one-specialisation](#QM-1-jacobi-rank-one-specialisation).
 
-### Request 26: tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+
+### Request 24: `tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem`
 
 The classical residue theorem on an open subset U of ℂ: for a closed piecewise-C1 curve in U, null-homologous in U and avoiding a finite set S, and a function holomorphic on U minus S and meromorphic at S∩U, the contour integral is 2πi times the finite sum of winding numbers times residues. Apply it to the specified integer-sided rectangles, including the elementary winding-number-one calculation.
 
 Needed by: [QM.4/cosh-partial-fractions](#QM-4-cosh-partial-fractions).
 
-### Request 27: MetaplecticAutomorphicForms:MP.4
+### Request 25: `MetaplecticAutomorphicForms:MP.4`
 
-For the finite quadratic module D=ℤ/60ℤ, Q(r)=r²/120 mod ℤ, B(r,s)=rs/60 mod ℤ, supply a genuine unitary finite Weil representation of Mp₂(ℤ) on ℂ[D], with its specified Fourier sign, Gauss phase and central character, and prove its image is finite (or exhibit a congruence subgroup whose metaplectic lift has scalar action). Identify the span of the two odd period-60 coefficient vectors χ± used by Lawrence–Zagier as an invariant subrepresentation, and compare its S and T operators with the explicit matrices in QM.5/lawrence-zagier-theta-transformation, including conjugation needed by the supplier Fourier convention. Deduce that the projective scalar subgroup Γρ of SL₂(ℤ) has finite index; do not infer finite image from the orders of S and T separately.
+For D=ℤ/60ℤ, Q(r)=r²/120, use the genuine finite Weil representation, Fourier sign and central character from §4.7. QM.5/lawrence-zagier-theta-transformation proves finite image locally by normalizing the finite Heisenberg group, then computes the χ± invariant span and branch cocycle. A specific congruence kernel is not required by the present finite-index conclusion.
 
 Needed by: [QM.5/lawrence-zagier-theta-transformation](#QM-5-lawrence-zagier-theta-transformation), [QM.5/poincare-sphere-quantum-modular](#QM-5-poincare-sphere-quantum-modular).
 
+Revision-4 comparison: Current contract read and consumer comparison supplied; historical independent review fields remain evidence about the input request.
+
+### Request 26: `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-0-class-functions-and-their-pairing`
+
+Finite-group character scalar product, norm-one criterion for integer virtual characters, and the character of a representation induced from a subgroup, with its coset trace formula. Use the generic complex representation constructions; no Monster-specific table algorithm is claimed.
+
+Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
+
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+
+### Request 27: `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality`
+
+Semisimple irreducible decomposition, orthogonality and degree-square completeness: an orthonormal family of genuine irreducible characters with degree squares summing to the group order is the full character table.
+
+Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
+
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+
+### Request 28: `tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing`
+
+The full ordered N-torsion basis moduli problem over characteristic zero, its GL₂(ℤ/Nℤ) right action and determinant action on the Weil pairing. The local Fricke-function comparison supplies the analytic q-series and function-field realization needed for Cummins–Norton; the prime-level formal cusp expansion of Layer10 is not used at arbitrary N.
+
+Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
+
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+
+### Request 29: `tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients`
+
+Finite quotient/coarse moduli for the full-level curve and its finite GL₂ action; use it with the explicit torsion-coordinate function field, not an unproved irreducibility or arbitrary-level Tate expansion.
+
+Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
+
+Revision-4 comparison: Exact upstream contract read; the local analytic/data comparison is stated in the consumer.
+
+### Request 30: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`
+
+Finite positive covolume of Γ₀(N) and positive area of an embedded quotient ball for a discrete PSL₂(ℝ) action. These are the Layer2 geometric inputs in the local finite-index argument. The exact discrete-overgroup theorem is separately imported from current Layer8.1 through upstreamImports; rational cusps are proved locally by taking parabolic powers.
+
+Needed by: [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group).
+
+Revision-4 comparison: Narrowed to the actual Layer2 geometry; no specialized arithmetic containment is attributed to that older layer.
+
 ## Current upstream imports
 
-### tauceti:TauCetiRoadmap/IntegralLattices#layer-6-unimodular-lattices-in-low-rank
+These records distinguish the current library and roadmap contracts from the pinned baseline. An open pull-request contract is a stated dependency, with its read commit; it is not a merged theorem. An upstream stage absent from the historical atlas registry is recorded here without inventing a baseline declaration or atlas id.
 
-Layer 6E’s explicitly constructed rootless rank-24 even unimodular integral lattice, with its rational ambient carrier, integral form, evenness, unimodularity, rank and empty root system. QM.6 uses this Leech reference lattice in the FLM/lattice-VOA construction; it requires no rank-24 completeness or automorphism-group classification.
+### Import 1: `tauceti:TauCetiRoadmap/IntegralLattices#layer-6-unimodular-lattices-in-low-rank`
 
-Locator: IntegralLattices README Layer 6E, pp. not applicable; Suggested.lean introduction pins the shared IntegralLattice carrier.
+Layer 6E’s explicitly constructed rootless rank-24 even unimodular integral lattice, with its rational ambient carrier, integral form, evenness, unimodularity, rank and empty root system. QM.6 uses this Leech reference lattice in the concrete code/lattice-VOA construction; it requires no rank-24 completeness or automorphism-group classification.
 
 Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem), [QM.6/monster-head-characters](#QM-6-monster-head-characters).
 
-Recorded upstream commit: `81207c7f16d5abf770f13a7d2bdcdb465c030787`; checked against current upstream `0d144d044dacebca17b654695b6f1ad58f159b27`. Current upstream contract; this newer roadmap has no stage id in the atlas snapshot. The FLM construction gap records the import boundary; no new atlas id or pinned declaration is invented.
+**Read contract commit.** `81207c7f16d5abf770f13a7d2bdcdb465c030787`
 
-### tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem
+**Current checkout checked.** `0d144d044dacebca17b654695b6f1ad58f159b27`
+
+**Locator.** IntegralLattices README Layer 6E, pp. not applicable; Suggested.lean introduction pins the shared IntegralLattice carrier
+
+**Registry boundary.** Current upstream contract; absent from the historical atlas stage registry. The exact code/lattice comparison is in monster-head-characters; no new atlas id or pinned declaration is invented.
+
+**Reading scope.** 2026-10-20; current README contract and suggested-file carrier boundary read in the read-only upstream checkout. The original recorded commit is retained as provenance.
+
+### Import 2: `tauceti:Completed/ContourIntegration#layer-3-the-global-homological-cauchy-theorem`
 
 The classical residue theorem on an open subset U of ℂ: for a closed piecewise-C1 curve in U, null-homologous in U and avoiding a finite set S, and a function holomorphic on U minus S and meromorphic at S∩U, the contour integral is 2πi times the finite sum of winding numbers times residues. Apply it to the specified integer-sided rectangles, including the elementary winding-number-one calculation.
 
-Locator: Completed/ContourIntegration README Layer 3; TauCeti/Analysis/Contour/Residue/Cycle.lean line 226.
-
 Needed by: [QM.4/cosh-partial-fractions](#QM-4-cosh-partial-fractions).
 
-Recorded upstream commit: `81207c7f16d5abf770f13a7d2bdcdb465c030787`; checked against current upstream `0d144d044dacebca17b654695b6f1ad58f159b27`. Existing upstream owner and current library theorem read; no contour theorem is planned again.
+**Read contract commit.** `81207c7f16d5abf770f13a7d2bdcdb465c030787`
 
-Current library declaration: `TauCeti.Contour.classicalResidueTheorem_nullHomologous` at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+**Current checkout checked.** `0d144d044dacebca17b654695b6f1ad58f159b27`
+
+**Library commit.** `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`
+
+**Locator.** Completed/ContourIntegration README Layer 3; TauCeti/Analysis/Contour/Residue/Cycle.lean line 226
+
+**Current declaration.** `TauCeti.Contour.classicalResidueTheorem_nullHomologous`
+
+**Registry boundary.** Existing upstream owner and current library theorem read; no contour theorem is planned again.
+
+**Reading scope.** 2026-10-20; current README contract and suggested-file carrier boundary read in the read-only upstream checkout. The original recorded commit is retained as provenance. Current TauCeti theorem statement read at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039, Cycle.lean lines226–234; it is not asserted to be at the earlier pinned baseline.
+
+### Import 3: `MetaplecticAutomorphicForms:MP.6`
+
+Generic Heisenberg–metaplectic Jacobi section and finite-Weil theta decomposition; QM supplies only the displayed scalar-index coordinate and growth comparisons.
+
+Needed by: [QM.1/theta-decomposition-weil-representation](#QM-1-theta-decomposition-weil-representation).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1063)
+
+**Read contract commit.** `297a40c9a53d52c164a6e568d51015a6332dc8f4`
+
+**Locator.** Open upstream PR #1063, README §§6.17–6.20; finite Weil convention §4.7
+
+**Reading scope.** 2026-10-20; exact target statements and the relevant suggested-file boundary read; current imports are separate from the historical baseline.
+
+### Import 4: `tauceti:TauCetiRoadmap/ThetaSeries#layer-1-poisson-summation-for-a-lattice`
+
+Shifted multivariate real Schwartz Poisson with positive Fourier phase, separate absolute-summability theorems, and linear-change-of-variable conventions; specialize at ℤ^r and transport the B pairing by A.
+
+Needed by: [QM.4/indefinite-theta-s-transformation](#QM-4-indefinite-theta-s-transformation), [QM.4/indefinite-theta-characteristics-s](#QM-4-indefinite-theta-characteristics-s).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4d22422c3f1aaa3d806c42f432953c26cb91969/TauCetiRoadmap/ThetaSeries/README.md)
+
+**Read contract commit.** `c4d22422c3f1aaa3d806c42f432953c26cb91969`
+
+**Locator.** ThetaSeries README Layer 1A–1F; Suggested.lean Poisson and Fourier conventions
+
+**Reading scope.** 2026-10-20; exact target statements and the relevant suggested-file boundary read; current imports are separate from the historical baseline.
+
+### Import 5: `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`
+
+Existing normalized analytic j and qj expansion/product identity; only the integral formal-series comparison is proved here.
+
+Needed by: [QM.6/j-laurent-series](#QM-6-j-laurent-series), [QM.6/modular-function-polynomial-in-j](#QM-6-modular-function-polynomial-in-j), [QM.6/hecke-transform-of-j](#QM-6-hecke-transform-of-j).
+
+**Read contract commit.** `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`
+
+**Library commit.** `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`
+
+**Locator.** Current TauCeti/Analysis/Complex/ModularForms/LevelOne/JInputs.lean: j and holomorphy lines81–88; j_smul94–121; qj boundedness/expansion and product identity lines264–319; simple-pole and Laurent convergence lines345–423. The formal integral comparison is local.
+
+**Current declarations.** `TauCeti.ModularForm.j`, `TauCeti.ModularForm.j_smul`, `TauCeti.ModularForm.isBoundedAtImInfty_qParam_mul_j`, `TauCeti.ModularForm.hasSum_qExpansion_qParam_mul_j`, `TauCeti.ModularForm.qExpansion_qParam_mul_j_mul_qExpansion_discriminant`
+
+**Reading scope.** 2026-10-20; exact target statements and the relevant suggested-file boundary read; current imports are separate from the historical baseline.
+
+### Import 6: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-8-the-arithmetic-commensurator-criterion-and-pgl-passage`
+
+Only the discrete-overgroup finite-index theorem at the end of Layer 8.1, using Layer-2 covolume geometry; no arithmeticity criterion or high-level commensurator theorem is needed.
+
+Needed by: [QM.6/moonshine-type-modular-group](#QM-6-moonshine-type-modular-group).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1168)
+
+**Read contract commit.** `401a0269ba003fb453e5fa97a76d5b5c5e7af044`
+
+**Locator.** Open PR #1168, README Layer 8.1, final discrete-overgroup sentence
+
+**Reading scope.** 2026-10-20; exact target statements and the relevant suggested-file boundary read; current imports are separate from the historical baseline.
+
+### Import 7: `tauceti:TauCetiRoadmap/IntegralLattices#layer-1-duals-and-discriminant-forms`
+
+Finite quadratic-module Gauss evaluation and the rank-one generator-sign table, specialized to Q(x)=ax²/k for odd k and gcd(a,k)=1. QM proves the displayed CRT and Fourier normalization, and does not re-plan generic Gauss sums.
+
+Needed by: [QM.2/rademacher-selberg-formula](#QM-2-rademacher-selberg-formula).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/blob/c4d22422c3f1aaa3d806c42f432953c26cb91969/TauCetiRoadmap/IntegralLattices/README.md)
+
+**Read contract commit.** `c4d22422c3f1aaa3d806c42f432953c26cb91969`
+
+**Locator.** IntegralLattices README1G/1H, lines644–679, generator convention lines399–402; Suggested.lean gaussSum_eq lines298–301
+
+**Reading scope.** 2026-10-20; actual half-norm convention and nondegeneracy hypothesis read. Positive-phase generator table is a roadmap target, not an implemented baseline declaration.
+
+### Import 8: `tauceti:TauCetiRoadmap/AffineLieAlgebras#c7-positive-even-lattice-vertex-algebras-and-ade-degree-one`
+
+Positive even E₈/Leech lattice VOA construction for the concrete code model. The generic lattice fields already targeted here agree on this specialization; no new positive-lattice VOA target is planned.
+
+Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/1201)
+
+**Read contract commit.** `1b96abb516967c63e48631d99d70876e1bdce2f1`
+
+**Locator.** AffineLieAlgebras README C7; positive even-lattice vertex algebra and its conformal/Fock grading
+
+**Reading scope.** 2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins.
+
+### Import 9: `tauceti:TauCetiRoadmap/CFSGBasicProperties#p2-lp2-r-conway-monster-and-baby-monster`
+
+Concrete rational Griess multiplication/form tensor, the isomorphism from the Y₄₄₃ presented Monster to its concrete automorphism action, and the local/class/power/fusion/representation certificate inputs for BMW. Consume P2M’s subgroup tables, suborbit calculations and local representation facts as well as order, involution centralizers and the196883 representation.
+
+Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters), [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/446)
+
+**Read contract commit.** `3e30589d8ea4e504afb02d56c16684cd29ceab43`
+
+**Locator.** CFSGBasicProperties README P2G, P2R and P2M, lines478–725
+
+**Reading scope.** 2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins.
+
+### Import 10: `tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-3-the-character-table-idempotents-completeness-second-orthogonality`
+
+Generic finite character theory for the integer certificate; no claim to run the Burnside table algorithm on the Monster.
+
+Needed by: [QM.6/monster-head-characters](#QM-6-monster-head-characters).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/pull/978)
+
+**Read contract commit.** `56fee0a96c14342fa610f68e46b20308681fca2b`
+
+**Locator.** CharacterTheory README Layers0–3; Suggested.lean character scalar-product and completeness contracts
+
+**Reading scope.** 2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins.
+
+### Import 11: `tauceti:TauCetiRoadmap/ModularCurves#5b-full-ordered-bases-and-fixed-pairing`
+
+Full ordered bases, Weil-pairing determinant action and finite coarse quotient; analytic Fricke coordinates remain a local comparison.
+
+Needed by: [QM.6/monstrous-moonshine-theorem](#QM-6-monstrous-moonshine-theorem).
+
+**Source.** [read contract](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ModularCurves/README.md)
+
+**Read contract commit.** `0d144d044dacebca17b654695b6f1ad58f159b27`
+
+**Locator.** ModularCurves README5B lines1236–1278 and9D lines1872–1930; Suggested.lean level structures and finite quotients
+
+**Reading scope.** 2026-10-20; actual README and relevant suggested-file statements read. A current or open upstream contract, separate from the historical library pins.
 
 ## Ownership and restructuring proposals
 
-The MP.6 generic Jacobi owner and QM.5 scalar quantum owner implement the verified owner splits. The following proposals retain their recorded status; this revision changes no live stage graph or other roadmap.
+Accepted ownership decisions remain binding. These local proposals do not change the live atlas; independent restructuring is required for any further edge replacement.
 
 ### Proposal 1: rescope
 
@@ -18209,15 +18464,15 @@ Roadmaps: `QSeriesPartitionsAndMockModularForms`, `MetaplecticAutomorphicForms`.
 
 Verified finding RT-AREA-automorphic-1/20: the Jacobi group and Jacobi forms had no single owner. MP.8 defines Jacobi forms inside the BFH genus-two cover; QM.1 constructed them again on SL(2, ℤ) ⋉ ℤ², although it imports MP.7 and MP.8; and AutomorphicCongruences:L2s imports Jacobi structures from MP.0–MP.6, where none is stated. This packet no longer constructs them: QM.1/jacobi-modular-slash, QM.1/jacobi-elliptic-slash, QM.1/jacobi-group-law, QM.1/jacobi-form, QM.1/jacobi-cusp-form, QM.1/jacobi-theta-index and QM.1/theta-decomposition are the scalar-index case of the supplier's objects, with prerequisite MetaplecticAutomorphicForms:MP.6 and one request, and QM.1/jacobi-rank-one-specialisation states the dictionary. The earlier proposal of this packet, to make QM.1 the owner and to reverse the edge MP.8 → QM.1, is withdrawn.
 
-MetaplecticAutomorphicForms plans once, before MP.7 (a sub-stage of MP.6 after MP.5; 'MP.6:jacobi' in research/blueprint/redteam/RT-AREA-automorphic-1.fixes.md): the Jacobi group H(W) ⋊ Sp(W) with its metaplectic cover and unitary analogue, the Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems and cusp conditions, Fourier–Jacobi coefficients and the theta decomposition, in the generality of the request recorded here. QM.1 imports it and keeps the classical scalar-index specialisations with its eta, theta and q-series material; MP.8 specialises it to the BFH cover of GSp(4); AutomorphicCongruences:L2s imports its unitary instance. Stage edge: MP.6 → QM.1 is already implied by MP.6 → MP.7 → QM.1 in the atlas graph. This is not a claim that all packet-induced stage cycles are gone. Round3 replaces all four MP.7 stage-QM.2 imports by exact I/J nodes or AS.0/dit-112, and refines seven AS imports to exact Bessel/Kloosterman/Laplacian nodes. AS.0/dit-113 and gz-217 still request QM.2’s missing K-Bessel outputs. MP.7 also cites QM.1/jacobi-theta-nonvanishing and QM.3/weight-k-hyperbolic-laplacian. These fine nodes can precede the consumer-dependent portions of QM.1/QM.3, but the coarse stage graph still has cycles; independent special-function and theta prefixes must be reflected in the maintainer’s stage integration. Do not cure those cycles by importing a later complete QM stage or by removing an actual analytic input. When the Jacobi supplier supplies (a)–(e), retarget the eight prerequisites to its exact nodes. No edge to AutomorphicCongruences:L2 is proposed: the verifier established only L2s’s use.
+MetaplecticAutomorphicForms plans once, before MP.7 (a sub-stage of MP.6 after MP.5; 'MP.6:jacobi' in research/blueprint/redteam/RT-AREA-automorphic-1.fixes.md): the Jacobi group H(W) ⋊ Sp(W) with its metaplectic cover and unitary analogue, the Schrödinger–Weil representation, Jacobi forms of given weight and index with multiplier systems and cusp conditions, Fourier–Jacobi coefficients and the theta decomposition, in the generality of the request recorded here. QM.1 imports it and keeps the classical scalar-index specialisations with its eta, theta and q-series material; MP.8 specialises it to the BFH cover of GSp(4); AutomorphicCongruences:L2s imports its unitary instance. Stage edge: MP.6 → QM.1 is already implied by MP.6 → MP.7 → QM.1 in the atlas graph. This is not a claim that all packet-induced stage cycles are gone. Round3 replaces all four MP.7 stage-QM.2 imports by exact I/J nodes or AS.0/dit-112, and refines seven AS imports to exact Bessel/Kloosterman/Laplacian nodes. AS.0/dit-113 and gz-217 still request QM.2’s missing K-Bessel outputs. MP.7 also cites QM.1/jacobi-theta-nonvanishing and QM.3/weight-k-hyperbolic-laplacian. These fine nodes can precede the consumer-dependent portions of QM.1/QM.3, but the coarse stage graph still has cycles; independent special-function and theta prefixes must be reflected in the maintainer’s stage integration. Do not cure those cycles by importing a later complete QM stage or by removing an actual analytic input. When the Jacobi supplier supplies (a)–(e), retarget the eight prerequisites to its exact nodes. No edge to AutomorphicCongruences:L2 is proposed: the verifier established only L2s’s use. Current upstream §§6.17–6.20 now state the generic Jacobi services. The local positive integral rank-one adapter is supplied in this revision; broader matrix and half-index refinements stay with that owner.
 
 ### Proposal 3: rescope
 
 Roadmaps: `MetaplecticAutomorphicForms`, `QSeriesPartitionsAndMockModularForms`.
 
-The finite Weil representation ρ_L of Mp₂(ℤ) attached to an even lattice, and vector-valued modular forms for ρ_L, are used by QM.1 (theta decomposition, J_{k,m} ≅ M_{k−1/2}(ρ_{L(−1)})), by QM.3 (Bruinier–Funke's harmonic Maass forms H_{k,L} take values in ℂ[L′/L]) and by QM.4 (vector-valued completions), but no stage names them. MetaplecticAutomorphicForms owns 'the extension to the metaplectic cover and the Weil representation' and MP.7 compares classical half-integral-weight forms with the cover.
+Current MP.4 §4.7 supplies the genuine finite Weil representation of an even lattice. MP.7 owns its classical modular-form carriers. QM.1 fixes the rank-one positive/dual convention; QM.3 and QM.4 consume the corresponding representations. The historical proposal to add a second Weil construction at MP.7 is superseded.
 
-Add to MP.7's scope, explicitly: the classical group Mp₂(ℤ), the Weil representation ρ_L of an even lattice (with the relations that make it a representation, via Milgram's formula), and the spaces of holomorphic and weakly holomorphic vector-valued modular forms of weight κ ∈ ½ℤ for ρ_L; QM.1, QM.3 and QM.4 import them (request recorded by QM.1).
+Keep the finite Weil construction in MP.4 and its scalar/vector-valued modular-form comparisons in MP.7; import both at their actual statements. Do not duplicate the representation at MP.7.
 
 ### Proposal 4: rescope
 
@@ -18271,13 +18526,15 @@ QM.6a Vertex algebras and lattice vertex algebras: vertex-algebra, vertex-algebr
 
 Roadmaps: `QSeriesPartitionsAndMockModularForms`, `ModularCurvesPartII`, `tauceti:TauCetiRoadmap/ModularCurves`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds`, `tauceti:TauCetiRoadmap/ModularForms`, `tauceti:TauCetiRoadmap/RepresentationTheory`.
 
-The genus-zero and Hauptmodul statements of QM.6 are analytic (compact Riemann surfaces X(Γ) for moonshine-type Γ, which need not lie in SL₂(ℤ), e.g. Γ₀(2)+). The planned chain consumes FuchsianOrbifolds Layers 2–5 (cofinite groups, cusps, compactification, degree one), ModularForms Layers 0 (j), 2 (coset representatives) and 10A (cusps of Γ₀(N)), and LieHighestWeight Layers 0 (sl₂) and 3 (PBW). It does not use the algebraic compactification comparison of ModularCurvesPartII R12.3, the Tate curve of R13.3, the coarse algebraic curves of R13.4a or ModularCurves Layer 10 (the RS-06 links into QM.6). The edge QM.1 → QM.6 carries only the eta products η_g of Borcherds (9.2), which occur inside the gap on the FLM module. Inside the roadmap QM.6 also consumes QM.3 (weakly holomorphic modular forms and their Laurent expansions, specialized to weight 0 and level one) and QM.0 (the q-Pochhammer symbol), which the atlas does not yet record as stage edges.
+The current QM.6 proof uses analytic compactification and degree theory from FuchsianOrbifolds, the Layer8.1 discrete-overgroup theorem, ModularForms j and cosets, and full-level ModularCurves5B/9D through Fricke functions and finite quotients. The eta products in QM.1 enter the concrete local moonshine-module comparison. Earlier proposed edge removals are historical; accepted RS-06/RS-10 structural links remain in force.
 
-Replace the stage edges ModularCurvesPartII:R12.3 → QM.6 and the RS-06 links R13.3, R13.4a, ModularCurves Layer 10 → QM.6 by FuchsianOrbifolds Layers 2, 3, 4, 5 → QM.6 and ModularForms Layers 0, 2 → QM.6 (keep ModularForms 10A → QM.6); replace UPSTREAM:RepresentationTheory → QM.6 by LieHighestWeight Layers 0 and 3 → QM.6; keep QM.1 → QM.6 for the eta products of the Monster-specific step; add the in-roadmap edges QM.0 → QM.6 and QM.3 → QM.6.
+Retain all accepted RS-06/RS-10 links. Record the precise new Fuchsian8.1 and ModularCurves5B/9D uses in the local contracts and upstream imports. Any further stage-edge replacement requires its own independent restructuring evidence; this revision changes no live atlas edge. Preserve QM.0 and QM.3 as the formal-product and weakly holomorphic modular-form suppliers to QM.6, and LieHighestWeight as the sl₂/PBW owner.
+
+**Revision-4 disposition.** Historical unaccepted edge-replacement proposal; it does not authorize removing any accepted RS-06 link. The revised proof also consumes full-level ModularCurves5B/9D via explicit Fricke coordinates and finite quotients. FuchsianOrbifolds8.1 supplies the exact discrete-overgroup input. The eta products occur in a concrete local model comparison, no longer an unplanned FLM construction. Retain all accepted structural links until an independent restructuring job establishes their exact application or non-use.
 
 ## Pinned baseline declarations
 
-The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. All 420 declarations were freshly read at those pins and compared with their consumers in this independent review. The 418 inherited records and the two Gamma/Stirling inputs remain intact; no baseline reference was removed or replaced. Current upstream imports above are separate from this baseline.
+The following 420 declaration records were checked by the preceding independent review and are retained unchanged. This revision reads the current library and supplier contracts separately; it does not assert a fresh audit of every historical-pin declaration.
 
 - `mathlib:Fintype.prod_equiv` — `Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean`: Reindexes a product through an equivalence of finite types. The explicitly generated additive declaration Fintype.sum_equiv reindexes the native finite complex sums used here.
 - `mathlib:AddMonoidAlgebra` — `Mathlib/Algebra/MonoidAlgebra/Defs.lean`: Group algebra k[L] underlying the twisted group algebra k_ε[L].
@@ -18702,7 +18959,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 ## Source findings
 
-All 89 findings were freshly checked at their stated locators in this independent review: 86 confirmed and 3 rejected. Historical reviews and version records remain in the packet. A confirmed source omission may have a local repair; it does not by itself make a planned theorem false.
+The preceding independent review checked 89 findings: 86 confirmed and 3 rejected. Those verdicts and their histories are retained. Four additional findings from this revision await independent review. A confirmed source omission may have a local repair; it does not by itself make a planned theorem false.
 
 ### E101: misprint
 
@@ -20552,6 +20809,90 @@ Checked versions or searches:
 
 Independent review: **confirmed** by `REV-QSeriesPartitionsAndMockModularForms~3`. The allowed case a=b=1,h=1,k=2,h′=1 makes the displayed root ratio undefined and puts μ at its lattice pole. The main theorem’s 1≤a<b guard supplies the intended scope.
 
+### E629: misprint
+
+[miyamoto-moonshine-2004](#reference-miyamoto-moonshine-2004), Publisher PDF, §5, definition of e⁺(a),e⁻(a) before Lemma5.3, printed p.573.
+
+**Source claim.** The displayed e⁻(a) repeats the positive sign of the exponential pair in e⁺(a).
+
+**Corrected contract.** Use e⁻(a)=(1/16)a(−1)²1−(1/4)(i(a)+i(−a)), with the same oscillator term as e⁺(a).
+
+**Reason.** The odd-pairing sign involution fixes the oscillator term and negates both exponential states; it therefore exchanges e⁺ and e⁻. With the repeated plus sign the two vectors coincide and that exchange argument cannot give the asserted frame.
+
+**Published correction or search result.** No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.
+
+Affected targets: the proof.
+
+Checked versions or searches:
+
+- Publisher/author source and the version records in sourceVersions, checked2026-10-20.
+- Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results.
+
+Independent review: **pending**.
+
+### E630: misprint
+
+[miyamoto-moonshine-2004](#reference-miyamoto-moonshine-2004), Publisher PDF, §5, proof of Lemma5.3, printed p.573.
+
+**Source claim.** The proof writes the commutator of τ_e and y(m) as1, although the lemma states it is0.
+
+**Corrected contract.** The endomorphism commutator is0.
+
+**Reason.** The proof says the involution acts identically on the Heisenberg oscillator space; commuting with every oscillator mode means commutator0. Substituting the zero mode on the vacuum also rules out the identity endomorphism.
+
+**Published correction or search result.** No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.
+
+Affected targets: the proof.
+
+Checked versions or searches:
+
+- Publisher/author source and the version records in sourceVersions, checked2026-10-20.
+- Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results.
+
+Independent review: **pending**.
+
+### E631: error
+
+[borcherds1992](#reference-borcherds1992), Author-hosted PDF, §9,15D paragraph, p.29.
+
+**Source claim.** The full conjugate of Γ₀(5) by diag(3,1) is identified as the modular group fixing the15D function.
+
+**Corrected contract.** Use the order3 multiplier kernel inside that conjugate eigengroup. It has index3 and contains Γ₀(45). The full conjugate acts by cube-root scalars.
+
+**Reason.** The displayed eta quotient f=(η(3τ)/η(15τ))² has f(τ+1/3)=e(−1/3)f(τ), and f³=T_{5B}(3τ)−6. Translation by1/3 belongs to the displayed conjugate group and fails to fix its q^{−1} leading term. Thus the eigengroup and fixing group differ. Conway–Norton §5’s n|h notation makes precisely this kernel distinction.
+
+**Published correction or search result.** No published correction found in the bounded publisher/author search; new finding in this revision, awaiting independent review.
+
+Affected targets: a stated result.
+
+Checked versions or searches:
+
+- Publisher/author source and the version records in sourceVersions, checked2026-10-20.
+- Public searches for the title, erratum/correction and the specific lemma or15D sentence; no correction located in the inspected results.
+
+Independent review: **pending**.
+
+### E632: misprint
+
+[dong-griess-lam-2007](#reference-dong-griess-lam-2007), arXiv:math/0506321v1, Lemma5.11 and the first line of its proof, p.10.
+
+**Source claim.** The second input of each displayed intertwining-operator type repeats β₁, including the definition of m_γ.
+
+**Corrected contract.** Use M(β₂,0) as the second input on the left and in m_γ, and M(β₂,α₂) as the second input on the right. The output has β₁+β₂ in all three places.
+
+**Reason.** The next line defines m_γ as a fusion coefficient of M(β₁,0) with M(β₂,0), and the following associativity computation retains these distinct supports. Fusion adds the 1/16-support labels; the repeated β₁ would instead give zero support and contradict the stated output when β₁≠β₂.
+
+**Published correction or search result.** The misprint is present in the visually checked v1 page. No separate correction was located in the inspected arXiv record and public title/lemma/erratum searches. The published2007 text was not collated; no claim about its typography is made. Awaiting independent review.
+
+Affected targets: the proof.
+
+Checked versions or searches:
+
+- arXiv:math/0506321 abstract/version record, checked2026-10-20; v1 PDF p.10 visually inspected.
+- Public searches for both paper titles, erratum and Lemma5.11; author publication listing identifies the2007 journal article but no correction was located in the inspected results.
+
+Independent review: **pending**.
+
 ## References and reading scope
 
 Source identities, public URLs and byte hashes identify the versions used. Reading inventories inherited from earlier passes retain their original scope. The new receipts are limited to the passages listed, and do not claim a new collation of an entire paper. Books lacking a cleared or public proof remain explicit gaps.
@@ -20619,6 +20960,10 @@ Reading scope:
 - Section 3.1-3.2 (pp. 12-16): basic hypergeometric notation and the q-gamma function (3.2.3), read for the q-factorial
 
 Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/9509223); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `ea5f3d8fe15dc47902f4bdf8ad630c7044e495d5c0934d247aa1a81f1be819bb`.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **arXiv preprint.** [version or search](https://arxiv.org/pdf/math/9509223v1). Target-specific reading of §§3.4–3.5, pp.18–20: q-Pfaff–Saalschütz and q-Gauss identities with their denominator and convergence conditions. These supply the finite convolution and analytic seed of QM.5/choi-identity, not a fresh full-source collation. SHA-256 `ea5f3d8fe15dc47902f4bdf8ad630c7044e495d5c0934d247aa1a81f1be819bb`.
 
 <a id="reference-andrews-jtp-1965"></a>
 
@@ -21217,6 +21562,12 @@ Revision 3 receipt: §1 pp.2–3 and §3 p.13: the conformal-degree shift, norma
 
 Independent review receipt (20 October 2026): [version read](https://math.berkeley.edu/~reb/papers/monster/monster.pdf); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501`.
 
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://math.berkeley.edu/~reb/papers/monster/monster.pdf). §9 p.29,15D group sentence visually checked. E631 is scoped to this author copy, not an unacquired publisher PDF. SHA-256 `dee2cb9c3121cf1bf8bddce952d952e0f478a39e497df8946e220e9ceffab501`.
+- **acquisition failure.** [version or search](https://link.springer.com/article/10.1007/BF01232032). Publisher landing page did not supply an accessible full PDF in this acquisition. No publisher-copy collation of E631 is asserted.
+- **errata search.** [version or search](https://math.berkeley.edu/~reb/papers/index.html). Author publication index item13 and public Borcherds15D/correction searches inspected. No correction to this group sentence located in the inspected results.
+
 <a id="reference-borcherds1986"></a>
 
 ### borcherds1986
@@ -21496,3 +21847,263 @@ Reading scope:
 Revision 3 receipt: Invariant bilinear forms on a vertex algebra and the radical; arXiv:math/0210432v5, 23 June 2003; read 2026-10-20. Read only the target-specific passages recorded in sources; no full-paper collation claimed. SHA-256 `9776d2942de0795e5a67c634ce6e0477342dfbaabec219f323f7b696885e25a9`.
 
 Independent review receipt (20 October 2026): [version read](https://arxiv.org/pdf/math/0210432v5); every locator cited by the node contracts and source findings was checked, without claiming a full-text collation. Acquired SHA-256 `9776d2942de0795e5a67c634ce6e0477342dfbaabec219f323f7b696885e25a9`.
+
+<a id="reference-kac-wang-1993"></a>
+
+### kac-wang-1993
+
+Victor Kac and Weiqiang Wang, [Vertex Operator Superalgebras and Their Representations](https://arxiv.org/pdf/hep-th/9312065). arXiv:hep-th/9312065.
+
+Acquisition SHA-256: `a4536931126c028d63f95f49c5f644ba9609bbf36606c4e82123b3e317ff4e9e`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §4, free neutral-fermion fields and normal-ordered state fields, printed pp.37–38. The integral descent and characteristic2 counterexample are proved here; the source itself works overℂ.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://arxiv.org/pdf/hep-th/9312065). arXiv:hep-th/9312065. Target-specific reading only: §4, free neutral-fermion fields and normal-ordered state fields, printed pp.37–38. The integral descent and characteristic2 counterexample are proved here; the source itself works overℂ. SHA-256 `a4536931126c028d63f95f49c5f644ba9609bbf36606c4e82123b3e317ff4e9e`.
+
+<a id="reference-sarma-crank-2024"></a>
+
+### sarma-crank-2024
+
+Rishabh Sarma, [Transformation and symmetries for the Andrews–Garvan crank function](https://hrj.episciences.org/13879/pdf). Hardy–Ramanujan Journal 47 (2024), publisher PDF.
+
+Acquisition SHA-256: `e17266c997781695329e889c18d0ee1802439f51b0cbde0fb63e2112b568f837`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §§2–4, Proposition2.2, Corollary2.3, Theorems3.1,3.3,4.5, printed pp.5–15; §5A, Theorem5.2 and the mod11 application, printed pp.15–16.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **published.** [version or search](https://hrj.episciences.org/13879/pdf). Hardy–Ramanujan Journal 47 (2024), publisher PDF. Target-specific reading only: §§2–4, Proposition2.2, Corollary2.3, Theorems3.1,3.3,4.5, printed pp.5–15; §5A, Theorem5.2 and the mod11 application, printed pp.15–16. SHA-256 `e17266c997781695329e889c18d0ee1802439f51b0cbde0fb63e2112b568f837`.
+
+<a id="reference-garvan-rank-2019"></a>
+
+### garvan-rank-2019
+
+Frank Garvan, [Transformation properties for Dyson’s rank function](https://arxiv.org/pdf/1601.05781). arXiv:1601.05781v2, 8 September2016; the inherited source id retains its legacy year.
+
+Acquisition SHA-256: `e9b1c786c08a25e68f6db6b55d4f9e8db7b9255c74ff542276d9d5e8b528abf2`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §5, Theorem5.1 and its modular/cusp comparison, pp.25–35; §6, Proposition6.2, Theorems6.3,6.9,6.11 and §6.3, pp.36–45.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://arxiv.org/pdf/1601.05781v2). Author preprint arXiv:1601.05781v2,8 September2016 (legacy source id). Target-specific reading only: §5, Theorem5.1 and its modular/cusp comparison, pp.25–35; §6, Proposition6.2, Theorems6.3,6.9,6.11 and §6.3, pp.36–45. SHA-256 `e9b1c786c08a25e68f6db6b55d4f9e8db7b9255c74ff542276d9d5e8b528abf2`.
+
+<a id="reference-mclaughlin-bilateral"></a>
+
+### mclaughlin-bilateral
+
+James Mc Laughlin, [Mock Theta Function Identities Deriving from Bilateral Basic Hypergeometric Series](https://arxiv.org/pdf/1906.11997). Author preprint arXiv:1906.11997, version served on 2026-10-20.
+
+Acquisition SHA-256: `a3cf6c880f1acc8aea3a4939304880e8923bdbdb62cd8280530786033ad71bf9`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §2 equations(2.1),(2.4), pp.4–5; §3 Proposition3.1, its proof and equations(3.5),(3.8),(3.12), pp.6–7.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://arxiv.org/pdf/1906.11997). Author preprint arXiv:1906.11997, version served on 2026-10-20. Target-specific reading only: §2 equations(2.1),(2.4), pp.4–5; §3 Proposition3.1, its proof and equations(3.5),(3.8),(3.12), pp.6–7. SHA-256 `a3cf6c880f1acc8aea3a4939304880e8923bdbdb62cd8280530786033ad71bf9`.
+
+<a id="reference-chen-fu-semifinite"></a>
+
+### chen-fu-semifinite
+
+William Y. C. Chen and Amy M. Fu, [Semi-Finite Forms of Bilateral Basic Hypergeometric Series](https://arxiv.org/pdf/math/0501242). Author preprint arXiv:math/0501242, version served on 2026-10-20.
+
+Acquisition SHA-256: `c107bffa3f259b1635c078bbc90648100eafb5b58316a75d056ea089972b8f01`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §§1–3, equations(1.1),(3.1)–(3.3), Proposition3.1 and its proof, preprint pp.1–4.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://arxiv.org/pdf/math/0501242). Author preprint arXiv:math/0501242, version served on 2026-10-20. Target-specific reading only: §§1–3, equations(1.1),(3.1)–(3.3), Proposition3.1 and its proof, preprint pp.1–4. SHA-256 `c107bffa3f259b1635c078bbc90648100eafb5b58316a75d056ea089972b8f01`.
+
+<a id="reference-bringmann-folsom-2013"></a>
+
+### bringmann-folsom-2013
+
+Kathrin Bringmann and Amanda Folsom, [The asymptotic behavior of Kac–Wakimoto characters](https://afolsom.people.amherst.edu/BF-PAMS13.pdf). Author-hosted published copy, Proc. Amer. Math. Soc. 141 (2013), 1569–1576.
+
+Acquisition SHA-256: `c7f89e58b60af49992631c0c5990e76f9733cc8b51f5a853318fa8fc7de307f1`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §2, equations(2.4)–(2.5), Proposition2.2 and Proposition2.3, printed pp.1570–1571.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://afolsom.people.amherst.edu/BF-PAMS13.pdf). Author-hosted published copy, Proc. Amer. Math. Soc. 141 (2013), 1569–1576. Target-specific reading only: §2, equations(2.4)–(2.5), Proposition2.2 and Proposition2.3, printed pp.1570–1571. SHA-256 `c7f89e58b60af49992631c0c5990e76f9733cc8b51f5a853318fa8fc7de307f1`.
+
+<a id="reference-jurisich-exposition-1996"></a>
+
+### jurisich-exposition-1996
+
+Elizabeth Jurisich, [An Exposition of Generalized Kac–Moody Algebras](https://jurisiche.people.charleston.edu/jur-garc.pdf). Author-hosted exposition, 1996; preprint pagination.
+
+Acquisition SHA-256: `80eb2e363fc1d66cb931c87ed8983cbbf5a2cecfbb43995a714270b1fe5cb779`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §1.1, Propositions1.1–1.3, pp.3–6; §1.2, pp.7–8; §1.3, Theorem1.6 and Propositions1.7–1.10, pp.9–12; §1.4, Theorem1.11 and Lemmas1.12–1.14, pp.13–14.
+- §§3.2–3.3, Propositions3.5–3.9 and their proofs, printed pp.29–33; used before the subsequent root-combinatorial homology calculation.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://jurisiche.people.charleston.edu/jur-garc.pdf). Author-hosted exposition, 1996; preprint pagination. Target-specific reading only: §1.1, Propositions1.1–1.3, pp.3–6; §1.2, pp.7–8; §1.3, Theorem1.6 and Propositions1.7–1.10, pp.9–12; §1.4, Theorem1.11 and Lemmas1.12–1.14, pp.13–14. Additional reading: §§3.2–3.3, Propositions3.5–3.9, pp.29–33; local homotopy specialization avoids a circular Serre input. SHA-256 `80eb2e363fc1d66cb931c87ed8983cbbf5a2cecfbb43995a714270b1fe5cb779`.
+
+<a id="reference-lawrence-rozansky-seifert"></a>
+
+### lawrence-rozansky-seifert
+
+Ruth Lawrence and Lev Rozansky, [Witten–Reshetikhin–Turaev invariants of Seifert manifolds](https://ma.huji.ac.il/~ruthel/papers/99wrtseif.pdf). Author preprint of Comm. Math. Phys. 205 (1999), 287–314.
+
+Acquisition SHA-256: `99e1a0be8e11983fcba0d96419f8512e03f184e177bf4c6d45acc226d98bd026`. Accessed 2026-10-20.
+
+Reading scope:
+
+- Author preprint: §§3.1–3.2 pp.7–8; §§4.1–4.4 pp.9–16; trivial-connection calculation and §§4.6–4.7 pp.19–25; Poincaré example §4.9 p.26. Page locators refer to this preprint, not the published pagination.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://ma.huji.ac.il/~ruthel/papers/99wrtseif.pdf). Author preprint of Comm. Math. Phys. 205 (1999), 287–314. Target-specific reading only: Author preprint: §§3.1–3.2 pp.7–8; §§4.1–4.4 pp.9–16; trivial-connection calculation and §§4.6–4.7 pp.19–25; Poincaré example §4.9 p.26. Page locators refer to this preprint, not the published pagination. SHA-256 `99e1a0be8e11983fcba0d96419f8512e03f184e177bf4c6d45acc226d98bd026`.
+
+<a id="reference-miyamoto-moonshine-2004"></a>
+
+### miyamoto-moonshine-2004
+
+Masahiko Miyamoto, [A new construction of the moonshine vertex operator algebra over the real number field](https://annals.math.princeton.edu/wp-content/uploads/annals-v159-n2-p02.pdf). Annals of Mathematics 159 (2004), 535–596, publisher PDF.
+
+Acquisition SHA-256: `f437b32cf76e45c4ef229ba8771892f0962ab55d080d0cc7a3f053f19c2e78b9`. Accessed 2026-10-20.
+
+Reading scope:
+
+- Theorem3.20 and Theorem3.25 with proof, pp.559–564; §5, pp.571–574; §6 and §7, pp.575–580; Lemma9.6 and its proof, pp.588–590; §11, pp.593–594. The full-automorphism identification in Theorem9.5 is not used.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **published.** [version or search](https://annals.math.princeton.edu/wp-content/uploads/annals-v159-n2-p02.pdf). Annals of Mathematics 159 (2004), 535–596, publisher PDF. Target-specific reading only: Theorem3.20 and Theorem3.25 with proof, pp.559–564; §5, pp.571–574; §6 and §7, pp.575–580; Lemma9.6 and its proof, pp.588–590; §11, pp.593–594. The full-automorphism identification in Theorem9.5 is not used. SHA-256 `f437b32cf76e45c4ef229ba8771892f0962ab55d080d0cc7a3f053f19c2e78b9`.
+- **errata search.** [version or search](https://annals.math.princeton.edu/2004/159-2/p02). Publisher article page and public title/erratum searches inspected; no linked correction located. arXiv:q-alg/9701012 version history inspected: last listed revision predates the2004 journal article. No claim that no correction exists elsewhere.
+
+<a id="reference-hohn-seysen-2025"></a>
+
+### hohn-seysen-2025
+
+Gerald Höhn and Martin Seysen, [The Order of the Monster Finite Simple Group](https://arxiv.org/pdf/2508.01037v1). arXiv:2508.01037v1, 2025.
+
+Acquisition SHA-256: `e15071f7d85c8a87935a636583b90163618253462a08c49dc85bc7f42c34b416`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §2.1, pp.4–7 for the rational algebra conventions; §2.2–2.3, pp.10–15, especially Theorem2.16 and Proposition2.18 with proofs. Later identification of the full automorphism group is not used.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://arxiv.org/pdf/2508.01037v1). arXiv:2508.01037v1, 2025. Target-specific reading only: §2.1, pp.4–7 for the rational algebra conventions; §2.2–2.3, pp.10–15, especially Theorem2.16 and Proposition2.18 with proofs. Later identification of the full automorphism group is not used. SHA-256 `e15071f7d85c8a87935a636583b90163618253462a08c49dc85bc7f42c34b416`.
+
+<a id="reference-bmw-monster-2024"></a>
+
+### bmw-monster-2024
+
+Thomas Breuer, Kay Magaard and Robert A. Wilson, [Verification of the conjugacy classes and ordinary character table of the Monster](https://arxiv.org/pdf/2412.12182v1). arXiv:2412.12182v1, 2024.
+
+Acquisition SHA-256: `a04e16e032990c4572dd809492a67d14ac88f1c3fd502adcb0f642fa867edb91`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §1–2 for hypotheses and the class/character certificate strategy; used together with the detailed §7 certificate below.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://arxiv.org/pdf/2412.12182v1). arXiv:2412.12182v1, 2024. Target-specific reading only: §1–2 for hypotheses and the class/character certificate strategy; used together with the detailed §7 certificate below. SHA-256 `a04e16e032990c4572dd809492a67d14ac88f1c3fd502adcb0f642fa867edb91`.
+
+<a id="reference-bmw-monster-certificate-2024"></a>
+
+### bmw-monster-certificate-2024
+
+Thomas Breuer, Kay Magaard and Robert A. Wilson, [Some steps in the verification of the ordinary character table of the Monster group](https://arxiv.org/pdf/2412.09313v1). arXiv:2412.09313v1, 2024.
+
+Acquisition SHA-256: `a967d94f14d13f22bb828bfdde6435068f8eebc4ae2ee1ae093e5b8fcc8efd98`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §7, pp.32–37, class-fusion ambiguities, induction, integer-span witnesses and the final 194-row verification. Code in the source was read as mathematical data and was not executed.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **author copy.** [version or search](https://arxiv.org/pdf/2412.09313v1). arXiv:2412.09313v1, 2024. Target-specific reading only: §7, pp.32–37, class-fusion ambiguities, induction, integer-span witnesses and the final 194-row verification. Code in the source was read as mathematical data and was not executed. SHA-256 `a967d94f14d13f22bb828bfdde6435068f8eebc4ae2ee1ae093e5b8fcc8efd98`.
+
+<a id="reference-cummins-norton-1995"></a>
+
+### cummins-norton-1995
+
+C. J. Cummins and S. P. Norton, [Rational Hauptmoduls are replicable](https://doi.org/10.4153/CJM-1995-061-1). Canadian Journal of Mathematics 47 (1995), 1201–1218, publisher PDF.
+
+Acquisition SHA-256: `13895a717e58470d5fee2db099b3550104b6a05f5fb8d7df6154a910a7a7f1a4`. Accessed 2026-10-20.
+
+Reading scope:
+
+- Full paper, pp.1201–1218; Theorem1.3, §§2–3, and Appendix LemmasA.1–A.4 and PropositionA.5.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **published.** [version or search](https://doi.org/10.4153/CJM-1995-061-1). Canadian Journal of Mathematics 47 (1995), 1201–1218, publisher PDF. Target-specific reading only: Full paper, pp.1201–1218; Theorem1.3, §§2–3, and Appendix LemmasA.1–A.4 and PropositionA.5. SHA-256 `13895a717e58470d5fee2db099b3550104b6a05f5fb8d7df6154a910a7a7f1a4`.
+
+<a id="reference-conway-norton-1979"></a>
+
+### conway-norton-1979
+
+J. H. Conway and S. P. Norton, [Monstrous moonshine](https://doi.org/10.1112/blms/11.3.308). Bulletin of the London Mathematical Society 11 (1979), 308–339, journal scan.
+
+Acquisition SHA-256: `95749268d148ea7e5b4b21ad6c053100d34e31e512664095260b01d8bf285f9e`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §§1–8, pp.308–319; §§10–11, pp.321–323; Table2 group/formula correspondence and conventions, pp.326–330; Tables3 and3a, pp.331–333, and Tables4 and4a, pp.334–337, with the displayed formula notation visually checked. Not a row-by-row independent rederivation of all171 Hauptmoduls.
+
+[Acquired scan](https://gwern.net/doc/math/1979-conway.pdf).
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **published.** [version or search](https://doi.org/10.1112/blms/11.3.308). Bulletin of the London Mathematical Society 11 (1979), 308–339, journal scan. Target-specific reading only: §§1–8, pp.308–319; §§10–11, pp.321–323; Table2 group/formula correspondence and conventions, pp.326–330; Tables3 and3a, pp.331–333, and Tables4 and4a, pp.334–337, with the displayed formula notation visually checked. Not a row-by-row independent rederivation of all171 Hauptmoduls. SHA-256 `95749268d148ea7e5b4b21ad6c053100d34e31e512664095260b01d8bf285f9e`. [Acquired scan](https://gwern.net/doc/math/1979-conway.pdf).
+
+<a id="reference-abe-buhl-dong-2004"></a>
+
+### abe-buhl-dong-2004
+
+Toshiyuki Abe, Geoffrey Buhl and Chongying Dong, [Rationality, Regularity, and C₂-Cofiniteness](https://arxiv.org/pdf/math/0204021v1). arXiv:math/0204021v1, 1 April2002; preprint of Trans. AMS356 (2004),3391–3402.
+
+Acquisition SHA-256: `32638e2486b83189f1fa13ca0efd38059a108fc7a261963ee8379548580b14d7`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §3, Theorem3.3 and surrounding mode bounds, preprint pp.5–6; §5, Definition5.1, Proposition5.2 and tensor-product argument in Theorem5.3, pp.10–11.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **preprint.** [version or search](https://arxiv.org/pdf/math/0204021v1). arXiv:math/0204021v1, 1 April2002; preprint of Trans. AMS356 (2004),3391–3402. Target-specific reading: §3, Theorem3.3 and surrounding mode bounds, preprint pp.5–6; §5, Definition5.1, Proposition5.2 and tensor-product argument in Theorem5.3, pp.10–11. SHA-256 `32638e2486b83189f1fa13ca0efd38059a108fc7a261963ee8379548580b14d7`.
+
+<a id="reference-dong-griess-lam-2007"></a>
+
+### dong-griess-lam-2007
+
+Chongying Dong, Robert L. Griess Jr. and Ching Hung Lam, [On the Uniqueness of the Moonshine Vertex Operator Algebra](https://arxiv.org/pdf/math/0506321v1). arXiv:math/0506321v1, 2005; preprint pagination.
+
+Acquisition SHA-256: `b4045cf4be9aa25b9b7c0973f58508fc129f461af1c58b93852ac00f40b61de6`. Accessed 2026-10-20.
+
+Reading scope:
+
+- §§4–6, pp.5–16: code-module induction, Hamming restriction, code words and the proofs of Lemma6.9 and Theorem6.10. Theorem6.8 is read as the intertwining-operator uniqueness input; the module-field generation proof is the usual Jacobi commutator induction.
+
+Revision-4 target-specific receipts (20 October 2026):
+
+- **preprint.** [version or search](https://arxiv.org/pdf/math/0506321v1). arXiv:math/0506321v1, 2005; preprint pagination. Target-specific reading: §§4–6, pp.5–16: code-module induction, Hamming restriction, code words and the proofs of Lemma6.9 and Theorem6.10. Theorem6.8 is read as the intertwining-operator uniqueness input; the module-field generation proof is the usual Jacobi commutator induction. SHA-256 `b4045cf4be9aa25b9b7c0973f58508fc129f461af1c58b93852ac00f40b61de6`.
