@@ -5299,5 +5299,6 @@
  "PKG-HermitianKTheoryOfPoincareCategories": 11253,
  "REV-PKG-HermitianKTheoryOfPoincareCategories": 11258,
  "FIX-PKG-K2SymbolsBrauer~adv": 11259,
- "FIX-PKG-EisensteinIdealAndRationalTorsion~adv2": 11260
+ "FIX-PKG-EisensteinIdealAndRationalTorsion~adv2": 11260,
+ "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5": 11261
 }
