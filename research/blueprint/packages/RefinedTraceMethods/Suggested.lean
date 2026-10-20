@@ -7,9 +7,10 @@ This file is not the roadmap and is not exhaustive: the README
 `README.md` is definitive. The statements below suggest Lean forms, so that
 contributors and reviewers converge on names and signatures. They are limited to light
 definitions and representative end statements over carriers the pinned Mathlib already has.
-In particular the file distinguishes FV = p from VF = p, keeps positivity in the high-powered
-indexing condition, and records only the ordinary underlying coefficient quotient of the graded
-spectral presentation. The README specifies the coherent categories, spectral
+In particular the file distinguishes FV = p from VF = p, normalises the diagonal q-divided
+powers by `[d]_q!` with the q-shift acting on `x`, keeps positivity in the high-powered indexing
+condition, and records only the ordinary underlying coefficient quotient of the graded spectral
+presentation. The README specifies the coherent categories, spectral
 realizations, filtrations and traces, which have no carrier at the pins.
 -/
 
@@ -79,6 +80,69 @@ example (p : ℕ) [Fact p.Prime] : ∃ c : CartierStructure p (ZMod p × ZMod p)
   · intro h
     have h1 := congrArg Prod.snd (DFunLike.congr_fun h ((1 : ZMod p), (0 : ZMod p)))
     simp at h1
+
+/-! ## Layer 6: even filtrations, q-Hodge and Habiro comparisons -/
+
+section DiagonalDividedPowers
+
+open MvPolynomial
+
+/-- `diagonalNumerator d`: the numerator `(x − y)(x − q y) ⋯ (x − q^{d−1} y)` of the q-divided
+power `δ^{(d)}_q(x, y)` on the diagonal, in `ℤ[x, y, q]` with variables `0 = x`, `1 = y`, `2 = q`.
+Dividing by `[d]_q!` gives the generators of the q-PD envelope of `(x − y)` (Wagner, Lemma 6.11,
+p. 84; README §6.10). -/
+noncomputable def diagonalNumerator (d : ℕ) : MvPolynomial (Fin 3) ℤ :=
+  ∏ i ∈ Finset.range d, (X 0 - X 2 ^ i * X 1)
+
+/-- `diagonalNumerator_shift`: replacing `x` by `q x` changes the numerator by `(q^{d+1} − 1) · x`
+times the previous one. Dividing by `(q − 1) · x · [d+1]_q!` gives
+`∇_{q,x} δ^{(d+1)}_q(x, y) = δ^{(d)}_q(x, y)`, which fixes the normalisation by `[d]_q!` rather
+than by the q-Pochhammer symbol. -/
+theorem diagonalNumerator_shift (d : ℕ) :
+    aeval ![X 2 * X 0, X 1, X 2] (diagonalNumerator (d + 1)) - diagonalNumerator (d + 1) =
+      (X 2 ^ (d + 1) - 1) * X 0 * diagonalNumerator d := by
+  have hterm : ∀ k : ℕ, aeval (![X 2 * X 0, X 1, X 2] : Fin 3 → MvPolynomial (Fin 3) ℤ)
+      (X 0 - X 2 ^ (k + 1) * X 1 : MvPolynomial (Fin 3) ℤ) = X 2 * (X 0 - X 2 ^ k * X 1) := by
+    intro k
+    simp
+    ring
+  have h0 : aeval (![X 2 * X 0, X 1, X 2] : Fin 3 → MvPolynomial (Fin 3) ℤ)
+      (X 0 - X 2 ^ 0 * X 1 : MvPolynomial (Fin 3) ℤ) = X 2 * X 0 - X 1 := by
+    simp
+  simp only [diagonalNumerator, map_prod]
+  rw [Finset.prod_range_succ', Finset.prod_range_succ]
+  simp only [hterm, h0, Finset.prod_mul_distrib, Finset.prod_const, Finset.card_range]
+  ring
+
+/-- `diagonalNumerator_one`: at `q = 1` the numerator is `(x − y)^d`, the numerator of the
+ordinary divided power `(x − y)^d / d!`. -/
+theorem diagonalNumerator_one (d : ℕ) :
+    aeval ![X 0, X 1, (1 : MvPolynomial (Fin 3) ℤ)] (diagonalNumerator d) = (X 0 - X 1) ^ d := by
+  simp [diagonalNumerator, map_prod]
+
+/-- Test `diagonalNumerator.small`: `N₀ = 1` and `N₁ = x − y`. -/
+example : diagonalNumerator 0 = 1 ∧ diagonalNumerator 1 = X 0 - X 1 := by
+  constructor <;> simp [diagonalNumerator]
+
+/-- Test `diagonalNumerator.degree_two`:
+`(q x − y)(q x − q y) − (x − y)(x − q y) = (q² − 1) x (x − y)`. -/
+example :
+    aeval ![X 2 * X 0, X 1, X 2] (diagonalNumerator 2) - diagonalNumerator 2 =
+      (X 2 ^ 2 - 1) * X 0 * diagonalNumerator 1 := by
+  simp [diagonalNumerator, Finset.prod_range_succ]
+  ring
+
+/-- Test `diagonalNumerator.classical_fails`: the classical numerator `(x − y)²` has the same
+value at `q = 1` but misses the shift identity by `(q − 1)² x y`. -/
+example :
+    aeval (![X 2 * X 0, X 1, X 2] : Fin 3 → MvPolynomial (Fin 3) ℤ)
+        ((X 0 - X 1) ^ 2 : MvPolynomial (Fin 3) ℤ) - (X 0 - X 1) ^ 2 -
+        (X 2 ^ 2 - 1) * X 0 * (X 0 - X 1) =
+      ((X 2 - 1) ^ 2 * X 0 * X 1 : MvPolynomial (Fin 3) ℤ) := by
+  simp
+  ring
+
+end DiagonalDividedPowers
 
 /-! ## Layer 7: refined invariants and finite-coefficient calculations -/
 
@@ -202,7 +266,10 @@ Layer 6: spherical lifts and the base hypotheses; light condensed and solid spec
 trace-class maps and nuclear modules; perfect even modules and the even site; ordinary
 even filtrations; the solid even filtration; even flat and solid even flat modules;
 homological evenness and even homotopy sheaves; faithfully even flat ring maps; solid
-duality Assumption R; compatible local and global spherical lifts; K(1)-localization as
+duality Assumption R; compatible local and global spherical lifts and their framed inputs; the
+global even filtration, the framed comparison `framedTrace`, the q-PD envelope description
+`qPDDiagonal`, the Čech resolution `framedCech` and the framed trace pair with its E∞-structure,
+all on spectral and filtered carriers; K(1)-localization as
 BordismFormalGroups F6.1's localization at KU/p; homotopy fixed points of the Adams operations ψ^r,
 ψ^{−1} and ψ³ and the connective cover of the local sphere at each prime;
 cyclonic spectra and cyclonic Adams lift coherence; TC^{−(m)}.
