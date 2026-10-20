@@ -298,7 +298,8 @@ example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5
 
 /-! ## Layer 4: Abelian fields and the prime 2 -/
 
-/- Integral character quotients, all-prime descent and the finite formulas are in §§4.1–4.26. -/
+/- Integral character quotients, all-prime descent, the finite formulas and the integral
+Coleman image for characters of order prime to p are in §§4.1–4.27. -/
 
 /-! ## Layer 5: Finite and Selmer consequences -/
 
@@ -307,8 +308,15 @@ example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5
 /- Definitions specified in the README over the arithmetic supplier carriers:
 p-extended cyclotomic numbers and their real norms; cyclotomic Kummer classes;
 χ-cyclotomic generators and unit modules; the unsmoothed Euler system;
-Stickelberger cohomology family and Euler-factor replacement; cyclotomic
-derivative classes; integral character quotients; 2-unit quotient, minus prime
-divisor module, valuation and logarithm vectors, and normed Gauss sums. -/
+Stickelberger cohomology family and Euler-factor replacement; Rubin's local
+functionals; cyclotomic derivative classes; integral character quotients;
+2-unit quotient, minus prime divisor module, valuation and logarithm vectors,
+and normed Gauss sums. Arithmetic inputs stated in the README on carriers that
+are not at the pins: the restriction–Kummer dictionary, the idelic characters,
+the Selmer group as a class-group dual, the local unit limits, Sinnott's
+correction and stable index, Coleman's sequence over unramified coefficients,
+Rubin's uniform unit bounds, the exceptional component, the split extension and
+the 2-ramified correspondence, the p-adic class number formula, the integral
+Coleman image and the characterwise Iwasawa ranks. -/
 
 end TauCetiRoadmap.EulerSystemsCyclotomicMainConjecture
