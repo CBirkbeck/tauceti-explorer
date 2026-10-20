@@ -718,13 +718,14 @@
     "PELModuli": {
       "stage": "pr",
       "pr": 966,
-      "head": "f4bbb33",
+      "head": "2d82d07",
       "note": "ported 2026-10-15 (tier 22); ChatGPT Pro APPROVE at 8d86eda superseded by two author-side red-team passes (11 P1 + 6 P1 repaired); draft awaiting a fresh deep review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 0f4df97; draft awaiting re-review",
       "review": {
         "recommendation": "approve",
-        "current": true,
+        "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 2d82d07; confirmation pass pending"
       }
     },
     "ModularSymbolsPadicLFunctions": {

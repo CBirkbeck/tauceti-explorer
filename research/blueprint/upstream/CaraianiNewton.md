@@ -110,7 +110,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
   - **PerfectoidQuotients** — Perfectoid quotients and their prismatic prerequisites. Plan 1/1 accepted · package accepted · CN needs 7/7 layers · **Tau Ceti: pull request #1042 open** · reviewer recommends approval (at earlier head None; current head c29674a)
   - **PrismaticCohomology** — Prismatic cohomology: relative, absolute, Nygaard and log variants. Plan 3/3 accepted · package not yet · CN needs 3/9 layers · **Tau Ceti: pull request #1057 open** · move down: HodgeTateAndCanonicalSubgroups (1) · cites outside the 94: LanglandsParameterStacks (10), RefinedTraceMethods (4), QWittVectors (4), VectorBundlesAndIsocrystals (2)
 - **Merged package:** PELModuli + ShimuraVarieties
-  - **PELModuli** — Siegel and PEL moduli problems. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #966 open** · reviewer recommends approval · move down: HilbertModularVarietiesAndShimuraCurves (2), ShimuraCompactifications (1)
+  - **PELModuli** — Siegel and PEL moduli problems. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #966 open** · reviewer recommends approval (at earlier head None; current head 2d82d07) · move down: HilbertModularVarietiesAndShimuraCurves (2), ShimuraCompactifications (1)
   - **ShimuraVarieties** — Complex Shimura varieties and canonical models. Plan 3/3 accepted · package not yet · CN needs 8/10 layers · **Tau Ceti: pull request #933 open** · reviewer recommends approval (at earlier head None; current head ce10821) · move down: ShimuraCompactifications (1) · cites outside the 94: ComplexMultiplicationAndExplicitReciprocity (10)
 
 ## Tier 14
