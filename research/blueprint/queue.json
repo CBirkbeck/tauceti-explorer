@@ -56333,7 +56333,8 @@
     "PKG-HermitianKTheoryOfPoincareCategories"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HermitianKTheoryOfPoincareCategories.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11258"
   },
   {
    "id": "PKG-HigherLocalFieldsAndHigherClassFieldTheory",
@@ -59882,8 +59883,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicLocalLanglandsForGL2Qp.md",
-   "state": "pending",
-   "note": "released on GitHub issue #10774"
+   "state": "external",
+   "note": "claimed on GitHub issue #10774"
   },
   {
    "id": "REV-PKG-PadicLocalLanglandsForGL2Qp",
@@ -151885,9 +151886,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-MotivesAndAlgebraicCycles~codex.md",
-   "note": "claimed on GitHub issue #11240"
+   "note": "deliverables arrived from an external worker on issue #11240",
+   "finishedAt": "2026-10-20T01:08:27Z"
   },
   {
    "id": "PKG-RefinedTraceMethods~codex",
@@ -152031,9 +152033,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5.md",
-   "note": "claimed on GitHub issue #11261"
+   "note": "deliverables arrived from an external worker on issue #11261",
+   "finishedAt": "2026-10-20T01:08:31Z"
   },
   {
    "id": "REV-PKG-CyclotomicClassGroupsAndStickelberger~codex",
