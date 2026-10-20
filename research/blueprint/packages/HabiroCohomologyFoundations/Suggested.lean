@@ -5,9 +5,11 @@ import Mathlib
 
 The roadmap is `README.md`. This file records the definitions and theorem signatures of the
 roadmap that can be stated against the pinned Mathlib; it is not exhaustive. The cohomology
-theories themselves (global and derived q-de Rham complexes, q-Hodge pairs, twisted q-Hodge
-filtrations, Habiro–Hodge descent and the comparison squares) live on enhanced carriers that
-are not at the pins. They are README targets, so Layers 3 and 5–7 have no declarations here.
+theories themselves (Habiro completion and étale coefficient lifts, global and derived q-de
+Rham complexes, q-Hodge pairs, twisted q-Hodge filtrations, Habiro–Hodge descent and the
+comparison squares) live on enhanced carriers that are not at the pins. They are README
+targets, so Layers 0, 3 and 5–7 have no declarations here. In particular, the étale comparison
+of README §§4.21 and 4.28 uses its own coefficient construction, not a later ordinary model.
 
 Design choices made explicit here:
 * the Jackson operator is defined coefficientwise through `Polynomial.sum`, so it makes sense
@@ -206,9 +208,14 @@ theorem cyclotomic_prime_decomposition (p : ℕ) [Fact p.Prime] :
     ∃ u : ℤ[X], cyclotomic p ℤ = C (p : ℤ) * u + (X - 1) ^ (p - 1) ∧ u.eval 1 = 1 := by
   sorry
 
+-- In characteristic two the first two cyclotomic supports coincide (README §0.2).
 example : cyclotomic 2 ℤ = C 2 + (X - 1) ∧
-    cyclotomic 3 ℤ = C 3 * X + (X - 1) ^ 2 := by
-  constructor <;> simp only [cyclotomic_two, cyclotomic_three, map_ofNat] <;> ring
+    cyclotomic 3 ℤ = C 3 * X + (X - 1) ^ 2 ∧
+    cyclotomic 1 (ZMod 2) = cyclotomic 2 (ZMod 2) := by
+  refine ⟨?_, ?_, ?_⟩
+  · simp only [cyclotomic_two, map_ofNat]; ring
+  · simp only [cyclotomic_three, map_ofNat]; ring
+  · simp [cyclotomic_one, cyclotomic_two, sub_eq_add_neg, CharTwo.neg_eq]
 
 example : (2 : ℤ[X]) = -(X - 1) + (X + 1) ∧
     ((X - 1) + (X + 1) : ℤ[X]).eval 2 ≠ 2 := by
