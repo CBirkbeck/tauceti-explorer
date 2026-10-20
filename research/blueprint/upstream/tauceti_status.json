@@ -841,10 +841,10 @@
       "head": "2b36794",
       "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
       "review": {
-        "recommendation": "approve",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "recommendation": "changes",
+        "head": "2b36794",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "SerreWeightAndLevelOptimisation": {
