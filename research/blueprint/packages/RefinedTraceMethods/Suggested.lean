@@ -187,7 +187,9 @@ Layer 3: circle-equivariant p-typical cyclotomic spectra; topological Cartier mo
 derived V-completeness; positively graded cyclotomic spectra. Classical Cartier modules
 have the additive carrier used by CartierStructure above; their category is in the README.
 
-Layer 4: relative dualizable presentable stable categories; relative trace-class morphisms,
+Layer 4: the stable S-construction and connective K-theory of small stable infinity
+categories; nonconnective K-theory by the suspension construction; relative dualizable
+presentable stable categories; relative trace-class morphisms,
 ordered E₁ rigidity and nuclear objects; accessible localizing invariants; localizing and
 truncating invariants; Goodwillie derivatives; connective bimodules and square-zero
 extensions; pseudo-extensible and Postnikov-convergent algebra functors; infinitesimal
@@ -197,14 +199,15 @@ Layer 6: spherical lifts and the base hypotheses; light condensed and solid spec
 trace-class maps and nuclear modules; perfect even modules and the even site; ordinary
 even filtrations; the solid even filtration; even flat and solid even flat modules;
 homological evenness and even homotopy sheaves; faithfully even flat ring maps; solid
-duality Assumption R; compatible local and global spherical lifts; KU/p-localization,
-structured Adams fixed points and the connective cover of the local sphere at each prime;
+duality Assumption R; compatible local and global spherical lifts; Bousfield localization
+at a spectrum and K(1)-localization; homotopy fixed points of the Adams operations ψ^r,
+ψ^{−1} and ψ³ and the connective cover of the local sphere at each prime;
 cyclonic spectra and cyclonic Adams lift coherence; TC^{−(m)}.
 
 Layer 7: nuclear E-modules; smooth and proper E-linear categories. Layer 8 additionally
 constructs the motivic, Nygaard and syntomic trace filtrations, Breuil–Kisin twists, AΩ
-comparisons and Habiro interfaces. The sheaf of finite-coefficient even K-groups and its
-derived syntomic-to-étale pushforward in Layer 8 also require the README's higher carriers.
+comparisons and Habiro interfaces. The quasisyntomic sheaves of even K-groups in Layer 8
+also require the README's higher carriers.
 Layer 9 defines Zₚ and Qₚ coefficients by p-completing
 before inverting p, and constructs the Beilinson comparisons using the earlier
 layers. The Snaith comparison, stable Adams lifts and relative cyclic HKR remain Layer 5
