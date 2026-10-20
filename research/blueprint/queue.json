@@ -152956,6 +152956,26 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~codex2.md",
    "note": "claimed on GitHub issue #11348"
+  },
+  {
+   "id": "REV-PKG-EulerSystemsCyclotomicMainConjecture~codex4",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsCyclotomicMainConjecture"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex4.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/review.json",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/README.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/Suggested.lean",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex4.md"
   }
  ]
 }
