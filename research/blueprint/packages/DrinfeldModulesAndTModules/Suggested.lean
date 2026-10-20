@@ -351,6 +351,76 @@ example (θ : L) : carlitzTensor F θ 2 0 1 = 1 := by
 
 end TModules
 
+/-! ## Layer DM.1: finite-shtuka descent -/
+
+section FiniteShtukaDescent
+
+variable (F : Type*) [Field F] [Fintype F]
+  (L : Type*) [Field L] [Algebra F L]
+
+/-- Frobenius-linear descent over a separably closed field. Only the linearization matrix
+is invertible; the field Frobenius need not be surjective (README §1.3). -/
+theorem semilinear_lang [IsSepClosed L] (r : ℕ) (Φ : Matrix (Fin r) (Fin r) L)
+    (hΦ : IsUnit Φ.det) :
+    ∃ B : Matrix (Fin r) (Fin r) L, IsUnit B.det ∧
+      Φ * B.map (FiniteField.frobeniusAlgHom F L) = B := by
+  sorry
+
+example (r : ℕ) :
+    (1 : Matrix (Fin r) (Fin r) L) *
+      (1 : Matrix (Fin r) (Fin r) L).map (FiniteField.frobeniusAlgHom F L) = 1 := by
+  simp
+
+example (x : L) :
+    (!![(1 : L), x - x ^ Fintype.card F; 0, 1] : Matrix (Fin 2) (Fin 2) L) *
+      (!![(1 : L), x; 0, 1] : Matrix (Fin 2) (Fin 2) L).map
+        (FiniteField.frobeniusAlgHom F L) = !![(1 : L), x; 0, 1] := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+example : ∀ b : ZMod 3, b ≠ 0 → (2 : ZMod 3) * b ^ 3 ≠ b := by
+  decide
+
+example : ∀ v : Fin 2 → ZMod 2,
+    (!![(0 : ZMod 2), 1; 1, 1]).mulVec v = v → v = 0 := by
+  decide
+
+/-- A singular rank-one matrix cannot have an invertible solution. -/
+example (B : Matrix (Fin 1) (Fin 1) L) (hB : IsUnit B.det) :
+    (0 : Matrix (Fin 1) (Fin 1) L) * B.map (FiniteField.frobeniusAlgHom F L) ≠ B := by
+  intro h
+  have hzero : B = 0 := by simpa using h.symm
+  simp [hzero] at hB
+
+variable (D : Type*) [CommRing D] [Algebra F D] [Module.Finite F D]
+
+/-- Descent with finite, possibly nonreduced coefficients. Frobenius fixes `D` and acts only
+on `L`; absolute Frobenius on the tensor product is a different map (README §1.3). -/
+theorem semilinear_lang_finiteAlgebra [IsSepClosed L] (r : ℕ)
+    (Φ : Matrix (Fin r) (Fin r) (D ⊗[F] L)) (hΦ : IsUnit Φ.det) :
+    ∃ B : Matrix (Fin r) (Fin r) (D ⊗[F] L), IsUnit B.det ∧
+      Φ * B.map (Algebra.TensorProduct.map (AlgHom.id F D)
+        (FiniteField.frobeniusAlgHom F L)) = B := by
+  sorry
+
+example (d : D) :
+    Algebra.TensorProduct.map (AlgHom.id F D) (FiniteField.frobeniusAlgHom F L)
+      (d ⊗ₜ[F] (1 : L)) = d ⊗ₜ[F] (1 : L) := by
+  simp
+
+example (c : L) :
+    Algebra.TensorProduct.map (AlgHom.id F D) (FiniteField.frobeniusAlgHom F L)
+      ((1 : D) ⊗ₜ[F] c) = (1 : D) ⊗ₜ[F] c ^ Fintype.card F := by
+  simp
+
+example : (DualNumber.eps : DualNumber (ZMod 2)) ^ 2 ≠ DualNumber.eps := by
+  rw [DualNumber.eps_pow_two]
+  intro h
+  have hsnd := congrArg TrivSqZeroExt.snd h
+  norm_num at hsnd
+
+end FiniteShtukaDescent
+
 /-! ## Layer DM.6: Euler values, regulators and Taelman class modules -/
 
 section Taelman
