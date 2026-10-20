@@ -1313,7 +1313,7 @@ Uniqueness of the extension: dim Ext¹(Ban(δ₂, δ₁), Ban(δ₁, δ₂)) = 1
 - For crystalline irreducible V with distinct eigenvalues and a generic parameter s, Π(V)^{an} is an extension of the two displayed locally analytic principal series. At a special parameter its kernel is E_ℒ instead.
 - For V semistable non-crystalline, the extension class of E_ℒ recovers the Fontaine–Mazur ℒ-invariant.
 - A scalar a·1 acts on Ban(η₁,η₂) by η₁(a)η₂(a)χ(a)⁻¹, computed from the inducing character. Taking η₁=χη₂ makes this η₂(a)², the central character of the one-dimensional subrepresentation η₂∘det.
-- For δ_s=1 (k=0), W has dimension one; for δ_s=x it has dimension two. Neither is removed from the special quotient by the generic exact-sequence formula.
+- For the induced representation with η₁=χη₂ (the formal k=0 special case), W=η₂∘det has dimension one; for δ_s=x it has dimension two. The k=0 parameter has u(s)=0 when the determinant is unitary, since δ₁(p)=δ₂(p), so it lies outside S_irr. This dimension-one check concerns induction, not an extra irreducible V(s). At a permitted special parameter the kernel remains E_ℒ.
 
 The source is [Pierre Colmez, COLMEZ14LA](#ref-colmez14la), Théorème 0.1, p. 5; Propositions 0.2–0.5, pp. 5–6; Théorèmes 0.6–0.7 and Remarque 0.8, p. 7.
 
