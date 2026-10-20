@@ -50,13 +50,16 @@ The following are prerequisites and boundaries, rather than additional targets.
 - [CrystallineCohomology][CR], CR.4, supplies de Rham–Witt complexes.
   [SchemeAndStackFoundations][SF], SF.0, SF.2, SF.4 and SF.5, supplies schemes,
   quasi-coherent modules, henselian and Nisnevich infrastructure, resolution
-  carriers and cycles. [EtaleDualityAndPerverseSheaves][EDC] supplies
-  localization and smooth purity in its stated coefficient regimes. The
-  additional étale homology, arithmetic niveau and wild purity contracts
-  below require extensions. The degree-controlled alteration input is
-  a further supplier contract;
-  ordinary de Jong
-  alterations do not supply the required degree prime to a chosen prime.
+  carriers and cycles. [ConstructibleEtale][CE], Layer 3, supplies finite
+  étale covers, their geometric fibre functors and the scheme fundamental
+  group. [PurityOfBranchLocus][PBL], §§0.1 and 2.2, supplies branch purity;
+  [LefschetzPencilsAndVanishingCycles][LPV], §0.10, supplies absolute
+  cohomological purity for invertible coefficients. These are distinct
+  interfaces. [EtaleDualityAndPerverseSheaves][EDC], §0.2, includes regular
+  bases of dimension at most one with invertible coefficients. Its six
+  operations give the input to the Kato-specific homology/niveau assembly
+  in §6.5. Wild geometric comparisons and a global proper alteration of
+  degree prime to a chosen prime require the further contracts below.
 - Mathlib's `RestrictedProduct` and
   [Completed/RestrictedProducts][RP] supply ordinary restricted products, maps,
   reindexing and decompositions. Higher adelic restrictedness is recursive and
@@ -165,6 +168,12 @@ expresses the Frobenius condition. `PowerSeries`, `UniformSpace.Completion`,
 abstract `CategoryTheory.GaloisCategory` does not by itself construct the
 finite-étale fundamental group of an arithmetic scheme.
 
+`KaehlerDifferential ℤ O_E`, its universal derivation
+`KaehlerDifferential.D`, and `KaehlerDifferential.linearMapEquivDerivation`
+supply absolute differentials. `AdicCompletion I M` supplies the module
+inverse limit for §4.4, with `I=(p)` finitely generated; the completed
+Milnor groups and exponential comparison remain targets here.
+
 At the Tau Ceti pin, `TauCeti.unitFiltration` supplies the one-local unit
 subgroups, and `TauCeti.Place.ramificationGroup` supplies lower ramification
 at function-field places. Continuous cochain functoriality, including
@@ -226,33 +235,133 @@ mixed-DVR comparison. KLF Layer 3 supplies ordinary one-local K₂ computations.
 
 SF.0 supplies Noetherian quasi-coherent modules, localization, completion and
 coherent-to-quasi-coherent filtered-colimit control. SF.2 supplies field
-étale/Galois comparison and Nisnevich henselian stalks. The finite-étale-cover
-Galois category, `π_1^ab(U)` and the regular-scheme purity needed here are
-additional geometric requirements; SF.2's field comparison does not construct
-them. SF.4 supplies
-proper birational resolution and SNC compactification carriers; SF.5 supplies
-cycles, supports and branchwise specialization. The relative Milnor sheaf and
-punctured-spectrum comparison required in §5.7 must retain modulus data and
-all branches; ordinary quasi-coherent localization is insufficient.
+étale/Galois comparison and Nisnevich henselian stalks. SF.4 supplies
+alteration, regularity and SNC carriers; SF.5 supplies cycles and supports.
+The relative Milnor sheaf and punctured-spectrum comparison required in §5.7
+retain modulus data and all branches; ordinary quasi-coherent localization
+is insufficient.
 
-EDC's scheme six operations and smooth trace do not yet supply the arithmetic
-étale homology, field-stalk description and niveau spectral sequence used in
-§6.5. A geometric extension must construct that theory with localization,
-the relevant purity hypotheses and identification of its first differential
-with branchwise residue/corestriction. Logarithmic purity is a further
-characteristic-p requirement. No unrestricted mixed-wild boundary is assumed.
-The alteration contract requires a proper regular alteration of generic degree
-prime to ℓ with the compactification and transfer descent used in Jannsen
-Theorems 2.10–2.11, pp. 24–25. EDC, Part II's prime-to-ℓ local uniformization
-gives regular SNC covering families; identifying those with this global
-proper degree-controlled contract needs a separate argument.
+### Finite covers, the fundamental group and the two purity inputs
 
-**Supplier gaps.** The additional imperfect/mixed-wild differential comparisons,
-scheme fundamental group and purity, arithmetic étale homology/niveau theory,
-and global proper degree-controlled alteration theorem just specified have
-no exact export identified here. Targets that use them retain these explicit
-prerequisites. They cannot be discharged by the narrower field comparison,
-smooth purity, Witt-carrier or local-covering statements.
+For connected nonempty locally Noetherian U, import [CE], Layer 3's
+`FiniteEtale U`, geometric fibre functor, its Galois-category structure,
+`π_1(U,ū)=Aut(F_ū)` with its profinite topology, and the equivalence between
+finite covers and finite continuous π₁-sets. Étale paths conjugate based
+groups; [PA]'s profinite abelianization therefore gives a basepoint-independent
+`π_1^ab(U)`. Use the componentwise groupoid on disconnected U. This imports
+the scheme construction, rather than applying the abstract Galois-category
+theorem to an unspecified category.
+
+For a finite dominant generically étale map Y→U with Y normal integral
+locally Noetherian and U regular integral locally Noetherian, import
+[PBL], §2.2's `Scheme.Hom.etale_of_etaleAt_codimOne`: the map is étale
+exactly when its codimension-one source stalk maps are formally unramified.
+Section 0.1 identifies that condition with scheme unramifiedness. Generic
+separability is retained, including when U has dimension zero.
+
+For a regular closed immersion i:Z→X of pure codimension c between regular
+Noetherian schemes, and n invertible on X, import [LPV], §0.10's
+`Ri!ℤ/n ≃ ℤ/n(−c)[−2c]`, with fundamental classes, composition and
+transverse-pullback compatibility. This cohomological statement does not
+assert branch purity or a logarithmic p-primary purity theorem.
+
+**Checks.**
+
+- Over Spec F_q the finite-cover fibre functor recovers the ordinary
+  procyclic Galois group, and abelianization changes nothing.
+- In characteristic p, Spec F_p(u^(1/p))→Spec F_p(u) has no
+  codimension-one points and is not étale. Omitting generic separability
+  would make the branch-purity criterion false.
+- For a regular trait and invertible n, purity places the closed-point
+  group in degree 2 with twist 1: the normalized residue of a uniformizer
+  is 1 mod n.
+  There is no corresponding assertion here with n=p on a p-residue trait.
+
+### Homology and wild comparison requirements
+
+Import [EDC], §0.2's `oneDimensionalDualizingBase` and
+`constructibleBiduality`, together with the exceptional adjunction and
+localization from EtaleCohomologyFoundations §F.5. The base is a field or an
+excellent regular Noetherian scheme of dimension one, n is invertible,
+and Λ=ℤ/n is self-injective. EDC uses the constant base dualizing object
+Λ_S; it does not insert a global twist or shift on a trait. Section 6.5
+forms the separate Kato homology normalization and its support filtration
+from these inputs and [LPV]'s purity. The residue/localization comparison
+uses [JSS], Theorems 1.1.1 and 1.5.8, pp. 11–18, including their minus sign.
+
+The following stronger exports are required in the owning differential and
+duality directions. They are separate from that invertible-coefficient
+construction and from the field symbol isomorphism.
+
+| Required export | Exact mathematical contract and source range | Consumers |
+| --- | --- | --- |
+| `logWittFieldTransfer` | For any finite extension L/E of characteristic-p fields, every s≥1 and i≥0, the map on H⁰ of logarithmic Witt sheaves is `dlog_E ∘ N^M_{L/E} ∘ dlog_L⁻¹`; its étale-base-change compatibility defines a sheaf trace and hence the H¹ corestriction. Require transitivity, projection formulas and restriction of Witt length. This includes inseparable extensions. [JSS], §0.6, (0.6.3)–(0.6.5), p. 10. Equality with an independently constructed Gros trace has the finitely-generated-over-a-perfect-field scope stated there and in Lemma A.1.1 and Corollary A.2.8, pp. 57–62. | §§2.5–2.7, 4.5, 5.4, 7.4 |
+| `logWittDVRComparison` | For an excellent characteristic-p DVR A with fraction field E and residue k, every s≥1 and i≥0, compare the last-uniformizer Milnor boundary modulo p^s with logarithmic residue on H⁰. The induced Kato H¹ boundary has the form `H^(i+2)(E,ℤ/p^s(i+1)) → H^(i+1)(k,ℤ/p^s(i))` and retains `[k:k^p]≤p^i`. Keep normalization-branch traces. The field construction is [JSS], §0.6, pp. 8–10; the geometric comparison for smooth schemes over a perfect field is Theorem 2.1.1, pp. 19–22 and Theorem 2.11.3, pp. 31–32. A transported field map alone does not establish the geometric comparison. | §§2.6, 4.5, 5.4, 6.5, 7.4 |
+| `logWittRegularPurity` | For every s≥1, a regular closed immersion Z→X between regular characteristic-p schemes, of codimension c and with `[κ(η):κ(η)^p]=p^N` at every generic point η of X, require `H^q(Z,W_sΩ^{i−c}_log) ≃ H_Z^{q+c}(X,W_sΩ^i_log)` in the source's ranges: q=0, or q>0 and i=N with X excellent and finite p-rank. [Shiho], Theorem 3.2, pp. 583–584 and Proposition 2.22, p. 582. The comparison with the Kato differential on an excellent regular scheme is Theorem 5.4 only at s=1; Remark 5.5, pp. 609–610, explicitly distinguishes the further finite-length comparison. Theorem 5.2's all-length Gersten exactness does not identify all those geometric differentials. | wild §§5.4, 6.5, 6.8, 7.4 |
+| `mixedKatoDualizingComparison` | For a henselian mixed-characteristic DVR with perfect residue field, separated finite-type f:X→S and s≥1, construct `T_s = Cone(Rj_*μ_{p^s} → i_*ℤ/p^s[−1])[−1]` using normalized valuation. Require `j*T_s=μ_{p^s}`, `Ri!T_s=ℤ/p^s[−2]`, and identify the localization of `Rf!T_s` with Kato's branch residue, including its sign. [JSS], Theorem 3.2.1, p. 35, Definition 3.9.1 and (3.9.2)–(3.9.5), pp. 43–44, Theorem 3.10.2, pp. 45–46. This theorem permits imperfect fields at points of X; it does not permit an imperfect residue field of the base S. An imperfect-base extension, when used, needs its own theorem. | mixed-wild §§2.5–2.6, 5.4, 6.5, 7.4 |
+
+Negative form degrees in these contracts denote the zero sheaf.
+
+The finite-length trace/geometric-purity extensions belong to the
+CrystallineCohomology direction; the wild exceptional-pullback and homology
+extensions belong to the étale-duality direction. CR.4.8's exact sequences,
+MEK's field symbol theorems and EDC's invertible-coefficient duality are the
+available inputs. None is labelled as supplying these stronger exports.
+In particular, retain MEK §7.4's existing mod-p norm/trace compatibility;
+the additional trace requirement concerns finite Witt length and the
+specified geometric identifications.
+
+**Checks.**
+
+- For E=F_p(u), L=F_p(v), v^p=u, restriction kills dlog u at length
+  one, while the transferred class dlog v maps to dlog u by the Milnor
+  norm. Wild purely inseparable invariance would give the wrong answer.
+- A p-primary Kato H¹ residue in weight i retains `[k:k^p]≤p^i`.
+  In particular k=F_p((u)) has p-rank one, rather than zero.
+- The mixed dualizing object restricts to μ_{p^s} on the generic point
+  and to a closed-point exceptional pullback in degree 2. Using the
+  constant μ_{p^s} sheaf on the entire trait loses this special fibre.
+
+### Degree-controlled alteration and descent requirement
+
+The required export `properPrimeToEllAlteration` extends [SF], §4.19.
+Let X be integral separated of finite type over any field L, Y⊊X closed,
+and ℓ invertible in L. Require a finite L'/L of degree prime to ℓ, a
+connected smooth quasi-projective L'-scheme X', and a proper surjective
+L-map π:X'→X, with `[L'(X'):L(X)]` prime to ℓ and reduced π⁻¹Y an SNC
+divisor. If X is proper, X' is smooth projective. The constants and
+generic degrees are separate data. This is the exact global form in
+[Jannsen], Theorem 2.11, pp. 24–25; its use in Theorem 2.10 is on a
+proper model with Y the complement of the chosen open.
+
+The higher Hasse argument additionally needs `HigherHasse.alterationDescent`:
+factor F'/F through its maximal separable subextension F_s/F. The remaining
+extension F'/F_s is purely inseparable. Prime-to-characteristic invariance
+makes restriction from F_s to F' an isomorphism, and
+`cor ∘ res = [F_s:F]` makes restriction from F to F_s injective on
+the ℓ-primary group, since this degree divides `[F':F]` and is prime to ℓ.
+Import the transfer identity and prime-to-characteristic invariance from
+[PC] and [MEK], rather than proving them again. Compatibility with extension of constants
+and every place carries a locally trivial class to a locally trivial class.
+These are the descent steps of [Jannsen], proof of Theorem 2.10, pp. 25–26;
+the generic alteration theorem keeps its geometric owner.
+
+**Checks.**
+
+- For a smooth projective X and an SNC Y, the identity has degree one
+  and meets the contract, including Y empty and dimension zero.
+- For a degree-ℓ extension with ℤ/ℓ coefficients, multiplication by
+  the degree is zero. The transfer equation then gives no injectivity.
+- A purely inseparable extension in characteristic p is harmless to
+  this argument only for ℓ≠p. No wild invariance is inferred.
+
+[EDC, Part II][EDCII], `EQ.2/prime-to-ell-local-uniformization`, supplies a
+regular SNC covering family. Its `EQ.0/standard-form-covers` gives a proper
+generic-degree-prime-to-ℓ intermediate scheme, but does not say that this
+intermediate scheme is regular. Their composition therefore does not yet
+supply `properPrimeToEllAlteration`. Ordinary de Jong alterations and proper
+hypercover descent also do not give its trace splitting. Sections 6.8–6.9
+retain this precise prerequisite.
 
 ## How to read the build
 
@@ -990,8 +1099,10 @@ admissible prime-to-residue-characteristic case.
 `H_Kato^3`, not on `H_Kato^2`. The parameter cup product in §2.8 has
 positive invariant `1/m` under arithmetic Frobenius.
 
-*Needs:* §2.2, [SF], Layers 2 and 5, the trace/duality and admissible
-purity extensions specified under Exact supplier contracts, and the one-local invariant.
+*Needs:* §2.2, [PC]'s field transfer/cup contract, the one-local invariant,
+and the wild conductor-duality construction just specified. The field
+invariant is proved by Kato's field argument; scheme absolute purity is
+not a prerequisite for that proof.
 Sources: [Invitation], I §5.1, theorem and corollary, pp. 55–56, §5.2,
 p. 56; [Milne], I §2, Theorem 2.17 and Lemma 2.18, pp. 38–39.
 
@@ -1029,21 +1140,37 @@ Proposition 3.2, p. 7, for the local-constant bound.
 
 ### 2.5 The logarithmic coefficient contract
 
-Import [CR], Layer 4's ordinary and relative de Rham–Witt complexes,
-restriction, Frobenius, Verschiebung and logarithmic dlog subgroups. The
-needed field interface comprises the finite-length Cartier exact sequence,
-traces, residues and their coefficient-change identities. For mixed
-characteristic, require a logarithmic differential comparison for
-imperfect residue fields as an extension of [KLF], Layer 5. That layer's
-perfect-residue, odd-p calculations do not establish this larger scope.
+Import [CR], §§4.7–4.8's ordinary/relative de Rham–Witt complexes,
+restriction, Frobenius, Verschiebung, logarithmic sheaves and their étale
+exact sequences. This supplies actual sheaves on regular characteristic-p
+schemes, including imperfect fields. Require the four separately stated
+trace, DVR, regular-purity and mixed-dualizing comparisons in Exact supplier
+contracts only where their geometric maps are used. Their finite-length,
+base-field and p-rank hypotheses remain part of the interface.
 
-**Check.** The outer residue of `F_p((u))((t))` is imperfect. Applying a
-perfect-residue DVR calculation to it fails the field hypothesis.
+In particular, the mixed-DVR comparison is not a consequence of the
+characteristic-p field symbol theorem. [JSS], §3 treats perfect residue
+fields of the base trait, although residue fields at higher points of X
+may be imperfect. The Kato conductor argument for higher local fields
+instead uses finite p-rank, unit filtrations, Cartier and the endpoint
+quotients described in §2.7; it does not impose a perfect-residue hypothesis
+on those local fields.
 
-*Needs:* [CR], Layer 4 and the additional field-level exactness/transfer
-contract just stated; the mixed-characteristic extension of [KLF],
-Layer 5. Sources: [Invitation], I §5.1, pp. 53–55, §6.4.3, p. 66,
-Kato existence §5, pp. 191–194.
+**Checks.**
+
+- The outer residue of `F_p((u))((t))` is imperfect of p-rank one;
+  applying a perfect-residue DVR calculation to it fails the hypothesis.
+- At s=1 and i=0, the logarithmic coefficient sheaf is ℤ/p and
+  the coefficient complex has shift zero. In weight i it has shift −i.
+- For p=2, the characteristic-p field symbol and trace constructions
+  still apply. KLF §5.2a's odd-prime prelog construction is not the
+  proof of either assertion.
+
+*Needs:* [CR], §§4.7–4.8, [MEK], §§7.4–7.6, and the precisely ranged
+stronger exports in Exact supplier contracts. Sources: [Shiho],
+Definition 2.6 and Propositions 2.8, 2.12, pp. 575–577;
+[JSS], §0.6, pp. 8–10, §§2.1, 3.9–3.10;
+[Invitation], Kato existence, Lemma 22, pp. 190–191.
 
 ### 2.6 Imported symbol theorems and their comparison squares
 
@@ -1062,12 +1189,26 @@ different hypotheses and are not used to prove this field theorem.
 This layer adds the comparison squares through §1.6's separated topological
 quotient and the chosen tower residues, with the higher invariant's
 normalization. Products and finite transfers use the supplied generic maps.
-Generic symbol isomorphisms retain their own owners. A wild residue square
-needs logarithmic purity, not the prime-to-characteristic Kummer sequence.
+Generic symbol isomorphisms retain their own owners. At the field level
+one can transport a Milnor boundary or norm through the symbol isomorphism:
+`ρ_log = dlog_k ∘ ∂^M ∘ dlog_E⁻¹` and
+`Tr_log = dlog_E ∘ N^M ∘ dlog_L⁻¹`. These formulas construct the
+field maps in [JSS], §0.6; they do not identify a localization boundary
+or an independently constructed de Rham–Witt residue. The latter equalities
+are `logWittDVRComparison` and `logWittRegularPurity`. Retain this distinction
+when passing to a flag or to §6.5's niveau complex.
 
-**Check.** In degree one, dlog has kernel `(E×)^{p^s}`. Ordinary
-`μ_{p^s}` as a Galois module in characteristic p would erase the wild
-symbol groups.
+**Checks.**
+
+- In degree one dlog has kernel `(E×)^{p^s}`; for E=F_p(u),
+  dlog u at length one is nonzero. Ordinary μ_p Galois coefficients
+  would erase this class.
+- In degree zero the field symbol is ℤ/p^s≃H⁰(E,W_sΩ⁰_log),
+  and the transfer is multiplication by the finite field degree.
+- On E=k((t)), the transported last-slot boundary sends
+  `dlog u∧dlog t` to dlog ū for a unit u, and annihilates
+  products of dlogs of integral units. This calculation alone is
+  not a geometric purity theorem.
 
 *Needs:* [K2], Layers 5 and 9–11; [MEK], §6.6 and §§7.4–7.6;
 §2.5 for the additional trace, residue and mixed-DVR comparisons. Source: Izhboldin,
@@ -1097,6 +1238,69 @@ unequal to p, Kato's Proposition 7 identifies p-divisibility of a
 cohomology class with vanishing of its product with a chosen primitive
 p-th root; prime-to-p cyclotomic descent transfers that lifting criterion.
 In characteristic p use the p-divisibility of the torsion Kato groups.
+
+Name the order-p input `KatoConductorDuality`. For a complete DVR E
+with residue characteristic p and `[k:k^p]=p^{q+r−2}`, q,r≥1, use
+Kato's increasing conductor filtration `T_i H_p^r(E)`, i≥0, and §1.4's
+decreasing Milnor unit filtration. In characteristic p, T_i is generated
+by the differential classes `a dlog b_1∧⋯∧dlog b_{r−1}` with
+`v_E(a)≥−i` and b_j∈E×. In characteristic zero let L=E(ζ_p),
+e=v_E(p), and `j=(pe/(p−1)−i)e(L/E)`; T_i is the inverse image of
+the symbol image of `U^j K_r^M(L)` if j≥1, and of all H_p^r(L)
+if j≤0. The index j is integral after this cyclotomic extension.
+Require annihilation of `U^{i+1}K_q^M(E)`, the unramified two-summand
+description at i=0, and the Cartier formulas on the positive graded
+pieces. Write `δ:Ω_k^(q+r−2)→H_p^(q+r−1)(k)` for the defining
+differential quotient map. For `0<i<pe/(p−1)`, taking e=∞ in
+characteristic p, the graded pairings are
+
+```text
+p∤i: Ω_k^(r−1) × Ω_k^(q−1) → H_p^(q+r−1)(k),
+     (w,v) ↦ δ(w∧v);
+p|i: (w₁⊕w₂,v₁⊕v₂) ↦ δ(dw₁∧v₂ + dw₂∧v₁),
+     with both factors quotiented by closed forms in degrees (r−1,r−2)
+     and (q−1,q−2), respectively.
+```
+
+Negative differential degrees are zero. In mixed characteristic, when
+`i_*=pe/(p−1)` is integral, retain the final graded piece at i_*,
+where e=v_E(p); it is controlled by the Cartier
+operator with the residue a of `pπ^(−e)`. Its character factor is
+`ν^r(a,k)⊕ν^(r−1)(a,k)`, where
+`ν^j(a,k)=ker(C+a:Ω^j_(k,closed)→Ω^j_k)`; its unit factor is
+the degree-(q−1,q−2) quotient by exact forms and the forms
+`(x^p+ax)dlog y₁∧⋯∧dlog y_j`. The pairing is
+`δ(w₁∧v₂+w₂∧v₁)`. If the terminal index is nonintegral,
+the filtration already exhausts H_p^r at its
+integer part. Prime-to-p cyclotomic descent
+returns to E. These are Kato's Lemma 22, [Invitation], pp. 190–191,
+not a logarithmic purity theorem on a mixed-characteristic scheme.
+
+For a higher local E with finite final residue field, prove nondegeneracy
+after the final trace and identify conductor annihilators by induction
+through the residue tower. Neither assertion is made for an arbitrary
+finite-p-rank residue field: with k=F̄_p, the top residue group H¹(k,ℤ/p)
+is zero and cannot give this character-duality argument.
+
+The filtration API is `KatoConductor.filtration`, `.monotone`,
+`.unramified`, `.annihilatesUnits`, `.gradedPairing` and
+`.cyclotomicDescent`. The last two expose the differential quotient
+and its actual Cartier pairing, rather than merely naming a perfect
+pairing. The ind/pro duality and finite-order lifting above then give
+`KatoCharacterDuality`. When the Milnor degree is zero, use the higher
+invariant of §2.3 directly; do not apply Lemma 22 with q=0.
+
+**Checks for the conductor construction.**
+
+- On F_p((t)), for i>0 prime to p, the length-one class t^(−i)
+  pairs to 1 with `1+i⁻¹t^i`, since the residue of
+  `t^(−i)dlog(1+i⁻¹t^i)` is 1. It pairs to zero with depth i+1
+  units. Replacing i+1 by i loses this graded class.
+- In mixed characteristic at p=2 the terminal index is 2e. It is
+  retained, and an odd-prime-only differential formula is insufficient.
+- For a one-local field the residue p-rank is zero, so q=r=1
+  meets the rank equation. The r=n+1, q=0 endpoint instead comes
+  from the invariant, outside this conductor lemma's hypotheses.
 
 **Check.** `H^1(F_p((u))((t)),ℤ/p)` is infinite, as witnessed by
 Artin–Schreier classes with unbounded pole orders prime to p. An
@@ -1507,13 +1711,21 @@ conventions must be fixed before applying the integral formulas.
 For a mixed-characteristic complete DVR field E, `q≥1` and
 `ord_p(η)>2/(p−1)`, construct
 `exp_η^q:Ω̂_{O_E}^{q−1}→K̂_q^M(E)`.
-Hats mean p-adic completion. On logarithmic generators with `a∈O_E`
+Here `Ω̂¹=lim_s Ω¹_{O_E/ℤ}/p^s`, and `Ω̂^j=∧^j_{O_E}Ω̂¹`,
+as in the source; for an infinite p-basis no interchange of exterior
+powers with inverse limits is implicit. The Milnor completion is
+`lim_s K_q^M(E)/p^s`. On logarithmic generators with `a∈O_E`
 and `b_j∈O_E×`, send
 `a dlog b_1∧⋯∧dlog b_{q−1}` to
 `{exp(ηa),b_1,…,b_{q−1}}`.
-The residue field can be imperfect. The extension to nonunit differential
-generators needs its own justified formula. Do not assert a general
-kernel computation.
+The residue field can be imperfect. For nonzero integral b_j the
+nonunit formula is
+`exp_η^q(a db_1∧⋯∧db_{q−1}) =
+ {exp(ηa b_1⋯b_{q−1}),b_1,…,b_{q−1}}`.
+If some b_j is zero the differential expression is zero and its image
+is zero; a Milnor symbol with a zero entry is never formed. Do not
+assert a general kernel computation. The normalization is
+`ord_p(p)=1`, and the strict η bound includes p=2.
 
 For `E{{T}}`, prove that the completed differential T-residue and Kato's
 completed Milnor T-residue commute with exp. The latter has
@@ -1521,7 +1733,8 @@ completed Milnor T-residue commute with exp. The latter has
 
 **API.** `KuriharaExponential.map` is the homomorphism;
 `KuriharaExponential.logGenerator` gives its value on logarithmic
-generators; `KuriharaExponential.residue` gives the residue square;
+generators; `KuriharaExponential.integralGenerator` gives the
+nonunit formula; `KuriharaExponential.residue` gives the residue square;
 `KuriharaExponential.continuous` gives p-adic continuity.
 
 **Checks.**
@@ -1534,9 +1747,12 @@ generators; `KuriharaExponential.residue` gives the residue square;
 - A proposed domain `Ω̂^q` fails the q=1 degree check. The theorem's
   strict η bound cannot be dropped.
 
-*Needs:* completed absolute differentials, p-adic exponential and
-completed Milnor groups from [KLF]'s one-local interface, extended to
-the stated imperfect-residue scope. Source: Kurihara, [Invitation],
+*Needs:* absolute Kähler differentials and their module completion,
+the p-adic exponential on the chosen complete DVR, and §1's Milnor
+groups and norms with their p-power inverse limits. The mixed T-residue
+and its exponential square are targets here, proved from Kurihara's
+theorem in this full residue-field scope; KLF's perfect-residue explicit
+calculation is not substituted for it. Source: Kurihara, [Invitation],
 I §9.1, pp. 91–92, §9.2, p. 93. The domain is degree q−1, as the
 generator formula and the residue diagram require.
 
@@ -1722,8 +1938,11 @@ boundaries in the admissible coefficient regimes.
 - An unramified Milnor or cohomology class extending over an open has zero residue at each
   codimension-one point of that open.
 
-*Needs:* §1.1–§1.2, §2.3, §5.1, [K2], Layers 9–11 and the arithmetic
-niveau identification specified under Exact supplier contracts. Sources: [Kerz], §§3–5, pp. 4–7;
+*Needs:* §1.1–§1.2, §2.3, §5.1, [K2], Layers 9–11. The Milnor
+branch maps use those field boundaries and transfers directly. Their
+geometric cohomological comparison uses §6.5's homology/niveau construction
+and [LPV], §0.10 in the invertible range, and the stated stronger
+logarithmic/mixed contracts in the wild range. Sources: [Kerz], §§3–5, pp. 4–7;
 [Jannsen], §4, (4.3)–(4.4), pp. 41–42. Wild logarithmic residues
 require their own purity comparison.
 
@@ -1936,8 +2155,8 @@ states naturality under §5.6's finite direct images.
   inertia. The full number-field Artin map is compared only after
   imposing that quotient.
 
-*Needs:* §5.5–§5.7, §6.1, higher local norm/existence, [SF], Layer 2's
-finite-étale fundamental group, and the Kato–Saito global norm and
+*Needs:* §5.5–§5.7, §6.1, higher local norm/existence, [CE], Layer 3
+and [PA]'s profinite abelianization, and the Kato–Saito global norm and
 finite-modulus existence theorems. Sources: [Kerz], §5, p. 7,
 Theorems 9.1–9.2, pp. 14–15. These statements supply a precise
 global theorem; their cited primary existence proofs remain required
@@ -2022,7 +2241,9 @@ would require its own conventions.
 is detected after killing `O_v×` at each finite place. The unrestricted
 idele map has a larger Galois target before imposing these conditions.
 
-*Needs:* §6.2–§6.3, [SF], Layer 2's fundamental group and purity,
+*Needs:* §6.2–§6.3, [CE], Layer 3, [PA]'s profinite abelianization,
+[PBL], §§0.1 and 2.2 with the normality, regularity and generic
+separability hypotheses stated under Exact supplier contracts,
 [LFR]'s ordinary tame/wild inertia, and the curvewise quotient
 comparison. Sources: [Kerz], Introduction, pp. 1–2, §2, pp. 2–4,
 §4, p. 5, §9, pp. 14–15. The tame target here is the specified
@@ -2030,27 +2251,97 @@ curvewise quotient, not an unstated stronger modulus theorem.
 
 ### 6.5 Kato complexes and the actual differential
 
-Begin in an admissible base/coefficient regime with n invertible on
-the base. Define the homological term
+First construct `KatoEtaleHomology` for n≥1 invertible on the specified
+base S and Λ=ℤ/n. Allow S to be a field spectrum, or an excellent
+regular Noetherian scheme of pure dimension one. For separated finite-type
+f:X→S put
+
+```text
+H_a(X/S) = H^(−a)(X,Rf^!Λ)                if dim S=0,
+H_a(X/S) = H^(2−a)(X,Rf^!Λ(1))           if dim S=1.
+δ(x) = trdeg(κ(x)/κ(s)) + dim closure{s}, s=f(x).
+```
+
+This is the Kato-specific twist/shift of the supplied exceptional
+pullback. EDC's constant base dualizing object remains Λ_S. Proper
+pushforward comes from the exceptional adjunction, open restriction from
+base change, and the closed/open long exact sequence from localization.
+Use [JSS], §0.4, pp. 6–7's connecting morphism `δ_loc`; the last arrow
+of its distinguished localization triangle is `−δ_loc`.
+Filtering by closed supports of δ-dimension at most a constructs the exact
+couple and the homological niveau spectral sequence
+
+```text
+E¹_(a,b)(X/S) = ⊕_(δ(x)=a) H_(a+b)(x/S) ⇒ H_(a+b)(X/S),
+H_j(x/S) = colim_(V⊂closure{x}, V nonempty open) H_j(V/S),
+H_j(x/S) ≃ H^(2δ(x)−j)(κ(x),Λ(δ(x))).
+```
+
+For the last isomorphism, shrink the excellent closure to a regular
+nonempty open, locally embed it in a smooth S-scheme, and use smooth
+purity followed by [LPV], §0.10's regular-immersion purity. Check independence
+of the embedding and compatibility with shrinking. This is [JSS],
+(1.5.5)–(1.5.9), pp. 17–18, with the dimension-one homology shifted by
+2 and twisted by 1 as in [KS], Example 1.8, p. 134.
+
+**API.** `KatoEtaleHomology.group` gives H_a;
+`.properPushforward`, `.openRestriction` and `.localization` give the
+homology-theory structure; `.pointColimit` and `.fieldStalk` give the
+point comparison; `.niveau` constructs the exact couple and spectral
+sequence; `.residueDifferential` identifies its first differential with
+the signed branch residue, including finite residue-field corestrictions.
+These are construction targets here using the imported six operations,
+rather than a claim that EDC already exports arithmetic niveau theory.
+
+**Checks for the homology construction.**
+
+- Over a finite field, a smooth pure-dimensional d-fold has
+  `H_a=H^(2d−a)(X,Λ(d))`. The row b=−1 therefore has stalk
+  `H^(a+1)(κ(x),Λ(a))`.
+- Over a trait, its closed point has δ=0 and
+  `H_j(s/S)=H^(−j)(s,Λ)`, since `Ri!Λ(1)=Λ[−2]`.
+  Its generic point has δ=1 and `H_j(η/S)=H^(2−j)(η,Λ(1))`.
+  Using the field normalization for both points would miss this shift.
+- For X empty the support filtration, every direct-sum term and the
+  abutment are zero; the same holds for n=1. Removing a closed subset
+  gives the specified open restriction and the same δ on every remaining point.
+
+Define the homological Kato term
 `C_n^0(X)_a=⊕_{δ(x)=a}H^{a+1}(κ(x),ℤ/n(a))`.
-For a finite-field variety use `δ(x)=dim closure{x}`; for an arithmetic
-one-dimensional base use the source dimension function. The
-differential lowers a by one. Its component is §5.4's residue sum
+The differential lowers a by one. Its component is §5.4's residue sum
 over normalization branches, followed by corestriction. Establish
-finite support and identify these maps with the relevant `d_1` row
-of the étale homology niveau spectral sequence. This proves `d²=0`.
+finite support and identify this complex with the b=−1 row of
+`KatoEtaleHomology.niveau`. This proves `d²=0`.
 Only then define Kato homology `KH_a`.
 
-For a normal integral d-dimensional X the leading map is
+Keep the sign conversion explicit. [JSS], §0.6 uses a first-uniformizer
+Milnor boundary and Theorem 1.5.8 identifies its Kato differential with
+the negative of d¹. With the last-uniformizer convention here, moving
+a parameter past the a remaining cohomological degrees in a Kato term
+gives `∂_last = (−1)^a ∂_first`. Thus our degree-a differential is
+`(−1)^(a+1)d¹`. The termwise map
+`KatoComplex.niveauSign_a = (−1)^(a(a−1)/2)` gives a chain isomorphism
+to the b=−1 row: its values at a=0,1,2,3 are +1,+1,−1,−1.
+The Milnor symbol row has one fewer cohomological degree and uses
+`(−1)^(a(a+1)/2)` instead. These two rows do not share a sign conversion.
+
+For a normal integral X of δ-dimension d the leading map is
 `H^{d+1}(κ(X),ℤ/n(d))→⊕_{x∈X^(1)}H^d(κ(x),ℤ/n(d−1))`.
 At `a=0` the term is characters `H^1`; at `a=1` it is the
-degree-two Brauer group. Extend to logarithmic coefficients only with
-the specified wild purity and niveau comparison. The individual maps
-from §2.3 do not by themselves prove a mixed-wild complex exists.
+degree-two Brauer group. For a finite field of characteristic p,
+the logarithmic variant uses the wild exceptional pullback and top-degree
+purity of [JSS], Theorem 2.11.3, pp. 31–32, for all s≥1 and p=2
+as well. For a mixed-characteristic henselian trait with perfect residue
+field replace Λ(1) by `T_s` from `mixedKatoDualizingComparison`; the
+same shift by 2 gives the displayed field stalks and row by [JSS],
+Theorem 3.10.2, pp. 45–46. These wild constructions require the stronger
+owned exports in Exact supplier contracts. Neither case is an assertion
+about an arbitrary mixed trait with imperfect residue field.
 
 **API.** `KatoComplex.term` gives the direct-sum term;
 `KatoComplex.differential` gives its finite-support branch map;
-`KatoComplex.niveauRow` identifies it with `d_1`;
+`KatoComplex.niveauSign` gives the stated degreewise signs;
+`KatoComplex.niveauRow` gives the resulting chain isomorphism;
 `KatoComplex.squareZero` records the resulting complex law;
 `KatoComplex.homology` gives `KH_a` and its induced proper/open maps.
 
@@ -2065,11 +2356,19 @@ from §2.3 do not by themselves prove a mixed-wild complex exists.
   Their sum is zero, and either summand alone is nonzero. This pins
   the sign and support; the general square-zero proof still uses
   the niveau differential.
+- For the same class, the t-component of our degree-two boundary is
+  `χ∪(u)`, whereas JSS's d¹ component is `−χ∪(u)`. Multiplying the
+  degree-two class by `niveauSign_2=−1` and leaving degree one fixed
+  makes that square commute. At degree one, `χ∪(u)` has our residue
+  χ and JSS d¹ residue χ, so `niveauSign_1=niveauSign_0=1` makes
+  the next square commute too. A constant sign in every degree fails.
 
-*Needs:* the arithmetic étale homology, purity and niveau extension
-specified under Exact supplier contracts, [SF]'s dimension and branch control,
-§2.1 and §5.4. Sources: [KS], Definitions 1.1–1.2 and the niveau
-construction, pp. 129–132, (8.1), pp. 169–170;
+*Needs:* [EDC], §0.2, EtaleCohomologyFoundations §F.5, [LPV], §0.10,
+[SF]'s dimension and branch control, §2.1 and §5.4; the wild variants
+add the exactly scoped differential/duality exports in Exact supplier
+contracts. Sources: [KS], Definitions 1.1–1.2 and Examples 1.4–1.8,
+pp. 129–134, (8.1), pp. 169–170; [JSS], §0.6, Theorems 1.5.8,
+2.11.3 and 3.10.2, pp. 8–10, 17–18, 31–32, 45–46;
 [Jannsen], (4.1)–(4.4), pp. 40–43; [DP], §2, pp. 4–5.
 
 ### 6.6 Constant-place fields
@@ -2250,8 +2549,9 @@ Match the explicit restriction maps and signs to the source's complexes.
   Its next differential has first component `d_D f(x)−f(d_C x)=0`
   and second component `d_C²x=0`. This fixes the cone's minus sign.
 
-*Needs:* §6.5, §6.8, finite-coefficient Bockstein and alteration
-descent, and [EDC]'s trace/localization comparison. Sources:
+*Needs:* §6.5's homology/localization and signed residue comparison,
+§6.8, finite-coefficient Bockstein and `HigherHasse.alterationDescent`,
+including its required global degree-controlled geometric input. Sources:
 [KS], Theorems 8.3–8.4 and proofs, pp. 171–174. The field cone,
 arithmetic cone and finite-field row have different indexing data and
 must not be substituted for each other.
@@ -2340,17 +2640,21 @@ the imported `K_i^M(F)/m ≃ H^i(F,ℤ/m(i))` to the Milnor and
 cohomological residue maps. Use the same last-uniformizer orientation
 and the required localization/purity comparison. Iterate over a flag,
 including normalization branch transfers, to compare the Milnor idele
-boundary with the cohomological boundary. The characteristic-p
-logarithmic square is a separate extension using the full
-Bloch–Gabber–Kato theorem and logarithmic purity.
+boundary with the cohomological boundary. The characteristic-p field
+square uses the full Bloch–Gabber–Kato theorem and §2.6's transported
+field map. Identifying it with the geometric flag square is the separate
+logarithmic-purity and trace/residue comparison with the source ranges
+in Exact supplier contracts.
 
 **Check.** Applying the outer t-boundary to `{u,t}` gives `{u}` on
 both sides. Reversing the symbol entries introduces the graded minus
 sign. An ordinary `μ_p` square in characteristic p cannot replace
 the logarithmic square.
 
-*Needs:* [K2], Layers 9–11, [MEK], §6.6, §2.5–§2.6, §5.4 and the
-arithmetic purity/niveau extension specified under Exact supplier contracts.
+*Needs:* [K2], Layers 9–11, [MEK], §6.6 and §§7.4–7.6,
+§2.5–§2.6, §5.4, §6.5's named homology/niveau construction and
+[LPV], §0.10 for invertible coefficients; the wild geometric square
+adds the exactly ranged stronger exports in Exact supplier contracts.
 Sources: [Morrow], Proposition 5.5, p. 33, Remark 5.10,
 pp. 35–36, §7.1, pp. 44–46; [KS], §1, pp. 129–132, §8,
 pp. 169–171. The generic norm-residue and localization theorems
@@ -2424,6 +2728,13 @@ front-matter pages before positive printed pagination.
 - **[DP]** P. Dittmann and F. Pop, *Characterizing finitely generated
   fields by a single field axiom*, arXiv:2012.01307v2 (2023).
   [Versioned author PDF](https://arxiv.org/pdf/2012.01307v2).
+- **[Shiho]** A. Shiho, *On logarithmic Hodge–Witt cohomology of
+  regular schemes*, Journal of Mathematical Sciences, University of Tokyo
+  14 (2007), pp. 567–635. [Publisher PDF][Shiho].
+- **[JSS]** U. Jannsen, S. Saito and K. Sato, *Étale duality for
+  constructible sheaves on arithmetic schemes*, arXiv:0910.3759v1 (2009).
+  Locators use this version's printed pagination, especially §§0.6,
+  1.5, 2.11, 3.9–3.10 and Appendix A. [Versioned author PDF][JSS].
 
 The roadmap suppliers linked below are mathematical boundaries: their
 planned interfaces are imported, rather than repeated here.
@@ -2435,13 +2746,17 @@ planned interfaces are imported, rather than repeated here.
 [PA]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ProfiniteArithmetic
 [LGG]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalGaloisGroups
 [RP]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/Completed/RestrictedProducts
-[FFA]: ../../../../content/campaign/FunctionFieldArithmetic/README.md
-[K2]: ../../../../content/campaign/K2SymbolsBrauer/README.md
-[KLF]: ../../../../content/campaign/KTheoryFiniteLocalFields/README.md
-[MEK]: ../../../../content/campaign/MotivicEtaleKTheory/README.md
-[CR]: ../../../../content/campaign/CrystallineCohomology/README.md
-[SF]: ../../../../content/campaign/SchemeAndStackFoundations/README.md
-[EDC]: ../../../../content/campaign/EtaleDualityAndPerverseSheaves/README.md
+[FFA]: ../FunctionFieldArithmetic/README.md
+[K2]: ../K2SymbolsBrauer/README.md
+[KLF]: ../KTheoryFiniteLocalFields/README.md
+[MEK]: ../MotivicEtaleKTheory/README.md
+[CR]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/2c8b22a1737d1660f1baf397926b41e90139a80d/TauCetiRoadmap/CrystallineCohomology/README.md
+[SF]: https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/SchemeAndStackFoundations
+[EDC]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/9a0e8eeeb7bef06a13fdbda9d7c5551b368da248/TauCetiRoadmap/EtaleDualityAndPerverseSheaves/README.md
+[EDCII]: ../../readmes/EtaleDualityAndPerverseSheavesPartII.md
+[CE]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/4bd72379658126cbe9be935656396f0c9dac4de0/TauCetiRoadmap/CohomologicalPointCounting/ConstructibleEtale/README.md
+[PBL]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/6726bb6f42cdcfb40ddee74d6b1e22dfd04f1182/TauCetiRoadmap/PurityOfBranchLocus/README.md
+[LPV]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/1b8f741b92693436a0dd0984a2c0c6ce7033a629/TauCetiRoadmap/LefschetzPencilsAndVanishingCycles/README.md
 [Invitation]: https://msp.org/gtm/2000/03/gtm-2000-03p.pdf
 [Morrow]: https://arxiv.org/pdf/1204.0586v2
 [Kerz]: https://arxiv.org/pdf/0907.5337v3
@@ -2449,3 +2764,5 @@ planned interfaces are imported, rather than repeated here.
 [Jannsen]: https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p01-p.pdf
 [Milne]: https://math.stanford.edu/~conrad/BSDseminar/refs/MilneADT.pdf
 [DP]: https://arxiv.org/pdf/2012.01307v2
+[Shiho]: https://www.ms.u-tokyo.ac.jp/journal/pdf/jms140404.pdf
+[JSS]: https://arxiv.org/pdf/0910.3759v1
