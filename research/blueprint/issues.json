@@ -5397,5 +5397,6 @@
  "FIX-PKG-AutomorphicPadicLFunctions~adv1": 11469,
  "FIX-PKG-AdditiveCombinatorics~adv": 11474,
  "FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv": 11475,
- "REV-PKG-HabiroRings~codex4": 11484
+ "REV-PKG-HabiroRings~codex4": 11484,
+ "REV-PKG-FunctionFieldArithmetic~codex2": 11489
 }
