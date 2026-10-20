@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-DrinfeldModulesAndTModules",
+    "date": "2026-10-20",
+    "notes": "Independent fixing review of all 123 packet nodes and 136 final README subsections; 15 reproducibly sampled public-source locators plus repair sources checked. Corrected Ore division/rank, lattice morphisms, linearized Frobenius and zero-dimensional etaleness, section-ring normality, skew Newton conventions, projective Hom and Tate duality, period-ring valuations, elliptic-sheaf maps, Hilbert polynomial inputs and logarithm-group separability; removed two duplicate targets in favor of current suppliers. Suggested.lean: 569 lines, lean-check exit 0 with only 24 sorry warnings, 23 proved examples; packet validators and sorry-data check pass. Remaining defect: DrinfeldModulesAndTModules and its atlas suppliers FiniteFieldsAndCharacterSums, MotivesAndAlgebraicCycles and FunctionFieldArithmetic have no tier/bundle assignment in CaraianiNewton.md, so their prerequisite order cannot be certified. Establish that order or map the exact contracts to already-upstream owners before porting. See the review report for exact contracts and handoff."
+  }
+}
