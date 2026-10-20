@@ -1132,7 +1132,9 @@ order alone does not imply it in an arbitrary coefficient algebra, as
 the example in §3.1 shows. Since \(\Phi_d(1)=1\), the polynomial
 identity \(\Phi_d(X)-\Phi_d(1)=(X-1)h(X)\) makes
 \(1-\omega\) a cyclotomic unit;
-it cannot be topologically nilpotent in a nonzero separated ring. This is
+it cannot be topologically nilpotent for the p-adic ideal topology on a
+nonzero p-adically separated ring: a unit power in \(pB\) would force
+\(pB=B\), contradicting separation. This is
 a condition on the **actual ratio of roots**, not just on the ratio of
 their orders.
 
@@ -1146,7 +1148,9 @@ pp. 1136–1137; G, §1.3, (7), pp. 4–5). *Needs:* root-of-unity
 arithmetic, cyclotomic values at one, and p-adic ideal powers.
 
 Let \(B\) be p-adically complete and separated and let \(c\in B\) satisfy
-\(c^M\in pB\) for some \(M\geq1\). Construct the continuous ring map
+\(c^M\in pB\) for some \(M\geq1\). Give \(B[[X]]\) the coefficientwise
+p-adic topology, equivalently its \((p,X)\)-adic topology. Construct the
+continuous ring map
 `reExpand c` by convergent evaluation at \(X+c\). Its coefficients are
 
 \[
@@ -1199,8 +1203,10 @@ naturality interfaces.
 - Root closeness: a primitive p-power ratio gives topological nilpotence.
 - Root closeness: the chosen cubic/sixth-root pair with difference 1 is not close despite order adjacency.
 - The element (ζ₆,1) in ℤ[ζ₆]×ℤ has order six, but 1−(ζ₆,1) is not a unit. It fails the cyclotomic equation in the second factor, detecting the extra hypothesis in the unit claim.
+- The unit 2 in ℚ₂ is topologically nilpotent for its valuation topology. Its ideal (2) is the whole field, so it is not separated for the (2)-adic ideal topology; this detects the ideal-topology hypothesis in the unit obstruction.
 - `reExpand`: translation by zero is identity, translating a polynomial agrees with its finite binomial expansion, and translation by −c inverts translation by c under the common convergence hypotheses.
 - The re-expansion constant 1 is excluded in a nontrivial p-adic ring; q−ζ becomes X+(ζ′−ζ); two successive admissible translations add their constants.
+- For B=ℤ₂ and c=−2, translating Xⁿ gives constant coefficient (−2)ⁿ, tending to zero 2-adically but never eventually zero. Continuity therefore uses the coefficientwise 2-adic topology, rather than the topology with discrete coefficients.
 
 ### Examples
 
@@ -2833,8 +2839,13 @@ decomposition, Layer 2 normalization, and Layer 3 values and Taylor maps.
 
 **Checks.**
 
-- The odd projector representatives modulo P₂ and P₃ agree under reduction, are idempotent and have the specified order-one/order-two residues.
-- Over ℚ the nonzero (q−1)e₁ has zero root values; over ℤ/2ℤ the polynomial q⁵+q+1 is 1 modulo (q+1)⁴ and 0 modulo Φ₃; the resulting idempotent shows 2H_ℤ is not prime.
+- The odd projector representative modulo P₃ reduces to the displayed representative modulo P₂.
+- Both odd projector representatives are idempotent and have residues one at order one and zero at order two.
+- The complementary projector has value one at minus one and zero Taylor series at one; it detects the failure of integral connectedness after inverting two.
+- Over ℚ, the singleton projector e₁ is nonzero and idempotent; its order-one component is one and its other components are zero.
+- The element (q−1)e₁ has zero root values but nonzero Taylor series X at one, so values cannot replace Taylor collections in the rational comparison.
+- Over ℤ/2ℤ, q⁵+q+1 has residue one modulo (q+1)⁴ and zero modulo Φ₃; its square agrees with itself modulo P₃.
+- The characteristic-two component idempotent is neither zero nor one; the reduction isomorphism then shows that 2H_ℤ is not prime.
 
 ### 6.4 The exported interface
 
@@ -2870,8 +2881,8 @@ only under the stated convergence conditions.
 The rigidity theorems retain connectedness, the inside-set chain condition,
 prime separation, and the infinite-adjacency condition in the corresponding
 theorems. The Taylor comparison uses universal root algebras and the
-strict precision bound \(ml<N\), provide both adjugate identities, and
-reconstruct a global preimage from compatible finite preimages. The module
+strict precision bound \(ml<N\), provides both adjugate identities, and
+reconstructs a global preimage from compatible finite preimages. The module
 API proves exactness for polynomial coefficient modules, products and
 finite presentations with the declared generality, while the factorial diagonal
 counterexample remains a separate statement. The examples above exercise
