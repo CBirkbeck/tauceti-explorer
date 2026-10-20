@@ -56,7 +56,7 @@ LieGroups Layers 7 and 9 supply compact real forms, compatible Cartan involution
 
 ### Arithmetic and analytic interfaces
 
-AdelicAlgebraicGroups §2.4 already supplies gauge measures and corrected finite-place volumes: for the standard SL_e model, e≥1, the mass is #SL_e(k_v)/q_v^(e²−1)=∏_{a=2}^e(1−q_v^(−a)), and exceptional compact-open gauge volumes are positive rational. Use its finite-product convergence. Its §3.4 already constructs SL₁(D) for a central division algebra and proves the compactness of its adelic and infinite arithmetic quotients. The additional result here is the exact Tamagawa number, followed by the primitive cycle and rational period calculation; the finite-place formula and the norm-one group construction are not targets again. For example, at e=2 and q_v=2 its supplied formula gives 6/8=3/4, and at e=1 the empty product is 1. AutomorphicLFunctionsAndLocalFactors AL.0 supplies the standard additive character, self-dual measures, the adelic Schwartz–Bruhat space and adelic Poisson summation. Section 6.2 uses them for D_𝔸 through an F-basis of D. AL.1 supplies the volume κ of the norm-one idele class group in its own measure normalisation, which §6.2 converts to the Tamagawa normalisation.
+AdelicAlgebraicGroups §2.4 already supplies gauge measures and corrected finite-place volumes: for the standard SL_e model, e≥1, the mass is #SL_e(k_v)/q_v^(e²−1)=∏_{a=2}^e(1−q_v^(−a)), and exceptional compact-open gauge volumes are positive rational. Use its finite-product convergence. Its §3.4 already constructs SL₁(D) for a central division algebra and proves the compactness of its adelic and infinite arithmetic quotients. The additional result here is the exact Tamagawa number, followed by the primitive cycle and rational period calculation; the finite-place formula and the norm-one group construction are not targets again. For example, at e=2 and q_v=2 its supplied formula gives 6/8=3/4, and at e=1 the empty product is 1. AutomorphicLFunctionsAndLocalFactors AL.0 supplies the standard additive character, self-dual measures, the adelic Schwartz–Bruhat space of 𝔸_F^n and its Poisson summation, whose scalar case is ArithmeticGaloisRepresentations §2.7. Section 6.2 uses them for D_𝔸 through an F-basis of D. AL.1 supplies the volume κ of the norm-one idele class group in its own measure normalisation, which §6.2 converts to the Tamagawa normalisation.
 
 AdelicAlgebraicGroups' affine-group and quotient layers and ReductiveGroupsPartII's local-structure layer supply adelic points, integral models, reduced norm on a central simple algebra, restriction of scalars, arithmeticity, rational ranks, parabolic flags, and relative roots with multiplicities. The exact division-algebra specialisations are in §1.1 and §6.1. The reduction-theory input is compactness for anisotropic groups, finite volume for arithmetic groups, neat finite-index subgroups, and strong approximation for a simply connected inner form of SL_e with a noncompact infinite factor. These contracts are for general number fields and orders; neither split matrix algebras nor maximal orders alone suffice.
 
@@ -74,9 +74,9 @@ Layer 1 supplies integral finiteness through buildings and arithmetic duality. L
 
 Let F be a number field, D a finite-dimensional central division F-algebra of degree e, and O a ℤ-order in D in the sense of the following convention: a unital subring that is a full ℤ-lattice. For n≥2 put G_n=Res_{F/ℚ} SL_n(D), the group of elements of M_n(D) of reduced norm one, and Γ_n=SL_n(O)=G_n(ℚ)∩M_n(O). For a projective right O-lattice P of rank n≥1, put V=P⊗_O D, a right D-space isomorphic to D^n, and put Γ_P=Aut_O(P)⊂GL_D(V). The construction makes Γ_n and Γ_P arithmetic subgroups of Res_{F/ℚ}SL_n(D) and Res_{F/ℚ}GL_D(V), records the real Lie group G_n(ℝ)=∏_{v|∞}SL_n(D⊗_F F_v) with each factor SL_{ne}(ℝ), SL_{ne/2}(ℍ) or SL_{ne}(ℂ), and records the block maps g↦diag(g,1) from Γ_n to Γ_{n+1} and from G_n to G_{n+1}.
 
-O is a subring of D containing 1 which is finitely generated as a ℤ-module and spans D over ℚ; D is a division algebra with centre F. In the arithmetic application P is a right O-module and V=P⊗_O D is a right D-space; matrices act on columns by left multiplication. In Mathlib this is a left Module Dᵐᵒᵖ V. The generic building and Steinberg constructions apply to that opposite division algebra, and GL_D(V) here denotes right-D-linear automorphisms. In arithmetic statements Δ_D(V) and St_D(V) mean the right-subspace constructions, implemented by the generic building and Steinberg module over Dᵐᵒᵖ.
+Matrices act on columns by left multiplication, and GL_D(V) denotes right-D-linear automorphisms. In arithmetic statements Δ_D(V) and St_D(V) are the right-subspace constructions, that is, the generic building and Steinberg module over Dᵐᵒᵖ.
 
-An order O is a unital ℤ-subalgebra of D, finitely generated as a ℤ-module, with ℚ-span D. When O contains O_F, equivalently use a full O_F-lattice subring; when the centre order is smaller, specify the inclusion into O_F and pass through finite-index commensurability. The arithmetic claims below are for the integral arithmetic subgroup, not for the discrete group of all rational points. Its basic API includes extension O⊗ℚ≃D, integrality and full-span lemmas, and commensurability of two orders. Use the central-simple algebra carrier from Mathlib. The reduced norm, the affine F-groups GL_n(D) and SL_n(D), their restriction of scalars to ℚ and the arithmeticity of the stabiliser of a lattice are supplied by AdelicAlgebraicGroups Layer 1. Keep the right-module/opposite-algebra dictionary in the AdelicAlgebraicGroups Layer 1 import, so the lattice stabiliser agrees with the tensor-product convention used in Quillen’s rank filtration. Γ_n is the stabiliser in G_n(ℚ) of the lattice O^n, and Γ_P the stabiliser of P; both are of the form G(ℚ)∩U for a compact open U (AdelicAlgebraicGroups §3.4 (level arithmetic groups)). Any two orders of D are commensurable, so the commensurability class of Γ_n does not depend on O. At a real place D⊗_F F_v is M_e(ℝ) or M_{e/2}(ℍ), and at a complex place it is M_e(ℂ) (Borel 1974, 11.5(1)). Block diagonal extension multiplies the reduced norm by one. A minimal parabolic ℚ-subgroup of G_n is the stabiliser of a full flag of D-subspaces, with maximal ℚ-split torus of dimension n−1; hence rank_ℚ G_n=n−1.
+When O contains O_F, equivalently use a full O_F-lattice subring; when the centre order is smaller, specify the inclusion into O_F and pass through finite-index commensurability. The arithmetic claims below are for the integral arithmetic subgroup, not for the discrete group of all rational points. Its basic API includes extension O⊗ℚ≃D, integrality and full-span lemmas, and commensurability of two orders. Use the central-simple algebra carrier from Mathlib. The reduced norm and its extension to completions and ideles are ClassicalArithmeticCompletion §7.10 (the Azumaya reduced norm of IntegralHeckeAndGaloisDeterminants §0.6). SL_1(D) is AdelicAlgebraicGroups §3.4; SL_n(D)=SL_1(M_n(D)) is the norm-one group of ClassicalArithmeticCompletion §7.26, and GL_n(D) is the unit-group scheme of M_n(D) underlying it. Restriction of scalars to ℚ and arithmetic subgroups are AdelicAlgebraicGroups §§1.4 and 3.4. Keep the right-module/opposite-algebra dictionary in these imports, so the lattice stabiliser agrees with the tensor-product convention used in Quillen’s rank filtration. Γ_n is the stabiliser in G_n(ℚ) of the lattice O^n, and Γ_P the stabiliser of P; both are of the form G(ℚ)∩U for a compact open U (AdelicAlgebraicGroups §3.4 (level arithmetic groups)). Any two orders of D are commensurable, so the commensurability class of Γ_n does not depend on O. At a real place D⊗_F F_v is M_e(ℝ) or M_{e/2}(ℍ), and at a complex place it is M_e(ℂ) (Borel 1974, 11.5(1)). Block diagonal extension multiplies the reduced norm by one. A minimal parabolic ℚ-subgroup of G_n is the stabiliser of a full flag of D-subspaces, with maximal ℚ-split torus of dimension n−1; hence rank_ℚ G_n=n−1.
 
 Prove the following basic identities and compatibility maps.
 
@@ -93,13 +93,11 @@ For the order itself include `order_ratSpan`, `order_tensorEquiv`, `order_integr
 - For D=ℚ the subring ℤ is an order.
 - In D=ℚ, the unital subring ℤ[1/2] fails finite generation over ℤ and is not an order.
 - In D=ℚ(i), ℤ fails full span while ℤ[i] satisfies it.
-- For D=F and O=O_F, Γ_n=SL_n(O_F).
+- For D=F and O=O_F, Γ_n=SL_n(O_F), not GL_n(O_F) and not the norm-one units of O_F.
 - For n=2 and any central division D, rank_Q G_2=1.
 - For F=Q, diag(2,1) lies in GL_2(Q) but not in Γ_2 for O=Z, and not in SL_2(Q).
 
-For D=F and O=O_F obtain the ordinary SL_n(O_F), not GL_n or norm-one units of O_F. The Q-rank of G_n is n−1 independently of the degree of D.
-
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §11.5, p.268; [Daniel Quillen; text prepared by Hyman Bass, Finite generation of the groups Ki of rings of algebraic integers](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf), §2, pp.185–186 (scan headers 201–202).
+Use Borel 1974, §11.5, p.268; Quillen, §2, pp.185–186 (scan headers 201–202).
 
 *Needs:* the arithmetic and geometric contracts above.
 
@@ -128,9 +126,7 @@ Prove the following basic identities and compatibility maps.
 - For V=ℚ², neither ℤ² nor 2ℤ² is a vertex: they are not ℚ-subspaces, and the subspace each spans is the excluded V.
 - For any proper nonzero subspace W, {W,W}={W} is a face with one vertex and is not an edge, despite W≤W.
 
-Vertices are subspaces over D; lattices over an order are not vertices. The definition is the Tau Ceti order complex of a subtype of Mathlib's Submodule D V; no second simplicial-complex structure is introduced. Distinguish a pair that is a face from an edge: a repeated vertex produces a singleton face.
-
-Use [Daniel Quillen; text prepared by Hyman Bass, Finite generation of the groups Ki of rings of algebraic integers](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf), §1, before Theorem 2, p.180; §2, pp.185–190 (scan headers 196, 201–206); [Andrew Putman, Daniel Studenmund, The dualizing module and top-dimensional cohomology group of GL_n(O)](https://arxiv.org/pdf/1909.01217v4), §1, p.3.
+Use Quillen, §1, before Theorem 2, p.180; §2, pp.185–190 (scan headers 196, 201–206); Putman–Studenmund, §1, p.3.
 
 *Needs:* the arithmetic and geometric contracts above.
 
@@ -156,9 +152,9 @@ Prove the following basic identities and compatibility maps.
 - For D=F_q, rank_Z St_D(D²)=q.
 - For D=Q and n=2 the underlying abelian group has infinite rank, although a torsion-free subgroup of finite index in GL₂(ℤ) has a finite classifying-space model.
 
-For n=2 it is the kernel of the augmentation ℤ[lines of V]→ℤ, not H₀ of the set of lines. For n=1 it is ℤ, so that the rank-one term of the rank filtration is the homology of the unit group with constant coefficients.
+For n=1 the rank-one term of the rank filtration is the homology of the unit group with constant coefficients.
 
-Use [Daniel Quillen; text prepared by Hyman Bass, Finite generation of the groups Ki of rings of algebraic integers](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf), §1, definition before Theorem 3, p.181 (scan header 197); [Andrew Putman, Daniel Studenmund, The dualizing module and top-dimensional cohomology group of GL_n(O)](https://arxiv.org/pdf/1909.01217v4), §1, p.3.
+Use Quillen, §1, definition before Theorem 3, p.181 (scan header 197); Putman–Studenmund, §1, p.3.
 
 *Needs:* §1.2; the arithmetic and geometric contracts above.
 
@@ -170,9 +166,9 @@ D division; n≥2.
 
 Fix a line L. Deleting the vertices that are hyperplanes complementary to L leaves a contractible subcomplex (compare W with W+L), and Δ(V) is obtained from it by attaching, for each such hyperplane H, a cone over the link of H, which is the building of H. Induct on n: the link has the homotopy type of a wedge of (n−3)-spheres, so each attachment adds suspensions of these, giving a wedge of (n−2)-spheres. The case n=2 is a discrete set, a wedge of 0-spheres. The induction also shows that the top homology is spanned by classes of apartments; the homotopy and homology of the pushouts are those of Tau Ceti AlgebraicTopology stages 2 and 4.
 
-For n=2 the building is a discrete set with at least three points; it is not connected, and St is the augmentation kernel. For D=𝔽_q and n=2, St has rank q, the number of lines minus one.
+For n=2 the building is a discrete set with at least three points; it is not connected, and St is the augmentation kernel.
 
-Use [Daniel Quillen; text prepared by Hyman Bass, Finite generation of the groups Ki of rings of algebraic integers](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf), §1, Theorem 2, p.180; §2, proof, pp.186–188 (scan headers 196, 202–204); [Andrew Putman, Daniel Studenmund, The dualizing module and top-dimensional cohomology group of GL_n(O)](https://arxiv.org/pdf/1909.01217v4), §1, pp.3 and 5.
+Use Quillen, §1, Theorem 2, p.180; §2, proof, pp.186–188 (scan headers 196, 202–204); Putman–Studenmund, §1, pp.3 and 5.
 
 *Needs:* §1.2, §1.3; the arithmetic and geometric contracts above.
 
@@ -182,13 +178,13 @@ Let O be an order in a central division algebra D over a number field F, P a pro
 
 Γ is commensurable with Aut_O(P); for D=F and O=O_F this is every subgroup of GL_n(F) commensurable with GL_n(O_F). The duality statement is integral and needs Γ′ torsion-free; a finite CW model of BΓ′ alone does not bound H_*(Γ′;St), since St is not finitely generated over ℤ. Remove the connected real points of the maximal ℚ-split central torus before defining d. For D=F, d=r₁n(n+1)/2+r₂n²−1 and ν=d−(n−1)=r₁n(n+1)/2+r₂n²−n (Putman–Studenmund, Proposition 2.1, p.8).
 
-Choose Γ′⊂Γ normal, of finite index, neat (AdelicAlgebraicGroups §4.3 (neat subgroups), hence torsion-free by AdelicAlgebraicGroups §4.3 (neatness implies torsion-freeness)) and inside the kernel of the orientation character, which has index at most two. Use the symmetric space with its ℚ-split central factor removed. Its bordification X̄ is a contractible manifold with corners on which Γ′ acts freely with compact quotient Y (the bordification and compact-quotient input of this subsection), and Y has a finite triangulation (its finite triangulation); so H^*(Γ′;M)=H^*(Y;M) is finitely generated. The boundary of X̄ is Γ′-equivariantly homotopy equivalent to the building of rational parabolic subgroups of G, which is Δ(V) because parabolics are stabilisers of flags of D-subspaces; this is supplied by the boundary comparison of this subsection. By Solomon–Tits the relative chain complex of (X̄,∂X̄) is a bounded complex of free ℤ[Γ′]-modules whose homology is St_D(V), in degree n−1 only (ℤ in degree zero when n=1). Hence H_m(Y,∂Y;M)≅H_{m−n+1}(Γ′;St⊗M). Poincaré–Lefschetz duality on the compact oriented manifold with boundary Y (AlgebraicTopology manifold duality, with trivial orientation sheaf by the choice of Γ′) identifies H_m(Y,∂Y;M) with H^{d−m}(Y;M), which gives the displayed isomorphism. The Lyndon–Hochschild–Serre spectral sequence H_p(Γ/Γ′;H_q(Γ′;St))⇒H_{p+q}(Γ;St) (Tau Ceti AlgebraicTopology stage 5) has finitely generated terms, since the homology of a finite group with finitely generated coefficients is finitely generated. For n=1 the coefficient is ℤ and only the finite model and this descent are used.
+Choose Γ′⊂Γ normal, of finite index, neat (AdelicAlgebraicGroups §4.3 (neat subgroups), hence torsion-free by AdelicAlgebraicGroups §4.3 (neatness implies torsion-freeness)) and inside the kernel of the orientation character, which has index at most two. Use the symmetric space with its ℚ-split central factor removed. Its bordification X̄ is a contractible manifold with corners on which Γ′ acts freely with compact quotient Y, and Y has a finite triangulation (`borelSerre_arithmetic_finiteTriangulation`); so H^*(Γ′;M)=H^*(Y;M) is finitely generated. The boundary of X̄ is Γ′-equivariantly homotopy equivalent to the building of rational parabolic subgroups of G, which is Δ(V) because parabolics are stabilisers of flags of D-subspaces (`borelSerre_boundary_building`). By Solomon–Tits the relative chain complex of (X̄,∂X̄) is a bounded complex of free ℤ[Γ′]-modules whose homology is St_D(V), in degree n−1 only (ℤ in degree zero when n=1). Hence H_m(Y,∂Y;M)≅H_{m−n+1}(Γ′;St⊗M). Poincaré–Lefschetz duality on the compact oriented manifold with boundary Y (AlgebraicTopology manifold duality, with trivial orientation sheaf by the choice of Γ′) identifies H_m(Y,∂Y;M) with H^{d−m}(Y;M), which gives the displayed isomorphism. The Lyndon–Hochschild–Serre spectral sequence H_p(Γ/Γ′;H_q(Γ′;St))⇒H_{p+q}(Γ;St) (Tau Ceti AlgebraicTopology stage 5) has finitely generated terms, since the homology of a finite group with finitely generated coefficients is finitely generated. For n=1 the coefficient is ℤ and only the finite model and this descent are used.
 
 The bordification input used here includes an equivariant homotopy equivalence between its boundary and the rational-parabolic building, with its orientation character, in addition to its compact arithmetic quotient. Poincaré–Lefschetz duality then gives the displayed group duality. For split GL_n over F the orientation character is (sign N_{F/ℚ} det)^(n−1). With Γ′ orientation preserving this character is trivial; otherwise tensor the Steinberg module with it. Name these additional interfaces `borelSerre_boundary_building`, `borelSerre_arithmetic_finiteTriangulation`, `steinberg_duality` and `arithmetic_orientationCharacter`. This is a local extension of the usual bordification/finite-level-duality input, not a consequence of compactness alone (Putman–Studenmund Theorem C, pp.4–5, and Proposition 2.1, pp.8–10).
 
 For F=ℚ, n=2 and Γ′ torsion-free of finite index in SL₂(ℤ): ν=1, H¹(Γ′;ℤ)≅H₀(Γ′;St) and H⁰(Γ′;ℤ)≅H₁(Γ′;St). For n even and O_F with a unit of norm −1, the dualizing module of GL_n(O_F) is the twist of St by the sign of the norm of the determinant and is not St itself; the statement keeps the twist. For n=1 the statement is finite generation of the homology of a group commensurable with O^×. For F=ℚ, D=F and n=2, d=2 and ν=1; retaining the positive scalar centre would incorrectly give d=3.
 
-Use [Daniel Quillen; text prepared by Hyman Bass, Finite generation of the groups Ki of rings of algebraic integers](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf), §1, proof of Theorem 1, pp.182–184 (scan headers 198–200); [Andrew Putman, Daniel Studenmund, The dualizing module and top-dimensional cohomology group of GL_n(O)](https://arxiv.org/pdf/1909.01217v4), Theorem C, p.4; §2.1, Proposition 2.1, p.8, and the proof of Theorem C, pp.9–10.
+Use Quillen, §1, proof of Theorem 1, pp.182–184 (scan headers 198–200); Putman–Studenmund, Theorem C, p.4; §2.1, Proposition 2.1, p.8, and the proof of Theorem C, pp.9–10.
 
 *Needs:* §1.4, §1.1; the arithmetic and geometric contracts above.
 
@@ -204,7 +200,7 @@ Number-field orders and reduced norms; the supplied order complex; AlgebraicTopo
 
 ### 2.1 Discrete comparison in all cohomological degrees
 
-For a discrete group Γ and a real topological coefficient representation M, identify the homogeneous continuous-cochain complex of Γ with the homogeneous complex of the underlying abstract representation. Transport by the homogeneous-to-inhomogeneous comparison to group cohomology in every degree. The resulting comparison is natural in group homomorphisms and coefficient maps. Compose it with the existing continuous-cohomology pullback for Γ→G to obtain restriction from a real Lie group.
+For a discrete group Γ and a real topological coefficient representation M, identify the homogeneous continuous-cochain complex of Γ with the homogeneous complex of the underlying abstract representation. Transport by the homogeneous-to-inhomogeneous comparison to group cohomology in every degree. The resulting comparison is natural in group homomorphisms and coefficient maps. Compose it with the existing continuous-cohomology pullback for Γ→G to obtain the restriction `arithmeticRestriction` from a real Lie group.
 
 Γ carries the discrete topology; M is a continuous real representation and is restricted along the given homomorphism. No comparison between continuous and abstract cohomology of a nondiscrete group is asserted.
 
@@ -220,17 +216,17 @@ Name the comparison `discreteCohomologyIso`; prove `discreteCohomologyIso_natura
 
 The source is the continuous cohomology of the topological group G, not the cohomology of G as a discrete group. The continuous part of the declaration is the Mathlib map; only the comparison with group cohomology of the discrete group is new.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §10.2(2), p.263.
+Use Borel 1974, §10.2(2), p.263.
 
 *Needs:* the arithmetic and geometric contracts above.
 
 ### 2.2 The invariant-form arithmetic comparison
 
-Let G be a connected semisimple ℚ-group, K a maximal compact subgroup of G(ℝ), X=K\G(ℝ), g=k⊕p the Cartan decomposition and Γ an arithmetic subgroup of G(ℚ). Put G_Γ=G(ℝ)°Γ and K_Γ=K∩G_Γ, so X≅K_Γ\G_Γ. Let I_G^{Γ,q} be the space of q-forms on X invariant under G(ℝ)° and under Γ; such forms are closed. This is H^q(g,K_Γ;ℝ), equivalently the invariants of H^q(g,k;ℝ)=(∧^q p^*)^{K°} under the image of Γ in K/K°. Choose a torsion-free normal subgroup Γ′ of finite index contained in G(ℝ)°. The map j_Γ:I_G^{Γ,q}→H^q(Γ;ℝ) sends a form to its de Rham class on X/Γ′ and then descends through H^q(Γ′;ℝ)^{Γ/Γ′}=H^q(Γ;ℝ). Before descent, j_{Γ′} is induced by the constants in C^∞(Γ′\G(ℝ)°). Under van Est for (G_Γ,K_Γ), j_Γ is restriction along Γ→G_Γ. If Γ meets every real component, G_Γ=G(ℝ) and the source is H^q(g,K;ℝ); if Γ⊂G(ℝ)°, the source is H^q(g,k;ℝ).
+Let G be a connected semisimple ℚ-group, K a maximal compact subgroup of G(ℝ), X=K\G(ℝ), g=k⊕p the Cartan decomposition and Γ an arithmetic subgroup of G(ℚ). Put G_Γ=G(ℝ)°Γ and K_Γ=K∩G_Γ, so X≅K_Γ\G_Γ. Let I_G^{Γ,q} be the space of q-forms on X invariant under G(ℝ)° and under Γ; such forms are closed. This is H^q(g,K_Γ;ℝ), equivalently the invariants of H^q(g,k;ℝ)=(∧^q p^*)^{K°} under the image of Γ in K/K°. Choose a torsion-free normal subgroup Γ′ of finite index contained in G(ℝ)°. The map j_Γ=`arithmeticInvariantFormMap`:I_G^{Γ,q}→H^q(Γ;ℝ) sends a form to its de Rham class on X/Γ′ and then descends through H^q(Γ′;ℝ)^{Γ/Γ′}=H^q(Γ;ℝ). Before descent, j_{Γ′} is induced by the constants in C^∞(Γ′\G(ℝ)°). Under van Est for (G_Γ,K_Γ), j_Γ is restriction along Γ→G_Γ. If Γ meets every real component, G_Γ=G(ℝ) and the source is H^q(g,K;ℝ); if Γ⊂G(ℝ)°, the source is H^q(g,k;ℝ).
 
 G connected semisimple over ℚ; Γ arithmetic. The Betti, de Rham and relative Lie algebra descriptions of H^*(X/Γ′) are those of the natural multiplicative de Rham comparison, which uses no automorphic input. Real coefficients are used for the descent from Γ′ to Γ. Intersect a neat normal finite-index subgroup with G(ℝ)° when choosing Γ′. The coefficient module for its relative Lie algebra description uses Γ′\G(ℝ)°, rather than the disconnected full real group.
 
-Choose Γ′⊂Γ normal, neat and of finite index (AdelicAlgebraicGroups §4.3 (neat subgroups)), and intersect with G(ℝ)°. X/Γ′ is a manifold and an Eilenberg–MacLane space for Γ′ (the neat arithmetic quotient construction of this subsection). Identify invariant forms on X with relative Lie algebra cochains, including the action of K/K° (the relative Lie-cochain construction of this subsection). Invariant forms are closed: the geodesic symmetry at the base point multiplies an invariant q-form by (−1)^q and commutes with d. Apply the natural multiplicative de Rham comparison of this layer with trivial coefficients on the connected real group: H^*(Γ′;ℝ) is computed by Γ′-invariant forms on X and by the (g,K°)-complex of C^∞(Γ′\G(ℝ)°); j_{Γ′} comes from the constants. Classical quotient comparison, wedge/cup compatibility and finite-component descent are supplied by the quotient comparison of Layer 2. Descend through Γ/Γ′-invariants. This changes the source from H^q(g,k;ℝ) to H^q(g,K_Γ;ℝ). Van Est for the open subgroup G_Γ (the van Est comparison below) identifies j_Γ with arithmeticRestriction along Γ→G_Γ. Restriction from the full G(ℝ) only describes its full-K-invariant subspace when Γ misses components.
+Choose Γ′⊂Γ normal, neat and of finite index (AdelicAlgebraicGroups §4.3 (neat subgroups)), and intersect with G(ℝ)°. X/Γ′ is a manifold and an Eilenberg–MacLane space for Γ′. Identify invariant forms on X with relative Lie algebra cochains, including the action of K/K°. Invariant forms are closed: the geodesic symmetry at the base point multiplies an invariant q-form by (−1)^q and commutes with d. Apply the natural multiplicative de Rham comparison of this layer with trivial coefficients on the connected real group: H^*(Γ′;ℝ) is computed by Γ′-invariant forms on X and by the (g,K°)-complex of C^∞(Γ′\G(ℝ)°); j_{Γ′} comes from the constants. Classical quotient comparison, wedge/cup compatibility and finite-component descent are supplied by the quotient comparison of Layer 2. Descend through Γ/Γ′-invariants. This changes the source from H^q(g,k;ℝ) to H^q(g,K_Γ;ℝ). Van Est for the open subgroup G_Γ (the van Est comparison below) identifies j_Γ with arithmeticRestriction along Γ→G_Γ. Restriction from the full G(ℝ) only describes its full-K-invariant subspace when Γ misses components.
 
 Prove the following basic identities and compatibility maps.
 
@@ -241,7 +237,7 @@ Prove the following basic identities and compatibility maps.
 - `arithmeticInvariantFormMap_coeff`: Extension R→C commutes with the map and with Betti/de Rham comparison.
 - `arithmeticInvariantFormMap_constants`: For Γ′⊂G(ℝ)° as above, j_{Γ′} is the map on (g,K°)-cohomology induced by ℝ→C^∞(Γ′\G(ℝ)°); it descends to j_Γ by finite-quotient invariants.
 
-Extend the supplied low-degree Lie cochains to the Chevalley–Eilenberg cochain complex for a finite-dimensional real Lie algebra and construct its relative subcomplex of horizontal K-invariant cochains for a compact subgroup K. Name the agreement with the supplied differentials `lieCochain_d₁₂` and `lieCochain_d₂₃`; these are compatibility theorems, not replacements for the existing maps. Its differential, coefficient maps and pullback for morphisms of pairs must be natural, with wedge/cup compatibility. Prove the van Est isomorphism between continuous group cohomology and relative Lie cohomology for a real Lie group with finitely many components and maximal compact K, for the trivial real or complex coefficient modules used here. Use the full compact K, including its component action. At the cochain-comparison level require naturality for compatible group maps, restriction to discrete subgroups and the invariant-form realisation (Burgos §§5.4–5.6 and Theorem 6.18, pp.39–46,55–56; Borel 1974 §10.2, pp.263–264).
+Extend the supplied low-degree Lie cochains to the Chevalley–Eilenberg cochain complex for a finite-dimensional real Lie algebra and construct its relative subcomplex of horizontal K-invariant cochains for a compact subgroup K. Name the agreement with the supplied differentials `lieCochain_d₁₂` and `lieCochain_d₂₃`; these are compatibility theorems, not replacements for the existing maps. Its differential, coefficient maps and pullback for morphisms of pairs must be natural, with wedge/cup compatibility. Prove the van Est isomorphism between continuous group cohomology and relative Lie cohomology for a real Lie group with finitely many components and maximal compact K, for the trivial real or complex coefficient modules used here. Use the full compact K, including its component action. At the cochain-comparison level require naturality for compatible group maps, restriction to discrete subgroups and the invariant-form realisation (Burgos §5.1, pp.35–36, §5.5, pp.48–49, Proposition 6.8 and Theorem 6.9, pp.53–54; Borel 1974 §10.2, pp.263–264).
 
 Construct the quotient comparison with trivial real or complex coefficients first, independently of automorphic spectral theory. On a neat Γ′⊂G(ℝ)° use constant functions in C∞(Γ′\G(ℝ)°), relative Lie cochains and the de Rham comparison. Require naturality for a group morphism carrying the arithmetic subgroup and maximal compact into the chosen targets, compatibility with wedge/cup products, and compatibility on Γ′\G(ℝ) with the projection to Γ′\G(ℝ)/K°. Descend by the finite quotient Γ/Γ′. This fixes the component group action on the source and on cohomology simultaneously.
 
@@ -257,9 +253,9 @@ For the local Lie-cochain definition include `lieCochain_d_sq`, `relativeCochain
 - For G=PGL₂ over ℚ, K=PO₂ and Γ=PGL₂(ℤ): the non-identity component of K reverses the orientation of the two-dimensional space p, so it acts by −1 on H²(g,k;ℝ)=ℝ, and Γ meets that component. The degree-two source of j_Γ is therefore zero; a definition with source H²(g,k;ℝ) would be wrong.
 - For G=PGL₂ over ℚ and Γ=PGL₂(ℤ)∩G(ℝ)°, the degree-two invariant-form source is ℝ, whereas for PGL₂(ℤ) it is zero. This tests the source of the map, without asserting that its degree-two image is nonzero.
 
-Constructing the map uses no automorphic decomposition and no Matsushima formula. For G=PGL₂ and Γ=PGL₂(ℤ) the degree-two source is zero, although H²(g,k;ℝ) is one-dimensional. When Γ misses real components, use G_Γ in the continuous-cohomology comparison and G(ℝ)° before finite descent; the full real group gives the wrong source.
+Constructing the map uses no automorphic decomposition and no Matsushima formula.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §3.1, pp.241–242; §10.2(1)–(5), p.263.
+Use Borel 1974, §3.1, pp.241–242; §10.2(1)–(5), p.263.
 
 *Needs:* §2.1; the arithmetic and geometric contracts above.
 
@@ -273,7 +269,7 @@ Continuous restriction is functorial by ContinuousCohomology.cochainsMap_comp. R
 
 Composing two block inclusions gives the same comparison square as their single block inclusion.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §10.3, pp.263–264.
+Use Borel 1974, §10.3, pp.263–264.
 
 *Needs:* §2.2, §1.1; the arithmetic and geometric contracts above.
 
@@ -295,11 +291,9 @@ For the graded duality, define the degree-i indecomposable quotient as the degre
 - An odd exterior generator x is primitive with Δx=x⊗1+1⊗x.
 - For distinct odd generators x,y, Δ(xy)=xy⊗1+x⊗y−y⊗x+1⊗xy prevents xy from being primitive and kills its indecomposable class.
 
- The exchange matrix has determinant −1 only when the division degree is odd; in that case a compensating −1 in an unused D-coordinate also has reduced norm −1. For even division degree the permutation already has reduced norm one.
+Exchanging blocks of D-ranks m and m′ has reduced norm (−1)^{mm′e}. When this is −1, e is odd, and −1 in an unused D-coordinate, of reduced norm (−1)^e=−1, restores reduced norm one.
 
-An exterior product of two positive-degree generators is excluded from the indecomposable quotient. The SL Hopf structure is defined before the E/SL comparison and does not require injectivity of H_*(SL)→H_*(GL).
-
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §10.6, pp.265–266; §12.1, p.270.
+Use Borel 1974, §10.6, pp.265–266; §12.1, p.270.
 
 *Needs:* §2.3; the arithmetic and geometric contracts above.
 
@@ -321,7 +315,7 @@ n≥2 and D is a central division algebra of degree e over F. The dual symmetric
 
 Take Cartan decompositions and maximal compact subgroups from Tau Ceti LieGroups Layers 7 and 9; the dual of a symmetric pair, g_u=k⊕i·p with the homogeneous space K°\G_u, and its functoriality are constructed here from those layers. By Layer 1, the archimedean factors of G_n are SL_{ne}(ℝ), SL_{ne/2}(ℍ) and SL_{ne}(ℂ), with maximal compact subgroups SO_{ne}, Sp_{ne/2} (written USp_{ne}) and SU_{ne}. Their duals are SU_{ne}/SO_{ne}, SU_{ne}/USp_{ne} and (SU_{ne}×SU_{ne})/SU_{ne}≅SU_{ne}; block inclusions of the groups induce the block inclusions of these spaces.
 
-For a real reductive Cartan pair g=k⊕p admitting a compact integration of k⊕ip, choose such an integration with its compact subgroup and construct its dual pair g_u=k⊕ip and the compact homogeneous space K°\G_u, with the maps induced by compatible morphisms of pairs. Identify relative Lie cohomology with invariant forms on this space and hence with its real cohomology. An isomorphism of compact real Lie algebras without this quotient and its functoriality is insufficient. These constructions are needed also for the GL_N(ℂ),U_N pair in Layer 8 (Burgos §§5.5–5.7, pp.40–48; Borel 1974 §10.2, pp.263–264).
+For a real reductive Cartan pair g=k⊕p admitting a compact integration of k⊕ip, choose such an integration with its compact subgroup and construct its dual pair g_u=k⊕ip and the compact homogeneous space K°\G_u, with the maps induced by compatible morphisms of pairs. Identify relative Lie cohomology with invariant forms on this space and hence with its real cohomology. An isomorphism of compact real Lie algebras without this quotient and its functoriality is insufficient. These constructions are needed also for the GL_N(ℂ),U_N pair in Layer 8 (Burgos §5.5, pp.48–49, and §6.3 with Example 6.10, pp.54–55; Borel 1974 §10.2, pp.263–264).
 
 The compact-dual API consists of `compactDual_pair`, identifying its tangent symmetric pair with (k⊕ip,k); `compactDual_cohomology`, the invariant-form/relative-cohomology isomorphism; `compactDual_map_id` and `compactDual_map_comp`; and `compactDual_classical`, the three displayed matrix identifications. For the reductive GL_N(ℂ) pair use U_N×U_N and the diagonal U_N explicitly. A chosen compact integration, rather than an unspecified simply connected integration of an abelian centre, fixes that quotient.
 
@@ -331,15 +325,13 @@ The compact-dual API consists of `compactDual_pair`, identifying its tangent sym
 - The complex group SL₂(ℂ), considered as a real group, has compact dual SU₂, whose nonzero positive generator is in degree three, not two.
 - At quaternionic rank one, SU₂/USp₂ is a point; the list of positive generators is empty.
 
-The quaternionic quotient has USp_{ne}, not SO_{ne}, as denominator.
-
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §§10.2,10.6 and 11.5, pp.263,265–266,268.
+Use Borel 1974, §§10.2,10.6 and 11.5, pp.263,265–266,268.
 
 *Needs:* §1.1; the arithmetic and geometric contracts above.
 
 ### 3.2 Stable exterior cohomology of classical compact duals
 
-With real coefficients, the degreewise stable cohomology rings are H*(SU)=Λ(x_3,x_5,x_7,…), H*(SU/SO)=Λ(y_5,y_9,y_13,…) and H*(SU/USp)=Λ(z_5,z_9,z_13,…). The named generators are primitive for stable block sum. The finite-dimensional groups and homogeneous spaces have their own unstable relations; the displayed infinite exterior algebras assert only degreewise stable cohomology. For finite ranks m≥1, H*(SU_m;R)=Λ(x_3,x_5,…,x_{2m−1}); H*(SU_{2m+1}/SO_{2m+1};R)=Λ(y_5,y_9,…,y_{4m+1}); H*(SU_{2m}/SO_{2m};R)=Λ(y_5,y_9,…,y_{4m−3})⊗R[e_{2m}]/(e_{2m}²); and H*(SU_{2m}/USp_{2m};R)=Λ(z_5,z_9,…,z_{4m−3}), with empty generator ranges interpreted as R. Block pullback preserves the named transgressed odd generators wherever they occur; the even-rank Euler class is unstable.
+With real coefficients (`compactDual_stableExterior`), the degreewise stable cohomology rings are H*(SU)=Λ(x_3,x_5,x_7,…), H*(SU/SO)=Λ(y_5,y_9,y_13,…) and H*(SU/USp)=Λ(z_5,z_9,z_13,…). The named generators are primitive for stable block sum. The finite-dimensional groups and homogeneous spaces have their own unstable relations; the displayed infinite exterior algebras assert only degreewise stable cohomology. For finite ranks m≥1, H*(SU_m;R)=Λ(x_3,x_5,…,x_{2m−1}); H*(SU_{2m+1}/SO_{2m+1};R)=Λ(y_5,y_9,…,y_{4m+1}); H*(SU_{2m}/SO_{2m};R)=Λ(y_5,y_9,…,y_{4m−3})⊗R[e_{2m}]/(e_{2m}²); and H*(SU_{2m}/USp_{2m};R)=Λ(z_5,z_9,…,z_{4m−3}), with empty generator ranges interpreted as R. Block pullback preserves the named transgressed odd generators wherever they occur; the even-rank Euler class is unstable.
 
 Stability maps come from the compatible classical block inclusions.
 
@@ -347,7 +339,7 @@ Use the Serre spectral sequence with transgression for the fibrations of the cla
 
 H³(SU/SO;R)=H³(SU/USp;R)=0, while H³(SU;R)=R. Finite-size cohomology is not replaced by the stable ring without a degree bound.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §10.6, pp.265–266; [Armand Borel, Sur la cohomologie des espaces fibrés principaux et des espaces homogènes de groupes de Lie compacts](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Borel-Sur.pdf), Propositions 31.3–31.4 and their transgression calculations, pp.203–205.
+Use Borel 1974, §10.6, pp.265–266; Borel 1953, Propositions 31.3–31.4 and their transgression calculations, pp.203–205.
 
 *Needs:* §3.1; the arithmetic and geometric contracts above.
 
@@ -361,7 +353,7 @@ Use the finite-rank presentations in compactDual_stableExterior, including the E
 
 For q=3 the complex generator survives and the real/quaternionic factors contribute zero. The bound is labelled sufficient; no claim of sharpness is made.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §§10.1 and 10.6, pp.263,265–266; [Armand Borel, Sur la cohomologie des espaces fibrés principaux et des espaces homogènes de groupes de Lie compacts](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Borel-Sur.pdf), Propositions 31.3–31.4 and their transgression calculations, pp.203–205.
+Use Borel 1974, §§10.1 and 10.6, pp.263,265–266; Borel 1953, Propositions 31.3–31.4 and their transgression calculations, pp.203–205.
 
 *Needs:* §3.2, §2.3; the arithmetic and geometric contracts above.
 
@@ -369,13 +361,13 @@ Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numd
 
 Let G be a real semisimple Lie group with finitely many components and finite centre, K a maximal compact subgroup, X=K\G with a G-invariant metric, Γ a discrete subgroup with X/Γ of finite volume and Γ′⊂Γ a torsion-free normal subgroup of finite index. Write Ω^Γ for the complex of Γ-invariant forms on X, I^Γ for its subspace of forms also invariant under G°, and j^q:I^{Γ,q}→H^q(Γ;ℝ) for the map of Layer 2. For a connected simple noncompact group G₁ with Cartan decomposition k₁⊕p₁, Matsushima's constant m(G₁) is the largest positive integer q for which the quadratic form (A/q)(ξ,ξ)+P(ξ,ξ) on the symmetric square of p₁ is positive definite; here the norm and curvature tensor are normalised by the Killing metric. To specify A, let B be the Killing form on g₁, ψ(X,Y)=Tr(ad_p X∘ad_p Y) on k₁, and a_min be the least eigenvalue of −ψ relative to −B|_{k₁}. Set A=a_min/2. The eigenvalue on the centre of k₁ is 1; if k₁ is abelian set a_min=1. On a simple compact ideal the eigenvalue is its isotropy trace-form ratio. Use P(ξ,η)=Σ R_{iklj}ξ_{kl}η_{ij}, with Matsushima's curvature convention (1.5), with R_{ijkl}=−Σ_a c_{aij}c_{akl} in an orthonormal Cartan basis. Thus the last two curvature indices are ordered l,j in P, and the positivity expression is a_min/(2q) times the squared norm plus P. This fixes the factor absorbed into Borel's symbol A. Set m(G₁)=0 if there is no such positive q; degree zero is handled by constants. Put m(G)=min m(G₁) over the simple noncompact factors of G°, with the minimum of an empty set equal to ∞. Then: (a) if G/Γ is compact, j^q is injective for all q and surjective for q≤m(G); (b) if Γ is torsion-free, q≤m(G) and every class in H^q(Ω^Γ) has a square-integrable representative, then j^q is surjective; (c) if C⊂Ω^{Γ′} is a subcomplex stable under Γ/Γ′ and m′ is a positive real number such that C→Ω^{Γ′} is an isomorphism on cohomology in degrees ≤m′, C^q consists of square-integrable forms for q≤m′, and I^{Γ′,q}⊂C^q for q≤m′, then j^q:I^{Γ,q}→H^q(Γ;ℝ) is injective for q≤m′ and bijective for q≤min(m(G),m′).
 
-G real semisimple with finitely many components and finite centre; X/Γ of finite volume for (c). Square integrability is with respect to the invariant metric on X/Γ′. The real cutoff m′ is positive, as in Borel 3.6, p.244; only integer cohomological degrees q≤m′ are involved. The expression A/q defining m(G₁) is used only for positive q.
+G real semisimple with finitely many components and finite centre; X/Γ of finite volume for (c). Square integrability is with respect to the invariant metric on X/Γ′. The real cutoff m′ is positive, as in Borel 1974 3.6, p.244; only integer cohomological degrees q≤m′ are involved. The expression A/q defining m(G₁) is used only for positive q.
 
-Choose Γ′ normal and of finite index, torsion-free and contained in G°. Work on K°\G° before descent: H^*(Γ;ℝ)=H^*(Γ′;ℝ)^{Γ/Γ′} and I^Γ=(I^{Γ′})^{Γ/Γ′}. The component convention is the one of arithmeticInvariantFormMap, with G_Γ for van Est. Injectivity. Elements of I^{Γ′} are harmonic. On the complete manifold X/Γ′ Stokes' formula holds for integrable forms with integrable differential (Borel §1), so a square-integrable harmonic form which is the differential of a square-integrable form is zero (Borel 2.5). If j(ω)=0 with ω∈I^{Γ′,q}, q≤m′, then ω=dσ with σ∈C^{q−1}, which is square integrable; hence ω=0. Surjectivity. Write a square-integrable harmonic q-form η through its coefficients η_I on Γ′\G in a Maurer–Cartan frame adapted to k⊕p. Matsushima's integral formula for φ=Σ([X_a,X_b]η_I)² shows, for q≤m(G), that the η_I are killed by p, hence constant, so η∈I^{Γ′}. On a noncompact quotient the integrations by parts are justified after replacing η by α*η for a K-invariant test function α: convolution commutes with the Casimir operator and makes every derivative square integrable. Letting α run through a Dirac sequence gives η in the closure of the finite-dimensional space I^{Γ′} (Garland's argument, Borel 3.5). In (c) every class of degree ≤m′ has a square-integrable representative in C, so (b) applies for q≤min(m(G),m′).
+Choose Γ′ normal and of finite index, torsion-free and contained in G°. Work on K°\G° before descent: H^*(Γ;ℝ)=H^*(Γ′;ℝ)^{Γ/Γ′} and I^Γ=(I^{Γ′})^{Γ/Γ′}. The component convention is the one of arithmeticInvariantFormMap, with G_Γ for van Est. Injectivity. Elements of I^{Γ′} are harmonic. On the complete manifold X/Γ′ Stokes' formula holds for integrable forms with integrable differential (Borel 1974 §1), so a square-integrable harmonic form which is the differential of a square-integrable form is zero (Borel 1974 2.5). If j(ω)=0 with ω∈I^{Γ′,q}, q≤m′, then ω=dσ with σ∈C^{q−1}, which is square integrable; hence ω=0. Surjectivity. Write a square-integrable harmonic q-form η through its coefficients η_I on Γ′\G in a Maurer–Cartan frame adapted to k⊕p. Matsushima's integral formula for φ=Σ([X_a,X_b]η_I)² shows, for q≤m(G), that the η_I are killed by p, hence constant, so η∈I^{Γ′}. On a noncompact quotient the integrations by parts are justified after replacing η by α*η for a K-invariant test function α: convolution commutes with the Casimir operator and makes every derivative square integrable. Letting α run through a Dirac sequence gives η in the closure of the finite-dimensional space I^{Γ′} (Garland's argument, Borel 1974 3.5). In (c) every class of degree ≤m′ has a square-integrable representative in C, so (b) applies for q≤min(m(G),m′).
 
 The analytic input beyond compact-support Stokes is the following complete-manifold statement: if M is oriented, complete and has no boundary, α is a smooth (dim M−1)-form, and α and dα are integrable, then ∫_M dα=0. Establish the accompanying fact that an exact square-integrable harmonic form is zero under the integrable-primitive/product conditions used in the proof, the Casimir description of the form Laplacian, and regularisation by convolution with compactly supported K-invariant test functions. These are targets of the comparison argument here (Borel 1974 §§1–3, pp.238–246). In particular, compact quotient Hodge theory is not invoked without its compactness hypothesis. For m(G), the trace-form definition above is Matsushima §§5–7, pp.10–13; the factor is visible in his definition of H_g^p on p.13. His Theorem 1, pp.13–14, supplies the positivity criterion; the estimates also use Kaneyuki–Nagano Theorem 4.1, pp.249–250. The rank lower bound alone does not define this constant.
 
-For the numerical invariant include `matsushimaConstant_factor`, which gives the minimum over noncompact simple factors, `matsushimaConstant_compact`, which gives ∞ for no such factors, and `matsushimaConstant_positive_iff`, the strict positive-definiteness test above for positive integral q. The auxiliary complete-manifold results are named `integrableStokes`, `exactL2Harmonic_eq_zero`, `formLaplacian_eq_casimir` and `convolution_casimir`; the exact-harmonic statement requires the square-integrable primitive and the product integrability used by Stokes.
+Name the criterion (a)–(c) `invariantForms_bijective_of_squareIntegrable`. For the numerical invariant include `matsushimaConstant_factor`, which gives the minimum over noncompact simple factors, `matsushimaConstant_compact`, which gives ∞ for no such factors, and `matsushimaConstant_positive_iff`, the strict positive-definiteness test above for positive integral q. The auxiliary complete-manifold results are named `integrableStokes`, `exactL2Harmonic_eq_zero`, `formLaplacian_eq_casimir` and `convolution_casimir`; the exact-harmonic statement requires the square-integrable primitive and the product integrability used by Stokes.
 
 Use the Hodge sign Δ_H=dδ+δd for this form Laplacian. In Borel's coefficient frame it acts as minus the Casimir on the coefficient functions (1974, §3.2(5), p.242). On scalar functions it is −div grad, the negative of DifferentialGeometry Layer 12's convention. On the Euclidean line Δ_H(x²)=−2 whereas div grad(x²)=2; this witness fixes the sign of `formLaplacian_eq_casimir`. Harmonicity is unchanged by the sign conversion.
 
@@ -385,9 +377,9 @@ Use the Hodge sign Δ_H=dδ+δd for this form Laplacian. In Borel's coefficient 
 - A compact hyperbolic surface has nonzero H¹ but the SL₂(ℝ) invariant source in degree one is zero. This rules out surjectivity in degree one with m(SL₂(ℝ))=0.
 - For SL₂(ℝ), k is abelian, a_min=1 and the trace-free curvature eigenvalue is −1/2, so the q=1 positivity expression has eigenvalue 1/2−1/2=0 and fails strict positivity. More explicitly, ξ=diag(1,−1) has squared norm 2 and P(ξ,ξ)=−1, giving (1/2)·2−1=0; the scalar tensor diag(1,1) has the opposite curvature eigenvalue. Reversing the final curvature indices interchanges these signs. At a finite bound c=0 choose m′=1/2: the integer degrees ≤m′ are exactly degree zero. Substitution q=0 into A/q is never made.
 
-For G/Γ compact, (c) with C=Ω^{Γ′} recovers (a). For G=SL₂(ℝ) and Γ a cocompact surface group, I^1=0 and H¹(Γ;ℝ)≠0, so j¹ is not surjective: m(SL₂(ℝ))=0. The criterion gives no information in degrees above min(m(G),m′).
+For G/Γ compact, (c) with C=Ω^{Γ′} recovers (a).
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §1.3–1.5, pp.238–239; §2.2–2.5, pp.239–240; §3.1–3.7, pp.241–246.
+Use Borel 1974, §1.3–1.5, pp.238–239; §2.2–2.5, pp.239–240; §3.1–3.7, pp.241–246.
 
 *Needs:* §2.2; the arithmetic and geometric contracts above.
 
@@ -397,7 +389,7 @@ Let G be a connected semisimple ℚ-group, P a minimal parabolic ℚ-subgroup, A
 
 G connected semisimple over ℚ; Γ torsion-free arithmetic. Siegel sets, the horospherical decomposition and the corners are those of AdelicAlgebraicGroups Layer 3 and the bordification input of §1.5. The condition c(P,q,λ) does not depend on the choice of minimal parabolic. Use Borel’s right arithmetic quotient K\G(ℝ)/Γ and boundary coordinates a_B with a_B^{α_i}→0. AdelicAlgebraicGroups Layer 3 uses the left quotient Γ\G(ℝ)/K and a_AA^{α_i}→∞. Quotient inversion identifies the charts by a_B=a_AA⁻¹; transport the adapted frame and metric as well as the coordinate, rather than mixing the two conventions.
 
-Convert the AdelicAlgebraicGroups Layer 3 left-quotient Siegel charts to the right quotient by g↦g⁻¹. In the right-quotient charts a_B^{α_i} tends to zero; logarithmic growth is polynomial growth in |log a_B^{α_i}|, equivalently in log a_AA^{α_i}. The pullback of the metric and adapted frame is used for the norm and volume estimates of Borel §§4–5. Forms on open subsets of X̄/Γ which, with their differentials, have logarithmic growth near the boundary form a sheaf F of differential graded algebras on the compact manifold with corners (the bordification and compact-quotient input of this subsection), with global sections C. F is fine: a smooth function on the manifold with corners and its differential have bounded coefficients in the adapted frame, so multiplication by a smooth partition of unity preserves F. F resolves the constant sheaf: at interior points by the Poincaré lemma; at a boundary point, in the coordinates log a^{α_i} on the corner and local coordinates on a relatively compact factor, a closed form of F on a small neighbourhood is the differential of a form of F on a smaller one. Hence H^*(C)=H^*(X̄/Γ;ℝ)=H^*(X/Γ;ℝ), which is (a). For (b): a form with logarithmic growth has coefficients bounded by a_B^{−εd} for every ε>0, d being the sum of the simple roots; under inversion this bound is a_AA^{+εd}. The metric and volume computation in the same right-quotient frame (Borel §§4–5, Proposition 5.5) gives square integrability when c(P,q,−εd) holds. The strict inequalities in c(P,q,0) imply this for small ε. Keep the root, metric and volume conventions together. For (c): a form invariant under A_P has bounded coefficients in the adapted frame (Borel 5.7), and invariant forms are closed.
+Convert the AdelicAlgebraicGroups Layer 3 left-quotient Siegel charts to the right quotient by g↦g⁻¹. In the right-quotient charts a_B^{α_i} tends to zero; logarithmic growth is polynomial growth in |log a_B^{α_i}|, equivalently in log a_AA^{α_i}. The pullback of the metric and adapted frame is used for the norm and volume estimates of Borel 1974 §§4–5. Forms on open subsets of X̄/Γ which, with their differentials, have logarithmic growth near the boundary form a sheaf F of differential graded algebras on the compact manifold with corners X̄/Γ of §1.5, with global sections C. F is fine: a smooth function on the manifold with corners and its differential have bounded coefficients in the adapted frame, so multiplication by a smooth partition of unity preserves F. F resolves the constant sheaf: at interior points by the Poincaré lemma; at a boundary point, in the coordinates log a^{α_i} on the corner and local coordinates on a relatively compact factor, a closed form of F on a small neighbourhood is the differential of a form of F on a smaller one. Hence H^*(C)=H^*(X̄/Γ;ℝ)=H^*(X/Γ;ℝ), which is (a). For (b): a form with logarithmic growth has coefficients bounded by a_B^{−εd} for every ε>0, d being the sum of the simple roots; under inversion this bound is a_AA^{+εd}. The metric and volume computation in the same right-quotient frame (Borel 1974 §§4–5, Proposition 5.5) gives square integrability when c(P,q,−εd) holds. The strict inequalities in c(P,q,0) imply this for small ε. Keep the root, metric and volume conventions together. For (c): a form invariant under A_P has bounded coefficients in the adapted frame (Borel 1974 5.7), and invariant forms are closed.
 
 The logarithmic-growth complex is a new arithmetic subcomplex of the supplied smooth de Rham complex. Define it by bounds on a form and its differential in a fixed invariant cusp frame, with seminorms on compact nilpotent/Levi directions and polynomial bounds in logarithms of the positive chamber coordinates. Its API includes restriction to an open cusp chart, differential and wedge closure, independence of equivalent reduction data, the inclusion of invariant forms, and the natural comparison to all smooth forms. Prove the fine-sheaf resolution and square-integrability claims from these bounds, not from a bare unspecified predicate on growth.
 
@@ -408,27 +400,27 @@ Use the named growth API `logGrowthForms_restrict`, `logGrowthForms_d`, `logGrow
 - In the right-quotient coordinate a_B tending to zero, |log a_B| is allowed while a_B^(−ε), ε>0, fails a polynomial logarithmic bound.
 - Inverting to the left-quotient coordinate a_A=a_B^(−1) transports both the metric/frame and the growth bound; only inverting the variable reverses the integrability conclusion incorrectly.
 - An anisotropic arithmetic quotient has no rational cusp, so the chamber inequalities are empty and c=∞; the complex is the ordinary smooth complex on its compact quotient.
-- For Res_{F/ℚ}SL₂ the one relative simple root has multiplicity [F:ℚ], so c is the greatest integer strictly smaller than [F:ℚ]/2: 0 in degrees one and two, and 1 in degree three.
+- For Res_{F/ℚ}SL₂ the one relative simple root has multiplicity [F:ℚ], so c is the greatest integer strictly smaller than [F:ℚ]/2: 0 for [F:ℚ]=1 or 2, and 1 for [F:ℚ]=3.
 - On a product of two semisimple groups with cusp bounds 0 and 1, the product bound is 0; replacing the minimum by a sum would admit unsupported degree-one square integrability.
 - For the split A₁ cusp with ρ=α/2, λ=−ρ fails even degree zero and has no admissible nonnegative bound; λ=α satisfies the inequality for every exterior degree and gives c(G,λ)=∞. This excludes an undefined maximum and an accidental value zero for an empty set.
 
-For G anisotropic over ℚ the quotient is compact, C is the whole complex and c(G)=∞. For G=Res_{F/ℚ}SL₂ with [F:ℚ]=d, a minimal parabolic has one simple root α with multiplicity d and ρ_P=(d/2)α, so c(G) is the greatest integer strictly smaller than d/2 (Borel 7.7); for F=ℚ it is 0. The complex contains the invariant forms; the smaller complex of forms locally lifted from the boundary does not (Borel 8.2).
+For G=Res_{F/ℚ}SL₂ with [F:ℚ]=d, ρ_P=(d/2)α and c(G)=[d/2]′ (Borel 1974, 7.7). The complex contains the invariant forms; the smaller complex of forms locally lifted from the boundary does not (Borel 1974 8.2).
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §4, pp.246–248; §5, pp.248–251; §6, pp.251–254; §7.1–7.4, pp.254–258.
+Use Borel 1974, §4, pp.246–248; §5, pp.248–251; §6, pp.251–254; §7.1–7.4, pp.254–258.
 
 *Needs:* §2.2; the arithmetic and geometric contracts above.
 
 ### 3.6 Lower bounds for the constants of the stable range
 
-Let [x]′ denote the greatest integer strictly smaller than x. (1) For an irreducible root system Φ let 2r be the sum of its positive roots, d₀ the highest root of the subsystem of non-multipliable roots, and c(Φ)=max{p : r−p·d₀≫0}; for a reducible system take the minimum over the irreducible factors. Then c(A_n)=[n/2]′, and c(Φ)≥[n/2]′ for every irreducible Φ of rank n. (2) For a connected semisimple group H of positive rank over a field k of characteristic zero, define c(H/k) as c(G) was defined in logGrowthForms_quasiIso, with a maximal k-split torus and a minimal parabolic k-subgroup. Then c(H/k)≥m·c(Φ(H/k)) if every relative root has multiplicity at least m; c(H/k)≥[rk_k(H)/2]′ if H is almost k-simple; c(Res_{k′/k}H′/k)≥[k′:k]·c(H′/k′); and c(H/k)≥c(H/k″) for every extension k″ of k. (3) For H almost simple over ℝ of positive real rank, Matsushima's constant satisfies m(H(ℝ))≥[rk_ℝ(H)/4]′. (4) For a connected almost ℚ-simple ℚ-group G, min(c(G), m(G(ℝ)))≥[rk_ℚ(G)/4]′. In particular for G_n=Res_{F/ℚ}SL_n(D), of rational rank n−1, the minimum is at least [(n−1)/4]′, that is, it is ≥q whenever 4q<n−1.
+Let [x]′ denote the greatest integer strictly smaller than x. (1) For an irreducible root system Φ let 2r be the sum of its positive roots, d₀ the highest root of the subsystem of non-multipliable roots, and c(Φ)=max{p : r−p·d₀≫0}; for a reducible system take the minimum over the irreducible factors. Then c(A_n)=[n/2]′, and c(Φ)≥[n/2]′ for every irreducible Φ of rank n. (2) For a connected semisimple group H of positive rank over a field k of characteristic zero, define c(H/k) as c(G) was defined in §3.5, with a maximal k-split torus and a minimal parabolic k-subgroup. Then c(H/k)≥m·c(Φ(H/k)) if every relative root has multiplicity at least m; c(H/k)≥[rk_k(H)/2]′ if H is almost k-simple; c(Res_{k′/k}H′/k)≥[k′:k]·c(H′/k′); and c(H/k)≥c(H/k″) for every extension k″ of k. (3) For H almost simple over ℝ of positive real rank, Matsushima's constant satisfies m(H(ℝ))≥[rk_ℝ(H)/4]′. (4) For a connected almost ℚ-simple ℚ-group G, min(c(G), m(G(ℝ)))≥[rk_ℚ(G)/4]′. In particular for G_n=Res_{F/ℚ}SL_n(D), of rational rank n−1, the minimum is at least [(n−1)/4]′, that is, it is ≥q whenever 4q<n−1.
 
 Root systems, relative root systems with multiplicities and their behaviour under restriction of scalars are those of the structure theory of reductive groups over a field. (3) rests on the values of m for the simple real Lie algebras, which are tabulated in the literature cited by Borel.
 
-(1) For A_n the coefficient of the simple root α_i in r is i(n+1−i)/2 and d₀ is the sum of the simple roots, so the condition is p<n/2. The other types are read from the tables of root systems (Borel 9.1(3)); the same computation gives c(B_n)=n−2 and c(C_n)=[n/2]′. (2) Reduce to H almost k-simple. The character 2ρ_P contains every term of 2r with coefficient at least m, and p·d₀−ν is a nonnegative combination of simple roots for every sum ν of p roots; this gives the first inequality, and the table gives the second. Restriction of scalars multiplies multiplicities by the degree. A minimal parabolic over k contains one over k″ after extension, which gives the last inequality. (3) is read from the tables of Matsushima and of Kaneyuki–Nagano. (4) Up to isogeny G=Res_{k/ℚ}G′ with G′ absolutely simple over a number field k, and G(ℝ) is the product of the G′(k_v). Each k_v-rank is at least the k-rank of G′, which is the ℚ-rank of G; apply (2) and (3).
+(1) For A_n the coefficient of the simple root α_i in r is i(n+1−i)/2 and d₀ is the sum of the simple roots, so the condition is p<n/2. The other types are read from the tables of root systems (Borel 1974 9.1(3)); the same computation gives c(B_n)=n−2 and c(C_n)=[n/2]′. (2) Reduce to H almost k-simple. The character 2ρ_P contains every term of 2r with coefficient at least m, and p·d₀−ν is a nonnegative combination of simple roots for every sum ν of p roots; this gives the first inequality, and the table gives the second. Restriction of scalars multiplies multiplicities by the degree. A minimal parabolic over k contains one over k″ after extension, which gives the last inequality. (3) is read from the tables of Matsushima and of Kaneyuki–Nagano. (4) Up to isogeny G=Res_{k/ℚ}G′ with G′ absolutely simple over a number field k, and G(ℝ) is the product of the G′(k_v). Each k_v-rank is at least the k-rank of G′, which is the ℚ-rank of G; apply (2) and (3).
 
 Use relative root systems with multiplicities for a connected semisimple group over a characteristic-zero field, not merely the absolute split root system. The restriction-of-scalars formula multiplies the relevant multiplicities by the extension degree. In the B_n formula n≥2 is required: B₁ is A₁ and is treated by that identification, not by substituting n=1 into n−2.
 
-The root-system invariant has API `rootBound_simple`, `rootBound_product`, `rootBound_typeA` and `rootBound_multiplicity`; `arithmeticBound_rank` combines it with the analytic constant. For A₁ the only constraint is p<1/2 and the bound is 0; for B₂ the formula n−2 is 0; for C₂ the strict part of 1 is also 0. Treat B₁ through A₁, as n−2 would give −1. The strict-part expression is the native ceiling minus one, not a new definition.
+The root-system invariant has API `rootBound_simple`, `rootBound_product`, `rootBound_typeA` and `rootBound_multiplicity`; `arithmeticBound_rank`, statement (4), combines it with the analytic constant. The strict-part expression is the native ceiling minus one, not a new definition.
 
 **Checks.**
 
@@ -437,29 +429,29 @@ The root-system invariant has API `rootBound_simple`, `rootBound_product`, `root
 - For q=2 the sufficient arithmetic bound 4q<n−1 holds at n=10 and fails at n=9.
 - Rank zero has no proper rational parabolic and the minimum defining the cusp bound is ∞; it is not forced to be −1 by the coarse rank estimate.
 
-For Φ=A₁, r=α/2 and d₀=α, so c(A₁)=0=[1/2]′. For G_n with n=10 the bound is [9/4]′=2, and for n=9 it is [8/4]′=1: the inequality 4q<n−1 is strict. The bound is a lower bound; no claim is made that it is sharp.
+The bound is a lower bound; no claim is made that it is sharp.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §0.1, p.237; §9.1–9.5, pp.261–262.
+Use Borel 1974, §0.1, p.237; §9.1–9.5, pp.261–262.
 
 *Needs:* §3.5, §3.4, §1.1; the arithmetic and geometric contracts above.
 
 ### 3.7 Borel’s arithmetic stable-range comparison
 
-For an order O in a central division algebra D over a number field F, n≥2 and q≥0 with 4q<n−1, the map j_{Γ_n}:H^q(g_n,k_n;ℝ)→H^q(SL_n(O);ℝ) of Layer 2 is an isomorphism. More generally, for a connected semisimple ℚ-group G and an arithmetic subgroup Γ, j_Γ^q:I_G^{Γ,q}→H^q(Γ;ℝ) is injective for q≤c(G) and surjective for q≤min(c(G),m(G(ℝ))), with the constants of logGrowthForms_quasiIso and invariantForms_bijective_of_squareIntegrable. Since G_n is almost ℚ-simple of rational rank n−1 and G_n(ℝ) is connected, min(c(G_n),m(G_n(ℝ)))≥[(n−1)/4]′, the greatest integer strictly smaller than (n−1)/4; so the strict inequality 4q<n−1 is what the proof gives.
+For an order O in a central division algebra D over a number field F, n≥2 and q≥0 with 4q<n−1 (`arithmeticComparison_stableRange`), the map j_{Γ_n}:H^q(g_n,k_n;ℝ)→H^q(SL_n(O);ℝ) of Layer 2 is an isomorphism. More generally, for a connected semisimple ℚ-group G and an arithmetic subgroup Γ, j_Γ^q:I_G^{Γ,q}→H^q(Γ;ℝ) is injective for q≤c(G) and surjective for q≤min(c(G),m(G(ℝ))), with the constants of logGrowthForms_quasiIso and invariantForms_bijective_of_squareIntegrable. Since G_n is almost ℚ-simple of rational rank n−1 and G_n(ℝ) is connected, min(c(G_n),m(G_n(ℝ)))≥[(n−1)/4]′, the greatest integer strictly smaller than (n−1)/4; so the strict inequality 4q<n−1 is what the proof gives.
 
 O is any order of D; Γ_n=SL_n(O) is arithmetic in G_n=Res_{F/ℚ}SL_n(D) by Layer 1. For the general statement G is a connected semisimple ℚ-group and Γ⊂G(ℚ) is arithmetic.
 
-Choose a torsion-free normal subgroup Γ′ of finite index in Γ and let C be the complex of forms with logarithmic growth for Γ′; it is stable under Γ/Γ′. Choose Γ′ inside G(ℝ)° and use the component convention of Layer 2. By logGrowthForms_quasiIso, C computes H^*(Γ′;ℝ), consists of square-integrable forms in degrees ≤c(G) and contains the invariant forms. If c(G) is finite, apply criterion (c) with the positive real cutoff m′=c(G)+1/2; this has exactly the same allowed integer degrees, even when c(G)=0. If c(G)=∞, choose a finite positive cutoff at least as large as the desired degree. Descend through Γ/Γ′-invariants; degree zero also follows directly from constants. For G_n use borelConstants_ge_rank with rank_ℚ G_n=n−1 from Layer 1.
+Choose a torsion-free normal subgroup Γ′ of finite index in Γ and let C be the complex of forms with logarithmic growth for Γ′; it is stable under Γ/Γ′. Choose Γ′ inside G(ℝ)° and use the component convention of Layer 2. By logGrowthForms_quasiIso, C computes H^*(Γ′;ℝ), consists of square-integrable forms in degrees ≤c(G) and contains the invariant forms. If c(G) is finite, apply criterion (c) with the positive real cutoff m′=c(G)+1/2; this has exactly the same allowed integer degrees, even when c(G)=0. If c(G)=∞, choose a finite positive cutoff at least as large as the desired degree. Descend through Γ/Γ′-invariants; degree zero also follows directly from constants. For G_n use arithmeticBound_rank with rank_ℚ G_n=n−1 from Layer 1.
 
-For q=2 the comparison holds for n≥10, and the argument does not give n=9. For q=0 the statement is H⁰=ℝ and holds for every n≥2. Replacing 4q<n−1 by 4q≤n−1 is not justified by the bound [(n−1)/4]′.
+For q=2 this gives n≥10, not n=9; for q=0 it is H⁰=ℝ for every n≥2.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), Theorem 7.5, p.259; §9.5(3), p.262; §11.5, p.268.
+Use Borel 1974, Theorem 7.5, p.259; §9.5(3), p.262; §11.5, p.268.
 
 *Needs:* §2.2, §1.1, §3.4, §3.5, §3.6; the arithmetic and geometric contracts above.
 
 ### 3.8 Stable cohomology of division-order arithmetic groups
 
-For Γ∞=colim_n SL_n(O), H*(Γ∞;R) is the graded exterior algebra with r1 independent generators in every degree 4a+1 (a≥1) and r2 independent generators in every degree 2a+1 (a≥1). The comparison is compatible with block-sum Hopf structures. Each cohomological degree is finite-dimensional and stationary; the inverse limit is taken degree by degree and then summed as a graded algebra, not as a completed product across degrees.
+For Γ∞=colim_n SL_n(O) (`arithmeticCohomology_stableExterior`), H*(Γ∞;R) is the graded exterior algebra with r1 independent generators in every degree 4a+1 (a≥1) and r2 independent generators in every degree 2a+1 (a≥1). The comparison is compatible with block-sum Hopf structures. Each cohomological degree is finite-dimensional and stationary; the inverse limit is taken degree by degree and then summed as a graded algebra, not as a completed product across degrees.
 
 O any order in a central division algebra over F; r1 and r2 are the signature of F, independent of archimedean ramification of D.
 
@@ -467,7 +459,7 @@ Fix q and choose n with 4q<n−1 and n≥2q+3, so that both the arithmetic compa
 
 In degree 10, a wedge of two independent degree-five generators can be nonzero; it is decomposable and does not contribute to the K-group rank.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), Theorem 11.1 and §11.5, pp.266,268.
+Use Borel 1974, Theorem 11.1 and §11.5, pp.266,268.
 
 *Needs:* §3.3, §3.7, §2.4; the arithmetic and geometric contracts above.
 
@@ -485,21 +477,21 @@ The API includes `higherK_map`, its identity and composition laws, `higherK_plus
 
 For a unital order O as in Layer 1, let E(O) be the stable elementary subgroup of GL(O), with SL(O) defined by reduced norm one. Prove E(O)=[GL(O),GL(O)]=[SL(O),SL(O)], and E(O) perfect. The quotient SL(O)/E(O) is torsion abelian, and E(O)→SL(O) induces an isomorphism on real homology, compatible with block products. Include `stableSL_to_plus_hopf` for this compatibility. This is the stable group comparison; the higher K-group primitive identification is the next subsection.
 
-K_i(O) is the K-group of the ring O in the early ring model of the local K-theory interface, identified with π_i(BGL(O)⁺) by the plus-equals-Q theorem. The stable cohomology of Layer 3 is used in degree one: H¹(SL_n(O);ℝ)=0 for n>5.
+K_i(O) is π_i(BGL(O)⁺), identified with Quillen's Q-construction by `higherK_plusQ`. The stable cohomology of Layer 3 is used in degree one: H¹(SL_n(O);ℝ)=0 for n>5.
 
-Whitehead's lemma gives E(O)=[GL(O),GL(O)], perfect (the stable Whitehead theorem of §3.9, the perfectness statement of §3.9). Hence [SL(O),SL(O)]=E(O) and SL(O)/E(O)=H₁(SL(O);ℤ). The stable exterior algebra has no generator in degree one, so H₁(SL(O);ℝ)=0 and SL(O)/E(O) is a torsion abelian group; its real homology vanishes in positive degrees. A torsion abelian group is the filtered union of its finite subgroups; their positive-degree real homology vanishes, and the filtered-union group-homology comparison gives the claimed vanishing for the union. BE(O)⁺ is the universal cover of the connected H-space BGL(O)⁺ (the universal-cover input of §3.9, the plus H-space input of §3.9). The lifted H-space multiplication and the homotopy of each deck transformation to the identity, natural under block maps, are proved by the universal-cover argument below. The induced SL(O)/E(O) action on H_*(E(O);ℝ) is trivial by the equivariant plus homology identification. The extension spectral sequence therefore gives H_*(E(O);ℝ)≅H_*(SL(O);ℝ), compatible with the directly defined SL block product. For i≥2 the covering identifies the homotopy groups; the rational Hurewicz step is §3.10.
+Whitehead's lemma gives E(O)=[GL(O),GL(O)], perfect (`stableElementary_perfect`). Hence [SL(O),SL(O)]=E(O) and SL(O)/E(O)=H₁(SL(O);ℤ). The stable exterior algebra has no generator in degree one, so H₁(SL(O);ℝ)=0 and SL(O)/E(O) is a torsion abelian group; its real homology vanishes in positive degrees. A torsion abelian group is the filtered union of its finite subgroups; their positive-degree real homology vanishes, and the filtered-union group-homology comparison gives the claimed vanishing for the union. BE(O)⁺ is the universal cover of the connected H-space BGL(O)⁺. The lifted H-space multiplication and the homotopy of each deck transformation to the identity, natural under block maps, are proved by the universal-cover argument below. The induced SL(O)/E(O) action on H_*(E(O);ℝ) is trivial by the equivariant plus homology identification. The extension spectral sequence therefore gives H_*(E(O);ℝ)≅H_*(SL(O);ℝ), compatible with the directly defined SL block product. For i≥2 the covering identifies the homotopy groups; the rational Hurewicz step is §3.10.
 
 The required local topological input is this: a connected CW H-space with a unit has an H-space universal cover, and every deck transformation of that cover is homotopic to the identity. For X=BGL(O)^+ identify that cover with BE(O)^+ and compare it with BE(O) by the integral-homology equivalence of the plus construction. The deck action on real homology is therefore trivial. Combine it with the LHS spectral sequence for E→SL→SL/E and the real acyclicity of the torsion abelian quotient. The plus construction is taken with respect to the specified perfect elementary subgroup; it is not applied to an arbitrary subgroup without perfectness (Weibel IV §§1.1–1.8, pp.2–7; Borel 1974 §12.1, pp.270–271).
 
 For i=1 no rank assertion is made: the central unit contribution is not detected by stable SL cohomology. The proof uses H¹(SL(O);ℝ)=0 from the stable computation, not a separate finiteness theorem for SK₁.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §12.1, p.270.
+Use Borel 1974, §12.1, p.270.
 
 *Needs:* §3.8, §2.4; the arithmetic and geometric contracts above.
 
 ### 3.10 Rational Hurewicz and arithmetic indecomposables
 
-For an order O as in Layer 1 and i≥2, dim_ℝ(K_i(O)⊗ℝ) is the number of generators of degree i of the stable exterior algebra H^*(SL(O);ℝ). Indeed K_i(O)⊗ℝ is the degree-i primitive part of H_*(SL(O);ℝ), and in each degree the primitive part of a connected Hopf algebra of finite type is dual to the indecomposable quotient QH^i=H^i/(products of classes of positive degree) of the dual algebra; for an exterior algebra on generators of odd degree QH^i has the generators of degree i as a basis. No finite generation of K_i(O) is used.
+For an order O as in Layer 1 and i≥2 (`arithmeticK_rationalHurewicz`), dim_ℝ(K_i(O)⊗ℝ) is the number of generators of degree i of the stable exterior algebra H^*(SL(O);ℝ). Indeed K_i(O)⊗ℝ is the degree-i primitive part of H_*(SL(O);ℝ), and in each degree the primitive part of a connected Hopf algebra of finite type is dual to the indecomposable quotient QH^i=H^i/(products of classes of positive degree) of the dual algebra; for an exterior algebra on generators of odd degree QH^i has the generators of degree i as a basis. No finite generation of K_i(O) is used.
 
 The Cartan–Serre theorem is used in the form for path-connected H-spaces of finite rational type, the rational Hurewicz theorem of §3.10; a Hurewicz theorem for simply connected spaces in the first nonvanishing degree does not suffice.
 
@@ -509,13 +501,13 @@ Construct rational Hurewicz for a connected homotopy-commutative CW H-space with
 
 In degree 10 the stable cohomology of SL(O_F) for a field with r₁+r₂≥2 is nonzero (products of two distinct generators of degree 5), but QH^{10}=0 and K_{10}(O_F)⊗ℝ=0. Finite generation of K_i(O) is not among the prerequisites.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), §10.6(3), pp.265–266; §12.1, p.270.
+Use Borel 1974, §10.6(3), pp.265–266; §12.1, p.270.
 
 *Needs:* §3.9, §2.4, §3.8; the arithmetic and geometric contracts above.
 
 ### 3.11 Borel’s rank theorem for division-algebra orders
 
-For any order O in a finite-dimensional central division algebra over a number field F and i≥2, dim_R(K_i(O)⊗_Z R) is 0 if i≡0 or 2 mod4, r1+r2 if i≡1 mod4, and r2 if i≡3 mod4. In particular the answer is independent of the degree and real ramification of D. No assertion about integral torsion or K1 is part of this theorem.
+For any order O in a finite-dimensional central division algebra over a number field F and i≥2 (`divisionOrder_borelRank`), dim_R(K_i(O)⊗_Z R) is 0 if i≡0 or 2 mod4, r1+r2 if i≡1 mod4, and r2 if i≡3 mod4. In particular the answer is independent of the degree and real ramification of D. No assertion about integral torsion or K1 is part of this theorem.
 
 O is any order of D, maximal or not.
 
@@ -523,7 +515,7 @@ Combine Layer 3 arithmeticK_rationalHurewicz with the degreewise stable exterior
 
 For F totally real the rank in degree 3 is zero; degree 5 has rank [F:Q].
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), Proposition 12.2, p.271.
+Use Borel 1974, Proposition 12.2, p.271.
 
 *Needs:* §3.10; the arithmetic and geometric contracts above.
 
@@ -559,7 +551,7 @@ For a concrete negative control, K₂(ℚ) surjects onto ⊕_p 𝔽_p×: in loca
 
 For F=ℚ, j=2 gives rank zero and j=3 gives rank one. For an imaginary quadratic F, every j≥2 gives rank one. For a finite set S, localisation gives the same ranks for O_F[S⁻¹] in degrees i≥2; degree one also has the S-unit contribution.
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), Proposition 12.2, p.271.
+Use Borel 1974, Proposition 12.2, p.271.
 
 *Needs:* §3.11; the arithmetic and geometric contracts above.
 
@@ -600,13 +592,13 @@ Prove the following basic identities and compatibility maps.
 
 A real embedding contributes only if j is odd. Counting complex embeddings independently would double the target dimension.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Proposition 9.22 and Corollary 9.23, pp.84–85.
+Use Burgos, Proposition 9.22 and Corollary 9.23, pp.84–85.
 
 *Needs:* the exact supplier contracts above.
 
 ### 4.2 Coordinates and integral reference lattice
 
-Choose one complex embedding above each complex infinite place; real places have their unique real embedding. Let I_j(F) consist of all complex infinite places and the real infinite places only when j is odd. Evaluation at the chosen embeddings gives c_j:V_j(F)≃_R R^{I_j(F)}, with inverse reconstructing the conjugate coordinate by (−1)^{j−1} and putting zero at omitted real places. Define the reference Z-lattice c_j⁻¹(Z^{I_j}) and transport coordinate product Haar measure so that its covolume is one. The ambient Euclidean fixed-subspace metric is not the measure convention.
+Choose one complex embedding above each complex infinite place; real places have their unique real embedding. Let I_j(F) consist of all complex infinite places and the real infinite places only when j is odd. Evaluation at the chosen embeddings gives `targetCoordinates` c_j:V_j(F)≃_R R^{I_j(F)}, with inverse reconstructing the conjugate coordinate by (−1)^{j−1} and putting zero at omitted real places. Define the reference Z-lattice c_j⁻¹(Z^{I_j}) and transport coordinate product Haar measure so that its covolume is one. The ambient Euclidean fixed-subspace metric is not the measure convention.
 
 The selection is explicit data; changing a complex representative changes its coordinate by (−1)^{j−1}.
 
@@ -629,7 +621,7 @@ Prove the following basic identities and compatibility maps.
 
 Each conjugate pair has reference covolume one, not √2.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Proposition 9.22, p.85, including its lattice statement.
+Use Burgos, Proposition 9.22, p.85, including its lattice statement.
 
 *Needs:* §4.1; the exact supplier contracts above.
 
@@ -643,7 +635,7 @@ Apply targetCoordinates and count I_j(F). Use the pinned real/complex-place card
 
 For totally real F and j=2 the target dimension is zero.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Proposition 9.22 and the dimension discussion in §9.2.
+Use Burgos, Proposition 9.22 and the dimension discussion in §9.2.
 
 *Needs:* §4.2; the exact supplier contracts above.
 
@@ -664,9 +656,7 @@ Prove the following basic identities and compatibility maps.
 - `universalBorelClass_bott`: With compatible Bott orientation, ⟨s(ch_j),ε_j⟩=(2πi)^j. The Hurewicz image of ε_j is ±(j−1)! times an integral primitive homology generator, on which s(ch_j) has the reciprocal factorial; the homotopy pairing is one Tate unit.
 - `universalBorelClass_representation`: For an algebraic representation ρ:GL_N→GL_M over ℂ, ρ^*Bo_{j,M}∈H_cont^{2j−1}(GL_N(ℂ);ℝ(j−1)) is the image of ch_j of the bundle associated with ρ on BGL_N(ℂ) under the same chain of maps; it is additive in ρ, so it is defined on the representation ring.
 
-The topological input has to include suspension and integral Bott/Hurewicz normalisation: a Bott homotopy generator maps to ±(j−1)! times an integral primitive homology generator β_j, while suspended ch_j evaluates on β_j as ±(2πi)^j/(j−1)!. Thus evaluation on the Bott homotopy generator is one signed Tate unit, not an extra factorial. Construct the stable Chern character with this normalisation before invoking it here (Burgos Theorem 4.24 and Remark 4.25, p.32; Definition 9.24, pp.86–87).
-
-For j=3 the Hurewicz multiplier is 2!, and the suspended character has value (2πi)^3/2! on β₃. Their product divided by (2πi)^3 is 1. Independently, ch₃ has indecomposable component (2πi)^3c₃/2. These two computations distinguish the homotopy and homology generators.
+Construct the stable Chern character, its suspension and this Bott/Hurewicz normalisation before invoking them here (Burgos Theorem 4.24 and Remark 4.25, p.32; Definition 9.24, pp.86–87).
 
 **Checks.**
 
@@ -675,9 +665,7 @@ For j=3 the Hurewicz multiplier is 2!, and the suspended character has value (2�
 - On indecomposables ch_3=(2πi)^3 c_3/2, so using c_3 without its factor cannot satisfy the normalization.
 - For j=3 the pairing of suspended ch₃ with the compatibly oriented Bott generator, divided by (2πi)³, is 1; the Hurewicz factorial is 2 and must not be substituted for that pairing.
 
-Replacing ch_j by the Chern class c_j changes the normalization by the nontrivial factorial/sign on indecomposables.
-
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Definition 9.24 and Remark 4.25, pp.86–87,32.
+Use Burgos, Definition 9.24 and Remark 4.25, pp.86–87,32.
 
 *Needs:* §3.2, §2.4; the exact supplier contracts above.
 
@@ -723,7 +711,7 @@ The relative Borel form is the one to transport to the symmetric space by invari
 
 At j=2, Φ3(X,Y,Z)=−Tr(X[Y,Z])/2.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), §9.7, Propositions 9.25–9.26, pp.87–88.
+Use Burgos, §9.7, Propositions 9.25–9.26, pp.87–88.
 
 *Needs:* §4.4; the exact supplier contracts above.
 
@@ -750,9 +738,7 @@ Prove the following basic identities and compatibility maps.
 - For Q⊂Q(i) at j=3, the one-coordinate pull matrix is (1) and the trace matrix is (2).
 - For Q⊂Q(i) at j=2 the trace to the zero target V2(Q) is zero; summing the pair (a,−a) gives zero.
 
-For Q⊂an imaginary quadratic field at j=3, coordinate pullback is 1 and coordinate trace is 2.
-
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Proposition 9.21 and the product target of Proposition 9.22.
+Use Burgos, Proposition 9.21 and the product target of Proposition 9.22.
 
 *Needs:* §4.1, §4.2; the exact supplier contracts above.
 
@@ -760,7 +746,7 @@ Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://ww
 
 For a number field F and j≥2 the Borel regulator r_Bo:K_{2j−1}(F)→V_j(F) has σ-component, for each embedding σ:F→ℂ, the composite of K_{2j−1}(σ), the Hurewicz map K_{2j−1}(ℂ)=π_{2j−1}(BGL(ℂ)⁺)→H_{2j−1}(GL(ℂ);ℤ), and the pairing with the restriction of Bo_j to the discrete group GL_N(ℂ), with values in ℝ(j−1). The components satisfy the conjugation condition, so r_Bo lands in V_j(F). The arithmetic regulator r_Bo:K_{2j−1}(O_F)→V_j(F) is the composite with K_{2j−1}(O_F)→K_{2j−1}(F). The normalisation is Burgos's renormalised one, not that of Borel's original lattice.
 
-j≥2. K-groups are those of the ring model the higher K-theory functor of §3.9, identified with homotopy groups of BGL⁺ by the plus/Q comparison of §3.9, and H_*(BGL(R)⁺;ℤ)=H_*(GL(R);ℤ) by the integral-homology property of the plus map in §3.9. The pairing uses the group homology of the discrete group GL_N(ℂ), stably in N.
+j≥2. K-groups are those of the higher K-theory functor of §3.9, identified with homotopy groups of BGL⁺ by the plus/Q comparison of §3.9, and H_*(BGL(R)⁺;ℤ)=H_*(GL(R);ℤ) by the integral-homology property of the plus map in §3.9. The pairing uses the group homology of the discrete group GL_N(ℂ), stably in N.
 
 For each σ, map K_{2j−1}(F) to K_{2j−1}(ℂ), apply Hurewicz and pair with the image of Bo_j under arithmeticRestriction for the discrete group GL_N(ℂ); stability in N is universalBorelClass_stabilize. Complex conjugation acts on GL_N(ℂ) and on the coefficient line; universalBorelClass_conjugation gives r_{σ̄}=(−1)^{j−1}r_σ in real coordinates, which is the defining condition of V_j(F). Additivity follows from primitivity of Bo_j. The map K_{2j−1}(O_F)⊗ℚ→K_{2j−1}(F)⊗ℚ is an isomorphism by rational localisation in §3.12.
 
@@ -782,7 +768,7 @@ Prove the following basic identities and compatibility maps.
 
 This construction alone does not assert a lattice or finite generation.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Definitions 9.19,9.24 and Proposition 9.21, pp.84–86.
+Use Burgos, Definitions 9.19,9.24 and Proposition 9.21, pp.84–86.
 
 *Needs:* §4.4, §4.1, §2.1; the exact supplier contracts above.
 
@@ -794,7 +780,7 @@ For a finite number-field extension f:F→E and j≥2, r_E∘f*=pull_f∘r_F and
 
 The transfer f_* is the transfer of the local K-theory interface for the finite extension E/F (and for the finite projective O_F-module O_E); no hypothesis on ramification is made.
 
-Naturality: r_E∘f^*=pull_f∘r_F holds componentwise, since τ∘f is an embedding of F for every embedding τ of E. Transfer: for an embedding σ of F, the projective-transfer/base-change input of §4.8 applied to F′=ℂ gives K(σ)∘f_*=Σ_τ K(τ), the sum over the [E:F] embeddings τ of E extending σ, because E⊗_{F,σ}ℂ is a product of copies of ℂ indexed by those τ, each of length one. Pairing with Bo_j, which is additive, gives the σ-component of Tr_f∘r_E. For rings of integers the transfer along O_F→O_E commutes with localisation after tensoring with ℚ (the localisation/transfer comparison of §3.12).
+Naturality: r_E∘f^*=pull_f∘r_F holds componentwise, since τ∘f is an embedding of F for every embedding τ of E. Transfer: for an embedding σ of F, `higherK_transfer_split` applied to F′=ℂ gives K(σ)∘f_*=Σ_τ K(τ), the sum over the [E:F] embeddings τ of E extending σ, because E⊗_{F,σ}ℂ is a product of copies of ℂ indexed by those τ, each of length one. Pairing with Bo_j, which is additive, gives the σ-component of Tr_f∘r_E. For rings of integers the transfer along O_F→O_E commutes with localisation after tensoring with ℚ (the localisation/transfer comparison of §3.12).
 
 An even-weight real target receives the sum of a conjugate pair, which is zero.
 Name the transfer API `higherK_transfer_id`, `higherK_transfer_comp`, `higherK_transfer_baseChange` and `higherK_transfer_split`. The finite-projective condition is essential.
@@ -806,7 +792,7 @@ Name the transfer API `higherK_transfer_id`, `higherK_transfer_comp`, `higherK_t
 - ℤ→𝔽₂ is excluded from this exact-category construction because 𝔽₂ is not projective over ℤ; merely finite is insufficient.
 
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Proposition 9.21, pp.84–85.
+Use Burgos, Proposition 9.21, pp.84–85.
 
 *Needs:* §4.7, §4.6; the exact supplier contracts above.
 
@@ -816,7 +802,7 @@ For a number field F, j≥2 and an integer a≥1, r_Bo(ψ^a x)=a^j·r_Bo(x) for 
 
 The operations are those of the local operations interface below on the higher K-theory of a commutative ring, defined through virtual representations of GL_N; Adams operations on K₀ alone do not suffice.
 
-ψ^a on K_m(F)=π_m(BGL(F)⁺) is composition with the self-map of BGL(F)⁺ defined by the virtual representations ψ^a(id_N−N) of the groups GL_N, which are integral combinations of algebraic representations (the Adams operations of §4.9; Weibel IV, 5.3–5.4). For an algebraic representation ρ over ℂ, ρ^*Bo_j is the class attached to ch_j(ρ) (universalBorelClass_representation), additively in ρ; and ch_j(ψ^a ρ)=a^j·ch_j(ρ) (the Chern-character construction of §4.4). Since Bo_j is primitive, the pairing with a Hurewicz image is additive for the H-space sum, so r(ψ^a x)=a^j r(x). On the summand of weight w, ψ^a acts by a^w (the rational Adams-weight decomposition); taking a=2 gives r=0 there for w≠j. Products: K_i(F)⊗ℚ≅K_i(O_F)⊗ℚ=0 for even i≥2 by rational localisation in §3.12 and borelRankTheorem_evenDegree; the product is bilinear (their product compatibility is used for the weights of products).
+ψ^a on K_m(F)=π_m(BGL(F)⁺) is composition with the self-map of BGL(F)⁺ defined by the virtual representations ψ^a(id_N−N) of the groups GL_N, which are integral combinations of algebraic representations (Weibel IV, 5.3–5.4). For an algebraic representation ρ over ℂ, ρ^*Bo_j is the class attached to ch_j(ρ) (universalBorelClass_representation), additively in ρ; and ch_j(ψ^a ρ)=a^j·ch_j(ρ) (the Chern-character construction of §4.4). Since Bo_j is primitive, the pairing with a Hurewicz image is additive for the H-space sum, so r(ψ^a x)=a^j r(x). On the summand of weight w, ψ^a acts by a^w (the rational Adams-weight decomposition); taking a=2 gives r=0 there for w≠j. Products: K_i(F)⊗ℚ≅K_i(O_F)⊗ℚ=0 for even i≥2 by rational localisation in §3.12 and borelRankTheorem_evenDegree; the product is bilinear (their product compatibility is used for the weights of products).
 
 The local operations input consists of Adams operations ψ^a for integers a≥1 on higher K-theory, natural for ring homomorphisms and compatible with the product and higher Chern character. On the universal degree-2j Chern-character component ψ^a acts by a^j. On a number field the positive even K-groups rationally vanish by Layer 3. Thus a product of positive-degree classes landing in K_{2j−1} has zero regulator: at least one factor has positive even degree. This argument precedes, and does not use, the Beilinson comparison (Weibel IV §5, Proposition 5.3–Corollary 5.5.1, pp.47–49).
 
@@ -830,7 +816,7 @@ The operations API includes `higherAdams_one`, `higherAdams_comp`, `higherAdams_
 - A K₀ class of rank two multiplies the regulator by 2; the positive-degree product statement does not apply to it.
 
 
-Use [Charles A. Weibel, The K-book, Chapter IV: Definitions of Higher K-Theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), §5, Proposition 5.3, Example 5.3.1 and Definition 5.4, pp.47–49 of the author chapter PDF; [Michael Rapoport, Comparison of the regulators of Beilinson and of Borel](https://ncatlab.org/nlab/files/Rapoport.pdf), §1, pp.171–175.
+Use Weibel IV, §5, Proposition 5.3, Example 5.3.1 and Definition 5.4, pp.47–49; Rapoport, §1, pp.171–175.
 
 *Needs:* §4.7, §4.4, §3.12; the exact supplier contracts above.
 
@@ -844,7 +830,7 @@ By Layer 3, K_{2j−1}(O_F)⊗ℝ is the primitive part of H_{2j−1}(SL(O_F);�
 
 Nonzero primitive pairing is essential; a zero map between equal-dimensional spaces is excluded.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Corollary 9.8, p.78; Proposition 9.15 and Corollary 9.17, pp.82–83.
+Use Burgos, Corollary 9.8, p.78; Proposition 9.15 and Corollary 9.17, pp.82–83.
 
 *Needs:* §4.4, §4.7, §4.3, §3.12, §3.10, §3.7, §3.2; the exact supplier contracts above.
 
@@ -858,13 +844,13 @@ Use the structure theorem for finitely generated abelian groups and r_j⊗R inje
 
 A finitely generated subgroup whose rank exceeds the ambient dimension can be nondiscrete; the real isomorphism prevents this.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Corollary 9.8 and Definition 9.19, pp.78,84.
+Use Burgos, Corollary 9.8 and Definition 9.19, pp.78,84.
 
 *Needs:* §4.10, §4.7, §4.2; the exact supplier contracts above.
 
 ### 4.12 The regulator determinant line and matrix
 
-For the actual arithmetic regulator r_Bo and a ℤ-basis b of K_{2j−1}(O_F) modulo torsion, define its coordinate matrix by M_{v,a}=c_F(r_Bo(b_a))_v. Here c_F is the coordinate equivalence of §4.2 and both indices have cardinality d_j. Define the determinant of the regulator on the top exterior power by this matrix. This specialisation uses the ordinary matrix-of-a-linear-map interface; it does not introduce a second generic lattice matrix construction.
+For the actual arithmetic regulator r_Bo and a ℤ-basis b of K_{2j−1}(O_F) modulo torsion, define its coordinate matrix `regulatorMatrix` by M_{v,a}=c_F(r_Bo(b_a))_v. Here c_F is the coordinate equivalence of §4.2 and both indices have cardinality d_j. Define the determinant of the regulator on the top exterior power by this matrix. This specialisation uses the ordinary matrix-of-a-linear-map interface; it does not introduce a second generic lattice matrix construction.
 
 A is finite free from the arithmetic finiteness theorem; determinant lines are top exterior powers in Mathlib's exterior algebra.
 
@@ -885,9 +871,7 @@ Prove the following basic identities and compatibility maps.
 - Swapping two integral basis vectors negates the determinant and preserves its absolute value.
 - For d=2, doubling every regulator component multiplies the determinant by 4, not by 2.
 
-Changing either basis can change the signed determinant, but not its absolute value.
-
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Definition 9.19 and §9.4, pp.79–84.
+Use Burgos, Definition 9.19 and §9.4, pp.79–84.
 
 *Needs:* §4.11, §4.2; the exact supplier contracts above.
 
@@ -897,7 +881,7 @@ For j≥2 let R_Bo,j be the covolume of the actual image of K_{2j−1}(O_F) unde
 
 The full-lattice result and its discrete topology are established, not implicit assumptions on an arbitrary image.
 
-Use regulator-lattice and the specified coordinate measure to specialize ZLattice.covolume. Apply the pinned covolume_eq_det theorem after coordinate transport. Use unimodular and representative-change formulas for independence.
+Use the full lattice of §4.11 and the coordinate measure of §4.2 to specialize ZLattice.covolume. Apply the pinned covolume_eq_det theorem after coordinate transport. Use unimodular and representative-change formulas for independence.
 
 Prove the following basic identities and compatibility maps.
 
@@ -913,9 +897,7 @@ Prove the following basic identities and compatibility maps.
 - For a rank-one matrix (a), the covolume is |a| and is unchanged by a↦−a.
 - The reference lattice Z^{I_j} has covolume 1 for the coordinate measure; no √2 per complex pair occurs.
 
-The convention includes the real-place correction 2^{r1} at j≡3 mod4 when comparing with Borel’s original covolume.
-
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Definition 9.19 and Remark 9.20, p.84.
+Use Burgos, Definition 9.19 and Remark 9.20, p.84.
 
 *Needs:* §4.11, §4.12, §4.2; the exact supplier contracts above.
 
@@ -958,7 +940,7 @@ Use the Euler series positivity/nonvanishing at real j>1. Apply the functional e
 
 For Q and j=2 the exact order is zero; for Q and j=3 it is one.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §1.4, p.616.
+Use Borel 1977, §1.4, p.616.
 
 *Needs:* §5.1, §4.3; the exact supplier contracts above.
 
@@ -985,15 +967,13 @@ Prove the following basic identities and compatibility maps.
 - For f(z)=7 and d=0 the coefficient is 7.
 - For f(z)=z³ at 0, the coefficient with d=2 is zero, so d=2 fails the exact-order nonzero test.
 
-When d=0 it equals ζ_F(s0). The factorial cannot be dropped in exact comparison statements.
-
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §6.4(3) and (5), p.633.
+Use Borel 1977, §6.4(3) and (5), p.633.
 
 *Needs:* §5.2; the exact supplier contracts above.
 
 ### 5.4 Leading-term form of the functional equation
 
-Write A_F(s)=Γ_R(s)^{r1}Γ_C(s)^{r2} and a_{F,j}=lim_{s→1−j}(s+j−1)^{d_j}A_F(s), a nonzero real number determined by gamma residues. Then ζ_F*(1−j)=|D_F|^{j−1/2} A_F(j)ζ_F(j)/a_{F,j}. Consequently |ζ_F*(1−j)|∼_Q |D_F|^{1/2}π^{d_j−[F:Q]j}ζ_F(j), where ∼_Q means quotient in Q×. The integer factor |D_F|^{j−1}, signs, powers of 2 and factorials are rational factors; the exact formula retains them before taking proportionality.
+Write A_F(s)=Γ_R(s)^{r1}Γ_C(s)^{r2} and a_{F,j}=lim_{s→1−j}(s+j−1)^{d_j}A_F(s), a nonzero real number determined by gamma residues. Then ζ_F*(1−j)=|D_F|^{j−1/2} A_F(j)ζ_F(j)/a_{F,j} (`zetaLeading_functionalEquation`). Consequently |ζ_F*(1−j)|∼_Q |D_F|^{1/2}π^{d_j−[F:Q]j}ζ_F(j), where ∼_Q means quotient in Q×. The integer factor |D_F|^{j−1}, signs, powers of 2 and factorials are rational factors; the exact formula retains them before taking proportionality.
 
 j≥2; completed-zeta convention and exact zero order fixed.
 
@@ -1001,23 +981,23 @@ Expand the gamma factors at s0 using the simple poles and residues of the classi
 
 For Q,j=2 the formula gives ζ(−1)=−1/12.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §6.4(4), p.633, interpreted as rational proportionality.
+Use Borel 1977, §6.4(4), p.633, interpreted as rational proportionality.
 
 *Needs:* §5.3, §5.1; the exact supplier contracts above.
 
 ### 5.5 Absolute and relative arithmetic cohomology with the compact fiber
 
-Let F be a number field of degree d, N odd, G_N=SL_N(F⊗ℝ), K_N its standard maximal compact subgroup (SO_N at real places, SU_N at complex places), Γ⊂SL_N(F) a torsion-free arithmetic subgroup, Y_N=Γ\G_N and X_N=Γ\G_N/K_N. Write g and k for the complexified Lie algebras of G_N and K_N, G_u for the compact form of G_N(ℂ) containing K_N, and X_u=G_u/K_N for the compact dual. Invariant forms give maps β:H^*(g;ℂ)→H^*(Y_N;ℂ) and j:H^*(g,k;ℂ)→H^*(X_N;ℂ), and the compact-form isomorphisms α:H^*(g;ℂ)≅H^*(G_u;ℂ), α_rel:H^*(g,k;ℂ)≅H^*(X_u;ℂ) are compatible with them: β∘incl=p^*∘j for the inclusion of relative into absolute cochains and the projection p:Y_N→X_N. The three spectral sequences of the fibrations with fibre K_N, namely of G_u→X_u, of g modulo k, and of Y_N→X_N, are compatible under these maps. For odd N the restriction H^*(G_u;ℂ)→H^*(K_N;ℂ) is surjective, the three spectral sequences degenerate, and H^*(G_u;ℂ) is the exterior algebra on P₁⊕P₂ with p^* mapping H^*(X_u;ℂ) isomorphically onto ΛP₁ and restriction mapping ΛP₂ isomorphically onto H^*(K_N;ℂ). In every degree q with 4q<N−1, j and β are isomorphisms. In those degrees the splitting P=P₁⊕P₂ of the primitive elements is the one used to factor determinant lines in the period theorem.
+Let F be a number field of degree d, N odd, G_N=SL_N(F⊗ℝ), K_N its standard maximal compact subgroup (SO_N at real places, SU_N at complex places), Γ⊂SL_N(F) a torsion-free arithmetic subgroup, Y_N=Γ\G_N and X_N=Γ\G_N/K_N. Write g and k for the complexified Lie algebras of G_N and K_N, G_u for the compact form of G_N(ℂ) containing K_N, and X_u=G_u/K_N for the compact dual. Invariant forms give maps β:H^*(g;ℂ)→H^*(Y_N;ℂ) and j:H^*(g,k;ℂ)→H^*(X_N;ℂ), and the compact-form isomorphisms α:H^*(g;ℂ)≅H^*(G_u;ℂ), α_rel:H^*(g,k;ℂ)≅H^*(X_u;ℂ) are compatible with them: β∘incl=p^*∘j for the inclusion of relative into absolute cochains and the projection p:Y_N→X_N. The three spectral sequences of the fibrations with fibre K_N, namely of G_u→X_u, of g modulo k, and of Y_N→X_N, are compatible under these maps. For odd N the restriction H^*(G_u;ℂ)→H^*(K_N;ℂ) is surjective, the three spectral sequences degenerate, and H^*(G_u;ℂ) is the exterior algebra on P₁⊕P₂ with p^* mapping H^*(X_u;ℂ) isomorphically onto ΛP₁ and restriction mapping ΛP₂ isomorphically onto H^*(K_N;ℂ). In every degree q with 4q<N−1, j and β are isomorphisms. In those degrees the splitting P=P₁⊕P₂ of the primitive elements is the one used to factor determinant lines in the period theorem. Name the statement `arithmeticCompactFactorComparison`.
 
 N is odd: for a real place the fibre SO_N is totally non-homologous to zero in SU_N only for odd N. Nothing is asserted for even N. Γ is torsion-free, so that Y_N→X_N is a principal K_N-bundle of manifolds; other arithmetic subgroups are reached by finite covers. j is an isomorphism in degrees q with 4q<N−1 by Layer 3. The period theorem applies the statement in degree d(2j−1), which requires N−1>4d(2j−1).
 
 Define α, α_rel, β and j by invariant forms on G_u, X_u, G_N and G_N/K_N (the invariant-form and relative-Lie comparison of Layer 2) and the de Rham comparison on X_N and Y_N; on cochains the inclusion of relative into absolute cochains is pullback along the quotient map. Filter the forms on the total spaces of K_N→G_u→X_u and K_N→Y_N→X_N, and the Lie algebra cochains of g modulo k; α and β respect the filtrations, so they induce morphisms of spectral sequences which on the fibre term are the compact-form isomorphism (Borel 1977, 3.5). For odd N, H^*(SU_N)→H^*(SO_N) is onto (Borel 1953, Proposition 31.4), and at a complex place the diagonal SU_N in SU_N×SU_N is totally non-homologous to zero. So the spectral sequence of G_u→X_u degenerates, hence so do the other two; by Samelson's theorem H^*(G_u) is an exterior algebra on primitives which split as stated (Borel 1977, 5.2). In degrees q with 4q<N−1, j is an isomorphism by arithmeticComparison_stableRange; comparing the degenerate spectral sequences shows that β is an isomorphism there too.
 
-Odd N is essential to this comparison. For N=2, SO₂ has a degree-one cohomology class whereas SU₂ does not; the compact-fibre restriction is not surjective. Choose odd N with N−1>4q, and compare the fibrations of the real group, its compact dual and the arithmetic quotient. Their edge maps are compatible with the relative-to-absolute Lie map and the bundle projection. Require the cohomology splittings only as filtered vector spaces unless an algebra splitting is separately proved.
+Require the cohomology splittings only as filtered vector spaces unless an algebra splitting is separately proved.
 
 At a complex place the compact form is SU_N×SU_N with the diagonal SU_N as fibre; the base primitives are differences of the primitives of the two factors. For N=2 and a real place the fibre SO₂ is a circle and H¹(SU₂)=0, so restriction is not surjective: oddness of N cannot be dropped. The period theorem uses β on Y_N, while the rank theorem uses j on X_N; the compatibility β∘incl=p^*∘j is what relates them.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §§3.3–3.5, pp.620–622; §§5.1–5.2, pp.625–627; [Armand Borel, Sur la cohomologie des espaces fibrés principaux et des espaces homogènes de groupes de Lie compacts](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Borel-Sur.pdf), Proposition 31.4, p.204.
+Use Borel 1977, §§3.3–3.5, pp.620–622; §§5.1–5.2, pp.625–627; Borel 1953, Proposition 31.4, p.204.
 
 *Needs:* §2.2, §3.1, §3.2, §3.7; the exact supplier contracts above.
 
@@ -1033,7 +1013,7 @@ The trivial-character completed L-function interface with the stated gamma facto
 
 ### 6.1 Archimedean-split division inner forms
 
-For every number field F and integer e≥2 there is a central division F-algebra D of degree e (dimension e² over F) with D⊗_F F_v≅M_e(F_v) at every archimedean place v. Construction: choose a cyclic extension L/F of degree e and two distinct finite places v₁, v₂ of F that are unramified and inert in L. Let α∈Br(F) be the class with local invariants 1/e at v₁, −1/e at v₂ and 0 at all other places. Then α has period e and index e, and D is the division algebra in the class α.
+For every number field F and integer e≥2 (`exists_archimedeanSplitDivision`) there is a central division F-algebra D of degree e (dimension e² over F) with D⊗_F F_v≅M_e(F_v) at every archimedean place v. Construction: choose a cyclic extension L/F of degree e and two distinct finite places v₁, v₂ of F that are unramified and inert in L. Let α∈Br(F) be the class with local invariants 1/e at v₁, −1/e at v₂ and 0 at all other places. Then α has period e and index e, and D is the division algebra in the class α.
 
 The two places are chosen after the cyclic field, so no existence theorem for extensions with prescribed behaviour at given places is needed. The central-simple input includes the division representative of a Brauer class, its index (the degree of that representative), period dividing index, and index dividing the degree of any finite splitting field. Use the standard Artin–Wedderburn representative and these two divisibilities; they are precisely the algebraic facts used in Borel Lemma 2.2, pp.617–618. This local Brauer-index interface is not an unlabelled import from a later semisimple-algebra roadmap.
 
@@ -1049,25 +1029,25 @@ Name the Brauer-index API `brauerDivisionRepresentative`, `brauerPeriod_dvd_inde
 - A nonzero invariant 1/2 at a real place prevents archimedean splitting.
 
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §2.1 and Lemma 2.2 with its proof, pp.617–618.
+Use Borel 1977, §2.1 and Lemma 2.2 with its proof, pp.617–618.
 
 *Needs:* the exact supplier contracts above.
 
 ### 6.2 Tamagawa number of division norm-one groups
 
-Let D be a central division algebra of degree e≥1 over a number field F, let G′=GL₁(D) be its unit group and H=SL₁(D) the kernel of the reduced norm Nrd:G′→𝔾_m. Then τ(G′)=1 and τ(H)=1 (`generalLinearOne_tamagawaNumber`, `normOne_tamagawaNumber`), in the normalisation of AdelicAlgebraicGroups §2.4 (Tamagawa measure, Tamagawa number). For e=1 the group H is trivial and G′=𝔾_m. The period theorem of Layer 7 uses only τ(H)∈ℚ_{>0}; existence of a finite positive Haar volume does not give this rationality, which is why the value is proved here. The proof is Weil's: compute τ(G′) from the zeta integral of D, compute τ(𝔾_m) from the zeta integral of F, and compare along the reduced norm (Mars, exposé 351, §4, p.84, which applies Weil's zeta-function theorem once to F and once to D).
+Let D be a central division algebra of degree e≥1 over a number field F, let G′=GL₁(D) be its unit group and H=SL₁(D) the kernel of the reduced norm Nrd:G′→𝔾_m. Then τ(G′)=1 and τ(H)=1 (`generalLinearOne_tamagawaNumber`, `normOne_tamagawaNumber`), in the normalisation of AdelicAlgebraicGroups §2.4 (Tamagawa measure, Tamagawa number). For e=1 the group H is trivial and G′=𝔾_m. The period theorem of Layer 7 uses only τ(H)∈ℚ_{>0}; existence of a finite positive Haar volume does not give this rationality, which is why the value is proved here. For quaternion algebras τ(H)=1 also enters GeometryOfNumbersAndQuadraticArithmetic §3.3 (`quaternionAdjointTamagawa`) by the same zeta-residue route; the targets here are for every degree e. The proof is Weil's: compute τ(G′) from the zeta integral of D, compute τ(𝔾_m) from the zeta integral of F, and compare along the reduced norm (Mars, exposé 351, §4, p.84, which applies Weil's zeta-function theorem once to F and once to D).
 
 **Measures.** Write D_𝔸=D⊗_F𝔸_F, ‖x‖=|Nrd x|_𝔸 and D_𝔸^1=ker‖·‖. The additive measure dx on D_𝔸 is the Tamagawa measure of the vector group D, namely Δ_F^{−e²/2}∏_v dx_v with dx_v given by an F-basis of D. It is self-dual for the character ψ∘Trd, with ψ the standard additive character of AutomorphicLFunctionsAndLocalFactors AL.0, and vol(D_𝔸/D)=1. On G′ take the gauge ω′=Nrd(x)^{−e}dx, which is left and right invariant because left or right multiplication by y scales dx_v by |Nrd y|_v^e. Since X^*(G′)=ℤ·Nrd with trivial Galois action, the convergence factors of AdelicAlgebraicGroups §2.4 are λ_v=(1−q_v^{−1})^{−1} at finite places and 1 at infinite places, and ρ_{G′}=ρ_F is the residue of ζ_F at 1, Mathlib's `NumberField.dedekindZeta_residue`. Thus μ_{G′}=Δ_F^{−e²/2}ρ_F^{−1}∏_vλ_v|ω′|_v. The number τ(G′) is the volume of D^×\D_𝔸^1 for the measure induced by μ_{G′} and by dt/t on ℝ_{>0} through ‖·‖; this is AdelicAlgebraicGroups' normalisation of a_G by the lattice Hom(X_F^*(G′),ℤ). The group H has no characters, so λ_v=1 and ρ_H=1, and its gauge ω_H is fixed by ω′=ω_H∧Nrd^*(dt/t) along the fibration. The discriminant exponents are additive, e²/2=(e²−1)/2+1/2.
 
 **Steps.** The following targets decompose the proof.
 
 - `divisionUnits_normOne_compact`: D^×\D_𝔸^1 is compact (Fujisaki; Godement, exposé 171, Théorème 2, p.44; Borel 1977 §2.3, p.618, quoting Weil 3.1.1). In the terms of AdelicAlgebraicGroups §3.4 this is compactness of G′(F)\G′(𝔸)^1 for a group whose derived group H is anisotropic.
-- `divisionZeta_residue`: Let e≥2 and let Φ be an adelic Schwartz–Bruhat function on D_𝔸, transported from AutomorphicLFunctionsAndLocalFactors AL.0 by an F-basis of D. Then Z(Φ,s)=∫_{D_𝔸^×}Φ(x)‖x‖^s dμ_{G′}(x) converges absolutely for real s>e, and (s−e)Z(Φ,s)→τ(G′)Φ̂(0) as s→e from above, where Φ̂(0)=∫_{D_𝔸}Φ dx. Proof: split the integral at ‖x‖=1. On ‖x‖≤1 apply Poisson summation to the lattice D⊂D_𝔸. For y∈D_𝔸^× right multiplication by y scales dx by ‖y‖^e, so Σ_{ξ∈D}Φ(ξy)=‖y‖^{−e}Σ_{ξ∈D}Φ̂(y^{−1}ξ). The terms ξ=0 contribute τ(G′)(Φ̂(0)/(s−e)−Φ(0)/s), and the remaining sums are entire in s by the compactness step. Godement, exposé 176, §1 and §2, Théorème 2 with its proof, pp.110–116, gives this argument for a division algebra; his footnote (3), p.115, normalises the quotient volume to one and leaves the Haar constants open, so the constant τ(G′) is fixed here. The degree-one case is Tate's and is consumed from AutomorphicLFunctionsAndLocalFactors AL.1; it is not restated.
+- `divisionZeta_residue`: Let e≥2 and let Φ be an adelic Schwartz–Bruhat function on D_𝔸, transported from AutomorphicLFunctionsAndLocalFactors AL.0 by an F-basis of D. Then Z(Φ,s)=∫_{D_𝔸^×}Φ(x)‖x‖^s dμ_{G′}(x) converges absolutely for real s>e, and (s−e)Z(Φ,s)→τ(G′)Φ̂(0) as s→e from above, where Φ̂(0)=∫_{D_𝔸}Φ dx. Proof: split the integral at ‖x‖=1. On ‖x‖≤1 apply the Poisson summation of AL.0 to the lattice D⊂D_𝔸≅𝔸_F^{e²}. For y∈D_𝔸^× right multiplication by y scales dx by ‖y‖^e, so Σ_{ξ∈D}Φ(ξy)=‖y‖^{−e}Σ_{ξ∈D}Φ̂(y^{−1}ξ). The terms ξ=0 contribute τ(G′)(Φ̂(0)/(s−e)−Φ(0)/s), and the remaining sums are entire in s by the compactness step. Godement, exposé 176, §1 and §2, Théorème 2 with its proof, pp.110–116, gives this argument for a division algebra; his footnote (3), p.115, normalises the quotient volume to one and leaves the Haar constants open, so the constant τ(G′) is fixed here. The degree-one case is Tate's and is consumed from AutomorphicLFunctionsAndLocalFactors AL.1; it is not restated.
 - `divisionZeta_localValue`: For every place v and every Schwartz–Bruhat Φ_v on D_v, Z_v(Φ_v,s)=∫_{D_v^×}Φ_v(x)|Nrd x|_v^s|ω′|_v converges for real s>e−1, and Z_v(Φ_v,e)=∫_{D_v}Φ_v dx_v. At s=e the integrand is Φ_v dx_v, and D_v∖D_v^× is a null set.
 - `divisionZeta_unramifiedFactor`: If v is finite, D_v≅M_e(F_v), Φ_v is the indicator of M_e(O_v) and dx_v gives M_e(O_v) volume one, then λ_vZ_v(Φ_v,s)=∏_{a=2}^{e}(1−q_v^{−a})·∏_{b=0}^{e−1}(1−q_v^{b−s})^{−1}. Proof: the cosets GL_e(O_v)x with x∈M_e(O_v)∩GL_e(F_v) correspond to the full sublattices L=O_v^e·x of O_v^e, with |det x|_v=[O_v^e:L]^{−1}. Each coset has |ω′|_v-volume #GL_e(𝔽_{q_v})/q_v^{e²}=∏_{a=1}^{e}(1−q_v^{−a}), and the sublattices of O_v^e satisfy Σ_L[O_v^e:L]^{−s}=∏_{b=0}^{e−1}(1−q_v^{b−s})^{−1}. The finite-place masses are those of AdelicAlgebraicGroups §2.4, which are not recomputed here.
 - `generalLinearOne_tamagawaNumber`: For e≥2, τ(G′)=1. Proof: choose a maximal O_F-order Λ of D and Φ=⊗_vΦ_v, with Φ_v the indicator of Λ_v at finite places and ∫Φ_∞≠0. At almost all v, D_v≅M_e(F_v) and Λ_v≅M_e(O_v). For s>e, Z(Φ,s)=Δ_F^{−e²/2}ρ_F^{−1}∏_vλ_vZ_v(Φ_v,s). At finite v write λ_vZ_v(Φ_v,s)=(1−q_v^{e−1−s})^{−1}c_v(s). By the unramified factor, c_v(s)=∏_{a=2}^{e}(1−q_v^{−a})∏_{b=0}^{e−2}(1−q_v^{b−s})^{−1} at almost all v. This is 1+O(q_v^{−2}) uniformly for s∈[e,e+1], so ∏_vc_v converges uniformly there. By the local value theorem, c_v(e)=λ_v(1−q_v^{−1})∫Φ_v dx_v=∫Φ_v dx_v. The Euler product of ζ_F (Tau Ceti `TauCeti.dedekindZeta_eulerProduct_hasProd`) and the class number formula (Mathlib `NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT`) give (s−e)ζ_F(s−e+1)→ρ_F. Hence (s−e)Z(Φ,s)→Δ_F^{−e²/2}∏_v∫Φ_v dx_v=Φ̂(0). Compare with `divisionZeta_residue` and use Φ̂(0)≠0. Only the real one-sided limit is used, not continuation of Z or of ζ_F.
 - `tamagawaNumber_multiplicativeGroup`: τ(𝔾_m)=1 in the same normalisation. This is a conversion of AutomorphicLFunctionsAndLocalFactors AL.1 (the volume κ of the norm-one idele class group), not a new volume computation. AL.1's multiplicative measure at a finite place is λ_vN𝔡_v^{−1/2}|dx/x|_v, its archimedean measures are dx/|x| and 2dxdy/|z|², and ∏_vN𝔡_v^{−1/2}=Δ_F^{−1/2}. Hence the Tamagawa volume of F^×\𝔸_F^1 is κ/ρ_F, and κ=ρ_F is Mathlib's `NumberField.dedekindZeta_residue`.
-- `reducedNorm_image`: Locally, Nrd(D_v^×)=F_v^× at every finite place and at every archimedean place where D splits, and Nrd(D_v^×)=ℝ_{>0} at a real place where D_v≅M_{e/2}(ℍ). For a division algebra over a local field the finite-place statement is Platonov–Rapinchuk–Rapinchuk, §1.4.3, p.33; for D_v≅M_m(Δ_v) use diagonal matrices. Globally, Nrd(D^×) is the set of a∈F^× that are positive at every real place where D does not split (Eichler; Platonov–Rapinchuk–Rapinchuk, Theorem 1.34, p.43). For archimedean-split D this is F^×. GeometryOfNumbersAndQuadraticArithmetic GN.2 owns the quaternion case; the general degree is needed here.
+- `reducedNorm_image`: Locally, Nrd(D_v^×)=F_v^× at every finite place and at every archimedean place where D splits, and Nrd(D_v^×)=ℝ_{>0} at a real place where D_v≅M_{e/2}(ℍ). For a division algebra over a local field the finite-place statement is Platonov–Rapinchuk–Rapinchuk, §1.4.3, p.33; for D_v≅M_m(Δ_v) use diagonal matrices. Globally, Nrd(D^×) is the set of a∈F^× that are positive at every real place where D does not split (Eichler; Platonov–Rapinchuk–Rapinchuk, Theorem 1.34, p.43). For archimedean-split D this is F^×. AdelicAlgebraicGroups §4.6 owns the quaternion case; the general degree is needed here.
 - `normOne_tamagawaNumber`: For every central division algebra D of degree e≥1, τ(H)=1. Proof: N=Nrd(D_𝔸^×) is an open subgroup of 𝔸_F^× by `reducedNorm_image`. Mars's fibration lemma (exposé 351, §3, Lemme, pp.82–83) gives the compatible convergence factors λ_{G′}=λ_{𝔾_m}·λ_H and the local identity |ω′|_v=|ω_H|_v|dt/t|_v, hence the iterated-integral formula over D^×\D_𝔸^1→Nrd(D^×)\N^1. The fibre over the identity class is {x∈D_𝔸^1: Nrd x∈Nrd(D^×)}/D^×=D^×H(𝔸)/D^×≅H(F)\H(𝔸). By Eichler, Nrd(D^×)=F^×∩N. Weak approximation at the real places (Mathlib `NumberField.InfinitePlace.denseRange_algebraMap_pi`) gives F^×N=𝔸_F^×. So Nrd(D^×)\N^1→F^×\𝔸_F^1 is a continuous bijective homomorphism of compact groups. It is therefore an isomorphism, and it matches the measures, so the base has volume τ(𝔾_m)=1. Hence 1=τ(G′)=τ(H)τ(𝔾_m)=τ(H). For e=1 both sides are the trivial group.
 - `specialLinearDivision_tamagawaNumber`: For every m≥1, τ(SL_m(D))=1. For m≥2, τ(SL_m(D)) equals the Tamagawa number of the stabiliser below, and induction on m reduces to τ(SL₁(D))=1; when D=F and m=2 the stabiliser is unipotent. The rank-maximal vectors form the open orbit of SL_m(D) in D^m. The stabiliser of the first basis vector is SL_{m−1}(D)⋉(unipotent), and unipotent groups have Tamagawa number one. Weil's convergent orbital integral, Poisson summation on D_𝔸^m and the fibration lemma give τ(SL_m(D))=τ(stabiliser) (Mars, exposé 351, §§3–4, pp.81–84). This is the general inner special-linear statement; the period theorem uses m=1.
 
@@ -1082,13 +1062,13 @@ The local measures, convergence factors and discriminant power must all be those
 - Let D be the rational quaternion algebra ramified at 2 and ∞. Then Nrd(D^×)=ℚ_{>0}, the image N has index two in 𝔸^×, and ℚ^×N=𝔸^×. The base of the fibration still has volume one. Dividing by [𝔸^1:N^1]=2 without the compensating index [ℚ^×:Nrd(D^×)]=2 would give τ(H)=2.
 - The discriminant exponents satisfy e²/2=(e²−1)/2+1/2. Dropping Δ_F^{−1/2} from 𝔾_m alone multiplies τ(𝔾_m) by Δ_F^{1/2} and breaks τ(H)=1 for F≠ℚ.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §2.3, p.618, and the proof of Proposition 2.4, p.619, where Borel quotes Weil, Theorem 3.3.1, and remarks that rationality suffices; [J. G. M. Mars, Les nombres de Tamagawa de groupes semi-simples](https://www.numdam.org/item/SB_1968-1969__11__79_0/), Séminaire Bourbaki exposé 351, §3, Lemme, pp.82–83, and §4, pp.83–84; [Roger Godement, Les fonctions ζ des algèbres simples, I](https://www.numdam.org/item/SB_1958-1960__5__27_0/), exposé 171, Théorème 2, p.44; [Roger Godement, Les fonctions ζ des algèbres simples, II](https://www.numdam.org/item/SB_1958-1960__5__109_0/), exposé 176, §§1–2 and Théorème 2, pp.110–116; Platonov–Rapinchuk–Rapinchuk, *Algebraic Groups and Number Theory*, Volume I, §1.4.3, p.33, and Theorem 1.34, p.43.
+Use Borel 1977, §2.3, p.618, and the proof of Proposition 2.4, p.619, where Borel quotes Weil, Theorem 3.3.1, and remarks that rationality suffices; Mars, Séminaire Bourbaki exposé 351, §3, Lemme, pp.82–83, and §4, pp.83–84; Godement I, exposé 171, Théorème 2, p.44; Godement II, exposé 176, §§1–2 and Théorème 2, pp.110–116; Platonov–Rapinchuk–Rapinchuk, *Algebraic Groups and Number Theory*, Volume I, §1.4.3, p.33, and Theorem 1.34, p.43.
 
 *Needs:* §6.1; AdelicAlgebraicGroups §§2.4, 3.4; AutomorphicLFunctionsAndLocalFactors AL.0 and AL.1; the exact supplier contracts above.
 
 ### 6.3 Archimedean volume as a product of zeta values
 
-For an archimedean-split division algebra D of degree e≥2, H=SL_1(D), a nonzero F-rational invariant top form ω and any arithmetic Γ⊂H(F), μ_∞(H(F⊗R)/Γ)∼_Q∏_{a=2}^e ζ_F(a), with μ_∞ the discriminant-normalized positive archimedean measure from ω. H(A_F)/H(F) is compact. Taking Γ_U=H(F)∩(H_∞U), AdelicAlgebraicGroups Layer 4 strong approximation gives H(A_F)=H(F)H_∞U and τ(H)=μ_∞(H_∞/Γ_U)vol_f(U). Commensurable arithmetic groups change this volume by a positive rational index.
+For an archimedean-split division algebra D of degree e≥2, H=SL_1(D), a nonzero F-rational invariant top form ω and any arithmetic Γ⊂H(F), μ_∞(H(F⊗R)/Γ)∼_Q∏_{a=2}^e ζ_F(a) (`normOne_archimedeanVolume`), with μ_∞ the discriminant-normalized positive archimedean measure from ω. H(A_F)/H(F) is compact. Taking Γ_U=H(F)∩(H_∞U), AdelicAlgebraicGroups Layer 4 strong approximation gives H(A_F)=H(F)H_∞U and τ(H)=μ_∞(H_∞/Γ_U)vol_f(U). Commensurable arithmetic groups change this volume by a positive rational index.
 
 H is anisotropic over F, simply connected and archimedean-split; H_∞ is noncompact, satisfying the strong approximation hypothesis outside the infinite places.
 
@@ -1096,13 +1076,13 @@ H(F)\H(𝔸_F) is compact (AdelicAlgebraicGroups §3.4 (anisotropic compactness)
 
 For e=2 only ζ_F(2) occurs. The proof does not use Layer 7 regulator proportionality, avoiding a circular Tamagawa reformulation.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), Proposition 2.4 and proof, pp.618–619.
+Use Borel 1977, Proposition 2.4 and proof, pp.618–619.
 
 *Needs:* §6.1, §6.2, AdelicAlgebraicGroups §2.4; the exact supplier contracts above.
 
 ### 6.4 Restriction-of-scalars form and discriminant normalization
 
-Choose an ordered integral basis α_1,…,α_d and ordered complex embeddings σ_1,…,σ_d. Put δ_F=det(σ_i(α_a)), so δ_F²=D_F is the signed discriminant and (−1)^{r2}D_F>0. For an F-rational invariant q-form η define Rη=δ_F^{−q}∧_{σ∈Σ_F}ση on the restriction-of-scalars complex group. For a top form of F-dimension h, the associated positive archimedean Haar measure instead uses |D_F|^{−h/2}∏_{v|∞}|ω_v|. These signed algebraic and positive measure conventions are distinct and are related with their conjugate-pair orientation factors.
+Choose an ordered integral basis α_1,…,α_d and ordered complex embeddings σ_1,…,σ_d. Put δ_F=det(σ_i(α_a)), so δ_F²=D_F is the signed discriminant and (−1)^{r2}D_F>0. For an F-rational invariant q-form η define `restrictionScalarsForm` Rη=δ_F^{−q}∧_{σ∈Σ_F}ση on the restriction-of-scalars complex group. For a top form of F-dimension h, the associated positive archimedean Haar measure instead uses |D_F|^{−h/2}∏_{v|∞}|ω_v|. These signed algebraic and positive measure conventions are distinct and are related with their conjugate-pair orientation factors.
 
 δ_F≠0; embedding order and integral-basis orientation are recorded. Use the 1980 correction to the algebraic form.
 
@@ -1115,19 +1095,15 @@ Prove the following basic identities and compatibility maps.
 - `restrictionScalarsForm_integral_basis`: An integral basis change of determinant ±1 changes the algebraic normalization by (±1)^q; the rational line and positive Haar measure are unchanged.
 - `restrictionScalarsForm_positive_measure`: The positive top-form measure has scalar |D_F|^{−h/2}, agreeing with the AdelicAlgebraicGroups Layer 2 Tamagawa convention.
 - `restrictionScalarsForm_scalar`: For a∈F×, R(aη)=Norm_{F/Q}(a)Rη.
-- `restrictionScalarsForm_erratum`: In Borel 5.5(1),(4) and 6.2(5) the corrected identities remove the printed i^{r2}; this does not remove every orientation phase elsewhere.
-
-The sign witness uses F=ℚ(i), integral basis (1,i), and ordered embeddings (id,conj). Then δ=det([[1,i],[1,−i]])=−2i and δ²=−4=D_F. In degree q=1 the algebraic factor δ^(−1)=i/2 is not the positive factor Δ_F^(−1/2)=1/2. For a transposition of embeddings δ changes sign and the ordered wedge changes by (-1)^q, cancelling in δ^(−q) times the wedge. The 1980 erratum changes only the algebraic discriminant factors and the three specified i-powers; it does not remove every phase from every formula.
+- `restrictionScalarsForm_erratum`: In Borel 1977, 5.5(1),(4) and 6.2(5) the corrected identities remove the printed i^{r2}; this does not remove every orientation phase elsewhere.
 
 **Checks.**
 
 - For F=Q with integral basis (1), δ=1 and Rη=η.
-- For F=Q(i), basis (1,i) and embeddings (id,conj), δ=−2i and D=−4; at q=1 the scalar is i/2.
+- For F=Q(i), basis (1,i) and embeddings (id,conj), δ=det([[1,i],[1,−i]])=−2i and δ²=−4=D; at q=1 the scalar is i/2, not Δ_F^(−1/2)=1/2.
 - In that Q(i) case the scalar 1/2 from |D|½ gives a different algebraic form and fails δ²=D.
 
-At an imaginary quadratic field δ is imaginary whereas |D|½ is positive; replacing one by the other loses an orientation phase.
-
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §§1.5–1.6, pp.616–617; [Armand Borel, Errata-Corrigé: Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1980_4_7_2_373_0.pdf), p.373, first paragraph and definition of D½.
+Use Borel 1977, §§1.5–1.6, pp.616–617; Borel 1980, p.373, first paragraph and definition of D½.
 
 *Needs:* the exact supplier contracts above.
 
@@ -1154,9 +1130,7 @@ Prove the following basic identities and compatibility maps.
 - An index-two neat subgroup doubles the top period.
 - Replacing division D by M_e(F) gives an isotropic group and does not supply the compact quotient used here.
 
-A compact quotient without a nonzero primitive restriction would not prove the period theorem.
-
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), Theorem 5.5 and proof, pp.628–630.
+Use Borel 1977, Theorem 5.5 and proof, pp.628–630.
 
 *Needs:* §6.1, §6.3, §3.2, §5.5; the exact supplier contracts above.
 
@@ -1188,7 +1162,7 @@ For two explicitly specified products of local measures μ′_v=a_v μ_v, with a
 
 Rational proportionality allows exceptional-place and commensurability factors; it does not allow losing a π or a discriminant square-root factor.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §§1.5–1.6, pp.616–617; Proposition 2.4, pp.618–619; proof of Theorem 5.5, pp.628–630.
+Use Borel 1977, §§1.5–1.6, pp.616–617; Proposition 2.4, pp.618–619; proof of Theorem 5.5, pp.628–630.
 
 *Needs:* §6.5, §6.4, §6.3; the exact supplier contracts above.
 
@@ -1204,7 +1178,7 @@ ClassFieldTheory Brauer reciprocity and local degrees; Chebotarev cyclotomic dis
 
 ### 7.1 Borel’s primitive-period determinant theorem
 
-Let F have degree d, j≥2 and N odd with N−1>4d(2j−1); let Γ⊂SL_N(F) be a torsion-free arithmetic subgroup, Y_N=Γ\SL_N(F⊗ℝ) and X_N=Y_N/K_N, with the notation of arithmeticCompactFactorComparison. (1) Let L(g) be the d-th exterior power of the space of primitive elements of degree 2j−1 of H^*(g;ℂ), with the ℚ-structure given by ℚ-rational invariant forms on Res_{F/ℚ}SL_N, and L(Y_N) the d-th exterior power of the space of indecomposable elements of H^{2j−1}(Y_N;ℚ). Then β(L(g))=ζ_F(j)·L(Y_N) (Borel's Theorem 5.5 with m=j−1). (2) Let L(X_u) and L(Γ) be the d_j-th exterior powers of the spaces of indecomposable elements of degree 2j−1 of H^*(X_u;ℚ) and of H^*(Γ;ℚ). Then j_Γ(L(X_u))=R′·L(Γ) with R′=|D_F|^{1/2}·π^{−d·j}·ζ_F(j) (Theorem 6.2). These are equalities of ℚ-structures on complex lines, so they determine the scalars up to ℚ^×. The power of i printed in 5.5(1) is removed by the 1980 correction. The statement concerns rational structures; integral bases of K-groups enter in borelRegulator_zetaProportional.
+Let F have degree d, j≥2 and N odd with N−1>4d(2j−1); let Γ⊂SL_N(F) be a torsion-free arithmetic subgroup, Y_N=Γ\SL_N(F⊗ℝ) and X_N=Y_N/K_N, with the notation of arithmeticCompactFactorComparison. (1) Let L(g) be the d-th exterior power of the space of primitive elements of degree 2j−1 of H^*(g;ℂ), with the ℚ-structure given by ℚ-rational invariant forms on Res_{F/ℚ}SL_N, and L(Y_N) the d-th exterior power of the space of indecomposable elements of H^{2j−1}(Y_N;ℚ). Then β(L(g))=ζ_F(j)·L(Y_N) (Borel's Theorem 5.5 with m=j−1). (2) Let L(X_u) and L(Γ) be the d_j-th exterior powers of the spaces of indecomposable elements of degree 2j−1 of H^*(X_u;ℚ) and of H^*(Γ;ℚ). Then j_Γ(L(X_u))=R′·L(Γ) with R′=|D_F|^{1/2}·π^{−d·j}·ζ_F(j) (Theorem 6.2). These are equalities of ℚ-structures on complex lines, so they determine the scalars up to ℚ^×. The power of i printed in 5.5(1) is removed by the 1980 correction. The statement concerns rational structures; integral bases of K-groups enter in borelRegulator_zetaProportional. Name the theorem `borel_positiveZetaPeriod`.
 
 N is odd and N−1>4d(2j−1), so that β and j_Γ are isomorphisms in the degrees used; the statement for one arithmetic subgroup implies it for all. The norm-one volumes and the compact cycles of Layer 6 are available: at the level of declarations they precede this theorem.
 
@@ -1212,13 +1186,13 @@ By arithmeticCompactFactorComparison, β is an isomorphism in degree d(2j−1) a
 
 The proof needs the nonvanishing of the restriction of the primitive product to the compact cycle; rationality of a Haar measure alone proves nothing about regulators. For F totally real and j even, d_j=0, both lines in (2) are ℚ and the statement says |D_F|^{1/2}π^{−d·j}ζ_F(j)∈ℚ^× (Borel's Remark 6.3); for F=ℚ and j=2 this is ζ(2)/π²=1/6.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), Proposition 5.4 and Theorem 5.5, pp.628–630; §6.1 and Theorem 6.2, pp.631–632; Remark 6.3, p.632; [Armand Borel, Errata-Corrigé: Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1980_4_7_2_373_0.pdf), p.373, corrections to 5.5(1), (4) and 6.2(5).
+Use Borel 1977, Proposition 5.4 and Theorem 5.5, pp.628–630; §6.1 and Theorem 6.2, pp.631–632; Remark 6.3, p.632; Borel 1980, p.373, corrections to 5.5(1), (4) and 6.2(5).
 
 *Needs:* §6.5, §6.3, §6.4, §3.7, §3.2, §5.5, §6.6; the exact supplier contracts above.
 
 ### 7.2 Borel’s regulator–zeta theorem
 
-For a number field F and j≥2, R_Bo,j(F)∼_Q |ζ_F*(1−j)|, equivalently there exists q∈Q_{>0} with R_Bo,j(F)=q|ζ_F*(1−j)|. In Borel’s original homotopy-lattice convention R′_j∼_Q π^{−d_j}|ζ_F*(1−j)|. Burgos’s renormalization multiplies that covolume by (2π)^{d_j}, and by the additional rational factor 2^{r1} when j≡3 mod4. This removes the transcendental π discrepancy. No formula for q in terms of torsion orders or dyadic factors is asserted.
+For a number field F and j≥2, R_Bo,j(F)∼_Q |ζ_F*(1−j)| (`borelRegulator_zetaProportional`), equivalently there exists q∈Q_{>0} with R_Bo,j(F)=q|ζ_F*(1−j)|. In Borel’s original homotopy-lattice convention R′_j∼_Q π^{−d_j}|ζ_F*(1−j)|. Burgos’s renormalization multiplies that covolume by (2π)^{d_j}, and by the additional rational factor 2^{r1} when j≡3 mod4. This removes the transcendental π discrepancy. No formula for q in terms of torsion orders or dyadic factors is asserted.
 
 j≥2; finite generation, full regulator lattice, analytic continuation and the primitive-period theorem are all established inputs.
 
@@ -1226,7 +1200,7 @@ The indecomposables of degree 2j−1 of H^*(X_u;ℚ) are dual to π_{2j−1}(X_u
 
 For Q,j=2, R=1 and |ζ*(−1)|=1/12 give a rational ratio 12. An integral Lichtenbaum torsion identity does not follow from this theorem.
 
-Use [Armand Borel, Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), §6.4(1)–(5), pp.632–633; [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Theorem 9.12 and Remark 9.20, pp.80,84.
+Use Borel 1977, §6.4(1)–(5), pp.632–633; Burgos, Theorem 9.12 and Remark 9.20, pp.80,84.
 
 *Needs:* §7.1, §5.4, §4.13; the exact supplier contracts above.
 
@@ -1252,7 +1226,7 @@ Equality of absolute representatives is used only with this injectivity input.
 The quotient-map sign is fixed already for U₁: q(1,i)=i and q(i,1)=−i. On degree-one cohomology q* sends the generator to the second generator minus the first. This is a sign witness for the transported diagonal coordinate, not a pointwise formula for Burgos's relative cocycle.
 
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Definition 9.24, final paragraph, pp.86–87.
+Use Burgos, Definition 9.24, final paragraph, pp.86–87.
 
 *Needs:* §3.2; the exact supplier contracts above.
 
@@ -1264,7 +1238,7 @@ The Beilinson class Be_j is the universal class of the Deligne normalisation of 
 
 Restrict the universal Deligne–Beilinson class to the first infinitesimal neighbourhood of the diagonal of the simplicial scheme B.GL_N (Burgos Lemma 10.10). Use the explicit description of the Chern–Weil morphism into the Weil algebra and of the van Est isomorphism (Burgos Theorems 8.12 and 8.15) to compute the image in absolute Lie algebra cohomology. The result is π_{j−1}Φ_{2j−1} (Burgos Proposition 10.11); the normalisation ch_j=(2πi)^j pr_j/j! is the one of the Deligne normalisation of §8.2 and of the Chern-character construction of §4.4.
 
-Construct the Deligne regulator independently: its universal class is the higher Deligne Chern character, compatible with ring maps, stabilisation and products. For F⊗ℝ, identify H_D¹(F⊗ℝ,ℝ(j)) with the simultaneous-conjugation invariants of the sum of ℂ/ℝ(j). Use the canonical real projection π_{j−1} to identify each quotient with ℝ(j−1), with no further scalar. The defining higher Chern class normalisation is ch_j=(2πi)^j pr_j/j!. Require functoriality under complex embeddings and compatibility with the map O_F→F, before any comparison with Borel (Burgos Definition 10.8, pp.94–95, and Lemma 10.2, pp.91–92).
+Construct the Deligne regulator independently: its universal class is the higher Deligne Chern character, compatible with ring maps, stabilisation and products. For F⊗ℝ, identify H_D¹(F⊗ℝ,ℝ(j)) with the simultaneous-conjugation invariants of the sum of ℂ/ℝ(j). Use the canonical real projection π_{j−1} to identify each quotient with ℝ(j−1), with no further scalar. The defining higher Chern class normalisation is ch_j=(2πi)^j pr_j/j!. Require functoriality under complex embeddings and compatibility with the map O_F→F, before any comparison with Borel (Burgos Definition 10.8, pp.94–95, and Lemma 10.2, p.90).
 
 Use `deligneRegulator_natural`, `deligneRegulator_stabilize`, `deligneRegulator_chernCharacter`, `deligneField_quotient`, `deligneField_projection` and `beilinsonClass_infinitesimal` for the corresponding maps and comparisons. Concretely construct the real Deligne complex as Cone(ℝ(j)⊕F^jΩ^•→Ω^•)[−1] on a smooth complex variety, using logarithmic forms on a normal-crossings compactification for an open variety. The classifying-scheme version is obtained degreewise on B.GL_N and then totalised. The universal Chern character in its hypercohomology, paired with the algebraic K-theory construction, defines the higher regulator. In the cone the comparison morphism is (r,f)↦r−f; the degree-n differential on a triple is (dr,df,r−f−dω). Include `deligneComplex_d_sq`, `deligneComplex_projections`, `deligneComplex_exactSequence`, `deligneComplex_changeCompactification` and the existence and compatibility of the normal-crossings models of the simplicial B.GL_N used here. First state the construction for a chosen smooth proper compactification with normal-crossings boundary; independence is a comparison theorem. On B.GL_N the Hodge-type calculation gives the isomorphism `deligneUniversal_toBetti` in degree 2j; its inverse lifts the topological ch_j uniquely. The map η to continuous cochains is π_{j−1}(ω) in form degree one and zero in other degrees, and evaluation on the discrete classifying space gives its restriction to group cohomology. These maps define Be_j and its pairing with Hurewicz. The infinitesimal diagonal comparison is a theorem about this construction, not its definition (Burgos §§10.1–10.3, pp.89–95). On Spec ℂ in degree one and j≥2 this gives ℂ/ℝ(j), with the projection and Tate coordinate just specified.
 
@@ -1277,13 +1251,13 @@ Use `deligneRegulator_natural`, `deligneRegulator_stabilize`, `deligneRegulator_
 
 At j=2 the representative is π1Φ3, half the Borel absolute representative.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Theorems 8.12,8.15, pp.70–71,73; Lemma 10.10 and Proposition 10.11, p.97.
+Use Burgos, Theorems 8.12,8.15, pp.70–71,73; Lemma 10.10 and Proposition 10.11, p.97.
 
 *Needs:* §4.5; the exact supplier contracts above.
 
 ### 8.3 Universal Borel–Beilinson comparison
 
-For every j≥2 and N in the fixed classical stable range, Bo_j=2Be_j in H_cont^{2j−1}(GL_N(C),R(j−1)), with Burgos Definitions 9.24 and 10.8 and ch_j=(2πi)^j pr_j/j!. The equality is compatible with stabilization. Its proof compares the two explicit absolute Lie classes and then uses the proved relative-to-absolute injectivity and van Est; weight two is a test and is not the proof for other j.
+For every j≥2 and N in the fixed classical stable range, Bo_j=2Be_j in H_cont^{2j−1}(GL_N(C),R(j−1)) (`borelClass_eq_two_beilinsonClass`), with Burgos Definitions 9.24 and 10.8 and ch_j=(2πi)^j pr_j/j!. The equality is compatible with stabilization. Its proof compares the two explicit absolute Lie classes and then uses the proved relative-to-absolute injectivity and van Est; weight two is a test and is not the proof for other j.
 
 The selected Tate generators, suspension sign and Chern-character normalization are identical on both sides.
 
@@ -1291,7 +1265,7 @@ Use Layer 4 absolute Borel representative 2π_{j−1}Φ and Layer 8 Beilinson re
 
 At j=3 the same scalar 2 holds; no guessed weight-dependent scalar is introduced.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Theorem 10.9 and proof, pp.95–97.
+Use Burgos, Theorem 10.9 and proof, pp.95–97.
 
 *Needs:* §8.1, §8.2, §4.5, §4.4; the exact supplier contracts above.
 
@@ -1301,11 +1275,11 @@ Let r_Be be the Beilinson regulator K_{2j−1}(F)→H_D¹(F⊗ℝ,ℝ(j))≅V_j(
 
 The Deligne-field identification is the quotient C/R(j)≅R(j−1), and retains simultaneous conjugation invariants.
 
-Pull back the equality Bo_j=2Be_j along every complex embedding and pair with Hurewicz images; both regulators are defined by pairing with these universal classes. The identification of the Deligne cohomology of F⊗ℝ with V_j(F) is the quotient ℂ/ℝ(j)≅ℝ(j−1) at each embedding, with simultaneous conjugation invariants (the Deligne normalisation of §8.2). Compatibility with O_F⊂F is rational localisation (rational localisation, §3.12). Apply regulatorMatrix_scalar and regulatorCovolume_scalar to the lattice of rank d_j.
+Pull back the equality Bo_j=2Be_j along every complex embedding and pair with Hurewicz images; both regulators are defined by pairing with these universal classes. The identification of the Deligne cohomology of F⊗ℝ with V_j(F) is the quotient ℂ/ℝ(j)≅ℝ(j−1) at each embedding, with simultaneous conjugation invariants (the Deligne normalisation of §8.2). Compatibility with O_F⊂F is rational localisation (§3.12). Apply regulatorMatrix_scalar and regulatorCovolume_scalar to the lattice of rank d_j.
 
 For d_j=1 the covolume factor is 2; for d_j=2 it is 4; for d_j=0 it is 1.
 
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Theorem 10.9, pp.95–97, with Definitions 9.19 and 10.8, pp.84,94.
+Use Burgos, Theorem 10.9, pp.95–97, with Definitions 9.19 and 10.8, pp.84,94.
 
 *Needs:* §8.3, §4.7, §4.12, §4.13; the exact supplier contracts above.
 
@@ -1355,7 +1329,7 @@ Its API includes `preBloch_map`, `preBloch_fiveTerm`, `blochGroup_map`, `blochBo
 
 The Pauli value Φ₃=−2i fixes the trace normalisation but not the coefficient. The coefficient also needs the frame orientation of step 2, the ideal-simplex orientation of step 4 and the labelling of step 5, and reversing any one of them changes its sign.
 
-Use [Alexander B. Goncharov, Polylogarithms, regulators, and Arakelov motivic complexes](https://arxiv.org/pdf/math/0207036), Introduction, equation (11) and Lobachevsky's volume formula, p.7; Lemma 5.2, pp.38–39; §§5.4–5.7, equations (61),(64), Theorem 5.7 and proof, pp.43–47; Corollary 5.10 and Theorem 5.11, p.49; [Charles A. Weibel, The K-book, Chapter VI: The Higher K-Theory of Fields](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf), Theorem 5.2, p.23, Lemma 5.4, p.24, Lemma 5.6 and Theorem 5.7, pp.25–26, Lemmas 5.10–5.11, Proposition 5.12 and Remark 5.12.1, p.29; [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), §5.1, pp.35–36, and Propositions 9.25–9.26, pp.87–88.
+Use Goncharov, Introduction, equation (11) and Lobachevsky's volume formula, p.7; Lemma 5.2, pp.38–39; §§5.4–5.7, equations (61),(64), Theorem 5.7 and proof, pp.43–47; Corollary 5.10 and Theorem 5.11, p.49; Weibel VI, Theorem 5.2, p.23, Lemma 5.4, p.24, Lemma 5.6 and Theorem 5.7, pp.25–26, Lemmas 5.10–5.11, Proposition 5.12 and Remark 5.12.1, p.29; Burgos, §5.1, pp.35–36, and Propositions 9.25–9.26, pp.87–88.
 
 *Needs:* §2.2, §4.4, §4.5, §4.7, §4.2, §8.3; the exact supplier contracts above.
 
@@ -1365,11 +1339,11 @@ For Q and every even j≥2, V_j(Q)=0, the rational odd K-group is zero and its a
 
 j≥2; ζ_6 is tested in the rationalized Suslin/Bloch comparison, with the stated boundary convention.
 
-Use the pinned signature counts, Layer 3 rank theorem and Layer 4 target coordinates. Apply the full-lattice theorem for the imaginary-quadratic field. Use the antisymmetric tensor relation of §8.5 to show ∂(2[ζ_6])=0, then rationalize if using [ζ_6]. Apply the dilogarithm input of §8.5 positivity and the Bloch–Wigner input of §8.5 descent; the exact coefficient is that of §8.5.
+Use the pinned signature counts, Layer 3 rank theorem and Layer 4 target coordinates. Apply the full-lattice theorem for the imaginary-quadratic field. Use the antisymmetric tensor relation of §8.5 to show ∂(2[ζ_6])=0, then rationalize if using [ζ_6]. Apply the Bloch–Wigner positivity, descent and exact coefficient of §8.5.
 
 At Q,j=2 the zeta value is nonzero although the rational K3 rank is zero. At an imaginary quadratic field switching embedding changes orientation but preserves absolute determinant. The integral test is 2[ζ_6]; replacing the antisymmetric tensor quotient by an exterior square would incorrectly kill every diagonal tensor. The rationalized test may use [ζ_6].
 
-Use [Armand Borel, Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), Proposition 12.2, p.271; [Charles A. Weibel, The K-book, Chapter IV: Definitions of Higher K-Theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), Theorems 1.17–1.18 and Regulator Maps 1.18.1, pp.12–13, author chapter PDF.
+Use Borel 1974, Proposition 12.2, p.271; Weibel IV, Theorems 1.17–1.18 and Regulator Maps 1.18.1, pp.12–13.
 
 *Needs:* §3.12, §4.2, §4.11, §4.13, §8.5; the exact supplier contracts above.
 
@@ -1397,9 +1371,7 @@ Prove the following basic identities and compatibility maps.
 - For Q→Q(i),j=2, the pull matrix has one row and zero columns, and the trace matrix has zero rows and one column.
 - Switching the selected Q(i) embedding at j=2 negates its coordinate maps, preserving the coordinate-free square.
 
-For Q⊂Q(i),j=3, P=(1), T=(2) and TP=(2).
-
-Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), Propositions 9.21–9.22 and Theorem 10.9.
+Use Burgos, Propositions 9.21–9.22 and Theorem 10.9.
 
 *Needs:* §4.6, §4.2, §4.8, §8.4; the exact supplier contracts above.
 
@@ -1419,23 +1391,22 @@ Period computations on arithmetic quotients use the compact inner-form cycles, t
 
 ## References
 
-- Armand Borel, [Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), Annales scientifiques de l’École normale supérieure, 4e série 7 (1974), 235–272.
-- Armand Borel, [Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), Annali della Scuola Normale Superiore di Pisa, 4e série 4 (1977), 613–636.
-- Armand Borel, [Errata-Corrigé: Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1980_4_7_2_373_0.pdf), Annali della Scuola Normale Superiore di Pisa, 4e série 7 (1980), 373.
-- José Ignacio Burgos Gil, [The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), CRM Monograph Series 15, American Mathematical Society, 2002; author PDF.
-- Daniel Quillen; text prepared by Hyman Bass, [Finite generation of the groups Ki of rings of algebraic integers](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf), Algebraic K-Theory I, Lecture Notes in Mathematics 341 (1973), 179–198; collected scan headers 195–214.
-- Thomas Church, Benson Farb, Andrew Putman, [Integrality in the Steinberg module and the top-dimensional cohomology of GLn OK](https://arxiv.org/pdf/1501.01307v2), arXiv:1501.01307v2, author PDF dated June 2, 2019.
-- Charles A. Weibel, [The K-book, Chapter IV: Definitions of Higher K-Theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), Public author chapter PDF, accessed 2026-10-19.
-- Charles A. Weibel, [The K-book, Chapter VI: The Higher K-Theory of Fields](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf), Public author chapter PDF, accessed 2026-10-19.
-- Michael Rapoport, [Comparison of the regulators of Beilinson and of Borel](https://ncatlab.org/nlab/files/Rapoport.pdf), Beilinson’s Conjectures on Special Values of L-Functions (1988), 169–192.
-- Alexander B. Goncharov, [Polylogarithms, regulators, and Arakelov motivic complexes](https://arxiv.org/pdf/math/0207036), arXiv:math/0207036v3, 17 June 2004.
-- Armand Borel, [Sur la cohomologie des espaces fibrés principaux et des espaces homogènes de groupes de Lie compacts](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Borel-Sur.pdf), Annals of Mathematics 57 (1953), 115–207; published scan.
-- Andrew Putman, Daniel Studenmund, [The dualizing module and top-dimensional cohomology group of GL_n(O)](https://arxiv.org/pdf/1909.01217v4), arXiv:1909.01217v4.
-- Roger Godement, [Les fonctions ζ des algèbres simples, I](https://www.numdam.org/item/SB_1958-1960__5__27_0/), Séminaire Bourbaki 5 (1958–1960), exposé 171, 27–49.
-- Roger Godement, [Les fonctions ζ des algèbres simples, II](https://www.numdam.org/item/SB_1958-1960__5__109_0/), Séminaire Bourbaki 5 (1958–1960), exposé 176, 109–128.
-- J. G. M. Mars, [Les nombres de Tamagawa de groupes semi-simples](https://www.numdam.org/item/SB_1968-1969__11__79_0/), Séminaire Bourbaki 11 (1968–1969), exposé 351, 79–94.
-- Vladimir Platonov, Andrei Rapinchuk, Igor Rapinchuk, *Algebraic Groups and Number Theory*, Volume I, 2nd edition, Cambridge Studies in Advanced Mathematics 205, Cambridge University Press, 2023.
+- **Borel 1974.** Armand Borel, [Stable real cohomology of arithmetic groups](https://www.numdam.org/item/ASENS_1974_4_7_2_235_0.pdf), Annales scientifiques de l’École normale supérieure, 4e série 7 (1974), 235–272.
+- **Borel 1977.** Armand Borel, [Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1977_4_4_4_613_0.pdf), Annali della Scuola Normale Superiore di Pisa, 4e série 4 (1977), 613–636.
+- **Borel 1980.** Armand Borel, [Errata-Corrigé: Cohomologie de SLn et valeurs de fonctions zêta aux points entiers](https://www.numdam.org/item/ASNSP_1980_4_7_2_373_0.pdf), Annali della Scuola Normale Superiore di Pisa, 4e série 7 (1980), 373.
+- **Burgos.** José Ignacio Burgos Gil, [The Regulators of Beilinson and Borel](https://www.icmat.es/miembros/burgos/files/brbr.pdf), CRM Monograph Series 15, American Mathematical Society, 2002; author PDF.
+- **Quillen.** Daniel Quillen; text prepared by Hyman Bass, [Finite generation of the groups Ki of rings of algebraic integers](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf), Algebraic K-Theory I, Lecture Notes in Mathematics 341 (1973), 179–198; collected scan headers 195–214.
+- **Weibel IV.** Charles A. Weibel, [The K-book, Chapter IV: Definitions of Higher K-Theory](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), Public author chapter PDF, accessed 2026-10-19.
+- **Weibel VI.** Charles A. Weibel, [The K-book, Chapter VI: The Higher K-Theory of Fields](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf), Public author chapter PDF, accessed 2026-10-19.
+- **Rapoport.** Michael Rapoport, [Comparison of the regulators of Beilinson and of Borel](https://ncatlab.org/nlab/files/Rapoport.pdf), Beilinson’s Conjectures on Special Values of L-Functions (1988), 169–192.
+- **Goncharov.** Alexander B. Goncharov, [Polylogarithms, regulators, and Arakelov motivic complexes](https://arxiv.org/pdf/math/0207036), arXiv:math/0207036v3, 17 June 2004.
+- **Borel 1953.** Armand Borel, [Sur la cohomologie des espaces fibrés principaux et des espaces homogènes de groupes de Lie compacts](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Borel-Sur.pdf), Annals of Mathematics 57 (1953), 115–207; published scan.
+- **Putman–Studenmund.** Andrew Putman, Daniel Studenmund, [The dualizing module and top-dimensional cohomology group of GL_n(O)](https://arxiv.org/pdf/1909.01217v4), arXiv:1909.01217v4.
+- **Godement I.** Roger Godement, [Les fonctions ζ des algèbres simples, I](https://www.numdam.org/item/SB_1958-1960__5__27_0/), Séminaire Bourbaki 5 (1958–1960), exposé 171, 27–49.
+- **Godement II.** Roger Godement, [Les fonctions ζ des algèbres simples, II](https://www.numdam.org/item/SB_1958-1960__5__109_0/), Séminaire Bourbaki 5 (1958–1960), exposé 176, 109–128.
+- **Mars.** J. G. M. Mars, [Les nombres de Tamagawa de groupes semi-simples](https://www.numdam.org/item/SB_1968-1969__11__79_0/), Séminaire Bourbaki 11 (1968–1969), exposé 351, 79–94.
+- **Platonov–Rapinchuk–Rapinchuk.** Vladimir Platonov, Andrei Rapinchuk, Igor Rapinchuk, *Algebraic Groups and Number Theory*, Volume I, 2nd edition, Cambridge Studies in Advanced Mathematics 205, Cambridge University Press, 2023.
+- **Matsushima.** Yozô Matsushima, [On Betti numbers of compact, locally symmetric Riemannian manifolds](https://ir.library.osaka-u.ac.jp/repo/ouka/all/5711/omj14_01_01.pdf), Osaka Math. J. 14 (1962), 1–20.
+- **Kaneyuki–Nagano.** Soji Kaneyuki, Tadashi Nagano, [On certain quadratic forms related to symmetric Riemannian spaces](https://ir.library.osaka-u.ac.jp/repo/ouka/all/10195/omj14_02_03.pdf), Osaka Math. J. 14 (1962), 241–252.
 
 Borel's 1980 correction is used with the 1977 period formulae: the algebraic restriction-of-scalars normalisation uses the signed embedding determinant, whereas the positive Haar measure uses the absolute discriminant. In the public author copy of Weibel IV, Theorem 1.18, p.12, the field comparison is read with both sides rationalised. The finiteness discussion in the author copy of VI, Classical Data 8.1, p.47, is applied to finite-S integer rings, not to the field. The localisation example in §3.12 gives the reason for both distinctions; these remarks do not make a claim about a separate published edition.
-
-For the positivity constants also use Yozô Matsushima, [On Betti numbers of compact, locally symmetric Riemannian manifolds](https://ir.library.osaka-u.ac.jp/repo/ouka/all/5711/omj14_01_01.pdf), Osaka Math. J. 14 (1962), 1–20, §§5–9, pp.10–16, and Soji Kaneyuki–Tadashi Nagano, [On certain quadratic forms related to symmetric Riemannian spaces](https://ir.library.osaka-u.ac.jp/repo/ouka/all/10195/omj14_02_03.pdf), Osaka Math. J. 14 (1962), 241–252, Theorem 4.1, pp.249–250.
