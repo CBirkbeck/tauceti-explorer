@@ -3,31 +3,35 @@ import Mathlib
 /-!
 # NoncommutativeAndEquivariantIwasawa: representative target signatures
 
-The roadmap is `README.md`. This file records light definitions, theorem signatures and computed
-checks statable against the pinned Mathlib and Tau Ceti APIs; it is not exhaustive. References of
-the form §NE.k.n name README subsections. The design choices are:
+This file is not the roadmap and it is not exhaustive. The roadmap is `README.md`, which is
+definitive; references of the form §k.n are to its subsections. The file records the light
+definitions and the theorem signatures that can be stated against the pinned Mathlib and Tau Ceti,
+with `example` checks of the kept definitions. Proofs of the milestone theorems are `sorry`;
+nothing here is claimed formalised.
+
+Design choices made explicit here:
 
 * Tau Ceti provides the completed group algebra `Λ(G) = ℤ_p[[G]]`. Its noncommutative
   localization, relative K-theory, determinant functors and the arithmetic complexes needed here
   lack the required pinned APIs, so their statements remain README targets. The canonical set is
   defined for an arbitrary ring `A` that is a module over a ring `B` compatibly with left
-  multiplication (§NE.1.1); for `A = Λ(G)` and `B = Λ(H)` it is the set of Coates–Fukaya–Kato–
+  multiplication (§1.1); for `A = Λ(G)` and `B = Λ(H)` it is the set of Coates–Fukaya–Kato–
   Sujatha–Venjakob. Its one-variable case is stated on `PowerSeries ℤ_[p] ≅ Λ(ℤ_p)`.
-* The carry cocycle of the twisted group ring presentation (§NE.6.7) is recorded through its
+* The carry cocycle of the twisted group ring presentation (§6.7) is recorded through its
   integer exponent: representatives `0 ≤ a < q` of `Γ/Γ^q` multiply with carry `γ^(q · carry)`.
-* `Γ*(j)` (§NE.7.15) is `Γ(j)` for `j > 0` and the residue of `Γ` at `j` for `j ≤ 0`.
+* `Γ*(j)` (§7.15) is `Γ(j)` for `j > 0` and the residue of `Γ` at `j` for `j ≤ 0`.
 -/
 
 namespace TauCetiRoadmap.NoncommutativeAndEquivariantIwasawa
 
-/- Layer NE.0: Uniform groups and Iwasawa homological foundations -/
+/-! ## Layer 0: Uniform groups and Iwasawa homological foundations -/
 
 section Augmentation
 
 variable (p : ℕ) [Fact p.Prime] {Δ : Type*} [Group Δ]
 
 /-- The base step of the induction showing that the augmentation ideal of `𝔽_p[Δ]` is nilpotent
-for a finite `p`-group `Δ` (§§NE.0.4, NE.1.8): for `z` with `z ^ p = 1`, `(z - 1) ^ p = 0` in
+for a finite `p`-group `Δ` (§§0.4, 1.8): for `z` with `z ^ p = 1`, `(z - 1) ^ p = 0` in
 `𝔽_p[Δ]`. Over `ℤ_p` the same element is not nilpotent. -/
 theorem of_sub_one_pow_char (z : Δ) (hz : z ^ p = 1) :
     (MonoidAlgebra.of (ZMod p) Δ z - 1) ^ p = 0 := by
@@ -37,7 +41,7 @@ theorem of_sub_one_pow_char (z : Δ) (hz : z ^ p = 1) :
 
 end Augmentation
 
-/- Layer NE.1: Canonical Ore localization and torsion categories -/
+/-! ## Layer 1: Canonical Ore localization and torsion categories -/
 
 section Canonical
 
@@ -45,12 +49,12 @@ universe u v
 
 variable (A : Type u) (B : Type v) [Ring A] [Ring B] [Module B A] [IsScalarTower B A A]
 
-/-- The canonical set (§NE.1.1): the elements `f` with `A ⧸ A f` finitely generated over `B`.
+/-- The canonical set (§1.1): the elements `f` with `A ⧸ A f` finitely generated over `B`.
 For `A = Λ(G)` and `B = Λ(H)` this is the canonical Ore set `S` of CFKSV. -/
 def canonicalSet : Set A :=
   {f | Module.Finite B (A ⧸ Submodule.span A ({f} : Set A))}
 
-/-- The `π`-saturation `S* = ⋃ₙ πⁿ S` of the canonical set (§NE.1.10), for a central element
+/-- The `π`-saturation `S* = ⋃ₙ πⁿ S` of the canonical set (§1.10), for a central element
 `π` (in the Iwasawa case `π = p`). -/
 def saturatedSet (π : A) : Set A :=
   {f | ∃ n : ℕ, ∃ s ∈ canonicalSet A B, f = π ^ n * s}
@@ -61,7 +65,7 @@ theorem one_mem_canonicalSet : (1 : A) ∈ canonicalSet A B := by
   rw [show Submodule.span A ({1} : Set A) = ⊤ from Ideal.span_singleton_one]
   infer_instance
 
-/-- The canonical set is closed under multiplication (§NE.1.7, first step): `A s t ⊆ A t`, and
+/-- The canonical set is closed under multiplication (§1.7, first step): `A s t ⊆ A t`, and
 `A t ⧸ A s t` is a quotient of `A ⧸ A s`, so `A ⧸ A s t` is an extension of finitely generated
 `B`-modules. No noetherian or group hypothesis is needed for this step. -/
 theorem mul_mem_canonicalSet {s t : A} (hs : s ∈ canonicalSet A B) (ht : t ∈ canonicalSet A B) :
@@ -69,13 +73,13 @@ theorem mul_mem_canonicalSet {s t : A} (hs : s ∈ canonicalSet A B) (ht : t ∈
   sorry
 
 /-- The degenerate case `B = A`: every element, including `0`, lies in the canonical set; the
-statement that `S` consists of nonzero divisors needs the group hypotheses of §NE.1.7. -/
+statement that `S` consists of nonzero divisors needs the group hypotheses of §1.7. -/
 example : (0 : A) ∈ canonicalSet A A := by
   show Module.Finite A (A ⧸ Submodule.span A ({0} : Set A))
   infer_instance
 
 /-- In `ℤ_p[[T]]` the element `p` lies in the saturation `S*`, as `p ^ 1 * 1`; by
-`mem_canonicalSet_powerSeries_iff` it does not lie in `S`, so `S* ≠ S` (§NE.1.10). -/
+`mem_canonicalSet_powerSeries_iff` it does not lie in `S`, so `S* ≠ S` (§1.10). -/
 example (p : ℕ) [Fact p.Prime] :
     PowerSeries.C (p : ℤ_[p]) ∈
       saturatedSet (PowerSeries ℤ_[p]) ℤ_[p] (PowerSeries.C (p : ℤ_[p])) := by
@@ -86,7 +90,7 @@ example (p : ℕ) [Fact p.Prime] :
   rw [h]
   infer_instance
 
-/-- The canonical set in the one-variable case `Λ(ℤ_p) ≅ ℤ_p[[T]]`, `H = 1` (§NE.1.1, Worked
+/-- The canonical set in the one-variable case `Λ(ℤ_p) ≅ ℤ_p[[T]]`, `H = 1` (§1.1, Worked
 examples, example 1): `ℤ_p[[T]] ⧸ (f)` is finitely generated over `ℤ_p` exactly when `p` does not
 divide `f`. In particular `T ∈ S` and `p ∉ S`, and `S` is not the set of nonzero elements. -/
 theorem mem_canonicalSet_powerSeries_iff (p : ℕ) [Fact p.Prime] (f : PowerSeries ℤ_[p]) :
@@ -95,12 +99,12 @@ theorem mem_canonicalSet_powerSeries_iff (p : ℕ) [Fact p.Prime] (f : PowerSeri
 
 end Canonical
 
-/- Layer NE.6: The main theorems for totally real fields -/
+/-! ## Layer 6: The main theorems for totally real fields -/
 
 section UniformSmoothing
 
 /-- Every finite intersection of the nested ideals `p ^ n * ℤ_p` contains a nonzero element
-(§NE.6.25). This does not give a nonzero element of their infinite intersection. -/
+(§6.25). This does not give a nonzero element of their infinite intersection. -/
 example (p : ℕ) [Fact p.Prime] (n : ℕ) :
     (p : ℤ_[p]) ^ n ≠ 0 ∧
       ∀ m ≤ n, (p : ℤ_[p]) ^ n ∈ (Ideal.span {(p : ℤ_[p]) ^ m} : Ideal ℤ_[p]) := by
@@ -110,8 +114,9 @@ example (p : ℕ) [Fact p.Prime] (n : ℕ) :
     rw [Ideal.mem_span_singleton]
     exact pow_dvd_pow _ hmn
 
-/-- The infinite intersection in the preceding example is zero (§NE.6.25). Thus compactness
-cannot preserve the required nontrivial cyclotomic image when solving each conductor separately. -/
+/-- The infinite intersection in the preceding example is zero (§6.25). Thus compactness
+cannot preserve the required nontrivial cyclotomic image when solving each conductor separately;
+the uniform smoothing element of §6.24 is chosen independently of the conductor instead. -/
 example (p : ℕ) [Fact p.Prime] (x : ℤ_[p])
     (h : ∀ n : ℕ, x ∈ (Ideal.span {(p : ℤ_[p]) ^ n} : Ideal ℤ_[p])) : x = 0 := by
   by_contra hx
@@ -122,13 +127,13 @@ end UniformSmoothing
 
 section Carry
 
-/-- The carry exponent of the twisted group ring presentation (§NE.6.7): for representatives
+/-- The carry exponent of the twisted group ring presentation (§6.7): for representatives
 `a, b` of `Γ/Γ^q` taken in `[0, q)`, the product of the representatives of `a` and `b` is the
 representative of `a + b` times `γ ^ (q * carryExponent q a b)`. -/
 def carryExponent (q a b : ℕ) : ℕ :=
   (a % q + b % q) / q
 
-/-- The carry is a normalized symmetric 2-cocycle on `ℤ/q` with values in `ℕ` (§NE.6.7). -/
+/-- The carry is a normalized symmetric 2-cocycle on `ℤ/q` with values in `ℕ` (§6.7). -/
 theorem carryExponent_cocycle (q a b c : ℕ) (hq : 0 < q) :
     carryExponent q a b + carryExponent q (a + b) c =
       carryExponent q b c + carryExponent q a (b + c) := by
@@ -143,11 +148,11 @@ example : carryExponent 9 0 8 = 0 := by decide
 
 end Carry
 
-/- Layer NE.7: Descent, leading terms and Fitting invariants -/
+/-! ## Layer 7: Descent, leading terms and Fitting invariants -/
 
 section GammaStar
 
-/-- `Γ*(j)` (§NE.7.15): `(j - 1)!` for `j > 0` and the residue `(-1)^(-j) / (-j)!` of the Gamma
+/-- `Γ*(j)` (§7.15): `(j - 1)!` for `j > 0` and the residue `(-1)^(-j) / (-j)!` of the Gamma
 function at `j ≤ 0`. -/
 def gammaStar (j : ℤ) : ℚ :=
   if 0 < j then ((j - 1).toNat.factorial : ℚ)
@@ -158,7 +163,8 @@ theorem gammaStar_eq_Gamma (j : ℕ) (hj : 0 < j) :
     ((gammaStar j : ℚ) : ℂ) = Complex.Gamma j := by
   sorry
 
-/-- For `j ≤ 0`, `Γ*(j)` is the residue of the Gamma function at `j` (§NE.7.15). -/
+/-- For `j ≤ 0`, `Γ*(j)` is the residue of the Gamma function at `j`; this indexing corrects the
+display in Burns–Venjakob §6.1 (correction E13). -/
 theorem gammaStar_eq_residue (n : ℕ) :
     Filter.Tendsto (fun s : ℂ => (s + n) * Complex.Gamma s) (nhdsWithin (-(n : ℂ)) {-(n : ℂ)}ᶜ)
       (nhds ((gammaStar (-(n : ℤ)) : ℚ) : ℂ)) := by
@@ -175,26 +181,28 @@ end GammaStar
 The following definitions and constructions remain in the README, with their APIs and checks,
 because their required carriers or comparisons are absent from the pinned APIs:
 
-Layer NE.0: the compact analytic group model (0.2), ordered coordinates (0.7), their explicit p-valuation (0.8),
-integral and rational ordered series (0.9), diagonal twists (0.15), and compact/rational group homology (0.16).
-Layer NE.1: the finite-level algebra V (1.3), canonical Ore localization (1.11), the category
+Layer 0: the compact analytic group model and its analytic structure (0.2), ordered coordinates
+(0.6), finite-rank p-valuations, their saturation and the explicit valuation of a uniform group (0.7),
+integral and rational ordered series (0.8), diagonal twists (0.14), and the rational and twisted
+comparisons of compact group homology (0.15).
+Layer 1: the finite-level algebra V (1.3), canonical Ore localization (1.11), the category
 𝔐_H(G) (1.13), and localization-acyclic perfect complexes (1.14). The canonical and saturated
 sets (1.1, 1.10) have real-bodied ring-level definitions above.
-Layer NE.2: localized K₁ (2.7), relative perfect-complex classes (2.8), the boundary (2.10),
-and characteristic elements (2.12).
-Layer NE.3: the twist homomorphism (3.1), Artin evaluation (3.3), Akashi series (3.4), the
+Layer 2: the noncommutative determinant of perfect complexes and localized K₁ (2.7), relative
+perfect-complex classes and the Ore perfect localization (2.8, 2.9), the boundary (2.10), and
+characteristic elements (2.12).
+Layer 3: the twist homomorphism (3.1), Artin evaluation (3.3), Akashi series (3.4), the
 integrality-conjecture proposition (3.10), SK₁ and K′₁ (3.11), and the total quotient (3.12).
-Layer NE.4: the dual Selmer module (4.1), the torsion-conjecture propositions (4.2), admissibility,
-μ=0 and weak-Leopoldt overfield vanishing (4.4), the dual Galois complex (4.5), and compact-support
-complexes (4.6).
-Layer NE.5: the GL₂ L-function and main-conjecture propositions (5.1, 5.2), the totally real
+Layer 4: the dual Selmer module (4.1), the torsion-conjecture propositions (4.2), admissibility
+and μ=0 with weak-Leopoldt overfield vanishing (4.4), the dual Galois complex (4.5), and compact-support complexes (4.6).
+Layer 5: the GL₂ L-function and main-conjecture propositions (5.1, 5.2), the totally real
 main-conjecture proposition (5.5), and normalized interpolation contracts (5.6).
-Layer NE.6: twisted group rings (6.7; their carry exponent is defined above), congruence groups
+Layer 6: twisted group rings (6.7; their carry exponent is defined above), congruence groups
 (6.8), additive trace maps and ψ (6.9), relative and integral logarithms (6.11, 6.12), partial
 zeta and smoothed values (6.19), and the Ritter–Weiss logarithmic pseudomeasure (6.27).
-Layer NE.7: the Bockstein (7.1), semisimplicity and order (7.2), its trivialization (7.3), leading
+Layer 7: the Bockstein (7.1), semisimplicity and order (7.2), its trivialization (7.3), leading
 terms (7.4), the global zeta proposition and fundamental line (7.9), the p-adic Stark proposition
-(7.11), local epsilon maps and their conjecture (7.15; gammaStar is defined above), the
+(7.11) with Greenberg's p-adic Artin L-functions, the cyclotomic height (7.17), local epsilon maps and their conjecture (7.15; gammaStar is defined above), the
 Dabrowski–Panchishkin condition and Selmer complexes (7.16), Fitting orders (7.19), integrality
 rings and denominator ideals (7.20), and maximal Fitting invariants (7.21).
 
