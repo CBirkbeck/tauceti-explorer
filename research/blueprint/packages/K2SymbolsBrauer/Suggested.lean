@@ -224,6 +224,130 @@ theorem weil_reciprocity_of_disjoint (hF : TauCeti.IsFunctionField k F) (f g : F
 
 end Reciprocity
 
+/-! ## Layer 13: Dennis–Stein symbols and relative K₂ -/
+
+namespace K2
+
+section DennisStein
+
+variable (A : Type u) [CommRing A]
+
+/-- Threefold stability (van der Kallen–Maazen–Stienstra, §2.3): for any three unimodular pairs
+`(aᵢ, bᵢ)` one `t` makes every `aᵢ + bᵢ t` a unit. -/
+def IsThreefoldStable : Prop :=
+  ∀ a b : Fin 3 → A, (∀ i, IsCoprime (a i) (b i)) → ∃ t : A, ∀ i, IsUnit (a i + b i * t)
+
+/-- A field is threefold stable exactly when it has at least four elements: each pair excludes
+at most one `t`, and over `𝔽₂`, `𝔽₃` the pairs `(-c, 1)` exclude every `t`. -/
+theorem isThreefoldStable_field_iff (F : Type u) [Field F] :
+    IsThreefoldStable F ↔ 4 ≤ ENat.card F := by
+  sorry
+
+/-- `𝔽₂` is not threefold stable: the pairs `(0, 1)` and `(1, 1)` need `t` and `1 + t` to be
+units. -/
+example : ¬ IsThreefoldStable (ZMod 2) := by
+  intro h
+  obtain ⟨t, ht⟩ := h ![0, 1, 0] ![1, 1, 1] (fun i => by fin_cases i <;> simp)
+  have h0 := ht 0
+  have h1 := ht 1
+  fin_cases t <;> simp_all
+
+/-- Admissible Dennis–Stein pairs: `(r, s)` with `1 - r s` a unit. -/
+def DSPair : Type u := {p : A × A // IsUnit (1 - p.1 * p.2)}
+
+/-- The Dennis–Stein relations D1–D3 (modern convention, §13.2) among admissible pairs:
+`D(r,s) + D(s,r)`, `D(r,s) + D(r,t) - D(r, s + t - r s t)` and `D(r, s t) - D(r s, t) - D(r t, s)`,
+each imposed exactly when all displayed pairs are admissible. -/
+def dsRel : Set (FreeAbelianGroup (DSPair A)) :=
+  {x | (∃ p q : DSPair A, q.1 = p.1.swap ∧ x = .of p + .of q) ∨
+    (∃ p q w : DSPair A, p.1.1 = q.1.1 ∧
+      w.1 = (p.1.1, p.1.2 + q.1.2 - p.1.1 * p.1.2 * q.1.2) ∧ x = .of p + .of q - .of w) ∨
+    (∃ p q w : DSPair A, ∃ r s t : A, p.1 = (r, s * t) ∧ q.1 = (r * s, t) ∧ w.1 = (r * t, s) ∧
+      x = .of p - .of q - .of w)}
+
+/-- The Dennis–Stein group `D(A)`: the free abelian group on admissible pairs modulo D1–D3. -/
+abbrev DennisSteinGroup : Type u :=
+  FreeAbelianGroup (DSPair A) ⧸ AddSubgroup.closure (dsRel A)
+
+/-- **The field case of the Dennis–Stein presentation** (Weibel, III.5.11.1(a)): for a field,
+`D(F)` is the degree-two symbol group, with `D(r, s) ↦ {r, 1 - r s}` for a unit `r`. -/
+theorem dennisSteinGroup_equiv_symbolGroup (F : Type u) [Field F] :
+    ∃ e : DennisSteinGroup F ≃+ SymbolGroup F, ∀ (r : Fˣ) (s : F) (h : IsUnit (1 - (r : F) * s)),
+      e (QuotientAddGroup.mk (FreeAbelianGroup.of ⟨((r : F), s), h⟩)) = symbol r h.unit := by
+  sorry
+
+variable {A}
+
+/-- Relative Dennis–Stein generators: pairs with at least one entry in `I` (§13.9). -/
+def RelDSGen (I : Ideal A) : Type u := {p : A × A // p.1 ∈ I ∨ p.2 ∈ I}
+
+/-- The guarded relations of Keune's presentation: D1 and D2 when every displayed pair is a
+relative generator, and D3 only when one of its inputs `r, s, t` lies in `I`. -/
+def relDSRel (I : Ideal A) : Set (FreeAbelianGroup (RelDSGen I)) :=
+  {x | (∃ p q : RelDSGen I, q.1 = p.1.swap ∧ x = .of p + .of q) ∨
+    (∃ p q w : RelDSGen I, p.1.1 = q.1.1 ∧
+      w.1 = (p.1.1, p.1.2 + q.1.2 - p.1.1 * p.1.2 * q.1.2) ∧ x = .of p + .of q - .of w) ∨
+    (∃ p q w : RelDSGen I, ∃ r s t : A, (r ∈ I ∨ s ∈ I ∨ t ∈ I) ∧ p.1 = (r, s * t) ∧
+      q.1 = (r * s, t) ∧ w.1 = (r * t, s) ∧ x = .of p - .of q - .of w)}
+
+/-- The same relations with D3 imposed only when its first input lies in `I`, the form of van der
+Kallen–Maazen–Stienstra, §2.5. -/
+def relDSRelFirst (I : Ideal A) : Set (FreeAbelianGroup (RelDSGen I)) :=
+  {x | (∃ p q : RelDSGen I, q.1 = p.1.swap ∧ x = .of p + .of q) ∨
+    (∃ p q w : RelDSGen I, p.1.1 = q.1.1 ∧
+      w.1 = (p.1.1, p.1.2 + q.1.2 - p.1.1 * p.1.2 * q.1.2) ∧ x = .of p + .of q - .of w) ∨
+    (∃ p q w : RelDSGen I, ∃ r s t : A, r ∈ I ∧ p.1 = (r, s * t) ∧
+      q.1 = (r * s, t) ∧ w.1 = (r * t, s) ∧ x = .of p - .of q - .of w)}
+
+/-- The relative Dennis–Stein group `D(A, I)`. -/
+abbrev relDennisSteinGroup (I : Ideal A) : Type u :=
+  FreeAbelianGroup (RelDSGen I) ⧸ AddSubgroup.closure (relDSRel I)
+
+/-- The two D3 guards present the same group: D3 with `s ∈ I` follows from D3 with first input
+`s` and D1. No radical hypothesis is needed. -/
+theorem closure_relDSRelFirst (I : Ideal A) :
+    AddSubgroup.closure (relDSRelFirst I) = AddSubgroup.closure (relDSRel I) := by
+  sorry
+
+/-- For the zero ideal every relative generator has a zero entry and vanishes. -/
+theorem subsingleton_relDennisSteinGroup_bot : Subsingleton (relDennisSteinGroup (⊥ : Ideal A)) := by
+  sorry
+
+/-- The double `A ×_{A/I} A`: pairs whose coordinates agree modulo `I`. Its first projection is
+split by the diagonal, and its two kernels meet in zero and multiply to zero. -/
+def idealDouble (I : Ideal A) : Subring (A × A) :=
+  RingHom.eqLocus ((Ideal.Quotient.mk I).comp (RingHom.fst A A))
+    ((Ideal.Quotient.mk I).comp (RingHom.snd A A))
+
+example (I : Ideal A) (x : A) (hx : x ∈ I) : ((0 : A), x) ∈ idealDouble I := by
+  show (Ideal.Quotient.mk I) 0 = (Ideal.Quotient.mk I) x
+  rw [map_zero, eq_comm, Ideal.Quotient.eq_zero_iff_mem]
+  exact hx
+
+end DennisStein
+
+/-- The parity detector on `ℤ/4` of §13.14: value `1` at `(2,2)`, `(2,3)`, `(3,2)`. -/
+def zmodFourSymbolParity (r s : ZMod 4) : ZMod 2 :=
+  if (r = 2 ∧ s = 2) ∨ (r = 2 ∧ s = 3) ∨ (r = 3 ∧ s = 2) then 1 else 0
+
+/-- The detector satisfies D1–D3 on admissible pairs; in `ℤ/4` an element `u` is a unit exactly
+when `u * u = 1`. -/
+example :
+    (∀ r s : ZMod 4, (1 - r * s) * (1 - r * s) = 1 →
+      zmodFourSymbolParity r s + zmodFourSymbolParity s r = 0) ∧
+    (∀ r s t : ZMod 4, (1 - r * s) * (1 - r * s) = 1 → (1 - r * t) * (1 - r * t) = 1 →
+      zmodFourSymbolParity r s + zmodFourSymbolParity r t =
+        zmodFourSymbolParity r (s + t - r * s * t)) ∧
+    (∀ r s t : ZMod 4, (1 - r * s * t) * (1 - r * s * t) = 1 →
+      zmodFourSymbolParity r (s * t) =
+        zmodFourSymbolParity (r * s) t + zmodFourSymbolParity (r * t) s) := by
+  decide
+
+/-- The detector is not zero on the dyadic class: `λ(3, 2) = 1`, the value on `{-1, -1}`. -/
+example : zmodFourSymbolParity 3 2 = 1 ∧ zmodFourSymbolParity 1 2 = 0 := by decide
+
+end K2
+
 end TauCetiRoadmap.K2SymbolsBrauer
 
 /-
@@ -234,9 +358,12 @@ the native quotient grading, real detector and Milnor-to-Quillen ring map; unit 
 and specialization maps, Serre's residue algebra, Bass–Tate filtrations and transfers; complete
 valuation extensions and component lattices, Kato norms and integral reciprocity; total residues,
 localization and Quillen-transfer comparisons; unramified groups, tame kernels, auxiliary integer
-word models and the integer/rational computations; Dennis–Stein symbols, threefold stability,
-absolute and guarded relative presentation groups, double-ring relative Steinberg groups, their
-fibre comparison, differential symbols, square-zero quotients and dual-number/dyadic detectors;
+word models and the integer/rational computations; Dennis–Stein words in the Steinberg group and
+the generator maps out of the presentation groups, double-ring relative Steinberg groups and their
+double-quotient description, cross classes, the split radical fibre comparison and double excision,
+Dennis–Stein generation, the reduction to the double, the split radical presentation, Keune's
+theorem, the lift-change sequence and residue-isomorphism transfer for local rings, differential
+symbols, van der Kallen's dual-number module, square-zero quotients and the dyadic computations;
 twist trivializations, Brauer and cyclic symbols, local invariant and Tate comparison maps, and
 the product-normalized finite étale Chern comparison.
 -/
