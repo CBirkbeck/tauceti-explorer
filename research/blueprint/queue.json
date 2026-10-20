@@ -153188,6 +153188,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticKTheory~codex2.md"
+  },
+  {
+   "id": "REV-PKG-SpecialValuesBirchTate~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-SpecialValuesBirchTate~codex2.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/review.json",
+    "research/blueprint/packages/SpecialValuesBirchTate/README.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/Suggested.lean",
+    "research/blueprint/packages/SpecialValuesBirchTate/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-SpecialValuesBirchTate~codex2.md"
   }
  ]
 }
