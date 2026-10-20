@@ -152187,6 +152187,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv.md"
+  },
+  {
+   "id": "FIX-PKG-KTheoryFiniteLocalFields~adv3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "KTheoryFiniteLocalFields"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-KTheoryFiniteLocalFields~adv3.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/review.json",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/README.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv3.md"
   }
  ]
 }
