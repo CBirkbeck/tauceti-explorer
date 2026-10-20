@@ -51561,7 +51561,8 @@
     "PKG-CompletedCohomologyAndLocalGlobalCompatibility"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CompletedCohomologyAndLocalGlobalCompatibility.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10895"
   },
   {
    "id": "PKG-CompletedCohomologyPartII",
@@ -56305,8 +56306,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HermitianKTheoryOfPoincareCategories.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11253"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11253",
+   "finishedAt": "2026-10-20T00:42:18Z"
   },
   {
    "id": "REV-PKG-HermitianKTheoryOfPoincareCategories",
@@ -151842,9 +151844,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticKTheory~adv.md",
-   "note": "claimed on GitHub issue #11242"
+   "note": "deliverables arrived from an external worker on issue #11242",
+   "finishedAt": "2026-10-20T00:42:23Z"
   },
   {
    "id": "FIX-PKG-MotivicEtaleKTheory~adv",
@@ -151902,9 +151905,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-RefinedTraceMethods~codex.md",
-   "note": "claimed on GitHub issue #11241"
+   "note": "deliverables arrived from an external worker on issue #11241",
+   "finishedAt": "2026-10-20T00:42:26Z"
   },
   {
    "id": "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex2",
@@ -151986,8 +151990,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv.md",
+   "note": "claimed on GitHub issue #11259"
   },
   {
    "id": "FIX-PKG-EisensteinIdealAndRationalTorsion~adv2",
@@ -152005,9 +152010,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv2.md",
-   "note": "claimed on GitHub issue #11260"
+   "note": "deliverables arrived from an external worker on issue #11260",
+   "finishedAt": "2026-10-20T00:42:30Z"
   },
   {
    "id": "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5",
@@ -152025,8 +152031,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5.md",
+   "note": "claimed on GitHub issue #11261"
   },
   {
    "id": "REV-PKG-CyclotomicClassGroupsAndStickelberger~codex",
@@ -152045,8 +152052,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-CyclotomicClassGroupsAndStickelberger~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-CyclotomicClassGroupsAndStickelberger~codex.md",
+   "note": "claimed on GitHub issue #11266"
   }
  ]
 }
