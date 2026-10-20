@@ -52680,8 +52680,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DrinfeldModulesAndTModules.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10763"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10763",
+   "finishedAt": "2026-10-20T21:04:25Z"
   },
   {
    "id": "REV-PKG-DrinfeldModulesAndTModules",
@@ -58321,8 +58322,9 @@
     "PKG-LogicAndDefinabilityInNumberTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LogicAndDefinabilityInNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10904"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10904",
+   "finishedAt": "2026-10-20T21:04:31Z"
   },
   {
    "id": "PKG-LogicAndDefinabilityInNumberTheoryPartII",
@@ -62669,8 +62671,9 @@
     "PKG-TropicalAndBerkovichArithmetic"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-TropicalAndBerkovichArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10910"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10910",
+   "finishedAt": "2026-10-20T21:04:34Z"
   },
   {
    "id": "PKG-TwistedAutomorphicDescents",
@@ -154043,9 +154046,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicCongruences~adv.md",
-   "note": "claimed on GitHub issue #11458"
+   "note": "deliverables arrived from an external worker on issue #11458",
+   "finishedAt": "2026-10-20T21:04:40Z"
   },
   {
    "id": "FIX-PKG-FunctionFieldArithmetic~adv1",
@@ -154273,7 +154277,7 @@
     "research/blueprint/handoff/BP-OverconvergentAutomorphicForms--O0~5.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0~5.md",
    "scope": [
     "OverconvergentAutomorphicForms:O0",
@@ -154288,7 +154292,9 @@
    "after": [
     "REV-OverconvergentAutomorphicForms--O0~4"
    ],
-   "revisionOf": "BP-OverconvergentAutomorphicForms--O0"
+   "revisionOf": "BP-OverconvergentAutomorphicForms--O0",
+   "note": "deliverables arrived from an external worker on issue #11491",
+   "finishedAt": "2026-10-20T21:04:44Z"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O0~5",
@@ -154353,7 +154359,7 @@
     "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~4.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~4.md",
    "scope": [
     "QSeriesPartitionsAndMockModularForms:QM.0",
@@ -154367,7 +154373,8 @@
    "after": [
     "REV-QSeriesPartitionsAndMockModularForms~3"
    ],
-   "revisionOf": "BP-QSeriesPartitionsAndMockModularForms"
+   "revisionOf": "BP-QSeriesPartitionsAndMockModularForms",
+   "note": "claimed on GitHub issue #11492"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms~4",
@@ -154433,8 +154440,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-FiniteFieldsAndCharacterSums~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-FiniteFieldsAndCharacterSums~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11506",
+   "finishedAt": "2026-10-20T21:04:46Z"
   },
   {
    "id": "REV-PKG-DrinfeldModulesAndTModules~codex1",
@@ -154453,8 +154462,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-DrinfeldModulesAndTModules~codex1.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-DrinfeldModulesAndTModules~codex1.md",
+   "note": "claimed on GitHub issue #11513"
   },
   {
    "id": "FIX-PKG-LogicAndDefinabilityInNumberTheory~adv",
@@ -154472,8 +154482,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-LogicAndDefinabilityInNumberTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-LogicAndDefinabilityInNumberTheory~adv.md",
+   "note": "claimed on GitHub issue #11514"
   }
  ]
 }
