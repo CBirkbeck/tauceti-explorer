@@ -153514,6 +153514,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~codex2.md"
+  },
+  {
+   "id": "FIX-PKG-EllipticRegulators~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EllipticRegulators~adv2.md",
+    "research/blueprint/packages/EllipticRegulators/review.json",
+    "research/blueprint/packages/EllipticRegulators/README.md",
+    "research/blueprint/packages/EllipticRegulators/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticRegulators~adv2.md"
   }
  ]
 }
