@@ -152318,7 +152318,7 @@
     "research/blueprint/handoff/BP-PadicHodgeRegulators~3.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~3.md",
    "scope": [
     "PadicHodgeRegulators:D.1",
@@ -152335,7 +152335,8 @@
    "after": [
     "REV-PadicHodgeRegulators~2"
    ],
-   "revisionOf": "BP-PadicHodgeRegulators"
+   "revisionOf": "BP-PadicHodgeRegulators",
+   "note": "claimed on GitHub issue #11300"
   },
   {
    "id": "REV-PadicHodgeRegulators~3",
@@ -152497,8 +152498,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv.md",
+   "note": "claimed on GitHub issue #11307"
   },
   {
    "id": "FIX-PKG-HabiroCohomologyFoundations~adv",
@@ -152827,8 +152829,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv2.md",
+   "note": "claimed on GitHub issue #11337"
   },
   {
    "id": "FIX-PKG-ArithmeticKTheory~adv2",
@@ -152846,9 +152849,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv2.md",
-   "note": "claimed on GitHub issue #11338"
+   "note": "deliverables arrived from an external worker on issue #11338",
+   "finishedAt": "2026-10-20T10:55:03Z"
   },
   {
    "id": "FIX-PKG-IntegralIwasawaTheory~adv",
@@ -152887,8 +152891,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroNumberFields~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroNumberFields~adv.md",
+   "note": "claimed on GitHub issue #11340"
   },
   {
    "id": "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4",
@@ -152906,9 +152911,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4.md",
-   "note": "claimed on GitHub issue #11342"
+   "note": "deliverables arrived from an external worker on issue #11342",
+   "finishedAt": "2026-10-20T10:55:07Z"
   },
   {
    "id": "PKG-MotivicEtaleKTheoryPartII~codex",
@@ -152947,8 +152953,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~codex2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~codex2.md",
+   "note": "claimed on GitHub issue #11348"
   }
  ]
 }
