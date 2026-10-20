@@ -1,6 +1,8 @@
 import Mathlib
 import TauCeti.RingTheory.Valuation.Discrete.Order
 import TauCeti.FieldTheory.FunctionField.Divisor.Eval
+import TauCeti.FieldTheory.FunctionField.Place.RatFunc.Basic
+import TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Transvection
 
 /-!
 # K2SymbolsBrauer: representative target signatures
@@ -10,18 +12,11 @@ definitions and theorem signatures of the roadmap that can be stated against the
 and Tau Ceti APIs, so that contributors and reviewers converge on names and signatures; it is not
 exhaustive. Every theorem is proved by `sorry` unless a short proof is given.
 
-Design choices made explicit here:
-* a central extension is a surjective homomorphism with central kernel, and universality
-  quantifies over central extensions in the universe of the source;
-* the finite-rank Steinberg group is a `PresentedGroup` on generators `x_ij(r)` with the
-  distinctness of the indices built into the generator, and with no relation imposed on opposite
-  roots; structural perfectness and splitting theorems carry their rank bounds, while the
-  presentation and its defining relations also make sense at smaller ranks;
-* commutators are `⁅a, b⁆ = a * b * a⁻¹ * b⁻¹`;
-* Milnor K-theory has integral coefficients: it is a quotient of the tensor algebra of `Additive Fˣ`
-  over `ℤ` by the two-sided ideal of the Steinberg products, and `{a, a}` is not killed;
-* the tame symbol is normalised by `∂{u, π} = ū` for a unit `u` and a uniformiser `π`, the
-  inverse of the symbol of Weibel's Lemma III.6.3; its unit part is recorded before the residue.
+The universal-extension and Steinberg carriers are consumed from StableHomotopyKTheory and
+AlgebraicKTheory; their unavailable supplier declarations are README contracts. Commutators use
+`⁅a, b⁆ = a * b * a⁻¹ * b⁻¹`. The integral Milnor quotients retain the diagonal symbol, and the
+tame convention is `∂{u, π} = ū`. The finite matrix example checks the lifted bar-boundary sign;
+it does not formalize the topological product comparison.
 -/
 
 namespace TauCetiRoadmap.K2SymbolsBrauer
@@ -30,170 +25,25 @@ open scoped TensorProduct commutatorElement WithZero
 
 universe u
 
-/-! ## Layer 1: central extensions, Hopf's formula and the recognition theorem -/
+/-! ## Layer 1: the bar-boundary calibration -/
 
-section CentralExtensions
+/-- The image of `[ba] - [ab]`, the boundary of a lifted oriented torus cycle, in the
+relative one-chain quotient. It is the inverse of the positive commutator. -/
+def torusLiftBoundary {G : Type*} [Group G] (a b : G) : G :=
+  b * a * (a * b)⁻¹
 
-/-- A central extension of `G`: a surjective homomorphism whose kernel lies in the centre of its
-source. -/
-def IsCentralExtension {X G : Type*} [Group X] [Group G] (p : X →* G) : Prop :=
-  Function.Surjective p ∧ p.ker ≤ Subgroup.center X
-
-/-- A universal central extension of `G`: a central extension with a unique homomorphism over
-`G` to every central extension of `G` whose source lies in the universe of `X`. -/
-def IsUniversalCentralExtension {X G : Type u} [Group X] [Group G] (p : X →* G) : Prop :=
-  IsCentralExtension p ∧
-    ∀ (Y : Type u) [Group Y] (q : Y →* G), IsCentralExtension q → ∃! h : X →* Y, q.comp h = p
-
-/-- A group is superperfect when its first and second integral homology groups, with trivial
-coefficients, vanish. -/
-def IsSuperperfect (X : Type) [Group X] : Prop :=
-  Subsingleton (groupHomology (Rep.trivial ℤ X ℤ) 1) ∧
-    Subsingleton (groupHomology (Rep.trivial ℤ X ℤ) 2)
-
-/-- The identity of any group is a central extension. -/
-example (G : Type*) [Group G] : IsCentralExtension (MonoidHom.id G) :=
-  ⟨fun x => ⟨x, rfl⟩, fun x hx => by
-    rw [MonoidHom.mem_ker, MonoidHom.id_apply] at hx
-    rw [hx]
-    exact Subgroup.one_mem _⟩
-
-/-- A central kernel alone is insufficient: the trivial homomorphism of a nontrivial abelian group
-is not a central extension, because it is not surjective. -/
-example (G : Type*) [CommGroup G] [Nontrivial G] : ¬ IsCentralExtension (1 : G →* G) := by
-  intro h
-  obtain ⟨g, hg⟩ := exists_ne (1 : G)
-  obtain ⟨a, ha⟩ := h.1 g
-  exact hg ha.symm
-
-/-- The source of a universal central extension is perfect (Weibel, Lemma III.5.3.2). -/
-theorem IsUniversalCentralExtension.isPerfect {X G : Type u} [Group X] [Group G] {p : X →* G}
-    (hp : IsUniversalCentralExtension p) : Group.IsPerfect X := by
-  sorry
-
-/-- A superperfect group is perfect. -/
-theorem IsSuperperfect.isPerfect {X : Type} [Group X] (hX : IsSuperperfect X) :
-    Group.IsPerfect X := by
-  sorry
-
-/-- Every perfect group has a universal central extension (Weibel, Theorem III.5.4). -/
-theorem exists_isUniversalCentralExtension (G : Type) [Group G] [Group.IsPerfect G] :
-    ∃ (X : Type) (_ : Group X) (p : X →* G), IsUniversalCentralExtension p := by
-  sorry
-
-/-- **The recognition theorem** (Weibel, Theorem III.5.4): for a central extension `p` of a
-perfect group, universality is equivalent to the source being perfect with every central extension
-split, and to the source being superperfect. -/
-theorem recognition_theorem {X G : Type} [Group X] [Group G] [Group.IsPerfect G] {p : X →* G}
-    (hp : IsCentralExtension p) :
-    (IsUniversalCentralExtension p ↔
-      (Group.IsPerfect X ∧ ∀ (Y : Type) [Group Y] (q : Y →* X), IsCentralExtension q →
-        ∃ s : X →* Y, q.comp s = MonoidHom.id X)) ∧
-    (IsUniversalCentralExtension p ↔ IsSuperperfect X) := by
-  sorry
-
-/-- The kernel of a universal central extension of a perfect group is its second integral
-homology (Weibel, Theorem III.5.4 with Hopf's formula). -/
-theorem IsUniversalCentralExtension.nonempty_kerEquiv {X G : Type} [Group X] [Group G]
-    [Group.IsPerfect G] {p : X →* G} (hp : IsUniversalCentralExtension p) :
-    Nonempty (Additive p.ker ≃+ groupHomology (Rep.trivial ℤ G ℤ) 2) := by
-  sorry
-
-end CentralExtensions
-
-/-! ## Layer 2: Steinberg groups and classical K₂ -/
-
-section Steinberg
-
-/-- The generators `x_ij(r)` of the Steinberg group, with `i ≠ j` part of the generator. -/
-structure StGen (n : ℕ) (R : Type u) where
-  /-- The row index. -/
-  i : Fin n
-  /-- The column index. -/
-  j : Fin n
-  /-- The two indices are distinct. -/
-  ne : i ≠ j
-  /-- The parameter. -/
-  r : R
-
-variable (n : ℕ) (R : Type u) [Ring R]
-
-/-- The Steinberg relations (Weibel, III.5.1): additivity in the parameter, the non-chaining
-commutator relation, and the two chaining relations `[x_ij(r), x_jl(s)] = x_il(rs)` and
-`[x_ij(r), x_ki(s)] = x_kj(-sr)`. Nothing is imposed on the opposite pair `(i, j), (j, i)`. -/
-def steinbergRels : Set (FreeGroup (StGen n R)) :=
-  {w | (∃ (i j : Fin n) (h : i ≠ j) (r s : R),
-          w = FreeGroup.of (StGen.mk i j h r) * FreeGroup.of (StGen.mk i j h s) *
-            (FreeGroup.of (StGen.mk i j h (r + s)))⁻¹) ∨
-       (∃ (i j k l : Fin n) (h₁ : i ≠ j) (h₂ : k ≠ l) (r s : R), j ≠ k ∧ i ≠ l ∧
-          w = ⁅FreeGroup.of (StGen.mk i j h₁ r), FreeGroup.of (StGen.mk k l h₂ s)⁆) ∨
-       (∃ (i j l : Fin n) (h₁ : i ≠ j) (h₂ : j ≠ l) (h₃ : i ≠ l) (r s : R),
-          w = ⁅FreeGroup.of (StGen.mk i j h₁ r), FreeGroup.of (StGen.mk j l h₂ s)⁆ *
-            (FreeGroup.of (StGen.mk i l h₃ (r * s)))⁻¹) ∨
-       (∃ (i j k : Fin n) (h₁ : i ≠ j) (h₂ : k ≠ i) (h₃ : k ≠ j) (r s : R),
-          w = ⁅FreeGroup.of (StGen.mk i j h₁ r), FreeGroup.of (StGen.mk k i h₂ s)⁆ *
-            (FreeGroup.of (StGen.mk k j h₃ (-(s * r))))⁻¹)}
-
-/-- The Steinberg presentation of an associative unital ring in every rank. Its structural
-theorems below carry the required lower rank bounds (Layer 2). -/
-abbrev Steinberg : Type u := PresentedGroup (steinbergRels n R)
-
-variable {n R}
-
-/-- The generator `x_ij(r)`. -/
-def Steinberg.x (i j : Fin n) (h : i ≠ j) (r : R) : Steinberg n R :=
-  PresentedGroup.of ⟨i, j, h, r⟩
-
-/-- Additivity of the generators: `x_ij(r) x_ij(s) = x_ij(r + s)`. -/
-theorem Steinberg.x_add (i j : Fin n) (h : i ≠ j) (r s : R) :
-    Steinberg.x i j h r * Steinberg.x i j h s = Steinberg.x i j h (r + s) := by
-  show PresentedGroup.mk _ (FreeGroup.of _) * PresentedGroup.mk _ (FreeGroup.of _) =
-    PresentedGroup.mk _ (FreeGroup.of _)
-  rw [← map_mul]
-  exact PresentedGroup.mk_eq_mk_of_mul_inv_mem (show _ ∈ steinbergRels n R from
-    Or.inl ⟨i, j, h, r, s, rfl⟩)
-
-/-- `x_ij(0)` is the identity. -/
-example (i j : Fin n) (h : i ≠ j) : Steinberg.x i j h (0 : R) = 1 := by
-  have := Steinberg.x_add i j h (0 : R) 0
-  rw [add_zero] at this
-  simpa using this
-
-/-- The forward chaining relation `[x_ij(r), x_jl(s)] = x_il(rs)`. -/
-theorem Steinberg.commutator_chain (i j l : Fin n) (h₁ : i ≠ j) (h₂ : j ≠ l) (h₃ : i ≠ l)
-    (r s : R) :
-    ⁅Steinberg.x i j h₁ r, Steinberg.x j l h₂ s⁆ = Steinberg.x i l h₃ (r * s) := by
-  sorry
-
-/-- The reverse chaining relation `[x_ij(r), x_ki(s)] = x_kj(-sr)`; the order `sr` matters over a
-noncommutative ring. -/
-theorem Steinberg.commutator_reverse (i j k : Fin n) (h₁ : i ≠ j) (h₂ : k ≠ i) (h₃ : k ≠ j)
-    (r s : R) :
-    ⁅Steinberg.x i j h₁ r, Steinberg.x k i h₂ s⁆ = Steinberg.x k j h₃ (-(s * r)) := by
-  sorry
-
-/-- The generator assignment `x_ij(r) ↦ 1 + r E_ij` defines a homomorphism to `GL_n(R)` with
-the prescribed generator images (Weibel, III.5.1.1). Over a noncommutative ring the matrix
-identities are proved from matrix units. -/
-theorem Steinberg.exists_toGL :
-    ∃ φ : Steinberg n R →* Matrix.GeneralLinearGroup (Fin n) R,
-      ∀ (i j : Fin n) (h : i ≠ j) (r : R),
-        (φ (Steinberg.x i j h r) : Matrix (Fin n) (Fin n) R) = 1 + Matrix.single i j r := by
-  sorry
-
-/-- For `n ≥ 3` the Steinberg group is perfect: `x_ij(r) = [x_ik(r), x_kj(1)]` for a third
-index `k`. -/
-theorem Steinberg.isPerfect (hn : 3 ≤ n) : Group.IsPerfect (Steinberg n R) := by
-  sorry
-
-/-- **Finite-rank splitting** (Weibel, III.5.5.1): for `n ≥ 5` every central extension of
-`St_n(R)` splits. Centrality of `St_n(R) → E_n(R)` is not a consequence. -/
-theorem Steinberg.centralExtension_splits (hn : 5 ≤ n) (Y : Type u) [Group Y]
-    (q : Y →* Steinberg n R) (hq : IsCentralExtension q) :
-    ∃ s : Steinberg n R →* Y, q.comp s = MonoidHom.id _ := by
-  sorry
-
-end Steinberg
+/-- In the Heisenberg subgroup of `GL₃(𝔽₃)`, the boundary and positive commutator have different
+central coordinates. Thus this example detects reversal of the calibration sign. -/
+example :
+    let a := TauCeti.transvectionUnit (show (0 : Fin 3) ≠ 1 by decide) (1 : ZMod 3)
+    let b := TauCeti.transvectionUnit (show (1 : Fin 3) ≠ 2 by decide) (1 : ZMod 3)
+    (((torusLiftBoundary a b : Matrix.GeneralLinearGroup (Fin 3) (ZMod 3)) : Matrix (Fin 3) (Fin 3) (ZMod 3)) 0 2) = 2 ∧
+      (((⁅a, b⁆ : Matrix.GeneralLinearGroup (Fin 3) (ZMod 3)) : Matrix (Fin 3) (Fin 3) (ZMod 3)) 0 2) = 1 := by
+  dsimp only
+  simp only [torusLiftBoundary, commutatorElement_def, mul_inv_rev,
+    TauCeti.transvectionUnit_inv, Matrix.GeneralLinearGroup.coe_mul,
+    TauCeti.coe_transvectionUnit]
+  decide
 
 /-! ## Layer 5: Steinberg pairings and Milnor K-theory -/
 
@@ -297,45 +147,6 @@ theorem MilnorK.symbol_eq_zero_of_finite [Finite F] (l : List Fˣ) (hl : 2 ≤ l
 
 end Milnor
 
-/-! ## Layer 6: Steinberg symbols and the monomial kernel -/
-
-section Symbols
-
-variable {n : ℕ} {R : Type u} [Ring R]
-
-/-- The Weyl word `w_ij(u) = x_ij(u) x_ji(-u⁻¹) x_ij(u)`, whose elementary image has the block
-`[[0, u], [-u⁻¹, 0]]` at the coordinates `i, j`. -/
-def Steinberg.w (i j : Fin n) (h : i ≠ j) (u : Rˣ) : Steinberg n R :=
-  Steinberg.x i j h (u : R) * Steinberg.x j i h.symm (-((u⁻¹ : Rˣ) : R)) * Steinberg.x i j h (u : R)
-
-/-- The diagonal word `h_ij(u) = w_ij(u) w_ij(-1)`, whose elementary image is `diag(u, u⁻¹)` at the
-coordinates `i, j`. -/
-def Steinberg.hDiag (i j : Fin n) (h : i ≠ j) (u : Rˣ) : Steinberg n R :=
-  Steinberg.w i j h u * Steinberg.w i j h (-1)
-
-/-- The finite-rank Steinberg symbol `{u, v}_n = [h_ij(u), h_ik(v)]` for pairwise distinct
-`i, j, k` (Milnor, §9). -/
-def Steinberg.finiteRankSymbol (i j k : Fin n) (hij : i ≠ j) (hik : i ≠ k) (_hjk : j ≠ k)
-    (u v : Rˣ) : Steinberg n R :=
-  ⁅Steinberg.hDiag i j hij u, Steinberg.hDiag i k hik v⁆
-
-/-- For commutative `A` and `n ≥ 3` the finite-rank symbol is central, independent of the
-triple and bimultiplicative (Milnor, Lemmas 9.6–9.7). -/
-theorem Steinberg.finiteRankSymbol_mul_left {A : Type u} [CommRing A] (hn : 3 ≤ n) (i j k : Fin n)
-    (hij : i ≠ j) (hik : i ≠ k) (hjk : j ≠ k) (u u' v : Aˣ) :
-    Steinberg.finiteRankSymbol i j k hij hik hjk (u * u') v =
-      Steinberg.finiteRankSymbol i j k hij hik hjk u v *
-        Steinberg.finiteRankSymbol i j k hij hik hjk u' v := by
-  sorry
-
-/-- The Steinberg relation `{u, 1 - u}_n = 1` when `u` and `1 - u` are units (Milnor, Lemma 9.8). -/
-theorem Steinberg.finiteRankSymbol_one_sub {A : Type u} [CommRing A] (hn : 3 ≤ n) (i j k : Fin n)
-    (hij : i ≠ j) (hik : i ≠ k) (hjk : j ≠ k) (u v : Aˣ) (huv : (u : A) + v = 1) :
-    Steinberg.finiteRankSymbol i j k hij hik hjk u v = 1 := by
-  sorry
-
-end Symbols
-
 /-! ## Layer 9: tame symbols and Milnor residues -/
 
 section Tame
@@ -355,11 +166,28 @@ example (v : Valuation F ℤᵐ⁰) (u π : Fˣ) (hu : ord v (u : F) = 0) (hπ :
   simp [tameUnit, hu, hπ]
 
 open Valuation in
-/-- The reversed order gives the inverse, `∂{π, u} = ū⁻¹`. -/
-example (v : Valuation F ℤᵐ⁰) (u π : Fˣ) (hu : ord v (u : F) = 0) (hπ : ord v (π : F) = 1) :
-    tameUnit v π u = u⁻¹ ∧
-      (u ≠ u⁻¹ → tameUnit v u π ≠ tameUnit v π u) := by
-  simp [tameUnit, hu, hπ]
+/-- At the zero place of `k(t)` in characteristic zero (in particular `ℚ(t)`), the two orders
+of `(2,t)` give `2` and `1/2`. This tests the normalization away from 2-torsion. -/
+example (k : Type*) [Field k] [CharZero k] :
+    let P := TauCeti.Place.adicOfIrreducible (Polynomial.irreducible_X (R := k))
+    let u := Units.map (algebraMap k (RatFunc k)).toMonoidHom (Units.mk0 (2 : k) (by norm_num))
+    let t := Units.mk0 (RatFunc.X : RatFunc k) RatFunc.X_ne_zero
+    (tameUnit P.valuation u t : RatFunc k) = 2 ∧
+      (tameUnit P.valuation t u : RatFunc k) = 1 / 2 ∧
+      (tameUnit P.valuation u t : RatFunc k) ≠ (tameUnit P.valuation t u : RatFunc k) := by
+  dsimp only
+  let P := TauCeti.Place.adicOfIrreducible (Polynomial.irreducible_X (R := k))
+  have hu : ord P.valuation ((algebraMap k (RatFunc k)).toMonoidHom (2 : k)) = 0 :=
+    P.ord_algebraMap 2
+  have ht : ord P.valuation (RatFunc.X : RatFunc k) = 1 := by
+    apply P.isUniformizer_iff_ord_eq_one.mp
+    simpa only [P, RatFunc.algebraMap_X] using
+      (TauCeti.Place.isUniformizer_adicOfIrreducible (Polynomial.irreducible_X (R := k)))
+  dsimp only [P] at hu ht
+  simp only [tameUnit, Units.val_mul, Units.val_zpow_eq_zpow_val,
+    Units.coe_map, Units.val_mk0]
+  rw [hu, ht]
+  norm_num [map_ofNat]
 
 /-- The tame unit lies in the unit group of the valuation ring. -/
 theorem tameUnit_mem_unitGroup (v : Valuation F ℤᵐ⁰) (hv : Function.Surjective v) (f g : Fˣ) :
@@ -396,50 +224,19 @@ theorem weil_reciprocity_of_disjoint (hF : TauCeti.IsFunctionField k F) (f g : F
 
 end Reciprocity
 
-/-! ## Layer 13: Dennis–Stein symbols and relative K₂ -/
-
-section DennisStein
-
-variable {n : ℕ} {R : Type u} [Ring R]
-
-/-- The Dennis–Stein word `⟨r, s⟩ = x_ji(-s u⁻¹) x_ij(-r) x_ji(s) x_ij(u⁻¹ r) h_ij(u)⁻¹` for
-commuting `r, s` with `u = 1 - rs` a unit. -/
-def Steinberg.dennisStein (i j : Fin n) (h : i ≠ j) (r s : R) (_hrs : Commute r s)
-    (u : Rˣ) (_hu : (u : R) = 1 - r * s) :
-    Steinberg n R :=
-  Steinberg.x j i h.symm (-(s * ((u⁻¹ : Rˣ) : R))) * Steinberg.x i j h (-r) *
-    Steinberg.x j i h.symm s * Steinberg.x i j h (((u⁻¹ : Rˣ) : R) * r) *
-    (Steinberg.hDiag i j h u)⁻¹
-
-end DennisStein
+end TauCetiRoadmap.K2SymbolsBrauer
 
 /-
-The remaining definitions and targets are in README.md. Layer 1 names morphisms and pullbacks
-of central extensions, the relator and commutator-relator extensions, the quotient bar-kernel
-complex, its five-term sequence and the Hopf extension. Layers 2–4 name the elementary-image map,
-stabilisation and stable `St(R)`, faithful row and column root maps, classical `K₂`, normalized
-lifts and the chosen Hopf, Hurewicz, fibre and plus/Q comparison maps. These supply the targets
-`St(R) → E(R)` universal and `K₂(R) ≅ H₂(E(R); ℤ) ≅ π₂(BGL(R)⁺)`.
-
-Layers 5–8 name the degree-two symbol presentation and tensor realization, the homogeneous
-Steinberg ideal and quotient grading, field maps, the real sign detector, stable symbols and
-star products, monomial groups and kernels, the lifted torus and permutation construction of
-Matsumoto's theorem, and the graded Milnor-to-Quillen map with its product normalization.
-Layers 9–11 name the residue-valued tame symbol, higher residues, Serre's residue algebra,
-unit-part specializations, rational-function filtrations and Bass–Tate splittings, simple and
-tower norms, finite-extension valuation and lattice comparisons, total residue homomorphisms,
-and the Milnor/Quillen residue and transfer comparisons. Kato independence and integral
-all-degree Suslin reciprocity are the norm milestones.
-
-Layers 12–14 name unramified subgroups and tame kernels, integer-word models, the real sign
-symbol, threefold stability, the Dennis–Stein presentation group, relative Steinberg groups and
-relative `K₂`, the guarded relative presentation, the differential symbol and its square-zero
-kernel, the dual-number equivalence and dyadic detector, twist trivializations, primitive-root
-contractions, Brauer-valued symbols, cyclic symbol algebras and the factorizations of the local
-norm-residue and quadratic Hilbert symbols through `K₂`. The end targets include `K₂(ℤ) ≅ ℤ/2`,
-`K₂(ℚ)`, the relative presentations, the local-invariant comparison, the transport of the
-supplier's Tate comparisons and the product-normalized étale Chern comparison. The new heavy
-carriers and constructions required for these statements are specified in the README.
+The README specifies the remaining carriers and milestones: the calibrated Hopf and Hurewicz
+comparisons; faithful row/column maps and normalized finite-rank sections; star products, Weyl
+and diagonal words, commuting-unit and finite-rank symbols, monomial and unipotent subgroups;
+the native quotient grading, real detector and Milnor-to-Quillen ring map; unit parts, residue
+and specialization maps, Serre's residue algebra, Bass–Tate filtrations and transfers; complete
+valuation extensions and component lattices, Kato norms and integral reciprocity; total residues,
+localization and Quillen-transfer comparisons; unramified groups, tame kernels, auxiliary integer
+word models and the integer/rational computations; Dennis–Stein symbols, threefold stability,
+absolute and guarded relative presentation groups, double-ring relative Steinberg groups, their
+fibre comparison, differential symbols, square-zero quotients and dual-number/dyadic detectors;
+twist trivializations, Brauer and cyclic symbols, local invariant and Tate comparison maps, and
+the product-normalized finite étale Chern comparison.
 -/
-
-end TauCetiRoadmap.K2SymbolsBrauer
