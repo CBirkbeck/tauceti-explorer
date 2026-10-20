@@ -14,7 +14,7 @@ The coefficient rings, covariant Fontaine equivalence, overconvergence, rank-one
 
 General lifting and potentially semistable rings belong to **LocalGaloisDeformationRings**, R08.1 and R08.3. Its fixed-determinant rank-two contract must include p=2 as specified below. Degree-two determinant laws and universal Cayley–Hamilton algebras belong to the current **IntegralHeckeAndGaloisDeterminants**, Layers 0–1; only their block specialisations occur here. Cycle groups, cycle specialisation and Hilbert–Samuel multiplicities belong to **DeformationAndDerivedPatchingAlgebra**, R03.6.
 
-The current Tau Ceti library already supplies completed group algebras and compact-module actions in `TauCeti.Topology.Algebra.Group.Profinite.CompletedGroupAlgebra.Basic` and `.Module`. Reuse them over O_L and compact open subgroups. **ProfiniteProPGroups**, Layer 9, supplies their general upstream context. The additional topological Nakayama and compact inverse-system exactness contracts belong to **PadicMeasuresIwasawaAlgebras**, Layer 5. The current categorical `IsEssentialMono` and `IsEssentialEpi` vocabulary and injective/projective objects are reused for envelopes. No ordinary O-module projective-cover assertion replaces a cover in the representation category.
+The current Tau Ceti library already supplies completed group algebras and compact-module actions in `TauCeti.Topology.Algebra.Group.Profinite.CompletedGroupAlgebra.Basic` and `.Module`. Reuse them over O_L and compact open subgroups. **ProfiniteProPGroups**, Layer 9, supplies their general upstream context. The additional topological Nakayama and compact inverse-system exactness contracts belong to **PadicMeasuresIwasawaAlgebras**, Layer 5. The current categorical `TauCeti.IsEssentialMono` and `TauCeti.IsEssentialEpi` vocabulary and injective/projective objects are reused for envelopes. No ordinary O-module projective-cover assertion replaces a cover in the representation category.
 
 The current roadmaps AlgebraicVectorBundles, DifferentialGeometry, IntegralLattices, LocalGaloisGroups, OperatorTheory, OrthogonalSpinGroups, PeripheralActions, ProfiniteArithmetic and RealAlgebraicGeometry, and the completed ContourIntegration, EffectiveBounds, OrthogonalL2Bases and RestrictedProducts roadmaps supply their general subjects. They introduce no second owner for the GL₂ constructions specified here. Local Galois ramification and fundamental-character predicates are imported through their local Galois and Serre-weight interfaces, rather than reconstructed as representation theory.
 
@@ -52,7 +52,7 @@ The signatures in `Suggested.lean` use Mathlib 082e2d37e8b0463410cdb532e111cd43d
 
 The inverse-limit `completedGroupAlgebra R Γ` and the module theory in the two completed-group-algebra modules above work for compact commutative coefficients and profinite Γ. `IsCompactModule` supplies the compatible finite quotients; `completedSMul_of`, `completedGroupAlgebraModule`, `isScalarTower_completedGroupAlgebraModule` and `continuousSMul_completedGroupAlgebraModule` give the extended action, module and continuity. Apply them with R=O and Γ=H compact open. They supply the carrier and action, while topological Nakayama and exactness of compact inverse systems require their separately stated hypotheses.
 
-`CategoryTheory.IsEssentialMono` expresses an essential monomorphism through the reflection of monicity after composition; its dual `IsEssentialEpi` expresses the cover condition. An injective object plus an essential inclusion is an injective envelope, and dually a projective object plus an essential epimorphism is a projective cover. Reuse the categorical uniqueness-up-to-isomorphism results. None of these statements alone asserts existence inside the locally admissible central-character category.
+`TauCeti.IsEssentialMono` expresses an essential monomorphism through the reflection of monicity after composition; its dual `TauCeti.IsEssentialEpi` expresses the cover condition. An injective object plus an essential inclusion is an injective envelope, and dually a projective object plus an essential epimorphism is a projective cover. Reuse the categorical uniqueness-up-to-isomorphism results. None of these statements alone asserts existence inside the locally admissible central-character category.
 
 <a id="fontaine-contract"></a>
 
@@ -220,11 +220,12 @@ Colmez's convention identifies an étale (φ,Γ)-module with a P⁺-module: u ac
 - `GL2Qp.phi_mem_mirabolicPlus`: (p 0; 0 1) ∈ P⁺ and its inverse (p⁻¹ 0; 0 1) ∉ P⁺.
 - `GL2Qp.mirabolic_inf_center`: P ∩ Z = {1}: a scalar matrix with lower-right entry 1 is the identity.
 - `GL2Qp.unipotent_mem_mirabolicPlus`: (1 1; 0 1) ∈ P⁺ and (1 p⁻¹; 0 1) ∉ P⁺.
+- The identity and w belong to K. The matrix diag(p,1) has integral entries but does not belong to K, since its determinant is not a unit of ℤ_p; the matrix (1 p⁻¹;0 1) fails integrality. Thus entrywise integrality alone does not define K.
 - w² = 1, w ∉ B, and wBw ∩ B = T.
 - P⁺ is a submonoid of P containing P(ℤ_p) and φ_P, and P(ℚ_p) is generated by P⁺ and φ_P⁻¹.
 - G = P·Z·K·{1, w} is not used; instead G is generated by P(ℚ_p), Z and w (Colmez, Introduction §4(iv): adding an action of w suffices to define an action of G).
 
-The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), Introduction §4–§5, pp. 8–10 (Remark 0.4(iv)); §III.1.1–III.1.2, pp. 70–72; [Vytautas Paškūnas, PASKUNAS13](#ref-paskunas13), §1 and §5, pp. 2–7.
+The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), Introduction §4–§5, pp. 8–10 (Remark 0.4(iv)); §III.1.1–III.1.2, pp. 70–72; [Vytautas Paškūnas, PASKUNAS13](#ref-paskunas13), §1, pp. 2–7 (group notation).
 
 *Needs:* `Matrix.GeneralLinearGroup`; `Subgroup`; `Submonoid`; `PadicInt`; GL2AutomorphicRepresentationsAndTransfer:R16.1/iwasawa-cartan.
 
@@ -479,7 +480,7 @@ Use the following named operations and compatibility results.
 - `GL2Qp.IsLocallyFinite`: O[G]v of finite length for all v.
 - `GL2Qp.locallyAdmissible_grothendieck`: The locally admissible full subcategory, with its abelian/Grothendieck structure furnished by the representation-category result in the GL₂ finiteness and envelope theorem; general smooth-category Grothendieck structure alone does not prove this.
 
-Import the smooth category over a ring, admissibility and local admissibility from SmoothRepresentationsOfLocalGroups SR.0 (SR.0.1–SR.0.4 and SR.0:derived-extension.1, which proves the Grothendieck property and supplies injective envelopes) and specialise to A = O/ϖ^n and G = GL₂(ℚ_p).
+Import the smooth category over a ring, admissibility and local admissibility from SmoothRepresentationsOfLocalGroups SR.0 (SR.0.1–SR.0.4 and current SR.0d.1, which supplies the Grothendieck property and enough injectives; the locally admissible fixed-character envelopes are the separate target of [§2.2](#section-2-2)) and specialise to A = O/ϖ^n and G = GL₂(ℚ_p).
 
 Smoothness at the pin is Tau Ceti's IsSmoothDiscrete on TopRep (discrete module, open point stabilisers).
 
@@ -501,7 +502,7 @@ Gabriel's theory of locally finite Grothendieck categories applies (Paškūnas 2
 
 The source is [Vytautas Paškūnas, PASKUNAS13](#ref-paskunas13), §2, pp.14–15; [Pierre Colmez, Gabriel Dospinescu, Wiesława Nizioł, CDN23](#ref-cdn23), §1.2.1–1.2.3, pp. 14–16; Théorème 1.21, p. 22; [Pierre Colmez, COLMEZ10](#ref-colmez10), Introduction §4, p. 8 (and footnote 3).
 
-*Needs:* SmoothRepresentationsOfLocalGroups:SR.0; SmoothRepresentationsOfLocalGroups:SR.0:derived-extension; `TauCeti.IsSmoothDiscrete`; `TopRep`; `CategoryTheory.IsGrothendieckAbelian`; [§1.1](#section-1-1).
+*Needs:* SmoothRepresentationsOfLocalGroups:SR.0; SmoothRepresentationsOfLocalGroups:SR.0d.1; `TauCeti.IsSmoothDiscrete`; `TopRep`; `CategoryTheory.IsGrothendieckAbelian`; [§1.1](#section-1-1).
 
 <a id="section-2-2"></a>
 
@@ -567,17 +568,17 @@ The source is [Vytautas Paškūnas, PASKUNAS13](#ref-paskunas13), §2, p.14 (pro
 
 ### 2.4 GL₂ locally algebraic vectors inside the analytic-vector functor
 
-Using the analytic-vector supplier contract, define Π^{alg} for G=GL₂(ℚ_p) by requiring g↦gv to be locally polynomial in a,b,c,d,(ad−bc)⁻¹. This GL₂ algebraic decomposition is the additional target here. Π^{alg} = ⊕_W W ⊗ Hom_{𝔤}(W, Π)^{sm} over irreducible algebraic representations W = Sym^{k−1}L² ⊗ det^a (k ≥ 1, a ∈ ℤ); a representation is of type (ℓ, k) if only W_{ℓ,k} := Sym^{k−1} ⊗ det^ℓ occurs. Admissible locally analytic representations are the strong duals of coadmissible D(H, L)-modules for compact open H, with D(H, L) the Fréchet–Stein distribution algebra of LocallyAnalyticDistributionsPartII ND.1–ND.2.
+Using the analytic-vector supplier contract, define Π^{alg} for G=GL₂(ℚ_p) by requiring g↦gv to be locally polynomial in a,b,c,d,(ad−bc)⁻¹. This GL₂ algebraic decomposition is the additional target here. Π^{alg} = ⊕_W W ⊗ Hom_{𝔤}(W, Π^{an})^{sm} over irreducible algebraic representations W = Sym^{k−1}L² ⊗ det^a (k ≥ 1, a ∈ ℤ); a representation is of type (ℓ, k) if only W_{ℓ,k} := Sym^{k−1} ⊗ det^ℓ occurs. Admissible locally analytic representations are the strong duals of coadmissible D(H, L)-modules for compact open H, with D(H, L) the Fréchet–Stein distribution algebra of LocallyAnalyticDistributionsPartII ND.1–ND.2.
 
 Here Π admissible unitary Banach; G = GL₂(ℚ_p) viewed as a locally ℚ_p-analytic group.
 
 Use the following named operations and compatibility results.
 
 - `GL2Qp.algebraicVectors`: Π^{alg} ⊂ Π^{an}.
-- `GL2Qp.algebraicVectors_decomposition`: Π^{alg} = ⊕_W W ⊗ Hom_𝔤(W, Π)^{sm}.
+- `GL2Qp.algebraicVectors_decomposition`: Π^{alg} = ⊕_W W ⊗ Hom_𝔤(W, Π^{an})^{sm}.
 - `GL2Qp.algebraicType`: W_{ℓ,k} = Sym^{k−1}L² ⊗ det^ℓ.
 
-Decomposition of Π^{alg}: an algebraic vector generates a finite-dimensional 𝔤-module, decomposed into irreducible algebraic representations; the multiplicity spaces are smooth (Colmez Proposition VI.2.4).
+The differentiated 𝔤-action in this formula is on Π^{an}. No differentiable action on the entire Banach carrier is assumed. Decomposition of Π^{alg}: an algebraic vector generates a finite-dimensional 𝔤-module, decomposed into irreducible algebraic representations; the multiplicity spaces are smooth (Colmez Proposition VI.2.4).
 
 **Checks.**
 
@@ -585,7 +586,8 @@ Decomposition of Π^{alg}: an algebraic vector generates a finite-dimensional �
 - `GL2Qp.algebraicVectors_principalSeries_nonalgebraic`: If δ₁δ₂^{−1} is not locally algebraic, (Ind_B^G δ₁ ⊗ δ₂)^{cont} has no nonzero locally algebraic vector although its locally analytic vectors are dense.
 - `GL2Qp.algebraicVectors_le_analytic`: Π^{alg} ⊂ Π^{an}.
 - For Π = W finite-dimensional algebraic and unitary (only when W is a character), Π^{alg} = Π.
-- Π^{alg} ⊂ Π^{an} ⊂ Π.
+- For Π=L² with trivial action, the trivial algebraic type has multiplicity two and every nontrivial irreducible algebraic type has multiplicity zero; the decomposition must recover L², rather than one copy of each occurring type.
+- For k=1, W_{ℓ,1}=det^ℓ, and W_{0,2}=L² has dimension two. The value k=0 is excluded, rather than interpreted as a negative symmetric power.
 - For a unitary principal series (Ind_B^G δ₁ ⊗ δ₂)^{cont} with δ₁δ₂^{−1} not locally algebraic, Π^{alg} = 0.
 
 The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), Introduction §10–§11, pp. 16–17; §VI.2.1–VI.2.2, Proposition VI.2.4, p. 142; [Pierre Colmez, Gabriel Dospinescu, CD14](#ref-cd14), §0.1, pp. 3–4.
@@ -613,7 +615,13 @@ For a minimal open invariant lattice, every map into a unitary Banach target sen
 
 For analytic vectors use the coherent-lattice result, Proposition 0.6 and Theorem 0.7 of Colmez–Dospinescu, followed by Theorem 0.2. This nonroutine input remains explicitly specified in the coherent-lattice criterion.
 
-The coherent-lattice criterion is a separate construction target. For a locally analytic representation with the source finite-generation/coherence hypotheses, build a minimal open G-stable lattice up to commensurability, show that its separated completion has the universal mapping property, and prove the analytic-vector lattices satisfy those hypotheses. Colmez–Dospinescu Proposition 0.6 and Theorem 0.7, pp.5–6, supply the criterion; their Theorem 0.2 then gives the completion of Π^{an}. Universal mapping properties alone do not prove that a coherent lattice exists. Check that completion can be zero and that existence is asserted only under the criterion, rather than for every locally convex representation.
+The coherent-lattice criterion is a separate construction target with the following hypotheses. Start with an admissible Banach representation Π of a p-adic Lie group G, a uniform pro-p open subgroup H, and the analytic-radius Banach spaces Π_H^{(h)} of Colmez–Dospinescu §0.3, p.5. For ordered minimal generators h₁,…,h_d of H, put b^α=(h₁−1)^{α₁}⋯(h_d−1)^{α_d} and r_h=1/(p^{h−1}(p−1)); Π_H^{(h)} consists of v for which p^{r_h|α|}‖b^αv‖ tends to zero. The real factor here describes decay, not a fractional power chosen in L. The radius norm gives its Banach topology, and the definition is independent of the ordered generators. Define `GL2Qp.IsHCoherent Π H` to mean that for some h₀ and every h≥h₀,
+
+```text
+Π_H^{(h+1)} = Σ_{g∈G, H^p ⊂ gHg⁻¹} g·Π_H^{(h)}.
+```
+
+Here H^p is the subgroup of pth powers of the uniform group; the restriction on g is part of the criterion. For a unit ball Π_h⁰ in Π_H^{(h)}, set L_h=Σ_{g∈G}g·Π_h⁰. The target `GL2Qp.coherent_completion` says that H-coherence gives, for sufficiently large h, the universal completion L⊗_O lim_n L_h/p^nL_h. This includes separation and the induced Banach topology. For G=GL₂(ℚ_p), `GL2Qp.analytic_coherent` asserts H-coherence for Π∈Rep_L(G), and `GL2Qp.coherent_lattice_commensurable` identifies L_h up to commensurability with Θ∩Π^{an} for every open bounded invariant lattice Θ in Π. These are Proposition 0.6 and Theorem 0.7, p.6; Theorem 0.2, p.4 then identifies the completion with Π. The criterion applies to analytic vectors of an admissible Banach object with this recurrence, rather than to an unspecified locally analytic representation.
 
 **Checks.**
 
@@ -621,10 +629,12 @@ The coherent-lattice criterion is a separate construction target. For a locally 
 - `GL2Qp.universalUnitaryCompletion_zero`: The universal completion of 0 is 0.
 - `GL2Qp.universalUnitaryCompletion_nonunitary_central`: If Z acts on W by a non-unitary character, every map to a unitary Banach representation is zero, so Ŵ = 0 although W ≠ 0.
 - `GL2Qp.universalUnitaryCompletion_analytic`: For Π ∈ Rep_L(G), Hom_G(Π, B) → Hom_G(Π^{an}, B) is a bijection for every unitary B.
-- The universal completion of the trivial representation is L.
+- For the zero Banach object every radius space and L_h is zero, so the coherence recurrence and its completion give zero.
+- For the trivial object L, all radius spaces equal L; g=1 is allowed since H^p⊂H, so the recurrence holds, L_h=O, and the completion is L.
+- H-coherence is not automatic for every admissible Banach object of a p-adic Lie group. For G=H=ℤ_p acting by translation on C(ℤ_p,L), all translates preserve each radius space, so the right-hand side of the recurrence is Π_H^{(h)}. These spaces strictly increase: choose r_{h+1}<c<r_h and the Mahler series Σ_{n≥0}p^{⌈cn⌉} binom(x,n). Its nth finite difference has norm at most p^{−⌈cn⌉}, with that value at x=0, so it belongs to radius h+1 and not radius h. Thus this object fails H-coherence. The GL₂ coherence theorem has a substantive group hypothesis.
 - For Π ∈ Rep_L(G), (Π^{an})^ ≅ Π (Colmez–Dospinescu).
 
-The source is [Pierre Colmez, Gabriel Dospinescu, CD14](#ref-cd14), Introduction, Theorem 0.2, Proposition 0.6, Theorem 0.7, pp.3,5–6; [Laurent Berger, Christophe Breuil, BB10](#ref-bb10), Introduction, p. 2; [Pierre Colmez, Gabriel Dospinescu, Wiesława Nizioł, CDN20](#ref-cdn20), Proposition 2.9, p. 22; Corollaire 2.13 and its proof, p. 24 (arXiv).
+The source is [Pierre Colmez, Gabriel Dospinescu, CD14](#ref-cd14), Introduction, Theorem 0.2, Proposition 0.6, Theorem 0.7, pp.4–6; [Laurent Berger, Christophe Breuil, BB10](#ref-bb10), Introduction, p. 2; [Pierre Colmez, Gabriel Dospinescu, Wiesława Nizioł, CDN20](#ref-cdn20), Proposition 2.9, p. 22; Corollaire 2.13 and its proof, p. 24 (arXiv).
 
 *Needs:* [the Banach contract](#banach-contract); [§2.4](#section-2-4).
 
@@ -702,12 +712,15 @@ Here ℓ prime; smooth representations over an algebraic closure of 𝔽_ℓ wit
 
 The pro-ℓ congruence kernel acts trivially on irreducible smooth characteristic-ℓ modules. Apply the finite GL₂(𝔽_ℓ) classification and the diagonal quotient of the Iwahori.
 
-For the normaliser use w_ℓ²=−ℓ and Clifford theory: distinct characters form a two-element orbit, while equal characters extend in dimension one. The scalar parameters record the noncompact central subgroup, as in BCDT §1.3.
+For the normaliser use w_ℓ²=−ℓ and Clifford theory: distinct characters form a two-element orbit, while equal characters extend in dimension one. The scalar parameters record the noncompact central subgroup, as in BCDT §1.3. Name the objects `NormalizerType.serreWeight n m`, `NormalizerType.iwahoriCharacter m₁ m₂` and `NormalizerType.normalizerRep m₁ m₂ a`, with `NormalizerType.restrict_iwahori` for the restriction formula and `NormalizerType.weyl_square` for the scalar relation. In the last constructor specify whether a denotes w_ℓ (equal exponents) or −ℓ (unequal exponents), as above; these are different parameters.
 
 **Checks.**
 
-- There are ℓ(ℓ−1) isomorphism classes in (i).
+- There are ℓ(ℓ−1) Serre-weight isomorphism classes for GL₂(ℤ_ℓ).
 - σ_{0,m} = det^m is one-dimensional; σ_{ℓ−1,0} has dimension ℓ.
+- For m₁≠m₂ the restriction of `normalizerRep m₁ m₂ a` is the sum of the two distinct ordered Iwahori characters. A one-dimensional extension cannot have this restriction.
+- For equal exponents and w_ℓ-eigenvalue a, the scalar −ℓ acts by a². Choosing a with a²≠1 rules out silently imposing trivial scalar action.
+- At ℓ=2 all exponent pairs coincide and the normaliser irreducibles are one-dimensional; their parameter a still ranges over k^×, and −2 acts by a², rather than being set equal to 1.
 
 The source is [Christophe Breuil, Brian Conrad, Fred Diamond, Richard Taylor, BCDT01](#ref-bcdt01), §1.3, p. 854 (published pagination).
 
@@ -747,7 +760,7 @@ Layer 1; SmoothRepresentationsOfLocalGroups SR.0 and SR.2; LocallyAnalyticDistri
 
 ### 3.1 The G-module D ⊠_δ ℙ¹
 
-Let D be an étale (φ,Γ)-module over O_E (torsion or free) or over E, and δ : ℚ_p^× → O_L^× a continuous unitary character. On D ⊠ ℤ_p^× = D^{ψ=0} there is an involution w_δ, the limit of Σ_{i ∈ ℤ_p^× mod p^n} δ(i^{−1})(1+T)^i σ_{−i^2}(φ^nψ^n((1+T)^{−i^{−1}}z)). Put D ⊠_δ ℙ¹ = {z = (z₁, z₂) ∈ D × D : Res_{ℤ_p^×}(z₂) = w_δ(Res_{ℤ_p^×}(z₁))}. There is a unique action of G on D ⊠_δ ℙ¹ such that Res_U(g·z) = H_g(Res_{g^{−1}U ∩ ℤ_p}(z₁)) + H_{gw}(Res_{(gw)^{−1}U ∩ pℤ_p}(z₂)) for every compact open U ⊂ ℚ_p, with the explicit skeleton: w(z₁, z₂) = (z₂, z₁); (a 0; 0 a) acts by δ(a); (a 0; 0 1), a ∈ ℤ_p^×, by ((a 0; 0 1)z₁, δ(a)(a^{−1} 0; 0 1)z₂); and the formulas for (p 0; 0 1) and (1 b; 0 1), b ∈ pℤ_p. Restrictions Res_U : D ⊠_δ ℙ¹ → D ⊠ U and Res_{ℚ_p} : D ⊠_δ ℙ¹ → D ⊠_δ ℚ_p are G- resp. B-compatible; Res_{ℤ_p}z = z₁ and Res_{ℤ_p}(w·z) = z₂. For D⁰(ℤ_p) = E^♮ the construction is the dual B(δ)* of the space of continuous φ on ℚ_p with x ↦ δ(x)φ(1/x) continuous at 0, with g·φ = φ ⋆ g^{−1}, (φ ⋆ (a b; c d))(x) = δ(cx+d)φ((ax+b)/(cx+d)). Twisting: (D ⊠_δ ℙ¹) ⊗ (η∘det) ≅ (D ⊗ η) ⊠_{δη²} ℙ¹, and there is a perfect G-equivariant pairing { , }_{ℙ¹} between Ď ⊠_{δ^{−1}} ℙ¹ and D ⊠_δ ℙ¹. The pairing takes values in O_L, L, or L/O_L with the matching integral, rational, or torsion topology, as in [§1.3](#section-1-3).
+Let D be an étale (φ,Γ)-module over O_E (torsion or free) or over E, and δ : ℚ_p^× → O_L^× a continuous unitary character. On D ⊠ ℤ_p^× = D^{ψ=0} there is an involution w_δ, the limit of Σ_{i ∈ ℤ_p^× mod p^n} δ(i^{−1})(1+T)^i σ_{−i^2}(φ^nψ^n((1+T)^{−i^{−1}}z)). Put D ⊠_δ ℙ¹ = {z = (z₁, z₂) ∈ D × D : Res_{ℤ_p^×}(z₂) = w_δ(Res_{ℤ_p^×}(z₁))}. There is a unique action of G on D ⊠_δ ℙ¹ such that Res_U(g·z) = H_g(Res_{g^{−1}U ∩ ℤ_p}(z₁)) + H_{gw}(Res_{(gw)^{−1}U ∩ pℤ_p}(z₂)) for every compact open U ⊂ ℚ_p, with the explicit skeleton: w(z₁, z₂) = (z₂, z₁); (a 0; 0 a) acts by δ(a); (a 0; 0 1), a ∈ ℤ_p^×, by ((a 0; 0 1)z₁, δ(a)(a^{−1} 0; 0 1)z₂); and the formulas for (p 0; 0 1) and (1 b; 0 1), b ∈ pℤ_p. Restrictions Res_U : D ⊠_δ ℙ¹ → D ⊠ U and Res_{ℚ_p} : D ⊠_δ ℙ¹ → D ⊠_δ ℚ_p are G- resp. B-compatible; Res_{ℤ_p}z = z₁ and Res_{ℤ_p}(w·z) = z₂. There is also a measure construction, on the ψ-module M=D⁰(ℤ_p,O_L) of [§1.5](#section-1-5), with its rational coefficient version. This M is not an étale O_E-module: its Amice transform is O_L[[T]]. Gluing its two measure charts gives the dual B(δ)* of the space of continuous φ on ℚ_p with x ↦ δ(x)φ(1/x) continuous at 0, with g·φ = φ ⋆ g^{−1}, (φ ⋆ (a b; c d))(x) = δ(cx+d)φ((ax+b)/(cx+d)). Twisting: (D ⊠_δ ℙ¹) ⊗ (η∘det) ≅ (D ⊗ η) ⊠_{δη²} ℙ¹, and there is a perfect G-equivariant pairing { , }_{ℙ¹} between Ď ⊠_{δ^{−1}} ℙ¹ and D ⊠_δ ℙ¹. The pairing takes values in O_L, L, or L/O_L with the matching integral, rational, or torsion topology, as in [§1.3](#section-1-3).
 
 Here D étale; δ unitary continuous; the construction is analytic in (D, δ) over S ⊗̂ O_E for S a quotient of O_L[[X₁,…,X_d]] (Remarque 0.18(iv)).
 
@@ -761,7 +774,7 @@ Use the following named operations and compatibility results.
 - `BoxtimesP1.central`: (a 0; 0 a)·z = δ(a)z.
 - `BoxtimesP1.twist`: (D ⊠_δ ℙ¹) ⊗ (η∘det) ≅ (D ⊗ η) ⊠_{δη²} ℙ¹.
 - `BoxtimesP1.pairing`: The continuous G-equivariant perfect pairing on the two glued modules, into the coefficient-dependent residue-duality target of [§1.3](#section-1-3).
-- `BoxtimesP1.measures`: For D = E^♮ (measures), D ⊠_δ ℙ¹ ≅ B(δ)* G-equivariantly.
+- `BoxtimesP1.measures`: The separate glued measure module M ⊠_δ ℙ¹, for M=D⁰(ℤ_p,O_L) with matching coefficients in B(δ)*, is G-equivariantly isomorphic to B(δ)*. Its charts use the ψ-module measure construction, rather than substituting M for the étale carrier D.
 
 Define w_δ on D^{ψ=0} by the limit formula; convergence and the involution property are Colmez's Lemme II.1.2 and Remarque II.1.3.
 
@@ -775,7 +788,7 @@ Twisting (Colmez §II.1.3) and the pairing (Théorème II.1.13) from the residue
 
 - `BoxtimesP1.w_swap`: w·(z₁, z₂) = (z₂, z₁).
 - `BoxtimesP1.zero`: 0 ⊠_δ ℙ¹ = 0.
-- `BoxtimesP1.measures_dirac`: For D = E^♮, if z ∈ D ⊠_δ ℙ¹ corresponds to μ ∈ B(δ)*, then g·z corresponds to the functional φ ↦ μ(φ ⋆ g), the transpose of the action g·φ = φ ⋆ g^{−1} on B(δ).
+- `BoxtimesP1.measures_dirac`: In the glued measure module, if z corresponds to μ ∈ B(δ)*, then g·z corresponds to the functional φ ↦ μ(φ ⋆ g), the transpose of the action g·φ = φ ⋆ g^{−1} on B(δ).
 - `BoxtimesP1.not_split`: For general δ the extension of a Banach space by the dual of a Banach space underlying D ⊠_δ ℙ¹ is not G-equivariantly split: for D irreducible of rank 2 and δ = δ_D it is the non-split sequence of [§3.7](#section-3-7).
 - The centre acts through δ.
 - Res_{ℤ_p} and Res_{ℤ_p}∘w recover (z₁, z₂).
@@ -867,12 +880,16 @@ Here Π ∈ Rep^{tors}G without finite quotient; F = ℚ_p.
 
 The key identity β_{ℤ_p^×} ∘ w = w_δ ∘ β_{ℤ_p^×} (Proposition IV.4.2) gives that β_{ℙ¹} lands in D ⊠_δ ℙ¹ and is G-equivariant (Théorème IV.4.7).
 
+Name these maps `Reconstruction.betaQp`, `Reconstruction.betaP1` and the quotient `Reconstruction.contragredient`, with `Reconstruction.contragredient_involutive` and `Reconstruction.res_betaP1` for the stated identities.
+
 G-stability and duality of D^♮ ⊠_δ ℙ¹ (Théorème IV.4.1) and the contragredient statements (Théorème 0.14, §IV.4.5, Proposition IV.4.18).
 
 **Checks.**
 
 - For Π supersingular, Π̌ ≅ Π ⊗ δ_Π^{−1}.
 - The contragredient of the contragredient is Π.
+- At Π=0 both β maps, both glued modules and the contragredient are zero.
+- A nonzero character η∘det has D(Π)=0 and hence β_{ℙ¹}=0. Its finite quotient violates the hypothesis: injectivity cannot be extended to all finite-length Π.
 
 The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), Proposition 0.12, Théorèmes 0.13 and 0.14, Exemples 0.15, p. 14; Théorème IV.4.1, p. 106; Proposition IV.4.2 and Théorème IV.4.7, pp. 107–110.
 
@@ -1014,7 +1031,7 @@ The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), Introduction §13.2, pp.
 
 For an irreducible rank-two rational étale module D with central character δ_D, define C=(1−φ)D^{ψ=1} and C′=(1−δ_D(p)^{-1}φ)D^{ψ=δ_D(p)^{-1}} inside D^{ψ=0}. The Weyl involution w_{δ_D} sends C bijectively onto C′. The comparison of this heart with overconvergent Γ-distributions, used to extend w to D† and D_rig, is an additional analytic input specified in the analytic Fontaine-heart comparison.
 
-Here D irreducible rank two over E; the natural glued submodule is G-stable.
+Here D irreducible rank two over E; the natural glued submodule is G-stable. Name the two subspaces `FontaineHeart.heart` and `FontaineHeart.twistedHeart`, with `FontaineHeart.weyl_heart` and `FontaineHeart.weyl_twistedHeart` for the two image equalities.
 
 Use the restriction description of the natural glued submodule and its G-stability. Translate the ψ-eigenspace relation under w and the central action into the two displayed (1−cφ)-images, as in Proposition V.2.1.
 
@@ -1023,7 +1040,9 @@ Do not replace this argument with the formal H¹ computation of a two-term ψ co
 **Checks.**
 
 - The second heart uses ψ-eigenvalue δ_D(p)^{-1}, not always 1.
-- w²=1 gives equality of the two hearts, not merely containment.
+- w²=1 turns the two inclusions into w(C)=C′ and w(C′)=C; it does not assert C=C′.
+- If ψz=cz, then ψ((1−cφ)z)=cz−cz=0, using ψφ=1. This checks that the twisted heart really lies in D^{ψ=0}; taking the wrong ψ-eigenvalue fails this calculation.
+- When δ_D(p)=1 the defining formulas give C′=C; the formula with general δ_D(p) must specialise to this equality.
 
 The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), Proposition V.2.1, p.125; Theorem V.1.12 and §V.2 for the additional analytic comparison.
 
@@ -1037,16 +1056,19 @@ Let D ∈ ΦΓ^et(E) be irreducible of rank 2 and Π = Π(D). (i) D† ⊠ ℙ¹
 
 Here D irreducible of rank 2 over E.
 
+Name the overconvergent and Robba section spaces `AnalyticBoxtimes.daggerSections` and `AnalyticBoxtimes.rigSections`, their analytic quotient `AnalyticBoxtimes.analytic_quotient`, and the displayed exact sequence `AnalyticBoxtimes.analytic_exact`. The twist on the left is by δ_D∘det as a character of G.
+
 Apply [§3.10](#section-3-10), then the overconvergent heart/distribution comparison in the analytic Fontaine-heart comparison, to prove stability of D† ⊠ℙ¹.
 
 Use Colmez Theorem V.2.20 and its extended pairing to obtain the locally analytic exact sequence.
 
-Use the universal-completion target and its coherent-lattice input the coherent-lattice criterion.
+Use the universal-completion target and the coherent-lattice criterion of [§2.5](#section-2-5).
 
 **Checks.**
 
 - Π(D)^{an} is dense in Π(D).
-- For D crystabelline, Π(D)^{an} contains the locally algebraic principal series of R30.4.
+- For D crystabelline, Π(D)^{an} contains the locally algebraic principal series of [§4.3](#section-4-3).
+- On a scalar matrix a·1, the contragredient analytic dual has character δ_D(a)⁻¹; twisting by δ_D∘det changes this to δ_D(a)⁻¹δ_D(a²)=δ_D(a). Thus both ends of the Robba exact sequence have the central character of its middle term. Omitting the determinant in this twist fails the computation.
 
 The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), Théorème 0.19, p. 16; Proposition V.2.1, p. 125; Théorème V.2.20, p. 134; [Pierre Colmez, Gabriel Dospinescu, CD14](#ref-cd14), Théorème 0.2, p. 4.
 
@@ -1089,7 +1111,7 @@ Independence of the filtration is by construction; the parametrisation of admiss
 
 - `LocAlgType.algFactor_weights_0_1`: For Hodge–Tate weights (0, 1), Alg(V) is the trivial representation.
 - `LocAlgType.algFactor_dim`: dim Alg(V) = b − a.
-- `LocAlgType.equal_weights_excluded`: For equal Hodge–Tate weights no Alg(V) is defined, and Π(V)^{alg} = 0 ([§4.2](#section-4-2)).
+- `LocAlgType.equal_weights_excluded`: For equal Hodge–Tate weights no Alg(V) is defined by this distinct-weight formula; if V is also absolutely irreducible then Π(V)^{alg}=0 by [§4.2](#section-4-2). The irreducibility hypothesis is necessary for that vanishing criterion.
 - `LocAlgType.crystalline_unramified`: For V crystalline with generic Frobenius eigenvalues α, β, LL(V) is unramified and LL(V)^{K} is one-dimensional.
 - For V crystalline with distinct Frobenius eigenvalues α, β (α/β ≠ p^{±1}) and weights a < b, LL(V) is the unramified principal series attached to the two unramified characters μ_α, μ_β, and Alg(V) = Sym^{b−a−1} ⊗ det^a.
 - For a smooth character η, LL(V⊗η)=LL(V)⊗(η∘det), while Alg(V⊗η)=Alg(V). For a general de Rham character of weight c, the algebraic factor changes by det^c and the smooth factor uses its associated Weil–Deligne character; η itself need not be smooth.
@@ -1225,7 +1247,7 @@ The source is [Mark Kisin, KISIN09](#ref-kisin09), Hypothesis (1.2.6), (1.2.7) a
 
 ### 4.6 Classification of unitary completions; weights do not determine Π
 
-Let π be an admissible absolutely irreducible infinite-dimensional smooth L-representation of G, W = Sym^{k−1}L² ⊗ det^a (k ≥ 1), Δ the Weil representation attached to π by the classical correspondence (viewed as a (φ, G_{ℚ_p})-module), and F(Δ, W) the set of weakly admissible absolutely irreducible filtered (φ, N, G_{ℚ_p})-modules with underlying Δ and filtration jumps −a, −a−k. (i) If Π is an admissible absolutely irreducible non-ordinary unitary completion of π ⊗ W then V(Π) is potentially semistable with Hodge–Tate weights a, a+k and D_pst(V(Π)) has underlying (φ, G_{ℚ_p})-module Δ. (ii) Π ↦ D_pst(V(Π)) is a bijection from such completions onto F(Δ, W), which is a point if π is a principal series and ℙ¹(L) if π is supercuspidal or a twist of the Steinberg. In particular St ⊗ |det|^{k/2} ⊗ Sym^k L² has exactly ℙ¹(L) pairwise non-isomorphic absolutely irreducible admissible unitary completions (Breuil's conjecture): a p-adic Banach representation is not determined by its Hodge–Tate weights and locally algebraic vectors. The filtration set F may be empty; nonzero completions are classified only for ℒ∈F, allowing a finite coefficient extension. There is no assertion that every (M,a,b) admits a completion.
+Let π be an admissible absolutely irreducible infinite-dimensional smooth L-representation of G, W = Sym^{k−1}L² ⊗ det^a (k ≥ 1), Δ the Weil representation attached to π by the classical correspondence (viewed as a (φ, G_{ℚ_p})-module), and F(Δ, W) the set of weakly admissible absolutely irreducible filtered (φ, N, G_{ℚ_p})-modules with underlying Δ and filtration jumps −a, −a−k. (i) If Π is an admissible absolutely irreducible non-ordinary unitary completion of π ⊗ W then V(Π) is potentially semistable with Hodge–Tate weights a, a+k and D_pst(V(Π)) has underlying (φ, G_{ℚ_p})-module Δ. (ii) Π ↦ D_pst(V(Π)) is a bijection from such completions onto F(Δ, W). When nonempty, this set is a point if π is a principal series and ℙ¹(L) if π is supercuspidal or a twist of the Steinberg. In particular, for k≥1 and L containing the half-unramified character required by |·|^{k/2}, St ⊗ |det|^{k/2} ⊗ Sym^k L² has exactly ℙ¹(L) pairwise non-isomorphic absolutely irreducible admissible unitary completions (Breuil's conjecture): a p-adic Banach representation is not determined by its Hodge–Tate weights and locally algebraic vectors. The filtration set F may be empty; nonzero completions are classified only for ℒ∈F, allowing a finite coefficient extension. There is no assertion that every (M,a,b) admits a completion.
 
 Here π infinite-dimensional; completions absolutely irreducible, admissible, non-ordinary; the supercuspidal case uses Emerton's local-global compatibility (CDP footnote 5), i.e. the supercuspidal comparison input.
 
@@ -1235,8 +1257,11 @@ Distinct ℒ give non-isomorphic Π(D_ℒ) since V(Π(D_ℒ)) = V(D_ℒ) are non
 
 **Checks.**
 
-- For π = St ⊗ |det|^{k/2}, W = Sym^k: completions ↔ ℙ¹(L) (the L-invariant).
-- For π an irreducible principal series, the completion is unique.
+- For k≥1, π = St ⊗ |det|^{k/2}, W = Sym^k: completions ↔ ℙ¹(L) (the L-invariant).
+- For π an irreducible principal series with F(Δ,W) nonempty, the completion is unique up to isomorphism.
+- If F(Δ,W)=∅, there is no absolutely irreducible admissible nonordinary unitary completion; the classification is then a bijection between empty sets.
+- For π=St and W=1 (the separate exponent k=0), F(Δ,W) is empty in the absolutely irreducible category. In the semistable description the two Frobenius slopes and filtration jumps are −1,0; weak admissibility forces the slope −1 line itself to be weakly admissible, hence the Galois representation is reducible. The usual unitary Steinberg completion is ordinary and does not enter this classification. Thus the positive-exponent hypothesis in the preceding family cannot be dropped.
+- In the Steinberg family the point ∞ has N=0 and gives the crystalline endpoint. Fixing N≠0 removes that point, leaving the finite L-invariants, as in CDP14 footnote 4.
 
 The source is [Pierre Colmez, Gabriel Dospinescu, Vytautas Paškūnas, CDP14](#ref-cdp14), Theorem 1.3 and the paragraph before it, p. 2; [Vytautas Paškūnas, PASKUNAS13](#ref-paskunas13), §1, p. 3; [Pierre Colmez, COLMEZ10](#ref-colmez10), Remarque 0.22, p. 18.
 
@@ -1248,7 +1273,7 @@ The source is [Pierre Colmez, Gabriel Dospinescu, Vytautas Paškūnas, CDP14](#r
 
 Let D ∈ ΦΓ^et(E) be irreducible of rank 2, almost de Rham with Hodge–Tate weights ℓ < ℓ + k, Π = Π(D), and X^-_∞ ⊂ D̃_dif/D̃⁺_dif the L_∞[t]/t^k-module of Colmez §VI.4. (i) For z ∈ Π^{alg}, K_z(x) f_D = ι^-_0((x 0; 0 1)·z) defines K_z : ℚ_p^× → L_∞[t]/t^k with σ_a(K_z(x)) = K_z(ax), its coefficients locally constant with compact support in ℚ_p, and z ↦ K_z is a bijection of Π^{alg} onto its Kirillov model. (ii) Π^{alg}, if nonzero, is of type (ℓ, k) and irreducible, except in the special case where it is an extension of W_{ℓ,k} ⊗ (δ₀∘det) by W_{ℓ,k} ⊗ St ⊗ (δ₀∘det) for a smooth δ₀. (iii) The P-algebraic vectors with compact support Π^{P−alg}_c satisfy: z ↦ φ_z is a B-equivariant isomorphism Π^{P−alg}_c ≅ LP_c(ℚ_p^×, X^-_∞)^Γ (locally polynomial, compactly supported functions with Γ-equivariance), Π^{P−alg}_c ⊂ Π^{an}, and Π^{P−alg}_c ⊂ Π^{alg} when Π^{alg} ≠ 0. This is the P-equivariant embedding of functions on ℚ_p^× with values in D^-_dif into Π(V)^{la} used by consumers.
 
-Here D irreducible of rank 2, almost de Rham with weights ℓ < ℓ + k (for (i)–(ii)); (iii) for D irreducible of rank 2 with these weights.
+Here D irreducible of rank 2, almost de Rham with weights ℓ < ℓ + k (for (i)–(ii)); (iii) for D irreducible of rank 2 with these weights. Name the maps `Kirillov.ofAlgebraicVector` and `Kirillov.ofPAlgebraicVector`, the subspace `Kirillov.compactPAlgebraic`, and the equivariance and bijectivity targets `Kirillov.gamma_equivariant` and `Kirillov.compactPAlgebraic_equiv`.
 
 (i): Proposition VI.5.6 from Lemme VI.5.4 (the map z ↦ φ_z = ι^-_0 on the B-orbit).
 
@@ -1260,6 +1285,8 @@ Here D irreducible of rank 2, almost de Rham with weights ℓ < ℓ + k (for (i)
 
 - For D crystalline irreducible with weights 0, k, the Kirillov functions of Π^{alg} take values in L_∞[t]/t^k and are compactly supported in ℚ_p.
 - Π^{P−alg}_c ≅ ⊕_{i∈ℤ} X^-_∞ via z ↦ (ι^-_i(z̃))_i (Lemme VI.5.10).
+- The zero vector gives the zero function. Conversely a function with all values zero has preimage zero by the injectivity of the Kirillov map.
+- A nonzero constant function on ℚ_p^× cannot lie in the compact P-algebraic model: its support is not compact in ℚ_p^×. Compact support in ℚ_p for the coefficients of an algebraic vector in (i) is a different condition, and may allow accumulation at zero.
 
 The source is [Pierre Colmez, COLMEZ10](#ref-colmez10), §VI.5.2–VI.5.4: Proposition VI.5.6 and Théorème VI.5.7, p. 167; Proposition VI.5.8, Corollaire VI.5.9 and Lemme VI.5.10, p. 168; Proposition VI.5.12(i), p. 169.
 
@@ -1273,6 +1300,8 @@ Let s = (δ₁, δ₂, ℒ) ∈ S_irr ([§1.6](#section-1-6)), Δ(s) the triangu
 
 Here s ∈ S_irr; p ≠ 2 where Colmez's trianguline classification is used (the dyadic trianguline classification).
 
+Name the induced representation `AnalyticPrincipalSeries`, with `AnalyticPrincipalSeries.centralCharacter` for its central action, `AnalyticPrincipalSeries.specialSubrep` for W when δ_s=x^k, and `AnalyticPrincipalSeries.specialQuotient` for St^{an}. The generic and special exact sequences are `Trianguline.analytic_generic_exact` and `Trianguline.analytic_special_exact`; the latter retains the parameter ℒ in E_ℒ.
+
 Compute the Jacquet-type module J*(s) of Π(Δ(s)) (Colmez 2014, Théorème 0.6) from the description of Π(D)^{an} through D_rig ⊠ ℙ¹ ([§3.11](#section-3-11)).
 
 An eigenvector of B in J*(Π) gives a G-map to Ind^{an}; this gives p_s : Π(Δ(s)) → Ban(δ₂, δ₁), shown surjective with the stated kernel (Théorème 0.7).
@@ -1281,8 +1310,10 @@ Uniqueness of the extension: dim Ext¹(Ban(δ₂, δ₁), Ban(δ₁, δ₂)) = 1
 
 **Checks.**
 
-- For V crystalline irreducible with distinct eigenvalues, Π(V)^{an} is an extension of two locally analytic principal series.
+- For crystalline irreducible V with distinct eigenvalues and a generic parameter s, Π(V)^{an} is an extension of the two displayed locally analytic principal series. At a special parameter its kernel is E_ℒ instead.
 - For V semistable non-crystalline, the extension class of E_ℒ recovers the Fontaine–Mazur ℒ-invariant.
+- A scalar a·1 acts on Ban(η₁,η₂) by η₁(a)η₂(a)χ(a)⁻¹, computed from the inducing character. Taking η₁=χη₂ makes this η₂(a)², the central character of the one-dimensional subrepresentation η₂∘det.
+- For the induced representation with η₁=χη₂ (the formal k=0 special case), W=η₂∘det has dimension one; for δ_s=x it has dimension two. The k=0 parameter has u(s)=0 when the determinant is unitary, since δ₁(p)=δ₂(p), so it lies outside S_irr. This dimension-one check concerns induction, not an extra irreducible V(s). At a permitted special parameter the kernel remains E_ℒ.
 
 The source is [Pierre Colmez, COLMEZ14LA](#ref-colmez14la), Théorème 0.1, p. 5; Propositions 0.2–0.5, pp. 5–6; Théorèmes 0.6–0.7 and Remarque 0.8, p. 7.
 
@@ -1440,7 +1471,7 @@ Use the following named operations and compatibility results.
 
 - `ProjEnvelope.P`: P̃ ↠ π^∨, a projective envelope in C_{G,ζ}(O).
 - `ProjEnvelope.endRing`: Ẽ = End_{C(O)}(P̃), local compact with residue field k.
-- `ProjEnvelope.isProjectiveCover`: P̃ → π^∨ is a projective cover in the sense of Tau Ceti's IsProjectiveCover, transported to C(O).
+- `ProjEnvelope.isProjectiveCover`: P̃ is a categorical projective object of C(O), and P̃→π^∨ satisfies `TauCeti.IsEssentialEpi` in that category. The ordinary module predicate `TauCeti.IsProjectiveCover` is not transported without an equivalence of the relevant categories.
 - `ProjEnvelope.flat`: Under (H0)–(H5), P̃ is flat over Ẽ and k ⊗̂_Ẽ P̃ ≅ Q.
 - `ProjEnvelope.topology`: Under (H0)–(H5), the natural topology of Ẽ is 𝔪-adic.
 - `ProjEnvelope.Vcheck_action`: Ẽ acts on V̌(P̃) and V̌ is compatible with ⊗̂_Ẽ.
@@ -1669,9 +1700,12 @@ Before applying the cycle criterion to the actual generator, verify that R is Co
 
 **Checks.**
 
-- For σ irreducible with Hom_K(σ, π) ≠ 0, the Hilbert–Samuel multiplicity of M(σ) is 1 (Theorem 6.6).
+- For p≥5 and generic ρ̄ in Paškūnas §6.1 (ρ̄ irreducible, or nonsplit (χ₁ *;0 χ₂) with χ₁χ₂⁻¹∉{1,ω}), the generator P̃ and π of that section give multiplicity one for M(σ) when Hom_K(σ,π)≠0 (Theorem 6.6).
+- Do not extend this check to the nongeneric cyclotomic-extension case: its separate construction and multiplicities, including the peu ramifié multiplicity-two case, belong to [§6.1](#section-6-1).
+- For N=0 the defining compact Hom gives M(Θ)=0. For R=O, N=O[[K]] and Θ=O with trivial K-action, evaluation at 1 gives M(Θ)≅O instead; the construction does not discard the K-equivariance condition or replace this dual by a torsion dual.
+- A direct sum of two finite-dimensional K-types with lattices Θ₁ and Θ₂ gives M(Θ₁⊕Θ₂)≅M(Θ₁)⊕M(Θ₂), so two copies of the preceding trivial type give O², rather than O.
 
-The source is [Vytautas Paškūnas, PASKUNAS15](#ref-paskunas15), §2.1 setup; Theorems 2.42–2.44, p.16; Proposition 4.14, p.23; Corollary 6.5, p.31; [Kentaro Nakamura, NAKAMURA23](#ref-nakamura23), §4.3, Theorem 4.7, p. 67 (arXiv).
+The source is [Vytautas Paškūnas, PASKUNAS15](#ref-paskunas15), §2.1 setup; Theorems 2.42–2.44, p.16; Proposition 4.14, p.23; §6.1, Corollary 6.5 and Theorem 6.6, pp.30–32; [Kentaro Nakamura, NAKAMURA23](#ref-nakamura23), §4.3, Theorem 4.7, p. 67 (arXiv).
 
 *Needs:* [§5.3](#section-5-3); [§5.10](#section-5-10); [§5.5](#section-5-5); [§4.5](#section-4-5); [§4.2](#section-4-2); [§4.4](#section-4-4); DeformationAndDerivedPatchingAlgebra:R03.6/cycle-specialization-multiplicity.
 
@@ -1737,11 +1771,12 @@ The peu/très ramifié extension predicate and the fundamental-character convent
 **Checks.**
 
 - `Admits.sigma00`: σ_{0,0} admits ρ̄ iff ρ̄|_{I_ℓ} ≅ (ω *; 0 1) peu ramifié or ω₂ ⊕ ω₂^ℓ.
-- `Admits.sigma_n_m_irreducible`: For ρ̄|_{I_ℓ} ≅ ω₂^{1−ℓn} ⊕ ω₂^{ℓ−n} irreducible, σ_{n,0} admits ρ̄.
+- `Admits.sigma_n_m_irreducible`: For irreducible ρ̄ with ρ̄|_{I_ℓ} ≅ ω₂^{1−ℓn} ⊕ ω₂^{ℓ−n}, σ_{n,0} admits ρ̄. The irreducibility condition is on ρ̄, not on this direct sum of inertia characters.
 - `Admits.tres_ramifie_excluded`: σ_{0,0} does not admit ρ̄ with ρ̄|_{I_ℓ} ≅ (ω *; 0 1) très ramifié.
 - `Admits.no_type`: A type whose reduction has no constituent admitting ρ̄ does not admit ρ̄.
 - σ_{0,0} admits ρ̄ iff ρ̄|_{I_ℓ} ≅ (ω *; 0 1) peu ramifié or ρ̄|_{I_ℓ} ≅ ω₂ ⊕ ω₂^ℓ.
 - Simple admittance implies admittance.
+- A reduction consisting of one simply admitted constituent with multiplicity one simply admits ρ̄. Two copies of that constituent still admit ρ̄ but fail simple admittance; two distinct admitted constituents also fail simple admittance. These distinguish the unique-constituent and multiplicity-one requirements.
 
 The source is [Christophe Breuil, Brian Conrad, Fred Diamond, Richard Taylor, BCDT01](#ref-bcdt01), §1.3, pp. 854–856 (published; pp. 10–12 of Breuil's author copy).
 
@@ -1973,6 +2008,8 @@ Let π be a supercuspidal representation of G = GL₂(ℚ_p) with trivial centra
 
 Here π supercuspidal with trivial central character (extends to π ⊗ Sym^k, DLB Remarque 1.3(a)); n large.
 
+Name this completion family `DrinfeldComparison.completionFamily`; its ρ-isotypic function and differential spaces are `DrinfeldComparison.functions` and `DrinfeldComparison.differentials`. The targets `DrinfeldComparison.functions_dual`, `DrinfeldComparison.deRham` and `DrinfeldComparison.filtration_preimage` are respectively the three comparisons above, with the stated topologies and scalar ambiguity.
+
 (i): CDP ([§3.8](#section-3-8)) with det V(Π) = χ_cyc and the Colmez–Fontaine theorem; all filtrations are weakly admissible since the Weil representation of M(π) is irreducible ([§4.6](#section-4-6)).
 
 Use [§4.11](#section-4-11), rather than only the algebraic independence theorem VI.6.42. Identifying this common quotient with functions on the Drinfeld cover needs the geometric inputs the differential-equation and Drinfeld geometry comparisons.
@@ -1984,6 +2021,9 @@ The geometric comparison needs the finite Drinfeld covering spaces Σ_n and thei
 **Checks.**
 
 - Π^{an}_ℒ is an extension 0 → π → Π^{an}_ℒ → Π(π, 0) → 0 with Π(π, 0) independent of ℒ.
+- For a basis e₁,e₂ of M_dR and ℒ=Le₁, its annihilator is Le₂*; using ℒ itself in place of ℒ^⊥ gives the wrong inverse image in the differential space. Duality reverses the resulting sequence to 0→π→Π^{an}_ℒ→(O(Σ_n)^ρ)*→0.
+- The zero Banach representation and every ordinary absolutely irreducible Banach representation fail to lie in V(π): their smooth vectors cannot equal this nonzero supercuspidal π. Distinct lines Le₁ and Le₂ give distinct completions, although their analytic quotients are isomorphic.
+- Passing to a larger level with ρ still trivial on 1+p^nO_D preserves the isomorphism class of the function dual in (ii). At a level where that triviality fails, (ii) makes no such assertion.
 
 The source is [Gabriel Dospinescu, Arthur-César Le Bras, DLB17](#ref-dlb17), Définition 1.1, Théorème 1.2, Remarque 1.3, pp. 4–5; Théorème 1.4, p. 6 (arXiv).
 
@@ -2028,7 +2068,7 @@ Page numbers refer to the indicated author/preprint version unless a published p
 
 <a id="ref-colmez10"></a>
 
-- **COLMEZ10.** Pierre Colmez, [Représentations de GL2(Qp) et (φ,Γ)-modules](https://webusers.imj-prg.fr/~pierre.colmez/kirilov.pdf). Astérisque 330 (2010), 281–509; read in the author's version kirilov.pdf (236 pp.), whose page numbers are cited.
+- **COLMEZ10.** Pierre Colmez, [Représentations de GL2(Qp) et (φ,Γ)-modules](https://webusers.imj-prg.fr/~pierre.colmez/kirilov.pdf). Astérisque 330 (2010), 281–509; read in the author's version kirilov.pdf (238 pp.), whose page numbers are cited.
 
 <a id="ref-colmez08tri"></a>
 
@@ -2104,7 +2144,7 @@ Page numbers refer to the indicated author/preprint version unless a published p
 
 <a id="ref-gee-kisin14"></a>
 
-- **GEE-KISIN14.** Toby Gee, Mark Kisin, [The Breuil–Mézard conjecture for potentially Barsotti–Tate representations](https://arxiv.org/abs/1208.3179). Forum Math. Pi 2 (2014), e1; read arXiv:1208.3179.
+- **GEE-KISIN14.** Toby Gee, Mark Kisin, [The Breuil–Mézard conjecture for potentially Barsotti–Tate representations](https://arxiv.org/abs/1208.3179). Forum Math. Pi 2 (2014), e1; read [arXiv:1208.3179v5](https://arxiv.org/abs/1208.3179v5), including Appendix B, pp.38–41.
 
 <a id="ref-kisin09"></a>
 

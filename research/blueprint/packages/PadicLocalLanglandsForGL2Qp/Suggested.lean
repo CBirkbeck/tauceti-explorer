@@ -86,6 +86,11 @@ example (b : ℚ_[p]) : InMirabolic p (unipotent p b) := by
 example (b : ℚ_[p]) (hb : ‖b‖ ≤ 1) : InMirabolicPlus p (unipotent p b) := by
   simpa [InMirabolicPlus, InMirabolic, unipotent] using hb
 
+/-- A nonintegral scaling fails the positive-monoid condition. -/
+example (a : ℚ_[p]ˣ) (ha : 1 < ‖(a : ℚ_[p])‖) :
+    ¬ InMirabolicPlus p (diagonal p a) := by
+  simpa [InMirabolicPlus, InMirabolic, diagonal] using (not_le.mpr ha)
+
 /-- Diagonal scaling preserves the affine chart without becoming central. -/
 example (a : ℚ_[p]ˣ) : InMirabolic p (diagonal p a) := by
   simp [InMirabolic, diagonal]
@@ -157,18 +162,25 @@ sharp and PsiModule.boxtimesQp require the period-ring and topological carriers.
 Trianguline.IsTrianguline and param specialise the saturated triangulation theory.
 
 The GL2Qp.SmoothTorsionRep, DualCategory and pontryaginDual constructions,
-algebraicVectors and algebraicType, universalUnitaryCompletion, principalSeries,
-colmezPrincipalSeries and steinberg retain their full signatures in the README.
+algebraicVectors and algebraicType, universalUnitaryCompletion and IsHCoherent,
+principalSeries, colmezPrincipalSeries and steinberg retain their full signatures
+in the README. NormalizerType.serreWeight/iwahoriCharacter/normalizerRep record
+the finite and normaliser classifications.
 The general PhiGammaModuleEt.ofRep/toRep, RobbaRankOne and
 GL2Qp.UnitaryBanachRep/analyticVectors carriers come from the supplier contracts.
 
 BoxtimesP1, MontrealFunctor.D/V and PiOfD/ofRep require Colmez's gluing and
-completion constructions. LocAlgType.smoothFactor/algFactor and
+completion constructions. Reconstruction.betaQp/betaP1/contragredient,
+FontaineHeart.heart/twistedHeart and Kirillov.compactPAlgebraic with its two
+function maps, AnalyticBoxtimes.daggerSections/rigSections and
+AnalyticPrincipalSeries with its specialSubrep/specialQuotient are likewise
+specified there. LocAlgType.smoothFactor/algFactor and
 HenniartType.sigma/sigmaCris/sigmaW encode the algebraic and type comparisons.
 Block, ProjEnvelope.P/endRing, BlockPsRing.ring/universal, BMCycles.typeRing/cycle,
 KisinRingLL.completion/ring and Admits.sigma/simply/type require the compact
 categories, deformation rings and cycles. The differential-period and Drinfeld
-tower comparisons are likewise README targets. Their full APIs and checks remain
+tower comparisons, including DrinfeldComparison.completionFamily/functions/
+differentials, are likewise README targets. Their full APIs and checks remain
 there; no carrier is postulated in this file.
 -/
 
