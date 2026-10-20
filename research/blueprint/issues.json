@@ -5354,5 +5354,6 @@
  "REV-PKG-EllipticRegulators~codex2": 11372,
  "REV-PKG-EllipticKTheory~codex2": 11373,
  "REV-PKG-SpecialValuesBirchTate~codex2": 11374,
- "REV-PKG-K3BlochGroups~codex3": 11375
+ "REV-PKG-K3BlochGroups~codex3": 11375,
+ "PKG-PadicHodgeRegulators~codex": 11377
 }
