@@ -535,9 +535,9 @@
       "note": "ported 2026-10-13 (Opus, claude3); Lean 471 lines, README 5,118 lines; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "d245df1",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory": {
