@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-DrinfeldModulesAndTModules~codex1",
+    "date": "2026-10-20",
+    "notes": "Completed independent fixing review. Corrected source-exponential lattice morphisms, Frobenius linearization, intrinsic Tate modules and residue-valued duality, local residue lifts, projective Hom modules, total quotient products, period-ring valuations, skew invariant-factor edge cases, ABP estimates/auxiliaries and Hilbert growth; removed the upstream Tate-algebra duplicate and unnecessary FunctionFieldArithmetic import; added proved definition tests. Final lean-check exit 0, 614 lines, 23 sorry warnings only; no sorry data. Needs changes: FiniteFieldsAndCharacterSums linearized-polynomial contracts, ReductiveGroupsPartII Lang/Weil restriction, and MotivesAndAlgebraicCycles general neutral Tannaka contracts have no established available earlier/bundle upstream suppliers. Issue-specific 200 KB cap also differs from the later content-preserving shape rule; see report. No packet edits."
+  }
+}

@@ -15,8 +15,8 @@ Design choices made explicit here:
   (`FiniteField.frobeniusAlgHom`), packaged as the type synonym `OrePolynomial F R`;
 * a Drinfeld module over a field is a ring map `A →+* L{τ}` that is the identity on `F`, has
   differential `γ` and is not scalar; the rank is a theorem, not a field;
-* analytic statements are made over a complete nonarchimedean field `K` with an element `θ`
-  of norm `q`, which contains `C_∞` as the closure of the algebraic closure of `F(θ)`;
+* analytic signatures use a complete nonarchimedean field `K` with an element `θ` of norm `q`;
+  the transcendence signatures also assume `K` algebraically closed (README Conventions);
 * the semilinear algebra of difference equations is stated for an `F`-linear map
   `f : V →ₗ[F] V` with `f (a • v) = σ a • f v`.
 -/
@@ -86,6 +86,19 @@ noncomputable def natDegree (f : OrePolynomial F R) : ℕ :=
 theorem tau_mul_C (c : R) : (tau : OrePolynomial F R) * C c = C (c ^ Fintype.card F) * tau := by
   sorry
 
+example : coeff (tau : OrePolynomial F R) 1 = 1 := by
+  simp [coeff, tau]
+
+example (c : R) : coeff (C c : OrePolynomial F R) 0 = c := by
+  change SkewPolynomial.coeff (SkewPolynomial.C c) 0 = c
+  exact SkewPolynomial.coeff_C_zero
+
+example [Nontrivial R] : natDegree (tau : OrePolynomial F R) = 1 := by
+  let _ := frobeniusAction F R
+  change (SkewPolynomial.X : SkewPolynomial R).support.sup id = 1
+  rw [SkewPolynomial.support_X]
+  simp
+
 end OrePolynomial
 
 end Ore
@@ -124,6 +137,23 @@ def Hom (φ ψ : DrinfeldModule F A L γ) : AddSubgroup (OrePolynomial F L) wher
 /-- An isogeny is a nonzero morphism. -/
 def IsIsogeny {φ ψ : DrinfeldModule F A L γ} (u : Hom φ ψ) : Prop := (u : OrePolynomial F L) ≠ 0
 
+example (φ : DrinfeldModule F A L γ) : (0 : OrePolynomial F L) ∈ Hom φ φ := by
+  intro a
+  simp
+
+example (φ : DrinfeldModule F A L γ) : (1 : OrePolynomial F L) ∈ Hom φ φ := by
+  intro a
+  simp
+
+example (φ : DrinfeldModule F A L γ) : ¬ IsIsogeny (0 : Hom φ φ) := by
+  simp [IsIsogeny]
+
+example (φ : DrinfeldModule F A L γ) :
+    IsIsogeny (⟨1, by intro a; simp⟩ : Hom φ φ) := by
+  let _ := frobeniusAction F L
+  change (1 : SkewPolynomial L) ≠ 0
+  exact one_ne_zero
+
 /-- **The rank theorem over the polynomial ring** (README §0.2): for `A = F[X]`, the
 `τ`-degree of `φ_a` is `deg_τ φ_X · deg a`. -/
 theorem natDegree_eq_rank_mul {γ : F[X] →ₐ[F] L} (φ : DrinfeldModule F F[X] L γ) {a : F[X]}
@@ -160,6 +190,15 @@ example (θ : L) : (carlitz F θ) X = OrePolynomial.C θ + OrePolynomial.tau := 
   show (carlitz F θ).toRingHom X = _
   simp [carlitz]
 
+example : (X : F[X]) ∈ DrinfeldModule.charIdeal (carlitz F (0 : L)) := by
+  change (Polynomial.aeval (0 : L)) X = 0
+  simp
+
+example {θ : L} (hθ : θ ≠ 0) :
+    (X : F[X]) ∉ DrinfeldModule.charIdeal (carlitz F θ) := by
+  change (Polynomial.aeval θ) X ≠ 0
+  simpa using hθ
+
 /-- The Carlitz module has rank one: `deg_τ C_X = 1`. -/
 theorem carlitz_rank (θ : L) : ((carlitz F θ) X).natDegree = 1 := by
   sorry
@@ -180,6 +219,12 @@ def carlitzD (θ : R) (i : ℕ) : R :=
 /-- `ℓ_i = ∏_{1 ≤ j ≤ i} (θ - θ ^ (q ^ j))`, with `ℓ_0 = 1`. -/
 def carlitzEll (θ : R) (i : ℕ) : R :=
   ∏ j ∈ Finset.range i, (θ - θ ^ (Fintype.card F ^ (j + 1)))
+
+example (θ : R) : carlitzBracket F θ 0 = 0 := by
+  simp [carlitzBracket]
+
+example (θ : R) : carlitzBracket F θ 1 = θ ^ Fintype.card F - θ := by
+  simp [carlitzBracket]
 
 theorem carlitzD_succ (θ : R) (i : ℕ) :
     carlitzD F θ (i + 1) = carlitzBracket F θ (i + 1) * carlitzD F θ i ^ Fintype.card F := by
@@ -235,6 +280,18 @@ def carlitzLog (θ z : K) : K := ∑' i : ℕ, z ^ (Fintype.card F ^ i) / carlit
 `ρ ^ (q - 1) = -θ` (README §2.9). -/
 def carlitzPeriod (θ ρ : K) : K :=
   θ * ρ * ∏' i : ℕ, (1 - θ / θ ^ (Fintype.card F ^ (i + 1)))⁻¹
+
+example (θ : K) : carlitzExp F θ 0 = 0 := by
+  have hq : Fintype.card F ≠ 0 := Fintype.card_ne_zero
+  simp [carlitzExp, zero_pow (pow_ne_zero _ hq)]
+
+example (θ : K) : carlitzLog F θ 0 = 0 := by
+  have hq : Fintype.card F ≠ 0 := Fintype.card_ne_zero
+  simp [carlitzLog, zero_pow (pow_ne_zero _ hq)]
+
+example (θ ρ c : K) : carlitzPeriod F θ (c * ρ) = c * carlitzPeriod F θ ρ := by
+  unfold carlitzPeriod
+  ring
 
 /-- `exp_C` is entire: its series converges everywhere when `‖θ‖ = q`. -/
 theorem carlitzExp_summable (θ : K) (hθ : ‖θ‖ = Fintype.card F) (z : K) :
@@ -306,6 +363,13 @@ def finiteModuleCardinality (M : Type*) [AddCommGroup M] [Module F[X] M] [Module
     [IsScalarTower F F[X] M] [Module.Finite F M] [Module.Free F M] : F[X] :=
   LinearMap.charpoly ((LinearMap.lsmul F[X] M (X : F[X])).restrictScalars F)
 
+example (M : Type*) [AddCommGroup M] [Module F[X] M] [Module F M]
+    [IsScalarTower F F[X] M] [Module.Finite F M] [Module.Free F M] [Subsingleton M] :
+    finiteModuleCardinality F M = 1 := by
+  have hz : ((LinearMap.lsmul F[X] M (X : F[X])).restrictScalars F) = 0 :=
+    Subsingleton.elim _ _
+  simp [finiteModuleCardinality, hz, LinearMap.charpoly_zero, Module.finrank_zero_of_subsingleton]
+
 /-- The cardinality of a cyclic module `F[X]/(a)` with `a` monic is `a` itself. -/
 theorem finiteModuleCardinality_quotient (a : F[X]) (ha : a.Monic) [Module.Finite F (F[X] ⧸ Ideal.span {a})]
     [Module.Free F (F[X] ⧸ Ideal.span {a})] :
@@ -339,13 +403,43 @@ variable {F L V : Type*} [Field F] [Field L] [Algebra F L] [AddCommGroup V] [Mod
 def HasExactConstants (σ : L ≃ₐ[F] L) : Prop :=
   ∀ a : L, σ a = a ↔ a ∈ Set.range (algebraMap F L)
 
+example : HasExactConstants (AlgEquiv.refl : F ≃ₐ[F] F) := by
+  intro a
+  simp
+
+example : ¬ HasExactConstants (AlgEquiv.refl : ℂ ≃ₐ[ℝ] ℂ) := by
+  intro h
+  obtain ⟨a, ha⟩ := (h Complex.I).mp rfl
+  have hi := congrArg Complex.im ha
+  simp at hi
+
 /-- `f` is `σ`-semilinear: `f (a • v) = σ a • f v`. -/
 def IsSemilinear (σ : L ≃ₐ[F] L) (f : V →ₗ[F] V) : Prop :=
   ∀ (a : L) (v : V), f (a • v) = σ a • f v
 
+example (σ : L ≃ₐ[F] L) : IsSemilinear σ σ.toLinearMap := by
+  intro a v
+  exact map_mul σ a v
+
+example (σ : L ≃ₐ[F] L) :
+    IsSemilinear σ (LinearMap.id : L →ₗ[F] L) ↔ σ = AlgEquiv.refl := by
+  constructor
+  · intro h
+    ext a
+    have ha := h a 1
+    change σ a = a
+    simpa only [LinearMap.id_apply, smul_eq_mul, mul_one] using ha.symm
+  · rintro rfl
+    intro a v
+    rfl
+
 /-- The Betti comparison `L ⊗_F V^f → V`, `a ⊗ v ↦ a • v` (README §8.5). -/
 def bettiComparison (f : V →ₗ[F] V) : L ⊗[F] (LinearMap.fixedSubmodule f) →ₗ[L] V :=
   (LinearMap.fixedSubmodule f).subtype.liftBaseChange L
+
+example (f : V →ₗ[F] V) (a : L) (v : LinearMap.fixedSubmodule f) :
+    bettiComparison f (a ⊗ₜ[F] v) = a • (v : V) := by
+  simp [bettiComparison]
 
 /-- **Fixed vectors stay independent** (README §8.4). -/
 theorem linearIndependent_of_fixed (σ : L ≃ₐ[F] L) (f : V →ₗ[F] V) (hf : IsSemilinear σ f)
@@ -360,7 +454,7 @@ theorem finrank_fixedSubmodule_le [FiniteDimensional L V] (σ : L ≃ₐ[F] L) (
   sorry
 
 /-- **The dimension criterion for the Betti comparison** (README §8.8); for the operator `σ` of a
-pre-t-motive this is rigid analytic triviality (README §8.16). -/
+pre-t-motive this is rigid analytic triviality (README §8.15). -/
 theorem bettiComparison_bijective_iff [FiniteDimensional L V] (σ : L ≃ₐ[F] L)
     (f : V →ₗ[F] V) (hf : IsSemilinear σ f) (hσ : HasExactConstants σ) :
     Function.Bijective (bettiComparison (L := L) f) ↔
@@ -374,7 +468,7 @@ section Difference
 variable {F L : Type*} [Field F] [Field L] [Algebra F L]
 
 /-- A fundamental matrix of `σ(Ψ) = Φ Ψ`: an invertible `Ψ` with `Ψ.map σ = Φ * Ψ`
-(README §8.17). -/
+(README §8.16). -/
 def IsFundamentalMatrix (σ : L →+* L) {r : Type*} [Fintype r] [DecidableEq r]
     (Φ Ψ : Matrix r r L) : Prop :=
   IsUnit Ψ.det ∧ Ψ.map σ = Φ * Ψ
@@ -384,7 +478,11 @@ example (σ : L →+* L) {r : Type*} [Fintype r] [DecidableEq r] :
   refine ⟨by simp, ?_⟩
   rw [Matrix.map_one σ (map_zero σ) (map_one σ), one_mul]
 
-/-- The solution space `{v : σ(v) = Φ v}`, an `F`-subspace of `L ^ r` (README §8.26). -/
+example (σ : L →+* L) {r : Type*} [Fintype r] [DecidableEq r] [Nonempty r] :
+    ¬ IsFundamentalMatrix σ (0 : Matrix r r L) 0 := by
+  simp [IsFundamentalMatrix]
+
+/-- The solution space `{v : σ(v) = Φ v}`, an `F`-subspace of `L ^ r` (README §8.25). -/
 def solutionSpace (σ : L →ₐ[F] L) {r : Type*} [Fintype r] (Φ : Matrix r r L) :
     Submodule F (r → L) where
   carrier := {v | (fun i => σ (v i)) = Φ.mulVec v}
@@ -403,10 +501,31 @@ def solutionSpace (σ : L →ₐ[F] L) {r : Type*} [Fintype r] (Φ : Matrix r r 
     ext i
     simp [Algebra.smul_def]
 
-/-- The solution ring `K[Ψ_ij, det(Ψ)⁻¹] ⊂ L` of a fundamental matrix (README §8.27). -/
+example {r : Type*} [Fintype r] :
+    solutionSpace (AlgHom.id F L) (0 : Matrix r r L) = ⊥ := by
+  ext v
+  change (v = (0 : Matrix r r L).mulVec v) ↔ v = 0
+  simp
+
+example {r : Type*} [Fintype r] [DecidableEq r] :
+    solutionSpace (AlgHom.id F L) (1 : Matrix r r L) = ⊤ := by
+  ext v
+  simp [solutionSpace]
+
+/-- The solution ring `K[Ψ_ij, det(Ψ)⁻¹] ⊂ L` of a fundamental matrix (README §8.26). -/
 def solutionRing (K : Type*) [Field K] [Algebra K L] {r : Type*} [Fintype r] [DecidableEq r]
     (Ψ : Matrix r r L) : Subalgebra K L :=
   Algebra.adjoin K (Set.range (fun ij : r × r => Ψ ij.1 ij.2) ∪ {(Ψ.det)⁻¹})
+
+example (K : Type*) [Field K] [Algebra K L] {r : Type*} [Fintype r] [DecidableEq r] :
+    solutionRing K (1 : Matrix r r L) = ⊥ := by
+  apply le_antisymm ?_ bot_le
+  rw [solutionRing, Algebra.adjoin_le_iff]
+  rintro a (⟨⟨i, j⟩, rfl⟩ | ha)
+  · by_cases h : i = j <;> simp [Matrix.one_apply, h]
+  · simp only [Set.mem_singleton_iff, Matrix.det_one, inv_one] at ha
+    subst a
+    exact one_mem _
 
 end Difference
 
@@ -414,12 +533,25 @@ section DegreeSpan
 
 variable {F B ι : Type*} [Field F] [CommRing B] [Algebra F B]
 
-/-- The span `D_d(x)` of monomials of total degree at most `d` in the family `x` (README §8.42). -/
+/-- The span `D_d(x)` of monomials of total degree at most `d` in the family `x` (README §8.41). -/
 def degreeSpan (x : ι → B) (d : ℕ) : Submodule F B :=
   Submodule.span F {m | ∃ e : ι →₀ ℕ, (e.sum fun _ k => k) ≤ d ∧ m = e.prod fun i k => x i ^ k}
 
-example (x : ι → B) : (1 : B) ∈ degreeSpan (F := F) x 0 :=
-  Submodule.subset_span ⟨0, by simp, by simp⟩
+example (x : ι → B) : degreeSpan (F := F) x 0 = Submodule.span F {1} := by
+  unfold degreeSpan
+  congr 1
+  ext m
+  constructor
+  · rintro ⟨e, he, rfl⟩
+    have he0 : e = 0 := by
+      apply Finsupp.ext
+      intro i
+      have hi : e i ≤ e.sum (fun _ k => k) := by
+        simpa using Finsupp.single_le_sum e (g := fun _ k => k) (fun _ _ => Nat.zero_le _) i
+      simpa using Nat.le_zero.mp (le_trans hi he)
+    simp [he0]
+  · rintro rfl
+    exact ⟨0, by simp, by simp⟩
 
 end DegreeSpan
 
@@ -431,13 +563,13 @@ variable (F : Type*) [Field F] [Fintype F]
   {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K] [IsAlgClosed K]
   [Algebra F K]
 
-/-- **Transcendence of the Carlitz period** over the algebraic closure of `F(θ)` (README §8.48). -/
+/-- **Transcendence of the Carlitz period** over the algebraic closure of `F(θ)` (README §8.47). -/
 theorem transcendental_carlitzPeriod (θ : K) (hθ : ‖θ‖ = Fintype.card F) {ρ : K}
     (hρ : ρ ^ (Fintype.card F - 1) = -θ) :
     Transcendental (algebraicClosure F⟮θ⟯ K) (carlitzPeriod F θ ρ) := by
   sorry
 
-/-- **Algebraic independence of Carlitz logarithms** (Papanikolas; README §8.52): elements whose
+/-- **Algebraic independence of Carlitz logarithms** (Papanikolas; README §8.51): elements whose
 Carlitz exponentials are algebraic over `F(θ)` and which are linearly independent over `F(θ)` are
 algebraically independent over its algebraic closure. -/
 theorem algebraicIndependent_carlitzLog (θ : K) (hθ : ‖θ‖ = Fintype.card F) {r : ℕ}
@@ -472,9 +604,9 @@ states them with their API and checks.
   `InfinitelyTangent` (§6.9).
 * DM.7: `EllipticSheaf` (§7.1), `NormalizedEllipticSheaf` (§7.2), `DrinfeldModule.ellipticSheaf`
   (§7.3), `EllipticSheaf.shtukaDatum` (§7.5).
-* DM.8: `IsArithmeticEntire` (§8.10), `IsRigidAnalyticallyTrivial` (§8.16), `tensorGenerated`
-  (§8.22), `IsAdmissibleTower` (§8.25), `comparisonAlgebra` (§8.28), `carlitzLogDeformation`
-  (§8.45), `logPhi` (§8.46), `logPsi` (§8.46).
+* DM.8: `IsArithmeticEntire` (§8.10), `IsRigidAnalyticallyTrivial` (§8.15), `tensorGenerated`
+  (§8.21), `IsAdmissibleTower` (§8.24), `comparisonAlgebra` (§8.27), `carlitzLogDeformation`
+  (§8.44), `logPhi` (§8.45), `logPsi` (§8.45).
 -/
 
 end
