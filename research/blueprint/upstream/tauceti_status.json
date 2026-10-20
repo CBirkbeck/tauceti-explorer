@@ -247,7 +247,7 @@
     "AlgebraicModuliForArithmeticGeometry": {
       "stage": "pr",
       "pr": 853,
-      "head": "c17eca4",
+      "head": "98fd038",
       "depends_on": [
         779,
         785,
@@ -259,7 +259,8 @@
         "recommendation": "changes",
         "current": false,
         "draft": null,
-        "maintainer": null
+        "maintainer": null,
+        "note": "final-review repairs applied at 98fd038; confirmation pass pending"
       }
     },
     "LocallyAnalyticDistributions": {
