@@ -52707,8 +52707,9 @@
     "PKG-DrinfeldModulesAndTModules"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DrinfeldModulesAndTModules.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10896"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10896",
+   "finishedAt": "2026-10-20T23:30:40Z"
   },
   {
    "id": "PKG-DrinfeldModulesAndTModulesPartII",
@@ -154404,7 +154405,8 @@
     "BP-QSeriesPartitionsAndMockModularForms~3",
     "BP-QSeriesPartitionsAndMockModularForms~4"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11495"
   },
   {
    "id": "REV-PKG-HabiroRings~codex5",
@@ -154551,8 +154553,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-OverconvergentAutomorphicForms~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-OverconvergentAutomorphicForms~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11525",
+   "finishedAt": "2026-10-20T23:30:44Z"
   },
   {
    "id": "BP-QSeriesPartitionsAndMockModularForms~5",
