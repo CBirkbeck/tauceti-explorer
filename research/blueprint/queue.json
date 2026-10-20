@@ -153379,6 +153379,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundationsPartII~codex1.md"
+  },
+  {
+   "id": "REV-PKG-ModularIwasawaMainConjectures~codex3",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ModularIwasawaMainConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ModularIwasawaMainConjectures~codex3.md",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/review.json",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/README.md",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/Suggested.lean",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-ModularIwasawaMainConjectures~codex3.md"
   }
  ]
 }
