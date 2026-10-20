@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-FiniteFieldsAndCharacterSums",
+    "date": "2026-10-20",
+    "notes": "Completed independent fixing review. Corrected loop-free Terras adjacency; strengthened proved definition examples and quotient-pairing API/Checks; mapped the all-prime Dwork coefficient input to RD.1.64; verified public Robert (2001) and 15 sampled source locators; clarified Hensel/source scope and positive-degree division. lean-check exits 0 with exactly 57 sorry warnings. Remaining closure defects: CN ring-cost/randomness semantics and overlapping ownership/publication order; geometric complete-DVR conductor and general Albanese-Weil supplier extensions; p=2 native Dwork splitting; unverified Cohen exact-Gamma-route locators and requested geometric Part II exports. Preserve all general targets; see review report for exact contracts and handoff."
+  }
+}
