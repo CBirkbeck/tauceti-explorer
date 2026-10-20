@@ -154004,6 +154004,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicCongruences~adv.md"
+  },
+  {
+   "id": "FIX-PKG-FunctionFieldArithmetic~adv1",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "FunctionFieldArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-FunctionFieldArithmetic~adv1.md",
+    "research/blueprint/packages/FunctionFieldArithmetic/review.json",
+    "research/blueprint/packages/FunctionFieldArithmetic/README.md",
+    "research/blueprint/packages/FunctionFieldArithmetic/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-FunctionFieldArithmetic~adv1.md"
   }
  ]
 }
