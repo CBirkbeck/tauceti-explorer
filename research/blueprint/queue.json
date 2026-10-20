@@ -154394,6 +154394,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex5.md"
+  },
+  {
+   "id": "FIX-PKG-FiniteFieldsAndCharacterSums~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "FiniteFieldsAndCharacterSums"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-FiniteFieldsAndCharacterSums~adv.md",
+    "research/blueprint/packages/FiniteFieldsAndCharacterSums/review.json",
+    "research/blueprint/packages/FiniteFieldsAndCharacterSums/README.md",
+    "research/blueprint/packages/FiniteFieldsAndCharacterSums/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-FiniteFieldsAndCharacterSums~adv.md"
   }
  ]
 }
