@@ -14,7 +14,7 @@ namespace TauCetiRoadmap.KTheoryFiniteLocalFields
 
 /-! ## Layer 0: completed KU and pullback cohomology -/
 
-/-! ## Layer 1: refinements of the supplied finite-field comparison -/
+/-! ## Layer 1: finite fields over the supplied Brauer–Quillen comparison -/
 
 -- The dimension equivalence is a supplier, not a new K₀ calculation.
 #check TauCeti.SplitK0.finrankEquiv
@@ -29,7 +29,8 @@ variable {k : Type*} [CommRing k]
 
 /-- The residue-coordinate expression for the left-linear boundary:
 `∂{π^r u, π^s v} = (-1)^(r*s) * ū^s * v̄^(-r)`.
-The agreement with K₂ is a separate README target. -/
+This is the coordinate form of the tame symbol; its agreement with the boundary on K₂ is the
+K2SymbolsBrauer comparison cited in the README, not a definition of K₂. -/
 def tameCoordinate (r s : ℤ) (u v : kˣ) : kˣ :=
   (-1 : kˣ) ^ (r * s) * u ^ s * v ^ (-r)
 
@@ -65,10 +66,6 @@ example :
     ((tameCoordinate 1 1 (1 : (ZMod 5)ˣ) 1 : (ZMod 5)ˣ) : ZMod 5) = 4 := by
   decide
 
-/-- Two uniformizers retain the `(-1)^(rs)` factor. -/
-theorem tameCoordinate_two_uniformizers_mod_five : ((tameCoordinate 1 1 (1 : (ZMod 5)ˣ) 1 : (ZMod 5)ˣ) : ZMod 5) = 4 := by
-  sorry
-
 /-- Negative valuation exponents occur in local fields. -/
 theorem tameCoordinate_negative_valuation_mod_five :
     ((tameCoordinate (-1) 1 (Units.mk0 (2 : ZMod 5) (by decide))
@@ -95,7 +92,7 @@ end Tame
 
 /-! ## Layer 5: logarithmic Witt and residue-characteristic calculations -/
 
-/-! ## Layer 6: local higher K-groups -/
+/-! ## Layer 6: completed and integral higher K-groups of local fields -/
 
 namespace Divisible
 
@@ -179,7 +176,7 @@ theorem maxDivisible_rat_prod_zmod_six :
 
 end Divisible
 
-/-! ## Layer 7: arithmetic completion interfaces -/
+/-! ## Layer 7: completion maps for arithmetic applications -/
 
 /-
 The README also specifies the following constructions whose carriers are not present here:
