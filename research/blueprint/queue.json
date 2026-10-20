@@ -153778,6 +153778,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-PadicHodgeRegulators~adv1.md"
+  },
+  {
+   "id": "FIX-PKG-HabiroCohomologyFoundations~adv5",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroCohomologyFoundations"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HabiroCohomologyFoundations~adv5.md",
+    "research/blueprint/packages/HabiroCohomologyFoundations/review.json",
+    "research/blueprint/packages/HabiroCohomologyFoundations/README.md",
+    "research/blueprint/packages/HabiroCohomologyFoundations/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroCohomologyFoundations~adv5.md"
   }
  ]
 }
