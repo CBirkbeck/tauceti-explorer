@@ -40,7 +40,16 @@ GlobalNumberFields supplies the ray exact sequence, ideal and idelic description
 
 LocallyAnalyticDistributions supplies C^la(G,L), its strong dual D(G,L), finite clopen decompositions, pullback of tests, pushforward of distributions, locally algebraic characters, order bounds and uniqueness from locally polynomial tests under the stated strict growth condition. For a compact analytic group modulo a closed unit subgroup, analytic functions on the quotient are invariant tests upstairs. Its dual is the dual of that invariant subspace. It is not identified with invariant distributions on the full group, and no unique lifting of a quotient distribution is promised. PadicMeasuresIwasawaAlgebras supplies the injection of bounded measures into this dual and the identification with O[[G]] when coefficients and topology satisfy its hypotheses.
 
-ArithmeticLocallySymmetricSpaces supplies a functorial compactly supported cochain model for the GL₂ quotient Y₁(𝔫), both BSW local-system conventions and their coefficient intertwiner, and Hecke operators compatible with coefficient changes. The eigenform comparison must preserve the archimedean sign decomposition, coefficient field and Hecke normalization. The analytic supplier's slope theorem must apply to this cochain model, not merely to the coefficient Banach module. The GL₂ compactness argument in Layer 2 is the needed verification of this hypothesis.
+ArithmeticLocallySymmetricSpaces ALS.1.4 supplies the sheaf/singular comparison, including compact supports, for neat level and finite projective coefficients; ALS.3.5 supplies the Hecke correspondences. ALS.5b.1–ALS.5b.2 supply the characteristic-zero de Rham/relative-Lie comparison and its pairing compatibility in every degree. ALS.5b.5 supplies the cuspidal realization under its stated inputs. These general constructions are imported, rather than requested again.
+
+The additional lower-owner target `bswESHComparison` must specialize these constructions to the GL₂ quotient Y₁(𝔫) and the coefficient dual L₁(V_λ(C)*) of BSW Theorem 3.4, p. 13. It sends a cuspidal eigenform to its bottom-degree compactly supported class, intertwines the finite Hecke operators, identifies the real Weyl sign projections on the resulting class with §3.2.2, p. 12, and transports the class through the coefficient intertwiner α to L₂(V_λ(C)*). Its rational-period clause is BSW Proposition 3.7, pp. 13–14, with K_Φ containing the normal closure of F and the Hecke eigenvalues, and the nonzero sign periods of Theorem 2.3, p. 10. Supply `bswESHComparison_hecke`, `bswESHComparison_weyl`, `bswESHComparison_coefficients`, `bswESHComparison_period` and compatibility with the singular-cochain model and level maps. This is a required extension of the lower owner; the general complex comparison alone does not identify the specified rational eigenclass. No integral period comparison is inferred. The analytic supplier's slope theorem must apply to the actual compact-support cochain model, not merely to the coefficient Banach module. The GL₂ compactness argument in Layer 2 verifies that hypothesis.
+
+For a non-neat Ω₁(𝔫), use a neat normal refinement and the equivariant descent model of ALS.1.2–ALS.1.3. Characteristic-zero finite-group invariants are exact, so this passage does not restrict the classical level. The same argument does not assert exact integral invariants when p divides the refinement index.
+
+**Checks.**
+- For F=Q and k=0, the map lands in degree 1 with constant polynomial coefficients and retains the two real Weyl signs. For imaginary quadratic F it also lands in degree 1 but has no real Weyl factor.
+- On a noncompact modular component the cuspidal class has a compact-support realization; the forget-supports map does not give a section on all ordinary cohomology. An Eisenstein class is not substituted for a cuspidal eigenclass.
+- Rescaling one chosen sign period by a∈K_Φ× divides that sign's rational class by a. Rationality over K_Φ gives no assertion that a is integral or a p-unit, including at p=2.
 
 ### PadicFamilies Layer 5: the totally real construction
 
@@ -684,7 +693,64 @@ For general nonsplit tame conductor define `localCharacterMuDefect χ_v` by μ_p
 - A self-dual sign −1 branch is zero, hence does not satisfy a finite μ formula just because its local terms happen to be zero.
 - Under the exceptional Hida condition, positivity concerns the fixed anticyclotomic branch; it makes no claim that every specialization of the full measure is p-divisible.
 
-Prove `hsieh_HeckeValues_dense` using Hsieh, *On the non-vanishing of Hecke L-values modulo p*, Theorems A–B, pp. 2–4, with the corrected density step. The non-self-dual case assumes p>2 unramified in F, ordinary Σ, (pℓ,D_{M/F}C)=1 and zero local defects. The self-dual case additionally uses root sign +1, the source's squarefree ramified-conductor part and 𝔩 split in M; any removal of squarefreeness must implement the additional argument of Remark 6.9. The all-residue coefficient condition of §6.1 supplies the revised Hida hypothesis. The conclusion supported by that revised input is dense nonvanishing. As for central values, the older rank-one cofinite strengthening is a separate `HeckeValues_cofinite_rankOne` target needing a replacement proof, since the printed Theorem 3.1 uses the withdrawn input.
+Prove `hsieh_HeckeValues_dense` using Hsieh, *On the non-vanishing of Hecke L-values modulo p*, Theorems A–B, pp. 2–4, with the corrected density step. The branch of Theorem B requires **non-residual self-duality**, χ̂^+≠τ_{M/F}ω_F modulo the maximal ideal, as well as p>2 unramified in F, ordinary Σ, (pℓ,D_{M/F}C)=1 and zero local defects. Failure of exact self-duality is insufficient. Here ω_F and χ̂ use the source's geometric reciprocity; convert both through inversion before using Layer 0's arithmetic convention. The self-dual branch uses root sign +1, the source's squarefree ramified-conductor part and 𝔩 split in M; any removal of squarefreeness must implement the additional argument of Remark 6.9. The all-residue coefficient condition of §6.1 supplies the revised Hida hypothesis. The conclusion supported by that revised input is dense nonvanishing. The older rank-one cofinite strengthening remains the full `HeckeValues_cofinite_rankOne` target, needing a replacement proof because the printed Theorem 3.1 uses the withdrawn input. The independent self-dual theorem below does not discharge its non-residually-self-dual branch.
+
+**Checks.**
+- A nontrivial character with p-power-order values reduces to 1 in residue characteristic p. Twisting a self-dual χ by such a character can destroy exact self-duality while preserving residual self-duality, so Theorem B's hypothesis must be checked separately. For p=5 an order-five Dirichlet character modulo 11, pulled back by the norm from Q(i), has nontrivial square on rational ideles and gives this distinction; this is a test of the residual condition, not an assertion of the theorem's other local hypotheses.
+- A character whose restricted avatar has a residue value different from τ_{M/F}ω_F at one idele satisfies the non-residual-self-duality test. Mere nontriviality at some idele of M does not test that restriction.
+- On a self-dual sign −1 component the central value is zero. Neither algebraic density nor an infinite collection of twists permits removing the root-sign condition.
+
+### 3h.8a Independent self-dual cofiniteness over CM fields
+
+Use the following independent result at its full CM-field generality. In this subsection p is the **valuation prime** and 𝔩|ℓ is the **conductor-tower prime**; Burungale–He–Tian–Ye use ℓ and 𝔭|p for these respective roles. For M/F CM and an ordinary CM type Σ at p, take an algebraic Hecke character λ with
+
+```text
+λ|A_F× · |·|_F = τ_{M/F},
+λ∞(z)=∏σ∈Σ σ(z)^(−1−κσ) σ̄(z)^κσ,       κσ≥0.
+```
+
+Its central value is L(1,λ), rather than the L(0,χ) convention of 3h.8. Let Γ_𝔩 be the maximal torsion-free anticyclotomic pro-ℓ quotient unramified outside 𝔩, Ξ_𝔩 its finite-order characters, and Ξ⁺_{λ,𝔩} the characters ν with ε(λν)=+1. Choose the complex periods Ω∞ from a common CM differential integral and nonvanishing at p. Define `selfDualHeckeAlgebraicValue λ ν`, using the algebraic embedding into C_p, by
+
+```text
+[OM×:OF×] · (∏w∈Σp G((λν)_w))
+ × π^(Σκσ) (∏σ∈Σ Γ(1+κσ)) L(1,λν)
+ / ∏σ∈Σ Ω∞,σ^(1+2κσ).
+```
+
+For conductor exponent e>0 the local multiplier is
+
+```text
+G(η_w)=|ϖ_w|^e Σu∈ϖ_w^(−e)(OMw/ϖ_w^e)× η_w(u)ψ_w(u),
+```
+
+where ψ_w has conductor OMw; put G=1 in the unramified case. Uniformizers, additive characters and the CM differential are fixed data. Supply `selfDualHeckeAlgebraicValue_algebraic`, `selfDualHeckeAlgebraicValue_periodChange` and `selfDualHeckeAlgebraicValue_gauss`. Algebraicity permits transporting the **normalized value**, not π or a complex period separately. The normalization is Burungale–He–Tian–Ye, version 2, §1.2.1, equations (1.1)–(1.2), pp. 2–3.
+
+**Checks.**
+- κσ=0 gives Γ(1)=1 and period exponent 1 at σ; κσ=1 gives Γ(2)=1 and exponent 3. Multiplying the differential by an algebraic p-unit a changes these factors by a⁻¹ and a⁻³. A zero differential is excluded.
+- A ramified local character of conductor exponent e=1 uses ϖ⁻¹ and the multiplier |ϖ|; e=2 uses ϖ⁻² and |ϖ|². The multiplicative conductor idele with positive exponents is not the argument of this Gauss sum.
+- ν=1 is an allowed finite-order character but can be a root-sign −1 or exceptional specialization. The cofinite theorem does not assert a unit value there. Γ_𝔩 is torsion-free only after the stated quotient; no claim is made for every torsion branch of the full ray group.
+- A nonordinary CM type or a negative κσ is outside this normalization's hypotheses. In particular p inert in an imaginary quadratic M cannot be supplied with this ordinary CM datum.
+
+Prove `selfDualHeckeValues_cofinite_rankOne`: assume p∤2D_F, Σ is p-ordinary, and, if ε(λ)=−1, also p≠3. Let [F_𝔩:Q_ℓ]=1 and 𝔩∤p N_{M/F}(Cond λ)⁻, where the superscript minus retains the nonsplit part of the conductor norm. Then, for all but finitely many ν∈Ξ⁺_{λ,𝔩},
+
+```text
+v_p(selfDualHeckeAlgebraicValue λ ν)
+ = Σv|N_{M/F}(Cond λ), v inert in M μ_p(λ_v),
+μ_p(λ_v)=inf_{x∈M_v×} v_p(λ_v(x)−1),     v_p(p)=1.
+```
+
+This is Theorem 5.7, pp. 37–38, of Burungale–He–Tian–Ye, *Mod ℓ non-vanishing of self-dual Hecke L-values over CM fields and applications*, version 2 dated 13 March 2026. Use that theorem, whose p=3 range is wider than the introductory Theorem 1.4. Its proof uses the integral CM/quaternionic period valuation in Theorem 5.6, pp. 36–37, and the two-factor valuation argument of Proposition 5.5, pp. 35–36, after toric nonvanishing in Theorem 4.15, pp. 28–31, and Theorem 4.19, p. 33. Theorem 5.6 has **twice** the displayed sum for the squared period ratio; its factor 2 must survive when applying the product formula. Local defects are normalized-character defects, not valuations of an arbitrarily rescaled test vector.
+
+The additional source-specific targets `cmShimuraSet_nonEisenstein` and `cmShimuraSet_toricCofinite` must supply the primitive integral CM test vector, its non-Eisenstein reduction on the relevant norm component, and eventual nonvanishing of its toric sums at every permitted conductor level. Proposition 4.5, pp. 22–23, is the finite-field CM-translate independence input; Theorem 4.1 and Lemma 4.2, pp. 21–22, provide its arithmetic equidistribution and separation hypotheses. A constant function on the Shimura set is Eisenstein and fails the input. The generic homogeneous-dynamics theorem behind this equidistribution is an additional supplier requirement, not supplied by ordinary-tower density in 3h.6. This proof route does not invoke the withdrawn Hida cofinite implication: the corrected infinite nonvanishing input suffices for the auxiliary period argument, while eventual nonvanishing at the specified tower prime comes from the Shimura-set argument.
+
+**Checks.**
+- With every inert local defect zero the conclusion is v_p=0; a positive sum predicts that exact positive valuation, rather than a unit. The zero value has valuation ∞ and cannot satisfy the finite equality.
+- For 𝔩 split in M and ε(λ)=+1, Lemma 4.12, pp. 26–27, makes Ξ⁺ cofinite in Ξ. At an inert 𝔩 the admissible root sign can select one conductor parity, so the conclusion remains cofinite **inside Ξ⁺**, not inside all characters.
+- The theorem excludes valuation prime 2. It allows valuation prime 3 on the ε(λ)=+1 branch; it excludes 3 when ε(λ)=−1. It imposes no blanket oddness condition on the tower prime ℓ. Degree-one and the stated nonsplit-conductor exclusion still apply when ℓ=2.
+- A split 𝔩 dividing the split conductor part is not excluded by the minus-conductor condition. No squarefree condition on the ramified conductor is added. A prime with [F_𝔩:Q_ℓ]>1 fails the rank-one hypothesis.
+- The associated theta representation is automorphically induced from M; its Galois representation restricted to G_M splits into two characters. It therefore cannot replace the theorem for π with absolutely irreducible residual restriction to G_M in 3h.7.
+
+To apply this theorem to `HeckeValues_cofinite_rankOne` in the earlier L(0,χ) normalization, prove the named bridge `selfDualHeckeValue_functionalEquationComparison`. It takes λ=χ⁻¹ and ν↦ν⁻¹, matches the completed functional equation, both CM-period powers and the local Gauss/conductor multipliers, and computes the valuation of every remaining factor. In particular it cannot infer p-unit equality from complex nonvanishing. This bridge is still required. Even after it, the non-residually-self-dual branch remains separate: Wei He's Theorem 1.5, pp. 2–3, in version 2 of *Stability of p-adic valuations of Hecke L-values* gives algebraic density; Burungale–He–Tian–Ye Theorem 6.1, p. 38, uses infinite nonvanishing. Neither supplies cofinite nonvanishing in that branch. Thus both full targets in 3h.7–3h.8 remain unresolved, with the independent self-dual case now specified precisely.
 
 ### 3h.9 Finis' divisibility theorem
 
@@ -1031,7 +1097,33 @@ Prove `periodAndCoefficient_functoriality`: coefficient extension commutes with 
 
 Prove the rational GL₂, Bianchi and conditional Hilbert comparisons of Layer 2; the rational Deligne–Ribet comparison of Layer 3; and the rational toric/BDP dictionary of Layer 3h. Each comparison carries all the hypotheses of both constructions. In the automorphic-induction case of Hsieh's introduction, p. 712, it is the **square** ℒ² that factors as the product of the two Katz–Hida–Tilouine measures up to the explicitly normalized Iwasawa unit. Retain the character twists and both CM period choices in `automorphicInduction_KatzProduct`. A factorization of ℒ itself into that same product would square the wrong interpolation formula.
 
-The n=1 EHLS/Katz comparison is a separate `unitaryRankOne_KatzComparison` target: identify the ray group, complex L-function shift, local sections, ordinary pairing and CM period, then use bounded-measure uniqueness. EHLS §1.2, pp. 9–11, motivates the specialization but does not by itself supply a full integral equality of every normalization. Until the local/period dictionary is established, the target is a comparison obligation, not a claimed canonical equality. No comparison of EHLS with Disegni–Liu is asserted from their separate existence theorems. Likewise no unconditional equality of BSW and Bergdall–Hansen without Leopoldt is asserted.
+The n=1 EHLS/Katz comparison is the separate target `unitaryRankOne_KatzComparison`. Retain every EHLS hypothesis from 4.1–4.5, including the three module hypotheses and compatible classical pairs, and every hypothesis of the chosen Katz critical chamber. Its integral statement needs the following dictionary before bounded-measure uniqueness applies. EHLS §1.2, pp. 9–11, describes the specialization but does not prove this integral dictionary.
+
+Prove `unitaryRankOne_rayMap`. Write the EHLS group as the finite-idelic ray limit
+
+```text
+X_{p,C}=lim_r M×\A_M,f×/U_{r,C},
+U_{r,C}=U_C^p × (1+p^r OM⊗Z_p),
+```
+
+with the specified prime-to-p ray-level subgroup U_C^p. At C=1 this is EHLS §5.2, pp. 80–81; its tame-level version uses U_C^p of that section. Use the tame-conductor constructions at a common modulus C containing the conductors of both fixed characters. Identify their ray coordinates via the same finite idele and convert source reciprocity to arithmetic reciprocity. An existing measure at a smaller modulus has no canonical lift to this larger ray group; construct it at C, or compare pushforwards to a specified common quotient with all removed Euler factors. Keep all finite torsion components until a branch is expressly fixed. The similitude torus GU(1) and the norm-one torus U(1) are distinct from this full ray group: for general F the GU(1) multiplier lies in the common Q-similitude factor, so GU(1) must not be identified with Res_{M/Q} G_m without checking that condition.
+
+Prove `unitaryRankOne_characterShift`. For the chosen constituent of π on U(1), determine its GL₁ base-change character Ψ and the Hecke character η corresponding to the Katz moment. For every finite place, equate the Euler factor of L(m+1/2,π,χ_u), with χ=|·|^mχ_u, to the factor of L(0,η), or explicitly use the Katz functional equation if the compatible moment lies in the other chamber. This fixes Ψ, conjugation/inversion and the norm twist; also equate the archimedean gamma factors and differential weights. An equality of the symbols L(s,π,χ) and L(s,η) does not fix these shifts. The input local formulas are EHLS Theorem 4.6.1 and Remark 4.6.2, pp. 78–79, together with the two Katz chambers in Layer 3.
+
+Prove `unitaryRankOne_localSections`. Specialize the actual sections and ordinary/anti-ordinary vectors of EHLS §§4.2–4.3, pp. 46–67, to n=1 and compute each local multiplier relative to Katz's partial Fourier transform, additive character, polarization and self-dual Haar measure. Retain the local volume factors and the factors at S and p in 4.5; record tame Euler changes in `primitiveImprimitive_comparison`. The result is an identity of local multipliers, including their integral valuations. A local Euler zero gives an identity with zero specialization; it cannot be cancelled to define a comparison unit. Nor may the global measure quotient be used as the definition of a local correction.
+
+Prove `unitaryRankOne_periodLattice` by identifying the two rank-one **integral** period lines through the common algebraic CM differential. In EHLS §6.7, pp. 104–107, the normalized Serre-pairing images on the eigen/eigen and eigen/localized lattices generate lines L[π,χ] and L_{π,χ}, respectively. Their generators satisfy Q[π,χ]=c(π,χ)Q_{π,χ}, with c generating the congruence ideal. The twisted second lattice is the lattice for π♭⊗χ⁻¹∘det; §6.7.5, p. 106, changes its rational structure by a CM period. It cannot be replaced by a formal tensor twist of the old integral lattice. Match the pairing's Iwahori-intersection volume, both CM-period powers and the coefficient embeddings. This must explain the c, Ω and P=Q⁻¹ in Theorem 9.2.2, pp. 144–145, including its division by P in the interpolation formula of 4.5.
+
+Prove `unitaryRankOne_comparisonIdeal`: after the character and local-section conversions, compute the fractional coefficient ideal taking the Katz period line to the EHLS pairing line. First at each compatible classical pair this is an equality of rank-one lattices in a common one-dimensional coefficient vector space, with the above congruence factor and the computed nonzero local scalars. To compare families, construct the corresponding invertible modules over the chosen coefficient branch and prove specialization compatibility; pointwise unit ratios alone do not provide a family unit. The output specifies that fractional ideal, or a generator after an explicit trivialization. Claim a unit only after proving that ideal is the coefficient ring. Vanishing Euler polynomials stay as elements acting on the measures, outside any ratio requiring them to be nonzero.
+
+With this dictionary, `unitaryRankOne_KatzComparison` is the equality of the transported, period-line-valued bounded measures, with the local corrections acting on the stated sides. Apply uniqueness from PadicMeasuresIwasawaAlgebras only after matching a determining set of moments and proving boundedness over the common coefficient ring. The ray-group description and the two EHLS pairing lattices above are available, but the character shift, local-section computations and integral CM-lattice identification are unresolved comparison obligations here. No numerical correction unit or equality of integral ideals is asserted without them. No comparison of EHLS with Disegni–Liu is asserted from their separate existence theorems. Likewise no unconditional equality of BSW and Bergdall–Hansen without Leopoldt is asserted.
+
+**Checks.**
+- At C=1 the group is the full p-ray limit, rather than its anticyclotomic or torsion-free quotient. A character nontrivial on a finite ray component is retained. At p=2 no finite sign component is discarded by an odd-prime character decomposition.
+- For a CM extension of a real quadratic F, a local tuple with norm components (2,3) cannot have a common rational similitude multiplier, whereas (2,2) can when those norms are attained. Equality of the dimension of two tori does not identify their adelic ray quotients.
+- On a rank-one lattice over a DVR O, O and ϖO span the same fraction-field line but have relative ideal (ϖ), which is not a unit ideal. The examples O and O give the unit ideal. Passing to the fraction field loses this distinction; a congruence generator is not automatically a unit.
+- At a character where a local factor is zero both corrected moments can vanish. Their equality gives no quotient or period ratio there. The identically zero measure is a further negative control against defining a unit from quotients of special values.
+- Rescaling a CM differential has the weight-dependent powers in the supplier's `cmPeriodData.scale`; it does not give one scalar at every arithmetic weight. The exponents 1 and 3 in 3h.8a test this difference. A zero differential cannot trivialize a period line.
 
 For the supplied CPR/Panchishkin proposition, record only the verified instances with the **actual** period, Euler and growth data: bounded ordinary cases satisfy the admissible measure clause when their realization hypotheses are met; finite-slope GL₂ cases satisfy the proved order bound. The integer h=floor(Newton−Hodge gap)+1 can equal 1 for a supersingular gap 1/2, even though the admissibility condition Newton=Hodge fails. Thus h=1 does not imply boundedness. Panchishkin §5, pp. 1002–1005, and Conjecture 6.2, pp. 1005–1006, supply that distinction; the proposition and realization data remain owned by SelmerIwasawaCohomology. A theorem giving one construction does not establish the conjectural existence proposition for every pure motive.
 
@@ -1065,6 +1157,8 @@ Page numbers refer to the linked version's printed numbering, except where an ar
 - H. Hida, [*Non-vanishing of integrals of a mod p modular form*](https://www.math.ucla.edu/~hida/EllrevF.pdf), revision of 27 March 2025, Corollary 2.12 and Theorem 5.2/Corollary 5.3. This is the density input used here.
 - M.-L. Hsieh, [*Special values of anticyclotomic Rankin–Selberg L-functions*](https://emis.muni.cz/journals/DMJDMV/vol-19/24.pdf), Documenta Math. 19 (2014), 709–767. Theorem 7.1's rank-one cofinite strengthening requires the separate replacement argument described above.
 - M.-L. Hsieh, [*On the non-vanishing of Hecke L-values modulo p*](https://arxiv.org/pdf/1208.4751v1), version 1. The geometric nonvanishing step is used only in its corrected density form.
+- A. Burungale, W. He, Y. Tian and X. Ye, [*Mod ℓ non-vanishing of self-dual Hecke L-values over CM fields and applications*](https://arxiv.org/pdf/2508.19706v2), version 2, 13 March 2026. Theorem 5.7, pp. 37–38, is the independent self-dual cofinite valuation theorem; Theorems 4.15, 4.19 and 5.6 supply its toric and integral-period inputs. Its CM hypothesis does not supply general residual-irreducible automorphic nonvanishing.
+- W. He, [*Stability of p-adic valuations of Hecke L-values*](https://arxiv.org/pdf/2308.15051v2), version 2, 21 December 2024. Theorem 1.5, pp. 2–3, and §1.4, p. 4, distinguish density from the stronger cofinite problem.
 - M.-L. Hsieh, [*On the μ-invariant of anticyclotomic p-adic L-functions for CM fields*](https://arxiv.org/pdf/1112.1574v3), version 3, Theorems A–B.
 - T. Finis, [*Divisibility of anticyclotomic L-functions and theta functions with complex multiplication*](https://annals.math.princeton.edu/wp-content/uploads/annals-v163-n3-p02.pdf), Ann. Math. 163 (2006), 767–807, Theorem 1.1 and §3 equation (14).
 - E. Eischen, M. Harris, J.-S. Li and C. Skinner, [*p-adic L-functions for unitary groups*](https://arxiv.org/pdf/1602.01776v5), version 5. The main theorem is 9.2.2; its three module hypotheses are in §7.3.
