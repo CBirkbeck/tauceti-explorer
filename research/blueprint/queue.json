@@ -153247,6 +153247,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-PadicHodgeRegulators~codex.md"
+  },
+  {
+   "id": "FIX-PKG-MotivicEtaleKTheoryPartII~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivicEtaleKTheoryPartII"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-MotivicEtaleKTheoryPartII~adv.md",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/review.json",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/README.md",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-MotivicEtaleKTheoryPartII~adv.md"
   }
  ]
 }
