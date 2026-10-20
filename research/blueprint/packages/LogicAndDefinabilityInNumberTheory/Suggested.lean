@@ -158,23 +158,33 @@ theorem product_zero_residue_count (q : ℕ) [Fact q.Prime] :
 
 /-! ## Layer 6: o-minimal geometry and counting
 
+O-minimal expansions, definable atlases and the counting theorems have no
+carriers at the pinned commits; their statements are in README.md.
+-/
+
+/-! ## Layer 7: Pila–Zannier reductions under explicit inputs
+
 The following definitions require the mathematical categories specified in
 README.md: interpretation, biinterpretation and fraction interpretations;
 arithmetic ultrapowers and
 their same-ultrafilter comparison; Denef–Pas language and angular components;
 Kronecker dimension and prime divisors; henselization, coarsening comparison,
 residue interpretation and quadratic root fields; local cells, constructible
-functions and gauge measures; definable subassignments, residue scissor objects,
-motivic coefficients, Presburger and dimension-graded motivic functions;
-effective syntax coding and general ring Diophantine sets; quaternion trace,
-prime-class, radical, parameter and square-detection families; existential
+functions and gauge measures; Néron point counts of dual abelian varieties;
+definable subassignments, residue scissor objects, motivic coefficients,
+Presburger and dimension-graded motivic functions and the localized motivic
+realization of residue classes; effective syntax coding and general ring
+Diophantine sets; quaternion trace, prime-class, radical, parameter and
+square-detection families; effective zero-cycles on normic bundles; existential
 closure and model completeness; normalized congruence-density series;
 o-minimal and restricted analytic expansions, finite definable atlases,
-rough coefficient functions, rough monomials and their localization;
-algebraic definable spaces, algebraic parts and definable blocks.
+rough coefficient functions, rough monomials, their localization and the
+wider-sector curve test; algebraic definable spaces, algebraic parts,
+definable blocks and Ax-type subsets of tori; the André–Oort input datum for
+A_g, the product-locus input for A₁×A₁ and the mixed input datum.
 
-Their complete APIs, checks, proof obligations and the geometric hypotheses of
-the counting applications remain targets in README.md.
+Their complete APIs, checks and the hypotheses of the Layer 7 reductions are
+targets in README.md.
 -/
 
 end TauCetiRoadmap.LogicAndDefinabilityInNumberTheory
