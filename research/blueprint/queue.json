@@ -152027,6 +152027,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5.md"
+  },
+  {
+   "id": "REV-PKG-CyclotomicClassGroupsAndStickelberger~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "CyclotomicClassGroupsAndStickelberger"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-CyclotomicClassGroupsAndStickelberger~codex.md",
+    "research/blueprint/packages/CyclotomicClassGroupsAndStickelberger/review.json",
+    "research/blueprint/packages/CyclotomicClassGroupsAndStickelberger/README.md",
+    "research/blueprint/packages/CyclotomicClassGroupsAndStickelberger/Suggested.lean",
+    "research/blueprint/packages/CyclotomicClassGroupsAndStickelberger/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-CyclotomicClassGroupsAndStickelberger~codex.md"
   }
  ]
 }
