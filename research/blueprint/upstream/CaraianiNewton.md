@@ -160,7 +160,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 ## Tier 19
 
 - **IgusaVarietiesAndTorsionConcentration** — Igusa varieties, compactified period fibers and torsion concentration. Plan 1/1 accepted · package not yet · CN needs 8/8 layers · **Tau Ceti: pull request #1090 open** · cites outside the 94: BunGAndNewtonStrata (29), VectorBundlesAndIsocrystals (16), ExcursionOperatorsAndSpectralAction (9), HeckeStacksAndLocalShtukas (5) …
-- **SerreWeightAndLevelOptimisation** — Weight and level optimisation of residual modular representations. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1013 open** · reviewer recommends approval (at earlier head None; current head b3015b4)
+- **SerreWeightAndLevelOptimisation** — Weight and level optimisation of residual modular representations. Plan 1/1 accepted · package not yet · CN needs 6/6 layers · **Tau Ceti: pull request #1013 open** · reviewer recommends approval (at earlier head None; current head eeff35d)
 
 ## Tier 20
 
