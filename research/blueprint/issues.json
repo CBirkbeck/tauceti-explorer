@@ -5376,5 +5376,6 @@
  "FIX-PKG-HabiroCyclotomicCompletions~adv2": 11421,
  "FIX-PKG-AutomorphicCongruences~adv1": 11424,
  "REV-PKG-MotivesAndAlgebraicCycles~codex3": 11428,
- "FIX-PKG-HabiroCohomologyFoundationsPartII~adv": 11429
+ "FIX-PKG-HabiroCohomologyFoundationsPartII~adv": 11429,
+ "DESIGN-CohomologyComparisonsPartII": 11431
 }
