@@ -96,7 +96,8 @@ Begin with the coprime-product law. Prime-power representation then determines w
 
 Define `IsAdditive`. For f:ArithmeticFunction R with R an additive commutative monoid, IsAdditive f means
 f(1)=0 and f(mn)=f(m)+f(n) for positive coprime m,n. Native f(0)=0 is retained; multiplication is on inputs,
-not Dirichlet convolution. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.2, physical pp.38–39.)
+not Dirichlet convolution. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, additive convention and Lemma A.2,
+physical pp.37–38.)
 
 Introduce the displayed predicate on the native carrier. The positive-input guards avoid imposing a false law
 at zero. The API is used by prime-power representation and the quadratic mean bound.
@@ -114,24 +115,24 @@ at zero. The API is used by prime-power representation and the quadratic mean bo
 Use Mathlib `ArithmeticFunction`.
 
 Prove `IsAdditive.map_one`. If f is additive, f(1)=0. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A,
-Lemma A.2, physical pp.38–39.)
+Lemma A.2, physical pp.37–38.)
 
 Use §0.1 (additive functions in the native arithmetic carrier).
 
 Prove `IsAdditive.map_mul`. Additivity on positive coprime products, retaining both positivity hypotheses.
-([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.2, physical pp.38–39.)
+([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.2, physical pp.37–38.)
 
 Use §0.1 (additive functions in the native arithmetic carrier).
 
 Prove `IsAdditive.add`. The pointwise sum of additive arithmetic functions is additive.
-([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.2, physical pp.38–39.)
+([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.2, physical pp.37–38.)
 
 Use §0.1 (additive functions in the native arithmetic carrier).
 
 Define `IsStronglyAdditive`. For f:ArithmeticFunction R, IsStronglyAdditive f means IsAdditive f and
 f(p^k)=f(p) for every natural prime p and k≥1. It is different from complete additivity f(mn)=f(m)+f(n) on all
-positive inputs. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, paragraph before Lemma A.3, physical
-p.39.)
+positive inputs. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.3, defining paragraph, physical
+p.38.)
 
 Add the explicit prime-power clause to IsAdditive; no change of arithmetic-function carrier. This clause is
 needed to replace the prime-power representation by the distinct-prime sum.
@@ -147,17 +148,17 @@ needed to replace the prime-power representation by the distinct-prime sum.
 Use §0.1 (additive functions in the native arithmetic carrier).
 
 Prove `IsStronglyAdditive.isAdditive`. A strongly additive function is additive.
-([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, paragraph before Lemma A.3, physical p.39.)
+([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.3, defining paragraph, physical p.38.)
 
 Use §0.1 (additive functions in the native arithmetic carrier).
 
 Prove `IsStronglyAdditive.prime_pow`. For p prime and k>0, f(p^k)=f(p).
-([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, paragraph before Lemma A.3, physical p.39.)
+([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.3, defining paragraph, physical p.38.)
 
 Use §0.1 (additive functions in the native arithmetic carrier).
 
 Prove `IsStronglyAdditive.add`. Pointwise addition preserves strong additivity.
-([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, paragraph before Lemma A.3, physical p.39.)
+([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.3, defining paragraph, physical p.38.)
 
 Use §0.1 (additive functions in the native arithmetic carrier).
 
@@ -172,7 +173,7 @@ Use §0.1 (additive functions in the native arithmetic carrier); Mathlib `Arithm
 `Nat.prod_primeFactors_pow_factorization`; Mathlib `Nat.pairwise_coprime_pow_primeFactors_factorization`.
 
 **Distinct-prime representation**. For strongly additive f and n>0, f(n)=Σ_{p∈n.primeFactors}f(p).
-([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, strongly additive convention.)
+([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, Lemma A.3, defining paragraph, physical p.38.)
 
 Use the prime-power representation and positivity of every factorization exponent on primeFactors. Apply
 IsStronglyAdditive.prime_pow term by term.
@@ -2098,8 +2099,9 @@ Use §1.4 (removing a prime cutoff); Tau Ceti `TauCeti.Probability.integral_empi
 The full prime-power quadratic estimate supplies normal order. Erdős–Kac additionally needs a cutoff chosen for each fixed moment order, analytic normalization and a valid moment-convergence argument.
 
 Prove `turan_kubilius`. For real additive f and N≥2, put A_N=Σ_{p prime,k≥1,p^k≤N}f(p^k)/p^k and B_N²=Σ_{p
-prime,k≥1,p^k≤N}|f(p^k)|²/p^k. Then Σ_{1≤n≤N}|f(n)−A_N|²≤30 N B_N². This is precisely Elsholtz–Tao Lemma A.2;
-a different centering with (1−1/p) is not substituted. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A,
+prime,k≥1,p^k≤N}|f(p^k)|²/p^k. Then Σ_{1≤n≤N}|f(n)−A_N|²≤30 N B_N². Elsholtz–Tao Lemma A.2 gives this for
+N>2; at N=2 the left side is f(2)²/2 and the right side is 30 f(2)². A different centering with (1−1/p)
+is not substituted. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A,
 Lemma A.2, physical p.38.)
 
 The displayed finite prime-power expressions use the native prime set and factorization convention.
@@ -2110,7 +2112,7 @@ AN.2.
 Prove `hardy_ramanujan`. For every ε>0, both fractions #{1≤n≤N: |ω(n)−log log N|>ε log log N}/N and #{1≤n≤N:
 |Ω(n)−log log N|>ε log log N}/N tend to zero. These are normal-order laws, with ω and Ω the native distinct
 and repeated factor counts. ([ElsholtzTao2011](#ref-elsholtztao2011) Appendix A, discussion after Lemma A.2,
-physical pp.38–39.)
+physical p.38.)
 
 Apply the exact source mean-square estimate to omega, compare its source A_N and B_N² to log log N using the
 requested reciprocal-prime asymptotic. Use the quadratic Markov bound. Transfer to Omega using the uniform
@@ -4089,7 +4091,10 @@ intersection.
 
 - Every selected positive-radius ball has positive normalized mass.
 
-- For two children of equal gauge size the masses are each half the parent mass.
+- If a parent has exactly two children of equal gauge size, each receives half the parent mass.
+
+- Exactly three children of equal gauge size each receive a third of the parent mass; for two children
+  with gauge weights in ratio 1:3, their masses are respectively one quarter and three quarters of the parent mass.
 
 - The constant C_k cannot grow with η; otherwise infinite Hausdorff measure does not follow.
 
