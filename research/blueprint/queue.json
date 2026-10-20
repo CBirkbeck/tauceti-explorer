@@ -152454,9 +152454,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv2.md",
-   "note": "claimed on GitHub issue #11304"
+   "note": "deliverables arrived from an external worker on issue #11304",
+   "finishedAt": "2026-10-20T07:38:24Z"
   },
   {
    "id": "FIX-PKG-K2SymbolsBrauer~adv2",
@@ -152635,8 +152636,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv3.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv3.md",
+   "note": "claimed on GitHub issue #11323"
   }
  ]
 }
