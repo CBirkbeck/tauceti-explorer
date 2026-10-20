@@ -591,9 +591,9 @@
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "d1996dc",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "AutomorphicSpectralTheory": {

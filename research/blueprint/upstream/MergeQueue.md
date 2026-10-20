@@ -10,7 +10,7 @@ Generated with the SVG (2026-10-20T12:00Z). A wave can merge once every wave bel
 - ReductiveGroupsPartII: PR #785 — ready (approved at an earlier head); external prerequisites #446, #447
 
 ## Wave 2
-- ComplexComparisonPartII: PR #848 — draft; external prerequisites #1056, #887, #896, #918, #954, #973, #992, #1199
+- AlgebraicModuliForArithmeticGeometry: PR #853 — ready (approved at an earlier head); external prerequisites #899, #1199
 - SmoothRepresentationsOfLocalGroups: PR #785 — ready
 
 ## Wave 3
@@ -19,18 +19,18 @@ Generated with the SVG (2026-10-20T12:00Z). A wave can merge once every wave bel
 - IntegralHeckeAndGaloisDeterminants: PR #785 — ready (approved at an earlier head)
 
 ## Wave 4
-- InverseGaloisAndArithmeticFundamentalGroups: PR #850 — ready (approved at an earlier head); external prerequisites #1199
-
-## Wave 5
 - ArithmeticGaloisRepresentations: PR #856 — ready (approved at an earlier head); external prerequisites #248, #446
 
-## Wave 6
+## Wave 5
 - CrystallineCohomology: PR #857 — draft; external prerequisites #1102, #1103, #1104, #940
 - DerivedDeRhamCohomology: PR #868 — ready (approved at an earlier head); external prerequisites #1102, #1103, #1104, #940
 
-## Wave 7
-- AlgebraicModuliForArithmeticGeometry: PR #853 — ready (approved at an earlier head); external prerequisites #899, #1199
+## Wave 6
+- ComplexComparisonPartII: PR #848 — draft; external prerequisites #1056, #887, #896, #918, #954, #973, #992, #1199
 - LocallyAnalyticDistributions: PR #854 — ready (approved at an earlier head)
+
+## Wave 7
+- InverseGaloisAndArithmeticFundamentalGroups: PR #850 — ready (approved at an earlier head); external prerequisites #1199
 
 ## Wave 8
 - FiniteFlatGroupsAndIntegralPadicHodgeTheory: PR #879 — ready; external prerequisites #1103, #940
@@ -52,13 +52,14 @@ Generated with the SVG (2026-10-20T12:00Z). A wave can merge once every wave bel
 - DiamondEtaleCohomology: PR #922 — ready
 
 ## Wave 13
+- AutomorphicLFunctionsAndLocalFactors: PR #924 — draft; external prerequisites #248, #253
 - DiamondSixOperations: PR #927 — ready; external prerequisites #816
 - GlobalGaloisDeformations: PR #920 — ready
 - LocalGaloisDeformationRings: PR #923 — ready
-- ShimuraData: PR #1038 — ready
 
 ## Wave 14
 - AdicCoefficientsAndComparisons: PR #965 — ready; external prerequisites #1103, #1104, #896
+- AutomorphicSpectralTheory: PR #925 — ready; external prerequisites #248, #889
 - ClassicalAdicEtaleCohomology: PR #875 — ready; external prerequisites #1103, #1104, #896
 - EtaleDualityAndPerverseSheaves: PR #1040 — ready; external prerequisites #1103, #1104, #896
 - LefschetzPencilsAndVanishingCycles: PR #873 — draft; external prerequisites #1103, #1104, #896
@@ -68,15 +69,17 @@ Generated with the SVG (2026-10-20T12:00Z). A wave can merge once every wave bel
 
 ## Wave 16
 - AlgebraicModularFormsAndSerreWeights: PR #928 — draft
-- CompletedCohomologyPartII: PR #1035 — ready
 - DeligneWeightsAndPurity: PR #929 — ready
+- PELModuli: PR #966 — ready
+- ShimuraVarieties: PR #933 — ready
 
 ## Wave 17
-- AutomorphicLFunctionsAndLocalFactors: PR #924 — draft; external prerequisites #248, #253
+- CompletedCohomologyPartII: PR #1035 — ready
 - PadicDifferentialEquationsAndRigidCohomology: PR #1002 — ready; external prerequisites #940
+- ShimuraData: PR #1038 — ready
 
 ## Wave 18
-- AutomorphicSpectralTheory: PR #925 — ready; external prerequisites #248, #889
+- ArakelovGeometryAndAbelianHeights: PR #1000 — ready
 - WeightsInEtaleCohomology: PR #1001 — ready; external prerequisites #940
 
 ## Wave 19
@@ -101,25 +104,22 @@ Generated with the SVG (2026-10-20T12:00Z). A wave can merge once every wave bel
 
 ## Wave 22
 - EndoscopicTransferAndUnitaryTraceComparison: PR #999 — ready
+- FaltingsFinitenessAndIsogenyTheorems: PR #1004 — ready; external prerequisites #940
+- HodgeTateAndCanonicalSubgroups: PR #1084 — ready
 
 ## Wave 23
 - GL2AutomorphicRepresentationsAndTransfer: PR #931 — ready; external prerequisites #934
+- PerfectoidShimuraVarieties: PR #1085 — ready; external prerequisites #816
 
 ## Wave 24
-- PELModuli: PR #966 — ready
 - SerreWeightAndLevelOptimisation: PR #1013 — ready
-- ShimuraVarieties: PR #933 — ready
 
 ## Wave 25
-- ArakelovGeometryAndAbelianHeights: PR #1000 — ready
-- HodgeTateAndCanonicalSubgroups: PR #1084 — ready
 - ModularSymbolsPadicLFunctions: PR #968 — ready; external prerequisites #934, #940
 - PadicFamilies: PR #1019 — ready; external prerequisites #934, #940
 
 ## Wave 26
 - AutomorphicGaloisRepresentationsPartII: PR #1006 — ready; external prerequisites #940
-- FaltingsFinitenessAndIsogenyTheorems: PR #1004 — ready; external prerequisites #940
-- PerfectoidShimuraVarieties: PR #1085 — ready; external prerequisites #816
 
 ## Wave 27
 - AutomorphicGaloisRepresentations: PR #1007 — draft; external prerequisites #934, #940
