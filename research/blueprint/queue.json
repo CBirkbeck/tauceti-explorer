@@ -152098,6 +152098,45 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex.md",
    "note": "claimed on GitHub issue #11269"
+  },
+  {
+   "id": "FIX-PKG-ArithmeticKTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ArithmeticKTheory~adv.md",
+    "research/blueprint/packages/ArithmeticKTheory/review.json",
+    "research/blueprint/packages/ArithmeticKTheory/README.md",
+    "research/blueprint/packages/ArithmeticKTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv.md"
+  },
+  {
+   "id": "REV-PKG-MotivesAndAlgebraicCycles~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-MotivesAndAlgebraicCycles~adv.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/review.json",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/README.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/Suggested.lean",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~adv.md"
   }
  ]
 }
