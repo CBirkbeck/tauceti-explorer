@@ -153740,6 +153740,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-CohomologyComparisonsPartII.md"
+  },
+  {
+   "id": "DESIGN-ColemanIntegrationPartII",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ColemanIntegrationPartII"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/ColemanIntegrationPartII.json",
+    "research/blueprint/packets/ColemanIntegrationPartII.json",
+    "research/blueprint/readmes/ColemanIntegrationPartII.md",
+    "research/blueprint/suggested/ColemanIntegrationPartII.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-ColemanIntegrationPartII.md"
   }
  ]
 }
