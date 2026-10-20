@@ -1,5 +1,4 @@
 import Mathlib
-import TauCeti.FieldTheory.FunctionField.ConstantField
 import TauCeti.FieldTheory.FunctionField.RiemannRoch.ClassNumber
 
 /-!
@@ -31,21 +30,14 @@ section Constants
 
 variable {k F : Type*} [Field k] [Field F] [Algebra k F]
 
-/-- **Exact constants over a finite field** (README 0.1). The relative algebraic closure of a
-finite field in a function field is a finite field over which the function field is integrally
-closed. -/
-theorem finite_exact_constants [Finite k] (hF : IsFunctionField k F) :
-    Finite (algebraicClosure k F) ∧ IsIntegrallyClosedIn (algebraicClosure k F) F := by
-  sorry
-
-/-- **Divisors of degree one** (README 0.3): the divisor form of F. K. Schmidt's theorem. No
+/-- **Divisors of degree one** (README 0.2): the divisor form of F. K. Schmidt's theorem. No
 place of degree one, and no rational point of the model, is asserted. -/
 theorem exists_divisor_degree_eq_one [Finite k] (hF : IsFunctionField k F)
     (hk : IsIntegrallyClosedIn k F) : ∃ D : Divisor k F, Divisor.degree D = 1 := by
   sorry
 
 /-- The divisor degree of a function field with finite exact constants is onto `ℤ`
-(README 0.3). -/
+(README 0.2). -/
 theorem divisor_degree_surjective [Finite k] (hF : IsFunctionField k F)
     (hk : IsIntegrallyClosedIn k F) :
     Function.Surjective (Divisor.degree : Divisor k F →+ ℤ) := by
@@ -247,25 +239,34 @@ stated in the README only.
 * Layer 0: `degree_conventions` (needs the idele group of ArithmeticGaloisDuality and the adeles of
   AutomorphicLFunctionsAndLocalFactors), `divisorClass_picardPoints` (Picard schemes).
 * Layer 1: `chartIdeals`, `riemannRochSpace_eq_inf_chartIdeals`, `exists_reducedBasis`,
-  `riemannRoch_reducedBasis` and their API (two-chart integral closures and their fractional
+  `riemannRoch_reducedBasis`, `computeRiemannRochBasis`, `computeRiemannRochBasis_cost` and their API (two-chart integral closures and their fractional
   ideals).
 * Layer 2: `divisorLattice` and its API, `selfDual_local_volume`, `selfDual_global_volumes`,
   `fourier_indicator_divisorLattice`, `testFunctions_span_translates` (completed adeles and residue
   characters).
 * Layer 3: `artinSchreierWitt_galois`, `aswField_eq_iff`, `aswField_degree`,
-  `aswReduced_exists_unique` and its API, `artinSchreier_onePole`.
+  `aswReduced_exists_unique` and its API, `artinSchreier_onePole_comparison`.
 * Layer 4: `LubinTate.formalGroup`, `LubinTate.smul`, `lubinTate_torsion`, `localKroneckerWeber`,
   `localAbelianExistence_all`, `injective_artinMap_all`, `lubinTate_artin`,
-  `conductor_existence_all`, `schmidWitt`, `schmidWitt_perfect`, `schmidWitt_characterization`,
+  `conductor_existence_all`, `rayIdeleClassGroup`, `RayCharacterData`, `rayCharacterData_conductor` and their API,
+  `schmidWitt_localCoordinates`, `localCoordinates_truncation`, `schmidWitt_changeParameter`,
+  `rayPicard_comparison` (the explicit gap of README 4.6), `schmidWitt`, `schmidWitt_perfect`, `schmidWitt_characterization`,
   `schmidWitt_formula`, `schmidWitt_normGroup`, `aswConductor_eq`, `aswUpperRamification`.
 * Layer 5: `zeta_eulerProduct`, `pointCount_eq`, `effectiveDivisorCount_eq`, `zeta_eq_schemeZeta`,
-  `lPolynomial_constantExtension`, `zeta_constantExtension`, `lFunction_cohomological`.
+  `lPolynomial_constantExtension`, `zeta_constantExtension`, `localEulerFactorFinite` and its API,
+  `lFunction_cohomological`, `lFunction_cohomological_projective`, `enumeratePlaces_le`, `enumeratePlaces_cost`,
+  `computeRayQuotient`, `computeRayQuotient_cost`, `computeRayCharacterData_sound`,
+  `computeRayCharacterData_complete`, `frobeniusPlaceCount`,
+  `frobeniusPlaceCount_constant_congruence`, `degree_sensitive_chebotarev` and their API.
 * Layer 6: `adelicPoints` and its API, `automorphicFunctions`, `constantTerm`, `cuspFunctions`,
   `cuspFunctions_compactSupport`, `cuspFunctions_integralModel`, `heckeEigenvalue_algebraic`,
-  `heckeAction_unramified_cusp`, `satake_gl1_reciprocity`, `cuspForm_exists_degreeZero_ne_zero`.
-* Layer 7: `exists_unramified_inducingCharacter`, `siegelEisenstein_converges`,
-  `siegelEisenstein_rational`, `fourierExpansion`, `fourierCoefficient_levi`,
-  `fourierCoefficient_factor`, `hermitianDensity_split`, `whittaker_eq_density`,
+  `heckeAction_unramified_cusp`, `normalizedConstantTerm` and its API,
+  `normalizedConstantTerm_hecke`, `satake_gl1_reciprocity`, `cuspForm_exists_degreeZero_ne_zero`.
+* Layer 7: `exists_unramified_inducingCharacter`, `I_n`, `sphericalSection`, `siegelEisenstein`,
+  `section_degree`, `leviDetCharacter_discrete`, `siegelEisenstein_converges`,
+  `siegelEisenstein_rational`, `fourierExpansion`, `fourierCoefficient_rationalLevi`, `whittaker_levi`,
+  `fourierCoefficient_factor`, `hermitianDensity`, `densityPolynomial`, `densityType`,
+  `densityHalfLength`, `hermitianDensity_split`, `whittaker_eq_density`,
   `fyz_globalCoefficient`.
 -/
 
