@@ -204,6 +204,10 @@ example (x : ZMod p) :
     canonicalAddChar (ZMod p) p x = ZMod.stdAddChar x := by
   simp [canonicalAddChar]
 
+/-- The binary chosen-root trace character has value −1 at the prime-field unit. -/
+example : traceAddChar (ZMod 2) 2 (-1 : ℂ) (by norm_num) 1 = -1 := by
+  simp [traceAddChar, AddChar.zmodChar_apply, ZMod.val_one]
+
 end CanonicalCharacter
 /-- A primitive character identifies field elements with all additive characters by multiplicative shifts. -/
 theorem bijective_mulShift_of_isPrimitive {F : Type*} [Field F] [Fintype F] {R : Type*}
@@ -267,6 +271,22 @@ theorem digit_product_distribution (p f m b : ℕ) (hp : p.Prime) (hf : 0 < f)
     ((m : ZMod p) ^ s (m * b) * ∏ j ∈ Finset.range m, (h (b + j * d) : ZMod p) =
       (h (m * b) : ZMod p) * ∏ j ∈ Finset.Ico 1 m, (h (j * d) : ZMod p)) := by sorry
 
+/-- Unlike the mod-5 control, this digit-factorial witness distinguishes an inverse multiplier. -/
+example :
+    let h := fun r => ((Nat.digits 7 r).map Nat.factorial).prod
+    (2 : ZMod 7) ^ 2 * h 1 * h 4 = h 2 * h 3 ∧
+      (2 : ZMod 7) ^ 2 * h 1 * h 4 = 5 ∧
+      ((2 : ZMod 7) ^ 2)⁻¹ * h 1 * h 4 = 6 := by
+  change (2 : ZMod 7) ^ 2 * 1 * 24 = 2 * 6 ∧
+    (2 : ZMod 7) ^ 2 * 1 * 24 = 5 ∧ ((2 : ZMod 7) ^ 2)⁻¹ * 1 * 24 = 6
+  rw [ZMod.inv_eq_of_mul_eq_one 7 ((2 : ZMod 7) ^ 2) 2 (by decide)]
+  decide
+
+/-- A nonzero binary exponent tests the digit identity beyond the permutation boundary. -/
+example :
+    let s := fun r => (Nat.digits 2 r).sum
+    s 1 + s 6 + s 11 = s 3 + s 5 + s 10 ∧ s 1 + s 6 + s 11 = 6 := by decide
+
 /-- The exact Hasse–Davenport product relation includes trivial factors and characteristic two. -/
 theorem hasseDavenport_product (χ ρ : MulChar F ℂ) (ψ : AddChar F ℂ)
     (m : ℕ) (hm : 0 < m) (hdiv : m ∣ Fintype.card F - 1)
@@ -315,6 +335,38 @@ theorem gaussSum_finiteProduct {ι : Type*} [Fintype ι] (K : ι → Type*)
 
 
 end FourierAndProducts
+
+section ScalarDworkChecks
+open PowerSeries
+
+/-- Constant and linear terms fix the Robert sign on the actual native formal series. -/
+example : coeff 0
+    (rescale (-2 : ℚ) (exp ℚ) * expand 2 (by decide) (rescale (2 : ℚ) (exp ℚ))) = 1 ∧
+    coeff 1
+    (rescale (-2 : ℚ) (exp ℚ) * expand 2 (by decide) (rescale (2 : ℚ) (exp ℚ))) = -2 := by
+  norm_num [PowerSeries.coeff_mul, Finset.Nat.antidiagonal_succ, Finset.Nat.antidiagonal_zero,
+    PowerSeries.coeff_rescale, PowerSeries.coeff_expand, PowerSeries.coeff_exp]
+
+/-- At q=2 the second coefficient includes the expanded factor's linear term. -/
+example : coeff 2
+    (rescale (-2 : ℚ) (exp ℚ) * expand 2 (by decide) (rescale (2 : ℚ) (exp ℚ))) = 4 := by
+  norm_num [PowerSeries.coeff_mul, Finset.Nat.antidiagonal_succ, Finset.Nat.antidiagonal_zero,
+    PowerSeries.coeff_rescale, PowerSeries.coeff_expand, PowerSeries.coeff_exp]
+
+/-- The inverse-sign factor reverses the linear coefficient. -/
+example : coeff 1
+    (rescale (2 : ℚ) (exp ℚ) * expand 2 (by decide) (rescale (-2 : ℚ) (exp ℚ))) = 2 := by
+  norm_num [PowerSeries.coeff_mul, Finset.Nat.antidiagonal_succ, Finset.Nat.antidiagonal_zero,
+    PowerSeries.coeff_rescale, PowerSeries.coeff_expand, PowerSeries.coeff_exp]
+
+/-- The natural Gamma recipe at 4 disproves unrestricted dyadic congruence modulo 4. -/
+example : (-1 : ZMod 4) ^ 4 *
+    ∏ j ∈ Finset.Ico (1 : ℕ) 4, (if 2 ∣ j then 1 else (j : ZMod 4)) = 3 ∧
+    (3 : ZMod 4) ≠ 1 := by decide
+
+/-- Reduction modulo 2 cannot distinguish these distinct roots of unity. -/
+example : (-1 : ZMod 2) = 1 ∧ (-1 : ZMod 4) ≠ 1 := by decide
+end ScalarDworkChecks
 
 /-! ## Layer 2: character-sum estimates -/
 namespace FF2
@@ -875,6 +927,18 @@ theorem card_zeros_mod_prime_pow {n : ℕ} (F : MvPolynomial (Fin n) ℤ) (p : �
       p ^ ((m - 1) * (n - 1)) *
         Nat.card {x : Fin n → ZMod p // MvPolynomial.eval x (MvPolynomial.map (Int.castRingHom _) F) = 0} :=
   sorry
+
+/-- Half the group order detects that 3 generates the prime-field unit group. -/
+example : (3 : ZMod 65537) ^ 32768 = -1 := by
+  set_option maxRecDepth 100000 in
+  set_option maxHeartbeats 1000000 in
+    decide +kernel
+
+/-- The explicit discrete-logarithm witness for the element 2. -/
+example : (3 : ZMod 65537) ^ 55296 = 2 := by
+  set_option maxRecDepth 100000 in
+  set_option maxHeartbeats 1000000 in
+    decide +kernel
 
 /-- Evaluate the fixed secret plus t-1 freely chosen positive-degree coefficients. -/
 noncomputable def shamirShares {F : Type*} [Field F] {n t : ℕ} (x : Fin n → F) (s : F)
