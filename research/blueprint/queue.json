@@ -152901,6 +152901,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4.md",
    "note": "claimed on GitHub issue #11342"
+  },
+  {
+   "id": "PKG-MotivicEtaleKTheoryPartII~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivicEtaleKTheoryPartII"
+   ],
+   "outputs": [
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/README.md",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/Suggested.lean",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/metadata.toml",
+    "research/blueprint/handoff/PKG-MotivicEtaleKTheoryPartII~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-MotivicEtaleKTheoryPartII~codex.md"
   }
  ]
 }
