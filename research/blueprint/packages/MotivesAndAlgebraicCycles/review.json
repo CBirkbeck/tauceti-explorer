@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-MotivesAndAlgebraicCycles~adv",
+    "date": "2026-10-20",
+    "notes": "Independent review by Codex, session codex-FXtucO. All 315 effective input nodes accounted for: 313 retained and two existing Tau Ceti suppliers already removed. Checked all eight layers, definition Checks, current-library ownership, ten Lean signatures, fifteen sampled source locators and the author's eleven source/proof flags. Fixed the nonproper equidimensional-cycle/Suslin-homology identification, Kunneth action witness, localization convention, several locators, affine-heap descent proof route, Roitman proof route, height-sign qualification and the exact conditional almost-self-dual local identity. lean-check exited 0 with four sorry warnings only; no Lean changes were necessary. Not ready for the draft upstream PR: section 7.11 still lacks a valid replacement for the obstructed real-empty surface construction, and section 7.17 still lacks primary verification of the intended Beilinson primitive height domain and normalization. These gaps were already visible in the input; faithful packaging does not establish their closure. The report records further proof-extraction limits and the adversarial computations without claiming the future theories are implemented."
+  }
+}
