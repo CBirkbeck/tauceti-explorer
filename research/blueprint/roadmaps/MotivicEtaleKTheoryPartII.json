@@ -1,0 +1,150 @@
+{
+ "id": "MotivicEtaleKTheoryPartII",
+ "title": "Motivic and étale K-theory, Part II: fundamental lines and special-value factors",
+ "area": "automorphic",
+ "parent": "MotivicEtaleKTheory",
+ "summary": "Feeds the K-theory, regulators and Chern characters of MotivicEtaleKTheory into the fundamental lines of PeriodsAndSpecialValues. For motives h^i(X)(j) of smooth projective varieties over number fields it identifies the Burns–Flach factors with integral motivic cohomology and cycles, constructs the real comparison from the Beilinson regulator and the p-adic comparison from the étale Chern character, proves both comparison hypotheses for all Tate twists of Artin motives and for h¹(E)(1), and states Kato's rational zeta element condition, proving it in the class number formula case and translating it into the cohomological Lichtenbaum formula.",
+ "readme": "# Motivic and étale K-theory, Part II: fundamental lines and special-value factors\n\nThis roadmap starts where MotivicEtaleKTheory stops. That roadmap constructs integral motivic images, Adams eigenspaces, the Deligne and étale Chern regulators, the arithmetic determinant line Δ_p(T) = det⁻¹ RΓ_c(T) and the Selmer local determinant formula; PeriodsAndSpecialValues then builds the general Burns–Flach fundamental line Ξ(M), its real and λ-adic trivializations under explicit hypotheses, and the Tamagawa predicates. Part II feeds the first into the second: for motives M = h^i(X)(j) of smooth projective varieties over number fields it identifies the factors of Ξ(M) with K-theory and cycles, builds the real comparison ϑ_∞ from the Beilinson regulator and the p-adic comparison ϑ_p from the étale Chern character, proves the comparison hypotheses for all Tate twists of Artin motives and for h¹(E)(1), and states Kato's rational zeta element condition with its unconditional cases (the class number formula case) and its cohomological Lichtenbaum form.\n\nScope: Layers FL.1–FL.4 as listed. Conventions: Ξ is the Burns–Flach line and Δ = Ξ⁻¹ the Fukaya–Kato/Kato line; determinants follow PadicMeasuresIwasawaAlgebras §5.1; RΓ_c(O_{K,S_p}, –) removes S_p, and real places at p = 2 follow PeriodsAndSpecialValues PS.4.4. Sources: Burns–Flach 2001, Kato 2003, Huber–Kings 2003, Fontaine's Bourbaki exposé 751 (for the Fontaine–Perrin-Riou formulation) and Bloch–Kato 1990. Non-goals: the general Burns–Flach line and the ETNC predicate (PeriodsAndSpecialValues), Borel's theorem (BorelRegulators), the regulators and Δ_p(T) themselves (MotivicEtaleKTheory), Euler systems and main conjectures (Iwasawa roadmaps).",
+ "prerequisites": [
+  "MotivicEtaleKTheory",
+  "PeriodsAndSpecialValues",
+  "BorelRegulators",
+  "PadicMeasuresIwasawaAlgebras",
+  "ArithmeticGaloisRepresentations",
+  "MotivesAndAlgebraicCycles",
+  "PadicHodgeRegulators",
+  "PadicHodgeTheory",
+  "SelmerIwasawaCohomology",
+  "ArithmeticGaloisDuality",
+  "ArithmeticKTheory",
+  "EllipticRegulators"
+ ],
+ "stages": [
+  {
+   "key": "FL.1",
+   "title": "Motivic factors of K-theoretic motives",
+   "description": "For a number field K, a smooth projective K-variety X of pure dimension d with a chosen regular proper flat model over O_K, integers i ≥ 0 and j, and a coefficient algebra acting by correspondences, define the motivic factors H⁰_f(K,M) and H¹_f(K,M) of M = h^i(X)(j) from the integral motivic images, Adams eigenspaces and cycle groups of MotivicEtaleKTheory Layers 4, 9 and 12, case by case in the weight w = i − 2j (Burns–Flach §3.1, p. 518; Fontaine, Bourbaki 751, §9.3, p. 231; Bloch–Kato §5, p. 369). Targets: the K-theoretic motive datum with its dual datum M*(1) = h^{2d−i}(X)(d+1−j); the factor spaces with weight vanishing (H¹_f = 0 for w ≥ 0, H⁰_f = 0 unless i = 2j); the Artin-motive factors (only H⁰_f in twist 0 and H¹_f = K_{2r−1}(O_F)⊗E-parts in twist r ≥ 1, with Borel and Dirichlet ranks); the elliptic factors of h¹(E)(j) (E(K)⊗Q at j = 1 through Abel–Jacobi, the integral part of K_{2j−2}-Adams eigenspaces for j ≥ 2, and the Weil-pairing duality h¹(E)(j)*(1) ≅ h¹(E)(2−j)).",
+   "requires": [
+    "MotivicEtaleKTheory:M.4",
+    "MotivicEtaleKTheory:M.6",
+    "MotivicEtaleKTheory:M.8",
+    "MotivesAndAlgebraicCycles:MC.1",
+    "MotivesAndAlgebraicCycles:MC.2",
+    "BorelRegulators:R.3",
+    "ArithmeticKTheory:N.3",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+   ]
+  },
+  {
+   "key": "FL.2",
+   "title": "Real regulators and the fundamental-line real comparison",
+   "description": "Build the real side of the fundamental line of a K-theoretic motive. Targets: the real Deligne complex RΓ_D(K,M) = [⊕_{v|∞} H_v(M)^{G_v} ⊗ ℝ → (H_dR(M)/F⁰) ⊗ ℝ] with its kernel and cokernel, and its identification with real Deligne cohomology of X in weights w ≤ −2 (Burns–Flach (16), p. 519; Fontaine §9.2, p. 231); the Beilinson regulator sequence (cycle class, Beilinson regulator from MotivicEtaleKTheory §§12.2–12.3, height pairing in weight −1, dual cycle class) as a complex; the predicate RealExactness(M) of Burns–Flach Conjecture 1; real exactness for every Tate twist of every Artin motive (Borel and Dirichlet, through BorelRegulators Layers 4 and 8) and for h¹(E)(1) (Néron–Tate), with h¹(E)(2) equivalent to EllipticRegulators' Beilinson statement; and fundamentalLineRealComparison, the trivialization ϑ_∞ of PeriodsAndSpecialValues PS.3.2 built from these maps, with its coordinate formula for Artin motives (Huber–Kings, Proposition 1.2.3).",
+   "requires": [
+    "MotivicEtaleKTheoryPartII:FL.1",
+    "MotivicEtaleKTheory:M.8",
+    "PeriodsAndSpecialValues:PS.0",
+    "PeriodsAndSpecialValues:PS.3",
+    "BorelRegulators:R.4",
+    "BorelRegulators:R.7",
+    "EllipticRegulators:ER.6",
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+   ]
+  },
+  {
+   "key": "FL.3",
+   "title": "p-adic realizations and the fundamental-line p-adic comparison",
+   "description": "Build the p-adic side. Targets: the p-adic realization maps c⁰_p and c¹_p from H⁰_f(K,M) ⊗ ℚ_p and H¹_f(K,M) ⊗ ℚ_p to the cohomology of the Bloch–Kato Selmer complex RΓ_f(K,V_p), from the étale Chern character and cycle classes of MotivicEtaleKTheory Layers 9, 10 and 12 (Burns–Flach Conjecture 2 and (27), p. 523; Bloch–Kato (5.2) and Conjecture 5.3, p. 370); the predicate PadicRealizationIso(M,p); its proof for every Tate twist of every Artin motive at every prime (Soulé, through MotivicEtaleKTheory §10.5 and finite generation; Kummer theory in twist one; duality for twists ≤ 0); its equivalence with finiteness of Sha(E/K)[p^∞] for h¹(E)(1) (Bloch–Kato Proposition 5.4); the cohomology of RΓ_f for Artin motives by twist (Huber–Kings Lemma 1.2.6); and fundamentalLinePadicComparison, the isomorphism ϑ_p(M,S) : Ξ(M) ⊗ ℚ_p ≅ d RΓ_c(O_{K,S_p},V_p) of Burns–Flach p. 526, with its Euler-factor normalization at p (Huber–Kings Definition 1.2.7 and Proposition 1.2.5).",
+   "requires": [
+    "MotivicEtaleKTheoryPartII:FL.1",
+    "MotivicEtaleKTheory:M.7",
+    "MotivicEtaleKTheory:M.8",
+    "PadicHodgeRegulators:D.2",
+    "PadicHodgeRegulators:L1",
+    "PadicHodgeTheory:R06.5",
+    "SelmerIwasawaCohomology:L2",
+    "SelmerIwasawaCohomology:L4",
+    "ArithmeticGaloisDuality:D7",
+    "PeriodsAndSpecialValues:PS.4",
+    "ArithmeticKTheory:N.3",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+   ]
+  },
+  {
+   "key": "FL.4",
+   "title": "Zeta elements, the Tamagawa condition and its proved cases",
+   "description": "State the special-value condition for K-theoretic motives and prove its unconditional cases. Targets: TamagawaCondition(M,T,p), Kato's rational zeta element condition (Kato 2003, §2.1(d), p. 168; Huber–Kings Conjecture 1.2.8): the element of the rational fundamental line whose real image is the inverse leading term is rational and its p-adic image generates the integral lattice of RΓ_c(T); its equivalence with the p-part of the commutative Tamagawa obstruction of PeriodsAndSpecialValues PS.5.2 for the comparisons of Layers FL.2–FL.3; its independence of the lattice and of S, its global-duality form at odd p and its Selmer-complex form through the local determinant formula of MotivicEtaleKTheory §12.7 (Huber–Kings Propositions 1.2.9–1.2.10); the class number formula case h⁰(F) in twists 0 and 1 at odd p (Huber–Kings Proposition 2.3.1); the cohomological Lichtenbaum form for h⁰(F)(1−k), k ≥ 2 (Huber–Kings Theorem 1.4.1); and the elliptic data for h¹(E)(1) that PeriodsAndSpecialValues PS.6.3 takes as hypotheses.",
+   "requires": [
+    "MotivicEtaleKTheoryPartII:FL.2",
+    "MotivicEtaleKTheoryPartII:FL.3",
+    "MotivicEtaleKTheory:M.8",
+    "PeriodsAndSpecialValues:PS.3",
+    "PeriodsAndSpecialValues:PS.4",
+    "PeriodsAndSpecialValues:PS.5",
+    "PeriodsAndSpecialValues:PS.6",
+    "BorelRegulators:R.5"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BurnsFlach2001",
+   "title": "Tamagawa numbers for motives with (non-commutative) coefficients",
+   "authors": "David Burns and Matthias Flach",
+   "edition": "Documenta Mathematica 6 (2001), 501–570",
+   "url": "https://ems.press/content/serial-article-files/25892?nt=1",
+   "readSections": [
+    "§3.1 Motivic structures, pp. 517–518",
+    "§3.2 Basic exact sequences, pp. 519–523",
+    "§3.3 Projective A-structures, pp. 523–526",
+    "§3.4 Virtual objects attached to motives, pp. 526–529"
+   ]
+  },
+  {
+   "id": "Kato2003",
+   "title": "Tamagawa number conjecture for zeta values",
+   "authors": "Kazuya Kato",
+   "edition": "Proceedings of the ICM 2002; arXiv:math/0304233v1 with printed pages 163–171",
+   "url": "https://arxiv.org/abs/math/0304233",
+   "readSections": [
+    "§1.2, p. 165",
+    "§2.1 The conjecture, (2.1.1)–(2.1.5) and (a)–(d), pp. 166–168"
+   ]
+  },
+  {
+   "id": "HuberKings2003",
+   "title": "Bloch–Kato conjecture and Main Conjecture of Iwasawa theory for Dirichlet characters",
+   "authors": "Annette Huber and Guido Kings",
+   "edition": "Duke Mathematical Journal 119 (2003), 393–464; arXiv:math/0101071v2 (pagination of the arXiv file)",
+   "url": "https://arxiv.org/abs/math/0101071",
+   "readSections": [
+    "§1.1–1.5, pp. 3–15",
+    "§2.2–2.3, pp. 16–20"
+   ]
+  },
+  {
+   "id": "Fontaine1992",
+   "title": "Valeurs spéciales des fonctions L des motifs",
+   "authors": "Jean-Marc Fontaine",
+   "edition": "Séminaire Bourbaki exposé 751, Astérisque 206 (1992), 205–249",
+   "url": "http://www.numdam.org/item/SB_1991-1992__34__205_0/",
+   "readSections": [
+    "§7, pp. 224–226",
+    "§8.3, pp. 228–230",
+    "§9.1–9.6, pp. 230–234"
+   ]
+  },
+  {
+   "id": "BlochKato1990",
+   "title": "L-functions and Tamagawa numbers of motives",
+   "authors": "Spencer Bloch and Kazuya Kato",
+   "edition": "The Grothendieck Festschrift I, Progress in Mathematics 86 (1990), 333–400",
+   "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf",
+   "readSections": [
+    "Example 3.9 and Definition 3.10, p. 359",
+    "§5.1–5.4, pp. 369–371"
+   ]
+  }
+ ],
+ "status": "draft"
+}
