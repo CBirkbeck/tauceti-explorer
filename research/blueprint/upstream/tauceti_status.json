@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-20T19:20Z",
+ "updated": "2026-10-20T19:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -838,7 +838,7 @@
   "AutomorphicGaloisRepresentations": {
    "stage": "pr",
    "pr": 1007,
-   "head": "214dd3c",
+   "head": "2648a49",
    "note": "ported 2026-10-16 (tier 18); first red-team pass + first ChatGPT Pro round answered; second pass running; draft",
    "review": {
     "recommendation": "approve",
@@ -850,7 +850,7 @@
   "SerreWeightAndLevelOptimisation": {
    "stage": "pr",
    "pr": 1013,
-   "head": "eeff35d",
+   "head": "763a749",
    "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received; draft",
    "review": {
     "recommendation": "approve",
@@ -898,7 +898,7 @@
   "PadicFamilies": {
    "stage": "pr",
    "pr": 1019,
-   "head": "2a49b86",
+   "head": "97344dc",
    "note": "ported 2026-10-16 from the accepted explorer package (tier 16); both red-team passes applied; draft",
    "review": {
     "recommendation": "changes",
@@ -982,11 +982,11 @@
   "DirichletPadicLFunctions": {
    "stage": "pr",
    "pr": 1039,
-   "head": "b0bec06",
+   "head": "a78529c",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1018,7 +1018,7 @@
   "ColemanIntegration": {
    "stage": "pr",
    "pr": 1043,
-   "head": "4d3c462",
+   "head": "acaaf50",
    "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
    "review": {
     "recommendation": "approve",
@@ -1630,7 +1630,7 @@
   "CyclotomicClassGroupsAndStickelberger": {
    "stage": "pr",
    "pr": 1260,
-   "head": "3814e8a",
+   "head": "38d8e47",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / Eisenstein supplier); red team running",
    "review": {
     "recommendation": null,
