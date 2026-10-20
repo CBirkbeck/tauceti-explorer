@@ -146,11 +146,40 @@ theorem isUnit_one_sub_of_pow_eq_one {O : Type*} [CommRing O] [IsDomain O] {ω :
 /-- The norm of `1-i` and of `i-1` is 2, although `ζ₂-1=-2` (§0.6). -/
 theorem quartic_norm_sign_test {L : Type*} [Field L] [CharZero L] [IsCyclotomicExtension {4} ℚ L]
     {ι : L} (hι : IsPrimitiveRoot ι 4) :
-    Algebra.norm ℚ (1 - ι) = 2 ∧ Algebra.norm ℚ (ι - 1) = 2 := sorry
+    Algebra.norm ℚ (1 - ι) = 2 ∧ Algebra.norm ℚ (ι - 1) = 2 := by
+  have h2 : Algebra.norm ℚ (ι - 1) = 2 := by
+    rw [hι.sub_one_norm_eq_eval_cyclotomic (by norm_num)
+      (cyclotomic.irreducible_rat (by norm_num))]
+    rw [show (4 : ℕ) = 2 ^ (1 + 1) by norm_num, eval_one_cyclotomic_prime_pow]
+    norm_num
+  refine ⟨?_, h2⟩
+  have hfin : Module.finrank ℚ L = 2 := by
+    rw [IsCyclotomicExtension.finrank L (cyclotomic.irreducible_rat (by norm_num : 0 < 4))]
+    decide
+  rw [show (1 : L) - ι = algebraMap ℚ L (-1) * (ι - 1) by simp, map_mul, h2,
+    Algebra.norm_algebraMap, hfin]
+  norm_num
 
 /-- A primitive sixth root satisfies `ζ₆-1=ζ₃`; the step of degree one retains its sign. -/
 theorem sixthRoot_sub_one_test {L : Type*} [Field L] [CharZero L] {ζ : L} (hζ : IsPrimitiveRoot ζ 6) :
-    ζ - 1 = ζ ^ 2 := sorry
+    ζ - 1 = ζ ^ 2 := by
+  have h6 : ζ ^ 6 = 1 := hζ.pow_eq_one
+  have h3 : ζ ^ 3 ≠ 1 := hζ.pow_ne_one_of_pos_of_lt (by norm_num) (by norm_num)
+  have h2 : ζ ^ 2 ≠ 1 := hζ.pow_ne_one_of_pos_of_lt (by norm_num) (by norm_num)
+  have h3' : ζ ^ 3 + 1 = 0 := by
+    have : (ζ ^ 3 - 1) * (ζ ^ 3 + 1) = 0 := by linear_combination h6
+    rcases mul_eq_zero.mp this with h | h
+    · exact absurd (sub_eq_zero.mp h) h3
+    · exact h
+  have hne : ζ + 1 ≠ 0 := by
+    intro h
+    apply h2
+    have : ζ = -1 := by linear_combination h
+    rw [this]; norm_num
+  have : (ζ + 1) * (ζ ^ 2 - ζ + 1) = 0 := by linear_combination h3'
+  rcases mul_eq_zero.mp this with h | h
+  · exact absurd h hne
+  · linear_combination -h
 
 /-- The conductor-one value at 2 uses the degree-one norm. -/
 example : Algebra.norm ℚ (1 - (-1 : ℚ)) = 2 := by norm_num
@@ -159,7 +188,15 @@ example : Algebra.norm ℚ (1 - (-1 : ℚ)) = 2 := by norm_num
 theorem chiSum_regular_sign_test {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (hs : s ≠ 1)
     (hcard : Fintype.card Δ = 2) (χ : Δ →* ℤˣ) (hχ : χ s = -1) :
     chiSum (Representation.leftRegular ℤ Δ) χ (MonoidAlgebra.single 1 1) =
-      MonoidAlgebra.single 1 1 - MonoidAlgebra.single s 1 := sorry
+      MonoidAlgebra.single 1 1 - MonoidAlgebra.single s 1 := by
+  classical
+  have huniv : (Finset.univ : Finset Δ) = {1, s} := by
+    symm
+    apply Finset.eq_of_subset_of_card_le (Finset.subset_univ _)
+    rw [Finset.card_univ, hcard, Finset.card_pair (Ne.symm hs)]
+  simp only [chiSum, huniv]
+  rw [Finset.sum_pair (Ne.symm hs)]
+  simp [hχ, Representation.ofMulAction_single, sub_eq_add_neg]
 
 /-- An order-four character detects the inverse in the Frobenius factor (§0.20). -/
 theorem chiSum_orderFour_frobenius_test {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (χ : Δ →* ℂˣ)
@@ -167,12 +204,46 @@ theorem chiSum_orderFour_frobenius_test {Δ : Type*} [Group Δ] [Fintype Δ] (s 
     chiSum (Representation.leftRegular ℂ Δ) χ
         (MonoidAlgebra.single 1 1 - MonoidAlgebra.single s⁻¹ 1) =
       (1 + Complex.I) •
-        chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single 1 1) := sorry
+        chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single 1 1) := by
+  have key : chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single s⁻¹ 1) =
+      ((χ s : ℂ)⁻¹) • chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single 1 1) := by
+    simp only [chiSum, Finset.smul_sum]
+    refine Fintype.sum_equiv (Equiv.mulRight s⁻¹) _ _ (fun δ => ?_)
+    simp only [Equiv.coe_mulRight, Representation.ofMulAction_single, smul_eq_mul,
+      Units.smul_def, smul_smul, map_mul, map_inv, mul_inv_rev, inv_inv, Units.val_mul,
+      Units.val_inv_eq_inv_val]
+    congr 1
+    · have : (χ s : ℂ) ≠ 0 := Units.ne_zero _
+      field_simp
+    · simp [Representation.ofMulAction_single]
+  have hsub : chiSum (Representation.leftRegular ℂ Δ) χ
+      (MonoidAlgebra.single 1 1 - MonoidAlgebra.single s⁻¹ 1) =
+      chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single 1 1) -
+      chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single s⁻¹ 1) := by
+    simp only [chiSum, map_sub, smul_sub, Finset.sum_sub_distrib]
+  rw [hsub, key, hχ, Complex.inv_I, add_smul, one_smul, neg_smul, sub_neg_eq_add]
 
 /-- Inverse arithmetic Frobenius at conductor seven uses exponent four, not two (§0.5). -/
 theorem seventhRoot_inverse_frobenius_test {L : Type*} [Field L] [CharZero L] {η : L} (hη : IsPrimitiveRoot η 7) :
     (1 + η ^ 4) * (1 - η ^ 4) = 1 - η ∧
-      (1 + η ^ 4) * (1 - η ^ 2) ≠ 1 - η := sorry
+      (1 + η ^ 4) * (1 - η ^ 2) ≠ 1 - η := by
+  refine ⟨by linear_combination (-η) * hη.pow_eq_one, fun h => ?_⟩
+  have hpoly : aeval η (1 - X + X ^ 3 - X ^ 5 : ℚ[X]) = 0 := by
+    have hne : η ≠ 0 := hη.ne_zero (by norm_num)
+    have : η * (1 - η + η ^ 3 - η ^ 5) = 0 := by linear_combination h
+    simpa [hne] using this
+  have hdvd := minpoly.dvd ℚ η hpoly
+  rw [← hη.minpoly_eq_cyclotomic_of_irreducible (cyclotomic.irreducible_rat (by norm_num))] at hdvd
+  have hp0 : (1 - X + X ^ 3 - X ^ 5 : ℚ[X]) ≠ 0 := by
+    intro h0
+    have := congrArg (fun q : ℚ[X] => q.coeff 0) h0
+    simp at this
+  have hle := natDegree_le_of_dvd hdvd hp0
+  rw [natDegree_cyclotomic] at hle
+  have hdeg : (1 - X + X ^ 3 - X ^ 5 : ℚ[X]).natDegree = 5 := by compute_degree!
+  rw [hdeg] at hle
+  have : Nat.totient 7 = 6 := by decide
+  omega
 
 /-- The trivial character gives the existing invariants. -/
 example {O M Δ : Type*} [CommRing O] [AddCommGroup M] [Module O M]
@@ -183,7 +254,19 @@ example {O M Δ : Type*} [CommRing O] [AddCommGroup M] [Module O M]
 /-- For the coefficient ring as module, the domain hypothesis gives scalar injectivity. -/
 theorem chiComponent_domain_test {O Δ : Type*} [CommRing O] [IsDomain O] [Group Δ]
     (χ : Δ →* Oˣ) (δ : Δ) (hδ : (χ δ : O) ≠ 1) :
-    chiComponent (Representation.trivial O Δ O) χ = ⊥ := sorry
+    chiComponent (Representation.trivial O Δ O) χ = ⊥ := by
+  ext x
+  simp only [mem_chiComponent, Submodule.mem_bot, Representation.trivial_apply, smul_eq_mul]
+  constructor
+  · intro h
+    have h2 : ((χ δ : O) - 1) * x = 0 := by
+      have := h δ
+      linear_combination -this
+    rcases mul_eq_zero.mp h2 with h3 | h3
+    · exact absurd (sub_eq_zero.mp h3) hδ
+    · exact h3
+  · rintro rfl δ'
+    simp
 
 /-- Torsion rejects the false extension of the preceding test to arbitrary modules:
 every integral unit character reduces to the trivial character modulo 2. -/
@@ -285,6 +368,19 @@ example : (1 + X) * (1 - X + X ^ 2 : ℚ[X]) = 1 + X ^ 3 ∧
   constructor
   · ring
   · simp [coeff_add, coeff_sub, coeff_X, coeff_one]
+
+/-- For p=5 and ρ=ω², the χ⁻¹-projection kills the pole of (1-φ)δ(X) at X=0 (§4.7):
+on μ₄=⟨i⟩ the values ρ⁻¹(iᵏ)=(-1)ᵏ sum to 0, while the trivial character gives p-1=4. -/
+example : ∑ k ∈ Finset.range 4, ((Complex.I ^ k) ^ 2)⁻¹ = 0 ∧
+    ∑ k ∈ Finset.range 4, ((1 : ℂ) ^ k) = 4 := by
+  constructor
+  · simp [Finset.sum_range_succ, pow_succ, Complex.I_mul_I]
+  · norm_num [Finset.sum_range_succ]
+
+/-- With b the Teichmüller lift of 2 at p=5, ρ(b)=b²=-1 and ρ(b)-1=-2 is a unit mod 5,
+while b has order 4 (§4.7). -/
+example : (2 : ZMod 5) ^ 2 = -1 ∧ ((2 : ZMod 5) ^ 2 - 1) * 2 = 1 ∧ (2 : ZMod 5) ^ 4 = 1 := by
+  decide
 
 /-- The norm in the nonsemisimple C₃-module ℤ/9 has nonzero finite kernel (§4.21). -/
 example : ((4 : ZMod 9) ^ 3 = 1) ∧
