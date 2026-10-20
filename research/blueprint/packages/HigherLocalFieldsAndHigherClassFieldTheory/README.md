@@ -41,18 +41,20 @@ The following are prerequisites and boundaries, rather than additional targets.
   products. [ProfiniteArithmetic][PA] owns generic profinite integers and
   abelianization; [LocalGaloisGroups][LGG] owns ordinary local Galois group
   structure. No second profinite or one-local Galois theory is needed here.
-- [K2SymbolsBrauer][K2], Layers T.2–T.4, owns graded Milnor K-theory, symbols,
+- [K2SymbolsBrauer][K2], Layers 5 and 9–11, owns graded Milnor K-theory, symbols,
   DVR residues, transfers, projection formulas and proper-curve Weil reciprocity.
-  [KTheoryFiniteLocalFields][KLF], Layer L.3, owns ordinary Hilbert symbols and
-  one-local K-groups. [MotivicEtaleKTheory][MEK], `KU-normresidue`, owns the
-  invertible-coefficient norm-residue isomorphism. Its M.5d supplies coefficient
-  and field reductions, not the Bloch–Gabber–Kato theorem.
+  [KTheoryFiniteLocalFields][KLF], Layer 3, supplies ordinary one-local K₂
+  computations. [MotivicEtaleKTheory][MEK], §6.6 and §§7.4–7.6, owns the
+  invertible-coefficient norm-residue isomorphism, Bloch–Gabber–Kato and
+  its logarithmic Witt extension, including imperfect fields.
 - [CrystallineCohomology][CR], CR.4, supplies de Rham–Witt complexes.
   [SchemeAndStackFoundations][SF], SF.0, SF.2, SF.4 and SF.5, supplies schemes,
   quasi-coherent modules, henselian and Nisnevich infrastructure, resolution
-  carriers and cycles. [EtaleDualityAndPerverseSheaves][EDC], EDC.2–EDC.3,
-  supplies étale homology, localization and purity. The degree-controlled
-  alteration input is the `PrimeToDegreeAlterations` supplier contract;
+  carriers and cycles. [EtaleDualityAndPerverseSheaves][EDC] supplies
+  localization and smooth purity in its stated coefficient regimes. The
+  additional étale homology, arithmetic niveau and wild purity contracts
+  below require extensions. The degree-controlled alteration input is
+  a further supplier contract;
   ordinary de Jong
   alterations do not supply the required degree prime to a chosen prime.
 - Mathlib's `RestrictedProduct` and
@@ -65,12 +67,13 @@ The following are prerequisites and boundaries, rather than additional targets.
   decay in both directions. Neither is the raw higher Laurent topology
   or `E{{T}}`, whose positive coefficients need not decay.
 
-The generic logarithmic symbol theorem needed below has the full field scope
-`K_i^M(E)/p^s ≃ W_s Ω^i_{E,log}` in characteristic p, including imperfect fields
-and trace/residue compatibility. The perfect-residue, generally odd-prime,
-mixed-DVR scope of KLF L.5 is insufficient for that contract. Keep the generic
-theorem and the imperfect-residue mixed-DVR comparison explicit at the boundary;
-neither follows merely from the existence of Witt vectors.
+MEK's logarithmic symbol theorem has the full field scope
+`K_i^M(E)/p^s ≃ H⁰_et(E,W_s Ω^i_log)` in characteristic p, including imperfect
+fields. The higher-field trace and admissible-residue squares are §2.6 targets.
+The imperfect-residue mixed-DVR comparison remains an additional supplier
+requirement: KLF Layer 5's perfect-residue, generally odd-prime calculations
+do not establish it. Neither a symbol isomorphism nor Witt-vector carriers
+alone supply all these comparisons.
 
 ## Conventions
 
@@ -194,41 +197,62 @@ absolute Galois carrier and separable-closure embeddings as CFT.
 
 ### Milnor, logarithmic and geometric interfaces
 
-K2 T.2 supplies the full graded Milnor ring and its alternating-sign laws.
-T.3 supplies higher DVR residues, finite support and the invertible-coefficient
-motivic localization comparison. T.4 supplies finite transfers, transitivity,
-the projection formula, complete norm/residue compatibility and Weil reciprocity.
+K2 Layer 5 supplies the full graded Milnor ring and its alternating-sign laws.
+Layer 9 supplies higher DVR residues and finite support; Layer 11 supplies
+the signed localization comparison. Layer 10, especially §§10.24–10.29,
+supplies finite transfers, transitivity, the projection formula, complete
+norm/residue compatibility and proper-curve reciprocity in every degree.
 The name `complete-norm-residue` here refers to transfer commuting with DVR
 residue, not to the Galois-cohomological norm-residue isomorphism. The latter
-comes from MEK `KU-normresidue`, in every degree and for every invertible n,
-with products and transfers. MEK M.5d supplies prime-power passage, filtered
-coefficient colimits, purely inseparable invariance and characteristic reductions.
+comes from MEK §6.6, in every degree and for every invertible n, with products
+and transfers. MEK §§7.4–7.5 supply `blochGabberKato` and
+`wittLogarithmicSymbol` for arbitrary characteristic-p fields and every
+degree, with the genuine étale logarithmic Witt target. Its §7.6 supplies
+prime-power passage and filtered-colimit comparisons. Purely inseparable
+invariance of Milnor quotients is consumed only at moduli prime to p.
 
-CR.4 must supply finite-length ordinary/relative de Rham–Witt complexes,
-logarithmic forms, dlog, Cartier, restriction, Verschiebung, trace and residue
-for imperfect characteristic-p fields. The generic Bloch–Gabber–Kato contract
-is the isomorphism stated under Scope, compatible with these operations.
-KLF L.5 is consumed only within its actual perfect-residue odd-prime scope;
-the broader field theorem and imperfect-residue mixed-DVR comparison are
-additional supplier requirements. KLF L.3 supplies one-local K₂ and Hilbert
-computations, so the explicit formulas here add higher-degree information.
+CR.4 supplies finite-length ordinary/relative de Rham–Witt complexes,
+dlog, Cartier, restriction and Verschiebung. CR.4.8 supplies logarithmic
+sheaves and their étale exact sequences on regular locally Noetherian
+characteristic-p schemes, hence on imperfect fields as well. MEK §7.4 includes
+the mod-p field norm/trace comparison. The additional finite-length DVR residue,
+trace and purity comparisons in imperfect and mixed-wild regimes must be
+supplied with their exact scope; they do not follow merely from étale exactness.
+KLF Layer 5 is consumed within each target's actual hypotheses: §5.2a
+constructs an absolute logarithmic Witt complex for arbitrary prelog
+ℤ_(p)-algebras at odd p, whereas its explicit DVR calculations require
+perfect residue fields. This does not supply the imperfect-residue
+mixed-DVR comparison. KLF Layer 3 supplies ordinary one-local K₂ computations.
 
 SF.0 supplies Noetherian quasi-coherent modules, localization, completion and
 coherent-to-quasi-coherent filtered-colimit control. SF.2 supplies field
-étale/Galois comparison, Nisnevich henselian stalks, the finite-étale-cover
-Galois category and `π_1^ab(U)`, together with regular-scheme purity. SF.4 supplies
+étale/Galois comparison and Nisnevich henselian stalks. The finite-étale-cover
+Galois category, `π_1^ab(U)` and the regular-scheme purity needed here are
+additional geometric requirements; SF.2's field comparison does not construct
+them. SF.4 supplies
 proper birational resolution and SNC compactification carriers; SF.5 supplies
 cycles, supports and branchwise specialization. The relative Milnor sheaf and
 punctured-spectrum comparison required in §5.7 must retain modulus data and
 all branches; ordinary quasi-coherent localization is insufficient.
 
-EDC.2 `trace-purity` supplies étale homology and its field-stalk description.
-EDC.3 supplies localization, purity and the niveau spectral sequence with the
-coefficient and regularity hypotheses needed to identify its first differential
-with branchwise residue/corestriction. In characteristic p the logarithmic
-purity comparison is separate. No unrestricted mixed-wild boundary is assumed.
-The `PrimeToDegreeAlterations` contract must supply alterations of degree prime to ℓ, with the descent and
-compactification properties used in Jannsen Theorems 2.10–2.11, pp. 24–25.
+EDC's scheme six operations and smooth trace do not yet supply the arithmetic
+étale homology, field-stalk description and niveau spectral sequence used in
+§6.5. A geometric extension must construct that theory with localization,
+the relevant purity hypotheses and identification of its first differential
+with branchwise residue/corestriction. Logarithmic purity is a further
+characteristic-p requirement. No unrestricted mixed-wild boundary is assumed.
+The alteration contract requires a proper regular alteration of generic degree
+prime to ℓ with the compactification and transfer descent used in Jannsen
+Theorems 2.10–2.11, pp. 24–25. EDC, Part II's prime-to-ℓ local uniformization
+gives regular SNC covering families; identifying those with this global
+proper degree-controlled contract needs a separate argument.
+
+**Supplier gaps.** The additional imperfect/mixed-wild differential comparisons,
+scheme fundamental group and purity, arithmetic étale homology/niveau theory,
+and global proper degree-controlled alteration theorem just specified have
+no exact export identified here. Targets that use them retain these explicit
+prerequisites. They cannot be discharged by the narrower field comparison,
+smooth purity, Witt-carrier or local-covering statements.
 
 ## How to read the build
 
@@ -687,7 +711,7 @@ or universal equality of multiplicative conventions is assumed.
 ### 1.1 Iterated residues
 
 For an n-local tower and `m≥n`, compose the n DVR boundaries supplied by
-[K2], T.3, to obtain
+[K2], Layer 9, to obtain
 `δ_F : K_m^M(F) → K_{m−n}^M(F_0)`. Use the last-entry uniformizer
 convention at every step. In particular
 `δ_F{t_1,…,t_n}=1` in `K_0^M(F_0)=ℤ`, and
@@ -713,7 +737,7 @@ p. 65; [Morrow], Proposition 5.5 and Remark 5.6, pp. 33–34.
 
 ### 1.2 Norms through residue towers
 
-Use [K2], T.4, for the Milnor transfer of every finite field extension,
+Use [K2], Layer 10, for the Milnor transfer of every finite field extension,
 including extensions whose residue fields are inseparable. For `L/F`,
 the boundary–norm squares give
 `δ_F N_{L/F}=N_{L_0/F_0}δ_L`. In degree n this reads
@@ -772,15 +796,21 @@ after §1.6, with the divisible kernel.
 
 For `m≥1` and integer `r≥1`, define `U^rK_m^M(F)` to be the subgroup
 generated by `{1+a,b_2,…,b_m}`, with `a∈m_outer^r` and **arbitrary**
-`b_j∈F×`. Define `U^0` using outer units in the first entry, and `VK_m`
-using principal units. In `K_m^top`, use the closure of the quotient image.
+`b_j∈F×`. Define `U^0` using outer units in the first entry. Separately put
+`V_F=1+m_rank(F)` and define `VK_m` as the subgroup generated by
+`{v,b_2,…,b_m}` with `v∈V_F` and `b_j∈F×`. Its quotient image is
+`VK_m^top`; this uses rank principal units, rather than only
+`1+m_outer(F)`. In `K_m^top`, define the outer-depth filtration by the
+closure of the quotient image of `U^r`.
 A rank multi-index filtration needs its own valuation bounds and sequential
 closure; identifying it with ramification will be a theorem of Layer 4.
 
 **API.** `MilnorUnitFiltration.subgroup` is the generated subgroup;
 `MilnorUnitFiltration.antitone` states `U^r⊆U^s` for `r≥s`;
 `MilnorUnitFiltration.topImage` specifies the closed image;
-`MilnorUnitFiltration.one` identifies `U^rK_1` with `1+m_outer^r`.
+`MilnorUnitFiltration.one` identifies `U^rK_1` with `1+m_outer^r`;
+`MilnorUnitFiltration.rankPrincipal` and `.rankPrincipal_top` give `VK_m`
+and its quotient image; `.outer_one_le_rankPrincipal` states `U^1⊆VK_m`.
 
 **Checks.**
 
@@ -789,6 +819,11 @@ closure; identifying it with ramification will be a theorem of Layer 4.
 - `{u,t}` has δ=1 and cannot lie in the principal-unit subgroup.
 - In degree one, `1+t^r` has depth r, whereas `1+t^{r−1}` does not have
   depth r for `r>1`.
+- In `F_q((u))((t))`, `{1+u,t}` belongs to `VK_2`, since `1+u∈V_F`.
+  It does not belong to `U^1`: its t-boundary is the nontrivial
+  degree-one class `{1+u}`, whereas the boundary vanishes on `U^1`.
+- In dimension one the rank and outer valuation rings coincide, so
+  `VK_1=U^1K_1`. This agreement fails for the preceding two-local example.
 
 For `n≥1` and `F=F_q((t_1))⋯((t_n))` of characteristic p, establish Parshin's
 decomposition
@@ -851,7 +886,7 @@ those tame factors are trivial, while the integral direction remains.
 ### Dependencies
 
 The generic Milnor product, Steinberg relations, transfers, DVR localization
-and curve reciprocity come from [K2], T.2–T.4. This layer supplies their
+and curve reciprocity come from [K2], Layers 5 and 9–11. This layer supplies their
 iteration along a higher field, the sequential quotient, principal-unit
 filtrations, higher norm descent and the structure theorems. Structure and
 reciprocity proofs can use the independent finite-length pairings below;
@@ -955,8 +990,8 @@ admissible prime-to-residue-characteristic case.
 `H_Kato^3`, not on `H_Kato^2`. The parameter cup product in §2.8 has
 positive invariant `1/m` under arithmetic Frobenius.
 
-*Needs:* §2.2, [SF], Layers 2 and 5, [EDC], Layer 2's trace/duality
-formalism and Layer 3's admissible purity, and the one-local invariant.
+*Needs:* §2.2, [SF], Layers 2 and 5, the trace/duality and admissible
+purity extensions specified under Exact supplier contracts, and the one-local invariant.
 Sources: [Invitation], I §5.1, theorem and corollary, pp. 55–56, §5.2,
 p. 56; [Milne], I §2, Theorem 2.17 and Lemma 2.18, pp. 38–39.
 
@@ -1013,26 +1048,29 @@ Kato existence §5, pp. 191–194.
 ### 2.6 Imported symbol theorems and their comparison squares
 
 For m invertible in E import
-`K_i^M(E)/m ≃ H^i(E,μ_m^{⊗i})` from [MEK]'s KU interface. In
+`K_i^M(E)/m ≃ H^i(E,μ_m^{⊗i})` from [MEK], §6.6. In
 characteristic p the separate Bloch–Gabber–Kato theorem gives
 `K_i^M(E)/p^s ≃ W_sΩ^i_{E,log}` by
 `{a_1,…,a_i}↦dlog[a_1]∧⋯∧dlog[a_i]`.
 The logarithmic differential carrier does not itself prove this theorem.
-The full field theorem, including imperfect fields, needs a supplier
-contract beyond [KLF], Layer 5's current scope. [MEK], M.5d supplies
-motivic reduction comparisons, not this differential symbol theorem.
+Import this full field theorem from [MEK], §§7.4–7.5, including imperfect
+fields and all primes. The Witt target means `H⁰_et(E,W_sΩ^i_log)`;
+it is independently constructed by [CR], CR.4.8, rather than defined
+to be the symbol image. [KLF]'s explicit mixed-DVR calculations have
+different hypotheses and are not used to prove this field theorem.
 
-This layer adds the higher-field squares for products, finite transfers
-and admissible residues. Generic symbol isomorphisms retain their own
-owners. A wild residue square needs logarithmic purity, not the
-prime-to-characteristic Kummer sequence.
+This layer adds the comparison squares through §1.6's separated topological
+quotient and the chosen tower residues, with the higher invariant's
+normalization. Products and finite transfers use the supplied generic maps.
+Generic symbol isomorphisms retain their own owners. A wild residue square
+needs logarithmic purity, not the prime-to-characteristic Kummer sequence.
 
 **Check.** In degree one, dlog has kernel `(E×)^{p^s}`. Ordinary
 `μ_{p^s}` as a Galois module in characteristic p would erase the wild
 symbol groups.
 
-*Needs:* [K2], T.2–T.4; [MEK], KU and M.5d in their respective roles;
-§2.5 and the full differential-symbol theorem. Source: Izhboldin,
+*Needs:* [K2], Layers 5 and 9–11; [MEK], §6.6 and §§7.4–7.6;
+§2.5 for the additional trace, residue and mixed-DVR comparisons. Source: Izhboldin,
 [Invitation], I §2.4, Theorem 5 and the finite-length extension, p. 25;
 I §5.1, p. 55.
 
@@ -1187,8 +1225,12 @@ power of arithmetic Frobenius. The fixed field Σ of the closed subgroup
 generated by σ̃ is finite over F.
 Construct the class
 `N_{Σ/F}{t_1,…,t_n} mod N_{L/F}K_n^top(L)`,
-using parameters of Σ. Show independence of the lift and of those
-parameters **in the norm quotient**, then show that it is inverse to Art.
+using parameters of Σ. Prove that `LΣ/Σ` is purely unramified. Its norm
+contains the kernel of the terminal degree map δ, so differences between
+parameter symbols of Σ are norms from `LΣ`. Transitivity of norms sends
+these differences into `N_{L/F}K_n^top(L)`. Show independence of the lift
+and of those parameters **in the norm quotient**, then show that it is
+inverse to Art.
 
 The strong-tree proof uses the exact principal-unit sequence over the
 purely unramified extension, the difference `σΠ−Π` of a prime element,
@@ -1212,9 +1254,14 @@ expresses the universal degree-p condition;
 - For `L=F` the quotient class is zero.
 - In a purely unramified degree-d extension, Frobenius corresponds to
   the parameter symbol and its valuation class modulo d.
-- Replacing a parameter by its product with a principal unit leaves the
-  norm class unchanged. Literal equality before the norm quotient is not
-  required.
+- Replacing a parameter of the auxiliary field Σ by its product with a
+  rank principal unit leaves the displayed norm class unchanged, by the
+  purely unramified norm theorem over Σ.
+- This is not independence for arbitrary parameter symbols of F. For
+  `F=F_p((t))` and `L=F(β)`, `β^p−β=t^(−1)`, the Artin–Schreier
+  pairing of `1+t` with `t^(−1)` is
+  `res(t^(−1)dt/(1+t))=1∈F_p`. Thus `1+t` is not a norm, and the
+  classes of t and `t(1+t)` in `F×/N(L×)` differ.
 
 *Needs:* §0.2, §1.2–§1.6, the strong-tree reduction theorem and the exact
 principal-unit sequence. Sources: Fesenko, [Invitation], I §10.1, p. 96,
@@ -1675,8 +1722,8 @@ boundaries in the admissible coefficient regimes.
 - An unramified Milnor or cohomology class extending over an open has zero residue at each
   codimension-one point of that open.
 
-*Needs:* §1.1–§1.2, §2.3, §5.1, [K2], T.3–T.4 and [EDC], Layer 3's
-niveau identification. Sources: [Kerz], §§3–5, pp. 4–7;
+*Needs:* §1.1–§1.2, §2.3, §5.1, [K2], Layers 9–11 and the arithmetic
+niveau identification specified under Exact supplier contracts. Sources: [Kerz], §§3–5, pp. 4–7;
 [Jannsen], §4, (4.3)–(4.4), pp. 41–42. Wild logarithmic residues
 require their own purity comparison.
 
@@ -1838,7 +1885,7 @@ Deduce that local Artin evaluations multiply to the identity on each
 Q-chain relation. Check separately the boundary-insertion component and
 the component obtained by residue into a shorter chain. For a proper
 regular curve the Milnor relation is the imported Weil reciprocity law
-`Σ_x N_{κ(x)/k}∂_x=0` from [K2], T.4.
+`Σ_x N_{κ(x)/k}∂_x=0` from [K2], Layer 10.
 
 The local codimension-two relation needs its own
 normalization/localization reciprocity argument. Proper-curve
@@ -1850,7 +1897,7 @@ cohomological boundary is proved through its niveau identification in
 cancellation. The complete normalization sum must occur in both the
 Milnor relation and the Artin relation.
 
-*Needs:* §3.1, §5.4–§5.5, [K2], T.4's proper-curve theorem and the
+*Needs:* §3.1, §5.4–§5.5, [K2], Layer 10's proper-curve theorem and the
 local codimension-two reciprocity theorem. Sources: [Kerz], §9,
 p. 14, invoking Kato's residue reciprocity, Proposition 7;
 [Jannsen], §4, pp. 41–43 for the distinction from a cohomological
@@ -2012,20 +2059,24 @@ from §2.3 do not by themselves prove a mixed-wild complex exists.
 - On a smooth arithmetic curve the complex is
   `Br(F)[n]→⊕_x H^1(κ(x),ℤ/n)` in degrees `1→0`.
 - Every normalization branch appears at a singular specialization.
-- On a surface the two successive boundaries compose to zero by
-  their identification with `d_1`; a bare list of residues is not
-  accepted as the proof.
+- On `Spec F_7[u,t]_(u,t)`, choose a nonzero constant character
+  `χ∈H¹(F_7,ℤ/3)`. The two nonzero codimension-two contributions of
+  `χ∪(u)∪(t)` are `+χ` along t then u and `−χ` along u then t.
+  Their sum is zero, and either summand alone is nonzero. This pins
+  the sign and support; the general square-zero proof still uses
+  the niveau differential.
 
-*Needs:* [EDC], Layer 2's étale homology and Layer 3's localization,
-purity and niveau sequence, [SF]'s dimension and branch control,
+*Needs:* the arithmetic étale homology, purity and niveau extension
+specified under Exact supplier contracts, [SF]'s dimension and branch control,
 §2.1 and §5.4. Sources: [KS], Definitions 1.1–1.2 and the niveau
 construction, pp. 129–132, (8.1), pp. 169–170;
 [Jannsen], (4.1)–(4.4), pp. 40–43; [DP], §2, pp. 4–5.
 
 ### 6.6 Constant-place fields
 
-Let `K/k` be a primary finitely generated extension of a global field,
-with k relatively algebraically closed in K, and put
+Let `K/k` be a primary finitely generated extension of a global field:
+k is separably algebraically closed in K. Purely inseparable algebraic
+constants are allowed. Put
 `d=td(K/k)+1`. Fix compatible place embeddings and common algebraic
 closures. For a finite place use the henselian algebraic constant
 field k_v inside the completion k̂_v. At a real place use a real
@@ -2049,6 +2100,10 @@ K̂_v; `ConstantPlaceField.restriction` gives the cohomology map;
 - Vanishing on K_v implies vanishing on K̂_v by restriction. This
   implication does not require all their cohomology groups to be
   isomorphic.
+- For `k=F_p(s)` and `K=k(s^(1/p))(t)`, K/k is primary although k is
+  not relatively algebraically closed in K. Requiring relative algebraic
+  closure would wrongly exclude this case. No geometric reducedness
+  assertion is inferred from primaryness.
 
 *Needs:* primary field extensions, [PC]'s restriction and field-limit
 interface, and ordinary place/henselization carriers. Sources:
@@ -2109,7 +2164,7 @@ does not meet the theorem's hypotheses until the real-place terms
 are also handled.
 
 *Needs:* §6.6, §2.2, [PC]'s cohomological dimension and transfer,
-the `PrimeToDegreeAlterations` degree-prime-to-ℓ theorem, [MEK]'s norm-residue
+the global proper degree-prime-to-ℓ alteration contract, [MEK]'s norm-residue
 contract and the weight argument. Sources: [Jannsen], Theorem 0.4
 and finite-coefficient reduction, pp. 2–3, Theorems 2.10–2.12 and
 proof, pp. 24–25; [DP], Fact 2.1, p. 4.
@@ -2158,8 +2213,11 @@ Put `Λ=ℤ/ℓ^s`, `s≥1`. For a variety over a global field define
 `C^1(X)_a=⊕_{dim closure{x}=a} H^{a+2}(κ(x),Λ(a+1))`.
 For smooth proper connected X/k with `ℓ≠char k`, form
 `Cone(C^1(X)→⊕_v C^1(X_{k_v}))`, using the source's henselian place
-fields. In number fields assume k totally imaginary or ℓ odd; the
-additional real-place 2-primary correction is outside this version.
+fields and all places. In a number field the real terms are retained
+also at ℓ=2; at a real place k_v is a real closure, and at a complex
+place it is algebraically closed. The terms displayed here have
+cohomological degree at least two. Any passage through compact-support
+duality retains the source's modified archimedean convention.
 Prove homology Λ in degree zero and zero in positive degrees.
 
 For a regular connected U of finite type over ℤ with global function
@@ -2178,10 +2236,19 @@ Consequently the arithmetic cone's degree-a carrier is
 `(⊕_{v∉U}C^1(X_{k_v})_a)⊕C^0(X)_a`.
 Match the explicit restriction maps and signs to the source's complexes.
 
-**Checks.** The finite-field theorem uses the ordinary `C^0` complex,
-not this global-place cone. Over a number field changing U changes
-the missing-place summands. In dimension one the arithmetic statement
-recovers the corresponding Brauer–Hasse–Noether sequence.
+**Checks.**
+
+- The finite-field theorem uses the ordinary `C^0` complex, rather
+  than this global-place cone.
+- Over a number field changing U changes the missing-place summands.
+  In dimension one the arithmetic statement recovers the corresponding
+  Brauer–Hasse–Noether sequence.
+- For `X=Spec ℚ` and `Λ=ℤ/2`, the real-place degree-zero term is
+  `H²(ℝ,ℤ/2(1))=ℤ/2`, while the complex-place term is zero. Dropping
+  the real summand changes the Brauer sequence and is not permitted.
+- For a chain map f and an element x, `d(0,x)=(f(x),−d_C x)`.
+  Its next differential has first component `d_D f(x)−f(d_C x)=0`
+  and second component `d_C²x=0`. This fixes the cone's minus sign.
 
 *Needs:* §6.5, §6.8, finite-coefficient Bockstein and alteration
 descent, and [EDC]'s trace/localization comparison. Sources:
@@ -2282,8 +2349,9 @@ both sides. Reversing the symbol entries introduces the graded minus
 sign. An ordinary `μ_p` square in characteristic p cannot replace
 the logarithmic square.
 
-*Needs:* [K2], T.3–T.4, [MEK], KU, §2.5–§2.6, §5.4 and [EDC],
-Layer 3. Sources: [Morrow], Proposition 5.5, p. 33, Remark 5.10,
+*Needs:* [K2], Layers 9–11, [MEK], §6.6, §2.5–§2.6, §5.4 and the
+arithmetic purity/niveau extension specified under Exact supplier contracts.
+Sources: [Morrow], Proposition 5.5, p. 33, Remark 5.10,
 pp. 35–36, §7.1, pp. 44–46; [KS], §1, pp. 129–132, §8,
 pp. 169–171. The generic norm-residue and localization theorems
 come from their named suppliers; these surveys motivate the higher

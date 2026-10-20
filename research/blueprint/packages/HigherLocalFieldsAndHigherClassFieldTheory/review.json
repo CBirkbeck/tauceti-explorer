@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HigherLocalFieldsAndHigherClassFieldTheory",
+    "date": "2026-10-20",
+    "notes": "Completed independent fixing review of all 85 targets, 139 original API items, 101 original Checks and 45 pinned baseline statements; checked the fixed-seed random sample of 15 source locators and current upstream/library duplication. Corrected rank versus outer principal units, actual MEK BGK/Witt and K2 supplier routing, primary-extension scope, auxiliary-field parameter independence, surface residue cancellation and all-place Kato cone scope/sign witnesses. Final lean-check exits 0 with exactly eleven sorry warnings; no admitted data or examples. Needs changes for the precise unresolved imperfect/mixed-wild differential comparisons (R1), scheme fundamental-group/purity and arithmetic etale-homology/niveau exports (R2), and global proper degree-prime-to-ell alteration/compactification/descent input (R3). The README marks these requirements explicitly; no packet or foreign supplier was changed. See the review report and handoff for exact consumers, checked supplier limits and ordering limitation."
+  }
+}
