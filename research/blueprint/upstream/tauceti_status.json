@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-20T16:23Z",
+ "updated": "2026-10-20T16:30Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -580,8 +580,8 @@
    "review": {
     "recommendation": "approve",
     "current": false,
-    "draft": false,
-    "maintainer": "REVIEW_REQUIRED"
+    "draft": null,
+    "maintainer": null
    }
   },
   "AutomorphicLFunctionsAndLocalFactors": {
@@ -592,8 +592,8 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": true,
-    "maintainer": "REVIEW_REQUIRED"
+    "draft": null,
+    "maintainer": null
    }
   },
   "AutomorphicSpectralTheory": {
@@ -830,9 +830,9 @@
    "note": "ported 2026-10-16 (tier 17); both red-team passes + first ChatGPT Pro round answered; draft",
    "review": {
     "recommendation": "changes",
-    "head": "6ee69c4",
-    "current": true,
-    "date": "2026-10-12"
+    "current": false,
+    "draft": false,
+    "maintainer": "REVIEW_REQUIRED"
    }
   },
   "AutomorphicGaloisRepresentations": {
@@ -1762,7 +1762,7 @@
   "EulerSystemsCyclotomicMainConjecture": {
    "stage": "pr",
    "pr": 1311,
-   "head": "97d4cd5",
+   "head": "d950df8",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems); red team running",
    "review": {
     "recommendation": null,
@@ -1787,13 +1787,25 @@
    "stage": "pr",
    "pr": 1313,
    "head": "097a06f",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running"
+   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   },
   "HabiroCyclotomicCompletions": {
    "stage": "pr",
    "pr": 1314,
    "head": "fc59f8c",
-   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running"
+   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
