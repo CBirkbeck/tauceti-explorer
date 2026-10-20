@@ -153682,6 +153682,26 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicCongruences~adv1.md",
    "note": "claimed on GitHub issue #11424"
+  },
+  {
+   "id": "REV-PKG-MotivesAndAlgebraicCycles~codex3",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-MotivesAndAlgebraicCycles~codex3.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/review.json",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/README.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/Suggested.lean",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~codex3.md"
   }
  ]
 }
