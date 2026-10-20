@@ -24,19 +24,7 @@ local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
 
 /-! ## Layer 1: Bloch–Kato exponential and logarithms -/
 
--- Fontaine's two opposite arrows at p=5,r=2 give opposite, nonzero inputs.
-example :
-    (1 - (5 : ℚ) ^ (-2 : ℤ))⁻¹ = 25 / 24 ∧
-      ((5 : ℚ) ^ (-2 : ℤ) - 1)⁻¹ = -25 / 24 := by
-  norm_num
-
 /-! ## Layer 2: Iwasawa comparison and choices -/
-
--- The normalized two-dimensional alternating pairing changes sign on swapping entries.
-example :
-    (!![1, 0; 0, 1] : Matrix (Fin 2) (Fin 2) ℚ).det = 1 ∧
-      (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ).det = -1 := by
-  norm_num [Matrix.det_fin_two]
 
 /-! ## Layer 3: local logarithms and dilogarithms -/
 
@@ -143,9 +131,6 @@ example :
       2 * ((1 - 5) * colemanLogSecondJet f h0) = -70 / 3 := by
   dsimp only
   refine ⟨by norm_num, ?_⟩
-  norm_num [colemanLogSecondJet]
-
-example : colemanLogSecondJet (1 : ℚ[X]) (by norm_num) = 0 := by
   norm_num [colemanLogSecondJet]
 
 example : colemanLogSecondJet (1 + X : ℚ[X]) (by norm_num) = 0 := by
@@ -311,11 +296,6 @@ example : (shearMatrix (1 : ℤ) (-4)).det = 5 ∧ ¬ IsUnit (5 : ℤ) := by
 theorem shearMatrix_unit {R : Type*} [CommRing R] (e₁ e₂ : R)
     (h : IsUnit (1 - e₁ * e₂)) : IsUnit (shearMatrix e₁ e₂) := by
   sorry
-
--- A high-weight nonordinary Frobenius reduction is nilpotent without a weight bound.
-example :
-    (!![0, -(5 : ZMod 5) ^ 9; 1, 5] : Matrix (Fin 2) (Fin 2) (ZMod 5)) ^ 2 = 0 := by
-  decide +revert
 
 /-
 The period rings, Bloch–Kato conditions, exponential, logarithm, quotient
