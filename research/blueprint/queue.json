@@ -153088,6 +153088,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-K2SymbolsBrauerPartII~codex.md"
+  },
+  {
+   "id": "REV-PKG-Polylogarithms~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-Polylogarithms~codex2.md",
+    "research/blueprint/packages/Polylogarithms/review.json",
+    "research/blueprint/packages/Polylogarithms/README.md",
+    "research/blueprint/packages/Polylogarithms/Suggested.lean",
+    "research/blueprint/packages/Polylogarithms/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-Polylogarithms~codex2.md"
   }
  ]
 }
