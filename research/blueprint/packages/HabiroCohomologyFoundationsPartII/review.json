@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HabiroCohomologyFoundationsPartII~codex1",
+    "date": "2026-10-20",
+    "notes": "Completed independent review for #11390. Fixed the identity-cover constructor's missing global cotangent-amplitude hypothesis, obsolete HR.6 etale-comparison references, the ku-lift nonexample's justification, diagonal h-localization/sign wording, and exact primary locators. Checked all targets and discriminating tests, 15 sampled source locators plus supplemental primary sources, current upstream/library duplication, all 11 Lean signatures and plan coverage. lean-check exited 0 with no errors or warnings. Not ready for the upstream draft: Part I still imports RT through Layer 6, the trace clause of 8.1 and 9.15; HC 5.5 still imports HR Layer 2 while HR imports HC; RT still cites the former HR.6 comparison; HR 2.13 should use HC's Gaussian-polynomial API rather than QSeries; full framed-theorem ownership differs from plan request HT-RT-framed. Exact supplier inventory, target moves and conditional acyclic order HC -> HR -> Part I -> RT -> Part II are in the review report. Supplier packages and packets are outside this review's editable scope."
+  }
+}
