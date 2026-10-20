@@ -152362,7 +152362,8 @@
     "BP-PadicHodgeRegulators~2",
     "BP-PadicHodgeRegulators~3"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11302"
   },
   {
    "id": "FIX-PKG-MotivesAndAlgebraicCycles~adv",
@@ -152708,9 +152709,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-K2SymbolsBrauerPartII.md",
-   "note": "claimed on GitHub issue #11330"
+   "note": "deliverables arrived from an external worker on issue #11330",
+   "finishedAt": "2026-10-20T11:22:40Z"
   },
   {
    "id": "REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3",
@@ -152834,9 +152836,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv2.md",
-   "note": "claimed on GitHub issue #11337"
+   "note": "deliverables arrived from an external worker on issue #11337",
+   "finishedAt": "2026-10-20T11:22:40Z"
   },
   {
    "id": "FIX-PKG-ArithmeticKTheory~adv2",
@@ -152896,9 +152899,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-HabiroNumberFields~adv.md",
-   "note": "claimed on GitHub issue #11340"
+   "note": "deliverables arrived from an external worker on issue #11340",
+   "finishedAt": "2026-10-20T11:22:44Z"
   },
   {
    "id": "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4",
@@ -153021,8 +153025,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-PolylogarithmFunctions~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-PolylogarithmFunctions~codex.md",
+   "note": "claimed on GitHub issue #11357"
   },
   {
    "id": "PKG-HabiroCohomologyFoundationsPartII~codex",
@@ -153040,8 +153045,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundationsPartII~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundationsPartII~codex.md",
+   "note": "claimed on GitHub issue #11358"
   },
   {
    "id": "REV-PKG-MotivicEtaleKTheoryPartII~codex",
@@ -153060,8 +153066,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-MotivicEtaleKTheoryPartII~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivicEtaleKTheoryPartII~codex.md",
+   "note": "claimed on GitHub issue #11359"
   }
  ]
 }
