@@ -5387,5 +5387,6 @@
  "FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv1": 11442,
  "REV-PKG-AutomorphicPadicLFunctions~adv": 11450,
  "REV-PKG-PolylogarithmFunctions~codex1": 11451,
- "REV-PKG-HabiroCohomologyFoundations~codex6": 11452
+ "REV-PKG-HabiroCohomologyFoundations~codex6": 11452,
+ "REV-PKG-PadicHodgeRegulators~codex2": 11453
 }
