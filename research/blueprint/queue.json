@@ -152167,9 +152167,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsAndKolyvaginSystems~codex3.md",
-   "note": "claimed on GitHub issue #11277"
+   "note": "deliverables arrived from an external worker on issue #11277",
+   "finishedAt": "2026-10-20T01:58:22Z"
   },
   {
    "id": "FIX-PKG-RefinedTraceMethods~adv",
@@ -152187,8 +152188,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RefinedTraceMethods~adv.md",
+   "note": "claimed on GitHub issue #11282"
   },
   {
    "id": "FIX-PKG-KTheoryFiniteLocalFields~adv3",
