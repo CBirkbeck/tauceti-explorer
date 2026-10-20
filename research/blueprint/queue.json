@@ -154455,6 +154455,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-DrinfeldModulesAndTModules~codex1.md"
+  },
+  {
+   "id": "FIX-PKG-LogicAndDefinabilityInNumberTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "LogicAndDefinabilityInNumberTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-LogicAndDefinabilityInNumberTheory~adv.md",
+    "research/blueprint/packages/LogicAndDefinabilityInNumberTheory/review.json",
+    "research/blueprint/packages/LogicAndDefinabilityInNumberTheory/README.md",
+    "research/blueprint/packages/LogicAndDefinabilityInNumberTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-LogicAndDefinabilityInNumberTheory~adv.md"
   }
  ]
 }
