@@ -5351,5 +5351,6 @@
  "REV-PKG-Polylogarithms~codex2": 11366,
  "REV-PKG-HabiroNumberFields~codex2": 11367,
  "REV-PKG-IntegralIwasawaTheory~codex2": 11371,
- "REV-PKG-EllipticRegulators~codex2": 11372
+ "REV-PKG-EllipticRegulators~codex2": 11372,
+ "REV-PKG-EllipticKTheory~codex2": 11373
 }
