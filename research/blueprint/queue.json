@@ -50220,7 +50220,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicCongruences.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10758"
   },
   {
    "id": "REV-PKG-AutomorphicCongruences",
@@ -59885,8 +59886,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicLocalLanglandsForGL2Qp.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10774"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10774",
+   "finishedAt": "2026-10-20T01:57:04Z"
   },
   {
    "id": "REV-PKG-PadicLocalLanglandsForGL2Qp",
