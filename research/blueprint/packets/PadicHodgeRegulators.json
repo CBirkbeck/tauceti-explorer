@@ -436,8 +436,8 @@
     "PadicHodgeRegulators:L3",
     "PadicHodgeRegulators:L4"
   ],
-  "status": "partial",
-  "summary": "Construct the Chern-class-normalized p-adic regulators and their Bloch–Kato, syntomic and Coleman comparisons. For p>3 and finite unramified étale L/Q_p the completed local K₃ regulator is an isomorphism onto p²O_L and tame root classes generate its source. Construct the crystalline Iwasawa regulator, its conductor-sensitive interpolation and Wach-coordinate images, and the specified good-reduction, relative and semistable curve comparisons. The general-weight meromorphic target, source-restricted integral ranges and open global injectivity assertions are distinguished. All ten layers have complete target-level specifications; supplier, normalization and conjectural obligations remain explicit.",
+  "status": "complete",
+  "summary": "Construct the Chern-class-normalized p-adic regulators and their Bloch–Kato, syntomic and Coleman comparisons. For p>3 and finite unramified étale L/Q_p the completed local K₃ regulator is an isomorphism onto p²O_L and tame root classes generate its source. Construct the crystalline Iwasawa regulator, its conductor-sensitive interpolation and Wach-coordinate images, and the specified good-reduction, relative and semistable curve comparisons. The general-weight meromorphic target, source-restricted integral ranges and open global injectivity assertions are distinguished. The declarations are the two accepted part packets as they stand plus one node here; corrections that the independent review found in 26 imported targets are recorded as requests owed by those parts, not applied as an overlay.",
   "sources": [
     {
       "id": "GSWZ2024",
@@ -2443,7 +2443,8 @@
       "status": "planned",
       "remaining": [
         "Besser–de Jeu Conjecture 1.14 for non-special presentations (gap).",
-        "The proposed external CS.0–CS.3 prefix has source-supported stable contract specifications; it still needs its own planning job. No exact undivided comparison is claimed."
+        "The proposed external CS.0–CS.3 prefix has source-supported stable contract specifications; it still needs its own planning job. No exact undivided comparison is claimed.",
+        "Owed by the accepted part packet PadicHodgeRegulators--D.1, not applied here (partCorrectionRequests): D.2/rigid-syntomic-cohomology (process wording); D.2/syntomic-regulator (process wording); D.2/syntomic-etale-regulator-comparison (process wording)."
       ],
       "targets": [
         "PadicHodgeRegulators:D.2/etale-regulator",
@@ -2461,10 +2462,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:D.3",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
         "Native implementation of the completed regulator, its integrality and rank input; the worked 5-adic acceptance calculation is independently checked to 12 digits.",
-        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
+        "Owed by the accepted part packet PadicHodgeRegulators--D.1, not applied here (partCorrectionRequests): D.3/residue-spanning (missing prerequisite on the residue function)."
       ],
       "targets": [
         "PadicHodgeRegulators:D.3/unramified-etale-algebra",
@@ -2483,10 +2484,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:D.4",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
         "The p-adic K_3 regulator injectivity proposition is stated, not proved; no layer proves it.",
-        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
+        "Owed by the accepted part packet PadicHodgeRegulators--D.1, not applied here (partCorrectionRequests): D.4/example-cubic-field-five-two (recomputation attribution)."
       ],
       "targets": [
         "PadicHodgeRegulators:D.4/global-p-adic-regulator",
@@ -2505,7 +2506,8 @@
       "remaining": [
         "Inherited colliding-support/genus≥1 integration and higher-genus model-integrality gaps remain explicit.",
         "External relative filtered F-MIC/Ext and syntomic producers, and ColemanIntegration Part II integration/index producers, remain requests.",
-        "Finite-transfer compatibility follows through the étale/corestriction route; no direct rigid-syntomic pushforward theorem is claimed."
+        "Finite-transfer compatibility follows through the étale/corestriction route; no direct rigid-syntomic pushforward theorem is claimed.",
+        "Owed by the accepted part packet PadicHodgeRegulators--D.1, not applied here (partCorrectionRequests): D.5/curve-weight-two-target (process wording); D.5/curve-syntomic-regulator (process wording); D.5/curve-etale-comparison (process wording)."
       ],
       "targets": [
         "PadicHodgeRegulators:D.5/curve-weight-two-target",
@@ -2525,7 +2527,8 @@
       "stageId": "PadicHodgeRegulators:L0",
       "status": "planned",
       "remaining": [
-        "Restructure proposal: merge into L1 (audit verdict 'process')."
+        "Restructure proposal: merge into L1 (audit verdict 'process').",
+        "Owed by the accepted part packet PadicHodgeRegulators--D.1, not applied here (partCorrectionRequests): L0/hodge-tate-and-twist-conventions (process wording)."
       ],
       "targets": [
         "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
@@ -2535,10 +2538,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L1",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
-        "Rational local Euler characteristic for every finite K/Q_p and continuous period cohomology remain precise external requests. Finite-level adjunction order is pinned; the Iwasawa pairing comparison remains separate.",
-        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
+        "Rational local Euler characteristic for every finite K/Q_p and continuous period cohomology remain precise external requests. The finite-level adjunction order is fixed by the correction owed to L1/dual-exponential; the Iwasawa pairing comparison remains separate.",
+        "Owed by the accepted part packet PadicHodgeRegulators--D.1, not applied here (partCorrectionRequests): L1/dual-exponential (ordered dual-exponential adjunction)."
       ],
       "targets": [
         "PadicHodgeRegulators:L1/bloch-kato-subgroups",
@@ -2556,10 +2559,10 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L2",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
         "Import the now explicit PG.1/PG.4/PG.5/PG.6 contracts; exact cocycle normalization, the pole estimate and Kummer sign remain explicit requests/gaps.",
-        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
+        "Owed by the accepted part packet PadicHodgeRegulators--D.1, not applied here (partCorrectionRequests): L2/fontaine-iwasawa-map (stale PG.5 proof step); L2/lattice-and-coefficient-squares (exact supplier nodes); L2/wach-psi-fixed-vectors (exact supplier nodes); L2/twist-compatibility (exact supplier nodes)."
       ],
       "targets": [
         "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
@@ -2575,11 +2578,11 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L3",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
         "Discharge derivative-obstruction exactness, determinant normalization and cyclotomic growth gaps; elaborate the genuine supplier arithmetic signatures.",
         "Resolve the general-weight fractional/H_E codomain qualification and prove the Rubin construction input with its actual singular source.",
-        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
+        "Owed by the accepted part packet PadicHodgeRegulators--L3, not applied here (partCorrectionRequests): L3/crystalline-regulator (exact supplier nodes); L3/growth (exact supplier nodes); L3/big-exponential-obstruction (exact supplier nodes); L3/logarithmic-factors (exact supplier nodes); L3/naturality-and-lattice (exact supplier nodes); L3/explicit-reciprocity (exact supplier nodes); L3/regulator-determinant (exact supplier nodes); L3/meromorphic-twist-extension (process wording)."
       ],
       "targets": [
         "PadicHodgeRegulators:L3/quadratic-frobenius-inverse",
@@ -2608,11 +2611,11 @@
     },
     {
       "stageId": "PadicHodgeRegulators:L4",
-      "status": "partial",
+      "status": "planned",
       "remaining": [
         "Discharge bounded image descent, the integral lower inclusion and analytic elementary-divisor supplier contracts.",
         "Supply N_rig/Nakamura comparisons and prove the exact crystalline/de Rham normalization square; elaborate arithmetic signatures.",
-        "Canonical assembly: apply the root corrections to this stage’s canonical declarations through a supported resolver or coordinated owner migration, then compare all target fields and sources with the reader. The intended target specification is present; the unmodified merger still exposes the superseded fields."
+        "Owed by the accepted part packet PadicHodgeRegulators--L3, not applied here (partCorrectionRequests): L4/good-wach-basis (good-Wach-basis ownership moved to PG.6); L4/refinement-saturated-flag (exact supplier nodes); L4/integral-image-index (exact supplier nodes); L4/analytic-differential-powers (exact supplier nodes); L4/crystalline-derham-comparison (exact supplier nodes); L4/derham-character-domain (exact supplier nodes); L4/derham-interpolation-growth (exact supplier nodes); L4/logarithmic-elementary-divisors (LLZ2011 Corollary 1.12 page); L4/actual-coleman-image (exact supplier nodes); L4/regulator-elementary-divisors (exact supplier nodes); L4/derham-regulator (exact supplier nodes); L4/noncritical-refinement (exact supplier nodes); L4/split-multiplicative-augmentation (process wording)."
       ],
       "targets": [
         "PadicHodgeRegulators:L4/evaluation-constraints",
@@ -2895,38 +2898,18 @@
       "detail": "The new precise dependency L2/fontaine-iwasawa-map applies to etale D(T) attached to a representation. L2/character-specialisation likewise specializes representation Iwasawa classes. These nodes support only that specialization of the L4 construction. RJ’s general de Rham D and N_rig(D) need the separately requested PG.5 Nakamura comparison and its localization/exponential interface; no etaleness or representation realization is inferred from the new node reference. Retain the existing N_rig/exponential and crystalline normalization gaps."
     },
     {
-      "title": "Unsupported root assembly drops mathematical corrections",
+      "title": "Corrections owed by the accepted part packets",
       "neededBy": [
-        "PadicHodgeRegulators:D.3/residue-spanning",
+        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+        "PadicHodgeRegulators:L4/good-wach-basis",
+        "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
         "PadicHodgeRegulators:D.4/example-cubic-field-five-two",
         "PadicHodgeRegulators:L1/dual-exponential",
-        "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-        "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
-        "PadicHodgeRegulators:L2/twist-compatibility",
-        "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
-        "PadicHodgeRegulators:L3/big-exponential-obstruction",
-        "PadicHodgeRegulators:L3/crystalline-regulator",
-        "PadicHodgeRegulators:L3/explicit-reciprocity",
-        "PadicHodgeRegulators:L3/growth",
-        "PadicHodgeRegulators:L3/logarithmic-factors",
-        "PadicHodgeRegulators:L3/naturality-and-lattice",
-        "PadicHodgeRegulators:L3/regulator-determinant",
-        "PadicHodgeRegulators:L4/actual-coleman-image",
-        "PadicHodgeRegulators:L4/analytic-differential-powers",
-        "PadicHodgeRegulators:L4/crystalline-derham-comparison",
-        "PadicHodgeRegulators:L4/derham-character-domain",
-        "PadicHodgeRegulators:L4/derham-interpolation-growth",
-        "PadicHodgeRegulators:L4/derham-regulator",
-        "PadicHodgeRegulators:L4/good-wach-basis",
-        "PadicHodgeRegulators:L4/integral-image-index",
-        "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
-        "PadicHodgeRegulators:L4/noncritical-refinement",
-        "PadicHodgeRegulators:L4/refinement-saturated-flag",
-        "PadicHodgeRegulators:L4/regulator-elementary-divisors"
+        "PadicHodgeRegulators:D.3/residue-spanning"
       ],
-      "detail": "The live merger reads nodes only and ignores imports, importedNodes, assembly.sourceAliases and targetCorrections. The complete 132-node reader therefore disagrees with the canonical merged declarations. In particular L1/dual-exponential retains reversed pairing arguments and L4/good-wach-basis retains its superseded generic-theorem ownership/kind. A supported assembler or coordinated canonical migration is required; this review cannot edit the imported parts or scripts.",
-      "addedBy": "REV-PadicHodgeRegulators",
-      "revisionCheckpoint": "Session codex-428pHh reproduced the unsupported assembly and validated a scratch canonical-owner migration with zero checker errors/warnings and exact node/planet agreement. The unchanged issue and intake output lists still exclude both canonical parts; no migration was submitted. See assembly.revisionCheckpoint and the revision handoff."
+      "detail": "Six imported declarations carry defects that only their owning part packets can correct: L1/dual-exponential applies its two pairings in the opposite order to the order it declares (sign of the adjunction not fixed); L4/good-wach-basis plans as its own theorem the good-basis existence that PG.6/wach-good-basis owns; L4/logarithmic-elementary-divisors cites LLZ2011 Corollary 1.12 on p.1103 instead of p.1107; L2/fontaine-iwasawa-map still says PG.5 lacks the Iwasawa comparison that PG.5/integral-iwasawa-comparison now supplies; D.3/residue-spanning uses the residue function of D.3/residue-dilogarithm-function without listing it; D.4/example-cubic-field-five-two attributes its 5-adic recomputation to another job. The corrected fields, checked in content by REV-PadicHodgeRegulators, are in partCorrectionRequests together with 20 exact-supplier refinements and 9 wording fixes. This packet applies none of them: the merger and the promotion path read only nodes, and these nodes belong to the parts. A fix of each part packet with its own independent review applies them; the reader shows each correction beside the unchanged declaration.",
+      "addedBy": "BP-PadicHodgeRegulators~2",
+      "replaces": "The REV-PadicHodgeRegulators gap \"Unsupported root assembly drops mathematical corrections\": the overlay it describes no longer exists."
     }
   ],
   "sourceIssues": [
@@ -3636,7 +3619,7 @@
       "locator": "Section 2.4, p.5, final adjunction quantifier; arXiv:1108.5954v3 only",
       "printed": "The second argument of the adjunction is quantified in H^1(K,V), although the preceding dual exponential has domain H^1(K,V*(1)).",
       "correction": "Quantify that argument in H^1(K,V*(1)); retain the displayed positive adjunction in the declared pairing order.",
-      "reason": "Both the dual-exponential input and the second slot of local Tate duality require the dual Tate twist. The existing ordered root correction already uses the appropriate domains.",
+      "reason": "Both the dual-exponential input and the second slot of local Tate duality require the dual Tate twist. The correction owed to L1/dual-exponential (partCorrectionRequests) already uses the appropriate domains.",
       "affects": "nothing",
       "known": "No novelty or version-of-record claim; no correction located in the checked arXiv record and scoped text.",
       "searched": [
@@ -3716,12 +3699,24 @@
     "agent": "Codex",
     "session": "codex-O1RFZ4",
     "date": "2026-10-19",
-    "inputPolicy": "Continue both accepted part packets by hash-identified imports, preserving all 131 node IDs and their independent source-issue verdicts. The root packet has no independent verdict. Its reader renders the imported contracts together; source and supplier checks specific to this run are recorded separately. New proof obligations are not silently discharged by inherited acceptance."
+    "inputPolicy": "Continue both accepted part packets by hash-identified imports, preserving all 131 node IDs and their independent source-issue verdicts. The root packet has no independent verdict. Its reader renders the imported contracts together; source and supplier checks specific to this run are recorded separately. New proof obligations are not silently discharged by inherited acceptance.",
+    "revisions": [
+      {
+        "job": "BP-PadicHodgeRegulators~2",
+        "issue": 11092,
+        "agent": "Claude (Opus)",
+        "session": "claude-uCHvXm",
+        "date": "2026-10-20",
+        "change": "Replaced the unimplemented import overlay by the canonical representation; recorded the 26 corrected imported targets (and 9 wording fixes) as requests owed by the part packets; re-rendered the reader from the merged declarations; restored planned coverage."
+      }
+    ]
   },
   "assembly": {
+    "representation": "The declarations of this roadmap are the 131 nodes of the two accepted part packets exactly as they stand at the hashes in imports, plus the nodes of this packet: what scripts/blueprints.py:merge_blueprints computes from the three files. No field of an imported node is overridden, aliased or corrected here.",
     "resolvedNodeCount": 132,
-    "importPolicy": "Intended mathematical resolution only: load the hash-identified part nodes, apply source aliases and ordered targetCorrections, then append root nodes. The current merger does not implement these fields. Do not promote or package this representation as if the corrections had been applied.",
-    "sourceAliases": {
+    "corrections": "Corrections to imported nodes are requests owed by their part packets (partCorrectionRequests, applied: false). The reader renders every target verbatim from its declaration and shows the owed correction after it.",
+    "sourceIds": "Every sourceId resolves in its own packet. Two documents carry different ids in the two parts: in the L3 part, Berger2003 is the Documenta Mathematica version (Berger2003DM here and in the D.1 part, same URL) and RubinES is the author PDF of Rubin's Euler Systems (Rubin2000 here, same URL). The reader labels both with this packet's ids for one bibliography; URLs, locators and matches are unchanged.",
+    "readerLabels": {
       "PadicHodgeRegulators--L3.json": {
         "Berger2003": "Berger2003DM",
         "RubinES": "Rubin2000"
@@ -3729,74 +3724,57 @@
     },
     "implementationStatus": "unchecked",
     "validation": {
-      "by": "REV-PadicHodgeRegulators",
-      "date": "2026-10-19",
-      "status": "blocked",
+      "by": "BP-PadicHodgeRegulators~2",
+      "session": "claude-uCHvXm",
+      "date": "2026-10-20",
       "merger": "scripts/blueprints.py:merge_blueprints",
-      "promotion": "scripts/promote.py:stage",
-      "result": "The merger reads only packet.nodes; the promotion path copies the raw packet. With both parts present there are 132 declarations, but all 27 correction records (26 distinct nodes) and the source aliases are ignored. Root alone contributes one declaration.",
-      "requiredRepair": "A separately scoped job must provide a supported validated assembly path or coordinated canonical-node migration; then compare every resolved field, source identity, coverage target and planet against the reader. Editing either imported part or the merger is outside this review issue."
+      "result": "merge_blueprints on the live data/atlas.json with the three packets research/blueprint/packets/PadicHodgeRegulators--D.1.json, --L3.json and PadicHodgeRegulators.json (sorted as load_promoted reads them): 132 declarations (16 definitions, 33 constructions, 22 comparisons, 43 theorems, 17 lemmas, 1 application) and 34 planets. Every one of the 132 target sections of the reader contains its merged declaration's title, statement, hypotheses, API, tests, checks, proof steps, prerequisites and source locators verbatim; every displayed planet's statement and kind equal its node. check_blueprint.py on this packet: 0 errors, 0 warnings. The part hashes in imports are unchanged."
     },
-    "revisionCheckpoint": {
-      "job": "BP-PadicHodgeRegulators~2",
-      "issue": 11092,
-      "agent": "Codex / GPT-6",
-      "session": "codex-428pHh",
-      "date": "2026-10-19",
-      "testedCommit": "29eb466061f5c271366c91f619b59bbe7af290ed",
-      "status": "blocked",
-      "rootOnlyDeclarations": 1,
-      "rawMergeDeclarations": 132,
-      "intendedDeclarations": 132,
-      "correctionRecords": 27,
-      "distinctCorrectionTargets": 26,
-      "differingCorrectedFields": 33,
-      "sourceAliasTargets": 7,
-      "differingSourceReferenceLists": 8,
-      "materializedRootDuplicateErrors": 131,
-      "materializedRootOtherErrors": 0,
-      "result": "Reproduced the existing root-only failure and a viable scratch canonical-owner repair. Root alone contributes one declaration; unchanged parts plus root contain 132 but lose 33 corrected fields. Eight source-ID lists differ; nine full citation lists differ, the additional difference being the corrected LLZ Corollary 1.12 page. Materializing the root fails with exactly 131 duplicate-ID errors. Both scratch part previews pass the unchanged checker with normal world context and their actual merge matches all intended nodes and displayed planets. No part, checker, merger, queue or atlas data was edited.",
-      "scopeBoundary": "The issue permits only the root packet, reader, suggested file and this revision handoff. It excludes both imported part packets and integration/checker code. There is no supported root-only repair: a supported assembly path or coordinated canonical migration requires expanded deliverables.",
-      "repairScopeAlternatives": [
-        "Implement and test import/correction/source-identity resolution in scripts/blueprints.py and the promotion/checker path (scripts/promote.py, scripts/check_blueprint.py), including root source/baseline/coverage/request metadata. Imported canonical nodes must have one owner.",
-        "Authorize coordinated migration of research/blueprint/packets/PadicHodgeRegulators--D.1.json and research/blueprint/packets/PadicHodgeRegulators--L3.json together with the root. Apply corrections and source identity changes to canonical owners, reconcile their metadata, update hashes and obtain independent review of every changed canonical file."
-      ],
-      "missingNamedReview": "research/blueprint/reviews/REV-PadicHodgeRegulators~1.md is absent at the tested commit. The queue makes REV-PadicHodgeRegulators the actual predecessor; its report and verdict were read and retained.",
-      "handoff": "research/blueprint/handoff/BP-PadicHodgeRegulators~2.md",
-      "canonicalPartialStages": [
-        "PadicHodgeRegulators:D.3",
-        "PadicHodgeRegulators:D.4",
-        "PadicHodgeRegulators:L1",
-        "PadicHodgeRegulators:L2",
-        "PadicHodgeRegulators:L3",
-        "PadicHodgeRegulators:L4"
-      ],
-      "intendedStagesSpecified": 10,
-      "coveragePolicy": "Six stages with unapplied canonical corrections are partial until the assembly repair; four unaffected intended scopes remain planned. This is an unfinished revision checkpoint, not completion of the prior mathematical planning pass.",
-      "previousSession": "codex-HNxLJr",
-      "differingFullCitationLists": 9,
-      "canonicalMigrationPreview": {
-        "status": "scratch-only; not submitted or approved",
-        "parts": 2,
-        "nodes": 131,
-        "errors": 0,
-        "warnings": 0,
-        "checkerContext": "Unmodified scripts/check_blueprint.py check() with normal world(); no canonical owners removed or replaced in its context.",
-        "recipe": "For each existing part retain its node IDs and order; substitute the intended nodes after source aliases and ordered corrections. Select source records by normalized original IDs plus actual node citation IDs from the root registry. Use the root baseline and root requests restricted to the part’s consuming nodes. Run the normal checker on the scratch file with the original basename.",
-        "mergerResult": "The preview parts plus the unchanged root node give exactly 132 canonical nodes. Every node field and every displayed planet statement, hypothesis and kind agrees with the intended resolved view.",
-        "limits": "Preview checks node content, source declarations, baseline-reference form, requests and merger output; no accepted review is granted. A submitted migration must also reconcile source issues, gaps, coverage, conventions, import hashes and review validity. The preview does not implement root-only assembly."
+    "history": [
+      {
+        "by": "REV-PadicHodgeRegulators",
+        "date": "2026-10-19",
+        "status": "blocked",
+        "result": "The merger reads only packet.nodes; the promotion path copies the raw packet. With both parts present there are 132 declarations, but all 27 correction records (26 distinct nodes) and the source aliases are ignored. Root alone contributes one declaration.",
+        "requiredRepair": "A separately scoped job must provide a supported validated assembly path or coordinated canonical-node migration; then compare every resolved field, source identity, coverage target and planet against the reader. Editing either imported part or the merger is outside this review issue."
       },
-      "intakeScopeCheck": "research/blueprint/intake.py:auto_refusals compares every changed path against own_files(job). Both part packets are absent from BP-PadicHodgeRegulators~2 outputs in queue.json. Expanded authorization must also reach the intake job scope or the maintainer must handle that PR."
-    }
+      {
+        "by": "BP-PadicHodgeRegulators~2",
+        "sessions": [
+          "codex-HNxLJr",
+          "codex-428pHh"
+        ],
+        "date": "2026-10-19",
+        "status": "checkpoint",
+        "result": "Reproduced the dropped corrections (33 fields on 26 targets) and validated a scratch migration of both parts; no part was edited because both lie outside the job's deliverables."
+      },
+      {
+        "by": "BP-PadicHodgeRegulators~2",
+        "session": "claude-uCHvXm",
+        "date": "2026-10-20",
+        "status": "resolved by representation",
+        "result": "Removed the overlay: targetCorrections became partCorrectionRequests owed by the parts, the reader renders the merged declarations verbatim, and the root makes no claim the merger does not implement."
+      }
+    ]
   },
   "inventory": {
     "importedNodes": 131,
     "newNodes": 1,
+    "kinds": {
+      "definition": 16,
+      "construction": 33,
+      "comparison": 22,
+      "theorem": 43,
+      "lemma": 17,
+      "application": 1
+    },
     "apiItems": 280,
     "tests": 196,
     "planets": 34,
     "definitionConstructionApiItems": 260,
-    "definitionConstructionTests": 183
+    "definitionConstructionTests": 183,
+    "partCorrectionRequests": 35,
+    "note": "Counts of the merged declarations (parts as they stand plus this packet). Applying the owed ownership correction to L4/good-wach-basis would move one theorem to the comparisons (22/43 to 23/42)."
   },
   "supplierAudit": [
     {
@@ -4077,579 +4055,6 @@
       "packets": [
         "research/blueprint/packets/PhiGammaModulesAndIwasawaCohomology.json"
       ]
-    }
-  ],
-  "targetCorrections": [
-    {
-      "target": "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-      "fields": {
-        "prerequisites": [
-          "PhiGammaModulesAndIwasawaCohomology:PG.5",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex-h1",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-zero-splitting",
-          "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-complex",
-          "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
-          "PadicHodgeTheory:P7:annulus-foundations/overconvergent-cyclotomic-rings",
-          "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
-          "PadicHodgeRegulators:L1/bloch-kato-exponential",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary"
-        ],
-        "proofSteps": [
-          "Import PG.5/integral-iwasawa-comparison, iwasawa-functoriality and finite-character-specialization on the actual integral etale module D(T); use their derived inverse-corestriction and coefficient-change hypotheses before rationalizing.",
-          "The level-n cocycle is Cherbonnier–Colmez Proposition I.4.1 and Theorem II.1.3(ii); compatibility with corestriction is Berger Lemma I.9. Comparing this cocycle with the chosen positive Kummer map remains the explicit sign-normalization obligation.",
-          "Torsion: Berger Proposition II.7 identifies V^{H_K} inside D(V)^{psi=1} with its Lambda-torsion."
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5",
-          "PadicHodgeTheory:P7/integral-dcris-lattice",
-          "PadicHodgeTheory:P7:annulus-foundations/coefficient-extension",
-          "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-unramified-base-change",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
-      "fields": {
-        "prerequisites": [
-          "PhiGammaModulesAndIwasawaCohomology:PG.4",
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeRegulators:L2/twist-compatibility",
-          "PadicHodgeTheory:P7/wach-dcris-comparison",
-          "PadicHodgeTheory:R06.1/fundamental-exact-sequence",
-          "PadicHodgeTheory:R06.2/period-functors",
-          "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-unramified-base-change",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L2/twist-compatibility",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeRegulators:L2/local-iwasawa-twist",
-          "PadicHodgeTheory:P7/robba-realisation-comparison",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-unramified-base-change",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
-          "PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L3/crystalline-regulator",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-one-to-zero",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
-          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
-          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
-          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
-          "LocallyAnalyticDistributions:L3/mellin-convolution",
-          "LocallyAnalyticDistributions:L3/mellin-generator-change",
-          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
-          "LocallyAnalyticDistributions:L3/mellin-twist",
-          "LocallyAnalyticDistributions:L3/mellin-pushforward",
-          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-iwasawa"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L3/growth",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L3/crystalline-regulator",
-          "LocallyAnalyticDistributions:L2",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
-          "LocallyAnalyticDistributions:L2/order-r-distributions",
-          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
-          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/good-wach-basis",
-      "fields": {
-        "prerequisites": [
-          "PhiGammaModulesAndIwasawaCohomology:PG.6",
-          "PadicMeasuresIwasawaAlgebras:L2",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
-          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
-          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
-          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
-          "LocallyAnalyticDistributions:L3/mellin-convolution",
-          "LocallyAnalyticDistributions:L3/mellin-generator-change",
-          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
-          "LocallyAnalyticDistributions:L3/mellin-twist",
-          "LocallyAnalyticDistributions:L3/mellin-pushforward",
-          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/refinement-saturated-flag",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/noncritical-refinement",
-          "PadicHodgeRegulators:L3/logarithmic-factors",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
-          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
-          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
-          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
-          "LocallyAnalyticDistributions:L3/mellin-convolution",
-          "LocallyAnalyticDistributions:L3/mellin-generator-change",
-          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
-          "LocallyAnalyticDistributions:L3/mellin-twist",
-          "LocallyAnalyticDistributions:L3/mellin-pushforward",
-          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/integral-image-index",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/actual-coleman-image",
-          "PadicHodgeRegulators:L4/integral-shear-choice",
-          "PadicMeasuresIwasawaAlgebras:L4",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L3/big-exponential-obstruction",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4",
-          "LocallyAnalyticDistributions:L1",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
-          "LocallyAnalyticDistributions:L1/amice-transform",
-          "LocallyAnalyticDistributions:L1/division-on-units"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/analytic-differential-powers",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeTheory:P7",
-          "PhiGammaModulesAndIwasawaCohomology:PG.2",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4",
-          "PadicMeasuresIwasawaAlgebras:L0a",
-          "PadicHodgeRegulators:L4/derham-character-domain",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
-          "PadicHodgeTheory:R06.3/de-rham-differential-equation",
-          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
-          "PadicHodgeTheory:P7/extended-localisation-maps",
-          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L3/logarithmic-factors",
-      "fields": {
-        "prerequisites": [
-          "LocallyAnalyticDistributions:L1",
-          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
-          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
-          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
-          "LocallyAnalyticDistributions:L3/mellin-convolution",
-          "LocallyAnalyticDistributions:L3/mellin-generator-change",
-          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
-          "LocallyAnalyticDistributions:L3/mellin-twist",
-          "LocallyAnalyticDistributions:L3/mellin-pushforward",
-          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
-          "LocallyAnalyticDistributions:L1/amice-transform",
-          "LocallyAnalyticDistributions:L1/division-on-units"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L3/naturality-and-lattice",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L3/crystalline-regulator",
-          "PadicHodgeRegulators:L4/good-wach-basis",
-          "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
-          "PadicHodgeRegulators:L2/generator-independence",
-          "PadicHodgeRegulators:L2/root-change",
-          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
-          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
-          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
-          "LocallyAnalyticDistributions:L3/mellin-convolution",
-          "LocallyAnalyticDistributions:L3/mellin-generator-change",
-          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
-          "LocallyAnalyticDistributions:L3/mellin-twist",
-          "LocallyAnalyticDistributions:L3/mellin-pushforward",
-          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/crystalline-derham-comparison",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/derham-regulator",
-          "PadicHodgeRegulators:L4/derham-interpolation-growth",
-          "PadicHodgeRegulators:L3/ramified-interpolation",
-          "PadicHodgeRegulators:L3/crystalline-regulator",
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeRegulators:L2/character-specialisation",
-          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
-          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
-          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
-          "LocallyAnalyticDistributions:L3/mellin-convolution",
-          "LocallyAnalyticDistributions:L3/mellin-generator-change",
-          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
-          "LocallyAnalyticDistributions:L3/mellin-twist",
-          "LocallyAnalyticDistributions:L3/mellin-pushforward",
-          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
-          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/derham-character-domain",
-      "fields": {
-        "prerequisites": [
-          "PhiGammaModulesAndIwasawaCohomology:PG.2",
-          "PadicHodgeTheory:P7",
-          "PadicMeasuresIwasawaAlgebras:L0a",
-          "LocallyAnalyticDistributions:L1",
-          "LocallyAnalyticDistributions:L1/amice-transform",
-          "LocallyAnalyticDistributions:L1/division-on-units",
-          "PadicHodgeTheory:R06.3/de-rham-differential-equation",
-          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
-          "PadicHodgeTheory:P7/extended-localisation-maps",
-          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/derham-interpolation-growth",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/derham-regulator",
-          "PadicHodgeRegulators:L3/gamma-leading-factor",
-          "PadicHodgeRegulators:L1/bloch-kato-exponential",
-          "PadicHodgeRegulators:L1/bloch-kato-logarithm",
-          "PadicHodgeRegulators:L1/dual-exponential",
-          "PadicHodgeRegulators:L2/character-specialisation",
-          "PadicHodgeTheory:P7",
-          "LocallyAnalyticDistributions:L1",
-          "LocallyAnalyticDistributions:L1/amice-transform",
-          "LocallyAnalyticDistributions:L1/division-on-units",
-          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
-          "PadicHodgeTheory:P7/extended-localisation-maps",
-          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/refinement-saturated-flag",
-          "PadicHodgeRegulators:L4/good-wach-basis",
-          "PadicHodgeRegulators:L4/logarithmic-matrix",
-          "PadicHodgeRegulators:L3/logarithmic-factors",
-          "LocallyAnalyticDistributions:L2",
-          "LocallyAnalyticDistributions:L2/order-r-distributions",
-          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
-          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
-        ],
-        "sources": [
-          {
-            "sourceId": "LLZ2011",
-            "locator": "Corollary1.12, Theorem2.10 and Corollary3.2, pp.1107,1114,1117",
-            "match": "States the actual analytic elementary divisors."
-          }
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request. Independent review corrected the Corollary 1.12 page to 1107."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/actual-coleman-image",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/specialization-subspaces",
-          "PadicHodgeRegulators:L4/constraint-basis",
-          "PadicHodgeRegulators:L4/constraint-determinant",
-          "PadicHodgeRegulators:L4/projection-witness",
-          "PadicHodgeRegulators:L3/regulator-determinant",
-          "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
-          "PadicHodgeRegulators:L4/coleman-coordinates",
-          "PadicMeasuresIwasawaAlgebras:L4",
-          "LocallyAnalyticDistributions:L2",
-          "LocallyAnalyticDistributions:L2/order-r-distributions",
-          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
-          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/regulator-elementary-divisors",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/actual-coleman-image",
-          "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
-          "PadicHodgeRegulators:L3/logarithmic-factors",
-          "PadicHodgeRegulators:L4/regulator-coordinate-decomposition",
-          "LocallyAnalyticDistributions:L2",
-          "LocallyAnalyticDistributions:L2/order-r-distributions",
-          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
-          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/derham-regulator",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L4/analytic-differential-powers",
-          "PadicHodgeRegulators:L4/derham-character-domain",
-          "PhiGammaModulesAndIwasawaCohomology:PG.2",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5",
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeTheory:P7",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-iwasawa",
-          "PadicHodgeTheory:R06.3/de-rham-differential-equation",
-          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
-          "PadicHodgeTheory:P7/extended-localisation-maps",
-          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/noncritical-refinement",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
-          "PadicHodgeTheory:R06.2/period-functors",
-          "PadicHodgeTheory:R06.2/filtered-phi-n-modules",
-          "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
-          "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
-          "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
-          "PadicHodgeTheory:R06.2/coefficient-field-base-change"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L3/explicit-reciprocity",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L3/meromorphic-twist-extension",
-          "PadicHodgeRegulators:L3/big-exponential",
-          "PadicHodgeRegulators:L3/logarithmic-factors",
-          "PadicHodgeRegulators:L1/dual-exponential",
-          "PadicHodgeRegulators:L1/local-duality-of-conditions",
-          "PadicHodgeRegulators:L1/twist-and-change-of-field",
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeRegulators:L2/local-iwasawa-twist",
-          "PadicHodgeRegulators:L2/character-specialisation",
-          "PadicHodgeRegulators:L3/unramified-interpolation",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-pairing"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:L3/regulator-determinant",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:L3/auxiliary-h-comparison",
-          "PadicHodgeRegulators:L3/explicit-reciprocity",
-          "PadicHodgeRegulators:L3/logarithmic-factors",
-          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
-          "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
-          "PadicMeasuresIwasawaAlgebras:L5",
-          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-pairing"
-        ]
-      },
-      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request."
-    },
-    {
-      "target": "PadicHodgeRegulators:D.4/example-cubic-field-five-two",
-      "fields": {
-        "proofSteps": [
-          "All symbols are special units at 5, so D.4/special-unit-formula identifies D_5(ξ) with the dilogarithm sum (271).",
-          "Compute the three root values and the two special-unit values independently by the convergent depleted-polylogarithm series and integration within residue discs described in the reader’s worked calculation. Exact arithmetic in (Z/5^16)[alpha]/(alpha^3-alpha^2+1), repeated at precision 20, gives all retained 12 digits of D/25 and of the coefficients. The root matrix determinant is 3 modulo 5. This checks the displayed source digits and corrected exponent 2 without using those digits as input; it is finite-precision evidence, not a Lean proof.",
-          "Injectivity of D_5 on K_3(K_5; Z_5) (D.3/unramified-regulator-theorem) turns the identity of regulators into the identity of classes."
-        ]
-      },
-      "reason": "Independent exact modular recomputation replaces the inherited numerical-check attribution."
-    },
-    {
-      "target": "PadicHodgeRegulators:L1/dual-exponential",
-      "fields": {
-        "statement": "For K/Q_p finite and V de Rham, the dual exponential exp*_{K,V^*(1)} : H^1(K, V) → Fil^0 D_dR(V) is the composite H^1(K, V) → H^1(K, B_dR ⊗ V) ≅ D_dR(V), the isomorphism being x ↦ (g ↦ log χ(g)·x) (Kato); its image lies in Fil^0 D_dR(V) and its kernel is H^1_g(K, V). For W=V*(1), write P_W:H^1(K,W)×H^1(K,W*(1))→Q_p for the ordered cup-product pairing, and Q_W:D_dR(W)×D_dR(W*(1))→Q_p for its de Rham pairing followed by trace. The adjunction is Q_W(x,exp*_{K,W}(y))=P_W(exp_{K,W}(x),y), with x∈D_dR(W)/Fil^0 and y∈H^1(K,V), identifying W*(1)=V. Reversing both pairings requires the corresponding graded-commutativity sign; their order is part of the convention. This is the positive adjunction of LZ2014 §2.4 and the order used in Appendix B.6, not a choice of Iwasawa normalization.",
-        "sources": [
-          {
-            "sourceId": "Berger2003",
-            "locator": "Introduction, p. 2",
-            "match": "The definition by duality."
-          },
-          {
-            "sourceId": "Berger2003",
-            "locator": "§II, p. 13",
-            "match": "Image and kernel."
-          },
-          {
-            "sourceId": "LZ2014",
-            "locator": "§2.4, p.5; Theorem B.6 and proof, pp.39–40",
-            "match": "The ordered positive finite-level adjunction and the separate Iwasawa reciprocity factor."
-          }
-        ]
-      },
-      "reason": "Read finite-level pairing order directly; leave the integral Iwasawa comparison as a distinct gap."
-    },
-    {
-      "target": "PadicHodgeRegulators:D.3/residue-spanning",
-      "fields": {
-        "prerequisites": [
-          "PadicHodgeRegulators:D.3/finite-polylogarithm",
-          "PadicHodgeRegulators:D.3/finite-polylogarithm-reduction",
-          "PadicHodgeRegulators:D.1/unramified-frobenius-on-roots",
-          "mathlib:Submodule.span",
-          "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot",
-          "ColemanIntegration:L2/dilogarithm-identities",
-          "PadicHodgeRegulators:D.1/dilogarithm-scalar-extension",
-          "PadicHodgeRegulators:D.3/residue-dilogarithm-function"
-        ]
-      },
-      "reason": "Name the finite residue function in the corrected fibre-count proof."
-    },
-    {
-      "target": "PadicHodgeRegulators:L4/good-wach-basis",
-      "fields": {
-        "title": "Good Wach basis coordinate interface",
-        "kind": "comparison",
-        "statement": "Import rational and analytic good-basis existence from PG.6/wach-good-basis; PG.6 owns this generic theorem. The stronger integral choice n_i congruent n_i^0 modulo pi of LLZWach2010 Theorem 3.5 is an extension requested from PG.6. For the selected good basis identify its bounded coefficient row with Lambda_E(G)^d and its analytic extension with H_E(G)^d, using b_i=(1+pi)phi(n_i). A constant invertible change of the selected Wach basis changes the coefficient row by inverse right multiplication. General power-series basis changes require the hypotheses of L4/basis-change; they do not automatically preserve goodness.",
-        "prerequisites": [
-          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
-          "PhiGammaModulesAndIwasawaCohomology:PG.6",
-          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
-          "PadicMeasuresIwasawaAlgebras:L2"
-        ],
-        "proofSteps": [
-          "Use the imported basis and analytic scalar-extension theorems under their weight and topology hypotheses. The stronger integral prescribed-reduction result is LLZWach2010 Theorem 3.5, pp.10–12, and belongs to the PG.6 extension request.",
-          "Expand uniquely in b_i. Constant basis change acts identically on the column of b_i, so the coefficient row multiplies by its inverse. This is the regulator coordinate interface, not another Wach existence construction."
-        ]
-      },
-      "reason": "The current PG.6 packet now supplies generic good-basis existence. Preserve this stable ID for its regulator-coordinate comparison."
     }
   ],
   "sourceInspection": [
@@ -5286,6 +4691,17 @@
         "Section 2.4, p.5, arXiv:1108.5954v3"
       ],
       "result": "Read the dual exponential’s domain and its adjunction, supporting the ordered pairing correction already in the root. The sentence quantifying the second argument has a dual-representation typo, recorded separately as E121."
+    },
+    {
+      "by": "BP-PadicHodgeRegulators~2 / claude-uCHvXm",
+      "date": "2026-10-20",
+      "sourceId": "LZ2014",
+      "url": "https://arxiv.org/pdf/1108.5954v3",
+      "sha256": "0da539348716fa2293377bba81b07de3d851f3e98bbc9b244b19e639a5ae5341",
+      "locators": [
+        "Section 2.4, p.5, arXiv:1108.5954v3"
+      ],
+      "result": "Re-read the dual exponential exp*_{K,V}: H^1(K,V*(1)) to Fil^0 D_dR(V*(1)) and its adjunction with the Tate and de Rham pairings, both ordered with V first and V*(1) second. This supports the ordered-pairing correction owed to L1/dual-exponential (W=V*(1) in its notation) and the domain misprint E121. Same file hash as the earlier receipt."
     }
   ],
   "currentLibraryScreen": {
@@ -5645,11 +5061,11 @@
   },
   "leanValidation": {
     "command": "lean-check research/blueprint/suggested/PadicHodgeRegulators.lean",
-    "date": "2026-10-19",
+    "date": "2026-10-20",
     "result": "exit 0; only the nine intended theorem-admission warnings",
     "definitions": 4,
     "provedExamples": 6,
-    "lines": 192,
+    "lines": 198,
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauCeti": "f790474821cf4256814db967cb154e7af3d0c369",
     "independentReview": {
@@ -5662,6 +5078,22 @@
       "session": "codex-428pHh",
       "date": "2026-10-19",
       "result": "lean-check exit 0 at the recorded pins; nine expected theorem-admission warnings only; file unchanged"
+    },
+    "history": [
+      {
+        "command": "lean-check research/blueprint/suggested/PadicHodgeRegulators.lean",
+        "date": "2026-10-19",
+        "result": "exit 0; only the nine intended theorem-admission warnings",
+        "lines": 192
+      }
+    ],
+    "imports": "Seven individual Mathlib modules (Algebra.BigOperators.Intervals, FieldTheory.Finite.GaloisField, LinearAlgebra.Dimension.Finrank, LinearAlgebra.Matrix.Determinant.Basic, LinearAlgebra.Matrix.Notation, NumberTheory.Padics.PadicIntegers, Tactic.NormNum) in place of the whole-library import, as PROTOCOL section 13 asks; no declaration changed.",
+    "thisRevision": {
+      "by": "BP-PadicHodgeRegulators~2",
+      "session": "claude-uCHvXm",
+      "date": "2026-10-20",
+      "memoryAvailableGiB": 65,
+      "result": "lean-check exit 0 twice (whole-library import, then individual imports); nine theorem-admission warnings each; no build or language server started."
     }
   },
   "review": {
@@ -6367,5 +5799,978 @@
       "result": "132 nodes, 0 errors, 0 warnings in the intended resolved view after removing the existing canonical PHR nodes from an in-memory checker context. All import hashes verified.",
       "limitation": "This hypothetical replacement checks the intended schema and graph only. It does not implement an assembly or permit duplicate canonical definitions in the live repository."
     }
-  }
+  },
+  "partCorrectionRequests": [
+    {
+      "target": "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "proof-route",
+      "problem": "The first proof step says that PG.5 has only the abstract psi-complex homology and requests the Iwasawa comparison. PG.5 now supplies the integral comparison, its functoriality and finite-character specialization, so that step is out of date; the correction imports those exact nodes and keeps the Kummer-sign comparison as an explicit obligation.",
+      "fields": {
+        "prerequisites": [
+          "PhiGammaModulesAndIwasawaCohomology:PG.5",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/psi-complex-h1",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-zero-splitting",
+          "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-complex",
+          "SelmerIwasawaCohomology:L3/iwasawa-cohomology",
+          "PadicHodgeTheory:P7:annulus-foundations/overconvergent-cyclotomic-rings",
+          "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+          "PadicHodgeRegulators:L1/bloch-kato-exponential",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary"
+        ],
+        "proofSteps": [
+          "Import PG.5/integral-iwasawa-comparison, iwasawa-functoriality and finite-character-specialization on the actual integral etale module D(T); use their derived inverse-corestriction and coefficient-change hypotheses before rationalizing.",
+          "The level-n cocycle is Cherbonnier–Colmez Proposition I.4.1 and Theorem II.1.3(ii); compatibility with corestriction is Berger Lemma I.9. Comparing this cocycle with the chosen positive Kummer map remains the explicit sign-normalization obligation.",
+          "Torsion: Berger Proposition II.7 identifies V^{H_K} inside D(V)^{psi=1} with its Lambda-torsion."
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5",
+          "PadicHodgeTheory:P7/integral-dcris-lattice",
+          "PadicHodgeTheory:P7:annulus-foundations/coefficient-extension",
+          "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-unramified-base-change",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PhiGammaModulesAndIwasawaCohomology:PG.4",
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeRegulators:L2/twist-compatibility",
+          "PadicHodgeTheory:P7/wach-dcris-comparison",
+          "PadicHodgeTheory:R06.1/fundamental-exact-sequence",
+          "PadicHodgeTheory:R06.2/period-functors",
+          "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-unramified-base-change",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L2/twist-compatibility",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeRegulators:L2/local-iwasawa-twist",
+          "PadicHodgeTheory:P7/robba-realisation-comparison",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-reconstruction",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-unramified-base-change",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/fontaine-equivalence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/torsion-rational-compatibility",
+          "PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/crystalline-regulator",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeRegulators:L2/wach-psi-fixed-vectors",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/psi-one-to-zero",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
+          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
+          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
+          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
+          "LocallyAnalyticDistributions:L3/mellin-convolution",
+          "LocallyAnalyticDistributions:L3/mellin-generator-change",
+          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
+          "LocallyAnalyticDistributions:L3/mellin-twist",
+          "LocallyAnalyticDistributions:L3/mellin-pushforward",
+          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-iwasawa"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/growth",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L3/crystalline-regulator",
+          "LocallyAnalyticDistributions:L2",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
+          "LocallyAnalyticDistributions:L2/order-r-distributions",
+          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/good-wach-basis",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "ownership",
+      "problem": "The declaration states, as a theorem of this roadmap, the rational and analytic existence of good Wach bases, which PhiGammaModulesAndIwasawaCohomology PG.6/wach-good-basis now owns. The correction makes it a comparison that imports PG.6, keeps the stronger integral choice of LLZWach2010 Theorem 3.5 as a request to PG.6, and states only the regulator-coordinate interface.",
+      "fields": {
+        "prerequisites": [
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6",
+          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+          "PadicMeasuresIwasawaAlgebras:L2"
+        ],
+        "title": "Good Wach basis coordinate interface",
+        "kind": "comparison",
+        "statement": "Import rational and analytic good-basis existence from PG.6/wach-good-basis; PG.6 owns this generic theorem. The stronger integral choice n_i congruent n_i^0 modulo pi of LLZWach2010 Theorem 3.5 is an extension requested from PG.6. For the selected good basis identify its bounded coefficient row with Lambda_E(G)^d and its analytic extension with H_E(G)^d, using b_i=(1+pi)phi(n_i). A constant invertible change of the selected Wach basis changes the coefficient row by inverse right multiplication. General power-series basis changes require the hypotheses of L4/basis-change; they do not automatically preserve goodness.",
+        "proofSteps": [
+          "Use the imported basis and analytic scalar-extension theorems under their weight and topology hypotheses. The stronger integral prescribed-reduction result is LLZWach2010 Theorem 3.5, pp.10–12, and belongs to the PG.6 extension request.",
+          "Expand uniquely in b_i. Constant basis change acts identically on the column of b_i, so the coefficient row multiplies by its inverse. This is the regulator coordinate interface, not another Wach existence construction."
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request. The current PG.6 packet now supplies generic good-basis existence. Preserve this stable ID for its regulator-coordinate comparison.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/refinement-saturated-flag",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/noncritical-refinement",
+          "PadicHodgeRegulators:L3/logarithmic-factors",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa",
+          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
+          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
+          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
+          "LocallyAnalyticDistributions:L3/mellin-convolution",
+          "LocallyAnalyticDistributions:L3/mellin-generator-change",
+          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
+          "LocallyAnalyticDistributions:L3/mellin-twist",
+          "LocallyAnalyticDistributions:L3/mellin-pushforward",
+          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/integral-image-index",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/actual-coleman-image",
+          "PadicHodgeRegulators:L4/integral-shear-choice",
+          "PadicMeasuresIwasawaAlgebras:L4",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-module",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-existence",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-height",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-dcris",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-good-basis",
+          "PhiGammaModulesAndIwasawaCohomology:PG.6/wach-iwasawa"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/big-exponential-obstruction",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4",
+          "LocallyAnalyticDistributions:L1",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
+          "LocallyAnalyticDistributions:L1/amice-transform",
+          "LocallyAnalyticDistributions:L1/division-on-units"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/analytic-differential-powers",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeTheory:P7",
+          "PhiGammaModulesAndIwasawaCohomology:PG.2",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4",
+          "PadicMeasuresIwasawaAlgebras:L0a",
+          "PadicHodgeRegulators:L4/derham-character-domain",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-psi",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
+          "PadicHodgeTheory:R06.3/de-rham-differential-equation",
+          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
+          "PadicHodgeTheory:P7/extended-localisation-maps",
+          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/logarithmic-factors",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "LocallyAnalyticDistributions:L1",
+          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
+          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
+          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
+          "LocallyAnalyticDistributions:L3/mellin-convolution",
+          "LocallyAnalyticDistributions:L3/mellin-generator-change",
+          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
+          "LocallyAnalyticDistributions:L3/mellin-twist",
+          "LocallyAnalyticDistributions:L3/mellin-pushforward",
+          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi",
+          "LocallyAnalyticDistributions:L1/amice-transform",
+          "LocallyAnalyticDistributions:L1/division-on-units"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/naturality-and-lattice",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L3/crystalline-regulator",
+          "PadicHodgeRegulators:L4/good-wach-basis",
+          "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
+          "PadicHodgeRegulators:L2/generator-independence",
+          "PadicHodgeRegulators:L2/root-change",
+          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
+          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
+          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
+          "LocallyAnalyticDistributions:L3/mellin-convolution",
+          "LocallyAnalyticDistributions:L3/mellin-generator-change",
+          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
+          "LocallyAnalyticDistributions:L3/mellin-twist",
+          "LocallyAnalyticDistributions:L3/mellin-pushforward",
+          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/crystalline-derham-comparison",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/derham-regulator",
+          "PadicHodgeRegulators:L4/derham-interpolation-growth",
+          "PadicHodgeRegulators:L3/ramified-interpolation",
+          "PadicHodgeRegulators:L3/crystalline-regulator",
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeRegulators:L2/character-specialisation",
+          "LocallyAnalyticDistributions:L3/unbounded-component-mellin",
+          "LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism",
+          "LocallyAnalyticDistributions:L3/bounded-mellin-characterisation",
+          "LocallyAnalyticDistributions:L3/mellin-character-evaluation",
+          "LocallyAnalyticDistributions:L3/mellin-convolution",
+          "LocallyAnalyticDistributions:L3/mellin-generator-change",
+          "LocallyAnalyticDistributions:L3/mellin-weight-derivative",
+          "LocallyAnalyticDistributions:L3/mellin-twist",
+          "LocallyAnalyticDistributions:L3/mellin-pushforward",
+          "LocallyAnalyticDistributions:L3/mellin-coefficient-extension",
+          "PhiGammaModulesAndIwasawaCohomology:PG.4/period-module-psi"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/derham-character-domain",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PhiGammaModulesAndIwasawaCohomology:PG.2",
+          "PadicHodgeTheory:P7",
+          "PadicMeasuresIwasawaAlgebras:L0a",
+          "LocallyAnalyticDistributions:L1",
+          "LocallyAnalyticDistributions:L1/amice-transform",
+          "LocallyAnalyticDistributions:L1/division-on-units",
+          "PadicHodgeTheory:R06.3/de-rham-differential-equation",
+          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
+          "PadicHodgeTheory:P7/extended-localisation-maps",
+          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/derham-interpolation-growth",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/derham-regulator",
+          "PadicHodgeRegulators:L3/gamma-leading-factor",
+          "PadicHodgeRegulators:L1/bloch-kato-exponential",
+          "PadicHodgeRegulators:L1/bloch-kato-logarithm",
+          "PadicHodgeRegulators:L1/dual-exponential",
+          "PadicHodgeRegulators:L2/character-specialisation",
+          "PadicHodgeTheory:P7",
+          "LocallyAnalyticDistributions:L1",
+          "LocallyAnalyticDistributions:L1/amice-transform",
+          "LocallyAnalyticDistributions:L1/division-on-units",
+          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
+          "PadicHodgeTheory:P7/extended-localisation-maps",
+          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "locator",
+      "problem": "The declaration cites LLZ2011 Corollary 1.12 on p. 1103; it is on p. 1107 (published pagination). The correction also names the exact LocallyAnalyticDistributions L2 supplier nodes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/refinement-saturated-flag",
+          "PadicHodgeRegulators:L4/good-wach-basis",
+          "PadicHodgeRegulators:L4/logarithmic-matrix",
+          "PadicHodgeRegulators:L3/logarithmic-factors",
+          "LocallyAnalyticDistributions:L2",
+          "LocallyAnalyticDistributions:L2/order-r-distributions",
+          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
+        ],
+        "sources": [
+          {
+            "sourceId": "LLZ2011",
+            "locator": "Corollary1.12, Theorem2.10 and Corollary3.2, pp.1107,1114,1117",
+            "match": "States the actual analytic elementary divisors."
+          }
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request. Independent review corrected the Corollary 1.12 page to 1107.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/actual-coleman-image",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/specialization-subspaces",
+          "PadicHodgeRegulators:L4/constraint-basis",
+          "PadicHodgeRegulators:L4/constraint-determinant",
+          "PadicHodgeRegulators:L4/projection-witness",
+          "PadicHodgeRegulators:L3/regulator-determinant",
+          "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
+          "PadicHodgeRegulators:L4/coleman-coordinates",
+          "PadicMeasuresIwasawaAlgebras:L4",
+          "LocallyAnalyticDistributions:L2",
+          "LocallyAnalyticDistributions:L2/order-r-distributions",
+          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/regulator-elementary-divisors",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/actual-coleman-image",
+          "PadicHodgeRegulators:L4/logarithmic-elementary-divisors",
+          "PadicHodgeRegulators:L3/logarithmic-factors",
+          "PadicHodgeRegulators:L4/regulator-coordinate-decomposition",
+          "LocallyAnalyticDistributions:L2",
+          "LocallyAnalyticDistributions:L2/order-r-distributions",
+          "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+          "LocallyAnalyticDistributions:L2/locally-algebraic-determination"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/derham-regulator",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L4/analytic-differential-powers",
+          "PadicHodgeRegulators:L4/derham-character-domain",
+          "PhiGammaModulesAndIwasawaCohomology:PG.2",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5",
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeTheory:P7",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/integral-iwasawa-comparison",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-functoriality",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/finite-character-specialization",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/analytic-iwasawa",
+          "PadicHodgeTheory:R06.3/de-rham-differential-equation",
+          "PadicHodgeTheory:P7/localisation-maps-p-adic-field",
+          "PadicHodgeTheory:P7/extended-localisation-maps",
+          "PadicHodgeTheory:P7/nabla-operator-on-robba-ring"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/noncritical-refinement",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
+          "PadicHodgeTheory:R06.2/period-functors",
+          "PadicHodgeTheory:R06.2/filtered-phi-n-modules",
+          "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
+          "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
+          "PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified",
+          "PadicHodgeTheory:R06.2/coefficient-field-base-change"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/explicit-reciprocity",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L3/meromorphic-twist-extension",
+          "PadicHodgeRegulators:L3/big-exponential",
+          "PadicHodgeRegulators:L3/logarithmic-factors",
+          "PadicHodgeRegulators:L1/dual-exponential",
+          "PadicHodgeRegulators:L1/local-duality-of-conditions",
+          "PadicHodgeRegulators:L1/twist-and-change-of-field",
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeRegulators:L2/local-iwasawa-twist",
+          "PadicHodgeRegulators:L2/character-specialisation",
+          "PadicHodgeRegulators:L3/unramified-interpolation",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-pairing"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/regulator-determinant",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "supplier-contract",
+      "problem": "The declaration cites its suppliers at stage level or omits some of the exact nodes it uses. The correction lists the exact supplier nodes inside those stages; no statement changes.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:L3/auxiliary-h-comparison",
+          "PadicHodgeRegulators:L3/explicit-reciprocity",
+          "PadicHodgeRegulators:L3/logarithmic-factors",
+          "PadicHodgeRegulators:L2/fontaine-iwasawa-map",
+          "PadicHodgeRegulators:L2/lattice-and-coefficient-squares",
+          "PadicMeasuresIwasawaAlgebras:L5",
+          "PhiGammaModulesAndIwasawaCohomology:PG.5/iwasawa-pairing"
+        ]
+      },
+      "reason": "Replace stale supplier-stage assumptions by exact current contracts; any stronger residual need remains an explicit request.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:D.4/example-cubic-field-five-two",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "attribution",
+      "problem": "The second proof step attributes the 5-adic recomputation to the reviewer of the GSWZ extraction. The correction replaces it by the independent finite-precision recomputation recorded in this packet's numericalAcceptance and in the reader's worked calculation.",
+      "fields": {
+        "proofSteps": [
+          "All symbols are special units at 5, so D.4/special-unit-formula identifies D_5(ξ) with the dilogarithm sum (271).",
+          "Compute the three root values and the two special-unit values independently by the convergent depleted-polylogarithm series and integration within residue discs described in the reader’s worked calculation. Exact arithmetic in (Z/5^16)[alpha]/(alpha^3-alpha^2+1), repeated at precision 20, gives all retained 12 digits of D/25 and of the coefficients. The root matrix determinant is 3 modulo 5. This checks the displayed source digits and corrected exponent 2 without using those digits as input; it is finite-precision evidence, not a Lean proof.",
+          "Injectivity of D_5 on K_3(K_5; Z_5) (D.3/unramified-regulator-theorem) turns the identity of regulators into the identity of classes."
+        ]
+      },
+      "reason": "Independent exact modular recomputation replaces the inherited numerical-check attribution.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L1/dual-exponential",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "statement",
+      "problem": "The declared statement applies its two pairings with their arguments in the opposite order to the order in which it declares them, so the sign of the adjunction is not fixed by the text. The correction names the ordered pairings P_W and Q_W for W = V*(1) and cites LZ2014 §2.4 and Theorem B.6.",
+      "fields": {
+        "statement": "For K/Q_p finite and V de Rham, the dual exponential exp*_{K,V^*(1)} : H^1(K, V) → Fil^0 D_dR(V) is the composite H^1(K, V) → H^1(K, B_dR ⊗ V) ≅ D_dR(V), the isomorphism being x ↦ (g ↦ log χ(g)·x) (Kato); its image lies in Fil^0 D_dR(V) and its kernel is H^1_g(K, V). For W=V*(1), write P_W:H^1(K,W)×H^1(K,W*(1))→Q_p for the ordered cup-product pairing, and Q_W:D_dR(W)×D_dR(W*(1))→Q_p for its de Rham pairing followed by trace. The adjunction is Q_W(x,exp*_{K,W}(y))=P_W(exp_{K,W}(x),y), with x∈D_dR(W)/Fil^0 and y∈H^1(K,V), identifying W*(1)=V. Reversing both pairings requires the corresponding graded-commutativity sign; their order is part of the convention. This is the positive adjunction of LZ2014 §2.4 and the order used in Appendix B.6, not a choice of Iwasawa normalization.",
+        "sources": [
+          {
+            "sourceId": "Berger2003",
+            "locator": "Introduction, p. 2",
+            "match": "The definition by duality."
+          },
+          {
+            "sourceId": "Berger2003",
+            "locator": "§II, p. 13",
+            "match": "Image and kernel."
+          },
+          {
+            "sourceId": "LZ2014",
+            "locator": "§2.4, p.5; Theorem B.6 and proof, pp.39–40",
+            "match": "The ordered positive finite-level adjunction and the separate Iwasawa reciprocity factor."
+          }
+        ]
+      },
+      "reason": "Read finite-level pairing order directly; leave the integral Iwasawa comparison as a distinct gap.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:D.3/residue-spanning",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "link",
+      "problem": "The proof route uses the finite residue function f_p but the declaration does not list it. The correction adds this packet's D.3/residue-dilogarithm-function to its prerequisites.",
+      "fields": {
+        "prerequisites": [
+          "PadicHodgeRegulators:D.3/finite-polylogarithm",
+          "PadicHodgeRegulators:D.3/finite-polylogarithm-reduction",
+          "PadicHodgeRegulators:D.1/unramified-frobenius-on-roots",
+          "mathlib:Submodule.span",
+          "mathlib:Submodule.le_of_le_smul_of_le_jacobson_bot",
+          "ColemanIntegration:L2/dilogarithm-identities",
+          "PadicHodgeRegulators:D.1/dilogarithm-scalar-extension",
+          "PadicHodgeRegulators:D.3/residue-dilogarithm-function"
+        ]
+      },
+      "reason": "Name the finite residue function in the corrected fibre-count proof.",
+      "checked": "Content read by the independent review REV-PadicHodgeRegulators (19 October 2026) in the corrected view; verdict for the corrected representation withheld pending application.",
+      "applied": false
+    },
+    {
+      "target": "PadicHodgeRegulators:L0/hodge-tate-and-twist-conventions",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "statement": "Throughout PadicHodgeRegulators: (i) t = log[ε] ∈ B_dR^+ is the period of Z_p(1) for a fixed compatible system ε = (ζ_{p^n}) of p-power roots of unity; Fil^i B_dR = t^i B_dR^+, g(t) = χ(g)t for the cyclotomic character χ, and φ(t) = pt in B_cris (arithmetic Frobenius). (ii) Hodge–Tate weights: h is a weight of V when Fil^{−h}D_dR(V) ≠ Fil^{−h+1}D_dR(V); with this convention Q_p(1) has weight +1 and V_pA of an abelian variety has weights 0 and 1, matching the L3–L4 conventions, PadicHodgeTheory R06.4 and FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3 (HT(χ) = +1). (iii) For r ∈ Z, e_r := t^{−r} ⊗ ε^{⊗r} is a basis of D_cris(Q_p(r)) = K_0·e_r and of D_dR(Q_p(r)) = K·e_r, independent of ε, with φ(e_r) = p^{−r}e_r, Fil^{−r} = D_dR and Fil^{−r+1} = 0; hence D_dR(Q_p(r))/Fil^0 = K·e_r for r ≥ 1 and 0 for r ≤ 0. (iv) Twisting: D_cris(V(i)) = D_cris(V)⟨i⟩ via d ↦ d ⊗ e_i, with Fil^j(D⟨i⟩) = Fil^{j+i}D and φ|_{D⟨i⟩} = p^{−i}φ|_D. (v) Crystalline representations have N = 0; the monodromy operator is used only for semistable inputs (D.5's boundary). Sources using the opposite weight sign (Benois: Q_p(1) of weight −1) are translated, never mixed."
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "statement",
+          "old": "the L3–L4 packet",
+          "new": "the L3–L4 conventions"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:L3/meromorphic-twist-extension",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "uses": [
+          {
+            "where": "LZ explicit reciprocity with V*(1)",
+            "how": "Permit negative dual weights in the exact fractional algebra."
+          },
+          {
+            "where": "General crystalline weights",
+            "how": "Expose the extra cancellation assertion an H-valued extension would require."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "uses",
+          "old": "StageL3 full crystalline scope",
+          "new": "General crystalline weights"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:L4/split-multiplicative-augmentation",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--L3.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "sources": [
+          {
+            "sourceId": "RubinES",
+            "locator": "III Section5.8, Proposition5.14(b), printed p.52",
+            "match": "The split-multiplicative augmentation property, with its weaker image assertion."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "sources",
+          "old": "supplied review-added noncrystalline property, with its exact",
+          "new": "split-multiplicative augmentation property, with its"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:D.2/rigid-syntomic-cohomology",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "sources": [
+          {
+            "sourceId": "HK2011",
+            "locator": "Definition 2.2.1, p. 14",
+            "match": "The rigid syntomic complex."
+          },
+          {
+            "sourceId": "HK2011",
+            "locator": "Example 2.2.4, pp. 14–15",
+            "match": "The computation for Spec R."
+          },
+          {
+            "sourceId": "Besser2000",
+            "locator": "§6 and Proposition 8.6(3), author PDF pp. 26–28",
+            "match": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "sources",
+          "old": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps",
+          "new": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:D.2/syntomic-regulator",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "sources": [
+          {
+            "sourceId": "HK2011",
+            "locator": "Definition 2.3.3, p. 16",
+            "match": "The universal syntomic Chern class."
+          },
+          {
+            "sourceId": "BdJ2003",
+            "locator": "§1, p. 1",
+            "match": "The regulator and its source in Besser's work."
+          },
+          {
+            "sourceId": "NN2016",
+            "locator": "Proposition 5.6, p. 57",
+            "match": "The generic-fibre version used for comparisons."
+          },
+          {
+            "sourceId": "Besser2000",
+            "locator": "§§7,9,10; Proposition 8.8 and Proposition 10.3",
+            "match": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "sources",
+          "old": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps",
+          "new": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:D.2/syntomic-etale-regulator-comparison",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "sources": [
+          {
+            "sourceId": "HK2011",
+            "locator": "Proposition 2.3.4, p. 16",
+            "match": "The identification of H^1_syn(R, n) → H^1(K, Q_p(n)) with exp_BK ∘ η."
+          },
+          {
+            "sourceId": "Tamme2014",
+            "locator": "Proof of Corollary 5.19, p. 20",
+            "match": "The same comparison, for smooth projective R-schemes."
+          },
+          {
+            "sourceId": "NN2016",
+            "locator": "Proposition 5.7, p. 58",
+            "match": "Compatibility of Chern classes on the generic fibre."
+          },
+          {
+            "sourceId": "Besser2000",
+            "locator": "Corollary 9.10 and Proposition 9.11, author PDF p. 32",
+            "match": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "sources",
+          "old": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps",
+          "new": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:D.5/curve-weight-two-target",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "sources": [
+          {
+            "sourceId": "BdJ2003",
+            "locator": "Definition 4.6, p. 24",
+            "match": "The normalised identification."
+          },
+          {
+            "sourceId": "Ara2003",
+            "locator": "Lemma 3.3, p. 8",
+            "match": "The residue formula for the cup product."
+          },
+          {
+            "sourceId": "Besser2000",
+            "locator": "Proposition 8.6(3), Remark 8.7(3) and Proposition 10.1(3), author PDF pp. 26–28,34",
+            "match": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "sources",
+          "old": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps",
+          "new": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:D.5/curve-syntomic-regulator",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "sources": [
+          {
+            "sourceId": "AM18",
+            "locator": "Proposition 6.4, p. 34",
+            "match": "The hypothesis under which H^2 rigid syntomic cohomology is identified with H^1_rig (the sentence continues with the isomorphism)."
+          },
+          {
+            "sourceId": "BdJ2003",
+            "locator": "Lemma 4.7, p. 24",
+            "match": "The K_1 regulator cocycle (f_0 = f^q/φ^*f) whose cup product gives ε(f, g)."
+          },
+          {
+            "sourceId": "Besser2000",
+            "locator": "Proposition 10.3, author PDF p. 35",
+            "match": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "sources",
+          "old": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps",
+          "new": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route"
+        }
+      ]
+    },
+    {
+      "target": "PadicHodgeRegulators:D.5/curve-etale-comparison",
+      "owner": "research/blueprint/packets/PadicHodgeRegulators--D.1.json",
+      "class": "wording",
+      "problem": "Process wording in the declaration text; the correction rewords it without changing the mathematics.",
+      "fields": {
+        "sources": [
+          {
+            "sourceId": "AC20",
+            "locator": "Footnote 4, p. 43",
+            "match": "The canonical form of the comparison."
+          },
+          {
+            "sourceId": "NN2016",
+            "locator": "Proposition 1.1, p. 3",
+            "match": "The general comparison."
+          },
+          {
+            "sourceId": "Besser2000",
+            "locator": "Proposition 9.11, author PDF p. 32",
+            "match": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route."
+          },
+          {
+            "sourceId": "Besser2000",
+            "locator": "Proposition 8.6(2),(3), Remark 8.7(3), Proposition 9.11 and Proposition 10.1(3), author pp. 26–28,32,34",
+            "match": "The explicit norm-chain-map square transports the normalized exponential identity to any unramified residue degree."
+          }
+        ]
+      },
+      "reason": "Remove process words from declaration text; the earlier reader displayed these rewordings without a record.",
+      "checked": "Wording only; no mathematical content changes.",
+      "applied": false,
+      "replace": [
+        {
+          "field": "sources",
+          "old": "Primary source independently read; the normalized versus raw modified-model map must be tracked as specified in the statement/proofSteps",
+          "new": "The normalized map and the raw modified-model map differ by the factors specified in the target and its proof route"
+        }
+      ]
+    }
+  ]
 }
