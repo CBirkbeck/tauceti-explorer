@@ -9,7 +9,10 @@ finite cyclotomic descent and the étale coefficient lifts are interfaces of
 HabiroCohomologyFoundations Layer 0, and perfect covers and the completed étale Frobenius are
 QWittVectors interfaces; this file states none of them. The ordinary relative Habiro ring, the
 Laurent and base-change comparisons, the ordinary/derived comparison and the solid spectral
-comparisons remain README targets, since their carriers are not at the pins. Layer 2 records the
+comparisons remain README targets, since their carriers are not at the pins. Layer 0 records
+arbitrary-ideal étale object existence, the marked reduction map and the
+ordinary completed mapping property on existing carriers. The general finite descent and
+regular-principal enhanced universality targets remain in the README. Layer 2 records the
 native Laurent regularity and factorial divisibility milestones used by those comparisons.
 
 The line milestone works over an arbitrary commutative coefficient ring. The order-one
@@ -21,7 +24,81 @@ namespace TauCetiRoadmap.HabiroRings
 open scoped TensorProduct NumberField
 open Polynomial
 
-universe u v
+universe u v w
+
+/-! ## Layer 0: general marked deformations -/
+
+namespace EtaleDeformation
+
+variable {B : Type u} [CommRing B] (I : Ideal B)
+  {E : Type v} {E' : Type w} [CommRing E] [CommRing E']
+  [Algebra B E] [Algebra B E']
+  {D : Type*} {D' : Type*} [CommRing D] [CommRing D']
+  [Algebra (B ⧸ I) D] [Algebra (B ⧸ I) D']
+
+/-- Reduce an algebra map through its actual source and target markings. The formula is
+ε′ ∘ (id ⊗ g) ∘ ε⁻¹; the ordinary carriers exist without an étaleness hypothesis. -/
+noncomputable def reduceMap
+    (ε : ((B ⧸ I) ⊗[B] E) ≃ₐ[B ⧸ I] D)
+    (ε' : ((B ⧸ I) ⊗[B] E') ≃ₐ[B ⧸ I] D') (g : E →ₐ[B] E') :
+    D →ₐ[B ⧸ I] D' :=
+  ε'.toAlgHom.comp ((Algebra.TensorProduct.map (AlgHom.id (B ⧸ I) (B ⧸ I)) g).comp
+    ε.symm.toAlgHom)
+
+/-- The same marking on both sides preserves the identity map. -/
+example (ε : ((B ⧸ I) ⊗[B] E) ≃ₐ[B ⧸ I] D) :
+    reduceMap I ε ε (AlgHom.id B E) = AlgHom.id (B ⧸ I) D := by
+  ext x
+  simp [reduceMap]
+
+/-- Changing the target marking to the split swap changes the reduced identity at (1,0). -/
+example [Nontrivial (B ⧸ I)]
+    (ε : ((B ⧸ I) ⊗[B] E) ≃ₐ[B ⧸ I] ((B ⧸ I) × (B ⧸ I))) :
+    let swap : ((B ⧸ I) × (B ⧸ I)) ≃ₐ[B ⧸ I] ((B ⧸ I) × (B ⧸ I)) :=
+      { RingEquiv.prodComm with commutes' := fun _ => rfl }
+    reduceMap I ε (ε.trans swap) (AlgHom.id B E) (1, 0) = ((0 : B ⧸ I), 1) ∧
+      reduceMap I ε (ε.trans swap) (AlgHom.id B E) (1, 0) ≠ ((1 : B ⧸ I), 0) := by
+  dsimp
+  simp [reduceMap, RingEquiv.prodComm]
+
+/-- Every étale algebra over any quotient B/I has an ordinary étale object lift with a
+specified reduction equivalence. No finite generation or nilpotence of I is assumed.
+Stacks, Lemma 10.143.10 (04D1), Commutative Algebra, p.385; README §0.2. -/
+theorem exists_lift (B : Type u) [CommRing B] (I : Ideal B)
+    (D : Type v) [CommRing D] [Algebra (B ⧸ I) D]
+    [Algebra.Etale (B ⧸ I) D] :
+    ∃ E : CommAlgCat.{max u v} B, Algebra.Etale B E ∧
+      Nonempty (((B ⧸ I) ⊗[B] E) ≃ₐ[B ⧸ I] D) := by
+  sorry
+
+end EtaleDeformation
+
+namespace CompletedEtaleLift
+
+/-- The ordinary completed lift has the unique map into any I-complete target inducing a
+given map E → C/IC. Marking transport gives README §0.5 homEquiv. This extends the existing
+formally smooth complete-target lift from E to its actual AdicCompletion carrier. -/
+theorem mapUnique (B : Type u) (E : Type v) (C : Type w)
+    [CommRing B] [CommRing E] [CommRing C] [Algebra B E] [Algebra B C]
+    [Algebra.Etale B E] (I : Ideal B) (hI : I.FG)
+    [IsAdicComplete (I.map (algebraMap B C)) C]
+    (g : E →ₐ[B] C ⧸ I.map (algebraMap B C)) :
+    ∃! h : AdicCompletion (I.map (algebraMap B E)) E →ₐ[B] C,
+      ∀ x : E, Ideal.Quotient.mk (I.map (algebraMap B C))
+        (h (algebraMap E (AdicCompletion (I.map (algebraMap B E)) E) x)) = g x := by
+  sorry
+
+/-- Static 𝔽₂ is ordinarily 2-complete, but the derived reduction has a nonzero kernel in
+its two-term multiplication-by-2 differential. It cannot replace ℤ₂ in README §0.6. -/
+example : (2 : ZMod 2) * 1 = 0 ∧
+    ¬ Function.Injective (fun x : ZMod 2 => (2 : ZMod 2) * x) := by
+  constructor
+  · decide
+  · intro h
+    have hc : (0 : ZMod 2) = 1 := h (by decide)
+    exact zero_ne_one hc
+
+end CompletedEtaleLift
 
 /-! ## Layer 2: ordinary coefficients and factorial tensor weights -/
 
@@ -157,25 +234,5 @@ theorem completedRegulatorTriviality {P : Type v} [AddCommGroup P]
   sorry
 
 end CompletedLine
-
-/-!
-The remaining targets are specified in README.md:
-
-* Layer 1: the category `EtalePair` of perfectly covered Λ-bases with étale algebras.
-* Layer 2: `habiroLocalisation`, `IsHabiroComplete` in the Laurent convention,
-  `habiroCompletion_polynomial_eq_laurent`, `isHabiroComplete_iff_restrictScalars`,
-  `habiroCompletion_eq_zero_iff`, the localization resolution and homotopy-module criterion,
-  `ordinaryDerivedComparison`, `habiroTensor_baseChange`; `SphericalCyclotomicLocalization`,
-  `SpectralHabiroCompletion`, `SolidHabiroCompletion`, null families and countable tensor profiles.
-* Layer 3: the finite prime-chain index and reduced index, the descent principle for monoidal
-  localizations and `CyclotomicIndex.mapEqualizer`.
-* Layer 4: `RelHabiroStage` with its maps along morphisms of pairs.
-* Layer 5: `relativeHabiro`, compatible cyclotomic roots, full Taylor coefficient algebras,
-  canonical and Frobenius re-expansion arrows, and the Taylor equalizer presentation.
-* Layer 6: `completedScalarExtension`, transported actual K₃ lines and their supported
-  field comparison maps, the q−1 completion map and integral order-one evaluation.
-
-These enhanced, spectral and relative carriers are not constructed in this file.
--/
 
 end TauCetiRoadmap.HabiroRings

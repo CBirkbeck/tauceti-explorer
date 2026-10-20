@@ -1,26 +1,26 @@
 # Roadmap: relative Habiro rings, completed coefficients and number-field lines
 
-**Summary.** Habiro's completion of a polynomial ring collects Taylor expansions at every root of unity. For a perfectly covered Λ-ring A and an étale A-algebra R, HabiroCohomologyFoundations §0.3 constructs the static Habiro-complete coefficient object E(R/A), whose (qᵐ−1)-completions deform the relative q-Witt rings. This roadmap gives that object its ordinary arithmetic presentation H_{R/A}: the ordinary inverse-limit ring with its projections and quotients, the full Frobenius-twisted Taylor equalizer, completed coefficient base change, the classical ring and the number-field ring of Garoufalidis–Scholze–Wheeler–Zagier. It also owns the Laurent and scalar-restriction conventions for Habiro completion, the ordinary/derived comparison on polynomial coefficient modules, the spherical and light solid completed scalar categories, the combinatorics of the prime-chain index, completed scalar extension along morphisms of pairs, and the transport of the number-field lines with their pairings.
+**Summary.** Habiro's completion of a polynomial ring collects Taylor expansions at every root of unity. For a perfectly covered Λ-ring A and an étale A-algebra R, HabiroCohomologyFoundations §0.3 constructs the static Habiro-complete coefficient object E(R/A), whose (qᵐ−1)-completions deform the relative q-Witt rings. This roadmap gives that object its ordinary arithmetic presentation H_{R/A}: the ordinary inverse-limit ring with its projections and quotients, the full Frobenius-twisted Taylor equalizer, completed coefficient base change, the classical ring and the number-field ring of Garoufalidis–Scholze–Wheeler–Zagier. It also owns the general marked étale-deformation interface, finite descent for tensor-compatible localizations with coherent overlaps, the Laurent and scalar-restriction conventions for Habiro completion, the ordinary/derived comparison on polynomial coefficient modules, the spherical and light solid completed scalar categories, the combinatorics of the prime-chain index, completed scalar extension along morphisms of pairs, and the transport of the number-field lines with their pairings.
 
 Taylor factors retain the full root-adjoining coefficient algebra: order four over ℤ[i][1/2] has two factors; Φ₅ over 𝔽₁₁ has four. The ordinary ring and completed base change are independent of solid spectral hypotheses.
 
 ## Scope and ownership
 
-This roadmap owns: the Laurent-convention and scalar-restriction comparisons for Habiro completion, the two-term resolution of the rational localization with its homotopy-module criterion, the ordinary/derived comparison `ordinaryDerivedComparison` for polynomial coefficient modules, and completed coefficient base change (Layer 2, §§2.1–2.5); the spherical, spectral and light solid completion theory (§§2.6–2.12); the combinatorics of cyclotomic intersections and of the finite prime-chain index, the general descent principle for monoidal localizations and the prime-edge description of descent mapping spaces (Layer 3); the category of pairs (Layer 1) and the functoriality of the coefficient lifts along morphisms of pairs (Layer 4); the ordinary relative Habiro ring with its Taylor equalizer, untwisting criterion, completed base change, classical and number-field comparisons (Layer 5); completed scalar extension, the q−1 completion map and the transported number-field lines (Layer 6); and the distinguishing examples of Layer 7.
+This roadmap owns: ordinary marked étale lifts over arbitrary quotient ideals, locally nilpotent rigidity, the finitely generated-ideal completed map interface and regular-principal derived universality (Layer 0); the Laurent-convention and scalar-restriction comparisons for Habiro completion, the two-term resolution of the rational localization with its homotopy-module criterion, the ordinary/derived comparison `ordinaryDerivedComparison` for polynomial coefficient modules, and completed coefficient base change (Layer 2, §§2.1–2.5); the spherical, spectral and light solid completion theory (§§2.6–2.12); the combinatorics of cyclotomic intersections and of the finite prime-chain index, the general descent principle for monoidal localizations and the prime-edge description of descent mapping spaces (Layer 3); the category of pairs (Layer 1) and the functoriality of the coefficient lifts along morphisms of pairs (Layer 4); the ordinary relative Habiro ring with its Taylor equalizer, untwisting criterion, completed base change, classical and number-field comparisons (Layer 5); completed scalar extension, the q−1 completion map and the transported number-field lines (Layer 6); and the distinguishing examples of Layer 7.
 
 It leaves to named roadmaps, which are consumed and never restated:
 
-- **HabiroCohomologyFoundations Layer 0.** §0.1 owns Habiro-complete modules over A[q] for every commutative ring A, the reflection L_H with its two limit formulas, the completed symmetric monoidal tensor, and cyclotomic detection of zero objects, equivalences and individual homotopy degrees. §0.2 owns finite cyclotomic complete descent: the closed-cover diagram, its reduction to singleton and p-primary chain data, reconstruction, mapping spaces, divisor restriction, the arithmetic fracture pieces and naturality, for modules and E∞-algebras. §0.3 owns the marked étale coefficient lifts E_m(R/A), their uniqueness, Frobenius overlap equivalences, transitions lifting q-Witt Frobenius, and the static limit E(R/A) with its h-completion R⟦h⟧. HabiroRings consumes these interfaces in Layers 2–5; it builds no second completion functor, descent equivalence or marked deformation theory.
+- **HabiroCohomologyFoundations Layer 0.** §0.1 owns Habiro-complete modules over A[q] for every commutative ring A, the reflection L_H with its two limit formulas, the completed symmetric monoidal tensor, and cyclotomic detection of zero objects, equivalences and individual homotopy degrees. §0.2 owns finite cyclotomic complete descent: the closed-cover diagram, its reduction to singleton and p-primary chain data, reconstruction, mapping spaces, divisor restriction, the arithmetic fracture pieces and naturality, for modules and E∞-algebras. §0.3 owns the marked étale coefficient lifts E_m(R/A), their uniqueness, Frobenius overlap equivalences, transitions lifting q-Witt Frobenius, and the static limit E(R/A) with its h-completion R⟦h⟧. HabiroRings consumes these interfaces in Layers 2–5; it builds no second Habiro-completion functor, cyclotomic descent equivalence or specialized coefficient lift.
 - **HabiroCohomologyFoundations §§4.21 and 4.28.** The étale Habiro–Hodge identification H(R,F)≃E(R/A) and its exported form `HabiroHodgeDescent.etale`. Since H_{R/A} is defined from E(R/A), this identifies the étale Habiro–Hodge object with the ring of Layer 5 directly; no comparison theorem is planned here.
 - **QWittVectors:QW.0–QW.4.** The big Witt, Λ-ring and degree-zero q-Witt library, including perfect and perfectly covered Λ-rings and the colimit perfection (QW.1) and the completed étale Frobenius (QW.4 in HabiroCohomologyFoundations' supplier contract; QW.4 imports the complete étale δ-extension of PerfectoidQuotients §0.0 through PrismaticCohomology §0.59 and the torsion-free δ/Frobenius correspondence of PR.0, and HabiroCohomologyFoundations §0.3 uses the invertibility of its linearization). The specifications under Exact supplier contracts record the interfaces used here; their ownership stays with QWittVectors, the common supplier of HabiroCohomologyFoundations and of this roadmap.
 - **HabiroCyclotomicCompletions:HC.1–HC.5.** The polynomial Habiro topology, q-factorials, Taylor substitution, classical injectivity, root adjunction and the ordinary completion of polynomial coefficient modules (HC Layer 5). In particular HC Layer 1 supplies `qBinomial_factorial` and `qFactorial_pochhammer`. The classical results are applied to twisted coefficient algebras without reconstructing the classical completion or the root-adjoining library.
-- **EnhancedDerivedSheaves:E0, E1, E3 and E5:abstract**, **StableHomotopyKTheory:H.5:spectra, H.5:S-delooping and H.6**, and **DerivedDeRhamCohomology:DD.1**: enhanced derived categories, coherent diagrams, symmetric monoidal localizations, algebra objects, the spectral module comparison and principal derived completion. Mathlib's ordinary `DerivedCategory` and `LightCondMod` are useful underlying categories; their existing definitions do not supply these enhanced or solid spectral structures.
+- **EnhancedDerivedSheaves:E0, E1, E2:towers, E3, E5:abstract and E5:spectra-comparison**, **StableHomotopyKTheory:H.5:spectra, H.5:S-delooping and H.6**, and **DerivedDeRhamCohomology:DD.1**: enhanced derived categories, coherent diagrams and towers, symmetric monoidal localizations, algebra objects, the spectral module comparison and principal derived completion. Mathlib's ordinary `DerivedCategory` and `LightCondMod` are useful underlying categories; their existing definitions do not supply these enhanced or solid spectral structures.
 - **SolidAnalyticRings:SA.1** for the five solid spectral statements, under the explicit product, tower, tensor and resolution hypotheses stated in Exact supplier contracts. This exceeds the abelian solid-module scope of **VStackSheavesAndLisseCategories:VS2**. A compact-generator statement or an abelian completed-tensor theorem alone does not establish this input. The ordinary relative ring and its comparisons are independent of these solid hypotheses.
 - **HabiroNumberFields:HB.6** for the number-field ring and **HB.7** for the actual K₃-indexed invertible modules, tensor pairings and supported field pullbacks. Their effective global descent, integral linear-jet condition and arithmetic naturality remain hypotheses of the line comparisons here. Local rank one does not imply the requisite global invertible module. Nahm-sum constructions remain in **HB.10**.
 
 No trace construction is an input. RefinedTraceMethods and HabiroCohomologyFoundationsPartII are consumers only.
 
-The general marked étale-deformation interface requires a lower owner beyond the specialized coefficient contract of HabiroCohomologyFoundations §0.3. Its inputs are an arbitrary commutative ring B, an ideal I and an étale B/I-algebra D with a specified reduction marking. It includes lifting D to an étale B-algebra, equivalence on étale objects and maps under locally nilpotent reduction, and, for finitely generated I, the marked ordinary complete lift W with its maps into I-adically complete B-algebras. For a regular element f it also includes the static, derived f-complete marked lift and its comparison with ordinary completion. These general targets are not supplied merely by the case B=A[q], f=qᵐ−1; their ownership is a gap. The specialized Habiro constructions below use §0.3 directly. The general interface must be assigned below Part I rather than reconstructed here with a dependency back to Part I. Sources for the ordinary lifting and rigidity inputs are Stacks, §10.143, Lemma 10.143.10 (tag [04D1](https://stacks.math.columbia.edu/tag/04D1)), and §15.11, Lemma 15.11.2 (tag [0ALI](https://stacks.math.columbia.edu/tag/0ALI)); the complete-lift contract retains finitely generated I, and the derived comparison retains regular f and the bounded-torsion comparison for its ordinary model.
+The general deformation inputs are owned targets of [Layer 0](#layer-0-general-marked-étale-deformations), and the general finite monoidal-localization descent theorem is owned by [§3.5](#hr-3-the-general-descent-principle). They assemble ordinary library machinery and the enhanced/DD suppliers for arbitrary bases, independently of the specialized HabiroCohomologyFoundations §0.3 construction. Part I proves its cyclotomic specialization directly and does not depend on these HabiroRings generalizations. The family order is HabiroCyclotomicCompletions → QWittVectors → HabiroCohomologyFoundations I → HabiroRings → RefinedTraceMethods → HabiroCohomologyFoundations II. In particular, generalizing an earlier supplier's special case here does not add an input back to it.
 
 ## Conventions
 
@@ -54,7 +54,7 @@ For invertible modules use `Module.Invertible`, `Module.Invertible.bijective_of_
 
 ### Enhanced, completion and solid inputs
 
-The named E0/E1/E3/E5, H.5/H.6, DD.1 and HC suppliers in Scope and ownership provide actual enhanced module and algebra categories, coherent limits, symmetric monoidal localization, principal derived completion and the polynomial/cyclotomic cofinality arguments. A triangulated category by itself does not supply the required mapping spaces. The algebraic Habiro completion, its tensor and its finite descent are the HabiroCohomologyFoundations Layer 0 interfaces specified below; they use no solidification.
+The named E0/E1/E2:towers/E3/E5, H.5/H.6, DD.1 and HC suppliers in Scope and ownership provide actual enhanced module and algebra categories, coherent limits, symmetric monoidal localization, principal derived completion and the polynomial/cyclotomic cofinality arguments. A triangulated category by itself does not supply the required mapping spaces. Layer 0 uses DD §§1.1–1.4 (`DerivedDeRham.derivedCompleteness`, `.derivedCompletion`, `.completeNakayama`, `.koszulCompletionTower`, `.ordinaryQuotientCompletion`), E2:towers §1 (`derivedTowerLimit`, with its product–difference formula), E5:abstract §2 (`commutativeAlgebras`, `moduleObjects`) and E5:spectra-comparison (`moduleSpectra_equiv_derived`). For a regular principal element, the ordinary/derived comparison uses zero torsion on the chosen étale algebra; it does not require DD's separate Noetherian Artin–Rees proof input. The algebraic Habiro completion, its tensor and its finite descent are the HabiroCohomologyFoundations Layer 0 interfaces specified below; they use no solidification.
 
 The classical HC input is independent of derived completion: for any commutative ring B and B-module M, HC Layers 1, 2 and 5 provide the ordinary full completion of M[q], its polynomial/Laurent comparison, finite quotient projections and functoriality in M. HC Layer 1's two integral factorial identities give
 \(P_{a+b}=P_aP_b{a+b\brack a}_q\) for all natural a,b, including zero. Only these polynomial identities are used in the solid tensor weights; QSeries is a consumer of this toolkit. The derived comparison of §2.4 uses this ordinary input and the reflection of HabiroCohomologyFoundations §0.1.
@@ -766,12 +766,6 @@ From **HabiroCohomologyFoundations §0.2** use finite cyclotomic complete descen
 - For E_d=A[q]^∧_{Φ_d} with the canonical common-completion identifications, reconstruction is A[q]^∧_{f_m} as a complete E∞-A[q]-algebra. The zero marked section reconstructs the zero algebra.
 - At m=2 put t=q²−1 and E=ℤ[q]^∧_t. The series Σ_{r≥0}t^r/2^r lies in (E[1/2])^∧_t but not in E[1/2], whose elements have bounded denominators. The rational fracture piece keeps its completion.
 
-<a id="hr-4-marked-etale-deformation"></a>
-<a id="hr-4-etale-quotient-lift"></a>
-<a id="hr-4-nilpotent-deformation-rigidity"></a>
-<a id="hr-4-completed-etale-deformation"></a>
-<a id="hr-4-completed-deformation-map-equivalence"></a>
-<a id="hr-4-complete-principal-deformation-universality"></a>
 <a id="hr-4-cyclotomic-ghost-lift-coherence"></a>
 <a id="hr-4-the-etale-lift"></a>
 <a id="hr-4-the-transitions-are-frobenius"></a>
@@ -814,7 +808,189 @@ From **HabiroCohomologyFoundations §4.21** (`HabiroHodge.etale`, `HabiroHodge.e
 
 ## How to read the build
 
-Layer 1 fixes the category of pairs on which every construction is functorial; perfect covers and the completed Frobenius are the QW.1 and QW.4 interfaces. Layer 2 identifies the Habiro completion and completed tensor of HabiroCohomologyFoundations §0.1 with the Laurent and scalar-restriction conventions, proves the ordinary/derived comparison and coefficient base change, and builds the spherical and conditional solid completed categories. Layer 3 computes the prime-chain index used by the finite descent of HabiroCohomologyFoundations §0.2 and unravels its mapping spaces. Layer 4 extends the coefficient lifts of HabiroCohomologyFoundations §0.3 to morphisms of pairs. Layer 5 presents their limit as an ordinary ring, proves the Taylor equalizer and completed base change, and compares with the classical and number-field rings. Layer 6 transports scalar modules and arithmetic lines, before the examples of Layer 7. RefinedTraceMethods, HabiroNahmSeries and HabiroCohomologyFoundationsPartII consume these results.
+Layer 0 constructs the general marked ordinary deformation interface and proves regular-principal derived universality. It uses ordinary étale and completion APIs, DD.1 and E1/E5. The independently proved cyclotomic specialization is imported from Part I. Layer 1 fixes the category of pairs on which every construction is functorial; perfect covers and the completed Frobenius are the QW.1 and QW.4 interfaces. Layer 2 identifies the Habiro completion and completed tensor of HabiroCohomologyFoundations §0.1 with the Laurent and scalar-restriction conventions, proves the ordinary/derived comparison and coefficient base change, and builds the spherical and conditional solid completed categories. Layer 3 computes the prime-chain index used by the finite descent of HabiroCohomologyFoundations §0.2 and unravels its mapping spaces; §3.5 separately proves general finite monoidal-localization descent under coherent overlap and conservativity hypotheses. Layer 4 extends the coefficient lifts of HabiroCohomologyFoundations §0.3 to morphisms of pairs. Layer 5 presents their limit as an ordinary ring, proves the Taylor equalizer and completed base change, and compares with the classical and number-field rings. Layer 6 transports scalar modules and arithmetic lines, before the examples of Layer 7. RefinedTraceMethods, HabiroNahmSeries and HabiroCohomologyFoundationsPartII consume these results.
+
+## Layer 0: General marked étale deformations
+
+This layer owns the arbitrary-ring deformation interface. Its objects use ordinary étale algebras and Mathlib's existing adic completion; its last theorem assembles them with DD.1's derived completion. The cyclotomic coefficient objects remain the separate HabiroCohomologyFoundations §0.3 interface. That supplier proves its specialization directly from ordinary étale lifting, DD.1 and the enhanced suppliers; it does not import this layer. Thus the generalization here introduces no dependency from Part I back to HabiroRings.
+
+For this layer B is any commutative ring, I⊂B an ideal, and D an étale B/I-algebra. Write E/IE for (B/I)⊗_B E, with its specified quotient/tensor identification. No Noetherian, nonzero-ring or finite-module assumption is implicit. “Étale” retains Mathlib's finite-presentation and formal-étaleness conditions. The hypotheses I finitely generated and f regular enter only where stated.
+
+<a id="hr-4-marked-etale-deformation"></a>
+
+### 0.1 Marked étale deformations and their maps
+
+Define `EtaleDeformation B I D` to consist of an ordinary étale B-algebra E and an actual B/I-algebra equivalence ε:E/IE≃D. A morphism between such data with reductions D and D′ has an underlying B-algebra map g:E→E′; its reduced map is
+
+\[
+  \operatorname{reduceMap}_{\varepsilon,\varepsilon'}(g)
+    =\varepsilon'\circ(\mathrm{id}_{B/I}\otimes g)\circ\varepsilon^{-1}:D\longrightarrow D'.
+\]
+
+The fibre over a fixed D uses morphisms whose reduced map is id_D. Retain the marking as data, rather than replacing it by a proposition that some equivalence exists. An object lift need not be unique before completion. The unit, split and localization examples below provide objects without any nilpotence assumption.
+
+The API comprises:
+
+- `EtaleDeformation.ofAlgebra`: package an existing étale B-algebra E and the supplied ε, without choosing another presentation.
+- `EtaleDeformation.carrier_etale`: expose the existing `Algebra.Etale B E` instance.
+- `EtaleDeformation.reduction_etale`: expose étaleness of E/IE and transport it through ε to D, using `Algebra.Etale.baseChange` and `.of_equiv`.
+- `EtaleDeformation.transportMarking`: for e:D≃D′ replace ε by e∘ε. The carrier and its B-action are those of E.
+- `EtaleDeformation.reduceMap`: the conjugated reduction displayed above, on the existing tensor-product carriers. Its definition does not require étaleness.
+- `EtaleDeformation.reduceMap_id`: with the same source and target marking, reduction of id_E is id_D.
+- `EtaleDeformation.reduceMap_comp`: for g:E→E′ and h:E′→E″, reduction of h∘g is reduceMap(h)∘reduceMap(g), with the intermediate marking cancelled.
+- `EtaleDeformation.unit`: E=B, D=B/I, with the tensor-unit marking.
+- `EtaleDeformation.split`: E=B×B, D=(B/I)×(B/I), with componentwise reduction. The presentation B[x]/(x²−x) maps x to (0,1), and the inverse sends (a,b) to a+(b−a)x. Its Jacobian 2x−1 satisfies (2x−1)²=1 in this quotient, also in characteristic two.
+- `EtaleDeformation.localisation`: for a∈B take E=B[1/a] and D=(B/I)[1/ā], marked by localization base change. An invertible or zero ā is allowed.
+
+**Checks.**
+
+- `EtaleDeformation.test_unit`: the unit lift has the unique B-algebra map into any other lift, and its marking identifies reduction with the B/I-structure map. For I=0 it is the ordinary unit algebra B.
+- `EtaleDeformation.test_split_swap`: if B/I≠0, the split transposition sends (1,0) to (0,1). Even g=id_E reduces to this transposition if the target marking is swap∘ε and the source marking is ε. With the same marking on both sides it reduces to id. These two computations are proved on actual reduction carriers in Suggested.lean.
+- `EtaleDeformation.test_localisation`: for B=ℤ, I=0 and a=2, E=ℤ[1/2] is étale and is not a finite ℤ-module. For a=0 the localization and its reduction are zero; for a a unit they recover the unit deformation. Replacing étale by finite étale would lose the first case.
+
+*Needs:* `Algebra.Etale`, `.baseChange`, `.of_equiv`; `Algebra.TensorProduct.map`, `.map_id`, `.map_comp`; the existing quotient/tensor and localization base-change equivalences; the ordinary product algebra. The marked package and conjugated map, rather than the underlying ring and tensor structures, are the new interface. The object formulation is the datum used by Stacks §10.143, Lemma 10.143.10, tag [04D1], chapter PDF p.385; [Q], Theorem 2.9, pp.16–17, uses its completed principal specialization.
+
+<a id="hr-4-etale-quotient-lift"></a>
+
+### 0.2 Existence over an arbitrary quotient ideal
+
+`EtaleDeformation.exists_lift` states that for every B,I,D as above there exists an étale B-algebra E with a specified equivalence E/IE≃D. There is no finite-generation or nilpotence condition on I. This is an existence theorem about ordinary algebras, not uniqueness of their carriers.
+
+Use a finite square Jacobian presentation of D, lift its equations to B, and invert the lifted determinant Δ. Equivalently adjoin y with yΔ−1=0; the enlarged Jacobian determinant is Δ², a unit in the resulting algebra. Reduction recovers the original presentation with its marking. All choices are permitted at this stage. The existing standard-smooth presentation API supplies the Jacobian criterion; the missing assembly is lifting the algebra object together with the marked reduction.
+
+**Checks.**
+
+- I=0 permits E=D with its specified B-action. For I=B, D must be zero, while E may be B or zero; uniqueness of uncompleted object lifts would already fail here.
+- Over B=ℤ and I=(2), the algebra 𝔽₂[x]/(x²+x+1) lifts to ℤ[x]/(x²+x+1)[1/3]. The discriminant −3 is invertible, and reduction of 1/3 is 1.
+- Over B=ℤ[t], I=(t), both B and B[1/(1−t)] lift D=ℤ. They are not isomorphic as B-algebras, since 1−t is a unit only in the latter. Their completed marked comparison belongs to §0.5.
+
+*Needs:* §0.1; `Algebra.Etale.iff_isStandardSmoothOfRelativeDimension_zero`; `Algebra.SubmersivePresentation.isStandardSmoothOfRelativeDimension`; localization base change. Source: Stacks §10.143, Lemma 10.143.10, tag [04D1], chapter PDF p.385, including the determinant-inversion argument. The existing carrier `CommAlgCat B` expresses this target in Suggested.lean without defining a new category there.
+
+<a id="hr-4-nilpotent-deformation-rigidity"></a>
+
+### 0.3 Locally nilpotent reduction and marked rigidity
+
+`EtaleDeformation.reductionEquivalence` states that when I is locally nilpotent, reduction is an equivalence between the categories of ordinary étale B-algebras and ordinary étale B/I-algebras. In particular, for marked lifts (E,ε) and (E′,ε′), `reduceMap` is a bijection
+
+\[
+ \operatorname{Hom}_B(E,E')\simeq\operatorname{Hom}_{B/I}(D,D').
+\]
+
+`EtaleDeformation.nilpotent_reductionEquivalence` is the nilpotent specialization used at each B/Iⁿ-level. For fixed D, `EtaleDeformation.equivOfMarking` is the unique marked equivalence between two lifts, and `EtaleDeformation.equivOfMarking_trans` gives transitivity; its identity and inverse laws follow from uniqueness.
+
+Object existence is §0.2. For maps, formal smoothness supplies lifting across a locally nilpotent ideal using finite presentation. For uniqueness, use the idempotent generating the kernel of E⊗_B E→E: two maps with the same reduction send it into IE′, where a nilpotent idempotent is zero. This argument retains the locally nilpotent case without assuming a uniform exponent. At nilpotent levels use the existing formally smooth lifting and formally unramified uniqueness declarations directly.
+
+**Checks.**
+
+- For B=ℤ/4, I=(2), D=𝔽₂, the unit deformation has a single marked self-map. The split reduced swap lifts to the split swap; it lies over a different reduced map from the identity.
+- In B=𝔽₂[x₁,x₂,…]/(x₁²,x₂²,…), the ideal generated by all x_i is locally nilpotent but has no uniform nilpotence exponent: products of arbitrarily many distinct x_i survive. The theorem still applies. Finite-presentation descent and the idempotent argument cannot be replaced by a fixed Iᴺ=0 assumption.
+- The B=ℤ[t], I=(t) example of §0.2 excludes rigidity for arbitrary ideals. For B=0 the two categories have only their zero algebra and the equivalence still holds.
+
+*Needs:* §§0.1–0.2; `Algebra.FormallySmooth.exists_lift`; `Algebra.FormallyUnramified.lift_unique`; existing unramified diagonal and idempotent machinery. Source: Stacks §15.11, Lemma 15.11.2, tag [0ALI], chapter PDF pp.28–29. Its locally nilpotent full-faithfulness argument is the input beyond a finite nilpotence exponent.
+
+<a id="hr-4-completed-etale-deformation"></a>
+
+### 0.4 The ordinary completion of a marked lift
+
+Now assume I is finitely generated, and fix a lift L=(E,ε) from §0.1. Define `CompletedEtaleLift I L` as the existing ordinary carrier
+
+\[
+  W_L=\operatorname{AdicCompletion}_{IE}(E)=\varprojlim_{n\geq1}E/I^nE.
+\]
+
+It is an ordinary commutative B-algebra, complete and separated for IW_L, with its canonical map E→W_L. For every n≥1 there is a B/Iⁿ-algebra equivalence W_L/IⁿW_L≃E/IⁿE compatible with the completion unit, the quotient transition maps and the marking at n=1. In particular each quotient is étale over B/Iⁿ. Finite presentation as an algebra imposes no module-finiteness assumption on E or D; no flatness or ordinary étaleness of W_L over the completed base is asserted.
+
+The API comprises:
+
+- `CompletedEtaleLift.instCommRing`: reuse the existing completion ring instance, without defining a second ring structure.
+- `CompletedEtaleLift.instAlgebra`: reuse its B-algebra structure through E and the completion unit.
+- `CompletedEtaleLift.of`: the existing completion unit E→W_L as a B-algebra map.
+- `CompletedEtaleLift.complete`: ordinary `IsAdicComplete` for IW_L, with I finitely generated.
+- `CompletedEtaleLift.reductionEquiv`: the actual equivalence (B/I)⊗_B W_L≃D obtained from the first evaluation and ε; retain the compatible quotient equivalences for every n≥1 as `CompletedEtaleLift.quotientEquiv`.
+- `CompletedEtaleLift.reduction_of`: reducing the completion unit and applying `reductionEquiv` gives ε.
+- `CompletedEtaleLift.homEquiv`: the natural marked hom-set bijection of §0.5 for every ordinary I-complete B-algebra C.
+- `CompletedEtaleLift.map`: for g:D→D′, use `homEquiv` with target W_M to obtain the unique W_L→W_M lifting g through the markings.
+- `CompletedEtaleLift.map_reduction`: the reduction of this map, conjugated by the two markings, is g.
+- `CompletedEtaleLift.map_id`: lifting id_D between the same completed marked object gives id_W.
+- `CompletedEtaleLift.map_comp`: lifting h∘g gives map(h)∘map(g).
+- `CompletedEtaleLift.equivOfMarking`: for two chosen lifts of the same D, the map lifting id_D is an equivalence of completed B-algebras.
+- `CompletedEtaleLift.equivOfMarking_reduction`: this equivalence intertwines the two actual reduction markings.
+- `CompletedEtaleLift.equivOfMarking_trans`: for three chosen lifts the comparisons compose to the comparison of the first with the third. Identity and inverse are its specializations.
+
+For the quotient equivalences, apply `AdicCompletion.pow_smul_top_eq_ker_eval` to the original ideal IE and its n-th evaluation, then use surjectivity of that evaluation. The extended ideal (IE)ⁿW_L is IⁿW_L. At n=1, `AdicCompletion.ker_evalOneₐ_eq_map` supplies the ring form of the kernel statement. Finite generation of IE follows from that of I; `AdicCompletion.isAdicComplete` supplies ordinary completeness. Quotient/tensor base change and ε finish the marking. The maps and comparisons are proved in §0.5; they do not make the uncompleted choice E canonical.
+
+**Checks.**
+
+- `CompletedEtaleLift.test_zero_ideal`: for I=0, the completion unit is an equivalence and the marking identifies W_L with D as a B-algebra.
+- `CompletedEtaleLift.test_nilpotent`: for nilpotent I the quotient tower is eventually E, so the canonical E→W_L is an equivalence. This particular conclusion holds even when I is not finitely generated, by the eventually constant tower argument.
+- `CompletedEtaleLift.test_split_swap`: the split lift completes to B̂_I×B̂_I. If B/I≠0 its reduced transposition moves (1,0), so the lifted transposition is not id. Changing a marking changes the corresponding map, as in the proved §0.1 examples.
+- `CompletedEtaleLift.test_localisation_series`: for B=ℤ[t], I=(t), E=ℤ[t,1/2], the marked completion is ℤ[1/2][[t]], with t acting as the power-series variable. The element Σ_{n≥0}tⁿ/2ⁿ has unbounded coefficient denominators. It cannot lie in ℤ[[t]][1/2], since one fixed 2ᴺ would have to clear every coefficient. Localizing after completing is a different construction.
+- For I=B, every quotient and W_L are zero; for D=0, IE=E and W_L=0 even if E≠0. A map from this zero algebra to a unital algebra exists only when that target is zero.
+
+*Needs:* §§0.1–0.2; `AdicCompletion`, `.isAdicComplete`, `.eval_surjective`, `.pow_smul_top_eq_ker_eval`, `.ker_evalOneₐ_eq_map`; existing quotient/tensor equivalences and `Algebra.Etale.baseChange`. The power-series test uses the existing `MvPowerSeries.toAdicCompletionAlgEquiv`. Source application: [Q], Theorem 2.9, pp.16–17, first proof paragraph. The ordinary quotient and completeness assertions are imports from the pinned completion API, not new completion theory.
+
+<a id="hr-4-completed-deformation-map-equivalence"></a>
+
+### 0.5 Maps into any ordinary complete target
+
+For I finitely generated and L=(E,ε), `CompletedEtaleLift.homEquiv` states that for every ordinary commutative B-algebra C complete and separated for IC, marked reduction gives a natural bijection
+
+\[
+  \operatorname{Hom}_B(W_L,C)\simeq
+  \operatorname{Hom}_{B/I}\bigl(D,(B/I)\otimes_B C\bigr).
+\]
+
+The forward map is (id⊗h)∘ε_W⁻¹, where ε_W is the marking of W_L. Naturality is covariant in C and contravariant in the reduced source D, with the maps of §0.4. These are all ordinary B-algebra maps: every such map sends Iⁿ into Iⁿ, so no additional continuity datum or bounded-denominator condition is imposed. C need not be étale or flat, and its reduction need not be étale. A reduced isomorphism implies that the lifted map is an isomorphism when both objects are completed étale lifts; it does not give that conclusion for an arbitrary C.
+
+For the inverse, translate the reduced map into E→C/IC via ε. The existing `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete` lifts it to E→C. Completeness includes separatedness, and `Algebra.FormallyUnramified.ext_of_iInf` makes this lift unique. Reduce the lifted map modulo each Iⁿ and use §0.4 to extend it over W_L/IⁿW_L. Compatibility gives a map W_L→lim C/IⁿC≃C, using `AdicCompletion.liftAlgHom` and `.ofAlgEquiv`. Conversely, any map W_L→C has these quotient maps, so the same uniqueness and separatedness prove injectivity. Identity, composition and the comparison laws in §0.4 follow by reducing them; lift an inverse to prove `equivOfMarking`.
+
+`CompletedEtaleLift.mapUnique` in Suggested.lean is the equivalent statement with the reduced map given as E→C/IC before transport through ε. It asserts existence and uniqueness of the map out of the existing completion, rather than replanning the implemented lifting theorem out of E.
+
+`CompletedEtaleLift.mappingSpaceEquiv` is the enhanced refinement for these same ordinary W_L and C: Map_{CAlg(D(B))}(W_L,C) is the discrete space on Hom_{B/I}(D,C/IC). The comparison of static algebra mapping spaces with ordinary algebra maps is [HA], §7.1.3, Definition 7.1.3.17 and Proposition 7.1.3.18, p.1219; compose it with `homEquiv`. This uses the E1/E5 enhanced carriers, without identifying all animated commutative rings with E∞-algebras in positive characteristic.
+
+**Checks.**
+
+- For E=B, the hom-set contains only the completed structure map B̂_I→C, matching the unique B/I-algebra structure map into C/IC.
+- The split identity and swap are distinguished by reduction at (1,0) when B/I≠0. For the two uncompleted lifts B and B[1/(1−t)] of §0.2, the completed comparison is an isomorphism: 1−t has the inverse Σtⁿ in ℤ[[t]].
+- For B=ℤ, I=(2), W_L=ℤ₂ and C=𝔽₂, there is exactly one B-algebra map W_L→C. Its reduced map is an isomorphism, but the map itself is not. This rules out extending `equivOfMarking` to every ordinarily complete target with the same ordinary reduction.
+- Dropping completeness fails already for E=B, C=ℤ and I=(2): a ℤ-algebra map ℤ₂→ℤ would send the inverse of 3 to an integer inverse of 3, which does not exist.
+
+*Needs:* §§0.3–0.4; the four existing lifting, rigidity and completion declarations named in the proof, with their completeness/separatedness hypotheses; E1/E5 for `mappingSpaceEquiv`. Stacks §15.11, Lemma 15.11.2, tag [0ALI], chapter PDF pp.28–29, supplies the nilpotent-level rigidity used in the quotient formulation; the complete hom-set statement is the assembly above. [Q], Theorem 2.9, pp.16–17, is its principal coefficient application.
+
+<a id="hr-4-complete-principal-deformation-universality"></a>
+
+### 0.6 Regular principal derived universality
+
+Let f∈B act injectively on B, let D be étale over B/(f), and choose an ordinary étale lift L=(E,ε). For W_L=CompletedEtaleLift((f),L), `CompletedEtaleLift.principal_universality` states that W_L, regarded as an E∞-B-algebra, is static and derived f-complete, f acts injectively on W_L, and its actual derived reduction W_L⊗^L_B B/(f) is D with the prescribed marking. For any derived f-complete E∞-B-algebra C with an actual equivalence ε_C:C⊗^L_B B/(f)≃D, the space
+
+\[
+ \{\,e:W_L\simeq C\mid
+   \varepsilon_C\circ(e\otimes^L_B B/(f))=\varepsilon_W\,\}
+\]
+
+is contractible. The displayed equality means the homotopy fibre over the specified marking, including the comparison homotopy. No connectivity assumption is placed on C. The theorem implies that C is static and f-regular too. The B̂_(f)-algebra form follows from the unique complete-base action. It asserts no ordinary étaleness or flatness of W_L over B̂_(f), and requires neither Noetherianity nor finite-module hypotheses.
+
+To prove it, E is flat over B because it is étale; hence f is regular on E. DD.1's regular-principal ordinary/derived comparison identifies its derived completion with the ordinary tower E/fⁿE. This static surjective tower has static homotopy limit W_L. Its compatible quotients identify W_L/fⁿW_L with E/fⁿE. If fx=0 in W_L, regularity in E implies that the component of x at level n+1 is divisible by fⁿ, so every level-n component vanishes. Thus f is regular on W_L and its ordinary marked quotient is also its derived quotient.
+
+For arbitrary C as in the theorem, the successive-power cofiber triangles express C/fⁿ as extensions of copies of the static C/f≃D. Induction makes every C/fⁿ static, with surjective transition maps. DD.1's principal derived tower and the Milnor sequence then make C static, even without a prior bound on its homotopy. Here the Milnor sequence follows from E2:towers' product–difference formula and exact products of ordinary B-modules; surjectivity kills lim¹. The quotient long exact sequence makes f regular on π₀C. Its quotient tower is therefore ordinary, and π₀C is ordinarily f-complete. Apply §0.5 to the specified marking to get W_L→π₀C. Its reduced map is an equivalence; derived Nakayama on the complete underlying modules makes the map an equivalence. `CompletedEtaleLift.mappingSpaceEquiv` makes the mapping spaces discrete. Its reduced hom-set bijection leaves exactly one point in the marked comparison fibre, with no additional homotopies. This proves the claimed contractibility and the coherence under changes of the selected lift E.
+
+**Checks.**
+
+- For B=ℤ, f=2 and D=𝔽₂, W_L=ℤ₂. The static algebra 𝔽₂ is ordinarily 2-complete with the same ordinary quotient, but its derived reduction is the two-term complex [𝔽₂→⁰𝔽₂], with π₁=𝔽₂. It fails the derived marking hypothesis. Suggested.lean proves the noninjectivity of this multiplication-by-2 differential.
+- For B=ℤ[t], f=t and D=ℤ[1/2], W_L=ℤ[1/2][[t]], including the unbounded-denominator series of §0.4. A split D has distinct identity and swap reduced maps; contractibility is asserted separately over each fixed marking.
+- A unit f is regular and has B/(f)=0. Every derived f-complete C is zero, and the marked comparison fibre is contractible. For B=0, f=0 is regular in the injectivity convention and gives the same zero case.
+- For f=0 on B=ℤ, regularity fails: the derived cofiber of zero on a nonzero static algebra is that algebra plus its suspension. Ordinary quotienting by zero would erase this obstruction. For D=0 and regular f the unique complete lift is zero, by derived Nakayama.
+
+*Needs:* §§0.2, 0.4–0.5; `Algebra.Smooth.flat`; DerivedDeRhamCohomology:DD.1 (the exact §§1.1–1.4 APIs in the supplier contract); EnhancedDerivedSheaves:E1, E2:towers (`derivedTowerLimit`), E5:abstract and E5:spectra-comparison (algebra limits, mapping spaces and the derived-module comparison). DD §1.11's `DerivedDeRham.completelySmoothAlgebraization` is the imported general algebraization theorem, not a second target here: the extra content is the specified ordinary model, marked hom-set API and contractible comparison above. Sources: Stacks §15.93, Lemma 15.93.18, tag [0920], chapter PDF p.267, for the principal Koszul completion tower; [HA], Proposition 7.1.3.18, p.1219, for static algebra maps; [Q], Theorem 2.9, pp.16–17, for the coefficient application. The argument here states the general regular-principal consequence explicitly; [Q]'s displayed specialization alone is not a source for arbitrary B,I.
+
+### Examples
+
+The unit, split and localization deformations test the marking and the difference between étale and finite étale. The locally nilpotent infinite-variable example tests the absence of a uniform exponent. The two lifts over ℤ[t] test nonuniqueness before completion and canonical marked comparison afterwards. The unbounded-denominator series tests the order of localization and completion. Finally ℤ₂ and static 𝔽₂ distinguish derived reduction from ordinary reduction at the smallest residue characteristic.
+
+### Dependencies
+
+Existing ordinary étale, tensor-product, localization and adic-completion APIs; DD.1 for principal derived completion and Nakayama; E1/E5 for the enhanced algebra interpretation and E2:towers for the coherent surjective limit. No Habiro coefficient construction, QW output, trace construction or Part II result is needed by this general layer. The specialized Part I §0.3 contract remains an earlier, independently proved supplier to Layers 4–5.
+
 
 ## Layer 1: Relative inputs
 
@@ -1274,21 +1450,48 @@ See [Q], Corollary 2.4 and its proof, pp. 14–15, comparisons h_(p,d) and the p
 
 <a id="hr-3-the-general-descent-principle"></a>
 
-### 3.5 Descent for monoidal localizations
+### 3.5 Finite descent for tensor-compatible localizations
 
-Let I be a poset site and D a presentable stable symmetric monoidal ∞-category. For each Z let D_Z⊆D be full and stable with a left adjoint L_Z. Require D_{Z₁}⊆D_{Z₂} for Z₁→Z₂ and require L_Z(x⊗y)≃L_Z(L_Zx⊗y). These data induce a coherent contravariant functor Z↦D_Z into CAlg(Pr^L_st), with the localized monoidal structures.
+Let P be a poset with finite meets, let Z∈P, and let {Z_i→Z}_{i∈J} be a finite family. Let D be a presentable stable symmetric monoidal ∞-category whose tensor preserves colimits separately. Define `FiniteMonoidalDescent.Datum` by the following data and hypotheses, for Z and its intersections:
 
-For a finite cover {Z_i→Z}, require joint conservativity on D_Z and the coherent overlap identity L_{Z_i}L_{Z_S}≃L_{Z_{S∪{i}}}, compatible with localization units; here Z_S is the meet of the Z_j for j∈S. Then restriction is an equivalence D_Z≃lim_{∅≠S}D_{Z_S}, also for commutative algebra objects. If every cover has a finite refinement and these hypotheses hold for all such finite covers, both functors are sheaves. Applying L_{Z_i} to the finite augmented cube makes its i-direction an equivalence; exactness and conservativity then give reconstruction and its mapping-space equivalence. The overlap identity used at this step is explicit: nested full subcategories and conservativity alone do not establish it.
+- Each D_T⊆D is a full presentable stable reflective subcategory, with an accessible exact left adjoint L_T to its inclusion. For T′→T require D_T′⊆D_T; restriction is L_T′ on D_T. Retain the units and the coherent identity/composition equivalences of these restrictions.
+- Each localization is tensor-compatible: L_T(x⊗y)≃L_T(L_Tx⊗y), compatibly with its unit. Thus D_T has unit L_T(1) and tensor L_T(x⊗y), and restrictions are symmetric monoidal left adjoints.
+- Put Z_S=∧_{i∈S}Z_i for nonempty S⊆J and Z_∅=Z. For every S and i require the **specified overlap equivalence**
+  L_{Z_i}L_{Z_S}≃L_{Z_{S∪{i}}}, on D_Z, compatible with the localization units, inclusions of subsets, repeated indices, and the associativity and symmetry of iterated overlaps. Equivalently give a coherent finite cube of commuting idempotent localizations with these values. Pairwise unlabelled equivalences are insufficient data.
+- The restrictions L_{Z_i}:D_Z→D_{Z_i} are jointly conservative. For an empty covering family this condition forces D_Z=0.
 
-*Needs:* `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`; `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`; `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`; `EnhancedDerivedSheaves:E5:presentability/presentable-categories`; `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`; `EnhancedDerivedSheaves:E5:abstract/algebra-objects`.
+`FiniteMonoidalDescent.reconstruct` states that the restriction functor is a symmetric monoidal equivalence
 
-See [Q], §2.1, Setup 2.1 and Lemma 2.2, pp.13–14; [HA], §2.2.1, Proposition 2.2.1.9, p.197. The overlap identity is the comparison needed in the proof of Lemma 2.2; for the cyclotomic closed cover it is verified in HabiroCohomologyFoundations §0.2, rather than inferred from Setup 2.1 alone. That subsection proves the cyclotomic instance directly; the general principle here is not an input of it and is stated for arbitrary finite covers by tensor-compatible localizations.
+\[
+  D_Z\ \simeq\ \varprojlim_{\varnothing\ne S\subseteq J}D_{Z_S},
+\]
+
+where transition functors are the indicated localizations and the limit is the coherent limit of categories. It applies to every finite family satisfying the datum, not just to cyclotomic factors, arithmetic completions or bounded objects. Its inverse sends compatible local objects x_S to the finite limit in D_Z of their underlying objects, with transition maps supplied by localization units and the specified descent equivalences.
+
+To prove full faithfulness, form the augmented finite localization cube of x∈D_Z. Its total fibre is killed by each L_{Z_i}: exactness commutes with the finite limit, and the overlap equivalences make the i-direction invertible. Joint conservativity kills the total fibre, so x is the limit of its restrictions. For essential surjectivity apply the same calculation to compatible local objects: localizing their finite limit at i gives x_{\{i\}}, and then every x_S by the overlap equivalences. The subcategory D_Z is closed under limits, so this inverse stays in D_Z. The reconstructed unit and tensor are identified after all restrictions, which are conservative and symmetric monoidal. This gives the monoidal equivalence as well as the equivalence of underlying categories.
+
+The API comprises:
+
+- `FiniteMonoidalDescent.Datum.localize`: L_T, its unit, and the exact accessible reflective-subcategory structure.
+- `FiniteMonoidalDescent.Datum.overlap`: the coherent overlap equivalences for all S and i, including the empty-S unit condition.
+- `FiniteMonoidalDescent.restrict`: the restriction functor with its symmetric monoidal structure and coherent subset transitions.
+- `FiniteMonoidalDescent.reconstruct`: the equivalence above, its finite-limit inverse, and unit/counit comparisons with the given local markings.
+- `FiniteMonoidalDescent.maps`: for x,y∈D_Z, Map(x,y)≃lim_{S≠∅}Map(L_{Z_S}x,L_{Z_S}y), naturally in both objects and compatibly with composition. The right side is a homotopy limit of spaces.
+- `FiniteMonoidalDescent.commAlgebra`: CAlg(D_Z)≃lim_{S≠∅}CAlg(D_{Z_S}), with the same restriction maps; limits of commutative algebra objects are computed by the enhanced algebra supplier. This is not a statement about ordinary tensor products of underlying rings.
+- `FiniteMonoidalDescent.refinement`: for a refinement satisfying the same hypotheses, with the coherent overlap datum also on the union of the two covers, reconstruction commutes with restriction to the refining cover; identity and composition of refinements agree coherently. Check this after every refining localization, using the specified overlap coherences.
+- `FiniteMonoidalDescent.sheaf`: on a poset site whose covering families admit finite covering refinements, with the datum for every finite cover and compatibly with base change, T↦D_T and T↦CAlg(D_T) are sheaves. Finite descent and the covering-refinement criterion give this conclusion; no infinite localization cube is used.
 
 **Checks.**
 
-- A singleton identity cover has L_Z²≃L_Z, and descent is the identity equivalence. Repeating this cover gives the same result.
-- For disjoint summands D=D₁×D₂, the two projection localizations have zero overlap; D₁×₀D₂ recovers D.
-- On a site with two disjoint opens covering Z, assign D to Z and to both opens but zero to their intersection. Both restrictions from Z are the identity and jointly conservative, yet descent would give D×D. For nonzero D the diagonal is not essentially surjective. The overlap identity excludes this assignment.
+- A singleton identity cover has L_Z²≃L_Z; reconstruction, its map equivalence and its algebra equivalence are identities. Repeating the same cover produces the coherent diagonal equivalence, not two unrelated copies.
+- For disjoint summands D=D₁×D₂, the localizations (x₁,x₂)↦(x₁,0) and (x₁,x₂)↦(0,x₂) have zero overlap. The two-piece gluing limit is D₁×₀D₂≃D. Their units send (x₁,x₂) to the corresponding projection; reversing either arrow would not be a localization unit.
+- On a site with two disjoint opens covering Z, assign the same nonzero D to Z and each open, zero to the intersection, and take both restrictions from Z to be the identity. They are jointly conservative, but L_1L_2=id_D is not the intersection localization 0. The putative reconstruction is the diagonal D→D×D, which misses (x,0) for x≠0. This is excluded precisely by `Datum.overlap`; nesting and conservativity alone do not prove descent.
+- For an empty cover, conservativity to the terminal category forces D_Z=0, so both category and commutative-algebra descent limits are terminal. There is no assertion that an empty cover reconstructs an arbitrary nonzero category.
+
+*Needs:* `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`; `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`; `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`; `EnhancedDerivedSheaves:E5:presentability/presentable-categories`; `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`; `EnhancedDerivedSheaves:E5:abstract/algebra-objects`. The datum and theorem are owned here; no stand-in enhanced carrier is added to Suggested.lean.
+
+Sources: [Q], §2.1, Setup 2.1 and Lemma 2.2, pp.13–14, for the finite localization-cube proof; [HA], §2.2.1, Proposition 2.2.1.9, p.197, for the monoidal localization input, and §3.2.2, Corollaries 3.2.2.4–3.2.2.5, pp.358–359, for algebra limits. The coherent overlap hypothesis is stated explicitly because the proof needs it; it does not follow from nesting and conservativity alone in Setup 2.1. HabiroCohomologyFoundations §0.2 verifies its cyclotomic overlaps and proves that specialization directly. It has no dependency on the general theorem here, which supplies neither a second cyclotomic reconstruction nor a second closed-cover index.
+
 
 <a id="hr-3-prime-edge-mapping-spaces"></a>
 
@@ -1314,11 +1517,11 @@ The API comprises:
 
 ### Examples
 
-The m=1,4,6,12 indices above test maximal chains. The m=6 graph has four edge paths and no additional composite cocycle.
+The m=1,4,6,12 indices above test maximal chains. The m=6 graph has four edge paths and no additional composite cocycle. Independently, §3.5 tests general finite descent on an identity cover, two disjoint summands, an empty cover and a conservative assignment that fails the overlap hypothesis.
 
 ### Dependencies
 
-Layer 2; HC.4 cyclotomic resultants and intersections; HabiroCohomologyFoundations §0.2 (finite cyclotomic complete descent); E0/E3/E5 coherent monoidal localization and finite limits.
+The general theorem §3.5 uses E0/E3/E5 coherent monoidal localization and finite limits. The cyclotomic index and mapping formula additionally use Layer 2, HC.4 cyclotomic resultants and intersections, and HabiroCohomologyFoundations §0.2 (finite cyclotomic complete descent); that supplier proves its instance independently of §3.5.
 
 ## Layer 4: The finite relative stages along morphisms of pairs
 
@@ -1833,6 +2036,7 @@ For a number field, `HabiroRings.relativeHabiro.numberFieldEquiv` exports the di
 The main locators refer to the fixed versions linked here. Q, W, H, B, G and Bosco use PDF page numbers, which agree with their printed page numbers at the cited passages. The thesis T has four preliminary PDF pages: printed p.86 is PDF p.90.
 
 - **Hab — Kazuo Habiro, _Cyclotomic completions of polynomial rings_, Publications of the Research Institute for Mathematical Sciences 40 (2004), 1127–1146.** [Full text][Hab]. §7.1, Proposition 7.1 and the following Laurent comparison, pp.1141–1142, and §7.3, p.1144, supply the ordinary polynomial and module completions used by Layer 2.
+- **Stacks — The Stacks Project.** §10.143, Lemma 10.143.10, tag [04D1], _Commutative Algebra_, chapter PDF p.385, supplies arbitrary-ideal object lifting. §15.11, Lemma 15.11.2, tag [0ALI], _More on Algebra_, chapter PDF pp.28–29, supplies locally nilpotent invariance. §15.93, Lemma 15.93.18, tag [0920], _More on Algebra_, chapter PDF p.267, supplies the Koszul derived-completion tower. Page locators refer to the chapter PDFs, version ed88ff78, compiled 14 July 2026; stable tags identify the statements across later pagination.
 - **Q — Ferdinand Wagner, _q-Hodge complexes over the Habiro ring_, arXiv:2510.04782v2.** [Full text][Q]. Its §§2.1–2.2, pp.13–19, locate the finite descent and coefficient lifts consumed from HabiroCohomologyFoundations and the Taylor and number-field presentations proved here; the degree-zero comparison is Corollary 3.13, p.27; completion is Appendix B, pp.77–80. The two-term resolution, finite-field splitting and étale hypotheses are stated in the corrected mathematical forms specified above.
 - **W — Ferdinand Wagner, _q-Witt vectors and q-Hodge complexes_, arXiv:2410.23078v5.** [Full text][W]. Degree-zero q-Witt operations and the Λ/relative comparisons occur in §§2.1–2.6, pp.8–35. The Frobenius target in Proposition 2.48 is W_d, as dictated by its index and pushout proof.
 - **H — Lars Hesselholt, _The big de Rham–Witt complex_, arXiv:1006.3125v3.** [Full text][H]. Dwork's criterion, integral Frobenius polynomials, generating series and the Witt comonad are in §1, pp.6–19; the cofree adjunction is in §2, p.24. Only the foundational Witt and Λ interfaces needed here are used.
@@ -1840,7 +2044,7 @@ The main locators refer to the fixed versions linked here. Q, W, H, B, G and Bos
 - **G — Stavros Garoufalidis, Peter Scholze, Campbell Wheeler and Don Zagier, _The Habiro ring of a number field_, arXiv:2412.04241v2.** [Full text][G]. The ring is Definition 1.1, pp.6–7; the global line is Definition 1.4, p.10; tensor multiplication is Theorem 2, p.10, with proof in §3.3, p.43. Proposition 1.5(f), p.11, and §3.3, p.45, motivate the first-fiber comparison. The actual integral global lines and supported arithmetic maps are imported from HB.7 with its stated hypotheses.
 - **Bosco — Guido Bosco, _Rational p-adic Hodge theory for rigid-analytic varieties_, arXiv:2306.06100v1.** [Full text][Bosco]. Proposition A.3 and Lemma A.4, pp.92–93, supply the written abelian p-adic model for the null-family and boundedness arguments. They do not prove the general light solid spectral contract.
 - **T — Ferdinand Wagner, _q-Hodge filtrations, Habiro cohomology, and ku_, thesis, 15 August 2025.** [Full text][T]. §§5.1–5.3, printed pp.85–86 (PDF pp.89–90), describe light solid spectra and their countable-product compact generator.
-- **HA — Jacob Lurie, _Higher Algebra_, 18 September 2017.** [Full text][HA]. Proposition 2.2.1.9, p.197, supplies symmetric monoidal localization; Corollaries 3.2.2.4–3.2.2.5, pp.358–359, compute limits of algebra objects; Theorem 7.1.2.13, p.1212, supplies the symmetric monoidal Eilenberg–Mac Lane derived-module comparison.
+- **HA — Jacob Lurie, _Higher Algebra_, 18 September 2017.** [Full text][HA]. Proposition 2.2.1.9, p.197, supplies symmetric monoidal localization; Corollaries 3.2.2.4–3.2.2.5, pp.358–359, compute limits of algebra objects; Theorem 7.1.2.13, p.1212, supplies the symmetric monoidal Eilenberg–Mac Lane derived-module comparison; Definition 7.1.3.17 and Proposition 7.1.3.18, p.1219, identify static algebra mapping spaces with ordinary algebra maps.
 - **MW — Samuel Meyer and Ferdinand Wagner, _q-Hodge complexes and refined TC−_, author version dated 5 February 2026.** [Full text][MW]. §4.1, 4.1, pp.41–42, describes light solid condensed spectra, the null-sequence criterion and symmetric monoidal solidification. This ambient scalar input is distinct from the refined trace constructions and does not prove all the additional Habiro tower/resolution hypotheses.
 
 [MW]: https://ferdinand-wagner.github.io/papers/q-Hodge.pdf
@@ -1894,3 +2098,7 @@ The main locators refer to the fixed versions linked here. Q, W, H, B, G and Bos
 [r71]: #hr-6-the-transported-regulator
 [r72]: #hr-6-the-q-minus-one-completion-is-not-injective
 [r73]: #hr-6-order-one-fibre
+
+[04D1]: https://stacks.math.columbia.edu/tag/04D1
+[0ALI]: https://stacks.math.columbia.edu/tag/0ALI
+[0920]: https://stacks.math.columbia.edu/tag/0920
