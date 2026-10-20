@@ -13,7 +13,7 @@
   "PrismaticCohomologyPartII:PD.7"
  ],
  "status": "complete",
- "summary": "A completed target-level planning and independent review pass for prismatic Dieudonné theory, with 83 nodes in eight planned layers and 15 explicit closure gaps. The target is the contravariant classification of p-divisible groups over quasi-syntomic rings. Corrected frame, duality, display and étale-site conventions; imported the parent-owned coefficient comparison; and moved the upward Hodge–Tate input here. The review requests changes because the unrestricted Zink–Lau proof and its identification with the specific prismatic display functor remain unverified. Nothing here is claimed to be formalized.",
+ "summary": "A complete target-level plan for the contravariant classification of p-divisible groups over quasi-syntomic rings, with crystalline and display comparisons and the regular-local endpoint in every dimension. The display endpoint uses Lau’s unrestricted crystalline proof, compatible full-BT presentations and a separate PD-compatible comparison with the actual prismatic functor. PD.0 is closed at target level; the other seven layers are planned with eight explicit closure gaps. Nothing is claimed to be formalized.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -23,133 +23,133 @@
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
     "provides": "Global Ext groups in an abelian category with HasExt; does not supply an internal Ext sheaf.",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.IsCocontinuous",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Sites/CoverLifting.lean",
     "provides": "Covering-sieve condition for a cocontinuous site functor; does not itself construct the inverse-image adjunction or prove its exactness.",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:CategoryTheory.Sheaf",
     "kind": "abbrev",
     "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
     "provides": "Sheaves on a site",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:ExteriorAlgebra",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
     "provides": "The exterior algebra of a module",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:ExteriorAlgebra.ι",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean",
     "provides": "The inclusion of a module into its exterior algebra",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:HenselianRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/Henselian.lean",
     "provides": "Henselian pairs (R, I): I in the Jacobson radical and simple roots of monic polynomials lift",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:Ideal",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Ideal/Defs.lean",
     "provides": "Ideals of a ring",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:Ideal.jacobson",
     "kind": "def",
     "module": "Mathlib/RingTheory/Jacobson/Ideal.lean",
     "provides": "The Jacobson radical of an ideal",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:IsAdicComplete",
     "kind": "class",
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "provides": "I-adically complete modules",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:IsRegularLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
     "provides": "Regular local rings",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:Module.Finite",
     "kind": "class",
     "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
     "provides": "Finitely generated modules",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:Module.FinitePresentation",
     "kind": "class",
     "module": "Mathlib/Algebra/Module/FinitePresentation.lean",
     "provides": "Finitely presented modules",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:Module.Free",
     "kind": "class",
     "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
     "provides": "Free modules",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:Module.Projective",
     "kind": "class",
     "module": "Mathlib/Algebra/Module/Projective.lean",
     "provides": "Projective modules",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:Submodule",
     "kind": "structure",
     "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
     "provides": "Submodules",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:TensorProduct",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
     "provides": "Tensor products of modules",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:WittVector",
     "kind": "structure",
     "module": "Mathlib/RingTheory/WittVector/Defs.lean",
     "provides": "p-typical Witt vectors",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:WittVector.frobenius",
     "kind": "def",
     "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
     "provides": "The Witt vector Frobenius",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    },
    {
     "ref": "mathlib:WittVector.verschiebung",
     "kind": "def",
     "module": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
     "provides": "The Witt vector Verschiebung",
-    "checked": "Name and statement read at Mathlib 082e2d3 during independent review REV-DESIGN-PrismaticCohomologyPartII. Scope checked against the citing nodes."
+    "checked": "Name, statement and citing-node scope rechecked at Mathlib 082e2d3 on 2026-10-19."
    }
   ]
  },
@@ -283,7 +283,7 @@
    "edition": "Inventiones Mathematicae 171 (2008), 617–628",
    "url": "https://doi.org/10.1007/s00222-007-0090-x",
    "readSections": [
-    "Not directly read. The published DOI and attribution are known; ALerr confirms the classification survives through Zink and Lau. The unrestricted proof and its comparison with Z_R are explicit gaps."
+    "Not directly read: the DOI is retained for historical attribution only. The unrestricted proof used here is the directly read independent argument in Lau13 Theorems 5.1/5.3; no identification with the explicit Zink BT construction is needed. Lau13 §8.2 records and repairs an error in the older proof."
    ]
   },
   {
@@ -326,6 +326,31 @@
    "readSections": [
     "Definition 4.16, p. 28; Remark 4.85, p. 66; Remark 5.7 and Theorem 5.12, pp. 73–74; §5.3, pp. 83–85"
    ]
+  },
+  {
+   "id": "Lau13",
+   "title": "Smoothness of the truncated display functor",
+   "authors": "Eike Lau",
+   "edition": "arXiv:1006.2723v1 (14 June 2010), printed pages; published J. Amer. Math. Soc. 26 (2013), 129–165. All locators here refer to the preprint, not the journal pagination.",
+   "url": "https://arxiv.org/abs/1006.2723v1",
+   "sha256": "e3d4c594402d71f6ec9f270b76ecfbcb74524709c74aec37e64eaca125496115",
+   "readSections": [
+    "Lemma 1.6, p. 5; §§2.1–2.4, pp. 6–12",
+    "§§3.1–3.4 and §4, pp. 12–23",
+    "§5, pp. 23–27; §7, pp. 29–32; Lemma 8.1, p. 33; §§8.1–8.2, pp. 36–37"
+   ]
+  },
+  {
+   "id": "Ito25",
+   "title": "Prismatic G-displays and descent theory",
+   "authors": "Kazuhiro Ito",
+   "edition": "arXiv:2303.15814v3 (2 November 2024), printed pages; published Algebra & Number Theory 19 (2025), 1685–1770. Locators refer to the preprint.",
+   "url": "https://arxiv.org/abs/2303.15814v3",
+   "sha256": "0973c0e7185dab1341493635879f3d07fff7886336f2b32d54952b1ee3cee504",
+   "readSections": [
+    "Introduction Theorem 1.1.1 and Remark 1.1.2, p. 2",
+    "§§6.1–6.5, pp. 49–61; §7.1, p. 62, and Remark 7.2.2, p. 63"
+   ]
   }
  ],
  "nodes": [
@@ -361,7 +386,7 @@
     {
      "sourceId": "CL17",
      "locator": "Definition 2.1.1 and Remark 2.1.2, pp. 4–5",
-     "match": "general frames with a separately specified scalar and the radical condition; the unit-image condition is optional"
+     "match": "general frames with a separately specified scalar and the radical condition; the unit-image condition is an additional convention"
     },
     {
      "sourceId": "AL23",
@@ -670,7 +695,7 @@
     {
      "name": "Window.generation_needed",
      "kind": "non-example",
-     "statement": "Over the Witt frame of ℤ_p, (M, Fil M, φ_M, φ_{M,1}) = (ℤ_p, ℤ_p, 0, 0) satisfies axioms (i)–(iii), with zero Hodge quotient, but fails generation (iv)."
+     "statement": "Over the Witt frame of 𝔽_p, whose coefficient ring is ℤ_p, (M, Fil M, φ_M, φ_{M,1}) = (ℤ_p, ℤ_p, 0, 0) satisfies axioms (i)–(iii), with zero Hodge quotient, but fails generation (iv)."
     },
     {
      "name": "Window.unit_dual",
@@ -1614,7 +1639,7 @@
    ],
    "proofSteps": [
     "Bundle (ℳ, φ_ℳ) with the cokernel condition (Anschütz–Le Bras, Definition 4.1.5, p. 28).",
-    "Linearised Frobenius: φ^*ℳ → ℳ is injective and becomes an isomorphism after inverting a local generator ξ̃ of I^pris, because its cokernel is ξ̃-torsion and φ^*ℳ is ξ̃-torsion-free (Remark 4.1.6, p. 29); so (ℳ, φ_ℳ) is a prismatic F-crystal in the sense of PrismaticCohomology PR.7 after node opris-vector-bundles.",
+    "Linearised Frobenius: φ^*ℳ → ℳ is injective and becomes an isomorphism after inverting a local generator ξ̃ of I^pris, because its cokernel is ξ̃-torsion and φ^*ℳ is ξ̃-torsion-free (Remark 4.1.6, p. 29); so (ℳ, φ_ℳ) is a prismatic F-crystal in the sense of PrismaticCohomology PR.7 after parent PrismaticCohomology:PR.7/quasisyntomic-crystal-comparison.",
     "Snake-lemma form of admissibility: with Q = coker(φ^*Fil ℳ → I^pris·ℳ) and K = coker(φ^*ℳ → ℳ), the snake lemma gives 0 → Q → (O^pris/I^pris) ⊗_𝒪 (ℳ/Fil ℳ) → ℳ/I^pris·ℳ → K → 0, so admissibility holds iff Q = 0 and ℳ/Fil ℳ is finite locally free (Remark 4.1.7, p. 29).",
     "For Frobenius injectivity check equal source/target ranks locally using that Frobenius induces the identity on Spec(A/p); p is in the Jacobson radical. After inverting the prism ideal the map is an isomorphism, and I-torsion-freeness of a finite projective module gives injectivity before localization."
    ],
@@ -1972,7 +1997,7 @@
     "R quasi-regular semiperfectoid."
    ],
    "proofSteps": [
-    "Without admissibility the equivalence is node opris-vector-bundles composed with evaluation at the final object of (R)_Δ.",
+    "Without admissibility the equivalence is parent PrismaticCohomology:PR.7/quasisyntomic-crystal-comparison composed with evaluation at the final object of (R)_Δ.",
     "Admissible modules give admissible crystals: by node nygaard-windows (2), for every quasi-regular semiperfectoid R′ over R the Hodge quotient of the base change is R′ ⊗_R (M/φ_M^{-1}(IM)), so ℳ/Fil ℳ ≅ 𝒪 ⊗_R (M/Fil M) is finite locally free.",
     "Admissible crystals give admissible modules: the sequence 0 → Γ(Fil ℳ) → Γ(ℳ) → Γ(ℳ/Fil ℳ) is right exact by Nakayama after base change to perfect fields k, where every prismatic Dieudonné module is admissible (Anschütz–Le Bras, Proposition 4.1.13 and its proof, pp. 30–31)."
    ],
@@ -2445,6 +2470,91 @@
    }
   },
   {
+   "id": "PrismaticCohomologyPartII:PD.2/full-bt-presentation",
+   "parentStageId": "PrismaticCohomologyPartII:PD.2",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.2"
+   ],
+   "title": "A compatible affine presentation of the full Barsotti–Tate stack",
+   "kind": "theorem",
+   "statement": "For each finite height h the fpqc stack BT_h=lim_n BT_{h,n} has an affine presentation X=Spec A→BT_h such that X→BT_{h,n} and X→Spec ℤ are ∞-smooth coverings. Here ∞-smooth means an inverse limit of affine smooth surjective morphisms. The diagonal is affine, so X×_BT X=Spec B. After restriction to ℤ_p, the p-adic completions Â and B̂ are p-torsion-free. Their universal BT groups and descent isomorphism are compatible at every level.",
+   "hypotheses": [
+    "This is an assertion about the full compatible BT system, stronger than smoothness of each finite BT_n stack.",
+    "The affine presentation rings are not asserted to be noetherian. The ∞-smooth presentations are used for crystalline/display descent."
+   ],
+   "proofSteps": [
+    "Choose affine smooth surjections Y_n→BT_{h,n}; use the smooth surjective truncation maps to define X_1=Y_1 and X_(n+1)=Y_(n+1)×_(BT_n)X_n. Then both the transition X_(n+1)→X_n and its base change over the full stack are smooth surjections. Their affine inverse limit X gives the two covering properties (Lau13 Lemma 1.6, p. 5).",
+    "The diagonal of the inverse-limit stack is the affine inverse limit of the finite-level isomorphism schemes. Hence B exists. Both A and B are flat over ℤ_p after restriction: for B use the base change of the ∞-smooth presentation to X. Reduction modulo p has reduced geometric fibres; in particular the completions Â and B̂ remain p-torsion-free.",
+    "For a BT group over R form S=R×_BT A and T=S×_A B, then complete p-adically. This is the actual descent diagram used in AL23 Proposition 5.3.4 and Lau13 Proposition 2.1. It permits pulling operators from Â even when R itself has p-torsion."
+   ],
+   "prerequisites": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/bt-stack-smooth",
+    "AbelianSchemesAndArithmeticModuli:A4/p-divisible-group"
+   ],
+   "sources": [
+    {
+     "sourceId": "Lau13",
+     "locator": "Lemma 1.6, p. 5; proof of Proposition 2.1, pp. 7–8",
+     "match": "constructs compatible presentations from the truncation tower and uses their p-torsion-free completions and affine relation space"
+    },
+    {
+     "sourceId": "AL23",
+     "locator": "Proposition 5.3.4, pp. 88–89",
+     "match": "uses that full presentation to descend the divided Frobenius of the prismatic display"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Functor",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "For height zero the stack and its presentation are terminal.",
+    "For a p-torsion base R, no p-torsion-free faithfully flat R-algebra is asserted: operators descend by the diagram Â→Ŝ←R."
+   ]
+  },
+  {
+   "id": "PrismaticCohomologyPartII:PD.2/compatible-division-covers",
+   "parentStageId": "PrismaticCohomologyPartII:PD.2",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.2"
+   ],
+   "title": "Compatible division covers and exact Tate-module limits",
+   "kind": "theorem",
+   "statement": "Let R be quasi-syntomic and G a p-divisible group over R. On the relative quasi-syntomic site the universal cover G̃=lim_[p] G fits into an exact sequence 0→T_pG→G̃→G→0; its pullback to the absolute prismatic topos is exact as well. Compatible p-power-division lifts exist after a single quasi-syntomic cover. In particular T_pG/pⁿ≅G[pⁿ] as sheaves. For étale G of locally constant height h, T_pG is locally isomorphic to ℤ_p^h on this site.",
+   "hypotheses": [
+    "Limits are sheaf limits. Local surjectivity is proved using a compatible tower, not by commuting an arbitrary inverse limit with epimorphisms.",
+    "A section of G lies in G[p^m] locally; division at level i is then obtained in G[p^(m+i)]."
+   ],
+   "proofSteps": [
+    "Starting with a section over S, pull back [p]:G[p^(m+i+1)]→G[p^(m+i)] successively. These are finite locally free syntomic covers. Form the filtered union of the coordinate rings of this compatible tower and its derived p-completion. Flatness modulo p and continuity of the p-complete cotangent complex show that S→S∞ is a quasi-syntomic cover. The cotangent amplitude remains [−1,0]; bounded torsion follows from p-complete flatness over S. Thus all chosen roots exist over the same cover (AL23 Lemma 4.2.5, pp. 41–42).",
+    "The kernel of G̃→G is the compatible system of p-power torsion points, hence T_pG. Apply the exact inverse-image functor from PD.1/pullback-exactness for the prismatic sequence. The same tower makes T_pG→G[pⁿ] locally surjective with kernel pⁿT_pG.",
+    "For étale G choose a basis of G[p] étale locally and lift compatible bases through the finite étale frame torsors of G[pⁿ]. Their inverse-limit algebra is ind-étale and p-completely flat, so its completion is a quasi-syntomic cover. This proves local triviality of the entire Tate module without a henselian-domain assumption.",
+    "The separate coefficient-limit proof belongs to PD.4/pdiv-locally-free. The present theorem proves the compatible division cover and exact Tate sequence, not exactness of arbitrary inverse limits of sheaves."
+   ],
+   "prerequisites": [
+    "PrismaticCohomologyPartII:PD.1/pullback-exactness",
+    "AbelianSchemesAndArithmeticModuli:A4/p-divisible-group",
+    "DerivedDeRhamCohomology:DD.5/quasisyntomic-site"
+   ],
+   "sources": [
+    {
+     "sourceId": "AL23",
+     "locator": "Lemma 4.2.5, Lemma 4.2.6, pp. 41–42; Lemma 4.7.1, p. 66",
+     "match": "the universal-cover sequence, its Tate-module description and the étale local-system calculation; the compatible-cover argument is made explicit here"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Functor",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "For G=ℚ_p/ℤ_p the exact sequence is 0→ℤ_p→ℚ_p→ℚ_p/ℤ_p→0.",
+    "For G=μ_{p∞}, a point is lifted by compatible p-power roots on the division tower; no roots in the original ring are asserted."
+   ]
+  },
+  {
    "id": "PrismaticCohomologyPartII:PD.2/tate-module-description",
    "parentStageId": "PrismaticCohomologyPartII:PD.2",
    "realises": [
@@ -2457,10 +2567,8 @@
     "T_pG and G̃ as in FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1/universal-cover, restricted to the quasi-syntomic site."
    ],
    "proofSteps": [
-    "(1): p is an epimorphism on G for the syntomic topology, so the limit sequence is exact (Anschütz–Le Bras, Lemma 4.2.5, p. 41; R07.2.25 of the supplier for the fpqc version).",
-    "(2): apply RHom(−, O^pris) to (1); G̃ is uniquely p-divisible, so RHom(G̃, O^pris) = 0 since O^pris is derived p-complete; the connecting map gives ℋom(T_pG, O^pris) ≅ ℰxt¹(G, O^pris) (Lemma 4.2.6, p. 42).",
-    "The sequence 0 → T_pG → lim_[p]G → G → 0 on the quasi-syntomic site needs a compatible infinite p-root cover. Finite-level surjectivity of [p] and the fpqc universal-cover supplier alone do not prove this epimorphism on the specified site; use the recorded gap.",
-    "Closure gap — Compatible infinite p-root covers on the quasi-syntomic site: Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement."
+    "Use PD.2/compatible-division-covers to obtain the exact sequence on one quasi-syntomic cover containing every compatible division point. Pull it to the prismatic site using PD.1/pullback-exactness. Finite-level surjectivity alone is not the inverse-limit argument.",
+    "(2): apply RHom(−, O^pris) to (1); G̃ is uniquely p-divisible, so RHom(G̃, O^pris) = 0 since O^pris is derived p-complete; the connecting map gives ℋom(T_pG, O^pris) ≅ ℰxt¹(G, O^pris) (Lemma 4.2.6, p. 42)."
    ],
    "acceptance": [
     "For G = ℚ_p/ℤ_p, T_pG = ℤ_p and ℳ_Δ = O^pris.",
@@ -2470,7 +2578,8 @@
     "PrismaticCohomologyPartII:PD.2/dieudonne-functor",
     "PrismaticCohomologyPartII:PD.2/hom-vanishing",
     "PrismaticCohomologyPartII:PD.1/pullback-exactness",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/universal-cover"
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/universal-cover",
+    "PrismaticCohomologyPartII:PD.2/compatible-division-covers"
    ],
    "sources": [
     {
@@ -2566,7 +2675,7 @@
     },
     {
      "where": "HodgeTateAndCanonicalSubgroups T0/T2",
-     "how": "This later roadmap should import the map and sequence here rather than own an upward dependency."
+     "how": "This higher-tier roadmap should import the map and sequence here rather than own an upward dependency."
     }
    ]
   },
@@ -2702,6 +2811,125 @@
    }
   },
   {
+   "id": "PrismaticCohomologyPartII:PD.3/p-adic-crystalline-evaluation",
+   "parentStageId": "PrismaticCohomologyPartII:PD.3",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.3"
+   ],
+   "title": "Crystalline Dieudonné evaluations over p-adic PD bases",
+   "kind": "construction",
+   "statement": "For a p-adic ring R and a p-divisible group G, construct the contravariant crystalline Dieudonné crystal 𝔻(G) on p-adic PD thickenings D→R with divided powers compatible with those on p. Its evaluations are compatible limits of the finite-level evaluations and commute with PD base change. For a p-complete p-torsion-free δ-ring D this gives a finite projective D-module with linearized F,V satisfying FV=VF=p, together with the Hodge filtration on 𝔻(G)⊗_D R and quotient Lie(G∨). The covariant convention is 𝔻_cov(G)=𝔻(G∨).",
+   "hypotheses": [
+    "The Hodge quotient is a module over R, and its inverse image in 𝔻(G)(D) is the filtration used in a window. No connection or window is inferred from a module over a characteristic-p ring alone.",
+    "The p-adic PD category is interpreted as compatible finite-level PD thickenings. Divided powers need not be nilpotent. Deformation equivalences for general BT groups are only asserted under the usual nilpotent-PD hypotheses; the formal/unipotent extension is specified in PD.7/crystalline-display-functor."
+   ],
+   "proofSteps": [
+    "At level m evaluate the characteristic-p crystalline crystal of G₀=G⊗R/p on the specified PD thickening D/p^m→R/p. The PD ideal is the inverse image of pR, with divided powers extending those of ker(D→R) and of p. Crystalline invariance under the resulting PD immersion identifies this with the evaluation for G over R/p^m. Use the universal vector extension of that actual G to define its Hodge map; the special-fibre crystal alone does not determine this filtration. Pass to the compatible p-adic system (Lau13 §2.1, pp. 6–7).",
+    "Projectivity and compatibility are checked on the p-torsion-free completed universal BT presentation and its relation, then descended by finite-projective fpqc descent. The compatible coefficient systems are effective by the adic finite-projective equivalence, Stacks 0D4B. This is also the construction used in Lau13 Proposition 2.1.",
+    "F and V come from Frobenius and Verschiebung of G modulo p. Duality interchanges the covariant/contravariant normalizations. The Hodge submodule and Lie quotient are obtained from the same universal extension boundary maps, so these maps, and not only their ranks, commute with PD base change."
+   ],
+   "prerequisites": [
+    "CrystallineCohomology:CR.7/dieudonne-evaluation",
+    "CrystallineCohomology:CR.7/messing-filtration-interface",
+    "AbelianSchemesAndArithmeticModuli:A4/p-divisible-group",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual",
+    "PrismaticCohomologyPartII:PD.2/full-bt-presentation",
+    "mathlib:Module.Projective"
+   ],
+   "sources": [
+    {
+     "sourceId": "Lau13",
+     "locator": "§2.1–2.4, pp. 6–12, especially Proposition 2.1 and Proposition 2.4",
+     "match": "the p-adic crystalline filtered F–V evaluations, their Hodge filtration, duality and compatibility over divided-power extensions"
+    },
+    {
+     "sourceId": "AL23",
+     "locator": "Lemma 4.3.3 and its proof, pp. 45–47, including footnotes 19–20",
+     "match": "the crystalline evaluation on a p-adic δ-PD thickening, with no assumption that a power of p kills R"
+    },
+    {
+     "sourceId": "Stacks",
+     "locator": "Tag 0D4B, Lemma 15.13.4",
+     "match": "effectivity of compatible finite projective modules over an adically complete ring"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Perfectoid",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "Over a perfect field k, ℚ_p/ℤ_p has contravariant F=σ, V=pσ⁻¹ and Hodge quotient of rank one.",
+    "Over k, μ_{p∞} has F=pσ, V=σ⁻¹ and zero Hodge quotient.",
+    "The height-zero BT group has zero evaluation and zero Lie quotient on every PD thickening.",
+    "Over a nonreduced PD extension, equal special-fibre F–V modules do not specify a lift until the Hodge filtration is supplied."
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineEvaluation",
+     "role": "constructor",
+     "statement": "The contravariant finite projective module 𝔻(G)(D) on a specified p-adic PD thickening."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineEvaluation_baseChange",
+     "role": "functoriality",
+     "statement": "PD base change induces the crystal isomorphism, with identity and composition laws."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineEvaluation_hodge",
+     "role": "projection",
+     "statement": "Reduction to R has the canonical Hodge map to Lie(G∨); its kernel is the Hodge filtration."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineEvaluation_frob_verschiebung",
+     "role": "relation",
+     "statement": "The linearized operators satisfy FV=VF=p, with the Frobenius twists retained."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineEvaluation_duality",
+     "role": "compatibility",
+     "statement": "𝔻_cov(G)=𝔻(G∨), compatibly with filtered crystalline duality."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineEvaluation_limit",
+     "role": "characterisation",
+     "statement": "Evaluation on D is the effective compatible system of finite-level evaluations; maps are determined at all levels."
+    }
+   ],
+   "tests": [
+    {
+     "name": "crystallineEvaluation_etale",
+     "kind": "computation",
+     "statement": "Over a perfect field k, ℚ_p/ℤ_p has contravariant F=σ, V=pσ⁻¹ and Hodge quotient of rank one."
+    },
+    {
+     "name": "crystallineEvaluation_multiplicative",
+     "kind": "computation",
+     "statement": "Over k, μ_{p∞} has F=pσ, V=σ⁻¹ and zero Hodge quotient."
+    },
+    {
+     "name": "crystallineEvaluation_zero",
+     "kind": "degenerate",
+     "statement": "The height-zero BT group has zero evaluation and zero Lie quotient on every PD thickening."
+    },
+    {
+     "name": "crystallineEvaluation_keeps_filtration",
+     "kind": "non-example",
+     "statement": "Over a nonreduced PD extension, equal special-fibre F–V modules do not specify a lift until the Hodge filtration is supplied."
+    }
+   ],
+   "uses": [
+    {
+     "where": "PD.4/crystalline-comparison and PD.7/prismatic-display-crystalline-comparison",
+     "how": "compare actual crystalline evaluations and their Hodge maps, including mixed-characteristic bases"
+    },
+    {
+     "where": "PD.3/bkf-crystalline-dieudonne and PD.7/kisin-functor-comparison",
+     "how": "retain the crystalline coefficient functor and its Frobenius normalization"
+    }
+   ]
+  },
+  {
    "id": "PrismaticCohomologyPartII:PD.3/bkf-crystalline-dieudonne",
    "parentStageId": "PrismaticCohomologyPartII:PD.3",
    "realises": [
@@ -2717,8 +2945,7 @@
    "proofSteps": [
     "Faltings' comparison M_crys ⊗ B_crys ≅ T ⊗ B_crys with M_crys ⊗ B_dR^+ = Ξ (Scholze–Weinstein, Proposition 14.8.1), hence M_crys[1/p] ≅ M ⊗ B_crys^+ (Corollary 14.8.2).",
     "Integrality M_crys ≅ M ⊗ A_crys (Proposition 14.8.3): reduce by node formal-abelian-variety-cover to G = 𝔄[p^∞] for a formal abelian variety, where both sides are the A_crys-cohomology H¹ and the comparison is the torsion-free A_crys comparison of Bhatt–Morrow–Scholze (AInfCohomology AI.4/absolute-crystalline-comparison), compatibly (Propositions 14.9.3–14.9.4, Corollary 14.9.2).",
-    "Base change A_crys → W(k) gives the special-fibre statement (Corollary 14.4.4).",
-    "Closure gap — Crystalline coefficients over mixed-characteristic p-adic bases: Construct the compatible crystalline Dieudonné evaluations over R/pⁿ and their p-adic limit, including the coefficient comparison and Hodge/Lie sequence on the relevant PD thickenings (AL23 Lemma 4.3.3 and §4.6, pp. 46–48, 58–65). CR.7/dieudonne-evaluation explicitly assumes characteristic p; that declaration alone does not provide this mixed-characteristic coefficient theory."
+    "Base change A_crys → W(k) gives the special-fibre statement (Corollary 14.4.4)."
    ],
    "acceptance": [
     "μ_{p^∞}: M ⊗ A_crys = A_crys with the twist matching D(μ_{p^∞}).",
@@ -2730,7 +2957,8 @@
     "AInfCohomology:AI.4/absolute-crystalline-comparison",
     "CrystallineCohomology:CR.7/dieudonne-evaluation",
     "CrystallineCohomology:CR.0/fontaine-envelope",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible"
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+    "PrismaticCohomologyPartII:PD.3/p-adic-crystalline-evaluation"
    ],
    "sources": [
     {
@@ -3199,14 +3427,13 @@
    "kind": "theorem",
    "statement": "Let G be a p-divisible group of height h over a quasi-syntomic ring R. Then ℰxt¹_{(R)_Δ}(u^{-1}G, O_Δ) is a prismatic crystal of finite locally free O_Δ-modules of rank h, and ℰxt¹_{(R)_Δ}(u^{-1}G, O_Δ)/p^n ≅ ℰxt¹_{(R)_Δ}(u^{-1}G[p^n], O_Δ). If R is quasi-syntomic, ℳ_Δ(G) is a finite locally free O^pris-module of rank h.",
    "hypotheses": [
-    "R p-complete (quasi-syntomic for the last sentence).",
-    "R is quasi-syntomic throughout this packet. The inverse limit from truncated BT groups uses the compatible-cover and internal-Ext infrastructure gaps; it is not justified by a bare interchange of inverse limit and Ext."
+    "R is quasi-syntomic throughout this packet. Use the relative internal-Ext infrastructure recorded as a gap; neither global Mathlib Ext nor an unrestricted exchange of Ext and limits supplies it."
    ],
    "proofSteps": [
-    "G = colim G[p^n]; in the replete prismatic topos R²lim vanishes, and the R¹lim term vanishes because the maps M_{n+m} ⊗ B/p^n → M_n are isomorphisms (node truncated-bt-ext-crystal) and N = lim M_n is finite locally free (Stacks, Tag 0D4B).",
-    "M → lim M/p^n is an isomorphism since Hom(u^{-1}G, O_Δ/p^n) = 0, which proves the crystal property (Anschütz–Le Bras, Proposition 4.6.5, pp. 61–62).",
-    "The last sentence follows by node PD.1/opris-vector-bundles and node PD.2/pushforward-description.",
-    "Closure gap — Compatible infinite p-root covers on the quasi-syntomic site: Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement."
+    "For a prism (B,J), let M_n=Ext¹(u⁻¹G[pⁿ],O_Δ) evaluated over (B,J). The truncated-BT calculation gives finite projective B/pⁿ-modules of height h and M_(n+m)⊗B/pⁿ≅M_n. Stacks 0D4B makes N=lim M_n finite projective over B with N/pⁿ≅M_n (AL23 Proposition 4.6.5, pp. 61–62).",
+    "The replete-topos spectral sequence has no R²lim obstruction. Its comparison M=Ext¹(u⁻¹G,O_Δ)→N is surjective, giving M/pⁿ≅M_n and p-torsion-freeness of Ext²(u⁻¹G,O_Δ). Hence M/pⁿ also computes Ext¹(u⁻¹G,O_Δ/pⁿ).",
+    "Since O_Δ≅Rlim O_Δ/pⁿ and Hom(u⁻¹G,O_Δ/pⁿ)=0 by p-divisibility, the remaining R¹lim term vanishes. Thus M≅lim M/pⁿ≅N. This is the coefficient-completion argument, separate from the compatible division cover. The same identifications prove crystal base change.",
+    "Use the parent PR.7/quasisyntomic-crystal-comparison and PD.2/pushforward-description for the O^pris-valued statement."
    ],
    "acceptance": [
     "ℳ_Δ(ℚ_p/ℤ_p) and ℳ_Δ(μ_{p^∞}) have rank 1; ℳ_Δ(E[p^∞]) has rank 2 for an elliptic curve E."
@@ -3215,7 +3442,8 @@
     "PrismaticCohomologyPartII:PD.4/truncated-bt-ext-crystal",
     "PrismaticCohomologyPartII:PD.2/dieudonne-functor",
     "PrismaticCohomologyPartII:PD.2/pushforward-description",
-    "PrismaticCohomology:PR.7/quasisyntomic-crystal-comparison"
+    "PrismaticCohomology:PR.7/quasisyntomic-crystal-comparison",
+    "PrismaticCohomologyPartII:PD.2/compatible-division-covers"
    ],
    "sources": [
     {
@@ -3285,8 +3513,7 @@
    ],
    "proofSteps": [
     "(1): ℰxt¹ on (R)_qsyn agrees with ℰxt¹ for the p-th root topology because quasi-regular semiperfectoid rings form a basis of both and O^pris has no higher cohomology on them (node PD.2/functorial-resolution); by node opris-ocrys it remains to compare ℰxt¹(G, 𝒪^crys) with the pushforward of the crystalline ℰxt¹, which holds because R¹u^crys_*𝒪_crys vanishes on quasi-syntomic objects and Hom((u^crys)^{-1}G, 𝒪_crys) = 0 (Anschütz–Le Bras, Theorem 4.3.2, pp. 44–45).",
-    "(2): the same argument on the PD thickening D → R, using that (D, (p)) is a crystalline prism (Lemma 4.3.3, p. 45).",
-    "Closure gap — Crystalline coefficients over mixed-characteristic p-adic bases: Construct the compatible crystalline Dieudonné evaluations over R/pⁿ and their p-adic limit, including the coefficient comparison and Hodge/Lie sequence on the relevant PD thickenings (AL23 Lemma 4.3.3 and §4.6, pp. 46–48, 58–65). CR.7/dieudonne-evaluation explicitly assumes characteristic p; that declaration alone does not provide this mixed-characteristic coefficient theory."
+    "(2): use PD.3/p-adic-crystalline-evaluation. For every p-completely syntomic H/R, crystalline comparison gives RΓ((H×_R D/p)/D)_Δ≅RΓ((H/D)_crys,O_crys), with H×_R D/p formed using the Frobenius-induced map. Extend this natural equivalence termwise to the Breen–Deligne resolution of G[pⁿ], not merely to representable free groups. Taking its totalization and H¹ identifies finite-level Ext; the compatible limit of Proposition 4.6.5 then gives the evaluation for G (AL23 Lemma 4.3.3 and its full proof, pp. 45–47). Keep naturality for PD base change and the Hodge edge maps for PD.7/prismatic-display-crystalline-comparison."
    ],
    "acceptance": [
     "G = μ_{p^∞} over a perfect field k: both sides are (W(k), pσ) in the contravariant normalisation.",
@@ -3300,12 +3527,13 @@
     "CrystallineCohomology:CR.7/dieudonne-evaluation",
     "AbelianSchemesAndArithmeticModuli:A4/p-divisible-group",
     "PrismaticCohomology:PR.0/crystalline-prism",
-    "PrismaticCohomology:PR.2/derived-crystalline-comparison"
+    "PrismaticCohomology:PR.2/derived-crystalline-comparison",
+    "PrismaticCohomologyPartII:PD.3/p-adic-crystalline-evaluation"
    ],
    "sources": [
     {
      "sourceId": "AL23",
-     "locator": "Theorem 4.3.2 and Lemma 4.3.3, pp. 44–45",
+     "locator": "Theorem 4.3.2, pp. 44–45; Lemma 4.3.3 and proof, pp. 45–47",
      "match": "identifies the prismatic Dieudonné crystal in characteristic p with the pushforward of the crystalline Dieudonné crystal of Berthelot–Breen–Messing, and its value on any crystalline prism (D, (p)) with the evaluation of the crystalline Dieudonné crystal"
     }
    ],
@@ -3408,7 +3636,6 @@
     "Local freeness of rank h is node pdiv-locally-free. Admissibility is local (node PD.1/dieudonne-crystal-stack), so assume R quasi-regular semiperfectoid.",
     "Choose a perfectoid S ↠ R, henselian along the kernel (Anschütz–Le Bras, Corollary 2.1.10); G lifts to a p-divisible group H over S (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1/henselian-lifting-p-divisible), so ℳ_Δ(G) is the base change of ℳ_Δ(H), admissible by node PD.3/perfectoid-prismatic-classification; admissibility is stable under base change (Theorem 4.6.7, p. 63).",
     "Lie(Ǧ): over the perfectoid S, the Hodge quotient of M_Δ(H) maps to the Hodge quotient of the crystalline Dieudonné module on A_crys(S) (node PD.3/scholze-weinstein-perfectoid, last clause), which is Lie(Ȟ) by the Hodge filtration of the crystalline Dieudonné crystal (AbelianSchemesAndArithmeticModuli A4.CR.7.2, CrystallineCohomology CR.7/messing-filtration-interface); base change to R (Anschütz–Le Bras, Remark 1.4.2, p. 7).",
-    "Closure gap — Crystalline coefficients over mixed-characteristic p-adic bases: Construct the compatible crystalline Dieudonné evaluations over R/pⁿ and their p-adic limit, including the coefficient comparison and Hodge/Lie sequence on the relevant PD thickenings (AL23 Lemma 4.3.3 and §4.6, pp. 46–48, 58–65). CR.7/dieudonne-evaluation explicitly assumes characteristic p; that declaration alone does not provide this mixed-characteristic coefficient theory.",
     "Choose a perfectoid presentation S → R and p-complete the henselization of S along its kernel. PerfectoidQuotients Q0/completely-etale-and-henselian-perfectoid (AL23 Corollary 2.1.10, p. 14) supplies perfectoidness; the quotient remains R. This is the henselian presentation required for lifting G."
    ],
    "acceptance": [
@@ -3425,7 +3652,8 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/henselian-lifting-p-divisible",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual",
     "CrystallineCohomology:CR.7/messing-filtration-interface",
-    "PerfectoidQuotients:Q0:integral-algebra/completely-etale-and-henselian-perfectoid"
+    "PerfectoidQuotients:Q0:integral-algebra/completely-etale-and-henselian-perfectoid",
+    "PrismaticCohomologyPartII:PD.3/p-adic-crystalline-evaluation"
    ],
    "sources": [
     {
@@ -3608,15 +3836,15 @@
     "T_pG is a local system of finite free ℤ_p-modules on (R)_qsyn for G étale; ℤ_p denotes the sheaf of continuous ℤ_p-valued functions on π₀."
    ],
    "proofSteps": [
-    "Node PD.2/tate-module-description: ℳ_Δ(G) = ℋom(T_pG, O^pris), and T_pG is locally ℤ_p^h (Anschütz–Le Bras, Lemma 4.7.1, pp. 65–66).",
-    "Closure gap — Compatible infinite p-root covers on the quasi-syntomic site: Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement."
+    "Node PD.2/tate-module-description: ℳ_Δ(G) = ℋom(T_pG, O^pris), and T_pG is locally ℤ_p^h (Anschütz–Le Bras, Lemma 4.7.1, pp. 65–66)."
    ],
    "acceptance": [
     "G = (ℚ_p/ℤ_p)^h: ℳ_Δ(G) = (O^pris)^h with φ."
    ],
    "prerequisites": [
     "PrismaticCohomologyPartII:PD.2/tate-module-description",
-    "PrismaticCohomologyPartII:PD.2/dieudonne-functor"
+    "PrismaticCohomologyPartII:PD.2/dieudonne-functor",
+    "PrismaticCohomologyPartII:PD.2/compatible-division-covers"
    ],
    "sources": [
     {
@@ -3996,7 +4224,6 @@
    "proofSteps": [
     "For ℳ=ℳ_Δ(G), Cartier duality and the Tate-recovery theorem identify the sheaf of Frobenius-compatible linear maps ℋom_{O^pris,φ}(ℳ,O^pris) with T_pG exactly. Tensoring with ℚ_p/ℤ_p reconstructs G by the quasi-syntomic sheaf sequence, subject to the recorded compatible-root-cover gap (AL23 Remark 4.9.6, p. 74). There is no unspecified extra Tate twist.",
     "For étale G, ℳ_Δ(G) = ℋom(T_pG, ℤ_p) ⊗ O^pris has bijective linearised Frobenius (node etale-dieudonne), and conversely a unit-root crystal is admissible with Fil = N^{≥1}·ℳ; apply node main-classification.",
-    "Closure gap — Compatible infinite p-root covers on the quasi-syntomic site: Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement.",
     "This Hom equation is meaningful before inverting I; the naive dual crystal can carry only a rational Frobenius, so writing an unspecified integral endomorphism φ on ℳ∨ and taking its kernel is insufficient. The sheaf reconstruction uses the compatible-root-cover gap in PD.2."
    ],
    "acceptance": [
@@ -4007,7 +4234,8 @@
     "PrismaticCohomologyPartII:PD.5/main-classification",
     "PrismaticCohomologyPartII:PD.5/etale-dieudonne",
     "PrismaticCohomologyPartII:PD.5/tate-module-recovery",
-    "PrismaticCohomologyPartII:PD.5/cartier-duality"
+    "PrismaticCohomologyPartII:PD.5/cartier-duality",
+    "PrismaticCohomologyPartII:PD.2/compatible-division-covers"
    ],
    "sources": [
     {
@@ -4466,23 +4694,66 @@
    }
   },
   {
+   "id": "PrismaticCohomologyPartII:PD.7/regular-prismatic-descent",
+   "parentStageId": "PrismaticCohomologyPartII:PD.7",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.7"
+   ],
+   "title": "Automatic descent on a multivariable Breuil–Kisin prism",
+   "kind": "theorem",
+   "statement": "For R,A,E as in PD.7/breuil-kisin-comparison, evaluation gives an equivalence between prismatic Dieudonné crystals on (R)_Δ and minuscule Breuil–Kisin modules over (A,(E)). Every such module has a unique descent isomorphism between its two pullbacks to the prismatic self-coproduct A^(2), normalized to the identity along the diagonal; it satisfies the cocycle over A^(3). Morphisms also descend uniquely.",
+   "hypotheses": [
+    "The coproducts are bounded prismatic coproducts over R, not ordinary completed tensor products. Use the GL_h case of Ito’s minuscule display argument with weights 0 and 1; no general reductive G-display theory is required for this target.",
+    "In several variables or equal characteristic it is not assumed that φ/e on the diagonal kernel is topologically nilpotent for the (p,e)-adic topology, where e generates the coproduct prism ideal."
+   ],
+   "proofSteps": [
+    "The Breuil–Kisin prism covers the final prismatic sheaf after flat covering. Construct its self- and triple coproducts using the prismatic envelope of t_i′−t_i and record the diagonal kernels K,L (Ito25 Proposition 6.2.1, Lemmas 6.2.3–6.2.6 and Remark 6.2.8, pp. 49–54).",
+    "For a generator e of the coproduct prism ideal, find a finitely generated auxiliary ideal M⊆K satisfying φ(K)⊆eM+e(p,e)K and φ(M)⊆e(t₁,…,t_d)M+e(p,e)K; prove the analogous triple-coproduct estimates. These are Ito25 Lemma 6.2.7 and Corollary 6.2.9. They replace the invalid generalization of the one-variable contraction.",
+    "For a finite-projective minuscule module use normal forms and the GL_h display matrix equation. Solve the isomorphism-lifting equation on each (p,e)-graded piece by the two-ideal estimates, then take the parameter-adic limit of the finitely generated A-module which remains. A is complete noetherian, so that second limit is effective. Finally take the (p,e)-adic limit. This proves bijectivity of diagonal restriction on isomorphisms for both coproducts (Ito25 Proposition 6.4.1 and Lemma 6.4.6, pp. 57–60).",
+    "Lift the identity uniquely over A^(2). Its two cocycle composites over A^(3) have the same diagonal restriction, so are equal by uniqueness. Effective flat descent for prismatic vector bundles produces the crystal. Apply the same argument after direct sums to recover arbitrary linear morphisms from block automorphisms (Theorem 6.1.3 and Proposition 7.1.1, pp. 61–62)."
+   ],
+   "prerequisites": [
+    "PrismaticCohomologyPartII:PD.0/minuscule-breuil-kisin",
+    "PrismaticCohomologyPartII:PD.0/cais-lau-equivalence",
+    "PrismaticCohomologyPartII:PD.0/normal-decomposition",
+    "PrismaticCohomology:PR.0/breuil-kisin-prism",
+    "PrismaticCohomology:PR.2/quasisyntomic-covers-lift-to-prisms",
+    "PrismaticCohomology:PR.7/quasisyntomic-crystal-comparison"
+   ],
+   "sources": [
+    {
+     "sourceId": "Ito25",
+     "locator": "§§6.2–6.4, especially Lemma 6.2.7, Corollary 6.2.9, Proposition 6.4.1 and Lemma 6.4.6, pp. 49–60; Theorem 6.1.3 and Proposition 7.1.1, pp. 61–62",
+     "match": "multivariable divided-Frobenius estimates and two successive completion arguments give unique descent for the GL_h minuscule case"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Complements",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "E=p and d≥2 is included; no omitted horizontal-connection theorem is used to obtain the equivalence.",
+    "The unique descent of the rank-one étale and multiplicative objects is compatible with the unit and the Breuil–Kisin twist."
+   ]
+  },
+  {
    "id": "PrismaticCohomologyPartII:PD.7/breuil-kisin-comparison",
    "parentStageId": "PrismaticCohomologyPartII:PD.7",
    "realises": [
     "PrismaticCohomologyPartII:PD.7"
    ],
-   "title": "p-divisible groups over 𝒪_K are minuscule Breuil–Kisin modules (prismatic proof)",
+   "title": "Breuil–Kisin classification over complete regular local rings",
    "kind": "theorem",
-   "statement": "Let R be a complete regular local ring of dimension at most one with perfect residue field k of characteristic p. For dimension zero use (A,I)=(W(k),(p)); for R=k⟦u⟧ use (W(k)⟦u⟧,(p)); for a mixed-characteristic DVR use its Breuil–Kisin prism (W(k)⟦u⟧,(E(u))), with δ(u)=0. The target is the contravariant equivalence BT(R)^op ≃ BK_min(A) given by evaluating the prismatic Dieudonné crystal. The mixed-characteristic case recovers Kisin for odd p and Kim–Lau–Liu for p=2; the characteristic-p connection step remains a recorded gap.",
+   "statement": "Let R be any complete regular local ring with perfect residue field k of characteristic p, equipped with a Cohen map W(k)→R. Choose its Breuil–Kisin prism (A,I)=(W(k)⟦t₁,…,t_d⟧,(E)), with E of constant term p and φ(t_i)=t_i^p, and R≅A/(E). Then G↦ℳ_Δ(G)(A,I) gives a contravariant equivalence BT(R)^op≃BK_min(A,I). There is no dimension bound and both mixed and equal characteristic are included. For d=0 use (W(k),(p)); for equal-characteristic R=k⟦t₁,…,t_d⟧ use E=p.",
    "hypotheses": [
-    "dim R ≤ 1, i.e. R = 𝒪_K for a complete discretely valued K of characteristic 0 with perfect residue field, R = k⟦u⟧, or R = k. The source states the theorem for every complete regular local ring but writes its proof only for d = 1 (source issue PrismaticCohomologyPartII/E1); for d ≥ 2 the classification of p-divisible groups by Breuil windows over W(k)⟦u₁, …, u_d⟧ is Lau's (p odd, Lau 2010, Theorem 1.1; p = 2, Lau 2014), whose identification with the prismatic functor is a recorded gap.",
-    "For dim R=0, R=k and use (A,I)=(W(k),(p)). For dim R=1 in characteristic p, use (W(k)⟦u⟧,(p)); p is not an Eisenstein polynomial in u. The mixed-characteristic DVR case uses its actual Eisenstein polynomial E(u)."
+    "R is complete for its maximal ideal; on the absolute prismatic site use its p-adic topology. Minuscule modules are finite projective, hence free over this local A.",
+    "For a mixed-characteristic DVR E is its actual Eisenstein polynomial. For equal characteristic E=p; p is not called an Eisenstein polynomial in a parameter."
    ],
    "proofSteps": [
-    "pR = 0: node PD.4/crystalline-comparison plus the classical description of Dieudonné crystals over k⟦u⟧ as minuscule Breuil–Kisin modules with a connection, which is unique for this A (de Jong, Proposition 2.7.3).",
-    "R p-torsion-free: by node PD.5/main-classification and node regular-automatic-admissibility, BT(R)^op ≃ DM(R). The Breuil–Kisin prism covers the final object of Shv((R)_Δ) (Lemma 5.2.7: any prism lifts R → R_∞ by Proposition 3.3.8, and then lives over the perfection of A), so a crystal is a minuscule Breuil–Kisin module over A with a descent datum over the self-coproduct B = A ⊗̂ A.",
-    "The descent datum is automatic: for the kernel J of B → A, J ⊆ N^{≥1}B, φ₁(J) ⊆ J and φ₁ = φ/E is topologically nilpotent on J (Lemma 5.2.8), so window base change along B → A is fully faithful (node PD.0/window-deformation) and evaluation on (A, I) is an equivalence (Anschütz–Le Bras, Theorem 5.2.5 and Lemmas 5.2.7–5.2.8, pp. 79–85).",
-    "Closure gap — Characteristic-p connection in the regular Breuil–Kisin comparison: For R=k⟦u⟧ prove existence and uniqueness of the integrable topologically quasi-nilpotent horizontal connection on the relevant minuscule module, as used in AL23 Theorem 5.2.5, p. 79 (which refers to de Jong Proposition 2.7.3). The general crystalline evaluation supplier does not state this automatic-connection theorem. The mixed-characteristic DVR proof in AL23 pp. 79–84 does not prove this separate characteristic-p step."
+    "Use PD.5/main-classification and PD.7/regular-automatic-admissibility to identify BT(R)^op with all prismatic Dieudonné crystals on R.",
+    "Apply PD.7/regular-prismatic-descent: evaluation on (A,I) is an equivalence for every d and for E=p as well. This is Ito25 Proposition 7.1.1, not an extrapolation of AL23’s one-variable contraction.",
+    "The crystalline comparison supplies the classical interpretation in characteristic p; the prismatic descent route establishes the equivalence directly, so a separate automatic-connection assertion is not a hidden input. Kisin-functor compatibility remains the following separate target."
    ],
    "acceptance": [
     "G = μ_{p^∞} over 𝒪_K ↦ (𝔖, E·φ) up to a unit; G = ℚ_p/ℤ_p ↦ (𝔖, φ).",
@@ -4491,19 +4762,15 @@
    "prerequisites": [
     "PrismaticCohomologyPartII:PD.5/main-classification",
     "PrismaticCohomologyPartII:PD.7/regular-automatic-admissibility",
+    "PrismaticCohomologyPartII:PD.7/regular-prismatic-descent",
     "PrismaticCohomologyPartII:PD.0/minuscule-breuil-kisin",
-    "PrismaticCohomologyPartII:PD.0/window-deformation",
-    "PrismaticCohomologyPartII:PD.4/crystalline-comparison",
-    "PrismaticCohomology:PR.0/breuil-kisin-prism",
-    "PrismaticCohomology:PR.2/quasisyntomic-covers-lift-to-prisms",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/dyadic-classification"
+    "PrismaticCohomology:PR.0/breuil-kisin-prism"
    ],
    "sources": [
     {
      "sourceId": "AL23",
      "locator": "Theorem 5.2.5, Lemmas 5.2.7–5.2.8 and Remark 5.2.6, pp. 79–85",
-     "match": "proves that evaluation of the prismatic Dieudonné crystal on the Breuil–Kisin prism classifies p-divisible groups over a complete regular local ring by minuscule Breuil–Kisin modules, via descent along the Breuil–Kisin prism with topologically nilpotent divided Frobenius on the kernel of its self-coproduct; the written proof assumes d = 1"
+     "match": "the earlier prismatic comparison and one-variable proof; the all-dimensional descent proof used here is supplied by Ito25"
     },
     {
      "sourceId": "Lau10",
@@ -4514,6 +4781,11 @@
      "sourceId": "Lau14",
      "locator": "Introduction and main theorem",
      "match": "extends the Breuil window classification to p = 2 by relating Dieudonné displays and crystalline Dieudonné theory"
+    },
+    {
+     "sourceId": "Ito25",
+     "locator": "Theorem 1.1.1 and Remark 1.1.2, p. 2; Proposition 7.1.1, p. 62",
+     "match": "evaluation of prismatic Dieudonné crystals on a Breuil–Kisin prism is an equivalence in every dimension and characteristic"
     }
    ],
    "implementationStatus": "unchecked",
@@ -4552,7 +4824,8 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons",
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
-    "PrismaticCohomology:PR.7/kisin-functor-comparison"
+    "PrismaticCohomology:PR.7/kisin-functor-comparison",
+    "PrismaticCohomologyPartII:PD.3/p-adic-crystalline-evaluation"
    ],
    "sources": [
     {
@@ -4821,9 +5094,9 @@
     "R quasi-syntomic."
    ],
    "proofSteps": [
-    "For the QRSP characteristic-p or p-torsion-free cases, base change the Nygaard window along the correctly normalized v-morphism; this gives a contravariant display functor.",
-    "To extend to general quasi-syntomic R in the stated flatness range, the proposed universal construction requires a p-torsion-free smooth presentation of the moduli of full p-divisible groups, together with its relation space and compatibility of the universal windows. Descent of displays then defines Z_R and its naturality. R07.2/bt-stack-smooth states smoothness only for BT_n, not this compatible full-BT presentation; see the recorded gap.",
-    "Closure gap — Compatible smooth presentation for the full-BT display functor: Provide a compatible ind-smooth affine presentation of the height-h full Barsotti–Tate moduli problem and its relation spaces, or an equivalent effective inverse-limit construction from the smooth BT_n stacks. Prove p-torsion-freeness of the completed presentation rings and that the universal Nygaard-window construction descends naturally along the relation. Smoothness at each finite level does not by itself prove this assertion (AL23 Proposition 5.3.4, pp. 88–89)."
+    "For the QRSP characteristic-p or p-torsion-free cases, base change the Nygaard window along the correctly normalized u-morphism; this gives the displayed triple and its divided Frobenius.",
+    "For general quasi-syntomic R use PD.2/full-bt-presentation: over the p-torsion-free universal rings Â and B̂ the operator is uniquely determined. Pull it to the actual descent diagram Â→Ŝ←R. Compatibility on the relation gives effective display descent and functoriality (AL23 Proposition 5.3.4, pp. 88–89; Lau13 Lemma 1.6, p. 5). This does not require a torsion-free cover as an R-algebra.",
+    "The completed presentation rings and their completed base changes are quasi-syntomic; p-completely flat display descent gives independence and compatibility with every base change in R. Compare to the crystalline functor in the separate target PD.7/prismatic-display-crystalline-comparison."
    ],
    "acceptance": [
     "For R = k perfect, Z_k(G) is the classical display of G (Dieudonné module with V^{-1} on Q).",
@@ -4834,13 +5107,19 @@
     "PrismaticCohomologyPartII:PD.7/display",
     "PrismaticCohomologyPartII:PD.1/nygaard-windows",
     "PrismaticCohomologyPartII:PD.0/window-base-change",
-    "PrismaticCohomologyPartII:PD.5/main-classification"
+    "PrismaticCohomologyPartII:PD.5/main-classification",
+    "PrismaticCohomologyPartII:PD.2/full-bt-presentation"
    ],
    "sources": [
     {
      "sourceId": "AL23",
      "locator": "Proposition 5.3.4 and its proof, pp. 88–89",
      "match": "constructs the display of a p-divisible group from its prismatic Dieudonné crystal by base change to the Witt frame, uniquely and naturally in the quasi-syntomic base"
+    },
+    {
+     "sourceId": "Lau13",
+     "locator": "Lemma 1.6, p. 5; Proposition 2.1, pp. 7–8",
+     "match": "the compatible full-BT presentation and its relation space used in the descent argument"
     }
    ],
    "implementationStatus": "unchecked",
@@ -4930,6 +5209,380 @@
    ]
   },
   {
+   "id": "PrismaticCohomologyPartII:PD.7/crystalline-display-functor",
+   "parentStageId": "PrismaticCohomologyPartII:PD.7",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.7"
+   ],
+   "title": "Lau’s crystalline display functor and its PD compatibility",
+   "kind": "construction",
+   "statement": "For every p-adic ring R, the covariant crystalline filtered F–V module Θ_R(G)=(P,Q,F♯,V♯), with P=𝔻_cov(G)(W(R)) and Q the inverse image of the Hodge filtration, has a unique functorial display refinement Φ_R(G)=(P,Q,F,F₁). It is natural in R and G, and Φ_R(G∨)≅Φ_R(G)^t. For compatible p-adic PD extensions B→R there is the corresponding relative-frame functor Φ_(B/R), independent of a chosen lift of G. For formal or unipotent groups it identifies nilpotent-thickening deformation categories with the corresponding display deformation categories.",
+   "hypotheses": [
+    "F₁ is an operator on Q, satisfying pF₁=F|_Q; the coefficient map V⁻¹ is not an operator on all of P.",
+    "The relative frame is (W(B), I_(B/R), R, f, f̃₁), I_(B/R)=ker(W(B)→R), with p f̃₁=f on this ideal.",
+    "Formal and unipotent groups permit the nonnilpotent divided powers in Lau13 Remark 2.6; for arbitrary BT groups retain the nilpotent-PD hypothesis in the deformation assertion."
+   ],
+   "proofSteps": [
+    "On p-torsion-free rings W(R) has no p-torsion, so F₁, if it exists, is forced by pF₁=F. The crystalline filtered F–V relations and its Hodge filtration give the display generation and normal decomposition (Lau13 §2.1).",
+    "Use PD.2/full-bt-presentation. Define F₁ on the universal group over Â. Its pullbacks to B̂ agree by p-torsion-free uniqueness. Pull back to Ŝ and descend along R→Ŝ using the display stack property; this also proves uniqueness and compatibility with arbitrary base change. Encode a map G→H in an automorphism of H⊕G to obtain functoriality on all homomorphisms (Lau13 Proposition 2.1).",
+    "For B→R choose a lift of G, and compare any two choices over the p-adic PD envelope of the diagonal of the ind-smooth presentation. This envelope is p-torsion-free. Equality of F₁ there proves independence and the relative crystal comparison; fpqc descent and p-adic limits extend the assertion to the given PD extension (Proposition 2.4, pp. 9–10).",
+    "Filtered crystalline duality and uniqueness give Φ(G∨)≅Φ(G)^t. For formal/unipotent groups the crystalline deformation theorem extends to the stated divided powers; together with the nilpotent-window deformation equivalence it identifies deformation groupoids on nilpotent thickenings (Remark 2.6 and Corollaries 2.7–2.8, pp. 11–12). This is a comparison on thickenings, not an inference from geometric fibres."
+   ],
+   "prerequisites": [
+    "PrismaticCohomologyPartII:PD.2/full-bt-presentation",
+    "PrismaticCohomologyPartII:PD.7/display",
+    "PrismaticCohomologyPartII:PD.7/formal-p-divisible-group",
+    "PrismaticCohomologyPartII:PD.3/p-adic-crystalline-evaluation",
+    "PrismaticCohomologyPartII:PD.0/window-base-change",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual"
+   ],
+   "sources": [
+    {
+     "sourceId": "Lau13",
+     "locator": "Propositions 2.1–2.4 and Remark 2.5, pp. 7–10; Remark 2.6, Corollaries 2.7–2.8, pp. 11–12",
+     "match": "constructs Φ uniquely, identifies its nilpotence and duality, extends it to PD frames, and proves crystalline/deformation compatibility"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Complements",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "For ℚ_p/ℤ_p over perfect k, covariant F=pσ and V=σ⁻¹; the display is F-nilpotent and is not V-nilpotent.",
+    "For μ_{p∞} over k, covariant F=σ and V=pσ⁻¹; the display is V-nilpotent.",
+    "The zero BT group has the zero display and trivial deformation category with its zero Hodge lift.",
+    "On a square-zero PD thickening the comparison identifies each lifted Hodge filtration and its crystalline F–V module, including the transported F₁; comparison only after reduction is insufficient."
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay",
+     "role": "constructor",
+     "statement": "The covariant functor Φ_R:BT(R)→Disp(R)."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay_underlying",
+     "role": "characterisation",
+     "statement": "Forgetting F₁ gives the specified crystalline filtered F–V module Θ_R."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay_baseChange",
+     "role": "functoriality",
+     "statement": "Base-change isomorphisms satisfy identity and composition coherence."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay_dual",
+     "role": "compatibility",
+     "statement": "Φ_R(G∨)≅Φ_R(G)^t, with the dual display pairing."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay_relative",
+     "role": "constructor",
+     "statement": "The PD-extension functor Φ_(B/R), independent of the lift of G."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay_deformations",
+     "role": "equivalence",
+     "statement": "For a formal or unipotent G, nilpotent-thickening deformations are equivalent to display deformations with matching Hodge lift."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay_nilpotent_iff",
+     "role": "characterisation",
+     "statement": "G formal iff Φ_R(G) is V-nilpotent; G unipotent iff Φ_R(G) is F-nilpotent."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.crystallineDisplay_ext",
+     "role": "extensionality",
+     "statement": "On p-torsion-free presentation rings a refinement is determined by its filtered F–V module; descent gives uniqueness of the functorial refinement."
+    }
+   ],
+   "tests": [
+    {
+     "name": "crystallineDisplay_etale",
+     "kind": "computation",
+     "statement": "For ℚ_p/ℤ_p over perfect k, covariant F=pσ and V=σ⁻¹; the display is F-nilpotent and is not V-nilpotent."
+    },
+    {
+     "name": "crystallineDisplay_multiplicative",
+     "kind": "computation",
+     "statement": "For μ_{p∞} over k, covariant F=σ and V=pσ⁻¹; the display is V-nilpotent."
+    },
+    {
+     "name": "crystallineDisplay_zero",
+     "kind": "degenerate",
+     "statement": "The zero BT group has the zero display and trivial deformation category with its zero Hodge lift."
+    },
+    {
+     "name": "crystallineDisplay_nonreduced",
+     "kind": "compatibility",
+     "statement": "On a square-zero PD thickening the comparison identifies each lifted Hodge filtration and its crystalline F–V module, including the transported F₁; comparison only after reduction is insufficient."
+    }
+   ],
+   "uses": [
+    {
+     "where": "PD.7/lau-formal-display-equivalence",
+     "how": "supply the actual functor and formal étaleness for its unrestricted equivalence"
+    },
+    {
+     "where": "PD.7/prismatic-display-crystalline-comparison",
+     "how": "identify the particular contravariant Z_R with Φ_R(G∨), including PD deformation data"
+    }
+   ]
+  },
+  {
+   "id": "PrismaticCohomologyPartII:PD.7/truncated-display",
+   "parentStageId": "PrismaticCohomologyPartII:PD.7",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.7"
+   ],
+   "title": "Truncated displays with their noninjective Hodge map",
+   "kind": "definition",
+   "statement": "Fix n≥1 and an 𝔽_p-algebra R. Put I_(n+1)=ker(W_(n+1)(R)→R) and J_(n+1)=ker(W_(n+1)(R)→W_n(R)); view I_(n+1) as a W_n(R)-module. A truncated display is (P,Q,ι,ε,F,F₁): P is finite projective over W_n(R), Q a W_n(R)-module, ι:Q→P, ε:I_(n+1)⊗P→Q, and F:P→P,F₁:Q→P are Frobenius-semilinear. The two compositions with ι and ε are the multiplication maps, F₁ε=f₁⊗F, C=coker ι is projective over R, and 0→J_(n+1)⊗_R C→Q→P→C→0 is exact. Require F₁(Q) to generate P. Morphisms preserve all this data.",
+   "hypotheses": [
+    "Unlike a display filtration, ι need not be injective. The map f₁:I_(n+1)→W_n(R) is inverse to Verschiebung.",
+    "This definition is used only over characteristic-p rings; the p-adic formal-group endpoint is obtained by deformation and limits."
+   ],
+   "proofSteps": [
+    "Construct the truncated pair and its four-term exact sequence. Lift its projective Hodge pieces to a normal decomposition P=L⊕T, Q=L⊕(I_(n+1)⊗T), with ι induced by inclusion and multiplication. A display structure is equivalent to an invertible linearization of (F₁|_L,F|_T) (Lau13 Definitions 3.2 and 3.4, Lemma 3.3).",
+    "Use normal decompositions for scalar extension and truncation, and prove their adjunction and composition properties. Merely tensoring every component is correct for ind-étale maps, not an asserted rule for arbitrary base change (Lemmas 3.6–3.10).",
+    "Finite-projective Witt descent and the exact four-term sequence give fpqc descent. Compatible truncated displays recover a full display by lifting normal decompositions through the truncation tower (Lemma 3.11 and Proposition 3.14)."
+   ],
+   "prerequisites": [
+    "PrismaticCohomologyPartII:PD.7/display",
+    "PrismaticCohomologyPartII:PD.7/witt-frame",
+    "PrismaticCohomologyPartII:PD.0/henselian-projective-lifting",
+    "mathlib:WittVector",
+    "mathlib:Module.Projective"
+   ],
+   "sources": [
+    {
+     "sourceId": "Lau13",
+     "locator": "Definitions 3.1–3.4, Lemmas 3.3 and 3.5–3.11, pp. 12–15; Proposition 3.14, p. 17",
+     "match": "the six data and exact sequence defining truncated displays, normal forms, finite-level scalar extension, truncation, perfect-field comparison and descent"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Complements",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "P=Q=0 is the height-zero truncated display at every level.",
+    "For the covariant display of μ_{p∞} over perfect k, the level-one Q is k while ι=0. Requiring ι injective would delete this BT example.",
+    "At a perfect field, P is a W_n(k)-module, not a free W(k)-module killed by pⁿ. At level one require ker F=im V and ker V=im F.",
+    "Truncating a normal representation reduces L,T and the invertible Frobenius matrix along W_(n+1)(R)→W_n(R)."
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PrismaticDieudonne.TruncatedDisplay",
+     "role": "structure",
+     "statement": "The level-n data, equations and four-term exact sequence in the statement."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.TruncatedDisplay.normalDecomposition",
+     "role": "characterisation",
+     "statement": "Normal representations use finite projective L,T and an invertible Frobenius-linearized map L⊕T→P."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.TruncatedDisplay.baseChange",
+     "role": "functoriality",
+     "statement": "Base change is characterized by the pre-display restriction-of-scalars adjunction, with identity/composition laws."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.TruncatedDisplay.truncate",
+     "role": "functoriality",
+     "statement": "Level n+1 to level n truncation and full-display truncation commute with base change."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.TruncatedDisplay.perfectFieldEquiv",
+     "role": "equivalence",
+     "statement": "Over perfect k the category is equivalent to level-n Dieudonné modules on finite free W_n(k)-modules, with the level-one kernel condition."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.TruncatedDisplay.limitEquiv",
+     "role": "equivalence",
+     "statement": "Full displays over R are equivalent to compatible systems of truncated displays."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.TruncatedDisplay.ext",
+     "role": "extensionality",
+     "statement": "Morphisms are determined by their maps on P and Q; the structure equations determine their compatibility."
+    }
+   ],
+   "tests": [
+    {
+     "name": "truncatedDisplay_zero",
+     "kind": "degenerate",
+     "statement": "P=Q=0 is the height-zero truncated display at every level."
+    },
+    {
+     "name": "truncatedDisplay_multiplicative_level_one",
+     "kind": "non-example",
+     "statement": "For the covariant display of μ_{p∞} over perfect k, the level-one Q is k while ι=0. Requiring ι injective would delete this BT example."
+    },
+    {
+     "name": "truncatedDisplay_perfect_field",
+     "kind": "compatibility",
+     "statement": "At a perfect field, P is a W_n(k)-module, not a free W(k)-module killed by pⁿ. At level one require ker F=im V and ker V=im F."
+    },
+    {
+     "name": "truncatedDisplay_truncation",
+     "kind": "characterisation",
+     "statement": "Truncating a normal representation reduces L,T and the invertible Frobenius matrix along W_(n+1)(R)→W_n(R)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "PD.7/truncated-display-comparison",
+     "how": "make the finite-level moduli and their infinitesimal automorphism kernels precise"
+    },
+    {
+     "where": "PD.7/lau-formal-display-equivalence",
+     "how": "pass from finite-level torsors to the formal display equivalence"
+    }
+   ]
+  },
+  {
+   "id": "PrismaticCohomologyPartII:PD.7/truncated-display-comparison",
+   "parentStageId": "PrismaticCohomologyPartII:PD.7",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.7"
+   ],
+   "title": "Smooth truncated comparison and infinitesimal isomorphism torsors",
+   "kind": "theorem",
+   "statement": "For n≥1 over 𝔽_p, Φ_R induces a base-change-compatible functor Φ_(n,R):BT_n(R)→Disp_n(R), compatible with truncation. On the reduced infinitesimal BT_n and nilpotent-display loci it induces a smooth surjective morphism. Its diagonal is finite, flat, radicial and surjective: Isom(G,H)→Isom(Φ_nG,Φ_nH) is a torsor under the commutative finite flat infinitesimal kernel Aut⁰(G)=ker(Aut(G)→Aut(Φ_nG)). These torsors and kernels are compatible with truncation.",
+   "hypotheses": [
+    "Height and dimension are fixed on each component. No equivalence between BT_n and truncated displays over arbitrary nonperfect rings is asserted.",
+    "Only the infinitesimal/nilpotent locus of the source’s global smoothness theorem is needed here."
+   ],
+   "proofSteps": [
+    "Locally realize a BT_n group as H[pⁿ] using the compatible full-BT presentation. Set Φ_n(H[pⁿ])=τ_nΦ(H); independence follows by the isogeny cokernel construction and ind-étale descent (Lau13 Proposition 4.1, pp. 19–20).",
+    "The truncated-display stack is a smooth zero-dimensional Artin stack, proved from normal representations and fpqc descent (Proposition 3.15). Formal étaleness of Φ on infinitesimal groups gives the tangent-space surjectivity needed for smoothness on this locus. Perfect-field Dieudonné theory and the nilpotence criterion give surjectivity (the local argument in Theorem 4.5 and Lemma 5.2).",
+    "On smooth affine presentations the diagonal map is bijective on geometric points between equidimensional smooth schemes; flatness and normalization/Zariski main theorem give finite flat radicial surjectivity. The isomorphism sheaf is therefore an effective torsor under Aut⁰. The source’s matrix calculation on the ordinary dense locus proves commutativity; specialize its global theorem to the infinitesimal locus (Theorem 4.7, pp. 21–22)."
+   ],
+   "prerequisites": [
+    "PrismaticCohomologyPartII:PD.7/crystalline-display-functor",
+    "PrismaticCohomologyPartII:PD.7/truncated-display",
+    "PrismaticCohomologyPartII:PD.2/full-bt-presentation",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/bt-stack-smooth",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible"
+   ],
+   "sources": [
+    {
+     "sourceId": "Lau13",
+     "locator": "Proposition 3.15, pp. 17–18; Proposition 4.1, pp. 19–20; Theorems 4.5 and 4.7, pp. 20–22; Lemma 5.2, pp. 23–24",
+     "match": "the finite-level display functor, smoothness, infinitesimal finite flat diagonal torsors and restriction to the reduced nilpotent loci"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Complements",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "Over an algebraically closed field the functor is an equivalence, so each geometric isomorphism torsor has exactly one geometric point.",
+    "An infinitesimal finite flat torsor may still have nontrivial scheme structure; geometric-point agreement alone is not full faithfulness."
+   ]
+  },
+  {
+   "id": "PrismaticCohomologyPartII:PD.7/lau-formal-display-equivalence",
+   "parentStageId": "PrismaticCohomologyPartII:PD.7",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.7"
+   ],
+   "title": "The unrestricted crystalline classification of formal p-divisible groups",
+   "kind": "theorem",
+   "statement": "For every p-adic ring R, Lau’s covariant functor Φ_R restricts to an equivalence BT_f(R)≃Disp_V-nilp(R), with a quasi-inverse Ψ_R and natural unit and counit. There is no excellence, noetherianity or residue-field hypothesis on R. The equivalence and its inverse commute with base change up to the canonical coherent isomorphisms.",
+   "hypotheses": [
+    "Nilpotence is tested on the finite projective reduction P/(I_R+p)P. For a p-adic base, the formal category is interpreted compatibly over R/p^m.",
+    "The proof route is Lau13 Theorems 5.1 and 5.3, not the withdrawn AL23 argument or the unread Lau08 proof."
+   ],
+   "proofSteps": [
+    "Over characteristic p take compatible affine presentations of the reduced infinitesimal BT_n stacks and their truncated-display targets. The relation spaces X′_n→Y′_n are torsors under finite flat infinitesimal groups A_n. To prove the full-stack equivalence one must show that for every m some transition A_n→A_m becomes zero (Lau13 Theorem 5.3, Lemma 5.4, pp. 24–26).",
+    "At a geometric point, stabilize the images A_n→A_m. The resulting system has surjective transitions. Formal étaleness of Φ makes its inverse-limit isomorphism torsor formally étale, so H₀ and H₁ of its cotangent complex vanish. The maps on H₁ for the finite infinitesimal groups are injective after faithfully flat scalar extension; consequently every stabilized group is trivial. The finite sets of generic points of the nonzero-transition loci, together with reducedness of the presentation relation spaces, yield a uniform n for each m. Thus the limit relation map is an isomorphism. This is the essential argument, rather than an inference from trivial geometric fibres.",
+    "The reduced infinitesimal/nilpotent loci are closed and of finite presentation (Lemma 1.9 and Proposition 3.17). A formal group or nilpotent display over R factors through a finite nilpotent thickening of such a locus. Corollary 2.8 lifts the reduced equivalence across this thickening, and compatible p-adic systems extend it to every p-adic ring (Theorem 5.1, pp. 26–27).",
+    "Choose Ψ_R as the quasi-inverse of this equivalence. The already constructed base-change compatibility of Φ transports to Ψ and its unit/counit by full faithfulness. The endpoint below needs this inverse, so its proof does not depend on the separate comparison to Zink’s explicit BT construction in Lau13 §8 or the excellent presentations used there."
+   ],
+   "prerequisites": [
+    "PrismaticCohomologyPartII:PD.7/truncated-display-comparison",
+    "PrismaticCohomologyPartII:PD.7/truncated-display",
+    "PrismaticCohomologyPartII:PD.7/crystalline-display-functor",
+    "PrismaticCohomologyPartII:PD.7/formal-p-divisible-group",
+    "PrismaticCohomologyPartII:PD.2/full-bt-presentation"
+   ],
+   "sources": [
+    {
+     "sourceId": "Lau13",
+     "locator": "Theorems 5.1 and 5.3, Lemmas 5.4–5.5 and proofs, pp. 23–27; Lemma 1.9, p. 6; Proposition 3.17, p. 18",
+     "match": "a direct unrestricted classification using truncated isomorphism torsors, cotangent complexes and formal deformation; its categorical inverse suffices here"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Complements",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "The statement includes R=𝔽_p[ε]/(ε²) and nonnoetherian p-adic rings; reducing to perfect fields is not the proof.",
+    "The covariant display of μ_{p∞} is V-nilpotent. The display of ℚ_p/ℤ_p is excluded from this formal subcategory."
+   ]
+  },
+  {
+   "id": "PrismaticCohomologyPartII:PD.7/prismatic-display-crystalline-comparison",
+   "parentStageId": "PrismaticCohomologyPartII:PD.7",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.7"
+   ],
+   "title": "Comparison of the actual prismatic and crystalline display functors",
+   "kind": "theorem",
+   "statement": "For every quasi-syntomic R and G∈BT(R), construct a natural isomorphism of displays Z_R(G)≅Φ_R(G∨)≅Φ_R(G)^t. The isomorphism identifies the underlying crystalline module, its Hodge filtration, F and F₁ and is compatible with base change and with the relative PD-extension comparison. In particular it applies on nonreduced bases, not only on perfect-field fibres.",
+   "hypotheses": [
+    "Z_R is the specific Nygaard-to-Witt functor of PD.7/display-functor, with f(ξ̃)=up and u=F₁(fξ).",
+    "The crystalline comparison is evaluated on the crystalline prism (W(R),(p)) using the Frobenius-induced map R→W(R)/p. It is not an unshifted comparison through the Teichmüller set map.",
+    "Use the contravariant crystal 𝔻(G)=𝔻_cov(G∨). A quotient of its evaluation has target Lie(G∨), so the variance is fixed before comparing filtrations."
+   ],
+   "proofSteps": [
+    "First let R be p-torsion-free and quasi-regular semiperfectoid. The δ-adjunction map f:Δ_R→W(R) lifting Δ_R/N≥1→R is a map from the initial absolute prism to the crystalline prism (W(R),(p)) with the Frobenius-induced structure map. The crystal property and AL23 Lemma 4.3.3 give a natural F-equivariant identification Z_R(G)=ℳ_Δ(G)⊗_(Δ_R,f)W(R)≅𝔻(G)(W(R)). Track this prism map explicitly; the perfect-field σ⁻¹ pullback in AL23 Proposition 4.3.9 cannot be silently discarded.",
+    "Prove the Hodge compatibility for this comparison, rather than append an arbitrary isomorphism of Hodge quotients. Compute the comparison and the two boundary maps using the same polynomial Čech–PD resolutions in the syntomic crystalline comparison. Its augmentation to the de Rham degree-zero quotient is the universal-extension map to Ga. Under the Free_Z-linear extension to the Breen–Deligne resolution these augmentations and connecting maps remain the same. Thus, after W(R)→R, the square whose horizontal maps are the two canonical maps to Ext¹(G,Ga)=Lie(G∨) and whose left vertical map is the comparison commutes with identity on the right. On the prismatic side the kernel is the image of the Nygaard filtration plus I_R·Z_R; on the crystalline side it is Q. The Frobenius-induced prism structure, hence the twist in this computation, is retained throughout. This gives equality of the actual filtration maps on every such base, not only their ranks or their perfect-field reductions.",
+    "Over W(R), p-torsion-freeness makes F♯ injective and determines V♯ from F♯V♯=p. It also forces the divided operator F₁ from pF₁=F|_Q. Thus the filtered F–V comparison is an isomorphism of displays, with the same correctly normalized frame scalar. Quasi-syntomic descent extends it to p-torsion-free quasi-syntomic R.",
+    "For arbitrary R use the universal group over Â and its relation over B̂ from PD.2/full-bt-presentation. The comparison over these p-torsion-free rings commutes with both projections. Pull it back through Â→Ŝ←R and descend. Perform the same construction on the p-torsion-free PD envelope of the diagonal used by Lau13 Proposition 2.4; functoriality of the crystalline comparison and equality of its Hodge maps give compatibility for relative PD thickenings. Descent and p-adic limits then identify the operators on nilpotent/nonreduced bases. No conclusion here is drawn solely from residue-field agreement."
+   ],
+   "prerequisites": [
+    "PrismaticCohomologyPartII:PD.7/display-functor",
+    "PrismaticCohomologyPartII:PD.7/crystalline-display-functor",
+    "PrismaticCohomologyPartII:PD.2/full-bt-presentation",
+    "PrismaticCohomologyPartII:PD.3/p-adic-crystalline-evaluation",
+    "PrismaticCohomologyPartII:PD.4/crystalline-comparison",
+    "PrismaticCohomologyPartII:PD.4/admissibility-and-lie",
+    "PrismaticCohomologyPartII:PD.2/functorial-resolution",
+    "PrismaticCohomologyPartII:PD.1/nygaard-windows",
+    "PrismaticCohomology:PR.1/crystalline-comparison-syntomic",
+    "CrystallineCohomology:CR.2/cech-alexander-global"
+   ],
+   "sources": [
+    {
+     "sourceId": "AL23",
+     "locator": "Lemma 4.3.3 and proof, pp. 45–47; Proposition 4.3.9, pp. 50–51; Theorem 4.6.7 and Remark 1.4.2, pp. 63 and 7; Propositions 5.3.3–5.3.4, pp. 88–89",
+     "match": "the natural crystalline-prism comparison, its Frobenius twist, canonical Lie quotient and the actual definition of Z_R"
+    },
+    {
+     "sourceId": "Lau13",
+     "locator": "§2.1 and Propositions 2.1 and 2.4, pp. 6–10; Corollaries 2.7–2.8, pp. 11–12",
+     "match": "the crystalline filtered F–V functor, uniqueness and PD-compatible descent; the displayed comparison is derived by combining this with AL23, rather than quoted as a theorem of Lau"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Complements",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "On perfect k the isomorphism gives F=pσ for μ_{p∞} and F=σ for ℚ_p/ℤ_p in the contravariant convention.",
+    "On a square-zero PD base the comparison square identifies the actual lifted Hodge filtration and divided operator, not just the special fibre.",
+    "For p=2 no equivalence on all displays is deduced; only the formal/F-nilpotent restriction is used below."
+   ]
+  },
+  {
    "id": "PrismaticCohomologyPartII:PD.7/zink-lau-classification",
    "parentStageId": "PrismaticCohomologyPartII:PD.7",
    "realises": [
@@ -4937,26 +5590,25 @@
    ],
    "title": "Formal p-divisible groups are F-nilpotent displays (Zink, Lau)",
    "kind": "theorem",
-   "statement": "For quasi-syntomic R flat over ℤ/pⁿ (n>0) or ℤ_p, the contravariant display functor Z_R has as its target a restriction giving an antiequivalence BT_f(R)^op ≃ Disp_F-nilp(R). The classification statement remains valid according to the AL23 erratum; its printed prismatic proof is withdrawn. The unrestricted Zink–Lau proof and its identification with this Z_R remain a verification gap in this packet.",
+   "statement": "For quasi-syntomic R flat over ℤ/pⁿ (n>0) or ℤ_p, the specific contravariant display functor Z_R restricts to an antiequivalence BT_f(R)^op≃Disp_F-nilp(R). A quasi-inverse sends a display P to Ψ_R(P^t), where t is window duality and Ψ_R is the inverse of Lau’s covariant crystalline equivalence. The printed AL23 proof is withdrawn; the proof here uses the independent crystalline classification and the comparison of functors over PD thickenings.",
    "hypotheses": [
     "Formal groups mean the general-base definition PD.7/formal-p-divisible-group, not the noetherian-local connected/formal equivalence of R07.1.",
-    "Zink’s BT functor is covariant on his V-nilpotent displays. First dualize our F-nilpotent window to a V-nilpotent one; the composite is contravariant. No additional Cartier dual of a formal group is needed."
+    "Window duality first sends an F-nilpotent display to a V-nilpotent display. Apply the covariant inverse Ψ_R of the crystalline equivalence; no further Cartier dual of the resulting formal group is used."
    ],
    "proofSteps": [
-    "Zink Theorems 9 and 103 prove the equivalence on the bases specified there. His all-window convention and V-nilpotent subcategory must be distinguished from the contravariant F-nilpotent category here.",
-    "The 2025 erratum explicitly points to Zink and Lau for the unrestricted classification. Lau08 Theorem 1.1 has not been read directly in this review; do not treat its proof as verified.",
-    "To identify Z_R with the dualized Zink–Lau construction, prove compatibility of the universal deformation/crystalline constructions over nilpotent PD thickenings and effectivity of the compatible systems. Agreement on residue fields and Hodge filtrations alone does not establish this over nonreduced bases. This compatibility is a remaining proof obligation.",
-    "Closure gap — Unrestricted Zink–Lau proof and identification with Z_R: Read Lau08 Theorem 1.1 and its proof from a cleared or public source, then supply the deformation-level comparison between its dualized BT construction and the specific prismatic display functor Z_R. The erratum confirms the theorem survives, but does not provide this comparison proof. Neither perfect-field agreement nor the abelian-scheme Grothendieck–Messing theorem suffices. This is the review’s unverified node."
+    "Use PD.7/lau-formal-display-equivalence, directly verified from Lau13 Theorems 5.1 and 5.3: Φ_R:BT_f(R)≃Disp_V-nilp(R) on every p-adic base.",
+    "By PD.7/prismatic-display-crystalline-comparison there is a base-change- and PD-compatible isomorphism Z_R(G)≅Φ_R(G)^t. This is proved on the actual universal crystalline evaluations and Hodge maps and descended on the full-BT relation; agreement on perfect fields is not substituted for that argument.",
+    "Duality of windows is an involutive antiequivalence swapping V-nilpotence and F-nilpotence. Compose it with Φ_R. The quasi-inverse is Ψ_R(P^t); its unit/counit are those of the crystalline equivalence transported across the comparison. No Cartier dual of the resulting formal group is applied.",
+    "The AL23 erratum’s counterexample prevents using nilpotence on ker(A_crys→W); this proof uses the finite-level isomorphism torsors and crystalline deformation theorem instead. It makes no assertion about an equivalence on all displays when p=2."
    ],
    "acceptance": [
     "Over a perfect field, the contravariant module of a formal group has F topologically nilpotent; μ_{p∞} gives F=pσ. The étale group ℚ_p/ℤ_p has F=σ and is excluded."
    ],
    "prerequisites": [
-    "PrismaticCohomologyPartII:PD.7/display-functor",
+    "PrismaticCohomologyPartII:PD.7/prismatic-display-crystalline-comparison",
+    "PrismaticCohomologyPartII:PD.7/lau-formal-display-equivalence",
     "PrismaticCohomologyPartII:PD.7/display",
-    "PrismaticCohomologyPartII:PD.7/formal-p-divisible-group",
-    "CrystallineCohomology:CR.7/messing-filtration-interface",
-    "PrismaticCohomologyPartII:PD.4/crystalline-comparison"
+    "PrismaticCohomologyPartII:PD.7/formal-p-divisible-group"
    ],
    "sources": [
     {
@@ -4975,9 +5627,9 @@
      "match": "the functor BT from nilpotent displays to formal p-divisible groups and its equivalence for excellent local rings and rings with R/pR of finite type over a field"
     },
     {
-     "sourceId": "Lau08",
-     "locator": "Theorem 1.1",
-     "match": "Zink's functor is an equivalence between nilpotent displays and formal p-divisible groups over every ring in which p is nilpotent"
+     "sourceId": "Lau13",
+     "locator": "Theorem 5.1, pp. 23–27; Remark 2.3, p. 9",
+     "match": "independent unrestricted covariant classification and display duality; the prismatic identification is proved in a separate comparison target"
     }
    ],
    "implementationStatus": "unchecked",
@@ -4988,6 +5640,116 @@
     "module": "TauCeti/Prismatic/Dieudonne/Complements",
     "namespace": "TauCeti.PrismaticDieudonne"
    }
+  },
+  {
+   "id": "PrismaticCohomologyPartII:PD.7/integral-v-site",
+   "parentStageId": "PrismaticCohomologyPartII:PD.7",
+   "realises": [
+    "PrismaticCohomologyPartII:PD.7"
+   ],
+   "title": "The integral perfectoid v-site and its coefficient morphisms",
+   "kind": "construction",
+   "statement": "For quasi-syntomic R let (R)_v be the site of integral perfectoid R-algebras S (objects Spf S) with v-covers. Let (R)_qsyn,qrsp be the relative QRSP basis. Universal perfectoidization induces a morphism of topoi α:(R)_v→(R)_qsyn,qrsp. Generic fibre induces j:Spa(R[1/p],R)^⋄_v→(R)_v. The tilted structure sheaves and their Witt vectors carry natural maps O^pris/pⁿ→α_*W_n(O♭) and (O^pris/pⁿ)[1/I]→(α∘j)_*W_n(O♭_η). The inverse-image functors are sheafified and their composite is j*α*.",
+   "hypotheses": [
+    "For Spa(S[1/p],S), take the integral closure when an actual plus-ring presentation is needed. The notation does not assert S integrally closed.",
+    "The object assignment S↦S_perfd is covariant on rings; α is the resulting morphism of topoi in the displayed direction. The generic site is imported from DiamondsAndVStacks, not identified with the integral site."
+   ],
+   "proofSteps": [
+    "Construct the relative integral site using the integral perfectoid objects already supplied by PerfectoidQuotients Q0. Universal perfectoidization sends a quasi-syntomic covering on the QRSP basis to a v-cover; the covering/refinement criterion constructs α (AL23 §5.4, p. 91, using the universal-perfectoidization descent theorem).",
+    "Apply generic fibre to each integral object and its covering family to construct j. The counit after composite pullback/pushforward is an isomorphism on the generic sheaves used in the étale comparison: on affinoid perfectoid tests the inverse-image presheaf is evaluated at the integral plus ring. Sheafify this formula and prove its adjunction and composition coherence.",
+    "Tilt on integral objects, form W_n and use Δ_S→A_inf(S_perfd) to obtain the coefficient maps. Inverting I is done after reduction modulo pⁿ; Frobenius extends there since φ(I)⊆(p,I). These are maps before taking Frobenius fixed points; the fixed-point theorem remains the separate étale-comparison target."
+   ],
+   "prerequisites": [
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidQuotients:Q2/universal-perfectoidization",
+    "DiamondsAndVStacks:D2/small-pro-etale-site-and-v-site",
+    "DiamondsAndVStacks:D6/gluing-and-the-diamond-functor",
+    "PrismaticCohomologyPartII:PD.1/prism-to-qsyn-topoi",
+    "PrismaticCohomologyPartII:PD.1/opris-sheaves"
+   ],
+   "sources": [
+    {
+     "sourceId": "AL23",
+     "locator": "§5.4, pp. 91–93, preceding Lemma 5.4.1 and in the proof of Proposition 5.4.2",
+     "match": "constructs the integral v-site, α, the generic-fibre morphism j, coefficient maps and the explicit composite adjunction"
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/Prismatic/Dieudonne/Complements",
+    "namespace": "TauCeti.PrismaticDieudonne"
+   },
+   "acceptance": [
+    "For perfectoid R, its perfectoidization is R and its tilted coefficient ring is W_n(R♭).",
+    "For pR=0 the generic fibre is empty, while the integral perfectoid site need not be empty; α and j have different roles.",
+    "On an affinoid perfectoid generic test the composite inverse image evaluates a QRSP sheaf at its integral plus ring, then sheafifies.",
+    "The coefficient maps themselves are not isomorphisms with ℤ/pⁿ; that statement requires taking Frobenius invariants."
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PrismaticDieudonne.integralPerfectoidVSite",
+     "role": "constructor",
+     "statement": "The relative integral perfectoid site, with its specified v-covering families."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.perfectoidizationToposMorphism",
+     "role": "constructor",
+     "statement": "The morphism α induced by universal perfectoidization of the QRSP basis."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.genericFibreToposMorphism",
+     "role": "constructor",
+     "statement": "The morphism j from the generic diamond v-site."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.genericFibre_pullback_comp",
+     "role": "functoriality",
+     "statement": "The composite inverse image is canonically j*α*, with identity/composition coherence."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.integralV_wittCoefficientMap",
+     "role": "data",
+     "statement": "The natural map O^pris/pⁿ→α_*W_n(O♭), compatible with Frobenius and truncation."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.genericV_wittCoefficientMap",
+     "role": "data",
+     "statement": "The natural localized coefficient map to (α∘j)_*W_n(O♭_η)."
+    },
+    {
+     "name": "TauCeti.PrismaticDieudonne.genericV_counit",
+     "role": "compatibility",
+     "statement": "The composite counit is an isomorphism for the generic sheaves in the étale comparison, checked on affinoid perfectoid tests."
+    }
+   ],
+   "tests": [
+    {
+     "name": "integralV_perfectoid_base",
+     "kind": "computation",
+     "statement": "For perfectoid R, its perfectoidization is R and its tilted coefficient ring is W_n(R♭)."
+    },
+    {
+     "name": "integralV_char_p",
+     "kind": "degenerate",
+     "statement": "For pR=0 the generic fibre is empty, while the integral perfectoid site need not be empty; α and j have different roles."
+    },
+    {
+     "name": "integralV_composition",
+     "kind": "compatibility",
+     "statement": "On an affinoid perfectoid generic test the composite inverse image evaluates a QRSP sheaf at its integral plus ring, then sheafifies."
+    },
+    {
+     "name": "integralV_fixed_points",
+     "kind": "non-example",
+     "statement": "The coefficient maps themselves are not isomorphisms with ℤ/pⁿ; that statement requires taking Frobenius invariants."
+    }
+   ],
+   "uses": [
+    {
+     "where": "PD.7/etale-comparison",
+     "how": "type the two pullbacks and coefficient fixed-point calculations on their correct integral and generic sites"
+    }
+   ]
   },
   {
    "id": "PrismaticCohomologyPartII:PD.7/etale-comparison",
@@ -5003,8 +5765,7 @@
    ],
    "proofSteps": [
     "(1): commute φ-fixed points with the colimit along φ; on quasi-regular semiperfectoid S, colim_φ O^pris(S) is p-torsion-free and the φ-fixed points of its mod-p^n generic part are W_n of the tilt's fixed points, ℤ/p^n (Artin–Schreier–Witt, PrismaticCohomology PR.4/perfectoid-artin-schreier-witt) (Anschütz–Le Bras, Lemma 5.4.1, p. 92).",
-    "(2): ℳ_Δ(G)/p^n = ℋom(G[p^n], O^pris/p^n) (node PD.2/tate-module-description and the proof of node PD.4/pdiv-locally-free); invert I, take φ-fixed points with (1), and use Lemma 5.4.3 to identify the pullback of G[p^n] (Proposition 5.4.2 and Lemma 5.4.3, pp. 92–93). This is the p-divisible-group case of the étale comparison of PrismaticCohomology PR.4/etale-comparison.",
-    "Closure gap — Integral perfectoid v-site and its quasi-syntomic morphism: Construct the integral perfectoid R-algebra v-site, its generic-fibre morphism j and the morphism α induced on the QRSP basis by universal perfectoidization (AL23 §5.4, pp. 91–93). PerfectoidQuotients Q2 supplies the algebraic perfectoidization target, and DiamondsAndVStacks D3 supplies the generic v-site; neither supplier statement constructs the integral site and the adjunction needed here."
+    "(2): ℳ_Δ(G)/p^n = ℋom(G[p^n], O^pris/p^n) (node PD.2/tate-module-description and the proof of node PD.4/pdiv-locally-free); invert I, take φ-fixed points with (1), and use Lemma 5.4.3 to identify the pullback of G[p^n] (Proposition 5.4.2 and Lemma 5.4.3, pp. 92–93). This is the p-divisible-group case of the étale comparison of PrismaticCohomology PR.4/etale-comparison."
    ],
    "acceptance": [
     "G = μ_{p^∞}, R = 𝒪_C: recovers T_pμ_{p^∞}(C)^∨ = ℤ_p(−1) after the limit over n.",
@@ -5017,8 +5778,10 @@
     "PrismaticCohomology:PR.4/perfectoid-artin-schreier-witt",
     "PrismaticCohomology:PR.4/etale-comparison",
     "PrismaticCohomology:PR.4/frobenius-fixed-points",
-    "DiamondsAndVStacks:D3",
-    "PerfectoidQuotients:Q2/universal-perfectoidization"
+    "PerfectoidQuotients:Q2/universal-perfectoidization",
+    "PrismaticCohomologyPartII:PD.7/integral-v-site",
+    "DiamondsAndVStacks:D2/small-pro-etale-site-and-v-site",
+    "DiamondsAndVStacks:D6/gluing-and-the-diamond-functor"
    ],
    "sources": [
     {
@@ -5042,14 +5805,8 @@
    "supplier": "PerfectoidQuotients:Q0:integral-algebra",
    "need": "Integral perfectoid rings R with A_inf(R) = W(R^♭), Fontaine's θ and a generator ξ of its kernel, the tilt R^♭, and the integral perfectoid algebras W(S)/ξ for perfect R^♭-algebras S (used in the v-descent step of Scholze–Weinstein Theorem 17.5.2).",
    "neededBy": [
-    "PrismaticCohomologyPartII:PD.3/scholze-weinstein-perfectoid"
-   ]
-  },
-  {
-   "supplier": "DiamondsAndVStacks:D3",
-   "need": "The existing generic-fibre v-site is imported. The additional integral perfectoid R-algebra site, its generic-fibre morphism j and α to the QRSP quasi-syntomic basis are a gap owned in this roadmap; D3 alone is not credited with that construction.",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.7/etale-comparison"
+    "PrismaticCohomologyPartII:PD.3/scholze-weinstein-perfectoid",
+    "PrismaticCohomologyPartII:PD.7/integral-v-site"
    ]
   },
   {
@@ -5063,7 +5820,7 @@
  "coverage": [
   {
    "stageId": "PrismaticCohomologyPartII:PD.0",
-   "status": "planned",
+   "status": "closed",
    "remaining": []
   },
   {
@@ -5077,56 +5834,86 @@
    "stageId": "PrismaticCohomologyPartII:PD.2",
    "status": "planned",
    "remaining": [
-    "Ringed-site and internal derived Hom infrastructure: Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure.",
-    "Compatible infinite p-root covers on the quasi-syntomic site: Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement."
+    "Ringed-site and internal derived Hom infrastructure: Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure."
    ]
   },
   {
    "stageId": "PrismaticCohomologyPartII:PD.3",
    "status": "planned",
    "remaining": [
-    "Close the two recorded inputs of Scholze–Weinstein Theorem B (Fargues' p-divisible rigid-analytic groups; Theorem C) and the two inputs of Proposition 14.9.4 (isotriviality over 𝒪_C/p; Oort's existence theorem), by locating or creating their owners.",
     "p-divisible rigid-analytic groups (Fargues): Essential surjectivity in Scholze–Weinstein Theorem B for spherically complete C with surjective norm uses Fargues, Groupes analytiques rigides p-divisibles (Math. Ann. 374 (2019)), Corollaire 9 and Théorème 15: a p-divisible rigid-analytic group whose identity component is an open ball comes from a formal p-divisible group. No roadmap of the atlas plans p-divisible rigid-analytic groups. The natural owner is a Part II of HodgeTateAndCanonicalSubgroups or of FiniteFlatGroupsAndIntegralPadicHodgeTheory (periods of p-divisible groups).",
     "Image of the period morphism of Rapoport–Zink spaces (Scholze–Weinstein Theorem C): Theorem B for general algebraically closed C is deduced in Scholze–Weinstein 2013 from Theorem C (a point of the flag variety lies in the image of the period morphism iff the associated modification of the vector bundle E(H) is trivial). No layer plans Theorem C; EndoscopicTransferAndUnitaryTraceComparison ET.6a uses Rapoport–Zink spaces at infinite level without it.",
     "Isotriviality over 𝒪_C/p and Oort's existence theorem: Scholze–Weinstein, Proposition 14.9.4 uses (a) Scholze–Weinstein 2013, Theorem 5.1.4(i): every p-divisible group over 𝒪_C/p is quasi-isogenous to a constant one (from the Fargues–Fontaine classification of vector bundles, which FarguesFontaineDiamonds excludes), and (b) Oort's theorem that a p-divisible group over an algebraically closed field with symmetric Newton polygon is the p-divisible group of an abelian variety. Neither is planned in the atlas.",
+    "Ringed-site and internal derived Hom infrastructure: Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure.",
     "Witt-vector v-descent in the perfectoid classification: Supply v-descent for finite projective W(S)-modules on perfect schemes, including the complete inverse-limit step, and descent of the corresponding p-divisible groups over W(S)/ξ (SW20 proof of Theorem 17.5.2, pp. 159–160, using Bhatt–Scholze 2017). The current AlgebraicVectorBundles roadmap does not contain this Witt-vector result. GeometricSatakeAndFusion is outside the permitted supplier order, so it cannot be used as a placeholder owner.",
-    "Crystalline coefficients over mixed-characteristic p-adic bases: Construct the compatible crystalline Dieudonné evaluations over R/pⁿ and their p-adic limit, including the coefficient comparison and Hodge/Lie sequence on the relevant PD thickenings (AL23 Lemma 4.3.3 and §4.6, pp. 46–48, 58–65). CR.7/dieudonne-evaluation explicitly assumes characteristic p; that declaration alone does not provide this mixed-characteristic coefficient theory.",
     "Nonnoetherian formal Serre–Tate effectivity: The A4/serre-tate-equivalence target gives the affine nilpotent-base equivalence. Verify its application level by level to 𝒪_C/pⁿ and effectivity as a formal abelian scheme over 𝒪_C; the supplier’s separate complete noetherian local effectivity clause does not cover 𝒪_C. SW20 Proposition 14.9.4, pp. 129–130, uses this formal lifting step.",
-    "Hodge–Tate exactness beyond the dlog construction: The dlog maps are explicit, but proving their exact sequence over C is a key theorem rather than a formal consequence of duality or dimensions. SW20 Theorem 12.1.1, pp. 98–99, recalls and attributes it to Fargues without giving the full proof there. A direct proof route is still required at this lower-tier owner; the higher HodgeTateAndCanonicalSubgroups plan cannot be imported upward."
+    "Hodge–Tate exactness beyond the dlog construction: The dlog maps are explicit, but proving their exact sequence over C is a key theorem rather than a formal consequence of duality or dimensions. SW20 Theorem 12.1.1, pp. 98–99, recalls and attributes it to Fargues without giving the full proof there. A direct proof route is still required at this lower-tier owner; the higher HodgeTateAndCanonicalSubgroups plan cannot be imported upward.",
+    "Supplier scope: PerfectoidQuotients:Q0:integral-algebra — Integral perfectoid rings R with A_inf(R) = W(R^♭), Fontaine's θ and a generator ξ of its kernel, the tilt R^♭, and the integral perfectoid algebras W(S)/ξ for perfect R^♭-algebras S (used in the v-descent step of Scholze–Weinstein Theorem 17.5.2).",
+    "Supplier scope: AbelianSchemesAndArithmeticModuli:A4/serre-tate-equivalence — The existing affine nilpotent-base deformation equivalence, applied level by level over 𝒪_C/pⁿ. Verify formal effectivity for this nonnoetherian base; do not substitute the supplier’s complete noetherian local effectivity statement."
    ]
   },
   {
    "stageId": "PrismaticCohomologyPartII:PD.4",
    "status": "planned",
    "remaining": [
-    "Compatible infinite p-root covers on the quasi-syntomic site: Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement.",
+    "p-divisible rigid-analytic groups (Fargues): Essential surjectivity in Scholze–Weinstein Theorem B for spherically complete C with surjective norm uses Fargues, Groupes analytiques rigides p-divisibles (Math. Ann. 374 (2019)), Corollaire 9 and Théorème 15: a p-divisible rigid-analytic group whose identity component is an open ball comes from a formal p-divisible group. No roadmap of the atlas plans p-divisible rigid-analytic groups. The natural owner is a Part II of HodgeTateAndCanonicalSubgroups or of FiniteFlatGroupsAndIntegralPadicHodgeTheory (periods of p-divisible groups).",
+    "Image of the period morphism of Rapoport–Zink spaces (Scholze–Weinstein Theorem C): Theorem B for general algebraically closed C is deduced in Scholze–Weinstein 2013 from Theorem C (a point of the flag variety lies in the image of the period morphism iff the associated modification of the vector bundle E(H) is trivial). No layer plans Theorem C; EndoscopicTransferAndUnitaryTraceComparison ET.6a uses Rapoport–Zink spaces at infinite level without it.",
+    "Isotriviality over 𝒪_C/p and Oort's existence theorem: Scholze–Weinstein, Proposition 14.9.4 uses (a) Scholze–Weinstein 2013, Theorem 5.1.4(i): every p-divisible group over 𝒪_C/p is quasi-isogenous to a constant one (from the Fargues–Fontaine classification of vector bundles, which FarguesFontaineDiamonds excludes), and (b) Oort's theorem that a p-divisible group over an algebraically closed field with symmetric Newton polygon is the p-divisible group of an abelian variety. Neither is planned in the atlas.",
+    "Ringed-site and internal derived Hom infrastructure: Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure.",
+    "Witt-vector v-descent in the perfectoid classification: Supply v-descent for finite projective W(S)-modules on perfect schemes, including the complete inverse-limit step, and descent of the corresponding p-divisible groups over W(S)/ξ (SW20 proof of Theorem 17.5.2, pp. 159–160, using Bhatt–Scholze 2017). The current AlgebraicVectorBundles roadmap does not contain this Witt-vector result. GeometricSatakeAndFusion is outside the permitted supplier order, so it cannot be used as a placeholder owner.",
     "Abelian lifting for the integral Hodge–Tate splitting at p=2: Give the unpolarized infinitesimal lifting of an abelian scheme needed to split τ≤1 of its Hodge–Tate complex over A/I (AL23 Proposition 3.2.1, Corollary 3.2.3 and the proof of Proposition 4.5.1, pp. 20–21, 53–54). The A4 Hodge/de Rham exterior theorem and its nilpotent-PD Grothendieck–Messing statement do not by themselves supply a lift along a general prism quotient A/I². This input is essential to the p=2 integral exterior-power argument.",
-    "Crystalline coefficients over mixed-characteristic p-adic bases: Construct the compatible crystalline Dieudonné evaluations over R/pⁿ and their p-adic limit, including the coefficient comparison and Hodge/Lie sequence on the relevant PD thickenings (AL23 Lemma 4.3.3 and §4.6, pp. 46–48, 58–65). CR.7/dieudonne-evaluation explicitly assumes characteristic p; that declaration alone does not provide this mixed-characteristic coefficient theory."
+    "Nonnoetherian formal Serre–Tate effectivity: The A4/serre-tate-equivalence target gives the affine nilpotent-base equivalence. Verify its application level by level to 𝒪_C/pⁿ and effectivity as a formal abelian scheme over 𝒪_C; the supplier’s separate complete noetherian local effectivity clause does not cover 𝒪_C. SW20 Proposition 14.9.4, pp. 129–130, uses this formal lifting step.",
+    "Hodge–Tate exactness beyond the dlog construction: The dlog maps are explicit, but proving their exact sequence over C is a key theorem rather than a formal consequence of duality or dimensions. SW20 Theorem 12.1.1, pp. 98–99, recalls and attributes it to Fargues without giving the full proof there. A direct proof route is still required at this lower-tier owner; the higher HodgeTateAndCanonicalSubgroups plan cannot be imported upward.",
+    "Supplier scope: PerfectoidQuotients:Q0:integral-algebra — Integral perfectoid rings R with A_inf(R) = W(R^♭), Fontaine's θ and a generator ξ of its kernel, the tilt R^♭, and the integral perfectoid algebras W(S)/ξ for perfect R^♭-algebras S (used in the v-descent step of Scholze–Weinstein Theorem 17.5.2).",
+    "Supplier scope: AbelianSchemesAndArithmeticModuli:A4/serre-tate-equivalence — The existing affine nilpotent-base deformation equivalence, applied level by level over 𝒪_C/pⁿ. Verify formal effectivity for this nonnoetherian base; do not substitute the supplier’s complete noetherian local effectivity statement."
    ]
   },
   {
    "stageId": "PrismaticCohomologyPartII:PD.5",
    "status": "planned",
    "remaining": [
-    "Compatible infinite p-root covers on the quasi-syntomic site: Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement."
+    "p-divisible rigid-analytic groups (Fargues): Essential surjectivity in Scholze–Weinstein Theorem B for spherically complete C with surjective norm uses Fargues, Groupes analytiques rigides p-divisibles (Math. Ann. 374 (2019)), Corollaire 9 and Théorème 15: a p-divisible rigid-analytic group whose identity component is an open ball comes from a formal p-divisible group. No roadmap of the atlas plans p-divisible rigid-analytic groups. The natural owner is a Part II of HodgeTateAndCanonicalSubgroups or of FiniteFlatGroupsAndIntegralPadicHodgeTheory (periods of p-divisible groups).",
+    "Image of the period morphism of Rapoport–Zink spaces (Scholze–Weinstein Theorem C): Theorem B for general algebraically closed C is deduced in Scholze–Weinstein 2013 from Theorem C (a point of the flag variety lies in the image of the period morphism iff the associated modification of the vector bundle E(H) is trivial). No layer plans Theorem C; EndoscopicTransferAndUnitaryTraceComparison ET.6a uses Rapoport–Zink spaces at infinite level without it.",
+    "Isotriviality over 𝒪_C/p and Oort's existence theorem: Scholze–Weinstein, Proposition 14.9.4 uses (a) Scholze–Weinstein 2013, Theorem 5.1.4(i): every p-divisible group over 𝒪_C/p is quasi-isogenous to a constant one (from the Fargues–Fontaine classification of vector bundles, which FarguesFontaineDiamonds excludes), and (b) Oort's theorem that a p-divisible group over an algebraically closed field with symmetric Newton polygon is the p-divisible group of an abelian variety. Neither is planned in the atlas.",
+    "Ringed-site and internal derived Hom infrastructure: Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure.",
+    "Witt-vector v-descent in the perfectoid classification: Supply v-descent for finite projective W(S)-modules on perfect schemes, including the complete inverse-limit step, and descent of the corresponding p-divisible groups over W(S)/ξ (SW20 proof of Theorem 17.5.2, pp. 159–160, using Bhatt–Scholze 2017). The current AlgebraicVectorBundles roadmap does not contain this Witt-vector result. GeometricSatakeAndFusion is outside the permitted supplier order, so it cannot be used as a placeholder owner.",
+    "Abelian lifting for the integral Hodge–Tate splitting at p=2: Give the unpolarized infinitesimal lifting of an abelian scheme needed to split τ≤1 of its Hodge–Tate complex over A/I (AL23 Proposition 3.2.1, Corollary 3.2.3 and the proof of Proposition 4.5.1, pp. 20–21, 53–54). The A4 Hodge/de Rham exterior theorem and its nilpotent-PD Grothendieck–Messing statement do not by themselves supply a lift along a general prism quotient A/I². This input is essential to the p=2 integral exterior-power argument.",
+    "Nonnoetherian formal Serre–Tate effectivity: The A4/serre-tate-equivalence target gives the affine nilpotent-base equivalence. Verify its application level by level to 𝒪_C/pⁿ and effectivity as a formal abelian scheme over 𝒪_C; the supplier’s separate complete noetherian local effectivity clause does not cover 𝒪_C. SW20 Proposition 14.9.4, pp. 129–130, uses this formal lifting step.",
+    "Hodge–Tate exactness beyond the dlog construction: The dlog maps are explicit, but proving their exact sequence over C is a key theorem rather than a formal consequence of duality or dimensions. SW20 Theorem 12.1.1, pp. 98–99, recalls and attributes it to Fargues without giving the full proof there. A direct proof route is still required at this lower-tier owner; the higher HodgeTateAndCanonicalSubgroups plan cannot be imported upward.",
+    "Supplier scope: PerfectoidQuotients:Q0:integral-algebra — Integral perfectoid rings R with A_inf(R) = W(R^♭), Fontaine's θ and a generator ξ of its kernel, the tilt R^♭, and the integral perfectoid algebras W(S)/ξ for perfect R^♭-algebras S (used in the v-descent step of Scholze–Weinstein Theorem 17.5.2).",
+    "Supplier scope: AbelianSchemesAndArithmeticModuli:A4/serre-tate-equivalence — The existing affine nilpotent-base deformation equivalence, applied level by level over 𝒪_C/pⁿ. Verify formal effectivity for this nonnoetherian base; do not substitute the supplier’s complete noetherian local effectivity statement."
    ]
   },
   {
    "stageId": "PrismaticCohomologyPartII:PD.6",
    "status": "planned",
-   "remaining": []
+   "remaining": [
+    "p-divisible rigid-analytic groups (Fargues): Essential surjectivity in Scholze–Weinstein Theorem B for spherically complete C with surjective norm uses Fargues, Groupes analytiques rigides p-divisibles (Math. Ann. 374 (2019)), Corollaire 9 and Théorème 15: a p-divisible rigid-analytic group whose identity component is an open ball comes from a formal p-divisible group. No roadmap of the atlas plans p-divisible rigid-analytic groups. The natural owner is a Part II of HodgeTateAndCanonicalSubgroups or of FiniteFlatGroupsAndIntegralPadicHodgeTheory (periods of p-divisible groups).",
+    "Image of the period morphism of Rapoport–Zink spaces (Scholze–Weinstein Theorem C): Theorem B for general algebraically closed C is deduced in Scholze–Weinstein 2013 from Theorem C (a point of the flag variety lies in the image of the period morphism iff the associated modification of the vector bundle E(H) is trivial). No layer plans Theorem C; EndoscopicTransferAndUnitaryTraceComparison ET.6a uses Rapoport–Zink spaces at infinite level without it.",
+    "Isotriviality over 𝒪_C/p and Oort's existence theorem: Scholze–Weinstein, Proposition 14.9.4 uses (a) Scholze–Weinstein 2013, Theorem 5.1.4(i): every p-divisible group over 𝒪_C/p is quasi-isogenous to a constant one (from the Fargues–Fontaine classification of vector bundles, which FarguesFontaineDiamonds excludes), and (b) Oort's theorem that a p-divisible group over an algebraically closed field with symmetric Newton polygon is the p-divisible group of an abelian variety. Neither is planned in the atlas.",
+    "Ringed-site and internal derived Hom infrastructure: Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure.",
+    "Witt-vector v-descent in the perfectoid classification: Supply v-descent for finite projective W(S)-modules on perfect schemes, including the complete inverse-limit step, and descent of the corresponding p-divisible groups over W(S)/ξ (SW20 proof of Theorem 17.5.2, pp. 159–160, using Bhatt–Scholze 2017). The current AlgebraicVectorBundles roadmap does not contain this Witt-vector result. GeometricSatakeAndFusion is outside the permitted supplier order, so it cannot be used as a placeholder owner.",
+    "Abelian lifting for the integral Hodge–Tate splitting at p=2: Give the unpolarized infinitesimal lifting of an abelian scheme needed to split τ≤1 of its Hodge–Tate complex over A/I (AL23 Proposition 3.2.1, Corollary 3.2.3 and the proof of Proposition 4.5.1, pp. 20–21, 53–54). The A4 Hodge/de Rham exterior theorem and its nilpotent-PD Grothendieck–Messing statement do not by themselves supply a lift along a general prism quotient A/I². This input is essential to the p=2 integral exterior-power argument.",
+    "Nonnoetherian formal Serre–Tate effectivity: The A4/serre-tate-equivalence target gives the affine nilpotent-base equivalence. Verify its application level by level to 𝒪_C/pⁿ and effectivity as a formal abelian scheme over 𝒪_C; the supplier’s separate complete noetherian local effectivity clause does not cover 𝒪_C. SW20 Proposition 14.9.4, pp. 129–130, uses this formal lifting step.",
+    "Hodge–Tate exactness beyond the dlog construction: The dlog maps are explicit, but proving their exact sequence over C is a key theorem rather than a formal consequence of duality or dimensions. SW20 Theorem 12.1.1, pp. 98–99, recalls and attributes it to Fargues without giving the full proof there. A direct proof route is still required at this lower-tier owner; the higher HodgeTateAndCanonicalSubgroups plan cannot be imported upward.",
+    "Supplier scope: PerfectoidQuotients:Q0:integral-algebra — Integral perfectoid rings R with A_inf(R) = W(R^♭), Fontaine's θ and a generator ξ of its kernel, the tilt R^♭, and the integral perfectoid algebras W(S)/ξ for perfect R^♭-algebras S (used in the v-descent step of Scholze–Weinstein Theorem 17.5.2).",
+    "Supplier scope: AbelianSchemesAndArithmeticModuli:A4/serre-tate-equivalence — The existing affine nilpotent-base deformation equivalence, applied level by level over 𝒪_C/pⁿ. Verify formal effectivity for this nonnoetherian base; do not substitute the supplier’s complete noetherian local effectivity statement."
+   ]
   },
   {
    "stageId": "PrismaticCohomologyPartII:PD.7",
    "status": "planned",
    "remaining": [
-    "Extend the Breuil–Kisin comparison to complete regular local rings of dimension ≥ 2 (recorded gap and source issue E1).",
-    "Breuil–Kisin comparison over complete regular local rings of dimension ≥ 2: Anschütz–Le Bras state Theorem 5.2.5 for every complete regular local ring with perfect residue field but write the proof for d = 1 only (source issue PrismaticCohomologyPartII/E1). The planned node covers dim R ≤ 1. For d ≥ 2 Lau (2010, p odd; 2014, p = 2) classifies p-divisible groups by Breuil windows over W(k)⟦u₁, …, u_d⟧; identifying Lau's functor with the evaluation of the prismatic Dieudonné crystal on the Breuil–Kisin prism, or proving that the descent datum over the self-coproduct is automatic for d ≥ 2, is open here.",
-    "Crystalline coefficients over mixed-characteristic p-adic bases: Construct the compatible crystalline Dieudonné evaluations over R/pⁿ and their p-adic limit, including the coefficient comparison and Hodge/Lie sequence on the relevant PD thickenings (AL23 Lemma 4.3.3 and §4.6, pp. 46–48, 58–65). CR.7/dieudonne-evaluation explicitly assumes characteristic p; that declaration alone does not provide this mixed-characteristic coefficient theory.",
-    "Characteristic-p connection in the regular Breuil–Kisin comparison: For R=k⟦u⟧ prove existence and uniqueness of the integrable topologically quasi-nilpotent horizontal connection on the relevant minuscule module, as used in AL23 Theorem 5.2.5, p. 79 (which refers to de Jong Proposition 2.7.3). The general crystalline evaluation supplier does not state this automatic-connection theorem. The mixed-characteristic DVR proof in AL23 pp. 79–84 does not prove this separate characteristic-p step.",
-    "Compatible smooth presentation for the full-BT display functor: Provide a compatible ind-smooth affine presentation of the height-h full Barsotti–Tate moduli problem and its relation spaces, or an equivalent effective inverse-limit construction from the smooth BT_n stacks. Prove p-torsion-freeness of the completed presentation rings and that the universal Nygaard-window construction descends naturally along the relation. Smoothness at each finite level does not by itself prove this assertion (AL23 Proposition 5.3.4, pp. 88–89).",
-    "Unrestricted Zink–Lau proof and identification with Z_R: Read Lau08 Theorem 1.1 and its proof from a cleared or public source, then supply the deformation-level comparison between its dualized BT construction and the specific prismatic display functor Z_R. The erratum confirms the theorem survives, but does not provide this comparison proof. Neither perfect-field agreement nor the abelian-scheme Grothendieck–Messing theorem suffices. This is the review’s unverified node.",
-    "Integral perfectoid v-site and its quasi-syntomic morphism: Construct the integral perfectoid R-algebra v-site, its generic-fibre morphism j and the morphism α induced on the QRSP basis by universal perfectoidization (AL23 §5.4, pp. 91–93). PerfectoidQuotients Q2 supplies the algebraic perfectoidization target, and DiamondsAndVStacks D3 supplies the generic v-site; neither supplier statement constructs the integral site and the adjunction needed here."
+    "p-divisible rigid-analytic groups (Fargues): Essential surjectivity in Scholze–Weinstein Theorem B for spherically complete C with surjective norm uses Fargues, Groupes analytiques rigides p-divisibles (Math. Ann. 374 (2019)), Corollaire 9 and Théorème 15: a p-divisible rigid-analytic group whose identity component is an open ball comes from a formal p-divisible group. No roadmap of the atlas plans p-divisible rigid-analytic groups. The natural owner is a Part II of HodgeTateAndCanonicalSubgroups or of FiniteFlatGroupsAndIntegralPadicHodgeTheory (periods of p-divisible groups).",
+    "Image of the period morphism of Rapoport–Zink spaces (Scholze–Weinstein Theorem C): Theorem B for general algebraically closed C is deduced in Scholze–Weinstein 2013 from Theorem C (a point of the flag variety lies in the image of the period morphism iff the associated modification of the vector bundle E(H) is trivial). No layer plans Theorem C; EndoscopicTransferAndUnitaryTraceComparison ET.6a uses Rapoport–Zink spaces at infinite level without it.",
+    "Isotriviality over 𝒪_C/p and Oort's existence theorem: Scholze–Weinstein, Proposition 14.9.4 uses (a) Scholze–Weinstein 2013, Theorem 5.1.4(i): every p-divisible group over 𝒪_C/p is quasi-isogenous to a constant one (from the Fargues–Fontaine classification of vector bundles, which FarguesFontaineDiamonds excludes), and (b) Oort's theorem that a p-divisible group over an algebraically closed field with symmetric Newton polygon is the p-divisible group of an abelian variety. Neither is planned in the atlas.",
+    "Ringed-site and internal derived Hom infrastructure: Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure.",
+    "Witt-vector v-descent in the perfectoid classification: Supply v-descent for finite projective W(S)-modules on perfect schemes, including the complete inverse-limit step, and descent of the corresponding p-divisible groups over W(S)/ξ (SW20 proof of Theorem 17.5.2, pp. 159–160, using Bhatt–Scholze 2017). The current AlgebraicVectorBundles roadmap does not contain this Witt-vector result. GeometricSatakeAndFusion is outside the permitted supplier order, so it cannot be used as a placeholder owner.",
+    "Abelian lifting for the integral Hodge–Tate splitting at p=2: Give the unpolarized infinitesimal lifting of an abelian scheme needed to split τ≤1 of its Hodge–Tate complex over A/I (AL23 Proposition 3.2.1, Corollary 3.2.3 and the proof of Proposition 4.5.1, pp. 20–21, 53–54). The A4 Hodge/de Rham exterior theorem and its nilpotent-PD Grothendieck–Messing statement do not by themselves supply a lift along a general prism quotient A/I². This input is essential to the p=2 integral exterior-power argument.",
+    "Nonnoetherian formal Serre–Tate effectivity: The A4/serre-tate-equivalence target gives the affine nilpotent-base equivalence. Verify its application level by level to 𝒪_C/pⁿ and effectivity as a formal abelian scheme over 𝒪_C; the supplier’s separate complete noetherian local effectivity clause does not cover 𝒪_C. SW20 Proposition 14.9.4, pp. 129–130, uses this formal lifting step.",
+    "Hodge–Tate exactness beyond the dlog construction: The dlog maps are explicit, but proving their exact sequence over C is a key theorem rather than a formal consequence of duality or dimensions. SW20 Theorem 12.1.1, pp. 98–99, recalls and attributes it to Fargues without giving the full proof there. A direct proof route is still required at this lower-tier owner; the higher HodgeTateAndCanonicalSubgroups plan cannot be imported upward.",
+    "Supplier scope: PerfectoidQuotients:Q0:integral-algebra — Integral perfectoid rings R with A_inf(R) = W(R^♭), Fontaine's θ and a generator ξ of its kernel, the tilt R^♭, and the integral perfectoid algebras W(S)/ξ for perfect R^♭-algebras S (used in the v-descent step of Scholze–Weinstein Theorem 17.5.2).",
+    "Supplier scope: AbelianSchemesAndArithmeticModuli:A4/serre-tate-equivalence — The existing affine nilpotent-base deformation equivalence, applied level by level over 𝒪_C/pⁿ. Verify formal effectivity for this nonnoetherian base; do not substitute the supplier’s complete noetherian local effectivity statement."
    ]
   }
  ],
@@ -5153,13 +5940,6 @@
    "detail": "Scholze–Weinstein, Proposition 14.9.4 uses (a) Scholze–Weinstein 2013, Theorem 5.1.4(i): every p-divisible group over 𝒪_C/p is quasi-isogenous to a constant one (from the Fargues–Fontaine classification of vector bundles, which FarguesFontaineDiamonds excludes), and (b) Oort's theorem that a p-divisible group over an algebraically closed field with symmetric Newton polygon is the p-divisible group of an abelian variety. Neither is planned in the atlas."
   },
   {
-   "title": "Breuil–Kisin comparison over complete regular local rings of dimension ≥ 2",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.7/breuil-kisin-comparison"
-   ],
-   "detail": "Anschütz–Le Bras state Theorem 5.2.5 for every complete regular local ring with perfect residue field but write the proof for d = 1 only (source issue PrismaticCohomologyPartII/E1). The planned node covers dim R ≤ 1. For d ≥ 2 Lau (2010, p odd; 2014, p = 2) classifies p-divisible groups by Breuil windows over W(k)⟦u₁, …, u_d⟧; identifying Lau's functor with the evaluation of the prismatic Dieudonné crystal on the Breuil–Kisin prism, or proving that the descent datum over the self-coproduct is automatic for d ≥ 2, is open here."
-  },
-  {
    "title": "Ringed-site and internal derived Hom infrastructure",
    "neededBy": [
     "PrismaticCohomologyPartII:PD.1/prism-to-qsyn-topoi",
@@ -5168,17 +5948,6 @@
     "PrismaticCohomologyPartII:PD.2/pushforward-description"
    ],
    "detail": "Construct the relative big/small quasi-syntomic sites and ringed coefficient morphisms used here. Reuse Mathlib SheafOfModules.pullbackPushforwardAdjunction and pullbackIso (Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean, read at 082e2d3), checking continuity, the presheaf right-adjoint hypothesis and the sheafification instances for these sites, rather than constructing the generic adjunction again. Current Tau Ceti SheafOfModules.ihomObjEquiv and ihomCompForgetIso (TauCeti/Algebra/Category/ModuleCat/Sheaf/InternalHom/Basic.lean, read at a91d3aa) already supply ordinary internal Hom on a small site with the stated commutative-ring and sheafification hypotheses. Import this machinery through its small-site presentation, and supply the size/instance comparison, derived internal Rℋom, ℰxt and their base-change/pushforward compatibilities for the coefficient sheaves here. Mathlib CategoryTheory.Abelian.Ext is a global Ext group, not an internal Ext sheaf, and IsCocontinuous is only a condition. The cited supplier statements do not supply these specializations or derived compatibilities. PD.2 functor statements remain targets pending this infrastructure.",
-   "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
-  },
-  {
-   "title": "Compatible infinite p-root covers on the quasi-syntomic site",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.2/tate-module-description",
-    "PrismaticCohomologyPartII:PD.4/pdiv-locally-free",
-    "PrismaticCohomologyPartII:PD.5/etale-dieudonne",
-    "PrismaticCohomologyPartII:PD.5/explicit-quasi-inverse"
-   ],
-   "detail": "Plan a compatible tower of p-power-division covers of a p-divisible group whose completed limit is still a cover in the required quasi-syntomic site, and prove exactness of its inverse-limit sequence (AL23 Lemmas 4.2.5–4.2.6, pp. 41–43). Supply the analogous inverse-limit argument for truncated Ext crystals and étale Tate-module local triviality. R07.1/p-divisible-tate-module has a henselian local domain hypothesis and does not supply this sheaf statement.",
    "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
   },
   {
@@ -5195,49 +5964,6 @@
     "PrismaticCohomologyPartII:PD.4/abelian-conjugate-degeneration"
    ],
    "detail": "Give the unpolarized infinitesimal lifting of an abelian scheme needed to split τ≤1 of its Hodge–Tate complex over A/I (AL23 Proposition 3.2.1, Corollary 3.2.3 and the proof of Proposition 4.5.1, pp. 20–21, 53–54). The A4 Hodge/de Rham exterior theorem and its nilpotent-PD Grothendieck–Messing statement do not by themselves supply a lift along a general prism quotient A/I². This input is essential to the p=2 integral exterior-power argument.",
-   "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
-  },
-  {
-   "title": "Crystalline coefficients over mixed-characteristic p-adic bases",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.3/bkf-crystalline-dieudonne",
-    "PrismaticCohomologyPartII:PD.4/crystalline-comparison",
-    "PrismaticCohomologyPartII:PD.4/admissibility-and-lie",
-    "PrismaticCohomologyPartII:PD.7/kisin-functor-comparison"
-   ],
-   "detail": "Construct the compatible crystalline Dieudonné evaluations over R/pⁿ and their p-adic limit, including the coefficient comparison and Hodge/Lie sequence on the relevant PD thickenings (AL23 Lemma 4.3.3 and §4.6, pp. 46–48, 58–65). CR.7/dieudonne-evaluation explicitly assumes characteristic p; that declaration alone does not provide this mixed-characteristic coefficient theory.",
-   "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
-  },
-  {
-   "title": "Characteristic-p connection in the regular Breuil–Kisin comparison",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.7/breuil-kisin-comparison"
-   ],
-   "detail": "For R=k⟦u⟧ prove existence and uniqueness of the integrable topologically quasi-nilpotent horizontal connection on the relevant minuscule module, as used in AL23 Theorem 5.2.5, p. 79 (which refers to de Jong Proposition 2.7.3). The general crystalline evaluation supplier does not state this automatic-connection theorem. The mixed-characteristic DVR proof in AL23 pp. 79–84 does not prove this separate characteristic-p step.",
-   "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
-  },
-  {
-   "title": "Compatible smooth presentation for the full-BT display functor",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.7/display-functor"
-   ],
-   "detail": "Provide a compatible ind-smooth affine presentation of the height-h full Barsotti–Tate moduli problem and its relation spaces, or an equivalent effective inverse-limit construction from the smooth BT_n stacks. Prove p-torsion-freeness of the completed presentation rings and that the universal Nygaard-window construction descends naturally along the relation. Smoothness at each finite level does not by itself prove this assertion (AL23 Proposition 5.3.4, pp. 88–89).",
-   "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
-  },
-  {
-   "title": "Unrestricted Zink–Lau proof and identification with Z_R",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.7/zink-lau-classification"
-   ],
-   "detail": "Read Lau08 Theorem 1.1 and its proof from a cleared or public source, then supply the deformation-level comparison between its dualized BT construction and the specific prismatic display functor Z_R. The erratum confirms the theorem survives, but does not provide this comparison proof. Neither perfect-field agreement nor the abelian-scheme Grothendieck–Messing theorem suffices. This is the review’s unverified node.",
-   "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
-  },
-  {
-   "title": "Integral perfectoid v-site and its quasi-syntomic morphism",
-   "neededBy": [
-    "PrismaticCohomologyPartII:PD.7/etale-comparison"
-   ],
-   "detail": "Construct the integral perfectoid R-algebra v-site, its generic-fibre morphism j and the morphism α induced on the QRSP basis by universal perfectoidization (AL23 §5.4, pp. 91–93). PerfectoidQuotients Q2 supplies the algebraic perfectoidization target, and DiamondsAndVStacks D3 supplies the generic v-site; neither supplier statement constructs the integral site and the adjunction needed here.",
    "addedBy": "REV-DESIGN-PrismaticCohomologyPartII"
   },
   {
@@ -5286,7 +6012,7 @@
     "PELModuli"
    ],
    "detail": "The tier-13 prismatic bundle cannot import the tier-18 Hodge–Tate group sequence or displays from the separate PEL bundle.",
-   "proposal": "Own the Hodge–Tate map and sequence in PD.3/p-divisible-hodge-tate-sequence and general displays in PD.7/display. The later HodgeTateAndCanonicalSubgroups T0/T2 and PELModuli M2 plans should import these targets. No higher-roadmap files are edited here."
+   "proposal": "Own the Hodge–Tate map and sequence in PD.3/p-divisible-hodge-tate-sequence and general displays in PD.7/display. The higher-tier HodgeTateAndCanonicalSubgroups T0/T2 and PELModuli M2 plans should import these targets. No higher-roadmap files are edited here."
   }
  ],
  "sourceIssues": [
@@ -5296,14 +6022,15 @@
    "kind": "gap",
    "locator": "arXiv v4 §5.2 and Theorem 5.2.5, p. 79; published Theorem 5.12 and preceding paragraph, p. 74",
    "printed": "Theorem 5.2.5 is stated for every complete regular local ring R = W(k)⟦u₁, …, u_d⟧/(E) with perfect residue field, but the text fixes d = 1 for simplicity before the proof and expresses the hope that the general case works similarly.",
-   "correction": "The written prismatic descent proof is in one variable. This packet restricts its direct proof to dimension at most one, with a separate characteristic-p connection gap; higher-dimensional compatibility with evaluation remains a gap. This does not assert that the general Breuil-window classification is false.",
-   "reason": "The proof of Lemma 5.2.8 and the computation of the self-coproduct B = A ⊗̂ A are written in one variable u; for several variables the ideal J and the topological nilpotence of φ/E on it are not treated.",
+   "correction": "The written AL23 contraction proof is one-variable. Use Ito25 Proposition 7.1.1 and §§6.2–6.5 for the general prismatic evaluation equivalence, including equal characteristic. Its two-ideal estimates and parameter-adic completeness replace the unavailable general contraction on the diagonal kernel. The target retains every dimension.",
+   "reason": "The proof of Lemma 5.2.8 and the computation of the self-coproduct B = A ⊗̂ A are written in one variable u; for several variables the ideal J and the topological nilpotence of φ/E on it are not treated. Ito25 Remark 6.2.10 explicitly explains why (p,d)-adic topological nilpotence may fail in several variables or equal characteristic and supplies a different argument.",
    "affects": "the proof",
-   "known": "new",
+   "known": "known",
    "searched": [
     "arXiv v4",
     "open-access published version, p. 74",
-    "AL23 2025 erratum, p. 1"
+    "AL23 2025 erratum, p. 1",
+    "Ito25 Remark 6.2.10, p. 54, and Proposition 7.1.1, p. 62"
    ],
    "review": {
     "verdict": "confirmed",
@@ -5391,6 +6118,50 @@
     "reason": "A rational line gives H a projective point and must give formal height one; the printed subtraction gives a negative height. This also agrees with the full Drinfeld half-space example of height h.",
     "by": "REV-DESIGN-PrismaticCohomologyPartII"
    }
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E6",
+   "source": "Lau08",
+   "kind": "error",
+   "locator": "Lau13 §8.2, p. 37, correcting Lau08 Lemma 3.3 and its use in Proposition 3.4",
+   "printed": "Lau13 reports that the earlier proof treated composition of admissible reduced faithfully flat coverings over a noetherian base as preserving reduced self-tensor products, by incorrectly inferring separability of a field extension from a reduced self-tensor product.",
+   "correction": "Use the actual separability hypothesis of Lau13 Lemma 8.6; those hypotheses hold for the two specific maps in the older application and are preserved on composition. The independent truncated-display proof in Lau13 §5 does not use the false lemma.",
+   "reason": "Lau13 Example 8.7 constructs two such coverings whose composite has a nonreduced self-tensor product. The issue is known from the directly read correction; no direct inspection of Lau08 is claimed.",
+   "affects": "the proof",
+   "known": "Lau13 §8.2, Lemma 8.6 and Example 8.7, p. 37",
+   "searched": [
+    "Lau13 §§8.1–8.2, pp. 36–37"
+   ]
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E7",
+   "source": "Lau13",
+   "kind": "misprint",
+   "locator": "arXiv:1006.2723v1, definition preceding Lemma 3.5, p. 14; preprint only",
+   "printed": "The coefficient ring of the finite free module in a level-n Dieudonné module is given as W(k).",
+   "correction": "Use W_n(k). Retain the additional kernel/image condition for n=1.",
+   "reason": "The proof of Lemma 3.5 starts with finite free W_n(k)-modules and preserves their module structure. A nonzero free W(k)-module is not killed by p^n, whereas every underlying module of a level-n truncated display is.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv submission history: v1 is the only version (checked 2026-10-19)",
+    "Author publication page: no separate correction listed; publisher DOI refused access with HTTP 403, so no claim about the journal text"
+   ]
+  },
+  {
+   "id": "PrismaticCohomologyPartII/E8",
+   "source": "Lau13",
+   "kind": "misprint",
+   "locator": "arXiv:1006.2723v1, proof following Remark 4.8, p. 23; preprint only",
+   "printed": "The last two components of the two rank-one six-tuples are displayed in the reverse order from (F,F₁) used in Definition 3.4.",
+   "correction": "For the constant étale group put (F,F₁)=(pf,f); for the multiplicative group put (F,F₁)=(f,f₁). Keep P,Q,ι,ε as given. The resulting Hom equation used in the argument is unchanged.",
+   "reason": "At level one over a perfect field the printed étale F₁=pf is zero and cannot generate its nonzero module P. For the multiplicative tuple f₁ is defined on Q=I_(n+1), not on all P. Swapping the last components agrees with the covariant crystalline normalization of §2.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1006.2723v1 Definitions 3.1–3.4 and Lemma 3.5, pp. 12–14",
+    "arXiv submission history and author publication page checked 2026-10-19; publisher DOI refused access with HTTP 403"
+   ]
   }
  ],
  "sourceVersions": [
@@ -5422,6 +6193,18 @@
    "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F37879186079B53D1BB92F28AFD12BFC/S2050508622000221a.pdf/div-class-title-prismatic-dieudonne-theory-div.pdf",
    "read": "2026-10-17",
    "sha256": "567d794c7e2ff4db80ac47a0ca2466148c92b8c0f3cfa039a68c7adf67bbe20c"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1006.2723v1",
+   "read": "2026-10-19",
+   "sha256": "e3d4c594402d71f6ec9f270b76ecfbcb74524709c74aec37e64eaca125496115"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/2303.15814v3",
+   "read": "2026-10-19",
+   "sha256": "0973c0e7185dab1341493635879f3d07fff7886336f2b32d54952b1ee3cee504"
   }
  ],
  "upstreamNotes": [
