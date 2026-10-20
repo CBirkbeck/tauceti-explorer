@@ -45023,7 +45023,9 @@
     "BP-QSeriesPartitionsAndMockModularForms~3"
    ],
    "prompt": "research/blueprint/prompts/REV-QSeriesPartitionsAndMockModularForms~3.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10883",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "kind": "blueprint",
@@ -49558,7 +49560,9 @@
     "PKG-ArithmeticDynamics"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticDynamics.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10890",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "PKG-ArithmeticDynamicsPartII",
@@ -54422,7 +54426,9 @@
     "PKG-FiniteFieldsAndCharacterSums"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FiniteFieldsAndCharacterSums.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10899",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "PKG-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -58315,7 +58321,8 @@
     "PKG-LogicAndDefinabilityInNumberTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-LogicAndDefinabilityInNumberTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10904"
   },
   {
    "id": "PKG-LogicAndDefinabilityInNumberTheoryPartII",
@@ -60908,7 +60915,9 @@
     "PKG-ProbabilisticAndMetricNumberTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10909",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "PKG-ProbabilisticAndMetricNumberTheoryPartII",
@@ -62660,7 +62669,8 @@
     "PKG-TropicalAndBerkovichArithmetic"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-TropicalAndBerkovichArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10910"
   },
   {
    "id": "PKG-TwistedAutomorphicDescents",
@@ -152474,7 +152484,9 @@
     "BP-OverconvergentAutomorphicForms--O0~3",
     "BP-OverconvergentAutomorphicForms--O0~4"
    ],
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11303",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "FIX-PKG-RefinedTraceMethods~adv2",
@@ -154176,9 +154188,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-AdditiveCombinatorics~adv.md",
-   "note": "claimed on GitHub issue #11474"
+   "note": "deliverables arrived from an external worker on issue #11474",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "REV-PKG-HabiroRings~codex4",
@@ -154197,9 +154210,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex4.md",
-   "note": "claimed on GitHub issue #11484"
+   "note": "deliverables arrived from an external worker on issue #11484",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "REV-PKG-FunctionFieldArithmetic~codex2",
@@ -154218,8 +154232,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-FunctionFieldArithmetic~codex2.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-FunctionFieldArithmetic~codex2.md",
+   "note": "deliverables arrived from an external worker on issue #11489",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "FIX-PKG-HabiroRings~adv5",
@@ -154237,8 +154253,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv5.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv5.md",
+   "note": "deliverables arrived from an external worker on issue #11490",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "BP-OverconvergentAutomorphicForms--O0~5",
@@ -154315,8 +154333,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicPadicLFunctions~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicPadicLFunctions~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11493",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "BP-QSeriesPartitionsAndMockModularForms~4",
@@ -154392,8 +154412,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex5.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex5.md",
+   "note": "deliverables arrived from an external worker on issue #11499",
+   "finishedAt": "2026-10-20T19:46:54Z"
   },
   {
    "id": "FIX-PKG-FiniteFieldsAndCharacterSums~adv",
