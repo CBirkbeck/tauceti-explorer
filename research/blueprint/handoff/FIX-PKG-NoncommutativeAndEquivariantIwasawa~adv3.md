@@ -1,0 +1,46 @@
+# Handoff: FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv3
+
+Worker: Claude (Opus 5.5), session `claude-XzVSZM`. Issue #11317, claimed 2026-10-20 (bot comment on 6283373837). Branch `claude-XzVSZM-fix-noncomm-adv3`. Deliverables changed: the package `README.md`, `review.json` and this note. `Suggested.lean` is unchanged: the new targets need K₁ of rings, which the pins do not have, so they are README targets, and the file's closing inventory already lists §3.11.
+
+**Inputs.** The findings are those of `research/blueprint/reviews/REV-PKG-NoncommutativeAndEquivariantIwasawa~codex2.md` (#11293). The sibling job FIX ~adv (#11315, PR #11319) addressed the same review and merged while this job was in progress. This fix starts from main after that merge and closes what it left open: the Dress–Wall–Oliver induction behind `dressWall_induction` and `sk1_vanish_abelianSylow`, and the J-adic `k1_continuity`. I re-read #11319's resolutions of findings 1, 2, 3, 5 and 6 (§§0.5, 0.11, 2.7/2.9, 4.5, 7.15–7.17) and kept them; the spot checks are in the table below.
+
+**Verdict: accepted.** One classical theorem is cited without proof: Fukaya–Kato Proposition 1.5.1 (`k1_continuity`). No target depends on it any more. Swan's theorem is used as stated in Chinburg–Pappas–Taylor I (a Curtis–Reiner textbook result). The Witt–Berman identities are ClassicalArithmeticCompletion §7.63's.
+
+## Findings → changes
+
+| Finding (codex2) | Change |
+|---|---|
+| 1. §0.5 filtered transfer | Resolved by #11319 (`filtered_gldim_le`, `filtered_grade_ge`). Re-read: the strict-lifting construction, the graded-projective syzygy and the idempotent refinement x↦3x²−2x³ in the complete ring of filtered endomorphisms are sound. No change. |
+| 2. §0.11 nonuniform global dimension | Resolved by #11319 (`brumer_gldim`). Re-read: minimal resolutions over the adic ring; Ext of simples as continuous cohomology (Ribes–Zalesskii 6.2.4); Serre's theorem; Tor change of rings along ϖ for O[[G]]. No change. |
+| 3. §2.7 determinant presentation | Resolved by #11319 (§2.9 step 5, Muro–Tonks–Witte presentation and a five lemma on the fibre groupoid). No change. |
+| 4. §3.11 finite Whitehead inputs and continuity | **This fix.** (a) §3.11 defines SK₁(Λ_𝒪(G)) as the kernel of K₁(Λ_𝒪(G)) → lim_Δ K₁(L[Δ]) and proves `k1Prime_equiv_limit` (K′₁(Λ_𝒪(G)) ≅ lim_Δ K′₁(𝒪[Δ])) by compactness of the fibres of the reduced norm, with no K₁ continuity. Corollary 20 is `k1Prime_equiv_limit_proP` by cofinality. (b) `sk1_pGroup`, Wall's theorem that SK₁(𝒪[P]) is a finite p-group for every finite P and every 𝒪, is new. Its proof uses finiteness (CPT II Thm 1.5) and SK₁(𝒪[Q]) = 1 for p ∤ \|Q\| (matrix-unit lifting, E_i = W_i). For a normal Sylow p-subgroup the class lies in the image of the pro-p group 1 + I (CPT II Lemmas 2.1–2.2), which is ℓ-divisible, and finiteness bounds ℓ-torsion. The general case follows by ℓ-local Witt–Berman (CPT II Thm 4.3; CAC §7.63) with the Green-module structure (CPT I Props 5.1–5.2). (c) `sk1_vanish_abelianSylow` is proved by p-local Witt–Berman reduction to ℚ_p-p-elementary subgroups and CPT II Corollary 5.4 (self-contained there, unlike their Theorem 1.7), for W unramified. For a normal abelian Sylow subgroup and every 𝒪, those subgroups are abelian, which covers §6.5. (d) `dressWall_induction` is proved for K′-elementary subgroups, any ℚ_p ⊆ K′ ⊆ Frac 𝒪, by Dress's Mackey argument (CPT II Thm 4.4) from the integral Witt–Berman identity (ideal of ℤ argument; CAC §7.63 for K′ = ℚ_p). Here K′₁(𝒪[−]) ⊂ K₁(K[−]) is a Green module over G₀(K′[−]) without Swan. (e) `k1_continuity` stays a cited theorem (FK 1.5.1, restated by Kakde p. 18 and Witte JTNB 2016 §2 p. 92). Its surjectivity is proved; its injectivity is reduced to the finite-level CPT II Theorems 1.2/2.4 plus the cited statement. It is used only to identify K′₁ with Kakde's Definition 7 and for the K₁-level clause of §6.5. (f) §6.5 is restated at the K′₁ level: finite-level surjectivity through the pro-p group J_n = Det(1+I) and its (P:P₁)-th roots, injectivity by characters, then the limit; Kakde's K₁ statement is the clause conditional on `k1_continuity`. §6.4 step 1 now points to the proved theorem; Lemma 26 and §6.6 step 1 pass to limits with `k1Prime_equiv_limit`. §5.5 gains `kprime_normalization`, and §6.34 records that its K′₁ is Kakde's under `k1_continuity`. E42, the Scope list, the CAC §7.63 contract, the source paragraph and the References (CPT I arXiv:0904.2563, CPT II items, Witte JTNB, Curtis–Reiner) are updated. |
+| 5. §4.5 perfection with p-torsion | Resolved by #11319. Re-read: flat cochains give Tor-amplitude [0,2]; minimal complexes over the finite symmetric algebra; adic limit (Witte Prop. 3.7). No change. |
+| 6. §§7.15–7.17 | Resolved by #11319: η_p, inertia descent with Deligne (5.4), Nekovář 12.5.6 and 11.1.4/11.2.8/11.3.9/8.10.1. No change. |
+
+## Adversarial pass on the touched statements
+
+| Statement | Instances tried | Result |
+|---|---|---|
+| `k1Prime_equiv_limit` | G = 1; G = Γ; G = ℤ_p × C_p (p-torsion) | K′₁ = 𝒪^×; SK₁(Λ(Γ)) = 1 since a power series equal to 1 at all ζ−1 is 1; the compactness argument does not use torsion-freeness. The Check `kernel_needs_all_levels` shows that γ^(p^n) is invisible at levels ≤ n, so no finite set of levels defines SK₁ |
+| `sk1_pGroup` | P = 1; P = C_ℓ (ℓ≠p); P = C_p; S₃ at p = 2 and 3; ramified 𝒪 | trivial; product of unramified rings; commutative; ℓ = 3 reduction lands on C₂, C₃, which have normal Sylow subgroups; residue-field argument works for any 𝒪 |
+| `sk1_vanish_abelianSylow` | D abelian; S₃ at p = 3 (normal C₃) and p = 2 (non-normal C₂); D = C_(p^n) × (C⋊P); Q₈ at p = 2 | 1; abelian elementary subgroups; Cor. 5.4 with H_3 = 1, H_1 = C₂; normal abelian Sylow; outside the hypothesis (no claim). For p-groups with H̄₂ ≠ 0, CPT II Thm 1.6 gives SK₁ ≠ 0, so the hypothesis is not removable |
+| `dressWall_induction` | P K′-elementary; S₃ at p = 7; p = 2 | tautological; S₃ not ℚ₇-elementary, 1 = Ind_{C₂}1 − Ind_{C₃}ω and ψ = Ind_{C₃}ω; Witt–Berman holds for every prime |
+| `k1_continuity` | G = Γ; G finite | commutative local, immediate; CPT II Thms 1.2/2.4 |
+| §6.5 | C = C_p, P = C₂ by inversion, n = 0; p ∤ #C; (P:P₁) | N = C_p, C̄ = 1, J_0 = Det(1+I_(C_p)) ⊆ 1+(ζ_p−1)ℤ_p[ζ_p], squaring bijective; §6.1; index prime to p (needed for the roots; fails for l = p, hence §6.6) |
+| §5.5 `kprime_normalization` | continuity holds / not assumed | the same group / the quotient through which ∂ and the evaluations factor; Layer 6 proves this form |
+
+## Sources read (all free or maintainer-cleared; read as data)
+
+Chinburg–Pappas–Taylor II, arXiv:1303.5337v3: §2 pp. 6–9; §4 pp. 29–32; §5 pp. 32–37; §6.a; intro pp. 1–5. Printed page = header page; Lemma 2.1 p. 6, Prop 2.3 p. 7, Props 4.1–4.2 p. 29, Thm 4.3 p. 30, Thm 4.4 p. 32, Cor 5.4 pp. 35–36. Their Theorem 1.7 for general G uses Oliver 11.9 (their Thm 4.7); Theorem 5.5's injectivity uses Oliver 8.3/8.9. Corollary 5.4 uses neither. Chinburg–Pappas–Taylor I, arXiv:0904.2563v1, Props 5.1–5.2 p. 27, Thm 5.4 p. 28. Kakde arXiv:1008.0142v3, Defs 6–7 p. 9, Lemma 19 pp. 17–18, Thm 25 p. 20, §4.3 pp. 23–27. Witte, JTNB 28 (2016) 89–113 (Numdam), §2 p. 92 (restates FK 1.5.1 without proof). Witte's habilitation (Heidelberg) §2.4 also restates without proof. TauCetiRoadmap main 1817e1f (fetched 2026-10-20): ClassicalArithmeticCompletion §7.63 (owns the field-of-definition Witt–Berman identities, after CPT I Thm 5.4); RepresentationTheory/ModularInduction (no Swan or decomposition-map theorem; it avoids Brauer characters). Not obtained: Fukaya–Kato 2006, Oliver's book, Curtis–Reiner, Vaserstein 2005 (J. Algebra, Elsevier open archive, but scripted fetch was refused).
+
+## Notes for later jobs
+
+- A proof of FK 1.5.1 would make `k1_continuity` a proved target. Its content is the closedness of E(Λ) (equivalently of ker(Λ^× → K₁)) in the J-adic topology. Possible routes: bounded commutator width over semilocal rings (Vaserstein–Wheland, LAA 142 (1990), stated there for commutative rings), or Vaserstein, J. Algebra 283 (2005), where the kernel is the commutator subgroup for semilocal rings without 𝔽₂/M₂(𝔽₂) factors, combined with a bounded-width argument. K₂(Λ/J) = 0 (finite semisimple), so K₁(Λ,J) → K₁(Λ) is injective, which may help.
+- The ownership moves of #11319's handoff stand. New in this fix: Wall's p-group theorem and the abelian-Sylow SK₁ vanishing are owned in §3.11 for every 𝒪. KTheoryLowDegrees U.3/U.5 requests can point there.
+- No fetched text contained instructions; nothing suspicious. No subagents were used.
+
+## Validation
+
+- `lean-check research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/Suggested.lean`: exit 0, exactly five `declaration uses sorry` warnings (lines 71, 96, 113, 138, 144), no errors; about 83 GB available. File unchanged.
+- `python3 scripts/check_sorry_data.py` on Suggested.lean: exit 0. `python3 scripts/check_blueprint.py research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json`: 0 errors, 0 warnings (packet unchanged).
+- Static README checks: 135 anchors, all 373 internal links resolve; layer counts 15, 14, 15, 14, 8, 8, 36, 24 (unchanged); no local paths. The gate's `mech_check.py` output is unchanged apart from the count of backticked identifiers (369 → 379).
