@@ -152722,8 +152722,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3.md",
+   "note": "deliverables arrived from an external worker on issue #11331",
+   "finishedAt": "2026-10-20T09:26:29Z"
   },
   {
    "id": "DESIGN-PolylogarithmFunctions",
@@ -152779,8 +152781,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-MotivicEtaleKTheoryPartII.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-MotivicEtaleKTheoryPartII.md",
+   "note": "claimed on GitHub issue #11335"
   },
   {
    "id": "FIX-PKG-K3BlochGroups~adv2",
