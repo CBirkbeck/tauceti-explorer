@@ -171,7 +171,8 @@ valuation-tail proofs stay in the README.
 
 Layer 1: HigherMilnor.iteratedResidue and its parameter/sign API; TopMilnorK (ofMilnor,
 symbol, lift, kernel), its Lambda quotient and sequential topology; MilnorUnitFiltration
-(subgroup, antitone, topImage, one); Parshin convergent expansions and topological norms.
+(subgroup, antitone, topImage, one, rankPrincipal, rankPrincipal_top,
+outer_one_le_rankPrincipal); Parshin convergent expansions and topological norms.
 
 Layer 2: KatoCoefficients (complex, primeToChar, wildShift, coprimeSplit);
 KatoCohomology (finiteToTorsion, primary, wild, torsion); logarithmic coefficient
