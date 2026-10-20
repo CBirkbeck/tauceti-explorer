@@ -1,14 +1,14 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-20T09:04:17Z",
- "exported_at": "2026-10-20T09:04:17Z",
+ "cutoff": "2026-10-20T14:50:45Z",
+ "exported_at": "2026-10-20T14:50:45Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 333,
-  "recent": 10616,
-  "total": 17444,
+  "open": 325,
+  "recent": 10635,
+  "total": 17513,
   "unattributed": {
-   "no_label": 1592,
+   "no_label": 1593,
    "several_labels": 0,
    "unknown_area": 0
   },
@@ -28,20 +28,20 @@
    2267,
    2827,
    3120,
-   638
+   707
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "5753fe0bbd0858278c89a26a926d2c82b8aef6ae",
+ "roadmap_head": "098fab0117befc8e1c6b63ecf3e707ffbd1f5373",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-20T06:09:50Z",
-    "open": 2,
-    "recent": 1,
+    "last": "2026-10-20T10:07:52Z",
+    "open": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -114,7 +114,7 @@
   {
    "activity": {
     "last": "2026-10-20T02:28:19Z",
-    "open": 2,
+    "open": 3,
     "recent": 293,
     "since_report": 85,
     "total": 599,
@@ -222,11 +222,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T06:50:21Z",
-    "open": 3,
-    "recent": 12,
+    "last": "2026-10-20T11:23:52Z",
+    "open": 1,
+    "recent": 14,
     "since_report": null,
-    "total": 12,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -243,7 +243,7 @@
      0,
      0,
      9,
-     3
+     5
     ]
    },
    "arxiv": "math.AG",
@@ -329,7 +329,31 @@
    "topic": "Algebraic Geometry"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.AG",
    "assessment": {
     "detail": null,
@@ -426,11 +450,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T04:23:50Z",
+    "last": "2026-10-20T11:54:35Z",
     "open": 5,
-    "recent": 9,
+    "recent": 10,
     "since_report": null,
-    "total": 9,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -447,7 +471,7 @@
      0,
      0,
      7,
-     2
+     3
     ]
    },
    "arxiv": "math.CV",
@@ -622,11 +646,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T20:39:12Z",
+    "last": "2026-10-20T12:07:24Z",
     "open": 1,
     "recent": 231,
-    "since_report": 2,
-    "total": 249,
+    "since_report": 3,
+    "total": 250,
     "weekly": [
      0,
      0,
@@ -643,7 +667,7 @@
      39,
      72,
      92,
-     4
+     5
     ]
    },
    "arxiv": "math.AT",
@@ -746,11 +770,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T11:07:42Z",
-    "open": 3,
-    "recent": 109,
-    "since_report": 0,
-    "total": 116,
+    "last": "2026-10-20T13:52:48Z",
+    "open": 2,
+    "recent": 111,
+    "since_report": 2,
+    "total": 118,
     "weekly": [
      0,
      0,
@@ -767,7 +791,7 @@
      28,
      26,
      33,
-     5
+     7
     ]
    },
    "arxiv": "math.AG",
@@ -867,7 +891,7 @@
   {
    "activity": {
     "last": "2026-10-19T03:30:33Z",
-    "open": 1,
+    "open": 2,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -954,11 +978,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:55:19Z",
-    "open": 2,
-    "recent": 106,
-    "since_report": 48,
-    "total": 131,
+    "last": "2026-10-20T09:27:44Z",
+    "open": 1,
+    "recent": 107,
+    "since_report": 49,
+    "total": 132,
     "weekly": [
      0,
      0,
@@ -975,7 +999,7 @@
      29,
      26,
      23,
-     7
+     8
     ]
    },
    "arxiv": "math.AG",
@@ -1077,11 +1101,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T07:49:51Z",
+    "last": "2026-10-20T09:42:18Z",
     "open": 1,
-    "recent": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -1098,7 +1122,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.FA",
@@ -1129,11 +1153,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:27:59Z",
+    "last": "2026-10-20T11:54:32Z",
     "open": 2,
-    "recent": 36,
-    "since_report": 1,
-    "total": 36,
+    "recent": 37,
+    "since_report": 2,
+    "total": 37,
     "weekly": [
      0,
      0,
@@ -1150,7 +1174,7 @@
      0,
      0,
      31,
-     5
+     6
     ]
    },
    "arxiv": "math.FA",
@@ -1212,7 +1236,7 @@
   {
    "activity": {
     "last": "2026-10-19T21:24:12Z",
-    "open": 2,
+    "open": 3,
     "recent": 130,
     "since_report": 1,
     "total": 159,
@@ -1415,7 +1439,7 @@
    "activity": {
     "last": "2026-10-19T20:53:25Z",
     "open": 2,
-    "recent": 75,
+    "recent": 70,
     "since_report": 4,
     "total": 192,
     "weekly": [
@@ -1663,11 +1687,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:00:17Z",
-    "open": 3,
-    "recent": 428,
-    "since_report": 146,
-    "total": 462,
+    "last": "2026-10-20T09:42:20Z",
+    "open": 2,
+    "recent": 429,
+    "since_report": 147,
+    "total": 463,
     "weekly": [
      0,
      0,
@@ -1684,7 +1708,7 @@
      104,
      140,
      91,
-     8
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -1904,11 +1928,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T23:59:59Z",
-    "open": 3,
-    "recent": 25,
-    "since_report": null,
-    "total": 25,
+    "last": "2026-10-20T08:56:08Z",
+    "open": 2,
+    "recent": 26,
+    "since_report": 1,
+    "total": 26,
     "weekly": [
      0,
      0,
@@ -1925,7 +1949,7 @@
      0,
      0,
      21,
-     4
+     5
     ]
    },
    "arxiv": "math.AT",
@@ -1933,9 +1957,13 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Stage 2": "a classical CWComplex univ structure on the cellular model and its local path-connectedness and semilocal simple connectivity",
+     "Stage 3": "uniqueness of K(G,1) spaces of CW type, homotopy uniqueness in item 11, the explicit comparison of the two models, homotopy functoriality",
+     "Stage 4": "the cellular projective resolution, homology and cohomology in all degrees with coefficients, the bar-resolution comparison, remaining checks"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/ClassifyingSpaces",
@@ -1965,20 +1993,50 @@
    "readme_sha": "203f7652628fbfb5e4898c586966fed7d25d774971cffad6c3baa942b8b30177",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "done",
+    "partial",
+    "partial",
+    "partial"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Uniqueness of `K(G, 1)` spaces of CW type (item 12).",
+      "text": "Whitehead's theorem is already used for the circle case, and the existence half of item 11 is in place. What remains is uniqueness up to pointed homotopy in item 11 and the reduction for spaces of CW type on both sides."
+     },
+     {
+      "name": "A classical CW structure on the cellular model (item 9).",
+      "text": "Convert the relative CW complex over the presentation complex into a `CWComplex univ`, and prove the cellular model locally path-connected and semilocally simply connected so that its existence theorem matches Stage 1's."
+     },
+     {
+      "name": "The two models agree (item 14).",
+      "text": "Milnor's model is already a CW complex, so once uniqueness lands this needs the cellular model's CW structure and an explicit equivalence with a homotopy inverse."
+     },
+     {
+      "name": "The cellular resolution (item 16).",
+      "text": "The free `ℤ[G]`-complex of lifted cellular chains exists. Exactness needs the Hurewicz theorem and the comparison of cellular with singular homology from the algebraic-topology roadmap, packaged as a `ProjectiveResolution`."
+     },
+     {
+      "name": "Homotopy functoriality (item 15)",
+      "text": "and the remaining checks of item 19, such as wedges of circles, tori and `H₂` of a finite cyclic group."
+     }
+    ],
+    "glance": "The simplicial model (Stage 1) is complete, and the cellular model exists as a `K(G, 1)` for every group. Uniqueness, the comparison of the two models, and the comparison with group homology beyond degree one remain open, though the CW-and-coverings machinery they need is in place.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/ClassifyingSpaces/STATUS.md",
+    "progress_path": "TauCetiRoadmap/ClassifyingSpaces/PROGRESS.md",
+    "report_sha": "408211e67b58e62ec30960d34fc86dbd4c51f55a5c717e3f5b227e8fb421aea0",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "classifying spaces of discrete groups",
    "topic": "Algebraic Topology"
   },
   {
    "activity": {
     "last": "2026-10-20T02:53:00Z",
-    "open": 1,
-    "recent": 170,
+    "open": 2,
+    "recent": 168,
     "since_report": 39,
     "total": 286,
     "weekly": [
@@ -2089,7 +2147,7 @@
   {
    "activity": {
     "last": "2026-10-19T19:19:56Z",
-    "open": 2,
+    "open": 4,
     "recent": 13,
     "since_report": null,
     "total": 13,
@@ -2164,11 +2222,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T11:20:44Z",
+    "last": "2026-10-20T10:33:37Z",
     "open": 4,
-    "recent": 2,
+    "recent": 3,
     "since_report": null,
-    "total": 2,
+    "total": 3,
     "weekly": [
      0,
      0,
@@ -2185,7 +2243,7 @@
      0,
      0,
      0,
-     2
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -2216,11 +2274,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T04:12:09Z",
+    "last": "2026-10-20T09:55:28Z",
     "open": 0,
-    "recent": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -2237,7 +2295,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.CV",
@@ -2264,6 +2322,66 @@
    "states": [],
    "status": null,
    "title": "Complex manifolds, Dolbeault theory, and Kähler geometry",
+   "topic": "Complex Variables"
+  },
+  {
+   "activity": null,
+   "arxiv": "math.CV",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/ComplexManifolds",
+   "layer_ids": [
+    "Milestone 1",
+    "Milestone 2",
+    "Milestone 3",
+    "Milestone 4",
+    "Milestone 5",
+    "Milestone 6",
+    "Milestone 7"
+   ],
+   "layer_lines": [
+    172,
+    197,
+    221,
+    238,
+    267,
+    296,
+    319
+   ],
+   "layers": [
+    "Milestone 1: restriction of scalars and atlas transport",
+    "Milestone 2: the canonical real orientation",
+    "Milestone 3: the Riemann sphere",
+    "Milestone 4: smooth and complex quotients",
+    "Milestone 5: compatible open gluing",
+    "Milestone 6: finite-gluing topology and proper maps",
+    "Milestone 7: holomorphic vector and line bundles"
+   ],
+   "links": [],
+   "name": "ComplexManifolds",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/ComplexManifolds/README.md",
+   "readme_sha": "b59f20f43beaae6e9a41f2055c9bfceeeb3fb81bf4e3c01d706d640d8aee1c78",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "Complex manifolds: transport, quotients, bundles, and gluing",
    "topic": "Complex Variables"
   },
   {
@@ -2465,11 +2583,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T05:53:13Z",
-    "open": 3,
-    "recent": 129,
-    "since_report": 39,
-    "total": 175,
+    "last": "2026-10-20T09:42:43Z",
+    "open": 2,
+    "recent": 130,
+    "since_report": 40,
+    "total": 176,
     "weekly": [
      0,
      0,
@@ -2486,7 +2604,7 @@
      32,
      20,
      42,
-     8
+     9
     ]
    },
    "arxiv": "math.CT",
@@ -2605,11 +2723,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T06:50:54Z",
+    "last": "2026-10-20T13:52:07Z",
     "open": 6,
-    "recent": 120,
-    "since_report": 6,
-    "total": 120,
+    "recent": 121,
+    "since_report": 7,
+    "total": 121,
     "weekly": [
      0,
      0,
@@ -2626,7 +2744,7 @@
      0,
      52,
      59,
-     9
+     10
     ]
    },
    "arxiv": "math.SG",
@@ -2747,7 +2865,7 @@
   {
    "activity": {
     "last": "2026-10-20T00:42:45Z",
-    "open": 2,
+    "open": 1,
     "recent": 80,
     "since_report": 16,
     "total": 138,
@@ -2932,11 +3050,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T05:19:55Z",
+    "last": "2026-10-20T11:54:34Z",
     "open": 9,
-    "recent": 132,
-    "since_report": 12,
-    "total": 132,
+    "recent": 133,
+    "since_report": 13,
+    "total": 133,
     "weekly": [
      0,
      0,
@@ -2953,7 +3071,7 @@
      0,
      18,
      90,
-     24
+     25
     ]
    },
    "arxiv": "math.DG",
@@ -3199,11 +3317,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:53:01Z",
-    "open": 6,
-    "recent": 267,
-    "since_report": 64,
-    "total": 627,
+    "last": "2026-10-20T09:55:27Z",
+    "open": 5,
+    "recent": 266,
+    "since_report": 65,
+    "total": 628,
     "weekly": [
      0,
      0,
@@ -3220,7 +3338,7 @@
      48,
      78,
      93,
-     8
+     9
     ]
    },
    "arxiv": "math.NT",
@@ -3478,7 +3596,7 @@
    "activity": {
     "last": "2026-10-19T23:40:09Z",
     "open": 1,
-    "recent": 120,
+    "recent": 118,
     "since_report": 43,
     "total": 355,
     "weekly": [
@@ -3586,11 +3704,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T19:53:17Z",
+    "last": "2026-10-20T14:27:41Z",
     "open": 0,
-    "recent": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -3607,7 +3725,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.PR",
@@ -3639,7 +3757,7 @@
   {
    "activity": {
     "last": "2026-10-20T05:53:15Z",
-    "open": 4,
+    "open": 6,
     "recent": 27,
     "since_report": 1,
     "total": 27,
@@ -3891,11 +4009,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T05:53:16Z",
-    "open": 1,
-    "recent": 14,
+    "last": "2026-10-20T11:23:51Z",
+    "open": 0,
+    "recent": 15,
     "since_report": null,
-    "total": 14,
+    "total": 15,
     "weekly": [
      0,
      0,
@@ -3912,7 +4030,7 @@
      0,
      0,
      10,
-     4
+     5
     ]
    },
    "arxiv": "math.AT",
@@ -3944,9 +4062,9 @@
   {
    "activity": {
     "last": "2026-10-20T02:40:43Z",
-    "open": 3,
+    "open": 4,
     "recent": 29,
-    "since_report": null,
+    "since_report": 3,
     "total": 29,
     "weekly": [
      0,
@@ -3972,9 +4090,15 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "G1": "multiplicity formula for general nonsimple rectifiable curves and the worked examples (twice-traversed circle)",
+     "G2": "approximate tangent planes, density theorem, tangential differentiation and area formula, nonlinear coarea",
+     "G3": "measure-valued derivative and Radon representation, normed BV quotient, polar and Lebesgue decompositions, BV operations",
+     "G4": "compactness, smooth and strict approximation, scalar BV coarea, BV Poincare and relative perimeter estimate",
+     "G5": "reduced and essential boundary, De Giorgi structure theorem, submodularity, boundary criterion for finite perimeter"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/GeometricMeasureTheory",
@@ -4010,24 +4134,54 @@
    "readme_sha": "493856bb68627e8009120757fb11dff781b5f669279f2e65161c150d807568b9",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "untouched"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Nonlinear coarea formula",
+      "text": "— extend linear coarea and Eilenberg's inequality to Lipschitz `f : ℝⁿ → ℝᵐ`, with fibre measurability and real integrable forms; this unblocks scalar BV coarea in G4."
+     },
+     {
+      "name": "Measure-valued BV derivative",
+      "text": "— construct `Du` as a locally finite vector Radon measure whose total variation is `totalVariationOn`, then the normed `BV(Ω)` quotient and polar decomposition."
+     },
+     {
+      "name": "Tangent planes on rectifiable sets",
+      "text": "— approximate tangent planes, the density theorem and tangential differentiation, leading to the tangential area formula; De Giorgi's structure theorem depends on these."
+     },
+     {
+      "name": "Multiplicity formula for rectifiable curves",
+      "text": "— transfer the Lipschitz-curve multiplicity identity through the arclength factorization to general rectifiable curves, and use it to compute the twice-traversed circle."
+     },
+     {
+      "name": "Compactness, strict approximation and relative isoperimetry",
+      "text": "— the remaining G4 analysis, which is the input to G5's boundary structure."
+     }
+    ],
+    "glance": "The metric curve theory (G1) is essentially in place, and G2's area formula, sphere measure and polar integration are proved. Nonlinear coarea and the tangent-plane theory of rectifiable sets are still open. BV and perimeter (G3–G5) have a variational definition with its first properties, but no derivative measure, no structure theorem, and nothing yet of G6.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/GeometricMeasureTheory/STATUS.md",
+    "progress_path": "TauCetiRoadmap/GeometricMeasureTheory/PROGRESS.md",
+    "report_sha": "e920f2e3533dd860a36de1af8b198f77aa0f30301b44b9eaac3f737ba3622adc",
+    "to_sha": "9fc5d5a87d00cb696e606ccdae66420cc837c05e",
+    "ts": "2026-10-19T21:24:00Z"
+   },
    "title": "Geometric measure theory: rectifiability, BV, and finite perimeter",
    "topic": "Metric Geometry"
   },
   {
    "activity": {
-    "last": "2026-10-19T23:39:42Z",
-    "open": 1,
-    "recent": 5,
+    "last": "2026-10-20T13:52:47Z",
+    "open": 0,
+    "recent": 7,
     "since_report": null,
-    "total": 5,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -4044,7 +4198,7 @@
      0,
      0,
      0,
-     5
+     7
     ]
    },
    "arxiv": "math.RT",
@@ -4077,7 +4231,7 @@
    "activity": {
     "last": "2026-10-20T03:59:59Z",
     "open": 3,
-    "recent": 387,
+    "recent": 386,
     "since_report": 5,
     "total": 505,
     "weekly": [
@@ -4221,8 +4375,8 @@
   {
    "activity": {
     "last": "2026-10-20T07:49:50Z",
-    "open": 2,
-    "recent": 130,
+    "open": 3,
+    "recent": 129,
     "since_report": 18,
     "total": 151,
     "weekly": [
@@ -4345,7 +4499,7 @@
   {
    "activity": {
     "last": "2026-10-19T06:27:23Z",
-    "open": 0,
+    "open": 1,
     "recent": 42,
     "since_report": 10,
     "total": 61,
@@ -4479,9 +4633,9 @@
   {
    "activity": {
     "last": "2026-10-20T00:30:54Z",
-    "open": 9,
+    "open": 10,
     "recent": 21,
-    "since_report": null,
+    "since_report": 0,
     "total": 21,
     "weekly": [
      0,
@@ -4524,17 +4678,47 @@
    "readme_sha": "dd110bde0c007a001397474b6a1143f8b8026d2c7cc8ea72cdc96e4af76cc65e",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Existence of a maximum flow",
+      "text": "— prove that shortest-path augmentation is well-founded from any feasible flow. Combined with the optimality criterion, this gives max-flow/min-cut (3.1 item 4); integrality (item 5) should follow by tracking additive-subgroup membership."
+     },
+     {
+      "name": "Flow decomposition and acyclic flows",
+      "text": "— decompose nonnegative assignments into weighted paths and cycles (3.1 items 2–3); the walk assignments and path extraction already in place are the ingredients."
+     },
+     {
+      "name": "Canonical residual cuts",
+      "text": "— characterise the smallest and largest minimum `s`–`t` cuts through residual reachability from a given maximum flow (4.2). This needs nothing beyond the 4.1 lattice and the residual layer."
+     },
+     {
+      "name": "Vertex splitting and auxiliary terminals",
+      "text": "— the constructions of 1.4 that the Menger reductions of 5.2 instantiate; untouched."
+     },
+     {
+      "name": "Representation bridges and component counts",
+      "text": "— `Graph.ofSimpleGraph` walk correspondences and `componentCount` (1.1), which Milestone 2's bridge and block theory uses."
+     }
+    ],
+    "glance": "Work so far is foundational, and all of it landed in this first window. The augmenting-path optimality criterion and the lattice of minimum cuts are proved, and the walk, excess and residual layers are partly built. Max-flow/min-cut itself is not yet proved, since nothing shows a maximum flow exists. Bridges and blocks, Menger, ear decompositions, circulations and Gomory–Hu trees have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/GraphConnectivityAndFlows/STATUS.md",
+    "progress_path": "TauCetiRoadmap/GraphConnectivityAndFlows/PROGRESS.md",
+    "report_sha": "3f6b57fa4738aad30633cdd2cd63ab8f3d637411ae875a0fea72b98c0f73bd0d",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "Finite graph connectivity and network flows",
    "topic": "Combinatorics"
   },
   {
    "activity": {
-    "last": "2026-10-20T02:15:28Z",
+    "last": "2026-10-20T10:07:50Z",
     "open": 3,
-    "recent": 130,
-    "since_report": 8,
-    "total": 188,
+    "recent": 131,
+    "since_report": 9,
+    "total": 189,
     "weekly": [
      0,
      0,
@@ -4551,7 +4735,7 @@
      32,
      34,
      41,
-     2
+     3
     ]
    },
    "arxiv": "math.RT",
@@ -4652,7 +4836,31 @@
    "topic": "Representation Theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-10-20T11:41:03Z",
+    "open": 0,
+    "recent": 1,
+    "since_report": null,
+    "total": 1,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
    "arxiv": "math.SG",
    "assessment": {
     "detail": null,
@@ -4683,7 +4891,7 @@
    "activity": {
     "last": "2026-10-20T02:40:40Z",
     "open": 1,
-    "recent": 190,
+    "recent": 189,
     "since_report": 31,
     "total": 327,
     "weekly": [
@@ -4802,11 +5010,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T18:31:31Z",
-    "open": 4,
-    "recent": 31,
-    "since_report": 0,
-    "total": 31,
+    "last": "2026-10-20T11:23:12Z",
+    "open": 1,
+    "recent": 34,
+    "since_report": 3,
+    "total": 34,
     "weekly": [
      0,
      0,
@@ -4823,7 +5031,7 @@
      0,
      0,
      22,
-     9
+     12
     ]
    },
    "arxiv": "math.NT",
@@ -5020,7 +5228,7 @@
   {
    "activity": {
     "last": "2026-10-19T19:52:56Z",
-    "open": 1,
+    "open": 2,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -5070,7 +5278,31 @@
    "topic": "Complex Variables"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.NT",
    "assessment": {
     "detail": null,
@@ -5340,11 +5572,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:30:55Z",
-    "open": 5,
-    "recent": 24,
-    "since_report": null,
-    "total": 24,
+    "last": "2026-10-20T09:55:30Z",
+    "open": 4,
+    "recent": 25,
+    "since_report": 1,
+    "total": 25,
     "weekly": [
      0,
      0,
@@ -5361,7 +5593,7 @@
      0,
      0,
      21,
-     3
+     4
     ]
    },
    "arxiv": "math.MG",
@@ -5369,9 +5601,15 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "I1": "compact convex equality case of Brunn–Minkowski (homothety) and the positive-volume/nonempty-interior bridge",
+     "I2": "Steiner perimeter nonincrease, convergence to the ball, convex surface area and parallel derivative, convex isoperimetry, isodiametric equality",
+     "I3": "periodic W1,2 form, geometric signed area for BV parameters and reparametrization invariance, Jordan-area identification",
+     "I4": "the sharp perimeter inequality itself, Steiner slicing equality, and the rigidity deduction; only essential convexity is in",
+     "I5": "everything beyond Lipschitz preservation under Schwarz rearrangement: Pólya–Szegő, sharp BV Sobolev and its equality cases"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/Isoperimetry",
@@ -5407,14 +5645,44 @@
    "readme_sha": "519bbd0157575e3811baf34839db9f9416c032b4f5604d62c6c119d951bfa009",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "partial",
+    "untouched"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Brunn–Minkowski equality for convex bodies",
+      "text": "— prove that equality in the weighted inequality for positive-volume compact convex sets forces a homothety, together with the bridge between positive volume and nonempty interior. This closes I1 and is consumed directly by I4's rigidity proof."
+     },
+     {
+      "name": "Steiner perimeter nonincrease",
+      "text": "— prove `P(S_e E) ≤ P(E)` for finite-perimeter sets using the GeometricMeasureTheory roadmap's slicing and approximation. The localized comparison and its interval-section equality implication are what I4 needs."
+     },
+     {
+      "name": "Convergence of Steiner symmetrizations to the ball",
+      "text": "— find directions whose iterated symmetrals converge in `L¹` to the volume-matched ball, first for bounded finite-perimeter sets and then for all finite-volume sets via the `L¹` contraction already proved."
+     },
+     {
+      "name": "Convex surface area and the outer-parallel derivative",
+      "text": "— identify the perimeter of a convex body with its boundary Hausdorff area and with the right derivative of `|K + r B|`. Then derive the convex-body isoperimetric inequality from Brunn–Minkowski."
+     },
+     {
+      "name": "Geometric signed area for rectifiable curves",
+      "text": "— move the area–energy results from AC parameters to arbitrary continuous BV parameters via arclength, as I6 requires. This depends on the GeometricMeasureTheory roadmap's arclength parametrization and Jordan index theorem."
+     }
+    ],
+    "glance": "The two convex inequalities underneath everything else are proved: Prékopa–Leindler in every finite dimension, and Brunn–Minkowski for measurable sets. So are the sharp periodic inequalities for absolutely continuous curves, with their equality cases. Symmetrization and convex geometry are partly built. The sharp Euclidean perimeter inequality, BV Sobolev and the Jordan-curve theorem have not begun, apart from the first structural lemmas for rigidity and for rearranging Lipschitz functions.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/Isoperimetry/STATUS.md",
+    "progress_path": "TauCetiRoadmap/Isoperimetry/PROGRESS.md",
+    "report_sha": "d80f9eefb047872c75b524dbec49a39b10f82a293283f10763ef4e8d863c5d9e",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "Euclidean isoperimetry, sharp inequalities, and rigidity",
    "topic": "Metric Geometry"
   },
@@ -5422,7 +5690,7 @@
    "activity": {
     "last": "2026-10-19T17:28:27Z",
     "open": 2,
-    "recent": 126,
+    "recent": 124,
     "since_report": 1,
     "total": 227,
     "weekly": [
@@ -5536,11 +5804,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 5,
-    "recent": 0,
+    "last": "2026-10-20T09:42:44Z",
+    "open": 4,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -5557,7 +5825,7 @@
      0,
      0,
      0,
-     0
+     1
     ]
    },
    "arxiv": "math.GT",
@@ -5588,11 +5856,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T03:34:05Z",
-    "open": 1,
+    "last": "2026-10-20T13:06:23Z",
+    "open": 0,
     "recent": 137,
-    "since_report": 15,
-    "total": 160,
+    "since_report": 16,
+    "total": 161,
     "weekly": [
      0,
      0,
@@ -5609,7 +5877,7 @@
      60,
      24,
      15,
-     3
+     4
     ]
    },
    "arxiv": "math.NT",
@@ -5794,11 +6062,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T16:49:01Z",
+    "last": "2026-10-20T14:27:42Z",
     "open": 3,
-    "recent": 9,
+    "recent": 10,
     "since_report": null,
-    "total": 9,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -5815,7 +6083,7 @@
      0,
      0,
      9,
-     0
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -5870,11 +6138,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T04:23:52Z",
-    "open": 4,
-    "recent": 195,
-    "since_report": 77,
-    "total": 195,
+    "last": "2026-10-20T13:52:05Z",
+    "open": 2,
+    "recent": 197,
+    "since_report": 2,
+    "total": 197,
     "weekly": [
      0,
      0,
@@ -5891,7 +6159,7 @@
      5,
      95,
      85,
-     10
+     12
     ]
    },
    "arxiv": "math.NT",
@@ -5901,12 +6169,15 @@
     "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 0": "0C torsor and free quotients; 0D Galois equivalence; most of 0E; 0F off an affine base; 0G representability",
-     "Layer 1": "1B over general bases; 1C pole sheaves, global classification and Weierstrass presentation; 1E polarisation and descent",
-     "Layer 2": "E[N] etale over a general base; isogeny degree; 2B quotients; 2C-2F duals, Picard duality, Weil pairing",
-     "Layer 3": "full sets of sections, exact-order locus, cyclic subgroups, the other level structures, 3D comparison",
-     "Layer 4": "fppf sheafification, 4B Weierstrass presentation, 4C rigidifiers and KM 4.7.0, 4D regularity",
-     "Layer 5": "5A representability of Y1(N) for N at least 4; 5B and 5C"
+     "Layer 0": "SGA 3 V 4.1 quotients; essential surjectivity in 0D; descent of polarised curves and spreading out; universal subgroup over 0G",
+     "Layer 1": "1C pole sheaves and Weierstrass presentation; 1E polarisation and descent",
+     "Layer 2": "2B quotients E/C; 2C-2F duals, Picard duality, Weil pairing, rigidity",
+     "Layer 3": "naive Gamma0(N); the full-set locus; balanced Gamma1(N); 3D beyond Gamma1(N)",
+     "Layer 4": "4B Weierstrass presentation; KM 4.7.0; 4D regularity",
+     "Layer 5": "5B representability of Y_full(N) and the determinant map; 5C",
+     "Layer 6": "balanced Gamma1(N) and the N-Isog parameter scheme",
+     "Layer 7": "everything beyond KM 5.3.4 and relative Frobenius",
+     "Layer 9": "everything beyond the Legendre and level-three rings over the j-line"
     },
     "source": "marker"
    },
@@ -5931,12 +6202,12 @@
     597,
     900,
     1058,
-    1202,
-    1348,
-    1371,
-    1571,
-    1726,
-    2026
+    1279,
+    1425,
+    1448,
+    1648,
+    1803,
+    2103
    ],
    "layers": [
     "Layer 0: scheme-theoretic prerequisites",
@@ -5956,7 +6227,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/ModularCurves/README.md",
-   "readme_sha": "b87d5fcb9f123ffaecf21e174129ecce49a8d2c70680f89527399216f86fa735",
+   "readme_sha": "36066a37c06e5ed79765b3f2da67e986b1c2c8a8eb9b376617ed0a6652d9b641",
    "retired": null,
    "states": [
     "partial",
@@ -5965,53 +6236,53 @@
     "partial",
     "partial",
     "partial",
+    "partial",
+    "partial",
     "untouched",
-    "untouched",
-    "untouched",
-    "untouched",
+    "partial",
     "untouched"
    ],
    "status": {
     "frontier": [
      {
-      "name": "Pole sheaves and the Weierstrass presentation (1C).",
-      "text": "Remaining: `𝒪_E(n[0])`, `π_*` locally free of rank `n` commuting with base change, the classification of pointed isomorphisms over a general base, and the presentation theorem. This needs the Jacobian Challenge cohomology contracts, and it blocks 4B and the quotients of 2B."
+      "name": "KM 4.7.0 and `Y_full(N)`.",
+      "text": "Remaining: represent the simultaneous problems with each rigidifier and quotient by the finite étale equivalence relation. This needs SGA 3 V 4.1 from 0C and the descent of 1E, and would give the representability half of 5B."
      },
      {
-      "name": "Drinfeld level structures (3A–3C).",
-      "text": "Remaining: full sets of sections, the exact-order locus as a closed subscheme, cyclic subgroups, and the `[Γ(N)]`, balanced `[Γ₁(N)]` and `[Γ₀(N)]` problems. The loci need 0A representability and the 0F Hom-schemes off an affine base."
+      "name": "Pole sheaves and the Weierstrass presentation (1C, 4B).",
+      "text": "Remaining: `𝒪_E(n[0])` with `π_*` locally free of rank `n`, and the presentation theorem. The isogeny quotients of 2B are blocked on it."
      },
      {
-      "name": "`Y₁(N)` for `N ≥ 4` (5A).",
-      "text": "Remaining: Tate normal form for an arbitrary `E/S`, the locus where `[N]P = 0`, representability, smoothness and finite étaleness."
+      "name": "Quotients `E/C` (2B).",
+      "text": "Remaining: the norm functor on invertible sheaves, an invariant affine cover, and gluing of the affine torsor quotients. The duals and the Weil pairing come after this."
      },
      {
-      "name": "Quotients and isogenies (2B).",
-      "text": "Remaining: `E/C` for a finite locally free subgroup `C`, which first needs the 0C torsor quotient (the Hopf–Galois criterion and SGA 3 V 4.1)."
+      "name": "The rest of Layer 6.",
+      "text": "Remaining: the balanced `[Γ₁(N)]` problem, which needs Cartier duals of cyclic subgroups from Layer 2. Also `[N-Isog]`, which needs the universal subgroup over the Hopf-ideal locus of the Grassmannian."
      },
      {
-      "name": "Étale torsion and Picard duality (2A, 2D).",
-      "text": "Remaining: `E[N]` étale over any base where `N` is invertible, and the relative Picard functor behind KM 2.5.1, that pointed morphisms are homomorphisms."
+      "name": "Naive `[Γ₀(N)]` and the full-set locus (3N, 3A).",
+      "text": "Remaining: the Borel quotient of the full-basis carrier, and the closed subscheme of full sets of sections cut out by the norm identities."
      }
     ],
-    "glance": "Elliptic curves over an arbitrary scheme are now commutative group schemes, and multiplication by `n` is finite locally free of rank `n²`. That covers most of Layer 1D and the core of 2A. Layers 0–5 are all partial. The Katz–Mazur formalism of Layers 3–5 has its definitions, the `[Γ₁(N)]` problem and Tate normal form, but no representability theorem. Layers 6–10 have not begun.",
+    "glance": "The first fine modular curve is done: `Y₁(N)` for `N ≥ 4`, smooth and affine where `N` is invertible, which completes Layer 5A. Katz–Mazur 2.3.1 is complete over any base. Layers 0–7 and 9 are partial. The Drinfeld problems `[Γ(N)]` and `[Γ₁(N)]` are relatively representable, but KM 4.7.0, quotients of elliptic curves and all duality theory are still missing. Layers 8 and 10 have not begun.",
     "inherited": false,
     "path": "TauCetiRoadmap/ModularCurves/STATUS.md",
     "progress_path": "TauCetiRoadmap/ModularCurves/PROGRESS.md",
-    "report_sha": "9dafbb6f698c977251f8254a7f7a1ef60a57c443e0b3081dea2d4013443ae5d6",
-    "to_sha": "c7ae9d762d2bc9436e7c2ed5006e64ac24822b2d",
-    "ts": "2026-10-12T22:39:50Z"
+    "report_sha": "c84d0a9d0da8e5ec8c7589bd3a887a2fd74ad523b08e87b096360e267b662707",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
    },
    "title": "modular curves, following Katz–Mazur",
    "topic": "Number Theory"
   },
   {
    "activity": {
-    "last": "2026-10-20T01:55:07Z",
+    "last": "2026-10-20T11:23:50Z",
     "open": 5,
-    "recent": 160,
-    "since_report": 14,
-    "total": 580,
+    "recent": 161,
+    "since_report": 15,
+    "total": 581,
     "weekly": [
      0,
      0,
@@ -6028,7 +6299,7 @@
      37,
      34,
      34,
-     5
+     6
     ]
    },
    "arxiv": "math.NT",
@@ -6212,7 +6483,7 @@
     "last": "2026-10-19T22:23:45Z",
     "open": 3,
     "recent": 19,
-    "since_report": null,
+    "since_report": 0,
     "total": 19,
     "weekly": [
      0,
@@ -6255,17 +6526,47 @@
    "readme_sha": "3751f72979caa1771e632f83e1f9fb81168755b7839cd726fa3da2dc40d79bbf",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Cell attachment across a critical level",
+      "text": "— the quadratic-model retraction has to be glued into M through disjoint Morse charts and combined with the band deformation. That gives the homotopy equivalence M_{c+ε} ≃ M_{c−ε} ∪ D^λ relative to the lower sublevel."
+     },
+     {
+      "name": "Regular levels and sublevels as manifolds",
+      "text": "— the scalar-level atlas and the boundary atlases for M_a and for bands are still missing. The smooth version of the band product depends on them, and so does the cobordism material."
+     },
+     {
+      "name": "Exponential convergence on manifolds (M6)",
+      "text": "— transport the vector-space Łojasiewicz-type estimate to charts to get dist(γ(t), p) ≤ C·e^{−ct}."
+     },
+     {
+      "name": "The Lusternik–Schnirelmann bound (M4)",
+      "text": "— the critical-level deformation it needs has landed. What remains is the critical-level induction and AlgebraicTopology's categorical-cover supplement."
+     },
+     {
+      "name": "Morse approximation in the strong topology (M3)",
+      "text": "— define the strong C^k neighbourhoods first, then use the compact-exhaustion perturbation argument. Both are untouched."
+     }
+    ],
+    "glance": "The finite Morse core is in place up to, but not including, cell attachment on a manifold. Critical Hessians, normal forms and critical-free band deformation are proved, and so is trapped gradient convergence without a rate. The handle step exists only in the quadratic model. The CW model, Morse approximation, the Morse inequalities and Morse–Bott theory have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/MorseTheory/STATUS.md",
+    "progress_path": "TauCetiRoadmap/MorseTheory/PROGRESS.md",
+    "report_sha": "c9c3de8fb2509b082a04c7c93287df68d17a9ab467dfdc355e11fc0ad3838528",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "Morse functions, sublevel topology and Morse–Bott attachments",
    "topic": "Differential Geometry"
   },
   {
    "activity": {
-    "last": "2026-10-20T03:34:04Z",
+    "last": "2026-10-20T11:23:10Z",
     "open": 2,
-    "recent": 18,
+    "recent": 19,
     "since_report": null,
-    "total": 18,
+    "total": 19,
     "weekly": [
      0,
      0,
@@ -6282,7 +6583,7 @@
      0,
      0,
      14,
-     4
+     5
     ]
    },
    "arxiv": "math.NT",
@@ -6373,11 +6674,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T02:28:18Z",
-    "open": 3,
-    "recent": 18,
-    "since_report": null,
-    "total": 18,
+    "last": "2026-10-20T09:42:19Z",
+    "open": 2,
+    "recent": 19,
+    "since_report": 1,
+    "total": 19,
     "weekly": [
      0,
      0,
@@ -6394,7 +6695,7 @@
      0,
      0,
      15,
-     3
+     4
     ]
    },
    "arxiv": "math.OA",
@@ -6419,7 +6720,37 @@
    "readme_sha": "ebf91736ce0c0939e498d6d7ffd7039d7d07dc768f18369f97a0bc348bed1e11",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "SBI sequence and periodic cohomology",
+      "text": "— the remaining N1 algebra. It needs S, defined as exterior product with σ₁, together with I and B on cohomology, exactness at every term, periodic cohomology as a direct limit, and its comparison with the (b, B) totalization at the pinned constants. B and the bicomplex relations are already there."
+     },
+     {
+      "name": "Algebraic K₀/K₁ and descent of the pairings",
+      "text": "— the even pairing currently takes a single idempotent. Building K₀ by group completion and K₁ as GL∞/E∞, then proving invariance under stabilization and conjugation, would turn it into a pairing on K₀. The odd pairing with its (1+i)⁻¹ constant is not started."
+     },
+     {
+      "name": "Higher universal forms and cycles",
+      "text": "— extend one-forms to the graded differential algebra over A⁺, prove d² = 0 and graded Leibniz, and realize cyclic cocycles as characters of cycles, including the nonunital example φ(a,b,c) = abc on ℂ."
+     },
+     {
+      "name": "Continuous cyclic theory",
+      "text": "— Fréchet completeness of the completed projective tensor product, continuous multilinear cochains with the bounded-set topology, and completed bar resolutions. These are prerequisites for the smooth-torus computations in N6."
+     },
+     {
+      "name": "N3–N7",
+      "text": "— not yet begun. N3 depends on the OperatorKTheory Fredholm suppliers, N4 on OperatorIdeals singular values, and N6 on the rotation algebra in OperatorKTheory K7. None of these dependencies has been checked here."
+     }
+    ],
+    "glance": "The algebraic core of N1 exists for unital algebras, and so does the first piece of N2: cyclic cohomology with Connes' B, the ground-ring computation, reduced and relative variants, and the even pairing with idempotents. The SBI sequence, periodic cohomology, cycles and characters are still missing, and so is all of N3–N7: Fredholm modules, Dixmier traces, spectral triples and the noncommutative torus have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/NoncommutativeGeometry/STATUS.md",
+    "progress_path": "TauCetiRoadmap/NoncommutativeGeometry/PROGRESS.md",
+    "report_sha": "030813b26751fa196ae30f098bbafd37079a50ebc13a619f9a237c2baa8ba053",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "Cyclic cohomology, spectral triples and noncommutative tori",
    "topic": "Operator Algebras"
   },
@@ -6537,7 +6868,7 @@
    "activity": {
     "last": "2026-10-19T07:36:24Z",
     "open": 0,
-    "recent": 62,
+    "recent": 61,
     "since_report": 19,
     "total": 207,
     "weekly": [
@@ -6675,11 +7006,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T05:19:52Z",
+    "last": "2026-10-20T11:06:58Z",
     "open": 7,
-    "recent": 161,
-    "since_report": 15,
-    "total": 161,
+    "recent": 162,
+    "since_report": 16,
+    "total": 162,
     "weekly": [
      0,
      0,
@@ -6696,7 +7027,7 @@
      0,
      39,
      103,
-     19
+     20
     ]
    },
    "arxiv": "math.FA",
@@ -7413,11 +7744,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T03:59:57Z",
+    "last": "2026-10-20T09:42:47Z",
     "open": 2,
-    "recent": 215,
-    "since_report": 59,
-    "total": 270,
+    "recent": 214,
+    "since_report": 60,
+    "total": 271,
     "weekly": [
      0,
      0,
@@ -7434,7 +7765,7 @@
      29,
      64,
      94,
-     8
+     9
     ]
    },
    "arxiv": "math.OC",
@@ -7627,11 +7958,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:55:20Z",
-    "open": 2,
-    "recent": 159,
-    "since_report": 62,
-    "total": 159,
+    "last": "2026-10-20T09:12:47Z",
+    "open": 1,
+    "recent": 160,
+    "since_report": 63,
+    "total": 160,
     "weekly": [
      0,
      0,
@@ -7648,7 +7979,7 @@
      41,
      57,
      26,
-     2
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -7732,11 +8063,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T07:33:04Z",
-    "open": 4,
+    "last": "2026-10-20T11:41:04Z",
+    "open": 3,
     "recent": 283,
-    "since_report": 3,
-    "total": 404,
+    "since_report": 4,
+    "total": 405,
     "weekly": [
      4,
      5,
@@ -7753,7 +8084,7 @@
      36,
      86,
      120,
-     6
+     7
     ]
    },
    "arxiv": "math.AP",
@@ -7846,11 +8177,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T04:37:05Z",
+    "last": "2026-10-20T09:27:45Z",
     "open": 3,
-    "recent": 16,
+    "recent": 17,
     "since_report": null,
-    "total": 16,
+    "total": 17,
     "weekly": [
      0,
      0,
@@ -7867,7 +8198,7 @@
      0,
      0,
      10,
-     6
+     7
     ]
    },
    "arxiv": "math.NT",
@@ -7929,7 +8260,7 @@
     "last": "2026-10-19T20:07:10Z",
     "open": 5,
     "recent": 25,
-    "since_report": null,
+    "since_report": 0,
     "total": 25,
     "weekly": [
      0,
@@ -7955,9 +8286,14 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 1": "unit coordinates of measures on Z_p units, the homeomorphism clause of the comparison, finite free base change",
+     "Layer 2": "phi and psi on power series, root-of-unity averaging, bounded Amice norm, unit measures inside measures on Z_p, residue projections",
+     "Layer 3": "positive pseudo-moments and evaluation at characters of the units (3.2-3.3)",
+     "Layer 4": "pseudo-isomorphism, structure theorem, height-one primes of Lambda, mu and lambda, characteristic ideals, growth formula"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/PadicMeasuresIwasawaAlgebras",
@@ -7999,16 +8335,46 @@
    "readme_sha": "e6d4333167578933731d5a2542a702d15b8f16b05abfe38157e71d9a88aa7fcf",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "done",
+    "partial",
+    "partial",
+    "partial",
+    "untouched",
+    "partial",
+    "untouched",
+    "untouched"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Unit coordinates of measures (§1.4–1.5)",
+      "text": "— ℤ_pˣ is already presented by its finite quotients (ℤ/p^n)ˣ. What remains is the coordinate description of D(ℤ_pˣ, R) and its weak closed embedding. Layer 2's unit domain and §3.2 depend on it."
+     },
+     {
+      "name": "Homeomorphism and base change in §1.7",
+      "text": "— the remaining work is upgrading the comparison isomorphism to a weak-to-inverse-limit homeomorphism, and proving O ⊗ D(Γ, ℤ_p) ≅ D(Γ, O) for finite free O."
+     },
+     {
+      "name": "φ and ψ on power series (§2.2, §2.6)",
+      "text": "— restriction to pℤ_p is in, but the transport of φ and ψ through the Amice transform is not. Neither is the identification of unit measures with ker ψ. Both rest on PadicFunctionalAnalysis §3.4."
+     },
+     {
+      "name": "Evaluation at characters of ℤ_pˣ (§3.2–3.3)",
+      "text": "— this needs the unit coordinates and the regularity of δ_{1+p} − 1. The abstract evaluation is already in place."
+     },
+     {
+      "name": "Pseudo-isomorphism and the structure theorem (§4.1–4.2)",
+      "text": "— this needs the height-one primes of Λ via Weierstrass preparation, which is supplied by NewtonPolygons §6.3 and has not yet been contributed."
+     }
+    ],
+    "glance": "Layer 0, the theory of measures on a compact space, is done. The comparison of integral measures with the completed group algebra holds as an algebra isomorphism. Layers 1–4 are partial: each has its foundations in, but the unit coordinates, most of the Mahler–Amice operator calculus, evaluation at characters and the whole structure theory of Λ-modules remain. Layers 3a, 5 and 6 have not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/PadicMeasuresIwasawaAlgebras/STATUS.md",
+    "progress_path": "TauCetiRoadmap/PadicMeasuresIwasawaAlgebras/PROGRESS.md",
+    "report_sha": "d04940b563782a7959a2795b2011c6d2264646c184a1c7672ab7b69849a6d29e",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "p-adic measures, completed group algebras, and characteristic ideals",
    "topic": "Number Theory"
   },
@@ -8209,7 +8575,7 @@
     "last": "2026-10-19T22:07:47Z",
     "open": 1,
     "recent": 23,
-    "since_report": null,
+    "since_report": 0,
     "total": 23,
     "weekly": [
      0,
@@ -8235,9 +8601,13 @@
     "detail": null,
     "notes": {},
     "readme_changed": false,
-    "reason": "no-report",
-    "remaining": {},
-    "source": null
+    "reason": "ok",
+    "remaining": {
+     "Layer 0": "state the double left and double right dual functors as mutually inverse monoidal autoequivalences",
+     "Layer 1": "leftDualIsoRightDual, dualFunctorIso, and the construction making a pivotal right-rigid category rigid",
+     "Layer 7": "RigidCategory (FDRep k G), the registered spherical instance, trace equals linear trace and dim equals finrank"
+    },
+    "source": "marker"
    },
    "completed": false,
    "id": "TauCetiRoadmap/PivotalSpherical",
@@ -8291,20 +8661,50 @@
    "readme_sha": "c90000681660190b68854f36885c4de5611ef719abc9f8234333f8c79cd09fb2",
    "retired": null,
    "states": [
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed",
-    "unassessed"
+    "partial",
+    "partial",
+    "done",
+    "done",
+    "untouched",
+    "untouched",
+    "untouched",
+    "partial",
+    "untouched",
+    "untouched",
+    "untouched",
+    "untouched"
    ],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Closing Layers 0 and 1",
+      "text": "— state the double left and right dual functors as inverse monoidal autoequivalences, and add `leftDualIsoRightDual` and `dualFunctorIso` from a pivotal structure. All the ingredients are already in place."
+     },
+     {
+      "name": "`FDRep k G` is spherical with the linear trace",
+      "text": "— register `RigidCategory (FDRep k G)` from the new `FGModuleCat` left duals, register the symmetric spherical instance, and prove that `trace f` is the linear trace and `dim V = finrank k V`."
+     },
+     {
+      "name": "The fusion scalars and the Grothendieck based ring",
+      "text": "— `End (𝟙_ C) ≃ₐ[k] k` under finite-dimensionality, then the based ring free on `SimpleClasses C` with fusion coefficients and the duality involution. Layer 3's multiplicity API is what this needs."
+     },
+     {
+      "name": "Perron–Frobenius",
+      "text": "— the theorem for nonnegative and irreducible matrices, and the unique nonnegative character of a transitive based ring. This is independent of everything above and can start now."
+     },
+     {
+      "name": "`Vec^ω_G`",
+      "text": "— the degree-3 cocycle predicate, the finitely supported twisted graded category, and the classification of its pivotal structures as a torsor over `Hom(G, kˣ)`. The general torsor from Layer 1 is already available to receive it."
+     }
+    ],
+    "glance": "The categorical core is in place: the monoidal double-dual functor, pivotal and spherical categories, and the trace and dimension API (Layers 0 to 2, with two small gaps in Layers 0 and 1), plus the finite-semisimple infrastructure of Layer 3. The `FDRep` example is partial. Nothing at the fusion level has begun: no Grothendieck ring, Perron–Frobenius, Frobenius–Perron dimension, `Vec^ω_G`, gradings, synoptic chart or centre.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/PivotalSpherical/STATUS.md",
+    "progress_path": "TauCetiRoadmap/PivotalSpherical/PROGRESS.md",
+    "report_sha": "bd6cfc7d232d7fc7f9502d51cd760c6c490fcf773c54dd0583a549a606e6e8af",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "pivotal and spherical categories",
    "topic": "Quantum Algebra"
   },
@@ -8312,7 +8712,7 @@
    "activity": {
     "last": "2026-10-19T05:19:43Z",
     "open": 0,
-    "recent": 80,
+    "recent": 78,
     "since_report": 8,
     "total": 116,
     "weekly": [
@@ -8564,7 +8964,7 @@
    "activity": {
     "last": "2026-10-20T03:34:02Z",
     "open": 1,
-    "recent": 249,
+    "recent": 248,
     "since_report": 49,
     "total": 307,
     "weekly": [
@@ -8717,7 +9117,7 @@
    "activity": {
     "last": "2026-10-20T05:34:01Z",
     "open": 1,
-    "recent": 269,
+    "recent": 268,
     "since_report": 11,
     "total": 301,
     "weekly": [
@@ -8841,11 +9241,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T11:10:11Z",
-    "open": 2,
-    "recent": 172,
-    "since_report": 18,
-    "total": 197,
+    "last": "2026-10-20T12:51:04Z",
+    "open": 1,
+    "recent": 173,
+    "since_report": 1,
+    "total": 198,
     "weekly": [
      0,
      0,
@@ -8862,20 +9262,17 @@
      50,
      43,
      32,
-     5
+     6
     ]
    },
    "arxiv": "math.NT",
    "assessment": {
-    "detail": "the README changed after this report, so these states assess it as it was then",
+    "detail": null,
     "notes": {},
-    "readme_changed": true,
+    "readme_changed": false,
     "reason": "ok",
     "remaining": {
-     "Layer 3": "the invariant dictionary as a Layer 3 docstring: O'Meara, Serre's epsilon, Lam's s and c, with the Wall caution",
-     "Layer 6": "the Hilbert product formula, inherited from Class Field Theory's general Hilbert reciprocity",
-     "Layer 7": "base-change naturality of iota for every 2-torsion Brauer class, not only quaternion symbols",
-     "Layer 9": "the finite dyadic acceptance example for every unit class over a finite extension of Q_2"
+     "Layer 9": "the finite dyadic specialization over an arbitrary finite extension of Q_2; only Q_2(sqrt 5)/Q_2 is computed, on all sixteen square classes"
     },
     "source": "marker"
    },
@@ -8928,51 +9325,43 @@
     "done",
     "done",
     "done",
-    "partial",
     "done",
     "done",
-    "partial",
-    "partial",
+    "done",
+    "done",
+    "done",
     "done",
     "partial"
    ],
    "status": {
     "frontier": [
      {
-      "name": "The finite dyadic acceptance example",
-      "text": ": evaluate the two Layer 9 identities over a finite extension of `ℚ₂` for every unit class, not just the eight coefficients worked out over `ℚ₂(√5)`."
+      "name": "The finite dyadic specialization",
+      "text": ": state the two Layer 9 identities over an arbitrary finite extension `K/ℚ₂` with `L = K(√d)`, as computations in `H²(G_K, 𝔽₂)`. The inputs are in place: the square-class count of a finite extension, the Hilbert symbol form, and the formula for the Evens norm of a Kummer class scaled by a base unit. Only the case `K = ℚ₂`, `L = ℚ₂(√5)` is done."
      },
      {
-      "name": "The Hilbert product formula",
-      "text": ": apply the sign dictionary to Class Field Theory's Hilbert reciprocity. That roadmap proves it only when a square root of `b` lies in a cyclotomic extension, which covers rational `b` and so all of `ℚ`. The general statement waits on it."
-     },
-     {
-      "name": "Base-change naturality of `ι`",
-      "text": ": extend it from quaternion symbols to all of `Br(K)[2]`. This needs the full crossed-product comparison to commute with scalar extension."
-     },
-     {
-      "name": "The Layer 3 invariant dictionary",
-      "text": ": a Brauer-free docstring mapping O'Meara's `∏_{i≤j}`, Serre's `ε`, Lam's `s` and Lam's `c`, with the Wall caution."
+      "name": "Handing off to the global theory",
+      "text": ": the local invariants and the product formula are what `GlobalQuadraticForms` consumes for Hasse–Minkowski and global classification. That work is outside this roadmap."
      }
     ],
-    "glance": "Six of the ten layers are done: the diagonal calculus, Witt theory, quaternion algebras, the Witt ring, the Brauer-valued invariants with the `I²` homomorphism, and the Stiefel-Whitney classes. The relative Stiefel-Whitney formula holds in degree two. Four small gaps remain. These are the general Hilbert product formula, base change of `ι` beyond quaternion symbols, the invariant-dictionary docstring of Layer 3, and the full finite dyadic acceptance example.",
+    "glance": "Nine of the ten layers are done, including all three of the roadmap's high points: the four-fold splitting criterion, the local classification, and Kahn's relative Stiefel-Whitney formula in degree two. What remains is in Layer 9, whose finite dyadic acceptance example has been computed only for `ℚ₂(√5)/ℚ₂`.",
     "inherited": false,
     "path": "TauCetiRoadmap/QuadraticFormInvariants/STATUS.md",
     "progress_path": "TauCetiRoadmap/QuadraticFormInvariants/PROGRESS.md",
-    "report_sha": "65a5a315a5e8eedb8f3504885932b55445bb016e0757260814ae5de3e2f660f1",
-    "to_sha": "03de080239e2f6ccee2f6e054e65c5445c50cf1e",
-    "ts": "2026-10-16T00:44:45Z"
+    "report_sha": "ec9931c4a40efa1aefcb5e92af8d8161354b9e93fb9ac5e38121819431aec81e",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
    },
    "title": "quadratic forms and cohomological invariants",
    "topic": "Number Theory"
   },
   {
    "activity": {
-    "last": "2026-10-19T20:07:12Z",
-    "open": 3,
-    "recent": 18,
-    "since_report": null,
-    "total": 18,
+    "last": "2026-10-20T12:51:02Z",
+    "open": 2,
+    "recent": 20,
+    "since_report": 2,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -8989,7 +9378,7 @@
      0,
      0,
      12,
-     6
+     8
     ]
    },
    "arxiv": "math.OA",
@@ -9014,14 +9403,44 @@
    "readme_sha": "957449b295365a072af4e089b7da3c6474532097f24d7511d0da620f0cd98280",
    "retired": null,
    "states": [],
-   "status": null,
+   "status": {
+    "frontier": [
+     {
+      "name": "Complete reducibility (Q8.3)",
+      "text": "— prove every finite-dimensional module semisimple. The pieces in place are the Casimir block splitting, generalized weight spaces and the E F^r commutator formula. What remains is the top-weight-space argument showing K = εq^m on a block."
+     },
+     {
+      "name": "The center of U_q(sl₂) (Q8.3)",
+      "text": "— show it is ℂ[Ω] by leading-coefficient reduction in the PBW basis, which now exists."
+     },
+     {
+      "name": "Verma quotients and the rest of Q8.1–2",
+      "text": "— the simple quotients of Verma modules, the triangular decomposition, and the coproduct transported to the q⁻¹ presentation."
+     },
+     {
+      "name": "Local finiteness and type 1 (Q8.4)",
+      "text": "— the Zorn argument, followed by the L_0^- example. It depends on complete reducibility."
+     },
+     {
+      "name": "The compact lane (Q1)",
+      "text": "— C*-bialgebras, cancellation and the Haar state. This is the entry point to everything in Q1–Q7, and it relies on CStarAlgebras C2/C5 and VonNeumannAlgebras for minimal tensors, slice maps and weak-* compactness."
+     }
+    ],
+    "glance": "All of the progress so far is in the algebraic lane Q8, generic U_q(sl₂). Its presentation, PBW and Hopf layer is essentially complete, and the finite-dimensional simple modules are classified. Complete reducibility, the tensor theory and the comparisons have not been reached. The compact quantum group part of the roadmap, Q1–Q7, has not begun.",
+    "inherited": false,
+    "path": "TauCetiRoadmap/QuantumGroups/STATUS.md",
+    "progress_path": "TauCetiRoadmap/QuantumGroups/PROGRESS.md",
+    "report_sha": "b6522ec8b7c9fb8e5b656728f834af15cce07cb8dc71a854b3c6a5d15f80a43c",
+    "to_sha": "68a457ec2b1aee486f4192ee3ea36a04f70efb8c",
+    "ts": "2026-10-20T05:58:24Z"
+   },
    "title": "Quantum groups: compact reconstruction and generic rank-one representations",
    "topic": "Operator Algebras"
   },
   {
    "activity": {
     "last": "2026-10-19T12:27:07Z",
-    "open": 2,
+    "open": 3,
     "recent": 206,
     "since_report": 0,
     "total": 206,
@@ -9128,11 +9547,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T05:53:17Z",
-    "open": 26,
-    "recent": 770,
-    "since_report": 462,
-    "total": 1640,
+    "last": "2026-10-20T13:52:49Z",
+    "open": 21,
+    "recent": 777,
+    "since_report": 472,
+    "total": 1650,
     "weekly": [
      9,
      4,
@@ -9149,7 +9568,7 @@
      132,
      273,
      256,
-     36
+     46
     ]
    },
    "arxiv": "math.AG",
@@ -9311,7 +9730,7 @@
   {
    "activity": {
     "last": null,
-    "open": 1,
+    "open": 2,
     "recent": 0,
     "since_report": null,
     "total": 0,
@@ -9362,11 +9781,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T00:15:50Z",
-    "open": 2,
-    "recent": 18,
+    "last": "2026-10-20T13:52:06Z",
+    "open": 0,
+    "recent": 20,
     "since_report": null,
-    "total": 18,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -9383,7 +9802,7 @@
      0,
      0,
      10,
-     8
+     10
     ]
    },
    "arxiv": "math.CO",
@@ -9458,11 +9877,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T07:33:03Z",
+    "last": "2026-10-20T13:20:37Z",
     "open": 14,
-    "recent": 881,
-    "since_report": 13,
-    "total": 1731,
+    "recent": 874,
+    "since_report": 15,
+    "total": 1733,
     "weekly": [
      0,
      0,
@@ -9479,7 +9898,7 @@
      247,
      293,
      158,
-     16
+     18
     ]
    },
    "arxiv": "math.RT",
@@ -10953,11 +11372,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-19T19:34:17Z",
+    "last": "2026-10-20T08:56:09Z",
     "open": 2,
-    "recent": 7,
+    "recent": 8,
     "since_report": null,
-    "total": 7,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -10974,7 +11393,7 @@
      0,
      0,
      6,
-     1
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -11037,11 +11456,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T06:26:13Z",
-    "open": 4,
-    "recent": 34,
-    "since_report": 4,
-    "total": 34,
+    "last": "2026-10-20T14:09:21Z",
+    "open": 5,
+    "recent": 35,
+    "since_report": 5,
+    "total": 35,
     "weekly": [
      0,
      0,
@@ -11058,7 +11477,7 @@
      0,
      0,
      22,
-     12
+     13
     ]
    },
    "arxiv": "math.AG",
@@ -11288,7 +11707,7 @@
    "activity": {
     "last": "2026-10-18T20:28:00Z",
     "open": 2,
-    "recent": 122,
+    "recent": 121,
     "since_report": 38,
     "total": 140,
     "weekly": [
@@ -11418,7 +11837,7 @@
    "activity": {
     "last": "2026-10-20T02:15:27Z",
     "open": 4,
-    "recent": 112,
+    "recent": 110,
     "since_report": 50,
     "total": 137,
     "weekly": [
@@ -11557,11 +11976,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T07:33:06Z",
+    "last": "2026-10-20T14:27:40Z",
     "open": 11,
-    "recent": 208,
-    "since_report": 32,
-    "total": 348,
+    "recent": 214,
+    "since_report": 39,
+    "total": 355,
     "weekly": [
      0,
      0,
@@ -11578,7 +11997,7 @@
      2,
      3,
      98,
-     67
+     74
     ]
    },
    "arxiv": "math.PR",
@@ -11911,7 +12330,7 @@
   {
    "activity": {
     "last": "2026-10-19T13:21:32Z",
-    "open": 3,
+    "open": 5,
     "recent": 1,
     "since_report": null,
     "total": 1,
@@ -11962,11 +12381,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-20T04:11:54Z",
-    "open": 0,
-    "recent": 1,
+    "last": "2026-10-20T12:07:23Z",
+    "open": 1,
+    "recent": 2,
     "since_report": null,
-    "total": 1,
+    "total": 2,
     "weekly": [
      0,
      0,
@@ -11983,7 +12402,7 @@
      0,
      0,
      0,
-     1
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -12261,7 +12680,7 @@
    "activity": {
     "last": "2026-10-19T09:34:18Z",
     "open": 0,
-    "recent": 59,
+    "recent": 58,
     "since_report": 2,
     "total": 89,
     "weekly": [
@@ -12687,7 +13106,7 @@
    "activity": {
     "last": "2026-10-13T09:53:42Z",
     "open": 0,
-    "recent": 29,
+    "recent": 28,
     "since_report": 6,
     "total": 75,
     "weekly": [
@@ -12889,7 +13308,7 @@
    "activity": {
     "last": "2026-10-13T10:45:34Z",
     "open": 0,
-    "recent": 32,
+    "recent": 31,
     "since_report": 5,
     "total": 215,
     "weekly": [
