@@ -152762,6 +152762,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-HabiroCohomologyFoundationsPartII.md"
+  },
+  {
+   "id": "DESIGN-MotivicEtaleKTheoryPartII",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivicEtaleKTheoryPartII"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/MotivicEtaleKTheoryPartII.json",
+    "research/blueprint/packets/MotivicEtaleKTheoryPartII.json",
+    "research/blueprint/readmes/MotivicEtaleKTheoryPartII.md",
+    "research/blueprint/suggested/MotivicEtaleKTheoryPartII.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-MotivicEtaleKTheoryPartII.md"
   }
  ]
 }
