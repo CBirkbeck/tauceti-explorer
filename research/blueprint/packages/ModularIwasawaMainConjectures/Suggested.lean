@@ -270,6 +270,25 @@ example [Nontrivial O] {G : Type*} [Group G] (H : Subgroup G) :
 
 end RankOneImage
 
+/-! ## Layer 3: the rank-two lifting lemma -/
+
+section LiftingLemma
+
+/-- Layer 3 milestone (README §3.6, `sl2Zp_closedSubgroup_eq_top`, Serre's lemma): for `p ≥ 5`,
+a closed subgroup of `SL₂(ℤ_p)` whose reduction modulo `p` is all of `SL₂(𝔽_p)` is all of
+`SL₂(ℤ_p)`. Residual surjectivity of an elliptic curve's mod-`p` representation then gives full
+`p`-adic image and the rank-one image condition. The bound on `p` is sharp: for `p = 3` the
+binary tetrahedral group of Hurwitz units is a closed subgroup of `SL₂(ℤ_3)` mapping onto
+`SL₂(𝔽_3)`. -/
+theorem sl2Zp_closedSubgroup_eq_top (p : ℕ) [Fact p.Prime] (hp : 5 ≤ p)
+    (H : Subgroup (Matrix.SpecialLinearGroup (Fin 2) ℤ_[p]))
+    (hH : IsClosed (H : Set (Matrix.SpecialLinearGroup (Fin 2) ℤ_[p])))
+    (hsurj : H.map (Matrix.SpecialLinearGroup.map (PadicInt.toZMod (p := p))) = ⊤) :
+    H = ⊤ := by
+  sorry
+
+end LiftingLemma
+
 /-! ## Layer 5: μ-invariants and the passage from rational to integral equalities -/
 
 section MuLambda
@@ -307,22 +326,25 @@ README targets whose carriers are not available at the pins, by layer:
   zeta trivialisation; `KMC`, `KMC_rational`; Kato's p-adic zeta function with
   `katoPadicZeta_scale`, `katoPadicZeta_canonical`, `katoPeriodDefect`,
   `katoPadicZeta_homothety`, `katoPadicZeta_goodPair`, `KatoPeriodDefectUnit`;
-  `kmc_iff_char_eq_defect_mul`, `katoPeriodDefectUnit_of_IMC_KMC`; `SignedSelmer`, `SMC`,
-  `SMC_rational`.
+  `kmc_iff_char_eq_defect_mul`, `katoPeriodDefectUnit_of_IMC_KMC`, `kmc_iff_ordinary_two`;
+  `SignedSelmer`, `SMC`, `SMC_rational`.
 * Layer 1: residual irreducibility, `ScalarExclusion`, the twisted-Steinberg extension predicate;
+  `tateParameter_exists` and `ResidualHyp.ramified_iff_not_pth_power`;
   `hidaApproximant` and its lattice, residual and p-adic L-function congruences; the
   Skinner–Urban, Fouquet–Wan and multiplicative main conjectures.
 * Layer 2: the Fouquet–Wan pointwise theorem and its ordinary and signed consequences.
 * Layer 3: `mazurSwinnertonDyerL`, `katoPeriodDefect_elliptic`, `MazurMC`; the
   Burungale–Castella–Skinner endpoints; `canonicalSigma`, `cyclotomicHeight`,
-  `cyclotomicHeightPairing`, `padicRegulator`, `normalizedRegulator`, `HeightNondegenerate`;
+  `cyclotomicHeightPairing`, `padicRegulator`, `normalizedRegulator`, `HeightNondegenerate`,
+  `tateParameter_transcendental`, `tateParameter_log_ne_zero`;
   `schneiderHeight_sign`, `schneiderHeight_eq`, `leadingTerm_T_to_s`;
   `schneider_leading_term_abelianVariety`, `schneider_order_ge_rank`, `schneider_order_eq_iff`,
-  `schneider_leading_term`, `schneider_leading_term_split`, `greenberg_rank_zero`.
+  `schneider_leading_term`, `schneider_leading_term_split`, `greenberg_rank_zero`. The lifting
+  lemma `sl2Zp_closedSubgroup_eq_top` of §3.6 is stated above.
 * Layer 4: the universal-family trivialisation over the regular subring, its specialisation,
   the signed theorems, `pollackMultiplierUnit` and `kobayashi_corrected_iff_signed`.
 * Layer 5: Euler-factor and coefficient change, the rank-zero converse, `tateLInvariant`,
-  `tateParameter_transcendental`, `tateLInvariant_ne_zero`, `MTT`, `MTT_p`, the trivial-zero
+  `tateLInvariant_ne_zero`, `MTT`, `MTT_p`, `greenbergStevens_derivative`, the trivial-zero
   comparison, the p-adic BSD consequence of the main conjecture, the modular Greenberg and
   Coates–Perrin-Riou instances, `etaProduct_residualRamifiedAtFive` and the other examples.
 * Layer 6: `anticyclotomicFormulationInputs`, `eisensteinFormulation` with its transfers,
