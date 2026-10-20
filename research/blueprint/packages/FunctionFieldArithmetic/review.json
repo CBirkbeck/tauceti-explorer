@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-FunctionFieldArithmetic",
+    "date": "2026-10-20",
+    "notes": "Independent fixing review for #10900 by Codex, session codex-HkXdRC. Checked all 48 accepted-plan targets, current TauCetiRoadmap and Tau Ceti duplication, author-flagged sources and a reproducible random sample of 15 subsections, every subsection's adversarial examples, and 10 representative Lean signatures. Corrected reduced-basis and conductor formulas, finite-coefficient determinants, constant-term and Fourier normalizations, supplier contracts and locators; restored certified Riemann-Roch, place enumeration, ray computation and degree-sensitive Chebotarev targets. Suggested.lean elaborated at the pins with exit 0 and only eight sorry warnings. The remaining defect is README 4.6: no construction/API for generalized Picard schemes at a nonzero modulus, Rosenlicht universal property, or proof of the Lang-cover comparison with connectedness and least conductor. Ordinary Picard schemes, zero-modulus reciprocity and arithmetic finite norm existence do not supply that geometric theorem. The gap is explicit and no downstream result assumes it established. See the review report for evidence and the handoff for the precise next step."
+  }
+}
