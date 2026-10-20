@@ -5308,5 +5308,6 @@
  "REV-PKG-MotivesAndAlgebraicCycles~adv": 11276,
  "REV-PKG-EulerSystemsAndKolyvaginSystems~codex3": 11277,
  "FIX-PKG-RefinedTraceMethods~adv": 11282,
- "FIX-PKG-KTheoryFiniteLocalFields~adv3": 11283
+ "FIX-PKG-KTheoryFiniteLocalFields~adv3": 11283,
+ "REV-PKG-NoncommutativeAndEquivariantIwasawa~codex2": 11293
 }
