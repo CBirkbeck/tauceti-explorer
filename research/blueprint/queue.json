@@ -152662,9 +152662,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex2.md",
-   "note": "claimed on GitHub issue #11325"
+   "note": "deliverables arrived from an external worker on issue #11325",
+   "finishedAt": "2026-10-20T08:53:42Z"
   },
   {
    "id": "FIX-PKG-K2SymbolsBrauer~adv3",
