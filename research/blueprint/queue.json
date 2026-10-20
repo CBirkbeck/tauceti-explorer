@@ -153286,6 +153286,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex2.md"
+  },
+  {
+   "id": "FIX-PKG-GrossZagierAndArithmeticHeights~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GrossZagierAndArithmeticHeights"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-GrossZagierAndArithmeticHeights~adv2.md",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/review.json",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/README.md",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-GrossZagierAndArithmeticHeights~adv2.md"
   }
  ]
 }
