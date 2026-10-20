@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-PadicHodgeRegulators~codex1",
+    "date": "2026-10-20",
+    "notes": "Completed independent review of all 132 target families, 40 assembly corrections, 15 sampled source locators plus critical comparisons, current-library duplication and ten Lean signatures. Corrected Chern/edge and degree-zero Chern claims, supplier/locator errors, later-roadmap references, missing definition checks and arbitrary-reduction scope. Final lean-check exited 0 with eleven sorry warnings only. Remaining R1-R5: absent classical syntomic, relative open-curve and Vologodsky/index producers (including semistable descent); unresolved Kummer/period/pairing normalization; integral Wach lower inclusion beyond the cited proof range. Detailed report: research/blueprint/reviews/REV-PKG-PadicHodgeRegulators~codex1.md."
+  }
+}
