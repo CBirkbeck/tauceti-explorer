@@ -43176,8 +43176,9 @@
     "BP-PadicHodgeRegulators~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11097"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11097",
+   "finishedAt": "2026-10-20T08:24:53Z"
   },
   {
    "kind": "blueprint",
