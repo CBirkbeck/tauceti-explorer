@@ -52707,7 +52707,8 @@
     "PKG-DrinfeldModulesAndTModules"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DrinfeldModulesAndTModules.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10896"
   },
   {
    "id": "PKG-DrinfeldModulesAndTModulesPartII",
@@ -154321,7 +154322,9 @@
     "BP-OverconvergentAutomorphicForms--O0~4",
     "BP-OverconvergentAutomorphicForms--O0~5"
    ],
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11494",
+   "finishedAt": "2026-10-20T22:14:53Z"
   },
   {
    "id": "FIX-PKG-AutomorphicPadicLFunctions~adv",
@@ -154359,7 +154362,7 @@
     "research/blueprint/handoff/BP-QSeriesPartitionsAndMockModularForms~4.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~4.md",
    "scope": [
     "QSeriesPartitionsAndMockModularForms:QM.0",
@@ -154374,7 +154377,8 @@
     "REV-QSeriesPartitionsAndMockModularForms~3"
    ],
    "revisionOf": "BP-QSeriesPartitionsAndMockModularForms",
-   "note": "claimed on GitHub issue #11492"
+   "note": "deliverables arrived from an external worker on issue #11492",
+   "finishedAt": "2026-10-20T22:14:57Z"
   },
   {
    "id": "REV-QSeriesPartitionsAndMockModularForms~4",
@@ -154462,9 +154466,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-DrinfeldModulesAndTModules~codex1.md",
-   "note": "claimed on GitHub issue #11513"
+   "note": "deliverables arrived from an external worker on issue #11513",
+   "finishedAt": "2026-10-20T22:14:58Z"
   },
   {
    "id": "FIX-PKG-LogicAndDefinabilityInNumberTheory~adv",
@@ -154482,9 +154487,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-LogicAndDefinabilityInNumberTheory~adv.md",
-   "note": "claimed on GitHub issue #11514"
+   "note": "deliverables arrived from an external worker on issue #11514",
+   "finishedAt": "2026-10-20T22:15:03Z"
   },
   {
    "id": "PKG-OverconvergentAutomorphicForms~codex",
@@ -154502,8 +154508,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-OverconvergentAutomorphicForms~codex.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/PKG-OverconvergentAutomorphicForms~codex.md",
+   "note": "deliverables arrived from an external worker on issue #11515",
+   "finishedAt": "2026-10-20T22:15:09Z"
   },
   {
    "id": "FIX-PKG-DrinfeldModulesAndTModules~adv",
@@ -154521,8 +154529,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-DrinfeldModulesAndTModules~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-DrinfeldModulesAndTModules~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11519",
+   "finishedAt": "2026-10-20T22:15:14Z"
   }
  ]
 }
