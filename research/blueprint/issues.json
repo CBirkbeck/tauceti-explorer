@@ -5310,5 +5310,6 @@
  "FIX-PKG-RefinedTraceMethods~adv": 11282,
  "FIX-PKG-KTheoryFiniteLocalFields~adv3": 11283,
  "REV-PKG-NoncommutativeAndEquivariantIwasawa~codex2": 11293,
- "REV-PKG-KTheoryFiniteLocalFields~codex2": 11294
+ "REV-PKG-KTheoryFiniteLocalFields~codex2": 11294,
+ "FIX-PKG-BorelRegulators~adv3": 11298
 }
