@@ -152289,6 +152289,142 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv3.md"
+  },
+  {
+   "id": "BP-PadicHodgeRegulators~3",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/packets/PadicHodgeRegulators.json",
+    "research/blueprint/readmes/PadicHodgeRegulators.md",
+    "research/blueprint/suggested/PadicHodgeRegulators.lean",
+    "research/blueprint/handoff/BP-PadicHodgeRegulators~3.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~3.md",
+   "scope": [
+    "PadicHodgeRegulators:D.1",
+    "PadicHodgeRegulators:D.2",
+    "PadicHodgeRegulators:D.3",
+    "PadicHodgeRegulators:D.4",
+    "PadicHodgeRegulators:D.5",
+    "PadicHodgeRegulators:L0",
+    "PadicHodgeRegulators:L1",
+    "PadicHodgeRegulators:L2",
+    "PadicHodgeRegulators:L3",
+    "PadicHodgeRegulators:L4"
+   ],
+   "after": [
+    "REV-PadicHodgeRegulators~2"
+   ],
+   "revisionOf": "BP-PadicHodgeRegulators"
+  },
+  {
+   "id": "REV-PadicHodgeRegulators~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 210000,
+   "roadmapIds": [
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PadicHodgeRegulators~3.md",
+    "research/blueprint/packets/PadicHodgeRegulators.json",
+    "research/blueprint/readmes/PadicHodgeRegulators.md",
+    "research/blueprint/suggested/PadicHodgeRegulators.lean"
+   ],
+   "after": [
+    "BP-PadicHodgeRegulators~3"
+   ],
+   "avoidAccountOf": "BP-PadicHodgeRegulators~3",
+   "independentOf": [
+    "BP-PadicHodgeRegulators",
+    "BP-PadicHodgeRegulators~2",
+    "BP-PadicHodgeRegulators~3"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "FIX-PKG-MotivesAndAlgebraicCycles~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-MotivesAndAlgebraicCycles~adv.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/review.json",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/README.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-MotivesAndAlgebraicCycles~adv.md"
+  },
+  {
+   "id": "BP-OverconvergentAutomorphicForms--O0~4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "OverconvergentAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+    "research/blueprint/readmes/OverconvergentAutomorphicForms--O0.md",
+    "research/blueprint/suggested/OverconvergentAutomorphicForms--O0.lean",
+    "research/blueprint/handoff/BP-OverconvergentAutomorphicForms--O0~4.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0~4.md",
+   "scope": [
+    "OverconvergentAutomorphicForms:O0",
+    "OverconvergentAutomorphicForms:O1",
+    "OverconvergentAutomorphicForms:O2",
+    "OverconvergentAutomorphicForms:O3",
+    "OverconvergentAutomorphicForms:O4",
+    "OverconvergentAutomorphicForms:O5",
+    "OverconvergentAutomorphicForms:O6",
+    "OverconvergentAutomorphicForms:O7"
+   ],
+   "after": [
+    "REV-OverconvergentAutomorphicForms--O0~3"
+   ],
+   "revisionOf": "BP-OverconvergentAutomorphicForms--O0"
+  },
+  {
+   "id": "REV-OverconvergentAutomorphicForms--O0~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 313600,
+   "roadmapIds": [
+    "OverconvergentAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-OverconvergentAutomorphicForms--O0~4.md",
+    "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+    "research/blueprint/readmes/OverconvergentAutomorphicForms--O0.md",
+    "research/blueprint/suggested/OverconvergentAutomorphicForms--O0.lean"
+   ],
+   "after": [
+    "BP-OverconvergentAutomorphicForms--O0~4"
+   ],
+   "avoidAccountOf": "BP-OverconvergentAutomorphicForms--O0~4",
+   "independentOf": [
+    "BP-OverconvergentAutomorphicForms--O0",
+    "BP-OverconvergentAutomorphicForms--O0~2",
+    "BP-OverconvergentAutomorphicForms--O0~3",
+    "BP-OverconvergentAutomorphicForms--O0~4"
+   ],
+   "state": "pending"
   }
  ]
 }
