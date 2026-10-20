@@ -264133,14 +264133,15 @@
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
-    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "Precomposition with (x²,N(x)) gives the positive norm character, whereas Definition 6.1 p.1756 and equation (9.1) p.1781 use the inverse. The corrected group map is necessary; the preprint keeps the discrepancy."
   },
   {
    "id": "OverconvergentAutomorphicForms/E2",
@@ -264157,14 +264158,15 @@
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
-    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "The Teichmüller character over Q_p is a bounded point but has all-unit deviation 1 on nontrivial prime-to-p torsion. The printed strict all-unit criterion and its epsilon consequence fail; a pro-p diagnostic does not itself identify AIP coordinates."
   },
   {
    "id": "OverconvergentAutomorphicForms/E3",
@@ -264181,14 +264183,15 @@
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
-    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "For p=3 and κ(4)=ζ_9 the printed radius 3^(−7/6) includes 4³−1 of norm 3^(−2), where the character is nontrivial, and 4^(9·3^j)−1 tends to zero with trivial character. The identity principle contradicts that claimed analytic extension."
   },
   {
    "id": "OverconvergentAutomorphicForms/E4",
@@ -264205,14 +264208,15 @@
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
-    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "The locally rank-one O_F/p^m module in Definition 7.1 has cardinality p^(mg), not p^m except in degree one."
   },
   {
    "id": "OverconvergentAutomorphicForms/E5",
@@ -264229,14 +264233,15 @@
     "Web searches for Birkbeck–Heuer–Williams Hilbert forms erratum/correction, 2026-10-06: no correction found. No authors contacted.",
     "Independent web search on 2026-10-08 for the paper title and erratum/correction found no erratum in the returned results; the published PDF and arXiv v4 retain the relevant formulas. This search does not establish absence of an erratum.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
-    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "Remark 6.9’s Banach citation belongs to AIP CUSP Theorem 3.16 p.18 and the arithmetic form Theorem 4.4 p.28; AIP ADIC has no cited Theorem 3.16."
   },
   {
    "id": "OverconvergentAutomorphicForms/E6",
@@ -264251,14 +264256,15 @@
     "The published PDF and arXiv v4 retain the same displayed direction; checked independently on 2026-10-08.",
     "The dated title/erratum/correction web searches on 2026-10-08 found no correction in the returned results; absence is not established and no author was contacted.",
     "Independent review 2026-10-09: publisher article page and title searches with erratum/correction returned no erratum. This does not establish its absence; no author was contacted.",
-    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence."
+    "Independent assembly review on 2026-10-20 checked the published PDF, the relevant arXiv v4 passages, the Centre Mersenne article page, arXiv history and Heuer's publication page. Title/author erratum searches returned no correction; this is not proof of its absence.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "The frame map goes from the perfectoid cover to the AIP frame torsor, so pullback takes AIP eigenfunctions to perfectoid eigenfunctions. Theorem 7.14’s displayed arrow reverses that named map; its proof constructs the correct direction."
   },
   {
    "id": "OverconvergentAutomorphicForms/E7",
@@ -264272,14 +264278,15 @@
    "searched": [
     "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
     "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
-    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "Definition 8.17 uses all congruence units. The unit −7−4√3 is 1 mod 4 and negative at both embeddings. Norm congruence, rather than positivity alone, proves cancellation for the actual central kernel."
   },
   {
    "id": "OverconvergentAutomorphicForms/E8",
@@ -264293,14 +264300,15 @@
    "searched": [
     "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
     "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
-    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "At an odd ramified quadratic extension, evaluation of O_C[X]/(X²−p) has component differences divisible by 2√p. It misses (1,0), so the integral embedding product used in Proposition 5.18’s proof is false. This does not disprove the inclusion theorem with an unsplit proof."
   },
   {
    "id": "OverconvergentAutomorphicForms/E9",
@@ -264314,14 +264322,15 @@
    "searched": [
     "Centre Mersenne article page https://aif.centre-mersenne.org/articles/10.5802/aif.3560/ checked 2026-10-20: no erratum link found.",
     "https://arxiv.org/abs/1902.03985 checked 2026-10-20: v4 (10 May2021) is the latest listed version.",
-    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact."
+    "https://bheuer.github.io/ and public title/author erratum/correction searches checked 2026-10-20: no published correction located. Existing supplier findings are cross-referenced below; no novelty claim or author contact.",
+    "Independent revision-4 review on 2026-10-20: public title/author searches with erratum/correction for BHW and the cited AIP, Boxer–Pilloni and Ding papers returned no correction in the inspected results. Published BHW and the relevant arXiv v4 passages were compared directly. No author contacted; this does not establish absence of an erratum."
    ],
    "owner": "OverconvergentAutomorphicForms",
    "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
    "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-OverconvergentAutomorphicForms--O0~4",
+   "reviewReason": "The antidiagonal span action is diag(t,1), which changes a general affine period coordinate. Only diag(u,1)π_HT(x) is invariant under (x,u)↦(diag(t,1)x,t⁻¹u); first projection alone is not."
   },
   {
    "id": "OverconvergentAutomorphicForms/E-O8-1",
@@ -287411,8 +287420,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Richard P. Stanley, Enumerative Combinatorics, Volume 1, second edition, The author's freely posted PDF of the second edition (725 pages; its page numbers, which are cited here, differ from the Cambridge printing by about 22 pages in Chapter 1), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The posted second-edition solution gives the same exponent to both paired terms. Pairing indices n and 1−n preserves n(n−1)/2 and gives the stated corrected difference. The author’s errata independently identifies this line."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Pair n with 1−n: the triangular exponent is unchanged and the paired powers differ. This also gives 1−x at q=0; the posted errata agrees."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E102",
@@ -287431,8 +287440,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Richard P. Stanley, Enumerative Combinatorics, Volume 1, second edition, The author's freely posted PDF of the second edition (725 pages; its page numbers, which are cited here, differ from the Cambridge printing by about 22 pages in Chapter 1), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The exercise has triangular exponent n(n+1)/2. Differentiating the correctly paired terms at x=1 produces 2n+1 with that exponent; the solution’s n(n−1)/2 does not reproduce its constant coefficient."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Differentiating the paired terms at x=1 gives (2n+1) with exponent n(n+1)/2. The alternative exponent already fails at the constant coefficient."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E103",
@@ -287451,8 +287460,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Krishnaswami Alladi and Alexander Berkovich, New polynomial analogues of Jacobi's triple product and Lebesgue's identities, arXiv:math/0203094v1 (11 March 2002), 19 pages",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "In the inspected finite-product display the second argument has the opposite sign from the required factor 1+z⁻¹q^(2i−1). Taking L=1 already determines both signs."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The L=1 finite identity requires both negative product arguments to produce the two positive linear factors."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E104",
@@ -287471,8 +287480,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Ramanujan, Some properties of p(n), the number of partitions of n, Proceedings of the Cambridge Philosophical Society 19 (1919), 207-210, read in the re-typeset online edition of Ramanujan's Collected Papers (Paper 25, printed pp. 265-268): the PDF of Paper 25 (file ram25.pdf, whose SHA-256 is given) and its HTML version, both linked from the index of published papers at the URL given, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The retypeset Collected Papers congruence has no right-hand value. The immediately preceding coefficient-selection argument requires the displayed expression to be zero modulo7. This finding concerns that retypeset copy."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The retypeset congruence omits its right-hand zero; the preceding coefficient selector determines zero modulo 7. This is scoped to that copy."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E201",
@@ -287491,8 +287500,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "At S, eta inversion requires the square root multiplying eta. The introduction’s reciprocal conflicts with Theorem5.2 and with the general formula specialized at c=1,d=0."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Specializing to S requires a multiplying principal square root. The reciprocal in the introduction disagrees with the proved inversion formula."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E202",
@@ -287500,7 +287509,7 @@
    "locator": "§7, remark after Theorem 7.1 and the case c = 1 of its proof, printed p. 17",
    "printed": "The source identifies Theorem5.3 as an instance of Theorem7.1. Its subsequent argument appeals to both Theorem5.3 and Proposition5.1.",
    "correction": "Theorem 5.2 (the S-transformation η(−1/τ) = (−iτ)^{1/2}η(τ)) in both places.",
-   "reason": "Theorem 5.3 is Euler's pentagonal number theorem, which is not a case of Theorem 7.1; the proof of the case c = 1 uses η(−1/(τ + d)) = {−i(τ + d)}^{1/2}η(τ + d), which is Theorem 5.2.",
+   "reason": "The inversion theorem is 5.2, whereas 5.3 is Euler’s pentagonal identity; the printed cross-references therefore name a different result.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -287510,8 +287519,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The theorem proving inversion in the inspected source is5.2. Theorem5.3 concerns the subsequent eta quotient, so neither cross-reference supports the cited inversion step."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The inversion result is Theorem 5.2. Theorem 5.3 is Euler’s pentagonal identity, so the cited theorem number is wrong."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E203",
@@ -287529,8 +287538,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The Euclidean reduction selects a representative modulo the matrix entry c. The unbound modulus k in this line cannot be the modulus of that selection."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The Euclidean representative is selected modulo c, the lower-left matrix entry; the displayed k is unbound in this step."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E204",
@@ -287548,8 +287557,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The last inversion display loses the negative sign. The preceding theta substitutions and the statement of5.2 both fix the argument as−1/τ."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The inversion argument is −1/τ, as fixed by both the theta substitution and Theorem 5.2."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E205",
@@ -287567,8 +287576,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
    "status": "rejected",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Rejected as a missing branch argument: in the inspected reduction, x=rτ′+c, y=τ+q and xy=cτ+d lie in ℍ. Their arguments give the required principal-root identity without wrapping. The packet’s explicit branch lemma is a useful expansion of this valid step."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "No missing branch step here: the two factors and their product lie in the upper half-plane, so their principal arguments do not wrap in the required product."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E206",
@@ -287576,7 +287585,7 @@
    "locator": "§6, proof of Lemma 6.2, printed p. 14",
    "printed": "The floor term uses the numerator variable as its divisor rather than the denominator of the fraction.",
    "correction": "−hr/k − ⌊−hr/k⌋ = 1 − r′/k.",
-   "reason": "The floor must be of the same number −hr/k (the next display writes ⌊−hr/k⌋).",
+   "reason": "The reindexed fractional part is r′/k and therefore its floor denominator is k. The source’s displayed floor uses a different denominator.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -287586,8 +287595,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Z.-Y. Kong, L.-P. Teo, An Elementary Proof of the Transformation Formula for the Dedekind Eta Function, arXiv:2302.03280v1 (7 February 2023), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Reindexing residues gives fractional part r′/k. The floor expression therefore divides by k, consistent with every preceding use of the Dedekind denominator; division by the numerator h does not give the asserted residue."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The reindexed fractional part is r′/k and therefore its floor denominator is k. The source’s displayed floor uses a different denominator."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E207",
@@ -287606,8 +287615,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "A. Dabholkar, S. Murthy, D. Zagier, Quantum Black Holes, Wall Crossing, and Mock Modular Forms, arXiv:1208.4074v2, read 24 September 2026; heat continuation reread 27 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Boundedness for fixed z corresponds to nonnegative q powers. Substituting z=ατ+β introduces elliptic growth and is a different condition; the stated equivalence at that moving argument is false."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A fixed elliptic variable and a rational torsion section ατ+β impose different growth conditions. The asserted equivalence confuses them."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E301",
@@ -287626,8 +287635,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Eta is q^(1/24) times the Euler product, while F is its reciprocal. The inspected display reverses this relationship; the definitions immediately yield the corrected quotient."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "F is the reciprocal Euler product, whereas eta includes the factor q^(1/24). Substitution into the definitions fixes the reversed quotient."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E302",
@@ -287645,8 +287654,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The vertical-integral norm behaves as |t|^(−Reν−1). Its absolute convergence requires Reν>0, and the principal prefactor needs x>0. The printed universal complex-ν statement includes divergent integrals."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The vertical integrand has norm of order |t|^(−Reν−1). Absolute convergence needs Reν>0, with x>0 fixing the principal power."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E303",
@@ -287664,8 +287673,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The partition count is nondecreasing under adding a part1, but p(0)=p(1)=1. The source’s unrestricted strict inequality fails at that boundary; its estimate only requires monotonicity."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Adding a part 1 proves nondecrease. The equality p(0)=p(1)=1 rules out the unrestricted strict version."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E304",
@@ -287683,8 +287692,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The two coefficients in the inspected bound have different indices. Injection by adding ones supplies an inequality, and there is no equality identity between these counts."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Adding ones is an injection between the two partition sets, giving an inequality rather than equality of their different coefficients."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E305",
@@ -287702,8 +287711,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The exponent in the preceding transformation formula divides this term by k². Its replacement by k in the later norm estimate is inconsistent with that formula and the displayed cusp substitution."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Substitution into the preceding transformation leaves k² in the exponential denominator. Replacing it by k is inconsistent."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E306",
@@ -287721,8 +287730,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "A remainder tending to zero proves convergence but does not prove absolute convergence. The independent k^(−3/2) positive majorant later in the paper supplies the missing justification."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A vanishing remainder establishes convergence only. Absolute convergence needs the separately available positive k^(−3/2) majorant."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E307",
@@ -287742,8 +287751,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "G. H. Hardy, S. Ramanujan, Asymptotic formulæ in combinatory analysis, Proc. London Math. Soc. (2) 17 (1918) 75–115; read in the retypeset Collected Papers of Srinivasa Ramanujan, Paper 36 (pp. 341–378), the PDF linked as paper 36 from the listing at the url; read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Fresh evaluation of the actual Hardy–Ramanujan exponential-derivative terms, using exact rational Dedekind sums and85-digit Decimal exponentials/cosines, gives third term−87.5839128707297… and eight-term sum3972999029387.975671134175… . These correct the table; calling its terms Rademacher terms was also misleading."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Independent exact-rational Dedekind sums and 85-digit Decimal arithmetic give HR term 3 = −87.5839128707296629… and the first-eight sum 3972999029387.975671134175… . These are diagnostics, not interval enclosures, and concern the exponential-derivative series."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E308",
@@ -287762,8 +287771,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. H. Lehmer, On the remainders and convergence of the series for the partition function, Trans. Amer. Math. Soc. 46 (1939) 362–373, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "At k=1 the normalized sum has its single value1. Thus the printed strict inequality fails, while the triangle inequality gives the stated non-strict bound by φ(k)."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "At k=1 the sum equals 1=φ(1). The triangle inequality gives the non-strict bound, not the printed strict one."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E401",
@@ -287783,8 +287792,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Directly lowering v^(1−k) gives−(k−1)v^(2−k), with no extra2. The inspected Fourier display and(3.7) contain that extra factor; BOR explicitly records the correction."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Lowering v^(1−k) gives −(k−1)v^(2−k), with no extra 2. The corrected normalization agrees with the later BOR correction."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E402",
@@ -287804,8 +287813,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Inserting the source’s chosen ∂bar preimage into its own ξ definition gives2g. Dividing that preimage by2 proves the intended surjectivity without changing its kernel or target."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The proposed local preimage has ξ-image twice the target. Multiplying the preimage by 1/2 repairs the proof."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E403",
@@ -287825,8 +287834,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "For positive w the displayed integral crosses negative real t. Fractional powers then require a branch convention, which the definition does not provide. The harmonic Fourier basis must specify that convention."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The integral crosses the negative real axis. A fractional power there needs the explicit branch used in the Fourier basis."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E404",
@@ -287846,8 +287855,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan H. Bruinier, Ken Ono, Robert C. Rhoades, Differential operators for harmonic weak Maass forms and the vanishing of Hecke eigenvalues, arXiv:0802.0963v3 (26 January 2009); published in Math. Ann. 342 (2008), 673–693; v1, v2 compared for the introduction",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "At the source’s even integral weights, the Kummer parameter printed in the v3 seed is a nonpositive integer. The lower-gamma seed with the corrected weight normalization agrees with Proposition6.2; the uncorrected expression is not that seed."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "At the even integral weights, the v3 Kummer parameter is a nonpositive integer. The corrected lower-gamma seed has the normalization required by Proposition 6.2."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E405",
@@ -287868,8 +287877,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan H. Bruinier, Ken Ono, Robert C. Rhoades, Differential operators for harmonic weak Maass forms and the vanishing of Hecke eigenvalues, arXiv:0802.0963v3 (26 January 2009); published in Math. Ann. 342 (2008), 673–693; v1, v2 compared for the introduction",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Proposition6.2 gives constant coefficient−(2π)^12/(11!ζ(12))=−65520/691. This differs from the inspected v3 numerical example. No identity of the earlier PDF versions is asserted."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The exact constant is −(2π)^12/(11!ζ(12)) = −65520/691 = −94.8191027496382055… . This disagrees with the inspected v3 decimal; no claim about other versions is made."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E406",
@@ -287889,8 +287898,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The metric has cusp logarithms, so its coefficients are not smooth sections across the compactification merely after finite twisting. Local cusp preimages and a cutoff/sheaf argument supply the missing regularity step."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Finite twisting does not make cusp logarithms smooth across the compactification. Local preimages plus a cutoff/sheaf argument are needed."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E407",
@@ -287910,8 +287919,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Nondegeneracy of the constant-term pairing needs prescribed constants, rather than mere existence of Eisenstein forms. The separate weight-zero counterexample E409 also shows why the corrected negative pairing excludes k=2."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The pairing needs independently prescribable constants; existence of Eisenstein series alone does not supply them. Weight zero is a separate obstruction."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E408",
@@ -287931,8 +287940,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan H. Bruinier, Ken Ono, Robert C. Rhoades, Differential operators for harmonic weak Maass forms and the vanishing of Hecke eigenvalues, arXiv:0802.0963v3 (26 January 2009); published in Math. Ann. 342 (2008), 673–693; v1, v2 compared for the introduction",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Applying the iterated raising operator to the nonholomorphic constant mode produces Γ(k−1,0)=(k−2)!. The proof’s expansion contains it, whereas the inspected theorem’s coefficient omits it."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The raised constant Fourier mode contributes Γ(k−1)=(k−2)!, present in the proof but missing from the stated coefficient."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E501",
@@ -287951,8 +287960,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Proposition3.5 has parts1–3, and its modular law is1(c). The proof’s reference to part5 has no matching statement."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Proposition 3.5 has only parts 1–3; the modular law used is 1(c), not a nonexistent part 5."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E502",
@@ -287971,8 +287980,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The modular action in the inspected residue substitution must use upper-right entry b in aτ+b. The occurrences of aτ+d conflict with the same matrix’s denominator and adjacent transformation formula."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The matrix action has numerator aτ+b. The occurrences aτ+d in this residue substitution conflict with that same action."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E503",
@@ -287991,8 +288000,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The Lerch-sum section is1.3, whereas1.2 develops the Mordell integral. In addition, the source’s level-m definition assumes positive integral m, so the m=1/2 comparison needs a separate sign/variable adapter."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The Lerch sum is in §1.3; §1.2 is the Mordell integral. The index-1/2 comparison also needs its sign adapter outside the source’s integral-m definition."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E504",
@@ -288011,8 +288020,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "For c in the negative cone the earlier definition already has R(c)=ℝ^r, so D′(c)=ℂ^r×ℍ. The nonintegrality restriction in the later equality is correct only for the null-cusp branch."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "For a negative-cone vector the earlier domain is unrestricted. The later nonintegrality description applies only to the isotropic-cusp case."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E505",
@@ -288031,8 +288040,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected p.71 asserts the seventh-order shadow S-law without carrying out the calculation. Applying ξ to Proposition4.5 and using the explicit shadow in Proposition4.2 gives the stated sign and weight. The predecessor review reason discussed Hickerson instead; that reason was about a different claim."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The asserted seventh-order shadow transformation is not computed at that locator. Applying ξ to Proposition 4.5 and inserting Proposition 4.2 gives its sign and weight."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E506",
@@ -288051,8 +288060,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The source explicitly refers the level-m convergence proof back to Lemma1.8. Separating the finite sign difference from the Gaussian beta tail on each residue class provides the needed proof, rather than assuming the analogy establishes convergence."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The convergence argument is deferred by analogy. Separating the finite sign difference from the Gaussian beta tail on each residue class supplies the needed bound."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E601",
@@ -288071,8 +288080,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "At ξ=1, the t³ coefficient of sinh(2t)/cosh(3t) is−23/3. The inspected factorial n! gives the wrong coefficient; replacing it by(2n+1)! agrees with the T-number convention."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "At ξ=1 the cubic coefficient is −23/3. The odd factorial (2n+1)! reproduces it; n! does not."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E602",
@@ -288090,8 +288099,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Equation24 introduces coefficient sequences. The residue computation identifies the L-values in equation25, so the printed cross-reference24 does not name the formula being deduced."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The residue computation identifies the L-values in equation (25); equation (24) only introduces the sequences."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E603",
@@ -288109,8 +288118,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "An integral against a kernel of degree k−2 yields a polynomial of degree at most k−2. The inspected page prints the opposite inequality, which is also inconsistent with the classical Eichler construction described there."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A kernel polynomial of degree k−2 produces degree at most k−2. The printed inequality has the opposite direction."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E604",
@@ -288129,8 +288138,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected theorem is followed by an explicit statement that a complete proof is withheld. The indicated integral needs the rational-boundary limit, branch and multiplier arguments; the later trivial-character theorem alone does not fill all of them."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The source explicitly withholds a full proof. The rational-boundary, branch and multiplier steps are required beyond the indicated integral."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E605",
@@ -288149,8 +288158,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Compare the inspected Example3 with the Topology transformation and conjugation for negative x. The weight is−3/2 in the boundary factor, and its two real half-lines have different phases; the positive exponent/common-phase display fails that comparison."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The negative and positive real half-lines have different phases under the stated weight −3/2 boundary action. The common-phase display fails that transformation."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E606",
@@ -288168,8 +288177,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The Euler expansion of eta has coefficients χ12(n). Inserting n gives its Eichler companion instead, so the inspected eta display has a coefficient belonging to the next construction."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Eta has coefficient χ₁₂(n); adding n produces its Eichler companion instead, so the source has conflated the two expansions."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E607",
@@ -288187,8 +288196,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The finite values at q=1 distinguish the two functions: sigma is2 and sigma-star is−2. The inspected sentence must therefore refer to sigma-star for the asserted negative relation."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "At q=1, sigma is 2 while sigma-star is −2. The asserted negative relation requires sigma-star."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E608",
@@ -288207,8 +288216,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, The Mellin transform and other useful analytic techniques, Appendix to E. Zeidler, Quantum Field Theory I: Basics in Mathematics and Physics, Springer 2006, 305–323; author's PDF (paginated 1–16), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Expanding e^(−at)/(1−e^(−t)) gives the negative Bernoulli coefficient after the leading1/t. The inspected equation44 has the opposite sign; taking a=1 also recovers the earlier formula."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The Bernoulli expansion after 1/t has a minus sign; setting a=1 checks the sign directly."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E609",
@@ -288226,8 +288235,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. Lawrence, D. Zagier, Modular forms and quantum invariants of 3-manifolds, Asian J. Math. 3 (1999) 93–108; published PDF from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Changing from the plus/minus basis to(Θχ,Θbarχ) gives two distinct coordinates under T. The inspected right-hand vector repeats Θχ instead of using Θbarχ in its second entry."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "In the conjugate-character basis the T-law has two different coordinates. The printed second entry incorrectly repeats the first."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E610",
@@ -288246,8 +288255,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. Lawrence, D. Zagier, Modular forms and quantum invariants of 3-manifolds, Asian J. Math. 3 (1999) 93–108; published PDF from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected source gives a sketch for asymptotic agreement and lower-half-plane modularity and explicitly defers details. Normalization, uniform tails and transformed rational limits are required; E626/E627 identify additional concrete errors in those displays."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The source defers the complete asymptotic/modularity proof. Uniform tails and rational-boundary passage are additional inputs; E626–627 fix concrete normalizations."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E611",
@@ -288266,8 +288275,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The theorem’s stated space has trivial character. Eta(24τ) has χ12 and eta itself has a multiplier, so the inspected application requires a separate character/multiplier extension."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The BR theorem assumes trivial character, while eta(24τ) has χ₁₂. A character/multiplier extension is needed for this application."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E612",
@@ -288285,8 +288294,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The proof first compares vertical asymptotics and then applies a modular substitution which changes the ray. A non-tangential comparison with uniform remainder is needed for that substitution."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A modular substitution changes the vertical approach ray. A uniform non-tangential asymptotic comparison is needed to justify its use."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E613",
@@ -288304,8 +288313,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The stated lemma concerns fixed real part and is quoted without proof. Moving Mellin contours requires uniformity on each finite closed strip; quantitative gamma control remains a distinct open prerequisite."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The source states fixed-line growth without its proof. Mellin shifting needs uniform finite-strip bounds; this revision now provides the two-sided Gamma argument locally."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E614",
@@ -288323,8 +288332,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Agreement as formal Taylor series at a root does not by itself give all-orders radial analytic agreement. A uniform bound for the later root blocks is necessary before interchanging the infinite tail and radial limit."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Formal Taylor agreement alone cannot justify radial analytic agreement of infinite tails. A uniform root-block estimate must be supplied."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E615",
@@ -288343,8 +288352,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "A. Folsom, K. Ono, R. C. Rhoades, Mock theta functions and quantum modular forms, Forum of Mathematics, Pi 1 (2013), e2, 27 pp.; published open-access PDF (CC BY 3.0), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The source’s finite value at a root of unity follows from termination. Termination alone does not control values approaching that root from inside the disk; the separate block-tail estimate provides that control."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Termination at a root gives a finite value, but does not bound an approaching infinite sum. The block-tail argument is a distinct necessary step."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E616",
@@ -288362,8 +288371,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Traces of singular moduli, In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "At elliptic points E4,E6 and j′ vanish, so the generic division in the inspected residue argument cannot be applied. A local ramification expansion is required there, as the source leaves these cases to the reader."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "At the elliptic points the divided quantities E₄,E₆,j′ vanish. Local ramification expansions are needed in place of the generic division."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E617",
@@ -288381,8 +288390,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Traces of singular moduli, In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The final paragraph explicitly leaves the a=d Fourier contribution for square n to the reader. The nonsquare expansion does not establish the square correction without that additional computation."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The source explicitly omits the square-case a=d Fourier term. It is an extra computation beyond the nonsquare expansion."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E618",
@@ -288400,8 +288409,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Traces of singular moduli, In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24",
    "status": "rejected",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Rejected as a separate nontrivial gap: the source already gives the omitted square-case j and j−1728 factors. Comparing leading exponents with H(3)=1/3,H(4)=1/2 immediately yields2H(3)+H(4)−1=1/6."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The supplied square-case j and j−1728 factors already give 2H(3)+H(4)−1=1/6. This routine correction does not constitute the alleged independent gap."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E619",
@@ -288419,8 +288428,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Quantum modular forms, In Quanta of Maths (Conference in honor of Alain Connes), Clay Mathematics Proceedings 11, AMS and Clay Mathematics Institute 2010, 659–675; author's PDF from the author's MPIM page (its running header reads 'Volume 12'), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected author-copy header says volume12. The official Clay proceedings page and publisher volume identify Quanta of Maths as volume11. This is a bibliographic error in that author copy, rather than a mathematical finding."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The official Clay proceedings and volume identify Quanta of Maths as volume 11, whereas the inspected author-copy header says 12."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E701",
@@ -288440,8 +288449,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "T. Gannon, Monstrous moonshine: the first twenty-five years, arXiv:math/0402345v2 (Bull. London Math. Soc. 38 (2006) 1–33)",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected v2 expansion has an extra digit in the q³ coefficient. The same paper’s later normalized expansion and the E4³/Δ series both give864299970."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The q³ coefficient is 864299970, from E₄³/Δ and the paper’s later normalized expansion; the inspected earlier display contains an extra digit."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E702",
@@ -288461,8 +288470,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "T. Gannon, Monstrous moonshine: the first twenty-five years, arXiv:math/0402345v2 (Bull. London Math. Soc. 38 (2006) 1–33)",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Extracting the n=2 replication equation gives the a3(g) term used by the untwisted recursion. The inspected text instead names a2(g), inconsistent with the adjacent identities."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The n=2 replication coefficient contains a₃(g). The displayed a₂(g) disagrees with the neighboring recurrence."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E703",
@@ -288481,8 +288490,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected Hauptmodul product omits the odd factor with exponent1. Including(1−q)^24 cancels the added24 in the constant term and gives the displayed276q−2048q² coefficients. The predecessor reason concerned a different denominator product and was corrected."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The odd product starts with exponent 1. Including (1−q)^24 cancels the added 24 and yields the displayed 276q−2048q² coefficients."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E704",
@@ -288502,8 +288511,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The source’s decomposition uses weight-lowering positive Virasoro indices. Recomputing with the central-charge26 relations gives L1 and L2+(3/2)L1², as in Jurisich A.6; negative indices cannot serve that role."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The positive Virasoro indices lower weights; the c=26 commutators give L₁ and L₂+(3/2)L₁². Negative indices do not serve this role."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E705",
@@ -288522,8 +288531,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Without dimV0=1, the degree-zero lattice tensor piece contains more than the two stated Lorentzian directions. Jurisich’s precise hypotheses include that condition, which the inspected Borcherds theorem omits."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The degree-zero tensor piece has exactly two lattice directions only when dim V₀=1, a hypothesis present in Jurisich but missing at the inspected locator."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E706",
@@ -288543,8 +288552,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. E. Borcherds, Generalized Kac–Moody algebras, J. Algebra 115 (1988) 501–512; author's copy (10 pp.)",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected author copy explicitly identifies its positivity proof as incomplete and refers to Kac’s third edition. Jurisich’s restricted presentation/radical result does not by itself prove positive definiteness; the correction now distinguishes these inputs."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The source identifies an incomplete positivity proof and refers to Kac. Restricted radical/presentation results do not establish that general positivity assertion."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E707",
@@ -288563,8 +288572,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. E. Borcherds, Vertex algebras, Kac–Moody algebras, and the Monster, Proc. Natl. Acad. Sci. USA 83 (1986) 3068–3071; author's copy (9 pp.)",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected second commutator has a primary weight i but labels u as lying in P1. The general identity uses u∈Pi, and its immediately preceding specialization handles weight1 separately."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The general primary commutator uses u∈Pⁱ. P¹ is only its preceding weight-one specialization."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E708",
@@ -288583,8 +288592,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. E. Borcherds, Monstrous moonshine and monstrous Lie superalgebras, Invent. Math. 109 (1992) 405–444; author's copy (41 pp.), page numbers of that copy",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Jurisich’s equal-column infinite-matrix example has no grading with the finite-dimensional homogeneous pieces required by the characterization. The inspected converse therefore needs that additional grading hypothesis."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The infinite equal-column example lacks finite-dimensional homogeneous pieces, so the characterization converse needs its additional grading assumption."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E309",
@@ -288604,8 +288613,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Albert Leon Whiteman, A sum connected with the series for the partition function, Pacific J. Math. 6 (1956) 159–176, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The published root count excludes nonsquares but not singular squares. At n=24 the discriminant is divisible by25 and has5 roots modulo25; with the additional coprime factor13 there are10 roots modulo325. These are not the claimed2 and4."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "For n=24, the singular square has five roots modulo 25 and ten modulo 325. The claimed nonsingular counts 2 and 4 do not apply."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E310",
@@ -288624,8 +288633,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Albert Leon Whiteman, A sum connected with the series for the partition function, Pacific J. Math. 6 (1956) 159–176, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The fourth-branch proof assumes valuation strictly below λ, missing the zero residue modulo p^λ. For n=24,p=5,λ=2 that branch occurs. Translation cancellation handles it without the omitted valuation assumption."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The fourth branch misses the case with discriminant zero modulo p^λ; n=24,p=5,λ=2 supplies it. Translation cancellation covers that case."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E311",
@@ -288644,8 +288653,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Fredrik Johansson, Efficient implementation of the Hardy–Ramanujan–Rademacher formula, LMS J. Comput. Math. 15 (2012), 341–359; DOI 10.1112/S1461157012001088; publisher PDF accessed 2026-09-27",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected publisher equation has λ=0 in the singular prime branch. The author’s errata corrects it to1, matching the prime-level evaluation. Both publisher page and author correction were read."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The publisher formula has λ=0; the author’s errata explicitly changes it to 1, consistent with the prime-level branch."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E312",
@@ -288664,8 +288673,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Fredrik Johansson, Efficient implementation of the Hardy–Ramanujan–Rademacher formula, LMS J. Comput. Math. 15 (2012), 341–359; DOI 10.1112/S1461157012001088; publisher PDF accessed 2026-09-27",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The published accumulation misses the sign for the factor4. The inspected author errata adds that negation, consistent with Whiteman’s factorization; a magnitude-only check would miss it."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The factor-four branch needs a sign negation, also explicitly recorded by the author. An absolute-value check would miss it."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E208",
@@ -288686,8 +288695,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "A. Dabholkar, S. Murthy, D. Zagier, Quantum Black Holes, Wall Crossing, and Mock Modular Forms, arXiv:1208.4074v2, read 24 September 2026; heat continuation reread 27 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The stated elliptic law alone permits τ times a theta function, which is not τ-periodic. Thus the integer-q expansion in the next formula needs the omitted τ-period assumption; the packet now states it explicitly."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The elliptic law permits τ times a theta function; τ-periodicity is an extra assumption needed for an integral q-expansion."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E209",
@@ -288705,8 +288714,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Matsuda, Analogue of the theta group Γθ, arXiv:2602.22471v1 (25 February 2026), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "In the acquired v1 the factor uses cτ+b. At the identity b=c=0,d=1 this factor cannot support a nonzero modular form. The corrected cτ+d agrees with the source’s later calculations; the current revised file is logged separately."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The acquired v1 uses cτ+b in the multiplier. At the identity this is zero; cτ+d is required and agrees with the subsequent calculation."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E313",
@@ -288724,8 +288733,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Substitution into the inspected pentagonal display gives0 at n=1 and8 at n=5, while the partition counts are1 and7. Correct signed pentagonal indices restore the intended recurrence."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The printed signed pentagonal sum gives 0 and 8 at n=1 and 5, instead of partition counts 1 and 7."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E314",
@@ -288743,8 +288752,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The historical Hardy–Ramanujan expression includes n−1/24 and its derivative correction. Dropping them changes the leading expression by an exponentially growing absolute amount, which the inspected stated polynomial error cannot absorb."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The exponential-derivative approximation retains n−1/24 and the derivative term. Omitting them creates an exponentially large absolute error, outside the stated polynomial remainder."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E315",
@@ -288762,8 +288771,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "For N=1 the endpoint(1+i)/2 lies on the translated circle with center1/2, whereas it misses the printed center. The coordinate substitution and neighboring Ford-circle drawing determine the correction."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The N=1 endpoint (1+i)/2 fixes the translated circle center at 1/2; it is not on the printed alternative circle."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E316",
@@ -288781,8 +288790,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Ze-Yong Kong, Lee-Peng Teo, Rademacher's formula for the partition function, arXiv:2302.03835v1 (8 February 2023), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The circle contains zero, so the reciprocal map used in the proposition is not defined at every point on it. The contour application avoids that endpoint, but the proposition needs the nonzero-domain condition."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Zero lies on the stated circle but has no reciprocal. The inversion proposition needs its punctured-domain guard."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E409",
@@ -288800,8 +288809,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Use the trivial Weil representation and weight-zero modular form1. All its positive coefficients vanish, so the negative-principal-part pairing vanishes identically on this nonzero form. This directly contradicts the unrestricted nondegeneracy statement."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The weight-zero form 1 for the trivial Weil representation is nonzero and pairs trivially with every negative principal part, disproving the unrestricted nondegeneracy."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E410",
@@ -288819,8 +288828,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "Jan Hendrik Bruinier, Jens Funke, On two geometric theta lifts, arXiv:math/0212286v4 (14 March 2003); published in Duke Math. J. 125 (2004), 45–90",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "For the compactification, Ω=L2⊗O(−D). Dualizing the displayed L-twist therefore shifts the cusp divisor by one more D. Large-n vanishing still follows after that correction."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Using Ω=L²⊗O(−D) adds one further negative cusp divisor upon dualizing the displayed twist; large-twist vanishing survives."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E507",
@@ -288838,8 +288847,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Uniform convergence of real-analytic functions does not guarantee real analyticity of the limit. Gaussian-tail estimates on a complexified local polydisc, rather than real uniform convergence alone, give the required analytic conclusion."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Real uniform convergence does not preserve real analyticity. Locally uniform convergence on a complexified polydisc supplies the missing argument."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E620",
@@ -288857,8 +288866,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The displayed gamma-L product grows on the positive real axis, so it does not satisfy decay throughout a right half-plane. Mellin transfer requires decay for large imaginary part in finite strips, with horizontal edges controlled there."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Decay is needed for large imaginary part on finite strips. The gamma-L product grows on the positive real axis and cannot satisfy the printed whole-half-plane condition."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E621",
@@ -288876,8 +288885,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "For the zero cusp form the continued Mellin transform is zero and has no poles. Residues may vanish with coefficients; the statement should allow possible poles rather than assert poles at every negative integer."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The zero cusp form has zero Mellin transform and no poles. Vanishing residues give removable singularities, so only possible poles may be asserted."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E622",
@@ -288895,8 +288904,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The cited Lemma3.1 has no numbered part1 and does not contain this gamma integral. The matching identity is Lemma3.2(1), whose convergence and parameter conditions are the ones needed here."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The matching gamma integral is Lemma 3.2(1). Lemma 3.1 has no matching numbered part and supplies a different statement."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E623",
@@ -288914,8 +288923,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Traces of singular moduli, In Motives, Polylogarithms and Hodge Theory, Part I (F. Bogomolov, L. Katzarkov, eds.), International Press Lecture Series 3, Somerville 2002, 209–244; author's TeX PDF (23 pages, paginated 1–23), read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "At an elliptic point j−j(α) vanishes to order w. Its logarithmic derivative has residue w, so multiplying by1/w makes the residue1, rather than the source’s stated1/w."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A zero of j−j(α) of order w gives logarithmic residue w; multiplying by 1/w gives residue 1, not 1/w."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E624",
@@ -288933,8 +288942,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "D. Zagier, Vassiliev invariants and a strange identity related to the Dedekind eta-function, Topology 40 (2001) 945–960; publisher-typeset copy from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "For eta, k=1/2 and the Eichler coefficient exponent is1−k=1/2. The inspected discussion writes the opposite sign for k−1; the subsequent n factor is consistent with the corrected exponent."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "For k=1/2 the Eichler coefficient exponent is 1−k=1/2. The printed opposite exponent disagrees with the subsequent n factor."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E625",
@@ -288952,8 +288961,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "K. Bringmann, L. Rolen, Half-integral weight Eichler integrals and quantum modular forms, arXiv:1409.3781v4 (18 August 2015), read 2026-09-24; the journal version was not read",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "For F(x)=1/(1+x), the endpoint exponents are0 and−1. The Mellin integral diverges at s=0 and s=1, although these are included in the source’s printed weak inequalities. The convergence strip must be open."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The Mellin integral for 1/(1+x) diverges at s=0 and s=1. Its initial convergence strip is open."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E709",
@@ -288971,8 +288980,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "E. Jurisich, Generalized Kac–Moody Lie algebras, free Lie algebras and the structure of the Monster Lie algebra, J. Pure Appl. Algebra 126 (1998) 233–266; arXiv:1311.3258v1 (1996 preprint version)",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "In a nondegenerate hyperbolic plane a null line equals its orthogonal complement. Thus ambient nondegeneracy cannot justify the inspected splitting for U(𝒜)T. Restriction nondegeneracy or a separate triangular-generation argument is still required."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A null line in a hyperbolic plane equals its orthogonal complement. Ambient nondegeneracy therefore does not prove the claimed restricted splitting; the revised local PBW argument repairs this source omission."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E710",
@@ -288990,8 +288999,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "E. Jurisich, Generalized Kac–Moody Lie algebras, free Lie algebras and the structure of the Monster Lie algebra, J. Pure Appl. Algebra 126 (1998) 233–266; arXiv:1311.3258v1 (1996 preprint version)",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "A radical has zero restricted form. The intended last step uses nondegeneracy of the whole weight-one physical space to conclude that its radical vanishes, rather than calling the radical itself nondegenerate."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A radical has zero restricted form. Nondegeneracy of the full weight-one physical space makes that radical zero; the radical itself is not nondegenerate."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E508",
@@ -289010,8 +289019,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected Gaussian computation is for generic c and is subsequently applied to both c1 and c2. The isolated Q(c1) must be Q(c), as both adjacent calculations already show."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The computation is for a general c and is applied to both c₁ and c₂. Its isolated Q(c₁) must therefore be Q(c)."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E509",
@@ -289030,8 +289039,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "S. Zwegers, Mock Theta Functions (PhD thesis, Utrecht 2002), arXiv:0807.4834v1 (30 July 2008), read 24 September 2026",
    "status": "rejected",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Rejected: rendered printed pp.40–41 already use the absolute value of the determinant in the Gaussian coordinate factors. Reversing an auxiliary basis orientation does not change those absolute Jacobians. The inherited unsigned-Jacobian allegation does not match this source."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The inspected rendered pp.40–41 already contain absolute determinants. The allegation of an unsigned Gaussian Jacobian is rejected."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E210",
@@ -289050,8 +289059,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "N.-P. Skoruppa, Jacobi forms of critical weight and Weil representations, arXiv:0707.0718v1 (5 July 2007), 28 pages, the only arXiv version; read 2026-10-06. The version published in Modular Forms on Schiermonnikoog (Cambridge University Press, 2008) was not obtained.",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The acquired glossary defines wA using aτ+b, while its metaplectic-pair definition on the same page requires wA²=cτ+d. The identity matrix and the latter definition determine the corrected square root."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The metaplectic square is cτ+d. The glossary’s aτ+b contradicts its defining pair and fails already at the identity."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E211",
@@ -289070,8 +289079,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "N.-P. Skoruppa, Jacobi forms of critical weight and Weil representations, arXiv:0707.0718v1 (5 July 2007), 28 pages, the only arXiv version; read 2026-10-06. The version published in Modular Forms on Schiermonnikoog (Cambridge University Press, 2008) was not obtained.",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The strengthened discriminant inequality belongs to Fourier-growth condition(ii), whereas(i) is the action law. The inspected sentence names(i); the missing group variable in that action law is also specified in the correction."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The strict discriminant inequality strengthens Fourier condition (ii), not action condition (i); the group variable is also missing from that action display."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E212",
@@ -289090,8 +289099,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "N.-P. Skoruppa, Jacobi forms of critical weight and Weil representations, arXiv:0707.0718v1 (5 July 2007), 28 pages, the only arXiv version; read 2026-10-06. The version published in Modular Forms on Schiermonnikoog (Cambridge University Press, 2008) was not obtained.",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The inspected action applies χ to z∈ℂ instead of to g in the group. The surrounding one-dimensional representation construction requires scalar multiplication χ(g)z."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "A one-dimensional representation acts as χ(g)z. Applying χ to the complex vector z is a type error."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E626",
@@ -289110,8 +289119,8 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. Lawrence, D. Zagier, Modular forms and quantum invariants of 3-manifolds, Asian J. Math. 3 (1999) 93–108; published PDF from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "The vertical integral of n exp(2πin²w/120)(w−z)^{−1/2} at z=x−iy is √60 e^{iπ/4} exp(2πin²z/120) erfc(n√(πy/30)). Thus the printed coefficient introduces the factor 2√2 i; the corrected coefficient makes every Fourier term have multiplier 1. At x=0 the intended boundary value of Θ̃₊ is 2, so property(i) also detects the discrepancy."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "Integrating a single theta term vertically gives √60 exp(iπ/4) times its positive-phase erfc term. The coefficient (60i)^(−1/2) normalizes it to 1; the printed coefficient instead introduces 2√2 i."
   },
   {
    "id": "QSeriesPartitionsAndMockModularForms/E627",
@@ -289130,8 +289139,28 @@
    "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
    "citation": "R. Lawrence, D. Zagier, Modular forms and quantum invariants of 3-manifolds, Asian J. Math. 3 (1999) 93–108; published PDF from the author's MPIM page, read 2026-09-24",
    "status": "confirmed",
-   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~2",
-   "reviewReason": "Substitution w=z+iu in (17), or the upper incomplete gamma computation, preserves the positive Fourier phase exp(2πin² Re z/120). The gamma argument is πn²|Im z|/30. This also makes exponential growth of q^{n²/120} cancel the erfc decay. The printed argument also has n and π under the wrong scaling and uses y<0 under a real square root; the correct real erfc argument is n√(π|y|/30)."
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The same substitution retains exp(2πin²z/120) and produces gamma argument πn²|Im z|/30. Hence the real erfc argument is n√(π|Im z|/30), with no negative Fourier phase."
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E628",
+   "kind": "error",
+   "locator": "Published PDF, §3.2, Theorem 3.2 and Proposition 3.3, printed pp.19–20; compare Theorem 1.2, p.6",
+   "printed": "The local asymptotic statements assume positive reduced a/b and h/k with b dividing k, but impose no nontrivial-fraction bound on a/b.",
+   "correction": "Use 1 ≤ a < b and 1 ≤ h < k, with both fractions reduced, as in the main theorem. In particular b ≥ 2, and 1−ζ_b^(ah′) is nonzero.",
+   "reason": "The printed hypotheses allow a=b=1 and h=1,k=2,h′=1. Then (ζ_b^a−1)/(1−ζ_b^(ah′)) is 0/0, while the displayed μ has a lattice pole. The nontrivial-fraction restriction removes this counterexample; it is already present in the main theorem.",
+   "affects": "a stated result",
+   "known": "none found in the inspected publisher/author results",
+   "searched": [
+    "Publisher open-access PDF DOI 10.1017/fmp.2013.3, Theorem 1.2 and §3.2–3.3",
+    "Public searches for the paper title with Theorem 3.2/correction and Folsom Ono Rhoades erratum quantum modular; no correction found in the inspected results."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "A. Folsom, K. Ono, R. C. Rhoades, Mock theta functions and quantum modular forms, Forum of Mathematics, Pi 1 (2013), e2, 27 pp.; published open-access PDF (CC BY 3.0), read 2026-09-24",
+   "status": "confirmed",
+   "reviewedBy": "REV-QSeriesPartitionsAndMockModularForms~3",
+   "reviewReason": "The allowed case a=b=1,h=1,k=2,h′=1 makes the displayed root ratio undefined and puts μ at its lattice pole. The main theorem’s 1≤a<b guard supplies the intended scope."
   },
   {
    "id": "QuadraticFormInvariantsPartII/E1",
