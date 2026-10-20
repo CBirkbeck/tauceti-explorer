@@ -152858,8 +152858,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-IntegralIwasawaTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-IntegralIwasawaTheory~adv.md",
+   "note": "claimed on GitHub issue #11339"
   },
   {
    "id": "FIX-PKG-HabiroNumberFields~adv",
@@ -152896,8 +152897,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv4.md",
+   "note": "claimed on GitHub issue #11342"
   }
  ]
 }
