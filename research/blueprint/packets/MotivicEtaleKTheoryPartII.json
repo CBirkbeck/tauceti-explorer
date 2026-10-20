@@ -1,0 +1,2253 @@
+{
+ "roadmapId": "MotivicEtaleKTheoryPartII",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "MotivicEtaleKTheoryPartII:FL.1",
+  "MotivicEtaleKTheoryPartII:FL.2",
+  "MotivicEtaleKTheoryPartII:FL.3",
+  "MotivicEtaleKTheoryPartII:FL.4"
+ ],
+ "status": "complete",
+ "summary": "Blueprint of Motivic and étale K-theory, Part II: fundamental lines and special-value factors. For K-theoretic motive data h^i(X)(j) over number fields (a smooth projective variety with a regular proper model, a Chow–Künneth projector, a twist and a coefficient algebra) it defines the Burns–Flach motivic factors H⁰_f, H¹_f from cycles, Adams eigenspaces and integral images of MotivicEtaleKTheory, with their weight vanishing, and computes them for Artin and elliptic motives (FL.1); builds the real Deligne complex, the Beilinson regulator sequence, the real exactness predicate, proves it for all Tate twists of Artin motives (Borel, Dirichlet) and for h¹(E)(1) (Néron–Tate), and constructs the real comparison of the fundamental line (FL.2); builds the p-adic realization maps into Bloch–Kato Selmer complexes, the realization predicate, proves it for Artin motives at every prime (Soulé, Kummer) and relates it to Sha for h¹(E)(1), computes the Selmer complexes of Artin motives and constructs the p-adic comparison with its Euler-factor normalization (FL.3); and states Kato's rational zeta element condition, proves its equivalence with the commutative Tamagawa obstruction of PeriodsAndSpecialValues, its lattice, place-set, duality and Selmer forms, the class number formula case and the cohomological Lichtenbaum form, and supplies the elliptic data used for BSD (FL.4).",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:NumberField.Units.finrank_eq",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "The ℤ-rank of the unit group of 𝓞 K is rank K = #(infinite places) − 1 (Dirichlet).",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.rank",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "rank K := card (InfinitePlace K) − 1.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+    "provides": "r₁ + 2 r₂ = [K:ℚ] for the numbers of real and complex places.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.logEmbedding",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
+    "provides": "The logarithmic embedding of the units into the real space indexed by the infinite places other than a fixed one, with multiplicity two at complex places; its kernel is the torsion.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.regulator",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+    "provides": "The regulator of K as the covolume of the unit lattice.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.regulator_pos",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+    "provides": "The regulator is positive.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.Units.torsionOrder",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+    "provides": "The number w_K of roots of unity of K.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.classNumber",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+    "provides": "The class number of a number field.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.discr",
+    "kind": "abbrev",
+    "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+    "provides": "The discriminant of a number field.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.dedekindZeta_residue",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+    "provides": "2^{r₁}(2π)^{r₂} R h / (w √|d|), the residue of the Dedekind zeta function at s = 1.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+    "provides": "Dirichlet's class number formula: (s − 1)ζ_K(s) tends to dedekindZeta_residue K as s → 1⁺ along the reals.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:Matrix.det",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "Determinant of a square matrix over a commutative ring; coordinates of determinant lines only.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:Matrix.det_smul",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "det(c • A) = c^n det A for an n × n matrix.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   },
+   {
+    "ref": "mathlib:PadicInt",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+    "provides": "The p-adic integers ℤ_p.",
+    "checked": "Statement read in the Lean source at the pinned Mathlib 082e2d3 on 2026-10-20."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "BurnsFlach2001",
+   "title": "Tamagawa numbers for motives with (non-commutative) coefficients",
+   "authors": "David Burns and Matthias Flach",
+   "edition": "Documenta Mathematica 6 (2001), 501–570",
+   "url": "https://ems.press/content/serial-article-files/25892?nt=1",
+   "readSections": [
+    "§3.1 Motivic structures, pp. 517–518",
+    "§3.2 Basic exact sequences, pp. 519–523",
+    "§3.3 Projective A-structures, pp. 523–526",
+    "§3.4 Virtual objects attached to motives, pp. 526–529"
+   ],
+   "sha256": "d9caa72585d3ae77f34fd1798289345ca2d7a0f4284933c1c0945cb0f0994e5b"
+  },
+  {
+   "id": "Kato2003",
+   "title": "Tamagawa number conjecture for zeta values",
+   "authors": "Kazuya Kato",
+   "edition": "Proceedings of the ICM 2002; arXiv:math/0304233v1 with printed pages 163–171",
+   "url": "https://arxiv.org/abs/math/0304233",
+   "readSections": [
+    "§1.2, p. 165",
+    "§2.1 The conjecture, (2.1.1)–(2.1.5) and (a)–(d), pp. 166–168"
+   ],
+   "sha256": "6d7f3a5924fd5291bc23870547b05552ba7fb1e39413d551f11daf052fbcf12b"
+  },
+  {
+   "id": "HuberKings2003",
+   "title": "Bloch–Kato conjecture and Main Conjecture of Iwasawa theory for Dirichlet characters",
+   "authors": "Annette Huber and Guido Kings",
+   "edition": "Duke Mathematical Journal 119 (2003), 393–464; arXiv:math/0101071v2 (pagination of the arXiv file)",
+   "url": "https://arxiv.org/abs/math/0101071",
+   "readSections": [
+    "§1.1–1.5, pp. 3–15",
+    "§2.2–2.3, pp. 16–20"
+   ],
+   "sha256": "d2e682fd63b9d4079b19bcb2d31b9188bc72ebf35d1cbc3c77b7b1b8bd3b5f37"
+  },
+  {
+   "id": "Fontaine1992",
+   "title": "Valeurs spéciales des fonctions L des motifs",
+   "authors": "Jean-Marc Fontaine",
+   "edition": "Séminaire Bourbaki exposé 751, Astérisque 206 (1992), 205–249",
+   "url": "http://www.numdam.org/item/SB_1991-1992__34__205_0/",
+   "readSections": [
+    "§7, pp. 224–226",
+    "§8.3, pp. 228–230",
+    "§9.1–9.6, pp. 230–234"
+   ],
+   "sha256": "0947234dbb5fbe00bc6ac92c0e102e35e8dede76a196023a50a518ed13eeee9c"
+  },
+  {
+   "id": "BlochKato1990",
+   "title": "L-functions and Tamagawa numbers of motives",
+   "authors": "Spencer Bloch and Kazuya Kato",
+   "edition": "The Grothendieck Festschrift I, Progress in Mathematics 86 (1990), 333–400",
+   "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf",
+   "readSections": [
+    "Example 3.9 and Definition 3.10, p. 359",
+    "§5.1–5.4, pp. 369–371"
+   ],
+   "sha256": "ec89c6436c7e16580791eddd562c8c04a12442d8a8484f8ac75c5ea8dc04f5e5"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.1/k-theoretic-motive",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.1",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.1"
+   ],
+   "title": "K-theoretic motive datum",
+   "kind": "definition",
+   "statement": "A K-theoretic motive datum M = (K, X, 𝒳, π, i, j, A, φ) consists of: a number field K; a smooth projective K-scheme X of pure dimension d (not necessarily geometrically connected); a regular proper flat O_K-model 𝒳 of X, part of the data (for X = Spec F with F/K finite, 𝒳 = Spec O_F); an idempotent Chow correspondence π ∈ CH^d(X ×_K X) ⊗ Q whose Betti, de Rham and ℓ-adic realizations are concentrated in the single cohomological degree i (so that the Chow motive (X, π) is h^i of its realizations); a twist j ∈ ℤ; a finite-dimensional semisimple ℚ-algebra A and a ring homomorphism φ : A → π·(CH^d(X × X) ⊗ ℚ)·π into the endomorphisms of the Chow motive (X, π). Write M = h^i(X)(j) = (X, π, j), its weight w = i − 2j, and its dual datum M*(1) = (X, πᵗ, 2d − i, d + 1 − j) with A^op acting by transposed correspondences.",
+   "hypotheses": [
+    "K is a number field and X is smooth projective of pure dimension d over K.",
+    "π is idempotent and its realizations are concentrated in degree i; for Artin motives (X = Spec F, i = 0) and elliptic curves (π¹ = Δ − e × E − E × e, i = 1) such projectors are explicit.",
+    "The model 𝒳 is regular, proper and flat over O_K and is recorded as data; no statement in this roadmap asserts independence of the model beyond the cases proved in FL.1/artin-motive-factors."
+   ],
+   "proofSteps": [
+    "Use the Chow motives, Tate twists, transposition and duals of MotivesAndAlgebraicCycles MC.1 (chow-motive, tate-twist, motives-rigid) to form (X, π, j) and its dual (X, πᵗ, d − j); twist the dual by one to get M*(1).",
+    "Read off the realizations from MotivesAndAlgebraicCycles MC.2 (betti-realization, de-rham-realization, etale-realization) and check that π cuts out degree i in each.",
+    "Record the model 𝒳 for the integral parts of FL.1/motivic-factor-spaces, as MotivicEtaleKTheory M.8/integral-motivic-structures does."
+   ],
+   "acceptance": [
+    "For X = Spec F, π = Δ, i = 0: the weight is −2j and the dual datum is (Spec F, Δ, 0, 1 − j).",
+    "For an elliptic curve E with π¹: the weight of h¹(E)(j) is 1 − 2j and the dual datum is h¹(E)(2 − j) after the Weil-pairing identification of FL.1/elliptic-motive-factors."
+   ],
+   "uses": [
+    {
+     "where": "Burns–Flach §3.1, pp. 517–518",
+     "how": "motives over K are treated through their realizations and motivic cohomology; h^n(X)(r) is the basic example and its motivic cohomology is defined from K-groups of X and of a regular model"
+    },
+    {
+     "where": "Kato 2003 §2.1, p. 167",
+     "how": "the motives entering the conjecture are direct summands of H^m(X)(r) with an action of a number field"
+    },
+    {
+     "where": "FL.1/motivic-factor-spaces, FL.2, FL.3",
+     "how": "every factor, comparison and condition of this roadmap is a function of the datum"
+    },
+    {
+     "where": "PeriodsAndSpecialValues PS.3.1",
+     "how": "the abstract motive with A-action whose fundamental line Ξ_A(M) is formed"
+    }
+   ],
+   "api": [
+    {
+     "name": "KTheoreticMotive.weight",
+     "role": "projection",
+     "statement": "The weight w = i − 2j."
+    },
+    {
+     "name": "motiveWeight_dual",
+     "role": "relation",
+     "statement": "The weight of the dual datum is −2 − w: motiveWeight (dualDegree d i) (dualTwist d j) = −2 − motiveWeight i j."
+    },
+    {
+     "name": "KTheoreticMotive.dualTwist",
+     "role": "constructor",
+     "statement": "The dual datum M*(1) = (X, πᵗ, 2d − i, d + 1 − j), with weight −2 − w and coefficient algebra A^op; applying it twice returns M."
+    },
+    {
+     "name": "KTheoreticMotive.restrictScalars",
+     "role": "constructor",
+     "statement": "Viewing X as a ℚ-scheme through Spec K → Spec ℚ gives a datum over ℚ with the same realizations summed over the embeddings of K, the same motivic factors and the same L-function."
+    },
+    {
+     "name": "KTheoreticMotive.ofArtin",
+     "role": "constructor",
+     "statement": "For a number field F, a coefficient field E and an idempotent e ∈ E[Hom(F, ℚ̄)]-correspondences on h⁰(Spec F), the Artin datum (Spec F, e, 0, r)."
+    },
+    {
+     "name": "KTheoreticMotive.ofElliptic",
+     "role": "constructor",
+     "statement": "For an elliptic curve E/K with a regular proper model, the datum (E, π¹, 1, j)."
+    },
+    {
+     "name": "KTheoreticMotive.extendCoefficients",
+     "role": "functoriality",
+     "statement": "Extension of coefficients along A → A ⊗_E E′ commutes with every factor, comparison and condition below."
+    }
+   ],
+   "tests": [
+    {
+     "name": "weight_tate_two",
+     "kind": "computation",
+     "statement": "For (Spec ℚ, Δ, 0, 2) the weight is −4 and the dual datum has twist −1 and weight 2."
+    },
+    {
+     "name": "dualTwist_dualTwist",
+     "kind": "characterisation",
+     "statement": "Applying dualTwist twice to (X, π, i, j) gives back (X, π, i, j): (2d − (2d − i), d + 1 − (d + 1 − j)) = (i, j)."
+    },
+    {
+     "name": "weight_elliptic_center",
+     "kind": "degenerate",
+     "statement": "h¹(E)(1) has weight −1 and is its own dual datum: 2·1 − 1 = 1 and 1 + 1 − 1 = 1."
+    },
+    {
+     "name": "impure_projector_rejected",
+     "kind": "non-example",
+     "statement": "The diagonal of E (realizations in degrees 0, 1, 2) is not an admissible π: the weight would not be defined and the weight vanishing of FL.1/weight-vanishing would fail for its h⁰ summand."
+    }
+   ],
+   "planet": {
+    "name": "K-theoretic motive h^i(X)(j)"
+   },
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.1/chow-motive",
+    "MotivesAndAlgebraicCycles:MC.1/tate-twist",
+    "MotivesAndAlgebraicCycles:MC.1/motives-rigid",
+    "MotivesAndAlgebraicCycles:MC.2/betti-realization",
+    "MotivesAndAlgebraicCycles:MC.2/de-rham-realization",
+    "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+    "MotivicEtaleKTheory:M.8/integral-motivic-structures"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.1, pp. 517–518",
+     "match": "Motives over K are motivic structures: realizations, motivic cohomology and the maps between them; h^n(X)(r) with its shifted Hodge filtration, ℓ-adic and Betti realizations, and coefficient algebras acting by correspondences."
+    },
+    {
+     "sourceId": "Kato2003",
+     "locator": "§2.1, p. 167",
+     "match": "A motive over ℚ is a direct summand of H^m(X)(r) for X proper smooth over ℚ, with an action of a number field."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/MotiveDatum",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.1/motivic-factor-spaces",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.1",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.1"
+   ],
+   "title": "Motivic cohomology factors H⁰_f and H¹_f",
+   "kind": "definition",
+   "statement": "For a K-theoretic motive datum M = h^i(X)(j) define the finite-dimensional-by-hypothesis A-modules H⁰_f(K, M) and H¹_f(K, M) as follows. H⁰_f(K, M) = π_*((CH^j(X)/CH^j(X)_{hom∼0}) ⊗ ℚ) if i = 2j and 0 otherwise, homological equivalence being taken in Betti cohomology for the embeddings of K. H¹_f(K, M) = 0 if 2j − i − 1 < 0; = π_*(CH^j(X)_{hom∼0} ⊗ ℚ) if 2j − i − 1 = 0; and if 2j − i − 1 > 0 it is π_* of the image of the weight-j Adams eigenspace (K_{2j−i−1}(𝒳) ⊗ ℚ)^{(j)} → (K_{2j−i−1}(X) ⊗ ℚ)^{(j)}, that is, of the rational integral part im[H^{i+1}_M(𝒳, ℚ(j)) → H^{i+1}_M(X, ℚ(j))] of MotivicEtaleKTheory §12.3. The factors H⁰_f(K, M*(1)) and H¹_f(K, M*(1)) are those of the dual datum, and A acts through φ by functoriality of K-theory and Chow groups under correspondences.",
+   "hypotheses": [
+    "The regular proper model 𝒳 is the one recorded in the datum.",
+    "Finite dimensionality of H¹_f is not asserted in general; it is a hypothesis wherever a determinant is taken, and a theorem in FL.1/artin-motive-factors and, for j = 1, FL.1/elliptic-motive-factors."
+   ],
+   "proofSteps": [
+    "Take the Adams eigenspace and the integral image from MotivicEtaleKTheory M.8/integral-motivic-structures and the rational weight decomposition of M.6/rational-weight-comparison; the higher Chow description H^{i+1}_M(X, ℚ(j)) = CH^j(X, 2j − i − 1)_ℚ is M.4/cycle-complex with the rational Chern character of M.8/motivic-chern-character.",
+    "For 2j − i − 1 = 0 use Chow groups and homological equivalence from MotivesAndAlgebraicCycles MC.0 and MC.2/homological-equivalence.",
+    "Let a correspondence γ act by pr_{2*}(pr_1^*(−) · γ), using products, flat pullback and proper pushforward of higher Chow groups (MotivicEtaleKTheory M.4 functoriality and products); idempotence of π makes π_* a projector."
+   ],
+   "acceptance": [
+    "The definition agrees case by case with Burns–Flach p. 518 and with Bloch–Kato p. 369 (the space W and its subspace Φ).",
+    "For X = Spec ℚ, j = 1 the factor H¹_f is 0, while K_1(ℚ) ⊗ ℚ = ℚ^× ⊗ ℚ is infinite-dimensional: the integral part is essential."
+   ],
+   "uses": [
+    {
+     "where": "PeriodsAndSpecialValues PS.3.1",
+     "how": "the factors d(H⁰_f(M)), d(H¹_f(M))⁻¹, d(H¹_f(M*(1))^*), d(H⁰_f(M*(1))^*)⁻¹ of Ξ_A(M)"
+    },
+    {
+     "where": "FL.2/real-regulator-sequence",
+     "how": "source of the cycle class map and of the Beilinson regulator"
+    },
+    {
+     "where": "FL.3/padic-realization-maps",
+     "how": "source of the p-adic realization maps c⁰_p, c¹_p"
+    },
+    {
+     "where": "Burns–Flach §3.1, p. 518",
+     "how": "definition of H⁰(K,M), H¹(K,M) and the finite part H¹_f(K,M) through a regular proper model"
+    },
+    {
+     "where": "Fontaine, Bourbaki 751, §9.3, p. 231",
+     "how": "motivic cohomology as the Adams eigenspace of K-theory and its integral subspace for a regular model"
+    }
+   ],
+   "api": [
+    {
+     "name": "motivicFactorZero",
+     "role": "data",
+     "statement": "H⁰_f(K, M), the cycles of codimension j modulo homological equivalence cut out by π when i = 2j, and 0 otherwise."
+    },
+    {
+     "name": "motivicFactorOne",
+     "role": "data",
+     "statement": "H¹_f(K, M), the case-wise integral motivic group above."
+    },
+    {
+     "name": "motivicFactorOne_eq_zero_of_weight_nonneg",
+     "role": "simp",
+     "statement": "If w ≥ 0 then H¹_f(K, M) = 0."
+    },
+    {
+     "name": "motivicFactorZero_eq_zero",
+     "role": "simp",
+     "statement": "If i ≠ 2j then H⁰_f(K, M) = 0."
+    },
+    {
+     "name": "motivicFactorOne_spec",
+     "role": "characterisation",
+     "statement": "For X = Spec F and j ≥ 1, H¹_f(K, h⁰(F)(j)) = K_{2j−1}(O_F) ⊗ ℚ; for j ≥ 2 this equals K_{2j−1}(F) ⊗ ℚ."
+    },
+    {
+     "name": "motivicFactor_correspondence",
+     "role": "functoriality",
+     "statement": "A correspondence γ : M → M′ of data induces γ_* on both factors, with (γ′ ∘ γ)_* = γ′_* ∘ γ_* and Δ_* = id."
+    },
+    {
+     "name": "motivicFactor_restrictScalars",
+     "role": "compatibility",
+     "statement": "The factors of a datum over K and of its restriction of scalars to ℚ are equal."
+    }
+   ],
+   "tests": [
+    {
+     "name": "motivicFactorOne_rat_one",
+     "kind": "non-example",
+     "statement": "For (Spec ℚ, 0, 1): H¹_f = ℤ^× ⊗ ℚ = 0, whereas the field K-group K_1(ℚ) ⊗ ℚ = ℚ^× ⊗ ℚ is infinite-dimensional; a definition without the model image fails."
+    },
+    {
+     "name": "motivicFactorZero_point",
+     "kind": "degenerate",
+     "statement": "For (Spec F, 0, 0): H⁰_f = CH⁰(Spec F) ⊗ ℚ = ℚ, of dimension one."
+    },
+    {
+     "name": "motivicFactorOne_tate",
+     "kind": "computation",
+     "statement": "For (Spec F, 0, j) with j ≥ 2: dim H¹_f = r₂ if j is even and r₁ + r₂ if j is odd (Borel); for j = 1 it is r₁ + r₂ − 1."
+    },
+    {
+     "name": "motivicFactorOne_elliptic",
+     "kind": "compatibility",
+     "statement": "For h¹(E)(1): H¹_f = CH¹(E)_{hom∼0} ⊗ ℚ = E(K) ⊗ ℚ, the Mordell–Weil group of TauCetiRoadmap EllipticCurves Layer 6 tensored with ℚ."
+    }
+   ],
+   "planet": {
+    "name": "Motivic factors H⁰_f and H¹_f"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.1/k-theoretic-motive",
+    "MotivicEtaleKTheory:M.8/integral-motivic-structures",
+    "MotivicEtaleKTheory:M.6/rational-weight-comparison",
+    "MotivicEtaleKTheory:M.4/cycle-complex",
+    "MotivicEtaleKTheory:M.8/motivic-chern-character",
+    "MotivesAndAlgebraicCycles:MC.2/homological-equivalence"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.1, p. 518",
+     "match": "Case-wise definition of H⁰(K, M) by cycles modulo homological equivalence, of H¹(K, M) by the weight-r Adams eigenspace of K_{2r−n−1}(X) ⊗ ℚ or the homologically trivial cycles when 2r − n − 1 = 0, and of the finite part via the image from a regular proper model."
+    },
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "§5, p. 369",
+     "match": "The space W built from gr^r K_{2r−m−1}(X) ⊗ ℚ or homologically trivial cycles, and its subspace given by the image from a proper regular model over ℤ, which Beilinson's conjecture compares with Deligne cohomology."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§9.3, p. 231",
+     "match": "Motivic cohomology as the weight-n Adams eigenspace of K-theory of X, and its integral subspace defined when X has a regular model."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/MotivicFactors",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.1/weight-vanishing",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.1",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.1"
+   ],
+   "title": "Weight vanishing and the shape of the fundamental line",
+   "kind": "theorem",
+   "statement": "Let M be a K-theoretic motive datum of weight w. (i) H¹_f(K, M) = 0 if w ≥ 0, and H⁰_f(K, M) = 0 unless w = 0. (ii) If w ≤ −3, all of H⁰_f(K, M), H⁰_f(K, M*(1)) and H¹_f(K, M*(1)) vanish, so the Burns–Flach line is Ξ(M) = d(H¹_f(K,M))⁻¹ · ∏_{v|∞} d(H_v(M)^{G_v})⁻¹ · d(H_dR(M)/F⁰). (iii) If w = −2, only H¹_f(K, M) and H⁰_f(K, M*(1)) can be nonzero. (iv) If w = −1, only H¹_f(K, M) and H¹_f(K, M*(1)) can be nonzero. (v) The statements for w ≥ 0 follow from (ii)–(iv) for M*(1), whose weight is −2 − w.",
+   "hypotheses": [
+    "M is a K-theoretic motive datum; no finiteness is used."
+   ],
+   "proofSteps": [
+    "(i) is the case distinction in FL.1/motivic-factor-spaces: 2j − i − 1 < 0 exactly when w ≥ 0, and i = 2j exactly when w = 0.",
+    "Apply (i) to M*(1), of weight −2 − w (FL.1/k-theoretic-motive, dualTwist).",
+    "Substitute into the formula for Ξ_A(M) of PeriodsAndSpecialValues PS.3.1 (rational-fundamental-line)."
+   ],
+   "acceptance": [
+    "For ℚ(2) over ℚ (w = −4): Ξ = d(K_3(ℤ) ⊗ ℚ)⁻¹ · d(B⁺)⁻¹ · d(t) with K_3(ℤ) ⊗ ℚ = 0.",
+    "For ℚ(1) over ℚ (w = −2): the surviving motivic factor is H⁰_f(ℚ(0)) = ℚ, as in PeriodsAndSpecialValues PS.3, Examples."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.1/motivic-factor-spaces",
+    "PeriodsAndSpecialValues:PS.3/rational-fundamental-line"
+   ],
+   "sources": [
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§7.1, pp. 224–225",
+     "match": "Simplification of the conjectures by weight: for weight ≥ 1 the spaces H⁰, H¹_f of M and H⁰ of M*(1) vanish; weight −1 leaves a perfect pairing; weights ≤ −2 and 0 are described."
+    },
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.4, (29), p. 526",
+     "match": "The virtual object Ξ(M) assembled from the four motivic factors, the archimedean Betti invariants and the tangent space."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.1/artin-motive-factors",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.1",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.1"
+   ],
+   "title": "Motivic factors of Artin motives",
+   "kind": "theorem",
+   "statement": "Let F be a number field, E a number field of coefficients and V = e·h⁰(Spec F) ⊗ E an Artin motive over ℚ with coefficients in E (e an idempotent correspondence), and r ∈ ℤ. Then: H⁰_f(V(r)) = 0 for r ≠ 0, and H⁰_f(V) = e(ℚ ⊗ E) (the e-part of CH⁰(Spec F) ⊗ E); H¹_f(V(r)) = 0 for r ≤ 0; for r ≥ 1, H¹_f(V(r)) = e·(K_{2r−1}(O_F) ⊗ E), which for r ≥ 2 equals e·(K_{2r−1}(F) ⊗ E) and for r = 1 equals e·(O_F^× ⊗ E). For V = h⁰(F) and E = ℚ: dim H¹_f(h⁰(F)(1)) = r₁ + r₂ − 1, and for r ≥ 2 dim H¹_f(h⁰(F)(r)) = r₂ if r is even and r₁ + r₂ if r is odd. In general dim_E H¹_f(V(r)) = dim_E V_B(r − 1)^+ − dim_E H⁰_f(V^∨(1 − r)) for r ≥ 1, where (−)^+ is the invariant part under the infinity involution.",
+   "hypotheses": [
+    "F/ℚ finite; E a number field; V a direct summand of h⁰(Spec F) ⊗ E cut out by an idempotent."
+   ],
+   "proofSteps": [
+    "K_{2r−1}(F) ⊗ ℚ is pure of Adams weight r for r ≥ 1 (MotivicEtaleKTheory M.6/rational-weight-comparison; BorelRegulators R.4/regulator-adams-products), so the Adams eigenspace in FL.1/motivic-factor-spaces is the whole rational group.",
+    "Localization K_{2r−1}(O_F) → K_{2r−1}(F) → ⊕_v K_{2r−2}(k_v) with finite K-groups of finite fields gives K_{2r−1}(O_F) ⊗ ℚ = K_{2r−1}(F) ⊗ ℚ for r ≥ 2 (MotivicEtaleKTheory M.8/integral-motivic-structures); for r = 1, K_1(O_F) = O_F^×.",
+    "Ranks: Borel's theorem (BorelRegulators R.3/borel-rank-theorem) for r ≥ 2 and Dirichlet's unit theorem (Mathlib NumberField.Units.finrank_eq, NumberField.Units.rank) for r = 1; finite generation (ArithmeticKTheory N.3) for the integral groups.",
+    "The dimension formula is the dimension count of the exact sequences of FL.2/real-exactness-artin; e commutes with everything by functoriality of K-theory in the field automorphisms."
+   ],
+   "acceptance": [
+    "F = ℚ: H¹_f(ℚ(r)) has dimension 1 for odd r ≥ 3 and 0 for even r ≥ 2 and for r = 1 (artinFactorRank_rat).",
+    "F imaginary quadratic: dimension 1 for every r ≥ 2 and 0 for r = 1.",
+    "Dimension bookkeeping: with artinFactorRank K r the dimension above and tatePlusDim K r = r₁ + r₂ (r even) or r₂ (r odd), artinFactorRank + tatePlusDim = [K:ℚ] for r ≥ 2 and artinFactorRank + 1 + tatePlusDim = [K:ℚ] for r = 1 (artinFactorRank_add_tatePlusDim, artinFactorRank_one_add)."
+   ],
+   "planet": {
+    "name": "Motivic factors of Artin motives"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.1/motivic-factor-spaces",
+    "MotivicEtaleKTheory:M.6/rational-weight-comparison",
+    "MotivicEtaleKTheory:M.8/integral-motivic-structures",
+    "BorelRegulators:R.3/borel-rank-theorem",
+    "BorelRegulators:R.4/regulator-adams-products",
+    "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+    "mathlib:NumberField.Units.finrank_eq",
+    "mathlib:NumberField.Units.rank",
+    "mathlib:NumberField.InfinitePlace.card_add_two_mul_card_eq_rank"
+   ],
+   "sources": [
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "§1.1, pp. 4–5",
+     "match": "Artin motives as direct summands of h⁰(F) with E-coefficients; their motivic cohomology is given by Adams eigenspaces of K-theory of O_F, and only H⁰ (twist 0) and H¹ (twists ≥ 1) are nonzero."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.3(a)–(b), pp. 228–229",
+     "match": "For the 1-motives ℤ and 𝔾_m over F: H⁰ = ℚ for the unit motive, H¹_f of ℚ(1) is the unit group tensored with ℚ, and the unit regulator."
+    },
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "§5, p. 370",
+     "match": "Soulé's theorem gives the étale-realization conjecture for X = Spec K, m = 0 and r ≥ 0, the case on which the dimension count rests."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.1",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.1"
+   ],
+   "title": "Motivic factors of elliptic motives",
+   "kind": "theorem",
+   "statement": "Let E be an elliptic curve over a number field K with a regular proper flat model ℰ over O_K and Künneth projector π¹, and j ∈ ℤ. Then: (i) H⁰_f(K, h¹(E)(j)) = 0 for all j; (ii) H¹_f(K, h¹(E)(j)) = 0 for j ≤ 0; (iii) H¹_f(K, h¹(E)(1)) = π¹_*(CH¹(E)_{hom∼0} ⊗ ℚ) = E(K) ⊗ ℚ through the Abel–Jacobi map P ↦ [P] − [O], a ℚ-space of dimension rank E(K); (iv) for j ≥ 2, H¹_f(K, h¹(E)(j)) is the π¹-part of the image of (K_{2j−2}(ℰ) ⊗ ℚ)^{(j)} in (K_{2j−2}(E) ⊗ ℚ)^{(j)}; for j = 2 it is the integral part of K₂(E) ⊗ ℚ used by EllipticRegulators ER.6; (v) the Weil pairing identifies h¹(E)^∨ with h¹(E)(1), hence the dual datum h¹(E)(j)*(1) with h¹(E)(2 − j), compatibly with the factors.",
+   "hypotheses": [
+    "ℰ regular proper flat over O_K; for j ≥ 2 finite dimensionality of the factor in (iv) is not known and remains a hypothesis of every determinant formed from it."
+   ],
+   "proofSteps": [
+    "(i) and (ii) are FL.1/weight-vanishing with i = 1 and w = 1 − 2j.",
+    "(iii): for 2j − i − 1 = 0 the factor is homologically trivial divisor classes; on a curve these are Pic⁰(E), and Pic⁰(E) ≅ E(K) by the Abel–Jacobi map (TauCetiRoadmap EllipticCurves Layer 0); finite generation is the Mordell–Weil theorem (Layer 6).",
+    "(iv) is FL.1/motivic-factor-spaces with 2j − i − 1 = 2j − 2 and the model ℰ.",
+    "(v): the Weil pairing of TauCetiRoadmap EllipticCurves Layer 2 and the duality of Chow motives (MotivesAndAlgebraicCycles MC.1/motives-rigid) give h¹(E)^∨ ≅ h¹(E)(1); twist."
+   ],
+   "acceptance": [
+    "For E of rank zero, H¹_f(h¹(E)(1)) = 0 and the weight −1 line has no motivic factor.",
+    "The centre of symmetry of j ↦ 2 − j is j = 1, matching L(h¹(E)(j), s) = L(E, s + j) and the functional equation s + j ↦ 2 − (s + j)."
+   ],
+   "planet": {
+    "name": "Motivic factors of elliptic motives"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.1/motivic-factor-spaces",
+    "MotivicEtaleKTheoryPartII:FL.1/weight-vanishing",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+    "MotivesAndAlgebraicCycles:MC.1/motives-rigid",
+    "EllipticRegulators:ER.6/the-regulator-on-the-integral-part"
+   ],
+   "sources": [
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.3(d), p. 230",
+     "match": "For an abelian variety A the motive M = [0 → A] is self-dual after the twist, its H¹_f is A(ℚ) ⊗ ℚ, and the remaining structure is a nondegenerate pairing identified with the Néron–Tate height."
+    },
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "§5, Proposition 5.4, pp. 370–371",
+     "match": "For an abelian variety the Kummer sequence embeds A(K) ⊗ ℤ_p into H¹_f(K, T), the realization of the weight −1 factor."
+    },
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.1, p. 518",
+     "match": "The case 2r − n − 1 = 0 of the definition, by homologically trivial cycles."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.2/deligne-period-complex",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.2",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.2"
+   ],
+   "title": "Real Deligne complex of a motive",
+   "kind": "construction",
+   "statement": "For a K-theoretic motive datum M put H_v(M) = π·H^i(σX(ℂ), (2πi)^j ℚ) for the archimedean place v = v(σ), with G_v = Gal(ℂ/K_v) acting through the infinity involution and complex conjugation of coefficients, B⁺(M) = ⊕_{v|∞} H_v(M)^{G_v}, and t_M = H_dR(M)/F⁰ with the Hodge filtration shifted by j. Define the real Deligne complex RΓ_D(K, M) = [B⁺(M) ⊗ ℝ --α_M--> t_M ⊗_ℚ ℝ] in degrees 0 and 1, where α_M is induced by the comparison H_v(M) ⊗ ℂ ≅ H_dR(M) ⊗_{K,σ} ℂ. Then: (a) α_M is injective if w ≤ −1; (b) α_M is surjective if w ≥ −1; (c) ker(α_M)^* ≅ coker(α_{M*(1)}) and coker(α_M)^* ≅ ker(α_{M*(1)}) canonically; (d) for w ≤ −2, coker α_M is the G_ℝ-invariant real Deligne cohomology H^{i+1}_D(X_{/ℝ}, ℝ(j))_π, of dimension dim t_M − dim B⁺(M); (e) for an Artin motive V(r) with r ≥ 1, coker α = V_dR(r)_ℝ / V_B(r)^+_ℝ ≅ V_B(r − 1)^+_ℝ via ℂ = ℝ ⊕ ℝ(−1).",
+   "hypotheses": [
+    "X smooth projective over K; the comparison isomorphisms and the infinity involution are those of PeriodsAndSpecialValues PS.0.1–PS.0.2 and MotivesAndAlgebraicCycles MC.2."
+   ],
+   "proofSteps": [
+    "Form B⁺ and t_M from the realizations of MC.2 (betti-realization, de-rham-motivic comparison) and the infinity involution of PeriodsAndSpecialValues PS.0/real-infinity; α_M is the composite B⁺ ⊗ ℝ → H_dR ⊗ ℝ → t_M ⊗ ℝ.",
+    "(a)–(b): by Hodge symmetry, a real class in F⁰ lies in F⁰ ∩ conj(F⁰) = ⊕_{p,q≥0} H^{p,q}, which is zero in weight w < 0; for w ≥ −1 apply (a) to M*(1) and (c).",
+    "(c): Poincaré duality pairs B⁺(M) with B⁺(M*(1)) and F⁰ with F^1 of the dual (Burns–Flach Lemma 18, cited p. 519).",
+    "(d): for w ≤ −2, the long exact sequence of the Deligne complex ℤ(j)_D of MotivicEtaleKTheory M.8/deligne-regulator has H^{i+1}(X, ℝ(j)) ∩ F^j = 0 by weights, leaving H^i_dR/(F^j + H^i(ℝ(j))); take G_ℝ-invariants (TauCetiRoadmap HodgeStructures L2 for strictness and the Hodge decomposition).",
+    "(e): for h⁰(F) the Hodge filtration is trivial and B is the ℚ-valued functions on embeddings; split ℂ = ℝ ⊕ ℝ(−1)."
+   ],
+   "acceptance": [
+    "Dimension of coker α_M for h⁰(F)(r), r ≥ 2: [F:ℚ] − (r₁ + r₂) = r₂ for r even and [F:ℚ] − r₂ = r₁ + r₂ for r odd, equal to dim H¹_f of FL.1/artin-motive-factors.",
+    "For h¹(E)(1) over ℚ, α_M is an isomorphism ℝ → ℝ, multiplication by the real period."
+   ],
+   "uses": [
+    {
+     "where": "Burns–Flach (16)–(17), p. 519",
+     "how": "the Deligne complex whose kernel and cokernel are the archimedean terms of the basic exact sequence"
+    },
+    {
+     "where": "FL.2/real-regulator-sequence",
+     "how": "target of the cycle class and of the Beilinson regulator"
+    },
+    {
+     "where": "PeriodsAndSpecialValues PS.3.2",
+     "how": "the map α : B⁺ ⊗ ℝ → t_M ⊗ ℝ of the real trivialization"
+    },
+    {
+     "where": "Huber–Kings §1.1, p. 5",
+     "how": "identification of the real Deligne cohomology of an Artin motive with V_B(r − 1)^+_ℝ"
+    }
+   ],
+   "api": [
+    {
+     "name": "delignePeriodMap",
+     "role": "data",
+     "statement": "The real map α_M : B⁺(M) ⊗ ℝ → t_M ⊗ ℝ."
+    },
+    {
+     "name": "delignePeriodMap_injective",
+     "role": "characterisation",
+     "statement": "α_M is injective when w ≤ −1."
+    },
+    {
+     "name": "delignePeriodMap_surjective",
+     "role": "characterisation",
+     "statement": "α_M is surjective when w ≥ −1."
+    },
+    {
+     "name": "delignePeriodMap_ker_dual",
+     "role": "equivalence",
+     "statement": "ker(α_M)^* ≅ coker(α_{M*(1)}) and coker(α_M)^* ≅ ker(α_{M*(1)}), naturally in M and A-equivariantly for A^op on the dual."
+    },
+    {
+     "name": "delignePeriodMap_coker_eq_deligne",
+     "role": "compatibility",
+     "statement": "For w ≤ −2, coker α_M ≅ H^{i+1}_D(X_{/ℝ}, ℝ(j))_π, the target of the Deligne regulator of MotivicEtaleKTheory §12.2."
+    },
+    {
+     "name": "delignePeriodMap_finrank_coker",
+     "role": "other",
+     "statement": "For w ≤ −2, dim coker α_M = dim t_M − dim B⁺(M)."
+    },
+    {
+     "name": "delignePeriodMap_artin",
+     "role": "example",
+     "statement": "For an Artin motive V(r) with r ≥ 1, coker α ≅ V_B(r − 1)^+_ℝ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "delignePeriodMap_rat_one",
+     "kind": "computation",
+     "statement": "For ℚ(1) over ℚ: B⁺ = 0 (the infinity involution acts by −1), t = ℚ, so coker α = ℝ, matching H⁰_f(ℚ(0))^* ⊗ ℝ = ℝ."
+    },
+    {
+     "name": "delignePeriodMap_rat_zero",
+     "kind": "degenerate",
+     "statement": "For ℚ(0) over ℚ: t = 0 and B⁺ = ℚ, so ker α = ℝ and coker α = 0."
+    },
+    {
+     "name": "delignePeriodMap_rat_three",
+     "kind": "computation",
+     "statement": "For ℚ(3) over ℚ: B⁺ = 0 and t = ℚ, so dim coker α = 1 = dim K_5(ℤ) ⊗ ℚ."
+    },
+    {
+     "name": "delignePeriodMap_wrong_involution",
+     "kind": "non-example",
+     "statement": "Using the lattice conjugation instead of the infinity involution makes B⁺(ℚ(3)) = ℚ and coker α = 0, contradicting dim K_5(ℤ) ⊗ ℚ = 1."
+    }
+   ],
+   "planet": {
+    "name": "Real Deligne complex of a motive"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.1/k-theoretic-motive",
+    "PeriodsAndSpecialValues:PS.0/comparison-period-line",
+    "PeriodsAndSpecialValues:PS.0/real-infinity",
+    "MotivesAndAlgebraicCycles:MC.2/de-rham-betti-motivic-comparison",
+    "MotivicEtaleKTheory:M.8/deligne-regulator",
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, (16), p. 519",
+     "match": "The Deligne cohomology of a real Hodge structure as the two-term complex from G_v-invariants to the de Rham quotient by F⁰, assembled over the archimedean places into α_M."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§9.2, p. 231",
+     "match": "For the motive of weight ≤ −2 the cokernel of α identifies with real Deligne cohomology of X, and the rank of the motivic factor is its dimension."
+    },
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "§1.1, p. 5",
+     "match": "For Artin motives, H¹_D(ℝ, V_ℝ(r)) is V_dR(r)_ℝ modulo V_B(r)^+_ℝ, identified with V_B(r − 1)^+_ℝ through ℂ = ℝ ⊕ ℝ(−1)."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/RealComparison",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.2/real-regulator-sequence",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.2",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.2"
+   ],
+   "title": "Beilinson regulator sequence",
+   "kind": "construction",
+   "statement": "For a K-theoretic motive datum M define the sequence of finite-dimensional real A_ℝ-modules (when the factors are finite-dimensional) 0 → H⁰_f(K,M)_ℝ --ε--> ker α_M --r_B^*--> H¹_f(K,M*(1))^*_ℝ --δ--> H¹_f(K,M)_ℝ --r_B--> coker α_M --ε^*--> H⁰_f(K,M*(1))^*_ℝ → 0, where ε is the Betti cycle class (landing in ker α_M because algebraic classes lie in F⁰ after the twist), r_B is the Beilinson regulator: the Deligne regulator of MotivicEtaleKTheory §§12.2–12.3 on the Adams eigenspace, composed with π and with delignePeriodMap_coker_eq_deligne (zero when w = −1, where coker α_M = 0), r_B^* and ε^* are the transposes of the corresponding maps for M*(1) under delignePeriodMap_ker_dual, and δ is the height pairing, defined in weight −1 only; for h¹(E)(1) it is the Néron–Tate pairing on E(K) ⊗ ℝ, and for other weight −1 data it is a supplied datum.",
+   "hypotheses": [
+    "Finite dimensionality of the factors where real determinants are later taken.",
+    "In weight −1 other than h¹ of an elliptic curve, the height pairing δ is part of the data: no roadmap constructs the Beilinson–Bloch height in general."
+   ],
+   "proofSteps": [
+    "Cycle class: MotivesAndAlgebraicCycles MC.2/chern-character-cycle-map and the Betti realization, followed by the projection to ker α_M.",
+    "Regulator: MotivicEtaleKTheory M.8/deligne-regulator with its number-field normalization M.8/number-field-deligne-normalization, restricted to the integral part of FL.1/motivic-factor-spaces and composed with the identification of FL.2/deligne-period-complex(d).",
+    "Dual maps: apply the same constructions to M*(1) and transpose through FL.2/deligne-period-complex(c).",
+    "Height: for h¹(E)(1), the canonical height pairing of TauCetiRoadmap EllipticCurves Layer 6 extended to E(K) ⊗ ℝ, under the identification of FL.1/elliptic-motive-factors(iii) and its self-duality."
+   ],
+   "acceptance": [
+    "For h⁰(F)(1): r_B(u) = (log|u|_v)_{v|∞} with |·|_v the normalized absolute value (square at complex places), and ε^* is the sum map; their composite vanishes by the product formula for units.",
+    "For ℚ(1) over ℚ the sequence is 0 → 0 → ℝ → ℝ → 0."
+   ],
+   "uses": [
+    {
+     "where": "Burns–Flach Conjecture 1, (17), p. 519",
+     "how": "the basic exact sequence with cycle class, Beilinson regulator and height pairing"
+    },
+    {
+     "where": "FL.2/real-exactness",
+     "how": "the sequence whose exactness is the predicate"
+    },
+    {
+     "where": "PeriodsAndSpecialValues PS.3.2",
+     "how": "the exact sequence along which θ_∞ is assembled"
+    }
+   ],
+   "api": [
+    {
+     "name": "cycleClassReal",
+     "role": "data",
+     "statement": "ε : H⁰_f(K,M)_ℝ → ker α_M."
+    },
+    {
+     "name": "beilinsonRegulatorReal",
+     "role": "data",
+     "statement": "r_B : H¹_f(K,M)_ℝ → coker α_M, natural in correspondences and compatible with restriction of scalars."
+    },
+    {
+     "name": "heightPairingReal",
+     "role": "data",
+     "statement": "δ : H¹_f(K,M*(1))^*_ℝ → H¹_f(K,M)_ℝ in weight −1."
+    },
+    {
+     "name": "beilinsonRegulatorReal_artin",
+     "role": "compatibility",
+     "statement": "For h⁰(F)(r), r ≥ 2, r_B is the Beilinson regulator of BorelRegulators §8.4, equal to one half of the Borel regulator in the same Tate coordinates."
+    },
+    {
+     "name": "beilinsonRegulatorReal_units",
+     "role": "example",
+     "statement": "For h⁰(F)(1), r_B is the logarithmic embedding of units, Mathlib NumberField.Units.logEmbedding up to the normalization of complex places."
+    },
+    {
+     "name": "realRegulatorSequence_dual",
+     "role": "relation",
+     "statement": "The ℝ-dual of the sequence for M is the sequence for M*(1), term by term."
+    }
+   ],
+   "tests": [
+    {
+     "name": "beilinsonRegulatorReal_units_product_formula",
+     "kind": "computation",
+     "statement": "For F real quadratic with fundamental unit ε₀: r_B(ε₀) = (log|ε₀|, −log|ε₀|), and ε^* sends it to 0 = log|ε₀| − log|ε₀|."
+    },
+    {
+     "name": "realRegulatorSequence_rat_one",
+     "kind": "degenerate",
+     "statement": "For ℚ(1) over ℚ every motivic term but H⁰_f(ℚ(0)) vanishes and the sequence is the isomorphism coker α_M = ℝ → ℝ."
+    },
+    {
+     "name": "beilinsonRegulatorReal_not_borel",
+     "kind": "non-example",
+     "statement": "Replacing r_B by the Borel regulator multiplies it by 2 in each Tate coordinate, hence the determinant by 2^{d_r}; exactness is unchanged but the coordinate of FL.2/fundamental-line-real-comparison changes."
+    },
+    {
+     "name": "heightPairingReal_elliptic",
+     "kind": "compatibility",
+     "statement": "For h¹(E)(1), δ is the Néron–Tate pairing; its determinant on a ℤ-basis of E(K)/tors is the regulator Reg_E of TauCetiRoadmap EllipticCurves Layer 6."
+    }
+   ],
+   "planet": {
+    "name": "Beilinson regulator sequence"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.2/deligne-period-complex",
+    "MotivicEtaleKTheoryPartII:FL.1/motivic-factor-spaces",
+    "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors",
+    "MotivesAndAlgebraicCycles:MC.2/chern-character-cycle-map",
+    "MotivicEtaleKTheory:M.8/deligne-regulator",
+    "MotivicEtaleKTheory:M.8/number-field-deligne-normalization",
+    "BorelRegulators:R.7/regulator-factor-two",
+    "mathlib:NumberField.Units.logEmbedding",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, Conjecture 1 and (17), p. 519",
+     "match": "The six-term sequence from H⁰(K,M) through ker α_M, the dual of H¹_f(K,M*(1)), H¹_f(K,M) and coker α_M to the dual of H⁰(K,M*(1)), with ε the cycle class, r_B the Beilinson regulator and δ a height pairing in weight −1."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.3(a), pp. 228–229, and §9.6, p. 233",
+     "match": "The unit regulator by logarithms of absolute values in the case of h⁰(F)(1); in weight −1 the sequence reduces to a nondegenerate pairing, which for abelian varieties is the Néron–Tate height."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/RealComparison",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.2/real-exactness",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.2",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.2"
+   ],
+   "title": "Real exactness predicate",
+   "kind": "definition",
+   "statement": "RealExactness(M) is the proposition that the factors H⁰_f, H¹_f of M and of M*(1) are finite-dimensional and the Beilinson regulator sequence of FL.2/real-regulator-sequence is exact, with its ℝ-dual identified with the sequence for M*(1) (Burns–Flach Conjecture 1). By FL.1/weight-vanishing it says: for w ≤ −3, r_B is an isomorphism H¹_f(K,M)_ℝ ≅ coker α_M; for w = −2, 0 → H¹_f(K,M)_ℝ → coker α_M → H⁰_f(K,M*(1))^*_ℝ → 0 is exact; for w = −1, δ is an isomorphism; for w ≥ 0, the dual statements for M*(1).",
+   "hypotheses": [
+    "The maps are those constructed in FL.2/real-regulator-sequence; another choice of maps between the same spaces does not witness the predicate."
+   ],
+   "proofSteps": [
+    "Unfold FL.1/weight-vanishing in each weight range.",
+    "The duality clause is delignePeriodMap_ker_dual and realRegulatorSequence_dual."
+   ],
+   "acceptance": [
+    "RealExactness(ℚ(1) over ℚ) holds trivially.",
+    "RealExactness(M) ↔ RealExactness(M*(1))."
+   ],
+   "uses": [
+    {
+     "where": "FL.2/fundamental-line-real-comparison",
+     "how": "the hypothesis under which ϑ_∞ is defined"
+    },
+    {
+     "where": "PeriodsAndSpecialValues PS.3.2",
+     "how": "the Burns–Flach real exactness hypothesis of realTrivialization"
+    },
+    {
+     "where": "Fontaine, Bourbaki 751, §9.3, p. 231",
+     "how": "for w ≤ −3 it is Beilinson's conjecture that the regulator is an isomorphism"
+    }
+   ],
+   "api": [
+    {
+     "name": "RealExactness",
+     "role": "data",
+     "statement": "The proposition."
+    },
+    {
+     "name": "realExactness_dual",
+     "role": "equivalence",
+     "statement": "RealExactness(M) ↔ RealExactness(M*(1))."
+    },
+    {
+     "name": "realExactness_iff_regulator_iso",
+     "role": "characterisation",
+     "statement": "For w ≤ −3, RealExactness(M) ↔ r_B is bijective."
+    },
+    {
+     "name": "realExactness_finrank",
+     "role": "other",
+     "statement": "RealExactness(M) with w ≤ −2 implies dim H¹_f(K,M) = dim coker α_M − dim H⁰_f(K,M*(1))."
+    },
+    {
+     "name": "realExactness_directSum",
+     "role": "structure",
+     "statement": "Real exactness of a direct sum of data is equivalent to that of each summand."
+    },
+    {
+     "name": "realExactness_restrictScalars",
+     "role": "compatibility",
+     "statement": "RealExactness is unchanged by restriction of scalars to ℚ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "realExactness_rat_one",
+     "kind": "degenerate",
+     "statement": "For ℚ(1) over ℚ the predicate holds: the sequence is the identity of ℝ."
+    },
+    {
+     "name": "realExactness_tate_two_rational",
+     "kind": "computation",
+     "statement": "For ℚ(2) over ℚ (w = −4): K_3(ℤ) ⊗ ℚ = 0 and α_M : ℝ → ℝ is multiplication by (2πi)² = −4π², an isomorphism, so the predicate holds with both sides zero."
+    },
+    {
+     "name": "realExactness_wrong_map",
+     "kind": "non-example",
+     "statement": "For h⁰(F)(3) with F real quadratic, the zero map H¹_f ⊗ ℝ → coker α (both of dimension 2) is not exact although the dimensions agree; the predicate concerns the Beilinson regulator."
+    },
+    {
+     "name": "realExactness_elliptic_height",
+     "kind": "compatibility",
+     "statement": "For h¹(E)(1), RealExactness is the nondegeneracy of the Néron–Tate pairing on E(K) ⊗ ℝ."
+    }
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.2/real-regulator-sequence",
+    "MotivicEtaleKTheoryPartII:FL.1/weight-vanishing"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, Conjecture 1, p. 519",
+     "match": "The conjectured exactness of the six-term sequence and the identification of its dual with the sequence for M*(1), citing Fontaine–Perrin-Riou III.3.2.5."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§9.3, p. 231",
+     "match": "Beilinson's conjecture that the regulator from the integral motivic cohomology to Deligne cohomology is an isomorphism."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/RealComparison",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.2/real-exactness-artin",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.2",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.2"
+   ],
+   "title": "Real exactness for Artin motives",
+   "kind": "theorem",
+   "statement": "For every Artin motive V over ℚ with coefficients in a number field E and every r ∈ ℤ, RealExactness(V(r)) holds. Explicitly: for r ≥ 1 the sequence 0 → H¹_f(V(r))_ℝ --r_B--> V_B(r − 1)^+_ℝ → H⁰_f(V^∨(1 − r))^∨_ℝ → 0 is exact (the last term vanishes unless r = 1), and for r ≤ 0 the sequence 0 → H⁰_f(V(r))_ℝ --ε--> V_B(r)^+_ℝ → H¹_f(V^∨(1 − r))^∨_ℝ → 0 is exact.",
+   "hypotheses": [
+    "V a direct summand of h⁰(Spec F) ⊗ E."
+   ],
+   "proofSteps": [
+    "r ≥ 2: Borel's theorem that the Borel regulator is an isomorphism K_{2r−1}(F) ⊗ ℝ ≅ V_r(F) (BorelRegulators R.4/regulator-real-isomorphism), the comparison Borel = 2·Beilinson in the same Tate coordinates (R.7/regulator-factor-two), and the identification of V_r(F) with coker α (FL.2/deligne-period-complex(e)); apply the idempotent e by Galois equivariance (R.4/regulator-transfer).",
+    "r = 1: Dirichlet's unit theorem: the logarithmic embedding of O_F^× ⊗ ℝ is an isomorphism onto the trace-zero hyperplane of ⊕_{v|∞} ℝ (Mathlib NumberField.Units.logEmbedding, NumberField.Units.finrank_eq, NumberField.Units.regulator_pos), and the quotient by the hyperplane is H⁰_f(h⁰(F))^∨_ℝ = ℝ via the sum.",
+    "r ≤ 0: dualize the cases 1 − r ≥ 1 with FL.2/real-exactness (realExactness_dual)."
+   ],
+   "acceptance": [
+    "For F = ℚ and r = 3: the regulator of the generator of K_5(ℤ) ⊗ ℚ is a nonzero multiple of ζ(3) times a rational power of π, consistent with dim coker α = 1.",
+    "For F real quadratic and r = 1: the exact sequence is 0 → ℝ log ε₀ → ℝ² → ℝ → 0."
+   ],
+   "planet": {
+    "name": "Real exactness for Artin motives"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.2/real-exactness",
+    "MotivicEtaleKTheoryPartII:FL.1/artin-motive-factors",
+    "MotivicEtaleKTheoryPartII:FL.2/deligne-period-complex",
+    "BorelRegulators:R.4/regulator-real-isomorphism",
+    "BorelRegulators:R.4/regulator-transfer",
+    "BorelRegulators:R.7/regulator-factor-two",
+    "mathlib:NumberField.Units.logEmbedding",
+    "mathlib:NumberField.Units.finrank_eq",
+    "mathlib:NumberField.Units.regulator_pos"
+   ],
+   "sources": [
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Proposition 1.2.3, p. 7, and §1.1, p. 5",
+     "match": "The real isomorphism of the fundamental line of an Artin motive is induced by the two short exact sequences, by twist r ≤ 0 and r ≥ 1, built from the cycle map and the Beilinson regulator; the regulator is an isomorphism for r > 1 by Borel and Rapoport."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.3(a)–(b), pp. 228–229",
+     "match": "For the unit motive and for 𝔾_m over F the sequence reduces to the logarithmic unit regulator and its transpose; the resulting statements are the class number formula."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.2/real-exactness-elliptic",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.2",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.2"
+   ],
+   "title": "Real exactness for elliptic motives",
+   "kind": "theorem",
+   "statement": "Let E be an elliptic curve over a number field K. (i) RealExactness(h¹(E)(1)) holds: α_M is an isomorphism, the H⁰ factors vanish, H¹_f(K,M) = H¹_f(K,M*(1)) = E(K) ⊗ ℚ, and δ is the Néron–Tate pairing, which is positive definite on E(K) ⊗ ℝ. (ii) For j ≥ 2, RealExactness(h¹(E)(j)) is equivalent to: H¹_f(K, h¹(E)(j)) is finite-dimensional and r_B ⊗ ℝ is an isomorphism onto H²_D(E_{/ℝ}, ℝ(j)), of real dimension [K:ℚ]. For K = ℚ and j = 2 this is the rational form of EllipticRegulators ER.6/the-beilinson-statement. (iii) For j ≤ 0, RealExactness(h¹(E)(j)) ↔ RealExactness(h¹(E)(2 − j)).",
+   "hypotheses": [
+    "(i) uses Mordell–Weil over K and the Néron–Tate height; (ii) is an equivalence, not an assertion: no case of j ≥ 2 is proved here."
+   ],
+   "proofSteps": [
+    "(i): by FL.2/deligne-period-complex (a)–(b) in weight −1, α_M is an isomorphism; FL.1/elliptic-motive-factors gives the factors; the sequence reduces to δ, which is the Néron–Tate pairing; positive definiteness on E(K) ⊗ ℝ (TauCetiRoadmap EllipticCurves Layer 6) gives exactness.",
+    "(ii): weight 1 − 2j ≤ −3, so FL.2/real-exactness reduces to bijectivity of r_B; since F^j H¹_dR(E) = 0 for j ≥ 2, t_M = H¹_dR(E/K) has ℚ-dimension 2[K:ℚ], while B⁺ has dimension r₁ + 2r₂ = [K:ℚ] (one eigenline of the infinity involution at each real place, the full plane at each complex place), so dim coker α_M = [K:ℚ]; for K = ℚ and j = 2 compare with ER.6.",
+    "(iii): FL.2/real-exactness, realExactness_dual, with FL.1/elliptic-motive-factors(v)."
+   ],
+   "acceptance": [
+    "For E/ℚ of rank zero, (i) is the statement that 0 → 0 is exact and α_M is the real period isomorphism.",
+    "For E/ℚ of rank one generated by P, δ is multiplication by the canonical height ĥ(P) > 0."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.2/real-exactness",
+    "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors",
+    "MotivicEtaleKTheoryPartII:FL.2/deligne-period-complex",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+    "EllipticRegulators:ER.6/the-beilinson-statement"
+   ],
+   "sources": [
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.3(d), p. 230; §9.6, p. 233",
+     "match": "For abelian varieties the sequence is a nondegenerate pairing on A(ℚ) ⊗ ℝ, identified with the Néron–Tate height; for odd i and the central twist the pairing is the Beilinson–Bloch height."
+    },
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, Conjecture 1, p. 519",
+     "match": "In weight −1 the height pairing δ is the only nontrivial map of the sequence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.2/fundamental-line-real-comparison",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.2",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.2"
+   ],
+   "title": "Fundamental-line real comparison",
+   "kind": "construction",
+   "statement": "For a K-theoretic motive datum M with RealExactness(M), define fundamentalLineRealComparison(M) = ϑ_∞(M) : Ξ_A(M) ⊗ ℝ ≅ 1, the trivialization realTrivialization of PeriodsAndSpecialValues PS.3.2 applied to the exact sequence of FL.2/real-regulator-sequence together with 0 → ker α_M → B⁺_ℝ → t_{M,ℝ} → coker α_M → 0, in the fixed order of factors of Ξ_A(M). For an Artin motive V(r) with integral Betti lattice T_B and a ℤ-lattice Ω ⊂ H¹_f(V(r)) (the image of K_{2r−1}(O_F) modulo torsion), the coordinate of ϑ_∞ on det⁻¹ Ω ⊗ det⁻¹ T_B(r)^+ ⊗ det t_M is the Beilinson regulator covolume of Ω in V_B(r − 1)^+_ℝ relative to T_B, times the comparison factor of PS.0; for h⁰(F)(1 − k), k ≥ 2, ϑ_∞ sends a generator of det⁻¹ Ω ⊗ det⁻¹ T_B(1 − k)^+ to ±R_k(F)⁻¹, where R_k(F) is the Beilinson regulator covolume of Ω.",
+   "hypotheses": [
+    "RealExactness(M); the factors finite-dimensional and, for coefficients A, projective."
+   ],
+   "proofSteps": [
+    "Apply PeriodsAndSpecialValues PS.3/real-regulator-trivialization with the maps of FL.2/real-regulator-sequence as its exact-sequence witness; the archimedean comparison is PS.0/comparison-period-line.",
+    "Coordinates: in chosen bases, multiplicativity of determinants along the two exact sequences gives the signed regulator determinant times the comparison determinant (Mathlib Matrix.det, Matrix.det_smul); for Artin motives follow Huber–Kings Proposition 1.2.3 and the proof of Theorem 1.4.1.",
+    "Compare with Borel's normalization by BorelRegulators R.4/regulator-covolume and R.7/regulator-factor-two."
+   ],
+   "acceptance": [
+    "The ordered determinant identifications are those of PadicMeasuresIwasawaAlgebras §5.1, so the comparison is defined on graded lines.",
+    "ϑ_∞(M*(1)) is the dual of ϑ_∞(M) under Ξ(M*(1)) ≅ Ξ(M)^* ⊗ (archimedean and de Rham factors), as in Huber–Kings Proposition 2.2.3."
+   ],
+   "uses": [
+    {
+     "where": "Kato 2003 §2.1(b), p. 168",
+     "how": "the isomorphism Δ_K(M) ⊗ K_∞ ≅ K_∞ built from Hodge theory and K-theory"
+    },
+    {
+     "where": "FL.4/tamagawa-condition",
+     "how": "the element δ with ϑ_∞(L*·δ) = 1"
+    },
+    {
+     "where": "PeriodsAndSpecialValues PS.3.3 and PS.5.1",
+     "how": "θ_∞ in LeadingTermRational and in the relative class RΩ"
+    },
+    {
+     "where": "SpecialValuesBirchTate §8.2",
+     "how": "the real determinant of the motivic regulator lattice in the Lichtenbaum formulas"
+    }
+   ],
+   "api": [
+    {
+     "name": "fundamentalLineRealComparison",
+     "role": "data",
+     "statement": "ϑ_∞(M) : Ξ_A(M)_ℝ ≅ 1."
+    },
+    {
+     "name": "fundamentalLineRealComparison_coordinate",
+     "role": "characterisation",
+     "statement": "In bases of the motivic factors, B⁺ and t_M, the coordinate is the signed product of the regulator, cycle-class and height determinants with the period determinant."
+    },
+    {
+     "name": "fundamentalLineRealComparison_artin",
+     "role": "example",
+     "statement": "For h⁰(F)(1 − k), k ≥ 2: a generator of det⁻¹ Ω ⊗ det⁻¹ T_B(1 − k)^+ has coordinate ±R_k(F)⁻¹, R_k the Beilinson regulator covolume."
+    },
+    {
+     "name": "fundamentalLineRealComparison_dual",
+     "role": "relation",
+     "statement": "Compatibility of ϑ_∞(M) and ϑ_∞(M*(1)) with the local line Δ_loc of Huber–Kings §2.2."
+    },
+    {
+     "name": "fundamentalLineRealComparison_borel",
+     "role": "compatibility",
+     "statement": "Replacing the Beilinson by the Borel regulator for h⁰(F)(r), r ≥ 2, multiplies the coordinate by 2^{d_r}, d_r = dim coker α."
+    },
+    {
+     "name": "fundamentalLineRealComparison_restrictScalars",
+     "role": "compatibility",
+     "statement": "Unchanged by restriction of scalars to ℚ and A-equivariant."
+    }
+   ],
+   "tests": [
+    {
+     "name": "fundamentalLineRealComparison_rat_one",
+     "kind": "degenerate",
+     "statement": "For ℚ(1) over ℚ: Ξ = d(H⁰_f(ℚ(0))^*)⁻¹ ⊗ d(t), and ϑ_∞ sends the generator 1^* ⊗ 1 to 1 after the identification t ⊗ ℝ = coker α = ℝ."
+    },
+    {
+     "name": "fundamentalLineRealComparison_real_quadratic",
+     "kind": "computation",
+     "statement": "For h⁰(F)(1), F real quadratic with fundamental unit ε₀, B⁺ = 0 and t_M = F, and the generator ε₀⁻¹ ⊗ (1^*)⁻¹ ⊗ (1 ∧ ω) built from ε₀ and a ℤ-basis (1, ω) of O_F has coordinate ±√d_F/R_F, with R_F = log ε₀ the regulator (Mathlib NumberField.Units.regulator) and d_F the discriminant; with ζ_F^*(1) = 2hR_F/√d_F the element δ of FL.4 is ±(2h)⁻¹ times this generator."
+    },
+    {
+     "name": "fundamentalLineRealComparison_odd_swap",
+     "kind": "non-example",
+     "statement": "Swapping two odd-degree line factors in the fixed order multiplies ϑ_∞ by −1; a formula in ungraded lines cannot record the ordering used in the comparison."
+    },
+    {
+     "name": "fundamentalLineRealComparison_borel_factor",
+     "kind": "compatibility",
+     "statement": "For F imaginary quadratic and r = 2 (d_r = 1), the Borel coordinate is twice the Beilinson coordinate."
+    }
+   ],
+   "planet": {
+    "name": "Fundamental-line real comparison"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.2/real-exactness",
+    "MotivicEtaleKTheoryPartII:FL.2/real-regulator-sequence",
+    "PeriodsAndSpecialValues:PS.3/real-regulator-trivialization",
+    "PeriodsAndSpecialValues:PS.3/rational-fundamental-line",
+    "PeriodsAndSpecialValues:PS.0/comparison-period-line",
+    "BorelRegulators:R.4/regulator-covolume",
+    "BorelRegulators:R.7/regulator-factor-two",
+    "PadicMeasuresIwasawaAlgebras:L5",
+    "mathlib:Matrix.det",
+    "mathlib:Matrix.det_smul",
+    "mathlib:NumberField.Units.regulator"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.4, p. 529",
+     "match": "The conjectural exact sequence (17) combined with (16) induces the trivialization ϑ_∞ of Ξ(M) ⊗ ℝ."
+    },
+    {
+     "sourceId": "Kato2003",
+     "locator": "§2.1(b), p. 168",
+     "match": "An isomorphism of the rational line with K_∞, constructed from Hodge theory and K-theory."
+    },
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Proposition 1.2.3, p. 7; proof of Theorem 1.4.1, pp. 13–14",
+     "match": "The explicit real isomorphism of the Artin fundamental line and the lattice whose coordinate is the Beilinson regulator divided by the leading term."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/RealComparison",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.3/padic-realization-maps",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.3",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.3"
+   ],
+   "title": "p-adic realization of motivic factors",
+   "kind": "construction",
+   "statement": "For a K-theoretic motive datum M and a prime p, with V_p = π·H^i_et(X_K̄, ℚ_p(j)) (MotivesAndAlgebraicCycles MC.2/etale-realization), define c⁰_p : H⁰_f(K,M) ⊗ ℚ_p → H⁰(K, V_p) by the p-adic cycle class (i = 2j), and c¹_p : H¹_f(K,M) ⊗ ℚ_p → H¹(K, V_p) as follows: if 2j − i − 1 > 0, apply the normalized étale Chern character of K_{2j−i−1}(X)^{(j)} into H^{i+1}_et(X, ℚ_p(j)) (MotivicEtaleKTheory §12.1 and Layer 9) and the Hochschild–Serre edge, whose obstruction term H^{i+1}(X_K̄, ℚ_p(j))^{G_K} vanishes because i + 1 ≠ 2j and the Weil conjectures exclude the weight; if 2j − i − 1 = 0, use the p-adic Abel–Jacobi map on homologically trivial cycles (the Kummer map for h¹(E)(1)). The image of the integral part lies in the Bloch–Kato group H¹_g(K, V_p) (MotivicEtaleKTheory M.8/selmer-regulator-factorization and PadicHodgeRegulators D.2); it lies in H¹_f(K, V_p) = H¹RΓ_f(K, V_p) whenever H¹_f = H¹_g locally at each v | p, in particular for Artin motives of twist ≥ 1, for h¹(E)(1), and for every M of weight ≤ −3 with good reduction at p, and as a hypothesis otherwise.",
+   "hypotheses": [
+    "p any prime; S a finite set of places containing the archimedean places, the places of bad reduction and the places above p.",
+    "Outside the listed cases the inclusion of the image in H¹_f(K, V_p) is a hypothesis of every statement using c¹_p."
+   ],
+   "proofSteps": [
+    "Étale Chern character: MotivicEtaleKTheory M.8/finite-etale-chern with the rational normalization of M.8/motivic-chern-character and the comparison M.8/chern-functoriality; pass to ℚ_p-coefficients through continuous cohomology (MotivicEtaleKTheory M.7/arithmetic-adic-degrees).",
+    "Edge map: Hochschild–Serre for X → Spec K; the weight argument of Bloch–Kato (5.2), p. 370.",
+    "Local conditions: the Bloch–Kato conditions of SelmerIwasawaCohomology L4/bloch-kato-condition, the global Selmer group L2/galois-selmer-group, and the syntomic factorization of PadicHodgeRegulators D.2/syntomic-etale-regulator-comparison for the image in H¹_g; H¹_f = H¹_g in weights ≤ −3 at good p because D_cris(V_p^*(1))^{φ=1} = 0 by purity of Frobenius weights (Bloch–Kato Proposition 3.8 and Corollary 3.8.4, pp. 354–355)."
+   ],
+   "acceptance": [
+    "For h⁰(F)(1), c¹_p is the Kummer map O_F^× ⊗ ℚ_p → H¹_f(F, ℚ_p(1)), compatible with Tau Ceti's TauCeti.kummerMap on finite levels.",
+    "Weight argument check: for X = Spec F, H^{i+1}(X_K̄, ℚ_p(j))^{G_K} = H¹ of a point is zero, so the edge map is defined without hypotheses."
+   ],
+   "uses": [
+    {
+     "where": "Burns–Flach Conjecture 2, (27), p. 523",
+     "how": "the maps c^i_p(M) whose bijectivity is conjectured"
+    },
+    {
+     "where": "Bloch–Kato (5.2) and Conjecture 5.3, p. 370",
+     "how": "the homomorphism from motivic cohomology to H¹_f built from Soulé's Chern classes"
+    },
+    {
+     "where": "FL.3/fundamental-line-padic-comparison",
+     "how": "the p-adic identification of the motivic factors"
+    },
+    {
+     "where": "Huber–Kings §1.1, pp. 5–6",
+     "how": "the p-adic regulator r_p of an Artin motive and its factorization through H¹_f"
+    }
+   ],
+   "api": [
+    {
+     "name": "padicRealizationZero",
+     "role": "data",
+     "statement": "c⁰_p : H⁰_f(K,M) ⊗ ℚ_p → H⁰(K, V_p)."
+    },
+    {
+     "name": "padicRealizationOne",
+     "role": "data",
+     "statement": "c¹_p : H¹_f(K,M) ⊗ ℚ_p → H¹(K, V_p), natural in correspondences."
+    },
+    {
+     "name": "padicRealizationOne_mem_g",
+     "role": "characterisation",
+     "statement": "The image of c¹_p lies in H¹_g(K, V_p)."
+    },
+    {
+     "name": "padicRealizationOne_mem_f",
+     "role": "characterisation",
+     "statement": "The image of c¹_p lies in H¹_f(K, V_p) when H¹_f = H¹_g at every v | p."
+    },
+    {
+     "name": "padicRealizationOne_units",
+     "role": "example",
+     "statement": "For h⁰(F)(1), c¹_p is the Kummer map on O_F^×."
+    },
+    {
+     "name": "padicRealizationOne_kummer_elliptic",
+     "role": "example",
+     "statement": "For h¹(E)(1), c¹_p is the Kummer map E(K) ⊗ ℚ_p → H¹_f(K, V_pE)."
+    },
+    {
+     "name": "padicRealization_restrictScalars",
+     "role": "compatibility",
+     "statement": "Compatible with restriction of scalars and Shapiro's lemma."
+    }
+   ],
+   "tests": [
+    {
+     "name": "padicRealizationOne_rat_even",
+     "kind": "computation",
+     "statement": "For ℚ(j) over ℚ with j ≥ 2 even, both sides vanish: K_{2j−1}(ℤ) ⊗ ℚ = 0 and H¹(ℤ[1/p], ℚ_p(j)) has dimension r₂ = 0."
+    },
+    {
+     "name": "padicRealizationOne_units_degenerate",
+     "kind": "degenerate",
+     "statement": "For F = ℚ and twist 1, the source ℤ^× ⊗ ℚ_p is zero and the target H¹_f(ℚ, ℚ_p(1)) is zero (it is ℤ^× ⊗ ℚ_p)."
+    },
+    {
+     "name": "padicRealizationOne_factorial",
+     "kind": "non-example",
+     "statement": "Using the unnormalized Chern class c_{j,2j−1} instead of the character multiplies c¹_p by (−1)^{j−1}(j − 1)!; rational bijectivity is unchanged, but integral images differ by that factor (MotivicEtaleKTheory §12.8, chernImageScaling)."
+    },
+    {
+     "name": "padicRealizationOne_uniformizer",
+     "kind": "non-example",
+     "statement": "For ℚ_p(1) a uniformizer class lies outside the local H¹_f; the realization of a unit lies inside. A definition landing in full H¹ in twist one is wrong."
+    }
+   ],
+   "planet": {
+    "name": "p-adic realization of motivic factors"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.1/motivic-factor-spaces",
+    "MotivesAndAlgebraicCycles:MC.2/etale-realization",
+    "MotivicEtaleKTheory:M.8/finite-etale-chern",
+    "MotivicEtaleKTheory:M.8/motivic-chern-character",
+    "MotivicEtaleKTheory:M.8/chern-functoriality",
+    "MotivicEtaleKTheory:M.8/selmer-regulator-factorization",
+    "MotivicEtaleKTheory:M.7/arithmetic-adic-degrees",
+    "PadicHodgeRegulators:D.2/syntomic-etale-regulator-comparison",
+    "SelmerIwasawaCohomology:L4/bloch-kato-condition",
+    "SelmerIwasawaCohomology:L2/galois-selmer-group"
+   ],
+   "sources": [
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "(5.2) and Conjecture 5.3, p. 370; Example 3.9, p. 359",
+     "match": "Soulé's Chern classes give a homomorphism from the motivic group into global H¹; a weight argument removes the geometric term when m ≠ 2r − 1; the local H¹_f of ℚ_p(r) has the listed dimensions, in particular H¹_f(K, ℚ_p(1)) is the image of the units."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§9.4, pp. 231–232",
+     "match": "ℓ-adic Chern classes define maps from integral motivic cohomology to Galois cohomology, conjectured to land in H¹_f (proved under broad hypotheses by Gros) and to be isomorphisms."
+    },
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, Conjecture 2 and (27), p. 523",
+     "match": "The maps c^i_p(M) from H^i_f(K, M) ⊗ ℚ_p to the cohomology of the finite complex RΓ_f(K, V_p), i ∈ {0, 1}."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/PadicComparison",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.3/padic-realization-iso",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.3",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.3"
+   ],
+   "title": "p-adic realization predicate",
+   "kind": "definition",
+   "statement": "PadicRealizationIso(M, p) is the proposition that c⁰_p and c¹_p are isomorphisms H⁰_f(K,M) ⊗ ℚ_p ≅ H⁰RΓ_f(K, V_p) and H¹_f(K,M) ⊗ ℚ_p ≅ H¹RΓ_f(K, V_p), and likewise for M*(1) (Burns–Flach Conjecture 2). Under it, H²RΓ_f(K, V_p) and H³RΓ_f(K, V_p) are identified with the duals of H¹_f(K, M*(1)) ⊗ ℚ_p and H⁰_f(K, M*(1)) ⊗ ℚ_p by the duality RΓ_f(K, V_p) ≅ RΓ_f(K, V_p^*(1))^*[−3] (Burns–Flach p. 525).",
+   "hypotheses": [
+    "The maps are those of FL.3/padic-realization-maps; the complex RΓ_f(K, V_p) is the Selmer complex of SelmerIwasawaCohomology L2 with the Bloch–Kato conditions."
+   ],
+   "proofSteps": [
+    "Unfold; the duality is SelmerIwasawaCohomology L1/derived-selmer-duality applied to the Bloch–Kato conditions, which are exact orthogonal complements (L2/finite-condition-rational-duality)."
+   ],
+   "acceptance": [
+    "PadicRealizationIso(M, p) ↔ PadicRealizationIso(M*(1), p).",
+    "It implies dim_{ℚ_p} H¹_f(K, V_p) = dim_ℚ H¹_f(K, M)."
+   ],
+   "uses": [
+    {
+     "where": "FL.3/fundamental-line-padic-comparison",
+     "how": "the hypothesis under which ϑ_p is defined"
+    },
+    {
+     "where": "Bloch–Kato Conjecture 5.3(i), p. 370",
+     "how": "the étale realization conjecture"
+    },
+    {
+     "where": "PeriodsAndSpecialValues PS.4.1",
+     "how": "the rational comparison θ_λ assumed there"
+    }
+   ],
+   "api": [
+    {
+     "name": "PadicRealizationIso",
+     "role": "data",
+     "statement": "The proposition."
+    },
+    {
+     "name": "padicRealizationIso_dual",
+     "role": "equivalence",
+     "statement": "PadicRealizationIso(M, p) ↔ PadicRealizationIso(M*(1), p)."
+    },
+    {
+     "name": "padicRealizationIso_finrank",
+     "role": "other",
+     "statement": "Under the predicate, dim H^i RΓ_f(K, V_p) is the dimension of the corresponding motivic factor for i = 0, 1, 2, 3."
+    },
+    {
+     "name": "padicRealizationIso_directSum",
+     "role": "structure",
+     "statement": "Compatible with direct sums and extension of coefficients."
+    }
+   ],
+   "tests": [
+    {
+     "name": "padicRealizationIso_unit_motive",
+     "kind": "degenerate",
+     "statement": "For ℚ(0) over ℚ: c⁰_p is the identity ℚ_p ≅ H⁰(ℚ, ℚ_p), and H¹_f = 0 on both sides."
+    },
+    {
+     "name": "padicRealizationIso_elliptic_sha",
+     "kind": "characterisation",
+     "statement": "For h¹(E)(1) the predicate at p holds exactly when Sha(E/K)[p^∞] is finite (FL.3/padic-realization-elliptic)."
+    },
+    {
+     "name": "padicRealizationIso_dimension_only",
+     "kind": "non-example",
+     "statement": "Equality of dimensions of H¹_f(K,M) ⊗ ℚ_p and H¹_f(K, V_p) does not witness the predicate: the zero map between spaces of equal positive dimension is not an isomorphism."
+    }
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-maps",
+    "SelmerIwasawaCohomology:L1/derived-selmer-duality",
+    "SelmerIwasawaCohomology:L2/finite-condition-rational-duality",
+    "SelmerIwasawaCohomology:L2/selmer-complex"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, Conjecture 2, p. 523; §3.3, p. 525",
+     "match": "The conjectured isomorphisms c^i_p(M) for i ∈ {0, 1}, and the definition of H²_f, H³_f and of c²_p, c³_p through the duality of RΓ_f."
+    },
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "Conjecture 5.3, p. 370",
+     "match": "The conjecture that the realization homomorphism is an isomorphism onto H¹_f after tensoring with ℚ_p."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/PadicComparison",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.3/padic-realization-artin",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.3",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.3"
+   ],
+   "title": "p-adic realization for Artin motives",
+   "kind": "theorem",
+   "statement": "For every Artin motive V over ℚ with coefficients in E, every r ∈ ℤ and every prime p, PadicRealizationIso(V(r), p) holds. In twist r ≥ 2 this is Soulé's theorem that K_{2r−1}(O_F) ⊗ ℚ_p ≅ H¹(O_F[1/p], ℚ_p(r)) = H¹_f(F, ℚ_p(r)), together with H²(O_F[1/p], ℚ_p(r)) = 0; in twist 1 it is Kummer theory O_F^× ⊗ ℚ_p ≅ H¹_f(F, ℚ_p(1)); in twists r ≤ 0 it follows by duality.",
+   "hypotheses": [
+    "V a direct summand of h⁰(Spec F) ⊗ E; p arbitrary (at p = 2 only the rational statements are used)."
+   ],
+   "proofSteps": [
+    "r ≥ 2, p odd: MotivicEtaleKTheory §10.5 (M.7/arithmetic-adic-degrees) identifies the p-completed K-groups of O_F[1/p] with H¹ and H² of ℤ_p(r); finite generation (ArithmeticKTheory N.3) identifies them with K_n(O_F[1/p]) ⊗ ℤ_p; Borel's ranks (BorelRegulators R.3/borel-rank-theorem) give K_{2r−2}(O_F) ⊗ ℚ = 0, hence H²(ℚ_p(r)) = 0; localization identifies O_F[1/p] with O_F rationally for r ≥ 2.",
+    "p = 2: the same rational statements follow from the dyadic comparisons of MotivicEtaleKTheory Layer 11 (M.7/dyadic-s-integer-extensions), whose real-place corrections are 2-torsion.",
+    "Local conditions: for r ≥ 2 the local H¹_f equals H¹ at v | p and the unramified condition is automatic rationally at v ∤ p (Bloch–Kato Example 3.9), so H¹_f(F, ℚ_p(r)) = H¹(O_F[1/p], ℚ_p(r)).",
+    "r = 1: Kummer theory and finiteness of the class group (Bloch–Kato Example 3.9 and p. 358; Huber–Kings p. 6).",
+    "r ≤ 0: PadicRealizationIso is self-dual (FL.3/padic-realization-iso); 1 − r ≥ 1. Apply the idempotent by Galois equivariance."
+   ],
+   "acceptance": [
+    "For F = ℚ and r = 3, both sides are one-dimensional over ℚ_p.",
+    "For r = 0 and V = h⁰(F): c⁰_p : ℚ ⊗ ℚ_p ≅ H⁰(F, ℚ_p) = ℚ_p."
+   ],
+   "planet": {
+    "name": "p-adic realization for Artin motives"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-iso",
+    "MotivicEtaleKTheoryPartII:FL.1/artin-motive-factors",
+    "MotivicEtaleKTheory:M.7/arithmetic-adic-degrees",
+    "MotivicEtaleKTheory:M.7/s-integer-comparison-range",
+    "MotivicEtaleKTheory:M.7/dyadic-s-integer-extensions",
+    "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+    "BorelRegulators:R.3/borel-rank-theorem",
+    "SelmerIwasawaCohomology:L4/bloch-kato-condition"
+   ],
+   "sources": [
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "§1.1, pp. 5–6",
+     "match": "The p-adic regulator of an Artin motive is an isomorphism after ⊗ℚ_p for twists > 1 by Soulé's Theorem 1, factors through H¹_f, and is an isomorphism in every positive twist, twist one by the explicit exponential."
+    },
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "§5, p. 370; Example 3.9, p. 359",
+     "match": "The realization conjecture holds for X = Spec K, m = 0, r ≥ 0 by Soulé; the table of local dimensions of H¹_e, H¹_f, H¹_g and H¹ for ℚ_p(r)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.3/padic-realization-elliptic",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.3",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.3"
+   ],
+   "title": "p-adic realization for elliptic motives",
+   "kind": "theorem",
+   "statement": "For an elliptic curve E over a number field K and any prime p, c¹_p for h¹(E)(1) is the Kummer map E(K) ⊗ ℚ_p → H¹_f(K, V_pE); it is injective, and it is surjective if and only if the p-primary part Sha(E/K)[p^∞] is finite. Hence PadicRealizationIso(h¹(E)(1), p) ⟺ Sha(E/K)[p^∞] is finite. For j ≥ 2 PadicRealizationIso(h¹(E)(j), p) is Bloch–Kato Conjecture 5.3 for h¹(E)(j) and is not asserted.",
+   "hypotheses": [
+    "E/K elliptic; p arbitrary."
+   ],
+   "proofSteps": [
+    "Identify c¹_p with the Kummer map by FL.1/elliptic-motive-factors(iii) and FL.3/padic-realization-maps.",
+    "Its image is H¹_f(K, V_pE) exactly when the divisible part of Sha[p^∞] vanishes (Bloch–Kato Proposition 5.4 and SelmerIwasawaCohomology L4/elliptic-finite-kummer); as Sha[p^∞] is cofinitely generated, this is finiteness.",
+    "Self-duality of h¹(E)(1) through the Weil pairing gives the M*(1) half of the predicate."
+   ],
+   "acceptance": [
+    "For E/ℚ with Sha(E/ℚ)[p^∞] finite and rank r, dim_{ℚ_p} H¹_f(ℚ, V_pE) = r.",
+    "Over an extension K′/K, the predicate for E_{K′} implies it for E by corestriction and restriction."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-iso",
+    "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors",
+    "SelmerIwasawaCohomology:L4/elliptic-finite-kummer",
+    "SelmerIwasawaCohomology:L2/elliptic-selmer-instance",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+   ],
+   "sources": [
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "Proposition 5.4, pp. 370–371",
+     "match": "For an abelian variety or torus A, Kummer theory embeds A(K) ⊗ ℤ_p in H¹_f(K, T), with equality when the p-part of Sha is finite."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.2, p. 228",
+     "match": "Surjectivity of the Kummer realization at the places above ℓ is equivalent to finiteness of the ℓ-primary Tate–Shafarevich group."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.3/selmer-complex-cohomology-artin",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.3",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.3"
+   ],
+   "title": "Selmer complex cohomology of Artin motives",
+   "kind": "theorem",
+   "statement": "Let V be an Artin motive over ℚ with coefficients in E, S a finite set of primes and p a prime. The Selmer complex RΓ_f(ℤ[1/Sp], V_p(r)) (global cochains with the Bloch–Kato conditions at Sp) is: for r > 1, concentrated in degree 1 with H¹ = H¹(ℤ[1/Sp], V_p(r)); for r = 1, concentrated in degrees 1 and 3, with a triangle H¹_f(ℤ[1/Sp], V_p(1))[−1] → RΓ_f → H⁰(ℤ[1/Sp], V_p^∨)^∨[−3]; for r < 0, concentrated in degree 2 with H² ≅ H¹(ℤ[1/Sp], V_p^∨(1 − r))^∨; for r = 0, concentrated in degrees 0 and 2, with a triangle H⁰(ℤ[1/Sp], V_p) → RΓ_f → H¹_f(ℤ[1/Sp], V_p^∨(1))^∨[−2]. Moreover there is a canonical triangle RΓ_c(ℤ[1/Sp], V_p(r)) → RΓ_f(ℤ[1/Sp], V_p(r)) → V_p(r)^+ ⊕ ⊕_{v∈Sp} RΓ_f(ℚ_v, V_p(r)).",
+   "hypotheses": [
+    "V Artin; the vanishing H²(ℤ[1/Sp], V_p(r)) = 0 for r > 1 is supplied by FL.3/padic-realization-artin."
+   ],
+   "proofSteps": [
+    "Use the Poitou–Tate sequence for RΓ_f (ArithmeticGaloisDuality R02.4/poitou-tate and SelmerIwasawaCohomology L2/selmer-structure-poitou-tate) with the duality of the Bloch–Kato conditions.",
+    "Insert the local dimensions of Bloch–Kato Example 3.9 and the global vanishing of H² in twists > 1 (FL.3/padic-realization-artin).",
+    "The final triangle is the vertical triangle of the nine-term diagram (Burns–Flach (26)) with the archimedean term V_p(r)^+."
+   ],
+   "acceptance": [
+    "For V = ℚ and r = 2: RΓ_f has H¹ = H¹(ℤ[1/Sp], ℚ_p(2)) = 0 and is acyclic.",
+    "For V = ℚ and r = 0: H⁰ = ℚ_p and H² = H¹_f(ℚ, ℚ_p(1))^∨ = 0."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-artin",
+    "ArithmeticGaloisDuality:R02.4/poitou-tate",
+    "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+    "SelmerIwasawaCohomology:L2/selmer-complex",
+    "ArithmeticGaloisDuality:D7/compact-support-cochains"
+   ],
+   "sources": [
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Lemma 1.2.6, p. 9",
+     "match": "The four cases r > 1, r = 1, r < 0, r = 0 for the cohomology of RΓ_f of an Artin motive, attributed to Fontaine, and the triangle relating RΓ_c to RΓ_f and the local finite complexes."
+    },
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, (26), p. 522",
+     "match": "The true nine-term diagram relating RΓ_c, RΓ_f, global cochains and the local complexes."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.3/fundamental-line-padic-comparison",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.3",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.3"
+   ],
+   "title": "Fundamental-line p-adic comparison",
+   "kind": "construction",
+   "statement": "For a K-theoretic motive datum M with coefficients in A, a prime p, a finite set S of places of K containing S_∞ and the bad places, and assuming PadicRealizationIso(M, p), define fundamentalLinePadicComparison(M, S) = ϑ_p(M, S) : Ξ_A(M) ⊗ ℚ_p ≅ d_{A_p} RΓ_c(O_{K,S_p}, V_p), the isomorphism obtained by applying the determinant functor to: the realization isomorphisms c^i_p(M), i = 0, 1, 2, 3 (FL.3/padic-realization-iso); the Betti–étale comparison (H_v(M) ⊗ ℚ_p)^{G_v} ≅ H⁰(K_v, V_p) at v | ∞; the de Rham comparison (H_dR(M)/F⁰) ⊗ ℚ_p ≅ ⊕_{v|p} t_v(V_p); the local trivializations of RΓ_f(K_v, V_p) at v ∈ S_{p,f} by the identity isomorphism [V → V] ≅ 1 (not the acyclic trivialization); and the vertical triangle RΓ_c → RΓ_f(K, V_p) → ⊕_{v∈S_p} RΓ_f(K_v, V_p). For an Artin motive V(r) over ℚ it is the isomorphism Δ_f(V(r)) ⊗ ℚ_p ≅ det RΓ_c(ℤ[1/Sp], V_p(r)) of Huber–Kings Definition 1.2.7, and at p the identity trivialization differs from the acyclic one by the Euler factor P_p(V, p^{−r}).",
+   "hypotheses": [
+    "PadicRealizationIso(M, p); finite projectivity of the factors over A_p.",
+    "At p = 2 with real places of K the compact-support complex is the modified one of PeriodsAndSpecialValues PS.4.4; integral statements are not made there."
+   ],
+   "proofSteps": [
+    "Global and compact-support cochains with their perfectness: ArithmeticGaloisDuality D7/compact-support-cochains, D7/cochain-finiteness-perfectness; the Selmer complex and its condition-change triangles: SelmerIwasawaCohomology L2/selmer-complex, L2/condition-change-triangle.",
+    "Archimedean terms: MotivesAndAlgebraicCycles MC.2/etale-betti-motivic-comparison; de Rham terms: PadicHodgeTheory R06.5/proper-smooth-de-rham-comparison.",
+    "Local determinant identifications at v ∤ p and v | p, including the Euler factors: PeriodsAndSpecialValues PS.4/local-correction-adapter; the comparison of the identity and acyclic trivializations is Huber–Kings Proposition 1.2.5.",
+    "Assemble with the determinant functor of PadicMeasuresIwasawaAlgebras §5.1 (stage L5), in the fixed order of Ξ."
+   ],
+   "acceptance": [
+    "Independence of S: enlarging S by w ∤ p changes RΓ_c by the cone of [V^{I_w} → V^{I_w}], trivialized compatibly (Burns–Flach Lemma 5; Huber–Kings Proposition 1.2.9(b)).",
+    "For V = ℚ, r = 1 − k with k ≥ 2: the Euler factor at p is ∏_{v|p}(1 − N(v)^{k−1}), a p-adic unit."
+   ],
+   "uses": [
+    {
+     "where": "Kato 2003 §2.1(c), p. 168",
+     "how": "the isomorphism Δ_K(M) ⊗ K_w ≅ det⁻¹ RΓ_c(ℤ[1/p], j_*M_w) built from p-adic Hodge theory and K-theory"
+    },
+    {
+     "where": "PeriodsAndSpecialValues PS.4.1",
+     "how": "the comparison θ_λ assumed in the integral lattice I_λ(M, T, S)"
+    },
+    {
+     "where": "FL.4/tamagawa-condition",
+     "how": "the p-adic image of δ"
+    },
+    {
+     "where": "Burns–Flach §3.4, p. 526",
+     "how": "the isomorphism ϑ_p(M, S) and the object Ξ(M, T_p, S)"
+    }
+   ],
+   "api": [
+    {
+     "name": "fundamentalLinePadicComparison",
+     "role": "data",
+     "statement": "ϑ_p(M, S) : Ξ_A(M) ⊗ ℚ_p ≅ d RΓ_c(O_{K,S_p}, V_p)."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_enlargeS",
+     "role": "compatibility",
+     "statement": "Compatible with S ⊂ S′ through the local Euler trivializations at S′ ∖ S."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_eulerFactor",
+     "role": "relation",
+     "statement": "At v | p the identity trivialization equals the acyclic trivialization times P_v(V, p^{−r}) when 1 − φ is invertible on D_cris."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_dual",
+     "role": "relation",
+     "statement": "Compatible with Ξ(M*(1)) and global duality RΓ_c(V_p) ≅ RΓ(V_p^*(1))^*[−3] up to the archimedean term."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_artin",
+     "role": "example",
+     "statement": "For Artin motives it is Huber–Kings Definition 1.2.7."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_restrictScalars",
+     "role": "compatibility",
+     "statement": "Compatible with restriction of scalars from K to ℚ and with Shapiro's lemma for RΓ_c."
+    }
+   ],
+   "tests": [
+    {
+     "name": "fundamentalLinePadicComparison_identity_trivialization",
+     "kind": "characterisation",
+     "statement": "For the local complex [V --(1 − Fr_v⁻¹)--> V] with 1 − Fr_v⁻¹ invertible, ϑ_p uses [V → V] ≅ 1 by the identity; the acyclic trivialization differs by det(1 − Fr_v⁻¹ | V), so a definition using it changes ϑ_p by the local Euler factor."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_euler_unit",
+     "kind": "computation",
+     "statement": "For V = ℚ, k = 2, p = 3: the Euler factor 1 − 3^{1} = −2 is a 3-adic unit, so the integral condition at 3 does not see it."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_zero_complex",
+     "kind": "degenerate",
+     "statement": "If all motivic and realization factors vanish, both sides are the unit line and ϑ_p is the identity of ℚ_p."
+    },
+    {
+     "name": "fundamentalLinePadicComparison_not_any_iso",
+     "kind": "non-example",
+     "statement": "An arbitrary isomorphism Ξ ⊗ ℚ_p ≅ d RΓ_c of one-dimensional spaces does not define the integral condition of FL.4: rescaling by p preserves rationality and changes the image lattice."
+    }
+   ],
+   "planet": {
+    "name": "Fundamental-line p-adic comparison"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-iso",
+    "MotivicEtaleKTheoryPartII:FL.3/selmer-complex-cohomology-artin",
+    "ArithmeticGaloisDuality:D7/compact-support-cochains",
+    "ArithmeticGaloisDuality:D7/cochain-finiteness-perfectness",
+    "SelmerIwasawaCohomology:L2/selmer-complex",
+    "SelmerIwasawaCohomology:L2/condition-change-triangle",
+    "MotivesAndAlgebraicCycles:MC.2/etale-betti-motivic-comparison",
+    "PadicHodgeTheory:R06.5/proper-smooth-de-rham-comparison",
+    "PeriodsAndSpecialValues:PS.4/local-correction-adapter",
+    "PeriodsAndSpecialValues:PS.4/real-dyadic-gate",
+    "PadicMeasuresIwasawaAlgebras:L5"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.2, (19)–(26), pp. 520–523; §3.4, p. 526, and Lemma 5, pp. 526–528",
+     "match": "The local finite complexes, the de Rham comparison (23), the identity trivialization (24) as opposed to the acyclic one, the nine-term diagram, the isomorphism ϑ_p(M, S) and its independence of S and of the lattice."
+    },
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Definitions 1.2.4 and 1.2.7, Proposition 1.2.5, pp. 8–9",
+     "match": "The local identifications α, the relation α = P_p(V, p^{−r})β with the acyclic identification, and the resulting p-adic isomorphism of the Artin fundamental line."
+    },
+    {
+     "sourceId": "Kato2003",
+     "locator": "§2.1(c), p. 168",
+     "match": "The p-adic isomorphism of the rational line with the inverse determinant of compactly supported cohomology, constructed from p-adic Hodge theory and K-theory."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/PadicComparison",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.4",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.4"
+   ],
+   "title": "Tamagawa condition for K-theoretic motives",
+   "kind": "definition",
+   "statement": "Let M be a K-theoretic motive datum over ℚ (restricting scalars if necessary) with coefficients in a number field E, O = O_E, with RealExactness(M) and PadicRealizationIso(M, p), and let L*(M, 0) ∈ (E ⊗ ℝ)^× be the leading coefficient at s = 0 of its finite L-function (PeriodsAndSpecialValues PS.3.3). Let δ(M) ∈ Ξ_E(M) ⊗ ℝ be the unique element with ϑ_∞(L*(M,0) · δ(M)) = 1. For a Galois-stable O_p-lattice T_p ⊂ V_p, TamagawaCondition(M, T_p, p) is the proposition: δ(M) lies in the rational line Ξ_E(M), and ϑ_p(M, S)(δ(M)) is an O_p-generator of d_{O_p} RΓ_c(O_{K,S_p}, T_p) ⊂ d_{E_p} RΓ_c(O_{K,S_p}, V_p). Equivalently, in Kato's orientation with Δ = Ξ⁻¹: there is an E-basis ζ(M) of Δ_E(M) whose real image is L*(M, 0) and whose p-adic image is an O_p-basis of d⁻¹_{O_p} RΓ_c(T_p), namely ζ(M) = δ(M)^{⊗(−1)}.",
+   "hypotheses": [
+    "RealExactness(M) and PadicRealizationIso(M, p); the L-function has an analytic continuation to s = 0 with a nonzero leading coefficient, supplied by its owner (for Artin motives BorelRegulators R.5 and the trivial-character interface; otherwise a hypothesis).",
+    "p odd, or K without real places, unless a bounded perfect replacement at 2 is supplied (PeriodsAndSpecialValues PS.4.4)."
+   ],
+   "proofSteps": [
+    "Uniqueness of δ: Ξ_E(M) ⊗ ℝ is free of rank one over E ⊗ ℝ and ϑ_∞ is an isomorphism (FL.2/fundamental-line-real-comparison).",
+    "Rationality is the predicate LeadingTermRational of PeriodsAndSpecialValues PS.3/leading-term-line for the comparison of FL.2.",
+    "The integral clause uses ϑ_p of FL.3/fundamental-line-padic-comparison and the integral inverse determinant Δ_p(T) = det⁻¹ RΓ_c(T_p) of MotivicEtaleKTheory §12.7 (M.8/arithmetic-fundamental-line, its Δ_p(T) part).",
+    "Kato's orientation: d(C)⁻¹ = d(C)^{−1} and Δ = Ξ⁻¹ (PeriodsAndSpecialValues PS.3.1), so a generator of one lattice is the inverse of a generator of the other."
+   ],
+   "acceptance": [
+    "The condition depends only on the O_p^×-orbit of δ: units do not change generation.",
+    "For E = ℚ and T_p = ℤ_p the condition says ϑ_p(δ) ∈ ℤ_p^× · (a generator) of the lattice."
+   ],
+   "uses": [
+    {
+     "where": "Kato 2003 §2.1(d), p. 168",
+     "how": "the rational zeta element sent to the leading term under (b) and to the p-adic zeta element under (c)"
+    },
+    {
+     "where": "Huber–Kings Conjecture 1.2.8, p. 10",
+     "how": "the Tamagawa number conjecture for Artin motives in exactly this form"
+    },
+    {
+     "where": "FL.4/class-number-formula-case, FL.4/cohomological-lichtenbaum-form, FL.4/elliptic-bsd-data",
+     "how": "the statements proved or translated"
+    },
+    {
+     "where": "SpecialValuesBirchTate §8",
+     "how": "the p-adic special-value statements for h⁰(F) in negative twists"
+    }
+   ],
+   "api": [
+    {
+     "name": "TamagawaCondition",
+     "role": "data",
+     "statement": "The proposition TamagawaCondition(M, T_p, p)."
+    },
+    {
+     "name": "IsLatticeGenerator",
+     "role": "other",
+     "statement": "x generates the lattice L: Submodule.span R {x} = L; the integral clause asks IsLatticeGenerator (d_{O_p} RΓ_c(T_p)) (ϑ_p δ)."
+    },
+    {
+     "name": "tamagawaElement",
+     "role": "data",
+     "statement": "δ(M) ∈ Ξ_E(M) ⊗ ℝ with ϑ_∞(L* · δ) = 1."
+    },
+    {
+     "name": "tamagawaCondition_iff_kato",
+     "role": "equivalence",
+     "statement": "TamagawaCondition(M, T_p, p) ↔ Kato's condition (d) with ζ(M) = δ(M)^{⊗(−1)}."
+    },
+    {
+     "name": "tamagawaCondition_rational",
+     "role": "characterisation",
+     "statement": "TamagawaCondition(M, T_p, p) implies LeadingTermRational(M) of PeriodsAndSpecialValues PS.3.3."
+    },
+    {
+     "name": "tamagawaCondition_unit_invariant",
+     "role": "simp",
+     "statement": "Replacing L* by u·L* with u ∈ O_p^× ∩ E^× does not change the condition."
+    },
+    {
+     "name": "tamagawaCondition_extendCoefficients",
+     "role": "functoriality",
+     "statement": "Faithfully flat extension of E reflects and preserves the condition."
+    },
+    {
+     "name": "tamagawaCondition_directSum",
+     "role": "structure",
+     "statement": "The condition for M ⊕ M′ is the conjunction of the conditions for M and M′."
+    }
+   ],
+   "tests": [
+    {
+     "name": "tamagawaCondition_rational_not_integral",
+     "kind": "non-example",
+     "statement": "In the line ℚ_p with lattice ℤ_p, the element p is a rational basis but not an integral basis; δ and pδ are both rational, and at most one satisfies the integral clause."
+    },
+    {
+     "name": "tamagawaCondition_two_term",
+     "kind": "computation",
+     "statement": "For C = [ℤ_p --p^s--> ℤ_p] in degrees 0 and 1, the acyclic trivialization sends the generator of d_{ℤ_p} C to p^s and the inverse lattice to p^{−s}ℤ_p, of valuation −s = −length H¹(C); this fixes the inversion convention of the integral clause."
+    },
+    {
+     "name": "tamagawaCondition_zero_complex",
+     "kind": "degenerate",
+     "statement": "If RΓ_c(T_p) is acyclic with zero cohomology, its determinant lattice is O_p and the integral clause asks that ϑ_p(δ) be a unit of O_p."
+    },
+    {
+     "name": "tamagawaCondition_riemann_zero",
+     "kind": "computation",
+     "statement": "For ℚ(0) over ℚ and odd p, the condition reduces to v_p(ζ(0)) = 0, true since ζ(0) = −1/2."
+    }
+   ],
+   "planet": {
+    "name": "Tamagawa condition (rational zeta element)"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.2/fundamental-line-real-comparison",
+    "MotivicEtaleKTheoryPartII:FL.3/fundamental-line-padic-comparison",
+    "PeriodsAndSpecialValues:PS.3/leading-term-line",
+    "PeriodsAndSpecialValues:PS.3/rational-fundamental-line",
+    "PeriodsAndSpecialValues:PS.4/integral-fundamental-line",
+    "PeriodsAndSpecialValues:PS.4/real-dyadic-gate",
+    "MotivicEtaleKTheory:M.8/arithmetic-fundamental-line",
+    "BorelRegulators:R.5/zeta-leading-coefficient",
+    "mathlib:PadicInt"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kato2003",
+     "locator": "§2.1, (2.1.1)–(2.1.5) and (a)–(d), pp. 166–168",
+     "match": "The p-adic zeta element as a basis of det⁻¹ RΓ_c, its formal properties, the rational line Δ_K(M), its real and p-adic comparisons, and the rational zeta element sent to the leading coefficient and to the p-adic zeta element."
+    },
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Definition 1.2.1 and Conjecture 1.2.8, pp. 7 and 10",
+     "match": "The leading coefficient L(V, r)* and the conjecture that the element δ with L*δ ↦ 1 is rational and generates det RΓ_c(ℤ[1/p], T_p(r)) at every p."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§6, pp. 218–223, and §7, pp. 224–226",
+     "match": "The Fontaine–Perrin-Riou formulation of the Bloch–Kato conjecture through the fundamental line and its real and ℓ-adic trivializations."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Arithmetic/FundamentalLine/TamagawaCondition",
+    "namespace": "TauCetiRoadmap.MotivicEtaleKTheoryPartII"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition-iff-etnc",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.4",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.4"
+   ],
+   "title": "Tamagawa condition and the commutative Tamagawa obstruction",
+   "kind": "theorem",
+   "statement": "Let M be a K-theoretic motive datum with commutative coefficients E, O = O_E, satisfying RealExactness(M) and PadicRealizationIso(M, p) for every p in a set Σ of odd primes. Take θ_∞ = ϑ_∞(M) and θ_p = ϑ_p(M, S) in PeriodsAndSpecialValues PS.4.1 and PS.5.1. Then TamagawaCondition(M, T_p, p) holds for every p ∈ Σ if and only if the p-parts, p ∈ Σ, of the commutative Tamagawa obstruction TΩ(M, O) of PeriodsAndSpecialValues PS.5.2 vanish, that is, θ_∞ carries the λ-adic lattice I_p(M, T, S) of PS.4.1 onto (L*)⁻¹ · O_p for each p ∈ Σ; and, for Σ the set of all odd primes, if and only if the Fukaya–Kato zeta isomorphism orientation of PS.5.3 is satisfied with these comparisons.",
+   "hypotheses": [
+    "Commutative coefficients; odd primes, by PeriodsAndSpecialValues PS.4.4; the leading coefficient supplied."
+   ],
+   "proofSteps": [
+    "In the commutative case the relative class of PS.5.1 at p is the comparison of the lattices θ_∞⁻¹((L*)⁻¹)·O_p and the λ-adic lattice I_p(M, T, S) of PS.4.1; the latter is θ_p⁻¹(d_{O_p} RΓ_c(T_p)).",
+    "Generation of the lattice by ϑ_p(δ) is equality of these lattices.",
+    "For the orientation statement apply PS.5/zeta-orientation-adapter (zetaIso_iff_tamagawaObstruction) with Δ = Ξ⁻¹."
+   ],
+   "acceptance": [
+    "For E = ℚ the statement is an equality of ℤ_p-lattices in a ℚ_p-line, checked one prime at a time.",
+    "The comparisons θ_∞, θ_p used in PeriodsAndSpecialValues are those of this roadmap; any other choice changes the obstruction."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+    "PeriodsAndSpecialValues:PS.5/etnc-predicate",
+    "PeriodsAndSpecialValues:PS.5/equivariant-obstruction",
+    "PeriodsAndSpecialValues:PS.5/zeta-orientation-adapter",
+    "PeriodsAndSpecialValues:PS.4/integral-fundamental-line"
+   ],
+   "sources": [
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§4, Conjecture 4 and the remarks following it, pp. 535–537",
+     "match": "The equivariant conjecture in the relative K-group, its commutative specialization and its equivalence with the Bloch–Kato and Fontaine–Perrin-Riou formulations."
+    },
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Proposition 1.2.9(b), p. 10; §1.5, Conjecture 1.5.2, pp. 14–15",
+     "match": "Equivalence of the formulation with Fontaine's and the original Bloch–Kato conjecture, and the equivariant version of Kato and Burns–Flach in the abelian case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition-alternative-forms",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.4",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.4"
+   ],
+   "title": "Lattice, place-set, duality and Selmer forms of the condition",
+   "kind": "theorem",
+   "statement": "Under the hypotheses of FL.4/tamagawa-condition: (a) TamagawaCondition(M, T_p, p) does not depend on the Galois-stable lattice T_p nor on the finite set S containing the bad places; (b) for p odd, the integral structures d RΓ_c(O_{K,S_p}, T_p) ⊗ d(T_p^+) and d RΓ(O_{K,S_p}, T_p^∨(1)) agree under global duality, so the condition can be stated with RΓ(O_{K,S_p}, T_p^∨(1)) in place of RΓ_c (Kato's formulation for twists of the dual); at p = 2 the complex RΓ is replaced by τ_{≤2}RΓ and T_p^+ by Tate cohomology; (c) with the Selmer mapping fibre C_f(T_p) and local conditions U_v^+, the local determinant formula det⁻¹ C_f ≅ det⁻¹ C_c ⊗ ⊗_v det⁻¹ U_v^+ of MotivicEtaleKTheory §12.7 and the local Euler and Tamagawa identifications of PeriodsAndSpecialValues PS.4.3 turn the condition into: ϑ_p(δ), tensored with the generators of the lattices d U_v^+ (v ∈ S_p) given by their local identifications, generates the lattice d_{O_p} C_f(T_p) of the Selmer complex. This is the local correction in the Tate and elliptic Tamagawa statements.",
+   "hypotheses": [
+    "As in FL.4/tamagawa-condition; (b) and (c) for p odd unless the dyadic replacement of PeriodsAndSpecialValues PS.4.4 is supplied."
+   ],
+   "proofSteps": [
+    "(a): for T′ ⊂ T the finite quotient has Euler characteristic of RΓ_c equal to 1 (Tate's formula; ArithmeticGaloisDuality R02.4/global-euler-characteristic), so the lattices agree (PeriodsAndSpecialValues PS.4/finite-lattice-correction; Burns–Flach Lemma 5). For S ⊂ S′ use the localization triangle with RΓ(F_v, T^{I_v}) and its compatibility with FL.3/fundamental-line-padic-comparison (fundamentalLinePadicComparison_enlargeS).",
+    "(b): derived Poitou–Tate duality RΓ_c(T) ≅ RHom(RΓ(T^∨(1)), O_p)[−3] up to the archimedean term (ArithmeticGaloisDuality D7/derived-global-duality); compare d(A ⊗^L E_p/O_p)^* with d⁻¹(A) (Huber–Kings Proposition 1.2.10).",
+    "(c): apply MotivicEtaleKTheory M.8/selmer-local-determinant-comparison to the triangle C_c → C_f → ⊕_v U_v^+ and PeriodsAndSpecialValues PS.4/local-correction-adapter to identify each det⁻¹ U_v^+ with the Euler or Tamagawa factor."
+   ],
+   "acceptance": [
+    "For T′ = pT the two lattices d RΓ_c(T′) and d RΓ_c(T) coincide, although each cohomology group changes.",
+    "With every U_v^+ = 0 the Selmer form is the compact-support form."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+    "MotivicEtaleKTheoryPartII:FL.3/fundamental-line-padic-comparison",
+    "ArithmeticGaloisDuality:R02.4/global-euler-characteristic",
+    "ArithmeticGaloisDuality:D7/derived-global-duality",
+    "PeriodsAndSpecialValues:PS.4/finite-lattice-correction",
+    "PeriodsAndSpecialValues:PS.4/local-correction-adapter",
+    "PeriodsAndSpecialValues:PS.4/real-dyadic-gate",
+    "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison"
+   ],
+   "sources": [
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Propositions 1.2.9 and 1.2.10 with the following remarks, pp. 10–11",
+     "match": "Independence of the lattice by the Euler characteristic of RΓ_c of a finite module, independence of S by the localization sequence, and agreement of the integral structures under global duality for p ≠ 2, with the modification at p = 2."
+    },
+    {
+     "sourceId": "BurnsFlach2001",
+     "locator": "§3.4, Lemma 5, pp. 526–528",
+     "match": "Independence of the object Ξ(M, T_p, S) of the lattice and of S."
+    },
+    {
+     "sourceId": "Kato2003",
+     "locator": "§1.2, p. 165; §2.1, pp. 166–167",
+     "match": "Determinants of perfect complexes, multiplicativity on distinguished triangles and the compactly supported cohomology removing p and ∞."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.4/class-number-formula-case",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.4",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.4"
+   ],
+   "title": "Class number formula case",
+   "kind": "theorem",
+   "statement": "For every number field F and every odd prime p, TamagawaCondition(h⁰(F), ℤ_p, p) and TamagawaCondition(h⁰(F)(1), ℤ_p(1), p) hold. In twist 0, Ξ(h⁰(F)) = d(ℚ) ⊗ d(O_F^× ⊗ ℚ)⁻¹ ⊗ d(T_B^+ ⊗ ℚ)⁻¹, the element δ is (R_∞(F)/ζ_F^*(0)) times the integral generator and ζ_F^*(0) = −h_F R_F/w_F; the integral condition is the Poitou–Tate sequence relating O_F^× ⊗ ℤ_p, H¹ and H² of O_F[1/p] with ℤ_p(1), the local quotients H¹/H¹_f at p and Cl(O_F) ⊗ ℤ_p. In twist 1, L*(h⁰(F)(1), 0) is the residue of ζ_F at s = 1, 2^{r₁}(2π)^{r₂} h_F R_F / (w_F √|d_F|) (Mathlib NumberField.dedekindZeta_residue), and the condition follows from twist 0 by the functional equation and the local computation at p that the Bloch–Kato exponential carries O_{F_v} onto a subgroup of index (q_v − 1)/q_v in O_{F_v}^× ⊗ ℤ_p.",
+   "hypotheses": [
+    "p odd (the statement up to powers of 2).",
+    "The functional equation and leading coefficient of ζ_F at s = 0 are supplied by the trivial-character interface (BorelRegulators R.5); the residue at s = 1 is Mathlib's."
+   ],
+   "proofSteps": [
+    "Twist 0: the real comparison of FL.2/real-exactness-artin (r = 0) with the regulator R_∞(F) of the unit lattice and the section s_∞; insert ζ_F^*(0) = −h_F R_F/w_F (BorelRegulators R.5/completed-zeta-conventions and R.5/leading-term-functional-equation for the functional-equation input; Mathlib NumberField.dedekindZeta_residue and NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT at s = 1).",
+    "The Poitou–Tate sequence 0 → O_F^× ⊗ ℤ_p → H¹(O_F[1/p], ℤ_p(1)) → H¹_{/f}(F ⊗ ℚ_p, ℤ_p(1)) → Cl(O_F) ⊗ ℤ_p → H²(O_F[1/p], ℤ_p(1)) → H²(F ⊗ ℚ_p, ℤ_p(1)) → H⁰(O_F[1/p], ℚ_p/ℤ_p)^* → 0 (ArithmeticGaloisDuality R02.4/poitou-tate) gives the determinant of RΓ(ℤ[1/p], T^∨(1)); combine with FL.4/tamagawa-condition-alternative-forms(b) and the identification of the local lattice det⁻¹ RΓ_{/f}(F ⊗ ℚ_p, ℤ_p(1)) with ℤ_p.",
+    "Twist 1: the ratio ζ_F^*(0)/ζ_F^*(1) = ±√|d_F|/(2^{r₁}(2π)^{r₂}) from the functional equation; the de Rham lattice O_F and the Betti lattices differ by the same factor; the exponential index (1 − 1/q_v) at each v | p is the Euler factor of FL.3/fundamental-line-padic-comparison (fundamentalLinePadicComparison_eulerFactor)."
+   ],
+   "acceptance": [
+    "F = ℚ, twist 0: ζ(0) = −1/2, h = 1, R = 1, w = 2; the condition at odd p is v_p(1/2) = 0.",
+    "F real quadratic, twist 1: L* = 2h_F R_F/√d_F and δ = ±(2h_F)⁻¹ times the integral generator (FL.2/fundamental-line-real-comparison, test); the integral clause at odd p is v_p(h_F) = v_p(#Cl(O_F) ⊗ ℤ_p)."
+   ],
+   "planet": {
+    "name": "Class number formula case"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition-alternative-forms",
+    "MotivicEtaleKTheoryPartII:FL.2/real-exactness-artin",
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-artin",
+    "MotivicEtaleKTheoryPartII:FL.3/fundamental-line-padic-comparison",
+    "ArithmeticGaloisDuality:R02.4/poitou-tate",
+    "BorelRegulators:R.5/completed-zeta-conventions",
+    "BorelRegulators:R.5/leading-term-functional-equation",
+    "mathlib:NumberField.dedekindZeta_residue",
+    "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+    "mathlib:NumberField.classNumber",
+    "mathlib:NumberField.Units.regulator",
+    "mathlib:NumberField.Units.torsionOrder",
+    "mathlib:NumberField.discr"
+   ],
+   "sources": [
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Proposition 2.3.1 and its proof, Proposition 2.3.2, pp. 18–21",
+     "match": "The Bloch–Kato conjecture for h⁰(F) in twists 0 and 1 up to powers of 2: twist 0 from the analytic class number formula at s = 0 and the Poitou–Tate sequence with units and class group; twist 1 by the functional equation and the index of the exponential at p."
+    },
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.3(a)–(b), pp. 228–229",
+     "match": "For the unit motive and 𝔾_m over F the Bloch–Kato conjecture reduces to the class number formula at s = 0 and at s = 1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.4/cohomological-lichtenbaum-form",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.4",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.4"
+   ],
+   "title": "Cohomological Lichtenbaum form",
+   "kind": "theorem",
+   "statement": "Let F be a number field, k ≥ 2 and p an odd prime. Let R_k(F) be the Beilinson regulator covolume of K_{2k−1}(O_F)/tors in V_B(k − 1)^+_ℝ relative to the integral Betti lattice. Then TamagawaCondition(h⁰(F)(1 − k), ℤ_p(1 − k), p) holds if and only if the p-adic valuations satisfy v_p(ζ_F^*(1 − k)/R_k(F)) = v_p(#H²(O_F[1/p], ℤ_p(k))) − v_p(#H¹(O_F[1/p], ℤ_p(k))_tors), where ζ_F^*(1 − k)/R_k(F) ∈ ℚ^× by Borel's theorem and the Beilinson comparison. Consequently the Tamagawa condition for h⁰(F)(1 − k) at all odd p is equivalent to the odd part of the cohomological Lichtenbaum formula |ζ_F^*(1 − k)| = R_k(F) · ∏_p #H²(O_F[1/p], ℤ_p(k)) / #H¹(O_F[1/p], ℤ_p(k))_tors.",
+   "hypotheses": [
+    "p odd; k ≥ 2."
+   ],
+   "proofSteps": [
+    "Ξ(h⁰(F)(1 − k)) = d⁻¹ H¹_f(h⁰(F)(k)) ⊗ d⁻¹ T_B(1 − k)^+ by FL.1/weight-vanishing and FL.1/artin-motive-factors; ϑ_∞ sends the integral generator to ±R_k(F)⁻¹ (FL.2/fundamental-line-real-comparison), so δ_ℤ = ±(R_k(F)/ζ_F^*(1 − k)) times that generator.",
+    "RΓ_f(ℤ[1/p], V_p(1 − k)) ≅ H¹(ℤ[1/p], V_p^∨(k))^∨[−2] by FL.3/selmer-complex-cohomology-artin; the local Euler factor at p is ∏_{v|p}(1 − N(v)^{k−1}), a p-adic unit (FL.3/fundamental-line-padic-comparison).",
+    "By FL.4/tamagawa-condition-alternative-forms(b) the condition says (R_k/ζ^*) ℤ_p = det r_p(Ω ⊗ ℤ_p) ⊗ det RΓ(ℤ[1/p], T^∨(k)); Soulé's surjectivity with Borel's ranks (FL.3/padic-realization-artin, through MotivicEtaleKTheory §10.5) identifies r_p(Ω ⊗ ℤ_p) with the free part of H¹(O_F[1/p], ℤ_p(k)); a finite ℤ_p-module of order h has determinant h⁻¹ℤ_p.",
+    "Rationality of ζ_F^*(1 − k)/R_k(F): BorelRegulators R.5/borel-zeta-proportionality and R.7/regulator-factor-two."
+   ],
+   "acceptance": [
+    "F = ℚ, k = 2: ζ(−1) = −1/12, R_2(ℚ) = 1, H²(ℤ[1/p], ℤ_p(2)) is the p-part of K₂(ℤ) = ℤ/2 (trivial at odd p) and H¹(ℤ[1/p], ℤ_p(2))_tors is the p-part of w₂(ℚ) = 24; at p = 3 both sides are −1.",
+    "F totally real and k even: rank zero, R_k = 1, and the formula is |ζ_F(1 − k)| = ∏_p #H² / #H¹_tors at odd p, the statement SpecialValuesBirchTate consumes."
+   ],
+   "planet": {
+    "name": "Cohomological Lichtenbaum form"
+   },
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition-alternative-forms",
+    "MotivicEtaleKTheoryPartII:FL.2/fundamental-line-real-comparison",
+    "MotivicEtaleKTheoryPartII:FL.3/selmer-complex-cohomology-artin",
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-artin",
+    "BorelRegulators:R.5/borel-zeta-proportionality",
+    "BorelRegulators:R.7/regulator-factor-two",
+    "MotivicEtaleKTheory:M.7/arithmetic-adic-degrees"
+   ],
+   "sources": [
+    {
+     "sourceId": "HuberKings2003",
+     "locator": "Theorem 1.4.1 and its proof, pp. 13–14",
+     "match": "The Bloch–Kato conjecture for h⁰(F) at 1 − k implies, up to sign and powers of 2, ζ_F(1 − k)* = R_k(F) ∏_p #H²(O_F[1/p], ℤ_p(k)) / #H¹(O_F[1/p], ℤ_p(k))_tors; the proof runs through the duality form, the unit Euler factor and Soulé's surjectivity with Borel's ranks, and each step is reversible."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "MotivicEtaleKTheoryPartII:FL.4/elliptic-bsd-data",
+   "parentStageId": "MotivicEtaleKTheoryPartII:FL.4",
+   "realises": [
+    "MotivicEtaleKTheoryPartII:FL.4"
+   ],
+   "title": "Elliptic fundamental-line data",
+   "kind": "application",
+   "statement": "For an elliptic curve E over ℚ and an odd prime p with Sha(E/ℚ)[p^∞] finite, the K-theoretic data of h¹(E)(1) (FL.1/elliptic-motive-factors, FL.2/real-exactness-elliptic, FL.3/padic-realization-elliptic) are the regulator, Kummer and Tamagawa identifications that PeriodsAndSpecialValues PS.6.3 takes as hypotheses: H¹_f = E(ℚ) ⊗ ℚ with the Néron–Tate height as δ, α_M the real period isomorphism, and ϑ_p built from the Kummer isomorphism E(ℚ) ⊗ ℚ_p ≅ H¹_f(ℚ, V_pE). Hence TamagawaCondition(h¹(E)(1), T_pE, p) is equivalent to the p-part of the Birch–Swinnerton-Dyer formula, by PeriodsAndSpecialValues PS.6/elliptic-fundamental-adapter.",
+   "hypotheses": [
+    "E/ℚ, p odd, Sha(E/ℚ)[p^∞] finite; the analytic leading term of L(E, s) at s = 1 is supplied by its owner (modularity, TauCetiRoadmap ModularForms through PeriodsAndSpecialValues)."
+   ],
+   "proofSteps": [
+    "Supply the three identifications from FL.1–FL.3.",
+    "Apply PS.6/elliptic-fundamental-adapter (ellipticFundamentalLine_iff_bsd), whose hypotheses are exactly these identifications, and PS.6/bsd-prime-assembly for the prime-by-prime form."
+   ],
+   "acceptance": [
+    "For E/ℚ of rank zero with L(E, 1) ≠ 0 the statement is the p-part of L(E,1)/Ω_E = #Sha · ∏ c_ℓ / #E(ℚ)_tors².",
+    "For rank one, the height determinant of a generator P is ĥ(P), and replacing P by 3P multiplies it by 9."
+   ],
+   "prerequisites": [
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+    "MotivicEtaleKTheoryPartII:FL.2/real-exactness-elliptic",
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-elliptic",
+    "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors",
+    "PeriodsAndSpecialValues:PS.6/elliptic-fundamental-adapter",
+    "PeriodsAndSpecialValues:PS.6/bsd-prime-assembly"
+   ],
+   "sources": [
+    {
+     "sourceId": "Fontaine1992",
+     "locator": "§8.3(d), p. 230",
+     "match": "For an abelian variety the conjunction of the order-of-vanishing and Bloch–Kato statements is equivalent to the Birch–Swinnerton-Dyer conjecture, once Sha is finite."
+    },
+    {
+     "sourceId": "BlochKato1990",
+     "locator": "Proposition 5.4, pp. 370–371",
+     "match": "The Kummer realization of A(K) ⊗ ℤ_p in H¹_f(K, T) and its surjectivity under finiteness of the p-part of Sha."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "MotivicEtaleKTheory:M.8",
+   "need": "The integral inverse determinant Δ_p(T) = det⁻¹ RΓ_c(O_{K,S_p}, T) of a Galois-stable lattice, with its rationalization, derived base change and triangle isomorphisms, and the Selmer local determinant formula det⁻¹ C_f ≅ det⁻¹ C_c ⊗ ⊗_v det⁻¹ U_v^+, both as constructions that use only ArithmeticGaloisDuality D7, SelmerIwasawaCohomology L2 and the determinant functor: the prerequisite PeriodsAndSpecialValues:PS.0 is to be removed from M.8/arithmetic-fundamental-line and M.8/selmer-local-determinant-comparison, whose rational fundamental line, real and p-adic comparisons and Tamagawa clause are planned here (FL.2–FL.4). The Deligne–Borel lattice half of M.8/regulator-determinant-comparison stays in M.8 for M.8/number-field-chern-lattice-index.",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition-alternative-forms"
+   ]
+  },
+  {
+   "supplier": "PeriodsAndSpecialValues:PS.3",
+   "need": "realTrivialization (PS.3.2), the rational line Ξ_A(M) (PS.3.1) and LeadingTermRational (PS.3.3) stated for supplied motivic factors and exact-sequence witnesses, with no import of MotivicEtaleKTheory M.8/arithmetic-fundamental-line or M.8/regulator-determinant-comparison; the Tate and elliptic instances are the theorems FL.2/real-exactness-artin, FL.2/real-exactness-elliptic and FL.2/fundamental-line-real-comparison here.",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.2/fundamental-line-real-comparison",
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition"
+   ]
+  },
+  {
+   "supplier": "PeriodsAndSpecialValues:PS.4",
+   "need": "The λ-adic lattice I_λ(M, T, S) of PS.4.1 with the rational comparison θ_λ as a hypothesis (as stated there), the local Euler and Tamagawa identifications of PS.4.3 and the real dyadic restriction of PS.4.4, importing from MotivicEtaleKTheory only Δ_λ(T) and none of the fundamental-line comparisons planned here.",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.3/fundamental-line-padic-comparison",
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition",
+    "MotivicEtaleKTheoryPartII:FL.4/tamagawa-condition-alternative-forms"
+   ]
+  },
+  {
+   "supplier": "PadicMeasuresIwasawaAlgebras:L5",
+   "need": "The graded determinant functor on perfect complexes over commutative rings: multiplicativity on true triangles, derived base change, shift inversion, the Koszul sign of swapping odd factors, and the acyclic trivialization distinguished from the identity trivialization of [V → V].",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.2/fundamental-line-real-comparison",
+    "MotivicEtaleKTheoryPartII:FL.3/fundamental-line-padic-comparison"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "need": "Mordell–Weil over the number field K and the canonical (Néron–Tate) height pairing, positive definite on E(K) ⊗ ℝ, with its regulator.",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors",
+    "MotivicEtaleKTheoryPartII:FL.2/real-regulator-sequence",
+    "MotivicEtaleKTheoryPartII:FL.2/real-exactness-elliptic"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+   "need": "The Abel–Jacobi isomorphism Pic⁰(E) ≅ E(K), P ↦ [P] − [O].",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+   "need": "The Weil pairing on Tate modules, giving h¹(E)^∨ ≅ h¹(E)(1) on realizations.",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.1/elliptic-motive-factors"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+   "need": "Selmer groups and Sha of E over K with the Kummer exact sequence, to compare finiteness of Sha[p^∞] with surjectivity of the Kummer realization.",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-elliptic"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne",
+   "need": "Hodge decomposition, Hodge symmetry and strictness for the Hodge structures H^i(σX(ℂ)), used for the weight argument and the Deligne cohomology identification.",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.2/deligne-period-complex"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "MotivicEtaleKTheoryPartII:FL.1",
+   "status": "planned",
+   "remaining": [
+    "Noncommutative coefficient algebras: A-equivariance of the integral images is stated through correspondences; projectivity of the factors over orders is not planned here (Burns–Flach coherence hypothesis)."
+   ]
+  },
+  {
+   "stageId": "MotivicEtaleKTheoryPartII:FL.2",
+   "status": "planned",
+   "remaining": [
+    "The weight −1 height pairing for motives other than h¹ of elliptic curves is a datum (gap G1)."
+   ]
+  },
+  {
+   "stageId": "MotivicEtaleKTheoryPartII:FL.3",
+   "status": "planned",
+   "remaining": [
+    "Inclusion of the p-adic realization of the integral part in H¹_f outside the listed cases is a hypothesis (gap G3)."
+   ]
+  },
+  {
+   "stageId": "MotivicEtaleKTheoryPartII:FL.4",
+   "status": "planned",
+   "remaining": [
+    "Functional-equation compatibility of the condition between M and M*(1) in general twists (Huber–Kings Proposition 2.2.3) is used only in the class number formula case; its general statement needs the local epsilon isomorphisms of NoncommutativeAndEquivariantIwasawa NE.7."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "G1: Beilinson–Bloch height pairing in weight −1",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.2/real-regulator-sequence"
+   ],
+   "detail": "The map δ of the Beilinson regulator sequence in weight −1 is the Néron–Tate pairing for h¹(E)(1) (TauCetiRoadmap EllipticCurves Layer 6), but for general M = h^{2j−1}(X)(j) it is the archimedean-plus-nonarchimedean Beilinson–Bloch height on CH^j(X)_{hom∼0} (Fontaine §9.6, p. 233). No roadmap constructs it: MotivesAndAlgebraicCycles MC.7/height-positivity-predicate takes it as a datum. Here it is a datum of the sequence outside the elliptic case."
+  },
+  {
+   "title": "G2: Independence of the integral part of the regular model",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.1/motivic-factor-spaces"
+   ],
+   "detail": "H¹_f(K, M) is defined from a recorded regular proper model 𝒳 (as in MotivicEtaleKTheory M.8/integral-motivic-structures). Its independence of 𝒳, and its definition when no regular model exists (Scholl's construction via alterations, cited by Burns–Flach p. 518 as [41]), are not planned by any roadmap; they are not needed for Artin motives (the model Spec O_F is canonical) or for elliptic curves with a chosen regular model."
+  },
+  {
+   "title": "G3: The p-adic realization of the integral part lies in H¹_f",
+   "neededBy": [
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-maps",
+    "MotivicEtaleKTheoryPartII:FL.3/padic-realization-iso"
+   ],
+   "detail": "MotivicEtaleKTheory and PadicHodgeRegulators give the syntomic factorization and the inclusion in H¹_g (Nekovář–Nizioł); equality with H¹_f holds locally in weights ≤ −3 at good reduction, for Artin motives of positive twist and for h¹(E)(1). At bad primes and in weights −1, −2 outside these cases the inclusion in H¹_f (Fontaine §9.4, p. 232, conjectural in general, Gros under hypotheses) is a hypothesis; no roadmap plans the general statement."
+  }
+ ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "MotivicEtaleKTheory",
+    "MotivicEtaleKTheoryPartII"
+   ],
+   "detail": "De-cycling (maintainer decision 2026-10-20): MotivicEtaleKTheory §12.7 consumed PeriodsAndSpecialValues PS.0 for the rational fundamental-line factors, while PeriodsAndSpecialValues PS.3–PS.4 consume MotivicEtaleKTheory Layer 12, a roadmap-level cycle.",
+   "proposal": "MotivicEtaleKTheory keeps arithmeticDeterminantLine Δ_p(T) = det⁻¹ RΓ_c(T) and selmerLocalDeterminant (§12.7, first paragraph, with its Checks on the zero complex, the inverse local factor and the two-term inversion test), the Chern lattice index of §12.8, and the Deligne–Borel lattice comparison half of the packet node M.8/regulator-determinant-comparison, all without PeriodsAndSpecialValues prerequisites: drop PeriodsAndSpecialValues:PS.0 from M.8/arithmetic-fundamental-line, M.8/regulator-determinant-comparison and M.8/selmer-local-determinant-comparison. The rational fundamental line of Tate and elliptic motives, fundamentalLineRealComparison, fundamentalLinePadicComparison, the Tamagawa assertion and the Checks on odd-factor swaps and on rational versus integral bases move to MotivicEtaleKTheoryPartII, generalized to K-theoretic motives h^i(X)(j): FL.2/fundamental-line-real-comparison, FL.3/fundamental-line-padic-comparison, FL.4/tamagawa-condition and FL.4/tamagawa-condition-alternative-forms. The Layer 12 Dependencies sentence naming PeriodsAndSpecialValues and the Downstream-consumers sentence on PeriodsAndSpecialValues are restated accordingly (it consumes Δ_λ(T) and the regulators only)."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "PeriodsAndSpecialValues",
+    "MotivicEtaleKTheoryPartII",
+    "MotivicEtaleKTheory"
+   ],
+   "detail": "After the split, PeriodsAndSpecialValues must not import the material moved to the Part II, which comes after it.",
+   "proposal": "PeriodsAndSpecialValues PS.3.1, PS.3.2, PS.3/regulator-specializations, PS.4.1, PS.6.1 and PS.6.5 drop their prerequisites M.8/arithmetic-fundamental-line and M.8/regulator-determinant-comparison and state the comparison data as hypotheses (their existing 'otherwise' clauses); PS.4.1 keeps importing Δ_λ(T) from MotivicEtaleKTheory; the Borel–Beilinson factor two of PS.3/regulator-specializations comes from BorelRegulators R.7 directly. The 'two boundaries' paragraph of its README is restated: MotivicEtaleKTheoryPartII proves the Tate and elliptic instances of these hypotheses. PS.5.4 abelianTate_ETNC needs the K-theoretic comparisons θ_∞, θ_λ of h⁰(Spec L)(r): it is restated with comparisons characterized by Borel's regulator and Soulé's Chern classes (whose instance is FL.2/fundamental-line-real-comparison and FL.3/fundamental-line-padic-comparison), or moved to a layer after this Part II."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "sourceId": "BurnsFlach2001",
+   "kind": "published",
+   "url": "https://ems.press/content/serial-article-files/25892?nt=1",
+   "read": "2026-10-20",
+   "sha256": "d9caa72585d3ae77f34fd1798289345ca2d7a0f4284933c1c0945cb0f0994e5b"
+  },
+  {
+   "sourceId": "Kato2003",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0304233v1",
+   "read": "2026-10-20",
+   "sha256": "6d7f3a5924fd5291bc23870547b05552ba7fb1e39413d551f11daf052fbcf12b",
+   "citation": "arXiv:math/0304233v1 (16 April 2003); the file carries the printed page numbers 163–171 of the ICM proceedings, which the locators use."
+  },
+  {
+   "sourceId": "HuberKings2003",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0101071v2",
+   "read": "2026-10-20",
+   "sha256": "d2e682fd63b9d4079b19bcb2d31b9188bc72ebf35d1cbc3c77b7b1b8bd3b5f37",
+   "citation": "arXiv:math/0101071v2 (25 February 2002); locators use the arXiv pagination and the section numbering, which matches the Duke paper's numbering."
+  },
+  {
+   "sourceId": "Fontaine1992",
+   "kind": "published",
+   "url": "http://www.numdam.org/item/SB_1991-1992__34__205_0.pdf",
+   "read": "2026-10-20",
+   "sha256": "0947234dbb5fbe00bc6ac92c0e102e35e8dede76a196023a50a518ed13eeee9c"
+  },
+  {
+   "sourceId": "BlochKato1990",
+   "kind": "author copy",
+   "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf",
+   "read": "2026-10-20",
+   "sha256": "ec89c6436c7e16580791eddd562c8c04a12442d8a8484f8ac75c5ea8dc04f5e5",
+   "citation": "Scan hosted with the Stanford BSD seminar references; printed page numbers 333–400 are used."
+  }
+ ],
+ "sourceIssues": []
+}
