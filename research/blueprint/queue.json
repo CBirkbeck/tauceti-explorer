@@ -153148,6 +153148,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-IntegralIwasawaTheory~codex2.md"
+  },
+  {
+   "id": "REV-PKG-EllipticRegulators~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EllipticRegulators~codex2.md",
+    "research/blueprint/packages/EllipticRegulators/review.json",
+    "research/blueprint/packages/EllipticRegulators/README.md",
+    "research/blueprint/packages/EllipticRegulators/Suggested.lean",
+    "research/blueprint/packages/EllipticRegulators/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EllipticRegulators~codex2.md"
   }
  ]
 }
