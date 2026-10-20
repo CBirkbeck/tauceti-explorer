@@ -235,4 +235,29 @@ theorem completedRegulatorTriviality {P : Type v} [AddCommGroup P]
 
 end CompletedLine
 
+/-!
+The remaining definitions and enhanced targets are specified in README.md:
+
+* Layer 0: the marked object `EtaleDeformation`, its reduction equivalence,
+  `CompletedEtaleLift` with its quotient, map and marked-comparison API, and
+  `CompletedEtaleLift.principal_universality`.
+* Layer 1: the category `EtalePair` of perfectly covered Λ-bases with étale algebras.
+* Layer 2: `habiroLocalisation`, `IsHabiroComplete` in the Laurent convention,
+  `habiroCompletion_polynomial_eq_laurent`, `isHabiroComplete_iff_restrictScalars`,
+  the localization resolution and homotopy-module criterion, `ordinaryDerivedComparison`,
+  `habiroTensor_baseChange`, `SphericalCyclotomicLocalization`, `SpectralHabiroCompletion`,
+  `IsHabiroCompleteSolid`, `habiroCompletionSolid`, `toSolid`, `SolidHabiroCompletion`,
+  `CountableSolidHabiroFree` and its null-family/profile tensor comparisons.
+* Layer 3: `CyclotomicIndex` and its reduced prime-chain index,
+  `FiniteMonoidalDescent.Datum` and its reconstruction, algebra and sheaf comparisons,
+  and `CyclotomicIndex.mapEqualizer`.
+* Layer 4: `RelHabiroStage` with its maps along morphisms of pairs.
+* Layer 5: `relativeHabiro`, compatible cyclotomic roots, full Taylor coefficient algebras,
+  canonical and Frobenius re-expansion arrows, and the Taylor equalizer presentation.
+* Layer 6: `completedScalarExtension`, `picMap`, actual transported K₃ lines and their
+  supported field comparisons, the q−1 completion map and integral order-one evaluation.
+
+The enhanced, spectral and relative carriers above are not constructed in this file.
+-/
+
 end TauCetiRoadmap.HabiroRings
