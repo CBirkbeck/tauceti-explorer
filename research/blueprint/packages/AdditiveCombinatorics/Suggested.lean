@@ -584,6 +584,15 @@ example (a b : G) (h n : Fin 1 → ℤ) :
   simp only [filteredDerivative, Pi.add_apply]
   group
 
+/-- Two noncommuting permutations distinguish the derivative from the opposite product order. -/
+example :
+    let a : Equiv.Perm (Fin 3) := Equiv.swap 0 1
+    let b : Equiv.Perm (Fin 3) := Equiv.swap 1 2
+    let g : (Fin 1 → ℤ) → Equiv.Perm (Fin 3) := fun n ↦ a ^ n 0 * b
+    filteredDerivative (fun _ ↦ 1) g (fun _ ↦ 0) = a ∧
+      (g (fun _ ↦ 0))⁻¹ * g (fun _ ↦ 1) ≠ a := by
+  decide
+
 /-- Polynomial sequences form a group under pointwise multiplication (Lazard–Leibman; AC.3.9). -/
 theorem IsFilteredPolynomial.mul {s : ℕ} {F : DegreeFiltration G s} {g₁ g₂ : (Fin ℓ → ℤ) → G}
     (h₁ : IsFilteredPolynomial F g₁) (h₂ : IsFilteredPolynomial F g₂) :
@@ -949,11 +958,6 @@ example (R : ℝ) (hR : 1 ≤ R) : truncatedDivisorSum R 1 = Real.log R := by
   rw [Finset.filter_singleton, ite_eq_left (by simpa using hR)]
   simp
 
-/-- The maximal order of the divisor function, `d(n) ≤ exp (C log n / log log n)`, used for the
-equal-shift case of the correlation condition of `majorantNu` (Layer AC.4.14). -/
-theorem card_divisors_le_exp : ∃ C : ℝ, ∀ n : ℕ, 16 ≤ n →
-    (n.divisors.card : ℝ) ≤ Real.exp (C * Real.log n / Real.log (Real.log n)) := sorry
-
 /-- At a prime `p > R` the smooth divisor sum is `log R`. -/
 theorem smoothDivisorSum_large_prime (χ : ℝ → ℝ) (hχ0 : χ 0 = 1) (hχ : ∀ t, 1 < |t| → χ t = 0)
     (R : ℝ) (hR : 1 < R) (p : ℕ) (hp : p.Prime) (hpR : R < p) :
@@ -1062,8 +1066,8 @@ not build, and are stated in `README.md`: the transformation rules of `fourier` 
 the quasi-polynomial Bogolyubov lemma; Schmidt's recurrence in its partition form and the
 quantitative Weyl lemmas; the explicit Roth iteration;
 the remaining entropy inequalities of Layer AC.1 (Madiman, the entropic Balog–Szemerédi–Gowers
-lemma, fibring, the two estimates and the endgame); Ruzsa modelling, progressions in cyclic Bohr
-sets, properisation and the Fourier density increment; the box Gowers norm; the nilpotent
+lemma, fibring, the two estimates and the endgame); Ruzsa modelling,
+properisation and the Fourier density increment; the box Gowers norm; the nilpotent
 exponential and Haar probability on `G/Γ`, rational Mal'cev bases, the Mal'cev metric, bounded
 nilsequences, horizontal and vertical characters, equidistribution, the inverse theorems, efficient
 equidistribution and orbit factorisation; nilsequence factors, the progression partition, the
@@ -1077,11 +1081,13 @@ and Siegel models, Siegel-zero dichotomy, Mitsui prime number theorem and ideal 
 decomposition, the Type I/II dichotomy for `μ`, number-field and localised local factors, and the
 number-field and localised prime-pattern theorems.
 
-The README-only definitions are `boxGowersNorm`, `RationalMalcevBasis`, `malcevMetric`, `malcevGroupDistance`, `malcevQuotientDistance`,
+The README-only definitions are `boxGowersNorm`, `DegreeRankFiltration`, `MultidegreeFiltration`,
+`IsIndexedPolynomial`, `Nilcharacter`, `NilcharacterEquivalent`, `CorrelatesWithLowerDegree`,
+`CorrelationStructure`, `RationalMalcevBasis`, `malcevMetric`, `malcevGroupDistance`, `malcevQuotientDistance`,
 `BoundedNilsequence`, `HorizontalCharacter`, `IsEquidistributed`, `IsTotallyEquidistributed`,
 `HasVerticalFrequency`, `IsRationalSequence`, `IsSmoothSequence`, `IsRationalSubgroup`,
 `MinimizerSetup`, `NilsequenceFactor`, `factorAverage`, `IsRegularResolution`, `IsMeasureFamily`,
-`LinearFormsCondition`, `CorrelationCondition`, `IsKPseudorandom`, `wTrickModulus`,
+`LinearFormsCondition`, `CorrelationCondition`, `IsKPseudorandom`, `basicGowersDual`, `wTrickModulus`,
 `modifiedVonMangoldt`, `AffineSystem.size`, `integerSingularProduct`, `HasModuleCSComplexity`, `HasTorsionCokernel`, `numberFieldLocalFactor`,
 `localizedLocalFactor`, `normLengthCompatibleBasis`, `numberFieldVonMangoldt`, `cramerModel`,
 `siegelModel`, `typeISum`, `twistedTypeISum` and `typeIISum`. The interval estimate `interval_dense_generalised_von_neumann`
