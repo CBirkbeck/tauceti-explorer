@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-CyclotomicClassGroupsAndStickelberger~codex",
+    "date": "2026-10-20",
+    "notes": "Accepted after independent source, generality, supplier, duplication and adversarial checks. Removed the duplicate finite Bernoulli definition/API in favour of current Tau Ceti, retained arithmetic comparisons, corrected conductor-one sign and regularity/tower locators, and made supplier layers precise. All 47 packet targets and three Eisenstein contracts retained. lean-check exits 0 with exactly ten sorry warnings and no errors or other warnings; packet check and deliverable intake checks pass. See the review report for evidence."
+  }
+}
