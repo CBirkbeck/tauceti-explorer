@@ -153042,6 +153042,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundationsPartII~codex.md"
+  },
+  {
+   "id": "REV-PKG-MotivicEtaleKTheoryPartII~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivicEtaleKTheoryPartII"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-MotivicEtaleKTheoryPartII~codex.md",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/review.json",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/README.md",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/Suggested.lean",
+    "research/blueprint/packages/MotivicEtaleKTheoryPartII/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivicEtaleKTheoryPartII~codex.md"
   }
  ]
 }
