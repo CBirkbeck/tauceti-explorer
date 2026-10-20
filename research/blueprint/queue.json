@@ -152052,9 +152052,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-CyclotomicClassGroupsAndStickelberger~codex.md",
-   "note": "claimed on GitHub issue #11266"
+   "note": "deliverables arrived from an external worker on issue #11266",
+   "finishedAt": "2026-10-20T00:55:24Z"
   },
   {
    "id": "REV-PKG-EisensteinIdealAndRationalTorsion~codex2",
@@ -152073,8 +152074,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex2.md",
+   "note": "claimed on GitHub issue #11268"
   },
   {
    "id": "REV-PKG-RefinedTraceMethods~codex",
@@ -152093,8 +152095,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex.md",
+   "note": "claimed on GitHub issue #11269"
   }
  ]
 }
