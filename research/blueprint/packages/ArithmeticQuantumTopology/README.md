@@ -96,7 +96,8 @@ It leaves to other roadmaps:
   operators, resolvents and the spectral measure of an unbounded self-adjoint operator (Parts C–E),
   and bounded Borel calculus of the Cayley transform (Part B).
   The Schrödinger pair and its Schwartz core are not planned there and are planned here.
-- **HabiroCyclotomicCompletions.** The cyclotomic completions ℤ[q]^S and the Habiro ring (Layer 1),
+- **HabiroCyclotomicCompletions.** Finite and infinite q-Pochhammer symbols and elementary
+  q-calculus, the cyclotomic completions ℤ[q]^S and the Habiro ring (Layer 1),
   factorial series (Layer 2), root evaluation, the Taylor map and p-adic re-expansion (Layer 3), and
   the rigidity theorems (Layer 4). The formal noncommutative pentagon of the q-exponential is also
   there; the analytic Faddeev pentagon of Layer 6 here is a different statement.
@@ -108,8 +109,9 @@ It leaves to other roadmaps:
   exact sequence (V.4) and the fibre of the integral Suslin comparison (V.6).
 - **Polylogarithms.** The classical polylogarithms and their branches, the Bloch–Wigner function and
   its five-term relation (P.1), and the volume of an ideal tetrahedron (P.2).
-- **QSeriesPartitionsAndMockModularForms.** q-Pochhammer symbols, Bernoulli and infinite-product
-  identities (QM.0), and scalar quantum modular forms and their cocycles (QM.5). The matrix-valued
+- **QSeriesPartitionsAndMockModularForms.** Scalar quantum modular forms, radial expansions and
+  their cocycles (QM.5). Its QM.0 consumes the elementary q-toolkit from
+  HabiroCyclotomicCompletions Layer 1. The matrix-valued
   cocycle notion is defined here.
 
 Wheeler's two-variable invariant of knots and its comparison with the relative Habiro ring and the
@@ -124,6 +126,9 @@ are outside the build; the Ohtsuki comparison here is characterized by p-adic WR
   F̃^(n) = FⁿKⁿ/[n]_q!. Quantum integers are balanced: [n] = (vⁿ − v⁻ⁿ)/(v − v⁻¹), and {a} = v^a −
   v^(−a), {n}! = {1}⋯{n}, {a}_b = {a}{a−1}⋯{a−b+1}. The q-Pochhammer symbol is (a;q)_n = (1 − a)(1 −
   aq)⋯(1 − aqⁿ⁻¹), and (q;q)_n is the cyclotomic factorial.
+  For n≥1 the balanced integer is v^(1−n) times HabiroCyclotomicCompletions Layer 1's
+  unbalanced q-integer at q=v². The Laurent specialization is the target here; the elementary
+  geometric-sum and Pochhammer library is imported from that owner.
 - **Colours.** V_n is the (n+1)-dimensional irreducible module of highest weight n; the reduced
   coloured Jones polynomial J^red_(K,N) uses the N-dimensional colour V_(N−1) and is formed by
   dividing by the unknot value [N] before any evaluation at a root of unity.
@@ -159,6 +164,9 @@ At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`:
   V_n = S_n(V₁) of the representation ring.
 - `Polynomial.cyclotomic`, `IsPrimitiveRoot`, `LaurentPolynomial`, `RatFunc`, `PowerSeries`: the
   coefficient rings and roots of unity.
+- `bernoulli`, `Polynomial.bernoulli`, `Polynomial.bernoulli_one` and
+  `Polynomial.bernoulli_generating_function`: Bernoulli numbers and polynomials in the vertex
+  expansions. The convention is B₁=−1/2 and B₁(X)=X−1/2.
 - `HopfAlgebra`, `CategoryTheory.MonoidalCategory`, `CategoryTheory.BraidedCategory`,
   `CategoryTheory.RigidCategory`, `CategoryTheory.ExactPairing`: the algebraic shadows of the ribbon
   structures. Mathlib has no ribbon category, no completed tensor product of topological modules
@@ -213,12 +221,16 @@ framed link type.
 
 ### From the atlas roadmaps
 
-- **HabiroCyclotomicCompletions.** Layer 1: the completions R[q]^S and the Habiro ring
+- **HabiroCyclotomicCompletions.** Layer 1: finite q-Pochhammer products, their inverse-parameter
+  identity, and infinite products with their formal or analytic convergence hypotheses;
+  the completions R[q]^S and the Habiro ring
   `HabiroRing R` with its projections to ℤ[q]/((q;q)_n). Layer 2: convergence and uniqueness of
   factorial series Σ a_n (q;q)_n. Layer 3: evaluation ev_ζ at a root of unity, the Taylor map σ_ζ at
-  ζ, and p-adic re-expansion between close roots. Layer 4: injectivity of evaluation on a set of
-  roots with a limit point in the Habiro topology, and rigidity of a single rootwise Taylor map over
-  ℤ.
+  ζ, and p-adic re-expansion between close roots. Layer 4: integral evaluation uniqueness when
+  one fixed positive order n is adjacent to infinitely many distinct evaluated orders m, meaning
+  m/n or n/m is pᵉ for a prime p and e≥1; selected primitive roots suffice over ℤ because their
+  cyclotomic polynomials are irreducible over ℚ. Also import rigidity of a single rootwise Taylor
+  map over ℤ. Arbitrary infinite sets are not covered by this contract.
 - **HabiroNahmSeries.** HB.4: the formal Gaussian bracket ⟨f⟩_Λ for a symmetric invertible Λ, with
   its valuation hypotheses. HB.8: the refined Gaussian collection at roots of unity, with its
   normalisation, classical exponential and phase. HB.9: membership of the Gaussian series of a
@@ -226,7 +238,15 @@ framed link type.
   étale coefficients and Kummer descent, the integral product gluing and Frobenius transport, and
   the finite-Chern orientation of the Gaussian constants.
 - **HabiroNumberFields.** HB.6: the Frobenius coefficient ring of a number field with its bad
-  primes; HB.7: the K₃-indexed twisted Habiro module on a finite étale algebra and its descent.
+  primes. HB.7 is required to supply additive closure of the global family definition,
+  effective descent to a finite projective module of constant rank one, its actual base changes
+  to the local and rational Kummer lines, and conservative detection of the tensor comparisons
+  by those charts. Multiplication must give the tensor equivalence for actual indexed families;
+  for opposite indices its inverse supplies finitely many global sections with Σ_i f_i g_i=1.
+  Local generators alone supply none of these global conclusions, and an inverse line need not
+  have a single global generator. The required extension is to the full quadratic finite étale
+  algebra of §6.8, including every split factor. These are unresolved supplier requirements,
+  not consequences of the local rank-one theorem (GSWZ Theorem 1, §1.5, p. 9).
 - **K3BlochGroups.** V.3: the pre-Bloch group P(F), the Bloch group with exterior-square target,
   Suslin's convention and the published modified Calegari–Garoufalidis–Zagier convention, with the
   comparison maps between them. V.4: Suslin's exact sequence relating the Bloch group and K₃^ind.
@@ -240,8 +260,7 @@ framed link type.
   supplier contracts: GeometricTopology Layers 7–8 specify metrics and homogeneous models,
   but do not specify these ideal-boundary constructions. They must precede P.2; using the
   P.2 volume theorem to construct its own geometric domain would be circular.
-- **QSeriesPartitionsAndMockModularForms.** QM.0: q-Pochhammer symbols, Bernoulli numbers and
-  infinite products with their convergence domains. QM.5: radial limits and expansions, scalar
+- **QSeriesPartitionsAndMockModularForms.** QM.5: radial limits and expansions, scalar
   quantum modular forms and the scalar cocycle relation.
 
 ## How to read the build
@@ -1898,15 +1917,17 @@ statements. ([Hab08] §1.3, pp. 3–4, integrality and Galois consequences.)
 ### 4.5 The unified invariant is determined by the family of quantum invariants
 
 For an integral homology sphere M, the function ζ ↦ τ_ζ(M) on roots of unity and J_M determine each
-other, by evaluation and the injectivity of evaluation on the Habiro ring. A subset Z of roots
-suffices when it has a Habiro limit point: some root has prime-power-order ratio with infinitely
-many members of Z. Over ℤ this is a sufficient injectivity condition; no converse is claimed for
+other, by evaluation and the injectivity of evaluation on the Habiro ring. For a subset Z let T
+be its set of root orders. It suffices that some fixed n≥1 is adjacent to infinitely many distinct
+m∈T: m/n or n/m is pᵉ for a prime p and e≥1. Cyclotomic irreducibility over ℚ makes the selected
+root evaluation faithful on each integral cyclotomic residue algebra. Over ℤ this is a sufficient
+injectivity condition; no converse is claimed for
 arbitrary infinite sets without that property. A finite set cannot suffice for generic Habiro
 elements: the product of its cyclotomic polynomials is a nonzero element killed by all its
 evaluations. A single rootwise Taylor expansion also determines J_M.
 
 *Proof sketch.* Transport the injectivity of HabiroCyclotomicCompletions Layer 4 along
-ev_ζ(J_M)=τ_ζ(M). Use the exact limit-point condition, not Euclidean convergence of complex roots.
+ev_ζ(J_M)=τ_ζ(M). Use the stated infinite-adjacency condition on orders.
 For the negative test use only the explicit finite cyclotomic-product kernel. ([Hab08] Proposition
 1.1, §1.2, p. 3; Propositions 12.2–12.3, §12.2, pp. 39–40.)
 
@@ -1922,6 +1943,9 @@ HabiroCyclotomicCompletions Layer 4 (rootwise Taylor rigidity, 4.3).
   sets is made.
 - The statement is about the evaluation map on the Habiro ring, not about the manifolds, so it needs
   the ring-theoretic injectivity input.
+- Primitive roots of infinitely many distinct prime-power orders meet the criterion with n=1.
+  The orders 6,15,35,77,… formed from consecutive primes do not meet it: every fixed n is adjacent
+  to only finitely many of them. No uniqueness conclusion for that sparse family is inferred here.
 
 ### 4.6 Odd-prime evaluations determine an integral power series in q − 1
 
@@ -2759,7 +2783,7 @@ coefficient; retain the source prefactor. ([GSW] §1, equations (1), (4)–(7), 
 equations (16)–(19), pp. 7–8; Gaussian evaluation in §3.1, pp. 9–10.)
 
 *Needs:* §6.1, HabiroNahmSeries HB.4 (formal gaussian integration), Polylogarithms P.1,
-QSeriesPartitionsAndMockModularForms QM.0.
+HabiroCyclotomicCompletions Layer 1 (elementary q-calculus).
 
 The API:
 
@@ -2837,7 +2861,7 @@ primitive roots, transporting the full phase together with the products. Retain 
 §§2.1–2.2, equations (7), (10)–(12), pp. 5–6; Definition 2.1, p. 6, and Remark 2.7, p. 8.)
 
 *Needs:* §6.1, HabiroNahmSeries HB.4 (formal gaussian integration),
-QSeriesPartitionsAndMockModularForms QM.0.
+HabiroCyclotomicCompletions Layer 1 (elementary q-calculus).
 
 *Lean:* `cyclicDilogStar`.
 
@@ -2936,9 +2960,15 @@ regularity conditions are verified (and retaining its coprime auxiliary root-ord
 the HabiroNahmSeries HB.9 module-membership theorem only after its coefficient-transfer, all-order
 HabiroNahmSeries HB.8 identification, Kummer-orientation and all-order gluing hypotheses are
 verified. Its coefficient algebra is the full quadratic finite étale B=R[T]/(δT²−1), including split
-components, and the target is Φ_(N,z)∈H_(B,ξ|B) at root orders prime to Δ, where ξ=Σ_j[z_j] in the
-published modified CGZ convention of K3BlochGroups V.3. The coefficient ring R is the arithmetic
-ring of the chosen number field with the required units and bad-prime localization;
+components; require 2 and δ to be units in R. The target is Φ_(N,z)∈H_(B,ξ_B)|Δ at root orders
+prime to Δ. Here β=Σ_j[z_j] is a Bloch class in the published modified CGZ convention, while ξ
+is the actual K₃ degree required by HabiroNumberFields HB.7, transported to every generic field
+factor of B to give ξ_B. The passage from β to ξ must use K3BlochGroups V.3–V.6 with its stated
+localization and torsion data, together with the finite-Chern and regulator compatibility required
+by HabiroNahmSeries HB.9. A rational Bloch comparison alone does not identify these integral
+degrees. GSWZ §1.5, pp. 8–9 uses both descriptions and explicitly qualifies the comparison by
+rationalization; this is not an integral inverse to Suslin's map. The coefficient ring R is the
+arithmetic ring of the chosen number field with the required units and bad-prime localization;
 HabiroNumberFields HB.6/HB.7 supply the Frobenius ring and K₃-indexed module, subject to the
 effective global descent of HabiroNumberFields HB.7 extended to this full finite étale algebra; a
 selected number-field component does not prove membership on all components. Identifying this
@@ -2958,9 +2988,32 @@ collection, stripping the principal logarithmic part exactly as HabiroNahmSeries
 phase is a failure of the comparison, not a convention. ([GSWZ] Theorem 5, §1.7, p. 14; §1.8, pp.
 15–17.)
 
+Name the knot-specific targets `NZHabiroIndexComparison` (the actual degree and its finite-Chern
+and regulator comparisons), `rootNZ_habiroNormalization` (the all-order identity with the HB.8
+collection, including phase and principal logarithmic part), and `rootNZ_mem_habiroModule`
+(membership of that identified family under the supplied HB.9 gluing and HB.7 effective-descent
+theorems). Each target retains the preceding hypotheses; the global module and its effective descent
+remain HabiroNumberFields HB.7's contract.
+
+**Checks.**
+
+- If δ=u² with u∈Rˣ and 2∈Rˣ, evaluation T↦(u⁻¹,−u⁻¹) identifies B with R×R. Its two idempotents
+  (1±uT)/2 map to (1,0) and (0,1). Membership must be established on both factors; checking only
+  T=u⁻¹ loses the second component. The deck involution exchanges them, and the source's odd
+  family has the form (f,−f), rather than an arbitrarily chosen single series.
+- A symmetric rational N with a denominator is outside this integral theorem even when its
+  Gaussian Hessian is invertible. Enlarging Δ does not itself prove the rational-matrix extension.
+- Root order k sharing a prime with Δ is outside the restricted family. A value at such a root
+  cannot be supplied by the restricted-order comparison.
+- Multiplying the root collection by a nontrivial unmatched phase leaves a different family;
+  agreement of the normalized k=1 coefficients does not establish `rootNZ_habiroNormalization`.
+- Two possible K₃ degrees with the same rational Bloch image must still be compared by the
+  finite-Chern data at the admitted orders. Equality of their real regulators cannot substitute
+  for that comparison or silently discard torsion.
+
 *Needs:* §6.4, HabiroNahmSeries HB.8 (Gaussian identification in arbitrary rank), HabiroNahmSeries
-HB.9 (module membership), HabiroNumberFields HB.6, HabiroNumberFields HB.7, K3BlochGroups V.3
-(published modified CGZ Bloch group), §6.7, HabiroNahmSeries HB.9 (integral product gluing and
+HB.9 (module membership), HabiroNumberFields HB.6, HabiroNumberFields HB.7, K3BlochGroups V.3–V.6
+(Bloch conventions and integral comparison fibre), §6.7, HabiroNahmSeries HB.9 (integral product gluing and
 Frobenius transport), HabiroNahmSeries HB.9 (finite-Chern orientation of Gaussian constants),
 HabiroNahmSeries HB.9 (quadratic étale coefficients and Kummer descent).
 
@@ -3041,7 +3094,7 @@ equations for meromorphic continuation. Check the inversion constant in the norm
 compare the product representation in its convergence domain. ([AK] Appendix A, §13, equations
 (44), (47)–(50), pp. 34–35.)
 
-*Needs:* §6.9, QSeriesPartitionsAndMockModularForms QM.0.
+*Needs:* §6.9, HabiroCyclotomicCompletions Layer 1 (elementary q-calculus).
 
 ### 6.11 The Schrödinger pair and the operator p + q
 
@@ -3416,8 +3469,8 @@ figure-eight knot, the one-loop-normalised series of [GZ] begins
 
 ### Dependencies
 
-Layer 5; HabiroNahmSeries HB.4, HB.8 and HB.9; HabiroNumberFields HB.6 and HB.7; K3BlochGroups V.3;
-Polylogarithms P.1; QSeriesPartitionsAndMockModularForms QM.0; SelfAdjointSpectralTheory Parts B–E;
+Layer 5; HabiroNahmSeries HB.4, HB.8 and HB.9; HabiroNumberFields HB.6 and HB.7; K3BlochGroups V.3–V.6;
+Polylogarithms P.1; HabiroCyclotomicCompletions Layer 1 (elementary q-calculus); SelfAdjointSpectralTheory Parts B–E;
 Mathlib `SchwartzMap`, `TemperedDistribution`, `MeasureTheory.integral`.
 
 ## Layer 7: quantum modularity and the knot examples
@@ -3451,7 +3504,7 @@ meant (correction 7). ([BD] Theorem 1, §1, p. 2; reciprocal Pochhammer and knot
 8–30.)
 
 *Needs:* §2.15, §5.11, Polylogarithms P.1, HabiroNahmSeries HB.4,
-QSeriesPartitionsAndMockModularForms QM.0.
+HabiroCyclotomicCompletions Layer 1 (elementary q-calculus).
 
 ### 7.2 The conjectural asymptotic expansion, its normalisation, and the field its coefficients lie in
 
@@ -3472,7 +3525,9 @@ prefactors of [GZ] and fix a lift of complex volume. For an analytic conclusion 
 separately scoped proved theorem or explicitly mark the conjecture. ([GZ] §1, equations (1.3)–(1.4),
 pp. 9–10; §2.2, pp. 12–14.)
 
-*Needs:* §6.3, §5.11, §6.8, §7.1, §6.7.
+*Needs:* §6.3, §5.11, §6.5–§6.7, §7.1. The formal coefficient and normalization statements here
+do not require the global Habiro-module comparison of §6.8; any additional module-membership
+conclusion uses that separate interface with all its hypotheses.
 
 **Checks.**
 
@@ -3735,6 +3790,8 @@ The API:
   With A=[[1,1],[0,1]] and B=[[1,0],[1,1]], AB=[[2,1],[1,1]] whereas
   BA=[[1,1],[1,2]]. For j̃=I, take J(x)=I, J(γ′x)=B⁻¹ and
   J(γγ′x)=(AB)⁻¹ at three distinct points: the two factors are A,B and the composite is AB.
+  The Lean example realizes these points as 0,1,2 with γ=γ′=T, T(x)=x+1, and computes both
+  multiplication orders using `knotMatrixCocycle` itself.
 - `matrixCocycle_singular_J`: A singular J(x) does not define a GL-valued W by this formula.
 
 ### 7.14 Analytic extension of the knot cocycle
@@ -3899,8 +3956,7 @@ root, ev H₀ = 13. The volume conjecture for 4₁ predicts (2π/N) log⟨4₁�
 
 ### Dependencies
 
-Layers 2, 5 and 6; HabiroCyclotomicCompletions Layers 1–3; QSeriesPartitionsAndMockModularForms QM.0
-and QM.5; Polylogarithms P.1; HabiroNahmSeries HB.4.
+Layers 2, 5 and 6; HabiroCyclotomicCompletions Layers 1–3; QSeriesPartitionsAndMockModularForms QM.5; Polylogarithms P.1; HabiroNahmSeries HB.4.
 
 ## Downstream consumers
 
@@ -3969,34 +4025,50 @@ The following misprints and errors in the sources are corrected where the target
 ## References
 
 - [Hab08] K. Habiro, *A unified Witten–Reshetikhin–Turaev invariant for integral homology spheres*,
-arXiv:math/0605314v1. - [HabK] K. Habiro, *Refined Kirby calculus for integral homology spheres*,
-arXiv:math/0509039v2 (page numbers are those of the journal version, with PDF pages in parentheses). -
-[HabB] K. Habiro, *Bottom tangles and universal invariants*, arXiv:math/0505219v2. - [HabC] K.
-Habiro, *An integral form of the quantized enveloping algebra of sl₂ and its completions*,
-arXiv:math/0605313v1. - [HL] K. Habiro and T. T. Q. Lê, *Unified quantum invariants for integral
-homology spheres associated with simple Lie algebras*, arXiv:1503.03549v2. - [RT] N. Yu. Reshetikhin
-and V. G. Turaev, *Ribbon graphs and their invariants derived from quantum groups*, Comm. Math.
-Phys. 127 (1990). - [Saw] S. F. Sawin, *Quantum groups at roots of unity and modularity*,
-arXiv:math/0308281v2. - [MM] H. Murakami and J. Murakami, *The colored Jones polynomials and the
-simplicial volume of a knot*, arXiv:math/9905075v1. - [Neu] W. D. Neumann, *Extended Bloch group and
-the Cheeger–Chern–Simons class*, arXiv:math/0307092v2 (journal page numbers, with PDF pages in
-parentheses). - [GSW] S. Garoufalidis, M. Storzer and C. Wheeler, *Perturbative invariants of cusped
-hyperbolic 3-manifolds*, arXiv:2305.14884v2. - [GSWZ] S. Garoufalidis, P. Scholze, C. Wheeler and D.
-Zagier, *The Habiro ring of a number field*, arXiv:2412.04241v2. - [DG] T. Dimofte and S.
-Garoufalidis, *The quantum content of the gluing equations*, arXiv:1202.6268v2. - [DG2] T. Dimofte
-and S. Garoufalidis, *Quantum modularity and complex Chern–Simons theory*, arXiv:1511.05628v1. -
-[AK] J. E. Andersen and R. Kashaev, *A TQFT from quantum Teichmüller theory*, arXiv:1109.6295v2. -
-[GZ] S. Garoufalidis and D. Zagier, *Knots, perturbative series and quantum modularity*,
-arXiv:2111.06645v3 (the SIGMA version; page numbers are the printed ones). - [BD] S. Bettin and S.
-Drappeau, *Modularity and value distribution of quantum invariants of hyperbolic knots*,
-arXiv:1905.02045v2. - [Whe] C. Wheeler, *Quantum knot invariants and the Habiro ring*,
-arXiv:2603.01619v1. - [Kir78] R. Kirby, *A calculus for framed links in S³*, Invent. Math. 45
-(1978), 35–56. - [FR79] R. Fenn and C. Rourke, *On Kirby's calculus of links*, Topology 18 (1979),
-1–15. - [Thu] W. P. Thurston, *The geometry and topology of three-manifolds*, lecture notes,
-Princeton (1980), Chapter 4. - [Pra73] G. Prasad, *Strong rigidity of Q-rank 1 lattices*, Invent.
-Math. 21 (1973), 255–286. - [EP88] D. B. A. Epstein and R. C. Penner, *Euclidean decompositions of
-noncompact hyperbolic manifolds*, J. Differential Geom. 27 (1988), 67–80. - [Hör] L. Hörmander, *The
-analysis of linear partial differential operators I*, Springer.
+  [arXiv:math/0605314v1](https://arxiv.org/abs/math/0605314v1).
+- [HabK] K. Habiro, *Refined Kirby calculus for integral homology spheres*,
+  [arXiv:math/0509039v2](https://arxiv.org/abs/math/0509039v2) (page numbers are those of the
+  journal version, with PDF pages in parentheses).
+- [HabB] K. Habiro, *Bottom tangles and universal invariants*,
+  [arXiv:math/0505219v2](https://arxiv.org/abs/math/0505219v2).
+- [HabC] K. Habiro, *An integral form of the quantized enveloping algebra of sl₂ and its
+  completions*, [arXiv:math/0605313v1](https://arxiv.org/abs/math/0605313v1).
+- [HL] K. Habiro and T. T. Q. Lê, *Unified quantum invariants for integral homology spheres
+  associated with simple Lie algebras*, [arXiv:1503.03549v2](https://arxiv.org/abs/1503.03549v2).
+- [RT] N. Yu. Reshetikhin and V. G. Turaev, *Ribbon graphs and their invariants derived from quantum
+  groups*, Comm. Math. Phys. 127 (1990).
+- [Saw] S. F. Sawin, *Quantum groups at roots of unity and modularity*,
+  [arXiv:math/0308281v2](https://arxiv.org/abs/math/0308281v2).
+- [MM] H. Murakami and J. Murakami, *The colored Jones polynomials and the simplicial volume of a
+  knot*, [arXiv:math/9905075v1](https://arxiv.org/abs/math/9905075v1).
+- [Neu] W. D. Neumann, *Extended Bloch group and the Cheeger–Chern–Simons class*,
+  [arXiv:math/0307092v2](https://arxiv.org/abs/math/0307092v2) (journal page numbers, with PDF pages
+  in parentheses).
+- [GSW] S. Garoufalidis, M. Storzer and C. Wheeler, *Perturbative invariants of cusped hyperbolic
+  3-manifolds*, [arXiv:2305.14884v2](https://arxiv.org/abs/2305.14884v2).
+- [GSWZ] S. Garoufalidis, P. Scholze, C. Wheeler and D. Zagier, *The Habiro ring of a number field*,
+  [arXiv:2412.04241v2](https://arxiv.org/abs/2412.04241v2).
+- [DG] T. Dimofte and S. Garoufalidis, *The quantum content of the gluing equations*,
+  [arXiv:1202.6268v2](https://arxiv.org/abs/1202.6268v2).
+- [DG2] T. Dimofte and S. Garoufalidis, *Quantum modularity and complex Chern–Simons theory*,
+  [arXiv:1511.05628v1](https://arxiv.org/abs/1511.05628v1).
+- [AK] J. E. Andersen and R. Kashaev, *A TQFT from quantum Teichmüller theory*,
+  [arXiv:1109.6295v2](https://arxiv.org/abs/1109.6295v2).
+- [GZ] S. Garoufalidis and D. Zagier, *Knots, perturbative series and quantum modularity*,
+  [arXiv:2111.06645v3](https://arxiv.org/abs/2111.06645v3) (the SIGMA version; page numbers are the
+  printed ones).
+- [BD] S. Bettin and S. Drappeau, *Modularity and value distribution of quantum invariants of
+  hyperbolic knots*, [arXiv:1905.02045v2](https://arxiv.org/abs/1905.02045v2).
+- [Whe] C. Wheeler, *Quantum knot invariants and the Habiro ring*,
+  [arXiv:2603.01619v1](https://arxiv.org/abs/2603.01619v1).
+- [Kir78] R. Kirby, *A calculus for framed links in S³*, Invent. Math. 45 (1978), 35–56.
+- [FR79] R. Fenn and C. Rourke, *On Kirby's calculus of links*, Topology 18 (1979), 1–15.
+- [Thu] W. P. Thurston, *The geometry and topology of three-manifolds*, lecture notes, Princeton
+  (1980), Chapter 4.
+- [Pra73] G. Prasad, *Strong rigidity of Q-rank 1 lattices*, Invent. Math. 21 (1973), 255–286.
+- [EP88] D. B. A. Epstein and R. C. Penner, *Euclidean decompositions of noncompact hyperbolic
+  manifolds*, J. Differential Geom. 27 (1988), 67–80.
+- [Hör] L. Hörmander, *The analysis of linear partial differential operators I*, Springer.
 - [BDH] C. Brouder, N. V. Dang and F. Hélein, *Continuity of the fundamental operations on
-distributions having a specified wave front set (with a counter example by Semyon Alesker)*,
-arXiv:1409.7662v2.
+  distributions having a specified wave front set (with a counter example by Semyon Alesker)*,
+  [arXiv:1409.7662v2](https://arxiv.org/abs/1409.7662v2).

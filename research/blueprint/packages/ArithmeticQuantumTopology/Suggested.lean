@@ -237,12 +237,6 @@ theorem casimirSigma_eval_color {i n : ℕ} (h : n < i) :
 
 end RepresentationRing
 
-/-- The fundamental-colour right-handed trefoil uses `t = q⁻¹` (README 2.3); at `q = 2`
-the two possible substitutions give different values. -/
-example : (2 : ℚ) ^ (-1 : ℤ) + 2 ^ (-3 : ℤ) - 2 ^ (-4 : ℤ) = 9 / 16 ∧
-    (2 : ℚ) + 2 ^ (3 : ℕ) - 2 ^ (4 : ℕ) = -6 := by
-  norm_num
-
 section Kashaev
 
 /-- The figure-eight Kashaev sum `Σ_{j<N} ∏_{k=1}^{j} |1 − ζ^k|²`; at `ζ = e^{2πi/N}` it is the
@@ -532,12 +526,28 @@ example (γ : Matrix.SpecialLinearGroup (Fin 2) ℤ) (x : ℚ) :
     knotMatrixCocycle (n := Fin 2) (fun _ => 1) (fun _ _ => 1) γ x = 1 := by
   simp [knotMatrixCocycle]
 
-/-- Reversing the two factors changes a matrix cocycle with noncommuting values (README 7.13). -/
-example : (!![1, 1; 0, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 0; 1, 1] ≠
-    (!![1, 0; 1, 1] : Matrix (Fin 2) (Fin 2) ℤ) * !![1, 1; 0, 1] := by
-  intro h
-  have h00 := congrArg (fun A : Matrix (Fin 2) (Fin 2) ℤ => A 0 0) h
-  norm_num [Matrix.mul_apply, Fin.sum_univ_two] at h00
+/-- For `T x = x+1`, take `J(0)=1`, `J(1)=B⁻¹`, `J(2)=(AB)⁻¹` and `j̃=1`, with
+`A=(1 1; 0 1)` and `B=(1 0; 1 1)`. The actual cocycle values at `1` and `0` multiply to
+`AB=(2 1; 1 1)`; reversing them gives `BA=(1 1; 1 2)` (README 7.13). -/
+example :
+    let J : ℚ → Matrix (Fin 2) (Fin 2) ℂ := fun x =>
+      if x = 0 then 1 else if x = 1 then !![1, 0; -1, 1] else !![1, -1; -1, 2]
+    let T : Matrix.SpecialLinearGroup (Fin 2) ℤ :=
+      ⟨!![1, 1; 0, 1], by simp [Matrix.det_fin_two]⟩
+    knotMatrixCocycle J (fun _ _ => 1) T 1 * knotMatrixCocycle J (fun _ _ => 1) T 0 =
+        !![2, 1; 1, 1] ∧
+      knotMatrixCocycle J (fun _ _ => 1) T 0 * knotMatrixCocycle J (fun _ _ => 1) T 1 =
+        !![1, 1; 1, 2] := by
+  have hB : (!![1, 0; -1, 1] : Matrix (Fin 2) (Fin 2) ℂ)⁻¹ = !![1, 0; 1, 1] := by
+    apply Matrix.inv_eq_left_inv
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+  have hAB : (!![1, -1; -1, 2] : Matrix (Fin 2) (Fin 2) ℂ)⁻¹ = !![2, 1; 1, 1] := by
+    apply Matrix.inv_eq_left_inv
+    ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+  dsimp only
+  norm_num [knotMatrixCocycle, mobius, hB, hAB]
 
 end MatrixCocycle
 
@@ -612,7 +622,8 @@ Statements not typed at the pins (their carriers are absent; the README states t
   `extendedPreBloch`, `extendedBloch`, `StrongFlattening`, `blochElement`, `extendedRogers` (no
   dilogarithm in Mathlib) and the volume and Chern–Simons theorem.
 * Layer 6: `NZVertexSeries`, `NZFormalIntegrand`, `formalNZStateIntegral` and its invariance (formal Gaussian bracket
-  from HabiroNahmSeries), the Habiro-module comparison, the root-refined weights and series,
+  from HabiroNahmSeries), `NZHabiroIndexComparison`, `rootNZ_habiroNormalization`,
+  `rootNZ_mem_habiroModule`, the root-refined weights and series,
   `RootNZDatum`, `RootNZDatum.weights`, `RootNZDatum.average`, `RootNZDatum.oneLoop`,
   `cyclicDilogarithmStar`, `NZHessian`, `rootNZVertexSeries`, `rootNZFormalSeries`, `faddeevPhi_meromorphic`,
   `faddeevPhi_integrable`, `faddeevPhi_stripComparison`, `faddeevPhi_divisor`,
