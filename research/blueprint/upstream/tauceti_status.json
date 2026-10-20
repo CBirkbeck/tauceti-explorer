@@ -877,10 +877,10 @@
       "head": "5d32d1d",
       "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
       "review": {
-        "recommendation": "changes",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "recommendation": "approve",
+        "head": "5d32d1d",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "EllipticCurveModularity": {

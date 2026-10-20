@@ -181,7 +181,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 24
 
-- **ClassicalSerreModularity** — Classical Serre Modularity. Plan 6/6 accepted · package not yet · CN needs 12/18 layers · **Tau Ceti: pull request #1020 open**
+- **ClassicalSerreModularity** — Classical Serre Modularity. Plan 6/6 accepted · package not yet · CN needs 12/18 layers · **Tau Ceti: pull request #1020 open** · reviewer recommends approval
 
 ## Tier 25
 
