@@ -7,7 +7,8 @@ import TauCeti.RepresentationTheory.Compact.Haar
 The roadmap is `README.md`. This file records definitions and theorem signatures that can already
 be stated against the pinned Mathlib and Tau Ceti; it is not an exhaustive list of the targets of
 any layer, and the statements suggest Lean forms so that contributors and reviewers converge on
-names and signatures. Every theorem and `example` is proved by `sorry`.
+names and signatures. The theorems are proved by `sorry`; every `example` is proved, and records
+one discriminating property of a definition the roadmap introduces.
 
 The design choices made explicit here:
 
@@ -52,7 +53,6 @@ namespace TauCetiRoadmap.AdditiveCombinatorics
 #check @roth_3ap_theorem_nat
 #check @szemeredi_regularity
 #check @isBigO_riemannZeta_sub_one_div
-#check @ArithmeticFunction.vonMangoldt.continuousOn_LFunctionResidueClassAux
 #check @TauCeti.haarProb
 
 /-! ## Layer AC.0: Fourier analysis on finite abelian groups -/
@@ -81,7 +81,9 @@ theorem fourier_eq_basis_repr (f : G → ℂ) (χ : AddChar G ℂ) :
 /-- The transform is Mathlib's weighted inner product with the constant weight, the character in
 the conjugated first slot. -/
 theorem fourier_eq_wInner (f : G → ℂ) (χ : AddChar G ℂ) :
-    fourier f χ = RCLike.wInner RCLike.cWeight (fun x ↦ χ x) f := sorry
+    fourier f χ = RCLike.wInner RCLike.cWeight (fun x ↦ χ x) f := by
+  rw [RCLike.wInner_cWeight_eq_expect, Fintype.expect_eq_sum_div_card, fourier, div_eq_inv_mul]
+  congr 1
 
 /-- The transform is the integral of `f · conj χ` against Tau Ceti's Haar probability measure, on
 `G` with the discrete topology: the degree-one case of the Peter–Weyl coefficients. -/
@@ -129,20 +131,17 @@ theorem fourier_indicator_fourth_le (A : Finset G) :
     ∑ χ : AddChar G ℂ, ‖fourier (Set.indicator (A : Set G) 1) χ‖ ^ 4 ≤
       ((A.card : ℝ) / Fintype.card G) ^ 3 := sorry
 
-/-- The character `χ` has coefficient `1` at `χ`, not `|G|`. -/
-example (χ : AddChar G ℂ) : fourier (fun x ↦ χ x) χ = 1 := sorry
-
-/-- The conjugation is in the transform: on `ZMod 4` the point mass at `1` has coefficient `-i/4`
-at the character `x ↦ i ^ x`. -/
-example : fourier (Pi.single (1 : ZMod 4) (1 : ℂ)) (AddChar.zmodAddEquiv 1) = -Complex.I / 4 :=
-  sorry
+/-- Orthogonality with the probability normalisation: a character has coefficient `1` at itself,
+not `|G|`, and `0` at every other character. -/
+example (ψ χ : AddChar G ℂ) : fourier (fun x ↦ ψ x) χ = if χ = ψ then 1 else 0 := by
+  rw [fourier_eq_wInner]
+  exact AddChar.wInner_cWeight_eq_boole χ ψ
 
 /-- The point mass is not the convolution unit: on `ZMod 3`, `nconv δ₀ δ₀ 0 = 1/3`. -/
-example : nconv (Pi.single (0 : ZMod 3) (1 : ℂ)) (Pi.single 0 1) 0 = 1 / 3 := sorry
-
-/-- Two representations of `1` as a sum from `{0, 1}` in `ZMod 3`. -/
-example : nconv (Set.indicator ({0, 1} : Set (ZMod 3)) 1)
-    (Set.indicator ({0, 1} : Set (ZMod 3)) 1) 1 = 2 / 3 := sorry
+example : nconv (Pi.single (0 : ZMod 3) (1 : ℂ)) (Pi.single 0 1) 0 = 1 / 3 := by
+  rw [nconv, Finset.sum_eq_single 0 (fun y _ hy ↦ by simp [hy])
+    (fun h ↦ absurd (Finset.mem_univ 0) h)]
+  simp [ZMod.card]
 
 end FiniteFourier
 
@@ -187,31 +186,28 @@ theorem entropy_pair_eq_condEntropy_add [MeasurableSingletonClass S] [Measurable
     entropy (fun ω ↦ (X ω, Y ω)) μ = condEntropy X Y μ + entropy Y μ := sorry
 
 /-- Independent random variables have zero mutual information. -/
-example [MeasurableSingletonClass S] [MeasurableSingletonClass T]
+theorem mutualInfo_eq_zero_of_indepFun [MeasurableSingletonClass S] [MeasurableSingletonClass T]
     (X : Ω → S) (Y : Ω → T) (hX : Measurable X) (hY : Measurable Y) (μ : Measure Ω)
     [IsProbabilityMeasure μ] (h : ProbabilityTheory.IndepFun X Y μ) :
     mutualInfo X Y μ = 0 := sorry
 
-/-- The uniform law on `Bool` has entropy `log 2` (natural logarithm). -/
-example : measureEntropy (ProbabilityTheory.uniformOn (Set.univ : Set Bool)) = Real.log 2 :=
-  sorry
-
 /-- A point mass has entropy `0`. -/
-example (s : S) [MeasurableSingletonClass S] : measureEntropy (Measure.dirac s) = 0 := sorry
+theorem measureEntropy_dirac [MeasurableSingletonClass S] (s : S) :
+    measureEntropy (Measure.dirac s) = 0 := by
+  classical
+  refine Finset.sum_eq_zero fun t _ ↦ ?_
+  by_cases h : s = t
+  · subst h; simp
+  · simp [h]
 
-/-- A uniform bit has entropy `log 2`; revealing it removes its conditional entropy. -/
-example : entropy (id : Bool → Bool) (ProbabilityTheory.uniformOn Set.univ) = Real.log 2 ∧
-    condEntropy (id : Bool → Bool) id (ProbabilityTheory.uniformOn Set.univ) = 0 := sorry
-
-/-- A constant condition leaves the bit's entropy unchanged. -/
-example : condEntropy (id : Bool → Bool) (fun _ ↦ false)
-    (ProbabilityTheory.uniformOn Set.univ) = Real.log 2 := sorry
-
-/-- Conditioning on the bit itself kills its self-information; a constant condition does not. -/
-example : condMutualInfo (id : Bool → Bool) id id
-      (ProbabilityTheory.uniformOn Set.univ) = 0 ∧
-    condMutualInfo (id : Bool → Bool) id (fun _ ↦ false)
-      (ProbabilityTheory.uniformOn Set.univ) = Real.log 2 := sorry
+/-- The uniform law on `Bool` has entropy `log 2`: the logarithm is natural. -/
+example : measureEntropy (ProbabilityTheory.uniformOn (Set.univ : Set Bool)) = Real.log 2 := by
+  have h : ∀ b : Bool, ((ProbabilityTheory.uniformOn (Set.univ : Set Bool)) {b}).toReal = 2⁻¹ := by
+    intro b
+    rw [ProbabilityTheory.uniformOn_univ, Measure.count_singleton]
+    simp [ENNReal.toReal_inv]
+  simp only [measureEntropy, h, Fintype.sum_bool, Real.negMulLog, Real.log_inv]
+  ring
 
 variable {G : Type*} [AddCommGroup G] [Fintype G] [MeasurableSpace G]
 
@@ -243,31 +239,16 @@ theorem rdist_triangle [MeasurableSingletonClass G] (μ ν ρ : Measure G) [IsPr
     [IsProbabilityMeasure ν] [IsProbabilityMeasure ρ] :
     rdist μ ν ≤ rdist μ ρ + rdist ρ ν := sorry
 
-/-- The distance between two point masses at `0` vanishes. -/
-example [MeasurableSingletonClass G] : rdist (Measure.dirac (0 : G)) (Measure.dirac 0) = 0 :=
-  sorry
+/-- Two point masses are at distance `0`, wherever they sit. -/
+example [MeasurableSingletonClass G] (a b : G) :
+    rdist (Measure.dirac a) (Measure.dirac b) = 0 := by
+  have hm : Measurable fun p : G × G ↦ p.1 - p.2 := measurable_of_countable _
+  simp [rdist, Measure.dirac_prod_dirac, Measure.map_dirac' hm, measureEntropy_dirac]
 
 /-- Uniform laws on two cosets of one subgroup are at distance `0`. -/
-example [MeasurableSingletonClass G] (H : AddSubgroup G) (a b : G) :
+theorem rdist_uniformOn_cosets [MeasurableSingletonClass G] (H : AddSubgroup G) (a b : G) :
     rdist (ProbabilityTheory.uniformOn (a +ᵥ (H : Set G)))
       (ProbabilityTheory.uniformOn (b +ᵥ (H : Set G))) = 0 := sorry
-
-/-- Revealing just one uniform variable leaves half the entropy as conditional Ruzsa distance. -/
-example [MeasurableSingletonClass G] :
-    condRdist (id : G → G) (fun _ ↦ (0 : G))
-      (ProbabilityTheory.uniformOn Set.univ) id id (ProbabilityTheory.uniformOn Set.univ) =
-        Real.log (Fintype.card G) / 2 := sorry
-
-/-- Two uniform laws with point-mass references have exactly the two penalty terms. -/
-example [MeasurableSingletonClass G] (η : ℝ) :
-    tau η (Measure.dirac (0 : G)) (Measure.dirac 0)
-      (ProbabilityTheory.uniformOn Set.univ) (ProbabilityTheory.uniformOn Set.univ) =
-        η * Real.log (Fintype.card G) := sorry
-
-/-- With nonnegative penalties and point-mass references, any two point masses minimise `τ`. -/
-example [MeasurableSingletonClass G] (η : ℝ) (hη : 0 ≤ η) (a b : G) :
-    IsTauMinimizer η (Measure.dirac (0 : G)) (Measure.dirac 0)
-      (Measure.dirac a) (Measure.dirac b) := sorry
 
 /-- A minimiser of `τ` has distance zero, for `η = 1/9` in characteristic two
 (Proposition 2.1; AC.1.16). -/
@@ -321,20 +302,26 @@ def IsRegularPhaseBohr (Γ : Finset (AddChar G ℂ)) (ε : AddChar G ℂ → ℝ
         (1 + 100 * Γ.card * |η|) * ((phaseBohrSet Γ ε).ncard : ℝ)
 
 /-- The empty frequency family imposes no condition, even at a negative radius. -/
-example : bohrSet (∅ : Finset (AddChar (ZMod 4) ℂ)) (-1) = Set.univ := sorry
+example : bohrSet (∅ : Finset (AddChar G ℂ)) (-1) = Set.univ := by
+  ext x; simp [bohrSet]
 
-/-- The chord condition is strict: at radius `0` a nonempty family gives the empty set. -/
-example : bohrSet ({1} : Finset (AddChar (ZMod 4) ℂ)) 0 = ∅ := sorry
+/-- The chord condition is strict: at radius `0` a nonempty family gives the empty set, even for
+the trivial character. -/
+example : bohrSet ({1} : Finset (AddChar G ℂ)) 0 = ∅ := by
+  ext x; simp [bohrSet]
 
-/-- The phase condition is strict: `1 ∈ ZMod 4` has phase exactly `1/4` for `x ↦ i ^ x`. -/
-example : (1 : ZMod 4) ∉ phaseBohrSet ({AddChar.zmodAddEquiv 1} : Finset (AddChar (ZMod 4) ℂ))
-    (fun _ ↦ 1 / 4) := sorry
+/-- The threshold is closed: a character's large spectrum at the threshold `1` is itself. -/
+example (ψ : AddChar G ℂ) : largeSpectrum (fun x ↦ ψ x) 1 = {ψ} := by
+  ext χ
+  simp only [largeSpectrum, Set.mem_ofPred_eq, Set.mem_singleton_iff, fourier_eq_wInner,
+    AddChar.wInner_cWeight_eq_boole]
+  split_ifs with h <;> simp [h]
 
-/-- A character's large spectrum at the threshold `1` is itself. -/
-example (ψ : AddChar G ℂ) : largeSpectrum (fun x ↦ ψ x) 1 = {ψ} := sorry
-
-/-- A stable scale and a jump scale distinguish regularity from mere nonemptiness. -/
-example : IsRegularPhaseBohr ({AddChar.zmodAddEquiv 1} : Finset (AddChar (ZMod 4) ℂ))
+/-- Regularity is a property of the scale: at phase radius `1/8` the standard character of
+`ZMod 4` gives a regular Bohr set, at `1/4` it does not (the set jumps from one point to three under
+an arbitrarily small dilation). -/
+theorem isRegularPhaseBohr_zmod_four :
+    IsRegularPhaseBohr ({AddChar.zmodAddEquiv 1} : Finset (AddChar (ZMod 4) ℂ))
       (fun _ ↦ 1 / 8) ∧
     ¬ IsRegularPhaseBohr ({AddChar.zmodAddEquiv 1} : Finset (AddChar (ZMod 4) ℂ))
       (fun _ ↦ 1 / 4) := sorry
@@ -385,15 +372,34 @@ def volume (P : GeneralizedAP G d) : ℕ := ∏ i, (P.len i + 1)
 /-- Properness: evaluation is injective on the parameter box. -/
 def IsProper (P : GeneralizedAP G d) : Prop := Set.InjOn P.point P.box
 
-/-- The progression `3, 5, 7` in `ℤ` is proper of volume `3`. -/
-example : (⟨3, fun _ ↦ 2, fun _ ↦ 2⟩ : GeneralizedAP ℤ 1).carrier = {3, 5, 7} ∧
-    (⟨3, fun _ ↦ 2, fun _ ↦ 2⟩ : GeneralizedAP ℤ 1).IsProper := sorry
+/-- The progression `3, 5, 7` in `ℤ` is proper. -/
+example : (⟨3, fun _ ↦ 2, fun _ ↦ 2⟩ : GeneralizedAP ℤ 1).IsProper := by
+  intro a _ b _ h
+  funext i
+  obtain rfl : i = 0 := Subsingleton.elim i 0
+  simp only [point, Finset.univ_unique, Fin.default_eq_zero, Finset.sum_singleton,
+    nsmul_eq_mul, add_right_inj] at h
+  exact_mod_cast mul_right_cancel₀ two_ne_zero h
 
-/-- A step of order two with length two wraps around in `ZMod 2`: volume three, two points. -/
+/-- A step of order two with length two wraps around in `ZMod 2`: volume three, but not proper. -/
 example : (⟨0, fun _ ↦ 1, fun _ ↦ 2⟩ : GeneralizedAP (ZMod 2) 1).volume = 3 ∧
-    ¬ (⟨0, fun _ ↦ 1, fun _ ↦ 2⟩ : GeneralizedAP (ZMod 2) 1).IsProper := sorry
+    ¬ (⟨0, fun _ ↦ 1, fun _ ↦ 2⟩ : GeneralizedAP (ZMod 2) 1).IsProper := by
+  refine ⟨rfl, fun h ↦ ?_⟩
+  have h02 := @h (fun _ ↦ 0) (by simp [box]) (fun _ ↦ 2) (by simp [box]) (by
+    simp only [point, Finset.univ_unique, Fin.default_eq_zero, Finset.sum_singleton]
+    decide)
+  exact absurd (congrFun h02 0) (by decide)
 
 end GeneralizedAP
+
+/-- A cyclic phase Bohr set of rank at most `d` and radius `ρ ≤ 1/4` contains a proper progression of
+rank `d + 1` with at least `ρ ^ d N / (2 ^ (d + 2) (d + 1) ^ (d + 1))` points; the extra rank is the
+cyclic coordinate that makes reduction modulo `N` injective (Layer AC.1.28). -/
+theorem cyclic_bohr_contains_proper_gap (N d : ℕ) [NeZero N] (Γ : Finset (AddChar (ZMod N) ℂ))
+    (hΓ : Γ.card ≤ d) (ρ : ℝ) (hρ : 0 < ρ) (hρ' : ρ ≤ 1 / 4) :
+    ∃ P : GeneralizedAP (ZMod N) (d + 1), P.IsProper ∧
+      (P.carrier : Set (ZMod N)) ⊆ Bohr.phaseBohrSet Γ (fun _ ↦ ρ) ∧
+      ρ ^ d * N / (2 ^ (d + 2) * (d + 1) ^ (d + 1)) ≤ P.carrier.card := sorry
 
 /-- The Balog–Szemerédi–Gowers theorem with polynomial losses (Tao, Notes 3; AC.1.26). -/
 theorem balog_szemeredi_gowers :
@@ -430,10 +436,14 @@ def cubeVertex {d : ℕ} (ω : Fin d → Bool) (h : Fin d → G) : G :=
 def parityConj {d : ℕ} (ω : Fin d → Bool) (z : ℂ) : ℂ :=
   if Even (univ.filter fun i ↦ ω i = true).card then z else conj z
 
-/-- Vertex addition and parity are pinned by the two directions `1,2`. -/
-example : cubeVertex (fun _ : Fin 2 ↦ true) (![1, 2] : Fin 2 → ZMod 5) = 3 ∧
-    parityConj (fun _ : Fin 1 ↦ true) (1 + Complex.I) = 1 - Complex.I ∧
-    parityConj (fun _ : Fin 2 ↦ true) (1 + Complex.I) = 1 + Complex.I := sorry
+/-- Vertex addition is pinned by the two directions `1, 2` in `ZMod 5`. -/
+example : cubeVertex (fun _ : Fin 2 ↦ true) (![1, 2] : Fin 2 → ZMod 5) = 3 := by
+  simp [cubeVertex, Fin.sum_univ_two]; norm_num
+
+/-- Parity: one `1` conjugates, two `1`s do not. -/
+example : parityConj (fun _ : Fin 1 ↦ true) (1 + Complex.I) = 1 - Complex.I ∧
+    parityConj (fun _ : Fin 2 ↦ true) (1 + Complex.I) = 1 + Complex.I := by
+  refine ⟨?_, ?_⟩ <;> simp [parityConj, sub_eq_add_neg]
 
 /-- The complex Gowers cube `𝔼_{x,h} ∏_ω C^{|ω|} f_ω (x + ω · h)` (AC.3.1). -/
 def gowersInnerProduct (d : ℕ) (f : (Fin d → Bool) → G → ℂ) : ℂ :=
@@ -467,11 +477,17 @@ theorem gowersNorm_U1 (f : G → ℂ) : gowersNorm 1 f = ‖univ.expect f‖ := 
 theorem gowersNorm_U2_fourier (f : G → ℂ) :
     gowersNorm 2 f ^ 4 = ∑ χ : AddChar G ℂ, ‖FiniteFourier.fourier f χ‖ ^ 4 := sorry
 
-/-- A mixed cube need not be nonnegative: for constants `1` and `-1` it is `-1`. -/
-example : gowersInnerProduct (G := ZMod 2) 1 (fun ω _ ↦ if ω 0 then -1 else 1) = -1 := sorry
+/-- A mixed cube need not be nonnegative: with the constants `1` and `-1` it is `-1`. -/
+example : gowersInnerProduct (G := ZMod 2) 1 (fun ω _ ↦ if ω 0 then -1 else 1) = -1 := by
+  have key : (∏ ω : Fin 1 → Bool, parityConj ω (if ω 0 then (-1 : ℂ) else 1)) = -1 := by
+    rw [← (Equiv.funUnique (Fin 1) Bool).symm.prod_comp, Fintype.prod_bool]
+    simp [parityConj]
+  simp [gowersInnerProduct, key]
 
-/-- On `ZMod 2`, the character `(1, -1)` has `U¹` norm `0` and `U²` norm `1`. -/
-example : gowersNorm 1 (fun x : ZMod 2 ↦ if x = 0 then (1 : ℂ) else -1) = 0 ∧
+/-- `U¹` is only a seminorm: on `ZMod 2` the character `(1, -1)` has `U¹` norm `0` and `U²`
+norm `1`. -/
+theorem gowersNorm_sign_zmod_two :
+    gowersNorm 1 (fun x : ZMod 2 ↦ if x = 0 then (1 : ℂ) else -1) = 0 ∧
     gowersNorm 2 (fun x : ZMod 2 ↦ if x = 0 then (1 : ℂ) else -1) = 1 := sorry
 
 /-- The interval `[N] = {1, …, N}` as a predicate on residues modulo `2 ^ d * N + 1`. -/
@@ -479,7 +495,8 @@ def inInterval (d N : ℕ) (x : ZMod (2 ^ d * N + 1)) : Prop := 1 ≤ x.val ∧ 
 
 /-- `[2]` means representatives `1,2`, excluding `0` and `3`. -/
 example : inInterval 2 2 (1 : ZMod 9) ∧ inInterval 2 2 (2 : ZMod 9) ∧
-    ¬ inInterval 2 2 (0 : ZMod 9) ∧ ¬ inInterval 2 2 (3 : ZMod 9) := sorry
+    ¬ inInterval 2 2 (0 : ZMod 9) ∧ ¬ inInterval 2 2 (3 : ZMod 9) := by
+  simp only [inInterval]; decide
 
 /-- The interval norm `U^d[N](f)`: the `U^d` norm of the zero extension of `f` from `[N]` into
 `ZMod (2 ^ d * N + 1)`, divided by that of the indicator of `[N]`; `0` for the empty interval
@@ -491,10 +508,12 @@ def intervalGowersNorm (d N : ℕ) (f : ℤ → ℂ) : ℝ :=
       gowersNorm d (fun x : ZMod (2 ^ d * N + 1) ↦ if inInterval d N x then 1 else 0)
 
 /-- The empty interval has norm `0`, whatever the function. -/
-example (d : ℕ) : intervalGowersNorm d 0 (fun _ ↦ 1) = 0 := sorry
+example (d : ℕ) (f : ℤ → ℂ) : intervalGowersNorm d 0 f = 0 := by
+  simp [intervalGowersNorm]
 
 /-- A single point: the value `2i` has norm `2` in every order `d ≥ 1`. -/
-example (d : ℕ) (hd : 1 ≤ d) : intervalGowersNorm d 1 (fun _ ↦ 2 * Complex.I) = 2 := sorry
+theorem intervalGowersNorm_singleton (d : ℕ) (hd : 1 ≤ d) :
+    intervalGowersNorm d 1 (fun _ ↦ 2 * Complex.I) = 2 := sorry
 
 /-- The ratio does not depend on the admissible modulus. -/
 theorem intervalGowersNorm_independent_modulus (d N M : ℕ) [NeZero M] (hd : 1 ≤ d)
@@ -505,7 +524,7 @@ theorem intervalGowersNorm_independent_modulus (d N M : ℕ) [NeZero M] (hd : 1 
         gowersNorm d (fun x : ZMod M ↦ if 1 ≤ x.val ∧ x.val ≤ N then 1 else 0) := sorry
 
 /-- Order zero cannot be included in the modulus comparison: modulo `1`, `[1]` loses its point. -/
-example : intervalGowersNorm 0 1 (fun _ ↦ 1) = 1 ∧
+theorem intervalGowersNorm_order_zero_modulus : intervalGowersNorm 0 1 (fun _ ↦ 1) = 1 ∧
     (gowersNorm 0 (fun x : ZMod 1 ↦ if 1 ≤ x.val ∧ x.val ≤ 1 then 1 else 0) /
       gowersNorm 0 (fun x : ZMod 1 ↦ if 1 ≤ x.val ∧ x.val ≤ 1 then 1 else 0)) = 0 := sorry
 
@@ -525,7 +544,14 @@ structure DegreeFiltration (G : Type*) [Group G] (s : ℕ) where
   comm_mem : ∀ i j, ∀ x ∈ level i, ∀ y ∈ level j, x⁻¹ * y⁻¹ * x * y ∈ level (i + j)
 
 /-- A degree-zero filtration forces the group to be trivial. -/
-example {G : Type*} [Group G] (F : DegreeFiltration G 0) : Subsingleton G := sorry
+theorem DegreeFiltration.subsingleton_of_degree_zero {G : Type*} [Group G]
+    (F : DegreeFiltration G 0) : Subsingleton G := by
+  refine ⟨fun a b ↦ ?_⟩
+  have h : (⊤ : Subgroup G) = ⊥ := F.level_one.symm.trans F.level_succ_degree
+  have ha : a ∈ (⊥ : Subgroup G) := h ▸ Subgroup.mem_top a
+  have hb : b ∈ (⊥ : Subgroup G) := h ▸ Subgroup.mem_top b
+  rw [Subgroup.mem_bot] at ha hb
+  rw [ha, hb]
 
 /-- A degree-one filtration exists exactly when the group is commutative. -/
 theorem DegreeFiltration.degree_one_iff {G : Type*} [Group G] :
@@ -548,12 +574,15 @@ def IsFilteredPolynomial {s : ℕ} (F : DegreeFiltration G s) (g : (Fin ℓ → 
   ∀ (hs : List (Fin ℓ → ℤ)) (n : Fin ℓ → ℤ), iteratedFilteredDerivative hs g n ∈ F.level hs.length
 
 /-- Constant sequences are polynomial. -/
-example {s : ℕ} (F : DegreeFiltration G s) (c : G) : IsFilteredPolynomial (ℓ := ℓ) F (fun _ ↦ c) :=
-  sorry
+theorem isFilteredPolynomial_const {s : ℕ} (F : DegreeFiltration G s) (c : G) :
+    IsFilteredPolynomial (ℓ := ℓ) F (fun _ ↦ c) := sorry
 
-/-- The orientation of the derivative: for `g n = a ^ n * b`, `∂_h g n = a ^ h`. -/
+/-- The orientation of the derivative: for `g n = a ^ n * b`, `∂_h g n = a ^ h`; the other order
+`(g n)⁻¹ * g (n + h)` would give `b⁻¹ * a ^ h * b`. -/
 example (a b : G) (h n : Fin 1 → ℤ) :
-    filteredDerivative h (fun m ↦ a ^ m 0 * b) n = a ^ h 0 := sorry
+    filteredDerivative h (fun m ↦ a ^ m 0 * b) n = a ^ h 0 := by
+  simp only [filteredDerivative, Pi.add_apply]
+  group
 
 /-- Polynomial sequences form a group under pointwise multiplication (Lazard–Leibman; AC.3.9). -/
 theorem IsFilteredPolynomial.mul {s : ℕ} {F : DegreeFiltration G s} {g₁ g₂ : (Fin ℓ → ℤ) → G}
@@ -576,11 +605,17 @@ def distToInt (x : ℝ) : ℝ := |x - round x|
 def polynomialSmoothness (N s : ℕ) (α : ℕ → ℝ) : ℝ :=
   ⨆ j : Finset.Icc 1 s, (N : ℝ) ^ (j : ℕ) * distToInt (α j)
 
-/-- `P(n) = n/4` has smoothness `N/4`. -/
-example (N : ℕ) : polynomialSmoothness N 1 (fun j ↦ if j = 1 then 1 / 4 else 0) = N / 4 := sorry
+/-- The constant coefficient is excluded: a constant phase has smoothness `0`. -/
+example (N s : ℕ) : polynomialSmoothness N s (fun j ↦ if j = 0 then 1 / 2 else 0) = 0 := by
+  have h : ∀ j : Finset.Icc 1 s,
+      (N : ℝ) ^ (j : ℕ) * distToInt (if (j : ℕ) = 0 then 1 / 2 else 0) = 0 := by
+    intro j
+    have hj : (j : ℕ) ≠ 0 := by have := (Finset.mem_Icc.1 j.2).1; omega
+    simp [hj, distToInt]
+  simp only [polynomialSmoothness, h, Real.iSup_const_zero]
 
 /-- `P(n) = binom(n, 2) / 2` has smoothness `N ^ 2 / 2` in the binomial basis. -/
-example (N : ℕ) (hN : 1 ≤ N) :
+theorem polynomialSmoothness_half_binomial (N : ℕ) (hN : 1 ≤ N) :
     polynomialSmoothness N 2 (fun j ↦ if j = 2 then 1 / 2 else 0) = (N : ℝ) ^ 2 / 2 := sorry
 
 /-- `γ` is `M`-rational for `Γ`: some power `γ ^ r` with `1 ≤ r ≤ M` lies in `Γ` (AC.3.19). -/
@@ -592,14 +627,20 @@ def IsRationalPeriodicSequence (Γ : Subgroup G) (M : ℕ) (γ : ℤ → G) : Pr
   (∀ n, IsRationalElement Γ M (γ n)) ∧
     ∃ q : ℕ, 1 ≤ q ∧ q ≤ M ∧ ∀ n, (γ (n + q))⁻¹ * γ n ∈ Γ
 
-/-- In `ℝ/ℤ`, `1/3` is `3`-rational but not `2`-rational. -/
+/-- In `ℝ/ℤ`, `1/3` is `3`-rational. -/
 example : IsRationalElement (AddSubgroup.toSubgroup (AddSubgroup.zmultiples (1 : ℝ))) 3
-      (Multiplicative.ofAdd (1 / 3 : ℝ)) ∧
+    (Multiplicative.ofAdd (1 / 3 : ℝ)) := by
+  refine ⟨3, by norm_num, le_rfl, ?_⟩
+  rw [Multiplicative.mem_toSubgroup, toAdd_pow, toAdd_ofAdd]
+  exact ⟨1, by norm_num⟩
+
+/-- In `ℝ/ℤ`, `1/3` is not `2`-rational. -/
+theorem not_isRationalElement_third_two :
     ¬ IsRationalElement (AddSubgroup.toSubgroup (AddSubgroup.zmultiples (1 : ℝ))) 2
       (Multiplicative.ofAdd (1 / 3 : ℝ)) := sorry
 
 /-- Quotient period one does not make the constant `1/3` sequence `1`-rational. -/
-example : IsRationalPeriodicSequence
+theorem isRationalPeriodicSequence_third : IsRationalPeriodicSequence
       (AddSubgroup.toSubgroup (AddSubgroup.zmultiples (1 : ℝ))) 3
       (fun _ ↦ Multiplicative.ofAdd (1 / 3 : ℝ)) ∧
     ¬ IsRationalPeriodicSequence
@@ -633,7 +674,8 @@ structure FilteredNilmanifold {E : Type*} [NormedAddCommGroup E] [NormedSpace �
   level_cocompact : ∀ i, CompactSpace (filtration.level i ⧸ lattice.subgroupOf (filtration.level i))
 
 /-- A degree-zero filtered nilmanifold has a trivial ambient group. -/
-example (M : FilteredNilmanifold I N 0) : Subsingleton N := sorry
+example (M : FilteredNilmanifold I N 0) : Subsingleton N :=
+  M.filtration.subsingleton_of_degree_zero
 
 end Nilmanifold
 
@@ -642,6 +684,13 @@ end Nil
 /-! ## Layer AC.2: progressions in dense sets and removal -/
 
 namespace Progressions
+
+/-- Schmidt's simultaneous recurrence, quantified: some `n ≤ N` puts all `α_i n ^ k` within
+`C d N ^ (-c / d ^ 2)` of an integer (Layer AC.2.3). -/
+theorem simultaneous_monomial_recurrence (k : ℕ) (hk : 1 ≤ k) :
+    ∃ c > (0 : ℝ), ∃ C : ℝ, ∀ d N : ℕ, 1 ≤ d → 1 ≤ N → ∀ α : Fin d → ℝ,
+      ∃ n ∈ Finset.Icc 1 N, ∀ i, Nil.distToInt (α i * (n : ℝ) ^ k) ≤
+        C * d * (N : ℝ) ^ (-(c / (d : ℝ) ^ 2)) := sorry
 
 /-- The cyclic progression average `𝔼_{x,r} ∏_i f_i (x + i r)`, including `r = 0` (AC.2.1). -/
 def cyclicProgressionAverage (N k : ℕ) [NeZero N] (f : Fin k → ZMod N → ℂ) : ℂ :=
@@ -656,14 +705,18 @@ def intervalProgressionAverage (N k : ℕ) (f : Fin k → ℤ → ℂ) : ℂ :=
     ∏ i : Fin k, if 1 ≤ x + (i : ℕ) * r ∧ x + (i : ℕ) * r ≤ N then
       f i ((x + (i : ℕ) * r : ℕ) : ℤ) else 0
 
-/-- On `ZMod 5` the indicator of `{0}` has three-term average `1/25`. -/
-example : cyclicProgressionAverage 5 3 (fun _ ↦ Pi.single 0 1) = 1 / 25 := sorry
+/-- The cyclic average is a probability average: the constant `1` has average `1`, not `N ^ 2`. -/
+example (N k : ℕ) [NeZero N] : cyclicProgressionAverage N k (fun _ _ ↦ 1) = 1 := by
+  simp [cyclicProgressionAverage]
 
-/-- The indicator of `[2]`, three terms: only `x = 1, 2` with `r = 0` count, giving `2/9`. -/
-example : intervalProgressionAverage 2 3 (fun _ _ ↦ 1) = 2 / 9 := sorry
+/-- The indicator of `[2]`, three terms: only `x = 1, 2` with `r = 0` count, giving `2/9`; the
+denominator is `(N + 1) ^ 2` and the step `r = 0` is included. -/
+example : intervalProgressionAverage 2 3 (fun _ _ ↦ 1) = 2 / 9 := by
+  simp [intervalProgressionAverage, Finset.sum_range_succ, Fin.prod_univ_three]
+  norm_num
 
 /-- A one-sided two-term interval average need not vanish when an input has mean zero. -/
-example : intervalProgressionAverage 2 2
+theorem intervalProgressionAverage_two_term : intervalProgressionAverage 2 2
       (fun i n ↦ if i = 0 then (if n = 1 then 1 else -1) else 1) = 1 / 9 ∧
     Gowers.intervalGowersNorm 1 2 (fun n ↦ if n = 1 then 1 else -1) = 0 := sorry
 
@@ -683,10 +736,11 @@ def upperNaturalDensity (A : Set ℕ) : ℝ :=
   Filter.limsup (fun N : ℕ ↦ ((A ∩ Set.Iio N).ncard : ℝ) / N) Filter.atTop
 
 /-- The even numbers have upper density `1/2`. -/
-example : upperNaturalDensity {n | Even n} = 1 / 2 := sorry
+theorem upperNaturalDensity_even : upperNaturalDensity {n | Even n} = 1 / 2 := sorry
 
 /-- A finite set has upper density `0`. -/
-example : upperNaturalDensity ({0, 1, 2} : Set ℕ) = 0 := sorry
+theorem upperNaturalDensity_finite (A : Set ℕ) (hA : A.Finite) : upperNaturalDensity A = 0 :=
+  sorry
 
 /-- Szemerédi's theorem in positive upper density (AC.2.9). -/
 theorem szemeredi_of_upperNaturalDensity_pos (k : ℕ) (A : Set ℕ) (hA : 0 < upperNaturalDensity A)
@@ -697,6 +751,15 @@ theorem szemeredi_varnavides (k : ℕ) (hk : 3 ≤ k) (δ : ℝ) (hδ : 0 < δ) 
     ∃ c > (0 : ℝ), ∃ N₀ : ℕ, ∀ p : ℕ, [Fact p.Prime] → N₀ ≤ p → ∀ f : ZMod p → ℝ,
       (∀ x, 0 ≤ f x ∧ f x ≤ 1) → δ ≤ univ.expect f →
       c ≤ (cyclicProgressionAverage p k fun _ x ↦ (f x : ℂ)).re := sorry
+
+/-- Roth's density increment with explicit constants: a set of density `α = |A|/N` without
+nontrivial three-term progressions, with `N ≥ 9700/α²`, has density at least `α + α²/64` on a
+progression of length at least `α √N / 100` (Layer AC.2.10). -/
+theorem roth_density_increment (N : ℕ) (A : Finset ℕ) (hA : A ⊆ range N)
+    (hfree : ThreeAPFree (A : Set ℕ)) (hN : (9700 : ℝ) * N ≤ (A.card : ℝ) ^ 2) :
+    ∃ a d L : ℕ, 1 ≤ d ∧ (A.card : ℝ) / N * √(N : ℝ) / 100 ≤ L ∧ (∀ m < L, a + m * d < N) ∧
+      ((A.card : ℝ) / N + ((A.card : ℝ) / N) ^ 2 / 64) * L ≤
+        ((range L).filter fun m ↦ a + m * d ∈ A).card := sorry
 
 /-- Rahman's explicit threshold for three-term progressions (Bennett–Siksek, Theorem 8;
 AC.2.10). -/
@@ -751,19 +814,24 @@ def apLinearFormsError (ν : ZMod N → ℝ) : ℝ :=
 def APLinearFormsCondition (ε : ℝ) (ν : ZMod N → ℝ) : Prop :=
   (∀ x, 0 ≤ ν x) ∧ apLinearFormsError k N ν ≤ ε
 
-/-- At `k = 3` there are twelve indexed forms, not twenty-four. -/
-example : Fintype.card (APFormIndex 3) = 12 := sorry
-
-/-- The constant weight `1` has error `0`, and the constant weight `2` does not. -/
-example : apLinearFormsError 3 N (fun _ ↦ 1) = 0 ∧ 1 ≤ apLinearFormsError 3 N (fun _ ↦ 2) := sorry
-
 /-- The signs in the arithmetic forms: `(1,2,4)` gives `(10,3,7)` modulo eleven. -/
-example : (fun j : Fin 3 ↦ apLinearForm 3 11 j ![1,2,4]) = ![10,3,7] := sorry
+example : (fun j : Fin 3 ↦ apLinearForm 3 11 j ![1,2,4]) = ![10,3,7] := by
+  funext j; fin_cases j <;> simp [apLinearForm, Fin.sum_univ_three] <;> decide
+
+/-- At `k = 3` there are twelve indexed forms, not twenty-four. -/
+example : Fintype.card (APFormIndex 3) = 12 := by decide
+
+/-- The constant weight `1` has error `0`. -/
+example : apLinearFormsError 3 N (fun _ ↦ 1) = 0 := by
+  simp [apLinearFormsError]
 
 /-- Nonnegativity belongs to the condition as well as the moment bound. -/
-example : APLinearFormsCondition 3 N 0 (fun _ ↦ 1) ∧
-    ¬ APLinearFormsCondition 3 N (1 / 2) (fun _ ↦ 2) ∧
-    ¬ APLinearFormsCondition 3 N 0 (fun _ ↦ -1) := sorry
+example : ¬ APLinearFormsCondition 3 N 0 (fun _ ↦ -1) := fun h ↦ by
+  have := h.1 0; norm_num at this
+
+/-- The constant weight `2` violates the condition at tolerance `1/2`. -/
+theorem not_apLinearFormsCondition_two : ¬ APLinearFormsCondition 3 N (1 / 2) (fun _ ↦ 2) :=
+  sorry
 
 /-- The cut discrepancy of `f` and `g` along `ψ_j`, against products of `[0, 1]`-valued tests,
 the `i`-th test not depending on `x_i` (AC.4.7). -/
@@ -778,11 +846,11 @@ def IsDiscrepancyPair (ε : ℝ) (f g : ZMod N → ℝ) : Prop :=
   ∀ j, arithmeticDiscrepancy k N j f g ≤ ε
 
 /-- For constants the discrepancy is the difference of the constants. -/
-example (j : Fin 3) (c d : ℝ) :
+theorem arithmeticDiscrepancy_const (j : Fin 3) (c d : ℝ) :
     arithmeticDiscrepancy 3 N j (fun _ ↦ c) (fun _ ↦ d) = |c - d| := sorry
 
 /-- The tolerance includes its endpoint: constants `0,1` need error at least one. -/
-example : IsDiscrepancyPair 3 N 1 (fun _ ↦ 0) (fun _ ↦ 1) ∧
+theorem isDiscrepancyPair_zero_one : IsDiscrepancyPair 3 N 1 (fun _ ↦ 0) (fun _ ↦ 1) ∧
     ¬ IsDiscrepancyPair 3 N (1 / 2) (fun _ ↦ 0) (fun _ ↦ 1) := sorry
 
 /-- The dense model theorem (Conlon–Fox–Zhao, Theorem 5.1; AC.4.8). -/
@@ -846,25 +914,45 @@ def majorantNu (k w N n : ℕ) : ℝ :=
     (Nat.totient W : ℝ) / W * truncatedDivisorSum R (W * n + 1) ^ 2 / Real.log R
   else 1
 
-/-- At the representative `0` the original majorant is `1`. -/
-example (k w N : ℕ) (hN : 1 ≤ N) : majorantNu k w N 0 = 1 := sorry
-
-/-- The W-trick modulus at `w = 5` is `30`. -/
-example : primorial 5 = 30 := sorry
+/-- At the representative `0` the original majorant is `1`: `0` lies below its window. -/
+example (k w N : ℕ) (hN : 1 ≤ N) : majorantNu k w N 0 = 1 := by
+  have hN' : (0 : ℝ) < N := by exact_mod_cast hN
+  have hpos : (0 : ℝ) < 1 / (2 ^ k * ((k + 4).factorial : ℝ)) * N :=
+    mul_pos (by positivity) hN'
+  simp only [majorantNu]
+  refine ite_eq_right fun h ↦ absurd h.1 (not_le.2 ?_)
+  simpa using hpos
 
 /-- The shift matters: `6 · 1 + 1 = 7` is prime though `1` is not, and `6 · 4 + 1 = 25` is not. -/
-example : modifiedPrimeWeight 6 1 1 ≠ 0 ∧ modifiedPrimeWeight 6 1 4 = 0 := sorry
+example : modifiedPrimeWeight 6 1 1 ≠ 0 ∧ modifiedPrimeWeight 6 1 4 = 0 := by
+  have ht : Nat.totient 6 = 2 := by decide
+  refine ⟨?_, ?_⟩
+  · rw [modifiedPrimeWeight, ite_eq_left (by norm_num), ht]
+    apply ne_of_gt
+    apply mul_pos (by norm_num)
+    exact Real.log_pos (by norm_num)
+  · rw [modifiedPrimeWeight, ite_eq_right (by norm_num)]
 
 /-- Outside the half-window the majorant is `1`. -/
 example (k : ℕ) (χ : ℝ → ℝ) (cχ : ℝ) (w b N n : ℕ) (hn : 2 * n < N) :
-    smoothMajorant k χ cχ w b N n = 1 := sorry
+    smoothMajorant k χ cχ w b N n = 1 := by
+  simp only [smoothMajorant]
+  exact ite_eq_right (by omega)
 
-/-- The divisor-one term has coefficient `μ(1)=1` in both cutoffs. -/
-example (χ : ℝ → ℝ) (hχ : χ 0 = 1) (R : ℝ) (hR : 1 < R) :
-    smoothDivisorSum χ R 1 = Real.log R ∧ truncatedDivisorSum R 1 = Real.log R := sorry
+/-- The divisor-one term has coefficient `μ(1)=1`, and the cutoff is evaluated at `0`. -/
+example (χ : ℝ → ℝ) (hχ : χ 0 = 1) (R : ℝ) : smoothDivisorSum χ R 1 = Real.log R := by
+  simp [smoothDivisorSum, hχ]
 
-/-- The prime normalization includes `φ(6)/6=1/3`. -/
-example : modifiedPrimeWeight 6 1 1 = Real.log 7 / 3 := sorry
+/-- The sharp sum at `1` is `log R` for `R ≥ 1`: the single divisor `1` is weighted by `log R`. -/
+example (R : ℝ) (hR : 1 ≤ R) : truncatedDivisorSum R 1 = Real.log R := by
+  simp only [truncatedDivisorSum, Int.natAbs_one, Nat.divisors_one]
+  rw [Finset.filter_singleton, ite_eq_left (by simpa using hR)]
+  simp
+
+/-- The maximal order of the divisor function, `d(n) ≤ exp (C log n / log log n)`, used for the
+equal-shift case of the correlation condition of `majorantNu` (Layer AC.4.14). -/
+theorem card_divisors_le_exp : ∃ C : ℝ, ∀ n : ℕ, 16 ≤ n →
+    (n.divisors.card : ℝ) ≤ Real.exp (C * Real.log n / Real.log (Real.log n)) := sorry
 
 /-- At a prime `p > R` the smooth divisor sum is `log R`. -/
 theorem smoothDivisorSum_large_prime (χ : ℝ → ℝ) (hχ0 : χ 0 = 1) (hχ : ∀ t, 1 < |t| → χ t = 0)
@@ -912,13 +1000,18 @@ def twins : AffineSystem 2 1 := ⟨fun _ _ ↦ 1, fun i ↦ 2 * (i : ℤ)⟩
 
 /-- Affine evaluation retains the offsets and the direction of the common difference. -/
 example : (fun i : Fin 3 ↦ threeAP.eval i ![2,3]) = ![2,5,8] ∧
-    (fun i : Fin 2 ↦ twins.eval i ![5]) = ![5,7] := sorry
+    (fun i : Fin 2 ↦ twins.eval i ![5]) = ![5,7] := by
+  constructor <;> funext i <;> fin_cases i <;> simp [eval, threeAP, twins]
 
 /-- Three-term progressions have complexity `1` and not `0`. -/
-example : threeAP.HasCSComplexity 1 ∧ ¬ threeAP.HasCSComplexity 0 := sorry
+theorem threeAP_hasCSComplexity : threeAP.HasCSComplexity 1 ∧ ¬ threeAP.HasCSComplexity 0 :=
+  sorry
 
-/-- Twins have infinite complexity. -/
-example (s : ℕ) : ¬ twins.HasCSComplexity s := sorry
+/-- Twins have infinite complexity: the two slopes coincide. -/
+example (s : ℕ) : ¬ twins.HasCSComplexity s := by
+  intro h
+  obtain ⟨cls, hcls⟩ := h 0
+  exact hcls (cls 1) (Submodule.subset_span ⟨1, ⟨by decide, rfl⟩, rfl⟩)
 
 /-- The local factor `β_p = 𝔼_{x mod p} ∏_i (p / (p - 1)) 1[ψ_i(x) ≠ 0 mod p]` (AC.5.5). -/
 def integerLocalFactor (Ψ : AffineSystem t d) (p : ℕ) [NeZero p] : ℝ :=
@@ -930,17 +1023,19 @@ def integerArchimedeanFactor (Ψ : AffineSystem t d) (Ω : Set (Fin d → ℝ)) 
   (MeasureTheory.volume (Ω ∩ {x | ∀ i, 0 < (Ψ.offset i : ℝ) + ∑ j, (Ψ.slope i j : ℝ) * x j})).toReal
 
 /-- The parity obstruction: for `ψ(x) = 2x`, `β₂ = 0`. -/
-example : integerLocalFactor (⟨fun _ _ ↦ 2, fun _ ↦ 0⟩ : AffineSystem 1 1) 2 = 0 := sorry
+example : integerLocalFactor (⟨fun _ _ ↦ 2, fun _ ↦ 0⟩ : AffineSystem 1 1) 2 = 0 := by
+  have h2 : (2 : ZMod 2) = 0 := by decide
+  simp [integerLocalFactor, h2]
 
 /-- For `ψ(x) = x` every local factor is `1`. -/
-example (p : ℕ) [Fact p.Prime] [NeZero p] :
+theorem integerLocalFactor_id (p : ℕ) [Fact p.Prime] [NeZero p] :
     integerLocalFactor (⟨fun _ _ ↦ 1, fun _ ↦ 0⟩ : AffineSystem 1 1) p = 1 := sorry
 
 end AffineSystem
 
 open AffineSystem in
 /-- Finite-complexity linear equations in primes (Green–Tao, Main Theorem; Leng, Theorem 5;
-AC.5.14). The slopes are nonzero and pairwise linearly independent over `ℚ`. -/
+AC.5.15). The slopes are nonzero and pairwise linearly independent over `ℚ`. -/
 theorem linear_equations_in_primes (d t : ℕ) (hd : 0 < d) (ht : 0 < t)
     (L A : ℝ) (hL : 0 < L) (hA : 0 < A) :
     ∃ C : ℝ, ∀ N : ℕ, 2 ≤ N → ∀ Ψ : AffineSystem t d,
@@ -964,6 +1059,8 @@ end PrimePatterns
 
 The following targets need carriers that the pinned libraries do not have, or that this file does
 not build, and are stated in `README.md`: the transformation rules of `fourier` beyond those above;
+the quasi-polynomial Bogolyubov lemma; Schmidt's recurrence in its partition form and the
+quantitative Weyl lemmas; the explicit Roth iteration;
 the remaining entropy inequalities of Layer AC.1 (Madiman, the entropic Balog–Szemerédi–Gowers
 lemma, fibring, the two estimates and the endgame); Ruzsa modelling, progressions in cyclic Bohr
 sets, properisation and the Fourier density increment; the box Gowers norm; the nilpotent
@@ -975,16 +1072,19 @@ weighted von Neumann and Koopman–von Neumann theorems and the original relativ
 the moment estimates of the smooth majorant and its linear-forms condition, the pseudorandomness of
 `majorantNu`; the power-sum density lemma and Möbius–nilsequence orthogonality; vector-valued
 complexity and the vector-valued von Neumann theorem; Kai's quadratic Hecke uniformity, number-
-field prime-model uniformity, number-field and localised local factors, and the number-field and
-localised prime-pattern theorems.
+field prime-model uniformity with its Type I/II contracts, Kai's number-field prime weights, Cramér
+and Siegel models, Siegel-zero dichotomy, Mitsui prime number theorem and ideal Vaughan
+decomposition, the Type I/II dichotomy for `μ`, number-field and localised local factors, and the
+number-field and localised prime-pattern theorems.
 
 The README-only definitions are `boxGowersNorm`, `RationalMalcevBasis`, `malcevMetric`, `malcevGroupDistance`, `malcevQuotientDistance`,
 `BoundedNilsequence`, `HorizontalCharacter`, `IsEquidistributed`, `IsTotallyEquidistributed`,
 `HasVerticalFrequency`, `IsRationalSequence`, `IsSmoothSequence`, `IsRationalSubgroup`,
 `MinimizerSetup`, `NilsequenceFactor`, `factorAverage`, `IsRegularResolution`, `IsMeasureFamily`,
 `LinearFormsCondition`, `CorrelationCondition`, `IsKPseudorandom`, `wTrickModulus`,
-`modifiedVonMangoldt`, `AffineSystem.size`, `integerSingularProduct`, `HasModuleCSComplexity`, `HasTorsionCokernel`, `numberFieldLocalFactor`
-and `localizedLocalFactor`. The interval estimate `interval_dense_generalised_von_neumann`
+`modifiedVonMangoldt`, `AffineSystem.size`, `integerSingularProduct`, `HasModuleCSComplexity`, `HasTorsionCokernel`, `numberFieldLocalFactor`,
+`localizedLocalFactor`, `normLengthCompatibleBasis`, `numberFieldVonMangoldt`, `cramerModel`,
+`siegelModel`, `typeISum`, `twistedTypeISum` and `typeIISum`. The interval estimate `interval_dense_generalised_von_neumann`
 is also stated only there.
 -/
 

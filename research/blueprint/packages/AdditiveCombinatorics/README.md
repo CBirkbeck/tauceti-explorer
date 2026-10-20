@@ -82,6 +82,11 @@ Szemerédi's theorem runs through the Gowers inverse theorem.
   discrepancy, the dense model theorem, relative counting, both relative Szemerédi theorems, the
   smooth and the sharp W-tricked prime majorants and their moment estimates, and the Green–Tao
   theorem.
+- Schmidt's simultaneous polynomial recurrence with the quantitative Weyl and coefficient lemmas,
+  the quasi-polynomial Bogolyubov lemma in cyclic groups, the smooth and sharp truncated divisor sums,
+  the maximal order of the divisor function, the Type I/II dichotomy for `μ`, and Kai's number-field
+  prime weights, Cramér and Siegel models, Siegel-zero dichotomy, Mitsui prime number theorem and ideal
+  Vaughan decomposition: no other roadmap states them in the form used here.
 - The power-sum density lemma, Möbius orthogonality on equidistributed orbits and to all
   nilsequences, integer affine systems and their Cauchy–Schwarz complexity, integer local factors,
   vector-valued complexity and torsion cokernels, the vector-valued generalised von Neumann theorem,
@@ -108,19 +113,15 @@ Szemerédi's theorem runs through the Gowers inverse theorem.
   number theorem in `TauCeti/NumberTheory/Chebotarev/PrimeCounting/PrimesCongruent.lean` of the current library,
   through the declaration and elementary rational-prime conversion specified below.
 - From TauCetiRoadmap: Lie groups, the exponential map, closed subgroups and the
-  Baker–Campbell–Hausdorff formula from **RepresentationTheory/LieGroups** (Layers 0, 2, 3 and 5);
-  Minkowski's second theorem from **GeometryOfNumbersAndQuadraticArithmetic** (Layer 1.5). The
-  special Fourier analyses of **AlgebraicCodingTheory** (Layer 3, weight enumerators and
-  MacWilliams) and **ModularForms** (Layer 0, characters of modular forms with nebentypus) stay
-  with their owners.
-- From the roadmaps named in the supplier contracts below: the zeta zero-free region
-  (AnalyticNumberTheory Layer AN.2), the Siegel–Walfisz
-  estimate and the Möbius character sums (AN.3), number-field prime models and Hecke analytic
-  normalisations (AN.4), truncated divisor sums and the ideal sieve (SieveMethodsAndPrimePatterns
-  Layer SV.1), Type I/II decompositions (SV.2), simultaneous recurrence and Weyl bounds
-  (ExponentialSumsAndCircleMethod Layer ES.0), affine singular products (ES.3), Waring counts
-  (ES.4), the maximal order of the divisor function (ClassicalArithmeticCompletion Layer CA.2), and
-  the Weil bound for multiplicative character sums (FiniteFieldsAndCharacterSums Layer FF.2).
+  Baker–Campbell–Hausdorff formula from **RepresentationTheory/LieGroups** (Layers 0, 2, 3 and 5), and
+  the rectangle-discrepancy estimate for uniform pairs from **Regularity** (Layer 4). The special
+  Fourier analyses of **AlgebraicCodingTheory** (Layer 3, weight enumerators and MacWilliams) and
+  **ModularForms** (Layer 0, characters of modular forms with nebentypus) stay with their owners.
+- From the roadmaps named in the supplier contracts below: Minkowski's second theorem
+  (GeometryOfNumbersAndQuadraticArithmetic Layer 1.5), the Siegel–Walfisz theorem, the zeta
+  zero-free region and the small-modulus Möbius progression bound (AnalyticNumberTheoryPartI §§0.32,
+  0.33 and 1.2), the Weil bound for multiplicative character sums (FiniteFieldsAndCharacterSums
+  Layer FF.2), and the Waring asymptotics (ExponentialSumsAndCircleMethod Layers 4–5).
 
 **Boundaries.** No target here identifies a finite abelian group with its dual. The finite-field
 inverse theorems for Gowers norms are not used, and no inverse theorem over a finite field is
@@ -130,7 +131,7 @@ forms: twin primes and Goldbach's problem are outside the roadmap. The Bombieri�
 is not used. The general Lie correspondence is not built here; only its specialisation to
 connected, simply connected nilpotent groups (AC.3.10) is. General graph removal lemmas are not
 built here; only the cycle removal lemma for layered graphs that the ordered-product removal
-lemma consumes (AC.2.11) is.
+lemma consumes (AC.2.11) is, on top of TauCetiRoadmap's Regularity, which ends at counting.
 
 ## Conventions
 
@@ -225,74 +226,64 @@ lemma consumes (AC.2.11) is.
   formula) and Layer 5 (simply connected covers). AC.3.10 specialises these to connected, simply
   connected nilpotent groups, where the exponential map is a global diffeomorphism and the
   Baker–Campbell–Hausdorff series is a finite polynomial with rational coefficients.
-- **GeometryOfNumbersAndQuadraticArithmetic**, Layer 1.5, `minkowski_second_upper`: for a discrete
-  full lattice `L` in a `d`-dimensional real inner-product space and a centrally symmetric convex
-  body `K` with `0` in its interior, `(∏_{i < d} λ_i(L, K)) · vol(K) ≤ 2^d covol(L)`. Consumed by
-  AC.1.28 and AC.1.29.
+- **Regularity**, Layer 4: the rectangle-discrepancy bound for a `τ`-uniform pair against
+  `[0, 1]`-valued tests, from the proof of `StrongRegular.inducedGraphCount3_estimate`. AC.2.11 uses it
+  for the counting step of the layered cycle removal lemma. Regularity ends at counting and leaves
+  removal lemmas to their consumers.
 
 ### From other roadmaps
 
-These roadmaps own what this one consumes; each item is the exact statement used.
+These atlas roadmaps own what this one consumes; each item is the exact statement used, at the
+place where the supplier states it.
 
-- **AnalyticNumberTheory**, Layer AN.2.
-  - For the sharp-cutoff comparison route only (AC.4.14): the classical zero-free region
-    `Re s ≥ 1 − c/log(|Im s| + 2)` for `ζ` away from a bounded neighbourhood of the pole,
-    logarithmic bounds for `ζ(s) − 1/(s − 1)` and for `1/ζ(s)` in that region, and the convexity
-    bound used in Green–Tao, Appendix A.3.
-- **AnalyticNumberTheory**, Layer AN.3.
-  - For the one-form case of AC.5.14: for every fixed `q ≥ 1`, residue `a` coprime to `q` and
-    `B > 0`, `θ(x; a,q) = x/φ(q) + O_{q,B}(x (log x)^{−B})`. This is the fixed-modulus
-    consequence of Siegel–Walfisz, with every log-power saving; qualitative PNT does not suffice.
-  - For AC.5.3: for a Dirichlet character `χ` modulo `q` and every `A > 0`,
-    `|N⁻¹ ∑_{n ≤ N} μ(n) χ(n)| ≤ C_A q^{1/2} (log N)^{−A}` (Green–Tao, Möbius paper, Appendix A,
-    Proposition A.1), and for every bounded `q`-periodic `b`,
-    `|N⁻¹ ∑_{n ≤ N} μ(n) b(n)| ≤ C_A q (log N)^{−A}` (Proposition A.2). These are estimates for `μ`
-    and are not replaced by estimates for `Λ`.
-  - For the sharp-cutoff route only: a Siegel–Walfisz estimate uniform in the primorial modulus
-    `W(N)`.
-- **AnalyticNumberTheory**, Layer AN.4: Kai's fractional-ideal prime weight
-  `Λ_K^𝔞(x) = Λ_K(x𝔞⁻¹)`, its Cramér and Siegel models with every ideal-norm, exceptional-character
-  and zeta-residue normalisation; norm-length compatible bases with covolumes uniform in `𝔞`; the
-  Hecke Siegel–Walfisz comparison of the prime weight with its Siegel model for a fixed field; the
-  quadratic-conductor and dyadic character-sum bounds of Kai §§6–7; and the `S`-localised weights.
-  Consumed by AC.5.8–AC.5.13.
-- **SieveMethodsAndPrimePatterns**, Layer SV.1.
-  - The smooth truncated divisor sum `Λ_{χ,R}(n) = log R · ∑_{d | n} μ(d) χ(log d / log R)` for a
-    smooth `χ : ℝ → [0, 1]` supported on `[−1, 1]` with `χ(0) = 1`, the constant
-    `c_χ = ∫₀^∞ χ'(t)² dt > 0`, and the sharp Goldston–Yıldırım sum
-    `Λ_R(n) = ∑_{d | n, d ≤ R} μ(d) log(R/d)`. Consumed by AC.4.11 and AC.4.14.
-  - For a fixed number field: joint local divisibility counts and the ideal upper-bound sieve for
-    the fractional-ideal Cramér model (Kai, Proposition 5.2 and Lemma B.2) and the `S`-supported
-    denominator sums of Kai, Appendix E, with constants uniform over norm-length compatible bases.
-    Consumed by AC.5.11 and AC.5.13.
-- **SieveMethodsAndPrimePatterns**, Layer SV.2.
-  - The Type I/II dichotomy for `μ` (Green–Tao, Möbius paper, Proposition 3.1): if
-    `|𝔼_{N < n ≤ 2N} μ(n) f(n)| ≥ ε` with `|f| ≤ 1`, then either (Type I) for some
-    `K ≤ N^{2/3}` a quantitatively large family of `k ∼ K` has `|𝔼_{N/k < w ≤ 2N/k} f(kw)|` large, or
-    (Type II) for some `N^{1/3}/2 ≤ K ≤ 4N^{2/3}` a four-point correlation of `f` on
-    `k, k' ∼ K`, `w, w' ∼ N/K` is large, with every loss polynomial in `ε/log N`. Consumed by AC.5.2.
-  - Kai's ideal Vaughan decomposition and twisted Type I/II contracts for `Λ_K` minus its Siegel
-    model (Kai, §8, Proposition 8.5). Consumed by AC.5.9.
-- **ExponentialSumsAndCircleMethod**, Layer ES.0: quantitative simultaneous polynomial recurrence
-  (for `k, d ≥ 1` and `α₁, …, α_d ∈ ℝ/ℤ` some `1 ≤ n ≤ N` has
-  `max_i ‖α_i n^k‖ ≤ C_k d N^{−c_k/d²}`) and quantitative Weyl bounds for polynomial exponential sums
-  with the dimension dependence of Leng–Sah–Sawhney, Szemerédi paper, Proposition 2.2, p. 4,
-  and the proof of Lemma 2.1, pp. 4–7. Consumed by AC.2.3.
-- **ExponentialSumsAndCircleMethod**, Layer ES.3: for a fixed finite-complexity integer affine
-  system, and for Kai's full-rank vector-valued systems, the identification of the local factors,
-  `β_p = 1 + O(p^{−2})` at good primes, absolute convergence of the singular product, and its
-  positivity exactly when every local factor is positive, keeping localisation factors grouped by
-  rational prime. Consumed by AC.5.5 and AC.5.10.
-- **ExponentialSumsAndCircleMethod**, Layer ES.4: for `j ≥ 3` and `t ≥ 2^j + 1`, the uniform bound
-  `#{x ∈ [1, K]^t : x₁^j + ⋯ + x_t^j = m} ≤ C_{j,t} K^{t−j}` (from `waring-classical-asymptotic`
-  and `waring-series-absolute-convergence`), and the quadratic case: for `t ≥ 5`,
-  `#{x ∈ [1, K]^t : x₁² + ⋯ + x_t² = m} ≤ C_t K^{t−2}` uniformly in `m`. Consumed by AC.5.1.
-- **ClassicalArithmeticCompletion**, Layer CA.2, for the sharp-cutoff route only: the maximal order
-  `d(n) ≤ exp(C log n / log log n)` for large `n`. Consumed by AC.4.14.
+- **GeometryOfNumbersAndQuadraticArithmetic**, Layer 1.5 (TauCetiRoadmap pull request #851),
+  `minkowski_second_upper`: for a discrete full lattice `L` in a `d`-dimensional real inner-product
+  space and a centrally symmetric convex body `K` with `0` in its interior,
+  `(∏_{i < d} λ_i(L, K)) · vol(K) ≤ 2^d covol(L)`. Consumed by AC.1.28, AC.1.29 and AC.3.16.
+- **AnalyticNumberTheoryPartI** (the package of AnalyticNumberTheory):
+  - §0.32 `siegel_walfisz`: for every `A, B > 0`, uniformly in `q ≤ (log x)^B` and `(a, q) = 1`,
+    `π(x; a, q) = Li(x)/φ(q) + O_{A,B}(x (log x)^{−A})`, with possibly ineffective constants; the `θ`
+    form follows by removing prime powers (Mathlib `Chebyshev.isBigO_psi_sub_theta_sqrt`). Consumed,
+    for a fixed modulus, by the one-form case of AC.5.15.
+  - §0.33: the zero-free region `1 − β/log(|Im s| + 2) ≤ Re s ≤ 10` for `ζ` away from the pole, with
+    `|ζ(s) − 1/(s − 1)|, |1/ζ(s)| ≤ C log(|Im s| + 2)` there. Consumed by the sharp-cutoff comparison
+    route only (AC.4.14, Green–Tao's Lemma A.1).
+  - §1.2 `mobius_small_modulus_progressions`: for every `B, C > 0`, uniformly in `q ≤ (log x)^C` and every
+    residue `b`, `∑_{n ≤ y, n ≡ b mod q} μ(n) ≪_{B,C} x (log x)^{−B}` for `y ≤ x`. Consumed by AC.5.3, which
+    derives from it Green–Tao's bounds for `μ` twisted by a character or a periodic function.
 - **FiniteFieldsAndCharacterSums**, Layer FF.2, `weil-bound-multiplicative`: for a multiplicative
-  character `χ` of order `e ≥ 2` of a finite field `F` and `g ∈ F[X]` not of the form `c h^e` over
-  the algebraic closure, with `m` distinct roots there, `|∑_{x ∈ F} χ(g(x))| ≤ (m − 1)√|F|`.
-  Consumed by AC.5.8.
+  character `χ` of order `e ≥ 2` of a finite field `F` and `g ∈ F[X]` not of the form `c h^e` over the
+  algebraic closure, with `m` distinct roots there, `|∑_{x ∈ F} χ(g(x))| ≤ (m − 1)√|F|`. Consumed by
+  AC.5.9.
+- **ExponentialSumsAndCircleMethod**, Layers 4–5: `waring_classical_asymptotic` (for `j ≥ 3`,
+  `t ≥ 2^j + 1`, the positive representation count is its singular-series main term up to a power
+  saving, for `m ≥ M₀`), `waring_series_absolute_convergence` (the singular series is bounded
+  uniformly in `m`) and `heath_brown_quadratic_asymptotic` (the smooth-weight count of a fixed
+  nondegenerate integral quadratic form in at least five variables). Consumed only by AC.5.1, which
+  no other target here uses.
+
+The following inputs are stated by no other roadmap in the form used here, and are planned in this
+roadmap: the smooth and sharp truncated divisor sums (AC.4.11,
+AC.4.14), the maximal order of the divisor function (AC.4.14), Schmidt's simultaneous recurrence and
+the quantitative Weyl and coefficient lemmas (AC.2.3), the Type I/II dichotomy for `μ` (AC.5.2),
+the periodic Möbius sums (AC.5.3), the convergence and positivity of the integer singular product
+(AC.5.5), and Kai's number-field prime weights, models, ideal sieve, Siegel-zero dichotomy, Mitsui
+prime number theorem and ideal Vaughan decomposition (AC.5.8).
+
+### Order relative to other roadmaps
+
+The roadmap is outside the Caraiani–Newton tiers, so its place is fixed by its suppliers. It goes
+to Tau Ceti after GeometryOfNumbersAndQuadraticArithmetic (tier 3), AnalyticNumberTheory (tier 14, with
+ArithmeticStatistics), FiniteFieldsAndCharacterSums and ExponentialSumsAndCircleMethod. The layer
+graph is acyclic, but one of these suppliers cites this roadmap back: FiniteFieldsAndCharacterSums
+Layer FF.1 uses the Fourier transform of AC.0 (`fourier`, `fourier_parseval`) for its multiplicative
+Fourier expansion, while AC.5.9 uses FF.2; ExponentialSumsAndCircleMethod cites nothing here.
+SieveMethodsAndPrimePatterns is not a supplier of this roadmap; it asks Layer AC.1 for a sum-product
+theorem in squarefree rings and a noncommutative Balog–Szemerédi–Gowers theorem, which are not targets
+here. So AdditiveCombinatorics and FiniteFieldsAndCharacterSums form a bundle and go to Tau Ceti
+together, after their lower suppliers; alternatively FF.1 could own the finite Fourier transform of
+AC.0, and then AdditiveCombinatorics follows FiniteFieldsAndCharacterSums. The
+RepresentationTheory/LieGroups and Regularity roadmaps are already on TauCetiRoadmap main.
 
 ## How to read the build
 
@@ -301,12 +292,24 @@ independent strands over AC.0: entropy and Marton's conjecture (AC.1.1–AC.1.18
 Fourier analysis; the Bohr-set route to Freiman's theorem uses AC.0 throughout. AC.3 needs AC.0 for the `U²` identity and AC.1 only for the Balog–Szemerédi–Gowers
 theorem inside the inverse theorem. AC.2 uses the cube norms and the interval inverse theorem of
 AC.3; its progression average, upper density, Rahman's threshold and the two removal lemmas need
-nothing beyond Mathlib. AC.4 needs the progression average and the dense Varnavides theorem of AC.2
+nothing beyond Mathlib, AC.0 (for Roth's Fourier identity) and TauCetiRoadmap's Regularity (for
+counting). AC.4 needs the progression average and the dense Varnavides theorem of AC.2
 and the Gowers norms of AC.3. AC.5 needs AC.3 (nilsequences, the box inverse theorem, efficient
 equidistribution and orbit factorisation) and the arithmetic suppliers; it does not pass through the
 hypotheses of AC.4. Within each layer the subsections are in build order, and every target names its
 inputs in a `*Needs:*` line. Each definition ends with its `**Checks.**`, the unit tests a wrong
-definition fails; the kept definitions repeat their key checks as `example`s in `Suggested.lean`.
+definition fails; the kept definitions repeat their key checks as proved `example`s in
+`Suggested.lean`. The Checks and boundary cases that `Suggested.lean` states as named theorems,
+proved by `sorry`, rather than as proved examples are: `measureEntropy_dirac` (proved there),
+`mutualInfo_eq_zero_of_indepFun`, `rdist_uniformOn_cosets`, `isRegularPhaseBohr_zmod_four`,
+`gowersNorm_sign_zmod_two`, `intervalGowersNorm_singleton`, `intervalGowersNorm_order_zero_modulus`,
+`isFilteredPolynomial_const`, `polynomialSmoothness_half_binomial`, `not_isRationalElement_third_two`,
+`isRationalPeriodicSequence_third`, `intervalProgressionAverage_two_term`, `upperNaturalDensity_even`,
+`upperNaturalDensity_finite`, `not_apLinearFormsCondition_two`, `arithmeticDiscrepancy_const`,
+`isDiscrepancyPair_zero_one`, `threeAP_hasCSComplexity` and `integerLocalFactor_id`; each is the
+Check of the same content in its subsection. `Suggested.lean` also states the intermediate
+milestones `cyclic_bohr_contains_proper_gap` (AC.1.28), `simultaneous_monomial_recurrence` (AC.2.3),
+`roth_density_increment` (AC.2.10) and `card_divisors_le_exp` (AC.4.14).
 
 ## Layer AC.0: Fourier analysis on finite abelian groups
 
@@ -1067,14 +1070,20 @@ The API:
 - `IsRegularPhaseBohr.test_stable_scale`: on `ZMod 4` at rank one and phase radius `1/8`, every
   allowed relative perturbation has the same singleton Bohr set, so the regularity bounds hold.
 - `IsRegularPhaseBohr.test_jump`: at radius `1/4` the same set has one point, but multiplication of
-  the radius by `1 + 1/1000` gives three; `3 > 1.1` violates the upper regularity bound.
-
-**Gap.** The regular half-scale choice and its small-shift estimate require the quantitative
-proof in Schoen–Shkredov §4, not merely regularity as a predicate. Their constants and their use
-with a nonfaithful character family remain part of the proof contract.
-
+  the radius by `1 + 1/1000` gives three; `3 > 1.1` violates the upper regularity bound. This check
+  and the previous one are stated together as `isRegularPhaseBohr_zmod_four` in `Suggested.lean`.
 - `IsRegularPhaseBohr.test_rank_zero`: an empty frequency set is regular for every allowed
   scale perturbation, since both sides have exactly `|G|` points and the rank term is zero.
+
+The two volume bounds have short proofs that use nothing about the characters beyond `|χ| = 1`
+and multiplicativity, so they hold for nonfaithful families (characters with a common kernel) as
+well. For `phaseBohrSet_half_card`, split each phase interval `(−ε_χ, ε_χ)` into four half-open
+intervals of length `ε_χ/2`; two points whose phase vectors lie in the same cell differ by an
+element of `B(Γ, ε/2)`, so `|B(Γ, ε)| ≤ 4^d |B(Γ, ε/2)|`, which is stronger than the printed
+`8^{d+1}`. For `phaseBohrSet_card_lower`, cover the torus `(ℝ/ℤ)^d` by `∏_χ ⌈1/ε_χ⌉ ≤ 2^d ∏_χ ε_χ^{−1}`
+boxes of sides `ε_χ`; one box contains the phase vectors of at least `|G| 2^{−d} ∏_χ ε_χ` points, and
+their differences with a fixed one lie in `B(Γ, ε)`. Schoen and Shkredov state both bounds without
+proof (Lemmas 4.4–4.5, p. 6).
 
 ### AC.1.23 Regular Bohr shrinking and translation
 
@@ -1087,6 +1096,30 @@ volume bound and a covering argument in the logarithm of the common scale find a
 inclusions `B_{−κ/(100d)} ⊆ B ∩ (B + h) ⊆ B ∪ (B + h) ⊆ B_{κ/(100d)}` bound the symmetric difference,
 and averaging over `B'` gives the convolution estimate (Schoen–Shkredov, §4, Lemmas 4.3–4.7,
 pp. 5–6). The existence of a regular scale is `exists_isRegularPhaseBohr`.
+
+Schoen and Shkredov state the existence of a regular scale (Lemma 4.3, p. 6) without proof. The
+proof contract, with every constant explicit, is as follows. Let `d = |Γ| ≥ 1` (for `d = 0` every
+scale is regular) and `G(u) = log |B(Γ, e^u ε)|` for `u ∈ [−log 2, 0]`.
+
+1. `G` is nondecreasing, and `G(0) − G(−log 2) ≤ (d + 1) log 8` by `phaseBohrSet_half_card`.
+2. Covering on the line (`exists_regular_scale_of_covering`): let `I = [−(3/4) log 2, −(1/4) log 2]`
+   and `K = 24(d + 1)`. If every `u ∈ I` were the centre of an interval `(u − h_u, u + h_u)` with
+   `0 < h_u ≤ (1/4) log 2` and `G(u + h_u) − G(u − h_u) > K h_u`, take a minimal finite subcover of
+   `I`; ordered by left endpoints, its odd-numbered and its even-numbered members are pairwise
+   disjoint, so one of these two subfamilies has total length at least `|I|/2 = (1/4) log 2`. The
+   intervals lie in `[−log 2, 0]`, so summing the increments of `G` over that subfamily gives
+   `(d + 1) log 8 ≥ G(0) − G(−log 2) > (K/8) log 2 = (d + 1) log 8`, a contradiction.
+3. Hence some `u₀ ∈ I` has `|G(u₀ + h) − G(u₀)| ≤ 24(d + 1)|h|` for all `|h| ≤ (1/4) log 2`; put
+   `r = e^{u₀} ∈ [2^{−3/4}, 2^{−1/4}] ⊆ [1/2, 1]`.
+4. Regularity at `rε`: for `1 + η > 0` with `d|η| ≤ 1/100`, `h = log(1 + η)` has
+   `|h| ≤ (100/99)|η|`, so `x = 24(d + 1)|h| ≤ 48.5 d|η| ≤ 0.485`; then
+   `e^{−x} ≥ 1 − x ≥ 1 − 100 d|η|` and, by convexity, `e^{x} ≤ 1 + 1.29x ≤ 1 + 100 d|η|`, which are
+   the two inequalities of `IsRegularPhaseBohr`.
+
+The translation estimate follows Schoen–Shkredov's proof of Lemma 4.7 (p. 6): for `h ∈ B'`,
+`B_{−κ/(100d)} ⊆ B ∩ (B + h)` and `B ∪ (B + h) ⊆ B_{κ/(100d)}`, and regularity at `η = ±κ/(100d)`
+bounds both outer sets by `(1 ± κ)|B|`, giving `|(B + h) △ B| ≤ 2κ|B|`; averaging over `h ∈ B'`
+gives the convolution estimate.
 
 *Needs:* AC.0.2, AC.1.22.
 
@@ -1172,25 +1205,40 @@ appears or wraps (Tao, Notes 2, §5, printed pp. 6–8).
 Prove `cyclic_bohr_contains_proper_gap`: for each `d` there is `c_d > 0` such that, for `N ≥ 1`, at
 most `d` characters `Γ` of `ZMod N` and a common phase radius `0 < ρ ≤ 1/4`, the phase Bohr set
 `B(Γ, ρ)` contains a proper generalised arithmetic progression of rank at most `d + 1` with at least
-`c_d ρ^d N` points; the constants depend only on `d`. The statement is for cyclic groups only. Work
-with the full lattice of integer `x` and integer lifts of the frequencies in `ℝ^{d+1}`, with a box
-bounding `|x| < N/2` and the phase discrepancies by `ρ`; apply Minkowski's second theorem to the
-successive-minimum directions and truncate the parameter lengths so that the whole sum stays in the
-box; the `x`-coordinate makes reduction modulo `N` injective on the parameter box. Tao's argument
-treats the map `x ↦ (χ(x))_χ` as injective, which fails when the characters have a common kernel
-(on `ZMod 4` with only the trivial character every point has the same image); keeping the cyclic
-coordinate repairs this at the cost of rank `d + 1`. Tao's opening display of §7 also scales the
-phase radius by `N` and binds the wrong variable: the intended set is
-`{x ∈ ZMod N : ‖xξ/N‖ < δ for every ξ ∈ Λ}`, with `δ = 1/32` (any `δ` with `2 sin(πδ) ≤ 1/4`)
-rather than `1/20` when it must sit inside the chord set of radius `1/4` (Tao, Notes 2, §7, printed
-pp. 11–13).
+`c_d ρ^d N` points, where one may take `c_d = 2^{−(d+2)}(d + 1)^{−(d+1)}`. The statement is for cyclic
+groups only, and the progression is proper by construction, so no properisation is needed.
 
-*Needs:* AC.1.22, AC.1.25; TauCetiRoadmap.GeometryOfNumbersAndQuadraticArithmetic Layer 1.5
+Proof contract. Write the characters as `x ↦ e(xξ_j/N)` with integers `0 ≤ ξ_j < N`, `j ≤ d` (pad
+with the trivial character). Let `L ⊆ ℝ^{d+1}` be the lattice generated by `ℤ^{d+1}` and
+`v = (1/N, ξ₁/N, …, ξ_d/N)`. Because the first coordinate of `v` is `1/N`, `v` has order exactly `N`
+modulo `ℤ^{d+1}`, so `L` has covolume `1/N` and `ψ(m + yv) = y mod N` is a well-defined surjective
+homomorphism `L → ZMod N` with kernel `ℤ^{d+1}`. Let `K = [−1/4, 1/4] × [−ρ/2, ρ/2]^d`, a centrally
+symmetric convex body of volume `ρ^d/2`.
+
+1. Injectivity: two points of `L ∩ K` with the same image differ by an integer vector in
+   `2K = [−1/2, 1/2] × [−ρ, ρ]^d`, which is `0` because `ρ ≤ 1/4 < 1`.
+2. Containment: if `u = m + yv ∈ K` then `‖yξ_j/N‖ ≤ ρ/2 < ρ` for every `j`, so `ψ(u) ∈ B(Γ, ρ)`.
+3. Minkowski's second theorem (`minkowski_second_upper`) gives the successive minima
+   `λ₁ ≤ ⋯ ≤ λ_{d+1}` of `K` with respect to `L`, attained by linearly independent `b_i ∈ L ∩ λ_i K`,
+   with `∏ λ_i ≤ 2^{d+1}(1/N)/(ρ^d/2) = 2^{d+2}/(Nρ^d)`.
+4. Put `M_i = ⌊1/((d + 1)λ_i)⌋`. Every `∑ n_i b_i` with `|n_i| ≤ M_i` lies in `∑ |n_i| λ_i K ⊆ K`; the
+   `b_i` are linearly independent and `ψ` is injective on `L ∩ K`, so the images form a proper
+   progression of rank `d + 1` in `B(Γ, ρ)`: base `−∑ M_i ψ(b_i)`, steps `ψ(b_i)` and lengths `2M_i` in
+   the `GeneralizedAP` convention.
+5. Since `2⌊t⌋ + 1 ≥ t` for `t ≥ 0`, it has `∏(2M_i + 1) ≥ ∏ 1/((d + 1)λ_i) ≥ Nρ^d/(2^{d+2}(d + 1)^{d+1})`
+   points.
+
+The first coordinate is what makes `ψ` injective on the box. Tao's argument treats the map
+`x ↦ (χ(x))_χ` as injective, which fails when the characters have a common kernel (on `ZMod 4` with
+only the trivial character every point has the same image); the cyclic coordinate costs one unit of
+rank. Tao's opening display of §7 also scales the phase radius by `N` and binds the wrong variable:
+the intended set is `{x ∈ ZMod N : ‖xξ/N‖ < δ for every ξ ∈ Λ}`, with `δ = 1/32` (any `δ` with
+`2 sin(πδ) ≤ 1/4`) rather than `1/20` when it must sit inside the chord set of radius `1/4`. The
+greedy successive-minima argument is Tao's (Notes 2, §7, printed pp. 11–13); Minkowski's second
+theorem replaces his volume-packing step, as his closing remark there suggests.
+
+*Needs:* AC.1.22, AC.1.25; GeometryOfNumbersAndQuadraticArithmetic Layer 1.5
 (`minkowski_second_upper`).
-
-**Gap.** The lattice argument must retain the integer coordinate `x` together with its phase
-coordinates; the character-value map alone need not be injective. The rank `d + 1` bound is the
-target, and the constants in its properisation still require a complete proof contract.
 
 ### AC.1.29 Properisation
 
@@ -1200,9 +1248,18 @@ progression of rank at most `d` and volume at most `C_d` times the original volu
 parameter map on `ℤ^d`; if it is not injective on the enlarged box, pass to the lattice quotient by a
 primitive kernel relation, of lower rank, and bound the new volume with the successive minima of the
 reduced convex body; iterate at most `d` times (Tao, Notes 2, §8, Theorem 8.1, printed pp. 14–19).
+The induction runs over pairs (a large progression `P` of rank `k`, a small progression `Q` of
+bounded rank and size), ordered by rank of `P`, then rank of `Q`, then volume of `P`
+(Proposition 8.4, printed p. 15): (i) if `P` is improper, a primitive kernel vector `w` of the
+rescaled parameter lattice either is short, and then a progression of the same rank and smaller
+volume covers `P` (printed pp. 16–17), or is not, and then projecting along `w` gives a lattice of
+rank `k − 1` whose successive-minimum basis covers `P` up to a bounded convolution, with volume
+`O_k(vol P)` by Cramer's rule and the covolume bound (printed pp. 17–18); (ii) if `P` is proper but
+`Q + P` is not, a collision reduces the rank of `Q` (printed pp. 18–19). Each step multiplies the
+volume by a constant depending only on the ranks, and there are at most `d + rank Q` rank
+reductions, so `C_d` exists.
 
-*Needs:* AC.1.25; TauCetiRoadmap.GeometryOfNumbersAndQuadraticArithmetic Layer 1.5
-(`minkowski_second_upper`).
+*Needs:* AC.1.25; GeometryOfNumbersAndQuadraticArithmetic Layer 1.5 (`minkowski_second_upper`).
 
 ### AC.1.30 Freiman's theorem in torsion-free groups
 
@@ -1230,6 +1287,26 @@ size. For exponent `2` the much sharper AC.1.18 holds; it is not a restatement o
 
 *Needs:* Mathlib `Finset.ruzsa_covering_add`, `Finset.pluennecke_ruzsa_inequality_nsmul_add`.
 
+### AC.1.32 The quasi-polynomial Bogolyubov lemma in cyclic groups
+
+Prove `quasipolynomial_bogolyubov`: there is an absolute `C ≥ 1` such that for `N ≥ 1`, `K ≥ 1` and
+`A ⊆ ZMod N` with `|A| ≥ N/K`, some set `S` of frequencies with `|S| ≤ C log(2K)^C` and some `ρ` with
+`1/ρ ≤ C log(2K)^C` satisfy `{x : ‖xξ/N‖_{ℝ/ℤ} ≤ ρ for every ξ ∈ S} ⊆ 2A − 2A`. The rank and the inverse
+radius are polylogarithmic in `K`; AC.1.21 gives rank `O(K)`, which would make every bound of the
+inverse theorem (AC.3.17) exponential instead of quasi-polynomial. The phase condition here is
+closed, as in Leng–Sah–Sawhney's Definition A.3; it contains the strict phase Bohr set of AC.1.22 at
+the same radius. Route: Sanders' Bogolyubov–Ruzsa lemma puts a proper symmetric coset progression of
+dimension `O(log⁶ 2K)` and size `exp(−O(log⁶ 2K · log log 2K))|A|` inside `2A − 2A` (Sanders, *On the
+Bogolyubov–Ruzsa lemma*, Anal. PDE 5 (2012), arXiv:1011.0107, Theorem 1.1, p. 1; proved from the
+Croot–Sisask almost-periodicity lemma and a local Chang lemma in Bohr sets, §§3–10); in `ZMod N` a
+large symmetric coset progression contains a Bohr set of comparable rank and radius (Milićević,
+*Bilinear Bogolyubov argument in abelian groups*, arXiv:2109.03093, Proposition 27 and
+Corollary 28). Leng–Sah–Sawhney record the combination as Lemma A.4 of the inverse paper (p. 76),
+which is the form consumed here.
+
+*Needs:* AC.1.20, AC.1.25; Mathlib `Finset.pluennecke_ruzsa_inequality_nsmul_sub_nsmul_add`,
+`Finset.ruzsa_covering_add`.
+
 ### Examples
 
 - `𝔽₂²` with `X` uniform on `{0, e₁, e₂}`: `X + X'` takes `0` with probability `1/3` and each of
@@ -1246,7 +1323,7 @@ size. For exponent `2` the much sharper AC.1.18 holds; it is not a restatement o
 ### Dependencies
 
 AC.0; Mathlib (entropy summand, measures and independence, Plünnecke–Ruzsa, Ruzsa covering, Freiman
-homomorphisms, additive energy); TauCetiRoadmap.GeometryOfNumbersAndQuadraticArithmetic Layer 1.5.
+homomorphisms, additive energy); GeometryOfNumbersAndQuadraticArithmetic Layer 1.5.
 
 ## Layer AC.3: Gowers norms, nilsequences and the inverse theorem
 
@@ -1485,11 +1562,30 @@ Taylor coefficients are peeled off at `n = 0` by induction on derivative order w
 difference identity (Leng–Sah–Sawhney, inverse paper, §2.3, after Definition 2.9, pp. 8–9, and the
 polynomial-map calculus it cites).
 
-*Needs:* AC.3.8.
+The proof contract:
 
-**Gap.** The equivalence between the iterated-difference definition and the ordered binomial
-Taylor expansion needs the filtered noncommutative induction, including its finite-BCH coordinate
-bounds. The displayed expansion alone is not that proof contract.
+1. Host–Kra cube groups. For a degree-`s` filtration, the `k`-dimensional cube group
+   `HK^k(G_•) ⊆ G^{{0,1}^k}` generated by the face elements `g^{[F]}` with `g ∈ G_{codim F}` has the normal
+   form `γ_{F₀}^{[F₀]} ⋯ γ_{F_{2^k−1}}^{[F_{2^k−1}]}` over the faces in a fixed order, with unique
+   coefficients, because `[Γ_F, Γ_{F'}] ⊆ Γ_{F ∩ F'}` (Green–Tao, polynomial orbits, Lemma 6.4 and
+   (6.1), p. 29).
+2. Characterisation (`isFilteredPolynomial_iff_cube`): `g : ℤ^ℓ → G` is polynomial for `G_•` if and only
+   if every cube of `g` lies in `HK^k(G_•)`, for every `k` (Proposition 6.5, p. 30). As `HK^k` is a
+   group, pointwise products and inverses of polynomial sequences are polynomial
+   (`IsFilteredPolynomial.mul`; Lazard–Leibman, Proposition 6.2, p. 28).
+3. Taylor expansion (Green–Tao–Ziegler, *An inverse theorem for the Gowers `U^{s+1}[N]`-norm*,
+   arXiv:1009.3998, Appendix B, Lemma B.9, p. 88, for an arbitrary filtered group): every
+   `g ∈ poly(ℤ, G_•)` has unique Taylor coefficients `g_i ∈ G_i` with
+   `g(n) = g₀ g₁^{binom(n,1)} ⋯ g_s^{binom(n,s)}`, the factors in increasing degree. Existence peels off
+   `g₀ = g(0)` and then, inductively, the next coefficient from the sequence
+   `(g₀ g₁^{binom(n,1)} ⋯ g_{i−1}^{binom(n,i−1)})^{−1} g(n)`, which is polynomial by item 2 and has
+   all derivatives of order below `i` trivial at `0`. Uniqueness is elementary: since `binom(j, i) = 0`
+   for `i > j` and `binom(j, j) = 1`, the values `g(0), …, g(s)` determine `g₀, …, g_s` recursively.
+   For a nilpotent Lie group with an adapted Mal'cev basis the same expansion reads coordinatewise
+   `ψ(g(n)) = ∑_j t_j binom(n, j)` with `t_j` supported on the coordinates of `G_j` (Green–Tao,
+   polynomial orbits, Lemma 6.7 and proof, pp. 31–32); that form is recorded in AC.3.13.
+
+*Needs:* AC.3.8.
 
 ### AC.3.10 Connected, simply connected nilpotent Lie groups
 
@@ -1610,7 +1706,24 @@ The API:
   constants depending only on degree, dimension and rationality; Kai's norm is used only through this
   comparison.
 
-*Needs:* AC.3.8, AC.3.12.
+Two coordinate facts are part of this target. First, multiplication and inversion in second-kind
+coordinates are polynomial maps of degree `O_s(1)` with rational coefficients, and so is the change
+between first- and second-kind coordinates; for a `Q`-rational basis all coefficients have height at
+most `Q^{O_s(m^{O(1)})}` (Green–Tao, polynomial orbits, Lemmas A.2–A.3, pp. 52–53; Leng, efficient
+equidistribution, Lemmas B.1–B.2, pp. 46–47): these are the finite Baker–Campbell–Hausdorff bounds of
+every quantitative statement of this layer. Second, a sequence is polynomial for the filtration
+exactly when its coordinates are `∑_j t_j binom(n, j)` with `t_j` supported on the coordinates of
+`G_{|j|}` (Green–Tao, polynomial orbits, Lemma 6.7, pp. 31–32), the coordinate form of AC.3.9's
+Taylor expansion. The comparison lemmas the later targets use are also part of this target: for `Q`-rational nested bases
+`X, X'`, `d(x, y) ≤ Q^{O(1)} |ψ'(x) − ψ'(y)|` and conversely when the coordinates are bounded by `Q`
+(Green–Tao, polynomial orbits, Lemma A.4, (A.3)–(A.4), p. 54); left multiplication by `g` with
+`|ψ(g)| ≤ Q` is `Q^{O(1)}`-Lipschitz (Lemma A.5, p. 56); the metric of a `Q`-rational subgroup is
+comparable with the restricted metric (Lemma A.6, p. 57); every `g` factors uniquely as `{g}[g]` with
+`ψ({g}) ∈ [0, 1)^m` and `[g] ∈ Γ` (Lemma A.14, p. 61). Leng records the same lemmas with exponents
+`O_k(d^{O(1)})`, polynomial in the dimension (efficient equidistribution, Lemmas B.3–B.9, pp. 48–52),
+which is the form AC.3.16 and AC.3.17 need.
+
+*Needs:* AC.3.8, AC.3.9, AC.3.12.
 
 **Checks.**
 
@@ -1735,11 +1848,43 @@ constraints on a horizontal subspace, separates the degree-one case, and control
 kernel intersection; every loss has exponent polynomial in the dimension (Leng, efficient
 equidistribution, Theorem 4, pp. 4–5; proof strategy §1.3, pp. 6–7).
 
-*Needs:* AC.3.9, AC.3.14, AC.3.15.
+The internal contracts, each with its own parameters (dimension `d`, rational height `M` of the
+basis, frequency size `M/δ` and Lipschitz norm `M`), are:
 
-**Gap.** The quantitative vertical-frequency step reduction in Leng §4 still needs its internal
-contracts with separate dimension, rational height, frequency and Lipschitz losses; the theorem's
-external statement does not supply those intermediate interfaces.
+1. `refined_bracket_polynomial` (Leng, Lemmas 3.1–3.2 and Corollary 3.1, pp. 13–21): if
+   `‖β + a·{αh}‖_{ℝ/ℤ} < K/N` for `δN` values of `h ∈ [N]`, with `a, α ∈ ℝ^d` and `M`-bounded data, then
+   `N ≪_δ 1`, or `K/N > 1/100`, or there are linearly independent `w₁, …, w_r ∈ ℤ^d` and
+   `η₁, …, η_{d−r} ∈ ℤ^d` with `⟨w_i, η_j⟩ = 0`, `|w_i|, |η_j| ≤ (δ/(d^d M))^{−O(1)}` and
+   `‖η_j·α‖_{ℝ/ℤ}, |w_i·a| ≤ (δ/M)^{−O(1)} d^{O(d)} K/N`; the multiparameter and bilinear forms are the
+   same with `(dr)^{O(d+r)}` in place of `d^{O(d)}`. The geometric input is a proper progression of
+   rank `d` in `B ∩ Γ` with at least `O(d)^{−7d/2}|B ∩ Γ|` points for a symmetric convex body `B` and
+   a lattice `Γ` (Proposition 3.1, p. 14, from Minkowski's second theorem), which is where the
+   dimension enters only polynomially in the exponent.
+2. `vertical_frequency_reduction` (Lemma 2.2, p. 11): a nilsequence with nonzero vertical frequency
+   `ξ` on the last nontrivial step factors through `G/ker ξ`, of dimension `d − d_{(s)} + 1`, with
+   the same values and complexity changed by `(M/δ)^{O(d^{O(1)})}`.
+3. Van der Corput on the product group (`box_group_derivative`): for `g(0) = 1` write
+   `g = g₂ · g_lin` with `g_lin(n) = ∏ g(e_i)^{n_i}` (Definition 4.1, p. 23); the sequences
+   `g_h(n) = ({g_lin(h)}^{−1} g₂(n + h) g_lin(n + h) [g_lin(h)]^{−1}, g(n))` are polynomial in the group
+   `G ×_{G₂} G` with filtration `G_i ×_{G_{i+1}} G_i` (Definition 4.2, Lemmas A.3–A.4, pp. 40–42), and
+   the derivative correlation of `F` becomes a correlation of a nilsequence on this group whose
+   vertical frequency is a commutator form on `G₂` (Lemma 4.1, p. 22).
+4. The two cases of the proof (§4.2, pp. 26–29, and §4.3, pp. 29–31): the van der Corput output and
+   the refined bracket lemma produce horizontal characters `η_i` of size `(M/δ)^{O(d^{O(1)})}` with
+   `ξ([w₁, …, w_s]) = 0` on `⋂ ker η_i`. The supporting linear algebra is Lemmas A.7–A.9
+   (pp. 43–44: orthogonal complements of size `(dM)^{O(d)}`, annihilators of `Γ`-elements and
+   commutator-killing horizontal characters with sizes `(QM)^{O_k(d^{O_k(1)})}`), the multivariate
+   Vinogradov lemma A.11 and the extrapolation lemma A.12 (p. 45), and the factorisation lemmas A.1–A.2
+   (pp. 38–39) that turn the characters into `g = ε g₁ γ`.
+5. Quantitative rationality: changes of coordinates, multiplication in coordinates, metric
+   comparisons and rational subgroups with heights `Q^{O_k(d^{O(1)})}` (Appendix B, Lemmas B.1–B.15,
+   pp. 46–55; see AC.3.13).
+
+Leng–Sah–Sawhney restate the conclusion in the form AC.3.17 consumes (inverse paper, §5,
+Theorem 5.2, Theorem 5.4 and Corollary 5.5, pp. 19–25).
+
+*Needs:* AC.3.9, AC.3.13, AC.3.14, AC.3.15; GeometryOfNumbersAndQuadraticArithmetic Layer 1.5
+(`minkowski_second_upper`).
 
 ### AC.3.17 The quasipolynomial inverse theorem on intervals
 
@@ -1761,12 +1906,46 @@ Balog–Szemerédi–Gowers theorem enters the linearisation (Leng–Sah–Sawhn
 Theorem 1.2, p. 1; overview §4, pp. 15–19; §§5–12 and Appendices A–C). An observable with
 `|F| ≤ L` instead of `1` is rescaled at a further quasipolynomial loss.
 
-*Needs:* AC.1.26, AC.3.6, AC.3.9, AC.3.13, AC.3.16.
+The internal contracts, in the order of the induction on `s` (the case `s = 1` is the `U²` inverse
+theorem, from AC.0 and Parseval). Throughout, `ρ` is a density, `M` a complexity bound, `D` an output
+dimension and `d` a nilmanifold dimension, tracked separately.
 
-**Gap.** The inverse theorem needs the internal degree-rank and multidegree nilcharacter,
-correlation-reduction, symmetry and integration interfaces of Leng–Sah–Sawhney §§5–12 and
-Appendices A–C, with separate bounds for each complexity parameter. These are not replaced by
-a single appeal to the final inverse theorem.
+1. `inverse_correlation_structure` (Lemma 6.2, p. 27, packaged as Theorem 6.4, p. 28): assuming the
+   theorem for `s − 1`, if `‖f‖_{U^{s+1}[N]} ≥ δ` then `f` has a correlation structure of degree-rank
+   `(s − 1, s − 1)` (Definition 6.1, p. 26): a set `H ⊆ [N]` with `|H| ≥ ρN` and a multidegree
+   `(1, s − 1)` nilcharacter `χ(h, n)` with `|𝔼_n Δ_h f(n) ⊗ χ_h(n)|` large for `h ∈ H`, where
+   `ρ^{−1}, M, D ≤ exp((log 1/δ)^{O_s(1)})` and `d ≤ (log 1/δ)^{O_s(1)}`. Nilcharacters, their
+   equivalence and their calculus (transitivity, slicing, shifts, splitting into `(1, …, 1)` form) are
+   Appendix C, Lemmas C.1–C.6, pp. 87–97.
+2. `additive_quadruple_correlation` (Lemma 7.5, p. 32, from Lemmas 7.1–7.4, pp. 29–31: Gowers'
+   Cauchy–Schwarz argument, the transfer of correlation between equivalent nilcharacters): at least
+   `(MD/ρ)^{−O_s(d^{O_s(1)})} N³` additive quadruples `h₁ + h₂ = h₃ + h₄` in `H` have correlated
+   nilcharacters.
+3. `sunflower_step` (Lemma 8.3, p. 36) and `linearization_step` (Lemma 9.1, p. 42): for
+   `N ≥ (MD/ρ)^{O_s(d^{O_s(1)})}`, pass to `H' ⊆ H` on which the top degree-rank part of `χ_h` depends on
+   `h` through a bracket-linear expression, with `ρ'^{−1} ≤ exp(O_s((d log(MD/ρ))^{O_s(1)}))`,
+   `M' = O(M)`, `D' = D` and `d' = O(d)`. Inputs: efficient equidistribution (AC.3.16), the Taylor
+   coefficient bound for almost-trivial sequences (Lemma 8.2, p. 35), and the approximate-homomorphism
+   lemmas A.1–A.2 (p. 75), which rest on the quasi-polynomial Bogolyubov lemma (AC.1.32) and the
+   bracket-linear description of Freiman homomorphisms on Bohr sets (Lemma A.6, p. 76); the
+   Balog–Szemerédi–Gowers theorem (AC.1.26) enters A.1.
+4. `degree_rank_reduction` (Lemma 6.3, p. 28): from degree-rank `(s − 1, r*)` to `(s − 1, r* − 1)` with
+   `ρ'^{−1}, M', D' ≤ exp(O_s((d log(MD/ρ))^{O_s(1)}))` and `d' ≤ O_s((d log(MD/ρ))^{O_s(1)})`. It is
+   assembled from the universal nilmanifold of a degree-rank datum (Definition 10.3 and
+   Lemmas 10.4–10.5, pp. 53–55), its quotient by the relation subgroup (Definition 10.7 and
+   Lemmas 10.10–10.12, pp. 56–58), the extraction of a `(1, s − 1)` nilsequence (Lemma 11.3, p. 63)
+   and the symmetrisation argument (Lemma 12.1, p. 65).
+5. Integration: after at most `s − 1` degree-rank reductions the multidegree `(1, s − 1)`
+   nilcharacter is symmetric up to lower-order terms and integrates to a degree-`s` nilsequence that
+   correlates with `f`, by Cauchy–Schwarz in `h` (overview §4.1–4.4, pp. 16–18; the correlation
+   transfer of Lemma B.5, p. 83, and the nilcharacters of prescribed vertical frequency of
+   Lemma B.4, p. 82).
+
+Since there are at most `s − 1` reductions, each raising the parameters to a fixed power of
+`d log(MD/ρ)`, the final dimension is `(log 1/δ)^{O_s(1)}` and the final complexity, Lipschitz norm and
+inverse correlation are `exp((log 1/δ)^{O_s(1)})` (§4.5, p. 18).
+
+*Needs:* AC.1.32, AC.1.26, AC.3.6, AC.3.9, AC.3.13, AC.3.16.
 
 ### AC.3.18 The box inverse theorem
 
@@ -1781,6 +1960,18 @@ norm has vanishing correlation with every bounded test. Use the injective Kronec
 onto a set of positive density (depending on `ℓ`) in an interval of length `O_ℓ(N^ℓ)`; zero-extend,
 compare normalised cube counts, apply AC.3.17 and compose its polynomial sequence with `φ` (Kai,
 Appendix A, Theorem A.1 and proof, printed pp. 59–60).
+
+The comparison is three elementary lemmas. (i) `kronecker_freiman_two`: `φ` is a Freiman isomorphism
+of order two from `[−N, N]^ℓ` onto its image, because a relation `∑_i (5N)^{i−1} c_i = 0` with
+`|c_i| ≤ 4N < 5N` forces every `c_i = 0` (reduce modulo `5N` and divide). (ii) `cube_iff_parallelograms`:
+a family `(v_ω)_{ω ∈ {0,1}^{s+1}}` is a cube `x + ω·h` exactly when every pair of parallel edges has
+equal differences, which are relations `a + b = c + d` among its vertices; so (i) gives a bijection
+between the cubes of `[−N, N]^ℓ` and the cubes of `ℤ` with all vertices in `φ([−N, N]^ℓ)`, and the
+unnormalised cube sums of `f` and of its zero-extended push-forward `f'` agree. (iii) The normalising
+cube counts of `1_{[−N,N]^ℓ}` and of the indicator of `[−(5N)^ℓ, (5N)^ℓ]` are both
+`≍_{ℓ,s} N^{ℓ(s+2)}`, so the normalised norms of `f` and `f'` agree up to factors depending only on
+`ℓ, s`, and the averages over the box and over the interval differ by the factor
+`(2(5N)^ℓ + 1)/(2N + 1)^ℓ ≍_ℓ 1`. Kai's appeal to Freiman invariance (p. 60) is (ii) with (i).
 
 *Needs:* AC.3.6, AC.3.17.
 
@@ -1855,6 +2046,14 @@ non-equidistributed orbit to a rational subgroup, keeping the smooth and periodi
 coordinate bounds, until the residual is totally equidistributed at the requested scale (Green–Tao,
 polynomial orbits, Theorem 1.19, p. 10, Theorem 2.9, pp. 13–14, §§7–10; Green–Tao, *On the
 quantitative distribution of polynomial nilsequences — erratum*, arXiv:1311.6170v3, §1, pp. 1–3).
+The proof contract is: (a) the quantitative Leibman dichotomy, Theorem 2.9, proved by induction on
+the dimension with the van der Corput trick and the abelian case `polynomial_weyl` (§4,
+Proposition 4.3, p. 20; §7, pp. 33–44); (b) the factorisation of a poorly distributed sequence:
+a horizontal character with small smoothness norm splits `g = ε g' γ` with `g'` in its kernel, a
+rational subgroup of height `M^{O(1)}`, `ε` smooth and `γ` rational (Proposition 9.2, p. 48, using the
+rational-point and conjugation lemmas A.11–A.13, pp. 59–60); (c) iteration of (b) at most `dim G` times
+with `M_{i+1} = M_i^{C}`, stopping when the residual is totally `M_i^{−A}`-equidistributed (§10,
+pp. 50–51). Only (c) in its multiparameter form is affected by the erratum.
 
 *Needs:* AC.3.9, AC.3.14, AC.3.19.
 
@@ -1874,9 +2073,10 @@ quantitative distribution of polynomial nilsequences — erratum*, arXiv:1311.61
 
 ### Dependencies
 
-AC.0 (the `U²` identity), AC.1 (the Balog–Szemerédi–Gowers theorem, inside AC.3.17);
-TauCetiRoadmap.RepresentationTheory/LieGroups Layers 0, 2, 3, 5; Mathlib (Lie groups, nilpotent groups,
-Haar measure, finite averages).
+AC.0 (the `U²` identity), AC.1 (the quasi-polynomial Bogolyubov lemma and the
+Balog–Szemerédi–Gowers theorem, inside AC.3.17); TauCetiRoadmap.RepresentationTheory/LieGroups
+Layers 0, 2, 3, 5; GeometryOfNumbersAndQuadraticArithmetic Layer 1.5; Mathlib (Lie groups, nilpotent
+groups, Haar measure, finite averages).
 
 ## Layer AC.2: Progressions in dense sets and removal
 
@@ -1952,7 +2152,38 @@ truncating its Fourier expansion gives the exponent `1/(2·2 + 2) = 1/6` (Kai, A
 Theorem D.3 and proof, pp. 71–77, with every input `1`-bounded). This scalar specialisation is
 proved here from repeated Cauchy–Schwarz and cutoff approximation; AC.5.7 is the later general
 module version, rather than a prerequisite of this target. This polynomial
-bound suffices for the density increment. Leng–Sah–Sawhney state a linear interval bound in
+bound suffices for the density increment. The proof contract has four steps, each a named lemma.
+
+1. `interval_average_as_cyclic` (embedding): choose a prime `p` with
+   `max(kN, 2^{k−1}N) < p ≤ 2 max(kN, 2^{k−1}N)` (Bertrand) and zero-extend each `f_i` from `[N]` to
+   `ZMod p`. For `0 ≤ x, r ≤ N` the arguments `x + ir` lie in `[0, kN]` and do not wrap, so
+   `intervalProgressionAverage N f = (p/(N + 1))² 𝔼_{x,r ∈ ZMod p} 1_Ω(x/p, r/p) ∏_i f_i(x + ir)`, where
+   `Ω = [0, N/p] × [0, N/p]` is a convex subset of `[0, 1/2]²`, viewed in the torus `(ℝ/ℤ)²`; the
+   factor `(p/(N + 1))²` is at most `16 k² 4^{k}`.
+2. `convex_cutoff_fourier` (smoothing the cutoff): for `M, Y ≥ 2` there is a trigonometric
+   polynomial `T = ∑_{|ξ|_∞ ≤ Y} c_ξ e(ξ·y)` with `∑ |c_ξ| ≤ C Y²`, such that `1_Ω − T` is at most
+   `C M log Y/Y` in sup norm off a set whose `(x, r)`-proportion is `O(1/M)`: first replace `1_Ω` by
+   a function that is `1` on `Ω`, vanishes at distance `1/M` from it, and is `M`-Lipschitz (the
+   boundary layer of a convex set in `[0, 1]²` has area `O(1/M)`), then take a Fejér-type truncation
+   of its Fourier series (Kai, Proposition D.7, p. 73, citing the Lipschitz approximation lemma of
+   Green–Tao's linear-equations paper; Theorem C.3, p. 67, for the Lipschitz boundary of a convex
+   set).
+3. Absorbing the phases: `e(ξ₁x/p + ξ₂r/p) = e((ξ₁ − ξ₂)x/p) · e(ξ₂(x + r)/p)` is a product of linear
+   phases of the first two forms; multiplying `f₀` and `f₁` by linear phases does not change their
+   `U^{k−1}` norms because `k − 1 ≥ 2`. Each term is therefore bounded by AC.2.2's cyclic estimate
+   `dense_generalised_von_neumann` with the modified functions, so
+   `|𝔼_{x,r} T(x/p, r/p) ∏_i f_i(x + ir)| ≤ C Y² min_i ‖f_i‖_{U^{k−1}(ZMod p)}`. This is where `k ≥ 3` is
+   used; at `k = 2` the phase changes `U¹`, as the negative control below shows.
+4. `zero_extension_gowers_le_interval` (enlarged box): since `p ≥ 2^{k−1}N`, the modulus comparison
+   `intervalGowersNorm_independent_modulus` (AC.3.6) computes `U^{k−1}[N](f_i)` in `ZMod p` as the ratio
+   `‖f_i 1_{[N]}‖_{U^{k−1}(ZMod p)} / ‖1_{[N]}‖_{U^{k−1}(ZMod p)}`, and the denominator is at most `1`,
+   so `‖f_i 1_{[N]}‖_{U^{k−1}(ZMod p)} ≤ U^{k−1}[N](f_i)`.
+
+Combining, `|intervalProgressionAverage N f| ≤ C_k(δY² + 1/M + M log Y/Y)` with
+`δ = min_i U^{k−1}[N](f_i)`; the choice `Y = δ^{−2/5}`, `M = (Y/log Y)^{1/2}` gives
+`C_k δ^{1/5} log(1/δ) ≤ C'_k δ^{1/6}` (this is Kai's optimisation in Theorem D.3 with `d = 2`).
+The same four lemmas, with the module normal form in place of the scalar forms, are the convex-cutoff
+and enlarged-box steps of AC.5.7. Leng–Sah–Sawhney state a linear interval bound in
 Lemma 3.3, p. 8; it cannot be extended to `k = 2` with this one-sided average.
 
 **Checks.** At `N = k = 2`, let `f₀(1) = 1`, `f₀(2) = −1` and `f₁ = 1` on `[2]`.
@@ -1973,10 +2204,35 @@ average part length, not for every part. Simultaneous monomial recurrence with b
 images in the smoothness norm and the quotient by the first nontrivial filtration step factor off
 smooth and lattice-valued sequences on each part; induct on the filtration type, controlling the
 lifted errors by the quantitative Baker–Campbell–Hausdorff formula and lattice reordering
-(Leng–Sah–Sawhney, Szemerédi paper, §2, Lemma 2.1, Proposition 2.2 and Lemmas 2.3–2.4, pp. 4–7).
+(Leng–Sah–Sawhney, Szemerédi paper, arXiv:2402.17995, §2, Lemma 2.1, Proposition 2.2 and
+Lemmas 2.3–2.4, pp. 3–7).
 
-*Needs:* AC.3.9, AC.3.13, AC.3.14; ExponentialSumsAndCircleMethod Layer ES.0 (simultaneous
-recurrence and Weyl bounds, as in the supplier contracts).
+The three analytic inputs are owned here, as named lemmas of this target:
+
+- `simultaneous_monomial_recurrence` (Schmidt's recurrence, quantified): for `k ≥ 1` there is
+  `c_k > 0` such that for all real `α₁, …, α_d` and `N ≥ 1`,
+  `min_{1 ≤ n ≤ N} max_i ‖α_i n^k‖_{ℝ/ℤ} ≤ C_k d N^{−c_k/d²}`. Proof: with a full-rank lattice `Λ ⊆ ℝ^d`,
+  study the theta average `F_{Λ,α}(N) = det Λ · 𝔼_{|n| ≤ N} Θ_Λ(1, n^k α)`, which by Poisson summation is
+  `∑_{ξ ∈ Λ*} e^{−π|ξ|²} 𝔼_{|n|≤N} e(n^k ξ·α)`; it is stable under contraction of `N`, dilation of `α` by
+  `q^k` and small perturbation of `α`; Weyl's inequality (`polynomial_weyl`, below) converts a large
+  frequency term into a rational approximation, and an induction on `d` over sublattices closes the
+  argument (Leng–Sah–Sawhney, *Improved bounds for five-term arithmetic progressions*,
+  arXiv:2312.10776, Proposition 3.7, p. 16, proved in Appendix B, Definition B.1, Proposition B.2 and
+  Lemma B.3 onwards, pp. 21–24, following Green–Tao, *New bounds for Szemerédi's theorem II*,
+  Appendix A, in the quadratic case).
+- `polynomial_progression_partition`: for real polynomials `Q₁, …, Q_d` of degree at most `k`, `[N]`
+  splits into `L` disjoint progressions with `N/L ≥ ½ N^{c_k/d^{C_k}}` on each of which every
+  `Q_i(n) − Q_i(n')` is within `2N^{−c_k/d^{C_k}}` of an integer. Induction on `k`: apply the recurrence
+  to the top coefficients with `D ≤ N^{1/2}`, cut `[N]` into progressions of difference `D` and length
+  about `τ^{−1/(2k)}`, and recurse on the lower-degree remainders (Szemerédi paper, Lemma 2.3 and
+  proof, pp. 3–4).
+- `polynomial_weyl` and `smoothness_of_small_oscillation`: if `|𝔼_{n ≤ N} e(g(n))| ≥ δ` for a real
+  polynomial `g` of degree `k`, some `1 ≤ ℓ ≤ δ^{−C_k}` has `‖ℓg‖_{C^∞[N]} ≤ δ^{−C_k}` (Green–Tao,
+  polynomial orbits, Proposition 4.3 with Lemma 4.4, p. 20); consequently a polynomial whose values
+  on `[N]` oscillate by at most `ε < c_k` modulo `1` has `‖P‖_{C^∞[N]} ≪_k ε` (Szemerédi paper,
+  Lemma 2.4, p. 4, via the finite-difference formula for the top coefficient at a prime step).
+
+*Needs:* AC.3.9, AC.3.13, AC.3.14.
 
 ### AC.2.4 Nilsequence factors and regular resolutions
 
@@ -2118,17 +2374,60 @@ pp. 3–5). The two parts are `szemeredi_of_upperNaturalDensity_pos` and `szemer
 Prove `rahman_roth_threshold`: for `0 < δ < 1`, every integer `k ≥ exp(exp(132 log 2/δ))` and every
 `J ⊆ {0, …, k − 1}` with `|J| ≥ δk` contain `i < j` with `i, j, 2j − i ∈ J`. The constant `132 log 2` is
 part of the target; Mathlib's qualitative Roth theorem supplies neither the threshold nor its
-numerical proof. The statement is Bennett and Siksek's Theorem 8, which they attribute to Rahman's
-thesis and do not reprove; the proof is Rahman's density-increment recurrence with every numerical
-inequality checked (Bennett–Siksek, *A conjecture of Erdős, supersingular primes and short character
-sums*, Annals of Mathematics 191 (2020), §8, Theorem 8 and equation (36), printed p. 381;
-reference [31], p. 390).
+numerical proof. This is the value Bennett and Siksek take from Rahman's note (Bennett–Siksek, *A
+conjecture of Erdős, supersingular primes and short character sums*, Annals of Mathematics 191
+(2020), §9, Theorem 8 and (36), printed p. 381; reference [31], p. 390); that note is not publicly
+available, so the threshold is proved here by the following explicit route, which in fact gives the
+much smaller threshold `log k ≥ 2 log(100/δ) + 2^{⌈66/δ⌉} log(9700/δ²)`.
 
-*Needs:* Mathlib `roth_3ap_theorem_nat`, `ThreeAPFree`.
+Prove first `roth_density_increment`: let `0 < α ≤ 1`, `N ≥ 9700/α²` and `A ⊆ {0, …, N − 1}` with
+`|A| = αN` containing no `i < j` with `2j − i ∈ A`. Then some progression
+`P = {a + md : 0 ≤ m < L} ⊆ {0, …, N − 1}` with `d ≥ 1` and `L ≥ α√N/100` has `|A ∩ P| ≥ (α + α²/64)L`.
 
-**Gap (primary proof).** Bennett–Siksek state this numerical threshold but give no proof of it.
-A primary proof of Rahman's numerical recurrence, with the inequalities producing `132 log 2`,
-is still needed; qualitative Roth and the secondary theorem statement do not close this gap.
+1. Thirds. Let `I₁ = [0, ⌈N/3⌉)`, `I₂ = [⌈N/3⌉, ⌈2N/3⌉)` and `I₃ = [⌈2N/3⌉, N)`. If `A` has density at
+   least `α + α²/64` on `I₁` or on `I₃`, that interval is `P` (its length is at least `N/3 − 1`).
+   Otherwise `B = A ∩ I₂` has `|B| > αN/3 − α²N/96 − 2 ≥ αN/4`, using `N ≥ 28/α`.
+2. Counting. Take a prime `2N < p ≤ 4N` and regard `[0, N)` inside `ZMod p`. A solution of
+   `x + z = 2y` in `ZMod p` with `x, z ∈ A` and `y ∈ B` is a solution in `ℤ`, hence trivial, so
+   `T(1_A, 1_B, 1_A) = |B|`, where `T(g₁, g₂, g₃) = ∑_{x + z = 2y} g₁(x)g₂(y)g₃(z)`. In the normalised
+   transform of AC.0 (characters `x ↦ e(xξ/p)`), `T(g₁, g₂, g₃) = p² ∑_ξ ĝ₁(ξ)ĝ₂(−2ξ)ĝ₃(ξ)`, and by
+   Cauchy–Schwarz and Parseval `|T(g₁, g₂, g₃)| ≤ p ‖ĝ_j‖_∞ ‖g_i‖₂ ‖g₂‖₂` for `{i, j} = {1, 3}`, since
+   `ξ ↦ −2ξ` is a bijection for odd `p`.
+3. Balanced function. Write `1_A = α1_{[0,N)} + f`, so `∑ f = 0`, `|f| ≤ 1` and `‖f‖₂² = α(1 − α)N`.
+   Every `y ∈ I₂` has at least `2N/3 − 1 ≥ N/2` representations `2y = x + z` with `x, z ∈ [0, N)`, so
+   `α²T(1_{[0,N)}, 1_B, 1_{[0,N)}) ≥ α²|B|N/2 ≥ |B| + α²|B|N/4` (as `α²N ≥ 4`). The three remaining
+   terms of `T(1_A, 1_B, 1_A)` therefore have total modulus at least `α²|B|N/4`, and each is at most
+   `p‖f̂‖_∞ √(αN) √|B|`, so `p‖f̂‖_∞ ≥ α^{3/2} √(|B|N)/12 ≥ α²N/24`: some `ξ` has
+   `|∑_{x<N} f(x) e(−xξ/p)| ≥ ηN` with `η = α²/24`.
+4. Partition. Let `L₀ = ⌊√(ηN/(32π))⌋` and `Q = ⌈16πL₀/η⌉`, so `QL₀ ≤ N` and `L₀ ≥ α√N/100` (here
+   `ηN ≥ 128π` is used). Dirichlet's theorem gives `1 ≤ q ≤ Q` with `‖qξ/p‖ ≤ 1/Q`. Cut every residue
+   class of `[0, N)` modulo `q` (each of length at least `L₀`) into blocks of consecutive terms of
+   lengths in `[L₀, 2L₀)`. On a block the phase moves by at most `2π · 2L₀/Q ≤ η/4`, so the block sums
+   `S_P = ∑_{x∈P} f(x)` satisfy `∑_P |S_P| ≥ (3/4)ηN`; as `∑_P S_P = 0`, the positive parts sum to at
+   least `(3/8)ηN = (3η/8) ∑_P |P|`, and some block has `S_P ≥ (α²/64)|P|`.
+
+Then iterate (`rahman_roth_threshold`). Rescaling a block affinely to `{0, …, L − 1}` preserves the
+absence of three-term progressions. From `α₀ = |J|/k ≥ δ` the densities satisfy
+`α_{i+1} ≥ α_i + α_i²/64`, hence `1/α_{i+1} ≤ 1/α_i − 63/4096`, so fewer than
+`(4096/63)/δ < 66/δ` increments are possible. The lengths satisfy
+`log N_{i+1} ≥ ½ log N_i − log(100/δ)`, and the increment applies at step `i` while
+`N_i ≥ 9700/δ²`. If `log k ≥ 2 log(100/δ) + 2^{⌈66/δ⌉} log(9700/δ²)`, the increment applies `⌈66/δ⌉`
+times, which is impossible; so `J` contains a three-term progression. For `0 < δ < 1` this lower bound
+is at most `2^{67/δ}(18.4 + 4 log(1/δ)) ≤ 2^{132/δ}`, which gives the stated threshold. The Fourier
+argument is Roth's, as presented by Tao (254A Lecture Notes 4, §2, Proposition 2.4 and the
+surrounding argument, printed pp. 2–7, of the notes cited in AC.1); the explicit constants and the
+recurrence are this roadmap's.
+
+*Needs:* AC.0.1, AC.0.3, AC.0.4; Mathlib `ThreeAPFree`, `Nat.exists_prime_lt_and_le_two_mul`
+(Bertrand), `Real.exists_int_int_abs_mul_sub_le` (Dirichlet).
+
+**Checks.**
+
+- `roth_density_increment.test_increment_count`: at `δ = 1/2` the bound `(4096/63)(1/δ − 1)` allows at
+  most `65` increments; with the weaker increment `α²/128` it would allow `129`, and the threshold would
+  need `2^{130/δ}` in place of `2^{66/δ}`.
+- `rahman_roth_threshold.test_consumer_margin`: at `δ = 10^{−5}` the threshold exponent
+  `132 log 2 · 10^5 ≈ 9.15 · 10^6` is below `10^7`, the margin a downstream consumer uses.
 
 ### AC.2.11 The cycle removal lemma for layered graphs
 
@@ -2148,7 +2447,15 @@ regular with a worse constant), delete the arcs between irregular pairs and betw
 at most `ε`, and conclude with the counting lemma for labelled copies of a cycle with vertex `i` in
 the `i`-th layer (Conlon–Fox, §2, the proof of Theorem 1.1 and Lemma 2.4, p. 8).
 
-*Needs:* Mathlib `szemeredi_regularity`, `SimpleGraph.IsUniform`, `Finpartition`.
+The counting step is the cycle analogue of the three-vertex counting estimate of TauCetiRoadmap's
+Regularity roadmap (Layer 4, `StrongRegular.inducedGraphCount3_estimate`, whose proof bounds the
+rectangle discrepancy of a `τ`-uniform pair for `[0, 1]`-valued tests by `τ|A||B|` and telescopes the
+factors): telescoping over the `m` arcs of a cycle gives a labelled count within `mτ` of the product
+of densities times the volume. Regularity ends at counting and leaves removal to its consumers, so
+this layered removal lemma is owned here.
+
+*Needs:* Mathlib `szemeredi_regularity`, `SimpleGraph.IsUniform`, `Finpartition`;
+TauCetiRoadmap.Regularity Layer 4 (rectangle discrepancy of uniform pairs).
 
 ### AC.2.12 Removal for an ordered product equation in a finite group
 
@@ -2186,8 +2493,9 @@ different statement and is not part of this target.
 
 ### Dependencies
 
-AC.3 (cube norms, interval norms, nilsequences, the interval inverse theorem); Mathlib (Roth,
-regularity, `Finpartition`); ExponentialSumsAndCircleMethod Layer ES.0.
+AC.0 (the Fourier identity of Roth's argument), AC.3 (cube norms, interval norms, nilsequences, the
+interval inverse theorem); Mathlib (Roth, regularity, `Finpartition`, Bertrand, Dirichlet
+approximation); TauCetiRoadmap.Regularity Layer 4.
 
 ## Layer AC.4: Transference and arithmetic progressions in the primes
 
@@ -2396,11 +2704,40 @@ and the remaining omitted-coordinate tests are controlled by the discrepancy (Co
 Theorem 6.2, Lemma 6.4 and Theorem 6.5 with the densification proof, pp. 11–16; Zhao, §4,
 Lemma 4.1, pp. 4–5, specialising the relative hypergraph counting lemma they cite).
 
-*Needs:* AC.2.1, AC.4.6, AC.4.7.
+The proof is the relative simplex counting lemma for weighted `(k − 1)`-uniform `k`-partite
+hypergraphs on `X₁ ∪ ⋯ ∪ X_k`, `X_i = ZMod N`, specialised to `ν_{−j}(x_{−j}) = ν(ψ_j(x_{−j}))` and
+likewise for `f_j, g_j`; for `N` coprime to `(k − 1)!` the hypergraph cut norms of these are exactly the
+arithmetic discrepancies of AC.4.7, by the change of variables `ix_i ↦ x_i` (Conlon–Fox–Zhao, §7,
+(20)–(23), pp. 16–17). Its internal contract, with every error an explicit function of `ε` and `η`
+tending to `0` with them, uniformly in `N`:
 
-**Gap.** Densification needs the general relative hypergraph counting proof referred to by CFZ
-Theorem 6.5 and Zhao Lemma 4.1, preserving all selected subproducts. A full internal contract for
-that induction is still required, beyond the arithmetic specialisation stated here.
+1. `dense_simplex_counting`: for weights `g, g̃` with values in `[0, 1]` and cut-norm distance at most
+   `ε`, the simplex counts differ by at most `kε` (telescoping over the `k` faces; Proposition 6.1,
+   p. 12, for triangles).
+2. `cut_le_box`: the cut norm of `ν − 1` on each face is at most the `2^{k−1}`-th root of its box
+   (Gowers) norm, by `k − 1` applications of Cauchy–Schwarz; the box norm expands into the
+   selected products of the linear-forms condition, so it is `O(η)` (Lemma 6.3, (12), p. 13).
+3. `strong_linear_forms`: if `0 ≤ g ≤ ν` and `0 ≤ g̃ ≤ 1` on the other faces, inserting a factor
+   `ν − 1` on one face into the doubled count of the remaining faces changes it by `o(1)` as `η → 0`,
+   whichever of the other factors are `g` and which `g̃` (Lemma 6.4, p. 13, for triangles, by two
+   Cauchy–Schwarz steps; `k − 1` steps in general). This is where every selected subproduct of the
+   linear-forms condition is used, not just the full product.
+4. `densification` (induction on the number of faces on which `ν` is not identically `1`; Theorem 6.2
+   and its proof, (13)–(19), pp. 12–15; Theorem 6.5 and the modifications listed on p. 16; the full
+   hypergraph proof is Conlon–Fox–Zhao, *A relative Szemerédi theorem*, arXiv:1305.5440, §6.3 and the
+   proof of Theorem 2.17, pp. 15–17): replace the face `x_{−1}` by the densified weights
+   `ν'(x_{−1}) = 𝔼_{x₁} ∏_{j ≥ 2} ν(x_{−j})` and likewise `g', g̃'`; cap at `1`; then (13) splits the
+   count difference into a dense term, bounded by the cut norm, and `𝔼[g(g' − g̃')]`, which
+   Cauchy–Schwarz and item 3 reduce to `𝔼[(g' − g̃')²]`; the linear-forms condition gives
+   `𝔼|ν' − 1| = o(1)`, so capping costs `o(1)` (15)–(17), and the induction hypothesis applied with the
+   face `x_{−1}` replaced by `1`, by the indicator of a cylinder, or by the capped weight shows
+   `‖g' ∧ 1 − g̃'‖_□ = o(1)` and that the four terms of (19) agree up to `o(1)`.
+
+Zhao's arithmetic transference paper reaches the same conclusion through a dense-model
+approximation (Lemmas 3.3–3.4, p. 4) and a counting lemma (Lemma 4.1, p. 5) that it takes from the
+hypergraph statement; the contract above is the self-contained route.
+
+*Needs:* AC.2.1, AC.4.6, AC.4.7.
 
 ### AC.4.10 The linear-forms relative Szemerédi theorem
 
@@ -2443,7 +2780,7 @@ The API:
 - `modifiedPrimeWeight_zero`: the weight vanishes when `Wn + b` is not prime.
 
 *Needs:* Mathlib `ArithmeticFunction.moebius`, `Nat.totient`, `primorial`, `Nat.divisors`;
-SieveMethodsAndPrimePatterns Layer SV.1 (the smooth truncated divisor sum and `c_χ`).
+Mathlib `ArithmeticFunction.moebius`, `Nat.divisors`.
 
 **Checks.**
 
@@ -2486,11 +2823,39 @@ to the right of `1`. Mathlib's bound for `ζ(s) − 1/(s − 1)` near `1` contro
 zero-free region and no Bombieri–Vinogradov theorem is used (Conlon–Fox–Zhao, Proposition 8.3 and its
 proof in §9, pp. 18–23).
 
-*Needs:* AC.4.11; Mathlib `isBigO_riemannZeta_sub_one_div`.
+The analytic interfaces, with their parameters (Conlon–Fox–Zhao, §9, pp. 20–23):
 
-**Gap.** The smooth-moment proof requires a concrete Fourier inversion and rapid-decay interface
-for the cutoff and a uniform estimate for the discarded small boxes. These analytic interfaces
-must be supplied with the parameters used in the stated moment bound.
+1. `box_to_residues`: for squarefree `d_j, d'_j ≤ R` with lcm `D ≤ R^{2m}` and a box of side lengths at
+   least `R^{10m}`, `𝔼_{x ∈ box} 1[d_j, d'_j | θ_j(x) for all j] = 𝔼_{x ∈ (ℤ/D)^t} 1[⋯] + O(R^{−8m})`, by
+   trimming the box to side lengths divisible by `D`; summed over the at most `R^{2m}` choices this
+   costs `O(R^{−6m} (log R)^{2m})` (p. 20, before (29)).
+2. `cutoff_fourier_representation`: let `φ` be the Fourier transform of `x ↦ e^x χ(x)`, a smooth
+   compactly supported function, so `φ` decays faster than every power. Then for `d ≥ 1`,
+   `χ(log d/log R) = ∫_I d^{−(1+iξ)/log R} φ(ξ) dξ + O_A(d^{−1/log R}(log R)^{−A})` with
+   `I = [−(log R)^{1/2}, (log R)^{1/2}]`, for every `A > 0` ((30), p. 20). In Mathlib terms: a smooth
+   compactly supported function is a Schwartz function, and the Fourier transform of a Schwartz
+   function is Schwartz.
+3. `euler_factor_estimate`: the inner sum factors over primes into `E_p(ξ)`; `E_p = 1` for `p ≤ w`
+   because `p ∤ Wψ_j(x) + b`; for `p > w` the local densities are `1`, `1/p` (exactly one divisibility)
+   and at most `1/p²` (two or more, using that no two forms are proportional modulo `p` once `w` is
+   large), so `E_p = (1 + O(p^{−2})) E'_p` with
+   `E'_p = ∏_j (1 − p^{−1−z_j})(1 − p^{−1−z'_j})/(1 − p^{−1−z_j−z'_j})` ((33)–(34), p. 21).
+4. `zeta_factorisation`: `∏_p E'_p = ∏_j ζ(1 + z_j + z'_j)/(ζ(1 + z_j)ζ(1 + z'_j))`, and since
+   `ζ(1 + u) = 1/u + O(1)` for `Re u > 0`, `|u| = O(1)` (Mathlib `isBigO_riemannZeta_sub_one_div`;
+   Conlon–Fox–Zhao prove it directly, p. 22) and `|z_j|, |z'_j| = O((log R)^{−1/2})` on `I`, this is
+   `(1 + O((log R)^{−1/2})) ∏_j z_j z'_j/(z_j + z'_j)` ((35), (39), pp. 21–22); for `p ≤ w`,
+   `E'_p = (1 + O(log p/(p (log R)^{1/2})))(1 − 1/p)^m`, giving the factor `(φ(W)/W)^m` ((36), p. 22).
+5. `cutoff_constant`: extending `I` to `ℝ` costs `O_A((log R)^{−A})`, and
+   `∫∫ φ(ξ)φ(ξ')(1 + iξ)(1 + iξ')/(2 + i(ξ + ξ')) dξ dξ' = ∫₀^∞ χ'(x)² dx = c_χ`, by writing
+   `1/(2 + i(ξ + ξ')) = ∫₀^∞ e^{−(1+iξ)x} e^{−(1+iξ')x} dx` and recognising `−χ'` ((37)–(38), p. 22).
+6. Error bounds: the error term of item 2 contributes `O_A((log R)^{O(1)−A} ζ(1 + 1/log R)^{O(1)})`,
+   which is small for large `A` (p. 22–23).
+
+The boxes with side length below `R^{10m}`, and those whose images meet a window boundary, are
+handled in AC.4.13.
+
+*Needs:* AC.4.11; Mathlib `isBigO_riemannZeta_sub_one_div`, `SchwartzMap`,
+`SchwartzMap.fourierTransformCLM`.
 
 ### AC.4.13 The smooth majorant satisfies the linear-forms condition
 
@@ -2502,7 +2867,13 @@ slowly refining boxes; away from window boundaries each selected product is a fi
 smooth sieve weights and ones, handled by AC.4.12; the boxes meeting a boundary are a vanishing
 fraction whose mass is bounded with a higher selected moment; choose the grid and `w(N)` by a
 diagonal argument so that each of the finitely many selected products has error tending to `0`
-(Conlon–Fox–Zhao, §8, Proposition 8.4 and its proof from Proposition 8.3, pp. 19–20).
+(Conlon–Fox–Zhao, §8, Proposition 8.4 and its proof from Proposition 8.3, pp. 19–20). Explicitly:
+cut `(ZMod N)^t` into `Q^t` boxes of side about `N/Q`, with `Q = Q(N) → ∞` so slowly that
+`N/Q ≥ R^{10m}`; a box is bad when the image of some form meets both `[N/2, N)` and its complement,
+which forces `ψ_i(u)` to lie within `O(1)` of `0` or `Q/2` modulo `Q`, so a proportion `O(1/Q)` of boxes
+is bad; on a bad box the bound `ν ≤ 1 + (φ(W)/W)Λ_{χ,R}(Wn + b)²/(c_χ log R)`, expanded, has average at
+most `2^m + o(1)` by AC.4.12; on a good box each selected product is a fixed subproduct of sieve
+weights and ones with average `1 + o(1)`.
 
 *Needs:* AC.4.6, AC.4.12.
 
@@ -2514,10 +2885,41 @@ number, not rounded), `W = primorial w(N)` and `Λ_R(n) = ∑_{d | n, d ≤ R} �
 weight is `(φ(W)/W) log(Wn + 1)` at shifted primes and `0` otherwise. Domination uses the single
 surviving divisor at a shifted prime larger than `R`, with constant `k⁻¹ 2^{−k−5}`. Green and Tao prove
 that this family is `k`-pseudorandom (AC.4.1) using exact multiple-form and repeated-shift moment
-computations, which need the zero-free region and convexity bound of AnalyticNumberTheory AN.2, a
-Siegel–Walfisz estimate (AN.3) and the maximal order of the divisor function (ClassicalArithmeticCompletion
-CA.2) (Green–Tao, primes paper, §9, Proposition 9.1 and Definitions 9.2–9.3, pp. 36–38;
-Propositions 9.5–9.6, pp. 38–43; §10, pp. 43–50; Appendix A, pp. 51–56).
+computations (Green–Tao, primes paper, §9, Proposition 9.1 and Definitions 9.2–9.3, pp. 36–38;
+Propositions 9.5–9.6, pp. 38–43; §10, pp. 43–50; Appendix A, pp. 51–56). Their internal contract:
+
+1. `goldston_yildirim_linear_forms` (Proposition 9.5, p. 37): for affine forms with coefficients at
+   most `√w(N)/2`, pairwise nonproportional, and a box of side lengths at least `R^{10m}`,
+   `𝔼 ∏_i Λ_R(Wψ_i(x) + 1)² = (1 + o(1))(W log R/φ(W))^m`; with Lemma 9.7 and Proposition 9.8, p. 38,
+   this is the linear-forms half of pseudorandomness.
+2. `goldston_yildirim_correlation` (Proposition 9.6, p. 38) and `correlation_weight` (Lemma 9.9,
+   p. 40): for distinct shifts `h_i` with `|h_i| ≤ N²` the shifted moment is at most
+   `(1 + o(1))(W log R/φ(W))^m ∏_{p | Δ}(1 + O(p^{−1/2}))`, `Δ = ∏_{i<j}|h_i − h_j|`, and this product is
+   bounded by `∑_{i<j} τ(h_i − h_j)` for a weight `τ ≥ 1` with all moments `𝔼_{0<|n|≤N} τ(n)^q = O(1)`;
+   hence the correlation condition (Proposition 9.10, p. 41). The weight is
+   `τ(n) = O_m(1) ∏_{p | n}(1 + p^{−1/2})^{O_m(1)}` for `n ≠ 0` (proof of Lemma 9.9, p. 40), whose moments
+   are bounded by elementary counting, together with `τ(0) = exp(C_m log N/log log N)` for the case of
+   two equal shifts, where `‖ν‖_∞ ≤ d(Wn + 1)² log R` is used (proof of Proposition 9.10, p. 41).
+   This needs `card_divisors_le_exp`: `d(n) ≤ exp(C log n/log log n)` for `n ≥ 3`, with an absolute
+   `C`. Proof: for `0 < ε ≤ 1`, `d(n)/n^ε = ∏_{p^a ∥ n}(a + 1)/p^{aε}`; the factors with `p ≥ 2^{1/ε}` are at
+   most `1`, and each of the others is at most `1 + 1/(ε log 2)`, so
+   `d(n) ≤ n^ε exp(2^{1/ε} log(1 + 1/(ε log 2)))`; take `ε = 2 log 2/log log n` (Tao, *The divisor
+   bound*, blog post of 23 September 2008, which proves `d(n) ≤ n^{O(1/log log n)}` this way).
+   AnalyticNumberTheoryPartI states only the fixed-`ε` bound `d(n) ≪_ε n^ε` (§3.1), which does not
+   keep the moments of `τ` bounded for every `q`.
+3. `local_factor_estimate` and `euler_product_continuation` (Lemmas 10.1, 10.3, 10.5 and 10.6,
+   pp. 44–47): the local densities at `p ≤ w` vanish, those at `p > w` are `p^{−1}` or at most `p^{−2}`
+   (respectively `p^{−1}` and vanishing unless `p | Δ` in the correlation case), and the resulting
+   Euler products continue analytically to `D^m_σ`, `σ < 1/(6m)`, with controlled `C^m` norms.
+4. `contour_evaluation` (Lemma 10.4, p. 46, proved in Appendix A, pp. 51–56): the `2m`-fold contour
+   integral of `G(z, z') ∏_j ζ(1 + z_j + z'_j)/(ζ(1 + z_j)ζ(1 + z'_j)) R^{z_j + z'_j}/(z_j² z'_j²)` equals
+   `G(0)(log R)^m` plus lower-order terms in the `C^j` norms of `G` and `O(e^{−δ√log R})`. Its inputs
+   are the classical zero-free region with logarithmic bounds for `ζ(s) − 1/(s − 1)` and `1/ζ(s)`
+   (Lemma A.1, p. 51) and the contour estimates of Lemma A.2, p. 52.
+
+The truncated divisor sum, the majorant and their pointwise properties are owned here, as in
+AC.4.11. The window `[ε_kN, 2ε_kN]` avoids wraparound; the unbounded-tail approximation of the
+structure theorem is AC.4.4's, not an extra input of this target.
 
 The API:
 
@@ -2530,8 +2932,8 @@ The API:
 - `majorantNu_isKPseudorandom`: the family is `k`-pseudorandom, given the analytic inputs above.
 
 *Needs:* AC.4.1; Mathlib `ArithmeticFunction.moebius`, `Nat.totient`, `primorial`;
-SieveMethodsAndPrimePatterns Layer SV.1 (the sharp sum `Λ_R`); AnalyticNumberTheory Layers AN.2 and
-AN.3; ClassicalArithmeticCompletion Layer CA.2.
+AnalyticNumberTheoryPartI §0.33 (the zero-free region with the logarithmic bounds for `ζ(s) − 1/(s − 1)`
+and `1/ζ(s)`, which is Green–Tao's Lemma A.1).
 
 **Checks.**
 
@@ -2549,10 +2951,7 @@ AN.3; ClassicalArithmeticCompletion Layer CA.2.
 - `modifiedVonMangoldt.test_normalization`: at `W = 6`, `n = 1` the value is `log 7/3`.
 - `modifiedVonMangoldt.test_composite`: at `W = 6`, `n = 4` the value is zero.
 
-**Gap.** The sharp-cutoff comparison also requires the repeated-shift moment and every-moment
-correlation-kernel contracts from Green–Tao §10, and the unbounded-tail approximation in §8.
-Their dependence on the stated classical analytic suppliers remains to be resolved; AC.4.15's
-smooth route does not use this comparison.
+AC.4.15's smooth route does not use this target; it is kept as the original Green–Tao comparison.
 
 ### AC.4.15 The Green–Tao theorem
 
@@ -2586,9 +2985,8 @@ contracts, with the rational-prime identification and partial summation describe
 ### Dependencies
 
 AC.2 (progression averages and the dense Varnavides theorem), AC.3 (Gowers norms); Mathlib (Möbius,
-von Mangoldt, totient, primorial, the zeta remainder near `1`); SieveMethodsAndPrimePatterns SV.1;
-the current Tau Ceti fixed-modulus PNT; AnalyticNumberTheory AN.2 and AN.3 (AC.4.14 only); ClassicalArithmeticCompletion CA.2 (AC.4.14
-only).
+von Mangoldt, totient, primorial, the zeta remainder near `1`, Schwartz functions and their Fourier
+transform); the current Tau Ceti fixed-modulus PNT; AnalyticNumberTheoryPartI §0.33 (AC.4.14 only).
 
 ## Layer AC.5: Möbius orthogonality and linear patterns in primes
 
@@ -2609,12 +3007,23 @@ Prove `power_sum_density`: for `j ≥ 1`, `t ≥ 2^j + 1` and `0 < α ≤ 1` the
 representation mass is `|S|^t`; by Cauchy–Schwarz the support has size at least `|S|^{2t}` divided by
 the second moment of the representation function, which is at most `|S|^t` times the uniform bound
 `C_{j,t} K^{t−j}` for the number of representations by `t` positive `j`-th powers. That bound is
-elementary for `j = 1`, comes from the Waring asymptotic for `j ≥ 3`, and is the quadratic count of
-ExponentialSumsAndCircleMethod ES.4 for `j = 2` (Green–Tao, Möbius paper, §3, Lemma 3.3 and proof,
-p. 9).
+elementary for `j = 1` and comes from the circle-method asymptotics for `j ≥ 2` (Green–Tao, Möbius
+paper, §3, Lemma 3.3 and proof, p. 9). The uniform bound is derived as follows. For `j ≥ 3` the
+representations from `[1, K]^t` number at most `r^+_{j,t}(m)`, which is
+`≤ C m^{t/j − 1} ≤ C' K^{t−j}` for `m ≥ M₀` by `waring_classical_asymptotic` and the bound on the singular
+series uniform in `m` from `waring_series_absolute_convergence`, and at most `M₀^t` for `m < M₀`. For
+`j = 2`, `t ≥ 5`, apply `heath_brown_quadratic_asymptotic` to `Q = x₁² + ⋯ + x_t²` with a smooth
+compactly supported weight `w ≥ 0` equal to `1` on the unit sphere (every solution has `x/√m` on the
+sphere), so the count is at most `μ_∞ m^{t/2−1} ∏_p μ_p + O(m^{(t−1)/4+ε})`; the singular series is
+bounded uniformly in `m` by `singular_series_squares_bound`: its `q`-th term is
+`q^{−t} ∑_{a mod q, (a,q)=1} S(q, a)^t e(−am/q)` with Gauss sums `|S(q, a)| ≤ √(2q)`, hence at most
+`2^{t/2} q^{1−t/2}`, which is summable for `t ≥ 5`.
 
-*Needs:* ExponentialSumsAndCircleMethod Layer ES.4 (`waring-classical-asymptotic`,
-`waring-series-absolute-convergence` and the quadratic representation bound).
+This target is not used by AC.5.2, whose coefficient control goes through the strong-recurrence
+lemma instead.
+
+*Needs:* ExponentialSumsAndCircleMethod Layers 4–5 (`waring_classical_asymptotic`,
+`waring_series_absolute_convergence`, `heath_brown_quadratic_asymptotic`); Mathlib Gauss sums.
 
 ### AC.5.2 Möbius orthogonality on a totally equidistributed orbit
 
@@ -2623,15 +3032,31 @@ Prove `mobius_equidistributed`: fix a dimension `m` and a filtration degree `d`.
 a polynomial orbit totally `δ`-equidistributed on `[N]`, every real Lipschitz `F` with `∫ F = 0` and
 every progression `P ⊆ [N]` of length at least `N/Q`,
 `|𝔼_{n ∈ [N]} μ(n) 1_P(n) F(g(n)Γ)| ≤ C_{m,d} δ^{c_{m,d}} Q ‖F‖_Lip log N`. Apply the Type I/II
-dichotomy for `μ` (SieveMethodsAndPrimePatterns SV.2) to the normalised observable restricted to `P`.
-In the Type I case the quantitative Leibman theorem on many dilated orbits, AC.5.1 and coefficient
-control contradict total equidistribution; in the Type II case the product orbit and its horizontal
-obstructions do so after repeated Cauchy–Schwarz. The Möbius-specific dichotomy is not replaced by a
-Vaughan identity for `Λ` (Green–Tao, Möbius paper, Proposition 2.1, pp. 3–4; Proposition 3.1 and the
-proof in §3, pp. 6–11).
+dichotomy for `μ` to the normalised observable restricted to `P`. In the Type I case the quantitative
+Leibman theorem on many dilated orbits and coefficient control contradict total equidistribution; in
+the Type II case the product orbit and its horizontal obstructions do so after repeated
+Cauchy–Schwarz (Green–Tao, Möbius paper, arXiv:0807.1736, Proposition 2.1, pp. 3–4; the proof in §3,
+pp. 6–11).
 
-*Needs:* AC.3.14, AC.3.20, AC.5.1; SieveMethodsAndPrimePatterns Layer SV.2 (the Type I/II dichotomy
-for `μ`).
+The dichotomy is owned here as `mobius_type_I_II`: if `|f| ≤ 1` and `|𝔼_{N<n≤2N} μ(n) f(n)| ≥ ε`, then
+either (Type I) for some `1 ≤ K ≤ N^{2/3}`, at least `(ε/log N)^{O(1)} K` integers `k ∈ (K, 2K]` have
+`|𝔼_{N/k<w≤2N/k} f(kw)| ≥ (ε/log N)^{O(1)}`, or (Type II) for some `½N^{1/3} ≤ K ≤ 4N^{2/3}` and `W` with
+`N/4 ≤ KW ≤ 4N`, `|𝔼_{K<k,k'≤2K} 𝔼_{W≤w,w'<2W} f(kw) conj(f(k'w)) conj(f(kw')) f(k'w')| ≥ (ε/log N)^{O(1)}`
+(Möbius paper, Proposition 3.1, pp. 6–7). Its proof is Vaughan's identity for `μ` with
+`U = V = N^{1/3}`, the divisor-moment bounds for the coefficients, dyadic decomposition and
+Cauchy–Schwarz in the long variable (Green–Tao, *Quadratic uniformity of the Möbius function*, Ann.
+Inst. Fourier 58 (2008), arXiv:math/0606087, Proposition 4.2). It is a statement about `μ`, not
+replaced by a Vaughan identity for `Λ`.
+
+In the Type I case Green and Tao pass from many `k` with `‖q k^j β_j‖_{ℝ/ℤ} ≪ δ^{−O(c₁)}(N/K)^{−j}` to the
+rationality of `β_j` through the Waring density Lemma 3.3 (AC.5.1). Here the strong-recurrence lemma
+is used instead: the degree-`j` polynomial `n ↦ qβ_j n^j` takes values in an interval of length
+`ε = δ^{−O(c₁)}(N/K)^{−j}` modulo `1` for at least `δ^{O(c₁)}K` values `n ∈ [2K]`, so some
+`1 ≤ k' ≤ δ^{−O(c₁)}` has `‖k' q β_j n^j‖_{C^∞[2K]} ≪ ε δ^{−O(c₁)}`, that is
+`‖j! k' q β_j‖_{ℝ/ℤ} ≪ δ^{−O(c₁)} N^{−j}` (Green–Tao, polynomial orbits, Lemma 4.5, p. 22), which is the
+conclusion Green and Tao draw (Möbius paper, (3.10)–(3.11), p. 9).
+
+*Needs:* AC.2.3 (`polynomial_weyl`), AC.3.14, AC.3.20; Mathlib `ArithmeticFunction.moebius`.
 
 ### AC.5.3 Möbius–nilsequence orthogonality
 
@@ -2647,13 +3072,21 @@ The constants are ineffective; complex `1`-bounded `F` are handled by real and i
 bound is uniform in `g`. Factorise the orbit with `M₀ = log N` (AC.3.20); split by the rational period
 and into subprogressions on which the smooth factor is nearly constant; conjugate to the rational
 subnilmanifold with a quantitative comparison of bases and metrics; subtract the mean of the
-observable. The mean-zero part is AC.5.2; the mean part is a periodic Möbius sum, bounded by the
-Dirichlet-character estimates of AnalyticNumberTheory AN.3; choose the factorisation exponent large
-enough to absorb the polylogarithmic losses (Green–Tao, Möbius paper, Theorem 1.1, p. 2; §2,
-pp. 4–6; Appendix A, Propositions A.1–A.2, pp. 21–22).
+observable. The mean-zero part is AC.5.2; the mean part is a periodic Möbius sum; choose the
+factorisation exponent large enough to absorb the polylogarithmic losses (Green–Tao, Möbius paper,
+Theorem 1.1, p. 2; §2, pp. 4–6; Appendix A, Propositions A.1–A.2, pp. 21–22).
 
-*Needs:* AC.3.20, AC.5.2; AnalyticNumberTheory Layer AN.3 (the bounds for `μ` twisted by a character
-and by a periodic function).
+The periodic sums are derived here (`mobius_periodic_sum`) from the residue-class estimate of
+AnalyticNumberTheoryPartI (§1.2, `mobius_small_modulus_progressions`): for every `B, C > 0`, uniformly
+in `q ≤ (log x)^C` and every residue `b`, `∑_{n ≤ y, n ≡ b mod q} μ(n) ≪_{B,C} x (log x)^{−B}` for `y ≤ x`.
+A `q`-periodic `b` with `|b| ≤ 1` is a combination of `q` residue-class indicators, so
+`|N^{−1} ∑_{n ≤ N} μ(n) b(n)| ≪ q (log N)^{−B}` for `q ≤ (log N)^C`; for `q > (log N)^A` the bound
+`q (log N)^{−A} > 1` is trivial, so with `C = A` and `B = 2A` this gives Green–Tao's Proposition A.2,
+`≤ C_A q (log N)^{−A}`, for all `q`. The same splitting with `χ(b)` as coefficients and `B = 3A` gives
+Proposition A.1, `≤ C_A q^{1/2}(log N)^{−A}`: for `q ≤ (log N)^{2A}` the bound is `q (log N)^{−3A} ≤
+q^{1/2}(log N)^{−2A}`, and for larger `q` it is trivial.
+
+*Needs:* AC.3.20, AC.5.2; AnalyticNumberTheoryPartI §1.2 (`mobius_small_modulus_progressions`).
 
 ### AC.5.4 Affine systems and Cauchy–Schwarz complexity
 
@@ -2714,8 +3147,16 @@ The API:
 - `integerSingularProduct_positive`: for finite complexity the product converges absolutely and is
   positive iff every `β_p` is.
 
-*Needs:* AC.5.4; Mathlib `Finset.expect`, `MeasureTheory.volume`; ExponentialSumsAndCircleMethod
-Layer ES.3 (affine singular products).
+The convergence and positivity are owned here (`integerLocalFactor_good_prime`,
+`integerSingularProduct_positive`). Let `A ≠ 0` be divisible by one nonzero coordinate of every slope
+and by one nonzero `2 × 2` minor of every pair of slopes. For `p ∤ A`, each form has nonzero slope
+modulo `p` and no two slopes are proportional, so by
+inclusion–exclusion `β_p = (p/(p−1))^t (1 − t/p + O_t(p^{−2}))` (each single vanishing has probability
+`1/p`, each pair `1/p²`), which is `1 + O_t(p^{−2})`; hence `∏_p β_p` converges absolutely, and it is
+positive exactly when every factor is (Green–Tao, linear equations, Lemma 1.3, p. 5; Kai, Claim 5.3,
+p. 18, and Remark 12.3, p. 55, for the number-field analogue).
+
+*Needs:* AC.5.4; Mathlib `Finset.expect`, `MeasureTheory.volume`.
 
 **Checks.**
 
@@ -2781,13 +3222,98 @@ system to a normal form with the full-rank kernel restrictions, reduce modulo a 
 absorbed into the `f_i`, and apply repeated Cauchy–Schwarz, optimising the smoothing (Kai,
 Appendix D, Theorem D.3, p. 71; Propositions D.5–D.7 and proof, pp. 72–77).
 
-*Needs:* AC.3.2, AC.3.6, AC.5.6.
+The internal contract (Kai, Appendices C–D), every input `1`-bounded:
 
-**Gap.** The full normal-form extension and convex-cutoff Fourier argument in Kai Appendix D,
-pp. 72–77, still needs intermediate interfaces, including the enlarged-box comparison used by
-AC.2.2. All bounds above retain the restored `1`-boundedness of every input.
+1. `module_normal_form` (Proposition D.2, p. 70): a system of complexity at most `s` at the index `i`
+   is the composite of a system in `s`-normal form at `i` with a surjection `ℤ^{d'} → ℤ^d`,
+   `d' ≤ (s + 2)d`; the same holds over `𝔽_p`.
+2. `finite_field_von_neumann` (Proposition D.6, p. 72): for affine `ψ_i : 𝔽_p^d → 𝔽_p^n` of complexity
+   at most `s` and `1`-bounded `f_i` with `‖f_i‖_{U^{s+1}(𝔽_p^n)} ≤ δ` for the distinguished `i`,
+   `|𝔼_{x ∈ 𝔽_p^d} ∏ f_i(ψ_i(x))| ≤ δ`; the proof is `s + 1` applications of Cauchy–Schwarz in the
+   normal-form variables, using the box-norm Gowers–Cauchy–Schwarz inequality (Proposition D.5, p. 71).
+3. Convex cutoff: a convex `Ω ⊆ [−N, N]^d` has boundary of Lipschitz class `Lip(d, 1, O_d(N))`
+   (Theorem C.3, p. 67), so `1_Ω` has a truncated Fourier expansion with `|Θ| ≤ Y^d` frequencies,
+   coefficients of size at most `1`, and two error functions, one bounded by `N(q)` on a support of
+   proportion `O(1/M)` and one uniformly small (Proposition C.6, p. 69; Lipschitz approximation on the
+   torus, Proposition D.7, p. 73). The phases are linear, so they are absorbed into the `f_i` by
+   AC.2.2's step 3; this needs `s ≥ 1`.
+4. Torus and box versions (Propositions D.8 and D.10, pp. 74–76): combining 2 and 3 after reducing
+   modulo a prime `p` comparable with `(d + 1)LN`, `|𝔼 1_Ω ∏ f_i(ψ_i)| ≪_d δY^d + M log Y/Y + 1/M`.
+5. Enlarged box: the distinguished function's norm is taken on `[−(d + 1)LN, (d + 1)LN]^n`, which
+   contains every value of every `ψ_i` on `[−N, N]^d`; the zero extension into `(ZMod p)^n` has
+   normalised norm at most the box norm, as in AC.2.2's step 4 (Theorem D.3, p. 71, and Remark D.12,
+   p. 78, for sets with Lipschitz boundary).
 
-### AC.5.8 Gowers uniformity of quadratic Hecke characters
+Choosing `Y = δ^{−1/(d+1/2)}` and `M = (Y/log Y)^{1/2}` gives the exponent `1/(2d + 2)` after absorbing
+the logarithm.
+
+*Needs:* AC.2.2, AC.3.2, AC.3.6, AC.5.6.
+
+### AC.5.8 Number-field prime weights, their models and the ideal Vaughan decomposition
+
+Construct the arithmetic objects of Kai's theorems, which no other roadmap supplies. Fix `K` of
+degree `n`; all constants may depend on `K`.
+
+- `normLengthCompatibleBasis`: a `ℤ`-basis of a nonzero fractional ideal `𝔞` for which the box
+  `[−N, N]^n` and the norm ball of radius `N · N(𝔞)^{1/n}` are comparable, with constants independent
+  of `𝔞`; such bases exist for every `𝔞` (Kai, §3, pp. 11–13). This is what makes the later constants
+  uniform in `𝔞`.
+- `numberFieldVonMangoldt`: `Λ_K(𝔠) = log N(𝔭)` if `𝔠 = 𝔭^k` and `0` otherwise, and
+  `Λ_K^𝔞(x) = Λ_K(x𝔞⁻¹)` for `x ∈ 𝔞`.
+- `cramerModel` (Definition 5.1, p. 16): with `P(Q) = ∏_{p < Q} p`,
+  `Λ_{Cramér,Q}(𝔠) = res_{s=1}ζ_K(s) · P(Q)^n/φ_K(P(Q))` if `𝔠 + (P(Q)) = O_K` and `0` otherwise.
+- `siegelModel` (Definition 6.2, p. 23): `Λ_{Siegel,Q}(𝔠) = Λ_{Cramér,Q}(𝔠)(1 − ψ_Siegel([𝔠]) N(𝔠)^{β_Siegel − 1})`
+  when there is an exceptional real Hecke character `ψ_Siegel` with exceptional zero `β_Siegel`, and
+  `Λ_{Cramér,Q}` otherwise.
+- `typeISum`, `twistedTypeISum`, `typeIISum` (Definition 8.3, p. 32): sums
+  `1_{N(𝔠)≤N'} ∑_{N(𝔡)≤N^{2/3}, 𝔡 | 𝔠} A(𝔡)` with `|A| ≤ log N` (twisted by `ψ_Siegel([𝔠])`), and
+  `∑_{𝔡₁𝔡₂ = 𝔠, N(𝔡₁), N(𝔡₂) > N^{1/3}} L(𝔡₁)T(𝔡₂)` with `|L| ≤ log N`, `|T| ≤ τ`.
+
+The theorems, each a named target here:
+
+1. `siegel_zero_dichotomy` (Theorem 6.1, p. 22): there is `c_K > 0` such that for every `Q` at most
+   one Hecke character of conductor norm below `Q` has an `L`-zero in
+   `σ > 1 − c_K/(log Q + log(|t| + 4))`; it is real, and the zero is real and simple, with Siegel's
+   ineffective lower bound on `1 − β_Siegel`. Kai cites the textbook proofs (Landau–Page for Hecke
+   `L`-functions); their analytic input is the zero-free region for Hecke `L`-functions.
+2. `prime_weight_pointwise` (Proposition 6.3, p. 23): for `N(𝔠) < N`, `Λ_K`, `Λ_{Cramér,Q}` and
+   `Λ_{Siegel,Q}` are all `O_K(log N)`, by Mertens' theorem for `K` (Proposition B.1, p. 64).
+3. `mitsui_siegel` (Proposition 6.4 and proof, pp. 23–27): for convex `Ω` in the norm ball of radius
+   `N · N(𝔞)^{1/n}`, `N(𝔮) < exp((log N)^{1/200})` and any class `a + 𝔮𝔞`,
+   `∑_{x ∈ Ω, x ≡ a mod 𝔮𝔞}(Λ_K^𝔞 − Λ_{Siegel,Q}^𝔞)(x) ≪_K N^n exp(−(log N)^{1/201})`: Mitsui's prime ideal
+   theorem in sectors and residue classes, with the possible exceptional zero incorporated.
+4. `cramer_local_count` (Proposition 5.2, pp. 16–17, with Claim 5.3, p. 18): for affine
+   `ψ_i : ℤ^d → 𝔞` with finite-cokernel slopes, pairwise non-nested kernels, coefficients at most
+   `exp((log N)^{1/101})` and `Ω ⊆ [−N, N]^d` with Lipschitz boundary,
+   `∑_{x ∈ Ω ∩ ℤ^d} ∏_i Λ^𝔞_{Cramér,Q}(ψ_i(x)) = vol(Ω)(res ζ_K)^t ∏_{p<Q} β_p(Ψ)` up to the error of
+   Kai's display after (5.1); the proof is the fundamental lemma of the sieve over ideals
+   (Lemma B.2, p. 64) with lattice-point counting (Proposition C.2, pp. 66–67), and for `p ∤ A` the
+   forms stay surjective and non-nested modulo `p` (Claim 5.3).
+5. `ideal_divisor_moments` and `type_sum_pointwise` (Lemma 8.1 and Proposition 8.4, pp. 32–33):
+   `∑_{N(𝔠)≤N} τ(𝔠)^m ≪ N(log N)^{2m−1}`, and every (twisted) Type I or Type II sum is at most
+   `(log N)τ(𝔠)²` pointwise.
+6. `ideal_vaughan_decomposition` (Proposition 8.5, p. 33, from Claim 8.6, p. 34): on ideals of norm at
+   most `N`, each of `Λ_K`, `Λ_{Cramér,Q}` and `Λ_{Siegel,Q}` is a combination `∑ c_i S_i` with
+   `∑ |c_i| ≪ log N` of Type I, twisted Type I (for the Siegel model only), Type II and negligible sums;
+   the proof splits `Λ_K = Λ_K ∗ μ ∗ 1` according to whether the norms of the first two factors exceed
+   `N^{1/3}`.
+
+*Needs:* AC.5.6; Mathlib `NumberField.RingOfIntegers`, `NumberField.basisOfFractionalIdeal`,
+`Ideal.absNorm`, `Nat.Primes`.
+
+**Checks.**
+
+- `cramerModel.test_rational`: for `K = ℚ` and `Q = 5`, `P(Q) = 6` and the model is `6/φ(6) = 3` on
+  integers coprime to `6` and `0` on the others; a definition using `p ≤ Q` would also remove `5`.
+- `siegelModel.test_no_exception`: with no exceptional character the Siegel model equals the Cramér
+  model.
+- `numberFieldVonMangoldt.test_rational`: for `K = ℚ`, `𝔞 = ℤ` the weight is Mathlib's
+  `ArithmeticFunction.vonMangoldt` on positive integers, and `Λ_ℚ(−x) = Λ_ℚ(x)` because ideals forget
+  signs.
+- `typeIISum.test_short_factor`: a factorisation with a factor of norm at most `N^{1/3}` does not
+  contribute to a Type II sum.
+
+### AC.5.9 Gowers uniformity of quadratic Hecke characters
 
 Prove `quadratic_hecke_uniformity`: for a real primitive Hecke character `χ` of conductor `𝔮` and fixed
 `s ≥ 1`, its function on residue classes `O_K/𝔮` satisfies
@@ -2796,13 +3322,12 @@ are Gowers-close at the polylogarithmic rates needed for every fixed log-power s
 the Chinese remainder theorem for ideals; at odd residue characteristic expand the cube and apply the
 Weil bound for multiplicative characters to the resulting polynomial, which is not a square over the
 algebraic closure (the coprime-degree special case of Weil is not enough); dyadic factors need a
-separate conductor bound; compare the models with the Hecke Siegel model of AN.4 (Kai, §7,
+separate conductor bound; compare the models through the Siegel model of AC.5.8 (Kai, §7,
 Lemma 7.1 and Proposition 7.2, pp. 28–31).
 
-*Needs:* AC.3.1; FiniteFieldsAndCharacterSums Layer FF.2 (`weil-bound-multiplicative`);
-AnalyticNumberTheory Layer AN.4 (Hecke models and dyadic conductor bounds).
+*Needs:* AC.3.1, AC.5.8; FiniteFieldsAndCharacterSums Layer FF.2 (`weil-bound-multiplicative`).
 
-### AC.5.9 Uniformity of number-field prime models
+### AC.5.10 Uniformity of number-field prime models
 
 Prove `number_field_prime_uniformity`: for a number field `K` of degree `n`, every nonzero fractional
 ideal `𝔞` with norm-length compatible integer basis, fixed `s ≥ 1` and large `N`, there is
@@ -2810,25 +3335,48 @@ ideal `𝔞` with norm-length compatible integer basis, fixed `s ≥ 1` and larg
 `a₀ + 𝔮𝔞`, the normalised `U^{s+1}` box norm of `1_{Ω ∩ (a₀ + 𝔮𝔞)} · (Λ_K^𝔞 − Λ_{Siegel,𝔮}^𝔞)` is at most
 `exp(−(log N)^{c_{s,n}})`; for the residual `1_Ω · (Λ_K^𝔞 − Λ_{Cramér,Q}^𝔞)`, without the extra congruence cutoff, the bound is
 `O_{s,K,A}((log N)^{−A})` for every `A > 1`. The arithmetic models and the compatible bases are
-AnalyticNumberTheory AN.4's; compatibility is what makes the constants uniform in `𝔞`. Prove
+those of AC.5.8; compatibility is what makes the constants uniform in `𝔞`. Prove
 nilsequence correlation bounds through the ideal Type I, twisted Type I and Type II decompositions of
 `Λ` and its models, tracking conductor, congruence class and nilsequence dimension; apply the box
 inverse theorem (AC.3.18) to the residual divided by its logarithmic sup bound, with the threshold
 chosen so that dimension and complexity stay in the range of the correlation estimates; compare
-Siegel and Cramér models by AC.5.8 (Kai, Theorem 9.1, Corollary 9.2 and Theorem 9.3, pp. 37–42; ideal
+Siegel and Cramér models by AC.5.9 (Kai, Theorem 9.1, Corollary 9.2 and Theorem 9.3, pp. 37–42; ideal
 decompositions §8, pp. 32–37; Type I/II estimates §§10–11, pp. 43–53).
 
-*Needs:* AC.3.16, AC.3.18, AC.5.8; AnalyticNumberTheory Layer AN.4; SieveMethodsAndPrimePatterns
-Layer SV.2 (Kai's ideal Vaughan decomposition).
+The internal contracts, all in the range dimension at most `(log N)^ρ` and complexity and Lipschitz
+norm at most `exp((log N)^ρ)` for a sufficiently small fixed `ρ` (Kai, §§9–11, pp. 37–53):
 
-**Gap.** The Type I, twisted Type I and Type II estimates of Kai §§10–11 need explicit contracts
-in the inverse theorem's range: dimension at most `(log N)^ρ` and height and Lipschitz complexity
-at most `exp((log N)^ρ)`, for sufficiently small fixed `ρ`. In §9.4, p. 40, the large-conductor
-upper bound uses `exp(−(log N)^{2ρ})`, while the Fourier resolution is
-`M = exp((log N)^{10ρ}) > 1` with `Y` of order `M²`; the opposite signs in the printed proof
-cannot be used. These elementary repairs do not supply the Type I/II contracts.
+1. `uniformity_iff_orthogonality` (§9.1, pp. 37–38): Theorem 9.1 (the Gowers bound) and Theorem 9.3
+   (orthogonality to every nilsequence in the range) are equivalent, by the box inverse theorem
+   (AC.3.18) in one direction and its converse (Proposition A.2, p. 60) in the other.
+2. `step_reduction` (Proposition 9.4, p. 39): if the orthogonality fails at step at most `s` with
+   exponent `ρ`, it fails at step at most `s − 1` with exponent `O_{k,n}(ρ)`; the base case `s = 0` is
+   the Siegel-model prime number theorem (§9.2, from `mitsui_siegel`).
+3. `easy_reductions` (§9.4, pp. 40–41): a conductor with `N(𝔮) ≥ exp((log N)^{3ρ})` gives a correlation
+   at most `exp(−(log N)^{2ρ})`, which contradicts the assumed lower bound; otherwise the cutoff
+   `1_{Ω ∩ (a + 𝔮𝔞)}` is expanded by Proposition C.6 with `M = exp((log N)^{10ρ})` and `Y = M²` into at
+   most `exp((log N)^{11ρ})` phases plus errors of size `exp(−(log N)^{9ρ})`, and one phase is
+   absorbed into the nilsequence on `(G/Γ) × (ℝ/ℤ)` (exponent `12ρ`). The printed signs of the two
+   exponentials (`exp((log N)^{2ρ})` and `M = exp(−(log N)^{10ρ})`) are misprints for the values used
+   here. A vanishing vertical frequency reduces the step directly.
+4. Vaughan step (§§9.5–9.6, pp. 41–42): by `ideal_vaughan_decomposition` some (twisted) Type I or
+   Type II sum `S` has correlation at least `exp(−(log N)^{O(ρ)})N^n` with the nilsequence; when the
+   exceptional conductor is large the twisted sums are compared with the Cramér model through
+   AC.5.9.
+5. `type_I_case` (§10, pp. 42–48): Cauchy–Schwarz and manipulation of the range (§10.1), Leng's
+   multiparameter equidistribution theorem (AC.3.16, in Kai's form Theorem A.3, p. 61) on the
+   orbits along the dilated lattices (§10.2), the parametrisation of ideals by a fixed representative
+   of each class (§10.3), and the factorisation by the resulting horizontal characters
+   (Proposition A.5, p. 62; §10.4) reach `step_reduction_from_characters`: horizontal characters
+   `η₁, …, η_r`, `r ≤ (log N)^ρ`, of size `exp((log N)^{O(ρ)})` with `(⋂ ker η_m)^{(s)} ⊆ ker ξ` and
+   `‖η_m ∘ g‖_{C^∞} ≤ exp((log N)^{O(ρ)})` give the conclusion of `step_reduction` (Lemma 10.2, p. 48).
+6. `type_II_case` (§11, pp. 48–53): Cauchy–Schwarz to a four-point correlation over pairs of
+   ideals (§11.1), equidistribution on the product nilmanifold (§11.2), the polynomial Vinogradov
+   lemma (Proposition A.6, p. 62) for each character (§11.3), and Lemma 10.2 (§11.4).
 
-### AC.5.10 Number-field and localised local factors
+*Needs:* AC.3.16, AC.3.18, AC.5.8, AC.5.9.
+
+### AC.5.11 Number-field and localised local factors
 
 Define `numberFieldLocalFactor`: for `K` of degree `n`, a fractional ideal `𝔞` and affine
 `ψ_i : ℤ^d → 𝔞` (`i < t`), `β_p = (p^n/φ_K(p))^t` times the proportion of `x ∈ (ZMod p)^d` for which every
@@ -2857,8 +3405,7 @@ The API:
 - `localizedSingularProduct_positive`: under the torsion-cokernel hypotheses the product converges
   and is positive iff the simultaneous avoidance condition holds at every rational prime.
 
-*Needs:* AC.5.6; Mathlib `NumberField.RingOfIntegers`, `Ideal.absNorm`; AnalyticNumberTheory Layer
-AN.4; ExponentialSumsAndCircleMethod Layer ES.3.
+*Needs:* AC.5.5, AC.5.6, AC.5.8; Mathlib `NumberField.RingOfIntegers`, `Ideal.absNorm`.
 
 **Checks.**
 
@@ -2876,7 +3423,7 @@ AN.4; ExponentialSumsAndCircleMethod Layer ES.3.
 - `localizedLocalFactor.test_retained_obstruction`: for `K = ℚ`, `ψ(x) = 2x` and `S = {(3)}`,
   the obstruction at `2` is retained and its factor is zero.
 
-### AC.5.11 Prime patterns in a fractional ideal of a number field
+### AC.5.12 Prime patterns in a fractional ideal of a number field
 
 Prove `number_field_prime_patterns`: let `K` have degree `n` and `𝔞` be a nonzero fractional ideal with a
 norm-length compatible `ℤ`-basis. For `t, d ≥ 2`, `A > 1`, large `N` and affine maps `ψ_i : ℤ^d → 𝔞` of
@@ -2891,28 +3438,27 @@ with `Λ_K^𝔞(x) = Λ_K(x𝔞⁻¹)`. The recall of the weight in Kai's §12 d
 definition has it. The constants are uniform in `𝔞` with the required basis (for a fixed ideal and any
 fixed basis they may depend on the basis). The finite-cokernel restrictions cannot be dropped.
 Normalise the prime and Cramér weights by a multiple of `log N`, telescope, and apply AC.5.7 to the
-Gowers-small residual from AC.5.9, with the log-power exponent large enough to absorb the size and
+Gowers-small residual from AC.5.10, with the log-power exponent large enough to absorb the size and
 product losses; evaluate the Cramér-model count by the ideal sieve and local factors and
 lattice-point counting, which produces the reciprocal residue (Kai, Theorem 12.1 and proof,
 pp. 54–55; Proposition 5.2, pp. 15–17).
 
-*Needs:* AC.5.7, AC.5.9, AC.5.10; AnalyticNumberTheory Layer AN.4; SieveMethodsAndPrimePatterns
-Layer SV.1 (the ideal sieve for the Cramér model).
+*Needs:* AC.5.7, AC.5.8 (`cramer_local_count`), AC.5.10, AC.5.11.
 
-### AC.5.12 Uniformity of localised prime models
+### AC.5.13 Uniformity of localised prime models
 
 Prove `localized_prime_uniformity`: for fixed `K`, a finite set `S` of nonzero prime ideals, `s ≥ 1`,
 `A > 1` and a nonzero fractional ideal `𝔞` with norm-length compatible basis, the localised weight
 `Λ_{O_K[S⁻¹]}^𝔞` and its localised Cramér model differ by `O_{s,K,S,A}((log N)^{−A})` in normalised
 `U^{s+1}` on `[−N, N]^n`, uniformly in `𝔞`. Remove the higher prime-power contributions; decompose both
 weights over ideals `𝔮` supported in `S`, plus a bounded correction supported on `S`-units; for
-`N(𝔮) ≤ N^{n/2}` apply AC.5.9 in a compatible basis of `𝔮𝔞`, for larger `𝔮` use the crude support bound
+`N(𝔮) ≤ N^{n/2}` apply AC.5.10 in a compatible basis of `𝔮𝔞`, for larger `𝔮` use the crude support bound
 for the unnormalised cube; sum the convergent `S`-supported norm powers and divide by the box
 normalisation (Kai, Appendix E, Lemma E.2 and Proposition E.3 with proof, pp. 79–81).
 
-*Needs:* AC.3.6, AC.5.9; AnalyticNumberTheory Layer AN.4.
+*Needs:* AC.3.6, AC.5.8, AC.5.10.
 
-### AC.5.13 Prime patterns in a localised number field
+### AC.5.14 Prime patterns in a localised number field
 
 Prove `localized_prime_patterns`: let `K` be a number field, `S` a finite set of nonzero prime ideals,
 `𝔞` a nonzero fractional ideal and `ψ_i : ℤ^d → 𝔞[S⁻¹]` affine (`t, d ≥ 1`), such that each linear part
@@ -2926,15 +3472,14 @@ Lipschitz images of `[0, 1]^{d−1}` with constants at most `L₀N`,
 
 and `C_{S,Ψ} > 0` under the simultaneous local avoidance condition. Convex `Ω` are included, and the
 system need not have finite cokernel over `ℤ`. Choose a finitely generated fractional ideal containing
-the images and spanning the same localised module; apply AC.5.12; replace the weights by localised
+the images and spanning the same localised module; apply AC.5.13; replace the weights by localised
 Cramér models with AC.5.7 and its Lipschitz-boundary extension; evaluate with the ideal sieve in the
 localised Dedekind ring, keeping the rational-prime multiplier and only the prime ideals outside `S`
 (Kai, Theorem 13.1, pp. 56–57; Appendix E, pp. 78–83; Appendix D, Remark D.13, p. 77).
 
-*Needs:* AC.5.7, AC.5.10, AC.5.12; AnalyticNumberTheory Layer AN.4; SieveMethodsAndPrimePatterns
-Layer SV.1.
+*Needs:* AC.5.7, AC.5.8, AC.5.11, AC.5.13.
 
-### AC.5.14 Finite-complexity linear equations in primes
+### AC.5.15 Finite-complexity linear equations in primes
 
 Prove `linear_equations_in_primes`: for fixed positive `d, t, L, A`, an integer affine system
 `ψ_i(x) = b_i + v_i · x` with nonzero, pairwise `ℚ`-independent slopes, `‖v_i‖_∞ ≤ L` and `|b_i| ≤ LN`,
@@ -2946,10 +3491,10 @@ and convex `Ω ⊆ [−N, N]^d`,
 
 with `β_∞` and `β_p` from AC.5.5; the implied constant may be ineffective, and the product is positive
 exactly when every local factor is. No system with proportional slopes is covered: the theorem says
-nothing about twin primes or Goldbach's problem. For `t, d ≥ 2` specialise AC.5.11 to `K = ℚ`, `𝔞 = ℤ`,
+nothing about twin primes or Goldbach's problem. For `t, d ≥ 2` specialise AC.5.12 to `K = ℚ`, `𝔞 = ℤ`,
 intersecting `Ω` with the positivity region; pairwise independent scalar slopes give the
 finite-cokernel restrictions. For `t = 1` use the fixed-modulus Siegel–Walfisz estimate with every
-log-power saving (AN.3) and lattice slicing; bounded integer slopes allow only finitely many moduli,
+log-power saving and lattice slicing; bounded integer slopes allow only finitely many moduli,
 and its endpoint bounds are uniform in `|b_i| ≤ LN`. Residue classes not coprime to their
 modulus contribute only powers of its finitely many prime divisors; their total weight after
 slicing is `O_{d,L}(N^{d−1} (log N)^2)`, absorbed by every stated log-power error. For `d = 1`, `t ≥ 2` there is no system with independent slopes. Green and Tao's
@@ -2958,8 +3503,8 @@ targets of this roadmap, and Leng's Theorem 5 gives the saving of every fixed lo
 linear equations, Conjecture 1.2, p. 4, the Main Theorem, p. 9, and Theorem 1.8, p. 12; Leng,
 efficient equidistribution, Theorem 5, pp. 5–6, and §5).
 
-*Needs:* AC.5.4, AC.5.5, AC.5.11; AnalyticNumberTheory Layer AN.3
-(the fixed-modulus Siegel–Walfisz estimate with every log-power saving).
+*Needs:* AC.5.4, AC.5.5, AC.5.12; AnalyticNumberTheoryPartI §0.32 (the Siegel–Walfisz theorem,
+uniform in `q ≤ (log x)^B`; the case of a fixed modulus is used).
 
 ### Examples
 
@@ -2975,10 +3520,11 @@ efficient equidistribution, Theorem 5, pp. 5–6, and §5).
 
 ### Dependencies
 
-AC.3 (Gowers norms, nilsequences, efficient equidistribution, the box inverse theorem, orbit
-factorisation); Mathlib (`μ`, `Λ`, affine maps, spans, kernels, rings of integers, fractional ideals,
-ideal norms); AnalyticNumberTheory AN.3, AN.4; SieveMethodsAndPrimePatterns SV.1, SV.2;
-ExponentialSumsAndCircleMethod ES.3, ES.4; FiniteFieldsAndCharacterSums FF.2.
+AC.2 (the interval von Neumann lemmas and Weyl's inequality), AC.3 (Gowers norms, nilsequences,
+efficient equidistribution, the box inverse theorem, orbit factorisation); Mathlib (`μ`, `Λ`, affine
+maps, spans, kernels, rings of integers, fractional ideals, ideal norms, Gauss sums);
+AnalyticNumberTheoryPartI §§0.32 and 1.2; FiniteFieldsAndCharacterSums FF.2;
+ExponentialSumsAndCircleMethod Layers 4–5 (AC.5.1 only).
 
 ## Worked examples
 
@@ -3054,4 +3600,18 @@ first ones reappear as `example`s in `Suggested.lean`.
   Ser. 409, 1–49; arXiv:1211.3487v1.
 - M. A. Bennett and S. Siksek, *A conjecture of Erdős, supersingular primes and short character sums*,
   Ann. of Math. 191 (2020), 355–392 (author-hosted text at
-  https://personal.math.ubc.ca/~bennett/BeSi-Annals-2020.pdf); §8, Theorem 8, after M. Rahman's thesis.
+  https://personal.math.ubc.ca/~bennett/BeSi-Annals-2020.pdf); §9, Theorem 8 and (36), p. 381.
+- T. Tao, *254A lecture notes on additive combinatorics*, Notes 4, §2 (Roth's argument), in the
+  compilation above.
+- T. Sanders, *On the Bogolyubov–Ruzsa lemma*, Anal. PDE 5 (2012), 627–655; arXiv:1011.0107.
+- L. Milićević, *Bilinear Bogolyubov argument in abelian groups*, arXiv:2109.03093.
+- J. Leng, A. Sah and M. Sawhney, *Improved bounds for five-term arithmetic progressions*,
+  arXiv:2312.10776 (Proposition 3.7 and Appendix B).
+- B. Green, T. Tao and T. Ziegler, *An inverse theorem for the Gowers `U^{s+1}[N]`-norm*, Ann. of Math.
+  176 (2012), 1231–1372; arXiv:1009.3998 (Appendix B).
+- B. Green and T. Tao, *Quadratic uniformity of the Möbius function*, Ann. Inst. Fourier 58 (2008),
+  1863–1935; arXiv:math/0606087 (Proposition 4.2).
+- D. Conlon, J. Fox and Y. Zhao, *A relative Szemerédi theorem*, Geom. Funct. Anal. 25 (2015), 733–762;
+  arXiv:1305.5440 (§6).
+- T. Tao, *The divisor bound*, blog post, 23 September 2008,
+  https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/.
