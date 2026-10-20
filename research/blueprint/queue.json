@@ -44995,8 +44995,9 @@
    ],
    "revisionOf": "BP-QSeriesPartitionsAndMockModularForms",
    "prompt": "research/blueprint/prompts/BP-QSeriesPartitionsAndMockModularForms~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10879"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10879",
+   "finishedAt": "2026-10-20T18:27:20Z"
   },
   {
    "priority": 2,
@@ -48553,7 +48554,9 @@
     "PKG-AdditiveCombinatorics~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AdditiveCombinatorics~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10889",
+   "finishedAt": "2026-10-20T18:27:22Z"
   },
   {
    "id": "PKG-AdelicAlgebraicGroups",
@@ -49528,8 +49531,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticDynamics.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10756"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10756",
+   "finishedAt": "2026-10-20T18:27:27Z"
   },
   {
    "id": "REV-PKG-ArithmeticDynamics",
@@ -54391,8 +54395,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-FiniteFieldsAndCharacterSums.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10766"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10766",
+   "finishedAt": "2026-10-20T18:27:34Z"
   },
   {
    "id": "REV-PKG-FiniteFieldsAndCharacterSums",
@@ -58283,7 +58288,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LogicAndDefinabilityInNumberTheory.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10772",
+   "finishedAt": "2026-10-20T18:27:40Z"
   },
   {
    "id": "REV-PKG-LogicAndDefinabilityInNumberTheory",
@@ -60874,8 +60881,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ProbabilisticAndMetricNumberTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10777"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10777",
+   "finishedAt": "2026-10-20T18:27:46Z"
   },
   {
    "id": "REV-PKG-ProbabilisticAndMetricNumberTheory",
@@ -62625,7 +62633,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-TropicalAndBerkovichArithmetic.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10778",
+   "finishedAt": "2026-10-20T18:27:52Z"
   },
   {
    "id": "REV-PKG-TropicalAndBerkovichArithmetic",
@@ -152421,7 +152431,7 @@
     "research/blueprint/handoff/BP-OverconvergentAutomorphicForms--O0~4.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0~4.md",
    "scope": [
     "OverconvergentAutomorphicForms:O0",
@@ -152437,7 +152447,8 @@
     "REV-OverconvergentAutomorphicForms--O0~3"
    ],
    "revisionOf": "BP-OverconvergentAutomorphicForms--O0",
-   "note": "claimed on GitHub issue #11299"
+   "note": "deliverables arrived from an external worker on issue #11299",
+   "finishedAt": "2026-10-20T18:27:59Z"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms--O0~4",
@@ -153573,9 +153584,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-GrossZagierAndArithmeticHeights~codex2.md",
-   "note": "claimed on GitHub issue #11407"
+   "note": "deliverables arrived from an external worker on issue #11407",
+   "finishedAt": "2026-10-20T18:28:01Z"
   },
   {
    "id": "FIX-PKG-EllipticRegulators~adv2",
@@ -154039,8 +154051,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-FunctionFieldArithmetic~adv1.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-FunctionFieldArithmetic~adv1.md",
+   "note": "deliverables arrived from an external worker on issue #11464",
+   "finishedAt": "2026-10-20T18:28:06Z"
   },
   {
    "id": "FIX-PKG-HabiroRings~adv4",
@@ -154058,8 +154072,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv4.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HabiroRings~adv4.md",
+   "note": "deliverables arrived from an external worker on issue #11465",
+   "finishedAt": "2026-10-20T18:28:10Z"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations~codex7",
@@ -154078,9 +154094,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCohomologyFoundations~codex7.md",
-   "note": "claimed on GitHub issue #11466"
+   "note": "deliverables arrived from an external worker on issue #11466",
+   "finishedAt": "2026-10-20T18:28:14Z"
   },
   {
    "id": "DESIGN-QWittVectors",
@@ -154117,8 +154134,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicPadicLFunctions~adv1.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicPadicLFunctions~adv1.md",
+   "note": "deliverables arrived from an external worker on issue #11469",
+   "finishedAt": "2026-10-20T18:28:18Z"
   },
   {
    "id": "FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv",
@@ -154136,8 +154155,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11475",
+   "finishedAt": "2026-10-20T18:28:21Z"
   },
   {
    "id": "FIX-PKG-AdditiveCombinatorics~adv",
@@ -154155,8 +154176,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AdditiveCombinatorics~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AdditiveCombinatorics~adv.md",
+   "note": "claimed on GitHub issue #11474"
   },
   {
    "id": "REV-PKG-HabiroRings~codex4",
@@ -154175,8 +154197,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex4.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings~codex4.md",
+   "note": "claimed on GitHub issue #11484"
   }
  ]
 }
