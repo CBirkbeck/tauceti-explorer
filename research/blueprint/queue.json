@@ -154485,6 +154485,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-LogicAndDefinabilityInNumberTheory~adv.md",
    "note": "claimed on GitHub issue #11514"
+  },
+  {
+   "id": "PKG-OverconvergentAutomorphicForms~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "OverconvergentAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/packages/OverconvergentAutomorphicForms/README.md",
+    "research/blueprint/packages/OverconvergentAutomorphicForms/Suggested.lean",
+    "research/blueprint/packages/OverconvergentAutomorphicForms/metadata.toml",
+    "research/blueprint/handoff/PKG-OverconvergentAutomorphicForms~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-OverconvergentAutomorphicForms~codex.md"
   }
  ]
 }
