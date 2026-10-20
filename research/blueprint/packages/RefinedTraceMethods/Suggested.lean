@@ -197,12 +197,15 @@ Layer 6: spherical lifts and the base hypotheses; light condensed and solid spec
 trace-class maps and nuclear modules; perfect even modules and the even site; ordinary
 even filtrations; the solid even filtration; even flat and solid even flat modules;
 homological evenness and even homotopy sheaves; faithfully even flat ring maps; solid
-duality Assumption R; compatible local and global spherical lifts; the connective
-image-of-J spectrum; cyclonic spectra and cyclonic Adams lift coherence; TC^{−(m)}.
+duality Assumption R; compatible local and global spherical lifts; KU/p-localization,
+structured Adams fixed points and the connective cover of the local sphere at each prime;
+cyclonic spectra and cyclonic Adams lift coherence; TC^{−(m)}.
 
 Layer 7: nuclear E-modules; smooth and proper E-linear categories. Layer 8 additionally
 constructs the motivic, Nygaard and syntomic trace filtrations, Breuil–Kisin twists, AΩ
-comparisons and Habiro interfaces. Layer 9 defines Zₚ and Qₚ coefficients by p-completing
+comparisons and Habiro interfaces. The sheaf of finite-coefficient even K-groups and its
+derived syntomic-to-étale pushforward in Layer 8 also require the README's higher carriers.
+Layer 9 defines Zₚ and Qₚ coefficients by p-completing
 before inverting p, and constructs the Beilinson comparisons using the earlier
 layers. The Snaith comparison, stable Adams lifts and relative cyclic HKR remain Layer 5
 theorem targets over supplied ku and KU. -/
