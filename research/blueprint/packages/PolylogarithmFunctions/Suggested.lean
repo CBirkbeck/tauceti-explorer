@@ -88,7 +88,7 @@ theorem hasDerivAt_polylog_zero (n : ℤ) : HasDerivAt (polylog n) 1 0 := by
 /-- Nonpositive weights are rational with integer numerator and a pole of exact order `r + 1`
 at `1` (§1.4). -/
 theorem exists_polylog_neg_eq_div (r : ℕ) :
-    ∃ p : Polynomial ℤ, p.eval 1 ≠ 0 ∧ ∀ z : ℂ, z ≠ 1 →
+    ∃ p : Polynomial ℤ, p.eval 1 = (r.factorial : ℤ) ∧ ∀ z : ℂ, z ≠ 1 →
       polylog (-(r : ℤ)) z = (p.map (Int.castRingHom ℂ)).eval z * z / (1 - z) ^ (r + 1) := by
   sorry
 
@@ -121,6 +121,10 @@ theorem polylog_conj (n : ℤ) {z : ℂ} (hz : 1 - z ∈ Complex.slitPlane) :
 /-- Continuity on the closed unit disc from weight two on (§1.7). -/
 theorem continuousOn_polylog_closedBall (n : ℕ) (hn : 2 ≤ n) :
     ContinuousOn (polylog n) (Metric.closedBall 0 1) := by
+  sorry
+
+/-- Continuity at `1` for unrestricted complex approach, beyond closed-disc continuity (§1.7). -/
+theorem continuousAt_polylog_one (n : ℕ) (hn : 2 ≤ n) : ContinuousAt (polylog n) 1 := by
   sorry
 
 /-- The endpoint value is Mathlib's Riemann zeta value (§1.7). -/
@@ -453,6 +457,11 @@ def crossRatio (a b c d : ℂ) : ℂ := (a - c) * (b - d) / ((a - d) * (b - c))
 example (a b c d : ℂ) : crossRatio b a d c = crossRatio a b c d := by
   unfold crossRatio; ring
 
+/-- Coincident entries give `1` only when the denominator is nonzero; totalisation gives `0`
+when it vanishes (§5.8). -/
+example : crossRatio 0 0 1 2 = 1 ∧ crossRatio 0 0 0 2 = 0 := by
+  norm_num [crossRatio]
+
 /-- The projective five-term relation for five distinct finite points (§5.8). -/
 theorem blochWigner_crossRatio_fiveTerm (s : Fin 5 → ℂ) (hs : Function.Injective s) :
     blochWigner (crossRatio (s 1) (s 2) (s 3) (s 4)) -
@@ -508,6 +517,15 @@ theorem rogers_half : rogers (1 / 2) = Real.pi ^ 2 / 12 := by
 theorem rogers_golden :
     rogers ((Real.sqrt 5 - 1) / 2) = Real.pi ^ 2 / 10 ∧
       rogers (((Real.sqrt 5 - 1) / 2) ^ 2) = Real.pi ^ 2 / 15 := by
+  sorry
+
+/-- The classical golden-ratio values follow after the Rogers pentagon (§6.5). Both
+logarithmic corrections have the same sign and size. -/
+theorem polylog_two_golden :
+    polylog 2 (((Real.sqrt 5 - 1) / 2 : ℝ) : ℂ) =
+      (Real.pi : ℂ) ^ 2 / 10 - (Real.log ((Real.sqrt 5 - 1) / 2) : ℂ) ^ 2 ∧
+    polylog 2 ((((Real.sqrt 5 - 1) / 2 : ℝ) : ℂ) ^ 2) =
+      (Real.pi : ℂ) ^ 2 / 15 - (Real.log ((Real.sqrt 5 - 1) / 2) : ℂ) ^ 2 := by
   sorry
 
 /-! ## Layer 7: analytic estimates -/
