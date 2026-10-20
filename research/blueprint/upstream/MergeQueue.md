@@ -12,13 +12,12 @@ Generated 2026-10-20T09:06Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
-- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
@@ -29,25 +28,26 @@ Generated 2026-10-20T09:06Z from the README supplier graph of every open pull re
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 3
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
 - #820 DiamondsAndVStacks — draft; waits on #1199
-- #942 TangentialBordism (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 - #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — draft; waits on #820
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
-- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — draft; waits on #940
+- #1212 GeneralAlgebraicKTheory — ready (approved at an earlier head); waits on #1227, #1142
 - #1260 CyclotomicClassGroupsAndStickelberger — draft; waits on #785, #940
 
 ## Wave 7
