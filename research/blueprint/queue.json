@@ -154119,6 +154119,44 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-AutomorphicPadicLFunctions~adv1.md"
+  },
+  {
+   "id": "FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HigherLocalFieldsAndHigherClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv.md",
+    "research/blueprint/packages/HigherLocalFieldsAndHigherClassFieldTheory/review.json",
+    "research/blueprint/packages/HigherLocalFieldsAndHigherClassFieldTheory/README.md",
+    "research/blueprint/packages/HigherLocalFieldsAndHigherClassFieldTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-HigherLocalFieldsAndHigherClassFieldTheory~adv.md"
+  },
+  {
+   "id": "FIX-PKG-AdditiveCombinatorics~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AdditiveCombinatorics"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AdditiveCombinatorics~adv.md",
+    "research/blueprint/packages/AdditiveCombinatorics/review.json",
+    "research/blueprint/packages/AdditiveCombinatorics/README.md",
+    "research/blueprint/packages/AdditiveCombinatorics/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AdditiveCombinatorics~adv.md"
   }
  ]
 }
