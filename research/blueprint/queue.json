@@ -152599,6 +152599,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-NoncommutativeAndEquivariantIwasawa~codex3.md"
+  },
+  {
+   "id": "FIX-PKG-ModularIwasawaMainConjectures~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ModularIwasawaMainConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ModularIwasawaMainConjectures~adv2.md",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/review.json",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/README.md",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ModularIwasawaMainConjectures~adv2.md"
   }
  ]
 }
