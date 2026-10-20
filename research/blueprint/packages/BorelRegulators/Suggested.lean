@@ -101,7 +101,31 @@ def traceCocycle {n : Type*} [Fintype n] [DecidableEq n] (j : ℕ)
 /-- At weight two the full alternating sum reduces to one commutator trace. -/
 theorem traceCocycle_three {n : Type*} [Fintype n] [DecidableEq n]
     (X Y Z : Matrix n n ℂ) :
-    traceCocycle 2 ![X, Y, Z] = -Matrix.trace (X * (Y * Z - Z * Y)) / 2 := by sorry
+    traceCocycle 2 ![X, Y, Z] = -Matrix.trace (X * (Y * Z - Z * Y)) / 2 := by
+  have huniv : (Finset.univ : Finset (Equiv.Perm (Fin 3))) =
+      {1, Equiv.swap 0 1, Equiv.swap 0 2, Equiv.swap 1 2,
+        Equiv.swap 0 1 * Equiv.swap 1 2, Equiv.swap 1 2 * Equiv.swap 0 1} := by
+    decide
+  show ((-1 : ℂ) ^ (2 - 1) * (Nat.factorial (2 - 1) : ℂ) / (Nat.factorial 3 : ℂ)) *
+    ∑ s : Equiv.Perm (Fin 3), ((s.sign : ℤ) : ℂ) *
+      Matrix.trace ((List.ofFn fun i => ![X, Y, Z] (s i)).prod) = _
+  rw [huniv, Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+    Finset.sum_insert (by decide), Finset.sum_insert (by decide), Finset.sum_insert (by decide),
+    Finset.sum_singleton]
+  have s1 : Equiv.Perm.sign (Equiv.swap (0 : Fin 3) 1) = -1 := by decide
+  have s2 : Equiv.Perm.sign (Equiv.swap (0 : Fin 3) 2) = -1 := by decide
+  have s3 : Equiv.Perm.sign (Equiv.swap (1 : Fin 3) 2) = -1 := by decide
+  have c1 : (Y * (Z * X)).trace = (X * (Y * Z)).trace := by
+    rw [← Matrix.mul_assoc, Matrix.trace_mul_comm]
+  have c2 : (Z * (X * Y)).trace = (X * (Y * Z)).trace := by
+    rw [Matrix.trace_mul_comm, Matrix.mul_assoc]
+  have c3 : (Y * (X * Z)).trace = (X * (Z * Y)).trace := by
+    rw [Matrix.trace_mul_comm, Matrix.mul_assoc]
+  have c4 : (Z * (Y * X)).trace = (X * (Z * Y)).trace := by
+    rw [← Matrix.mul_assoc, Matrix.trace_mul_comm]
+  simp [s1, s2, s3, Equiv.Perm.mul_apply, Equiv.swap_apply_def, Nat.factorial, c1, c2, c3, c4,
+    Matrix.mul_sub, Matrix.trace_sub]
+  ring
 
 /-- Block additivity is the primitive compatibility of the trace class. -/
 theorem traceCocycle_block {n p : Type*} [Fintype n] [DecidableEq n]
