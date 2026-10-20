@@ -7,26 +7,34 @@ worker, Claude Opus 5.5, session `claude-JuTyFi`; this reviewer did not author i
 ## Verdict and remaining work
 
 **needs_changes.** The mathematical corrections below are applied, the suggested
-file elaborates, and both input packets validate. One prerequisite-order defect
-remains: the package imports the atlas roadmaps FiniteFieldsAndCharacterSums,
-MotivesAndAlgebraicCycles and FunctionFieldArithmetic, but neither this roadmap
-nor those three suppliers has a tier or bundle assignment in
+file elaborates, and both input packets validate. The remaining defect is the
+prerequisite order and availability. FiniteFieldsAndCharacterSums and
+MotivesAndAlgebraicCycles are atlas suppliers, but neither this roadmap nor
+those two suppliers has a tier or bundle assignment in
 `upstream/CaraianiNewton.md`. That file explicitly leaves FiniteFieldsAndCharacterSums
 outside its order. I cannot certify these as lower-tier or same-bundle imports,
-as PACKAGE_REVIEW check 3 requires. This is an absent ordering certificate, not
-evidence of a particular upward edge.
+as PACKAGE_REVIEW check 3 requires. This is an absent ordering certificate,
+not evidence of a particular upward edge. In addition, ReductiveGroupsPartII
+has a planned tier-2 assignment but its Lang/Weil-restriction contracts are not
+in current TauCetiRoadmap main; its upstream PR #785 is still pending.
 
 Before upstream submission, establish an order or bundle for this roadmap and
-those suppliers, or identify already-upstream owners for the exact contracts.
-The contracts needing that decision are q-linearized polynomials over arbitrary
-commutative finite-field algebras (Scope and ownership; §§0.1–0.3 and others),
-neutral Tannakian reconstruction over arbitrary fields and tensor-generation
-criteria (§§8.22, 8.30, 8.34, 8.47), and discrete cocompact function-field adelic
-lattices (§6.2 and its consumers). The converse downstream use of DM.0 by
-FunctionFieldArithmetic should be checked when choosing a layer order or bundle.
+the two unranked suppliers, or identify already-upstream owners for the exact
+contracts. The contracts needing that decision are q-linearized polynomials
+over arbitrary commutative finite-field algebras (Scope and ownership;
+§§0.1–0.3 and others), and neutral Tannakian reconstruction over arbitrary
+fields and tensor-generation criteria (§§8.22, 8.30, 8.34, 8.47). Also make
+ReductiveGroupsPartII RG2.3.7 and RG2.0a.2 available before this package:
+Lang's theorem is used for the smooth connected groups
+`Res_((A/I)/F) GL_r`, including nonreduced finite algebras `A/I`, in §1.3.
 Do not replace these general contracts by polynomial-ring or characteristic-zero
 special cases. Changing the global tier registry or the suppliers is outside
 this review's allowed files. No such assignment is invented here.
+
+The FunctionFieldArithmetic prerequisite has been removed: §6.2 now proves its
+specific lattice statement directly by a finite-free basis over `F[θ]` and a
+compact negative-power-series fundamental domain. The general adelic theorem
+is not needed. FunctionFieldArithmetic remains only a downstream consumer.
 
 This is a completed fixing review, not an unfinished checkpoint. Its remaining
 work is the dependency decision just described. The packets were not edited.
@@ -67,10 +75,10 @@ suppliers. The arXiv category remains `math.NT`.
    leading normalization `cX`; the derivative and source/target lattices agree.
 4. **Moduli and section rings (§§3.5, 3.7).** Read the reciprocal-ring normality
    proof, stated its finite-free/regular-sequence and codimension-one arguments,
-   and made the grading reversal explicit. Normal section-ring reasoning uses
-   the integer-graded ring on the punctured line bundle and intersection with
-   nonnegative degrees. Negative sections need not vanish over a general
-   Noetherian base; a dimension-zero DVR example detects this.
+   and made the grading reversal explicit. Normality follows from the total space of the inverse line bundle, including
+   its zero section. Negative sections need not vanish over a general
+   Noetherian base; both a dimension-zero DVR and the positive-dimensional
+   identity on `Spec F[u]` detect this.
 5. **Purity and exponentials (§§4.5–4.7, 8.18).** Positive rank is required for
    the weight `d/r`; zero is pure for every ratio. Existence of the normalized
    exponential is retained for all t-modules, not just abelian ones. The scalar
@@ -97,7 +105,12 @@ suppliers. The arXiv category remains `math.NT`.
    characters are stated. Parameter-free division modules are distinguished
    from coordinates chosen on them (§1.8). Finite torsion is a dual of the
    motive invariants in the proof of §8.18.
-9. **Period ring (§5.5).** The valuation conditions quantify over every
+9. **Period ring (§§5.1, 5.5–5.6).** The local rational coefficient ring uses
+   total fractions, retaining every residue-field factor rather than choosing
+   a single field. Degree-two residue fields over themselves give two factors.
+   The integral motive realization and inverse-limit topology of the
+   residue-dual module are explicit.
+   The valuation conditions quantify over every
    extension of each base valuation to the separable closure, with consistent
    ramification normalization. This is necessary for Galois stability. The
    multiplicative set uses `σ(s)/s` in the rational tensor ring prescribed by
@@ -121,6 +134,23 @@ suppliers. The arXiv category remains `math.NT`.
     a lift above `t` has cyclic closure conjugate to `G_m`; this supplies a
     section after algebraic closure and proves the required differential
     surjectivity. A general smooth group surjection is not assumed separable.
+
+## Reconciliation with concurrent main
+
+While this branch was under review, an independent variant review was merged
+as atlas PR #11516, commit `1d8ea929375e9704faaf53e1a1a3adc0ec0d0096`.
+Merged current main into this branch and preserved its valid corrections:
+the finite-free-basis lattice proof, the étale lift of the local residue-field
+map, all factors of the total fraction ring, the total-space section-ring
+normality proof, and the expanded ABP size, counting, polynomial-degree,
+auxiliary-row and auxiliary-vanishing targets. The latter bounds were checked
+against ABP §§3.3–3.4, pp. 11–16, including the full constant-field factor,
+`r < s`, the exponent `2(ℓ−1)`, the first-nonzero-coefficient qualification and
+the decaying `q^(−N/(2ℓ))` bound. Retained its stronger proved examples on
+pinned carriers; the final file has 33 examples. This review's additional
+repairs and second duplicate-target deletion remain applied. Its other
+review report and handoff were preserved unchanged. All final checks below
+were repeated after reconciliation.
 
 ## Source sample and provenance
 
@@ -158,7 +188,9 @@ Wiedmann Definition 5.1 and §§5.2–5.4, pp. 72–84; Pink–Schieder
 Theorems 1.6–1.7 and 1.11, pp. 5–6, Theorem 2.7 and proof of Theorem 1.7,
 p. 9. For Hilbert polynomials, read Stacks Proposition 10.58.7 (Tag 00JV)
 and Lemma 10.117.1 (Tag 00P6); for normal section rings checked Tags 030W,
-0B5T and 0C6J. All passages are represented in the package in original words,
+0B5T and 0C6J. Read ABP §§3.3–3.4, pp. 11–16 to check the
+quantitative auxiliary-row and vanishing bounds retained during reconciliation.
+All passages are represented in the package in original words,
 with locators; no source excerpt or section-by-section digest is stored.
 
 All following public PDFs were accessed on 2026-10-20. SHA-256 identifies the
@@ -210,7 +242,7 @@ records the resulting arithmetic distinctions as well as the edge cases.
 | 1.1–1.12 | Tau Ceti finite group-scheme kernels, AlgebraicCurves completions and ordinary Tate modules inspected. Strict finite-field deformation actions and equal-characteristic local shtukas are local targets, not attributed to mixed-characteristic local-shtuka plans. `TauCeti.TateModule` for integer-primary group torsion is not the `A_λ`-module construction. |
 | 3.1–3.10 | SchemeAndStackFoundations Proj, descent, normalization, finite projective quotients, moduli and cohomology; AlgebraicVectorBundles line bundles. Drinfeld compactifications and the normal section-ring comparison remain local targets. |
 | 5.1–5.9 | Library semilinear and tensor constructions do not supply rational `A`-motives or Stalder's valuation-controlled ring. Galois and local completion prerequisites are imported; residue-dual line and scalar isogeny factorization are explicit local targets. |
-| 6.1–6.13 | Tau Ceti Fitting/base-change API imported. §6.1 adds only the characteristic-polynomial/monic-generator identity for finite `F[t]`-modules. OperatorTheory's characteristic-zero operators do not supply compact finite-`F` nuclear determinants. Function-field adelic lattice contract is retained, with its unresolved order stated above. |
+| 6.1–6.13 | Tau Ceti Fitting/base-change API imported. §6.1 adds only the characteristic-polynomial/monic-generator identity for finite `F[t]`-modules. OperatorTheory's characteristic-zero operators do not supply compact finite-`F` nuclear determinants. The direct finite-free-basis proof in §6.2 needs no FunctionFieldArithmetic import, and includes inseparable extensions. |
 | 7.1–7.7 | JacobianChallenge cohomology and AlgebraicVectorBundles sheaves imported. Periodic curve chains with characteristic and infinity cokernel conditions, locally bounded maps and the contravariant Drinfeld dictionary remain new. |
 | 8.1–8.9 | Library fixed submodules, tensor lifts, independence and dimensions are used. Exact-constant semilinear descent and comparison theorems remain explicit. |
 | 8.10–8.20 | General entire/restricted series and bounded-zero finiteness are deferred; arithmetic entire series retain the finite coefficient-field condition. Mac Lane's general extension criterion is broader than the algebraic separable-extension API found at the pins. Inverse-twist fundamental matrices and t-module comparison are distinct arithmetic targets. |
@@ -225,8 +257,10 @@ Actual declarations inspected include Tau Ceti
 base-change theorem, and finite-type geometrically reduced Hopf-algebra
 smoothness. At the pins inspected `TauCeti.AdditiveGroup.gaPointsMulEquiv`,
 `TauCeti.CommHopfAlgCat.kernelSpec` and Mathlib's `SkewPolynomial/Basic`.
-The remote ReductiveGroupsPartII supplier retains the q-Lang theorem
-§3.7; ReductiveGroups defers it there. The remote SchemeAndStackFoundations
+The atlas ReductiveGroupsPartII supplier retains the q-Lang theorem
+§3.7; ReductiveGroups defers it there. A fetch of the supplier README on
+TauCetiRoadmap main returned 404; PR #785 is pending, so this is a remaining
+prerequisite-availability defect, rather than an already-upstream contract. The remote SchemeAndStackFoundations
 §1.17 has the finite-projective quotient target actually needed; its §0.7
 has dimension theory, not the Hilbert polynomial theorem.
 
@@ -559,7 +593,7 @@ No gap is discharged merely by a successful `sorry` elaboration.
 | DM.0 #7 JacobianChallenge B | Curve Riemann–Roch and duality imported. |
 | DM.0 #8 JacobianChallenge C | Relative cohomology and base change imported, with fibrewise vanishing proved for the normalized chain. |
 | DM.8 #1 MC.6 | Exact arbitrary-field reconstruction and tensor-functor contracts checked; supplier-order gap remains. |
-| DM.8 #2 FA.0 | Exact constants instead imported from AlgebraicCurves 0 and places from 5. The separate adelic-lattice FA §2.1 contract still needs an order. |
+| DM.8 #2 FA.0 | Exact constants instead imported from AlgebraicCurves 0 and places from 5. The §6.2 lattice proof now uses a finite-free basis directly; no FA import remains. |
 | DM.8 #3 SF.3 | General scheme dimension and field-extension dimension supplied by current §0.7; logarithm-kernel separability proved locally rather than inferred from smooth groups. |
 | DM.8 #4 SF.1 | Torsors, descent, additive-group cohomology and field/Galois comparisons identified in current scheme contracts; no invented interface. |
 | DM.8 #5 AdicSpaces | General restricted/entire analysis supplied by RestrictedPowerSeries and NewtonPolygons; duplicate Tate-algebra target removed. |
@@ -569,9 +603,9 @@ No gap is discharged merely by a successful `sorry` elaboration.
 
 ## Lean signatures and validation
 
-Suggested.lean has 569 lines, imports `Mathlib`, and uses one roadmap namespace.
+Suggested.lean has 622 lines, imports `Mathlib`, and uses one roadmap namespace.
 It contains light definitions on pinned carriers, named milestone statements,
-23 proved examples and no admitted examples. Its 24 `sorry` warnings arise
+33 proved examples and no admitted examples. Its 24 `sorry` warnings arise
 from theorem/proof obligations, not data definitions. There are no placeholder
 `True` targets or hypotheses containing the conclusion. Heavy definitions
 remain in the README and are named in the closing comment. In particular
@@ -593,9 +627,9 @@ Tannakian category have been formalized.
 | `carlitzPowerSum_eq` | `1≤s≤q` and all `d`, including `d=0`; no claim outside that interval. |
 | `linearIndependent_of_fixed` | Exact constants and semilinearity both present; no finite-dimensionality assumption for the independence statement. |
 | `bettiComparison_bijective_iff` | Finite-dimensional ambient space; exact constants; equality of the appropriate `F` and `L` dimensions, not an untyped identification of fields. |
-| `IsFundamentalMatrix` / `solutionSpace` | `σ(Ψ)=ΦΨ`, invertible determinant for fundamental matrices; zero remains in the solution subspace and `Φ=0` excludes the constant-one vector under identity twist. |
+| `IsFundamentalMatrix` / `solutionSpace` | `σ(Ψ)=ΦΨ`, invertible determinant for fundamental matrices; under identity twist, `Φ=0` gives the zero subspace and `Φ=I` the whole space. |
 | `solutionRing` | Generated by entries and inverse determinant; the inverse-determinant example checks localization direction. |
-| `degreeSpan` | Monomials of degree at most `d`, with degree-zero monomial one even for the empty family. |
+| `degreeSpan` | Monomials of degree at most `d`; degree zero is exactly the span of one, and for the empty family this holds for every `d`. |
 | `transcendental_carlitzPeriod` / `algebraicIndependent_carlitzLog` | Algebraically closed complete ultrametric field, correct base field `F(θ)`, algebraic exponentials and linear independence hypotheses; `r=0` has the expected vacuous independence. |
 
 Validation results:

@@ -15,9 +15,8 @@ Design choices made explicit here:
   (`FiniteField.frobeniusAlgHom`), packaged as the type synonym `OrePolynomial F R`;
 * a Drinfeld module over a field is a ring map `A →+* L{τ}` that is the identity on `F`, has
   differential `γ` and is not scalar; the rank is a theorem, not a field;
-* the Carlitz series identities are stated over a complete nonarchimedean field `K` with an
-  element `θ` of norm `q`; the transcendence theorems additionally assume `K` algebraically
-  closed, so the closure of the algebraic closure of `F(θ)` in `K` is a copy of `C_∞`;
+* analytic signatures use a complete nonarchimedean field `K` with an element `θ` of norm `q`;
+  the transcendence signatures also assume `K` algebraically closed (README Conventions);
 * the semilinear algebra of difference equations is stated for an `F`-linear map
   `f : V →ₗ[F] V` with `f (a • v) = σ a • f v`.
 -/
@@ -87,20 +86,18 @@ noncomputable def natDegree (f : OrePolynomial F R) : ℕ :=
 theorem tau_mul_C (c : R) : (tau : OrePolynomial F R) * C c = C (c ^ Fintype.card F) * tau := by
   sorry
 
-/-- The coefficient convention distinguishes constants from the Frobenius variable. -/
-example (c : R) : (C c : OrePolynomial F R).coeff 0 = c ∧
-    (tau : OrePolynomial F R).coeff 1 = 1 := by
-  change SkewPolynomial.coeff (SkewPolynomial.C c) 0 = c ∧
-    SkewPolynomial.coeff (SkewPolynomial.X : SkewPolynomial R) 1 = 1
-  exact ⟨SkewPolynomial.coeff_C_zero, SkewPolynomial.coeff_X_one⟩
+example : coeff (tau : OrePolynomial F R) 1 = 1 := by
+  simp [coeff, tau]
 
-/-- Constants have degree zero, including the zero constant. -/
-example (c : R) : (C c : OrePolynomial F R).natDegree = 0 := by
-  change (SkewPolynomial.support (SkewPolynomial.C c)).sup id = 0
-  apply le_antisymm _ (Nat.zero_le _)
-  apply Finset.sup_le
-  intro a ha
-  exact (Finset.mem_singleton.mp (SkewPolynomial.support_C_subset c ha)).le
+example (c : R) : coeff (C c : OrePolynomial F R) 0 = c := by
+  change SkewPolynomial.coeff (SkewPolynomial.C c) 0 = c
+  exact SkewPolynomial.coeff_C_zero
+
+example [Nontrivial R] : natDegree (tau : OrePolynomial F R) = 1 := by
+  let _ := frobeniusAction F R
+  change (SkewPolynomial.X : SkewPolynomial R).support.sup id = 1
+  rw [SkewPolynomial.support_X]
+  simp
 
 /-- Right division in `L{τ}` over any field: the divisor is on the right, and zero remainders
 are separated from the natural-degree inequality (README §0.2). Perfection is unnecessary. -/
@@ -109,6 +106,7 @@ theorem existsUnique_rightDivRem {L : Type*} [Field L] [Algebra F L]
     ∃! qr : OrePolynomial F L × OrePolynomial F L,
       g = qr.1 * f + qr.2 ∧ (qr.2 = 0 ∨ qr.2.natDegree < f.natDegree) := by
   sorry
+
 
 end OrePolynomial
 
@@ -148,6 +146,23 @@ def Hom (φ ψ : DrinfeldModule F A L γ) : AddSubgroup (OrePolynomial F L) wher
 /-- An isogeny is a nonzero morphism. -/
 def IsIsogeny {φ ψ : DrinfeldModule F A L γ} (u : Hom φ ψ) : Prop := (u : OrePolynomial F L) ≠ 0
 
+example (φ : DrinfeldModule F A L γ) : (0 : OrePolynomial F L) ∈ Hom φ φ := by
+  intro a
+  simp
+
+example (φ : DrinfeldModule F A L γ) : (1 : OrePolynomial F L) ∈ Hom φ φ := by
+  intro a
+  simp
+
+example (φ : DrinfeldModule F A L γ) : ¬ IsIsogeny (0 : Hom φ φ) := by
+  simp [IsIsogeny]
+
+example (φ : DrinfeldModule F A L γ) :
+    IsIsogeny (⟨1, by intro a; simp⟩ : Hom φ φ) := by
+  let _ := frobeniusAction F L
+  change (1 : SkewPolynomial L) ≠ 0
+  exact one_ne_zero
+
 /-- **The rank theorem over the polynomial ring** (README §0.2): for `A = F[X]`, the
 `τ`-degree of `φ_a` is `deg_τ φ_X · deg a`. -/
 theorem natDegree_eq_rank_mul {γ : F[X] →ₐ[F] L} (φ : DrinfeldModule F F[X] L γ) {a : F[X]}
@@ -158,16 +173,6 @@ theorem natDegree_eq_rank_mul {γ : F[X] →ₐ[F] L} (φ : DrinfeldModule F F[X
 theorem natDegree_X_pos {γ : F[X] →ₐ[F] L} (φ : DrinfeldModule F F[X] L γ) :
     0 < (φ X).natDegree := by
   sorry
-
-/-- The identity intertwines every action. -/
-example (φ : DrinfeldModule F A L γ) : (1 : OrePolynomial F L) ∈ Hom φ φ := by
-  intro a
-  simp
-
-/-- The zero intertwiner is excluded from isogenies. -/
-example (φ : DrinfeldModule F A L γ) :
-    ¬IsIsogeny (⟨0, (Hom φ φ).zero_mem⟩ : Hom φ φ) := by
-  simp [IsIsogeny]
 
 end DrinfeldModule
 
@@ -194,13 +199,18 @@ example (θ : L) : (carlitz F θ) X = OrePolynomial.C θ + OrePolynomial.tau := 
   show (carlitz F θ).toRingHom X = _
   simp [carlitz]
 
+example : (X : F[X]) ∈ DrinfeldModule.charIdeal (carlitz F (0 : L)) := by
+  change (Polynomial.aeval (0 : L)) X = 0
+  simp
+
+example {θ : L} (hθ : θ ≠ 0) :
+    (X : F[X]) ∉ DrinfeldModule.charIdeal (carlitz F θ) := by
+  change (Polynomial.aeval θ) X ≠ 0
+  simpa using hθ
+
 /-- The Carlitz module has rank one: `deg_τ C_X = 1`. -/
 theorem carlitz_rank (θ : L) : ((carlitz F θ) X).natDegree = 1 := by
   sorry
-
-/-- At special characteristic the characteristic ideal contains `X`, although `C_X = τ`. -/
-example : (X : F[X]) ∈ (carlitz F (0 : L)).charIdeal := by
-  simp [DrinfeldModule.charIdeal]
 
 end CarlitzModule
 
@@ -219,6 +229,12 @@ def carlitzD (θ : R) (i : ℕ) : R :=
 def carlitzEll (θ : R) (i : ℕ) : R :=
   ∏ j ∈ Finset.range i, (θ - θ ^ (Fintype.card F ^ (j + 1)))
 
+example (θ : R) : carlitzBracket F θ 0 = 0 := by
+  simp [carlitzBracket]
+
+example (θ : R) : carlitzBracket F θ 1 = θ ^ Fintype.card F - θ := by
+  simp [carlitzBracket]
+
 theorem carlitzD_succ (θ : R) (i : ℕ) :
     carlitzD F θ (i + 1) = carlitzBracket F θ (i + 1) * carlitzD F θ i ^ Fintype.card F := by
   sorry
@@ -232,10 +248,6 @@ example (θ : R) : carlitzD F θ 0 = 1 ∧ carlitzEll F θ 0 = 1 := by
 
 example (θ : R) : carlitzEll F θ 1 = -(carlitzD F θ 1) := by
   simp [carlitzD, carlitzEll]
-
-/-- The bracket at zero vanishes; the denominator products start at the next index. -/
-example (θ : R) : carlitzBracket F θ 0 = 0 := by
-  simp [carlitzBracket]
 
 end Carlitz
 
@@ -278,6 +290,18 @@ def carlitzLog (θ z : K) : K := ∑' i : ℕ, z ^ (Fintype.card F ^ i) / carlit
 def carlitzPeriod (θ ρ : K) : K :=
   θ * ρ * ∏' i : ℕ, (1 - θ / θ ^ (Fintype.card F ^ (i + 1)))⁻¹
 
+example (θ : K) : carlitzExp F θ 0 = 0 := by
+  have hq : Fintype.card F ≠ 0 := Fintype.card_ne_zero
+  simp [carlitzExp, zero_pow (pow_ne_zero _ hq)]
+
+example (θ : K) : carlitzLog F θ 0 = 0 := by
+  have hq : Fintype.card F ≠ 0 := Fintype.card_ne_zero
+  simp [carlitzLog, zero_pow (pow_ne_zero _ hq)]
+
+example (θ ρ c : K) : carlitzPeriod F θ (c * ρ) = c * carlitzPeriod F θ ρ := by
+  unfold carlitzPeriod
+  ring
+
 /-- `exp_C` is entire: its series converges everywhere when `‖θ‖ = q`. -/
 theorem carlitzExp_summable (θ : K) (hθ : ‖θ‖ = Fintype.card F) (z : K) :
     Summable fun i : ℕ => z ^ (Fintype.card F ^ i) / carlitzD F θ i := by
@@ -311,16 +335,6 @@ theorem norm_carlitzPeriod (θ : K) (hθ : ‖θ‖ = Fintype.card F) {ρ : K}
     ‖carlitzPeriod F θ ρ‖ =
       (Fintype.card F : ℝ) ^ ((Fintype.card F : ℝ) / ((Fintype.card F : ℝ) - 1)) := by
   sorry
-
-/-- Both normalized Carlitz series vanish at the origin. -/
-example (θ : K) : carlitzExp F θ 0 = 0 ∧ carlitzLog F θ 0 = 0 := by
-  have hq : Fintype.card F ≠ 0 := Fintype.card_ne_zero
-  simp [carlitzExp, carlitzLog, zero_pow (pow_ne_zero _ hq)]
-
-/-- Changing the chosen root scales the period in the same direction. -/
-example (θ ρ c : K) : carlitzPeriod F θ (c * ρ) = c * carlitzPeriod F θ ρ := by
-  simp only [carlitzPeriod]
-  ring
 
 end Analytic
 
@@ -358,13 +372,12 @@ def finiteModuleCardinality (M : Type*) [AddCommGroup M] [Module F[X] M] [Module
     [IsScalarTower F F[X] M] [Module.Finite F M] [Module.Free F M] : F[X] :=
   LinearMap.charpoly ((LinearMap.lsmul F[X] M (X : F[X])).restrictScalars F)
 
-/-- The zero module has monic cardinality one, rather than zero. -/
 example (M : Type*) [AddCommGroup M] [Module F[X] M] [Module F M]
     [IsScalarTower F F[X] M] [Module.Finite F M] [Module.Free F M] [Subsingleton M] :
     finiteModuleCardinality F M = 1 := by
-  unfold finiteModuleCardinality
-  rw [Subsingleton.elim ((LinearMap.lsmul F[X] M X).restrictScalars F) 0,
-    LinearMap.charpoly_zero, Module.finrank_zero_of_subsingleton, pow_zero]
+  have hz : ((LinearMap.lsmul F[X] M (X : F[X])).restrictScalars F) = 0 :=
+    Subsingleton.elim _ _
+  simp [finiteModuleCardinality, hz, LinearMap.charpoly_zero, Module.finrank_zero_of_subsingleton]
 
 /-- The cardinality of a cyclic module `F[X]/(a)` with `a` monic is `a` itself. -/
 theorem finiteModuleCardinality_quotient (a : F[X]) (ha : a.Monic) [Module.Finite F (F[X] ⧸ Ideal.span {a})]
@@ -399,29 +412,43 @@ variable {F L V : Type*} [Field F] [Field L] [Algebra F L] [AddCommGroup V] [Mod
 def HasExactConstants (σ : L ≃ₐ[F] L) : Prop :=
   ∀ a : L, σ a = a ↔ a ∈ Set.range (algebraMap F L)
 
+example : HasExactConstants (AlgEquiv.refl : F ≃ₐ[F] F) := by
+  intro a
+  simp
+
+example : ¬ HasExactConstants (AlgEquiv.refl : ℂ ≃ₐ[ℝ] ℂ) := by
+  intro h
+  obtain ⟨a, ha⟩ := (h Complex.I).mp rfl
+  have hi := congrArg Complex.im ha
+  simp at hi
+
 /-- `f` is `σ`-semilinear: `f (a • v) = σ a • f v`. -/
 def IsSemilinear (σ : L ≃ₐ[F] L) (f : V →ₗ[F] V) : Prop :=
   ∀ (a : L) (v : V), f (a • v) = σ a • f v
+
+example (σ : L ≃ₐ[F] L) : IsSemilinear σ σ.toLinearMap := by
+  intro a v
+  exact map_mul σ a v
+
+example (σ : L ≃ₐ[F] L) :
+    IsSemilinear σ (LinearMap.id : L →ₗ[F] L) ↔ σ = AlgEquiv.refl := by
+  constructor
+  · intro h
+    ext a
+    have ha := h a 1
+    change σ a = a
+    simpa only [LinearMap.id_apply, smul_eq_mul, mul_one] using ha.symm
+  · rintro rfl
+    intro a v
+    rfl
 
 /-- The Betti comparison `L ⊗_F V^f → V`, `a ⊗ v ↦ a • v` (README §8.5). -/
 def bettiComparison (f : V →ₗ[F] V) : L ⊗[F] (LinearMap.fixedSubmodule f) →ₗ[L] V :=
   (LinearMap.fixedSubmodule f).subtype.liftBaseChange L
 
-/-- The comparison sends a simple tensor to scalar multiplication, with no dual. -/
 example (f : V →ₗ[F] V) (a : L) (v : LinearMap.fixedSubmodule f) :
-    bettiComparison (L := L) f (a ⊗ₜ[F] v) = a • (v : V) := by
+    bettiComparison f (a ⊗ₜ[F] v) = a • (v : V) := by
   simp [bettiComparison]
-
-/-- With no scalar extension, the identity automorphism has exact constants. -/
-example : HasExactConstants (AlgEquiv.refl : F ≃ₐ[F] F) := by
-  intro a
-  simp
-
-/-- An ordinary linear map is semilinear for the identity twist. -/
-example (f : V →ₗ[L] V) :
-    IsSemilinear (AlgEquiv.refl : L ≃ₐ[L] L) f := by
-  intro a v
-  exact f.map_smul a v
 
 /-- **Fixed vectors stay independent** (README §8.4). -/
 theorem linearIndependent_of_fixed (σ : L ≃ₐ[F] L) (f : V →ₗ[F] V) (hf : IsSemilinear σ f)
@@ -460,6 +487,10 @@ example (σ : L →+* L) {r : Type*} [Fintype r] [DecidableEq r] :
   refine ⟨by simp, ?_⟩
   rw [Matrix.map_one σ (map_zero σ) (map_one σ), one_mul]
 
+example (σ : L →+* L) {r : Type*} [Fintype r] [DecidableEq r] [Nonempty r] :
+    ¬ IsFundamentalMatrix σ (0 : Matrix r r L) 0 := by
+  simp [IsFundamentalMatrix]
+
 /-- The solution space `{v : σ(v) = Φ v}`, an `F`-subspace of `L ^ r` (README §8.24). -/
 def solutionSpace (σ : L →ₐ[F] L) {r : Type*} [Fintype r] (Φ : Matrix r r L) :
     Submodule F (r → L) where
@@ -479,22 +510,31 @@ def solutionSpace (σ : L →ₐ[F] L) {r : Type*} [Fintype r] (Φ : Matrix r r 
     ext i
     simp [Algebra.smul_def]
 
-/-- The zero coefficient matrix has no nonzero solution for the identity twist. -/
-example : (fun _ : Fin 1 => (1 : L)) ∉
-    solutionSpace (AlgHom.id F L) (0 : Matrix (Fin 1) (Fin 1) L) := by
-  intro h
-  have h0 := congrFun h 0
-  simp at h0
+example {r : Type*} [Fintype r] :
+    solutionSpace (AlgHom.id F L) (0 : Matrix r r L) = ⊥ := by
+  ext v
+  change (v = (0 : Matrix r r L).mulVec v) ↔ v = 0
+  simp
+
+example {r : Type*} [Fintype r] [DecidableEq r] :
+    solutionSpace (AlgHom.id F L) (1 : Matrix r r L) = ⊤ := by
+  ext v
+  simp [solutionSpace]
 
 /-- The solution ring `K[Ψ_ij, det(Ψ)⁻¹] ⊂ L` of a fundamental matrix (README §8.25). -/
 def solutionRing (K : Type*) [Field K] [Algebra K L] {r : Type*} [Fintype r] [DecidableEq r]
     (Ψ : Matrix r r L) : Subalgebra K L :=
   Algebra.adjoin K (Set.range (fun ij : r × r => Ψ ij.1 ij.2) ∪ {(Ψ.det)⁻¹})
 
-/-- Inverting the determinant is part of the solution ring, not just adjoining entries. -/
-example (K : Type*) [Field K] [Algebra K L] {r : Type*} [Fintype r] [DecidableEq r]
-    (Ψ : Matrix r r L) : (Ψ.det)⁻¹ ∈ solutionRing K Ψ :=
-  Algebra.subset_adjoin (Or.inr rfl)
+example (K : Type*) [Field K] [Algebra K L] {r : Type*} [Fintype r] [DecidableEq r] :
+    solutionRing K (1 : Matrix r r L) = ⊥ := by
+  apply le_antisymm ?_ bot_le
+  rw [solutionRing, Algebra.adjoin_le_iff]
+  rintro a (⟨⟨i, j⟩, rfl⟩ | ha)
+  · by_cases h : i = j <;> simp [Matrix.one_apply, h]
+  · simp only [Set.mem_singleton_iff, Matrix.det_one, inv_one] at ha
+    subst a
+    exact one_mem _
 
 end Difference
 
@@ -506,8 +546,21 @@ variable {F B ι : Type*} [Field F] [CommRing B] [Algebra F B]
 def degreeSpan (x : ι → B) (d : ℕ) : Submodule F B :=
   Submodule.span F {m | ∃ e : ι →₀ ℕ, (e.sum fun _ k => k) ≤ d ∧ m = e.prod fun i k => x i ^ k}
 
-example (x : ι → B) : (1 : B) ∈ degreeSpan (F := F) x 0 :=
-  Submodule.subset_span ⟨0, by simp, by simp⟩
+example (x : ι → B) : degreeSpan (F := F) x 0 = Submodule.span F {1} := by
+  unfold degreeSpan
+  congr 1
+  ext m
+  constructor
+  · rintro ⟨e, he, rfl⟩
+    have he0 : e = 0 := by
+      apply Finsupp.ext
+      intro i
+      have hi : e i ≤ e.sum (fun _ k => k) := by
+        simpa using Finsupp.single_le_sum e (g := fun _ k => k) (fun _ _ => Nat.zero_le _) i
+      simpa using Nat.le_zero.mp (le_trans hi he)
+    simp [he0]
+  · rintro rfl
+    exact ⟨0, by simp, by simp⟩
 
 end DegreeSpan
 

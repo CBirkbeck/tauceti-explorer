@@ -24,7 +24,6 @@ It uses the following and states none of it again:
 - **TauCetiRoadmap AlgebraicCurves** (Layers 2, 3, 5 and 12), **JacobianChallenge** (Layers A–C), **AlgebraicVectorBundles** (L0B, L1A–L1B, L2B), **SchemeAndStackFoundations**, **RestrictedPowerSeries**, **NewtonPolygons** and **StableReduction** (Layer 0): curves, divisors and Riemann–Roch, completions at places, line bundles and coherent cohomology with base change, vector bundles and relative spectra, schemes, descent, quotients, torsors and cohomology, restricted and entire power series with their Weierstrass theory, Newton polygons, zero counts and entire products; the exact items are listed in [Exact supplier contracts](#exact-supplier-contracts).
 - **ReductiveGroupsPartII**: Lang's theorem for smooth connected groups over finite fields (RG2.3.7) and Weil restriction (RG2.0a.2).
 - **MotivesAndAlgebraicCycles**, Layer 6: neutral Tannakian reconstruction over an arbitrary field, generation and finite-type criteria, and the faithful-flatness and closed-immersion criteria for group maps (§§6.1–6.3).
-- **FunctionFieldArithmetic**: divisor lattices in completed adeles (§2.1); exact constants and place degrees are supplied by AlgebraicCurves Layers 0 and 5.
 
 <a id="dm-8-tate-analytic-interface"></a>
 
@@ -48,6 +47,7 @@ Boundaries with neighbouring roadmaps:
 - **Inverse twists and dual motives.** On a perfect coefficient field `σ(c) = c^(1/q)`. On power series and matrices `σ` acts coefficientwise and fixes the variable `t`, and `f^(n) = σ^(−n)(f)` is the `n`-fold coefficient q-Frobenius; twisting never substitutes `t^q` for `t`. The ring `L[t, σ]` has `σc = c^(1/q)σ` and `σt = tσ`. The star map sends `Σ a_i τ^i` to `Σ a_i^(1/q^i) σ^i` and reverses products; on matrices it also transposes.
 - **Variance.** The τ-motive of a t-module `E` is contravariant: `M(E) = Hom(E, G_a)` as `F`-module schemes, with `A` acting through `E` and `τ` by q-Frobenius on values. The dual motive of a coordinate t-module is the row module `L[σ]^(1×d)`, and an intertwiner `U` induces `h ↦ hU^∗`, so the dual construction is covariant.
 - **Analytic normalizations.** `C_∞` is the completion of an algebraic closure of the completion `K_∞` of `K_0` at `∞`, with `|a| = q^(deg_A a)`; for `F[θ]` this gives `|θ| = q`. The Carlitz module is `C_t = θ + τ`. Its exponential is `exp_C(z) = Σ z^(q^i)/D_i`, entire, and its logarithm `log_C(z) = Σ z^(q^i)/ℓ_i` converges exactly on `|z| < q^(q/(q−1))`, where it inverts `exp_C`. Fix `ρ` with `ρ^(q−1) = −θ`. The period `π_BP = θρ ∏_(i≥1) (1 − θ^(1−q^i))^(−1)` generates `ker exp_C` as an `F[θ]`-module and has `|π_BP| = q^(q/(q−1))`; Ngo Dac's normalization is `π_ND = −π_BP`. The Anderson–Thakur function `Ω(t) = ρ^(−q) ∏_(i≥1) (1 − t/θ^(q^i))` satisfies the twisted equation `Ω^(−1) = (t − θ)Ω` and `1/Ω(θ) = −π_BP`; the exponent `(−1)` on a function always denotes the twist, never the reciprocal. Papanikolas's period `π̃ = −1/Ω(θ)`, used throughout DM.8, is therefore `π_BP`. Two-term witness: for `q = 2` one has `ρ = θ`, `|π_BP| = 4`, and `π_BP = (θ² + θ)·log_C(1)` ([§6.13](#dm-6-carlitz-class-examples)).
+- **Analytic carrier extensions.** The Carlitz convergence and functional-equation statements also hold over any complete nonarchimedean `F`-field `K` with `|θ| = q`, as in the analytic signatures. For the transcendence statements in §§8.46 and 8.50, additionally assume `K` algebraically closed. The closure in `K` of the elements algebraic over `F(θ)` is a copy of `C_∞` with this norm. The Carlitz period lies there; if `exp_C(λ)` is algebraic over `F(θ)`, uniformization gives a logarithm in this copy, and the period-lattice description makes every other logarithm differ from it by a period. Hence such `λ` also belongs to that copy. This transfers the stated transcendence results to the larger carrier without weakening their algebraicity or independence hypotheses.
 - **Difference equations.** In DM.8, `𝕋` is the radius-one restricted power series ring in `C_∞[[t]]`, `𝕃` its fraction field, `𝔼` the ring of entire series whose coefficients are algebraic over `k = F_q(θ)` and generate a finite extension of `k_∞ = F_q((1/θ))`, and `K = k̄(t)`. For a pre-t-motive with basis column `m`, `σ(m) = Φm`; a fundamental matrix satisfies `σ(Ψ) = ΦΨ`, its columns span the solutions of the vector equation, and `Ψ^(−1)m` is a basis of the Betti realization. The difference torsor is built from `Ψ₁^(−1)Ψ₂` with right multiplication.
 - **Two notations for the polynomial case.** Layers DM.0–DM.7 write `F` for the finite field and `θ = γ(t)`. Layer DM.8 follows Papanikolas: `A = F_q[θ]` and `k = F_q(θ)` are coefficient rings inside `C_∞`, `t` is an independent variable, and the constant field of the difference equations is `F_q(t)`. The two readings agree through `γ`.
 - **The semilinear setting (S).** Several statements of DM.8 and [§1.3](#dm-1-semilinear-lang) are about the following data: fields `F` and `L` with `L` an `F`-algebra; an `L`-vector space `V`, also an `F`-vector space through a scalar tower; an `F`-algebra automorphism `σ` of `L`; and an `F`-linear endomorphism `f` of `V` with `f(a·v) = σ(a)·f(v)`. No perfection, characteristic, finiteness or invertibility of `f` is assumed unless stated (`IsSemilinear`). *Exact constants* means that `σ(a) = a` holds exactly for `a` in the image of `F` (`HasExactConstants`).
@@ -78,12 +78,12 @@ Boundaries with neighbouring roadmaps:
 - **NewtonPolygons.** §1.3 (the spectral norm on algebraic extensions of a complete field and the value group of the completion), §2.2 (Gauss norms as supporting values of the Newton polygon), §4.3 (analytic multiplicity and exact zero counts in closed and open discs over a complete algebraically closed extension), §5.3 (entire factorisation: a nonzero entire series is the product `∏(1 − X/α)` over its zeros, finitely many in each bounded disc; a family with finitely many members in each bounded ball is the zero divisor of an entire product; entire units are constants).
 - **StableReduction.** Layer 0 (operations on relative curves and DVR extensions), through the current Tau Ceti Fitting-ideal declarations listed above.
 
+
 ### From other roadmaps
 
 - **FiniteFieldsAndCharacterSums**, shared linearized polynomials (its targets *frobenius-ore-polynomial-comparison*, *linearized-polynomial-eval-linear*, *linearized-polynomial-separable-iff*, *subspace-polynomial-is-linearized*): for `F` with `q` elements and a commutative `F`-algebra `R`, the additive bijection `Σ a_i τ^i ↦ Σ a_i X^(q^i)` from `R{τ}` onto q-linearized polynomials, carrying multiplication to composition; the `F`-linearity of evaluation in any commutative `R`-algebra; over a field, separability of a nonzero q-linearized polynomial exactly when its `X`-coefficient is nonzero, with `q^(deg_τ)` distinct roots after splitting; and, for a finite `F`-subspace `U` of a field, the q-linearity of `∏_(u∈U) (X − u)`, of q-degree `dim_F U`.
 - **ReductiveGroupsPartII.** RG2.3.7 (*lang-theorem*): for a smooth connected group `H` over `F`, the Lang map `g ↦ g^(−1)F(g)` is finite étale and surjective; RG2.0a.2: Weil restriction of group schemes along finite locally free maps, used for `Res_(A/a | F) GL_r`.
 - **MotivesAndAlgebraicCycles**, Layer 6: §6.1–§6.2 (for a neutral Tannakian category `(𝒞, ω)` over any field `k`, `Aut^⊗(ω)` is an affine group scheme and `𝒞 ≃ Rep(Aut^⊗(ω))`), §6.3 (the group is of finite type exactly when one object tensor-generates; for a tensor functor `U : 𝒟 → 𝒞` with compatible fibre functors, `G_𝒞 → G_𝒟` is faithfully flat exactly when `U` is fully faithful with image closed under subobjects, and a closed immersion exactly when every object of `𝒞` is a subquotient of an object in the image).
-- **FunctionFieldArithmetic.** §2.1 (divisor lattices: a global function field is discrete and cocompact in its adeles). Exact constants use AlgebraicCurves Layer 0, and completions and place degrees use Layer 5; no degree-one divisor is required for the chosen `∞`.
 
 ## How to read the build
 
@@ -425,6 +425,7 @@ This layer works over the completed algebraic closure `C_∞` of `K_∞`. Lattic
 - For `A = F[t]`, `Λ = A` and `Λ' = A + Aα` with `α ∈ F_(q²) ∖ F`: the scalar `1` gives `Λ ⊂ Λ'`, but it is not the differential of a morphism between modules of ranks one and two; the equal-rank hypothesis is needed.
 - `c ↦ u` is multiplicative: the composite of the morphisms attached to `c` and `c'` is attached to `cc'`.
 - For `Λ_φ = A`, `Λ_ψ = t^(−1)A` and `c = 1`, the nonzero roots are `exp_φ(t^(−1)A/A)`; applying `exp_ψ` instead would give only zero and could not produce the degree-`q` morphism.
+- For `φ = ψ = C` and `c = θ`, the roots form `exp_C(θ^(−1)Λ_C/Λ_C) = C[t]`; the product is `C_t = θX + X^q`.
 
 <a id="dm-2-carlitz-exponential"></a>
 
@@ -705,8 +706,11 @@ Anderson t-modules are higher-dimensional analogues of Drinfeld modules, with a 
 
 - For `d = 1` and `D = (c)`, `λ_1 = t − c` has the single slope `−v(c)`. For the Carlitz matrix `c = θ + τ = θ + σ^(−1)` (valuation `−1`) the slope is `1` and `σ^nD^n` is a unit modulo `σ^n`; both sides of 3 hold.
 - For the scalar matrix `D = (θ)` (valuation `0`) the slope is `0`, every `s_n` is `0`, and the rank modulo `σ^0` is zero: both sides of 3 fail, matching that the scalar t-module is neither abelian nor `A`-finite.
-- Invariant factors are unique only up to similarity: `𝕂[t]/(t − c) ≅ 𝕂[t]/(t − aca^(−1))` for `a ≠ 0`.
+- Invariant factors are unique only up to similarity: `𝕂[t]/(𝕂[t](t − c)) ≅ 𝕂[t]/(𝕂[t](t − aca^(−1)))` for `a ≠ 0`.
 - For `D = 0` in dimension one, `λ_1 = t` has no finite edge, but `λ_1(0) = 0` and every rank condition fails. The same obstruction occurs for a nonzero nilpotent Jordan block.
+- For `D = (σ)`, the nonnegative clearing exponent is `s_n = 0`, so all modular ranks are zero. A negative clearing exponent would not define the quotient.
+- For `D = diag(σ^(−1), 0)`, its last factor has a positive finite edge, but every block-power matrix has rank at most one. The constant-term condition detects the nilpotent factor.
+- For `D = diag(σ^(−1), σ^(−2))`, `s_1 = 2` and `σ²D = diag(σ,1)` has rank two modulo `σ²`, although it is not invertible over `𝒪/(σ²)`.
 - Over the commutative subcase `𝕂 = k((σ))`, `diag(1, σ)` has rank two modulo `σ²`, rank one modulo `σ`, and rank zero modulo `1`. It is not invertible modulo `σ²`.
 - For `f = t − c` in the inverse-Frobenius skew field with `c^(1/q) ≠ c`, `σf − fσ = (c − c^(1/q))σ ≠ 0`. This nonzero constant-degree term cannot lie in `f𝕂[t]`; that right ideal does not define a left-module quotient.
 
@@ -804,6 +808,7 @@ Torsion of a Drinfeld module is controlled by its motive: for a nonzero ideal `I
 **Checks.**
 
 - For `V = L` and `φ(c) = c^q`, `V^φ = F`.
+- For the imperfect separably closed field `L = F(u)^sep`, the map `c ↦ c^q` is not surjective, but its linearization is invertible and its fixed space is still `F`. Invertibility here refers to the linearization, not to the underlying semilinear map.
 - For `L = F̄`, `r = 1` and `Φ = (a)`, a solution is `b` with `a·b^q = b`, i.e. `b^(q−1) = a^(−1)`; its `q − 1` choices differ by `F^×`.
 - Over the non-separably-closed field `F` itself, `φ(c) = a·c^q` with `a ∈ F^×`, `a ≠ 1`, has `V^φ = 0`: separable closedness is needed.
 - For `L = F(t)^sep`, `φ(x) = x^q` has invertible linearization and fixed space `F`, although `t` has no `q`-th root in `L` and the raw map is not surjective.
@@ -890,6 +895,7 @@ Torsion of a Drinfeld module is controlled by its motive: for a nonzero ideal `I
 - For `φ_t = τ²` over `F` and `λ = (t − 1)`, `T_λφ` has rank two.
 - A nonzero isogeny induces an injection with finite cokernel, hence an isomorphism of rational Tate modules.
 - For `C_t = τ` the separable `t`-power torsion is zero: there is no rank-one `t`-adic Tate module at the characteristic.
+- Replacing `z` by `z' = uz`, `u ∈ A_λ^×`, sends the compatible system `(x_n)` to `(u^(−n)x_n)`; this intertwines the two transition maps and fixes the intrinsic Tate module.
 
 <a id="dm-1-continuous-galois-action"></a>
 
@@ -913,7 +919,7 @@ Torsion of a Drinfeld module is controlled by its motive: for a nonzero ideal `I
 
 ### 1.10 Local shtukas and divisible local Anderson modules (`LocalShtuka`)
 
-**Definition.** Let `𝔭 ⊂ A` be a maximal ideal with residue field `F_𝔭` of size `q̂ = q^f`, let `z ∈ K_0` be a uniformizer at `𝔭`, so that `F_𝔭[[z]] ≅ Â_𝔭`, and let `R` be an `A`-algebra in which `γ(𝔭)` is nilpotent. The completion `Â_(𝔭,R) = (F_𝔭 ⊗_F R)[[z]]` splits as the product over `i ∈ ℤ/f` of the factors `Â_(𝔭,R)/𝔞_i ≅ R[[z]]` on which `a ⊗ 1` acts as `1 ⊗ γ(a)^(q^i)` for `a ∈ F_𝔭`; `σ` permutes the factors cyclically and `σ̂ = σ^f` preserves each, acting by `b ↦ b^q̂` on `R` and fixing `z`. A local shtuka of rank `r` over `R` is a locally free `R[[z]]`-module `M̂` of rank `r` with an isomorphism `τ_M̂ : σ̂^∗M̂[1/(z − γ(z))] ≅ M̂[1/(z − γ(z))]`; it is *effective* when `τ_M̂(σ̂^∗M̂) ⊂ M̂` and *étale* when equality holds. A `𝔭`-divisible local Anderson module is an fppf sheaf `G` of `F_𝔭[[z]]`-modules that is `z`-torsion and `z`-divisible, whose `G[z^n]` are finite locally free strict `F_𝔭`-module schemes, and on whose co-Lie module `(z − γ(z))^d = 0` for some `d`.
+**Definition.** Let `𝔭 ⊂ A` be a maximal ideal with residue field `F_𝔭` of size `q̂ = q^f`, let `z ∈ K_0` be a uniformizer at `𝔭`, so that `F_𝔭[[z]] ≅ Â_𝔭`, and let `R` be an `A`-algebra in which `γ(𝔭)` is nilpotent. The residue map `F_𝔭 → R/γ(𝔭)R` has a unique `F`-algebra lift `η : F_𝔭 → R`, since finite fields are étale over `F` and the ideal is nilpotent. The completion `Â_(𝔭,R) = (F_𝔭 ⊗_F R)[[z]]` splits as the product over `i ∈ ℤ/f` of the factors `Â_(𝔭,R)/𝔞_i ≅ R[[z]]` on which `a ⊗ 1` acts as `1 ⊗ η(a)^(q^i)` for `a ∈ F_𝔭`; `σ` permutes the factors cyclically and `σ̂ = σ^f` preserves each, acting by `b ↦ b^q̂` on `R` and fixing `z`. A local shtuka of rank `r` over `R` is a locally free `R[[z]]`-module `M̂` of rank `r` with an isomorphism `τ_M̂ : σ̂^∗M̂[1/(z − γ(z))] ≅ M̂[1/(z − γ(z))]`; it is *effective* when `τ_M̂(σ̂^∗M̂) ⊂ M̂` and *étale* when equality holds. A `𝔭`-divisible local Anderson module is an fppf sheaf `G` of `F_𝔭[[z]]`-modules that is `z`-torsion and `z`-divisible, whose `G[z^n]` are finite locally free strict `F_𝔭`-module schemes, and on whose co-Lie module `(z − γ(z))^d = 0` for some `d`.
 
 - `LocalShtuka`: locally free `R[[z]]`-modules with `τ_M̂`, effective and étale variants.
 - `LocalShtuka.ofMotive`: `M̂_𝔭(M) = (M ⊗ Â_(𝔭,R)/𝔞_0, τ_M^f)`, the local shtuka at `𝔭` of an `A`-motive; it is effective exactly when `M` is.
@@ -1088,14 +1094,15 @@ Full level structures away from the characteristic rigidify Drinfeld modules: th
 
 **Theorem.** Let `X` be a normal integral scheme, proper over a Noetherian ring `R_0`, with an ample invertible sheaf `ℒ`. Then `Γ_∗(X, ℒ)_(≥0) = ⊕_(n≥0) H⁰(X, ℒ^(⊗n))` is a finitely generated `R_0`-algebra, it is a normal domain, and the canonical map `X → Proj Γ_∗(X, ℒ)_(≥0)` is an isomorphism. This includes dimension zero.
 
-*Proof sketch.* Finite generation is Serre's theorem for proper schemes over a Noetherian ring (Stacks, Lemma 30.16.1, Tag 0B5T), and the isomorphism with `Proj` holds for every universally closed morphism with an ample sheaf (Stacks, Lemma 29.44.17, Tag 0C6J). For normality, trivialize `ℒ` at the generic point and embed the integer-graded section ring `R_ℤ` in `K(X)[T, T^(−1)]`. It is the ring of global functions on the complement of the zero section in the total space of `ℒ^(−1)`, hence integrally closed because that scheme is normal integral. The nonnegative section ring is `R_ℤ ∩ K(X)[T]`; both rings are integrally closed in a common overfield, so their intersection is integrally closed. This argument does not require negative-degree sections to vanish. (Pin, Theorem 5.7 and its normality argument, p. 21; Stacks, Tags 0B5T and 0C6J for finite generation and `Proj`.) *Needs:* SchemeAndStackFoundations §§0.3, 2.6; AlgebraicVectorBundles L2B.
+*Proof sketch.* Finite generation is Serre's theorem for proper schemes over a Noetherian ring (Stacks, Lemma 30.16.1, Tag 0B5T), and the isomorphism with `Proj` holds for every universally closed morphism with an ample sheaf (Stacks, Lemma 29.44.17, Tag 0C6J). For normality use the total space `Y = Spec_X Sym(ℒ)` of `ℒ^(−1)`, including its zero section. It is normal and integral because locally it is a polynomial ring over a normal domain. Its global functions are exactly `⊕_(n≥0) H⁰(X, ℒ^(⊗n))`; global functions on a normal integral scheme form an integrally closed domain. This argument requires no vanishing of negative tensor powers. (Stacks, Tags 0B5T and 0C6J; AlgebraicVectorBundles L1A–L1B and L2B for relative spectra.) *Needs:* SchemeAndStackFoundations §§0.3, 2.6; AlgebraicVectorBundles L1A–L1B, L2B.
 
 **Checks.**
 
 - For `X = P^1` and `ℒ = 𝒪(1)`, the section ring is `R_0[x, y]`.
-- For `X = P^1` and `ℒ = 𝒪(q)`, the section ring is the `q`-th Veronese subring, still normal, with `dim_F` of degree `n` equal to `qn + 1`.
+- For `X = P^1_F` and `ℒ = 𝒪(q)`, the section ring is the `q`-th Veronese subring, still normal, with `dim_F` of degree `n` equal to `qn + 1`.
 - For `ℒ = 𝒪` (not ample) on `P^1`, the section ring is `R_0[s]` with `Proj` a point, not `P^1`.
 - For the identity `X = Spec R_0` with `R_0` a normal Noetherian domain and `ℒ = 𝒪`, the section ring is `R_0[T]`. All negative tensor powers also have sections, including when `R_0` is a DVR; their vanishing is not a consequence of relative ampleness.
+- For `X = Spec F[u]` over `R_0 = F[u]` and `ℒ = 𝒪_X`, the morphism is proper and `ℒ` is ample, but all negative tensor powers have nonzero sections despite `dim X = 1`. The nonnegative section ring is `F[u,s]`, which is normal and has relative `Proj` equal to `X`.
 
 <a id="dm-3-modular-forms"></a>
 
@@ -1168,7 +1175,7 @@ For Drinfeld modules over a field `L` finitely generated over `F`, homomorphisms
 
 ### 5.1 Rational motives and their Tate realization (`AMotive.rationalTate`)
 
-**Definition.** Let `L` be a coefficient field with characteristic map `γ`. The category of rational `A`-motives (isomotives) has the effective `A`-motives as objects and `Hom^0(M, N) = K_0 ⊗_A Hom(M, N)`. For a prime `λ ≠ ker γ` with residue field `F_λ` and local parameter `z`, let `L_(λ)` be the total quotient ring of `(F_λ ⊗_F L)[[z]]`, keeping every residue-field factor (it is a finite product of fields). Put `K_(0,λ) = Frac(A_λ)`. The rational Tate realization `V_λ(M)` is the `K_(0,λ)`-module of `τ`-invariants of `M ⊗ L^sep_(λ)`. Put `D_λ = Hom_F(K_λ/A_λ, F)`, with `A_λ` acting by precomposition with multiplication. This residue-dual module is free of rank one, with trivial coefficient-field Galois action. The canonical duality is `T_λE ≅ Hom_(A_λ)(T_λ(M(E)), D_λ)`; rationally its values lie in `K_λ ⊗ D_λ`. Choosing a local parameter and the residue-field trace identifies `D_λ` with `A_λ`, and then gives the ordinary dual. The finite-level pairing is that of [§1.7](#dm-1-geometric-torsion-basis); an ordinary scalar-valued duality without this choice is not declared canonical.
+**Definition.** Let `L` be a coefficient field with characteristic map `γ`. The category of rational `A`-motives (isomotives) has the effective `A`-motives as objects and `Hom^0(M, N) = K_0 ⊗_A Hom(M, N)`. For a prime `λ ≠ ker γ` with residue field `F_λ` and local parameter `z`, let `L_(λ)` be the total quotient ring of `(F_λ ⊗_F L)[[z]]`, keeping every residue-field factor (it is a finite product of fields). Put `K_(0,λ) = Frac(A_λ)`. The rational Tate realization `V_λ(M)` is the `K_(0,λ)`-module of `τ`-invariants of `M ⊗ L^sep_(λ)`. Put `D_λ = Hom_F(K_λ/A_λ, F)`, with `A_λ` acting by precomposition with multiplication. Give this residue-dual module the inverse-limit topology from the duals of the finite division modules. It is free of rank one, with trivial coefficient-field Galois action. Put `T_λ(M) = lim_n (M/λ^nM ⊗_L L^sep)^τ`; then `V_λ(M) = K_λ ⊗_(A_λ) T_λ(M)`. The canonical duality is `T_λE ≅ Hom_(A_λ)(T_λ(M(E)), D_λ)`; rationally its values lie in `K_λ ⊗ D_λ`. Choosing a local parameter and the residue-field trace identifies `D_λ` with `A_λ`, and then gives the ordinary dual. The finite-level pairing is that of [§1.7](#dm-1-geometric-torsion-basis); an ordinary scalar-valued duality without this choice is not declared canonical.
 
 - `AMotive.HomIsogeny`: `K_0 ⊗_A Hom(M, N)`.
 - `AMotive.rationalTate`: the completed `τ`-fixed realization `V_λ(M)`.
@@ -1179,11 +1186,12 @@ For Drinfeld modules over a field `L` finitely generated over `F`, homomorphisms
 - `AMotive.torsion_annihilator`: if a finite torsion `A_L`-module `Q` has a Frobenius linearization whose kernel and cokernel are supported at `J`, some nonzero `a ∈ A` kills `Q`. The condition is on both kernel and cokernel.
 - `AMotive.isogeny_factor_scalar`: an injective map of effective motives of equal rank factors a scalar isogeny: there are `a ∈ A ∖ {0}` and a reverse map whose two composites are multiplication by `a`. Thus scalar localization really inverts these isogenies.
 
-*Construction.* Localize `Hom` at the nonzero elements of `A` and check composition. For the torsion-annihilator target split off the part with invertible Frobenius linearization, descend it to finite `A`-torsion by the semilinear Lang lemma, and filter the remaining nilpotent part by modules killed by Frobenius; its support is at the characteristic. In generic characteristic the distinct Frobenius translates of `J` rule out the nilpotent part. Applying the resulting nonzero `A`-annihilator to a motive quotient gives the reverse map in `isogeny_factor_scalar`. Completing at `λ` makes `τ_M` invertible since `λ` is away from `J`; the semilinear Lang lemma ([§1.3](#dm-1-semilinear-lang)) at each finite level and passage to the limit give a realization of rank `rank M`. For the duality, pair a compatible motive vector with the value of a division-module map at `x ∈ K_λ/A_λ`, using the finite-level evaluation pairing. This gives the functional in `D_λ`; perfection follows at finite levels. Laurent coefficients and the nondegenerate residue trace prove the parameter-basis claim. (Hartl, Theorem 6.6, p. 26, for the finite-level duality.) The rational coefficient field `K_(0,λ,L) = Frac(K_(0,λ) ⊗_F L)` is kept distinct from the completed ring `L_(λ)`. (Sta, Definitions 2.1–2.2, pp. 5–6, Theorem 2.17(d), pp. 9–10, Proposition 2.20 and Definition 2.22, pp. 10–11, Definition 2.26, pp. 12–13, Proposition 2.28, pp. 13–14, Proposition 4.7, p. 24.) *Needs:* [§4.2](#dm-4-effective-a-motive); [§4.3](#dm-4-contravariant-motive); [§1.8](#dm-1-tate-module); [§1.7](#dm-1-geometric-torsion-basis); AlgebraicCurves Layer 5.
+*Construction.* Localize `Hom` at the nonzero elements of `A` and check composition. For the torsion-annihilator target split off the part with invertible Frobenius linearization, descend it to finite `A`-torsion by the semilinear Lang lemma, and filter the remaining nilpotent part by modules killed by Frobenius; its support is at the characteristic. In generic characteristic the distinct Frobenius translates of `J` rule out the nilpotent part. Applying the resulting nonzero `A`-annihilator to a motive quotient gives the reverse map in `isogeny_factor_scalar`. Completing at `λ` makes `τ_M` invertible since `λ` is away from `J`; the semilinear Lang lemma ([§1.3](#dm-1-semilinear-lang)) at each finite level and passage to the limit give a realization of rank `rank M`. For the duality, pair a compatible motive vector with the value of a division-module map at `x ∈ K_λ/A_λ`, using the finite-level evaluation pairing. This gives the functional in `D_λ`; perfection follows at finite levels. Laurent coefficients and the nondegenerate residue trace prove the parameter-basis claim. (Hartl, Theorem 6.6, p. 26, for the finite-level duality.) The rational coefficient ring `K_(0,λ,L) = Quot(K_(0,λ) ⊗_F L)` uses the total ring of fractions, retaining every factor, and is kept distinct from the completed ring `L_(λ)`. (Sta, Definitions 2.1–2.2, pp. 5–6, Theorem 2.17(d), pp. 9–10, Proposition 2.20 and Definition 2.22, pp. 10–11, Definition 2.26, pp. 12–13, Proposition 2.28, pp. 13–14, Proposition 4.7, p. 24.) *Needs:* [§4.2](#dm-4-effective-a-motive); [§4.3](#dm-4-contravariant-motive); [§1.8](#dm-1-tate-module); [§1.7](#dm-1-geometric-torsion-basis); AlgebraicCurves Layer 5.
 
 **Checks.**
 
 - The identity morphism realizes as the identity.
+- If `deg λ = 2` and `L = F_λ`, then `F_λ ⊗_F L ≅ L × L`; both factors survive in the local coefficient ring. A single fraction field would discard data.
 - A nonzero isogeny of Drinfeld modules becomes an isomorphism of isomotives.
 - For transcendental `θ`, `Q = L[t]/(t − θ)` with zero Frobenius has no nonzero `F[t]`-annihilator. Its linearization kernel is supported at `t = θ^q`, so it fails the two-support hypothesis even though the cokernel is supported at `t = θ`.
 - For `A_λ = F[[z]]`, the basis functional sends `z^(−1)` to `1` and `z^(−2)` to `0`.
@@ -1239,6 +1247,7 @@ For Drinfeld modules over a field `L` finitely generated over `F`, homomorphisms
 - A nonzero constant endomorphism induces a nonzero Tate map.
 - For the Carlitz module, `End(C) = A` has rank `1 = r²`.
 - For `φ_t = τ²` over `F_(q²)`, `End(φ)` has rank four, the maximum `r²`.
+- If `A` has a nonprincipal ideal `I`, the rank-one modules over `C_∞` uniformized by `A` and `I` have `Hom(E_A,E_I) = {c : cA ⊂ I} = I` by [§2.7](#dm-2-exponential-morphisms). This Hom module is projective and not free.
 
 <a id="dm-5-period-ring"></a>
 
@@ -1264,7 +1273,7 @@ For Drinfeld modules over a field `L` finitely generated over `F`, homomorphisms
 
 ### 5.6 Local algebraization (`AMotive.localAlgebraization`)
 
-**Theorem.** Let `L` be finitely generated over `F` (so `L` has finitely many roots of unity), `K_(0,L) = Frac(K_0 ⊗_F L)`, `K_(0,λ,L) = Frac(K_(0,λ) ⊗_F L)` and `L_(λ)` as above. Call a finite projective module with invertible Frobenius linearization *restricted*, and *`λ`-restricted* if it has a finite projective integral lattice at `λ` with invertible Frobenius. Then scalar extension `K_(0,L) → K_(0,λ,L)` is `K_(0,λ)/K_0`-fully faithful on restricted modules and preserves semisimple objects, and scalar extension `K_(0,λ,L) → L_(λ)` is fully faithful on `λ`-restricted objects and preserves semisimple objects. So completed Frobenius-equivariant maps are algebraic over the rational coefficient ring. When `L` is finite the two local rings agree; in positive transcendence degree they do not.
+**Theorem.** Let `L` be finitely generated over `F` (so `L` has finitely many roots of unity), `K_(0,L) = Frac(K_0 ⊗_F L)`, `K_(0,λ,L) = Quot(K_(0,λ) ⊗_F L)` and `L_(λ)` as above. Here `Quot` keeps all factors of the total ring of fractions; only `K_(0,L)` is asserted to be a field. Call a finite projective module with invertible Frobenius linearization *restricted*, and *`λ`-restricted* if it has a finite projective integral lattice at `λ` with invertible Frobenius. Then scalar extension `K_(0,L) → K_(0,λ,L)` is `K_(0,λ)/K_0`-fully faithful on restricted modules and preserves semisimple objects, and scalar extension `K_(0,λ,L) → L_(λ)` is fully faithful on `λ`-restricted objects and preserves semisimple objects. So completed Frobenius-equivariant maps are algebraic over the rational coefficient ring. When `L` is finite the two local rings agree; in positive transcendence degree they do not.
 
 *Proof sketch.* For the first extension reduce to finite and to one-variable purely transcendental extensions; Frobenius-fixed denominators descend to the constant field, and `K_(0,λ)/K_0` is separable through a separating local parameter. For the second, the period ring of [§5.5](#dm-5-period-ring) with its two fixed-ring identities constructs a fully faithful realization; every invariant subobject is quasigeometric and the descended lattice supplies the `λ`-restricted condition. (Sta, Theorem 3.11 with proof, pp. 18–21, Theorem 4.8 and Proposition 4.9, pp. 25–26, Theorem 5.15, p. 33.) *Needs:* [§5.5](#dm-5-period-ring); [§5.1](#dm-5-rational-motive-realization); AlgebraicCurves Layer 5.
 
@@ -1360,7 +1369,7 @@ Taelman's class formula expresses the Euler product `L(E/R)` of a Drinfeld modul
 - `TaelmanModel.reduce`: reduction modulo a maximal ideal `𝔪 ⊂ R` gives the finite `F[t]`-module `E(R/𝔪)`.
 - `TaelmanModel.ext`: the twisted polynomial `E_t` determines the model.
 
-*Construction.* `E_t` acts on every `R`-algebra by evaluation. Discreteness and cocompactness of `R` in `K_∞` follow from the discreteness and cocompactness of `K` in its adeles (FunctionFieldArithmetic §2.1), since `R` is `K` intersected with the integral adeles at the finite places. (Tae, Definition 2 and Remarks 1–2, p. 371.) *Needs:* [§0.5](#dm-0-carlitz-module); FiniteFieldsAndCharacterSums *frobenius-ore-polynomial-comparison*; AlgebraicCurves Layers 2 and 5; FunctionFieldArithmetic §2.1.
+*Construction.* `E_t` acts on every `R`-algebra by evaluation. AlgebraicCurves Layer 2 makes `R` finite and torsion-free over the PID `F[θ]`, hence free of rank `[K : F(θ)]`. A basis identifies `R ⊂ K_∞` topologically with `F[θ]^n ⊂ F((1/θ))^n`. In one coordinate, a nonzero polynomial has norm at least one and every Laurent series is uniquely a polynomial plus an element of `θ^(−1)F[[θ^(−1)]]`; that last set is compact as a product of finite sets. This proves discreteness and cocompactness directly, including inseparable `K/F(θ)`, without an adelic lattice theorem. (Tae, Definition 2 and Remarks 1–2, p. 371.) *Needs:* [§0.5](#dm-0-carlitz-module); FiniteFieldsAndCharacterSums *frobenius-ore-polynomial-comparison*; AlgebraicCurves Layers 2 and 5; finite torsion-free modules over a PID and compactness of products of finite discrete spaces.
 
 **Checks.**
 
@@ -1560,7 +1569,7 @@ Taelman's class formula expresses the Euler product `L(E/R)` of a Drinfeld modul
 
 ### Dependencies
 
-Layers DM.0 and DM.2; Mathlib `LinearMap.charpoly`; Tau Ceti `TauCeti.fittingIdeal` (current library); FiniteFieldsAndCharacterSums (linearized polynomials); AlgebraicCurves Layers 2 and 5; FunctionFieldArithmetic §2.1.
+Layers DM.0 and DM.2; Mathlib `LinearMap.charpoly`; Tau Ceti `TauCeti.fittingIdeal` (current library); FiniteFieldsAndCharacterSums (linearized polynomials); AlgebraicCurves Layers 2 and 5.
 
 ## Layer DM.7: Normalized elliptic sheaves and shtuka comparisons
 
@@ -2245,11 +2254,19 @@ This layer proves Papanikolas's theorem: for a pre-t-motive with a rigid analyti
 
 *Proof sketch.* The product of the conjugates of a nonzero integral element is a nonzero element of `A`, of absolute value at least one; extraction of `p`-th roots transports this to the perfect closure. Translate a polynomial by its root and use the first nonzero term. For the kernel vector, Riemann–Roch on the curve of `K_2` (AlgebraicCurves Layers 3 and 5) counts the integral elements of bounded size, and pigeonhole gives the small vector; for polynomial matrices pass to coefficient bases of bounded degree and increase the degree until the ratio of rows to columns approaches `r/s`. (ABP, §§3.2–3.3, pp. 10–13, Lemmas 3.3.3–3.3.6.) *Needs:* AlgebraicCurves Layers 3 and 5; JacobianChallenge Layer B.
 
+**Size API.** Set `size(0) = 0` and give an empty coefficient array size zero. Prove `abp_size_add_le_max`, `abp_size_mul_le` and `abp_size_twist`: size is ultrametric, submultiplicative and satisfies `size(x^(n)) = size(x)^(q^n)` for every integer coefficient twist `n`. Nonzero integral elements have size at least one. For matrices use compatible dimensions in the product estimate. These follow by extending embeddings to the algebraic closure, the ultrametric inequality and the uniqueness of purely inseparable roots. (ABP, §3.2, p. 10, §3.3.2, p. 11.)
+
+**Bounded-element count (`abp_bounded_count`).** Write `𝒪_0 = 𝒪 ∩ K_2`, let `k_0` be the full constant field of `K_2`, put `f = [k_0:F_q]`, and let `g` be the genus over `k_0`. On its smooth proper curve put `D_∞ = Σ_(v|∞) e_v v`, where degrees are taken over `k_0`. Then `f·deg_(k_0) D_∞ = d`. For every sufficiently large integer `n`, the elements of `𝒪_0` of size at most `q^n` form `L(nD_∞)` and their number is `q^(dn + f(1−g))`. Consequently, for every real `C > 1`, the finite sets `B_ν(C) = {x ∈ 𝒪_0^(q^(−ν)) : size(x) ≤ C}` satisfy `lim_(ν→∞) #B_ν(C)^(1/(q^ν d)) = C`. The constants need not equal `F_q`. Apply Riemann–Roch for the exact formula; extraction of roots and upper and lower approximations to `log_q C` give the limit. (ABP, Lemma 3.3.4 and proof, p. 11.) *Needs:* AlgebraicCurves Layers 3 and 5; JacobianChallenge Layer B.
+
+**Polynomial degree bound (`abp_polynomial_siegel_degree`).** If `M ∈ Mat_(r×s)(𝒪[t])` has degree at most `d_0` and size less than `C`, choose an integer `e ≥ 0` with `r' = r(d_0+e+1) < s' = s(e+1)` and `size(M) < C' = C^((r/(s−r))((s'−r')/r'))`. There is a nonzero polynomial kernel vector of degree at most `e` and size less than `(C')^(r'/(s'−r')) = C^(r/(s−r))`. Such `e` exist because `r'/(s'−r')` tends to `r/(s−r)`. This is a conditional explicit degree bound, rather than a degree bound depending only on the matrix dimensions. (ABP, proof of Lemma 3.3.6, pp. 12–13.)
+
 **Checks.**
 
 - For `x ∈ A ∖ {0}` (`d = 1`), `|x| ≥ 1 = size(x)^0`.
 - For `x = θ^(−1)` (not integral) the first bound fails: integrality is needed.
 - For `r ≥ s` there need be no nonzero kernel vector, so `r < s` is needed.
+- The zero polynomial and an empty matrix have size zero; `size(θ^(q^n)) = q^(q^n)` for positive and negative integers `n`.
+- For `K_2 = F_(q^f)(θ)`, `d = f`, `g = 0` and `deg_(k_0) D_∞ = 1`; the count is `q^(f(n+1))`. Replacing the full constant field by `F_q` would give the wrong constant factor.
 
 <a id="dm-8-abp-lifting"></a>
 
@@ -2259,11 +2276,22 @@ This layer proves Papanikolas's theorem: for a pre-t-motive with a rigid analyti
 
 *Proof sketch.* In rank one, a zero at `θ` propagates along the inverse-Frobenius orbit `θ^(q^(−i))`, infinitely many distinct points of bounded absolute value, so the function vanishes by [§8.36](#dm-8-schwarz-jensen). In general, clear denominators and use [§8.37](#dm-8-abp-estimates) to build polynomial rows of bounded size with a long run of prescribed zeros along the orbit; the auxiliary function satisfies a scalar difference equation of bounded size. If it never vanished identically, its leading coefficient would be bounded below by the Liouville estimate and above, exponentially decreasingly, by [§8.36](#dm-8-schwarz-jensen). A vanishing auxiliary row, twisted through adjugate matrices, has nonzero value at `θ` on the line of `w`; rescale. (ABP, Theorem 3.1.1, pp. 7–8, proof §3.4, pp. 13–16; Pap, Theorem 5.1.1, p. 32.) *Needs:* [§8.10](#dm-8-entire-series); [§8.37](#dm-8-abp-estimates); [§8.36](#dm-8-schwarz-jensen); [§2.1](#dm-8-coefficient-twist).
 
+**Auxiliary row (`abp_auxiliary`).** For the integral normalization, take `r = ℓ > 1`, `Φ ∈ Mat_ℓ(𝒪[t])`, `det Φ = c(t−θ)^s` with `c ∈ 𝒪` nonzero, and a nonzero row `ρ ∈ 𝒪^(1×ℓ)` with `ρψ(θ) = 0`. Choose `ϑ ∈ Mat_(ℓ×(ℓ−1))(𝒪)` of rank `ℓ−1` with `ρϑ = 0`. Put `Θ = adj(Φ)`, `δ_0 = deg_t Θ`, `a = 1−1/(2ℓ)`, choose
+`B > q^(a+2δ_0) max(1,size(Θ))^(q/(q−1)) max(1,size(ϑ))`, and put `H = B^(2(ℓ−1))`. For every positive multiple `N` of `2ℓ` there is a nonzero row `h_N ∈ 𝒪[t]^(1×ℓ)` of degree less than `aN` and size less than `H` satisfying, for `0 ≤ j < N`,
+`[h_N Θ Θ^(−1) ⋯ Θ^(−(N+j−1)) ϑ^(−(N+j))](θ^(q^(−(N+j)))) = 0`.
+Consequently `E_N = h_Nψ` vanishes at these `N` orbit points. The displayed constraints evaluate polynomials, not formal series at undefined arguments. There are `(ℓ−1)N` linear constraints and `(ℓ−1/2)N` coefficients to choose. Their coefficient matrix has size less than `B`; the kernel bound of §8.37 gives the exponent `2(ℓ−1)` in `H`. (ABP, §§3.4.2–3.4.3, pp. 13–15.) *Needs:* [§8.37](#dm-8-abp-estimates); [§8.10](#dm-8-entire-series); [§2.1](#dm-8-coefficient-twist).
+
+**Auxiliary vanishing (`abp_auxiliary_zero`).** With this normalization and the same bound `H`, every row satisfying those constraints, degree bound and `size(h_N) ≤ H` has `h_Nψ = 0` for all sufficiently large multiples `N` of `2ℓ`. In fact, fix `D > max(1,H max(1,size(Φ))^(q/(q−1)))` and `M_ψ = sup_(|z|≤q) max_i |ψ_i(z)|`. If `E_N` were nonzero, its first nonzero coefficient `λ_N` would satisfy
+`D^(−ℓ d q^ℓ) ≤ |λ_N| ≤ M_ψ H q^(−N/(2ℓ)+q/(q−1))`.
+For the lower bound apply polynomial Siegel to the `ℓ+1` twisted rows expressing `E_N, E_N^(−1), …, E_N^(−ℓ)` in terms of `ψ`; after removing a common power of `t`, their nonzero constant terms give an additive polynomial relation for `λ_N`. Liouville gives the displayed coarse lower bound. The prescribed zeros and Schwarz–Jensen give the upper bound, which tends to zero. If `M_ψ = 0`, vanishing already holds. (ABP, §§3.4.4–3.4.5, pp. 15–16.) *Needs:* the preceding auxiliary row; [§8.37](#dm-8-abp-estimates); [§8.36](#dm-8-schwarz-jensen).
+
 **Checks.**
 
 - For `r = 1`, `Φ = t − θ`, `ψ = Ω`: `Ω(θ) ≠ 0`, so only `w = 0` occurs and `P = 0` works.
 - For `Φ = I_2` and `ψ = (1, t)`, the relation `w = (θ, −1)` at `θ` lifts to `P = (t, −1)`, which is not constant.
 - Without the determinant condition the criterion fails in general; the hypothesis `det Φ = c(t − θ)^s` is used for the orbit argument.
+- For `ℓ = 2`, `N = 4`, the auxiliary degree bound is `< 3`: six coefficients face four constraints, and the kernel exponent is `4/(6−4) = 2`.
+- For `ψ = (1,t)` and `Φ = I_2`, one can use the relation row `(t,−1)`, of degree one and with identically zero auxiliary function; the nonzero-coefficient bounds apply only when the auxiliary function is nonzero.
 
 <a id="dm-8-specialization-rank"></a>
 
@@ -2312,7 +2340,7 @@ For a standard graded finite-type `k_0`-algebra `S` with `S_0 = k_0`, first prov
 **Checks.**
 
 - `B = k_0[x]` with `x` transcendental: `dim D_d = d + 1`, degree one.
-- `B = k_0[x, y]` free: `dim D_d = (d + 1)(d + 2)/2`, degree two.
+- `B = k_0[x, y]` free: `dim D_d = (d + 1)(d + 2)/2`, degree two. In characteristic two this is still a rational numerical polynomial counting dimensions; dividing by `2` in `k_0` would be invalid.
 - `B = k_0[x]/(x²)` is not a domain: `dim D_d = 2` for `d ≥ 1`, degree zero, though `B ≠ k_0`.
 
 <a id="dm-8-period-transcendence"></a>
@@ -2495,7 +2523,7 @@ The following slips in the sources are corrected in the targets above.
 - Papikian, proof of Theorem 2.3, p. 7: the finite product defining `φ^Λ_a` needs the factor `a` ([§2.5](#dm-2-lattice-drinfeld-module)). Brownawell–Papanikolas, §2.4, p. 6: the polynomial attached to `a` is `P_[Λ:aΛ](az)`.
 - Hartl, arXiv version, display (3.5) in the proof of Theorem 3.5, p. 9: the target is `Hom(M(E'), M(E))`, as in the published display. Hartl, Lemma 3.8(b), proof, p. 10: the unit used is `f` itself.
 - Hartl–Yu, Proposition 3.11 and proof, pp. 18–19: the line bundles are on `Q_(r, A[1/t])`; display (3.7), p. 18: the sum runs once over subsets of `V ∖ {0}`, not over ordered tuples.
-- Stalder, recap after Proposition 6.21 (arXiv p. 43; published p. 595): the Galois-fixed ring is `Frac(F_λ ⊗ L)`, not the completed ring; proof of Proposition 6.4, p. 36: the denominator `q^m − 1` is kept; proof of Theorem 5.4, p. 28: `(V_λ(M)^∨ ⊗ V_λ(N))^G = Hom_G(V_λ(M), V_λ(N))`.
+- Stalder, recap after Proposition 6.21 (arXiv p. 43; published p. 595): the Galois-fixed ring is the total ring of fractions of `K_(0,λ) ⊗_F L`, not the completed ring; proof of Proposition 6.4, p. 36: the denominator `q^m − 1` is kept; proof of Theorem 5.4, p. 28: `(V_λ(M)^∨ ⊗ V_λ(N))^G = Hom_G(V_λ(M), V_λ(N))`.
 - Maurischat, Theorems 3.6 and 3.8, p. 17: left-module quotients use left ideals. The zero-primary part is separated before the single-edge decomposition; in Theorem 4.1, p. 22, the slope condition includes nonzero constant term, so a nilpotent matrix is excluded. The lattice exponent uses the dimension of its summand, and rank modulo a uniformizer power has the invariant-factor meaning of Definition 1.10, p. 8 ([§4.10](#dm-4-skew-invariant-factors)).
 - Wiedmann, proof of Proposition 5.15, p. 77: the section dimensions come from Proposition 5.14.
 - Papanikolas: proof of Proposition 3.3.14, p. 16, independent ranks `r`, `s` for the two factors; §3.4.1, p. 17, and Proposition 3.4.7, p. 19, the representing matrix is `r × r`; proof of Theorem 3.5.4, p. 21, the coefficient field of the graded category is `F_q(t)`; proof of Lemma 4.5.7, p. 30, the kernel matrix is the vertical block `(−C; I_(s−m))`; proof of Theorem 5.2.2, p. 33, the block size is `Σ_(n=0)^d r^(2n)`, which is `d + 1` when `r = 1`; proof of Proposition 6.1.3, p. 34, the basis column includes `m_0`; proof of Theorem 6.4.2, p. 38, logarithms with exponential zero are handled by the period lattice, not by Lemma 6.4.1.
