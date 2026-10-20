@@ -153759,6 +153759,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-ColemanIntegrationPartII.md"
+  },
+  {
+   "id": "FIX-PKG-PadicHodgeRegulators~adv1",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PadicHodgeRegulators~adv1.md",
+    "research/blueprint/packages/PadicHodgeRegulators/review.json",
+    "research/blueprint/packages/PadicHodgeRegulators/README.md",
+    "research/blueprint/packages/PadicHodgeRegulators/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PadicHodgeRegulators~adv1.md"
   }
  ]
 }
