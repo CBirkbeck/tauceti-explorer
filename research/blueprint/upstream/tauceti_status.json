@@ -759,9 +759,9 @@
       "note": "ported 2026-10-16 (tier 14); first pass applied, second-pass fix running (13 findings, 6 P1); draft",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "67d5fdc",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "ArakelovGeometryAndAbelianHeights": {
