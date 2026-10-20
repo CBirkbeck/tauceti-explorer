@@ -308,7 +308,7 @@
     "LocallyAnalyticDistributions": {
       "stage": "pr",
       "pr": 854,
-      "head": "3f5c49b",
+      "head": "3fd4e00",
       "depends_on": [
         780,
         813,
@@ -318,8 +318,9 @@
       "review": {
         "recommendation": "changes",
         "head": "3f5c49b",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 3fd4e00; confirmation pass pending"
       }
     },
     "DiophantineApproximationAndTranscendence": {
