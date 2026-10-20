@@ -152838,6 +152838,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-ArithmeticKTheory~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-IntegralIwasawaTheory~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "IntegralIwasawaTheory"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-IntegralIwasawaTheory~adv.md",
+    "research/blueprint/packages/IntegralIwasawaTheory/review.json",
+    "research/blueprint/packages/IntegralIwasawaTheory/README.md",
+    "research/blueprint/packages/IntegralIwasawaTheory/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-IntegralIwasawaTheory~adv.md"
   }
  ]
 }
