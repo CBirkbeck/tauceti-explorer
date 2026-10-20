@@ -135,6 +135,7 @@
   "NoncommutativeAndEquivariantIwasawa": 7,
   "ColemanPowerSeries": 4,
   "PhiGammaModulesAndIwasawaCohomology": 8,
-  "EulerSystemsCyclotomicMainConjecture": 5
+  "EulerSystemsCyclotomicMainConjecture": 5,
+  "PadicLocalLanglandsForGL2Qp": 9
  }
 }

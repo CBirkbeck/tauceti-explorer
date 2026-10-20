@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-20T15:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-20T15:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #914 FreeGroupsAndLimitGroups — draft
@@ -19,8 +19,7 @@ Generated 2026-10-20T15:00Z from the README supplier graph of every open pull re
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 2
 - #785 ReductiveGroupsPartII — draft; waits on #446, #447
@@ -28,7 +27,7 @@ Generated 2026-10-20T15:00Z from the README supplier graph of every open pull re
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
 - #1015 NoncompactQuantumSymmetry (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 3
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #934
@@ -56,6 +55,7 @@ Generated 2026-10-20T15:00Z from the README supplier graph of every open pull re
 ## Wave 7
 - #857 CrystallineCohomology — draft; waits on #820, #868, #940, #1102, #1103, #1104
 - #1307 NoncommutativeAndEquivariantIwasawa — draft; waits on #1212, #1306, #785, #940
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 8
 - #853 AlgebraicModuliForArithmeticGeometry — draft; waits on #1199, #785, #857, #899
@@ -66,6 +66,7 @@ Generated 2026-10-20T15:00Z from the README supplier graph of every open pull re
 ## Wave 9
 - #848 ComplexComparisonPartII — draft; waits on #1199, #853, #857, #868, #1056, #887, #896, #918, #954, #973, #992
 - #1229 SchemeKTheoryOperations — ready (approved at an earlier head); waits on #1212, #1227, #853, #1142
+- #1312 PadicLocalLanglandsForGL2Qp — draft; waits on #1310, #785, #940
 
 ## Wave 10
 - #849 AbelianSchemesAndArithmeticModuli — draft; waits on #848, #853, #857
@@ -108,7 +109,7 @@ Generated 2026-10-20T15:00Z from the README supplier graph of every open pull re
 
 ## Wave 17
 - #920 GlobalGaloisDeformations — draft; waits on #1037, #785, #856, #858, #869, #923
-- #922 DiamondEtaleCohomology — ready (approved at an earlier head); waits on #820, #858, #875
+- #922 DiamondEtaleCohomology — draft; waits on #820, #858, #875
 - #928 AlgebraicModularFormsAndSerreWeights — ready (approved at an earlier head); waits on #1037, #848, #849, #856, #879, #913
 - #929 DeligneWeightsAndPurity — ready (approved at an earlier head); waits on #785, #849, #850, #856, #858, #873, #913
 - #1044 AInfCohomology — ready (approved at an earlier head); waits on #1042, #857, #858, #868, #875, #879, #940, #942
