@@ -13,13 +13,7 @@ its bounded analytic instance requires the README's evaluation/descent inputs.
 No abstract type in this file is asserted to be one of those missing carriers.
 -/
 
-import Mathlib.Algebra.BigOperators.Intervals
-import Mathlib.FieldTheory.Finite.GaloisField
-import Mathlib.LinearAlgebra.Dimension.Finrank
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.LinearAlgebra.Matrix.Notation
-import Mathlib.NumberTheory.Padics.PadicIntegers
-import Mathlib.Tactic.NormNum
+import Mathlib
 
 noncomputable section
 open scoped BigOperators
