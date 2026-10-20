@@ -92,15 +92,25 @@ example : divisibleSubgroup ℚ = ⊤ := by
   rw [nsmul_eq_mul, mul_div_cancel₀]
   exact_mod_cast (show m ≠ 0 by omega)
 
-example : divisibleSubgroup (ZMod 4) = ⊥ := by
-  apply le_antisymm _ bot_le
-  intro x hx
-  simp only [divisibleSubgroup, AddSubgroup.mem_iInf] at hx
-  rcases (AddSubgroup.mem_smul_pointwise_iff_exists x 4 ⊤).mp (hx 4 (by decide)) with
-    ⟨y, _, hy⟩
-  have hy0 : (4 : ℕ) • y = (0 : ZMod 4) := by
-    rw [nsmul_eq_mul, ZMod.natCast_self, zero_mul]
-  exact hy.symm.trans hy0
+example : divisibleSubgroup (ZMod 4) = ⊥ ∧
+    (2 : ℕ) • (⊤ : AddSubgroup (ZMod 4)) ≠ ⊥ ∧
+    ∀ x : ZMod 4, (2 : ℕ) • ((2 : ℕ) • x) = 0 := by
+  constructor
+  · apply le_antisymm _ bot_le
+    intro x hx
+    simp only [divisibleSubgroup, AddSubgroup.mem_iInf] at hx
+    rcases (AddSubgroup.mem_smul_pointwise_iff_exists x 4 ⊤).mp (hx 4 (by decide)) with
+      ⟨y, _, hy⟩
+    have hy0 : (4 : ℕ) • y = (0 : ZMod 4) := by
+      rw [nsmul_eq_mul, ZMod.natCast_self, zero_mul]
+    exact hy.symm.trans hy0
+  · refine ⟨?_, by decide⟩
+    intro h
+    have htwo : (2 : ZMod 4) ∈ (2 : ℕ) • (⊤ : AddSubgroup (ZMod 4)) := by
+      rw [AddSubgroup.mem_smul_pointwise_iff_exists]
+      exact ⟨1, trivial, by decide⟩
+    rw [h] at htwo
+    exact (by decide : (2 : ZMod 4) ≠ 0) htwo
 
 /-- The integers have no nonzero element divisible by every positive integer. -/
 theorem divisibleSubgroup_int : divisibleSubgroup ℤ = ⊥ := by
@@ -139,7 +149,8 @@ theorem evenTwoRank_add_prime (r s t j n : ℕ) (hs : 1 ≤ s) (hn : Even n) :
 example : evenTwoRank 1 1 0 0 2 = 1 ∧ evenTwoRank 1 1 0 0 4 = 0 := by
   decide
 
-example : evenTwoRank 2 1 0 1 2 = 2 ∧ evenTwoRank 2 1 0 1 4 = 1 := by
+example : evenTwoRank 2 1 0 1 2 = 2 ∧ evenTwoRank 2 1 0 1 4 = 1 ∧
+    evenTwoRank 0 1 0 0 0 = 0 ∧ evenTwoRank 0 0 0 0 0 = 0 := by
   decide
 
 /-! ## Layer 7: Bernoulli numbers and regular primes -/
@@ -147,7 +158,7 @@ example : evenTwoRank 2 1 0 1 2 = 2 ∧ evenTwoRank 2 1 0 1 4 = 1 := by
 /-- Translation of Weibel's positive, reindexed Bernoulli convention for k>=1. -/
 def bernoulliTop (k : ℕ) : ℚ := (-1) ^ (k + 1) * bernoulli (2 * k)
 
-example : bernoulliTop 1 = 1 / 6 := by
+example : bernoulliTop 1 = 1 / 6 ∧ bernoulliTop 0 = -1 := by
   norm_num [bernoulliTop, bernoulli_two]
 
 example : bernoulliTop 2 = 1 / 30 := by
@@ -156,6 +167,9 @@ example : bernoulliTop 2 = 1 / 30 := by
 /-- Used with an explicit prime hypothesis; this never includes Vandiver's condition. -/
 def IsRegularPrime (p : ℕ) : Prop :=
   ¬ p ∣ NumberField.classNumber (CyclotomicField p ℚ)
+
+example : IsRegularPrime 0 ∧ ¬ IsRegularPrime 1 := by
+  simp [IsRegularPrime, NumberField.classNumber_ne_zero]
 
 /-- Kummer’s finite Bernoulli-numerator criterion for an odd prime; README §7.2. -/
 theorem kummer_criterion (p : ℕ) (hp : p.Prime) (hodd : Odd p) :
@@ -184,7 +198,11 @@ localSymbolFamily, rawWildKernel, symbolWildKernel, cohomologicalWildKernel and
 IsSpecial; OrderCertificate, ArithmeticData and CertifiedExample;
 ramifiedResiduePullback and rationalSIntegerEquiv; bottAdamsPiece,
 bottEvenExact, bottEvenEdgeEquiv and bottOddEdgeEquiv; tateNormFiltration,
+tateFiltration, tateAlpha and tateUnitSubgroup;
 GoldenCongruenceLattice, GoldenResidueSection and GoldenFinitePrimeCertificate.
+Its cohomological descent maps are cyclotomicH2Descent,
+cyclotomicPicardDescentSequence, cyclotomicPositiveH2Descent and
+cyclotomicPositivePicardDescentSequence.
 The README also specifies L- and
 Grothendieck–Witt finiteness, the cyclotomic Picard injection and the integral
 regular-prime consequences. Their higher K, cohomology, spectral and

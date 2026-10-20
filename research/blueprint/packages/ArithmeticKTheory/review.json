@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ArithmeticKTheory~adv",
+    "date": "2026-10-20",
+    "notes": "Independent adversarial review of all 139 effective targets: 136 retained number-field targets and three explicitly out-of-scope function-field targets. Fixed the unspecified ordinary/positive H2 corestriction descent contract, made the uniform annihilating-modulus coefficient-kernel proof gap explicit while retaining the strong target and adding the unconditional intersection/eventual theorem, converted 31 inline Checks paragraphs to lists, added proved negative controls (ZMod 4, truncated subtraction, Bernoulli index zero, totalized regularity at 0/1), and corrected Tony Feng and the published page range. Read the 15 seeded source-locator samples, checked the flagged boundaries or explicitly recorded unavailable original proofs, checked current upstream/library ownership and pinned declarations, and independently verified eleven golden-field certificates (173 exact relation rows, 23 signed minors). lean-check exits 0 with only twelve sorry warnings and all twelve examples proved. Not ready for upstream draft acceptance: the stronger uniform coefficient bound remains unproved by the cited stabilization argument; the exceptional odd dyadic compatible Picard-image proof and original Harris–Segal/Keune/cyclotomic proof inputs remain open. See REV-PKG-ArithmeticKTheory~adv.md for the full pass table, exact source limits, fixes and handoff."
+  }
+}
