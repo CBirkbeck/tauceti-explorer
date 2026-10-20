@@ -152288,9 +152288,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv3.md",
-   "note": "claimed on GitHub issue #11298"
+   "note": "deliverables arrived from an external worker on issue #11298",
+   "finishedAt": "2026-10-20T02:57:58Z"
   },
   {
    "id": "BP-PadicHodgeRegulators~3",
@@ -152463,8 +152464,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv2.md",
+   "note": "claimed on GitHub issue #11306"
   },
   {
    "id": "FIX-PKG-HabiroRings~adv",
