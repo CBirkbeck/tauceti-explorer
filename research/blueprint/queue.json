@@ -152781,6 +152781,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-MotivicEtaleKTheoryPartII.md"
+  },
+  {
+   "id": "FIX-PKG-K3BlochGroups~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-K3BlochGroups~adv2.md",
+    "research/blueprint/packages/K3BlochGroups/review.json",
+    "research/blueprint/packages/K3BlochGroups/README.md",
+    "research/blueprint/packages/K3BlochGroups/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv2.md"
   }
  ]
 }
