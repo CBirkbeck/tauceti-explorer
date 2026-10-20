@@ -1,6 +1,6 @@
 # Merge queue, bottom up
 
-Generated with the SVG (2026-10-19T23:50Z). A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = latest deep review asks for changes; ready = latest deep review approves; maintainer = approved by the maintainer; unported = no pull request yet (explorer state in CaraianiNewton.md).
+Generated with the SVG (2026-10-20T00:10Z). A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = latest deep review asks for changes; ready = latest deep review approves; maintainer = approved by the maintainer; unported = no pull request yet (explorer state in CaraianiNewton.md).
 
 ## Wave 1
 - AdicEtaleGeometry: PR #814 — ready (approved at an earlier head); external prerequisites #1199
@@ -57,7 +57,8 @@ Generated with the SVG (2026-10-19T23:50Z). A wave can merge once every wave bel
 - DiamondEtaleCohomology: PR #922 — draft
 
 ## Wave 15
-- DiamondSixOperations: PR #927 — ready (approved at an earlier head); external prerequisites #816
+- GlobalGaloisDeformations: PR #920 — ready
+- LocalGaloisDeformationRings: PR #923 — draft
 - ModularCurvesPartII: PR #913 — ready; external prerequisites #1225
 - ShimuraData: PR #1038 — ready; external prerequisites #279, #953
 
@@ -79,9 +80,11 @@ Generated with the SVG (2026-10-19T23:50Z). A wave can merge once every wave bel
 - LefschetzPencilsAndVanishingCycles: PR #873 — draft; external prerequisites #1103, #1104, #896, #1218
 
 ## Wave 19
+- DiamondSixOperations: PR #927 — ready (approved at an earlier head); external prerequisites #816
 - PadicDifferentialEquationsAndRigidCohomology: PR #1002 — draft; external prerequisites #1218, #940
 
 ## Wave 20
+- ArakelovGeometryAndAbelianHeights: PR #1000 — draft
 - WeightsInEtaleCohomology: PR #1001 — ready; external prerequisites #940
 
 ## Wave 21
@@ -98,55 +101,54 @@ Generated with the SVG (2026-10-19T23:50Z). A wave can merge once every wave bel
 - ColemanIntegration: PR #1043 — draft; external prerequisites #1218
 - DirichletPadicLFunctions: PR #1039 — draft; external prerequisites #1218
 - FarguesFontaineDiamonds: PR #964 — draft
-- GlobalGaloisDeformations: PR #920 — ready
-- LocalGaloisDeformationRings: PR #923 — draft
-
-## Wave 23
-- EndoscopicTransferAndUnitaryTraceComparison: PR #999 — draft
-
-## Wave 24
-- GL2AutomorphicRepresentationsAndTransfer: PR #931 — draft; external prerequisites #934
-
-## Wave 25
 - HilbertModularVarietiesAndShimuraCurves: PR #1005 — draft; external prerequisites #934
 
-## Wave 26
+## Wave 23
 - AutomorphicBundles: PR #1069 — draft; external prerequisites #816, #940
-- AutomorphicGaloisRepresentations: PR #1007 — ready; external prerequisites #934, #940
 - ShimuraCompactifications: PR #1053 — draft; external prerequisites #816, #940
 
-## Wave 27
-- ArakelovGeometryAndAbelianHeights: PR #1000 — draft
-- HodgeTateAndCanonicalSubgroups: PR #1084 — draft; external prerequisites #1218
-- SerreWeightAndLevelOptimisation: PR #1013 — ready
-
-## Wave 28
+## Wave 24
+- EndoscopicTransferAndUnitaryTraceComparison: PR #999 — draft
 - FaltingsFinitenessAndIsogenyTheorems: PR #1004 — ready; external prerequisites #940
-- ModularSymbolsPadicLFunctions: PR #968 — draft; external prerequisites #934, #940
-- PadicFamilies: PR #1019 — draft; external prerequisites #934, #940
+- HodgeTateAndCanonicalSubgroups: PR #1084 — draft; external prerequisites #1218
+
+## Wave 25
+- GL2AutomorphicRepresentationsAndTransfer: PR #931 — draft; external prerequisites #934
 - PerfectoidShimuraVarieties: PR #1085 — draft; external prerequisites #816
 
-## Wave 29
-- AutomorphicGaloisRepresentationsPartII: PR #1006 — ready; external prerequisites #1218, #940
-- OrdinaryAutomorphicFormsAndModularityLifting: PR #1066 — draft
+## Wave 26
+- SerreWeightAndLevelOptimisation: PR #1013 — ready
 
-## Wave 30
-- ClassicalSerreModularity: PR #1020 — draft
+## Wave 27
+- ModularSymbolsPadicLFunctions: PR #968 — draft; external prerequisites #934, #940
+- PadicFamilies: PR #1019 — draft; external prerequisites #934, #940
+
+## Wave 28
+- AutomorphicGaloisRepresentationsPartII: PR #1006 — ready; external prerequisites #1218, #940
+
+## Wave 29
+- AutomorphicGaloisRepresentations: PR #1007 — ready; external prerequisites #934, #940
 - TorsionCohomologyInfrastructure: PR #1087 — draft
 
-## Wave 31
-- EllipticCurveModularity: PR #1018 — ready
-- GL2ModularityLifting: PR #1071 — draft; external prerequisites #451
+## Wave 30
 - IgusaVarietiesAndTorsionConcentration: PR #1090 — draft; external prerequisites #1218, #1235
+- OrdinaryAutomorphicFormsAndModularityLifting: PR #1066 — draft
+
+## Wave 31
+- GL2ModularityLifting: PR #1071 — draft; external prerequisites #451
 
 ## Wave 32
-- PotentialModularityAndCompatibleSystems: PR #1075 — draft
+- ClassicalSerreModularity: PR #1020 — draft
 
 ## Wave 33
+- EllipticCurveModularity: PR #1018 — ready
+- PotentialModularityAndCompatibleSystems: PR #1075 — draft
+
+## Wave 34
 - PotentialAutomorphyInfrastructure: PR #1081 — draft
 - SmallRamificationAndAbelianVarietyBaseCases: PR #970 — draft
 
-## Wave 34
+## Wave 35
 - AnalyticNumberTheoryPartI: PR #1126 — draft; external prerequisites #248, #253, #992, #1154, #1225
 - AnalyticNumberTheoryPartII: PR #1167 — draft; external prerequisites #248, #253, #992, #1154, #1225
 - ArithmeticStatisticsPartI: PR #1171 — draft; external prerequisites #248, #253, #992, #1154, #1225
@@ -159,17 +161,17 @@ Generated with the SVG (2026-10-19T23:50Z). A wave can merge once every wave bel
 - ArithmeticStatisticsPartVIII: PR #1179 — draft; external prerequisites #248, #253, #992, #1154, #1225
 - CrystallineLocalGlobalCompatibilityCM: PR #1182 — draft
 
-## Wave 35
+## Wave 36
 - HeightsRationalPointsAndObstructions: PR #1017 — draft; external prerequisites #1033
 
-## Wave 36
+## Wave 37
 - AnabelianGeometryAndNonabelianChabauty: PR #1021 — draft; external prerequisites #940
 
-## Wave 37
+## Wave 38
 - EffectiveDiophantineMethods: PR #1046 — draft
 
-## Wave 38
+## Wave 39
 - EllipticCurveModularityImaginaryQuadratic: PR #1048 — draft
 
-## Wave 39
+## Wave 40
 - ModularityAndLanglandsExtensions: PR #1180 — draft; external prerequisites #1036, #1063, #1202
