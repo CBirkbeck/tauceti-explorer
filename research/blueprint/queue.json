@@ -153108,6 +153108,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-Polylogarithms~codex2.md"
+  },
+  {
+   "id": "REV-PKG-HabiroNumberFields~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HabiroNumberFields~codex2.md",
+    "research/blueprint/packages/HabiroNumberFields/review.json",
+    "research/blueprint/packages/HabiroNumberFields/README.md",
+    "research/blueprint/packages/HabiroNumberFields/Suggested.lean",
+    "research/blueprint/packages/HabiroNumberFields/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~codex2.md"
   }
  ]
 }
