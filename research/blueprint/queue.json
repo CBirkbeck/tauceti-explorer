@@ -153004,6 +153004,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticKTheory~codex2.md",
    "note": "claimed on GitHub issue #11353"
+  },
+  {
+   "id": "PKG-PolylogarithmFunctions~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PolylogarithmFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/packages/PolylogarithmFunctions/README.md",
+    "research/blueprint/packages/PolylogarithmFunctions/Suggested.lean",
+    "research/blueprint/packages/PolylogarithmFunctions/metadata.toml",
+    "research/blueprint/handoff/PKG-PolylogarithmFunctions~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-PolylogarithmFunctions~codex.md"
   }
  ]
 }
