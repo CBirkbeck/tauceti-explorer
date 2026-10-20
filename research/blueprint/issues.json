@@ -5410,5 +5410,8 @@
  "REV-PKG-DrinfeldModulesAndTModules~codex1": 11513,
  "FIX-PKG-LogicAndDefinabilityInNumberTheory~adv": 11514,
  "PKG-OverconvergentAutomorphicForms~codex": 11515,
- "FIX-PKG-DrinfeldModulesAndTModules~adv": 11519
+ "FIX-PKG-DrinfeldModulesAndTModules~adv": 11519,
+ "BP-QSeriesPartitionsAndMockModularForms~5": 11524,
+ "REV-PKG-OverconvergentAutomorphicForms~adv": 11525,
+ "REV-QSeriesPartitionsAndMockModularForms~5": 11526
 }
