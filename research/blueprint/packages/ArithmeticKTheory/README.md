@@ -120,9 +120,10 @@ For S-integers use Tau Ceti's `integerHeightOneSpectrumEquiv`,
 S, not an S-unit rank formula. The existing class-group quotient and unit
 valuation maps are reused; their K-theoretic interpretation is what Layer 2
 adds.
-Tau Ceti also provides `CategoryTheory.ExactStructure`, `TauCeti.ExactK0`
-and `TauCeti.ExactK0.liftEquiv`, together with exact-functor maps and the
-finite-projective-module K₀ carrier. These supply exact-category and
+The current Tau Ceti library also provides `CategoryTheory.ExactStructure`,
+`TauCeti.ExactK0` and `TauCeti.ExactK0.liftEquiv` (the latter two in
+`TauCeti.CategoryTheory.GrothendieckGroup.Exact`), together with exact-functor
+maps and the finite-projective-module K₀ carrier. These supply exact-category and
 Grothendieck-group infrastructure; their comparison to the genuine higher
 Q-space is the general K-theory supplier's responsibility. Neither that
 comparison nor the higher arithmetic groups follow merely from K₀'s
@@ -912,7 +913,7 @@ The product is finite since ℓ≤i+1. In particular w₂=24, w₄=240, w₆=504
 and w₁₀=264. Also w₂(ℚ(i))=24; the dyadic case split gives 8 and the
 odd-primary contribution is 3. The value 24 will feed the two different
 K₃ computations in Layer 8. (K-book, Example VI.2.1.2, p. 470 and
-Example VI.2.4, p. 472.)
+Lemma VI.2.4, p. 472.)
 
 ### Examples
 
@@ -1539,6 +1540,12 @@ certification target in the format of §8.1: Caputo reports the class-group
 calculation using PARI; the polynomial alone is not a certified class-group
 computation. The conditional argument from his four arithmetic hypotheses
 already specifies exactly what such a certificate must establish.
+Name the open theorem target `caputoSexticArithmeticCertificate`: construct
+certified arithmetic data for this sextic field proving that it contains μ₃,
+has Pic(O_F[1/3]){3}≃ℤ/3 and one prime above 3, and that F(μ₉)/F
+is nontrivial, unramified and split at that prime. Include the degree and
+root-order checks used above. The conditional counterexample does not
+require treating this computational certificate as already supplied.
 (Caputo, arXiv:1002.2936v2, Proposition 2, p. 5, Theorem 1,
 pp. 12–14, Proposition 4 and Example 2, pp. 16–17.)
 
@@ -2023,7 +2030,12 @@ torsion. In higher degrees a global torsion element might map nontrivially
 into divisible residue-characteristic local torsion. To claim equality,
 one must prove the explicit vanishing of those global-to-local images.
 Without that additional theorem, no raw-kernel version of the preceding
-symbol theorem is asserted. (K-book, V.6.8.2, p. 413; wild-kernel preprint,
+symbol theorem is asserted. Name the conditional target
+`rawWildKernel_eq_symbol_of_localRestriction_eq_zero`: for each place v,
+assume that the actual restriction K_(2i)(F)→K_(2i)(F_v) is zero on
+`symbolWildKernel F i`; then the two kernels agree. Establishing this
+vanishing at i>1 is the open sub-target. Divisible local torsion does not
+force the restriction to be zero. (K-book, V.6.8.2, p. 413; wild-kernel preprint,
 Definition 0.2, pp. 2–3, and §1.)
 
 **Checks.**
@@ -2172,8 +2184,8 @@ dualization signs, not a construction of any Bott group.
 `bottCohomologySlot_period` keeps the cohomological index and adds two to
 the twist when j increases by two. `bottCohomologySlot_compat` interprets
 the selected slot in M.7 twists and the native `Module.End.eigenspace`.
-(Feng–Galatius–Venkatesh, published Lemmas 2.11 and 2.14, pp. 244–247;
-descent spectral sequence (2.6), pp. 241–242.)
+(Feng–Galatius–Venkatesh, author PDF, Lemmas 2.11 and 2.14,
+pp. 13–15; descent spectral sequence (2.6), p. 12.)
 
 **Checks.**
 
@@ -2205,7 +2217,7 @@ splitting into eigenspaces of the existing operator. Prove the odd-degree
 identification K^β_(2j−1)≅H¹(X,ℤ/q(j)), with sign (−1)^j. The
 cd≤2 descent spectral sequence collapses by parity; exact edge maps and
 the equivariant splitting identify the actual maps. (The same source,
-proofs of Lemmas 2.11 and 2.14, pp. 244–247.)
+proofs of Lemmas 2.11 and 2.14, pp. 14–15.)
 Name the exact edge sequence `bottEvenExact` and the native eigenspace
 `bottAdamsPiece`. The restricted edges `bottEvenEdgeEquiv` and
 `bottOddEdgeEquiv` identify the even and odd pieces. `bottEdge_natural`
@@ -2227,7 +2239,7 @@ corresponding Bott power after a root trivialization; degree-zero Picard
 normalization is the first Chern class, or equivalently its independently
 proved isomorphism. State the trivialization dependence rather than calling
 that generator canonical. (The same source, Corollary 2.12 and Remark 2.13,
-pp. 245–246.)
+pp. 14–15.)
 
 **Checks.**
 
@@ -2248,8 +2260,8 @@ K₁(R′;ℤ/q)≅K₁(R;ℤ/q)⊕ℤ/q after choosing a uniformizer for the
 principal p-prime. Bott-inverted localization is an isomorphism in all
 integer degrees. Thus the unlocalized ordinary degree-one group is not
 assigned the Bott H¹ formula. (Feng–Galatius–Venkatesh, Proposition 2.9
-and Lemma 2.10, pp. 242–243; final assertions of Lemmas 2.11 and 2.14,
-pp. 244–247.)
+and Lemma 2.10, pp. 12–13; final assertions of Lemmas 2.11 and 2.14,
+pp. 13–15 of the author PDF.)
 
 **Checks.**
 
@@ -2813,7 +2825,7 @@ step m/step (m−1)→k(v_m)×. Step zero lies in T.5's unramified
 subgroup. The steps are images in K₂(F), not the abstract truncated
 symbol presentations, whose maps can have kernels.
 (Bass–Tate, II §3, Theorem 3.1 and Lemma 3.2, pp. 403–407;
-Groenewegen, §1–2, pp. 1443–1446.)
+Groenewegen, author preprint, §§1–2, pp. 1–4.)
 
 When the v_m-prime in the preceding ring is principal, choose a generator
 π and set U=U_(m−1). Then U_m≃U×π^ℤ via valuation, and define
@@ -2826,7 +2838,7 @@ The kernel statements and triangle are independent of a change of π
 by an old unit. *Needs:* Layer 1's units, T.3's symbol identities and
 §2.2's explicit inversion between the boundary and Tate conventions.
 (Bass–Tate, II Lemma 3.2, pp. 404–407; Appendix Proposition 1,
-pp. 430–431; Groenewegen, Lemma 7 and triangle, pp. 1448–1449.)
+pp. 430–431; Groenewegen, Lemma 7 and triangle, pp. 6–7.)
 
 **Checks.**
 
@@ -2867,7 +2879,7 @@ If every positive step is an isomorphism, the tame kernel equals step
 zero. This finite descent uses exhaustion, not an infinite descending
 limit. *Needs:* §8.3 and the elementary exact quotient argument.
 (Bass–Tate, II Theorem 3.1, p. 403; Groenewegen, Theorem 15,
-pp. 1454–1455.)
+pp. 12–13.)
 
 **Checks.**
 
@@ -2942,8 +2954,8 @@ prime in their support has smaller norm. This uses the ordinary
 Minkowski bound with density at most one; no optimal packing constant
 is required. *Needs:* IntegralLattices' Minkowski and covolume API,
 NumberFieldArithmetic's embeddings and ideal norm, and §8.3.
-(Groenewegen, Lemma 6, pp. 1447–1448, Lemma 9, p. 1450, and
-Lemma 12, p. 1453; here specialized to degree two and with the
+(Groenewegen, Lemma 6, p. 5, Lemma 9, p. 8, and
+Lemma 12, p. 11; here specialized to degree two and with the
 weaker packing estimate one.)
 
 **Checks.**
@@ -2975,7 +2987,7 @@ fractions. For the comparison use xy′−x′y; its norm is at most
 small-norm congruence theorem. Multiplicativity is a further theorem,
 not part of the choice of representatives.
 (Groenewegen, Proposition 10 and the following definition,
-pp. 1450–1451.)
+pp. 8–9.)
 
 **Checks.**
 
@@ -3005,7 +3017,7 @@ First, obtain x,y,z in B_s with x/z=a and y/z=ab, where
 s=dq^(2/3), and a two-coordinate representative x′/z′ for b in
 B_t, t=d√q. The bound 4st<q² makes xx′ and yz′ congruent
 modulo U₁. It gives γ(a)γ(b)=γ(ab).
-(Groenewegen, Lemma 12 and Proposition 13, pp. 1453–1454.)
+(Groenewegen, Lemma 12 and Proposition 13, p. 11.)
 
 Second, for each preceding prime p′ of norm q′≤q, Minkowski in
 (p′)⁻¹ gives a nonzero π′ with
@@ -3018,7 +3030,7 @@ Removing this v-factor leaves norm below q, so z/π_v has only old
 support, even when q′=q. Thus π′/(x/y)=1+π_v(z/(π_v x))
 lies in 1+π_vU. If z=0 equality is immediate. This proves γβ̄ fixes
 the inverse generators of all preceding primes.
-(Groenewegen, §4, p. 1451, specialized using the golden-field
+(Groenewegen, §4, p. 9, specialized using the golden-field
 absence of primes of norm below 4.)
 
 Third, ordinary units −1 and ε satisfy
@@ -3029,7 +3041,7 @@ the residue of a in ξB_t has x,ay∈B_(tH(a)). Therefore
 as well. They and the inverse prime generators generate U, so γ and
 β̄ are inverse homomorphisms. *Needs:* §8.6's two- and three-coordinate
 lattices, §8.4 and the imported explicit units.
-(Groenewegen, §6, pp. 1452–1453, and Theorem 14, p. 1454.)
+(Groenewegen, §6, pp. 10–11, and Theorem 14, p. 12.)
 
 **Checks.**
 
@@ -3064,7 +3076,7 @@ surjectivity forces both surjections to be isomorphisms. No one minor
 is required to equal q−1. *Needs:* §8.3 and Mathlib's
 `AddSubgroup.index_eq_natAbs_det` with its full-rank hypotheses.
 (Bass–Tate, Appendix Proposition 1, pp. 430–431; Groenewegen,
-Lemma 7 and triangle, pp. 1448–1449; the integer witnesses below are
+Lemma 7 and triangle, pp. 6–7; the integer witnesses below are
 explicit calculations, rather than a table in either source.)
 
 The complete ordered primes of norm at most 33 are
@@ -3391,7 +3403,7 @@ The real sign is −1 exactly when both inputs are negative.
 *Needs:* §§8.3–8.8, T.3/T.5 and §6.14's presentation argument.
 (Bass–Tate, II §3, pp. 403–411, and Appendix Proposition 1,
 pp. 430–431, for the filtration criterion; Groenewegen, §§3–7,
-pp. 1450–1454, for the geometric method; the complete finite data
+pp. 7–11, for the geometric method; the complete finite data
 and sign calculation are given in §§8.8–8.9.)
 
 **Checks.**
@@ -3483,9 +3495,12 @@ All formulas and finite data use the conventions fixed here.
   Appendix Proposition 1.
 - Richard P. Groenewegen, [*Bounds for computing the tame
   kernel*](https://doi.org/10.1090/S0025-5718-03-01592-8),
-  *Mathematics of Computation* 73 (2004), pp. 1443–1458, especially
-  Lemmas 6, 9, 12 and Proposition 10. The golden-field cutoff and
-  integer witnesses here are an explicit specialization and calculation.
+  *Mathematics of Computation* 73 (2004), pp. 1443–1458;
+  [author preprint](https://math.leidenuniv.nl/reports/files/2002-13.ps).
+  Groenewegen locators here use the preprint's printed pages 1–16,
+  particularly Lemmas 6, 9, 12 and Proposition 10, rather than journal
+  pagination. The golden-field cutoff and integer witnesses here are an
+  explicit specialization and calculation.
 - Daniel Quillen, text prepared by Hyman Bass,
   [*Finite generation of the groups K_i of rings of algebraic
   integers*](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/bass-seattle.pdf),
@@ -3548,9 +3563,11 @@ All formulas and finite data use the conventions fixed here.
   index is separate from a tame-kernel exponent.
 - Tony Feng, Søren Galatius and Akshay Venkatesh,
   [*The Galois action on symplectic K-theory*](https://doi.org/10.1007/s00222-022-01127-8),
-  *Inventiones Mathematicae* 230 (2022), pp. 225–319, §§2.6–2.7,
-  pp. 242–247. The eigenspaces use dualization in all Bott degrees;
-  ordinary comparison ranges are specified in §§6.15–6.16.
+  *Inventiones Mathematicae* 230 (2022), pp. 225–319;
+  [author PDF](https://math.berkeley.edu/~fengt/Galois_action_on_KSp.pdf),
+  §§2.6–2.7, printed pp. 12–15. Locators here use that author PDF.
+  The eigenspaces use dualization in all Bott degrees; ordinary comparison
+  ranges are specified in §§6.15–6.16.
 - Frank Calegari, Stavros Garoufalidis and Don Zagier,
   [*Bloch groups, algebraic K-theory, units, and Nahm's
   conjecture*](https://arxiv.org/abs/1712.04887), version 3,
