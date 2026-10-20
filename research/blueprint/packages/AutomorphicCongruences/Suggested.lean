@@ -100,12 +100,17 @@ end FactorSeparation
 The following README definitions require further arithmetic carriers:
 `SigmaSelmer`, `LatticeDatum`, `GU22Forms`, `EisensteinDatum`, `KlingenEisenstein`,
 `GU22PseudoChar`, `SemiOrd`, `SemiOrdKlingen`, `BF`, `FWResidual`, `FundLine`,
-`CompZeta`, `NakamuraZeta`, `ZetaTriv`, `GenMC`, and `ResZeta`.
+`CompZeta`, `NakamuraZeta`, `ZetaTriv`, `GenMC`, `ResZeta`, `yagerModule` and
+`yagerTwist`.
 The Wan coefficient ideal is an instance of `EisensteinIdeal.hecke` and
 `EisensteinIdeal.base`. The arithmetic divisibilities, family trivializations and
 cyclotomic main conjectures are targets of the README, as are
-`FourierJacobi.weightFunctional`, `FourierJacobi.twoFamilyChoice`, and
-`FourierJacobi.jointHeightOneAvoidance`.
+`cmCongruence_dvd_katz`, `ichinoTripleProduct`, `ikeda_fourierJacobi_denseImage`,
+`fourierJacobi_twoFamily_avoidance` with its steps `FourierJacobi.weightFunctional`,
+`FourierJacobi.twoFamilyChoice` and `FourierJacobi.jointHeightOneAvoidance`,
+`harris_noHolomorphicKlingenCAP`, `fw_analyticSelmerComparison`,
+`fw_pIrregular_comparison`, `paskunas2016_projectiveEnvelope`,
+`twoVariable_PR_Greenberg_equivalence` and `katoIntegralBound_im`.
 -/
 
 end TauCetiRoadmap.AutomorphicCongruences
