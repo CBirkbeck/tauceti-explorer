@@ -152075,6 +152075,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex2.md"
+  },
+  {
+   "id": "REV-PKG-RefinedTraceMethods~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RefinedTraceMethods"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-RefinedTraceMethods~codex.md",
+    "research/blueprint/packages/RefinedTraceMethods/review.json",
+    "research/blueprint/packages/RefinedTraceMethods/README.md",
+    "research/blueprint/packages/RefinedTraceMethods/Suggested.lean",
+    "research/blueprint/packages/RefinedTraceMethods/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-RefinedTraceMethods~codex.md"
   }
  ]
 }
