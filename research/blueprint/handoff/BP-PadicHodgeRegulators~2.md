@@ -1,239 +1,124 @@
-# BP-PadicHodgeRegulators~2 — blocked canonical migration checkpoint
+# BP-PadicHodgeRegulators~2 — revision round 2 (complete)
 
-Refs #11092. Codex / GPT-6, session **codex-428pHh**, 19 October 2026.
-Claim comment **6278706429** was confirmed by bot comment **6278708981**.
-This run claimed one issue and stops after its pull request.
+Refs #11092. Claude (Opus), session **claude-uCHvXm**, 20 October 2026. The claim
+comment 6279309249 was confirmed by the claim bot. This run continues the two
+checkpoints of codex-HNxLJr (#11111) and codex-428pHh (#11225), which stopped
+because the review's requested repair seemed to need the two part packets,
+which this job may not edit.
 
-**Unfinished: the authorized files cannot change the declarations that need the
-review corrections.** This continues the checkpoint from codex-HNxLJr in #11111.
-The root packet, reader, suggested file and this handoff are the four allowed
-deliverables. Both canonical part packets and all integration/queue code remain
-outside that list. The packet remains `partial`; the independent `needs_changes`
-review is unchanged. There is no new acceptance or promotion claim.
+## What the review asked, and how this round answers it
 
-## Work added by this run
+REV-PadicHodgeRegulators (needs_changes) had one blocking finding. The root
+packet imported the 131 nodes of the two accepted parts and carried 27
+`targetCorrections` and two source aliases as an overlay. Neither
+`merge_blueprints` nor promotion applies that overlay, so the reader (which
+showed the corrected view) disagreed with the declarations the atlas merges.
+The clearest example was L1/dual-exponential, which uses its pairings in reversed
+order. The reviewer named two repairs: implement assembly in the scripts, or
+migrate the corrections into the parts. Both lie outside this job's four
+deliverables.
 
-- Reproduced the assembly defect against repository commit
-  `29eb466061f5c271366c91f619b59bbe7af290ed`, reading the merger, checker,
-  promotion and intake code directly.
-- Rechecked the two import hashes, all node-ID inventories, ordered correction
-  payloads, coverage targets and displayed planets. The materialized root still
-  fails the unchanged checker with exactly 131 duplicate-ID errors and no other
-  errors or warnings. No validation context was altered.
-- Prepared **scratch-only canonical part previews**, retaining every original
-  ID and applying the root's aliases/corrections to its actual owner. Both
-  previews pass the unchanged checker with normal `world()` context, zero
-  errors and zero warnings. Merging those previews and the root's one node
-  gives exactly the intended 132 nodes, with every node field equal and every
-  displayed planet's statement, hypotheses and kind equal.
-- Distinguished eight differing **source-ID lists** from nine differing **full
-  citation lists**. The ninth difference is the LLZ Corollary 1.12 page
-  correction on `L4/logarithmic-elementary-divisors`, rather than a source alias.
-- Confirmed that intake also checks the job's output list. An expanded repair
-  must be reflected there or handled by the maintainer; authorizing a chat edit
-  alone does not change `intake.py:auto_refusals`.
-- Re-read LLZ2011 Corollary 1.12 at published p.1107, AC20 Remark 3.2(1) at p.15,
-  and LZ2014 §2.4 at p.5. All three PDFs match their recorded SHA-256 values.
-  The first two source checks retain the reviewer's in-place corrections;
-  the AC20 check confirms the printed label, without claiming another reading
-  of the underlying Besser comparison.
-- Recorded E121, the dual-representation typo in LZ2014's adjunction
-  quantifier, scoped to arXiv v3 and awaiting independent review. The existing
-  ordered root correction already uses the appropriate domains, so no target,
-  API, test or proof route changes. No version-of-record or novelty claim is made.
-- Recompiled the unchanged 192-line suggested file with `lean-check`: exit 0,
-  only nine expected theorem-admission warnings. Available memory was 74 GiB;
-  one check ran, with no build or language server.
+This round removes the overlay rather than implementing it. The root now makes
+no claim that the merger does not carry out:
 
-The asynchronous request to expand the two-part edit scope did not supply
-approval during this checkpoint work. It is not treated as approval. The
-repository still changes only three of the four allowed deliverables; the
-suggested file was checked without changing it.
+- **Canonical representation.** The declarations are the two parts exactly as
+  they stand (hashes in `imports` unchanged) plus the root's one node; this is
+  what `merge_blueprints` computes. `assembly` now states this policy and
+  records the validation and the history of the blocker.
+- **Corrections become requests owed by the parts.** `targetCorrections` is
+  replaced by `partCorrectionRequests`: 26 records, one per corrected target,
+  with the two good-wach-basis records merged in their original order. Each
+  record names the owning part, a class, the problem, the corrected fields, the
+  reason and `applied: false`. The classes are:
+  - statement: L1/dual-exponential, whose pairings must be ordered as P_W, Q_W
+    for W = V*(1);
+  - ownership: L4/good-wach-basis, a generic existence theorem that PG.6 now
+    owns, to become a comparison;
+  - locator: LLZ2011 Corollary 1.12 is on p. 1107, not p. 1103;
+  - proof-route: L2/fontaine-iwasawa-map has a stale PG.5 step;
+  - attribution: the D.4 cubic example's recomputation;
+  - link: D.3/residue-spanning → D.3/residue-dilogarithm-function;
+  - exact supplier nodes: 20 records.
 
-## Reproduced defect and preview
+  Nine **wording** records list the rewordings of process words that the old
+  reader had made silently. They are now shown openly; the mathematics is
+  unchanged.
+- **Reader = declarations.** All 132 target sections are re-rendered verbatim
+  from the merged declarations. In the L3 part, source ids Berger2003 and
+  RubinES are labelled Berger2003DM and Rubin2000, the root's ids for the same
+  URLs; this is a display label only. Each owed correction appears directly
+  after its target. A new section, "Corrections owed by the part packets",
+  tables all 35 records. The status paragraphs now describe this representation
+  instead of the blocker.
+- **Gap.** The reviewer's gap "Unsupported root assembly drops mathematical
+  corrections" is replaced by "Corrections owed by the accepted part packets".
+  It names the six non-supplier defects and says who applies them.
+- **Coverage.** All ten stages are `planned`, as at the reviewed pass. Each
+  `remaining` list names its owed corrections. No stage is closed. Packet status
+  is `complete`.
+- **Kept.** The review object, all 132 node ids, the 21 mathematical/supplier
+  gaps, the 32 requests, the 31 baseline declarations, the 26 source issues and
+  all planets. E121's reason now points at the owed correction.
 
-| Measurement | Result |
-| --- | ---: |
-| Root alone through the actual merger | 1 declaration |
-| Unchanged parts plus root | 132 declarations, corrections ignored |
-| Intended node set / coverage targets | 132 / 132, exact equality |
-| Ordered correction records / distinct targets | 27 / 26 |
-| Differing corrected fields | 33 |
-| Differing source-ID lists / full citation lists | 8 / 9 |
-| Materialized-root duplicate errors / other errors | 131 / 0 |
-| Scratch canonical previews: errors / warnings | 0 / 0 for each part |
-| Preview nodes differing from intended nodes | 0 |
-| Preview displayed planets differing from intended nodes | 0 |
+The reviewer's in-place corrections are kept: the LLZ p. 1107 page (now in the
+locator record), E117's explanation, E118–E120 and the LocalGaloisGroups Layer 7
+ownership note.
 
-The part identities remain unchanged:
+## What still has to happen, and who does it
 
-| Part | Nodes | SHA-256 |
-| --- | ---: | --- |
-| `PadicHodgeRegulators--D.1.json` | 72 | `2f70c0c000179cbd10c77a243d003214ca1ad0b171ff2e7f977972e62405f22c` |
-| `PadicHodgeRegulators--L3.json` | 59 | `cf912c4d5b5a2b2846764d9eed3c219b37da2d300c84995a8d8857674867c9d7` |
+The six non-supplier defects (statement, ownership, locator, proof-route, link,
+attribution) and the 20 supplier refinements live in the parts. Only a fix of
+`research/blueprint/packets/PadicHodgeRegulators--D.1.json` and `--L3.json`
+can apply them, with that fix's own independent review so the parts are
+promoted again. The corrected fields are ready to copy from
+`partCorrectionRequests`. The earlier checkpoint showed that applying them
+gives check-clean parts whose merge agrees with the corrected view. The queue
+already holds red teams of both parts (RT-BP-PadicHodgeRegulators--D.1~2 and
+--L3), and a FIX job scoped to the two part files would close this out. For the
+maintainer: when that fix lands, delete the matching records here and the
+"owed" blocks in the reader. Neither the parts' ids nor this packet's ids need
+to change.
 
-The actual merger reads `packet.nodes`; promotion copies the raw packet.
-Neither applies `imports`, `importedNodes`, `targetCorrections` or
-`assembly.sourceAliases`. The broken displayed planet is `L1/dual-exponential`.
-The lost `L4/good-wach-basis` correction also leaves generic ownership in the
-wrong place instead of importing PG.6. Copying nodes into the root creates
-canonical duplication; changing input order or hiding part owners from the
-checker is not a repair.
+## Red-team handovers (unchanged dispositions, checked in the merged declarations)
 
-### Reconstructing the canonical preview
+- RT-AREA-iwasawa-1/19: Bloch–Kato input stays at SelmerIwasawaCohomology L4;
+  nothing here makes generic Selmer L2 depend on period rings.
+- RT-AREA-iwasawa-2/3: D.2/log-syntomic-complex, fontaine-messing-kato-period-map,
+  small-twist-comparison and syntomic-exponential exist. They import CR.0/CR.2/CR.3/CR.5
+  and CP.4, with the early classical CS.0–CS.3 producer kept as a request and
+  restructure proposal.
+- RT-AREA-ktheory-2/15: D.2/weight-two-dilogarithm-comparison depends on
+  D.1/combined-dilogarithm, D.1/regulator-normalisation-dictionary and
+  K3BlochGroups V.4/suslin-exact-sequence, so D.3/D.4 and HabiroNumberFields
+  HB.7 inherit them.
+- RT-AREA-ktheory-2/18: D.2/etale-regulator imports MotivicEtaleKTheory M.7
+  (the M.7-only Soulé-class producer, request R1), not M.8; no cycle.
 
-This diagnostic is self-contained Python to be used from the repository root,
-with an existing scratch directory passed as its argument. It reads repository
-files and writes only hypothetical part packets there. The checker uses the
-normal world and the original part basenames. It does not certify migration
-metadata or independently review mathematics.
+## Checks run
 
-```python
-import copy
-import hashlib
-import json
-import sys
-from pathlib import Path
+- `python3 scripts/check_blueprint.py research/blueprint/packets/PadicHodgeRegulators.json`
+  with the pinned declaration index: 0 errors, 0 warnings. Status complete, 10/10 stages planned, 31 baseline
+  declarations.
+- `merge_blueprints` on the live `data/atlas.json` with the three packets in
+  `load_promoted` order gives 132 declarations: 16 definitions, 33
+  constructions, 22 comparisons, 43 theorems, 17 lemmas and 1 application, with
+  34 planets. Every reader target section contains its merged declaration's
+  title, statement, hypotheses, API, tests, checks, proof steps, prerequisites
+  and source locators verbatim. Every displayed planet's statement and kind
+  equal its node's.
+- Part hashes unchanged: D.1 `2f70c0c0…f22c`, L3 `cf912c4d…c9d7`.
+- `lean-check research/blueprint/suggested/PadicHodgeRegulators.lean`: exit 0
+  with nine `sorry` warnings and nothing else. It was run twice, before and
+  after replacing `import Mathlib` by seven individual Mathlib modules
+  (PROTOCOL §13); 65 GiB was available. No declaration changed, and the file
+  encodes no field that the owed corrections touch.
+- Source re-read: LZ2014 arXiv:1108.5954v3 §2.4, p. 5 (same SHA-256 as the
+  earlier receipt). Both pairings there are ordered with V first. This supports
+  the ordered-pairing correction and E121; E121 still awaits an independent
+  review, since this job recorded it. PG.6/wach-good-basis was read in the
+  accepted PhiGammaModulesAndIwasawaCohomology packet: it supplies rational,
+  analytic and integral good-basis existence, without prescribed reduction.
+  All supplier node ids in the correction records exist.
 
-sys.path.insert(0, "scripts")
-from blueprints import drop_source_excerpts, merge_blueprints
-from check_blueprint import check, world
-
-scratch = Path(sys.argv[1]).resolve()
-folder = Path("research/blueprint/packets")
-assert scratch != folder.resolve()
-root = json.loads((folder / "PadicHodgeRegulators.json").read_text())
-context = world()
-intended, parts = {}, []
-for entry in root["imports"]:
-    path = Path(entry["packet"])
-    assert hashlib.sha256(path.read_bytes()).hexdigest() == entry["sha256"]
-    part = json.loads(path.read_text())
-    assert {n["id"] for n in part["nodes"]} == set(entry["nodeIds"])
-    parts.append((path.stem, part))
-    aliases = root["assembly"]["sourceAliases"].get(path.name, {})
-    for node in copy.deepcopy(part["nodes"]):
-        for cite in node["sources"]:
-            cite["sourceId"] = aliases.get(cite["sourceId"], cite["sourceId"])
-        assert node["id"] not in intended
-        intended[node["id"]] = node
-for correction in root["targetCorrections"]:
-    intended[correction["target"]].update(copy.deepcopy(correction["fields"]))
-for node in root["nodes"]:
-    assert node["id"] not in intended
-    intended[node["id"]] = copy.deepcopy(node)
-assert set(intended) == {n for c in root["coverage"] for n in c["targets"]}
-
-previews = []
-for stem, original in parts:
-    part = drop_source_excerpts(copy.deepcopy(original))
-    part["nodes"] = [copy.deepcopy(intended[n["id"]]) for n in original["nodes"]]
-    ids = {n["id"] for n in part["nodes"]}
-    aliases = root["assembly"]["sourceAliases"].get(stem + ".json", {})
-    sources = {aliases.get(s["id"], s["id"]) for s in original["sources"]}
-    sources |= {s["sourceId"] for n in part["nodes"] for s in n["sources"]}
-    part["sources"] = [s for s in root["sources"] if s["id"] in sources]
-    assert sources == {s["id"] for s in part["sources"]}
-    part["baseline"] = copy.deepcopy(root["baseline"])
-    part["requests"] = [dict(r, neededBy=[n for n in r["neededBy"] if n in ids])
-                        for r in root["requests"] if ids.intersection(r["neededBy"])]
-    # Existing reviews describe the original files, never acceptance of previews.
-    path = scratch / (stem + ".json")
-    path.write_text(json.dumps(part, indent=2, ensure_ascii=False) + "\n")
-    errors, warnings, _ = check(path, None, context)
-    assert not errors and not warnings, (errors, warnings)
-    previews.append((stem, part))
-
-previews.append(("PadicHodgeRegulators", root))
-actual = {n["id"]: n for _, p in previews for n in p["nodes"]}
-assert actual == intended and len(actual) == 132
-snapshot = {"roadmaps": [{"id": root["roadmapId"], "stages": root["scope"].copy()}],
-            "stages": [{"id": s, "owner": root["roadmapId"]} for s in root["scope"]],
-            "stageEdges": [], "edges": []}
-out = merge_blueprints(snapshot, previews, {})
-assert out["roadmaps"][0]["blueprint"]["declarations"] == 132
-for stage in out["stages"]:
-    if stage.get("expansion"):
-        node = intended[stage["id"]]
-        for key in ("statement", "hypotheses", "kind"):
-            assert stage["expansion"][key] == node[key]
-print("Two scratch packets pass; all 132 nodes and displayed planets agree.")
-```
-
-## Required scope change and completion work
-
-The minimal viable path adds these canonical files to this revision's allowed
-outputs, including intake's job scope:
-
-- `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
-- `research/blueprint/packets/PadicHodgeRegulators--L3.json`
-
-Apply the preview's node/source/request changes to their existing owners.
-Then reconcile source-issue records with the root's corrected register, preserve
-historical verdicts as history rather than acceptance of changed files, and
-reconcile gap, convention and coverage metadata. The preview does not finish
-that metadata work. Keep the root's independent review object; fresh independent
-review must cover both changed canonical files as well as the root. Refresh the
-root's hashes and assembly receipt, remove reliance on unapplied overlays and
-check the actual promotion/build/reader path. Every corrected node field,
-source identity, coverage target and planet must agree with the reader. Only
-then resolve the assembly gap and restore the six affected stages to planned.
-Keep the 21 explicit mathematical/supplier gaps unless independently solved.
-
-The alternative is a separately scoped, tested assembly implementation in the
-merger, checker and promotion path. It also requires integration-test outputs
-beyond this issue. Neither alternative is implemented by this checkpoint.
-
-## Inherited scope and inventory
-
-The intended inventory is unchanged: **16 definitions, 33 constructions,
-23 comparisons, 42 theorems, 17 lemmas, one application; 280 API items,
-196 tests and 34 planets; 31 pinned baseline citations, 32 requests and
-22 gaps including assembly**. Definitions/constructions have 260 API items
-and 183 tests. The raw root contains only one definition with four API items
-and four tests; its successful checker output is not a 132-node assembly check.
-
-Coverage remains:
-
-| Stages | Status | Remaining canonical repair |
-| --- | --- | --- |
-| D.1, D.2, D.5, L0 | planned | Existing supplier/mathematical gaps remain explicit. |
-| D.3 | partial | Residue-spanning prerequisite correction. |
-| D.4 | partial | Cubic-example proof-route correction. |
-| L1 | partial | Ordered dual-exponential statement and source. |
-| L2 | partial | Four Iwasawa comparison/dependency corrections. |
-| L3 | partial | Regulator, growth, lattice, reciprocity and determinant dependencies and source identities. |
-| L4 | partial | PG.6 ownership, image/descent, elementary-divisor, refinement and de Rham corrections. |
-
-No stage is closed. The register has 26 source issues: the prior 24 confirmed
-and one rejected issue, plus unreviewed E121. No source-issue verdict was changed.
-The four red-team handovers retain their existing dispositions: Bloch–Kato
-input stays at Selmer L4; the early classical syntomic supplier is external;
-D.1 and the Bloch model supply D.2; and finite Soulé classes/products have a
-single early supplier instead of a late-M.8 cycle.
-
-This run checked the reviewed library audit, accepted RS-26 and current
-LocalFieldsRamification, NumberFieldArithmetic and LocalGaloisGroups interfaces.
-No new mathematics or carrier was planned. Baseline and full-source receipts
-from earlier workers remain attributed to them; this run makes no exhaustive
-31-declaration, 35-source or cubic-numerical re-verification claim.
-
-## Validation and security
-
-- Normal root `check_blueprint.py`: zero errors and warnings with supplied index.
-- Unchanged-world materialized-root failure and both canonical-preview checks:
-  reproduced; preview checks use no declaration index because they test
-  representation/ownership, not a fresh baseline source audit.
-- `lean-check`: exit 0, nine expected warnings only.
-- File-scope/content checks, retained-review/hash comparison and `git diff --check`:
-  passed before submission.
-- PDFs and extracted pages stayed in disposable scratch; no passage enters the
-  repository. Warwick source retrieval failed; no publisher-copy claim is made.
-- No suspicious operational instructions were encountered in the inspected data.
-  Prior review/checkpoint text was treated as evidence and checked against code.
-  No second claim, source execution, shared build, background process, manual
-  label change or merge was performed.
-
-The scratch directory can be deleted: the hashes, correction records and preview
-procedure above preserve everything needed for the authorized continuation.
-Repeated root-only revisions cannot close this review finding.
+No part packet, script, queue or atlas file was edited. No suspicious
+instructions were met in issue comments or earlier pull requests.
