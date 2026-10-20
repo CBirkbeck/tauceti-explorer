@@ -152724,6 +152724,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture~codex3.md"
+  },
+  {
+   "id": "DESIGN-PolylogarithmFunctions",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PolylogarithmFunctions"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/PolylogarithmFunctions.json",
+    "research/blueprint/packets/PolylogarithmFunctions.json",
+    "research/blueprint/readmes/PolylogarithmFunctions.md",
+    "research/blueprint/suggested/PolylogarithmFunctions.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-PolylogarithmFunctions.md"
   }
  ]
 }
