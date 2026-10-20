@@ -8,7 +8,9 @@ import TauCeti.NumberTheory.ArithmeticDirichletSeries.Estimates
 The roadmap is `README.md`; this file is not exhaustive. It records the definitions and theorem
 signatures of the roadmap that can be stated against the pinned Mathlib and Tau Ceti, together
 with two proved `example` checks for each retained definition. The README also
-records the exact supplier contracts for the independent certificates and the classical comparison.
+records the independent Pfister-symbol target (§0.1), the normalized integral lattice comparison
+(§8.2), and the open supplier premise (V). No retained signature uses that premise; the continued
+values and their arithmetic descendants remain README targets with their stated hypotheses.
 References §k.n are to the subsections of `README.md`.
 
 Design choices made explicit here:
@@ -32,7 +34,7 @@ namespace TauCetiRoadmap.SpecialValuesBirchTate
 /-- The prime `5`, for the field `ZMod 5` of §3.2. -/
 local instance : Fact (Nat.Prime 5) := ⟨Nat.prime_five⟩
 
-/-! ## Layer 2: sign, rationality, integrality and primewise reconstruction -/
+/- ## Layer 2: sign, rationality, integrality and primewise reconstruction -/
 
 section Archimedean
 
@@ -80,7 +82,7 @@ theorem abs_eq_natCast_div_iff_forall_padicVal {q : ℚ} (hq : q ≠ 0) {k w : �
 
 end Valuations
 
-/-! ## Layer 3: independent examples over ℚ and ℚ(√5) -/
+/- ## Layer 3: independent examples over ℚ and ℚ(√5) -/
 
 section Examples
 
@@ -113,7 +115,7 @@ example : chiFive 1 = 1 ∧ chiFive (-1) = 1 := by
 
 end Examples
 
-/-! ## Layer 4: S-integers, Euler factors and naturality -/
+/- ## Layer 4: S-integers, Euler factors and naturality -/
 
 section EulerFactors
 
@@ -159,30 +161,4 @@ example (S : Finset (IsDedekindDomain.HeightOneSpectrum (𝓞 F))) (hS : S.Nonem
 
 end EulerFactors
 
-#check @TauCeti.dedekindZeta_eq_LSeries_dedekindZetaCoeff
-#check @TauCeti.LSeriesSummable_dedekindZetaCoeff_iff
-
 end TauCetiRoadmap.SpecialValuesBirchTate
-
-/-!
-## Statements this file does not type
-
-The continued Dedekind zeta function (LFunctions), K₂ of a ring (K2SymbolsBrauer), the invariants
-`w_n(F)` (ArithmeticKTheory), étale and motivic cohomology of rings of S-integers
-(MotivicEtaleKTheory), Iwasawa modules, characteristic ideals and the Deligne–Ribet series
-(IntegralIwasawaTheory, AutomorphicPadicLFunctions) are not at the pinned libraries, so the
-following README targets are not typed here: `BirchTateFormula` and its API (§1.1–§1.2); the
-vanishing, sign, rationality and Deligne–Ribet integrality of `ζ_F(1 - n)` and the absolute-value
-and primewise forms (§2.3–§2.5, §2.7–§2.9); the values `ζ_ℚ(-1)`, `ζ_{ℚ(√5)}(-1)`,
-`w₂(ℚ(√5)) = 120` and the two Birch–Tate checks (§3.1–§3.2); `sModifiedZeta` with its values,
-leading coefficients and the K₂ order of S-integers, the S-integral formula, enlargement of S and
-the naturality of the comparisons (§4.1–§4.6); codescent and the étale special-value formula, and
-the odd-primary theorem (§5.1–§5.3); the 2-adic zeta series, `FedererMainConjecture`, Kolster's
-sequence, Theorem 1, Lemma 2 and Theorem 5, the auxiliary field, the second-kind twist, the
-norm-kernel comparison, Federer's conjecture for abelian fields and Birch–Tate for them
-(§6.1–§6.6); Kurihara's characteristic ideal, the 2-adic special values, the 2-part, the end
-theorem `birchTateFormula_of_isTotallyReal`, the series dictionary, the comparison theorem and
-Federer's conjecture for every totally real field (§7.1–§7.5); `hInvariant`, the motivic regulator,
-the Lichtenbaum predicates and their proofs for totally real fields, the real-place correction and
-`TateMotiveETNC`, its input data and rationality predicate (§8.1–§8.6).
--/
