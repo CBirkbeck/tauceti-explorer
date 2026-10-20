@@ -280,10 +280,6 @@ example {Δ : Type*} [Group Δ] [Fintype Δ] (x : ℤ) :
     chiSum (Representation.trivial ℤ Δ ℤ) 1 x = (Fintype.card Δ : ℤ) • x := by
   simp [chiSum, Representation.trivial]
 
-/-- For the trivial group the sum is the identity. -/
-example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5 : ℤ) = 5 := by
-  simp [chiSum, Representation.trivial]
-
 /-! ## Layer 1: Finite-level descent -/
 
 /- Cyclotomic derivative classes and the class-group bound are specified in §§1.1–1.6. -/
