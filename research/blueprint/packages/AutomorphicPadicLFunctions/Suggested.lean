@@ -207,6 +207,13 @@ example :
 
 /-! ## Layer 3: comparison of supplied Deligne–Ribet and Katz measures -/
 /-! ## Layer 3h: anticyclotomic toric periods and nonvanishing -/
+
+#check NumberField.IsCMField.unitsMulComplexConjInv
+#check NumberField.IsCMField.unitsMulComplexConjInv_ker
+#check Subgroup.index_ker
+#check Subgroup.card_subgroup_dvd_card
+#check NumberField.torsionOrder_dvd_absNorm_sub_one'
+
 /-! ## Layer 4: unitary doubling -/
 /-! ## Layer 4e: Klingen families -/
 /-! ## Layer 5: comparison of evaluation constructions -/
