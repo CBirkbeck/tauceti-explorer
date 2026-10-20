@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-CompletedCohomologyAndLocalGlobalCompatibility",
+    "date": "2026-10-20",
+    "notes": "Independent review of all 49 targets against the accepted packet, all 18 author-flagged source areas plus a deterministic random sample of 15 locators, current upstream/library duplication, definition checks and 10 Lean signatures. Corrected derived versus faithful degree-one Hecke comparisons, geometric cyclotomic twist, typed tensor handedness, determinant interpolation, Pan's twisted factorisation and Eichler-Shimura deviation sign, Shimura H0 sourcing, globalisation/DFG hypotheses, deformation-side density, and source locators. Removed the generic heckeClosure API in favour of Mathlib; retained arithmetic comparisons and all 57 packet test names. Exact supplier extensions remain mathematical targets, not implemented results. The report records limited direct access to Boeckle and the unpublished away-from-p input. lean-check exited 0 with five sorry warnings only; Suggested.lean is unchanged. Blueprint checker: 0 errors and 0 warnings. Intake check-files: 0 problems; git diff --check passed."
+  }
+}
