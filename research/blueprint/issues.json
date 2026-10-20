@@ -5302,5 +5302,6 @@
  "FIX-PKG-EisensteinIdealAndRationalTorsion~adv2": 11260,
  "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv5": 11261,
  "REV-PKG-CyclotomicClassGroupsAndStickelberger~codex": 11266,
- "REV-PKG-EisensteinIdealAndRationalTorsion~codex2": 11268
+ "REV-PKG-EisensteinIdealAndRationalTorsion~codex2": 11268,
+ "REV-PKG-RefinedTraceMethods~codex": 11269
 }
