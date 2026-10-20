@@ -164,7 +164,7 @@ theorem ramanujan_congruence_mod_five (n : ℕ) : partitionCount (5 * n + 4) % 5
 theorem ramanujan_congruence_mod_seven (n : ℕ) : partitionCount (7 * n + 5) % 7 = 0 := sorry
 
 /-- Ramanujan's partition congruence (QM.5/ramanujan-congruence-mod-eleven).
-The Winquist/dissection input remains an explicit proof gap in the README. -/
+The README gives the crank11 route through Sarma's modular valence proof. -/
 theorem ramanujan_congruence_mod_eleven (n : ℕ) : partitionCount (11 * n + 6) % 11 = 0 := sorry
 
 /-! ## QM.6: moonshine
