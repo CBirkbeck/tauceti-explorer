@@ -153319,6 +153319,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-GrossZagierAndArithmeticHeights~adv2.md"
+  },
+  {
+   "id": "REV-PKG-MotivesAndAlgebraicCycles~codex2",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivesAndAlgebraicCycles"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-MotivesAndAlgebraicCycles~codex2.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/review.json",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/README.md",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/Suggested.lean",
+    "research/blueprint/packages/MotivesAndAlgebraicCycles/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivesAndAlgebraicCycles~codex2.md"
   }
  ]
 }
