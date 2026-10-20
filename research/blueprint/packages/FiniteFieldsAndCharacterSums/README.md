@@ -52,13 +52,17 @@ Use Mathlib `FiniteField.frobeniusAlgHom`, `FiniteField.algebraMap_trace_eq_sum_
 
 Part II extension: the rational-map universal Albanese–Weil variety of a general projective integral variety, functoriality under rational maps and purely inseparable isogeny invariance; normal-projective Picard/Tate comparison and generic-linear-section maps of Ghorpade–Lachaud 9.4/9.6. A2’s existing abelian-scheme dual/Picard functor is imported as the foundation but is not a general singular-variety Albanese. Distinguish Alb_w from Alb_s and Pic_w from Pic_s.
 
+The required new targets are `albaneseWeil_exists`, `albaneseWeil_birational`, `albaneseWeil_linearSection_surjective`, `albaneseWeil_linearSection_radicialIsogeny` and `picardSerre_tate_H1`. They are extension requests, not existing A2 exports. Use a perfect base field and geometrically integral projective X; the pointed universal property is on a smooth locus with a chosen geometric point, with descent of the resulting abelian variety, rather than an assumed rational point on X. Without a rational base point, descend the unpointed universal map as an Albanese torsor, not an arbitrarily chosen pointed k-map. For X⊂P^N of dimension n and 1≤r≤n−1, the section-map conclusions hold on a nonempty open of the appropriate Grassmannian, not for every section; over a finite base field a member may require a finite extension. Curve-section surjectivity concerns the Jacobian of the smooth normalization; the radicial-isogeny conclusion requires section dimension n−r at least two. The Picard comparison is for normal projective X and ℓ different from the characteristic: V_ℓ(Pic_s X)(−1)≃H¹(X_k̄,Q_ℓ), equivariantly. A normal projective cone over a positive-genus smooth curve has Alb_s=0 and Alb_w equal to that curve's Jacobian; even normality does not identify the two. See [Ghorpade–Lachaud](#source-16), §9, pp.26–29, especially Example 9.2 and Propositions 9.4/9.6.
+
 Used by: [Albanese–Weil varieties and linear curve sections](#FF2-albanese-linear-section-bound), [Bombieri–Sperber’s Albanese point-count expansion](#FF2-bombieri-sperber-albanese-expansion), [The highest odd weight and the Albanese–Weil spectrum](#FF2-top-weight-albanese-comparison).
 
 <a id="contract-P-R11"></a>
 
 ### From ArithmeticGaloisRepresentations:R01.3
 
-Swan conductors in equal characteristic: for a complete discretely valued field K of characteristic p with algebraically closed residue field (e.g. F̄_q((t))) and a continuous E_λ-representation V of Gal(K^sep/K), Sw(V) = Σ_λ λ·dim V(λ) over the upper-numbering breaks, an integer, additive in short exact sequences and invariant under unramified extension; for the nontrivial characters of an Artin–Schreier extension T^p − T = u with v(u) = −m, p ∤ m, Sw = m. The contract includes the geometric complete discrete valuation field with algebraically closed residue field; a finite-residue-field statement alone does not cover this use.
+Swan conductors in equal characteristic: for a complete discretely valued field K of characteristic p with algebraically closed residue field (e.g. F̄_q((t))) and a continuous finite-dimensional E_λ-representation V of Gal(K^sep/K), with E_λ finite over Q_ℓ and ℓ≠p, Sw(V) = Σ_λ λ·dim V(λ) over the upper-numbering breaks, an integer, additive in short exact sequences and invariant under unramified extension; for the nontrivial characters of an Artin–Schreier extension T^p − T = u with v(u) = −m, p ∤ m, Sw = m. The contract includes the geometric complete discrete valuation field with algebraically closed residue field; a finite-residue-field statement alone does not cover this use.
+
+The general representation targets are AGR §3.1 `wildImage_finite`, `absUpperRamificationGroup`, `breakDecomposition`, `swanConductor_eq_lowerSum`, `swanConductor_extendScalars` and §3.2's integrality theorem. Their missing prerequisite is an extension under the LocalFieldsRamification parent: extend the existing lower/upper filtration, Herbrand quotient compatibility and conductor integrality to complete DVRs with perfect, possibly infinite, residue field. AGR §3.1 explicitly records that prerequisite gap. The general-valued-field Part II concerns tameness, and its Kato continuation imports the classical perfect-residue Swan conductor; neither supplies this missing classical filtration. Import AGR §3.7 `artinSchreier_break` and `artinSchreier_swanConductor` for the field-level value Sw=m. The additional target in [§2.9](#FF2-geometric-artin-schreier-break) compares native places, completions and sheaf stalks with that same conductor.
 
 Used by: [Sw_x(L(ψf)) = v*_x(f) (Sommes trig. (3.5.4))](#FF2-swan-conductor-of-artin-schreier-sheaf).
 
@@ -66,7 +70,9 @@ Used by: [Sw_x(L(ψf)) = v*_x(f) (Sommes trig. (3.5.4))](#FF2-swan-conductor-of-
 
 ### From ArithmeticGaloisRepresentations:R01.3
 
-Part II equal-characteristic extension: conductors of continuous ℓ-adic representations of geometric complete DVRs k̄((t)), ℓ≠p, using finite wild inertia and break decomposition; integrality/additivity and the lower/upper finite-image conductor relation. Include Sw(V⊗W)≤rk(W)Sw(V)+rk(V)Sw(W), tame unipotent invariants, and twisting by a strictly larger rank-one break. R01.3’s arithmetic wording and finite-residue-field LocalFieldsRamification do not already export this geometric contract. Layer 2 proves its rank-one Artin–Schreier break, not a second general conductor definition.
+Part II equal-characteristic extension: conductors of continuous ℓ-adic representations of geometric complete DVRs k̄((t)), ℓ≠p, using finite wild inertia and break decomposition; integrality/additivity and the lower/upper finite-image conductor relation. Include Sw(V⊗W)≤rk(W)Sw(V)+rk(V)Sw(W), tame unipotent invariants, and twisting by a strictly larger rank-one break. R01.3’s arithmetic wording and finite-residue-field LocalFieldsRamification do not already export this geometric contract. Layer 2 transports AGR's rank-one Artin–Schreier calculation to the native character sheaf.
+
+Use the AGR break/conductor API after that perfect-residue extension. Request `swanConductor_tensor_le` with the displayed tensor bound; consume AGR §3.4 `artinConductor_twist_dominant` for the dominant twist. These targets apply to a continuous representation over a finite extension of Q_ℓ, ℓ≠p, with finite wild image; finite tame image is unnecessary. In particular, if a rank-one W has break beta greater than every break of V, then Sw(V⊗W)=rk(V) beta. For V=0 both sides are zero. Integrality concerns the total Swan conductor, not each slope: an isoclinic rank-two representation can have break 1/2 and Swan 1. Neither a finite unramified extension nor the finite-residue local-field hypothesis turns a residue field into its algebraic closure. AGR §3.4's `artinConductor_unramifiedBaseChange` includes completed maximal unramified base change, but its stated setting still assumes the perfect-residue filtration. To use it as an independent bridge, prove preservation of that full upper filtration and invariant dimensions from the finite-residue case, rather than invoke the general setting circularly.
 
 Used by: [Artin–Schreier breaks over geometric local fields](#FF2-geometric-artin-schreier-break), [Cohomology of hyper-Kloosterman fibers](#FF2-hyper-kloosterman-fiber-cohomology), [Local monodromy of hyper-Kloosterman sheaves](#FF2-hyper-kloosterman-local-monodromy), [The full main term in trace-function correlations](#FF2-trace-correlation-main-term), [Cancellation outside the geometric Möbius stabilizer](#FF2-mobius-autocorrelation-bound).
 
@@ -76,7 +82,17 @@ Used by: [Artin–Schreier breaks over geometric local fields](#FF2-geometric-ar
 
 ### From ComputationalNumberTheory:CN.0
 
-The algebraic cost model over a commutative ring R, with the randomness model, as Shoup uses them in Chapter 20 (§§3.2, 9.1, 17.1): (1) an algorithm over R is a program whose primitive steps are +, −, ×, the equality test, inversion of units and, for finite R, drawing a uniformly random element of R, each of unit cost ('operations in R'); (2) a deterministic program's cost on an input is the number of primitive steps; a randomized program on an input has an output distribution (a Mathlib PMF) and a cost random variable, halts with probability 1 when P[more than n steps] → 0, and has expected cost E[cost] (Shoup §9.1.2); serial composition, conditionals and loops (Shoup Examples 9.1-9.4) and the generate-and-test theorem (Shoup Theorem 9.3: geometric number of iterations, E[Z] = E[Z₁]/P[H₁], conditional output law); (3) the dense coefficient-vector representation of R[X] with the costs of Shoup Theorem 17.1 (± in O(len g + len h), × in O(len g · len h), division with remainder by h with unit leading coefficient in O(len h · len q)), arithmetic in R[X]/(f) (+ in O(ℓ), × in O(ℓ²), α^e with O(len e) multiplications, Shoup p. 467), Euclid and extended Euclid over a field in O(len g · len h) (Theorems 17.3, 17.5), and Gaussian elimination over a field computing the reduced row echelon form, the rank and a basis of the row null space of an m × n matrix in O(mn(m + n)) operations (Shoup §14.4, pp. 390-393); (4) the translation to bit operations for the standard presentations of 𝔽_q (ℤ/p, or 𝔽_p[X]/(φ) with φ irreducible of degree w; FiniteFieldsAndCharacterSums Layer 0), where one operation in 𝔽_q costs O(len(q)²) bit operations (Shoup Chapter 20 introduction), and for ℤ/p^kℤ, O(len(p^k)²).
+Require a Part II extension of CN.0: its existing `RAMInstruction`, `ramStep` and `PolynomialRAMMagnitude` (§§0.1–0.7) describe integer RAM/bit computation, not the generic ring/random program semantics below. The requested interfaces are `RingProgram`, `RingProgram.run`, `RingProgram.cost`, `RingProgram.uniform`, `generateAndTest_output`, `generateAndTest_tail` and `generateAndTest_expectedCost`. These names specify missing exports, not existing CN.0 declarations. Ring operations and bit operations have distinct cost functions and are compared only by an explicit simulation theorem.
+
+The algebraic cost model over a commutative ring R, with the randomness model, as Shoup uses them in Chapter 20 (§§3.2, 9.1, 17.1): (1) an algorithm over R is a program whose primitive steps are +, −, ×, the equality test, inversion of units and, for finite R, drawing a uniformly random element of R, each of unit cost ('operations in R'); (2) a deterministic program's cost on an input is the number of primitive steps; an almost-surely terminating randomized program has an output distribution (a Mathlib PMF) and a cost random variable; prove almost-sure termination from P[more than n steps] → 0 and then state its expected cost E[cost] (Shoup §9.1.2); serial composition, conditionals and loops (Shoup Examples 9.1-9.4) and the generate-and-test theorem (Shoup Theorem 9.3: geometric number of iterations, E[Z] = E[Z₁]/P[H₁], conditional output law); (3) the dense coefficient-vector representation of R[X] with the costs of Shoup Theorem 17.1 (± in O(len g + len h), × in O(len g · len h), division with remainder by h with unit leading coefficient in O(len h · len q)), arithmetic in R[X]/(f) (+ in O(ℓ), × in O(ℓ²), α^e with O(len e) multiplications, Shoup p. 467), Euclid and extended Euclid over a field in O(len g · len h) (Theorems 17.3, 17.5), and Gaussian elimination over a field computing the reduced row echelon form, the rank and a basis of the row null space of an m × n matrix in O(mn(m + n)) operations (Shoup §14.4, pp. 390-393); (4) the translation to bit operations for the standard presentations of 𝔽_q (ℤ/p, or 𝔽_p[X]/(φ) with φ irreducible of degree w; FiniteFieldsAndCharacterSums Layer 0), where one arithmetic operation in 𝔽_q costs O(len(q)²) bit operations (Shoup Chapter 20 introduction), and for ℤ/p^kℤ, O(len(p^k)²).
+
+Uniform draws require independent fresh randomness. Exact uniform sampling from a range not of power-of-two size uses rejection of binary samples; its bit-cost guarantee is an expectation, not a worst-case bound. Unit inversion uses a valid unit witness, or a partial operation returning failure on nonunits in an executable presentation with decidable unit testing. The output PMF is required only after almost-sure termination is proved. A general run keeps nontermination and invalid inversion separate from a returned value, and uses an extended nonnegative cost. For generate-and-test, require independent identically distributed trials, each almost surely finite, with success probability alpha>0 and finite mean trial cost c. If N is the first successful trial, P(N>k)=(1−alpha)^k for k≥0, E[N]=1/alpha and E[total cost]=c/alpha; the returned output has the single-trial law conditioned on success. A trial's own cost may correlate with its success. Independence from previous trials, not independence within a trial, justifies summing the costs. At alpha=0 there is no terminating output law; at alpha=1 exactly one trial is used. A sampler of a uniform basis vector does not replace independent uniform coefficients in the full vector space.
+
+**Checks.**
+
+- With success probability 1, the output is the first trial's output and the mean total cost is c; at probability 0, a terminating output PMF is unavailable.
+- For equiprobable success/failure with respective trial costs 3 and 1, c=2 and the mean total cost is 4. The geometric tail at k=2 is 1/4. Assuming independence of a trial's cost and its success would be unjustified.
+- A uniform vector of F_2² has four possible values, including zero; choosing uniformly between the two standard basis vectors omits half that support and cannot implement the same sampler.
 
 Used by: [Cost of Algorithm SFD](#FF3-square-free-decomposition-algorithm-cost), [Cost of Algorithm DDF](#FF3-distinct-degree-factorization-algorithm-cost), [Cost of Algorithm IPT](#FF3-irreducibility-test-cost), [Cost of generating and of checking a Rabin certificate](#FF3-rabin-certificate-generation-cost), [Expected cost of Algorithm EDF](#FF3-equal-degree-factorization-cost), [Expected cost of the Cantor–Zassenhaus algorithm](#FF3-cantor-zassenhaus-cost), [Berlekamp's factoring algorithm](#FF3-berlekamp-algorithm), [Las Vegas correctness of Berlekamp's algorithm](#FF3-berlekamp-algorithm-correct), [Cost of Berlekamp's algorithm](#FF3-berlekamp-algorithm-cost), [Expected cost of Algorithm RIP](#FF3-random-irreducible-polynomial-cost), [Cost of linear Hensel lifting](#FF3-hensel-lifting-algorithm-cost), [Cost of naive and of certified counting](#FF3-naive-point-count-cost), [Cost of Schoof's algorithm](#FF3-schoof-algorithm-cost).
 
@@ -86,23 +102,31 @@ Used by: [Cost of Algorithm SFD](#FF3-square-free-decomposition-algorithm-cost),
 
 ### From ComputationalNumberTheory:CN.0
 
-Executable presentations with refinement lemmas: dense coefficient-list presentations of F[X] over the Layer 0 standard presentations of finite fields and of (ℤ/p^kℤ)[X], with lemmas identifying their +, ×, division by a monic polynomial, gcd and extended gcd, and modular powering with Mathlib's Polynomial operations, so that Layer 3's checkers (FactorizationCertificate.check, PointCountCertificate.check, Layer 0's Rabin checker) and algorithms evaluate by computation on concrete inputs. Layer 3's objects are Mathlib functions on Polynomial F; CN.0 owns their computable refinements.
+Require `DensePolynomial.decode`, `DensePolynomial.decode_add`, `_mul`, `_divMod_monic`, `_gcd`, `_xgcd` and `_powMod`, with operation counts and a bit simulation for the selected coefficient presentation. These are requested refinement targets, beyond CN.0's existing integer RAM. The total Euclidean gcd and extended-gcd refinements are over coefficient fields; over a general coefficient ring a unit-pivot routine is partial and may fail. Inversion at a nonunit returns failure; division is promised only when the leading coefficient is a unit. Constant and zero polynomial encodings must decode correctly, including zero remainder modulo a unit polynomial. No computability assertion follows merely from a noncomputable native `AdjoinRoot` equivalence.
+
+Executable presentations with refinement lemmas: dense coefficient-list presentations of F[X] over the Layer 0 standard presentations of finite fields and of (ℤ/p^kℤ)[X], with lemmas identifying their +, ×, division by a monic polynomial and modular powering with Mathlib's Polynomial operations, and gcd/extended gcd over coefficient fields (a unit-pivot partial version over ℤ/p^kℤ), so that Layer 3's checkers (FactorizationCertificate.check, PointCountCertificate.check, Layer 0's Rabin checker) and algorithms evaluate by computation on concrete inputs. Layer 3's objects are Mathlib functions on Polynomial F; CN.0 owns their computable refinements.
+
+**Checks.**
+
+- In Z/4, 2 is a nonunit and 2²=0; an inversion instruction must fail there. The unit 3 has inverse 3.
+- Modulo the monic unit polynomial 1, every polynomial decodes to zero in the quotient and every remainder is zero, including the remainder of 0.
+- In F_3[X]/(X²+1), the square of the class of X is 2, while the unreduced dense product has coefficient 1 in degree two. Refinement must include remainder reduction rather than comparing those coefficient lists literally.
 
 Used by: [Factorization certificate and its checker](#FF3-factorization-certificate), [Point-count certificate](#FF3-point-count-certificate), [Certified factorization over a finite field](#FF3-certified-factorization-algorithm), [The Cantor–Zassenhaus algorithm](#FF3-cantor-zassenhaus-algorithm), [Berlekamp's factoring algorithm](#FF3-berlekamp-algorithm), [Schoof's algorithm](#FF3-schoof-algorithm).
 
 <a id="contract-P-R30"></a>
 
-### From ComputationalNumberTheory:CN.5
+### From Lean and Mathlib: finite decision reflection
 
-A certificate schema for exhaustive finite verification: a statement ∀ x ∈ S, P x with S finite and P decidable, certified by kernel evaluation (decide/native evaluation) with the verification cost reported, and a schema for recording an explicit constant instantiation of an imported theorem. Layer 5 instantiates it for correctness-without-hardness-example (∀ α ∈ F_65537ˣ, 3^{dlogFermat α} = α, a check over 65536 elements).
+For a finite enumerated set S and a decidable predicate P, `of_decide_eq_true` turns a kernel-checked equality `decide (∀ x ∈ S, P x) = true` into the proposition itself. The enumeration must cover S; checking a list of samples proves only the assertions on that list. This is existing logical infrastructure, not a new arithmetic certificate carrier. An explicit constant instantiation of a theorem is ordinary theorem application. In Layer 5 it can verify the 65,536 inputs of the displayed fold, or the fold's correctness can be proved by induction. The operation count of either verification is a separate cost theorem under the requested CN.0 model; reflection supplies no complexity bound.
 
 Used by: [Correctness does not imply hardness: an explicit fast discrete logarithm on F_65537](#FF5-correctness-without-hardness-example).
 
 <a id="contract-F3-R03"></a>
 
-### From ComputationalNumberTheory:CN.5
+### From Lean and Mathlib: verification of an arithmetic checker
 
-Import the finite-verification certificate discipline used by the earlier Layer 5: for a finite set S and decidable P, certify ∀x∈S, P x by kernel evaluation of an explicitly checked finite computation, and report verification cost. Layer 3 supplies the factorization and point-count checker semantics and soundness; CN.0 supplies executable refinements. CN.5 supplies reusable proof/certificate recording and constant-instantiation rules, not a second factorization or point-count algorithm.
+Layer 3's factorization and point-count soundness theorems connect their Boolean checkers to the native mathematical conclusions. On a concrete input, supply a kernel-checked equality `check input certificate = true` and apply that soundness theorem. `of_decide_eq_true` handles the logical reflection; the executable representation must still be related to the native input by the requested CN.0 refinement equations. A checksum, an unchecked external Boolean, or a successful test of a different input is insufficient. Verification costs remain explicit arithmetic operation counts rather than consequences of kernel acceptance.
 
 Used by: [Factorization certificate and its checker](#FF3-factorization-certificate), [Point-count certificate](#FF3-point-count-certificate).
 
@@ -252,21 +276,84 @@ Used by: [Local acyclicity of the universal polynomial sheaf](#FF2-polynomial-fa
 
 <a id="contract-F1-R01"></a>
 
-### From PadicDifferentialEquationsAndRigidCohomology:RD.1.64
+### From DirichletPadicLFunctions:L3, §4.5: scalar Dwork coefficients
 
-Use RD.1.64's coefficient estimate for theta(X)=exp(pi(X−X^p)), valid for every prime p, including 2. For q=p^f, f>0, the formal identity Theta_q=∏_{i<f}theta(X^(p^i)) telescopes to rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)). Here K is a complete ultrametric characteristic-zero normed field with an explicitly norm-preserving Q_p embedding, pi^(p−1)=−p and r=‖pi‖. Layer 1 derives the finite-product coefficient bound locally: in a coefficient of degree n, ∑_{i<f}p^i n_i=n, so ∑_{i<f}n_i≥n/p^(f−1); the ultrametric convolution inequality and RD.1.64 give v_p(A_n)≥n(p−1)/(p q), equivalently ‖PowerSeries.coeff n Theta_q‖≤r^(n(p−1)^2/(p q)). This is the estimate in [Robert (2001)](#source-47), Appendix 1, printed p.167. The coefficient interface uses the Robert-sign series; the inverse Frobenius factor requires the opposite sign. Its open-disc radius is at least p^((p−1)/(p q)). Do not numerically substitute exp(pi(1−1)) to obtain Theta_p(1); formal composition and analytic evaluation differ at that boundary. Factorial, digit, continuity and moving-tail arguments belong to the Gamma comparison.
+Use the arithmetic scalar series `dworkSplittingSeries` and its coefficient/tail estimates. Let p be any prime, f>0, q=p^f, and K a complete ultrametric characteristic-zero normed field with a norm-preserving Q_p embedding. For pi^(p−1)=−p put r=‖pi‖ and
 
-The all-prime coefficient estimate is thus a consequence of the stated RD.1.64 export; it needs no stronger coefficient theorem from RD.6. The compatible-root splitting identity is a separate input below.
+```text
+theta(T)=rescale(pi,PowerSeries.exp K)*expand(p,rescale(−pi,PowerSeries.exp K)),
+Theta_q(T)=∏_(0≤i<f)theta(T^(p^i))
+          =rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)).
+```
+
+The expansions use p,q≠0. These are formal series before evaluation. For A_n=coeff_n(Theta_q), require v_p(A_n)≥n(p−1)/(p q), equivalently ‖A_n‖≤r^(n(p−1)^2/(p q)); hence the convergence radius is at least p^((p−1)/(p q))>1. The q-bound also follows from the p-bound: a convolution term of weighted degree n has ∑p^i n_i=n and therefore ∑n_i≥n/p^(f−1). The ultrametric triangle inequality bounds the finite coefficient sum. The scalar estimate is in [Robert (2001)](#source-47), proof of the tail-bound lemma, printed p.167, with the dyadic tail calculation continued on p.168. Appendix 1 on p.169 instead concerns Gamma reflection.
+
+This is the scalar arithmetic interface of L3 §4.5, also planned as RD.1.64 in the rigid-cohomology direction; it is consumed once here. Summability at ‖z‖≤1 follows from the coefficient bound. Boundary evaluation is of this combined series, not of two separately evaluated ordinary exponentials. Factorial quotients and moving tails are L3's `robert_factorial_limit`, `robert_finiteDifference` and `robert_telescope`, not additional constructions here.
+
+**Checks.**
+
+- A_0=1 and A_1=pi for every q≥2. Reversing the Frobenius-factor sign changes A_1 to −pi.
+- At p=q=2 and pi=−2, A_2=pi²/2−pi=4, whereas the formula for q>2 gives pi²/2=2. These coefficient identities already make sense over Q and are proved in the suggested file.
+- At a Teichmüller argument 1, replacing the coefficient sum by the ordinary exponential of pi(1−1) would give 1 and contradict the nontrivial splitting value below.
 
 Used by: [Exact Gamma route to the Hasse–Davenport product](#FF1-hasse-davenport-product-completion).
 
 <a id="contract-F1-R02"></a>
 
-### From PadicDifferentialEquationsAndRigidCohomology:RD.6.46
+### From DirichletPadicLFunctions:L3, §4.5: chosen roots and trace values
 
-Use RD.6.46 `dworkCharacter_splitting_value` and its compatible-root bijection for odd p; extend that same native interface to p=2. For p prime, a normalized complete ultrametric nonarchimedean local field K with residueF of cardinalityq=p^f,f>0, an explicit norm-preserving Q_p embedding, chosen primitive p-th rootzeta and compatiblepi^(p−1)=−p, prove ∀u:Fˣ, tsum_n coeff_n(rescale(pi,PowerSeries.exp K)*expand(q,rescale(−pi,PowerSeries.exp K)))*tau(u)^n = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u). Use the actual native TauCeti.teichmuller lift tau inK, actual formal coefficients and existing trace character. Explain chosen-root compatibility: the Dwork rootTheta_p(1) is primitive and congruent1+pi modulo pi², and the normalizedpi associated withzeta must giveTheta_p(1)=zeta. Include p=2 (pi=−2,zeta=−1) and the small-prime checks. Convert the inverse Frobenius sign explicitly when comparing this coefficient sum to a Frobenius trace. Source: [Robert (2001)](#source-47), Appendix 2, printed p.169, for the splitting identity and chosen-root normalization, including p=2. The current RD.6.46 and RD.6.48 statements assume odd p; their extension to p=2 remains a required supplier target. The coefficient theorem RD.1.64 already includes p=2. The consumer already proves summability on‖z‖≤1 from the coefficient bound and proves the actual Teichmuller norm1, so this request does not outsource convergence, finite orthogonality or the Gamma comparison. In this application choose K as the completion of the cyclotomic character-value field at the chosen prime above p; include existence of a compatible pi for the chosen zeta with pi/(zeta−1) ≡ 1 modulo the maximal ideal, equivalently pi ≡ zeta−1 modulo (zeta−1)^2.
+Consume `dworkSplittingSeries_frobenius`, `dworkSplittingSeries_traceCharacter` and `grossKoblitz_formula` in their all-prime scalar form. For a normalized complete p-adic local field K with residue field F of cardinality q=p^f, f>0, a primitive pth root zeta and the compatible pi, require
+
+```text
+pi^(p−1)=−p,     pi≡zeta−1 mod (zeta−1)²,
+∑'_n A_n tau(u)^n
+  = (AddChar.zmodChar p zeta.pow_eq_one)(Algebra.trace (ZMod p) F u)   (u:Fˣ).
+```
+
+Here tau is the actual native `TauCeti.teichmuller` lift, A_n are exactly the coefficients above, and the trace/additive character use the indicated prime field. Include existence and uniqueness of compatible pi and identification of Theta_p(1) with zeta from its congruence 1+pi modulo pi². The ideal in that congruence is the cyclotomic uniformizer ideal, not the ideal generated by the rational integer p. The coefficient theorem supplies convergence; the additional splitting theorem proves the pth-root value and identifies that root. An inverse Frobenius factor has the opposite series sign and requires an explicit conversion.
+
+L3 §4.5 owns these scalar targets for every prime, including p=2 with pi=−2 and zeta=−1. Its `grossKoblitz_formula` is the source-negative Gauss sum equality with the actual trace character and Gamma orbit. It imports scalar analysis from LocallyAnalyticDistributions and does not require the higher rigid-cohomology package. RD.6.46/6.48's odd-prime splitting statements are not the supplier used by this arithmetic proof. Take K to be the completion of the cyclotomic character-value field at the chosen prime above p, retaining its coefficient embedding.
+
+**Checks.**
+
+- At p=q=2, tau(1)=1 and Theta_2(1)=−1, not the ordinary exponential value 1. The prime-field trace character with zeta=−1 takes 1 to −1; this native character calculation is proved in the suggested file.
+- At p=2,f=2 the trace of 1 is 0 and the splitting value at tau(1) is 1. The one-factor value cannot be copied to the f-fold product.
+- Changing zeta requires the matching compatible pi; choosing arbitrary roots with the right powers does not specify the same additive character.
+
+See [Robert (2001)](#source-47), Appendix 2, printed p.169, for the splitting-value normalization, and Theorem 4, p.168, for the all-prime Gamma–Gauss comparison. Appendix 2 uses Dwork's pth-root theorem; L3 §4.5 includes that theorem among its scalar proof obligations, not as an assumption about arbitrary series values.
 
 Used by: [Exact Gamma route to the Hasse–Davenport product](#FF1-hasse-davenport-product-completion).
+
+<a id="contract-F1-R03"></a>
+
+### From DirichletPadicLFunctions:L3, §4.6: exact Gamma multiplication
+
+Use the supplier's actual unit-valued Morita Gamma function, with Γ_p(0)=1 and Γ_p(1)=−1. For p prime, f>0, M=p^f−1, m>0 prime to p and 0<k<M, put x_i=(p^i k mod M)/M in Z_p. Its `moritaMultiplicationProduct` is F_m(x)=∏_(0≤h<m)Γ_p((x+h)/m), with C_m=F_m(0)=∏_(1≤h<m)Γ_p(h/m). The consumed exact orbit identity is
+
+```text
+Q=∏_(0≤i<f) F_m(x_i)/(Γ_p(x_i) C_m) = omega(m)^k.
+```
+
+Here omega(m) is the prime-field Teichmüller unit. Require `moritaMultiplicationProduct_nat`, `_congruence`, `_orbit` and `_teichmuller`, including the comparison with the positive fractional preimages in Gross–Koblitz Theorem 3.1(2). When m divides M, reindexing those preimages gives exactly the quotient used in §1.6. No change from Γ_p(0) to Γ_p(1) is allowed at a zero exponent.
+
+The all-prime route uses the supplier's natural-argument recurrence
+
+```text
+F_m(n) m^U_p(n)=Γ_p(n) C_m,
+U_p(n)=#{0≤j<n:p∤j}.
+```
+
+At precision p^ell, for representatives r_i of x_i, the orbit carries give p^(ell−1)∣∑_i U_p(r_i). Combine the finite-precision product with Euler's unit theorem to prove Q^(p−1)=1. Work at cofinal ell≥3: the unrestricted Gamma congruence at ell=2 is false for p=2. The separately proved residue Q≡m^k modulo p then identifies this prime-to-p root uniquely. For p=2 the power equation already says Q=1. These are the L3 orbit-power and Teichmüller targets, not an inference that any root of p-power order is determined by its residue.
+
+**Checks.**
+
+- m=1 gives Q=1; k=0 is handled directly with Γ_p(0)=1 rather than by the positive-fraction formula.
+- At p=2, Γ_2(4)=3 whereas Γ_2(0)=1 modulo 4, even though 4≡0 modulo 4. The finite natural-argument product is checked in the suggested file; precisions ell≥3 avoid this exception.
+- The distinct roots −1 and 1 have the same image in ZMod 2 and different images in ZMod 4, as proved in the suggested file. A residue-only root argument fails.
+
+See [Gross–Koblitz](#source-48), Theorem 3.1(2) and (3.2), printed pp.575–576, for the odd-prime formula. The all-prime recurrence/Euler proof is the extension specified in DirichletPadicLFunctions §4.6; the printed theorem assumes p odd.
+
+Used by: [Distribution of digit sums and digit factorials](#FF1-digit-product-distribution), [Exact Gamma route to the Hasse–Davenport product](#FF1-hasse-davenport-product-completion).
 
 <a id="contract-F2-R16"></a>
 
@@ -2155,43 +2242,40 @@ Let M=p^f−1, d=M/m, s(r)=the sum of native base-p digits and h(r)=the product 
 
 The hypotheses are as follows. p is prime, f>0, m>0 and m divides M. Thus M>0, d>0 and p∤m. No odd-prime restriction.
 
-A proof proceeds as follows. Pad each digit list to length f. Multiplication by p modulo M cycles the digits for r<M; s(r)=(p−1)∑_{i<f}{p^i r/M}. For each i, multiplication by p^i permutes j modulo m. The elementary fractional-part distribution on this grid gives the first identity after summation over i. All arguments b+jd and mb lie in [0,M). For b>0 put k=mb, so 0<k<M. Import L3/gross-koblitz-source-multiplication-theorem with its actual Morita Gamma and positive fractional preimages. The numerator preimages, after permuting j for each i, are the cyclic fractions for b+jd; denominators are those for mb and jd, 1≤j<m. None is an integer here, so positive versus ordinary fractional parts agree. Reduce that exact Gamma identity modulo p using L3/morita-gamma-sharp-reduction at precision 1 and its recurrence. If r has low digit r₀, r/M≡−r₀ mod p and Γ_p(r/M)≡Γ_p(−r₀)=1/r₀!; all factorials are units since r₀<p. Multiplying over the cyclic rotations gives 1/h(r). The Teichmuller value reduces to m^k. Since k≡s(k) mod p−1, rearrangement gives the stated factorial product. For b=0 both identities are tautologies after splitting off the j=0 term; do not insert Gamma(1) for Gamma(0). At p=2 every digit factorial and m in ZMod 2 is 1; this congruence is valid but by itself cannot identify a binary root of unity.
+A proof proceeds as follows. Pad each digit list to length f. Multiplication by p modulo M cycles the digits for r<M; s(r)=(p−1)∑_{i<f}{p^i r/M}. For each i, multiplication by p^i permutes j modulo m. The elementary fractional-part distribution on this grid gives the first identity after summation over i. All arguments b+jd and mb lie in [0,M). For b>0 put k=mb, so 0<k<M. Import the [exact L3 multiplication identity](#contract-F1-R03), using its actual Morita Gamma and positive fractional preimages. The numerator preimages, after permuting j for each i, are the cyclic fractions for b+jd; denominators are those for mb and jd, 1≤j<m. None is an integer here, so positive versus ordinary fractional parts agree. Reduce that exact Gamma identity modulo p using L3/morita-gamma-sharp-reduction at precision 1 and its recurrence. If r has low digit r₀, r/M≡−r₀ mod p and Γ_p(r/M)≡Γ_p(−r₀)=1/r₀!; all factorials are units since r₀<p. Multiplying over the cyclic rotations gives 1/h(r). The Teichmuller value reduces to m^k. Since k≡s(k) mod p−1, rearrangement gives the stated factorial product. For b=0 both identities are tautologies after splitting off the j=0 term; do not insert Gamma(1) for Gamma(0). At p=2 every digit factorial and m in ZMod 2 is 1; this congruence is valid but by itself cannot identify a binary root of unity.
 
 In particular, verify the following values and consequences.
 
-- p=5,f=1,m=2,b=1: the factorial congruence is 2²·1!·3! ≡2!·2!≡4 modulo 5, detecting an inverted m exponent.
+- p=5,f=1,m=2,b=1: the factorial congruence is 2²·1!·3!≡2!·2!≡4 modulo 5. This valid boundary check does not detect an inverted exponent, since 2² is self-inverse modulo 5.
+- p=7,f=1,m=2,b=1: 2²·1!·4!≡2!·3!≡5 modulo 7, but 2^(−2)·1!·4!≡6. This distinguishes the multiplier from its inverse and is proved by computation in the suggested file.
 - p=3,f=2,m=2,b=1: the sum identity is s(1)+s(5)=1+3= s(2)+s(4)=2+2; factorial identity gives 2²·1·2=2·1 modulo 3.
-- b=0 and m=1 are exact boundary cases. The binary factorial test is tautological and is not the product-theorem proof.
+- b=0 and m=1 are exact boundary cases. The binary factorial test is tautological and is not the product-theorem proof. At p=2,f=4,m=3,b=1 the digit sums are s(1)+s(6)+s(11)=1+2+3=s(3)+s(5)+s(10)=2+2+2; this nonzero-exponent test is proved in the suggested file.
 
 *Needs:* `Nat.digits`, `DirichletPadicLFunctions:L3/morita-gamma`, `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `DirichletPadicLFunctions:L3/morita-gamma-sharp-reduction`, `DirichletPadicLFunctions:L3/gross-koblitz-source-multiplication-theorem`.
 
-See [Cohen](#source-33) — §11.7.4, Lemma 11.7.14 and proof of Corollary 11.7.15, pp.392–394; Gamma distribution Theorem 11.6.14, pp.372–375.
-
-**Source gap.** These book locators are unverified. The elementary digit-sum calculation is explicit above; the factorial derivation additionally requires the exact Gamma multiplication theorem from L3. Numerical digit checks do not supply that theorem or verify its source.
+See [Gross–Koblitz](#source-48) — Lemma 2.11(1), p.575, for the digit/fraction identity; Theorem 3.1(2) and (3.2), pp.575–576, for the odd-prime Gamma multiplication and residue. The displayed fractional-grid argument and the all-prime [L3 contract](#contract-F1-R03) give the stated extension and the factorial congruence. Numerical Checks are controls on the signs, not a substitute for that exact theorem.
 
 <a id="FF1-hasse-davenport-product-completion"></a>
 
 #### Exact Gamma route to the Hasse–Davenport product
 
-For all χ, g(χ^m,ψ)∏_{1≤j<m}g(ρ^j,ψ)=χ(m)^m∏_{0≤j<m}g(χρ^j,ψ). The proof uses the precise coefficient and splitting-value contracts above.
+For all χ, g(χ^m,ψ)∏_{1≤j<m}g(ρ^j,ψ)=χ(m)^m∏_{0≤j<m}g(χρ^j,ψ). The proof consumes the precise scalar coefficient, splitting-value and Gamma-multiplication contracts above.
 
 The hypotheses are as follows. F is a finite field with q=#F; all additive and multiplicative characters take values in ℂ. Multiplicative characters, including 1, are zero on nonunits. m>0 divides q−1; ρ has exact order m; ψ is primitive. In particular m is a unit in F. χ may be trivial, χ^m may be trivial, and p may be 2.
 
-A proof proceeds as follows. For m=1 the identity is immediate. Choose a generator ω of the multiplicative character group, with the Teichmüller and prime-above-p conventions above. Write ρ=ω^{−td}, gcd(t,m)=1, d=(q−1)/m, and χ=ω^{−a}. Permuting j removes t; replacing a by its residue b mod d permutes the numerator and leaves χ^m and χ(m)^m unchanged. If b=0, χ is a power of ρ, so the numerator is a permutation of all ρ^j factors. As a is a multiple of d, χ^m=1 and χ(m)^m=1. Use g(1,ψ)=−1 to split off the j=0 factor. This case avoids the excluded exponent q−1 endpoint. For 0<b<d first use the canonical trace character. Compare all character values inside their cyclotomic coefficient field and its completion at the chosen prime above p, and then transport through an injective complex embedding. Apply the Robert–Gross–Koblitz comparison with both the coefficient bound and the compatible chosen-root splitting identity from the Dwork contract. It gives the source-negative sum −g(ω^{-r},ψ)=π^{s(r)}∏_{i<f}Γ_p(e(r,i)), with compatible π^{p−1}=−p, for 0≤r<q−1. Use the compatible-root normalization of Robert (2001), Appendix 2, p.169: pi≡zeta−1 modulo the square of the cyclotomic uniformizer ideal. This concerns the prime above p, not reduction modulo the rational integer p. Apply digit-product-distribution to cancel the π powers. The exact L3 Gamma multiplication quotient, with k=mb, equals ω(m)^{mb}=χ(m)^{−m}. There are m source-negative sums on each side, so their signs cancel. Multiplication by χ(m)^m gives the target. The exact prime-to-p Teichmüller identity is stronger than a congruence modulo the cyclotomic prime. L3 identifies the Gamma quotient by proving its normalized (p−1)st power is 1 and its residue is 1; reduction is injective on these prime-to-p roots. For p=2 the exponent p−1 is 1, so the equality is exact before reduction. No claim that an arbitrary p-power root congruent to 1 must be trivial is used. For arbitrary primitive ψ, use the shift parametrisation and gaussSum_mulShift_eq. Both sides acquire the same χ^{-m}(u)∏_{1≤j<m}ρ^{-j}(u) factor. All Gauss factors are nonzero by the native nontrivial theorem or the trivial value −1. This route is arithmetic and p-adic analytic; it does not use étale cohomology or Poincare duality.
+A proof proceeds as follows. For m=1 the identity is immediate. Choose a generator ω of the multiplicative character group, with the Teichmüller and prime-above-p conventions above. Write ρ=ω^{−td}, gcd(t,m)=1, d=(q−1)/m, and χ=ω^{−a}. Permuting j removes t; replacing a by its residue b mod d permutes the numerator and leaves χ^m and χ(m)^m unchanged. If b=0, χ is a power of ρ, so the numerator is a permutation of all ρ^j factors. As a is a multiple of d, χ^m=1 and χ(m)^m=1. Use g(1,ψ)=−1 to split off the j=0 factor. This case avoids the excluded exponent q−1 endpoint. For 0<b<d first use the canonical trace character. Compare all character values inside their cyclotomic coefficient field and its completion at the chosen prime above p, and then transport through an injective complex embedding. Apply L3 §4.5's `grossKoblitz_formula`, with the actual scalar coefficient bound and compatible chosen-root splitting identity. It gives the source-negative sum −g(ω^{-r},ψ)=π^{s(r)}∏_{i<f}Γ_p(e(r,i)), with compatible π^{p−1}=−p, for 0≤r<q−1. Use the compatible-root normalization of Robert (2001), Appendix 2, p.169: pi≡zeta−1 modulo the square of the cyclotomic uniformizer ideal. This concerns the prime above p, not reduction modulo the rational integer p. Apply digit-product-distribution to cancel the π powers. The exact L3 Gamma multiplication quotient, with k=mb, equals ω(m)^{mb}=χ(m)^{−m}. There are m source-negative sums on each side, so their signs cancel. Multiplication by χ(m)^m gives the target. The exact prime-to-p Teichmüller identity is stronger than a congruence modulo the cyclotomic prime. L3 identifies the Gamma quotient by proving its normalized (p−1)st power is 1 and its residue is 1; reduction is injective on these prime-to-p roots. For p=2 the exponent p−1 is 1, so the equality is exact before reduction. No claim that an arbitrary p-power root congruent to 1 must be trivial is used. For arbitrary primitive ψ, use the shift parametrisation and gaussSum_mulShift_eq. Both sides acquire the same χ^{-m}(u)∏_{1≤j<m}ρ^{-j}(u) factor. All Gauss factors are nonzero by the native nontrivial theorem or the trivial value −1. This route is arithmetic and p-adic analytic; it does not use étale cohomology or Poincare duality.
 
 In particular, verify the following values and consequences.
 
 - m=1 gives gχ=gχ, including χ=1.
 - If χ is any power of ρ, both sides agree by permutation and g1=−1, including χ^m=1.
-- At q=4,m=3 and a character ρ of order 3, χ=ρ gives −gρ gρ² on both sides. This tests characteristic two and the j=0 sign.
+- At q=4,m=3 and a character ρ of order 3, χ=ρ gives −gρ gρ² on both sides. This tests characteristic two and the j=0 sign. At q=16,m=3,χ=omega^(−1), the reduced exponent is b=1<5 and χ is not a power of ρ. With the binary trace character both sides are 64; the all-prime Gamma identity is needed for this case.
 - The factorial congruence alone leaves a possible p-power root; the exact Gamma quotient is the required stronger equality. The coefficient bound and chosen-root splitting identity are both needed for this route.
 - This proves the product relation with the zero-extended trivial-character convention.
 
-*Needs:* [Distribution of digit sums and digit factorials](#FF1-digit-product-distribution), [The Teichmüller character of a prime of a number field](#FF1-teichmuller-character), [The prime above p in Q(ζ_m, ζ_p)](#FF1-prime-above-p-in-cyclotomic-compositum), [The canonical additive character of a finite field](#FF1-canonical-additive-character), [Every additive character is a multiplicative shift of a primitive one](#FF1-additive-characters-are-shifts), [Transport of Gauss sums along ring homomorphisms, and the shift identity](#FF1-gauss-sum-transport), `DirichletPadicLFunctions:L3/gross-koblitz-source-multiplication-theorem`, `DirichletPadicLFunctions:L3/gross-koblitz-multiplication-teichmuller`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-power`, `DirichletPadicLFunctions:L3/robert-gross-koblitz-comparison`, `PadicDifferentialEquationsAndRigidCohomology:RD.6`, `gaussSum_one_left`, `gaussSum_ne_zero_of_nontrivial`, `gaussSum_mulShift_eq`.
+*Needs:* [Distribution of digit sums and digit factorials](#FF1-digit-product-distribution), [The Teichmüller character of a prime of a number field](#FF1-teichmuller-character), [The prime above p in Q(ζ_m, ζ_p)](#FF1-prime-above-p-in-cyclotomic-compositum), [The canonical additive character of a finite field](#FF1-canonical-additive-character), [Every additive character is a multiplicative shift of a primitive one](#FF1-additive-characters-are-shifts), [Transport of Gauss sums along ring homomorphisms, and the shift identity](#FF1-gauss-sum-transport), `DirichletPadicLFunctions:L3/gross-koblitz-source-multiplication-theorem`, `DirichletPadicLFunctions:L3/gross-koblitz-multiplication-teichmuller`, `DirichletPadicLFunctions:L3/morita-gamma-multiplication-orbit-power`, `DirichletPadicLFunctions:L3/grossKoblitz_formula`, [Scalar Dwork coefficients](#contract-F1-R01), [Chosen roots and trace values](#contract-F1-R02), [Exact Gamma multiplication](#contract-F1-R03), `gaussSum_one_left`, `gaussSum_ne_zero_of_nontrivial`, `gaussSum_mulShift_eq`.
 
-See [Conrad, Gauss–Jacobi](#source-5) — Appendix p.19, (A.6), denominator convention and footnote 9, for the product identity; [Robert (2001)](#source-47) — Appendix 2, p.169, for compatible roots. The inherited Gamma-route locators are [Cohen](#source-33), §11.7.4, Corollary 11.7.15 and Theorem 11.7.16(1), pp.392–395; Lemma 11.7.12 pp.390–391.
-
-**Source gap.** The Cohen locators and their support for the exact Gamma multiplication route are unverified. Conrad verifies the target identity, not this Gamma proof route. The route remains conditional on the precise L3 multiplication/comparison exports and the all-prime RD splitting extension; it must not be certified from a congruence alone.
+See [Conrad, Gauss–Jacobi](#source-5) — Appendix p.19, (A.6), denominator convention and footnote 9, for the product identity; [Gross–Koblitz](#source-48) — Theorem 3.1(2) and (3.2)–(3.3), pp.575–576, for the odd-prime exact Gamma route; [Robert (2001)](#source-47) — Theorem 4, p.168, and Appendix 2, p.169, for the all-prime Gamma–Gauss comparison and compatible roots. The [L3 multiplication contract](#contract-F1-R03) specifies the independent recurrence/Euler extension at p=2.
 
 ### 1.7 Gauss sums over products and étale algebras
 
@@ -2489,7 +2573,7 @@ Let F be a finite field with q elements, n ∣ q − 1, λ a multiplicative char
 
 The hypotheses are as follows. n ∣ q − 1 (so n is prime to p and χ(n) ≠ 0); λ of order n; ψ ≠ 1.
 
-A proof proceeds as follows. Use [Completion of the Hasse–Davenport product plan](#FF1-hasse-davenport-product-completion) for the exact product identity, with its chosen-root Gross–Koblitz comparison and exact Morita Gamma multiplication input. The completion is the single proof route for this target, not a second independent product theorem. The completion uses RD.1.64 and the finite-product coefficient derivation above, together with RD.6.46 for the actual trace-character splitting identity at odd p. Its splitting extension to p=2 remains required for compatible pi, zeta and Teichmuller lifts. Use the two precise Dwork contracts above. Do not conclude from a root-of-unity ratio and its residue alone: reduction does not detect a p-power root of unity. Exact Gamma multiplication is what removes that ambiguity. Recover n=2 from the duplication formula and check the trivial-character factors using g(1)=-1.
+A proof proceeds as follows. Use [Completion of the Hasse–Davenport product plan](#FF1-hasse-davenport-product-completion) for the exact product identity, with its chosen-root Gross–Koblitz comparison and exact Morita Gamma multiplication input. The completion is the single proof route for this target, not a second independent product theorem. The completion consumes L3 §4.5's all-prime scalar Dwork/Gross–Koblitz targets and §4.6's exact Gamma orbit multiplication. Use the three precise arithmetic contracts above, including compatible pi, zeta and native Teichmüller lifts at p=2. Do not conclude from a root-of-unity ratio and its residue alone: reduction does not detect a p-power root of unity. Exact Gamma multiplication is what removes that ambiguity. Recover n=2 from the duplication formula and check the trivial-character factors using g(1)=-1.
 
 In particular, verify the following values and consequences.
 
@@ -4152,18 +4236,19 @@ Let k be perfect of characteristic p and K=k((t)). If u∈K has valuation −m<0
 
 The hypotheses are as follows. m>0, p∤m; geometric conductors are computed after extending residues to the algebraic closure. A general ψ=ψ_can(b·) uses u=bf, not f.
 
-A proof proceeds as follows. A root in K would give a pole divisible by p, so the Artin–Schreier class is nontrivial and the polynomial is irreducible. The valuation of y in L is −m with v_L(t)=p; hence e=p. In the function-field Place presentation, reuse TauCeti.Place.exists_uniformizer_ord_aut_sub_of_artinSchreier_pole, now in the current library. Transport its normalized order and automorphism action through the AlgebraicCurves completion bridge. Its calculation chooses 1≤a<p and b∈ℤ with bp−am=1: π=t^b y^a has valuation 1, and for σ_c(y)=y+c, c≠0, the ratio (1+c/y)^a differs from 1 in valuation m. Thus v_L(σ_cπ−π)=m+1. Establish the same completion compatibility for the perfect-residue Laurent-series presentation; the existing function-field theorem is an import, not a new proof target. The lower ramification groups are the cyclic group for 0≤i≤m and trivial beyond m; for one cyclic p-break the Herbrand transformation leaves that break m. The requested geometric conductor definition gives Sw=m for each nontrivial character; inertia invariants vanish. This proves the equal-characteristic calculation directly, without importing finite-residue-field upper ramification as a theorem about k̄((t)).
+A proof proceeds as follows. Import AGR §3.7 `artinSchreier_break` and `artinSchreier_swanConductor` for the general complete-DVR calculation, after the perfect-residue filtration contract is supplied. Here identify the native Artin–Schreier function-field extension, its completed place and the local character-sheaf representation with that input. In the function-field Place presentation, reuse `TauCeti.Place.exists_uniformizer_ord_aut_sub_of_artinSchreier_pole`. Transport its normalized order and automorphism action through the AlgebraicCurves completion bridge and identify the action y↦y+c on the completed local extension. The displacement calculation chooses 1≤a<p and b∈ℤ with bp−am=1: pi=t^b y^a has valuation 1, and for c≠0 the ratio (1+c/y)^a differs from 1 in valuation m. Thus v_L(σ_c pi−pi)=m+1. The comparison must identify this native lower group with the supplied complete-DVR lower group, hence its upper break and Swan conductor with m. Establish the corresponding Laurent-series specialization over every perfect k; identify the character sheaf's local representation with the nontrivial character of this extension, so its inertia invariants vanish. This is a comparison with the existing field-level target, not another general break theorem or a use of finite-residue upper numbering over k̄((t)).
 
 In particular, verify the following values and consequences.
 
 - u=t^(−m) gives Sw=m.
 - u=t^(−p) is reduced to t^(−1); its Swan conductor is 1, so the raw-pole statement without p∤m fails.
+- At p=2,u=t^(−1) the extension is quadratic with break 1. The phase u=0 gives a split torsor and Swan 0; it is excluded by the pole hypothesis.
 
 **Compatibility**
 
 - The TauCeti.Place displacement theorem concerns a generated integral function-field extension. This target adds the geometric ℓ-adic conductor and the k((t)) completion comparison.
 
-*Needs:* [The modified pole order v*_x(f) of a rational function (Sommes trig. Exemple 3.5)](#FF2-modified-pole-order), [The Artin–Schreier sheaf L_ψ(f)](#FF2-artin-schreier-sheaf), `ArithmeticGaloisRepresentations:R01.3`, `TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-`.
+*Needs:* [The modified pole order v*_x(f) of a rational function (Sommes trig. Exemple 3.5)](#FF2-modified-pole-order), [The Artin–Schreier sheaf L_ψ(f)](#FF2-artin-schreier-sheaf), `ArithmeticGaloisRepresentations:R01.3/artin-schreier-break`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor`, `TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-`.
 
 See [Serre](#source-37) — §4.4, Lemma 4′, pp. 144–145; [Deligne, Sommes trig.](#source-10) — Exemple 3.5, (3.5.4), volume p. 191.
 
@@ -5212,7 +5297,7 @@ Layer 1 supplies explicit character normalizations and lifting. Polynomial L-ser
 
 ## Layer 3: Certified algorithms and point counts
 
-Separate counting, elementary factorization/Hensel algorithms and point-counting components. Randomized algorithms specify output support, failure probability and expected cost separately. CN.0 supplies actual program and representation semantics, while CN.5 supplies the generic certificate schema. Exact squarefree and hyperelliptic presentation counts reuse the census and factorization theory; smooth projective curve zeta reconstruction additionally imports WC.5 and its concrete-model comparison.
+Separate counting, elementary factorization/Hensel algorithms and point-counting components. Randomized algorithms specify output support, failure probability and expected cost separately. The requested CN.0 extensions supply program and representation semantics. Concrete checker acceptance uses Lean's existing decision reflection and the checker soundness theorems. Exact squarefree and hyperelliptic presentation counts reuse the census and factorization theory; smooth projective curve zeta reconstruction additionally imports WC.5 and its concrete-model comparison.
 
 ### 3.1 Square-free decomposition
 
@@ -10861,18 +10946,18 @@ See [Shoup](#source-1) — Chapter 11, §11.2.4, printed p. 333; [Shoup](#source
 
 #### Correctness does not imply hardness: an explicit fast discrete logarithm on F_65537
 
-Let p = 65537 = 2^16 + 1 (prime) and γ = 3, a generator of F_pˣ (3^{2^15} = −1). The Diffie–Hellman protocol in F_pˣ with base 3 is correct (diffie-hellman-correctness), and the explicit procedure dlogFermat, which determines the binary digits x_0, …, x_15 of log_3 α one at a time by testing (α·3^{−(x_0 + ⋯ + x_{i−1}2^{i−1})})^{2^{15−i}} = −1, satisfies 3^{dlogFermat α} = α for every α ∈ F_pˣ, using 16 digit tests (at most 15 squarings per test), with generator powers precomputed and one residual update per digit; the full operational cost remains a CN.0/CN.5 contract. Hence the correctness of the protocol over F_p does not imply that computing discrete logarithms (or Diffie–Hellman keys) in F_pˣ is hard; hardness is a separate hypothesis, never a consequence of the finite-field theorems.
+Let p = 65537 = 2^16 + 1 (prime) and γ = 3, a generator of F_pˣ (3^{2^15} = −1). The Diffie–Hellman protocol in F_pˣ with base 3 is correct (diffie-hellman-correctness), and the explicit procedure dlogFermat, which determines the binary digits x_0, …, x_15 of log_3 α one at a time by testing (α·3^{−(x_0 + ⋯ + x_{i−1}2^{i−1})})^{2^{15−i}} = −1, satisfies 3^{dlogFermat α} = α for every α ∈ F_pˣ, using 16 digit tests (at most 15 squarings per test), with generator powers precomputed and one residual update per digit; the full operational cost remains a CN.0 contract. Hence the correctness of the protocol over F_p does not imply that computing discrete logarithms (or Diffie–Hellman keys) in F_pˣ is hard; hardness is a separate hypothesis, never a consequence of the finite-field theorems.
 
 The hypotheses are as follows. p = 65537; γ = 3.
 
-A proof proceeds as follows. 3 generates F_pˣ: p − 1 = 2^16, so the order of 3 is a power of 2, and 3^{2^15} = −1 ≠ 1 (a finite computation; Pépin's criterion shows the same). pohlig-hellman-reduction (b) with q = 2, e = 16, f = 1 iterated: at step i the element (α·3^{−x_{<i}})^{2^{15−i}} lies in {±1} and equals (−1)^{x_i}. Validate the 16-step dlogFermat fold on all 65,536 nonzero residues: every output must satisfy 0≤x<65,536 and 3^x=α. The CN.5 certificate must package the arithmetic trace, its soundness proof and verification cost. The non-implication is witnessed by this pair (correct protocol, explicitly computable logarithm): no theorem of this roadmap has computational hardness as a conclusion.
+A proof proceeds as follows. 3 generates F_pˣ: p − 1 = 2^16, so the order of 3 is a power of 2, and 3^{2^15} = −1 ≠ 1 (a finite computation; Pépin's criterion shows the same). pohlig-hellman-reduction (b) with q = 2, e = 16, f = 1 iterated: at step i the element (α·3^{−x_{<i}})^{2^{15−i}} lies in {±1} and equals (−1)^{x_i}. Validate the 16-step dlogFermat fold on all 65,536 nonzero residues: every output must satisfy 0≤x<65,536 and 3^x=α. Use the displayed finite domain and the actual fold in a kernel-checked decision, then apply `of_decide_eq_true`, or prove the same equality by induction on the 16 digits. Record the arithmetic trace and prove its operation count in the requested CN.0 model; kernel acceptance alone supplies no such cost bound. The non-implication is witnessed by this pair (correct protocol, explicitly computable logarithm): no theorem of this roadmap has computational hardness as a conclusion.
 
 In particular, verify the following values and consequences.
 
 - dlogFermat 2 = 55296, and 3^{55296} ≡ 2 (mod 65537).
 - dlogFermat 1 = 0 and dlogFermat 3 = 1.
 
-*Needs:* [Correctness of the Diffie–Hellman key exchange](#existing-boundaries), [Reduction of discrete logarithms to prime-power order (Pohlig–Hellman)](#FF5-pohlig-hellman-reduction), [Discrete logarithms in a finite cyclic group](#existing-boundaries), `ComputationalNumberTheory:CN.5`.
+*Needs:* [Correctness of the Diffie–Hellman key exchange](#existing-boundaries), [Reduction of discrete logarithms to prime-power order (Pohlig–Hellman)](#FF5-pohlig-hellman-reduction), [Discrete logarithms in a finite cyclic group](#existing-boundaries), `of_decide_eq_true`.
 
 See [Shoup](#source-1) — Chapter 11, §11.2.4, printed p. 333; [Shoup](#source-1) — Chapter 11, §11.3, printed p. 335.
 
@@ -11354,6 +11439,15 @@ Accessibility revision dated April 19, 2026; Exercise 5.23, pp. 109–110.
 
 ### Alain M. Robert — The Gross–Koblitz formula revisited
 
-Rendiconti del Seminario Matematico della Università di Padova 105 (2001), 157–170. Appendix 1, printed p.167, gives the coefficient estimate; Appendix 2, printed p.169, gives the compatible-root splitting identity for every prime.
+Rendiconti del Seminario Matematico della Università di Padova 105 (2001), 157–170. The tail-bound lemma and its proof, printed pp.166–168, give the coefficient estimate and binary tail calculation; Theorem 4, p.168, is the all-prime Gross–Koblitz formula. Appendix 1 on p.169 gives Gamma reflection, and Appendix 2 there identifies the compatible-root splitting values.
 
 [Source location](https://www.numdam.org/article/RSMUP_2001__105__157_0.pdf).
+
+
+<a id="source-48"></a>
+
+### Benedict H. Gross and Neal Koblitz — Gauss sums and the p-adic Gamma-function
+
+Annals of Mathematics 109 (1979), 569–581. Theorem 3.1 assumes p odd; its binary extension here is supplied by the arithmetic recurrence argument in DirichletPadicLFunctions §4.6.
+
+[Source location](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/gross_koblitz.pdf).
