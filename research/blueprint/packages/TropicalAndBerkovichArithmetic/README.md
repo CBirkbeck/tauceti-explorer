@@ -76,20 +76,20 @@ The external analytic and arithmetic interfaces are:
 
 The following supplier contracts include the extensions needed beyond their narrower versions:
 
-- **SchemeAndStackFoundations SF.3**: Integrate the native smooth connected algebraic curve, smooth proper completion and finite puncture set from AlgebraicCurves. Analytification belongs to Layer 0, not this request. Supply H⁰(X̄,O)=K for a smooth proper geometrically connected curve over algebraically closed K, used with proper GAGA for analytic connectedness. Consumed by [2.1 Semistable vertex set](#21-semistable-vertex-set), [0.31 Connected algebraic curves remain connected](#031-connected-algebraic-curves-remain-connected).
-- **SchemeAndStackFoundations SF.0**: Common scheme interfaces for closed toric embeddings over the general nonarchimedean field K, equivariant dominating maps and initial degenerations retaining generic multiplicities. The general-K toric extension belongs to AnalyticToricGeometry, Part II, extending Layer 0 whose specified algebraic supplier uses a complex base; coordinate its scheme interfaces through SF.0. Do not duplicate its cones, fans or toric gluing. Consumed by [5.1 Faithful tropicalization of a finite subgraph](#51-faithful-tropicalization-of-a-finite-subgraph), [4.1 Tropical multiplicity formula for curves](#41-tropical-multiplicity-formula-for-curves).
+- **SchemeAndStackFoundations SF.3**: Integrate the native smooth connected algebraic curve, smooth proper completion and finite puncture set from AlgebraicCurves. Analytification belongs to Layer 0, not this request. Supply H⁰(X̄,O)=K for a smooth proper geometrically connected curve over algebraically closed K, used with proper GAGA for analytic connectedness. Consumed by [2.1 Semistable vertex set](#21-semistable-vertex-set), [1.4 Connected algebraic curves remain connected](#14-connected-algebraic-curves-remain-connected).
+- **SchemeAndStackFoundations SF.0**: Common scheme interfaces for closed toric embeddings over the general nonarchimedean field K, equivariant dominating maps and initial degenerations retaining generic multiplicities. The general-K toric extension belongs to AnalyticToricGeometry, Part II, extending Layer 0 whose specified algebraic supplier uses a complex base; coordinate its scheme interfaces through SF.0. Do not duplicate its cones, fans or toric gluing. Consumed by [5.4 Faithful tropicalization of a finite subgraph](#54-faithful-tropicalization-of-a-finite-subgraph), [4.6 Tropical multiplicity formula for curves](#46-tropical-multiplicity-formula-for-curves).
 - **SchemeAndStackFoundations SF.5**: Use SF.5/first-chern, SF.5/chern-projection and SF.5/degree for intersections on proper finite-type residue-field schemes. Extend the model specialization, vertical Cartier intersection and admissible-blowup projection identities to proper normal flat models over arbitrary complete rank-one valuation rings, retaining residue degrees and component multiplicities. SF.5/arithmetic-surface-comparison covers regular proper arithmetic surfaces over a Dedekind base; it does not supply this possibly nonnoetherian extension. SF.4 supplies formal geometry, not the intersection-theory owner. Consumed by [6.1 Formal and model metrics](#61-formal-and-model-metrics), [6.2 Chambert–Loir model measures](#62-chambertloir-model-measures).
-- **NeronModelsAndSemistableAbelianVarieties R11.3**: Extend the DVR formal Raynaud comparison to the analytic uniformization cross over a complete algebraically closed rank-one field: 0→M′→Eᵃⁿ→Jᵃⁿ→0 and 0→T→E→B→0, the valuation map, its full lattice and good-reduction kernel, base change, and principal period/monodromy pairing. The existing `raynaud-extension-comparison` statement is a formal DVR result and does not provide this analytic cross. Consumed by [7.4 Analytic Jacobian periods](#74-analytic-jacobian-periods), [7.7 BC–abelian tropical correction](#77-bcabelian-tropical-correction).
-- **TauCetiRoadmap.AdicSpaces Layer 2**: Native valuation classes, Spa(A,A⁺), rational topology and continuous maps; Layer 0 adds normalized real rank-one points and the Hausdorff quotient, with no perfectoid or diamond prerequisite. Consumed by [0.23 Normalized rank-one adic quotient](#023-normalized-rank-one-adic-quotient).
-- **TauCetiRoadmap.AlgebraicCurves Layer 4**: Algebraic Riemann–Roch and prescribed-pole rational functions on the smooth proper curve; Layer 5 imports them to obtain unit-slope and coprime-pole coordinates. Consumed by [5.5 Functions separating edges and vertices](#55-functions-separating-edges-and-vertices).
+- **NeronModelsAndSemistableAbelianVarieties R11.3**: Extend the DVR formal Raynaud comparison to the analytic uniformization cross over a complete nonarchimedean rank-one field with split semistable reduction, first over an algebraically closed field and then with descent: 0→M′→Eᵃⁿ→Jᵃⁿ→0 and 0→T→E→B→0, the valuation map, its full lattice and good-reduction kernel, base change, and principal period/monodromy pairing. The existing `raynaud-extension-comparison` is formal over a complete DVR, while `rigid-uniformisation` and the polarised one-motive already provide the analytic quotient in that DVR range. Import those results; the requested extension is to arbitrary complete rank-one bases, with the valuation-kernel and descent interfaces. R11.4 supplies the DVR graph monodromy pairing; §7.5 adds the arbitrary-real-length skeleton and analytic Abel–Jacobi compatibility. Consumed by [7.5 Analytic Jacobian periods](#75-analytic-jacobian-periods), [7.8 BC–abelian tropical correction](#78-bcabelian-tropical-correction).
+- **TauCetiRoadmap.AdicSpaces Layer 2**: Native valuation classes, Spa(A,A⁺), rational topology and continuous maps; Layer 0 adds normalized real rank-one points and the Hausdorff quotient, with no perfectoid or diamond prerequisite. Consumed by [0.28 Normalized rank-one adic quotient](#028-normalized-rank-one-adic-quotient).
+- **TauCetiRoadmap.AlgebraicCurves Layer 4**: Algebraic Riemann–Roch and prescribed-pole rational functions on the smooth proper curve; Layer 5 imports them to obtain unit-slope and coprime-pole coordinates. Consumed by [5.3 Functions separating edges and vertices](#53-functions-separating-edges-and-vertices).
 - **TauCetiRoadmap.EllipticCurves Layer 4**: The existing algebraic Tate elliptic curve and its q-parametrization; Layer 7 adds the analytic quotient, circle length and measure/integral calibration. Consumed by [7.1 Tate analytic quotient and skeletal circle](#71-tate-analytic-quotient-and-skeletal-circle).
-- **TauCetiRoadmap.StableReduction Layer 1**: Existing combinatorial dual graph with component genera and p_a=Σg_v+b₁. Layer 2 adds the metric thickness/skeleton identification only. Consumed by [2.16 Formal models and metric dual graphs](#216-formal-models-and-metric-dual-graphs), [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus).
-- **TauCetiRoadmap.StableReduction Layer 2**: Existing genus invariance in proper flat curve families over locally noetherian bases. Apply it to special and generic fibers through the owned rank-one model descent comparison; no second algebraic genus-invariance theorem is planned. Consumed by [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus).
-- **TauCetiRoadmap.StableReduction Layer 7**: Existing semistable-reduction theorem in its DVR range, used as a compatibility check. It does not supply the owned nonnoetherian rank-one theorem. Consumed by [2.15 Rank-one semistable reduction](#215-rank-one-semistable-reduction).
+- **TauCetiRoadmap.StableReduction Layer 1**: Existing combinatorial dual graph with component genera and p_a=Σg_v+b₁. Layer 2 adds the metric thickness/skeleton identification only. Consumed by [2.11 Formal models and metric dual graphs](#211-formal-models-and-metric-dual-graphs), [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus).
+- **TauCetiRoadmap.StableReduction Layer 2**: Existing genus invariance in proper flat curve families over locally noetherian bases. Apply it to special and generic fibers through the owned rank-one model descent comparison; no second algebraic genus-invariance theorem is planned. Consumed by [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus).
+- **TauCetiRoadmap.StableReduction Layer 7**: Existing semistable-reduction theorem in its DVR range, used as a compatibility check. It does not supply the owned nonnoetherian rank-one theorem. Consumed by [2.10 Rank-one semistable reduction](#210-rank-one-semistable-reduction).
 
 ## How to read the build
 
-The Banach spectrum is constructed before any adic quotient uses it. Line geometry then provides the annular local models for curve skeleta. Divisor and slope theory supplies both weighted tropicalization and the functions used to make it faithful. Measures use the same Laplacian and metric normalization, while the uniformization and integration comparisons use the resulting graph Jacobian and real period lattice. The Tate example in Layer 6 uses the analytic quotient target of Layer 7 as a calibration; its construction does not enter the general model-measure definition.
+The Banach spectrum is constructed before any adic quotient uses it. Line geometry then provides the annular local models for curve skeleta. Divisor and slope theory supplies both weighted tropicalization and the functions used to make it faithful. Measures use the same Laplacian and metric normalization, while the uniformization and integration comparisons use the resulting graph Jacobian and real period lattice. Layer 6 constructs general model measures and curvature corrections. Layer 7 first constructs the analytic Tate quotient and then applies those measure results to calibrate its circle.
 
 ## Layer 0: Berkovich spectra and analytic comparison
 
@@ -154,9 +154,9 @@ Provide the following interface:
 
 **Checks.**
 
-- `TauCeti.Berkovich.Spectrum.topology_zero_coordinate`: Evaluation at zero is continuous.
-- `TauCeti.Berkovich.Spectrum.topology_product_coordinates`: For a,b in A the map x↦(x(a),x(b)) is continuous into ℝ².
-- `TauCeti.Berkovich.Spectrum.topology_all_coordinates`: Coordinatewise continuous maps into M(A) are continuous.
+- `TauCeti.Berkovich.Spectrum.topology_zero_coordinate`: On M(ℝ×ℝ), a map choosing the first projection at rational parameters and the second at irrational parameters has constant zero-coordinate but is discontinuous: evaluation at (2,3) alternates between 2 and 3. Testing only zero cannot define the topology.
+- `TauCeti.Berkovich.Spectrum.topology_product_coordinates`: In M(ℤ) for the usual norm, set p_t(0)=0 and p_t(n)=|n|^t for n≠0, 0≤t≤1. The nonconstant path t↦p_t is continuous, with coordinate pair (p_t(2),p_t(3))=(2^t,3^t). A discrete topology would fail this test.
+- `TauCeti.Berkovich.Spectrum.topology_all_coordinates`: For the same integer seminorms, p_(1−1/n) tends to p_1 in M(ℤ), although sup_m |p_1(m)−p_(1−1/n)(m)|=∞ for every n≥2. A topology requiring uniform convergence on all ring elements would reject this limit.
 - `TauCeti.Berkovich.Spectrum.topology_distinguishes_projections`: An open set contains the first projection point of ℝ×ℝ and excludes the second; evaluation at (2,3) separates them.
 
 For the construction, use the native induced topology on the native function product. Apply the inducing-map continuity criterion, followed by coordinatewise continuity into a product.
@@ -294,7 +294,7 @@ For the proof, for a=0 equality is forced. For a≠0, multiplicativity gives p(a
 
 ### 0.12 Seminormed Banach rings
 
-Define `TauCeti.Berkovich.TB0.banach_ring_category`. Use commutative unital seminormed rings with submultiplicative seminorm and |1|≤1, including the zero ring, then separated completion. Morphisms in the colimit statements are contractive unital maps. M(A) consists of unital multiplicative real seminorms dominated by the specified seminorm. The normed-ring subtype already planned embeds this general carrier after separation.
+Define `TauCeti.Berkovich.TB0.banach_ring_category`. Use commutative unital seminormed rings with submultiplicative seminorm and |1|≤1, including the zero ring, then separated completion. Morphisms in the colimit statements are contractive unital maps. M(A) consists of unital multiplicative real seminorms dominated by the specified seminorm. The normed-ring subtype of §0.1 embeds this general carrier after separation.
 
 A seminorm, rather than merely its topology, is part of the data.
 
@@ -374,19 +374,7 @@ For the construction, multiplicativity makes the kernel prime; define |a/b|=x(a)
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition I.2.1 and Lemma I.2.5, pp. 6–7. Gives the residue-field construction and its role in point types. [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), §2.2.2, pp. 6–7. Evaluation realizes a spectral point in a complete valued residue field.
 
-### 0.16 Valued base change of spectra
-
-Prove `TauCeti.Berkovich.TB0.spectral_base_change`. For complete nonarchimedean K, a K-affinoid algebra A and complete valued extension L/K, M(A⊗̂_K L)→M(A) is continuous proper surjective. For a finite normal extension it is the topological quotient by the separable Galois group, with purely inseparable extension inducing a homeomorphism. Completed algebraic closure has the corresponding Galois quotient.
-
-Affinoid completed tensor product; absolute values extend that of K.
-
-For the proof, a point lifts by amalgamating H(x) and L over K and evaluating in a common complete valued field. Compactness gives properness in the affinoid case. Normal-extension orbit classification is checked on residue fields, then passed to the completed algebraic closure.
-
-*Needs:* [0.15 Completed residue fields](#015-completed-residue-fields); [0.18 Affinoid algebras over valued fields](#018-affinoid-algebras-over-valued-fields).
-
-Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (1990), Proposition 1.3.5 and Corollary 1.3.6, p. 16. Normal and purely inseparable spectrum comparison. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Propositions I.5.1 and I.5.5, Corollary I.5.6, pp. 19–22. Valued amalgamation proves surjectivity; the quotient statements are topological.
-
-### 0.17 Spectra and contractive colimits
+### 0.16 Spectra and contractive colimits
 
 Prove `TauCeti.Berkovich.TB0.contractive_colimits`. In the category of commutative Banach rings and contractive maps, complete separated projective ℓ¹ tensor products compute pushouts. The induced map M(B⊗̂_A C)→M(B)×_{M(A)}M(C) is surjective. Filtered colimits, formed by seminormed colimit and separated completion, have spectrum canonically homeomorphic to the inverse limit of the spectra. All small colimits exist in this category; ℤ with its usual absolute value is initial.
 
@@ -400,7 +388,7 @@ For the proof, for compatible points use valued-field amalgamation to obtain a b
 
 **Check.** For ℂ⊗̂_ℝℂ, the two conjugate factors give two points over the single pair of field-norm points: injectivity fails. Do not replace ℓ¹ by a maximum tensor seminorm in the archimedean category. Every unital ring map ℤ→A is contractive because ||n·1||≤|n|. A trivially normed ℤ would not be initial in the archimedean category.
 
-### 0.18 Affinoid algebras over valued fields
+### 0.17 Affinoid algebras over valued fields
 
 Define `TauCeti.Berkovich.TB0.affinoid_algebras`. For complete nonarchimedean K and positive radii r, K{r⁻¹T} consists of series with |a_I|r^I→0, with weighted Gauss norm; a K-affinoid algebra is a Banach quotient of one. Strict affinoids admit a presentation with radii 1. Morphisms are bounded K-algebra maps and presentations are auxiliary data.
 
@@ -408,7 +396,7 @@ K may be trivially valued; radii need not belong to |K×|.
 
 Provide the following interface:
 
-- `TauCeti.Berkovich.TB0.affinoid_algebras.eval`: A tuple b with ||b_i||≤r_i in a complete K-algebra gives a unique contractive evaluation map.
+- `TauCeti.Berkovich.TB0.affinoid_algebras.eval`: In a complete nonarchimedean normed K-algebra B with contractive scalar map, a tuple b with ||b_i||≤r_i gives a unique contractive K-algebra evaluation map K{r⁻¹T}→B. The target norm and its nonarchimedean triangle inequality are part of this assertion.
 - `TauCeti.Berkovich.TB0.affinoid_algebras.quotient`: Closed-ideal quotients give affinoid algebras with quotient norm.
 - `TauCeti.Berkovich.TB0.affinoid_algebras.baseChange`: Completed scalar extension preserves affinoid presentations and identities/composites.
 - `TauCeti.Berkovich.TB0.affinoid_algebras.strict_after_extension`: A finite list of radii can be realized in a complete valued extension so that the base change is strict.
@@ -418,12 +406,25 @@ Provide the following interface:
 - `TauCeti.Berkovich.TB0.affinoid_algebras.check1`: K{T} gives the closed unit disc, not the open disc.
 - `TauCeti.Berkovich.TB0.affinoid_algebras.check2`: A radius outside the divisible closure of |K×| is allowed and need not be strict.
 - `TauCeti.Berkovich.TB0.affinoid_algebras.check3`: The quotient K{T}/(T) is K, with singleton spectrum.
+- `TauCeti.Berkovich.TB0.affinoid_algebras.check4`: For B=K with its specified norm, evaluation at b with |b|≤r is contractive. A target with an uncontrolled scalar norm does not satisfy this universal property.
 
 For the construction, use convergent power series with coefficientwise ring operations; prove the Gauss norm multiplicative, completeness and universal evaluation on bounded tuples. Separate quotient norms and prove equivalent presentations define the same bounded algebra.
 
 *Needs:* [0.12 Seminormed Banach rings](#012-seminormed-banach-rings).
 
 [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Definition 3.1.1.1 and Fact 3.1.4.1, pp. 11–14. Weighted Tate algebras, strictness, quotients and completed scalar extension.
+
+### 0.18 Valued base change of spectra
+
+Prove `TauCeti.Berkovich.TB0.spectral_base_change`. For complete nonarchimedean K, a K-affinoid algebra A and complete valued extension L/K, M(A⊗̂_K L)→M(A) is continuous proper surjective. For a finite normal extension it is the topological quotient by the separable Galois group, with purely inseparable extension inducing a homeomorphism. Completed algebraic closure has the corresponding Galois quotient.
+
+Affinoid completed tensor product; absolute values extend that of K.
+
+For the proof, a point lifts by amalgamating H(x) and L over K and evaluating in a common complete valued field. Compactness gives properness in the affinoid case. Normal-extension orbit classification is checked on residue fields, then passed to the completed algebraic closure.
+
+*Needs:* [0.15 Completed residue fields](#015-completed-residue-fields); [0.17 Affinoid algebras over valued fields](#017-affinoid-algebras-over-valued-fields).
+
+Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (1990), Proposition 1.3.5 and Corollary 1.3.6, p. 16. Normal and purely inseparable spectrum comparison. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Propositions I.5.1 and I.5.5, Corollary I.5.6, pp. 19–22. Valued amalgamation proves surjectivity; the quotient statements are topological.
 
 ### 0.19 Rational and affinoid domains
 
@@ -446,7 +447,7 @@ Provide the following interface:
 
 For the construction, verify the rational universal property using g invertible on any factoring test spectrum and unit detection. Identify fibres and residue fields using the tensor-product injectivity input; glue finite rational covers for general affinoid domains.
 
-*Needs:* [0.18 Affinoid algebras over valued fields](#018-affinoid-algebras-over-valued-fields); [0.14 Units and spectral maximum](#014-units-and-spectral-maximum); [0.15 Completed residue fields](#015-completed-residue-fields).
+*Needs:* [0.17 Affinoid algebras over valued fields](#017-affinoid-algebras-over-valued-fields); [0.14 Units and spectral maximum](#014-units-and-spectral-maximum); [0.15 Completed residue fields](#015-completed-residue-fields).
 
 [Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Definitions 3.2.2.1 and 3.2.3.1; Facts 3.2.3.2–3.2.3.4, pp. 14–16. Distinguishes rational inequalities from the universal affinoid-domain definition and states Gerritzen–Grauert.
 
@@ -501,7 +502,7 @@ For the construction, construct the atlas category, identify refinements and glu
 
 *Needs:* [0.20 Affinoid structure sheaf and acyclicity](#020-affinoid-structure-sheaf-and-acyclicity).
 
-[Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Definitions 4.1.1.1 and 4.1.2.1; §§4.1.2–4.1.3, pp. 21–24. Specifies nets, affinoid atlases, domain sheaves and chart-local morphisms.
+[Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Definitions 4.1.1.1 and 4.1.2.1; §§4.1.2–4.1.3, pp. 22–24. Specifies nets, affinoid atlases, domain sheaves and chart-local morphisms.
 
 ### 0.22 Berkovich analytification
 
@@ -522,69 +523,13 @@ Provide the following interface:
 - `TauCeti.Berkovich.TB0.analytification.check2`: A¹ᵃⁿ contains Gauss points, so X(K) alone is the wrong carrier.
 - `TauCeti.Berkovich.TB0.analytification.check3`: P¹ᵃⁿ is compact whereas A¹ᵃⁿ is not compact for nontrivial K.
 
-For the construction, on polynomial presentations cover by increasing bounded-radius affinoid domains; glue along principal-open domains. Prove the universal analytic mapping property and field-extension compatibility chartwise. For properness prove the analytic valuative and properness comparisons specified with the global analytic equivalence.
+For the construction, on polynomial presentations cover by increasing bounded-radius affinoid domains; glue along principal-open domains. Prove the universal analytic mapping property and field-extension compatibility chartwise. Prove the properness, separation and coherent GAGA comparisons of Temkin Facts 5.1.2.1–5.1.2.2 directly in the general valued-field setting. For a projective scheme embed in projective space, use its finite compact affinoid covering and closed analytic equations; extend to proper finite-type schemes by the proper comparison theorem. The later strict adic equivalence is a compatibility result, not a prerequisite for the general or trivially valued case.
 
 *Needs:* [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms); AdicSpacesPartII R1 (`analytification-functor`).
 
-[Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), §5.1, Exercise 5.1.1.1 and Facts 5.1.1.2, 5.1.2.1–5.1.2.2, pp. 33–34. Algebraic analytification and its local constructions; properness comparison requires the stated source proof input.
+[Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), §5.1, Exercise 5.1.1.1 and Facts 5.1.1.2, 5.1.2.1–5.1.2.2, pp. 33–34. Algebraic analytification, its local constructions, properness and coherent GAGA; the general valued-field comparison is a theorem target here.
 
-### 0.23 Normalized rank-one adic quotient
-
-Prove `TauCeti.Berkovich.TB0.adic_rank_one_retraction`. Let A be a nonarchimedean Banach ring with a uniform topologically nilpotent unit z, A⁺ an open integrally closed subring of the power-bounded ring A°, and Spa(A,A⁺) the native adic spectrum. Normalization of rank-one valuations gives a section M(A)→Spa(A,A⁺); the existing analytic rank-one coarsening is shown to be the unique maximal generization, and the resulting map r:Spa(A,A⁺)→M(A) is a continuous retraction and the maximal Hausdorff quotient. The section is not asserted continuous.
-
-Uniform unit, not merely arbitrary nonzero topologically nilpotent element. Use equivalence classes of valuations on Spa, normalized real seminorms on M(A). The plus ring is allowed to be smaller than A°; a complete Tate Huber pair with such a norm is included. The quotient is independent of A⁺, while Spa need not be. For a general complete Tate Huber pair, choose the z-adic Banach gauge from the uniform-unit hierarchy first. This is an existence statement for a suitable norm, not a retraction onto the spectrum for every compatible Banach norm.
-
-For the proof, start with the native support-preserving analytic rank-one coarsening, prove its uniqueness and maximality, and normalize via z and the infimum over comparisons of powers described in KL 2.4.6. Show the maximal generization is independent of z; rational encircling neighborhoods prove continuity and the Hausdorff universal property.
-
-*Needs:* Tau Ceti `TauCeti.ValuationSpectrum.IsAnalyticPoint.exists_coarsenByUnits_mem_spaAnalytic`; [0.1 Berkovich spectrum](#01-berkovich-spectrum); [0.15 Completed residue fields](#015-completed-residue-fields); TauCetiRoadmap.AdicSpaces Layer 2; [0.32 Uniform units and trivial spectrum](#032-uniform-units-and-trivial-spectrum).
-
-[Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792), Definition 2.4.1 and Remark 2.4.4, pp. 37–39; Definitions 2.4.6, 2.4.8, p. 40. The normalization and maximal Hausdorff quotient work for the full adic Banach pair (A,A⁺), not only A⁺=A°. A uniform unit is the stated norm hypothesis.
-
-**Check.** Do not identify the whole Spa point set with M(A). Changing A⁺ can change the adic point set; for the fixed uniform-unit norm its maximal Hausdorff quotient is M(A). A claim with a merely topologically nilpotent element must not replace the uniform-unit hypothesis.
-
-### 0.24 Rational traces and Hausdorff localization
-
-Prove `TauCeti.Berkovich.TB0.hausdorff_localizations`. Under the uniform-unit hypotheses, rational subsets of Spa have closed affinoid traces in M(A), and rational neighborhoods encircle every Berkovich point and its open neighborhood. The Hausdorff localization at x is henselian with residue field densely embedded in H(x). Finite étale maps induce open maps on the corresponding Berkovich spectra.
-
-Use the KL Hausdorff-localization colimit over rational neighborhoods, followed by its stated henselian/local residue construction; no claim that a rational trace is open.
-
-For the proof, express normalized inequalities by rational comparisons, refine inside a chosen evaluation-open neighborhood and take the localization colimit. Henselian lifting and finite étale factorization prove the localization and openness statements.
-
-*Needs:* [0.23 Normalized rank-one adic quotient](#023-normalized-rank-one-adic-quotient); [0.19 Rational and affinoid domains](#019-rational-and-affinoid-domains).
-
-[Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792), Definition 2.4.8, p. 40; Definition 2.4.12 and Lemma 2.4.17, pp. 41–43. Rational encircling, Hausdorff localization and étale openness in the exact uniform-unit range.
-
-### 0.25 Strict Berkovich–adic equivalence
-
-Establish `TauCeti.Berkovich.TB0.global_adic_comparison`. Over a complete nontrivially valued rank-one field K, Hausdorff strictly K-analytic Berkovich spaces are equivalent to taut adic spaces locally of finite type over Spa(K,K°). On an affinoid Spa(A,A°), its maximal-point quotient is M(A), and adic affinoid opens correspond to Berkovich affinoid domains. Partially proper maps give boundaryless maps; proper maps give proper maps; étale maps give quasi-étale maps; smooth maps give quasi-smooth maps. For partially proper maps, adic étaleness is equivalent to Berkovich étaleness; partially proper smooth maps are Berkovich smooth. Quasi-étaleness alone is not declared étaleness.
-
-Hausdorff strict and taut locally finite-type hypotheses; arbitrary locally noetherian adic spaces and nonstrict Berkovich spaces are outside this equivalence.
-
-For the proof, glue the normalized affinoid comparison along domain intersections. Tautness gives the correct separated quotient topology. For morphisms use the reduction/germ criterion for absence of relative boundary, then the stated local étale and smooth comparisons. The categorical equivalence uses the gluing and morphism comparisons described below.
-
-*Needs:* [0.23 Normalized rank-one adic quotient](#023-normalized-rank-one-adic-quotient); [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms).
-
-[Bogdan Zavyalov, Mod-p Poincaré duality in p-adic analytic geometry](https://arxiv.org/pdf/2111.01830v3), Appendix A, Definitions A.5–A.6, Lemmas A.7–A.8, pp. 84–86. Equivalence and one-direction morphism comparisons; quasi-étale is retained rather than silently strengthened to étale. [Bogdan Zavyalov, Mod-p Poincaré duality in p-adic analytic geometry](https://arxiv.org/pdf/2111.01830v3), Corollary A.11, p. 86. The boundaryless hypothesis upgrades the quasi-étale/quasi-smooth implications.
-
-**Check.** Over a complete nontrivially valued rank-one field K, Hausdorff strictly K-analytic Berkovich spaces are equivalent to taut adic spaces locally of finite type over Spa(K,K°). On an affinoid Spa(A,A°), its maximal-point quotient is M(A), and adic affinoid opens correspond to Berkovich affinoid domains. Partially proper maps give boundaryless maps; proper maps give proper maps; étale maps give quasi-étale maps; smooth maps give quasi-smooth maps.
-
-For the global equivalence, prove that the local correspondences preserve finite domain intersections and their analytic morphisms, then glue along these identifications. Establish tautness of the resulting adic atlas and identify the quotient topology with the given Hausdorff Berkovich topology; prove full faithfulness on overlaps as well as essential surjectivity. Use Huber (1996), Proposition 8.3.1, pp. 422–424 and Remark 8.3.2, pp. 424–425 for the comparison, Lemma 5.6.8(i), pp. 313–314 for passage of tautness between rigid and adic spaces, and Huber (1994), Proposition 4.5(iv) for analytification properness, as specified after Definition A.6 in Zavyalov Appendix A, pp. 84–86. Huber Theorem 8.3.5, pp. 428–429 is the subsequent sheaf comparison; the boundary and quasi-étale distinctions are Zavyalov Lemma A.8 and Corollary A.11, pp. 85–86. These same gluing and properness arguments are required for analytification, analytic connectedness and the real quotient.
-
-### 0.26 Real quotient of analytic preadic spaces
-
-Prove `TauCeti.Berkovich.TB0.real_quotient`. For a preadic space over an analytic field, identify points with the same maximal normalized rank-one generization and equip the set of these generizations with the quotient topology. Partially proper opens are the saturated inverse images of opens in this real quotient. For an adic space, quasi-compactness descends to the real quotient without a tautness hypothesis; if the space is taut its real quotient is Hausdorff and is its maximal Hausdorff quotient, and every partially proper open is taut.
-
-The tautness condition is essential for the global maximal Hausdorff assertion; use the KL analytic-field normalization.
-
-For the proof, glue the local rank-one quotient sets and topologies. A continuous quotient preserves quasi-compactness. Tautness gives separation of distinct rank-one points; any continuous map to a Hausdorff space is constant on generization classes. For a partially proper open, the image of a quasi-compact open has compact, hence closed, image in the Hausdorff quotient; its saturated inverse image contains its closure and stays inside the partially proper open. Together with quasiseparatedness this proves tautness.
-
-*Needs:* [0.25 Strict Berkovich–adic equivalence](#025-strict-berkovichadic-equivalence).
-
-[Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792), Definition 8.2.11 and Lemma 8.2.12(a)–(c), pp. 160–161; Example 8.2.13, p. 161. Real quotient, partially proper opens, tautness and its failure in the doubled-disc example.
-
-**Check.** The doubled-origin closed disc has a non-Hausdorff real quotient, so the tautness qualification cannot be removed. A partially proper open in a taut adic space remains taut even if it is not quasi-compact.
-
-### 0.27 Hybrid analytic spaces
+### 0.23 Hybrid analytic spaces
 
 Construct `TauCeti.Berkovich.TB0.hybrid_analytic_space`. For a projective meromorphic family X over a punctured complex disc, choose 0<r<1 small enough for its defining coefficients. The Banach ring A_r of convergent Laurent series uses coefficient hybrid norm max(|c|∞,|c|triv) and weight rⁿ. Its spectrum is the closed disc; the associated analytic family has usual complex fibers for t≠0 and central fiber at parameter 0 equal to X_{ℂ((t))}ᵃⁿ, where the formal parameter has nonarchimedean absolute value r. The topology makes |f|^{log r/log|t|} converge to its nonarchimedean evaluation; the SNC-model hybrid inverse limit gives the same space.
 
@@ -610,15 +555,15 @@ For the construction, build the hybrid Banach base, identify nonzero fibers with
 
 [Sébastien Boucksom and Mattias Jonsson, Tropical and non-Archimedean limits of degenerating families of volume forms](https://arxiv.org/pdf/1605.05277), Definition 4.9, pp. 23–24 and Proposition 4.12, pp. 25–26; Appendix A. Supplies the topology and Banach analytic realization; no volume-form or dynamical convergence result is inferred. [Laura DeMarco, Holly Krieger and Hexi Ye, Uniform Manin–Mumford for a family of genus 2 curves](https://arxiv.org/pdf/1901.09945v2), §4, pp. 18–22. Uses the rescaled potential convention in the dynamical family.
 
-**Check.** For a projective meromorphic family X over a punctured complex disc, choose 0<r<1 small enough for its defining coefficients. The Banach ring A_r of convergent Laurent series uses coefficient hybrid norm max(|c|∞,|c|triv) and weight rⁿ. Its spectrum is the closed disc; the associated analytic family has usual complex fibers for t≠0 and central fiber X_{ℂ((t))}ᵃⁿ for |t|=r. The topology makes |f|^{log r/log|t|} converge to its nonarchimedean evaluation; the SNC-model hybrid inverse limit gives the same space.
+**Check.** For f=c·tᵐ with c≠0, its rescaled complex absolute value tends to rᵐ as t→0: the exponent of |c| tends to zero, while the parameter factor equals rᵐ. The central coefficient norm is trivial, so the central evaluation also equals rᵐ, including negative m.
 
 Construct scheme analytification over the mixed Banach ring A_r, including bounded affine charts and their gluing; the purely nonarchimedean affinoid atlas alone does not do this. For an SNC model construct the logarithmic retraction to its dual complex, prove compatibility under dominating models, and identify the central Berkovich space with the inverse limit. Boucksom–Jonsson Appendix A, pp. 43–48 and §§4.3–4.6, pp. 20–29 give these constructions. Retain the Laurent norm |f|=r^{ord₀(f)} at the central point: in particular |t|=r. Family-specific convergence of dynamical potentials is a downstream ArithmeticDynamics result.
 
 **Check.** The central point evaluates t to r<1, not r⁻¹. The latter would exceed its ambient norm and would not be a point of M(A_r). Thus use r^{ord₀(f)} in Boucksom–Jonsson Proposition A.4, preprint p. 45 / JEP p. 136, consistently with Appendix A.5–A.6, JEP pp. 136–137.
 
-### 0.28 Uniform Gelfand representation
+### 0.24 Uniform Gelfand representation
 
-Prove `TauCeti.Berkovich.TB0.gelfand_representation`. For a uniform commutative Banach ring A, the evaluation homomorphism A→∏_{x∈M(A)}H(x) is isometric for the supremum norm. If A is nonzero, ||a||=max_x|a(x)|. For the zero ring the supremum over the empty family of nonnegative values is zero; no maximizing point exists. For arbitrary A its kernel is the spectral seminorm-zero ideal, not necessarily zero.
+Prove `TauCeti.Berkovich.TB0.gelfand_representation`. For a uniform commutative Banach ring A, the evaluation homomorphism A→∏ᵇ_{x∈M(A)}H(x) is isometric. Here ∏ᵇ is the ring of tuples (b_x) with finite sup_x|b_x|, equipped with pointwise operations and that supremum norm; evaluation lands there because |a(x)|≤||a||. The unrestricted product is not equipped with a finite supremum norm. If A is nonzero, ||a||=max_x|a(x)|. For the zero ring the supremum over the empty family of nonnegative values is zero; no maximizing point exists. For arbitrary A its kernel is the spectral seminorm-zero ideal, not necessarily zero.
 
 Uniform means the given complete norm is power-multiplicative.
 
@@ -628,13 +573,13 @@ For the proof, for a nonzero element in a power-multiplicative ring, adjoin its 
 
 [Peter Scholze, Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Definitions 2.19–2.20 and Proposition 2.21, pp. 12–13. The uniform Gelfand transform is an isometric embedding. Vladimir Berkovich, *Spectral Theory and Analytic Geometry over Non-Archimedean Fields* (1990), Corollary 1.3.2, p. 16. The spectral/Gelfand kernel is the seminorm-zero ideal.
 
-**Check.** The dual numbers have a nonzero element in the kernel before uniformization.
+**Check.** The dual numbers have a nonzero element in the kernel before uniformization. In the bounded product of countably many copies of ℝ, the tuple (1,2,3,…) is excluded; it cannot be assigned a finite supremum norm.
 
 **Check.** The zero uniform ring maps isometrically to the empty product, which is the zero ring. Its norm is zero, but its empty spectrum has no point attaining a maximum. Keep the isometry in this case and restrict the assertion of attainment to nonzero A.
 
 **Check.** On K[T], the evaluation points at T=0 and T=1 agree on the base K and differ on T. The topology of an algebra's multiplicative spectrum must therefore test all its own elements. In Temkin Definition 2.2.3.1, author preprint p. 7, read the evaluation coordinate as an element of that algebra C.
 
-### 0.29 Idempotents and clopen subsets
+### 0.25 Idempotents and clopen subsets
 
 Prove `TauCeti.Berkovich.TB0.idempotents_and_clopens`. For a commutative Banach ring A, e↦{x∈M(A):x(e)=1} is a bijection from idempotents to clopen subsets, carrying 0,1 and complementary idempotents to ∅,M(A) and complementary subsets.
 
@@ -642,7 +587,7 @@ Complete commutative Banach ring with normalized unit.
 
 For the proof, multiplicativity restricts x(e) to 0 or 1 and the unit test gives uniqueness. Lift idempotents by Newton iteration from the uniform completion. For a two-domain spectral cover, the overconvergent Laurent equalizer glues compatible idempotents. Refine a clopen partition by finitely many such domains; complementing the vanishing-locus convention gives the stated value-one convention. Prove the closed-ideal and equalizer statements of KL Corollary 2.8.9 in the descent argument below.
 
-*Needs:* [0.14 Units and spectral maximum](#014-units-and-spectral-maximum); [0.28 Uniform Gelfand representation](#028-uniform-gelfand-representation).
+*Needs:* [0.14 Units and spectral maximum](#014-units-and-spectral-maximum); [0.24 Uniform Gelfand representation](#024-uniform-gelfand-representation).
 
 [Peter Scholze, Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Theorem 2.18 and its direct proof, pp. 11–12. Classifies clopen spectral subsets by ring idempotents.
 
@@ -650,7 +595,7 @@ For the proof, multiplicativity restricts x(e) to 0 or 1 and the unit test gives
 
 Descend the two local idempotents associated to a clopen decomposition through an overconvergent Laurent cover. Prove the Laurent equalizer and its closed-ideal property using Kedlaya–Liu Corollary 2.8.9, then use Newton iteration to lift an approximate idempotent in the complete ring. Scholze Theorem 2.18, pp. 11–12 uses this route. It applies to the general Banach category here without asserting an ordinary-topology structure sheaf on every M(A).
 
-### 0.30 Archimedean Banach fields
+### 0.26 Archimedean Banach fields
 
 Prove `TauCeti.Berkovich.TB0.gelfand_mazur`. A commutative Banach field K with |2|>1 is isomorphic as a normed field to ℝ or ℂ with |·|_usual^α for a unique exponent 0<α≤1.
 
@@ -664,19 +609,7 @@ For the proof, ostrowski identifies the completed prime subfield. Apply the comp
 
 **Check.** A nonarchimedean field is excluded by |2|>1.
 
-### 0.31 Connected algebraic curves remain connected
-
-Prove `TauCeti.Berkovich.TB0.connected_analytification`. The Berkovich analytification of a smooth geometrically connected algebraic curve over algebraically closed complete nontrivially valued K is connected. For its smooth proper completion X̄, H⁰(X̄ᵃⁿ,O)=H⁰(X̄,O)=K. Removing finitely many classical points leaves a connected analytic curve.
-
-Smooth geometrically connected curve; finite puncture set in its proper completion.
-
-For the proof, proper GAGA identifies global analytic functions with algebraic global functions. A clopen analytic decomposition gives a global idempotent, impossible in K, so X̄ᵃⁿ is connected. Smooth analytic curve charts are locally path connected; classical punctures are tree endpoints in disc charts. Excise finitely many such endpoints without separating the remaining curve. Use proper GAGA with the analytic comparison of this layer.
-
-*Needs:* [0.22 Berkovich analytification](#022-berkovich-analytification); [0.29 Idempotents and clopen subsets](#029-idempotents-and-clopen-subsets); [1.3 Paths, tangent directions and hyperbolic metric](#13-paths-tangent-directions-and-hyperbolic-metric); SchemeAndStackFoundations SF.3.
-
-[Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Facts 5.1.2.1–5.1.2.2, p. 34. Proper coherent GAGA identifies global functions and analytic morphisms. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Proposition I.6.12 and Remark I.6.14, pp. 25–26. Path structure of disc charts gives the endpoint removal argument.
-
-### 0.32 Uniform units and trivial spectrum
+### 0.27 Uniform units and trivial spectrum
 
 Define `TauCeti.Berkovich.TB0.uniform_unit_hierarchy`. A topologically nilpotent element satisfies ||aⁿ||→0. A uniform unit is an invertible topologically nilpotent z with ρ(z)ρ(z⁻¹)=1. A Banach ring is free of trivial spectrum when every H(x) has nontrivial absolute value; equivalently the ideal generated by its topologically nilpotent elements is the unit ideal. For nonzero nonarchimedean Banach rings, being a bounded Banach algebra over an analytic field implies admitting a uniform unit, which implies admitting a topologically nilpotent unit, which implies freedom of trivial spectrum. The converse from a uniform unit to an analytic-field algebra in characteristic p requires additional norm control, for example equivalence of the norm with the spectral norm.
 
@@ -704,7 +637,63 @@ For the construction, the spectral maximum and the inverse identity force x(z)=�
 
 **Check.** A uniform unit by itself does not give a bounded analytic-field scalar structure for an arbitrary specified Banach norm in characteristic p. On F_p((z)) with 0<r<1, the complete submultiplicative weighted norm of Σa_i z^i is max_{a_i≠0} r^i(1+|i|). The spectral values of z and z⁻¹ are r and r⁻¹. A putative bounded scalar map taking a small scalar to positive z-valuation k would bound both positive and negative powers, forcing (1+nk)²≤C² for all n, which is impossible. Require control of all integral powers, for instance a uniform Banach norm, for this converse to Kedlaya–Liu Remark 2.3.9, arXiv v5 p. 35. Part II Appendix A, pp. 189–191 does not supply that extra hypothesis.
 
-### 0.33 Surjectivity detected by residue fields
+### 0.28 Normalized rank-one adic quotient
+
+Prove `TauCeti.Berkovich.TB0.adic_rank_one_retraction`. Let A be a nonarchimedean Banach ring with a uniform topologically nilpotent unit z, A⁺ an open integrally closed subring of the power-bounded ring A°, and Spa(A,A⁺) the native adic spectrum. Normalization of rank-one valuations gives a section M(A)→Spa(A,A⁺); the existing analytic rank-one coarsening is shown to be the unique maximal generization, and the resulting map r:Spa(A,A⁺)→M(A) is a continuous retraction and the maximal Hausdorff quotient. The section is not asserted continuous.
+
+Uniform unit, not merely arbitrary nonzero topologically nilpotent element. Use equivalence classes of valuations on Spa, normalized real seminorms on M(A). The plus ring is allowed to be smaller than A°; a complete Tate Huber pair with such a norm is included. The quotient is independent of A⁺, while Spa need not be. For a general complete Tate Huber pair, choose the z-adic Banach gauge from the uniform-unit hierarchy first. This is an existence statement for a suitable norm, not a retraction onto the spectrum for every compatible Banach norm.
+
+For the proof, start with the native support-preserving analytic rank-one coarsening, prove its uniqueness and maximality, and normalize via z and the infimum over comparisons of powers described in KL 2.4.6. Show the maximal generization is independent of z; rational encircling neighborhoods prove continuity and the Hausdorff universal property.
+
+*Needs:* Tau Ceti `TauCeti.ValuationSpectrum.IsAnalyticPoint.exists_coarsenByUnits_mem_spaAnalytic`; [0.1 Berkovich spectrum](#01-berkovich-spectrum); [0.15 Completed residue fields](#015-completed-residue-fields); TauCetiRoadmap.AdicSpaces Layer 2; [0.27 Uniform units and trivial spectrum](#027-uniform-units-and-trivial-spectrum).
+
+[Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792), Definition 2.4.1 and Remark 2.4.4, pp. 37–39; Definitions 2.4.6, 2.4.8, p. 40. The normalization and maximal Hausdorff quotient work for the full adic Banach pair (A,A⁺), not only A⁺=A°. A uniform unit is the stated norm hypothesis.
+
+**Check.** Do not identify the whole Spa point set with M(A). Changing A⁺ can change the adic point set; for the fixed uniform-unit norm its maximal Hausdorff quotient is M(A). A claim with a merely topologically nilpotent element must not replace the uniform-unit hypothesis.
+
+### 0.29 Rational traces and Hausdorff localization
+
+Prove `TauCeti.Berkovich.TB0.hausdorff_localizations`. Under the uniform-unit hypotheses, rational subsets of Spa have closed affinoid traces in M(A), and rational neighborhoods encircle every Berkovich point and its open neighborhood. The Hausdorff localization at x is henselian with residue field densely embedded in H(x). Finite étale maps induce open maps on the corresponding Berkovich spectra.
+
+Use the KL Hausdorff-localization colimit over rational neighborhoods, followed by its stated henselian/local residue construction; no claim that a rational trace is open.
+
+For the proof, express normalized inequalities by rational comparisons, refine inside a chosen evaluation-open neighborhood and take the localization colimit. Henselian lifting and finite étale factorization prove the localization and openness statements.
+
+*Needs:* [0.28 Normalized rank-one adic quotient](#028-normalized-rank-one-adic-quotient); [0.19 Rational and affinoid domains](#019-rational-and-affinoid-domains).
+
+[Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792), Definition 2.4.8, p. 40; Definition 2.4.12 and Lemma 2.4.17, pp. 41–43. Rational encircling, Hausdorff localization and étale openness in the exact uniform-unit range.
+
+### 0.30 Strict Berkovich–adic equivalence
+
+Establish `TauCeti.Berkovich.TB0.global_adic_comparison`. Over a complete nontrivially valued rank-one field K, Hausdorff strictly K-analytic Berkovich spaces are equivalent to taut adic spaces locally of finite type over Spa(K,K°). On an affinoid Spa(A,A°), its maximal-point quotient is M(A), and each adic affinoid open Spa(A,A°) maps to the strictly affinoid domain M(A). Partially proper maps give boundaryless maps; proper maps give proper maps; étale maps give quasi-étale maps; smooth maps give quasi-smooth maps. For partially proper maps, adic étaleness is equivalent to Berkovich étaleness; partially proper smooth maps are Berkovich smooth. Quasi-étaleness alone is not declared étaleness.
+
+Hausdorff strict and taut locally finite-type hypotheses; arbitrary locally noetherian adic spaces and nonstrict Berkovich spaces are outside this equivalence.
+
+For the proof, glue the normalized affinoid comparison along domain intersections. Tautness gives the correct separated quotient topology. For morphisms use the reduction/germ criterion for absence of relative boundary, then the stated local étale and smooth comparisons. The categorical equivalence uses the gluing and morphism comparisons described below.
+
+*Needs:* [0.28 Normalized rank-one adic quotient](#028-normalized-rank-one-adic-quotient); [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms).
+
+[Bogdan Zavyalov, Mod-p Poincaré duality in p-adic analytic geometry](https://arxiv.org/pdf/2111.01830v3), Appendix A, Definitions A.5–A.6, Lemmas A.7–A.8, pp. 84–86. Equivalence and one-direction morphism comparisons; quasi-étale is retained rather than silently strengthened to étale. [Bogdan Zavyalov, Mod-p Poincaré duality in p-adic analytic geometry](https://arxiv.org/pdf/2111.01830v3), Corollary A.11, p. 86. The boundaryless hypothesis upgrades the quasi-étale/quasi-smooth implications.
+
+**Check.** The inclusion of a strict closed subdisc in A¹ᵃⁿ is quasi-étale and has a relative boundary at its Gauss point. It is not Berkovich étale. This prevents upgrading the adic étale comparison without the boundaryless hypothesis.
+
+For the global equivalence, prove that the local correspondences preserve finite domain intersections and their analytic morphisms, then glue along these identifications. Establish tautness of the resulting adic atlas and identify the quotient topology with the given Hausdorff Berkovich topology; prove full faithfulness on overlaps as well as essential surjectivity. Use Huber (1996), Proposition 8.3.1, pp. 422–424 and Remark 8.3.2, pp. 424–425 for the comparison, Lemma 5.6.8(i), pp. 313–314 for passage of tautness between rigid and adic spaces, and Huber (1994), Proposition 4.5(iv), printed p. 543 for the equivalence of rigid spaces and the corresponding adic spaces. Properness of the comparison is a separate morphism assertion, supplied by Zavyalov Lemma A.8, pp. 85–86. Huber Theorem 8.3.5, pp. 428–429 is the subsequent sheaf comparison; the boundary and quasi-étale distinctions are Zavyalov Lemma A.8 and Corollary A.11, pp. 85–86. The strict adic correspondence is compatible with the already constructed analytification and its properness comparison; it is also used to identify the real quotient.
+
+### 0.31 Real quotient of analytic preadic spaces
+
+Prove `TauCeti.Berkovich.TB0.real_quotient`. For a preadic space over an analytic field, identify points with the same maximal normalized rank-one generization and equip the set of these generizations with the quotient topology. Partially proper opens are the saturated inverse images of opens in this real quotient. For an adic space, quasi-compactness descends to the real quotient without a tautness hypothesis; if the space is taut its real quotient is Hausdorff and is its maximal Hausdorff quotient, and every partially proper open is taut.
+
+The tautness condition is essential for the global maximal Hausdorff assertion; use the KL analytic-field normalization.
+
+For the proof, choose the field-normalized Tate gauge on each analytic affinoid chart and glue the local rank-one quotient sets and topologies. No finite-type or strictness hypothesis is used. A continuous quotient preserves quasi-compactness. Tautness gives separation of distinct rank-one points; any continuous map to a Hausdorff space is constant on generization classes. For a partially proper open, the image of a quasi-compact open has compact, hence closed, image in the Hausdorff quotient; its saturated inverse image contains its closure and stays inside the partially proper open. Together with quasiseparatedness this proves tautness.
+
+*Needs:* [0.27 Uniform units and trivial spectrum](#027-uniform-units-and-trivial-spectrum); [0.28 Normalized rank-one adic quotient](#028-normalized-rank-one-adic-quotient).
+
+[Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792), Definition 8.2.11 and Lemma 8.2.12(a)–(c), pp. 160–161; Example 8.2.13, p. 161. Real quotient, partially proper opens, tautness and its failure in the doubled-disc example.
+
+**Check.** The doubled-origin closed disc has a non-Hausdorff real quotient, so the tautness qualification cannot be removed. A partially proper open in a taut adic space remains taut even if it is not quasi-compact.
+
+### 0.32 Surjectivity detected by residue fields
 
 Prove `TauCeti.Berkovich.TB0.residue_field_surjectivity`. For an A-linear map M→N over a nonarchimedean Banach ring A, with N finitely generated, surjectivity is equivalent to surjectivity of M⊗_A H(x)→N⊗_A H(x) for every x∈M(A). If B is faithfully finite étale over A with its finite Banach module topology, M(B)→M(A) is surjective; under the uniform-unit hypotheses of Hausdorff localization it is also open.
 
@@ -712,7 +701,7 @@ No topology or finite-generation hypothesis is imposed on M. The displayed modul
 
 For the proof, the cokernel is finite. For each maximal ideal choose a spectral point with that kernel by the closed maximal-ideal quotient construction. Faithful scalar extension from its residue field to H(x), followed by Nakayama, annihilates the localized cokernel; hence it vanishes. For finite étale B, the completed fiber over H(x) is a nonzero product of finite valued-field extensions. Its nonempty spectrum lifts x. The Hausdorff-localization factorization proves openness.
 
-*Needs:* [0.15 Completed residue fields](#015-completed-residue-fields); [0.13 Existence of spectral points](#013-existence-of-spectral-points); [0.24 Rational traces and Hausdorff localization](#024-rational-traces-and-hausdorff-localization).
+*Needs:* [0.15 Completed residue fields](#015-completed-residue-fields); [0.13 Existence of spectral points](#013-existence-of-spectral-points); [0.29 Rational traces and Hausdorff localization](#029-rational-traces-and-hausdorff-localization).
 
 [Kiran Kedlaya and Ruochuan Liu, Relative p-adic Hodge theory: Foundations](https://arxiv.org/abs/1301.0792), Lemmas 2.3.12 and 2.3.14, p. 36; Lemma 2.4.17(c), p. 43. Finite-cokernel detection, faithful finite étale spectral surjectivity, and openness.
 
@@ -724,7 +713,7 @@ For ℝ×ℝ the projection absolute values are distinct points, while the ambie
 
 ### Dependencies
 
-Mathlib multiplicative seminorms, normed rings, completions, product topology and compactness; Tau Ceti AdicSpaces Layer 2 and its rank-one generization theorem; AdicSpacesPartII R1 for strict affinoid Čech acyclicity and adic analytification; SchemeAndStackFoundations SF.3 for the smooth proper algebraic curve and its global functions. Hybrid scheme analytification and nonstrict descent are constructed in this layer.
+Mathlib multiplicative seminorms, normed rings, completions, product topology and compactness; Tau Ceti AdicSpaces Layer 2 and its rank-one generization theorem; AdicSpacesPartII R1 for strict affinoid Čech acyclicity and adic analytification. Hybrid scheme analytification and nonstrict descent are constructed in this layer.
 
 ## Layer 1: Discs, annuli and metric trees
 
@@ -740,7 +729,7 @@ Provide the following interface:
 
 - `TauCeti.Berkovich.TB1.gauss_line_and_discs.gauss_eval`: ζ(a,r)(Σc_n(T−a)ⁿ)=max|c_n|rⁿ.
 - `TauCeti.Berkovich.TB1.gauss_line_and_discs.gauss_eq`: ζ(a,r)=ζ(b,s) iff r=s and |a−b|≤r.
-- `TauCeti.Berkovich.TB1.gauss_line_and_discs.disc_domain`: The closed disc is M(K{r⁻¹(T−a)}).
+- `TauCeti.Berkovich.TB1.gauss_line_and_discs.disc_domain`: For r>0, the closed disc is the affinoid domain M(K{r⁻¹(T−a)}). For r=0, the singleton {a} is the closed analytic subspace M(K[T]/(T−a))=M(K), not an affinoid domain in A¹ᵃⁿ; no inverse radius is used.
 - `TauCeti.Berkovich.TB1.gauss_line_and_discs.inversion`: Inversion exchanges the two projective charts and sends an annulus to the reciprocal-radius annulus.
 
 **Checks.**
@@ -751,7 +740,7 @@ Provide the following interface:
 
 For the construction, prove Gauss multiplicativity by choosing the extremal dominant coefficient, then identify the bounded-radius affinoid charts and glue the inverse-coordinate charts.
 
-*Needs:* [0.18 Affinoid algebras over valued fields](#018-affinoid-algebras-over-valued-fields); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [0.17 Affinoid algebras over valued fields](#017-affinoid-algebras-over-valued-fields); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), §I.1, pp. 4–5; §I.3, pp. 12–15. Gauss seminorms, disc equality criterion and disc/annulus domains.
 
@@ -763,7 +752,7 @@ Algebraic closedness is required for this explicit list over K; spherical comple
 
 For the proof, use nested discs extracted from values of T−a; a common point gives a Gauss center, and an empty intersection gives IV. Completeness rules out empty intersection with radius tending to zero. Compare value-group rational rank and residue transcendence for II/III.
 
-*Needs:* [1.1 Gauss points, discs and projective line](#11-gauss-points-discs-and-projective-line); [0.15 Completed residue fields](#015-completed-residue-fields); [0.16 Valued base change of spectra](#016-valued-base-change-of-spectra).
+*Needs:* [1.1 Gauss points, discs and projective line](#11-gauss-points-discs-and-projective-line); [0.15 Completed residue fields](#015-completed-residue-fields); [0.18 Valued base change of spectra](#018-valued-base-change-of-spectra).
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition I.2.9, Lemma I.2.11, Proposition I.2.12 and Example I.2.20, pp. 7–11. Classification, the radius/value-group distinction and an explicit type-IV construction. In Example I.2.20 the Hahn coefficients are complex, with rational exponents and complex coefficients.
 
@@ -797,7 +786,19 @@ For the construction, join nested-disc points at their least common containing d
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Proposition I.6.12, pp. 25–26; §§I.8.1–I.8.9, pp. 29–31. Unique paths, tangent directions and multiplicative length, converted here to its logarithm, equivalently the difference of −log radial coordinates. [Charles Favre and Juan Rivera-Letelier, Équidistribution quantitative des points de petite hauteur sur la droite projective](https://arxiv.org/pdf/math/0407471), §3, pp. 19–22. Hyperbolic tree distance and the distinction from the compact analytic topology.
 
-### 1.4 Annular skeleton and deformation
+### 1.4 Connected algebraic curves remain connected
+
+Prove `TauCeti.Berkovich.TB0.connected_analytification`. The Berkovich analytification of a smooth geometrically connected algebraic curve over algebraically closed complete nontrivially valued K is connected. For its smooth proper completion X̄, H⁰(X̄ᵃⁿ,O)=H⁰(X̄,O)=K. Removing finitely many classical points leaves a connected analytic curve.
+
+Smooth geometrically connected curve; finite puncture set in its proper completion.
+
+For the proof, proper GAGA identifies global analytic functions with algebraic global functions. A clopen analytic decomposition gives a global idempotent, impossible in K, so X̄ᵃⁿ is connected. Smooth analytic curve charts are locally path connected; classical punctures are tree endpoints in disc charts. Excise finitely many such endpoints without separating the remaining curve. Use the proper coherent GAGA target of Layer 0.
+
+*Needs:* [0.22 Berkovich analytification](#022-berkovich-analytification); [0.25 Idempotents and clopen subsets](#025-idempotents-and-clopen-subsets); [1.3 Paths, tangent directions and hyperbolic metric](#13-paths-tangent-directions-and-hyperbolic-metric); SchemeAndStackFoundations SF.3.
+
+[Michael Temkin, Introduction to Berkovich analytic spaces](https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf), Facts 5.1.2.1–5.1.2.2, p. 34. Proper coherent GAGA identifies global functions and analytic morphisms. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Proposition I.6.12 and Remark I.6.14, pp. 25–26. Path structure of disc charts gives the endpoint removal argument.
+
+### 1.5 Annular skeleton and deformation
 
 Construct `TauCeti.Berkovich.TB1.annular_skeleton`. For an ordinary open annulus r<|T|<R, its skeleton is {ζ(0,ρ):r<ρ<R}, parameterized by s=−logρ, with logarithmic length log(R/r). Retraction sends x to ζ(0,|T(x)|). It is a strong deformation retraction; closed and half-open versions retain the appropriate boundary points. Punctured discs give unbounded rays.
 
@@ -825,7 +826,7 @@ For the construction, identify the Gauss interval via Laurent evaluations; every
 
 **Check.** For the reversing coordinate φ(T)=a/T, the radius t maps to |a|/t and the target interval is (|a|/R,|a|/r). The coefficient is a₋₁=a; using a₁=0 would collapse both radii to zero. Use the same quantified radius variable throughout the formulas in Poineau–Turchetti Proposition I.4.14, author preprint p. 19. The logarithmic modulus is unchanged.
 
-### 1.5 Integral slopes of analytic units
+### 1.6 Integral slopes of analytic units
 
 Prove `TauCeti.Berkovich.TB1.annular_integral_slopes`. For a nonzero analytic Laurent series f on an annulus, −log|f(ζ_s)|=min_n(v(a_n)+ns), a locally finite concave integral-slope piecewise-affine function. On any subannulus where f is invertible with no zero or pole, its skeletal slope is a single integer. A zero-free analytic function on an open ball has constant absolute value.
 
@@ -833,13 +834,13 @@ Complete nonarchimedean K; restrict to compact subintervals to obtain finitely m
 
 For the proof, use convergence to reduce the Gauss maximum on compact subannuli to finitely many dominant terms. A slope change produces a Newton-polygon zero after algebraic closure; invertibility rules it out. The ball assertion follows by nested closed-ball unit criteria.
 
-*Needs:* [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.14 Units and spectral maximum](#014-units-and-spectral-maximum).
+*Needs:* [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.14 Units and spectral maximum](#014-units-and-spectral-maximum).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), Propositions 2.4–2.5, pp. 4–5; proof of Theorem 5.15, pp. 21–22. Annular units and ball norm constancy are the local pieces of the slope formula. [Eric Katz, Joseph Rabinoff and David Zureick-Brown, Uniform bounds for the number of rational points on curves of small Mordell–Weil rank](https://arxiv.org/pdf/1504.00694), §4.1, formula (4.1), p. 27. The Laurent minimum has exactly this sign in coordinate s=−log|T|.
 
 **Check.** f=Tⁿ has slope n. f=T−a has a breakpoint at s=v(a), so invertibility on a whole annulus cannot be dropped.
 
-### 1.6 Virtual annuli and metric descent
+### 1.7 Virtual annuli and metric descent
 
 Define `TauCeti.Berkovich.TB1.virtual_annuli_descent`. A virtual disc or annulus in A¹ᵃⁿ_K becomes a finite disjoint union of ordinary discs or annuli over a completed algebraic closure. For an annulus A with m geometric components, use Poineau–Turchetti modulus Mod(A)=Mod(component)^(1/m), so additive length is the geometric component length divided by m. Intrinsic skeleton and retraction descend. Abstract annulus forms can have an end-swapping action and a folded half-open quotient skeleton; they must not be identified with an ordinary interval without a splitting hypothesis.
 
@@ -861,7 +862,7 @@ Provide the following interface:
 
 For the construction, use Galois transitivity on geometric components and uniqueness of the intrinsic complement-of-balls skeleton. Descend the homotopy; calculate length from the chosen modulus convention and retain end stabilizers for abstract forms.
 
-*Needs:* [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.16 Valued base change of spectra](#016-valued-base-change-of-spectra).
+*Needs:* [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.18 Valued base change of spectra](#018-valued-base-change-of-spectra).
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definitions I.7.1–I.7.2, Lemma I.7.4, Remark I.7.5, Definition I.7.6 and Remark I.7.7, pp. 26–28. A¹-domain descent, the end-swap caution and the component-count modulus convention.
 
@@ -871,7 +872,7 @@ On r<|T|<1, the coordinate s=−log|T| gives length −log r. The function Tⁿ 
 
 ### Dependencies
 
-Layer 0 spectra, completed residue fields and analytic charts; Tau Ceti restricted Gauss norms. The virtual-annulus statements retain their explicit descent hypotheses; their locally finite model application is in Layer 2.
+Layer 0 spectra, completed residue fields and analytic charts; Tau Ceti restricted Gauss norms; SchemeAndStackFoundations SF.3 for proper-curve global functions in the connectedness comparison. The virtual-annulus statements retain their explicit descent hypotheses; their locally finite model application is in Layer 2.
 
 ## Layer 2: Semistable models and skeleta of curves
 
@@ -890,13 +891,13 @@ Provide the following interface:
 
 **Checks.**
 
-- `TauCeti.Berkovich.Curve.vertexSet_unpunctured`: For D empty the puncture condition is vacuous.
+- `TauCeti.Berkovich.Curve.vertexSet_unpunctured`: On unpunctured P¹, the singleton Gauss vertex is semistable, since its complement consists of residue open balls. The empty vertex set is not semistable: P¹ itself is neither an open ball nor an open annulus.
 - `TauCeti.Berkovich.Curve.vertexSet_sameBall_rejected`: Two punctures in one complementary ball prevent semistability for the punctured curve.
 - `TauCeti.Berkovich.Curve.vertexSet_loop_allowed`: A complementary annulus may have both boundary ends at the same vertex; a simple-graph restriction would reject valid examples.
 
-For the construction, use the native algebraic curve and its missing Berkovich analytification, with the Layer 1 analytic ball and annulus classifications. Specify the decomposition as a property of V, without choosing an enumeration of infinitely many ball components.
+For the construction, use the native algebraic curve and its Layer 0 Berkovich analytification, with the Layer 1 analytic ball and annulus classifications. Specify the decomposition as a property of V, without choosing an enumeration of infinitely many ball components.
 
-*Needs:* TropicalAndBerkovichArithmetic Layer 0; SchemeAndStackFoundations SF.3; [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [1.2 Four types of points](#12-four-types-of-points).
+*Needs:* TropicalAndBerkovichArithmetic Layer 0; SchemeAndStackFoundations SF.3; [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [1.2 Four types of points](#12-four-types-of-points).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Definition 3.1, printed p. 101; arXiv p. 7. The corresponding arXiv numbering is the same.
 
@@ -921,7 +922,7 @@ Provide the following interface:
 
 For the construction, take the union in the analytic point space using Layer 1 annulus skeleta. Define the completed-skeleton accessor by closure; equality with Σ union D is proved separately.
 
-*Needs:* [2.1 Semistable vertex set](#21-semistable-vertex-set); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.1 Semistable vertex set](#21-semistable-vertex-set); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Definitions 3.3 and 3.5, printed pp. 102–103. The corresponding arXiv numbering is the same.
 
@@ -933,7 +934,7 @@ Prove `TauCeti.Berkovich.Curve.component_limit_boundary`. An open-ball component
 
 For the proof, bPR Proposition 2.10 yields limits of regular-function norms as logarithmic radius tends to zero. Lemma 2.13 gives constant norms off the annular skeleton; use a zero-free collar to check endpoint continuity, then compactness. Apply the same norm-limit argument at both annulus ends or at the puncture. The annular integral-slope formula and constancy on complementary balls give the required limits; the corrected logarithmic coordinate tends to zero at a normalized unit-radius boundary.
 
-*Needs:* [2.1 Semistable vertex set](#21-semistable-vertex-set); TropicalAndBerkovichArithmetic Layer 0; [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [1.5 Integral slopes of analytic units](#15-integral-slopes-of-analytic-units).
+*Needs:* [2.1 Semistable vertex set](#21-semistable-vertex-set); TropicalAndBerkovichArithmetic Layer 0; [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [1.6 Integral slopes of analytic units](#16-integral-slopes-of-analytic-units).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Lemma 3.2 with proof, printed pp. 101–102. The corresponding arXiv numbering is the same.
 
@@ -947,7 +948,7 @@ Prove `TauCeti.Berkovich.Curve.skeleton_complement_balls`. Every component B of 
 
 For the proof, combine the component boundary lemma with BPR Lemma 2.12 for an annulus minus its intrinsic skeleton.
 
-*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.3 Limit boundaries of semistable components](#23-limit-boundaries-of-semistable-components); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.3 Limit boundaries of semistable components](#23-limit-boundaries-of-semistable-components); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Lemma 3.4(3), printed p. 102. The corresponding arXiv numbering is the same.
 
@@ -959,7 +960,7 @@ Prove `TauCeti.Berkovich.Curve.completed_skeleton_boundary`. Σ is closed in X^a
 
 For the proof, use the finitely many segments and rays with their endpoint extensions. For D empty the union is compact; any omitted puncture is a limit point preventing compactness in the Hausdorff proper analytification.
 
-*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.3 Limit boundaries of semistable components](#23-limit-boundaries-of-semistable-components); TropicalAndBerkovichArithmetic Layer 0; [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.3 Limit boundaries of semistable components](#23-limit-boundaries-of-semistable-components); TropicalAndBerkovichArithmetic Layer 0; [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Lemma 3.4(1)–(2), Definition 3.5, printed pp. 102–103. The corresponding arXiv numbering is the same.
 
@@ -971,7 +972,7 @@ Prove `TauCeti.Berkovich.Curve.skeleton_disc_characterization`. Σ consists of t
 
 For the proof, off Σ, use the complementary open ball. For x in Σ outside V, any connected candidate neighborhood disjoint from V stays in the same annulus component. Apply BPR Proposition 2.4.
 
-*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.4 Ball components off the skeleton](#24-ball-components-off-the-skeleton); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.4 Ball components off the skeleton](#24-ball-components-off-the-skeleton); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Lemma 3.4(4), printed pp. 102–103. The corresponding arXiv numbering is the same.
 
@@ -996,7 +997,7 @@ Provide the following interface:
 
 For the construction, use the unique boundary supplied by skeleton-complement-balls, and the identity on Σ.
 
-*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.4 Ball components off the skeleton](#24-ball-components-off-the-skeleton); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [2.4 Ball components off the skeleton](#24-ball-components-off-the-skeleton); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Definition 3.7, printed p. 103. The corresponding arXiv numbering is the same.
 
@@ -1008,7 +1009,7 @@ Prove `TauCeti.Berkovich.Curve.continuous_retraction`. τ_V is continuous and re
 
 For the proof, the annulus assertion follows from BPR Lemma 2.12. Supply the vertex-neighborhood proof left as an exercise in Lemma 3.8. This is an unresolved proof input; continuity on the complementary components alone is insufficient.
 
-*Needs:* [2.7 Retraction onto the skeleton](#27-retraction-onto-the-skeleton); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.7 Retraction onto the skeleton](#27-retraction-onto-the-skeleton); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Lemma 3.8, printed p. 103. The corresponding arXiv numbering is the same.
 
@@ -1022,73 +1023,13 @@ Prove `TauCeti.Berkovich.Curve.connected_skeleton`. Both Σ and its completed sk
 
 For the proof, use connectedness of the curve analytification, continuity and surjectivity of τ, then connectedness of its closure in the proper completion. The connectedness target is supplied by proper GAGA and the classical-endpoint removal argument.
 
-*Needs:* [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction); [2.5 Closure and punctures of the skeleton](#25-closure-and-punctures-of-the-skeleton); TropicalAndBerkovichArithmetic Layer 0; [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [0.31 Connected algebraic curves remain connected](#031-connected-algebraic-curves-remain-connected).
+*Needs:* [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction); [2.5 Closure and punctures of the skeleton](#25-closure-and-punctures-of-the-skeleton); TropicalAndBerkovichArithmetic Layer 0; [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [1.4 Connected algebraic curves remain connected](#14-connected-algebraic-curves-remain-connected).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Proposition 3.9, printed p. 103. The corresponding arXiv numbering is the same.
 
 **Check.** Completing puncture ends does not create an extra connected component.
 
-### 2.10 Existence of a semistable vertex set
-
-Prove `TauCeti.Berkovich.Curve.stable_reduction_and_minimal_skeleta`. X has a semistable vertex set.
-
-For the proof, apply the owned rank-one semistable-reduction target to the smooth proper completion. Use the formal-model/skeleton correspondence, then refine to separate the finite puncture set into distinct complementary balls. The DVR theorem alone is insufficient.
-
-*Needs:* [2.15 Rank-one semistable reduction](#215-rank-one-semistable-reduction); [2.16 Formal models and metric dual graphs](#216-formal-models-and-metric-dual-graphs); [2.18 Refinement and valued extension](#218-refinement-and-valued-extension).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Theorem 4.22, printed p. 112. The corresponding arXiv numbering is the same.
-
-**Check.** The punctured case needs refinement, not an arbitrary vertex addition.
-
-### 2.11 Intrinsic minimal skeleton
-
-Prove `TauCeti.Berkovich.Curve.intrinsic_minimal_skeleton`. If χ(X)=2−2g(X̂)−#D≤0 and V is inclusion-minimal, Σ(X,V) is the locus with no affinoid neighborhood isomorphic to the closed unit ball.
-
-For the proof, use the exact genus-zero tail/bridge contraction theorem and semistable refinement. If a minimal skeleton met a forbidden closed-ball neighborhood, refine at its Gauss boundary; its retract in the contractible ball would be a finite tree with a genus-zero vertex of valence below two. The contraction contradicts minimality when χ≤0.
-
-*Needs:* [2.10 Existence of a semistable vertex set](#210-existence-of-a-semistable-vertex-set); [2.6 Disc characterization of the skeleton](#26-disc-characterization-of-the-skeleton); [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [2.23 Contractions of genus-zero vertices](#223-contractions-of-genus-zero-vertices); [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Theorem 4.22(1), printed p. 112. The corresponding arXiv numbering is the same.
-
-**Check.** The χ≤0 restriction excludes the unpunctured projective line.
-
-### 2.12 Stable vertices of a hyperbolic curve
-
-Prove `TauCeti.Berkovich.Curve.stable_vertex_characterization`. For χ(X)<0 and inclusion-minimal V, V is stable and equals the points of Σ of valence at least three or positive vertex genus. The genus of a type-2 point is the genus of the smooth proper curve over the residue field with function field the residue field of its completed residue field.
-
-For the proof, remove each allowable genus-zero low-valence vertex by the exact contraction theorem. Under χ<0 the exceptional one/two-puncture configurations cannot exhaust the curve. The remaining vertices are exactly positive-genus points or topological vertices of valence at least three.
-
-*Needs:* [2.10 Existence of a semistable vertex set](#210-existence-of-a-semistable-vertex-set); [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [2.23 Contractions of genus-zero vertices](#223-contractions-of-genus-zero-vertices); [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Definition 4.20 and Theorem 4.22(2), printed pp. 111–112. The corresponding arXiv numbering is the same.
-
-**Check.** A positive-genus vertex remains even at valence below three.
-
-### 2.13 Uniqueness of the minimal skeleton
-
-Prove `TauCeti.Berkovich.Curve.unique_minimal_skeleton`. For χ(X)≤0 there is a unique set-theoretic minimal skeleton.
-
-For the proof, a finite vertex set has a minimal subset, and the intrinsic description is independent of that choice.
-
-*Needs:* [2.11 Intrinsic minimal skeleton](#211-intrinsic-minimal-skeleton); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Corollary 4.23, printed p. 112. The corresponding arXiv numbering is the same.
-
-**Check.** A Tate curve has one minimal circle but many minimal one-point vertex sets.
-
-### 2.14 Uniqueness of stable vertices
-
-Prove `TauCeti.Berkovich.Curve.unique_stable_vertex_set`. For χ(X)<0 there is a unique stable vertex set.
-
-For the proof, the intrinsic minimal skeleton is independent of a vertex presentation. Its positive-genus points and valence-at-least-three points are intrinsic and form the stable set when χ<0. The contraction theorem shows that any stable semistable presentation is minimal, giving uniqueness.
-
-*Needs:* [2.13 Uniqueness of the minimal skeleton](#213-uniqueness-of-the-minimal-skeleton); [2.12 Stable vertices of a hyperbolic curve](#212-stable-vertices-of-a-hyperbolic-curve); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [2.23 Contractions of genus-zero vertices](#223-contractions-of-genus-zero-vertices); [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Corollary 4.23, printed p. 112. The corresponding arXiv numbering is the same.
-
-**Check.** Do not apply the assertion to a Tate curve with χ=0.
-
-### 2.15 Rank-one semistable reduction
+### 2.10 Rank-one semistable reduction
 
 Prove `TauCeti.Berkovich.TB2.rank_one_semistable_reduction`. A smooth proper geometrically connected curve over a complete nontrivially valued rank-one field acquires a split semistable admissible formal model after a finite valued extension. Over algebraically closed K it has a semistable model over K° itself. The valuation ring may be nonnoetherian. For a finite marked set, choose a model/vertex set adapted to the marks after an extension splitting them.
 
@@ -1104,7 +1045,7 @@ For the proof, use the rank-one analytic semistable-reduction theorem cited by B
 
 Carry out the semistable-reduction argument over the complete rank-one valuation ring itself, including the nonnoetherian case. Over an algebraically closed field, cap the boundary discs of each formal fiber and minimize the largest resulting genus. If a positive-genus fiber remains, choose nonzero prime-to-residue-characteristic torsion in its Picard group. Move its divisor away from the finitely many boundary discs, and use a meromorphic function whose divisor is a prime multiple of that divisor to cut the fiber into pieces of smaller genus. Glue the corresponding formal covering; the strict decrease terminates. A genus-zero fiber is a projective line minus finitely many discs, where subdivision produces ordinary double points. These are Bosch–Lütkebohmert (1985), Lemmas 7.2–7.3 and Proposition 7.4 in the proof of Theorem 7.1, pp. 374–377. Use the finite-extension descent of the formal covering, retaining the fields of definition of nodes and marked points; their concluding argument, pp. 377–378, algebraizes using norm-bounded sections of a sufficiently positive divisor. BPR structure Theorem 4.22, pp. 16–17 and Poineau–Turchetti Theorem II.2.20, pp. 42–43 explain the analytic-curve application. StableReduction's DVR theorem supplies the compatibility case only.
 
-### 2.16 Formal models and metric dual graphs
+### 2.11 Formal models and metric dual graphs
 
 Establish `TauCeti.Berkovich.TB2.formal_model_skeleton`. Over algebraically closed complete nontrivial K, semistable formal models of a smooth proper connected curve correspond to semistable vertex sets V. The point over a generic component is type II; smooth closed special-fiber points have open-ball fibers; a node locally étale over uv=a has an open-annulus fiber of length v(a)=−log|a|. The metric dual graph, retaining loops and multiple edges, identifies with Σ(X,V). Domination corresponds to inclusion of vertex sets.
 
@@ -1112,13 +1053,13 @@ Admissible semistable formal model; 0<|a|<1; special-fiber normalizations define
 
 For the proof, use formal étale charts to identify analytic fibers and glue Gauss intervals along generic points. For the converse cover by vertex affinoids and annular edge domains and glue their canonical formal models; uniqueness uses admissible-model comparison.
 
-*Needs:* [2.15 Rank-one semistable reduction](#215-rank-one-semistable-reduction); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); AdicSpacesPartII R2 (`raynaud-generic-fibre`); TauCetiRoadmap.StableReduction Layer 1; [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.10 Rank-one semistable reduction](#210-rank-one-semistable-reduction); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); AdicSpacesPartII R2 (`raynaud-generic-fibre`); TauCetiRoadmap.StableReduction Layer 1; [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), Proposition 4.3, Theorem 4.6, §4.9, Proposition 4.10 and Theorem 4.11, pp. 11–15. Formal fibers and the vertex-set/model correspondence, including the metric and order relation.
 
 **Check.** A self-node yields a loop counted twice in valency. An equation uv=πⁿ has length n·v(π), not unit length unless n=1 and v(π)=1.
 
-### 2.17 Vertex genera and analytic genus
+### 2.12 Vertex genera and analytic genus
 
 Prove `TauCeti.Berkovich.TB2.vertex_genus_and_genus_formula`. At a type-II vertex v let g(v) be the genus of the smooth proper normalization of the residue component. For smooth proper connected X over algebraically closed K, g(X)=b₁(Σ)+Σ_v g(v). Import the algebraic dual-graph arithmetic-genus formula and flat-family genus invariance from StableReduction, and prove the formal/analytic identification and invariance under subdivision. Over general K use geometric stable genus; residue genus alone can change under extension.
 
@@ -1126,13 +1067,13 @@ K complete rank one; algebraically closed for the displayed residue-genus formul
 
 For the proof, first establish a finite-presentation model descent or algebraization comparison that identifies the generic and special arithmetic genera over the rank-one base. StableReduction Layer 2 supplies the proper-flat genus theorem in its locally noetherian range; proving its applicability through this descent is part of the present formal/analytic comparison. Apply the imported nodal multigraph formula to the special fiber. Formal chart normalization identifies analytic residue genera. New subdivision vertices are rational genus-zero components, so both sides are unchanged.
 
-*Needs:* [2.16 Formal models and metric dual graphs](#216-formal-models-and-metric-dual-graphs); TauCetiRoadmap.StableReduction Layer 1; TauCetiRoadmap.StableReduction Layer 2; [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.11 Formal models and metric dual graphs](#211-formal-models-and-metric-dual-graphs); TauCetiRoadmap.StableReduction Layer 1; TauCetiRoadmap.StableReduction Layer 2; [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definition II.2.14, Remark II.2.16, Definition II.2.22 and Theorem II.2.23, pp. 40–43. Stable genus and the analytic/algebraic genus formula; the example rules out unqualified residue-genus invariance.
 
 **Check.** A good-reduction genus-g curve has a one-vertex skeleton of vertex genus g. A split Tate curve has b₁=1 and all vertex genera zero. A potentially good-reduction elliptic point can have residue genus zero before extension and stable genus one.
 
-### 2.18 Refinement and valued extension
+### 2.13 Refinement and valued extension
 
 Prove `TauCeti.Berkovich.TB2.refinement_and_field_extension`. Any finite set of type-II points is contained in a semistable vertex set. Two such vertex sets have a common refinement. Enlarging V subdivides old edges into unions of new edges and may attach finite trees; retractions compose τ_V∘τ_V′=τ_V. Under an isometric extension with split semistable model, the corresponding geometric skeleton preserves natural-log edge lengths and vertex genera; replacing v_K by the convention v_L(π_L)=1 rescales lengths by the ramification factor. General descent uses the virtual-annulus convention separately.
 
@@ -1140,13 +1081,25 @@ Smooth proper connected curve over algebraically closed K for finite-point refin
 
 For the proof, insert points on annular edges and in finitely many ball branches, using a larger initial semistable model if necessary. Uniqueness of paths proves retraction composition. Base change of uv=a preserves −log|a|; regularization subdivides the edge rather than changing its total length.
 
-*Needs:* [2.16 Formal models and metric dual graphs](#216-formal-models-and-metric-dual-graphs); [2.7 Retraction onto the skeleton](#27-retraction-onto-the-skeleton); [1.6 Virtual annuli and metric descent](#16-virtual-annuli-and-metric-descent); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.11 Formal models and metric dual graphs](#211-formal-models-and-metric-dual-graphs); [2.7 Retraction onto the skeleton](#27-retraction-onto-the-skeleton); [1.7 Virtual annuli and metric descent](#17-virtual-annuli-and-metric-descent); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), Theorem 4.11, Corollary 4.23 and §5.3, pp. 13–18. Model domination/refinement and the corrected union-of-subedges statement. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), §I.7, pp. 26–29; §II.2, pp. 40–43. Base-change and stable-genus cautions.
 
 **Check.** Inserting a type-II point inside an old edge makes it the union of two new edges; neither new edge contains the whole old edge. Add their lengths to recover the old length, as in BPR structure Proposition 3.13(1)–(2), pp. 10–11. Use this subdivision statement in §5.3, p. 18 (published p. 115).
 
-### 2.19 Marked skeleta and puncture rays
+### 2.14 Existence of a semistable vertex set
+
+Prove `TauCeti.Berkovich.Curve.stable_reduction_and_minimal_skeleta`. X has a semistable vertex set.
+
+For the proof, apply the owned rank-one semistable-reduction target to the smooth proper completion. Use the formal-model/skeleton correspondence, then refine to separate the finite puncture set into distinct complementary balls. The DVR theorem alone is insufficient.
+
+*Needs:* [2.10 Rank-one semistable reduction](#210-rank-one-semistable-reduction); [2.11 Formal models and metric dual graphs](#211-formal-models-and-metric-dual-graphs); [2.13 Refinement and valued extension](#213-refinement-and-valued-extension).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Theorem 4.22, printed p. 112. The corresponding arXiv numbering is the same.
+
+**Check.** The punctured case needs refinement, not an arbitrary vertex addition.
+
+### 2.15 Marked skeleta and puncture rays
 
 Construct `TauCeti.Berkovich.TB2.marked_extended_skeleton`. For a smooth proper connected curve X, finite distinct K-rational marked set D and a vertex set V separating the marks into distinct ball components, define Σ(X,D,V) by adjoining the paths from V toward each puncture in (X\D)ᵃⁿ. These are infinite-length rays; adjoining the classical marked endpoints gives the topological completion, not a finite metric edge. The deformation retraction and refinement maps preserve the compact core and marked directions.
 
@@ -1167,40 +1120,44 @@ Provide the following interface:
 
 For the construction, choose a semistable refinement separating the finitely many marks; each punctured complementary ball has its intrinsic annular ray. Glue its radius retraction to the core and check continuity at attachment vertices.
 
-*Needs:* [2.18 Refinement and valued extension](#218-refinement-and-valued-extension); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.13 Refinement and valued extension](#213-refinement-and-valued-extension); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), Definitions 3.1 and 3.3, Remark 3.6 and Lemma 3.8, pp. 7–9. Open algebraic curves, completed skeleta and retractions. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 5.22, pp. 26–27. Uses the punctured skeleton and its unbounded ends.
 
-### 2.20 Locally finite triangulations and analytic nodes
+### 2.16 Locally finite triangulations and analytic nodes
 
-Define `TauCeti.Berkovich.TB2.noncompact_triangulations`. For a smooth analytic curve over a p-adic local field, the canonical analytic skeleton is the complement of points with a virtual open-disc neighborhood. A triangulation is a closed discrete set of type-II/III points cutting the curve into relatively compact virtual discs and virtual annuli; its skeleton is locally finite, not necessarily finite. A node is a skeletal point with positive genus (the residue-curve genus at the point), valence different from two, analytic boundary, or a strict inclusion of the local constant field into a branch constant field. Nodes belong to every triangulation.
+Define `TauCeti.Berkovich.TB2.noncompact_triangulations`. For a smooth analytic curve over a p-adic local field, the canonical analytic skeleton is the complement of points with a virtual open-disc neighborhood. A triangulation is a closed discrete set of type-II/III points cutting the curve into relatively compact virtual discs and virtual annuli; its skeleton is locally finite, not necessarily finite. For an admissible graph Γ, a node is a point of Γ with positive stable genus g(x), valence different from two, analytic boundary, or a strict inclusion of the local constant field into a branch constant field. Define g(x) as the residue-curve genus of any lift of x to the completed algebraic closure; it is independent of the lift. Over the nonsplit base this need not be the genus of the raw residue curve at x. The nodes of a triangulation skeleton belong to its vertex set; the intrinsic nodes of the canonical analytic skeleton belong to every triangulation.
 
-CDN Appendix A.2 local-field hypotheses; compact curves with nonempty skeleton have a finite intrinsic minimal node triangulation in its stated range. General smooth curves use the broader triangulation existence input separately.
+Use the local-field hypotheses of CDN Appendix A.2. For a geometrically connected compact smooth curve, assume that its intrinsic node set is nonempty; that set is then a finite minimal triangulation, contained in every triangulation. A smooth projective curve of genus at least two satisfies this condition. A nonempty skeleton alone is insufficient, as the split Tate circle shows. Separately, for every quasi-smooth analytic curve over a complete nonarchimedean field, construct a triangulation containing any prescribed closed discrete set of type-II/III points. For strict curves over a nontrivially valued field and prescribed type-II points, choose only type-II vertices. This general existence statement supplies the ℂ_p curve covers used in integration; it does not assert a canonical minimal node triangulation outside the stated compact local-field range.
 
 Provide the following interface:
 
 - `TauCeti.Berkovich.TB2.noncompact_triangulations.canonicalSkeleton`: The intrinsic skeleton is independent of a chosen triangulation.
-- `TauCeti.Berkovich.TB2.noncompact_triangulations.nodes`: A point is a node exactly under the four stated alternatives.
-- `TauCeti.Berkovich.TB2.noncompact_triangulations.contains_nodes`: Every triangulation contains the node set.
+- `TauCeti.Berkovich.TB2.noncompact_triangulations.nodes`: A point of the given admissible graph is a node exactly under the four stated alternatives.
+- `TauCeti.Berkovich.TB2.noncompact_triangulations.contains_nodes`: Every triangulation contains the intrinsic node set, and its own skeleton has all its nodes in its vertex set.
 - `TauCeti.Berkovich.TB2.noncompact_triangulations.refinement`: Adding a closed discrete compatible point set refines the triangulation without assuming it finite.
+- `TauCeti.Berkovich.TB2.noncompact_triangulations.exists`: A quasi-smooth analytic curve over a complete nonarchimedean field has a closed discrete triangulation containing a prescribed closed discrete type-II/III set, with the strict type-II variant just stated.
+- `TauCeti.Berkovich.TB2.noncompact_triangulations.stableGenus`: The geometric residue genus is independent of the chosen lift to the completed algebraic closure and invariant under further algebraically closed isometric extension; type-III points have genus zero.
 
 **Checks.**
 
-- `TauCeti.Berkovich.TB2.noncompact_triangulations.check1`: An open annulus has a canonical interval skeleton and no interior valence-two genus-zero node over an algebraically closed field.
-- `TauCeti.Berkovich.TB2.noncompact_triangulations.check2`: A positive-genus vertex is a node even when its valence is two.
+- `TauCeti.Berkovich.TB2.noncompact_triangulations.check1`: A split open annulus over K has a canonical interval skeleton and no interior valence-two genus-zero node: its constant field does not jump along a branch.
+- `TauCeti.Berkovich.TB2.noncompact_triangulations.check2`: The component point of a good-reduction elliptic curve has stable genus one and is a node even if its intrinsic skeleton has valence zero; an annular genus-zero point of valence two is not a node.
 - `TauCeti.Berkovich.TB2.noncompact_triangulations.check3`: A noncompact locally finite curve can require infinitely many vertices; a finite-set carrier would lose it.
 
 For the construction, characterize virtual-disc neighborhoods and annular interiors; all failures of an unmarked annular interval are exactly the node alternatives. Local finiteness follows from closed discreteness and the analytic triangulation theorem; no global finiteness is inferred in the noncompact case.
 
-*Needs:* [1.6 Virtual annuli and metric descent](#16-virtual-annuli-and-metric-descent); [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [1.7 Virtual annuli and metric descent](#17-virtual-annuli-and-metric-descent); [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie des revêtements du demi-plan de Drinfeld](https://arxiv.org/pdf/1704.08928v2), Appendix A.2, pp. 51–52. Canonical skeleton, four node alternatives, closed discrete triangulations and relatively compact complementary discs.
 
-**Check.** For a smooth analytic curve over a p-adic local field, the canonical analytic skeleton is the complement of points with a virtual open-disc neighborhood. A triangulation is a closed discrete set of type-II/III points cutting the curve into relatively compact virtual discs and virtual annuli; its skeleton is locally finite, not necessarily finite. A node is a skeletal point with positive stable genus, valence different from two, analytic boundary, or a strict inclusion of the local constant field into a branch constant field. Nodes belong to every triangulation.
+**Check.** A split Tate curve has a circle skeleton, stable genus zero at every point and no nodes: valence is two, the analytic boundary is empty and constant fields do not jump. Its empty node set is not a triangulation. Choosing one type-II point gives a semistable triangulation but is not an intrinsic minimal node choice.
+
+[Antoine Ducros, La structure des courbes analytiques](https://webusers.imj-prg.fr/~antoine.ducros/trirss.pdf), §4.5.2, p. 271, §5.1.12, p. 292, Definition 5.1.13 and Theorem 5.1.14, pp. 293–295, and §5.4.12, pp. 318–320. These specify stable genus, nodes, general triangulation existence with prescribed vertices, and the nonempty-node hypothesis for the compact minimal triangulation.
 
 Reconstruct a formal model from the triangulation by gluing the formal vertex neighborhoods and the annular edge charts, checking local finiteness on every compact analytic domain. Retain the constant fields and nonsplit node invariants, and show that reconstruction and passage to component points are inverse in the semistable range. CDN Appendix A.2, pp. 51–52 proves the component-point and automorphism-extension direction for normal flat models; the converse and its locally finite gluing are additional targets, using the Ducros triangulation theory cited there. Semistability is needed for component points to form a triangulation. The nonsplit reconstruction also uses the virtual-annulus descent convention of Layer 1.
 
-### 2.21 Triangulated curves and formal automorphisms
+### 2.17 Triangulated curves and formal automorphisms
 
 Prove `TauCeti.Berkovich.TB2.triangulated_formal_automorphisms`. For a normal flat admissible formal curve over O_K in the CDN local-field setting, let S be the set of analytic points corresponding to generic points of its special-fiber components. An automorphism of its analytic generic fiber preserving S extends uniquely to a formal automorphism. If the model is semistable, S is its associated triangulation; normality and flatness alone do not make S a triangulation. A split semistable chart uv=a, a≠0, gives the annular chart. This modelwise statement asserts neither a converse reconstruction theorem nor a single proper finite model for every noncompact curve.
 
@@ -1208,11 +1165,11 @@ Normal flat admissible formal curve in the local-field setting of CDN Appendix A
 
 For the proof, use the normal formal model and its component-point set S. The extension criterion for automorphisms preserving S is the cited Ducros theorem; on semistable charts it respects the disc/annulus decomposition. Prove locally finite gluing and uniqueness; CDN does not itself establish a converse reconstruction theorem.
 
-*Needs:* [2.20 Locally finite triangulations and analytic nodes](#220-locally-finite-triangulations-and-analytic-nodes); AdicSpacesPartII R2 (`admissible-formal-scheme`); AdicSpacesPartII R2 (`raynaud-generic-fibre`); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+*Needs:* [2.16 Locally finite triangulations and analytic nodes](#216-locally-finite-triangulations-and-analytic-nodes); AdicSpacesPartII R2 (`admissible-formal-scheme`); AdicSpacesPartII R2 (`raynaud-generic-fibre`); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
 
 [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie des revêtements du demi-plan de Drinfeld](https://arxiv.org/pdf/1704.08928v2), Appendix A.2–A.3, pp. 52–53, citing Ducros Theorem 6.3.23. Gives the component-point set and the automorphism-extension criterion for normal flat models. The set is a triangulation for a semistable model; a general triangulation-to-model reconstruction is a separate proof input.
 
-### 2.22 Strong deformation onto a skeleton
+### 2.18 Strong deformation onto a skeleton
 
 Prove `TauCeti.Berkovich.TB2.skeletal_strong_deformation`. A semistable (marked) skeleton of a smooth algebraic curve over algebraically closed complete nontrivially valued K is a strong deformation retract of its analytification with punctures removed. The homotopy fixes the skeleton pointwise, ends at τ, and is compatible with the annular radius homotopies and the boundary point of every complementary ball.
 
@@ -1220,11 +1177,11 @@ Finite semistable vertex set; finite split marks; use the analytic topology on s
 
 For the proof, glue the annular radial homotopies and rooted-ball contraction while fixing each vertex. At a vertex use star neighborhoods with finitely many annular cuts and all but finitely many attached residue balls. Continuity at these vertices, including infinitely many ball directions, is the vertex-neighborhood argument specified above; componentwise continuity does not suffice.
 
-*Needs:* [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction); [2.4 Ball components off the skeleton](#24-ball-components-off-the-skeleton); [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation).
+*Needs:* [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction); [2.4 Ball components off the skeleton](#24-ball-components-off-the-skeleton); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), §2.3, p. 4 and Lemma 3.8, p. 9. The annular homotopy is recalled in §2.3. Lemma 3.8 states continuous retraction only; it does not prove the strong homotopy, and its vertex-continuity exercise remains an additional proof target. [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Lemmas I.7.8–I.7.9 and Propositions I.7.10–I.7.11, pp. 28–29; paragraph following Theorem II.2.20, p. 43. Explicit local disc/annulus homotopies and the global strong-retraction assertion. Prove gluing and continuity at every vertex direction using the star-neighborhood argument.
 
-### 2.23 Contractions of genus-zero vertices
+### 2.19 Contractions of genus-zero vertices
 
 Prove `TauCeti.Berkovich.TB2.genus_zero_contractions`. Let V be a semistable vertex set of a smooth punctured curve and x∈V have genus zero. In the completed skeleton, a valence-one x can be removed if its adjoining edge has other endpoint outside the puncture set D; delete x and that edge interior. A valence-two x incident to two distinct edges can be removed if their two other endpoints are not both in D; join these edges, adding their lengths. A single self-loop contributes two tangent directions but is not a pair of distinct edges and cannot be suppressed by this rule. The resulting V\{x} is semistable.
 
@@ -1232,13 +1189,61 @@ Algebraically closed complete nontrivially valued K; retain puncture endpoints a
 
 For the proof, translate the genus-zero component contraction of BL85 Lemma 6.1 into formal fibers and vertex sets. Rational tail contraction removes its ball branch; a rational bridge contraction joins annuli and adds moduli. The nonnoetherian contraction proof is the specified BL85 proof input.
 
-*Needs:* [2.16 Formal models and metric dual graphs](#216-formal-models-and-metric-dual-graphs); [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus); [2.19 Marked skeleta and puncture rays](#219-marked-skeleta-and-puncture-rays).
+*Needs:* [2.11 Formal models and metric dual graphs](#211-formal-models-and-metric-dual-graphs); [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus); [2.15 Marked skeleta and puncture rays](#215-marked-skeleta-and-puncture-rays).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), Proposition 4.21, p. 16. Gives both contractions with the marked-endpoint exceptions and cites BL85 Lemma 6.1.
 
 **Check.** A genus-zero bridge lying between two punctures is excluded by the two-endpoint condition. Positive genus forbids these rational-component contractions. A one-vertex Tate circle retains its vertex: its single loop cannot be contracted by the two-edge rule.
 
 Prove the required formal genus-zero contractions over the possibly nonnoetherian rank-one valuation ring. For a genus-zero component of valence at most two, construct the coarser formal covering that contracts that component; its remaining formal fiber is a genus-zero curve with at most two peripheral discs, hence a ball or an annulus. Bosch–Lütkebohmert (1985), Lemma 6.1, p. 372 uses their formal contraction construction 3.9 and genus comparison 4.6; see also BPR structure Proposition 4.21, p. 16. A rational tail can be removed only under the stated puncture exclusions. A bridge contraction replaces its two distinct adjacent annuli by one whose thickness is their sum. Preserve the one-point and one-vertex-loop exceptions explicitly retained in §6, p. 371. These contractions underlie the intrinsic minimal skeleton and the stable-vertex existence and uniqueness arguments; the DVR contraction theorem is a compatibility case.
+
+### 2.20 Intrinsic minimal skeleton
+
+Prove `TauCeti.Berkovich.Curve.intrinsic_minimal_skeleton`. If χ(X)=2−2g(X̂)−#D≤0 and V is inclusion-minimal, Σ(X,V) is the locus with no affinoid neighborhood isomorphic to the closed unit ball.
+
+For the proof, use the exact genus-zero tail/bridge contraction theorem and semistable refinement. If a minimal skeleton met a forbidden closed-ball neighborhood, refine at its Gauss boundary; its retract in the contractible ball would be a finite tree with a genus-zero vertex of valence below two. The contraction contradicts minimality when χ≤0.
+
+*Needs:* [2.14 Existence of a semistable vertex set](#214-existence-of-a-semistable-vertex-set); [2.6 Disc characterization of the skeleton](#26-disc-characterization-of-the-skeleton); [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [2.19 Contractions of genus-zero vertices](#219-contractions-of-genus-zero-vertices); [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Theorem 4.22(1), printed p. 112. The corresponding arXiv numbering is the same.
+
+**Check.** The χ≤0 restriction excludes the unpunctured projective line.
+
+### 2.21 Stable vertices of a hyperbolic curve
+
+Prove `TauCeti.Berkovich.Curve.stable_vertex_characterization`. For χ(X)<0 and inclusion-minimal V, V is stable and equals the points of Σ of valence at least three or positive vertex genus. The genus of a type-2 point is the genus of the smooth proper curve over the residue field with function field the residue field of its completed residue field.
+
+For the proof, remove each allowable genus-zero low-valence vertex by the exact contraction theorem. Under χ<0 the exceptional one/two-puncture configurations cannot exhaust the curve. The remaining vertices are exactly positive-genus points or topological vertices of valence at least three.
+
+*Needs:* [2.14 Existence of a semistable vertex set](#214-existence-of-a-semistable-vertex-set); [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [2.19 Contractions of genus-zero vertices](#219-contractions-of-genus-zero-vertices); [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Definition 4.20 and Theorem 4.22(2), printed pp. 111–112. The corresponding arXiv numbering is the same.
+
+**Check.** A positive-genus vertex remains even at valence below three.
+
+### 2.22 Uniqueness of the minimal skeleton
+
+Prove `TauCeti.Berkovich.Curve.unique_minimal_skeleton`. For χ(X)≤0 there is a unique set-theoretic minimal skeleton.
+
+For the proof, a finite vertex set has a minimal subset, and the intrinsic description is independent of that choice.
+
+*Needs:* [2.20 Intrinsic minimal skeleton](#220-intrinsic-minimal-skeleton); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Corollary 4.23, printed p. 112. The corresponding arXiv numbering is the same.
+
+**Check.** A Tate curve has one minimal circle but many minimal one-point vertex sets.
+
+### 2.23 Uniqueness of stable vertices
+
+Prove `TauCeti.Berkovich.Curve.unique_stable_vertex_set`. For χ(X)<0 there is a unique stable vertex set.
+
+For the proof, the intrinsic minimal skeleton is independent of a vertex presentation. Its positive-genus points and valence-at-least-three points are intrinsic and form the stable set when χ<0. The contraction theorem shows that any stable semistable presentation is minimal, giving uniqueness.
+
+*Needs:* [2.22 Uniqueness of the minimal skeleton](#222-uniqueness-of-the-minimal-skeleton); [2.21 Stable vertices of a hyperbolic curve](#221-stable-vertices-of-a-hyperbolic-curve); [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.22 Berkovich analytification](#022-berkovich-analytification); [2.19 Contractions of genus-zero vertices](#219-contractions-of-genus-zero-vertices); [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of non-archimedean analytic curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1), Corollary 4.23, printed p. 112. The corresponding arXiv numbering is the same.
+
+**Check.** Do not apply the assertion to a Tate curve with χ=0.
 
 ### Examples
 
@@ -1398,7 +1403,7 @@ Provide the following interface:
 
 For the construction, extend point retraction linearly and use compatibility of graph retractions. For closed points compare the sum of geometric conjugates, including inseparable multiplicities, with the degree convention.
 
-*Needs:* [2.7 Retraction onto the skeleton](#27-retraction-onto-the-skeleton); [2.18 Refinement and valued extension](#218-refinement-and-valued-extension); [3.2 Divisors and rank on metric graphs](#32-divisors-and-rank-on-metric-graphs).
+*Needs:* [2.7 Retraction onto the skeleton](#27-retraction-onto-the-skeleton); [2.13 Refinement and valued extension](#213-refinement-and-valued-extension); [3.2 Divisors and rank on metric graphs](#32-divisors-and-rank-on-metric-graphs).
 
 [Matthew Baker, Specialization of linear systems from curves to graphs](https://arxiv.org/pdf/math/0701075v4), §2, pp. 5–10. Specialization in the discrete-model range. [Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), §4.3, pp. 21–22. Analytic retraction and geometric-point specialization over arbitrary complete algebraically closed K.
 
@@ -1410,7 +1415,7 @@ K algebraically closed complete nontrivial; include the support of div(f) in the
 
 For the proof, use analytic-unit constancy on balls and Laurent slopes on annuli. In a formal node chart compare the first nonvanishing residue term with its annular exponent. The principal divisor on the residue curve has degree zero, proving harmonicity; cancel attached branch fluxes to obtain the compact-graph formula.
 
-*Needs:* [1.5 Integral slopes of analytic units](#15-integral-slopes-of-analytic-units); [2.19 Marked skeleta and puncture rays](#219-marked-skeleta-and-puncture-rays); [3.3 Graph Laplacians and potentials](#33-graph-laplacians-and-potentials); [3.6 Specialization of algebraic divisors](#36-specialization-of-algebraic-divisors).
+*Needs:* [1.6 Integral slopes of analytic units](#16-integral-slopes-of-analytic-units); [2.15 Marked skeleta and puncture rays](#215-marked-skeleta-and-puncture-rays); [3.3 Graph Laplacians and potentials](#33-graph-laplacians-and-potentials); [3.6 Specialization of algebraic divisors](#36-specialization-of-algebraic-divisors).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, On the structure of nonarchimedean analytic curves](https://arxiv.org/abs/1404.0279), Theorem 5.15 and its proof, pp. 21–22. All slope assertions, harmonicity and puncture orders with F=−log|f|. [Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), Theorem 4.5 and its sign footnote, p. 23. Uses log|f| for the positive-outgoing principal-divisor convention.
 
@@ -1438,27 +1443,41 @@ Provide the following interface:
 
 For the construction, construct the free divisor group on graph interiors and residue-curve points. Refine at all breaks to prove total principal degree zero; moving vertex chips onto the corresponding component compares refined models.
 
-*Needs:* [3.1 Metric graphs with loops and vertex genus](#31-metric-graphs-with-loops-and-vertex-genus); [3.2 Divisors and rank on metric graphs](#32-divisors-and-rank-on-metric-graphs); [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus).
+*Needs:* [3.1 Metric graphs with loops and vertex genus](#31-metric-graphs-with-loops-and-vertex-genus); [3.2 Divisors and rank on metric graphs](#32-divisors-and-rank-on-metric-graphs); [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus).
 
 [Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), §§1.1–2.1, pp. 2–7. Carrier, half-edge markings, rational-function tuple and component slope terms.
 
-### 3.9 Riemann–Roch and rank determination on complexes
+### 3.9 Finite rank-determining sets
+
+Prove `TauCeti.Berkovich.TB3.metrized_complex_rank_determining`. Let C be a compact metrized complex with a loopless finite graph model G. For every vertex v choose any subset R_v⊂C_v(κ) of cardinality g(C_v)+1. The union R=∪_v R_v is rank determining: in the definition of r_C(D), it suffices to test effective subtractands supported on R. A graph loop must first be subdivided; points may be chosen away from the finitely many attaching points over algebraically closed κ.
+
+κ algebraically closed; graph model loopless; the points in each R_v are distinct.
+
+For the proof, first develop reduced divisors on the metrized complex, including existence and their precise uniqueness: the graph part and each residue-curve linear-equivalence class are determined, while a representative within a component class need not be unique. For D of degree d and nonnegative rank, prove continuity of P↦(D_P)_Γ from Γ to its symmetric power Sym^d(Γ); no continuous choice of component representatives is asserted. Use the v₀-reduced characterization to find a test point in one R_v detecting failure of rank one; subtract one test point and induct on the tested rank. These reduced-divisor results are established independently of Riemann–Roch and also supply the next target.
+
+*Needs:* [3.8 Metrized complexes and their divisors](#38-metrized-complexes-and-their-divisors).
+
+[Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), Theorem 3.7, pp. 14–16; Appendix A, Theorem A.1, Lemma A.3 and Theorem A.4, pp. 40–43. Reduced divisors precede the finite-testing proof. Any g_v+1 residue points suffice on a loopless model; no unspecified genericity condition is imposed.
+
+**Check.** A loop requires subdivision before the stated criterion applies. One residue point suffices on every genus-zero component.
+
+### 3.10 Riemann–Roch and rank determination on complexes
 
 Prove `TauCeti.Berkovich.TB3.metrized_complex_riemann_roch`. For a compact metrized complex C of genus g and any divisor D, r_C(D)−r_C(K_C−D)=deg D+1−g, using the combined graph/residue-curve principal-divisor convention.
 
-Algebraically closed residue field; smooth proper C_v; rank on the full divisor carrier. The rank-determining set must satisfy Amini–Baker Appendix A, not merely have the indicated cardinality.
+Algebraically closed residue field; smooth proper C_v; rank on the full divisor carrier. Finite testing uses §3.9, with a loopless graph model and g_v+1 distinct points on each component.
 
 For the proof, use existence of reduced divisors and the nonspecial-divisor characterization to obtain the two rank inequalities. Establish the Appendix A rank-determining criterion before using finite tests; cardinality alone is not treated as its proof.
 
-*Needs:* [3.8 Metrized complexes and their divisors](#38-metrized-complexes-and-their-divisors); [3.11 Finite rank-determining sets](#311-finite-rank-determining-sets).
+*Needs:* [3.8 Metrized complexes and their divisors](#38-metrized-complexes-and-their-divisors); [3.9 Finite rank-determining sets](#39-finite-rank-determining-sets).
 
-[Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), Theorem 3.2 and Theorem 3.7, pp. 13–14; Appendix A, Theorem A.1, pp. 40–43. Riemann–Roch, reduced-divisor input and rank-determining criterion; the reduced-divisor proof and its uniqueness convention are specified below.
+[Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), Theorem 3.2, p. 13 and Theorem 3.7, pp. 14–16; Appendix A, Theorem A.1, pp. 40–43. Riemann–Roch and the rank-determining criterion use the reduced-divisor construction and uniqueness convention in the preceding target.
 
 **Check.** For one vertex without edges this is algebraic curve Riemann–Roch. For all C_v=P¹ the statement agrees with metric-graph Riemann–Roch.
 
-Develop reduced divisors on the metrized complex, their existence and their precise uniqueness: the graph part and the linear-equivalence class on each residue curve are determined, while a representative divisor within a component class need not be unique. Use the rank formula from these reduced divisors to prove Riemann–Roch and specialization. For finite testing, combine the rank-one step of Amini–Baker Lemma A.3 with continuity of the reduced-divisor map in Theorem A.4, Appendix A, pp. 40–43. Theorem A.1 allows any g_v+1 distinct residue points on each component of a loopless model. This supplies the finite-testing and specialization targets as well as the Riemann–Roch statement; it does not impose an extra genericity condition.
+Use the reduced divisors established in the preceding target to prove the minimum positive-part rank formula and hence Riemann–Roch and specialization. Their componentwise uniqueness is a uniqueness of linear-equivalence classes, not chosen effective representatives. Amini–Baker §3.1, Theorem 3.7, pp. 14–16 supplies the reduced divisors; §§3.2–3.3, Lemmas 3.10–3.11 and Proposition 3.13, pp. 17–20 supplies the moderator and minimum positive-part rank argument. Appendix A, pp. 40–43 supplies the finite-testing continuity step. Neither proof imposes an extra genericity condition on the g_v+1 distinct residue points of a loopless model.
 
-### 3.10 Specialization inequality
+### 3.11 Specialization inequality
 
 Prove `TauCeti.Berkovich.TB3.specialization_rank_inequality`. For a smooth proper connected curve X over algebraically closed complete nontrivial rank-one K and its semistable metrized complex C, specialization preserves principal divisors and r_X(D)≤r_C(sp D)≤r_Γ(τ_*D). The first map sends points above vertices to their residue point and points above graph interiors to their retraction. For f use the tuple (log|f||Γ, normalized reductions f_v), whose principal divisor is sp(div f).
 
@@ -1466,25 +1485,11 @@ Arbitrary rank-one value group; do not infer this range solely from Baker’s DV
 
 For the proof, the slope formula gives principal compatibility, including the marked-point terms. Choose the Appendix A rank-determining residue points and lift them to X(K); specialize every effective subtractand to obtain r_X≤r_C. For the second inequality lift a graph effective subtractand to arbitrary component points of matching degree and project the effective representatives.
 
-*Needs:* [3.9 Riemann–Roch and rank determination on complexes](#39-riemannroch-and-rank-determination-on-complexes); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions); [3.6 Specialization of algebraic divisors](#36-specialization-of-algebraic-divisors).
+*Needs:* [3.10 Riemann–Roch and rank determination on complexes](#310-riemannroch-and-rank-determination-on-complexes); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions); [3.6 Specialization of algebraic divisors](#36-specialization-of-algebraic-divisors).
 
 [Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), Theorems 4.5–4.6, pp. 23–24. Principal specialization and the rank inequality without a discrete-valuation restriction. [Matthew Baker, Specialization of linear systems from curves to graphs](https://arxiv.org/pdf/math/0701075v4), Lemma 2.8 and Corollary 2.10, pp. 8–10. Compatible DVR special case; not the source of the arbitrary rank-one proof.
 
 **Check.** On a positive-genus good-reduction component the metrized complex retains algebraic rank while the point graph loses it. The inequality is r_X≤r_specialized, not the reverse.
-
-### 3.11 Finite rank-determining sets
-
-Prove `TauCeti.Berkovich.TB3.metrized_complex_rank_determining`. Let C be a compact metrized complex with a loopless finite graph model G. For every vertex v choose any subset R_v⊂C_v(κ) of cardinality g(C_v)+1. The union R=∪_v R_v is rank determining: in the definition of r_C(D), it suffices to test effective subtractands supported on R. A graph loop must first be subdivided; points may be chosen away from the finitely many attaching points over algebraically closed κ.
-
-κ algebraically closed; graph model loopless; the points in each R_v are distinct.
-
-For the proof, use the v₀-reduced divisor characterization and continuity of the reduced-divisor map to find a test point in one R_v detecting failure of rank one. Subtract one test point and induct on the tested rank. Prove reduced-divisor existence and the continuity theorem in the reduced-divisor construction specified with Riemann–Roch above; they are used here independently of the Riemann–Roch conclusion.
-
-*Needs:* [3.8 Metrized complexes and their divisors](#38-metrized-complexes-and-their-divisors).
-
-[Omid Amini and Matthew Baker, Linear series on metrized complexes of algebraic curves](https://arxiv.org/pdf/1204.3508v3), Appendix A, Theorem A.1, Lemma A.3 and Theorem A.4, pp. 40–43. Any g_v+1 residue points suffice on a loopless model; no unspecified genericity condition is imposed.
-
-**Check.** A loop requires subdivision before the stated criterion applies. One residue point suffices on every genus-zero component.
 
 ### Examples
 
@@ -1498,31 +1503,7 @@ Layers 1–2, finite graph linear algebra and the imported algebraic divisor/Rie
 
 Use tilted models and valued extensions to define initial degenerations at every real tropical point. Scheme-theoretic generic lengths determine weights. Primitive lattice vectors and the target/image index determine balancing and pushforward; set-theoretic initial supports do not supply these integers.
 
-### 4.1 Tropical multiplicity formula for curves
-
-Prove `TauCeti.Berkovich.Curve.tropical_multiplicity_formula`. After suitable subdivision, each tropical edge e′ has finitely many embedded segments e_i of H° mapping homeomorphically onto it. Other segments disjoint from these in its preimage are contracted. Its multiplicity is the sum of their positive integral expansion factors. Initial-degeneration components are counted with scheme multiplicities.
-
-For the proof, for a value-group-rational tropical point, pass to its polyhedral analytic fiber and canonical reduction. The Shilov components account for the initial-degeneration generic lengths. For a curve, a finite annular projection identifies each relative component degree with its integral expansion factor. Sum over the noncontracted preimage edges; contracted components contribute zero. Extend to other points by valued base change. The finite-map reduction/multiplicity identity still requires a complete proof check.
-
-*Needs:* SchemeAndStackFoundations SF.0; [4.8 Relative point and edge multiplicities](#48-relative-point-and-edge-multiplicities); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.3, pp. 2–3; Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23. The curve multiplicity formula is proved by the comparison of analytic edge degrees and initial generic lengths. The finite-map reduction argument is specified in the relative-multiplicity construction.
-
-**Check.** Factors 2 and 3 contribute multiplicity 5, not 2.
-
-### 4.2 Expansion factors from coordinate slopes
-
-Prove `TauCeti.Berkovich.Curve.expansion_factor_gcd`. For an affine curve embedded in a torus by invertible regular functions f_i, the expansion factor on an affine edge is the gcd of the absolute values of the integral slopes of log|f_i|. An all-zero slope tuple gives factor zero and a contracted edge.
-
-For the proof, the index of the coordinate-slope vector in its primitive lattice direction is the gcd. Identifying this index with the analytic and tropical lengths requires the missing metric and slope framework.
-
-*Needs:* [4.8 Relative point and edge multiplicities](#48-relative-point-and-edge-multiplicities); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Remark 5.6 and formula (5.6.1), p. 22. The expansion index of an integral slope vector is the positive gcd of its coordinate slopes, measured against the primitive image lattice.
-
-**Check.** Slopes (−2,4) give factor 2; (0,0) gives zero.
-
-### 4.3 Torus tropicalization
+### 4.1 Torus tropicalization
 
 Construct `TauCeti.Berkovich.TB4.torus_tropicalization`. For a split torus T=Spec K[M] with character lattice M and N=Hom(M,ℤ), define trop:Tᵃⁿ→N_ℝ by ⟨trop(x),u⟩=−log|χᵘ(x)|. For a closed subscheme X⊂T define Trop(X)=trop(Xᵃⁿ), including multiplicities only after the weighted-cycle construction. Torus homomorphisms induce the dual integral-linear tropical maps; valued scalar extension leaves Trop(X) unchanged.
 
@@ -1543,11 +1524,11 @@ Provide the following interface:
 
 For the construction, characters are invertible analytic functions, so logarithmic evaluation is well-defined and continuous. Pullback of characters proves functoriality; surjective spectral base change proves invariance. General-base toric scheme interfaces are requested, not rebuilt.
 
-*Needs:* [0.22 Berkovich analytification](#022-berkovich-analytification); [0.16 Valued base change of spectra](#016-valued-base-change-of-spectra); SchemeAndStackFoundations SF.0.
+*Needs:* [0.22 Berkovich analytification](#022-berkovich-analytification); [0.18 Valued base change of spectra](#018-valued-base-change-of-spectra); SchemeAndStackFoundations SF.0.
 
 [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), Definitions 2.1 and 3.2; Propositions 3.6–3.7, pp. 4–7. Seminorm tropicalization, field-extension invariance and classical-point closure after algebraically closed nontrivial extension.
 
-### 4.4 Initial degenerations over valued fields
+### 4.2 Initial degenerations over valued fields
 
 Construct `TauCeti.Berkovich.TB4.initial_degenerations`. For w∈N_ℝ, use the tilted algebra K[M]^w={Σa_uχᵘ:v(a_u)+⟨u,w⟩≥0}; close X in this model and take the residue fiber. When w is not realized in the value group, pass to a valued extension realizing w and translate its torus point to valuation zero before reduction. The resulting in_w(X) is well-defined up to the corresponding residue-field extension and torus translation; preserve its scheme structure and generic lengths. Polyhedral tilted models use the inequalities for every w in a polyhedron.
 
@@ -1569,27 +1550,27 @@ Provide the following interface:
 
 For the construction, extend the valued field to realize finitely many weights, translate and use flat closure over the valuation ring. Compare two choices in a common valued extension; reductions differ by the residual torus translation. For polyhedra apply the same inequality algebra and track the finiteness hypotheses.
 
-*Needs:* [4.3 Torus tropicalization](#43-torus-tropicalization); [0.18 Affinoid algebras over valued fields](#018-affinoid-algebras-over-valued-fields).
+*Needs:* [4.1 Torus tropicalization](#41-torus-tropicalization); [0.17 Affinoid algebras over valued fields](#017-affinoid-algebras-over-valued-fields).
 
 [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§5.1–5.5 and §§6.5–6.7, pp. 10–13. Extension/translation definition and the failure of unconditional finite generation over some valuation rings. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Definitions 4.8 and 4.14, Propositions 4.17–4.18, pp. 15–18. Canonical analytic/formal models and their initial special fibers.
 
 Prove finite valued Gröbner control for tilted algebras over arbitrary real value groups, with descent along valued extensions when a chosen w is not in the original value group. Establish the Bieri–Groves dimension and purity theorem, then glue the finitely many initial-equivalence regions into the required Γ-rational complex. Do not replace this by noetherian Gröbner theory over a DVR: the valuation ring can be nonnoetherian and tilted algebras need not have the naive finite-presentation property. Gubler Theorems 3.3 and 10.14, pp. 7, 32 are the dimension and Gröbner statements; Proposition 10.15, p. 32 identifies the local star used below.
 
-### 4.5 Fundamental theorem and polyhedrality
+### 4.3 Fundamental theorem and polyhedrality
 
 Prove `TauCeti.Berkovich.TB4.fundamental_polyhedral_theorem`. For finite-type X⊂T over any valued field, Trop(X)={w:in_w(X)≠∅}. It is the support of a finite v(K×)-rational polyhedral complex; if X is pure d-dimensional, it is pure d-dimensional. Local stars at w equal tropicalizations of in_w(X) over the trivially valued residue field.
 
 Use the completion/valued-extension definition for arbitrary w; dimensional purity assumes X pure-dimensional.
 
-For the proof, the fundamental equivalence follows from surjective reduction of the polyhedral affinoid domains and a lift of a residue point after valued extension. Homogenize and construct the finite Gröbner complex, constant up to translation on relative interiors; initial-of-initial identifies local stars. Establish Gröbner finiteness and pure dimension by the valued initial-degeneration construction below.
+For the proof, the fundamental equivalence follows from surjective reduction of the polyhedral affinoid domains and a lift of a residue point after valued extension. Homogenize and construct the finite Gröbner complex, constant up to translation on relative interiors; initial-of-initial identifies local stars. Use Gröbner finiteness and pure dimension from the preceding valued initial-degeneration construction.
 
-*Needs:* [4.4 Initial degenerations over valued fields](#44-initial-degenerations-over-valued-fields); [0.16 Valued base change of spectra](#016-valued-base-change-of-spectra).
+*Needs:* [4.2 Initial degenerations over valued fields](#42-initial-degenerations-over-valued-fields); [0.18 Valued base change of spectra](#018-valued-base-change-of-spectra).
 
 [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), Theorems 3.3, 5.6 and 10.14; Proposition 10.15, pp. 7, 11 and 32. Support theorem, finite Gröbner subdivision, dimension and local-star comparison.
 
 **Check.** The theorem holds for trivial valuation by analytic points even though classical K-points have only zero valuation. Nonreduced structure affects weights, not this support equality.
 
-### 4.6 Tropical weights and balancing
+### 4.4 Tropical weights and balancing
 
 Define `TauCeti.Berkovich.TB4.weighted_tropical_cycles`. For pure-dimensional X and a regular tropical point w, define m_X(w) as the sum of the generic local-ring lengths of the irreducible components of in_w(X), after a suitable algebraically closed valued extension. It is locally constant on the regular locus, independent of extension and compatible with the algebraic cycle [X]. On a rational subdivision, attach this integer to each maximal cell. A weighted d-complex is balanced if for each codimension-one face τ, Σ_{σ⊃τ}m_σ u_{σ/τ}=0 in N/N_τ, using primitive outgoing quotient-lattice vectors. Identify cycles under common subdivision.
 
@@ -1611,29 +1592,13 @@ Provide the following interface:
 
 For the construction, compare local stars with initial degenerations, prove cycle-linearity and valued-base-change invariance, then use trivial-valuation tropical compactification and intersection with toric strata for balancing. Refinement preserves weights. Prove the tropical-compactification and intersection comparison by the local-star argument below.
 
-*Needs:* [4.5 Fundamental theorem and polyhedrality](#45-fundamental-theorem-and-polyhedrality).
+*Needs:* [4.3 Fundamental theorem and polyhedrality](#43-fundamental-theorem-and-polyhedrality).
 
 [Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§13.4–13.11, pp. 43–45. Generic lengths, cycle/base-change compatibility, local constancy and balancing. [Bernd Sturmfels and Jenia Tevelev, Elimination theory for tropical varieties](https://arxiv.org/pdf/0704.3471), Definition 3.1, Lemma 3.2 and Corollaries 3.4/3.8, pp. 7–8. Trivial-valuation intersection proof and refinement independence.
 
 Reduce balancing near w to the trivially valued tropicalization of the initial degeneration at w. Prove invariance of its generic cycle multiplicities under the required valued scalar extension and the initial-of-initial identification. Apply the toric local balancing argument to this cycle and transport it back to the local star. For pushforward also compare flat limits of cycles and their intersection multiplicities under the torus map; only source cells of full image dimension contribute. Sturmfels–Tevelev §3, pp. 7–10 treats the trivial-valuation construction; Gubler §§13.5–13.17, pp. 43–46 and BPR tropicalization Theorem 7.1 and Corollary 7.3, pp. 34–35 give the general-valued comparison. The weight is always multiplied by [N′_τ:A(N_σ)], the target lattice modulo the image lattice.
 
-### 4.7 Sturmfels–Tevelev pushforward
-
-Prove `TauCeti.Berkovich.TB4.cycle_pushforward`. Let f:T→T′ be a torus homomorphism with lattice map A:N→N′, and f:X→Y its dominant generically finite restriction of degree δ between integral d-dimensional subvarieties. After a subdivision on which every noncontracted maximal cell maps into a target cell, δm_Y(τ)=Σ_{σ↦τ}m_X(σ)[N′_τ:A(N_σ)]. Cells whose image dimension is smaller than d contribute zero. Equivalently Trop(f_*[X])=A_*Trop([X]), extended linearly to cycles.
-
-Equal dimensions and generically finite restriction; saturated tangent lattices and positive finite index in the displayed direction.
-
-For the proof, reduce by valued extension and cycle-linearity to complete algebraically closed fields. On corresponding polyhedral domains compare finite-map degrees and generic reduction degrees; sum over source components. Subdivision and initial local-star compatibility make the formula independent of the chosen cells.
-
-*Needs:* [4.6 Tropical weights and balancing](#46-tropical-weights-and-balancing); [4.8 Relative point and edge multiplicities](#48-relative-point-and-edge-multiplicities).
-
-[Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§13.14–13.17, pp. 45–46. Cycle pushforward and the generic-degree formula. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §7, Theorem 7.1 and Corollary 7.3, pp. 34–35. Analytic proof input for arbitrary-dimensional pushforward, distinct from curve harmonicity.
-
-**Check.** For T↦Tⁿ on G_m with n≠0, δ=|n| and [ℤ:nℤ]=|n|, so both sides equal |n|. A contracted component contributes zero to the d-dimensional pushforward. The reciprocal lattice index is not used.
-
-**Check.** For z↦z², the source lattice maps to 2ℤ inside the target ℤ, giving [ℤ:2ℤ]=2. The reversed index is not an index of a subgroup. Use this target/image convention for Gubler §13.16, author-hosted v2 p. 46, consistently with Sturmfels–Tevelev formula (1.2), pp. 1–2 and BPR Corollary 7.3, pp. 34–35.
-
-### 4.8 Relative point and edge multiplicities
+### 4.5 Relative point and edge multiplicities
 
 Define `TauCeti.Berkovich.TB4.relative_tropical_multiplicity`. For reduced pure-dimensional X and a tropical point w, use its canonical polyhedral analytic domain and reduction. At a Shilov-boundary point x over w, define m_rel(x) to be the generic degree of the canonical reduction component over its image in in_w(X); for non-Shilov points set it to zero. For w outside the value group, define it by summing the corresponding lifted multiplicities after valued extension. For curves and a noncontracted skeletal edge e, m_rel(e) is the integral expansion factor, equal to the generic degree of a suitable finite annular projection.
 
@@ -1654,11 +1619,51 @@ Provide the following interface:
 
 For the construction, canonical reduction associates Shilov points with generic components. Compare a separating character projection with a finite annular map and compute its degree from its primitive slope. Base-change invariance and summation over lifted components give the arbitrary-weight definition.
 
-*Needs:* [4.4 Initial degenerations over valued fields](#44-initial-degenerations-over-valued-fields); [1.5 Integral slopes of analytic units](#15-integral-slopes-of-analytic-units).
+*Needs:* [4.2 Initial degenerations over valued fields](#42-initial-degenerations-over-valued-fields); [1.6 Integral slopes of analytic units](#16-integral-slopes-of-analytic-units).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Definitions 4.21 and 4.23, Proposition 4.24, pp. 18–19; Theorem 5.8, pp. 22–23. Shilov point multiplicities, initial generic lengths and equality with edge expansion factors.
 
 Relate the finite degree on canonical reductions of the relevant affinoid fibers to generic scheme lengths of the initial degeneration. After the required scalar extension, sum those reduction degrees over analytic branches and compare each annular degree with its primitive lattice expansion. Keep the full residue field degree, including its inseparable part, separate from generic scheme-length factors. BPR tropicalization Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23 supplies this finite-map comparison. It proves the multiplicity formula and the multiplicity-one isometry criterion, beyond the calculation of a gcd of coordinate slopes.
+
+### 4.6 Tropical multiplicity formula for curves
+
+Prove `TauCeti.Berkovich.Curve.tropical_multiplicity_formula`. After suitable subdivision, each tropical edge e′ has finitely many embedded segments e_i of H° mapping homeomorphically onto it. Other segments disjoint from these in its preimage are contracted. Its multiplicity is the sum of their positive integral expansion factors. Initial-degeneration components are counted with scheme multiplicities.
+
+For the proof, for a value-group-rational tropical point, pass to its polyhedral analytic fiber and canonical reduction. The Shilov components account for the initial-degeneration generic lengths. For a curve, a finite annular projection identifies each relative component degree with its integral expansion factor. Sum over the noncontracted preimage edges; contracted components contribute zero. Extend to other points by valued base change. Use the canonical-reduction degree and scheme-length comparison constructed in the relative-multiplicity target.
+
+*Needs:* SchemeAndStackFoundations SF.0; [4.5 Relative point and edge multiplicities](#45-relative-point-and-edge-multiplicities); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.3, pp. 2–3; Proposition 5.4, Theorem 5.8 and Corollary 5.9, pp. 21–23. The curve multiplicity formula is proved by the comparison of analytic edge degrees and initial generic lengths. The finite-map reduction argument is specified in the relative-multiplicity construction.
+
+**Check.** Factors 2 and 3 contribute multiplicity 5, not 2.
+
+### 4.7 Expansion factors from coordinate slopes
+
+Prove `TauCeti.Berkovich.Curve.expansion_factor_gcd`. For an affine curve embedded in a torus by invertible regular functions f_i, the expansion factor on an affine edge is the gcd of the absolute values of the integral slopes of log|f_i|. An all-zero slope tuple gives factor zero and a contracted edge.
+
+For the proof, the index of the coordinate-slope vector in its primitive lattice direction is the gcd. The relative-multiplicity comparison identifies this lattice index with the analytic expansion factor, using the annular metric and slope formula.
+
+*Needs:* [4.5 Relative point and edge multiplicities](#45-relative-point-and-edge-multiplicities); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Remark 5.6 and formula (5.6.1), p. 22. The expansion index of an integral slope vector is the positive gcd of its coordinate slopes, measured against the primitive image lattice.
+
+**Check.** Slopes (−2,4) give factor 2; (0,0) gives zero.
+
+### 4.8 Sturmfels–Tevelev pushforward
+
+Prove `TauCeti.Berkovich.TB4.cycle_pushforward`. Let f:T→T′ be a torus homomorphism with lattice map A:N→N′, and f:X→Y its dominant generically finite restriction of degree δ between integral d-dimensional subvarieties. After a subdivision on which every noncontracted maximal cell maps into a target cell, δm_Y(τ)=Σ_{σ↦τ}m_X(σ)[N′_τ:A(N_σ)]. Cells whose image dimension is smaller than d contribute zero. Equivalently Trop(f_*[X])=A_*Trop([X]), extended linearly to cycles.
+
+Equal dimensions and generically finite restriction; saturated tangent lattices and positive finite index in the displayed direction.
+
+For the proof, reduce by valued extension and cycle-linearity to complete algebraically closed fields. On corresponding polyhedral domains compare finite-map degrees and generic reduction degrees; sum over source components. Subdivision and initial local-star compatibility make the formula independent of the chosen cells.
+
+*Needs:* [4.4 Tropical weights and balancing](#44-tropical-weights-and-balancing); [4.5 Relative point and edge multiplicities](#45-relative-point-and-edge-multiplicities).
+
+[Walter Gubler, A guide to tropicalizations](https://gubler.app.uni-regensburg.de/Publikationen/1108.6126.pdf), §§13.14–13.17, pp. 45–46. Cycle pushforward and the generic-degree formula. [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §7, Theorem 7.1 and Corollary 7.3, pp. 34–35. Analytic proof input for arbitrary-dimensional pushforward, distinct from curve harmonicity.
+
+**Check.** For T↦Tⁿ on G_m with n≠0, δ=|n| and [ℤ:nℤ]=|n|, so both sides equal |n|. A contracted component contributes zero to the d-dimensional pushforward. The reciprocal lattice index is not used.
+
+**Check.** For z↦z², the source lattice maps to 2ℤ inside the target ℤ, giving [ℤ:2ℤ]=2. The reversed index is not an index of a subgroup. Use this target/image convention for Gubler §13.16, author-hosted v2 p. 46, consistently with Sturmfels–Tevelev formula (1.2), pp. 1–2 and BPR Corollary 7.3, pp. 34–35.
 
 ### Examples
 
@@ -1672,45 +1677,21 @@ Layers 0–3 for analytic points, annular slopes, skeleta and the slope formula;
 
 Faithfulness requires injectivity as well as primitive slopes. Add local unit-slope functions, annular approximations and global separating coordinates, then preserve faithfulness under toric domination. Marked rays require their own eventual coprime-pole slope argument.
 
-### 5.1 Faithful tropicalization of a finite subgraph
+### 5.1 Multiplicity-one isometry criterion
 
-Prove `TauCeti.Berkovich.Curve.faithful_tropicalization_and_expansion_factors`. Every finite embedded Γ in H°(X^an) admits a closed embedding of X into a quasiprojective toric K-variety meeting its dense torus T such that Γ maps isometrically onto its tropical image. Metrics are the subgraph length metrics. H° is the non-leaf locus, excluding classical and type-4 points.
-
-For the proof, cover the finite embedded graph by finitely many closed skeletal segments. Use unit-slope functions to make the expansion gcd one, and add finitely many separating coordinates for pairs in distinct graph neighborhoods. The resulting toric refinement is locally isometric and injective on the compact graph, hence faithful.
-
-*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); SchemeAndStackFoundations SF.0; [5.4 Faithful tropicalization on a graph](#54-faithful-tropicalization-on-a-graph); [5.5 Functions separating edges and vertices](#55-functions-separating-edges-and-vertices).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.1, p. 2; Theorems 5.20–5.21 and proofs, p. 26. The finite-graph existence theorem follows from finitely many separating unit-slope coordinates. Use the residue lifting, annular approximation and rational sublevel constructions specified with the separating-functions target below.
-
-**Check.** A plane embedding can contract a Tate loop; faithfulness is not automatic.
-
-### 5.2 Faithfulness under domination
-
-Prove `TauCeti.Berkovich.Curve.faithful_domination`. Embeddings faithful on a fixed Γ are stable under domination by equivariant toric maps and cofinal among toric embeddings meeting the dense torus.
-
-For the proof, extend each separating rational function on the smooth proper completion to a morphism to P¹. For the specified closed embedding into a toric variety Y, take the graph of this finite tuple in Y×(P¹)^n. This is a closed toric embedding and projection gives domination; the target remains quasiprojective when Y is quasiprojective. The gcd-one slope and point-separation properties persist under adjoining coordinates. For domination by any equivariant toric map, expansion indices multiply and the composite has index one, so both indices are one. Use the intrinsic image-graph metric.
-
-*Needs:* [5.1 Faithful tropicalization of a finite subgraph](#51-faithful-tropicalization-of-a-finite-subgraph); [5.5 Functions separating edges and vertices](#55-functions-separating-edges-and-vertices); [5.4 Faithful tropicalization on a graph](#54-faithful-tropicalization-on-a-graph).
-
-[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §5.15, Remark 5.16, Lemma 5.17 and Theorems 5.20–5.21, pp. 24–26. Lemma 5.17 treats domination for toric targets; Theorems 5.20–5.21 supply quasiprojective faithful embeddings. Taking the product with an arbitrary specified toric target proves cofinality in the stated class. Use the residue lifting and annular approximation constructions specified with the separating-functions target below.
-
-**Check.** Lengths are measured within the image subgraph, not via shortcuts in the entire tropicalization.
-
-### 5.3 Multiplicity-one isometry criterion
-
-Prove `TauCeti.Berkovich.Curve.multiplicity_one_isometry`. If Γ′ is a finite embedded tropical subgraph and every initial degeneration at w in Γ′ is irreducible and generically reduced, a unique embedded Γ in H° maps homeomorphically onto it and the map is an isometry for the subgraph length metrics.
+Prove `TauCeti.Berkovich.Curve.multiplicity_one_isometry`. If Γ′ is a finite embedded tropical subgraph and every initial degeneration at w in Γ′ is irreducible and generically reduced, the positive-relative-multiplicity Shilov lifts form a canonical embedded Γ in H° mapping homeomorphically and isometrically onto Γ′ for the subgraph length metrics. If Γ′ has no isolated vertices, this is the unique embedded lift mapping homeomorphically onto Γ′. At an isolated vertex, uniqueness requires the positive-relative-multiplicity condition; arbitrary singleton lifts are not unique.
 
 Multiplicity one is imposed at every value-group-rational point of the requested tropical subgraph, including its vertices; edge-interior multiplicity alone does not control vertex gluing.
 
-For the proof, at each value-group-rational tropical point, multiplicity one forces a unique generically reduced initial component and one relative-multiplicity-one Shilov lift. On edges the multiplicity formula forces expansion one. Uniqueness at vertices glues these lifts into a graph; intrinsic retraction and properness prove the inverse is continuous. Extend across non-value-group points by their adjacent intervals.
+For the proof, at each value-group-rational tropical point, multiplicity one forces a unique generically reduced initial component and one relative-multiplicity-one Shilov lift. On edges the multiplicity formula forces expansion one. Uniqueness at vertices glues these lifts into a graph; intrinsic retraction and properness prove the inverse is continuous. Extend across non-value-group points on edges by their adjacent intervals. For an isolated non-value-group point use valued base extension and the unique Shilov point of its tropical affinoid fiber, descending that point independently of the extension.
 
-*Needs:* [4.1 Tropical multiplicity formula for curves](#41-tropical-multiplicity-formula-for-curves); [4.8 Relative point and edge multiplicities](#48-relative-point-and-edge-multiplicities); [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction).
+*Needs:* [4.6 Tropical multiplicity formula for curves](#46-tropical-multiplicity-formula-for-curves); [4.5 Relative point and edge multiplicities](#45-relative-point-and-edge-multiplicities); [2.8 Continuity of skeletal retraction](#28-continuity-of-skeletal-retraction).
 
-[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.4, p. 3; Theorem 5.24 and Corollaries 5.25–5.28, pp. 27–28. Multiplicity one gives a unique positive-relative-multiplicity lift and unit expansion on the stated locus; continuity and compactness identify the intrinsic graph metrics.
+[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.4, p. 3; Theorems 5.24–5.25, Remarks 5.26–5.27 and Corollary 5.28, pp. 27–28. Multiplicity one gives a unique positive-relative-multiplicity lift and unit expansion on the stated locus; continuity and compactness identify the intrinsic graph metrics.
 
-**Check.** Irreducibility without generic reducedness is insufficient.
+**Check.** Irreducibility without generic reducedness is insufficient. For X=G_m and Γ′={0}, both ζ(0,1) and ζ(1,r), 0<r<1, are nonclassical singleton lifts mapping isometrically to {0}. Only the Gauss/Shilov point ζ(0,1) has positive relative multiplicity. This separates the canonical section from unrestricted uniqueness at isolated vertices.
 
-### 5.4 Faithful tropicalization on a graph
+### 5.2 Faithful tropicalization on a graph
 
 Define `TauCeti.Berkovich.TB5.faithful_embedding_predicate`. For a closed algebraic embedding ι:X→Y_Δ into a toric variety, faithful tropicalization on a finite embedded graph Γ⊂H°(Xᵃⁿ) means trop_ι|Γ is a homeomorphism onto its image and an isometry for Γ’s intrinsic path metric and the tropical lattice-length metric. On each noncontracted edge the expansion factor is the gcd of the absolute coordinates of its integral slope vector; being one is necessary for edgewise isometry but does not by itself imply global injectivity or correct vertex gluing.
 
@@ -1731,11 +1712,11 @@ Provide the following interface:
 
 For the construction, define lattice length by primitive integral direction, use intrinsic shortest paths on both graph realizations, and separate edgewise expansion from global topology.
 
-*Needs:* [3.1 Metric graphs with loops and vertex genus](#31-metric-graphs-with-loops-and-vertex-genus); [4.3 Torus tropicalization](#43-torus-tropicalization); [4.8 Relative point and edge multiplicities](#48-relative-point-and-edge-multiplicities); SchemeAndStackFoundations SF.0.
+*Needs:* [3.1 Metric graphs with loops and vertex genus](#31-metric-graphs-with-loops-and-vertex-genus); [4.1 Torus tropicalization](#41-torus-tropicalization); [4.5 Relative point and edge multiplicities](#45-relative-point-and-edge-multiplicities); SchemeAndStackFoundations SF.0.
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §5.15, Remark 5.16 and Lemma 5.17, pp. 24–25. Faithfulness and the warning to use the graph’s intrinsic metric, not an ambient skeleton shortcut.
 
-### 5.5 Functions separating edges and vertices
+### 5.3 Functions separating edges and vertices
 
 Prove `TauCeti.Berkovich.TB5.unit_slope_separating_functions`. Given a finite embedded graph Γ⊂H°(Xᵃⁿ), one can choose finitely many nonzero rational functions on X that provide a primitive slope on each subdivided edge and separate all points of Γ that an initial toric embedding identifies. Adjoin them as coordinates, allowing the toric compactification required for their zeros and poles, to obtain a dominating closed toric embedding faithful on Γ.
 
@@ -1743,13 +1724,37 @@ Smooth algebraic connected curve over algebraically closed complete nontrivial K
 
 For the proof, on vertex residue curves use algebraic Riemann–Roch to prescribe a slope-one local function, then lift it to a formal vertex domain. Approximate annular coordinates by global rational functions on suitable affinoids; compactness extracts finitely many separating functions. Separate edges first, then vertices and disjoint pieces, and include an initial closed embedding. Prove the local residue lifting and global approximation statements by the constructions and sources below.
 
-*Needs:* [5.4 Faithful tropicalization on a graph](#54-faithful-tropicalization-on-a-graph); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions); TauCetiRoadmap.AlgebraicCurves Layer 4.
+*Needs:* [5.2 Faithful tropicalization on a graph](#52-faithful-tropicalization-on-a-graph); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions); TauCetiRoadmap.AlgebraicCurves Layer 4.
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Lemmas 5.18–5.19 and Theorem 5.20, pp. 25–26. Residue Riemann–Roch, formal lifting, Runge approximation and finite separating coordinates.
 
 **Check.** A bad T² coordinate is repaired by adjoining T, yielding slope vector (2,1) and gcd one. Edgewise primitive slopes alone do not complete the vertex-separation step.
 
 Establish three analytic approximation inputs in addition to algebraic Riemann–Roch. Lift rational functions on residue components that are regular at the nodes and agree there to a global meromorphic function regular over their regularity locus. Bosch–Lütkebohmert (1985), Corollary 3.8, pp. 364–365 proves this by the formal reduction and lifting statements of Proposition 3.7. Approximate an annular coordinate by a global meromorphic function regular on the chosen affinoid, closely enough that its leading Laurent term and slopes are preserved (Fresnel–Matignon, Théorème 4, §2.4, pp. 182–184). Describe each required edge affinoid by rational sublevel functions (their Théorème 1, §1.4, pp. 165–168). BPR tropicalization Lemmas 5.18–5.19 and Theorem 5.20, pp. 25–26 combine these inputs. Use finitely many such functions to separate edges and vertices; then add coprime-pole functions at punctures and take a closed graph over the specified toric embedding. The same inputs serve faithful domination and marked-ray faithfulness.
+
+### 5.4 Faithful tropicalization of a finite subgraph
+
+Prove `TauCeti.Berkovich.Curve.faithful_tropicalization_and_expansion_factors`. Every finite embedded Γ in H°(X^an) admits a closed embedding of X into a quasiprojective toric K-variety meeting its dense torus T such that Γ maps isometrically onto its tropical image. Metrics are the subgraph length metrics. H° is the non-leaf locus, excluding classical and type-4 points.
+
+For the proof, cover the finite embedded graph by finitely many closed skeletal segments. Use unit-slope functions to make the expansion gcd one, and add finitely many separating coordinates for pairs in distinct graph neighborhoods. The resulting toric refinement is locally isometric and injective on the compact graph, hence faithful.
+
+*Needs:* [2.2 Skeleton of a semistable decomposition](#22-skeleton-of-a-semistable-decomposition); SchemeAndStackFoundations SF.0; [5.2 Faithful tropicalization on a graph](#52-faithful-tropicalization-on-a-graph); [5.3 Functions separating edges and vertices](#53-functions-separating-edges-and-vertices).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 1.1, p. 2; Theorems 5.20–5.21 and proofs, p. 26. The finite-graph existence theorem follows from finitely many separating unit-slope coordinates. Use the residue lifting, annular approximation and rational sublevel constructions specified in the preceding separating-functions target.
+
+**Check.** A plane embedding can contract a Tate loop; faithfulness is not automatic.
+
+### 5.5 Faithfulness under domination
+
+Prove `TauCeti.Berkovich.Curve.faithful_domination`. Embeddings faithful on a fixed Γ are stable under domination by equivariant toric maps and cofinal among toric embeddings meeting the dense torus.
+
+For the proof, extend each separating rational function on the smooth proper completion to a morphism to P¹. For the specified closed embedding into a toric variety Y, take the graph of this finite tuple in Y×(P¹)^n. This is a closed toric embedding and projection gives domination; the target remains quasiprojective when Y is quasiprojective. The gcd-one slope and point-separation properties persist under adjoining coordinates. For domination by any equivariant toric map, expansion indices multiply and the composite has index one, so both indices are one. Use the intrinsic image-graph metric.
+
+*Needs:* [5.4 Faithful tropicalization of a finite subgraph](#54-faithful-tropicalization-of-a-finite-subgraph); [5.3 Functions separating edges and vertices](#53-functions-separating-edges-and-vertices); [5.2 Faithful tropicalization on a graph](#52-faithful-tropicalization-on-a-graph).
+
+[Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), §5.15, Remark 5.16, Lemma 5.17 and Theorems 5.20–5.21, pp. 24–26. Lemma 5.17 treats domination for toric targets; Theorems 5.20–5.21 supply quasiprojective faithful embeddings. Taking the product with an arbitrary specified toric target proves cofinality in the stated class. Use the residue lifting and annular approximation constructions specified in the preceding separating-functions target.
+
+**Check.** Lengths are measured within the image subgraph, not via shortcuts in the entire tropicalization.
 
 ### 5.6 Faithful tropicalization of marked rays
 
@@ -1759,7 +1764,7 @@ K algebraically closed complete nontrivial; smooth proper completion and distinc
 
 For the proof, riemann–Roch produces functions with the two prescribed sufficiently large pole orders at each mark; their eventual slopes have gcd one. Outside finitely long initial segments they separate the labeled rays; apply compact-graph faithful refinement to the remaining core.
 
-*Needs:* [2.19 Marked skeleta and puncture rays](#219-marked-skeleta-and-puncture-rays); [5.5 Functions separating edges and vertices](#55-functions-separating-edges-and-vertices).
+*Needs:* [2.15 Marked skeleta and puncture rays](#215-marked-skeleta-and-puncture-rays); [5.3 Functions separating edges and vertices](#53-functions-separating-edges-and-vertices).
 
 [Matthew Baker, Sam Payne, Joseph Rabinoff, Nonarchimedean geometry, tropicalization, and metrics on curves](https://arxiv.org/abs/1104.0320), Theorem 5.22 and proof, pp. 26–27. Coprime pole orders repair the unbounded tails as well as the finite graph.
 
@@ -1773,7 +1778,7 @@ Layers 0–4; AlgebraicCurves Layer 4 and Tau Ceti algebraic Riemann–Roch for 
 
 ## Layer 6: Model metrics, measures and local heights
 
-Model intersection degrees first give atomic measures with the correct total mass. Semipositivity and integrability specify the approximation class for weak limits and local heights. Graph Green functions, line Hsia potentials and hybrid topology have distinct contracts; none implies dynamical convergence without its consumer theorem.
+For formal models in this layer, K is complete and nontrivially valued. Model intersection degrees first give atomic measures with the correct total mass. Semipositivity and integrability specify the approximation class for weak limits and local heights. Graph Green functions, line Hsia potentials and hybrid topology have distinct contracts; none implies dynamical convergence without its consumer theorem.
 
 ### 6.1 Formal and model metrics
 
@@ -1821,11 +1826,11 @@ Provide the following interface:
 
 - `TauCeti.Berkovich.TB6.model_measures.check1`: For good reduction and degree-d L on a curve, the measure is dδ_Gauss.
 - `TauCeti.Berkovich.TB6.model_measures.check2`: A degree-zero trivial model line has zero curvature measure.
-- `TauCeti.Berkovich.TB6.model_measures.check3`: Dropping a special-fiber multiplicity or a tensor exponent changes the mass and fails the degree identity.
+- `TauCeti.Berkovich.TB6.model_measures.check3`: A reduced single component with model degree 6 for L² has weight 3, not 6. A component of multiplicity 2 and degree 3 for L has weight 6, not 3. Both the tensor denominator and the component multiplicity are necessary.
 
 For the construction, pass to a common normal model and compute atomic weights by special-fiber intersection. Algebraic specialization of degree gives total mass; projection formula gives blowup invariance and finite-map pushforward, and symmetry of intersections gives symmetry of mixed measures.
 
-*Needs:* [6.1 Formal and model metrics](#61-formal-and-model-metrics); [2.16 Formal models and metric dual graphs](#216-formal-models-and-metric-dual-graphs); SchemeAndStackFoundations SF.5.
+*Needs:* [6.1 Formal and model metrics](#61-formal-and-model-metrics); [2.11 Formal models and metric dual graphs](#211-formal-models-and-metric-dual-graphs); SchemeAndStackFoundations SF.5.
 
 [Antoine Chambert-Loir, Mesures et équidistribution sur les espaces de Berkovich](https://arxiv.org/pdf/math/0304023v3), Definition 2.4 and §2.5, pp. 5–6. Atomic intersection formula, multiplicities, multilinearity and local heights.
 
@@ -1930,35 +1935,7 @@ For the construction, solve the finite-graph Poisson equation with edge quadrati
 
 For arbitrary positive real edge lengths, solve the finite electrical-network equations with edge conductance 1/ℓ_e and prove Kirchhoff's identities for the effective resistances. Derive the displayed admissible probability measure, treating deleted bridges by r_e=∞ and deleted loops by r_e=0, and verify mass one by the network identities. Construct the Green kernel as the inverse of Δ on mass-zero measures, then impose its μ_a-mean-zero normalization and prove symmetry. Yuan Appendix A.5, pp. 115–118 is the unit-edge reference; the arbitrary-length network derivation is part of this target. To extend the curvature identity from model PL potentials to edgewise C² potentials, approximate the derivative as well as the function, prove weak convergence of the Laplacians with bounded total variation, and retain the vertex derivative atoms. These estimates are also required in the model approximation target.
 
-### 6.7 Metric–Laplacian and admissible corrections
-
-Prove `TauCeti.Berkovich.TB6.model_metric_laplacian`. On a split semistable curve, multiplying a model/integrable metric by exp(−F∘τ) changes its curvature by −i_*ΔF for PL or admissible piecewise C² F. For a regular DVR model with normalized v(π)=1, put c=log(|π|⁻¹). Yuan’s unit-coordinate potential f and metric factor e_K^(−f) correspond to natural-log coordinate s=c·t and F(s)=c·f(s/c). The pushforward of Δ_unit f is Δ_natural F, so the curvature measure has no extra c factor. For the model Arakelov metric on the dualizing bundle, c₁(ω,||·||_Ar)=i_*δ_KΓ. Its admissible correction is e_K^(−a−g_μ(KΓ,τ(x)))=e_K^(g_μ(τ(x),τ(x))), with a the Green normalization constant, and c₁(ω,||·||_a)=(2g−2)i_*μ_a.
-
-Split semistable proper curve of positive genus; the dualizing metric statement uses Yuan’s model/Arakelov metric and normalized Green conventions. Approximation must control Laplacians as well as potentials. The unit-edge formula uses a regular semistable DVR model with local equation uv=π. Thickness n is represented by an edge of length n or by n unit subdivisions.
-
-For the proof, for model PL functions identify vertical-divisor intersections with outgoing slopes. Apply model PL approximation with weak Laplacian convergence and controlled total variation for piecewise C² potentials. Under s=c·t and F=c·f the slopes are unchanged, including the vertex atoms and the interior Laplacian measure. The model dualizing degree on each component is 2g_v−2+val(v). Subtract the Green Laplacian δ_KΓ−(2g−2)μ_a to obtain the corrected curvature. Local heights rescale with log absolute values, while these curvature measures keep their total mass.
-
-*Needs:* [6.1 Formal and model metrics](#61-formal-and-model-metrics); [6.6 Admissible Green functions and measures](#66-admissible-green-functions-and-measures); [6.4 Limits and local intersection heights](#64-limits-and-local-intersection-heights); [6.9 Model potentials and Laplacian approximation](#69-model-potentials-and-laplacian-approximation).
-
-[Xinyi Yuan, Arithmetic bigness and a uniform Bogomolov-type result](https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), Appendix A.5, displayed admissible metric formula, p. 116; Propositions A.4–A.5 and proofs, pp. 117–118. Metric correction and normalized curvature/Laplacian formula; the original graph edges have length one.
-
-**Check.** For F(t)=t on an interval, curvature change is δ₀−δ_L. Changing the absolute-value normalization rescales both edge length and log metric, not just one. Uniform PL density by itself is insufficient to claim Laplacian convergence. For s=c·t and F(s)=c·f(s/c), ΔF is the coordinate pushforward of Δf. Multiplying the measure by c again would give an incorrect dualizing total mass.
-
-### 6.8 Good-reduction and Tate calibration
-
-Prove `TauCeti.Berkovich.TB6.good_reduction_and_tate_measures`. For a good-reduction proper curve with a semipositive model line bundle of degree d, its model measure is dδ_ζ at the unique component point. For the Tate elliptic curve E_q with L=−log|q| and canonical degree-one line bundle O(0), the canonical measure is normalized length ds/L on the skeletal circle. The periodic potential g(s)=s²/(2L)−s/2+L/12 on 0≤s≤L has mean zero and ddc g=ds/L−δ₀; choose a reference O(0) metric whose curvature is δ₀ at the skeletal origin. Multiplication by exp(−g) then produces the canonical curvature. The constant L/12 normalizes the graph potential to mean zero; identifying the resulting metric with a chosen canonical metric additionally requires its rigidification.
-
-Split good reduction or split Tate reduction; 0<|q|<1. The reference metric has curvature δ₀. Mean-zero normalization fixes g, while a fixed rigidification fixes the canonical line-bundle metric up to its otherwise undetermined constant.
-
-For the proof, the good-reduction model has one component, so the atomic formula gives dδ_ζ. On the circle compute g″=1/L, derivative jump −1 at 0 and integral zero. Add ddc g to the reference curvature δ₀ to get ds/L. Curvature determines the metric only up to a constant; compare rigidifications separately.
-
-*Needs:* [6.2 Chambert–Loir model measures](#62-chambertloir-model-measures); [6.7 Metric–Laplacian and admissible corrections](#67-metriclaplacian-and-admissible-corrections); [7.1 Tate analytic quotient and skeletal circle](#71-tate-analytic-quotient-and-skeletal-circle).
-
-[Antoine Chambert-Loir, Mesures et équidistribution sur les espaces de Berkovich](https://arxiv.org/pdf/math/0304023v3), §2.4 and Tate example, pp. 5–6 and 17–18. Atomic good-reduction measure and the Tate circle local metric. [Xinyi Yuan, Arithmetic bigness and a uniform Bogomolov-type result](https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), Proposition A.5, pp. 117–118. The genus-one circle is the admissible measure calibration.
-
-**Check.** The Tate canonical measure is not a Dirac mass at one chosen vertex. Its total mass is one; for degree d it scales to d.
-
-### 6.9 Model potentials and Laplacian approximation
+### 6.7 Model potentials and Laplacian approximation
 
 Prove `TauCeti.Berkovich.TB6.model_pl_approximation`. On a finite rational-length polarized reduction graph of a split semistable proper curve over a complete discretely valued field, each continuous edgewise C² function F admits PL approximants F_n with rational breakpoints, uniformly converging to F, whose Laplacian measures converge weakly to ΔF with uniformly bounded total variation. The potentials may be chosen with rational values, so after multiplying by a positive integer and passing to a finite valued extension their vertex data come from vertical divisors on regular semistable models. Thus their normalized metrics are rational model metrics and the curvature–Laplacian identity passes to F.
 
@@ -1966,19 +1943,33 @@ Fix the unit-edge valuation normalization before approximation; use a finite gra
 
 For the proof, interpolate at finer rational partitions, approximating values sufficiently closely relative to the square of the mesh size. On each edge the derivative slopes converge to the derivative of F away from partition points, and their variation is controlled by the integral of |F″| plus the vanishing interpolation error. Vertex outgoing slopes converge as well. Integration by parts gives weak convergence of the interior and vertex measures. Clear rational denominators in the values and subdivide after finite extension to realize the vertical model divisor. Yuan sketches density but does not supply this derivative/variation control; prove it as part of the arbitrary-length Green and approximation construction.
 
-*Needs:* [3.3 Graph Laplacians and potentials](#33-graph-laplacians-and-potentials); [6.1 Formal and model metrics](#61-formal-and-model-metrics); [6.2 Chambert–Loir model measures](#62-chambertloir-model-measures); [2.18 Refinement and valued extension](#218-refinement-and-valued-extension).
+*Needs:* [3.3 Graph Laplacians and potentials](#33-graph-laplacians-and-potentials); [6.1 Formal and model metrics](#61-formal-and-model-metrics); [6.2 Chambert–Loir model measures](#62-chambertloir-model-measures); [2.13 Refinement and valued extension](#213-refinement-and-valued-extension).
 
 [Xinyi Yuan, Arithmetic bigness and a uniform Bogomolov-type result](https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), Appendix A.5, Proposition A.4 and proof, p. 117. Uses rational subdivisions realized by finite extensions and model-function approximation. The stronger convergence contract states the control needed to justify the measure passage.
 
 **Check.** For an affine F on one edge, the interior Laplacian vanishes and only the outgoing endpoint atoms remain. Uniform convergence alone fails: n⁻¹sin(n²t) tends uniformly to zero while its Laplacian total variation diverges. Subdivision adds no atom at a point where the two incident affine slopes agree.
 
+### 6.8 Metric–Laplacian and admissible corrections
+
+Prove `TauCeti.Berkovich.TB6.model_metric_laplacian`. On a split semistable curve, multiplying a model/integrable metric by exp(−F∘τ) changes its curvature by −i_*ΔF for PL or admissible piecewise C² F. For a regular DVR model with normalized v(π)=1, put c=log(|π|⁻¹). Yuan’s unit-coordinate potential f and metric factor e_K^(−f) correspond to natural-log coordinate s=c·t and F(s)=c·f(s/c). The pushforward of Δ_unit f is Δ_natural F, so the curvature measure has no extra c factor. For the model Arakelov metric on the dualizing bundle, c₁(ω,||·||_Ar)=i_*δ_KΓ. Its admissible correction is e_K^(−a−g_μ(KΓ,τ(x)))=e_K^(g_μ(τ(x),τ(x))), with a the Green normalization constant, and c₁(ω,||·||_a)=(2g−2)i_*μ_a.
+
+Split semistable proper curve of positive genus; the dualizing metric statement uses Yuan’s model/Arakelov metric and normalized Green conventions. Approximation must control Laplacians as well as potentials. The unit-edge formula uses a regular semistable DVR model with local equation uv=π. Thickness n is represented by an edge of length n or by n unit subdivisions.
+
+For the proof, for model PL functions identify vertical-divisor intersections with outgoing slopes. Apply model PL approximation with weak Laplacian convergence and controlled total variation for piecewise C² potentials. Under s=c·t and F=c·f the slopes are unchanged, including the vertex atoms and the interior Laplacian measure. The model dualizing degree on each component is 2g_v−2+val(v). Subtract the Green Laplacian δ_KΓ−(2g−2)μ_a to obtain the corrected curvature. Local heights rescale with log absolute values, while these curvature measures keep their total mass.
+
+*Needs:* [6.1 Formal and model metrics](#61-formal-and-model-metrics); [6.6 Admissible Green functions and measures](#66-admissible-green-functions-and-measures); [6.4 Limits and local intersection heights](#64-limits-and-local-intersection-heights); [6.7 Model potentials and Laplacian approximation](#67-model-potentials-and-laplacian-approximation).
+
+[Xinyi Yuan, Arithmetic bigness and a uniform Bogomolov-type result](https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), Appendix A.5, displayed admissible metric formula, p. 116; Propositions A.4–A.5 and proofs, pp. 117–118. Metric correction and normalized curvature/Laplacian formula; the original graph edges have length one.
+
+**Check.** For F(t)=t on an interval, curvature change is δ₀−δ_L. Changing the absolute-value normalization rescales both edge length and log metric, not just one. Uniform PL density by itself is insufficient to claim Laplacian convergence. For s=c·t and F(s)=c·f(s/c), ΔF is the coordinate pushforward of Δf. Multiplying the measure by c again would give an incorrect dualizing total mass.
+
 ### Examples
 
-A polarized tree with two genus-one vertices has μ_a=(δ_v+δ_w)/2 and no bridge density. For three parallel unit edges and genus-zero vertices, each deleted-edge resistance is 1/2; each density is 1/3 and the total mass is one. On a Tate circle of length L the canonical measure is ds/L and the mean-zero Green function is s²/(2L)−s/2+L/12. Its Laplacian is δ₀−ds/L (Yuan Appendix A.5, pp. 115–118; Chambert–Loir §5, pp. 17–18).
+A polarized tree with two genus-one vertices has μ_a=(δ_v+δ_w)/2 and no bridge density. For three parallel unit edges and genus-zero vertices, each deleted-edge resistance is 1/2; each density is 1/3 and the total mass is one. On an abstract polarized genus-one circle of length L, μ_a=ds/L and the mean-zero Green function at the origin is s²/(2L)−s/2+L/12. Its Laplacian is δ₀−ds/L (Yuan Appendix A.5, pp. 115–118). The analytic Tate application follows the quotient construction in Layer 7.
 
 ### Dependencies
 
-Layers 0–3 for analytic spaces, graph Laplacians and skeleta; AdicSpacesPartII R2 for formal models; SchemeAndStackFoundations SF.5 for the residue-field intersections and the stated rank-one model extension. The Tate quotient of Layer 7 is used only for its separate calibration example. ArithmeticDynamics DY.2 consumes these local results and is not a prerequisite.
+Layers 0–3 for analytic spaces, graph Laplacians and skeleta; AdicSpacesPartII R2 for formal models; SchemeAndStackFoundations SF.5 for the residue-field intersections and the stated rank-one model extension. ArithmeticDynamics DY.2 consumes these local results and is not a prerequisite.
 
 ## Layer 7: Uniformization and integration interfaces
 
@@ -2006,13 +1997,27 @@ Provide the following interface:
 
 For the construction, glue an annular fundamental domain by multiplication by q and verify the free properly discontinuous quotient action. The convergent Tate parametrization identifies this analytic group with the imported elliptic curve. Its Gauss interval and translation action give the circle and logarithmic circumference.
 
-*Needs:* [1.4 Annular skeleton and deformation](#14-annular-skeleton-and-deformation); [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms); TauCetiRoadmap.EllipticCurves Layer 4.
+*Needs:* [1.5 Annular skeleton and deformation](#15-annular-skeleton-and-deformation); [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms); TauCetiRoadmap.EllipticCurves Layer 4.
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Theorem II.3.18 and Example II.3.19, pp. 49–50. Rank-one Schottky quotient is the Tate analytic curve. [Antoine Chambert-Loir, Mesures et équidistribution sur les espaces de Berkovich](https://arxiv.org/pdf/math/0304023v3), Tate example, pp. 17–18. The metric circle and local canonical measure normalization.
 
-### 7.2 Schottky groups and fundamental domains
+### 7.2 Good-reduction and Tate calibration
 
-Define `TauCeti.Berkovich.TB7.schottky_data`. Use finitely generated Schottky subgroups Γ⊂PGL₂(K), equivalently in the marked presentation a free generating tuple γ₁,…,γ_g with pairwise disjoint paired closed discs D⁺(γ_i^{±1}) such that γ_i^{±1}(P¹ᵃⁿ\D⁺(γ_i^{∓1})) is the maximal open disc inside D⁺(γ_i^{±1}). Nonidentity elements are loxodromic. Their limit set Λ is the set of accumulation points of distinct group translates, and Ω=P¹ᵃⁿ\Λ. A loxodromic matrix has unequal eigenvalue norms, equivalently |det|<|tr|², and is conjugate to z↦βz with 0<|β|<1.
+Prove `TauCeti.Berkovich.TB6.good_reduction_and_tate_measures`. For a good-reduction proper curve with a semipositive model line bundle of degree d, its model measure is dδ_ζ at the unique component point. For the Tate elliptic curve E_q with L=−log|q| and canonical degree-one line bundle O(0), the canonical measure is normalized length ds/L on the skeletal circle. The periodic potential g(s)=s²/(2L)−s/2+L/12 on 0≤s≤L has mean zero and ddc g=ds/L−δ₀; choose a reference O(0) metric whose curvature is δ₀ at the skeletal origin. Multiplication by exp(−g) then produces the canonical curvature. The constant L/12 normalizes the graph potential to mean zero; identifying the resulting metric with a chosen canonical metric additionally requires its rigidification.
+
+Split good reduction or split Tate reduction; 0<|q|<1. The reference metric has curvature δ₀. Mean-zero normalization fixes g, while a fixed rigidification fixes the canonical line-bundle metric up to its otherwise undetermined constant.
+
+For the proof, the good-reduction model has one component, so the atomic formula gives dδ_ζ. On the circle compute g″=1/L, derivative jump −1 at 0 and integral zero. Add ddc g to the reference curvature δ₀ to get ds/L. Curvature determines the metric only up to a constant; compare rigidifications separately.
+
+*Needs:* [6.2 Chambert–Loir model measures](#62-chambertloir-model-measures); [6.8 Metric–Laplacian and admissible corrections](#68-metriclaplacian-and-admissible-corrections); [7.1 Tate analytic quotient and skeletal circle](#71-tate-analytic-quotient-and-skeletal-circle).
+
+[Antoine Chambert-Loir, Mesures et équidistribution sur les espaces de Berkovich](https://arxiv.org/pdf/math/0304023v3), §2.4 and Tate example, pp. 5–6 and 17–18. Atomic good-reduction measure and the Tate circle local metric. [Xinyi Yuan, Arithmetic bigness and a uniform Bogomolov-type result](https://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf), Proposition A.5, pp. 117–118. The genus-one circle is the admissible measure calibration.
+
+**Check.** The Tate canonical measure is not a Dirac mass at one chosen vertex. Its total mass is one; for degree d it scales to d.
+
+### 7.3 Schottky groups and fundamental domains
+
+Define `TauCeti.Berkovich.TB7.schottky_data`. A Schottky subgroup Γ⊂PGL₂(K) is free and finitely generated, every nonidentity element is loxodromic, and some nonempty Γ-invariant connected open subset of P¹ᵃⁿ carries a free proper Γ-action. Such a subgroup is discrete. The equivalent marked presentation consists of a free generating tuple γ₁,…,γ_g with pairwise disjoint paired closed discs D⁺(γ_i^{±1}) such that γ_i^{±1}(P¹ᵃⁿ\D⁺(γ_i^{∓1})) is the maximal open disc inside D⁺(γ_i^{±1}). Nonidentity elements are loxodromic. Their limit set Λ is the set of accumulation points of distinct group translates, and Ω=P¹ᵃⁿ\Λ. A loxodromic matrix has unequal eigenvalue norms, equivalently |det|<|tr|², and is conjugate to z↦βz with 0<|β|<1.
 
 Complete nonarchimedean K; marked paired-disc data includes the maximal-open-disc condition. The unmarked equivalence uses the Schottky figure theorem rather than assuming every free subgroup has such a figure.
 
@@ -2028,47 +2033,47 @@ Provide the following interface:
 
 - `TauCeti.Berkovich.TB7.schottky_data.check1`: diag(q,1) with 0<|q|<1 has limit set {0,∞}.
 - `TauCeti.Berkovich.TB7.schottky_data.check2`: A matrix with |det|=|tr|² is not certified loxodromic by the strict criterion.
-- `TauCeti.Berkovich.TB7.schottky_data.check3`: A free abstract group action without contraction/disjoint paired discs is not automatically Schottky.
+- `TauCeti.Berkovich.TB7.schottky_data.check3`: Over ℚ_p the translation z↦z+1 generates a free cyclic subgroup, but is unipotent and not loxodromic. Freeness alone does not give a Schottky group.
 
 For the construction, construct the nested discs indexed by reduced words. Ping-pong gives freeness; contraction gives loxodromic elements and K-rational limit points. The trace/determinant calculation supplies the explicit loxodromic test.
 
 *Needs:* [1.1 Gauss points, discs and projective line](#11-gauss-points-discs-and-projective-line); [1.3 Paths, tangent directions and hyperbolic metric](#13-paths-tangent-directions-and-hyperbolic-metric).
 
-[Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definitions II.1.9/II.1.11, Lemma II.1.10, p. 38; Definition II.3.1 and Lemma II.3.6, pp. 45–46. Koebe coordinates, loxodromic criterion and paired-disc Schottky figures.
+[Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Definitions II.1.9/II.1.11, Lemma II.1.10, p. 38; Definition II.3.1 and Lemma II.3.6, pp. 45–46; Definition II.3.21 and Remark II.3.22, p. 51; Proposition II.3.24 and Theorem II.3.26, p. 52. Koebe coordinates, loxodromic criterion, group hypotheses, discreteness and the equivalence with paired-disc figures.
 
 Prove the Schottky figure theorem, obtaining genuinely paired maximal open discs and their contraction property from the unmarked group hypotheses. For the converse uniformization, exhaust the universal covering tree by bounded subtrees and realize their inverse images as open Swiss cheeses. Normalize three directions to 0, 1 and ∞. Bound the differences of successive analytic coordinates on each smaller domain, obtain a compatible uniform limit, and prove that its restriction has degree one by a Gauss-point fiber calculation. The limit embeds the universal cover in the projective line with rational compact complement. Deck transformations then extend to projective transformations; properness identifies the quotient with the original curve. Poineau–Turchetti §II.3, pp. 43–55 and Theorem II.4.3 with Lemmas II.4.4–II.4.6, pp. 57–61 give these constructions. The converse keeps the split Mumford condition over K; potential splitting only produces the corresponding statement after extension.
 
-### 7.3 Schottky–Mumford uniformization
+### 7.4 Schottky–Mumford uniformization
 
-Prove `TauCeti.Berkovich.TB7.mumford_uniformization`. For a rank-g Schottky group Γ, Ω→Γ\Ω is a free properly discontinuous analytic quotient, the quotient is a smooth proper split Mumford curve of genus g, and its skeleton is Γ\Hull(Λ) (with the limit endpoints removed before quotient). Conversely a split analytic Mumford curve is so uniformized. A split Mumford curve means locally a K-Swiss-cheese domain, equivalently a split semistable model whose normalized special components are P¹_κ and nodes are κ-rational. Potential total degeneration over a finite extension does not imply this split condition over K; descend with its Galois cocycle and graph action.
+Prove `TauCeti.Berkovich.TB7.mumford_uniformization`. For a rank-g Schottky group Γ, Ω→Γ\Ω is a free properly discontinuous analytic quotient, the quotient is a smooth proper split Mumford curve of genus g, and, for g≥1, its skeleton is Γ\Hull(Λ) (with the limit endpoints removed before quotient). Conversely a split analytic Mumford curve is so uniformized. A split Mumford curve means locally a K-Swiss-cheese domain, equivalently a split semistable model whose normalized special components are P¹_κ and nodes are κ-rational. Potential total degeneration over a finite extension does not imply this split condition over K; descend with its Galois cocycle and graph action.
 
-Complete nontrivially valued K. For the converse use the split Mumford hypothesis; genus zero gives P¹ and the trivial group, genus one the Tate quotient.
+Complete nontrivially valued K. For the converse use the split Mumford hypothesis. Genus zero gives P¹ and the trivial group; its limit set and hull are empty, so the hull formula is not a point skeleton. A one-point semistable skeleton of P¹ requires a chosen type-II point. Genus one gives the Tate quotient and its circle.
 
 For the proof, reduced-word discs give a compact fundamental region, a free proper action and the hull skeleton; the genus formula gives genus g. For the converse, take the topological universal cover and exhaust its genus-zero tree by finite Swiss-cheese neighborhoods. Construct an embedding into P¹ by the normalized coordinate approximation specified above. Deck transformations extend to PGL₂(K), giving the Schottky group.
 
-*Needs:* [7.2 Schottky groups and fundamental domains](#72-schottky-groups-and-fundamental-domains); [2.16 Formal models and metric dual graphs](#216-formal-models-and-metric-dual-graphs); [2.17 Vertex genera and analytic genus](#217-vertex-genera-and-analytic-genus); [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms).
+*Needs:* [7.3 Schottky groups and fundamental domains](#73-schottky-groups-and-fundamental-domains); [2.11 Formal models and metric dual graphs](#211-formal-models-and-metric-dual-graphs); [2.12 Vertex genera and analytic genus](#212-vertex-genera-and-analytic-genus); [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms).
 
 [Jérôme Poineau and Daniele Turchetti, Berkovich curves and Schottky uniformization](https://poineau.users.lmno.cnrs.fr/Textes/SchottkyVIASM.pdf), Proposition II.2.26 and Remark II.2.28, pp. 44–45; Theorem II.3.18, pp. 49–50; Theorem II.4.3 and Remark II.4.7, pp. 57–61. Split Mumford condition, direct quotient theorem and converse; arbitrary genus-zero nonproper curves need not embed in P¹.
 
-**Check.** The quotient hull has b₁=g with all vertex genera zero. A potentially split curve is kept with descent data, rather than declared a K-Schottky quotient without proof.
+**Check.** For g≥1 the quotient hull has b₁=g with all vertex genera zero. For the trivial group Λ=∅ and Hull(Λ)=∅, whereas any chosen one-point semistable skeleton of P¹ is nonempty. A potentially split curve is kept with descent data, rather than declared a K-Schottky quotient without proof.
 
-### 7.4 Analytic Jacobian periods
+### 7.5 Analytic Jacobian periods
 
 Prove `TauCeti.Berkovich.TB7.analytic_jacobian_periods`. For smooth proper X with split semistable model and Jacobian J, import its Raynaud analytic uniformization 0→M′→Eᵃⁿ→Jᵃⁿ→0, with 0→T→E→B→0 and B of good reduction. The valuation map trop:Eᵃⁿ→N_ℝ has ker on points the good-reduction domain, and trop(M′) is a full real lattice. For a split Mumford curve B=0, T has rank g, and Jᵃⁿ=Tᵃⁿ/M′. Under M′≅H₁(Σ,ℤ), the valuation of the multiplicative period pairing equals the edge-length pairing; hence Sk(J)≅Jac(Σ) as principally polarized real tori. The analytic Abel–Jacobi map retracts to the tropical Abel–Jacobi map.
 
-Complete nonarchimedean K with split semistable model; choose X(K) basepoint when using the point Abel–Jacobi map. The Raynaud cross beyond the existing DVR formal comparison is a requested supplier statement.
+Complete nonarchimedean K with split semistable model; choose X(K) basepoint when using the point Abel–Jacobi map. The arbitrary-rank-one Raynaud cross is a requested supplier extension of R11.3, whose formal comparison and analytic uniformisation already cover complete DVRs; include descent from algebraically closed fields to the stated split semistable base. R11.4 supplies the DVR graph monodromy formula, and the present target adds arbitrary-real-length skeleta and the analytic Abel–Jacobi square.
 
 For the proof, use the supplied uniformization and the specialization map on Pic⁰ induced by the slope formula. Compare the two Abel–Jacobi maps on divisors and integral cycles; the induced H₁ isomorphism identifies valuation periods with length integration. This identifies the principal polarizations, not merely the dimensions of the real tori.
 
-*Needs:* [3.4 Metric Jacobian and Abel–Jacobi map](#34-metric-jacobian-and-abeljacobi-map); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions); [7.3 Schottky–Mumford uniformization](#73-schottkymumford-uniformization); NeronModelsAndSemistableAbelianVarieties R11.3.
+*Needs:* [3.4 Metric Jacobian and Abel–Jacobi map](#34-metric-jacobian-and-abeljacobi-map); [3.7 Slope formula for rational functions](#37-slope-formula-for-rational-functions); [7.4 Schottky–Mumford uniformization](#74-schottkymumford-uniformization); NeronModelsAndSemistableAbelianVarieties R11.3 and R11.4.
 
 [Matthew Baker and Joseph Rabinoff, The skeleton of the Jacobian, the Jacobian of the skeleton, and lifting meromorphic functions from tropical to algebraic curves](https://arxiv.org/pdf/1308.3864), §2.7, Theorem 2.9, p. 5; Corollary 6.6 and Remark 6.7, p. 16. Arbitrary rank-one period lattice and equality of analytic monodromy and edge pairings. [Eric Katz, Joseph Rabinoff and David Zureick-Brown, Uniform bounds for the number of rational points on curves of small Mordell–Weil rank](https://arxiv.org/pdf/1504.00694), §3.4.1, pp. 21–22. The general Raynaud cross and valuation lattice needed for integration.
 
 **Check.** For a Tate curve the single multiplicative period is q and its valuation is L. Good reduction gives toric rank zero, even when dim J>0. The Cp-valued logarithmic periods need not form a discrete lattice; only their real valuation periods do.
 
-Use the full analytic Raynaud cross from R11.3, not just its formal DVR comparison. Prove the compatibility of analytic and tropical Abel–Jacobi maps using specialization of degree-zero divisor classes, after valued base extension when a rational base point is needed. Identify the homology map of the analytic Abel–Jacobi morphism with the map of uniformizing lattices induced by the principal polarization. Applying H₁ to the compatible Abel–Jacobi square then identifies the valuation period pairing with the edge-length pairing. Baker–Rabinoff Proposition 4.7, pp. 10–11, Proposition 6.1 and the proof of Theorem 2.9, pp. 14–16, followed by Corollary 6.6 and Remark 6.7, p. 16, give this argument. The R11.3 supplier provides analytic uniformization, its polarization and base-change compatibility; the edge-pairing identification is proved here. The point parametrization of a Tate curve calibrates the normalization but cannot replace this general argument.
+Use the full analytic Raynaud cross from the R11.3 extension, importing its existing formal and analytic DVR cases and the R11.4 DVR graph pairing. Prove the compatibility of analytic and tropical Abel–Jacobi maps using specialization of degree-zero divisor classes, after valued base extension when a rational base point is needed. Identify the homology map of the analytic Abel–Jacobi morphism with the map of uniformizing lattices induced by the principal polarization. Applying H₁ to the compatible Abel–Jacobi square then identifies the valuation period pairing with the edge-length pairing. Baker–Rabinoff Proposition 4.7, pp. 10–11, Proposition 6.1 and the proof of Theorem 2.9, pp. 14–16, followed by Corollary 6.6 and Remark 6.7, p. 16, give this argument. The R11.3 supplier provides analytic uniformization, its polarization and base-change compatibility; the edge-pairing identification is proved here. The point parametrization of a Tate curve calibrates the normalization but cannot replace this general argument.
 
-### 7.5 Berkovich–Coleman path integration
+### 7.6 Berkovich–Coleman path integration
 
 Construct `TauCeti.Berkovich.TB7.berkovich_coleman_path_integral`. Fix a branch Log:ℂ_p×→ℂ_p extending the unit logarithm. For a smooth ℂ_p-analytic curve, and for the smooth analytic group covers used in the comparison, associate to a closed analytic 1-form and a continuous path with classical endpoints its Berkovich–Coleman integral. It is ℂ_p-linear in the form, invariant under endpoint-fixed homotopy, additive under path concatenation, functorial under analytic pullback, equals F(Q)−F(P) for exact dF, and satisfies ∫_P^Q dz/z=Log Q−Log P on G_m. Restriction to the good-reduction Coleman domains agrees with their Frobenius-normalized primitives.
 
@@ -2092,29 +2097,33 @@ Provide the following interface:
 
 For the construction, glue local primitives/logarithmic annular primitives along a triangulation, retaining the path and continuation constants. On good-reduction pieces use the imported Coleman characterization. Independence and global existence require the Berkovich integration theorem beyond these local axioms; this is an explicit owned proof target, not inferred from formal antiderivatives.
 
-*Needs:* [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms); [2.20 Locally finite triangulations and analytic nodes](#220-locally-finite-triangulations-and-analytic-nodes); ColemanIntegration L1 (`coleman-integration-characterisation`); ColemanIntegration L0 (`annulus-log-primitive`).
+*Needs:* [0.21 Analytic atlases and morphisms](#021-analytic-atlases-and-morphisms); [2.16 Locally finite triangulations and analytic nodes](#216-locally-finite-triangulations-and-analytic-nodes); ColemanIntegration L1 (`coleman-integration-characterisation`); ColemanIntegration L0 (`annulus-log-primitive`).
 
 [Eric Katz, Joseph Rabinoff and David Zureick-Brown, Diophantine and tropical geometry, and uniformity of rational points on curves](https://arxiv.org/pdf/1606.09618v2), Definition 4.2.2 and surrounding discussion, pp. 28–30. Path integral axioms and logarithm normalization; cites the deeper Berkovich existence theorem. [Eric Katz, Joseph Rabinoff and David Zureick-Brown, Uniform bounds for the number of rational points on curves of small Mordell–Weil rank](https://arxiv.org/pdf/1504.00694), §3.1–3.3 and §3.4.2, pp. 15–23. The path integral on smooth spaces and simply connected analytic group covers needed in Proposition 3.16.
 
 Construct the global continuation of local analytic and logarithmic primitives, with locally constant differences, before defining integration along a path. Pull the primitive sheaf back to [0,1]; its additive constant torsor is trivial there, so the difference of endpoint values is independent of the chosen lift. Pull back to a homotopy square to obtain endpoint-fixed homotopy invariance, and use subdivision for concatenation. Berkovich, Integration of one-forms on p-adic analytic spaces, Theorems 1.6.1–1.6.2, pp. 22–23 and Theorem 9.1.1, pp. 136–138 gives this construction; over ℂ_p the additional descent condition in that theorem is automatic. The primitive-sheaf existence theorem is an owned proof input, not supplied by the local Coleman primitives. KRZB §4.2, pp. 28–31 supplies the path-integral characterization used for comparison.
 
-### 7.6 Annular integration and residue monodromy
+### 7.7 Annular integration and residue monodromy
 
 Prove `TauCeti.Berkovich.TB7.annular_residues_and_periods`. For an open annulus with coordinate t and ω=(Σa_ntⁿ)dt, import res(ω)=a₋₁ and its logarithmic primitive. The BC integral is a₋₁(Log t(Q)−Log t(P))+Σ_{n≠−1}a_n(t(Q)^(n+1)−t(P)^(n+1))/(n+1). Reversing annular orientation negates the residue; a branch change Log′−Log=c·v_p changes the value by c·res(ω)(v_p(t(Q))−v_p(t(P))). Residues of a regular differential around a semistable vertex sum to zero, defining a harmonic graph cochain. Cycle continuation of local primitives records BC periods and is distinct from the real monodromy length pairing.
 
 Open annuli over ℂ_p; compatible Laurent convergence on every compact subannulus. For the vertex residue identity use regular differentials on a semistable proper curve.
 
-For the proof, apply the imported annulus primitive and residue invariance. Laurent substitution proves the branch-change expression. On each normalized residue component the residue theorem cancels outgoing boundary residues; Čech continuation constants along graph cycles give periods. Prove the global semistable residue and continuation comparison as described below.
+For the proof, apply the imported annulus primitive and residue invariance. Laurent substitution proves the branch-change expression. Choose a basic wide-open neighborhood of each semistable vertex. The rigid analytic residue theorem over ℂ_p makes the sum of the Laurent residues at its annular ends zero; these are the outgoing oriented residues. Čech continuation constants along graph cycles give periods. Prove the global semistable residue and continuation comparison as described below.
 
-*Needs:* [7.5 Berkovich–Coleman path integration](#75-berkovichcoleman-path-integration); [3.1 Metric graphs with loops and vertex genus](#31-metric-graphs-with-loops-and-vertex-genus); ColemanIntegration L0 (`annulus-residue`); ColemanIntegration L0 (`annulus-log-primitive`); ColemanIntegration L0 (`annulus-branch-change`).
+*Needs:* [7.6 Berkovich–Coleman path integration](#76-berkovichcoleman-path-integration); [3.1 Metric graphs with loops and vertex genus](#31-metric-graphs-with-loops-and-vertex-genus); ColemanIntegration L0 (`annulus-residue`); ColemanIntegration L0 (`annulus-log-primitive`); ColemanIntegration L0 (`annulus-branch-change`).
 
 [Eric Katz, Joseph Rabinoff and David Zureick-Brown, Diophantine and tropical geometry, and uniformity of rational points on curves](https://arxiv.org/pdf/1606.09618v2), §4.2 and §4.3, pp. 28–34. Distinguishes local logarithmic integrals, paths and analytic periods. [Eric Katz, Joseph Rabinoff and David Zureick-Brown, Uniform bounds for the number of rational points on curves of small Mordell–Weil rank](https://arxiv.org/pdf/1504.00694), §3.1–3.4, pp. 15–23. Local antiderivatives and group-cover comparison; the semistable residue gluing needs its own proof input.
 
 **Check.** A residue-zero differential has an analytic annular primitive; dT/T does not. A residue is a Cp scalar and an edge length is real: neither can replace the other in a period pairing.
 
-For a global regular differential on a semistable proper curve, compare its Laurent residue on each oriented annulus with the residue on the corresponding branch of the normalized special-fiber component. The residue theorem on that proper component makes the outgoing sum zero, hence gives a harmonic graph cochain. Continue the local primitives around cycles to identify the BC period map; compare it with the Raynaud valuation map to obtain the global factorization used in the correction theorem. KRZB §§3.3–3.5 and §4.2, pp. 21–31 gives the comparison route. The local residue and branch-change supplier identities are necessary here but do not already prove the harmonicity or period comparison.
+For a global regular differential on a semistable proper curve, choose vertex wide-open neighborhoods whose ends are the incident oriented annuli. Apply the characteristic-zero wide-open Cauchy theorem to get an exact sum of ℂ_p-valued residues equal to zero; count both ends of a loop. Reversing t to a/t changes the residue sign. This gives the harmonic cochain. Reduction of an integral differential can compare reduced residues, but cannot establish this ℂ_p identity by itself. Continue the local primitives around cycles to identify the BC period map; the comparison with the Raynaud valuation map is the global factorization target in [7.8 BC–abelian tropical correction](#78-bcabelian-tropical-correction).
 
-### 7.7 BC–abelian tropical correction
+[Robert Coleman, Reciprocity laws on curves](https://www.numdam.org/item/CM_1989__72_2_205_0.pdf), Proposition 4.3, printed p. 226, with the ℂ_p setting of §III, p. 213 and Theorem 4.2, pp. 224–226. The wide-open theorem supplies the exact residue identity in characteristic zero. [Ehud de Shalit, Coleman integration versus Schneider integration on semistable curves](https://ftp.gwdg.de/pub/misc/EMIS/journals/DMJDMV/vol-coates/deshalit.pdf), §0.3, equations (0.11)–(0.13), pp. 327–328 gives its oriented harmonic-cochain use on a semistable model.
+
+**Check.** On an annulus p·dt/t has nonzero ℂ_p residue p, although its integral coefficient reduces to zero modulo the maximal ideal. Thus a zero reduced residue does not imply a zero analytic residue. For dt/t the two ends have residues +1 and −1, so a loop contributes two opposite terms to the vertex sum.
+
+### 7.8 BC–abelian tropical correction
 
 Prove `TauCeti.Berkovich.TB7.bc_abelian_tropical_correction`. For an abelian variety A/ℂ_p with Raynaud cover E and torus cocharacter lattice N, let log_BC:E(ℂ_p)→Lie(A) be integration on its simply connected analytic cover and let log_Ab=log_A∘π be the imported analytic abelian logarithm. There is a unique ℚ-linear L:N_ℚ→Lie(A) with log_BC−log_Ab=L∘trop. For a path in A starting at 0 with lifted endpoint e, ∫_BC ω−∫_Ab ω=⟨L(trop e),ω⟩. For curve integrals compose with Abel–Jacobi. On an annulus the correction is a_ω(v_p(t(Q))−v_p(t(P))), linear in ω; on an open star of valence d, forms with zero correction have codimension at most d−1.
 
@@ -2122,7 +2131,7 @@ Use v_p(p)=1 for N_ℚ and Cp scalar arithmetic; convert natural-log graph lengt
 
 For the proof, the two logarithms agree on the good-reduction domain A₀: the analytic group logarithm is uniquely characterized by its identity tangent map and agrees with local formal integration. Their difference therefore factors through E(Cp)/A₀(Cp)=N_ℚ. Restriction to the period lattice determines L since the real full lattice has ℚ-span N_ℚ. Tropical Abel–Jacobi balancing bounds the span of a d-star by d−1; an edge is one-dimensional, giving the annular coefficient.
 
-*Needs:* [7.4 Analytic Jacobian periods](#74-analytic-jacobian-periods); [7.5 Berkovich–Coleman path integration](#75-berkovichcoleman-path-integration); EffectiveDiophantineMethods ED.4 (`abelian-logarithm`); EffectiveDiophantineMethods ED.4 (`abelian-integral`).
+*Needs:* [7.5 Analytic Jacobian periods](#75-analytic-jacobian-periods); [7.6 Berkovich–Coleman path integration](#76-berkovichcoleman-path-integration); EffectiveDiophantineMethods ED.4 (`abelian-logarithm`); EffectiveDiophantineMethods ED.4 (`abelian-integral`).
 
 [Eric Katz, Joseph Rabinoff and David Zureick-Brown, Uniform bounds for the number of rational points on curves of small Mordell–Weil rank](https://arxiv.org/pdf/1504.00694), Proposition 3.16, formula (3.17), Corollary 3.18, pp. 22–23; Propositions 3.28–3.29, pp. 26–27. Factorization proof, good-reduction agreement and annular/star consequences.
 
@@ -2148,7 +2157,7 @@ The pushout ℂ⊗̂_ℝℂ has two complex factors, hence two spectral points m
 
 ### Annuli, thickness and curvature signs
 
-On r<|T|<1, s=−log|T| runs through (0,−log r). For f=Tⁿ the tropical coordinate is ns and its expansion is |n|; adjoining T to a T² coordinate gives slope vector (2,1), whose gcd is one. A formal node uv=π³ has total length 3v(π). Resolving it into three thickness-one nodes subdivides that interval without changing its length (BPR structure Proposition 4.3 and §5.3, pp. 11, 18; BPR tropicalization equation (5.6.1), p. 20).
+On r<|T|<1, s=−log|T| runs through (0,−log r). For f=Tⁿ the tropical coordinate is ns and its expansion is |n|; adjoining T to a T² coordinate gives slope vector (2,1), whose gcd is one. A formal node uv=π³ has total length 3v(π). Resolving it into three thickness-one nodes subdivides that interval without changing its length (BPR structure Proposition 4.3 and §5.3, pp. 11, 18; BPR tropicalization equation (5.6.1), p. 22).
 
 For f(s)=s on [0,L], divPL(f)=δ₀−δ_L and Δf=δ_L−δ₀. A metric multiplied by exp(−f) therefore changes curvature by δ₀−δ_L. For f(s)=s²/2 the interior contribution to Δ is −ds and the endpoint derivative atoms restore mass zero. These computations fix the sign before the model intersection and Green-function identities are used. If s=c·t and F(s)=c·f(s/c), then dF/ds=df/dt and the Laplacian measures agree by coordinate pushforward. Curvature masses therefore acquire no extra c factor when passing from unit-edge to natural-log lengths; local heights still scale with log absolute values (Yuan Appendix A.5, pp. 115–118).
 
@@ -2219,4 +2228,7 @@ Locators refer to the versions specified here. Statements above use the stated n
 - Jean Fresnel and Michel Matignon, *Sur les espaces analytiques quasi-compacts de dimension 1 sur un corps valué complet ultramétrique*. Annali di Matematica Pura ed Applicata 145 (1986), 159–210; Théorème 1, §1.4, pp. 165–168 and Théorème 4, §2.4, pp. 182–184. [Source](https://doi.org/10.1007/BF01790541).
 - Siegfried Bosch and Werner Lütkebohmert, *Stable reduction and uniformization of abelian varieties I*. Mathematische Annalen 270 (1985), 349–379; Corollary 3.8, pp. 364–365; Lemma 6.1, p. 372; Theorem 7.1 and its proof, pp. 374–378. [Source](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0270/LOG_0034.pdf).
 - Roland Huber, *Étale cohomology of rigid analytic varieties and adic spaces*. Aspects of Mathematics E30 (1996), Proposition 8.3.1, pp. 422–424, Remark 8.3.2, pp. 424–425 and Lemma 5.6.8(i), pp. 313–314.
-- Roland Huber, *A generalization of formal schemes and rigid analytic varieties*. Mathematische Zeitschrift 217 (1994), 513–551, Proposition 4.5(iv).
+- Roland Huber, *A generalization of formal schemes and rigid analytic varieties*. Mathematische Zeitschrift 217 (1994), 513–551, Proposition 4.5(iv), printed p. 543.
+- Antoine Ducros, *La structure des courbes analytiques*. Author PDF, §4.5.2, p. 271, §5.1.12, p. 292 and §5.4.12. [Source](https://webusers.imj-prg.fr/~antoine.ducros/trirss.pdf).
+- Robert F. Coleman, *Reciprocity laws on curves*. Compositio Mathematica 72 (1989), 205–235; §III and Proposition 4.3, p. 226. [Source](https://www.numdam.org/item/CM_1989__72_2_205_0.pdf).
+- Ehud de Shalit, *Coleman integration versus Schneider integration on semistable curves*. Documenta Mathematica, Extra Volume Coates (2006), 325–334; §0.3, pp. 327–328. [Source](https://ftp.gwdg.de/pub/misc/EMIS/journals/DMJDMV/vol-coates/deshalit.pdf).
