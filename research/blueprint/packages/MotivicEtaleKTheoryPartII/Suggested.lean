@@ -67,6 +67,14 @@ example : motiveWeight 1 1 = -1 ∧ dualDegree 1 1 = 1 ∧ dualTwist 1 1 = 1 := 
 example : motiveWeight 0 2 = -4 ∧ motiveWeight (dualDegree 0 0) (dualTwist 0 2) = 2 := by
   refine ⟨?_, ?_⟩ <;> rfl
 
+/-- The point in twist zero and its dual in twist one give weights `0` and `-2` (§§1.1–1.3). -/
+example : motiveWeight 0 0 = 0 ∧ motiveWeight (dualDegree 0 0) (dualTwist 0 0) = -2 := by
+  decide
+
+/-- Duality also returns negative twists, with no truncation to natural numbers (§1.1). -/
+example : dualDegree 2 (dualDegree 2 3) = 3 ∧ dualTwist 2 (dualTwist 2 (-2)) = -2 := by
+  decide
+
 end Weights
 
 section ArtinRanks
@@ -126,6 +134,15 @@ example : tatePlusDim ℚ 1 = 0 ∧ tatePlusDim ℚ 2 = 1 := by
   · unfold tatePlusDim
     simp [h2even, hr, hc]
 
+/-- Nonpositive twists have no degree-one motivic factor (§1.4). -/
+example : artinFactorRank K 0 = 0 ∧ artinFactorRank K (-1) = 0 := by
+  norm_num [artinFactorRank]
+
+/-- Twist zero has the even Betti part, while a negative odd twist has the odd part (§1.4). -/
+example : tatePlusDim K 0 = nrRealPlaces K + nrComplexPlaces K ∧
+    tatePlusDim K (-1) = nrComplexPlaces K := by
+  norm_num [tatePlusDim, show ¬ Even (-1 : ℤ) by decide]
+
 end ArtinRanks
 
 /-! ## Layer 2: real regulators and the fundamental-line real comparison -/
@@ -148,7 +165,66 @@ theorem hodge_F_zero_sup_conjF_zero_eq_top (hs : TauCeti.Hodge.HodgeStructureOn 
 
 end HodgeWeights
 
+section DeterminantCoordinates
+
+/-- The two-term differential `3` gives coordinate `3` in degrees `0,1`, and the shifted
+coordinate is its inverse (`perfectDeterminant_twoTerm`, §4.1). The complexes themselves are
+README targets; these are their scalar coordinates. -/
+example : Matrix.det (!![3] : Matrix (Fin 1) (Fin 1) ℚ) = 3 ∧
+    (Matrix.det (!![3] : Matrix (Fin 1) (Fin 1) ℚ))⁻¹ = 1 / 3 := by
+  norm_num [Matrix.det_fin_one_of]
+
+/-- Swapping two rank-one odd factors has sign `-1` (§2.6). -/
+example : Matrix.det (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℚ) = -1 := by
+  norm_num [Matrix.det_fin_two]
+
+/-- Under Morita equivalence the simple column's scalar `3` has coordinate `3`; forgetting
+the matrix action gives coordinate `9` (`virtualDeterminant_Morita`). -/
+example : Matrix.det (!![3] : Matrix (Fin 1) (Fin 1) ℚ) = 3 ∧
+    Matrix.det (!![3, 0; 0, 3] : Matrix (Fin 2) (Fin 2) ℚ) = 9 := by
+  norm_num [Matrix.det_fin_one_of, Matrix.det_fin_two]
+
+/-- A rank-one regulator `3` contributes its inverse; replacing it by twice the regulator
+halves the coordinate (`fundamentalLineRealComparison_borel_factor`, §2.6). -/
+example : (3 : ℚ)⁻¹ = 1 / 3 ∧ (2 * 3 : ℚ)⁻¹ = (3 : ℚ)⁻¹ / 2 := by
+  norm_num
+
+end DeterminantCoordinates
+
+/-! ## Layer 3: the geometric local regulator -/
+
+/-- The monodromy relation needed for the syntomic differential to square to zero (§3.1).
+For `j = 1` this also checks its second Frobenius factor `1 - 3φ/3`. -/
+example : let n : Matrix (Fin 2) (Fin 2) ℚ := !![0, 1; 0, 0]
+    let f : Matrix (Fin 2) (Fin 2) ℚ := !![1, 0; 0, 3]
+    n * f = 3 • (f * n) ∧
+      (1 - f) * n - n * (1 - (1 / 3 : ℚ) • f) = 0 := by
+  dsimp
+  constructor <;> ext i j <;> fin_cases i <;> fin_cases j <;>
+    norm_num [Matrix.mul_apply, Matrix.vecMul, dotProduct, Fin.sum_univ_two]
+
 /-! ## Layer 4: zeta elements, the Tamagawa condition and its proved cases -/
+
+section IntegralCoordinates
+
+/-- A rational nonzero element can fail to generate an integral lattice (§4.1). -/
+example : (1 : ℤ) ∉ Submodule.span ℤ {(3 : ℤ)} := by
+  rw [Submodule.mem_span_singleton]
+  rintro ⟨a, ha⟩
+  simp only [smul_eq_mul] at ha
+  omega
+
+/-- In the rank-one `k = 5`, `p = 3` check, the ordinary Chern factor has precisely one
+factor of `3`; the normalized character keeps the full lattice (§4.5). -/
+example : (4 : ℕ).factorial = 24 ∧ 3 ∣ (4 : ℕ).factorial ∧
+    ¬ 9 ∣ (4 : ℕ).factorial := by
+  decide
+
+/-- The `k = 2`, `p = 3` Euler correction is `-2`, a unit even modulo `9` (§3.6). -/
+example : (1 - 3 : ℤ) = -2 ∧ IsUnit (1 - 3 : ZMod 9) := by
+  decide
+
+end IntegralCoordinates
 
 section ClassNumber
 
@@ -167,19 +243,23 @@ end ClassNumber
 /-!
 ## Targets stated in the README only
 
-Layer 1: `KTheoreticMotive`, `coefficientCopower` and their API, `motivicFactorZero`,
+Layer 1: `KTheoreticMotive`, `coefficientCopower` and their API, `regularModelCharacter`,
+`modelImage_eq_KIntegralPart`, `modelImage_genericCorrespondence`, `modelImage_changeModel`, `motivicFactorZero`,
 `motivicFactorOne` and their API,
 `weight_vanishing`, `artinMotiveFactors`, `ellipticMotiveFactors`.
 Layer 2: `delignePeriodMap` and its API, `realDeligneComplex`, `cycleClassReal`,
 `beilinsonRegulatorReal`, `heightPairingReal`, `RegulatorsCommuteWithCoefficients`,
 `regulatorsCommute_artin`, `regulatorsCommute_elliptic`, `RealExactness` and its API,
 `realExactness_artin`, `neronTatePairing_posDef_real`, `realExactness_elliptic`,
-`fundamentalLineRealComparison` and its API.
+`fundamentalLineRealComparison`, `fundamentalLinePoincareDuality`, `localRealComparison` and their API.
 Layer 3: `padicRealizationZero`, `padicRealizationOne` and their API,
+`geometricSyntomicComplex`, `geometricSyntomicPeriod`, `geometricSyntomicDescent`,
+`geometricSyntomicCharacter`, `numberRingStableEdge`,
 `padicRealizationOne_mem_g`, `padicRealizationOne_mem_f_goodReduction`, `PadicRealizationFinite`,
-`blochKatoCondition_orthogonal`, `PadicRealizationIso` and its API, `padicRealization_artin`,
+`padicRealizationOne_unramified_away_p`, `blochKatoCondition_orthogonal`,
+`blochKatoLocalComplex_duality`, `PadicRealizationIso` and its API, `padicRealization_artin`,
 `padicRealization_elliptic`, `compactCochainsWithInfinity`, `selmerComplex_artin`,
-`fundamentalLinePadicComparison` and its API.
+`fundamentalLinePadicComparison`, `localPadicComparison` and their API.
 Layer 4: `tamagawaElement`, `TamagawaCondition` and its API, `tamagawaCondition_iff_etnc`,
 `tamagawaCondition_alternative_forms`, `dedekindZeta_leadingCoeff_zero`,
 `tamagawaCondition_classNumber`, `tamagawaCondition_iff_lichtenbaum`,
