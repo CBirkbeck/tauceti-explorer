@@ -377,8 +377,9 @@
       "review": {
         "recommendation": "changes",
         "head": "f1f560c",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at c990645; confirmation pass pending"
       }
     },
     "ArithmeticGaloisDuality": {
