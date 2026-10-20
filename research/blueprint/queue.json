@@ -151960,6 +151960,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4.md",
    "note": "claimed on GitHub issue #11250"
+  },
+  {
+   "id": "FIX-PKG-K2SymbolsBrauer~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K2SymbolsBrauer"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-K2SymbolsBrauer~adv.md",
+    "research/blueprint/packages/K2SymbolsBrauer/review.json",
+    "research/blueprint/packages/K2SymbolsBrauer/README.md",
+    "research/blueprint/packages/K2SymbolsBrauer/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K2SymbolsBrauer~adv.md"
   }
  ]
 }
