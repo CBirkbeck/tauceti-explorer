@@ -36,18 +36,18 @@ Generated 2026-10-20T21:10Z from the README supplier graph of every open pull re
 - #820 DiamondsAndVStacks — draft; waits on #1199
 - #1306 IntegralIwasawaTheory — draft; waits on #785, #248, #451
 - #1313 MotivesAndAlgebraicCycles — draft; waits on #1199
-- #942 TangentialBordism (kim-em, other author)
+- #284 HomotopySpheres (Paul-Lez, other author)
 - #954 GeometricCurrents (kim-em, other author)
 
 ## Wave 4
 - #816 PerfectoidTowers — draft; waits on #820
-- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
+- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #785, #792, #858, #1142, #248, #284, #417, #894
 - #1309 ColemanPowerSeries — draft; waits on #1306
-- #284 HomotopySpheres (Paul-Lez, other author)
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 5
-- #851 GeometryOfNumbersAndQuadraticArithmetic — draft; waits on #1212, #785, #792, #858, #1142, #248, #284, #417, #894
 - #940 PadicPeriodRings — ready (approved at an earlier head); waits on #816
+- #1227 StableHomotopyKTheory — ready (approved at an earlier head); waits on #1142, #942
 
 ## Wave 6
 - #868 DerivedDeRhamCohomology — draft; waits on #940
