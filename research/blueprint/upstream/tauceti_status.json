@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-20T01:41Z",
+ "updated": "2026-10-20T02:17Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -1686,20 +1686,26 @@
   "CyclotomicClassGroupsAndStickelberger": {
    "stage": "pr",
    "pr": 1260,
-   "head": "45fa963",
+   "head": "d4e4aa4",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Euler systems / Eisenstein supplier); red team running"
   },
   "EisensteinIdealAndRationalTorsion": {
    "stage": "pr",
    "pr": 1264,
-   "head": "bf7e5f5",
+   "head": "580361f",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: Eisenstein ideal); red team running"
   },
   "HermitianKTheoryOfPoincareCategories": {
    "stage": "pr",
    "pr": 1266,
-   "head": "92ac79f",
+   "head": "5ee945a",
    "note": "ported 2026-10-20 from the accepted explorer package (phase 2: K-theory); red team running"
+  },
+  "CompletedCohomologyAndLocalGlobalCompatibility": {
+   "stage": "pr",
+   "pr": 1270,
+   "head": "7d906df",
+   "note": "ported 2026-10-20 from the accepted explorer package (phase 2: modularity); red team running"
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"
