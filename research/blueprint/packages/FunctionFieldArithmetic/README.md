@@ -4,13 +4,14 @@
 [AlgebraicCurves](../AlgebraicCurves/README.md) at the point where that roadmap stops: function
 fields of one variable whose exact constant field is a finite field `𝔽_q`. It fixes the degree,
 sign and Frobenius conventions that every finite-constant-field statement depends on, and then
-builds seven pieces of arithmetic that no other roadmap owns: the Riemann–Roch spaces of a finite
+builds the following arithmetic that no other roadmap owns: the Riemann–Roch spaces of a finite
 extension of `𝔽_q(t)` described by reduced bases of a pair of lattices (Hess); the volumes of
 divisor lattices and the Fourier transforms of their indicators in the completed adeles, for the
 self-dual measure of a rational differential; Artin–Schreier–Witt theory, with reduced Witt–Laurent
 representatives and the conductor formula of Kosters–Wan; equal-characteristic local class field
 theory through Lubin–Tate formal modules, including the `p`-primary existence theorem that the
-Tau Ceti ClassFieldTheory roadmap leaves out, and the Schmid–Witt symbol; the zeta function of a
+Tau Ceti ClassFieldTheory roadmap leaves out, the Schmid–Witt symbol, and generalized Picard
+schemes with the Lang-cover realization of finite ray characters; the zeta function of a
 function field built from effective divisors, its Riemann–Roch rationality and functional
 equation, the identity `L(1) = h`, and the recovery of the `L`-polynomial from the first `g`
 point counts; the finite-coefficient `L`-function of a local system on a curve; automorphic
@@ -18,7 +19,8 @@ functions with integral coefficients on a reductive group over a function field,
 terms, Harder's finiteness theorem and Yu's degree-zero nonvanishing; and the unitary
 Siegel–Eisenstein series of Feng–Yun–Zhang with the formula for its nonsingular Fourier
 coefficients. The end theorems are the rationality theorem for the zeta function (§5.3), local
-abelian existence in equal characteristic (§4.2), Harder's finiteness theorem with integral
+abelian existence in equal characteristic (§4.2), finite ray-cover classification with least
+conductors (§4.10), Harder's finiteness theorem with integral
 coefficients (§6.4–§6.5) and the Feng–Yun–Zhang coefficient formula (§7.6).
 
 ## Scope and ownership
@@ -54,7 +56,8 @@ This roadmap owns:
   `k((T))` and the conductor formula (Layer 3);
 - Lubin–Tate formal modules in equal characteristic, `p`-primary local existence, local
   Kronecker–Weber and injectivity of the local Artin map in equal characteristic, and the
-  Schmid–Witt symbol (Layer 4);
+  Schmid–Witt symbol; rigidified Picard schemes, Rosenlicht's universal property at a fixed
+  modulus, and the geometric realization of finite ray characters by Lang covers (Layer 4);
 - the zeta function and `L`-polynomial of a function field over `𝔽_q`, their Riemann–Roch
   properties, their comparison with the scheme-theoretic zeta function, recovery from `g` point
   counts, finite-coefficient `L`-functions of local systems, and quantitative degree-sensitive
@@ -127,12 +130,13 @@ AdelicAlgebraicGroups Layer 1 is written for number fields only. The split case 
 local density (§7.4) is built here because GeometryOfNumbersAndQuadraticArithmetic §3.2 treats
 the inert case only.
 
-Arithmetic ray quotients and their finite characters are constructed in §4.5. The generalized
-Jacobian comparison at a nonzero modulus remains the explicit mathematical gap in §4.6:
-AutomorphicLFunctionsAndLocalFactors AL.3 supplies only the zero-modulus case, and
-SchemeAndStackFoundations SF.3c supplies ordinary Picard torsors rather than the generalized
-Picard schemes of a modulus. Global abelian existence itself is consumed from
-ArithmeticGaloisDuality §R02.3.2; it does not supply this geometric comparison.
+Arithmetic ray quotients and their finite characters are constructed in §4.5. Sections
+4.6–4.10 construct the generalized Picard schemes of every effective modulus, their universal
+property and their Lang covers, and compare the latter with finite Artin reciprocity.
+SchemeAndStackFoundations SF.3c supplies the ordinary Picard schemes used in the construction;
+AutomorphicLFunctionsAndLocalFactors AL.3 supplies the zero-modulus comparison. The added
+geometry belongs here. ArithmeticGaloisDuality §R02.3.2 supplies compatible finite Artin maps
+and the constant-field projection; §4.9 applies them to an explicitly constructed cover.
 
 ## Conventions
 
@@ -217,6 +221,16 @@ contracts this roadmap relies on are:
   `det(1 − X ρ(Fr) | V^{ρ(I)})` for any coefficient field, independent of the lift of `Fr`;
   Layer 5.7 substitutes `X = T^(d_v)`.
 - ReductiveGroupsPartII §RG2.3.7 states Lang's theorem for a smooth connected group over `𝔽_q`.
+  Section 4.9 uses its commutative form `Frob_q − id` on a generalized Jacobian, including its
+  unipotent part. RG2.0a supplies affine restriction of scalars along finite locally free
+  maps, so `Res_{m/k} 𝔾_m` includes nonreduced finite `m`.
+- SchemeAndStackFoundations SF.3c, targets T353–T356, supplies ordinary Picard schemes and
+  torsors, the Picard–Brauer obstruction and divisor comparison without a rational point.
+  SF.3d T359 supplies high-degree ordinary Abel maps. JacobianChallenge Layers A–C supply
+  line bundles, coherent curve cohomology and the vanishing/base-change theorem for
+  pushforwards. Section 4.6 adds the rigidification and its representing scheme; §4.7 adds
+  the modulus relations. SchemeAndStackFoundations SF.1 T159–T160 supplies fpqc descent of
+  modules and affine morphisms; its subcanonical flat topology supplies descent of morphisms.
 - SmoothRepresentationsOfLocalGroups §SR.4.1 gives the Satake isomorphism of the spherical Hecke
   algebra with `Z[q_v^(±1/2)]`-coefficients and its compatibility with parabolic restriction.
 - EtaleCohomologyFoundations §§F.2.5 and F.3 give the actual compact-support functor and
@@ -235,6 +249,9 @@ Layer 0 fixes the setting and conventions and transports F. K. Schmidt's theorem
 Layers 1–3 are independent of each other: Layer 1 is the polynomial-lattice description of
 `L(D)`, Layer 2 the additive adelic volumes, Layer 3 Artin–Schreier–Witt theory. Layer 4 needs
 Layer 3 for the Schmid–Witt symbol and Layer 2 for the local-coordinate comparison.
+Its geometric branch (§§4.6–4.10) starts from ordinary Picard schemes and curve
+Riemann–Roch, then uses Lang's theorem and compatible finite Artin reciprocity. It does not
+depend on Layer 5's Chebotarev estimate or on the higher-rank automorphic results.
 Layer 5 needs Layers 0 and 1 and AlgebraicCurves Layers 3–5; its finite ray computation also
 uses §4.5. Layer 6
 needs Layer 2 (unipotent quotient volumes) and Layer 0. Layer 7 needs Layers 2 and 6. The worked
@@ -788,7 +805,7 @@ whole compositum. Addition of characters must not be confused with adjoining bot
 Mathlib Witt vectors and infinite Galois theory; ArithmeticGaloisRepresentations §3.7;
 AlgebraicCurves Layers 6, 7 and 10.
 
-## Layer 4: equal-characteristic local class field theory
+## Layer 4: equal-characteristic class field theory and ray geometry
 
 `K` is a nonarchimedean local field: complete for a discrete valuation with finite residue field
 `𝔽_Q`, ring of integers `O`, maximal ideal `𝔭` and uniformizer `π`. The statements hold in both
@@ -1067,31 +1084,331 @@ Mathlib finite abelian groups and characters.
 - Modulo `T²`, `(1+T)² = 1+2T`; in characteristic two it is `1`.
   Keeping the quadratic coefficient gives the wrong precision-two multiplication.
 
-### 4.6 Generalized Picard comparison at a nonzero modulus
+### 4.6 Rigidified Picard schemes
 
-For a smooth projective geometrically connected finite-field curve and every effective modulus
-`m`, the additional geometric target `rayPicard_comparison` identifies `C_m⁰` with `J_m(k)`
-and the degree-one ray classes with `Pic_m¹(k)`. It requires the smooth connected generalized
-Jacobian `J_m`, its torsor `Pic_m¹` and the ray Abel map from `X − supp(m)`. The ordinary
-Jacobian and Picard torsors supply only `m = 0`. Its API must commute with increasing the
-modulus and forgetting the trivialization, and identify finite ray characters with the
-corresponding Lang covers, including their least conductors. (Conrad, *Geometric global class
-field theory*, §2, pp. 1–3, Theorems 3.1–3.2, pp. 3–4.)
+Here, and in §4.7, `k` may be any perfect field, `X/k` is a smooth projective geometrically
+connected curve of genus `g`, and `m` is any effective divisor, viewed as a finite closed
+subscheme of length `N = deg_k m`. Put `U = X − supp(m)`. No point of `X(k)` is chosen.
+For `m ≠ 0`, define `rigidifiedPicardFunctor X m d` on `k`-schemes `T` by pairs
+`(L, ψ)`, where `L` is an invertible sheaf on `X_T` of degree `d` on every geometric fiber
+and `ψ : O_{m_T} ≅ L|_{m_T}`. Isomorphisms must carry `ψ` to `ψ′`. This is an fppf
+sheaf: an automorphism is multiplication by a unit from `T`, and its restriction to the
+faithfully flat `m_T → T` forces it to be one. For `m = 0`, use SF.3c's ordinary relative
+Picard sheaf, the fppf sheafification of `T ↦ Pic(X_T)/Pic(T)`.
 
-**Gap.** A construction of these generalized Picard schemes, Rosenlicht's universal property,
-and a proof that the pulled-back Lang torsors are connected with the stated conductor remain
-to be supplied. SchemeAndStackFoundations SF.3c and the zero-modulus result of
-AutomorphicLFunctionsAndLocalFactors AL.3 do not state them. Conrad's handout states the
-classification but omits this proof. Milne's finite norm theorem does not prove geometric
-ray existence. No result below uses this geometric comparison as an established supplier.
+Construct `generalizedPicard X m d`, denoted `Pic_m^d`, representing this functor, and
+`generalizedJacobian X m := Pic_m^0`, denoted `J_m`. Prove
+`generalizedPicard_representable`: every component is a smooth separated geometrically
+connected scheme, `J_m` is a commutative algebraic group, tensor product gives
+`Pic_m^d × Pic_m^e → Pic_m^(d+e)`, and `Pic_m^d` is a `J_m`-torsor. Its dimension is
+`g + N − 1` when `N > 0`, and `g` when `m = 0`. Export the universal rigidified line bundle
+for `m ≠ 0`, `generalizedPicard_tensor` with its dual/unit identities,
+`generalizedPicard_torsor` (the action isomorphism), `generalizedPicard_baseChange` for
+every field extension, and `generalizedPicard_forgetModulus : Pic_{m′}^d → Pic_m^d` for
+`m ≤ m′`, compatible with composition, tensor product and base change. Ordinary Picard
+schemes and their universal properties are consumed from SF.3c, not reconstructed here.
+
+Prove `generalizedJacobian_linearPart`: for `m ≠ 0` there is an exact sequence of fppf sheaves
+
+```text
+1 → 𝔾_m → Res_{m/k} 𝔾_m → J_m → J → 0,
+```
+
+where `J = Pic_X^0`, the first map is diagonal, and the boundary sends a unit `u` to
+`(O_X,u)`. The kernel of `J_m → J` is smooth connected affine of dimension `N−1`. Over an
+algebraic closure, if `r = #supp(m_k̄)`, its torus quotient has rank `r−1` and its unipotent
+kernel has dimension `N−r`; its unit filtration has additive successive quotients.
+The unipotent group itself need not be a product of additive groups. At `m = 0`, the
+forgetful map is the identity on the ordinary Picard scheme, with zero kernel.
+
+*Construction.* After a finite separable field extension splitting a point of `m`, choose
+`x ∈ m(k′)` and normalize the ordinary Poincaré bundle at `x`. Over its Picard parameter
+scheme let `A` be the rank-`N` algebra obtained from `O_m`, and `M` the rank-`N` module
+obtained from its restricted line bundle. Evaluation at `x` is a surjection `λ : M → O`.
+Rigidifications are exactly the sections `β` with `λ(β)=1` and `Aβ=M`. They form an affine
+open in a rank-`N−1` affine bundle: the generator condition is inversion of the determinant
+of `A → M`, `a ↦ aβ`. Descend this affine morphism over the ordinary Picard scheme.
+The fiber of the forgetful map is the quotient of units by scalar units; splitting the
+Artin algebra over `k̄` proves the connectedness and dimension assertions. This gives a
+construction for nonreduced `m`, rather than only for reduced punctures.
+(Guignard, §4.7 and Proposition 4.8 with Lemma 4.9, pp. 1317–1319; Conrad, §2, pp. 1–3,
+for the generalized-Jacobian interpretation.)
+
+*Needs:* SchemeAndStackFoundations SF.1 and SF.3b–SF.3c; JacobianChallenge Layers A–C;
+ReductiveGroupsPartII RG2.0a. These inputs precede this roadmap.
 
 **Checks.**
 
-- For `m = 0` the comparison must be the ordinary Jacobian comparison of §0.3.
-- For `X = ℙ¹`, `m = [0]+[∞]` gives `J_m = 𝔾_m`, while `m = 2[0]` gives `J_m = 𝔾_a`;
-  using the ordinary Jacobian gives the trivial group in both cases and loses the ray characters.
-- A nontrivial constant extension has conductor zero but changes the degree-one value;
-  connectedness over `k` must be distinguished from geometric connectedness.
+- At `m = 0`, both the functor and `Pic_m^d` are the ordinary Picard sheaf and its degree
+  component. The expression `g+N−1` is not used at `N=0`.
+- If `m` is one rational point, normalizing the fiber removes scalar automorphisms and
+  `Pic_m^d ≅ Pic_X^d`; `J_m → J` has zero-dimensional trivial kernel, not a new `𝔾_m`.
+- On `ℙ¹`, `m=[0]+[∞]` gives `J_m=(𝔾_m²)/𝔾_m ≅ 𝔾_m`. For `m=2[∞]`, a normalized
+  unit is `1+bT` modulo `T²`, and multiplication adds `b`, so `J_m ≅ 𝔾_a` in every
+  characteristic, including two. Inverting the coordinate gives the same test at `2[0]`.
+- A single closed point of degree two has, after separable closure, two points in its support;
+  its kernel is `Res_{κ(v)/k} 𝔾_m/𝔾_m`, a one-dimensional torus, not `𝔾_a`.
+  This tests degree and field extension in the functor and in both representing schemes.
+- On the real conic `x²+y²+z²=0`, take a closed point `m` of degree two. There is no
+  real degree-one line bundle, so `Pic_m^1(ℝ)=∅`, although the ordinary relative
+  `Pic_X^1` has a real point with a nonzero Brauer obstruction. The construction gives
+  a torsor without promising a rational point. Finite-field points are established in §4.8.
+
+### 4.7 The ray Abel map and Rosenlicht's universal property
+
+Define `rayAbel : U → Pic_m^1` by `x ↦ (O(x),1|_m)` when `m ≠ 0`, and by the ordinary
+Abel map when `m=0`. Export `rayAbel_baseChange`, `rayAbel_forgetModulus` and the additive
+maps `rayAbel_symmetricPower : Sym^n U → Pic_m^n`, compatible with addition of divisors
+and with `n=0,1`. For `m ≠ 0` and `n ≥ max(0,2g+N−1)`, prove
+`rayAbel_affineBundle`: this map is a torsor under the vector bundle
+`pr_* L_univ(−m)` of rank `n−N−g+1`, hence smooth surjective with geometrically connected
+fibers. Indeed, the base-change-compatible exact sequence
+`0 → pr_*L(−m) → pr_*L → pr_*(L|_m) → 0` identifies its fiber with the inverse image of
+the universal rigidification. Every such section is nonzero on every curve fiber and cuts
+out an effective degree-`n` divisor disjoint from `m`. The `m=0` projective-bundle form is
+SF.3d T359, with its descent when there is no rational point. (Guignard, Propositions
+4.11–4.12, pp. 1319–1320, and Proposition 4.14 and proof, pp. 1320–1321.)
+
+Let `G` be a smooth connected commutative algebraic group over the perfect field `k`, `Q` a
+`G`-torsor, and `u : U → Q` a morphism. Define `HasRayModulus u m` to mean that, after every
+algebraically closed field extension, `u(div f)=0` for every rational function `f` with
+`f ≡ 1 mod m`. Its divisor is supported in `U`; at `m=0` every nonzero `f` is allowed.
+For a degree-zero divisor, the sum of values in the torsor is a well-defined element of
+`G`, independent of a temporary choice of origin in `Q`.
+Prove `rayAbel_rosenlicht`: `HasRayModulus u m` holds if and only if there is a unique pair
+of a group homomorphism `h : J_m → G` and an `h`-equivariant morphism
+`h¹ : Pic_m^1 → Q` such that `u = h¹ ∘ rayAbel`. Export
+`HasRayModulus.baseChange`, `HasRayModulus.comp` for a homomorphism of torsors,
+`HasRayModulus.mono` for restriction to the complement of a larger modulus, and
+`rayAbel_rosenlicht_unique`, with the induced maps compatible with all three operations.
+This is the universal property for a specified modulus; it is stated over
+perfect fields, not only finite fields. (Russell, §3.3, p. 34, for the principal-congruence
+form of Rosenlicht's property; the following proof uses the preceding Abel-bundle theorem.)
+
+*Proof sketch.* Over an algebraic closure, sum `u` on `Sym^n U`, with values in the `n`-fold
+contracted product of `Q`. Two effective divisors in a fiber of the ray Abel map differ by
+`div f` with `f ≡ 1 mod m` (with no condition at zero modulus). The modulus relation makes
+their images equal. In high degree, the Abel map is smooth surjective with geometrically
+reduced fibers, so equality on geometric points gives equality on its fiber product;
+fppf descent gives a morphism on `Pic_m^n`. Addition of effective divisors makes these
+morphisms compatible as `n` increases. Translate by high-degree divisors and subtract their
+values to obtain `h` on `Pic_m^0` and `h¹` on `Pic_m^1`. Every divisor class is a difference
+of effective classes in arbitrarily high degrees, so the resulting maps are independent
+of the translation, are equivariant and are unique. Uniqueness descends them to `k`.
+Conversely, the rigidified bundle associated to `div f` with `f ≡ 1 mod m` is the unit,
+so any such factorization kills that divisor. This proof uses no fundamental-group
+invariance for affine bundles.
+
+**Checks.**
+
+- At `m=0`, the Abel map and universal property recover the ordinary Picard torsor and
+  Albanese property. On `ℙ¹`, its degree-zero group is trivial and a map with modulus zero
+  to a commutative group torsor is constant.
+- On `ℙ¹`, `m=[0]+[∞]`, trivialize degree zero using `[1]`. For
+  `D=[c]−[1]`, multiplication by `(t−c)/(t−1)` carries its canonical rigidification to
+  `(c,1)`. In the coordinate `u_0/u_∞` on `J_m`, the Abel map is `c ↦ c`, and `t : 𝔾_m → 𝔾_m`
+  satisfies the modulus relation. Inversion would fail this factorization test.
+- On `ℙ¹`, `m=2[∞]`, put `T=t⁻¹` and translate by `[0]`. Normalize a rigidification to
+  `1+bT` and use coordinate `−b` on `J_m ≅ 𝔾_a`. The divisor `[c]−[0]` is principal with
+  function `1−cT`, so the Abel map is `c ↦ c`. The map `t : 𝔸¹ → 𝔾_a` has modulus `2[∞]`:
+  the coefficient of `T` in the principal congruence relation forces the sum of its values
+  to be zero. It fails modulus `[∞]`, since `(t−1)/t ≡ 1 mod T` but
+  `u([1]−[0])=1`. This also works in characteristic two.
+- For positive `m`, a high-degree Abel fiber has dimension `n−N−g+1`; for
+  `ℙ¹,m=2[∞],n=1` it is a point, and for `n=2` it is an affine line. The latter has
+  nontrivial Artin–Schreier covers in characteristic `p`. Connected fibers alone do not
+  identify finite étale covers of the total space and base.
+- For an elliptic curve and `m=[P]`, the degree-one map from `X−{P}` misses the class
+  of `P`. Thus surjectivity cannot be asserted below `n≥2g+N−1=2` in general.
+
+### 4.8 Ray classes as rational rigidified line bundles
+
+Return to `k=𝔽_q`, with `q` any prime power, including powers of two, and the exact-constant
+curve of §0. Prove `rayPicard_comparison`, a degree-preserving group isomorphism
+`C_m ≅ ⨿_{d∈ℤ} Pic_m^d(k)`, whose degree-zero and degree-one restrictions are respectively
+`rayPicard_degreeZero : C_m^0 ≅ J_m(k)` and the equivariant bijection
+`rayPicard_degreeOne : deg⁻¹(1) ≅ Pic_m^1(k)`. Here the right side has the tensor-product
+group law. Its API commutes with forgetting or increasing the modulus, tensor/dual,
+divisor classes and the ordinary comparison at zero modulus. In particular `Pic_m^1(k)`
+is nonempty over a finite field, even when `U(k)` is empty: Schmidt's degree-one divisor
+and approximation give a divisor of degree one supported in `U`.
+
+Give the map on an idele `b` explicitly. Set `D=Σ_v ord_v(b_v)[v]` and give `O(D)` the
+rigidification whose local section at `v|m` is `b_v⁻¹`, reduced modulo `𝔭_v^{m_v}` in
+the local frame of `O(D)`. Changing `b` by a principal idele gives an isomorphic pair;
+multiplying by `U_m` leaves the rigidification unchanged. Approximation produces from
+each pair a rational meromorphic section with the prescribed nonzero jets on `m` and
+divisor away from `m`. Two such divisors give the same pair exactly when their difference
+is `div f` with `f ≡ 1 mod m`. This proves the inverse and the kernel assertion.
+For `m=0` use §0.3's ordinary comparison, including the finite-field vanishing of the
+Picard–Brauer obstruction. For positive `m`, rigidifications remove automorphisms and the
+representing functor directly identifies its `k`-points with actual pairs.
+Prove `rayPicard_localUnits`: a local unit `u` at the modulus maps to the boundary class
+`(O,u⁻¹)`, whereas the boundary in §4.6 was defined by `(O,u)`. Retain this inversion in
+all local reciprocity comparisons. (Conrad, §2 and Theorem 3.2, pp. 1–4, for the comparison
+being realized; the construction uses Guignard, §4.7, pp. 1317–1318, and AlgebraicCurves
+Layers 3–5 for divisors, approximation and Riemann–Roch.)
+
+**Checks.**
+
+- On `ℙ¹`, `m=0`, the full group is `ℤ`, its degree-zero part is zero and its degree-one
+  fiber is a singleton. Replacing the full group by `J_m(k)` loses constant characters.
+- For `m=[0]+[∞]`, the divisor `[c]−[1]` maps to `c` in the multiplicative coordinate of
+  §4.7, while an idele with local unit `λ` at zero and one elsewhere maps to `λ⁻¹`.
+  Over `𝔽_5`, `λ=2` therefore gives `3`, not `2`.
+- For `m=2[∞]`, a local idele unit `1+bT` maps to rigidification `1−bT` modulo `T²`,
+  hence to `b` in the additive coordinate of §4.7. The degree-zero ray group has order
+  `q`, and forgetting to `[∞]` kills it. The same inversion computation is valid at `p=2`.
+- A degree-one divisor need not be effective, and need not be a rational point outside
+  `m`. Using an effective degree-one divisor as the degree splitting would impose an
+  extra hypothesis on `X`; the comparison imposes none.
+
+### 4.9 Lang ray covers, Frobenius and geometric connectedness
+
+Choose `a ∈ Pic_m^1(k)` using §4.8 and write `A=J_m(k)`. Consume Lang's theorem to obtain
+the finite étale surjection `L_m : J_m → J_m`, `y ↦ Frob_q(y)−y`, with constant kernel
+`A`. Define `rayLangCover X m a` as its pullback by
+`α_a : U → J_m`, `x ↦ rayAbel(x)−a`, with deck action by translation on `y`.
+Export `rayLangCover_equation`, `rayLangCover_isTorsor` (finite étale with this action),
+`rayLangCover_trivialKernel`, and `rayLangCover_forgetModulus` for a map carrying the chosen
+class to the chosen class. Prove `rayLangCover_frobenius`: at a closed point `v∈U` of degree `d`,
+arithmetic Frobenius acts by translation by
+
+```text
+[v] − d·a ∈ A.
+```
+
+For a geometric point `x` over `v`, sum
+`Frob_q(y)−y=rayAbel(x)−a` through its `d` conjugates. The left side telescopes to
+`Frob_q^d(y)−y`, and the right side is `[v]−d·a`. This fixes the sign without choosing
+a rational point of `U`.
+
+Prove `ideleClasses_away_dense`: for every finite set `S` of places, the subgroup of
+`C_K` generated by uniformizer ideles at places outside `S` is dense. In a basic idele
+neighborhood enlarge `S` to contain its restricted coordinates; approximation chooses
+`f∈Kˣ` matching the specified coordinates to their required precision. Divide by `f`
+and by the uniformizer ideles of its remaining divisor outside `S`. The residual idele
+lies in the given unit neighborhood. This target uses AlgebraicCurves Layer 3's
+approximation theorem and AL.3's idele topology, not a Frobenius density theorem.
+
+Prove `rayLangCover_artin`: the monodromy of this torsor, composed with the finite Artin
+map of ArithmeticGaloisDuality §R02.3.2, is the explicit continuous map
+
+```text
+C_K → C_m → A,     b ↦ rayPicard(b) − deg(b)·a.
+```
+
+To apply finite reciprocity before proving connectedness, take the image of the torsor's
+Galois representation in `A`; its fixed field is a finite abelian extension. On every
+uniformizer outside the modulus its Artin action is exactly the preceding Frobenius
+calculation. The two continuous finite-valued maps agree by `ideleClasses_away_dense`.
+The displayed map is onto, since its restriction to `C_m^0 ≅ A` is the identity. Thus
+prove `rayLangCover_geometricallyConnected`: first its arithmetic monodromy is all of
+`A`, so the cover is connected; then every constant-field quotient of this monodromy
+factors through degree. Its image on degree-zero ideles is already all of `A`, so that
+quotient is trivial. The cover's function field has exact constants `k`, and the smooth
+connected cover is geometrically connected by AlgebraicCurves Layer 8. This supplies the
+connectedness proof for the constructed Lang cover, including its wild part.
+(ReductiveGroupsPartII RG2.3.7 for Lang; Conrad, Theorem 3.2, p. 4, for the finite-field
+geometric comparison; finite Artin compatibility and the degree projection are the
+explicit supplier contract in §R02.3.2, not a geometric existence assertion.)
+
+**Checks.**
+
+- On `ℙ¹`, `m=0`, `A=0` and the Lang cover is the identity, which is geometrically
+  connected. Constant extensions will come from the degree factor in §4.10.
+- For `m=[0]+[∞]`, `a=[1]`, the equation is `z^(q−1)=t` over `𝔾_m` and the deck group is
+  `𝔽_qˣ`. Over `𝔽_5`, the fiber at `t=2` satisfies `z^5=2z`: arithmetic Frobenius
+  multiplies by `2`, while geometric Frobenius multiplies by `3`. At `q=2` the group is
+  trivial and the equation gives the identity cover, although `J_m=𝔾_m` remains nontrivial.
+- For `m=2[∞]`, `a=[0]`, the equation is `y^q−y=t`, with additive deck group `𝔽_q`.
+  At `q=3,t=1`, arithmetic Frobenius translates by `1`, not `−1=2`. At `q=2` this is a
+  nontrivial degree-two geometrically connected cover, so the construction retains wild
+  ramification in characteristic two.
+- Replacing `a` by `a+b`, `b∈A`, subtracts `d b` from the Frobenius value at degree `d`.
+  The geometric Lang cover can change by a constant twist; it is the full ray character,
+  including its degree-one value, that is independent of this splitting.
+- Over `𝔽_3`, take `m=2[∞]`, `a=[1]` and the degree-two place `t²+1`. The Lang equation
+  is `y³−y=t−1`, and `Frob_9(y)−y=Tr_{𝔽_9/𝔽_3}(t−1)=−2=1`. Replacing `d·a` by `a`
+  would instead give `−1=2`; the degree multiplier is essential even on `ℙ¹`.
+
+### 4.10 Finite ray characters, constant covers and least conductors
+
+Let `B` be any finite abelian group and `θ : C_m → B` a homomorphism. Choose `r≥1` killing
+`θ(a)`, where the degree-one ray class `a` and its Picard point are identified by §4.8.
+Define `finiteRayLangCover θ` by pushing out the product of `rayLangCover X m a` and
+the constant cover `U_{𝔽_{q^r}} → U` along
+
+```text
+A × ℤ/r → B,       (x,j) ↦ θ(x) + j·θ(a).
+```
+
+This is a finite étale `B`-torsor. Export `finiteRayLangCover_map` for homomorphisms of `B`,
+`finiteRayLangCover_generic`, `finiteRayLangCover_forgetModulus`, and
+`finiteRayLangCover_choiceIndependent` for independence of `r` and the degree splitting
+as an isomorphism class. A torsor can have deck automorphisms, so no uniqueness of an
+unpointed isomorphism is asserted. The Artin character of this construction is `θ`
+composed with `C_K → C_m`, by §4.9 and the arithmetic Frobenius degree convention.
+
+Prove `finiteRayLangCover_classifies`: the construction is a bijection between
+`Hom(C_m,B)` and isomorphism classes of finite étale `B`-torsors on `U` whose generic
+characters kill every `U_v^{m_v}`. Conversely, a torsor gives its continuous finite
+Galois representation; finite Artin reciprocity and local compatibility give the map
+on `C_K`, and the unit condition makes it factor through `C_m`. Equality of the generic
+representations gives an isomorphism on `U`, since `U` is normal. This proves surjectivity
+and injectivity, including disconnected torsors. For a surjective `θ`, the associated
+connected abelian cover has exact constant field
+`𝔽_{q^c}`, where `c=[B:θ(C_m^0)]`; its geometric monodromy is `θ(C_m^0)`.
+Thus `finiteRayLangCover_connected` says connectedness is equivalent to surjectivity
+of `θ`, and `finiteRayLangCover_geometricallyConnected` says geometric connectedness is
+equivalent to `θ(C_m^0)=B`. A nonsurjective map gives `[B:im θ]` connected components.
+Prove `finiteRayLangCover_normGroup`: if `θ` is onto and `L/K` is the constructed field
+cover, `N_{L/K} C_L` is the inverse image of `ker θ` in `C_K`, and `[L:K]=|B|`.
+This follows by applying the supplied finite Artin isomorphism to this actual extension.
+For an open finite-index `H≤C_K`, choose `m` with `im U_m≤H` and take
+`B=C_K/H`. The resulting cover realizes the arithmetic class field of `H` by the
+stated Lang and constant-cover construction; uniqueness in a fixed separable closure is
+the supplied class-field uniqueness. The proof uses finite reciprocity for constructed
+extensions and does not assume existence in order to construct these covers.
+
+Prove `rayLangCover_conductor`: the least modulus for this torsor (or for its connected
+field cover when `θ` is onto) has local exponent the least `j≥0` killing `U_v^j` under
+`θ`. Equivalently it is the componentwise maximum of the conductors of all characters
+`χ∘θ`, `χ : B → ℚ/ℤ`. Exponent zero means unramified, and an exponent `j>0` kills
+`U_v^j` but not `U_v^(j−1)`. This is the conductor of `RayCharacterData` in §4.5; its
+wild part is computed by §§4.3–4.4 and its tame part by ClassFieldTheory. Prove
+`rayLangCover_modulusFactor`: factorization through `C_{m′}`, `m′≤m`, is equivalent to
+that conductor dividing `m′`, and to descent of the cover, including extension across
+points whose exponent becomes zero. In particular the input modulus need not be least.
+The proof uses `rayLangCover_artin` and the local norm/ramification correspondence; it
+does not infer unramifiedness from Swan conductor zero, which also allows tame ramification.
+(Conrad, Theorem 3.2, p. 4; Milne ADT, Appendix A, Corollaries A.8–A.9,
+pp. 132–133, Lemma A.10 and Propositions A.11–A.12, pp. 134–136, for finite
+Artin/norm quotients over finite constants; Kosters–Wan, Proposition 4.14,
+pp. 22–23, with the correction of §4.4, for the local wild filtration.)
+
+**Checks.**
+
+- On `ℙ¹`, `m=0`, reduction of degree modulo `r>1` gives the connected constant cover
+  `ℙ¹_{𝔽_{q^r}} → ℙ¹`. Its conductor is zero and it has `r` geometric components. The
+  norm subgroup is `deg⁻¹(rℤ)`, not the whole degree-zero kernel. The trivial character
+  gives the identity cover; with a larger specified group `B`, the
+  zero homomorphism gives the disjoint trivial `B`-torsor.
+- The cover `z^(q−1)=t` has least modulus `[0]+[∞]` when `q>2`: it is tamely ramified
+  at both points, with exponent one and Swan zero. At `q=2` it is the identity cover
+  and its least modulus is zero. A rule returning the input modulus fails this test.
+- The cover `y^q−y=t` has least modulus `2[∞]`. Every nontrivial additive character
+  reduces to a length-one Artin–Schreier character with a simple pole, of conductor two.
+  Its group has order `q`, its constant degree is one, and this holds for every `q`,
+  including `2`. Replacing `2[∞]` by `[∞]` would discard the cover.
+- If `θ(C_m^0)=0` and `θ(a)` generates `B`, the torsor is connected with constant degree
+  `|B|`; if `θ(C_m^0)=B`, it is geometrically connected irrespective of `θ(a)`.
+  A proper image of `θ` gives a disconnected torsor even though every local conductor
+  can still be correctly bounded: `B=ℤ/4`, `θ(D)=2 deg D` gives two connected components,
+  each a constant quadratic cover. These test all three monodromy conditions separately.
+- Changing `a` to `a+b` changes the geometric Frobenius term by `−d·θ(b)` and the
+  constant term by `+d·θ(b)`. Their sum is still `θ([v])`, so the complete torsor and
+  its least conductor do not depend on this auxiliary choice.
 
 ### Examples
 
@@ -1099,10 +1416,23 @@ Over `𝔽_3((T))`: the length-one class of `[T^(−2)]` has conductor exponent 
 of `[T^(−2)]` has exponent `1 + 2·3 = 7`; the length-two class of `3·[T^(−2)]`, whose coefficient
 has `v = 1`, has exponent `3`.
 
+The geometric examples on `ℙ¹` distinguish ordinary, tame, wild and constant covers.
+With degree-one classes `[1]` for `[0]+[∞]` and `[0]` for `2[∞]`, the two Lang equations
+are `z^(q−1)=t` and `y^q−y=t`. Their rational-fiber Frobenius actions are multiplication
+by `t` and addition of `t`. A constant extension of degree `r` instead sends a degree-`d`
+place to `d mod r`; it has conductor zero and has geometric monodromy zero.
+For the combined modulus `[0]+2[∞]`, the unit calculation gives `J_m ≅ 𝔾_m × 𝔾_a`.
+Quotients of the product of the two displayed Lang covers and a suitable constant cover
+therefore realize all finite ray-character data for this modulus, including the degree value.
+
 ### Dependencies
 
 Layers 0, 2 and 3; ClassFieldTheory Layers 4–8; LocalFieldsRamification Layer 3;
 AlgebraicCurves Layers 3, 5 and 9; ArithmeticGaloisDuality §R02.3.2; Mathlib `FormalGroup`.
+The geometric branch also uses AlgebraicCurves Layers 8 and 12, JacobianChallenge Layers
+A–C, SchemeAndStackFoundations SF.1, SF.3b–SF.3d, ReductiveGroupsPartII RG2.0a and RG2.3.7,
+and AL.3's additive-idele topology and ordinary Picard comparison. No result of
+GlobalShtukasAndFunctionFieldLanglands is an input.
 
 ## Layer 5: zeta functions and `L`-polynomials of function fields
 
@@ -1424,8 +1754,8 @@ and finite-group arithmetic separately. No polynomial bound in `log q`, the genu
 modulus multiplicities is asserted for this exhaustive procedure.
 
 *Needs:* §§0.2, 1.3, 4.5 and 5.8; AlgebraicCurves Riemann–Roch and approximation; finite
-abelian-group arithmetic supplied with correctness. The generalized Picard gap of §4.6 is
-not needed for this arithmetic computation.
+abelian-group arithmetic supplied with correctness. Sections 4.8–4.10 identify the resulting
+characters with geometric covers; this computation uses the arithmetic presentation of §4.5.
 
 **Checks.**
 
@@ -2175,7 +2505,8 @@ wrong; each is a test of the layers cited.
 - **GlobalShtukasAndFunctionFieldLanglands** and its Part II: automorphic function modules with
   integral coefficients, cusp modules, Harder finiteness and the unramified Hecke action
   (Layer 6) for V. Lafforgue's excursion construction, and the Feng–Yun–Zhang coefficients
-  (Layer 7) for the higher Siegel–Weil formula.
+  (Layer 7) for the higher Siegel–Weil formula; the generalized Picard and ramified rank-one
+  Lang-cover comparison, with the constant-field direction and least conductor (§§4.6–4.10).
 - **ExcursionOperatorsAndSpectralAction**: Layer 6 and the equal-characteristic local theory of
   Layer 4.
 - **FunctionFieldArithmeticPartII**, **HigherLocalFieldsAndHigherClassFieldTheory** and
@@ -2207,10 +2538,20 @@ wrong; each is a test of the layers cited.
   [author PDF](https://www.mathi.uni-heidelberg.de/~roquette/klkall.pdf). §4.3.3, pp. 25–28.
 - **Milne ADT**: J. S. Milne, *Arithmetic Duality Theorems*, 2nd ed., 2006,
   [author PDF](https://www.jmilne.org/math/Books/ADTnot.pdf). Appendix A, A.7, pp. 131–132,
-  and A.10–A.11, pp. 134–136.
+  A.8–A.9, pp. 132–133, and A.10–A.12, pp. 134–136.
 - **Conrad (geometric)**: B. Conrad, *Geometric global class field theory*,
   [handout](https://math.stanford.edu/~conrad/249BW09Page/handouts/geomcft.pdf), §2, pp. 1–3,
   Theorems 3.1–3.2, pp. 3–4.
+- **Guignard**: Q. Guignard, *On the ramified class field theory of relative curves*,
+  Algebra & Number Theory 13 (2019), 1299–1326,
+  [publisher PDF](https://msp.org/ant/2019/13-6/ant-v13-n6-p03-s.pdf).
+  §4.7, Proposition 4.8 and Lemma 4.9, pp. 1317–1319; Propositions 4.11–4.14 and proofs,
+  pp. 1319–1321. Section 4.6 uses the rigidified-Picard construction, and §4.7 uses the
+  Abel-bundle argument.
+- **Russell**: H. Russell, *Albanese varieties with modulus over a perfect field*,
+  [arXiv:0902.2533v3](https://arxiv.org/abs/0902.2533v3), §3.3, Theorems 3.24–3.25,
+  p. 34, for the principal-congruence formulation and linear part of a generalized
+  Jacobian. The fixed-modulus universal property in §4.7 is deduced from the Abel bundle.
 - **Harder**: G. Harder, *Chevalley groups over function fields and automorphic forms*, Ann. of
   Math. 100 (1974), 249–306. §§1.1–1.2, pp. 252–256.
 - **Morris I, II**: L. E. Morris, *Eisenstein series for reductive groups over global function
